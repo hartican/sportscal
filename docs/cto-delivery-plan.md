@@ -1,8 +1,18 @@
 # CTO delivery programme — authoritative current queue
 
-**19 October 2026.** Retain the existing stack, free-service limits and one release owner. Hosting is responding after a courtesy unblock; no paid change is authorised. This file owns the order of work. The [prior queue and all dated delivery notes](cto-delivery-history-before-2026-10-16-priority.md) are preserved as history; older proposed order and shell numbers are superseded.
+**20 October 2026.** Retain the existing stack, free-service limits and one release owner. Hosting is responding after a courtesy unblock; no paid change is authorised. This file owns the order of work. The [prior queue and all dated delivery notes](cto-delivery-history-before-2026-10-16-priority.md) are preserved as history; older proposed order and shell numbers are superseded.
 
-## Current checkpoint — account identity and picture correction, app 570
+## Current checkpoint — 20 October 2026, independent profile hydration
+
+**Live570/5090abbccbccceb2a9ebd4489aa75d8238cd94da is deployed but NOT fully accepted.** Normal workflow39253991051 failed the mandatory global snapshot freshness gate; all230 safety commands, shared preflights, public Match Centre/two real selected fixtures, seven security routes, READY/aliases/served hashes and controlled hosted account interface passed. The full global read timed out before headers at3006.27ms against3000ms. Database execution/queue/network/cancellation attribution remains unproven. There is no current global exception or retry allocation. [Honest terminal evidence](/Users/jackhartican/Documents/AI/Codex/nothingsport-release-resume-20261019/indicator-avatar-correction/report.md).
+
+The direct human priority is profile correction first, then Championship; new Sydney Derby and Match Centre correctness requests proceed under their existing owners and precede Championship. Seven fresh served570 files match5090. The normal existing Chrome session initially showed neutral Account/Loading, then accepted the current picture after normal Account opening. No raw private data, mutation, clearing or retry occurred; that transient observation is separate from the controlled failed/no-event loading-loop reproduction.
+
+Frozen profile source124c3c1e is assembled locally as571: authenticated owner-only viewer read independent of sporting fixtures, current-owner/epoch bootstrap and coalescing, retained finite error and deliberate Retry. Ten cold restored cases across Chromium/WebKit, actual handler,124 async/model and75 existing scope cases are source evidence; Root's final assembled/cache/upgrade/review/normal release/hosted checks remain required. The unchanged critical budget currently passes at431346/431441 gzip bytes with seven requests. [Current module evidence](/Users/jackhartican/Documents/AI/Codex/nothingsport-profile-hydration-20261020).
+
+Audit remains sole publisher. Derby owns only the explicit stable Sydney/WSW identity pair; Match Centre owns shared timing, contrast/clipping and honest empty-score fallback. Their score/source attribution stays separate. The single CricketAustralia page observation belongs only to the Match Centre owner. Championship531/reserved569 stays private/local; any future source integration must descend the newer account release and omit unnecessary raw responses, operational metadata and logos. Existing ignored register capture is already done once; no reranking or duplicate demand. Closed global/SQL/tracing/provider/refresh windows remain closed, and no spending or credential expansion is inferred.
+
+## Earlier checkpoint — account identity and picture correction, app 570
 
 The standalone account indicator is live as **568/a528dbd2b9782b7ade9188b5935e5c2befdb4623**. Its normal [production run 39239997217](https://github.com/hartican/sportscal/actions/runs/39239997217) succeeded: all 230 safety commands, shared inputs, public Match Centre and 20 genuine selected fixtures, seven security routes and exact READY/alias/served bytes passed. One healthy global sample does not resolve the intermittent global loading failure. No release exception carries forward.
 
