@@ -25,14 +25,15 @@ async function main({fetchImpl=globalThis.fetch,timer=()=>performance.now(),log=
   }
   selectedCount=byId.size;selectedFixtures=selected.fixtures;
  }
- await onSelected({sha,fixtures:selectedFixtures});
+ await onSelected({sha,fixtures:selectedFixtures,events:listing.events});
  log(JSON.stringify({schemaVersion:'match-centre-public-release.v1',sha,healthyMembership:true,displayed:ids.length,selected:selectedCount,emptyQuietWindowAccepted:ids.length===0,reads,limits:'Origin timings exclude platform startup, response encoding and network; elapsed includes the HTTP body. No cold-server or physical-device performance certification.'}));
 }
 // Private release artifact from the already-required anonymous selected read.
 // Keep normal console receipts aggregate-only; never add a sporting request.
-function selectedEvidence({sha,fixtures}){
+function selectedEvidence({sha,fixtures,events=[]}){
  const fixture=fixtures.find(f=>f.id==='fixture:cricket:espn:1525660');
- return {schemaVersion:'second-test-selected-release.v1',sha,available:Boolean(fixture),...(fixture?{fixture:{id:fixture.id,status:fixture.status,stale:fixture.stale,scoreCheckedAt:fixture.scoreCheckedAt||null,statusCheckedAt:fixture.statusCheckedAt||null,statusFactObservedAt:fixture.statusFactObservedAt||null,innings:(fixture.score?.innings||[]).map(i=>({participantId:i.participantId,inningNumber:i.inningNumber,runs:i.runs,wickets:i.wickets,overs:i.overs}))}}:{})};
+ const membership=events.find(f=>f.id==='fixture:cricket:espn:1525660');
+ return {schemaVersion:'second-test-selected-release.v1',sha,available:Boolean(fixture),...(fixture?{fixture:{id:fixture.id,status:fixture.status,stale:fixture.stale,scoreCheckedAt:fixture.scoreCheckedAt||null,statusCheckedAt:fixture.statusCheckedAt||null,statusFactObservedAt:fixture.statusFactObservedAt||null,innings:(fixture.score?.innings||[]).map(i=>({participantId:i.participantId,inningNumber:i.inningNumber,runs:i.runs,wickets:i.wickets,overs:i.overs}))},...(membership?{membershipFixture:require('./verify-selected-feed-public').project(membership)}:{})}:{})};
 }
 if(require.main===module)main({onSelected:data=>{
  if(!process.env.NS_DEPLOY_REPORT_DIR)return;

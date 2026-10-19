@@ -10,6 +10,22 @@ const {chromium, webkit} = require(process.env.PLAYWRIGHT_MODULE || 'playwright'
 const {assertFollowPickerJourney}=require('./validate-follow-presentation-browser');
 const {assertDirectoryDefaults}=require('./validate-recognised-follow-teams-browser');
 const root = path.resolve(__dirname,'..');
+const {assertDiamondsFeed}=require('./validate-diamonds-retained-browser');
+async function assertCurrentScheduleAndScoreCaches(page){
+ for(const slug of ['football','netball']){
+  const file='data/follow-schedule/'+slug+'.json',expected=JSON.parse(fs.readFileSync(path.join(root,file),'utf8'));
+  const current=await page.evaluate(async file=>(await fetch('/'+file)).json(),file);
+  assert.deepEqual(current,expected,'Upgrade and offline restart must replace the old '+slug+' schedule exactly');
+ }
+ await page.evaluate(async()=>{await ensureFeedScoreUi();await loadDeferredScript('config/match-centre.js?v=566');await loadDeferredScript('config/feed-live-scores.js?v=566');});
+ for(const file of ['config/feed-live-score-loader.js','config/match-centre.js','config/feed-live-scores.js','config/score-details.js']){
+  const url=requiredShellScriptUrl(file),text=await page.evaluate(async url=>(await fetch('/'+url)).text(),url);
+  assert.equal(text,fs.readFileSync(path.join(root,file),'utf8'),'The actual consumer/cache key serves exact current '+file+' bytes');
+ }
+ const consumers=await page.evaluate(()=>[...loadDeferredScript.requests.keys()].filter(url=>/config\/(?:match-centre|feed-live-scores)\.js/.test(url)));
+ for(const url of consumers){const file=new URL(url,page.url()).pathname.slice(1);assert.equal(new URL(url,page.url()).pathname+new URL(url,page.url()).search,'/'+requiredShellScriptUrl(file),'The reopened page cannot execute an old differently versioned score owner');}
+ return assertDiamondsFeed(page);
+}
 async function assertCachedBundledTaxonomy(page){
   const result=await page.evaluate(()=>({nodes:NOTHINGSPORTS_SPORT_HIERARCHY.nodes,
     version:NOTHINGSPORTS_SPORT_HIERARCHY.schemaVersion,
@@ -605,6 +621,8 @@ const server=http.createServer((req,res)=>{
     assert(savedSelection.selectors.includes('sport:tennis'),'The baseline must actually save the explicit tennis follow');
     if(baselineProfilePath)await page.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Baseline profile cache could not be populated');await response.text();},baselineProfilePath);
     if(baselineMatchCentrePath)await page.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Baseline Match Centre cache could not be populated');await response.text();},baselineMatchCentrePath);
+    const warmedOld=await page.evaluate(async()=>{const rows={};for(const slug of ['football','netball'])rows[slug]=(await(await fetch('/data/follow-schedule/'+slug+'.json')).json()).fixtures.length;for(const url of ['/config/match-centre.js?v=527','/config/feed-live-scores.js?v=556'])await(await fetch(url)).text();return rows;});
+    if(Number(baselineVersion)===573){assert.equal(warmedOld.netball,0);assert.equal(warmedOld.football,846);}
     await page.evaluate(async version=>{const cache=await caches.open('nothingsport-shell-v'+version);await cache.put('/data/marquee-candidates.v1.json',new Response('{"qaLegacyDraft":true}'));},baselineVersion);
     await page.evaluate(async version=>{const cache=await caches.open('nothingsport-shell-v'+version);await cache.put('/data/%6darquee-candidates.v1.json',new Response('{"qaLegacyEncodedDraft":true}'));},baselineVersion);
     if(!keepOpen)await page.close();
@@ -633,6 +651,7 @@ const server=http.createServer((req,res)=>{
     const stylesheet=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/href="(styles\/follow-feed-rework\.css\?v=\d+)"/)[1];
     assert.equal(await upgraded.evaluate(url=>caches.match('/'+url).then(r=>r?.text()),stylesheet),fs.readFileSync(path.join(root,'styles/follow-feed-rework.css'),'utf8'),'Upgraded cache must contain the exact versioned card stylesheet');
     await assertCachedAccountIndicator(upgraded);await assertCachedBundledTaxonomy(upgraded);
+    await assertCurrentScheduleAndScoreCaches(upgraded);
 
     assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'cached old runtime cannot conceal current source observations and shared/pending ranks');
     let profileCacheVerified=false;
@@ -700,6 +719,7 @@ const server=http.createServer((req,res)=>{
     await upgraded.waitForFunction(()=>Array.isArray(globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS));
     assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'offline restart retains the upgraded source observations and all positions');
     await assertCachedAccountIndicator(upgraded);await assertCachedBundledTaxonomy(upgraded);
+    await assertCurrentScheduleAndScoreCaches(upgraded);
     await assertOwnerSourcesClosed();
     await assertCachedFootballStatus(upgraded);
     await assertCachedCanonicalResults(upgraded);await assertCachedFixtureHighlights(upgraded);
@@ -746,6 +766,6 @@ const server=http.createServer((req,res)=>{
     await assertSavedNativeChoices(upgraded);
     await upgraded.waitForTimeout(3500);
     assert(upgradeNavigations<=4,'No repeat navigation after resumed update: '+JSON.stringify({frames:upgradeNavigationLog,documents:upgradeDocuments}));
-    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,upgradeDocuments,frameNavigationEvents:upgradeNavigationLog,preferencesPreserved:true,nativeDispositionAndRemindOffVerified:!!savedSelection.entities,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true,canonicalFinalResultsCacheVerified:true,minimisedRowsCacheVerified:true,multidayRetentionCacheVerified:true,cricketStatusCacheVerified:true,nhlViewingCacheVerified:true,matchCentreCacheVerified:true,fontCacheVerified:true},null,2));
+    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,oldScheduleAndScoreKeysWarmed:warmedOld,retainedSchedulesAndCurrentScoreOwners:true,legacyAutomaticCatchup:true,upgradeNavigations,upgradeDocuments,frameNavigationEvents:upgradeNavigationLog,preferencesPreserved:true,nativeDispositionAndRemindOffVerified:!!savedSelection.entities,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true,canonicalFinalResultsCacheVerified:true,minimisedRowsCacheVerified:true,multidayRetentionCacheVerified:true,cricketStatusCacheVerified:true,nhlViewingCacheVerified:true,matchCentreCacheVerified:true,fontCacheVerified:true},null,2));
   }finally{await browser?.close();await new Promise(resolve=>server.close(resolve));}
 })().catch(error=>{console.error(error);process.exitCode=1;});

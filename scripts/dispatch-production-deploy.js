@@ -4,8 +4,9 @@ const {execFileSync}=require('node:child_process'),crypto=require('node:crypto')
 const REPO='hartican/sportscal',WORKFLOW='sportscal-production.yml';
 function github(args,{timeout=45000}={}){return execFileSync('gh',[...args,'--repo',REPO],{encoding:'utf8',stdio:['ignore','pipe','pipe'],timeout});}
 const transient=error=>!(/HTTP 40[13]/.test(String(error.stderr||'')+' '+error.message))&&/HTTP 5\d\d|ECONNRESET|ETIMEDOUT|EAI_AGAIN|connection (?:reset|refused)|TLS handshake timeout|network.*(?:timeout|unreachable)|timed out/i.test(String(error.stderr||'')+' '+error.message);
-async function dispatchAndTrack({sha,id=crypto.randomUUID(),gh=github,clock=Date.now,wait=ms=>new Promise(resolve=>setTimeout(resolve,ms)),log=console.log,rebuild=process.env.NS_FORCE_REDEPLOY==='1'}={}){
+async function dispatchAndTrack({sha,id=crypto.randomUUID(),gh=github,clock=Date.now,wait=ms=>new Promise(resolve=>setTimeout(resolve,ms)),log=console.log,rebuild=process.env.NS_FORCE_REDEPLOY==='1',selectedFeedProofSha=process.env.NS_SELECTED_FEED_PROOF_SHA||''}={}){
  if(!/^[a-f0-9]{40}$/.test(sha||''))throw Error('Expected full release SHA');
+ if(selectedFeedProofSha&&selectedFeedProofSha!==sha)throw Error('Selected Feed proof allocation must match the exact release SHA');
  const started=clock(),deadline=started+3600000;
  require('./lib/refresh-report').update({stage:'deployment',deployment:{sha,requestId:id}});
  const read=async (args,limit=deadline)=>{
@@ -13,7 +14,7 @@ async function dispatchAndTrack({sha,id=crypto.randomUUID(),gh=github,clock=Date
   catch(error){if(!transient(error)||attempt===3)throw error;const delay=[2000,5000,10000][attempt];if(clock()+delay>=limit)throw Error('Deployment tracking timed out; inspect Actions before retrying.');await wait(delay);}
  };
  // A transport error on a mutation is an unknown outcome, never a retry cue.
- try{await gh(['workflow','run',WORKFLOW,'--ref','main','-f',`sha=${sha}`,'-f',`request_id=${id}`,'-f',`rebuild=${rebuild}`]);}
+ try{await gh(['workflow','run',WORKFLOW,'--ref','main','-f',`sha=${sha}`,'-f',`request_id=${id}`,'-f',`rebuild=${rebuild}`,...(selectedFeedProofSha?['-f',`selected_feed_proof_sha=${selectedFeedProofSha}`]:[])]);}
  catch(error){if(transient(error))throw Error(`Deployment dispatch outcome uncertain (${id}); inspect Actions before retrying.`);throw error;}
  log(`Queued serialized production deployment ${sha} (${id})`);
  let run;

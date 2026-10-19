@@ -70,7 +70,7 @@ const APP_SHELL = [
   "/assets/js/fixture-navigation.js?v=535",
   "/assets/js/notification-navigation.js?v=534",
   "/config/cricket-innings.js?v=486",
-  "/config/score-details.js?v=527",
+  "/config/score-details.js?v=574",
   "/assets/styles/score-details.css?v=486",
   "/config/tournament-card-details.js?v=486",
   "/assets/js/tournament-card-ui.js?v=533",
@@ -109,7 +109,7 @@ const APP_SHELL = [
   "/assets/js/match-centre-ui.js?v=572",
   "/assets/js/milestone-alerts-ui.js?v=535",
   "/config/feed-live-scores.js?v=566",
-  "/config/feed-live-score-loader.js?v=556",
+  "/config/feed-live-score-loader.js?v=574",
   "/config/athletes.js?v=471",
   "/assets/js/athletes-ui.js?v=563",
   // Profile UI caches after first use; optional detail stays out of shell budget.

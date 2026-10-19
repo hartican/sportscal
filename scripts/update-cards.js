@@ -71,6 +71,20 @@ function runStep(args) {
 }
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
+  if(argv.includes('--retained-coverage')){
+    const codeArgs=argv.filter(arg=>arg.startsWith('--codes=')),captures=argv.filter(arg=>arg.startsWith('--capture=')),allowed=new Set(['--retained-coverage','--local-only','-p']);
+    if(!argv.includes('--local-only')||codeArgs.length!==1||new Set(argv).size!==argv.length||argv.some(arg=>!allowed.has(arg)&&!arg.startsWith('--codes=')&&!arg.startsWith('--capture=')))throw Error('Retained coverage requires only declared codes, optional Football capture and local-only; no source steps ran');
+    const codeSlugs=codeArgs[0].slice(8).split(',');
+    if(!codeSlugs.length||new Set(codeSlugs).size!==codeSlugs.length||codeSlugs.some(code=>!['football','netball'].includes(code)))throw Error('Retained coverage supports only explicit Football/Netball targets');
+    if(env.REFRESH_REPORT)throw Error('Retained coverage cannot inherit REFRESH_REPORT before writes');
+    const football=codeSlugs.includes('football');
+    if(football?(captures.length!==1||!captures[0].slice(10)):captures.length!==0)throw Error('Retained Football requires one capture; Netball-only accepts no capture');
+    const captureFolder=football?path.resolve(captures[0].slice(10)):null;
+    if(football){const adapter=require('./lib/australian-championship');adapter.validate(adapter.loadCapture(captureFolder));}
+    require('./build-code-inspector').preflightRetainedCoverage();
+    if(codeSlugs.includes('netball'))require('./validate-diamonds-retained-schedule').validate();
+    return {localOnly:true,retainedCoverage:{codeSlugs,captureFolder}};
+  }
   if(argv.includes('--australian-championship')){
     const captures=argv.filter(arg=>arg.startsWith('--capture='));
     const allowed=new Set(['--australian-championship','--local-only','-p']);
@@ -521,17 +535,15 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function runMain() {
   const options = parseOptions();
-  if(options.australianChampionship){
-    console.log(JSON.stringify(require('./lib/australian-championship').apply(options.australianChampionship)));
-    for(const args of [
-      ['scripts/refresh-football-directory.js','--check'],
-      ['scripts/build-code-inspector.js','--codes=football','--retained-football-only'],
-      ['scripts/build-follow-directories.js','--codes=football'],
-      ['scripts/build-follow-directories.js','--codes=football','--check'],
-      ['scripts/validate-australian-championship.js'],
-      ['scripts/validate-australian-championship-integration.js'],
-    ])runStep(args);
-    console.log('Australian Championship retained capture projected locally; no source, shell, account, database or publication operation.');return;
+  const retained=options.retainedCoverage||(options.australianChampionship?{codeSlugs:['football'],...options.australianChampionship}:null);
+  if(retained){
+    const {codeSlugs,captureFolder}=retained,codes=codeSlugs.join(',');
+    if(codeSlugs.includes('football')){console.log(JSON.stringify(require('./lib/australian-championship').apply({captureFolder})));runStep(['scripts/refresh-football-directory.js','--check']);}
+    runStep(['scripts/build-code-inspector.js','--codes='+codes,options.australianChampionship?'--retained-football-only':'--retained-codes='+codes]);
+    for(const args of [['scripts/build-follow-directories.js','--codes='+codes],['scripts/build-follow-directories.js','--codes='+codes,'--check']])runStep(args);
+    if(codeSlugs.includes('football'))for(const name of ['validate-australian-championship','validate-australian-championship-integration'])runStep(['scripts/'+name+'.js']);
+    if(codeSlugs.includes('netball'))runStep(['scripts/validate-diamonds-retained-schedule.js']);
+    console.log('Declared retained coverage projected locally; no source, shell, account, database or publication operation.');return;
   }
   if(process.argv.includes('--a-league')){
     const result=await require('./lib/a-league-schedule').refresh();console.log(JSON.stringify(result));
@@ -1109,7 +1121,7 @@ async function runMain() {
 async function main(){
   // Validate mode before creating diagnostic state or starting any source step.
   const initialOptions=parseOptions();
-  if(initialOptions.australianChampionship)return runMain();
+  if(initialOptions.australianChampionship||initialOptions.retainedCoverage)return runMain();
   process.env.REFRESH_REPORT ||= path.join(os.tmpdir(),'ns-refresh-report-'+crypto.randomUUID()+'.json');
   require('./lib/refresh-report').update({mode:process.argv.includes('--quick')?'quick':'full',publicationState:'refreshing',stage:'starting',sourceFailures:[],missingResults:[],blockingError:null,failedStep:null,failureChain:[]});
   const prior=process.env.FOOTBALL_DATA_RUN_DIR;

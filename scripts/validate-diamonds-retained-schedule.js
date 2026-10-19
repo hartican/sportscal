@@ -2,6 +2,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs');
 const writes=['writeFileSync','appendFileSync','mkdirSync','renameSync','unlinkSync','rmSync','copyFileSync'];
+function validate(){
 const original=Object.fromEntries(writes.map(name=>[name,fs[name]]));
 try{
  for(const name of writes)fs[name]=()=>{throw Error('Pure Diamonds projection attempted '+name);};
@@ -35,5 +36,9 @@ try{
  }
  const resolved=require('../lib/follow-fixture-resolver').resolveUserFollowFixtures({events:[],userState:{preferences}});
  assert(resolved.events.some(event=>event.id===fixtureId),'existing server resolver still admits the same retained fixture');
- console.log(JSON.stringify({passed:true,actualBuilderProjection:true,retainedFixtures:retained.length,fixtureId,canonicalFollow:true,exclusionControls:controls.map(([name])=>name),sourceClocksRenewed:false,generatedWrites:0,transport:'none',limits:'Pure existing builder and constructed Follow controls; not generated-file, installed-app or actual-account diagnosis proof'}));
+ return {passed:true,actualBuilderProjection:true,retainedFixtures:retained.length,fixtureId,canonicalFollow:true,exclusionControls:controls.map(([name])=>name),sourceClocksRenewed:false,generatedWrites:0,transport:'none',limits:'Pure existing builder and constructed Follow controls; not generated-file, installed-app or actual-account diagnosis proof'};
 }finally{for(const name of writes)fs[name]=original[name];}
+
+}
+if(require.main===module)console.log(JSON.stringify(validate()));
+module.exports={validate};

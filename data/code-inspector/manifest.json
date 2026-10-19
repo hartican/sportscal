@@ -323,11 +323,11 @@
       "id": "sport:netball",
       "slug": "netball",
       "label": "Netball",
-      "fixtureCount": 0,
+      "fixtureCount": 4,
       "hasStandings": false,
       "groupingMode": "competition-date",
-      "coverageStatus": "unavailable",
-      "freshAt": "2026-10-14T14:37:15.200Z",
+      "coverageStatus": "partial",
+      "freshAt": "2026-10-17T03:44:40.215Z",
       "chunkPath": "data/code-inspector/netball.json"
     },
     {

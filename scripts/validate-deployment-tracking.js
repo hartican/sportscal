@@ -3,7 +3,7 @@ const assert=require('node:assert/strict');
 const {dispatchAndTrack}=require('./dispatch-production-deploy');
 const sha='a'.repeat(40),id='11111111-2222-4333-8444-555555555555';
 const terminal={databaseId:12,displayTitle:`Deploy ${sha} ${id}`,status:'completed',conclusion:'success',url:'https://github.com/hartican/sportscal/actions/runs/12',jobs:[]};
-function harness(respond){let time=0;const calls=[],waits=[];return {calls,waits,run:()=>dispatchAndTrack({sha,id,gh:async args=>{calls.push(args);return respond(args,calls);},clock:()=>time,wait:async ms=>{waits.push(ms);time+=ms;},log:()=>{}})};}
+function harness(respond,options={}){let time=0;const calls=[],waits=[];return {calls,waits,run:()=>dispatchAndTrack({sha,id,selectedFeedProofSha:'',gh:async args=>{calls.push(args);return respond(args,calls);},clock:()=>time,wait:async ms=>{waits.push(ms);time+=ms;},log:()=>{},...options})};}
 (async()=>{
  let failures=0;const transient=harness(args=>{if(args[0]==='workflow')return '';if(args[1]==='list'){if(failures++<3)throw Error('HTTP 502: Server Error');return [terminal];}return terminal;});
  await transient.run();assert.deepEqual(transient.waits,[2000,5000,10000]);assert.equal(transient.calls.filter(a=>a[0]==='workflow').length,1);
@@ -16,5 +16,7 @@ function harness(respond){let time=0;const calls=[],waits=[];return {calls,waits
  let polls=0;const pending=harness(args=>args[0]==='workflow'?'':args[1]==='list'?[terminal]:++polls===1?{...terminal,status:'in_progress',conclusion:null}:terminal);await pending.run();assert.deepEqual(pending.waits,[15000]);
  const timeout=harness(args=>args[0]==='workflow'?'':args[1]==='list'?[terminal]:{...terminal,status:'queued',conclusion:null});await assert.rejects(timeout.run,/timed out.*12/i);assert.equal(timeout.waits.reduce((a,b)=>a+b,0),3600000);assert.equal(timeout.calls.filter(a=>a[0]==='workflow').length,1);
  const lookup=harness(args=>args[0]==='workflow'?'':[]);await assert.rejects(lookup.run,/lookup timed out.*11111111/);assert.equal(lookup.waits.reduce((a,b)=>a+b,0),180000);
+ const allocated=harness(args=>args[0]==='workflow'?'':args[1]==='list'?[terminal]:terminal,{selectedFeedProofSha:sha});await allocated.run();assert(allocated.calls[0].includes('selected_feed_proof_sha='+sha));assert(!transient.calls[0].some(a=>a.startsWith('selected_feed_proof_sha=')),'Normal future releases add no selected Feed read');
+ const mismatched=harness(()=>{throw Error('Must not dispatch');},{selectedFeedProofSha:'b'.repeat(40)});await assert.rejects(mismatched.run,/allocation/);assert.equal(mismatched.calls.length,0);
  console.log('Deployment tracking: bounded 502 retries, immediate auth failure, uncertain dispatch, actual failed step, polling and deadlines passed.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

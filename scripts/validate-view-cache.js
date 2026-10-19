@@ -19,6 +19,12 @@ const sharedCss=fs.readFileSync('assets/js/match-centre-ui.source.js','utf8').ma
 assert.equal(fs.readFileSync('config/event-overviews-ui.js','utf8').match(cssUrl)?.[0],sharedCss,'Either first style owner installs the same current stylesheet');
 assert(worker.includes('/'+sharedCss),'The shared stylesheet is required under its current cache key');
 console.log('Interactive, idle and overview owners use one module instance and one installed stylesheet.');
+const feedLoader=fs.readFileSync('config/feed-live-score-loader.js','utf8'),details=fs.readFileSync('config/score-details.js','utf8');
+for(const source of [feedLoader,details])assert.equal(source.match(/config\/match-centre\.js\?v=\d+/)?.[0],html.match(/config\/match-centre\.js\?v=\d+/)?.[0],'Feed/detail consumers use the same required cached Match Centre model');
+for(const module of ['config/feed-live-scores.js','config/feed-live-score-loader.js','config/score-details.js']){
+ const escaped=module.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),url=new RegExp(escaped+'\\?v=\\d+'),source=module==='config/feed-live-scores.js'?feedLoader:html;
+ assert(worker.includes('/'+source.match(url)?.[0]),'Every actual Feed/detail loader URL matches the required installed cache');
+}
 
 // The actual Feed caller must not replace a cold Follow directory's queued
 // redraw. The browser regression supplies the genuine response/scroll race.

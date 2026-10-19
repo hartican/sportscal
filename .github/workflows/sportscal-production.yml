@@ -13,6 +13,10 @@ on:
         description: Intentionally rebuild unchanged code after environment changes
         type: boolean
         default: false
+      selected_feed_proof_sha:
+        description: Optional one-use selected Feed proof allocation for this exact SHA
+        required: false
+        default: ''
 permissions:
   contents: read
 concurrency:
@@ -29,6 +33,7 @@ jobs:
       NS_SERIALIZED_DEPLOY: '1'
       NS_FORCE_REDEPLOY: ${{ inputs.rebuild && '1' || '0' }}
       NS_DEPLOY_REPORT_DIR: /tmp/sportscal-release-report
+      NS_SELECTED_FEED_PROOF_SHA: ${{ inputs.selected_feed_proof_sha }}
     steps:
       - uses: actions/checkout@v5
         with:
@@ -43,6 +48,7 @@ jobs:
         run: |
           [[ "$RELEASE_SHA" =~ ^[a-f0-9]{40}$ ]]
           test "$RELEASE_SHA" = "$(git rev-parse origin/main)"
+          test -z "$NS_SELECTED_FEED_PROOF_SHA" || test "$NS_SELECTED_FEED_PROOF_SHA" = "$RELEASE_SHA"
           git checkout --detach "$RELEASE_SHA"
       - run: npm ci && npm install --global vercel@59.1.4
       - name: Verify feed and deployment safety contracts
@@ -58,6 +64,8 @@ jobs:
           node scripts/validate-australian-championship.js
           node scripts/validate-australian-championship-integration.js
           node scripts/validate-championship-peer-copy.js
+          node scripts/validate-retained-coverage.js
+          node scripts/validate-diamonds-retained-schedule.js
           node scripts/validate-sydney-derby-tags.js
           node scripts/validate-release-maintenance.js
           node scripts/validate-startup-late-recovery.js
@@ -271,6 +279,8 @@ jobs:
           node scripts/validate-live-afl-adapter.js
           node scripts/validate-asia-cup-source.js --published
           node scripts/validate-cricket-current-results.js
+          node scripts/validate-feed-cricket-score-address.js
+          node scripts/validate-selected-feed-public.js
           node scripts/validate-source-coverage.js
           node scripts/validate-card-timing.js
           node scripts/validate-cricket-provider-identities.js --published
@@ -297,7 +307,10 @@ jobs:
           node scripts/verify-production-release.js
           node scripts/verify-match-centre-public.js
           node scripts/validate-security-headers.js https://nothingsport.vercel.app
+          feed_status=0
+          node scripts/verify-selected-feed-public.js || feed_status=$?
           node scripts/verify-global-fixture-public.js
+          exit "$feed_status"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
         if: always()
         with:
