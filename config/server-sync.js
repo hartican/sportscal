@@ -319,8 +319,18 @@
       if (event.storageArea !== persistentStorage || (event.key !== null && event.key !== PERSISTENT_SESSION_STORAGE_KEY)) return;
       if (!persistSession || storageRead(storage, SESSION_STORAGE_KEY)) return;
       const next = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
-      if (session?.accessToken === next?.accessToken && session?.refreshToken === next?.refreshToken) return;
-      if (sessionSubject(session) !== sessionSubject(next)){
+      // Queued events can describe a lost lifetime even when durable storage
+      // has already returned to the same owner. Historical payloads only cancel
+      // work; the session itself still comes exclusively from current storage.
+      let endedLifetime = event.key === null;
+      if (event.oldValue !== undefined || event.newValue !== undefined){
+        try{
+          endedLifetime ||= event.oldValue === null || event.newValue === null
+            || sessionSubject(JSON.parse(event.oldValue)) !== sessionSubject(JSON.parse(event.newValue));
+        }catch(_error){ endedLifetime = true; }
+      }
+      if (!endedLifetime && session?.accessToken === next?.accessToken && session?.refreshToken === next?.refreshToken) return;
+      if (endedLifetime || sessionSubject(session) !== sessionSubject(next)){
         sessionGeneration += 1;
         invalidateFeed();
         refreshInFlight = null;

@@ -184,4 +184,71 @@ async function indicatorProfileResults(){
  }
  return results;
 }
-module.exports=async function validateAccountScopes(){const cases=[...await orchestration(),...await sdk(),...await recoveryUi(),...await overlappingRefreshes(),...await overlappingRefreshes({useLease:true}),...await horseAccountScopes(),...await indicatorLifetimes(),...await indicatorProfileResults()];console.log(`Account isolation: ${cases.length} actual orchestration/SDK/recovery scenarios passed; no service or database connection.`);return cases;};
+async function queuedStorageLifetimes(){
+ const source=fs.readFileSync(path.join(__dirname,'../../config/server-sync.js'),'utf8'),key='ns_auth_persistent_session_v1',results=[];
+ const scenarios=[['signIn','remove-readd'],['signIn','clear-readd'],['signIn','owner-roundtrip'],['signUp','remove-readd'],['refresh','remove-readd'],['refresh-failure','remove-readd'],['read','remove-readd'],['write','remove-readd'],['refresh','same-lifetime'],['signIn','session-only']];
+ for(const [phase,transition] of scenarios){
+  const storage=memoryStorage(),persistent=memoryStorage(),listeners=new Map(),requests=[];
+  const clock=Date.now(),token=(sub,revision)=>'e30.'+Buffer.from(JSON.stringify({sub,revision})).toString('base64url')+'.disposable';
+  const session=(sub,revision)=>({accessToken:token(sub,revision),refreshToken:'disposable-'+sub+'-'+revision,expiresAt:clock+3600000});
+  const old=session('A',1),latest=session('A',2),rawOld=JSON.stringify(old),rawLatest=JSON.stringify(latest);
+  const app=['read','write'].includes(phase)?context(sources()):null;
+  let release;
+  const response=(payload,status=200)=>new Response(JSON.stringify(payload),{status,headers:{'Content-Type':'application/json'}});
+  const row={schema_version:'user-state.v2',profile:{},preferences:{theme:'day'},event_user_state:{},updated_at:'2026-10-19T00:00:00Z'};
+  const c={module:{exports:{}},Buffer,structuredClone,AbortController,Event,Response,setTimeout,clearTimeout,
+   addEventListener:(type,fn)=>listeners.set(type,fn),dispatchEvent:()=>app?.invalidateServerStateSyncScope()};
+  vm.createContext(c);vm.runInContext(source,c);
+  if(transition==='session-only'){
+   storage.setItem('ns_auth_session_v1',rawOld);persistent.setItem('ns_auth_persistence_v1','session');
+  }else persistent.setItem(key,rawOld);
+  const client=c.module.exports.createClient({storage,persistentStorage:persistent,now:()=>clock,fetchImpl:async(url,options={})=>{
+   const body=options.body?JSON.parse(options.body):{},method=options.method||'GET';requests.push({url,method,action:body.action||''});
+   if(['password-sign-in','sign-up'].includes(body.action))return new Promise(resolve=>{release=()=>resolve(response({session:session('B',1)}));});
+   if(body.action==='refresh')return new Promise(resolve=>{release=()=>resolve(phase==='refresh-failure'?response({error:'old refresh expired',code:'invalid_refresh_token'},400):response({session:session('A',3)}));});
+   if(phase.startsWith('refresh')&&requests.filter(x=>x.url==='/api/user-state').length===1)return response({error:'synthetic expiry',code:'token_expired'},401);
+   if((phase==='read'&&method==='GET')||(phase==='write'&&method==='PUT'))return new Promise(resolve=>{release=()=>resolve(response({user:{id:'A'},state:row}));});
+   return response({user:{id:'A'},state:row});
+  }});
+  await client.restoreSession();const before=client.accountSnapshot();assert.equal(before.generation,0);
+  if(app)app.serverSyncClient=client;
+  const operation=phase==='signIn'?client.signIn('disposable@example.invalid','test-only')
+   :phase==='signUp'?client.signUp('disposable@example.invalid','test-only',{})
+   :app?app.reconcileCurrentServerState():client.loadState({accountId:'A'});
+  const settled=operation.then(value=>({value}),error=>({error}));
+  for(let i=0;i<100&&!release;i++)await new Promise(r=>setTimeout(r,1));assert(release,phase+' reached its actual mocked transport');
+  const newerPreferences={preferences:{theme:'new-lifetime',followedSports:['football']},profile:{},eventUserState:{saved:{saved:true}}};
+  if(app)app.applyServerState(newerPreferences);
+  const applications=app?.calls.applies,requestCount=requests.length;
+  // Storage is already at the newest A before either older event is delivered.
+  persistent.removeItem(key);persistent.setItem(key,rawLatest);
+  const event=(oldValue,newValue,eventKey=key)=>listeners.get('storage')({storageArea:persistent,key:eventKey,oldValue,newValue});
+  if(transition==='clear-readd')event(null,null,null);
+  else if(transition==='owner-roundtrip'){event(rawOld,JSON.stringify(session('B',2)));event(JSON.stringify(session('B',2)),rawLatest);}
+  else if(transition==='same-lifetime')event(rawOld,rawLatest);
+  else{event(rawOld,null);event(null,rawLatest);}
+  // Event payloads cancel old work; only current durable bytes supply a session.
+  const observed=client.accountSnapshot();
+  if(transition==='session-only')assert.equal(observed.accountId,'A');
+  else assert.equal(client.getSession().refreshToken,latest.refreshToken,'queued event must never install its historical session payload');
+  release();const result=await settled;
+  if(app){
+   assert.equal(result.error,undefined);assert.deepEqual(app.currentDevice(),newerPreferences,'late same-account response cannot replace newer local choices');
+   assert.equal(app.calls.applies,applications);assert.equal(requests.length,requestCount,'no old follow-up preference write or retry after the boundary');
+  }else if(['same-lifetime','session-only'].includes(transition)){
+   assert.equal(result.error,undefined);assert.equal(observed.generation,before.generation,'ordinary refresh and another tab cannot end a session-only lifetime');
+   if(transition==='same-lifetime'){
+    assert.equal(client.getSession().refreshToken,latest.refreshToken);assert.equal(requests.filter(x=>x.action==='refresh').length,1);assert.equal(requests.filter(x=>x.url==='/api/user-state').length,2,'retain the existing single401retry');
+   }
+  }else{
+   assert.equal(result.error?.code,'account_scope_changed',phase+' must discard its old response after queued '+transition);
+   assert(observed.generation>before.generation,'observe a lifetime boundary even when final subject is unchanged');
+   assert.equal(requests.length,requestCount,'cancelled work cannot retry against the newer lifetime');
+  }
+  if(transition!=='session-only')assert.equal(persistent.getItem(key),rawLatest,'old completion cannot replace or clear the latest durable A');
+  results.push('queued storage '+phase+' '+transition);
+ }
+ return results;
+}
+module.exports=async function validateAccountScopes(){const cases=[...await orchestration(),...await sdk(),...await recoveryUi(),...await overlappingRefreshes(),...await overlappingRefreshes({useLease:true}),...await horseAccountScopes(),...await indicatorLifetimes(),...await indicatorProfileResults(),...await queuedStorageLifetimes()];console.log(`Account isolation: ${cases.length} actual orchestration/SDK/recovery scenarios passed; no service or database connection.`);return cases;};
+module.exports.queuedStorageLifetimes=queuedStorageLifetimes;
