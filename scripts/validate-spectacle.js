@@ -6,6 +6,8 @@ const fs = require("node:fs");
 const path = require("node:path");
 const vm = require("node:vm");
 const nsc = require("../config/nothingscore");
+const epic = require("../config/epic-classics");
+const vectors = require("../config/vector-assets");
 
 function browserModule(file){
   const context = { globalThis:{} };
@@ -18,6 +20,23 @@ const pulseLabels = ["Flat","A spark","Buzzing","Electric","EPIC electricity"];
 const impactLabels = ["A ripple","A tremor","A shock","An aftershock","EPIC magnitude"];
 const fallback = browserModule("config/enrichment-engine.js");
 const browser = browserModule("config/nothingscore.js");
+
+assert.deepEqual(epic.phaseCopy("heat"), {
+  name:"Anticipation", detail:"Spectacle", submissionLabel:"Pre-fixture",
+  tip:nsc.HEAT_PROMPT, glyph:"ui:spotlight", labels,
+});
+assert.deepEqual(epic.phaseCopy("pulse"), {
+  name:"Ongoing", detail:"Electricity", tip:"During play: rate how electric it feels right now.",
+  glyph:"ui:zap", labels:pulseLabels,
+});
+assert.deepEqual(epic.phaseCopy("impact"), {
+  name:"Impact", detail:"Magnitude", tip:"Afterwards: rate its lasting sporting impact.",
+  glyph:"ui:shockwave", labels:impactLabels,
+});
+assert.equal(vectors.custom["ui:spotlight"].provenance, "first-party");
+assert.match(vectors.glyphMarkup("ui:spotlight", {label:"Expected Spectacle"}), /<svg\b[^>]*aria-label="Expected Spectacle"/);
+assert.doesNotMatch(vectors.glyphMarkup("ui:spotlight"), /<(?:image|img)\b|https?:/,
+  "the pre-match spotlight must render without an external artwork request");
 
 for (const api of [nsc, browser, fallback]){
   assert.equal(api.HEAT_PROMPT, "How good a spectacle do you expect?");
@@ -66,4 +85,4 @@ assert.equal(nsc.phaseFor(fixture,"2026-10-19T01:00:00Z"), "heat");
 assert.equal(nsc.phaseFor({...fixture,session:{status:"active",effectiveStartAt:fixture.startTimeUtc}},"2026-10-19T03:00:00Z"), "pulse");
 assert.equal(nsc.phaseFor(fixture,"2026-10-19T04:00:00Z"), "impact");
 
-console.log("Spectacle contract passed: server/browser/fallback wording, phase boundaries, historical votes, weights, reasons and rewards. Visible UI/artwork integration remains a separate gate.");
+console.log("Spectacle contract passed: server/browser/fallback wording, phase-owned artwork, phase boundaries, historical votes, weights, reasons and rewards. Native rendering and release integration remain separate gates.");

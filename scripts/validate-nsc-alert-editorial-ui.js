@@ -46,7 +46,7 @@ function assertOrder(source, markers, message){
 const cardSummary=["buildNothingscorePeerResults","buildInlineCrowdRating"].map(require("./app-shell-test-utils").readCardFunction).join("\n");
 for(const marker of ["buildInlineCrowdRating", "inlineRatingRequests.has(id)", "pointsAwarded", "paint(chosen)", "Ratings unavailable", "summary.hidden=!peers?.count"]){assert(cardSummary.includes(marker), marker);}
 for(const tip of ["'Your '+copy.name+' rating out of five", "const label=copy.labels?.[value-1]||copy.detail", "nothingscorePhaseCopy(phase)"]){assert(cardSummary.includes(tip),tip);}
-assert.deepEqual(require('../config/epic-classics').phaseCopy('heat').labels,["Low stakes","Mid stakes","High stakes","Huge stakes","Epic stakes"],"the actual phase-owned accessible controls retain all five agreed stakes labels");
+assert.deepEqual(require('../config/epic-classics').phaseCopy('heat').labels,["Routine","Promising","Compelling","Must-watch","EPIC spectacle"],"the actual pre-match controls use all five agreed Spectacle labels");
 assert(!applicationFunction('buildDetailedMajorEventCard').includes("buildNothingscoreSummary"),"Events cards omit rating inputs");
 assert(cardSummary.includes("phase==='pulse'?'pulse':'submit'"),'all phases use the server-owned one-tap contract');
 assert(cardSummary.includes("prefers-reduced-motion: reduce"),'points animation respects reduced motion');

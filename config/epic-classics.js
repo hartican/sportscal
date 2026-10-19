@@ -27,7 +27,7 @@
  function phaseCopy(phase){
   if(phase==='pulse')return{name:'Ongoing',detail:'Electricity',tip:'During play: rate how electric it feels right now.',glyph:'ui:zap',labels:['Flat','A spark','Buzzing','Electric','EPIC electricity']};
   if(phase==='impact')return{name:'Impact',detail:'Magnitude',tip:'Afterwards: rate its lasting sporting impact.',glyph:'ui:shockwave',labels:['A ripple','A tremor','A shock','An aftershock','EPIC magnitude']};
-  return{name:'Anticipation',detail:'Stakes',submissionLabel:'Pre-fixture',tip:'Before it starts: rate the anticipation and what is at stake.',glyph:'ui:steak',labels:['Low stakes','Mid stakes','High stakes','Huge stakes','Epic stakes']};
+  return{name:'Anticipation',detail:'Spectacle',submissionLabel:'Pre-fixture',tip:'How good a spectacle do you expect?',glyph:'ui:spotlight',labels:['Routine','Promising','Compelling','Must-watch','EPIC spectacle']};
  }
  const weight=row=>Object.hasOwn(row||{},'ratingWeight')?(row.ratingWeight===8?8:1):['admin','curator','editorial'].includes(row?.persona)?8:1;
  function average(votes){let sum=0,total=0;for(const row of votes){const w=weight(row);sum+=Number(row.rating)*w;total+=w;}return total?sum/total:null;}

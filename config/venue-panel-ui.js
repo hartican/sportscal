@@ -735,7 +735,7 @@ function buildInlineCrowdRating(ev,snapshot){
   const status=document.createElement('span');status.className='nsc-rating-status';status.setAttribute('role','status');
   const id=nothingscoreEventId(ev),owner=serverPersistence.user?.id;
   let chosen=phase?Number(snapshot?.currentUser?.contribution?.rating || snapshot?.currentUser?.submissions?.[phase]?.rating)||0:0;
-  const paint=value=>{group.querySelectorAll('button').forEach((b,i)=>{b.classList.toggle('is-filled',i<value);b.classList.toggle('is-selected',i+1===value);b.setAttribute('aria-pressed',String(i+1===value));});prompt.textContent=value?copy.labels[value-1]:'';prompt.hidden=!value;};
+  const paint=value=>{group.querySelectorAll('button').forEach((b,i)=>{b.classList.toggle('is-filled',i<value);b.classList.toggle('is-selected',i+1===value);b.setAttribute('aria-pressed',String(i+1===value));if(phase==='heat')b.querySelector('svg').style.opacity=i<value?'1':'.35';});prompt.textContent=value?copy.labels[value-1]:phase==='heat'?copy.tip:'';prompt.hidden=!prompt.textContent;};
   for(let value=1;value<=5;value++){
     const label=copy.labels?.[value-1]||copy.detail;
     const b=document.createElement('button');b.type='button';b.className='nsc-rating-block';b.setAttribute('aria-label',`${value} out of 5: ${label}`);b.title=`${value}/5 · ${label}`;b.disabled=awaitingViewer||!phase;
