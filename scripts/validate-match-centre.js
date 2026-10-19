@@ -89,6 +89,7 @@ for(const [age,expectedReads] of [[240001,0],[m.interval(restarting,now)*2+1,1]]
 }
 const partial=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[absent],snapshotRead:async()=>({readAt:now,stale:false,sources:[{checked_at:new Date(now).toISOString(),fixtures:[observed]}]}),request:async(_path,options)=>{partialIds=options.body.p_fixture_ids;return [];} });
 r=response();await partial({url:'/api/match-centre?membership=everything'},r);assert.deepEqual(partialIds,[absent.id],'Only the uncovered published fixture needs another read');assert.equal(r.body.events.length,2,'Both sourced and published membership remain visible');
+await require('./validate-cricket-score-address')();
 require('./validate-fixture-alias-reuse')();
 await require('./validate-match-centre-timing')();
 console.log('Match Centre model and bounded API passed.');})().catch(e=>{console.error(e);process.exitCode=1;});

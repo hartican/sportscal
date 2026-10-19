@@ -41,6 +41,18 @@ const root=path.resolve(__dirname,'..'),snapshot=require('../data/football/fixtu
    const first=source.find(e=>!['completed','finished','final'].includes(e.status)&&e.viewingOptions?.some(o=>o.providerId==='ten-tv'));assert(first,'official upcoming TV listing exists');
    const current=await page.locator('#listView').innerText();assert(current.includes('Sydney FC')&&current.includes('Western Sydney Wanderers'));assert(!current.includes('competition:a-leagues'));
    if(process.env.A_LEAGUE_QA_DIR&&width===320)await page.screenshot({path:path.join(process.env.A_LEAGUE_QA_DIR,`${engine}-${theme}-schedule.png`),fullPage:false});
+   // Ordinary retained cards must consume the reviewed classifier without
+   // pre-normalising fixtures or injecting the expected label into test data.
+   const derby=await page.evaluate(()=>{
+    const fixture=codeInspectorChunk.fixtures.find(e=>e.canonicalEventId==='event:football:a-league-men:401892162');if(!fixture)throw Error('Retained Sydney derby missing');
+    const before=JSON.stringify(fixture),tab=activeTab,spoilers=userPreferences.showSpoilers,states=cardViewStates,opened=[...sessionOpenedEventIds],host=document.createElement('section'),checks=[];document.body.append(host);
+    try{userPreferences.showSpoilers=true;for(const surface of ['schedule','feed']){
+     activeTab=surface==='feed'?'feed':'follow';const effective=canonicalFeedFixtureForInspector(fixture)||fixture;
+     setCardState(effective,'opened');setCardState(fixture,'opened');host.replaceChildren(surface==='schedule'?buildCodeInspectorFixture(fixture):buildEventCard(effective));
+     checks.push({surface,state:host.firstElementChild?.dataset.cardState,tags:[...host.querySelectorAll('.fixture-tag')].map(t=>t.textContent),unchanged:JSON.stringify(fixture)===before});
+    }return checks;}finally{host.remove();activeTab=tab;userPreferences.showSpoilers=spoilers;cardViewStates=states;sessionOpenedEventIds.clear();for(const id of opened)sessionOpenedEventIds.add(id);}
+   });
+   for(const check of derby){assert.equal(check.state,'opened');assert(check.tags.includes('DERBY'),'Reviewed Derby is visible on ordinary '+check.surface);assert(check.unchanged);}
    const before=await page.evaluate(()=>JSON.stringify(userPreferences.preferenceGraph));
    await page.evaluate(()=>{NOTHINGSPORTS_FOLLOW_NAV.setFilter('sport:football','competition',[]);renderFollowView();});
    assert.equal(await page.evaluate(()=>JSON.stringify(userPreferences.preferenceGraph)),before,'browsing a league must not create follows');
@@ -53,7 +65,7 @@ const root=path.resolve(__dirname,'..'),snapshot=require('../data/football/fixtu
    const followed=await page.evaluate(id=>{setDirectoryEntityFollow(id,'follow',{sportKey:'football',leagueId:'competition:a-leagues',label:'Sydney FC'});return userPreferences.preferenceGraph.entityFollows.some(f=>f.participantId===id&&f.followLevel==='follow');},snapshot.events[0].homeParticipantId);assert(followed);
    await page.reload();await page.waitForFunction(()=>typeof userPreferences!=='undefined'&&!startupCoordinator.isHydrating());assert(await page.evaluate(id=>userPreferences.preferenceGraph.entityFollows.some(f=>f.participantId===id&&f.followLevel==='follow'),snapshot.events[0].homeParticipantId),'A-League club follow survives local profile reload');
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
-   console.log('passed',engine,width,theme);rows.push({engine,width,theme,searchableClubs:clubs.length,schedule:156,competitionLabel:true,providers:true,followSurvivesReload:true});
+   console.log('passed',engine,width,theme);rows.push({engine,width,theme,searchableClubs:clubs.length,schedule:156,competitionLabel:true,providers:true,followSurvivesReload:true,derby});
    if(process.env.A_LEAGUE_QA_DIR&&width===320)await page.screenshot({path:path.join(process.env.A_LEAGUE_QA_DIR,`${engine}-${theme}.png`)});
    await context.close();
   }}finally{await browser.close();}

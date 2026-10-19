@@ -1,0 +1,479 @@
+{
+  "evidence": "Public sporting fields from one bounded persisted read on20October2026; constructed RPC fixtures add current published sport/format and existing SQL projection schema marker. This is a regression fixture, not a full captured RPC or live ESPN-only response.",
+  "clock": "2026-10-19T21:20:55.840Z",
+  "canonicalId": "fixture:cricket:espn:1525660",
+  "providerId": "fixture:cricket:CA:39991",
+  "published": {
+    "sport": "Cricket",
+    "key": "cricket",
+    "name": "South Africa v Australia — Second Test",
+    "date": "2026-10-18",
+    "time": "19:00",
+    "broadcaster": "Kayo Sports / Foxtel",
+    "expected": 8,
+    "venue": "St George's Park, Gqeberha",
+    "liveWindow": 8,
+    "id": "fixture:cricket:espn:1525660",
+    "eventId": "fixture:cricket:espn:1525660",
+    "displayTitleCompact": "South Africa v Australia — Second Test",
+    "selectedSentence": "South Africa reset their batting and keeping roles; Australia's question is whether flexibility can coexist with trust in Renshaw's place.",
+    "fullSpiel": "St George's Park hosts the middle Test. Rickelton taking the gloves changes South Africa's workload, but his batting position is unannounced. Breetzke offers another batting option, not a guaranteed place. Australia must weigh the surface, availability and balance without assuming an unfit all-rounder's overs. Sustained partnerships and disciplined pressure will matter across five days. Earlier results remain protected; Australian viewing is on Kayo and Fox Cricket.",
+    "sourceName": "Cricket Australia",
+    "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
+    "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
+    "broadcastOptions": [],
+    "round": "all",
+    "narrativeType": "all",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "status": "upcoming",
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "archetype": "international test",
+      "hookSpoilerOff": "South Africa reset their batting and keeping roles; Australia's question is whether flexibility can coexist with trust in Renshaw's place.",
+      "hookSpoilerOn": "South Africa reset their batting and keeping roles; Australia's question is whether flexibility can coexist with trust in Renshaw's place.",
+      "synopsisSpoilerOff": "St George's Park hosts the middle Test. Rickelton taking the gloves changes South Africa's workload, but his batting position is unannounced. Breetzke offers another batting option, not a guaranteed place. Australia must weigh the surface, availability and balance without assuming an unfit all-rounder's overs. Sustained partnerships and disciplined pressure will matter across five days. Earlier results remain protected; Australian viewing is on Kayo and Fox Cricket.",
+      "synopsisSpoilerOn": "St George's Park hosts the middle Test. Rickelton taking the gloves changes South Africa's workload, but his batting position is unannounced. Breetzke offers another batting option, not a guaranteed place. Australia must weigh the surface, availability and balance without assuming an unfit all-rounder's overs. Sustained partnerships and disciplined pressure will matter across five days. Earlier results remain protected; Australian viewing is on Kayo and Fox Cricket.",
+      "intensitySource": "computed",
+      "lastReviewedAt": "2026-10-15T22:10:19.416Z",
+      "researchDepth": 5
+    },
+    "lastReviewedAt": "2026-10-15T22:10:19.416Z",
+    "participants": [
+      {
+        "id": "team:cricket:south-africa",
+        "name": "South Africa",
+        "role": "home"
+      },
+      {
+        "id": "team:cricket:australia",
+        "name": "Australia",
+        "role": "away"
+      }
+    ],
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "South Africa v Australia — Second Test",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:matchup",
+        "narrative:history",
+        "narrative:consequence",
+        "narrative:path"
+      ],
+      "sourceName": "Cricket South Africa announcement via SuperSport",
+      "sourceUrl": "https://supersport.com/cricket/news/4dc5ed81-4b33-42b8-8b64-a67d8bcfe0cb/stubbs-out-breetzke-in-as-proteas-announce-squad-for-second-test",
+      "sourceCheckedAt": "2026-10-15T22:10:19.416Z",
+      "needsPreviewRefresh": false
+    },
+    "sourceTrust": "verified",
+    "startTimeUtc": "2026-10-18T08:00:00.000Z",
+    "sourceType": "official",
+    "competitionScope": "international",
+    "isInternational": true,
+    "participantIds": [
+      "team:cricket:south-africa",
+      "team:cricket:australia"
+    ],
+    "representativeCountryCodes": [
+      "AUS"
+    ],
+    "representativeSportKey": "cricket",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:fixture-cricket-espn-1525660",
+      "researchTier": "marquee",
+      "hook": "South Africa reset their batting and keeping roles; Australia's question is whether flexibility can coexist with trust in Renshaw's place.",
+      "synopsis": "St George's Park hosts the middle Test. Rickelton taking the gloves changes South Africa's workload, but his batting position is unannounced. Breetzke offers another batting option, not a guaranteed place. Australia must weigh the surface, availability and balance without assuming an unfit all-rounder's overs. Sustained partnerships and disciplined pressure will matter across five days. Earlier results remain protected; Australian viewing is on Kayo and Fox Cricket.",
+      "formCopy": "South Africa have replaced Tristan Stubbs with Matthew Breetzke in their squad and assigned Ryan Rickelton the gloves. Kyle Verreynne remains as wicketkeeping cover; a squad announcement does not settle the entire XI or batting order. Australia coach Andrew McDonald says the surface will guide selection. In his 15 October update, Green had not resumed batting, while Inglis had completed net sessions in his recovery from a broken finger. Neither is a confirmed selection.",
+      "closingCopy": "Renshaw's place is the point at which two reasonable ideas collide. A team can reward a batter's comfort in a role, or keep moving its pieces to meet the next conditions. McDonald remains open-minded; Steve Waugh has publicly argued for continuity. That disagreement gives Australian supporters something more tangible than a selection slogan to watch. South Africa's altered roles put a similar question to their own dressing room: can a change of responsibilities create a more dependable batting unit?",
+      "threadIds": [
+        "thread:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d"
+      ],
+      "factIds": [
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:0",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:1",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:2",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:3",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:4",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:5"
+      ],
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:0",
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:1",
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:2",
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:3"
+      ],
+      "dimensions": [
+        "form",
+        "matchup",
+        "history",
+        "consequence",
+        "path"
+      ],
+      "researchedAt": "2026-10-15T22:10:19.416Z",
+      "refreshAfter": "2026-10-18T08:00:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "format": "Test",
+    "matchFormat": "Test",
+    "endDate": "2026-10-22",
+    "numberOfDays": 5,
+    "timePrecision": "exact",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://kayosports.com.au/en-AU/schedule",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4568",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-09",
+          "2026-11-01",
+          "competition:cricket:espn:24203",
+          "",
+          "cricket",
+          null,
+          "test",
+          "fixture-cricket-espn-1525660",
+          [
+            "team:cricket:south-africa",
+            "team:cricket:australia"
+          ],
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://www.foxtel.com.au/watch/cricket.html",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4568",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-09",
+          "2026-11-01",
+          "competition:cricket:espn:24203",
+          "",
+          "cricket",
+          null,
+          "test",
+          "fixture-cricket-espn-1525660",
+          [
+            "team:cricket:south-africa",
+            "team:cricket:australia"
+          ],
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
+    "canonicalEventId": "fixture:cricket:espn:1525660",
+    "sourceEventIds": [
+      "evt_88",
+      "fixture:cricket:espn:1525660",
+      "fixture-cricket-espn-1525660"
+    ],
+    "consensusTags": [],
+    "statusCheckedAt": "2026-09-27T14:15:33.925Z",
+    "competitionId": "competition:cricket:espn:24203",
+    "competitionName": "Australia tour of South Africa 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1525660",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    }
+  },
+  "rows": [
+    {
+      "source_id": "cricket-ca-current",
+      "identity_keys": [
+        "fixture:cricket:CA:39991"
+      ],
+      "checked_at": "2026-10-19T21:18:04.408547+00:00",
+      "fixture": {
+        "id": "fixture:cricket:CA:39991",
+        "venue": "St George's Park, Gqeberha",
+        "status": "stumps",
+        "eventId": "fixture:cricket:CA:39991",
+        "innings": [
+          {
+            "runs": 97,
+            "overs": "43.0",
+            "wickets": 5,
+            "inningNumber": 1,
+            "battingTeamId": 21,
+            "participantId": "team:cricket:south-africa"
+          }
+        ],
+        "matchDay": 2,
+        "statusText": "Stumps",
+        "sourceStale": false,
+        "startTimeUtc": "2026-10-18T08:00:00.000Z",
+        "scoreCheckedAt": "2026-10-19T21:18:02.353+00:00",
+        "sourceEventIds": [
+          "fixture:cricket:CA:39991"
+        ],
+        "sourceCheckedAt": "2026-10-19T20:54:01.029Z",
+        "statusCheckedAt": "2026-10-19T21:18:02.353+00:00",
+        "canonicalEventId": "fixture:cricket:CA:39991",
+        "awayParticipantId": "team:cricket:australia",
+        "homeParticipantId": "team:cricket:south-africa",
+        "scoreFactObservedAt": "2026-10-19T20:54:01.029+00:00",
+        "statusFactObservedAt": "2026-10-19T16:12:01.632+00:00",
+        "cricketPhaseConfirmed": true,
+        "cricketDetailAttemptedAt": "2026-10-19T20:52:01.012Z",
+        "key": "cricket",
+        "format": "Test",
+        "fixtureObservationSchema": "fixture-observations.v1"
+      }
+    },
+    {
+      "source_id": "discovery-cricket-future-0",
+      "identity_keys": [
+        "evt_88",
+        "fixture:cricket:espn:1525660"
+      ],
+      "checked_at": "2026-10-19T17:08:14.14907+00:00",
+      "fixture": {
+        "id": "fixture:cricket:espn:1525660",
+        "venue": "St George's Park, Gqeberha",
+        "status": "live",
+        "eventId": "fixture:cricket:espn:1525660",
+        "innings": [],
+        "matchDay": null,
+        "statusText": null,
+        "sourceStale": null,
+        "startTimeUtc": "2026-10-18T08:00:00.000Z",
+        "scoreCheckedAt": "2026-10-19T17:08:00.737+00:00",
+        "sourceEventIds": [
+          "fixture:cricket:espn:1525660",
+          "evt_88"
+        ],
+        "sourceCheckedAt": "2026-10-19T10:54:00.885Z",
+        "statusCheckedAt": "2026-10-19T17:08:00.737+00:00",
+        "canonicalEventId": "fixture:cricket:espn:1525660",
+        "awayParticipantId": "team:cricket:australia",
+        "homeParticipantId": "team:cricket:south-africa",
+        "scoreFactObservedAt": "2026-10-18T22:44:00.607+00:00",
+        "statusFactObservedAt": "2026-10-18T22:44:00.607+00:00",
+        "cricketPhaseConfirmed": null,
+        "cricketDetailAttemptedAt": null,
+        "key": "cricket",
+        "format": "Test",
+        "fixtureObservationSchema": "fixture-observations.v1"
+      }
+    },
+    {
+      "source_id": "discovery-cricket-future-1",
+      "identity_keys": [
+        "evt_88",
+        "fixture:cricket:espn:1525660"
+      ],
+      "checked_at": "2026-10-19T16:44:23.737984+00:00",
+      "fixture": {
+        "id": "fixture:cricket:espn:1525660",
+        "venue": "St George's Park, Gqeberha",
+        "status": "scheduled",
+        "eventId": "fixture:cricket:espn:1525660",
+        "innings": [],
+        "matchDay": null,
+        "statusText": null,
+        "sourceStale": null,
+        "startTimeUtc": "2026-10-18T08:00:00.000Z",
+        "scoreCheckedAt": null,
+        "sourceEventIds": [
+          "fixture:cricket:espn:1525660",
+          "evt_88"
+        ],
+        "sourceCheckedAt": "2026-10-13T16:14:01.683Z",
+        "statusCheckedAt": "2026-10-13T22:16:00.812+00:00",
+        "canonicalEventId": "fixture:cricket:espn:1525660",
+        "awayParticipantId": "team:cricket:australia",
+        "homeParticipantId": "team:cricket:south-africa",
+        "scoreFactObservedAt": null,
+        "statusFactObservedAt": "2026-10-03T01:44:01.718+00:00",
+        "cricketPhaseConfirmed": null,
+        "cricketDetailAttemptedAt": null,
+        "key": "cricket",
+        "format": "Test",
+        "fixtureObservationSchema": "fixture-observations.v1"
+      }
+    },
+    {
+      "source_id": "discovery-cricket-future-2",
+      "identity_keys": [
+        "evt_88",
+        "fixture:cricket:espn:1525660"
+      ],
+      "checked_at": "2026-10-19T16:50:10.073635+00:00",
+      "fixture": {
+        "id": "fixture:cricket:espn:1525660",
+        "venue": "St George's Park, Gqeberha",
+        "status": "scheduled",
+        "eventId": "fixture:cricket:espn:1525660",
+        "innings": [],
+        "matchDay": null,
+        "statusText": null,
+        "sourceStale": null,
+        "startTimeUtc": "2026-10-18T08:00:00.000Z",
+        "scoreCheckedAt": null,
+        "sourceEventIds": [
+          "fixture:cricket:espn:1525660",
+          "evt_88"
+        ],
+        "sourceCheckedAt": "2026-10-06T02:04:02.364Z",
+        "statusCheckedAt": "2026-10-06T20:16:00.63+00:00",
+        "canonicalEventId": "fixture:cricket:espn:1525660",
+        "awayParticipantId": "team:cricket:australia",
+        "homeParticipantId": "team:cricket:south-africa",
+        "scoreFactObservedAt": null,
+        "statusFactObservedAt": "2026-10-02T19:20:03.122+00:00",
+        "cricketPhaseConfirmed": null,
+        "cricketDetailAttemptedAt": null,
+        "key": "cricket",
+        "format": "Test",
+        "fixtureObservationSchema": "fixture-observations.v1"
+      }
+    },
+    {
+      "source_id": "discovery-cricket-future-3",
+      "identity_keys": [
+        "evt_88",
+        "fixture:cricket:espn:1525660"
+      ],
+      "checked_at": "2026-10-19T17:22:13.329295+00:00",
+      "fixture": {
+        "id": "fixture:cricket:espn:1525660",
+        "venue": "St George's Park, Gqeberha",
+        "status": "scheduled",
+        "eventId": "fixture:cricket:espn:1525660",
+        "innings": [],
+        "matchDay": null,
+        "statusText": null,
+        "sourceStale": null,
+        "startTimeUtc": "2026-10-18T08:00:00.000Z",
+        "scoreCheckedAt": null,
+        "sourceEventIds": [
+          "fixture:cricket:espn:1525660",
+          "evt_88"
+        ],
+        "sourceCheckedAt": "2026-09-29T00:14:01.309Z",
+        "statusCheckedAt": null,
+        "canonicalEventId": "fixture:cricket:espn:1525660",
+        "awayParticipantId": "team:cricket:australia",
+        "homeParticipantId": "team:cricket:south-africa",
+        "scoreFactObservedAt": null,
+        "statusFactObservedAt": null,
+        "cricketPhaseConfirmed": null,
+        "cricketDetailAttemptedAt": null,
+        "key": "cricket",
+        "format": "Test",
+        "fixtureObservationSchema": "fixture-observations.v1"
+      }
+    },
+    {
+      "source_id": "discovery-cricket-future-4",
+      "identity_keys": [
+        "evt_88",
+        "fixture:cricket:espn:1525660"
+      ],
+      "checked_at": "2026-10-19T17:16:29.418745+00:00",
+      "fixture": {
+        "id": "fixture:cricket:espn:1525660",
+        "venue": "St George's Park, Gqeberha",
+        "status": "scheduled",
+        "eventId": "fixture:cricket:espn:1525660",
+        "innings": [],
+        "matchDay": null,
+        "statusText": null,
+        "sourceStale": null,
+        "startTimeUtc": "2026-10-18T08:00:00.000Z",
+        "scoreCheckedAt": null,
+        "sourceEventIds": [
+          "fixture:cricket:espn:1525660",
+          "evt_88"
+        ],
+        "sourceCheckedAt": "2026-09-22T11:07:00.157Z",
+        "statusCheckedAt": null,
+        "canonicalEventId": "fixture:cricket:espn:1525660",
+        "awayParticipantId": "team:cricket:australia",
+        "homeParticipantId": "team:cricket:south-africa",
+        "scoreFactObservedAt": null,
+        "statusFactObservedAt": null,
+        "cricketPhaseConfirmed": null,
+        "cricketDetailAttemptedAt": null,
+        "key": "cricket",
+        "format": "Test",
+        "fixtureObservationSchema": "fixture-observations.v1"
+      }
+    },
+    {
+      "source_id": "discovery-cricket-near",
+      "identity_keys": [
+        "evt_88",
+        "fixture:cricket:espn:1525660"
+      ],
+      "checked_at": "2026-10-19T21:18:07.643449+00:00",
+      "fixture": {
+        "id": "fixture:cricket:espn:1525660",
+        "venue": "St George's Park, Gqeberha",
+        "status": "live",
+        "eventId": "fixture:cricket:espn:1525660",
+        "innings": [],
+        "matchDay": null,
+        "statusText": null,
+        "sourceStale": null,
+        "startTimeUtc": "2026-10-18T08:00:00.000Z",
+        "scoreCheckedAt": "2026-10-19T21:18:02.353+00:00",
+        "sourceEventIds": [
+          "fixture:cricket:espn:1525660",
+          "evt_88"
+        ],
+        "sourceCheckedAt": "2026-10-19T20:10:00.438Z",
+        "statusCheckedAt": "2026-10-19T21:18:02.353+00:00",
+        "canonicalEventId": "fixture:cricket:espn:1525660",
+        "awayParticipantId": "team:cricket:australia",
+        "homeParticipantId": "team:cricket:south-africa",
+        "scoreFactObservedAt": "2026-10-18T08:08:01.285+00:00",
+        "statusFactObservedAt": "2026-10-18T08:08:01.285+00:00",
+        "cricketPhaseConfirmed": null,
+        "cricketDetailAttemptedAt": null,
+        "key": "cricket",
+        "format": "Test",
+        "fixtureObservationSchema": "fixture-observations.v1"
+      }
+    }
+  ]
+}

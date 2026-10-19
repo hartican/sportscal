@@ -712,7 +712,7 @@ function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false,showAggregate=
     if(summary.textContent)root.appendChild(summary);
     const tags=document.createElement('div');tags.className='fixture-tags';
     const labels=[];const homeTag=followedHomeTag(ev);if(homeTag)labels.push(homeTag);if(NOTHINGSPORTS_PROMOTED_REPLAY.recommendation(ev,snapshot,phase))labels.push('Promoted replay');
-    for(const tag of ev.consensusTags||[])if(['Rivalry','Derby','Round-Robin','Knockout','Final','Record Chase'].includes(tag.label)&&tag.sourceUrls?.some(url=>/^https:\/\//.test(url))&&Number(tag.confidence)>=.6)labels.push(tag.label);
+    for(const tag of NOTHINGSPORTS_FIXTURE_IDENTITY.consensusTagsForEvent(ev))if(['Rivalry','Derby','Round-Robin','Knockout','Final','Record Chase'].includes(tag.label)&&tag.sourceUrls?.some(url=>/^https:\/\//.test(url))&&Number(tag.confidence)>=.6)labels.push(tag.label);
     for(const label of new Set(labels)){const tag=document.createElement('span');tag.className='fixture-tag';tag.textContent=label.toUpperCase();tags.appendChild(tag);}if(tags.childElementCount)root.appendChild(tags);
   }
   if(nothingscoreLoadErrors.has(nothingscoreEventId(ev))){
