@@ -8,7 +8,9 @@ const renderer=fs.readFileSync(path.join(root,'assets/js/football-card-context.j
 // The real deferred caller and renderer run here. This DOM implements only
 // their element operations; full browser checks cover the actual native cards.
 class Element {
- constructor(tag){this.tagName=tag;this.children=[];this.parent=null;this.className='';this.dataset={};this._text='';this.connected=false;}
+ constructor(tag){this.tagName=tag;this.children=[];this.parent=null;this.className='';this.dataset={};this.attributes={};this._text='';this.connected=false;}
+ setAttribute(name,value){this.attributes[name]=String(value);}
+ getAttribute(name){return this.attributes[name]??null;}
  get isConnected(){return this.connected||Boolean(this.parent?.isConnected);}
  set textContent(v){this.children.forEach(c=>{if(c instanceof Element)c.parent=null;});this.children=[];this._text=String(v??'');}
  get textContent(){return this._text+this.children.map(c=>c instanceof Element?c.textContent:String(c)).join('');}

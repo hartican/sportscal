@@ -69,6 +69,10 @@ function fullTable(doc,deferred=false){
   assert.equal(helper.footballTableWarning(current,rows,[simulated],simulatedTime),note,'Controlled newer final tests this competition boundary; it is not source evidence');
   assert.equal(helper.footballTableWarning(current,rows,[{...simulated,stage:'Qualifying'}],simulatedTime),cid==='competition:premier-league-2026-27'?note:'','European qualifiers cannot change the league-phase comparison');
  }
- assert(!fullTable(current).textContent.includes(note),'Updated published table clears the warning without guessing rankings');
+ const publishedTable=fullTable(current);assert(!publishedTable.textContent.includes(note),'Updated published table clears the warning without guessing rankings');
+ const championshipGroups=all(publishedTable,n=>n.getAttribute('role')==='table');
+ assert.equal(championshipGroups.length,4,'The published Championship retains four separate accessible groups');
+ assert.equal(new Set(championshipGroups.map(n=>n.getAttribute('aria-label'))).size,4,'Each group has its own accessible label');
+ for(const table of championshipGroups){assert.match(table.getAttribute('aria-label'),/Group [A-D]/);assert.equal(all(table,n=>n.getAttribute('role')==='row').length,4);assert.equal(all(table,n=>n.getAttribute('role')==='rowheader').length,4);assert.equal(all(table,n=>n.getAttribute('role')==='cell').length,4);}
  console.log('Football table freshness: actual card/full-table paths and scoped new-final, correction, privacy, recovery and unsafe-input checks passed.');
 })().catch(e=>{console.error(e.stack||e.message);process.exitCode=1;});
