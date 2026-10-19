@@ -21,7 +21,7 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   // Exercise the reviewed aggregation change against the actual current helper,
   // while retaining both earlier references and every existing assertion below.
   await db.exec('begin;'+fs.readFileSync('supabase/migrations/20261015053258_flatten_fixture_observation_projection.sql','utf8')+'commit;');
-  const aggregationMigration=fs.readFileSync('supabase/migrations/20261019004015_add_global_fixture_json_reader.sql','utf8');
+  const aggregationMigration=fs.readFileSync('supabase/migrations/20261019010303_add_global_fixture_json_reader.sql','utf8');
   const globalSignature='public.nothingsports_read_current_fixture_bundle(text[])',wireSignature='public.nothingsports_read_current_fixture_bundle_json(text[])';
   const globalDefinition=(await db.query('select pg_get_functiondef($1::regprocedure) as definition',[globalSignature])).rows[0].definition;
   await db.exec(globalDefinition.replace('public.nothingsports_read_current_fixture_bundle','public.qa_reference_global_aggregation'));
