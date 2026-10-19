@@ -18,7 +18,8 @@
   const STORYLINE_OVERRIDES = root.NOTHINGSPORTS_STORYLINE_OVERRIDES
     || (typeof require === "function" ? require("./storyline-overrides.js") : null);
   const browserNothingscore = Object.freeze({
-    HEAT_LABELS:Object.freeze(["Low stakes","Mid stakes","High stakes","Huge stakes","Epic stakes"]),
+    HEAT_PROMPT:"How good a spectacle do you expect?",
+    HEAT_LABELS:Object.freeze(["Routine","Promising","Compelling","Must-watch","EPIC spectacle"]),
     PULSE_LABELS:Object.freeze(["Flat","A spark","Buzzing","Electric","EPIC electricity"]),
     IMPACT_LABELS:Object.freeze(["A ripple","A tremor","A shock","An aftershock","EPIC magnitude"]),
     HEAT_TAGS:Object.freeze(["Box office","Big stakes","Rivalry","Star power","National interest","Great storyline"]),

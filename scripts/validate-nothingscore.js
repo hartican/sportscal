@@ -23,7 +23,8 @@ const worker = read("service-worker.js");
 
 assert.equal(nsc.SCHEMA_VERSION, "nothingscore.v1");
 assert.deepEqual(nsc.PERSONA_WEIGHTS, { general:1, pundit:1, rising:1, influencer:1, curator:8, editorial:8, admin:8 });
-assert.deepEqual(nsc.HEAT_LABELS, ["Low stakes","Mid stakes","High stakes","Huge stakes","Epic stakes"]);
+assert.equal(nsc.HEAT_PROMPT, "How good a spectacle do you expect?");
+assert.deepEqual(nsc.HEAT_LABELS, ["Routine","Promising","Compelling","Must-watch","EPIC spectacle"]);
 assert.deepEqual(nsc.PULSE_LABELS, ["Flat","A spark","Buzzing","Electric","EPIC electricity"]);
 assert.deepEqual(nsc.HEAT_TAGS, ["Box office","Big stakes","Rivalry","Star power","National interest","Great storyline"]);
 assert.deepEqual(nsc.IMPACT_TAGS, ["Thrilling","Eye-popping","Mind-blowing","Emotional","Electric atmosphere","Pure chaos"]);
@@ -141,6 +142,7 @@ assert.match(enrichmentSource, /browserNothingscore[\s\S]+NOTHINGSPORTS_NOTHINGS
 const browserContext = { globalThis:{} };
 vm.runInNewContext(enrichmentSource, browserContext);
 const browserNsc = browserContext.globalThis.NOTHINGSPORTS_NOTHINGSCORE;
+assert.equal(browserNsc.HEAT_PROMPT, nsc.HEAT_PROMPT);
 assert.deepEqual(Array.from(browserNsc.HEAT_LABELS), Array.from(nsc.HEAT_LABELS));
 assert.deepEqual(Array.from(browserNsc.PULSE_LABELS), Array.from(nsc.PULSE_LABELS));
 assert.deepEqual(Array.from(browserNsc.HEAT_TAGS), Array.from(nsc.HEAT_TAGS));

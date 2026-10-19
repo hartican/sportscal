@@ -8,7 +8,8 @@
   const SCHEMA_VERSION = "nothingscore.v1";
   const PHASES = Object.freeze(["heat", "pulse", "impact"]);
   const PERSONA_WEIGHTS = Object.freeze({ general:1, pundit:1, rising:1, influencer:1, curator:8, editorial:8, admin:8 });
-  const HEAT_LABELS = Object.freeze(["Low stakes", "Mid stakes", "High stakes", "Huge stakes", "Epic stakes"]);
+  const HEAT_PROMPT = "How good a spectacle do you expect?";
+  const HEAT_LABELS = Object.freeze(["Routine", "Promising", "Compelling", "Must-watch", "EPIC spectacle"]);
   const PULSE_LABELS = Object.freeze(["Flat", "A spark", "Buzzing", "Electric", "EPIC electricity"]);
   const IMPACT_LABELS = Object.freeze(["A ripple", "A tremor", "A shock", "An aftershock", "EPIC magnitude"]);
   const HEAT_TAGS = Object.freeze(["Box office", "Big stakes", "Rivalry", "Star power", "National interest", "Great storyline"]);
@@ -153,7 +154,7 @@
   function normaliseHandle(value){ const handle=String(value||"").trim().toLowerCase().replace(/^@/,""); return /^[a-z0-9_]{3,24}$/.test(handle)?handle:""; }
 
   return Object.freeze({
-    HEAT_LABELS, HEAT_LOW_TAGS, HEAT_TAGS, IMPACT_LABELS, IMPACT_LOW_TAGS, IMPACT_TAGS, PERSONA_WEIGHTS, PHASES, POINT_RULES,
+    HEAT_PROMPT, HEAT_LABELS, HEAT_LOW_TAGS, HEAT_TAGS, IMPACT_LABELS, IMPACT_LOW_TAGS, IMPACT_TAGS, PERSONA_WEIGHTS, PHASES, POINT_RULES,
     PRESENCE_TTL_MS, PULSE_BUCKET_MS, PULSE_FRESH_MS, PULSE_LABELS, SCHEMA_VERSION,
     activePresence, aggregateRatings, blendBand, blendHeatWithStakes, capPointAwards, effectiveSupport,
     impactSeed, labelFor, leaderboardSort, likeLift, normaliseHandle, personaWeight, phaseFor,
