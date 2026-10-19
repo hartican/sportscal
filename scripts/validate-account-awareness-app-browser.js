@@ -86,8 +86,10 @@ const delay=ms=>new Promise(r=>setTimeout(r,ms));
     assert.deepEqual(controls.order,['accountIndicator','settingsBtn','calendarSyncBtn','shareAppBtn','notificationsBtn'],'Account first; Settings immediately precedes Calendar');
     const [account,settings,calendar]=controls.boxes;assert(Math.abs(account.x-controls.left)<.1&&account.x<settings.x&&account.right<=settings.x+.1&&Math.abs(calendar.x-settings.right-2)<1&&Math.abs(settings.y-calendar.y)<.1,'Account left aligned; Settings immediately left of Calendar: '+JSON.stringify(controls));assert(controls.targets.every(box=>box.width>=44&&box.height>=44)&&controls.boxes.every(box=>box.width>=44&&box.height>=44)&&controls.boxes.slice(1).every((box,i)=>controls.boxes[i].right<=box.x+.1),'44px header controls without overlap');
     assert(await page.locator('#settingsBtn').isVisible());assert.equal(await chip.evaluate(b=>getComputedStyle(b).backgroundColor),'rgba(0, 0, 0, 0)','Account text keeps the existing header background in both themes');layouts++;
+    if(['signedIn','offline'].includes(expected))assert.equal(await page.locator('.account-awareness-picture-control').evaluate(b=>getComputedStyle(b).backgroundColor),'rgba(0, 0, 0, 0)','Picture/initials control keeps the dark header background and current-name contrast in both themes');
     if(output&&width===390&&['signedIn','signedOut'].includes(expected))await page.locator('header.top').screenshot({path:path.join(output,`${engineName}-${theme}-${expected}.png`)});
    }
+   if(process.env.ACCOUNT_APP_QA_LAYOUT_ONLY){assert.deepEqual(errors,[]);allErrors.push(...errors);await context.close();continue;}
    await page.evaluate(()=>Object.defineProperty(navigator,'onLine',{value:true,configurable:true}));
    await page.evaluate(()=>serverSyncClient.clearSession());await setState('signedOut',null);await status('signedOut');
    const writes=()=>api.filter(x=>['/api/user-state','/api/user-meta'].includes(x.path)&&x.method!=='GET').length;
@@ -183,7 +185,7 @@ const delay=ms=>new Promise(r=>setTimeout(r,ms));
    }
    assert.equal(chooserEvents.length,[390,1280].includes(width)?10:0,'total native chooser count matches deliberate gestures only');chooserCounts.push({width,nativeChooserEvents:chooserEvents.length});assert.deepEqual(errors,[],'No unhandled mounted-app errors');allErrors.push(...errors);await context.close();
   }
-  const result={engine:engineName,actualMountedApp:true,layouts,behaviours,errors:allErrors,chooserCounts,chooserProof,pendingNeutral:'Account/loading only; no asynchronous chooser replay',avatarCases:'actual accepted callback, pre/post helper, picture/no-picture/native failure/missing name/late image/late profile/A-B-A',layoutContract:'Account first/left; Settings immediately left of Calendar;44px controls',transport:'loopback static candidate, mocked disposable API; external origins blocked',limits:'Component and local integration evidence; no hosted, real account or physical device claim'};
+  const result={engine:engineName,actualMountedApp:true,layoutOnly:Boolean(process.env.ACCOUNT_APP_QA_LAYOUT_ONLY),layouts,behaviours,errors:allErrors,chooserCounts,chooserProof,pendingNeutral:'Account/loading only; no asynchronous chooser replay',avatarCases:process.env.ACCOUNT_APP_QA_LAYOUT_ONLY?'not rerun in layout-only check':'actual accepted callback, pre/post helper, picture/no-picture/native failure/missing name/late image/late profile/A-B-A',layoutContract:'Account first/left; Settings immediately left of Calendar;44px controls',transport:'loopback static candidate, mocked disposable API; external origins blocked',limits:'Component and local integration evidence; no hosted, real account or physical device claim'};
   if(output)fs.writeFileSync(path.join(output,engineName+'-results.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));
  }finally{await browser.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});
