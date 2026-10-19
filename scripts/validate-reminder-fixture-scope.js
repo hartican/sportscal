@@ -72,5 +72,18 @@ const fixtures=require('../lib/reminder-fixtures'),automatic=require('../lib/aut
   const calls=[];await assert.rejects(()=>fixtures.catalogue({rows:[],now,request:async p=>{calls.push(p);if(p.endsWith('bundle'))throw new (require('../lib/supabase-server').SupabaseRequestError)('Missing',{status});return [];} }),e=>e.status===503);
   assert.equal(calls.length,2,'Missing scoped RPC cannot fall back to a broad unverified catalogue');
  }
+ // Rehearse both caller generations through the actual private interceptor,
+ // without exporting it or replacing the real-store assertions above.
+ const Module=require('node:module'),reminderFile=require.resolve('../lib/reminder-fixtures'),localRequire=Module.createRequire(reminderFile);
+ for(const globalName of ['nothingsports_read_current_fixture_bundle','nothingsports_read_current_fixture_bundle_json']){
+  const isolated=new Module(reminderFile,module),trace=[];isolated.filename=reminderFile;
+  isolated.require=id=>id==='./live-fixtures'?{...localRequire(id),createSnapshotStore:({request})=>({read:async()=>{await request('/rest/v1/rpc/'+globalName,{method:'POST',timeoutMs:3000,body:{p_fixture_ids:null}});return [];}})}:localRequire(id);
+  isolated._compile(fs.readFileSync(reminderFile,'utf8'),reminderFile);
+  await isolated.exports.catalogue({rows:[],now,requiredIds:['manual:compat'],request:async(p,o)=>{trace.push({p,o});return {...empty,requiredIds:['manual:compat']};}});
+  assert.equal(trace.length,1);assert(trace[0].p.endsWith('nothingsports_read_reminder_fixture_bundle'));assert.deepEqual(trace[0].o.body,{p_required_ids:['manual:compat']});assert.equal(trace[0].o.timeoutMs,3000);
+ }
+ const retryTrace=[];let scopedAttempts=0;
+ await fixtures.catalogue({rows:[],now,request:async(p,o)=>{retryTrace.push(p);assert.equal(o.timeoutMs,3000);if(p.endsWith('source_health'))return [];assert(p.endsWith('nothingsports_read_reminder_fixture_bundle'),'Neither old global nor JSON global/legacy RPC may escape reminder scope');if(++scopedAttempts===1)throw new (require('../lib/supabase-server').SupabaseRequestError)('Transient',{status:504});return empty;}});
+ assert.equal(scopedAttempts,2,'Retain only the existing single transient retry');assert.equal(retryTrace.length,3);assert(!retryTrace.some(p=>['nothingsports_read_current_fixture_bundle','nothingsports_read_current_fixture_bundle_json'].some(name=>p.endsWith('/'+name))));
  console.log('Reminder SQL scope: distant automatic intent, manual/alias decisions, terminal queue corrections, nested clocks, source overlay, full-policy parity, unchanged two-read budget and service-only fail-closed limits passed.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

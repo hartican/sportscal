@@ -84,10 +84,12 @@ async function validateGlobalTiming(){
   const pending=createSnapshotStore({diagnostics:true,request:async(path)=>path.endsWith('source_health')?new Promise(resolve=>{releaseHealth=resolve;}):Promise.reject(remoteError())});
   await assert.rejects(pending.read());const partial=warnings.pop();assert.equal(partial.timings.legs['source-health'].outcome,null,'Unfinished sibling outcome stays unknown');assert.equal(partial.timings.legs['source-health'].elapsedMs,null);assert.deepEqual(partial.timings.legs['source-health'].transport,[]);releaseHealth(source);
   const invalid=createSnapshotStore({diagnostics:true,request:async path=>path.endsWith('source_health')?source:{...globalBundle,complete:false}});await assert.rejects(invalid.read());const bad=warnings.pop();assert.equal(bad.phase,'validation');assert(bad.timings.validationMs>=0);assert.equal(bad.timings.projectionMs,null);
-  warnings.length=0;let legacyCalls=0;
-  const legacy=createSnapshotStore({diagnostics:true,request:async(path,o)=>{legacyCalls++;if(path.includes('/rpc/'))throw Object.assign(Error('PRIVATE_LEGACY'),{status:404});assert.equal(typeof o.onTiming,'function');o.onTiming({phase:'headers',elapsedMs:1,status:200,bytes:null,token:'PRIVATE_TOKEN'});throw Object.assign(Error('PRIVATE_BODY'),{status:502});}});
-  await assert.rejects(legacy.read());assert.equal(legacyCalls,3,'Only original400/404compatibility fallback');assert.equal(warnings[0].phase,'legacy-read');assert.equal(warnings[0].timings.legs['legacy-read'].outcome,'error');assert(!JSON.stringify(warnings).includes('PRIVATE_'));
-  console.log('Global timing: separate parallel legs, safe aggregates, validation/projection, fast quiet, opt-in-only, unchanged scopes and logger isolation passed.');
+  for(const status of [400,404]){
+   warnings.length=0;let jsonCalls=0;const missing=Object.assign(Error('PRIVATE_LEGACY'),{status,payload:{details:'PRIVATE_BODY'}});
+   const required=createSnapshotStore({diagnostics:true,request:async(path,o)=>{jsonCalls++;assert.equal(o.timeoutMs,3000);assert.equal(o.method,'POST');assert.equal(typeof o.onTiming,'function');if(path.endsWith('source_health'))return source;assert(path.endsWith('nothingsports_read_current_fixture_bundle_json'),'No legacy table request');o.onTiming({phase:'error',elapsedMs:1,status,bytes:null,token:'PRIVATE_TOKEN'});throw missing;}});
+   await assert.rejects(required.read(),e=>e===missing);assert.equal(jsonCalls,2,'Missing required JSON RPC cannot fall back to legacy');assert.equal(warnings.length,1);assert.equal(warnings[0].phase,'fixture-bundle');assert.equal(warnings[0].status,status);assert.equal(warnings[0].timings.legs['fixture-bundle'].outcome,'error');assert.equal(warnings[0].timings.legs['legacy-read'],undefined);assert(!JSON.stringify(warnings).includes('PRIVATE_'));
+  }
+  console.log('Global timing: separate parallel legs, required JSON RPC fail-closed, safe aggregates, validation/projection, fast quiet, opt-in-only, unchanged scopes and logger isolation passed.');
  }finally{console.warn=old;}
 }
 

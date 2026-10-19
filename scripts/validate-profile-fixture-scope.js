@@ -66,7 +66,7 @@ async function run(){
   assert.equal(timeoutMs,expectedReadBudget);calls.push({route,body});const name=route.split('/').at(-1);
   if(name==='nothingsports_read_fixture_source_health')return (await db.query('select * from public.nothingsports_read_fixture_source_health()')).rows;
   if(name==='nothingsports_read_participant_fixture_bundle')return (await db.query('select public.nothingsports_read_participant_fixture_bundle($1,$2,$3,$4) as value',[body.p_sport_keys,body.p_known_sport_keys,body.p_participant_ids,body.p_required_ids])).rows[0].value;
-  if(name==='nothingsports_read_current_fixture_bundle')return (await db.query('select public.nothingsports_read_current_fixture_bundle(null) as value')).rows[0].value;
+  if(['nothingsports_read_current_fixture_bundle','nothingsports_read_current_fixture_bundle_json'].includes(name))return (await db.query('select public.nothingsports_read_current_fixture_bundle(null) as value')).rows[0].value;
   throw Error('Unexpected request '+name);
  }});
  const scoped=await store.read(plan),all=scoped.flatMap(s=>s.fixtures),ids=all.map(e=>e.id);
@@ -85,7 +85,7 @@ async function run(){
  const tennisMoved={...tennisNew,id:'tennis-required-moved',key:'cricket',date:'2099-01-01',sourceEventIds:['alias:tennis:required']};
  for(const e of [tennisNew,tennisMoved])await db.query('insert into public.nothingsports_fixture_current(source_id,fixture_id,fixture,identity_keys,content_hash) values($1,$2,$3::jsonb,$4,$5)',['tennis',e.id,JSON.stringify(e),[e.id,...(e.sourceEventIds||[])],e.id]);
  const beforeTennisCalls=calls.length,tennisScoped=await store.read(tennisPlan),tennisIds=tennisScoped.flatMap(s=>s.fixtures).map(f=>f.id);
- check('media whole Tennis family, unknown rows and required alias',()=>{assert(tennisPlan.sportKeys.includes('tennis-women'));assert(tennisPlan.sportKeys.includes('wimbledon'));assert.deepEqual(tennisPlan.knownSportKeys,Object.keys(registry.byKey).sort());for(const id of ['tennis-only','tennis-new-roster','tennis-required-moved','unregistered'])assert(tennisIds.includes(id),id);assert(!tennisIds.includes('unrelated'));assert.equal(calls.length-beforeTennisCalls,2);assert(calls.slice(beforeTennisCalls).some(c=>c.route.endsWith('nothingsports_read_participant_fixture_bundle')));assert(!calls.slice(beforeTennisCalls).some(c=>c.route.endsWith('nothingsports_read_current_fixture_bundle')));});
+ check('media whole Tennis family, unknown rows and required alias',()=>{assert(tennisPlan.sportKeys.includes('tennis-women'));assert(tennisPlan.sportKeys.includes('wimbledon'));assert.deepEqual(tennisPlan.knownSportKeys,Object.keys(registry.byKey).sort());for(const id of ['tennis-only','tennis-new-roster','tennis-required-moved','unregistered'])assert(tennisIds.includes(id),id);assert(!tennisIds.includes('unrelated'));assert.equal(calls.length-beforeTennisCalls,2);assert(calls.slice(beforeTennisCalls).some(c=>c.route.endsWith('nothingsports_read_participant_fixture_bundle')));assert(!calls.slice(beforeTennisCalls).some(c=>c.route.includes('nothingsports_read_current_fixture_bundle')));});
  await db.query("delete from public.nothingsports_fixture_current where fixture_id in('tennis-new-roster','tennis-required-moved')");
  check('unknown and empty requirements use full read',()=>{assert.equal(requirements({userState:state([])}),null);assert.equal(requirements({userState:state(['competitor:unknown:somebody'])}),null);});
  const mixed=requirements({userState:state(['competitor:tennis:atp:alex-de-minaur']),participantId:'team:football:epl:1'});

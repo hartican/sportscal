@@ -18,7 +18,10 @@ const {createMatchCentreHandler}=require('../lib/match-centre-handler');
   await db.exec('set role service_role');
   const token='11111111-1111-4111-8111-111111111111';
   const request=async(path,{body}={})=>{
-   const name=path.split('/').at(-1);
+   const requested=path.split('/').at(-1);
+   // This historical writer fixture uses its retained JSONB SQL setup; the
+   // current-bundle validator separately installs/tests the real additive JSON RPC.
+   const name=requested==='nothingsports_read_current_fixture_bundle_json'?'nothingsports_read_current_fixture_bundle':requested;
    const keys={nothingsports_claim_fixture_source:['p_source_id','p_token'],nothingsports_publish_compact_scores:['p_source_id','p_token','p_fixtures','p_scores','p_hash','p_interval_ms','p_report'],nothingsports_read_current_fixture_bundle:['p_fixture_ids'],nothingsports_read_current_fixtures:['p_fixture_ids'],nothingsports_read_match_scores:['p_fixture_ids'],nothingsports_read_fixture_source_health:[]}[name];
    assert(keys,'Unexpected RPC '+name);
    const result=(await db.query(`select * from public.${name}(${keys.map((k,i)=>'$'+(i+1)).join(',')})`,keys.map(k=>['p_fixtures','p_scores','p_report'].includes(k)?body[k]===null?null:JSON.stringify(body[k]):body[k]))).rows;return name==='nothingsports_read_current_fixture_bundle'?result[0][name]:result;
