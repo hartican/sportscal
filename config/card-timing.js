@@ -71,11 +71,12 @@
   function pausePresentation(event, reference = new Date()){
     return canPause(event)?interruptionPresentation(event,+new Date(reference))||null:null;
   }
-  function progress(event, reference = new Date()){
+  const multiDayCricket=event=>/^cricket/.test(event.key||event.sportKey||'')&&(/\b(?:test|first[- ]class)\b/i.test([event.format,event.matchFormat,event.playingFormat].join(' '))||Number.isSafeInteger(event.numberOfDays)&&event.numberOfDays>1);
+  function progress(event, reference = new Date(), multiDay = false){
     const statuses=[event.status,event.scheduleStatus].map(value=>String(value||'').toLowerCase());
     const started=statuses.some(value=>/^(live|ongoing|in_progress|in-progress|stumps|rain-delay|break|suspended|interrupted|completed|finished|final)$/.test(value));
     if(!started||statuses.some(value=>/^(cancelled|canceled|abandoned|postponed)$/.test(value)))return null;
-    if(/^cricket/.test(event.key||event.sportKey||'')&&/\btest\b/i.test([event.format,event.matchFormat].join(' '))){
+    if(multiDay?multiDayCricket(event):/^cricket/.test(event.key||event.sportKey||'')&&/\btest\b/i.test([event.format,event.matchFormat].join(' '))){
       const valid=Number.isSafeInteger(event.matchDay)&&event.matchDay>0&&(!event.numberOfDays||event.matchDay<=event.numberOfDays)&&/^https:\/\//.test(event.matchDaySourceUrl||'');
       return valid?'DAY '+event.matchDay:'DAY UNCONFIRMED';
     }
@@ -105,12 +106,15 @@
     const at=Date.parse(raw||'');
     return event.manualStartEstimate?.kind==='official-session-order-estimate'&&Number.isFinite(at)?new Date(Math.round(at/900000)*900000).toISOString():raw;
   }
-  function presentation(event, reference = new Date(), {fullRange=false} = {}){
+  function presentation(event, reference = new Date(), {fullRange=false,compactCricket=false} = {}){
     const now = new Date(reference);
-    const started=played(event),actual=actualStart(event,reference);
+    const statuses = [event.status,event.scheduleStatus].map(value => String(value || "").toLowerCase());
+    const terminal=statuses.some(value=>['completed','finished','final','cancelled','canceled','abandoned','postponed'].includes(value));
+    const compact=compactCricket&&multiDayCricket(event);
+    const started=played(event),actual=compact&&!terminal?null:actualStart(event,reference);
     const precision = actual?'actual':event.timePrecision;
     const uncertain = event.timeTbc || event.startTimeTbc;
-    const pausedRestart=pausePresentation(event,reference)?.restartTimeUtc||null;
+    const pausedRestart=compact?null:pausePresentation(event,reference)?.restartTimeUtc||null;
     const raw = pausedRestart || (actual?actual.toISOString():precision === "estimated" ? estimateClock(event,event.estimatedStartTimeUtc || event.startTimeUtc) : event.startTimeUtc);
     const parsed = new Date(raw || "");
     const hasTime = (actual||!event.dateOnly&&!uncertain) && (!precision || ["actual","exact","session-start","estimated","not-before"].includes(precision)) && Number.isFinite(+parsed);
@@ -130,7 +134,7 @@
     const settled=/^(completed|finished|final|cancelled|canceled|abandoned)$/.test(event.status||'');
     const windowStart=new Date(event.estimatedEarliestStartTimeUtc||''),windowEnd=new Date(event.estimatedLatestStartTimeUtc||'');
     const windowLabel=precision==='estimated'&&event.manualStartEstimate?.kind!=='official-session-order-estimate'&&Number.isFinite(+windowStart)&&Number.isFinite(+windowEnd)?'APPROX. '+format(windowStart,{hour:'numeric',minute:'2-digit',hour12:true})+' – '+format(windowEnd,{hour:'numeric',minute:'2-digit',hour12:true}):null;
-    const progressLabel=progress(event,reference);
+    const sourceProgress=progress(event,reference,compact),progressLabel=compact&&sourceProgress==='DAY UNCONFIRMED'?null:sourceProgress;
     const originalDate=progressLabel&&first;if(originalDate)fullDate=dated(originalDate)+(end>originalDate?' – '+dated(end):'');
     const scheduled=started&&!actual&&!pausedRestart&&!overview&&clock?'SCHEDULED '+(precision==='estimated'?'APPROX. ':precision==='not-before'?'NOT BEFORE ':'')+clock:'';
     const time = actual&&!pausedRestart?'REPORTED START '+clock:scheduled?scheduled:started&&!pausedRestart&&!overview&&!progressLabel?'':progressLabel&&event.dateOnly?'':windowLabel || (overview ? settled?'':event.key==='wrc'?'RALLY DATES':'TOURNAMENT DATES' : precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? started?'':"TIME TBD" : `${precision === "estimated" ? "APPROX. " : precision === "not-before" ? "NOT BEFORE " : ""}${clock}`);
@@ -141,7 +145,6 @@
     const scheduleLabel = venueCalendar ? [day,time].filter(Boolean).join(' · ') : schedule;
     const fullSchedule = [fullDate,time].filter(Boolean).join(" · ") + (venueCalendar ? started?'':' · Sydney start unavailable' : " (Sydney time)");
     // Explicit source status only: duration heuristics must not claim completion.
-    const statuses = [event.status,event.scheduleStatus].map(value => String(value || "").toLowerCase());
     const pause = pauseReason(event);
     let status = "";
     if (statuses.some(value => ["cancelled","canceled"].includes(value))) status = "CANCELLED";
@@ -162,17 +165,18 @@
     const controls=typeof module==='object'&&module.exports?require('./feed-controls'):globalThis.NOTHINGSPORTS_FEED_CONTROLS;
     const observed=controls?.timingState(event,reference);
     if(observed?.key==='half-time')status='HALF-TIME';
-    const isUnexpected=unexpected(event),terminal=statuses.some(value=>['completed','finished','final','cancelled','canceled','abandoned','postponed'].includes(value));
+    const isUnexpected=unexpected(event);
     if(observed?.key==='awaiting-update'&&!isUnexpected&&!terminal)status=observed.label;
     const freshness=event.stale===true||event.sourceStale===true?'Awaiting update':!terminal&&observed?.key==='awaiting-update'?observed.label:null;
     if(status==='LIVE'&&freshness)status='LAST REPORTED LIVE';
-    return Object.freeze({day:fullRange&&range?day:progressLabel|| (precision==='not-before'?day:venueCalendar?day:date?(range?day:dated(date)):'DATE UNAVAILABLE'),time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, freshness, schedule:progressLabel||scheduleLabel, fullSchedule, progress:progressLabel, ariaLabel:[progressLabel,status ? `${status}. ${started?'':'Scheduled '}${fullSchedule}` : fullSchedule].filter(Boolean).join('. ')});
+    return Object.freeze({...(compact?{compactCricket:true}:{}),day:compact?progressLabel||'':fullRange&&range?day:progressLabel|| (precision==='not-before'?day:venueCalendar?day:date?(range?day:dated(date)):'DATE UNAVAILABLE'),time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, freshness, schedule:progressLabel||scheduleLabel, fullSchedule, progress:progressLabel, ariaLabel:[progressLabel,status ? `${status}. ${started?'':'Scheduled '}${fullSchedule}` : fullSchedule].filter(Boolean).join('. ')});
   }
   // One pure view for construction and live patches; DOM remains with callers.
   function badgePresentation(event,reference=new Date(),options={}){
-    const value=presentation(event,reference,options),pause=pausePresentation(event,reference),pausedClock=pause&&(event.key==='cricket'&&value.progress||pause.restartTimeUtc);
+    const value=presentation(event,reference,options),pause=pausePresentation(event,reference),pausedClock=!value.compactCricket&&pause&&(event.key==='cricket'&&value.progress||pause.restartTimeUtc);
     const terminal=/^(FINISHED|CANCELLED|ABANDONED|POSTPONED)\b/.test(value.status);
-    return Object.freeze({...value,pause,badgeClock:terminal&&!value.time.startsWith('REPORTED START ')?'':pausedClock?[pause.label.toUpperCase(),pause.restart].join(' • '):value.time,badgeStatus:pausedClock?'':pause&&value.freshness?pause.label.toUpperCase():value.status,badgeFreshness:pause||value.status==='LAST REPORTED LIVE'?value.freshness:null,ariaLabel:[pause&&value.freshness?pause.label:null,pausedClock?pause.restart:null,value.ariaLabel,'Open fixture'].filter(Boolean).join('. ')});
+    const restart=value.compactCricket&&pause&&(pause.restartTimeUtc||pause.restart==='Awaiting resumption update')?pause.restart:null;
+    return Object.freeze({...value,pause,badgeClock:terminal&&!value.time.startsWith('REPORTED START ')?'':pausedClock?[pause.label.toUpperCase(),pause.restart].join(' • '):value.time,badgeStatus:value.compactCricket?[value.status,restart].filter(Boolean).join(' • '):pausedClock?'':pause&&value.freshness?pause.label.toUpperCase():value.status,badgeFreshness:pause||value.status==='LAST REPORTED LIVE'?value.freshness:null,ariaLabel:[pause&&value.freshness?pause.label:null,pausedClock?pause.restart:restart,value.ariaLabel,'Open fixture'].filter(Boolean).join('. ')});
   }
   function minimised(event, reference = new Date()){
     const value=presentation(event,reference),pause=pausePresentation(event,reference);

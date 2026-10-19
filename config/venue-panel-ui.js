@@ -73,7 +73,7 @@ function composeFeedCard(card,ev,{compact,renderCardState,mode}){
   const actions=card.querySelector('.event-card-primary-actions');
   if(actions){actions.querySelectorAll('a:has(.provider-action-mark),.viewing-tbc').forEach(n=>n.remove());}
   const info=document.createElement('div');info.className='fixture-access';info.dataset.cardArea='essentials';
-  appendEventQuickActions(info,ev,{reminder:false,chat:false});
+  appendEventQuickActions(info,ev,{reminder:false,chat:false,milestones:false});
   const venue=document.createElement('p');venue.className='fixture-venue';venue.textContent=globalThis.NOTHINGSPORTS_COVERAGE_PAUSES.womensT20(ev)?'':NOTHINGSPORTS_FEED_CARD_PRESENTATION.venue(ev,VENUE_REGISTRY);if(venue.textContent)info.append(venue);
   info.classList.toggle('has-venue',!!venue.textContent);
   const schedule=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST());
@@ -112,13 +112,13 @@ function buildTournamentMarker(event){
 }
 
 function buildFixtureTimingBadge(ev){
-  const timing = NOTHINGSPORTS_CARD_TIMING.badgePresentation(ev, nowAEST(), {fullRange:activeTab==='feed'});
+  const timing = NOTHINGSPORTS_CARD_TIMING.badgePresentation(ev, nowAEST(), {fullRange:activeTab==='feed',compactCricket:true});
   const badge = document.createElement('button');badge.type='button';
   badge.className = 'fixture-timing-badge btn ghost';
-  const day=document.createElement('span');day.className='fixture-timing-day';day.textContent=timing.day;
+  const day=document.createElement('span');day.className='fixture-timing-day';day.textContent=timing.day;day.hidden=!timing.day;
   const clock=document.createElement('span');clock.className='fixture-timing-clock';clock.textContent=timing.badgeClock;
   badge.append(day);if(clock.textContent)badge.append(clock);
-  if(activeTab==='feed'&&NOTHINGSPORTS_FEED_TIMELINE.finalDay(ev)&&timing.progress){const progress=document.createElement('small');progress.className='fixture-source-progress';progress.textContent=timing.progress;badge.append(progress);}
+  if(activeTab==='feed'&&!timing.compactCricket&&NOTHINGSPORTS_FEED_TIMELINE.finalDay(ev)&&timing.progress){const progress=document.createElement('small');progress.className='fixture-source-progress';progress.textContent=timing.progress;badge.append(progress);}
   if(['RALLY DATES','TOURNAMENT DATES'].includes(timing.time)){const note=document.createElement('small');note.textContent=ev.key==='wrc'?'Stage timetable not verified':ev.appearances?.length?'See player tee times':'Tee times not verified';badge.append(note);}
   if(timing.badgeStatus){const status=document.createElement('small');status.className='fixture-timing-status';status.textContent=timing.badgeStatus;badge.append(status);}
   if(timing.badgeFreshness){const freshness=document.createElement('small');freshness.className='fixture-timing-status fixture-timing-freshness';freshness.textContent=timing.badgeFreshness;badge.append(freshness);}
@@ -971,7 +971,7 @@ function viewingAccessLabel(viewing){
   }
 }
 
-function appendEventQuickActions(container, ev, { reminder = true, chat = true, viewing = true, highlightsOnly = false } = {}){
+function appendEventQuickActions(container, ev, { reminder = true, chat = true, viewing = true, highlightsOnly = false, milestones = true } = {}){
   const viewingPaused=globalThis.NOTHINGSPORTS_COVERAGE_PAUSES?.womensT20(ev);
   const actions = document.createElement("div");
   actions.className = "event-quick-actions";
@@ -1017,7 +1017,7 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
     nothingscoreEventRefs.set(nothingscoreEventId(ev),ev);
     appendFixtureChatActions(actions, ev);
   }
-  if(!highlightsOnly&&/^cricket(?:-women)?$/.test(ev.key||'')){
+  if(milestones&&!highlightsOnly&&/^cricket(?:-women)?$/.test(ev.key||'')){
     void loadDeferredScript('assets/js/milestone-alerts-ui.js?v=535').then(()=>NOTHINGSPORTS_MILESTONE_UI.appendMute(actions,ev));
   }
   container.appendChild(actions);
