@@ -6,6 +6,12 @@ const identity=require('../config/fixture-identity');
 const response=()=>({setHeader(){},status(code){this.code=code;return this;},json(body){this.body=body;return this;}});
 async function run(){
  const before=JSON.stringify(capture),official=capture.rows.find(r=>r.source_id==='cricket-ca-current').fixture;
+ const {resolveScoreReadIds}=require('../lib/live-fixtures');
+ const original=Object.freeze([capture.canonicalId,'evt_88','constructor','toString','__proto__']);
+ assert.deepEqual(resolveScoreReadIds(original),[capture.providerId,'evt_88','constructor','toString','__proto__']);
+ assert.deepEqual(resolveScoreReadIds(['evt_88']),[capture.providerId]);assert.deepEqual(resolveScoreReadIds(['fixture-cricket-espn-1525660']),[capture.providerId]);
+ assert.deepEqual(resolveScoreReadIds([capture.canonicalId,capture.providerId]),[capture.providerId]);
+ assert.equal(original[0],capture.canonicalId,'Address resolution leaves caller IDs immutable');
  for(const requested of [[capture.canonicalId],['evt_88'],[capture.providerId],[capture.canonicalId,capture.providerId]]){
   const calls=[];let snapshots=0;
   const handler=createMatchCentreHandler({enabled:()=>true,clock:()=>Date.parse(capture.clock),published:()=>[capture.published],snapshotRead:async()=>{snapshots++;throw Error('Selected scores must not load a global snapshot');},request:async(path,options)=>{
