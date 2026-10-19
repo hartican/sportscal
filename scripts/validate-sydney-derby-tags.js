@@ -28,6 +28,37 @@ for(const event of [
  {...fixture,participantIds:[],homeParticipantId:null,awayParticipantId:null,participants:[],name:'Sydney FC v Western Sydney Wanderers'},
  {...fixture,sourceUrl:null,sourceUrls:[],sources:[]},
 ])assert(!labels(event).includes('Derby'),'competition, contradictory identities, unknown names and absent source evidence must not infer a derby');
+// Every supplied strong representation must agree; names cannot repair it.
+const pair=fixture.participantIds,other='team:football:club:macarthur-fc';
+const aliasOnly={...fixture,participantIds:[],homeParticipantId:null,awayParticipantId:null,participants:[{name:'Sydney FC'},{name:'Western Sydney'}]};
+const contradictions=[
+ {name:'top-level pair versus object IDs',event:{...fixture,participants:[{id:pair[0]},{id:other}]}},
+ {name:'top-level pair versus object participantId',event:{...fixture,participants:[{participantId:pair[0]},{participantId:other}]}},
+ {name:'object id versus participantId',event:{...fixture,participants:[{id:pair[0],participantId:pair[1]},{id:pair[1]}]}},
+ {name:'top-level pair versus slot IDs',event:{...fixture,participantSlots:[{participantId:pair[0]},{participantId:other}]}},
+ {name:'aliases versus slot IDs',event:{...aliasOnly,participantSlots:[{participantId:pair[0]},{participantId:other}]}},
+ {name:'partial object group',event:{...fixture,participants:[{id:pair[0]},{name:'Western Sydney'}]}},
+ {name:'partial slot group',event:{...aliasOnly,participantSlots:[{participantId:pair[0]},{}]}},
+ {name:'partial home-away group',event:{...fixture,awayParticipantId:null}},
+ {name:'partial top-level group',event:{...fixture,participantIds:[pair[0]]}},
+ {name:'unknown top-level group',event:{...aliasOnly,participantIds:['unknown',pair[1]]}},
+];
+for(const {name,event} of contradictions){
+ assert(!labels(event).includes('Derby'),name+' must reject direct classification');
+ assert(!identity.normalizeCore(event).consensusTags.some(tag=>tag.label==='Derby'),name+' must reject ordinary normalization');
+}
+const previouslyClassified=identity.normalizeCore(fixture);
+const changedIdentities={...previouslyClassified,participantSlots:[{participantId:pair[0]},{participantId:other}]};
+assert(!labels(changedIdentities).includes('Derby'),'a prior pair-derived tag must not bypass later conflicting identities');
+assert(!identity.normalizeCore(changedIdentities).consensusTags.some(tag=>tag.label==='Derby'),'ordinary renormalization must revalidate its own pair-derived tag');
+for(const event of [
+ {...fixture,participants:pair.map(id=>({id,participantId:id})),participantSlots:[...pair].reverse().map(participantId=>({participantId}))},
+ {...aliasOnly,participantSlots:pair.map(participantId=>({participantId}))},
+ aliasOnly,
+]){
+ assert(labels(event).includes('Derby'),'consistent identities or alias-only participants classify directly');
+ assert(identity.normalizeCore(event).consensusTags.some(tag=>tag.label==='Derby'),'consistent identities or alias-only participants classify through normalization');
+}
 assert.equal(JSON.stringify(fixture),before,'classification must not alter retained fixture facts');
 const normalized=identity.normalizeCore(fixture);
 assert(normalized.consensusTags.some(tag=>tag.label==='Derby'),'ordinary normalization surfaces Derby');
