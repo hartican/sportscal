@@ -1710,12 +1710,12 @@ header.top,#calendarControls,#mainContent,.app-footer,#jumpTodayBtn{animation:no
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 #settingsBtn{border-color:transparent;box-shadow:none;}
 #settingsBtn:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
-header.top .header-utilities{display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end;gap:2px;min-width:0;}
-#accountIndicator{display:inline-flex;max-width:100%;min-width:0;}
-#accountIndicator .account-awareness-control{font-size:11px;padding:6px;gap:5px;background:transparent;}
-#accountIndicator .account-awareness-label{max-width:145px;overflow:hidden;text-overflow:ellipsis;}
+header.top .header-utilities{display:flex;flex:1;align-items:center;flex-wrap:nowrap;justify-content:flex-start;gap:2px;min-width:0;}
+#accountIndicator{display:inline-flex;flex:1 1 auto;max-width:100%;min-width:0;}
+#accountIndicator .account-awareness-control{font-size:11px;padding:6px;gap:5px;background:transparent;min-width:0;text-align:left;}
+#accountIndicator .account-awareness-label{min-width:0;max-width:145px;overflow:hidden;text-overflow:ellipsis;}
 #accountIndicatorFallback{font-size:11px;min-height:44px;padding:6px;white-space:nowrap;}
-@media(max-width:600px){header.top .brand-title-row{flex-wrap:wrap;}header.top .header-utilities{flex:1 1 100%;justify-content:flex-end;}#accountIndicator{margin-right:auto;}}
+@media(max-width:600px){header.top .brand-title-row{flex-wrap:wrap;}header.top .header-utilities{flex:1 1 100%;justify-content:flex-start;}#accountIndicator{margin-right:auto;}}
 .feed-schedule-link{display:inline-block;color:var(--accent);background:none;border:0;padding:6px 0;font:inherit;font-size:.75rem;text-decoration:underline;text-underline-offset:3px;min-height:32px;}
 .follow-common-controls,.follow-event-bulk{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:10px 0;}
 .follow-schedule-panel{min-width:0;}
@@ -1754,8 +1754,8 @@ header.top .header-utilities{display:flex;align-items:center;flex-wrap:wrap;just
       <div class="brand-title-row">
         <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" id="headerBrandLogo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothing SPORT" fetchpriority="high" decoding="async"></h1>
         <div class="header-utilities">
-          <button class="btn ghost" id="settingsBtn" type="button" aria-label="Settings"><span data-vector-glyph="ui:settings"></span><span class="full-label">Settings</span></button>
           <span id="accountIndicator"><button class="btn ghost" id="accountIndicatorFallback" type="button" aria-label="Checking account status. Open Account.">Checking account…</button></span>
+          <button class="btn ghost" id="settingsBtn" type="button" aria-label="Settings"><span data-vector-glyph="ui:settings"></span><span class="full-label">Settings</span></button>
           <button class="btn ghost calendar-sync-action" id="calendarSyncBtn" type="button" aria-label="Calendar sync"><span data-vector-glyph="ui:calendar"></span></button>
           <button class="btn ghost share-app-action" id="shareAppBtn" type="button" aria-label="Share Nothing Sport"><span data-vector-glyph="ui:share"></span><span class="share-app-label">Share</span></button>
           <button class="btn ghost" id="notificationsBtn" type="button" aria-label="Notifications" aria-haspopup="dialog" aria-controls="notificationsInbox" aria-expanded="false"><span data-vector-glyph="ui:bell"></span><span id="notificationCount" class="notification-count" hidden></span></button>
@@ -3493,6 +3493,7 @@ function acceptNothingscoreViewer(viewer,owner,generation){
   const life=serverSyncClient.accountSnapshot();
   if(owner!==(serverPersistence.user?.id||'') || owner!==life.accountId || generation!==life.generation)return;
   nothingscoreViewer=viewer;
+  nothingscoreViewerScope={owner,generation};
   globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.acceptProfile(viewer,owner,generation);
 }
 function createChatState(overrides = {}){
@@ -3590,6 +3591,7 @@ const nothingscoreHeartbeatFailures = new Map();
 const nothingscoreWatchingStartedAt = new Map();
 const nothingscoreWatchingConfirmed = new Set();
 let nothingscoreViewer = { signedIn:false, ratingEligible:false, profile:null };
+let nothingscoreViewerScope = null;
 let nothingscoreBatchTimer = null;
 let nothingscorePollTimer = null;
 let nothingscoreHeartbeatTimer = null;
@@ -17387,6 +17389,7 @@ function syncNothingscoreSessionState(previousOwnerId, nextOwnerId){
   window.NOTHINGSPORTS_CROWD_RANKINGS?.clear?.();
   ++nscRankingGeneration;
   nothingscoreViewer = { signedIn:false, ratingEligible:false, profile:null };
+  nothingscoreViewerScope = null;
   if (!nextOwnerId){
     nothingscoreWatching.clear();
     window.clearTimeout(nothingscoreHeartbeatTimer);

@@ -25,8 +25,8 @@
     const sameOwner=Boolean(owner&&owner===sessionOwner);
     const currentProfile=sameOwner&&text(profileOwnerId)===owner?profile:null;
     const handle=text(currentProfile?.handle).replace(/^@/,'');
-    const name=text(currentProfile?.displayName)||text(user?.displayName);
-    const identity=sameOwner?(handle?'@'+handle:name||text(user?.email)||'Signed in'):'';
+    const profileName=text(currentProfile?.displayName);
+    const identity=sameOwner?(handle?'@'+handle:'Account'):'';
     const expiry=Number(sessionExpiresAt),reference=Number(now);
     const unexpired=Number.isFinite(expiry)&&Number.isFinite(reference)&&expiry>reference;
     let status;
@@ -36,7 +36,7 @@
     const label=status==='checking'?'Checking account…':status==='reconnect'?(identity?'Reconnect · '+compact(identity):'Check sign-in'):status==='offline'?'Offline · '+compact(identity):compact(identity);
     return Object.freeze({status,accountId:sameOwner?owner:'',identity:status==='checking'?'':identity,label,
       avatarUrl:status==='checking'?'':text(currentProfile?.avatarUrl),
-      initials:status==='checking'||!sameOwner?'':initials(name||identity),
+      initials:status==='checking'||!sameOwner?'':initials(profileName),
       ariaLabel:status==='checking'?'Checking account status.':status==='reconnect'?'Sign-in needs checking'+(identity?' for '+identity:'')+'. Open Account.':(status==='offline'?'Offline. ':'')+'Signed in as '+identity+'. Open Account.',
     });
   }

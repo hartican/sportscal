@@ -4,19 +4,20 @@
   function styles(doc){
     if(doc.getElementById('account-awareness-styles'))return;
     const style=doc.createElement('style');style.id='account-awareness-styles';
-    style.textContent='.account-awareness-control{display:inline-flex;align-items:center;gap:7px;min-height:44px;max-width:100%;padding:6px 9px;border:1px solid var(--border,#b7bdc5);border-radius:999px;background:var(--panel-bg,transparent);color:var(--text,currentColor);font:inherit;font-size:12px;font-weight:750;cursor:pointer}.account-awareness-label{display:inline;white-space:nowrap}.account-awareness-avatar{display:inline-flex;align-items:center;justify-content:center;flex:0 0 24px;width:24px;height:24px;border-radius:50%;overflow:hidden;background:var(--soft-fill,#dce2e8);font-size:10px;line-height:1}.account-awareness-avatar img,.account-awareness-avatar svg{display:block;width:100%;height:100%;object-fit:cover}.account-awareness-control:focus-visible,.account-awareness-choice:focus-visible{outline:2px solid currentColor;outline-offset:3px}.account-awareness-dialog{box-sizing:border-box;width:min(360px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;margin:auto;padding:20px;border:1px solid var(--border,#b7bdc5);border-radius:16px;background:var(--bg-card,#fff);color:var(--text,#18212d);font:inherit}.account-awareness-dialog::backdrop{background:#0008}.account-awareness-dialog h2{margin:0 0 12px;font-size:18px;line-height:1.3}.account-awareness-dialog p{margin:10px 0;font-size:14px;line-height:1.5}.account-awareness-choices{display:grid;gap:8px;margin-top:18px}.account-awareness-choice{min-height:44px;padding:10px 12px;border:1px solid var(--border,#b7bdc5);border-radius:9px;background:transparent;color:inherit;font:inherit;font-size:14px;cursor:pointer}.account-awareness-choice-primary{background:var(--text,#18212d);color:var(--bg-card,#fff);border-color:var(--text,#18212d)}.account-awareness-feedback:empty{display:none}.account-awareness-feedback{display:block;font-size:12px;line-height:1.4}';
+    style.textContent='.account-awareness-control,.account-awareness-picture-control{box-sizing:border-box;display:inline-flex;align-items:center;gap:7px;min-height:44px;max-width:100%;padding:6px 9px;border:1px solid var(--border,#b7bdc5);border-radius:999px;background:var(--panel-bg,transparent);color:var(--text,currentColor);font:inherit;font-size:12px;font-weight:750;cursor:pointer}.account-awareness-group{display:inline-flex;align-items:center;gap:2px;min-width:0;max-width:100%}.account-awareness-control{flex:0 1 auto;min-width:44px}.account-awareness-picture-control{flex:0 0 44px;width:44px;padding:9px;justify-content:center}.account-awareness-picture-control[hidden]{display:none}.account-awareness-label{display:inline;white-space:nowrap}.account-awareness-avatar{display:inline-flex;align-items:center;justify-content:center;flex:0 0 24px;width:24px;height:24px;border-radius:50%;overflow:hidden;background:var(--soft-fill,#dce2e8);font-size:10px;line-height:1}.account-awareness-avatar img,.account-awareness-avatar svg{display:block;width:100%;height:100%;object-fit:cover}.account-awareness-control:focus-visible,.account-awareness-picture-control:focus-visible,.account-awareness-choice:focus-visible{outline:2px solid currentColor;outline-offset:3px}.account-awareness-dialog{box-sizing:border-box;width:min(360px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;margin:auto;padding:20px;border:1px solid var(--border,#b7bdc5);border-radius:16px;background:var(--bg-card,#fff);color:var(--text,#18212d);font:inherit}.account-awareness-dialog::backdrop{background:#0008}.account-awareness-dialog h2{margin:0 0 12px;font-size:18px;line-height:1.3}.account-awareness-dialog p{margin:10px 0;font-size:14px;line-height:1.5}.account-awareness-choices{display:grid;gap:8px;margin-top:18px}.account-awareness-choice{min-height:44px;padding:10px 12px;border:1px solid var(--border,#b7bdc5);border-radius:9px;background:transparent;color:inherit;font:inherit;font-size:14px;cursor:pointer}.account-awareness-choice-primary{background:var(--text,#18212d);color:var(--bg-card,#fff);border-color:var(--text,#18212d)}.account-awareness-feedback:empty{display:none}.account-awareness-feedback{display:block;font-size:12px;line-height:1.4}';
     doc.head.appendChild(style);
   }
-  function create({host,model=root.NOTHINGSPORTS_ACCOUNT_AWARENESS,readSnapshot,openAccount}){
+  function create({host,model=root.NOTHINGSPORTS_ACCOUNT_AWARENESS,readSnapshot,openAccount,openPicture=openAccount}){
     // The host supplies facts/session from the frozen model contract. Account
     // navigation and action callbacks remain with the existing application.
     if(!host?.ownerDocument||!model||typeof readSnapshot!=='function'||typeof openAccount!=='function')throw new TypeError('Account UI needs a host, model and explicit state/account callbacks.');
     const doc=host.ownerDocument;styles(doc);
+    const pictureButton=doc.createElement('button');pictureButton.type='button';pictureButton.className='account-awareness-picture-control';
     const button=doc.createElement('button');button.type='button';button.className='account-awareness-control';
     const avatar=doc.createElement('span');avatar.className='account-awareness-avatar';avatar.setAttribute('aria-hidden','true');
     const label=doc.createElement('span');label.className='account-awareness-label';label.setAttribute('aria-live','polite');label.setAttribute('aria-atomic','true');
     const feedback=doc.createElement('span');feedback.className='account-awareness-feedback';feedback.setAttribute('role','status');
-    button.append(avatar,label);host.append(button,feedback);
+    button.append(label);host.classList.add('account-awareness-group');host.append(pictureButton,button,feedback);
     let destroyed=false,previousScope=null,guestAcknowledgement=null,avatarKey='',avatarVersion=0,pending=null;
     const cancelled=reason=>({status:'cancelled',reason});
     function current(){
@@ -37,12 +38,15 @@
       previousScope=scope;
       if(label.textContent!==view.label)label.textContent=view.label;
       button.setAttribute('aria-label',view.ariaLabel);button.title=view.ariaLabel;button.dataset.accountStatus=view.status;
-      const key=JSON.stringify([view.accountId,view.avatarUrl,view.initials]);
+      const pictureActive=['signedIn','offline'].includes(view.status);pictureButton.hidden=!pictureActive;
+      if(pictureActive)pictureButton.append(avatar);else button.prepend(avatar);
+      pictureButton.setAttribute('aria-label','Set profile picture'+(view.identity&&view.identity!=='Account'?' for '+view.identity:'')+'. Open Account and Sync.');
+      const key=JSON.stringify([scope.appSessionId,scope.accountEpoch,view.accountId,view.avatarUrl,view.initials]);
       if(key!==avatarKey){
         avatarKey=key;const version=++avatarVersion;fallback(view);
         if(view.avatarUrl){
-          const image=doc.createElement('img');image.alt='';image.decoding='async';
-          image.onerror=()=>{if(!destroyed&&version===avatarVersion&&image.parentNode===avatar)fallback(view);};
+          const image=doc.createElement('img');image.alt='';image.decoding='async';image.referrerPolicy='no-referrer';
+          image.onerror=()=>{if(destroyed||version!==avatarVersion||image.parentNode!==avatar)return;const fresh=current();if(!model.sameScope(scope,fresh.scope)){render();return;}fallback(fresh.view);};
           image.src=view.avatarUrl;avatar.replaceChildren(image);
         }
       }
@@ -54,6 +58,15 @@
       Promise.resolve().then(()=>openAccount({reason:'indicator',returnFocus:button,intentScope:context.scope})).catch(()=>{
         if(!destroyed&&model.sameScope(context.scope,current().scope))feedback.textContent='Account could not be opened. Please try again.';
       });
+    };
+    pictureButton.onclick=()=>{
+      pending?.cancel('account-opened');feedback.textContent='';const context=render();if(!context)return;
+      try{
+        // Preserve the original click/keyboard activation for the existing
+        // native file input. Account navigation must not be awaited first.
+        const opened=(['signedIn','offline'].includes(context.view.status)?openPicture:openAccount)({reason:'profile-picture',returnFocus:pictureButton,intentScope:context.scope});
+        Promise.resolve(opened).catch(()=>{if(!destroyed&&model.sameScope(context.scope,current().scope))feedback.textContent='Profile picture could not be opened. Please open Account.';});
+      }catch(error){if(!destroyed&&model.sameScope(context.scope,current().scope))feedback.textContent='Profile picture could not be opened. Please open Account.';}
     };
 
     function prompt(ticket,decision,action,actionLabel,view){
@@ -144,7 +157,7 @@
     }
     function destroy(){
       if(destroyed)return;destroyed=true;avatarVersion++;guestAcknowledgement=null;
-      pending?.cancel('destroyed');button.remove();feedback.remove();
+      pending?.cancel('destroyed');pictureButton.remove();button.remove();feedback.remove();
     }
     render();return Object.freeze({render,request,destroy});
   }
