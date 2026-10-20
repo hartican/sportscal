@@ -1,6 +1,20 @@
 # CTO delivery programme — authoritative current queue
 
-## Current release checkpoint — 20 October2026,575 live but unaccepted
+## Current release checkpoint — 20 October 2026, 576 live but unaccepted
+
+App 576 / `6876cb612f56b1b6f8f2001cceb24b8e1d0f06e7` is READY on three production aliases with five matching public files and an exact 1,883-file package. [Workflow 39375483135](https://github.com/hartican/sportscal/actions/runs/39375483135) passed all 239 safety commands, shared preflights, real Match Centre membership/selected (one fixture) and seven security-header routes. Its required global freshness gate FAILED; the loading repair remains open. No unchanged retry or additional live/database/provider probe follows.
+
+The global fixture bundle received HTTP 200 headers at 2,971.966 ms, then failed to complete its body before the unchanged 3,000 ms deadline (3,007.813 ms diagnostic; HTTP 200/stale:true public body at 4,839.58 ms). Source-health succeeded in 111.159 ms; no parsing/validation/projection ran. This is distinct from 575's no-headers failure. The responsible SQL expression and any candidate gain remain unproven. The additional Supabase/live investigation window stays closed.
+
+Shipped fixes remove the false Today empty notice, retain source-qualified Cricket day/status across views without inventing restart times, add 16 official Championship crests/48 exact viewing entries, preserve exact-start viewing constraints and reuse one lifecycle calculation. The first stylesheet owner, Events/Follow/idle callers and installed cache now agree. Three earlier 576 workflows caught obsolete test assumptions and a real stylesheet revision mismatch before deployment; original commands now pass, all exact corrections are independently reviewed and the failed runs remain retained. Both final 575→576 installed upgrade/offline engine checks pass. Startup is 431,336/431,441 gzip bytes and seven requests.
+
+All 12 A-League clubs/156 fixtures, all 894 Football identities, unrelated 846 Football rows and saved World Cup inputs remain locally exact. Current hosted Follow/search/Schedule, physical-phone/original-profile playback and repeated fresh global/participant reliability remain unverified; dated earlier evidence stays separate. Whole-sport certification remains 0/19 families and 0/3 Football pilots.
+
+Next approved source: Cricket editorial structure/publication from [Rework cricket editorial policy](codex://threads/01a15706-56b3-7992-8f72-6ba8a522ca62), frozen `5668629c`; sample approval/hash evidence received. Reconcile the current layout and budgets, restore the reviewer-found non-Cricket synopsis minimums, record approval and retain existing daily owner/allocation/cadence. No dated sample becomes fresh reporting. Shared global freshness remains a publication blocker. Separately resumed highlights/ratings source `c3170e3e` is frozen and not included; no fresh account/media/quota window is allocated before acceptance. Refresh-wrapper ENOBUFS remains with its separate owner. Root/Audit remains the sole publisher.
+
+[Full 576 delivery and evidence](/Users/jackhartican/Documents/AI/Codex/nothingsport-next-local-fixes-20261020/report.md).
+
+## Previous release checkpoint — 20 October2026,575 live but unaccepted
 
 Exact `4a7dbf9efd12d71a67623014b4393beeabf29aae`, app575, is READY on all three aliases. Workflow[39356368476](https://github.com/hartican/sportscal/actions/runs/39356368476) failed its required global freshness gate after all239 local/cloud safety commands, shared input, live Match Centre3/3 and seven live security routes passed. The current release is not accepted;574's earlier fresh failure also remains retained. No unchanged retry or extra app probe was run.
 
