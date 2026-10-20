@@ -550,9 +550,9 @@ const actionPanelSource = html.match(/function buildEventActionPanel\(ev, option
 assert(!actionPanelSource.includes('setMustWatch') && !html.includes('Add to Must Watch'), "the removed Must Watch action must not remain on cards");
 assert(!/makeActionButton\("Archive"|makeActionButton\("Save"|Mark watched/.test(actionPanelSource), "Archive, Save and Mark watched must be removed from card actions");
 assert(html.includes("function buildEventFeedbackButtons") && html.includes("suggestion-like"), "eligible suggestion feedback must use a compact intrinsic action");
-const spoilerControlSource = html.match(/function buildSpoilerOverrideControl\(ev\)\{[\s\S]*?\n\}/)?.[0] || "";
-assert(spoilerControlSource.includes('visible ? "Hide results" : "Show results"'), "per-event result controls must use Show results and Hide results");
-assert(spoilerControlSource.includes('window.confirm("Show results for this event?")'), "the per-event confirmation must use result language");
+const spoilerControlSource = html.slice(html.indexOf('document.getElementById("homeSpoilerToggle").addEventListener("click", () => {'),html.indexOf('document.getElementById("cancelStandingsRevealBtn").addEventListener'));
+assert(spoilerControlSource.includes('setGlobalSpoilerPreference(false,{notify:true})'), "the active Results toggle must hide results immediately");
+assert(spoilerControlSource.includes('Show results?')&&spoilerControlSource.includes('Keep results OFF')&&spoilerControlSource.includes('setGlobalSpoilerPreference(true,{notify:true})'), "the active Results toggle must retain its explicit reveal confirmation and cancel choice");
 assert(!/Protect event details|Reveal event details/.test(html), "obsolete event-detail protection copy must be removed everywhere");
 assert(html.includes("applyFeedEvents(events, {") && html.includes("publicFeedManifest.sourceVersion"), "paged-feed Refresh must run each public page through the canonical lifecycle rebuild");
 assert(html.includes('id="feedbackForm"'), "Feedback must use a structured SMS form");
@@ -560,8 +560,8 @@ assert(html.includes("Add a competition") && html.includes("Feature request"), "
 assert(html.includes("0437 041 326"), "Feedback UI must identify the configured SMS recipient");
 assert(!html.includes("b.textContent = \"Coming Up\"") && !html.includes("b.textContent = \"PAST\""), "generic future and past status tags must remain removed");
 assert(html.includes('chip.className = `event-timing-state ${timing.key}`') && html.includes('timing.label'), "cards must render the shared Starts Soon, Live Now and Just Finished resolver beside time");
-assert(spoilerControlSource, "an individual spoiler control must exist");
-assert(!/getEventStatus\(ev\)\s*!==\s*["']past["']/.test(spoilerControlSource), "individual spoiler controls must not be limited to past events");
+assert(spoilerControlSource, "the active global Results control must exist");
+assert(!/getEventStatus\(ev\)\s*!==\s*["']past["']/.test(spoilerControlSource), "the active Results control must not be limited to past events");
 
 const publishedFeed = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 const incomingFeed = JSON.parse(fs.readFileSync("feeds/incoming/events.json", "utf8"));

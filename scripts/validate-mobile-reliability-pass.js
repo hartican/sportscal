@@ -37,7 +37,7 @@ assert(fs.existsSync("assets/providers/kayo-sports-negative.svg") && fs.existsSy
 assert(worker.includes("/assets/providers/kayo-sports-negative.svg") && worker.includes("/assets/providers/stan-sport.jpg"), "provider marks must be available in the installed offline shell");
 assert(html.includes('function eventMajorEventId('), "all event routing must share one major-event ID resolver");
 assert(html.includes('secondaryActions.className = "event-card-secondary-actions"'), "Expanded cards keep optional actions in their shared information area");
-assert(html.includes("buildSpoilerOverrideButton") && html.includes("buildCardDisclosureControl") && !html.includes("function buildEventCompactFooter"), "Cards retain Results and native disclosure controls without the retired duplicate footer");
+assert(html.includes("function renderHomeSpoilerToggle()") && html.includes('toggle.setAttribute("aria-label", shown ? "Results ON" : "Results OFF")') && html.includes("buildCardDisclosureControl") && !html.includes("function buildEventCompactFooter"), "The active global Results toggle and native card disclosure remain available without the retired duplicate footer");
 
 assert(html.includes('card.dataset.cardLevel = isMinimised ? "L0" : cardLevelForState(state)'), "Events cards must expose L0, L1 and L2 levels while respecting Minimise");
 assert(html.includes('level: cardLevelForState(state)') && html.includes('MAJOR_EVENTS.phaseTimeline({ ...record, subEvents:visibleMajorEventSubEvents(record) }, nowAEST()'), "Events L0/L1/L2 must show the profile-filtered bounded around-Now timeline and complete two-day L2 window");
