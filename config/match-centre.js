@@ -127,6 +127,8 @@
   if(!final(e)&&!interrupted(e)&&!['live','in-progress','in_progress','ongoing','abandoned','cancelled','canceled'].includes(e.status))return {home:null,away:null};
   const pair=pairedScore(e);return {home:pair?Number(pair.home.score):null,away:pair?Number(pair.away.score):null};
  }
+ // Day proof keeps its complete accepted identity through status-only receipts.
+ const dayIdentityKeys=['sport','homeParticipantId','awayParticipantId','startTimeUtc','gender'];
  // Keep the independent score/status clocks through status-only receipts.
  function observation(prior,next){
   if(!prior)return next;
@@ -135,7 +137,7 @@
   if(settled(prior)&&!settled(next)||Number.isFinite(stamp(prior))&&(!Number.isFinite(stamp(next))||stamp(next)<stamp(prior)))return {...prior,stale:true};
   const hasScore=s=>s&&(s.home!=null||s.away!=null||s.innings?.length||s.sets?.length||s.games||s.golf||s.racing||s.classification?.length);
   const sameIdentity=id(prior)&&id(prior)===id(next)&&['sport','homeParticipantId','awayParticipantId'].every(key=>prior[key]==null||next[key]==null||prior[key]===next[key]);
-  if(sameIdentity&&Object.hasOwn(prior,'matchDay')&&['startTimeUtc','gender'].every(k=>!Object.hasOwn(next,k)||next[k]===prior[k]||k==='startTimeUtc'&&Number.isFinite(Date.parse(prior[k]))&&Date.parse(next[k])===Date.parse(prior[k]))&&!Object.hasOwn(next,'matchDay'))next={...dayFields(prior),...Object.fromEntries(['startTimeUtc','gender'].filter(k=>Object.hasOwn(prior,k)).map(k=>[k,prior[k]])),...next};
+  if(sameIdentity&&Object.hasOwn(prior,'matchDay')&&dayIdentityKeys.every(k=>!Object.hasOwn(next,k)||next[k]===prior[k]||k==='startTimeUtc'&&Number.isFinite(Date.parse(prior[k]))&&Date.parse(next[k])===Date.parse(prior[k]))&&!Object.hasOwn(next,'matchDay'))next={...dayFields(prior),...Object.fromEntries(dayIdentityKeys.filter(k=>Object.hasOwn(prior,k)).map(k=>[k,prior[k]])),...next};
   const scoreAt=Date.parse(next.scoreCheckedAt||''),priorScoreAt=Date.parse(prior.scoreCheckedAt||'');
   const newerScoreReceipt=Number.isFinite(scoreAt)&&(!Number.isFinite(priorScoreAt)||scoreAt>priorScoreAt);
   // An interruption-only receipt cannot erase the last score or renew its
