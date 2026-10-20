@@ -55,6 +55,8 @@ AS $function$
   from public.nothingsports_fixture_sources src
   where exists(select 1 from candidates k where k.source_id=src.source_id)
  ), clock_inputs as materialized (
+  -- Array order: score fact, base score fact, status fact, base status fact,
+  -- score receipt, status receipt. Parse values once; preserve each fallback.
   select k.source_id,k.fixture_id,array[s.score->>'scoreCheckedAt',c.fixture->>'scoreCheckedAt',s.score->>'statusCheckedAt',c.fixture->>'statusCheckedAt',r.receipts->c.fixture_id->>'s',r.receipts->c.fixture_id->>'t'] raw
   from candidates k join public.nothingsports_fixture_current c using(source_id,fixture_id)
   left join public.nothingsports_live_scores s using(source_id,fixture_id)
@@ -65,15 +67,15 @@ AS $function$
  ), patches as materialized (
   select i.source_id,i.fixture_id,jsonb_build_object(
    'fixtureObservationSchema','fixture-observations.v1',
-   'scoreFactObservedAt',coalesce(s.stamp,b.stamp),'statusFactObservedAt',coalesce(t.stamp,u.stamp),
-   'scoreCheckedAt',coalesce(r.stamp,s.stamp,b.stamp),'statusCheckedAt',coalesce(v.stamp,t.stamp,u.stamp)) patch
+   'scoreFactObservedAt',coalesce(score_fact.stamp,base_score_fact.stamp),'statusFactObservedAt',coalesce(status_fact.stamp,base_status_fact.stamp),
+   'scoreCheckedAt',coalesce(score_receipt.stamp,score_fact.stamp,base_score_fact.stamp),'statusCheckedAt',coalesce(status_receipt.stamp,status_fact.stamp,base_status_fact.stamp)) patch
   from clock_inputs i
-  left join parsed_clocks s on s.value=i.raw[1]
-  left join parsed_clocks b on b.value=i.raw[2]
-  left join parsed_clocks t on t.value=i.raw[3]
-  left join parsed_clocks u on u.value=i.raw[4]
-  left join parsed_clocks r on r.value=i.raw[5]
-  left join parsed_clocks v on v.value=i.raw[6]
+  left join parsed_clocks score_fact on score_fact.value=i.raw[1]
+  left join parsed_clocks base_score_fact on base_score_fact.value=i.raw[2]
+  left join parsed_clocks status_fact on status_fact.value=i.raw[3]
+  left join parsed_clocks base_status_fact on base_status_fact.value=i.raw[4]
+  left join parsed_clocks score_receipt on score_receipt.value=i.raw[5]
+  left join parsed_clocks status_receipt on status_receipt.value=i.raw[6]
  ), projected as materialized (
   select c.source_id,c.fixture_id,c.identity_keys,
    case when jsonb_typeof(base)='object' and (s.score is null or jsonb_typeof(s.score)='object')
