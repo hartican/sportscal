@@ -1,6 +1,6 @@
 # Global fixture transport — 21 October 2026
 
-Status: prepared; not yet applied or published. Root remains the sole SQL executor and publisher. Global reliability is still failed, not accepted.
+Status: applied once on20 October19:32 UTC from bab12803; application publication and repeated fresh public acceptance remain pending. Root remains the sole SQL executor and publisher. Global reliability is still failed, not accepted.
 
 ## Problem and measured mechanism
 
@@ -35,3 +35,7 @@ After exact contract preflight and one guarded application, exercise the real ne
 - [PostgreSQL17 CREATE VIEW and security_invoker](https://www.postgresql.org/docs/17/sql-createview.html)
 - [PostgREST tables and views](https://docs.postgrest.org/en/stable/references/api/tables_views.html)
 - [PostgREST function response formats](https://postgrest.org/en/v12/references/api/functions.html)
+
+## Guarded application checkpoint
+
+Both independent source axes cleared bab12803; explicit PostgreSQL17/18 full suites and19 affected checks passed. The production migration applied once. Its row reader6e6a06e0ca5a3206a138cb88a400e84b, all six unchanged function contracts, D7 generated expression, service-only invoker view and zero pending index validations were checked exactly. The actual service-role PostgREST view frame completed in2132.502 ms with0 temporary reads/599 writes at the unchanged three-second limit. View definition digest:fbc28299a5bf25428b286adc5ee2e0da. This one SQL sample is not repeated HTTP acceptance. No app publication or deployment has occurred at this checkpoint.

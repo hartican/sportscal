@@ -412,3 +412,5 @@ The nearby-match SQL cost remains qualified: the retained actual scalar wrapper 
 ### 21 October 2026 — current snapshot transport checkpoint
 
 The applied9b reader still failed its third fresh public round; release remains blocked. Prepared next slice: a service-only computed view removes the global RPC whole-result spool while keeping the same complete live query and original clocks. Local full-frame work/equality and one bounded cloud read-only frame support preparation; they do not prove reliable public loading. No new app publication, purchase, scheduler, timeout/memory increase or Follow restoration has occurred. Root remains the single publisher. [Scope, evidence and acceptance](quality/global-snapshot-view-transport-2026-10-21.md).
+
+Snapshot transport application checkpoint: bab12803 passed both source axes, full PostgreSQL17/18 suites and19 affected checks. The guarded computed-view migration applied once at19:32 UTC; exact contracts passed and its actual full view frame completed in2132.502 ms. Publication and repeated fresh public acceptance remain pending; prior failures remain failures.
