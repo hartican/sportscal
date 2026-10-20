@@ -35,11 +35,13 @@ if(process.env.POSITION_PENDING_REHEARSAL==='1')for(const entry of inspector.sta
   await page.getByRole('button',{name:'Reveal standings',exact:true}).click();
   await page.locator('#confirmStandingsRevealBtn').click();
   await page.locator('.code-inspector-standing-row').first().waitFor();
-  assert.equal(await page.locator('.code-inspector-standing-row').count(),92);
+  assert.equal(inspector.standings.filter(row=>row.competitionId!=='competition:australian-championship').length,92);
+  assert.equal(inspector.standings.filter(row=>row.competitionId==='competition:australian-championship').length,16);
+  assert.equal(await page.locator('.code-inspector-standing-row').count(),108);
   const expectedPositions=inspector.standings.map(e=>`${e.rankPending?'Pending ·':`${e.sharedRank?'Joint ':''}${e.rank}.`} ${e.displayName}`).sort();
   const displayedPositions=await page.locator('.code-inspector-standing-row strong').allTextContents();
   assert.deepEqual(displayedPositions.sort(),expectedPositions,'Schedule preserves every shared/pending position beside its sourced team');
-  const expectedNotes=[...new Map(inspector.standings.map(e=>[e.competitionId,e.tableNote])).values()].filter(Boolean);
+  const expectedNotes=[...[...new Map(inspector.standings.filter(e=>e.competitionId!=='competition:australian-championship').map(e=>[e.competitionId,e.tableNote])).values()],...['A','B','C','D'].map(group=>inspector.standings.find(e=>e.competitionId==='competition:australian-championship'&&e.groupId===group)?.tableNote)].filter(Boolean);
   assert.deepEqual((await page.locator('.standings-source-note').allTextContents()).sort(),expectedNotes.sort(),'all source explanations remain visible, including shared/pending EPL rules');
   assert((await page.locator('.standings-source-note').allTextContents()).some(note=>/Provisional.*community/.test(note)));
   await page.locator('.code-inspector-standing-row').first().scrollIntoViewIfNeeded();

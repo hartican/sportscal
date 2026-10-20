@@ -20,7 +20,13 @@ for(const folder of ['code-inspector','follow-schedule']){
  const epl=data.standings.filter(row=>row.competitionId==='competition:premier-league-2026-27');
  assert.equal(epl.length,20);
  assert(epl.every(row=>row.asOf&&Number.isFinite(row.ladderPoints)), 'EPL table remains dated');
- assert.equal(data.standings.length,92,'only the three reviewed Football tables enter this projection');
+ const retainedGroups=data.standings.filter(row=>row.competitionId==='competition:australian-championship');
+ const existingTables=data.standings.filter(row=>row.competitionId!=='competition:australian-championship');
+ assert.equal(existingTables.length,92,'the three existing reviewed Football tables retain all rows');
+ assert.deepEqual([...new Set(existingTables.map(row=>row.competitionId))].sort(),['competition:premier-league-2026-27','competition:uefa-champions-league','competition:uefa-europa-league'].sort());
+ assert.equal(retainedGroups.length,16);assert.equal(data.standings.length,108);
+ assert.deepEqual([...new Set(retainedGroups.map(row=>row.groupId))].sort(),['A','B','C','D']);
+ for(const group of ['A','B','C','D'])assert.equal(retainedGroups.filter(row=>row.groupId===group).length,4,'Retained groups cannot become a single league-wide ranking');
 }
 console.log('Football: 380 stable fixtures, 38 sourced matchweeks, dated 20-club table and unknown-round fallback passed.');
 
