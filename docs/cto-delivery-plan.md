@@ -1,5 +1,17 @@
 # CTO delivery programme — authoritative current queue
 
+## Current release checkpoint — 20 October2026,575 live but unaccepted
+
+Exact `4a7dbf9efd12d71a67623014b4393beeabf29aae`, app575, is READY on all three aliases. Workflow[39356368476](https://github.com/hartican/sportscal/actions/runs/39356368476) failed its required global freshness gate after all239 local/cloud safety commands, shared input, live Match Centre3/3 and seven live security routes passed. The current release is not accepted;574's earlier fresh failure also remains retained. No unchanged retry or extra app probe was run.
+
+The new diagnostic isolates the global failure: source health completed in116.77ms; the fixture bundle reached its original3,000ms deadline without HTTP headers (3,007.81ms total). Parsing and projection had not started. A separate actual-function EXPLAIN used2,935.788ms, leaving almost no network headroom. Its receipt predates this global read by at least14.727s, so it was not concurrently running during that failure. The specific expensive expression and any candidate gain remain unverified. Supabase is explicitly paused; that four-call investigation closed after two read-only calls, no DDL/candidate run/write/provider operation.
+
+The compact controls, Results-preserving unused-code removal and installed Schedule-index retention are live. Native Chromium/WebKit574→575 upgrade/offline checks passed; startup431,125/431,441gzip bytes and seven requests. All Football/Netball/Follow/Schedule facts, twelve A-League clubs/156fixtures and World Cup correction bytes remain exact574. Additional575 hosted Follow/search/Schedule and repeated fresh acceptance were not run after the probe pause. Original-profile playback/phone evidence stays separately dated.
+
+Next local preparation: the frozen parent-owned two-file lifecycle CPU slice; Root's named Today fallback seam; source-qualified Cricket hierarchy/date-range corrections with the existing MC owner; Championship logos/viewing with the existing Grill owner. No competing publisher or automatic editorial rewrite. The user-created[Rework cricket editorial policy](codex://threads/01a15706-56b3-7992-8f72-6ba8a522ca62) remains grill-me→planning→human approval. No hardcoded next resumption from an original start clock. Routine scoped implementation needs no repeated confirmation; explicit pauses and required release gates remain.
+
+[Detailed575 receipt](/Users/jackhartican/Documents/AI/Codex/nothingsport-compact-integration-20261020/report.md).
+
 **20 October 2026.** Retain the existing stack, free-service limits and one release owner. Hosting is responding after a courtesy unblock; no paid change is authorised. This file owns the order of work. The [prior queue and all dated delivery notes](cto-delivery-history-before-2026-10-16-priority.md) are preserved as history; older proposed order and shell numbers are superseded.
 
 ## Live checkpoint —20 October2026, app 574 normal workflow passed; repeated acceptance FAILED
