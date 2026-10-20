@@ -75,6 +75,25 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   const {returns:rowReturn,proretset,prorows,args,digest:rowDigest,...rowAttributes}=rowContract;
   assert.equal(rowReturn,'json');assert.equal(proretset,true);assert.equal(prorows,1);assert.deepEqual(rowAttributes,originalAttributes);assert.equal(args,(await db.query('select pg_get_function_arguments($1::regprocedure) args',[wireSignature])).rows[0].args);
   await db.exec('begin;');await assert.rejects(db.exec(rowMigration),/already exists/);await db.exec('rollback;');
+  const compactMigration=fs.readFileSync('supabase/migrations/20261020153215_compact_global_fixture_read_inputs.sql','utf8');
+  const beforeCompactContracts=await retainedContracts(),beforeCompactAttributes=wireAttributes;
+  for(const mutation of [
+   'alter function public.nothingsports_read_current_fixture_bundle_json(text[]) immutable',
+   'alter function public.nothingsports_read_current_fixture_bundle_json_rows(text[]) rows 2',
+   'alter function public.nothingsports_project_fixture_observations(jsonb,jsonb,jsonb,timestamptz) immutable',
+   'alter function public.nothingsports_fixture_observation_time(text) strict',
+   'grant execute on function public.nothingsports_read_current_fixture_bundle_json(text[]) to public',
+   'grant execute on function public.nothingsports_read_current_fixture_bundle_json(text[]) to anon',
+   'create role qa_unexpected_compact_grantee;grant execute on function public.nothingsports_read_current_fixture_bundle_json(text[]) to qa_unexpected_compact_grantee',
+   'revoke execute on function public.nothingsports_read_current_fixture_bundle_json(text[]) from service_role'
+  ]){
+   await db.exec('begin;'+mutation+';');await assert.rejects(db.exec(compactMigration),/differ from reviewed baseline|permissions differ/);await db.exec('rollback;');
+   assert.deepEqual(await retainedContracts(),beforeCompactContracts,'Refused changes roll back without modifying any retained reader/helper');
+  }
+  await db.exec('begin;'+compactMigration+'commit;');
+  assert.deepEqual(await retainedContracts(),beforeCompactContracts,'Only the global JSON scalar changes; selected/near/rows/projector/time helper and ACLs stay exact');
+  assert.deepEqual((await db.query(`select p.provolatile,p.prosecdef,p.proparallel,p.proleakproof,p.proconfig,p.proacl::text as acl,l.lanname,p.prorettype::regtype::text as returns from pg_proc p join pg_language l on l.oid=p.prolang where p.oid=$1::regprocedure`,[wireSignature])).rows[0],beforeCompactAttributes,'Replacement keeps exact function attributes and grants');
+  await db.exec('begin;');await assert.rejects(db.exec(compactMigration),/differ from reviewed baseline/);await db.exec('rollback;');
   const aggregationEquivalent=async(ids,expectedCount,expectedComplete=true)=>{
    const r=(await db.query(`with old as materialized(select public.qa_reference_global_aggregation($1::text[]) v), current as materialized(select public.nothingsports_read_current_fixture_bundle_json($1::text[])::jsonb v), emitted as materialized(select value from public.nothingsports_read_current_fixture_bundle_json_rows($1::text[]) t(value)), payload as materialized(select json_agg(value) wire,count(*) row_count from emitted)
     select old.v=current.v and old.v=(payload.wire::jsonb->0) as same,payload.row_count,json_array_length(payload.wire) array_length,jsonb_array_length(current.v->'rows') as n,current.v->'complete'='true'::jsonb as complete,current.v->>'schemaVersion' as schema from old,current,payload`,[ids])).rows[0];
@@ -187,6 +206,17 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   await db.exec('set role service_role;');await aggregationEquivalent(null,1);
   assert.equal((await db.query(`select (f->>'scoreCheckedAt')::timestamptz=$1::timestamptz and (f->>'scoreFactObservedAt')::timestamptz=$2::timestamptz and (f->>'firstConfirmedCompleteAt')::timestamptz=$2::timestamptz and f->'statusCheckedAt'='null'::jsonb and f->'awayScore'='null'::jsonb as exact from (select v->'rows'->0->'fixture' f from (select public.nothingsports_read_current_fixture_bundle_json(null)::jsonb v) q) q`,[edgeCheck,edgeAt])).rows[0].exact,true,'Receipt/fact/first-completion, missing/invalid/no-zone/future clocks and explicit null scores survive exactly');
   await db.exec('reset role;');
+  // Malformed maps must keep the original two text-key JSON operators: numeric
+  // fixture IDs must never turn an array into an indexed receipt lookup.
+  await db.query(`insert into public.nothingsports_fixture_current(source_id,fixture_id,identity_keys,fixture,content_hash) values('aggregation-z','0',array['0'],jsonb_build_object('id','0','date',$1::text),'edge')`,[day]);
+  for(const map of [null,[],[{s:edgeCheck}],0,'malformed',{0:{s:edgeCheck,t:edgeAt}}]){
+   await db.query(`update public.nothingsports_fixture_sources set discovery_report=jsonb_build_object('_fixtureObservations',$1::jsonb) where source_id='aggregation-z'`,[JSON.stringify(map)]);
+   await db.exec('set role service_role;');await aggregationEquivalent(null,2);await aggregationEquivalent(['0'],1);await db.exec('reset role;');
+  }
+  await db.exec("delete from public.nothingsports_fixture_current where source_id='aggregation-z';update public.nothingsports_fixture_sources set discovery_report='{}' where source_id='aggregation-z';");
+  const compactDefinition=(await db.query('select pg_get_functiondef($1::regprocedure) definition',[wireSignature])).rows[0].definition;
+  await db.exec('begin;'+compactDefinition.replace('r.receipts->c.fixture_id',"'{}'::jsonb"));
+  await assert.rejects(aggregationEquivalent(null,1),/Whole ordered JSONB output/,'Equivalence detects a lost original receipt');await db.exec('rollback;');
   await db.query(`insert into public.nothingsports_fixture_current(source_id,fixture_id,identity_keys,fixture,content_hash)
    select case when i%2=0 then 'aggregation-a' else 'aggregation-z' end,'ordered:'||lpad(i::text,5,'0'),array['ordered:'||lpad(i::text,5,'0')],jsonb_build_object('id','ordered:'||i,'date',$1::text,'status','scheduled','storyline',jsonb_build_object('stakes',4),'subEvents',jsonb_build_array(jsonb_build_object('id','rubber:'||i))),'edge' from generate_series(1,4999) i`,[day]);
   await db.exec('set role service_role;');await aggregationEquivalent(null,5000,true);
@@ -208,7 +238,7 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   }
   await db.exec('set role service_role;');await aggregationEquivalent(null,5001,false);await db.exec('reset role;');
   assert.equal((await db.query('select md5(pg_get_functiondef($1::regprocedure)) digest',[globalSignature])).rows[0].digest,'ef1658b2eb58a376f368ede88730ad43');
-  assert.equal((await db.query('select md5(pg_get_functiondef($1::regprocedure)) digest',[wireSignature])).rows[0].digest,'a15bc809eaf15601a52855cb667f7b9f');
+  assert.notEqual((await db.query('select md5(pg_get_functiondef($1::regprocedure)) digest',[wireSignature])).rows[0].digest,'a15bc809eaf15601a52855cb667f7b9f','Compact scalar is installed in the actual reader used throughout the regression');
   console.log(JSON.stringify({schemaVersion:'global-json-row-regression.v1',rowDigest,rowsHint:1,oneRowCardinality:true,exactSQLNumericEquality:true,oldDependenciesUnchanged:true,productionCalls:0}));
   console.log('Global aggregation: exact SQL numerics/whole-output NULL, empty, alias, selected, 0/1/5000/5001, clocks/nulls/Unicode, replay/mismatch/security guards and unchanged ACL passed.');
   console.log('Global/near transfer beyond 1000 rows, preserved current membership and reschedules, uncertain clocks, parent/detail isolation, observations/aliases/rubbers, score-overlay retention, two-read budget, degraded fallback, service-only access and complete SQL equivalence passed.');

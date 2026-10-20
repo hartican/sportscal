@@ -1,5 +1,13 @@
 # CTO delivery programme — authoritative current queue
 
+## Superseding release and snapshot checkpoint — 21 October2026
+
+Production579/6b42d58b is **deployed, acceptance FAILED**, following workflow39438756627's actual global fixture-bundle timeout; security headers and partial hosted score/A-League proof passed and do not override it. The preceding39435978609 failed before deployment on a historical Impact-inbox test clock; its reviewed test-only correction is retained. Cricket580 is locally adapted on that correction at9a75f87b, with eight affected/native checks, both installed/offline engine upgrades and qualified adaptation review complete; it is unpublished.
+
+Root has prepared one guarded scalar-only snapshot repair after rejecting a slower first variant. Full SQL equality and corruption-negative tests pass; the revised modelled frame cuts local temporary writes74.6%, with a modest timing gain. Production cause/latency improvement still requires guarded application and unchanged normal exact-SHA acceptance. No timeout, memory, membership, role, scheduler or account rule changes. [Repair evidence and exact remaining gates](quality/global-snapshot-compact-inputs-2026-10-21.md).
+
+CPU feasibility is terminal NO-GO: the final bounded579 pairs changed direction and candidate median was0.54%worse, so no product adoption or further loop. Follow recovery remains PAUSED_UNRESOLVED with zero example additions/restorations. Existing natural canonical observation remains with its coordinator; latest two recorded scheduled runs failed and no manual refresh is allocated.
+
 ## Approved Cricket editorial adaptation — 21 October 2026, local580
 
 The approved/reviewed held577 delta is now adapted locally on score579/b08b22af while its one serialized production workflow[39435978609](https://github.com/hartican/sportscal/actions/runs/39435978609) runs. No second publisher/dispatch. All34 authored/test paths match held746 bytes, except the two existing579 cache bindings preserved in venue-panel; twelve protected account/score/clock/test/public source-data paths remain exact579 bytes. Old577 generated files and queue were excluded. Root regenerated580 and retained existing startup/cache limits; eight affected checks and eight native editorial contexts pass. Two bounded adaptation reviews, installed upgrade, normal exact-SHA CI, actual built private-source boundaries and hosted acceptance remain required. Dated samples remain regression evidence, not fresh reporting. Existing daily editorial instruction application remains a separate queued action after policy acceptance. [Exact adaptation evidence](/Users/jackhartican/Documents/AI/Codex/cricket-editorial-integration-20261021/exact-adaptation-verification.json).
