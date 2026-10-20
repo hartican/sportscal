@@ -29,7 +29,7 @@ const MAJOR_EVENTS_PATH = path.resolve("data/major-events.v1.json");
 function readJson(filePath){ return JSON.parse(fs.readFileSync(filePath, "utf8")); }
 function writeJson(filePath, value){ fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`); }
 
-function projectionConforms(event, projection, indexes, now=new Date()){
+function projectionConforms(event, projection, indexes){
   const actual = event.editorialNarrative;
   if (!actual) return false;
   const expected = editorialNarrativeFor(projection, indexes);
@@ -41,12 +41,11 @@ function projectionConforms(event, projection, indexes, now=new Date()){
   for (const key of ["formCopy", "closingCopy", "consequence", "sentiment", ...(completed ? [] : ["hookSpoilerOn", "synopsisSpoilerOn"])]){
     if (!isDeepStrictEqual(actual[key], expected[key])) return false;
   }
-  if ((event.editorialPreview?.sourceUrl||'') !== (indexes.sources.get(projection.sourceIds[0])?.url||'')) return false;
-  const projected = applyToFeedEvent(event, projection, indexes, now);
+  if (event.editorialPreview?.sourceUrl !== indexes.sources.get(projection.sourceIds[0])?.url) return false;
+  const projected = applyToFeedEvent(event, projection, indexes);
   for (const key of ['hookSpoilerOff','hookSpoilerOn','synopsisSpoilerOff','synopsisSpoilerOn','arcStage','researchDepth']){
     if (event.storyline?.[key] !== projected.storyline?.[key]) return false;
   }
-  if(require('../config/cricket-editorial-policy').hasPolicy(projection))return event.selectedSentence===projected.selectedSentence&&event.fullSpiel===projected.fullSpiel;
   if (!completed) return event.selectedSentence === projection.hook && event.fullSpiel === projection.synopsis;
   const lifecycle = require('../config/editorial-lifecycle');
   if (actual.resultResearchRequired || actual.resultSignature !== lifecycle.signature(event)) return false;
@@ -63,9 +62,9 @@ function laterReview(current, researched){
   return Number.isFinite(Date.parse(current)) && (!Number.isFinite(Date.parse(researched)) || Date.parse(current) >= Date.parse(researched)) ? current : researched;
 }
 
-function reconcileFeedEvent(event, projection, indexes, now=new Date()){
+function reconcileFeedEvent(event, projection, indexes){
   if (require('../config/editorial-maintenance').protectedFixture(event) || projectionConforms(event, projection, indexes)) return event;
-  const projected = applyToFeedEvent(event, projection, indexes, now);
+  const projected = applyToFeedEvent(event, projection, indexes);
   // Reconciliation owns commentary, not sporting facts, result evidence,
   // source observations, Follow state or already staged post-match writing.
   return {

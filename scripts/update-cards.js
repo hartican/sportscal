@@ -330,8 +330,6 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-tennis-feed-parents.js"],
   ["scripts/build-app-shell-runtime.js"],
   ["scripts/validate-editorial-narratives.js"],
-  ["scripts/validate-cricket-editorial-policy.js"],
-  ["scripts/validate-cricket-editorial-inventory.js"],
   ["scripts/build-app-shell-runtime.js", "--check"],
   ["scripts/validate-sport-hierarchy.js"],
   ["scripts/validate-ui-reliability.js"],

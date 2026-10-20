@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Account baseline consumption and consistent highlights clock — 20 October 2026
+
+Consume the existing startup baseline immediately after a matching account state/server baseline is accepted, before optional metadata hydration. This moves an existing boundary; it adds no store, state owner, request, listener, retry, deadline, import or account-restoration policy. The same actual SDK/bootstrap regression must preserve each synthetic account's follows, pins, exclusions and OFF choices through interrupted and repeated switching. Real-account recovery requires its own identity-bound evidence and authorisation.
+
+The existing selected-fixture handler passes its already injected clock to the initial published highlights library as well as later snapshot projection. A library must not expire a valid test-time receipt using an unrelated wall clock before the route applies its clock. The existing highlights gate now uses a controlled direct receipt and exercises expired/future receipts through the actual handler; catalogue validation remains separate. No expiry rule, provider request, quota, cache lifetime, scheduler, SQL budget or snapshot deadline changes. This closes a reproduced release-check clock mismatch; it is not a snapshot-latency or production playback claim.
+
 ## Preserve qualified Cricket day metadata through existing reads — 20 October 2026
 
 The existing Match Centre compact/observation and Feed score paths preserve a supplied match day and its source URL/original check on the same accepted identity. Omitted metadata can retain qualified last-good proof; explicit unknown or unqualified replacement cannot borrow it. A contradictory or explicitly unknown start/gender clears inherited day proof; a status-only receipt that omits those fields may retain it, together with the original accepted sport, participants, start and gender for later comparisons. This retention applies only when prior day metadata exists; the existing score-identity path is unchanged. This is additive display metadata, not a new source observation or inferred sporting clock.

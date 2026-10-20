@@ -11,7 +11,8 @@ async function main(){
     assert.equal(url.pathname,'/api/fixtures');assert.equal(url.searchParams.get('mode'),'highlight');assert.equal(url.searchParams.get('ids'),event.canonicalEventId);
     assert(action.highlightsTopResult);assert.equal(action.highlightsLabel,'Watch highlights');
   }
-  const direct=require('../data/canonical/fixture-highlights.v1.json').events.find(e=>e.highlights).highlights;
+  const direct={schemaVersion:contract.SCHEMA_VERSION,provider:'youtube',videoId:'RPmOiRHHgX8',url:'https://www.youtube.com/watch?v=RPmOiRHHgX8',channelId:require('../lib/fixture-highlights').channels[0].id,availability:'public',regionStatus:'allowed',standalone:true,publishedAt:'2026-10-13T07:16:25Z',verifiedAt:'2026-10-14T07:59:00Z'};
+  assert(contract.valid(direct,now),'the controlled direct receipt must be valid at this scenario clock, independently of the changing catalogue');
   assert.equal(contract.viewing({...fixture,highlights:direct},now).webUrl,'/api/fixtures?mode=highlight&ids='+encodeURIComponent(fixture.canonicalEventId));
   const diagnostics=[];
   let reserve=0,grants=0,provider=0,cache=null,fail=false,granted=true,allowCache=true;
@@ -57,6 +58,11 @@ async function main(){
   const live=response();await liveHandler(req,live);assert.equal(live.code,404);
   const approved=require('../lib/live-fixture-handler').createLiveFixtureHandler({publishedFixtures:()=>[{...fixture,highlights:direct}],read:async()=>({sources:[],revision:'controlled',stale:false}),clock:()=>now,resolveHighlights:async event=>{assert.equal(event.highlights.videoId,direct.videoId);return {url:direct.url,selection:'verified-match'};}});
   const approvedRes=response();await approved(req,approvedRes);assert.equal(approvedRes.headers.Location,direct.url);assert.equal(approvedRes.headers['X-Highlights-Selection'],'verified-match');
+  for(const publishedAt of [new Date(+now-contract.MAX_UPLOAD_AGE_MS-1).toISOString(),new Date(+now+1).toISOString()]){
+    let checked=0;
+    const rejected=require('../lib/live-fixture-handler').createLiveFixtureHandler({publishedFixtures:()=>[{...fixture,highlights:{...direct,publishedAt}}],read:async()=>({sources:[],revision:'controlled',stale:false}),clock:()=>now,resolveHighlights:async event=>{assert.equal(event.highlights,null,'an expired or future receipt stays unavailable at the same injected clock');checked++;return {url:'https://www.youtube.com/watch?v=UNOFFICIAL1',selection:'youtube-top-result'};}});
+    const res=response();await rejected(req,res);assert.equal(res.code,302);assert.equal(res.headers['X-Highlights-Selection'],'youtube-top-result');assert.equal(checked,1);
+  }
   const broken=require('../lib/live-fixture-handler').createLiveFixtureHandler({publishedFixtures:()=>[fixture],read:async()=>({sources:[],revision:'controlled',stale:false}),clock:()=>now,resolveHighlights:async()=>{throw Error('private credentials');}});
   const unavailable=response();await broken(req,unavailable);assert.equal(unavailable.code,503);assert.match(unavailable.body,/Highlights unavailable/);assert(!unavailable.body.includes('private credentials'));assert(!unavailable.headers.Location);
   assert.equal(JSON.stringify(fixture),original,'resolution cannot mutate sporting facts or personal state');

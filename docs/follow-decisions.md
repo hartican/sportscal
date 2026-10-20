@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Consume an accepted account's startup baseline before optional metadata — 20 October 2026
+
+Once the matching saved account state and server baseline are accepted, consume the existing one-shot startup snapshot before publishing signed-in state or awaiting optional metadata. A delayed or failed metadata read cannot turn the previous account's accepted preferences into local edits for its replacement. Keep genuine same-session edits, explicit empty/absent preference handling, exclusions, pins, Results and reminder OFF choices. The existing entirely absent-record import branch is unchanged; this is no new account-transfer, union or restore policy.
+
+Regression: `validate-cross-device-sync.js` runs the actual Account submit/custom SDK/bootstrap through eight synthetic switching/failure/control cases, alongside the existing conflict and lifecycle cases. These local proofs do not establish the cause or intended historical choices of any real account. The urgent incident release isolates this repair from held editorial577 work; current-state backups, a separately reported unwanted saved fixture marker and any actual account correction remain distinct evidence.
+
 ## Cricket source day and pause hierarchy — 20 October 2026
 
 Show the source-qualified Test day above a larger bold phase, including Stumps, across Feed, Follow Schedule and Match Centre. Omit the visible multi-day range from compact/minimised timing and duplicated expanded metadata; keep original dates and one clearly labelled original schedule in details and accessible descriptions. The first-match schedule is not a confirmed next resumption. Missing day proof stays unknown and elapsed dates cannot manufacture a day.

@@ -4,7 +4,6 @@ const { spoilerContractIssues } = require("./storyline-card-rules");
 const canonicalSportsTaxonomy = require(path.resolve(__dirname, "../../config/canonical-sports-taxonomy.js"));
 const sourceTrust = require(path.resolve(__dirname, "../../config/source-trust.js"));
 const surfNotes = require('./reviewed-calendar-notes');
-const cricket=require('../../config/cricket-editorial-policy');
 
 const LEGACY_SPORT_KEYS = new Set([
   "wimbledon",
@@ -151,7 +150,6 @@ function validateFeed(feed) {
   const eventIds = new Set();
   (feed.events || []).forEach((event, index) => {
     const prefix = `events[${index}]`;
-    const cricketPolicy=cricket.isCricket(event)&&cricket.hasPolicy(event.editorialNarrative);
     const fixture=event.cardKind==='fixture';
     const calendarNote=surfNotes.isReviewedNote(event);
     if(event.calendarNote && !calendarNote)errors.push(`${prefix}.calendarNote must be a reviewed unconfirmed note without sporting or viewing claims.`);
@@ -159,7 +157,6 @@ function validateFeed(feed) {
     const windowKnown=isDate(event.schedulingWindow?.startsOn)&&isDate(event.schedulingWindow?.endsOn);
     const required = fixture?["id","eventId","key","name"]:["id", "eventId", "sport", "key", "name", "displayTitleCompact", "date", "time", "broadcaster", "expected", "liveWindow", "selectedSentence", "fullSpiel", "sourceName", "sourceUrl", "sourceCheckedAt"];
     required.forEach(field => {
-      if(cricketPolicy&&['selectedSentence','fullSpiel'].includes(field))return;
       if((field==='time' && dateOnlyWindow)||calendarNote&&['date','time','expected'].includes(field))return;
       if (event[field] === undefined || event[field] === null || event[field] === "") errors.push(`${prefix}.${field} is required.`);
     });
@@ -213,7 +210,7 @@ function validateFeed(feed) {
         });
         if (storyline.arcStage !== undefined && !["preview", "recap"].includes(storyline.arcStage)) errors.push(`${prefix}.storyline.arcStage must be preview or recap.`);
         ["hookSpoilerOff", "hookSpoilerOn", "synopsisSpoilerOff", "synopsisSpoilerOn"].forEach(field => {
-          if (storyline[field] !== undefined && (!cricketPolicy&&!String(storyline[field]).trim() || String(storyline[field]).length > 700)) errors.push(`${prefix}.storyline.${field} must be a non-empty string of 700 characters or fewer.`);
+          if (storyline[field] !== undefined && (!String(storyline[field]).trim() || String(storyline[field]).length > 700)) errors.push(`${prefix}.storyline.${field} must be a non-empty string of 700 characters or fewer.`);
         });
       }
     }
@@ -225,13 +222,12 @@ function validateFeed(feed) {
         if (!["editorial-narrative.v1", "editorial-narrative.v2", "editorial-narrative.v3"].includes(narrative.schemaVersion)) errors.push(`${prefix}.editorialNarrative.schemaVersion must be editorial-narrative.v1, editorial-narrative.v2 or editorial-narrative.v3.`);
         if (!String(narrative.projectionId || "").trim()) errors.push(`${prefix}.editorialNarrative.projectionId is required.`);
         if (!["standard", "featured", "marquee"].includes(narrative.researchTier)) errors.push(`${prefix}.editorialNarrative.researchTier is unsupported.`);
-        if (!cricketPolicy&&!String(narrative.hook || "").trim() || String(narrative.hook || "").length > 180) errors.push(`${prefix}.editorialNarrative.hook must be a non-empty string of 180 characters or fewer.`);
-        if (!cricketPolicy&&["editorial-narrative.v2", "editorial-narrative.v3"].includes(narrative.schemaVersion) && (String(narrative.synopsis || "").trim().length < 80 || String(narrative.synopsis || "").length > 700)) errors.push(`${prefix}.editorialNarrative.synopsis must be 80-700 characters for v2/v3 projections.`);
-        if (!cricketPolicy&&narrative.synopsis !== undefined && (!String(narrative.synopsis || "").trim() || String(narrative.synopsis || "").length > 700)) errors.push(`${prefix}.editorialNarrative.synopsis must be a non-empty string of 700 characters or fewer when present.`);
+        if (!String(narrative.hook || "").trim() || String(narrative.hook || "").length > 180) errors.push(`${prefix}.editorialNarrative.hook must be a non-empty string of 180 characters or fewer.`);
+        if (["editorial-narrative.v2", "editorial-narrative.v3"].includes(narrative.schemaVersion) && (String(narrative.synopsis || "").trim().length < 80 || String(narrative.synopsis || "").length > 700)) errors.push(`${prefix}.editorialNarrative.synopsis must be 80-700 characters for v2/v3 projections.`);
+        if (narrative.synopsis !== undefined && (!String(narrative.synopsis || "").trim() || String(narrative.synopsis || "").length > 700)) errors.push(`${prefix}.editorialNarrative.synopsis must be a non-empty string of 700 characters or fewer when present.`);
         [["threadIds", 1], ["factIds", 1], ["sourceIds", 1], ["dimensions", 1]].forEach(([field, minimum]) => {
-          if (!Array.isArray(narrative[field]) || narrative[field].filter(Boolean).length < (cricketPolicy&&narrative.evidenceMode==='withheld'&&field!=='threadIds'?0:minimum) || new Set(narrative[field]).size !== narrative[field].length) errors.push(`${prefix}.editorialNarrative.${field} must contain unique values.`);
+          if (!Array.isArray(narrative[field]) || narrative[field].filter(Boolean).length < minimum || new Set(narrative[field]).size !== narrative[field].length) errors.push(`${prefix}.editorialNarrative.${field} must contain unique values.`);
         });
-        if(cricketPolicy&&!cricket.complete(narrative))errors.push(`${prefix}.editorialNarrative requires a reviewed cricket evidence outcome.`);
         if (!isDateTime(narrative.researchedAt)) errors.push(`${prefix}.editorialNarrative.researchedAt must be an ISO date-time.`);
         if (narrative.refreshAfter !== undefined && narrative.refreshAfter !== null && !isDateTime(narrative.refreshAfter)) errors.push(`${prefix}.editorialNarrative.refreshAfter must be null or an ISO date-time.`);
         if (!["researched", "source-derived-fallback", ...(fixture?["verified-parent-child-projection"]:[])].includes(narrative.generationMode)) errors.push(`${prefix}.editorialNarrative.generationMode is unsupported.`);
@@ -268,7 +264,7 @@ function validateFeed(feed) {
             if (/\b(?:userId|user_id|profileId|profile_id|persona|rawRatings|ratings|contributors)\b/.test(JSON.stringify(sentiment))) errors.push(`${prefix}.editorialNarrative.sentiment contains private or raw fields.`);
           }
         }
-        if (!cricketPolicy&&narrative.researchTier === "marquee") {
+        if (narrative.researchTier === "marquee") {
           if ((narrative.factIds || []).length < 4) errors.push(`${prefix}.editorialNarrative.factIds needs four facts for marquee coverage.`);
           if ((narrative.sourceIds || []).length < 3) errors.push(`${prefix}.editorialNarrative.sourceIds needs three sources for marquee coverage.`);
           if ((narrative.dimensions || []).length < 3) errors.push(`${prefix}.editorialNarrative.dimensions needs three dimensions for marquee coverage.`);

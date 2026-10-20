@@ -252,6 +252,78 @@ async function validateActualConflictRetry(){
   console.log(`Actual account-sync orchestration: ${scenarios.length} synthetic conflict, consent, late-edit and failure scenarios passed.`);
 }
 
-validateActualConflictRetry().then(() => require("./lib/user-state-account-scope-tests")()).then(() => {
+async function validateAcceptedBootstrapBaseline(){
+  const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+  const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+  const slice=(from,to)=>{const a=html.indexOf(from),b=html.indexOf(to,a);assert(a>=0&&b>a);return html.slice(a,b);};
+  const source=[
+    slice('function invalidateServerStateSyncScope(','\nasync function reconcileCurrentServerState('),
+    slice('function applyServerStatePreservingChanges(','\nfunction queueServerStateSync('),
+    slice('async function reconcileCurrentServerState(','\nfunction syncCurrentServerState('),
+    slice('function syncCurrentServerState(','\nfunction normalizeServerArchiveReferences('),
+    slice('async function hydrateUserMetaSeed(','\nfunction sydneyPartsFromIso('),
+  ].join('\n');
+  const signInMarker='  document.getElementById("accountSignInForm").addEventListener("submit", async event => {';
+  const start=html.indexOf(signInMarker),end=html.indexOf('\n  });\n  appendPreferenceRecoverySettings(body);',start);assert(start>=0&&end>start);
+  const signIn='async function submitSignIn(event){'+html.slice(start+signInMarker.length,end)+'\n}';
+  const clone=value=>JSON.parse(JSON.stringify(value));
+  const state=owner=>({schemaVersion:'user-state.v2',preferences:{theme:'day',preferenceGraph:{entityFollows:[{entityId:'team:synthetic:'+owner,followed:true}],domainPreferences:[],competitionPreferences:[]},followFirst:{startupMeta:{sports:[]}}},profile:{usernameLabel:owner},eventUserState:{['fixture:'+owner]:{addedToFixtures:true,reminderEnabled:false},['excluded:'+owner]:{excluded:true}},eventSpoilerState:{['fixture:'+owner]:false},archivedEvents:[],ratings:{},updatedAt:'2026-10-20T08:00:00Z'});
+  const cases=['uninterrupted','held-meta','failed-meta','failed-state','failed-auth','empty-graph','absent-preferences','deliberate-local'];
+  for(const scenario of cases){
+    const states={A:state('A'),B:state('B'),C:state('C')};
+    if(scenario==='empty-graph')states.B.preferences.preferenceGraph.entityFollows=[];
+    if(scenario==='absent-preferences')states.B.preferences={};
+    const original=clone(states);let device=state('local'),target='A',release,held=false,applied=0;
+    const storage=()=>{const values=new Map();return {getItem:key=>values.get(key)||null,setItem:(key,value)=>values.set(key,String(value)),removeItem:key=>values.delete(key)};};
+    const requests=[],listeners=new Map();
+    const app={module:{exports:{}},AbortController,Event,Response,URLSearchParams,Buffer,structuredClone,setTimeout,clearTimeout,
+      USER_STATE_SYNC:userStateSync,accountIndicatorJourney:null,serverSyncTimer:null,serverStateSyncGeneration:0,serverSyncSequence:Promise.resolve(),serverPersistence:{state:'signedOut',user:null},serverStateBaseline:null,startupSessionStateBaseline:clone(device),
+      userPreferences:device.preferences,currentServerStatePayload:()=>clone(device),emptyServerStatePayload:()=>({}),
+      setServerPersistence:patch=>Object.assign(app.serverPersistence,patch),setPreferenceRecovery(){},setServerStateBaseline:value=>{app.serverStateBaseline={state:clone(value),updatedAt:value.updatedAt};},serverAuthoritativeFixturePins:(_state,local)=>local,clearAcknowledgedFixturePinCommands(){},
+      applyServerState:value=>{device=clone(value);app.userPreferences=device.preferences;applied++;},serverErrorEndsSession:error=>error.code==='invalid_refresh_token',showToast(){},fantasyPreferencesDiffer:()=>false,savePreferences(){throw Error('This fixture does not seed metadata');},console:{warn(){}},
+      FOLLOW_FIRST:{normalizeMeta:value=>value||{sports:[]},applyMetaSeed:preferences=>({changed:false,preferences})},
+      document:{getElementById:id=>({value:id==='accountEmail'?target+'@example.invalid':'synthetic',checked:true})},
+      addEventListener:(name,fn)=>{if(!listeners.has(name))listeners.set(name,[]);listeners.get(name).push(fn);},dispatchEvent:event=>{for(const fn of listeners.get(event.type)||[])fn(event);},
+    };
+    vm.createContext(app);vm.runInContext(fs.readFileSync(path.join(__dirname,'../config/server-sync.js'),'utf8'),app);
+    const token=owner=>'e30.'+Buffer.from(JSON.stringify({sub:owner})).toString('base64url')+'.synthetic';
+    const response=(payload,status=200)=>new Response(JSON.stringify(payload),{status,headers:{'Content-Type':'application/json'}});
+    const row=value=>({schema_version:value.schemaVersion,preferences:value.preferences,profile:value.profile,event_user_state:value.eventUserState,event_spoiler_state:value.eventSpoilerState,archived_events:value.archivedEvents,ratings:value.ratings,updated_at:value.updatedAt});
+    app.serverSyncClient=app.module.exports.createClient({storage:storage(),persistentStorage:storage(),fetchImpl:async(url,options={})=>{
+      const body=options.body?JSON.parse(options.body):{},method=options.method||'GET';
+      const owner=options.headers?.Authorization?JSON.parse(Buffer.from(options.headers.Authorization.split('.')[1],'base64url')).sub:'';
+      requests.push({url,method,owner});
+      if(url==='/api/auth'&&body.action==='password-sign-in'&&target==='A'&&scenario==='failed-auth'&&!held){held=true;return response({error:'synthetic rejected sign-in',code:'auth_bad_credentials'},400);}
+      if(url==='/api/auth')return response(body.action==='password-sign-in'?{session:{access_token:token(target),refresh_token:'synthetic-'+target,expires_in:3600}}:{configured:true});
+      if(url==='/api/user-meta'){
+        if(owner==='A'&&scenario==='failed-meta'&&!held){held=true;throw Error('synthetic offline metadata read');}
+        if(owner==='A'&&['held-meta','empty-graph','absent-preferences'].includes(scenario)&&!held){held=true;return new Promise(resolve=>{release=()=>resolve(response({meta:{sports:[]}}));});}
+        return response({meta:{sports:[]}});
+      }
+      assert.equal(url,'/api/user-state');assert(states[owner]);
+      if(owner==='A'&&scenario==='failed-state'&&!held){held=true;throw Error('synthetic interrupted profile read');}
+      if(method==='PUT'){states[owner]=userStateSync.applyPatch(states[owner],body.patch);states[owner].updatedAt='2026-10-20T08:01:00Z';}
+      return response({user:{id:owner},state:row(states[owner])});
+    }});
+    vm.runInContext(source+'\n'+signIn,app);
+    if(scenario==='deliberate-local'){device.preferences.theme='night';original.A.preferences.theme='night';original.A.updatedAt='2026-10-20T08:01:00Z';}
+    const signInAs=async owner=>{target=owner;await app.submitSignIn({preventDefault(){}});};
+    const first=signInAs('A');
+    if(['held-meta','empty-graph','absent-preferences'].includes(scenario)){
+      for(let i=0;i<100&&!release;i++)await new Promise(resolve=>setTimeout(resolve,1));
+      assert(release,scenario+' reaches metadata through actual SDK and Account submit/bootstrap');assert.equal(applied,1);
+    }else await first;
+    for(const owner of ['B','C']){await signInAs(owner);assert.deepEqual(device,original[owner],scenario+': each account loads only its own saved state, pins and OFF choices');}
+    if(release){release();await first;}
+    await signInAs('A');assert.deepEqual(device,original.A);
+    assert.deepEqual(states,original,scenario+': sign-in cannot manufacture cross-account edits');
+    const writes=requests.filter(request=>request.method==='PUT');
+    assert.equal(writes.length,scenario==='deliberate-local'?1:0,scenario+': only a deliberate local edit can write');
+    if(writes.length)assert.equal(writes[0].owner,'A','A local edit cannot write another account');
+  }
+  console.log(`Accepted account bootstrap: ${cases.length} actual Account/SDK A-B-C-A, delayed/failed hydration and empty/absent preference cases passed; no service connection.`);
+}
+
+validateActualConflictRetry().then(validateAcceptedBootstrapBaseline).then(() => require("./lib/user-state-account-scope-tests")()).then(() => {
   console.log("Cross-device sync valid: actual retries preserve untouched cloud choices and original local intent.");
 }).catch(error => { console.error(error); process.exitCode = 1; });

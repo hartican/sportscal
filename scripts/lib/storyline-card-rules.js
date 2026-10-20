@@ -156,11 +156,6 @@ function spoilerSafeRootCopy(event, storyline = event.storyline, now = new Date(
 }
 
 function spoilerContractIssues(event, now = new Date()) {
-  const cricket=require('../../config/cricket-editorial-policy');
-  if(cricket.isCricket(event)&&cricket.hasPolicy(event.editorialNarrative)){
-    const phase=cricket.phase(event,now),root=[event.selectedSentence,event.fullSpiel,event.storyline?.hookSpoilerOff,event.storyline?.synopsisSpoilerOff].filter(Boolean);
-    return phase!=='preview'&&root.length?['current cricket reporting must be absent from default Results OFF copy']:[];
-  }
   const issues = [];
   const status = lifecycleFor(event, now);
   const completed = status === "completed";

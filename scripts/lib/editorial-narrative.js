@@ -1,7 +1,5 @@
 "use strict";
 
-const cricket=require('../../config/cricket-editorial-policy');
-const cricketEvidence=require('./cricket-editorial-evidence');
 const eplIdentities = require("../../lib/epl-provider-identities");
 
 const GENERIC_COPY = /\b(?:exact matchup|date tbc|time tbc|schedule copy|main context and watch details|season narrowing|coming up, with the main context)\b/i;
@@ -167,8 +165,8 @@ function validateKnowledge(document){
     if (!Array.isArray(thread.subjectIds) || !thread.subjectIds.length) issues.push(`${thread.id}.subjectIds is required.`);
     (thread.subjectIds || []).forEach(id => { if (!subjects.has(id)) issues.push(`${thread.id} references unknown subject ${id}.`); });
     if (!nonEmpty(thread.title)) issues.push(`${thread.id}.title is required.`);
-    if (!cricket.hasPolicy(thread) && (!nonEmpty(thread.summary) || thread.summary.length < 80 || thread.summary.length > 700)) issues.push(`${thread.id}.summary must be 80-700 characters.`);
-    if (!Array.isArray(thread.factIds) || !cricket.hasPolicy(thread)&&!thread.factIds.length) issues.push(`${thread.id}.factIds is required.`);
+    if (!nonEmpty(thread.summary) || thread.summary.length < 80 || thread.summary.length > 700) issues.push(`${thread.id}.summary must be 80-700 characters.`);
+    if (!Array.isArray(thread.factIds) || !thread.factIds.length) issues.push(`${thread.id}.factIds is required.`);
     (thread.factIds || []).forEach(id => { if (!facts.has(id)) issues.push(`${thread.id} references unknown fact ${id}.`); });
     if (!["active", "resolved", "dormant"].includes(thread.status)) issues.push(`${thread.id}.status is unsupported.`);
     if (!isIsoDateTime(thread.updatedAt)) issues.push(`${thread.id}.updatedAt must be an ISO UTC date-time.`);
@@ -207,25 +205,10 @@ function validateKnowledge(document){
       if (projectionTargets.has(targetKey)) issues.push(`${targetKey} has more than one editorial projection.`);
       projectionTargets.add(targetKey);
     });
-    const cricketProjection=cricket.hasPolicy(projection);
-    const requirement = cricketProjection?{facts:projection.evidenceMode==='withheld'?0:1,sources:projection.evidenceMode==='withheld'?0:1,dimensions:projection.evidenceMode==='withheld'?0:1}:TIER_REQUIREMENTS[(projection.researchDepth || projection.stakes)];
-    if(cricketProjection){
-      const audit=projection.cricketEvidence;
-      if(!audit)issues.push(projection.id+' requires its cricket evidence ledger.');
-      else {
-        issues.push(...cricketEvidence.issues(audit.entry,audit.fixture,new Date(audit.reviewedAt)));
-        for(const field of cricket.fields)if(String(projection[field]||'')!==String(audit.entry[field]||''))issues.push(projection.id+' copy differs from reviewed evidence: '+field);
-        for(const [field,value] of Object.entries(cricketEvidence.metadata(audit.entry)))if(projection[field]!==value)issues.push(projection.id+' metadata differs from reviewed evidence: '+field);
-        if(projection.sourceIds.length!==audit.entry.sources.length||projection.sourceIds.some((id,index)=>sources.get(id)?.url!==audit.entry.sources[index]))issues.push(projection.id+' sources differ from reviewed evidence.');
-        if(projection.factIds.length!==audit.entry.facts.length||projection.factIds.some((id,index)=>facts.get(id)?.statement!==audit.entry.facts[index].statement))issues.push(projection.id+' facts differ from reviewed evidence.');
-        projection.sourceIds.forEach((id,index)=>{const source=sources.get(id),observation=audit.entry.sourceObservations[index];if(!source||!observation||['url','name','publisher','author','originId','reportingType','sourceType','publishedAt','updatedAt','retrievedAt','accessible','checkedAt'].some(field=>JSON.stringify(source[field]??null)!==JSON.stringify(observation[field]??null)))issues.push(projection.id+' source provenance differs from reviewed evidence.');});
-        projection.factIds.forEach((id,index)=>{const fact=facts.get(id),claim=audit.entry.facts[index];if(!fact||!claim||fact.claimType!==claim.claimType||JSON.stringify(fact.support)!==JSON.stringify(claim.support)||JSON.stringify(fact.sourceIds)!==JSON.stringify(claim.sourceIndexes.map(i=>projection.sourceIds[i])))issues.push(projection.id+' claim support differs from reviewed evidence.');});
-
-      }
-    }
+    const requirement = TIER_REQUIREMENTS[(projection.researchDepth || projection.stakes)];
     if (!requirement) issues.push(`${projection.id}.researchDepth must be 2, 3, 4 or 5.`);
-    if (!cricketProjection && (!nonEmpty(projection.hook) || projection.hook.length < 20 || projection.hook.length > 180)) issues.push(`${projection.id}.hook must be 20-180 characters.`);
-    if (!cricketProjection && (!nonEmpty(projection.synopsis) || projection.synopsis.length < 80 || projection.synopsis.length > 700)) issues.push(`${projection.id}.synopsis must be 80-700 characters.`);
+    if (!nonEmpty(projection.hook) || projection.hook.length < 20 || projection.hook.length > 180) issues.push(`${projection.id}.hook must be 20-180 characters.`);
+    if (!nonEmpty(projection.synopsis) || projection.synopsis.length < 80 || projection.synopsis.length > 700) issues.push(`${projection.id}.synopsis must be 80-700 characters.`);
     if (GENERIC_COPY.test(`${projection.hook}\n${projection.synopsis}`)) issues.push(`${projection.id} contains generic fixture filler instead of an editorial angle.`);
     if (!Array.isArray(projection.threadIds) || !projection.threadIds.length) issues.push(`${projection.id}.threadIds is required.`);
     (projection.threadIds || []).forEach(id => { if (!threads.has(id)) issues.push(`${projection.id} references unknown thread ${id}.`); });
@@ -238,7 +221,7 @@ function validateKnowledge(document){
     if (requirement && (projection.factIds || []).length < requirement.facts) issues.push(`${projection.id} needs at least ${requirement.facts} facts for research depth ${(projection.researchDepth || projection.stakes)}.`);
     if (requirement && (projection.sourceIds || []).length < requirement.sources) issues.push(`${projection.id} needs at least ${requirement.sources} sources for research depth ${(projection.researchDepth || projection.stakes)}.`);
     if (requirement && dimensions.length < requirement.dimensions) issues.push(`${projection.id} needs at least ${requirement.dimensions} narrative dimensions for research depth ${(projection.researchDepth || projection.stakes)}.`);
-    if (!(cricketProjection&&projection.evidenceMode==='withheld') && !dimensions.some(dimension => SUBSTANTIVE_DIMENSIONS.has(dimension))) issues.push(`${projection.id} needs at least one path, form, matchup, history or consequence fact.`);
+    if (!dimensions.some(dimension => SUBSTANTIVE_DIMENSIONS.has(dimension))) issues.push(`${projection.id} needs at least one path, form, matchup, history or consequence fact.`);
     factSourceIds.forEach(id => { if (!(projection.sourceIds || []).includes(id)) issues.push(`${projection.id}.sourceIds must include fact source ${id}.`); });
     if (!isIsoDateTime(projection.researchedAt)) issues.push(`${projection.id}.researchedAt must be an ISO UTC date-time.`);
     if (projection.refreshAfter !== undefined && projection.refreshAfter !== null && !isIsoDateTime(projection.refreshAfter)) issues.push(`${projection.id}.refreshAfter must be null or an ISO UTC date-time.`);
@@ -314,7 +297,6 @@ function editorialNarrativeFor(projection, indexes){
     researchTier:(projection.researchDepth || projection.stakes) === 5 ? "marquee" : (projection.researchDepth || projection.stakes) === 4 ? "featured" : "standard",
     hook:projection.hook,
     synopsis:projection.synopsis,
-    ...(cricket.hasPolicy(projection)?Object.fromEntries(['editorialPolicyVersion','evidenceMode','phase','coverageThrough','validUntil','reviewed'].map(key=>[key,projection[key]])):{}),
     ...(projection.formCopy ? { formCopy:projection.formCopy } : {}),
     ...(projection.closingCopy ? { closingCopy:projection.closingCopy } : {}),
     ...(projection.hookSpoilerOn ? { hookSpoilerOn:projection.hookSpoilerOn } : {}),
@@ -337,10 +319,10 @@ function fixtureSourceMetadata(event, editorialSource){
   if(event.source?.sourceUrl)return {sourceName:event.source.provider,sourceUrl:event.source.sourceUrl,sourceType:event.source.sourceType,sourceCheckedAt:event.source.checkedAt};
   // Legacy research-only seeds retain their existing fallback until a fixture
   // source owns them. Never mix that source into an existing source/clock pair.
-  return editorialSource?{sourceName:editorialSource.name,sourceUrl:editorialSource.url,sourceType:editorialSource.sourceType,sourceCheckedAt:editorialSource.checkedAt}:{};
+  return {sourceName:editorialSource.name,sourceUrl:editorialSource.url,sourceType:editorialSource.sourceType,sourceCheckedAt:editorialSource.checkedAt};
 }
 
-function applyToFeedEvent(event, projection, indexes, now=new Date()){
+function applyToFeedEvent(event, projection, indexes){
   const locks=require("../../config/editorial-locks");
   projection=locks.projection(event,projection);
   const pauses=require("../../config/coverage-pauses");
@@ -359,39 +341,38 @@ function applyToFeedEvent(event, projection, indexes, now=new Date()){
     narrative.resultSignature = lifecycle.signature(event);
     narrative.hookSpoilerOn = String(event.outcomeText || event.scoreDisplay || event.score || projection.hookSpoilerOn || narrative.hook);
     narrative.synopsisSpoilerOn = (!changedResult && projection.synopsisSpoilerOn) || event.recapText || '';
-  }else narrative.phase = cricket.hasPolicy(projection)?projection.phase:'preview';
-  if(cricket.hasPolicy(projection)){narrative.phase=projection.phase;if(completed){narrative.hookSpoilerOn=projection.hook;narrative.synopsisSpoilerOn=projection.synopsis;}}
+  }else narrative.phase = 'preview';
   const completedHook = narrative.hookSpoilerOn;
   const completedSynopsis = narrative.synopsisSpoilerOn || completedHook;
   // Root summaries are visible with Results OFF. Reapplying dated preview
   // research after a confirmed final must use the same protected lifecycle
   // copy as the card, while retaining the research inside its narrative.
-  const displayCopy = horse||cricket.isCricket(event)&&!cricket.hasPolicy(narrative)?{hook:narrative.hook,synopsis:narrative.synopsis}:lifecycle.copy(event,narrative,false,now);
+  const displayCopy = horse?{hook:narrative.hook,synopsis:narrative.synopsis}:lifecycle.copy(event,narrative,false);
   const contextSignals = unique(["event-specific", ...narrative.dimensions.map(value => `narrative:${value}`)]);
   const threadTitle = indexes.threads.get(projection.threadIds[0])?.title || "Persistent editorial thread";
   return locks.apply({
     ...event,
     selectedSentence:displayCopy.hook,
-    fullSpiel:cricket.isCricket(event)?displayCopy.synopsis:completed ? displayCopy.synopsis || displayCopy.hook : narrative.synopsis,
+    fullSpiel:completed ? displayCopy.synopsis || displayCopy.hook : narrative.synopsis,
     ...fixtureSourceMetadata(event,primarySource),
     lastReviewedAt:projection.researchedAt,
     editorialNarrative:narrative,
     editorialPreview:{
-      status:cricket.hasPolicy(narrative)&&narrative.evidenceMode==='withheld'?'withheld':"journalistic",
+      status:"journalistic",
       angle:threadTitle,
       contextSignals,
-      sourceName:primarySource?.name||'',
-      sourceUrl:primarySource?.url||'',
-      sourceCheckedAt:primarySource?.checkedAt||'',
+      sourceName:primarySource.name,
+      sourceUrl:primarySource.url,
+      sourceCheckedAt:primarySource.checkedAt,
       needsPreviewRefresh:false,
     },
     storyline:{
       ...(event.storyline || {}),
       researchDepth:(projection.researchDepth || projection.stakes),
       arcStage:completed ? "recap" : "preview",
-      hookSpoilerOff:cricket.isCricket(event)?displayCopy.hook:completed ? displayCopy.hook : narrative.hook,
+      hookSpoilerOff:completed ? displayCopy.hook : narrative.hook,
       hookSpoilerOn:completed ? completedHook : projection.hookSpoilerOn || projection.hook,
-      synopsisSpoilerOff:cricket.isCricket(event)?displayCopy.synopsis:completed ? displayCopy.synopsis || displayCopy.hook : narrative.synopsis,
+      synopsisSpoilerOff:completed ? displayCopy.synopsis || displayCopy.hook : narrative.synopsis,
       synopsisSpoilerOn:completed ? completedSynopsis : projection.synopsisSpoilerOn || projection.synopsis,
       lastReviewedAt:projection.researchedAt,
     },

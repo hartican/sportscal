@@ -87,40 +87,6 @@
               "consequence"
             ]
           }
-        },
-        {
-          "if": {
-            "required": [
-              "editorialPolicyVersion"
-            ]
-          },
-          "then": {
-            "required": [
-              "evidenceMode",
-              "phase",
-              "validUntil",
-              "reviewed"
-            ]
-          },
-          "else": {
-            "properties": {
-              "hook": {
-                "minLength": 20
-              },
-              "synopsis": {
-                "minLength": 80
-              },
-              "factIds": {
-                "minItems": 1
-              },
-              "sourceIds": {
-                "minItems": 1
-              },
-              "dimensions": {
-                "minItems": 1
-              }
-            }
-          }
         }
       ],
       "properties": {
@@ -144,12 +110,12 @@
         },
         "hook": {
           "type": "string",
-          "minLength": 0,
+          "minLength": 20,
           "maxLength": 180
         },
         "synopsis": {
           "type": "string",
-          "minLength": 0,
+          "minLength": 80,
           "maxLength": 700
         },
         "hookSpoilerOn": {
@@ -172,7 +138,7 @@
         },
         "factIds": {
           "type": "array",
-          "minItems": 0,
+          "minItems": 1,
           "items": {
             "type": "string"
           },
@@ -180,7 +146,7 @@
         },
         "sourceIds": {
           "type": "array",
-          "minItems": 0,
+          "minItems": 1,
           "items": {
             "type": "string"
           },
@@ -188,7 +154,7 @@
         },
         "dimensions": {
           "type": "array",
-          "minItems": 0,
+          "minItems": 1,
           "items": {
             "type": "string"
           },
@@ -221,7 +187,6 @@
         "phase": {
           "enum": [
             "preview",
-            "ongoing",
             "recap"
           ]
         },
@@ -230,38 +195,6 @@
         },
         "resultResearchRequired": {
           "type": "boolean"
-        },
-        "editorialPolicyVersion": {
-          "const": "cricket-editorial.v1"
-        },
-        "evidenceMode": {
-          "enum": [
-            "synthesis",
-            "fact-brief",
-            "withheld"
-          ]
-        },
-        "coverageThrough": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "date-time"
-        },
-        "validUntil": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "reviewed": {
-          "type": "boolean"
-        },
-        "formCopy": {
-          "type": "string",
-          "maxLength": 700
-        },
-        "closingCopy": {
-          "type": "string",
-          "maxLength": 700
         }
       }
     },
@@ -798,22 +731,22 @@
             },
             "hookSpoilerOff": {
               "type": "string",
-              "minLength": 0,
+              "minLength": 4,
               "maxLength": 180
             },
             "hookSpoilerOn": {
               "type": "string",
-              "minLength": 0,
+              "minLength": 4,
               "maxLength": 180
             },
             "synopsisSpoilerOff": {
               "type": "string",
-              "minLength": 0,
+              "minLength": 20,
               "maxLength": 700
             },
             "synopsisSpoilerOn": {
               "type": "string",
-              "minLength": 0,
+              "minLength": 20,
               "maxLength": 700
             },
             "expectedSpectacle": {
@@ -841,12 +774,12 @@
         },
         "selectedSentence": {
           "type": "string",
-          "minLength": 0,
+          "minLength": 20,
           "maxLength": 180
         },
         "fullSpiel": {
           "type": "string",
-          "minLength": 0,
+          "minLength": 80,
           "maxLength": 700
         },
         "sourceName": {
@@ -1233,51 +1166,6 @@
                         "team"
                       ]
                     }
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "editorialNarrative": {
-                "required": [
-                  "editorialPolicyVersion"
-                ]
-              },
-              "key": {
-                "const": "cricket"
-              }
-            },
-            "required": [
-              "editorialNarrative",
-              "key"
-            ]
-          },
-          "then": {},
-          "else": {
-            "properties": {
-              "selectedSentence": {
-                "minLength": 20
-              },
-              "fullSpiel": {
-                "minLength": 80
-              },
-              "storyline": {
-                "properties": {
-                  "hookSpoilerOff": {
-                    "minLength": 4
-                  },
-                  "hookSpoilerOn": {
-                    "minLength": 4
-                  },
-                  "synopsisSpoilerOff": {
-                    "minLength": 20
-                  },
-                  "synopsisSpoilerOn": {
-                    "minLength": 20
                   }
                 }
               }

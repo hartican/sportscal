@@ -20,12 +20,6 @@ majorCards.forEach(event => {
   const on = displayCopy(event, true, now);
   const label = `(${event.id})`;
 
-  if(require('../config/cricket-editorial-policy').isCricket(event)){
-    const policy=require('../config/cricket-editorial-policy');
-    if(policy.phase(event,now)!=='preview'&&Object.values(off).some(Boolean))errors.push(`${label} current reporting leaks with Results OFF.`);
-    spoilerContractIssues(event,now).forEach(issue=>errors.push(`${label} ${issue}.`));
-    return;
-  }
   if (!off.hook || !off.synopsis || !on.hook || !on.synopsis) {
     errors.push(`${label} is missing display copy.`);
   }

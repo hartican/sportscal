@@ -24,7 +24,7 @@ async function main(){
   const second = JSON.parse(read("data/marquee-candidates.v1.json"));
   assert.equal(JSON.stringify(second), firstJson, "fixed-input campaign builds must be idempotent");
 
-  const internalSources = require('./seal-deployment-output').internalSources.map(source=>source.slice('data/'.length));
+  const internalSources = ["marquee-candidates.v1.json", "comms-sources.v1.json", "editorial-maintenance-sources.v1.json", "editorial-post-match.v1.json"];
   const routing = JSON.parse(read("vercel.json"));
   for (const file of internalSources){
     const redirect = routing.redirects.find(rule => rule.source === `/data/${file}`);

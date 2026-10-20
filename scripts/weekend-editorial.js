@@ -4,7 +4,6 @@ const assert=require('node:assert/strict');
 const {spawnSync}=require('node:child_process');
 const {apply}=require('./apply-fixture-research');
 const locks=require('../config/editorial-locks');
-const cricket=require('../config/cricket-editorial-policy'),cricketEvidence=require('./lib/cricket-editorial-evidence');
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
 function weekend(now=new Date()){
@@ -58,14 +57,11 @@ function partitionResearch(cards,research,validateEntry=()=>{}){
       const entries=research.entries.filter(entry=>entry.id===card.id);
       assert.equal(entries.length,1,'Missing or duplicate research entry.');
       const entry=entries[0];
-      if(cricket.isCricket(card)){const issues=cricketEvidence.issues(entry,card);assert.equal(issues.length,0,issues.join(' '));}
-      else {
       assert(entry.title&&entry.hook&&entry.synopsis,'Title, hook and synopsis required.');
       assert(new Set(entry.sources).size>=3&&entry.facts?.length>=4,'Three sources and four supported facts required.');
       assert(entry.sources.every(url=>/^https:\/\//.test(url)),'HTTPS sources required.');
       assert(entry.facts.every(fact=>fact.statement&&fact.dimension&&fact.sourceIndexes?.length&&fact.sourceIndexes.every(i=>Number.isInteger(i)&&i>=0&&i<entry.sources.length)),'Invalid fact/source references.');
       assert(Date.now()-Date.parse(entry.researchedAt)<72*3600000&&Date.parse(entry.researchedAt)<=Date.now()+60000,'Research must be fresh.');
-      }
       assert((entry.dependsOn||[]).every(id=>scope.has(id)),'Unknown dependency.');
       validateEditorialFocus(cards,{entries:[...accepted,entry]});
       validateEntry(entry);
@@ -96,11 +92,10 @@ function main(args,options={}){
   assert.equal(baselineIssues.length,0,'Shared knowledge integrity failure: '+baselineIssues.join('; '));
   const major=read('data/major-events.v1.json');
   const partition=partitionResearch(cards,research,entry=>{
-    if(mode==='adaptive'&&!cricket.hasPolicy(entry))assert(entry.formCopy&&entry.closingCopy,'Full Hook/Form/Storyline/Match Context required.');
+    if(mode==='adaptive')assert(entry.formCopy&&entry.closingCopy,'Full Hook/Form/Storyline/Match Context required.');
     apply(structuredClone(knowledge),{...published,events:structuredClone(candidates)},structuredClone(major),{entries:[entry]});
   });
   research.entries=partition.entries;
-  cricketEvidence.assertPublicationApproved(research.entries);
   const ids=new Set(research.entries.map(entry=>entry.id));
   const report={weekend:range,acceptedIds:[...ids],deferred:partition.deferred};
   write(`data/editorial-${mode}-report-${range.from}.json`,report);
