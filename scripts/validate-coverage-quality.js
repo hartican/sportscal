@@ -4,10 +4,16 @@ const assert=require('node:assert/strict'),{audit,projectionDigest}=require('./a
 const contract=require('../config/quality/coverage-contract.json');
 require('./validate-canonical-family-repair');
 const baseline=audit();
-assert.equal(baseline.summary.carriedFamilies,18);assert.equal(baseline.summary.requiredFamilies,15);
+assert.equal(baseline.summary.carriedFamilies,19);assert.equal(baseline.summary.requiredFamilies,16);
 assert.equal(baseline.summary.pilotTotal,3);
 if(contract.certifications.length===0)assert.equal(baseline.summary.certifiedFamilies,0);
 assert(baseline.families.find(f=>f.id==='skiing').carried,'published skiing cards remain in denominator');
+const netball=baseline.families.find(f=>f.id==='netball');
+assert.equal(netball.carried,true,'restored retained Netball must increase the denominator');
+assert.equal(netball.competitions.reduce((total,c)=>total+c.fixtures,0),4,'four retained Constellation Cup fixtures are inventoried');
+assert.equal(netball.status,'unverified','restored calendar coverage cannot certify Netball');
+const hiddenNetball=structuredClone(contract);hiddenNetball.families.find(f=>f.id==='netball').carried=false;
+assert.throws(()=>audit({contract:hiddenNetball}),/netball: new fixtures require an explicit carried-family decision/,'cannot hide a carried sport to improve the pass rate');
 const dakar=baseline.families.find(f=>f.id==='motorsport').competitions.find(c=>c.id==='competition:dakar');assert.equal(dakar.fixtures,28);assert.equal(dakar.status,'unverified','Dakar calendar and edition artwork cannot certify missing stage geometry, entries, results and viewing');
 const surfing=baseline.families.find(f=>f.id==='surfing');
 assert(surfing.codes.includes('wsl'),'authorised WSL windows remain in the existing surfing family');

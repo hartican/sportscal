@@ -1,6 +1,6 @@
 {
   "version": "2026-09-27",
-  "evidenceUpdatedAt": "2026-10-11",
+  "evidenceUpdatedAt": "2026-10-20",
   "frozenAt": "2026-09-27",
   "minimumCarriedFamilyPassRate": 0.8,
   "window": {
@@ -158,7 +158,8 @@
       "codes": [
         "netball"
       ],
-      "carried": false
+      "carried": true,
+      "note": "20 October 2026 retained-projection repair: four already-collected Constellation Cup fixtures now reach Inspector/Schedule and ordinary Diamonds Feed. Count Netball in the denominator; original 11 October observations and unknown kickoffs remain. This limited retained calendar does not certify Netball, results, viewing, rights or freshness."
     },
     {
       "id": "boxing",
