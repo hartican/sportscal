@@ -2,7 +2,7 @@
 
 ## Preserve qualified Cricket day metadata through existing reads — 20 October 2026
 
-The existing Match Centre compact/observation and Feed score paths preserve a supplied match day and its source URL/original check on the same accepted identity. Omitted metadata can retain qualified last-good proof; explicit unknown or unqualified replacement cannot borrow it. This is additive display metadata, not a new source observation or inferred sporting clock.
+The existing Match Centre compact/observation and Feed score paths preserve a supplied match day and its source URL/original check on the same accepted identity. Omitted metadata can retain qualified last-good proof; explicit unknown or unqualified replacement cannot borrow it. A contradictory or explicitly unknown start/gender clears inherited day proof; a status-only receipt that omits those fields may retain it. This is additive display metadata, not a new source observation or inferred sporting clock.
 
 Schedule uses its existing deferred panel and existing fixture observation merger for the narrowly guarded newer Cricket pause. Preserve independent status/phase clocks; only explicit clear/unknown metadata uses the later general receipt as a fence. No source/API/DB request, schema, retry, refresh cadence, scheduler or account mutation is added. Existing three-second readers, ten-minute unexpected-interruption cadence and single release owner remain unchanged. Actual source/day, clear/resumption, privacy, native rendering, cache/installed and normal release gates remain required.
 
