@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="574">
+<meta name="app-shell-version" content="575">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=574" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=575" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2021,7 +2021,7 @@ header.top .header-utilities{display:flex;flex:1;align-items:center;flex-wrap:no
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=574"></script>
+<script src="assets/js/app-shell-runtime.js?v=575"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -5648,7 +5648,7 @@ function liveScheduleFixtures(fixtures,code=codeInspectorChunk?.code){
 }
 
 let feedScoreUiLoading=null;
-function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=574').catch(error=>{feedScoreUiLoading=null;throw error;});}
+function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=575').catch(error=>{feedScoreUiLoading=null;throw error;});}
 function installFeedLiveScore(card,event){
   if(globalThis.NOTHINGSPORTS_FEED_SCORE_UI){globalThis.NOTHINGSPORTS_FEED_SCORE_UI.install(card,event);return;}
   const owner=serverSyncClient?.sessionSubject()||'public',tab=activeTab;

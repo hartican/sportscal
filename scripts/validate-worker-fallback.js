@@ -19,5 +19,17 @@ const assert=require('node:assert/strict'),fs=require('fs'),vm=require('vm');
  assert.equal(await response.text(),'{"lastGood":true}');assert(lifetime,'Lifetime must be registered before returning cached data');
  await Promise.race([lifetime,new Promise((_,reject)=>setTimeout(()=>reject(Error('Body kept the old worker alive')),100))]);
  assert.equal(timeoutMs,8000);assert(bodyAborted);assert.equal(writes,0,'Partial bodies must not overwrite the retained cache');
+ await validateUpgradeManifest();
  console.log('Worker recovers HTTP/stalled navigation and bounds cached body refresh; partial JSON never replaces last-good data.');
 })().catch(e=>{console.error(e);process.exitCode=1});
+
+async function validateUpgradeManifest(){
+ const source=fs.readFileSync('service-worker.js','utf8'),current=source.match(/const CACHE_NAME = ["']([^"']+)/)[1],manifest='/data/code-inspector/manifest.json';
+ for(const preexisting of [false,true]){
+  const stores=new Map([['nothingsport-shell-v573',new Map([[manifest,new Response('older')]])],['nothingsport-shell-v574',new Map([[manifest,new Response('last-good')],['/data/marquee-candidates.v1.json',new Response('private source')]])],[current,new Map(preexisting?[[manifest,new Response('current')]]:[])],['unrelated-cache',new Map()]]),handlers={},writes=[];
+  const context={self:{addEventListener(name,handler){handlers[name]=handler;},location:{origin:'https://test.invalid'},clients:{claim:async()=>{},matchAll:async()=>[]}},URL,Request,Response,AbortController,Map,Set,setTimeout,clearTimeout,fetch:()=>{throw Error('An upgrade must not download optional data');},caches:{keys:async()=>[...stores.keys()],delete:async key=>stores.delete(key),open:async cacheName=>({match:async key=>stores.get(cacheName)?.get(key)?.clone(),put:async(key,response)=>{writes.push(key);stores.get(cacheName).set(key,response.clone());}})}};
+  vm.runInNewContext(source,context);let lifetime;handlers.activate({waitUntil(value){lifetime=value;}});await lifetime;
+  assert.equal(await stores.get(current).get(manifest)?.text(),preexisting?'current':'last-good','Upgrade retains the newest previously used public Schedule index without replacing current data');
+  assert.deepEqual(writes,preexisting?[]:[manifest]);assert(!stores.has('nothingsport-shell-v574'));assert(stores.has('unrelated-cache'));assert.equal(stores.get(current).size,1,'No private source, old executable or extra optional data crosses caches');
+ }
+}

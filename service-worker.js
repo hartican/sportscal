@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v574";
-const SHELL_VERSION = "574";
+const CACHE_NAME = "nothingsport-shell-v575";
+const SHELL_VERSION = "575";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -64,7 +64,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=574",
+  "/assets/js/app-shell-runtime.js?v=575",
   "/assets/js/account-awareness-runtime.js?v=571",
   "/assets/js/follow-schedule-panel.js?v=574",
   "/assets/js/fixture-navigation.js?v=535",
@@ -108,8 +108,8 @@ const APP_SHELL = [
   // Own it in the new cache before activation removes that old cache.
   "/assets/js/match-centre-ui.js?v=572",
   "/assets/js/milestone-alerts-ui.js?v=535",
-  "/config/feed-live-scores.js?v=566",
-  "/config/feed-live-score-loader.js?v=574",
+  "/config/feed-live-scores.js?v=575",
+  "/config/feed-live-score-loader.js?v=575",
   "/config/athletes.js?v=471",
   "/assets/js/athletes-ui.js?v=563",
   // Profile UI caches after first use; optional detail stays out of shell budget.
@@ -286,11 +286,21 @@ async function recoverInstalledClient(client){
 
 self.addEventListener("activate", event => {
   event.waitUntil((async () => {
+    const keys = await caches.keys();
+    // The current document may already hold this index in memory after the old
+    // worker fetched it. Retain that used public index before deleting its cache.
+    // It remains network-first; no optional download can hold an update back.
+    try{
+      const cache=await caches.open(CACHE_NAME),index='/data/code-inspector/manifest.json';
+      if(!await cache.match(index)){
+        const previous=keys.filter(key=>/^nothingsport-shell-v\d+$/.test(key)&&Number(key.slice('nothingsport-shell-v'.length))<Number(SHELL_VERSION)).sort((a,b)=>Number(b.slice('nothingsport-shell-v'.length))-Number(a.slice('nothingsport-shell-v'.length)));
+        for(const key of previous){const saved=await(await caches.open(key)).match(index);if(saved?.ok){await cache.put(index,saved);break;}}
+      }
+    }catch(_error){ /* Optional cached data must not prevent shell activation. */ }
     await self.clients.claim();
     const clients = await self.clients.matchAll({ type:"window", includeUncontrolled:true });
     await Promise.allSettled(clients.map(recoverInstalledClient));
     // Cache deletion never touches preferences, login, calendar URLs or drafts.
-    const keys = await caches.keys();
     await Promise.all(keys.filter(key => key.startsWith("nothingsport-shell-") && key !== CACHE_NAME).map(key => caches.delete(key)));
   })());
 });

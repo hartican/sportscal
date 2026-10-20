@@ -17,7 +17,8 @@ async function assertCurrentScheduleAndScoreCaches(page){
   const current=await page.evaluate(async file=>(await fetch('/'+file)).json(),file);
   assert.deepEqual(current,expected,'Upgrade and offline restart must replace the old '+slug+' schedule exactly');
  }
- await page.evaluate(async()=>{await ensureFeedScoreUi();await loadDeferredScript('config/match-centre.js?v=566');await loadDeferredScript('config/feed-live-scores.js?v=566');});
+ const scorePaths=['config/match-centre.js','config/feed-live-scores.js'].map(requiredShellScriptUrl);
+ await page.evaluate(async paths=>{await ensureFeedScoreUi();for(const url of paths)await loadDeferredScript(url);},scorePaths);
  for(const file of ['config/feed-live-score-loader.js','config/match-centre.js','config/feed-live-scores.js','config/score-details.js']){
   const url=requiredShellScriptUrl(file),text=await page.evaluate(async url=>(await fetch('/'+url)).text(),url);
   assert.equal(text,fs.readFileSync(path.join(root,file),'utf8'),'The actual consumer/cache key serves exact current '+file+' bytes');
@@ -564,6 +565,11 @@ function baselineFile(name){
   historical.set(name,bytes);return bytes;
 }
 const baselineVersion=baselineFile('index.html').toString().match(/name="app-shell-version" content="(\d+)"/)[1];
+const baselineScorePaths=['config/match-centre.js','config/feed-live-scores.js','config/feed-live-score-loader.js'].flatMap(file=>{
+ const match=baselineFile('service-worker.js').toString().match(new RegExp(file.replaceAll('.','\\.')+'\\?v=\\d+'));
+ if(Number(baselineVersion)>=574)assert(match,'The baseline required cache owns '+file);
+ return match?['/'+match[0]]:[];
+});
 const profilePath=html=>html.match(/loadDeferredScript\(["'](config\/athlete-profile-ui\.js\?v=\d+)["']\)/)?.[1];
 const baselineProfilePath=profilePath(baselineFile('index.html').toString());
 const candidateProfilePath=profilePath(fs.readFileSync(path.join(root,'index.html'),'utf8'));
@@ -621,8 +627,9 @@ const server=http.createServer((req,res)=>{
     assert(savedSelection.selectors.includes('sport:tennis'),'The baseline must actually save the explicit tennis follow');
     if(baselineProfilePath)await page.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Baseline profile cache could not be populated');await response.text();},baselineProfilePath);
     if(baselineMatchCentrePath)await page.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Baseline Match Centre cache could not be populated');await response.text();},baselineMatchCentrePath);
-    const warmedOld=await page.evaluate(async()=>{const rows={};for(const slug of ['football','netball'])rows[slug]=(await(await fetch('/data/follow-schedule/'+slug+'.json')).json()).fixtures.length;for(const url of ['/config/match-centre.js?v=527','/config/feed-live-scores.js?v=556'])await(await fetch(url)).text();return rows;});
+    const warmedOld=await page.evaluate(async paths=>{const rows={};for(const slug of ['football','netball'])rows[slug]=(await(await fetch('/data/follow-schedule/'+slug+'.json')).json()).fixtures.length;for(const url of paths)await(await fetch(url)).text();rows.scorePaths=paths;return rows;},baselineScorePaths);
     if(Number(baselineVersion)===573){assert.equal(warmedOld.netball,0);assert.equal(warmedOld.football,846);}
+    if(Number(baselineVersion)===574){assert.equal(warmedOld.netball,4);assert.equal(warmedOld.football,894);}
     await page.evaluate(async version=>{const cache=await caches.open('nothingsport-shell-v'+version);await cache.put('/data/marquee-candidates.v1.json',new Response('{"qaLegacyDraft":true}'));},baselineVersion);
     await page.evaluate(async version=>{const cache=await caches.open('nothingsport-shell-v'+version);await cache.put('/data/%6darquee-candidates.v1.json',new Response('{"qaLegacyEncodedDraft":true}'));},baselineVersion);
     if(!keepOpen)await page.close();
@@ -652,6 +659,9 @@ const server=http.createServer((req,res)=>{
     assert.equal(await upgraded.evaluate(url=>caches.match('/'+url).then(r=>r?.text()),stylesheet),fs.readFileSync(path.join(root,'styles/follow-feed-rework.css'),'utf8'),'Upgraded cache must contain the exact versioned card stylesheet');
     await assertCachedAccountIndicator(upgraded);await assertCachedBundledTaxonomy(upgraded);
     await assertCurrentScheduleAndScoreCaches(upgraded);
+    const manifestCache=await upgraded.evaluate(async version=>({controller:navigator.serviceWorker.controller?.scriptURL,caches:await Promise.all((await caches.keys()).filter(k=>k.startsWith('nothingsport-shell-')).map(async key=>({key,manifest:Boolean(await(await caches.open(key)).match('/data/code-inspector/manifest.json'))}))),current:Boolean(await(await caches.open('nothingsport-shell-v'+version)).match('/data/code-inspector/manifest.json'))}),candidateVersion);
+    console.log('Online Schedule manifest cache',JSON.stringify(manifestCache));
+    assert(manifestCache.current,'The online Diamonds journey must retain its Schedule manifest in the current installed cache');
 
     assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'cached old runtime cannot conceal current source observations and shared/pending ranks');
     let profileCacheVerified=false;

@@ -26,7 +26,7 @@ assert.match(check({...known,status:'live',stale:true}).badgeStatus,/LAST REPORT
 for(const status of ['completed','abandoned','cancelled','postponed'])assert.equal(check({...known,status}).badgeClock,'','settled/withdrawn compact badge does not revive scheduled play');
 for(const event of [{...known,key:'football'},{...known,format:'ODI',matchFormat:'ODI',numberOfDays:1}])assert.deepEqual(timing.badgePresentation(event,now,options),timing.badgePresentation(event,now,{fullRange:true}),'other sports and single-day Cricket remain unchanged');
 
-(async()=>{const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright'),browser=await chromium.launch({headless:true,channel:'chrome'});try{
+if(require.main===module)(async()=>{const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright'),browser=await chromium.launch({headless:true,channel:'chrome'});try{
  const page=await browser.newPage();await page.route('**/*',route=>route.abort());await page.setContent('<article class="event-card feed-fixture"><div class="event-main"><span class="compact-card-time"></span></div></article>');await page.clock.setFixedTime(new Date(now));
  for(const file of ['config/card-timing.js','config/match-centre.js','config/feed-live-scores.js'])await page.addScriptTag({content:fs.readFileSync(file,'utf8')});
  await page.addScriptTag({content:require('./app-shell-test-utils').readCardFunction('buildFixtureTimingBadge')});

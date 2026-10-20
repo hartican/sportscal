@@ -1574,3 +1574,8 @@ The local canonical regression exposed an editorial child timeout at its unchang
 ## 20 October2026 — retain the existing failed global read receipt
 
 Keep the first failed global read's bounded owned diagnostic beside its existing typed failure and last-good wrapper. The existing global stale response and verifier may carry the same allowlisted read-span receipt. Two parallel resources, original3s/5s budgets, completeness, coalescing, TTL, errors and sporting clocks remain unchanged. A read-span token identifies an underlying shared operation, not an HTTP caller; pending legs remain incomplete. Never copy error messages, SQL, paths, fixture/account IDs or credentials. Frozen errors and invalid metadata retain honest generic failure. No request, retry, scheduler, migration or latency-fix claim belongs to this diagnostic slice. [Contract and actual failed574 evidence](quality/global-snapshot-failure-receipts-2026-10-20.md).
+
+
+## 20 October2026 — preserve the used public Schedule index across shell activation
+
+An installed574→575 offline rehearsal demonstrated that deleting obsolete shell caches could lose the only used Schedule manifest, despite a successful online journey. Before claiming clients, retain only `/data/code-inspector/manifest.json` from the newest older numeric shell cache when the current cache lacks it. Keep current data, existing network-first reads, sporting clocks, optional install behavior and obsolete-cache deletion. No new download, store, private source, executable or subscription. The real activate-handler regression must reject loss/current overwrite or copying unrelated data; native installed/offline checks remain mandatory.
