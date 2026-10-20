@@ -75,11 +75,12 @@
   } = {}){
     const reference = now instanceof Date ? now : new Date(now);
     const state = action.isPurged || epic.retired(event,reference) ? "expired" : saved ? "saved" : "active";
+    const expiresAt = expiresAtForEvent(event,reference);
     return {
       state,
       saved: Boolean(saved),
-      archivesAt: expiresAtForEvent(event,reference)?new Date(+expiresAtForEvent(event,reference)-1).toISOString():null,
-      expiresAt: expiresAtForEvent(event,reference)?.toISOString() || null,
+      archivesAt: expiresAt?new Date(+expiresAt-1).toISOString():null,
+      expiresAt: expiresAt?.toISOString() || null,
     };
   }
 
