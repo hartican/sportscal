@@ -13,7 +13,7 @@ const APP_SHELL = [
 
   "/assets/identities/wsl/wave-white.svg",
   "/assets/identities/wsl/brand.png",
-  "/assets/js/follow-presentation-ui.js?v=574",
+  "/assets/js/follow-presentation-ui.js?v=576",
   "/assets/identities/wrc/routes/sardegna-lerno-2026.svg",
   "/assets/identities/wrc/helmet-white.svg",
   "/assets/identities/sailgp/sailing-white.svg",
@@ -100,7 +100,7 @@ const APP_SHELL = [
   // Account sync is already in the required runtime; the owner console caches
   // its separate source after first use.
   "/config/major-events.js?v=556",
-  "/config/event-overviews-ui.js?v=572",
+  "/config/event-overviews-ui.js?v=576",
   "/config/surface-category-ui.js?v=403",
   "/assets/styles/match-centre.css?v=576",
   "/config/match-centre.js?v=576",

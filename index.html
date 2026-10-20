@@ -12458,7 +12458,7 @@ function followHasStandings(code){
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=574';
+  const url='assets/js/follow-presentation-ui.js?v=576';
   return Promise.all([loadDeferredScript('config/participant-directory.js?v=512'),loadDeferredScript(url)]).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);
@@ -13201,7 +13201,7 @@ function buildDismissedEventStub(record){
 
 async function renderEventOverviews(container){
  const host=document.createElement('div');host.className='event-overviews-host';container.append(host);
- try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=572');
+ try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=576');
  if(!host.isConnected)return;
  return NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(host);
  }catch{if(!host.isConnected)return;const notice=document.createElement('p');notice.textContent='Events could not load. Open a sport’s Schedule in Follow.';host.append(notice);}
