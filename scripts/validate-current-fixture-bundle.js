@@ -23,6 +23,9 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   // Exercise the reviewed aggregation change against the actual current helper,
   // while retaining both earlier references and every existing assertion below.
   await db.exec('begin;'+fs.readFileSync('supabase/migrations/20261015053258_flatten_fixture_observation_projection.sql','utf8')+'commit;');
+  // Use the current canonical writer body for the projection lifecycle check.
+  const currentPublisher=fs.readFileSync('supabase/migrations/20261012113815_expire_unchanged_fixture_history.sql','utf8').match(/CREATE OR REPLACE FUNCTION[\s\S]*?\$function\$;/)[0];
+  await db.exec(currentPublisher);
   const aggregationMigration=fs.readFileSync('supabase/migrations/20261019010303_add_global_fixture_json_reader.sql','utf8');
   const globalSignature='public.nothingsports_read_current_fixture_bundle(text[])',wireSignature='public.nothingsports_read_current_fixture_bundle_json(text[])';
   const globalDefinition=(await db.query('select pg_get_functiondef($1::regprocedure) as definition',[globalSignature])).rows[0].definition;
@@ -128,6 +131,59 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   assert.deepEqual(await retainedOwnershipContracts(),beforeOwnershipContracts,'Only existing global row/scalar bodies change; all other definitions and rights stay exact');
   assert.deepEqual(await Promise.all([wireSignature,rowSignature].map(ownerAttributes)),beforeOwnerAttributes,'Both existing signatures, types, one-row hint, attributes and service-only grants stay exact');
   await db.exec('begin;');await assert.rejects(db.exec(ownershipMigration),/differ from reviewed baseline/);await db.exec('rollback;');
+  const projectionMigration=fs.readFileSync('supabase/migrations/20261020173831_store_global_fixture_projection_with_current_facts.sql','utf8');
+  const projectionOtherContracts=async()=>(await db.query("select jsonb_object_agg(p.oid::text,jsonb_build_object('definition',pg_get_functiondef(p.oid),'acl',p.proacl::text)) contracts from pg_proc p where p.pronamespace='public'::regnamespace and p.proname like 'nothingsports_%' and p.proname<>'nothingsports_read_current_fixture_bundle_json_rows'")).rows[0].contracts;
+  const beforeProjectionContracts=await projectionOtherContracts(),beforeProjectionRowAttributes=await ownerAttributes(rowSignature);
+  const relationContract=async()=>(await db.query("select relowner,relacl::text acl,relrowsecurity,relforcerowsecurity from pg_class where oid='public.nothingsports_fixture_current'::regclass")).rows[0];
+  const beforeProjectionRelation=await relationContract();
+  for(const mutation of [
+   'alter function public.nothingsports_read_current_fixture_bundle_json(text[]) immutable',
+   'alter function public.nothingsports_read_current_fixture_bundle_json_rows(text[]) rows 2',
+   'alter function public.nothingsports_project_fixture_observations(jsonb,jsonb,jsonb,timestamptz) immutable',
+   'alter function public.nothingsports_fixture_observation_time(text) strict',
+   'grant execute on function public.nothingsports_read_current_fixture_bundle_json_rows(text[]) to anon',
+   'revoke execute on function public.nothingsports_read_current_fixture_bundle_json_rows(text[]) from service_role',
+   'alter table public.nothingsports_fixture_current add column global_fixture jsonb',
+   'alter table public.nothingsports_fixture_current disable row level security',
+   'grant select on public.nothingsports_fixture_current to anon'
+  ]){
+   await db.exec('begin;'+mutation+';');await assert.rejects(db.exec(projectionMigration),/differ from reviewed baseline|permissions differ|already exists/);await db.exec('rollback;');
+   assert.deepEqual(await projectionOtherContracts(),beforeProjectionContracts);assert.deepEqual(await relationContract(),beforeProjectionRelation);
+  }
+  const projectionFixture=(await db.query("select jsonb_build_object('id','before-projection','date',(statement_timestamp() at time zone 'Australia/Sydney')::date::text,'status','scheduled','kind','tournament','fullSpiel','pre-existing full copy','scoreCheckedAt','2026-10-01T00:00:00Z','storyline',jsonb_build_object('stakes',4,'hookSpoilerOff','pre-existing hook'),'subEvents',jsonb_build_array(jsonb_build_object('id','before-detail'))) fixture")).rows[0].fixture;
+  await db.exec("insert into public.nothingsports_fixture_sources(source_id) values('qa-stored-projection');");
+  const publishProjection=async(fixture,hash)=>{
+   await db.exec("update public.nothingsports_fixture_sources set lease_token='00000000-0000-4000-8000-000000000001',lease_until=clock_timestamp()+interval '1 minute' where source_id='qa-stored-projection';");
+   await db.query("select public.nothingsports_publish_fixture_source('qa-stored-projection','00000000-0000-4000-8000-000000000001'::uuid,$1::jsonb,$2,120000)",[JSON.stringify([fixture]),hash]);
+  };
+  await publishProjection(projectionFixture,'qa-before');
+  const projectionData=async derived=>(await db.query("select md5(jsonb_agg("+ (derived?"to_jsonb(c)-'global_fixture'":"to_jsonb(c)")+" order by source_id,fixture_id)::text) digest from public.nothingsports_fixture_current c")).rows[0].digest;
+  const beforeProjectionData=await projectionData(false);
+  const projectionEqual=async()=>assert.equal((await db.query("select public.qa_reference_global_aggregation(null::text[])=(select value::jsonb from public.nothingsports_read_current_fixture_bundle_json_rows(null::text[]) t(value)) same")).rows[0].same,true,'Stored projection must match the complete original membership and facts');
+  await db.exec('begin;'+projectionMigration+'commit;');
+  assert.equal(await projectionData(true),beforeProjectionData,'Backfill preserves every original stored field, ID, content hash and observation clock');
+  assert.deepEqual(await projectionOtherContracts(),beforeProjectionContracts,'Only the existing row reader body changes; canonical writer and all other functions/ACLs stay exact');
+  assert.deepEqual(await ownerAttributes(rowSignature),beforeProjectionRowAttributes);assert.deepEqual(await relationContract(),beforeProjectionRelation);
+  assert.equal((await db.query("select attgenerated from pg_attribute where attrelid='public.nothingsports_fixture_current'::regclass and attname='global_fixture'")).rows[0].attgenerated,'s');
+  await projectionEqual();
+  await publishProjection(projectionFixture,'qa-before');
+  assert.equal(await projectionData(true),beforeProjectionData,'Unchanged canonical checks preserve current facts, original clocks and the stored projection');
+  const baseProjectionDigest=(await db.query("select md5(global_fixture::text) digest from public.nothingsports_fixture_current where source_id='qa-stored-projection'")).rows[0].digest;
+  await db.exec("insert into public.nothingsports_live_scores(source_id,fixture_id,score,content_hash) values('qa-stored-projection','before-projection','{\"status\":\"completed\",\"homeScore\":0,\"awayScore\":1,\"scoreCheckedAt\":\"2026-10-03T00:00:00Z\"}'::jsonb,'qa-score');update public.nothingsports_fixture_sources set discovery_report='{\"_fixtureObservations\":{\"before-projection\":{\"s\":\"2026-10-04T00:00:00Z\",\"t\":\"2026-10-04T00:00:00Z\"}}}'::jsonb where source_id='qa-stored-projection';");
+  await projectionEqual();
+  const freshProjection=(await db.query("select value::jsonb bundle from public.nothingsports_read_current_fixture_bundle_json_rows(null::text[]) t(value)")).rows[0].bundle.rows[0].fixture;
+  assert.equal(freshProjection.homeScore,0);assert.equal(Date.parse(freshProjection.scoreFactObservedAt),Date.parse('2026-10-03T00:00:00Z'));assert.equal(Date.parse(freshProjection.scoreCheckedAt),Date.parse('2026-10-04T00:00:00Z'),'A fresh receipt does not replace the original score fact clock');
+  assert.equal((await db.query("select md5(global_fixture::text) digest from public.nothingsports_fixture_current where source_id='qa-stored-projection'")).rows[0].digest,baseProjectionDigest,'Live score and receipt changes do not require rewriting the stored base');
+  await db.exec("delete from public.nothingsports_live_scores where source_id='qa-stored-projection';");
+  const movedProjectionFixture={...projectionFixture,date:'2099-01-01',fullSpiel:'new retained full copy'};
+  await db.exec('begin;alter table public.nothingsports_fixture_current alter column global_fixture drop expression;');
+  await publishProjection(movedProjectionFixture,'qa-moved');
+  await assert.rejects(projectionEqual(),/complete original membership and facts/,'A stale manual copy must fail the actual canonical-writer lifecycle comparison');await db.exec('rollback;');
+  await publishProjection(movedProjectionFixture,'qa-moved');await projectionEqual();
+  const selectedProjection=(await db.query("select value::jsonb bundle from public.nothingsports_read_current_fixture_bundle_json_rows(array['before-projection']) t(value)")).rows[0].bundle;
+  assert.equal(selectedProjection.rows[0].fixture.fullSpiel,'new retained full copy');assert.equal(Date.parse(selectedProjection.rows[0].fixture.scoreFactObservedAt),Date.parse(projectionFixture.scoreCheckedAt),'Canonical updates do not renew the original fact clock, regardless of session time zone');
+  await db.exec("delete from public.nothingsports_fixture_current where source_id='qa-stored-projection';delete from public.nothingsports_fixture_snapshots where source_id='qa-stored-projection';delete from public.nothingsports_fixture_sources where source_id='qa-stored-projection';");
+  await db.exec('begin;');await assert.rejects(db.exec(projectionMigration),/differ from reviewed baseline|already exists/);await db.exec('rollback;');
   const aggregationEquivalent=async(ids,expectedCount,expectedComplete=true)=>{
    const r=(await db.query(`with old as materialized(select public.qa_reference_global_aggregation($1::text[]) v), current as materialized(select public.nothingsports_read_current_fixture_bundle_json($1::text[])::jsonb v), emitted as materialized(select value from public.nothingsports_read_current_fixture_bundle_json_rows($1::text[]) t(value)), payload as materialized(select json_agg(value) wire,count(*) row_count from emitted)
     select old.v=current.v and old.v=(payload.wire::jsonb->0) as same,payload.row_count,json_array_length(payload.wire) array_length,jsonb_array_length(current.v->'rows') as n,current.v->'complete'='true'::jsonb as complete,current.v->>'schemaVersion' as schema from old,current,payload`,[ids])).rows[0];

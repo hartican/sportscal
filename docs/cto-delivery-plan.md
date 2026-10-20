@@ -2,6 +2,13 @@
 
 ## Current snapshot repair — 21 October 2026
 
+**Publication remains blocked.** Row-owner 96ac was applied once and exact contracts/actual PostgreSQL 17.6 verified. It removed one extra whole-response copy, but the first participant/global read still hit the three-second deadline; qualification stopped after three requests. App 580/6dfa remains deployed with failed acceptance. No second cycle, unchanged retry or new release followed.
+
+The next local candidate stores the same compact base as an automatically generated field beside each existing canonical fixture. The original data stays intact; fresh score/receipt joins and full selected payloads remain. Local actual-reader/backfill comparisons show identical results and materially less work; no cloud speed claim follows yet. One bounded capacity read found a 287.7 MB database and a 19.7 MB uncompressed derived projection. The permanent tests exercise the actual canonical publisher and require a stale-copy counterexample to fail. Reviews, storage-qualified one-time DDL, exact metadata, actual RPC and repeated fresh public gates remain required before the normal full exact-SHA release. [Stored-projection evidence and remaining gates](quality/global-snapshot-stored-projection-2026-10-21.md).
+
+## Previous row-owner preparation checkpoint — 21 October 2026
+
+
 App 580 / 6dfa0a04 is deployed, but workflow 39452489706 failed its required global freshness gate. It passed safety, real Match Centre selection, seven security routes, exact release files/production aliases and six private-source denials. This remains a failed release acceptance; earlier reads and original-profile evidence cannot override it.
 
 Both initial SQL improvements were applied once with exact contracts verified, but the actual stored reader still timed out. Generic-parameter evidence then showed the full catalogue being planned as a tiny selected set, causing repeated join work. The new local source snapshot 6bb853a2 separates only global and explicit-ID key selection before the same ordered 5001 bound and unchanged projection. Full permanent SQL equivalence, guarded refusal/replay and access checks pass. Independent Spec is qualified CLEAR; Root full Standards is CLEAR, while the separate finite Standards follow-up did not return a complete verdict before its timebox and is not claimed as clearance.
