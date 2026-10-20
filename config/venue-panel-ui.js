@@ -585,6 +585,14 @@ function eventParticipantFollowLevels(ev){
 
 
 function buildEventWhyItMatters(ev){
+  if(globalThis.NOTHINGSPORTS_CRICKET_EDITORIAL.isCricket(ev)){
+    const copy=globalThis.NOTHINGSPORTS_EDITORIAL_LIFECYCLE.copy(ev,ev.editorialNarrative||{},isSpoilerVisible(ev));
+    const paragraphs=[copy.hook,copy.formCopy,copy.synopsis,copy.closingCopy].filter(Boolean).slice(0,cardStateForEvent(ev)==='opened'?4:1);
+    if(!paragraphs.length)return null;
+    const aside=document.createElement('aside');aside.className='editorial-l0-hook';
+    for(const value of paragraphs){const p=document.createElement('p');p.className='editorial-l0-supplement';p.textContent=value;aside.appendChild(p);}
+    return aside;
+  }
   const locked=NOTHINGSPORTS_EDITORIAL_LOCKS.activeFor(ev);
   if(locked)return buildEditorialL0Hook(locked.hook,'',{labelText:'Why it matters',supplementalCopy:cardStateForEvent(ev)==='opened'?locked.synopsis:''});
   const opened = cardStateForEvent(ev) === "opened";

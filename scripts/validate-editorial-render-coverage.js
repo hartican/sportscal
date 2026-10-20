@@ -32,6 +32,8 @@ const majorById = byIdentity(majorEvents.events || []);
 const catalogue=[...require("../lib/calendar-catalogue").catalogue(),...require("../data/tennis-feed-parents.v1.json").parents];
 const catalogueById=byIdentity(catalogue);
 const resolved = [];
+const cricket=require('../config/cricket-editorial-policy');
+const resolvable=narrative=>cricket.hasPolicy(narrative)?cricket.complete(narrative):editorialNarrativeReadyForCard(narrative);
 
 for (const projection of knowledge.eventProjections || []){
   if (
@@ -46,7 +48,7 @@ for (const projection of knowledge.eventProjections || []){
     const record = projection.targetIds.map(id => records.get(id)).find(Boolean);
     assert(record, `${projection.id} must resolve to its published ${projection.targetType} record`);
     assert(
-      editorialNarrativeReadyForCard(record.editorialNarrative),
+      resolvable(record.editorialNarrative),
       `${projection.id} ${record.editorialNarrative?.schemaVersion || "missing"} narrative must remain displayable`,
     );
     if (record.editorialNarrative?.consequence){
@@ -58,7 +60,7 @@ for (const projection of knowledge.eventProjections || []){
 
 const researched = [...(published.events || []), ...(majorEvents.events || []),...catalogue]
   .filter(record => record.editorialNarrative?.generationMode === "researched");
-const visible = researched.filter(record => editorialNarrativeReadyForCard(record.editorialNarrative));
+const visible = researched.filter(record => resolvable(record.editorialNarrative));
 assert.equal(visible.length, researched.length, "every researched narrative shipped to the app must pass the exact browser display gate");
 
 assert(editorialNarrativeReadyForCard({

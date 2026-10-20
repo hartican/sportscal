@@ -1585,3 +1585,13 @@ Keep the first failed global read's bounded owned diagnostic beside its existing
 ## 20 October2026 — preserve the used public Schedule index across shell activation
 
 An installed574→575 offline rehearsal demonstrated that deleting obsolete shell caches could lose the only used Schedule manifest, despite a successful online journey. Before claiming clients, retain only `/data/code-inspector/manifest.json` from the newest older numeric shell cache when the current cache lacks it. Keep current data, existing network-first reads, sporting clocks, optional install behavior and obsolete-cache deletion. No new download, store, private source, executable or subscription. The real activate-handler regression must reject loss/current overwrite or copying unrelated data; native installed/offline checks remain mandatory.
+
+## Cricket editorial policy — 20 October 2026
+
+The existing daily editorial owner may research eligible active cricket fixtures,
+using the same real-signal/request qualification, holds and source allocation.
+Per due fixture the ceiling is two searches and six article reads including retries,
+one draft, one separate review and one correction. See
+[cricket editorial policy](cricket-editorial-policy.md). There is no new scheduler,
+provider ingestion path, model API, client network request or database endpoint.
+The first revised sample requires explicit user approval before publication.

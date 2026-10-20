@@ -7609,6 +7609,7 @@ function isSpoilerPolicySpiel(copy){
 }
 
 function storylineCopyForDisplay(ev){
+  if(NOTHINGSPORTS_CRICKET_EDITORIAL.isCricket(ev))return NOTHINGSPORTS_EDITORIAL_LIFECYCLE.copy(ev,ev.editorialNarrative||{},isSpoilerVisible(ev));
   const storyline = ev.storyline || {};
   const status = getEventStatus(ev);
   const completed = ev.status === "completed" || status === "past";
@@ -7728,6 +7729,7 @@ function buildEventTimingStateChip(event, timing = FEED_CONTROLS?.timingState?.(
 }
 
 function eventSpielForDisplay(ev){
+  if(NOTHINGSPORTS_CRICKET_EDITORIAL.isCricket(ev))return storylineCopyForDisplay(ev).synopsis;
   const storylineCopy = storylineCopyForDisplay(ev);
   if (storylineCopy.synopsis) return storylineCopy.synopsis;
   const fullSpiel = ev.fullSpiel || "";

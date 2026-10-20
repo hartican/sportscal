@@ -1,5 +1,15 @@
 # Adaptive 5/5 editorial - owner decisions, 2 October 2026
 
+## Cricket policy extension — 20 October 2026
+
+[Cricket card editorial](cricket-editorial-policy.md) supersedes this document's
+four-section/minimum-source requirements for cricket only. Its explicit synthesis,
+attributed brief and withheld outcomes use sentence-level evidence, independent
+reporting origins, phase/expiry checks and an initial-sample publication gate.
+Include already eligible active cricket fixtures in the existing daily owner run;
+retain holds, real-signal/request selection, source allocation and all other sports'
+preview windows. No additional scheduler or paid ingestion is authorised.
+
 ## EPIC preservation and post-match owner extension — 14 October 2026
 
 This dated decision extends the earlier pre-kickoff preview rules. Both explicit NS curators count as NS picks; post-match work qualifies at NS 3+ or any registered, non-suspended genuine historical user 4+ across heat/pulse/impact and canonical aliases. Queue all recoverable qualifying history. Preserve shared editorial for any genuine historical user five or explicit NS five, with account-owned personal references for users' own fives. Retire ordinary cards after seven local calendar days without dropping this backlog or archived writing.
