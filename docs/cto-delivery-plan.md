@@ -1,5 +1,13 @@
 # CTO delivery programme — authoritative current queue
 
+## Prepared next module — 20 October 2026, Cricket editorial577 remains local
+
+The human-approved Cricket structure from frozen`5668629c` is integrated on main`066584f3` as candidate`2770fab021ee4f5c4aaf6a8412464104602df1e1`, app577. It is **not pushed or deployed**. All18 affected source/cache/budget checks, communication/calendar checks, eight local Chromium/WebKit layouts, both installed576→577 upgrade/offline engines and the official immutable local package pass. Startup431,303/431,441gzip bytes and seven requests retain the existing limits. The local package contains1,886 files/232,570,142 bytes/6,625 catalogue fixtures; an actual Vercel build has not run.
+
+Root reproduced and fixed acceptance of a missing draft-pass identity at the actual writer, restored non-Cricket synopsis minimums and extended the existing private-source sealing/denial owner to raw research ledgers while retaining required server copies. Two genuinely uncalled helpers were removed to keep the unchanged startup cap. Exact Root Standards review is CLEAR; the existing independent Spec source review and its Root-delta closure remain pending. Dated samples are regression evidence only; all actual sporting/feed/provider/knowledge/research data, Football identities and saved World Cup inputs remain exact.
+
+The existing daily editorial instruction exception is prepared but not applied: policy must first be available on accepted main. No new scheduler, request, model service, provider/DB call, research allowance or purchase is introduced. Preserve the576 failed global freshness gate, closed extra investigation window, sole Root publisher and separate refresh-wrapper/highlights owners. No unchanged workflow retry is allocated. [Local preparation and verification report](/Users/jackhartican/Documents/AI/Codex/nothingsport-cricket-editorial-integration-20261020/report.md).
+
 ## Current release checkpoint — 20 October 2026, 576 live but unaccepted
 
 App 576 / `6876cb612f56b1b6f8f2001cceb24b8e1d0f06e7` is READY on three production aliases with five matching public files and an exact 1,883-file package. [Workflow 39375483135](https://github.com/hartican/sportscal/actions/runs/39375483135) passed all 239 safety commands, shared preflights, real Match Centre membership/selected (one fixture) and seven security-header routes. Its required global freshness gate FAILED; the loading repair remains open. No unchanged retry or additional live/database/provider probe follows.
