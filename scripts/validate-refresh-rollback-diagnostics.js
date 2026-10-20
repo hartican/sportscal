@@ -11,7 +11,7 @@ async function run(){
   // Execute the actual full entrypoint catch/finally and real atomicRefresh.
   // Only source work is replaced with the deliberately failing local operation.
   const full=operation=>{
-   const context={require:createRequire(file),fs,path,os,crypto:require('node:crypto'),console:{...console,error(){},warn:console.warn},process:{env:process.env,argv:['node',file,'--offline','--local-only']},parseOptions(){},runMain:()=>quick.atomicRefresh({},{refreshOperation:operation})};
+   const context={require:createRequire(file),fs,path,os,crypto:require('node:crypto'),console:{...console,error(){},warn:console.warn},process:{env:process.env,argv:['node',file,'--local-only']},parseOptions:()=>require('./update-cards').parseOptions(['--local-only'],process.env),runMain:()=>quick.atomicRefresh({},{refreshOperation:operation})};
    vm.runInNewContext(source.slice(start,end)+';globalThis.invoke=main',context);
    return context.invoke();
   };
