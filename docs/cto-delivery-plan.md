@@ -1,6 +1,16 @@
 # CTO delivery programme — authoritative current queue
 
-## Superseding release and snapshot checkpoint — 21 October2026
+## Current snapshot repair — 21 October 2026
+
+App 580 / 6dfa0a04 is deployed, but workflow 39452489706 failed its required global freshness gate. It passed safety, real Match Centre selection, seven security routes, exact release files/production aliases and six private-source denials. This remains a failed release acceptance; earlier reads and original-profile evidence cannot override it.
+
+Both initial SQL improvements were applied once with exact contracts verified, but the actual stored reader still timed out. Generic-parameter evidence then showed the full catalogue being planned as a tiny selected set, causing repeated join work. The new local source snapshot 6bb853a2 separates only global and explicit-ID key selection before the same ordered 5001 bound and unchanged projection. Full permanent SQL equivalence, guarded refusal/replay and access checks pass. Independent Spec is qualified CLEAR; Root full Standards is CLEAR, while the separate finite Standards follow-up did not return a complete verdict before its timebox and is not claimed as clearance.
+
+The third guarded migration is now applied once: scalar fingerprint 7b1f7a5dffad070833198c119f854fa8, five retained reader/helper contracts and service-only access unchanged. The actual stored service-role wrapper completed in 2686.241 ms under the unchanged three-second limit. Fresh public qualification then stopped after six requests: the second participant/global read hit the same 3000 ms deadline. No third round, retry or new app publication followed. A local-only next candidate moves the unchanged aggregation into its existing row RPC, with a compatibility scalar delegate, to remove one PostgreSQL 17 whole-response materialisation. Matching-version mechanical proof reduces temporary writes from 6075 to 4569 blocks; whole-value comparisons remain exact. The permanent regression, source reviews, guarded application, repeated fresh qualification and full normal exact-SHA release remain required. No deadline, memory, permission, membership, sporting-clock, account, Follow, source or scheduler rule changed. [Scope-plan evidence](quality/global-snapshot-scope-plan-2026-10-21.md) and [next local row-owner candidate](quality/global-snapshot-row-owner-2026-10-21.md).
+
+The A-League 12-club/156-fixture and World Cup saved-card changes are preserved. Cricket editorial 580 is deployed but its daily-owner instruction remains unapplied until acceptance. Follow recovery remains PAUSED_UNRESOLVED with zero example additions or restorations; milestone alerts remain held. CPU consolidation is terminal NO-GO. The existing scheduled-refresh owner remains separate; no extra refresh or scheduler was created.
+
+## Previous preparation checkpoint — 21 October 2026
 
 Production579/6b42d58b is **deployed, acceptance FAILED**, following workflow39438756627's actual global fixture-bundle timeout; security headers and partial hosted score/A-League proof passed and do not override it. The preceding39435978609 failed before deployment on a historical Impact-inbox test clock; its reviewed test-only correction is retained. Cricket580 is locally adapted on that correction at9a75f87b, with eight affected/native checks, both installed/offline engine upgrades and qualified adaptation review complete; it is unpublished.
 

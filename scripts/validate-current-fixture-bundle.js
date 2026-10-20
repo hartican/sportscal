@@ -4,6 +4,8 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
 (async()=>{
  const {PGlite}=require(process.env.PGLITE_MODULE||'@electric-sql/pglite'),db=new PGlite();
  try{
+  const pgMajor=Number((await db.query("select current_setting('server_version_num') v")).rows[0].v)/10000|0;
+  if(process.env.PGLITE_MODULE==='pglite-pg17')assert.equal(pgMajor,17,'Pinned production-parity runtime must remain PostgreSQL 17');
   await db.exec("create role anon;create role authenticated;create role service_role bypassrls;grant usage on schema public to service_role;");
   for(const name of ['20260908093906_live_fixture_snapshots.sql','20260908110529_discovery_source_health.sql'])await db.exec(fs.readFileSync('supabase/migrations/'+name,'utf8'));
   await db.exec(fs.readFileSync('supabase/migrations/20260914061506_right_size_fixture_runtime.sql','utf8').split('-- One write replaces')[0]);
@@ -96,6 +98,36 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   assert.deepEqual((await db.query(`select p.provolatile,p.prosecdef,p.proparallel,p.proleakproof,p.proconfig,p.proacl::text as acl,l.lanname,p.prorettype::regtype::text as returns from pg_proc p join pg_language l on l.oid=p.prolang where p.oid=$1::regprocedure`,[wireSignature])).rows[0],beforeCompactAttributes,'Replacement keeps exact function attributes and grants');
   await db.exec('begin;');await assert.rejects(db.exec(compactMigration),/differ from reviewed baseline/);await db.exec('rollback;');
   }
+  // Preserve the actual prior caller chain as a local regression control.
+  const ownershipBeforeScalar=(await db.query('select pg_get_functiondef($1::regprocedure) definition',[wireSignature])).rows[0].definition;
+  const ownershipBeforeRows=(await db.query('select pg_get_functiondef($1::regprocedure) definition',[rowSignature])).rows[0].definition;
+  await db.exec(ownershipBeforeScalar.replace('public.nothingsports_read_current_fixture_bundle_json(', 'public.qa_previous_global_scalar('));
+  await db.exec(ownershipBeforeRows.replace('public.nothingsports_read_current_fixture_bundle_json_rows(', 'public.qa_previous_global_rows(').replace('public.nothingsports_read_current_fixture_bundle_json(', 'public.qa_previous_global_scalar('));
+  await db.exec('revoke all on function public.qa_previous_global_scalar(text[]),public.qa_previous_global_rows(text[]) from public,anon,authenticated;grant execute on function public.qa_previous_global_scalar(text[]),public.qa_previous_global_rows(text[]) to service_role;');
+  const ownershipMigration=fs.readFileSync('supabase/migrations/20261020171222_let_global_row_reader_own_aggregation.sql','utf8');
+  const retainedOwnershipContracts=async()=>(await db.query("select jsonb_object_agg(p.oid::text,jsonb_build_object('definition',pg_get_functiondef(p.oid),'acl',p.proacl::text)) contracts from pg_proc p where p.pronamespace='public'::regnamespace and p.proname like 'nothingsports_%' and p.proname not in('nothingsports_read_current_fixture_bundle_json','nothingsports_read_current_fixture_bundle_json_rows')")).rows[0].contracts;
+  const beforeOwnershipContracts=await retainedOwnershipContracts();
+  const ownerAttributes=async signature=>(await db.query("select p.provolatile,p.prosecdef,p.proparallel,p.proleakproof,p.proconfig,p.proacl::text as acl,l.lanname,p.prorettype::regtype::text as returns,p.proretset,p.prorows,pg_get_function_arguments(p.oid) args from pg_proc p join pg_language l on l.oid=p.prolang where p.oid=$1::regprocedure",[signature])).rows[0];
+  const beforeOwnerAttributes=await Promise.all([wireSignature,rowSignature].map(ownerAttributes));
+  for(const mutation of [
+   'alter function public.nothingsports_read_current_fixture_bundle_json(text[]) immutable',
+   'alter function public.nothingsports_read_current_fixture_bundle_json_rows(text[]) rows 2',
+   'alter function public.nothingsports_project_fixture_observations(jsonb,jsonb,jsonb,timestamptz) immutable',
+   'alter function public.nothingsports_fixture_observation_time(text) strict',
+   ...[wireSignature,rowSignature].flatMap(signature=>[
+    'grant execute on function '+signature+' to public',
+    'grant execute on function '+signature+' to anon',
+    'revoke execute on function '+signature+' from service_role',
+    'create role qa_unexpected_owner_grantee;grant execute on function '+signature+' to qa_unexpected_owner_grantee'
+   ])
+  ]){
+   await db.exec('begin;'+mutation+';');await assert.rejects(db.exec(ownershipMigration),/differ from reviewed baseline|permissions differ/);await db.exec('rollback;');
+   assert.deepEqual(await retainedOwnershipContracts(),beforeOwnershipContracts);
+  }
+  await db.exec('begin;'+ownershipMigration+'commit;');
+  assert.deepEqual(await retainedOwnershipContracts(),beforeOwnershipContracts,'Only existing global row/scalar bodies change; all other definitions and rights stay exact');
+  assert.deepEqual(await Promise.all([wireSignature,rowSignature].map(ownerAttributes)),beforeOwnerAttributes,'Both existing signatures, types, one-row hint, attributes and service-only grants stay exact');
+  await db.exec('begin;');await assert.rejects(db.exec(ownershipMigration),/differ from reviewed baseline/);await db.exec('rollback;');
   const aggregationEquivalent=async(ids,expectedCount,expectedComplete=true)=>{
    const r=(await db.query(`with old as materialized(select public.qa_reference_global_aggregation($1::text[]) v), current as materialized(select public.nothingsports_read_current_fixture_bundle_json($1::text[])::jsonb v), emitted as materialized(select value from public.nothingsports_read_current_fixture_bundle_json_rows($1::text[]) t(value)), payload as materialized(select json_agg(value) wire,count(*) row_count from emitted)
     select old.v=current.v and old.v=(payload.wire::jsonb->0) as same,payload.row_count,json_array_length(payload.wire) array_length,jsonb_array_length(current.v->'rows') as n,current.v->'complete'='true'::jsonb as complete,current.v->>'schemaVersion' as schema from old,current,payload`,[ids])).rows[0];
@@ -223,7 +255,7 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
    await db.exec('set role service_role;');await aggregationEquivalent(null,2);await aggregationEquivalent(['0'],1);await db.exec('reset role;');
   }
   await db.exec("delete from public.nothingsports_fixture_current where source_id='aggregation-z';update public.nothingsports_fixture_sources set discovery_report='{}' where source_id='aggregation-z';");
-  const compactDefinition=(await db.query('select pg_get_functiondef($1::regprocedure) definition',[wireSignature])).rows[0].definition;
+  const compactDefinition=(await db.query('select pg_get_functiondef($1::regprocedure) definition',[rowSignature])).rows[0].definition;
   await db.exec('begin;'+compactDefinition.replace('r.receipts->c.fixture_id',"'{}'::jsonb"));
   await assert.rejects(aggregationEquivalent(null,1),/Whole ordered JSONB output/,'Equivalence detects a lost original receipt');await db.exec('rollback;');
   await db.query(`insert into public.nothingsports_fixture_current(source_id,fixture_id,identity_keys,fixture,content_hash)
@@ -248,7 +280,22 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   await db.exec('set role service_role;');await aggregationEquivalent(null,5001,false);await db.exec('reset role;');
   assert.equal((await db.query('select md5(pg_get_functiondef($1::regprocedure)) digest',[globalSignature])).rows[0].digest,'ef1658b2eb58a376f368ede88730ad43');
   assert.notEqual((await db.query('select md5(pg_get_functiondef($1::regprocedure)) digest',[wireSignature])).rows[0].digest,'a15bc809eaf15601a52855cb667f7b9f','Compact scalar is installed in the actual reader used throughout the regression');
-  console.log(JSON.stringify({schemaVersion:'global-json-row-regression.v1',rowDigest,rowsHint:1,oneRowCardinality:true,exactSQLNumericEquality:true,oldDependenciesUnchanged:true,productionCalls:0}));
+  console.log(JSON.stringify({schemaVersion:'global-json-row-regression.v1',rowDigest:(await db.query('select md5(pg_get_functiondef($1::regprocedure)) digest',[rowSignature])).rows[0].digest,rowsHint:1,oneRowCardinality:true,exactSQLNumericEquality:true,oldDependenciesUnchanged:true,productionCalls:0}));
+  if(pgMajor===17){
+   // Pressure the real prior/current RPC caller with the same wide factual rows.
+   // Only temporary-work counts are gated; noisy execution times are not.
+   await db.exec("begin;set local work_mem='2184kB';set local statement_timeout='3s';update public.nothingsports_fixture_current set fixture=fixture||jsonb_build_object('qaWideFact',repeat('x',2048));");
+   const plan=async name=>(await db.query('explain(analyze,buffers,format json,timing off) select value from public.'+name+'(null::text[]) t(value)')).rows[0]['QUERY PLAN'][0];
+   const baseline=await plan('qa_previous_global_rows'),current=await plan('nothingsports_read_current_fixture_bundle_json_rows');
+   const check=actual=>assert(actual.Plan['Temp Written Blocks']<baseline.Plan['Temp Written Blocks'],'Global RPC must avoid the extra whole-result materialisation');
+   check(current);await aggregationEquivalent(null,5001,false);
+   const currentRows=(await db.query('select pg_get_functiondef($1::regprocedure) definition',[rowSignature])).rows[0].definition;
+   await db.exec(ownershipBeforeRows.replace('public.nothingsports_read_current_fixture_bundle_json(', 'public.qa_previous_global_scalar('));
+   await assert.rejects((async()=>check(await plan('nothingsports_read_current_fixture_bundle_json_rows')))(),/extra whole-result materialisation/,'Restoring the actual old caller chain must fail the temporary-work regression');
+   await db.exec(currentRows);await db.exec('rollback;');
+   console.log(JSON.stringify({schemaVersion:'global-pg17-copy-regression.v1',pgMajor,rows:5001,baselineTempBlocks:baseline.Plan['Temp Written Blocks'],currentTempBlocks:current.Plan['Temp Written Blocks'],negativeControl:true,productionCalls:0}));
+  }
+  console.log(JSON.stringify({schemaVersion:'global-reader-owner-contract.v1',pgMajor,scalarMd5:(await db.query('select md5(pg_get_functiondef($1::regprocedure)) digest',[wireSignature])).rows[0].digest,rowsMd5:(await db.query('select md5(pg_get_functiondef($1::regprocedure)) digest',[rowSignature])).rows[0].digest,unchangedOtherContracts:true,productionCalls:0}));
   console.log('Global aggregation: exact SQL numerics/whole-output NULL, empty, alias, selected, 0/1/5000/5001, clocks/nulls/Unicode, replay/mismatch/security guards and unchanged ACL passed.');
   console.log('Global/near transfer beyond 1000 rows, preserved current membership and reschedules, uncertain clocks, parent/detail isolation, observations/aliases/rubbers, score-overlay retention, two-read budget, degraded fallback, service-only access and complete SQL equivalence passed.');
  }finally{await db.close();}
