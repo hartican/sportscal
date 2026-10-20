@@ -51,7 +51,11 @@ assert.match(view({...actual,status:'completed'},options).summary,/Stumps:/,'A p
 // Exercise installation separately from the numerical model: a header may be
 // absent on a legacy host, so its status cannot always be omitted from the footer.
 class Element {
- constructor(tag){this.tagName=tag.toUpperCase();this.children=[];this.attributes={};this.dataset={};this.ownText='';}
+ constructor(tag){this.tagName=tag.toUpperCase();this.children=[];this.attributes={};this.dataset={};this.ownText='';this.className='';}
+ get classList(){return {
+  contains:name=>this.className.split(/\s+/).includes(name),
+  toggle:(name,force)=>{const tokens=new Set(this.className.split(/\s+/).filter(Boolean)),include=force===undefined?!tokens.has(name):Boolean(force);if(include)tokens.add(name);else tokens.delete(name);this.className=[...tokens].join(' ');return include;}
+ };}
  get textContent(){return this.ownText+this.children.map(c=>typeof c==='string'?c:c.textContent).join('');}
  set textContent(value){this.ownText=String(value);this.children=[];}
  append(...nodes){this.children.push(...nodes);}
@@ -67,7 +71,7 @@ try {
  const install=require('../config/feed-live-scores').install;
  for(const header of ['STUMPS • Live again at 6:30 pm','RAIN DELAY • Resume time unconfirmed','']){
   const card=new Element('section'),badge=new Element('div');badge.textContent=header;
-  let clicks=0,stops=0;card.classList={contains:()=>false};
+  let clicks=0,stops=0;
   card.querySelector=selector=>selector==='.fixture-more'?{click:()=>clicks++}:null;
   card.querySelectorAll=selector=>selector==='.fixture-timing-badge'&&header?[badge]:[];
   install(card,unknown,options);
