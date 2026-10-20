@@ -184,6 +184,27 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   assert.equal(selectedProjection.rows[0].fixture.fullSpiel,'new retained full copy');assert.equal(Date.parse(selectedProjection.rows[0].fixture.scoreFactObservedAt),Date.parse(projectionFixture.scoreCheckedAt),'Canonical updates do not renew the original fact clock, regardless of session time zone');
   await db.exec("delete from public.nothingsports_fixture_current where source_id='qa-stored-projection';delete from public.nothingsports_fixture_snapshots where source_id='qa-stored-projection';delete from public.nothingsports_fixture_sources where source_id='qa-stored-projection';");
   await db.exec('begin;');await assert.rejects(db.exec(projectionMigration),/differ from reviewed baseline|already exists/);await db.exec('rollback;');
+  const spoolMigration=fs.readFileSync('supabase/migrations/20261020181208_avoid_duplicate_global_fixture_projection_spooling.sql','utf8');
+  const beforeSpoolContracts=await projectionOtherContracts(),beforeSpoolRowAttributes=await ownerAttributes(rowSignature),beforeSpoolRelation=await relationContract();
+  const generatedContract=async()=>(await db.query("select a.attgenerated,a.attnotnull,a.attacl::text acl,pg_get_expr(d.adbin,d.adrelid) expression from pg_attribute a join pg_attrdef d on d.adrelid=a.attrelid and d.adnum=a.attnum where a.attrelid='public.nothingsports_fixture_current'::regclass and a.attname='global_fixture'")).rows[0];
+  const beforeSpoolGenerated=await generatedContract();
+  for(const mutation of [
+   'alter function public.nothingsports_read_current_fixture_bundle_json_rows(text[]) rows 2',
+   'alter function public.nothingsports_fixture_observation_time(text) strict',
+   'grant execute on function public.nothingsports_read_current_fixture_bundle_json_rows(text[]) to anon',
+   'revoke execute on function public.nothingsports_read_current_fixture_bundle_json_rows(text[]) from service_role',
+   'alter table public.nothingsports_fixture_current alter column global_fixture drop expression',
+   'alter table public.nothingsports_fixture_current disable row level security',
+   'grant select on public.nothingsports_fixture_current to anon'
+  ]){
+   await db.exec('begin;'+mutation+';');await assert.rejects(db.exec(spoolMigration),/differ.*reviewed baseline|permissions differ/);await db.exec('rollback;');
+   assert.deepEqual(await projectionOtherContracts(),beforeSpoolContracts);assert.deepEqual(await generatedContract(),beforeSpoolGenerated);
+  }
+  await db.exec('begin;'+spoolMigration+'commit;');
+  assert.deepEqual(await projectionOtherContracts(),beforeSpoolContracts,'Only the existing global row body changes; all other functions and ACLs stay exact');
+  assert.deepEqual(await ownerAttributes(rowSignature),beforeSpoolRowAttributes);assert.deepEqual(await relationContract(),beforeSpoolRelation);assert.deepEqual(await generatedContract(),beforeSpoolGenerated);
+  await projectionEqual();
+  await db.exec('begin;');await assert.rejects(db.exec(spoolMigration),/differ from reviewed baseline/);await db.exec('rollback;');
   const aggregationEquivalent=async(ids,expectedCount,expectedComplete=true)=>{
    const r=(await db.query(`with old as materialized(select public.qa_reference_global_aggregation($1::text[]) v), current as materialized(select public.nothingsports_read_current_fixture_bundle_json($1::text[])::jsonb v), emitted as materialized(select value from public.nothingsports_read_current_fixture_bundle_json_rows($1::text[]) t(value)), payload as materialized(select json_agg(value) wire,count(*) row_count from emitted)
     select old.v=current.v and old.v=(payload.wire::jsonb->0) as same,payload.row_count,json_array_length(payload.wire) array_length,jsonb_array_length(current.v->'rows') as n,current.v->'complete'='true'::jsonb as complete,current.v->>'schemaVersion' as schema from old,current,payload`,[ids])).rows[0];
@@ -350,6 +371,21 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
    await assert.rejects((async()=>check(await plan('nothingsports_read_current_fixture_bundle_json_rows')))(),/extra whole-result materialisation/,'Restoring the actual old caller chain must fail the temporary-work regression');
    await db.exec(currentRows);await db.exec('rollback;');
    console.log(JSON.stringify({schemaVersion:'global-pg17-copy-regression.v1',pgMajor,rows:5001,baselineTempBlocks:baseline.Plan['Temp Written Blocks'],currentTempBlocks:current.Plan['Temp Written Blocks'],negativeControl:true,productionCalls:0}));
+  }
+  if(pgMajor===17){
+   await db.exec("begin;set local work_mem='2184kB';set local statement_timeout='3s';update public.nothingsports_fixture_current set fixture=fixture||jsonb_build_object('qaRetainedFact',repeat(md5(fixture_id),64));");
+   const inlineDefinition=(await db.query('select pg_get_functiondef($1::regprocedure) definition',[rowSignature])).rows[0].definition;
+   assert.equal((inlineDefinition.match(/projected as not materialized/g)||[]).length,1);
+   const spooledDefinition=inlineDefinition.replace('projected as not materialized','projected as materialized');
+   await db.exec(spooledDefinition.replace('public.nothingsports_read_current_fixture_bundle_json_rows(', 'public.qa_spooled_global_rows('));
+   await db.exec('revoke all on function public.qa_spooled_global_rows(text[]) from public,anon,authenticated;grant execute on function public.qa_spooled_global_rows(text[]) to service_role;');
+   const framePlan=async name=>(await db.query("explain(analyze,buffers,format json,timing off) select coalesce(json_agg(t.value),'[]'::json) from public."+name+'(null::text[]) t(value)')).rows[0]['QUERY PLAN'][0];
+   const spooled=await framePlan('qa_spooled_global_rows'),inline=await framePlan('nothingsports_read_current_fixture_bundle_json_rows');
+   const checkSpool=actual=>assert(actual.Plan['Temp Written Blocks']<spooled.Plan['Temp Written Blocks'],'Global RPC frame must avoid duplicate compact projection spooling');
+   checkSpool(inline);await aggregationEquivalent(null,5001,false);
+   await db.exec(spooledDefinition);await assert.rejects((async()=>checkSpool(await framePlan('nothingsports_read_current_fixture_bundle_json_rows')))(),/duplicate compact projection spooling/,'Restoring the actual materialized projection must fail the work regression');
+   await db.exec(inlineDefinition);await db.exec('rollback;');
+   console.log(JSON.stringify({schemaVersion:'global-pg17-projection-spool-regression.v1',pgMajor,rows:5001,spooledTempBlocks:spooled.Plan['Temp Written Blocks'],inlineTempBlocks:inline.Plan['Temp Written Blocks'],restoredActualReaderNegative:true,productionCalls:0}));
   }
   console.log(JSON.stringify({schemaVersion:'global-reader-owner-contract.v1',pgMajor,scalarMd5:(await db.query('select md5(pg_get_functiondef($1::regprocedure)) digest',[wireSignature])).rows[0].digest,rowsMd5:(await db.query('select md5(pg_get_functiondef($1::regprocedure)) digest',[rowSignature])).rows[0].digest,unchangedOtherContracts:true,productionCalls:0}));
   console.log('Global aggregation: exact SQL numerics/whole-output NULL, empty, alias, selected, 0/1/5000/5001, clocks/nulls/Unicode, replay/mismatch/security guards and unchanged ACL passed.');

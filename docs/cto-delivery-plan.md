@@ -2,6 +2,12 @@
 
 ## Current snapshot repair — 21 October 2026
 
+**Publication remains blocked.** The stored compact projection was applied once; exact contracts, private rights and capacity passed. The actual service-role RPC completed in 1500.903 ms, but the first fresh participant/global read still timed out before headers at 18:08:21.839Z (3003.308 ms/3000). Qualification stopped after three requests; no second round, unchanged retry, new app publication or deployment followed. App 580/6dfa remains deployed with failed acceptance.
+
+One bounded local-only follow-up found that the now-stored compact result was still spooled before ordered aggregation. Inlining only that final projection preserved whole ordered values and selected details while reducing local PG17 RPC-frame temporary writes from 4579 to 1509 blocks in two pairs. The next candidate changes only that existing CTE, with an exact E9 preimage/generated-expression/rights guard, full PG17/18 checks and a restoration negative control. It is local and not applied; cloud improvement and the mandatory repeated fresh/public/full release gates remain unproved. [Evidence and remaining gates](quality/global-snapshot-projection-spool-2026-10-21.md).
+
+## Previous stored-projection checkpoint — 21 October 2026
+
 **Publication remains blocked.** Row-owner 96ac was applied once and exact contracts/actual PostgreSQL 17.6 verified. It removed one extra whole-response copy, but the first participant/global read still hit the three-second deadline; qualification stopped after three requests. App 580/6dfa remains deployed with failed acceptance. No second cycle, unchanged retry or new release followed.
 
 The next local candidate stores the same compact base as an automatically generated field beside each existing canonical fixture. The original data stays intact; fresh score/receipt joins and full selected payloads remain. Local actual-reader/backfill comparisons show identical results and materially less work; no cloud speed claim follows yet. One bounded capacity read found a 287.7 MB database and a 19.7 MB uncompressed derived projection. The permanent tests exercise the actual canonical publisher and require a stale-copy counterexample to fail. Reviews, storage-qualified one-time DDL, exact metadata, actual RPC and repeated fresh public gates remain required before the normal full exact-SHA release. [Stored-projection evidence and remaining gates](quality/global-snapshot-stored-projection-2026-10-21.md).
