@@ -1,0 +1,41 @@
+{
+  "kind": "constructed-retained-follow-omission-regression",
+  "failedRun": 39486588371,
+  "basis": "Retained diagnostic names omitted87428; prior source fixture and preserved actual resolver replay supply identity/clock. Not a raw failed-provider packet.",
+  "participantId": "team:football:epl:10",
+  "from": "2026-09-27T00:00:00Z",
+  "datedIds": [
+    "87415",
+    "87428",
+    "87452",
+    "87474",
+    "87492",
+    "87499",
+    "87520"
+  ],
+  "competitionId": "competition:uefa-champions-league",
+  "omittedProviderId": "87428",
+  "retained": {
+    "id": "fixture:football:openligadb:uefa-champions-league:87428",
+    "competitionId": "competition:uefa-champions-league",
+    "startTimeUtc": "2026-10-20T19:00:00.000Z",
+    "participantIds": [
+      "team:football:epl:10",
+      "team:football:club:villarreal"
+    ],
+    "status": "upcoming",
+    "sourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
+    "sourceCheckedAt": "2026-10-04T08:37:57.816Z"
+  },
+  "invalidResultEvidence": {
+    "matchIsFinished": false,
+    "matchResults": [
+      {
+        "resultTypeID": 2,
+        "resultTypeKind": "After90Minutes",
+        "pointsTeam1": 2,
+        "pointsTeam2": 2
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict');
-const {normalizeLeague,resolveLeagueIdentities,assertResultAdmission,COMPETITIONS}=require('./lib/openligadb-football');
+const {normalizeLeague,resolveLeagueIdentities,assertResultAdmission,rawScheduleFixtures,COMPETITIONS}=require('./lib/openligadb-football');
 const options={league:'ucl',checkedAt:'2026-09-27T12:00:00Z'};
 function fixtureSet(league='ucl'){
   return Array.from({length:8},(_,round)=>Array.from({length:18},(_,i)=>{
@@ -68,11 +68,69 @@ function europeanFeed(entityFollows){
 assert.equal(europeanFeed([]).length,0,'broad Football alone does not opt into club fixtures');
 const published=require('../data/providers/openligadb/football-2026-27.json');
 const liverpool=europeanFeed([{participantId:'team:football:epl:10',followLevel:'follow'}]);
-const liverpoolOmissions=published.leagues.flatMap(l=>l.resultIsolation?.repairs||[]).filter(r=>r.disposition==='omitted'&&r.rawFixture.participants.some(p=>p.participantId==='team:football:epl:10')&&Date.parse(r.rawFixture.startTimeUtc)>=Date.parse('2026-09-27T00:00:00Z')).length;
-assert.equal(liverpool.length,7-liverpoolOmissions,'existing Liverpool follow preserves its seven dated fixtures except individually documented source omissions');
+const liverpoolCase=require('./fixtures/openligadb-liverpool-omission-20261021.json');
+function assertLiverpoolFollow(records,document){
+ const dated=f=>f.participants.some(p=>p.participantId===liverpoolCase.participantId)&&Date.parse(f.startTimeUtc)>=Date.parse(liverpoolCase.from);
+ const id=(league,f)=>`fixture:football:openligadb:${league.competitionId.replace('competition:','')}:${f.providerFixtureId}`;
+ const raw=document.leagues.flatMap(l=>rawScheduleFixtures(l).filter(dated).map(f=>id(l,f))).sort();
+ const expected=liverpoolCase.datedIds.map(providerFixtureId=>id({competitionId:liverpoolCase.competitionId},{providerFixtureId})).sort();
+ assert.deepEqual(raw,expected,'the complete dated Liverpool identity inventory is unchanged');
+ const admitted=document.leagues.flatMap(l=>l.fixtures.filter(dated).map(f=>({id:id(l,f),fixture:f})));
+ const omitted=new Set(document.leagues.flatMap(l=>(l.resultIsolation?.repairs||[]).filter(r=>r.disposition==='omitted'&&dated(r.rawFixture)).map(r=>id(l,r.rawFixture))));
+ const byId=new Map(records.map(e=>[e.id,e]));
+ assert.equal(byId.size,records.length,'no duplicate followed fixture identities');
+ for(const e of records)assert(expected.includes(e.id),'no unexplained Liverpool fixture');
+ for(const {id:fixtureId,fixture}of admitted){
+  const e=byId.get(fixtureId);assert(e,'every admitted peer fixture is preserved');
+  assert.deepEqual([...e.participantIds].sort(),fixture.participants.map(p=>p.participantId).sort());
+  assert.equal(e.startTimeUtc,fixture.startTimeUtc);
+  if(fixture.status==='completed')for(const key of ['homeScore','awayScore'])assert.equal(e[key],fixture.result[key],'admitted peer result remains exact');
+ }
+ for(const fixtureId of expected)if(!byId.has(fixtureId))assert(omitted.has(fixtureId),'only an explicitly omitted identity may be absent');
+ // Source omission is not permission to discard a separately retained known
+ // schedule, or to leak the rejected result. This captured case binds every
+ // retained identity/calendar/provenance field and its original observation.
+ for(const e of records.filter(e=>omitted.has(e.id))){
+  assert.equal(e.id,liverpoolCase.retained.id,'retained omission requires captured prior evidence');
+  for(const [key,value]of Object.entries(liverpoolCase.retained))assert.deepEqual(e[key],value,`retained omission preserves ${key}`);
+  for(const key of ['homeScore','awayScore','score','result','outcomeText','recapText','scoreCheckedAt','resultSourceCheckedAt','statusCheckedAt'])assert.equal(e[key]??null,null,'rejected result or invented observation cannot leak into retained schedule');
+ }
+}
+assertLiverpoolFollow(liverpool,published);
+
 assert(liverpool.every(e=>e.participantIds.includes('team:football:epl:10')));
 assert(liverpool.every(e=>e.footballMatchContext?.teams.length===2),'Personalised Feed preserves the same source-backed context');
 assert.equal(europeanFeed([{participantId:'team:football:epl:10',followLevel:'mute'}]).length,0);
+// Exercise the actual resolver with one constructed omitted result, first with
+// its captured old schedule still available and then with that input absent.
+{
+ const competitionFixtures=require('../lib/competition-fixtures'),compact=require('../data/follow-fixtures.v1.json');
+ const saved={leagues:published.leagues,events:published.events,fixtures:competitionFixtures.fixtures,compact:compact.events};
+ try{
+  const league=structuredClone(published.leagues.find(l=>l.competitionId===liverpoolCase.competitionId)),raw=rawScheduleFixtures(league),prior=raw.find(f=>f.providerFixtureId===liverpoolCase.omittedProviderId);
+  league.fixtures=league.fixtures.filter(f=>f.providerFixtureId!==prior.providerFixtureId);
+  league.resultIsolation={rawFixtureIds:raw.map(f=>f.providerFixtureId),repairs:[...(league.resultIsolation?.repairs||[]).filter(r=>r.providerFixtureId!==prior.providerFixtureId),{providerFixtureId:prior.providerFixtureId,code:'unfinished-with-final',reason:'unfinished fixture has a final result',disposition:'omitted',rawFixture:{...prior,status:'unknown',result:null},resultEvidence:liverpoolCase.invalidResultEvidence}]};
+  published.leagues=published.leagues.map(l=>l.competitionId===league.competitionId?league:l);published.events=published.events.filter(e=>e.id!==liverpoolCase.retained.id);
+  const follows=[{participantId:liverpoolCase.participantId,followLevel:'follow'}],retained=europeanFeed(follows);assertLiverpoolFollow(retained,published);assert(retained.some(e=>e.id===liverpoolCase.retained.id),'actual resolver retains the captured scoreless schedule');
+  const mutations=[
+   rows=>rows.push({...rows[0]}),rows=>rows.push({...rows[0],id:'fixture:football:openligadb:unreviewed:999'}),
+   rows=>rows.splice(rows.findIndex(e=>e.id.endsWith(':87452')),1),
+   rows=>{rows.find(e=>e.id===liverpoolCase.retained.id).id='wrong-identity';},
+   rows=>{rows.find(e=>e.id===liverpoolCase.retained.id).participantIds=['wrong-team',liverpoolCase.participantId];},
+   rows=>{rows.find(e=>e.id===liverpoolCase.retained.id).startTimeUtc='2026-10-20T20:00:00.000Z';},
+   rows=>{rows.find(e=>e.id===liverpoolCase.retained.id).sourceUrl='https://example.invalid/';},
+   rows=>{rows.find(e=>e.id===liverpoolCase.retained.id).homeScore=2;},
+   rows=>{rows.find(e=>e.id===liverpoolCase.retained.id).status='completed';},
+   rows=>{rows.find(e=>e.id===liverpoolCase.retained.id).sourceCheckedAt='2026-10-20T19:49:47.137Z';},
+   rows=>{rows.find(e=>e.id===liverpoolCase.retained.id).scoreCheckedAt=liverpoolCase.retained.sourceCheckedAt;},
+  ];
+  for(const mutate of mutations){const damaged=structuredClone(retained);mutate(damaged);assert.throws(()=>assertLiverpoolFollow(damaged,published),{name:'AssertionError'});}
+  competitionFixtures.fixtures=(...args)=>saved.fixtures(...args).filter(e=>e.id!==liverpoolCase.retained.id);compact.events=saved.compact.filter(e=>e.id!==liverpoolCase.retained.id);
+  const absent=europeanFeed(follows);assert(!absent.some(e=>e.id===liverpoolCase.retained.id),'actual resolver absence is accepted only for the documented omission');assertLiverpoolFollow(absent,published);
+  console.log('Liverpool omission: actual retained/absent resolver paths and11 wrong-ID/peer/result/provenance/freshness negatives passed.');
+ }finally{published.leagues=saved.leagues;published.events=saved.events;competitionFixtures.fixtures=saved.fixtures;compact.events=saved.compact;}
+}
+
 const rights=require('../config/follow-first');
 for(const competition of Object.values(COMPETITIONS)){
  const league=published.leagues.find(l=>l.competitionId===competition.competitionId);assertResultAdmission(league);
