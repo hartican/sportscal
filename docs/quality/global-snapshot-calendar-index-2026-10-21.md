@@ -16,7 +16,7 @@ An output-only read-only candidate reusing those fields kept 4553 candidates. It
 
 ## Scoped implementation and verification
 
-Join the existing private context only for global candidate selection, using supported shape_version and object-shaped base/score calendar windows while no integrity validation is pending. Apply the same score presence/null precedence and exact admission expressions. Otherwise read the same raw canonical fields as before. Explicit ID selection, later original-clock extraction, fresh score/receipt joins, projection, ordered aggregation and selected payload are unchanged. No cached membership or new observation is stored.
+Join the existing private context only for global candidate selection, using supported shape_version and complete object-shaped base/score calendar windows with all ten keys, boolean-or-null presence flags and string-or-null text fields while no integrity validation is pending. Apply the same score presence/null precedence and exact admission expressions. Otherwise read the same raw canonical fields as before. Explicit ID selection, later original-clock extraction, fresh score/receipt joins, projection, ordered aggregation and selected payload are unchanged. No cached membership or new observation is stored.
 
 Guard the exact 44e88efb row preimage, A91 scalar, original helpers/generated expression/private public-table baseline, ten existing index functions/ACLs, eight canonical/integrity triggers and private schema/table contracts. Keep one-second lock and three-second statement limits. Do not alter any existing index owner or integrity mechanism.
 
@@ -27,3 +27,7 @@ Required before publication: explicit PG17/18 permanent passes, finite independe
 ## Current proposal boundary
 
 No claim that arbitrary privileged edits of descriptor values are rejected at commit. Canonical writers are the supported owner; their exact enabled hooks maintain values in the same transaction. Untrusted browser roles cannot access the private schema. The new tests must retain the deliberately stale-value negative, prove real leased base/score updates and missing-descriptor commit refusal, and keep every release gate unchanged. Altering integrity helpers or admitting the failed generated-column migration is outside this candidate.
+
+Independent Spec review found incomplete inner objects were still trusted. The revised join validates all expected inner fields before any boolean cast. A future base fixture with an explicit-null score date reproduces the omission when the hasDate flag is removed; restoring the old object-only guard must fail that exact whole-membership comparison. Missing/invalid flags and absent inner values must safely use originals.
+
+The same invocation materialises only the two small calendar windows once before completeness checks, avoiding repeated decoding of the larger descriptor documents. The persistent descriptor, its owners and every returned fact remain untouched.

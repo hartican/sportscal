@@ -77,24 +77,50 @@ end $guard$;
 CREATE OR REPLACE FUNCTION public.nothingsports_read_current_fixture_bundle_json_rows(p_fixture_ids text[] DEFAULT NULL::text[])
 RETURNS SETOF json LANGUAGE sql STABLE ROWS 1 SET search_path TO ''
 AS $function$
- with active_window as (
+ with calendar_windows as materialized (
+  -- Decode each small descriptor once before shape checks and admission.
+  select ctx.source_id,ctx.fixture_id,ctx.base_selection->'calendarWindow' base_window,ctx.score_selection->'calendarWindow' score_window
+  from nothingsports_fixture_read_private.fixture_context ctx
+  where ctx.shape_version=1 and not exists(select 1 from nothingsports_fixture_read_private.integrity_pending)
+ ), active_window as (
   select (statement_timestamp() at time zone 'Australia/Sydney')::date as today
  ), scope_keys as (
   select c.source_id,c.fixture_id
   from public.nothingsports_fixture_current c
   join public.nothingsports_fixture_sources src using(source_id)
   left join public.nothingsports_live_scores s using(source_id,fixture_id)
-  left join nothingsports_fixture_read_private.fixture_context ctx on ctx.source_id=c.source_id and ctx.fixture_id=c.fixture_id
-   and ctx.shape_version=1 and jsonb_typeof(ctx.base_selection->'calendarWindow')='object' and jsonb_typeof(ctx.score_selection->'calendarWindow')='object'
-   and not exists(select 1 from nothingsports_fixture_read_private.integrity_pending)
+  left join calendar_windows ctx on ctx.source_id=c.source_id and ctx.fixture_id=c.fixture_id
+   and jsonb_typeof(ctx.base_window)='object' and jsonb_typeof(ctx.score_window)='object'
+   -- Complete descriptor shape: missing/invalid inner fields must use raw facts.
+   and (ctx.base_window) ?& array['hasStatus','status','hasEndDate','endDate','hasDate','date','hasStartDate','startDate','hasSchedulingWindow','schedulingWindow']
+   and jsonb_typeof(ctx.base_window->'hasStatus') in('boolean','null')
+   and jsonb_typeof(ctx.base_window->'hasEndDate') in('boolean','null')
+   and jsonb_typeof(ctx.base_window->'hasDate') in('boolean','null')
+   and jsonb_typeof(ctx.base_window->'hasStartDate') in('boolean','null')
+   and jsonb_typeof(ctx.base_window->'hasSchedulingWindow') in('boolean','null')
+   and jsonb_typeof(ctx.base_window->'status') in('string','null')
+   and jsonb_typeof(ctx.base_window->'endDate') in('string','null')
+   and jsonb_typeof(ctx.base_window->'date') in('string','null')
+   and jsonb_typeof(ctx.base_window->'startDate') in('string','null')
+   and (ctx.score_window) ?& array['hasStatus','status','hasEndDate','endDate','hasDate','date','hasStartDate','startDate','hasSchedulingWindow','schedulingWindow']
+   and jsonb_typeof(ctx.score_window->'hasStatus') in('boolean','null')
+   and jsonb_typeof(ctx.score_window->'hasEndDate') in('boolean','null')
+   and jsonb_typeof(ctx.score_window->'hasDate') in('boolean','null')
+   and jsonb_typeof(ctx.score_window->'hasStartDate') in('boolean','null')
+   and jsonb_typeof(ctx.score_window->'hasSchedulingWindow') in('boolean','null')
+   and jsonb_typeof(ctx.score_window->'status') in('string','null')
+   and jsonb_typeof(ctx.score_window->'endDate') in('string','null')
+   and jsonb_typeof(ctx.score_window->'date') in('string','null')
+   and jsonb_typeof(ctx.score_window->'startDate') in('string','null')
+   -- End complete descriptor shape.
   cross join active_window w
   cross join lateral (
    select
-    case when ctx.source_id is not null then case when (ctx.score_selection->'calendarWindow'->>'hasStatus')::boolean then ctx.score_selection->'calendarWindow'->>'status' else ctx.base_selection->'calendarWindow'->>'status' end else case when s.score ? 'status' then s.score->>'status' else c.global_fixture->>'status' end end as status,
-    case when ctx.source_id is not null then case when (ctx.score_selection->'calendarWindow'->>'hasEndDate')::boolean then ctx.score_selection->'calendarWindow'->>'endDate' else ctx.base_selection->'calendarWindow'->>'endDate' end else case when s.score ? 'endDate' then s.score->>'endDate' else c.global_fixture->>'endDate' end end as end_date,
-    case when ctx.source_id is not null then case when (ctx.score_selection->'calendarWindow'->>'hasDate')::boolean then ctx.score_selection->'calendarWindow'->>'date' else ctx.base_selection->'calendarWindow'->>'date' end else case when s.score ? 'date' then s.score->>'date' else c.global_fixture->>'date' end end as date,
-    case when ctx.source_id is not null then case when (ctx.score_selection->'calendarWindow'->>'hasStartDate')::boolean then ctx.score_selection->'calendarWindow'->>'startDate' else ctx.base_selection->'calendarWindow'->>'startDate' end else case when s.score ? 'startDate' then s.score->>'startDate' else c.global_fixture->>'startDate' end end as start_date,
-    case when ctx.source_id is not null then case when (ctx.score_selection->'calendarWindow'->>'hasSchedulingWindow')::boolean then ctx.score_selection->'calendarWindow'->'schedulingWindow' else ctx.base_selection->'calendarWindow'->'schedulingWindow' end else case when s.score ? 'schedulingWindow' then s.score->'schedulingWindow' else c.global_fixture->'schedulingWindow' end end as scheduling_window
+    case when ctx.source_id is not null then case when (ctx.score_window->>'hasStatus')::boolean then ctx.score_window->>'status' else ctx.base_window->>'status' end else case when s.score ? 'status' then s.score->>'status' else c.global_fixture->>'status' end end as status,
+    case when ctx.source_id is not null then case when (ctx.score_window->>'hasEndDate')::boolean then ctx.score_window->>'endDate' else ctx.base_window->>'endDate' end else case when s.score ? 'endDate' then s.score->>'endDate' else c.global_fixture->>'endDate' end end as end_date,
+    case when ctx.source_id is not null then case when (ctx.score_window->>'hasDate')::boolean then ctx.score_window->>'date' else ctx.base_window->>'date' end else case when s.score ? 'date' then s.score->>'date' else c.global_fixture->>'date' end end as date,
+    case when ctx.source_id is not null then case when (ctx.score_window->>'hasStartDate')::boolean then ctx.score_window->>'startDate' else ctx.base_window->>'startDate' end else case when s.score ? 'startDate' then s.score->>'startDate' else c.global_fixture->>'startDate' end end as start_date,
+    case when ctx.source_id is not null then case when (ctx.score_window->>'hasSchedulingWindow')::boolean then ctx.score_window->'schedulingWindow' else ctx.base_window->'schedulingWindow' end else case when s.score ? 'schedulingWindow' then s.score->'schedulingWindow' else c.global_fixture->'schedulingWindow' end end as scheduling_window
   ) f
   cross join lateral (
    select coalesce(nullif(f.end_date,''),nullif(f.date,''),nullif(f.start_date,''),f.scheduling_window->>'endsOn','') as ends_on,
