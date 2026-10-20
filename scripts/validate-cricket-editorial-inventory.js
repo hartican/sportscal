@@ -22,6 +22,13 @@ async function main(){
   assert.equal(maintenance.schedule(events[0],{last_checked_at:packet.now},now).due,false,'Unchanged same-day check does not loop.');
   const copy=maintenance.copy(events[0]);assert(maintenance.completeCopy(copy));assert(maintenance.equalCopy(copy,packet.cases[0].entry));
   assert(!maintenance.equalCopy(copy,{...copy,validUntil:'2026-10-20T18:00:00.000Z'}),'Meaningful validity changes participate in publication comparison.');
+  const display=require('./lib/editorial-display-copy');
+  const legacy=event=>{const value=structuredClone(event);delete value.editorialNarrative;return value;};
+  assert.deepEqual(display.selectCards({cards:[{...live,selected:false}]},[legacy(live.event)],()=>false,now),[],'Ongoing Cricket without real signals or a request cannot enter research through missing-copy repair.');
+  const unheldPreview={...preview,state:{},schedule:maintenance.schedule(preview.event,{},now),selected:false};
+  const repairs=display.selectCards({cards:[unheldPreview]},[legacy(preview.event)],()=>false,now);
+  assert.equal(repairs.length,1,'Published incomplete pre-match Cricket retains the approved public-copy repair exception.');
+  assert.equal(repairs[0].repairReason,'missing-required-display-copy');
   console.log('Cricket editorial inventory: existing qualification, daily active work, preview cadence, holds, batched reads and unchanged-check suppression passed with local controls only.');
 }
 if(require.main===module)main().catch(error=>{console.error(error);process.exitCode=1;});

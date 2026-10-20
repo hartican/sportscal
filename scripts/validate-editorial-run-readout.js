@@ -25,23 +25,27 @@ const artifacts=['data/events.json','data/events.js','data/editorial-maintenance
 const hashes=()=>Object.fromEntries(artifacts.map(file=>[file,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex')]));
 const baseline=hashes(),keys=['NS_EDITORIAL_CONTROL_SNAPSHOT','NS_EDITORIAL_CHECK_REPORT','NS_EDITORIAL_ENV_FILE'];
 const originals={inventory:store.inventory,research:weekend.main,request:supabase.supabaseServiceRequest,spawn:child.spawnSync,fetch:global.fetch,log:console.log,env:Object.fromEntries(keys.map(key=>[key,process.env[key]]))};
-let builds=[],captured,number=0;
+let builds=[],captured,listed,number=0;
 supabase.supabaseServiceRequest=async()=>{throw Error('Test forbids service access.');};
 global.fetch=async()=>{throw Error('Test forbids network access.');};
 child.spawnSync=(executable,args)=>{assert.equal(executable,process.execPath);builds.push(args[0]);return {status:0};};
 // Load after installing the build spy; unchanged runs must never invoke it.
 const cli=require('./adaptive-editorial');
 store.inventory=async()=>{captured=await originals.inventory({now});return captured;};
-console.log=()=>{};
-function setup({selected=true,existing=false}={}){
+console.log=value=>{try{const parsed=JSON.parse(value);if(Array.isArray(parsed.cards))listed=parsed;}catch{}};
+function setup({selected=true,existing=false,allowRequiredRepairs=false}={}){
   const report=path.join(dir,'report-'+(++number)+'.json'),snapshot=path.join(dir,'control-'+number+'.json');
-  const states=selected?fixtures.map(e=>({event_id:e.id,revision:7,held:false,pending_copy:{hook:'PRIVATE-QUEUED-DRAFT'}})):[];
+  const selectedIds=new Set(selected?fixtures.map(e=>e.id):[]);
+  // Keep each readout scenario scoped using real private hold controls. Newly
+  // incomplete public previews may otherwise enter the approved repair lane
+  // without rating signals; the separate unheld case below exercises that lane.
+  const states=window.flatMap(e=>selectedIds.has(e.id)?[{event_id:e.id,revision:7,held:false,pending_copy:{hook:'PRIVATE-QUEUED-DRAFT'}}]:allowRequiredRepairs?[]:[{event_id:e.id,revision:7,held:true}]);
   const value={capturedAt:new Date().toISOString(),sourceRevision:source.sourceRevision,complete:true,groups,signals:selected?fixtures.map(e=>({event_id:e.id,count:1,mean:5})):[],states};
   fs.writeFileSync(snapshot,JSON.stringify(value),{mode:0o600});
   if(existing)fs.writeFileSync(report,JSON.stringify({sourceRevision:source.sourceRevision,operations:[{eventId:'prior-private-fixture',expectedRevision:0,change:{last_error:{reason:'PRIVATE-PREVIOUS-ERROR'}}}]}),{mode:0o600});
   process.env.NS_EDITORIAL_CONTROL_SNAPSHOT=snapshot;process.env.NS_EDITORIAL_CHECK_REPORT=report;delete process.env.NS_EDITORIAL_ENV_FILE;
   delete require.cache[require.resolve('../lib/editorial-control-snapshot')];
-  builds=[];
+  builds=[];listed=null;
   return {report,snapshot,value};
 }
 const read=file=>JSON.parse(fs.readFileSync(file,'utf8'));
@@ -60,12 +64,20 @@ function aggregate(file){
 }
 async function main(){
   try{
-    // Real inventory/list with zero synthetic eligibility is read-only.
+    // No ratings and explicit holds produce a genuinely empty work list.
     let run=setup({selected:false});await cli.main(['--list']);
     let metrics=aggregate(run.report);
     assert.equal(metrics.windowCards,window.length);assert.equal(metrics.selectedCards,0);assert.equal(metrics.dueCards,0);assert.equal(metrics.stage,'complete');assert.equal(metrics.status,'completed');
     assert.deepEqual(read(run.report).operations,[]);assert.deepEqual(builds,[]);
     await cli.main([]);assert.equal(read(run.report).runReadouts.length,2);assert.deepEqual(read(run.report).operations,[]);assert.deepEqual(builds,[]);
+
+    // With holds removed, approved required-copy repairs can be due without a
+    // rating. The aggregate must match the actual CLI list, not assume zero.
+    run=setup({selected:false,allowRequiredRepairs:true});await cli.main(['--list']);metrics=aggregate(run.report);
+    assert.equal(metrics.selectedCards,0);assert.equal(metrics.dueCards,listed.cards.length);
+    assert(listed.cards.every(card=>card.repairReason==='missing-required-display-copy'&&!card.eligibility.eligible&&card.schedule.inWindow&&!card.schedule.held&&!card.schedule.protected));
+    if(listed.cards.length)await assert.rejects(()=>cli.main([]),/Provide --research/);else await cli.main([]);
+    assert.deepEqual(read(run.report).operations,[]);assert.deepEqual(builds,[]);
 
     // Actual checked() and snapshot PATCH preserve old CAS ops; deferrals write
     // only their diagnostic and never clear a queued private draft.
