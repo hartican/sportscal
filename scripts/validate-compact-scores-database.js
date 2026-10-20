@@ -37,11 +37,14 @@ const {createMatchCentreHandler}=require('../lib/match-centre-handler');
   try{
    // Actual unchanged-hash publisher preserves rows while its health document
    // carries newer successful YouTube receipts for the existing read path.
-   const media=require('../lib/fixture-highlights'),sample=require('../data/canonical/fixture-highlights.v1.json').events.find(e=>e.highlights).highlights;
-   const firstMediaAt=new Date(Date.now()-7200000).toISOString(),nextMediaAt=new Date(Date.now()-3600000).toISOString();
+   const media=require('../lib/fixture-highlights'),mediaContract=require('../config/fixture-highlights');
+   const mediaNow=Date.parse('2026-10-14T08:00:00Z'),firstMediaAt=new Date(mediaNow-7200000).toISOString(),nextMediaAt=new Date(mediaNow-3600000).toISOString();
+   // Exercise renewal independently of the changing catalogue and its upload ages.
+   const sample={schemaVersion:mediaContract.SCHEMA_VERSION,provider:'youtube',videoId:'RPmOiRHHgX8',url:'https://www.youtube.com/watch?v=RPmOiRHHgX8',channelId:media.channels[0].id,availability:'public',regionStatus:'allowed',standalone:true,publishedAt:new Date(mediaNow-10800000).toISOString(),verifiedAt:firstMediaAt,matchTitle:'Controlled stored-row highlight'};
+   assert(mediaContract.valid({...sample,checkedAt:firstMediaAt,sourceCheckedAt:firstMediaAt},mediaNow),'the controlled renewal receipt must begin eligible');
    const mediaFixture={id:'fixture:tennis:ttl:stored-row',enrichmentOnly:true,highlightsOnly:true,highlights:{...sample,verifiedAt:firstMediaAt,checkedAt:firstMediaAt,sourceCheckedAt:firstMediaAt}};
-   const mediaReport=stamp=>({checkedAt:stamp,_highlightChecks:{[sample.videoId]:stamp},_highlightVideos:[{videoId:sample.videoId,channelId:sample.channelId,url:sample.url,publishedAt:sample.publishedAt,title:sample.matchTitle,metadataCheckedAt:stamp}]});
-   const publishMedia=async record=>{await lease(media.SOURCE_ID);return db.query('select public.nothingsports_publish_fixture_source_report($1,$2,$3,$4,$5,$6)',[media.SOURCE_ID,token,JSON.stringify([record]),contentHash([record]),1800000,JSON.stringify(mediaReport(record.highlights.checkedAt))]);};
+   const mediaReport=h=>({checkedAt:h.checkedAt,_highlightChecks:{[h.videoId]:h.checkedAt},_highlightVideos:[{videoId:h.videoId,channelId:h.channelId,url:h.url,publishedAt:h.publishedAt,title:h.matchTitle,metadataCheckedAt:h.sourceCheckedAt}]});
+   const publishMedia=async record=>{await lease(media.SOURCE_ID);return db.query('select public.nothingsports_publish_fixture_source_report($1,$2,$3,$4,$5,$6)',[media.SOURCE_ID,token,JSON.stringify([record]),contentHash([record]),1800000,JSON.stringify(mediaReport(record.highlights))]);};
    await publishMedia(mediaFixture);
    const originalMedia=(await db.query('select revision,fixtures from public.nothingsports_fixture_sources where source_id=$1',[media.SOURCE_ID])).rows[0];
    const originalMediaCtid=(await db.query('select ctid::text from public.nothingsports_fixture_current where source_id=$1',[media.SOURCE_ID])).rows[0].ctid;
@@ -55,7 +58,7 @@ const {createMatchCentreHandler}=require('../lib/match-centre-handler');
    assert.equal(persistedMedia.discovery_report._highlightChecks[sample.videoId],nextMediaAt,'actual publisher persists the successful renewal separately');
    let mediaReads=0;
    const mediaStore=createSnapshotStore({request:async(...args)=>{mediaReads++;return request(...args);}});
-   const servedMedia=(await mediaStore.read({ids:[mediaFixture.id]})).find(s=>s.source_id===media.SOURCE_ID);
+   const servedMedia=(await mediaStore.read({ids:[mediaFixture.id],now:mediaNow})).find(s=>s.source_id===media.SOURCE_ID);
    assert.equal(mediaReads,2,'renewal uses only the existing health and selected-fixture reads');
    assert.equal(servedMedia.fixtures[0].highlights.checkedAt,nextMediaAt);
    assert.equal(servedMedia.fixtures[0].highlights.sourceCheckedAt,nextMediaAt);
@@ -63,7 +66,14 @@ const {createMatchCentreHandler}=require('../lib/match-centre-handler');
    assert.equal(servedMedia.revision,originalMedia.revision);
    assert(!JSON.stringify(servedMedia).includes('_highlight'),'private matching state is removed before transport');
    assert.equal((await db.query('select count(*) n from public.nothingsports_fixture_snapshots where source_id=$1',[media.SOURCE_ID])).rows[0].n,1,'real renewal creates no sporting history');
+   for(const [label,publishedAt] of [['expired',new Date(mediaNow-mediaContract.MAX_UPLOAD_AGE_MS-86400000).toISOString()],['future',new Date(mediaNow+3600000).toISOString()]]){
+    const invalidMedia={...refreshedMedia,id:'fixture:tennis:ttl:'+label+'-row',highlights:{...refreshedMedia.highlights,publishedAt}};
+    await publishMedia(invalidMedia);
+    const rejected=(await mediaStore.read({ids:[invalidMedia.id],now:mediaNow})).find(s=>s.source_id===media.SOURCE_ID);
+    assert.equal(rejected.fixtures[0].highlights,null,label+' uploads stay unavailable despite fresh successful check receipts');
+   }
    evidence.scenarios.push('actual equal-hash publish_fixture_source_report twice: original row/revision, refreshed private health and renewed two-read public metadata');
+   evidence.scenarios.push('actual selected reader rejects expired and future uploads despite renewed verification receipts');
    // Real refresh owner, leased claim, deployed compact SQL and selected reader.
    // Lunch/Tea and Rain/Bad light deliberately keep the same status enum.
    const pauseId='fixture:nrl:pause-reason',pauseAt=n=>new Date(Date.parse('2026-10-11T01:00:00Z')+n*60000).toISOString();
