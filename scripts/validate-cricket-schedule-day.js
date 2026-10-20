@@ -1,0 +1,31 @@
+'use strict';
+const assert=require('node:assert/strict'),identity=require('../config/fixture-identity');
+const {inspectorDayFields:dayHelper,inspectorPauseFields:pauseHelper,inspectorPresentationFields:presentationHelper}=require('../assets/js/follow-schedule-panel');
+assert.equal(typeof dayHelper,'function','Root deferred Schedule proposal must be integrated');
+const official=require('./fixtures/cricket-ca39991-timing-20261019.json'),captured=require('./fixtures/cricket-score-address-20261020.json');
+const event=identity.mergeOverlays([{...captured.published,homeParticipantId:'team:cricket:south-africa',awayParticipantId:'team:cricket:australia'}],[official])[0],now='2026-10-20T02:30:00Z';
+const missing={...event};for(const key of ['matchDay','matchDaySourceUrl','matchDaySourceCheckedAt'])delete missing[key];const missingBefore=JSON.stringify(missing),fields=dayHelper(event,missing,now);assert.equal(fields.matchDay,2);assert.equal(fields.matchDaySourceCheckedAt,official.sourceCheckedAt);assert.equal(JSON.stringify(missing),missingBefore);
+assert.equal(dayHelper(event,{...missing,matchDay:2,sourceCheckedAt:'2026-10-20T01:00:00Z'},now).matchDaySourceCheckedAt,official.sourceCheckedAt,'an unchanged day with omitted proof may retain older exact provenance without renewing its check');
+for(const unknown of [{matchDay:null},{matchDay:3},{matchDaySourceUrl:null},{matchDay:2,matchDaySourceUrl:''}])assert.equal(dayHelper(event,{...missing,...unknown,sourceCheckedAt:'2026-10-20T01:00:00Z'},now),null,'newer explicit unknown/different day/cleared proof wins');
+assert.equal(dayHelper(event,{...missing,matchDay:null,sourceCheckedAt:'2026-10-01T00:00:00Z'},now).matchDay,2,'a later source can correct an older unknown');
+for(const wrong of [{id:'different',eventId:'different',canonicalEventId:'different',sourceEventIds:[]},{startTimeUtc:'2026-10-19T08:00:00Z'},{participantIds:['team:cricket:australia','team:cricket:england'],homeParticipantId:'team:cricket:england',awayParticipantId:'team:cricket:australia',participantSlots:[]}])assert.equal(dayHelper(event,{...missing,...wrong},now),null,'day/proof stays on the accepted contest identity');
+assert.deepEqual(Object.keys(fields).sort(),['matchDay','matchDaySourceCheckedAt','matchDaySourceUrl']);
+
+const sourceBefore=JSON.stringify(event);
+const candidate={...missing,status:'ongoing',statusCheckedAt:'2026-09-30T11:15:20.723Z',sourceCheckedAt:'2026-10-11T12:35:50.120Z'},candidateBefore=JSON.stringify(candidate);
+const phase=pauseHelper(event,candidate,now),merged=identity.mergeOverlays([candidate],[{...event,statusFactObservedAt:event.statusFactObservedAt??null,pauseObservation:event.pauseObservation??null}])[0];
+assert.equal(phase.status,'stumps');assert.equal(phase.statusCheckedAt,official.sourceCheckedAt);assert.equal(phase.statusFactObservedAt,null,'missing phase occurrence stays unknown');assert.equal(phase.pauseObservation,null);
+assert.deepEqual(phase,Object.fromEntries(Object.keys(phase).map(k=>[k,merged[k]])),'the existing merger owns every projected pause field');assert.equal(JSON.stringify(candidate),candidateBefore,'canonical fixture and user action identity stay unchanged');
+const combined=presentationHelper(event,candidate,now);assert.equal(combined.matchDay,2);assert.equal(combined.status,'stumps');assert(!Object.hasOwn(combined,'id'));assert(!Object.hasOwn(combined,'startTimeUtc'));assert(!Object.hasOwn(combined,'score'));assert(!Object.hasOwn(combined,'sourceCheckedAt'));
+for(const wrong of [{id:'different',eventId:'different',canonicalEventId:'different',sourceEventIds:[]},{startTimeUtc:'2026-10-19T08:00:00Z'},{participantIds:['team:cricket:australia','team:cricket:england'],homeParticipantId:'team:cricket:england',awayParticipantId:'team:cricket:australia',participantSlots:[]}])assert.equal(pauseHelper(event,{...candidate,...wrong},now),null);
+for(const statusCheckedAt of [candidate.statusCheckedAt,'2026-09-01T00:00:00Z','2026-10-21T00:00:00Z','invalid',null])assert.equal(pauseHelper({...event,statusCheckedAt},candidate,now),null,'older/equal/future/invalid/missing original status observations cannot replace facts');
+for(const clear of [{status:null},{status:'live',statusText:null,cricketPhaseConfirmed:true},{status:'ongoing',statusText:null,cricketPhaseConfirmed:null}])assert.equal(pauseHelper(event,{...candidate,...clear,statusCheckedAt:'2026-10-20T01:00:00Z',sourceCheckedAt:'2026-10-20T01:00:00Z'},now),null,'a later unknown/cleared phase or resumed play wins');
+assert.equal(pauseHelper(event,{...candidate,statusText:null,sourceCheckedAt:'2026-10-20T01:00:00Z'},now),null,'a newer explicit clear cannot borrow an older independent status clock');
+assert.equal(pauseHelper(event,{...candidate,status:'completed'},now),null,'the existing merger protects terminal state');
+assert.equal(pauseHelper({...event,key:'football',sport:'Football'},candidate,now),null);
+const qualified={...event,statusFactObservedAt:'2026-10-19T16:12:01.632Z',restartTimeUtc:'2026-10-20T08:00:00Z',restartSourceUrl:'https://www.cricket.com.au/controlled-confirmed-restart',restartSourceCheckedAt:event.sourceCheckedAt},kept=pauseHelper(qualified,candidate,now);assert.equal(kept.statusFactObservedAt,qualified.statusFactObservedAt);assert.equal(kept.restartTimeUtc,qualified.restartTimeUtc);assert.equal(kept.restartSourceCheckedAt,qualified.restartSourceCheckedAt,'constructed supplied restart proof retains its original clock');
+assert.equal(JSON.stringify(event),sourceBefore,'the source receipt stays immutable');
+for(const source of [{...event,status:'live'},{...event,status:'completed'},{...event,sourceUrl:null},{...event,sourceType:'unverified'},{...event,sourceCheckedAt:'2026-10-21T00:00:00Z'}])assert.equal(pauseHelper(source,candidate,now),null,'non-pause and unqualified source controls stay unchanged');
+console.log('Schedule pause projection: exact contest, strictly newer original receipt, actual shared merger, unknown occurrence, newer clear/resumption, terminal and non-Cricket controls passed.');
+
+console.log('Schedule display metadata: accepted identity, missing proof, unchanged day, newer unknown/clear, older correction and contradiction guards passed.');

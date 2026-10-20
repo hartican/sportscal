@@ -76,8 +76,8 @@ function composeFeedCard(card,ev,{compact,renderCardState,mode}){
   appendEventQuickActions(info,ev,{reminder:false,chat:false,milestones:false});
   const venue=document.createElement('p');venue.className='fixture-venue';venue.textContent=globalThis.NOTHINGSPORTS_COVERAGE_PAUSES.womensT20(ev)?'':NOTHINGSPORTS_FEED_CARD_PRESENTATION.venue(ev,VENUE_REGISTRY);if(venue.textContent)info.append(venue);
   info.classList.toggle('has-venue',!!venue.textContent);
-  const schedule=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST());
-  if(cardStateForEvent(ev)==='opened'){const date=document.createElement('p');date.className='fixture-scheduled event-date-chip';date.textContent=schedule.fullSchedule;info.prepend(date);}
+  const schedule=NOTHINGSPORTS_CARD_TIMING.badgePresentation(ev,nowAEST(),{compactCricket:true});
+  if(cardStateForEvent(ev)==='opened'){const date=document.createElement('p');date.className='fixture-scheduled event-date-chip';date.textContent=(schedule.compactCricket?'Original match schedule: ':'')+schedule.fullSchedule;info.prepend(date);}
 
   const rating=main.querySelector('.nsc-summary');if(rating)rating.after(info);else main.append(info);
   const more=document.createElement('button');more.type='button';more.className='fixture-more';more.textContent=cardStateForEvent(ev)==='opened'?'Less':'More…';more.setAttribute('aria-expanded',String(cardStateForEvent(ev)==='opened'));more.onclick=e=>{e.stopPropagation();renderCardState(cardStateForEvent(ev)==='opened'?'selected':'opened',{restoreFocus:true,focusTarget:'.fixture-more'});};
@@ -115,6 +115,7 @@ function buildFixtureTimingBadge(ev){
   const timing = NOTHINGSPORTS_CARD_TIMING.badgePresentation(ev, nowAEST(), {fullRange:activeTab==='feed',compactCricket:true});
   const badge = document.createElement('button');badge.type='button';
   badge.className = 'fixture-timing-badge btn ghost';
+  badge.classList.toggle('fixture-cricket-timing',timing.compactCricket===true);
   const day=document.createElement('span');day.className='fixture-timing-day';day.textContent=timing.day;day.hidden=!timing.day;
   const clock=document.createElement('span');clock.className='fixture-timing-clock';clock.textContent=timing.badgeClock;
   badge.append(day);if(clock.textContent)badge.append(clock);
@@ -170,7 +171,9 @@ function buildMinimisedParticipant(identity,ev){
 }
 function buildCompactCardSummary(ev){
   const summary=document.createElement('button');summary.type='button';summary.className='compact-card-summary minimised-card-summary';summary.dataset.cardArea='essentials';
-  const value=NOTHINGSPORTS_CARD_TIMING.minimised(ev,nowAEST());
+  const badge=NOTHINGSPORTS_CARD_TIMING.badgePresentation(ev,nowAEST(),{compactCricket:true});
+  const value=badge.compactCricket?{progress:badge.day,time:badge.pause?.restartTimeUtc?NOTHINGSPORTS_CARD_TIMING.minimised(ev,nowAEST()).time:badge.badgeStatus||badge.badgeClock,ariaLabel:badge.ariaLabel}:NOTHINGSPORTS_CARD_TIMING.minimised(ev,nowAEST());
+  if(badge.compactCricket)summary.dataset.cricketPhase='';
   if(ev.timePrecision==='not-before'&&!NOTHINGSPORTS_CARD_TIMING.played(ev))summary.dataset.timePrecision='not-before';
   const overview=ev.tournamentParent||ev.isEditionOverview||ev.majorEventMarker||['tennis_parent','golf_tournament','tournament_overview'].includes(ev.cardType);
   let identities=overview?[]:matchupIdentityMatches(ev,compactFixtureName(ev));
@@ -1106,7 +1109,8 @@ function buildFixtureFallbackCard(event, options = {}){
   title.textContent = label;
   const timing = document.createElement("p");
   timing.className = "compact-card-meta";
-  timing.textContent = NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule;
+  const timingValue=NOTHINGSPORTS_CARD_TIMING.badgePresentation(ev,nowAEST(),{compactCricket:true});
+  timing.textContent = timingValue.compactCricket?[timingValue.day,timingValue.badgeStatus,timingValue.badgeClock].filter(Boolean).join(' · '):timingValue.fullSchedule;
   if(ev.calendarNote?.localDateLabel)timing.textContent=ev.calendarNote.localDateLabel+' · Sydney time unavailable';
   if(activeTab === 'feed')copy.appendChild(ev.calendarNote?.localDateLabel?timing:buildFixtureTimingGroup(ev));
   copy.append(title,...(ev.calendarNote&&activeTab==='feed'?[]:[timing]));

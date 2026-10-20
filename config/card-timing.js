@@ -118,7 +118,7 @@
     const raw = pausedRestart || (actual?actual.toISOString():precision === "estimated" ? estimateClock(event,event.estimatedStartTimeUtc || event.startTimeUtc) : event.startTimeUtc);
     const parsed = new Date(raw || "");
     const hasTime = (actual||!event.dateOnly&&!uncertain) && (!precision || ["actual","exact","session-start","estimated","not-before"].includes(precision)) && Number.isFinite(+parsed);
-    const first = calendarDate(event.date || event.startDate), end = calendarDate(event.endDate);
+    const first = calendarDate(event.date || event.startDate), end = compact?null:calendarDate(event.endDate);
     const date = fullRange && first && end > first ? first : hasTime ? parsed : first;
     const currentDay = dayKey(now);
     const key = date ? dayKey(date) : null;
@@ -176,7 +176,7 @@
     const value=presentation(event,reference,options),pause=pausePresentation(event,reference),pausedClock=!value.compactCricket&&pause&&(event.key==='cricket'&&value.progress||pause.restartTimeUtc);
     const terminal=/^(FINISHED|CANCELLED|ABANDONED|POSTPONED)\b/.test(value.status);
     const restart=value.compactCricket&&pause&&(pause.restartTimeUtc||pause.restart==='Awaiting resumption update')?pause.restart:null;
-    return Object.freeze({...value,pause,badgeClock:terminal&&!value.time.startsWith('REPORTED START ')?'':pausedClock?[pause.label.toUpperCase(),pause.restart].join(' • '):value.time,badgeStatus:value.compactCricket?[value.status,restart].filter(Boolean).join(' • '):pausedClock?'':pause&&value.freshness?pause.label.toUpperCase():value.status,badgeFreshness:pause||value.status==='LAST REPORTED LIVE'?value.freshness:null,ariaLabel:[pause&&value.freshness?pause.label:null,pausedClock?pause.restart:restart,value.ariaLabel,'Open fixture'].filter(Boolean).join('. ')});
+    return Object.freeze({...value,pause,badgeClock:value.compactCricket&&pause?restart||'':terminal&&!value.time.startsWith('REPORTED START ')?'':pausedClock?[pause.label.toUpperCase(),pause.restart].join(' • '):value.time,badgeStatus:value.compactCricket?value.status:pausedClock?'':pause&&value.freshness?pause.label.toUpperCase():value.status,badgeFreshness:pause||value.status==='LAST REPORTED LIVE'?value.freshness:null,ariaLabel:[pause&&value.freshness?pause.label:null,pausedClock?pause.restart:restart,value.ariaLabel,'Open fixture'].filter(Boolean).join('. ')});
   }
   function minimised(event, reference = new Date()){
     const value=presentation(event,reference),pause=pausePresentation(event,reference);

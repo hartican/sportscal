@@ -1,0 +1,106 @@
+{
+  "id": "fixture:cricket:CA:39991",
+  "eventId": "fixture:cricket:CA:39991",
+  "canonicalEventId": "fixture:cricket:CA:39991",
+  "sourceFixtureId": "CA:39991",
+  "key": "cricket",
+  "sport": "Cricket",
+  "sportDomainId": "sport:cricket",
+  "competitionId": "competition:cricket:4568",
+  "competitionName": "South Africa v Australia Tests 2026 - Men",
+  "competitionScope": "international",
+  "isInternational": true,
+  "isSenior": true,
+  "gender": "men",
+  "name": "South Africa Men v Australia Men",
+  "roundLabel": "2nd Test",
+  "startTimeUtc": "2026-10-18T08:00:00.000Z",
+  "endTimeUtc": "2026-10-22T11:00:00Z",
+  "timePrecision": "exact",
+  "venue": "St George's Park, Gqeberha",
+  "participantIds": [
+    "team:cricket:south-africa",
+    "team:cricket:australia"
+  ],
+  "participants": [
+    {
+      "id": "team:cricket:south-africa",
+      "name": "South Africa Men",
+      "countryCode": "ZA",
+      "teamKind": "national",
+      "genderCategory": "male"
+    },
+    {
+      "id": "team:cricket:australia",
+      "name": "Australia Men",
+      "countryCode": "AU",
+      "teamKind": "national",
+      "genderCategory": "male"
+    }
+  ],
+  "participantCountryCodes": [
+    "ZA",
+    "AU"
+  ],
+  "homeParticipantId": "team:cricket:south-africa",
+  "awayParticipantId": "team:cricket:australia",
+  "status": "stumps",
+  "statusText": "Stumps",
+  "scoreDisplay": null,
+  "innings": [
+    {
+      "id": 76842,
+      "fixtureId": 39991,
+      "inningNumber": 1,
+      "battingTeamId": 21,
+      "bowlingTeamId": 23,
+      "isDeclared": false,
+      "isFollowOn": false,
+      "isForfeited": false,
+      "overnightRuns": 0,
+      "overnightWickets": 0,
+      "byesRuns": 0,
+      "legByesRuns": 2,
+      "noBalls": 0,
+      "penalties": 0,
+      "totalExtras": 2,
+      "wideBalls": 0,
+      "oversBowled": "43.0",
+      "balls": 258,
+      "runsScored": 97,
+      "currentRunRate": 2.25,
+      "numberOfWicketsFallen": 5,
+      "day": 1,
+      "duckworthLewisOvers": "",
+      "participantId": "team:cricket:south-africa",
+      "team": "South Africa Men"
+    }
+  ],
+  "format": "Test",
+  "numberOfDays": 5,
+  "matchDay": 2,
+  "matchDaySourceUrl": "https://www.cricket.com.au/matches/",
+  "sourceName": "Cricket Australia",
+  "sourceType": "official",
+  "sourceUrl": "https://www.cricket.com.au/matches/",
+  "sourceCheckedAt": "2026-10-19T19:41:05.214Z",
+  "timingProvenance": {
+    "kind": "official",
+    "sourceUrl": "https://www.cricket.com.au/matches/",
+    "checkedAt": "2026-10-19T19:41:05.214Z"
+  },
+  "displayTitleCompact": "South Africa Men v Australia Men",
+  "date": "2026-10-18",
+  "time": "19:00",
+  "broadcaster": "",
+  "participantSlots": [],
+  "representativeCountryCodes": [],
+  "broadcastOptions": [],
+  "broadcasterIds": [],
+  "broadcasts": [],
+  "viewingOptions": [],
+  "sourceEventIds": [
+    "fixture:cricket:CA:39991"
+  ],
+  "consensusTags": []
+}

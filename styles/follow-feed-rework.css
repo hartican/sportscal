@@ -356,6 +356,13 @@ header.top .vector-glyph{width:20px;height:20px;}
 .fixture-timing-day,.fixture-timing-clock{display:block;font-size:inherit;font-weight:inherit;line-height:inherit;max-width:100%;}
 .fixture-timing-badge>small{font-size:.65rem;font-weight:650;letter-spacing:.025em;line-height:1.4;}
 
+.fixture-timing-badge.fixture-cricket-timing .fixture-timing-day{order:0;font-size:1rem;font-weight:750;line-height:1.3;}
+.fixture-timing-badge.fixture-cricket-timing .fixture-timing-status:not(.fixture-timing-freshness){order:1;font-size:1.2rem;font-weight:850;line-height:1.3;white-space:normal;overflow-wrap:anywhere;}
+.fixture-timing-badge.fixture-cricket-timing .fixture-timing-clock{order:2;font-size:.72rem;font-weight:550;line-height:1.4;white-space:normal;}
+.fixture-timing-badge.fixture-cricket-timing .fixture-timing-freshness{order:3;}
+.fixture-cricket-timing>.fixture-kind{order:4;}
+.fixture-cricket-timing>.fixture-card-header{order:5;}
+
 
 .fantasy-deadline{margin:3px 0;font-size:12px;line-height:1.35;color:var(--text);opacity:.85;font-variant-numeric:tabular-nums;white-space:normal;overflow-wrap:anywhere;}
 .fantasy-game-choice{display:grid;gap:6px;margin:12px 0;}
@@ -450,6 +457,12 @@ header.top .vector-glyph{width:20px;height:20px;}
 .is-minimised-row .minimised-participant-frame :is(.country-flag,img[src*='/flags/']){width:20px;height:14px;object-fit:contain;margin:0;}
 .is-minimised-row :is(.minimised-card-format,.minimised-card-progress,.minimised-card-time){display:block;flex:0 0 auto;min-width:0;margin:0;font-size:.7rem;line-height:1.2;white-space:nowrap;text-align:center;}
 .is-minimised-row :is(.minimised-card-format,.minimised-card-progress):empty{display:none;}
+.is-minimised-row .minimised-card-summary[data-cricket-phase]{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name day" "name phase";align-content:center;gap:3px 8px;}
+.is-minimised-row [data-cricket-phase] .minimised-card-name{grid-area:name;}
+.is-minimised-row [data-cricket-phase] .minimised-card-format{display:none;}
+.is-minimised-row .minimised-card-summary[data-cricket-phase] .minimised-card-progress:not(:empty){grid-area:day;display:block;font-size:1rem;font-weight:750;}
+.is-minimised-row [data-cricket-phase] .minimised-card-time{grid-area:phase;font-size:1.2rem;font-weight:850;white-space:normal;overflow-wrap:anywhere;}
+.is-minimised-row [data-cricket-phase] .minimised-card-progress:empty{display:none;}
 .is-minimised-row .minimised-card-summary:focus-visible{outline:2px solid var(--accent);outline-offset:-3px;border-radius:6px;}
 .event-card.is-minimised-row:has(.fixture-highlights-link),#listView .event-card.is-minimised-row:has(.fixture-highlights-link){display:flex;gap:6px;}
 .is-minimised-row:has(.fixture-highlights-link) .minimised-card-summary{display:grid;grid-template-columns:minmax(0,1fr) auto;align-content:center;row-gap:2px;flex:1;min-width:0;}

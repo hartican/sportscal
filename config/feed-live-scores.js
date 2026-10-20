@@ -53,6 +53,7 @@
   if(timing){
    if(timing.progress||timing.compactCricket)for(const day of card.querySelectorAll('.fixture-timing-day')){day.textContent=timing.day;day.hidden=!timing.day;}
    for(const badge of card.querySelectorAll('.fixture-timing-badge')){
+    badge.classList.toggle('fixture-cricket-timing',timing.compactCricket===true);
      let clock=badge.querySelector('.fixture-timing-clock');if(timing.badgeClock){if(!clock){clock=document.createElement('span');clock.className='fixture-timing-clock';badge.append(clock);}clock.textContent=timing.badgeClock;}else clock?.remove();
      let status=badge.querySelector('.fixture-timing-status:not(.fixture-timing-freshness)');if(timing.badgeStatus){if(!status){status=document.createElement('small');status.className='fixture-timing-status';badge.append(status);}status.textContent=timing.badgeStatus;}else status?.remove();
     let freshness=badge.querySelector('.fixture-timing-freshness');if(timing.badgeFreshness){if(!freshness){freshness=document.createElement('small');freshness.className='fixture-timing-status fixture-timing-freshness';badge.append(freshness);}freshness.textContent=timing.badgeFreshness;}else freshness?.remove();
