@@ -16,6 +16,8 @@ async function assertDiamondsFeed(page){
    return {id:f.id,reason:automaticEventFollowReason(f)?.id,timeTbc:f.timeTbc,sourceCheckedAt:f.sourceCheckedAt,netball:followedScheduleFixtures.get('sport:netball')?.length};
   },ID);
   assert.equal(facts.reason,'team:netball:diamonds');assert.equal(facts.timeTbc,true);assert.equal(facts.netball,4);
+  // Let existing schedule reads finish their normal list replacement before scrolling.
+  await page.evaluate(async()=>{await Promise.all([...followedScheduleLoads.values()]);await new Promise(requestAnimationFrame);});
   const slot=page.locator(`[data-feed-event-id="${ID}"]`).first();await slot.waitFor({state:'attached'});await slot.scrollIntoViewIfNeeded();await slot.locator('.event-card').waitFor();
   assert(/Time\s*(?:TBD|to be confirmed)/i.test(await slot.innerText()),'The ordinary Feed card must keep the kickoff explicitly unknown');
   for(const level of ['sportOFF','mute']){
