@@ -14,7 +14,12 @@ function newerReviewedNarrative(a,b,now=Date.now()){
   return Number.isFinite(reviewed)&&reviewed<=now&&reviewed>(Number.isFinite(other)&&other<=now?other:0)&&Boolean(a.editorialNarrative?.sourceIds?.length);
 }
 const matches=(a,b)=>policy.ids(a).some(id=>policy.ids(b).includes(id));
-const complete=copy=>policy.fields.every(field=>String(copy?.[field]||'').trim());
+const complete=policy.completeCopy;
+function defaultCopyAgrees(card,now){
+ const n=card.editorialNarrative||{},cricket=require('../../config/cricket-editorial-policy');
+ const expected=cricket.hasPolicy(n)?require('../../config/editorial-lifecycle').copy(card,n,false,now):n;
+ return String(card.selectedSentence||'')===String(expected.hook||'')&&String(card.fullSpiel||'')===String(expected.synopsis||'');
+}
 function reconcileFullPreviews(events,knowledge){
   const indexes=narrative.indexesFor(knowledge);
   return events.map(event=>{
@@ -31,13 +36,13 @@ function publicationMismatch(event,published){
   const cards=published.filter(card=>matches(event,card));
   return cards.length>0&&cards.some(card=>!policy.equalCopy(policy.copy(event),policy.copy(card)));
 }
-function publicationPlan(rows,local,served){
+function publicationPlan(rows,local,served,now=new Date()){
   const published=[],deferred=[];
   for(const row of rows){
     if(!row.staged_copy||row.held||policy.protectedFixture({id:row.event_id}))continue;
     const event=local.find(event=>policy.ids(event).includes(row.event_id));
     const cards=event?served.filter(card=>matches(event,card)):[];
-    if(!event||!complete(row.staged_copy)||!policy.equalCopy(row.staged_copy,policy.copy(event))||!cards.length||cards.some(card=>!policy.equalCopy(row.staged_copy,policy.copy(card))||card.selectedSentence!==card.editorialNarrative?.hook||card.fullSpiel!==card.editorialNarrative?.synopsis)){
+    if(!event||!complete(row.staged_copy)||!policy.equalCopy(row.staged_copy,policy.copy(event))||!cards.length||cards.some(card=>!policy.equalCopy(row.staged_copy,policy.copy(card))||!defaultCopyAgrees(card,now))){
       deferred.push({row,reason:'Served card does not contain the complete staged Hook, Form, Storyline and Match Context. Retain staged copy for independent repair.'});
     }else published.push(row);
   }

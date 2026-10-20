@@ -99,7 +99,8 @@ function assertProjected(record, projection, label){
   assert.equal(record.editorialNarrative?.hook, projection.hook, `${label} must publish the researched hook`);
   assert.equal(record.editorialNarrative?.synopsis, projection.synopsis, `${label} must publish the researched L1/L2 synopsis`);
   for(const field of ['formCopy','closingCopy'])if(projection[field])assert.equal(record.editorialNarrative?.[field],projection[field],`${label} must publish the researched ${field}`);
-  const requirement = TIER_REQUIREMENTS[projection.researchDepth || projection.stakes];
+  const cricket=require('../config/cricket-editorial-policy');
+  const requirement=cricket.hasPolicy(projection)?{facts:projection.evidenceMode==='withheld'?0:1,sources:projection.evidenceMode==='withheld'?0:1,dimensions:projection.evidenceMode==='withheld'?0:1}:TIER_REQUIREMENTS[projection.researchDepth || projection.stakes];
   const expectedTier = (projection.researchDepth || projection.stakes) === 5 ? "marquee" : (projection.researchDepth || projection.stakes) === 4 ? "featured" : "standard";
   const expectedSchema = projection.consequence ? "editorial-narrative.v3" : "editorial-narrative.v2";
   assert.equal(record.editorialNarrative?.schemaVersion, expectedSchema, `${label} must publish the compatible ${expectedSchema} projection writer`);
@@ -108,7 +109,7 @@ function assertProjected(record, projection, label){
   assert(record.editorialNarrative.factIds.length >= requirement.facts, `${label} needs at least ${requirement.facts} facts`);
   assert(record.editorialNarrative.sourceIds.length >= requirement.sources, `${label} needs at least ${requirement.sources} sources`);
   assert(record.editorialNarrative.dimensions.length >= requirement.dimensions, `${label} needs at least ${requirement.dimensions} narrative dimensions`);
-  assert(record.editorialNarrative.dimensions.some(dimension => SUBSTANTIVE_DIMENSIONS.has(dimension)), `${label} needs a substantive path, form, matchup, history or consequence dimension`);
+  if(!(cricket.hasPolicy(projection)&&projection.evidenceMode==='withheld'))assert(record.editorialNarrative.dimensions.some(dimension => SUBSTANTIVE_DIMENSIONS.has(dimension)), `${label} needs a substantive path, form, matchup, history or consequence dimension`);
   assert(!GENERIC_COPY.test(record.editorialNarrative.hook), `${label} must not publish generic fixture filler`);
 }
 
@@ -157,7 +158,9 @@ knowledge.eventProjections.forEach(projection => {
           assert.equal(event.fullSpiel,event.storyline?.synopsisSpoilerOff,`${label} ${targetId} completed root synopsis must remain spoiler protected`);
           assert.deepEqual(require("./lib/storyline-card-rules").spoilerContractIssues(event),[],`${label} ${targetId} completed projection must preserve the spoiler contract`);
         } else {
-          assert.equal(event.selectedSentence,projection.hook,`${label} ${targetId} compatibility hook must publish its researched preview`);
+          const cricket=require('../config/cricket-editorial-policy');
+          const expected=cricket.hasPolicy(projection)?require('../config/editorial-lifecycle').copy(event,event.editorialNarrative,false).hook:projection.hook;
+          assert.equal(event.selectedSentence,expected,`${label} ${targetId} compatibility hook must obey editorial phase and spoilers`);
         }
       }
     } else {

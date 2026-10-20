@@ -21,7 +21,7 @@
       "maxDuration": 60
     },
     "api/user-state.js": {
-      "includeFiles": "data/{code-inspector/*.json,discovery/enrichment.v1.json}"
+      "includeFiles": "data/{code-inspector/*.json,discovery/enrichment.v1.json,editorial-knowledge.v1.json,editorial-fixture-research.v1.json}"
     },
     "api/participation.js": {
       "maxDuration": 60,
@@ -30,7 +30,7 @@
     "api/feed.js": {
       "maxDuration": 60,
       "regions": ["syd1"],
-      "includeFiles": "data/{code-inspector/*.json,discovery/enrichment.v1.json,events.json,follow-fixtures.v1.json,major-events.v1.json}"
+      "includeFiles": "data/{code-inspector/*.json,discovery/enrichment.v1.json,events.json,follow-fixtures.v1.json,major-events.v1.json,editorial-knowledge.v1.json,editorial-fixture-research.v1.json}"
     }
   },
   "redirects": [
@@ -50,6 +50,8 @@
       "permanent": false
     },
     { "source": "/data/editorial-post-match.v1.json", "destination": "/api/comms?mode=internal-artifact", "permanent": false },
+    { "source": "/data/editorial-fixture-research.v1.json", "destination": "/api/comms?mode=internal-artifact", "permanent": false },
+    { "source": "/data/editorial-knowledge.v1.json", "destination": "/api/comms?mode=internal-artifact", "permanent": false },
     {
       "source": "/sports_calendar.html",
       "destination": "/",

@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
-const internalSources=['data/marquee-candidates.v1.json','data/comms-sources.v1.json','data/editorial-maintenance-sources.v1.json','data/editorial-post-match.v1.json'];
-const consumers={comms:internalSources,'notification-dispatch':internalSources.slice(0,2),participation:internalSources.slice(0,1)};
+const internalSources=['data/marquee-candidates.v1.json','data/comms-sources.v1.json','data/editorial-maintenance-sources.v1.json','data/editorial-post-match.v1.json','data/editorial-knowledge.v1.json','data/editorial-fixture-research.v1.json'];
+const consumers={comms:internalSources.slice(0,4),'notification-dispatch':internalSources.slice(0,2),participation:internalSources.slice(0,1),feed:internalSources.slice(4),'user-state':internalSources.slice(4)};
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 function files(root){
   const found=new Map();

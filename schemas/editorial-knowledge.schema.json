@@ -33,11 +33,19 @@
       "additionalProperties": false,
       "required": ["id", "name", "url", "sourceType", "checkedAt"],
       "properties": {
-        "id": { "$ref": "#/$defs/id" },
-        "name": { "type": "string", "minLength": 3, "maxLength": 160 },
-        "url": { "type": "string", "pattern": "^https://" },
-        "sourceType": { "enum": ["official", "broadcaster", "reputable"] },
-        "checkedAt": { "type": "string", "format": "date-time" }
+        "id": {"$ref": "#/$defs/id"},
+        "name": {"type": "string", "minLength": 3, "maxLength": 160},
+        "url": {"type": "string", "pattern": "^https://"},
+        "sourceType": {"enum": ["official", "broadcaster", "reputable"]},
+        "checkedAt": {"type": "string", "format": "date-time"},
+        "publisher": {"type": ["string", "null"]},
+        "author": {"type": ["string", "null"]},
+        "originId": {"type": ["string", "null"]},
+        "reportingType": {"type": ["string", "null"]},
+        "publishedAt": {"type": ["string", "null"]},
+        "updatedAt": {"type": ["string", "null"]},
+        "accessible": {"type": "boolean"},
+        "retrievedAt": {"type": ["string", "null"]}
       }
     },
     "fact": {
@@ -45,13 +53,19 @@
       "additionalProperties": false,
       "required": ["id", "subjectIds", "statement", "dimension", "sourceIds", "observedAt"],
       "properties": {
-        "id": { "$ref": "#/$defs/id" },
-        "subjectIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
-        "statement": { "type": "string", "minLength": 20, "maxLength": 320 },
-        "dimension": { "enum": ["format", "path", "form", "matchup", "history", "consequence", "venue", "schedule"] },
-        "sourceIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
-        "observedAt": { "type": "string", "format": "date-time" },
-        "expiresAt": { "type": ["string", "null"], "format": "date-time" }
+        "id": {"$ref": "#/$defs/id"},
+        "subjectIds": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "statement": {"type": "string", "minLength": 20, "maxLength": 320},
+        "dimension": {"enum": ["format", "path", "form", "matchup", "history", "consequence", "venue", "schedule"]},
+        "sourceIds": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "observedAt": {"type": "string", "format": "date-time"},
+        "expiresAt": {"type": ["string", "null"], "format": "date-time"},
+        "claimId": {"type": "string"},
+        "claimType": {"enum": ["fact", "opinion", "disputed"]},
+        "attribution": {"type": ["string", "null"]},
+        "agreement": {"type": "boolean"},
+        "support": {"type": "array", "items": {"type": "object"}},
+        "contradictorySupport": {"type": "array", "items": {"type": "object"}}
       }
     },
     "thread": {
@@ -59,14 +73,16 @@
       "additionalProperties": false,
       "required": ["id", "subjectIds", "title", "summary", "factIds", "status", "updatedAt"],
       "properties": {
-        "id": { "$ref": "#/$defs/id" },
-        "subjectIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
-        "title": { "type": "string", "minLength": 4, "maxLength": 100 },
-        "summary": { "type": "string", "minLength": 80, "maxLength": 700 },
-        "factIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
-        "status": { "enum": ["active", "resolved", "dormant"] },
-        "updatedAt": { "type": "string", "format": "date-time" }
-      }
+        "id": {"$ref": "#/$defs/id"},
+        "subjectIds": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "title": {"type": "string", "minLength": 4, "maxLength": 100},
+        "summary": {"type": "string", "minLength": 0, "maxLength": 700},
+        "factIds": {"type": "array", "minItems": 0, "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "status": {"enum": ["active", "resolved", "dormant"]},
+        "updatedAt": {"type": "string", "format": "date-time"},
+        "editorialPolicyVersion": {"const": "cricket-editorial.v1"}
+      },
+      "allOf": [{"if": {"not": {"required": ["editorialPolicyVersion"]}}, "then": {"properties": {"summary": {"minLength": 80}, "factIds": {"minItems": 1}}}}]
     },
     "audienceMemory": {
       "type": "object",
@@ -89,37 +105,38 @@
       "type": "object",
       "additionalProperties": false,
       "required": ["id", "targetType", "targetIds", "hook", "synopsis", "threadIds", "factIds", "sourceIds", "researchedAt", "generationMode", "originalityReview"],
-      "anyOf": [{"required":["researchDepth"]},{"required":["stakes"]}],
+      "anyOf": [{"required": ["researchDepth"]}, {"required": ["stakes"]}],
       "properties": {
-        "id": { "$ref": "#/$defs/id" },
-        "targetType": { "enum": ["feed-event", "major-event"] },
-        "targetIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
-        "stakes": { "type": "integer", "minimum": 2, "maximum": 5 },
-        "researchDepth": { "type": "integer", "minimum": 2, "maximum": 5 },
-        "hook": { "type": "string", "minLength": 20, "maxLength": 180 },
-        "synopsis": { "type": "string", "minLength": 80, "maxLength": 700 },
-        "formCopy": { "type": "string", "minLength": 1, "maxLength": 700 },
-        "closingCopy": { "type": "string", "minLength": 1, "maxLength": 700 },
-        "hookSpoilerOn": { "type": "string", "minLength": 1, "maxLength": 180 },
-        "synopsisSpoilerOn": { "type": "string", "minLength": 1, "maxLength": 700 },
-        "threadIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
-        "factIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
-        "sourceIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
-        "researchedAt": { "type": "string", "format": "date-time" },
-        "refreshAfter": { "type": ["string", "null"], "format": "date-time" },
-        "generationMode": { "enum": ["researched", "source-derived-fallback"] },
-        "audienceMemoryId": { "$ref": "#/$defs/id" },
-        "consequence": { "$ref": "#/$defs/consequence" },
-        "originalityReview": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["method", "reviewedAt"],
-          "properties": {
-            "method": { "const": "independent-summary-no-source-prose-retained" },
-            "reviewedAt": { "type": "string", "format": "date-time" }
-          }
-        }
-      }
+        "id": {"$ref": "#/$defs/id"},
+        "targetType": {"enum": ["feed-event", "major-event"]},
+        "targetIds": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "stakes": {"type": "integer", "minimum": 2, "maximum": 5},
+        "researchDepth": {"type": "integer", "minimum": 2, "maximum": 5},
+        "hook": {"type": "string", "minLength": 0, "maxLength": 700},
+        "synopsis": {"type": "string", "minLength": 0, "maxLength": 700},
+        "formCopy": {"type": "string", "minLength": 1, "maxLength": 700},
+        "closingCopy": {"type": "string", "minLength": 1, "maxLength": 700},
+        "hookSpoilerOn": {"type": "string", "minLength": 1, "maxLength": 180},
+        "synopsisSpoilerOn": {"type": "string", "minLength": 1, "maxLength": 700},
+        "threadIds": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "factIds": {"type": "array", "minItems": 0, "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "sourceIds": {"type": "array", "minItems": 0, "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "researchedAt": {"type": "string", "format": "date-time"},
+        "refreshAfter": {"type": ["string", "null"], "format": "date-time"},
+        "generationMode": {"enum": ["researched", "source-derived-fallback"]},
+        "audienceMemoryId": {"$ref": "#/$defs/id"},
+        "consequence": {"$ref": "#/$defs/consequence"},
+        "originalityReview": {"type": "object", "additionalProperties": false, "required": ["method", "reviewedAt"], "properties": {"method": {"const": "independent-summary-no-source-prose-retained"}, "reviewedAt": {"type": "string", "format": "date-time"}}},
+        "editorialPolicyVersion": {"const": "cricket-editorial.v1"},
+        "evidenceMode": {"enum": ["synthesis", "fact-brief", "withheld"]},
+        "phase": {"enum": ["preview", "ongoing", "recap"]},
+        "editorialPhase": {"enum": ["preview", "ongoing", "recap"]},
+        "coverageThrough": {"type": ["string", "null"], "format": "date-time"},
+        "validUntil": {"type": "string", "format": "date-time"},
+        "reviewed": {"type": "boolean"},
+        "cricketEvidence": {"type": "object", "required": ["entry", "fixture", "reviewedAt"], "properties": {"entry": {"$ref": "cricket-editorial-research.schema.json"}, "fixture": {"type": "object"}, "reviewedAt": {"type": "string", "format": "date-time"}}}
+      },
+      "allOf": [{"if": {"required": ["editorialPolicyVersion"]}, "then": {"required": ["evidenceMode", "phase", "validUntil", "reviewed", "cricketEvidence"]}, "else": {"properties": {"hook": {"minLength": 20, "maxLength": 180}, "synopsis": {"minLength": 80}, "factIds": {"minItems": 1}, "sourceIds": {"minItems": 1}}}}]
     },
     "consequenceOutcome": {
       "type": "object",

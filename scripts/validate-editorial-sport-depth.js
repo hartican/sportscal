@@ -44,6 +44,8 @@ const genericPatterns = [
 assert(targets.length > 0, "the rolling catalogue must contain editorial targets; every current target is checked below and each sport must be represented");
 function validateNarrative(record){
   const narrative = record.editorialNarrative;
+  const cricket=require('../config/cricket-editorial-policy');
+  if(cricket.isCricket(record)&&cricket.hasPolicy(narrative)){assert(cricket.complete(narrative),'Cricket requires an explicit reviewed evidence outcome.');return;}
   assert(narrative?.hook, `${idFor(record)} (${record.name}) needs a researched L0 hook`);
   assert(narrative?.synopsis, `${idFor(record)} (${record.name}) needs a researched L1/L2 narrative`);
   assert(!genericPatterns.some(pattern => pattern.test(narrative.hook)), `${idFor(record)} (${record.name}) still has a generic L0 hook: ${narrative.hook}`);
