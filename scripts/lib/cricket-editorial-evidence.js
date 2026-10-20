@@ -44,7 +44,7 @@ function issues(entry,event={},now=new Date()){
   if(entry.editorialPhase!==policy.phase(event,now))fail('Research phase does not match the structured fixture state.');
   const review=entry.editorialReview;
   if(review?.verdict!=='pass'||!instant(review.reviewedAt)||Date.parse(review.reviewedAt)>+now||Date.parse(review.reviewedAt)<Date.parse(entry.researchedAt)||!['support','attribution','phase','spoilers','duplication','style'].every(check=>review.checks?.includes(check)))fail('Separate complete editorial review required.');
-  if(review?.contentSha256!==reviewFingerprint(entry)||!normal(review?.passId)||review?.passId===review?.draftPassId)fail('Review must bind the exact evidence/copy in a separate pass.');
+  if(review?.contentSha256!==reviewFingerprint(entry)||typeof review?.passId!=='string'||!normal(review.passId)||typeof review?.draftPassId!=='string'||!normal(review.draftPassId)||normal(review.passId)===normal(review.draftPassId))fail('Review must bind the exact evidence/copy in a separate pass.');
   const usage=entry.researchUsage;
   if(!usage||!Number.isInteger(usage.searches)||usage.searches<0||usage.searches>2||!Number.isInteger(usage.articleReads)||usage.articleReads<0||usage.articleReads>6||usage.drafts!==1||usage.reviews!==1||![0,1].includes(usage.corrections))fail('Research/draft/review allowance exceeded or unrecorded.');
   const text=fields.map(field=>entry[field]||'').join(' '),words=normal(text).split(/\s+/).filter(Boolean);

@@ -1595,3 +1595,11 @@ one draft, one separate review and one correction. See
 [cricket editorial policy](cricket-editorial-policy.md). There is no new scheduler,
 provider ingestion path, model API, client network request or database endpoint.
 The first revised sample requires explicit user approval before publication.
+
+## Approved Cricket editorial integration and raw evidence boundary — 20 October 2026
+
+The recorded direct sample-structure approval permits the new policy; dated samples remain regression evidence, not fresh reporting. The actual research writer requires distinct nonempty string draft/review pass IDs, with exact copy/evidence binding. Non-Cricket synopsis minimums remain 20. Existing daily owner, 5/2/1-day preview cadence, twelve research units, source limits, private controls, holds and notification policy remain.
+
+The raw `data/editorial-knowledge.v1.json` and `data/editorial-fixture-research.v1.json` are server sources, not public downloads. Add them to the existing pre-upload seal and internal-artifact denial; keep exact required Feed/calendar server copies with explicit build inclusion. The normal release verifier consumes the same six-source list. Constructed build tests preserve eleven exact function copies and reject a missing research consumer before any static removal. No new runtime request, database/source refresh, scheduler or provider/model call is introduced. Actual cloud build/hosted denial and shared global freshness remain separate release requirements.
+
+Two genuinely uncalled inline helpers (`buildFollowContext`, `feedFilterCandidateEntities`) are removed after whole tracked-repository reference checks; active Follow, filters, cards and sporting data remain unchanged. Current merged startup retains seven requests and its existing compressed-byte cap. This is local source preparation until exact-SHA release acceptance, not a claim of measured phone/hosting savings.

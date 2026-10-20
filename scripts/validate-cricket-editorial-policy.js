@@ -27,7 +27,22 @@ rejected(e=>{e.editorialReview.checks=['style'];},/Separate/);
 rejected(e=>{e.hook='Unreviewed content.';},/Review must bind/);
 rejected(e=>{e.facts[0].supersededAt=fixture.now;},/Superseded/);
 const brief=clone(preview.entry);brief.evidenceMode='fact-brief';brief.sources=brief.sources.slice(0,1);brief.sourceObservations=brief.sourceObservations.slice(0,1);brief.facts=brief.facts.slice(0,2);brief.synopsis='';delete brief.paragraphClaims.synopsis;brief.editorialReview.contentSha256=evidence.reviewFingerprint(brief);assert.deepEqual(checked(brief,preview.event),[],'Attributed one-source brief');
-assert.throws(()=>evidence.assertPublicationApproved([good.entry]),/sample approval is pending/);
+// Exercise both states without depending on whether the real sample approval
+// has been recorded. Mutate only this process's cached JSON, never the file.
+const approval=require('../config/cricket-editorial-approval.json'),savedApproval=clone(approval);
+try{
+  Object.assign(approval,{initialSampleApprovedAt:null,approvalEvidence:null});
+  assert.throws(()=>evidence.assertPublicationApproved([good.entry]),/sample approval is pending/);
+  const approved={policyVersion:policy.version,initialSampleApprovedAt:fixture.now,approvalEvidence:'Constructed approval control'};
+  Object.assign(approval,approved);
+  assert.doesNotThrow(()=>evidence.assertPublicationApproved([good.entry]));
+  for(const invalid of [{policyVersion:'unknown'},{initialSampleApprovedAt:null},{initialSampleApprovedAt:'invalid'},{approvalEvidence:''}]){
+    Object.assign(approval,approved,invalid);
+    assert.throws(()=>evidence.assertPublicationApproved([good.entry]),/sample approval is pending/);
+  }
+}finally{Object.assign(approval,savedApproval);}
+assert.deepEqual(approval,savedApproval,'Approval controls leave the real cached record unchanged');
+assert.doesNotThrow(()=>evidence.assertPublicationApproved([good.entry]),'The recorded direct user approval permits publication');
 const n={...good.entry,...evidence.metadata(good.entry)};
 assert.equal(lifecycle.copy(good.event,n,true,now).hook,n.hook);
 for(const status of ['live','stumps','suspended','interrupted','ongoing','break']){
@@ -50,6 +65,11 @@ assert.equal(display.selectCards({cards:[{event:{...sparse.event,editorialNarrat
 assert.equal(maintenance.schedule(good.event,{},now).cadenceDays,1);assert(maintenance.schedule(good.event,{},now).inWindow);assert(!maintenance.schedule({...good.event,key:'rugby',sportKey:'rugby',sport:'Rugby Union',id:'fixture:rugby:qa'}, {},now).inWindow);
 assert(maintenance.schedule(good.event,{held:true},now).held);assert(!maintenance.schedule(good.event,{held:true},now).due);
 const {apply}=require('./apply-fixture-research');
+for(const draftPassId of [undefined,null,'',' ',42,' '+good.entry.editorialReview.passId+' ']){
+ const entry=clone(good.entry);entry.editorialReview.draftPassId=draftPassId;
+ const knowledge={schemaVersion:'editorial-knowledge.v2',updatedAt:fixture.now,subjects:[],sources:[],narrativeFacts:[],narrativeThreads:[],audienceMemories:[],eventProjections:[]};
+ assert.throws(()=>apply(knowledge,{events:[clone(good.event)]},{events:[]},{entries:[entry]},[],{now}),/Review must bind/,'The actual research writer requires distinct nonempty draft and review pass IDs');
+}
 for(const sample of fixture.cases){
  const k={schemaVersion:'editorial-knowledge.v2',updatedAt:fixture.now,subjects:[],sources:[],narrativeFacts:[],narrativeThreads:[],audienceMemories:[],eventProjections:[]};
  const before=clone(sample.event),feed={events:[clone(sample.event)]};

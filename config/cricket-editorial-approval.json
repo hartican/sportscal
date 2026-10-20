@@ -1,5 +1,15 @@
 {
   "policyVersion": "cricket-editorial.v1",
-  "initialSampleApprovedAt": null,
-  "approvalEvidence": null
+  "initialSampleApprovedAt": "2026-10-20T05:25:27Z",
+  "approvalEvidence": "Direct user approval in Codex chat 01a15706-56b3-7992-8f72-6ba8a522ca62: Ok that's fine as an example. I approve the editorial structure presented in the sample review. Proceed with publication. ODI withholding approves the fallback structure, not a finding that reporting was unavailable.",
+  "approvalSource": {
+    "threadId": "01a15706-56b3-7992-8f72-6ba8a522ca62",
+    "kind": "direct-user-message"
+  },
+  "approvedSourceCandidate": "5668629c45870d9ca0e9f3d1b4821e607c93e1fa",
+  "sampleFiles": {
+    "review.html": "65748f03d344c147f8e41d7ad6cab467ea1d5cc8a126fa4f22f88c38108a21eb",
+    "sample-evidence.json": "2170cbe420b60771d19e05e482bec1b0de59d6908f5b05c1819f5c0aaea4a216",
+    "implementation.json": "47d73d7270a694e969589f4400b2a56ca28276ff0e7502c599e54f48b5c56ba5"
+  }
 }

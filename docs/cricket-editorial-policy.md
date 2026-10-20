@@ -1,7 +1,8 @@
 # Cricket card editorial — 20 October 2026
 
-Jack approved implementation of this policy on 20 October. The initial revised
-sample still requires his explicit approval before publication. The review packet
+Jack approved implementation and explicitly approved the initial sample structure
+and publication on 20 October. The recorded approval and exact sample hashes are
+in `config/cricket-editorial-approval.json`. The review packet
 belongs outside the checkout in `/Users/jackhartican/Documents/AI/Codex/cricket-editorial-policy-20261020`.
 
 ## Writing and evidence
@@ -86,13 +87,19 @@ The research entry extends the existing fixture schema with the fields specified
 in `schemas/cricket-editorial-research.schema.json`. Detailed support stays in the
 knowledge audit; public narrative projections carry only display metadata and the
 existing provenance IDs.
+The raw research and knowledge JSON stay server-only: the existing build seal
+removes both from static downloads only after verifying exact retained Feed and
+calendar server copies. Normal release proof checks their denied public paths,
+including encoded variants. Public Feed projections never include the claim ledger.
 
-`config/cricket-editorial-approval.json` intentionally has no approval timestamp.
-Canonical adaptive/weekend application and the direct research writer refuse new
-policy entries while that gate is pending. Local pure projection and preview are
-allowed. After Jack explicitly approves the sample, the release owner records the
-approval timestamp and evidence, integrates the scoped source changes, regenerates
-the current shell and reruns normal release checks. No environment bypass exists.
+`config/cricket-editorial-approval.json` records the direct sample approval, its
+recorded timestamp, approving chat and exact sample hashes. Canonical adaptive/weekend
+application and the direct research writer reject new policy entries without a
+valid approval record; there is no environment bypass. The approved ODI withholding
+is a fallback example, not a researched finding that reporting was unavailable.
+The dated samples remain regression evidence and are never imported as fresh
+reporting. Current shell integration, budget checks and normal release gates remain
+required before production acceptance.
 
 The existing automation's source instruction should point to this policy when the
 release owner integrates the approved sample. This implementation does not change

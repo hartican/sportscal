@@ -14,6 +14,12 @@ Next approved source: Cricket editorial structure/publication from [Rework crick
 
 [Full 576 delivery and evidence](/Users/jackhartican/Documents/AI/Codex/nothingsport-next-local-fixes-20261020/report.md).
 
+## Completed read-only analysis receipts — 20 October 2026
+
+“Analyse Vercel usage spike” (`01a1569c-f4a1-7330-a058-2bd0c331793b`) completed historical `f01ece35` package attribution/static reader inspection: 1,865 files/231,405,950 staged bytes. No per-function trace, measured CPU/egress savings or current entitlement is established. Fixture-only reminder projection is a conditional reachability/equivalence proposal, with no code ready to publish. Keep it distinct from newer packages and the already integrated lifecycle reuse.
+
+“Monitor NS automated tasks” (`01a155f6-c9c7-7ef3-897b-22caf5aad429`) completed a dated assessment at `/Users/jackhartican/Documents/AI/Codex/ns-automation-monitor/runs/2026-10-19T21-00-52.809933+00-00/report.md`: natural refresh #135 stopped before publication on missing Guardians–Rays/AUS–NZ rugby details; recurring EPL errors, an unverified Cricket discovery failure and production #521 global freshness failure. Assessment only; existing owners remain and no implementation, result edit, retry, message, source window or publisher is allocated. These two completed analyses do not alter the separately approved editorial module's actual pending state.
+
 ## Previous release checkpoint — 20 October2026,575 live but unaccepted
 
 Exact `4a7dbf9efd12d71a67623014b4393beeabf29aae`, app575, is READY on all three aliases. Workflow[39356368476](https://github.com/hartican/sportscal/actions/runs/39356368476) failed its required global freshness gate after all239 local/cloud safety commands, shared input, live Match Centre3/3 and seven live security routes passed. The current release is not accepted;574's earlier fresh failure also remains retained. No unchanged retry or extra app probe was run.

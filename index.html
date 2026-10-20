@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="576">
+<meta name="app-shell-version" content="577">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=576" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=577" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2022,7 +2022,7 @@ header.top .header-utilities{display:flex;flex:1;align-items:center;flex-wrap:no
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=576"></script>
+<script src="assets/js/app-shell-runtime.js?v=577"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -6956,33 +6956,6 @@ function eventEnrichment(ev){
   };
 }
 
-function buildFollowContext(contextItems){
-  if (!Array.isArray(contextItems) || !contextItems.length) return null;
-  const context = document.createElement("div");
-  context.className = "follow-context";
-  context.setAttribute("aria-label", "Follow context");
-  const label = document.createElement("span");
-  label.className = "follow-context-label";
-  label.textContent = "Following";
-  context.appendChild(label);
-  const list = document.createElement("div");
-  list.className = "follow-context-list";
-  list.setAttribute("role", "list");
-  list.tabIndex = 0;
-  list.setAttribute("aria-label", "Followed teams and players on this card");
-  contextItems.forEach(item => {
-    const chip = document.createElement("span");
-    chip.className = `follow-context-chip${item.followLevel === "priority" ? " priority" : ""}`;
-    chip.setAttribute("role", "listitem");
-    chip.textContent = item.followLevel === "priority"
-      ? `${item.displayName} · priority`
-      : item.displayName;
-    list.appendChild(chip);
-  });
-  context.appendChild(list);
-  return context;
-}
-
 function jerseyHolderName(participantId){
   if (!participantId) return "No holder";
   return standingsParticipantName(participantId);
@@ -7884,32 +7857,6 @@ function stickyFeedChromeHeight(){
   const filterHeight = activeTab === "feed" && filterDock ? filterDock.getBoundingClientRect().height : 0;
   const toolbar=activeTab==='feed'?document.querySelector('.feed-view-actions,.calendar-selection-toolbar'):null;
   return headerHeight + filterHeight + (toolbar?.getBoundingClientRect().height || 0);
-}
-
-function feedFilterCandidateEntities(preferences = userPreferences){
-  const selected = new Set(normalizeSelectorEntityIds(preferences?.selectedSelectorEntityIds || []));
-  const candidates = new Set();
-
-  if (selected.has("category:sports")){
-    BASE_SPORT_SELECTOR_ENTITIES.forEach(entity => candidates.add(entity.id));
-  } else {
-    BASE_SPORT_SELECTOR_ENTITIES.forEach(entity => {
-      if (selected.has(entity.id)) candidates.add(entity.id);
-    });
-  }
-
-  const hasSpecialEventSelection = selected.has("category:special-events")
-    || selected.has("special:commonwealth-games")
-    || (SELECTOR_TAXONOMY.specialEvents || []).some(entity => selected.has(entity.id))
-    || (SELECTOR_TAXONOMY.commonwealthDisciplines || []).some(entity => selected.has(entity.id));
-  if (hasSpecialEventSelection) candidates.add("category:special-events");
-
-  selected.forEach(id => {
-    if (id.startsWith("sport:") || id.startsWith("special:") || id.startsWith("cwg:")) return;
-    if (id !== "category:sports" && id !== "category:special-events") candidates.add(id);
-  });
-
-  return Array.from(candidates);
 }
 
 function feedFilterOptions(preferences = userPreferences){
