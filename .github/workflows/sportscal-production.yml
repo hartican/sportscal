@@ -81,6 +81,8 @@ jobs:
           node scripts/validate-match-centre.js
           node scripts/validate-match-interruptions.js
           node scripts/validate-snapshot-query-work.js
+          node scripts/validate-match-centre-stored-seeds.js
+          PGLITE_MODULE=pglite-pg17 node scripts/validate-match-centre-stored-seeds.js
           node scripts/validate-match-centre-details.js
           node scripts/validate-racing-details.js
           node scripts/validate-horse-racing.js
