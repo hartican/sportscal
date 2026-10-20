@@ -65,3 +65,4 @@ try{
  adapter.outputPaths().forEach((name,i)=>assert(before[i].equals(fs.readFileSync(path.join(temp,name)))),'invalid source changes no output');
 }finally{fs.rmSync(temp,{recursive:true,force:true});}
 console.log(JSON.stringify({passed:true,fixtures:48,clubs:16,groupTables:4,emptyFinalsRounds:[7,8,9],constructedRejectionCases:invalid.length,writer:'disposable fixture only; six-file idempotence and prewrite rejection',sourceTransport:'none',limits:'Retained factual projection and constructed local tests; no new source freshness, full app integration, production or physical-device evidence'}));
+require('./validate-australian-championship-assets-viewing');

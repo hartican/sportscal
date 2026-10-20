@@ -1,5 +1,13 @@
 # Follow and Feed decisions
 
+## Cricket source day and pause hierarchy — 20 October 2026
+
+Show the source-qualified Test day above a larger bold phase, including Stumps, across Feed, Follow Schedule and Match Centre. Omit the visible multi-day range from compact/minimised timing and duplicated expanded metadata; keep original dates and one clearly labelled original schedule in details and accessible descriptions. The first-match schedule is not a confirmed next resumption. Missing day proof stays unknown and elapsed dates cannot manufacture a day.
+
+An admitted ongoing Test already grouped in Today must not receive a second start-date-only empty notice. Keep one card, existing filters, Tests OFF, mute, Results controls, follows, identities and retention. The shared timeline remains the only Today classifier.
+
+For the same accepted Cricket contest, the existing deferred Schedule owner may preserve qualified day metadata and project a strictly newer source-confirmed pause through the existing identity/observation merger. Keep generic candidate order, non-pause precedence, scores, canonical IDs and user actions. General receipt time does not advance an unchanged independent status fact. Newer explicit unknown/cleared metadata, confirmed resumption and terminal state remain authoritative. No phase-occurrence or restart time is invented; a missing occurrence remains unknown. These display repairs add no request, provider, scheduler or changed deadline.
+
 ## Missing sporting metadata — 16 October 2026 Sydney
 
 Nothing Sport discovers sporting facts; missing app data must not be described as a decision awaiting an organiser. Omit unknown venue rows and their space; retain a sourced city if that is all that is available. Missing date, start, court, participant and broadcaster labels describe data as unavailable, including cached TBC/TBD presentation. Preserve source records and unknown values; never derive a venue from the home club or completion from an elapsed clock. “To be determined” is reserved for an actual sporting outcome still unresolved because play has not happened.

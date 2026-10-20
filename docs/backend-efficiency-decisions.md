@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Preserve qualified Cricket day metadata through existing reads — 20 October 2026
+
+The existing Match Centre compact/observation and Feed score paths preserve a supplied match day and its source URL/original check on the same accepted identity. Omitted metadata can retain qualified last-good proof; explicit unknown or unqualified replacement cannot borrow it. This is additive display metadata, not a new source observation or inferred sporting clock.
+
+Schedule uses its existing deferred panel and existing fixture observation merger for the narrowly guarded newer Cricket pause. Preserve independent status/phase clocks; only explicit clear/unknown metadata uses the later general receipt as a fence. No source/API/DB request, schema, retry, refresh cadence, scheduler or account mutation is added. Existing three-second readers, ten-minute unexpected-interruption cadence and single release owner remain unchanged. Actual source/day, clear/resumption, privacy, native rendering, cache/installed and normal release gates remain required.
+
 ## Source-only terminal matches retain their original window — 19 October 2026
 
 The existing Match Centre model admits source-confirmed cancelled, canceled and abandoned matches during their original terminal hour. The near SQL reader must conservatively retain source-only candidates for that same model, without relying on a published/preserved ID. Extend only its three existing terminal-status sets; retain indexed context closure, explicit-null precedence, original completion marks, the conservative SQL window, the five-thousand/5,001 sentinel, final payload boundary and service-only invoker permissions. Other readers and the observation projector remain unchanged.

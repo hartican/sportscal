@@ -75,3 +75,5 @@ assert.equal(JSON.stringify(terminalFixture),terminalBefore);
 console.log('Match Centre qualifications: fresh/stale live, retained interruption and finished badge with original planned support passed.');
 }
 validateMatchCentreQualifications();
+require('./validate-cricket-timing-corrections');
+require('./validate-cricket-schedule-day');

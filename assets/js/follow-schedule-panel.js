@@ -1,3 +1,41 @@
+// Display-only metadata for the same accepted contest. Sporting precedence
+// stays with the existing observation merger; missing occurrence times stay unknown.
+function inspectorCricketContest(source,candidate){
+ const multiDay=e=>/^cricket/.test(e?.key||e?.sportKey||'')&&(/\b(?:test|first[- ]class)\b/i.test([e.format,e.matchFormat,e.playingFormat].join(' '))||Number.isSafeInteger(e.numberOfDays)&&e.numberOfDays>1);
+ if(!multiDay(source)||!multiDay(candidate))return null;
+ const identity=typeof module==='object'&&module.exports?require('../../config/fixture-identity'):globalThis.NOTHINGSPORTS_FIXTURE_IDENTITY;
+ const aliases=e=>[e.id,e.eventId,e.canonicalEventId,...(e.sourceEventIds||[])].filter(id=>typeof id==='string').flatMap(id=>identity.fixtureAliases(id)).filter(id=>typeof id==='string').map(identity.canonicalFixtureId).filter(id=>typeof id==='string');
+ const participants=e=>[...new Set([...(e.participantIds||[]),...(e.participantSlots||[]).map(p=>p?.participantId),e.homeParticipantId,e.awayParticipantId].filter(Boolean).map(identity.canonicalParticipantId))].sort();
+ const ids=aliases(source),first=participants(source),second=participants(candidate),start=Date.parse(source.startTimeUtc||'');
+ return aliases(candidate).some(id=>ids.includes(id))&&identity.sportKey(source)===identity.sportKey(candidate)&&Number.isFinite(start)&&start===Date.parse(candidate.startTimeUtc||'')&&first.length===2&&JSON.stringify(first)===JSON.stringify(second)&&!(source.gender&&candidate.gender&&source.gender!==candidate.gender)?identity:null;
+}
+function inspectorSafeSourceUrl(value){try{return new URL(value).protocol==='https:';}catch{return false;}}
+function inspectorDayFields(source,candidate,reference=new Date()){
+ if(!inspectorCricketContest(source,candidate)||!inspectorSafeSourceUrl(source.matchDaySourceUrl))return null;
+ const check=source.matchDaySourceCheckedAt||source.sourceCheckedAt,at=Date.parse(check||''),day=source.matchDay,now=+new Date(reference);
+ if(!Number.isFinite(now)||!Number.isSafeInteger(day)||day<1||[source.numberOfDays,candidate.numberOfDays].some(n=>Number.isSafeInteger(n)&&n>0&&day>n)||!Number.isFinite(at)||at>now)return null;
+ const candidateAt=Date.parse(candidate.matchDaySourceCheckedAt||candidate.sourceCheckedAt||candidate.statusCheckedAt||'');
+ const explicitUnknown=Object.hasOwn(candidate,'matchDay')&&(!Number.isSafeInteger(candidate.matchDay)||candidate.matchDay<1)||Object.hasOwn(candidate,'matchDaySourceUrl')&&!inspectorSafeSourceUrl(candidate.matchDaySourceUrl);
+ const reported=Object.hasOwn(candidate,'matchDay')&&candidate.matchDay!==day||inspectorSafeSourceUrl(candidate.matchDaySourceUrl);
+ if((explicitUnknown||reported)&&(!Number.isFinite(candidateAt)||candidateAt>=at))return null;
+ return {matchDay:day,matchDaySourceUrl:source.matchDaySourceUrl,matchDaySourceCheckedAt:check};
+}
+function inspectorPauseFields(source,candidate,reference=new Date()){
+ const identity=inspectorCricketContest(source,candidate),now=+new Date(reference);
+ if(!identity||!Number.isFinite(now)||!['stumps','rain-delay','break','suspended','interrupted','delayed'].includes(source.status)||!['official','trusted-reporting'].includes(source.statusSourceType||source.sourceType)||!inspectorSafeSourceUrl(source.sourceUrl))return null;
+ const explicitlyCleared=Object.hasOwn(candidate,'status')&&(!candidate.status||candidate.status==='unknown')||['statusText','cricketPhaseConfirmed'].some(k=>Object.hasOwn(candidate,k)&&!candidate[k]);
+ const clocks=['statusCheckedAt','cricketPhaseCheckedAt',...(explicitlyCleared||!candidate.statusCheckedAt&&!candidate.fixtureObservationSchema?['sourceCheckedAt']:[])];
+ const at=Date.parse(source.statusCheckedAt||''),candidateAt=Math.max(...clocks.map(k=>Date.parse(candidate[k]||'')).filter(Number.isFinite));
+ if(!Number.isFinite(at)||at>now||!Number.isFinite(candidateAt)||at<=candidateAt||source.sourceCheckedAt&&(!Number.isFinite(Date.parse(source.sourceCheckedAt))||Date.parse(source.sourceCheckedAt)>now))return null;
+ const merged=identity.mergeOverlays([candidate],[{...source,statusFactObservedAt:source.statusFactObservedAt??null,pauseObservation:source.pauseObservation??null}])[0];
+ if(merged.status!==source.status)return null;
+ return Object.fromEntries(['status','statusText','statusCheckedAt','statusFactObservedAt','pauseObservation','cricketPhaseConfirmed','cricketPhaseCheckedAt','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt','statusSourceType'].filter(k=>Object.hasOwn(merged,k)).map(k=>[k,merged[k]]));
+}
+function inspectorPresentationFields(source,candidate,reference=new Date()){
+ const day=inspectorDayFields(source,candidate,reference),pause=inspectorPauseFields(source,candidate,reference);
+ return day||pause?{...day,...pause}:null;
+}
+
 // Fact selection belongs to Schedule, which is loaded before these cards render.
 // An exact retained identity may omit context; known contradictions still reject.
 function inspectorHasResultEvidence(event,identity){
@@ -304,4 +342,4 @@ function followScheduleScopeMatches(f){
   return true;
 }
 
-if(typeof module==='object'&&module.exports)module.exports={footballRoundPlan,inspectorSourcePreferred};
+if(typeof module==='object'&&module.exports)module.exports={inspectorDayFields,inspectorPauseFields,inspectorPresentationFields,footballRoundPlan,inspectorSourcePreferred};

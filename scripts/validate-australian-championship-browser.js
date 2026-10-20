@@ -51,7 +51,12 @@ async function leagueOnlyLifecycle(browser,{width,theme,base,source}){
     await page.evaluate(()=>{followHomeView='browse';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'teams-players',scheduleScope:null});renderAll();});
     await page.getByRole('combobox',{name:'League',exact:true}).waitFor();const teams=page.locator('.follow-directory-tabs').getByRole('button',{name:'Teams',exact:true});if(await teams.getAttribute('aria-pressed')!=='true')await teams.click();
     await page.getByRole('combobox',{name:'League',exact:true}).selectOption(competitionId);await page.waitForFunction(()=>document.querySelectorAll('.football-club-row').length===16);
-    assert.equal(await page.locator('.football-club-row span.football-club-crest').count(),16);assert.equal(await page.locator('.football-club-row img.football-club-crest').count(),0);
+    assert.equal(await page.locator('.football-club-row span.football-club-crest').count(),0);assert.equal(await page.locator('.football-club-row img.football-club-crest').count(),16);
+    for(const club of clubs){
+     const crest=page.locator(`[data-scroll-key="directory-team:football:${club.id}"] img.football-club-crest`);
+     await crest.scrollIntoViewIfNeeded();await crest.evaluate(image=>image.decode());
+     assert.deepEqual(await crest.evaluate((image,url)=>({ownSource:image.currentSrc===new URL(url,document.baseURI).href,decoded:image.complete&&image.naturalWidth>0,background:getComputedStyle(image).backgroundColor}),club.crestUrl),{ownSource:true,decoded:true,background:'rgb(255, 255, 255)'},'Each real Follow row retains its own readable official crest');
+    }
     for(let i=0;i<2;i++){const row=page.locator('.football-club-row').first();await row.scrollIntoViewIfNeeded();await row.locator('.football-club-expand').click();await row.scrollIntoViewIfNeeded();assert.match(await row.textContent(),/Player directory unavailable/);await row.locator('.football-club-expand').click();}
     if(process.env.CHAMPIONSHIP_QA_DIR&&width===320)await page.screenshot({path:path.join(process.env.CHAMPIONSHIP_QA_DIR,`${engine}-${theme}-clubs.png`)});
     await page.evaluate(()=>{followHomeView='browse';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'schedule',scheduleScope:null});renderAll();});
@@ -69,7 +74,15 @@ async function leagueOnlyLifecycle(browser,{width,theme,base,source}){
     const shootout=source.find(f=>f.sourceWinnerId===0&&f.shootout?.home===5&&f.shootout?.away===6);assert(shootout);
     for(const shown of [false,true])for(const surface of ['schedule','feed']){
      await page.evaluate(({fixture,shown,surface})=>{setGlobalSpoilerPreference(shown);const host=document.createElement('section');host.id='championship-component-proof';host.append(surface==='schedule'?buildCodeInspectorFixture(fixture):buildEventCard(fixture));document.getElementById('listView').replaceChildren(host);},{fixture:shootout,shown,surface});
-     const host=page.locator('#championship-component-proof');await host.scrollIntoViewIfNeeded();const text=await host.textContent();if(shown){assert.match(text,/0[–-]0/);assert.match(text,/Penalties 5[–-]6/);}else assert(!/Penalties 5[–-]6/.test(text),'Results OFF hides shootout');assert.equal(await host.locator('a.provider-link').count(),0,'unverified broadcaster metadata creates no viewing claim');
+     const host=page.locator('#championship-component-proof');await host.scrollIntoViewIfNeeded();const text=await host.textContent();if(shown){assert.match(text,/0[–-]0/);assert.match(text,/Penalties 5[–-]6/);}else assert(!/Penalties 5[–-]6/.test(text),'Results OFF hides shootout');assert.equal(await host.locator('a.provider-link').count(),0,'a reviewed live listing does not establish verified replay availability');
+    }
+    const upcoming=source.find(fixture=>Date.parse(fixture.startTimeUtc)>Date.now());assert(upcoming,'retained upcoming fixture required for the actual viewing action');
+    const reviewed=upcoming.viewingOptions.find(option=>option.providerId==='sbs');assert(reviewed&&reviewed.rightsScope==='fixture','The generated fixture must carry its reviewed Australian listing');
+    for(const surface of ['schedule','feed']){
+     await page.evaluate(({fixture,surface})=>{setGlobalSpoilerPreference(false);const host=document.createElement('section');host.id='championship-component-proof';host.append(surface==='schedule'?buildCodeInspectorFixture(fixture):buildEventCard(fixture));document.getElementById('listView').replaceChildren(host);},{fixture:upcoming,surface});
+     const links=page.locator('#championship-component-proof a.provider-link');assert.equal(await links.count(),1,'One source-backed Australian viewing action');
+     assert.equal(await links.getAttribute('href'),reviewed.webUrl,'Use the accepted fixture programme or season destination');
+     assert.match(await links.getAttribute('aria-label'),/^Watch on SBS.*Free/);assert(!/Replay/.test(await links.getAttribute('aria-label')),'No unverified replay claim');
     }
     await page.evaluate(()=>setGlobalSpoilerPreference(false));
     const expand=async()=>{const button=page.getByRole('button',{name:'Expand Sports menu',exact:true});if(await button.count())await button.click();};
@@ -92,7 +105,7 @@ async function leagueOnlyLifecycle(browser,{width,theme,base,source}){
     assert.equal(await page.evaluate(fixtures=>fixtures.filter(f=>automaticEventFollowReason(f)).length,source),0);
     const leagueOnlyRequests=await leagueOnlyLifecycle(browser,{width,theme,base:`http://127.0.0.1:${server.address().port}`,source});
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
-    const result={engine,width,theme,searchableClubs:16,publishedFixtures:48,accessibleGroupTables:4,browsingDoesNotFollow:true,standingsConsent:true,mountedLeagueOptIn:true,defaultOff:true,localFeedReadback:true,offSurvivesReload:true,leagueOnlyColdReload:true,requests,leagueOnlyRequests};rows.push(result);console.log(JSON.stringify(result));
+    const result={engine,width,theme,searchableClubs:16,ownOfficialCrestsDecoded:16,viewingSurfaces:2,publishedFixtures:48,accessibleGroupTables:4,browsingDoesNotFollow:true,standingsConsent:true,mountedLeagueOptIn:true,defaultOff:true,localFeedReadback:true,offSurvivesReload:true,leagueOnlyColdReload:true,requests,leagueOnlyRequests};rows.push(result);console.log(JSON.stringify(result));
    }catch(error){console.error(JSON.stringify({engine,width,theme,state:await page.evaluate(()=>({text:document.getElementById('listView')?.innerText.slice(0,2000),browse:typeof followBrowseState==='function'?followBrowseState():null}))}));throw error;}finally{await context.close();}
   }}finally{await browser.close();}
  }}finally{server.closeAllConnections();await new Promise(r=>server.close(r));}

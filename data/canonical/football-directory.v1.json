@@ -3204,9 +3204,15 @@
         "source:football:australian-championship:2026:summary"
       ],
       "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
-      "crestUrl": null,
-      "crestSourceUrl": null,
-      "crestStatus": "unavailable-from-retained-source",
+      "crestUrl": "assets/identities/football/australian-championship/9927.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2026-09/adelaide-city-logo-1.png?itok=VpmlxbV8",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "7fe1681be219d31fd8e49b2c6b88a7c99547ebf24b468783068adf704a3cbd88"
+      },
       "playerCoverage": "unavailable"
     },
     {
@@ -3228,9 +3234,15 @@
         "source:football:australian-championship:2026:summary"
       ],
       "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
-      "crestUrl": null,
-      "crestSourceUrl": null,
-      "crestStatus": "unavailable-from-retained-source",
+      "crestUrl": "assets/identities/football/australian-championship/14521.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-01/Avondale-FC-Logo.png?itok=VvEo4RZU",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "17e1739ac807bcf27becc21e82c779b6538343b4270f50c50f62e241dd269e66"
+      },
       "playerCoverage": "unavailable"
     },
     {
@@ -3252,9 +3264,15 @@
         "source:football:australian-championship:2026:summary"
       ],
       "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
-      "crestUrl": null,
-      "crestSourceUrl": null,
-      "crestStatus": "unavailable-from-retained-source",
+      "crestUrl": "assets/identities/football/australian-championship/9944.jpg",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-09/bayswater.png?itok=AhP9zRFl",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "0141dd638e4d24d29f3ee3f9f8dc58e57a540bb05915a9a9411db09ba162763d"
+      },
       "playerCoverage": "unavailable"
     },
     {
@@ -3276,9 +3294,15 @@
         "source:football:australian-championship:2026:summary"
       ],
       "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
-      "crestUrl": null,
-      "crestSourceUrl": null,
-      "crestStatus": "unavailable-from-retained-source",
+      "crestUrl": "assets/identities/football/australian-championship/9946.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-09/9946.png?itok=-SRXTHXo",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "35987ec698b433a5107309885ccc24db4c0c13e38f3b25506a32714445cf94f7"
+      },
       "playerCoverage": "unavailable"
     },
     {
@@ -3300,9 +3324,15 @@
         "source:football:australian-championship:2026:summary"
       ],
       "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
-      "crestUrl": null,
-      "crestSourceUrl": null,
-      "crestStatus": "unavailable-from-retained-source",
+      "crestUrl": "assets/identities/football/australian-championship/11255.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-09/11255_0.png?itok=fDzwq-T1",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "ca9862e1479da1ae44dc7a7d8fd1b27d4db627cc4bf9b6aed16372132edce200"
+      },
       "playerCoverage": "unavailable"
     },
     {
@@ -3324,9 +3354,15 @@
         "source:football:australian-championship:2026:summary"
       ],
       "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
-      "crestUrl": null,
-      "crestSourceUrl": null,
-      "crestStatus": "unavailable-from-retained-source",
+      "crestUrl": "assets/identities/football/australian-championship/11022.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2026-09/153910404_lions_fc_-_logo_suite-type_2.png?itok=WDZ_DWLJ",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "08e4b697bd181dfcef8f61ebd2ffeb7c4c2c3d6d3b356a9883a376229885e9a0"
+      },
       "playerCoverage": "unavailable"
     },
     {
@@ -3348,9 +3384,15 @@
         "source:football:australian-championship:2026:summary"
       ],
       "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
-      "crestUrl": null,
-      "crestSourceUrl": null,
-      "crestStatus": "unavailable-from-retained-source",
+      "crestUrl": "assets/identities/football/australian-championship/3502.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-09/3502.png?itok=8-USNegn",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "4b2c9dcf944e2297c3e00a3796e59299e150e2d73d2a3f9c0efdf3defc3bc2b2"
+      },
       "playerCoverage": "unavailable"
     },
     {
@@ -3372,9 +3414,15 @@
         "source:football:australian-championship:2026:summary"
       ],
       "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
-      "crestUrl": null,
-      "crestSourceUrl": null,
-      "crestStatus": "unavailable-from-retained-source",
+      "crestUrl": "assets/identities/football/australian-championship/11021.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2026-09/oakleigh-cannons_1.png?itok=XaGin7Nz",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "a4363fba1beb4f0708b1ff22fef9c79abda6687a10486ea436534c8c35c7b14f"
+      },
       "playerCoverage": "unavailable"
     },
     {
@@ -3396,9 +3444,15 @@
         "source:football:australian-championship:2026:summary"
       ],
       "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
-      "crestUrl": null,
-      "crestSourceUrl": null,
-      "crestStatus": "unavailable-from-retained-source",
+      "crestUrl": "assets/identities/football/australian-championship/20436.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-01/Preston_Lions_FC_%28logo%29.svg.png?itok=OtCco-KW",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "dd9243184263fa2161edd20b928f34dba5d8067f017900622af2426fba44b880"
+      },
       "playerCoverage": "unavailable"
     },
     {
@@ -3420,9 +3474,15 @@
         "source:football:australian-championship:2026:summary"
       ],
       "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
-      "crestUrl": null,
-      "crestSourceUrl": null,
-      "crestStatus": "unavailable-from-retained-source",
+      "crestUrl": "assets/identities/football/australian-championship/9928.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-09/9928.png?itok=vs--guK6",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "117232204c034aeb6f64d426b585c9edeae8ab63b07df6c82498655b42e6ab63"
+      },
       "playerCoverage": "unavailable"
     },
     {
@@ -3444,9 +3504,15 @@
         "source:football:australian-championship:2026:summary"
       ],
       "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
-      "crestUrl": null,
-      "crestSourceUrl": null,
-      "crestStatus": "unavailable-from-retained-source",
+      "crestUrl": "assets/identities/football/australian-championship/10470.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-01/South_Melbourne_FC_logo.svg.png?itok=eTlkSEVj",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "47d3d819447e340471d19acade3c06420b83ef07586cf5b9f7d6ddb740dd3a5e"
+      },
       "playerCoverage": "unavailable"
     },
     {
@@ -3468,9 +3534,15 @@
         "source:football:australian-championship:2026:summary"
       ],
       "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
-      "crestUrl": null,
-      "crestSourceUrl": null,
-      "crestStatus": "unavailable-from-retained-source",
+      "crestUrl": "assets/identities/football/australian-championship/15433.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2026-09/sharksfc_logo_2026_screen_primary_ocean_rgb.png?itok=D5ZcRxc3",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "104e340b3cbe7174aa8c948676ddefbb9e5ca1f1e01874339e1133e9559275cd"
+      },
       "playerCoverage": "unavailable"
     },
     {
@@ -3492,9 +3564,15 @@
         "source:football:australian-championship:2026:summary"
       ],
       "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
-      "crestUrl": null,
-      "crestSourceUrl": null,
-      "crestStatus": "unavailable-from-retained-source",
+      "crestUrl": "assets/identities/football/australian-championship/9938.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2026-09/9938.png?itok=rZBQM69R",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "a4fc0b677dd582e9197c8622b0fd4a9fde6f69db833e8f7d36ddbe51c319f598"
+      },
       "playerCoverage": "unavailable"
     },
     {
@@ -3516,9 +3594,15 @@
         "source:football:australian-championship:2026:summary"
       ],
       "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
-      "crestUrl": null,
-      "crestSourceUrl": null,
-      "crestStatus": "unavailable-from-retained-source",
+      "crestUrl": "assets/identities/football/australian-championship/9939.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-01/Sydney_United_FC.png?itok=YFh3f0BZ",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "badfb680376c44e108221e69b0565af222f2fe69fb93d3496acbbfe5a8152b88"
+      },
       "playerCoverage": "unavailable"
     },
     {
@@ -3540,9 +3624,15 @@
         "source:football:australian-championship:2026:summary"
       ],
       "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
-      "crestUrl": null,
-      "crestSourceUrl": null,
-      "crestStatus": "unavailable-from-retained-source",
+      "crestUrl": "assets/identities/football/australian-championship/20439.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-10/20439.png?itok=rZmeAnbi",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "349085ed964413637187c76b730b355e58b050d4eaaf77b61f9fc09a18701e32"
+      },
       "playerCoverage": "unavailable"
     },
     {
@@ -3564,9 +3654,15 @@
         "source:football:australian-championship:2026:summary"
       ],
       "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
-      "crestUrl": null,
-      "crestSourceUrl": null,
-      "crestStatus": "unavailable-from-retained-source",
+      "crestUrl": "assets/identities/football/australian-championship/879.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-08/wolves.png?itok=XNhW_KSn",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "c4e423f94071da1873ad666238694ad96aaf76d0fcacfa434ebdabfed2a46248"
+      },
       "playerCoverage": "unavailable"
     }
   ],

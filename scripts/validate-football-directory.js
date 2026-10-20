@@ -51,13 +51,19 @@ function validate(){
   const sourceIds = new Set(directory.sources.map(source => source.id));
   const leagueIds = new Set(directory.leagues.map(league => league.id));
   const teamIds = new Set(directory.teams.map(team => team.id));
+  const championshipMarks = require('../data/football/australian-championship-marks.v1.json');
   directory.leagues.forEach(league => {
     assert.equal(directory.teams.filter(team => team.leagueId === league.id).length, league.teamCount, `${league.displayName} team count must match its source snapshot`);
     league.sourceRefs.forEach(id => assert(sourceIds.has(id), `${league.displayName} has unknown source ${id}`));
   });
   directory.teams.forEach(team => {
     assert(leagueIds.has(team.leagueId), `${team.displayName} has unknown league`);
-    if(team.leagueId==='competition:australian-championship')assert(team.crestUrl===null&&team.crestStatus==='unavailable-from-retained-source'&&team.playerCoverage==='unavailable','new Championship clubs use honest missing artwork/player evidence');
+    if(team.leagueId==='competition:australian-championship'){
+      const mark=championshipMarks.clubs.find(row=>row.participantId===team.id);
+      assert(mark&&team.crestUrl===mark.assetPath&&team.crestSourceUrl===mark.sourceUrl&&team.crestStatus==='official-reference','Championship clubs require their own reviewed official artwork');
+      assert.deepEqual(team.crestProvenance,{sourceUrl:mark.sourceUrl,assetUrl:mark.assetUrl,verifiedAt:championshipMarks.checkedAt,sha256:mark.sha256},'Artwork keeps its independent provenance rather than renewing sporting observations');
+      assert.equal(team.playerCoverage,'unavailable','Artwork does not establish player coverage');
+    }
     else assert(/^https:\/\//.test(team.crestUrl), `${team.displayName} requires an HTTPS crest`);
     team.sourceRefs.forEach(id => assert(sourceIds.has(id), `${team.displayName} has unknown source ${id}`));
   });

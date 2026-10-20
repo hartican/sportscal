@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="575">
+<meta name="app-shell-version" content="576">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=575" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=576" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -1379,6 +1379,7 @@ img[data-identity-image].identity-image-decoded{opacity:1;transition:opacity .16
 .football-club-row + .football-club-row{border-top:1px solid var(--border);}
 .football-club-head{display:grid;grid-template-columns:42px minmax(0,1fr) 116px 36px;align-items:center;gap:10px;min-height:58px;padding:8px 10px;}
 .football-club-crest{width:38px;height:38px;object-fit:contain;}
+img[data-team-logo-light^="assets/identities/football/australian-championship/"]{background:#fff;border-radius:4px;}
 .football-club-copy{min-width:0;}
 .football-club-copy strong{display:block;font-size:0.82rem;line-height:1.25;overflow-wrap:anywhere;}
 .football-club-copy span{display:block;margin-top:3px;color:var(--text-dim);font-size:0.68rem;}
@@ -1723,7 +1724,7 @@ header.top .header-utilities{display:flex;flex:1;align-items:center;flex-wrap:no
 .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;text-align:center}.fixture-timing-day,.fixture-timing-clock{font-size:inherit;font-weight:750;line-height:1.2}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=463">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=547">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=576">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=536">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -2021,7 +2022,7 @@ header.top .header-utilities{display:flex;flex:1;align-items:center;flex-wrap:no
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=575"></script>
+<script src="assets/js/app-shell-runtime.js?v=576"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -2035,7 +2036,7 @@ const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTIT
 let CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES || null;
 const cardIdentitiesReady = CARD_IDENTITIES
   ? Promise.resolve(CARD_IDENTITIES)
-  : loadDeferredScript("config/card-identities.js?v=522")
+  : loadDeferredScript("config/card-identities.js?v=576")
     .then(() => {
       CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES || null;
       return CARD_IDENTITIES;
@@ -5648,7 +5649,7 @@ function liveScheduleFixtures(fixtures,code=codeInspectorChunk?.code){
 }
 
 let feedScoreUiLoading=null;
-function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=575').catch(error=>{feedScoreUiLoading=null;throw error;});}
+function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=576').catch(error=>{feedScoreUiLoading=null;throw error;});}
 function installFeedLiveScore(card,event){
   if(globalThis.NOTHINGSPORTS_FEED_SCORE_UI){globalThis.NOTHINGSPORTS_FEED_SCORE_UI.install(card,event);return;}
   const owner=serverSyncClient?.sessionSubject()||'public',tab=activeTab;
@@ -8809,7 +8810,8 @@ function buildCodeInspectorFixture(fixture){
     participants:slots.map(slot=>({id:slot.participantId,name:slot.label,displayName:slot.label,logoUrl:slot.logoUrl})),
     status:inspectorFixtureIsResult(fixture)?'finished':fixture.status || 'scheduled',
     stakesScore:fixture.stakesScore || (fixture.expected>=9?5:fixture.expected>=7?4:3)};
-  return buildEventCard(event,{mode:'schedule',inspectorFixture:fixture});
+  const fields=globalThis.inspectorPresentationFields?.(fixture,event);
+  return buildEventCard(fields?{...event,...fields}:event,{mode:'schedule',inspectorFixture:fixture});
 }
 
 function appendSchedulePin(container,fixture,card){
@@ -8851,7 +8853,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=574').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=576').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){
@@ -9216,49 +9218,6 @@ function observeNewSurfaceItem(element, ev, presentation = surfacePresentationFo
   surfaceSeenEvents.set(element, ev);
   getSurfaceSeenObserver()?.observe(element);
 }
-
-function buildStars(ev, interactive, { prompt = false } = {}){
-  const actual = getActual(ev);
-  const actualStars = actualStarValue(ev);
-  const wrap = document.createElement("span");
-  wrap.className = "stars";
-  wrap.setAttribute("aria-label", actualStars === null ? "Not rated" : `Rated ${actualStars} out of 5 stars`);
-  for (let i=1;i<=5;i++){
-    const s = document.createElement(interactive ? "button" : "span");
-    const fillClass = actualStars !== null && actualStars >= i
-      ? " filled"
-      : actualStars !== null && actualStars === i - 0.5
-        ? " half-filled"
-        : "";
-    s.className = "star" + (interactive ? " interactive" : "") + fillClass;
-    s.textContent = "★";
-    s.title = `${i} star${i === 1 ? "" : "s"} · stores ${RATING_SYSTEM?.starToStoredScore?.(i) || i * 2}/10`;
-    if (interactive){
-      s.type = "button";
-      s.setAttribute("aria-label", `Rate ${i} out of 5 stars`);
-      s.addEventListener("click", (evt) => {
-        evt.stopPropagation();
-        const storedScore = RATING_SYSTEM?.starToStoredScore?.(i) || i * 2;
-        const removing = setEventRating(ev, storedScore, { revealSpoilers: !prompt });
-        if (!removing){
-          recordProductEvent({
-            eventName: "rating",
-            surface: prompt ? "curated_feed" : "event_card",
-            ...productEventContextForEvent(ev),
-            properties: { action: "rated", score: i },
-          });
-        }
-        if (prompt) suppressSessionRatingPrompt();
-        renderAll();
-        showToast(removing ? `Rating removed for "${ev.name}".` : `Actual spectacle for "${ev.name}" set to ${i}/5 stars.`);
-      });
-    }
-    wrap.appendChild(s);
-  }
-  return wrap;
-}
-
-
 
 function latestEventFeedbackDirection(ev){
   const eventId = String(ev.eventId || ev.id);
@@ -11292,11 +11251,6 @@ function jointTournamentShouldSurface(document = jointTournamentData){
 
 function temporaryTodayMoreEvents(){ return []; }
 
-function appendTodayFallback(container,filtered,todayStr){
-  if(filtered.some(event=>event.date===todayStr))return;
-  const notice=document.createElement('p');notice.className='today-fallback';notice.textContent='No followed fixtures today.';container.appendChild(notice);
-}
-
 function appendFocusedArchiveRecovery(container, events){
   if (!events.length) return false;
   const filterLabel = selectorEntityById(activeFilter)?.label || "this sport";
@@ -11550,7 +11504,6 @@ function renderListView(){
       });
       if(dateStr===todayStr && !nowInserted)grid.appendChild(buildFeedNowMarker(sortedChrono(timeline.future)[0]||(timeline.unknown||[])[0]));
       groupDiv.appendChild(heading);
-      if (dateStr === todayStr) appendTodayFallback(groupDiv, baseFiltered, todayStr);
       groupDiv.appendChild(grid);
       container.appendChild(groupDiv);
     });
@@ -11573,7 +11526,6 @@ function renderListView(){
     anchor.setAttribute("aria-label", `${boundaryPresentation.todayCopy}, ${fmtDateHeading(todayStr)}`);
     anchor.textContent = boundaryPresentation.todayCopy;
     container.appendChild(anchor);
-    if (timeline.today.length) appendTodayFallback(container, baseFiltered, todayStr);
     todayAnchorInserted = true;
   };
 
@@ -12552,7 +12504,7 @@ async function loadMatchCentre(){
   const panel=document.getElementById('listView');
   if(globalThis.renderMatchCentre){globalThis.renderMatchCentre();return;}
   panel.className='match-centre';panel.textContent='Loading Match Centre…';
-  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=566'),loadDeferredScript('config/score-details.js?v=574'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=572')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
+  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=576'),loadDeferredScript('config/score-details.js?v=576'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=576')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
 }
 function renderTeamsAndPlayersDirectory(container){
   if(typeof globalThis.renderTeamsAndPlayersDirectoryLoaded==='function')return globalThis.renderTeamsAndPlayersDirectoryLoaded(container);
@@ -17911,7 +17863,7 @@ async function ensureFeedSourceReadiness(preferences=userPreferences){
   rebuildDerivedCardCache(activeEvents);
 }
 function loadDeferredStartupContext(){
-  return loadDeferredScript('config/startup-view-cache.js?v=574').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
+  return loadDeferredScript('config/startup-view-cache.js?v=576').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
 }
 
 let startupPostLoadHandled = false;
