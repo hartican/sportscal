@@ -2,30 +2,18 @@
 const assert=require('node:assert/strict'),fs=require('node:fs');
 const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
 (async()=>{
- const {PGlite}=require(process.env.PGLITE_MODULE||'@electric-sql/pglite'),db=new PGlite();
+ const db=await require('./validate-profile-fixture-scope').database();
  try{
   const pgMajor=Number((await db.query("select current_setting('server_version_num') v")).rows[0].v)/10000|0;
   if(process.env.PGLITE_MODULE==='pglite-pg17')assert.equal(pgMajor,17,'Pinned production-parity runtime must remain PostgreSQL 17');
-  await db.exec("create role anon;create role authenticated;create role service_role bypassrls;grant usage on schema public to service_role;");
-  for(const name of ['20260908093906_live_fixture_snapshots.sql','20260908110529_discovery_source_health.sql'])await db.exec(fs.readFileSync('supabase/migrations/'+name,'utf8'));
-  await db.exec(fs.readFileSync('supabase/migrations/20260914061506_right_size_fixture_runtime.sql','utf8').split('-- One write replaces')[0]);
-  for(const name of ['20260924104317_compact_live_scores.sql','20261002171936_preserve_compact_fixture_observations.sql','20261006182007_bound_current_fixture_snapshot.sql','20261009041722_compact_public_fixture_bundle.sql','20261009074435_bound_match_centre_snapshot.sql','20261009082136_short_circuit_match_centre_snapshot.sql'])await db.exec(fs.readFileSync('supabase/migrations/'+name,'utf8'));
-  const nearReference=fs.readFileSync('supabase/migrations/20261009082136_short_circuit_match_centre_snapshot.sql','utf8').match(/create or replace function[\s\S]*?\$\$;/)[0].replace('nothingsports_read_match_centre_fixture_bundle','qa_reference_match_centre_bundle');
-  await db.exec(nearReference);
+  // Output-only: actual existing private schema, writer hooks and integrity checks.
+  const originalNear=fs.readFileSync('supabase/migrations/20261009082136_short_circuit_match_centre_snapshot.sql','utf8').match(/create or replace function[\s\S]*?\$\$;/)[0];
+  await db.exec(originalNear);
+  await db.exec(originalNear.replace('nothingsports_read_match_centre_fixture_bundle','qa_reference_match_centre_bundle'));
   await db.exec(fs.readFileSync('supabase/migrations/20261010140637_materialize_match_centre_read_receipts.sql','utf8'));
   const nearEquivalent=async ids=>assert.equal((await db.query('select public.nothingsports_read_match_centre_fixture_bundle($1)=public.qa_reference_match_centre_bundle($1) as same',[ids])).rows[0].same,true,'Materialising source receipts preserves every current fixture field and original observation');
-  const reference=fs.readFileSync('supabase/migrations/20261009041722_compact_public_fixture_bundle.sql','utf8').match(/create or replace function[\s\S]*?\$\$;/)[0].replace('nothingsports_read_current_fixture_bundle','qa_reference_fixture_bundle');
-  await db.exec(reference);
-  await db.exec(fs.readFileSync('supabase/migrations/20261010111935_materialize_fixture_read_inputs.sql','utf8'));
-  await db.exec(fs.readFileSync('supabase/migrations/20261010112416_branch_fixture_bundle_read_scope.sql','utf8'));
-  await db.exec("create table public.nothingsports_reminder_intents(fixture_id text,enabled boolean,choice text);create table public.nothingsports_reminders(event_id text,dispatched_at timestamptz);grant select on public.nothingsports_reminder_intents,public.nothingsports_reminders to service_role;");
-  await db.exec(fs.readFileSync('supabase/migrations/20261010114326_bound_reminder_fixture_read_scope.sql','utf8'));
-  // Exercise the reviewed aggregation change against the actual current helper,
-  // while retaining both earlier references and every existing assertion below.
-  await db.exec('begin;'+fs.readFileSync('supabase/migrations/20261015053258_flatten_fixture_observation_projection.sql','utf8')+'commit;');
-  // Use the current canonical writer body for the projection lifecycle check.
-  const currentPublisher=fs.readFileSync('supabase/migrations/20261012113815_expire_unchanged_fixture_history.sql','utf8').match(/CREATE OR REPLACE FUNCTION[\s\S]*?\$function\$;/)[0];
-  await db.exec(currentPublisher);
+  const reference=fs.readFileSync('supabase/migrations/20261009041722_compact_public_fixture_bundle.sql','utf8').match(/create or replace function[\s\S]*?\$\$;/)[0].replace('nothingsports_read_current_fixture_bundle','qa_reference_fixture_bundle');await db.exec(reference);
+  const currentPublisher=fs.readFileSync('supabase/migrations/20261012113815_expire_unchanged_fixture_history.sql','utf8').match(/CREATE OR REPLACE FUNCTION[\s\S]*?\$function\$;/)[0];await db.exec(currentPublisher);
   const aggregationMigration=fs.readFileSync('supabase/migrations/20261019010303_add_global_fixture_json_reader.sql','utf8');
   const globalSignature='public.nothingsports_read_current_fixture_bundle(text[])',wireSignature='public.nothingsports_read_current_fixture_bundle_json(text[])';
   const globalDefinition=(await db.query('select pg_get_functiondef($1::regprocedure) as definition',[globalSignature])).rows[0].definition;
@@ -205,6 +193,55 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   assert.deepEqual(await ownerAttributes(rowSignature),beforeSpoolRowAttributes);assert.deepEqual(await relationContract(),beforeSpoolRelation);assert.deepEqual(await generatedContract(),beforeSpoolGenerated);
   await projectionEqual();
   await db.exec('begin;');await assert.rejects(db.exec(spoolMigration),/differ from reviewed baseline/);await db.exec('rollback;');
+  const indexedAdmissionMigration=fs.readFileSync('supabase/migrations/20261020182931_reuse_existing_calendar_index_for_global_admission.sql','utf8');
+  const privateIndexContract=async()=>(await db.query("select jsonb_build_object('functions',(select jsonb_object_agg(p.oid::text,jsonb_build_object('definition',pg_get_functiondef(p.oid),'acl',p.proacl::text)) from pg_proc p where p.pronamespace='nothingsports_fixture_read_private'::regnamespace),'triggers',(select jsonb_agg(jsonb_build_object('table',t.tgrelid::regclass::text,'name',t.tgname,'enabled',t.tgenabled,'definition',pg_get_triggerdef(t.oid)) order by t.tgrelid::regclass::text,t.tgname) from pg_trigger t where not t.tgisinternal and t.tgname in('fixture_current_integrity_after_change','fixture_read_context_after_current','fixture_context_integrity_after_change','fixture_token_membership_after_change','fixture_tokens_integrity_after_change','fixture_integrity_at_commit','source_tokens_integrity_after_change','fixture_read_context_after_score')),'tables',(select jsonb_agg(jsonb_build_object('relation',c.oid::regclass::text,'owner',c.relowner,'acl',c.relacl::text,'rls',c.relrowsecurity,'forcedRls',c.relforcerowsecurity) order by c.oid::regclass::text) from pg_class c where c.oid in('nothingsports_fixture_read_private.fixture_context'::regclass,'nothingsports_fixture_read_private.integrity_pending'::regclass)),'schema',(select jsonb_build_object('owner',nspowner,'acl',nspacl::text) from pg_namespace where oid='nothingsports_fixture_read_private'::regnamespace)) contract")).rows[0].contract;
+  const beforeIndexContract=await privateIndexContract(),beforeIndexedOtherContracts=await projectionOtherContracts(),beforeIndexedRowAttributes=await ownerAttributes(rowSignature),beforeIndexedGenerated=await generatedContract();
+  for(const mutation of [
+   'alter function public.nothingsports_read_current_fixture_bundle_json_rows(text[]) rows 2',
+   'alter function nothingsports_fixture_read_private.window_fields(jsonb) strict',
+   'grant select on nothingsports_fixture_read_private.fixture_context to anon',
+   'grant usage on schema nothingsports_fixture_read_private to anon',
+   'alter table public.nothingsports_fixture_current disable trigger fixture_read_context_after_current',
+   'alter table nothingsports_fixture_read_private.integrity_pending disable trigger fixture_integrity_at_commit',
+   'alter table public.nothingsports_fixture_current alter column global_fixture drop expression'
+  ]){
+   await db.exec('begin;'+mutation+';');await assert.rejects(db.exec(indexedAdmissionMigration),/differ.*reviewed baseline/);await db.exec('rollback;');
+   assert.deepEqual(await privateIndexContract(),beforeIndexContract);assert.deepEqual(await projectionOtherContracts(),beforeIndexedOtherContracts);
+  }
+  await db.exec('begin;'+indexedAdmissionMigration+'commit;');
+  assert.deepEqual(await privateIndexContract(),beforeIndexContract,'Every existing private index helper, trigger, table and schema right remains exact');
+  assert.deepEqual(await projectionOtherContracts(),beforeIndexedOtherContracts);assert.deepEqual(await ownerAttributes(rowSignature),beforeIndexedRowAttributes);assert.deepEqual(await generatedContract(),beforeIndexedGenerated);
+  await db.exec('begin;');await assert.rejects(db.exec(indexedAdmissionMigration),/differ from reviewed baseline/);await db.exec('rollback;');
+  // The actual canonical publisher and score hooks maintain the reused fields.
+  await db.exec("insert into public.nothingsports_fixture_sources(source_id) values('qa-stored-projection');");
+  const publishIndexedScore=async(fixture,score,hash)=>{
+   await db.exec("update public.nothingsports_fixture_sources set lease_token='00000000-0000-4000-8000-000000000001',lease_until=clock_timestamp()+interval '1 minute' where source_id='qa-stored-projection';");
+   await db.query("select public.nothingsports_publish_compact_scores('qa-stored-projection','00000000-0000-4000-8000-000000000001'::uuid,$1::jsonb,$2::jsonb,$3,120000,'{}'::jsonb)",[JSON.stringify([fixture]),JSON.stringify([score]),hash]);
+  };
+  const indexedScore={id:'before-projection',status:'scheduled',statusCheckedAt:'2026-10-02T00:00:00Z',homeScore:0,scoreCheckedAt:'2026-10-02T00:00:00Z',observationSchema:'fixture-observations.v1',statusObserved:true,scoreObserved:true};
+  await publishIndexedScore(projectionFixture,indexedScore,'qa-indexed-original');await projectionEqual();
+  await publishIndexedScore({...projectionFixture,date:'2099-01-01'},indexedScore,'qa-indexed-moved');await projectionEqual();
+  await publishIndexedScore({...projectionFixture,date:'2099-01-01'},{...indexedScore,status:'live',statusCheckedAt:'2026-10-03T00:00:00Z'},'qa-indexed-moved');await projectionEqual();
+  await db.exec("delete from public.nothingsports_live_scores where source_id='qa-stored-projection';");
+
+  await publishProjection({...projectionFixture,date:'2099-01-01'},'qa-indexed-moved');await projectionEqual();
+  await db.exec("insert into public.nothingsports_live_scores(source_id,fixture_id,score,content_hash) values('qa-stored-projection','before-projection','{\"status\":\"live\",\"date\":null,\"homeScore\":0}'::jsonb,'qa-indexed-score');");await projectionEqual();
+  await publishProjection(projectionFixture,'qa-indexed-returned');
+  await db.exec("delete from public.nothingsports_live_scores where source_id='qa-stored-projection';");await projectionEqual();
+  await db.exec("begin;delete from nothingsports_fixture_read_private.fixture_context where source_id='qa-stored-projection';");
+  assert((await db.query('select count(*)::int n from nothingsports_fixture_read_private.integrity_pending')).rows[0].n>0);await projectionEqual();
+  await assert.rejects(db.exec('commit;'),e=>e.code==='23514','Missing index metadata cannot commit; pending metadata uses original facts');await db.exec('rollback;');
+  // Isolate each fallback branch in a local copy while retaining real canonical lifecycle proof above.
+  await db.exec('create temp table qa_global_context as table nothingsports_fixture_read_private.fixture_context;create temp table qa_global_pending as select * from nothingsports_fixture_read_private.integrity_pending with no data;');
+  const indexedDefinition=(await db.query('select pg_get_functiondef($1::regprocedure) definition',[rowSignature])).rows[0].definition;
+  await db.exec(indexedDefinition.replace('public.nothingsports_read_current_fixture_bundle_json_rows(', 'public.qa_indexed_fallback_rows(').replaceAll('nothingsports_fixture_read_private.fixture_context','pg_temp.qa_global_context').replaceAll('nothingsports_fixture_read_private.integrity_pending','pg_temp.qa_global_pending'));
+  await db.exec('revoke all on function public.qa_indexed_fallback_rows(text[]) from public,anon,authenticated;');
+  const fallbackEqual=async()=>assert.equal((await db.query('select public.qa_reference_global_aggregation(null::text[])=(select value::jsonb from public.qa_indexed_fallback_rows(null::text[]) t(value)) same')).rows[0].same,true,'Indexed fallback retains complete original membership and facts');
+  for(const mutation of ["delete from pg_temp.qa_global_context","update pg_temp.qa_global_context set shape_version=2","update pg_temp.qa_global_context set base_selection=base_selection-'calendarWindow'","update pg_temp.qa_global_context set score_selection=jsonb_set(score_selection,'{calendarWindow}','null'::jsonb)"]){await db.exec('begin;'+mutation+';');await fallbackEqual();await db.exec('rollback;');}
+  const staleIndex="update pg_temp.qa_global_context set base_selection=jsonb_set(base_selection,'{calendarWindow,date}','\"2099-01-01\"')";
+  await db.exec('begin;'+staleIndex+';');await assert.rejects(fallbackEqual(),/complete original membership/,'A stale index without its integrity signal must fail whole-output comparison');await db.exec("insert into pg_temp.qa_global_pending values('qa-stored-projection');");await fallbackEqual();await db.exec('rollback;');
+  await db.exec('drop function public.qa_indexed_fallback_rows(text[]);drop table pg_temp.qa_global_context,pg_temp.qa_global_pending;');
+  await db.exec("delete from public.nothingsports_fixture_current where source_id='qa-stored-projection';delete from public.nothingsports_fixture_snapshots where source_id='qa-stored-projection';delete from public.nothingsports_fixture_sources where source_id='qa-stored-projection';");
   const aggregationEquivalent=async(ids,expectedCount,expectedComplete=true)=>{
    const r=(await db.query(`with old as materialized(select public.qa_reference_global_aggregation($1::text[]) v), current as materialized(select public.nothingsports_read_current_fixture_bundle_json($1::text[])::jsonb v), emitted as materialized(select value from public.nothingsports_read_current_fixture_bundle_json_rows($1::text[]) t(value)), payload as materialized(select json_agg(value) wire,count(*) row_count from emitted)
     select old.v=current.v and old.v=(payload.wire::jsonb->0) as same,payload.row_count,json_array_length(payload.wire) array_length,jsonb_array_length(current.v->'rows') as n,current.v->'complete'='true'::jsonb as complete,current.v->>'schemaVersion' as schema from old,current,payload`,[ids])).rows[0];
