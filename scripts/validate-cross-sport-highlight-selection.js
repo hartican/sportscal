@@ -107,13 +107,29 @@ async function main(){
   assert.equal(selection.score(asVideo(sessionReel),f1,now),1,'official session reel identifies the same race location and practice unit');
   assert.equal(selection.score(asVideo({...sessionReel,snippet:{...sessionReel.snippet,title:'Singapore GP Practice 2 Day 1 Highlights 2026'}}),f1,now),Infinity,'a same-day racing reel cannot borrow a different practice session');
   const directory=require('../data/canonical/football-directory.v1.json');
+  assert.deepEqual(directory.leagues.map(l=>l.key).sort(),['premier-league','bundesliga','la-liga','serie-a','ligue-1','a-league-men','australian-championship'].sort(),'each carried directory league needs an explicit reviewed or missing-channel expectation');
+  let reviewedLeagues=0,missingChannels=0;
   for(const league of directory.leagues){
     const clubs=directory.teams.filter(t=>t.leagueId===league.id).slice(0,2);assert.equal(clubs.length,2);
     const event={id:'controlled:football:'+league.key,key:league.key,competitionId:league.id,competitionName:league.displayName,name:clubs.map(t=>t.displayName).join(' v '),date:'2026-10-14',startTimeUtc:'2026-10-14T08:00:00Z',status:'completed',participants:clubs.map(t=>({id:t.id,name:t.displayName}))};
-    const official=registry.channelsFor(event);assert(official.length,'reviewed channel for controlled league probe '+league.key);
-    const clip=item(event,{channelId:official[0].id});assert.equal(selection.score(asVideo(clip),event,now),0,'controlled league official priority '+league.key);
+    const official=registry.channelsFor(event);
+    if(league.key==='australian-championship'){
+      assert.deepEqual(official,[],'retained Championship facts do not establish a reviewed highlights publisher');
+      assert.deepEqual(registry.channelsFor({...event,key:'premier-league'}),[],'explicit Championship identity cannot borrow the EPL publisher');
+      let requests=0;
+      assert.deepEqual(await selection.officialCandidates(event,now,{fetchImpl:async()=>{requests++;throw Error('unreviewed publisher request');}}),[]);
+      assert.equal(requests,0,'a missing reviewed channel adds no official-feed request');
+      assert.equal(selection.score(asVideo(item(event,{channelId:channel})),event,now),2,'a suitable unrelated publisher receives only general priority');
+      missingChannels++;
+    }else{
+      assert(official.length,'reviewed channel for controlled league probe '+league.key);
+      const clip=item(event,{channelId:official[0].id});assert.equal(selection.score(asVideo(clip),event,now),0,'controlled league official priority '+league.key);
+      reviewedLeagues++;
+    }
     assert(matches({...event,competitionId:'competition:controlled-unknown'},{title:title(event)}),'controlled general matching independent of registry coverage '+league.key);
   }
+  assert.equal(reviewedLeagues,6,'all six existing reviewed directory leagues retain official-priority coverage');
+  assert.equal(missingChannels,1,'the retained Championship publisher gap stays explicit');
   const madrid=directory.teams.find(t=>t.displayName==='Real Madrid'),barca=directory.teams.find(t=>t.displayName==='Barcelona');
   const clasico={id:'controlled:football:madrid-barcelona',key:'la-liga',competitionId:'competition:la-liga',name:'Real Madrid v Barcelona',date:'2026-10-14',startTimeUtc:'2026-10-14T08:00:00Z',status:'completed',participants:[madrid,barca].map(t=>({id:t.id,name:t.displayName}))};
   assert(!matches(clasico,{title:'Atletico Madrid v Barcelona | La Liga 2026 Highlights'}),'shared Madrid term cannot substitute Atletico for Real Madrid');
