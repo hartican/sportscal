@@ -17,7 +17,7 @@ async function run(){
     calls.push(options);assert.equal(options.timeoutMs,expected);
     if(path.endsWith('nothingsports_read_fixture_source_health'))return health;
     const value=ids.length?[row]:bundle(scope==='participants'?'participants':scope==='match-centre'?'match-centre':undefined,options.body);
-    return path.endsWith('nothingsports_read_current_fixture_bundle_json_rows')?[value]:value;
+    return path.endsWith('nothingsports_current_global_fixture_bundle?select=bundle')?[{bundle:value}]:value;
    }});
    const facts=await store.read({scope,ids,interactive,sportKeys:['premier-league'],knownSportKeys:['premier-league'],participantIds:['team:football:sydney-fc']});
    assert.equal(calls.length,2);assert.deepEqual(facts[0].fixtures,[fixture]);

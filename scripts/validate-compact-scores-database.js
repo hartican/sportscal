@@ -19,6 +19,7 @@ const {createMatchCentreHandler}=require('../lib/match-centre-handler');
   const token='11111111-1111-4111-8111-111111111111';
   const request=async(path,{body}={})=>{
    const requested=path.split('/').at(-1);
+   if(requested==='nothingsports_current_global_fixture_bundle?select=bundle')return [{bundle:(await db.query('select public.nothingsports_read_current_fixture_bundle(null) value')).rows[0].value}];
    // This historical writer fixture uses its retained JSONB SQL setup; the
    // current-bundle validator separately installs/tests the real additive JSON RPC.
    const name=['nothingsports_read_current_fixture_bundle_json','nothingsports_read_current_fixture_bundle_json_rows'].includes(requested)?'nothingsports_read_current_fixture_bundle':requested;

@@ -67,7 +67,7 @@ async function run(){
   if(name==='nothingsports_read_fixture_source_health')return (await db.query('select * from public.nothingsports_read_fixture_source_health()')).rows;
   if(name==='nothingsports_read_participant_fixture_bundle')return (await db.query('select public.nothingsports_read_participant_fixture_bundle($1,$2,$3,$4) as value',[body.p_sport_keys,body.p_known_sport_keys,body.p_participant_ids,body.p_required_ids])).rows[0].value;
   if(['nothingsports_read_current_fixture_bundle','nothingsports_read_current_fixture_bundle_json'].includes(name))return (await db.query('select public.nothingsports_read_current_fixture_bundle(null) as value')).rows[0].value;
-  if(name==='nothingsports_read_current_fixture_bundle_json_rows')return [(await db.query('select public.nothingsports_read_current_fixture_bundle(null) as value')).rows[0].value];
+  if(name==='nothingsports_current_global_fixture_bundle?select=bundle')return [{bundle:(await db.query('select public.nothingsports_read_current_fixture_bundle(null) as value')).rows[0].value}];
   throw Error('Unexpected request '+name);
  }});
  const scoped=await store.read(plan),all=scoped.flatMap(s=>s.fixtures),ids=all.map(e=>e.id);

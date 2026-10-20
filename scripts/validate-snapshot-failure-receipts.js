@@ -12,7 +12,7 @@ async function main(){
   calls++;assert.equal(options.timeoutMs,3000,'Existing global deadline is unchanged');
   options.onTiming?.({phase:'fetch-start',elapsedMs:0,password:secret});
   if(path.endsWith('nothingsports_read_fixture_source_health'))return [];
-  assert(path.endsWith('nothingsports_read_current_fixture_bundle_json_rows'));
+  assert(path.endsWith('nothingsports_current_global_fixture_bundle?select=bundle'));
   options.onTiming?.({phase:'headers',elapsedMs:10,status:200});
   options.onTiming?.({phase:'text-start',elapsedMs:11,status:200});clock=3000;
   options.onTiming?.({phase:'timeout',elapsedMs:3000,status:200});
@@ -47,12 +47,12 @@ async function main(){
  const healthStore=createSnapshotStore({diagnostics:true,request:async(path,options)=>{
   assert.equal(options.timeoutMs,3000);
   if(path.endsWith('nothingsports_read_fixture_source_health'))throw Object.assign(Error(secret),{status:404,payload:{code:'PGRST202'}});
-  return [{schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[]}];
+  return [{bundle:{schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[]}}];
  }});
  let healthError;try{await healthStore.read();}catch(error){healthError=error;}
  assert(healthError);assert.equal(snapshotReadFailure(healthError).diagnostic.phase,'source-health');
  for(const phase of ['validation','projection']){
-  const brokenStore=createSnapshotStore({diagnostics:true,request:async path=>path.endsWith('nothingsports_read_fixture_source_health')?(phase==='projection'?{}:[]):phase==='validation'?[{complete:false}]:[{schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[]}]});
+  const brokenStore=createSnapshotStore({diagnostics:true,request:async path=>path.endsWith('nothingsports_read_fixture_source_health')?(phase==='projection'?{}:[]):phase==='validation'?[{bundle:{complete:false}}]:[{bundle:{schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[]}}]});
   let broken;try{await brokenStore.read();}catch(error){broken=error;}
   assert(broken);assert.equal(snapshotReadFailure(broken).diagnostic.phase,phase,'Post-read stages must not be mislabeled as transport');
  }
@@ -61,7 +61,7 @@ async function main(){
  await assert.rejects(frozenStore.read(),error=>error===frozenError,'Metadata attachment cannot replace the original error');
  // Exercise actual last-good persistence after all earlier failed uncached reads.
  const fact={id:'fixture:controlled:retained',key:'football',date:'2026-10-18',sourceCheckedAt:'2026-10-18T00:00:00Z'},facts=JSON.stringify(fact);
- const goodStore=createSnapshotStore({diagnostics:true,request:async path=>path.endsWith('nothingsports_read_fixture_source_health')?[{source_id:'controlled',revision:1,checked_at:fact.sourceCheckedAt}]:[{schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[{source_id:'controlled',fixture:fact}]}]});
+ const goodStore=createSnapshotStore({diagnostics:true,request:async path=>path.endsWith('nothingsports_read_fixture_source_health')?[{source_id:'controlled',revision:1,checked_at:fact.sourceCheckedAt}]:[{bundle:{schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[{source_id:'controlled',fixture:fact}]}}]});
  const good=await readLiveSnapshots({store:goodStore,now:Date.now()-60000});assert.equal(good.stale,false);
  clock=0;const retained=await readLiveSnapshots({store,now:Date.now()});assert.equal(retained.stale,true);
  assert.deepEqual(retained.sources,good.sources);assert.equal(JSON.stringify(fact),facts);assert.equal(retained.readFailure.diagnostic.phase,'fixture-bundle');

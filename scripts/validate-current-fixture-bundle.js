@@ -247,13 +247,42 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   await db.exec('begin;'+staleIndex+';');await assert.rejects(fallbackEqual(),/complete original membership/,'A stale index without its integrity signal must fail whole-output comparison');await db.exec("insert into pg_temp.qa_global_pending values('qa-stored-projection');");await fallbackEqual();await db.exec('rollback;');
   await db.exec('drop function public.qa_indexed_fallback_rows(text[]);drop table pg_temp.qa_global_context,pg_temp.qa_global_pending;');
   await db.exec("delete from public.nothingsports_fixture_current where source_id='qa-stored-projection';delete from public.nothingsports_fixture_snapshots where source_id='qa-stored-projection';delete from public.nothingsports_fixture_sources where source_id='qa-stored-projection';");
+  const transportView='public.nothingsports_current_global_fixture_bundle';
+  const transportMigration=fs.readFileSync('supabase/migrations/20261020192228_inline_global_fixture_bundle_transport.sql','utf8');
+  const beforeTransportOthers=await projectionOtherContracts(),beforeTransportRowAttributes=await ownerAttributes(rowSignature),beforeTransportPrivate=await privateIndexContract(),beforeTransportGenerated=await generatedContract();
+  for(const mutation of [
+   'alter function public.nothingsports_read_current_fixture_bundle_json_rows(text[]) rows 2',
+   'alter function public.nothingsports_read_current_fixture_bundle(text[]) immutable',
+   'create view public.nothingsports_current_global_fixture_bundle as select null::json bundle',
+   'create role qa_unexpected_view_grantee;alter default privileges grant select on tables to qa_unexpected_view_grantee',
+   'alter function nothingsports_fixture_read_private.window_fields(jsonb) strict'
+  ]){
+   await db.exec('begin;'+mutation+';');await assert.rejects(db.exec(transportMigration),/differ.*reviewed baseline|permissions differ|already exists/);await db.exec('rollback;');
+   assert.equal((await db.query('select to_regclass($1) missing',[transportView])).rows[0].missing,null,'A rejected migration must not leave a view');
+  }
+  await db.exec('begin;'+transportMigration+'commit;');
+  assert.deepEqual(await projectionOtherContracts(),beforeTransportOthers,'All other existing functions remain exact');
+  assert.deepEqual(await ownerAttributes(rowSignature),beforeTransportRowAttributes,'Legacy row RPC keeps its exact attributes, grants, signature and type');
+  assert.deepEqual(await privateIndexContract(),beforeTransportPrivate);assert.deepEqual(await generatedContract(),beforeTransportGenerated);
+  const viewContract=(await db.query("select c.relkind,c.reloptions,pg_get_userbyid(c.relowner) owner,c.relacl::text acl from pg_class c where c.oid=$1::regclass",[transportView])).rows[0];
+  assert.equal(viewContract.relkind,'v');assert.equal(viewContract.owner,'postgres');assert.deepEqual(viewContract.reloptions,['security_invoker=true']);
+  for(const role of ['anon','authenticated']){
+   assert.equal((await db.query("select has_table_privilege($1,$2,'SELECT') allowed",[role,transportView])).rows[0].allowed,false);
+   await db.exec('set role '+role);await assert.rejects(db.query('select * from '+transportView),/permission denied/);await db.exec('reset role');
+  }
+  assert.equal((await db.query("select has_table_privilege('service_role',$1,'SELECT') allowed",[transportView])).rows[0].allowed,true);
+  assert.equal((await db.query("select has_table_privilege('service_role',$1,'INSERT,UPDATE,DELETE,TRUNCATE,REFERENCES,TRIGGER') allowed",[transportView])).rows[0].allowed,false);
+  await db.exec('begin;');await assert.rejects(db.exec(transportMigration),/already exists|differ.*reviewed baseline/);await db.exec('rollback;');
   const aggregationEquivalent=async(ids,expectedCount,expectedComplete=true)=>{
    const r=(await db.query(`with old as materialized(select public.qa_reference_global_aggregation($1::text[]) v), current as materialized(select public.nothingsports_read_current_fixture_bundle_json($1::text[])::jsonb v), emitted as materialized(select value from public.nothingsports_read_current_fixture_bundle_json_rows($1::text[]) t(value)), payload as materialized(select json_agg(value) wire,count(*) row_count from emitted)
     select old.v=current.v and old.v=(payload.wire::jsonb->0) as same,payload.row_count,json_array_length(payload.wire) array_length,jsonb_array_length(current.v->'rows') as n,current.v->'complete'='true'::jsonb as complete,current.v->>'schemaVersion' as schema from old,current,payload`,[ids])).rows[0];
    assert.equal(r.row_count,1,'SETOF reader emits exactly one row even with empty fixture membership');assert.equal(r.array_length,1);
    assert.equal(r.same,true,'Whole ordered JSONB output equals the original current reader, including exact numerics');assert.equal(r.schema,'current-fixture-bundle.v1');
    if(expectedCount!==undefined){assert.equal(r.n,expectedCount);assert.equal(r.complete,expectedComplete);}
+   if(ids===null)assert.equal((await db.query('select bundle::jsonb=public.qa_reference_global_aggregation(null::text[]) same from '+transportView)).rows[0].same,true,'Complete view equals original global membership and exact facts');
   };
+  const viewEquivalent=async()=>assert.equal((await db.query('select bundle::jsonb=public.qa_reference_global_aggregation(null::text[]) same from '+transportView)).rows[0].same,true,'View transport preserves every ordered fixture, exact numeric and original clock');
+  await viewEquivalent();
   await aggregationEquivalent(null,0);await aggregationEquivalent([],0);await aggregationEquivalent(['missing'],0);
   const equivalent=async ids=>assert.equal((await db.query('select public.nothingsports_read_current_fixture_bundle($1)=public.qa_reference_fixture_bundle($1) as same',[ids])).rows[0].same,true,'Optimised shared read preserves every fixture field and original observation');
   await db.exec("insert into public.nothingsports_fixture_sources(source_id) values ('a-calendar'),('z-current');");
@@ -266,10 +295,10 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   await db.query("insert into public.nothingsports_live_scores(source_id,fixture_id,score,content_hash,first_completed_at) values('z-current','large-parent',$1::jsonb,'score',$2::timestamptz)",[JSON.stringify({id:'large-parent',status:'completed',homeScore:2,scoreCheckedAt:factAt,statusCheckedAt:factAt}),factAt]);
   await db.query("update public.nothingsports_fixture_sources set discovery_report=jsonb_build_object('_fixtureObservations',jsonb_build_object('large-parent',jsonb_build_object('s',$1::text,'t',$1::text))) where source_id='z-current'",[receiptAt]);
   await db.exec('set role service_role');let calls=[];
-  const request=async(route,{body})=>{calls.push(route);const name=route.split('/').at(-1),parameter=body.p_membership_ids!==undefined?body.p_membership_ids:body.p_fixture_ids,rows=(await db.query(`select * from public.${name}(${parameter!==undefined?'$1':''})`,parameter!==undefined?[parameter]:[])).rows;return name==='nothingsports_read_current_fixture_bundle_json_rows'?rows.map(row=>row[name]):(name.endsWith('_fixture_bundle')||name.endsWith('_fixture_bundle_json'))?rows[0][name]:rows.slice(0,1000);};
+  const request=async(route,{body}={})=>{calls.push(route);if(route==='/rest/v1/nothingsports_current_global_fixture_bundle?select=bundle')return (await db.query('select bundle from '+transportView)).rows;const name=route.split('/').at(-1),parameter=body.p_membership_ids!==undefined?body.p_membership_ids:body.p_fixture_ids,rows=(await db.query(`select * from public.${name}(${parameter!==undefined?'$1':''})`,parameter!==undefined?[parameter]:[])).rows;return name==='nothingsports_read_current_fixture_bundle_json_rows'?rows.map(row=>row[name]):(name.endsWith('_fixture_bundle')||name.endsWith('_fixture_bundle_json'))?rows[0][name]:rows.slice(0,1000);};
   const store=createSnapshotStore({request}),global=await store.read(),all=global.flatMap(s=>s.fixtures);
-  assert(calls.some(r=>r.endsWith('nothingsports_read_current_fixture_bundle_json_rows')),'Unselected store uses the new JSON RPC');
-  const originalStore=createSnapshotStore({request:async(route,options)=>route.endsWith('nothingsports_read_current_fixture_bundle_json_rows')?[await request(route.replace('nothingsports_read_current_fixture_bundle_json_rows','nothingsports_read_current_fixture_bundle'),options)]:request(route,options)});
+  assert(calls.some(r=>r==='/rest/v1/nothingsports_current_global_fixture_bundle?select=bundle'),'Unselected store uses the computed view directly, not a copied RPC result');
+  const originalStore=createSnapshotStore({request:async(route,options)=>route==='/rest/v1/nothingsports_current_global_fixture_bundle?select=bundle'?[{bundle:await request('/rest/v1/rpc/nothingsports_read_current_fixture_bundle',{...options,body:{p_fixture_ids:null}})}]:request(route,options)});
   const normalizedOriginal=await originalStore.read();assert.deepEqual(global,normalizedOriginal,'JSON wire and JSONB wire normalize to identical source records and original observations');
   const {contentHash}=require('../lib/live-fixtures');assert.equal(contentHash(global),contentHash(normalizedOriginal),'Object-key order cannot change normalized content hashes');calls.splice(2);
 
@@ -374,8 +403,9 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
    await db.exec('set role service_role;');await aggregationEquivalent(null,2);await aggregationEquivalent(['0'],1);await db.exec('reset role;');
   }
   await db.exec("delete from public.nothingsports_fixture_current where source_id='aggregation-z';update public.nothingsports_fixture_sources set discovery_report='{}' where source_id='aggregation-z';");
-  const compactDefinition=(await db.query('select pg_get_functiondef($1::regprocedure) definition',[rowSignature])).rows[0].definition;
-  await db.exec('begin;'+compactDefinition.replace('r.receipts->c.fixture_id',"'{}'::jsonb"));
+  const compactViewDefinition='create or replace view '+transportMigration.split('create view ')[1].split('revoke all on ')[0];
+  assert.equal((compactViewDefinition.match(/r\.receipts->c\.fixture_id/g)||[]).length,2,'Receipt counterexample must mutate the actual current query owner');
+  await db.exec('begin;'+compactViewDefinition.replaceAll('r.receipts->c.fixture_id',"'{}'::jsonb"));
   await assert.rejects(aggregationEquivalent(null,1),/Whole ordered JSONB output/,'Equivalence detects a lost original receipt');await db.exec('rollback;');
   await db.query(`insert into public.nothingsports_fixture_current(source_id,fixture_id,identity_keys,fixture,content_hash)
    select case when i%2=0 then 'aggregation-a' else 'aggregation-z' end,'ordered:'||lpad(i::text,5,'0'),array['ordered:'||lpad(i::text,5,'0')],jsonb_build_object('id','ordered:'||i,'date',$1::text,'status','scheduled','storyline',jsonb_build_object('stakes',4),'subEvents',jsonb_build_array(jsonb_build_object('id','rubber:'||i))),'edge' from generate_series(1,4999) i`,[day]);
@@ -416,7 +446,8 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   }
   if(pgMajor===17){
    await db.exec("begin;set local work_mem='2184kB';set local statement_timeout='3s';update public.nothingsports_fixture_current set fixture=fixture||jsonb_build_object('qaRetainedFact',repeat(md5(fixture_id),64));");
-   const inlineDefinition=(await db.query('select pg_get_functiondef($1::regprocedure) definition',[rowSignature])).rows[0].definition;
+   const inlineDefinition=indexedDefinition;
+   const currentTransportDefinition=(await db.query('select pg_get_functiondef($1::regprocedure) definition',[rowSignature])).rows[0].definition;
    assert.equal((inlineDefinition.match(/projected as not materialized/g)||[]).length,1);
    const spooledDefinition=inlineDefinition.replace('projected as not materialized','projected as materialized');
    await db.exec(spooledDefinition.replace('public.nothingsports_read_current_fixture_bundle_json_rows(', 'public.qa_spooled_global_rows('));
@@ -426,8 +457,23 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
    const checkSpool=actual=>assert(actual.Plan['Temp Written Blocks']<spooled.Plan['Temp Written Blocks'],'Global RPC frame must avoid duplicate compact projection spooling');
    checkSpool(inline);await aggregationEquivalent(null,5001,false);
    await db.exec(spooledDefinition);await assert.rejects((async()=>checkSpool(await framePlan('nothingsports_read_current_fixture_bundle_json_rows')))(),/duplicate compact projection spooling/,'Restoring the actual materialized projection must fail the work regression');
-   await db.exec(inlineDefinition);await db.exec('rollback;');
+   await db.exec(currentTransportDefinition);await db.exec('rollback;');
    console.log(JSON.stringify({schemaVersion:'global-pg17-projection-spool-regression.v1',pgMajor,rows:5001,spooledTempBlocks:spooled.Plan['Temp Written Blocks'],inlineTempBlocks:inline.Plan['Temp Written Blocks'],restoredActualReaderNegative:true,productionCalls:0}));
+  }
+  if(pgMajor===17){
+   await db.exec("begin;set local work_mem='2184kB';set local statement_timeout='3s';update public.nothingsports_fixture_current set fixture=fixture||jsonb_build_object('qaViewFact',repeat(md5(fixture_id),64));");
+   await db.exec(indexedDefinition.replace('public.nothingsports_read_current_fixture_bundle_json_rows(', 'public.qa_before_view_rows('));
+   const viewDefinition=(await db.query('select pg_get_viewdef($1::regclass,true) definition',[transportView])).rows[0].definition;
+   const viewFrame="with pgrst_source as(select bundle from "+transportView+" limit 1000 offset 0) select coalesce(json_agg(t),'[]'::json) from(select * from pgrst_source) t";
+   const rpcFrame="with pgrst_source as(select public.qa_before_view_rows(null::text[]) value) select coalesce(json_agg(value),'[]'::json) from pgrst_source";
+   const framedPlan=async q=>(await db.query('explain(analyze,buffers,format json,timing off) '+q)).rows[0]['QUERY PLAN'][0];
+   const baseline=await framedPlan(rpcFrame),direct=await framedPlan(viewFrame);
+   const checkView=actual=>assert(actual.Plan['Temp Written Blocks']<baseline.Plan['Temp Written Blocks'],'Direct view frame must avoid the RPC whole-result spool');
+   checkView(direct);await viewEquivalent();
+   await db.exec('create or replace view '+transportView+' with(security_invoker=true) as select public.qa_before_view_rows(null::text[]) bundle;');
+   await assert.rejects((async()=>checkView(await framedPlan(viewFrame)))(),/RPC whole-result spool/,'Restoring an RPC result behind the view must fail the actual frame regression');
+   await db.exec('create or replace view '+transportView+' with(security_invoker=true) as '+viewDefinition);await viewEquivalent();await db.exec('rollback;');
+   console.log(JSON.stringify({schemaVersion:'global-pg17-view-transport-regression.v1',pgMajor,rows:5001,rpcTempBlocks:baseline.Plan['Temp Written Blocks'],viewTempBlocks:direct.Plan['Temp Written Blocks'],actualSpoolingNegative:true,productionCalls:0}));
   }
   console.log(JSON.stringify({schemaVersion:'global-reader-owner-contract.v1',pgMajor,scalarMd5:(await db.query('select md5(pg_get_functiondef($1::regprocedure)) digest',[wireSignature])).rows[0].digest,rowsMd5:(await db.query('select md5(pg_get_functiondef($1::regprocedure)) digest',[rowSignature])).rows[0].digest,unchangedOtherContracts:true,productionCalls:0}));
   console.log('Global aggregation: exact SQL numerics/whole-output NULL, empty, alias, selected, 0/1/5000/5001, clocks/nulls/Unicode, replay/mismatch/security guards and unchanged ACL passed.');

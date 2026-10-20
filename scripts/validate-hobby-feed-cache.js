@@ -270,11 +270,11 @@ const recovered={...current,homeScore:12,score:{home:12,away:8},scoreCheckedAt:'
 const original=JSON.stringify([base,current,recovered]);
 const requestCalls=[],reads=[],warnings=[];let builds=0;
 const store=live.createSnapshotStore({request:async(p,o)=>{
- assert.equal(o.timeoutMs,3000);assert.equal(o.method,'POST');requestCalls.push({phase:p.endsWith('source_health')?'health':'bundle',mode});
+ assert.equal(o.timeoutMs,3000);assert.equal(o.method,p.endsWith('source_health')?'POST':'GET');requestCalls.push({phase:p.endsWith('source_health')?'health':'bundle',mode});
  if(p.endsWith('source_health')){assert.deepEqual(o.body,{});return [{source_id:'controlled-source',revision:mode==='recovered'?2:1,checked_at:mode==='recovered'?recovered.sourceCheckedAt:current.sourceCheckedAt}];}
- assert(p.endsWith('nothingsports_read_current_fixture_bundle_json_rows'));assert.deepEqual(o.body,{p_fixture_ids:null});
+ assert(p.endsWith('nothingsports_current_global_fixture_bundle?select=bundle'));assert.equal(o.body,undefined);
  if(mode==='timeout')throw new SupabaseRequestError('Constructed timeout',{status:504,payload:{code:'supabase_timeout'}});
- return [{schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[{source_id:'controlled-source',fixture_id:id,fixture:mode==='recovered'?recovered:current}]}];
+ return [{bundle:{schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[{source_id:'controlled-source',fixture_id:id,fixture:mode==='recovered'?recovered:current}]}}];
 }});
 const data={...pipeline,eventFeed:{events:[base],version:'constructed-stale-v1',publishedAt:'2026-10-18T10:20:00Z'},contextualEvents:[base],canonicalSportContext:{participants:[]},resolveUserFollowFixtures:async({events})=>({events,participants:[]}),overlaySnapshots:live.overlaySnapshots,
  readLiveSnapshots:async options=>{assert.equal(options,undefined,'Ordinary Feed retains global/default scope');const snapshot=await live.readLiveSnapshots({store,scope:'global',interactive:false,now,maxAgeMs:0});reads.push({stale:snapshot.stale,readAt:snapshot.readAt,revision:snapshot.revision});return snapshot;},
