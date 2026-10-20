@@ -11,3 +11,7 @@ The first batch experiment reused the existing part-reader JSON map pattern and 
 All existing whole ordered PostgreSQL JSONB comparisons pass on the refined candidate, including exact numerics, original clocks, 0/1/5000/5001 and access denials. An added shared-invalid-time case requires fallback to valid base evidence, and a non-UTC session must remain equal. Both guarded migrations are tested for preimage/grant refusal and replay. A corrupted receipt must still fail equivalence. No noisy timing threshold becomes a release test.
 
 Required next gates: finite source review; guarded application; exact function/unchanged dependency/grant verification; three separate fresh live Match Centre/actual selected fixture/participant rounds on the repaired database before publication; then one new exact-SHA normal release and hosted A-League/score/editorial checks. Keep failed releases, rejected variants and all limitations. The read-only body measurement is not its PostgREST/cached-plan/load or physical-device proof. No unchanged-SHA rerun, deadline increase, stale-membership masking, new scheduler or reminder replay.
+
+## Later actual-reader result
+
+The batched migration was applied once and its six contracts verified. The actual stored reader still exceeded three seconds. Its literal-NULL body measurement therefore did not resolve production acceptance. The next bounded correction and generic-plan evidence are recorded in [scope planning](global-snapshot-scope-plan-2026-10-21.md); failed and rejected evidence remains retained.

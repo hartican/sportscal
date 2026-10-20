@@ -76,7 +76,7 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   assert.equal(rowReturn,'json');assert.equal(proretset,true);assert.equal(prorows,1);assert.deepEqual(rowAttributes,originalAttributes);assert.equal(args,(await db.query('select pg_get_function_arguments($1::regprocedure) args',[wireSignature])).rows[0].args);
   await db.exec('begin;');await assert.rejects(db.exec(rowMigration),/already exists/);await db.exec('rollback;');
   const beforeCompactContracts=await retainedContracts(),beforeCompactAttributes=wireAttributes;
-  for(const migrationName of ['20261020153215_compact_global_fixture_read_inputs.sql','20261020162724_batch_global_fixture_observation_times.sql']){
+  for(const migrationName of ['20261020153215_compact_global_fixture_read_inputs.sql','20261020162724_batch_global_fixture_observation_times.sql','20261020165006_separate_global_and_selected_fixture_key_scopes.sql']){
   const compactMigration=fs.readFileSync('supabase/migrations/'+migrationName,'utf8');
   for(const mutation of [
    'alter function public.nothingsports_read_current_fixture_bundle_json(text[]) immutable',
