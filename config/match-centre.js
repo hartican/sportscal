@@ -127,14 +127,37 @@
   if(!final(e)&&!interrupted(e)&&!['live','in-progress','in_progress','ongoing','abandoned','cancelled','canceled'].includes(e.status))return {home:null,away:null};
   const pair=pairedScore(e);return {home:pair?Number(pair.home.score):null,away:pair?Number(pair.away.score):null};
  }
+ function cricketBalance(e,innings){
+  const value=label(e.cricketBalance);
+  if(!value||!innings?.length)return value;
+  // Only recognise a whole, score-only sentence for the identified current
+  // batting side. Never turn narrative into a score or repair provider facts.
+  const match=value.trim().match(/^(.+?)\s+(?:(\d{1,2})[-–](\d+)|(\d+)\/(\d{1,2}))$/);
+  if(!match||innings.some(i=>!Number.isSafeInteger(i.inningNumber))||new Set(innings.map(i=>i.inningNumber)).size!==innings.length)return value;
+  const current=innings.reduce((a,b)=>b.inningNumber>a.inningNumber?b:a),participantId=current.participantId;
+  if(!participantId||![current.runs,current.wickets].every(n=>Number.isSafeInteger(n)&&n>=0))return value;
+  const fold=name=>String(name).trim().toLocaleLowerCase('en').replace(/\s+/g,' '),aliases=new Map();
+  const add=(id,name)=>{if(!id||typeof name!=='string'||!name.trim())return;const key=fold(name),ids=aliases.get(key)||new Set();ids.add(id);aliases.set(key,ids);
+   // The men's provider label has an explicit genderless form in its fixture
+   // summary. Do not apply that shortening to an unconfirmed women's alias.
+   if(e.gender==='men'&&/ Men$/i.test(name))add(id,name.replace(/ Men$/i,''));
+  };
+  for(const i of innings)add(i.participantId,i.team);
+  for(const p of e.participants||[])for(const name of [p.name,p.displayName,...(Array.isArray(p.aliases)?p.aliases:[])])add(p.id||p.participantId,name);
+  for(const slot of e.participantSlots||[])add(slot.participantId,slot.label);
+  const ids=aliases.get(fold(match[1]));if(ids?.size!==1||!ids.has(participantId))return value;
+  const runs=Number(match[3]??match[4]),wickets=Number(match[2]??match[5]);
+  return runs!==current.runs||wickets!==current.wickets?null:value;
+ }
+ const consistentBalance=e=>(e.sport==='cricket'||sport(e)==='cricket')?{...e,cricketBalance:cricketBalance(e,e.score?.innings)}:e;
  // Day proof keeps its complete accepted identity through status-only receipts.
  const dayIdentityKeys=['sport','homeParticipantId','awayParticipantId','startTimeUtc','gender'];
  // Keep the independent score/status clocks through status-only receipts.
  function observation(prior,next){
-  if(!prior)return next;
+  if(!prior)return consistentBalance(next);
   const stamp=x=>Date.parse(x.observationCheckedAt||x.statusCheckedAt||x.scoreCheckedAt||x.checkedAt||'');
   const settled=e=>final(e)||/^(abandoned|cancelled|canceled)$/.test(e.status||'');
-  if(settled(prior)&&!settled(next)||Number.isFinite(stamp(prior))&&(!Number.isFinite(stamp(next))||stamp(next)<stamp(prior)))return {...prior,stale:true};
+  if(settled(prior)&&!settled(next)||Number.isFinite(stamp(prior))&&(!Number.isFinite(stamp(next))||stamp(next)<stamp(prior)))return consistentBalance({...prior,stale:true});
   const hasScore=s=>s&&(s.home!=null||s.away!=null||s.innings?.length||s.sets?.length||s.games||s.golf||s.racing||s.classification?.length);
   const sameIdentity=id(prior)&&id(prior)===id(next)&&['sport','homeParticipantId','awayParticipantId'].every(key=>prior[key]==null||next[key]==null||prior[key]===next[key]);
   if(sameIdentity&&Object.hasOwn(prior,'matchDay')&&dayIdentityKeys.every(k=>!Object.hasOwn(next,k)||next[k]===prior[k]||k==='startTimeUtc'&&Number.isFinite(Date.parse(prior[k]))&&Date.parse(next[k])===Date.parse(prior[k]))&&!Object.hasOwn(next,'matchDay'))next={...dayFields(prior),...Object.fromEntries(dayIdentityKeys.filter(k=>Object.hasOwn(prior,k)).map(k=>[k,prior[k]])),...next};
@@ -143,14 +166,14 @@
   // An interruption-only receipt cannot erase the last score or renew its
   // observation clock. Carry that specific retention across repeated resumed
   // play receipts; a new score receipt (including a clear) ends the chain.
-  if(sameIdentity&&(unexpected(prior)||unexpected(next)||prior.interruptionScoreRetained===true)&&!hasScore(next.score)&&!newerScoreReceipt&&hasScore(prior.score))return {...next,score:prior.score,scoreCheckedAt:prior.scoreCheckedAt||null,checkedAt:prior.checkedAt||null,stale:true,interruptionScoreRetained:true};
-  return {...next};
+  if(sameIdentity&&(unexpected(prior)||unexpected(next)||prior.interruptionScoreRetained===true)&&!hasScore(next.score)&&!newerScoreReceipt&&hasScore(prior.score))return consistentBalance({...next,score:prior.score,scoreCheckedAt:prior.scoreCheckedAt||null,checkedAt:prior.checkedAt||null,stale:true,interruptionScoreRetained:true});
+  return consistentBalance({...next});
  }
  function dayFields(e){return Object.hasOwn(e,'matchDay')?{...Object.fromEntries(['matchDay','numberOfDays','matchDaySourceCheckedAt'].filter(k=>Object.hasOwn(e,k)).map(k=>[k,e[k]])),matchDaySourceUrl:e.matchDaySourceUrl||null,...(!Object.hasOwn(e,'matchDaySourceCheckedAt')&&e.sourceCheckedAt?{matchDaySourceCheckedAt:e.sourceCheckedAt}:{})}:{};}
  function compact(e,{checkedAt=null,stale=false,rubbers=false,racing=false}={}){
   const value=score(e,{racing}),pair=pairedScore(e),hasScore=value.golf||value.racing||value.home!=null||value.away!=null||value.sets?.length||value.games||value.innings?.length;
   const observationCheckedAt=e.scoreCheckedAt||(!hasScore?e.statusCheckedAt:null)||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt||e.canonicalSourceCheckedAt)||null;
-  return {...dayFields(e),...(sport(e)==='cricket'&&Object.hasOwn(e,'gender')?{gender:e.gender}:{}),court:e.court||null,tournamentId:e.tournamentId||e.tennisTournamentId||null,statusSourceType:e.statusSourceType||null,format:e.format||e.matchFormat||null,actualStartTimeUtc:e.actualStartTimeUtc||null,livePlayObservedAt:e.livePlayObservedAt||null,id:id(e),sport:sport(e),status:e.status||'scheduled',homeParticipantId:e.homeParticipantId||pair?.home.participantId||e.matchupSides?.[0]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[0]?.participantId||e.participantIds?.[0]:null)||null,awayParticipantId:e.awayParticipantId||pair?.away.participantId||e.matchupSides?.[1]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[1]?.participantId||e.participantIds?.[1]:null)||null,startTimeUtc:e.startTimeUtc||null,...(Object.hasOwn(e,'planningTimeEvidence')?{estimatedStartTimeUtc:e.estimatedStartTimeUtc||null,timePrecision:e.timePrecision,scheduleStatus:e.scheduleStatus,timeTbc:e.timeTbc,startTimeTbc:e.startTimeTbc===true,time:e.time,date:e.date,planningTimeEvidence:e.planningTimeEvidence}:{}),restartTimeUtc:e.restartTimeUtc||null,restartSourceUrl:e.restartSourceUrl||null,restartSourceCheckedAt:e.restartSourceCheckedAt||null,statusFactObservedAt:e.statusFactObservedAt||null,pauseObservation:e.pauseObservation||null,cricketBalance:label(e.cricketBalance),completedAt:Number.isFinite(completion(e))?new Date(completion(e)).toISOString():null,scoreCheckedAt:e.scoreCheckedAt||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt)||null,statusCheckedAt:e.statusCheckedAt||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt)||null,checkedAt:observationCheckedAt,stale:stale||e.stale===true||e.sourceStale===true||Boolean(e.fixtureObservationSchema&&hasScore&&!e.scoreCheckedAt),score:value,officialUrl:officialUrl(e),...scorecard(e),statusText:typeof e.statusText==='string'?e.statusText:null,clock:duration(e),incidents:(Array.isArray(e.incidents)?e.incidents:Array.isArray(e.goalScorers)?e.goalScorers:[]).filter(i=>i&&typeof i==='object').slice(0,40).map(i=>({name:i.name||i.playerName||i.scorer?.name||(typeof i.scorer==='string'?i.scorer:null),time:i.minute??i.elapsedMinute??i.time??i.clock??null,type:i.type||(Array.isArray(e.incidents)?null:'Goal'),addedTime:i.addedTime??i.stoppageTime??null,ownGoal:i.ownGoal===true,penalty:i.penalty===true,goalType:i.goalType||null,teamName:i.teamName||i.team?.name||null,disallowed:i.disallowed===true||i.isDisallowed===true||i.cancelled===true})),...(rubbers?{rubbers:(e.rubbers||[]).slice(0,10).map(r=>({id:id(r),name:r.sides?.length?r.sides.map(s=>s.names.join(' / ')).join(' v '):r.name||'',status:r.status,score:score({...r,key:'tennis'})}))}:{})};}
+  return {...dayFields(e),...(sport(e)==='cricket'&&Object.hasOwn(e,'gender')?{gender:e.gender}:{}),court:e.court||null,tournamentId:e.tournamentId||e.tennisTournamentId||null,statusSourceType:e.statusSourceType||null,format:e.format||e.matchFormat||null,actualStartTimeUtc:e.actualStartTimeUtc||null,livePlayObservedAt:e.livePlayObservedAt||null,id:id(e),sport:sport(e),status:e.status||'scheduled',homeParticipantId:e.homeParticipantId||pair?.home.participantId||e.matchupSides?.[0]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[0]?.participantId||e.participantIds?.[0]:null)||null,awayParticipantId:e.awayParticipantId||pair?.away.participantId||e.matchupSides?.[1]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[1]?.participantId||e.participantIds?.[1]:null)||null,startTimeUtc:e.startTimeUtc||null,...(Object.hasOwn(e,'planningTimeEvidence')?{estimatedStartTimeUtc:e.estimatedStartTimeUtc||null,timePrecision:e.timePrecision,scheduleStatus:e.scheduleStatus,timeTbc:e.timeTbc,startTimeTbc:e.startTimeTbc===true,time:e.time,date:e.date,planningTimeEvidence:e.planningTimeEvidence}:{}),restartTimeUtc:e.restartTimeUtc||null,restartSourceUrl:e.restartSourceUrl||null,restartSourceCheckedAt:e.restartSourceCheckedAt||null,statusFactObservedAt:e.statusFactObservedAt||null,pauseObservation:e.pauseObservation||null,cricketBalance:cricketBalance(e,value.innings),completedAt:Number.isFinite(completion(e))?new Date(completion(e)).toISOString():null,scoreCheckedAt:e.scoreCheckedAt||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt)||null,statusCheckedAt:e.statusCheckedAt||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt)||null,checkedAt:observationCheckedAt,stale:stale||e.stale===true||e.sourceStale===true||Boolean(e.fixtureObservationSchema&&hasScore&&!e.scoreCheckedAt),score:value,officialUrl:officialUrl(e),...scorecard(e),statusText:typeof e.statusText==='string'?e.statusText:null,clock:duration(e),incidents:(Array.isArray(e.incidents)?e.incidents:Array.isArray(e.goalScorers)?e.goalScorers:[]).filter(i=>i&&typeof i==='object').slice(0,40).map(i=>({name:i.name||i.playerName||i.scorer?.name||(typeof i.scorer==='string'?i.scorer:null),time:i.minute??i.elapsedMinute??i.time??i.clock??null,type:i.type||(Array.isArray(e.incidents)?null:'Goal'),addedTime:i.addedTime??i.stoppageTime??null,ownGoal:i.ownGoal===true,penalty:i.penalty===true,goalType:i.goalType||null,teamName:i.teamName||i.team?.name||null,disallowed:i.disallowed===true||i.isDisallowed===true||i.cancelled===true})),...(rubbers?{rubbers:(e.rubbers||[]).slice(0,10).map(r=>({id:id(r),name:r.sides?.length?r.sides.map(s=>s.names.join(' / ')).join(' v '):r.name||'',status:r.status,score:score({...r,key:'tennis'})}))}:{})};}
  function reviewedBathurstClassification(e){
   const results=e.fixtureResults,columns=results?.columns,rows=results?.rows;
   const url='https://www.supercars.com/results/2026/2026-bathurst-1000/R17';
