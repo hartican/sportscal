@@ -126,8 +126,16 @@ async function assertCachedFixtureHighlights(page){
   const results=await page.evaluate(fixtures=>{
     const tab=activeTab,states=cardViewStates,choices=JSON.stringify([userPreferences,eventActions]);
     try{activeTab='feed';const host=document.getElementById('listView');return fixtures.map(fixture=>{
-      const stored=JSON.parse(JSON.stringify(fixture));setCardState(stored,'selected');host.replaceChildren(buildEventCard(stored));
-      const link=host.querySelector('.fixture-highlights-link');return {id:stored.id,url:link?.href,label:link?.textContent,external:link?.target==='_blank',noVideoTitle:!host.textContent.includes(stored.highlights.matchTitle),metadataPreserved:JSON.stringify(stored.highlights)===JSON.stringify(fixture.highlights)};
+      const stored=JSON.parse(JSON.stringify(fixture)),realNow=Date.now;
+      // Retained publisher observations age. Rehearse their original eligible
+      // clock and expiry without renewing metadata or weakening runtime policy.
+      const eligibleAt=Math.max(...['publishedAt','verifiedAt','checkedAt','sourceCheckedAt'].map(key=>Date.parse(stored.highlights[key])).filter(Number.isFinite))+1000;
+      try{
+        Date.now=()=>eligibleAt;setCardState(stored,'selected');host.replaceChildren(buildEventCard(stored));
+        const link=host.querySelector('.fixture-highlights-link'),result={id:stored.id,url:link?.href,label:link?.textContent,external:link?.target==='_blank',noVideoTitle:!host.textContent.includes(stored.highlights.matchTitle)};
+        Date.now=()=>eligibleAt+NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.MAX_CACHE_AGE_MS+1;host.replaceChildren(buildEventCard(stored));
+        return {...result,expiredHidden:!host.querySelector('.fixture-highlights-link'),metadataPreserved:JSON.stringify(stored.highlights)===JSON.stringify(fixture.highlights)};
+      }finally{Date.now=realNow;}
     });}finally{activeTab=tab;cardViewStates=states;}
   },fixtures);
   for(let i=0;i<fixtures.length;i++){
@@ -135,7 +143,7 @@ async function assertCachedFixtureHighlights(page){
     assert.equal(url.pathname,'/api/fixtures','Upgraded and offline cards retain the current-policy highlights resolver');
     assert.equal(url.searchParams.get('mode'),'highlight');
     assert.equal(url.searchParams.get('ids'),fixtures[i].canonicalEventId||fixtures[i].eventId||fixtures[i].id,'The resolver stays bound to the original fixture');
-    assert.match(results[i].label,/Watch highlights/);assert(results[i].external&&results[i].noVideoTitle&&results[i].metadataPreserved);
+    assert.match(results[i].label,/Watch highlights/);assert(results[i].external&&results[i].noVideoTitle&&results[i].metadataPreserved);assert(results[i].expiredHidden,'Upgraded/offline cards must remove expired highlights without renewing retained metadata');
   }
 }
 async function assertCachedParticipantCalendar(page){
