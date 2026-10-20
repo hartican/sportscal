@@ -132,7 +132,7 @@
   if(!value||!innings?.length)return value;
   // Only recognise a whole, score-only sentence for the identified current
   // batting side. Never turn narrative into a score or repair provider facts.
-  const match=value.trim().match(/^(.+?)\s+(?:(\d{1,2})[-–](\d+)|(\d+)\/(\d{1,2}))$/);
+  const match=e.cricketBalance.trim().match(/^(.+?)\s+(?:(\d{1,2})[-–](\d+)|(\d+)\/(\d{1,2}))$/);
   if(!match||innings.some(i=>!Number.isSafeInteger(i.inningNumber))||new Set(innings.map(i=>i.inningNumber)).size!==innings.length)return value;
   const current=innings.reduce((a,b)=>b.inningNumber>a.inningNumber?b:a),participantId=current.participantId;
   if(!participantId||![current.runs,current.wickets].every(n=>Number.isSafeInteger(n)&&n>=0))return value;

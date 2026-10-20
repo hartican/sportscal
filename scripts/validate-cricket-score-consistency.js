@@ -29,6 +29,12 @@ assert.equal(model.compact(women).cricketBalance,e.cricketBalance,'An unconfirme
 assert.equal(model.compact({...women,cricketBalance:'South Africa Women 6-175'}).cricketBalance,null);
 const ambiguous={...e,participants:e.participants.map(p=>({...p,aliases:['XI']})),cricketBalance:'XI 6-175'};
 assert.equal(model.compact(ambiguous).cricketBalance,ambiguous.cricketBalance,'A shared alias cannot establish the batting side');
+// Whole-string recognition must precede the existing180-character display cap.
+const longAlias='S'.repeat(174),longBalance=longAlias+' 6-175 after a rain delay';
+const longNarrative={...e,cricketBalance:longBalance,participants:e.participants.map(p=>p.id===snapshot.score.innings.at(-1).participantId?{...p,aliases:[longAlias]}:p)};
+assert.equal(model.compact(longNarrative).cricketBalance,longBalance.slice(0,180),'Truncation must not turn substantive prose into a contradictory score-only sentence');
+assert.equal(model.compact({...longNarrative,cricketBalance:longAlias+' 6-175'}).cricketBalance,null,'A genuinely whole long score-only statement still uses the consistency guard');
+assert.equal(longNarrative.cricketBalance,longBalance,'Original provider wording remains unchanged');
 const later=new Date(now+60000).toISOString(),paused=model.compact({...e,status:'suspended',cricketBalance:null});
 const statusOnly={...model.compact({...e,status:'suspended',innings:[],scoreCheckedAt:null,statusCheckedAt:later}),cricketBalance:e.cricketBalance};
 const retained=model.observation(paused,statusOnly);
