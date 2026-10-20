@@ -92,6 +92,7 @@ async function probe({body=healthy,status=200,textFailure,fetchFailure,raw,clock
   if(stale)await assert.rejects(task,/Global fixture snapshot is degraded/);else assert.equal((await task).healthyGlobalSnapshot,true);
   assert.equal(fetches,1);
  }
+ await require('./validate-snapshot-failure-receipts').main();
  const workflow=fs.readFileSync('.github/workflows/sportscal-production.yml','utf8');
  assert.equal(workflow.split('node scripts/validate-global-fixture-public.js').length-1,1,'One offline gate invocation');
  assert.equal(workflow.split('node scripts/verify-global-fixture-public.js').length-1,1,'One live global probe');

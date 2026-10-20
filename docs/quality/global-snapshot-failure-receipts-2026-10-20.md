@@ -1,0 +1,14 @@
+# Preserve the failed shared read in its existing response
+
+20 October2026. Prepared local source only; not deployed or a latency-cause repair. App574's normal workflow passed, but its first fresh acceptance round failed on the fifth read: global HTTP200/stale:true,01:09:32.411–01:09:36.078UTC,3666.49ms. Match Centre/selected and both participant reads passed. The window stopped without retry or later rounds. A single exact request/deployment/time log retrieval returned no matching record; it closed unavailable, not proof that logs were absent.
+
+The store already observes the two parallel global resources' fetch, headers, body, parse and deadline phases. Today the thrown error or last-good wrapper reaches the public handler without that detail, and the global verifier sees only stale:true. Preserve an owned, bounded copy of the existing first-failure diagnostic through that path.
+
+- Keep the same two parallel RPCs,3second global budget,5second interactive budgets, cache keys/TTL, coalescing,5000/5001 completeness, fallback/stale/error behavior and original sporting observations.
+- Generate one random read-span ID only for an already-observed global cache miss. It identifies the underlying shared read, not an HTTP request or customer. Joined/cached callers may carry the same span. It is not proof of a cold read, SQL backend, cancellation or transport cause.
+- Capture the existing failure's phase/code/status/deadline/elapsed and both observed leg traces at failure time. A still-pending leg stays incomplete. Do not wait for it, retry, create another reader or change cancellation.
+- Attach owned data privately to a mutable error without replacing that error; frozen/unknown errors retain the typed code/status fallback. No dependency message, SQL/query/path, fixture/account identity, credential or arbitrary callback field is copied.
+- One shared strict allowlist serialises the optional global stale-response metadata and the CLI failure receipt. At most two legs/twelve phase records each, fixed labels/types/numeric limits and8KiB. Invalid detail is omitted; stale:true still fails the gate. Healthy and selected-response shapes remain unchanged.
+- No new API request, account/provider/SQL action, store, poller, scheduler, migration, deadline, healthy fallback or gate bypass. This improves diagnosis of the next ordinary failure; it does not establish or fix production latency.
+
+The regression exercises the actual store, read owner, global handler and public verifier using isolated transport doubles; it checks both first-failing resources, exact original request count/deadline, last-good facts/clocks, no retry, bounded/redacted metadata, frozen errors, forged diagnostics and unchanged selected scope. Existing transport-phase and public/live API contracts remain mandatory. No additional production window is inferred from these local checks.

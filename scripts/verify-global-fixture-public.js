@@ -52,10 +52,12 @@ async function main({fetchImpl=globalThis.fetch,timer=()=>performance.now(),cloc
   try{
    const instant=value=>Number.isFinite(value)&&Math.abs(value)<=8640000000000000?new Date(value).toISOString():null;
    const duration=timer()-started;
+   const readFailure=body?.stale===true?require('../lib/snapshot-failure-receipt').failure(body.snapshotReadFailure):null;
    log(JSON.stringify({schemaVersion:'global-fixture-public-failure.v1',sha,path:url.pathname,stage,
     startedAt:instant(startedAt),finishedAt:instant(clock()),elapsedMs:Number.isFinite(duration)?Number(Math.max(0,duration).toFixed(2)):null,
     httpStatus:Number.isInteger(response?.status)&&response.status>=100&&response.status<=599?response.status:null,
-    stale:typeof body?.stale==='boolean'?body.stale:null,platformRequestId}));
+    stale:typeof body?.stale==='boolean'?body.stale:null,platformRequestId,
+    ...(readFailure?{snapshotReadFailure:readFailure}:{})}));
   }catch{} // Reporting must not replace the original gate failure.
   throw error;
  }
