@@ -34,6 +34,60 @@
         "timezone": { "type": "string", "minLength": 3 }
       }
     },
+    "preferenceSync": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "writer",
+        "entries"
+      ],
+      "properties": {
+        "writer": {
+          "const": "owned-preference-intent.v1"
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "ownerId",
+              "generation",
+              "receiptId",
+              "baseUpdatedAt",
+              "basePreferences",
+              "preferences"
+            ],
+            "properties": {
+              "ownerId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "generation": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "receiptId": {
+                "type": "string",
+                "pattern": "^preference-edit:"
+              },
+              "baseUpdatedAt": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "basePreferences": {
+                "type": "object"
+              },
+              "preferences": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
     "preferences": { "type": ["object", "null"] },
     "domainPreferences": { "type": "array", "items": { "type": "object" } },
     "competitionPreferences": { "type": "array", "items": { "type": "object" } },

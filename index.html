@@ -4101,7 +4101,7 @@ function loadPreferences(){
   return defaults;
 }
 
-function savePreferences(next,{viewOnly=false,deferFollowEffects=false}={}){
+function savePreferences(next,{viewOnly=false,deferFollowEffects=false,deliberate=false}={}){
   const priorFollowState = JSON.stringify({
     events:userPreferences?.followFirst?.followedMajorEventIds,
     excludedEvents:userPreferences?.followFirst?.excludedMajorEventIds,
@@ -4116,14 +4116,33 @@ function savePreferences(next,{viewOnly=false,deferFollowEffects=false}={}){
   const profilePreferences = { ...clean };
   delete profilePreferences.preferenceGraph;
   const graph = clean.preferenceGraph || {};
-  const profileSaved = saveActiveProfileSections({
+  const sections = {
     preferences: profilePreferences,
     domainPreferences: graph.domainPreferences || [],
     competitionPreferences: graph.competitionPreferences || [],
     entityFollows: graph.entityFollows || [],
     viewingPreference: graph.viewing || null,
     learningPreference: graph.learning || null,
-  });
+  };
+  let profileSaved;
+  if(deliberate&&!viewOnly&&serverPersistence.user){
+    try{
+      const life=preferenceIntentOwner();
+      if(!life||life.accountId!==serverPersistence.user.id||serverStateBaseline?.accountId!==life.accountId
+        ||serverStateBaseline.generation!==life.generation)throw new Error("Wait for this account's saved choices before changing follows.");
+      activeProfileBundle=PROFILE_STORAGE.recordPreferenceIntent(localStorage,activeProfileBundle,{
+        ownerId:life.accountId,generation:life.generation,baseUpdatedAt:serverStateBaseline.updatedAt,
+        basePreferences:serverStateBaseline.state.preferences,preferences:clean,sections,
+      });
+      profileSaved=true;
+      setServerPersistence({state:"syncing",message:"Saved on this device; waiting to sync."});
+    }catch(error){
+      setServerPersistence({state:"error",message:"Your change was not saved. Your previous choices are unchanged."});
+      showToast("Your follow change was not saved. Your previous choices are unchanged.");
+      return false;
+    }
+  }else profileSaved=saveActiveProfileSections(sections);
+  if(!profileSaved)return false;
   userPreferences = clean;
   globalThis.fantasyDeadlineController?.sync();
   const nextFollowState = JSON.stringify({
@@ -4867,11 +4886,14 @@ function currentServerStatePayload(){
 }
 
 function setServerStateBaseline(state){
+  const life=preferenceIntentOwner();
   serverStateBaseline = {
     state: state
       ? SERVER_SYNC.buildUserState(state)
       : emptyServerStatePayload(),
     updatedAt: state?.updatedAt || null,
+    accountId:life?.accountId||null,
+    generation:life?.generation??null,
   };
   return serverStateBaseline;
 }
@@ -4952,6 +4974,8 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
   serverSyncTimer = null;
   setServerPersistence({ state: "syncing", message: "Checking for newer choices…" });
   try{
+    const preferenceLife=preferenceIntentOwner();
+    const preferenceReceipt=pendingPreferenceIntent(scope.accountId);
     let currentState = currentServerStatePayload();
     const stateAtSyncStart = currentState;
     const baseline = serverStateBaseline || {
@@ -4963,6 +4987,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
     });
     let latest = await serverSyncClient.loadState({ accountId:scope.accountId });
     if (!scope.verify(latest)) return null;
+    verifyPreferenceIntentBase(preferenceReceipt,latest.state);
     setPreferenceRecovery(latest.preferenceRecovery);
     currentState = serverAuthoritativeFixturePins(latest.state, currentState);
     localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
@@ -4970,6 +4995,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
     });
 
     if (!USER_STATE_SYNC.hasChanges(localPatch) && latest.state){
+      acknowledgePreferenceReceipt(preferenceReceipt,latest.state,preferenceLife);
       if (latest.state.updatedAt !== baseline.updatedAt){
         applyServerStatePreservingChanges(latest.state, stateAtSyncStart);
       }
@@ -5007,6 +5033,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
         if (error?.status !== 409 || error?.code !== "user_state_conflict" || attempt === 2) throw error;
         latest = await serverSyncClient.loadState({ accountId:scope.accountId });
         if (!scope.verify(latest)) return null;
+        verifyPreferenceIntentBase(preferenceReceipt,latest.state);
         setPreferenceRecovery(latest.preferenceRecovery);
         currentState = serverAuthoritativeFixturePins(latest.state, currentState);
 
@@ -5016,6 +5043,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
       }
     }
     if (!result?.state) throw new Error("The server did not return the reconciled profile.");
+    acknowledgePreferenceReceipt(preferenceReceipt,result.state,preferenceLife);
     setPreferenceRecovery(result.preferenceRecovery);
     clearAcknowledgedFixturePinCommands(result.state);
     applyServerStatePreservingChanges(result.state, stateAtSyncStart);
@@ -5028,7 +5056,8 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
       lastSyncedAt,
       message: "",
     });
-    if (notify) showToast("Your latest changes are synced across devices.");
+    if (pendingPreferenceIntent(scope.accountId)){setServerPersistence({state:"syncing",message:"Newer choices are saved on this device and waiting to sync."});}
+    else if (notify) showToast("Your latest changes are synced across devices.");
     return result;
   }catch(error){
     const signedOut = serverErrorEndsSession(error);
@@ -5174,6 +5203,32 @@ async function hydrateUserMetaSeed(scope = serverStateSyncScope()){
   return meta;
 }
 
+function preferenceIntentOwner(){
+  const life=serverSyncClient?.accountSnapshot?.();
+  return life?.hasSession&&life.accountId===serverSyncClient.sessionSubject()
+    &&Number.isSafeInteger(life.generation)?life:null;
+}
+
+function pendingPreferenceIntent(ownerId){
+  if(typeof PROFILE_STORAGE==='undefined'||!PROFILE_STORAGE?.readPreferenceIntent
+    ||typeof activeProfileBundle==='undefined'||!activeProfileBundle)return null;
+  return PROFILE_STORAGE.readPreferenceIntent(localStorage,activeProfileBundle,ownerId);
+}
+
+function acknowledgePreferenceReceipt(receipt,state,expectedLife){
+  if(!receipt)return;
+  const life=preferenceIntentOwner();
+  if(!life||life.accountId!==receipt.ownerId||life.accountId!==expectedLife?.accountId||life.generation!==expectedLife.generation)return;
+  activeProfileBundle=PROFILE_STORAGE.acknowledgePreferenceIntent(localStorage,activeProfileBundle,receipt,state.preferences,USER_STATE_SYNC);
+}
+
+function verifyPreferenceIntentBase(receipt,state){
+  if(receipt&&(!state||(receipt.baseUpdatedAt!==state.updatedAt
+    &&!PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC)))){
+    throw new Error("Your choices are saved on this device. Sync is paused because the saved account changed.");
+  }
+}
+
 async function bootstrapServerPersistence({ session: sessionHint = undefined, checkStatus = true } = {}){
   const accountJourney=accountIndicatorJourney?.phase==='signing-up'?accountIndicatorJourney:null;
   const accountLife=serverSyncClient?.accountSnapshot?.();
@@ -5221,16 +5276,38 @@ async function bootstrapServerPersistence({ session: sessionHint = undefined, ch
     if (!scope.verify(result)) return serverPersistence;
     setPreferenceRecovery(result.preferenceRecovery);
     const user = result.user;
+    if(!result.state&&pendingPreferenceIntent(scope.accountId)){
+      const receipt=pendingPreferenceIntent(scope.accountId);
+      applyServerState({...emptyServerStatePayload(),preferences:receipt.preferences});
+      startupSessionStateBaseline=null;
+      setServerPersistence({state:"error",user,message:"Your choices are saved on this device. Sync is paused while your account is unavailable."});
+      return serverPersistence;
+    }
     if (result.state){
+      const preferenceLife=preferenceIntentOwner();
+      let preferenceReceipt=pendingPreferenceIntent(scope.accountId);
+      if(preferenceReceipt&&PROFILE_STORAGE.preferenceIntentMatches(preferenceReceipt,result.state.preferences,USER_STATE_SYNC)){
+        acknowledgePreferenceReceipt(preferenceReceipt,result.state,preferenceLife);
+        preferenceReceipt=pendingPreferenceIntent(scope.accountId);
+      }
+      if(preferenceReceipt&&preferenceReceipt.baseUpdatedAt!==result.state.updatedAt){
+        applyServerState({...result.state,preferences:preferenceReceipt.preferences});
+        setServerStateBaseline(result.state);
+        startupSessionStateBaseline=null;
+        setServerPersistence({state:"error",user,message:"Your choices are saved on this device. Sync is paused because the saved account changed."});
+        return serverPersistence;
+      }
       const stateBeforeHydration = currentServerStatePayload();
       const sessionPatch = USER_STATE_SYNC.createPatch(
         startupSessionStateBaseline || stateBeforeHydration,
         stateBeforeHydration,
         { baseUpdatedAt: result.state.updatedAt }
       );
+      if(preferenceReceipt)sessionPatch.changes=sessionPatch.changes.filter(change=>change.path[0]!=="preferences");
+      const ownedState=preferenceReceipt?{...result.state,preferences:preferenceReceipt.preferences}:result.state;
       const hydratedState = USER_STATE_SYNC.hasChanges(sessionPatch)
-        ? USER_STATE_SYNC.applyPatch(result.state, sessionPatch)
-        : result.state;
+        ? USER_STATE_SYNC.applyPatch(ownedState, sessionPatch)
+        : ownedState;
       applyServerState(hydratedState);
       setServerStateBaseline(result.state);
       // This local startup snapshot is consumed once this account is applied.
@@ -5244,7 +5321,7 @@ async function bootstrapServerPersistence({ session: sessionHint = undefined, ch
       });
       await hydrateUserMetaSeed(scope);
       if (!scope.current()) return serverPersistence;
-      if (USER_STATE_SYNC.hasChanges(sessionPatch)||fantasyPreferencesDiffer(result.state)) await syncCurrentServerState();
+      if (preferenceReceipt||USER_STATE_SYNC.hasChanges(sessionPatch)||fantasyPreferencesDiffer(result.state)) await syncCurrentServerState();
     } else {
       setServerPersistence({ state: "signedIn", user, message: "" });
       serverStateBaseline = {
@@ -8130,7 +8207,7 @@ function followDiscoverySport(nodeId){
   if (PREFERENCE_SYSTEM && next.preferenceGraph){
     next.preferenceGraph = PREFERENCE_SYSTEM.quickAddDomain(next.preferenceGraph, nodeId, "template:like");
   }
-  savePreferences(next);
+  if(!savePreferences(next,{deliberate:true}))return false;
   recordPreferenceChange("follow", "sport", { sport: productSportForPreferenceIdentifier(nodeId) });
   discoveryTuneInteractionCount += 1;
   showToast(`${discoveryNodeById(nodeId)?.label || "Sport"} followed with normal highlights.`);
@@ -8147,7 +8224,7 @@ function upgradeDiscoverySportToFroth(nodeId){
   }
   next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
   next.taxonomySelection = taxonomySelectionForSelectorIds(next.selectedSelectorEntityIds);
-  savePreferences(next);
+  if(!savePreferences(next,{deliberate:true}))return false;
   leagueCoveragePromptDismissed.delete(nodeId);
   const upgradedHubKey = sportHubKeyForFilter(nodeId);
   if (activeTab === "feed" && activeFilter === nodeId && upgradedHubKey){
@@ -10603,7 +10680,7 @@ function buildEventEditionToggle(event){
   const sync=()=>{const followed=eventEditionFollowed(event);button.textContent=followed?'Unfollow event':'Follow event';button.setAttribute('aria-pressed',String(followed));};sync();
   button.onclick=e=>{e.stopPropagation();const next=clonePreferences(userPreferences),key=FOLLOW_FEED_POLICY.editionKey(event),followed=eventEditionFollowed(event);
     next.followFirst.eventEditionDecisions={schemaVersion:'event-edition-decisions.v1',states:{...(next.followFirst.eventEditionDecisions?.states||{}),[key]:followed?'excluded':'followed'}};
-    savePreferences(next,{deferFollowEffects:true});sync();
+    if(!savePreferences(next,{deferFollowEffects:true,deliberate:true}))return false;sync();
     document.querySelectorAll('.event-edition-toggle').forEach(b=>{if(b.dataset.edition===key){b.textContent=followed?'Follow event':'Unfollow event';b.setAttribute('aria-pressed',String(!followed));}});
     if(activeTab==='feed')requestAnimationFrame(()=>requestAnimationFrame(()=>renderAll({preserveViewport:true})));
   };return button;
@@ -12255,7 +12332,7 @@ function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "foot
   let next = clonePreferences(userPreferences);
   if(sportKey.startsWith("cricket"))next=NOTHINGSPORTS_CRICKET_COVERAGE.setFormatFollow(next,participantId,directoryFilters(sportKey).cricketFormat,["follow","priority"].includes(followLevel));
   else next.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(next.preferenceGraph, participantId, followLevel);
-  savePreferences(next,{deferFollowEffects:true});
+  if(!savePreferences(next,{deferFollowEffects:true,deliberate:true}))return false;
   recordPreferenceChange(["none","unfollow","mute"].includes(followLevel) ? "unfollow" : "follow", participantId.startsWith("team:") ? "team" : "player", { sport: sportKey });
   showToast(`${label}: ${["none","unfollow","mute"].includes(followLevel) ? "not followed" : followLevel}.`);
   renderTabCounts();
@@ -12293,14 +12370,14 @@ function saveFollowSport(sport, followed){
   }
   next.selectedSelectorEntityIds = Array.from(selected);
   next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
-  savePreferences(next);
+  if(!savePreferences(next,{deliberate:true}))return false;
   renderAll({ preserveViewport:true });
 }
 
 function toggleAustraliaInternationals(){
   const next = clonePreferences(userPreferences);
   next.followFirst.australiaInternationalsEnabled = next.followFirst.australiaInternationalsEnabled === false;
-  savePreferences(next);
+  if(!savePreferences(next,{deliberate:true}))return false;
   renderAll({ preserveViewport:true });
 }
 
@@ -12320,7 +12397,7 @@ function toggleMajorEventFollow(eventId){
   next.followFirst.eventFamilyDecisions = {schemaVersion:"event-family-decisions.v1",states:decisionStates};
   next.followFirst.excludedMajorEventIds = Array.from(excluded);
   next.followFirst.followedMajorEventIds = Array.from(selected);
-  savePreferences(next);
+  if(!savePreferences(next,{deliberate:true}))return false;
   renderAll({ preserveViewport:true });
 }
 
@@ -13725,7 +13802,7 @@ function closeTuneSession(action = "exited"){
 function persistTuningGraph(graph){
   const next = clonePreferences(userPreferences);
   next.preferenceGraph = graph;
-  savePreferences(next);
+  if(!savePreferences(next,{deliberate:true}))return false;
   draftPreferences = clonePreferences(userPreferences);
 }
 

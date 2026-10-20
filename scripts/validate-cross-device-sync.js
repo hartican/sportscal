@@ -214,7 +214,8 @@ async function validateActualConflictRetry(){
       },
     };
     vm.createContext(context);
-    vm.runInContext(pins + "\n" + preserve + "\n" + accountScope + "\n" + orchestration, context);
+    const preferenceHooks=html.slice(html.indexOf("function preferenceIntentOwner(){"),html.indexOf("async function bootstrapServerPersistence("));
+    vm.runInContext(preferenceHooks + "\n" + pins + "\n" + preserve + "\n" + accountScope + "\n" + orchestration, context);
     if (scenario.failure){
       await assert.rejects(context.reconcileCurrentServerState(), error => error.code === scenario.failure, scenario.name);
       assert.equal(writes, scenario.failure === "user_state_conflict" ? 3 : 1, "unchanged retry cap and typed conflict requirement");
@@ -324,6 +325,91 @@ async function validateAcceptedBootstrapBaseline(){
   console.log(`Accepted account bootstrap: ${cases.length} actual Account/SDK A-B-C-A, delayed/failed hydration and empty/absent preference cases passed; no service connection.`);
 }
 
-validateActualConflictRetry().then(validateAcceptedBootstrapBaseline).then(() => require("./lib/user-state-account-scope-tests")()).then(() => {
+async function validateDurablePreferenceIntent(){
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict'),{createRequire}=require('node:module');
+const root=path.resolve(__dirname,'..');
+const profile=require(path.join(root,'config/profile-storage')),sdk=require(path.join(root,'config/server-sync')),sync=require(path.join(root,'config/user-state-sync'));
+const clone=x=>JSON.parse(JSON.stringify(x));
+const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const slice=(s,from,to)=>{const a=s.indexOf(from),b=s.indexOf(to,a);assert(a>=0&&b>a);return s.slice(a,b);};
+const helperPath=path.join(root,'scripts/lib/user-state-account-scope-tests.js'),helper={module:{exports:{}},require:createRequire(helperPath),__dirname:path.dirname(helperPath),console,structuredClone,Response,AbortController,Event,setTimeout,clearTimeout,Buffer};
+vm.runInNewContext(fs.readFileSync(helperPath,'utf8')+'\nmodule.exports.assessment={sources,context};',helper);
+const {sources,context}=helper.module.exports.assessment;
+function storage(){const values=new Map();return{fail:false,getItem:key=>values.get(key)||null,setItem(key,value){if(this.fail)throw Object.assign(new Error('synthetic quota'),{name:'QuotaExceededError'});values.set(key,String(value));},removeItem:key=>values.delete(key)};}
+const store=storage(),initial=sdk.buildUserState({preferences:{theme:'day',followFirst:{startupMeta:{sports:[]}},preferenceGraph:{entityFollows:[{participantId:'team:synthetic:base',followed:true}],domainPreferences:[],competitionPreferences:[]}},profile:{usernameLabel:'synthetic'}});
+const states=Object.fromEntries(['A','B','C'].map(owner=>[owner,{...clone(initial),updatedAt:'2026-10-20T22:00:00Z'}]));let writes=0,saveMode='normal';
+const token=owner=>'e30.'+Buffer.from(JSON.stringify({sub:owner})).toString('base64url')+'.synthetic';
+const response=json=>new Response(JSON.stringify(json),{status:200,headers:{'Content-Type':'application/json'}});
+let signInOwner='A';
+const fetchImpl=async(url,options={})=>{const body=options.body?JSON.parse(options.body):{},owner=options.headers?.Authorization?JSON.parse(Buffer.from(options.headers.Authorization.split('.')[1],'base64url')).sub:'';
+ if(url==='/api/auth')return response(body.action==='password-sign-in'?{session:{access_token:token(signInOwner),refresh_token:'synthetic-'+signInOwner,expires_in:3600}}:{configured:true});
+ if(url==='/api/user-meta')return response({meta:{sports:[]}});
+ assert.equal(url,'/api/user-state');const current=states[owner];if(!current){assert.notEqual(options.method,'PUT');return response({user:{id:owner},state:null});}
+ if(options.method==='PUT'){if(saveMode==='reject-before'){saveMode='normal';throw new TypeError('synthetic offline save');}assert.equal(body.patch.baseUpdatedAt,current.updatedAt);states[owner]=sync.applyPatch(current,body.patch);states[owner].updatedAt='2026-10-20T22:01:'+String(++writes).padStart(2,'0')+'Z';if(saveMode==='lost-ack'){saveMode='normal';throw new TypeError('synthetic lost acknowledgement');}}
+ const row=states[owner];return response({user:{id:owner},state:{schema_version:row.schemaVersion,profile:row.profile,preferences:row.preferences,event_user_state:row.eventUserState,event_spoiler_state:row.eventSpoilerState,archived_events:row.archivedEvents,ratings:row.ratings,updated_at:row.updatedAt}});
+};
+async function makeApp(owner,{oldBootstrap=false,unownedEdit=false}={}){
+ const client=sdk.createClient({storage:storage(),persistentStorage:store,fetchImpl});signInOwner=owner;await client.signIn(owner+'@example.invalid','synthetic',{persist:true});
+ const bundle=profile.loadActiveProfile(store),seed=sdk.buildUserState({profile:initial.profile,preferences:bundle.preferences||initial.preferences,eventUserState:bundle.eventUserState,eventSpoilerState:bundle.eventSpoilerState,archivedEvents:[],ratings:bundle.ratings});
+ const app=context(sources(),{A:seed,B:seed});Object.assign(app,{setTimeout,clearTimeout,serverSyncClient:client,serverPersistence:{state:'signedOut',user:null},serverStateBaseline:null,PROFILE_STORAGE:profile,SERVER_SYNC:sdk,activeProfileBundle:bundle,localStorage:store,userPreferences:clone(seed.preferences),eventActions:{},eventSpoilerState:{},ratings:{},archivedEventRefs:[],activeEvents:[],serverSyncApplying:false,followSharedHandle(){},mergePreferences:clone,clearFantasyPlaceholderSpace(){},NOTHINGSPORTS_FANTASY_DEADLINES:{hydratePreferences:value=>value||{}},ensureFeedSourceReadiness:async()=>{},rebuildDerivedCardCache(){},renderAll(){},renderTabCounts(){},recordPreferenceChange(){},migrateEventActionRecords:clone,normalizeServerArchiveReferences:items=>items||[],syncLegacyArchiveReferences(){},STORAGE_KEYS:{preferences:'ns_preferences_v1',eventUserState:'ns_event_user_state_v1',eventSpoilerState:'ns_event_spoiler_state_v1',ratings:'ns_ratings_v1'},writeStorage:(key,value)=>store.setItem(key,JSON.stringify(value)),document:{readyState:'loading',getElementById:()=>null},applyThemePreference(){},maybeInviteClassicReview(){},backfillWebPushReminders:async()=>{},queueDirectoryFollowEffects(){},showToast(){},FOLLOW_FIRST:{normalizeMeta:value=>value||{sports:[]},applyMetaSeed:preferences=>({changed:false,preferences})}});
+ app.currentServerStatePayload=()=>sdk.buildUserState({profile:initial.profile,preferences:app.userPreferences,eventUserState:app.eventActions,eventSpoilerState:app.eventSpoilerState,archivedEvents:app.archivedEventRefs,ratings:app.ratings});
+ app.startupSessionStateBaseline=clone(app.currentServerStatePayload());
+ if(unownedEdit){app.userPreferences.unownedLegacyChoice='do-not-import';app.userPreferences.preferenceGraph={entityFollows:[],domainPreferences:[],competitionPreferences:[]};}
+ vm.runInContext(slice(html,'function applyServerState(state){','\nasync function hydrateUserMetaSeed(')+'\n'+slice(html,'function setServerStateBaseline(state){','\nfunction emptyServerStatePayload(')+'\n'+slice(html,'function savePreferences(next,','\nfunction '),app);
+
+ vm.runInContext(slice(html,'async function hydrateUserMetaSeed(','\nfunction sydneyPartsFromIso(').replace('}catch(error){','}catch(error){globalThis.diagnosticBootstrapError=error;'),app);
+ await app.bootstrapServerPersistence();if(app.diagnosticBootstrapError)console.error(app.diagnosticBootstrapError.stack);assert(['signedIn','error'].includes(app.serverPersistence.state));return app;
+}
+
+
+ const app=await makeApp('A');assert.equal(app.serverPersistence.state,'signedIn');
+ const next=clone(app.userPreferences);next.preferenceGraph.entityFollows.push({participantId:'team:synthetic:pending',followed:true});next.showSpoilers=false;next.followFirst.notifications={enabled:false};
+ assert.equal(app.savePreferences(next,{deliberate:true,deferFollowEffects:true}),true);
+ const receipt=profile.readPreferenceIntent(store,app.activeProfileBundle,'A');assert(receipt);assert.equal(writes,0);
+ const staleBundle=clone(app.activeProfileBundle);
+ // Quota failure must not update memory or replace the last durable receipt.
+ store.fail=true;const failed=clone(next);failed.theme='night';assert.equal(app.savePreferences(failed,{deliberate:true,deferFollowEffects:true}),false);store.fail=false;
+ assert.equal(app.userPreferences.theme,'day');assert.equal(profile.readPreferenceIntent(store,app.activeProfileBundle,'A').receiptId,receipt.receiptId);
+ const previousLife=app.serverSyncClient.accountSnapshot();signInOwner='A';await app.serverSyncClient.signIn('A@example.invalid','synthetic',{persist:true});app.acknowledgePreferenceReceipt(receipt,{preferences:receipt.preferences},previousLife);assert.equal(profile.readPreferenceIntent(store,app.activeProfileBundle,'A').receiptId,receipt.receiptId,'an old lifetime cannot acknowledge the pending receipt');
+ const restart=await makeApp('A',{oldBootstrap:false,unownedEdit:true});
+ const restored=restart.userPreferences.preferenceGraph.entityFollows.some(f=>f.participantId==='team:synthetic:pending');
+ const result={oldBootstrap:false,restored,writes,status:restart.serverPersistence.state,receiptRemaining:Boolean(profile.readPreferenceIntent(store,restart.activeProfileBundle,'A'))};console.log(JSON.stringify(result));
+ assert.equal(restored,true,'new-writer deliberate intent must survive actual same-owner restart');
+ assert.equal(writes,1);assert.equal(profile.readPreferenceIntent(store,restart.activeProfileBundle,'A'),null);assert.equal(Object.hasOwn(states.A.preferences,'unownedLegacyChoice'),false,'an existing owned receipt cannot import unowned startup edits');assert.equal(restart.userPreferences.showSpoilers,false);assert.equal(restart.userPreferences.followFirst.notifications.enabled,false);
+ // Failed and interrupted acknowledgements remain durable until a matching read/write.
+ const failedSave=clone(restart.userPreferences);failedSave.theme='night';assert(restart.savePreferences(failedSave,{deliberate:true,deferFollowEffects:true}));
+ saveMode='reject-before';await assert.rejects(restart.syncCurrentServerState(),/synthetic offline save/);assert(profile.readPreferenceIntent(store,restart.activeProfileBundle,'A'));
+ const retry=await makeApp('A');assert.equal(retry.userPreferences.theme,'night');assert.equal(profile.readPreferenceIntent(store,retry.activeProfileBundle,'A'),null);
+ const lost=clone(retry.userPreferences);lost.theme='day';assert(retry.savePreferences(lost,{deliberate:true,deferFollowEffects:true}));
+ saveMode='lost-ack';await assert.rejects(retry.syncCurrentServerState(),/synthetic lost acknowledgement/);assert(profile.readPreferenceIntent(store,retry.activeProfileBundle,'A'));
+ const writesBeforeRead=writes,lostAck=await makeApp('A');assert.equal(writes,writesBeforeRead,'an already accepted choice is acknowledged by the matching returned state without another PUT');assert.equal(profile.readPreferenceIntent(store,lostAck.activeProfileBundle,'A'),null);
+ // Two accounts can each leave a pending choice, without importing either graph.
+ const ownerA=await makeApp('A');const empty=clone(ownerA.userPreferences);empty.preferenceGraph.entityFollows=[];empty.showSpoilers=false;
+ assert(ownerA.savePreferences(empty,{deliberate:true,deferFollowEffects:true}));
+ const ownerB=await makeApp('B');const bChoices=clone(ownerB.userPreferences);bChoices.preferenceGraph.entityFollows=[{participantId:'team:synthetic:B-only',followed:true}];
+ assert(ownerB.savePreferences(bChoices,{deliberate:true,deferFollowEffects:true}));
+ assert(profile.readPreferenceIntent(store,ownerB.activeProfileBundle,'A'));assert(profile.readPreferenceIntent(store,ownerB.activeProfileBundle,'B'));
+ const aReturn=await makeApp('A');assert.deepEqual(aReturn.userPreferences.preferenceGraph.entityFollows,[]);assert(profile.readPreferenceIntent(store,aReturn.activeProfileBundle,'B'));
+ const bReturn=await makeApp('B');assert.equal(bReturn.userPreferences.preferenceGraph.entityFollows[0].participantId,'team:synthetic:B-only');assert.equal(profile.readPreferenceIntent(store,bReturn.activeProfileBundle,'B'),null);
+ assert.deepEqual(states.A.preferences.preferenceGraph.entityFollows,[]);
+ // A stale bundle/ACK cannot clear a newer receipt or another pending owner.
+ let bundle=profile.recordPreferenceIntent(store,staleBundle,{ownerId:'B',generation:1,baseUpdatedAt:'b',basePreferences:{},preferences:{empty:[]}});
+ const b=profile.readPreferenceIntent(store,bundle,'B');
+ bundle=profile.recordPreferenceIntent(store,bundle,{ownerId:'A',generation:2,baseUpdatedAt:'a',basePreferences:{},preferences:{off:false}});const a=profile.readPreferenceIntent(store,bundle,'A');
+ bundle=profile.recordPreferenceIntent(store,bundle,{ownerId:'A',generation:2,baseUpdatedAt:'a',basePreferences:{},preferences:{off:false,removed:[]}});const newer=profile.readPreferenceIntent(store,bundle,'A');
+ bundle=profile.saveSection(store,staleBundle,'ratings',{kept:3});
+ bundle=profile.acknowledgePreferenceIntent(store,bundle,a,a.preferences);assert.equal(profile.readPreferenceIntent(store,bundle,'A').receiptId,newer.receiptId);assert.equal(profile.readPreferenceIntent(store,bundle,'B').receiptId,b.receiptId);
+ assert(profile.preferenceIntentMatches(newer,{...newer.preferences,remoteUntouched:'keep'},sync));assert(!profile.preferenceIntentMatches(newer,{off:true,removed:[]},sync));
+ bundle=profile.acknowledgePreferenceIntent(store,bundle,newer,newer.preferences);assert.equal(profile.readPreferenceIntent(store,bundle,'A'),null);assert.equal(profile.readPreferenceIntent(store,bundle,'B').receiptId,b.receiptId);assert.equal(bundle.ratings.kept,3);
+ // Unknown/mismatched bases stay visibly pending; no new conflict/import policy.
+ const conflictApp=await makeApp('C'),conflictChoice=clone(conflictApp.userPreferences);conflictChoice.theme='night';assert(conflictApp.savePreferences(conflictChoice,{deliberate:true,deferFollowEffects:true}));
+ states.C.preferences.selectedBroadcasters=['synthetic-remote'];states.C.updatedAt='2026-10-20T23:10:00Z';const beforeConflictWrites=writes;
+ const conflicted=await makeApp('C');assert.equal(conflicted.serverPersistence.state,'error');assert.equal(conflicted.userPreferences.theme,'night');assert.equal(writes,beforeConflictWrites);assert(profile.readPreferenceIntent(store,conflicted.activeProfileBundle,'C'));assert.deepEqual(states.C.preferences.selectedBroadcasters,['synthetic-remote']);
+ states.C=null;const missing=await makeApp('C');assert.equal(missing.serverPersistence.state,'error');assert.equal(writes,beforeConflictWrites);assert(profile.readPreferenceIntent(store,missing.activeProfileBundle,'C'));
+ console.log('GREEN: actual new writer/restart/ACK, failed save/lost ACK, explicit empty/OFF, quota failure, two pending owners, stale bundle/exact receipt, and pending mismatched/missing bases.');
+
+}
+
+validateActualConflictRetry().then(validateAcceptedBootstrapBaseline).then(validateDurablePreferenceIntent).then(() => require("./lib/user-state-account-scope-tests")()).then(() => {
   console.log("Cross-device sync valid: actual retries preserve untouched cloud choices and original local intent.");
 }).catch(error => { console.error(error); process.exitCode = 1; });

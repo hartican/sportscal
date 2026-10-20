@@ -254,6 +254,7 @@
     const nextInput = current ? {
       ...current,
       ...bundle,
+      ...(current.preferenceSync ? { preferenceSync:current.preferenceSync } : {}),
       profile: {
         ...current.profile,
         ...(bundle.profile || {}),
@@ -293,6 +294,67 @@
     return commitSections(storage, bundle, { [section]: value }, options);
   }
 
+  // Deliberate preference writes only. Ordinary hydration/section writes cannot
+  // replace these receipts from a stale in-memory bundle.
+  function preferenceSyncBundle(storage, bundle){
+    if (!bundle?.profile?.id) throw new Error("A stable profile id is required");
+    const raw=storage.getItem(profileKey(bundle.profile.id));
+    const latest=raw===null?clone(bundle):JSON.parse(raw);
+    const sync=latest.preferenceSync;
+    if(sync && (Object.keys(sync).length!==2||sync.writer!=="owned-preference-intent.v1" || !Array.isArray(sync.entries)
+      || new Set(sync.entries.map(entry=>entry.ownerId)).size!==sync.entries.length
+      || sync.entries.some(entry=>Object.keys(entry).length!==6||typeof entry.ownerId!=='string'||!entry.ownerId
+        ||typeof entry.receiptId!=='string'||!entry.receiptId.startsWith('preference-edit:')||!Number.isSafeInteger(entry.generation)||entry.generation<0
+        || !(entry.baseUpdatedAt===null||typeof entry.baseUpdatedAt==='string')
+        || !entry.basePreferences || typeof entry.basePreferences!=='object'||Array.isArray(entry.basePreferences)
+        || !entry.preferences||typeof entry.preferences!=='object'||Array.isArray(entry.preferences))))throw new Error("Saved preference intent is unavailable; keeping the local copy.");
+    return latest;
+  }
+
+  function readPreferenceIntent(storage, bundle, ownerId){
+    return clone(preferenceSyncBundle(storage,bundle).preferenceSync?.entries.find(entry=>entry.ownerId===ownerId)||null);
+  }
+
+  function writePreferenceSync(storage, latest, entries, sections={}){
+    const allowed=emptyBundle(latest.profile.id);
+    for(const key of Object.keys(sections))if(!Object.hasOwn(allowed,key)||key==='profile'||key==='schemaVersion')throw new Error("Unknown preference section");
+    const next=migrateBundle({...latest,...clone(sections),
+      profile:{...latest.profile,...(Object.hasOwn(sections,'preferences')?{onboardingCompleted:Boolean(sections.preferences?.onboardingComplete)}:{})},
+      preferenceSync:{writer:"owned-preference-intent.v1",entries}},latest.profile.id);
+    const body=JSON.stringify(next),key=profileKey(next.profile.id);
+    storage.setItem(key,body);
+    if(storage.getItem(key)!==body)throw new Error("Preference intent was not saved on this device.");
+    return clone(next);
+  }
+
+  function recordPreferenceIntent(storage,bundle,{ownerId,generation,baseUpdatedAt,basePreferences,preferences,sections={}}){
+    if(typeof ownerId!=='string'||!ownerId||!Number.isSafeInteger(generation)||generation<0
+      || !(baseUpdatedAt===null||typeof baseUpdatedAt==='string')||!basePreferences||typeof basePreferences!=='object'||Array.isArray(basePreferences)
+      ||!preferences||typeof preferences!=='object'||Array.isArray(preferences))throw new Error("A verified preference baseline is required.");
+    const latest=preferenceSyncBundle(storage,bundle),entries=clone(latest.preferenceSync?.entries||[]);
+    const prior=entries.find(entry=>entry.ownerId===ownerId);
+    if(prior&&(prior.baseUpdatedAt!==baseUpdatedAt||JSON.stringify(canonicalValue(prior.basePreferences))!==JSON.stringify(canonicalValue(basePreferences))))throw new Error("Pending choices need their original server baseline.");
+    const receipt={ownerId,generation,receiptId:makeId("preference-edit"),baseUpdatedAt,basePreferences:clone(basePreferences),preferences:clone(preferences)};
+    const index=entries.findIndex(entry=>entry.ownerId===ownerId);
+    if(index<0)entries.push(receipt);else entries[index]=receipt;
+    return writePreferenceSync(storage,latest,entries,sections);
+  }
+
+  function acknowledgePreferenceIntent(storage,bundle,receipt,preferences,patches){
+    const latest=preferenceSyncBundle(storage,bundle),entries=latest.preferenceSync?.entries||[];
+    if(!receipt||!entries.some(entry=>entry.ownerId===receipt.ownerId&&entry.receiptId===receipt.receiptId
+      &&preferenceIntentMatches(entry,preferences,patches)))return clone(latest);
+    return writePreferenceSync(storage,latest,entries.filter(entry=>entry.ownerId!==receipt.ownerId||entry.receiptId!==receipt.receiptId));
+  }
+
+  function preferenceIntentMatches(receipt,preferences,patches){
+    if(!receipt)return false;
+    const expected=patches
+      ? patches.applyPatch({preferences},patches.createPatch({preferences:receipt.basePreferences},{preferences:receipt.preferences})).preferences
+      : receipt.preferences;
+    return JSON.stringify(canonicalValue(expected))===JSON.stringify(canonicalValue(preferences));
+  }
+
   function setUsernameLabel(storage, bundle, usernameLabel, options){
     const label = String(usernameLabel || "").trim() || "Local profile";
     return saveBundle(storage, {
@@ -309,6 +371,10 @@
     loadActiveProfile,
     saveBundle,
     commitSections,
+    readPreferenceIntent,
+    recordPreferenceIntent,
+    acknowledgePreferenceIntent,
+    preferenceIntentMatches,
     saveSection,
     setUsernameLabel,
   });

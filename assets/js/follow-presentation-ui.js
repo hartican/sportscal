@@ -594,13 +594,13 @@ function renderFollowViewLoaded(){
     const label=document.createElement('label');label.className='follow-checkbox';
     const league=document.createElement('input');league.type='checkbox';league.setAttribute('aria-label','Follow Australian Championship');
     league.checked=userPreferences.preferenceGraph?.competitionPreferences?.some(p=>p.competitionId==='competition:australian-championship'&&p.enabled===true)===true;
-    league.onchange=()=>{const next=clonePreferences(userPreferences);next.preferenceGraph=PREFERENCE_SYSTEM.upsertCompetitionPreference(next.preferenceGraph,'competition:australian-championship',{enabled:league.checked,templateInheritedFromDomain:false});savePreferences(next);void requestFeedRebuildAfterFollowChange();renderAll({preserveViewport:true});};
+    league.onchange=()=>{const next=clonePreferences(userPreferences);next.preferenceGraph=PREFERENCE_SYSTEM.upsertCompetitionPreference(next.preferenceGraph,'competition:australian-championship',{enabled:league.checked,templateInheritedFromDomain:false});if(!savePreferences(next,{deliberate:true})){renderAll({preserveViewport:true});return;}void requestFeedRebuildAfterFollowChange();renderAll({preserveViewport:true});};
     label.append(league,document.createTextNode('Follow Australian Championship'));commonControls.append(label);
   }
   if(followed && FOLLOW_FEED_POLICY.australiansFilterUseful({selectorId:entity.id,key:followDirectoryKey(entity),competitionId:entity.competitionId})){
     const label=document.createElement('label');label.className='follow-checkbox';
     const au=document.createElement('input');au.type='checkbox';au.checked=(userPreferences.followFirst.australiansOnlySportIds || []).includes(entity.id);au.setAttribute('aria-label','Follow Australians');
-    au.onchange=()=>{const next=clonePreferences(userPreferences);const ids=new Set(next.followFirst.australiansOnlySportIds || []);au.checked?ids.add(entity.id):ids.delete(entity.id);next.followFirst.australiansOnlySportIds=[...ids];savePreferences(next);renderAll({preserveViewport:true});};
+    au.onchange=()=>{const next=clonePreferences(userPreferences);const ids=new Set(next.followFirst.australiansOnlySportIds || []);au.checked?ids.add(entity.id):ids.delete(entity.id);next.followFirst.australiansOnlySportIds=[...ids];if(!savePreferences(next,{deliberate:true})){renderAll({preserveViewport:true});return;}renderAll({preserveViewport:true});};
     label.append(au,document.createTextNode('Follow Australians'));commonControls.appendChild(label);
   }
   container.appendChild(commonControls);
