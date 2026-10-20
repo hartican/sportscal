@@ -117,3 +117,8 @@ Sport experience and reliability release exception — 25 September 2026
 
 - The same implementation release includes shell 314 to deliver the final auto-collapse focus repair after shell 313 reached READY. The PWA exception remains limited to this task; final 313 → 314 evidence: desktop WebKit passed the full suite; Chromium again timed out after 45 seconds with 313 active and 314 waiting. No iOS Home Screen claim.
 - Shell 315 completes current-tournament/current-race grouping discovered by the live route check. This remains the same authorised implementation release and PWA-only exception.
+
+Standing approval for Flot-assigned work — 20 October 2026
+------------------------------------------------------
+- The user has given standing approval for future Flot-assigned tasks in this project. Proceed within the assigned scope without routine confirmation requests, including coordination with the assigned existing Codex chats, reversible implementation, proportionate tests and the existing single-publisher release process.
+- This approval does not resume explicitly paused work or override platform-required approvals, task scope, privacy boundaries or required release gates. It does not authorise unrelated messages to people or create a second publisher.
