@@ -75,8 +75,9 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   const {returns:rowReturn,proretset,prorows,args,digest:rowDigest,...rowAttributes}=rowContract;
   assert.equal(rowReturn,'json');assert.equal(proretset,true);assert.equal(prorows,1);assert.deepEqual(rowAttributes,originalAttributes);assert.equal(args,(await db.query('select pg_get_function_arguments($1::regprocedure) args',[wireSignature])).rows[0].args);
   await db.exec('begin;');await assert.rejects(db.exec(rowMigration),/already exists/);await db.exec('rollback;');
-  const compactMigration=fs.readFileSync('supabase/migrations/20261020153215_compact_global_fixture_read_inputs.sql','utf8');
   const beforeCompactContracts=await retainedContracts(),beforeCompactAttributes=wireAttributes;
+  for(const migrationName of ['20261020153215_compact_global_fixture_read_inputs.sql','20261020162724_batch_global_fixture_observation_times.sql']){
+  const compactMigration=fs.readFileSync('supabase/migrations/'+migrationName,'utf8');
   for(const mutation of [
    'alter function public.nothingsports_read_current_fixture_bundle_json(text[]) immutable',
    'alter function public.nothingsports_read_current_fixture_bundle_json_rows(text[]) rows 2',
@@ -94,6 +95,7 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   assert.deepEqual(await retainedContracts(),beforeCompactContracts,'Only the global JSON scalar changes; selected/near/rows/projector/time helper and ACLs stay exact');
   assert.deepEqual((await db.query(`select p.provolatile,p.prosecdef,p.proparallel,p.proleakproof,p.proconfig,p.proacl::text as acl,l.lanname,p.prorettype::regtype::text as returns from pg_proc p join pg_language l on l.oid=p.prolang where p.oid=$1::regprocedure`,[wireSignature])).rows[0],beforeCompactAttributes,'Replacement keeps exact function attributes and grants');
   await db.exec('begin;');await assert.rejects(db.exec(compactMigration),/differ from reviewed baseline/);await db.exec('rollback;');
+  }
   const aggregationEquivalent=async(ids,expectedCount,expectedComplete=true)=>{
    const r=(await db.query(`with old as materialized(select public.qa_reference_global_aggregation($1::text[]) v), current as materialized(select public.nothingsports_read_current_fixture_bundle_json($1::text[])::jsonb v), emitted as materialized(select value from public.nothingsports_read_current_fixture_bundle_json_rows($1::text[]) t(value)), payload as materialized(select json_agg(value) wire,count(*) row_count from emitted)
     select old.v=current.v and old.v=(payload.wire::jsonb->0) as same,payload.row_count,json_array_length(payload.wire) array_length,jsonb_array_length(current.v->'rows') as n,current.v->'complete'='true'::jsonb as complete,current.v->>'schemaVersion' as schema from old,current,payload`,[ids])).rows[0];
@@ -206,6 +208,13 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   await db.exec('set role service_role;');await aggregationEquivalent(null,1);
   assert.equal((await db.query(`select (f->>'scoreCheckedAt')::timestamptz=$1::timestamptz and (f->>'scoreFactObservedAt')::timestamptz=$2::timestamptz and (f->>'firstConfirmedCompleteAt')::timestamptz=$2::timestamptz and f->'statusCheckedAt'='null'::jsonb and f->'awayScore'='null'::jsonb as exact from (select v->'rows'->0->'fixture' f from (select public.nothingsports_read_current_fixture_bundle_json(null)::jsonb v) q) q`,[edgeCheck,edgeAt])).rows[0].exact,true,'Receipt/fact/first-completion, missing/invalid/no-zone/future clocks and explicit null scores survive exactly');
   await db.exec('reset role;');
+  await db.exec('begin;');
+  await db.query(`update public.nothingsports_live_scores set score=score||jsonb_build_object('scoreCheckedAt','invalid-shared-clock','statusCheckedAt','invalid-shared-clock') where source_id='aggregation-a' and fixture_id='numeric'`);
+  await db.query(`update public.nothingsports_fixture_sources set discovery_report=jsonb_build_object('_fixtureObservations',jsonb_build_object('numeric',jsonb_build_object('s','invalid-shared-clock','t','invalid-shared-clock'))) where source_id='aggregation-a'`);
+  await aggregationEquivalent(null,1);
+  assert.equal((await db.query(`select (f->>'scoreCheckedAt')::timestamptz=$1::timestamptz and f->'statusCheckedAt'='null'::jsonb as exact from (select public.nothingsports_read_current_fixture_bundle_json(null)::jsonb->'rows'->0->'fixture' f) q`,[edgeAt])).rows[0].exact,true,'Invalid shared timestamps fall back to valid base facts; JSON null never blocks coalesce');
+  await db.exec('rollback;');
+  await db.exec("begin;set local timezone='Pacific/Auckland';set local role service_role;");await aggregationEquivalent(null,1);await db.exec('rollback;');
   // Malformed maps must keep the original two text-key JSON operators: numeric
   // fixture IDs must never turn an array into an indexed receipt lookup.
   await db.query(`insert into public.nothingsports_fixture_current(source_id,fixture_id,identity_keys,fixture,content_hash) values('aggregation-z','0',array['0'],jsonb_build_object('id','0','date',$1::text),'edge')`,[day]);
