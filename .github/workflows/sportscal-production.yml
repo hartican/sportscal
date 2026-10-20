@@ -156,6 +156,7 @@ jobs:
           node scripts/validate-nrl-finals-readiness.js
           node scripts/validate-known-final-results.js
           node scripts/validate-update-cards.js
+          node scripts/validate-editorial-candidate-reuse.js
           node scripts/validate-refresh-child-output.js
           node scripts/validate-fixture-result-reconciliation.js
           node scripts/validate-deployment-tracking.js

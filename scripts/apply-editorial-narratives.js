@@ -141,6 +141,9 @@ function main(){
   applyFeed(publishedFeed);
 
   const majorEvents = readJson(MAJOR_EVENTS_PATH);
+  // Keep this completed projection's ordered candidates stable so the shared
+  // reader can reuse its existing per-array index across all child fixtures.
+  const editorialFeedEvents = [...feed.events, ...publishedFeed.events];
   let majorApplied = 0;
   let childApplied = 0;
   majorEvents.events = majorEvents.events.map(record => {
@@ -158,7 +161,7 @@ function main(){
         const resolved = majorEventContract.editorialRecordForSubEvent(
           subEvent,
           projectedParent,
-          [...feed.events, ...publishedFeed.events],
+          editorialFeedEvents,
         );
         const narrative = resolved?.editorialNarrative;
         if (!narrative) return subEvent;
