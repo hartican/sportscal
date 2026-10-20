@@ -164,16 +164,23 @@ existingFootballParticipants.forEach(team => {
   const expectedCrest = identities.participantMarks[team.id]?.url || team.crestUrl;
   assert.equal(resolved[0].mark.url, expectedCrest, `${team.displayName} must prefer its first-party local crest, then preserve its directory crest URL`);
 });
+const championshipMarks=require('../data/football/australian-championship-marks.v1.json');
+assert.equal(championshipMarks.clubs.length,16);
 for(const team of championshipParticipants){
-  assert.equal(team.crestUrl,null,'Unavailable retained crests remain unknown');
-  assert.equal(identities.participantMarksForEvent({key:'football',participantIds:[team.id]},footballParticipants,team.displayName).length,0,'A retained club cannot borrow an unrelated crest');
+  const source=championshipMarks.clubs.find(mark=>mark.participantId===team.id);
+  assert(source,`${team.id} must have its own reviewed official mark`);
+  assert.equal(team.crestUrl,source.assetPath);
+  const resolved=identities.participantMarksForEvent({key:'football',participantIds:[team.id]},footballParticipants,team.displayName);
+  assert.equal(resolved.length,1);
+  assert.equal(resolved[0].mark.url,source.assetPath,'A retained club must use its own reviewed crest');
+  for(const useDark of [false,true])assert.equal(identities.logoForTheme(resolved[0].mark,{useDark}),source.assetPath,'Both themes retain the original official artwork');
 }
 const championshipFixtures=JSON.parse(fs.readFileSync('data/code-inspector/football.json','utf8')).fixtures.filter(f=>f.competitionId==='competition:australian-championship');
 assert.equal(championshipFixtures.length,48);
 const championshipIds=new Set(championshipParticipants.map(team=>team.id));
 for(const event of championshipFixtures){
   const sides=identities.matchupSidesForEvent(event,footballParticipants,event.name);assert.equal(sides.length,2);
-  assert(sides.every(side=>championshipIds.has(side.participant?.id)&&side.label&&side.mark===null),'All retained matchups keep known sourced names and honest missing crests');
+  assert(sides.every(side=>championshipIds.has(side.participant?.id)&&side.label&&side.mark?.url===championshipMarks.clubs.find(mark=>mark.participantId===side.participant.id)?.assetPath),'All retained matchups keep known sourced names and the correct club crest');
 }
 const footballFixtureEvents = ["bundesliga", "la-liga", "serie-a", "ligue-1"]
   .flatMap(leagueKey => JSON.parse(fs.readFileSync(`data/football/fixtures/${leagueKey}.json`, "utf8")).events || []);
@@ -333,7 +340,7 @@ assert(/logo\.addEventListener\("error", \(\) => \{\s*logo\.remove\(\);/.test(ht
 assert(!html.includes('mark?.label || "?"'), "recognised teams must never display a generic question-mark placeholder");
 assert(html.includes('mark?.label || "TBD"'), "unresolved finals participants need a semantic seed/monogram fallback");
 
-console.log(`Card identities valid: ${activeNrlTeams.length} NRL, ${activeAflTeams.length} AFL, ${nflParticipants.length} NFL, ${nbaTeams.length} NBA and ${existingFootballParticipants.length} Football crests plus ${championshipParticipants.length} retained clubs without crests across ${footballFixtureEvents.length} legacy and ${championshipFixtures.length} Championship fixtures, local national-team identities, ${activeEventKeys.length} active sport/event identities, and two-slot matchup fallbacks.`);
+console.log(`Card identities valid: ${activeNrlTeams.length} NRL, ${activeAflTeams.length} AFL, ${nflParticipants.length} NFL, ${nbaTeams.length} NBA and ${existingFootballParticipants.length} Football crests plus ${championshipParticipants.length} retained clubs with official crests across ${footballFixtureEvents.length} legacy and ${championshipFixtures.length} Championship fixtures, local national-team identities, ${activeEventKeys.length} active sport/event identities, and two-slot matchup fallbacks.`);
 
 // Resolved NRLW finalists must have profile identities even without artwork.
 {

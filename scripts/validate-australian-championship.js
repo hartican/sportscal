@@ -16,7 +16,7 @@ assert.equal(document.events[0].sourceWinnerId,0,'unknown source winner must rem
 assert.equal(document.events.filter(event=>event.scheduledEndStatus).length,3);
 assert(document.events.filter(event=>event.scheduledEndStatus).every(event=>!Object.hasOwn(event,'endTimeUtc')),'equal source endpoints cannot invent a duration');
 assert(document.events.every(event=>event.viewingOptions.length===0&&event.broadcastOptions.length===0&&event.viewingStatus==='unverified'));
-assert(result.clubs.every(club=>club.crestUrl===null&&club.playerCoverage==='unavailable'));
+assert(result.clubs.every(club=>club.crestUrl?.startsWith('assets/identities/football/australian-championship/')&&club.crestSourceUrl==='https://australianchampionship.com.au/'&&club.playerCoverage==='unavailable'));
 const special=document.standings.find(row=>row.displayName==='Sydney United 58');
 assert.equal(special.drawn,1);assert.equal(special.points,2,'published points cannot be recomputed');
 const sutherland=document.standings.find(row=>row.displayName==='Sutherland Sharks');

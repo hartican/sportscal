@@ -1292,6 +1292,1514 @@
         }
       ],
       "notes": "Stan lists the 2026 Laver Cup. It is excluded from Tennis TV; historical live rights do not establish current replay availability."
+    },
+    {
+      "id": "australian-championship-2026-22278865-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278865"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:20436",
+        "team:football:australian-championship:879"
+      ],
+      "roundLabel": "Round 1",
+      "startTimeUtc": "2026-10-15T08:30:00+00:00",
+      "notBefore": "2026-10-15",
+      "notAfter": "2026-10-16",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026/australian-championship-2026-s2026-ep1/2515023939828",
+          "linkScope": "fixture",
+          "liveOrReplay": "live",
+          "channelBrand": "SBS2",
+          "sourceUrl": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026"
+        }
+      ],
+      "programmeTitle": "Preston Lions v Wollongong Wolves",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. SBS full-match programme permalink published; playback and replay availability not tested."
+    },
+    {
+      "id": "australian-championship-2026-22278866-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278866"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9927",
+        "team:football:australian-championship:14521"
+      ],
+      "roundLabel": "Round 1",
+      "startTimeUtc": "2026-10-16T08:30:00+00:00",
+      "notBefore": "2026-10-16",
+      "notAfter": "2026-10-17",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026/australian-championship-2026-s2026-ep2/2515023939829",
+          "linkScope": "fixture",
+          "liveOrReplay": "live",
+          "sourceUrl": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026"
+        }
+      ],
+      "programmeTitle": "Adelaide City v Avondale",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. SBS full-match programme permalink published; playback and replay availability not tested."
+    },
+    {
+      "id": "australian-championship-2026-22278867-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278867"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:11021",
+        "team:football:australian-championship:9938"
+      ],
+      "roundLabel": "Round 1",
+      "startTimeUtc": "2026-10-16T08:30:00+00:00",
+      "notBefore": "2026-10-16",
+      "notAfter": "2026-10-17",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026/australian-championship-2026-s2026-ep3/2515023939830",
+          "linkScope": "fixture",
+          "liveOrReplay": "live",
+          "sourceUrl": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026"
+        }
+      ],
+      "programmeTitle": "Oakleigh Cannons v Sydney Olympic",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. SBS full-match programme permalink published; playback and replay availability not tested."
+    },
+    {
+      "id": "australian-championship-2026-22278868-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278868"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:15433",
+        "team:football:australian-championship:10470"
+      ],
+      "roundLabel": "Round 1",
+      "startTimeUtc": "2026-10-17T04:00:00+00:00",
+      "notBefore": "2026-10-17",
+      "notAfter": "2026-10-18",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026/australian-championship-2026-s2026-ep4/2515023939831",
+          "linkScope": "fixture",
+          "liveOrReplay": "live",
+          "channelBrand": "SBS",
+          "sourceUrl": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026"
+        }
+      ],
+      "programmeTitle": "Sutherland Sharks v South Melbourne",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. SBS full-match programme permalink published; playback and replay availability not tested."
+    },
+    {
+      "id": "australian-championship-2026-22278869-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278869"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9946",
+        "team:football:australian-championship:20439"
+      ],
+      "roundLabel": "Round 1",
+      "startTimeUtc": "2026-10-17T04:00:00+00:00",
+      "notBefore": "2026-10-17",
+      "notAfter": "2026-10-18",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026/australian-championship-2026-s2026-ep5/2515023939832",
+          "linkScope": "fixture",
+          "liveOrReplay": "live",
+          "sourceUrl": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026"
+        }
+      ],
+      "programmeTitle": "Broadmeadow Magic v Wests APIA",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. SBS full-match programme permalink published; playback and replay availability not tested."
+    },
+    {
+      "id": "australian-championship-2026-22278870-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278870"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9944",
+        "team:football:australian-championship:3502"
+      ],
+      "roundLabel": "Round 1",
+      "startTimeUtc": "2026-10-17T08:30:00+00:00",
+      "notBefore": "2026-10-17",
+      "notAfter": "2026-10-18",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026/australian-championship-2026-s2026-ep6/2515023939833",
+          "linkScope": "fixture",
+          "liveOrReplay": "live",
+          "sourceUrl": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026"
+        }
+      ],
+      "programmeTitle": "Bayswater City v Marconi Stallions",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. SBS full-match programme permalink published; playback and replay availability not tested."
+    },
+    {
+      "id": "australian-championship-2026-22278871-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278871"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9939",
+        "team:football:australian-championship:11255"
+      ],
+      "roundLabel": "Round 1",
+      "startTimeUtc": "2026-10-18T04:00:00+00:00",
+      "notBefore": "2026-10-18",
+      "notAfter": "2026-10-19",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026/australian-championship-2026-s2026-ep7/2515023939834",
+          "linkScope": "fixture",
+          "liveOrReplay": "live",
+          "sourceUrl": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026"
+        }
+      ],
+      "programmeTitle": "Sydney United v Canberra Croatia",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. SBS full-match programme permalink published; playback and replay availability not tested."
+    },
+    {
+      "id": "australian-championship-2026-22278872-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278872"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:11022",
+        "team:football:australian-championship:9928"
+      ],
+      "roundLabel": "Round 1",
+      "startTimeUtc": "2026-10-18T07:00:00+00:00",
+      "notBefore": "2026-10-18",
+      "notAfter": "2026-10-19",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026/australian-championship-2026-s2026-ep8/2515023939835",
+          "linkScope": "fixture",
+          "liveOrReplay": "live",
+          "sourceUrl": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026"
+        }
+      ],
+      "programmeTitle": "Lions FC v South Hobart",
+      "programmeWindow": "6pm - 8pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. SBS full-match programme permalink published; playback and replay availability not tested."
+    },
+    {
+      "id": "australian-championship-2026-22278873-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278873"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:11022",
+        "team:football:australian-championship:20436"
+      ],
+      "roundLabel": "Round 2",
+      "startTimeUtc": "2026-10-22T08:30:00+00:00",
+      "notBefore": "2026-10-22",
+      "notAfter": "2026-10-23",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live",
+          "channelBrand": "SBS2"
+        }
+      ],
+      "programmeTitle": "Lions FC v Preston Lions",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278874-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278874"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:10470",
+        "team:football:australian-championship:9939"
+      ],
+      "roundLabel": "Round 2",
+      "startTimeUtc": "2026-10-23T08:30:00+00:00",
+      "notBefore": "2026-10-23",
+      "notAfter": "2026-10-24",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "South Melbourne v Sydney United 58",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278875-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278875"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9927",
+        "team:football:australian-championship:20439"
+      ],
+      "roundLabel": "Round 2",
+      "startTimeUtc": "2026-10-23T08:30:00+00:00",
+      "notBefore": "2026-10-23",
+      "notAfter": "2026-10-24",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Adelaide City v Wests APIA",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278876-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278876"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:14521",
+        "team:football:australian-championship:9946"
+      ],
+      "roundLabel": "Round 2",
+      "startTimeUtc": "2026-10-24T04:00:00+00:00",
+      "notBefore": "2026-10-24",
+      "notAfter": "2026-10-25",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live",
+          "channelBrand": "SBS"
+        }
+      ],
+      "programmeTitle": "Avondale v Broadmeadow Magic",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278877-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278877"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:3502",
+        "team:football:australian-championship:11021"
+      ],
+      "roundLabel": "Round 2",
+      "startTimeUtc": "2026-10-24T04:00:00+00:00",
+      "notBefore": "2026-10-24",
+      "notAfter": "2026-10-25",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Marconi Stallions v Oakleigh Cannons",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278878-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278878"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:11255",
+        "team:football:australian-championship:15433"
+      ],
+      "roundLabel": "Round 2",
+      "startTimeUtc": "2026-10-24T06:00:00+00:00",
+      "notBefore": "2026-10-24",
+      "notAfter": "2026-10-25",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Canberra Croatia v Sutherland Sharks",
+      "programmeWindow": "5pm - 7pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278879-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278879"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:879",
+        "team:football:australian-championship:9928"
+      ],
+      "roundLabel": "Round 2",
+      "startTimeUtc": "2026-10-25T04:00:00+00:00",
+      "notBefore": "2026-10-25",
+      "notAfter": "2026-10-26",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Wollongong Wolves v South Hobart",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278880-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278880"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9938",
+        "team:football:australian-championship:9944"
+      ],
+      "roundLabel": "Round 2",
+      "startTimeUtc": "2026-10-25T04:00:00+00:00",
+      "notBefore": "2026-10-25",
+      "notAfter": "2026-10-26",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Sydney Olympic v Bayswater City",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278881-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278881"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:11255",
+        "team:football:australian-championship:10470"
+      ],
+      "roundLabel": "Round 3",
+      "startTimeUtc": "2026-10-29T08:30:00+00:00",
+      "notBefore": "2026-10-29",
+      "notAfter": "2026-10-30",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live",
+          "channelBrand": "SBS2"
+        }
+      ],
+      "programmeTitle": "Canberra Croatia v South Melbourne",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278882-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278882"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9938",
+        "team:football:australian-championship:3502"
+      ],
+      "roundLabel": "Round 3",
+      "startTimeUtc": "2026-10-30T08:30:00+00:00",
+      "notBefore": "2026-10-30",
+      "notAfter": "2026-10-31",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Sydney Olympic v Marconi Stallions",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278883-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278883"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9946",
+        "team:football:australian-championship:9927"
+      ],
+      "roundLabel": "Round 3",
+      "startTimeUtc": "2026-10-30T08:30:00+00:00",
+      "notBefore": "2026-10-30",
+      "notAfter": "2026-10-31",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Broadmeadow Magic v Adelaide City",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278884-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278884"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:15433",
+        "team:football:australian-championship:9939"
+      ],
+      "roundLabel": "Round 3",
+      "startTimeUtc": "2026-10-31T04:00:00+00:00",
+      "notBefore": "2026-10-31",
+      "notAfter": "2026-11-01",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live",
+          "channelBrand": "SBS"
+        }
+      ],
+      "programmeTitle": "Sutherland Sharks v Sydney United 58",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278885-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278885"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:879",
+        "team:football:australian-championship:11022"
+      ],
+      "roundLabel": "Round 3",
+      "startTimeUtc": "2026-10-31T04:00:00+00:00",
+      "notBefore": "2026-10-31",
+      "notAfter": "2026-11-01",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Wollongong Wolves v Lions FC",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278886-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278886"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9928",
+        "team:football:australian-championship:20436"
+      ],
+      "roundLabel": "Round 3",
+      "startTimeUtc": "2026-10-31T04:00:00+00:00",
+      "notBefore": "2026-10-31",
+      "notAfter": "2026-11-01",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "South Hobart v Preston Lions",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278887-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278887"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:20439",
+        "team:football:australian-championship:14521"
+      ],
+      "roundLabel": "Round 3",
+      "startTimeUtc": "2026-11-01T04:00:00+00:00",
+      "notBefore": "2026-11-01",
+      "notAfter": "2026-11-02",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Wests APIA v Avondale",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278888-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278888"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9944",
+        "team:football:australian-championship:11021"
+      ],
+      "roundLabel": "Round 3",
+      "startTimeUtc": "2026-11-01T07:00:00+00:00",
+      "notBefore": "2026-11-01",
+      "notAfter": "2026-11-02",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Bayswater City v Oakleigh Cannons",
+      "programmeWindow": "6pm - 8pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278889-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278889"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9938",
+        "team:football:australian-championship:11021"
+      ],
+      "roundLabel": "Round 4",
+      "startTimeUtc": "2026-11-05T08:30:00+00:00",
+      "notBefore": "2026-11-05",
+      "notAfter": "2026-11-06",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live",
+          "channelBrand": "SBS2"
+        }
+      ],
+      "programmeTitle": "Sydney Olympic v Oakleigh Cannons",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278890-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278890"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:11255",
+        "team:football:australian-championship:9939"
+      ],
+      "roundLabel": "Round 4",
+      "startTimeUtc": "2026-11-06T08:30:00+00:00",
+      "notBefore": "2026-11-06",
+      "notAfter": "2026-11-07",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Canberra Croatia v Sydney United 58",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278891-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278891"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:3502",
+        "team:football:australian-championship:9944"
+      ],
+      "roundLabel": "Round 4",
+      "startTimeUtc": "2026-11-07T04:00:00+00:00",
+      "notBefore": "2026-11-07",
+      "notAfter": "2026-11-08",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live",
+          "channelBrand": "SBS"
+        }
+      ],
+      "programmeTitle": "Marconi Stallions v Bayswater City",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278892-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278892"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:20439",
+        "team:football:australian-championship:9946"
+      ],
+      "roundLabel": "Round 4",
+      "startTimeUtc": "2026-11-07T04:00:00+00:00",
+      "notBefore": "2026-11-07",
+      "notAfter": "2026-11-08",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Wests APIA v Broadmeadow Magic",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278893-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278893"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:879",
+        "team:football:australian-championship:20436"
+      ],
+      "roundLabel": "Round 4",
+      "startTimeUtc": "2026-11-07T06:00:00+00:00",
+      "notBefore": "2026-11-07",
+      "notAfter": "2026-11-08",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Wollongong Wolves v Preston Lions",
+      "programmeWindow": "5pm - 7pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278894-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278894"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:10470",
+        "team:football:australian-championship:15433"
+      ],
+      "roundLabel": "Round 4",
+      "startTimeUtc": "2026-11-07T08:30:00+00:00",
+      "notBefore": "2026-11-07",
+      "notAfter": "2026-11-08",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "South Melbourne v Sutherland Sharks",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278895-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278895"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:14521",
+        "team:football:australian-championship:9927"
+      ],
+      "roundLabel": "Round 4",
+      "startTimeUtc": "2026-11-08T04:00:00+00:00",
+      "notBefore": "2026-11-08",
+      "notAfter": "2026-11-09",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Avondale v Adelaide City",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278896-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278896"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9928",
+        "team:football:australian-championship:11022"
+      ],
+      "roundLabel": "Round 4",
+      "startTimeUtc": "2026-11-08T04:00:00+00:00",
+      "notBefore": "2026-11-08",
+      "notAfter": "2026-11-09",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "South Hobart v Lions FC",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278897-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278897"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:20439",
+        "team:football:australian-championship:9927"
+      ],
+      "roundLabel": "Round 5",
+      "startTimeUtc": "2026-11-12T08:30:00+00:00",
+      "notBefore": "2026-11-12",
+      "notAfter": "2026-11-13",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live",
+          "channelBrand": "SBS2"
+        }
+      ],
+      "programmeTitle": "Wests APIA v Adelaide City",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278898-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278898"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:11021",
+        "team:football:australian-championship:3502"
+      ],
+      "roundLabel": "Round 5",
+      "startTimeUtc": "2026-11-13T08:30:00+00:00",
+      "notBefore": "2026-11-13",
+      "notAfter": "2026-11-14",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Oakleigh Cannons v Marconi Stallions",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278899-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278899"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:20436",
+        "team:football:australian-championship:11022"
+      ],
+      "roundLabel": "Round 5",
+      "startTimeUtc": "2026-11-13T08:30:00+00:00",
+      "notBefore": "2026-11-13",
+      "notAfter": "2026-11-14",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Preston Lions v Lions FC",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278900-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278900"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9939",
+        "team:football:australian-championship:10470"
+      ],
+      "roundLabel": "Round 5",
+      "startTimeUtc": "2026-11-14T04:00:00+00:00",
+      "notBefore": "2026-11-14",
+      "notAfter": "2026-11-15",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live",
+          "channelBrand": "SBS"
+        }
+      ],
+      "programmeTitle": "Sydney United 58 v South Melbourne",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278901-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278901"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9928",
+        "team:football:australian-championship:879"
+      ],
+      "roundLabel": "Round 5",
+      "startTimeUtc": "2026-11-14T04:00:00+00:00",
+      "notBefore": "2026-11-14",
+      "notAfter": "2026-11-15",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "South Hobart v Wollongong Wolves",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278902-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278902"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9944",
+        "team:football:australian-championship:9938"
+      ],
+      "roundLabel": "Round 5",
+      "startTimeUtc": "2026-11-14T08:30:00+00:00",
+      "notBefore": "2026-11-14",
+      "notAfter": "2026-11-15",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Bayswater City v Sydney Olympic",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278903-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278903"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9946",
+        "team:football:australian-championship:14521"
+      ],
+      "roundLabel": "Round 5",
+      "startTimeUtc": "2026-11-15T04:00:00+00:00",
+      "notBefore": "2026-11-15",
+      "notAfter": "2026-11-16",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Broadmeadow Magic v Avondale",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278904-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278904"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:15433",
+        "team:football:australian-championship:11255"
+      ],
+      "roundLabel": "Round 5",
+      "startTimeUtc": "2026-11-15T04:00:00+00:00",
+      "notBefore": "2026-11-15",
+      "notAfter": "2026-11-16",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Sutherland Sharks v Canberra Croatia",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278905-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278905"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:11022",
+        "team:football:australian-championship:879"
+      ],
+      "roundLabel": "Round 6",
+      "startTimeUtc": "2026-11-19T08:30:00+00:00",
+      "notBefore": "2026-11-19",
+      "notAfter": "2026-11-20",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live",
+          "channelBrand": "SBS2"
+        }
+      ],
+      "programmeTitle": "Lions FC v Wollongong Wolves",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278906-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278906"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:20436",
+        "team:football:australian-championship:9928"
+      ],
+      "roundLabel": "Round 6",
+      "startTimeUtc": "2026-11-19T08:30:00+00:00",
+      "notBefore": "2026-11-19",
+      "notAfter": "2026-11-20",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Preston Lions v South Hobart",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278907-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278907"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:10470",
+        "team:football:australian-championship:11255"
+      ],
+      "roundLabel": "Round 6",
+      "startTimeUtc": "2026-11-20T08:30:00+00:00",
+      "notBefore": "2026-11-20",
+      "notAfter": "2026-11-21",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "South Melbourne v Canberra Croatia",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278908-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278908"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9939",
+        "team:football:australian-championship:15433"
+      ],
+      "roundLabel": "Round 6",
+      "startTimeUtc": "2026-11-20T08:30:00+00:00",
+      "notBefore": "2026-11-20",
+      "notAfter": "2026-11-21",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Sydney United 58 v Sutherland Sharks",
+      "programmeWindow": "7:30pm - 9:30pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278909-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278909"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:11021",
+        "team:football:australian-championship:9944"
+      ],
+      "roundLabel": "Round 6",
+      "startTimeUtc": "2026-11-21T04:00:00+00:00",
+      "notBefore": "2026-11-21",
+      "notAfter": "2026-11-22",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live",
+          "channelBrand": "SBS"
+        }
+      ],
+      "programmeTitle": "Oakleigh Cannons v Bayswater City",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278910-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278910"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:3502",
+        "team:football:australian-championship:9938"
+      ],
+      "roundLabel": "Round 6",
+      "startTimeUtc": "2026-11-21T04:00:00+00:00",
+      "notBefore": "2026-11-21",
+      "notAfter": "2026-11-22",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Marconi Stallions v Sydney Olympic",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278911-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278911"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:9927",
+        "team:football:australian-championship:9946"
+      ],
+      "roundLabel": "Round 6",
+      "startTimeUtc": "2026-11-22T04:00:00+00:00",
+      "notBefore": "2026-11-22",
+      "notAfter": "2026-11-23",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Adelaide City v Broadmeadow Magic",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
+    },
+    {
+      "id": "australian-championship-2026-22278912-au",
+      "competitionIds": [
+        "competition:australian-championship"
+      ],
+      "fixtureIds": [
+        "football-australian-championship-2026-22278912"
+      ],
+      "participantIds": [
+        "team:football:australian-championship:14521",
+        "team:football:australian-championship:20439"
+      ],
+      "roundLabel": "Round 6",
+      "startTimeUtc": "2026-11-22T04:00:00+00:00",
+      "notBefore": "2026-11-22",
+      "notAfter": "2026-11-23",
+      "verifiedAt": "2026-10-20T02:28:00.820522Z",
+      "sourceUrl": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "sbs",
+          "url": "https://www.sbs.com.au/ondemand/sports-series/australian-championship-2026/season-2026",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "programmeTitle": "Avondale v Wests APIA",
+      "programmeWindow": "3pm - 5pm (AEDT)",
+      "notes": "Exact published match/date/participant listing. Series destination only; no match permalink or replay availability inferred."
     }
   ],
   "catalogueReview": {
@@ -3199,7 +4707,7 @@
       {
         "competitionId": "competition:rugby:wr:7a0c709d-ab98-40a1-9352-57c8028bb1e5",
         "sportKey": "rugby",
-        "name": "Rugby’s Greatest Rivalry 2026",
+        "name": "Rugby\u2019s Greatest Rivalry 2026",
         "fixtureCount": 2,
         "withEvidence": 0,
         "providerIds": [],
@@ -3330,7 +4838,7 @@
       {
         "competitionId": "competition:rugby:wr:cf9a914d-84b6-4982-bf36-f7266b7cf6b3",
         "sportKey": "rugby",
-        "name": "Women's Rugby’s Greatest Rivalry 2026",
+        "name": "Women's Rugby\u2019s Greatest Rivalry 2026",
         "fixtureCount": 1,
         "withEvidence": 0,
         "providerIds": [],
