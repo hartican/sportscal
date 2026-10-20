@@ -30,7 +30,31 @@ for(const label of ['Schedule','My athletes & teams','Major Events','Ladder','St
 // could satisfy the old assertion without establishing any rendered identity.
 const sharedIdentitySource=require('./app-shell-test-utils').readCardFunction('buildMatchupIdentity');
 assert(sharedIdentitySource.includes('matchupIdentityMatches(ev, displayTitle)'), 'The shared card identity renderer resolves canonical participants');
-assert(html.includes("return buildEventCard(event,{mode:'schedule',inspectorFixture:fixture})")&&html.includes('cardViewStates'),'Schedule fixtures share independent card expansion state');
+// Exercise the actual Schedule adapter rather than require its old argument
+// spelling: qualified presentation fields may now be projected before rendering.
+const scheduleBuilderStart=html.indexOf('function buildCodeInspectorFixture(');
+const scheduleBuilderEnd=html.indexOf('\nfunction appendSchedulePin(',scheduleBuilderStart);
+assert(scheduleBuilderStart>=0&&scheduleBuilderEnd>scheduleBuilderStart,'the actual Schedule card adapter must exist');
+const scheduleBuilder=html.slice(scheduleBuilderStart,scheduleBuilderEnd);
+const scheduleFixture={id:'fixture:cricket:adapter',status:'ongoing',participantSlots:[]};
+const canonicalScheduleEvent={id:scheduleFixture.id,status:'ongoing',participantIds:['home','away']};
+const scheduleBefore=JSON.stringify({scheduleFixture,canonicalScheduleEvent});
+for(const [canonical,fields] of [[canonicalScheduleEvent,null],[canonicalScheduleEvent,{matchDay:2,status:'stumps'}],[null,null]]){
+  const result=require('node:vm').runInNewContext(scheduleBuilder+'\nbuildCodeInspectorFixture(input)',{
+    input:scheduleFixture,canonicalFeedFixtureForInspector:()=>canonical,
+    codeInspectorFixtureSportKey:()=> 'cricket',inspectorFixtureIsResult:()=>false,
+    ...(fields?{inspectorPresentationFields:()=>fields}:{}),
+    buildEventCard:(event,options)=>({event,options})
+  });
+  assert.equal(result.options.mode,'schedule','Schedule delegates to the shared renderer in Schedule mode');
+  assert.equal(result.options.inspectorFixture,scheduleFixture,'the original fixture owns Schedule controls');
+  assert.equal(result.event.id,scheduleFixture.id,'presentation preserves the existing card identity');
+  assert.equal(result.event.status,fields?'stumps':'ongoing','qualified presentation reaches the shared renderer');
+  if(canonical&&!fields)assert.equal(result.event,canonical,'without presentation fields the existing event is retained');
+  if(fields)assert.equal(result.event.matchDay,2,'qualified match day reaches the shared renderer');
+}
+assert.equal(JSON.stringify({scheduleFixture,canonicalScheduleEvent}),scheduleBefore,'Schedule presentation does not mutate either source');
+assert(html.includes('cardViewStates'),'shared cards retain the independent expansion-state owner');
 assert(html.includes("pin.textContent=automatic?'In Feed':added?'Remove from Feed':'Add to Feed'")&&html.includes('manualPin:true'),'concrete fixture pins remain available');
 assert(html.includes('inspectorAlwaysShowsAllFixtures'),'Schedule can browse all fixtures independently of follows');
 assert(html.includes('confirmStandingsReveal'),'standings retain spoiler protection');
