@@ -73,6 +73,14 @@ for(const event of retained.events){
  counts[option.channelBrand||'onDemandOnly']++;
  assert.deepEqual(withoutViewing(viewed),withoutViewing(event));assert.deepEqual(review(viewed),viewed);
  const equivalent={...event,startTimeUtc:new Date(event.startTimeUtc).toISOString()};assert.equal(follow.viewingOptions(review(equivalent)).length,1,'Equivalent UTC serializations retain the same evidence');
+ assert.equal(follow.viewingOptions({...viewed,startTimeUtc:new Date(Date.parse(event.startTimeUtc)+3600000).toISOString()}).length,0,'A cached reviewed listing cannot survive a same-day reschedule without rerunning the projector');
+ assert.equal(follow.viewingOptions({...viewed,startTimeUtc:null}).length,0,'A cached exact-start listing cannot fall back to a date-only clock');
+ assert.equal(follow.viewingOptions({...viewed,startTimeUtc:new Date(event.startTimeUtc).toISOString()}).length,1,'A cached exact-start listing accepts equivalent UTC serialization');
+ assert.equal(Date.parse(viewed.viewingOptions[0].coverageWindow[12]),Date.parse(event.startTimeUtc));
+ for(const bad of [null,'invalid',123]){
+  const invalidWindow=structuredClone(viewed);invalidWindow.viewingOptions[0].coverageWindow[12]=bad;
+  assert.equal(follow.viewingOptions(invalidWindow).length,0,'Malformed appended exact-start constraints cannot authorize a cached option');
+ }
  const invalid=[
   {competitionId:'competition:australian-championship-reserves'},
   {id:'unknown',eventId:'unknown',canonicalEventId:'unknown'},

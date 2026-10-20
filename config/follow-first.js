@@ -853,7 +853,8 @@
     const nullableString=value=>value===null||typeof value==='string';
     const strings=value=>Array.isArray(value)&&value.every(item=>typeof item==='string');
     const isoDay=value=>/^\d{4}-\d{2}-\d{2}$/.test(value),equal=(left,right)=>JSON.stringify(left)===JSON.stringify(right);
-    if(!Array.isArray(scope)||scope.length!==12||!isoDay(scope[0])||!isoDay(scope[1])
+    if(!Array.isArray(scope)||![12,13].includes(scope.length)||!isoDay(scope[0])||!isoDay(scope[1])
+      ||scope.length===13&&(typeof scope[12]!=='string'||!Number.isFinite(Date.parse(scope[12]))||Date.parse(event.startTimeUtc)!==Date.parse(scope[12]))
       ||![2,4,5,6,9].every(index=>nullableString(scope[index]))||typeof scope[3]!=='string'
       ||typeof scope[7]!=='string'||!(scope[8]===null||strings(scope[8]))||!strings(scope[10])||!Array.isArray(scope[11])||scope[11].length!==4||!scope[11].every(nullableString)||!viewingIdentityMatches(event,scope)
       ||event.representedTours!=null&&!Array.isArray(event.representedTours)||scope[8]&&!strings(event.participantIds||[]))return false;
