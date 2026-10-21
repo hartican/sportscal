@@ -1,6 +1,6 @@
 # Loading repair: prepare transport rows with canonical facts
 
-Status: all affected browser/PWA checks pass on the held app581 frontend. Four complete-row live trials were safely undone; full activation remains unqualified. The staged consistent-snapshot installation passes local PG17/18 and native concurrency checks. No production release acceptance.
+Status: held app581 frontend checks pass. R10 installed but failed its first real global read and was exactly undone. R11b passes full PG17/18 functional/work regressions and native concurrency/undo checks; new live qualification and release remain pending.
 
 The public loading failure is a real shared fixture-read deadline failure, not
 merely a missing verifier timing. Earlier query changes and a private base-prefix
@@ -220,3 +220,47 @@ before exact-main publication and deployment. Existing browser proof remains
 7b4f-equivalent because this change touches SQL/tests/docs only. No iPhone prompt,
 automatic reminder activation or historical Follow recovery is permitted by these
 local checks alone.
+
+
+## R11b: retrieve encoded payloads after sorting narrow metadata
+
+R10 installed, but the first real participant lookup used the required global
+resource and timed out before headers at3003.14ms/3000. Membership and a selected
+fixture passed; no full round did. Exact active undo restored original16contracts,
+D7/fbc/cache absence/pending0 at08:41:21UTC, retaining7670fixtures/7661scores.
+The separate initial static-version AGE assertion failed before any API read;
+its documented correction excludes only static/version age, preserving APIgates.
+
+One actual admission-only profile processed4731candidates in931.028ms/temp451.
+The full active reader's saved non-executing plan shows wide materialised inputs
+and a final payload sort, not actual full timing or proved physical I/O cause.
+R11 removes raw base/score from materialised input, orders narrow metadata, and
+uses exact same-statement PK lookups only for its unchanged raw fallback. R11a
+improved hybrid timings but failed the permanent work gate when a merge join
+sorted the large cache again (1543versus2166temporary blocks). That refusal is
+retained; neither the threshold nor any release gate was lowered.
+
+R11b retrieves cached text through one scalar PK lookup with the IDENTICAL
+eligibility predicate. Existing PK uniqueness and the CHECK making every serving
+row_text non-NULL prove COALESCE falls back exactly for missing/ineligible cache.
+A regression asserts that CHECK. Each fixture still emits one row; count, final
+explicit order,5001sentinel, clocks, raw NULL/zero and complete facts remain.
+No hint, planner/GUC change, field, writer, owner, API, source request or deadline
+is added. The full R10sixteen-partition RR installation prefix is byte-identical.
+
+Actual PG18(180003) passes57checks and PG17(170005)56. The unchanged temporary-work
+gate rejects restoring the actual prior wide view:2144→337and2797→848blocks.
+Earlier13payload poisons,16partition poisons/skipped-partition negative, complete
+missing-cache equivalence, consumers, zero scores, degraded failures and exits
+pass. Native PG17(170006) passes10independent-client checks including snapshots,
+concurrent canonical updates, missing-cache fallback, a committed zero score and
+exact new-view undo. Native inputs are two synthetic sources, not4731live ones.
+Expected active view:3d1b17f398f0eb7c2b1db22379fc422a; prepared exit stillfbc.
+Preparation/writers remain unchanged. Source review found0concrete correctness
+issues; no independent runtime execution is implied.
+
+The frontend remains7b4f-equivalent and keeps its six browser/PWA receipts. New
+guarded live application, four spaced fresh public rounds and every normal
+release gate still precede exact-main publication/deployment. Local runtime setup
+failures and R11a's work failure remain separate evidence. None constitutes
+production acceptance or physical iPhone proof.

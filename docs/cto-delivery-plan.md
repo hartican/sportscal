@@ -476,3 +476,28 @@ R2 source integration now uses the frozen preparation/activation/undo, a complet
 ### Final local loading integration checkpoint
 
 The current corrected database suite passes48actualPG18 and47pinnedPG17 checks, including prepared-state and activated guarded undo and actual response-frame work negatives. Native17.6concurrency and exact undo remain separately passing. All244local release commands have now run; the successful-save fixture and isolated Node/dependency setup failures are corrected, preserving their original receipts. The critical-byte gate is cleared by14exact-body Follow presentation moves into its existing loaded module:433529→430657gzip bytes,7critical requests,1.06591%growth under1.25%. All21affected source/cache checks pass. Root independently verified top-level declarations, inherited strictness and actual caller boundaries; the monitor's timeboxed frontend review was incomplete and is not counted as clearance. The frozen source still requires fresh exact-byte browser/installed proof, guarded live application/qualification and normal exact-main release. No production success is claimed at this checkpoint.
+
+
+## Queued after the current release fixes
+
+### Measure and implement shared compact classics plus 72-hour recovery history
+
+Status: **Queued; no measurement or implementation allocation yet.** Starts after
+the current loading, Follow, notification and associated release fixes. Root
+retains database execution, integration and publication; coordinate priority
+redirection with Flot in “Keep Nothing Sport progressing”.
+
+The first deliverable is bounded read-only sizing and a dated likely-savings
+report before any deletion or retention activation. Preserve every personal
+genuine five from any phase and its full final card and original writing, using
+one shared fixture and private account references. The combined60MB goal is a
+soft target;40MBperuser is reporting only. Neither permits eviction or refusing
+saves. The prior174.5MBsnapshot figure is allocated space, not reclaimable data.
+Protect current/highest revisions and incomplete classic capture; rehearse a
+recoverable candidate export and restore before shortening expiry. Preserve
+existing publisher budgets/schedule, privacy and access controls.
+
+Full approved contract and originating request:
+`/Users/jackhartican/Documents/AI/Codex/nothingsport-shared-classics-72h-plan-20261021.md`
+(Supabase chat `01a0c90c-2ac5-74d0-8eb3-8ae77afc9c07`). This is the one authoritative
+queue item; no parallel archive, owner or publisher is created.

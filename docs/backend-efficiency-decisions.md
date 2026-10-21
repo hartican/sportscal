@@ -1739,3 +1739,21 @@ actual apply_migration wrapper transaction/snapshot packaging, then guarded live
 application, repeated fresh public reads and the complete normal exact-main
 release. Local/source/wrapper success cannot override a failed public gate.
 Root remains the sole executor/integrator/publisher. [Evidence and constraints](quality/global-snapshot-complete-rows-2026-10-21.md).
+
+
+## 21 October2026 — sort narrow metadata before encoded payload lookup
+
+After R10's real global timeout and exact undo, omit raw base/score from the
+materialised fixture input and order its narrow metadata by existing final keys.
+Use one scalar PK lookup with the complete unchanged cache eligibility predicate;
+existing PK/CHECK prove uniqueness and non-NULL serving text. COALESCE otherwise
+calls the identical original raw projection through exact PKs in the same query
+snapshot. Preserve membership, final explicit order,5001sentinel, NULL/zero,
+original clocks and1s/3s/5s/8s budgets. No new field/writer/API/request/owner/hint,
+planner setting or scheduler. Full16partition RR installation remains unchanged.
+
+Retain R11a's failed work test. Require the unchanged work threshold with actual
+wide-view restoration negatives on PG17/18, full value/missing-cache/CHECK tests,
+native concurrent/zero/undo proof, frozen source review and normal guarded
+live/public/full-release acceptance. Local savings are not a live fix claim.
+[Evidence](quality/global-snapshot-complete-rows-2026-10-21.md).
