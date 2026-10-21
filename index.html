@@ -4988,6 +4988,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
     let latest = await serverSyncClient.loadState({ accountId:scope.accountId });
     if (!scope.verify(latest)) return null;
     verifyPreferenceIntentBase(preferenceReceipt,latest.state);
+    advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
     setPreferenceRecovery(latest.preferenceRecovery);
     currentState = serverAuthoritativeFixturePins(latest.state, currentState);
     localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
@@ -5034,6 +5035,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
         latest = await serverSyncClient.loadState({ accountId:scope.accountId });
         if (!scope.verify(latest)) return null;
         verifyPreferenceIntentBase(preferenceReceipt,latest.state);
+        advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
         setPreferenceRecovery(latest.preferenceRecovery);
         currentState = serverAuthoritativeFixturePins(latest.state, currentState);
 
@@ -5219,11 +5221,19 @@ function acknowledgePreferenceReceipt(receipt,state,expectedLife){
   if(!receipt)return;
   const life=preferenceIntentOwner();
   if(!life||life.accountId!==receipt.ownerId||life.accountId!==expectedLife?.accountId||life.generation!==expectedLife.generation)return;
-  activeProfileBundle=PROFILE_STORAGE.acknowledgePreferenceIntent(localStorage,activeProfileBundle,receipt,state.preferences,USER_STATE_SYNC);
+  activeProfileBundle=PROFILE_STORAGE.acknowledgePreferenceIntent(localStorage,activeProfileBundle,receipt,state.preferences,USER_STATE_SYNC,
+    {updatedAt:state.updatedAt,generation:life.generation});
+}
+
+function advancePreferenceReceiptBase(receipt,state,expectedLife){
+  if(!receipt)return;
+  const life=preferenceIntentOwner();
+  if(!life||life.accountId!==receipt.ownerId||life.accountId!==expectedLife?.accountId||life.generation!==expectedLife.generation)return;
+  activeProfileBundle=PROFILE_STORAGE.advancePreferenceIntentBase(localStorage,activeProfileBundle,receipt,state);
 }
 
 function verifyPreferenceIntentBase(receipt,state){
-  if(receipt&&(!state||(receipt.baseUpdatedAt!==state.updatedAt
+  if(receipt&&(!state||(!PROFILE_STORAGE.preferenceBaseMatches(receipt,state.preferences)
     &&!PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC)))){
     throw new Error("Your choices are saved on this device. Sync is paused because the saved account changed.");
   }
@@ -5290,13 +5300,15 @@ async function bootstrapServerPersistence({ session: sessionHint = undefined, ch
         acknowledgePreferenceReceipt(preferenceReceipt,result.state,preferenceLife);
         preferenceReceipt=pendingPreferenceIntent(scope.accountId);
       }
-      if(preferenceReceipt&&preferenceReceipt.baseUpdatedAt!==result.state.updatedAt){
+      if(preferenceReceipt&&!PROFILE_STORAGE.preferenceBaseMatches(preferenceReceipt,result.state.preferences)){
         applyServerState({...result.state,preferences:preferenceReceipt.preferences});
         setServerStateBaseline(result.state);
         startupSessionStateBaseline=null;
         setServerPersistence({state:"error",user,message:"Your choices are saved on this device. Sync is paused because the saved account changed."});
         return serverPersistence;
       }
+      advancePreferenceReceiptBase(preferenceReceipt,result.state,preferenceLife);
+      preferenceReceipt=pendingPreferenceIntent(scope.accountId);
       const stateBeforeHydration = currentServerStatePayload();
       const sessionPatch = USER_STATE_SYNC.createPatch(
         startupSessionStateBaseline || stateBeforeHydration,

@@ -337,7 +337,7 @@ vm.runInNewContext(fs.readFileSync(helperPath,'utf8')+'\nmodule.exports.assessme
 const {sources,context}=helper.module.exports.assessment;
 function storage(){const values=new Map();return{fail:false,getItem:key=>values.get(key)||null,setItem(key,value){if(this.fail)throw Object.assign(new Error('synthetic quota'),{name:'QuotaExceededError'});values.set(key,String(value));},removeItem:key=>values.delete(key)};}
 const store=storage(),initial=sdk.buildUserState({preferences:{theme:'day',followFirst:{startupMeta:{sports:[]}},preferenceGraph:{entityFollows:[{participantId:'team:synthetic:base',followed:true}],domainPreferences:[],competitionPreferences:[]}},profile:{usernameLabel:'synthetic'}});
-const states=Object.fromEntries(['A','B','C'].map(owner=>[owner,{...clone(initial),updatedAt:'2026-10-20T22:00:00Z'}]));let writes=0,saveMode='normal';
+const states=Object.fromEntries(['A','B','C'].map(owner=>[owner,{...clone(initial),updatedAt:'2026-10-20T22:00:00Z'}]));let writes=0,saveMode='normal',beforeAck=null;
 const token=owner=>'e30.'+Buffer.from(JSON.stringify({sub:owner})).toString('base64url')+'.synthetic';
 const response=json=>new Response(JSON.stringify(json),{status:200,headers:{'Content-Type':'application/json'}});
 let signInOwner='A';
@@ -345,7 +345,7 @@ const fetchImpl=async(url,options={})=>{const body=options.body?JSON.parse(optio
  if(url==='/api/auth')return response(body.action==='password-sign-in'?{session:{access_token:token(signInOwner),refresh_token:'synthetic-'+signInOwner,expires_in:3600}}:{configured:true});
  if(url==='/api/user-meta')return response({meta:{sports:[]}});
  assert.equal(url,'/api/user-state');const current=states[owner];if(!current){assert.notEqual(options.method,'PUT');return response({user:{id:owner},state:null});}
- if(options.method==='PUT'){if(saveMode==='reject-before'){saveMode='normal';throw new TypeError('synthetic offline save');}assert.equal(body.patch.baseUpdatedAt,current.updatedAt);states[owner]=sync.applyPatch(current,body.patch);states[owner].updatedAt='2026-10-20T22:01:'+String(++writes).padStart(2,'0')+'Z';if(saveMode==='lost-ack'){saveMode='normal';throw new TypeError('synthetic lost acknowledgement');}}
+ if(options.method==='PUT'){if(saveMode==='reject-before'){saveMode='normal';throw new TypeError('synthetic offline save');}assert.equal(body.patch.baseUpdatedAt,current.updatedAt);states[owner]=sync.applyPatch(current,body.patch);states[owner].updatedAt='2026-10-20T22:01:'+String(++writes).padStart(2,'0')+'Z';if(saveMode==='lost-ack'){saveMode='normal';throw new TypeError('synthetic lost acknowledgement');}if(beforeAck){const callback=beforeAck;beforeAck=null;callback();}}
  const row=states[owner];return response({user:{id:owner},state:{schema_version:row.schemaVersion,profile:row.profile,preferences:row.preferences,event_user_state:row.eventUserState,event_spoiler_state:row.eventSpoilerState,archived_events:row.archivedEvents,ratings:row.ratings,updated_at:row.updatedAt}});
 };
 async function makeApp(owner,{oldBootstrap=false,unownedEdit=false}={}){
@@ -383,6 +383,22 @@ async function makeApp(owner,{oldBootstrap=false,unownedEdit=false}={}){
  const lost=clone(retry.userPreferences);lost.theme='day';assert(retry.savePreferences(lost,{deliberate:true,deferFollowEffects:true}));
  saveMode='lost-ack';await assert.rejects(retry.syncCurrentServerState(),/synthetic lost acknowledgement/);assert(profile.readPreferenceIntent(store,retry.activeProfileBundle,'A'));
  const writesBeforeRead=writes,lostAck=await makeApp('A');assert.equal(writes,writesBeforeRead,'an already accepted choice is acknowledged by the matching returned state without another PUT');assert.equal(profile.readPreferenceIntent(store,lostAck.activeProfileBundle,'A'),null);
+ // Review counterexamples must progress through the next reconcile, not just retain a receipt.
+ const reviewResults=[];
+ try{
+   const staged=clone(lostAck.userPreferences);staged.preferenceGraph.entityFollows.push({participantId:'team:synthetic:review-B',followed:true});assert(lostAck.savePreferences(staged,{deliberate:true,deferFollowEffects:true}));
+   let newerId;beforeAck=()=>{const newer=clone(lostAck.userPreferences);newer.preferenceGraph.entityFollows.push({participantId:'team:synthetic:review-C',followed:true});newer.showSpoilers=false;assert(lostAck.savePreferences(newer,{deliberate:true,deferFollowEffects:true}));newerId=profile.readPreferenceIntent(store,lostAck.activeProfileBundle,'A').receiptId;};
+   await lostAck.syncCurrentServerState();assert.equal(profile.readPreferenceIntent(store,lostAck.activeProfileBundle,'A').receiptId,newerId,'R1 ACK must not clear R2');
+   await lostAck.syncCurrentServerState();assert(states.A.preferences.preferenceGraph.entityFollows.some(item=>item.participantId==='team:synthetic:review-C'));assert.equal(profile.readPreferenceIntent(store,lostAck.activeProfileBundle,'A'),null);assert.equal(states.A.preferences.showSpoilers,false);
+   reviewResults.push({case:'newer receipt after known R1 ACK progresses on second reconcile',passed:true});
+ }catch(error){reviewResults.push({case:'newer receipt after known R1 ACK progresses on second reconcile',passed:false,error:error.message});}
+ try{
+   const ratingsApp=await makeApp('B'),pending=clone(ratingsApp.userPreferences);pending.preferenceGraph.entityFollows.push({participantId:'team:synthetic:ratings-follow',followed:true});assert(ratingsApp.savePreferences(pending,{deliberate:true,deferFollowEffects:true}));
+   states.B.ratings={untouchedRemote:5};states.B.updatedAt='2026-10-21T00:01:00Z';
+   const resumed=await makeApp('B');assert.equal(resumed.serverPersistence.state,'signedIn','a ratings-only timestamp must not block known unchanged preferences');assert(states.B.preferences.preferenceGraph.entityFollows.some(item=>item.participantId==='team:synthetic:ratings-follow'));assert.equal(states.B.ratings.untouchedRemote,5);assert.equal(profile.readPreferenceIntent(store,resumed.activeProfileBundle,'B'),null);
+   reviewResults.push({case:'non-preference revision with identical preference baseline progresses',passed:true});
+ }catch(error){reviewResults.push({case:'non-preference revision with identical preference baseline progresses',passed:false,error:error.message});}
+ console.log(JSON.stringify({durabilityReview:reviewResults}));assert(reviewResults.every(result=>result.passed),'both review progress counterexamples must complete');
  // Two accounts can each leave a pending choice, without importing either graph.
  const ownerA=await makeApp('A');const empty=clone(ownerA.userPreferences);empty.preferenceGraph.entityFollows=[];empty.showSpoilers=false;
  assert(ownerA.savePreferences(empty,{deliberate:true,deferFollowEffects:true}));
@@ -401,6 +417,22 @@ async function makeApp(owner,{oldBootstrap=false,unownedEdit=false}={}){
  bundle=profile.acknowledgePreferenceIntent(store,bundle,a,a.preferences);assert.equal(profile.readPreferenceIntent(store,bundle,'A').receiptId,newer.receiptId);assert.equal(profile.readPreferenceIntent(store,bundle,'B').receiptId,b.receiptId);
  assert(profile.preferenceIntentMatches(newer,{...newer.preferences,remoteUntouched:'keep'},sync));assert(!profile.preferenceIntentMatches(newer,{off:true,removed:[]},sync));
  bundle=profile.acknowledgePreferenceIntent(store,bundle,newer,newer.preferences);assert.equal(profile.readPreferenceIntent(store,bundle,'A'),null);assert.equal(profile.readPreferenceIntent(store,bundle,'B').receiptId,b.receiptId);assert.equal(bundle.ratings.kept,3);
+ // Known-ACK continuation keeps exact ownership/generation and quota boundaries.
+ const negativeStore=storage();let negativeBundle=profile.loadActiveProfile(negativeStore);
+ const negativeKey='ns_profile_v1:'+negativeBundle.profile.id,past='2000-01-01T00:00:00.000Z',baseTime='2026-10-20T22:00:00Z',ackTime='2026-10-20T22:01:00Z';
+ let oldBody=JSON.parse(negativeStore.getItem(negativeKey));oldBody.profile.updatedAt=past;negativeStore.setItem(negativeKey,JSON.stringify(oldBody));
+ negativeBundle=profile.recordPreferenceIntent(negativeStore,negativeBundle,{ownerId:'A',generation:4,baseUpdatedAt:baseTime,basePreferences:{follows:['A'],off:true},preferences:{follows:['A','B'],off:true}});
+ assert(Date.parse(negativeBundle.profile.updatedAt)>Date.parse(past),'deliberate successful intent refreshes the local profile write time');const firstReceipt=profile.readPreferenceIntent(negativeStore,negativeBundle,'A');
+ negativeBundle=profile.recordPreferenceIntent(negativeStore,negativeBundle,{ownerId:'A',generation:4,baseUpdatedAt:baseTime,basePreferences:{follows:['A'],off:true},preferences:{follows:['A'],off:false}});const secondReceipt=profile.readPreferenceIntent(negativeStore,negativeBundle,'A');
+ const unchanged=negativeStore.getItem(negativeKey);
+ profile.acknowledgePreferenceIntent(negativeStore,negativeBundle,firstReceipt,firstReceipt.preferences,sync,{updatedAt:ackTime,generation:3});assert.equal(negativeStore.getItem(negativeKey),unchanged,'old generation cannot advance a newer receipt');
+ profile.acknowledgePreferenceIntent(negativeStore,negativeBundle,{...firstReceipt,ownerId:'B'},firstReceipt.preferences,sync,{updatedAt:ackTime,generation:4});assert.equal(negativeStore.getItem(negativeKey),unchanged,'another owner cannot advance this receipt');
+ profile.acknowledgePreferenceIntent(negativeStore,negativeBundle,{...firstReceipt,basePreferences:{follows:['external'],off:true}},firstReceipt.preferences,sync,{updatedAt:ackTime,generation:4});assert.equal(negativeStore.getItem(negativeKey),unchanged,'an unknown preference base cannot advance this receipt');
+ negativeStore.fail=true;assert.throws(()=>profile.acknowledgePreferenceIntent(negativeStore,negativeBundle,firstReceipt,firstReceipt.preferences,sync,{updatedAt:ackTime,generation:4}),error=>error.name==='QuotaExceededError');negativeStore.fail=false;assert.equal(negativeStore.getItem(negativeKey),unchanged,'quota failure preserves exact prior body and write timestamp');
+ oldBody=JSON.parse(unchanged);oldBody.profile.updatedAt=past;negativeStore.setItem(negativeKey,JSON.stringify(oldBody));
+ negativeBundle=profile.acknowledgePreferenceIntent(negativeStore,negativeBundle,firstReceipt,firstReceipt.preferences,sync,{updatedAt:ackTime,generation:4});const continued=profile.readPreferenceIntent(negativeStore,negativeBundle,'A');
+ assert.equal(continued.receiptId,secondReceipt.receiptId);assert.equal(continued.baseUpdatedAt,ackTime);assert.deepEqual(continued.preferences,{follows:['A'],off:false},'known R1 ACK continuation preserves a newer unfollow and OFF');assert(Date.parse(negativeBundle.profile.updatedAt)>Date.parse(past),'successful changed receipt metadata refreshes local write time');
+ const beforeUnknown=negativeStore.getItem(negativeKey);profile.advancePreferenceIntentBase(negativeStore,negativeBundle,continued,{preferences:{follows:['external'],off:true},updatedAt:'2026-10-20T22:02:00Z'});assert.equal(negativeStore.getItem(negativeKey),beforeUnknown,'genuinely changed preference base remains blocked');
  // Unknown/mismatched bases stay visibly pending; no new conflict/import policy.
  const conflictApp=await makeApp('C'),conflictChoice=clone(conflictApp.userPreferences);conflictChoice.theme='night';assert(conflictApp.savePreferences(conflictChoice,{deliberate:true,deferFollowEffects:true}));
  states.C.preferences.selectedBroadcasters=['synthetic-remote'];states.C.updatedAt='2026-10-20T23:10:00Z';const beforeConflictWrites=writes;

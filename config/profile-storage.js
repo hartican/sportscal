@@ -321,6 +321,7 @@
     const next=migrateBundle({...latest,...clone(sections),
       profile:{...latest.profile,...(Object.hasOwn(sections,'preferences')?{onboardingCompleted:Boolean(sections.preferences?.onboardingComplete)}:{})},
       preferenceSync:{writer:"owned-preference-intent.v1",entries}},latest.profile.id);
+    next.profile.updatedAt=nowIso();
     const body=JSON.stringify(next),key=profileKey(next.profile.id);
     storage.setItem(key,body);
     if(storage.getItem(key)!==body)throw new Error("Preference intent was not saved on this device.");
@@ -340,11 +341,35 @@
     return writePreferenceSync(storage,latest,entries,sections);
   }
 
-  function acknowledgePreferenceIntent(storage,bundle,receipt,preferences,patches){
+  function acknowledgePreferenceIntent(storage,bundle,receipt,preferences,patches,acknowledgement){
     const latest=preferenceSyncBundle(storage,bundle),entries=latest.preferenceSync?.entries||[];
-    if(!receipt||!entries.some(entry=>entry.ownerId===receipt.ownerId&&entry.receiptId===receipt.receiptId
-      &&preferenceIntentMatches(entry,preferences,patches)))return clone(latest);
-    return writePreferenceSync(storage,latest,entries.filter(entry=>entry.ownerId!==receipt.ownerId||entry.receiptId!==receipt.receiptId));
+    const current=receipt&&entries.find(entry=>entry.ownerId===receipt.ownerId);
+    if(!current||!preferenceIntentMatches(receipt,preferences,patches))return clone(latest);
+    if(current.receiptId===receipt.receiptId){
+      return writePreferenceSync(storage,latest,entries.filter(entry=>entry.ownerId!==receipt.ownerId||entry.receiptId!==receipt.receiptId));
+    }
+    // An owned in-flight ACK may advance a newer receipt, but never clear it.
+    if(!patches||current.generation!==acknowledgement?.generation
+      ||!Number.isFinite(Date.parse(acknowledgement?.updatedAt))
+      ||!preferenceBaseMatches(current,receipt.basePreferences))return clone(latest);
+    const remaining=patches.createPatch({preferences:receipt.preferences},{preferences:current.preferences});
+    const continued={...current,baseUpdatedAt:acknowledgement.updatedAt,basePreferences:clone(preferences),
+      preferences:patches.applyPatch({preferences},remaining).preferences};
+    return writePreferenceSync(storage,latest,entries.map(entry=>entry===current?continued:entry));
+  }
+
+  function preferenceBaseMatches(receipt,preferences){
+    return Boolean(receipt&&JSON.stringify(canonicalValue(receipt.basePreferences))===JSON.stringify(canonicalValue(preferences)));
+  }
+
+  function advancePreferenceIntentBase(storage,bundle,receipt,state){
+    const latest=preferenceSyncBundle(storage,bundle),entries=latest.preferenceSync?.entries||[];
+    const current=receipt&&entries.find(entry=>entry.ownerId===receipt.ownerId&&entry.receiptId===receipt.receiptId);
+    if(!current||!state||!Number.isFinite(Date.parse(state.updatedAt))
+      ||current.baseUpdatedAt===state.updatedAt||!preferenceBaseMatches(current,state.preferences)
+      ||!preferenceBaseMatches(receipt,state.preferences))return clone(latest);
+    return writePreferenceSync(storage,latest,entries.map(entry=>entry===current
+      ?{...entry,baseUpdatedAt:state.updatedAt,basePreferences:clone(state.preferences)}:entry));
   }
 
   function preferenceIntentMatches(receipt,preferences,patches){
@@ -375,6 +400,8 @@
     recordPreferenceIntent,
     acknowledgePreferenceIntent,
     preferenceIntentMatches,
+    preferenceBaseMatches,
+    advancePreferenceIntentBase,
     saveSection,
     setUsernameLabel,
   });
