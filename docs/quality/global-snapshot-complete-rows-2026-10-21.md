@@ -1,6 +1,6 @@
 # Loading repair: prepare transport rows with canonical facts
 
-Status: corrected database integration and all local release gates pass; fresh browser/cache qualification remains pending. No production application or release acceptance.
+Status: database integration and all244 non-browser local release commands pass. Fresh Safari-style startup and seven affected browser/cache suites pass; Chromium keyboard focus remains open. No production application or release acceptance.
 
 The public loading failure is a real shared fixture-read deadline failure, not
 merely a missing verifier timing. Earlier query changes and a private base-prefix
@@ -89,3 +89,19 @@ Account/pending helpers, mutation writers, shared early surfaces, Calendar/Jump
 and the tennis override placeholders retain their original locations. The21affected
 source/cache/budget gates pass; older browser fingerprints do not cover these two
 changed files and must be replaced by exact-byte browser/installed-upgrade proof.
+
+## Full-payload installation validation
+
+The original all7545-row raw-payload read-only preflight exceeded the existing
+three-second limit before any production preparation. R3 materialises each
+fixture receipt before joining prepared rows. Its original nine-witness, complete
+payload, render-zone and statement-time predicates are exactly equal after alias
+substitution; the guarded contracts, rights, coverage, capacity and R2 runtime
+view remain byte-identical. It neither samples nor trusts metadata alone.
+
+Actual PostgreSQL18 and17 integrated suites pass with13 separate poisoned-cache
+activation refusals each, including every factual witness, payload, timezone,
+lower bound and malformed JSON. One distinct read-only cloud preflight evaluates
+all7545 fixture inputs in1360.507ms under the unchanged three-second budget.
+That single calculation does not qualify the complete guarded installation,
+public request reliability or a production release. Those gates remain open.
