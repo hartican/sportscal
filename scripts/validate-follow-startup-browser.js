@@ -107,7 +107,8 @@ async function run(browser,base,engine){
  console.log(engine+': first response pending');
  try{
   await page.route('**/data/tennis-journeys.v1.json*',async r=>{await gate.promise;await r.continue();});await ctx.goto();
-  await page.evaluate(()=>{canonicalPreferenceParticipants=[];followDirectoryChunks.clear();});await openFollow(page);await controls(page);await page.locator('.athletes-heading').waitFor();
+  const firstMembershipRead=page.waitForRequest(request=>{const url=new URL(request.url());return url.pathname==='/api/feed'&&url.searchParams.get('scope')==='athletes'&&!url.searchParams.get('participantId');});
+  await page.evaluate(()=>{canonicalPreferenceParticipants=[];followDirectoryChunks.clear();});await openFollow(page);await controls(page);await page.locator('.athletes-heading').waitFor();await firstMembershipRead;
   assert.equal(await page.locator('.athletes-heading button').getAttribute('aria-busy'),'true','first pending response keeps the actual Refresh control busy');
   assert(await page.locator('.athletes-heading button').isDisabled(),'pending first response cannot start a duplicate refresh');
   assert.equal(await page.locator('.read-loading-status[role="status"][aria-live="polite"]').count(),1,'pending first response exposes the actual live loading state');
