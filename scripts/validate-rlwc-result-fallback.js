@@ -52,10 +52,11 @@ function validateScheduleSourceSelection(){
  const vm=require('node:vm'),major=require('../config/major-events');
  const frozen=require('./fixtures/rlwc-schedule-alias-20261016.json'),fixture=frozen.fixture;
  const child=major.fixtureFromSubEvent(frozen.child,frozen.parent),html=fs.readFileSync(path.join(root,'index.html'),'utf8');
- const extract=(start,end)=>html.slice(html.indexOf(start),html.indexOf(end));
- const source=extract('function canonicalFeedFixtureForInspector(','function codeInspectorFixtureSnapshot(')
-  +extract('function inspectorFixtureIsResult(','function inspectorFixtureMatchesTab(')
-  +extract('function buildCodeInspectorFixture(','function appendSchedulePin(');
+ const presentation=fs.readFileSync(path.join(root,'assets/js/follow-presentation-ui.js'),'utf8');
+ const extract=(start,end,source=html)=>{const a=source.indexOf(start),b=source.indexOf(end,a+start.length);assert(a>=0&&b>a,'Real function seam exists: '+start);return source.slice(a,b);};
+ const source=extract('function canonicalFeedFixtureForInspector(','function setCodeInspectorFixtureAdded(')
+  +extract('function inspectorFixtureIsResult(','function renderCodeInspectorPlayers(',presentation)
+  +extract('function buildCodeInspectorFixture(','function appendSchedulePin(',presentation);
  const context={inspectorSourcePreferred:require('../assets/js/follow-schedule-panel').inspectorSourcePreferred,EVENTS:[],activeEvents:[child],MAJOR_EVENTS:major,codeInspectorFixtureSportKey:require('../config/fixture-identity').sportKey,buildEventCard:event=>event};
  vm.createContext(context);vm.runInContext(source,context);
  const before=JSON.stringify([fixture,child]),card=context.buildCodeInspectorFixture(fixture);

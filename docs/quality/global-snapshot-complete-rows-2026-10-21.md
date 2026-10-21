@@ -1,6 +1,6 @@
 # Loading repair: prepare transport rows with canonical facts
 
-Status: held app581 frontend checks pass. R10 installed but failed its first real global read and was exactly undone. R11b passes full PG17/18 functional/work regressions and native concurrency/undo checks; new live qualification and release remain pending.
+Status: encoded-cache approach superseded and not adopted. R11b failed live and was exactly undone; full original state was reverified at 10:11:40 UTC. Its unshipped migrations and tests are archived outside the deployable tree. A minimal direct-calendar view repair is locally qualified; live and release gates remain pending.
 
 The public loading failure is a real shared fixture-read deadline failure, not
 merely a missing verifier timing. Earlier query changes and a private base-prefix
@@ -264,3 +264,44 @@ guarded live application, four spaced fresh public rounds and every normal
 release gate still precede exact-main publication/deployment. Local runtime setup
 failures and R11a's work failure remain separate evidence. None constitutes
 production acceptance or physical iPhone proof.
+
+
+## Direct calendar admission after the failed cache trial
+
+The actual restored global view spent about one second extracting all 7,670
+calendar descriptors before admission. A complete read-only control that forced
+its existing canonical raw-calendar fallback returned all 4,731 candidates in
+1,447 ms; the full PostgREST response frame completed in 1,944 ms, both under the
+unchanged three-second statement limit. These are database diagnostics, not HTTP
+or release acceptance. They establish an actionable regression in the shortcut,
+not a claim that every production delay has one cause.
+
+The replacement changes only the global invoker view: use the original direct
+calendar expressions from the pre-index reader, retain existing batched clocks,
+ordered full payload and 5,001 overflow signal. It adds no cache, field, writer,
+source request, scheduler or deadline. Near/participant/selected readers and all
+canonical writers remain byte-identical. The exact active digest is
+`100c4a82c569e5455e801a4c413a7cea`; the guarded undo restores the original fbc view.
+
+Pinned actual PG17/18 checks preserve complete JSON values, empty and over-1,000
+responses, zero scores, null withdrawals, original observation dates, immediate
+reschedules, service-only rights and the 5,001 incomplete sentinel. Restoring the
+actual rejected view fails the plan-work regression. Committed undo retains
+canonical changes. A deliberate before-fix run is red. The abandoned encoded
+package remains in committed history and the external evidence archive; it is
+removed from migrations and routine release checks so a fresh installation cannot
+adopt that failed package. Repeated fresh public reads and normal exact-SHA
+production acceptance still control publication.
+
+The exact authored replacement, with the same complete real dataset and actual
+response frame, completed in 1,191.661 ms under the unchanged three-second
+service-role diagnostic. A separate same-statement comparison verified all
+4,731 ordered membership keys equal between original descriptor admission and
+direct admission. These further diagnostics remain separate from HTTP release
+acceptance. Original run failures and all successful controls are retained.
+
+The full local release caught obsolete World Cup test extraction endpoints after
+the already-reviewed presentation move. Both tests now read the unchanged real
+functions from their actual shell/deferred locations with explicit seam guards;
+all sporting, saved-card and playback-eligibility assertions are unchanged. The
+standalone gate passes and independent corrective review found no issues.

@@ -1757,3 +1757,23 @@ wide-view restoration negatives on PG17/18, full value/missing-cache/CHECK tests
 native concurrent/zero/undo proof, frozen source review and normal guarded
 live/public/full-release acceptance. Local savings are not a live fix claim.
 [Evidence](quality/global-snapshot-complete-rows-2026-10-21.md).
+
+
+## 21 October 2026 — remove the global calendar descriptor shortcut
+
+R11b failed its first actual global read and was exactly undone; full original
+contracts/cache absence were reconciled at 10:11:40 UTC. Do not repeat that trial.
+A distinct full raw-calendar control completed in 1,447 ms, or 1,944 ms through
+the actual response frame, under unchanged three-second limits. Restore the
+original direct canonical calendar expressions on the global view only. Preserve
+complete membership, unknown/null precedence, Sydney windows, 5,001 sentinel,
+batched original clocks, payload, service-only invoker rights and all budgets.
+No cache, field, writer, reader function, source, scheduler or retry is added.
+
+This supersedes the unshipped encoded representation rather than layering another
+cache on it. Archive its source/evidence and remove that package from deployable
+migrations and routine checks. Retain original Git history. Require PG17/18 full
+value/consumer/permissions/overflow/undo checks and a real rejected-view work
+negative, then guarded live application, repeated fresh HTTP checks and all
+normal exact-main release gates. SQL-only timing cannot certify phone speed or
+release acceptance. Root remains the sole executor and publisher.

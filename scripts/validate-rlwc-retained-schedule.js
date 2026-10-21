@@ -5,15 +5,16 @@ function validateRetainedSchedule(){
  const root=path.resolve(__dirname,'..'),frozen=require('./fixtures/rlwc-retained-live-merge-20261016.json');
  const identity=require('../config/fixture-identity'),schedule=require('../assets/js/follow-schedule-panel'),highlights=require('../config/fixture-highlights');
  const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
- const extract=(start,end)=>{const a=html.indexOf(start),b=html.indexOf(end,a+start.length);assert(a>=0&&b>a,'Real function seam exists: '+start);return html.slice(a,b);};
+ const presentation=fs.readFileSync(path.join(root,'assets/js/follow-presentation-ui.js'),'utf8');
+ const extract=(start,end,source=html)=>{const a=source.indexOf(start),b=source.indexOf(end,a+start.length);assert(a>=0&&b>a,'Real function seam exists: '+start);return source.slice(a,b);};
  const context={NOTHINGSPORTS_FIXTURE_IDENTITY:identity,liveFixtureEvents:frozen.overlays,codeInspectorChunk:null,
   EVENTS:[frozen.candidate],activeEvents:[],MAJOR_EVENTS:null,inspectorSourcePreferred:schedule.inspectorSourcePreferred,
   codeInspectorFixtureSportKey:identity.sportKey,buildEventCard:event=>event};
  vm.createContext(context);
  vm.runInContext(extract('function liveScheduleFixtures(','let feedScoreUiLoading=')
-  +extract('function inspectorFixtureIsResult(','function inspectorFixtureMatchesTab(')
-  +extract('function canonicalFeedFixtureForInspector(','function codeInspectorFixtureSnapshot(')
-  +extract('function buildCodeInspectorFixture(','function appendSchedulePin('),context);
+  +extract('function inspectorFixtureIsResult(','function renderCodeInspectorPlayers(',presentation)
+  +extract('function canonicalFeedFixtureForInspector(','function setCodeInspectorFixtureAdded(')
+  +extract('function buildCodeInspectorFixture(','function appendSchedulePin(',presentation),context);
  const now=new Date('2026-10-16T12:26:03Z'),expected='https://www.rlwc2026.com/videos/australia-v-new-zealand---round-1-2026';
  // Full public source/candidate captured from the actual app560 failing card.
  // Display labels differ while its exact sport key and fixture context agree.
