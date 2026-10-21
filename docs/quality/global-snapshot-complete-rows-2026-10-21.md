@@ -1,6 +1,6 @@
 # Loading repair: prepare transport rows with canonical facts
 
-Status: all affected browser/PWA checks pass on the held app581 frontend. Both live trials were safely undone; full activation remains unqualified. The revised exact-text/JSONB validation guard passes local PG17/18 checks. No production release acceptance.
+Status: all affected browser/PWA checks pass on the held app581 frontend. Three complete-row live trials were safely undone; full activation remains unqualified. The grouped full-validation guard passes local PG17/18 checks. No production release acceptance.
 
 The public loading failure is a real shared fixture-read deadline failure, not
 merely a missing verifier timing. Earlier query changes and a private base-prefix
@@ -130,3 +130,39 @@ backend and overlapped a separate fixture-read timeout. It does not prove
 contention caused that refusal. Pure actual-target computation measured337ms
 and original integrity335ms separately; neither is complete writer evidence.
 Do not claim a successful retry or local timing establishes reliability.
+
+
+## Grouped full validation after the third refusal
+
+R7 passed all40source preparations but its full activation guard again exceeded
+three seconds before switching the view. The first prepared-state undo met its
+one-second lock limit and rolled back; after an explicit lock-clear observation,
+the same guarded undo succeeded. At07:12:55UTC the original16contracts, D7/fbc,
+cache absence and zero pending work were reconciled, with7670current facts and
+7661scores. A distinct read-only count alternative also exceeded three seconds;
+it is excluded. No successful activation or deployment is claimed.
+
+R9 retains the identical complete nine-witness/payload/clock predicate, including
+C-text equality and the original JSONB fallback. It evaluates that predicate for
+each distinct populated source through a temporary STABLE SQL helper. The
+materialised source list and all helper calls occur within ONE parent query and
+its original three-second statement allowance. There is no per-source timeout
+reset. STABLE SQL functions share the calling query's snapshot, as documented by
+[PostgreSQL17](https://www.postgresql.org/docs/17/xfunc-volatility.html).
+The helper has an empty search path, uses only qualified relations, and is dropped
+before the view switch within the same migration transaction. All metadata,
+rights, capacity, coverage and pending-work guards run unchanged before and after
+payload validation. Runtime view/writers/undo/budgets are byte-identical to R7.
+
+Actual server_version_num180003 passes52checks;170005 passes51. Each retains13
+poison refusals, equivalent-format acceptance, full5000-row comparisons without
+redundant fallback work, exact undos and real store/consumer failure contracts.
+A separately added later-source corruption is rejected by the actual full guard.
+
+Paired local7546-row/40-source measurements remove1615temporary blocks to zero:
+PG18execution677.005→672.140ms; PG17712.849→700.639ms. This demonstrates removal
+of the large temporary copy, with little CPU improvement. Actual710MRU target
+inputs agree exactly; other source facts are reconstructed, not faithful live
+history. It does not establish that temporary I/O caused the cloud refusal or
+that R9 will meet the live deadline. One distinct guarded installation and
+repeated fresh public reads remain necessary before the normal exact-main release.

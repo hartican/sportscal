@@ -1701,3 +1701,18 @@ work; they do not certify cloud installation or public reliability. Earlier
 source-preparation and full-activation refusals remain recorded and were exactly
 undone. Root must still pass a new guarded installation, repeated fresh public
 reads and the entire normal release before claiming completion.
+
+
+## 21 October2026 — group full installation validation in one snapshot
+
+After R7's full activation refusal and exact reconciled undo, the installation
+validator may evaluate its identical complete payload/witness predicate by
+populated source in one parent SQL statement. A temporary STABLE empty-search-path
+helper shares that query snapshot; materialise distinct source keys before calling
+it, then drop it before switching the view in the same transaction. Repeat every
+unchanged preimage, coverage, rights, pending and capacity guard. Preserve the
+single overall three-second payload statement, all original runtime/writer/undo
+bytes and1s/3s/5s/8s budgets. There is no per-source time reset or persisted
+validation authority. PG17/18 corruption/format/consumer and actual full-source
+work checks must pass. Local removal of temporary work is separate from cloud
+installation and public reliability. [Evidence](quality/global-snapshot-complete-rows-2026-10-21.md).
