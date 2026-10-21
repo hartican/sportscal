@@ -186,7 +186,7 @@ async function assertCachedMultidayRetention(page){
   assert.deepEqual(result.invalidFinishDays,['2026-03-01','2026-03-01','2026-03-01'],'The actual upgraded/offline compiled policy rejects nonexistent finish dates');
 }
 async function assertCachedReviewedCalendarNotes(page){
-  const panel=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/loadDeferredScript\('([^']*follow-schedule-panel\.js\?v=\d+)'\)/)[1];
+  const panel=fs.readFileSync(path.join(root,'assets/js/follow-presentation-ui.js'),'utf8').match(/loadDeferredScript\('([^']*follow-schedule-panel\.js\?v=\d+)'\)/)[1];
   await page.evaluate(panel=>loadDeferredScript(panel),panel);
   assert.equal(await page.evaluate(panel=>caches.match('/'+panel).then(r=>r?.text()),panel),fs.readFileSync(path.join(root,panel.split('?')[0]),'utf8'),'First offline Schedule uses the exact current precached module');
   const api=require('./lib/reviewed-calendar-notes'),legacy=JSON.parse(baselineFile('data/events.json')).events.filter(e=>api.ids.includes(e.id));
@@ -297,6 +297,7 @@ async function assertCachedFootballStatus(page){
   assert.equal(await page.evaluate(modulePath=>caches.match('/'+modulePath).then(r=>r?.text()),footballContextPath),fs.readFileSync(path.join(root,'assets/js/football-card-context.js'),'utf8'),'Cached UEFA preview executes the exact current source module');
   const priorLive=JSON.parse(baselineFile('data/code-inspector/american-football.json')).fixtures.find(f=>f.status==='live')||require('./fixtures/nfl-retained-live-observation.json').fixture;
   const nfl=await page.evaluate(async ({priorLive,navigationPath,panelPath})=>{
+    await loadFollowPresentation();
     await loadDeferredScript(navigationPath);await loadDeferredScript(panelPath);
     const document=await(await fetch('/data/code-inspector/american-football.json')).json();
     const previous=codeInspectorChunk,saved=JSON.stringify(userPreferences),reveal=standingsRevealApproved;
