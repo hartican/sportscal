@@ -61,17 +61,33 @@ async function run(browser,base,engine){
    assert.equal(await page.locator('.follow-navigation').count(),0);assert.deepEqual(ctx.errors,[]);report.push({engine,scenario:restored?'restored Browse during Feed startup':'early Browse and failed Feed',heldRequiredFeedReads});
   }finally{gate.release();await closePage(page);}
  }
- // Optional journey information cannot delay names or cause a false empty state.
- gate=latch();ctx=await createPage(browser,base,{route:'#follow/favourites'});page=ctx.page;let journeys=0,matchCentre=0;
+ // Favourites must not depend on the shared score model. Approved global idle
+ // preparation is a separate owner and must neither duplicate it nor mount its UI.
+ gate=latch();const idleGate=latch();ctx=await createPage(browser,base,{route:'#follow/favourites'});page=ctx.page;let journeys=0,idleRequests=0;const modelRequests=[],uiRequests=[];
  console.log(engine+': optional journey startup');
  try{
   await page.route('**/config/tennis-journeys.js*',async r=>{journeys++;await gate.promise;await r.continue();});
   await page.route('**/data/tennis-journeys.v1.json*',async r=>{await gate.promise;await r.continue();});
-  await page.route('**/config/match-centre.js*',async r=>{matchCentre++;await r.continue();});
+  await page.route('**/config/startup-view-cache.js*',async r=>{idleRequests++;await idleGate.promise;await r.continue();});
+  await page.route('**/config/match-centre.js*',async r=>{modelRequests.push(new URL(r.request().url()).pathname+new URL(r.request().url()).search);await r.continue();});
+  await page.route('**/assets/js/match-centre-ui.js*',async r=>{uiRequests.push(new URL(r.request().url()).pathname+new URL(r.request().url()).search);await r.continue();});
   await ctx.goto();await page.locator('.athletes-heading').waitFor({timeout:2000});await page.locator('.athletes-person').first().waitFor({timeout:2000});
-  assert.equal(matchCentre,0,'favourites do not load unused Match Centre code');
-  assert.equal(journeys,0,'favourites do not fetch participant calendars');assert.deepEqual(ctx.errors,[]);report.push({engine,scenario:'restored favourites with delayed optional journeys'});
- }finally{gate.release();await closePage(page);}
+  assert.deepEqual(modelRequests,[],'favourites do not request the shared Match Centre model before idle preparation');
+  assert.deepEqual(uiRequests,[],'favourites do not request the private Match Centre UI before idle preparation');
+  assert.equal(journeys,0,'favourites do not fetch participant calendars');
+  const beforeIdle=await page.evaluate(()=>({preferences:JSON.stringify(userPreferences),actions:JSON.stringify(eventActions),route:location.hash,tab:activeTab}));
+  await page.waitForFunction(()=>[...document.scripts].some(s=>s.src&&new URL(s.src).pathname==='/config/startup-view-cache.js'));
+  assert.equal(idleRequests,1,'startup has one existing idle preparation owner');
+  idleGate.release();
+  await page.waitForFunction(()=>loadDeferredScript.requests?.has(new URL('assets/js/match-centre-ui.js?v=576',document.baseURI).href));
+  await page.evaluate(()=>loadDeferredScript.requests.get(new URL('assets/js/match-centre-ui.js?v=576',document.baseURI).href));
+  assert.deepEqual(modelRequests,['/config/match-centre.js?v=579'],'approved idle preparation loads the existing shared model exactly once under its installed cache URL');
+  assert.deepEqual(uiRequests,['/assets/js/match-centre-ui.js?v=576'],'approved idle preparation loads the existing private UI exactly once under its installed cache URL');
+  assert.deepEqual(await page.evaluate(()=>({preferences:JSON.stringify(userPreferences),actions:JSON.stringify(eventActions),route:location.hash,tab:activeTab})),beforeIdle,'idle preparation preserves choices and the restored Follow route');
+  assert.equal(await page.locator('#listView.match-centre, .match-centre-heading, .match-centre-card').count(),0,'idle preparation must not mount Match Centre');
+  await page.locator('.athletes-heading').waitFor({timeout:2000});await page.locator('.athletes-person').first().waitFor({timeout:2000});
+  assert.equal(journeys,0,'idle preparation must not fetch participant calendars');assert.deepEqual(ctx.errors,[]);report.push({engine,scenario:'restored favourites independent of delayed optional journeys and approved idle preparation',idleRequests,modelRequests,uiRequests});
+ }finally{idleGate.release();gate.release();await closePage(page);}
  // Re-renders share one schedule request and retain last-good names on failure.
  gate=latch();let fail=false;ctx=await createPage(browser,base,{api:async r=>{await gate.promise;return r.fulfill({status:fail?503:200,json:fail?{}:{events:[],athletes:[person],pagination:{nextCursor:null}}});}});page=ctx.page;
  console.log(engine+': slow API and request coalescing');
