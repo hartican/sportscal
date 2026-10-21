@@ -1,6 +1,6 @@
 # Loading repair: prepare transport rows with canonical facts
 
-Status: all affected browser/PWA checks pass on the held app581 frontend. Three complete-row live trials were safely undone; full activation remains unqualified. The grouped full-validation guard passes local PG17/18 checks. No production release acceptance.
+Status: all affected browser/PWA checks pass on the held app581 frontend. Four complete-row live trials were safely undone; full activation remains unqualified. The staged consistent-snapshot installation passes local PG17/18 and native concurrency checks. No production release acceptance.
 
 The public loading failure is a real shared fixture-read deadline failure, not
 merely a missing verifier timing. Earlier query changes and a private base-prefix
@@ -166,3 +166,57 @@ inputs agree exactly; other source facts are reconstructed, not faithful live
 history. It does not establish that temporary I/O caused the cloud refusal or
 that R9 will meet the live deadline. One distinct guarded installation and
 repeated fresh public reads remain necessary before the normal exact-main release.
+
+
+## R10: explicit staged-installation decision, not a longer app deadline
+
+R9's all7670-row full validation still failed the single three-second payload
+statement. Exact prepared undo succeeded and the original16contracts/D7/fbc,
+cache absence and zero pending work were reverified08:05:21UTC, retaining7670
+fixtures/7661scores. Before undo, the cache had already autoanalysed7670tuples;
+missing cache statistics is not established as its cause. Actual largest-source
+projection/serialization samples passed: USOpen226.469ms, MRU127.929ms,
+EPL120.477ms and MotoGP178.727ms. These exclude cached-row joins/comparisons and
+do not reproduce the full guard or attribute the delay to a specific host limit.
+
+R10 explicitly supersedes R9's *single overall three-second installation payload
+statement*. Installation now performs16complete hex-source partitions as separate
+statements inside ONE REPEATABLE READ transaction. Every nonnull source belongs
+to exactly one partition; there is no allowlist or sample. Each statement keeps
+three seconds, allowing up to48seconds across payload statements plus separately
+bounded metadata/DDL. Total installation time is intentionally longer. This is
+an engineering change to one-off installation, not an increase to app3s/5sreads,
+canonical8spublishes,1slocks or any sporting refresh/polling budget.
+
+The complete R9 helper predicate, C-text/original JSONB fallback, pre/post metadata,
+rights/coverage/capacity/pending guards, runtime view, writers and exact undos are
+unchanged. RR is set before the first query and asserted; already-used RC callers
+refuse closed. No stored certificate, source fact, API, scheduler or role/default
+setting is added. New canonical writes remain with the existing owner and default
+transaction behaviour. Initial installation is serialized by Root's existing
+single-publisher process.
+
+Actual PG18(180003) passes54checks and PG17(170005)53. All13earlier poison refusals
+remain;16populated partitions each reject their own poisoned payload. Deliberately
+omitting the actual last partition accepts its poison, demonstrating that the
+regression catches a missing partition. Native PG17(170006) passes8independent-
+client checks, including concurrent atomic base/score commits between the first
+and last partition, unchanged installer snapshot, current post-commit rendering,
+last-partition refusal, used-RC refusal and exact undo preserving those updates.
+The native case has two synthetic sources and is not load or live HTTP proof.
+
+A separate actual `apply_migration` wrapper probe sets transaction-local RR and
+uses a temporary ON COMMIT DROP table to assert the identical transaction ID and
+snapshot before and after two1.7second statements under three seconds EACH. It
+passed, then explicitly dropped the table. This appended one migration-history
+entry and used temporary DDL; it changed no fixtures, accounts, persistent schema
+API or role/default setting. It qualifies caller packaging, not a successful
+fixture installation. Frozen source-only review found0concrete issues; no
+independent test execution is implied.
+
+R10 still requires a distinct guarded preparation/activation, repeated fresh
+public membership/participant/real-selected reads and every normal release gate
+before exact-main publication and deployment. Existing browser proof remains
+7b4f-equivalent because this change touches SQL/tests/docs only. No iPhone prompt,
+automatic reminder activation or historical Follow recovery is permitted by these
+local checks alone.

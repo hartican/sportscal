@@ -1716,3 +1716,26 @@ bytes and1s/3s/5s/8s budgets. There is no per-source time reset or persisted
 validation authority. PG17/18 corruption/format/consumer and actual full-source
 work checks must pass. Local removal of temporary work is separate from cloud
 installation and public reliability. [Evidence](quality/global-snapshot-complete-rows-2026-10-21.md).
+
+
+## 21 October2026 — stage installation validation in one repeatable-read transaction
+
+This dated R10 installation decision explicitly supersedes R9's single overall
+three-second payload statement. That full live statement failed after complete
+source preparation; its exact undo was reconciled08:05:21UTC. Keep all original
+full data checks. Partition complete nonnull sources exhaustively by first MD5
+hex character into16separate statements inside ONE asserted REPEATABLE READ
+migration transaction. Each retains3seconds; total payload validation may take
+up to48seconds plus separately bounded metadata/DDL. Do not call this the same
+R9overall allowance. Preserve1slocks, runtime3s/5sreads, canonical8spublishes,
+all exact payload/witness/fallback/rights/coverage/capacity guards, writers and
+undos. No persisted certificate, sampling, new API/owner/scheduler, role/default
+isolation change or customer state is added. Source backfills retain their
+existing transaction behaviour.
+
+Require all16populated-partition refusals and a skipped-partition negative,
+PG17/18 functional tests, native independent-client snapshot/update/undo proof,
+actual apply_migration wrapper transaction/snapshot packaging, then guarded live
+application, repeated fresh public reads and the complete normal exact-main
+release. Local/source/wrapper success cannot override a failed public gate.
+Root remains the sole executor/integrator/publisher. [Evidence and constraints](quality/global-snapshot-complete-rows-2026-10-21.md).
