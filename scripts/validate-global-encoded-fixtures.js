@@ -53,6 +53,18 @@ async function capture(db){
  const backfill=async id=>{await db.exec("begin;set local lock_timeout='1s';set local statement_timeout='3s';");await db.query('select source_id from public.nothingsports_fixture_sources where source_id=$1 for update',[id]);await db.query('insert into nothingsports_fixture_read_private.integrity_pending values($1) on conflict do nothing',[id]);await db.exec('set constraints nothingsports_fixture_read_private.fixture_integrity_at_commit immediate;commit');};
  await backfill('retained-public');
  check('source-owned backfill produces full rows or nonserving tombstones',Number((await db.query('select count(*) n from '+cache)).rows[0].n)===5000);
+ const poisonTarget=(await db.query('select source_id,fixture_id from '+cache+' where can_encode order by source_id,fixture_id limit 1')).rows[0];assert(poisonTarget);
+ const activationPoisons=[
+  "base=base||jsonb_build_object('qaPoison',true)","identity_keys=array['qaPoison']","base_hash='qaPoison'","base_updated_at=base_updated_at-interval '1 second'",
+  "score=coalesce(score,'{}'::jsonb)||jsonb_build_object('qaPoison',true)","score_hash='qaPoison'","first_complete=statement_timestamp()-interval '1 year'","receipt_s='qaPoison'","receipt_t='qaPoison'",
+  "row_text=(row_text::jsonb||jsonb_build_object('qaPoison',true))::text","render_timezone='Australia/Sydney'","rendered_at=statement_timestamp()+interval '1 hour'"
+ ];
+ for(const assignment of activationPoisons){
+  await db.exec('begin');await db.query('update '+cache+' set '+assignment+' where source_id=$1 and fixture_id=$2',[poisonTarget.source_id,poisonTarget.fixture_id]);
+  await assert.rejects(db.exec(built.stage2),error=>error.code==='P0001'&&/payload\/witness mismatch/.test(error.message),'Activation must reject every factual witness, payload and clock poison');await db.exec('rollback;');
+ }
+ await db.exec('begin');await db.query("update "+cache+" set row_text='{bad' where source_id=$1 and fixture_id=$2",[poisonTarget.source_id,poisonTarget.fixture_id]);await assert.rejects(db.exec(built.stage2),error=>error.code==='22P02');await db.exec('rollback;');
+ report.activationRefusals=activationPoisons.length+1;check('full activation validation rejects every witness, payload, timezone, lower-bound and malformed-JSON poison');
  await db.exec('begin;'+built.stage2+'commit;');check('activation contracts rights and complete payload witnesses pass');
  const undoSource=undo;await compare();const activated=await capture(db);assert.deepEqual(activated.funcs,built.after.funcs);assert.deepEqual(activated.triggers,built.after.triggers);check('implemented helper and trigger contracts remain exact');
  const payload=async id=>{const r=(await db.query("select w.can_encode,w.render_timezone,w.rendered_at,w.row_text,w.xmin::text version,case when w.can_encode then w.row_text::jsonb=(select row_to_json(p)::jsonb from(select c.source_id,c.fixture_id,c.identity_keys,public.nothingsports_project_fixture_observations(c.global_fixture,s.score,src.discovery_report->'_fixtureObservations'->c.fixture_id,s.first_completed_at) fixture)p) else true end exact from "+cache+" w join public.nothingsports_fixture_current c using(source_id,fixture_id) join public.nothingsports_fixture_sources src using(source_id) left join public.nothingsports_live_scores s using(source_id,fixture_id) where w.fixture_id=$1",[id])).rows[0];assert(r);assert(r.exact);return r;};
