@@ -33,10 +33,14 @@ const name='nothingsports_read_match_centre_fixture_bundle',signature='public.'+
   }
   await db.exec('begin;'+migration+'commit;');
   assert.deepEqual(await contracts(),beforeContracts,'No other public/private helper or grant changes');assert.deepEqual(await attrs(),beforeAttributes,'Near signature, scalar type, language attributes and rights remain exact');
-  const afterDefinition=(await db.query('select pg_get_functiondef($1::regprocedure) d',[signature])).rows[0].d;
+  let afterDefinition=(await db.query('select pg_get_functiondef($1::regprocedure) d',[signature])).rows[0].d;
   const seam=', seeds as materialized (';const at=beforeDefinition.indexOf(seam);assert(at>0);
   assert.equal(afterDefinition,beforeDefinition.slice(0,at).replace(/c\.fixture\b/g,'c.global_fixture')+beforeDefinition.slice(at),'Only seed-input base accesses change; all output, identity, context, completion and admission logic stays exact');
   await db.exec('begin;');await assert.rejects(db.exec(migration),/differs from reviewed baseline/);await db.exec('rollback;');checks++;
+  // Run the complete existing semantic suite through the latest direct-field
+  // reader, while the independent original raw reader stays the reference.
+  afterDefinition=await require('./lib/match-centre-direct-fields-tests').activate(db);
+  assert.deepEqual(await contracts(),beforeContracts);assert.deepEqual(await attrs(),beforeAttributes);checks++;
   const now=Date.parse((await db.query('select statement_timestamp() t')).rows[0].t),time=m=>new Date(now+m*60000).toISOString();
   await db.exec("insert into public.nothingsports_fixture_sources(source_id) values('qa-seed-base'),('qa-seed-publish');");
   const fixture=(id,extra={})=>({id,key:'nrl',status:'scheduled',date:new Date(now).toISOString().slice(0,10),startTimeUtc:time(20),homeParticipantId:id+':home',awayParticipantId:id+':away',fullSpiel:'retained full detail '.repeat(100),storyline:{stakes:4,hookSpoilerOff:'original hook'},...extra});
@@ -56,6 +60,13 @@ const name='nothingsports_read_match_centre_fixture_bundle',signature='public.'+
   await insert(fixture('far:kept',{startTimeUtc:time(2000),fixtureIdAliases:['alias:far']}));await equal(['alias:far']);
   await insert(fixture('alias:context',{fixtureIdAliases:['status:live'],status:'scheduled',startTimeUtc:time(2000)}));await equal();
   await insert(fixture('unknown:start',{startTimeUtc:'unconfirmed'}));await equal();
+  for(const [index,value] of [null,0,{unknown:true},'2026-02-30T10:00:00Z',''].entries()){
+   await insert(fixture('raw:start:'+index,{startTimeUtc:value}));await equal();
+  }
+  await insert(fixture('relation:one',{status:'live',fixtureIdAliases:['relation:a']}));
+  await insert(fixture('relation:two',{startTimeUtc:time(2000),fixtureIdAliases:['relation:a','relation:b']}));
+  await insert(fixture('relation:three',{startTimeUtc:time(2000),fixtureIdAliases:['relation:b']}));await equal();
+  const related=(await db.query('select public.'+name+"('{}') body")).rows[0].body.rows;assert(related.some(r=>r.fixture_id==='relation:three'),'A real three-hop context survives direct selection');checks++;
   await score('status:completed',{status:'scheduled',startTimeUtc:null,statusCheckedAt:null});await equal();
   await db.exec("begin;delete from nothingsports_fixture_read_private.fixture_context where source_id='qa-seed-base' and fixture_id='status:live';");await equal();await db.exec('rollback;');
   // Corrupting the actual derived input must expose a lost match; never merely compare two delegates.
@@ -92,6 +103,7 @@ const name='nothingsports_read_match_centre_fixture_bundle',signature='public.'+
   assert.equal((await db.query('select public.'+name+'($1) body',[Array(5001).fill('far:kept')])).rows[0].body.complete,false,'Oversized preservation cannot become healthy');
   await db.exec("insert into public.nothingsports_fixture_current(source_id,fixture_id,identity_keys,fixture,content_hash) select 'qa-seed-base','cap:'||i,array['cap:'||i],jsonb_build_object('id','cap:'||i,'key','nrl','status','live'),'qa-cap' from generate_series(1,5002) i;");
   await equal();const overflow=(await db.query('select public.'+name+"('{}') body")).rows[0].body;assert.equal(overflow.complete,false);assert.equal(overflow.rows.length,5001,'Full context overflow keeps the incomplete sentinel');checks++;
+  await require('./lib/match-centre-direct-fields-tests').roundTrip(db,equal);checks++;
   console.log(JSON.stringify({schemaVersion:'match-centre-stored-seeds.v1',pgMajor,checks,readerMd5:(await db.query('select md5(pg_get_functiondef($1::regprocedure)) h',[signature])).rows[0].h,wholePayloadEqual:true,canonicalPublisher:true,negativeCompletionOmission:true,rawSharedHits:raw.Plan['Shared Hit Blocks'],compactSharedHits:compact.Plan['Shared Hit Blocks'],rawMs:raw['Execution Time'],compactMs:compact['Execution Time'],actualOldScanNegative:true,productionCalls:0}));
  }finally{await db.close();}
 })().catch(e=>{console.error(e.stack);process.exitCode=1;});

@@ -1,6 +1,41 @@
 # CTO delivery programme — authoritative current queue
 
-## Current snapshot repair — 21 October 2026
+## Current combined loading repair — 21 October 2026
+
+App **580 / 2a6b8c6b** remains deployed and unaccepted; app **581** is held.
+Root remains the single integrator, database executor and publisher.
+
+The global direct-calendar trial preserved all 4,731 ordered matches and passed
+two complete live rounds. A later healthy Match Centre snapshot took 4,743 ms,
+missing the required one-second margin below five seconds. The trial was exactly
+undone; original fbc/D9, all original contracts, no trial cache and zero pending
+work were confirmed at 10:55:56 UTC, with 7,670 current rows and 7,661 scores.
+The failure is retained. No deadline or acceptance threshold was relaxed.
+
+The next scoped repair combines direct canonical selection in the global view
+and the initial Match Centre seed/lookup scans. Both existing shortcuts repeat
+expensive descriptor work. Complete real-data comparisons found zero differences
+across all 7,670 seed fields and all 7,670 lookup fields. Separate full diagnostic
+controls took about 1.19 seconds global / 1.49 seconds near; these are not live
+acceptance forecasts. No table, field, cache, writer, API, sporting fact, scheduler
+or permission policy is added. The failed unshipped encoded package is archived
+outside the deployable migration chain.
+
+All 244 local release commands passed; the two affected near-reader gates were
+then refreshed on the latest source, passing both PG17/18 full semantic suites
+with exact undo and actual rejected-reader negatives. Frontend bytes remain
+identical to the already-qualified app581 browser/installed rehearsals. Next:
+one guarded atomic combined application, full reconciliation, four complete
+spaced public rounds with the unchanged margin, then the normal exact-main
+release/security/coverage checks. [Near evidence](quality/match-centre-direct-fields-2026-10-21.md)
+and [global evidence](quality/global-snapshot-complete-rows-2026-10-21.md).
+
+The separate canonical ENOBUFS owner retains its refresh verification. Historical
+Follow recovery remains paused/unresolved, zero example additions and zero
+restorations. Automatic alert activation, phone prompt and new feature hooks
+remain held; the existing archive follow-up stays queued.
+
+## Previous descriptor-index checkpoint — 21 October 2026
 
 **Publication remains blocked.** Stored and inline compact projections reduced actual temporary work, but the ninth fresh request still failed after two healthy rounds. No fourth round or new publication followed. A direct generic query trace now identifies global candidate selection as the dominant measured stage: 1819.609 ms of 2443.189 ms, repeatedly opening fixture fields already held in the existing canonical selection index.
 

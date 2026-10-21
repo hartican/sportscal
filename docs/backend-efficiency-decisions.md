@@ -1777,3 +1777,30 @@ value/consumer/permissions/overflow/undo checks and a real rejected-view work
 negative, then guarded live application, repeated fresh HTTP checks and all
 normal exact-main release gates. SQL-only timing cannot certify phone speed or
 release acceptance. Root remains the sole executor and publisher.
+
+
+## 21 October 2026 — direct canonical Match Centre selection fields
+
+The global-only direct-calendar trial passed two full public rounds, then a
+healthy near read used 4,743 ms and failed the required one-second headroom.
+The requirement in the approved interactive allowance remains mandatory. Exact
+undo restored original fbc/D9 and all original contracts at 10:55:56 UTC. No app
+publication or threshold relaxation occurred.
+
+The same shortcut also appears in Match Centre seed and lookup scans. Replace
+only their five effective status/start/home/away expressions and two optional
+descriptor joins with original canonical raw expressions on the existing guarded
+D7 compact base. Keep recursive indexed context closure, pending/missing-index
+fallback, preserved IDs, 31/65-minute windows, uncertainties, full projection,
+original clocks, permissions and all budgets unchanged. No table, field, cache,
+writer, source, scheduler, retry, helper attribute or phone action is added.
+
+The exact full body with actual empty preservation scope completed a diagnostic
+in 1,491 ms under three seconds; both complete real-data initial scans compare
+all 7,670 rows with zero differences. PG17/18 extend the existing full semantic
+suite through this latest reader, including guard/replay refusals, a real D9
+restoration work negative and committed exact undo/reapply. Combine this bounded
+repair with the already-reviewed direct global view in one guarded transaction;
+undo both atomically on failed required acceptance. All four complete public
+rounds, one-second headroom, normal full release/security and exact-SHA publication
+remain required. Component timing does not establish complete runtime acceptance.
