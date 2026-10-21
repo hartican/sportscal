@@ -2630,13 +2630,7 @@ function syncThemeEventAssets(useDark){
 
 
 
-function appendClubIdentityFallback(container, label, className = "team-logo-fallback"){
-  const monogram = document.createElement("span");
-  monogram.className = `${className} team-logo-monogram`;
-  monogram.setAttribute("aria-label", `${label || "Team"} identity`);
-  monogram.textContent = String(label || "Team").split(/\s+/).map(word => word[0]).join("").slice(0, 3).toUpperCase() || "TM";
-  container.appendChild(monogram);
-}
+
 
 let cardIdentityCache = null;
 function cardIdentityParticipants(){
@@ -8546,10 +8540,7 @@ function closeCodeInspector({ restoreViewport = true, preserveReturnState = fals
   if (restoreViewport) restoreInspectorFeedViewport(returnState);
 }
 
-function backFromCodeInspector(){
-  if (codeInspectorCodeFromLocation()) history.back();
-  else closeCodeInspector();
-}
+
 
 async function syncCodeInspectorFromLocation(){
   const codeId = codeInspectorCodeFromLocation();
@@ -8681,9 +8672,7 @@ function codeInspectorGroupLabel(fixture, groupingMode){
 }
 
 
-function inspectorFixtureIsResult(fixture){
-  return ["completed", "finished", "final"].includes(String(fixture.status || "").toLowerCase());
-}
+
 
 function inspectorFixtureMatchesTab(fixture){
   const entity=followSelectedEntity();
@@ -8692,59 +8681,7 @@ function inspectorFixtureMatchesTab(fixture){
   return selectorEntityMatchesEvent(entity.id,ev);
 }
 
-function renderCodeInspectorPlayers(panel, fixtures){
-  const followed = followedStandingsParticipantIds();
-  const players = new Map();
-  fixtures.forEach(fixture => (fixture.participantSlots || []).forEach(slot => {
-    const id = String(slot.participantId || slot.label || "");
-    if (!id) return;
-    const record = players.get(id) || { id, label:slot.label || followedParticipantLabel(id), appearances:0 };
-    record.appearances += 1;
-    players.set(id, record);
-  }));
-  const ordered = [...players.values()].sort((first, second) => (
-    Number(followed.has(second.id)) - Number(followed.has(first.id))
-    || second.appearances - first.appearances
-    || first.label.localeCompare(second.label)
-  ));
-  const visible = codeInspectorPlayersExpanded
-    ? ordered
-    : ordered.filter((player, index) => index < 3 || followed.has(player.id));
-  const list = document.createElement("div");
-  list.className = "code-inspector-fixtures";
-  list.dataset.scrollList = "inspector-players";
-  visible.forEach(player => {
-    const row = document.createElement("article");
-    row.className = "code-inspector-fixture";
-    row.dataset.scrollKey = `inspector-player:${player.id}`;
-    const copy = document.createElement("div");
-    const title = document.createElement("h4");
-    title.textContent = player.label;
-    const detail = document.createElement("p");
-    detail.textContent = `${player.appearances} published appearance${player.appearances === 1 ? "" : "s"}${followed.has(player.id) ? " · Following" : ""}`;
-    copy.append(title, detail);
-    row.appendChild(copy);
-    list.appendChild(row);
-  });
-  panel.appendChild(list);
-  if (visible.length < ordered.length || codeInspectorPlayersExpanded){
-    const expander = document.createElement("button");
-    expander.type = "button";
-    expander.className = "standings-table-expander";
-    expander.setAttribute("aria-expanded", String(codeInspectorPlayersExpanded));
-    expander.innerHTML = `<span>${codeInspectorPlayersExpanded ? "Top 3 + followed" : "Show all players & teams"}</span>${glyphMarkup("ui:chevron-right")}`;
-    expander.addEventListener("click", () => {
-      mutateWithScrollContinuity(list, () => {
-        codeInspectorPlayersExpanded = !codeInspectorPlayersExpanded;
-        renderCodeInspector();
-      }, {
-        restoreFocus:true,
-        focusTarget:".code-inspector-panel > .standings-table-expander",
-      });
-    });
-    panel.appendChild(expander);
-  }
-}
+
 
 function codeInspectorFixtureSportKey(fixture){
   const slug = codeInspectorManifest?.codes?.find(code => code.id === fixture.codeId)?.slug || String(fixture.codeId || "").replace(/^sport:/, "");
@@ -8765,67 +8702,7 @@ function canonicalFeedFixtureForInspector(fixture){
   return semanticKey ? candidates.find(event => MAJOR_EVENTS.fixtureSemanticKey(event) === semanticKey) || null : null;
 }
 
-function codeInspectorFixtureSnapshot(fixture){
-  if (!fixture?.id || !fixture.date || (!["golf","masters"].includes(codeInspectorFixtureSportKey(fixture)) && (!fixture.time || fixture.scheduleStatus === "provisional" || inspectorFixtureIsResult(fixture)))) return null;
-  const participantSlots = Array.isArray(fixture.participantSlots) ? fixture.participantSlots : [];
-  const canonicalFixture = canonicalFeedFixtureForInspector(fixture);
-  const editorialNarrative = fixture.editorialNarrative || canonicalFixture?.editorialNarrative || null;
-  const snapshot = {
-    ...fixture,
-    id:fixture.id,
-    eventId:fixture.id,
-    canonicalEventId:fixture.id,
-    actionKey:fixture.id,
-    cardKind:"fixture",
-    manualPin:true,
-    key:codeInspectorFixtureSportKey(fixture),
-    sport:codeInspectorManifest?.codes?.find(code => code.id === fixture.codeId)?.label || codeInspectorFixtureSportKey(fixture),
-    competitionId:fixture.competitionId || null,
-    name:fixture.name || "Fixture unavailable",
-    date:fixture.date,
-    time:fixture.time,
-    startTimeUtc:fixture.startTimeUtc || null,
-    venue:fixture.venue || null,
-    broadcaster:fixture.broadcaster || "",
-    viewingOptions:Array.isArray(fixture.viewingOptions) ? fixture.viewingOptions.map(option => ({ ...option })) : [],
-    sourceUrl:fixture.sourceUrl || null,
-    stage:fixture.stage || null,
-    roundLabel:fixture.roundLabel || null,
-    competitionScope:fixture.competitionScope || null,
-    isInternational:fixture.isInternational === true || fixture.competitionScope === "international",
-    representativeCountryCodes:Array.isArray(fixture.representativeCountryCodes) ? fixture.representativeCountryCodes : [],
-    participantIds:participantSlots.map(slot => slot.participantId).filter(Boolean),
-    participantSlots:participantSlots.map(slot => ({ ...slot })),
-    participants:participantSlots.map(slot => ({
-      id:slot.participantId || null,
-      name:slot.label || "TBD",
-      displayName:slot.label || "TBD",
-      logoUrl:slot.logoUrl || null,
-      crestUrl:slot.logoUrl || null,
-      homeAway:slot.homeAway || null,
-    })),
-    matchupSides:participantSlots.map(slot => ({
-      id:slot.participantId || null,
-      label:slot.label || "TBD",
-      participants:[{ id:slot.participantId || null, name:slot.label || "TBD", logoUrl:slot.logoUrl || null }],
-    })),
-    status:fixture.status || "scheduled",
-    stakesScore:Number(fixture.expected) >= 9 ? 5 : Number(fixture.expected) >= 7 ? 4 : 3,
-    expected:Number(fixture.expected || 7),
-    ...(editorialNarrative ? {
-      editorialNarrative:{ ...editorialNarrative },
-      storyline:fixture.storyline || canonicalFixture?.storyline || {
-        stakes:Number(fixture.expected) >= 9 ? 5 : Number(fixture.expected) >= 7 ? 4 : 3,
-        hookSpoilerOff:editorialNarrative.hook,
-        hookSpoilerOn:editorialNarrative.hook,
-        synopsisSpoilerOff:editorialNarrative.synopsis,
-        synopsisSpoilerOn:editorialNarrative.synopsis,
-        arcStage:"preview",
-      },
-    } : {}),
-  };
-  return ["golf","masters"].includes(snapshot.key) || eventDateTime(snapshot).getTime() > Date.now() ? snapshot : null;
-}
+
 
 function setCodeInspectorFixtureAdded(fixture, enabled){
   const snapshot = codeInspectorFixtureSnapshot(fixture);
@@ -8841,37 +8718,11 @@ function setCodeInspectorFixtureAdded(fixture, enabled){
   return true;
 }
 
-function buildCodeInspectorFixture(fixture){
-  const slots=fixture.participantSlots || [];
-  let canonical=canonicalFeedFixtureForInspector(fixture);
-  if(globalThis.inspectorSourcePreferred?.(fixture,canonical))canonical=null;
-  const event=fixture.calendarNote&&canonical?.sourceTrust!=='verified'?{...canonical,...fixture}:canonical || {...fixture,id:fixture.id,eventId:fixture.id,key:codeInspectorFixtureSportKey(fixture),
-    participantIds:slots.map(slot=>slot.participantId).filter(Boolean),
-    participants:slots.map(slot=>({id:slot.participantId,name:slot.label,displayName:slot.label,logoUrl:slot.logoUrl})),
-    status:inspectorFixtureIsResult(fixture)?'finished':fixture.status || 'scheduled',
-    stakesScore:fixture.stakesScore || (fixture.expected>=9?5:fixture.expected>=7?4:3)};
-  const fields=globalThis.inspectorPresentationFields?.(fixture,event);
-  return buildEventCard(fields?{...event,...fields}:event,{mode:'schedule',inspectorFixture:fixture});
-}
 
-function appendSchedulePin(container,fixture,card){
-  const snapshot=codeInspectorFixtureSnapshot(fixture);
-  if(!snapshot)return;
-  const added=Boolean(getEventAction(snapshot).addedToFixtures);
-  const canonical=canonicalFeedFixtureForInspector(fixture) || {...snapshot,manualPin:false};
-  const automatic=Boolean(automaticEventFollowReason(canonical)) && !getEventAction(canonical).dismissed && !getEventAction(canonical).archived;
-  const pin=document.createElement('button');pin.type='button';pin.className='event-quick-action code-inspector-feed-action';
-  pin.setAttribute('aria-pressed',String(added || automatic));pin.textContent=automatic?'In Feed':added?'Remove from Feed':'Add to Feed';pin.disabled=automatic;
-  pin.onclick=event=>{event.stopPropagation();if(!setCodeInspectorFixtureAdded(fixture,!added))return;
-    if(!added)recordCodeAffinity(fixture.codeId,'pin');
-    mutateWithScrollContinuity(pin.closest('.event-card') || card,renderCodeInspector,{anchorStrategy:'target'});
-  };
-  container.appendChild(pin);
-}
 
-function codeInspectorStandingsSportKey(code){
-  return ({ "rugby-union": "rugby", "american-football": "nfl" })[code.slug] || code.slug;
-}
+
+
+
 
 
 
@@ -8890,11 +8741,7 @@ function renderTennisTournamentSchedule(panel,fixtures){
 }
 
 function renderCodeInspector(){ renderFollowView(); }
-function renderCodeInspectorPanel(container){
-  if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
-  container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=576').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
-}
+
 
 function buildFocusedDiscoveryBanner(nodeId){
   if (!nodeId || nodeId === "all") return null;
@@ -12455,9 +12302,7 @@ function followDirectoryKey(entity=followSelectedEntity()){
 function followInspectorCode(entity=followSelectedEntity()){
   return globalThis.NOTHINGSPORTS_FIXTURE_IDENTITY.scheduleCode(entity, codeInspectorManifest?.codes || []);
 }
-function followStandingsLabel(code){
-  return ['afl','aflw','nrl','rugby-union','netball'].includes(code?.slug) ? 'Ladder' : 'Standings';
-}
+
 let followRatingAffinity={windowDays:90,sports:[]},followRatingAffinityOwner='',followRatingAffinityLoading=null;
 async function loadFollowRatingAffinity(){
   const owner=serverSyncClient?.sessionSubject?.()||'';
@@ -12470,31 +12315,12 @@ async function loadFollowRatingAffinity(){
   }).catch(()=>followRatingAffinity).finally(()=>{followRatingAffinityLoading=null;});
   return followRatingAffinityLoading;
 }
-function rootSportKeys(entity){return new Set([entity.id.replace(/^sport:/,''),...(entity.canonicalSportKeys||[]),...(entity.childIds||[]).flatMap(id=>selectorEntityById(id)?.canonicalSportKeys||[])]);}
-function rootSportIsFollowed(entity){
-  const selected=new Set(userPreferences.selectedSelectorEntityIds||[]),keys=rootSportKeys(entity),graph=userPreferences.preferenceGraph||{};
-  if(selected.has(entity.id)||(entity.childIds||[]).some(id=>selected.has(id)))return true;
-  if((userPreferences.followedSports||[]).some(key=>keys.has(key)))return true;
-  if((graph.domainPreferences||[]).some(item=>item.enabled!==false&&(item.sportDomainId===entity.domainId||item.sportDomainId===entity.id)))return true;
-  const selectorIds=[entity.id,...(entity.childIds||[])].map(selectorEntityById).filter(Boolean).map(item=>item.taxonomyNodeId);
-  if((graph.competitionPreferences||[]).some(item=>item.enabled===true&&selectorIds.includes(item.competitionId)))return true;
-  if((graph.entityFollows||[]).some(item=>['follow','priority'].includes(item.followLevel)&&[...keys].some(key=>String(item.participantId).includes(`:${key}:`))))return true;
-  if((userPreferences.followFirst?.collectionFollows||[]).some(id=>[...keys].some(key=>String(id).includes(`:${key}:`))))return true;
-  const families=new Set(userPreferences.followFirst?.followedMajorEventIds||[]);
-  return (FOLLOW_FIRST?.MAJOR_EVENT_FAMILIES||[]).some(family=>families.has(family.id)&&family.sportIds.some(key=>keys.has(key)));
-}
-function rankedFollowGridSports(sports){
-  const affinity=new Map((followRatingAffinity.sports||[]).map(item=>[item.sportId,item]));
-  const score=entity=>affinity.get(entity.id)||[...(entity.childIds||[])].map(id=>affinity.get(id)).find(Boolean)||{count:0,lastInteractedAt:''};
-  return sports.filter(rootSportIsFollowed).sort((a,b)=>Number(score(b).count)-Number(score(a).count)||String(score(b).lastInteractedAt||'').localeCompare(String(score(a).lastInteractedAt||''))||Number(a.editorialOrder||999)-Number(b.editorialOrder||999)).slice(0,7);
-}
+
+
+
 const followStandingsAvailability=new Map();
 const followStandingsLoading=new Set();
-function followHasStandings(code){
-  if (!code) return false;
-  return code.hasStandings===true || followStandingsAvailability.get(code.id)===true || Boolean(codeInspectorChunk?.code?.id===code.id && codeInspectorChunk.standings?.length)
-    || (CANONICAL_TAXONOMY.competitions || []).some(competition=>competition.supportsLadder && standingsSportKey(competition)===codeInspectorStandingsSportKey(code));
-}
+
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){

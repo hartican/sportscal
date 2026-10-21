@@ -462,3 +462,17 @@ The source-reviewed3d16bbf6 stored-prefix application failed once under the exis
 
 
 The canonical validator packet is now locally committedb2922a79: Root captured direct originalRED1/constructedGREEN0/ordinaryGREEN0 with outbound denied. No producer or published facts changed. The accountd06e packet and notificationR1 remain separate review candidates; Root has returned specific owned-ACK progression and supersession limitations rather than treating partial green checks as full acceptance. One existing snapshot owner now prepares an output-only private encoding-cache candidate; Root stopped parallel SQL implementation. No production cache/backfill/probe budget is inferred from that local feasibility work.
+
+
+## 21 October 2026 — coherent app581 held; loading R2 integration
+
+Root preserved reviewed app581 at a9c7337298cf61dcf80877d7c6650148060c1fda: canonical Liverpool validator correction, owner-bound Follow durability and bounded notification-click recovery. All nine frontend artifact hashes still bind its prior Chromium/WebKit installed/offline upgrade evidence. Native iPhone evidence and historical Follow recovery are separate; recovery remains paused unresolved with zero example additions and zero historical restores.
+
+Production remains app580/2a6b8c6b, not accepted. The private base-prefix trial was applied once, failed its third fresh participant read and was undone exactly. Rejected cache source remains off this coherent release branch. The existing snapshot owner returned frozen R1 exact-baseline correction, then a narrowly corrected R2 view after actual PG18 testing exposed whole-source receipt-map spooling. No extra publisher, scheduler, subscription or provider refresh was added.
+
+R2 source integration now uses the frozen preparation/activation/undo, a complete approved test baseline, actual store/Match Centre consumers and a restored-old-view work negative. Actual PG17/18 functional integration and native17.6 concurrency have passing dated receipts; new work/degraded-code assertions and the full normal release remain to run. Current live seven-route security header/MIME checks pass separately. Root owns remaining full gates, guarded live qualification, exact-main publication and deployment; no completed deployment is claimed here. [Scope, costs and unresolved limits](quality/global-snapshot-complete-rows-2026-10-21.md).
+
+
+### Final local loading integration checkpoint
+
+The current corrected database suite passes48actualPG18 and47pinnedPG17 checks, including prepared-state and activated guarded undo and actual response-frame work negatives. Native17.6concurrency and exact undo remain separately passing. All244local release commands have now run; the successful-save fixture and isolated Node/dependency setup failures are corrected, preserving their original receipts. The critical-byte gate is cleared by14exact-body Follow presentation moves into its existing loaded module:433529→430657gzip bytes,7critical requests,1.06591%growth under1.25%. All21affected source/cache checks pass. Root independently verified top-level declarations, inherited strictness and actual caller boundaries; the monitor's timeboxed frontend review was incomplete and is not counted as clearance. The frozen source still requires fresh exact-byte browser/installed proof, guarded live application/qualification and normal exact-main release. No production success is claimed at this checkpoint.

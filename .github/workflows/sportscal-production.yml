@@ -98,6 +98,8 @@ jobs:
           node scripts/validate-event-overviews.js
           node scripts/validate-current-fixture-bundle.js
           PGLITE_MODULE=pglite-pg17 node scripts/validate-current-fixture-bundle.js
+          node scripts/validate-global-encoded-fixtures.js
+          PGLITE_MODULE=pglite-pg17 node scripts/validate-global-encoded-fixtures.js
           node scripts/validate-profile-fixture-scope.js
           node scripts/validate-reviewed-tennis-live.js
           node scripts/validate-wuhan-pairing-updates.js
