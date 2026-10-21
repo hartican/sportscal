@@ -48,14 +48,17 @@ async function run(browser,base,engine){
   console.log(engine+': '+(restored?'restored':'early')+' Browse during Feed startup');
   gate=latch();ctx=await createPage(browser,base,{route:restored?'#follow/browse':''});page=ctx.page;
   try{
-   await page.route('**/data/follow-schedule/**',async r=>{await gate.promise;await r.continue();});await ctx.goto();
+   let heldRequiredFeedReads=0;
+   const requiredFeedRequest=page.waitForRequest(request=>new URL(request.url()).pathname==='/data/feed/manifest.json');
+   await page.route('**/data/feed/manifest.json*',async r=>{heldRequiredFeedReads++;await gate.promise;await r.continue();});await ctx.goto();await requiredFeedRequest;
+   assert(heldRequiredFeedReads>0,'test must hold the actual required published Feed manifest request');
    if(!restored){await openFollow(page);await controls(page);await page.getByRole('button',{name:'Sports',exact:true}).click();}
    await page.locator('.follow-navigation').waitFor();assert.equal(await page.evaluate(()=>startupCoordinator.isHydrating()),true,'test must retain the actual Feed barrier');
    await page.evaluate(()=>{startupFeedState={...startupFeedState,phase:'failed',issues:['published feed']};renderAll();});
    assert(await page.locator('.follow-navigation').isVisible(),'Feed failure cannot cover Follow');
    await page.evaluate(()=>renderCurrentSection());assert(await page.locator('.follow-navigation').isVisible());
    await page.evaluate(()=>document.querySelector('.tabs [data-tab=feed]').click());assert.equal(await page.evaluate(()=>startupCoordinator.isHydrating()),true,'opening Follow must not release Feed readiness');
-   assert.equal(await page.locator('.follow-navigation').count(),0);assert.deepEqual(ctx.errors,[]);report.push({engine,scenario:restored?'restored Browse during Feed startup':'early Browse and failed Feed'});
+   assert.equal(await page.locator('.follow-navigation').count(),0);assert.deepEqual(ctx.errors,[]);report.push({engine,scenario:restored?'restored Browse during Feed startup':'early Browse and failed Feed',heldRequiredFeedReads});
   }finally{gate.release();await closePage(page);}
  }
  // Optional journey information cannot delay names or cause a false empty state.
