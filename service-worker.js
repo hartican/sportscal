@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v580";
-const SHELL_VERSION = "580";
+const CACHE_NAME = "nothingsport-shell-v581";
+const SHELL_VERSION = "581";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -13,7 +13,7 @@ const APP_SHELL = [
 
   "/assets/identities/wsl/wave-white.svg",
   "/assets/identities/wsl/brand.png",
-  "/assets/js/follow-presentation-ui.js?v=576",
+  "/assets/js/follow-presentation-ui.js?v=581",
   "/assets/identities/wrc/routes/sardegna-lerno-2026.svg",
   "/assets/identities/wrc/helmet-white.svg",
   "/assets/identities/sailgp/sailing-white.svg",
@@ -32,7 +32,6 @@ const APP_SHELL = [
   "/index.html",
   "/404.html",
   "/participate.html",
-  "/admin.html",
   // The optional owner console is cached after use, keeping cold installs lean.
   "/privacy.html",
   "/terms.html",
@@ -64,7 +63,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=580",
+  "/assets/js/app-shell-runtime.js?v=581",
   "/assets/js/account-awareness-runtime.js?v=571",
   "/assets/js/follow-schedule-panel.js?v=576",
   "/assets/js/fixture-navigation.js?v=535",
@@ -468,7 +467,8 @@ self.addEventListener('message',event=>{
     }catch{event.ports?.[0]?.postMessage(null);}
   }));
 });
-self.addEventListener("notificationclick", event => {
+self.addEventListener("notificationclick", function notificationClick(event) {
+  const click={};notificationClick.current=click;const current=()=>notificationClick.current===click;
   event.notification.close();
   const targetUrl = event.notification.data?.url || "/";
   let target;
@@ -481,22 +481,32 @@ self.addEventListener("notificationclick", event => {
   const milestoneTarget=event.notification.data?.kind==='milestone'?milestoneNotificationTarget(target.href):null;
   event.waitUntil(
     self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(async clients => {
+      if(!current())return;
       const existing = clients.find(client => "focus" in client);
       if (existing){
         if(!milestoneTarget){
           const navigation=existing.navigate?existing.navigate(target.href):Promise.resolve(existing);
-          return Promise.resolve(navigation).then(client=>(client||existing).focus());
+          return Promise.resolve(navigation).then(client=>current()?(client||existing).focus():undefined);
         }
         let client=existing;
         try{client=existing.navigate?await existing.navigate(target.href)||existing:existing;}catch{}
+        if(!current())return;
         try{await client.focus();}catch{}
-        if(milestoneTarget)await handoffNotificationNavigation(client,milestoneTarget);
+        if(milestoneTarget&&current())await handoffNotificationNavigation(client,milestoneTarget);
         return client;
       }
-      const client=self.clients.openWindow?await self.clients.openWindow(target.href):null;
-      if(milestoneTarget)await handoffNotificationNavigation(client,milestoneTarget);
+      let client=self.clients.openWindow?await self.clients.openWindow(target.href):null;
+      if(milestoneTarget&&current()&&!client?.id){
+        // A platform may open the requested document without returning its
+        // handle. Recover only a uniquely proven exact destination, never root.
+        try{
+          const candidates=(await self.clients.matchAll({type:"window",includeUncontrolled:true})).filter(candidate=>candidate.id&&candidate.type==='window'&&milestoneNotificationTarget(candidate.url)?.href===milestoneTarget.href);
+          if(current()&&candidates.length===1)client=candidates[0];
+        }catch{ /* No proven window: leave the destination unclaimed. */ }
+      }
+      if(milestoneTarget&&current())await handoffNotificationNavigation(client,milestoneTarget);
       return client;
-    })
+    }).finally(()=>{if(current())notificationClick.current=null;})
   );
 });
 

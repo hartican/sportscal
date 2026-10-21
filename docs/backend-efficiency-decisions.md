@@ -1661,3 +1661,11 @@ The existing current-fixture owner may maintain one generated text prefix from t
 
 
 The wire-prefix proposal above was not adopted: its one guarded application failed57014at3s and rolled back completely. Keep the old view/columns/readers; do not reapply or raise the budget. Source qualification is not operational qualification. The unpublished3d16 checkpoint retains the experiment; active source excludes its migration.
+
+## 21 October 2026 — one existing preference-save owner and bounded click recovery
+
+New deliberate Follow choices may keep an owner-bound pending receipt inside the existing profile bundle, then use the existing SDK state-save/reconciliation path. Preserve verified account/generation/base, exact acknowledgements, known-own-ACK continuation, unchanged-preference version continuation, explicit empty/OFF, quota failure and other owners. Add no polling, endpoint, separate save owner or speculative replay. Unknown changed preference bases remain pending. Historical recovery stays paused.
+
+Notification click recovery may enumerate native windows once after a missing returned handle, and hand off only to one proven exact same-origin destination. Superseded initial lookup and later worker continuations may not perform further old actions. Already-issued native navigation and a root-only unproven window remain explicit limitations; no automatic milestone activation follows these local proofs.
+
+The ordinary installed shell keeps its three-MiB limit and existing customer offline/Follow assets. The network-dependent owner console `/admin.html` is no longer downloaded during every customer installation; its existing network-first route caches it after an online visit. This restores headroom without changing the limit, adding a request or removing customer logos/data. Root owns coherent version581 generation and the unchanged upgrade/browser/full release gates. These are local source changes until exact deployment acceptance.

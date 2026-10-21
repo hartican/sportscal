@@ -1,5 +1,13 @@
 # Follow and Feed decisions
 
+## Keep newly written, owned Follow intent through restart — 21 October 2026
+
+Only explicit user Follow writers may record a pending preference receipt in the existing local profile bundle. Bind it to the verified account and a known accepted preference baseline, and persist it atomically before optimistic success. Automatic startup, metadata and normalisation writes cannot invent intent. Preserve explicit empty/unfollow/OFF, other owners' pending entries and existing quota failure behaviour. Unknown legacy ownership and historical recovery remain excluded.
+
+A same-account restart can apply that recorded intent without replacing it with older remote preferences. Clear only a matching acknowledged receipt using existing preference-patch semantics. An owned acknowledgement may advance a newer receipt's known base while retaining its ID and remaining patch; it must not clear newer intent. A changed server version with structurally unchanged preferences is still a known preference base. Genuinely changed or unavailable preference bases remain visibly pending; no guessed union, transfer or new conflict policy is added. Old owner/lifetime responses cannot alter the current account. Keep successful local-write timestamps and leave the previous body/time intact on quota failure.
+
+Regression: `validate-cross-device-sync.js` includes the actual deliberate writer, restart, a second reconciliation after an older acknowledgement, unrelated ratings/version changes, lost acknowledgement, quota, two owners, explicit removals and the existing conflict/lifetime/bootstrap controls. Profile and account-awareness checks remain. These are future-prevention proofs, not historical recovery, real-account intent, hosted acknowledgement or physical-device certification. Pending choices use the existing owned state-save path; no new storage key, server/API/SDK path, polling timer, retry or retention policy is added.
+
 ## Consume an accepted account's startup baseline before optional metadata — 20 October 2026
 
 Once the matching saved account state and server baseline are accepted, consume the existing one-shot startup snapshot before publishing signed-in state or awaiting optional metadata. A delayed or failed metadata read cannot turn the previous account's accepted preferences into local edits for its replacement. Keep genuine same-session edits, explicit empty/absent preference handling, exclusions, pins, Results and reminder OFF choices. The existing entirely absent-record import branch is unchanged; this is no new account-transfer, union or restore policy.

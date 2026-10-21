@@ -84,7 +84,7 @@ class Channel {
  constructor(){this.port1={close(){}};this.port2={postMessage:data=>queueMicrotask(()=>this.port1.onmessage?.({data}))};}
 }
 function cacheStorage(){const stores=new Map();return {async open(name){if(!stores.has(name)){const rows=new Map();stores.set(name,{async match(key){return rows.get(String(key.url||key))?.clone();},async put(key,response){rows.set(String(key.url||key),response.clone());},async delete(key){return rows.delete(String(key.url||key));},async keys(){return [...rows.keys()].map(url=>new Request(url));}});}return stores.get(name);}};}
-async function tap({reject=false,noClient=false,lateBoot=false,focusReject=false,foreign=false,restart=false,elapsed=0,suppressBoot=false}={}){
+async function tap({reject=false,noClient=false,lateBoot=false,focusReject=false,foreign=false,restart=false,elapsed=0,suppressBoot=false,openNull=false,discovery="exact",replacementId=false,newTapDuringDiscovery=false}={}){
  let time=Date.now();class Clock extends Date{static now(){return time;}}
  const caches=cacheStorage(),workerSource=fs.readFileSync('service-worker.js','utf8'),listeners={},jobs=[],frames=[];
  let opened=null,appReady=!lateBoot;
@@ -103,11 +103,15 @@ async function tap({reject=false,noClient=false,lateBoot=false,focusReject=false
   syncNscPageFromHistory:()=>false,codeInspectorCodeFromLocation:()=>'',inspectorPickerHash:()=>'#picker',syncCodeInspectorFromLocation:async()=>{},eventsDeepLinkFromLocation:()=>null,
   renderAll(){},syncTopLevelNavigationState(){},showToast(){},cardStateForEvent:()=>'compact',setCardState(){},
   activateTopLevelTab(tab){app.activeTab=tab;},loadMatchCentre:async()=>{},openMilestoneMatchCentreFixture(fixture){opened=fixture.id;},
-  fetch:async()=>({ok:true,json:async()=>({events:[event],fixtures:[]})}),readStorage:()=>null,PUSH_INSTALLATION_STORAGE_KEY:'installation',
+  fetch:async()=>({ok:true,json:async()=>({events:[event,{id:'fixture:cricket:CA:40000'}],fixtures:[]})}),readStorage:()=>null,PUSH_INSTALLATION_STORAGE_KEY:'installation',
   loadDeferredScript(url){vm.runInContext(url.includes('fixture-navigation')?fixtureCode:milestoneCode,app);return Promise.resolve();},
  };
  app.window=app;app.requestAnimationFrame=callback=>frames.push(callback);vm.createContext(app);vm.runInContext(shell,app);if(!lateBoot)vm.runInContext(navigationCode,app);
- const worker={location:{origin:location.origin},clients:{matchAll:async()=>noClient?[]:[client],openWindow:async()=>client},addEventListener:(type,handler)=>listeners[type]=handler};
+ let enumerations=0,windowOpened=false;
+ const worker={location:{origin:location.origin},clients:{
+  matchAll:async()=>{enumerations++;if(!windowOpened)return noClient?[]:[client];if(newTapDuringDiscovery&&enumerations===2){const snapshot={...client};let second;listeners.notificationclick({notification:{data:{kind:'milestone',url:'/?event=fixture%3Acricket%3ACA%3A40000&surface=match-centre&moment=newer-click'},close(){}},waitUntil:p=>second=p});await second;return [snapshot];}if(discovery==='none')return [];if(discovery==='error')throw Error('local enumeration unavailable');return discovery==='ambiguous'?[client,{...client,id:'another-window'}]:[client];},
+  openWindow:async url=>{windowOpened=true;if(replacementId)client.id='replacement-window';client.url=discovery==='root'?location.origin+'/':discovery==='foreign'?'https://other.example/':discovery==='wrongMoment'?url.replace('expired-test','newer-moment'):discovery==='wrongEvent'?url.replace('39990','40000'):url;return openNull?null:client;}
+ },addEventListener:(type,handler)=>listeners[type]=handler};
  const marker=workerSource.includes('const NOTIFICATION_NAVIGATION_CACHE')?'const NOTIFICATION_NAVIGATION_CACHE':'self.addEventListener("notificationclick",';
  const installWorker=()=>vm.runInNewContext(workerSource.slice(workerSource.indexOf(marker)),{self:worker,caches,Request,Response,URL,Promise,Date:Clock,crypto:require('node:crypto').webcrypto,MessageChannel:Channel,setTimeout,clearTimeout});
  installWorker();if(appReady)app.startMilestoneNotificationNavigation?.();await tick();
@@ -117,9 +121,51 @@ async function tap({reject=false,noClient=false,lateBoot=false,focusReject=false
  appReady=true;if(lateBoot&&!suppressBoot)vm.runInContext(navigationCode,app);
  await app.syncAppRouteFromLocation();
  for(let i=0;i<8;i++){await tick();while(frames.length)frames.shift()();await Promise.allSettled(jobs.splice(0));}
- return {tab:app.activeTab,opened,failure,caches,client,controller,jobs,app,listeners};
+ return {tab:app.activeTab,opened,failure,caches,client,controller,jobs,app,listeners,enumerations};
+}
+// A click superseded during its FIRST lookup must not touch any window.
+async function initialEnumerationRace({existing=true,milestone=true}={}){
+ const workerSource=fs.readFileSync('service-worker.js','utf8'),listeners={},actions=[],handoffs=[],caches=cacheStorage();
+ const origin='https://nothingsport.example',oldUrl=origin+'/?event='+encodeURIComponent(event.id)+'&surface=match-centre&moment=old-click',newUrl=origin+'/?event=fixture%3Acricket%3ACA%3A40000&surface=match-centre&moment=new-click';
+ let resolveFirst,enumerations=0,active='old';
+ const client={id:'same-window',type:'window',url:origin+'/',async navigate(url){actions.push({action:'navigate',intent:active,url});this.url=url;return this;},async focus(){actions.push({action:'focus',intent:active,url:this.url});return this;},postMessage(data){handoffs.push(data.url);}};
+ const worker={location:{origin},clients:{matchAll(){enumerations++;if(enumerations===1)return new Promise(resolve=>resolveFirst=resolve);return Promise.resolve(existing?[client]:[]);},async openWindow(url){actions.push({action:'openWindow',intent:active,url});client.url=url;return client;}},addEventListener:(type,handler)=>listeners[type]=handler};
+ vm.runInNewContext(workerSource.slice(workerSource.indexOf('const NOTIFICATION_NAVIGATION_CACHE')),{self:worker,caches,Request,Response,URL,Promise,Date,crypto:require('node:crypto').webcrypto,MessageChannel:Channel,setTimeout,clearTimeout});
+ const click=url=>{let pending;listeners.notificationclick({notification:{data:{kind:milestone?'milestone':'reminder',url},close(){}},waitUntil:p=>pending=p});return pending;};
+ const old=click(oldUrl);assert.equal(typeof resolveFirst,'function');active='new';await click(newUrl);assert.equal(client.url,newUrl,'Newer click completes before the old initial lookup');active='old';resolveFirst(existing?[client]:[]);await old;
+ return {actions,handoffs,client,newUrl,enumerations};
+}
+// Once a native action is issued, only its later worker continuations can be fenced.
+async function pendingWindowRace({stage='navigate',milestone=true,lateNativeCommit=false}={}){
+ const source=fs.readFileSync('service-worker.js','utf8'),listeners={},actions=[],handoffs=[],caches=cacheStorage(),origin='https://nothingsport.example';
+ const oldUrl=origin+'/?event='+encodeURIComponent(event.id)+'&surface=match-centre&moment=old-click',newUrl=origin+'/?event=fixture%3Acricket%3ACA%3A40000&surface=match-centre&moment=new-click';
+ let release,active='old',superseded=false,enumerations=0;
+ const pause=()=>new Promise(resolve=>release=resolve),record=(action,url)=>actions.push({action,url,intent:active,afterSupersession:superseded});
+ const client={id:'same-window',type:'window',url:origin+'/',async navigate(url){const old=active==='old';record('navigate',url);if(old&&stage==='navigate'){if(!lateNativeCommit)this.url=url;await pause();if(lateNativeCommit)this.url=url;}else this.url=url;return this;},async focus(){record('focus',this.url);if(active==='old'&&stage==='focus')await pause();return this;},postMessage(data){handoffs.push(data.url);}};
+ const worker={location:{origin},clients:{async matchAll(){enumerations++;return stage==='openWindow'&&enumerations===1?[]:[client];},async openWindow(url){const old=active==='old';record('openWindow',url);if(old&&stage==='openWindow'){if(!lateNativeCommit)client.url=url;await pause();if(lateNativeCommit)client.url=url;}else client.url=url;return client;}},addEventListener:(type,handler)=>listeners[type]=handler};
+ vm.runInNewContext(source.slice(source.indexOf('const NOTIFICATION_NAVIGATION_CACHE')),{self:worker,caches,Request,Response,URL,Promise,Date,crypto:require('node:crypto').webcrypto,MessageChannel:Channel,setTimeout,clearTimeout});
+ const click=url=>{let pending;listeners.notificationclick({notification:{data:{kind:milestone?'milestone':'reminder',url},close(){}},waitUntil:p=>pending=p});return pending;};
+ const old=click(oldUrl);await tick();assert.equal(typeof release,'function','Old native action must be pending');active='new';await click(newUrl);assert.equal(client.url,newUrl,'Newer destination is selected before the pending old action resolves');active='old';superseded=true;release();await old;
+ return {actions,handoffs,client,newUrl,oldUrl,enumerations};
 }
 (async()=>{
+ for(const options of [{existing:true},{existing:false},{existing:true,milestone:false},{existing:false,milestone:false}]){
+  const race=await initialEnumerationRace(options);assert.deepEqual(race.actions.filter(action=>action.intent==='old'),[],'Superseded initial enumeration must perform no old navigate, focus or openWindow: '+JSON.stringify(options));assert.equal(race.client.url,race.newUrl,'Late initial lookup cannot replace the newer destination');assert(race.handoffs.every(url=>url===race.newUrl),'Only the newer destination may hand off');assert.equal(race.enumerations,2,'A superseded initial lookup adds no recovery enumeration');
+ }
+ console.log('Late initial enumeration: existing/absent window and milestone/reminder controls preserve the newer click without old window actions.');
+ for(const options of [{stage:'navigate'},{stage:'navigate',milestone:false},{stage:'focus'},{stage:'focus',milestone:false},{stage:'openWindow'},{stage:'openWindow',milestone:false}]){
+  const race=await pendingWindowRace(options);assert.deepEqual(race.actions.filter(action=>action.intent==='old'&&action.afterSupersession),[],'Superseded native continuation must perform no further window actions: '+JSON.stringify(options));assert.equal(race.client.url,race.newUrl,'A completed newer destination must survive an old worker continuation');assert(race.handoffs.every(url=>url===race.newUrl),'Old native continuations cannot hand off');assert.equal(race.enumerations,2,'Pending native actions add no recovery enumeration when a handle exists');
+ }
+ console.log('Pending navigate/focus/openWindow continuations: only the newest click may perform a further window action or handoff. Already-issued native late commits are a separate unresolved browser seam.');
+ for(const options of [{noClient:true,lateBoot:true,openNull:true},{noClient:true,lateBoot:true,openNull:true,replacementId:true}]){
+  const r=await tap(options);assert.equal(r.opened,event.id,'Null handle with uniquely proven exact URL must recover the requested match');assert.equal(r.tab,'match-centre');assert.equal(r.enumerations,2,'Exactly one extra native enumeration is allowed after the missing handle');
+ }
+ for(const discovery of ['none','ambiguous','foreign','wrongMoment','wrongEvent','root','error']){
+  const r=await tap({noClient:true,lateBoot:true,openNull:true,discovery});assert.equal(r.opened,null,'No arbitrary window may claim '+discovery);assert.equal(r.tab,'feed');assert.equal(r.enumerations,2);
+ }
+ for(const options of [{},{noClient:true},{reject:true},{noClient:true,lateBoot:true}]){const r=await tap(options);assert.equal(r.opened,event.id);assert.equal(r.enumerations,1,'Existing and returned handles add no enumeration');}
+ const newest=await tap({noClient:true,lateBoot:true,openNull:true,newTapDuringDiscovery:true});assert.equal(newest.opened,'fixture:cricket:CA:40000','A newer click cannot be overwritten by the old delayed enumeration');assert.equal(newest.enumerations,3);
+ console.log('Missing-handle exact-window recovery and none/ambiguous/foreign/newer-target/root controls passed; original root-only reproduction remains unresolved.');
  for(const options of [{},{retained:true},{retained:true,hydrateRace:true},{oldFirst:true},{oldFirst:true,legacyBootstrap:true},{oldFirst:true,legacyBootstrap:true,thirdTap:true}]){const result=await fetchRace(options);console.log('In-flight tap race:',JSON.stringify({options,...result}));assert.deepEqual(result.mounted,[result.next],'Superseded current/retained fetch must not mount the old match');assert.deepEqual(result.receipts,[result.newMoment],'Only the newest exact landing may report a receipt');assert.equal(result.newerStarted,true,'The newer request must not wait behind the old fetch');if(options.oldFirst)assert.equal(result.loadingAfterOld,true,'An old finalizer cannot clear the newer loading state');}
  const normal=await scenario();assert.equal(normal.opened,event.id,'Stable-session cold launch opens the exact fixture');
  const replaced=await scenario({replacement:true});assert.equal(replaced.opened,'fixture:cricket:CA:40000','A second exact-match tap supersedes a still-loading first tap');
