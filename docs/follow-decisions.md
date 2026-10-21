@@ -1197,3 +1197,20 @@ Regression: validate-australian-championship.js covers factual fields, original 
 ## 21 October2026 — keep Follow presentation with its existing loaded module
 
 Move14exact Follow/Schedule presentation declarations from the initial shell into the existing Follow presentation script, after verifying every production call is behind the existing loader. Keep pin mutation and every preference/admission owner unchanged. Shared startup/Standings/favourites helpers, account/pending receipts, Calendar/Jump selection and the early tennis placeholder override order remain in the shell. No new script, request, state store, follow, fixture, alert, source or policy is created. The existing1.25%critical-byte and3MiB installed-cache caps remain. Exact-byte cold/failure/retry, early tennis/calendar routes, pin/Results privacy and both installed upgrade/offline engines are required; old browser evidence cannot certify the changed shell/module. [Scope and gates](quality/global-snapshot-complete-rows-2026-10-21.md).
+
+## 21 October 2026 — preserve deliberate keyboard ownership while loading
+
+The existing Refresh/Load-more focus receipt must survive its disabled loading
+render until the response settles. Retain only an already remembered valid
+receipt; incidental profile controls must not create a new intent. The existing
+Back restoration observer may continue positioning its original target while
+that target or the document body owns focus. If the user focuses another
+control, stop that observer before it can take focus back. Keep the same account,
+profile, generation, route and preference fences, read coalescing, throttle,
+observer lifetime and final300ms keyboard checks.
+
+The actual Follow startup regression holds the second keyboard response through
+two animation frames and exercises a later panel mutation after moving to another
+team. Both original failures are retained, with native Enter/Back navigation,
+unchanged choices, outside/account/route and continued/last-page checks. No
+sporting facts, Follow membership, save owner, request or timer is added.
