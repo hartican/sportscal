@@ -1,6 +1,6 @@
 # Loading repair: prepare transport rows with canonical facts
 
-Status: database integration and all244 non-browser local release commands pass. Fresh Safari-style startup and seven affected browser/cache suites pass; Chromium keyboard focus remains open. No production application or release acceptance.
+Status: all affected browser/PWA checks pass on the held app581 frontend. Both live trials were safely undone; full activation remains unqualified. The revised exact-text/JSONB validation guard passes local PG17/18 checks. No production release acceptance.
 
 The public loading failure is a real shared fixture-read deadline failure, not
 merely a missing verifier timing. Earlier query changes and a private base-prefix
@@ -50,7 +50,7 @@ Evidence directory:
 ## Qualified source and operational recovery
 
 Frozen R1 preparation and R2 activation/undo are integrated byte-for-byte. R2
-uses an explicit per-fixture receipt boundary. Actual PostgreSQL18.0.3 passes48
+uses an explicit per-fixture receipt boundary. Actual PostgreSQL18 (server_version_num180003) passes48
 checks, including restoring the rejected actual view to fail the work gate;
 pinned PostgreSQL17 passes47. Native PostgreSQL17.6 separately passed the corrected
 961-row complete-payload activation, nine independent-client concurrency/rights
@@ -105,3 +105,28 @@ lower bound and malformed JSON. One distinct read-only cloud preflight evaluates
 all7545 fixture inputs in1360.507ms under the unchanged three-second budget.
 That single calculation does not qualify the complete guarded installation,
 public request reliability or a production release. Those gates remain open.
+
+## Installation refusal and revised validation
+
+The first live trial stopped at the710-row MRU encoding operation after16source
+batches; exact prepared-state undo restored every original contract. A distinct
+largest-first trial then passed all40source groups, including959USOpen and710MRU
+rows, under the same three-second statements. All7670prepared rows matched
+coverage, with zero pending work and private SELECT-only rights. Its original
+full activation validator exceeded three seconds before switching the view;
+that complete preparation was exactly undone too. Canonical facts remained.
+
+The revised guard compares the complete canonical serialized row under C byte
+collation before using the original full JSONB fallback for differences. No
+witness or scope is omitted. Both actual PG17/18 integration suites pass, with
+5000complete comparisons and zero redundant JSONB fallback evaluations,13poison
+refusals, equivalent-format acceptance and both exact undo states. Paired local
+full7546-row validation is about26% faster. Actual710target values are preserved;
+other rehearsal facts are reconstructed, and physical cloud performance remains
+unverified until a new guarded application.
+
+Cloud log evidence shows the earlier encoding failure used a fresh management
+backend and overlapped a separate fixture-read timeout. It does not prove
+contention caused that refusal. Pure actual-target computation measured337ms
+and original integrity335ms separately; neither is complete writer evidence.
+Do not claim a successful retry or local timing establishes reliability.

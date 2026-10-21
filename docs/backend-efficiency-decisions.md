@@ -1682,3 +1682,22 @@ The actual PG18 R1 query was value-correct but carried the complete source recei
 Keep one-second lock/three-second staged statements, existing three/five-second reads and eight-second canonical publish allowance. No production planner/memory/role timeout change. The source-size preflight observed a largest current source of 959 fixtures. A constructed 5000-fixture compact publish failed the existing eight-second allowance in both the baseline and candidate; that pre-existing maximum-load limitation remains explicit. It does not certify future 5000-fixture writes or justify raising the deadline.
 
 Require staged capacity/coverage checks, exact guarded undo, PG17/18 functional and work regressions, native concurrency applicability, actual consumers, repeated fresh public reads and the entire normal release. Root remains the only SQL executor and publisher. Local passing tests are not live reliability or physical-phone proof. [Evidence and remaining gates](quality/global-snapshot-complete-rows-2026-10-21.md).
+
+## 21 October 2026 — exact full-payload validation without redundant parsing
+
+The installation guard may compare each complete cached row with the identical
+canonical `row_to_json` text under explicit C collation first. Byte identity of
+generated valid JSON proves JSONB identity. Different text must retain the
+original full JSONB comparison, including accepted equivalent formatting and
+malformed-cache refusal. Keep every factual witness, clock, rights, coverage,
+capacity and original three-second limit. This changes validation work only,
+with no writer, runtime view, scheduler, source fact or observation-date change.
+
+Permanent PG17/18 coverage executes the actual guard over5000complete rows,
+verifies no redundant JSONB fallback work on unchanged payloads, retains13
+poison refusals and accepts equivalent whitespace/object ordering. Paired local
+full7546-row measurements reduce execution about26% with the same temporary
+work; they do not certify cloud installation or public reliability. Earlier
+source-preparation and full-activation refusals remain recorded and were exactly
+undone. Root must still pass a new guarded installation, repeated fresh public
+reads and the entire normal release before claiming completion.
