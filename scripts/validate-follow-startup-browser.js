@@ -108,7 +108,10 @@ async function run(browser,base,engine){
  try{
   await page.route('**/data/tennis-journeys.v1.json*',async r=>{await gate.promise;await r.continue();});await ctx.goto();
   await page.evaluate(()=>{canonicalPreferenceParticipants=[];followDirectoryChunks.clear();});await openFollow(page);await controls(page);await page.locator('.athletes-heading').waitFor();
-  assert.match(await page.locator('#listView').innerText(),/Updating/);assert(!/Follow athletes to see/.test(await page.locator('#listView').innerText()));
+  assert.equal(await page.locator('.athletes-heading button').getAttribute('aria-busy'),'true','first pending response keeps the actual Refresh control busy');
+  assert(await page.locator('.athletes-heading button').isDisabled(),'pending first response cannot start a duplicate refresh');
+  assert.equal(await page.locator('.read-loading-status[role="status"][aria-live="polite"]').count(),1,'pending first response exposes the actual live loading state');
+  assert(!/Follow athletes to see/.test(await page.locator('#listView').innerText()));
   apiGate.release();await page.waitForTimeout(100);assert(!/Follow athletes to see/.test(await page.locator('#listView').innerText()),'unresolved saved follows cannot flash an empty list');
   gate.release();await page.locator('.athletes-person').first().waitFor();assert.deepEqual(ctx.errors,[]);report.push({engine,scenario:'unknown first response never flashes empty follows'});
  }finally{gate.release();apiGate.release();await closePage(page);}
