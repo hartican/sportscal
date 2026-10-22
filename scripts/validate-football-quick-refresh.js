@@ -22,6 +22,32 @@ const root=path.resolve(__dirname,'..'),directory=fs.mkdtempSync(path.join(os.tm
   const changed={...generic,...change};assert.deepEqual(retainReviewedResultEditorial([changed],[original])[0],changed,'A genuine or explicitly unknown fact still invalidates the old copy');
  }
 }
+// An official makeup-game label invalidates the old prepared result branch.
+{
+ const oldCard=require('../data/events.json').events.find(event=>event.canonicalEventId==='fixture:mlb:849817');
+ const current=require('../data/canonical/mlb-postseason.v1.json').fixtures.find(event=>event.id==='fixture:mlb:849817');
+ const branches=require('./fixtures/mlb-result-branch-20261023.json').resultEditorialBranches;
+ const stale={...oldCard,...current,id:oldCard.id,resultEditorialBranches:branches,editorialNarrative:{...oldCard.editorialNarrative,hookSpoilerOn:branches.away.revealed,synopsisSpoilerOn:branches.away.revealed+' '+current.recapText}};
+ const selected=require('./select-result-editorial').select(stale);
+ assert.doesNotMatch(JSON.stringify(selected.storyline),/\bALCS Game 4\b/,'a Game 5 successor cannot select a prepared Game 4 result branch');
+ assert.doesNotMatch(selected.editorialNarrative.hookSpoilerOn+' '+selected.editorialNarrative.synopsisSpoilerOn,/\bALCS Game 4\b/,'derived revealed copy also follows the current accepted result');
+ const preparedCurrent=require('./select-result-editorial').branchesFor(stale);
+ const selectedCurrent=require('./select-result-editorial').select({...stale,resultEditorialBranches:preparedCurrent});
+ assert.match(selectedCurrent.storyline.hookSpoilerOn,/ALCS Game 5, Makeup of 10\/16/,'a current matching prepared branch remains eligible');
+ const generic={...stale,storyline:require('./lib/storyline-card-rules').storylineFor(stale)};
+ const retained=retainReviewedResultEditorial([generic],[{...stale,storyline:{...oldCard.storyline,hookSpoilerOff:branches.away.spoilerSafe,hookSpoilerOn:branches.away.revealed}}])[0];
+ assert.doesNotMatch(JSON.stringify(retained.storyline),/\bALCS Game 4\b/,'publication cannot restore the same stale branch from its original baseline');
+}
+// Independently reviewed final copy is not invalidated by an unused old template.
+{
+ const original=require('../data/events.json').events.find(event=>event.id==='event-afl-cd_m20260142901');
+ assert(original?.editorialNarrative?.phase==='recap','actual separately reviewed AFL final');
+ assert.equal(require('./select-result-editorial').usesStalePreparedResult(original),false);
+ const rules=require('./lib/storyline-card-rules'),generic={...original,storyline:rules.storylineFor(original)};
+ const safe=rules.spoilerSafeRootCopy(generic);generic.selectedSentence=safe.hook;generic.fullSpiel=safe.synopsis;
+ const retained=retainReviewedResultEditorial([generic],[original])[0];
+ for(const key of ['selectedSentence','fullSpiel','editorialNarrative','editorialPreview','lastReviewedAt'])assert.deepEqual(retained[key],original[key],'independent final retains '+key);
+}
 // Actual settled primary facts must not become 100 Feed updates after a check.
 const final=require('../feeds/incoming/events.json').events.find(e=>e.key==='premier-league'&&e.status==='completed');
 assert(final?.scoreCheckedAt&&final.resultSourceCheckedAt,'real sourced completed EPL regression');
@@ -129,6 +155,14 @@ assert(!retainedFeedProjectionSteps(['EPL standings source check','European Foot
  const currentRun=cp.spawnSync(process.execPath,['-e',`const q=require(${JSON.stringify(path.join(root,'scripts/quick-results'))});q.runProjectionSteps([['scripts/enrich-storyline-cards.js','--write'],['scripts/select-result-editorial.js'],['scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known']],{editorialBaseline:new Map(['feeds/incoming/events.json','data/events.json'].map(file=>[file,JSON.parse(require('fs').readFileSync(file)).events]))});`],{cwd:directory,encoding:'utf8'});
  assert.equal(currentRun.status,0,currentRun.stdout+'\n'+currentRun.stderr);
  for(const name of ['feeds/incoming/events.json','data/events.json']){
+  const afterDocument=JSON.parse(fs.readFileSync(path.join(directory,name)));
+  const mlbSuccessor=afterDocument.events.find(event=>event.canonicalEventId==='fixture:mlb:849817');
+  const beforeMlb=current.events.find(event=>event.canonicalEventId==='fixture:mlb:849817');
+  assert.equal(mlbSuccessor.roundLabel,'ALCS Game 5, Makeup of 10/16');
+  assert.doesNotMatch(JSON.stringify(mlbSuccessor.storyline),/\bALCS Game 4\b/,'actual publisher displays the current accepted makeup-game label');
+  for(const key of ['hook','synopsis','formCopy','closingCopy','threadIds','factIds','sourceIds','researchedAt','refreshAfter'])assert.deepEqual(mlbSuccessor.editorialNarrative[key],beforeMlb.editorialNarrative[key],'independently dated preview research keeps '+key);
+  assert.doesNotMatch(mlbSuccessor.editorialNarrative.hookSpoilerOn+' '+mlbSuccessor.editorialNarrative.synopsisSpoilerOn,/\bALCS Game 4\b/,'persisted derived result copy cannot conflict with current accepted context');
+  for(const key of ['date','startTimeUtc','homeScore','awayScore','sourceCheckedAt','scoreCheckedAt','resultSourceCheckedAt'])assert.deepEqual(mlbSuccessor[key],beforeMlb[key],'editorial does not alter sporting '+key);
   const after=JSON.parse(fs.readFileSync(path.join(directory,name))).events.find(event=>event.id===bathurst.id);
   assert(require('../config/editorial-maintenance').equalCopy(require('../config/editorial-maintenance').copy(after),require('../config/editorial-maintenance').copy(currentBathurst)),'current source-backed copy remains on '+name);
   for(const key of ['id','date','time','startTimeUtc','endTimeUtc','venue','status','score','fixtureResults','sourceCheckedAt','resultSourceCheckedAt','firstConfirmedCompleteAt'])assert.deepEqual(after[key],currentBathurst[key],key+' stays independent of editorial projection');

@@ -22,7 +22,7 @@ function retainReviewedResultEditorial(events,previous){
  const editorial=require('./lib/editorial-publication');
  return events.map(event=>{
   const old=byId.get(event.id);
-  if(event.status!=='completed'||old?.storyline?.arcStage!=='recap'||old.editorialPreview?.status!=='journalistic'||!old.editorialPreview.sourceUrl||!Number.isFinite(Date.parse(old.editorialPreview.sourceCheckedAt))||spoilerContractIssues(old).length||!editorial.sameEditorialFacts(old,event)||editorial.newerReviewedNarrative(event,old))return event;
+  if(event.status!=='completed'||old?.storyline?.arcStage!=='recap'||old.editorialPreview?.status!=='journalistic'||!old.editorialPreview.sourceUrl||!Number.isFinite(Date.parse(old.editorialPreview.sourceCheckedAt))||spoilerContractIssues(old).length||require('./select-result-editorial').usesStalePreparedResult(old)||!editorial.sameEditorialFacts(old,event)||editorial.newerReviewedNarrative(event,old))return event;
   const retained={...event};
   for(const field of copy)if(Object.hasOwn(old,field))retained[field]=old[field];else delete retained[field];
   // Keep fresh computed stakes/intensity; retain only reviewed narrative fields.

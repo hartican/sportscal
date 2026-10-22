@@ -11,7 +11,7 @@ const zeros=copy();games(zeros)[0].teams.home.score=0;assert.equal(m.parse(zeros
 const regular=copy();games(regular)[0].gameType='R';delete games(regular)[0].description;
 const regularGame=m.parse(regular,{...options,universe:true}).fixtures[0];assert.equal(regularGame.competitionName,'MLB regular season');assert.equal(regularGame.roundLabel,'MLB regular season');assert(!require('../config/follow-first').reasonForEvent(regularGame,{selectedSelectorEntityIds:['sport:baseball'],followedSports:['baseball']}),'Everything regular-season coverage does not become broad-sport postseason Feed admission');assert(!m.parse(regular,options).fixtures.some(f=>f.id===regularGame.id),'existing postseason-only import stays scoped');
 const conditional=copy();games(conditional)[2].ifNecessary='Y';const c=m.parse(conditional,options).fixtures[2];assert.equal(c.startTimeUtc,null);assert.equal(c.scheduleStatus,'conditional');
-assert.deepEqual(m.merge(fixtures,fixtures.map(f=>({...f,sourceCheckedAt:new Date(+options.now+1000).toISOString()}))).filter(f=>f.status==='completed'),fixtures.filter(f=>f.status==='completed'),'unchanged finals retain observation dates');
+assert.deepEqual(m.merge(fixtures,fixtures.map(f=>({...f,sourceCheckedAt:new Date(+options.now+1000).toISOString()}))).filter(f=>f.status==='completed'),fixtures.filter(f=>f.status==='completed'),'an unchanged later check cannot rewrite accepted fixture facts or receipts');
 assert.throws(()=>m.merge([game],[{...game,status:'upcoming'}]));
 assert.throws(()=>m.merge([game],[{...game,participantIds:[...game.participantIds].reverse()}]));
 const taxonomy=require('../config/selector-taxonomy');assert(taxonomy.nodes?.some(n=>n.id==='sport:baseball')||JSON.stringify(taxonomy).includes('sport:baseball'));
@@ -65,8 +65,8 @@ const mutations=[
 ];
 for(const [i,mutate] of mutations.entries()){const d=captured();mutate(d);assert.throws(()=>m.parse(d,fixed),undefined,'captured negative '+i);}
 const unchanged=m.merge(projected,m.parse(captured(),{checkedAt:new Date(+fixed.now+1000).toISOString(),now:new Date(+fixed.now+1000)}).fixtures);
-assert.deepEqual(unchanged,projected,'repeat observations do not renew facts or clocks');
-(async()=>{
+assert.deepEqual(unchanged,projected,'repeat observations do not renew accepted facts or clocks');
+const capturedPersistence=(async()=>{
  const fs=require('node:fs'),os=require('node:os'),path=require('node:path'),root=fs.mkdtempSync(path.join(os.tmpdir(),'mlb-captured-'));
  const files=['data/canonical/mlb-postseason.v1.json','feeds/incoming/events.json','data/events.json'];
  const oldFetch=globalThis.fetch;globalThis.fetch=()=>{throw Error('unallocated network');};
@@ -93,3 +93,81 @@ assert.deepEqual(unchanged,projected,'repeat observations do not renew facts or 
   console.log(`MLB captured DR/successor: 13 raw rows -> 12 identities, order independent, ${mutations.length} strict negatives, persisted single final, repeat clocks unchanged, failure writes nothing; zero network.`);
  }finally{globalThis.fetch=oldFetch;fs.rmSync(root,{recursive:true,force:true});}
 })().catch(error=>{console.error(error);process.exitCode=1;});
+
+// Actual accepted preimages: adding slot scores or correcting calendar/copy
+// cannot create a newly observed score or status fact.
+const retainedFinals=require('./fixtures/mlb-retained-final-clocks-20261023.json');
+const oldFinals=retainedFinals.fixtures,latestById=new Map(projected.map(f=>[f.id,f]));
+function assertOriginalClocks(result,old){
+ for(const key of ['scoreCheckedAt','statusCheckedAt','resultSourceCheckedAt'])assert.equal(result[key],old[key],old.id+' '+key);
+ assert.equal(result.scoreFactObservedAt,old.scoreFactObservedAt??old.scoreCheckedAt,old.id+' score observation');
+ assert.equal(result.statusFactObservedAt,old.statusFactObservedAt??old.statusCheckedAt,old.id+' status observation');
+ assert.equal(result.sourceCheckedAt,postponement.checkedAt,old.id+' actual new source receipt');
+ assert.deepEqual(result.sourceRefs,latestById.get(old.id).sourceRefs);
+ assert.equal(result.firstConfirmedCompleteAt,undefined,'no historical finish invented');
+}
+const retainedMerge=m.merge(oldFinals,oldFinals.map(f=>latestById.get(f.id)));
+for(const old of oldFinals)assertOriginalClocks(retainedMerge.find(f=>f.id===old.id),old);
+const oldFinal=oldFinals[0],incoming=latestById.get(oldFinal.id);
+const calendar={...incoming,date:'2026-10-17',startTimeUtc:'2026-10-16T01:00:00.000Z',time:'12:00',roundLabel:'Official updated round',stage:'Official updated round',recapText:'Updated description of the same final'};
+const calendarMerged=m.merge([oldFinal],[calendar])[0];assertOriginalClocks(calendarMerged,oldFinal);assert.equal(calendarMerged.roundLabel,calendar.roundLabel);assert.equal(calendarMerged.startTimeUtc,calendar.startTimeUtc);
+const different={...incoming,homeScore:5,score:'Los Angeles Dodgers 5–6 Milwaukee Brewers',outcomeText:'Los Angeles Dodgers 5–6 Milwaukee Brewers'};
+const correctedScore=m.merge([oldFinal],[different])[0];assert.equal(correctedScore.scoreFactObservedAt,postponement.checkedAt);assert.equal(correctedScore.scoreCheckedAt,postponement.checkedAt);assert.equal(correctedScore.resultSourceCheckedAt,postponement.checkedAt);assert.equal(correctedScore.statusFactObservedAt,oldFinal.statusFactObservedAt);
+const livePrior={...oldFinal,status:'live',resultStatus:undefined,winnerParticipantId:undefined};
+const newlyCompleted=m.merge([livePrior],[incoming])[0];assert.equal(newlyCompleted.statusFactObservedAt,postponement.checkedAt);assert.equal(newlyCompleted.statusCheckedAt,postponement.checkedAt);assert.equal(newlyCompleted.scoreFactObservedAt,oldFinal.scoreFactObservedAt,'same oriented score is independent of newly observed completion');
+const earliest=oldFinal.statusCheckedAt;
+const firstCompleted=m.merge([{...oldFinal,firstConfirmedCompleteAt:earliest}],[{...incoming,firstConfirmedCompleteAt:postponement.checkedAt}])[0];assert.equal(firstCompleted.firstConfirmedCompleteAt,earliest);
+const earlier='2026-10-16T01:00:00.000Z';assert.equal(m.merge([{...oldFinal,firstConfirmedCompleteAt:earliest}],[{...incoming,firstConfirmedCompleteAt:earlier}])[0].firstConfirmedCompleteAt,earlier);
+const explicitUnknown=m.merge([{...oldFinal,scoreFactObservedAt:null,statusFactObservedAt:null}],[incoming])[0];assert.equal(explicitUnknown.scoreFactObservedAt,null);assert.equal(explicitUnknown.statusFactObservedAt,null);
+const pendingScore=m.merge([{...oldFinal,status:'upcoming'}],[incoming])[0];assert.equal(pendingScore.scoreFactObservedAt,postponement.checkedAt,'unplayed prior cannot lend a score observation');
+const foreign=m.merge([{...oldFinal,sourceName:'Other source'}],[incoming])[0];assert.equal(foreign.scoreFactObservedAt,postponement.checkedAt,'foreign provenance cannot lend an original clock');
+assert.throws(()=>m.merge([{...oldFinal,scoreFactObservedAt:'2026-10-23T00:00:00Z'}],[incoming]));
+assert.throws(()=>m.merge([{...oldFinal,scoreFactObservedAt:'malformed'}],[incoming]));
+assert.throws(()=>m.merge([{...oldFinal,scoreFactObservedAt:'2026-02-30T00:00:00Z'}],[incoming]));
+const knownFinish='2026-10-16T03:00:00+00:00';const finished=m.merge([{...oldFinal,actualEndTimeUtc:knownFinish,completedAt:knownFinish}],[calendar])[0];assert.equal(finished.actualEndTimeUtc,knownFinish);assert.equal(finished.completedAt,knownFinish);
+assert.equal(m.merge([{...oldFinal,actualEndTimeUtc:knownFinish}],[{...calendar,actualEndTimeUtc:null}])[0].actualEndTimeUtc,null,'explicit unknown finish is not overridden');
+assert.throws(()=>m.merge([oldFinal],[{...incoming,season:2025}]));
+// Constructed live 0-0 rechecks retain first facts, but prove fresh contact.
+function liveBody(){const body=captured(),game=games(body).find(g=>g.gamePk===849818);game.status={statusCode:'I',codedGameState:'I',detailedState:'In Progress'};game.teams.home.score=0;game.teams.away.score=0;return body;}
+const liveFirst=m.parse(liveBody(),fixed).fixtures.find(f=>f.id==='fixture:mlb:849818');
+const liveLaterTime=new Date(+fixed.now+3000);
+const liveNext=m.parse(liveBody(),{now:liveLaterTime,checkedAt:liveLaterTime.toISOString()}).fixtures.find(f=>f.id===liveFirst.id);
+const liveMerged=m.merge([liveFirst],[liveNext])[0];
+for(const key of ['scoreCheckedAt','statusCheckedAt','resultSourceCheckedAt'])assert.equal(liveMerged[key],liveLaterTime.toISOString(),'equal-score live contact retains fresh '+key);
+for(const key of ['scoreFactObservedAt','statusFactObservedAt'])assert.equal(liveMerged[key],liveFirst[key],'equal-score live contact retains original '+key);
+capturedPersistence.then(async()=>{
+ const fs=require('node:fs'),os=require('node:os'),path=require('node:path'),root=fs.mkdtempSync(path.join(os.tmpdir(),'mlb-retained-clocks-'));
+ const files=['data/canonical/mlb-postseason.v1.json','feeds/incoming/events.json','data/events.json'];
+ const oldFetch=globalThis.fetch;globalThis.fetch=()=>{throw Error('unallocated network');};
+ try{
+  for(const file of files){
+   const doc=JSON.parse(fs.readFileSync(path.join(__dirname,'..',file)));
+   const key=doc.fixtures?'fixtures':'events';doc[key]=doc[key].map(f=>oldFinals.find(old=>old.id===f.id)||f);
+   fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.writeFileSync(path.join(root,file),JSON.stringify(doc,null,2)+'\n');
+  }
+  await m.refresh({root,now:fixed.now,fetchImpl:async()=>({ok:true,json:async()=>captured()})});
+  for(const file of files){const doc=JSON.parse(fs.readFileSync(path.join(root,file)));for(const old of oldFinals){const f=(doc.fixtures||doc.events).find(f=>f.id===old.id);assertOriginalClocks(f,old);assert.equal(f.participantSlots[0].score,f.homeScore);assert.equal(f.participantSlots[1].score,f.awayScore);}}
+  let accepted=files.map(file=>fs.readFileSync(path.join(root,file)));
+  await m.refresh({root,now:new Date(+fixed.now+1000),fetchImpl:async()=>({ok:true,json:async()=>captured()})});
+  for(const [i,file] of files.entries())assert.deepEqual(fs.readFileSync(path.join(root,file)),accepted[i],'same captured receipt rerun '+file);
+
+  // Constructed subsequent observation: a real score change must advance only
+  // its own fact/receipt clocks, never the already-confirmed completed status.
+  const changedBody=captured();games(changedBody).find(g=>g.gamePk===849818).teams.home.score=4;
+  const later=new Date(+fixed.now+1000),changedFetch=async()=>({ok:true,json:async()=>structuredClone(changedBody)});
+  await m.refresh({root,now:later,fetchImpl:changedFetch});
+  for(const file of files){const doc=JSON.parse(fs.readFileSync(path.join(root,file))),f=(doc.fixtures||doc.events).find(f=>f.id==='fixture:mlb:849818');assert.equal(f.homeScore,4);assert.equal(f.scoreCheckedAt,later.toISOString());assert.equal(f.scoreFactObservedAt,later.toISOString());assert.equal(f.resultSourceCheckedAt,later.toISOString());assert.equal(f.statusFactObservedAt,oldFinals[1].statusCheckedAt);assert.equal(f.statusCheckedAt,oldFinals[1].statusCheckedAt);}
+  accepted=files.map(file=>fs.readFileSync(path.join(root,file)));
+  await m.refresh({root,now:new Date(+later+1000),fetchImpl:changedFetch});
+  for(const [i,file] of files.entries())assert.deepEqual(fs.readFileSync(path.join(root,file)),accepted[i],'changed score same-receipt rerun '+file);
+  for(const mutate of [d=>{for(const g of pair(d))g.gameGuid='bad-guid';},d=>delete successor(d).rescheduledFrom]){
+   const invalid=captured();mutate(invalid);
+   await assert.rejects(()=>m.refresh({root,now:fixed.now,fetchImpl:async()=>({ok:true,json:async()=>invalid})}));
+   for(const [i,file] of files.entries())assert.deepEqual(fs.readFileSync(path.join(root,file)),accepted[i],'bad identity/link writes nothing '+file);
+  }
+  for(const file of files){const doc=JSON.parse(fs.readFileSync(path.join(root,file))),key=doc.fixtures?'fixtures':'events';doc[key]=doc[key].map(f=>f.id===liveFirst.id?liveFirst:f);fs.writeFileSync(path.join(root,file),JSON.stringify(doc,null,2)+'\n');}
+  await m.refresh({root,now:liveLaterTime,fetchImpl:async()=>({ok:true,json:async()=>liveBody()})});
+  for(const file of files){const doc=JSON.parse(fs.readFileSync(path.join(root,file))),f=(doc.fixtures||doc.events).find(f=>f.id===liveFirst.id);assert.equal(f.status,'live');assert.equal(f.homeScore,0);assert.equal(f.awayScore,0);for(const key of ['scoreCheckedAt','statusCheckedAt','resultSourceCheckedAt'])assert.equal(f[key],liveLaterTime.toISOString(),'persisted live current contact '+file+' '+key);for(const key of ['scoreFactObservedAt','statusFactObservedAt'])assert.equal(f[key],liveFirst[key],'persisted live first facts '+file+' '+key);}
+  console.log('MLB retained clocks verified: actual 849810/849818 prior facts, numeric-slot enrichment, calendar/copy edits, source receipts, changed score/status independence, earliest completion, unknown/provenance guards, actual three-file persistence and stable captured rerun.');
+ }finally{globalThis.fetch=oldFetch;fs.rmSync(root,{recursive:true,force:true});}
+}).catch(error=>{console.error(error);process.exitCode=1;});

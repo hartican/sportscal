@@ -1,0 +1,28 @@
+{
+  "kind": "retained-prepared-result-branch-regression",
+  "capturedAt": "2026-10-22T17:46:34.513639+00:00",
+  "fixtureId": "fixture:mlb:849817",
+  "resultEditorialBranches": {
+    "home": {
+      "sourceIds": [
+        "https://www.mlb.com/gameday/849817"
+      ],
+      "spoilerSafe": "Cleveland Guardians v Tampa Bay Rays in ALCS Game 4: the result is available to reveal.",
+      "revealed": "Cleveland Guardians defeated Tampa Bay Rays in ALCS Game 4."
+    },
+    "away": {
+      "sourceIds": [
+        "https://www.mlb.com/gameday/849817"
+      ],
+      "spoilerSafe": "Cleveland Guardians v Tampa Bay Rays in ALCS Game 4: the result is available to reveal.",
+      "revealed": "Tampa Bay Rays defeated Cleveland Guardians in ALCS Game 4."
+    },
+    "draw": {
+      "sourceIds": [
+        "https://www.mlb.com/gameday/849817"
+      ],
+      "spoilerSafe": "Cleveland Guardians v Tampa Bay Rays in ALCS Game 4: the result is available to reveal.",
+      "revealed": "Cleveland Guardians and Tampa Bay Rays finished level in ALCS Game 4."
+    }
+  }
+}
