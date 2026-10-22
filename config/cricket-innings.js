@@ -14,7 +14,7 @@
     if(duplicate)return {label:'Innings details',rows:[],unavailable:event.innings.length};
     rows.sort((a,b)=>a.inningNumber-b.inningNumber);
     const counts=new Map(),numbers=new Map();let complete=true;
-    for(const [index,inning] of event.innings.slice().sort((a,b)=>a.inningNumber-b.inningNumber).entries()){
+    for(const [index,inning] of event.innings.filter(i=>Number.isSafeInteger(i?.inningNumber)&&i.inningNumber>=1).sort((a,b)=>a.inningNumber-b.inningNumber).entries()){
       complete=complete&&inning.inningNumber===index+1&&participants.has(inning.participantId);
       const n=(counts.get(inning.participantId)||0)+1;counts.set(inning.participantId,n);if(complete)numbers.set(inning.inningNumber,n);
     }

@@ -22,6 +22,7 @@ for(const row of i.batting){const actual=compactRows.find(b=>b.playerId===row.pl
 assert.deepEqual([...ui.inningsTitles(e.innings).values()],['South Africa — 1st innings','Australia — 1st innings','Australia — 2nd innings · following on']);
 assert.deepEqual([...ui.inningsTitles(compact.score.innings).values()],[...ui.inningsTitles(e.innings).values()],'Feed and Match Centre use identical labels');
 assert.deepEqual(summary.cricketInnings(e).rows.map(r=>r.inningsLabel),['South Africa — 1st innings','Australia — 1st innings','Australia — 2nd innings']);
+const incomplete=summary.cricketInnings({...e,innings:[null,e.innings[0]]});assert.equal(incomplete.unavailable,1);assert.equal(incomplete.rows[0].inningsLabel,'South Africa — 1st innings','An unavailable raw row cannot crash labels for a valid sourced innings');
 const normal=structuredClone(e);normal.innings[2].participantId=normal.innings[0].participantId;normal.innings[2].team='South Africa Men';normal.innings[2].isFollowOn=false;normal.innings.push({...normal.innings[1],inningNumber:4});
 assert.deepEqual([...ui.inningsTitles(normal.innings).values()],['South Africa — 1st innings','Australia — 1st innings','South Africa — 2nd innings','Australia — 2nd innings']);
 assert.equal(ui.inningsTitles([...e.innings].reverse()).get(e.innings[2]),'Australia — 2nd innings · following on','Labels use chronology, not array or odd/even order');
