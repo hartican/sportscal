@@ -3345,13 +3345,15 @@
           "participantId": "team:mlb:119",
           "label": "Los Angeles Dodgers",
           "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
-          "homeAway": "home"
+          "homeAway": "home",
+          "score": 4
         },
         {
           "participantId": "team:mlb:158",
           "label": "Milwaukee Brewers",
           "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
-          "homeAway": "away"
+          "homeAway": "away",
+          "score": 6
         }
       ],
       "sourceName": "MLB",
@@ -3359,44 +3361,38 @@
       "sourceUrl": "https://www.mlb.com/gameday/849810",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849810",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-11-05&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-16T07:27:29.485Z",
+      "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
       "statusCheckedAt": "2026-10-16T07:27:29.485Z",
-      "selectedSentence": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "fullSpiel": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-09T06:52:22.809Z",
+      "statusFactObservedAt": "2026-10-16T07:27:29.485Z",
+      "score": "Los Angeles Dodgers 4–6 Milwaukee Brewers",
+      "resultStatus": "official",
+      "outcomeText": "Los Angeles Dodgers 4–6 Milwaukee Brewers",
+      "recapText": "NLCS Game 4: Los Angeles Dodgers 4–6 Milwaukee Brewers. MLB reports this game as final.",
+      "winnerParticipantId": "team:mlb:158",
+      "homeScore": 4,
+      "awayScore": 6,
+      "scoreCheckedAt": "2026-10-16T07:27:29.485Z",
+      "scoreFactObservedAt": "2026-10-16T07:27:29.485Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849810",
+      "resultSourceCheckedAt": "2026-10-16T07:27:29.485Z",
+      "selectedSentence": "NLCS Game 4 is complete. Reveal results for the outcome.",
+      "fullSpiel": "NLCS Game 4 is complete. Reveal results for the outcome.",
+      "lastReviewedAt": "2026-10-22T17:03:49.824Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-        "synopsisSpoilerOff": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "hookSpoilerOff": "NLCS Game 4 is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "NLCS Game 4 is complete. Reveal results for the outcome.",
         "hookSpoilerOn": "Los Angeles Dodgers 4–6 Milwaukee Brewers",
-        "synopsisSpoilerOn": "NLCS Game 4: Los Angeles Dodgers 4–6 Milwaukee Brewers. MLB reports this game as final."
+        "synopsisSpoilerOn": "Los Angeles Dodgers 4–6 Milwaukee Brewers"
       },
-      "score": "Los Angeles Dodgers 4–6 Milwaukee Brewers",
-      "resultStatus": "official",
-      "outcomeText": "Los Angeles Dodgers 4–6 Milwaukee Brewers",
-      "recapText": "NLCS Game 4: Los Angeles Dodgers 4–6 Milwaukee Brewers. MLB reports this game as final.",
-      "resultLabels": [
-        "Completed"
-      ],
-      "homeScore": 4,
-      "awayScore": 6,
-      "winnerParticipantId": "team:mlb:158",
-      "resultSourceUrl": "https://www.mlb.com/gameday/849810",
-      "resultSourceCheckedAt": "2026-10-16T07:27:29.485Z",
       "statusSourceUrl": "https://www.mlb.com/gameday/849810",
       "statusSourceName": "MLB",
-      "statusSourceType": "official",
-      "scoreCheckedAt": "2026-10-16T07:27:29.485Z",
-      "scoreFactObservedAt": "2026-10-16T07:27:29.485Z",
-      "statusFactObservedAt": "2026-10-16T07:27:29.485Z",
-      "fixtureObservationSchema": "fixture-observations.v1",
-      "sourceTrust": "verified",
-      "endTimeUtc": null
+      "statusSourceType": "official"
     },
     {
       "id": "fixture:mlb:849808",
@@ -3946,13 +3942,15 @@
           "participantId": "team:mlb:114",
           "label": "Cleveland Guardians",
           "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
-          "homeAway": "home"
+          "homeAway": "home",
+          "score": 3
         },
         {
           "participantId": "team:mlb:139",
           "label": "Tampa Bay Rays",
           "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
-          "homeAway": "away"
+          "homeAway": "away",
+          "score": 2
         }
       ],
       "sourceName": "MLB",
@@ -3960,42 +3958,38 @@
       "sourceUrl": "https://www.mlb.com/gameday/849818",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849818",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-11-05&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-16T06:48:20.213Z",
+      "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
       "statusCheckedAt": "2026-10-16T06:48:20.213Z",
-      "selectedSentence": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
-      "fullSpiel": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+      "statusFactObservedAt": "2026-10-16T06:48:20.213Z",
+      "score": "Cleveland Guardians 3–2 Tampa Bay Rays",
+      "resultStatus": "official",
+      "outcomeText": "Cleveland Guardians 3–2 Tampa Bay Rays",
+      "recapText": "ALCS Game 3: Cleveland Guardians 3–2 Tampa Bay Rays. MLB reports this game as final.",
+      "winnerParticipantId": "team:mlb:114",
+      "homeScore": 3,
+      "awayScore": 2,
+      "scoreCheckedAt": "2026-10-16T06:48:20.213Z",
+      "scoreFactObservedAt": "2026-10-16T06:48:20.213Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849818",
+      "resultSourceCheckedAt": "2026-10-16T06:48:20.213Z",
+      "selectedSentence": "ALCS Game 3 is complete. Reveal results for the outcome.",
+      "fullSpiel": "ALCS Game 3 is complete. Reveal results for the outcome.",
+      "lastReviewedAt": "2026-10-22T17:03:49.824Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
-        "synopsisSpoilerOff": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+        "hookSpoilerOff": "ALCS Game 3 is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "ALCS Game 3 is complete. Reveal results for the outcome.",
         "hookSpoilerOn": "Cleveland Guardians 3–2 Tampa Bay Rays",
-        "synopsisSpoilerOn": "ALCS Game 3: Cleveland Guardians 3–2 Tampa Bay Rays. MLB reports this game as final."
+        "synopsisSpoilerOn": "Cleveland Guardians 3–2 Tampa Bay Rays"
       },
-      "score": "Cleveland Guardians 3–2 Tampa Bay Rays",
-      "resultStatus": "official",
-      "outcomeText": "Cleveland Guardians 3–2 Tampa Bay Rays",
-      "recapText": "ALCS Game 3: Cleveland Guardians 3–2 Tampa Bay Rays. MLB reports this game as final.",
-      "resultLabels": [
-        "Completed"
-      ],
-      "homeScore": 3,
-      "awayScore": 2,
-      "winnerParticipantId": "team:mlb:114",
-      "resultSourceUrl": "https://www.mlb.com/gameday/849818",
-      "resultSourceCheckedAt": "2026-10-16T06:48:20.213Z",
       "statusSourceUrl": "https://www.mlb.com/gameday/849818",
       "statusSourceName": "MLB",
-      "statusSourceType": "official",
-      "scoreCheckedAt": "2026-10-16T06:48:20.213Z",
-      "fixtureObservationSchema": "fixture-observations.v1",
-      "sourceTrust": "verified",
-      "endTimeUtc": null
+      "statusSourceType": "official"
     },
     {
       "id": "fixture:mlb:849817",
@@ -4010,14 +4004,14 @@
       "liveWindow": 6,
       "season": 2026,
       "name": "Cleveland Guardians v Tampa Bay Rays",
-      "roundLabel": "ALCS Game 4",
-      "stage": "ALCS Game 4",
-      "date": "2026-10-17",
-      "time": "09:00",
-      "startTimeUtc": "2026-10-16T22:00:00.000Z",
+      "roundLabel": "ALCS Game 5, Makeup of 10/16",
+      "stage": "ALCS Game 5, Makeup of 10/16",
+      "date": "2026-10-19",
+      "time": "08:08",
+      "startTimeUtc": "2026-10-18T21:08:00.000Z",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "venue": "Progressive Field",
       "cardKind": "fixture",
       "kind": "fixture",
@@ -4057,13 +4051,15 @@
           "participantId": "team:mlb:114",
           "label": "Cleveland Guardians",
           "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
-          "homeAway": "home"
+          "homeAway": "home",
+          "score": 1
         },
         {
           "participantId": "team:mlb:139",
           "label": "Tampa Bay Rays",
           "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
-          "homeAway": "away"
+          "homeAway": "away",
+          "score": 3
         }
       ],
       "sourceName": "MLB",
@@ -4071,22 +4067,34 @@
       "sourceUrl": "https://www.mlb.com/gameday/849817",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849817",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-11-05&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
-      "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-      "selectedSentence": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
-      "fullSpiel": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+      "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusFactObservedAt": "2026-10-22T17:03:49.824Z",
+      "score": "Cleveland Guardians 1–3 Tampa Bay Rays",
+      "resultStatus": "official",
+      "outcomeText": "Cleveland Guardians 1–3 Tampa Bay Rays",
+      "recapText": "ALCS Game 5, Makeup of 10/16: Cleveland Guardians 1–3 Tampa Bay Rays. MLB reports this game as final.",
+      "winnerParticipantId": "team:mlb:139",
+      "homeScore": 1,
+      "awayScore": 3,
+      "scoreCheckedAt": "2026-10-22T17:03:49.824Z",
+      "scoreFactObservedAt": "2026-10-22T17:03:49.824Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849817",
+      "resultSourceCheckedAt": "2026-10-22T17:03:49.824Z",
+      "selectedSentence": "ALCS Game 5, Makeup of 10/16 is complete. Reveal results for the outcome.",
+      "fullSpiel": "ALCS Game 5, Makeup of 10/16 is complete. Reveal results for the outcome.",
+      "lastReviewedAt": "2026-10-22T17:03:49.824Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
-        "hookSpoilerOff": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
-        "synopsisSpoilerOff": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
-        "hookSpoilerOn": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
-        "synopsisSpoilerOn": "ALCS Game 4 at Progressive Field. Check the official game page for updates."
+        "arcStage": "recap",
+        "hookSpoilerOff": "ALCS Game 5, Makeup of 10/16 is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "ALCS Game 5, Makeup of 10/16 is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Cleveland Guardians 1–3 Tampa Bay Rays",
+        "synopsisSpoilerOn": "Cleveland Guardians 1–3 Tampa Bay Rays"
       }
     },
     {
@@ -4102,14 +4110,14 @@
       "liveWindow": 6,
       "season": 2026,
       "name": "Cleveland Guardians v Tampa Bay Rays",
-      "roundLabel": "ALCS Game 5",
-      "stage": "ALCS Game 5",
+      "roundLabel": "ALCS Game 4",
+      "stage": "ALCS Game 4",
       "date": "2026-10-18",
-      "time": null,
-      "startTimeUtc": null,
-      "timePrecision": "tbc",
-      "scheduleStatus": "conditional",
-      "status": "upcoming",
+      "time": "11:08",
+      "startTimeUtc": "2026-10-18T00:08:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
       "venue": "Progressive Field",
       "cardKind": "fixture",
       "kind": "fixture",
@@ -4149,13 +4157,15 @@
           "participantId": "team:mlb:114",
           "label": "Cleveland Guardians",
           "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
-          "homeAway": "home"
+          "homeAway": "home",
+          "score": 3
         },
         {
           "participantId": "team:mlb:139",
           "label": "Tampa Bay Rays",
           "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
-          "homeAway": "away"
+          "homeAway": "away",
+          "score": 7
         }
       ],
       "sourceName": "MLB",
@@ -4163,22 +4173,34 @@
       "sourceUrl": "https://www.mlb.com/gameday/849816",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849816",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-11-05&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
-      "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-      "selectedSentence": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
-      "fullSpiel": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+      "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusFactObservedAt": "2026-10-22T17:03:49.824Z",
+      "score": "Cleveland Guardians 3–7 Tampa Bay Rays",
+      "resultStatus": "official",
+      "outcomeText": "Cleveland Guardians 3–7 Tampa Bay Rays",
+      "recapText": "ALCS Game 4: Cleveland Guardians 3–7 Tampa Bay Rays. MLB reports this game as final.",
+      "winnerParticipantId": "team:mlb:139",
+      "homeScore": 3,
+      "awayScore": 7,
+      "scoreCheckedAt": "2026-10-22T17:03:49.824Z",
+      "scoreFactObservedAt": "2026-10-22T17:03:49.824Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849816",
+      "resultSourceCheckedAt": "2026-10-22T17:03:49.824Z",
+      "selectedSentence": "ALCS Game 4 is complete. Reveal results for the outcome.",
+      "fullSpiel": "ALCS Game 4 is complete. Reveal results for the outcome.",
+      "lastReviewedAt": "2026-10-22T17:03:49.824Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
-        "hookSpoilerOff": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
-        "synopsisSpoilerOff": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
-        "hookSpoilerOn": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
-        "synopsisSpoilerOn": "ALCS Game 5 at Progressive Field. Check the official game page for updates."
+        "arcStage": "recap",
+        "hookSpoilerOff": "ALCS Game 4 is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "ALCS Game 4 is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Cleveland Guardians 3–7 Tampa Bay Rays",
+        "synopsisSpoilerOn": "Cleveland Guardians 3–7 Tampa Bay Rays"
       }
     },
     {
@@ -4197,11 +4219,11 @@
       "roundLabel": "ALCS Game 6",
       "stage": "ALCS Game 6",
       "date": "2026-10-20",
-      "time": null,
-      "startTimeUtc": null,
-      "timePrecision": "tbc",
-      "scheduleStatus": "conditional",
-      "status": "upcoming",
+      "time": "11:08",
+      "startTimeUtc": "2026-10-20T00:08:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
       "venue": "Tropicana Field",
       "cardKind": "fixture",
       "kind": "fixture",
@@ -4241,13 +4263,15 @@
           "participantId": "team:mlb:139",
           "label": "Tampa Bay Rays",
           "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
-          "homeAway": "home"
+          "homeAway": "home",
+          "score": 7
         },
         {
           "participantId": "team:mlb:114",
           "label": "Cleveland Guardians",
           "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
-          "homeAway": "away"
+          "homeAway": "away",
+          "score": 3
         }
       ],
       "sourceName": "MLB",
@@ -4255,22 +4279,34 @@
       "sourceUrl": "https://www.mlb.com/gameday/849815",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849815",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-11-05&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
-      "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-      "selectedSentence": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
-      "fullSpiel": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+      "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusFactObservedAt": "2026-10-22T17:03:49.824Z",
+      "score": "Tampa Bay Rays 7–3 Cleveland Guardians",
+      "resultStatus": "official",
+      "outcomeText": "Tampa Bay Rays 7–3 Cleveland Guardians",
+      "recapText": "ALCS Game 6: Tampa Bay Rays 7–3 Cleveland Guardians. MLB reports this game as final.",
+      "winnerParticipantId": "team:mlb:139",
+      "homeScore": 7,
+      "awayScore": 3,
+      "scoreCheckedAt": "2026-10-22T17:03:49.824Z",
+      "scoreFactObservedAt": "2026-10-22T17:03:49.824Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849815",
+      "resultSourceCheckedAt": "2026-10-22T17:03:49.824Z",
+      "selectedSentence": "ALCS Game 6 is complete. Reveal results for the outcome.",
+      "fullSpiel": "ALCS Game 6 is complete. Reveal results for the outcome.",
+      "lastReviewedAt": "2026-10-22T17:03:49.824Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
-        "hookSpoilerOff": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
-        "synopsisSpoilerOff": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
-        "hookSpoilerOn": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
-        "synopsisSpoilerOn": "ALCS Game 6 at Tropicana Field. Check the official game page for updates."
+        "arcStage": "recap",
+        "hookSpoilerOff": "ALCS Game 6 is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "ALCS Game 6 is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Tampa Bay Rays 7–3 Cleveland Guardians",
+        "synopsisSpoilerOn": "Tampa Bay Rays 7–3 Cleveland Guardians"
       }
     },
     {
@@ -4364,8 +4400,659 @@
         "hookSpoilerOn": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
         "synopsisSpoilerOn": "ALCS Game 7 at Tropicana Field. Check the official game page for updates."
       }
+    },
+    {
+      "id": "fixture:mlb:849805",
+      "eventId": "fixture:mlb:849805",
+      "canonicalEventId": "fixture:mlb:849805",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Milwaukee Brewers v Tampa Bay Rays",
+      "roundLabel": "World Series Game 1",
+      "stage": "World Series Game 1",
+      "date": "2026-10-24",
+      "time": "11:00",
+      "startTimeUtc": "2026-10-24T00:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "venue": "American Family Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:158",
+          "name": "Milwaukee Brewers",
+          "displayName": "Milwaukee Brewers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+        },
+        {
+          "id": "team:mlb:139",
+          "name": "Tampa Bay Rays",
+          "displayName": "Tampa Bay Rays",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:158",
+        "team:mlb:139"
+      ],
+      "homeParticipantId": "team:mlb:158",
+      "awayParticipantId": "team:mlb:139",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:158",
+          "label": "Milwaukee Brewers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:139",
+          "label": "Tampa Bay Rays",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849805",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849805",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-11-05&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusFactObservedAt": "2026-10-22T17:03:49.824Z",
+      "selectedSentence": "World Series Game 1 at American Family Field. Check the official game page for updates.",
+      "fullSpiel": "World Series Game 1 at American Family Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-22T17:03:49.824Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "World Series Game 1 at American Family Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "World Series Game 1 at American Family Field. Check the official game page for updates.",
+        "hookSpoilerOn": "World Series Game 1 at American Family Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "World Series Game 1 at American Family Field. Check the official game page for updates."
+      }
+    },
+    {
+      "id": "fixture:mlb:849802",
+      "eventId": "fixture:mlb:849802",
+      "canonicalEventId": "fixture:mlb:849802",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Milwaukee Brewers v Tampa Bay Rays",
+      "roundLabel": "World Series Game 2",
+      "stage": "World Series Game 2",
+      "date": "2026-10-25",
+      "time": "11:00",
+      "startTimeUtc": "2026-10-25T00:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "venue": "American Family Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:158",
+          "name": "Milwaukee Brewers",
+          "displayName": "Milwaukee Brewers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+        },
+        {
+          "id": "team:mlb:139",
+          "name": "Tampa Bay Rays",
+          "displayName": "Tampa Bay Rays",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:158",
+        "team:mlb:139"
+      ],
+      "homeParticipantId": "team:mlb:158",
+      "awayParticipantId": "team:mlb:139",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:158",
+          "label": "Milwaukee Brewers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:139",
+          "label": "Tampa Bay Rays",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849802",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849802",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-11-05&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusFactObservedAt": "2026-10-22T17:03:49.824Z",
+      "selectedSentence": "World Series Game 2 at American Family Field. Check the official game page for updates.",
+      "fullSpiel": "World Series Game 2 at American Family Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-22T17:03:49.824Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "World Series Game 2 at American Family Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "World Series Game 2 at American Family Field. Check the official game page for updates.",
+        "hookSpoilerOn": "World Series Game 2 at American Family Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "World Series Game 2 at American Family Field. Check the official game page for updates."
+      }
+    },
+    {
+      "id": "fixture:mlb:849804",
+      "eventId": "fixture:mlb:849804",
+      "canonicalEventId": "fixture:mlb:849804",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Tampa Bay Rays v Milwaukee Brewers",
+      "roundLabel": "World Series Game 3",
+      "stage": "World Series Game 3",
+      "date": "2026-10-27",
+      "time": "11:00",
+      "startTimeUtc": "2026-10-27T00:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "venue": "Tropicana Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:139",
+          "name": "Tampa Bay Rays",
+          "displayName": "Tampa Bay Rays",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg"
+        },
+        {
+          "id": "team:mlb:158",
+          "name": "Milwaukee Brewers",
+          "displayName": "Milwaukee Brewers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:139",
+        "team:mlb:158"
+      ],
+      "homeParticipantId": "team:mlb:139",
+      "awayParticipantId": "team:mlb:158",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:139",
+          "label": "Tampa Bay Rays",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:158",
+          "label": "Milwaukee Brewers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849804",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849804",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-11-05&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusFactObservedAt": "2026-10-22T17:03:49.824Z",
+      "selectedSentence": "World Series Game 3 at Tropicana Field. Check the official game page for updates.",
+      "fullSpiel": "World Series Game 3 at Tropicana Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-22T17:03:49.824Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "World Series Game 3 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "World Series Game 3 at Tropicana Field. Check the official game page for updates.",
+        "hookSpoilerOn": "World Series Game 3 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "World Series Game 3 at Tropicana Field. Check the official game page for updates."
+      }
+    },
+    {
+      "id": "fixture:mlb:849803",
+      "eventId": "fixture:mlb:849803",
+      "canonicalEventId": "fixture:mlb:849803",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Tampa Bay Rays v Milwaukee Brewers",
+      "roundLabel": "World Series Game 4",
+      "stage": "World Series Game 4",
+      "date": "2026-10-28",
+      "time": "11:00",
+      "startTimeUtc": "2026-10-28T00:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "venue": "Tropicana Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:139",
+          "name": "Tampa Bay Rays",
+          "displayName": "Tampa Bay Rays",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg"
+        },
+        {
+          "id": "team:mlb:158",
+          "name": "Milwaukee Brewers",
+          "displayName": "Milwaukee Brewers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:139",
+        "team:mlb:158"
+      ],
+      "homeParticipantId": "team:mlb:139",
+      "awayParticipantId": "team:mlb:158",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:139",
+          "label": "Tampa Bay Rays",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:158",
+          "label": "Milwaukee Brewers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849803",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849803",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-11-05&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusFactObservedAt": "2026-10-22T17:03:49.824Z",
+      "selectedSentence": "World Series Game 4 at Tropicana Field. Check the official game page for updates.",
+      "fullSpiel": "World Series Game 4 at Tropicana Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-22T17:03:49.824Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "World Series Game 4 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "World Series Game 4 at Tropicana Field. Check the official game page for updates.",
+        "hookSpoilerOn": "World Series Game 4 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "World Series Game 4 at Tropicana Field. Check the official game page for updates."
+      }
+    },
+    {
+      "id": "fixture:mlb:849799",
+      "eventId": "fixture:mlb:849799",
+      "canonicalEventId": "fixture:mlb:849799",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Tampa Bay Rays v Milwaukee Brewers",
+      "roundLabel": "World Series Game 5",
+      "stage": "World Series Game 5",
+      "date": "2026-10-29",
+      "time": null,
+      "startTimeUtc": null,
+      "timePrecision": "tbc",
+      "scheduleStatus": "conditional",
+      "status": "upcoming",
+      "venue": "Tropicana Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:139",
+          "name": "Tampa Bay Rays",
+          "displayName": "Tampa Bay Rays",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg"
+        },
+        {
+          "id": "team:mlb:158",
+          "name": "Milwaukee Brewers",
+          "displayName": "Milwaukee Brewers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:139",
+        "team:mlb:158"
+      ],
+      "homeParticipantId": "team:mlb:139",
+      "awayParticipantId": "team:mlb:158",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:139",
+          "label": "Tampa Bay Rays",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:158",
+          "label": "Milwaukee Brewers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849799",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849799",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-11-05&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusFactObservedAt": "2026-10-22T17:03:49.824Z",
+      "selectedSentence": "World Series Game 5 at Tropicana Field. Check the official game page for updates.",
+      "fullSpiel": "World Series Game 5 at Tropicana Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-22T17:03:49.824Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "World Series Game 5 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "World Series Game 5 at Tropicana Field. Check the official game page for updates.",
+        "hookSpoilerOn": "World Series Game 5 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "World Series Game 5 at Tropicana Field. Check the official game page for updates."
+      }
+    },
+    {
+      "id": "fixture:mlb:849801",
+      "eventId": "fixture:mlb:849801",
+      "canonicalEventId": "fixture:mlb:849801",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Milwaukee Brewers v Tampa Bay Rays",
+      "roundLabel": "World Series Game 6",
+      "stage": "World Series Game 6",
+      "date": "2026-10-31",
+      "time": null,
+      "startTimeUtc": null,
+      "timePrecision": "tbc",
+      "scheduleStatus": "conditional",
+      "status": "upcoming",
+      "venue": "American Family Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:158",
+          "name": "Milwaukee Brewers",
+          "displayName": "Milwaukee Brewers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+        },
+        {
+          "id": "team:mlb:139",
+          "name": "Tampa Bay Rays",
+          "displayName": "Tampa Bay Rays",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:158",
+        "team:mlb:139"
+      ],
+      "homeParticipantId": "team:mlb:158",
+      "awayParticipantId": "team:mlb:139",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:158",
+          "label": "Milwaukee Brewers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:139",
+          "label": "Tampa Bay Rays",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849801",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849801",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-11-05&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusFactObservedAt": "2026-10-22T17:03:49.824Z",
+      "selectedSentence": "World Series Game 6 at American Family Field. Check the official game page for updates.",
+      "fullSpiel": "World Series Game 6 at American Family Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-22T17:03:49.824Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "World Series Game 6 at American Family Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "World Series Game 6 at American Family Field. Check the official game page for updates.",
+        "hookSpoilerOn": "World Series Game 6 at American Family Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "World Series Game 6 at American Family Field. Check the official game page for updates."
+      }
+    },
+    {
+      "id": "fixture:mlb:849800",
+      "eventId": "fixture:mlb:849800",
+      "canonicalEventId": "fixture:mlb:849800",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Milwaukee Brewers v Tampa Bay Rays",
+      "roundLabel": "World Series Game 7",
+      "stage": "World Series Game 7",
+      "date": "2026-11-01",
+      "time": null,
+      "startTimeUtc": null,
+      "timePrecision": "tbc",
+      "scheduleStatus": "conditional",
+      "status": "upcoming",
+      "venue": "American Family Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:158",
+          "name": "Milwaukee Brewers",
+          "displayName": "Milwaukee Brewers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+        },
+        {
+          "id": "team:mlb:139",
+          "name": "Tampa Bay Rays",
+          "displayName": "Tampa Bay Rays",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:158",
+        "team:mlb:139"
+      ],
+      "homeParticipantId": "team:mlb:158",
+      "awayParticipantId": "team:mlb:139",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:158",
+          "label": "Milwaukee Brewers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:139",
+          "label": "Tampa Bay Rays",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849800",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849800",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-11-05&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusCheckedAt": "2026-10-22T17:03:49.824Z",
+      "statusFactObservedAt": "2026-10-22T17:03:49.824Z",
+      "selectedSentence": "World Series Game 7 at American Family Field. Check the official game page for updates.",
+      "fullSpiel": "World Series Game 7 at American Family Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-22T17:03:49.824Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "World Series Game 7 at American Family Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "World Series Game 7 at American Family Field. Check the official game page for updates.",
+        "hookSpoilerOn": "World Series Game 7 at American Family Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "World Series Game 7 at American Family Field. Check the official game page for updates."
+      }
     }
   ],
-  "checkedAt": "2026-10-13T20:59:25.934Z",
-  "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-06&endDate=2026-10-27&hydrate=team"
+  "checkedAt": "2026-10-22T17:03:49.824Z",
+  "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-11-05&hydrate=team"
 }

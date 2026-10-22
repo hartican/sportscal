@@ -70,7 +70,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
+      "rankingBasis": "After Matchweek 7",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -82,7 +82,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -228,7 +228,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
+      "rankingBasis": "After Matchweek 7",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -240,7 +240,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -440,6 +440,43 @@
       "standingGroup": "Australian Championship · Group B"
     },
     {
+      "id": "team:football:club:benfica",
+      "displayName": "Benfica",
+      "shortName": null,
+      "aliases": [
+        "Benfica Lissabon"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 3,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:uefa-europa-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:benfica",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://api.openligadb.de/getmatchdata/uel2026/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
+      "competitionId": "competition:uefa-europa-league"
+    },
+    {
       "id": "team:football:epl:131",
       "displayName": "Brighton & Hove Albion",
       "shortName": "Brighton",
@@ -464,7 +501,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
+      "rankingBasis": "After Matchweek 7",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -475,7 +512,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -558,43 +595,6 @@
       "standingGroup": "Australian Championship · Group D"
     },
     {
-      "id": "team:football:club:sparta-praha",
-      "displayName": "Sparta Praha",
-      "shortName": null,
-      "aliases": [
-        "Sparta Prag"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 3,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:uefa-europa-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:club:sparta-praha",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.openligadb.de/getmatchdata/uel2026/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
-      "competitionId": "competition:uefa-europa-league"
-    },
-    {
       "id": "team:football:australian-championship:9938",
       "displayName": "Sydney Olympic",
       "shortName": "Sydney Olympic",
@@ -666,16 +666,16 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
     {
-      "id": "team:football:epl:130",
-      "displayName": "Brentford",
-      "shortName": "Brentford",
+      "id": "team:football:epl:4",
+      "displayName": "Chelsea",
+      "shortName": "Chelsea",
       "aliases": [
-        "Brentford"
+        "Chelsea"
       ],
       "entityType": "team",
       "current": true,
@@ -689,12 +689,12 @@
       "leagueId": "competition:premier-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:epl:130",
+      "identityId": "team:football:epl:4",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
+      "rankingBasis": "After Matchweek 7",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -705,7 +705,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -866,11 +866,12 @@
       "standingGroup": "Australian Championship · Group B"
     },
     {
-      "id": "team:football:epl:7",
-      "displayName": "Everton",
-      "shortName": "Everton",
+      "id": "team:football:epl:10",
+      "displayName": "Liverpool",
+      "shortName": "Liverpool",
       "aliases": [
-        "Everton"
+        "Liverpool",
+        "FC Liverpool"
       ],
       "entityType": "team",
       "current": true,
@@ -884,69 +885,33 @@
       "leagueId": "competition:premier-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:epl:7",
+      "identityId": "team:football:epl:10",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
+      "rankingBasis": "After Matchweek 7",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
-        "source:football:premier-league:clubs-current"
+        "source:football:premier-league:clubs-current",
+        "https://api.openligadb.de/getmatchdata/ucl/2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
     {
-      "id": "team:football:club:union-saint-gilloise",
-      "displayName": "Union Saint-Gilloise",
-      "shortName": null,
+      "id": "team:football:epl:130",
+      "displayName": "Brentford",
+      "shortName": "Brentford",
       "aliases": [
-        "Union Saint-Gilloise"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 5,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:uefa-europa-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:club:union-saint-gilloise",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.openligadb.de/getmatchdata/uel2026/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
-      "competitionId": "competition:uefa-europa-league"
-    },
-    {
-      "id": "team:football:epl:4",
-      "displayName": "Chelsea",
-      "shortName": "Chelsea",
-      "aliases": [
-        "Chelsea"
+        "Brentford"
       ],
       "entityType": "team",
       "current": true,
@@ -960,12 +925,12 @@
       "leagueId": "competition:premier-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:epl:4",
+      "identityId": "team:football:epl:130",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
+      "rankingBasis": "After Matchweek 7",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -976,9 +941,46 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
+    },
+    {
+      "id": "team:football:club:omonia",
+      "displayName": "Omonia",
+      "shortName": null,
+      "aliases": [
+        "Omonia Nikosia"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 6,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:uefa-europa-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:omonia",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://api.openligadb.de/getmatchdata/uel2026/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
+      "competitionId": "competition:uefa-europa-league"
     },
     {
       "id": "team:football:club:ferencvaros",
@@ -993,7 +995,7 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 6,
+      "ladderPosition": 7,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:uefa-europa-league",
@@ -1013,81 +1015,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
-      "competitionId": "competition:uefa-europa-league"
-    },
-    {
-      "id": "team:football:club:sporting-cp",
-      "displayName": "Sporting CP",
-      "shortName": null,
-      "aliases": [
-        "Sporting CP"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 6,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:uefa-champions-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:club:sporting-cp",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.openligadb.de/getmatchdata/ucl/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
-      "competitionId": "competition:uefa-champions-league"
-    },
-    {
-      "id": "team:football:club:benfica",
-      "displayName": "Benfica",
-      "shortName": null,
-      "aliases": [
-        "Benfica Lissabon"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 7,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:uefa-europa-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:club:benfica",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.openligadb.de/getmatchdata/uel2026/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -1116,7 +1044,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
+      "rankingBasis": "After Matchweek 7",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1127,7 +1055,46 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "competitionId": "competition:premier-league-2026-27"
+    },
+    {
+      "id": "team:football:epl:7",
+      "displayName": "Everton",
+      "shortName": "Everton",
+      "aliases": [
+        "Everton"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 8,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:premier-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:epl:7",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": "After Matchweek 7",
+      "sourceRefs": [
+        "source:football:premier-league:official",
+        "source:football:premier-league:bootstrap",
+        "source:football:premier-league:clubs-current"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1145,7 +1112,7 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 8,
+      "ladderPosition": 9,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:premier-league",
@@ -1156,7 +1123,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
+      "rankingBasis": "After Matchweek 7",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1167,85 +1134,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "competitionId": "competition:premier-league-2026-27"
-    },
-    {
-      "id": "team:football:club:ofi-crete",
-      "displayName": "OFI Crete",
-      "shortName": null,
-      "aliases": [
-        "OFI Kreta"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 8,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:uefa-europa-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:club:ofi-crete",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.openligadb.de/getmatchdata/uel2026/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
-      "competitionId": "competition:uefa-europa-league"
-    },
-    {
-      "id": "team:football:epl:10",
-      "displayName": "Liverpool",
-      "shortName": "Liverpool",
-      "aliases": [
-        "Liverpool",
-        "FC Liverpool"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 9,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:premier-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:epl:10",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
-      "sourceRefs": [
-        "source:football:premier-league:official",
-        "source:football:premier-league:bootstrap",
-        "source:football:premier-league:clubs-current",
-        "https://api.openligadb.de/getmatchdata/ucl/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1274,7 +1163,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
+      "rankingBasis": "After Matchweek 7",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1285,16 +1174,16 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
     {
-      "id": "team:football:club:torreense",
-      "displayName": "Torreense",
+      "id": "team:football:club:olympiacos",
+      "displayName": "Olympiacos",
       "shortName": null,
       "aliases": [
-        "SC União Torreense"
+        "Olympiakos Piräus"
       ],
       "entityType": "team",
       "current": true,
@@ -1308,7 +1197,7 @@
       "leagueId": "competition:uefa-europa-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:club:torreense",
+      "identityId": "team:football:club:olympiacos",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
@@ -1322,9 +1211,46 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
+    },
+    {
+      "id": "team:football:club:club-brugge",
+      "displayName": "Club Brugge",
+      "shortName": null,
+      "aliases": [
+        "FC Brügge"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 11,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:uefa-champions-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:club-brugge",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://api.openligadb.de/getmatchdata/ucl/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
+      "competitionId": "competition:uefa-champions-league"
     },
     {
       "id": "team:football:epl:23",
@@ -1351,7 +1277,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
+      "rankingBasis": "After Matchweek 7",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1362,16 +1288,16 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
     {
-      "id": "team:football:club:shakhtar-donetsk",
-      "displayName": "Shakhtar Donetsk",
+      "id": "team:football:club:sparta-praha",
+      "displayName": "Sparta Praha",
       "shortName": null,
       "aliases": [
-        "Shakhtar Donetsk"
+        "Sparta Prag"
       ],
       "entityType": "team",
       "current": true,
@@ -1382,35 +1308,33 @@
       "ladderPosition": 11,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:uefa-champions-league",
+      "leagueId": "competition:uefa-europa-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:club:shakhtar-donetsk",
+      "identityId": "team:football:club:sparta-praha",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.openligadb.de/getmatchdata/ucl/2026"
+        "https://api.openligadb.de/getmatchdata/uel2026/2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
-      "competitionId": "competition:uefa-champions-league"
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
+      "competitionId": "competition:uefa-europa-league"
     },
     {
-      "id": "team:football:epl:6",
-      "displayName": "Crystal Palace",
-      "shortName": "C Palace",
+      "id": "team:football:epl:2",
+      "displayName": "Aston Villa",
+      "shortName": "Aston Villa",
       "aliases": [
-        "Crystal Palace",
-        "C Palace",
-        "Crystal Palace FC"
+        "Aston Villa"
       ],
       "entityType": "team",
       "current": true,
@@ -1424,16 +1348,90 @@
       "leagueId": "competition:premier-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:epl:6",
+      "identityId": "team:football:epl:2",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
+      "rankingBasis": "After Matchweek 7",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
         "source:football:premier-league:clubs-current",
+        "https://api.openligadb.de/getmatchdata/ucl/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "competitionId": "competition:premier-league-2026-27"
+    },
+    {
+      "id": "team:football:club:sporting-cp",
+      "displayName": "Sporting CP",
+      "shortName": null,
+      "aliases": [
+        "Sporting CP"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 12,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:uefa-champions-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:sporting-cp",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://api.openligadb.de/getmatchdata/ucl/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
+      "competitionId": "competition:uefa-champions-league"
+    },
+    {
+      "id": "team:football:club:union-saint-gilloise",
+      "displayName": "Union Saint-Gilloise",
+      "shortName": null,
+      "aliases": [
+        "Union Saint-Gilloise"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 12,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:uefa-europa-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:union-saint-gilloise",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
         "https://api.openligadb.de/getmatchdata/uel2026/2026"
       ],
       "watchPoolMember": false,
@@ -1441,9 +1439,9 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "competitionId": "competition:premier-league-2026-27"
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
+      "competitionId": "competition:uefa-europa-league"
     },
     {
       "id": "team:football:epl:12",
@@ -1471,7 +1469,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
+      "rankingBasis": "After Matchweek 7",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1483,54 +1481,18 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
     {
-      "id": "team:football:club:olympiacos",
-      "displayName": "Olympiacos",
-      "shortName": null,
+      "id": "team:football:epl:6",
+      "displayName": "Crystal Palace",
+      "shortName": "C Palace",
       "aliases": [
-        "Olympiakos Piräus"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 13,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:uefa-europa-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:club:olympiacos",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.openligadb.de/getmatchdata/uel2026/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
-      "competitionId": "competition:uefa-europa-league"
-    },
-    {
-      "id": "team:football:epl:5",
-      "displayName": "Coventry City",
-      "shortName": "Coventry",
-      "aliases": [
-        "Coventry City",
-        "Coventry"
+        "Crystal Palace",
+        "C Palace",
+        "Crystal Palace FC"
       ],
       "entityType": "team",
       "current": true,
@@ -1544,280 +1506,12 @@
       "leagueId": "competition:premier-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:epl:5",
+      "identityId": "team:football:epl:6",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
-      "sourceRefs": [
-        "source:football:premier-league:official",
-        "source:football:premier-league:bootstrap",
-        "source:football:premier-league:clubs-current"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "competitionId": "competition:premier-league-2026-27"
-    },
-    {
-      "id": "team:football:club:salzburg",
-      "displayName": "Salzburg",
-      "shortName": null,
-      "aliases": [
-        "RB Salzburg"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 14,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:uefa-europa-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:club:salzburg",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.openligadb.de/getmatchdata/uel2026/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
-      "competitionId": "competition:uefa-europa-league"
-    },
-    {
-      "id": "team:football:epl:15",
-      "displayName": "Nottingham Forest",
-      "shortName": "Nottm Forest",
-      "aliases": [
-        "Nottingham Forest",
-        "Nottm Forest"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 15,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:premier-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:epl:15",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
-      "sourceRefs": [
-        "source:football:premier-league:official",
-        "source:football:premier-league:bootstrap",
-        "source:football:premier-league:clubs-current"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "competitionId": "competition:premier-league-2026-27"
-    },
-    {
-      "id": "team:football:club:omonia",
-      "displayName": "Omonia",
-      "shortName": null,
-      "aliases": [
-        "Omonia Nikosia"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 15,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:uefa-europa-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:club:omonia",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.openligadb.de/getmatchdata/uel2026/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
-      "competitionId": "competition:uefa-europa-league"
-    },
-    {
-      "id": "team:football:epl:2",
-      "displayName": "Aston Villa",
-      "shortName": "Aston Villa",
-      "aliases": [
-        "Aston Villa"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 16,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:premier-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:epl:2",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
-      "sourceRefs": [
-        "source:football:premier-league:official",
-        "source:football:premier-league:bootstrap",
-        "source:football:premier-league:clubs-current",
-        "https://api.openligadb.de/getmatchdata/ucl/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "competitionId": "competition:premier-league-2026-27"
-    },
-    {
-      "id": "team:football:club:club-brugge",
-      "displayName": "Club Brugge",
-      "shortName": null,
-      "aliases": [
-        "FC Brügge"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 16,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:uefa-champions-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:club:club-brugge",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.openligadb.de/getmatchdata/ucl/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
-      "competitionId": "competition:uefa-champions-league"
-    },
-    {
-      "id": "team:football:club:sturm-graz",
-      "displayName": "Sturm Graz",
-      "shortName": null,
-      "aliases": [
-        "Sturm Graz"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 17,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:uefa-europa-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:club:sturm-graz",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.openligadb.de/getmatchdata/uel2026/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
-      "competitionId": "competition:uefa-europa-league"
-    },
-    {
-      "id": "team:football:epl:29",
-      "displayName": "Sunderland",
-      "shortName": "Sunderland",
-      "aliases": [
-        "Sunderland",
-        "Sunderland AFC"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 17,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:premier-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:epl:29",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
+      "rankingBasis": "After Matchweek 7",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1829,7 +1523,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1847,7 +1541,7 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 18,
+      "ladderPosition": 15,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:premier-league",
@@ -1858,7 +1552,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
+      "rankingBasis": "After Matchweek 7",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1870,7 +1564,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1888,7 +1582,7 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 19,
+      "ladderPosition": 16,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:premier-league",
@@ -1899,7 +1593,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
+      "rankingBasis": "After Matchweek 7",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1910,16 +1604,17 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
     {
-      "id": "team:football:club:aek-athens",
-      "displayName": "AEK Athens",
-      "shortName": "AEK Athens",
+      "id": "team:football:epl:5",
+      "displayName": "Coventry City",
+      "shortName": "Coventry",
       "aliases": [
-        "AEK Athens"
+        "Coventry City",
+        "Coventry"
       ],
       "entityType": "team",
       "current": true,
@@ -1927,63 +1622,18 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 20,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:uefa-champions-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:club:aek-athens",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
-        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
-        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
-        "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
-        "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
-        "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
-        "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
-        "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
-        "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
-      "competitionId": "competition:uefa-champions-league"
-    },
-    {
-      "id": "team:football:epl:34",
-      "displayName": "Fulham",
-      "shortName": "Fulham",
-      "aliases": [
-        "Fulham"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 20,
+      "ladderPosition": 17,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:premier-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:epl:34",
+      "identityId": "team:football:epl:5",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 6",
+      "rankingBasis": "After Matchweek 7",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1994,7 +1644,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -2011,7 +1661,7 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 21,
+      "ladderPosition": 17,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:uefa-europa-league",
@@ -2031,16 +1681,16 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
     {
-      "id": "team:football:club:anderlecht",
-      "displayName": "Anderlecht",
+      "id": "team:football:club:shakhtar-donetsk",
+      "displayName": "Shakhtar Donetsk",
       "shortName": null,
       "aliases": [
-        "RSC Anderlecht"
+        "Shakhtar Donetsk"
       ],
       "entityType": "team",
       "current": true,
@@ -2048,13 +1698,89 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 22,
+      "ladderPosition": 17,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:uefa-champions-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:shakhtar-donetsk",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://api.openligadb.de/getmatchdata/ucl/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
+      "competitionId": "competition:uefa-champions-league"
+    },
+    {
+      "id": "team:football:epl:34",
+      "displayName": "Fulham",
+      "shortName": "Fulham",
+      "aliases": [
+        "Fulham"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 18,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:premier-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:epl:34",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": "After Matchweek 7",
+      "sourceRefs": [
+        "source:football:premier-league:official",
+        "source:football:premier-league:bootstrap",
+        "source:football:premier-league:clubs-current"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "competitionId": "competition:premier-league-2026-27"
+    },
+    {
+      "id": "team:football:club:ofi-crete",
+      "displayName": "OFI Crete",
+      "shortName": null,
+      "aliases": [
+        "OFI Kreta"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 18,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:uefa-europa-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:club:anderlecht",
+      "identityId": "team:football:club:ofi-crete",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
@@ -2068,9 +1794,201 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
+    },
+    {
+      "id": "team:football:club:psv-eindhoven",
+      "displayName": "PSV Eindhoven",
+      "shortName": null,
+      "aliases": [
+        "PSV Eindhoven"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 18,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:uefa-champions-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:psv-eindhoven",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://api.openligadb.de/getmatchdata/ucl/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
+      "competitionId": "competition:uefa-champions-league"
+    },
+    {
+      "id": "team:football:epl:15",
+      "displayName": "Nottingham Forest",
+      "shortName": "Nottm Forest",
+      "aliases": [
+        "Nottingham Forest",
+        "Nottm Forest"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 19,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:premier-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:epl:15",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": "After Matchweek 7",
+      "sourceRefs": [
+        "source:football:premier-league:official",
+        "source:football:premier-league:bootstrap",
+        "source:football:premier-league:clubs-current"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "competitionId": "competition:premier-league-2026-27"
+    },
+    {
+      "id": "team:football:club:torreense",
+      "displayName": "Torreense",
+      "shortName": null,
+      "aliases": [
+        "SC União Torreense"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 19,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:uefa-europa-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:torreense",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://api.openligadb.de/getmatchdata/uel2026/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
+      "competitionId": "competition:uefa-europa-league"
+    },
+    {
+      "id": "team:football:club:salzburg",
+      "displayName": "Salzburg",
+      "shortName": null,
+      "aliases": [
+        "RB Salzburg"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 20,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:uefa-europa-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:salzburg",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://api.openligadb.de/getmatchdata/uel2026/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
+      "competitionId": "competition:uefa-europa-league"
+    },
+    {
+      "id": "team:football:epl:29",
+      "displayName": "Sunderland",
+      "shortName": "Sunderland",
+      "aliases": [
+        "Sunderland",
+        "Sunderland AFC"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 20,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:premier-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:epl:29",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": "After Matchweek 7",
+      "sourceRefs": [
+        "source:football:premier-league:official",
+        "source:football:premier-league:bootstrap",
+        "source:football:premier-league:clubs-current",
+        "https://api.openligadb.de/getmatchdata/uel2026/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "competitionId": "competition:premier-league-2026-27"
     },
     {
       "id": "team:football:club:lillestrom",
@@ -2105,9 +2023,91 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
+    },
+    {
+      "id": "team:football:club:galatasaray",
+      "displayName": "Galatasaray",
+      "shortName": null,
+      "aliases": [
+        "Galatasaray Istanbul"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 23,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:uefa-champions-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:galatasaray",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://api.openligadb.de/getmatchdata/ucl/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
+      "competitionId": "competition:uefa-champions-league"
+    },
+    {
+      "id": "team:football:club:lask",
+      "displayName": "LASK",
+      "shortName": "LASK",
+      "aliases": [
+        "LASK"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 24,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:uefa-champions-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:lask",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+        "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+        "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
+      "competitionId": "competition:uefa-champions-league"
     },
     {
       "id": "team:football:club:sabah",
@@ -2122,7 +2122,7 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 22,
+      "ladderPosition": 25,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:uefa-champions-league",
@@ -2150,9 +2150,46 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
+    },
+    {
+      "id": "team:football:club:sturm-graz",
+      "displayName": "Sturm Graz",
+      "shortName": null,
+      "aliases": [
+        "Sturm Graz"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 25,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:uefa-europa-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:sturm-graz",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://api.openligadb.de/getmatchdata/uel2026/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
+      "competitionId": "competition:uefa-europa-league"
     },
     {
       "id": "team:football:club:feyenoord",
@@ -2167,7 +2204,7 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 23,
+      "ladderPosition": 26,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:uefa-champions-league",
@@ -2187,9 +2224,83 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
+    },
+    {
+      "id": "team:football:club:az-alkmaar",
+      "displayName": "AZ Alkmaar",
+      "shortName": null,
+      "aliases": [
+        "AZ Alkmaar"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 27,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:uefa-europa-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:az-alkmaar",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://api.openligadb.de/getmatchdata/uel2026/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
+      "competitionId": "competition:uefa-europa-league"
+    },
+    {
+      "id": "team:football:club:anderlecht",
+      "displayName": "Anderlecht",
+      "shortName": null,
+      "aliases": [
+        "RSC Anderlecht"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 28,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:uefa-europa-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:anderlecht",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://api.openligadb.de/getmatchdata/uel2026/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
+      "competitionId": "competition:uefa-europa-league"
     },
     {
       "id": "team:football:club:bod-glimt",
@@ -2204,7 +2315,7 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 24,
+      "ladderPosition": 28,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:uefa-champions-league",
@@ -2232,16 +2343,16 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
     {
-      "id": "team:football:club:az-alkmaar",
-      "displayName": "AZ Alkmaar",
-      "shortName": null,
+      "id": "team:football:club:aek-athens",
+      "displayName": "AEK Athens",
+      "shortName": "AEK Athens",
       "aliases": [
-        "AZ Alkmaar"
+        "AEK Athens"
       ],
       "entityType": "team",
       "current": true,
@@ -2249,87 +2360,13 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 25,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:uefa-europa-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:club:az-alkmaar",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.openligadb.de/getmatchdata/uel2026/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
-      "competitionId": "competition:uefa-europa-league"
-    },
-    {
-      "id": "team:football:club:psv-eindhoven",
-      "displayName": "PSV Eindhoven",
-      "shortName": null,
-      "aliases": [
-        "PSV Eindhoven"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 26,
+      "ladderPosition": 29,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:uefa-champions-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:club:psv-eindhoven",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.openligadb.de/getmatchdata/ucl/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
-      "competitionId": "competition:uefa-champions-league"
-    },
-    {
-      "id": "team:football:club:viking",
-      "displayName": "Viking",
-      "shortName": "Viking",
-      "aliases": [
-        "Viking"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 27,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:uefa-champions-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:club:viking",
+      "identityId": "team:football:club:aek-athens",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
@@ -2351,7 +2388,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -2368,7 +2405,7 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 28,
+      "ladderPosition": 31,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:uefa-champions-league",
@@ -2396,16 +2433,16 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
     {
-      "id": "team:football:club:porto",
-      "displayName": "Porto",
+      "id": "team:football:club:viktoria-plzen",
+      "displayName": "Viktoria Plzeň",
       "shortName": null,
       "aliases": [
-        "FC Porto"
+        "Viktoria Pilsen"
       ],
       "entityType": "team",
       "current": true,
@@ -2413,29 +2450,29 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 30,
+      "ladderPosition": 31,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:uefa-champions-league",
+      "leagueId": "competition:uefa-europa-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:club:porto",
+      "identityId": "team:football:club:viktoria-plzen",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.openligadb.de/getmatchdata/ucl/2026"
+        "https://api.openligadb.de/getmatchdata/uel2026/2026"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
-      "competitionId": "competition:uefa-champions-league"
+      "rankingCheckedOn": "2026-10-22",
+      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
+      "competitionId": "competition:uefa-europa-league"
     },
     {
       "id": "team:football:club:slavia-praha",
@@ -2450,7 +2487,7 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 31,
+      "ladderPosition": 32,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:uefa-champions-league",
@@ -2470,7 +2507,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -2507,16 +2544,16 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
     {
-      "id": "team:football:club:lask",
-      "displayName": "LASK",
-      "shortName": "LASK",
+      "id": "team:football:club:viking",
+      "displayName": "Viking",
+      "shortName": "Viking",
       "aliases": [
-        "LASK"
+        "Viking"
       ],
       "entityType": "team",
       "current": true,
@@ -2530,7 +2567,7 @@
       "leagueId": "competition:uefa-champions-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:club:lask",
+      "identityId": "team:football:club:viking",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
@@ -2552,16 +2589,16 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
     {
-      "id": "team:football:club:viktoria-plzen",
-      "displayName": "Viktoria Plzeň",
+      "id": "team:football:club:porto",
+      "displayName": "Porto",
       "shortName": null,
       "aliases": [
-        "Viktoria Pilsen"
+        "FC Porto"
       ],
       "entityType": "team",
       "current": true,
@@ -2572,47 +2609,10 @@
       "ladderPosition": 34,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:uefa-europa-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:club:viktoria-plzen",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.openligadb.de/getmatchdata/uel2026/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
-      "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
-      "competitionId": "competition:uefa-europa-league"
-    },
-    {
-      "id": "team:football:club:galatasaray",
-      "displayName": "Galatasaray",
-      "shortName": null,
-      "aliases": [
-        "Galatasaray Istanbul"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 35,
-      "marketValue": null,
-      "currentTeamId": null,
       "leagueId": "competition:uefa-champions-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:club:galatasaray",
+      "identityId": "team:football:club:porto",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
@@ -2626,7 +2626,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -2643,7 +2643,7 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 35,
+      "ladderPosition": 36,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:uefa-europa-league",
@@ -2663,7 +2663,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -2708,7 +2708,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-15",
+      "rankingCheckedOn": "2026-10-22",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -2780,7 +2780,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:football:espn:242007",
@@ -3236,7 +3236,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:333419",
@@ -3269,7 +3269,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:364746",
@@ -3722,7 +3722,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:361258",
@@ -4017,7 +4017,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 20
     },
     {
       "id": "competitor:football:espn:341774",
@@ -4438,7 +4438,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:166396",
@@ -5177,7 +5177,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:192146",
@@ -5242,7 +5242,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:156416",
@@ -5403,7 +5403,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:408251",
@@ -5692,7 +5692,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:349922",
@@ -6014,7 +6014,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:222614",
@@ -6881,7 +6881,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:307419",
@@ -7431,7 +7431,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:265997",
@@ -7560,7 +7560,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:200910",
@@ -7722,7 +7722,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:310452",
@@ -9065,7 +9065,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:268870",
@@ -9163,7 +9163,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:318785",
@@ -9356,7 +9356,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:139363",
@@ -9549,7 +9549,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:289511",
@@ -9582,7 +9582,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:279137",
@@ -9775,7 +9775,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "team:football:club:bologna",
@@ -9983,7 +9983,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:404832",
@@ -10345,7 +10345,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 20
     },
     {
       "id": "competitor:football:espn:164126",
@@ -10708,7 +10708,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:261419",
@@ -10741,7 +10741,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:138924",
@@ -10774,7 +10774,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:football:espn:263110",
@@ -10807,7 +10807,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:345106",
@@ -10907,7 +10907,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:football:espn:221460",
@@ -10972,7 +10972,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:195790",
@@ -11612,7 +11612,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:330552",
@@ -11677,7 +11677,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:296319",
@@ -11774,7 +11774,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:327167",
@@ -11839,7 +11839,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:360062",
@@ -11872,7 +11872,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 20
     },
     {
       "id": "competitor:football:espn:360061",
@@ -11969,7 +11969,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 20
     },
     {
       "id": "competitor:football:espn:134190",
@@ -12002,7 +12002,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:297165",
@@ -12291,7 +12291,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:339198",
@@ -12580,7 +12580,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:296395",
@@ -12613,7 +12613,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 4
     },
     {
       "id": "team:football:colombia",
@@ -12719,7 +12719,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:266696",
@@ -12752,7 +12752,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:362794",
@@ -13139,7 +13139,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:256966",
@@ -13204,7 +13204,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:football:espn:354646",
@@ -13494,7 +13494,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:417372",
@@ -13687,7 +13687,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 20
     },
     {
       "id": "competitor:football:espn:273021",
@@ -13752,7 +13752,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:399747",
@@ -13882,7 +13882,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:111337",
@@ -14301,7 +14301,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:356000",
@@ -14626,7 +14626,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:234300",
@@ -14883,7 +14883,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:238902",
@@ -15013,7 +15013,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:168453",
@@ -15143,7 +15143,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:221278",
@@ -15208,7 +15208,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:259481",
@@ -15337,7 +15337,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:386117",
@@ -15499,7 +15499,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:228402",
@@ -16281,7 +16281,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:238472",
@@ -16347,7 +16347,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:282647",
@@ -16380,7 +16380,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:209595",
@@ -16509,7 +16509,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:158626",
@@ -16542,7 +16542,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:330707",
@@ -16899,7 +16899,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:379062",
@@ -16996,7 +16996,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:231697",
@@ -17452,7 +17452,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:football:espn:346676",
@@ -17549,7 +17549,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:299457",
@@ -17807,7 +17807,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:football:espn:323061",
@@ -18460,7 +18460,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:323147",
@@ -19298,7 +19298,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:306548",
@@ -19750,7 +19750,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:165424",
@@ -20953,7 +20953,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:276067",
@@ -21316,7 +21316,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:273424",
@@ -21637,7 +21637,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 20
     },
     {
       "id": "competitor:football:espn:312338",
@@ -21702,7 +21702,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:170785",
@@ -21799,7 +21799,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:football:espn:196729",
@@ -22039,7 +22039,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:142200",
@@ -22235,7 +22235,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:246560",
@@ -22332,7 +22332,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:178978",
@@ -22461,7 +22461,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:206835",
@@ -22782,7 +22782,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:377495",
@@ -22911,7 +22911,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:234143",
@@ -23009,7 +23009,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:football:espn:235693",
@@ -23266,7 +23266,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:304503",
@@ -23786,7 +23786,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:230963",
@@ -24012,7 +24012,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:172850",
@@ -24111,7 +24111,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:139744",
@@ -24371,7 +24371,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:274649",
@@ -24437,7 +24437,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:283586",
@@ -24470,7 +24470,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:303821",
@@ -24567,7 +24567,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:155226",
@@ -24600,7 +24600,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:307118",
@@ -24666,7 +24666,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:307391",
@@ -24795,7 +24795,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:205916",
@@ -24988,7 +24988,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:290512",
@@ -25182,7 +25182,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:386252",
@@ -25215,7 +25215,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:243408",
@@ -25441,7 +25441,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:228707",
@@ -25602,7 +25602,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:234757",
@@ -25732,7 +25732,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:186024",
@@ -25989,7 +25989,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:297362",
@@ -26086,7 +26086,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:350961",
@@ -26183,7 +26183,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:232325",
@@ -26474,7 +26474,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:162843",
@@ -26507,7 +26507,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:157974",
@@ -26572,7 +26572,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:265926",
@@ -27021,7 +27021,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:191712",
@@ -27086,7 +27086,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:240660",
@@ -27215,7 +27215,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:307019",
@@ -27440,7 +27440,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:football:espn:290418",
@@ -28051,7 +28051,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:387975",
@@ -28213,7 +28213,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:261054",
@@ -28438,7 +28438,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "team:football:club:juventus",
@@ -28541,7 +28541,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:357030",
@@ -29025,7 +29025,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:169532",
@@ -29091,7 +29091,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:304151",
@@ -29188,7 +29188,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:134947",
@@ -29317,7 +29317,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:football:espn:175006",
@@ -29542,7 +29542,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:283375",
@@ -29927,7 +29927,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:football:espn:231388",
@@ -30915,7 +30915,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 4
     },
     {
       "id": "team:football:club:levski-sofia",
@@ -30990,7 +30990,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:223452",
@@ -31023,7 +31023,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:147106",
@@ -31154,7 +31154,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:271879",
@@ -31187,7 +31187,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:290141",
@@ -32127,7 +32127,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:262482",
@@ -32289,7 +32289,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:238525",
@@ -33155,7 +33155,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 20
     },
     {
       "id": "team:football:club:lyon",
@@ -33723,7 +33723,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:312399",
@@ -34366,7 +34366,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:192570",
@@ -34495,7 +34495,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:146127",
@@ -34560,7 +34560,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:177545",
@@ -35010,7 +35010,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:179211",
@@ -35337,7 +35337,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:203669",
@@ -35758,7 +35758,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:football:espn:234881",
@@ -35919,7 +35919,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:173749",
@@ -36080,7 +36080,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:388779",
@@ -36241,7 +36241,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:364892",
@@ -36467,7 +36467,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:179497",
@@ -36500,7 +36500,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:358496",
@@ -36629,7 +36629,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:318316",
@@ -37054,7 +37054,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:386387",
@@ -37219,7 +37219,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:286831",
@@ -37701,7 +37701,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:371973",
@@ -37958,7 +37958,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:248633",
@@ -38091,7 +38091,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:243396",
@@ -38124,7 +38124,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:176816",
@@ -38480,7 +38480,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 19
     },
     {
       "id": "team:football:club:n-e-c",
@@ -38945,7 +38945,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:120829",
@@ -39074,7 +39074,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:322693",
@@ -39692,7 +39692,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:308288",
@@ -40237,7 +40237,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 20
     },
     {
       "id": "competitor:football:espn:397394",
@@ -40398,7 +40398,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 20
     },
     {
       "id": "competitor:football:espn:3100741",
@@ -40495,7 +40495,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 20
     },
     {
       "id": "team:football:norway",
@@ -40916,7 +40916,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:193010",
@@ -40949,7 +40949,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:297751",
@@ -41078,7 +41078,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:215401",
@@ -41111,7 +41111,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 20
     },
     {
       "id": "competitor:football:espn:303745",
@@ -41405,7 +41405,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:365997",
@@ -41470,7 +41470,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:305821",
@@ -41695,7 +41695,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:320947",
@@ -42645,7 +42645,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:371498",
@@ -42934,7 +42934,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:386579",
@@ -44355,7 +44355,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:346596",
@@ -45024,7 +45024,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 20
     },
     {
       "id": "competitor:football:espn:205981",
@@ -45057,7 +45057,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:349185",
@@ -45186,7 +45186,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:206761",
@@ -45219,7 +45219,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:football:espn:181192",
@@ -45444,7 +45444,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:318773",
@@ -45637,7 +45637,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 20
     },
     {
       "id": "competitor:football:espn:206114",
@@ -45766,7 +45766,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:332689",
@@ -46119,7 +46119,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:181946",
@@ -46377,7 +46377,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:243576",
@@ -46410,7 +46410,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:241253",
@@ -46443,7 +46443,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:363886",
@@ -46796,7 +46796,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:304258",
@@ -47747,7 +47747,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:270186",
@@ -47941,7 +47941,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:football:espn:178980",
@@ -48266,7 +48266,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 20
     },
     {
       "id": "competitor:football:espn:275015",
@@ -49167,7 +49167,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:159348",
@@ -49232,7 +49232,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:303308",
@@ -49330,7 +49330,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:300049",
@@ -49363,7 +49363,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:403125",
@@ -49588,7 +49588,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:214401",
@@ -49685,7 +49685,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 20
     },
     {
       "id": "competitor:football:espn:158066",
@@ -50006,7 +50006,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:128521",
@@ -50232,7 +50232,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:283683",
@@ -50767,7 +50767,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:300853",
@@ -50800,7 +50800,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:181312",
@@ -50833,7 +50833,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 12
     },
     {
       "id": "team:football:club:udinese",
@@ -51199,7 +51199,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:277301",
@@ -51498,7 +51498,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:388090",
@@ -51697,7 +51697,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:403234",
@@ -51923,7 +51923,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 5
     },
     {
       "id": "team:football:club:wellington-phoenix-fc",
@@ -52029,7 +52029,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 4
     },
     {
       "id": "team:football:western-sydney-wanderers",
@@ -52098,7 +52098,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:162162",
@@ -52421,7 +52421,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:332962",
@@ -52454,7 +52454,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:326234",
@@ -52808,7 +52808,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:football:espn:241029",
@@ -52937,7 +52937,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:224077",

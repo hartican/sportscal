@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-official-results-2026-09-15-v1-20261016190849214-20261017034440215-20261022142518860-20261022145118675",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261022180155820",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-22T14:51:18.675Z",
+  "publishedAt": "2026-10-22T18:01:55.820Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
@@ -184,9 +184,9 @@
         "lastEventDate": "2026-09-29"
       },
       "baseball": {
-        "count": 43,
+        "count": 50,
         "firstEventDate": "2026-09-30",
-        "lastEventDate": "2026-10-21"
+        "lastEventDate": "2026-11-01"
       },
       "supercars": {
         "count": 1,

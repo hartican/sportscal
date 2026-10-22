@@ -13,20 +13,7 @@
       "date": "2026-10-13",
       "enrichmentOnly": true,
       "highlightsOnly": true,
-      "highlights": {
-        "schemaVersion": "fixture-highlights.v1",
-        "provider": "youtube",
-        "videoId": "9RPLO_6TzZA",
-        "url": "https://www.youtube.com/watch?v=9RPLO_6TzZA",
-        "channelId": "UCbcxFkd6B9xUU54InHv4Tig",
-        "publishedAt": "2026-10-13T06:15:04+00:00",
-        "verifiedAt": "2026-10-13T15:29:50.527Z",
-        "availability": "public",
-        "regionStatus": "unknown",
-        "standalone": true,
-        "matchTitle": "Alex de Minaur vs Karen Khachanov High-Quality Entertainment 💥 | Shanghai 2026 Highlights",
-        "verificationMethod": "official-channel-feed-and-oembed"
-      }
+      "highlights": null
     },
     {
       "id": "fixture:tennis:espn:atp:184951",
@@ -40,20 +27,7 @@
       "date": "2026-10-13",
       "enrichmentOnly": true,
       "highlightsOnly": true,
-      "highlights": {
-        "schemaVersion": "fixture-highlights.v1",
-        "provider": "youtube",
-        "videoId": "7s_ycu0s4NU",
-        "url": "https://www.youtube.com/watch?v=7s_ycu0s4NU",
-        "channelId": "UCbcxFkd6B9xUU54InHv4Tig",
-        "publishedAt": "2026-10-13T08:28:32+00:00",
-        "verifiedAt": "2026-10-13T15:29:50.527Z",
-        "availability": "public",
-        "regionStatus": "unknown",
-        "standalone": true,
-        "matchTitle": "Jakub Mensik vs Arthur Gea FUN Battle 🤩 | Shanghai 2026 Highlights",
-        "verificationMethod": "official-channel-feed-and-oembed"
-      }
+      "highlights": null
     },
     {
       "id": "fixture:tennis:espn:atp:184959",
@@ -67,20 +41,7 @@
       "date": "2026-10-13",
       "enrichmentOnly": true,
       "highlightsOnly": true,
-      "highlights": {
-        "schemaVersion": "fixture-highlights.v1",
-        "provider": "youtube",
-        "videoId": "yINOy0bSnYk",
-        "url": "https://www.youtube.com/watch?v=yINOy0bSnYk",
-        "channelId": "UCbcxFkd6B9xUU54InHv4Tig",
-        "publishedAt": "2026-10-13T13:10:06+00:00",
-        "verifiedAt": "2026-10-13T21:32:03.756Z",
-        "availability": "public",
-        "regionStatus": "unknown",
-        "standalone": true,
-        "matchTitle": "Alexander Zverev vs Alexander Bublik DRAMATIC Clash 🍿 | Shanghai 2026 Highlights",
-        "verificationMethod": "official-channel-feed-and-oembed"
-      }
+      "highlights": null
     },
     {
       "id": "fixture:tennis:espn:atp:184952",
@@ -94,20 +55,7 @@
       "date": "2026-10-14",
       "enrichmentOnly": true,
       "highlightsOnly": true,
-      "highlights": {
-        "schemaVersion": "fixture-highlights.v1",
-        "provider": "youtube",
-        "videoId": "OSnzyodnKdE",
-        "url": "https://www.youtube.com/watch?v=OSnzyodnKdE",
-        "channelId": "UCY_5h5zaSwN7Or4kIJDYNXA",
-        "publishedAt": "2026-10-13T16:14:00+00:00",
-        "verifiedAt": "2026-10-14T00:24:15.885Z",
-        "availability": "public",
-        "regionStatus": "unknown",
-        "standalone": true,
-        "matchTitle": "Hubert Hurkacz vs Alejandro Davidovich Fokina Highlights | Shanghai 2026 Round 4",
-        "verificationMethod": "official-channel-feed-and-oembed"
-      }
+      "highlights": null
     }
   ]
 }

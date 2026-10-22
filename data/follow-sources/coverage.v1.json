@@ -33519,7 +33519,7 @@
       "date": "2026-10-17",
       "timePrecision": "exact",
       "dateOnly": false,
-      "status": "scheduled",
+      "status": "completed",
       "roundLabel": null,
       "venue": "Stadium Australia, Sydney | Wangal",
       "participants": [
@@ -33559,10 +33559,10 @@
       "homeParticipantId": "team:rugby:wallabies",
       "awayParticipantId": "team:rugby:all-blacks",
       "sourceFixtureId": "e3cbae12-66b3-4835-b1ce-4014b63055c8",
-      "sourceName": "World Rugby",
+      "sourceName": "New Zealand Rugby",
       "sourceType": "official",
-      "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-06&endDate=2027-01-11&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
-      "sourceCheckedAt": "2026-10-13T14:10:00.695Z",
+      "sourceUrl": "https://www.allblacks.com/matches/australia-new-zealand-17-10-2026/liveblog",
+      "sourceCheckedAt": "2026-10-22T17:00:14.715824+00:00",
       "timingProvenance": {
         "kind": "official",
         "checkedAt": "2026-10-02T08:24:46.814Z",
@@ -33585,7 +33585,7 @@
         "millis": 1792215900000,
         "gmtOffset": 10
       },
-      "statusCheckedAt": "2026-10-13T20:12:01.856+00:00",
+      "statusCheckedAt": "2026-10-22T17:00:14.715824+00:00",
       "sourceEventIds": [
         "rugby-australia-new-zealand-2026-10-17",
         "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8",
@@ -33593,10 +33593,29 @@
         "fixture:rugby:ra:949627",
         "fixture-rugby-ra-949627"
       ],
-      "scoreCheckedAt": null,
-      "scoreFactObservedAt": null,
-      "statusFactObservedAt": "2026-10-02T18:38:01.23+00:00",
-      "fixtureObservationSchema": "fixture-observations.v1"
+      "scoreCheckedAt": "2026-10-22T17:00:14.715824+00:00",
+      "scoreFactObservedAt": "2026-10-22T17:00:14.715824+00:00",
+      "statusFactObservedAt": "2026-10-22T17:00:14.715824+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "score": "21–43",
+      "scoreDisplay": "21–43",
+      "resultStatus": "official",
+      "outcomeText": "New Zealand defeated Australia 43–21.",
+      "recapText": "New Zealand defeated Australia 43–21 at Accor Stadium, Sydney.",
+      "homeScore": 21,
+      "awayScore": 43,
+      "winnerParticipantId": "team:rugby:all-blacks",
+      "resultSourceUrl": "https://www.allblacks.com/matches/australia-new-zealand-17-10-2026/liveblog",
+      "resultSourceCheckedAt": "2026-10-22T17:00:14.715824+00:00",
+      "statusSourceUrl": "https://www.allblacks.com/matches/australia-new-zealand-17-10-2026/liveblog",
+      "statusSourceName": "New Zealand Rugby",
+      "statusSourceType": "official",
+      "sourceTrust": "verified",
+      "sourceRefs": [
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-06&endDate=2027-01-11&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://www.allblacks.com/matches/australia-new-zealand-17-10-2026/liveblog"
+      ],
+      "endTimeUtc": null
     },
     {
       "id": "fixture:rugby:wr:42a0d140-d1c4-483a-89dc-45339c6b5a1e",
