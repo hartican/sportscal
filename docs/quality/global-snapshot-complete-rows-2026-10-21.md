@@ -1,6 +1,6 @@
 # Loading repair: prepare transport rows with canonical facts
 
-Status: encoded-cache approach superseded and not adopted. R11b failed live and was exactly undone; full original state was reverified at 10:11:40 UTC. Its unshipped migrations and tests are archived outside the deployable tree. A minimal direct-calendar view repair is locally qualified; live and release gates remain pending.
+Status: encoded-cache approach superseded and not adopted. R11b failed live and was exactly undone; full original state was reverified at 10:11:40 UTC. Its unshipped migrations and tests are archived outside the deployable tree. The later direct-calendar global/near repair was also applied and rejected by workflow 39590547263, then exactly undone at 11:49:16 UTC on 21 October; original fbc/D9 and contracts were verified at 11:50:44 UTC. Four earlier public rounds did not override the failed release gate. Do not treat the historical local qualification below as an untried candidate or retry it unchanged. See `/Users/jackhartican/Documents/AI/Codex/nothingsport-snapshot-repair-20261021/combined-direct-application-journal.json`.
 
 The public loading failure is a real shared fixture-read deadline failure, not
 merely a missing verifier timing. Earlier query changes and a private base-prefix
