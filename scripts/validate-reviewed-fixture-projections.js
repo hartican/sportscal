@@ -15,6 +15,19 @@ assert.deepEqual(codesForReviewedFixtures([selected],['provider:regression'],man
 assert.throws(()=>codesForReviewedFixtures([selected],['missing'],manifest,readChunk),/Unknown or ambiguous/);
 assert.throws(()=>codesForReviewedFixtures([selected,{...selected,id:'different'}],[selected.canonicalEventId],manifest,readChunk),/Unknown or ambiguous/,'ambiguous aliases fail before projection');
 
+// Rebuilding an entire aggregate also re-evaluates its unselected fixtures.
+// Their child copies must share that rebuild, including transitive aliases.
+const footballSelected={id:'reviewed-epl',key:'football'};
+const overlapManifest={codes:['football','champions-league','ucl-child','tennis'].map(slug=>({slug,chunkPath:'data/code-inspector/'+slug+'.json'}))};
+const overlapChunks={
+  'data/code-inspector/football.json':{fixtures:[footballSelected,{id:'unselected-ucl'}]},
+  'data/code-inspector/champions-league.json':{fixtures:[{id:'unselected-ucl'},{id:'child-ucl',sourceEventIds:['provider:child-ucl']}]},
+  'data/code-inspector/ucl-child.json':{fixtures:[{id:'provider:child-ucl'}]},
+  'data/code-inspector/tennis.json':{fixtures:[{id:'unrelated',name:'Same display name'}]},
+};
+const overlapCodes=['football','champions-league','ucl-child'];
+assert.deepEqual(codesForReviewedFixtures([footballSelected],[footballSelected.id],overlapManifest,file=>overlapChunks[file]),overlapCodes,'whole-chunk rebuild includes every overlapping child but no unrelated sport');
+
 // Run the real canonical entrypoint with constructed retained records. Dispatch
 // is intercepted, so this checks code selection without providers or publication.
 const root=path.resolve(__dirname,'..'),temporary=fs.mkdtempSync(path.join(os.tmpdir(),'ns-reviewed-child-projection-'));
@@ -29,6 +42,15 @@ try{
   assert.deepEqual(steps.find(step=>step[0]==='scripts/build-code-inspector.js'),['scripts/build-code-inspector.js','--codes=basketball,nbl']);
   assert.equal(steps.filter(step=>step[0]==='scripts/build-code-inspector.js').length,1,'one existing builder owns both projections');
   assert(!steps.some(step=>/refresh-|redeploy|snapshot-active-follows/.test(step[0])),'scoped repair adds no ingestion, private follows or release');
+
+  const overlapDocuments={'data/events.json':{events:[footballSelected]},'data/code-inspector/manifest.json':overlapManifest,...overlapChunks};
+  fs.writeFileSync(preload,fs.readFileSync(preload,'utf8').replace(JSON.stringify(documents),JSON.stringify(overlapDocuments)));
+  const overlapResult=spawnSync(process.execPath,['--require',preload,path.join(root,'scripts/update-cards.js'),'-p','--local-only','--reviewed-fixtures','--ids='+footballSelected.id],{cwd:root,encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,FOOTBALL_DATA_RUN_DIR:path.join(temporary,'overlap-diagnostics')}});
+  assert.equal(overlapResult.status,0,overlapResult.stderr||overlapResult.stdout);
+  const overlapSteps=JSON.parse(overlapResult.stdout.match(/REVIEWED_CHILD_STEPS (\[[^\n]+\])/)[1]);
+  assert.deepEqual(overlapSteps.find(step=>step[0]==='scripts/build-code-inspector.js'),['scripts/build-code-inspector.js','--codes='+overlapCodes.join(',')],'actual canonical dispatch binds all overlapping projections');
+  assert.equal(overlapSteps.filter(step=>step[0]==='scripts/build-code-inspector.js').length,1);
+  assert(!overlapSteps.some(step=>/refresh-|redeploy|snapshot-active-follows/.test(step[0])),'overlap closure adds no ingestion, private follows or release');
 }finally{fs.rmSync(temporary,{recursive:true,force:true});}
 
 // Use the unchanged strict capsule validator on the actual retained NBL finals.
