@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-knowledge.v2",
-  "updatedAt": "2026-10-11T12:40:36.882Z",
+  "updatedAt": "2026-10-22T14:24:58.417Z",
   "subjects": [
     {
       "id": "competition:tennis:cincinnati-open",
@@ -1596,6 +1596,51 @@
       "id": "subject:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d",
       "kind": "event",
       "name": "South Africa v Australia — Second Test"
+    },
+    {
+      "id": "subject:release-window:epl-2026-27-129030",
+      "kind": "event",
+      "name": "Manchester City v Fulham"
+    },
+    {
+      "id": "subject:release-window:epl-2026-27-129023",
+      "kind": "event",
+      "name": "Aston Villa v Sunderland"
+    },
+    {
+      "id": "subject:release-window:epl-2026-27-129024",
+      "kind": "event",
+      "name": "Bournemouth v Nottingham Forest"
+    },
+    {
+      "id": "subject:release-window:epl-2026-27-129026",
+      "kind": "event",
+      "name": "Chelsea v Leeds United"
+    },
+    {
+      "id": "subject:release-window:epl-2026-27-129027",
+      "kind": "event",
+      "name": "Coventry City v Crystal Palace"
+    },
+    {
+      "id": "subject:release-window:epl-2026-27-129032",
+      "kind": "event",
+      "name": "Tottenham Hotspur v Ipswich Town"
+    },
+    {
+      "id": "subject:release-window:epl-2026-27-129031",
+      "kind": "event",
+      "name": "Newcastle United v Arsenal"
+    },
+    {
+      "id": "subject:release-window:epl-2026-27-129028",
+      "kind": "event",
+      "name": "Hull City v Brighton & Hove Albion"
+    },
+    {
+      "id": "subject:release-window:epl-2026-27-129029",
+      "kind": "event",
+      "name": "Liverpool v Manchester United"
     }
   ],
   "sources": [
@@ -8311,6 +8356,104 @@
       "url": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
       "sourceType": "official",
       "checkedAt": "2026-10-15T22:10:19.416Z"
+    },
+    {
+      "id": "source:release-window:20261023:b55b48a88ede",
+      "url": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-season-2026-27",
+      "name": "Premier League: all 380 fixtures for 2026/27 (updated 19 October)",
+      "checkedAt": "2026-10-22T14:20:35Z",
+      "sourceType": "official"
+    },
+    {
+      "id": "source:release-window:20261023:24e58ddec2e6",
+      "url": "https://beta.mancity.com/news/mens/manchester-city-v-fulham-premier-league-match-report-february-2026-63906431",
+      "name": "Manchester City: 3-0 home win over Fulham, 11 February 2026",
+      "checkedAt": "2026-10-22T14:20:35Z",
+      "sourceType": "official"
+    },
+    {
+      "id": "source:release-window:20261023:eaf30ab8ab2f",
+      "url": "https://live.mancity.com/news/mens/fulham-v-manchester-city-premier-league-match-report-2-63900297",
+      "name": "Manchester City: 5-4 win at Fulham, 2 December 2025",
+      "checkedAt": "2026-10-22T14:20:35Z",
+      "sourceType": "official"
+    },
+    {
+      "id": "source:release-window:20261023:9acd71f0fb27",
+      "url": "https://www.avfc.co.uk/news/2026/april/20/postmatch-Tammy-Abraham-post-Sunderland/",
+      "name": "Aston Villa: Abraham's added-time winner against Sunderland, 20 April 2026",
+      "checkedAt": "2026-10-22T14:20:35Z",
+      "sourceType": "official"
+    },
+    {
+      "id": "source:release-window:20261023:e5903aa8329d",
+      "url": "https://www.afcb.co.uk/news/2026/may/24/match-report-v-forest/",
+      "name": "AFC Bournemouth: 2025/26 season ends at Forest with first European qualification",
+      "checkedAt": "2026-10-22T14:20:35Z",
+      "sourceType": "official"
+    },
+    {
+      "id": "source:release-window:20261023:9b5f6826ca2c",
+      "url": "https://www.chelseafc.com/en/news/article/chelsea-vs-leeds---anatomy-of-a-rivalry0",
+      "name": "Chelsea: history of the Leeds rivalry, 8 September 2026",
+      "checkedAt": "2026-10-22T14:20:35Z",
+      "sourceType": "official"
+    },
+    {
+      "id": "source:release-window:20261023:f0a7bc3c64ae",
+      "url": "https://www.premierleague.com/en/news/4625396/all-you-need-to-know-as-coventry-city-make-premier-league-return",
+      "name": "Premier League: Coventry's Championship title and return after 25 years",
+      "checkedAt": "2026-10-22T14:20:35Z",
+      "sourceType": "official"
+    },
+    {
+      "id": "source:release-window:20261023:e6530a0dde9f",
+      "url": "https://www.cpfc.co.uk/matches/all/2026-27/",
+      "name": "Crystal Palace: 2026/27 first-team fixtures",
+      "checkedAt": "2026-10-22T14:20:35Z",
+      "sourceType": "official"
+    },
+    {
+      "id": "source:release-window:20261023:7a93fbe1f97e",
+      "url": "https://www.tottenhamhotspur.com/news/985947/first-half-double-sees-ipswich-take-the-points",
+      "name": "Tottenham: Ipswich's 2-1 win at Spurs, 10 November 2024",
+      "checkedAt": "2026-10-22T14:20:35Z",
+      "sourceType": "official"
+    },
+    {
+      "id": "source:release-window:20261023:e7679c2bb896",
+      "url": "https://www.premierleague.com/en/news/4664386/all-you-need-to-know-as-hull-city-are-promoted-to-premier-league",
+      "name": "Premier League: Hull's 2026 play-off promotion",
+      "checkedAt": "2026-10-22T14:20:35Z",
+      "sourceType": "official"
+    },
+    {
+      "id": "source:release-window:20261023:9b2cf2610e3f",
+      "url": "https://www.brightonandhovealbion.com/fixtures-first-team-men",
+      "name": "Brighton: first-team fixtures including November 2026 European schedule",
+      "checkedAt": "2026-10-22T14:20:35Z",
+      "sourceType": "official"
+    },
+    {
+      "id": "source:release-window:20261023:f753150cdee3",
+      "url": "https://www.newcastleunited.com/en/news/two-of-magpies-premier-league-fixtures-rescheduled",
+      "name": "Newcastle: confirmed November 2026 fixture changes",
+      "checkedAt": "2026-10-22T14:20:35Z",
+      "sourceType": "official"
+    },
+    {
+      "id": "source:release-window:20261023:20d7146b9ab5",
+      "url": "https://help.arsenal.com/support/solutions/articles/101000593887-champions-league-group-phase",
+      "name": "Arsenal: 2026/27 Champions League league-phase dates",
+      "checkedAt": "2026-10-22T14:20:35Z",
+      "sourceType": "official"
+    },
+    {
+      "id": "source:release-window:20261023:ba482d979afe",
+      "url": "https://www.liverpoolfc.com/news/fixture-updates-three-premier-league-changes-liverpool-november?amp=1",
+      "name": "Liverpool: November 2026 fixture changes",
+      "checkedAt": "2026-10-22T14:20:35Z",
+      "sourceType": "official"
     }
   ],
   "narrativeFacts": [
@@ -39631,6 +39774,201 @@
       ],
       "observedAt": "2026-10-15T22:10:19.416Z",
       "expiresAt": null
+    },
+    {
+      "id": "fact:release-window:epl-2026-27-129030:1",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129030"
+      ],
+      "statement": "Manchester City won 5-4 at Fulham on 2 December 2025, after Fulham recovered from 5-1 to 5-4.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:release-window:20261023:eaf30ab8ab2f"
+      ],
+      "observedAt": "2026-10-22T14:20:35Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:release-window:epl-2026-27-129030:2",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129030"
+      ],
+      "statement": "Manchester City beat Fulham 3-0 at the Etihad on 11 February 2026, with all three goals before half-time.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:release-window:20261023:24e58ddec2e6"
+      ],
+      "observedAt": "2026-10-22T14:20:35Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:release-window:epl-2026-27-129023:1",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129023"
+      ],
+      "statement": "Aston Villa beat Sunderland 4-3 at Villa Park on 19 April 2026; Sunderland scored twice late to level from 3-1 before Tammy Abraham's added-time winner.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:release-window:20261023:9acd71f0fb27"
+      ],
+      "observedAt": "2026-10-22T14:20:35Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:release-window:epl-2026-27-129024:1",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129024"
+      ],
+      "statement": "Bournemouth drew 1-1 at Nottingham Forest on 24 May 2026 and finished sixth, their highest Premier League placing, qualifying for Europe for the first time.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:release-window:20261023:e5903aa8329d"
+      ],
+      "observedAt": "2026-10-22T14:20:35Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:release-window:epl-2026-27-129026:1",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129026"
+      ],
+      "statement": "Chelsea identify the 1970 FA Cup final and replay as central to the rivalry with Leeds.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:release-window:20261023:9b5f6826ca2c"
+      ],
+      "observedAt": "2026-10-22T14:20:35Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:release-window:epl-2026-27-129026:2",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129026"
+      ],
+      "statement": "Chelsea's September 2026 rivalry review records a Chelsea win over Leeds in the previous season's FA Cup semi-final, decided by Enzo Fernandez's first-half header.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:release-window:20261023:9b5f6826ca2c"
+      ],
+      "observedAt": "2026-10-22T14:20:35Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:release-window:epl-2026-27-129027:1",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129027"
+      ],
+      "statement": "Coventry returned to the Premier League for 2026/27 as Championship winners following a 25-year absence.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:release-window:20261023:f0a7bc3c64ae"
+      ],
+      "observedAt": "2026-10-22T14:20:35Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:release-window:epl-2026-27-129027:2",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129027"
+      ],
+      "statement": "Palace's published 2026/27 fixture sequence places Coventry away before Real Sociedad at home in the Europa League, followed by Hull at home in the Premier League.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:release-window:20261023:e6530a0dde9f"
+      ],
+      "observedAt": "2026-10-22T14:20:35Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:release-window:epl-2026-27-129032:1",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129032"
+      ],
+      "statement": "Ipswich beat Tottenham 2-1 at Tottenham Hotspur Stadium on 10 November 2024, earning their first Premier League win that season and their first since April 2002.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:release-window:20261023:7a93fbe1f97e"
+      ],
+      "observedAt": "2026-10-22T14:20:35Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:release-window:epl-2026-27-129031:1",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129031"
+      ],
+      "statement": "Newcastle host Arsenal on 21 November 2026 at 17:30 GMT.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:release-window:20261023:f753150cdee3"
+      ],
+      "observedAt": "2026-10-22T14:20:35Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:release-window:epl-2026-27-129031:2",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129031"
+      ],
+      "statement": "Arsenal host Borussia Dortmund in the Champions League on 24 November 2026.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:release-window:20261023:20d7146b9ab5"
+      ],
+      "observedAt": "2026-10-22T14:20:35Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:release-window:epl-2026-27-129031:3",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129031"
+      ],
+      "statement": "Arsenal host Manchester City on 29 November 2026, eight days after their Newcastle visit.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:release-window:20261023:b55b48a88ede"
+      ],
+      "observedAt": "2026-10-22T14:20:35Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:release-window:epl-2026-27-129028:1",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129028"
+      ],
+      "statement": "Hull secured their 2026/27 Premier League return after nine years away by beating Middlesbrough 1-0 in the Championship play-off final.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:release-window:20261023:e7679c2bb896"
+      ],
+      "observedAt": "2026-10-22T14:20:35Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:release-window:epl-2026-27-129028:2",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129028"
+      ],
+      "statement": "Brighton's published November schedule lists Hull away on 22 November, Universitatea Craiova at home in the Conference League on 26 November, and Newcastle at home on 29 November.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:release-window:20261023:9b2cf2610e3f"
+      ],
+      "observedAt": "2026-10-22T14:20:35Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:release-window:epl-2026-27-129029:1",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129029"
+      ],
+      "statement": "Liverpool visit Crystal Palace on 8 November 2026, host Manchester United on 22 November at 16:30 GMT, then visit Everton on 29 November at 12:00 GMT.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:release-window:20261023:ba482d979afe"
+      ],
+      "observedAt": "2026-10-22T14:20:35Z",
+      "expiresAt": null
     }
   ],
   "narrativeThreads": [
@@ -44351,6 +44689,129 @@
       ],
       "status": "active",
       "updatedAt": "2026-10-15T22:10:19.416Z"
+    },
+    {
+      "id": "thread:release-window:epl-2026-27-129030",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129030"
+      ],
+      "title": "Manchester City v Fulham — November context",
+      "summary": "City won 5-4 at Craven Cottage on 2 December 2025, then beat Fulham 3-0 at the Etihad on 11 February 2026. Fulham's November return revisits a pairing that produced both a late comeback scare and a much more controlled home win last season.",
+      "factIds": [
+        "fact:release-window:epl-2026-27-129030:1",
+        "fact:release-window:epl-2026-27-129030:2"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-22T14:20:35Z"
+    },
+    {
+      "id": "thread:release-window:epl-2026-27-129023",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129023"
+      ],
+      "title": "Aston Villa v Sunderland — November context",
+      "summary": "Sunderland erased a 3-1 deficit with two late goals at Villa Park on 19 April 2026, only for Tammy Abraham to secure Villa's 4-3 win in added time. The November meeting returns to the same ground after that sharply contested encounter.",
+      "factIds": [
+        "fact:release-window:epl-2026-27-129023:1"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-22T14:20:35Z"
+    },
+    {
+      "id": "thread:release-window:epl-2026-27-129024",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129024"
+      ],
+      "title": "Bournemouth v Nottingham Forest — November context",
+      "summary": "Bournemouth ended the 2025/26 season with a 1-1 draw at Nottingham Forest on 24 May. That result accompanied a club-best sixth-place finish and their first qualification for Europe. This time Forest visit the Vitality Stadium in the season that followed that milestone.",
+      "factIds": [
+        "fact:release-window:epl-2026-27-129024:1"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-22T14:20:35Z"
+    },
+    {
+      "id": "thread:release-window:epl-2026-27-129026",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129026"
+      ],
+      "title": "Chelsea v Leeds United — November context",
+      "summary": "Chelsea's account of this rivalry traces its defining flashpoint to the 1970 FA Cup final and replay. The clubs also met in last season's FA Cup semi-final, won by Chelsea through Enzo Fernandez's header. Their November league meeting carries that cup history into a different competition.",
+      "factIds": [
+        "fact:release-window:epl-2026-27-129026:1",
+        "fact:release-window:epl-2026-27-129026:2"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-22T14:20:35Z"
+    },
+    {
+      "id": "thread:release-window:epl-2026-27-129027",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129027"
+      ],
+      "title": "Coventry City v Crystal Palace — November context",
+      "summary": "Coventry returned as 2025/26 Championship winners after 25 years outside the Premier League. Palace's published programme places this away match before home games against Real Sociedad in the Europa League and Hull in the league, giving the visitors two competitions to navigate around Coventry's home test.",
+      "factIds": [
+        "fact:release-window:epl-2026-27-129027:1",
+        "fact:release-window:epl-2026-27-129027:2"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-22T14:20:35Z"
+    },
+    {
+      "id": "thread:release-window:epl-2026-27-129032",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129032"
+      ],
+      "title": "Tottenham Hotspur v Ipswich Town — November context",
+      "summary": "Ipswich won 2-1 at Tottenham Hotspur Stadium on 10 November 2024, their first Premier League victory of that season and first in the division since April 2002. In that 2024 match, two first-half goals gave Town enough of a lead to withstand Tottenham's second-half reply.",
+      "factIds": [
+        "fact:release-window:epl-2026-27-129032:1"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-22T14:20:35Z"
+    },
+    {
+      "id": "thread:release-window:epl-2026-27-129031",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129031"
+      ],
+      "title": "Newcastle United v Arsenal — November context",
+      "summary": "Arsenal visit St James' Park on 21 November before hosting Borussia Dortmund in the Champions League on 24 November and Manchester City in the Premier League on 29 November. The Newcastle trip starts that confirmed sequence of three matches across two competitions.",
+      "factIds": [
+        "fact:release-window:epl-2026-27-129031:1",
+        "fact:release-window:epl-2026-27-129031:2",
+        "fact:release-window:epl-2026-27-129031:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-22T14:20:35Z"
+    },
+    {
+      "id": "thread:release-window:epl-2026-27-129028",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129028"
+      ],
+      "title": "Hull City v Brighton & Hove Albion — November context",
+      "summary": "Hull returned to the Premier League after nine years by beating Middlesbrough 1-0 in the 2026 Championship play-off final. Brighton's visit starts a week that also brings them home games against Universitatea Craiova in the Conference League on 26 November and Newcastle on 29 November.",
+      "factIds": [
+        "fact:release-window:epl-2026-27-129028:1",
+        "fact:release-window:epl-2026-27-129028:2"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-22T14:20:35Z"
+    },
+    {
+      "id": "thread:release-window:epl-2026-27-129029",
+      "subjectIds": [
+        "subject:release-window:epl-2026-27-129029"
+      ],
+      "title": "Liverpool v Manchester United — November context",
+      "summary": "Liverpool host Manchester United at Anfield on 22 November, then visit Everton on 29 November. Their confirmed November league schedule starts with Crystal Palace away on 8 November, making United's visit the first of two consecutive league matches against long-standing rivals.",
+      "factIds": [
+        "fact:release-window:epl-2026-27-129029:1"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-22T14:20:35Z"
     }
   ],
   "audienceMemories": [],
@@ -62033,6 +62494,251 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-10-15T22:10:19.416Z"
+      }
+    },
+    {
+      "id": "projection:release-window:epl-2026-27-129030",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-129030"
+      ],
+      "researchDepth": 2,
+      "hook": "Last season brought both a nine-goal thriller and a clean-sheet City win against Fulham.",
+      "synopsis": "City won 5-4 at Craven Cottage on 2 December 2025, then beat Fulham 3-0 at the Etihad on 11 February 2026. Fulham's November return revisits a pairing that produced both a late comeback scare and a much more controlled home win last season.",
+      "threadIds": [
+        "thread:release-window:epl-2026-27-129030"
+      ],
+      "factIds": [
+        "fact:release-window:epl-2026-27-129030:1",
+        "fact:release-window:epl-2026-27-129030:2"
+      ],
+      "sourceIds": [
+        "source:release-window:20261023:eaf30ab8ab2f",
+        "source:release-window:20261023:24e58ddec2e6"
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-21T12:30:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "projection:release-window:epl-2026-27-129023",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-129023"
+      ],
+      "researchDepth": 2,
+      "hook": "April's seven-goal Villa Park meeting gives Sunderland's return a specific recent history.",
+      "synopsis": "Sunderland erased a 3-1 deficit with two late goals at Villa Park on 19 April 2026, only for Tammy Abraham to secure Villa's 4-3 win in added time. The November meeting returns to the same ground after that sharply contested encounter.",
+      "threadIds": [
+        "thread:release-window:epl-2026-27-129023"
+      ],
+      "factIds": [
+        "fact:release-window:epl-2026-27-129023:1"
+      ],
+      "sourceIds": [
+        "source:release-window:20261023:9acd71f0fb27"
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-21T15:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "projection:release-window:epl-2026-27-129024",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-129024"
+      ],
+      "researchDepth": 2,
+      "hook": "Forest were Bournemouth's opponents when their historic sixth-place finish became official in May.",
+      "synopsis": "Bournemouth ended the 2025/26 season with a 1-1 draw at Nottingham Forest on 24 May. That result accompanied a club-best sixth-place finish and their first qualification for Europe. This time Forest visit the Vitality Stadium in the season that followed that milestone.",
+      "threadIds": [
+        "thread:release-window:epl-2026-27-129024"
+      ],
+      "factIds": [
+        "fact:release-window:epl-2026-27-129024:1"
+      ],
+      "sourceIds": [
+        "source:release-window:20261023:e5903aa8329d"
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-21T15:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "projection:release-window:epl-2026-27-129026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-129026"
+      ],
+      "researchDepth": 2,
+      "hook": "Chelsea and Leeds bring a cup rivalry with roots in the 1970 final back to Stamford Bridge.",
+      "synopsis": "Chelsea's account of this rivalry traces its defining flashpoint to the 1970 FA Cup final and replay. The clubs also met in last season's FA Cup semi-final, won by Chelsea through Enzo Fernandez's header. Their November league meeting carries that cup history into a different competition.",
+      "threadIds": [
+        "thread:release-window:epl-2026-27-129026"
+      ],
+      "factIds": [
+        "fact:release-window:epl-2026-27-129026:1",
+        "fact:release-window:epl-2026-27-129026:2"
+      ],
+      "sourceIds": [
+        "source:release-window:20261023:9b5f6826ca2c"
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-21T15:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "projection:release-window:epl-2026-27-129027",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-129027"
+      ],
+      "researchDepth": 2,
+      "hook": "Coventry's return after 25 years meets Palace's league-and-Europe November schedule.",
+      "synopsis": "Coventry returned as 2025/26 Championship winners after 25 years outside the Premier League. Palace's published programme places this away match before home games against Real Sociedad in the Europa League and Hull in the league, giving the visitors two competitions to navigate around Coventry's home test.",
+      "threadIds": [
+        "thread:release-window:epl-2026-27-129027"
+      ],
+      "factIds": [
+        "fact:release-window:epl-2026-27-129027:1",
+        "fact:release-window:epl-2026-27-129027:2"
+      ],
+      "sourceIds": [
+        "source:release-window:20261023:f0a7bc3c64ae",
+        "source:release-window:20261023:e6530a0dde9f"
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-21T15:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "projection:release-window:epl-2026-27-129032",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-129032"
+      ],
+      "researchDepth": 2,
+      "hook": "Ipswich return to the ground where their 2024 Premier League comeback finally produced a win.",
+      "synopsis": "Ipswich won 2-1 at Tottenham Hotspur Stadium on 10 November 2024, their first Premier League victory of that season and first in the division since April 2002. In that 2024 match, two first-half goals gave Town enough of a lead to withstand Tottenham's second-half reply.",
+      "threadIds": [
+        "thread:release-window:epl-2026-27-129032"
+      ],
+      "factIds": [
+        "fact:release-window:epl-2026-27-129032:1"
+      ],
+      "sourceIds": [
+        "source:release-window:20261023:7a93fbe1f97e"
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-21T15:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "projection:release-window:epl-2026-27-129031",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-129031"
+      ],
+      "researchDepth": 2,
+      "hook": "Newcastle opens Arsenal's run through Dortmund and Manchester City in eight days.",
+      "synopsis": "Arsenal visit St James' Park on 21 November before hosting Borussia Dortmund in the Champions League on 24 November and Manchester City in the Premier League on 29 November. The Newcastle trip starts that confirmed sequence of three matches across two competitions.",
+      "threadIds": [
+        "thread:release-window:epl-2026-27-129031"
+      ],
+      "factIds": [
+        "fact:release-window:epl-2026-27-129031:1",
+        "fact:release-window:epl-2026-27-129031:2",
+        "fact:release-window:epl-2026-27-129031:3"
+      ],
+      "sourceIds": [
+        "source:release-window:20261023:f753150cdee3",
+        "source:release-window:20261023:20d7146b9ab5",
+        "source:release-window:20261023:b55b48a88ede"
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-21T17:30:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "projection:release-window:epl-2026-27-129028",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-129028"
+      ],
+      "researchDepth": 2,
+      "hook": "Hull's return season meets Brighton at the start of a week spanning league and European fixtures.",
+      "synopsis": "Hull returned to the Premier League after nine years by beating Middlesbrough 1-0 in the 2026 Championship play-off final. Brighton's visit starts a week that also brings them home games against Universitatea Craiova in the Conference League on 26 November and Newcastle on 29 November.",
+      "threadIds": [
+        "thread:release-window:epl-2026-27-129028"
+      ],
+      "factIds": [
+        "fact:release-window:epl-2026-27-129028:1",
+        "fact:release-window:epl-2026-27-129028:2"
+      ],
+      "sourceIds": [
+        "source:release-window:20261023:e7679c2bb896",
+        "source:release-window:20261023:9b2cf2610e3f"
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-22T14:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "projection:release-window:epl-2026-27-129029",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-129029"
+      ],
+      "researchDepth": 2,
+      "hook": "United at Anfield, Everton a week later: Liverpool's November league calendar pairs two rivalries.",
+      "synopsis": "Liverpool host Manchester United at Anfield on 22 November, then visit Everton on 29 November. Their confirmed November league schedule starts with Crystal Palace away on 8 November, making United's visit the first of two consecutive league matches against long-standing rivals.",
+      "threadIds": [
+        "thread:release-window:epl-2026-27-129029"
+      ],
+      "factIds": [
+        "fact:release-window:epl-2026-27-129029:1"
+      ],
+      "sourceIds": [
+        "source:release-window:20261023:ba482d979afe"
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-22T16:30:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
       }
     }
   ]

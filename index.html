@@ -15150,8 +15150,10 @@ function chatRoomsForFixture(event){
 function chatFixtureEligible(event){
   const status = String(event?.status || event?.scheduleStatus || "").toLowerCase();
   if (["cancelled", "postponed", "completed", "past", "finished", "final"].includes(status)) return false;
+  const precision=String(event?.timePrecision || "").toLowerCase();
+  if (["tbc","unknown"].includes(precision.trim())) return false;
   const exact = Date.parse(event?.startTimeUtc || "");
-  const follows = !Number.isFinite(exact) && String(event?.timePrecision || "").toLowerCase() === "follows";
+  const follows = !Number.isFinite(exact) && precision === "follows";
   const start = exact || (follows ? Date.parse(event?.sessionStartTimeUtc || event?.timelineSortTimeUtc || "") : NaN);
   if (!Number.isFinite(start)) return false;
   const windowMs = follows ? 12 * 60 * 60 * 1000 : Math.max(.25, Math.min(24, Number(event?.liveWindow || 3))) * 60 * 60 * 1000;

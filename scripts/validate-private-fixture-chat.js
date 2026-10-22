@@ -7,6 +7,7 @@ const fs = require("node:fs");
 const webpush = require("web-push");
 const chatContract = require("../config/chat-contract");
 const chatHandler = require("../api/chat");
+const chatPolicy = require("../config/chat-policy");
 const { dispatchChatMessageNotifications, _test:chatNotificationTest } = require("../lib/chat-notifications");
 
 function responseStub(){
@@ -203,6 +204,25 @@ async function run(){
   assert.equal(chatHandler._test.fixtureIsUpcomingOrLive({ status:"confirmed", startTimeUtc:"2026-09-18T07:30:00.000Z" }, eligibilityNow), true, "future confirmed fixtures must remain eligible");
   assert.equal(chatHandler._test.fixtureIsUpcomingOrLive({ status:"completed", startTimeUtc:"2026-09-18T07:30:00.000Z" }, eligibilityNow), false, "completed fixtures must remain ineligible even when their scheduled time is in the future");
   const fixtureMap = chatHandler._test.loadFixtureMap();
+  const unknownClockNow=new Date('2026-10-22T00:00:00Z');
+  for(const id of ['fixture:netball:constellation-cup-2026-3','fixture:netball:constellation-cup-2026-4']){
+    const fixture=fixtureMap.get(id);assert(fixture,'Published Diamonds fixture must resolve through the actual API registry');
+    assert.equal(fixture.timePrecision,'tbc');
+    assert.throws(()=>chatHandler._test.canonicalFixtureSnapshot(id,unknownClockNow),error=>error?.status===409&&error?.code==='fixture_not_chat_eligible','Actual canonical chat admission must reject placeholder times');
+  }
+  const browserEligibility=require('node:vm').runInNewContext('('+html.match(/function chatFixtureEligible\(event\)\{[\s\S]*?\n\}/)[0]+')',{Date:{parse:Date.parse,now:()=>+unknownClockNow}});
+  for(const precision of ['tbc','unknown',' TBC ']){
+    const untimed={id:'qa:untimed',status:'confirmed',timePrecision:precision,time:null,startTimeUtc:'2026-10-25T00:00:00Z'};
+    assert.equal(chatPolicy.fixtureTiming(untimed).startTimeUtc,null,'An explicitly unknown time must not adopt a date placeholder');
+    assert.equal(chatPolicy.fixtureEligibility(untimed,unknownClockNow).eligible,false);
+    assert.equal(browserEligibility(untimed),false,'The real browser predicate must reject the same unknown clock');
+  }
+  const confirmed={status:'confirmed',startTimeUtc:'2026-10-25T15:30:00Z'};
+  const follows={status:'confirmed',timePrecision:'follows',sessionStartTimeUtc:'2026-10-25T15:30:00Z'};
+  for(const fixture of [confirmed,follows]){
+    assert(chatPolicy.fixtureEligibility(fixture,unknownClockNow).eligible,'Confirmed starts and published follows sessions retain their windows');
+    assert(browserEligibility(fixture),'Browser retains confirmed and follows-session eligibility');
+  }
   const firstOdi = fixtureMap.get("fixture:cricket:espn:1530203");
   assert(firstOdi, "the first Zimbabwe–Australia ODI must exist in the chat registry");
   assert.equal(fixtureMap.get("fixture:cricket:CA:40288"), firstOdi, "provider aliases must resolve to one canonical fixture");

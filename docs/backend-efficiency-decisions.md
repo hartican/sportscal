@@ -1867,3 +1867,16 @@ lower CPU, cost, cloud speed or actual closed-phone success. DEPLOY measures the
 complete hosted body and owns sole publication. Regression:
 `validate-global-read-budget.js`, existing interactive budgets, snapshot diagnosis/
 failure receipts, reminder scope/dispatch, component transport and public gates.
+
+## 23 October 2026 — unknown chat clocks remain unknown
+
+The scoped editorial rebuild exposed four already-published Diamonds fixtures
+whose explicit TBC precision accompanies a date-placeholder UTC value. The
+existing private-chat timing policy and browser creation control must reject
+explicit TBC/unknown precision before interpreting that value as a start.
+Preserve confirmed starts, published follows-session windows, closed fixtures,
+existing room access, membership and all original source fields. No chat,
+invitation, account write, scheduler or polling change is introduced. The actual
+canonical fixture lookup and browser predicate regressions run in the existing
+`validate-private-fixture-chat.js` gate. This corrects an implementation defect;
+it does not establish a new kickoff or renew source evidence.
