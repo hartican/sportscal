@@ -58,7 +58,8 @@ async function main() {
   const retained=controlled([],{cache:{...cached,selected_at:new Date(+now-3600000).toISOString()},granted:false,official:[{videoId:dedicated.id}]});assert((await retained.resolver.resolve(match,now)).cached);assert.equal(retained.calls.length,0,'denied metadata reservation retains only already validated recent highlights');
   for(const patch of [{published_at:'2022-10-14T15:00:00Z'},{published_at:undefined},{published_at:new Date(+now+1).toISOString()},{duration_seconds:10800},{duration_seconds:undefined}])await assert.rejects(controlled([],{cache:{...cached,...patch},environment:{}}).resolver.resolve(match,now),'a new selection timestamp cannot rescue old/unvalidated video metadata');
   const cutoff=new Date(+now-contract.MAX_UPLOAD_AGE_MS).toISOString();assert(contract.recentUpload(cutoff,now));assert(!contract.recentUpload(new Date(Date.parse(cutoff)-1).toISOString(),now));
-  const official={...require('../data/canonical/fixture-highlights.v1.json').events.find(e=>e.highlights).highlights,publishedAt:'2022-10-14T15:00:00Z',verifiedAt:now.toISOString(),checkedAt:now.toISOString(),sourceCheckedAt:now.toISOString()};
+  const retainedOfficial=require('./fixtures/shanghai-highlights-184950.json').highlights;assert(retainedOfficial);
+  const official={...retainedOfficial,publishedAt:'2022-10-14T15:00:00Z',verifiedAt:now.toISOString(),checkedAt:now.toISOString(),sourceCheckedAt:now.toISOString()};
   assert(!contract.valid(official,now));assert(contract.viewing({...match,highlights:official},now).webUrl.startsWith('/api/fixtures?'),'old direct official records fall back to fresh discovery');
   assert.equal(media.applyCached([{...match,highlights:official}],[],now)[0].highlights,null);
   const archived={...match,date:'2026-09-01',startTimeUtc:null,actualStartTimeUtc:null,completedAt:null,firstConfirmedCompleteAt:null,highlights:official};

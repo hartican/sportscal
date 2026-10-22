@@ -9,8 +9,8 @@ const {createLiveFixtureHandler}=require('../lib/live-fixture-handler');
 const {createTopResultResolver}=require('./highlight-resolver-test');
 const now=new Date('2026-10-15T00:00:00Z');
 const published=require('../data/events.json').events;
-const saved=require('../data/canonical/fixture-highlights.v1.json').events.find(e=>e.highlights);
-const source=published.find(e=>(e.canonicalEventId||e.id)===saved.id);assert(source);
+const saved=require('./fixtures/shanghai-highlights-184950.json');assert(saved.highlights,'The retained real match receipt survives expiry of the current upload window');
+const source=published.find(e=>(e.canonicalEventId||e.id)===(saved.canonicalEventId||saved.id));assert(source);
 function controlled(event,suffix){return {...event,id:'controlled:direct:'+suffix,eventId:'controlled:direct:'+suffix,canonicalEventId:'controlled:direct:'+suffix,sourceEventIds:[],fixtureIdAliases:[],status:'completed'};}
 const fixture=controlled(source,'tennis');
 const base={...saved.highlights,publishedAt:'2026-10-13T15:00:00Z',verifiedAt:now.toISOString(),checkedAt:now.toISOString(),sourceCheckedAt:now.toISOString(),durationSeconds:300,defaultAudioLanguage:'en',regionStatus:'allowed'};

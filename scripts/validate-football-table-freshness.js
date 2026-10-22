@@ -4,6 +4,7 @@ const capture=require('./fixtures/football-table-freshness-20261012.json');
 const {environment,render,all,Element}=require('./validate-football-card-privacy');
 const helper=environment().context.NOTHINGSPORTS_FOOTBALL_CONTEXT;
 const current=require('../data/code-inspector/football.json');
+const completeScopes=require('./fixtures/football-complete-table-scopes-20261023.json');
 const note='Table and recorded match results do not yet agree.';
 const original=capture.fixtures.find(f=>f.id===capture.currentFixture.id);
 const baseline=()=>({code:{id:'sport:football'},fixtures:structuredClone(capture.fixtures),standings:structuredClone(capture.standings)});
@@ -62,12 +63,25 @@ function fullTable(doc,deferred=false){
   const hidden=await card(baseline(),capture.currentFixture,state);assert.equal(all(hidden,n=>n.tagName==='li').length,0);assert(!hidden.textContent.includes(note),'Results privacy also protects mismatch information');
  }
  for(const cid of ['competition:premier-league-2026-27','competition:uefa-champions-league','competition:uefa-europa-league']){
-  const rows=current.standings.filter(r=>r.competitionId===cid);assert.equal(helper.footballTableWarning(current,rows),'','Actual published table and recorded results agree');
-  const upcoming=current.fixtures.find(f=>f.competitionId===cid&&f.status==='upcoming');assert(upcoming);
+  const publishedRows=current.standings.filter(r=>r.competitionId===cid);
+  assert.equal(helper.footballTableWarning(current,publishedRows),'','Published inputs do not establish a new unsupported mismatch');
+  const expected=cid==='competition:premier-league-2026-27'?380:144;
+  const publishedFixtures=current.fixtures.filter(f=>f.competitionId===cid&&f.season==='2026/27'&&(expected===380||f.stage==='League phase'));
+  if(publishedFixtures.length!==expected){
+   assert(publishedRows.length>0&&publishedRows.every(row=>row.provisional===true&&/partial/i.test(row.tableNote||'')&&/omitted|missing|repair/i.test(row.tableNote||'')),'Incomplete current coverage must remain explicitly disclosed');
+   const partialCard=await card(current,publishedFixtures.find(f=>f.status==='upcoming'));
+   assert(partialCard.textContent.includes(publishedRows[0].tableNote),'Actual rendered card preserves the partial-source notice');
+  }
+  // Positive mismatch controls need a complete retained competition. Do not
+  // invent a quarantined fixture or treat current partial data as complete.
+  const rows=completeScopes.standings.filter(r=>r.competitionId===cid);
+  assert.equal(completeScopes.fixtures.filter(f=>f.competitionId===cid).length,expected);
+  assert.equal(helper.footballTableWarning(completeScopes,rows),'','Retained complete source snapshot reconciles');
+  const upcoming=completeScopes.fixtures.find(f=>f.competitionId===cid&&f.status==='upcoming');assert(upcoming);
   const simulatedTime=Math.max(Date.now(),Date.parse(upcoming.startTimeUtc)+1000),checked=new Date(simulatedTime).toISOString();
   const simulated={...upcoming,status:'completed',homeScore:0,awayScore:0,resultSourceCheckedAt:checked,scoreCheckedAt:checked};
-  assert.equal(helper.footballTableWarning(current,rows,[simulated],simulatedTime),note,'Controlled newer final tests this competition boundary; it is not source evidence');
-  assert.equal(helper.footballTableWarning(current,rows,[{...simulated,stage:'Qualifying'}],simulatedTime),cid==='competition:premier-league-2026-27'?note:'','European qualifiers cannot change the league-phase comparison');
+  assert.equal(helper.footballTableWarning(completeScopes,rows,[simulated],simulatedTime),note,'Controlled newer final tests this competition boundary; it is not source evidence');
+  assert.equal(helper.footballTableWarning(completeScopes,rows,[{...simulated,stage:'Qualifying'}],simulatedTime),cid==='competition:premier-league-2026-27'?note:'','European qualifiers cannot change the league-phase comparison');
  }
  const publishedTable=fullTable(current);assert(!publishedTable.textContent.includes(note),'Updated published table clears the warning without guessing rankings');
  const championshipGroups=all(publishedTable,n=>n.getAttribute('role')==='table');

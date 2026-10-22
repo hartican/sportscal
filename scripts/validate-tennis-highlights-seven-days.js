@@ -45,7 +45,8 @@ async function run(){
   assert(!contract.recent({...fixture,date:'2026-10-01',startTimeUtc:null,actualEndTimeUtc:'2026-10-15T00:00:00Z'},now),'future receipt cannot promote an old fixture');
   assert(!contract.recent({...fixture,date:'2026-10-01',startTimeUtc:'2026-10-15T00:00:00Z',actualEndTimeUtc:'2026-10-13T07:00:00Z'},now),'before-start receipt cannot promote an old fixture');
   for(const patch of [{status:'live'},{status:undefined},{date:'2026-10-06'}])assert.equal(contract.viewing({...fixture,...patch},now),null,JSON.stringify(patch));
-  const direct=require('../data/canonical/fixture-highlights.v1.json').events.find(e=>e.highlights).highlights;
+  const direct=require('./fixtures/shanghai-highlights-184950.json').highlights;
+  assert(direct,'The retained match receipt exercises verified-link precedence even after current links expire');
   assert.equal(contract.viewing({...fixture,highlights:direct},now).highlightsLabel,'Watch highlights');
   assert.equal(contract.viewing({...fixture,highlights:null},now).highlightsLabel,'Watch highlights');
   assert.equal(contract.viewing({...fixture,highlights:{...direct,regionStatus:'blocked'}},now).highlightsLabel,'Watch highlights');

@@ -2,16 +2,31 @@
 'use strict';
 const assert=require('node:assert/strict'),follow=require('../config/follow-first');
 const programmes=require('../lib/stan-football-recaps'),catalogue=require('../data/coverage/stan-football-programmes.v1.json');
+const provider=require('../data/providers/openligadb/football-2026-27.json');
+const {assertResultAdmission}=require('./lib/openligadb-football');
+let checked=0,omitted=0;
 for(const folder of ['code-inspector','follow-schedule']){
- const fixtures=require(`../data/${folder}/football.json`).fixtures;
+ const document=require(`../data/${folder}/football.json`),fixtures=document.fixtures;
  for (const [competitionId, count, slug] of [
   ['competition:premier-league-2026-27',380,'premier-league'],
   ['competition:uefa-champions-league',144,'uefa-champions-league'],
   ['competition:uefa-europa-league',144,'uefa-europa-league'],
  ]) {
   const competition=fixtures.filter(f=>f.competitionId===competitionId);
-  assert.equal(competition.length,count);
+  const league=provider.leagues.find(row=>row.competitionId===competitionId);
+  if(league){
+   assertResultAdmission(league); // Every raw fixture needs an accepted or evidenced isolated disposition.
+   const missing=(league.resultIsolation?.repairs||[]).filter(row=>row.disposition==='omitted');
+   assert.equal(competition.length+missing.length,count,'All 144 raw fixtures remain accounted for');
+   assert.deepEqual(competition.map(row=>row.id).sort(),league.fixtures.map(row=>`fixture:football:openligadb:${competitionId.replace('competition:','')}:${row.providerFixtureId}`).sort(),'Every accepted fixture keeps its viewing destination');
+   if(missing.length&&folder==='code-inspector'){
+    const rows=document.standings.filter(row=>row.competitionId===competitionId);
+    assert(rows.length>0&&rows.every(row=>row.partial===true&&row.provisional===true&&row.omittedFixtureCount===missing.length&&/Partial/.test(row.tableNote)&&/explicitly omitted/.test(row.tableNote)),'Quarantined results must remain visibly disclosed');
+   }
+   if(folder==='code-inspector')omitted+=missing.length;
+  }else assert.equal(competition.length,count);
   assert(competition.some(f=>f.status==='completed'));
+  if(folder==='code-inspector')checked+=competition.length;
   for(const fixture of competition){
    const options=follow.viewingOptions(fixture);
    assert.equal(options.length,1,`${fixture.id}: do not invent another Australian provider`);
@@ -48,4 +63,4 @@ for(const folder of ['code-inspector','follow-schedule']){
  assert.deepEqual(follow.viewingOptions(second).map(o=>o.providerId),['paramount'],'do not grant free coverage to the second fixture');
  assert.deepEqual(follow.viewingOptions({...second,viewingOptions:[],broadcaster:''}).map(o=>o.providerId),['paramount'],'national-team fallback must not inherit a fixture exception');
 }
-console.log('Football viewing: all 668 EPL/UCL/Europa destinations use currently bound reviewed programmes or honest competition fallbacks; Socceroos exceptions and source dates preserved.');
+console.log(`Football viewing: all ${checked} accepted EPL/UCL/Europa destinations checked; ${omitted} evidenced source omissions remain explicitly disclosed. Socceroos exceptions and source dates preserved.`);

@@ -16,7 +16,7 @@ function payload(events=known,code='PL'){
 function context(){const directory=fs.mkdtempSync(path.join(os.tmpdir(),'ns-football-integration-test-')),outputPath=path.join(directory,'overlay.json');fs.writeFileSync(outputPath,JSON.stringify({schemaVersion:'football-delayed-results.v1',results:[]}));return {directory,outputPath,now};}
 async function scoped(fn){const c=context();try{return await fn(c);}finally{fs.rmSync(c.directory,{recursive:true,force:true});}}
 function finished(){const p=payload();const match=p.matches[known.indexOf(target)];match.status='FINISHED';match.score.fullTime={home:0,away:2};return p;}
-function coordinator(p){return async(_code,resource)=>{if(resource==='standings')throw Error('table observation unavailable');return {checkedAt,payload:p};};}
+function coordinator(p,observedAt=checkedAt){return async(_code,resource)=>{if(resource==='standings')throw Error('table observation unavailable');return {checkedAt:observedAt,payload:p};};}
 test('a new explicit zero-goal final persists separately and retains every fixture, source date and viewing field',()=>scoped(async c=>{
  const before=fs.readFileSync(path.join(__dirname,'../data/providers/openligadb/football-2026-27.json'));
  const result=await backup.recover({code:'PL',events:known,primaryError:Error('outage'),coordinator:coordinator(finished()),...c});
@@ -67,15 +67,22 @@ test('a primary outage followed by a backup outage retains a previously accepted
 test('the real UCL adapter recovers finals beside a valid Europa refresh without contaminating the provider dataset',()=>scoped(async c=>{
  const source=JSON.parse(fs.readFileSync(path.join(__dirname,'../data/providers/openligadb/football-2026-27.json')));
  const ucl=source.events.filter(e=>e.competitionId===trial.SCOPE.CL.competitionId),p=payload(ucl,'CL');
- const targetIndex=ucl.findIndex(e=>e.status!=='completed'&&Date.parse(e.startTimeUtc)<now.getTime());assert(targetIndex>=0);
+ const targetIndex=ucl.findIndex(e=>e.status!=='completed');assert(targetIndex>=0);
+ const recoveryNow=new Date(Math.max(+now,Date.parse(ucl[targetIndex].startTimeUtc)+3600000));assert(Number.isFinite(+recoveryNow));
+ const recoveryCheckedAt=recoveryNow.toISOString();p.matches.forEach(match=>{match.lastUpdated=recoveryCheckedAt;});
  p.matches[targetIndex].status='FINISHED';p.matches[targetIndex].score.fullTime={home:1,away:0};
  const providerPath=path.join(c.directory,'provider.json');fs.writeFileSync(providerPath,JSON.stringify(source));
- const definitions=require('./lib/openligadb-football').COMPETITIONS;
- const raw=league=>league.fixtures.map(f=>({matchID:Number(f.providerFixtureId),leagueId:definitions.uel2026.leagueId,leagueShortcut:'uel2026',leagueSeason:2026,group:{groupOrderID:f.roundNumber},team1:{teamId:Number(f.participants[0].providerId),teamName:f.participants[0].sourceName},team2:{teamId:Number(f.participants[1].providerId),teamName:f.participants[1].sourceName},matchDateTimeUTC:f.startTimeUtc,matchIsFinished:f.status==='completed',matchResults:f.result?[{resultTypeID:2,resultTypeKind:'After90Minutes',pointsTeam1:f.result.homeScore,pointsTeam2:f.result.awayScore}]:[]}));
- const result=await require('./refresh-openligadb-football').refresh({outputPath:providerPath,now,backupOptions:{...c,coordinator:coordinator(p)},fetchImpl:async url=>url.includes('/ucl/')?{ok:false,status:503}:{ok:true,json:async()=>raw(source.leagues.find(l=>l.competitionId==='competition:uefa-europa-league'))}});
+ const {COMPETITIONS:definitions,rawScheduleFixtures}=require('./lib/openligadb-football');
+ const raw=league=>rawScheduleFixtures(league).map(f=>{
+  const evidence=league.resultIsolation?.repairs.find(row=>row.providerFixtureId===f.providerFixtureId)?.resultEvidence;
+  return {matchID:Number(f.providerFixtureId),leagueId:definitions.uel2026.leagueId,leagueShortcut:'uel2026',leagueSeason:2026,group:{groupOrderID:f.roundNumber},team1:{teamId:Number(f.participants[0].providerId),teamName:f.participants[0].sourceName},team2:{teamId:Number(f.participants[1].providerId),teamName:f.participants[1].sourceName},matchDateTimeUTC:f.startTimeUtc,matchIsFinished:evidence?evidence.matchIsFinished:f.status==='completed',matchResults:evidence?evidence.matchResults:f.result?[{resultTypeID:2,resultTypeKind:'After90Minutes',pointsTeam1:f.result.homeScore,pointsTeam2:f.result.awayScore}]:[]};
+ });
+ const result=await require('./refresh-openligadb-football').refresh({outputPath:providerPath,now:recoveryNow,backupOptions:{...c,now:recoveryNow,coordinator:coordinator(p,recoveryCheckedAt)},fetchImpl:async url=>url.includes('/ucl/')?{ok:false,status:503}:{ok:true,json:async()=>raw(source.leagues.find(l=>l.competitionId==='competition:uefa-europa-league'))}});
  assert.equal(result.failures.length,0);assert.equal(result.primaryFailures.length,1);
  assert.equal(backup.readOverlay(c.outputPath).results.length,1);
  const persisted=JSON.parse(fs.readFileSync(providerPath));assert.deepEqual(persisted.leagues.find(l=>l.competitionId===trial.SCOPE.CL.competitionId),source.leagues.find(l=>l.competitionId===trial.SCOPE.CL.competitionId));assert(!JSON.stringify(persisted).includes('Football-Data.org'));
+ const europa=source.leagues.find(l=>l.competitionId==='competition:uefa-europa-league');
+ assert.equal(result.resultRepairs.length,europa.resultIsolation?.repairs.length||0,'Concurrent primary refresh preserves every real source conflict');
  const applied=overlay.apply(persisted.events,backup.readOverlay(c.outputPath));assert.equal(applied.find(e=>e.id===ucl[targetIndex].id).status,'completed');
  assert.equal(source.events.find(e=>e.id===ucl[targetIndex].id).status,ucl[targetIndex].status);
 }));

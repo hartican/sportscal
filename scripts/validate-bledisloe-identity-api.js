@@ -3,6 +3,10 @@ const assert=require('node:assert/strict');
 const canonical='rugby-australia-new-zealand-2026-10-17',old='fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8',user='11111111-1111-4111-8111-111111111111';
 const sp=require.resolve('../lib/supabase-server'),np=require.resolve('../lib/nothingscore-server');
 const actual=require(sp),cache=require.cache[sp];let mode='missing',consolidated=false,calls=[];
+// This cutover contract runs before the match. Use its retained pre-match facts,
+// rather than asking today's completed fixture to behave as an upcoming match.
+const documentPath=require.resolve('../data/events.json'),document=require(documentPath),documentCache=require.cache[documentPath];
+documentCache.exports={...document,events:document.events.map(event=>event.id===canonical?structuredClone(require('./fixtures/bledisloe-reviewed-provider-pair.json').curated):event)};
 cache.exports={...actual,async supabaseServiceRequest(path,options){
  calls.push({path,options});
  if(path.includes('/rpc/nothingsports_bledisloe_identity_ready')){if(mode==='missing')throw new Error('not deployed');return mode==='ready';}
@@ -34,4 +38,4 @@ delete require.cache[np];
   if(before)assert.deepEqual(result,before,'public payload stays stable across database cutover');else before=result;
  }
  console.log('Bledisloe API: legacy response keys, latest ratings, complete credits, private profiles and unchanged query count before/after cutover; missing/pending/ready safety gate passed.');
-}finally{delete require.cache[np];cache.exports=actual;}})().catch(e=>{console.error(e);process.exitCode=1});
+}finally{delete require.cache[np];cache.exports=actual;documentCache.exports=document;}})().catch(e=>{console.error(e);process.exitCode=1});

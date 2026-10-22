@@ -59,7 +59,7 @@ const evidence=require('../data/canonical/current-card-evidence-2026.json'),feed
 const rows=evidence.resultOverrides.filter(row=>api.isAcceptedResult(row)&&row.id.startsWith('evt_nbl_2026_27_'));
 assert.equal(rows.length,2,'both retained NBL result capsules must be covered');
 const accepted=evidence.resultOverrides.filter(api.isAcceptedResult);
-assert.equal(accepted.length,17,'every retained accepted result must be covered');
+assert.equal(accepted.length,18,'all retained accepted results, including the reviewed Bledisloe final, must be covered');
 for(const row of accepted){
   const tokens=new Set(row.acceptedResultProjection.aliases);
   const records=feed.events.filter(event=>aliases(event).some(id=>tokens.has(id)));
@@ -104,4 +104,4 @@ try{
   const before=fs.readFileSync(input);run();
   assert(fs.readFileSync(input).equals(before),'an unchanged official-result replay retains exact bytes and revision');
 }finally{fs.rmSync(versionRoot,{recursive:true,force:true});}
-console.log('Reviewed fixture child projections: exact aliases, ambiguous rejection, canonical NBL dispatch, all 17 strict result/observation tuples and actual Feed revision/idempotence passed.');
+console.log('Reviewed fixture child projections: exact aliases, ambiguous rejection, canonical NBL dispatch, all '+accepted.length+' strict result/observation tuples and actual Feed revision/idempotence passed.');
