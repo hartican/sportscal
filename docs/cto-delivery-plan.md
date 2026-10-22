@@ -772,3 +772,20 @@ Full approved contract and originating request:
 `/Users/jackhartican/Documents/AI/Codex/nothingsport-shared-classics-72h-plan-20261021.md`
 (Supabase chat `01a0c90c-2ac5-74d0-8eb3-8ae77afc9c07`). This is the one authoritative
 queue item; no parallel archive, owner or publisher is created.
+
+
+## Deferred queue tail — 22 October 2026
+
+These entries follow **every item already queued above**, including shared compact classics/recovery-history work. Their order follows the verified original human request timestamps, not message arrival order. Cricket scores remains first, missing follows/account sync second, then the existing queue; no new implementation allocation or release gate waiver.
+
+### Public Feed — deferred queue tail
+
+Status: **Deferred backlog; planning/specification interview in progress. Do not implement or deploy.** Existing owner: “Public Feed” `01a1624e-098f-71f3-a337-6a7d14aaf939`. Direct human queue instruction verified in user message `01a1624e-1e98-7941-9c4d-a06cb7598270`, turn `01a1624e-123e-7cd3-94ff-37e16216d18a` (request epoch1792650646).
+
+Requested outcome: a public fixture-discussion tray beneath details with the fixture and live-updating comments visible together; registered sign-in for reading/expansion and posting; handle identities, upvotes, text/emojis/GIFs and individual-comment replies. Notifications concern followed authors commenting on fixtures already in the recipient's Feed and must respect existing settings and grouping. Ranking, notification cadence, moderation and final implementation/security contract remain with the existing planning owner; the user's initial request for no moderation is recorded as a preference, not an approved security or release exception. Separate from private chat rooms. Implementation requires a settled, approved plan and the existing release/scheduler owners.
+
+### All Sports View — deferred queue tail
+
+Status: **Planning/specification pending; interview in progress. Do not implement or deploy.** Existing owner: “All Sports View” `01a16255-3b31-7dc1-b5c7-0746c0f8185c`. Direct human queue instruction verified in user message `01a16255-4fa3-7f10-8aa4-62a3979f2c5c`, turn `01a16255-41ee-7612-8565-495b57bd180a` (request epoch1792651117).
+
+Requested outcome: one compact chronological grid of minimised known fixtures over Today/24/48-hour views, allowing simultaneous/overlapping fixtures side by side. Jack subsequently selected compact chronological layout and accepted rolling ranges; exact placement and final contract remain with the existing interview owner. A Match Centre tab is proposed, not yet a final implementation decision. This item follows Public Feed as the later verified request to append at the end. No new provider coverage, exhaustive fixture certification, live-polling owner or publisher is authorised by queue capture.
