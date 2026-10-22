@@ -33,7 +33,7 @@ const expectedIds = [
   'fixture-tennis-espn-atp-184949',
   'fixture:mlb:849818',
   'fixture:mlb:849810',
-  'rugby-australia-new-zealand-2026-10-17',
+  'rugby-australia-new-zealand-2026-10-17', 'fixture-cricket-espn-1525660',
 ];
 const protectedKeys = ['id', 'eventId', 'canonicalEventId', 'date', 'time',
   'startTimeUtc', 'participantIds', 'participants', 'venue', 'lastReviewedAt',
@@ -71,7 +71,7 @@ function seed(row) {
     key: row.key || (/nbl/.test(canonical) ? 'nbl' : /cricket/.test(canonical)
       ? 'cricket' : /mlb/.test(canonical) ? 'mlb' : 'tennis'),
     date: row.date || row.acceptedResultProjection.fixtureDate,
-    time: null, startTimeUtc: null, status: 'scheduled', cardKind: 'fixture', liveWindow: 3,
+    time: null, startTimeUtc: row.startTimeUtc || null, ...(row.competitionId?{competitionId:row.competitionId}:{}), status: 'scheduled', cardKind: 'fixture', liveWindow: 3,
     participantIds: clone(participantIds),
     participants: participantIds.map(id => ({id, name: id})),
     venue: 'Retained fixture venue', stakesScore: 0,
@@ -405,7 +405,7 @@ if (evidenceArgument || fs.existsSync(evidenceFile)) {
 }
 if (evidenceArgument || actualRows.length) {
   assert.equal(actualRows.length, expectedIds.length, 'The accepted publication packet must contain exactly the reviewed tagged rows');
-  same(actualRows.map(row => row.id).sort(), [...expectedIds].sort(), 'Original 17-ID membership plus the reviewed Rugby final');
+  same(actualRows.map(row => row.id).sort(), [...expectedIds].sort(), 'Original reviewed membership plus Rugby and the source-bound Second Test final');
   for (const row of actualRows) checkRow(row);
   const find = suffix => actualRows.find(row => aliases(row).some(id => id.endsWith(suffix)));
   // The canonical publisher normalises an accepted result after either writer.
@@ -592,3 +592,4 @@ same([...projectionFailures, ...winnerConflictFailures], [],
 console.log('Accepted-result projection: proof/source/binding rejection, retirement, zero, raw metadata, exact clocks, stale/conflicting finals and isolated selected/official CLI byte replay passed.');
 console.log(actualRows.length ? `Actual tagged ${actualRows.length}-ID evidence covered.`
   : 'Compiled tagged evidence not present; constructed contract cases covered only.');
+require('./validate-cricket-official-final')().catch(error=>{console.error(error);process.exitCode=1;});

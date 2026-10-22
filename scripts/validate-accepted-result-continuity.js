@@ -298,6 +298,8 @@ try {
   const calendarFixture='fixtures/result-calendar-20261016.json';
   fs.mkdirSync(path.join(root,'scripts/fixtures'),{recursive:true});
   fs.copyFileSync(path.join(__dirname,calendarFixture),path.join(root,'scripts',calendarFixture));
+  // The exact official result is likewise an immutable writer dependency.
+  for(const fixture of ['cricket-ca39991-final-20261023.json','cricket-ca39991-final-receipt-20261023.json','cricket-ca39991-retained-facts-20261023.json'])fs.copyFileSync(path.join(__dirname,'fixtures',fixture),path.join(root,'scripts/fixtures',fixture));
   for(const file of ['lib/accepted-result-calendar.js',calendarFixture])provenance.files['scripts/'+file]=digest(fs.readFileSync(path.join(root,'scripts',file)));
   if (referenceArgument) fs.copyFileSync(helperPath, path.join(root, 'scripts/lib/accepted-result-projection.js'));
   provenance.files['scripts/lib/accepted-result-projection.js'] = digest(

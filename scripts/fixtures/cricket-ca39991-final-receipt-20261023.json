@@ -1,0 +1,32 @@
+{
+  "sourceUrl": "https://apiv2.cricket.com.au/web/views/scorecard?fixtureId=39991&jsconfig=eccn%3Atrue&format=json",
+  "checkedAt": "2026-10-22T21:20:19.513Z",
+  "requestStartedAt": "2026-10-22T21:20:19.206Z",
+  "bodyCompletedAt": "2026-10-22T21:20:19.513Z",
+  "sourceSha256": "c0981f979ecefc82865a1e051e5966327930b90537fdfb3406bdfe1e518adb74",
+  "providerFixtureId": 39991,
+  "canonicalId": "fixture:cricket:espn:1525660",
+  "aliases": [
+    "fixture-cricket-espn-1525660",
+    "fixture:cricket:espn:1525660",
+    "evt_88"
+  ],
+  "participantIds": [
+    "team:cricket:south-africa",
+    "team:cricket:australia"
+  ],
+  "startTimeUtc": "2026-10-18T08:00:00.000Z",
+  "fixtureDate": "2026-10-18",
+  "competitionIds": [
+    "competition:cricket:espn:24203",
+    "competition:cricket:4568"
+  ],
+  "missingHistoricalClocks": [
+    "actualEndTimeUtc",
+    "completedAt",
+    "resultPublishedAt"
+  ],
+  "rawEndDateTimeIsNotActualFinish": true,
+  "retainedFactsFile": "cricket-ca39991-retained-facts-20261023.json",
+  "retainedFactsSha256": "21a7eda85dc2243c45f31b242a681781efd56347a6cb9f5bda1690dbe8d7cde1"
+}

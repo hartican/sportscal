@@ -19,6 +19,20 @@
   const source=index<2?'https://www.worldsurfleague.com/events/'+(index?'2026/ct?all=1':'2027/bwt?all=1'):index===2?'https://www.goodwood.com/motorsport/festival-of-speed/':index===4?'https://www.rugby.com.au/fixtures':'https://www.ucimtbworldseries.com/';
   return {name,displayTitleCompact:name,date:null,endDate:null,time:null,startDate:null,startTimeUtc:null,endTimeUtc:null,estimatedStartTimeUtc:null,timelineSortTimeUtc:null,sessionStartTimeUtc:null,notBeforeTimeUtc:null,actualStartTimeUtc:null,actualEndTimeUtc:null,dateStatus:'tbc',scheduleStatus:'tbc',timePrecision:'unknown',timeTbc:true,startTimeTbc:true,dateOnly:false,cardKind:'calendar-note',venue:index>=3?null:event.venue,expected:null,round:'all',narrativeType:'all',consensusTags:[],broadcaster:'Australian viewing unconfirmed',broadcastOptions:[],broadcasterIds:[],broadcasts:[],viewingOptions:[],...(index===4?{participantsConfirmed:false,participantIds:[],participantSlots:[],participants:[],selectedSentence:'Saved listing; match details unconfirmed.',storyline:null}:{}),fullSpiel:'Date, start and Australian viewing are unverified. Go online for organiser notes.',calendarNote:{state:'unconfirmed',cacheRecovery:true,sourceUrl:source}};
  }
- function facts(id,event){return records[id]||cachedCalendarNote(event)||null;}
+ function facts(id,event){
+  const record=records[id];
+  // The exact accepted Second Test result has its own official scorecard
+  // receipt. Retain the reviewed calendar without relabelling that result as
+  // evidence from the old series-schedule page. Action identities stay put.
+  const source='https://apiv2.cricket.com.au/web/views/scorecard?fixtureId=39991&jsconfig=eccn%3Atrue&format=json';
+  if(id==='fixture:cricket:espn:1525660'&&event?.status==='completed'&&event.resultStatus==='official'
+   &&event.sourceType==='official'&&event.sourceName==='Cricket Australia'&&event.sourceUrl===source&&[source,'https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json'].includes(event.resultSourceUrl)
+   &&event.startTimeUtc==='2026-10-18T08:00:00.000Z'&&event.participantIds?.length===2
+   &&event.participantIds[0]==='team:cricket:south-africa'&&event.participantIds[1]==='team:cricket:australia'
+   &&event.winnerParticipantId==='team:cricket:south-africa'&&event.score&&event.outcomeText&&event.recapText){
+   const {sourceUrl,...calendar}=record;return calendar;
+  }
+  return record||cachedCalendarNote(event)||null;
+ }
  return {facts,cachedCalendarNote};
 });

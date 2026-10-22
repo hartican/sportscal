@@ -59,7 +59,16 @@ const evidence=require('../data/canonical/current-card-evidence-2026.json'),feed
 const rows=evidence.resultOverrides.filter(row=>api.isAcceptedResult(row)&&row.id.startsWith('evt_nbl_2026_27_'));
 assert.equal(rows.length,2,'both retained NBL result capsules must be covered');
 const accepted=evidence.resultOverrides.filter(api.isAcceptedResult);
-assert.equal(accepted.length,18,'all retained accepted results, including the reviewed Bledisloe final, must be covered');
+const expectedAcceptedIds=[
+ 'fixture-cricket-espn-1525659','fixture:mlb:849813','fixture-tennis-espn-wta-185349','fixture-tennis-espn-wta-185352',
+ 'fixture-tennis-espn-wta-185355','fixture-tennis-espn-wta-185358','fixture:tennis:espn:wta:185354',
+ 'evt_nbl_2026_27_3706e834_58ad_11f1_8519_a362560fc147','fixture:tennis:espn:wta:185357','fixture-tennis-espn-wta-185347',
+ 'fixture:mlb:849811','evt_nbl_2026_27_36fd506c_58ad_11f1_a57f_6d6fb61b331b','fixture-tennis-espn-atp-184953',
+ 'fixture-tennis-espn-atp-184948','fixture-tennis-espn-atp-184949','fixture:mlb:849818','fixture:mlb:849810',
+ 'rugby-australia-new-zealand-2026-10-17','fixture-cricket-espn-1525660',
+];
+assert.equal(accepted.length,19,'all19 reviewed accepted result capsules must be covered');
+assert.deepEqual(accepted.map(row=>row.id).sort(),expectedAcceptedIds.sort(),'exact reviewed accepted membership, including the Second Test');
 for(const row of accepted){
   const tokens=new Set(row.acceptedResultProjection.aliases);
   const records=feed.events.filter(event=>aliases(event).some(id=>tokens.has(id)));

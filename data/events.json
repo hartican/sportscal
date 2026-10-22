@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "nothingsport-official-results-2026-09-15-v1-20261022180155820",
-  "publishedAt": "2026-10-22T18:01:55.820Z",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261022180155820-20261022221048141",
+  "publishedAt": "2026-10-22T22:10:48.141Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
   "events": [
     {
@@ -168718,8 +168718,8 @@
       "selectedSentence": "South Africa reset their batting and keeping roles; Australia's question is whether flexibility can coexist with trust in Renshaw's place.",
       "fullSpiel": "St George's Park hosts the middle Test. Rickelton taking the gloves changes South Africa's workload, but his batting position is unannounced. Breetzke offers another batting option, not a guaranteed place. Australia must weigh the surface, availability and balance without assuming an unfit all-rounder's overs. Sustained partnerships and disciplined pressure will matter across five days. Earlier results remain protected; Australian viewing is on Kayo and Fox Cricket.",
       "sourceName": "Cricket Australia",
-      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
-      "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
+      "sourceUrl": "https://apiv2.cricket.com.au/web/views/scorecard?fixtureId=39991&jsconfig=eccn%3Atrue&format=json",
+      "sourceCheckedAt": "2026-10-22T21:20:19.513Z",
       "broadcastOptions": [],
       "round": "all",
       "narrativeType": "all",
@@ -168727,17 +168727,17 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "status": "upcoming",
+      "status": "completed",
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 8,
         "archetype": "international test",
         "hookSpoilerOff": "South Africa reset their batting and keeping roles; Australia's question is whether flexibility can coexist with trust in Renshaw's place.",
-        "hookSpoilerOn": "South Africa reset their batting and keeping roles; Australia's question is whether flexibility can coexist with trust in Renshaw's place.",
+        "hookSpoilerOn": "South Africa win by an innings and 31 runs",
         "synopsisSpoilerOff": "St George's Park hosts the middle Test. Rickelton taking the gloves changes South Africa's workload, but his batting position is unannounced. Breetzke offers another batting option, not a guaranteed place. Australia must weigh the surface, availability and balance without assuming an unfit all-rounder's overs. Sustained partnerships and disciplined pressure will matter across five days. Earlier results remain protected; Australian viewing is on Kayo and Fox Cricket.",
-        "synopsisSpoilerOn": "St George's Park hosts the middle Test. Rickelton taking the gloves changes South Africa's workload, but his batting position is unannounced. Breetzke offers another batting option, not a guaranteed place. Australia must weigh the surface, availability and balance without assuming an unfit all-rounder's overs. Sustained partnerships and disciplined pressure will matter across five days. Earlier results remain protected; Australian viewing is on Kayo and Fox Cricket.",
+        "synopsisSpoilerOn": "Cricket Australia reports: South Africa win by an innings and 31 runs.",
         "intensitySource": "computed",
         "lastReviewedAt": "2026-10-15T22:10:19.416Z",
         "researchDepth": 5
@@ -168905,14 +168905,39 @@
         "fixture-cricket-espn-1525660"
       ],
       "consensusTags": [],
-      "statusCheckedAt": "2026-09-27T14:15:33.925Z",
+      "statusCheckedAt": "2026-10-22T14:02:01.416+00:00",
       "competitionId": "competition:cricket:espn:24203",
       "competitionName": "Australia tour of South Africa 2026/27",
       "competitionProvenance": {
         "sourceEventId": "fixture:cricket:espn:1525660",
         "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
         "checkedAt": "2026-10-04T05:48:59.057Z"
-      }
+      },
+      "score": "South Africa win by an innings and 31 runs",
+      "scoreDisplay": "South Africa win by an innings and 31 runs",
+      "resultStatus": "official",
+      "outcomeText": "South Africa win by an innings and 31 runs",
+      "recapText": "Cricket Australia reports: South Africa win by an innings and 31 runs.",
+      "resultLabels": [
+        "Completed"
+      ],
+      "winnerParticipantId": "team:cricket:south-africa",
+      "resultSourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
+      "resultSourceCheckedAt": "2026-10-22T17:22:00.415Z",
+      "statusSourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
+      "statusSourceName": "Cricket Australia",
+      "statusSourceType": "official",
+      "scoreCheckedAt": "2026-10-22T14:04:00.721+00:00",
+      "scoreFactObservedAt": "2026-10-22T14:04:00.721+00:00",
+      "statusFactObservedAt": "2026-10-22T14:02:01.416+00:00",
+      "firstConfirmedCompleteAt": "2026-10-22T14:02:02.904168+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/series/CA%3A4568/",
+        "https://apiv2.cricket.com.au/web/views/scorecard?fixtureId=39991&jsconfig=eccn%3Atrue&format=json",
+        "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
+      ],
+      "endTimeUtc": null
     },
     {
       "id": "fixture-mlb-849816",

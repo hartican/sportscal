@@ -5,6 +5,7 @@
 const assert = require("node:assert/strict");
 const {createHash} = require("node:crypto");
 const {isDeepStrictEqual} = require("node:util");
+const officialCricket=require('./accepted-cricket-result');
 const {sourceTrustForEvent} = require("../../config/source-trust");
 const fields = Object.freeze([
   "status", "score", "scoreDisplay", "result", "resultStatus", "outcomeText", "recapText",
@@ -73,10 +74,12 @@ function validateAcceptedResult(row){
   assert(validDay(year,month,day),'Accepted result fixture date is impossible');
   if(proof.fixtureDateCorrection)require('./accepted-result-calendar').validate(row);
   validateIdentities(row,proof);
+  if(officialCricket.applies(row))officialCricket.validate(row);
   const url = new URL(row.sourceUrl);
   assert.equal(url.protocol,"https:");
   const host = url.hostname.replace(/^www\./,"");
-  const sourceClasses = {"espn.com":"reputable","cricket.com.au":"trusted-reporting","mlb.com":"official","statsapi.mlb.com":"official","schedule.nbl.com.au":"official","allblacks.com":"official"};
+  const sourceClasses = {"espn.com":"reputable","cricket.com.au":"trusted-reporting","mlb.com":"official","statsapi.mlb.com":"official","schedule.nbl.com.au":"official","allblacks.com":"official","apiv2.cricket.com.au":"official"};
+  if(host==='apiv2.cricket.com.au')assert(officialCricket.applies(row),'Unreviewed official Cricket result');
   assert(Object.hasOwn(sourceClasses,host),"Unreviewed accepted-result source host");
   assert.equal(row.sourceType,sourceClasses[host],"Accepted result source class/host mismatch");
   assert(row.sourceName && Number.isFinite(clock(row)),"Accepted result needs original source receipts");
@@ -106,6 +109,7 @@ function validateAcceptedSet(rows){
 
 function mergeAcceptedResult(record,row){
   validateAcceptedResult(row);
+  if(officialCricket.applies(row))officialCricket.validate(row,record);
   const proof = row.acceptedResultProjection;
   assert(aliases(record).some(id=>proof.aliases.includes(id)),"Accepted result identity mismatch");
   assert.deepEqual(record.participantIds,proof.participantIds,"Accepted result participant identity/order mismatch");
@@ -159,11 +163,12 @@ function mergeAcceptedResult(record,row){
   if(!Object.hasOwn(row,"resultStatus") && next.resultStatus === "pending") delete next.resultStatus;
   delete next.resultAvailabilityEvidence;
   delete next.acceptedResultProjection;
-  return next;
+  return officialCricket.applies(row)?officialCricket.preserveObservations(record,row,next,validateClock):next;
 }
 
 function validateAcceptedProjection(record,row){
   validateAcceptedResult(row);
+  if(officialCricket.applies(row))officialCricket.validate(row,record);
   const proof=row.acceptedResultProjection;
   assert(aliases(record).some(id=>proof.aliases.includes(id)),"Accepted projection identity mismatch");
   assert.deepEqual(record.participantIds,proof.participantIds,"Accepted projection participant identity/order mismatch");
@@ -177,7 +182,9 @@ function validateAcceptedProjection(record,row){
     if(clocks.includes(key)){
       validateClock(record[key],key);
       const kind=statusFields.has(key)?'status':'score';
-      assert(retainedNewerFact(kind)||Date.parse(record[key])>=Date.parse(row[key]),'Accepted result '+key+' regressed');
+      assert(retainedNewerFact(kind)||Date.parse(record[key])>=Date.parse(row[key])||officialCricket.applies(row)&&officialCricket.originalClock(record,row,key),'Accepted result '+key+' regressed');
+    }else if(officialCricket.applies(row)&&officialCricket.originalSource(record,row,key)){
+      // An explicitly qualified earlier tuple retains its own official endpoint.
     }else if(/^(?:source|resultSource|statusSource)(?:Url|Name)$/.test(key)&&!isDeepStrictEqual(record[key],row[key])){
       const kind=statusFields.has(key)?'status':'score';
       assert(retainedNewerFact(kind),'Accepted source metadata lacks a newer corresponding fact');

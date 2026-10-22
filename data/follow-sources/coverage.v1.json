@@ -5226,7 +5226,7 @@
       "date": "2026-10-18",
       "dateOnly": false,
       "timePrecision": "exact",
-      "status": "scheduled",
+      "status": "completed",
       "format": "Test",
       "roundLabel": "2nd Test",
       "venue": "St George's Park, Gqeberha",
@@ -5272,12 +5272,12 @@
       ],
       "homeParticipantId": "team:cricket:south-africa",
       "awayParticipantId": "team:cricket:australia",
-      "scoreDisplay": null,
+      "scoreDisplay": "South Africa win by an innings and 31 runs",
       "sourceFixtureId": "1525660",
       "sourceName": "Cricket Australia",
-      "sourceType": "trusted-reporting",
-      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
+      "sourceType": "official",
+      "sourceUrl": "https://apiv2.cricket.com.au/web/views/scorecard?fixtureId=39991&jsconfig=eccn%3Atrue&format=json",
+      "sourceCheckedAt": "2026-10-22T21:20:19.513Z",
       "timingProvenance": {
         "kind": "published-schedule",
         "sourceUrl": "https://www.espn.in/cricket/series/24203/game/1525660/south-africa-vs-australia-2nd-test-24203",
@@ -5301,7 +5301,32 @@
         "evt_88"
       ],
       "matchFormat": "Test",
-      "statusCheckedAt": "2026-09-30T11:15:20.723Z"
+      "statusCheckedAt": "2026-10-22T14:02:01.416+00:00",
+      "score": "South Africa win by an innings and 31 runs",
+      "resultStatus": "official",
+      "outcomeText": "South Africa win by an innings and 31 runs",
+      "recapText": "Cricket Australia reports: South Africa win by an innings and 31 runs.",
+      "resultLabels": [
+        "Completed"
+      ],
+      "winnerParticipantId": "team:cricket:south-africa",
+      "resultSourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
+      "resultSourceCheckedAt": "2026-10-22T17:22:00.415Z",
+      "statusSourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
+      "statusSourceName": "Cricket Australia",
+      "statusSourceType": "official",
+      "scoreCheckedAt": "2026-10-22T14:04:00.721+00:00",
+      "scoreFactObservedAt": "2026-10-22T14:04:00.721+00:00",
+      "statusFactObservedAt": "2026-10-22T14:02:01.416+00:00",
+      "firstConfirmedCompleteAt": "2026-10-22T14:02:02.904168+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "sourceTrust": "verified",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/series/CA%3A4568/",
+        "https://apiv2.cricket.com.au/web/views/scorecard?fixtureId=39991&jsconfig=eccn%3Atrue&format=json",
+        "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
+      ],
+      "endTimeUtc": null
     },
     {
       "id": "fixture:cricket:espn:1550714",

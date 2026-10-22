@@ -1997,6 +1997,66 @@
         "payloadSha256": "662d0b6cce94b30c64128260e4840a7934a83f5f2e351a285c315cf4d4f0be02",
         "sourceEvidenceKind": "manual official website review; no physical finish or historical first-completion clock"
       }
+    },
+    {
+      "id": "fixture-cricket-espn-1525660",
+      "canonicalId": "fixture:cricket:espn:1525660",
+      "canonicalEventId": "fixture:cricket:espn:1525660",
+      "sourceEventIds": [
+        "fixture-cricket-espn-1525660",
+        "fixture:cricket:espn:1525660",
+        "evt_88"
+      ],
+      "key": "cricket",
+      "date": "2026-10-18",
+      "startTimeUtc": "2026-10-18T08:00:00.000Z",
+      "competitionId": "competition:cricket:espn:24203",
+      "participantIds": [
+        "team:cricket:south-africa",
+        "team:cricket:australia"
+      ],
+      "homeParticipantId": "team:cricket:south-africa",
+      "awayParticipantId": "team:cricket:australia",
+      "status": "completed",
+      "resultStatus": "official",
+      "resultLabels": [
+        "Completed"
+      ],
+      "score": "South Africa win by an innings and 31 runs",
+      "scoreDisplay": "South Africa win by an innings and 31 runs",
+      "outcomeText": "South Africa win by an innings and 31 runs",
+      "recapText": "Cricket Australia reports: South Africa win by an innings and 31 runs.",
+      "winnerParticipantId": "team:cricket:south-africa",
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://apiv2.cricket.com.au/web/views/scorecard?fixtureId=39991&jsconfig=eccn%3Atrue&format=json",
+      "sourceCheckedAt": "2026-10-22T21:20:19.513Z",
+      "resultSourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
+      "resultSourceCheckedAt": "2026-10-22T17:22:00.415Z",
+      "statusSourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
+      "statusSourceName": "Cricket Australia",
+      "statusSourceType": "official",
+      "scoreCheckedAt": "2026-10-22T14:04:00.721+00:00",
+      "statusCheckedAt": "2026-10-22T14:02:01.416+00:00",
+      "scoreFactObservedAt": "2026-10-22T14:04:00.721+00:00",
+      "statusFactObservedAt": "2026-10-22T14:02:01.416+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "fixture-cricket-espn-1525660",
+          "fixture:cricket:espn:1525660",
+          "evt_88"
+        ],
+        "participantIds": [
+          "team:cricket:south-africa",
+          "team:cricket:australia"
+        ],
+        "fixtureDate": "2026-10-18",
+        "sourceSha256": "c0981f979ecefc82865a1e051e5966327930b90537fdfb3406bdfe1e518adb74",
+        "payloadSha256": "bbc7534069ddb52dfa8ff586659ee940f8557414649c4d2286e7b7b86958d826"
+      },
+      "firstConfirmedCompleteAt": "2026-10-22T14:02:02.904168+00:00"
     }
   ]
 }

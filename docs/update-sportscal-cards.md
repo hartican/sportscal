@@ -159,6 +159,24 @@ and spoiler checks. Derived publication, fresh private controls and exact-SHA
 release/served/browser proof remain the serialized release owner's responsibility.
 An accepted source capsule is not itself proof of production publication.
 
+#### 23 October 2026 — exact official Second Test receipt
+
+The reviewed CA39991 scorecard API response is a separate, narrowly bound official
+result source. It does not change the reporting classification of Cricket
+Australia articles or ESPN, or admit arbitrary Cricket Australia API results.
+The accepted capsule must bind the original response hash, exact source URL,
+competition, ordered participants, start and existing ESPN1525660/evt_88 action
+identities. The reviewed calendar must retain the result's actual source link.
+
+Existing accepted canonical observations for this same contest precede the later
+scorecard contact. Preserve their literal score/status fact dates and supplied
+first-confirmed-completion precision through explicit source reconciliation.
+Qualify score and status observations against their own source attribution;
+never relabel an earlier independent status receipt using the score's source.
+Keep later genuine contact separate, and leave physical finish and provider
+publication unknown. The required accepted-result, continuity, publication and
+spoiler gates still apply; this record does not claim deployment or live acceptance.
+
 Score and status observations are separate tuples: compare each original fact
 clock independently and use receipt clocks only when neither candidate has that
 fact clock. A newer status must not replace a newer score with older score data.
