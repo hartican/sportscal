@@ -27,7 +27,7 @@ function battingGroups(rows){
  }
  return {batting,groups:[...groups].map(([label,entries])=>({label,rows:entries.sort((a,b)=>(a.row.sourceOrder??a.index)-(b.row.sourceOrder??b.index)).map(e=>e.row)}))};
 }
-function styles(){if(document.querySelector?.('[data-score-details-style]'))return;const link=node('link');link.rel='stylesheet';link.href='assets/styles/score-details.css?v=486';link.dataset.scoreDetailsStyle='';document.head?.append(link);}
+function styles(){if(document.querySelector?.('[data-score-details-style]'))return;const link=node('link');link.rel='stylesheet';link.href='assets/styles/score-details.css?v=582';link.dataset.scoreDetailsStyle='';document.head?.append(link);}
 function cricket(innings,{selectedInnings,fixtureId,stale=false}={}){
  styles();
  const root=node('div',null,'full-cricket-scorecard');if(!innings?.length)return root;
@@ -56,7 +56,7 @@ function incidents(rows){return (Array.isArray(rows)?rows:[]).filter(i=>i&&typeo
 function football(rows){styles();const root=node('div',null,'football-goal-details');const list=incidents(rows);if(list.length)table(root,'Goals',[['Scorer','name'],['Game minute','time'],['Type','type'],['Team','team']],list);return root;}
 function feed(slot,ev,visible){
  if(!slot.isConnected||ev.key!=='horse-racing'&&!visible())return;
- if(/^(f1|supercars|motogp|wrc|horse-racing)$/.test(ev.key)){slot.classList.add('fixture-racing-details');void loadDeferredScript('config/match-centre.js?v=579').then(()=>loadDeferredScript('config/racing-details.js?v=527')).then(()=>NOTHINGSPORTS_RACING_DETAILS.mount(slot,ev,{visible:()=>slot.isConnected&&(ev.key==='horse-racing'||visible()),resultsVisible:visible,followed:entry=>cardIdentityParticipants().some(p=>entry.drivers?.includes(p.displayName||p.name)&&cachedParticipantFollow(p.id).followed)})).catch(()=>{if(slot.isConnected&&visible())slot.textContent='Racing detail unavailable.';});return;}
+ if(/^(f1|supercars|motogp|wrc|horse-racing)$/.test(ev.key)){slot.classList.add('fixture-racing-details');void loadDeferredScript('config/match-centre.js?v=582').then(()=>loadDeferredScript('config/racing-details.js?v=527')).then(()=>NOTHINGSPORTS_RACING_DETAILS.mount(slot,ev,{visible:()=>slot.isConnected&&(ev.key==='horse-racing'||visible()),resultsVisible:visible,followed:entry=>cardIdentityParticipants().some(p=>entry.drivers?.includes(p.displayName||p.name)&&cachedParticipantFollow(p.id).followed)})).catch(()=>{if(slot.isConnected&&visible())slot.textContent='Racing detail unavailable.';});return;}
  if(ev.key==='cricket'){
   slot.append(cricket(ev.innings,{fixtureId:String(ev.canonicalEventId||ev.eventId||ev.id),stale:ev.sourceStale===true}));
   const id=[ev.canonicalEventId,ev.eventId,ev.id,...(ev.sourceEventIds||[])].map(v=>String(v||'').match(/(?:^|:)CA:(\d+)$/)?.[1]).find(Boolean);

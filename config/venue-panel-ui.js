@@ -107,7 +107,7 @@ function buildTournamentMarker(event){
  const title=document.createElement('h3');title.textContent=[fixtureCompetitionLabel(event),event.name].filter((v,i,a)=>v&&a.indexOf(v)===i).join(' · ');const dates=document.createElement('p'),timing=NOTHINGSPORTS_CARD_TIMING.presentation(event,nowAEST(),{fullRange:true});dates.textContent=(NOTHINGSPORTS_FEED_TIMELINE.finalDay(event)?timing.day:timing.progress||[event.date,event.endDate!==event.date?event.endDate:null].filter(Boolean).map(value=>NOTHINGSPORTS_AUSTRALIAN_DATES.date(value)).join(' – '))+(timing.status==='FINISHED'?' · FINISHED':'');dates.title=timing.ariaLabel;summary.append(title,dates);details.append(summary);if(timing.progress){const full=document.createElement('p');full.className='fixture-source-dates';full.textContent=timing.fullSchedule;details.append(full);}
  summary.setAttribute('aria-label','Expand '+event.name+'. '+timing.ariaLabel);
  const content=document.createElement('div');content.className='feed-tournament-appearances';details.append(content);let mounted=false;
- const mount=()=>{if(details.open){tennisFeedOpenParents.add(id);if(!mounted){mounted=true;loadDeferredScript('assets/js/tournament-card-ui.js?v=579').then(()=>NOTHINGSPORTS_TOURNAMENT_CARD_UI.render(content,event)).catch(()=>{mounted=false;content.textContent='Appearances could not load. Close and reopen to retry.';});}}else tennisFeedOpenParents.delete(id);};details.addEventListener('toggle',mount);
+ const mount=()=>{if(details.open){tennisFeedOpenParents.add(id);if(!mounted){mounted=true;loadDeferredScript('assets/js/tournament-card-ui.js?v=582').then(()=>NOTHINGSPORTS_TOURNAMENT_CARD_UI.render(content,event)).catch(()=>{mounted=false;content.textContent='Appearances could not load. Close and reopen to retry.';});}}else tennisFeedOpenParents.delete(id);};details.addEventListener('toggle',mount);
  card.append(details,buildEventCardControls(event,{card}),buildCardDisclosureControl(event.name,'selected',(state,options)=>{setCardState(event,state);refreshExpandableCard(card,buildTournamentMarker(event),options);syncNothingscoreReadRecovery();}));appendEventQuickActions(card,event,{reminder:false,chat:false,highlightsOnly:true});if(details.open)queueMicrotask(mount);return card;
 }
 
@@ -426,7 +426,7 @@ function buildFixtureCardEssentials(ev, {matchupIdentity, timingState, options, 
 function buildExpandedScoreDetails(ev){
  if(!(ev.key==='horse-racing'||isSpoilerVisible(ev)&&(ev.score?.racing||/^(f1|supercars|motogp|wrc|horse-racing)$/.test(ev.key)||ev.key==='cricket'||/football|soccer|fifa|premier-league|uefa-/.test(ev.key))))return null;
  const slot=document.createElement('div');slot.dataset.cardArea='expanded-information';slot.className='fixture-scorecard';
- loadDeferredScript('config/score-details.js?v=579').then(()=>NOTHINGSPORTS_SCORE_DETAILS.feed(slot,ev,()=>isSpoilerVisible(ev))).catch(()=>{if(slot.isConnected&&isSpoilerVisible(ev))slot.textContent='Scorecard unavailable.';});return slot;
+ loadDeferredScript('config/score-details.js?v=582').then(()=>NOTHINGSPORTS_SCORE_DETAILS.feed(slot,ev,()=>isSpoilerVisible(ev))).catch(()=>{if(slot.isConnected&&isSpoilerVisible(ev))slot.textContent='Scorecard unavailable.';});return slot;
 }
 function buildFootballMatchContext(ev){return ev.footballMatchContext||ev.teamMatchContext?buildEuropeanDetail(ev,'context'):null;}
 
@@ -827,7 +827,7 @@ function buildCricketInnings(ev,{localReveal=false}={}){
   if(ev.key!=='cricket'||!ev.innings?.length||!['completed','finished','past','live','ongoing','in_progress','in-progress','stumps','rain-delay','interrupted','suspended','break'].includes(ev.status)||globalThis.NOTHINGSPORTS_COVERAGE_PAUSES?.womensT20(ev))return null;
   if(globalThis.NOTHINGSPORTS_CRICKET_INNINGS)return NOTHINGSPORTS_CRICKET_INNINGS.build(ev);
   const slot=document.createElement('div');
-  loadDeferredScript('config/cricket-innings.js?v=486').then(()=>{if(slot.isConnected&&(localReveal||isSpoilerVisible(ev)))slot.replaceChildren(NOTHINGSPORTS_CRICKET_INNINGS.build(ev)||'');}).catch(()=>{if(slot.isConnected&&(localReveal||isSpoilerVisible(ev)))slot.textContent='Innings details are unavailable.';});
+  loadDeferredScript('config/cricket-innings.js?v=582').then(()=>{if(slot.isConnected&&(localReveal||isSpoilerVisible(ev)))slot.replaceChildren(NOTHINGSPORTS_CRICKET_INNINGS.build(ev)||'');}).catch(()=>{if(slot.isConnected&&(localReveal||isSpoilerVisible(ev)))slot.textContent='Innings details are unavailable.';});
   return slot;
 }
 

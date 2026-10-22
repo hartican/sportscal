@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v581";
-const SHELL_VERSION = "581";
+const CACHE_NAME = "nothingsport-shell-v582";
+const SHELL_VERSION = "582";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -63,16 +63,16 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=581",
+  "/assets/js/app-shell-runtime.js?v=582",
   "/assets/js/account-awareness-runtime.js?v=571",
   "/assets/js/follow-schedule-panel.js?v=576",
   "/assets/js/fixture-navigation.js?v=535",
   "/assets/js/notification-navigation.js?v=534",
-  "/config/cricket-innings.js?v=486",
-  "/config/score-details.js?v=579",
-  "/assets/styles/score-details.css?v=486",
+  "/config/cricket-innings.js?v=582",
+  "/config/score-details.js?v=582",
+  "/assets/styles/score-details.css?v=582",
   "/config/tournament-card-details.js?v=486",
-  "/assets/js/tournament-card-ui.js?v=579",
+  "/assets/js/tournament-card-ui.js?v=582",
   "/config/tournament-schedule.js?v=452",
   "/assets/js/tennis-schedule-ui.js?v=467",
   "/config/tennis-journeys.js?v=467",
@@ -102,13 +102,13 @@ const APP_SHELL = [
   "/config/event-overviews-ui.js?v=576",
   "/config/surface-category-ui.js?v=403",
   "/assets/styles/match-centre.css?v=576",
-  "/config/match-centre.js?v=579",
+  "/config/match-centre.js?v=582",
   // An upgrading page can receive this deferred module from its old worker.
   // Own it in the new cache before activation removes that old cache.
   "/assets/js/match-centre-ui.js?v=576",
   "/assets/js/milestone-alerts-ui.js?v=535",
   "/config/feed-live-scores.js?v=576",
-  "/config/feed-live-score-loader.js?v=579",
+  "/config/feed-live-score-loader.js?v=582",
   "/config/athletes.js?v=471",
   "/assets/js/athletes-ui.js?v=581",
   // Profile UI caches after first use; optional detail stays out of shell budget.
