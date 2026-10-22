@@ -649,8 +649,16 @@ const server=http.createServer((req,res)=>{
     // hash/history transitions also emit framenavigated; retain them separately.
     const upgradeDocuments=[];upgraded.on('request',r=>{if(r.isNavigationRequest()&&r.resourceType()==='document'&&r.frame()===upgraded.mainFrame()){upgradeNavigations++;upgradeDocuments.push({url:r.url(),at:Date.now(),nextRelease});}});
     upgraded.on('framenavigated',frame=>{if(frame===upgraded.mainFrame())upgradeNavigationLog.push({url:frame.url(),at:Date.now(),nextRelease});});
-    if(keepOpen)await upgraded.evaluate(async()=>{const reg=await navigator.serviceWorker.getRegistration();await reg.update();});
-    else await upgraded.goto(origin+'/?installed-pwa-upgrade=1',{waitUntil:'domcontentloaded'});
+    if(keepOpen){
+      try{await upgraded.evaluate(async()=>{const reg=await navigator.serviceWorker.getRegistration();await reg.update();});}
+      catch(error){
+        // Activation may replace this document before reg.update() resolves.
+        // Require its recorded navigation; every exact-version/cache assertion below still runs.
+        if(!String(error.message).includes('Execution context was destroyed')
+          || !upgradeDocuments.some(navigation=>{const url=new URL(navigation.url);return url.origin===origin&&url.pathname==='/'&&url.searchParams.get('installed-pwa-upgrade')==='1';}))throw error;
+        console.log(JSON.stringify({updateEvaluationReplacedByRecordedNavigation:true,navigations:upgradeDocuments}));
+      }
+    }else await upgraded.goto(origin+'/?installed-pwa-upgrade=1',{waitUntil:'domcontentloaded'});
     const firstVersion=await upgraded.locator('meta[name="app-shell-version"]').getAttribute('content');
     if(!keepOpen && +baselineVersion>=238)assert.equal(firstVersion,candidateVersion,'network-first baselines must receive the current first document');
     // Legacy cache-first workers cannot be retroactively changed: require an
