@@ -98,6 +98,8 @@ jobs:
           node scripts/validate-event-overviews.js
           node scripts/validate-current-fixture-bundle.js
           PGLITE_MODULE=pglite-pg17 node scripts/validate-current-fixture-bundle.js
+          node scripts/validate-fixture-clock-components.js
+          PGLITE_MODULE=pglite-pg17 node scripts/validate-fixture-clock-components.js
           node scripts/validate-global-direct-calendar.js
           PGLITE_MODULE=pglite-pg17 node scripts/validate-global-direct-calendar.js
           node scripts/validate-profile-fixture-scope.js

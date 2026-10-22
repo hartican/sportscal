@@ -1804,3 +1804,30 @@ repair with the already-reviewed direct global view in one guarded transaction;
 undo both atomically on failed required acceptance. All four complete public
 rounds, one-second headroom, normal full release/security and exact-SHA publication
 remain required. Component timing does not establish complete runtime acceptance.
+
+## 22 October 2026 — compatible global component transport
+
+A scoped compatibility candidate may move only the six parsed-clock lookups,
+observation patch construction and JSONB concat to the existing Node reader.
+Keep the original SQL admission, candidates, ordering, 5001 sentinel, raw clock
+inputs, SQL timestamp parser and distinct parsed clocks. A fixed service-side
+request header selects the component envelope on the same private invoker view;
+absence, empty, malformed or unknown headers keep the original full envelope.
+Old applications remain compatible, and the new reader accepts both shapes so
+an exact view-only undo needs no application rollback.
+
+Validate the entire component envelope/map/rows/required keys before any
+reconstruction. Preserve SQL NULL versus JSON null for BOTH base and score with
+explicit flags, original timestamp strings/precision, concat semantics, zero,
+identity and order. Corruption fails visibly through existing last-good handling;
+no legacy retry is added. Canonical hashes sort keys recursively, so the normal
+object branch needs one own-key-safe merge rather than PostgreSQL key ordering.
+
+This adds no stored field/cache/writer, privilege, browser header/credential,
+request, scheduler or deadline. Keep two parallel resources, global 3s and scoped
+interactive 5s. Local CPU/complete-frame evidence remains separate from native,
+cloud, release and device acceptance. Earlier sorted-decoder and other failed
+trials remain closed. Require PG17/18 legacy text/value equality, both protocols,
+actual consumer/hash/failure checks, NULL/zero/clock/corruption/overflow/rights,
+guards and committed undo/reapply. DEPLOY alone owns activation and publication.
+See [source scope and proof limits](quality/global-fixture-components-2026-10-22.md).
