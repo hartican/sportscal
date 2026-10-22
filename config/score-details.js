@@ -8,19 +8,40 @@ function table(parent,title,columns,rows){
  const body=node('tbody');for(const row of rows){const tr=node('tr');columns.forEach(([,key],index)=>{const c=node(index?'td':'th',row[key]??'—');if(!index)c.scope='row';tr.append(c);});body.append(tr);}t.append(body);wrap.append(t);parent.append(wrap);
 }
 const selections=new Map();
+function inningsTitles(innings){
+ const counts=new Map(),titles=new Map();let complete=true;
+ for(const [index,i] of innings.slice().sort((a,b)=>a.inningNumber-b.inningNumber).entries()){
+  const id=i.participantId??i.battingTeamId;complete=complete&&i.inningNumber===index+1&&id!=null;
+  const n=(counts.get(id)||0)+1;counts.set(id,n);
+  const ordinal=complete?(['1st','2nd','3rd','4th'][n-1]+' '):'';
+  titles.set(i,`${String(i.team||'Team').replace(/\s+Men$/i,'')} — ${ordinal}innings${i.isFollowOn?' · following on':''}`);
+ }return titles;
+}
+function battingGroups(rows){
+ const batting=[],groups=new Map();
+ for(const [index,row] of rows.entries()){
+  const status=String(row.dismissalType||row.dismissal||'').replace(/[\s_-]/g,'').toLowerCase();
+  const group=status==='yettobat'?'Yet to bat':status==='didnotbat'||!status&&row.didNotBat?'Did not bat':status==='absenthurt'?'Absent hurt':status==='absent'?'Absent':null;
+  if(!group){batting.push(row);continue;}
+  if(!groups.has(group))groups.set(group,[]);groups.get(group).push({row,index});
+ }
+ return {batting,groups:[...groups].map(([label,entries])=>({label,rows:entries.sort((a,b)=>(a.row.sourceOrder??a.index)-(b.row.sourceOrder??b.index)).map(e=>e.row)}))};
+}
 function styles(){if(document.querySelector?.('[data-score-details-style]'))return;const link=node('link');link.rel='stylesheet';link.href='assets/styles/score-details.css?v=486';link.dataset.scoreDetailsStyle='';document.head?.append(link);}
 function cricket(innings,{selectedInnings,fixtureId,stale=false}={}){
  styles();
  const root=node('div',null,'full-cricket-scorecard');if(!innings?.length)return root;
  const choose=node('select'),label=node('label','Innings '),content=node('div');choose.setAttribute('aria-label','Scorecard innings');
- for(const i of innings){const o=node('option',`${i.team||'Innings'} · ${i.inningNumber||''}`);o.value=String(i.inningNumber);choose.append(o);}choose.value=String(selectedInnings||selections.get(fixtureId)||innings.at(-1).inningNumber);label.append(choose);root.append(label,content);
- function render(){if(fixtureId)selections.set(fixtureId,choose.value);const i=innings.find(i=>String(i.inningNumber)===choose.value)||innings.at(-1),title=`${i.team||'Innings'} · innings ${i.inningNumber||''}`;content.replaceChildren();
-  const notes=[i.isDeclared?'Declared':null,i.isFollowOn?'Follow-on':null,i.isForfeited?'Forfeited':null].filter(Boolean).join(' · ');
+ const chronological=innings.slice().sort((a,b)=>a.inningNumber-b.inningNumber),titles=inningsTitles(innings);
+ for(const i of chronological){const o=node('option',titles.get(i));o.value=String(i.inningNumber);choose.append(o);}const selected=String(selectedInnings||selections.get(fixtureId)||chronological.at(-1).inningNumber);choose.value=chronological.some(i=>String(i.inningNumber)===selected)?selected:String(chronological.at(-1).inningNumber);label.append(choose);root.append(label,content);
+ function render(){if(fixtureId)selections.set(fixtureId,choose.value);const i=innings.find(i=>String(i.inningNumber)===choose.value)||chronological.at(-1),title=titles.get(i);content.replaceChildren();
+  const notes=[i.isDeclared?'Declared':null,i.isForfeited?'Forfeited':null].filter(Boolean).join(' · ');
   const total=`${i.runs??i.runsScored??'—'}/${i.wicketsCount??i.numberOfWicketsFallen??(typeof i.wickets==='number'?i.wickets:'—')} (${i.overs??i.oversBowled??'—'} overs)${notes?' · '+notes:''}`;table(content,'Total · '+title,[['Innings','total']],[{total}]);
-  const batting=i.batting||[],bowling=i.bowling||[];
+  const {batting,groups}=battingGroups(i.batting||[]),bowling=i.bowling||[];
   table(content,'Batting · '+title,[['Batsman','name'],['Dismissal','dismissal'],['R','runs'],['B','balls'],['4s','fours'],['6s','sixes'],['SR','strikeRate']],batting);
   if(!batting.length)content.append(node('p','Batting details unavailable.'));
-  if(i.extras)table(content,'Extras',[['Total','total'],['Byes','byes'],['Leg byes','legByes'],['Wides','wides'],['No balls','noBalls'],['Penalty','penalties']],[i.extras]);
+  for(const group of groups){const section=node('section',null,'scorecard-player-group'),list=node('ul');section.append(node('h4',group.label));list.setAttribute('aria-label',group.label);for(const row of group.rows)list.append(node('li',row.name));section.append(list);content.append(section);}
+  if(i.extras)table(content,'Extras · '+title,[['Total','total'],['Byes','byes'],['Leg byes','legByes'],['Wides','wides'],['No balls','noBalls'],['Penalty','penalties']],[i.extras]);
   table(content,'Bowling · '+title,[['Bowler','name'],['O','overs'],['M','maidens'],['R','runs'],['W','wickets'],['Econ','economy'],['Wd','wides'],['NB','noBalls']],bowling);
   if(!bowling.length)content.append(node('p','Bowling details unavailable.'));
   table(content,'Fall of wickets · '+title,[['Batsman','name'],['Wicket','wicket'],['Score','runs'],['Over','overs']],i.fallOfWickets|| (Array.isArray(i.wickets)?i.wickets:[]));
@@ -42,5 +63,5 @@ function feed(slot,ev,visible){
   if(id){const a=node('a','Official scorecard');a.href='https://www.cricket.com.au/matches/CA%3A'+id;a.target='_blank';a.rel='noopener noreferrer';slot.append(a);}
  }else {slot.append(football(ev.incidents||ev.goalScorers));if(ev.scorecardUrl&&/^https:\/\//.test(ev.scorecardUrl)){const a=node('a','Source scorecard');a.href=ev.scorecardUrl;a.target='_blank';a.rel='noopener noreferrer';slot.append(a);}if(ev.goalDetailsCheckedAt)slot.append(node('small',(ev.goalDetailsStale?'Last available goal details':'Goal details source update')+' · '+new Date(ev.goalDetailsCheckedAt).toLocaleString('en-AU',{timeZone:'Australia/Sydney',day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})));}
 }
-return {cricket,football,incidents,feed,styles};
+return {cricket,football,incidents,feed,styles,inningsTitles,battingGroups};
 });

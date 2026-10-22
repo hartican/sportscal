@@ -13,6 +13,12 @@
     }
     if(duplicate)return {label:'Innings details',rows:[],unavailable:event.innings.length};
     rows.sort((a,b)=>a.inningNumber-b.inningNumber);
+    const counts=new Map(),numbers=new Map();let complete=true;
+    for(const [index,inning] of event.innings.slice().sort((a,b)=>a.inningNumber-b.inningNumber).entries()){
+      complete=complete&&inning.inningNumber===index+1&&participants.has(inning.participantId);
+      const n=(counts.get(inning.participantId)||0)+1;counts.set(inning.participantId,n);if(complete)numbers.set(inning.inningNumber,n);
+    }
+    for(const row of rows)row.inningsLabel=`${row.name.replace(/\s+Men$/i,'')} — ${numbers.has(row.inningNumber)?['1st','2nd','3rd','4th'][numbers.get(row.inningNumber)-1]+' ':''}innings`;
     return {label:['completed','finished','past'].includes(event.status)?'Final innings':'Latest sourced innings',rows,unavailable};
   }
 function build(ev){
@@ -23,7 +29,7 @@ function build(ev){
     const table=document.createElement('table');table.className='tennis-set-table cricket-innings-table';table.setAttribute('aria-label',innings.label);
     const caption=document.createElement('caption');caption.textContent=innings.label;const checked=Date.parse(ev.scoreCheckedAt);if(innings.label==='Latest sourced innings'&&Number.isFinite(checked))caption.textContent+=` · checked ${new Date(checked).toLocaleString('en-AU',{timeZone:'Australia/Sydney',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',timeZoneName:'short'})}`;table.append(caption);
     const head=document.createElement('tr');for(const label of ['Team / innings','Score','Overs']){const th=document.createElement('th');th.scope='col';th.textContent=label;head.append(th);}const thead=document.createElement('thead');thead.append(head);table.append(thead);
-    const body=document.createElement('tbody');for(const inning of innings.rows){const row=document.createElement('tr'),name=document.createElement('th');name.scope='row';name.textContent=`${inning.name} · ${inning.inningNumber}${inning.notes?' · '+inning.notes:''}`;row.append(name);for(const value of [inning.score,inning.overs]){const cell=document.createElement('td');cell.textContent=value;row.append(cell);}body.append(row);}table.append(body);wrap.append(table);
+    const body=document.createElement('tbody');for(const inning of innings.rows){const row=document.createElement('tr'),name=document.createElement('th');name.scope='row';name.textContent=`${inning.inningsLabel}${inning.notes?' · '+inning.notes.replace('Follow-on','following on'):''}`;row.append(name);for(const value of [inning.score,inning.overs]){const cell=document.createElement('td');cell.textContent=value;row.append(cell);}body.append(row);}table.append(body);wrap.append(table);
   }
   if(innings.unavailable){const note=document.createElement('p');note.textContent='Some innings details are unavailable.';wrap.append(note);}
   return wrap;
