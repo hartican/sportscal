@@ -76,7 +76,7 @@ async function run(){
  check('retention and protected correction',()=>{assert(ids.includes('moved'));assert(!ids.includes('old'));assert(!ids.includes('too-far'));});
  check('raw null clears previous fact',()=>{const e=all.find(e=>e.id==='cleared');assert.equal(e.startTimeUtc,null);assert.equal(e.date,null);assert.equal(e.homeParticipantId,null);});
  check('zero scores and original facts',()=>{const e=scoped.find(s=>s.source_id==='fantasy').fixtures[0];assert.equal(e.homeScore,0);assert.equal(e.awayScore,0);assert.equal(Date.parse(e.scoreCheckedAt),Date.parse(observed));assert.equal(Date.parse(e.scoreFactObservedAt),Date.parse(factAt));assert.equal(Date.parse(e.firstConfirmedCompleteAt),Date.parse(factAt));});
- const global=await store.read(),globalRows=global.flatMap(s=>s.fixtures);
+ expectedReadBudget=6000;const global=await store.read(),globalRows=global.flatMap(s=>s.fixtures);expectedReadBudget=3000;
  check('full projected field equality',()=>{for(const e of scoped){const base=global.find(g=>g.source_id===e.source_id);for(const f of e.fixtures)if(!['moved','third'].includes(f.id))assert.deepEqual(f,base.fixtures.find(g=>g.id===f.id));}});
  // The media owner reads the whole Tennis family, rather than projecting the
  // world or limiting new arrivals to today's published roster/fixture IDs.
@@ -121,7 +121,7 @@ async function run(){
  for(const [participantId,prefs] of [['team:football:epl:1',state([]).preferences],['competitor:tennis:atp:alex-de-minaur',state([]).preferences],[null,state(['team:football:epl:1','competitor:tennis:atp:alex-de-minaur']).preferences]]){
   const results=[];
   for(const mode of ['global','scoped']){
-   const handler=unit.exports.createFeedHandler({clock,load:()=>({...dependencies,readLiveSnapshots:async scope=>{expectedReadBudget=mode==='global'?3000:5000;if(mode!=='global')assert.equal(scope.interactive,true);return {sources:await store.read(mode==='global'?{}:scope),revision:'same-comparison',readAt:Date.now(),stale:false};}})});
+   const handler=unit.exports.createFeedHandler({clock,load:()=>({...dependencies,readLiveSnapshots:async scope=>{expectedReadBudget=mode==='global'?6000:5000;if(mode!=='global')assert.equal(scope.interactive,true);return {sources:await store.read(mode==='global'?{}:scope),revision:'same-comparison',readAt:Date.now(),stale:false};}})});
    const res=response();await handler({url:'/api/feed?scope=athletes&limit=50'+(participantId?'&participantId='+participantId:''),method:'POST',headers:{},body:{preferences:prefs,eventUserState:{}}},res);assert.equal(res.statusCode,200);results.push(res.body);
   }
   // Build at a stable instant: the response's generation time is presentation metadata.

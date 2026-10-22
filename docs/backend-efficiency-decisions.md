@@ -1831,3 +1831,39 @@ trials remain closed. Require PG17/18 legacy text/value equality, both protocols
 actual consumer/hash/failure checks, NULL/zero/clock/corruption/overflow/rights,
 guards and committed undo/reapply. DEPLOY alone owns activation and publication.
 See [source scope and proof limits](quality/global-fixture-components-2026-10-22.md).
+
+## 23 October 2026 — measured ordinary global read allowance
+
+The owner explicitly authorised reassessing the former three-second global
+loading constraint to unblock the complete fixture read and Cricket release,
+without spending more. Complete original PostgREST-frame evidence retained by
+DEPLOY measured 3046.678ms execution plus13.458ms planning; an earlier exact
+frame measured3559.516ms. These exceed3s and support a bounded allowance change,
+not a speedup claim. Closed partition/parser/storage prototypes stay closed.
+
+Ordinary unselected global snapshots now have ONE6,000ms total allowance across
+the existing two concurrent resources, complete body/JSON parse, component
+validation/reconstruction, per-source projection/hashes and snapshot revision.
+Use a shared remaining-budget abort signal and elapsed checks after synchronous
+work; late timer callbacks cannot turn over-budget work into a healthy snapshot.
+Named policies are static server code, never client headers/preferences/numbers.
+Keep cache and in-flight ownership separate by policy.
+
+Selected reads and noninteractive scoped reads remain3s. Trusted interactive
+Match Centre/participant reads remain5s. Reminder catalogue calls explicitly use
+the strict3s PER ATTEMPT policy, preserve the existing single502/504 retry and
+remain clamped by the sole dispatcher's27s total/two workers. Do not impose a
+new3s shared-total controller on reminders or increase provider/send deadlines.
+No new retry, request, scheduler, SQL/schema/configuration or source collection.
+
+Existing10/12/15s browser/verifier limits and immediate interactive loading
+feedback remain. Optional profile biography/history's2.5s enrichment is separate
+and unchanged. Full membership/aliases, post-admission overflow, complete/stale
+failure gates, original observation clocks, last-good readAt, OFF/erasure/privacy
+and exact-main release acceptance remain mandatory. Failure diagnostics accept
+historical3s and new6s global receipts without rewriting history. Increasing an
+allowance can make a failing cold read wait up to3s longer; it does not establish
+lower CPU, cost, cloud speed or actual closed-phone success. DEPLOY measures the
+complete hosted body and owns sole publication. Regression:
+`validate-global-read-budget.js`, existing interactive budgets, snapshot diagnosis/
+failure receipts, reminder scope/dispatch, component transport and public gates.

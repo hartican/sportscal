@@ -521,6 +521,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-completed-source-recovery.js"],
   ["scripts/validate-profile-fixture-scope.js"],
   ["scripts/validate-fixture-history-retention.js"],
+  ["scripts/validate-global-read-budget.js"],
   ["scripts/validate-snapshot-read-diagnostics.js"],
   ["scripts/validate-live-afl-adapter.js"],
   ["scripts/validate-live-fixture-api.js"],

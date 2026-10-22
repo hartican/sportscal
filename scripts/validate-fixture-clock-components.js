@@ -57,7 +57,7 @@ const check=(name,fn)=>{fn();checks++;};
  await db.exec("set timezone='Asia/Tokyo'");const offset=await compare();assert.equal(offset.decoded.rows[0].fixture.scoreFactObservedAt,'2026-10-20T09:00:00.123456+09:00');checks++;await db.exec("set timezone='UTC'");
  // Same API and source-hash result on new SQL, old SQL and app-first deployment.
  const manifest=[{source_id:'component-a',revision:1},{source_id:'component-z',revision:1}];
- const storeRead=async(bundle,opts={})=>{const calls=[];const sources=await createSnapshotStore({request:async(path,options={})=>{calls.push({path,options});if(path.endsWith('nothingsports_read_fixture_source_health'))return manifest;assert.equal(path,GLOBAL_BUNDLE_PATH);return[{bundle}];}}).read(opts);assert.equal(calls.length,2);assert.deepEqual(calls[1].options.headers,transport.HEADERS);assert.equal(calls[1].options.timeoutMs,3000);return sources;};
+ const storeRead=async(bundle,opts={})=>{const calls=[];const sources=await createSnapshotStore({request:async(path,options={})=>{calls.push({path,options});if(path.endsWith('nothingsports_read_fixture_source_health'))return manifest;assert.equal(path,GLOBAL_BUNDLE_PATH);return[{bundle}];}}).read(opts);assert.equal(calls.length,2);assert.deepEqual(calls[1].options.headers,transport.HEADERS);assert(calls[1].options.timeoutMs>0&&calls[1].options.timeoutMs<=6000);return sources;};
  assert.deepEqual(await storeRead(pair.wire),await storeRead(pair.legacy));checks++;
  for(const scope of ['selected','match-centre','participants']){
   const calls=[];const options=scope==='selected'?{ids:['first']}:scope==='match-centre'?{scope,interactive:true}:{scope,interactive:true,sportKeys:['tennis'],knownSportKeys:['tennis'],participantIds:['p:first']};

@@ -270,7 +270,7 @@ const recovered={...current,homeScore:12,score:{home:12,away:8},scoreCheckedAt:'
 const original=JSON.stringify([base,current,recovered]);
 const requestCalls=[],reads=[],warnings=[];let builds=0;
 const store=live.createSnapshotStore({request:async(p,o)=>{
- assert.equal(o.timeoutMs,3000);assert.equal(o.method,p.endsWith('source_health')?'POST':'GET');requestCalls.push({phase:p.endsWith('source_health')?'health':'bundle',mode});
+ assert(o.timeoutMs>0&&o.timeoutMs<=6000);assert.equal(o.method,p.endsWith('source_health')?'POST':'GET');requestCalls.push({phase:p.endsWith('source_health')?'health':'bundle',mode});
  if(p.endsWith('source_health')){assert.deepEqual(o.body,{});return [{source_id:'controlled-source',revision:mode==='recovered'?2:1,checked_at:mode==='recovered'?recovered.sourceCheckedAt:current.sourceCheckedAt}];}
  assert(p.endsWith('nothingsports_current_global_fixture_bundle?select=bundle'));assert.equal(o.body,undefined);
  if(mode==='timeout')throw new SupabaseRequestError('Constructed timeout',{status:504,payload:{code:'supabase_timeout'}});
@@ -294,7 +294,7 @@ await (async()=>{
   mode='recovered';now=Date.parse('2026-10-18T10:53:00Z');const recovery=await run('genuine later constructed observation');assert.equal(recovery.res.body.fixtureSnapshotStale,false);assert.equal(recovery.event.homeScore,12);assert.equal(recovery.event.scoreCheckedAt,recovered.scoreCheckedAt);
   for(const [result,expected]of [[cold,base],[fresh,current],[stale,current],[cached,current],[recovery,recovered]]){for(const key of ['homeScore','awayScore','scoreCheckedAt','scoreFactObservedAt','statusCheckedAt','statusFactObservedAt','sourceCheckedAt'])assert.equal(result.event[key],expected[key],'Original score/observation field '+key);}
   assert.equal(JSON.stringify([base,current,recovered]),original);assert.equal(JSON.stringify(state),stateBefore);assert.equal(requestCalls.length,10,'Exactly original two mocked reads per handler request; no extra or retry');assert.equal(builds,4,'Stale response cache hit reuses composition but still attempts current snapshot pair');
-  const diagnostics=warnings.map(w=>JSON.parse(w[1]));assert.equal(diagnostics.length,3);assert(diagnostics.every(d=>d.scope==='global'&&d.phase==='fixture-bundle'&&d.status===504&&d.code==='supabase_timeout'&&d.deadlineMs===3000));
+  const diagnostics=warnings.map(w=>JSON.parse(w[1]));assert.equal(diagnostics.length,3);assert(diagnostics.every(d=>d.scope==='global'&&d.phase==='fixture-bundle'&&d.status===504&&d.code==='supabase_timeout'&&d.deadlineMs===6000));
   console.warn=originalWarn;console.log('Actual global Feed fallback: published/last-good/cached stale/recovery score and original receipt truth passed;10mocked calls,4builds.');
  }finally{console.warn=originalWarn;}
 })();

@@ -11,7 +11,7 @@ async function run(){
  try{
   for(const [scope,ids,interactive,expected]of [
    ['match-centre',[],false,3000],['match-centre',[],true,5000],
-   ['participants',[],true,5000],['global',[],true,3000],['match-centre',[fixture.id],true,3000]
+   ['participants',[],true,5000],['global',[],true,6000],['match-centre',[fixture.id],true,3000]
   ]){
    const calls=[],store=createSnapshotStore({timer:()=>0,request:async(path,options)=>{
     calls.push(options);assert.equal(options.timeoutMs,expected);
@@ -21,7 +21,7 @@ async function run(){
    }});
    const facts=await store.read({scope,ids,interactive,sportKeys:['premier-league'],knownSportKeys:['premier-league'],participantIds:['team:football:sydney-fc']});
    assert.equal(calls.length,2);assert.deepEqual(facts[0].fixtures,[fixture]);
-   if(expected===5000){assert.equal(calls[0].signal,calls[1].signal);assert(calls[0].signal.aborted,'completion cancels any remaining peer');}
+   if(expected>=5000){assert.equal(calls[0].signal,calls[1].signal);assert(calls[0].signal.aborted,'completion cancels any remaining peer');}
    else assert.equal(calls[0].signal,undefined,'background and compact reads retain their original path');
    checks++;
   }
@@ -68,7 +68,7 @@ async function run(){
   for(const url of ['/api/feed?scope=athletes&participantId=team:football:sydney-fc','/api/feed?scope=match-centre','/api/feed']){
    const res=response();await handler({url,method:url==='/api/feed'?'GET':'POST',body:{preferences:{onboardingComplete:true,interactive:true}}},res);assert.equal(res.code,200);
   }
-  assert.equal(scopes[0].interactive,true);assert.equal(scopes[1].interactive,true);assert.equal(scopes[2],undefined,'ordinary Feed/account data cannot opt into a larger budget');checks++;
+  assert.equal(scopes[0].interactive,true);assert.equal(scopes[1].interactive,true);assert.equal(scopes[2],undefined,'ordinary Feed/account data cannot choose a read policy');checks++;
   // Exercise the actual transport: headers arrive, but a local body stalls.
   const http=require('node:http'),transport=require('../lib/supabase-server');let connections=0,closed=0,finishClose;
   const closedResponses=new Promise(resolve=>{finishClose=resolve;});
@@ -90,7 +90,7 @@ async function run(){
   }finally{server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}
   let closeTimer;try{await Promise.race([closedResponses,new Promise((_,reject)=>{closeTimer=setTimeout(()=>reject(Error('Response cleanup did not complete')),500);})]);}finally{clearTimeout(closeTimer);}
   assert.equal(closed,2,'Both response connections close after the bound');
-  console.log(JSON.stringify({passed:true,checks,interactiveDeadlineMs:5000,backgroundAndSelectedDeadlineMs:3000,sharedRemainingBudget:true,actualBodyDeadline:true,inFlightPolicyIsolation:true,lastGoodFactsAndDatesPreserved:true,noProductionRequests:true}));
+  console.log(JSON.stringify({passed:true,checks,interactiveDeadlineMs:5000,globalDeadlineMs:6000,backgroundAndSelectedDeadlineMs:3000,sharedRemainingBudget:true,actualBodyDeadline:true,inFlightPolicyIsolation:true,lastGoodFactsAndDatesPreserved:true,noProductionRequests:true}));
  }finally{console.warn=warn;}
 }
 if(require.main===module)run().catch(e=>{console.error(e);process.exitCode=1;});

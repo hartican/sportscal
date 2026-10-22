@@ -9,13 +9,13 @@ const response=()=>({headers:{},setHeader(k,v){this.headers[k]=v;},status(n){thi
 async function main(){
  let clock=0,calls=0;
  const store=createSnapshotStore({diagnostics:true,timer:()=>clock,request:async(path,options)=>{
-  calls++;assert.equal(options.timeoutMs,3000,'Existing global deadline is unchanged');
+  calls++;assert.equal(options.timeoutMs,6000,'Ordinary global total allowance is explicit');
   options.onTiming?.({phase:'fetch-start',elapsedMs:0,password:secret});
   if(path.endsWith('nothingsports_read_fixture_source_health'))return [];
   assert(path.endsWith('nothingsports_current_global_fixture_bundle?select=bundle'));
   options.onTiming?.({phase:'headers',elapsedMs:10,status:200});
-  options.onTiming?.({phase:'text-start',elapsedMs:11,status:200});clock=3000;
-  options.onTiming?.({phase:'timeout',elapsedMs:3000,status:200});
+  options.onTiming?.({phase:'text-start',elapsedMs:11,status:200});clock=6000;
+  options.onTiming?.({phase:'timeout',elapsedMs:6000,status:200});
   throw Object.assign(Error(secret),{status:504,payload:{code:'supabase_timeout',message:secret}});
  }});
  const handler=createLiveFixtureHandler({environment:{},publishedFixtures:()=>[],read:()=>readLiveSnapshots({store})});
@@ -24,13 +24,15 @@ async function main(){
  assert.equal(result.code,200);assert.equal(result.body.stale,true);assert.equal(result.body.maxAgeSeconds,300);
  const failure=result.body.snapshotReadFailure,detail=failure?.diagnostic;
  assert.equal(failure.code,'supabase_timeout');assert.equal(failure.status,504);
- assert.equal(detail?.schemaVersion,receipts.SCHEMA);assert.equal(detail.phase,'fixture-bundle');assert.equal(detail.deadlineMs,3000);
+ assert.equal(detail?.schemaVersion,receipts.SCHEMA);assert.equal(detail.phase,'fixture-bundle');assert.equal(detail.deadlineMs,6000);
  assert.deepEqual(detail.timings.legs['fixture-bundle'].transport.map(x=>x.phase),['fetch-start','headers','text-start','timeout']);
  assert(!JSON.stringify(result.body).includes(secret),'The real handler cannot publish dependency messages or callback extras');
  const captured=[];let reads=0;
  await assert.rejects(verifier.main({sha,log:line=>captured.push(JSON.parse(line)),fetchImpl:async()=>{reads++;return {status:200,headers:{get:()=>null},text:async()=>JSON.stringify(result.body)};}}),/Global fixture snapshot is degraded/);
  assert.equal(reads,1);assert.equal(captured.length,1);assert.equal(captured[0].snapshotReadFailure.diagnostic.readId,detail.readId);
  assert.equal(captured[0].stage,'freshness');assert(!JSON.stringify(captured).includes(secret),'Verifier retains the bounded same-read failure, never the response body');
+ assert.equal(receipts.diagnostic({...detail,deadlineMs:3000}).deadlineMs,3000,'Historical three-second evidence retains its original allowance');
+ assert.equal(receipts.diagnostic({...detail,deadlineMs:5000}),null,'An unapproved global allowance is not admitted');
  const before=JSON.stringify(detail);
  const dirty={...failure,message:secret,sql:secret,diagnostic:{...detail,query:secret,timings:{...detail.timings,legs:{...detail.timings.legs,password:secret}}}};
  assert.equal(JSON.stringify(receipts.failure(dirty)),JSON.stringify(failure));assert.equal(JSON.stringify(detail),before);
@@ -45,7 +47,7 @@ async function main(){
  // The first failing parallel leg is explicit; incomplete other-leg timing is
  // retained as incomplete rather than waiting or inventing a successful end.
  const healthStore=createSnapshotStore({diagnostics:true,request:async(path,options)=>{
-  assert.equal(options.timeoutMs,3000);
+  assert(options.timeoutMs>0&&options.timeoutMs<=6000);
   if(path.endsWith('nothingsports_read_fixture_source_health'))throw Object.assign(Error(secret),{status:404,payload:{code:'PGRST202'}});
   return [{bundle:{schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[]}}];
  }});
@@ -68,7 +70,7 @@ async function main(){
  const selected=createLiveFixtureHandler({environment:{},publishedFixtures:()=>[],read:async()=>retained});
  const chosen=response();await selected({method:'GET',url:'/api/fixtures?ids=fixture:controlled:retained',headers:{}},chosen);
  assert.equal(chosen.body.stale,true);assert(!Object.hasOwn(chosen.body,'snapshotReadFailure'),'This additive global diagnostic does not alter selected readers');
- console.log('Snapshot failure receipts: actual two-leg store/last-good/handler/verifier, original deadlines, first-failing phase, safe bounded metadata, frozen errors, no retry and unchanged facts/selected scope passed.');
+ console.log('Snapshot failure receipts: actual two-leg store/last-good/handler/verifier, named bounded deadlines, first-failing phase, safe bounded metadata, frozen errors, no retry and unchanged facts/selected scope passed.');
 }
 if(require.main===module)main().catch(error=>{console.error(error);process.exitCode=1;});
 module.exports={main};
