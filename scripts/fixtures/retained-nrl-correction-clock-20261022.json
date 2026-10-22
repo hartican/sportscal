@@ -1,0 +1,108 @@
+{
+  "kind": "captured-static-nrl-correction-clock",
+  "observedSourceOperation": "2026-10-21T22:17:15.529Z",
+  "match": {
+    "periodSecs": 2412,
+    "awaySquadName": "Wests Tigers",
+    "matchType": "H",
+    "homeSquadId": 324,
+    "homeSquadShortCode": "MS",
+    "homeSquadNickname": "Storm",
+    "matchStatus": "complete",
+    "roundNumber": 10,
+    "homeSquadName": "Melbourne Storm",
+    "awaySquadNickname": "Wests Tigers",
+    "venueId": 411,
+    "awaySquadId": 334,
+    "venueCode": "MRS",
+    "localStartTime": "2026-05-10T14:00:00+10:00",
+    "matchId": 129991007,
+    "homeSquadScore": 44,
+    "period": 2,
+    "finalCode": "",
+    "periodCompleted": 2,
+    "finalShortCode": "",
+    "awaySquadScore": 18,
+    "venueName": "AAMI Park",
+    "utcStartTime": "2026-05-10T04:00:00Z",
+    "awaySquadCode": "WT",
+    "homeSquadCode": "MS",
+    "awaySquadShortCode": "WT",
+    "matchNumber": 7
+  },
+  "prior": {
+    "id": "event:nrl:129991007",
+    "sourceId": "129991007",
+    "sportDomainId": "sport:nrl",
+    "competitionId": "competition:nrl-premiership-2026",
+    "seasonLabel": "2026",
+    "roundLabel": "Round 10",
+    "roundNumber": 10,
+    "eventType": "match",
+    "startTimeUtc": "2026-05-10T04:00:00.000Z",
+    "scheduleStatus": "confirmed",
+    "localTimezone": "Australia/Melbourne",
+    "venueName": "AAMI Park",
+    "venueCity": "",
+    "venueCountryCode": "AU",
+    "homeParticipantId": "team:nrl:324",
+    "awayParticipantId": "team:nrl:334",
+    "participantIds": [
+      "team:nrl:324",
+      "team:nrl:334"
+    ],
+    "displayName": "Storm v Wests Tigers",
+    "status": "completed",
+    "broadcasters": [
+      {
+        "broadcasterId": "broadcaster:kayo",
+        "broadcasterName": "Kayo Sports",
+        "platformType": "streaming",
+        "regionCode": "AU",
+        "live": true,
+        "replay": true,
+        "highlights": true,
+        "deeplinkUrl": "https://kayosports.com.au/"
+      },
+      {
+        "broadcasterId": "broadcaster:foxtel",
+        "broadcasterName": "Foxtel",
+        "platformType": "subscription",
+        "regionCode": "AU",
+        "live": true,
+        "replay": true,
+        "highlights": true,
+        "deeplinkUrl": "https://www.foxtel.com.au/"
+      }
+    ],
+    "hasLadderImplications": true,
+    "hasFinalsImplications": true,
+    "tags": [
+      "nrl",
+      "all-fixtures",
+      "time-confirmed"
+    ],
+    "createdAt": "2026-07-20T13:28:12.879Z",
+    "updatedAt": "2026-10-16T18:30:55.328Z",
+    "source": {
+      "provider": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceType": "official-provider",
+      "checkedAt": "2026-10-16T18:30:55.328Z"
+    },
+    "result": {
+      "status": "completed",
+      "winnerParticipantId": "team:nrl:324",
+      "scorelineText": "Storm v Wests Tigers \u2014 44-16",
+      "spoilerLevel": "sensitive",
+      "source": {
+        "provider": "NRL",
+        "sourceUrl": "https://www.nrl.com/draw/nrl-premiership/2026/round-10/storm-v-wests-tigers/",
+        "sourceType": "official",
+        "checkedAt": "2026-10-16T18:30:55.328Z"
+      }
+    },
+    "endTimeUtc": "2026-05-10T07:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  }
+}

@@ -1880,3 +1880,9 @@ invitation, account write, scheduler or polling change is introduced. The actual
 canonical fixture lookup and browser predicate regressions run in the existing
 `validate-private-fixture-chat.js` gate. This corrects an implementation defect;
 it does not establish a new kickoff or renew source evidence.
+
+## 23 October 2026 — retain independent result evidence without freezing table facts
+
+The existing canonical collector must reuse the original accepted NRL article observation for the reviewed44–16 correction. Its current provider may report only the reviewed44–18 error or corrected44–16 final; changed identity, status, score or missing/invalid prior evidence must reject. A new fixture collection does not re-observe that independent article.
+
+Retain an existing preview receipt only when the newly generated hook and full copy are unchanged and their identity/source/angle/evidence remain bound. Freshly observed ladder positions keep their new copy and genuine primary fixture/ladder observation. A fixture-specific Australian broadcaster review may survive a generic competition carriage list only with the same competition, start, participants and dated original review. No new provider request, scheduler, writer, source allowance or database change is added. Current-clock15-hour freshness, six-hour result grace, whole-candidate completeness and exact release gates remain mandatory; offline saved responses are not current source acceptance.

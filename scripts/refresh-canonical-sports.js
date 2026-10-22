@@ -23,6 +23,7 @@ const NRL_OFFICIAL_RESULT_CORRECTIONS = Object.freeze({
     awayTeam: "Wests Tigers",
     homeScore: 44,
     awayScore: 16,
+    providerAwayScore: 18,
     sourceUrl: "https://www.nrl.com/draw/nrl-premiership/2026/round-10/storm-v-wests-tigers/",
   }),
 });
@@ -266,7 +267,7 @@ function parseEspnNrlResults(payload, checkedAt){
   });
 }
 
-function applyOfficialNrlResultCorrections(matches, checkedAt){
+function applyOfficialNrlResultCorrections(matches, checkedAt, { previousEvents = [] } = {}){
   const correctedMatchIds = [];
   const correctedMatches = matches.map(match => {
     const correction = NRL_OFFICIAL_RESULT_CORRECTIONS[String(match.matchId)];
@@ -278,13 +279,45 @@ function applyOfficialNrlResultCorrections(matches, checkedAt){
     ){
       throw new Error(`NRL official result correction identity mismatch for match ${match.matchId}`);
     }
+    // This correction reuses an accepted article, rather than fetching it.
+    // A new provider collection cannot renew that independent observation.
+    const id = `event:nrl:${match.matchId}`;
+    const retained = previousEvents.filter(event => event.id === id);
+    const prior = retained.length === 1 ? retained[0] : null;
+    const home = nrlParticipant(match, "home"), away = nrlParticipant(match, "away");
+    const source = prior?.result?.source;
+    const observed = Date.parse(source?.checkedAt || "");
+    const collection = Date.parse(checkedAt || "");
+    const winner = correction.homeScore > correction.awayScore ? home.id : away.id;
+    if (!prior || prior.sourceId !== String(match.matchId)
+      || prior.competitionId !== "competition:nrl-premiership-2026" || prior.seasonLabel !== String(SEASON)
+      || prior.roundNumber !== correction.roundNumber || prior.status !== "completed" || prior.result?.status !== "completed"
+      || prior.homeParticipantId !== home.id || prior.awayParticipantId !== away.id
+      || JSON.stringify(prior.participantIds) !== JSON.stringify([home.id, away.id])
+      || prior.startTimeUtc !== normalizeIso(match.utcStartTime)
+      || prior.displayName !== `${home.displayName} v ${away.displayName}`
+      || prior.result.scorelineText !== `${home.displayName} v ${away.displayName} — ${correction.homeScore}-${correction.awayScore}`
+      || prior.result.winnerParticipantId !== winner
+      || source?.provider !== "NRL" || source.sourceType !== "official" || source.sourceUrl !== correction.sourceUrl
+      || !Number.isFinite(observed) || !Number.isFinite(collection)
+      || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(source?.checkedAt||'')
+      || new Date(observed).toISOString().slice(0,19)!==source.checkedAt.slice(0,19)
+      || observed > collection || observed > Date.now()
+      || observed < Date.parse(prior.startTimeUtc)){
+      throw new Error(`NRL official result correction lacks qualified retained evidence for match ${match.matchId}`);
+    }
+    if (match.matchStatus !== "complete"
+      || Number(match.homeSquadScore) !== correction.homeScore
+      || ![correction.awayScore, correction.providerAwayScore].includes(Number(match.awaySquadScore))){
+      throw new Error(`NRL official result correction has unsupported primary status or score for match ${match.matchId}`);
+    }
     correctedMatchIds.push(match.matchId);
     return {
       ...match,
       matchStatus: "complete",
       homeSquadScore: correction.homeScore,
       awaySquadScore: correction.awayScore,
-      resultSource: eventSource("NRL", correction.sourceUrl, "official", checkedAt),
+      resultSource: { ...source },
     };
   });
   return { matches: correctedMatches, correctedMatchIds };
@@ -894,7 +927,7 @@ async function main(){
   );
   const nrlFixture = await fetchJson(NRL_FIXTURE_URL);
   const officialNrlMatches = nrlFixture.fixture?.match || [];
-  const officialNrlCorrections = applyOfficialNrlResultCorrections(officialNrlMatches, checkedAt);
+  const officialNrlCorrections = applyOfficialNrlResultCorrections(officialNrlMatches, checkedAt, {previousEvents:existingBundle?.events || []});
   const supplementalNrl = await fetchNrlSupplementalResults(officialNrlCorrections.matches, checkedAt);
   const nrlReconciliation = reconcileNrlResults(officialNrlCorrections.matches, supplementalNrl.results, checkedAt);
   const nrlMatches = nrlReconciliation.matches;
@@ -938,6 +971,10 @@ async function main(){
   const storedAflwLadder = existingBundle?.ladderSnapshots?.find(snapshot => snapshot.competitionId === fetchedAflwLadder.competitionId);
   const aflwLadder = selectFreshestLadderSnapshot(fetchedAflwLadder, storedAflwLadder);
   applyGwsAflwEditorial(aflwRecords, aflwLadder, checkedAt);
+  const mergedEvents=require('../lib/fixture-snapshot').mergeFixtureSnapshot(existingBundle?.events||[],events).events;
+  const reviewedEvents=require('./lib/retained-canonical-metadata').retainReviewedCanonicalMetadata(existingBundle?.events||[],mergedEvents,{
+    checkedAt,fixtureOverrides:require('../data/canonical/current-card-evidence-2026.json').fixtureOverrides,
+  });
   const preservedLadderSnapshots = (existingBundle?.ladderSnapshots || []).filter(snapshot => (
     ![aflLadder.competitionId, aflwLadder.competitionId, nrlLadder.competitionId].includes(snapshot.competitionId)
   ));
@@ -961,7 +998,7 @@ async function main(){
     competitionFamilies: taxonomy.competitionFamilies,
     competitions: taxonomy.competitions,
     participants,
-    events:sortedEvents(require("../lib/fixture-snapshot").mergeFixtureSnapshot(existingBundle?.events || [],events).events),
+    events:sortedEvents(reviewedEvents),
     ladderSnapshots,
   };
 

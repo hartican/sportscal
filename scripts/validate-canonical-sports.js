@@ -147,16 +147,10 @@ const supplementalPayload = {
     ] }],
   }],
 };
-const correctedMatches = applyOfficialNrlResultCorrections([{
-  matchId: 129991007,
-  roundNumber: 10,
-  matchStatus: "complete",
-  utcStartTime: "2026-05-10T04:00:00Z",
-  homeSquadNickname: "Storm",
-  awaySquadNickname: "Wests Tigers",
-  homeSquadScore: 44,
-  awaySquadScore: 18,
-}], "2026-08-02T08:00:00.000Z");
+const correctionFixture = require('./fixtures/retained-nrl-correction-clock-20261022.json');
+const correctedMatches = applyOfficialNrlResultCorrections([correctionFixture.match], correctionFixture.observedSourceOperation, {previousEvents:[correctionFixture.prior]});
+require('./validate-retained-nrl-correction-clock')();
+require('./validate-retained-canonical-metadata')(require('./fixtures/retained-canonical-metadata-20261023.json'));
 assert.equal(correctedMatches.matches[0].homeSquadScore, 44);
 assert.equal(correctedMatches.matches[0].awaySquadScore, 16);
 assert.equal(correctedMatches.matches[0].resultSource.provider, "NRL");
