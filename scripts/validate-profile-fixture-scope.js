@@ -62,14 +62,23 @@ async function run(){
  const plan=requirements({userState:state([]),participantId:'team:football:epl:1',events:[{id:'moved',participantIds:['team:football:epl:1']},{id:'alias-seed',participantIds:['team:football:epl:1']}]});
  check('whole Football family',()=>{assert(plan.sportKeys.includes('premier-league'));assert(plan.sportKeys.includes('football'));assert(plan.sportKeys.includes('fifa'));});
  const calls=[];let expectedReadBudget=3000;
- const store=createSnapshotStore({timer:()=>0,request:async(route,{body,timeoutMs})=>{
-  assert.equal(timeoutMs,expectedReadBudget);calls.push({route,body});const name=route.split('/').at(-1);
+ const load=async(route,{body})=>{
+  const name=route.split('/').at(-1);
   if(name==='nothingsports_read_fixture_source_health')return (await db.query('select * from public.nothingsports_read_fixture_source_health()')).rows;
   if(name==='nothingsports_read_participant_fixture_bundle')return (await db.query('select public.nothingsports_read_participant_fixture_bundle($1,$2,$3,$4) as value',[body.p_sport_keys,body.p_known_sport_keys,body.p_participant_ids,body.p_required_ids])).rows[0].value;
   if(['nothingsports_read_current_fixture_bundle','nothingsports_read_current_fixture_bundle_json'].includes(name))return (await db.query('select public.nothingsports_read_current_fixture_bundle(null) as value')).rows[0].value;
   if(name==='nothingsports_current_global_fixture_bundle?select=bundle')return [{bundle:(await db.query('select public.nothingsports_read_current_fixture_bundle(null) as value')).rows[0].value}];
   throw Error('Unexpected request '+name);
- }});
+ };
+ const store={read:async(options={})=>{
+  const profile=options.scope==='participants',sort=values=>[...new Set(values||[])].sort();
+  const route=profile?'/rest/v1/rpc/nothingsports_read_participant_fixture_bundle':'/rest/v1/nothingsports_current_global_fixture_bundle?select=bundle';
+  const body=profile?{p_sport_keys:sort(options.sportKeys),p_known_sport_keys:sort(options.knownSportKeys),p_participant_ids:sort(options.participantIds),p_required_ids:sort(options.preserveIds)}:undefined;
+  return require('./lib/semantic-snapshot-read')({load,options,timer:()=>0,
+   resources:[{route:'/rest/v1/rpc/nothingsports_read_fixture_source_health',body:{}},{route,body}],
+   inspect:(route,{body,timeoutMs})=>{assert.equal(timeoutMs,expectedReadBudget);calls.push({route,body});},
+  });
+ }};
  const scoped=await store.read(plan),all=scoped.flatMap(s=>s.fixtures),ids=all.map(e=>e.id);
  check('two reads; new arrivals; whole groups',()=>{assert.equal(calls.length,2);for(const id of ['known','new-source-only','cancelled','unknown-day','live-old'])assert(ids.includes(id),id);});
  check('unknown and transitive/semantic context',()=>{for(const id of ['unregistered','detail','third','semantic-detail'])assert(ids.includes(id),id);assert(!ids.includes('unrelated'));assert(!ids.includes('tennis-only'));});

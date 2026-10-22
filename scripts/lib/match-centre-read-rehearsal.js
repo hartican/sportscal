@@ -4,7 +4,7 @@ const assert = require("node:assert/strict"), fs = require("node:fs");
 
 const model = require("../../config/match-centre");
 
-const {createSnapshotStore: createSnapshotStore, overlaySnapshots} = require("../../lib/live-fixtures");
+const {overlaySnapshots} = require("../../lib/live-fixtures");
 
 const {createMatchCentreHandler: createMatchCentreHandler} = require("../../lib/match-centre-handler");
 
@@ -52,17 +52,26 @@ async function run(db) {
     await fn();
     cases.push(name);
   };
-  const requestFor = (calls = []) => async (route, {body, timeoutMs, signal}) => {
+  const inspectRequest=(calls,route,{timeoutMs,signal})=>{
     calls.push(route);
-    const name=route.split("/").at(-1);
-    const selected=name==="nothingsports_read_match_scores";
-    assert.equal(timeoutMs,selected?3000:5000,"Interactive membership uses approved5s; selected scores retain3s");
-    assert.equal(Boolean(signal),!selected,"Only interactive membership has shared cancellation");
-    assert(["nothingsports_read_fixture_source_health","nothingsports_read_match_centre_fixture_bundle","nothingsports_read_match_scores"].includes(name),"Unexpected RPC in the actual handler");
-    const ids=body.p_membership_ids!==undefined?body.p_membership_ids:body.p_fixture_ids;
-    const rows=(await db.query("select * from public."+name+"("+(ids!==undefined?"$1":"")+")",ids!==undefined?[ids]:[])).rows;
-    return name.endsWith("_fixture_bundle")?rows[0][name]:rows;
+    const name=route.split('/').at(-1),selected=name==='nothingsports_read_match_scores';
+    assert.equal(timeoutMs,selected?3000:5000,'Interactive membership uses approved5s; selected scores retain3s');
+    assert.equal(Boolean(signal),!selected,'Only interactive membership has shared cancellation');
+    assert(['nothingsports_read_fixture_source_health','nothingsports_read_match_centre_fixture_bundle','nothingsports_read_match_scores'].includes(name),'Unexpected RPC in the actual handler');
   };
+  const sqlLoad=async(route,{body})=>{
+    const name=route.split('/').at(-1),ids=body.p_membership_ids!==undefined?body.p_membership_ids:body.p_fixture_ids;
+    const rows=(await db.query('select * from public.'+name+'('+(ids!==undefined?'$1':'')+')',ids!==undefined?[ids]:[])).rows;
+    return name.endsWith('_fixture_bundle')?rows[0][name]:rows;
+  };
+  const requestFor=(calls=[])=>async(route,options)=>{inspectRequest(calls,route,options);return sqlLoad(route,options);};
+  const semanticStore=(calls=[])=>({read:async options=>{
+    assert.equal(options.scope,'match-centre');
+    return require('./semantic-snapshot-read')({load:sqlLoad,options,timer:()=>0,
+      inspect:(route,requestOptions)=>inspectRequest(calls,route,requestOptions),
+      resources:[{route:'/rest/v1/rpc/nothingsports_read_fixture_source_health',body:{}},{route:'/rest/v1/rpc/nothingsports_read_match_centre_fixture_bundle',body:{p_membership_ids:[...new Set((options.preserveIds||[]).map(String))].sort()}}],
+    });
+  }});
   const noise = Array.from({
     length: 1200
   }, (_, i) => fixture("calendar:" + i, {
@@ -281,9 +290,7 @@ async function run(db) {
     await db.exec("set role service_role");
     const calls = [];
     const request = requestFor(calls);
-    const store = createSnapshotStore({
-      request: request,timer:()=>0
-    }), response = () => ({
+    const store = semanticStore(calls), response = () => ({
       setHeader() {},
       status() {
         return this;
@@ -337,7 +344,7 @@ async function run(db) {
     const before=await merged("qa_reference_match_centre_bundle"),after=await merged("nothingsports_read_match_centre_fixture_bundle");
     assert.equal(before.length,1);assert.deepEqual(after,before);
     assert.equal(after[0].name,"Storm v Panthers");assert.equal(after[0].venue,"Reviewed Ground");assert.equal(after[0].homeParticipantId,"team:nrl:storm");assert.equal(after[0].homeScore,0);
-    const request=requestFor(),store=createSnapshotStore({request,timer:()=>0});
+    const request=requestFor(),store=semanticStore();
     const handler=createMatchCentreHandler({enabled:()=>true,clock:()=>now,published:()=>[],request,snapshotRead:async options=>({sources:await store.read(options),readAt:now,stale:false})});
     const response={setHeader(){},status(){return this;},json(body){this.body=body;return this;}};
     await handler({url:"/api/match-centre?membership=everything"},response);
@@ -374,7 +381,7 @@ async function run(db) {
       ...old,
       status: "cancelled"
     } ]);
-    const store = createSnapshotStore({request:requestFor(),timer:()=>0});
+    const store = semanticStore();
     const response = {
       setHeader() {},
       status() {

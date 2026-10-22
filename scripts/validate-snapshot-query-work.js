@@ -5,7 +5,7 @@ const near='nothingsports_read_match_centre_fixture_bundle',participant='nothing
 // contract. This separate latest-reader rehearsal expands terminal membership.
 async function terminalPolicy(){
  const db=await require('./validate-profile-fixture-scope').database(),model=require('../config/match-centre');let checks=0;
- const {createSnapshotStore}=require('../lib/live-fixtures'),{createMatchCentreHandler}=require('../lib/match-centre-handler');
+ const {createMatchCentreHandler}=require('../lib/match-centre-handler');
  try{
   for(const suffix of ['_bound_fixture_snapshot_query_work.sql','_defer_match_fixture_payload.sql'])await db.exec('begin;'+fs.readFileSync('supabase/migrations/'+fs.readdirSync('supabase/migrations').find(n=>n.endsWith(suffix)),'utf8')+'commit;');
   const signature='public.'+near+'(text[])',definition=(await db.query('select pg_get_functiondef($1::regprocedure) d',[signature])).rows[0].d;
@@ -39,12 +39,11 @@ async function terminalPolicy(){
   assert.equal(expanded.replaceAll("in('completed','finished','final','cancelled','canceled','abandoned')","in('completed','finished','final')"),definition,'Exactly three terminal sets change in the installed late-projection body');checks++;
   await db.exec('begin');await assert.rejects(db.exec(migration),/reviewed baseline/);await db.exec('rollback');checks++;
   const calls=[];
-  const store=createSnapshotStore({timer:()=>0,request:async(route,{body,timeoutMs})=>{
-   assert.equal(timeoutMs,5000);calls.push({route,body});
-   if(route.endsWith('nothingsports_read_fixture_source_health'))return (await db.query('select * from public.nothingsports_read_fixture_source_health()')).rows;
-   assert(route.endsWith(near));return rpc(body.p_membership_ids);
-  }});
-  const read=async()=>store.read({scope:'match-centre',interactive:true,now});
+  const read=async()=>require('./lib/semantic-snapshot-read')({timer:()=>0,options:{scope:'match-centre',interactive:true,now},
+   inspect:(route,{body,timeoutMs})=>{assert.equal(timeoutMs,5000);calls.push({route,body});},
+   resources:[{route:'/rest/v1/rpc/nothingsports_read_fixture_source_health',body:{}},{route:'/rest/v1/rpc/'+near,body:{p_membership_ids:[]}}],
+   load:async(route,{body})=>route.endsWith('nothingsports_read_fixture_source_health')?(await db.query('select * from public.nothingsports_read_fixture_source_health()')).rows:rpc(body.p_membership_ids),
+  });
   const events=async()=> (await read()).flatMap(s=>s.fixtures);
   let moment=now,fail=false;
   const handler=createMatchCentreHandler({enabled:()=>true,published:()=>[],clock:()=>moment,timer:()=>0,request:async route=>{assert(route.endsWith('nothingsports_read_match_scores'));return [];},snapshotRead:async opts=>{

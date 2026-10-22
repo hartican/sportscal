@@ -45,11 +45,13 @@ const undo=fs.readFileSync('scripts/sql/rollback-global-direct-calendar.sql','ut
   await db.exec('begin;create or replace view '+view+' with(security_invoker=true) as '+original);
   await assert.rejects((async()=>noDescriptors(await plan()))(),/descriptor/);await equal();await db.exec('rollback;');
   check('restoring the actual rejected descriptor view fails the work regression');
-  const calls=[];const store=require('../lib/live-fixtures').createSnapshotStore({request:async(route)=>{
+  const calls=[],load=async(route)=>{
    calls.push(route);if(route.endsWith('?select=bundle'))return(await db.query('select bundle from '+view)).rows;
    assert(route.endsWith('/nothingsports_read_fixture_source_health'));return(await db.query('select * from public.nothingsports_read_fixture_source_health()')).rows;
-  }});
-  await db.exec('set role service_role');const rows=await store.read();await db.exec('reset role');
+  };
+  await db.exec('set role service_role');
+  const rows=await require('./lib/semantic-snapshot-read')({load,resources:[{route:'/rest/v1/rpc/nothingsports_read_fixture_source_health',body:{}},{route:'/rest/v1/nothingsports_current_global_fixture_bundle?select=bundle'}]});
+  await db.exec('reset role');
   assert.equal(calls.length,2);const facts=rows.flatMap(s=>s.fixtures),zero=facts.find(f=>f.id==='qa-direct:zero');
   assert.equal(zero.homeScore,0);assert.equal(zero.awayScore,0);assert.equal(Date.parse(zero.scoreFactObservedAt),Date.parse('2026-10-01T01:00:00Z'));assert.equal(Date.parse(zero.scoreCheckedAt),Date.parse('2026-10-01T02:00:00Z'));
   assert(facts.some(f=>f.id==='qa-direct:withdrawn-date'));assert(!facts.some(f=>f.id==='qa-direct:outside'));assert(facts.some(f=>f.id==='qa-direct:old-live'));

@@ -80,12 +80,13 @@ const name='nothingsports_read_match_centre_fixture_bundle',signature='public.'+
    await db.query("select public.nothingsports_publish_fixture_source('qa-seed-publish','00000000-0000-4000-8000-000000000001'::uuid,$1::jsonb,$2,120000)",[JSON.stringify([e]),e.startTimeUtc]);await equal();
   };
   const published=fixture('canonical:seed');await publish(published);await publish(published);await publish({...published,startTimeUtc:time(2000)});await publish({...published,status:'completed',statusCheckedAt:time(-20)});
-  const calls=[],store=require('../lib/live-fixtures').createSnapshotStore({timer:()=>0,request:async(path,o)=>{
-   calls.push({path,o});assert.equal(o.timeoutMs,5000);
-   if(path.endsWith('source_health'))return (await db.query('select * from public.nothingsports_read_fixture_source_health()')).rows;
-   assert(path.endsWith(name));return (await db.query('select public.'+name+'($1) body',[o.body.p_membership_ids])).rows[0].body;
-  }});
-  const got=await store.read({scope:'match-centre',interactive:true,preserveIds:['alias:far']});assert.equal(calls.length,2);assert(got.flatMap(s=>s.fixtures).some(f=>f.id==='far:kept'));checks++;
+  const calls=[],options={scope:'match-centre',interactive:true,preserveIds:['alias:far']};
+  const got=await require('./lib/semantic-snapshot-read')({timer:()=>0,options,
+   inspect:(path,o)=>{calls.push({path,o});assert.equal(o.timeoutMs,5000);},
+   resources:[{route:'/rest/v1/rpc/nothingsports_read_fixture_source_health',body:{}},{route:'/rest/v1/rpc/'+name,body:{p_membership_ids:['alias:far']}}],
+   load:async(path,o)=>path.endsWith('source_health')?(await db.query('select * from public.nothingsports_read_fixture_source_health()')).rows:(await db.query('select public.'+name+'($1) body',[o.body.p_membership_ids])).rows[0].body,
+  });
+  assert.equal(calls.length,2);assert(got.flatMap(s=>s.fixtures).some(f=>f.id==='far:kept'));checks++;
   for(const role of ['anon','authenticated']){
    await db.exec('set role '+role);await assert.rejects(db.query('select public.'+name+"('{}')"),/permission denied/);await db.exec('reset role');checks++;
   }
