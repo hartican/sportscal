@@ -296,6 +296,8 @@ jobs:
           node scripts/validate-live-coverage-publication.js
           node scripts/validate-match-observations.js
           node scripts/validate-compact-scores-database.js
+          node scripts/validate-canonical-context-batch.js
+          PGLITE_MODULE=pglite-pg17 node scripts/validate-canonical-context-batch.js
           node scripts/validate-fixture-history-retention.js
           node scripts/validate-live-fixture-api.js
           node scripts/validate-global-fixture-public.js

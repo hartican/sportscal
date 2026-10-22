@@ -520,6 +520,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-live-fixtures.js"],
   ["scripts/validate-completed-source-recovery.js"],
   ["scripts/validate-profile-fixture-scope.js"],
+  ["scripts/validate-canonical-context-batch.js"],
   ["scripts/validate-fixture-history-retention.js"],
   ["scripts/validate-global-read-budget.js"],
   ["scripts/validate-snapshot-read-diagnostics.js"],
