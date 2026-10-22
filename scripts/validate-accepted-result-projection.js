@@ -33,6 +33,7 @@ const expectedIds = [
   'fixture-tennis-espn-atp-184949',
   'fixture:mlb:849818',
   'fixture:mlb:849810',
+  'rugby-australia-new-zealand-2026-10-17',
 ];
 const protectedKeys = ['id', 'eventId', 'canonicalEventId', 'date', 'time',
   'startTimeUtc', 'participantIds', 'participants', 'venue', 'lastReviewedAt',
@@ -373,6 +374,25 @@ for (const reversed of [false, true]) {
   });
 }
 
+// A reviewed Rugby final uses the same identity/clock protections as the
+// existing result packet. A named official source is not a wildcard domain.
+const rugbyFinal = tag({
+  id: 'rugby-australia-new-zealand-2026-10-17', key: 'rugby',
+  date: '2026-10-17', participantIds: ['team:rugby:wallabies', 'team:rugby:all-blacks'],
+  status: 'completed', resultStatus: 'official', score: '21\u201343', scoreDisplay: '21\u201343',
+  homeScore: 21, awayScore: 43, winnerParticipantId: 'team:rugby:all-blacks',
+  outcomeText: 'New Zealand defeated Australia 43\u201321.',
+  recapText: 'New Zealand defeated Australia 43\u201321 at Accor Stadium, Sydney.',
+  sourceType: 'official', sourceName: 'New Zealand Rugby',
+  sourceUrl: 'https://www.allblacks.com/matches/australia-new-zealand-17-10-2026/liveblog',
+  sourceCheckedAt: '2026-10-18T00:00:00.000Z',
+  statusCheckedAt: '2026-10-18T00:00:00.000Z', scoreCheckedAt: '2026-10-18T00:00:00.000Z',
+});
+checkRow(rugbyFinal);
+for (const sourceUrl of ['https://www.allblacks.com.unreviewed.example/result', 'https://unreviewed.allblacks.com/result']) {
+  assert.throws(() => api.validateAcceptedResult(tag({...rugbyFinal, sourceUrl})), /Unreviewed accepted-result source host/);
+}
+
 const evidenceArgument = process.argv.find(arg => arg.startsWith('--evidence='));
 const evidenceFile = evidenceArgument ? path.resolve(evidenceArgument.slice('--evidence='.length))
   : path.join(ROOT, 'data/canonical/current-card-evidence-2026.json');
@@ -385,7 +405,7 @@ if (evidenceArgument || fs.existsSync(evidenceFile)) {
 }
 if (evidenceArgument || actualRows.length) {
   assert.equal(actualRows.length, expectedIds.length, 'The accepted publication packet must contain exactly the reviewed tagged rows');
-  same(actualRows.map(row => row.id).sort(), [...expectedIds].sort(), 'Exact retained 17-ID membership');
+  same(actualRows.map(row => row.id).sort(), [...expectedIds].sort(), 'Original 17-ID membership plus the reviewed Rugby final');
   for (const row of actualRows) checkRow(row);
   const find = suffix => actualRows.find(row => aliases(row).some(id => id.endsWith(suffix)));
   // The canonical publisher normalises an accepted result after either writer.
@@ -570,5 +590,5 @@ for (const stamp of [retirement.statusFactObservedAt, '2026-10-14T07:43:00.000Z'
 same([...projectionFailures, ...winnerConflictFailures], [],
   'Independent projection validation, completion receipts and alias/final conflicts must fail closed');
 console.log('Accepted-result projection: proof/source/binding rejection, retirement, zero, raw metadata, exact clocks, stale/conflicting finals and isolated selected/official CLI byte replay passed.');
-console.log(actualRows.length ? 'Actual tagged 17-ID evidence covered.'
-  : 'Compiled tagged 17-ID evidence not present; constructed contract cases covered only.');
+console.log(actualRows.length ? `Actual tagged ${actualRows.length}-ID evidence covered.`
+  : 'Compiled tagged evidence not present; constructed contract cases covered only.');

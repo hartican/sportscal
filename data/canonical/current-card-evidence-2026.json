@@ -2821,6 +2821,62 @@
         "sourceSha256": "495248e00db43d5b6141d3222810aff43323bd5b994c5d70d2b2540aa390a8a0",
         "payloadSha256": "258e2be564b1d0158670985a07e563349e83b0192ebc55f17e62055692c0d920"
       }
+    },
+    {
+      "id": "rugby-australia-new-zealand-2026-10-17",
+      "key": "rugby",
+      "date": "2026-10-17",
+      "participantIds": [
+        "team:rugby:wallabies",
+        "team:rugby:all-blacks"
+      ],
+      "homeParticipantId": "team:rugby:wallabies",
+      "awayParticipantId": "team:rugby:all-blacks",
+      "status": "completed",
+      "resultStatus": "official",
+      "score": "21–43",
+      "scoreDisplay": "21–43",
+      "homeScore": 21,
+      "awayScore": 43,
+      "winnerParticipantId": "team:rugby:all-blacks",
+      "outcomeText": "New Zealand defeated Australia 43–21.",
+      "recapText": "New Zealand defeated Australia 43–21 at Accor Stadium, Sydney.",
+      "sourceName": "New Zealand Rugby",
+      "sourceType": "official",
+      "sourceUrl": "https://www.allblacks.com/matches/australia-new-zealand-17-10-2026/liveblog",
+      "sourceRefs": [
+        "https://www.rugby.com.au/match-centre/3/2026/949627",
+        "https://www.allblacks.com/matches/australia-new-zealand-17-10-2026/liveblog"
+      ],
+      "sourceCheckedAt": "2026-10-22T17:00:14.715824+00:00",
+      "resultSourceUrl": "https://www.allblacks.com/matches/australia-new-zealand-17-10-2026/liveblog",
+      "resultSourceCheckedAt": "2026-10-22T17:00:14.715824+00:00",
+      "statusSourceUrl": "https://www.allblacks.com/matches/australia-new-zealand-17-10-2026/liveblog",
+      "statusSourceName": "New Zealand Rugby",
+      "statusSourceType": "official",
+      "scoreCheckedAt": "2026-10-22T17:00:14.715824+00:00",
+      "statusCheckedAt": "2026-10-22T17:00:14.715824+00:00",
+      "scoreFactObservedAt": "2026-10-22T17:00:14.715824+00:00",
+      "statusFactObservedAt": "2026-10-22T17:00:14.715824+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "rugby-australia-new-zealand-2026-10-17",
+          "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8",
+          "fixture-rugby-wr-e3cbae12-66b3-4835-b1ce-4014b63055c8",
+          "fixture:rugby:ra:949627",
+          "fixture-rugby-ra-949627"
+        ],
+        "participantIds": [
+          "team:rugby:wallabies",
+          "team:rugby:all-blacks"
+        ],
+        "fixtureDate": "2026-10-17",
+        "sourceSha256": "4a5128aa14b09f1a60f2672bc0a6b8c912df81947a390aaad7557e8f98f19382",
+        "payloadSha256": "662d0b6cce94b30c64128260e4840a7934a83f5f2e351a285c315cf4d4f0be02",
+        "sourceEvidenceKind": "manual official website review; no physical finish or historical first-completion clock"
+      }
     }
   ],
   "broadcastOverrides": [

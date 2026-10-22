@@ -76,7 +76,7 @@ function validateAcceptedResult(row){
   const url = new URL(row.sourceUrl);
   assert.equal(url.protocol,"https:");
   const host = url.hostname.replace(/^www\./,"");
-  const sourceClasses = {"espn.com":"reputable","cricket.com.au":"trusted-reporting","mlb.com":"official","statsapi.mlb.com":"official","schedule.nbl.com.au":"official"};
+  const sourceClasses = {"espn.com":"reputable","cricket.com.au":"trusted-reporting","mlb.com":"official","statsapi.mlb.com":"official","schedule.nbl.com.au":"official","allblacks.com":"official"};
   assert(Object.hasOwn(sourceClasses,host),"Unreviewed accepted-result source host");
   assert.equal(row.sourceType,sourceClasses[host],"Accepted result source class/host mismatch");
   assert(row.sourceName && Number.isFinite(clock(row)),"Accepted result needs original source receipts");
