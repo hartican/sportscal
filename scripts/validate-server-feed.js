@@ -5,7 +5,9 @@ const fs = require("node:fs");
 const zlib = require("node:zlib");
 const cardLifecycle = require("../config/card-lifecycle");
 const feedPipeline = require("../lib/server-feed-pipeline");
-const feedHandler = require("../api/feed");
+// Replay the dated World Cup alias/editorial case within its ordinary Feed
+// window. The real wall clock must not age this historical example out.
+const feedHandler = require("../api/feed").createFeedHandler({clock:()=>new Date("2026-10-22T00:00:00.000Z")});
 const sportContext = require("../config/sport-context");
 const { catalogue } = require("../lib/calendar-catalogue");
 
@@ -493,6 +495,12 @@ async function run(){
     const cwgBoxingFinals = contextualCatalogueById.get("cwg-glasgow-2026-boxing-finals-one");
     assert(cwgBoxingFinals, "the authenticated feed must retain the saved Commonwealth Games boxing finals");
     assert(!cwgBoxingFinals.participantIds?.length, "unsupported CWG disciplines must not inherit competitor context");
+
+    const retiredResponse = responseStub();
+    const retiredHandler = require("../api/feed").createFeedHandler({clock:()=>new Date("2026-10-23T00:00:00.000Z")});
+    await retiredHandler({method:"GET",headers:{authorization:"Bearer access-token"}},retiredResponse);
+    assert.equal(retiredResponse.statusCode,200);
+    assert(!retiredResponse.body.events.some(item=>["rlwc-australia-new-zealand-2026","major-match:rlwc-2026:australia-new-zealand"].includes(item.id)),"a selected Major Events child and its alias must still retire after seven Sydney calendar days");
 
     const methodResponse = responseStub();
     await feedHandler({ method: "POST", headers: {} }, methodResponse);
