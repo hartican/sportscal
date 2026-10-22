@@ -52,6 +52,28 @@ for (const status of ['cancelled','postponed','suspended']){
   assert(!card.selectedSentence.includes('in the race'));
   assert.equal(facts(card),facts(event),'source-declared non-playing states remain authoritative');
 }
+// The actual newly sourced World Series identities must receive factual context.
+const wsCapture=require('./fixtures/mlb-postponed-successor-20261023.json');
+const worldSeries=require('../lib/mlb-postseason').parse(wsCapture.payload,{checkedAt:wsCapture.checkedAt,now:new Date(wsCapture.checkedAt)}).fixtures.filter(event=>/^World Series Game /.test(event.roundLabel));
+assert.equal(worldSeries.length,7);
+const wsKnowledge=freshKnowledge();assert.equal(buildMlb(wsKnowledge,worldSeries,reference),7);
+assert.deepEqual(api.validateKnowledge(wsKnowledge),[]);
+const wsProjected=worldSeries.map(event=>project(event,wsKnowledge));
+assert.equal(new Set(wsProjected.map(event=>event.selectedSentence)).size,7);
+for(const [i,event] of wsProjected.entries()){
+ assert.equal(facts(event),facts(worldSeries[i]),'World Series context preserves all fixture facts and original clocks');
+ assert.deepEqual(editorialPreviewIssues(event,4,reference),[]);
+ assert.match(event.fullSpiel,/first team to 4 wins takes the World Series/);
+ assert.doesNotMatch(event.fullSpiel,/advances to the World Series|American League World Series|National League World Series/);
+ if(event.scheduleStatus==='conditional'){assert.match(event.selectedSentence,/if needed/);assert.equal(event.startTimeUtc,null);}
+}
+const wsSourceFacts=JSON.stringify({sources:wsKnowledge.sources,facts:wsKnowledge.narrativeFacts});
+buildMlb(wsKnowledge,worldSeries,new Date(+reference+60000));
+assert.deepEqual(worldSeries.map(event=>project(event,wsKnowledge)),wsProjected,'unchanged context retains rendered copy and research dates');
+assert.equal(JSON.stringify({sources:wsKnowledge.sources,facts:wsKnowledge.narrativeFacts}),wsSourceFacts,'unchanged context retains source and fact observations');
+for(const roundLabel of ['World Series Game 0','World Series Game 8','AL World Series Game 1'])assert.equal(buildMlb(freshKnowledge(),[{...worldSeries[0],roundLabel}],reference),0);
+const wsFinal={...worldSeries[0],status:'completed',homeScore:1,awayScore:3};
+assert.equal(buildMlb(freshKnowledge(),[wsFinal],reference),0,'preview writer cannot replace a completed World Series result');
 const independentlyReviewed = freshKnowledge();
 buildMlb(independentlyReviewed,[fixtures[0]],reference);
 independentlyReviewed.eventProjections[0].id='projection:independent-reviewed-story';
@@ -147,4 +169,4 @@ try {
   assertPass(invoke('apply-editorial-previews.js'));
   for(const file of paths)assert.deepEqual(JSON.parse(fs.readFileSync(path.join(temporary,file))).events[0],final,'a dated pre-match preview cannot overwrite an observed final');
 } finally { fs.rmSync(temporary,{recursive:true,force:true}); }
-console.log('Postseason descriptions: nine actual MLB identities, conditional games, untouched facts/clocks, stable reruns, protected finals, canonical tennis aliases and real writer/audit commands passed.');
+console.log('Postseason descriptions: nine retained and seven captured World Series MLB identities, conditional games, untouched facts/clocks, stable reruns, protected finals, canonical tennis aliases and real writer/audit commands passed.');

@@ -365,8 +365,9 @@ function buildMlb(knowledge, events, reference){
       || researchDepthFor(event) !== 2 || require('../config/editorial-locks').activeFor(event)) continue;
     const identity = String(event.canonicalEventId || event.eventId || event.id);
     const gameId = /^fixture:mlb:(\d+)$/.exec(identity)?.[1];
-    const stage = /^(AL|NL)(DS|CS)(?: '[AB]')? Game (\d+)$/.exec(event.roundLabel || '');
-    const format = stage && rules.formats[stage[2]];
+    const stage = /^(?:(AL|NL)(DS|CS)(?: '[AB]')?|World Series) Game (\d+)$/.exec(event.roundLabel || '');
+    const formatKey = stage && (stage[2] || 'WS');
+    const format = stage && rules.formats[formatKey];
     if (!gameId || !format || Number(stage[3]) < 1 || Number(stage[3]) > format.maxGames
       || event.sourceName !== 'MLB' || event.sourceType !== 'official'
       || event.sourceUrl !== `https://www.mlb.com/gameday/${gameId}`
@@ -380,20 +381,25 @@ function buildMlb(knowledge, events, reference){
     // Preserve deeper independently researched copy and explicit owner choices.
     if (prior && prior.id !== projectionId) continue;
     const fixtureSource = addSource(knowledge, `source:mlb-fixture:${gameId}`, 'MLB official game', event.sourceUrl, event.sourceCheckedAt);
-    const formatSource = addSource(knowledge, 'source:mlb-postseason-rules:2026', rules.formatSource.name, rules.formatSource.url, rules.formatSource.checkedAt);
-    const pathSource = addSource(knowledge, 'source:mlb-postseason-path:2026', rules.pathSource.name, rules.pathSource.url, rules.pathSource.checkedAt);
+    const championship = formatKey === 'WS';
+    const formatReview = championship ? rules.worldSeriesSources.format : rules.formatSource;
+    const pathReview = championship ? rules.worldSeriesSources.path : rules.pathSource;
+    const formatSource = addSource(knowledge, championship ? 'source:mlb-world-series-rules:2026' : 'source:mlb-postseason-rules:2026', formatReview.name, formatReview.url, formatReview.checkedAt);
+    const pathSource = addSource(knowledge, championship ? 'source:mlb-world-series-path:2026' : 'source:mlb-postseason-path:2026', pathReview.name, pathReview.url, pathReview.checkedAt);
     const subjectId = addSubject(knowledge, `subject:mlb-context:${gameId}`, 'event', event.name);
     const league = stage[1] === 'AL' ? 'American League' : 'National League';
-    const next = stage[2] === 'DS' ? `${league} Championship Series` : 'World Series';
+    const next = championship ? 'World Series title' : formatKey === 'DS' ? `${league} Championship Series` : 'World Series';
+    const seriesLabel = championship ? format.label : `${league} ${format.label}`;
+    const consequence = championship ? 'takes the World Series title' : `advances to the ${next}`;
     const match = `${participants[0].name} v ${participants[1].name}`;
     const conditional = event.scheduleStatus === 'conditional';
     const interrupted = ['cancelled', 'postponed', 'suspended'].includes(event.status);
     const game = Number(stage[3]);
     const hook = fit(interrupted ? `${match}: ${event.roundLabel} is ${event.status}.` : `${match}: ${event.roundLabel}${conditional ? ', if needed' : ''}, in the race for the ${next}.`, 180);
-    const synopsis = `${interrupted ? `MLB lists ${event.roundLabel} as ${event.status}. ` : ''}${league} ${format.label} Game ${game} is part of a best-of-${format.maxGames === 5 ? 'five' : 'seven'} series. The first team to ${format.winsRequired} wins advances to the ${next}.${event.venue && !interrupted ? ` MLB lists ${event.venue} as the venue.` : ''}${!interrupted && conditional ? ' This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.' : !interrupted && event.timePrecision === 'tbc' ? ' Its start time remains unconfirmed.' : ''}`;
+    const synopsis = `${interrupted ? `MLB lists ${event.roundLabel} as ${event.status}. ` : ''}${seriesLabel} Game ${game} is part of a best-of-${format.maxGames === 5 ? 'five' : 'seven'} series. The first team to ${format.winsRequired} wins ${consequence}.${event.venue && !interrupted ? ` MLB lists ${event.venue} as the venue.` : ''}${!interrupted && conditional ? ' This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.' : !interrupted && event.timePrecision === 'tbc' ? ' Its start time remains unconfirmed.' : ''}`;
     const factIds = [
       addFact(knowledge, {id:`fact:mlb-context:${gameId}:format`, subjectIds:[subjectId], statement:`The ${format.label} is a best-of-${format.maxGames === 5 ? 'five' : 'seven'} series.`, dimension:'format', sourceIds:[formatSource]}),
-      addFact(knowledge, {id:`fact:mlb-context:${gameId}:path`, subjectIds:[subjectId], statement:`The ${league} ${format.label} series winner advances to the ${next}.`, dimension:'path', sourceIds:[pathSource]}),
+      addFact(knowledge, {id:`fact:mlb-context:${gameId}:path`, subjectIds:[subjectId], statement:championship ? 'The first team to four wins takes the World Series title.' : `The ${league} ${format.label} series winner advances to the ${next}.`, dimension:'path', sourceIds:[pathSource]}),
       addFact(knowledge, {id:`fact:mlb-context:${gameId}:fixture`, subjectIds:[subjectId], statement:interrupted ? `MLB lists ${match}, ${event.roundLabel}, as ${event.status}.` : `MLB identifies ${match} for ${event.roundLabel}${conditional ? ', if necessary' : ''}${event.venue ? ` at ${event.venue}` : ''}.`, dimension:'matchup', sourceIds:[fixtureSource]}),
     ];
     const threadId = `thread:mlb-context:${gameId}`;
