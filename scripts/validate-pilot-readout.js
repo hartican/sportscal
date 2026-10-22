@@ -10,15 +10,33 @@ const { reportFromReadout, parseOptions } = require("./evaluate-pilot-readout");
 
 const retainedCanonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 const retainedFeedMeta = JSON.parse(fs.readFileSync("data/feed-meta.json", "utf8"));
-// This source-content/readout contract uses synchronized receipt clocks in
-// memory only. Another sport's publication cannot make the real AFL/NRL
-// observation newer. Verify that separately with the unchanged 15h policy.
-const observationNow = new Date(Math.max(Date.parse(retainedCanonical.generatedAt), Date.parse(retainedFeedMeta.publishedAt)));
-assert(Number.isFinite(+observationNow), 'both stored observation dates must be valid');
-const retainedReadiness = buildReadinessReport({canonical:retainedCanonical,feedMeta:retainedFeedMeta,finals:readFinalsEvidence(),now:observationNow});
-if((+observationNow-Date.parse(retainedCanonical.generatedAt))/3600000>15){assert.equal(retainedReadiness.ready,false);assert(retainedReadiness.issues.includes('Canonical snapshot must be no more than 15 hours old.'),'a newer unrelated Feed publication must not refresh retained source facts');}
-if((+observationNow-Date.parse(retainedFeedMeta.publishedAt))/3600000>15){assert.equal(retainedReadiness.ready,false);assert(retainedReadiness.issues.includes('Published feed must be no more than 15 hours old.'));}
-const canonical={...retainedCanonical,generatedAt:observationNow.toISOString()},feedMeta={...retainedFeedMeta,publishedAt:observationNow.toISOString()};
+// Check untouched stored inputs at their latest receipt. A newer unrelated
+// publication cannot renew the canonical observation or supply missing scores.
+const storedNow = new Date(Math.max(Date.parse(retainedCanonical.generatedAt), Date.parse(retainedFeedMeta.publishedAt)));
+assert([retainedCanonical.generatedAt,retainedFeedMeta.publishedAt].every(value=>Number.isFinite(Date.parse(value))), 'both stored observation dates must be valid');
+const retainedReadiness = buildReadinessReport({canonical:retainedCanonical,feedMeta:retainedFeedMeta,finals:readFinalsEvidence(),now:storedNow});
+if((+storedNow-Date.parse(retainedCanonical.generatedAt))/3600000>15){assert.equal(retainedReadiness.ready,false);assert(retainedReadiness.issues.includes('Canonical snapshot must be no more than 15 hours old.'),'a newer unrelated Feed publication must not refresh retained source facts');}
+if((+storedNow-Date.parse(retainedFeedMeta.publishedAt))/3600000>15){assert.equal(retainedReadiness.ready,false);assert(retainedReadiness.issues.includes('Published feed must be no more than 15 hours old.'));}
+// The positive source-content contract uses the actual source observation.
+// Synchronize only its in-memory Feed receipt; never advance canonical facts.
+// The separate current-clock operational verifier remains a release gate.
+const observationNow = new Date(retainedCanonical.generatedAt);
+const canonical=retainedCanonical,feedMeta={...retainedFeedMeta,publishedAt:observationNow.toISOString()};
+
+// Reproduce the eight retained Round10 omissions independently of whether a
+// later source refresh has filled them. A newer publication must keep both
+// overdue-result and stale-source failures visible in the operator readout.
+const missingIds=Array.from({length:8},(_,index)=>'event:aflw:cd_m2026264100'+(index+2));
+const missingFixtures=canonical.events.filter(event=>missingIds.includes(event.id));
+assert.equal(missingFixtures.length,8,'all actual Round10 fixture identities remain retained');
+const laterNow=new Date(Math.max(+observationNow+16*3600000,...missingFixtures.map(event=>Date.parse(event.startTimeUtc)+7*3600000)));
+const missingCanonical={...canonical,events:canonical.events.map(event=>missingIds.includes(event.id)?{...event,status:'scheduled',resultStatus:'pending',result:null}:event)};
+const laterReadiness=buildReadinessReport({canonical:missingCanonical,feedMeta:{...retainedFeedMeta,publishedAt:laterNow.toISOString()},finals:readFinalsEvidence(),now:laterNow});
+assert.equal(laterReadiness.ready,false);
+assert(laterReadiness.issues.includes('Canonical snapshot must be no more than 15 hours old.'));
+assert(laterReadiness.overdueResultCount>=8);
+for(const id of missingIds)assert(laterReadiness.overdueResults.some(event=>event.id===id),'newer publication must retain overdue result '+id);
+assert.equal(READOUT.buildMeasurementReport(inputFromReadout([{cohort:'all'}],laterReadiness)).operationalReady,false);
 const readiness = buildReadinessReport({ canonical, feedMeta, finals: readFinalsEvidence(), now: observationNow });
 const reviewedAflwSource = canonical.events.find(event => event.competitionId === 'competition:aflw-2026' && event.resultStatus === 'official');
 assert(reviewedAflwSource, 'use an actual reviewed flat AFLW result');
