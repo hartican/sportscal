@@ -22,3 +22,23 @@
 
 .mc-expanded .fixture-timing-badge{color:var(--text);background:var(--soft-fill,var(--bg-card));border-color:var(--border)}
 .match-centre-actions .milestone-mute{width:auto;max-width:100%;min-width:44px;min-height:44px;height:auto;padding:8px 12px;white-space:normal;overflow-wrap:anywhere;font:inherit;line-height:1.4}
+/* All Sports: full-width isolated fixtures, paged columns only for clashes. */
+.all-sports-view{min-width:0;max-width:100%}
+.as-range-tabs,.as-page-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.as-range-tabs [aria-selected="true"]{font-weight:750;border-color:currentColor}
+.as-window,.as-qualifier,.as-page-position{font-size:.78rem;color:var(--muted,var(--text));line-height:1.4}
+.as-notice{min-height:1.5em;font-size:.85rem}
+.as-date{margin-block:20px}.as-date h3{font-size:1rem}.as-overlap{margin-block:12px;min-width:0}
+.as-track{display:flex;gap:12px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:0;align-items:flex-start;padding-block:4px 10px;max-width:100%}
+.as-fixture{flex:0 0 100%;min-width:0;scroll-snap-align:start;overflow-wrap:anywhere}
+.as-track.as-multiple>.as-fixture{flex-basis:calc((100% - 12px)/2)}
+.as-track.as-multiple>.as-expanded{flex-basis:100%}
+.as-fixture>.event-card{width:100%;margin:0;min-width:0;box-sizing:border-box}
+.as-fixture .minimised-card-summary{min-width:0;max-width:100%;padding:10px;box-sizing:border-box}
+.as-fixture .minimised-card-name,.as-fixture .minimised-card-label{min-width:0;white-space:normal;overflow-wrap:anywhere}
+.as-fixture .minimised-card-summary{display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+.as-fixture .minimised-participant-frame{flex-shrink:0}.as-qualifier{display:block;margin-block:0 6px}
+.as-page-controls{justify-content:flex-end}.as-page-controls button{min-height:44px}.as-tbc{margin-top:20px}.as-tbc>.as-fixture{margin-bottom:12px}
+@media(min-width:760px){.as-track.as-multiple>.as-fixture{flex-basis:calc((100% - 24px)/3)}.as-track.as-multiple>.as-expanded{flex-basis:100%}}
+@media(min-width:1120px){.as-track.as-multiple>.as-fixture{flex-basis:calc((100% - 36px)/4)}.as-track.as-multiple>.as-expanded{flex-basis:100%}}
+@media(max-width:280px){.as-track.as-multiple>.as-fixture{flex-basis:100%}}

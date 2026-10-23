@@ -3,6 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const modules={
  'assets/js/account-awareness-runtime.js':['config/account-awareness.js','config/account-sync-diagnostic.js','assets/js/account-awareness-ui.js','assets/js/account-indicator-app.js'],
  'assets/js/match-centre-ui.js':['assets/js/match-centre-ui.source.js'],
+ 'assets/js/all-sports-ui.js':['config/all-sports-view.js','assets/js/all-sports-ui.source.js'],
  'assets/js/milestone-alerts-ui.js':['config/milestone-preferences.js','config/milestone-test-fixture.js','assets/js/milestone-alerts-ui.source.js'],
  'assets/js/app-update.js':['assets/js/app-update.source.js'],
  'assets/js/notifications-inbox.js':['assets/js/notifications-inbox.source.js'],
