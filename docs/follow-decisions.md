@@ -1,5 +1,12 @@
 # Follow and Feed decisions
 
+## Automatic seed hydration is not a preference decision — 24 October 2026
+
+The original sync owner reproduced a pending-receipt false hold when identical account metadata hydration changes only `followFirst.appliedSeedHash`. Exclude that exact automatic marker from base/intent decision comparison; all genuine and unknown preferences, OFF/empty/unfollow, receipt identity, owner/generation and conditional saves remain protected. Full in-flight receipt-base advancement stays exact. In the existing conditional user-state PUT, unchanged metadata cannot replace its current marker with an older marker that does not match the same seedHash; valid hydration and genuine metadata updates remain allowed. No preference union, starter Follow, new request/store/wire/schema or recovery is added.
+
+The actual queue/receipt/API regression is part of the existing bookkeeping safety command, including restart/older-marker preservation, real conditional409, genuine-choice/unknown holds and stale scopes. The real588 phone diagnostic proves a guarded hold but does not identify this field; candidate prevention and actual phone acceptance remain distinct. See [scope and controls](quality/account-seed-marker-sync-2026-10-24.md). DEPLOY owns final review, combined qualification and publication; worker source is not a deployment or customer-state repair.
+
+
 ## Follow decisions exclude named device bookkeeping — 23 October 2026
 
 The approved P1 follow-up distinguishes real preference changes from the named local graph profile pointers/update marker and automatic refinement/rating open/session counters listed in [the repair record](quality/account-stale-removal-2026-10-23.md). Base/ACK compatibility uses that narrow projection; unknown and deliberate fields, explicit OFF/empty/unfollow and authenticated owner/generation/conditional-save fences remain protected. Exact in-flight baseline advancement stays full comparison, and a newer receipt cannot be acknowledged by an older save. The actual two-context/API-normalization regression must remove a Follow without first refreshing the original device; timestamp-only and real conditional409/retry cases must pass, and genuine changed preferences must retain the safe hold. The pure bookkeeping regression joins the existing normal production safety step without removing any249 prior command.

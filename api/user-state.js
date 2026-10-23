@@ -194,6 +194,15 @@ module.exports = async function userStateHandler(request, response){
       patch,
       userStateSync.applyPatch(priorState, patch),
     );
+    // An older local receipt may carry a pre-hydration marker. Retain the
+    // current marker when the metadata is unchanged; a valid new seed still
+    // records its own completion. This does not merge any preference choice.
+    const priorFollow=priorState.preferences?.followFirst,nextFollow=merged.preferences?.followFirst;
+    if(priorFollow&&nextFollow&&Object.hasOwn(priorFollow,'appliedSeedHash')
+      &&priorFollow.startupMeta?.seedHash===nextFollow.startupMeta?.seedHash
+      &&nextFollow.appliedSeedHash!==nextFollow.startupMeta?.seedHash){
+      nextFollow.appliedSeedHash=priorFollow.appliedSeedHash;
+    }
     require('../lib/horse-follow-rollout').preserveHorseRollout(priorState,patch,merged);
     if (existing && sameUserState(existing, merged)){
       response.status(200).json({
