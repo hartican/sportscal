@@ -1,0 +1,59 @@
+name: Global generation native regression
+on:
+  workflow_call:
+    inputs:
+      source_sha:
+        required: true
+        type: string
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/global-generation-native-tests.yml'
+      - 'scripts/*global*generation*.js'
+      - 'scripts/fixture-read-test-baseline.js'
+      - 'scripts/validate-profile-fixture-scope.js'
+      - 'supabase/**/20261023161153_shadow_complete_global_generation.sql'
+      - 'package*.json'
+permissions:
+  contents: read
+jobs:
+  generation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        pg: [17, 18]
+    services:
+      postgres:
+        image: postgres:${{ matrix.pg }}-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ns-generation-disposable-ci-password
+          POSTGRES_DB: ns_generation_control_${{ matrix.pg }}
+        ports:
+          - 5432/tcp
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.source_sha || (github.event_name == 'pull_request' && github.event.pull_request.head.sha) || github.sha }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - run: npm ci
+      - name: Guard native test adapter without connecting
+        run: node --test scripts/global-generation-native-test-db.test.js
+      - name: Complete generation checks on actual PostgreSQL with LZ4
+        env:
+          NS_GENERATION_TEST_OWNED: disposable-loopback-only
+          NS_GENERATION_TEST_HOST: 127.0.0.1
+          NS_GENERATION_TEST_PORT: ${{ job.services.postgres.ports[5432] }}
+          NS_GENERATION_TEST_CONTROL: ns_generation_control_${{ matrix.pg }}
+          NS_GENERATION_TEST_MAJOR: ${{ matrix.pg }}
+          NS_GENERATION_TEST_PASSWORD: ns-generation-disposable-ci-password
+        run: node scripts/validate-global-read-generation.js

@@ -5,8 +5,8 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
 const {requirements}=require('../lib/profile-fixture-requirements');
 const registry=require('../config/sport-domain-registry');
 const migration=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_scope_participant_fixture_reads.sql'));
-async function database({withReadContext=true}={}){
- const {PGlite}=require(process.env.PGLITE_MODULE||'@electric-sql/pglite'),db=new PGlite();
+async function database({withReadContext=true,db:provided}={}){
+ const db=provided||new(require(process.env.PGLITE_MODULE||'@electric-sql/pglite').PGlite)();
  await db.exec('create role anon;create role authenticated;create role service_role bypassrls;grant usage on schema public to service_role;');
  for(const name of ['20260908093906_live_fixture_snapshots.sql','20260908110529_discovery_source_health.sql'])await db.exec(fs.readFileSync('supabase/migrations/'+name,'utf8'));
  await db.exec(fs.readFileSync('supabase/migrations/20260914061506_right_size_fixture_runtime.sql','utf8').split('-- One write replaces')[0]);

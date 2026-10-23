@@ -1935,3 +1935,93 @@ Numeric score slots, calendar corrections and updated descriptions cannot renew 
 The existing result-template preparer and selector now share one pure branch generator. Current fixture details must match before an automatic result branch can be selected or retained at publication. Only copy proven to depend on an outdated generated branch is reset through the existing protected storyline rule; authored preview sections/research dates and separately reviewed current recaps keep their existing lifecycle protections. This corrects the official makeup-game label without re-researching its dated preview. No additional collector, writer, service, scheduler, database or customer action is introduced.
 
 Live rechecks remain distinct: an equal live score keeps its first fact observation while the actual score/status contact receipts advance. This preserves the existing freshness qualification without adding polling or extending any deadline. The constructed zero–zero regression covers merging and persistence into canonical data and both Feed files.
+
+## 24 October 2026 — shadow whole-response generation candidate
+
+DEPLOY authorised an isolated default-OFF coarse generation after PR34's measured
+45.7% regression; PR34 and all earlier per-fixture/cache/component trials remain
+closed. This stores complete original fbc JSON in two bounded private slots,
+with per-source non-reusing transaction-coalesced epochs and live vector/day/
+policy/permission/session/parser-expiry fencing on every opt-in read. Missing,
+dirty or expired means exact original fallback in the same6s/two resources.
+The original source-health/freshness and all account/Results choices remain.
+One optional builder runs only after the existing refresh owner's two workers,
+using remaining45s, never reserving source budget or building inside8s publishes,
+dispatcher/UI reads/new jobs. Default flag stays OFF. Typed JSON16MiB/slot bounds
+payload, not physical TOAST/WAL allocation; up to720attempts/day may increase
+cost for a small cohort. Require total duty-cycle/growth and dirty/cold/fallback
+qualification, not only hot speed. Statement-clock/reference lower bounds preserve
+original temporal interpretation. Install-only guards and a whole-payload/manifest
+witness reject cache edits; read-time hashing is charged in qualification.
+No source/clock/scheduler/subscription change.
+[Scope, invalidation, rollback and proof limits](quality/global-read-generation-2026-10-24.md).
+
+### 24 October 2026 — generation review corrections remain isolated
+
+The default-OFF complete-generation candidate now refuses builds after any source mutation in the same transaction through an independent local XID marker, even if DELETE or TRUNCATE CASCADE removes all source epochs. Savepoint rollback restores the marker; existing per-source write coalescing remains. Its policy hashes actual definitions of both generation-store guards, so changed predicates or target functions invalidate prior generations. Intended builder transport is POST PostgREST RPC with effective statement_timeout hoisting; direct native qualification requires an outer six-second timeout set in a prior command. Actual project version/configuration, cancellation/rollback/no-late-install and full captured concurrent consumer/physical-growth proof remain required before adoption. No production activation, setting or budget changed. See [candidate scope and gates](quality/global-read-generation-2026-10-24.md).
+
+
+### 24 October 2026 — measured codec/gather candidate, still default OFF
+
+After the failed managed generation INSERT and exact rollback, DEPLOY's separate
+one-shot TEMP comparison measured actual LZ4 insert100.616ms versus pglz603.831ms
+on identical12,446,905B JSON with real codec/value checks. That single TEMP sample
+excludes logged full-builder work and does not pass the managed6s gate. The
+isolated revised source selects LZ4 only for its private generation payload and
+materializes selected source receipt maps once in the same coherent constructor.
+Original membership, six raw TEXT-key inputs, parser/expiry/vector/policy/race
+fences, defaults, budgets and owner cadence remain. No flag or schema is live.
+All prior failed/cleaned and native receipts stay bound to their actual source.
+Because PGlite lacks LZ4, DEPLOY allocated this module's same full regression suite
+to explicit owned-loopback actual PG17/18 CI; no codec fallback or test waiver.
+Native/full-consumer/managed/cost/storage and existing release gates still govern
+adoption through DEPLOY alone. See the [scoped candidate record](quality/global-read-generation-2026-10-24.md).
+
+
+### 24 October 2026 — local single-parse candidate, same gates and budgets
+
+After near-budget construction in the one attribution sample, DEPLOY authorised
+one raw top-level field projection in the default-OFF generation builder. It
+retains original payload bytes, last duplicate occurrence, JSONnull/missing/type/
+error semantics, one coherent statement, independent whole-value witness/caps
+and all freshness/vector/policy/fence protections. No source/cadence/timeout/flag
+change. The prior padding regressions remain closed; the separately authorised
+actual12446905B expression pair improved14.023%, not a managed deadline proof.
+Actual native197+ checks/cleanup and one exact-source managed feasibility are next
+under DEPLOY alone. Failure stops; success still does not waive full captured,
+storage, normal release, repeated hosted or physical gates. Source handoff comes
+before exact CI; packet3 rebinding is deferred until needed. See the
+[scoped record](quality/global-read-generation-2026-10-24.md).
+
+### 24 October 2026 — shared constructor candidate, still default OFF
+
+After exact-source native CI passed but the third managed feasibility stopped
+with57014 inside the coherent constructor (before validation/INSERT), DEPLOY
+allocated one source change. Derive a private expanded constructor from the
+exact pinned original fbc view through fail-closed output anchors. Preserve its
+complete CTE body, JSON construction, row record and aggregate ordering. Emit
+expiry from the existing distinct six raw clock inputs and completeness from the
+actual projected count alongside the unchanged payload, in the same statement.
+Do not decode the completed response or gather those clocks again. The public
+default/reference, whole-value witness,16MiB cap, epochs, source/session/time
+fences, permissions, budgets and existing owner/default OFF remain unchanged.
+
+The one additional private invoker view is definition/ACL/column/policy/inverse
+bound; all owned objects must be removed on rollback. Old malformed-JSON decode
+tests remain as historical6e/1aada differential controls; new actual constructor
+tests compare full canonical payload/expiry and reject edited view definitions
+or permissions. Offline checks do not establish LZ4/native/managed performance.
+No packet3, provider read, main publication or deployment is authorised here.
+
+Exact3ae native CI40027459195 confirmed the post-INSERT soft-budget defect on
+both PostgreSQL engines: the controlled delay completed, the builder deferred,
+but the new generation remained reusable. Test setup retains all0/1/5000/5001
+cases with real constraints/triggers, bounded100-row preparation statements and
+phase markers. No JIT, ANALYZE or timeout change was used. The isolated repair
+raises57014 with “Global generation budget exceeded after install” after writing,
+post-install source/policy checks and receipt construction, so the entire call
+rolls back on budget overrun. Source/policy invalidation within budget retains
+its existing deferred response. No test is weakened; expected native reporting
+is736 checks plus two mandatory fixture-reset preconditions. Exact-source native
+GREEN and actual managed/abort proof remain pending DEPLOY gates; this is not
+live adoption. No managed experiment runs on the deliberately failing source.

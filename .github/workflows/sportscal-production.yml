@@ -23,7 +23,12 @@ concurrency:
   group: sportscal-production-and-cleanup
   cancel-in-progress: false
 jobs:
+  global-generation-tests:
+    uses: ./.github/workflows/global-generation-native-tests.yml
+    with:
+      source_sha: ${{ inputs.sha }}
   deploy:
+    needs: global-generation-tests
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
