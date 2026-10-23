@@ -23,7 +23,7 @@ Set `PLAYWRIGHT_MODULE` to an installed Playwright module when it is not availab
 ACCOUNT_RECOVERY_CASE=all node scripts/validate-account-sync-recovery-browser.js
 ```
 
-This runs nine scenarios in both Chromium and WebKit: hidden manual failure/retry, newer receipt after response, expired-token resume, failed cold restore with Retry account, offline/hidden/event-burst recovery, revoked session, transient refresh failure, two-context Follow/unfollow/reload, and cross-origin local/session isolation. All 18 pass locally. The three defect cases fail when served directly from the pinned published base, without changing tracked files:
+This runs eleven scenarios in both Chromium and WebKit: hidden manual failure/retry, newer receipt after response, expired-token resume, failed cold restore with Retry account, offline/hidden/event-burst recovery, revoked session, transient refresh failure, two-context Follow/unfollow/reload, cross-origin local/session isolation, an actual 15-second transport timeout, and a manual retry queued behind a held automatic recovery request. All 22 pass locally. The three defect cases fail when served directly from the pinned published base, without changing tracked files:
 
 ```sh
 ACCOUNT_RECOVERY_BASELINE=8d5b279928299b3c3d2b589dec208d5f48861831 ACCOUNT_RECOVERY_CASE=pending-receipt node scripts/validate-account-sync-recovery-browser.js
@@ -33,9 +33,9 @@ Use `retry-error` or `resume` for the other baseline counterexamples.
 
 The Follow case uses retained fixture `football-australian-championship-2026-22278878`, Canberra Croatia v Sutherland Sharks, dated 24 October. It verifies a saved explicit Canberra follow admits that fixture through the server Feed pipeline, then an explicit unfollow excludes it and reaches the second context on later resume/reload. Sydney United's retained home fixture is a different event/date. This is neither a fresh official schedule check nor proof of the customer's Feed admission.
 
-Existing cross-device (24 orchestration, eight accepted-bootstrap and 75 account-isolation cases plus durable-receipt checks), 124 account-awareness checks, authenticated Feed startup, Follow policy/parity, backend efficiency, startup/download budget and build-cache checks pass. Existing mounted Account regression passes at 390px (18 layouts, 41 behaviours, no uncaught errors). The Follow interaction performance check passes. Critical assets total **430,783 gzip bytes**, seven requests, below the unchanged **431,441-byte** ceiling.
+Existing cross-device (24 orchestration, eight accepted-bootstrap and 75 account-isolation cases plus durable-receipt checks), 124 account-awareness checks, authenticated Feed startup, Follow policy/parity, backend efficiency, startup/download budget and build-cache checks pass. Existing mounted Account regression passes at 390px (18 layouts, 41 behaviours, no uncaught errors). The Follow interaction performance check passes. Existing Account layout checks also pass across 320/390/768/1280px in both engines; full 390px behaviour checks pass in both engines. Critical assets total **430,783 gzip bytes**, seven requests, below the unchanged **431,441-byte** ceiling.
 
-Local logs and browser/upgrade results are retained in `/Users/jackhartican/Documents/AI/Codex/ios-account-sync-20261023`. Report final PWA engine results and independent review outcomes in the draft PR handover; do not infer physical iOS acceptance from a desktop engine.
+Local logs and browser/upgrade results are retained in `/Users/jackhartican/Documents/AI/Codex/ios-account-sync-20261023`. Chromium and WebKit installed/offline upgrade rehearsals from accepted shell 584 to this candidate pass, including the exact cached account helper. These retain shell 585 in the worker candidate; DEPLOY must repeat 585-to-final-version checks after allocating the release version. Independent source review is clear on Standards; Spec requested the additional timeout/overlap regressions, whose final review is recorded in the PR handover. Do not infer physical iOS acceptance from a desktop engine.
 
 ## DEPLOY handover and acceptance
 

@@ -15,7 +15,7 @@ const scenario = process.env.ACCOUNT_RECOVERY_CASE || 'retry-error';
 if (scenario === 'all') {
   let failed = false;
   for (const engine of (process.env.ACCOUNT_RECOVERY_BROWSER ? [engineName] : ['chromium', 'webkit'])) {
-    for (const testCase of ['retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation']) {
+    for (const testCase of ['retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap']) {
       const result = spawnSync(process.execPath, [__filename], { stdio: 'inherit', env: {
         ...process.env, ACCOUNT_RECOVERY_BROWSER: engine, ACCOUNT_RECOVERY_CASE: testCase } });
       failed ||= result.status !== 0;
@@ -52,6 +52,11 @@ const server = http.createServer((req, res) => {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, serviceWorkers: 'block' });
   let row = null, readMode = 'success', refreshMode = 'success', reads = 0, writes = 0, refreshes = 0;
   let beforeAck = null, page;
+  const heldReads = [];
+  const statePayload = () => ({ user: { id: owner, email: 'disposable@example.invalid' }, state: row && {
+    schema_version: row.schemaVersion, preferences: row.preferences, profile: row.profile,
+    event_user_state: row.eventUserState, event_spoiler_state: row.eventSpoilerState,
+    archived_events: row.archivedEvents, ratings: row.ratings, updated_at: row.updatedAt } });
   const errors = [], blocked = [], statuses = [];
   try {
     await context.addInitScript(() => {
@@ -76,15 +81,13 @@ const server = http.createServer((req, res) => {
       }
       if (u.pathname === '/api/user-state') {
         reads++;
+        if (readMode === 'hold') { heldReads.push(route); return; }
         if (readMode === 'failure') return route.fulfill({ status: 503, json: { error: 'Disposable state unavailable' } });
         if (method === 'PUT') {
           writes++; row = { ...sync.applyPatch(row || {}, body.patch), updatedAt: new Date(Date.now() + writes * 1000).toISOString() };
           if (beforeAck) { const callback = beforeAck; beforeAck = null; await callback(); }
         }
-        const state = row && { schema_version: row.schemaVersion, preferences: row.preferences, profile: row.profile,
-          event_user_state: row.eventUserState, event_spoiler_state: row.eventSpoilerState,
-          archived_events: row.archivedEvents, ratings: row.ratings, updated_at: row.updatedAt };
-        return route.fulfill({ json: { user: { id: owner, email: 'disposable@example.invalid' }, state } });
+        return route.fulfill({ json: statePayload() });
       }
       if (u.pathname === '/api/user-meta') return route.fulfill({ json: { meta: { sports: [] } } });
       if (u.pathname === '/api/nothingscore' && u.searchParams.has('viewer')) return route.fulfill({ json: {
@@ -132,6 +135,47 @@ const server = http.createServer((req, res) => {
       readMode = 'success';
       await page.locator('#syncAccountNowBtn').click();
       await page.waitForFunction(() => serverPersistence.state === 'signedIn');
+    } else if (scenario === 'timeout') {
+      const localBefore = await page.evaluate(() => JSON.stringify(userPreferences));
+      const writeCount = writes, started = Date.now();
+      readMode = 'hold';
+      await page.locator('#syncAccountNowBtn').click();
+      await page.waitForFunction(() => serverPersistence.state === 'syncing');
+      assert.equal(await page.locator('#syncAccountNowBtn').isEnabled(), false, 'active network request owns the pending state');
+      await page.waitForFunction(() => serverPersistence.state === 'error', null, { timeout: 25000 });
+      assert(Date.now() - started >= 14000, 'exercise the real 15-second transport deadline, not an injected HTTP error');
+      assert.equal(await page.locator('#syncAccountNowBtn').isEnabled(), true, 'transport timeout releases retry');
+      assert.equal(await page.evaluate(() => serverSyncClient.accountSnapshot().hasSession), true);
+      assert.equal(await page.evaluate(() => JSON.stringify(userPreferences)), localBefore);
+      assert.equal(writes, writeCount, 'timed-out read sends no save');
+      readMode = 'success';
+      for (const held of heldReads.splice(0)) await held.abort().catch(() => {}); // Already cancelled by the client's deadline.
+      await page.locator('#syncAccountNowBtn').click();
+      await page.waitForFunction(() => serverPersistence.state === 'signedIn');
+    } else if (scenario === 'overlap') {
+      await page.clock.install();
+      await page.clock.setFixedTime(new Date(Date.now() + 16000));
+      const beforeReads = reads, beforeWrites = writes;
+      readMode = 'hold';
+      await page.evaluate(() => dispatchEvent(new Event('pageshow')));
+      await page.waitForFunction(() => serverPersistence.state === 'syncing');
+      assert.equal(await page.locator('#syncAccountNowBtn').isEnabled(), false);
+      await page.evaluate(() => {
+        document.getElementById('syncAccountNowBtn').click(); // Disabled UI cannot dispatch another request.
+        globalThis.qaQueuedRetry = syncCurrentServerState({ notify: true }); // A manual intent already queued before redraw.
+        dispatchEvent(new Event('pageshow')); dispatchEvent(new Event('online'));
+        document.dispatchEvent(new Event('visibilitychange'));
+      });
+      await page.waitForTimeout(100);
+      assert.equal(reads - beforeReads, 1, 'manual/foreground overlap never starts a concurrent state request');
+      assert.equal(heldReads.length, 1);
+      readMode = 'success';
+      await heldReads.shift().fulfill({ json: statePayload() });
+      await page.evaluate(() => qaQueuedRetry);
+      await page.waitForFunction(() => serverPersistence.state === 'signedIn');
+      assert.equal(reads - beforeReads, 2, 'one automatic read and the serialised manual retry finish');
+      assert.equal(writes, beforeWrites, 'overlap creates no duplicate saves');
+      assert.equal(await page.locator('#syncAccountNowBtn').isEnabled(), true);
     } else if (scenario === 'pending-receipt') {
       await page.evaluate(() => {
         const p = clonePreferences(userPreferences); p.theme = 'night';
