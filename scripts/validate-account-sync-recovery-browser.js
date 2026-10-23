@@ -10,12 +10,16 @@ const { execFileSync, spawnSync } = require('node:child_process');
 const { chromium, webkit } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const sync = require('../config/user-state-sync');
 const root = path.resolve(__dirname, '..');
+const testedHtml=process.env.ACCOUNT_RECOVERY_BASELINE?execFileSync('git',['show',process.env.ACCOUNT_RECOVERY_BASELINE+':index.html'],{cwd:root,encoding:'utf8',maxBuffer:10*1024*1024}):fs.readFileSync(path.join(root,'index.html'),'utf8');
+const testedShellVersion=testedHtml.match(/<meta name="app-shell-version" content="(\d+)">/)?.[1];
+assert(testedShellVersion,'exact served source declares its shell version');
 const engineName = process.env.ACCOUNT_RECOVERY_BROWSER || 'chromium';
 const scenario = process.env.ACCOUNT_RECOVERY_CASE || 'retry-error';
+const helperRaceProbe=process.env.ACCOUNT_RECOVERY_HELPER_RACE==='1'||scenario==='helper-mount';
 if (scenario === 'all') {
   let failed = false;
   for (const engine of (process.env.ACCOUNT_RECOVERY_BROWSER ? [engineName] : ['chromium', 'webkit'])) {
-    for (const testCase of ['diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed']) {
+    for (const testCase of ['helper-mount', 'diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed']) {
       const result = spawnSync(process.execPath, [__filename], { stdio: 'inherit', env: {
         ...process.env, ACCOUNT_RECOVERY_BROWSER: engine, ACCOUNT_RECOVERY_CASE: testCase } });
       failed ||= result.status !== 0;
@@ -50,11 +54,13 @@ const server = http.createServer((req, res) => {
   const browser = await (engineName === 'webkit' ? webkit : chromium).launch({ headless: true,
     ...(engineName === 'chromium' ? { channel: process.env.QA_BROWSER_CHANNEL || 'chrome' } : {}) });
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, serviceWorkers: 'block' });
-  let row = null, readMode = 'success', refreshMode = 'success', reads = 0, writes = 0, refreshes = 0;
+  let row = null, readMode = 'success', refreshMode = 'success', reads = 0, writes = 0, refreshes = 0, authSignIns = 0;
   let beforeAck = null, page;
   const actualApi = scenario.startsWith('api-') ? require('./lib/local-user-state-api')(owner) : null;
   const chronology = [];
   const heldReads = [];
+  let holdHelper=false,helperHeld;const heldHelpers=[];
+  const helperRequest=new Promise(resolve=>{helperHeld=resolve;});
   const statePayload = () => ({ user: { id: owner, email: 'disposable@example.invalid' }, state: row && {
     schema_version: row.schemaVersion, preferences: row.preferences, profile: row.profile,
     event_user_state: row.eventUserState, event_spoiler_state: row.eventSpoilerState,
@@ -68,10 +74,12 @@ const server = http.createServer((req, res) => {
     const routeHandler = async route => {
       const request = route.request(), u = new URL(request.url());
       if (!origins.has(u.origin)) { blocked.push(u.origin); return route.abort('blockedbyclient'); }
+      if(holdHelper&&u.pathname==='/assets/js/account-awareness-runtime.js'){heldHelpers.push(route);helperHeld();return;}
       if (!u.pathname.startsWith('/api/')) return route.continue();
       const body = request.postDataJSON() || {}, method = request.method();
       if (u.pathname === '/api/auth') {
         if (method === 'GET') return route.fulfill({ json: { configured: true } });
+        if(body.action==='password-sign-in')authSignIns++;
         if (body.action === 'refresh') {
           refreshes++;
           if (refreshMode === 'terminal') return route.fulfill({ status: 401, json: { code: 'refresh_token_revoked', error: 'Disposable revoked session' } });
@@ -125,17 +133,54 @@ const server = http.createServer((req, res) => {
       return { ...currentServerStatePayload(), updatedAt: '2026-10-23T01:00:00Z' };
     }, Boolean(actualApi));
     if (actualApi) { actualApi.seed(row); row = actualApi.state(); }
+    holdHelper=helperRaceProbe;
     await page.reload({ waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => !startupCoordinator.isHydrating());
     await page.locator('#startupLaunch').waitFor({ state: 'hidden' });
-    await page.evaluate(() => { closeSettings(); openSettings({ section: 'account' }); });
+    await page.evaluate(() => {
+      globalThis.qaSignInTrace=[];
+      const forms=new WeakMap();let nextForm=0;
+      const snapshot=event=>{
+        const form=document.getElementById('accountSignInForm');
+        if(form&&!forms.has(form))forms.set(form,++nextForm);
+        const email=document.getElementById('accountEmail'),password=document.getElementById('accountPassword');
+        qaSignInTrace.push({event,form:form?forms.get(form):null,emailPresent:Boolean(email?.value),
+          passwordPresent:Boolean(password?.value),emailValid:email?.validity.valid??null,
+          passwordValid:password?.validity.valid??null,state:serverPersistence.state});
+      };
+      for(const type of ['input','change','invalid','click','submit'])document.addEventListener(type,event=>{
+        if(event.target.closest?.('#accountSignInForm'))snapshot(type+':'+(event.target.id||event.target.tagName));
+      },true);
+      const render=renderAccountSettings;
+      renderAccountSettings=function(...args){snapshot('before-render');const result=render(...args);snapshot('after-render');return result;};
+      closeSettings();openSettings({section:'account'});snapshot('opened');
+    });
     await page.locator('#accountEmail').fill('disposable@example.invalid');
     await page.locator('#accountPassword').fill('test-only-password');
+    if(helperRaceProbe){
+      await page.evaluate(()=>{globalThis.qaSignInForm=document.getElementById('accountSignInForm');void ensureAccountIndicator();});
+      let helperTimer;
+      try{await Promise.race([helperRequest,new Promise((_,reject)=>{helperTimer=setTimeout(()=>reject(new Error('Deferred Account helper request was not observed')),8000);})]);}
+      finally{clearTimeout(helperTimer);}
+      holdHelper=false;
+      for(const route of heldHelpers)await route.continue();
+      await page.evaluate(()=>ensureAccountIndicator());
+      const retained=await page.evaluate(()=>({sameForm:qaSignInForm===document.getElementById('accountSignInForm'),
+        passwordFocused:document.activeElement===document.getElementById('accountPassword'),
+        emailValid:document.getElementById('accountEmail').validity.valid,passwordValid:document.getElementById('accountPassword').validity.valid}));
+      console.log(JSON.stringify({phase:'held-helper-form-retention',scenario,engine:engineName,retained}));
+      assert.deepEqual(retained,{sameForm:true,passwordFocused:true,emailValid:true,passwordValid:true},'helper mount must retain the actual filled form and focus');
+    }
     await page.locator('#accountSignInForm button[type="submit"]').click();
+    if(helperRaceProbe){
+      const trace=await page.evaluate(()=>qaSignInTrace);
+      console.log(JSON.stringify({phase:'held-helper-sign-in-probe',scenario,engine:engineName,trace}));
+      assert.equal(trace.filter(event=>event.event==='submit:accountSignInForm').length,1,'a filled form must submit even when its deferred helper finishes before the click');
+    }
     await page.waitForFunction(() => serverPersistence.state === 'signedIn').catch(async error=>{
       console.error(JSON.stringify({phase:'initial-sign-in',scenario,engine:engineName,reads,writes,refreshes,errors,
         state:await page.evaluate(()=>({state:serverPersistence.state,message:serverPersistence.message,
-          hasSession:serverSyncClient.accountSnapshot().hasSession,pending:Boolean(pendingPreferenceIntent(serverPersistence.user?.id))}))}));
+          hasSession:serverSyncClient.accountSnapshot().hasSession,pending:Boolean(pendingPreferenceIntent(serverPersistence.user?.id)),trace:qaSignInTrace}))}));
       throw error;
     });
     await page.waitForFunction(() => Boolean(accountIndicatorController));
@@ -224,6 +269,8 @@ const server = http.createServer((req, res) => {
         chronology.push({ phase: 'after-removal', A: await snapshot(page), B: await snapshot(second) });
       } catch (error) { chronology.push({ phase: 'failure', A: await snapshot(page) }); throw error; }
       finally { console.log(JSON.stringify({ scenario, engine: engineName, chronology })); await other.close(); }
+    } else if (scenario === 'helper-mount') {
+      assert.equal(authSignIns,1,'exactly one native password-sign-in request follows the original form submit');
     } else if (scenario === 'diagnostic') {
       await page.evaluate(() => {
         globalThis.qaDiagnosticCopies=[];
@@ -239,7 +286,7 @@ const server = http.createServer((req, res) => {
       const copied=await page.evaluate(() => qaDiagnosticCopies);
       assert.equal(copied.length,1);const detail=JSON.parse(copied[0]);
       assert.equal(detail.stage,'read');assert.equal(detail.status,503);assert.equal(detail.completed,false);
-      assert.equal(detail.shellVersion,'587');
+      assert.equal(detail.shellVersion,testedShellVersion);
       assert(!copied[0].includes(owner));assert(!copied[0].includes('disposable'));
       assert.equal(detail.ownerMatches,null,'a failed read has no verified response owner');
       await page.locator('#signOutAccountBtn').click();
@@ -444,7 +491,7 @@ const server = http.createServer((req, res) => {
     } else throw new Error('Unknown recovery scenario ' + scenario);
     statuses.push(...await page.evaluate(() => globalThis.qaSyncStates || []));
     assert.deepEqual(errors, [], 'no uncaught application errors');
-    console.log(JSON.stringify({ scenario, engine: engineName, passed: true, reads, writes, refreshes, statuses,
+    console.log(JSON.stringify({ scenario, engine: engineName, passed: true, reads, writes, refreshes, authSignIns, statuses,
       blockedOrigins: [...new Set(blocked)], limits: 'Loopback mocked transport; no hosted or physical iPhone proof' }));
   } finally { await context.close(); await browser.close(); await new Promise(resolve => server.close(resolve)); }
 })().catch(error => { console.error(error); server.close(); process.exitCode = 1; });
