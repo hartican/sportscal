@@ -63,7 +63,7 @@ for(const helperFirst of [true,false]){
  const life={accountId:'account-a',hasSession:true,generation:3,expiresAt:Date.now()+3600000};
  const host={contains:()=>false,replaceChildren:()=>{},classList:{contains:()=>false}};
  const context={console,Date,serverSyncClient:{accountSnapshot:()=>life},serverPersistence:{state:'signedIn',user:{id:'account-a',displayName:'Jordan Carter',email:'auth@example.invalid'}},accountIndicatorGeneration:3,nothingscoreViewer:{signedIn:false,profile:null},navigator:{onLine:true},accountIndicatorController:null,accountIndicatorJourney:null,document:{activeElement:null,getElementById:()=>host},NOTHINGSPORTS_ACCOUNT_AWARENESS_UI:{create:options=>{read=options.readSnapshot;return{render:()=>{}};}},renderAccountIndicator:()=>{}};
- context.nothingscoreViewerScope=null;context.globalThis=context;
+ context.nothingscoreViewerScope=null;context.globalThis=context;context.addEventListener=()=>{};context.document.addEventListener=()=>{};context.settingsSection='main';
  Object.assign(context,{NOTHINGSCORE:{},nothingscoreReadGeneration:0,nothingscoreReadRecovery:{reset:()=>{}},nscRankingGeneration:0,nothingscorePollTimer:null,nothingscoreBatchTimer:null,nothingscoreHeartbeatTimer:null,scheduleNothingscorePoll:()=>{},nothingscoreQueueRender:()=>{},window:{clearTimeout:()=>{}}});
  for(const key of ['nothingscoreBatchInFlight','nothingscoreDetailLoading','nothingscoreSnapshots','nothingscoreLoadedAt','nothingscoreLoadErrors','nothingscorePendingIds','nothingscoreWatching'])context[key]=new Map();
  vm.createContext(context);vm.runInContext(acceptSource+resetSource,context);

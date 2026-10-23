@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Installed-app account recovery reuses the existing owner — 23 October 2026
+
+The approved installed-iOS repair retries the existing scoped, serialised auth/sync path on visible pageshow, foreground return and online events. Coalesce one account lifetime's concurrent events and permit at most one automatic attempt per15-second burst; skip hidden, offline and already-busy states. Manual retry stays deliberate. There is no polling, second sync owner, new endpoint, schema or wire contract. Preserve PR30 comparison/receipt/baseUpdatedAt and owner/generation fences, pending choices, explicit empty/unfollow/OFF and old/new origin separation. A completed save leaving a newer receipt reports pending/error with a usable retry; it cannot remain falsely busy or acknowledge that newer choice.
+
+Header and Account distinguish saved identity from verified session and show current progress/error ahead of last-sync time. The actual mounted-app regression covers timeout, overlapping automatic/manual work, valid/expired/revoked/offline sessions, Follow round-trip and origins. Final source, exact-version installed/hosted and physical iPhone proof are separate gates. No customer restoration, forced sign-out, reinstall, storage clearing, source refresh or automation restart is part of this repair.
+
 ## Same-owner Follow deltas reuse the current save path — 22 October 2026
 
 The current entity-follow patch may carry its known previous list through the existing optional comparison metadata, then merge only that list's changed identities and fields against the latest authenticated same-owner state. Reuse the existing canonical identity function, SDK, conditional version check, queue, profile bundle and intent receipt. No database migration, endpoint, request, polling, retry, scheduler, storage key, privilege or state-size budget is added. Keep explicit empty/OFF, unrelated remote choices, missing-baseline safety, ambiguity refusal, owner/generation isolation and changed-base pending safeguards. Both existing required cross-device and server-persistence gates cover the actual path. Local source is not historical recovery, hosted acknowledgement or phone acceptance; see [scope](quality/follow-sync-known-deltas-2026-10-22.md).
