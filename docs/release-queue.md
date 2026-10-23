@@ -12,14 +12,14 @@ Workers may push only task branches and update their own draft handover. No work
 
 ## Reuse what exists
 
-Retain Sportscal production's exact-main dispatch, immutable materialisation, full249 safety commands, serial production/cleanup lane, build seal, READY/alias/served-byte checks and public/security probes. Retain canonical update-cards ownership and the existing Follow/backend decision records. No competing publisher, scheduler, tracker or tool subscription is added.
+Retain Sportscal production's exact-main dispatch, immutable materialisation, the full existing safety-command list, serial production/cleanup lane, build seal, READY/alias/served-byte checks and public/security probes. Retain canonical update-cards ownership and the existing Follow/backend decision records. No competing publisher, scheduler, tracker or tool subscription is added.
 
 ## Missing controls proposed for approval/integration
 
-[Enforcement proposal](plans/release-queue-enforcement-2026-10-23.md) covers PR-triggered reuse of current checks, bot branch/draft-PR routing and approved main protection. No repository permission/protection has changed. Canonical refresh and deployment cleanup remain disabled_manually; only the existing manual production workflow is active. Do not resume either automation as part of this rollout.
+[Enforcement proposal](plans/release-queue-enforcement-2026-10-23.md) covers the missing handover/full-safety PR checks, bot branch/draft-PR routing and candidate-drift controls. The24October installed-upgrade adapter is already on main and proved its two ready-PR browser jobs; it does not replace the full production gates. Main protection remains proposal-only by Jack’s explicit choice. No repository permission/protection has changed. Canonical refresh and deployment cleanup remain disabled_manually; only the existing manual production workflow is active. Do not resume either automation as part of this rollout.
 
 A branch isolates files, not Supabase facts/Auth/storage, Vercel settings/aliases, provider limits/keys, notifications, scheduler leases or the GitHub login shared by chats. Record those dependencies in each PR. Hard separation of chat identities is not claimed: shared login credentials cannot distinguish DEPLOY from a worker. Current role ownership is an operating rule, with repository enforcement pending approval.
 
 ## Transition checkpoint
 
-Cricket584/d567ac0f began before this convention and is accepted with its full dated workflow/public proof in the pinned issue. Do not manufacture an empty retrospective implementation PR. P1 follows/account sync is next and must use a draft PR. Queue hardening follows without disrupting that repair. Public Feed remains deferred; All Sports View remains last.
+Cricket584/d567ac0f began before this convention and is accepted with dated workflow/public proof in the pinned issue. Do not manufacture an empty retrospective implementation PR. P1 account repairs now use the PR lane. Jack subsequently authorised full Public Feed and All Sports implementation; the earlier deferred-tail wording is superseded. Current priority, exact candidates, owners and acceptance are maintained only in issue28, avoiding a second status ledger here. Queue hardening must not disrupt current repairs; automations stay paused.

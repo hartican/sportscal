@@ -1,6 +1,6 @@
 # CTO delivery programme — scope and dated history
 
-Current implementation, priority and release status are now maintained only in GitHub PRs and the pinned [Release Queue](https://github.com/hartican/sportscal/issues/28). This document retains approved programme scope and dated history; its earlier “current” banners are not live queue instructions. Cricket584/d567ac0f is accepted in issue28; P1 follows/account sync is next.
+Current implementation, priority and release status are now maintained only in GitHub PRs and the pinned [Release Queue](https://github.com/hartican/sportscal/issues/28). This document retains approved programme scope and dated history; its earlier “current” banners are not live queue instructions. Cricket584/d567ac0f is accepted in issue28. Later account repairs, full Public Feed/All Sports authorisation and exact release acceptance are recorded there; historical deferred/order banners below are superseded and must not drive current work.
 
 <!-- CURRENT-QUEUE-20261023-START -->
 ## Historical pre-acceptance checkpoint — 23 October 2026
