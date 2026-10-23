@@ -53,7 +53,19 @@ async function constructor({db,service=fn=>fn()}){
   // (22023); arrays fail the existing object CHECK (23514). Valid objects reach
   // the constructor. Do not claim malformed rows bypass those original guards.
   mark('shape-reset','begin',{caseSize:existing});
-  await db.exec("delete from public.nothingsports_fixture_current where fixture_id<>'1'");
+  let removed=0;
+  for(let batch=0;batch<Math.ceil((existing-1)/100);batch++){
+   mark('shape-reset-batch','begin',{batch:batch+1,removedFrom:batch*100,removedThrough:Math.min((batch+1)*100,existing-1),limit:100});
+   const row=(await db.query(`with deleted as(
+    delete from public.nothingsports_fixture_current where(source_id,fixture_id)in(
+     select source_id,fixture_id from public.nothingsports_fixture_current where fixture_id<>'1'order by source_id,fixture_id limit 100)
+    returning fixture_id)
+    select count(*)::int removed,min(fixture_id)first_id,max(fixture_id)last_id from deleted`)).rows[0];
+   removed+=row.removed;mark('shape-reset-batch','complete',{batch:batch+1,...row,removedTotal:removed});
+  }
+  // Fixture-setup preconditions, separate from the unchanged44 comparisons.
+  assert.equal(removed,5000,'Reset removes the exact original fixture_id<>1 membership');
+  assert.deepEqual((await db.query('select source_id,fixture_id from public.nothingsports_fixture_current order by source_id,fixture_id')).rows,[{source_id:'constructor-contract',fixture_id:'1'}],'Reset leaves exactly the original id1 fixture');
   mark('shape-reset','complete',{caseSize:1});
   for(const shape of [null,7,[],['x'],{}, {id:'1',date:today,status:'live',homeScore:0,awayScore:0,scoreCheckedAt:'bad',statusCheckedAt:'2026-02-30T00:00:00Z'}]){
    mark('shape-setup','begin',{shape});
