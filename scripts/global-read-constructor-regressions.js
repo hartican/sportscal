@@ -108,14 +108,29 @@ async function budgetRollback({db,build,cached}){
    if(mode==='INSERT')await db.exec(`alter table nothingsports_fixture_read_private.global_read_generations disable trigger global_generation_install_only;
     delete from nothingsports_fixture_read_private.global_read_generations where slot<>(select slot from nothingsports_fixture_read_private.global_read_generations order by installed_at desc,generation_id desc limit 1);
     alter table nothingsports_fixture_read_private.global_read_generations enable trigger global_generation_install_only`);
-   await db.exec(`create function public.qa_generation_budget_delay()returns trigger language plpgsql as $$begin perform pg_sleep(1.1);return new;end$$;
+   // Sequence changes survive rollback to budget_call, unlike table/config
+   // markers. The enclosing test transaction still drops this owned sequence.
+   // Exactly two nextvals prove entry AND completion of the controlled delay.
+   await db.exec(`create sequence public.qa_generation_budget_delay_marker;
+    grant usage on sequence public.qa_generation_budget_delay_marker to service_role;
+    create function public.qa_generation_budget_delay()returns trigger language plpgsql as $$begin
+     perform nextval('public.qa_generation_budget_delay_marker');perform pg_sleep(1.1);perform nextval('public.qa_generation_budget_delay_marker');return new;end$$;
     create trigger qa_generation_budget_delay before insert on nothingsports_fixture_read_private.global_read_generations for each row execute function public.qa_generation_budget_delay();
     set local datestyle='SQL, DMY'`);
    const before=await state();assert.equal(await cached(),null,'Session change really requires a cold construction');checks++;
    await db.exec('savepoint budget_call');let failure,result;
    try{result=await build(1000);}catch(error){failure=error;await db.exec('rollback to budget_call;reset role');}
    const after=await state(),late=await cached();
+   const marker=(await db.query('select last_value::text last_value,is_called from public.qa_generation_budget_delay_marker')).rows[0];
+   assert.deepEqual(marker,{last_value:'2',is_called:true},mode+' INCONCLUSIVE unless controlled delay entered and completed exactly once');checks++;
+   if(!failure){
+    assert.equal(result?.reason,'invalidated_after_install',mode+' INCONCLUSIVE: a pre-admission deferral is not this defect');
+    assert.notDeepEqual(after.generations,before.generations,mode+' old overrun must actually change generation state');
+    assert.notEqual(late,null,mode+' old overrun must leave a reusable late generation');
+    console.log(JSON.stringify({schemaVersion:'global-generation-budget-red.v1',mode,delayMarker:marker,resultReason:result.reason,generationStateChanged:true,lateReusable:true,constructedOnly:true}));
+   }
    assert.equal(failure?.code,'57014',mode+' crossing soft budget MUST throw, not commit deferred: '+JSON.stringify({result,generationsRestored:JSON.stringify(after)===JSON.stringify(before),lateReusable:late!==null}));checks++;
+   assert.equal(failure.message,'Global generation budget exceeded after install',mode+' must be the sanitised postwrite-budget failure, not an outer timeout');checks++;
    assert.deepEqual(after,before,mode+' failure restores complete prior payload bytes, witness, manifest, epochs and canonical facts');checks++;
    assert.equal(late,null,mode+' failure cannot leave a late reusable generation');checks++;
    await db.exec("set local datestyle='ISO, MDY'");assert.deepEqual(await cached(),priorCached,mode+' preserves prior last-good generation');checks++;
