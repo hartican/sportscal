@@ -53,6 +53,31 @@ async function run(){
   }
   assert.equal(outcomes[0],outcomes[1],name+' diagnostic must preserve exact saved state, baseline, receipt, calls and error');
  }
+ // Compare actual atomic profile/receipt storage bytes, not only an observed
+ // receipt object. Freeze local clock/UUID inputs in the disposable VM.
+ for(const failure of [false,true]){
+  const outcomes=[];
+  for(const active of [false,true]){
+   const c=context(sources());
+   const values=new Map();c.localStorage={getItem:k=>values.get(k)??null,setItem:(k,v)=>values.set(k,String(v)),removeItem:k=>values.delete(k)};
+   c.Date=class extends Date{constructor(...args){super(...(args.length?args:['2026-10-23T00:00:00Z']));}static now(){return 1792713600000;}};
+   let ids=0;c.crypto={randomUUID:()=>String(++ids)};
+   vm.runInContext(fs.readFileSync(path.join(__dirname,'../config/profile-storage.js'),'utf8'),c);
+   c.PROFILE_STORAGE=c.NOTHINGSPORTS_PROFILE_STORAGE;
+   c.serverSyncClient.accountSnapshot=()=>({generation:0,accountId:'A',hasSession:true});
+   c.activeProfileBundle=c.PROFILE_STORAGE.loadActiveProfile(c.localStorage);
+   c.activeProfileBundle=c.PROFILE_STORAGE.recordPreferenceIntent(c.localStorage,c.activeProfileBundle,{ownerId:'A',generation:0,
+     baseUpdatedAt:c.serverStateBaseline.updatedAt,basePreferences:c.serverStateBaseline.state.preferences,preferences:c.currentDevice().preferences});
+   const initial=JSON.stringify([...values]);
+   if(active)mount(c);
+   if(failure)c.serverSyncClient.savePatch=async()=>{throw error('server_sync_failed',503);};
+   try{await c.syncCurrentServerState();}catch(e){assert(failure);assert.equal(e.code,'server_sync_failed');}
+   assert.equal(Boolean(c.pendingPreferenceIntent('A')),failure,'actual receipt only ACKs a confirmed success');
+   const saved=JSON.stringify([...values]);if(failure)assert.equal(saved,initial,'failed save retains exact persisted receipt bytes');
+   outcomes.push(saved);
+  }
+  assert.equal(outcomes[0],outcomes[1],'actual persisted profile/receipt bytes identical with diagnostics active/inactive');
+ }
  // A clipboard promise belongs to the originating attempt even if a new
  // account/attempt completes before the browser reports clipboard completion.
  for(const change of ['attempt','generation','owner']){
@@ -90,7 +115,7 @@ async function run(){
  current=false;assert.equal(recorder.snapshot(),null);current=true;first.fail(error('request_timeout'));assert.equal(recorder.snapshot(),null,'cleared lifetime stays cleared');
  for(const code of ['missing_session','refresh_session_terminal','invalid_refresh_token','refresh_token_not_found','refresh_token_already_used','refresh_token_revoked'])assert.equal(diagnostic.classify({code}).category,'auth');
  assert.equal(diagnostic.classify({name:'SecurityError'}).category,'local_security');
- console.log('Sync diagnostic: 15 actual queue/reconcile equivalence scenarios, 6 delayed clipboard/lifetime controls, bounded receipt sampling, copy privacy, owner fences, safe categories and bounded recorder passed. No service connections.');
+ console.log('Sync diagnostic: 15 actual queue/reconcile equivalence scenarios, 2 persisted-receipt byte controls, 6 delayed clipboard/lifetime controls, bounded receipt sampling, copy privacy, owner fences, safe categories and bounded recorder passed. No service connections.');
 }
 module.exports=run;
 if(require.main===module)run().catch(error=>{console.error(error);process.exitCode=1;});
