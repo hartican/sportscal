@@ -16,7 +16,8 @@ async function ownerChecks(){
  const normal=[];await createSnapshotStore({request:async(p,o)=>{normal.push(o);return p.endsWith('source_health')?[]:[{bundle:{schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[]}}];}}).read();assert.deepEqual(normal[1].headers,{'x-ns-fixture-components':'clock-v1'});assert.throws(()=>createSnapshotStore({generationShadowRead:'true'}));return 7;
 }
 async function run(){
- let checks=await ownerChecks();const db=await require('./fixture-read-test-baseline').database();
+ let checks=await ownerChecks();const native=process.env.NS_GENERATION_TEST_OWNED?await require('./global-generation-native-test-db').database():null;
+ const db=await require('./fixture-read-test-baseline').database({db:native,expectedMajor:native?.engine.major}).catch(async error=>{if(native)await native.close();throw error;});
  try{
  await db.exec("set timezone='UTC';set datestyle='ISO, MDY'");
  await db.exec(fs.readFileSync('supabase/migrations/20261022234325_coalesce_canonical_fixture_context.sql','utf8'));
@@ -117,6 +118,9 @@ async function run(){
  await db.exec('begin');await assert.rejects(authorisedEdit("update nothingsports_fixture_read_private.global_read_generations set slot=2"),/payload\/slot cap/);await db.exec('rollback');checks++;
  await db.exec('begin');await assert.rejects(authorisedEdit("update nothingsports_fixture_read_private.global_read_generations set payload=json_build_object('oversize',repeat('x',16777216))"),/payload\/slot cap/);await db.exec('rollback');checks++;
  await assert.rejects(build(0),/Invalid global generation budget/);checks++;
+ const extra=require('./global-read-generation-regressions');
+ const receiptChecks=await extra.receipts({db,build,equal,today});checks+=receiptChecks;
+ const codecChecks=await extra.codec({db,build,equal,today});checks+=codecChecks;
  // Actual existing canonical compact publisher under its eight-second budget.
  const token='00000000-0000-4000-8000-000000000088';const fixtures=Array.from({length:959},(_,i)=>({id:'write:'+i,key:'rugby',date:today,status:'scheduled',homeTeamId:'home:'+i,awayTeamId:'away:'+i}));
  await db.query('select * from public.nothingsports_claim_fixture_source($1,$2)',['generation-budget',token]);const started=performance.now();
@@ -128,7 +132,7 @@ async function run(){
  await db.exec('begin;'+inverse()+'commit');assert.equal((await db.query("select md5(pg_get_viewdef('public.nothingsports_current_global_fixture_bundle'::regclass,true))h")).rows[0].h,'fbc28299a5bf25428b286adc5ee2e0da');assert.equal((await db.query("select md5(string_agg(row_to_json(c)::text,''order by source_id,fixture_id))h from public.nothingsports_fixture_current c")).rows[0].h,facts);checks++;
  const restored=(await db.query("select jsonb_object_agg(p.oid::text,jsonb_build_object('def',pg_get_functiondef(p.oid),'acl',p.proacl::text))v from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname in('public','nothingsports_fixture_read_private')")).rows[0].v;assert.deepEqual(restored,oldFunctions);checks++;
  await db.exec('begin;'+forward+'commit');await equal();checks++;
- console.log(JSON.stringify({schemaVersion:'global-generation-constructed.v1',major,checks,canonicalPublishFixtures:959,canonicalPublishMs:publishMs,canonicalPublishBudgetMs:8000,logicalSlots:2,perPayloadCap:16777216,defaultOff:true,constructedOnly:true,captureReplays:0,nativeCalls:0,productionCalls:0,physicalStorageOrWalBoundProven:false}));
+ console.log(JSON.stringify({schemaVersion:'global-generation-constructed.v1',major,engine:db.engine||{kind:'pglite',major,lz4:false},checks,receiptChecks,codecChecks,canonicalPublishFixtures:959,canonicalPublishMs:publishMs,canonicalPublishBudgetMs:8000,logicalSlots:2,perPayloadCap:16777216,defaultOff:true,constructedOnly:true,captureReplays:0,nativeCalls:0,productionCalls:0,physicalStorageOrWalBoundProven:false}));
  }finally{await db.close();}
 }
 if(require.main===module)run().catch(e=>{console.error(e.stack);process.exitCode=1});module.exports={run};

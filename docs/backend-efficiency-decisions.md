@@ -1959,3 +1959,20 @@ No source/clock/scheduler/subscription change.
 ### 24 October 2026 — generation review corrections remain isolated
 
 The default-OFF complete-generation candidate now refuses builds after any source mutation in the same transaction through an independent local XID marker, even if DELETE or TRUNCATE CASCADE removes all source epochs. Savepoint rollback restores the marker; existing per-source write coalescing remains. Its policy hashes actual definitions of both generation-store guards, so changed predicates or target functions invalidate prior generations. Intended builder transport is POST PostgREST RPC with effective statement_timeout hoisting; direct native qualification requires an outer six-second timeout set in a prior command. Actual project version/configuration, cancellation/rollback/no-late-install and full captured concurrent consumer/physical-growth proof remain required before adoption. No production activation, setting or budget changed. See [candidate scope and gates](quality/global-read-generation-2026-10-24.md).
+
+
+### 24 October 2026 — measured codec/gather candidate, still default OFF
+
+After the failed managed generation INSERT and exact rollback, DEPLOY's separate
+one-shot TEMP comparison measured actual LZ4 insert100.616ms versus pglz603.831ms
+on identical12,446,905B JSON with real codec/value checks. That single TEMP sample
+excludes logged full-builder work and does not pass the managed6s gate. The
+isolated revised source selects LZ4 only for its private generation payload and
+materializes selected source receipt maps once in the same coherent constructor.
+Original membership, six raw TEXT-key inputs, parser/expiry/vector/policy/race
+fences, defaults, budgets and owner cadence remain. No flag or schema is live.
+All prior failed/cleaned and native receipts stay bound to their actual source.
+Because PGlite lacks LZ4, DEPLOY allocated this module's same full regression suite
+to explicit owned-loopback actual PG17/18 CI; no codec fallback or test waiver.
+Native/full-consumer/managed/cost/storage and existing release gates still govern
+adoption through DEPLOY alone. See the [scoped candidate record](quality/global-read-generation-2026-10-24.md).

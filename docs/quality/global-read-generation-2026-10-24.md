@@ -126,3 +126,66 @@ Rollback requires exact candidate view/helper preimages, restores original fbc
 and removes ONLY new hooks/functions/private derived state. It does not restore
 or redate canonical/customer data. Shared Follow/Results/account rules, source
 permissions, existing schedules and physical-phone evidence remain unchanged.
+
+## LZ4 and gathered expiry inputs — source revision after managed trial
+
+The original951452ad native qualification and its receipts remain dated evidence.
+Its one managed build failed SQLSTATE57014 in the private generation INSERT;
+DEPLOY rolled that trial back exactly. That result is a failed managed budget,
+not an adopted loading fix. A later separate read-only phase diagnostic placed
+material time in original construction and expiry gathering. Its timings and
+extra diagnostic work are not a profile of the earlier failed statement.
+
+DEPLOY's one TEMP codec comparison found actual LZ4 insertion100.616ms versus
+pglz603.831ms for the same12,446,905B input, with full-text/MD5 equality and actual
+codec verification. LZ4 used57,344B more physical relation allocation in that one
+comparison. Fixed pglz-first order, TEMP storage and a single sample exclude
+logged WAL, guards, UPSERT and full-builder qualification. These figures guide
+the source change; they do not establish a complete managed pass or CPU savings.
+
+The revised candidate explicitly selects built-in LZ4 only on the private JSON
+payload column (EXTENDED storage). It changes no default compression, extension,
+role, request, timeout or scheduler setting. Unsupported LZ4 stops installation;
+there is no automatic codec fallback. The inverse binds that column metadata as
+well as the changed builder's exact function definition before removing it.
+
+Within the same compound builder statement, bound_keys MATERIALIZED extracts
+all original built-response source/fixture TEXT pairs. source_receipts
+MATERIALIZED extracts only those sources' receipt maps once. All six raw inputs,
+array order, TEXT-key operators, SQL NULL/malformed-map behavior, DISTINCT,
+original parser, earliest future transition and Sydney-midnight expiry remain.
+There is no new membership, partition, limit, source call or scope. Payload,
+full source vector and expiry retain one coherent SPI snapshot; all before/after
+installation fences, fallback and default-OFF behavior are unchanged.
+
+Regression status must distinguish the gather-only intermediate from final LZ4
+source. The intermediate passed182 constructed assertions on PG17 and PG18,
+including the original138, numeric-looking IDs, arrays/nonobject receipt maps,
+all six independent future-clock inputs and out-of-window receipts. The final
+suite retains these and adds three real-builder large-payload installs (including
+slot replacement), actual pg_column_compression='lz4', compression and complete
+original payload text equality. Expected final assertion count is197; this is
+not a claim of a run. Both bundled PGlite engines reject LZ4 as unsupported.
+The final exact migration/suite therefore cannot pass in those engines. No
+pglz substitution, skipped codec assertion or CI waiver was introduced. DEPLOY
+allocated a small dev-only native adapter and isolated CI job for this module:
+it uses explicit owned loopback controls, creates a fresh random owned database,
+checks actual engine/LZ4, and removes only that database on close. The historical
+factories accept an optional supplied DB; their default PGlite callers are
+unchanged. All other baseline commands remain. The production workflow requires
+both native PG17/18 jobs for its exact requested SHA before entering the sole
+deploy job. The same suite and all138 original assertions now execute there,
+plus59 new assertions (197 expected). These prepared native jobs have NOT run;
+actual PG17/18 final-source results remain prerequisites for integration.
+
+Native qualification packet version2 binds the new source but preserves the
+approved controller and limits. It is preparation-only. Earlier native/managed
+receipts are never relabelled as results for this source. Actual hosted builder,
+complete-response latency, duty-cycle CPU/WAL/storage and phone proof remain
+separate acceptance gates. No main publication or deployment is implied.
+
+Official implementation references: [PostgreSQL column compression](https://www.postgresql.org/docs/17/sql-createtable.html),
+[CTE materialization](https://www.postgresql.org/docs/17/queries-with.html), and
+[node-postgres Client](https://node-postgres.com/apis/client). The dev-only pg
+client version8.23.1 was verified against the npm registry and pinned; no
+production dependency or service was added.

@@ -57,7 +57,8 @@ create table nothingsports_fixture_read_private.global_read_epochs(
 );
 create table nothingsports_fixture_read_private.global_read_generations(
  slot smallint primary key check(slot in(0,1)), generation_id uuid not null,
- payload json not null check(octet_length(payload::text)<=16777216),
+ -- Only this private derived payload chooses LZ4; no database/session default.
+ payload json storage extended compression lz4 not null check(octet_length(payload::text)<=16777216),
  source_vector jsonb not null, sydney_day date not null, policy text not null,
  parser_md5 text not null, session_timezone text not null, session_datestyle text not null,
  reference_clock timestamptz not null, valid_until timestamptz not null, installed_at timestamptz not null, witness bytea not null
@@ -214,12 +215,21 @@ begin
  if nothingsports_fixture_read_private.read_global_generation()is not null then return jsonb_build_object('state','unchanged');end if;
  -- ONE coherent statement snapshot for payload, full epoch vector and expiry.
  with built as materialized(select bundle from nothingsports_fixture_read_private.global_read_original),
+ bound_keys as materialized(
+  select r->>'source_id' source_id,r->>'fixture_id' fixture_id
+  from built b cross join lateral json_array_elements(b.bundle->'rows')r
+ ),
+ source_receipts as materialized(
+  select src.source_id,src.discovery_report->'_fixtureObservations' receipts
+  from public.nothingsports_fixture_sources src
+  where exists(select 1 from bound_keys k where k.source_id=src.source_id)
+ ),
  raw_values as materialized(
   select unnest(array[s.score->>'scoreCheckedAt',c.global_fixture->>'scoreCheckedAt',s.score->>'statusCheckedAt',c.global_fixture->>'statusCheckedAt',
-    (src.discovery_report->'_fixtureObservations'->c.fixture_id)->>'s',(src.discovery_report->'_fixtureObservations'->c.fixture_id)->>'t'])value
-  from built b cross join lateral json_array_elements(b.bundle->'rows')r
-  join public.nothingsports_fixture_current c on c.source_id=r->>'source_id'and c.fixture_id=r->>'fixture_id'
-  join public.nothingsports_fixture_sources src using(source_id)
+    (r.receipts->c.fixture_id)->>'s',(r.receipts->c.fixture_id)->>'t'])value
+  from bound_keys k
+  join public.nothingsports_fixture_current c using(source_id,fixture_id)
+  join source_receipts r using(source_id)
   left join public.nothingsports_live_scores s using(source_id,fixture_id)
  )
  select b.bundle,nothingsports_fixture_read_private.global_read_vector(),(statement_timestamp()at time zone 'Australia/Sydney')::date,

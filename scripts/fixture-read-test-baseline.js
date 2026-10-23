@@ -19,11 +19,11 @@ const migrations=[
  '20261020195509_reuse_stored_match_centre_seed_base.sql'
 ];
 const read=name=>fs.readFileSync('supabase/migrations/'+name,'utf8');
-async function database(){
- const db=await require('./validate-profile-fixture-scope').database();
+async function database({db:provided,expectedMajor}={}){
+ const db=await require('./validate-profile-fixture-scope').database({db:provided});
  try{
   const major=Math.floor(Number((await db.query("select current_setting('server_version_num') n")).rows[0].n)/10000);
-  assert.equal(major,process.env.PGLITE_MODULE==='pglite-pg17'?17:18,'Assert the actual pinned engine, not a directory label');
+  assert.equal(major,expectedMajor??(process.env.PGLITE_MODULE==='pglite-pg17'?17:18),'Assert the actual pinned engine, not a directory label');
   // The historical factory intentionally predates the current publisher.
   await db.exec(read('20261012113815_expire_unchanged_fixture_history.sql').match(/CREATE OR REPLACE FUNCTION[\s\S]*?\$function\$;/)[0]);
   for(const name of migrations)await db.exec('begin;'+read(name)+'commit;');
