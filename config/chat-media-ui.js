@@ -149,6 +149,7 @@
     let gifOffset = 0;
     let gifQuery = "";
     let gifProviderConfig = null;
+    let ownedPicker = null;
 
     async function prepareStaticImage(file){
       if (!media.shouldCompress(file.type)) return file;
@@ -340,17 +341,19 @@
       clearTimeout(searchTimer);
       searchController?.abort?.();
       searchController = null;
-      const picker = document.getElementById("chatGifPicker");
+      const picker = ownedPicker?.isConnected ? ownedPicker : null;
       if (!picker) return;
       picker.classList.remove("show");
       picker.setAttribute("aria-hidden", "true");
       document.getElementById("chatGifResults")?.replaceChildren();
       document.getElementById("chatGifSearchInput").value = "";
       document.getElementById("chatGifPickerStatus").textContent = "Trending reactions and sports memes.";
-      document.querySelector('#chatRoomComposer [data-chat-gif-trigger]')?.focus?.({ preventScroll:true });
+      if(context.returnFocus)context.returnFocus();else document.querySelector('#chatRoomComposer [data-chat-gif-trigger]')?.focus?.({ preventScroll:true });
     }
 
     async function openPicker(){
+      if(context.isCurrent?.()===false)return;
+      ensurePicker();
       if (!state().capabilities.canUseGifs){
         context.connection(`Earn 25 NSC points to use GIFs. You have ${state().capabilities.lifetimeNscPoints || 0}.`, "retrying");
         return;
@@ -411,6 +414,8 @@
     }
 
     function selectGif(gif){
+      if(context.isCurrent?.()===false||!ownedPicker?.isConnected)return;
+      if(context.onGifSelected){registerGifAction(gif,"onclick");closePicker();context.onGifSelected(gif);return;}
       const current = state();
       if (current.pendingAttachments.length >= 4) return;
       const item = {
@@ -451,7 +456,7 @@
           signal:controller.signal,
         });
         const gifs = providerPayload.items || [];
-        if (controller.signal.aborted || sequence !== searchSequence) return;
+        if (controller.signal.aborted || sequence !== searchSequence || !ownedPicker?.isConnected || context.isCurrent?.()===false) return;
         if (!gifs.length){
           status.textContent = append ? "That’s everything." : "No GIFs found. Try another search.";
           return;
@@ -501,8 +506,10 @@
     }
 
     function ensurePicker(){
-      if (document.getElementById("chatGifPicker")) return;
+      if (ownedPicker?.isConnected) return;
+      document.getElementById("chatGifPicker")?.remove();
       const picker = document.createElement("section");
+      ownedPicker=picker;
       picker.className = "chat-gif-picker";
       picker.id = "chatGifPicker";
       picker.setAttribute("role", "dialog");

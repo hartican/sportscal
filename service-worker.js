@@ -431,6 +431,7 @@ function notificationNavigationTask(run){
 function milestoneNotificationTarget(value){
   try{
     const url=new URL(value,self.location.origin),id=url.searchParams.get('event');
+    const discussion=url.searchParams.get('discussion');if(url.origin===self.location.origin&&['/','/index.html'].includes(url.pathname)&&discussion&&discussion.length<=180){const target=new URL('/',self.location.origin);target.searchParams.set('discussion',discussion);return target;}
     if(url.origin!==self.location.origin||!['/','/index.html'].includes(url.pathname)||url.searchParams.get('surface')!=='match-centre'||!id||id.length>180)return null;
     const target=new URL('/',self.location.origin);target.searchParams.set('event',id);target.searchParams.set('surface','match-centre');
     const moment=url.searchParams.get('moment');if(moment&&moment.length<=200)target.searchParams.set('moment',moment);
@@ -478,7 +479,7 @@ self.addEventListener("notificationclick", function notificationClick(event) {
   }catch(_error){
     target = new URL("/", self.location.origin);
   }
-  const milestoneTarget=event.notification.data?.kind==='milestone'?milestoneNotificationTarget(target.href):null;
+  const milestoneTarget=['milestone','public-comment'].includes(event.notification.data?.kind)?milestoneNotificationTarget(target.href):null;
   event.waitUntil(
     self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(async clients => {
       if(!current())return;

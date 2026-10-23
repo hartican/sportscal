@@ -1,5 +1,16 @@
 # Follow and Feed decisions
 
+
+## Public fixture discussion and followed-author runs — 24 October 2026 Sydney
+
+The full [Public Feed contract](plans/public-feed-2026-10-22.md) is allocated for isolated implementation. Registered signed-in users may expand/read a public fixture thread, reply one level, post text/emojis and existing 25-lifetime-point-unlocked GIFs, and change/remove up/down votes. Net score ranks roots and each reply group with deterministic oldest/ID ties; updates preserve scroll/focus. The full fixture and tray share the page scroll. No comment/vote rewards or new moderation workflow are added; existing account/privacy/erasure controls remain.
+
+“Comments from people I follow” is a separate default-on preference, preserving explicit OFF and global/device consent. Eligibility requires an actually followed public author and a fixture already admitted to the recipient's Feed. Each recipient/fixture tracks consecutive followed-author runs: A,A,A -> one; followed A, unfollowed B, A -> one; followed A, followed C, A -> three. Unfollowed/self commenters, votes and deletes cannot reset a run. There is no timed grouping or extra reply/mention/vote alert. Repeated comments stay in their existing inbox group without rearming unread/delivery. Alert navigation uses exact existing Feed identity and the opt-in shared card adapter; it creates no follow, admission or saved open/seen/card-state choice. Removed/unavailable content fails explicitly.
+
+Personal dismissal never deletes a shared thread. The existing verified seven-Sydney-calendar-day retirement policy and ongoing/unknown safeguards apply. A successful transaction freezes up to three highest-net-voted nonblank text/emoji entries, including replies, for existing genuine personal-5/5 EPIC/yearbook qualification before deleting live comments/GIF references. Capture failure retains live data for the existing maintenance owner. Preserve yearbook ownership, private/erased author redaction, Results OFF and export controls. This is source work, not production activation; PR37 adapter and full release/phone acceptance remain dependencies.
+
+Regressions: `validate-public-feed.js` runs policy/API/delivery/navigation/DOM/export and both PostgreSQL engines; existing Follow, private chat, notification and EPIC gates remain.
+
 ## Follow decisions exclude named device bookkeeping — 23 October 2026
 
 The approved P1 follow-up distinguishes real preference changes from the named local graph profile pointers/update marker and automatic refinement/rating open/session counters listed in [the repair record](quality/account-stale-removal-2026-10-23.md). Base/ACK compatibility uses that narrow projection; unknown and deliberate fields, explicit OFF/empty/unfollow and authenticated owner/generation/conditional-save fences remain protected. Exact in-flight baseline advancement stays full comparison, and a newer receipt cannot be acknowledged by an older save. The actual two-context/API-normalization regression must remove a Follow without first refreshing the original device; timestamp-only and real conditional409/retry cases must pass, and genuine changed preferences must retain the safe hold. The pure bookkeeping regression joins the existing normal production safety step without removing any249 prior command.

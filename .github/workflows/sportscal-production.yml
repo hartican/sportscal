@@ -255,6 +255,7 @@ jobs:
           node scripts/validate-epic-classics.js
           node scripts/validate-epic-api.js
           node scripts/validate-year-review-alerts.js
+          node scripts/validate-public-feed.js
           node scripts/validate-card-lifecycle.js
           node scripts/validate-nothingscore-submissions.js
           node scripts/validate-spectacle.js

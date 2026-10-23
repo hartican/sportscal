@@ -1,0 +1,18 @@
+'use strict';
+const assert=require('node:assert/strict'),policy=require('../config/public-comments');
+assert.equal(policy.text('  Hello 👋\r\nworld\u0000  '),'Hello 👋\nworld');
+assert.equal(Array.from(policy.text('😀'.repeat(500))).length,500);
+assert.throws(()=>policy.text('😀'.repeat(501)),/500/);
+for(const v of [-1,0,1])assert.equal(policy.vote(v),v);
+for(const v of [2,-2,'1',null,NaN])assert.throws(()=>policy.vote(v));
+const run=authors=>{let previous=null,notifications=[];for(const authorId of authors){const result=policy.nextRun(previous,{authorId},{followed:new Set(['A','C']),recipient:'R'});previous=result.previous;if(result.notify)notifications.push(authorId);}return notifications;};
+assert.deepEqual(run(['A','A','A']),['A']);
+assert.deepEqual(run(['A','B','A']),['A']);
+assert.deepEqual(run(['A','C','A']),['A','C','A']);
+assert.deepEqual(run(['B','A','B','C','B','A']),['A','C','A']);
+assert.equal(policy.nextRun('A',{authorId:'A'},{followed:new Set(['A']),recipient:'A'}).notify,false);
+const entries=[{id:'root',handle:'@root',body:'Root',score:2,createdAt:'2026-01-01'},{id:'reply',parentId:'root',handle:'@reply',body:'Reply 😀',score:7,createdAt:'2026-01-02',gif:{url:'private-media'}},{id:'gif',handle:'@gif',body:'',score:100,gif:{}},{id:'old',handle:'@old',body:'Older tie',score:2,createdAt:'2025-01-01'},{id:'removed',handle:'@gone',body:'Removed',score:999,deleted:true}];
+assert.deepEqual(policy.topThree(entries).map(e=>e.id),['reply','old','root']);
+assert(!JSON.stringify(policy.topThree(entries)).includes('private-media'));
+assert.equal(policy.pollDelay(0,59999),1000);assert.equal(policy.pollDelay(0,60000),30000);
+console.log('Public comments policy: Unicode/bounds, votes, exact followed-author runs, ranked text-only yearbook and polling passed.');

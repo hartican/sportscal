@@ -1,6 +1,14 @@
-# Public Feed — settled deferred specification
+# Public Feed — settled specification
 
 22 October 2026. **Specification settled; implementation remains deferred and requires its later allocation.** Existing owner: Public Feed, chat `01a1624e-098f-71f3-a337-6a7d14aaf939`. This updates the existing queue item; it creates no task, publisher, scheduler or release exception. Preserve the established tail order: existing higher-priority work, Public Feed, then All Sports View. The earlier five-minute/30-minute batching proposal is rejected and superseded.
+
+## Implementation allocation — 24 October 2026 Sydney
+
+Jack authorised the full settled feature through Flot and DEPLOY, targeting the 24–25 October weekend without a reduced preview or guaranteed completion date. Work is isolated on `codex/public-feed-20261024`, initially based on accepted `9df58ea0faf9c1497abc9de09a44b31516b0536d`. The 22 October deferral above is historical; this allocation permits implementation and a draft PR, not a new publisher or production activation. DEPLOY retains queue ordering, final review, generated shell/cache version allocation, migration activation and publication. Existing paused jobs remain paused.
+
+Comment-alert expansion depends on the final reviewed PR37 opt-in shared card adapter (`cardState`, `onCardStateChange(nextState)`). Its host owns ephemeral expansion and focus; it must not persist Follow/admission/seen/open choices. Do not copy its renderer or critical generated runtime. The adapter remains under its original owner and may change before acceptance.
+
+Resource hold: continue light source/API/DOM checks; local native browsers, VMs and PGlite engine runs require renewed DEPLOY headroom allocation. No implementation-complete, Ready, hosted or physical-device claim follows from those light checks. Release acceptance below remains required in full.
 
 ## Fixture discussion
 
