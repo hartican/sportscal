@@ -2013,12 +2013,15 @@ tests compare full canonical payload/expiry and reject edited view definitions
 or permissions. Offline checks do not establish LZ4/native/managed performance.
 No packet3, provider read, main publication or deployment is authorised here.
 
-Separately, the existing post-INSERT soft-budget response can defer without
-rolling back the new generation. Actual outer-statement cancellation rolls back;
-caller abort alone does not prove it. No-late-reusable-install proof under soft
-budget overrun and actual caller abort remains a distinct adoption gate. This
-constructor change does not silently repair or waive it. DEPLOY then allocated
-the minimal budget rollback repair with a deterministic INSERT/UPSERT regression
-in the existing owned native suite. Freeze constructor+test with old behavior
-first; DEPLOY verifies native RED before the scoped fix and native GREEN. No
-managed experiment runs on the deliberately failing source.
+Exact3ae native CI40027459195 confirmed the post-INSERT soft-budget defect on
+both PostgreSQL engines: the controlled delay completed, the builder deferred,
+but the new generation remained reusable. Test setup retains all0/1/5000/5001
+cases with real constraints/triggers, bounded100-row preparation statements and
+phase markers. No JIT, ANALYZE or timeout change was used. The isolated repair
+raises57014 with “Global generation budget exceeded after install” after writing,
+post-install source/policy checks and receipt construction, so the entire call
+rolls back on budget overrun. Source/policy invalidation within budget retains
+its existing deferred response. No test is weakened; expected native reporting
+is736 checks plus two mandatory fixture-reset preconditions. Exact-source native
+GREEN and actual managed/abort proof remain pending DEPLOY gates; this is not
+live adoption. No managed experiment runs on the deliberately failing source.

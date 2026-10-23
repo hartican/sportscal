@@ -246,7 +246,7 @@ language sql stable security invoker set search_path=''as $fn$
 $fn$;
 create function public.nothingsports_build_global_generation(p_budget_ms integer default 6000)returns jsonb
 language plpgsql volatile security invoker set search_path='' set statement_timeout='6s' set lock_timeout='1s'as $fn$
-declare payload json;tokens jsonb;day date;until_at timestamptz;schema_text text;complete_text text;began timestamptz:=clock_timestamp();
+declare payload json;tokens jsonb;day date;until_at timestamptz;schema_text text;complete_text text;receipt jsonb;began timestamptz:=clock_timestamp();
  current_policy text;reference_clock timestamptz:=statement_timestamp();parser text;tz text:=current_setting('TimeZone');ds text:=current_setting('DateStyle');next_slot smallint;installed integer;gid uuid:=gen_random_uuid();
 begin
  if p_budget_ms is null or p_budget_ms<1 or p_budget_ms>6000 then raise exception 'Invalid global generation budget';end if;
@@ -277,8 +277,17 @@ begin
  where excluded.installed_at>global_read_generations.installed_at;
  get diagnostics installed=row_count;
  perform set_config('nothingsports.generation_install','',true);
- if installed=1 and(clock_timestamp()>=until_at or clock_timestamp()>=began+p_budget_ms*interval '1 millisecond' or tokens is distinct from nothingsports_fixture_read_private.global_read_vector()or current_policy is distinct from nothingsports_fixture_read_private.global_generation_policy())then return jsonb_build_object('state','deferred','reason','invalidated_after_install');end if;
- return jsonb_build_object('state',case when installed=1 then 'installed'else'deferred'end,'reason',case when installed=0 then 'fence_changed'else null end,'generationId',case when installed=1 then gid else null end,'payloadBytes',octet_length(payload::text));
+ if installed=1 and(clock_timestamp()>=until_at or tokens is distinct from nothingsports_fixture_read_private.global_read_vector()or current_policy is distinct from nothingsports_fixture_read_private.global_generation_policy())then
+  receipt:=jsonb_build_object('state','deferred','reason','invalidated_after_install');
+ else
+  receipt:=jsonb_build_object('state',case when installed=1 then 'installed'else'deferred'end,'reason',case when installed=0 then 'fence_changed'else null end,'generationId',case when installed=1 then gid else null end,'payloadBytes',octet_length(payload::text));
+ end if;
+ -- Charge post-write fences and receipt construction before the last deadline
+ -- check. Raising rolls back the entire call, including INSERT/UPSERT/witness.
+ if installed=1 and clock_timestamp()>=began+p_budget_ms*interval '1 millisecond'then
+  raise exception using errcode='57014',message='Global generation budget exceeded after install';
+ end if;
+ return receipt;
 end $fn$;
 revoke all on function nothingsports_fixture_read_private.touch_global_read_epoch(text,boolean),nothingsports_fixture_read_private.global_read_epoch_changed(),nothingsports_fixture_read_private.global_read_vector(),nothingsports_fixture_read_private.global_read_clock_transition(text),nothingsports_fixture_read_private.read_global_generation(),nothingsports_fixture_read_private.global_generation_witness(json,jsonb,date,text,text,text,text,timestamptz,timestamptz,timestamptz,uuid,smallint),nothingsports_fixture_read_private.guard_global_generation_write(),nothingsports_fixture_read_private.global_generation_policy(),public.nothingsports_build_global_generation(integer) from public,anon,authenticated;
 grant execute on function nothingsports_fixture_read_private.touch_global_read_epoch(text,boolean),nothingsports_fixture_read_private.global_read_epoch_changed(),nothingsports_fixture_read_private.global_read_vector(),nothingsports_fixture_read_private.global_read_clock_transition(text),nothingsports_fixture_read_private.read_global_generation(),nothingsports_fixture_read_private.global_generation_witness(json,jsonb,date,text,text,text,text,timestamptz,timestamptz,timestamptz,uuid,smallint),nothingsports_fixture_read_private.guard_global_generation_write(),nothingsports_fixture_read_private.global_generation_policy(),public.nothingsports_build_global_generation(integer) to service_role;

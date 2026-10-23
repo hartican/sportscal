@@ -295,14 +295,9 @@ migration and never substitutes another codec. Actual complete native LZ4 suite,
 inverse/cleanup, managed feasibility and captured/repeated full-response gates
 remain DEPLOY work. No packet3 was rebound.
 
-Separate source finding: a budget-only overrun after INSERT currently returns
-deferred/invalidated_after_install without rollback or explicit invalidation.
-Read eligibility has no corresponding builder-budget bound. If the outer
-transaction commits, that generation could still be reused. Actual server
-cancellation and caller abort must be distinguished. An owned native test could
-use the existing controlled before-insert trigger seam to delay after admission
-and assert no late reusable install. DEPLOY subsequently allocated that
-correctness repair through a test-first native CI sequence. The same existing
+At3ae, a budget-only overrun after INSERT returned deferred/invalidated_after_install
+without rollback or explicit invalidation. Read eligibility had no corresponding
+builder-budget bound. DEPLOY allocated a test-first correctness repair. The existing
 suite now contains two deterministic cases: preserve the prior latest generation,
 leave the next slot empty or occupied, change transaction-local DateStyle to
 require a cold build without source writes, then delay BEFORE INSERT by1.1s with
@@ -310,8 +305,37 @@ a1000ms requested budget. Both fresh INSERT and ON CONFLICT must throw57014,
 restore full prior generation bytes/witness/manifest/epochs/facts, leave no late
 reusable generation in the new session, and retain the old last-good result in
 its original session. Savepoint/transaction rollback cleans the owned test state.
-The first frozen source deliberately retains old product behavior and is
-expected RED on actual native CI. No native run or product fix is claimed here;
-the minimum final expected assertion count after repair is732. The existing
-server-cancellation qualification remains a separate requirement. This concern
-blocks adoption, not source-level constructor comparison.
+The test sequence requires an owned sequence's exact entry/exit marker after
+the controlled delay and the exact sanitised post-write error, preventing
+pre-admission deferral or a generic outer timeout from falsely passing. Initial
+CI40026282256 failed in the large synthetic setup INSERT, not the comparison or
+budget test; that outcome is retained as inconclusive. Bounded100-row setup
+inserts and shape-reset deletes keep every real hook/constraint and all cases in
+the same transaction. Two mandatory reset preconditions prove exactly5000 rows
+removed and only the original id1 remains. No query splitting, JIT override,
+ANALYZE or timeout increase was introduced. Phase/case/range markers separate
+setup, comparison and shape failures; actual GUCs are logged without modification.
+
+[Native CI40027459195](https://github.com/hartican/sportscal/actions/runs/40027459195)
+on exact3ae5ea2653350c6c4f64eeccb0fd5d95f6fd1a20 reached genuine RED on both
+PG17 andPG18. Every constructor boundary and shape case completed. For INSERT,
+delay marker2/is_calledtrue, invalidated_after_install, generationStateChanged
+and lateReusable were all confirmed before the missing57014 assertion failed.
+Both owned databases/containers were cleaned. This proves the INSERT defect;
+the corresponding UPSERT rollback assertion remains for the final GREEN run.
+
+The isolated fix now builds the ordinary installed/deferred receipt after the
+unchanged source/policy/validity fences, then checks the original requested
+deadline immediately before returning. An installed write that crosses it raises
+57014 with exactly “Global generation budget exceeded after install”, rolling
+back the whole call, including INSERT/UPSERT/witness changes. The last check
+charges expensive post-fence work and payload-byte receipt construction too.
+Within-budget source/policy invalidation still returns the original deferred
+response; pre-install budget handling and all6s/8s limits remain unchanged.
+Only the builder definition and its inverse fingerprint change. Tests are
+unchanged. Expected final native reporting is736 checks plus the two mandatory
+fixture-reset preconditions; a count is not a run claim. Offline PG17/18 compile
+the actual builder definition with check_function_bodies on and matching MD5,
+but never execute it or substitute a codec. Actual exact-source native GREEN,
+managed feasibility/abort and repeated full-response qualification remain with
+DEPLOY. No packet3, main publication, activation or deployment is implied.

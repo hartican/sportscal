@@ -38,7 +38,7 @@ do $constructor$begin
  end if;
 end $constructor$;
 do $helpers$begin
- if md5(pg_get_functiondef('nothingsports_build_global_generation(integer)'::regprocedure))is distinct from 'd72418e144a91d426cbad0903ffddc2c'then raise exception 'Generation helper differs from rollback preimage';end if;
+ if md5(pg_get_functiondef('nothingsports_build_global_generation(integer)'::regprocedure))is distinct from '5e0692fbdd68489d8cdff52b79da6fe2'then raise exception 'Generation helper differs from rollback preimage';end if;
  if md5(pg_get_functiondef('nothingsports_fixture_read_private.global_generation_policy()'::regprocedure))is distinct from '0434c4b4220c73a1a9130c85843f29bf'then raise exception 'Generation helper differs from rollback preimage';end if;
  if md5(pg_get_functiondef('nothingsports_fixture_read_private.global_generation_witness(json,jsonb,date,text,text,text,text,timestamp with time zone,timestamp with time zone,timestamp with time zone,uuid,smallint)'::regprocedure))is distinct from 'f45ebe22e2302d5b9c2b0925ff2903b6'then raise exception 'Generation helper differs from rollback preimage';end if;
  if md5(pg_get_functiondef('nothingsports_fixture_read_private.global_read_clock_transition(text)'::regprocedure))is distinct from '088402cb9bb52556dc4c869d50b0ca58'then raise exception 'Generation helper differs from rollback preimage';end if;
