@@ -47,7 +47,8 @@ end $guard$;
 do $fresh$ begin
  if to_regclass('nothingsports_fixture_read_private.global_read_epochs') is not null
  or to_regclass('nothingsports_fixture_read_private.global_read_generations') is not null
- or to_regclass('nothingsports_fixture_read_private.global_read_original') is not null then
+ or to_regclass('nothingsports_fixture_read_private.global_read_original') is not null
+ or to_regclass('nothingsports_fixture_read_private.global_read_constructor') is not null then
   raise exception 'Global generation candidate already installed or partial';
  end if;
 end $fresh$;
@@ -140,6 +141,38 @@ end $original$;
 revoke all on nothingsports_fixture_read_private.global_read_original from public,anon,authenticated;
 grant select on nothingsports_fixture_read_private.global_read_original to service_role;
 
+-- Derive from the pinned canonical expression, never a second membership query.
+-- Only the outer output and final aggregate projection change. The original
+-- JSON constructor, projected record and aggregate ordering stay byte-for-byte.
+-- Reuse its compact raw clock_inputs; do not serialize then decode all fixtures
+-- merely to recover keys and gather the same six clocks again.
+do $constructor$
+declare definition text;prefix text:=$prefix$ SELECT value AS bundle
+   FROM ( WITH $prefix$;
+ tail text:=$tail$ AS json_build_object
+           FROM projected) global_query(value);$tail$;
+begin
+ select pg_get_viewdef('nothingsports_fixture_read_private.global_read_original'::regclass,true)into definition;
+ if md5(definition)<>'fbc28299a5bf25428b286adc5ee2e0da'
+ or left(definition,length(prefix))<>prefix or right(definition,length(tail))<>tail
+ or cardinality(string_to_array(definition,prefix))<>2 or cardinality(string_to_array(definition,tail))<>2 then
+  raise exception 'Canonical constructor anchors differ from reviewed baseline';
+ end if;
+ definition:=' SELECT value AS bundle, schema_version, complete, valid_until
+   FROM ( WITH '||substring(definition from length(prefix)+1 for length(definition)-length(prefix)-length(tail))||$output$ AS json_build_object,
+          'current-fixture-bundle.v1'::text AS schema_version, count(*)<=5000 AS complete,
+          least((((statement_timestamp()at time zone 'Australia/Sydney')::date+1)::timestamp at time zone 'Australia/Sydney'),
+           (select min(nothingsports_fixture_read_private.global_read_clock_transition(value))
+            from(select distinct unnest(raw)value from clock_inputs)raw_values)) AS valid_until
+           FROM projected) global_query(value,schema_version,complete,valid_until);$output$;
+ execute 'create view nothingsports_fixture_read_private.global_read_constructor with(security_invoker=true)as '||definition;
+ if md5(pg_get_viewdef('nothingsports_fixture_read_private.global_read_constructor'::regclass,true))<>'d7ce1167cde9c037c8f9da44c3d3d7e7'then
+  raise exception 'Derived constructor differs from reviewed definition';
+ end if;
+end $constructor$;
+revoke all on nothingsports_fixture_read_private.global_read_constructor from public,anon,authenticated;
+grant select on nothingsports_fixture_read_private.global_read_constructor to service_role;
+
 -- One full-value hash on install and opt-in read is real work, measured in
 -- qualification. Fixed-size inner hashes avoid ambiguous text concatenation.
 create function nothingsports_fixture_read_private.global_generation_witness(p json,v jsonb,d date,policy text,parser text,tz text,ds text,ref timestamptz,until_at timestamptz,installed timestamptz,gid uuid,slot smallint)returns bytea
@@ -166,6 +199,15 @@ language sql stable security invoker set search_path=pg_catalog,public as $fn$
  and(select bool_and(has_table_privilege(current_user,r,'SELECT'))from unnest(array['public.nothingsports_fixture_sources','public.nothingsports_fixture_current','public.nothingsports_live_scores','nothingsports_fixture_read_private.fixture_context','nothingsports_fixture_read_private.integrity_pending']::regclass[])r)
  and has_function_privilege(current_user,'public.nothingsports_fixture_observation_time(text)','EXECUTE')
  and md5(pg_get_viewdef('nothingsports_fixture_read_private.global_read_original'::regclass,true))='fbc28299a5bf25428b286adc5ee2e0da'
+ and md5(pg_get_viewdef('nothingsports_fixture_read_private.global_read_constructor'::regclass,true))='d7ce1167cde9c037c8f9da44c3d3d7e7'
+ and exists(select 1 from pg_class c where c.oid='nothingsports_fixture_read_private.global_read_constructor'::regclass
+  and c.relkind='v'and pg_get_userbyid(c.relowner)='postgres'and c.reloptions=array['security_invoker=true']
+  and has_table_privilege(current_user,c.oid,'SELECT')
+  and not exists(select 1 from aclexplode(coalesce(c.relacl,acldefault('r',c.relowner)))a where a.grantee<>c.relowner
+   and not(a.grantee=(select oid from pg_roles where rolname='service_role')and a.privilege_type='SELECT'and not a.is_grantable)))
+ and(select count(*)=4 and bool_and(a.attacl is null and not a.attisdropped and a.atttypid=e.typ)
+  from pg_attribute a left join(values(1,'json'::regtype),(2,'text'::regtype),(3,'boolean'::regtype),(4,'timestamptz'::regtype))e(num,typ)on e.num=a.attnum
+  where a.attrelid='nothingsports_fixture_read_private.global_read_constructor'::regclass and a.attnum>0)
  and md5(pg_get_functiondef('public.nothingsports_fixture_observation_time(text)'::regprocedure))='13842433b7af056a35c01e8b234ae3c9'
  and(select md5(pg_get_expr(d.adbin,d.adrelid))from pg_attrdef d join pg_attribute a on a.attrelid=d.adrelid and a.attnum=d.adnum where a.attrelid='public.nothingsports_fixture_current'::regclass and a.attname='global_fixture')='d7d2f883cba24dc54897fe44f9930365'
  and(select count(*)=2 and bool_and(tgenabled='O')from pg_trigger where tgrelid='nothingsports_fixture_read_private.global_read_generations'::regclass and tgname in('global_generation_install_only','global_generation_no_truncate'))
@@ -214,34 +256,9 @@ begin
  if current_policy is null or parser<>'13842433b7af056a35c01e8b234ae3c9'or exists(select 1 from nothingsports_fixture_read_private.integrity_pending)then return jsonb_build_object('state','deferred','reason','parser_or_pending');end if;
  if nothingsports_fixture_read_private.read_global_generation()is not null then return jsonb_build_object('state','unchanged');end if;
  -- ONE coherent statement snapshot for payload, full epoch vector and expiry.
- with built as materialized(select bundle from nothingsports_fixture_read_private.global_read_original),
- bundle_fields as materialized(
-  select f.key,f.value,f.ord
-  from built b cross join lateral json_each(case when json_typeof(b.bundle)='object'then b.bundle else null::json end)with ordinality f(key,value,ord)
- ),
- bound_keys as materialized(
-  select r->>'source_id' source_id,r->>'fixture_id' fixture_id
-  from json_array_elements((select value from bundle_fields where key='rows'order by ord desc limit 1))r
- ),
- source_receipts as materialized(
-  select src.source_id,src.discovery_report->'_fixtureObservations' receipts
-  from public.nothingsports_fixture_sources src
-  where exists(select 1 from bound_keys k where k.source_id=src.source_id)
- ),
- raw_values as materialized(
-  select unnest(array[s.score->>'scoreCheckedAt',c.global_fixture->>'scoreCheckedAt',s.score->>'statusCheckedAt',c.global_fixture->>'statusCheckedAt',
-    (r.receipts->c.fixture_id)->>'s',(r.receipts->c.fixture_id)->>'t'])value
-  from bound_keys k
-  join public.nothingsports_fixture_current c using(source_id,fixture_id)
-  join source_receipts r using(source_id)
-  left join public.nothingsports_live_scores s using(source_id,fixture_id)
- )
  select b.bundle,nothingsports_fixture_read_private.global_read_vector(),(statement_timestamp()at time zone 'Australia/Sydney')::date,
- least((((statement_timestamp()at time zone 'Australia/Sydney')::date+1)::timestamp at time zone 'Australia/Sydney'),
-  (select min(nothingsports_fixture_read_private.global_read_clock_transition(value))from(select distinct value from raw_values)d)),
- (select value#>>'{}'from bundle_fields where key='schemaVersion'order by ord desc limit 1),
- (select value#>>'{}'from bundle_fields where key='complete'order by ord desc limit 1)
- into payload,tokens,day,until_at,schema_text,complete_text from built b;
+ b.valid_until,b.schema_version,b.complete::text
+ into payload,tokens,day,until_at,schema_text,complete_text from nothingsports_fixture_read_private.global_read_constructor b;
  if tokens is null or schema_text<>'current-fixture-bundle.v1'or complete_text::boolean is not true then return jsonb_build_object('state','deferred','reason','incomplete');end if;
  if octet_length(payload::text)>16777216 then return jsonb_build_object('state','deferred','reason','payload_cap');end if;
  if clock_timestamp()>=began+p_budget_ms*interval '1 millisecond'then return jsonb_build_object('state','deferred','reason','budget');end if;

@@ -93,15 +93,19 @@ function projectionInputs(){
 // DB only, bind that view to one constructed JSON input and rebind JUST its
 // expected definition hash in the policy. All builder/guard/witness/cap/fence
 // code still executes; ROLLBACK restores the real definitions after every call.
-// The independent control is the exact pre-projection6e893 builder, not a second
-// hand-written implementation of the new projection.
+// Retain the historical 6e893 versus 1aada differential unchanged. Arbitrary
+// malformed JSON belonged to that former decode boundary. The new relational
+// constructor cannot emit those top-level shapes; its exact view-policy pin
+// rejects such edits instead (checked below with the actual current builder).
 async function projection({db,build,service}){
  let checks=0;
  const control=fs.readFileSync(__dirname+'/fixtures/global-generation-before-single-parse.sql','utf8');
  assert.equal(crypto.createHash('sha256').update(control).digest('hex'),'0a2d3dc625c8510734f52ceeb6ae011a2570f2b4d4a3d44114a674c328325f66');
+ const prior=fs.readFileSync(__dirname+'/fixtures/global-generation-before-shared-constructor.sql','utf8');
+ assert.equal(crypto.createHash('sha256').update(prior).digest('hex'),'0724aca05ce952c7306fee7985aca1c256c594dbefb4d04ece77312402df57d9');
  const originalPolicy=(await db.query("select pg_get_functiondef('nothingsports_fixture_read_private.global_generation_policy()'::regprocedure)d")).rows[0].d;
  const originalBuilder=(await db.query("select pg_get_functiondef('public.nothingsports_build_global_generation(integer)'::regprocedure)d")).rows[0].d;
- assert(originalBuilder.includes('bundle_fields AS MATERIALIZED')||originalBuilder.includes('bundle_fields as materialized'));
+ assert(originalBuilder.includes('global_read_constructor'));
  const cases=projectionInputs();
  async function outcome(input,tokenNull,old){
   await db.exec('begin');
@@ -112,7 +116,7 @@ async function projection({db,build,service}){
    const hash=(await db.query("select md5(pg_get_viewdef('nothingsports_fixture_read_private.global_read_original'::regclass,true))h")).rows[0].h;
    const pin="'fbc28299a5bf25428b286adc5ee2e0da'";assert.equal(originalPolicy.split(pin).length,2);
    await db.exec(originalPolicy.replace(pin,"'"+hash+"'"));
-   if(old)await db.exec(control.replace('create function ','create or replace function '));
+   await db.exec((old?control:prior).replace('create function ','create or replace function '));
    if(tokenNull)await db.exec('delete from nothingsports_fixture_read_private.global_read_epochs where source_id=(select source_id from nothingsports_fixture_read_private.global_read_epochs order by source_id limit 1)');
    assert(await service(async()=>(await db.query('select nothingsports_fixture_read_private.global_generation_policy()p')).rows[0].p),'Constructed view binding must admit the real builder');checks++;
    await db.exec('savepoint actual_build');let result;

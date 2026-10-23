@@ -240,3 +240,78 @@ pass, DEPLOY first performs one managed feasibility under its existing bounded
 apply/caller/inverse lifecycle. A miss stops before packet/full-capture rebinding.
 A pass still requires captured-data/storage/combined-release/repeated-hosted and
 physical gates before adoption. No packet3 or new framework is prepared here.
+
+## Shared constructor — source candidate, not managed acceptance
+
+The third managed feasibility on1aada returned HTTP500/57014 at7781.301ms,
+inside the coherent constructor SQL, before payload validation or INSERT. No
+snapshot read followed; exact inverse and baseline restoration completed. The
+older5776.969ms constructor attribution, the original fbc3796.298ms EXPLAIN
+execution (+111.232ms planning), and the14.023% expression pair are separate
+observations. They cannot be subtracted into per-node savings or treated as a
+managed deadline pass. The saved original plan has61180 shared hits and621 temp
+written blocks, with4679 current/score index loops each in clock_inputs and
+projected, but no node timings. Witness is not the measured cause of trial3.
+
+DEPLOY allocated one narrow implementation: preserve global_read_original as
+the exact fbc reference; derive global_read_constructor from that pinned SQL
+using exact unique prefix/suffix anchors. Only the outer output and the final
+aggregate's extra metadata change. The full original CTE body, json_build_object,
+row_to_json(projected.*) and aggregate order stay verbatim. Emit schema constant,
+count(*)<=5000 and expiry alongside the original payload. Expiry applies the
+unchanged transition helper to DISTINCT unnest(raw) from the existing
+clock_inputs; accepted parsed_clocks would incorrectly lose rejected future
+clocks. Empty and5001 response completeness comes from actual projected count.
+Builder reads that view and the full epoch vector/day in one coherent statement.
+It no longer serializes and reparses the whole response to recover keys, then
+rejoins fixtures/scores/source receipts solely for expiry. The resulting saving
+is unmeasured until DEPLOY's later qualification.
+
+Exactly one new private security_invoker view is added, SELECT only for the
+service role; owner, options, ACLs, column ACL/type contract and exact definition
+are policy-bound. Its definition is asserted at installation and inverse. The
+inverse drops it before its transition helper and restores the exact original
+public fbc. Owned-object limits are now4 relations (2 tables,2 views),9 functions,
+12 hooks. No new data source, schedule, preference, app flag or stored sporting
+fact is introduced. Public/default fbc, full witness/caps/fences/budgets remain.
+
+The previous197 live-builder regression checks remain; the359 historical
+projection checks retain both checksum-bound actual6e and1aada builders. Their
+arbitrary top-level JSON seam was removed from current construction, so those
+results are labelled historical, not passed off as exercising the new path.
+New direct-constructor checks cover exact whole output/independent scalar expiry
+at0/1/5000/5001 rows, aliases/zeroes and six fixture shapes. Existing generated
+projection rejects scalars with22023; existing fixture CHECK rejects arrays with
+23514; valid objects reach both canonical queries. New current-builder policy
+checks reject edited constructor definitions (including all26 historical JSON
+shapes under both vector states), invoker options, table/column grants and lost
+service access. No production policy pin is rebound in those new tests. Expected
+native suite count before the later budget regression is719, not a run claim.
+
+The small offline validator executes only the exact derived view and canonical
+reference, and compiles stored helper definitions with SQL body validation off
+where their LZ4 store is absent. It never executes a generation builder or full
+migration and never substitutes another codec. Actual complete native LZ4 suite,
+inverse/cleanup, managed feasibility and captured/repeated full-response gates
+remain DEPLOY work. No packet3 was rebound.
+
+Separate source finding: a budget-only overrun after INSERT currently returns
+deferred/invalidated_after_install without rollback or explicit invalidation.
+Read eligibility has no corresponding builder-budget bound. If the outer
+transaction commits, that generation could still be reused. Actual server
+cancellation and caller abort must be distinguished. An owned native test could
+use the existing controlled before-insert trigger seam to delay after admission
+and assert no late reusable install. DEPLOY subsequently allocated that
+correctness repair through a test-first native CI sequence. The same existing
+suite now contains two deterministic cases: preserve the prior latest generation,
+leave the next slot empty or occupied, change transaction-local DateStyle to
+require a cold build without source writes, then delay BEFORE INSERT by1.1s with
+a1000ms requested budget. Both fresh INSERT and ON CONFLICT must throw57014,
+restore full prior generation bytes/witness/manifest/epochs/facts, leave no late
+reusable generation in the new session, and retain the old last-good result in
+its original session. Savepoint/transaction rollback cleans the owned test state.
+The first frozen source deliberately retains old product behavior and is
+expected RED on actual native CI. No native run or product fix is claimed here;
+the minimum final expected assertion count after repair is732. The existing
+server-cancellation qualification remains a separate requirement. This concern
+blocks adoption, not source-level constructor comparison.

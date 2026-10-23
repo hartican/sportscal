@@ -24,9 +24,22 @@ do $storage$begin
   raise exception 'Generation payload storage differs from rollback preimage';
  end if;
 end $storage$;
+do $constructor$begin
+ if md5(pg_get_viewdef('nothingsports_fixture_read_private.global_read_constructor'::regclass,true))is distinct from 'd7ce1167cde9c037c8f9da44c3d3d7e7'
+ or not exists(select 1 from pg_class c where c.oid='nothingsports_fixture_read_private.global_read_constructor'::regclass
+  and c.relkind='v'and pg_get_userbyid(c.relowner)='postgres'and c.reloptions=array['security_invoker=true']
+  and has_table_privilege('service_role',c.oid,'SELECT')
+  and not exists(select 1 from aclexplode(coalesce(c.relacl,acldefault('r',c.relowner)))a where a.grantee<>c.relowner
+   and not(a.grantee=(select oid from pg_roles where rolname='service_role')and a.privilege_type='SELECT'and not a.is_grantable)))
+ or(select count(*)<>4 or not bool_and(a.attacl is null and not a.attisdropped and a.atttypid=e.typ)
+  from pg_attribute a left join(values(1,'json'::regtype),(2,'text'::regtype),(3,'boolean'::regtype),(4,'timestamptz'::regtype))e(num,typ)on e.num=a.attnum
+  where a.attrelid='nothingsports_fixture_read_private.global_read_constructor'::regclass and a.attnum>0) then
+  raise exception 'Shared constructor differs from rollback preimage';
+ end if;
+end $constructor$;
 do $helpers$begin
- if md5(pg_get_functiondef('nothingsports_build_global_generation(integer)'::regprocedure))is distinct from '769f0499ac6f53002c1cfb675964b849'then raise exception 'Generation helper differs from rollback preimage';end if;
- if md5(pg_get_functiondef('nothingsports_fixture_read_private.global_generation_policy()'::regprocedure))is distinct from '9b439b7d99dfce367629db2d3b8c5ba2'then raise exception 'Generation helper differs from rollback preimage';end if;
+ if md5(pg_get_functiondef('nothingsports_build_global_generation(integer)'::regprocedure))is distinct from 'd72418e144a91d426cbad0903ffddc2c'then raise exception 'Generation helper differs from rollback preimage';end if;
+ if md5(pg_get_functiondef('nothingsports_fixture_read_private.global_generation_policy()'::regprocedure))is distinct from '0434c4b4220c73a1a9130c85843f29bf'then raise exception 'Generation helper differs from rollback preimage';end if;
  if md5(pg_get_functiondef('nothingsports_fixture_read_private.global_generation_witness(json,jsonb,date,text,text,text,text,timestamp with time zone,timestamp with time zone,timestamp with time zone,uuid,smallint)'::regprocedure))is distinct from 'f45ebe22e2302d5b9c2b0925ff2903b6'then raise exception 'Generation helper differs from rollback preimage';end if;
  if md5(pg_get_functiondef('nothingsports_fixture_read_private.global_read_clock_transition(text)'::regprocedure))is distinct from '088402cb9bb52556dc4c869d50b0ca58'then raise exception 'Generation helper differs from rollback preimage';end if;
  if md5(pg_get_functiondef('nothingsports_fixture_read_private.global_read_epoch_changed()'::regprocedure))is distinct from 'fd9f65c43bda452ede089f21a8cfbad7'then raise exception 'Generation helper differs from rollback preimage';end if;
@@ -209,6 +222,7 @@ drop trigger global_generation_no_truncate on nothingsports_fixture_read_private
 drop function public.nothingsports_build_global_generation(integer);
 drop function nothingsports_fixture_read_private.read_global_generation();
 drop function nothingsports_fixture_read_private.global_generation_policy();
+drop view nothingsports_fixture_read_private.global_read_constructor;
 drop function nothingsports_fixture_read_private.guard_global_generation_write();
 drop function nothingsports_fixture_read_private.global_generation_witness(json,jsonb,date,text,text,text,text,timestamptz,timestamptz,timestamptz,uuid,smallint);
 drop function nothingsports_fixture_read_private.global_read_clock_transition(text);

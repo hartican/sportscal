@@ -1992,3 +1992,33 @@ under DEPLOY alone. Failure stops; success still does not waive full captured,
 storage, normal release, repeated hosted or physical gates. Source handoff comes
 before exact CI; packet3 rebinding is deferred until needed. See the
 [scoped record](quality/global-read-generation-2026-10-24.md).
+
+### 24 October 2026 — shared constructor candidate, still default OFF
+
+After exact-source native CI passed but the third managed feasibility stopped
+with57014 inside the coherent constructor (before validation/INSERT), DEPLOY
+allocated one source change. Derive a private expanded constructor from the
+exact pinned original fbc view through fail-closed output anchors. Preserve its
+complete CTE body, JSON construction, row record and aggregate ordering. Emit
+expiry from the existing distinct six raw clock inputs and completeness from the
+actual projected count alongside the unchanged payload, in the same statement.
+Do not decode the completed response or gather those clocks again. The public
+default/reference, whole-value witness,16MiB cap, epochs, source/session/time
+fences, permissions, budgets and existing owner/default OFF remain unchanged.
+
+The one additional private invoker view is definition/ACL/column/policy/inverse
+bound; all owned objects must be removed on rollback. Old malformed-JSON decode
+tests remain as historical6e/1aada differential controls; new actual constructor
+tests compare full canonical payload/expiry and reject edited view definitions
+or permissions. Offline checks do not establish LZ4/native/managed performance.
+No packet3, provider read, main publication or deployment is authorised here.
+
+Separately, the existing post-INSERT soft-budget response can defer without
+rolling back the new generation. Actual outer-statement cancellation rolls back;
+caller abort alone does not prove it. No-late-reusable-install proof under soft
+budget overrun and actual caller abort remains a distinct adoption gate. This
+constructor change does not silently repair or waive it. DEPLOY then allocated
+the minimal budget rollback repair with a deterministic INSERT/UPSERT regression
+in the existing owned native suite. Freeze constructor+test with old behavior
+first; DEPLOY verifies native RED before the scoped fix and native GREEN. No
+managed experiment runs on the deliberately failing source.

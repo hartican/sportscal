@@ -122,6 +122,9 @@ async function run(){
  const receiptChecks=await extra.receipts({db,build,equal,today});checks+=receiptChecks;
  const codecChecks=await extra.codec({db,build,equal,today});checks+=codecChecks;
  const projection=await extra.projection({db,build,service});checks+=projection.checks;
+ const constructorChecks=await require('./global-read-constructor-regressions').constructor({db,service});checks+=constructorChecks.checks;
+ const constructorPolicyChecks=await require('./global-read-constructor-regressions').policy({db,build,cached,service});checks+=constructorPolicyChecks;
+ const budgetRollbackChecks=await require('./global-read-constructor-regressions').budgetRollback({db,build,cached});checks+=budgetRollbackChecks;
  // Actual existing canonical compact publisher under its eight-second budget.
  const token='00000000-0000-4000-8000-000000000088';const fixtures=Array.from({length:959},(_,i)=>({id:'write:'+i,key:'rugby',date:today,status:'scheduled',homeTeamId:'home:'+i,awayTeamId:'away:'+i}));
  await db.query('select * from public.nothingsports_claim_fixture_source($1,$2)',['generation-budget',token]);const started=performance.now();
@@ -133,7 +136,7 @@ async function run(){
  await db.exec('begin;'+inverse()+'commit');assert.equal((await db.query("select md5(pg_get_viewdef('public.nothingsports_current_global_fixture_bundle'::regclass,true))h")).rows[0].h,'fbc28299a5bf25428b286adc5ee2e0da');assert.equal((await db.query("select md5(string_agg(row_to_json(c)::text,''order by source_id,fixture_id))h from public.nothingsports_fixture_current c")).rows[0].h,facts);checks++;
  const restored=(await db.query("select jsonb_object_agg(p.oid::text,jsonb_build_object('def',pg_get_functiondef(p.oid),'acl',p.proacl::text))v from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname in('public','nothingsports_fixture_read_private')")).rows[0].v;assert.deepEqual(restored,oldFunctions);checks++;
  await db.exec('begin;'+forward+'commit');await equal();checks++;
- console.log(JSON.stringify({schemaVersion:'global-generation-constructed.v1',major,engine:db.engine||{kind:'pglite',major,lz4:false},checks,receiptChecks,codecChecks,projectionChecks:projection.checks,projectionCases:projection.cases,projectionComparisons:projection.comparisons,canonicalPublishFixtures:959,canonicalPublishMs:publishMs,canonicalPublishBudgetMs:8000,logicalSlots:2,perPayloadCap:16777216,defaultOff:true,constructedOnly:true,captureReplays:0,...require('./global-generation-native-test-db').executionReport(native),productionCalls:0,physicalStorageOrWalBoundProven:false}));
+ console.log(JSON.stringify({schemaVersion:'global-generation-constructed.v1',major,engine:db.engine||{kind:'pglite',major,lz4:false},checks,receiptChecks,codecChecks,projectionChecks:projection.checks,projectionCases:projection.cases,projectionComparisons:projection.comparisons,historicalProjectionControls:true,constructorChecks:constructorChecks.checks,constructorPolicyChecks,budgetRollbackChecks,canonicalPublishFixtures:959,canonicalPublishMs:publishMs,canonicalPublishBudgetMs:8000,logicalSlots:2,perPayloadCap:16777216,defaultOff:true,constructedOnly:true,captureReplays:0,...require('./global-generation-native-test-db').executionReport(native),productionCalls:0,physicalStorageOrWalBoundProven:false}));
  }finally{await db.close();}
 }
 if(require.main===module)run().catch(e=>{console.error(e.stack);process.exitCode=1});module.exports={run};
