@@ -1935,3 +1935,19 @@ Numeric score slots, calendar corrections and updated descriptions cannot renew 
 The existing result-template preparer and selector now share one pure branch generator. Current fixture details must match before an automatic result branch can be selected or retained at publication. Only copy proven to depend on an outdated generated branch is reset through the existing protected storyline rule; authored preview sections/research dates and separately reviewed current recaps keep their existing lifecycle protections. This corrects the official makeup-game label without re-researching its dated preview. No additional collector, writer, service, scheduler, database or customer action is introduced.
 
 Live rechecks remain distinct: an equal live score keeps its first fact observation while the actual score/status contact receipts advance. This preserves the existing freshness qualification without adding polling or extending any deadline. The constructed zero–zero regression covers merging and persistence into canonical data and both Feed files.
+
+## 24 October 2026 — qualify admission in the existing server decoder
+
+DEPLOY approved an isolated `admission-v1` service-only envelope on the existing
+private global view, moving dynamic calendar admission and reconstruction to the
+existing Node component decoder. Read every compact input before admission and
+the original 5001 overflow sentinel; preserve SQL-owned timestamp parsing, JSONB
+text conversion, statement/date bounds, context/raw fallback and SQL ordering.
+Keep legacy responses and view-only undo compatible, two resources, six-second
+global total and all scoped/reminder/dispatcher budgets. Only global row-wire
+uses an optional trusted 64 MiB pre-parse UTF-8 ceiling; `text()` still buffers.
+No table, cache/generation, writer, source call, scheduler or retry is added.
+The closed 1.345% clock-component trial and all earlier candidates stay closed.
+Require both constructed PG engines, full captured consumer equality, original-
+path byte equality and substantial complete-cost improvement before any root-allocated live trial.
+Implementation is not activation or release. [Scope and gates](quality/global-admission-components-2026-10-24.md).
