@@ -355,13 +355,13 @@
     return writePreferenceSync(storage,latest,entries.map(entry=>entry===current?continued:entry));
   }
 
-  // These local profile pointers and prompt counters do not express a user's
+  // These local profile pointers, seed marker and prompt counters do not express a user's
   // choices. Keep every unknown field and deliberate preference in comparison.
   function preferenceDecisions(preferences){
     if(!preferences||typeof preferences!=="object")return preferences;
     const result=clone(preferences),graph=result.preferenceGraph;
     for(const [record,keys] of [
-      [graph,["profileId","updatedAt"]],
+      [graph,["profileId","updatedAt"]],[result.followFirst,["appliedSeedHash"]],
       [graph?.viewing,["profileId"]],[graph?.learning,["profileId"]],
       [result.followFirst?.refinement,["distinctOpenCount","lastOpenId","firstSwipeAt","promptedAt"]],
       [result.ratingPromptState,["sessionCount","lastSessionId"]],

@@ -54,3 +54,5 @@ assert.equal(continued.preferences.theme, 'night');
 assert.equal(continued.preferences.preferenceGraph.entityFollows[0].followLevel, 'unfollow');
 assert.equal(continued.basePreferences.preferenceGraph.profileId, 'local-B', 'only the owned ACK advances the newer receipt to the acknowledged base');
 console.log('Preference bookkeeping: compatible metadata, exact unfollow ACK, eight real-choice holds and immutable in-flight baseline passed.');
+
+require('./lib/user-state-seed-marker-tests')().catch(error=>{console.error(error);process.exitCode=1;});
