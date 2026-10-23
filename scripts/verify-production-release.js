@@ -30,7 +30,16 @@ async function main(){
     await encodedResponse.body?.cancel();
     internalSources.push({file,status:response.status,code:body.code,cacheControl:response.headers.get('cache-control'),encodedStatus:encodedResponse.status});
   }
-  const report={checkedAt:new Date().toISOString(),sha,deployment:v.summary(live),aliases,checks,unauthenticated:401,internalSources};
+  const runtimeEvidence=[];
+  for(const file of require('./seal-deployment-output').runtimeEvidenceFiles){
+    for(const pathname of [file,'%73'+file.slice(1)]){
+      const response=await fetch(`https://nothingsport.vercel.app/${pathname}?verify=${sha}`,{cache:'no-store',signal:AbortSignal.timeout(15000)});
+      if(response.status!==404)throw new Error(`Frozen runtime evidence must remain server-only: ${file} (${response.status})`);
+      await response.body?.cancel();
+    }
+    runtimeEvidence.push({file,status:404,encodedStatus:404});
+  }
+  const report={checkedAt:new Date().toISOString(),sha,deployment:v.summary(live),aliases,checks,unauthenticated:401,internalSources,runtimeEvidence};
   if(process.env.NS_DEPLOY_REPORT_DIR){fs.mkdirSync(process.env.NS_DEPLOY_REPORT_DIR,{recursive:true});fs.writeFileSync(path.join(process.env.NS_DEPLOY_REPORT_DIR,'production-verification.json'),JSON.stringify(report,null,2));}
   console.log(JSON.stringify(report,null,2));
 }

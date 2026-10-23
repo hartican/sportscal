@@ -22,4 +22,22 @@ const catalogue=require(path.join(root,'lib/calendar-catalogue')).catalogue();
 assert(catalogue.length>500,'Staged catalogue lost coverage');
 require(path.join(root,'lib/live-source-adapters'));
 for(const file of fs.readdirSync(path.join(root,'api')).filter(name=>name.endsWith('.js')))require(path.join(root,'api',file));
-console.log(`Deployment package verified: ${inventory.files.length} files, ${inventory.bytes} bytes, ${catalogue.length} catalogue events`);
+// Requiring an API alone does not exercise its lazy published catalogue. Run
+// the actual public route against the staged files, with all remote reads denied.
+async function validateFixtureRoute(){
+  const originalFetch=globalThis.fetch;let reads=0;
+  globalThis.fetch=async()=>{throw Error('Staged fixture validation must remain offline');};
+  try{
+    const handler=require(path.join(root,'lib/live-fixture-handler')).createLiveFixtureHandler({
+      environment:{},read:async()=>{reads++;return {sources:[],revision:'staged-published-only',readAt:Date.now(),stale:true};}
+    });
+    const response={setHeader(){},status(code){this.code=code;return this;},json(body){this.body=body;return this;}};
+    await handler({method:'GET',url:'/api/fixtures?athlete=competitor:tennis:atp:alex-de-minaur',headers:{}},response);
+    assert.equal(response.code,200,'Staged public fixtures must load their complete published catalogue');
+    assert.equal(response.body.schemaVersion,'athlete-participation-live.v1');
+    assert.equal(response.body.stale,true,'The offline read cannot claim live freshness');
+    assert(Array.isArray(response.body.history));assert.equal(reads,1);
+    console.log(`Deployment package verified: ${inventory.files.length} files, ${inventory.bytes} bytes, ${catalogue.length} catalogue events; real offline public fixture route passed`);
+  }finally{globalThis.fetch=originalFetch;}
+}
+validateFixtureRoute().catch(error=>{console.error(error);process.exitCode=1;});
