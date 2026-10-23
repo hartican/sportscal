@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Same-owner Follow deltas reuse the current save path — 22 October 2026
+
+The current entity-follow patch may carry its known previous list through the existing optional comparison metadata, then merge only that list's changed identities and fields against the latest authenticated same-owner state. Reuse the existing canonical identity function, SDK, conditional version check, queue, profile bundle and intent receipt. No database migration, endpoint, request, polling, retry, scheduler, storage key, privilege or state-size budget is added. Keep explicit empty/OFF, unrelated remote choices, missing-baseline safety, ambiguity refusal, owner/generation isolation and changed-base pending safeguards. Both existing required cross-device and server-persistence gates cover the actual path. Local source is not historical recovery, hosted acknowledgement or phone acceptance; see [scope](quality/follow-sync-known-deltas-2026-10-22.md).
+
 ## Coalesce canonical context after final facts — 23 October 2026
 
 Prepared for integration; production adoption is not yet established. Keep the existing canonical refresh owner, source lease, compatible public invoker RPCs and direct-write integrity owner. During one compact publication, collect actual changed fixture/score identities and derive their context once from final facts; a true no-op derives nothing. Explicit full-replacement and compact/token prerequisites are part of this module. Two private service-only complete-publication functions use fixed empty search paths and validate the source lease. Only the existing protected pending row holds source/transaction/backend markers; service clients gain no marker write privilege or independent begin/end API. Existing direct writes, key-move refusal, raw pending fallback and deferred completeness enforcement remain.

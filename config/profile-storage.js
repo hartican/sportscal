@@ -98,10 +98,7 @@
   function canonicalValue(value){
     if (Array.isArray(value)) return value.map(canonicalValue);
     if (!value || typeof value !== "object") return value;
-    return Object.keys(value).sort().reduce((result, key) => {
-      result[key] = canonicalValue(value[key]);
-      return result;
-    }, {});
+    return Object.fromEntries(Object.keys(value).sort().map(key => [key, canonicalValue(value[key])]));
   }
 
   function sameBundleState(first, second){
