@@ -11,6 +11,7 @@ const expiryOracle=`with built as materialized(select bundle from ${ORIGINAL}),r
  select least((((statement_timestamp()at time zone 'Australia/Sydney')::date+1)::timestamp at time zone 'Australia/Sydney'),(select min(nothingsports_fixture_read_private.global_read_clock_transition(value))from(select distinct value from raw_values)d))`;
 async function constructor({db,service=fn=>fn()}){
  let checks=0;
+ const mark=(phase,state,detail={})=>console.log(JSON.stringify({schemaVersion:'global-generation-constructor-phase.v1',phase,state,...detail,constructedOnly:true}));
  const original=(await db.query(`select pg_get_viewdef('${ORIGINAL}'::regclass,true)d`)).rows[0].d;
  const expanded=(await db.query(`select pg_get_viewdef('${CONSTRUCTOR}'::regclass,true)d`)).rows[0].d;
  assert(!expanded.includes('json_array_elements')&&!expanded.includes('json_each'),'No decode of full response in expanded constructor');checks++;
@@ -18,28 +19,44 @@ async function constructor({db,service=fn=>fn()}){
  // json_build_object/row_to_json/order expression must remain identical.
  const start=original.indexOf('WITH calendar_windows'),end=original.indexOf(' AS json_build_object\n');
  assert(start>0&&end>start);assert(expanded.includes(original.slice(start,end)));checks++;
+ const settings=(await db.query("select jsonb_object_agg(name,setting order by name)v from pg_settings where name=any(array['statement_timeout','lock_timeout','jit','work_mem','default_statistics_target','plan_cache_mode','max_parallel_workers_per_gather'])")).rows[0].v;
+ mark('settings','observed',{engine:db.engine?.kind||'pglite',settings});
  await db.exec('begin');
  try{
+  mark('setup','begin',{caseSize:0});
   await db.exec('delete from public.nothingsports_fixture_sources');
   const today=(await db.query("select(statement_timestamp()at time zone 'Australia/Sydney')::date::text d")).rows[0].d;
   await db.exec("insert into public.nothingsports_fixture_sources(source_id)values('constructor-contract')");
   let existing=0;
   for(const size of [0,1,5000,5001]){
-   if(size>existing)await db.query(`insert into public.nothingsports_fixture_current(source_id,fixture_id,identity_keys,fixture,content_hash)
-    select 'constructor-contract',i::text,array['alias:'||i::text,i::text],jsonb_build_object('id',i::text,'date',$1::text,'status','scheduled','homeScore',0,'awayScore',0),i::text from generate_series($2::int,$3::int)i`,[today,existing+1,size]);
+   // Fixture preparation only, in this SAME transaction with every real
+   // constraint/context/token trigger enabled. The bulk synthetic INSERT
+   // exceeded the unchanged native 6s statement limit before any read. Fixed
+   // 100-row setup statements retain the complete 5000/5001 boundary cases.
+   for(let first=existing+1;first<=size;first+=100){
+    const last=Math.min(first+99,size);mark('setup-batch','begin',{caseSize:size,first,last});
+    await db.query(`insert into public.nothingsports_fixture_current(source_id,fixture_id,identity_keys,fixture,content_hash)
+     select 'constructor-contract',i::text,array['alias:'||i::text,i::text],jsonb_build_object('id',i::text,'date',$1::text,'status','scheduled','homeScore',0,'awayScore',0),i::text from generate_series($2::int,$3::int)i`,[today,first,last]);
+    mark('setup-batch','complete',{caseSize:size,first,last});
+   }
    existing=size;
+   mark('setup','complete',{caseSize:size});mark('constructor-comparison','begin',{caseSize:size});
    const row=await service(async()=>(await db.query(`select b.bundle::text actual,(select bundle::text from ${ORIGINAL})expected,
     b.schema_version schema,b.complete,b.valid_until::text expiry,(${expiryOracle})::text expected_expiry from ${CONSTRUCTOR} b`)).rows[0]);
    assert.equal(row.actual,row.expected,'Exact canonical payload at '+size);checks++;
    assert.equal(row.schema,'current-fixture-bundle.v1');assert.equal(row.complete,size<=5000);checks+=2;
    assert.equal(JSON.parse(row.actual).rows.length,size);assert.equal(JSON.parse(row.actual).complete,row.complete);checks+=2;
    assert.equal(row.expiry,row.expected_expiry,'Independent raw-clock expiry at '+size);checks++;
+   mark('constructor-comparison','complete',{caseSize:size});
   }
   // Exercise the real canonical boundary. Scalars fail generated projection
   // (22023); arrays fail the existing object CHECK (23514). Valid objects reach
   // the constructor. Do not claim malformed rows bypass those original guards.
+  mark('shape-reset','begin',{caseSize:existing});
   await db.exec("delete from public.nothingsports_fixture_current where fixture_id<>'1'");
+  mark('shape-reset','complete',{caseSize:1});
   for(const shape of [null,7,[],['x'],{}, {id:'1',date:today,status:'live',homeScore:0,awayScore:0,scoreCheckedAt:'bad',statusCheckedAt:'2026-02-30T00:00:00Z'}]){
+   mark('shape-setup','begin',{shape});
    await db.exec('savepoint shape_input');
    try{
     await db.query("update public.nothingsports_fixture_current set fixture=$1::jsonb where fixture_id='1'",[JSON.stringify(shape)]);
@@ -50,8 +67,10 @@ async function constructor({db,service=fn=>fn()}){
     assert.equal(error.code,Array.isArray(shape)?'23514':'22023','Unchanged canonical guards reject nonobject input');checks++;
     await db.exec('rollback to shape_input');
    }
+   mark('shape-setup','complete',{shape});mark('shape-comparison','begin',{shape});
    const row=await service(async()=>(await db.query(`select b.bundle::text actual,(select bundle::text from ${ORIGINAL})expected,b.valid_until::text expiry,(${expiryOracle})::text expected_expiry from ${CONSTRUCTOR} b`)).rows[0]);
    assert.equal(row.actual,row.expected,'Reachable canonical fixture/score shape '+JSON.stringify(shape));assert.equal(row.expiry,row.expected_expiry);checks+=2;
+   mark('shape-comparison','complete',{shape});
   }
  }finally{await db.exec('rollback');}
  return {checks,boundaryCases:4,fixtureShapes:6};
