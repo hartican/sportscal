@@ -77,7 +77,26 @@ module.exports=async function seedMarkerTests(){
   }
   results.push({kind,passed:true,reads:c.calls.reads,writes:c.calls.writes});
  }
- console.log('Seed-marker sync: actual metadata hydration/API, pending unfollow/empty/OFF ACK and six genuine-choice/unknown/CAS holds and two owner/generation controls passed.');
+ const hash='ff_11111111',other='ff_22222222';
+ for(const [kind,before,after,expected,noOp] of [
+  ['missing-followFirst',null,{startupMeta:{seedHash:hash},appliedSeedHash:hash},hash],
+  ['absent-marker',{startupMeta:{seedHash:hash}},{startupMeta:{seedHash:hash},appliedSeedHash:null},null],
+  ['legacy-no-seed',{appliedSeedHash:'legacy-old'},{appliedSeedHash:'legacy-new'},'legacy-new'],
+  ['unknown-seed-shape',{startupMeta:{seedHash:'future-format'},appliedSeedHash:'old'},{startupMeta:{seedHash:'future-format'},appliedSeedHash:'new'},'new'],
+  ['changed-metadata',{startupMeta:{seedHash:hash},appliedSeedHash:hash},{startupMeta:{seedHash:other},appliedSeedHash:null},null],
+  ['valid-new-marker',{startupMeta:{seedHash:hash},appliedSeedHash:null},{startupMeta:{seedHash:hash},appliedSeedHash:hash},hash],
+  ['marker-no-op',{startupMeta:{seedHash:hash},appliedSeedHash:hash},{startupMeta:{seedHash:hash},appliedSeedHash:null},hash,true],
+  ['unknown-field-retained',{startupMeta:{seedHash:hash},appliedSeedHash:hash,futureChoice:'before'},{startupMeta:{seedHash:hash},appliedSeedHash:null,futureChoice:'after'},hash],
+ ]){
+  const api=localApi('A');api.seed({preferences:before?{followFirst:before}:{}});
+  const initial=api.state(),next={...clone(initial),preferences:{...initial.preferences,followFirst:after}};
+  const result=await api.handle({method:'PUT',url:'/api/user-state',headers:{},body:{patch:patches.createPatch(initial,next,{baseUpdatedAt:initial.updatedAt})}});
+  assert.equal(result.status,200,kind);assert.equal(api.state().preferences.followFirst.appliedSeedHash,expected,kind);
+  if(noOp)assert.equal(api.state().updatedAt,initial.updatedAt,'marker-only stale patch preserves the original no-op timestamp');
+  if(kind==='unknown-field-retained')assert.equal(api.state().preferences.followFirst.futureChoice,'after');
+  results.push({kind,passed:true});
+ }
+ console.log('Seed-marker sync: actual metadata hydration/API, pending unfollow/empty/OFF ACK and six genuine-choice/unknown/CAS holds and two owner/generation controls, plus eight API marker-shape/no-op controls passed.');
  return results;
 };
 if(require.main===module)module.exports().catch(error=>{console.error(error);process.exitCode=1;});

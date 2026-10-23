@@ -198,9 +198,11 @@ module.exports = async function userStateHandler(request, response){
     // current marker when the metadata is unchanged; a valid new seed still
     // records its own completion. This does not merge any preference choice.
     const priorFollow=priorState.preferences?.followFirst,nextFollow=merged.preferences?.followFirst;
-    if(priorFollow&&nextFollow&&Object.hasOwn(priorFollow,'appliedSeedHash')
-      &&priorFollow.startupMeta?.seedHash===nextFollow.startupMeta?.seedHash
-      &&nextFollow.appliedSeedHash!==nextFollow.startupMeta?.seedHash){
+    const seedHash=priorFollow?.startupMeta?.seedHash;
+    if(typeof seedHash==='string'&&/^ff_[0-9a-f]{8}$/.test(seedHash)
+      &&nextFollow&&Object.hasOwn(priorFollow,'appliedSeedHash')
+      &&seedHash===nextFollow.startupMeta?.seedHash
+      &&nextFollow.appliedSeedHash!==seedHash){
       nextFollow.appliedSeedHash=priorFollow.appliedSeedHash;
     }
     require('../lib/horse-follow-rollout').preserveHorseRollout(priorState,patch,merged);
