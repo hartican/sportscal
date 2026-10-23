@@ -1935,3 +1935,23 @@ Numeric score slots, calendar corrections and updated descriptions cannot renew 
 The existing result-template preparer and selector now share one pure branch generator. Current fixture details must match before an automatic result branch can be selected or retained at publication. Only copy proven to depend on an outdated generated branch is reset through the existing protected storyline rule; authored preview sections/research dates and separately reviewed current recaps keep their existing lifecycle protections. This corrects the official makeup-game label without re-researching its dated preview. No additional collector, writer, service, scheduler, database or customer action is introduced.
 
 Live rechecks remain distinct: an equal live score keeps its first fact observation while the actual score/status contact receipts advance. This preserves the existing freshness qualification without adding polling or extending any deadline. The constructed zero–zero regression covers merging and persistence into canonical data and both Feed files.
+
+## 24 October 2026 — shadow whole-response generation candidate
+
+DEPLOY authorised an isolated default-OFF coarse generation after PR34's measured
+45.7% regression; PR34 and all earlier per-fixture/cache/component trials remain
+closed. This stores complete original fbc JSON in two bounded private slots,
+with per-source non-reusing transaction-coalesced epochs and live vector/day/
+policy/permission/session/parser-expiry fencing on every opt-in read. Missing,
+dirty or expired means exact original fallback in the same6s/two resources.
+The original source-health/freshness and all account/Results choices remain.
+One optional builder runs only after the existing refresh owner's two workers,
+using remaining45s, never reserving source budget or building inside8s publishes,
+dispatcher/UI reads/new jobs. Default flag stays OFF. Typed JSON16MiB/slot bounds
+payload, not physical TOAST/WAL allocation; up to720attempts/day may increase
+cost for a small cohort. Require total duty-cycle/growth and dirty/cold/fallback
+qualification, not only hot speed. Statement-clock/reference lower bounds preserve
+original temporal interpretation. Install-only guards and a whole-payload/manifest
+witness reject cache edits; read-time hashing is charged in qualification.
+No source/clock/scheduler/subscription change.
+[Scope, invalidation, rollback and proof limits](quality/global-read-generation-2026-10-24.md).
