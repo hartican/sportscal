@@ -2,6 +2,8 @@
 // Dev-only adapter for this module's unchanged disposable-database interface.
 // No URL, inherited PG target, TLS, remote host, existing app DB or auto-start.
 const assert=require('node:assert/strict'),crypto=require('node:crypto');
+// Database comments are cluster-shared; obj_description reads the wrong catalog.
+const OWNED_DATABASE_MARKER_SQL="select shobj_description(oid,'pg_database') marker from pg_database where datname=$1";
 function options(env=process.env){
  assert.equal(env.NS_GENERATION_TEST_OWNED,'disposable-loopback-only');
  const major=Number(env.NS_GENERATION_TEST_MAJOR),port=Number(env.NS_GENERATION_TEST_PORT);
@@ -18,7 +20,7 @@ async function database(env=process.env){
  async function close(){
   if(closed)return;closed=true;
   try{if(client)await client.end();}finally{
-   try{if(created){const r=await admin.query('select obj_description(oid,\'pg_database\') marker from pg_database where datname=$1',[name]);assert.equal(r.rows[0]?.marker,marker,'Owned DB marker changed; refuse drop');await admin.query('drop database '+name);created=false;}}finally{await admin.end();}
+   try{if(created){const r=await admin.query(OWNED_DATABASE_MARKER_SQL,[name]);assert.equal(r.rows[0]?.marker,marker,'Owned DB marker changed; refuse drop');await admin.query('drop database '+name);created=false;}}finally{await admin.end();}
   }
  }
  try{
@@ -38,4 +40,4 @@ async function database(env=process.env){
  }catch(e){try{await close();}catch(cleanup){e.cleanupError=cleanup.message;}throw e;}
 }
 function executionReport(native){return {nativeCalls:native?null:0,nativeExecution:native?'owned-test-loopback':'none'};}
-module.exports={options,database,executionReport};
+module.exports={options,database,executionReport,OWNED_DATABASE_MARKER_SQL};
