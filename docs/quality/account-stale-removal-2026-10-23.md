@@ -1,6 +1,6 @@
 # Follow removal after another device signs in
 
-Base: accepted/main `65af3bdc84ba9f4fda79bc12ce6d5dc8233aeb6a`, shell 586. This is the bounded follow-up to PR31's still-open hosted acceptance, returned to the original account worker by DEPLOY. Work remains isolated; DEPLOY alone owns integration, publication, hosted allocation and production acceptance. No loading/provider work belongs to this repair.
+Base: live main `65af3bdc84ba9f4fda79bc12ce6d5dc8233aeb6a`, shell 586, whose additional hosted acceptance remains open. This is the bounded follow-up to PR31's still-open hosted acceptance, returned to the original account worker by DEPLOY. Work remains isolated; DEPLOY alone owns integration, publication, hosted allocation and production acceptance. No loading/provider work belongs to this repair.
 
 ## Causal local reproduction
 
