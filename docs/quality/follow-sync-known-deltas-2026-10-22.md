@@ -73,3 +73,7 @@ browser and fresh hosted-data gate. Controlled actual-device/two-device evidence
 and the incident's historical recovery remain separate unfinished requirements.
 
 Evidence: `/Users/jackhartican/Documents/AI/Codex/nothingsport-follow-recovery-planning-20261022/`.
+
+## Accepted-base integration — 23 October
+
+The five reviewed source paths remain byte-identical to07cace517df10d0f1c8311abad44ce5c111adec7. Shell585 is rebuilt from accepted Cricket584/d567ac0f. Ten focused checks passed; the combined initial critical-download check failed by47bytes. A duplicate explanatory comment in the delivered HTML was consolidated without changing executable code, retaining the full decision record. The unchanged performance gate now passes at431440gzipbytes against431441ceiling. Exploratory compiler/source changes were not adopted. Full normal and current installed/hosted acceptance remain pending; draft PR30 is Working, not Ready.

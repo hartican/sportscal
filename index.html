@@ -5316,8 +5316,7 @@ async function bootstrapServerPersistence({ session: sessionHint = undefined, ch
         : ownedState;
       applyServerState(hydratedState);
       setServerStateBaseline(result.state);
-      // This local startup snapshot is consumed once this account is applied.
-      // A delayed metadata read must not carry its hydration into another account.
+      // Fence account switches before optional metadata.
       startupSessionStateBaseline = null;
       setServerPersistence({
         state: "signedIn",
