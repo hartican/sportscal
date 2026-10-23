@@ -1,7 +1,7 @@
 'use strict';
 // Constructed, disposable PostgreSQL only. Call through the real invoker builder.
 // No provider facts, clock overrides, production transport or timing claims.
-const assert=require('node:assert/strict');
+const assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto');
 const GEN='nothingsports_fixture_read_private.global_read_generations';
 async function receipts({db,build,equal,today}){
  let checks=0;
@@ -71,4 +71,75 @@ async function codec({db,build,equal,today}){
  await db.query('delete from public.nothingsports_fixture_sources where source_id=$1',[sid]);
  return checks;
 }
-module.exports={receipts,codec};
+function projectionInputs(){
+ return [null,'null','[]','true','42','"text"','{}','{"rows":null}','{"rows":{}}','{"rows":"x"}','{"rows":42}','{"rows":[]}',
+  '{"schemaVersion":"current-fixture-bundle.v1","complete":true,"rows":[]}',
+  '{"schemaVersion":"current-fixture-bundle.v1","complete":"true","rows":[{"source_id":"s","fixture_id":"01"},null,42,[1],{"source_id":0,"fixture_id":null}]}',
+  '{"schemaVersion":null,"complete":true,"rows":[]}',
+  '{"schemaVersion":"wrong","complete":"bad","rows":[]}',
+  '{"schemaVersion":"current-fixture-bundle.v1","complete":"bad","rows":[]}',
+  '{"schemaVersion":"current-fixture-bundle.v1","complete":null,"rows":[]}',
+  '{"schemaVersion":{},"complete":[],"rows":[]}',
+  '{"schemaVersion":"wrong","schemaVersion":"current-fixture-bundle.v1","complete":false,"complete":true,"rows":[{"source_id":"ignored"}],"rows":[]}',
+  '{"schemaVersion":"current-fixture-bundle.v1","complete":true,"rows":[],"rows":null}',
+  '{"schemaVersion":"current-fixture-bundle.v1","complete":true,"rows":null,"rows":[]}',
+  '{"schemaVersion":"current-fixture-bundle.v1","complete":true,"rows":[{"source_id":"🎾","fixture_id":"-1"}]}',
+  '{"schemaVersion":"current-fixture-bundle.v1","complete":true,"rows":[{"source_id":"s","source_id":"t","fixture_id":"0"}]}',
+  '{ "schemaVersion" : "current-fixture-bundle.v1", "complete":true,"rows":[{"source_id":"generation-a","fixture_id":"replacement","identity_keys":["replacement","alias:replacement"],"fixture":{"id":"replacement","score":0}}]}',
+  JSON.stringify({schemaVersion:'current-fixture-bundle.v1',complete:false,rows:Array.from({length:5001},(_,i)=>({source_id:'overflow',fixture_id:String(i)}))})
+ ];
+}
+// Top-level shapes are normally fixed by the fbc view hash. In the OWNED test
+// DB only, bind that view to one constructed JSON input and rebind JUST its
+// expected definition hash in the policy. All builder/guard/witness/cap/fence
+// code still executes; ROLLBACK restores the real definitions after every call.
+// The independent control is the exact pre-projection6e893 builder, not a second
+// hand-written implementation of the new projection.
+async function projection({db,build,service}){
+ let checks=0;
+ const control=fs.readFileSync(__dirname+'/fixtures/global-generation-before-single-parse.sql','utf8');
+ assert.equal(crypto.createHash('sha256').update(control).digest('hex'),'0a2d3dc625c8510734f52ceeb6ae011a2570f2b4d4a3d44114a674c328325f66');
+ const originalPolicy=(await db.query("select pg_get_functiondef('nothingsports_fixture_read_private.global_generation_policy()'::regprocedure)d")).rows[0].d;
+ const originalBuilder=(await db.query("select pg_get_functiondef('public.nothingsports_build_global_generation(integer)'::regprocedure)d")).rows[0].d;
+ assert(originalBuilder.includes('bundle_fields AS MATERIALIZED')||originalBuilder.includes('bundle_fields as materialized'));
+ const cases=projectionInputs();
+ async function outcome(input,tokenNull,old){
+  await db.exec('begin');
+  try{
+   await db.exec("create table nothingsports_fixture_read_private.qa_projection_input(p json);alter table nothingsports_fixture_read_private.qa_projection_input enable row level security;alter table nothingsports_fixture_read_private.qa_projection_input force row level security;grant select on nothingsports_fixture_read_private.qa_projection_input to service_role;");
+   await db.query('insert into nothingsports_fixture_read_private.qa_projection_input values($1::json)',[input]);
+   await db.exec('create or replace view nothingsports_fixture_read_private.global_read_original with(security_invoker=true)as select p bundle from nothingsports_fixture_read_private.qa_projection_input;set local search_path=pg_catalog,public');
+   const hash=(await db.query("select md5(pg_get_viewdef('nothingsports_fixture_read_private.global_read_original'::regclass,true))h")).rows[0].h;
+   const pin="'fbc28299a5bf25428b286adc5ee2e0da'";assert.equal(originalPolicy.split(pin).length,2);
+   await db.exec(originalPolicy.replace(pin,"'"+hash+"'"));
+   if(old)await db.exec(control.replace('create function ','create or replace function '));
+   if(tokenNull)await db.exec('delete from nothingsports_fixture_read_private.global_read_epochs where source_id=(select source_id from nothingsports_fixture_read_private.global_read_epochs order by source_id limit 1)');
+   assert(await service(async()=>(await db.query('select nothingsports_fixture_read_private.global_generation_policy()p')).rows[0].p),'Constructed view binding must admit the real builder');checks++;
+   await db.exec('savepoint actual_build');let result;
+   try{result=await build();}
+   catch(error){assert.match(error.code||'',/^[0-9A-Z]{5}$/);await db.exec('rollback to actual_build;reset role');return {sqlstate:error.code};}
+   assert.notEqual(result.state,'unchanged','Actual constructor must run; a hot generation cannot cover projection');checks++;
+   assert(!['source_transaction','parser_or_pending'].includes(result.reason),'Actual constructor must run');checks++;
+   if(result.state==='installed'){
+    const row=(await db.query('select payload::text p from '+GEN+' order by installed_at desc,generation_id desc limit 1')).rows[0];
+    assert.equal(row.p,input,'Exact original payload text, duplicates and whitespace retained');checks++;
+    const cached=await service(async()=>(await db.query('select nothingsports_fixture_read_private.read_global_generation()::text p')).rows[0].p);
+    assert.equal(cached,input,'Actual read-time witness/fences admit the same whole payload');checks++;
+   }
+   return {state:result.state,reason:result.reason??null,payloadBytes:result.payloadBytes??null};
+  }finally{await db.exec('rollback;reset role');}
+ }
+ for(let i=0;i<cases.length;i++)for(const tokenNull of [false,true]){
+  const old=await outcome(cases[i],tokenNull,true),current=await outcome(cases[i],tokenNull,false);
+  assert.deepEqual(current,old,'Actual builder case'+i+' tokenNull='+tokenNull);checks++;
+  if(i===12){assert.equal(current.state,tokenNull?'deferred':'installed','Valid empty bundle exercises actual install or incomplete-vector deferral');checks++;}
+  // Compare actual control SQLSTATE/deferral rather than forcing evaluation:
+  // an empty relational plan may legitimately never visit json_array_elements.
+  if(i===25){assert.equal(current.reason,'incomplete','5001 incomplete sentinel remains deferred');checks++;}
+ }
+ assert.equal((await db.query("select pg_get_functiondef('public.nothingsports_build_global_generation(integer)'::regprocedure)d")).rows[0].d,originalBuilder);checks++;
+ assert.equal((await db.query("select pg_get_functiondef('nothingsports_fixture_read_private.global_generation_policy()'::regprocedure)d")).rows[0].d,originalPolicy);checks++;
+ assert.equal((await db.query("select md5(pg_get_viewdef('nothingsports_fixture_read_private.global_read_original'::regclass,true))h")).rows[0].h,'fbc28299a5bf25428b286adc5ee2e0da');checks++;
+ return {checks,cases:cases.length,comparisons:cases.length*2};
+}
+module.exports={receipts,codec,projection,projectionInputs};

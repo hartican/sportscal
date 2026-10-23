@@ -189,3 +189,54 @@ Official implementation references: [PostgreSQL column compression](https://www.
 [node-postgres Client](https://node-postgres.com/apis/client). The dev-only pg
 client version8.23.1 was verified against the npm registry and pinned; no
 production dependency or service was added.
+
+
+## Single raw field projection — local source, pending exact native CI
+
+DEPLOY's later rollback-only attribution measured constructor5776.969ms and then
+57014 before payload-validation completion or INSERT; cancellation was observed
+at7501.662ms despite the configured6s. That is partial diagnostic attribution,
+not six-second completion or an identical PostgREST path. It does not blame the
+guard. Source6e893 native speed/CI and both failed managed trials remain history.
+
+The initial synthetic pair was96.645% padding and regressed on both in-memory
+engines. Those outcomes remain closed. Read-only shape comparison found the
+actual immutable12446905B/4679-row bundle has about15x calculated token/field
+density. DEPLOY then allocated exactly one new PG18 expression pair on those
+exact parameter-bound raw bytes, with unchanged SQL/2184kB work_mem/EXTERNAL/
+old-first order.259.959→223.505ms (14.023%) supports this narrow component change;
+cache/order/WASM/materialisation/spill and full-builder/managed limits remain.
+
+The builder now materializes json_each once over the original bundle (or SQLNULL
+for whole nonobjects), retaining raw JSON values and ordinality. It selects the
+last rows/schemaVersion/complete occurrence. Only tiny metadata values are text
+normalized; the original b.bundle JSON is stored unchanged. This preserves raw
+rows JSONnull versus missing rows, duplicate last-wins, scalar/array metadata and
+original boolean casting. A naive json_to_record projection would collapse JSON
+null to SQLNULL and is deliberately not used. Payload caps, independent witness,
+all vector/day/expiry/policy/read/install fences and budgets are unchanged.
+
+The exact old6e893 builder is a checksum-bound test control. In the disposable
+native suite only, a rollback-local constructed input view and its one expected
+view hash let both actual builders exercise26 cases ×two vector states. The
+actual guarded builder, persisted payload and read-time witness/fences execute;
+no production test seam or policy bypass is added. Controlled malformed views
+cannot occur under the normal pinned fbc view. Every test rollback restores the
+original view/policy/builder definitions. The suite retains all197 existing
+checks, adding comparisons of actual state/reason/SQLSTATE, whole payload text,
+duplicates/whitespace/aliases, null/nonobjects and5001 incomplete metadata.
+
+Affected offline checks compile the real new function definition without calling
+it, compare its actual constructor/validation expressions against the old source
+in both empty and populated relational plans (104 comparisons each PG17/18), and
+bind the inverse to actual pg_get_functiondef MD5769f0499ac6f53002c1cfb675964b849.
+Full native197+ tests/cleanup are NOT reported as locally run: PGlite lacks LZ4.
+Empty-plan optimization can avoid visiting array extraction; tests compare the
+original outcome rather than inventing a universal forced error. Native CI still
+must verify the actual whole builder on both supported engines.
+
+Sequence: one source handoff, DEPLOY review and exact-source native CI. If those
+pass, DEPLOY first performs one managed feasibility under its existing bounded
+apply/caller/inverse lifecycle. A miss stops before packet/full-capture rebinding.
+A pass still requires captured-data/storage/combined-release/repeated-hosted and
+physical gates before adoption. No packet3 or new framework is prepared here.

@@ -204,7 +204,7 @@ language sql stable security invoker set search_path=''as $fn$
 $fn$;
 create function public.nothingsports_build_global_generation(p_budget_ms integer default 6000)returns jsonb
 language plpgsql volatile security invoker set search_path='' set statement_timeout='6s' set lock_timeout='1s'as $fn$
-declare payload json;tokens jsonb;day date;until_at timestamptz;began timestamptz:=clock_timestamp();
+declare payload json;tokens jsonb;day date;until_at timestamptz;schema_text text;complete_text text;began timestamptz:=clock_timestamp();
  current_policy text;reference_clock timestamptz:=statement_timestamp();parser text;tz text:=current_setting('TimeZone');ds text:=current_setting('DateStyle');next_slot smallint;installed integer;gid uuid:=gen_random_uuid();
 begin
  if p_budget_ms is null or p_budget_ms<1 or p_budget_ms>6000 then raise exception 'Invalid global generation budget';end if;
@@ -215,9 +215,13 @@ begin
  if nothingsports_fixture_read_private.read_global_generation()is not null then return jsonb_build_object('state','unchanged');end if;
  -- ONE coherent statement snapshot for payload, full epoch vector and expiry.
  with built as materialized(select bundle from nothingsports_fixture_read_private.global_read_original),
+ bundle_fields as materialized(
+  select f.key,f.value,f.ord
+  from built b cross join lateral json_each(case when json_typeof(b.bundle)='object'then b.bundle else null::json end)with ordinality f(key,value,ord)
+ ),
  bound_keys as materialized(
   select r->>'source_id' source_id,r->>'fixture_id' fixture_id
-  from built b cross join lateral json_array_elements(b.bundle->'rows')r
+  from json_array_elements((select value from bundle_fields where key='rows'order by ord desc limit 1))r
  ),
  source_receipts as materialized(
   select src.source_id,src.discovery_report->'_fixtureObservations' receipts
@@ -234,9 +238,11 @@ begin
  )
  select b.bundle,nothingsports_fixture_read_private.global_read_vector(),(statement_timestamp()at time zone 'Australia/Sydney')::date,
  least((((statement_timestamp()at time zone 'Australia/Sydney')::date+1)::timestamp at time zone 'Australia/Sydney'),
-  (select min(nothingsports_fixture_read_private.global_read_clock_transition(value))from(select distinct value from raw_values)d))
- into payload,tokens,day,until_at from built b;
- if tokens is null or payload->>'schemaVersion'<>'current-fixture-bundle.v1'or(payload->>'complete')::boolean is not true then return jsonb_build_object('state','deferred','reason','incomplete');end if;
+  (select min(nothingsports_fixture_read_private.global_read_clock_transition(value))from(select distinct value from raw_values)d)),
+ (select value#>>'{}'from bundle_fields where key='schemaVersion'order by ord desc limit 1),
+ (select value#>>'{}'from bundle_fields where key='complete'order by ord desc limit 1)
+ into payload,tokens,day,until_at,schema_text,complete_text from built b;
+ if tokens is null or schema_text<>'current-fixture-bundle.v1'or complete_text::boolean is not true then return jsonb_build_object('state','deferred','reason','incomplete');end if;
  if octet_length(payload::text)>16777216 then return jsonb_build_object('state','deferred','reason','payload_cap');end if;
  if clock_timestamp()>=began+p_budget_ms*interval '1 millisecond'then return jsonb_build_object('state','deferred','reason','budget');end if;
  -- A fresh SPI statement snapshot checks tokens after construction. No epoch

@@ -1976,3 +1976,19 @@ Because PGlite lacks LZ4, DEPLOY allocated this module's same full regression su
 to explicit owned-loopback actual PG17/18 CI; no codec fallback or test waiver.
 Native/full-consumer/managed/cost/storage and existing release gates still govern
 adoption through DEPLOY alone. See the [scoped candidate record](quality/global-read-generation-2026-10-24.md).
+
+
+### 24 October 2026 — local single-parse candidate, same gates and budgets
+
+After near-budget construction in the one attribution sample, DEPLOY authorised
+one raw top-level field projection in the default-OFF generation builder. It
+retains original payload bytes, last duplicate occurrence, JSONnull/missing/type/
+error semantics, one coherent statement, independent whole-value witness/caps
+and all freshness/vector/policy/fence protections. No source/cadence/timeout/flag
+change. The prior padding regressions remain closed; the separately authorised
+actual12446905B expression pair improved14.023%, not a managed deadline proof.
+Actual native197+ checks/cleanup and one exact-source managed feasibility are next
+under DEPLOY alone. Failure stops; success still does not waive full captured,
+storage, normal release, repeated hosted or physical gates. Source handoff comes
+before exact CI; packet3 rebinding is deferred until needed. See the
+[scoped record](quality/global-read-generation-2026-10-24.md).
