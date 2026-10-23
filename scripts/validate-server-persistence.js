@@ -528,6 +528,38 @@ async function run(){
     }, conflictResponse);
     assert.equal(conflictResponse.statusCode, 409, "a concurrent device write must make the stale conditional update retryable");
     assert.equal(conflictResponse.body.code, "user_state_conflict");
+
+    const originalPreferences = structuredClone(databaseRow.preferences);
+    const followBase = server.userStateFromRow({...databaseRow,preferences:{...originalPreferences,preferenceGraph:{entityFollows:[]}}});
+    const localFollow = {participantId:"team:cricket:australia",followLevel:"follow",cricketFormats:["Tests"]};
+    const remoteFollow = {participantId:"team:cricket:south-africa",followLevel:"follow",cricketFormats:["T20Is"]};
+    databaseRow.preferences = {...originalPreferences,preferenceGraph:{entityFollows:[remoteFollow]}};
+    const rebasedFollowPatch = userStateSync.createPatch(followBase,{...followBase,preferences:{...followBase.preferences,preferenceGraph:{entityFollows:[localFollow]}}},{baseUpdatedAt:databaseRow.updated_at});
+    const followResponse = responseStub();
+    await userStateHandler({method:"PUT",headers:{authorization:"Bearer access-token"},body:{patch:rebasedFollowPatch}},followResponse);
+    assert.equal(followResponse.statusCode,200,"the actual authenticated API accepts the same-owner follow delta");
+    assert.deepEqual(followResponse.body.state.preferences.preferenceGraph.entityFollows,[remoteFollow,localFollow],"API normalization and conditional persistence retain another device's different follow");
+    assert.equal(followResponse.body.state.user_id,authUser.id,"delta metadata cannot change the verified row owner");
+    const writesBeforeInvalid = requests.filter(request=>request.options.method==="PATCH"&&request.url.includes("/rest/v1/nothingsports_user_state")).length;
+    const invalidFollowPatch = structuredClone(rebasedFollowPatch);
+    const invalidFollowChange = invalidFollowPatch.changes.find(change=>change.path.join('.')==='preferences.preferenceGraph.entityFollows');
+    assert(invalidFollowChange&&Array.isArray(invalidFollowChange.baseValue),'the SDK comparison metadata must reach the actual array change');
+    invalidFollowChange.baseValue={};
+    const invalidFollowResponse = responseStub();
+    await userStateHandler({method:"PUT",headers:{authorization:"Bearer access-token"},body:{patch:invalidFollowPatch}},invalidFollowResponse);
+    assert.equal(invalidFollowResponse.statusCode,400);
+    assert.equal(invalidFollowResponse.body.code,"invalid_user_state_patch");
+    assert.equal(requests.filter(request=>request.options.method==="PATCH"&&request.url.includes("/rest/v1/nothingsports_user_state")).length,writesBeforeInvalid,"invalid comparison metadata causes no database write");
+    const unusualFollow = label => ({...localFollow,metadata:JSON.parse(`{"__proto__":{"label":"${label}"}}`)});
+    databaseRow.preferences = {...originalPreferences,preferenceGraph:{entityFollows:[unusualFollow("before")]}};
+    const unusualBase = server.userStateFromRow(databaseRow);
+    const unusualDesired = {...unusualBase,preferences:{...unusualBase.preferences,preferenceGraph:{entityFollows:[unusualFollow("after")]}}};
+    const unusualResponse = responseStub();
+    await userStateHandler({method:"PUT",headers:{authorization:"Bearer access-token"},body:{patch:userStateSync.createPatch(unusualBase,unusualDesired,{baseUpdatedAt:databaseRow.updated_at})}},unusualResponse);
+    assert.equal(unusualResponse.statusCode,200);
+    assert.deepEqual(Object.getOwnPropertyDescriptor(unusualResponse.body.state.preferences.preferenceGraph.entityFollows[0].metadata,"__proto__")?.value,{label:"after"},"the actual API must persist an unusual own-key edit rather than acknowledge the old row as unchanged");
+    assert.equal(requests.filter(request=>request.options.method==="PATCH"&&request.url.includes("/rest/v1/nothingsports_user_state")).length,writesBeforeInvalid+1,"the changed own key must reach conditional persistence");
+    databaseRow.preferences = originalPreferences;
   }finally{
     if (originalUrl === undefined) delete process.env.SUPABASE_URL;
     else process.env.SUPABASE_URL = originalUrl;

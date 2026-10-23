@@ -143,6 +143,11 @@ async function validateActualConflictRetry(){
   const preserve = source("function applyServerStatePreservingChanges(", "\nfunction queueServerStateSync(");
   const pins = source("function fixturePinAction(", "\nfunction clearAcknowledgedFixturePinCommands(");
   const clone = value => JSON.parse(JSON.stringify(value));
+  const followRow=(participantId,extra={})=>({participantId,followLevel:"follow",...extra});
+  const australia=followRow("team:cricket:australia",{cricketFormats:["Tests","ODIs","T20Is"]});
+  const southAfrica=followRow("team:cricket:south-africa",{cricketFormats:["T20Is"]});
+  const oldAlcaraz=followRow("athlete:tennis:carlos-alcaraz");
+  const currentAlcaraz=followRow("competitor:tennis:atp:carlos-alcaraz",{remoteField:"keep"});
   const scenarios = [
     { name:"no conflict", conflicts:0 },
     { name:"one conflict", conflicts:1 },
@@ -156,6 +161,23 @@ async function validateActualConflictRetry(){
     { name:"unrelated 409 stops", conflicts:1, failure:"client_update_required" },
     { name:"ended session stops", conflicts:1, failure:"invalid_refresh_token" },
     { name:"unchanged device loads remote", conflicts:0, unchanged:true },
+    { name:"different follows added on two devices", conflicts:0, followAdd:true },
+    { name:"different follow added during conflict", conflicts:1, followAdd:true, remoteFollowDuringConflict:true },
+    { name:"nested edit after remote object removal", conflicts:1, nestedRemoval:true },
+    { name:"empty own metadata additions and removals survive conflict", conflicts:1, ownKeyPresence:true, followCase:{
+      before:[{...australia,metadata:{}},{...southAfrica,metadata:JSON.parse('{"__proto__":{}}')}],
+      desired:[{...australia,metadata:JSON.parse('{"__proto__":{}}')},{...southAfrica,metadata:{}}],
+      remote:[{...australia,metadata:{remote:"keep"}},{...southAfrica,metadata:JSON.parse('{"__proto__":{},"remote":"keep"}')},currentAlcaraz],
+      expected:[{...australia,metadata:JSON.parse('{"__proto__":{},"remote":"keep"}')},{...southAfrica,metadata:{remote:"keep"}},currentAlcaraz],
+    } },
+    { name:"format edit preserves remote follow", conflicts:1, followCase:{before:[australia],desired:[{...australia,cricketFormats:["Tests"]}],remote:[australia,southAfrica],expected:[{...australia,cricketFormats:["Tests"]},southAfrica]} },
+    { name:"format edit cannot revive remote removal", conflicts:1, followCase:{before:[australia],desired:[{...australia,cricketFormats:["Tests"]}],remote:[],expected:[]} },
+    { name:"aliases preserve accepted remote identity", conflicts:1, followCase:{before:[oldAlcaraz],desired:[{...oldAlcaraz,followLevel:"unfollow"}],remote:[currentAlcaraz,southAfrica],expected:[{...currentAlcaraz,followLevel:"unfollow"},southAfrica]} },
+    { name:"initial graph preserves concurrent graph", conflicts:0, followCase:{desired:[australia],remote:[southAfrica],expected:[southAfrica,australia]} },
+    { name:"initial empty default does not reset remote graph", conflicts:1, followCase:{desired:[],remote:[southAfrica],expected:[southAfrica]} },
+    { name:"ambiguous comparison stops before persistence", conflicts:0, invalidFollow:true, followCase:{before:[oldAlcaraz,currentAlcaraz],desired:[oldAlcaraz,currentAlcaraz,australia],remote:[currentAlcaraz,southAfrica]} },
+    { name:"accepted follow delta rerun is idempotent", conflicts:1, followAdd:true, idempotent:true },
+    { name:"older payload retains whole-list compatibility", conflicts:1, legacyFollow:true, followCase:{before:[australia],desired:[australia,southAfrica],remote:[australia,currentAlcaraz],expected:[australia,southAfrica]} },
   ];
   for (const scenario of scenarios){
     const baseline = clone(lastSyncedState);
@@ -163,6 +185,11 @@ async function validateActualConflictRetry(){
     baseline.preferences.showSpoilers = true;
     baseline.preferences.notificationPreferences = { enabled:true };
     baseline.preferences.preferenceGraph = { entityFollows:[{ participantId:"team:football:arsenal", followLevel:"follow" }] };
+    if (scenario.nestedRemoval) baseline.preferences.preferenceGraph.entityFollows[0].metadata={label:"before",other:"old"};
+    if (scenario.followCase){
+      if (scenario.followCase.before) baseline.preferences.preferenceGraph={entityFollows:clone(scenario.followCase.before)};
+      else delete baseline.preferences.preferenceGraph;
+    }
     baseline.preferences.temporarySetting = "remove-me";
     let device = clone(baseline);
     if (!scenario.unchanged) device.preferences.theme = "night";
@@ -173,17 +200,25 @@ async function validateActualConflictRetry(){
       device.preferences.preferenceGraph.entityFollows = [];
     }
     if (scenario.remove) delete device.preferences.temporarySetting;
+    if (scenario.followAdd) device.preferences.preferenceGraph.entityFollows.push({ participantId:"team:cricket:australia", followLevel:"follow", cricketFormats:["Tests"] });
+    if (scenario.nestedRemoval) device.preferences.preferenceGraph.entityFollows[0].metadata.label="after";
+    if (scenario.followCase) device.preferences.preferenceGraph={entityFollows:clone(scenario.followCase.desired)};
     if (scenario.pins) baseline.eventUserState = device.eventUserState = { match:{ pinRevision:1, excluded:true } };
     const originalDevice = clone(device);
     let cloud = clone(baseline);
     cloud.preferences.selectedBroadcasters = ["stan"];
     cloud.preferences.viewing = { viewingWindowEnabled:false, startHourLocal:9 };
     cloud.profile.futureProfileField = "keep";
+    const remoteFollow = { participantId:"team:cricket:south-africa", followLevel:"follow", cricketFormats:["T20Is"] };
+    if (scenario.followAdd && !scenario.remoteFollowDuringConflict) cloud.preferences.preferenceGraph.entityFollows.push(clone(remoteFollow));
+    if (scenario.nestedRemoval) delete cloud.preferences.preferenceGraph.entityFollows[0].metadata;
+    if (scenario.followCase) cloud.preferences.preferenceGraph={entityFollows:clone(scenario.followCase.remote)};
     cloud.updatedAt = "2026-08-12T01:00:00.000Z";
-    let writes = 0, reads = 0;
+    const originalCloud=clone(cloud);
+    let writes = 0, reads = 0, persistedWrites=0;
     const patches = [];
     const context = {
-      USER_STATE_SYNC:userStateSync, structuredClone, serverSyncTimer:null, serverStateSyncGeneration:0, fixturePinQueue:{},
+      USER_STATE_SYNC:scenario.legacyFollow?{...userStateSync,createPatch(...args){const patch=userStateSync.createPatch(...args);for(const change of patch.changes)if(change.path.join('.')==='preferences.preferenceGraph.entityFollows')delete change.baseValue;return patch;}}:userStateSync, structuredClone, serverSyncTimer:null, serverStateSyncGeneration:0, fixturePinQueue:{},
       serverStateBaseline:{ state:clone(baseline), updatedAt:"2026-08-12T00:00:00.000Z" },
       serverPersistence:{ state:"signedIn", user:{ id:"synthetic-account" } },
       clearTimeout(){}, currentServerStatePayload(){ return clone(device); }, emptyServerStatePayload(){ return {}; },
@@ -198,6 +233,7 @@ async function validateActualConflictRetry(){
           writes += 1;
           patches.push(clone(patch));
           if (writes <= scenario.conflicts){
+            if (scenario.remoteFollowDuringConflict && writes === 1) cloud.preferences.preferenceGraph.entityFollows.push(clone(remoteFollow));
             if (scenario.converge) cloud.preferences.theme = writes === 1 ? "night" : "day";
             cloud.preferences.viewing.startHourLocal = 9 + writes;
             cloud.updatedAt = `2026-08-12T0${writes + 1}:00:00.000Z`;
@@ -207,6 +243,7 @@ async function validateActualConflictRetry(){
           }
           assert.equal(patch.baseUpdatedAt, cloud.updatedAt, scenario.name + ": use the latest comparison timestamp");
           cloud = userStateSync.applyPatch(cloud, patch);
+          persistedWrites += 1;
           cloud.updatedAt = "2026-08-12T05:00:00.000Z";
           if (scenario.late) device.preferences.selectedBroadcasters = ["kayo", "sbs"];
           return { user:{ id:"synthetic-account" }, state:clone(cloud) };
@@ -216,6 +253,15 @@ async function validateActualConflictRetry(){
     vm.createContext(context);
     const preferenceHooks=html.slice(html.indexOf("function preferenceIntentOwner(){"),html.indexOf("async function bootstrapServerPersistence("));
     vm.runInContext(preferenceHooks + "\n" + pins + "\n" + preserve + "\n" + accountScope + "\n" + orchestration, context);
+    if (scenario.invalidFollow){
+      await assert.rejects(context.reconcileCurrentServerState(),/ambiguous identities/,scenario.name);
+      assert.equal(writes,0,"the actual orchestrator rejects invalid follow metadata before attempting a save");
+      assert.equal(persistedWrites,0,"invalid follow metadata cannot persist a replacement");
+      assert.deepEqual(cloud,originalCloud,"invalid comparisons preserve the accepted remote state");
+      assert.deepEqual(device,originalDevice,"invalid comparisons retain the local copy");
+      assert.equal(context.serverPersistence.state,"error");
+      continue;
+    }
     if (scenario.failure){
       await assert.rejects(context.reconcileCurrentServerState(), error => error.code === scenario.failure, scenario.name);
       assert.equal(writes, scenario.failure === "user_state_conflict" ? 3 : 1, "unchanged retry cap and typed conflict requirement");
@@ -236,6 +282,16 @@ async function validateActualConflictRetry(){
       assert.deepEqual(cloud.preferences.preferenceGraph.entityFollows, [], "explicit unfollow does not union old follows");
     }
     if (scenario.remove) assert.equal(Object.hasOwn(cloud.preferences, "temporarySetting"), false, "deliberate removal survives");
+    if (scenario.followAdd){
+      assert.deepEqual(cloud.preferences.preferenceGraph.entityFollows.find(item => item.participantId === remoteFollow.participantId), remoteFollow, "one device's follow must not erase another device's different follow");
+      assert.deepEqual(cloud.preferences.preferenceGraph.entityFollows.find(item => item.participantId === "team:cricket:australia")?.cricketFormats, ["Tests"], "the deliberate new format selection survives reconciliation");
+    }
+    if (scenario.nestedRemoval) assert.deepEqual(cloud.preferences.preferenceGraph.entityFollows[0].metadata,{label:"after"},"a changed nested child must not revive untouched remotely removed fields");
+    if (scenario.followCase) assert.deepEqual(cloud.preferences.preferenceGraph.entityFollows,scenario.followCase.expected,scenario.name);
+    if (scenario.ownKeyPresence){
+      assert.deepEqual(device.preferences.preferenceGraph.entityFollows,scenario.followCase.expected,"the accepted device copy must retain the exact saved own-key edits");
+      for(const follow of cloud.preferences.preferenceGraph.entityFollows)if(follow.metadata)assert.equal(Object.getPrototypeOf(follow.metadata),Object.prototype,"metadata keys remain data without changing object prototypes");
+    }
     if (scenario.late){
       assert.deepEqual(device.preferences.selectedBroadcasters, ["kayo", "sbs"], "an edit made during save stays local");
       const nextPatch = userStateSync.createPatch(context.serverStateBaseline.state, device);
@@ -249,9 +305,70 @@ async function validateActualConflictRetry(){
       assert(!patch.changes.some(change => change.path[0] === "profile"), "no fabricated profile overwrite");
       assert(!patch.changes.some(change => change.path.join(".") === "preferences.viewing.startHourLocal"), "no fabricated viewing overwrite");
     }
+    if (scenario.idempotent){
+      const accepted=clone(cloud),acceptedWrites=writes,acceptedReads=reads;
+      await context.reconcileCurrentServerState();
+      assert.equal(writes,acceptedWrites,"the next actual reconcile does not repeat an accepted follow write");
+      assert.equal(reads,acceptedReads+1,"an unchanged device keeps the existing single fresh read");
+      assert.deepEqual(cloud,accepted,"reconciliation reruns cannot add a duplicate follow or new timestamp");
+    }
   }
   console.log(`Actual account-sync orchestration: ${scenarios.length} synthetic conflict, consent, late-edit and failure scenarios passed.`);
 }
+
+function validateFollowCollectionDeltas(){
+  const clone=value=>structuredClone(value);
+  const row=(id,extra={})=>({participantId:id,followLevel:'follow',...extra});
+  const au=row('team:cricket:australia',{cricketFormats:['Tests','ODIs','T20Is']}),sa=row('team:cricket:south-africa',{cricketFormats:['T20Is']});
+  const state=rows=>({preferences:{preferenceGraph:{entityFollows:rows}},ratings:{unrelated:5}});
+  const merge=(before,desired,latest)=>userStateSync.applyPatch(state(latest),userStateSync.createPatch(state(before),state(desired)));
+  let actual=merge([au],[{...au,cricketFormats:['Tests']}],[au,sa]);
+  assert.deepEqual(actual.preferences.preferenceGraph.entityFollows,[{...au,cricketFormats:['Tests']},sa],'format edits preserve a different remote follow');
+  assert.deepEqual(actual.ratings,{unrelated:5},'follow reconciliation does not alter unrelated state');
+  const absentGraph={preferences:{}};
+  const initialFollowPatch=userStateSync.createPatch(absentGraph,state([au]));
+  assert.deepEqual(userStateSync.applyPatch(state([sa]),initialFollowPatch).preferences.preferenceGraph.entityFollows,[sa,au],'introducing a follow graph cannot replace a concurrently created remote graph');
+  const initialEmptyPatch=userStateSync.createPatch(absentGraph,state([]));
+  assert.deepEqual(userStateSync.applyPatch(state([sa]),initialEmptyPatch).preferences.preferenceGraph.entityFollows,[sa],'a missing baseline list becoming an empty default cannot reset remote follows');
+  actual=merge([au],[au,sa],[]);
+  assert.deepEqual(actual.preferences.preferenceGraph.entityFollows,[sa],'an unchanged old follow cannot undo a remote removal');
+  actual=merge([au],[{...au,cricketFormats:['Tests']}],[{...au,followLevel:'unfollow',remoteField:'keep'}]);
+  assert.equal(actual.preferences.preferenceGraph.entityFollows[0].followLevel,'unfollow','a format-only edit cannot undo a remote explicit unfollow');
+  assert.equal(actual.preferences.preferenceGraph.entityFollows[0].remoteField,'keep','unknown remote fields survive');
+  actual=merge([au],[{...au,cricketFormats:['Tests']}],[]);
+  assert.deepEqual(actual.preferences.preferenceGraph.entityFollows,[],'a format-only edit cannot revive a remotely removed follow');
+  assert.deepEqual(merge([au],[],[au,sa]).preferences.preferenceGraph.entityFollows,[],'an explicit empty list retains its existing whole-list meaning');
+  const nested=row(au.participantId,{metadata:{label:'before',remote:'before'}});
+  assert.deepEqual(merge([nested],[{...nested,metadata:{...nested.metadata,label:'local'}}],[{...nested,metadata:{...nested.metadata,remote:'new',unknown:'keep'}}]).preferences.preferenceGraph.entityFollows[0].metadata,{label:'local',remote:'new',unknown:'keep'});
+  const unusualBefore=row(au.participantId,{metadata:JSON.parse('{"__proto__":{"label":"before"}}')});
+  const unusualAfter=row(au.participantId,{metadata:JSON.parse('{"__proto__":{"label":"after"}}')});
+  const unusual=merge([unusualBefore],[unusualAfter],[row(au.participantId,{metadata:{}})]).preferences.preferenceGraph.entityFollows[0].metadata;
+  assert.equal(Object.getPrototypeOf(unusual),Object.prototype,'unknown metadata keys cannot change the object prototype');
+  assert.deepEqual(Object.getOwnPropertyDescriptor(unusual,'__proto__')?.value,{label:'after'},'unusual own keys remain data');
+  const old=row('athlete:tennis:carlos-alcaraz'),modern=row('competitor:tennis:atp:carlos-alcaraz',{remoteField:'keep'});
+  actual=merge([old],[{...old,followLevel:'unfollow'}],[modern,sa]);
+  assert.equal(actual.preferences.preferenceGraph.entityFollows.length,2,'canonical participant aliases must not duplicate a follow');
+  assert.equal(actual.preferences.preferenceGraph.entityFollows[0].participantId,modern.participantId,'an untouched canonical identity retains the accepted remote spelling');
+  assert.equal(actual.preferences.preferenceGraph.entityFollows[0].followLevel,'unfollow');
+  const patch=userStateSync.createPatch(state([au]),state([au,sa]));
+  assert.deepEqual(userStateSync.applyPatch(userStateSync.applyPatch(state([au]),patch),patch),userStateSync.applyPatch(state([au]),patch),'a repeated same-baseline delta is idempotent');
+  const malformed=clone(patch);malformed.changes[0].baseValue={};
+  assert.throws(()=>userStateSync.normalizePatch(malformed),/requires arrays/,'malformed comparison metadata is rejected');
+  const duplicate=clone(patch);duplicate.changes[0].baseValue=[old,modern];
+  assert.throws(()=>userStateSync.normalizePatch(duplicate),/ambiguous identities/,'contradictory canonical baselines cannot be guessed');
+  const legacy=clone(patch);delete legacy.changes[0].baseValue;
+  assert.deepEqual(userStateSync.applyPatch(state([modern]),legacy).preferences.preferenceGraph.entityFollows,[au,sa],'old patch payloads retain their existing compatibility semantics');
+  const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+  const browser=vm.createContext({structuredClone});
+  for(const file of ['cricket-coverage','fixture-identity','competition-classification','follow-first','user-state-sync'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../config/'+file+'.js'),'utf8'),browser,{filename:file+'.js'});
+  const browserSync=browser.NOTHINGSPORTS_USER_STATE_SYNC;
+  const browserPatch=browserSync.createPatch(state([au]),state([au,sa]));
+  const browserResult=browserSync.applyPatch(state([modern]),browserPatch);
+  assert.deepEqual(JSON.parse(JSON.stringify(browserResult)),userStateSync.applyPatch(state([modern]),patch),'actual browser UMD modules and server helper use the same identity/delta semantics without a new dependency request');
+  console.log('Follow deltas: actual rebase, formats, explicit empty/OFF, remote removal, aliases, nested fields, invalid input, idempotency and legacy controls passed.');
+}
+
+validateFollowCollectionDeltas();
 
 async function validateAcceptedBootstrapBaseline(){
   const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
@@ -433,6 +550,17 @@ async function makeApp(owner,{oldBootstrap=false,unownedEdit=false}={}){
  negativeBundle=profile.acknowledgePreferenceIntent(negativeStore,negativeBundle,firstReceipt,firstReceipt.preferences,sync,{updatedAt:ackTime,generation:4});const continued=profile.readPreferenceIntent(negativeStore,negativeBundle,'A');
  assert.equal(continued.receiptId,secondReceipt.receiptId);assert.equal(continued.baseUpdatedAt,ackTime);assert.deepEqual(continued.preferences,{follows:['A'],off:false},'known R1 ACK continuation preserves a newer unfollow and OFF');assert(Date.parse(negativeBundle.profile.updatedAt)>Date.parse(past),'successful changed receipt metadata refreshes local write time');
  const beforeUnknown=negativeStore.getItem(negativeKey);profile.advancePreferenceIntentBase(negativeStore,negativeBundle,continued,{preferences:{follows:['external'],off:true},updatedAt:'2026-10-20T22:02:00Z'});assert.equal(negativeStore.getItem(negativeKey),beforeUnknown,'genuinely changed preference base remains blocked');
+ // An ACK containing the old value of an unusual own key cannot discard intent.
+ const unusualStore=storage();let unusualBundle=profile.loadActiveProfile(unusualStore);
+ const unusualPreferences=label=>({preferenceGraph:{entityFollows:[{participantId:'team:cricket:australia',followLevel:'follow',metadata:JSON.parse(`{"__proto__":{"label":"${label}"}}`)}]}});
+ const unusualBefore=unusualPreferences('before'),unusualAfter=unusualPreferences('after');
+ unusualBundle=profile.recordPreferenceIntent(unusualStore,unusualBundle,{ownerId:'A',generation:4,baseUpdatedAt:baseTime,basePreferences:unusualBefore,preferences:unusualAfter});
+ const unusualReceipt=profile.readPreferenceIntent(unusualStore,unusualBundle,'A');
+ assert.equal(profile.preferenceIntentMatches(unusualReceipt,unusualBefore,sync),false,'old unusual own-key data is not an acknowledgement of the edit');
+ unusualBundle=profile.acknowledgePreferenceIntent(unusualStore,unusualBundle,unusualReceipt,unusualBefore,sync,{updatedAt:ackTime,generation:4});
+ assert.equal(profile.readPreferenceIntent(unusualStore,unusualBundle,'A').receiptId,unusualReceipt.receiptId,'the old returned row leaves the exact receipt durable');
+ unusualBundle=profile.acknowledgePreferenceIntent(unusualStore,unusualBundle,unusualReceipt,unusualAfter,sync,{updatedAt:ackTime,generation:4});
+ assert.equal(profile.readPreferenceIntent(unusualStore,unusualBundle,'A'),null,'the actual edited own key can acknowledge its receipt');
  // Unknown/mismatched bases stay visibly pending; no new conflict/import policy.
  const conflictApp=await makeApp('C'),conflictChoice=clone(conflictApp.userPreferences);conflictChoice.theme='night';assert(conflictApp.savePreferences(conflictChoice,{deliberate:true,deferFollowEffects:true}));
  states.C.preferences.selectedBroadcasters=['synthetic-remote'];states.C.updatedAt='2026-10-20T23:10:00Z';const beforeConflictWrites=writes;

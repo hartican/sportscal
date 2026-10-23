@@ -29,10 +29,7 @@
   function canonicalValue(value){
     if (Array.isArray(value)) return value.map(canonicalValue);
     if (!plainObject(value)) return value;
-    return Object.keys(value).sort().reduce((result, key) => {
-      result[key] = canonicalValue(value[key]);
-      return result;
-    }, {});
+    return Object.fromEntries(Object.keys(value).sort().map(key => [key,canonicalValue(value[key])]));
   }
 
   function sameValue(first, second){
@@ -54,12 +51,18 @@
 
   function collectChanges(previous, current, path, changes){
     if (sameValue(previous, current)) return;
+    if(entityFollowPath(path)&&previous==null&&Array.isArray(current)){
+      // A missing old list carries no removals; do not send empty defaults as a reset.
+      if(current.length)changes.push({path:[...path],value:clone(current),baseValue:[]});
+      return;
+    }
     if (current === undefined){
       changes.push({ path: [...path], remove: true });
       return;
     }
+    if(previous==null&&plainObject(current)&&(path.length===1&&path[0]==='preferences'||path.length===2&&path[0]==='preferences'&&path[1]==='preferenceGraph'))previous={};
     if (!plainObject(previous) || !plainObject(current)){
-      changes.push({ path: [...path], value: clone(current), ...(sportSelectionPath(path)&&Array.isArray(previous)&&Array.isArray(current)?{baseValue:clone(previous)}:{}) });
+      changes.push({ path: [...path], value: clone(current), ...((sportSelectionPath(path)||entityFollowPath(path))&&Array.isArray(previous)&&Array.isArray(current)?{baseValue:clone(previous)}:{}) });
       return;
     }
     const keys = [...new Set([...Object.keys(previous), ...Object.keys(current)])].sort();
@@ -89,7 +92,12 @@
       const removesValue = change.remove === true;
       if (hasValue === removesValue) throw new TypeError("A patch change requires either a value or remove flag.");
       if (removesValue) return { path: [...change.path], remove: true };
-      return { path: [...change.path], value: clone(change.value), ...(sportSelectionPath(change.path)&&Array.isArray(change.baseValue)&&change.baseValue.every(id=>typeof id==='string')?{baseValue:clone(change.baseValue)}:{}) };
+      const ownsBase = Object.prototype.hasOwnProperty.call(change, "baseValue");
+      if (entityFollowPath(change.path) && ownsBase){
+        followIndex(change.baseValue);
+        followIndex(change.value);
+      }
+      return { path: [...change.path], value: clone(change.value), ...((sportSelectionPath(change.path)&&Array.isArray(change.baseValue)&&change.baseValue.every(id=>typeof id==='string')||entityFollowPath(change.path)&&ownsBase)?{baseValue:clone(change.baseValue)}:{}) };
     });
     return {
       schemaVersion: PATCH_SCHEMA_VERSION,
@@ -110,7 +118,9 @@
       }
       const finalSegment = change.path[change.path.length - 1];
       if (change.remove) delete target[finalSegment];
-      else if(sportSelectionPath(change.path)&&Array.isArray(change.baseValue)&&Array.isArray(change.value)&&Array.isArray(target[finalSegment])){
+      else if(entityFollowPath(change.path)&&Object.hasOwn(change,'baseValue')){
+        target[finalSegment] = mergeFollowChanges(change.baseValue,change.value,target[finalSegment]);
+      }else if(sportSelectionPath(change.path)&&Array.isArray(change.baseValue)&&Array.isArray(change.value)&&Array.isArray(target[finalSegment])){
         const before=new Set(change.baseValue),after=new Set(change.value),merged=new Set(target[finalSegment]);
         for(const id of before)if(!after.has(id))merged.delete(id);
         for(const id of after)if(!before.has(id))merged.add(id);
@@ -131,6 +141,53 @@
   }
 
   function sportSelectionPath(path){return path.length===2&&path[0]==='preferences'&&['selectedSelectorEntityIds','followedSports'].includes(path[1]);}
+  function entityFollowPath(path){return path.length===3&&path[0]==='preferences'&&path[1]==='preferenceGraph'&&path[2]==='entityFollows';}
+
+  function followIndex(items){
+    if(!Array.isArray(items))throw new TypeError('A follow comparison requires arrays.');
+    const followFirst=typeof globalThis!=='undefined'&&globalThis.NOTHINGSPORTS_FOLLOW_FIRST
+      ||(typeof require==='function'?require('./follow-first'):null);
+    if(!followFirst?.participantFollowIdentityKey)throw new TypeError('Follow identity is unavailable.');
+    const result=new Map();
+    for(const item of items){
+      const id=item?.participantId??item?.entityId;
+      if(!plainObject(item)||typeof id!=='string'||!id||id.length>256)throw new TypeError('A follow comparison contains an invalid identity.');
+      const key=followFirst.participantFollowIdentityKey(id);
+      if(!key||result.has(key))throw new TypeError('A follow comparison contains ambiguous identities.');
+      result.set(key,item);
+    }
+    return result;
+  }
+
+  function mergeFollowRecord(previous,desired,current){
+    const result=clone(current);
+    for(const key of new Set([...Object.keys(previous),...Object.keys(desired)])){
+      const beforeOwn=Object.hasOwn(previous,key),afterOwn=Object.hasOwn(desired,key);
+      if(beforeOwn===afterOwn&&sameValue(previous[key],desired[key]))continue;
+      if(!afterOwn)delete result[key];
+      else{
+        const value=beforeOwn&&plainObject(previous[key])&&plainObject(desired[key])
+          ?mergeFollowRecord(previous[key],desired[key],Object.hasOwn(current,key)&&plainObject(current[key])?current[key]:{}):clone(desired[key]);
+        Object.defineProperty(result,key,{value,writable:true,enumerable:true,configurable:true});
+      }
+    }
+    return result;
+  }
+
+  function mergeFollowChanges(previous,desired,current){
+    const before=followIndex(previous),after=followIndex(desired),latest=followIndex(current??[]);
+    // An explicit whole-list empty choice keeps its existing reset meaning.
+    if(!desired.length)return [];
+    for(const key of before.keys())if(!after.has(key))latest.delete(key);
+    for(const [key,item] of after){
+      const prior=before.get(key);
+      if(prior&&sameValue(prior,item))continue;
+      if(!prior)latest.set(key,clone(item));
+      else if(latest.has(key))latest.set(key,mergeFollowRecord(prior,item,latest.get(key)));
+      else if(['followLevel','followed','state'].some(field=>!sameValue(prior[field],item[field])))latest.set(key,clone(item));
+    }
+    return [...latest.values()].map(clone);
+  }
   function preserveFantasyDecision(baseState, patch, next){
     const prior=baseState?.preferences?.fantasyDeadlines;
     if (!Number.isSafeInteger(prior?.rolloutVersion) || prior.rolloutVersion<2) return;

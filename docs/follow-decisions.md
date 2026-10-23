@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Preserve different saved follows during reconciliation — 22 October 2026
+
+The authorised repair uses the existing patch's known previous entity-follow list to apply only changed identities/record fields after a same-account read or retry. A different remote follow and untouched remote fields survive. Existing canonical Follow aliases remain one identity. A format-only change cannot revive a remotely removed or explicitly unfollowed participant. Explicit whole-list empty retains its reset meaning; a missing baseline becoming an empty default carries no removals. Invalid or ambiguous comparison metadata fails visibly. Existing owner/generation/version fences, pending-intent changed-base pause, OFF/privacy choices and SDK/conditional-save owner remain unchanged. Older payloads without comparison metadata retain compatibility semantics and are not certified as repaired by new-client source alone.
+
+The actual orchestrator and API regressions are in the existing cross-device/server-persistence gates. This prevention slice is prepared, not released; it does not prove the historical incident cause or restore any account. See [scope and remaining acceptance](quality/follow-sync-known-deltas-2026-10-22.md).
+
 ## Keep newly written, owned Follow intent through restart — 21 October 2026
 
 Only explicit user Follow writers may record a pending preference receipt in the existing local profile bundle. Bind it to the verified account and a known accepted preference baseline, and persist it atomically before optimistic success. Automatic startup, metadata and normalisation writes cannot invent intent. Preserve explicit empty/unfollow/OFF, other owners' pending entries and existing quota failure behaviour. Unknown legacy ownership and historical recovery remain excluded.
