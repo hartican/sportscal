@@ -18,15 +18,15 @@
   const close=button('Close comments',reset);host.append(heading,close,status,list,more);card.append(host);
   const form=node('form',undefined,'public-comment-composer'),replyTo=node('p','','public-comments-status'),input=node('textarea');input.setAttribute('aria-label','Write a public comment');input.placeholder='Leave a comment…';input.maxLength=1000;
   const preview=node('div'),actions=node('div',undefined,'public-comment-actions'),submit=node('button','Post comment','btn primary');submit.type='submit';
-  let chosenGif=null,parentId=null,clientId=null,cursor=null,revision=0,lastChange=Date.now(),timer=null,busy=false,disposed=false,visible=true,abort=null,sendPending=false,retired=false,gifController=null,backoff=false;
-  const entries=new Map(),nodes=new Map(),replyCursors=new Map();
-  const current=()=>!disposed&&token===generation&&owner===client.owner()&&client.registered()&&host.isConnected;
-  const shown=()=>current()&&!retired&&!document.hidden&&client.active()&&visible;
-  const report=e=>{if(!current())return;backoff=true;status.textContent=e?.message||'Comments are temporarily unavailable.';if(e?.code==='public_comments_retired'){retired=true;stop();entries.clear();list.replaceChildren();form.remove();more.hidden=true;}};
+  let chosenGif=null,parentId=null,clientId=null,cursor=null,revision=0,lastChange=Date.now(),timer=null,busy=false,disposed=false,visible=true,abort=null,sendPending=false,halted=false,gifController=null,backoff=false,baseline=false;
+  const entries=new Map(),nodes=new Map(),replyCursors=new Map(),versions=new Map();
+  const current=()=>!disposed&&!halted&&token===generation&&owner===client.owner()&&client.registered()&&host.isConnected;
+  const shown=()=>current()&&!halted&&!document.hidden&&client.active()&&visible;
+  const report=e=>{if(!current())return;backoff=true;status.textContent=e?.message||'Comments are temporarily unavailable.';if(['public_comments_retired','public_comment_account_unavailable','account_required'].includes(e?.code)||e?.status===401){halted=true;stop();gifController?.closePicker();gifController=null;entries.clear();nodes.clear();versions.clear();replyCursors.clear();input.value='';chosenGif=null;parentId=null;clientId=null;preview.replaceChildren();list.replaceChildren();form.remove();more.hidden=true;}};
   function stop(){clearTimeout(timer);timer=null;abort?.abort();abort=null;}
   function schedule(){clearTimeout(timer);if(shown())timer=setTimeout(()=>void poll(),backoff?policy.POLLING.failure:policy.pollDelay(lastChange));}
   function render(){
-   if(!current())return;const anchor=[...list.querySelectorAll('[data-comment]')].find(n=>n.getBoundingClientRect().bottom>0),top=anchor?.getBoundingClientRect().top,focused=document.activeElement;
+   if(!current())return;const scroller=client.scrollContainer,viewportTop=scroller?.getBoundingClientRect().top||0,anchor=[...list.querySelectorAll('[data-comment]')].find(n=>n.getBoundingClientRect().bottom>viewportTop),top=anchor?.getBoundingClientRect().top,focused=document.activeElement;
    function make(entry){
     let view=nodes.get(entry.id);if(!view){
      const row=node('article',undefined,'public-comment');row.dataset.comment=entry.id;
@@ -43,26 +43,26 @@
     view.older.hidden=!!entry.parentId||!((entry.replyCount||0)>replies.length||replyCursors.get(entry.id));return view.row;
    }
    reconcile(list,[...entries.values()].filter(e=>!e.parentId).sort(policy.compare).map(e=>make(e)));more.hidden=!cursor;
-   if(focused?.isConnected&&document.activeElement!==focused)focused.focus({preventScroll:true});if(anchor?.isConnected&&top!==undefined){const delta=anchor.getBoundingClientRect().top-top;if(delta)root.scrollBy?.(0,delta);}
+   if(focused?.isConnected&&document.activeElement!==focused)focused.focus({preventScroll:true});if(anchor?.isConnected&&top!==undefined){const delta=anchor.getBoundingClientRect().top-top;if(delta){if(scroller)scroller.scrollTop+=delta;else root.scrollBy?.(0,delta);}}
   }
   function reconcile(container,children){const keep=new Set(children);for(const child of [...container.children])if(!keep.has(child))child.remove();children.forEach((child,i)=>{if(container.children[i]!==child)container.insertBefore(child,container.children[i]||null);});}
-  function accept(data){if(!current())return;for(const entry of [...(data.comments||[]),...(data.comment?[data.comment]:[])]){const old=entries.get(entry.id);if(entry.removed){if(!old||Number(entry.revision)>=Number(old.revision)){entries.delete(entry.id);nodes.get(entry.id)?.row.remove();nodes.delete(entry.id);}}else if(!old||Number(entry.revision)>=Number(old.revision))entries.set(entry.id,entry);}revision=Math.max(revision,Number(data.revision||0));render();}
+  function accept(data,{delta=false,write=false}={}){if(!current())return;for(const entry of [...(data.comments||[]),...(data.comment?[data.comment]:[])]){const version=Number(entry.revision||0);if(write&&(!baseline||!entries.has(entry.id)&&version<=revision))continue;if(version<(versions.get(entry.id)||0))continue;versions.set(entry.id,version);if(entry.removed){entries.delete(entry.id);nodes.get(entry.id)?.row.remove();nodes.delete(entry.id);}else entries.set(entry.id,entry);}if(delta)revision=Math.max(revision,Number(data.revision||0));render();}
   async function loadPage(parent){
-   if(!shown()||busy)return;busy=true;const controller=new AbortController();abort=controller;
+   if(!shown()||busy)return;const initial=!baseline&&!parent&&!cursor;busy=true;const controller=new AbortController();abort=controller;
    try{const data=await client.request(eventId,{...(parent?{parentId:parent,cursor:replyCursors.get(parent)}:{cursor})},null,controller.signal);if(!current())return;
-    backoff=false;if(parent)replyCursors.set(parent,data.nextCursor||null);else cursor=data.nextCursor||null;accept(data);status.textContent=entries.size?'':'No comments yet. Start the conversation.';
+    if(initial){revision=Number(data.revision||0);baseline=true;}backoff=false;if(parent)replyCursors.set(parent,data.nextCursor||null);else cursor=data.nextCursor||null;accept(data);status.textContent=entries.size?'':'No comments yet. Start the conversation.';
    }catch(e){if(e.code==='public_comment_cursor_changed'&&current()){cursor=null;if(parent)replyCursors.delete(parent);status.textContent='Comments changed. Tap Load more to refresh their order.';more.hidden=false;}else if(e.name!=='AbortError')report(e);}
    finally{if(current()){busy=false;abort=null;schedule();}}
   }
   async function poll(){
-   if(!shown()){stop();return;}if(busy){schedule();return;}busy=true;const controller=new AbortController();abort=controller;
-   try{const data=await client.request(eventId,{after:revision},null,controller.signal);if(!current())return;backoff=false;if(data.comments?.length)lastChange=Date.now();accept(data);status.textContent='';}
+   if(!shown()){stop();return;}if(busy){schedule();return;}if(!baseline)return void loadPage();busy=true;const controller=new AbortController();abort=controller;
+   try{const data=await client.request(eventId,{after:revision},null,controller.signal);if(!current())return;backoff=false;if(data.comments?.length)lastChange=Date.now();accept(data,{delta:true});status.textContent='';}
    catch(e){if(e.name!=='AbortError')report(e);}
    finally{if(current()){busy=false;abort=null;schedule();}}
   }
   async function mutate(command){
-   if(!current()||retired||sendPending)return;sendPending=true;submit.disabled=true;render();
-   try{const data=await client.request(eventId,{},command);if(!current())return;accept(data);lastChange=Date.now();status.textContent='';if(command.action==='post'&&command.gif)gifController?.notifyGifSent([{providerAnalytics:command.gif.analytics}]);if(command.action==='post'&&command.clientId===clientId){input.value='';chosenGif=null;parentId=null;clientId=null;preview.replaceChildren();replyTo.textContent='';}void poll();}
+   if(!current()||halted||sendPending)return;sendPending=true;submit.disabled=true;render();
+   try{const data=await client.request(eventId,{},command);if(!current())return;accept(data,{write:true});lastChange=Date.now();status.textContent='';if(command.action==='post'&&command.gif)gifController?.notifyGifSent([{providerAnalytics:command.gif.analytics}]);if(command.action==='post'&&command.clientId===clientId){input.value='';chosenGif=null;parentId=null;clientId=null;preview.replaceChildren();replyTo.textContent='';}void poll();}
    catch(e){report(e);if(e.code==='public_comment_handle_required'&&current()){const profile=node('div');host.append(profile);client.profile(profile);}}
    finally{if(current()){sendPending=false;submit.disabled=false;render();}}
   }
@@ -79,18 +79,20 @@
   active={card,host,dispose(){disposed=true;stop();gifController?.closePicker();observer?.disconnect();document.removeEventListener('visibilitychange',visibility);host.remove();}};
   void loadPage();return active;
  }
- root.addEventListener('ns-account-change',reset);
+ root.addEventListener('ns-account-change',()=>{reset();if(typeof notificationDestinationDialog!=='undefined'&&notificationDestinationDialog?.dataset.publicComments==='true')closeNotificationDestination();});
  async function openFixture(id){
   if(!registered()){defaultClient.signIn();return;}const owner=defaultClient.owner(),life=serverSyncClient.accountSnapshot(),identity=NOTHINGSPORTS_FIXTURE_IDENTITY.canonicalFixtureId(id);
-  const item=[...feedCardSlots.values()].find(item=>[item.event.id,item.event.eventId,item.event.canonicalEventId,...(item.event.sourceEventIds||[])].filter(Boolean).some(key=>NOTHINGSPORTS_FIXTURE_IDENTITY.canonicalFixtureId(key)===identity));
-  if(!item)throw Error('This fixture is no longer in your Feed.');
-  activateTopLevelTab('feed',{resetViewport:false});const eventId=item.event.eventId||item.event.id;pendingNotificationEventId=String(eventId);focusPendingNotificationEvent();
-  let card=document.querySelector('.event-card[data-event-id="'+CSS.escape(String(eventId))+'"]');if(!card)throw Error('Fixture is not available.');
-  await defaultClient.load('config/chat-media-ui.js?v=304');if(owner!==defaultClient.owner()||life.generation!==serverSyncClient.accountSnapshot().generation)return;
-  card=document.querySelector('.event-card[data-event-id="'+CSS.escape(String(eventId))+'"]');if(!card||!item.slot.isConnected)return;
-  // PR37's opt-in adapter keeps this alert's expansion entirely in its host.
-  const draw=state=>{if(owner!==defaultClient.owner()||life.generation!==serverSyncClient.accountSnapshot().generation||!item.slot.isConnected)return;reset();const fresh=buildEventCard(item.event,{mode:'schedule',cardState:state,onCardStateChange:draw});if(fresh.dataset.cardState!==state)throw Error('Fixture discussion is waiting for the shared card update.');item.slot.replaceChildren(fresh);item.mounted=true;if(state==='opened')mount(fresh,item.event);fresh.focus({preventScroll:true});};
-  draw('opened');
+  const admitted=()=>[...feedCardSlots.values()].find(item=>[item.event.id,item.event.eventId,item.event.canonicalEventId,...(item.event.sourceEventIds||[])].filter(Boolean).some(key=>NOTHINGSPORTS_FIXTURE_IDENTITY.canonicalFixtureId(key)===identity)&&!['dismissed','archived','isPurged'].some(key=>typeof getEventAction==='function'&&getEventAction(item.event)[key]));
+  if(!admitted())throw Error('This fixture is no longer in your Feed.');
+  reset();closeNotificationDestination();styles();const dialog=node('dialog',undefined,'calendar-dialog public-comments-destination'),body=node('div');dialog.dataset.publicComments='true';dialog.setAttribute('aria-label','Fixture discussion');dialog.style.cssText='width:min(900px,calc(100% - 32px));max-height:90vh;overflow:auto;';body.append(node('p','Loading fixture discussion…'));dialog.append(button('Close fixture',closeNotificationDestination),body);document.body.append(dialog);notificationDestinationDialog=dialog;
+  const current=()=>owner===defaultClient.owner()&&life.generation===serverSyncClient.accountSnapshot().generation&&notificationDestinationDialog===dialog&&dialog.isConnected&&dialog.open;
+  dialog.addEventListener('close',()=>{if(active?.card&&dialog.contains(active.card))reset();if(notificationDestinationDialog===dialog)notificationDestinationDialog=null;dialog.remove();});dialog.showModal();
+  // Alert navigation owns a disposable full-card host. Never mount or observe
+  // an ordinary Feed card, change tabs or persist a card/admission/seen choice.
+  const draw=state=>{if(!current())return;reset();const item=admitted();if(!item){body.replaceChildren(node('p','This fixture is no longer in your Feed.'));return;}const fresh=buildEventCard(item.event,{mode:'schedule',cardState:state,onCardStateChange:draw});if(fresh.dataset.cardState!==state)throw Error('Fixture discussion is waiting for the shared card update.');body.replaceChildren(fresh);if(state==='opened')mount(fresh,item.event,{...defaultClient,active:current,scrollContainer:dialog});fresh.focus({preventScroll:true});};
+  try{await defaultClient.load('config/chat-media-ui.js?v=304');if(!current()){if(notificationDestinationDialog===dialog)closeNotificationDestination();return;}if(!admitted())throw Error('This fixture is no longer in your Feed.');draw('opened');}
+  catch(error){if(notificationDestinationDialog===dialog)closeNotificationDestination();throw error;}
  }
+
  root.NOTHINGSPORTS_PUBLIC_COMMENTS_UI=Object.freeze({mount,reset,openFixture});
 })(typeof globalThis!=='undefined'?globalThis:this);

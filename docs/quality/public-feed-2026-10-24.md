@@ -16,7 +16,7 @@ Status: **Working; source candidate, not Ready or deployed.** Full scope follows
 1. **PR37's final reviewed transient card adapter**, still owned by All Sports View and under ROOT review. Public Feed consumes `buildEventCard(event,{mode:'schedule',cardState,onCardStateChange(nextState)})`; host expansion/focus are ephemeral and persist no Follow/admission/seen/open/card-state choice. No renderer or generated critical runtime is copied. Default personal Feed behavior stays with its original owner. The candidate explicitly fails if the adapter does not honor its requested state.
 2. DEPLOY must review/apply the new migration through its existing erasure/permission/rollback gates before activating application callers. No hosted schema change or hosted advisor result is claimed.
 3. Existing dispatcher/maintenance invocation must be allocated by DEPLOY. A write-triggered attempt is bounded recovery assistance, not proof that paused scheduled recovery or automatic retirement runs. No job may be resumed by this feature owner.
-4. ROOT allocates final generated shell/cache versions and exact installed-upgrade qualification. Critical `index.html`, SDK and generated app runtime bytes are unchanged in this branch; optional UI changes still need final cache/source binding.
+4. ROOT allocates final generated shell/cache versions and exact installed-upgrade qualification. The original reviewed candidate left critical startup bytes unchanged. The review repair adds the required comment-consent field to the real `index.html` registration payload; SDK and feature-generated critical runtime remain unchanged. ROOT retains the fixed startup budget and owns coherent shell/cache versions and final source binding.
 
 ## Verification observed locally
 
@@ -39,6 +39,10 @@ Passed:
 Preserved baseline failure: `validate-chat-fixture-media-plan.js` stops at line 21, “the published Follow schedule must contain tennis fixtures.” Current schedule has 517 rows and zero matching tennis rows. The tested script and schedule match the branch base byte-for-byte: Git object hashes `b78fb8aa81904a93c5cf39ee59f5eb174dcf68c3` and `ba3bf7dff6306d421c41ba4e01f76839bed102ed`, respectively. DEPLOY independently confirmed the same data on current main `634496ce` and authorised the affected test repair. The revised gate unconditionally runs the actual registry builder/API reader with a deterministic tennis fixture, proves that missing inclusion fails the same assertion, and retains the check for every actually published tennis fixture plus all original auth/media/GIF checks. Production sporting data is unchanged. This synthetic regression does not claim current tennis coverage. The original failure is not a current normal-production-workflow blocker: DEPLOY confirmed this script is outside its existing 250 commands.
 
 Earlier database RPC checks passed on the previous local PGlite fixture before the resource hold. **They do not qualify the final migration**: later retirement-proof and erasure/delta coverage changes still require fresh execution. The default full aggregate gate runs the actual migration/RPC tests sequentially on PostgreSQL 18 (`@electric-sql/pglite`) and PostgreSQL 17 (`pglite-pg17`), including capture-failure rollback, seventh-day boundary, more-than-100 deltas, hard-erasure invalidation and blocked-peer cascades. These engine runs are currently held by DEPLOY's Mac resource allocation.
+
+## Review repair follow-up
+
+Both ROOT reviews at `95885e63` identified six unique defects. The coherent repair and reproducible baseline RED controls are recorded in [the review-repair evidence](public-feed-review-repairs-2026-10-24.md). Five light actual-source regressions are now green; the final migration/inventory/workflow engine run remains held. Earlier pass lists describe their tested candidates and do not qualify the later SQL or required index/cache integration.
 
 ## Open acceptance, not waived
 

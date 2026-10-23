@@ -75,12 +75,60 @@ do $$ declare t text;begin
   execute format('grant select,insert,update,delete on public.%I to service_role','nothingsports_'||t);
  end loop;
 end $$;
-create trigger public_comments_erasure_insert after insert on public.nothingsports_public_comments for each row execute function private.nothingsports_guard_erasure_write('author_user_id');
--- FK detachment and derived vote totals must drain while either account erases.
--- This exception cannot change author, text, GIF, deletion state or identity.
-create trigger public_comments_erasure_update after update on public.nothingsports_public_comments for each row
- when(not((to_jsonb(new)-array['parent_id','score','revision'])=(to_jsonb(old)-array['parent_id','score','revision']) and(new.parent_id is not distinct from old.parent_id or new.parent_id is null)))
- execute function private.nothingsports_guard_erasure_write('author_user_id');
+create or replace function private.nothingsports_guard_erasure_write()
+returns trigger language plpgsql security definer set search_path='' as $$
+declare actor uuid;actors uuid[]:='{}';column_name text;null_only boolean:=false;
+begin
+ if current_setting('transaction_isolation')<>'read committed' then
+  raise exception using errcode='25000',message='account_erasure_guard_requires_read_committed';
+ end if;
+ -- FK SET NULL actions must be able to detach attribution during Auth deletion,
+ -- even when another column in the same row still references that account.
+ if tg_op='UPDATE' then
+  null_only:=(to_jsonb(new)-tg_argv)=(to_jsonb(old)-tg_argv) and to_jsonb(new)<>to_jsonb(old);
+  -- Auth FK detachment may also erase this subject's copied audit snapshots.
+  -- Only this table, a removed target, empty snapshots and otherwise unchanged
+  -- content qualify; arbitrary edits still pass through the erasure barrier.
+  if tg_table_schema='public' and tg_table_name='nothingsports_nsc_admin_audit'
+     and to_jsonb(old)->>'target_user_id' is not null
+     and to_jsonb(new)->>'target_user_id' is null
+     and to_jsonb(new)->'before_state'='{}'::jsonb
+     and to_jsonb(new)->'after_state'='{}'::jsonb then
+   null_only:=(to_jsonb(new)-tg_argv-array['before_state','after_state'])
+             =(to_jsonb(old)-tg_argv-array['before_state','after_state']);
+  end if;
+  foreach column_name in array tg_argv loop
+   if (to_jsonb(new)->column_name) is distinct from (to_jsonb(old)->column_name)
+      and (to_jsonb(new)->>column_name) is not null then null_only:=false;end if;
+  end loop;
+  if null_only then return new;end if;
+  -- The combined canonical guard remains visible to the existing inventory.
+  -- Only derived public-comment updates may drain blocked-peer FK/vote work.
+  -- Text, GIF, author, deletion and identity fields must remain byte-identical;
+  -- totals and revision must agree with their existing transaction owners.
+  if tg_table_schema='public' and tg_table_name='nothingsports_public_comments' then
+   if (to_jsonb(new)-array['parent_id','score','revision'])=(to_jsonb(old)-array['parent_id','score','revision'])
+     and (new.parent_id is not distinct from old.parent_id or new.parent_id is null)
+     and new.score=(select coalesce(sum(v.value),0) from public.nothingsports_public_comment_votes v where v.comment_id=new.id)
+     and new.revision=(select t.revision from public.nothingsports_public_threads t where t.event_id=new.event_id) then
+    return new;
+   end if;
+  end if;
+ end if;
+ foreach column_name in array tg_argv loop
+  actor:=(to_jsonb(new)->>column_name)::uuid;
+  if actor is not null then actors:=array_append(actors,actor);end if;
+ end loop;
+ for actor in select distinct a from unnest(actors) a order by a loop
+  -- The shared transaction lock drains already-accepted writes before begin returns.
+  perform pg_catalog.pg_advisory_xact_lock_shared(pg_catalog.hashtextextended('account-erasure:'||actor::text,0));
+  if exists(select 1 from public.nothingsports_account_erasure_blocks b where b.user_id=actor) then
+   raise exception using errcode='55000',message='account_erasure_in_progress';
+  end if;
+ end loop;
+ return new;
+end $$;
+create trigger public_comments_erasure after insert or update on public.nothingsports_public_comments for each row execute function private.nothingsports_guard_erasure_write('author_user_id');
 create trigger public_votes_erasure after insert or update on public.nothingsports_public_comment_votes for each row execute function private.nothingsports_guard_erasure_write('user_id');
 create trigger public_limits_erasure after insert or update on public.nothingsports_public_comment_limits for each row execute function private.nothingsports_guard_erasure_write('user_id');
 create trigger public_runs_erasure after insert or update on public.nothingsports_public_comment_runs for each row execute function private.nothingsports_guard_erasure_write('recipient_user_id','actor_user_id');
