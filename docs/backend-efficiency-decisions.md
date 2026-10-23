@@ -1,6 +1,5 @@
 # Backend efficiency decisions
 
-
 ## Public fixture discussion reuses bounded owners — 24 October 2026 Sydney
 
 Full isolated implementation follows the [settled Public Feed specification](plans/public-feed-2026-10-22.md). Load its optional UI only on deliberate expansion/alert handoff, using the existing authenticated chat request factory and server-verified nonanonymous account. Service-only forced-RLS tables/RPCs retain fixed empty search paths and invoker privileges. Reuse canonical fixture identity, the existing public handle/profile flow, GIPHY picker/provider/capability checks and the existing account-erasure write barrier. No private-room membership or NSC reward is created.
@@ -12,6 +11,14 @@ The dated notification exception is exact followed-author runs per recipient/fix
 Only the existing maintenance/dispatcher owner checks at most two aged thread descriptors per pass using selected stored fixture snapshots. The shared retirement policy proves eligibility; SQL rechecks the Sydney calendar date and captures the immutable top-three text-only existing EPIC snapshot before live deletion in one transaction. Unknown source fixtures are retained and rotate the check receipt, preventing starvation without inventing facts. Account erasure cascades remove authored live/archive content, votes and outbox data; hard-delete tombstones and profile/privacy revisions clear cached discussion. Root deletion preserves surviving replies. Keep user-facing exports complete over continuation pages and suppress all comment snapshots with Results OFF.
 
 The new aggregate gate `validate-public-feed.js` is added to canonical QA and the existing production workflow. Light source checks do not satisfy held database/native-browser or hosted/physical-phone acceptance. PR37's final shared transient-card adapter and DEPLOY-owned schema/shell/cache integration remain required; existing startup/cache/request ceilings remain unchanged.
+
+
+## Automatic seed hydration is not a preference decision — 24 October 2026
+
+The original sync owner reproduced a pending-receipt false hold when identical account metadata hydration changes only `followFirst.appliedSeedHash`. Exclude that exact automatic marker from base/intent decision comparison; all genuine and unknown preferences, OFF/empty/unfollow, receipt identity, owner/generation and conditional saves remain protected. Full in-flight receipt-base advancement stays exact. In the existing conditional user-state PUT, unchanged metadata cannot replace its current marker with an older marker that does not match the same seedHash; valid hydration and genuine metadata updates remain allowed. No preference union, starter Follow, new request/store/wire/schema or recovery is added.
+
+The actual queue/receipt/API regression is part of the existing bookkeeping safety command, including restart/older-marker preservation, real conditional409, genuine-choice/unknown holds and stale scopes. The real588 phone diagnostic proves a guarded hold but does not identify this field; candidate prevention and actual phone acceptance remain distinct. See [scope and controls](quality/account-seed-marker-sync-2026-10-24.md). DEPLOY owns final review, combined qualification and publication; worker source is not a deployment or customer-state repair.
+
 
 ## Follow decisions exclude named device bookkeeping — 23 October 2026
 

@@ -1,6 +1,6 @@
 # Public Feed implementation evidence — 24 October 2026 Sydney
 
-Status: **Working; source candidate, not Ready or deployed.** Full scope follows [the settled specification](../plans/public-feed-2026-10-22.md). Isolated branch `codex/public-feed-20261024`, initially based on accepted `9df58ea0faf9c1497abc9de09a44b31516b0536d`. DEPLOY owns integration, schema activation, final shell/cache version allocation and publication. Existing paused jobs remain paused. No production data/config, shared database, provider refresh, scheduler, VM or native browser was operated for this evidence.
+Status: **Working; source candidate, not Ready or deployed.** Full scope follows [the settled specification](../plans/public-feed-2026-10-22.md). Isolated branch `codex/public-feed-20261024`, initially based on accepted `9df58ea0faf9c1497abc9de09a44b31516b0536d`. The feature branch was reconciled with current main `634496cef48ba6061c9c8f3c0ea1c4aed5dccd00`; both overlapping decision-record entries were retained. DEPLOY owns integration, schema activation, final shell/cache version allocation and publication. Existing paused jobs remain paused. No production data/config, shared database, provider refresh, scheduler, VM or native browser was operated for this evidence.
 
 ## Source scope
 
