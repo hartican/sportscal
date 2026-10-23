@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Installed-app account recovery reuses the existing owner — 23 October 2026
+
+The approved installed-iOS repair retries the existing scoped, serialised auth/sync path on visible pageshow, foreground return and online events. Coalesce one account lifetime's concurrent events and permit at most one automatic attempt per15-second burst; skip hidden, offline and already-busy states. Manual retry stays deliberate. There is no polling, second sync owner, new endpoint, schema or wire contract. Preserve PR30 comparison/receipt/baseUpdatedAt and owner/generation fences, pending choices, explicit empty/unfollow/OFF and old/new origin separation. A completed save leaving a newer receipt reports pending/error with a usable retry; it cannot remain falsely busy or acknowledge that newer choice.
+
+Header and Account distinguish saved identity from verified session and show current progress/error ahead of last-sync time. The actual mounted-app regression covers timeout, overlapping automatic/manual work, valid/expired/revoked/offline sessions, Follow round-trip and origins. Final source, exact-version installed/hosted and physical iPhone proof are separate gates. No customer restoration, forced sign-out, reinstall, storage clearing, source refresh or automation restart is part of this repair.
+
 ## Preserve different saved follows during reconciliation — 22 October 2026
 
 The authorised repair uses the existing patch's known previous entity-follow list to apply only changed identities/record fields after a same-account read or retry. A different remote follow and untouched remote fields survive. Existing canonical Follow aliases remain one identity. A format-only change cannot revive a remotely removed or explicitly unfollowed participant. Explicit whole-list empty retains its reset meaning; a missing baseline becoming an empty default carries no removals. Invalid or ambiguous comparison metadata fails visibly. Existing owner/generation/version fences, pending-intent changed-base pause, OFF/privacy choices and SDK/conditional-save owner remain unchanged. Older payloads without comparison metadata retain compatibility semantics and are not certified as repaired by new-client source alone.
