@@ -26,3 +26,17 @@ The phone's generic failure message does not identify its cause. Local causal re
 Shared files: index sync hooks/Account copy, existing deferred Account source/runtime/builder and the matching service-worker helper cache URL. The separately owned loading/snapshot/calendar experiment must be integrated by DEPLOY, with the same budget rechecked after combination. No loading/calendar logic is changed here.
 
 Worker evidence and two-axis review are retained with the release handover. Hosted runtime, repeated account reads, cross-device Follow removal/Feed exclusion and physical iPhone Home Screen acceptance remain DEPLOY-owned and open. A diagnostic copied from the failing phone is required before attributing its cause.
+
+## Integration follow-up: preserve the native sign-in form
+
+DEPLOY's first shell588 matrix exposed an obsolete diagnostic assertion (`587` hardcoded) and recurring initial-sign-in timeouts before any user-state read/write. The harness now binds its expected diagnostic version to the exact served source (including an explicitly selected historical Git source), rather than to a worker's version allocation.
+
+A bounded delayed-helper probe in each engine reproduced a separate, real UI defect: fill both required fields on form1, then finish the existing deferred Account helper request. Its mount called the full Account renderer, creating empty form2. A native click triggered `invalid` for email/password and no native submit. This explains the observed setup failure; it does not establish the authenticated iPhone sync failure's cause.
+
+The approved repair changes only the existing helper's mount refresh. If the native sign-in form already exists, update Account help/status copy in place and retain its actual form/input nodes, listeners and focus. Do not copy credentials, submit automatically, store a draft or alter requests/session/sync decisions. Other Account states retain the existing full render. Matching helper loader/worker cache URLs advance together to5714; DEPLOY owns the shell version.
+
+The permanent `helper-mount` case holds the actual helper response until after input, asserts original node identity, focus and native validity, clicks the real button, and requires one submit and one password-sign-in request. Both engines join the existing matrix; all original32 cases remain, for34 total. Sanitized setup traces contain form instance numbers, boolean presence/validity and event/state labels only. Wait durations and application acceptance assertions are unchanged.
+
+Original failing traces, including a first fixed probe's failed test counter, are retained. That first fixed probe already retained the form and submitted; its attempted wrapper counter was ineffective because the real SDK object is frozen. The corrected regression observes native submit and the existing routed auth request directly, without SDK mutation.
+
+DEPLOY must qualify the combined588/5714 runtime, complete34-case matrix, both installed upgrades and all250 release commands. The original phone diagnostic and physical two-device/Feed gates remain open. This addition repairs a proven helper-arrival UI race while preserving the diagnostic's original privacy and sync boundaries.

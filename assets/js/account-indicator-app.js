@@ -160,7 +160,15 @@ function mount(){
   addEventListener('offline',()=>{lastRecovery=null;renderAccountIndicator();});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)foregroundAccount();});
   if(serverPersistence.state==='error')void recoverAccount();
-  if(settingsSection==='account' && document.getElementById('settingsModal')?.classList.contains('show'))renderSettingsScreen();
+  if(settingsSection==='account' && document.getElementById('settingsModal')?.classList.contains('show')){
+    // The helper may finish while a person types. Keep the actual form, input
+    // listeners and focus; refreshing explanatory copy must not erase a draft.
+    if(document.getElementById('accountSignInForm')){
+      const help=document.getElementById('accountSyncHelp'),detail=document.getElementById('accountSyncDetail');
+      if(help)help.textContent=syncHelp;
+      if(detail)detail.textContent=accountSyncDetail();
+    }else renderSettingsScreen();
+  }
   return accountIndicatorController;
 }
 root.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP=Object.freeze({beginDiagnostic:beginSyncDiagnostic,mount,open:openIndicatorAccount,finish:finishAccountIndicatorJourney,complete:completeAccountIndicatorJourney,acceptProfile:acceptAccountIndicatorProfile,appendRetry:appendAccountRetry,identityPrefix:accountIdentityPrefix,syncDetail:accountSyncDetail});
