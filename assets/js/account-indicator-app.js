@@ -7,18 +7,17 @@ const syncDiagnostic=root.NOTHINGSPORTS_SYNC_DIAGNOSTIC.create();
 function beginSyncDiagnostic(scope){
   try{
     const generation=serverSyncClient.accountSnapshot?.().generation;
-    let baseCompatible=null,ownerMatches=null;
+    let ownerMatches=null,pendingReceipt=null;
     return syncDiagnostic.begin({current:()=>scope.current()&&serverSyncClient.accountSnapshot?.().generation===generation,
       versions:{shellVersion:document.querySelector('meta[name="app-shell-version"]')?.content,
         workerVersion:root.NOTHINGSPORTS_APP_UPDATE?.snapshot?.().workerVersion},
-      facts(payload){
-        const receipt=pendingPreferenceIntent(scope.accountId);
+      facts(payload,stage){
+        if(['prepare','complete','failure'].includes(stage))pendingReceipt=Boolean(pendingPreferenceIntent(scope.accountId));
         if(payload){
           ownerMatches=payload.user?.id===scope.accountId;
-          baseCompatible=!receipt||Boolean(payload.state&&(PROFILE_STORAGE.preferenceBaseMatches(receipt,payload.state.preferences)
-            ||PROFILE_STORAGE.preferenceIntentMatches(receipt,payload.state.preferences,USER_STATE_SYNC)));
+
         }
-        return {pendingReceipt:Boolean(receipt),baseCompatible,ownerMatches,
+        return {pendingReceipt,ownerMatches,
           generationMatches:serverSyncClient.accountSnapshot?.().generation===generation};
       }});
   }catch(_error){}
@@ -28,12 +27,13 @@ function appendSyncDiagnostic(controls){
   const button=document.createElement('button');
   button.type='button';button.className='btn';button.textContent='Copy sync diagnostic';
   button.addEventListener('click',async()=>{
-    const detail=syncDiagnostic.snapshot();
+    const capture=syncDiagnostic.capture();
+    const detail=capture?.detail;
     if(!detail){button.remove();return;}
     try{
       await navigator.clipboard.writeText(JSON.stringify(detail));
-      if(syncDiagnostic.snapshot())showToast('Sync diagnostic copied.');
-    }catch(_error){showToast('Could not copy. Please try again.');}
+      if(capture.current())showToast('Sync diagnostic copied.');
+    }catch(_error){if(capture.current())showToast('Could not copy. Please try again.');}
   });
   controls.appendChild(button);
 }

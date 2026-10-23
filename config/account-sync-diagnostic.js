@@ -29,11 +29,11 @@
       try{if(job.current())return true;}catch(_error){}
       last=null;return false;
     }
-    function update(job,payload){
+    function update(job,payload,stage){
       if(!valid(job))return false;
       try{
-        const facts=job.facts(payload)||{};
-        for(const key of ['pendingReceipt','baseCompatible','ownerMatches','generationMatches'])job.record[key]=bool(facts[key]);
+        const facts=job.facts(payload,stage)||{};
+        for(const key of ['pendingReceipt','ownerMatches','generationMatches'])job.record[key]=bool(facts[key]);
       }catch(_error){for(const key of ['pendingReceipt','baseCompatible','ownerMatches','generationMatches'])job.record[key]=null;}
       return true;
     }
@@ -49,11 +49,12 @@
           code:null,category:'in_progress',status:null,completed:false,saveResponseReceived:false,
           shellVersion:version(versions.shellVersion),workerVersion:version(versions.workerVersion),
           pendingReceipt:null,baseCompatible:null,ownerMatches:null,generationMatches:null}};
-        last=job;update(job);
+        last=job;update(job,undefined,'prepare');
         return {
           step(stage,payload){try{
-            if(!update(job,payload))return;
+            if(!update(job,payload,stage))return;
             job.record.stage=stages.has(stage)?stage:'unknown';
+            if(stage==='save'||stage==='acknowledge')job.record.baseCompatible=true;
             if(stage==='save-response')job.record.saveResponseReceived=true;
             if(stage==='complete'){
               job.ended=now();
@@ -61,11 +62,12 @@
               job.record.category=job.record.completed?'completed':'pending';
             }
           }catch(_error){}},
-          fail(error){try{if(update(job)){Object.assign(job.record,classify(error));job.record.completed=false;job.ended=now();}}catch(_error){}},
+          fail(error){try{if(update(job,undefined,'failure')){Object.assign(job.record,classify(error));job.record.completed=false;job.ended=now();if(error?.code==='preference_base_changed')job.record.baseCompatible=false;}}catch(_error){}},
         };
       }catch(_error){return;}
     }
-    return Object.freeze({begin,snapshot});
+    function capture(){const job=last,detail=snapshot();return detail?{detail,current:()=>valid(job)}:null;}
+    return Object.freeze({begin,snapshot,capture});
   }
   return Object.freeze({create,classify});
 });

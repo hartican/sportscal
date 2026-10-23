@@ -132,7 +132,12 @@ const server = http.createServer((req, res) => {
     await page.locator('#accountEmail').fill('disposable@example.invalid');
     await page.locator('#accountPassword').fill('test-only-password');
     await page.locator('#accountSignInForm button[type="submit"]').click();
-    await page.waitForFunction(() => serverPersistence.state === 'signedIn');
+    await page.waitForFunction(() => serverPersistence.state === 'signedIn').catch(async error=>{
+      console.error(JSON.stringify({phase:'initial-sign-in',scenario,engine:engineName,reads,writes,refreshes,errors,
+        state:await page.evaluate(()=>({state:serverPersistence.state,message:serverPersistence.message,
+          hasSession:serverSyncClient.accountSnapshot().hasSession,pending:Boolean(pendingPreferenceIntent(serverPersistence.user?.id))}))}));
+      throw error;
+    });
     await page.waitForFunction(() => Boolean(accountIndicatorController));
     await page.waitForFunction(() => nothingscoreViewerScope?.owner === serverPersistence.user?.id);
     await page.waitForTimeout(1200); // Drain optional sign-in/profile/Follow effects before isolating resume.

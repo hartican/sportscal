@@ -53,6 +53,34 @@ async function run(){
   }
   assert.equal(outcomes[0],outcomes[1],name+' diagnostic must preserve exact saved state, baseline, receipt, calls and error');
  }
+ // A clipboard promise belongs to the originating attempt even if a new
+ // account/attempt completes before the browser reports clipboard completion.
+ for(const change of ['attempt','generation','owner']){
+  const c=context(sources());mount(c);let toasts=0,release;
+  c.showToast=()=>{toasts++;};await c.syncCurrentServerState();
+  const controls={children:[],appendChild(b){this.children.push(b);}};
+  c.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.appendRetry(controls);
+  c.navigator.clipboard.writeText=()=>new Promise(resolve=>{release=resolve;});
+  const copying=controls.children[0].click();
+  if(change==='owner')c.switchAccount();
+  else if(change==='generation')c.qaGeneration=1;
+  else await c.syncCurrentServerState();
+  release();await copying;assert.equal(toasts,0,change+' late clipboard completion cannot announce success');
+ }
+ // Real late responses cannot retain a diagnostic in a changed lifetime.
+ for(const change of ['owner','generation','ended']){
+  const c=context(sources());mount(c);const read=c.serverSyncClient.loadState;
+  c.serverSyncClient.loadState=async options=>{const result=await read(options);
+   if(change==='owner')c.switchAccount();else if(change==='generation')c.qaGeneration=1;else c.endSession();return result;};
+  await c.syncCurrentServerState();
+  const controls={children:[],appendChild(b){this.children.push(b);}};
+  c.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.appendRetry(controls);assert.equal(controls.children.length,0,change+' invalidates diagnostic');
+ }
+ {
+  const c=context(sources());mount(c);let samples=0;const pending=c.pendingPreferenceIntent;
+  c.pendingPreferenceIntent=(...args)=>{samples++;return pending(...args);};
+  await c.syncCurrentServerState();assert.equal(samples,4,'two original receipt reads plus two diagnostic samples');
+ }
  let clock=100,current=true;
  const recorder=diagnostic.create({now:()=>clock});
  const start=()=>recorder.begin({current:()=>current,facts:()=>({pendingReceipt:false,baseCompatible:sentinel,ownerMatches:true,generationMatches:true}),versions:{shellVersion:sentinel,workerVersion:'587'}});
@@ -62,7 +90,7 @@ async function run(){
  current=false;assert.equal(recorder.snapshot(),null);current=true;first.fail(error('request_timeout'));assert.equal(recorder.snapshot(),null,'cleared lifetime stays cleared');
  for(const code of ['missing_session','refresh_session_terminal','invalid_refresh_token','refresh_token_not_found','refresh_token_already_used','refresh_token_revoked'])assert.equal(diagnostic.classify({code}).category,'auth');
  assert.equal(diagnostic.classify({name:'SecurityError'}).category,'local_security');
- console.log('Sync diagnostic: 15 actual queue/reconcile equivalence scenarios, copy privacy, owner fences, safe categories and bounded recorder passed. No service connections.');
+ console.log('Sync diagnostic: 15 actual queue/reconcile equivalence scenarios, 6 delayed clipboard/lifetime controls, bounded receipt sampling, copy privacy, owner fences, safe categories and bounded recorder passed. No service connections.');
 }
 module.exports=run;
 if(require.main===module)run().catch(error=>{console.error(error);process.exitCode=1;});
