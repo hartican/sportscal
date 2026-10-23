@@ -15,7 +15,7 @@ const scenario = process.env.ACCOUNT_RECOVERY_CASE || 'retry-error';
 if (scenario === 'all') {
   let failed = false;
   for (const engine of (process.env.ACCOUNT_RECOVERY_BROWSER ? [engineName] : ['chromium', 'webkit'])) {
-    for (const testCase of ['retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed']) {
+    for (const testCase of ['diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed']) {
       const result = spawnSync(process.execPath, [__filename], { stdio: 'inherit', env: {
         ...process.env, ACCOUNT_RECOVERY_BROWSER: engine, ACCOUNT_RECOVERY_CASE: testCase } });
       failed ||= result.status !== 0;
@@ -132,7 +132,12 @@ const server = http.createServer((req, res) => {
     await page.locator('#accountEmail').fill('disposable@example.invalid');
     await page.locator('#accountPassword').fill('test-only-password');
     await page.locator('#accountSignInForm button[type="submit"]').click();
-    await page.waitForFunction(() => serverPersistence.state === 'signedIn');
+    await page.waitForFunction(() => serverPersistence.state === 'signedIn').catch(async error=>{
+      console.error(JSON.stringify({phase:'initial-sign-in',scenario,engine:engineName,reads,writes,refreshes,errors,
+        state:await page.evaluate(()=>({state:serverPersistence.state,message:serverPersistence.message,
+          hasSession:serverSyncClient.accountSnapshot().hasSession,pending:Boolean(pendingPreferenceIntent(serverPersistence.user?.id))}))}));
+      throw error;
+    });
     await page.waitForFunction(() => Boolean(accountIndicatorController));
     await page.waitForFunction(() => nothingscoreViewerScope?.owner === serverPersistence.user?.id);
     await page.waitForTimeout(1200); // Drain optional sign-in/profile/Follow effects before isolating resume.
@@ -219,12 +224,33 @@ const server = http.createServer((req, res) => {
         chronology.push({ phase: 'after-removal', A: await snapshot(page), B: await snapshot(second) });
       } catch (error) { chronology.push({ phase: 'failure', A: await snapshot(page) }); throw error; }
       finally { console.log(JSON.stringify({ scenario, engine: engineName, chronology })); await other.close(); }
+    } else if (scenario === 'diagnostic') {
+      await page.evaluate(() => {
+        globalThis.qaDiagnosticCopies=[];
+        Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async value=>qaDiagnosticCopies.push(value)}});
+      });
+      readMode='failure';
+      await page.locator('#syncAccountNowBtn').click();
+      await page.waitForFunction(() => serverPersistence.state==='error');
+      assert.equal(await page.locator('#accountSyncDetail').innerText(),'Sync could not be confirmed. Try Sync now.');
+      assert.equal(await page.evaluate(() => qaDiagnosticCopies.length),0);
+      const copy=page.getByRole('button',{name:'Copy sync diagnostic',exact:true});
+      await copy.click();
+      const copied=await page.evaluate(() => qaDiagnosticCopies);
+      assert.equal(copied.length,1);const detail=JSON.parse(copied[0]);
+      assert.equal(detail.stage,'read');assert.equal(detail.status,503);assert.equal(detail.completed,false);
+      assert.equal(detail.shellVersion,'587');
+      assert(!copied[0].includes(owner));assert(!copied[0].includes('disposable'));
+      assert.equal(detail.ownerMatches,null,'a failed read has no verified response owner');
+      await page.locator('#signOutAccountBtn').click();
+      await page.waitForFunction(() => serverPersistence.state==='signedOut');
+      assert.equal(await page.getByRole('button',{name:'Copy sync diagnostic',exact:true}).count(),0);
     } else if (scenario === 'retry-error') {
       readMode = 'failure';
       await page.locator('#syncAccountNowBtn').click();
       await page.waitForFunction(() => serverPersistence.state === 'error');
       const detail = await page.locator('#accountSyncDetail').innerText();
-      assert.match(detail, /unavailable|retry|saved on this device|local copy/i,
+      assert.match(detail, /could not be confirmed|unavailable|retry|saved on this device|local copy/i,
         'failed manual sync must expose its failure rather than only Not synced yet / Last synced');
       assert.equal(await page.locator('#syncAccountNowBtn').isEnabled(), true, 'failed sync must release its button');
       readMode = 'success';

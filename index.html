@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="587">
+<meta name="app-shell-version" content="588">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=587" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=588" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2022,7 +2022,7 @@ header.top .header-utilities{display:flex;flex:1;align-items:center;flex-wrap:no
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=587"></script>
+<script src="assets/js/app-shell-runtime.js?v=588"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -3480,7 +3480,7 @@ function renderAccountIndicator(){
 }
 function ensureAccountIndicator(){
   if(accountIndicatorController)return Promise.resolve(accountIndicatorController);
-  accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=5712')
+  accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=5713')
     .then(()=>NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.mount())
     .catch(()=>{accountIndicatorLoading=null;renderAccountIndicator();return null;});
   return accountIndicatorLoading;
@@ -4964,6 +4964,7 @@ function serverStateSyncScope({ accountId = serverPersistence.user?.id, generati
 async function reconcileCurrentServerState({ notify = false, scope = serverStateSyncScope() } = {}){
   if (!serverSyncClient || !serverPersistence.user) return null;
   if (!scope.current()) return null;
+  const diagnostic=globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.beginDiagnostic?.(scope);
   clearTimeout(serverSyncTimer);
   serverSyncTimer = null;
   setServerPersistence({ state: "syncing", message: "Checking for newer choices…" });
@@ -4979,7 +4980,9 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
     let localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
       baseUpdatedAt: baseline.updatedAt,
     });
+    diagnostic?.step("read");
     let latest = await serverSyncClient.loadState({ accountId:scope.accountId });
+    diagnostic?.step("verify",latest);
     if (!scope.verify(latest)) return null;
     verifyPreferenceIntentBase(preferenceReceipt,latest.state);
     advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
@@ -4990,8 +4993,10 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
     });
 
     if (!USER_STATE_SYNC.hasChanges(localPatch) && latest.state){
+      diagnostic?.step("acknowledge");
       acknowledgePreferenceReceipt(preferenceReceipt,latest.state,preferenceLife);
       if (latest.state.updatedAt !== baseline.updatedAt){
+        diagnostic?.step("apply");
         applyServerStatePreservingChanges(latest.state, stateAtSyncStart);
       }
       setServerStateBaseline(latest.state);
@@ -5003,6 +5008,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
         message: "",
       });
       if (notify) showToast("Loaded your latest Nothing Sport settings.");
+      diagnostic?.step("complete");
       return latest;
     }
 
@@ -5020,13 +5026,17 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
       };
       try{
         if (!scope.current()) return null;
+        diagnostic?.step("save");
         result = await serverSyncClient.savePatch(rebasedPatch, { accountId:scope.accountId });
+        diagnostic?.step("save-response",result);
         if (!scope.verify(result)) return null;
         break;
       }catch(error){
         if (!scope.current({ allowEndedSession:serverErrorEndsSession(error) })) return null;
         if (error?.status !== 409 || error?.code !== "user_state_conflict" || attempt === 2) throw error;
+        diagnostic?.step("read");
         latest = await serverSyncClient.loadState({ accountId:scope.accountId });
+        diagnostic?.step("verify",latest);
         if (!scope.verify(latest)) return null;
         verifyPreferenceIntentBase(preferenceReceipt,latest.state);
         advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
@@ -5039,9 +5049,11 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
       }
     }
     if (!result?.state) throw new Error("The server did not return the reconciled profile.");
+    diagnostic?.step("acknowledge");
     acknowledgePreferenceReceipt(preferenceReceipt,result.state,preferenceLife);
     setPreferenceRecovery(result.preferenceRecovery);
     clearAcknowledgedFixturePinCommands(result.state);
+    diagnostic?.step("apply");
     applyServerStatePreservingChanges(result.state, stateAtSyncStart);
     setServerStateBaseline(result.state);
     const lastSyncedAt = result.state?.updatedAt || new Date().toISOString();
@@ -5054,8 +5066,10 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
     });
     if (pendingPreferenceIntent(scope.accountId)){setServerPersistence({state:"error",message:"Newer choices are saved on this device and waiting to sync. Retry sync."});}
     else if (notify) showToast("Your latest changes are synced across devices.");
+    diagnostic?.step("complete");
     return result;
   }catch(error){
+    diagnostic?.fail(error);
     const signedOut = serverErrorEndsSession(error);
     if (!scope.current({ allowEndedSession:signedOut })) return null;
     setServerPersistence({
@@ -5063,7 +5077,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
       user: signedOut ? null : serverPersistence.user,
       message: signedOut
         ? "Your session ended. Sign in again to resume sync."
-        : "Your local copy is safe. Server sync will retry after your next change.",
+        : "Sync could not be confirmed. Try Sync now.",
     });
     if (notify) showToast(serverPersistence.message);
     throw error;
@@ -5229,7 +5243,7 @@ function advancePreferenceReceiptBase(receipt,state,expectedLife){
 function verifyPreferenceIntentBase(receipt,state){
   if(receipt&&(!state||(!PROFILE_STORAGE.preferenceBaseMatches(receipt,state.preferences)
     &&!PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC)))){
-    throw new Error("Your choices are saved on this device. Sync is paused because the saved account changed.");
+    throw Object.assign(new Error("Your choices are saved on this device. Sync is paused because the saved account changed."),{code:"preference_base_changed"});
   }
 }
 
@@ -14151,7 +14165,7 @@ function renderAccountSettings(body){
         <span class="account-sync-dot${dotClass}" aria-hidden="true"></span>
         <div><strong>${heading}</strong><span id="accountSyncDetail"></span></div>
       </div>
-      <p class="preference-help">Preferences, followed teams and athletes, saved Archive cards, results, standings, subscriptions and notification choices follow your account. Sync first loads the newest account state, then uploads only choices changed in this session. Disposable Feed cards stay local and rebuild from source data.</p>
+      <p id="accountSyncHelp" class="preference-help">Your account keeps your choices connected across devices.</p>
       <div id="accountSyncControls"></div>
     </div>
   </div>`;
