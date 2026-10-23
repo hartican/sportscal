@@ -76,6 +76,16 @@ bounded selected reads. `validate-all-sports-view-browser.js` exercises actual
 cards and handler replies in both engines, with all ranges and API/UI pages,
 phone/wide geometry, expansion/privacy/account state, TBC and failures.
 
+`validate-all-sports-review-regressions.js` runs the actual pending loader,
+optional-client merge/poll and shared score installer with light host doubles.
+It locks current-owner re-entry with one download, degraded retained live-only
+rows, reverse-order alias source winners, later selected observations against
+a fixed page window, and NRL/AFL/tennis Results ON/OFF/strict controls. Freshness
+uses current observation time; the pagination anchor and original fact clocks
+stay fixed. Match Centre schedule cards reuse the existing score installer
+without starting the Feed poller. These source checks do not replace native
+browser or physical-device qualification of the repair revision.
+
 Preserve the seven-request/431441-gzip critical ceiling and 3 MiB installed
 shell ceiling under the pinned Node runtime. Generated code must match source.
 Final cache keys and required complete CI/installed/hosted/device checks remain

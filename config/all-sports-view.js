@@ -30,7 +30,7 @@
   if(e.dateOnly||e.timeTbc||e.startTimeTbc||e.timingVerified===false||['date-only','follows','estimated','unconfirmed'].includes(e.timePrecision))return NaN;
   const raw=e.startTimeUtc;return typeof raw==='string'&&validDay(raw.slice(0,10))&&/T.*(?:Z|[+-]\d\d:\d\d)$/.test(raw)?Date.parse(raw):NaN;
  }
- const underway=(e,w)=>!terminal(e)&&Boolean(match.liveState(e,w.asOf))&&(!Number.isFinite(start(e))||start(e)<=w.asOf);
+ const underway=(e,w,now=Date.now())=>!terminal(e)&&Boolean(match.liveState(e,now))&&(!Number.isFinite(start(e))||start(e)<=w.asOf);
  function unique(events){
   const entries=[],aliases=new Map();
   for(const e of events){
@@ -41,7 +41,7 @@
    let index=matches.length?Math.min(...matches):entries.length;
    if(!matches.length)entries.push(e);
    else{
-    const candidates=[entries[index],e,...matches.slice(1).map(i=>entries[i])].filter(Boolean);
+    const candidates=[entries[index],e,...matches.filter(i=>i!==index).map(i=>entries[i])].filter(Boolean);
     entries[index]=candidates.find(e=>e.sourceType==='official')||candidates[0];
     for(const other of matches)if(other!==index){entries[other]=null;for(const [k,v] of aliases)if(v===other)aliases.set(k,index);}
    }
@@ -49,16 +49,16 @@
   }
   return entries.filter(Boolean);
  }
- function entry(e,w){
+ function entry(e,w,now=Date.now()){
   if(terminal(e))return null;
-  const at=start(e),live=underway(e,w);
+  const at=start(e),live=underway(e,w,now);
   if(live)return {event:e,day:dayKey(w.asOf),start:w.asOf,underway:true,tbc:false};
   if(Number.isFinite(at))return at>=w.asOf&&at<w.end?{event:e,day:dayKey(at),start:at,underway:false,tbc:false}:null;
   const day=validDay(e.date)?e.date:null;if(!day)return null;
   const lo=midnight(day),hi=midnight(nextDay(day));
   return lo<w.end&&hi>w.asOf?{event:e,day,start:null,underway:false,tbc:true,qualified:lo<w.asOf||hi>w.end}:null;
  }
- function select(events,w){return unique(events).map(e=>entry(e,w)).filter(Boolean).sort((a,b)=>a.day.localeCompare(b.day)||Number(b.underway)-Number(a.underway)||Number(a.tbc)-Number(b.tbc)||(a.start??Infinity)-(b.start??Infinity)||match.id(a.event).localeCompare(match.id(b.event)));}
+ function select(events,w,now=Date.now()){return unique(events).map(e=>entry(e,w,now)).filter(Boolean).sort((a,b)=>a.day.localeCompare(b.day)||Number(b.underway)-Number(a.underway)||Number(a.tbc)-Number(b.tbc)||(a.start??Infinity)-(b.start??Infinity)||match.id(a.event).localeCompare(match.id(b.event)));}
  function groups(entries,w){
   const days=new Map();
   for(const item of entries){let day=days.get(item.day);if(!day){day={day:item.day,groups:[],tbc:[]};days.set(item.day,day);}if(item.tbc){day.tbc.push(item);continue;}

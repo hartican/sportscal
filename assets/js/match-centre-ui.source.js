@@ -10,7 +10,7 @@ loadMatchCentreStyles();
 
  let notificationTarget=null,notificationRetained=false;
  let selectedView='followed',nextCursor=null;const viewCache=new Map();
- let allSportsView=null,allSportsLoading=null;
+ let allSportsView=null,allSportsLoading=null,allSportsLoadingTicket=null;
  const scores=new Map(),requested=new Map(),expanded=new Set();let timer,inflight=null,hydrating=null,membership=[],membershipKey='',membershipOwner='',membershipCheckedAt=0,membershipMaxAge=120000,generation=0,manual=null,lastManual=-Infinity,notice='',refreshControl;
  const owner=()=>serverSyncClient?.sessionSubject()||'public';
  const membershipQueryKey=()=>selectedView==='followed'?JSON.stringify([owner(),userPreferences,eventActions]):selectedView;
@@ -228,13 +228,13 @@ loadMatchCentreStyles();
   globalThis.stopMatchCentre();selectedView=view;
   const cached=viewCache.get(view);membership=cached?.events||[];membershipKey=cached?.key||'';membershipCheckedAt=cached?.checked||0;membershipMaxAge=cached?.maxAge||120000;nextCursor=cached?.nextCursor??null;membershipOwner=owner();renderMatchCentre();
  }
- globalThis.stopMatchCentre=()=>{generation++;clearInterval(timer);allSportsView?.stop();refreshControl?.cancel();manual=null;notice='';document.getElementById('listView')?.removeAttribute('aria-busy');};
+ globalThis.stopMatchCentre=()=>{generation++;allSportsLoadingTicket=null;clearInterval(timer);allSportsView?.stop();refreshControl?.cancel();manual=null;notice='';document.getElementById('listView')?.removeAttribute('aria-busy');};
  globalThis.renderMatchCentre=()=>{
   if(membershipOwner&&membershipOwner!==owner()){globalThis.stopMatchCentre();notificationTarget=null;notificationRetained=false;membership=[];membershipKey='';membershipOwner=owner();membershipMaxAge=120000;lastManual=-Infinity;scores.clear();requested.clear();cards.clear();expanded.clear();viewCache.clear();nextCursor=null;}
   if(selectedView==='all-sports'){
    if(!globalThis.createAllSportsView){
-    const panel=document.getElementById('listView'),back=node('button','Back to Match Centre','btn ghost'),t=ticket();back.type='button';back.onclick=()=>selectMatchCentreView('followed');panel.replaceChildren(back,node('p','Loading All Sports View…'));
-    allSportsLoading||=loadDeferredScript('assets/js/all-sports-ui.js?v=588').then(()=>{if(valid(t))renderMatchCentre();}).catch(()=>{if(valid(t)){const retry=node('button','Retry','btn ghost');retry.type='button';retry.onclick=renderMatchCentre;panel.replaceChildren(back,node('p','All Sports View could not load.'),retry);}}).finally(()=>{allSportsLoading=null;});return;
+    const panel=document.getElementById('listView'),back=node('button','Back to Match Centre','btn ghost');allSportsLoadingTicket=ticket();back.type='button';back.onclick=()=>selectMatchCentreView('followed');panel.replaceChildren(back,node('p','Loading All Sports View…'));
+    allSportsLoading||=loadDeferredScript('assets/js/all-sports-ui.js?v=588').then(()=>{if(allSportsLoadingTicket&&valid(allSportsLoadingTicket))renderMatchCentre();}).catch(()=>{if(allSportsLoadingTicket&&valid(allSportsLoadingTicket)){const retry=node('button','Retry','btn ghost');retry.type='button';retry.onclick=renderMatchCentre;panel.replaceChildren(back,node('p','All Sports View could not load.'),retry);}}).finally(()=>{allSportsLoading=null;allSportsLoadingTicket=null;});return;
    }
    allSportsView||=globalThis.createAllSportsView({active:()=>activeTab==='match-centre'&&selectedView==='all-sports',owner,selectView:selectMatchCentreView});allSportsView.start();return;
   }

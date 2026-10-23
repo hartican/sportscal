@@ -13,8 +13,8 @@ assert.throws(()=>sports.windowFor('tomorrow',now));assert.throws(()=>sports.win
 const before=fixture('before',-1),first=fixture('first',0),last=fixture('last',window.end-now-1),outside=fixture('outside',window.end-now);
 assert.deepEqual(sports.select([before,first,last,outside],window).map(x=>x.event.id),['first','last']);
 const ongoing=fixture('ongoing',-86400000,{key:'cricket',format:'Test',homeParticipantId:'team:cricket:australia',awayParticipantId:'team:cricket:south-africa',status:'stumps',statusCheckedAt:stamp,numberOfDays:5});
-assert.equal(sports.select([ongoing],window)[0].underway,true);assert.equal(sports.select([{...ongoing,status:'completed',completedAt:stamp}],window).length,0);
-assert.equal(sports.select([{...ongoing,status:'live',statusCheckedAt:null}],window).length,0,'Elapsed kickoff does not manufacture play');
+assert.equal(sports.select([ongoing],window,now)[0].underway,true);assert.equal(sports.select([{...ongoing,status:'completed',completedAt:stamp}],window,now).length,0);
+assert.equal(sports.select([{...ongoing,status:'live',statusCheckedAt:null}],window,now).length,0,'Elapsed kickoff does not manufacture play');
 const tbc={...base,id:'tbc',startTimeUtc:null,timePrecision:'date-only'},undated={...tbc,id:'undated',date:null};
 assert.equal(sports.select([tbc,undated],window).length,1);assert.equal(sports.select([tbc],window)[0].qualified,true);
 assert.equal(sports.select([{...tbc,date:'2026-10-25'}],sports.windowFor('24',now))[0].qualified,true);

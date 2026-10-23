@@ -2,7 +2,7 @@
 let feedLiveScoreLoading=null;
 function installFeedLiveScore(card,event){
   if(card.classList.contains('is-minimised-row')){refreshMinimisedCard(card,event);return;}
-  const tab=activeTab;if(!['feed','follow','events'].includes(tab))return;
+  const tab=activeTab;if(!['feed','follow','events'].includes(tab)&&!(tab==='match-centre'&&card.dataset.cardMode==='schedule'))return;
   if(tab!=='feed'&&!/^(live|in-progress|in_progress|ongoing|break|stumps|rain-delay|interrupted|suspended)$/.test(event.status||''))return;
   if(tab==='feed')queueLiveFixtureSnapshot();
   const render=()=>{const target=card._mountedCard||card,raw=profileFixtureEvents.get(String(event.eventId||event.id))||event,current={...raw,key:NOTHINGSPORTS_FIXTURE_IDENTITY.sportKey(raw)||raw.key};globalThis.NOTHINGSPORTS_FEED_LIVE_SCORES?.install(target,current,{resultsOn:isSpoilerVisible(current),label:id=>cardIdentityParticipants().find(p=>p.id===id)?.displayName||null,displayLabel:(id,fallback)=>NOTHINGSPORTS_FEED_CARD_PRESENTATION.displayLabel(id,fallback),participant:id=>cardIdentityParticipants().find(p=>p.id===id)});};

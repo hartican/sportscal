@@ -21,7 +21,7 @@
     const target=chrome.body.querySelector(`[data-sports-id="${CSS.escape(id)}"]`);(target?.querySelector('.event-card-disclosure,button')||target)?.focus({preventScroll:true});
    }});
    slot.append(card);
-   if(item.underway)slot.prepend(el('small',match().liveState(item.event,state().window.asOf)==='playing'?'Underway':'Ongoing · '+(match().interruption(item.event)?.label||'Awaiting update'),'as-qualifier'));
+   if(item.underway)slot.prepend(el('small',match().liveState(item.event)==='playing'?'Underway':'Ongoing · '+(match().interruption(item.event)?.label||'Awaiting update'),'as-qualifier'));
    if(item.tbc){const approximate=item.event.estimatedStartTimeUtc?' · Approximate timing only':'';slot.prepend(el('small',(item.qualified?'May fall within this range':'Start time unavailable')+approximate,'as-qualifier'));}
    return slot;
   }
@@ -90,7 +90,7 @@
       if(!cursor){s.window=w;revisionKey=data.revision;s.total=p.total;}else if(s.total!==p.total)throw Error('Schedule changed');
       events.push(...data.events);stale||=data.membershipStale===true;
       if(new Set(events.map(match().id)).size!==events.length||events.length>p.total||p.nextCursor!==null&&events.length!==p.nextCursor)throw Error('Incomplete schedule page');
-      s.events=[...new Map([...retained,...events].map(e=>[match().id(e),e])).values()];
+      s.events=[...new Map([...retained,...events].map(e=>[match().id(e),e])).values()].map(e=>stale?{...e,stale:true}:e);
       cursor=p.nextCursor;render();
      }while(cursor!==null);
      if(events.length!==s.total)throw Error('Incomplete schedule');
