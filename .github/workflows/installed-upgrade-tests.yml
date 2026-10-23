@@ -1,0 +1,69 @@
+name: Installed app upgrade
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - app-version.json
+      - index.html
+      - service-worker.js
+      - assets/**
+      - config/**
+      - styles/**
+      - scripts/validate-installed-pwa-upgrade-browser.js
+      - .github/workflows/installed-upgrade-tests.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: installed-upgrade-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  installed-upgrade:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, webkit]
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24.21.0
+      - name: Install isolated test dependencies
+        run: |
+          npm ci
+          npm install --prefix "$RUNNER_TEMP/ns-playwright" --no-save --package-lock=false playwright@1.62.1
+          node "$RUNNER_TEMP/ns-playwright/node_modules/playwright/cli.js" install --with-deps "${{ matrix.browser }}"
+      - name: Record exact source and runtime
+        env:
+          BASELINE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/ns-upgrade-proof"
+          node <<'JS' > "$RUNNER_TEMP/ns-upgrade-proof/context.json"
+          const cp=require('node:child_process');
+          const git=(...args)=>cp.execFileSync('git',args,{encoding:'utf8'}).trim();
+          console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baselineSha:process.env.BASELINE_SHA,node:process.version,zlib:process.versions.zlib,playwright:'1.62.1',platform:process.platform,arch:process.arch,limits:'Existing unchanged installed upgrade harness on Linux; not physical iPhone acceptance. No production credentials or deployment.'},null,2));
+          JS
+      - name: Verify installed upgrade and offline restart
+        env:
+          PWA_BASELINE_SHA: ${{ github.event.pull_request.base.sha }}
+          PWA_BROWSER: ${{ matrix.browser }}
+        run: |
+          export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
+          set -o pipefail
+          node scripts/validate-installed-pwa-upgrade-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/browser.log"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: installed-upgrade-${{ github.event.pull_request.head.sha }}-${{ matrix.browser }}
+          path: ${{ runner.temp }}/ns-upgrade-proof
+          retention-days: 1
