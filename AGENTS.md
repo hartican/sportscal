@@ -122,3 +122,11 @@ Standing approval for Flot-assigned work — 20 October 2026
 ------------------------------------------------------
 - The user has given standing approval for future Flot-assigned tasks in this project. Proceed within the assigned scope without routine confirmation requests, including coordination with the assigned existing Codex chats, reversible implementation, proportionate tests and the existing single-publisher release process.
 - This approval does not resume explicitly paused work or override platform-required approvals, task scope, privacy boundaries or required release gates. It does not authorise unrelated messages to people or create a second publisher.
+
+Release queue and single publisher — 23 October 2026
+--------------------------------------------------
+- GitHub PRs are the source of truth for implementation. The single pinned [Release Queue](https://github.com/hartican/sportscal/issues/28) records priority, owner, dependencies and Working → Ready → Integrating → Live → Accepted. `docs/cto-delivery-plan.md` remains programme context/history, not a competing live queue.
+- Every implementation task uses its own branch/worktree and draft PR. Handover: scope, exact commit, tests/results, dependencies, database/config changes, shared-service effects, known risks and rollback.
+- Workers push only their own branches. They must not push main, deploy or change shared production data/config independently. Local-only flags do not make a canonical command database-safe.
+- DEPLOY alone selects Ready work, integrates one candidate, tests the combined revision, publishes/deploys that exact main SHA and records production acceptance. Return substantial defects to the responsible worker. READY or screenshots cannot override a failed gate.
+- Keep all existing safety gates and automations paused. Repository permissions/protections require Jack's approval; this convention alone does not enforce credential separation. Read docs/release-queue.md before release work.
