@@ -54,6 +54,7 @@ assert.doesNotMatch(source,/\b(?:fetch|XMLHttpRequest|localStorage|sessionStorag
 assert.equal(JSON.stringify(facts),originalFacts,'display/gate calculations cannot mutate input account/profile facts');
 // Exercise the actual app acceptance callback and optional adapter mount order.
 // Auth metadata deliberately differs from the existing public app profile.
+const diagnosticSource=fs.readFileSync(path.join(__dirname,'../config/account-sync-diagnostic.js'),'utf8');
 const appSource=fs.readFileSync(path.join(__dirname,'../assets/js/account-indicator-app.js'),'utf8');
 const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
 const acceptSource=html.slice(html.indexOf('function acceptNothingscoreViewer('),html.indexOf('function createChatState('));
@@ -66,7 +67,7 @@ for(const helperFirst of [true,false]){
  context.nothingscoreViewerScope=null;context.globalThis=context;context.addEventListener=()=>{};context.document.addEventListener=()=>{};context.settingsSection='main';
  Object.assign(context,{NOTHINGSCORE:{},nothingscoreReadGeneration:0,nothingscoreReadRecovery:{reset:()=>{}},nscRankingGeneration:0,nothingscorePollTimer:null,nothingscoreBatchTimer:null,nothingscoreHeartbeatTimer:null,scheduleNothingscorePoll:()=>{},nothingscoreQueueRender:()=>{},window:{clearTimeout:()=>{}}});
  for(const key of ['nothingscoreBatchInFlight','nothingscoreDetailLoading','nothingscoreSnapshots','nothingscoreLoadedAt','nothingscoreLoadErrors','nothingscorePendingIds','nothingscoreWatching'])context[key]=new Map();
- vm.createContext(context);vm.runInContext(acceptSource+resetSource,context);
+ vm.createContext(context);vm.runInContext(diagnosticSource,context);vm.runInContext(acceptSource+resetSource,context);
  const viewer={signedIn:true,profile:{displayName:'Casey Vale',handle:'casey',avatarUrl:'https://example.invalid/profile-thumbnail.webp'}};
  if(helperFirst)vm.runInContext(appSource,context);
  context.acceptNothingscoreViewer(viewer,'account-a',3);
@@ -104,4 +105,4 @@ async function viewerRequestLifetimes(){
  assert.equal(context.nothingscoreViewer.profile.handle,'new_epoch','transient failure preserves accepted current profile');assert.match(context.publicProfileSettingsLoading.error,/could not be loaded/);assert.equal(reads.length,7);assert.equal(renders,4);
  life.hasSession=false;await context.refreshNothingscoreViewer();assert.equal(reads.length,7,'no viewer request after session removal');cases+=12;
 }
-viewerRequestLifetimes().then(()=>console.log(JSON.stringify({passed:true,cases,scope:'Pure model plus actual app acceptance and async request lifetimes in an isolated VM; no real account or storage proof'}))).catch(error=>{console.error(error);process.exitCode=1;});
+viewerRequestLifetimes().then(()=>require('./validate-account-sync-diagnostic')()).then(()=>console.log(JSON.stringify({passed:true,cases,scope:'Pure model plus actual app acceptance and async request lifetimes in an isolated VM; no real account or storage proof'}))).catch(error=>{console.error(error);process.exitCode=1;});
