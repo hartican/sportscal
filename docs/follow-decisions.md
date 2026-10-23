@@ -1,5 +1,22 @@
 # Follow and Feed decisions
 
+## All Sports View — 24 October 2026
+
+The authorised full implementation adds a separate compact chronological view
+inside Match Centre: Today now to Sydney midnight, and cumulative rolling +24
+and +48 hours. It uses supported public schedule membership independently of
+personal follows, without changing Feed admission or the existing near-live
+window. Existing cards expand locally; browsing/expansion cannot write saved
+card/account/engagement state. Likely overlaps use horizontally paged columns,
+two visible on phones and more on wider screens; unknown finishes remain split.
+Known-day untimed fixtures stay in a qualified Time TBC section. Preserve
+Results OFF, source clocks, global coverage exclusions, canonical aliases,
+ongoing/multi-day facts, full bounded data pagination and honest degraded/static
+fallback. No new source, schema, scheduler or notification path is introduced.
+See [contract and acceptance](plans/all-sports-view-2026-10-24.md); the new model
+and API validator joins the existing required Match Centre gate. Local source
+and mock-browser checks remain separate from publication and live acceptance.
+
 ## Follow decisions exclude named device bookkeeping — 23 October 2026
 
 The approved P1 follow-up distinguishes real preference changes from the named local graph profile pointers/update marker and automatic refinement/rating open/session counters listed in [the repair record](quality/account-stale-removal-2026-10-23.md). Base/ACK compatibility uses that narrow projection; unknown and deliberate fields, explicit OFF/empty/unfollow and authenticated owner/generation/conditional-save fences remain protected. Exact in-flight baseline advancement stays full comparison, and a newer receipt cannot be acknowledged by an older save. The actual two-context/API-normalization regression must remove a Follow without first refreshing the original device; timestamp-only and real conditional409/retry cases must pass, and genuine changed preferences must retain the safe hold. The pure bookkeeping regression joins the existing normal production safety step without removing any249 prior command.
