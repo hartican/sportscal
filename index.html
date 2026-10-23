@@ -3480,7 +3480,7 @@ function renderAccountIndicator(){
 }
 function ensureAccountIndicator(){
   if(accountIndicatorController)return Promise.resolve(accountIndicatorController);
-  accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=5711')
+  accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=5712')
     .then(()=>NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.mount())
     .catch(()=>{accountIndicatorLoading=null;renderAccountIndicator();return null;});
   return accountIndicatorLoading;
@@ -13914,16 +13914,6 @@ function openLegalDocument(documentKey){
   openSettings({ section });
 }
 
-function accountSyncTimeLabel(value){
-  const parsed = new Date(value || "");
-  if (Number.isNaN(parsed.getTime())) return "Not synced yet";
-  return `Last synced ${parsed.toLocaleString("en-AU", {
-    day: "numeric",
-    month: "short",
-    hour: "numeric",
-    minute: "2-digit",
-  })}`;
-}
 
 function showPasswordRecoveryState({ invalid = false, success = false } = {}){
   const modal = document.getElementById("passwordRecoveryModal");
@@ -14152,17 +14142,8 @@ function renderAccountSettings(body){
     : signedIn || (pending && serverPersistence.user)
       ? "Profile sync"
       : "Sign in";
-  const detail = state === "local"
-    ? "Your choices remain saved on this device. Server sync becomes available when the Supabase project is connected."
-    : state === "checking"
-      ? "Checking whether server sync is available."
-      : state === "requesting"
-        ? (serverPersistence.message || "Checking your email and password securely.")
-        : state === "error" || state === "syncing"
-              ? (serverPersistence.message || "Your local copy is active while sync recovers.")
-            : signedIn
-              ? accountSyncTimeLabel(serverPersistence.lastSyncedAt)
-              : (serverPersistence.message || "Sign in, or create a verified account with your lightweight Feed setup.");
+  const detail = globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.syncDetail?.()
+    || serverPersistence.message || "Account & sync";
 
   body.innerHTML = `<div class="preference-stack">
     <div class="filter-panel">

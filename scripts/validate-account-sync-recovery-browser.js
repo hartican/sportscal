@@ -15,7 +15,7 @@ const scenario = process.env.ACCOUNT_RECOVERY_CASE || 'retry-error';
 if (scenario === 'all') {
   let failed = false;
   for (const engine of (process.env.ACCOUNT_RECOVERY_BROWSER ? [engineName] : ['chromium', 'webkit'])) {
-    for (const testCase of ['retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap']) {
+    for (const testCase of ['retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed']) {
       const result = spawnSync(process.execPath, [__filename], { stdio: 'inherit', env: {
         ...process.env, ACCOUNT_RECOVERY_BROWSER: engine, ACCOUNT_RECOVERY_CASE: testCase } });
       failed ||= result.status !== 0;
@@ -52,6 +52,8 @@ const server = http.createServer((req, res) => {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, serviceWorkers: 'block' });
   let row = null, readMode = 'success', refreshMode = 'success', reads = 0, writes = 0, refreshes = 0;
   let beforeAck = null, page;
+  const actualApi = scenario.startsWith('api-') ? require('./lib/local-user-state-api')(owner) : null;
+  const chronology = [];
   const heldReads = [];
   const statePayload = () => ({ user: { id: owner, email: 'disposable@example.invalid' }, state: row && {
     schema_version: row.schemaVersion, preferences: row.preferences, profile: row.profile,
@@ -81,6 +83,13 @@ const server = http.createServer((req, res) => {
       }
       if (u.pathname === '/api/user-state') {
         reads++;
+        if (actualApi) {
+          const result = await actualApi.handle({ url: u.pathname, method, headers: request.headers(), body });
+          if (method === 'PUT' && result.status === 200) writes++;
+          row = actualApi.state();
+          chronology.push({ context: request.frame().page() === page ? 'A' : 'B', ...actualApi.calls.at(-1) });
+          return route.fulfill({ status: result.status, json: result.body });
+        }
         if (readMode === 'hold') { heldReads.push(route); return; }
         if (readMode === 'failure') return route.fulfill({ status: 503, json: { error: 'Disposable state unavailable' } });
         if (method === 'PUT') {
@@ -90,6 +99,8 @@ const server = http.createServer((req, res) => {
         return route.fulfill({ json: statePayload() });
       }
       if (u.pathname === '/api/user-meta') return route.fulfill({ json: { meta: { sports: [] } } });
+      if (actualApi && u.pathname === '/api/feed') return route.fulfill({ json: require('../lib/server-feed-pipeline').buildServerFeed({
+        events: [], userId: owner, userState: actualApi.state(), now: new Date() }) });
       if (u.pathname === '/api/nothingscore' && u.searchParams.has('viewer')) return route.fulfill({ json: {
         viewer: { signedIn: true, profile: { handle: 'test_account', displayName: 'Test account', visibility: 'visible' } } } });
       if (u.pathname === '/api/fixtures') return route.fulfill({ status: 503, json: { error: 'Disposable optional fixtures unavailable' } });
@@ -101,12 +112,19 @@ const server = http.createServer((req, res) => {
     page.setDefaultTimeout(15000);
     await page.goto(url, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => typeof userPreferences !== 'undefined' && !startupCoordinator.isHydrating());
-    row = await page.evaluate(() => {
+    row = await page.evaluate(actualApi => {
       const p = clonePreferences(userPreferences); p.onboardingComplete = true;
+      if (actualApi) {
+        p.pilotMeasurement = { enabled: false, participationStartedAt: null };
+        p.followFirst.notifications = { ...p.followFirst.notifications, enabled: false, sportingRemindersEnabled: false,
+          autoRemindersEnabled: false, chatAlertsEnabled: false, liveRatingsEnabled: false, socialAlertsEnabled: false, userChoice: false };
+        setBackgroundNotificationPreference(p, false);
+      }
       savePreferences(p); writeStorage(STORAGE_KEYS.selectorReleaseAcknowledgement, SELECTOR_TAXONOMY.version);
       closeSelectorOptInPrompt();
       return { ...currentServerStatePayload(), updatedAt: '2026-10-23T01:00:00Z' };
-    });
+    }, Boolean(actualApi));
+    if (actualApi) { actualApi.seed(row); row = actualApi.state(); }
     await page.reload({ waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => !startupCoordinator.isHydrating());
     await page.locator('#startupLaunch').waitFor({ state: 'hidden' });
@@ -124,7 +142,84 @@ const server = http.createServer((req, res) => {
       globalThis.qaSyncStates = [];
       setServerPersistence = patch => { qaSyncStates.push(patch.state); return original(patch); };
     });
-    if (scenario === 'retry-error') {
+    if (actualApi) {
+      const participant = 'team:football:australian-championship:11255';
+      const snapshot = target => target.evaluate(() => {
+        const receipt = pendingPreferenceIntent(serverPersistence.user?.id), life = serverSyncClient.accountSnapshot();
+        return { state: serverPersistence.state, message: serverPersistence.message, pending: Boolean(receipt),
+          ownerMatches: life.accountId === serverPersistence.user?.id, generation: life.generation,
+          receiptBase: receipt?.baseUpdatedAt, baseline: serverStateBaseline?.updatedAt,
+          follows: userPreferences.preferenceGraph.entityFollows.map(({ participantId, followLevel }) => ({ participantId, followLevel })) };
+      });
+      const edit = async level => page.evaluate(level => {
+        const p = clonePreferences(userPreferences);
+        p.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(p.preferenceGraph, 'team:football:australian-championship:11255', level);
+        if (!savePreferences(p, { deliberate: true, deferFollowEffects: true })) throw new Error('Local edit rejected');
+      }, level);
+      await edit('follow');
+      await page.evaluate(() => syncCurrentServerState());
+      // Let the first Follow's fixture reads finish before navigating. This is
+      // before B exists; A still does no pre-removal account reconciliation.
+      await page.waitForTimeout(600);
+      await page.evaluate(async () => {
+        await Promise.allSettled([...followedScheduleLoads.values()]);
+        if (followFeedRefreshInFlight) await followFeedRefreshInFlight;
+      });
+      await page.reload({ waitUntil: 'domcontentloaded' });
+      await page.waitForFunction(() => serverPersistence.state === 'signedIn');
+      await page.waitForTimeout(1200);
+      await page.evaluate(() => serverSyncSequence);
+      const beforeB = clone(actualApi.state());
+      const other = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: 'block' });
+      try {
+        await other.route('**/*', routeHandler);
+        await other.addInitScript(preferences => localStorage.setItem('ns_preferences_v1', JSON.stringify(preferences)), beforeB.preferences);
+        const second = await other.newPage();
+        await second.goto(url, { waitUntil: 'domcontentloaded' });
+        await second.waitForFunction(() => typeof userPreferences !== 'undefined' && !startupCoordinator.isHydrating());
+        await second.locator('#startupLaunch').waitFor({ state: 'hidden' });
+        await second.evaluate(() => { closeSettings(); openSettings({ section: 'account' }); });
+        await second.locator('#accountEmail').fill('disposable@example.invalid');
+        await second.locator('#accountPassword').fill('test-only-password');
+        await second.locator('#accountSignInForm button[type="submit"]').click();
+        await second.waitForFunction(() => serverPersistence.state === 'signedIn' && Boolean(accountIndicatorController));
+        await second.waitForTimeout(1500);
+        await second.evaluate(() => serverSyncSequence);
+        const changedByB = sync.createPatch(beforeB, actualApi.state()).changes.map(change => change.path.join('.'));
+        if (['api-timestamp', 'api-race', 'api-changed'].includes(scenario)) actualApi.mutate(state => {
+          state.preferences = clone(beforeB.preferences);
+          state.ratings.timestampOnly = 3;
+          if (scenario === 'api-changed') state.preferences.theme = state.preferences.theme === 'night' ? 'day' : 'night';
+        });
+        if (scenario === 'api-race') actualApi.raceOnce(() => actualApi.mutate(state => { state.ratings.timestampOnly = 3; }));
+        chronology.push({ phase: 'before-removal', changedByB, A: await snapshot(page), B: await snapshot(second) });
+        await page.evaluate(() => openSettings({ section: 'account' }));
+        await edit('unfollow'); // Deliberately no pre-edit sync on A.
+        if (scenario === 'api-changed') {
+          await page.evaluate(() => syncCurrentServerState().catch(() => {}));
+          const held = await snapshot(page);
+          assert.equal(held.state, 'error'); assert.equal(held.pending, true);
+          assert.equal(actualApi.state().preferences.preferenceGraph.entityFollows.find(item => item.participantId === participant).followLevel, 'follow');
+        } else {
+          await page.waitForFunction(() => !document.getElementById('syncAccountNowBtn')?.disabled, null, { timeout: 15000 });
+          for (const id of ['dismissTunePromptBtn', 'skipSelectorOptInBtn']) {
+            const button = page.locator('#' + id); if (await button.isVisible()) await button.click();
+          }
+          await page.locator('#syncAccountNowBtn').click();
+          await page.waitForFunction(() => serverPersistence.state === 'signedIn' && !pendingPreferenceIntent(serverPersistence.user?.id), null, { timeout: 5000 });
+          assert.equal(actualApi.state().preferences.preferenceGraph.entityFollows.find(item => item.participantId === participant).followLevel, 'unfollow');
+          if (scenario === 'api-race') assert(actualApi.calls.some(call => call.status === 409), 'real conditional handler must reject the injected stale write');
+          await second.clock.install();
+          await second.clock.setFixedTime(new Date(Date.now() + 16000));
+          await second.evaluate(() => dispatchEvent(new Event('pageshow')));
+          await second.waitForFunction(() => userPreferences.preferenceGraph.entityFollows.some(item => item.participantId === 'team:football:australian-championship:11255' && item.followLevel === 'unfollow'));
+          assert.equal(actualApi.state().preferences.followFirst.notifications.enabled, false, 'OFF stays OFF across real handler writes');
+          assert.equal(actualApi.state().preferences.pilotMeasurement.enabled, false);
+        }
+        chronology.push({ phase: 'after-removal', A: await snapshot(page), B: await snapshot(second) });
+      } catch (error) { chronology.push({ phase: 'failure', A: await snapshot(page) }); throw error; }
+      finally { console.log(JSON.stringify({ scenario, engine: engineName, chronology })); await other.close(); }
+    } else if (scenario === 'retry-error') {
       readMode = 'failure';
       await page.locator('#syncAccountNowBtn').click();
       await page.waitForFunction(() => serverPersistence.state === 'error');
