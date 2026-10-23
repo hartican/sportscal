@@ -1,6 +1,43 @@
 (function(root){
 'use strict';
 const accountIndicatorSessionId=globalThis.crypto?.randomUUID?.() || 'account-'+Date.now();
+// This recorder retains one safelisted attempt in memory. It never writes state or
+// starts requests; the existing sync owner supplies every lifecycle hook.
+const syncDiagnostic=root.NOTHINGSPORTS_SYNC_DIAGNOSTIC.create();
+function beginSyncDiagnostic(scope){
+  try{
+    const generation=serverSyncClient.accountSnapshot?.().generation;
+    let baseCompatible=null,ownerMatches=null;
+    return syncDiagnostic.begin({current:()=>scope.current()&&serverSyncClient.accountSnapshot?.().generation===generation,
+      versions:{shellVersion:document.querySelector('meta[name="app-shell-version"]')?.content,
+        workerVersion:root.NOTHINGSPORTS_APP_UPDATE?.snapshot?.().workerVersion},
+      facts(payload){
+        const receipt=pendingPreferenceIntent(scope.accountId);
+        if(payload){
+          ownerMatches=payload.user?.id===scope.accountId;
+          baseCompatible=!receipt||Boolean(payload.state&&(PROFILE_STORAGE.preferenceBaseMatches(receipt,payload.state.preferences)
+            ||PROFILE_STORAGE.preferenceIntentMatches(receipt,payload.state.preferences,USER_STATE_SYNC)));
+        }
+        return {pendingReceipt:Boolean(receipt),baseCompatible,ownerMatches,
+          generationMatches:serverSyncClient.accountSnapshot?.().generation===generation};
+      }});
+  }catch(_error){}
+}
+function appendSyncDiagnostic(controls){
+  if(!syncDiagnostic.snapshot())return;
+  const button=document.createElement('button');
+  button.type='button';button.className='btn';button.textContent='Copy sync diagnostic';
+  button.addEventListener('click',async()=>{
+    const detail=syncDiagnostic.snapshot();
+    if(!detail){button.remove();return;}
+    try{
+      await navigator.clipboard.writeText(JSON.stringify(detail));
+      if(syncDiagnostic.snapshot())showToast('Sync diagnostic copied.');
+    }catch(_error){showToast('Could not copy. Please try again.');}
+  });
+  controls.appendChild(button);
+}
+const syncHelp='Preferences, followed teams and athletes, saved Archive cards, results, standings, subscriptions and notification choices follow your account. Sync first loads the newest account state, then uploads only choices changed in this session. Disposable Feed cards stay local and rebuild from source data.';
 function accountIndicatorSnapshot(){
   const life = serverSyncClient?.accountSnapshot?.() || {accountId:'',hasSession:false,generation:0};
   const verified = accountIndicatorGeneration === life.generation;
@@ -102,6 +139,8 @@ function recoverAccount({manual=false}={}){
   return job.promise;
 }
 function appendAccountRetry(controls){
+  const help=document.getElementById('accountSyncHelp');if(help)help.textContent=syncHelp;
+  appendSyncDiagnostic(controls);
   if(serverPersistence.state!=='error' || serverPersistence.user || !serverSyncClient?.accountSnapshot?.().hasSession)return false;
   const retry=document.createElement('button');
   retry.type='button';retry.className='btn primary';retry.textContent='Retry account';
@@ -116,6 +155,7 @@ function mount(){
   host.replaceChildren();
   accountIndicatorController=NOTHINGSPORTS_ACCOUNT_AWARENESS_UI.create({host,readSnapshot:accountIndicatorSnapshot,openAccount:openIndicatorAccount,openPicture:options=>openIndicatorAccount({...options,profilePicture:true})});
   if(focused)host.querySelector('.account-awareness-control').focus();
+  addEventListener('ns-account-change',()=>{syncDiagnostic.snapshot();});
   for(const event of ['online','pageshow'])addEventListener(event,foregroundAccount);
   addEventListener('offline',()=>{lastRecovery=null;renderAccountIndicator();});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)foregroundAccount();});
@@ -123,6 +163,6 @@ function mount(){
   if(settingsSection==='account' && document.getElementById('settingsModal')?.classList.contains('show'))renderSettingsScreen();
   return accountIndicatorController;
 }
-root.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP=Object.freeze({mount,open:openIndicatorAccount,finish:finishAccountIndicatorJourney,complete:completeAccountIndicatorJourney,acceptProfile:acceptAccountIndicatorProfile,appendRetry:appendAccountRetry,identityPrefix:accountIdentityPrefix,syncDetail:accountSyncDetail});
+root.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP=Object.freeze({beginDiagnostic:beginSyncDiagnostic,mount,open:openIndicatorAccount,finish:finishAccountIndicatorJourney,complete:completeAccountIndicatorJourney,acceptProfile:acceptAccountIndicatorProfile,appendRetry:appendAccountRetry,identityPrefix:accountIdentityPrefix,syncDetail:accountSyncDetail});
 
 })(globalThis);
