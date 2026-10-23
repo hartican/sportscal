@@ -23,8 +23,10 @@ async function database(env=process.env){
  }
  try{
   await admin.connect();
-  const r=(await admin.query("select current_database() db,current_user role,current_setting('server_version_num')::int version,(select pg_get_userbyid(datdba)from pg_database where datname=current_database()) owner,(select count(*)::int from pg_class c join pg_namespace n on n.oid=c.relnamespace where n.nspname='public') public_objects,(select count(*)::int from pg_roles where rolname in('anon','authenticated','service_role')) app_roles")).rows[0];
-  assert.equal(r.db,o.control);assert.equal(r.role,'postgres');assert.equal(r.owner,'postgres');assert.equal(Math.floor(r.version/10000),o.major);assert.equal(r.public_objects,0,'Dedicated control DB must be empty');assert.equal(r.app_roles,0,'Dedicated cluster cannot contain app roles');
+  const r=(await admin.query("select current_database() db,current_user role,current_setting('server_version_num')::int version,(select pg_get_userbyid(datdba)from pg_database where datname=current_database()) owner,(select count(*)::int from pg_class c join pg_namespace n on n.oid=c.relnamespace where n.nspname='public') public_objects,(select count(*)::int from pg_namespace where nspname not in('public','pg_catalog','information_schema','pg_toast')) user_schemas,(select count(*)::int from pg_class c join pg_namespace n on n.oid=c.relnamespace where n.nspname not in('pg_catalog','information_schema','pg_toast')) user_relations,(select count(*)::int from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname not in('pg_catalog','information_schema','pg_toast')) user_functions,(select count(*)::int from pg_type t join pg_namespace n on n.oid=t.typnamespace where n.nspname not in('pg_catalog','information_schema','pg_toast')) user_types,(select count(*)::int from pg_roles where rolname in('anon','authenticated','service_role')) app_roles")).rows[0];
+  assert.equal(r.db,o.control);assert.equal(r.role,'postgres');assert.equal(r.owner,'postgres');assert.equal(Math.floor(r.version/10000),o.major);assert.equal(r.public_objects,0,'Dedicated control DB must be empty');
+  for(const key of ['user_schemas','user_relations','user_functions','user_types'])assert.equal(r[key],0,'Dedicated control cannot contain '+key);
+  assert.equal(r.app_roles,0,'Dedicated cluster cannot contain app roles');
   // No IF NOT EXISTS or reuse. Only this newly created unpredictable database
   // can receive schema writes or be removed by close(). The control is read-only.
   await admin.query('create database '+name+' template template0');created=true;
@@ -35,4 +37,5 @@ async function database(env=process.env){
   return {exec:sql=>client.query(sql),query:(sql,args)=>client.query(sql,args),close,engine:{kind:'native-postgresql',major:o.major,version:r.version,lz4:true,ownedDisposableDatabase:true,loopbackOnly:true}};
  }catch(e){try{await close();}catch(cleanup){e.cleanupError=cleanup.message;}throw e;}
 }
-module.exports={options,database};
+function executionReport(native){return {nativeCalls:native?null:0,nativeExecution:native?'owned-test-loopback':'none'};}
+module.exports={options,database,executionReport};

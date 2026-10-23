@@ -1,5 +1,5 @@
 'use strict';
-const {test}=require('node:test'),assert=require('node:assert/strict'),{options,database}=require('./global-generation-native-test-db');
+const {test}=require('node:test'),assert=require('node:assert/strict'),{options,database,executionReport}=require('./global-generation-native-test-db');
 const valid=()=>({NS_GENERATION_TEST_OWNED:'disposable-loopback-only',NS_GENERATION_TEST_HOST:'127.0.0.1',NS_GENERATION_TEST_PORT:'55432',NS_GENERATION_TEST_CONTROL:'ns_generation_control_17',NS_GENERATION_TEST_MAJOR:'17',NS_GENERATION_TEST_PASSWORD:'constructed-test-password'});
 test('only explicit dedicated owned loopback targets admit before loading pg',()=>{
  const good=valid();assert.equal(options(good).major,17);assert.equal(options({...good,NS_GENERATION_TEST_MAJOR:'18',NS_GENERATION_TEST_CONTROL:'ns_generation_control_18'}).major,18);
@@ -10,10 +10,25 @@ test('only explicit dedicated owned loopback targets admit before loading pg',()
 test('absent native allocation refuses before any dependency or network access',async()=>{await assert.rejects(database({}),/AssertionError/);});
 test('nonempty or wrong-engine controls refuse before any CREATE/DROP',async()=>{
  const Module=require('node:module'),load=Module._load;
- for(const change of [{db:'postgres'},{role:'service_role'},{owner:'other'},{version:160001},{public_objects:1},{app_roles:1}]){
+ for(const change of [{db:'postgres'},{role:'service_role'},{owner:'other'},{version:160001},{public_objects:1},{user_schemas:1},{user_relations:1},{user_functions:1},{user_types:1},{app_roles:1}]){
   const sql=[];let ended=false;
-  class FakeClient {async connect(){}async end(){ended=true;}async query(q){sql.push(q);return {rows:[{db:'ns_generation_control_17',role:'postgres',owner:'postgres',version:170006,public_objects:0,app_roles:0,...change}]};}}
+  class FakeClient {async connect(){}async end(){ended=true;}async query(q){sql.push(q);return {rows:[{db:'ns_generation_control_17',role:'postgres',owner:'postgres',version:170006,public_objects:0,user_schemas:0,user_relations:0,user_functions:0,user_types:0,app_roles:0,...change}]};}}
   Module._load=function(name,...args){return name==='pg'?{Client:FakeClient}:load.call(this,name,...args);};
   try{await assert.rejects(database(valid()));assert(ended);assert.equal(sql.length,1);assert(!sql.some(q=>/create|drop/i.test(q)));}finally{Module._load=load;}
  }
+});
+
+test('stock empty control shape reaches CREATE; unknown catalog counts never admit',async()=>{
+ const Module=require('node:module'),load=Module._load;
+ for(const omitted of [null,'user_schemas','user_relations','user_functions','user_types']){
+  const sql=[];let ended=false;
+  class FakeClient {async connect(){}async end(){ended=true;}async query(q){sql.push(q);if(q.startsWith('create database '))throw Error('CONSTRUCTED_STOP_BEFORE_CREATE');const row={db:'ns_generation_control_17',role:'postgres',owner:'postgres',version:170006,public_objects:0,user_schemas:0,user_relations:0,user_functions:0,user_types:0,app_roles:0};if(omitted)delete row[omitted];return {rows:[row]};}}
+  Module._load=function(name,...args){return name==='pg'?{Client:FakeClient}:load.call(this,name,...args);};
+  try{await assert.rejects(database(valid()),omitted?/Dedicated control/:/CONSTRUCTED_STOP_BEFORE_CREATE/);assert(ended);assert.equal(sql.length,omitted?1:2);assert(!sql.some(q=>q.startsWith('drop database ')));for(const catalog of ['pg_namespace','pg_class','pg_proc','pg_type'])assert(sql[0].includes(catalog));}finally{Module._load=load;}
+ }
+});
+test('native execution reporting is explicit uncounted, never a false zero',()=>{
+ assert.deepEqual(executionReport(null),{nativeCalls:0,nativeExecution:'none'});
+ assert.deepEqual(executionReport({engine:{kind:'native-postgresql'}}),{nativeCalls:null,nativeExecution:'owned-test-loopback'});
+ const source=require('node:fs').readFileSync(__dirname+'/validate-global-read-generation.js','utf8');assert(source.includes("...require('./global-generation-native-test-db').executionReport(native)"));assert(!source.includes('captureReplays:0,nativeCalls:0'));
 });
