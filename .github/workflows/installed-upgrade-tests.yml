@@ -37,11 +37,6 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 24.21.0
-      - name: Install isolated test dependencies
-        run: |
-          npm ci
-          npm install --prefix "$RUNNER_TEMP/ns-playwright" --no-save --package-lock=false playwright@1.62.1
-          node "$RUNNER_TEMP/ns-playwright/node_modules/playwright/cli.js" install --with-deps "${{ matrix.browser }}"
       - name: Record exact source and runtime
         env:
           BASELINE_SHA: ${{ github.event.pull_request.base.sha }}
@@ -53,6 +48,14 @@ jobs:
           const git=(...args)=>cp.execFileSync('git',args,{encoding:'utf8'}).trim();
           console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baselineSha:process.env.BASELINE_SHA,node:process.version,zlib:process.versions.zlib,playwright:'1.62.1',platform:process.platform,arch:process.arch,limits:'Existing unchanged installed upgrade harness on Linux; not physical iPhone acceptance. No production credentials or deployment.'},null,2));
           JS
+      - name: Install isolated test dependencies
+        run: |
+          set -o pipefail
+          {
+            npm ci
+            npm install --prefix "$RUNNER_TEMP/ns-playwright" --no-save --package-lock=false playwright@1.62.1
+            node "$RUNNER_TEMP/ns-playwright/node_modules/playwright/cli.js" install --with-deps "${{ matrix.browser }}"
+          } 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/install.log"
       - name: Verify installed upgrade and offline restart
         env:
           PWA_BASELINE_SHA: ${{ github.event.pull_request.base.sha }}
