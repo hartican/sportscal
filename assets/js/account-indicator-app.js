@@ -14,6 +14,32 @@ function accountIndicatorSnapshot(){
     profile,profileOwnerId:profile?profileScope.owner:'',online:navigator.onLine,now:Date.now()},
     session:{appSessionId:accountIndicatorSessionId,accountEpoch:life.generation}};
 }
+function accountSyncTimeLabel(value){
+  const parsed = new Date(value || "");
+  if (Number.isNaN(parsed.getTime())) return "Not synced yet";
+  return `Last synced ${parsed.toLocaleString("en-AU", {
+    day: "numeric",
+    month: "short",
+    hour: "numeric",
+    minute: "2-digit",
+  })}`;
+}
+
+function accountSyncDetail(){
+  const state=serverPersistence.state;
+  const signedIn=Boolean(serverPersistence.user)&&["signedIn","syncing","error"].includes(state);
+  return state === "local"
+    ? "Your choices remain saved on this device. Server sync becomes available when the Supabase project is connected."
+    : state === "checking"
+      ? "Checking whether server sync is available."
+      : state === "requesting"
+        ? (serverPersistence.message || "Checking your email and password securely.")
+        : state === "error" || state === "syncing"
+              ? (serverPersistence.message || "Your local copy is active while sync recovers.")
+            : signedIn
+              ? accountSyncTimeLabel(serverPersistence.lastSyncedAt)
+              : (serverPersistence.message || "Sign in, or create a verified account with your lightweight Feed setup.");
+}
 function accountIdentityPrefix(){
   const view=root.NOTHINGSPORTS_ACCOUNT_AWARENESS.accountView(accountIndicatorSnapshot().facts);
   return ['signedIn','offline'].includes(view.status)?'Signed in as':'Saved account:';
@@ -97,6 +123,6 @@ function mount(){
   if(settingsSection==='account' && document.getElementById('settingsModal')?.classList.contains('show'))renderSettingsScreen();
   return accountIndicatorController;
 }
-root.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP=Object.freeze({mount,open:openIndicatorAccount,finish:finishAccountIndicatorJourney,complete:completeAccountIndicatorJourney,acceptProfile:acceptAccountIndicatorProfile,appendRetry:appendAccountRetry,identityPrefix:accountIdentityPrefix});
+root.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP=Object.freeze({mount,open:openIndicatorAccount,finish:finishAccountIndicatorJourney,complete:completeAccountIndicatorJourney,acceptProfile:acceptAccountIndicatorProfile,appendRetry:appendAccountRetry,identityPrefix:accountIdentityPrefix,syncDetail:accountSyncDetail});
 
 })(globalThis);

@@ -122,6 +122,7 @@ jobs:
           node scripts/validate-manual-estimated-reminders.js
           node scripts/validate-experience-reliability.js
           node scripts/validate-cross-device-sync.js
+          node scripts/validate-preference-bookkeeping.js
           node scripts/validate-account-awareness.js
           node scripts/validate-horse-flagship-migration.js
           node scripts/validate-tennis-journey-migration.js

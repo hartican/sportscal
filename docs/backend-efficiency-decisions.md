@@ -1,5 +1,12 @@
 # Backend efficiency decisions
 
+## Follow decisions exclude named device bookkeeping — 23 October 2026
+
+The approved P1 follow-up distinguishes real preference changes from the named local graph profile pointers/update marker and automatic refinement/rating open/session counters listed in [the repair record](quality/account-stale-removal-2026-10-23.md). Base/ACK compatibility uses that narrow projection; unknown and deliberate fields, explicit OFF/empty/unfollow and authenticated owner/generation/conditional-save fences remain protected. Exact in-flight baseline advancement stays full comparison, and a newer receipt cannot be acknowledged by an older save. The actual two-context/API-normalization regression must remove a Follow without first refreshing the original device; timestamp-only and real conditional409/retry cases must pass, and genuine changed preferences must retain the safe hold. The pure bookkeeping regression joins the existing normal production safety step without removing any249 prior command.
+
+Account status/date formatting moves to the existing deferred account helper to preserve the unchanged download budget, without a new request or sync path. Final587 qualification, hosted persistence/removal/Feed exclusion, repeated fresh reads and physical Home Screen proof remain separate gates. No customer recovery/import, schema/config/provider change or automation restart is included.
+
+
 ## Installed-app account recovery reuses the existing owner — 23 October 2026
 
 The approved installed-iOS repair retries the existing scoped, serialised auth/sync path on visible pageshow, foreground return and online events. Coalesce one account lifetime's concurrent events and permit at most one automatic attempt per15-second burst; skip hidden, offline and already-busy states. Manual retry stays deliberate. There is no polling, second sync owner, new endpoint, schema or wire contract. Preserve PR30 comparison/receipt/baseUpdatedAt and owner/generation fences, pending choices, explicit empty/unfollow/OFF and old/new origin separation. A completed save leaving a newer receipt reports pending/error with a usable retry; it cannot remain falsely busy or acknowledge that newer choice.

@@ -355,16 +355,37 @@
     return writePreferenceSync(storage,latest,entries.map(entry=>entry===current?continued:entry));
   }
 
+  // These local profile pointers and prompt counters do not express a user's
+  // choices. Keep every unknown field and deliberate preference in comparison.
+  function preferenceDecisions(preferences){
+    if(!preferences||typeof preferences!=="object")return preferences;
+    const result=clone(preferences),graph=result.preferenceGraph;
+    for(const [record,keys] of [
+      [graph,["profileId","updatedAt"]],
+      [graph?.viewing,["profileId"]],[graph?.learning,["profileId"]],
+      [result.followFirst?.refinement,["distinctOpenCount","lastOpenId","firstSwipeAt","promptedAt"]],
+      [result.ratingPromptState,["sessionCount","lastSessionId"]],
+    ])if(record&&typeof record==="object")for(const key of keys)delete record[key];
+    for(const key of ["entityFollows","domainPreferences","competitionPreferences"]){
+      if(Array.isArray(graph?.[key]))for(const record of graph[key])if(record&&typeof record==="object")delete record.profileId;
+    }
+    return result;
+  }
+
+  function samePreferenceValues(first,second){
+    return JSON.stringify(canonicalValue(first))===JSON.stringify(canonicalValue(second));
+  }
+
   function preferenceBaseMatches(receipt,preferences){
-    return Boolean(receipt&&JSON.stringify(canonicalValue(receipt.basePreferences))===JSON.stringify(canonicalValue(preferences)));
+    return Boolean(receipt&&samePreferenceValues(preferenceDecisions(receipt.basePreferences),preferenceDecisions(preferences)));
   }
 
   function advancePreferenceIntentBase(storage,bundle,receipt,state){
     const latest=preferenceSyncBundle(storage,bundle),entries=latest.preferenceSync?.entries||[];
     const current=receipt&&entries.find(entry=>entry.ownerId===receipt.ownerId&&entry.receiptId===receipt.receiptId);
     if(!current||!state||!Number.isFinite(Date.parse(state.updatedAt))
-      ||current.baseUpdatedAt===state.updatedAt||!preferenceBaseMatches(current,state.preferences)
-      ||!preferenceBaseMatches(receipt,state.preferences))return clone(latest);
+      ||current.baseUpdatedAt===state.updatedAt||!samePreferenceValues(current.basePreferences,state.preferences)
+      ||!samePreferenceValues(receipt.basePreferences,state.preferences))return clone(latest);
     return writePreferenceSync(storage,latest,entries.map(entry=>entry===current
       ?{...entry,baseUpdatedAt:state.updatedAt,basePreferences:clone(state.preferences)}:entry));
   }
@@ -374,7 +395,7 @@
     const expected=patches
       ? patches.applyPatch({preferences},patches.createPatch({preferences:receipt.basePreferences},{preferences:receipt.preferences})).preferences
       : receipt.preferences;
-    return JSON.stringify(canonicalValue(expected))===JSON.stringify(canonicalValue(preferences));
+    return samePreferenceValues(preferenceDecisions(expected),preferenceDecisions(preferences));
   }
 
   function setUsernameLabel(storage, bundle, usernameLabel, options){
