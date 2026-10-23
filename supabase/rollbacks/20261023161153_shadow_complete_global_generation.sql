@@ -19,15 +19,15 @@ do $guard$ begin
 end $guard$;
 
 do $helpers$begin
- if md5(pg_get_functiondef('nothingsports_build_global_generation(integer)'::regprocedure))is distinct from '8471b4626cf6452014333221dee897d9'then raise exception 'Generation helper differs from rollback preimage';end if;
- if md5(pg_get_functiondef('nothingsports_fixture_read_private.global_generation_policy()'::regprocedure))is distinct from '991ef4c7ef4940d199cef7c34da8e431'then raise exception 'Generation helper differs from rollback preimage';end if;
+ if md5(pg_get_functiondef('nothingsports_build_global_generation(integer)'::regprocedure))is distinct from '0db010ab243c27b8f1ae3b8040db4160'then raise exception 'Generation helper differs from rollback preimage';end if;
+ if md5(pg_get_functiondef('nothingsports_fixture_read_private.global_generation_policy()'::regprocedure))is distinct from '9b439b7d99dfce367629db2d3b8c5ba2'then raise exception 'Generation helper differs from rollback preimage';end if;
  if md5(pg_get_functiondef('nothingsports_fixture_read_private.global_generation_witness(json,jsonb,date,text,text,text,text,timestamp with time zone,timestamp with time zone,timestamp with time zone,uuid,smallint)'::regprocedure))is distinct from 'f45ebe22e2302d5b9c2b0925ff2903b6'then raise exception 'Generation helper differs from rollback preimage';end if;
  if md5(pg_get_functiondef('nothingsports_fixture_read_private.global_read_clock_transition(text)'::regprocedure))is distinct from '088402cb9bb52556dc4c869d50b0ca58'then raise exception 'Generation helper differs from rollback preimage';end if;
- if md5(pg_get_functiondef('nothingsports_fixture_read_private.global_read_epoch_changed()'::regprocedure))is distinct from '6a0643b47528a4aaaf81bc379acc8361'then raise exception 'Generation helper differs from rollback preimage';end if;
+ if md5(pg_get_functiondef('nothingsports_fixture_read_private.global_read_epoch_changed()'::regprocedure))is distinct from 'fd9f65c43bda452ede089f21a8cfbad7'then raise exception 'Generation helper differs from rollback preimage';end if;
  if md5(pg_get_functiondef('nothingsports_fixture_read_private.global_read_vector()'::regprocedure))is distinct from 'dfdb854ef4f17edb8e632aeefa27a1ff'then raise exception 'Generation helper differs from rollback preimage';end if;
  if md5(pg_get_functiondef('nothingsports_fixture_read_private.guard_global_generation_write()'::regprocedure))is distinct from 'fd95a81a7e4786fd345b1ff23948deaf'then raise exception 'Generation helper differs from rollback preimage';end if;
  if md5(pg_get_functiondef('nothingsports_fixture_read_private.read_global_generation()'::regprocedure))is distinct from '225a7f9a17662425031701aefaed2f8c'then raise exception 'Generation helper differs from rollback preimage';end if;
- if md5(pg_get_functiondef('nothingsports_fixture_read_private.touch_global_read_epoch(text,boolean)'::regprocedure))is distinct from 'fc7c6866710f8b2f312a879f0797a639'then raise exception 'Generation helper differs from rollback preimage';end if;
+ if md5(pg_get_functiondef('nothingsports_fixture_read_private.touch_global_read_epoch(text,boolean)'::regprocedure))is distinct from '60123e5f9dc941ac6460ecc65e38bd65'then raise exception 'Generation helper differs from rollback preimage';end if;
 end $helpers$;
 create or replace view public.nothingsports_current_global_fixture_bundle with(security_invoker=true) as
  SELECT value AS bundle

@@ -31,7 +31,9 @@ per source/transaction through hooks on existing source/current/score/context/
 pending transactions. A transaction-local memo skips repeated persistent writes.
 Receipt-only changes count even when revision/contentHash do not. Lease claims
 alone do not. Source deletion/recreation gets a new token, including same-TX
-recreation. Build refuses a transaction that already changed source epochs.
+recreation. An independent transaction-local mutation marker refuses a build even
+when DELETE or TRUNCATE CASCADE removes the last source/epoch. It rolls back with
+a savepoint, and coalescing does not depend on surviving rows.
 No global hot-row epoch, sequence or construction lock serialises providers.
 
 The exact original fbc view builds typed JSON and its complete ordered source/
@@ -44,7 +46,8 @@ only is examined; a previous slot cannot bypass a failed fence.
 
 The effective caller is service_role with original BYPASSRLS. All functions are
 SECURITY INVOKER. The policy fence covers original fbc/D7/parser definitions,
-epoch/expiry hooks and enabled state, original input SELECT/schema/EXEC rights,
+epoch/expiry hooks and enabled state, actual definitions of both generation-store
+guards (including WHEN predicates and target functions), original input SELECT/schema/EXEC rights,
 column ACLs, RLS flags/policies, effective role/membership attributes and SQL
 TimeZone/DateStyle. A changed/revoked original input contract invalidates the model;
 the original fallback retains its actual visibility/failure behavior.
@@ -69,6 +72,20 @@ are real CPU work; qualify their total cost, never assume it is free.
 
 ## Budgets and proof limits
 
+The builder's intended transport is POST through the existing PostgREST RPC.
+PostgREST hoists a function's statement_timeout before its main query only when
+that setting is included in effective db-hoisted-tx-settings. Function SET alone
+does not arm cancellation for an already-running direct PostgreSQL statement;
+native qualification must issue the outer six-second SET in a prior command.
+The application request deadline and p_budget_ms postchecks do not independently
+prove server cancellation or prevent late installation. This project's actual
+PostgREST version, effective hoisting configuration, cancellation, rollback and
+absence of a late install remain UNVERIFIED adoption gates. No role/global
+setting, reload, timeout or owner budget was changed. See official
+[PostgREST transaction rules](https://docs.postgrest.org/en/v13/references/transactions.html#hoisted-function-settings),
+[configuration](https://docs.postgrest.org/en/stable/references/configuration.html#db-hoisted-tx-settings)
+and [Supabase function timeouts](https://supabase.com/docs/guides/database/postgres/timeouts#function-level).
+
 Two fixed generation slots each permit at most16MiB JSON payload (32MiB payload
 logical total). Metadata/index/TOAST/dead tuple/WAL allocation is ADDITIONAL.
 Two live rows do not bound physical storage or guarantee allocation shrinks.
@@ -80,7 +97,15 @@ The existing owner can attempt work up to720times/day at its unchanged2-minute
 cadence. Receipt-only polls may require full builds. For a small reader cohort,
 total DB CPU/writes may be MORE than on-demand construction. Require build+read
 CPU/write amplification/duty-cycle evidence against existing aggregate route
-telemetry; add no demand tracker, source cadence, job or subscription.
+telemetry; add no demand tracker, source cadence, job or subscription. DEPLOY's
+existing aggregate preflight for22October17:00Z–23October17:00Z counted550
+potential Feed/Match Centre/fixtures route invocations. That is a conservative
+upper bound including selected/profile/cache/auth/release-agent activity, not
+actual global database demand. Its679 historical refresh calls include pre-pause
+time and do not establish current scheduler state. Up to720 future builds/day
+could exceed actual global reads. Qualification must report total build+read
+cost, physical/WAL growth and reliability/headroom benefit separately; a faster
+hot read alone cannot establish CPU savings. No further demand query is needed.
 
 Constructed PG17/18 tests compare hot/missing/dirty/expired/default JSON text,
 clock precision and actual within-day transition, metadata/source changes,

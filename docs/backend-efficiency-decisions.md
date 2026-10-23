@@ -1955,3 +1955,7 @@ original temporal interpretation. Install-only guards and a whole-payload/manife
 witness reject cache edits; read-time hashing is charged in qualification.
 No source/clock/scheduler/subscription change.
 [Scope, invalidation, rollback and proof limits](quality/global-read-generation-2026-10-24.md).
+
+### 24 October 2026 — generation review corrections remain isolated
+
+The default-OFF complete-generation candidate now refuses builds after any source mutation in the same transaction through an independent local XID marker, even if DELETE or TRUNCATE CASCADE removes all source epochs. Savepoint rollback restores the marker; existing per-source write coalescing remains. Its policy hashes actual definitions of both generation-store guards, so changed predicates or target functions invalidate prior generations. Intended builder transport is POST PostgREST RPC with effective statement_timeout hoisting; direct native qualification requires an outer six-second timeout set in a prior command. Actual project version/configuration, cancellation/rollback/no-late-install and full captured concurrent consumer/physical-growth proof remain required before adoption. No production activation, setting or budget changed. See [candidate scope and gates](quality/global-read-generation-2026-10-24.md).

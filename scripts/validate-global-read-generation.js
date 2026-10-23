@@ -45,6 +45,24 @@ async function run(){
  const legacyWork=node=>(node['Subplan Name']==='CTE patches'?(node['Actual Loops']||0):0)+(node.Plans||[]).reduce((n,p)=>n+legacyWork(p),0);
  const plan=async h=>{await header(h);return service(async()=>(await db.query('explain(analyze,format json,timing off)select bundle from public.nothingsports_current_global_fixture_bundle')).rows[0]['QUERY PLAN'][0].Plan);};
  assert.equal(legacyWork(await plan(shadow)),0,'Hot generation must skip full original construction');assert(legacyWork(await plan('{}'))>0,'Work regression must detect actual original path');await header(shadow);checks++;
+ // Removing the sole source removes every epoch row. The same transaction
+ // must still be dirty: no row-survival shortcut, and savepoint rollback must
+ // restore both source data and the mutation marker.
+ assert.equal((await db.query('select count(*)::int n from public.nothingsports_fixture_sources')).rows[0].n,1);
+ for(const mutation of ["delete from public.nothingsports_fixture_sources where source_id='generation-a'",'truncate public.nothingsports_fixture_sources cascade']){
+  await db.exec('begin;savepoint before_remove;'+mutation);
+  assert.equal((await db.query('select count(*)::int n from nothingsports_fixture_read_private.global_read_epochs')).rows[0].n,0);
+  assert.equal((await build()).reason,'source_transaction','Removal remains dirty with no surviving epochs');
+  await db.exec('rollback to before_remove');assert(await cached());assert.equal((await build()).state,'unchanged');await db.exec('commit');checks+=3;
+ }
+ // Names/count/enabled alone are insufficient: bind BOTH actual model guard
+ // definitions, including WHEN and alternate targets, without touching epochs.
+ const originalGuardPolicy=await service(async()=>(await db.query('select nothingsports_fixture_read_private.global_generation_policy()v')).rows[0].v);
+ const originalGuardVector=await vector();
+ for(const mutation of [
+  "drop trigger global_generation_install_only on nothingsports_fixture_read_private.global_read_generations;create trigger global_generation_install_only before insert or update or delete on nothingsports_fixture_read_private.global_read_generations for each row when(false)execute function nothingsports_fixture_read_private.guard_global_generation_write()",
+  "create function public.qa_alternate_generation_guard()returns trigger language plpgsql as $$begin return null;end$$;drop trigger global_generation_no_truncate on nothingsports_fixture_read_private.global_read_generations;create trigger global_generation_no_truncate before truncate on nothingsports_fixture_read_private.global_read_generations for each statement execute function public.qa_alternate_generation_guard()"
+ ]){await db.exec('begin;'+mutation);assert.deepEqual(await vector(),originalGuardVector);assert.notEqual(await service(async()=>(await db.query('select nothingsports_fixture_read_private.global_generation_policy()v')).rows[0].v),originalGuardPolicy);assert.equal(await cached(),null);await equal();await db.exec('rollback');checks+=3;}
  const before=await vector();await db.exec("update public.nothingsports_fixture_sources set lease_until=clock_timestamp()+interval '1 minute',checked_at=clock_timestamp()where source_id='generation-a'");assert.deepEqual(await vector(),before);checks++;
  // Receipt-only changes need a new epoch even with unchanged facts/revision.
  await db.exec("update public.nothingsports_fixture_sources set discovery_report='{\"_fixtureObservations\":{\"first\":{\"s\":\"2026-10-20T01:00:00.654321Z\"}}}'where source_id='generation-a'");assert.notDeepEqual(await vector(),before);assert.equal(await cached(),null);assert.equal((await build()).state,'installed');await equal();assert.equal((await cached()).rows[0].fixture.scoreCheckedAt,'2026-10-20T01:00:00.654321+00:00');checks+=4;

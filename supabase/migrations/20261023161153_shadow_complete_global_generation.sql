@@ -77,6 +77,9 @@ create function nothingsports_fixture_read_private.touch_global_read_epoch(sid t
 language plpgsql security invoker set search_path='' as $fn$
 declare memo text:='nothingsports.global_read_'||md5(sid); xid text:=txid_current()::text;
 begin
+ -- Independent of surviving epoch/source rows, transaction-local and rolled
+ -- back with a savepoint. Deleting the last source must still forbid builds.
+ if current_setting('nothingsports.global_read_mutation_xid',true)is distinct from xid then perform set_config('nothingsports.global_read_mutation_xid',xid,true);end if;
  if not force_touch and current_setting(memo,true)=xid then return;end if;
  if not exists(select 1 from public.nothingsports_fixture_sources where source_id=sid)then return;end if;
  insert into nothingsports_fixture_read_private.global_read_epochs(source_id,last_xid)
@@ -89,12 +92,13 @@ language plpgsql security invoker set search_path=''as $fn$
 declare s text;
 begin
  if tg_op='TRUNCATE' then
+  perform set_config('nothingsports.global_read_mutation_xid',txid_current()::text,true);
   for s in select source_id from public.nothingsports_fixture_sources order by source_id loop
    perform nothingsports_fixture_read_private.touch_global_read_epoch(s,true);
   end loop;return null;
  end if;
  if tg_table_name='nothingsports_fixture_sources' then
-  if tg_op='DELETE' then perform set_config('nothingsports.global_read_'||md5(old.source_id),'',true);return null;end if;
+  if tg_op='DELETE' then perform nothingsports_fixture_read_private.touch_global_read_epoch(old.source_id);perform set_config('nothingsports.global_read_'||md5(old.source_id),'',true);return null;end if;
   if tg_op='UPDATE' and new.source_id=old.source_id and
     new.discovery_report->'_fixtureObservations' is not distinct from old.discovery_report->'_fixtureObservations' then return null;end if;
   perform nothingsports_fixture_read_private.touch_global_read_epoch(new.source_id,tg_op='INSERT');return null;
@@ -182,6 +186,7 @@ language sql stable security invoker set search_path=pg_catalog,public as $fn$
  pg_get_functiondef('nothingsports_fixture_read_private.global_read_epoch_changed()'::regprocedure)||
  pg_get_functiondef('nothingsports_fixture_read_private.global_read_vector()'::regprocedure)||
  pg_get_functiondef('nothingsports_fixture_read_private.global_read_clock_transition(text)'::regprocedure)||
+ (select string_agg(pg_get_triggerdef(t.oid),'|'order by t.tgname)from pg_trigger t where t.tgrelid='nothingsports_fixture_read_private.global_read_generations'::regclass and t.tgname in('global_generation_install_only','global_generation_no_truncate'))||
  (select string_agg(pg_get_triggerdef(t.oid),'|'order by t.tgrelid::regclass::text,t.tgname)from pg_trigger t where t.tgname in('global_read_epoch_after_change','global_read_epoch_after_truncate')and t.tgrelid=any(array['public.nothingsports_fixture_sources','public.nothingsports_fixture_current','public.nothingsports_live_scores','nothingsports_fixture_read_private.fixture_context','nothingsports_fixture_read_private.integrity_pending']::regclass[])))end
 $fn$;
 create function nothingsports_fixture_read_private.read_global_generation()returns json
@@ -202,7 +207,7 @@ declare payload json;tokens jsonb;day date;until_at timestamptz;began timestampt
  current_policy text;reference_clock timestamptz:=statement_timestamp();parser text;tz text:=current_setting('TimeZone');ds text:=current_setting('DateStyle');next_slot smallint;installed integer;gid uuid:=gen_random_uuid();
 begin
  if p_budget_ms is null or p_budget_ms<1 or p_budget_ms>6000 then raise exception 'Invalid global generation budget';end if;
- if exists(select 1 from nothingsports_fixture_read_private.global_read_epochs where last_xid=txid_current())then return jsonb_build_object('state','deferred','reason','source_transaction');end if;
+ if current_setting('nothingsports.global_read_mutation_xid',true)=txid_current()::text or exists(select 1 from nothingsports_fixture_read_private.global_read_epochs where last_xid=txid_current())then return jsonb_build_object('state','deferred','reason','source_transaction');end if;
  current_policy:=nothingsports_fixture_read_private.global_generation_policy();
  parser:=md5(pg_get_functiondef('public.nothingsports_fixture_observation_time(text)'::regprocedure));
  if current_policy is null or parser<>'13842433b7af056a35c01e8b234ae3c9'or exists(select 1 from nothingsports_fixture_read_private.integrity_pending)then return jsonb_build_object('state','deferred','reason','parser_or_pending');end if;
