@@ -14,6 +14,10 @@ function accountIndicatorSnapshot(){
     profile,profileOwnerId:profile?profileScope.owner:'',online:navigator.onLine,now:Date.now()},
     session:{appSessionId:accountIndicatorSessionId,accountEpoch:life.generation}};
 }
+function accountIdentityPrefix(){
+  const view=root.NOTHINGSPORTS_ACCOUNT_AWARENESS.accountView(accountIndicatorSnapshot().facts);
+  return ['signedIn','offline'].includes(view.status)?'Signed in as':'Saved account:';
+}
 function finishAccountIndicatorJourney(result){
   const journey=accountIndicatorJourney;if(!journey)return;
   accountIndicatorJourney=null;journey.resolve(result);
@@ -49,14 +53,50 @@ function acceptAccountIndicatorProfile(viewer,owner,generation){
     || nothingscoreViewerScope?.owner!==owner || nothingscoreViewerScope.generation!==generation || viewer!==nothingscoreViewer)return;
   renderAccountIndicator();
 }
+// Resume uses the existing scoped, serialised sync path. No polling or second
+// auth owner: one bounded read per foreground burst, no retries while hidden.
+let recoveryJob=null,lastRecovery=null;
+function recoverAccount({manual=false}={}){
+  const life=serverSyncClient?.accountSnapshot?.();
+  if(!life?.hasSession || !navigator.onLine || document.hidden)return Promise.resolve();
+  const same=value=>value?.accountId===life.accountId && value?.generation===life.generation;
+  if(same(recoveryJob))return recoveryJob.promise;
+  if(['checking','requesting','syncing'].includes(serverPersistence.state))return Promise.resolve();
+  if(!manual && same(lastRecovery) && Date.now()-lastRecovery.at<15000)return Promise.resolve();
+  lastRecovery={...life,at:Date.now()};
+  const job={...life,promise:null};
+  recoveryJob=job;
+  job.promise=Promise.resolve().then(()=>{
+    const current=serverSyncClient.accountSnapshot();
+    if(!same(current) || !current.hasSession)return;
+    return serverPersistence.user?.id===life.accountId && accountIndicatorGeneration===life.generation
+      ? syncCurrentServerState({notify:manual})
+      : bootstrapServerPersistence({checkStatus:false});
+  }).catch(()=>{}).finally(()=>{if(recoveryJob===job)recoveryJob=null;renderAccountIndicator();});
+  return job.promise;
+}
+function appendAccountRetry(controls){
+  if(serverPersistence.state!=='error' || serverPersistence.user || !serverSyncClient?.accountSnapshot?.().hasSession)return false;
+  const retry=document.createElement('button');
+  retry.type='button';retry.className='btn primary';retry.textContent='Retry account';
+  retry.addEventListener('click',()=>void recoverAccount({manual:true}));
+  controls.appendChild(retry);
+  return true;
+}
+function foregroundAccount(){renderAccountIndicator();void recoverAccount();}
 function mount(){
   if(accountIndicatorController)return accountIndicatorController;
   const host=document.getElementById('accountIndicator'),focused=host.contains(document.activeElement);
   host.replaceChildren();
   accountIndicatorController=NOTHINGSPORTS_ACCOUNT_AWARENESS_UI.create({host,readSnapshot:accountIndicatorSnapshot,openAccount:openIndicatorAccount,openPicture:options=>openIndicatorAccount({...options,profilePicture:true})});
   if(focused)host.querySelector('.account-awareness-control').focus();
+  for(const event of ['online','pageshow'])addEventListener(event,foregroundAccount);
+  addEventListener('offline',()=>{lastRecovery=null;renderAccountIndicator();});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)foregroundAccount();});
+  if(serverPersistence.state==='error')void recoverAccount();
+  if(settingsSection==='account' && document.getElementById('settingsModal')?.classList.contains('show'))renderSettingsScreen();
   return accountIndicatorController;
 }
-root.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP=Object.freeze({mount,open:openIndicatorAccount,finish:finishAccountIndicatorJourney,complete:completeAccountIndicatorJourney,acceptProfile:acceptAccountIndicatorProfile});
+root.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP=Object.freeze({mount,open:openIndicatorAccount,finish:finishAccountIndicatorJourney,complete:completeAccountIndicatorJourney,acceptProfile:acceptAccountIndicatorProfile,appendRetry:appendAccountRetry,identityPrefix:accountIdentityPrefix});
 
 })(globalThis);

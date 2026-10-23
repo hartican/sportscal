@@ -3480,7 +3480,7 @@ function renderAccountIndicator(){
 }
 function ensureAccountIndicator(){
   if(accountIndicatorController)return Promise.resolve(accountIndicatorController);
-  accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=571')
+  accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=5711')
     .then(()=>NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.mount())
     .catch(()=>{accountIndicatorLoading=null;renderAccountIndicator();return null;});
   return accountIndicatorLoading;
@@ -5052,7 +5052,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
       lastSyncedAt,
       message: "",
     });
-    if (pendingPreferenceIntent(scope.accountId)){setServerPersistence({state:"syncing",message:"Newer choices are saved on this device and waiting to sync."});}
+    if (pendingPreferenceIntent(scope.accountId)){setServerPersistence({state:"error",message:"Newer choices are saved on this device and waiting to sync. Retry sync."});}
     else if (notify) showToast("Your latest changes are synced across devices.");
     return result;
   }catch(error){
@@ -14158,10 +14158,10 @@ function renderAccountSettings(body){
       ? "Checking whether server sync is available."
       : state === "requesting"
         ? (serverPersistence.message || "Checking your email and password securely.")
-        : signedIn
-            ? accountSyncTimeLabel(serverPersistence.lastSyncedAt)
-            : state === "error"
+        : state === "error" || state === "syncing"
               ? (serverPersistence.message || "Your local copy is active while sync recovers.")
+            : signedIn
+              ? accountSyncTimeLabel(serverPersistence.lastSyncedAt)
               : (serverPersistence.message || "Sign in, or create a verified account with your lightweight Feed setup.");
 
   body.innerHTML = `<div class="preference-stack">
@@ -14176,11 +14176,12 @@ function renderAccountSettings(body){
   </div>`;
   document.getElementById("accountSyncDetail").textContent = detail;
   const controls = document.getElementById("accountSyncControls");
+  if (globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.appendRetry?.(controls)) return;
 
   if (signedIn){
     const identity = document.createElement("p");
     identity.className = "preference-help";
-    identity.textContent = `Signed in as ${serverPersistence.user.email || "your account"}.`;
+    identity.textContent = `${globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.identityPrefix?.() || "Saved account:"} ${serverPersistence.user.email || "your account"}.`;
     controls.appendChild(identity);
     const persistentSession = Boolean(serverSyncClient?.isPersistentSession?.());
     const persistenceControl = document.createElement("label");
@@ -14906,8 +14907,6 @@ addEventListener('ns-account-change',()=>{
   }
   renderAccountIndicator();
 });
-for(const event of ['online','offline','pageshow'])addEventListener(event,renderAccountIndicator);
-document.addEventListener('visibilitychange',()=>{if(!document.hidden)renderAccountIndicator();});
 addEventListener('ns-startup-ready',()=>{renderAccountIndicator();(window.requestIdleCallback || (f=>setTimeout(f,250)))(()=>void ensureAccountIndicator());},{once:true});
 document.getElementById('settingsModal').addEventListener('click',event=>{
   if(event.target.closest('#startupCreateAccountBtn') && accountIndicatorJourney)accountIndicatorJourney.phase='signing-up';
