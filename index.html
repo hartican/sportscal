@@ -9897,6 +9897,7 @@ async function ensurePushInstallation({ requestPermission = true } = {}){
       liveRatingsEnabled:(draftPreferences || userPreferences)?.followFirst?.notifications?.liveRatingsEnabled !== false,
       socialAlertsEnabled:(draftPreferences || userPreferences)?.followFirst?.notifications?.socialAlertsEnabled !== false,
       chatAlertsEnabled:(draftPreferences || userPreferences)?.followFirst?.notifications?.chatAlertsEnabled !== false,
+      commentAlertsEnabled:(draftPreferences || userPreferences)?.followFirst?.notifications?.commentAlertsEnabled !== false,
       badgesEnabled:(draftPreferences || userPreferences)?.followFirst?.notifications?.badgesEnabled !== false,
     }, { authenticated:Boolean(serverSyncClient.getSession?.() || serverSyncClient.getGuestChatSession?.()) });
     return { ...credentials, subscription };

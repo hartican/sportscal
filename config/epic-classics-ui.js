@@ -57,6 +57,7 @@
    const corrections=rows.filter(e=>e.milestone==='correction'&&e.copy);if(corrections.length){const history=el('details');history.append(el('summary','Earlier copy and corrections'));for(const c of corrections)history.append(el('p',Object.entries(c.copy).filter(([k,v])=>['hook','body','synopsis','formCopy','closingCopy'].includes(k)&&typeof v==='string').map(([,v])=>v).join('\n\n')));section.append(history);}
    d.append(section);
   }
+  if(data.comments?.length){const section=el('section',undefined,'epic-editorial');section.append(el('h3','Top comments'));for(const comment of data.comments){const quote=el('blockquote');quote.append(el('strong',comment.handle),el('p',comment.body));section.append(quote);}d.append(section);}
   d.append(button('Close',()=>d.close()));d.showModal();
  }
  async function review(container,year,client=defaultClient()){
@@ -79,6 +80,11 @@
   const actions=el('div',undefined,'epic-tools');actions.append(button('Save review',()=>void save().catch(e=>status.textContent=e.message)),button('Make share carousel',async()=>{if(!selected.length){status.textContent='Choose at least one fixture.';return;}try{await save();status.textContent='Making your carousel…';const records=[];for(const p of selected){const record=await client.request({eventId:p.eventId,results:reveal.checked?'1':'0'});if(!current(client,owner,token))return;records.push({...record,note:p.note});}const files=await exportFiles(year,records,{results:reveal.checked});if(!current(client,owner,token))return;renderExport(output,files,captionInput.value);status.textContent='Carousel ready. Nothing is posted until you share it.';}catch(e){status.textContent=e.message;}}));container.insertBefore(actions,status);draw();
  }
  function wrap(ctx,text,x,y,width,lineHeight,maxLines=20){let line='',lines=0;for(const word of String(text||'').split(/\s+/)){const next=line?line+' '+word:word;if(ctx.measureText(next).width>width&&line){ctx.fillText(line,x,y);y+=lineHeight;line=word;if(++lines>=maxLines)return y;}else line=next;}if(line){ctx.fillText(line,x,y);y+=lineHeight;}return y;}
+ // Wrap public quotes by grapheme, retaining explicit line breaks and long words.
+ function commentLines(ctx,text,width){
+  const segments=typeof Intl.Segmenter==='function'?[...new Intl.Segmenter(undefined,{granularity:'grapheme'}).segment(String(text))].map(s=>s.segment):Array.from(String(text));
+  const lines=[];let line='';for(const part of segments){if(part==='\n'){lines.push(line);line='';continue;}if(line&&ctx.measureText(line+part).width>width){lines.push(line);line='';}line+=part;}lines.push(line);return lines;
+ }
  async function exportFiles(year,records,{results=false}={}){
   await document.fonts?.ready;const canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1350;const ctx=canvas.getContext('2d'),files=[];
   function base(kicker){ctx.fillStyle='#071510';ctx.fillRect(0,0,1080,1350);ctx.fillStyle='#d6ff42';ctx.font='900 65px "DM Sans",sans-serif';ctx.fillText('nothing SPORT',80,125);ctx.fillStyle='#ffffff';ctx.font='700 30px "DM Sans",sans-serif';ctx.fillText(kicker,80,200);ctx.fillStyle='#a1b3a8';ctx.font='500 28px "DM Sans",sans-serif';ctx.fillText('Live sport, nothing missed.',80,1265);}
@@ -86,6 +92,16 @@
   base('MY YEAR OF NS');ctx.fillStyle='#d6ff42';ctx.font='900 230px "DM Sans",sans-serif';ctx.fillText(String(year),70,550);ctx.fillStyle='#ffffff';ctx.font='700 66px "DM Sans",sans-serif';wrap(ctx,records.length+' fixtures worth remembering',80,710,900,82,3);ctx.font='500 38px "DM Sans",sans-serif';ctx.fillStyle='#a1b3a8';wrap(ctx,'The anticipation. The electricity. The impact.',80,1050,900,52,3);await add('NS-'+year+'-00-cover.png');
   for(let index=0;index<records.length;index++){const record=records[index];base(year+' · '+String(index+1).padStart(2,'0'));ctx.fillStyle='#ffffff';ctx.font='800 68px "DM Sans",sans-serif';let y=wrap(ctx,record.fixture.name||'A classic fixture',80,310,900,84,5)+35;ctx.fillStyle='#a1b3a8';ctx.font='500 30px "DM Sans",sans-serif';ctx.fillText(record.fixture.finalDate||record.fixture.date||'Date unavailable',80,y);y+=75;
    const phase=results?'impact':'heat',part=record.editorial.findLast(p=>p.phase===phase&&p.milestone==='final'&&p.copy),copy=part?.copy||{};ctx.fillStyle='#d6ff42';ctx.font='700 30px "DM Sans",sans-serif';ctx.fillText(policy.phaseCopy(phase).name.toUpperCase(),80,y);y+=60;ctx.fillStyle='#ffffff';ctx.font='500 37px "DM Sans",sans-serif';const text=[copy.hook,copy.body||copy.synopsis].filter(Boolean).join('\n\n').split(/\s+/).slice(0,85).join(' ');y=wrap(ctx,text||'Original editorial is unavailable.',80,y,900,49,Math.max(1,Math.floor((1120-y)/49)));if(results&&record.note&&y<1100){ctx.fillStyle='#a1b3a8';ctx.font='500 31px "DM Sans",sans-serif';wrap(ctx,record.note,80,y+28,900,42,Math.max(1,Math.floor((1180-y)/42)));}await add('NS-'+year+'-'+String(index+1).padStart(2,'0')+'-fixture.png');await new Promise(resolve=>requestAnimationFrame(resolve));}
+  if(results)for(let index=0;index<records.length;index++){
+   const record=records[index];for(const [place,comment] of (record.comments||[]).entries()){
+    ctx.font='500 36px "DM Sans",sans-serif';const lines=commentLines(ctx,comment.body,900);let offset=0,part=0;
+    do{base(year+' · COMMUNITY COMMENTS');ctx.fillStyle='#ffffff';ctx.font='800 48px "DM Sans",sans-serif';const headingEnd=wrap(ctx,record.fixture.name||'A classic fixture',80,290,900,60,3),startY=headingEnd+120;
+     ctx.fillStyle='#d6ff42';ctx.font='700 36px "DM Sans",sans-serif';ctx.fillText(comment.handle,80,headingEnd+45);ctx.fillStyle='#ffffff';ctx.font='500 36px "DM Sans",sans-serif';
+     const count=Math.max(1,Math.floor((1180-startY)/47)+1);for(const [lineIndex,line] of lines.slice(offset,offset+count).entries())ctx.fillText(line,80,startY+lineIndex*47);
+     offset+=count;part++;await add('NS-'+year+'-'+String(index+1).padStart(2,'0')+'-comment-'+(place+1)+'-'+part+'.png');
+    }while(offset<lines.length);
+   }
+  }
   canvas.width=canvas.height=1;return files;
  }
  // Stored ZIP entries avoid another runtime dependency and preserve original PNG bytes.

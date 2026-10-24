@@ -22,7 +22,15 @@ function focusMilestoneNotification(){
   const previous=focusPendingNotificationEvent;
   focusPendingNotificationEvent=function(){
     if(pendingNotificationEventId&&new URLSearchParams(location.search).get('surface')==='match-centre')return focusMilestoneNotification();
-    return previous();
+    const query=new URLSearchParams(location.search),discussion=query.get('discussion')||(query.get('comments')==='1'?pendingNotificationEventId:'');
+    if(discussion){
+      if(!feedCardSlots.size)return false;
+      const owner=serverSyncClient.sessionSubject(),life=serverSyncClient.accountSnapshot();pendingNotificationEventId='';
+      const url=new URL(location.href);for(const key of ['discussion','comments','event'])url.searchParams.delete(key);history.replaceState(history.state,'',url);
+      void loadDeferredScript('assets/js/public-comments-ui.js?v=1').then(()=>{if(owner===serverSyncClient.sessionSubject()&&life.generation===serverSyncClient.accountSnapshot().generation)return NOTHINGSPORTS_PUBLIC_COMMENTS_UI.openFixture(discussion);}).catch(error=>showToast(error.message));return true;
+    }
+    const result=previous();
+    return result;
   };
 })();
 function startMilestoneNotificationNavigation(){
@@ -33,9 +41,11 @@ function startMilestoneNotificationNavigation(){
     if(data?.type!=='nothingsport-notification-navigation'||typeof data.token!=='string'||data.token.length>80||!Number.isFinite(data.expiresAt)||data.expiresAt<=Date.now()||data.expiresAt>Date.now()+120000)return;
     let target;try{
       const source=new URL(worker.scriptURL),url=new URL(data.url,location.origin),id=url.searchParams.get('event');
-      if(source.origin!==location.origin||source.pathname!=='/service-worker.js'||url.origin!==location.origin||!['/','/index.html'].includes(url.pathname)||url.searchParams.get('surface')!=='match-centre'||!id||id.length>180)return;
-      target=new URL('/',location.origin);target.searchParams.set('event',id);target.searchParams.set('surface','match-centre');
-      const moment=url.searchParams.get('moment');if(moment&&moment.length<=200)target.searchParams.set('moment',moment);
+      const discussion=url.searchParams.get('discussion');
+      if(source.origin!==location.origin||source.pathname!=='/service-worker.js'||url.origin!==location.origin||!['/','/index.html'].includes(url.pathname))return;
+      target=new URL('/',location.origin);
+      if(discussion){if(discussion.length>180)return;target.searchParams.set('discussion',discussion);}
+      else{if(url.searchParams.get('surface')!=='match-centre'||!id||id.length>180)return;target.searchParams.set('event',id);target.searchParams.set('surface','match-centre');const moment=url.searchParams.get('moment');if(moment&&moment.length<=200)target.searchParams.set('moment',moment);}
     }catch{return;}
     if(!accepted.has(data.token)){
       accepted.add(data.token);if(accepted.size>20)accepted.delete(accepted.values().next().value);
@@ -61,3 +71,6 @@ function startMilestoneNotificationNavigation(){
 }
 
 startMilestoneNotificationNavigation();
+
+// A cold Feed may have rendered before this deferred routing owner loaded.
+if(new URLSearchParams(location.search).has('discussion'))focusPendingNotificationEvent();

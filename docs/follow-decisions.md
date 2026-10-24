@@ -1,5 +1,16 @@
 # Follow and Feed decisions
 
+## Public fixture discussion and followed-author runs — 24 October 2026 Sydney
+
+The full [Public Feed contract](plans/public-feed-2026-10-22.md) is allocated for isolated implementation. Registered signed-in users may expand/read a public fixture thread, reply one level, post text/emojis and existing 25-lifetime-point-unlocked GIFs, and change/remove up/down votes. Net score ranks roots and each reply group with deterministic oldest/ID ties; updates preserve scroll/focus. The full fixture and tray share the page scroll. No comment/vote rewards or new moderation workflow are added; existing account/privacy/erasure controls remain.
+
+“Comments from people I follow” is a separate default-on preference, preserving explicit OFF and global/device consent. Eligibility requires an actually followed public author and a fixture already admitted to the recipient's Feed. Each recipient/fixture tracks consecutive followed-author runs: A,A,A -> one; followed A, unfollowed B, A -> one; followed A, followed C, A -> three. Unfollowed/self commenters, votes and deletes cannot reset a run. There is no timed grouping or extra reply/mention/vote alert. Repeated comments stay in their existing inbox group without rearming unread/delivery. Alert navigation uses exact existing Feed identity and the opt-in shared card adapter; it creates no follow, admission or saved open/seen/card-state choice. Removed/unavailable content fails explicitly. Comment-alert navigation uses the existing notification destination owner with a full transient card and shared scroll, without first mounting or observing an ordinary Feed card.
+
+Personal dismissal never deletes a shared thread. The existing verified seven-Sydney-calendar-day retirement policy and ongoing/unknown safeguards apply. A successful transaction freezes up to three highest-net-voted nonblank text/emoji entries, including replies, for existing genuine personal-5/5 EPIC/yearbook qualification before deleting live comments/GIF references. Capture failure retains live data for the existing maintenance owner. Preserve yearbook ownership, private/erased author redaction, Results OFF and export controls. This is source work, not production activation; PR37 adapter and full release/phone acceptance remain dependencies.
+
+Regressions: `validate-public-feed.js` runs policy/API/delivery/navigation/DOM/export and both PostgreSQL engines; existing Follow, private chat, notification and EPIC gates remain.
+
+
 ## Automatic seed hydration is not a preference decision — 24 October 2026
 
 The original sync owner reproduced a pending-receipt false hold when identical account metadata hydration changes only `followFirst.appliedSeedHash`. Exclude that exact automatic marker from base/intent decision comparison; all genuine and unknown preferences, OFF/empty/unfollow, receipt identity, owner/generation and conditional saves remain protected. Full in-flight receipt-base advancement stays exact. In the existing conditional user-state PUT, unchanged metadata cannot replace its current marker with an older marker that does not match the same seedHash; valid hydration and genuine metadata updates remain allowed. No preference union, starter Follow, new request/store/wire/schema or recovery is added.

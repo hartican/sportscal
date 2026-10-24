@@ -484,6 +484,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-epic-api.js"],
   ["scripts/validate-year-review-alerts.js"],
   ["scripts/build-epic-ui.js", "--check"],
+  ["scripts/validate-public-feed.js"],
   ["scripts/validate-follow-with-confidence.js"],
   ["scripts/validate-ratings-recovery.js"],
   ["scripts/validate-cricket-coverage.js"],
