@@ -68,7 +68,7 @@
   }
   async function gifs(){
    if(!current())return;try{const config=await client.gifs();if(!current())return;await Promise.all([client.load('config/chat-media.js?v=218'),client.load('config/chat-media-ui.js?v=304')]);if(!current())return;
-    gifController?.closePicker();gifController=root.NOTHINGSPORTS_CHAT_MEDIA_UI.install({media:root.NOTHINGSPORTS_CHAT_MEDIA,state:()=>({capabilities:config.capabilities,pendingAttachments:[]}),request:async()=>config,isCurrent:current,returnFocus:()=>input.focus({preventScroll:true}),connection:message=>report(Error(message)),onGifSelected:gif=>{if(!current())return;chosenGif=gif;clientId=null;preview.replaceChildren();const img=node('img');img.src=gif.previewUrl;img.alt=gif.title;img.style.maxHeight='100px';preview.append(img,button('Remove GIF',()=>{chosenGif=null;clientId=null;preview.replaceChildren();}));}});
+    gifController?.closePicker();gifController=root.NOTHINGSPORTS_CHAT_MEDIA_UI.install({media:root.NOTHINGSPORTS_CHAT_MEDIA,pickerHost:host.closest('dialog')||document.body,state:()=>({capabilities:config.capabilities,pendingAttachments:[]}),request:async()=>config,isCurrent:current,returnFocus:()=>input.focus({preventScroll:true}),connection:message=>report(Error(message)),onGifSelected:gif=>{if(!current())return;chosenGif=gif;clientId=null;preview.replaceChildren();const img=node('img');img.src=gif.previewUrl;img.alt=gif.title;img.style.maxHeight='100px';preview.append(img,button('Remove GIF',()=>{chosenGif=null;clientId=null;preview.replaceChildren();}));}});
     await gifController.stylesReady;if(current())await gifController.openPicker();
    }catch(e){report(e);}
   }

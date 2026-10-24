@@ -38,6 +38,27 @@ node scripts/validate-public-comments-database.js --reviewed-baseline
 
 6. **Erasure contract.** Public comments use the exact existing canonical AFTER ROW INSERT OR UPDATE guard identity/type21; the inventory and operator/workflow are unchanged. The guard retains its original isolation/locks/audit-null protection. A table-specific derived-update case requires identical text/GIF/author/deletion/identity fields, unchanged-or-null parent, actual vote total and the current thread revision; ordinary blocked text or arbitrary-score writes still fail. This permits required blocked-peer vote/FK cleanup while preserving the dynamic inventory contract. The database regression now loads real existing chat/reminder DDL, original guard/auth-marker/inventory migrations, the feature migration, real direct-guard preflight and real operator/workflow freeze. It covers a nonexistent zero-row sentinel, a zero-comment account and later cascade/deletion controls; later workflow phases remain explicitly unallocated.
 
+## Picker host follow-up — existing owner only
+
+The six-finding revision `6e67b479` revealed that the existing picker was appended to `document.body` while its alert card lived in a native modal dialog. The [HTML modal-inertness rule](https://html.spec.whatwg.org/multipage/interaction.html#modal-dialogs-and-inert-subtrees) makes content outside that dialog inert. ROOT explicitly allocated a narrow follow-up before freezing the final repair delta.
+
+Public Feed now passes its containing dialog into the **same existing media installer**; default private chat still uses `document.body`. No picker markup, provider, upload permission, independent loader, request deadline or 25-point rule is replaced. DOM identity and current host/lifetime fence pending configuration, provider responses/errors, result/close/search/retry callbacks and cleanup. Closed/detached dialogs cannot steal a private picker or fall back onto the body. Cleanup can clear its owned picker after the caller becomes unavailable without touching a replacement. Visible results from earlier pagination remain selectable.
+
+`validate-public-comment-picker.js` evaluates the actual media and public-controller sources. Its default run passes structural dialog descent, actual caller bridging through the existing two media loader paths, private/public/private selection/focus ownership, 24-point rejection, paging, closed/detached host controls, delayed configuration/provider errors, detached old result/close controls and ended public lifetimes. Tests use DOM mocks and a fake provider; this is **not native modal, hit-test, iPhone or real provider proof**.
+
+These six cases reproduce their specific failures against immutable `6e67b479` and pass on the candidate:
+
+```bash
+node scripts/validate-public-comment-picker.js --case=descendant --reviewed-baseline
+node scripts/validate-public-comment-picker.js --case=bridge --reviewed-baseline
+node scripts/validate-public-comment-picker.js --case=config --reviewed-baseline
+node scripts/validate-public-comment-picker.js --case=error --reviewed-baseline
+node scripts/validate-public-comment-picker.js --case=lifetime --reviewed-baseline
+node scripts/validate-public-comment-picker.js --case=privacy --reviewed-baseline
+```
+
+The earlier six-finding REDs above, and the real PostgreSQL erasure/inventory/operator/workflow execution, retain their separate status and source bindings. No engine/native/shared operation or version allocation accompanies this follow-up.
+
 ## Verification and boundaries
 
 The expanded `node scripts/validate-public-feed.js --light` passes with current source on Node25.9.0. It now includes the consent, multi-parent/late-ACK/access/cold/scroll and retirement regressions. Existing DOM/GIF/private-picker/export, policy/API/delivery/navigation checks remain. `build-public-comments-ui.js` binds the generated optional bundle to current source. Static build/startup and affected existing source gates remain required; ROOT retains the unchanged startup budget despite the necessary registration field.

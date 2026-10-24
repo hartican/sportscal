@@ -150,6 +150,12 @@
     let gifQuery = "";
     let gifProviderConfig = null;
     let ownedPicker = null;
+    // Reuse this picker inside a caller's modal; private chat keeps the body host.
+    const pickerHost = () => context.pickerHost || document.body;
+    const ownsPicker = picker => Boolean(picker && picker === ownedPicker && picker.isConnected
+      && picker.parentElement === pickerHost() && document.getElementById("chatGifPicker") === picker);
+    const hostActive = () => pickerHost()?.isConnected && (pickerHost().localName !== "dialog" || pickerHost().open);
+    const usablePicker = picker => ownsPicker(picker) && hostActive() && context.isCurrent?.() !== false;
 
     async function prepareStaticImage(file){
       if (!media.shouldCompress(file.type)) return file;
@@ -339,29 +345,30 @@
 
     function closePicker(){
       clearTimeout(searchTimer);
+      searchSequence++;
       searchController?.abort?.();
       searchController = null;
-      const picker = ownedPicker?.isConnected ? ownedPicker : null;
-      if (!picker) return;
+      const picker = ownedPicker;
+      if (!ownsPicker(picker)) return;
       picker.classList.remove("show");
       picker.setAttribute("aria-hidden", "true");
-      document.getElementById("chatGifResults")?.replaceChildren();
-      document.getElementById("chatGifSearchInput").value = "";
-      document.getElementById("chatGifPickerStatus").textContent = "Trending reactions and sports memes.";
-      if(context.returnFocus)context.returnFocus();else document.querySelector('#chatRoomComposer [data-chat-gif-trigger]')?.focus?.({ preventScroll:true });
+      picker.querySelector("#chatGifResults").replaceChildren();
+      picker.querySelector("#chatGifSearchInput").value = "";
+      picker.querySelector("#chatGifPickerStatus").textContent = "Trending reactions and sports memes.";
+      if(usablePicker(picker)){if(context.returnFocus)context.returnFocus();else document.querySelector('#chatRoomComposer [data-chat-gif-trigger]')?.focus?.({ preventScroll:true });}
     }
 
     async function openPicker(){
       if(context.isCurrent?.()===false)return;
-      ensurePicker();
       if (!state().capabilities.canUseGifs){
         context.connection(`Earn 25 NSC points to use GIFs. You have ${state().capabilities.lifetimeNscPoints || 0}.`, "retrying");
         return;
       }
-      const picker = document.getElementById("chatGifPicker");
+      const picker = ensurePicker();
+      if (!picker) return;
       picker.classList.add("show");
       picker.setAttribute("aria-hidden", "false");
-      document.getElementById("closeChatGifPickerBtn").focus({ preventScroll:true });
+      picker.querySelector("#closeChatGifPickerBtn").focus({ preventScroll:true });
       await search("");
     }
 
@@ -371,9 +378,10 @@
       void fetch(url, { mode:"no-cors", keepalive:true }).catch(() => {});
     }
 
-    async function loadGifProviderConfig(){
+    async function loadGifProviderConfig(valid){
       if (gifProviderConfig) return gifProviderConfig;
       const payload = await context.request({ mode:"gif-config" });
+      if (!valid()) return null;
       if (payload?.provider !== "giphy" || !payload?.clientConfig){
         throw new Error("GIFs are unavailable right now.");
       }
@@ -413,8 +421,8 @@
       refreshPreviews();
     }
 
-    function selectGif(gif){
-      if(context.isCurrent?.()===false||!ownedPicker?.isConnected)return;
+    function selectGif(gif, picker){
+      if(!usablePicker(picker)||!picker.classList.contains("show")||!state().capabilities.canUseGifs)return;
       if(context.onGifSelected){registerGifAction(gif,"onclick");closePicker();context.onGifSelected(gif);return;}
       const current = state();
       if (current.pendingAttachments.length >= 4) return;
@@ -434,9 +442,11 @@
     }
 
     async function search(query, { append = false } = {}){
+      const picker = ownedPicker;
+      if (!usablePicker(picker) || !state().capabilities.canUseGifs) return;
       const q = String(query || "").trim();
-      const results = document.getElementById("chatGifResults");
-      const status = document.getElementById("chatGifPickerStatus");
+      const results = picker.querySelector("#chatGifResults");
+      const status = picker.querySelector("#chatGifPickerStatus");
       if (q.length === 1){
         results.replaceChildren();
         status.textContent = "Enter at least two characters.";
@@ -446,17 +456,20 @@
       const controller = new AbortController();
       searchController = controller;
       const sequence = ++searchSequence;
+      const valid = () => !controller.signal.aborted && sequence === searchSequence && usablePicker(picker);
       status.textContent = q ? "Searching GIFs…" : "Loading trending GIFs…";
       if (!append) results.replaceChildren();
       try{
         if (!append){ gifOffset = 0; gifQuery = q; }
-        const providerPayload = await searchGiphyClient(await loadGifProviderConfig(), {
+        const config = await loadGifProviderConfig(valid);
+        if (!valid()) return;
+        const providerPayload = await searchGiphyClient(config, {
           query:q,
           offset:gifOffset,
           signal:controller.signal,
         });
         const gifs = providerPayload.items || [];
-        if (controller.signal.aborted || sequence !== searchSequence || !ownedPicker?.isConnected || context.isCurrent?.()===false) return;
+        if (!valid()) return;
         if (!gifs.length){
           status.textContent = append ? "That’s everything." : "No GIFs found. Try another search.";
           return;
@@ -472,7 +485,7 @@
           image.width = gif.width || 240;
           image.height = gif.height || 240;
           button.appendChild(image);
-          button.addEventListener("click", () => selectGif(gif));
+          button.addEventListener("click", () => { if(button.isConnected&&picker.contains(button))selectGif(gif, picker); });
           results.appendChild(button);
           registerGifAction(gif, "onload");
         });
@@ -482,18 +495,18 @@
           more.type = "button";
           more.className = "btn ghost chat-gif-more";
           more.textContent = "Load more";
-          more.addEventListener("click", () => { more.remove(); void search(gifQuery, { append:true }); });
+          more.addEventListener("click", () => { if(valid()){more.remove();void search(gifQuery, { append:true });} });
           results.appendChild(more);
         }
       }catch(error){
-        if (error?.name !== "AbortError"){
+        if (error?.name !== "AbortError" && valid()){
           const message = document.createElement("span");
           message.textContent = error.message || "GIFs are unavailable right now.";
           const retryButton = document.createElement("button");
           retryButton.type = "button";
           retryButton.className = "btn ghost";
           retryButton.textContent = "Retry";
-          retryButton.addEventListener("click", () => { void search(q, { append }); });
+          retryButton.addEventListener("click", () => { if(valid())void search(q, { append }); });
           status.replaceChildren(message, document.createTextNode(" "), retryButton);
         }
       }
@@ -502,11 +515,14 @@
     function scheduleSearch(value){
       clearTimeout(searchTimer);
       if (String(value || "").trim().length < 2) return;
-      searchTimer = setTimeout(() => { void search(value); }, 300);
+      const picker=ownedPicker,sequence=searchSequence;
+      searchTimer = setTimeout(() => { if(usablePicker(picker)&&sequence===searchSequence)void search(value); }, 300);
     }
 
     function ensurePicker(){
-      if (ownedPicker?.isConnected) return;
+      if (!hostActive() || context.isCurrent?.() === false) return null;
+      if (ownsPicker(ownedPicker)) return ownedPicker;
+      ownedPicker?.remove();
       document.getElementById("chatGifPicker")?.remove();
       const picker = document.createElement("section");
       ownedPicker=picker;
@@ -517,19 +533,21 @@
       picker.setAttribute("aria-labelledby", "chatGifPickerTitle");
       picker.setAttribute("aria-hidden", "true");
       picker.innerHTML = '<header class="chat-gif-picker-head"><button class="btn ghost" id="closeChatGifPickerBtn" type="button" aria-label="Back to chat">Back</button><h2 id="chatGifPickerTitle">Add a GIF</h2></header><div class="chat-gif-picker-search"><input id="chatGifSearchInput" type="search" inputmode="search" autocomplete="off" placeholder="Search reactions and memes" aria-label="Search GIFs"><button class="btn primary" id="chatGifSearchBtn" type="button">Search</button></div><div class="chat-gif-prompts" aria-label="GIF suggestions"><button type="button">Big win</button><button type="button">No way</button><button type="button">Banter</button><button type="button">Disaster</button><button type="button">Clutch</button><button type="button">Celebration</button></div><p class="chat-gif-picker-status" id="chatGifPickerStatus" role="status" aria-live="polite">Trending reactions and sports memes.</p><div class="chat-gif-results" id="chatGifResults"></div><a class="chat-gif-attribution" href="https://giphy.com/" target="_blank" rel="noopener noreferrer">Powered by GIPHY</a>';
-      document.body.appendChild(picker);
-      picker.querySelector("#closeChatGifPickerBtn").addEventListener("click", closePicker);
-      picker.querySelector("#chatGifSearchBtn").addEventListener("click", () => { void search(picker.querySelector("#chatGifSearchInput").value); });
+      pickerHost().appendChild(picker);
+      picker.querySelector("#closeChatGifPickerBtn").addEventListener("click", () => { if(ownsPicker(picker))closePicker(); });
+      picker.querySelector("#chatGifSearchBtn").addEventListener("click", () => { if(usablePicker(picker))void search(picker.querySelector("#chatGifSearchInput").value); });
       picker.querySelector("#chatGifSearchInput").addEventListener("keydown", event => {
-        if (event.key !== "Enter" || event.isComposing) return;
+        if (!usablePicker(picker) || event.key !== "Enter" || event.isComposing) return;
         event.preventDefault();
         void search(event.currentTarget.value);
       });
-      picker.querySelector("#chatGifSearchInput").addEventListener("input", event => scheduleSearch(event.currentTarget.value));
+      picker.querySelector("#chatGifSearchInput").addEventListener("input", event => { if(usablePicker(picker))scheduleSearch(event.currentTarget.value); });
       picker.querySelectorAll(".chat-gif-prompts button").forEach(button => button.addEventListener("click", () => {
+        if (!usablePicker(picker)) return;
         picker.querySelector("#chatGifSearchInput").value = button.textContent;
         void search(button.textContent);
       }));
+      return picker;
     }
 
     ensurePicker();
