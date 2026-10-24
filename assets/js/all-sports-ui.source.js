@@ -17,15 +17,20 @@
    let label=slot.querySelector(':scope > .as-qualifier');if(!text){label?.remove();return;}if(!label){label=el('small',null,'as-qualifier');slot.prepend(label);}label.textContent=text;
   }
   const cardKey=item=>{
-   const e=item.event,compact=match().compact(e);
-   // Retain every source input, including unknown fields. Compact fills only
-   // the defaults added by selected transport; original renderer inputs win.
+   const raw=item.event,defaults=NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(raw);
+   // The identity owner supplies the same absent defaults before and after
+   // first selection. Explicit source inputs (including unknowns) still win;
+   // canonical identity and the reader's absent failure flag use their defaults.
+   const e={manualEstimateHeld:false,...defaults,...raw,canonicalEventId:defaults.canonicalEventId},compact=match().compact(e);
+   // Compact fills selected transport defaults without replacing source inputs.
    // Sport transport uses the canonical key; retain the actual renderer's
    // metadata too, including its label fallback for unrecognised keys.
    const {score,homeScore,awayScore,sets,games,statusCheckedAt,scoreCheckedAt,checkedAt,stale,sourceStale,...facts}={...compact,...e,sport:compact.sport};
-   return [facts,sportMetaForEvent(e)];
+   return [facts,sportMetaForEvent(raw)];
   };
-  const layoutKey=days=>JSON.stringify([range,expanded,days.map(day=>[day.day,day.groups.map(group=>[group.id,group.entries.map(cardKey)]),day.tbc.map(cardKey)])]);
+  // JSON object field order can change during enrichment; values/array order
+  // and every unknown nested input still participate in the comparison.
+  const layoutKey=days=>JSON.stringify([range,expanded,days.map(day=>[day.day,day.groups.map(group=>[group.id,group.entries.map(cardKey)]),day.tbc.map(cardKey)])],(_key,value)=>value&&typeof value==='object'&&!Array.isArray(value)?Object.fromEntries(Object.keys(value).sort().map(key=>[key,value[key]])):value);
   // Score observations use the shared card updater so an in-flight disclosure
   // press keeps its button and horizontal track. Structural changes still render.
   function patchCards(days,key){
