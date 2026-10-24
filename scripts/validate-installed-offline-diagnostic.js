@@ -1,7 +1,7 @@
 'use strict';
 // Deterministic controls only: no browser launch, external request or production I/O.
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),http=require('node:http'),{EventEmitter}=require('node:events'),{execFileSync}=require('node:child_process'),acorn=require('acorn');
-const {mode,create,LIMITS}=require('./lib/installed-offline-diagnostic'),{boundedSink,runtimeMetadata,validateRuntime,CAPS}=require('./run-installed-offline-diagnostic');
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),http=require('node:http'),vm=require('node:vm'),{EventEmitter}=require('node:events'),{execFileSync}=require('node:child_process'),acorn=require('acorn');
+const {mode,create,LIMITS}=require('./lib/installed-offline-diagnostic'),{boundedSink,runtimeMetadata,validateRuntime,reapOwnedGroups,CAPS}=require('./run-installed-offline-diagnostic');
 const root=path.resolve(__dirname,'..'),temporary=fs.mkdtempSync(path.join(os.tmpdir(),'ns-offline-controls-'));let passed=0;
 const check=(condition,label)=>{assert(condition,label);passed++;};
 const state={version:'593',online:true,controller:'http://127.0.0.1:12345/service-worker.js',workers:[{url:'http://127.0.0.1:12345/service-worker.js',state:'activated',version:'593'},null,null],caches:['nothingsport-shell-v593'],shell:{status:200,bytes:123,version:'593',sha256:'a'.repeat(64)}};
@@ -66,6 +66,42 @@ async function main(){
   const sink=boundedSink(path.join(temporary,'stderr.log'),16);sink.write(Buffer.alloc(80,97));sink.write(Buffer.alloc(20,98));assert.deepEqual(sink.snapshot(),{received:100,written:16,dropped:84,limit:16});passed++;
   check(fs.statSync(path.join(temporary,'stderr.log')).size===16&&CAPS.stderr===262144&&CAPS.maximumMs===360000,'bounded debug stderr and adapter deadline');
   const tail=boundedSink(path.join(temporary,'stderr-tail.log'),16,{tail:true});tail.write(Buffer.alloc(100,97));tail.write(Buffer.from('CRASH-SIGNAL'));check(fs.readFileSync(path.join(temporary,'stderr-tail.log'),'utf8').endsWith('CRASH-SIGNAL')&&tail.snapshot().written===16,'bounded stderr retains latest crash signal');
+  // Source-valid adapter cleanup: simulate syscall results only; no real
+  // process signals, browser or native run. Positive leaders are already dead.
+  const gone=()=>Object.assign(Error('gone'),{code:'ESRCH'});
+  for(const stopOn of ['SIGTERM','SIGKILL','never']){
+   let live=true;const operations=[],waits=[];
+   const result=await reapOwnedGroups([41001,42001,42001],{ownerPid:40001,wait:async ms=>waits.push(ms),kill(target,signal){
+    operations.push({target,signal});if(target>0||target===-41001||!live)throw gone();
+    assert.equal(target,-42001,'only the recorded detached browser group');
+    if(signal===stopOn)live=false;
+   }});
+   check(result.before[1].leader.state==='gone'&&result.before[1].group.state==='present','dead leader/live group is independently observed');
+   check(result.forced&&!result.clean,'forced cleanup cannot return a successful diagnostic');
+   check(result.groupsGone===(stopOn!=='never'),'final group presence must be established directly');
+   assert.deepEqual(operations.filter(item=>item.signal!==0).map(item=>item.signal),stopOn==='SIGTERM'?['SIGTERM']:['SIGTERM','SIGKILL']);passed++;
+   check(waits.every(ms=>ms===250)&&waits.length<=2,'existing short cleanup waits remain bounded');
+  }
+  const absent=await reapOwnedGroups([41001],{ownerPid:40001,wait:async()=>{throw Error('no cleanup wait needed');},kill(){throw gone();}});
+  check(absent.clean&&absent.groupsGone&&!absent.forced,'only confirmed absent groups/leaders permit clean success');
+  const denied=[];const unknown=await reapOwnedGroups([41001],{ownerPid:40001,wait:async()=>{throw Error('unknown group must not be signalled');},kill(target,signal){denied.push({target,signal});if(target>0)throw gone();throw Object.assign(Error('permission unknown'),{code:'EPERM'});}});
+  check(!unknown.clean&&!unknown.groupsGone&&unknown.after[0].group.state==='unknown'&&denied.every(item=>item.signal===0),'permission uncertainty cannot mean gone or trigger an unknown signal');
+  const leaderOnly=await reapOwnedGroups([41001],{ownerPid:40001,wait:async()=>{},kill(target,signal){assert.equal(signal,0);if(target<0)throw gone();}});
+  check(!leaderOnly.clean&&leaderOnly.groupsGone&&!leaderOnly.forced,'an escaped/reused positive leader is uncertain; do not signal outside the recorded group');
+  let probes=0;const reappeared=await reapOwnedGroups([41001],{ownerPid:40001,wait:async()=>{},kill(target,signal){assert.equal(signal,0,'never signal a group that reappears after observed absence');if(target>0||++probes!==2)throw gone();}});
+  check(!reappeared.clean&&!reappeared.forced,'a reappeared group cannot be assumed to retain earlier ownership');
+  let uncertainProbe=0;const transientUnknown=await reapOwnedGroups([41001],{ownerPid:40001,wait:async()=>{},kill(target,signal){assert.equal(signal,0);if(target<0&&++uncertainProbe===2)throw Object.assign(Error('unknown'),{code:'EPERM'});throw gone();}});
+  check(!transientUnknown.clean,'even intermediate uncertainty must fail cleanup');
+  for(const invalid of [0,1,-1,NaN,1.5,40001]){
+   await assert.rejects(reapOwnedGroups([41001,invalid],{ownerPid:40001,kill(){throw Error('invalid certificates must be refused before any syscall');}}),/Invalid recorded/);passed++;
+  }
+  const adapter=fs.readFileSync(path.join(__dirname,'run-installed-offline-diagnostic.js'),'utf8'),cleanupStart=adapter.indexOf(' const ownedGroups=await'),cleanupEnd=adapter.indexOf('\n}',cleanupStart);
+  assert(cleanupStart>0&&cleanupEnd>cleanupStart,'actual adapter cleanup/exit source');
+  let descendant=true;const actual={Date,JSON,console:{log(){}},child:{pid:41001},pids:new Set([42001]),started:Date.now(),result:{code:0,signal:null},timedOut:false,
+   stdout:{snapshot:()=>({})},stderr:{snapshot:()=>({})},directory:'/synthetic',path:{join:()=>'/synthetic/lifecycle.json'},process:{exitCode:null},fs:{writeFileSync(_file,value){actual.summary=JSON.parse(value);}}};
+  actual.reapOwnedGroups=ids=>reapOwnedGroups(ids,{ownerPid:40001,wait:async()=>{},kill(target,signal){if(target>0||target===-41001||!descendant)throw gone();if(signal==='SIGKILL')descendant=false;}});
+  vm.createContext(actual);await vm.runInContext('(async()=>{'+adapter.slice(cleanupStart,cleanupEnd)+'})()',actual);
+  check(actual.process.exitCode===1&&!descendant&&actual.summary.ownedGroups.forced&&actual.summary.ownedGroups.groupsGone,'actual adapter rejects zero-exit dead-leader/live-group run after bounded TERM/KILL');
   for(const original of [null,failure]){
    const server=await ownedServer(),dir=path.join(temporary,'cleanup-'+Boolean(original)),p=create({enabled:true,directory:dir});p.setOrigin('http://127.0.0.1:'+server.address().port);
    const b={close:async()=>{throw Error('cleanup signal');},isConnected:()=>false};

@@ -33,6 +33,30 @@ function validateRuntime(runtime,env={}){
  if(runtime.platform!=='linux'||runtime.node!=='v24.21.0'||runtime.playwright!=='1.62.1'||runtime.browserMetadata?.revision!=='2336')throw Error('First diagnostic requires Linux, Node24.21.0, Playwright1.62.1 and WebKit2336; no runtime substitution');
  if(env.PWA_EXECUTABLE_PATH||env.PWA_KEEP_OPEN==='1')throw Error('Require original cold-upgrade/default executable configuration');
 }
+function ownedGroupId(id,ownerPid=process.pid){
+ if(!Number.isSafeInteger(id)||id<=1||id===ownerPid)throw Error('Invalid recorded owned process-group ID');
+ return id;
+}
+async function reapOwnedGroups(ids,{kill=(...args)=>process.kill(...args),wait=ms=>new Promise(resolve=>setTimeout(resolve,ms)),ownerPid=process.pid}={}){
+ // These certificates come only from our detached child and the pinned
+ // Playwright launcher's <launched> PID (also detached on Linux). A dead
+ // leader does not establish that its recorded group is gone.
+ const groups=[...new Set(ids.map(id=>ownedGroupId(id,ownerPid)))],actions=[];
+ const probe=target=>{try{kill(target,0);return{state:'present'};}catch(error){return error.code==='ESRCH'?{state:'gone'}:{state:'unknown',code:String(error.code||'unknown').slice(0,32)};}};
+ const inspect=()=>groups.map(groupId=>({groupId,group:probe(-groupId),leader:probe(groupId)}));
+ const signal=(groupId,value)=>{try{kill(-groupId,value);actions.push({groupId,signal:value,result:'sent'});}catch(error){actions.push({groupId,signal:value,result:error.code==='ESRCH'?'gone':'unknown',code:String(error.code||'unknown').slice(0,32)});}};
+ const before=inspect();
+ for(const row of before)if(row.group.state==='present')signal(row.groupId,'SIGTERM');
+ if(actions.length)await wait(250);
+ const afterTerm=inspect(),termCount=actions.length;
+ const termSent=new Set(actions.filter(action=>action.signal==='SIGTERM'&&action.result==='sent').map(action=>action.groupId));
+ for(const row of afterTerm)if(row.group.state==='present'&&termSent.has(row.groupId))signal(row.groupId,'SIGKILL');
+ if(actions.length>termCount)await wait(250);
+ const after=inspect(),allGone=rows=>rows.every(row=>row.group.state==='gone'&&row.leader.state==='gone');
+ return{before,afterTerm,after,actions,forced:actions.length>0,
+  groupsGone:after.every(row=>row.group.state==='gone'),
+  clean:allGone(before)&&allGone(afterTerm)&&allGone(after)&&actions.length===0};
+}
 async function run(){
  if(!mode())throw Error('Adapter requires explicit diagnostic mode; never a release gate');
  const root=path.resolve(__dirname,'..'),directory=process.env.PWA_OFFLINE_DIAGNOSTIC_DIR;fs.mkdirSync(directory,{recursive:true});
@@ -48,22 +72,17 @@ async function run(){
  const pids=new Set(),started=Date.now();let carry='',timedOut=false;
  child.stdout.on('data',chunk=>stdout.write(chunk));
  child.stderr.on('data',chunk=>{stderr.write(chunk);carry=(carry+chunk.toString()).slice(-8192);for(const match of carry.matchAll(/<launched> pid=(\d+)/g))if(pids.size<4)pids.add(Number(match[1]));});
- const killGroup=(pid,signal='SIGTERM')=>{try{process.kill(process.platform==='win32'?pid:-pid,signal);}catch(error){if(error.code!=='ESRCH')throw error;}};
+ const killGroup=(pid,signal='SIGTERM')=>{try{process.kill(-ownedGroupId(pid),signal);}catch(error){if(error.code!=='ESRCH')throw error;}};
  let escalation;
  const timer=setTimeout(()=>{timedOut=true;killGroup(child.pid);for(const pid of pids)killGroup(pid);
   escalation=setTimeout(()=>{killGroup(child.pid,'SIGKILL');for(const pid of pids)killGroup(pid,'SIGKILL');},2000);
  },CAPS.maximumMs);
  const result=await new Promise((resolve,reject)=>{child.once('error',reject);child.once('close',(code,signal)=>resolve({code,signal}));}).finally(()=>{clearTimeout(timer);clearTimeout(escalation);});
- const alive=pid=>{try{process.kill(pid,0);return true;}catch(error){if(error.code==='ESRCH')return false;throw error;}};
- const remaining=[child.pid,...pids].filter(alive);for(const pid of remaining)killGroup(pid);
- if(remaining.length)await new Promise(resolve=>setTimeout(resolve,250));
- const afterTerm=remaining.filter(alive);for(const pid of afterTerm)killGroup(pid,'SIGKILL');
- if(afterTerm.length)await new Promise(resolve=>setTimeout(resolve,250));
- const afterCleanup=remaining.filter(alive);
- const summary={diagnosticOnly:true,releaseAcceptance:false,...result,timedOut,elapsedMs:Date.now()-started,nodePid:child.pid,launchedBrowserPids:[...pids],remainingAtChildClose:remaining,remainingAfterCleanup:afterCleanup,stdout:stdout.snapshot(),stderr:stderr.snapshot()};
+ const ownedGroups=await reapOwnedGroups([child.pid,...pids]);
+ const summary={diagnosticOnly:true,releaseAcceptance:false,...result,timedOut,elapsedMs:Date.now()-started,nodePid:child.pid,launchedBrowserPids:[...pids],ownedGroups,stdout:stdout.snapshot(),stderr:stderr.snapshot()};
  fs.writeFileSync(path.join(directory,'runner-lifecycle.json'),JSON.stringify(summary,null,2)+'\n');
  console.log(JSON.stringify(summary));
- process.exitCode=timedOut?124:remaining.length?1:result.code??1;
+ process.exitCode=timedOut?124:!ownedGroups.clean?1:result.code??1;
 }
 if(require.main===module)run().catch(error=>{console.error(error);process.exitCode=1;});
-module.exports={boundedSink,runtimeMetadata,validateRuntime,CAPS};
+module.exports={boundedSink,runtimeMetadata,validateRuntime,reapOwnedGroups,CAPS};
