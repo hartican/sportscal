@@ -49,6 +49,29 @@ jobs:
           const git=(...args)=>cp.execFileSync('git',args,{encoding:'utf8'}).trim();
           console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baselineSha:process.env.BASELINE_SHA,node:process.version,zlib:process.versions.zlib,playwright:'1.62.1',platform:process.platform,arch:process.arch,limits:'Existing unchanged installed upgrade and account recovery harnesses on Linux; account transport is mocked loopback. Not hosted or physical iPhone acceptance. No production credentials or deployment.'},null,2));
           JS
+      - name: Use the official Ubuntu archive for test dependencies
+        run: |
+          set -o pipefail
+          sudo python3 - <<'PY' 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/apt-mirror.log"
+          from pathlib import Path
+          import json
+          root = Path('/etc/apt')
+          files = [*root.glob('*.list'), *root.glob('apt-mirrors*.txt'),
+                   *(root / 'sources.list.d').glob('*.list'), *(root / 'sources.list.d').glob('*.sources')]
+          changed = []
+          has_archive = False
+          for file in files:
+              if not file.is_file() or file.is_symlink():
+                  continue
+              before = file.read_text()
+              after = before.replace('azure.archive.ubuntu.com', 'archive.ubuntu.com')
+              has_archive = has_archive or 'archive.ubuntu.com' in after
+              if after != before:
+                  file.write_text(after)
+                  changed.append(str(file))
+          assert has_archive, 'Expected official Ubuntu package archive configuration'
+          print(json.dumps({'changedFiles': changed, 'archive': 'archive.ubuntu.com', 'packageSignatureValidation': 'unchanged'}))
+          PY
       - name: Install isolated test dependencies
         run: |
           set -o pipefail
