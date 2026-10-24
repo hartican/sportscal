@@ -67,7 +67,8 @@ function assertFixtureControlPending(held,facts){
   assert.equal(facts.liveRefreshPending,true,'actual existing live fixture owner must remain pending after the original barrier');
 }
 const schedulePath=pathname=>pathname.startsWith('/data/follow-schedule/');
-const tracedResourcePath=pathname=>schedulePath(pathname)||(traceApiStale&&pathname==='/api/fixtures');
+const legacyFixtureCase=scenario.startsWith('api-');
+const tracedResourcePath=pathname=>schedulePath(pathname)||(legacyFixtureCase&&pathname==='/api/fixtures');
 const resourceFrameUrl=request=>{try{return request.frame().url();}catch{return null;}};
 function traceResource(event,fields={}){
   if(!traceResources)return;
@@ -206,16 +207,22 @@ const server = http.createServer((req, res) => {
     };
     await context.route('**/*', routeHandler);
     page = await context.newPage();
-    const tracedRequests=new Map(),terminalScheduleRequests=new Set(),failedScheduleRequests=new Map();
+    const tracedRequests=new Map(),terminalScheduleRequests=new Set(),failedScheduleRequests=new Map(),fixtureTerminals=new Map();
     const trackRequest=request=>{
-      const u=new URL(request.url());if(!traceResources||!tracedResourcePath(u.pathname))return null;
+      const u=new URL(request.url());if((!traceResources&&!legacyFixtureCase)||!tracedResourcePath(u.pathname))return null;
       if(!tracedRequests.has(request))tracedRequests.set(request,{id:'browser-'+(++resourceSequence),path:u.pathname,origin:u.origin,startedEpoch:documentEpoch,...(traceApiStale?{context:'A'}:{})});
+      if(legacyFixtureCase&&u.pathname==='/api/fixtures'&&!fixtureTerminals.has(request)){
+        let finish;const promise=new Promise(resolve=>{finish=resolve;});fixtureTerminals.set(request,{promise,finish,result:null});
+      }
       return tracedRequests.get(request);
+    };
+    const finishFixture=(request,kind)=>{
+      const entry=fixtureTerminals.get(request);if(entry){entry.result={kind};entry.finish(entry.result);}
     };
     page.on('request',request=>{const item=trackRequest(request);if(item)traceResource('browser-request',{...item,frameUrl:resourceFrameUrl(request),allowed:origins.has(item.origin)});});
     page.on('response',response=>{const item=trackRequest(response.request());if(item){const headers=response.headers();traceResource('browser-response',{...item,status:response.status(),contentType:headers['content-type']||null,allowOrigin:headers['access-control-allow-origin']||null,redirect:headers.location||null});}});
-    page.on('requestfinished',request=>{const item=trackRequest(request);if(item)terminalScheduleRequests.add(request);if(item)traceResource('browser-request-finished',item);});
-    page.on('requestfailed',request=>{const item=trackRequest(request);if(item)terminalScheduleRequests.add(request);if(item){const failure=String(request.failure()?.errorText||'').slice(0,400);failedScheduleRequests.set(request,failure);traceResource('browser-request-failed',{...item,failure});}});
+    page.on('requestfinished',request=>{const item=trackRequest(request);finishFixture(request,'finished');if(item)terminalScheduleRequests.add(request);if(item)traceResource('browser-request-finished',item);});
+    page.on('requestfailed',request=>{const item=trackRequest(request);finishFixture(request,'failed');if(item)terminalScheduleRequests.add(request);if(item){const failure=String(request.failure()?.errorText||'').slice(0,400);failedScheduleRequests.set(request,failure);traceResource('browser-request-failed',{...item,failure});}});
     page.on('framenavigated',frame=>{if(frame===page.mainFrame()){documentEpoch++;traceResource('document-navigation',{url:frame.url()});}});
     page.on('domcontentloaded',()=>traceResource('document-domcontentloaded',{url:page.url()}));
     page.on('console',message=>{const value=message.text();if(value.startsWith(resourceMarker)){try{traceResource('window-event',JSON.parse(value.slice(resourceMarker.length)));}catch{traceResource('diagnostic-decode-failed');}}});
@@ -226,6 +233,32 @@ const server = http.createServer((req, res) => {
       traceResource('api-stale-boundary',{boundary,pendingAResource:[...tracedRequests].some(([request,item])=>
         item.path==='/api/fixtures'&&!terminalScheduleRequests.has(request))});
     };
+    async function settlePrimaryFixtureBeforeReload(){
+      const epoch=documentEpoch,counts={reads,writes};
+      await observeFixtureControl((async()=>{
+        const before=await page.evaluate(async()=>{
+          const before={preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id),
+            account:serverSyncClient.accountSnapshot().accountId,generation:serverSyncClient.accountSnapshot().generation,baseline:serverStateBaseline.updatedAt};
+          const owner=liveFixtureRefresh;if(owner)await owner;
+          return before;
+        });
+        const requests=[...tracedRequests].filter(([,item])=>item.path==='/api/fixtures'&&item.startedEpoch===epoch);
+        const outcomes=await Promise.all(requests.map(([request])=>fixtureTerminals.get(request).promise));
+        for(const outcome of outcomes)assert.equal(outcome.kind,'finished','fixture read failed or was cancelled before reload');
+        const after=await page.evaluate(before=>({unchanged:PROFILE_STORAGE.preferenceBaseMatches({basePreferences:before.preferences},userPreferences),
+          receipt:pendingPreferenceIntent(serverPersistence.user.id),account:serverSyncClient.accountSnapshot().accountId,
+          generation:serverSyncClient.accountSnapshot().generation,baseline:serverStateBaseline.updatedAt,
+          liveRefreshPending:Boolean(liveFixtureRefresh),liveMountScheduled:liveFixtureMountTimer!==null}),before);
+        assert.equal(after.unchanged,true,'fixture completion preserves projected choices');
+        for(const key of ['receipt','account','generation','baseline'])assert.deepEqual(after[key],before[key],'fixture completion preserves '+key);
+        assert.equal(after.liveRefreshPending,false,'a new live fixture owner remains active');
+        assert.equal(after.liveMountScheduled,false,'scheduled live fixture work remains before reload');
+        for(const [request,item] of tracedRequests)if(item.path==='/api/fixtures'&&item.startedEpoch===epoch)
+          assert.equal(fixtureTerminals.get(request).result?.kind,'finished','new or failed fixture work remains before reload');
+        assert.equal(documentEpoch,epoch,'fixture completion cannot navigate');assert.deepEqual({reads,writes},counts,'fixture completion cannot issue account operations');
+        traceResource('legacy-fixture-work-complete',{requests:requests.length,ownerPending:false,scheduled:false,choicesUnchanged:true,receiptUnchanged:true});
+      })(),'existing fixture owner and terminal completion');
+    }
     page.setDefaultTimeout(15000);
     await page.goto(url, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => typeof userPreferences !== 'undefined' && !startupCoordinator.isHydrating());
@@ -517,7 +550,7 @@ const server = http.createServer((req, res) => {
           traceResource('control-settled-fixture-complete',{ownerFinished,requestAborted:false,responseFinished:true,choicesUnchanged:true,receiptUnchanged:true});
           await page.reload({waitUntil:'domcontentloaded'});assert(documentEpoch>oldEpoch);
         }
-      }else await page.reload({ waitUntil: 'domcontentloaded' });
+      }else{await settlePrimaryFixtureBeforeReload();await page.reload({ waitUntil: 'domcontentloaded' });}
       if(traceApiStale)resourcePhase='legacy-after-controlled-reload';
       await page.waitForFunction(() => serverPersistence.state === 'signedIn');
       if(fixtureControl)assert.deepEqual(await page.evaluate(()=>({user:serverPersistence.user?.id,account:serverSyncClient.accountSnapshot().accountId})),{user:owner,account:owner},'reloaded control retains its actual account owner');
