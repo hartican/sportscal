@@ -3,6 +3,8 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require(
 async function main(){
  const {PGlite}=require(process.env.PGLITE_MODULE||'@electric-sql/pglite'),db=new PGlite();
  try{
+ const engine=(await db.query("select version() as version,current_setting('server_version_num') as server_version_num")).rows[0];
+ console.log('Public comments SQL engine: '+JSON.stringify(engine));
  await db.exec(`create role anon;create role authenticated;create role service_role bypassrls;create schema auth;create schema private;
  create table auth.users(id uuid primary key,email text,raw_app_meta_data jsonb);
  create table public.nothingsports_nsc_profiles(user_id uuid primary key references auth.users on delete cascade,handle text,visibility text);
@@ -26,7 +28,7 @@ async function main(){
  await db.exec(fs.readFileSync('supabase/migrations/20260927152733_account_erasure_inventory.sql','utf8'));
  assert(!(process.argv.includes('--reviewed-baseline')&&process.argv.includes('--erasure-baseline')),'Select one SQL baseline');
  const baseline=process.argv.includes('--reviewed-baseline')?'95885e63bd93d22980ac7526633c638239c910df':process.argv.includes('--erasure-baseline')?'1d2f164dcb00ff2f70458092969fe681e6344c63':null;
- console.log('Public comments SQL source: '+(baseline||'current checkout')+'; engine module: '+(process.env.PGLITE_MODULE||'@electric-sql/pglite'));
+ console.log('Public comments SQL source: '+JSON.stringify({mode:process.argv.includes('--reviewed-baseline')?'original-inventory-red':process.argv.includes('--erasure-baseline')?'multi-row-erasure-red':'current-candidate-green',migrationSource:baseline||'current checkout',engineModule:process.env.PGLITE_MODULE||'@electric-sql/pglite')}));
  const featureSql=baseline?require('node:child_process').execFileSync('git',['show',baseline+':supabase/migrations/20261023222545_public_fixture_comments.sql'],{encoding:'utf8'}):fs.readFileSync('supabase/migrations/20261023222545_public_fixture_comments.sql','utf8');await db.exec(featureSql);
  const [a,b,c,r]=Array.from({length:4},()=>crypto.randomUUID());
  for(const [id,handle] of [[a,'alice'],[b,'bob'],[c,'carol'],[r,'reader']]){await db.query('insert into auth.users(id,email) values($1,$2)',[id,id+'@example.invalid']);await db.query("insert into nothingsports_nsc_profiles values($1,$2,'visible')",[id,handle]);}
