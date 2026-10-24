@@ -98,7 +98,7 @@ iPhone experience. Those remain DEPLOY gates. No new native/service/provider
 checks, production DDL/backfill, canonical refresh or publication are performed
 by this module.
 
-Final local qualification passes125 controls per engine on PG17.5 and PG18.3.
+Initial local qualification passes125 controls per engine on PG17.5 and PG18.3.
 The20-result/6,400-padding case visits20 full raw rows plus39 typed admission
 rows, versus12,860 original raw visits. The separate complete key-readiness
 check still scans the6,420-key catalogue; it is not a constant-work claim for
@@ -134,3 +134,50 @@ main, publishes and deploys that exact main snapshot. This module requires and
 authorises no provider/card refresh; paused canonical refreshes and automations
 remain paused. Any separately authorised card refresh must use the canonical
 `node scripts/update-cards.js` owner. This draft performs none of those actions.
+
+
+## Write-work correction after the ten-hook rehearsal
+
+The retained matched ten-hook baseline passes its five publication phases;
+the first indexed candidate initial5000 reaches the real8s statement deadline.
+That failure and both owned-clone cleanup receipts remain history. Its stack is
+an interruption point, not a measured root cause. No adoption follows from the
+earlier eight-trigger pass or from the baseline's6151ms result.
+
+A fast offline actual-publication control goes RED on the rejected source:
+32 final changed identities call context_fields64 times. The revised
+sync_fixture reuses its own INSERT/UPDATE RETURNING row only when the existing
+canonical definer caller is postgres and an actual context write occurred.
+The same source lock and just-read raw/compact/score/first-completion facts
+bind that row. No extra helper/API, privilege, token algorithm or archive
+change is introduced. Missing/invalid typed fields retain shape0 fallback.
+
+A context no-op is not a trust signal: it keeps the standalone canonical/context
+comparison, covering contrary base_key/other non-selection fields. Direct
+service writes keep that same checked void definer, because the invoker has no
+near-table write privilege. The standalone rebuild and existing opaque/
+completion-only fast-path callbacks are byte-identical. The inverse seals the
+new sync hash and still restores the same original22 functions and D9.
+
+The permanent actual-adapter control is part of the existing near regression:
+initial32 derives32 times, unchanged derives0, one combined change derives1;
+direct service and contrary-no-op paths each retain both derivations/full
+validation. An embedded exact-old-source control must fail the work bound.
+Instrumentation is disposable inside a rolled-back test transaction, with
+exact original context_fields restoration and observer namespace removal.
+
+For a short standalone work-control run (existing pinned dependencies only):
+
+```sh
+NEAR_EVIDENCE_DIR=/absolute/output PGLITE_MODULE=pglite-pg17 node scripts/validate-near-write-derivation.js
+```
+
+This counts real function calls in a disposable PostgreSQL path with an
+observer; it does not profile the unchanged native plan, reproduce8s timing in
+Wasm, or certify the materially changed candidate's native throughput. That
+next ten-hook/native/managed qualification stays with DEPLOY's sole lane.
+
+The revised source passes132 checks on each existing PG17.5/PG18.3 engine,
+retaining20 raw and39 typed admission visits with complete stored-text oracles.
+These checks include the new actual-path derivation regression and guarded
+inverse. The full native ten-hook8s test has not run on this revision.

@@ -149,6 +149,7 @@ async function regression(db,report){
    const over=await same('complete 5001 sentinel on actual stored response');assert.equal(over.complete,false);assert.equal(over.rows.length,5001);
   });
  }
+ await require('./near-write-derivation-regression').regression(db,report);mark('canonical owner reuses one authoritative derivation; guarded direct/no-op paths remain');
  await contracts(db,require('../fixtures/near-selection-contracts.json').candidate);mark('exact27 candidate contracts after instrumentation rollback');
  report.checks+=checks.length;
 }
