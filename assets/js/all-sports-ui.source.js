@@ -16,14 +16,23 @@
    const approximate=item.event.estimatedStartTimeUtc?' · Approximate timing only':'',text=item.underway?(match().liveState(item.event)==='playing'?'Underway':'Ongoing · '+(match().interruption(item.event)?.label||'Awaiting update')):item.tbc?(item.qualified?'May fall within this range':'Start time unavailable')+approximate:'';
    let label=slot.querySelector(':scope > .as-qualifier');if(!text){label?.remove();return;}if(!label){label=el('small',null,'as-qualifier');slot.prepend(label);}label.textContent=text;
   }
-  const cardKey=item=>{const e=item.event;return [match().id(e),e.status||'',e.name||'',e.displayTitleCompact||e.name||'',e.homeParticipantId||'',e.awayParticipantId||'',e.participants||[],e.participantSlots||[],e.startTimeUtc||'',e.estimatedStartTimeUtc||'',e.endTimeUtc||'',e.date||'',e.endDate||'',e.venue||'',e.court||'',e.competitionName||'',e.roundLabel||e.round||e.stage||'',e.sourceUrl||'',e.broadcaster||'',e.broadcastOptions||[]];};
+  const cardKey=item=>{
+   const e=item.event,compact=match().compact(e);
+   // Retain every source input, including unknown fields. Compact fills only
+   // the defaults added by selected transport; original renderer inputs win.
+   // Sport transport uses the canonical key; retain the actual renderer's
+   // metadata too, including its label fallback for unrecognised keys.
+   const {score,homeScore,awayScore,sets,games,statusCheckedAt,scoreCheckedAt,checkedAt,stale,sourceStale,...facts}={...compact,...e,sport:compact.sport};
+   return [facts,sportMetaForEvent(e)];
+  };
   const layoutKey=days=>JSON.stringify([range,expanded,days.map(day=>[day.day,day.groups.map(group=>[group.id,group.entries.map(cardKey)]),day.tbc.map(cardKey)])]);
   // Score observations use the shared card updater so an in-flight disclosure
   // press keeps its button and horizontal track. Structural changes still render.
   function patchCards(days,key){
    if(!days.length||chrome.layout!==key)return false;
    const rows=days.flatMap(day=>[...day.groups.flatMap(group=>group.entries),...day.tbc]).map(item=>{const id=match().id(item.event),slot=chrome.body.querySelector(`[data-sports-id="${CSS.escape(id)}"]`);return {item,id,slot,card:slot?.querySelector('.event-card')};});
-   if(rows.some(({id,slot,card})=>!slot?.isConnected||card?.dataset.cardMode!=='schedule'||card.dataset.cardState!==(expanded===id?'opened':'compact')||expanded!==id&&!card.querySelector('.minimised-card-summary')))return false;
+   // The shared expanded updater skips other statuses, including scheduled.
+   if(rows.some(({item,id,slot,card})=>!slot?.isConnected||card?.dataset.cardMode!=='schedule'||card.dataset.cardState!==(expanded===id?'opened':'compact')||expanded!==id&&!card.querySelector('.minimised-card-summary')||expanded===id&&!/^(live|in-progress|in_progress|ongoing|break|stumps|rain-delay|interrupted|suspended)$/.test(item.event.status||'')))return false;
    for(const {item,id,slot,card} of rows){
     profileFixtureEvents.set(String(item.event.eventId||item.event.id),item.event);qualifyCard(slot,item);
     if(expanded===id)installFeedLiveScore(card,item.event);else refreshMinimisedCard(card,item.event);
