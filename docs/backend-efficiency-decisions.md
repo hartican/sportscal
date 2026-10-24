@@ -1,5 +1,13 @@
 # Backend efficiency decisions
 
+## Typed existing Cricket Follow formats — 25 October 2026 Sydney
+
+The actual592 phone reports initial record_validation / record_unknown_field / intent / entities. The established Cricket format writer emits cricketFormats, which the bounded receipt planner omitted. Its real writer → persisted receipt/restart → compiled helper/manual queue → actual local API path reproduces that exact refusal; removing only the test field passes with the same restored older receipt generation. This proves a source schema bug, without identifying the private phone field or guaranteeing that its remaining choices are independent. The live-job and receipt-generation observations describe different lifetimes; the latter is not an independent refusal here.
+
+Recognise only the existing cricketFormats field as a unique array drawn from Tests, ODIs, T20Is and BBL. Keep exact array order, presence and explicit empty values through the existing field-level comparison; do not coerce, sort, union, default or broaden unknown records. Whole-team Follow may remove the field; absence differs from an explicit empty list. Differing concurrent format edits and malformed/unknown records still hold. Existing removals/OFF, original pending receipt, current-choice checks, conditional save, matching ACK, R2 and owner/generation protections remain. No private account change, historical restoration, request, store, schema migration, config, cache/version allocation or sync owner is added.
+
+Regression: 23 new actual-writer/compiled-helper/persisted/API cases extend the existing 55 to 78; one mounted receipt-base-cricket scenario joins the existing recovery matrix (20 per engine). ROOT owns native/browser/installed execution, integration and all hosted acceptance. No repeat phone test is requested now. See [source proof and handover](quality/account-cricket-format-sync-2026-10-25.md).
+
 ## Exact sync refusal observation — 24 October 2026 Sydney
 
 The actual591 iPhone still holds; its family summary does not identify a causal failure or intended winner. Add only a safelisted first-actual-refusal/exception observation to the existing scoped, serialised owner, including honest bounded SDK load/save call-start counters and initial/post409 verify phase. If the captured current-versus-receipt predicate refuses, report fixed families from those same projected operands; this is an observation, not another policy predicate. No values, IDs, hashes, record counts, raw keys/errors or extra retained preference snapshot are copied. Existing pending receipts, matching owned ACK, R2, ordinary Settings, explicit OFF/empty/removal, unknown/conflict and CAS protections remain exact. No new request, store, timer, scheduler, schema or merge rule. ROOT owns final review, normal/installed/hosted release gates and one coordinated useful phone copy after release. See [source proof and contract](quality/account-sync-refusal-diagnostic-2026-10-24.md).
@@ -1957,3 +1965,96 @@ Numeric score slots, calendar corrections and updated descriptions cannot renew 
 The existing result-template preparer and selector now share one pure branch generator. Current fixture details must match before an automatic result branch can be selected or retained at publication. Only copy proven to depend on an outdated generated branch is reset through the existing protected storyline rule; authored preview sections/research dates and separately reviewed current recaps keep their existing lifecycle protections. This corrects the official makeup-game label without re-researching its dated preview. No additional collector, writer, service, scheduler, database or customer action is introduced.
 
 Live rechecks remain distinct: an equal live score keeps its first fact observation while the actual score/status contact receipts advance. This preserves the existing freshness qualification without adding polling or extending any deadline. The constructed zero–zero regression covers merging and persistence into canonical data and both Feed files.
+
+## 25 October 2026 — prepare indexed near selection through current owners
+
+The separately approved local module starts at6aa5979a with the CURRENT
+coalesced22 writer contracts, not the historical test factory's older writer.
+Maintain one narrow private typed admission row through the same sync_fixture,
+sync_trigger and mark_integrity_pending owners only. Preserve owned batch
+deferral first, original token/publisher helpers, source observations, complete
+alias/sides closure, independent uncertain clocks and the ordered5001 sentinel.
+Direct context changes invalidate only affected OLD/NEW keys; canonical/context
+equality prevents the narrowly granted void helper from blessing contrary data.
+Service gets SELECT only on forced-RLS metadata. No customer state, source
+request, scheduler, retry, planner setting or timeout change is added.
+
+Installation checks original D9/current22 attributes/ACL, triggers, private
+table rights/RLS/pending marker schema and generated/view dependencies. It
+installs the reader with exact original fallback and performs no backfill.
+DEPLOY alone owns bounded source-first preparation; the indexed branch becomes
+eligible only when the same statement proves complete settled metadata. The
+guarded inverse restores D9 and the same three original owner functions before
+dropping new artifacts. PG18's catalogue NOT NULL entries are excluded only
+from the constraint-list comparison; all column not-null flags stay exact on
+PG17/18.
+
+Require both-engine complete ordered-text equivalence, actual ready-path work
+counts including filtered rows, coalesced writes/pending/rollback, completion-only
+changes, direct context/error semantics, actual5001 overflow, ACL/privacy and
+exact guarded inverse/reapply. Key-only completeness scans, local work savings,
+write/storage cost and native full-response latency are separate evidence.
+Local qualification does not accept app592 or prove live loading recovery.
+ROOT/DEPLOY alone reviews source, allocates native first-use/concurrency/write
+qualification, integrates and publishes exact main after all existing gates.
+See [mechanism, checks and remaining acceptance](quality/indexed-near-selection-2026-10-25.md).
+
+
+## 25 October2026 — reuse the context actually written by the canonical owner
+
+The ten-hook isolated rehearsal exposed an8s candidate initial5000 failure while
+the matched existing writer passed in6151ms. Its interruption stack does not
+identify a costly plan node. A separate bounded offline actual-adapter work
+control proves the candidate calls context_fields twice per final changed
+identity:64 derivations for32 fixtures, despite canonical batch coalescing.
+
+The revised, still-unadopted indexed module changes only sync_fixture. Its
+existing canonical postgres definer caller may reuse the context row returned
+by its own real upsert and the already-read compact base/score/first-completion
+facts, under the unchanged source lock. It derives the same typed near fields
+and keeps the same distinct-row upsert predicate. A zero-row context upsert
+retains full rebuild validation, because contrary non-selection fields may
+remain. A direct service invoker also retains the existing narrowly granted
+checked definer helper; sync_fixture stays invoker and service gets no typed
+metadata write privilege. The standalone helper, completion-only fast paths,
+publisher/token/archive semantics, all clocks and all deadlines are unchanged.
+
+Permanent offline control requires32→32, true no-op→0, combined fixture/score
+change→1, and retained full validation for direct-service/contrary-no-op paths.
+Restoring the exact rejected candidate must fail the work bound. Observer
+schema/function changes are rolled back and the original function contract is
+checked after cleanup. Full ordered-read and guarded inverse/ACL regressions
+remain. The changed candidate hash is sealed in its existing rollback guard;
+current22 preimages and the other26 candidate contracts remain exact.
+
+This proves reduced duplicate derivation work, not that it caused all native
+latency or that the new candidate passes8s. DEPLOY must separately review and
+run the materially changed candidate through the existing ten-hook maximum
+writer and managed/read/release gates. No new native/service/provider check,
+source refresh, scheduler, memory/timeout policy, customer state or publication
+is authorised by this source record.
+
+## 25 October 2026 — read-only app-adapter gate in the existing publisher
+
+The sole manual exact-main production workflow reuses its existing shared
+publication/erasure step's Supabase URL/secret for one bounded application-reader
+qualification before deployment. No PR workflow secret, new job/permission/key,
+provider call, DDL, source refresh, scheduler or customer mutation is added.
+Default verifier invocation is inert; a separate memory-only command joins the
+existing safety list without removing a check.
+
+Two sequential ordinary Match Centre reads each retain the existing concurrent
+health/bundle requests and five-second policy, with complete delivery/JSON parse/
+consumer acceptance at <=4000ms. Enforce complete health/source/fixture identity
+coverage, valid genuine empty input, 4MiB complete-body cap, no fallback third
+request/retry, absolute60s cancellation and admission/completion expiry. Keep
+safe bounded release evidence including failed/in-flight phases, counts and
+parsed-value hashes; never log payloads, keys, fixture IDs or raw errors.
+
+This is the first OWN adapter read at that stage after functional SQL has
+already touched buffers, not first-ever/cold/same-backend or literal-wire proof.
+ROOT's ordered full-server D9 equality, managed <=256 preparation/preservation/
+readiness/capacity, normal release/public/hosted/repeated20 and actual-device
+acceptance stay separate. Failed live qualification stops BEFORE deployment;
+ROOT owns guarded recovery and sole publication. No provider/card refresh is
+required. See quality/near-app-adapter-release-gate-2026-10-25.md.

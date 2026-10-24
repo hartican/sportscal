@@ -267,6 +267,7 @@ jobs:
           node scripts/validate-accepted-result-continuity.js
           node scripts/validate-backend-efficiency.js
           node scripts/validate-global-read-budget.js
+          node scripts/validate-near-app-adapter.js
           node scripts/validate-interactive-snapshot-budget.js
           node scripts/validate-notifications.js
           node scripts/validate-milestone-alerts.js
@@ -299,6 +300,8 @@ jobs:
           node scripts/validate-compact-scores-database.js
           node scripts/validate-canonical-context-batch.js
           PGLITE_MODULE=pglite-pg17 node scripts/validate-canonical-context-batch.js
+          NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg18" node scripts/validate-match-centre-near-selection.js
+          NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg17" PGLITE_MODULE=pglite-pg17 node scripts/validate-match-centre-near-selection.js
           node scripts/validate-fixture-history-retention.js
           node scripts/validate-live-fixture-api.js
           node scripts/validate-global-fixture-public.js
@@ -307,9 +310,11 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          NS_NEAR_APP_RELEASE_SHA: ${{ inputs.sha }}
         run: |
           node scripts/validate-live-coverage-publication.js --live-read
           node scripts/validate-account-erasure-preflight.js --live-read
+          node scripts/verify-near-app-adapter.js --live-read
       - name: Bind project and preserve current production
         run: node scripts/prepare-production-release.js
       - name: Deploy or reuse exact release
