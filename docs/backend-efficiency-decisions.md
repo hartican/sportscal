@@ -2033,3 +2033,28 @@ run the materially changed candidate through the existing ten-hook maximum
 writer and managed/read/release gates. No new native/service/provider check,
 source refresh, scheduler, memory/timeout policy, customer state or publication
 is authorised by this source record.
+
+## 25 October 2026 — read-only app-adapter gate in the existing publisher
+
+The sole manual exact-main production workflow reuses its existing shared
+publication/erasure step's Supabase URL/secret for one bounded application-reader
+qualification before deployment. No PR workflow secret, new job/permission/key,
+provider call, DDL, source refresh, scheduler or customer mutation is added.
+Default verifier invocation is inert; a separate memory-only command joins the
+existing safety list without removing a check.
+
+Two sequential ordinary Match Centre reads each retain the existing concurrent
+health/bundle requests and five-second policy, with complete delivery/JSON parse/
+consumer acceptance at <=4000ms. Enforce complete health/source/fixture identity
+coverage, valid genuine empty input, 4MiB complete-body cap, no fallback third
+request/retry, absolute60s cancellation and admission/completion expiry. Keep
+safe bounded release evidence including failed/in-flight phases, counts and
+parsed-value hashes; never log payloads, keys, fixture IDs or raw errors.
+
+This is the first OWN adapter read at that stage after functional SQL has
+already touched buffers, not first-ever/cold/same-backend or literal-wire proof.
+ROOT's ordered full-server D9 equality, managed <=256 preparation/preservation/
+readiness/capacity, normal release/public/hosted/repeated20 and actual-device
+acceptance stay separate. Failed live qualification stops BEFORE deployment;
+ROOT owns guarded recovery and sole publication. No provider/card refresh is
+required. See quality/near-app-adapter-release-gate-2026-10-25.md.
