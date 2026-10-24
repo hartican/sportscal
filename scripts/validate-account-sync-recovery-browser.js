@@ -16,10 +16,12 @@ assert(testedShellVersion,'exact served source declares its shell version');
 const engineName = process.env.ACCOUNT_RECOVERY_BROWSER || 'chromium';
 const scenario = process.env.ACCOUNT_RECOVERY_CASE || 'retry-error';
 const helperRaceProbe=process.env.ACCOUNT_RECOVERY_HELPER_RACE==='1'||scenario==='helper-mount';
+const cancelControl=process.env.ACCOUNT_RECOVERY_CANCEL_CONTROL==='1';
+assert(!cancelControl||scenario==='receipt-base-disjoint','Cancellation control requires the one explicit disjoint case');
 if (scenario === 'all') {
   let failed = false;
   for (const engine of (process.env.ACCOUNT_RECOVERY_BROWSER ? [engineName] : ['chromium', 'webkit'])) {
-    for (const testCase of ['helper-mount', 'diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed']) {
+    for (const testCase of ['helper-mount', 'diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed', 'receipt-base-disjoint', 'receipt-base-overlap']) {
       const result = spawnSync(process.execPath, [__filename], { stdio: 'inherit', env: {
         ...process.env, ACCOUNT_RECOVERY_BROWSER: engine, ACCOUNT_RECOVERY_CASE: testCase } });
       failed ||= result.status !== 0;
@@ -30,8 +32,38 @@ if (scenario === 'all') {
 const owner = 'disposable-account-a';
 const token = id => 'e30.' + Buffer.from(JSON.stringify({ sub: id })).toString('base64url') + '.disposable';
 const clone = value => JSON.parse(JSON.stringify(value));
+// Diagnostic only: correlate same-origin schedule reads with document lifetime.
+// Keep the original pageerror collector/gate unchanged; never handle a rejection.
+const traceResources=scenario.startsWith('receipt-base-'),resourceTrace=[];
+let resourcePhase='initial-startup',documentEpoch=0,resourceSequence=0,resourceTraceDropped=0,resourceTraceReported=false;
+const traceStart=Date.now(),resourceMarker='[qa-account-resource]';
+let cancelControlArmed=false,heldScheduleResponse=null,scheduleBodyObserved;
+const scheduleBodyHeld=new Promise(resolve=>{scheduleBodyObserved=resolve;});
+function releaseScheduleBody(){
+  if(heldScheduleResponse&&!heldScheduleResponse.res.destroyed&&!heldScheduleResponse.res.writableEnded)heldScheduleResponse.res.end(heldScheduleResponse.data.subarray(1));
+}
+function assertHeldScheduleInterruption(held,observed){
+  assert.equal(observed.req,held.req,'interruption must belong to the exact held request');
+  assert.equal(observed.res,held.res,'interruption must belong to the exact held response');
+  assert.equal(observed.requestAborted,true,'held request must actually abort');
+  assert.equal(observed.responseFinished,false,'held response must close unfinished');
+}
+const schedulePath=pathname=>pathname.startsWith('/data/follow-schedule/');
+const resourceFrameUrl=request=>{try{return request.frame().url();}catch{return null;}};
+function traceResource(event,fields={}){
+  if(!traceResources)return;
+  if(resourceTrace.length===160){resourceTraceDropped++;return;}
+  resourceTrace.push({event,atMs:Date.now()-traceStart,phase:resourcePhase,documentEpoch,...fields});
+}
 const server = http.createServer((req, res) => {
   const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+  if(traceResources&&schedulePath(pathname)){
+    const id='http-'+(++resourceSequence);
+    traceResource('http-request',{id,path:pathname,host:req.headers.host,origin:req.headers.origin||null});
+    req.on('aborted',()=>traceResource('http-request-aborted',{id,path:pathname}));
+    res.on('finish',()=>traceResource('http-response-finished',{id,path:pathname,status:res.statusCode}));
+    res.on('close',()=>traceResource('http-response-closed',{id,path:pathname,finished:res.writableFinished,status:res.statusCode}));
+  }
   const file = path.resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));
   if (!file.startsWith(root + path.sep)) { res.writeHead(403).end(); return; }
   const types = { '.html': 'text/html', '.js': 'application/javascript', '.json': 'application/json', '.css': 'text/css', '.svg': 'image/svg+xml' };
@@ -43,6 +75,16 @@ const server = http.createServer((req, res) => {
   }
   fs.readFile(file, (error, data) => {
     res.writeHead(error ? 404 : 200, { 'Content-Type': types[path.extname(file)] || 'application/octet-stream' });
+    if(!error&&cancelControlArmed&&!heldScheduleResponse&&pathname==='/data/follow-schedule/football.json'){
+      let closed;
+      const terminal=new Promise(resolve=>{closed=resolve;});
+      heldScheduleResponse={req,res,data,terminal,bytesSent:1,requestAborted:false};
+      const held=heldScheduleResponse;
+      req.once('aborted',()=>{held.requestAborted=true;});
+      res.once('close',()=>closed({req,res,requestAborted:held.requestAborted,responseFinished:res.writableFinished}));
+      res.write(data.subarray(0,1));
+      traceResource('control-schedule-body-held',{path:pathname,bytesSent:1,totalBytes:data.length});scheduleBodyObserved();return;
+    }
     res.end(error ? 'Not found' : data);
   });
 });
@@ -55,8 +97,8 @@ const server = http.createServer((req, res) => {
     ...(engineName === 'chromium' ? { channel: process.env.QA_BROWSER_CHANNEL || 'chrome' } : {}) });
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, serviceWorkers: 'block' });
   let row = null, readMode = 'success', refreshMode = 'success', reads = 0, writes = 0, refreshes = 0, authSignIns = 0;
-  let beforeAck = null, page;
-  const actualApi = scenario.startsWith('api-') ? require('./lib/local-user-state-api')(owner) : null;
+  let beforeAck = null, page, controlBrowserRequest=null;
+  const actualApi = (scenario.startsWith('api-')||scenario.startsWith('receipt-base-')) ? require('./lib/local-user-state-api')(owner) : null;
   const chronology = [];
   const heldReads = [];
   let holdHelper=false,helperHeld;const heldHelpers=[];
@@ -67,15 +109,24 @@ const server = http.createServer((req, res) => {
     archived_events: row.archivedEvents, ratings: row.ratings, updated_at: row.updatedAt } });
   const errors = [], blocked = [], statuses = [];
   try {
-    await context.addInitScript(() => {
+    await context.addInitScript(traceResources => {
       if ('serviceWorker' in navigator) Object.defineProperty(navigator.serviceWorker, 'ready', {
         configurable: true, value: Promise.resolve({ pushManager: { getSubscription: async () => null } }) });
-    });
+      if(traceResources){
+        const report=(kind,error)=>console.debug('[qa-account-resource]'+JSON.stringify({kind,document:location.origin+location.pathname,
+          name:String(error?.name||typeof error),message:String(error?.message||error||'').slice(0,400),stack:String(error?.stack||'').slice(0,1200)}));
+        addEventListener('unhandledrejection',event=>{report('unhandledrejection',event.reason);});
+        addEventListener('error',event=>{report('window-error',event.error||event.message);});
+      }
+    },traceResources);
     const routeHandler = async route => {
       const request = route.request(), u = new URL(request.url());
       if (!origins.has(u.origin)) { blocked.push(u.origin); return route.abort('blockedbyclient'); }
       if(holdHelper&&u.pathname==='/assets/js/account-awareness-runtime.js'){heldHelpers.push(route);helperHeld();return;}
-      if (!u.pathname.startsWith('/api/')) return route.continue();
+      if (!u.pathname.startsWith('/api/')){
+        if(schedulePath(u.pathname))traceResource('route-continue',{path:u.pathname,origin:u.origin,allowed:origins.has(u.origin),frameUrl:resourceFrameUrl(request)});
+        return route.continue();
+      }
       const body = request.postDataJSON() || {}, method = request.method();
       if (u.pathname === '/api/auth') {
         if (method === 'GET') return route.fulfill({ json: { configured: true } });
@@ -116,7 +167,20 @@ const server = http.createServer((req, res) => {
     };
     await context.route('**/*', routeHandler);
     page = await context.newPage();
-    page.on('pageerror', error => errors.push(error.message));
+    const tracedRequests=new Map(),terminalScheduleRequests=new Set(),failedScheduleRequests=new Map();
+    const trackRequest=request=>{
+      const u=new URL(request.url());if(!traceResources||!schedulePath(u.pathname))return null;
+      if(!tracedRequests.has(request))tracedRequests.set(request,{id:'browser-'+(++resourceSequence),path:u.pathname,origin:u.origin,startedEpoch:documentEpoch});
+      return tracedRequests.get(request);
+    };
+    page.on('request',request=>{const item=trackRequest(request);if(item)traceResource('browser-request',{...item,frameUrl:resourceFrameUrl(request),allowed:origins.has(item.origin)});});
+    page.on('response',response=>{const item=trackRequest(response.request());if(item){const headers=response.headers();traceResource('browser-response',{...item,status:response.status(),contentType:headers['content-type']||null,allowOrigin:headers['access-control-allow-origin']||null,redirect:headers.location||null});}});
+    page.on('requestfinished',request=>{const item=trackRequest(request);if(item)terminalScheduleRequests.add(request);if(item)traceResource('browser-request-finished',item);});
+    page.on('requestfailed',request=>{const item=trackRequest(request);if(item)terminalScheduleRequests.add(request);if(item){const failure=String(request.failure()?.errorText||'').slice(0,400);failedScheduleRequests.set(request,failure);traceResource('browser-request-failed',{...item,failure});}});
+    page.on('framenavigated',frame=>{if(frame===page.mainFrame()){documentEpoch++;traceResource('document-navigation',{url:frame.url()});}});
+    page.on('domcontentloaded',()=>traceResource('document-domcontentloaded',{url:page.url()}));
+    page.on('console',message=>{const value=message.text();if(value.startsWith(resourceMarker)){try{traceResource('window-event',JSON.parse(value.slice(resourceMarker.length)));}catch{traceResource('diagnostic-decode-failed');}}});
+    page.on('pageerror', error => {errors.push(error.message);traceResource('pageerror',{message:error.message.slice(0,400),stack:String(error.stack||'').slice(0,1200),url:page.url()});});
     page.setDefaultTimeout(15000);
     await page.goto(url, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => typeof userPreferences !== 'undefined' && !startupCoordinator.isHydrating());
@@ -192,7 +256,156 @@ const server = http.createServer((req, res) => {
       globalThis.qaSyncStates = [];
       setServerPersistence = patch => { qaSyncStates.push(patch.state); return original(patch); };
     });
-    if (actualApi) {
+    if (scenario.startsWith('receipt-base-')) {
+      const participant='team:football:australian-championship:11255',other='team:football:epl:2';
+      const settleFixtureWork=async(boundary,readiness)=>{
+        resourcePhase=boundary;
+        const before=await page.evaluate(()=>({preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id),
+          owner:serverSyncClient.accountSnapshot().accountId,generation:serverSyncClient.accountSnapshot().generation,baseline:serverStateBaseline.updatedAt}));
+        const settled=await page.evaluate(async({before,readiness})=>{
+          if(readiness)await ensureFeedSourceReadiness(userPreferences);
+          const work=[...followedScheduleLoads.entries()];
+          const results=await Promise.allSettled(work.map(([,promise])=>promise));
+          return {codes:work.map(([code])=>code),statuses:results.map(result=>result.status),pending:[...followedScheduleLoads.keys()],
+            unchanged:PROFILE_STORAGE.preferenceBaseMatches({basePreferences:before.preferences},userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id),
+            owner:serverSyncClient.accountSnapshot().accountId,generation:serverSyncClient.accountSnapshot().generation,baseline:serverStateBaseline.updatedAt};
+        },{before,readiness});
+        assert.equal(settled.unchanged,true,boundary+': fixture settlement cannot change account choices');
+        for(const key of ['receipt','owner','generation','baseline'])assert.deepEqual(settled[key],before[key],boundary+': fixture settlement preserves '+key);
+        assert(settled.statuses.every(status=>status==='fulfilled'),boundary+': actual fixture tasks must finish');
+        assert.deepEqual(settled.pending,[],boundary+': no existing fixture task may cross the boundary');
+        traceResource('fixture-work-settled',{boundary,codes:settled.codes,pending:settled.pending,readiness});
+      };
+      resourcePhase='baseline-follow-edit';cancelControlArmed=cancelControl;
+
+      // Establish an ordinary saved baseline, then use the actual deliberate writer.
+      await page.evaluate(participant=>{
+        const p=clonePreferences(userPreferences);
+        p.followedSports=[];p.selectedSelectorEntityIds=[];
+        p.preferenceGraph=PREFERENCE_SYSTEM.createPreferenceGraph({profileId:activeProfileBundle.profile.id});
+        p.preferenceGraph=PREFERENCE_SYSTEM.setEntityFollow(p.preferenceGraph,participant,'follow');
+        p.preferenceGraph=PREFERENCE_SYSTEM.quickAddDomain(p.preferenceGraph,'sport:football','template:like');
+        p.followBrowse={sportId:'sport:football',section:'teams-players',page:0};p.feedCompact=false;
+        if(!savePreferences(p,{deferFollowEffects:true}))throw Error('Baseline fixture rejected');
+        clearTimeout(serverSyncTimer);
+      },participant);
+      resourcePhase='baseline-sync';
+      await page.evaluate(()=>syncCurrentServerState());
+      if(cancelControl){
+        let observerTimer;
+        try{await Promise.race([scheduleBodyHeld,new Promise((_,reject)=>{observerTimer=setTimeout(()=>reject(Error('Held schedule body not observed')),8000);})]);}
+        finally{clearTimeout(observerTimer);}
+      }else await settleFixtureWork('baseline-fixtures-settled',true);
+      resourcePhase='local-owned-follow-edit';
+      const base=clone(actualApi.state());
+      const original=await page.evaluate(participant=>{
+        const p=clonePreferences(userPreferences);
+        p.preferenceGraph=PREFERENCE_SYSTEM.setEntityFollow(p.preferenceGraph,participant,'unfollow');
+        p.preferenceGraph=PREFERENCE_SYSTEM.quickAddDomain(p.preferenceGraph,'sport:football','template:casual');
+        p.followBrowse={sportId:'sport:cricket',section:'teams-players',page:0};p.feedCompact=true;
+        if(!savePreferences(p,{deliberate:true,deferFollowEffects:true}))throw Error('Owned local edit rejected');
+        clearTimeout(serverSyncTimer);
+        return pendingPreferenceIntent(serverPersistence.user.id);
+      },participant);
+      const remote=clone(base);
+      remote.preferences.followBrowse={sportId:'sport:tennis',section:'teams-players',page:0};
+      remote.preferences.preferenceGraph.entityFollows.push({participantId:other,followLevel:'follow'});
+      remote.preferences.preferenceGraph.domainPreferences.push(require('../config/preference-system').expandTemplate('remote-B','sport:cricket','template:froth',{enabled:false}));
+      if(scenario==='receipt-base-overlap')remote.preferences.preferenceGraph.entityFollows.find(row=>row.participantId===participant).followLevel='priority';
+      const changed=await actualApi.handle({method:'PUT',url:'/api/user-state',headers:{},body:{patch:sync.createPatch(base,remote,{baseUpdatedAt:base.updatedAt})}});
+      assert.equal(changed.status,200);row=actualApi.state();const savedRemote=clone(row),beforeWrites=writes;
+      // Hold the real helper response. Offline suppresses its existing automatic
+      // recovery only during this explicit mounted manual-retry scenario.
+      holdHelper=true;
+      await page.addInitScript(()=>Object.defineProperty(navigator,'onLine',{configurable:true,value:false}));
+      if(cancelControl)assert(await page.evaluate(()=>followedScheduleLoads.has('sport:football')),'cancellation control requires actual pending fixture work');
+      else await settleFixtureWork('pre-reload-fixtures-settled',false);
+      resourcePhase='persisted-restart';traceResource('controlled-reload');
+      if(cancelControl){
+        const pending=[...tracedRequests].filter(([request,item])=>item.path==='/data/follow-schedule/football.json'&&item.startedEpoch===documentEpoch&&!terminalScheduleRequests.has(request));
+        assert.equal(pending.length,1,'control must identify exactly one pending old-document Football request');
+        controlBrowserRequest=pending[0][0];
+        const held=heldScheduleResponse,oldEpoch=documentEpoch;
+        assert(held&&!held.req.aborted&&!held.res.destroyed&&!held.res.writableEnded&&!held.res.writableFinished,
+          'exact held HTTP stream must still be live before reload');
+        assert.equal(held.bytesSent,1);assert(held.data.length>held.bytesSent);
+        assert.equal(new URL(controlBrowserRequest.url()).pathname,held.req.url);
+        let terminalTimer;
+        try{
+          const observationDeadline=new Promise((_,reject)=>{
+            terminalTimer=setTimeout(()=>reject(Error('Navigation and held HTTP interruption exceeded deadline')),8000);
+          });
+          const [,observed]=await Promise.race([
+            Promise.all([page.reload({waitUntil:'domcontentloaded'}),held.terminal]),observationDeadline]);
+          assertHeldScheduleInterruption(held,observed);
+          assert(documentEpoch>oldEpoch,'control must navigate to a new document');
+          traceResource('control-held-http-interrupted',{requestAborted:observed.requestAborted,responseFinished:observed.responseFinished,oldEpoch,newEpoch:documentEpoch});
+        }finally{clearTimeout(terminalTimer);releaseScheduleBody();}
+      }else await page.reload({waitUntil:'domcontentloaded'});
+      await page.waitForFunction(()=>serverPersistence.state==='error'&&Boolean(pendingPreferenceIntent(serverPersistence.user?.id)));
+      if(cancelControl)assert.deepEqual(await page.evaluate(()=>({user:serverPersistence.user?.id,account:serverSyncClient.accountSnapshot().accountId})),
+        {user:owner,account:owner},'new document must retain the authenticated account owner');
+      await page.locator('#startupLaunch').waitFor({state:'hidden'});
+      const restored=await page.evaluate(()=>({receipt:pendingPreferenceIntent(serverPersistence.user.id),baseline:serverStateBaseline.updatedAt,
+        compatible:PROFILE_STORAGE.preferenceBaseMatches(pendingPreferenceIntent(serverPersistence.user.id),serverStateBaseline.state.preferences)}));
+      assert.deepEqual(restored.receipt,original,'persisted restart retains exact owned receipt');
+      assert.equal(restored.baseline,row.updatedAt);assert.equal(restored.compatible,false);
+      assert.equal(writes,beforeWrites,'pre-helper bootstrap holds without saving');
+      let helperTimer;
+      try{await Promise.race([helperRequest,new Promise((_,reject)=>{helperTimer=setTimeout(()=>reject(Error('Restart helper request not observed')),8000);})]);}
+      finally{clearTimeout(helperTimer);}
+      holdHelper=false;for(const route of heldHelpers.splice(0))await route.continue();
+      await page.evaluate(()=>ensureAccountIndicator());
+      assert.deepEqual(await page.evaluate(()=>pendingPreferenceIntent(serverPersistence.user.id)),original,'helper mount cannot rewrite pending base');
+      // Startup may show Tune 250ms after recording promptedAt, independently
+      // of Account button readiness. Handle its visible overlay at action time.
+      // Native backdrop dismissal closes it without the Not now preference edit.
+      const tuneModal=page.locator('#tunePromptModal');
+      await page.addLocatorHandler(tuneModal,async modal=>{
+        const before=await page.evaluate(()=>({preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id)}));
+        assert(await modal.evaluate(element=>{const rect=element.getBoundingClientRect();return document.elementFromPoint(rect.left+4,rect.top+4)===element;}),'native dismiss point must hit the visible Tune backdrop');
+        await modal.click({position:{x:4,y:4}});
+        await modal.waitFor({state:'hidden'});
+        const after=await page.evaluate(before=>({receipt:pendingPreferenceIntent(serverPersistence.user.id),
+          unchanged:PROFILE_STORAGE.preferenceBaseMatches({basePreferences:before.preferences},userPreferences)}),before);
+        assert.equal(after.unchanged,true,'backdrop dismissal cannot change projected choices');
+        assert.deepEqual(after.receipt,before.receipt,'backdrop dismissal cannot change the owned receipt');
+        chronology.push({phase:'native-tune-backdrop-dismissal',choicesUnchanged:true,receiptUnchanged:true});
+        console.log(JSON.stringify({phase:'native-tune-backdrop-dismissal',scenario,engine:engineName,choicesUnchanged:true,receiptUnchanged:true}));
+      },{times:1});
+      try{
+        await page.evaluate(()=>{Object.defineProperty(navigator,'onLine',{configurable:true,value:true});openSettings({section:'account'});});
+        const selectorSkip=page.locator('#skipSelectorOptInBtn');if(await selectorSkip.isVisible())await selectorSkip.click();
+        await page.waitForFunction(()=>!document.getElementById('syncAccountNowBtn')?.disabled);
+        resourcePhase='manual-sync';
+        await page.locator('#syncAccountNowBtn').click();
+      }finally{await page.removeLocatorHandler(tuneModal);}
+      await page.evaluate(()=>serverSyncSequence.catch(()=>{}));
+      const after=await page.evaluate(()=>({state:serverPersistence.state,receipt:pendingPreferenceIntent(serverPersistence.user.id),preferences:clonePreferences(userPreferences)}));
+      if(scenario==='receipt-base-overlap'){
+        assert.equal(after.state,'error');assert.deepEqual(after.receipt,original);
+        assert.equal(writes,beforeWrites);assert.deepEqual(actualApi.state(),savedRemote,'overlap makes no server change');
+        assert.equal(await page.locator('#syncAccountNowBtn').isEnabled(),true);
+      }else{
+        assert.equal(after.state,'signedIn');assert.equal(after.receipt,null);assert.equal(writes,beforeWrites+1);
+        const saved=actualApi.state().preferences;
+        for(const preferences of [saved,after.preferences]){
+          assert.equal(preferences.preferenceGraph.entityFollows.find(row=>row.participantId===participant).followLevel,'unfollow');
+          assert(preferences.preferenceGraph.entityFollows.some(row=>row.participantId===other&&row.followLevel==='follow'));
+          assert.equal(preferences.preferenceGraph.domainPreferences.find(row=>row.sportDomainId==='sport:football').templateId,'template:casual');
+          assert(preferences.preferenceGraph.domainPreferences.some(row=>row.sportDomainId==='sport:cricket'&&row.templateId==='template:froth'));
+          assert.equal(preferences.followFirst.notifications.enabled,false);
+        }
+        assert.equal(saved.followBrowse.sportId,'sport:tennis');assert.equal(saved.feedCompact,false);
+        assert.equal(after.preferences.followBrowse.sportId,'sport:cricket');assert.equal(after.preferences.feedCompact,true);
+      }
+      const finalCounts={reads,writes};
+      await settleFixtureWork('final-fixtures-settled',true);
+      assert.deepEqual({reads,writes},finalCounts,'fixture settlement cannot issue account state reads or saves');
+      if(!cancelControl)assert.deepEqual(resourceTrace.filter(item=>item.event==='browser-request-failed'&&/cancel|abort/i.test(item.failure)),[],
+        'settled restart test must not cancel unrelated schedule work');
+      chronology.push({phase:'persisted-base-manual-retry',scenario,receiptPreservedBeforeACK:true,writes:writes-beforeWrites,state:after.state});
+    } else if (actualApi) {
       const participant = 'team:football:australian-championship:11255';
       const snapshot = target => target.evaluate(() => {
         const receipt = pendingPreferenceIntent(serverPersistence.user?.id), life = serverSyncClient.accountSnapshot();
@@ -490,8 +703,23 @@ const server = http.createServer((req, res) => {
       if (scenario !== 'terminal') await page.waitForFunction(() => document.querySelector('#accountIndicator [data-account-status]')?.dataset.accountStatus === 'signedIn');
     } else throw new Error('Unknown recovery scenario ' + scenario);
     statuses.push(...await page.evaluate(() => globalThis.qaSyncStates || []));
+    if(cancelControl){
+      const failure=failedScheduleRequests.get(controlBrowserRequest);
+      if(failure!==undefined)assert.match(failure,/cancel|abort/i,'browser failure, when emitted, must describe cancellation');
+      traceResource('control-browser-failure-observation',{emitted:failure!==undefined,failure:failure??null});
+    }
+    resourcePhase='final-assertion';
+    if(traceResources){console.log(JSON.stringify({phase:'schedule-resource-lifetime',scenario,engine:engineName,cancellationControl:cancelControl,resourceTraceDropped,
+      blockedOrigins:[...new Set(blocked)],uncaughtErrors:errors,trace:resourceTrace}));resourceTraceReported=true;}
+    if(traceResources)assert.equal(resourceTraceDropped,0,'schedule evidence must be complete before acceptance');
     assert.deepEqual(errors, [], 'no uncaught application errors');
     console.log(JSON.stringify({ scenario, engine: engineName, passed: true, reads, writes, refreshes, authSignIns, statuses,
       blockedOrigins: [...new Set(blocked)], limits: 'Loopback mocked transport; no hosted or physical iPhone proof' }));
-  } finally { await context.close(); await browser.close(); await new Promise(resolve => server.close(resolve)); }
+  } finally {
+    // Preserve intermediate failure evidence before response/browser cleanup can
+    // create terminal events. This observation does not handle the test failure.
+    if(traceResources&&!resourceTraceReported)console.log(JSON.stringify({phase:'schedule-resource-lifetime-before-cleanup',scenario,engine:engineName,
+      cancellationControl:cancelControl,resourceTraceDropped,blockedOrigins:[...new Set(blocked)],uncaughtErrors:errors,trace:resourceTrace}));
+    releaseScheduleBody(); await context.close(); await browser.close(); await new Promise(resolve => server.close(resolve));
+  }
 })().catch(error => { console.error(error); server.close(); process.exitCode = 1; });
