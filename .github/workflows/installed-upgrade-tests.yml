@@ -12,6 +12,9 @@ on:
       - styles/**
       - scripts/validate-installed-pwa-upgrade-browser.js
       - scripts/validate-account-sync-recovery-browser.js
+      - scripts/lib/installed-offline-diagnostic.js
+      - scripts/run-installed-offline-diagnostic.js
+      - scripts/validate-installed-offline-diagnostic.js
       - .github/workflows/installed-upgrade-tests.yml
 
 permissions:
@@ -23,13 +26,15 @@ concurrency:
 
 jobs:
   installed-upgrade:
+    # TEMPORARY isolated diagnostic PR only; never merge this mode into main.
+    name: ${{ contains(github.event.pull_request.labels.*.name, 'pwa-offline-diagnostic') && 'OFFLINE DIAGNOSTIC - NOT RELEASE ACCEPTANCE' || 'installed-upgrade' }} (${{ matrix.browser }})
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
-        browser: [chromium, webkit]
+        browser: ${{ fromJSON(contains(github.event.pull_request.labels.*.name, 'pwa-offline-diagnostic') && '["webkit"]' || '["chromium","webkit"]') }}
     steps:
       - uses: actions/checkout@v5
         with:
@@ -40,7 +45,7 @@ jobs:
           node-version: 24.21.0
       - name: Record exact source and runtime
         env:
-          BASELINE_SHA: ${{ github.event.pull_request.base.sha }}
+          BASELINE_SHA: ${{ contains(github.event.pull_request.labels.*.name, 'pwa-offline-diagnostic') && '6aa5979ab440b38765fe1038ab3b1203e354fe40' || github.event.pull_request.base.sha }}
           PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           mkdir -p "$RUNNER_TEMP/ns-upgrade-proof"
@@ -82,13 +87,21 @@ jobs:
           } 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/install.log"
       - name: Verify installed upgrade and offline restart
         env:
-          PWA_BASELINE_SHA: ${{ github.event.pull_request.base.sha }}
+          PWA_BASELINE_SHA: ${{ contains(github.event.pull_request.labels.*.name, 'pwa-offline-diagnostic') && '6aa5979ab440b38765fe1038ab3b1203e354fe40' || github.event.pull_request.base.sha }}
           PWA_BROWSER: ${{ matrix.browser }}
+          PWA_OFFLINE_DIAGNOSTIC: ${{ contains(github.event.pull_request.labels.*.name, 'pwa-offline-diagnostic') && '1' || '0' }}
+          PWA_OFFLINE_DIAGNOSTIC_DIR: ${{ runner.temp }}/ns-upgrade-proof/offline-boundary
         run: |
           export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
           set -o pipefail
-          node scripts/validate-installed-pwa-upgrade-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/browser.log"
+          if [ "$PWA_OFFLINE_DIAGNOSTIC" = "1" ]; then
+            node scripts/validate-installed-offline-diagnostic.js
+            node scripts/run-installed-offline-diagnostic.js
+          else
+            node scripts/validate-installed-pwa-upgrade-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/browser.log"
+          fi
       - name: Verify account recovery and copied diagnostics
+        if: ${{ !contains(github.event.pull_request.labels.*.name, 'pwa-offline-diagnostic') }}
         env:
           ACCOUNT_RECOVERY_BROWSER: ${{ matrix.browser }}
           ACCOUNT_RECOVERY_CASE: all
@@ -100,6 +113,6 @@ jobs:
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
-          name: installed-upgrade-${{ github.event.pull_request.head.sha }}-${{ matrix.browser }}
+          name: ${{ contains(github.event.pull_request.labels.*.name, 'pwa-offline-diagnostic') && 'OFFLINE-DIAGNOSTIC-NOT-ACCEPTANCE' || 'installed-upgrade' }}-${{ github.event.pull_request.head.sha }}-${{ matrix.browser }}
           path: ${{ runner.temp }}/ns-upgrade-proof
           retention-days: 1

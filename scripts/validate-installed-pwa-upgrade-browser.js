@@ -553,6 +553,8 @@ async function assertCachedFootballStatus(page){
 const baselineSha = process.env.PWA_BASELINE_SHA || 'eb1b495';
 const keepOpen = process.env.PWA_KEEP_OPEN === '1';
 const candidateVersion = JSON.parse(fs.readFileSync(path.join(root,'app-version.json'))).version;
+const offlineObservation=require('./lib/installed-offline-diagnostic');
+const offlineProbe=offlineObservation.create({enabled:offlineObservation.mode(),directory:process.env.PWA_OFFLINE_DIAGNOSTIC_DIR,version:candidateVersion});
 // Serve exact historical Git blobs on demand. Preparing every archived report
 // and unused asset took minutes and had no bearing on an installed-page test.
 const tree = new Map(execFileSync('git',['ls-tree','-rz',baselineSha],{cwd:root,maxBuffer:16*1024*1024}).toString().split('\0').filter(Boolean).map(line => {
@@ -596,7 +598,7 @@ function candidateFile(name){
   return bytes;
 }
 const server=http.createServer((req,res)=>{
-  if(networkFailure){req.socket.destroy();return;}
+  if(networkFailure){offlineProbe.socketFailure(req);req.socket.destroy();return;}
   let name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/+/, '')||'index.html';
   if(name==='app-version.json')versionRequests++;
   if(name.includes('..')){res.writeHead(400);res.end();return;}
@@ -608,12 +610,15 @@ const server=http.createServer((req,res)=>{
   res.writeHead(200,{...(phase==='candidate'?candidateHeaders:{}),'content-type':type,'cache-control':'no-store'});res.end(bytes);
 });
 (async()=>{
-  let browser;
+  let browser,originalFailure;
   try{
     await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
     const origin='http://127.0.0.1:'+server.address().port;
+    offlineProbe.setOrigin(origin);
     browser=await (process.env.PWA_BROWSER==='webkit'?webkit:chromium).launch({headless:true,...launchOptions});
+    offlineProbe.watchBrowser(browser);
     const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,serviceWorkers:'allow'});
+    await offlineProbe.attach(context);
     await context.addInitScript(()=>{globalThis.qaUpgradeMessages=[];navigator.serviceWorker?.addEventListener('message',event=>{if(event.data?.type?.startsWith('nothingsport-'))qaUpgradeMessages.push({type:event.data.type,version:event.data.version||null,at:performance.now()});});});
     const page=await context.newPage();
     const pending=new Set(); context.on('request',r=>pending.add(r.url()));context.on('requestfinished',r=>pending.delete(r.url()));context.on('requestfailed',r=>pending.delete(r.url()));
@@ -734,14 +739,20 @@ const server=http.createServer((req,res)=>{
     // The later original NFL/table probes intentionally exercise men's fixtures.
     await upgraded.getByRole('tab',{name:'Men',exact:true}).tap();
     await upgraded.locator('.tabs [data-tab=feed]').tap();
+    await offlineProbe.capture('before-offline',upgraded);
+    offlineProbe.add('setOffline-true-start',{},true);
     await context.setOffline(true);
+    offlineProbe.add('setOffline-true-end',{},true);
     await upgraded.evaluate(()=>NOTHINGSPORTS_APP_UPDATE.check({force:true}));
     assert.equal(await upgraded.evaluate(()=>NOTHINGSPORTS_APP_UPDATE.snapshot().phase),'offline');
     // Simulate an unreachable origin at the transport boundary. WebKit's
     // browser-level offline emulation can reject navigation before dispatching
     // a service-worker fetch, which is a different scenario.
+    offlineProbe.add('setOffline-false-start',{},true);
     await context.setOffline(false);networkFailure=true;
-    await upgraded.reload({waitUntil:'domcontentloaded'});
+    offlineProbe.add('setOffline-false-end',{},true);
+    if(offlineProbe.enabled)await offlineProbe.reload(upgraded,()=>upgraded.reload({waitUntil:'domcontentloaded'}));
+    else await upgraded.reload({waitUntil:'domcontentloaded'});
     assert.equal(await upgraded.locator('meta[name="app-shell-version"]').getAttribute('content'),candidateVersion,'Offline navigation uses the validated current shell');
     await upgraded.waitForFunction(()=>Array.isArray(globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS));
     assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'offline restart retains the upgraded source observations and all positions');
@@ -769,6 +780,11 @@ const server=http.createServer((req,res)=>{
       await upgraded.getByRole('tab',{name:'Men',exact:true}).tap();
       await upgraded.evaluate(()=>{activeTab='feed';renderAll();});
     }
+    if(offlineProbe.enabled){
+      await offlineProbe.accepted(upgraded);
+      console.log('DIAGNOSTIC ONLY: offline boundary observed; this is NOT release acceptance.');
+      return;
+    }
     networkFailure=false;await context.setOffline(false);
     await upgraded.waitForFunction(()=>typeof NOTHINGSPORTS_APP_UPDATE!=='undefined');
     await upgraded.evaluate(()=>sessionStorage.setItem('ns_chat_draft_v2:upgrade-test',JSON.stringify({body:'Preserve this unsent draft'})));
@@ -794,5 +810,9 @@ const server=http.createServer((req,res)=>{
     await upgraded.waitForTimeout(3500);
     assert(upgradeNavigations<=4,'No repeat navigation after resumed update: '+JSON.stringify({frames:upgradeNavigationLog,documents:upgradeDocuments}));
     console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,oldScheduleAndScoreKeysWarmed:warmedOld,retainedSchedulesAndCurrentScoreOwners:true,legacyAutomaticCatchup:true,upgradeNavigations,upgradeDocuments,frameNavigationEvents:upgradeNavigationLog,preferencesPreserved:true,nativeDispositionAndRemindOffVerified:!!savedSelection.entities,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true,canonicalFinalResultsCacheVerified:true,minimisedRowsCacheVerified:true,multidayRetentionCacheVerified:true,cricketStatusCacheVerified:true,nhlViewingCacheVerified:true,matchCentreCacheVerified:true,fontCacheVerified:true},null,2));
-  }finally{await browser?.close();await new Promise(resolve=>server.close(resolve));}
+  }catch(error){originalFailure=error;throw error;}
+  finally{
+    if(offlineProbe.enabled)await offlineProbe.cleanup(browser,server,originalFailure);
+    else{await browser?.close();await new Promise(resolve=>server.close(resolve));}
+  }
 })().catch(error=>{console.error(error);process.exitCode=1;});
