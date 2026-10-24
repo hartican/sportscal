@@ -1,6 +1,6 @@
 # Isolate the normal installed-app test network
 
-25 October 2026 Sydney. Source-tested draft for DEPLOY; **Ready HOLD for review/integration and one full normal two-engine qualification**. No browser/native/cloud run, label/ready action or production change is performed by this worker.
+25 October 2026 Sydney. Source-tested draft with one bounded local Chromium preflight RED/GREEN for DEPLOY; **Ready HOLD for review/integration and one full normal two-engine qualification**. No full-suite/native/cloud run, label/ready action or production change is performed by this worker.
 
 ## Problem and scope
 
@@ -20,11 +20,21 @@ All original assertions and browser calls remain: cold/fresh app context,100 res
 
 ## Source qualification and limits
 
-Node24.21.0: `node scripts/validate-installed-test-network.js` passes111 pure controls. These execute the actual preflight page function in a VM with cache/crypto/transport doubles, including exact legacy/modern cache proof, source-bound hash, route-to-proxy evidence, timeout/resolved/no-denial/route-abort failure, context closure, repeat refusal, outside-response coverage and cleanup/original-error fences. No browser, DNS or live socket is used by these controls. Six source faults are rejected: proxy bypass, canary route abort, missing proxy evidence, delayed cache-hash proof, cleanup replacing the original error and an ignored outside-response counter.
+Node24.21.0: `node scripts/validate-installed-test-network.js` passes117 pure controls (initial extraction111 plus six exact preflight-target controls). These execute the actual preflight page function in a VM with cache/crypto/transport doubles, including exact legacy/modern cache proof, source-bound hash, route-to-proxy evidence, timeout/resolved/no-denial/route-abort failure, context closure, repeat refusal, outside-response coverage and cleanup/original-error fences. No browser, DNS or live socket is used by these controls. Six original source faults are rejected: proxy bypass, canary route abort, missing proxy evidence, delayed cache-hash proof, cleanup replacing the original error and an ignored outside-response counter.
 
 One-time AST comparison against d31 proves all247 original assertion calls and129 original evaluate/goto/reload/timed-wait calls retain exact text/order. The100-event loop is unchanged. Product/index/worker/headers/packages/generated helpers and recovery source hashes match. Workflow YAML comparison after removing the two added path entries and guard command equals original d31 exactly. Syntax and git diff --check pass. Evidence and exact manifests are under `/Users/jackhartican/Documents/AI/Codex/installed-test-isolation-20261025/`.
 
-Actual permanent-helper operation on Chromium and the complete normal WebKit flow remain **unverified**. The earlier temporary WebKit result qualifies neither this extraction nor the full suite. Proxy, separate preflight and browser/network warm state change test environment/timing; no inference about the old internal error or real iPhone is made. The small helper has no engine-specific runtime pin; the existing workflow keeps its current pinned runtime.
+ROOT's full normal run40130048111 on combined f61879903b3984ef2555669013cfcd4caee97cec failed Chromium at the preflight30s controller wait, before normal installed/recovery assertions. WebKit finished its full installed flow and20 recovery scenarios. The failed Chromium receipt had no controller proof or canary denials and zero outside responses; cleanup succeeded. Preserve that failure and its ROOT-owned artifacts.
+
+### Chromium preflight target correction
+
+One disposable local Chromium1234 allocation using existing Playwright1.62.1/Node24.21.0 reproduced the exact original-helper failure against actual baseline6aa5979ab440b38765fe1038ab3b1203e354fe40/shell592: the preflight document returned404, leaving no registration/controller/cache, and the unchanged30s wait failed. The helper allowed owned absolute-form proxy requests, but its document handler recognised only the relative path; the original static-file fallback then looked for a nonexistent `__qa_installed_network__` file. The registration script never ran.
+
+The only runtime-helper correction also recognises the exact owned origin plus preflight path. The existing relative path still works. Wrong origin/port/path/query targets stay rejected. Proxy bypass, routes, headers, registration body, timeouts, worker/cache/hash/canary proof, original validator/workflow and product source are unchanged. A new pure regression fails against the old f618 helper at the absolute-form document assertion and passes the corrected source.
+
+The same single browser/server allocation then used a fresh context with corrected source: actual controlling activated592 worker, exact cached index SHA256 `00d4fe8136d3bc250e0fffd20956a071191ba7fba68cf8ebaa827aeee932312d`, both fixed HTTP GET/HTTPS CONNECT proxy denials1, both fetches rejected, zero outside responses and closed preflight context. Browser/server closure succeeded; the owned Node PID was gone and its loopback port closed. The retained targeted probe and RED/GREEN/cleanup receipts are under `/Users/jackhartican/Documents/AI/Codex/installed-test-preflight-repair-20261025/`.
+
+This proves the specific test-setup correction on local Chromium, not the full corrected Linux flow or iPhone sync. The new full two-engine combined qualification remains ROOT-owned and pending. Proxy/preflight/warm-state timing still differ from the original unexplained offline error40124555984. No runtime upgrade or app/iPhone-fix claim follows.
 
 ## DEPLOY handover
 

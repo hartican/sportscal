@@ -52,6 +52,9 @@ async function main(){
  ok(network.snapshot().proxy.canaryHttpDenied===1&&network.snapshot().proxy.canaryHttpsDenied===1,'exact GET URI and CONNECT authority evidence only');
  ok(!target({url:CANARIES.http,method:'POST'},OWN).canary&&!target({url:'ns-installed-https.invalid:443',method:'GET'},OWN,true).canary,'wrong methods cannot prove preflight');
  let body;ok(network.preflightDocument({url:PREFLIGHT_PATH},{writeHead(code,headers){assert.equal(code,200);assert.equal(headers['cache-control'],'no-store');},end(value){body=value;}})&&body.includes('serviceWorker.register')&&!/https?:\/\//.test(body),'minimal same-origin preflight document');
+ const directBody=body;let proxyBody;
+ ok(network.preflightDocument({url:OWN+PREFLIGHT_PATH},{writeHead(code,headers){assert.equal(code,200);assert.equal(headers['cache-control'],'no-store');},end(value){proxyBody=value;}})&&proxyBody===directBody,'Chromium absolute-form owned proxy target serves the exact registration document');
+ for(const url of ['http://127.0.0.1:12346'+PREFLIGHT_PATH,'http://outside.invalid'+PREFLIGHT_PATH,'//outside.invalid'+PREFLIGHT_PATH,OWN+PREFLIGHT_PATH+'?other=1',OWN+PREFLIGHT_PATH+'/'])ok(!network.preflightDocument({url},forbidden),'preflight target exemption remains exact for origin, path and query');
  ok(!network.preflightDocument({url:'/index.html'},forbidden),'product document/headers stay with original server');
  for(const version of ['236','592']){
   const {network:n,server:s}=configured(),fixture=browserDouble(n,s,{version});await n.preflight(fixture.browser,fixture.expected);n.assertIsolated();checks++;

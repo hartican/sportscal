@@ -33,7 +33,9 @@ function create(){
   });
  }
  function preflightDocument(req,res){
-  if(req.url!==PREFLIGHT_PATH)return false;
+  // Chromium can send an owned loopback request through the configured proxy
+  // in absolute form. Match that exact target as well as the direct path.
+  if(req.url!==PREFLIGHT_PATH&&req.url!==origin+PREFLIGHT_PATH)return false;
   res.writeHead(200,{'content-type':'text/html','cache-control':'no-store'});
   res.end('<!doctype html><meta charset="utf-8"><title>Installed test network</title><script>navigator.serviceWorker.register("/service-worker.js").catch(()=>{});</script>');return true;
  }
