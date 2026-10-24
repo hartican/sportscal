@@ -115,6 +115,7 @@ async function run(){
  current=false;assert.equal(recorder.snapshot(),null);current=true;first.fail(error('request_timeout'));assert.equal(recorder.snapshot(),null,'cleared lifetime stays cleared');
  for(const code of ['missing_session','refresh_session_terminal','invalid_refresh_token','refresh_token_not_found','refresh_token_already_used','refresh_token_revoked'])assert.equal(diagnostic.classify({code}).category,'auth');
  assert.equal(diagnostic.classify({name:'SecurityError'}).category,'local_security');
+ await require('./lib/account-sync-difference-tests')();
  console.log('Sync diagnostic: 15 actual queue/reconcile equivalence scenarios, 2 persisted-receipt byte controls, 6 delayed clipboard/lifetime controls, bounded receipt sampling, copy privacy, owner fences, safe categories and bounded recorder passed. No service connections.');
 }
 module.exports=run;
