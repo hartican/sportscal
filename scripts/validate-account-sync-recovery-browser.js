@@ -34,7 +34,8 @@ const token = id => 'e30.' + Buffer.from(JSON.stringify({ sub: id })).toString('
 const clone = value => JSON.parse(JSON.stringify(value));
 // Diagnostic only: correlate same-origin schedule reads with document lifetime.
 // Keep the original pageerror collector/gate unchanged; never handle a rejection.
-const traceResources=scenario.startsWith('receipt-base-'),resourceTrace=[];
+const traceApiStale=scenario==='api-stale';
+const traceResources=scenario.startsWith('receipt-base-')||traceApiStale,resourceTrace=[];
 let resourcePhase='initial-startup',documentEpoch=0,resourceSequence=0,resourceTraceDropped=0,resourceTraceReported=false;
 const traceStart=Date.now(),resourceMarker='[qa-account-resource]';
 let cancelControlArmed=false,heldScheduleResponse=null,scheduleBodyObserved;
@@ -49,6 +50,7 @@ function assertHeldScheduleInterruption(held,observed){
   assert.equal(observed.responseFinished,false,'held response must close unfinished');
 }
 const schedulePath=pathname=>pathname.startsWith('/data/follow-schedule/');
+const tracedResourcePath=pathname=>schedulePath(pathname)||(traceApiStale&&pathname==='/api/fixtures');
 const resourceFrameUrl=request=>{try{return request.frame().url();}catch{return null;}};
 function traceResource(event,fields={}){
   if(!traceResources)return;
@@ -57,7 +59,7 @@ function traceResource(event,fields={}){
 }
 const server = http.createServer((req, res) => {
   const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
-  if(traceResources&&schedulePath(pathname)){
+  if(traceResources&&tracedResourcePath(pathname)){
     const id='http-'+(++resourceSequence);
     traceResource('http-request',{id,path:pathname,host:req.headers.host,origin:req.headers.origin||null});
     req.on('aborted',()=>traceResource('http-request-aborted',{id,path:pathname}));
@@ -121,6 +123,8 @@ const server = http.createServer((req, res) => {
     },traceResources);
     const routeHandler = async route => {
       const request = route.request(), u = new URL(request.url());
+      let requestContext;if(traceApiStale){try{requestContext=request.frame().page()===page?'A':'B';}catch{requestContext='unavailable';}}
+      if(traceApiStale&&u.pathname==='/api/fixtures')traceResource('route-fixtures-start',{context:requestContext,path:u.pathname,origin:u.origin,allowed:origins.has(u.origin)});
       if (!origins.has(u.origin)) { blocked.push(u.origin); return route.abort('blockedbyclient'); }
       if(holdHelper&&u.pathname==='/assets/js/account-awareness-runtime.js'){heldHelpers.push(route);helperHeld();return;}
       if (!u.pathname.startsWith('/api/')){
@@ -162,15 +166,22 @@ const server = http.createServer((req, res) => {
         events: [], userId: owner, userState: actualApi.state(), now: new Date() }) });
       if (u.pathname === '/api/nothingscore' && u.searchParams.has('viewer')) return route.fulfill({ json: {
         viewer: { signedIn: true, profile: { handle: 'test_account', displayName: 'Test account', visibility: 'visible' } } } });
-      if (u.pathname === '/api/fixtures') return route.fulfill({ status: 503, json: { error: 'Disposable optional fixtures unavailable' } });
+      if (u.pathname === '/api/fixtures') {
+        if(!traceApiStale)return route.fulfill({ status: 503, json: { error: 'Disposable optional fixtures unavailable' } });
+        try{
+          const result=await route.fulfill({ status: 503, json: { error: 'Disposable optional fixtures unavailable' } });
+          if(traceApiStale)traceResource('route-fixtures-fulfilled',{context:requestContext,path:u.pathname,status:503});
+          return result;
+        }catch(error){if(traceApiStale)traceResource('route-fixtures-rejected',{path:u.pathname,name:String(error?.name||'').slice(0,80)});throw error;}
+      }
       return route.fulfill({ status: 503, json: { error: 'Disposable optional service unavailable' } });
     };
     await context.route('**/*', routeHandler);
     page = await context.newPage();
     const tracedRequests=new Map(),terminalScheduleRequests=new Set(),failedScheduleRequests=new Map();
     const trackRequest=request=>{
-      const u=new URL(request.url());if(!traceResources||!schedulePath(u.pathname))return null;
-      if(!tracedRequests.has(request))tracedRequests.set(request,{id:'browser-'+(++resourceSequence),path:u.pathname,origin:u.origin,startedEpoch:documentEpoch});
+      const u=new URL(request.url());if(!traceResources||!tracedResourcePath(u.pathname))return null;
+      if(!tracedRequests.has(request))tracedRequests.set(request,{id:'browser-'+(++resourceSequence),path:u.pathname,origin:u.origin,startedEpoch:documentEpoch,...(traceApiStale?{context:'A'}:{})});
       return tracedRequests.get(request);
     };
     page.on('request',request=>{const item=trackRequest(request);if(item)traceResource('browser-request',{...item,frameUrl:resourceFrameUrl(request),allowed:origins.has(item.origin)});});
@@ -181,6 +192,12 @@ const server = http.createServer((req, res) => {
     page.on('domcontentloaded',()=>traceResource('document-domcontentloaded',{url:page.url()}));
     page.on('console',message=>{const value=message.text();if(value.startsWith(resourceMarker)){try{traceResource('window-event',JSON.parse(value.slice(resourceMarker.length)));}catch{traceResource('diagnostic-decode-failed');}}});
     page.on('pageerror', error => {errors.push(error.message);traceResource('pageerror',{message:error.message.slice(0,400),stack:String(error.stack||'').slice(0,1200),url:page.url()});});
+    const traceApiBoundary=boundary=>{
+      if(!traceApiStale)return;
+      resourcePhase=boundary;
+      traceResource('api-stale-boundary',{boundary,pendingAResource:[...tracedRequests].some(([request,item])=>
+        item.path==='/api/fixtures'&&!terminalScheduleRequests.has(request))});
+    };
     page.setDefaultTimeout(15000);
     await page.goto(url, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => typeof userPreferences !== 'undefined' && !startupCoordinator.isHydrating());
@@ -198,7 +215,9 @@ const server = http.createServer((req, res) => {
     }, Boolean(actualApi));
     if (actualApi) { actualApi.seed(row); row = actualApi.state(); }
     holdHelper=helperRaceProbe;
+    traceApiBoundary('setup-before-controlled-reload');
     await page.reload({ waitUntil: 'domcontentloaded' });
+    if(traceApiStale)resourcePhase='setup-after-controlled-reload';
     await page.waitForFunction(() => !startupCoordinator.isHydrating());
     await page.locator('#startupLaunch').waitFor({ state: 'hidden' });
     await page.evaluate(() => {
@@ -424,11 +443,16 @@ const server = http.createServer((req, res) => {
       // Let the first Follow's fixture reads finish before navigating. This is
       // before B exists; A still does no pre-removal account reconciliation.
       await page.waitForTimeout(600);
-      await page.evaluate(async () => {
+      const fixtureOwnerFacts=await page.evaluate(async trace => {
         await Promise.allSettled([...followedScheduleLoads.values()]);
         if (followFeedRefreshInFlight) await followFeedRefreshInFlight;
-      });
+        if(trace)return {liveRefreshPending:Boolean(liveFixtureRefresh),liveMountScheduled:liveFixtureMountTimer!==null,
+          followedSchedulePending:followedScheduleLoads.size>0,followRebuildPending:Boolean(followFeedRefreshInFlight)};
+      },traceApiStale);
+      traceApiBoundary('legacy-before-controlled-reload');
+      if(traceApiStale)traceResource('fixture-owner-facts',{context:'A',...fixtureOwnerFacts});
       await page.reload({ waitUntil: 'domcontentloaded' });
+      if(traceApiStale)resourcePhase='legacy-after-controlled-reload';
       await page.waitForFunction(() => serverPersistence.state === 'signedIn');
       await page.waitForTimeout(1200);
       await page.evaluate(() => serverSyncSequence);
@@ -438,6 +462,22 @@ const server = http.createServer((req, res) => {
         await other.route('**/*', routeHandler);
         await other.addInitScript(preferences => localStorage.setItem('ns_preferences_v1', JSON.stringify(preferences)), beforeB.preferences);
         const second = await other.newPage();
+        if(traceApiStale){
+          let secondEpoch=0;
+          const requests=new Map();
+          const tracked=request=>{
+            const u=new URL(request.url());if(!tracedResourcePath(u.pathname))return null;
+            if(!requests.has(request))requests.set(request,{id:'browser-B-'+(++resourceSequence),path:u.pathname,origin:u.origin,context:'B',startedEpoch:secondEpoch});
+            return requests.get(request);
+          };
+          second.on('request',request=>{const item=tracked(request);if(item)traceResource('browser-request',item);});
+          second.on('response',response=>{const item=tracked(response.request());if(item)traceResource('browser-response',{...item,status:response.status()});});
+          second.on('requestfinished',request=>{const item=tracked(request);if(item)traceResource('browser-request-finished',item);});
+          second.on('requestfailed',request=>{const item=tracked(request);if(item)traceResource('browser-request-failed',{...item,failure:String(request.failure()?.errorText||'').slice(0,400)});});
+          second.on('framenavigated',frame=>{if(frame===second.mainFrame()){secondEpoch++;traceResource('secondary-document-navigation',{context:'B',epoch:secondEpoch});}});
+          second.on('pageerror',error=>traceResource('secondary-pageerror',{context:'B',message:error.message.slice(0,400)}));
+          resourcePhase='legacy-secondary-startup';
+        }
         await second.goto(url, { waitUntil: 'domcontentloaded' });
         await second.waitForFunction(() => typeof userPreferences !== 'undefined' && !startupCoordinator.isHydrating());
         await second.locator('#startupLaunch').waitFor({ state: 'hidden' });
@@ -457,6 +497,7 @@ const server = http.createServer((req, res) => {
         if (scenario === 'api-race') actualApi.raceOnce(() => actualApi.mutate(state => { state.ratings.timestampOnly = 3; }));
         chronology.push({ phase: 'before-removal', changedByB, A: await snapshot(page), B: await snapshot(second) });
         await page.evaluate(() => openSettings({ section: 'account' }));
+        traceApiBoundary('legacy-before-owned-removal');
         await edit('unfollow'); // Deliberately no pre-edit sync on A.
         if (scenario === 'api-changed') {
           await page.evaluate(() => syncCurrentServerState().catch(() => {}));
@@ -481,7 +522,12 @@ const server = http.createServer((req, res) => {
         }
         chronology.push({ phase: 'after-removal', A: await snapshot(page), B: await snapshot(second) });
       } catch (error) { chronology.push({ phase: 'failure', A: await snapshot(page) }); throw error; }
-      finally { console.log(JSON.stringify({ scenario, engine: engineName, chronology })); await other.close(); }
+      finally {
+        console.log(JSON.stringify({ scenario, engine: engineName, chronology }));
+        if(traceApiStale){resourcePhase='legacy-secondary-close';traceResource('secondary-context-close-start');}
+        await other.close();
+        if(traceApiStale){traceResource('secondary-context-close-complete');traceApiBoundary('legacy-before-final-gate');}
+      }
     } else if (scenario === 'helper-mount') {
       assert.equal(authSignIns,1,'exactly one native password-sign-in request follows the original form submit');
     } else if (scenario === 'diagnostic') {
@@ -702,7 +748,12 @@ const server = http.createServer((req, res) => {
       assert(refreshes > 0, 'foreground return must refresh an expired access token automatically');
       if (scenario !== 'terminal') await page.waitForFunction(() => document.querySelector('#accountIndicator [data-account-status]')?.dataset.accountStatus === 'signedIn');
     } else throw new Error('Unknown recovery scenario ' + scenario);
-    statuses.push(...await page.evaluate(() => globalThis.qaSyncStates || []));
+    if(traceApiStale){
+      const finalFacts=await page.evaluate(()=>({statuses:globalThis.qaSyncStates||[],liveRefreshPending:Boolean(liveFixtureRefresh),
+        liveMountScheduled:liveFixtureMountTimer!==null,followedSchedulePending:followedScheduleLoads.size>0,followRebuildPending:Boolean(followFeedRefreshInFlight)}));
+      statuses.push(...finalFacts.statuses);delete finalFacts.statuses;
+      traceResource('fixture-owner-facts',{context:'A',boundary:'final-existing-evaluation',...finalFacts});
+    }else statuses.push(...await page.evaluate(() => globalThis.qaSyncStates || []));
     if(cancelControl){
       const failure=failedScheduleRequests.get(controlBrowserRequest);
       if(failure!==undefined)assert.match(failure,/cancel|abort/i,'browser failure, when emitted, must describe cancellation');
