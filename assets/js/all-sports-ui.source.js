@@ -12,6 +12,24 @@
   const dateLabel=day=>new Intl.DateTimeFormat('en-AU',{timeZone:model().ZONE,weekday:'long',day:'numeric',month:'short'}).format(new Date(model().midnight(day)));
   function remember(){if(chrome?.root.isConnected){for(const t of chrome.body.querySelectorAll('[data-overlap-group]'))positions.set(range+':'+t.dataset.overlapGroup,t.scrollLeft);state().scroll=scrollY;}}
   function stop(){remember();revision++;clearInterval(timer);timer=null;controller?.abort();pollController?.abort();controller=null;pollController=null;loading=null;polling=null;}
+  function qualifyCard(slot,item){
+   const approximate=item.event.estimatedStartTimeUtc?' · Approximate timing only':'',text=item.underway?(match().liveState(item.event)==='playing'?'Underway':'Ongoing · '+(match().interruption(item.event)?.label||'Awaiting update')):item.tbc?(item.qualified?'May fall within this range':'Start time unavailable')+approximate:'';
+   let label=slot.querySelector(':scope > .as-qualifier');if(!text){label?.remove();return;}if(!label){label=el('small',null,'as-qualifier');slot.prepend(label);}label.textContent=text;
+  }
+  const cardKey=item=>{const e=item.event;return [match().id(e),e.status||'',e.name||'',e.displayTitleCompact||e.name||'',e.homeParticipantId||'',e.awayParticipantId||'',e.participants||[],e.participantSlots||[],e.startTimeUtc||'',e.estimatedStartTimeUtc||'',e.endTimeUtc||'',e.date||'',e.endDate||'',e.venue||'',e.court||'',e.competitionName||'',e.roundLabel||e.round||e.stage||'',e.sourceUrl||'',e.broadcaster||'',e.broadcastOptions||[]];};
+  const layoutKey=days=>JSON.stringify([range,expanded,days.map(day=>[day.day,day.groups.map(group=>[group.id,group.entries.map(cardKey)]),day.tbc.map(cardKey)])]);
+  // Score observations use the shared card updater so an in-flight disclosure
+  // press keeps its button and horizontal track. Structural changes still render.
+  function patchCards(days,key){
+   if(!days.length||chrome.layout!==key)return false;
+   const rows=days.flatMap(day=>[...day.groups.flatMap(group=>group.entries),...day.tbc]).map(item=>{const id=match().id(item.event),slot=chrome.body.querySelector(`[data-sports-id="${CSS.escape(id)}"]`);return {item,id,slot,card:slot?.querySelector('.event-card')};});
+   if(rows.some(({id,slot,card})=>!slot?.isConnected||card?.dataset.cardMode!=='schedule'||card.dataset.cardState!==(expanded===id?'opened':'compact')||expanded!==id&&!card.querySelector('.minimised-card-summary')))return false;
+   for(const {item,id,slot,card} of rows){
+    profileFixtureEvents.set(String(item.event.eventId||item.event.id),item.event);qualifyCard(slot,item);
+    if(expanded===id)installFeedLiveScore(card,item.event);else refreshMinimisedCard(card,item.event);
+   }
+   return true;
+  }
   function makeCard(item){
    const id=match().id(item.event),slot=el('div',null,'as-fixture');slot.dataset.sportsId=id;slot.classList.toggle('as-expanded',expanded===id);
    const card=buildEventCard(item.event,{mode:'schedule',cardState:expanded===id?'opened':'compact',onCardStateChange:()=>{
@@ -21,8 +39,7 @@
     const target=chrome.body.querySelector(`[data-sports-id="${CSS.escape(id)}"]`);(target?.querySelector('.event-card-disclosure,button')||target)?.focus({preventScroll:true});
    }});
    slot.append(card);
-   if(item.underway)slot.prepend(el('small',match().liveState(item.event)==='playing'?'Underway':'Ongoing · '+(match().interruption(item.event)?.label||'Awaiting update'),'as-qualifier'));
-   if(item.tbc){const approximate=item.event.estimatedStartTimeUtc?' · Approximate timing only':'';slot.prepend(el('small',(item.qualified?'May fall within this range':'Start time unavailable')+approximate,'as-qualifier'));}
+   qualifyCard(slot,item);
    return slot;
   }
   function groupNode(group){
@@ -36,7 +53,7 @@
    }
    requestAnimationFrame(()=>{if(track.isConnected)track.scrollLeft=positions.get(range+':'+group.id)||0;});return section;
   }
-  function render(){
+  function render(selected=false){
    if(!active())return;
    const host=document.getElementById('listView'),s=state(),mounting=!chrome?.root.isConnected,savedScroll=s.scroll;
    if(!chrome?.root.isConnected){
@@ -54,15 +71,14 @@
    const anchor=[...chrome.body.querySelectorAll('[data-sports-id]')].find(n=>{const r=n.getBoundingClientRect();return r.bottom>stickyFeedChromeHeight()+12&&r.left<innerWidth&&r.right>0;});
    const id=anchor?.dataset.sportsId,before=anchor?.getBoundingClientRect().top,focus=document.activeElement,focusSlot=focus?.closest('[data-sports-id]'),focusIndex=focusSlot?[...focusSlot.querySelectorAll('button,a,input,select,textarea')].indexOf(focus):-1;
    if(chrome.range===range&&!chrome.restoringScroll)remember();chrome.range=range;
-   const children=[];
-   for(const day of model().groups(model().select(s.events,s.window),s.window)){
+   const days=model().groups(model().select(s.events,s.window),s.window),key=layoutKey(days),patched=selected&&patchCards(days,key),children=[];
+   if(!patched)for(const day of days){
     const section=el('section',null,'as-date');section.append(el('h3',dateLabel(day.day)));
     day.groups.forEach(group=>section.append(groupNode(group)));
     if(day.tbc.length){const unknown=el('section',null,'as-tbc');unknown.append(el('h4','Time TBC'));day.tbc.forEach(item=>unknown.append(makeCard(item)));section.append(unknown);}
     children.push(section);
    }
-   if(!children.length&&!loading)children.push(el('p',s.complete?'No known fixtures in this range.':'No published fixtures loaded yet. Refresh to retry.'));
-   chrome.body.replaceChildren(...children);
+   if(!patched){if(!children.length&&!loading)children.push(el('p',s.complete?'No known fixtures in this range.':'No published fixtures loaded yet. Refresh to retry.'));chrome.body.replaceChildren(...children);chrome.layout=key;}
    if(mounting){const mounted=chrome;requestAnimationFrame(()=>{if(mounted===chrome&&mounted.root.isConnected){scrollTo({top:savedScroll,behavior:'auto'});mounted.restoringScroll=false;}});}
    if(id){const next=chrome.body.querySelector(`[data-sports-id="${CSS.escape(id)}"]`);if(next)scrollBy({top:next.getBoundingClientRect().top-before,behavior:'auto'});}
    if(focusSlot&&focusIndex>=0)chrome.body.querySelector(`[data-sports-id="${CSS.escape(focusSlot.dataset.sportsId)}"]`)?.querySelectorAll('button,a,input,select,textarea')[focusIndex]?.focus({preventScroll:true});
@@ -110,8 +126,8 @@
     const response=await fetch('/api/match-centre?view=all-sports&ids='+encodeURIComponent(ids.join(',')),{signal:AbortSignal.any([abort.signal,AbortSignal.timeout(5000)])});if(!response.ok)throw Error();const data=await response.json();if(!valid(t))return;
     if(data.enabled!==true||!Array.isArray(data.fixtures)||!Array.isArray(data.events))throw Error();
     const byId=new Map(data.events.filter(e=>ids.includes(match().id(e))).map(e=>[match().id(e),e])),scores=new Map(data.fixtures.filter(e=>ids.includes(e.id)).map(e=>[e.id,e]));
-    s.events=s.events.map(e=>{const id=match().id(e);if(!ids.includes(id))return e;const current=byId.get(id)||e,snapshot=scores.get(id);return snapshot?{...current,...match().observation(match().compact(current),snapshot),id:e.id,eventId:e.eventId,canonicalEventId:e.canonicalEventId}:{...e,stale:true};});render();
-   }catch{if(valid(t)){s.events=s.events.map(e=>ids.includes(match().id(e))?{...e,stale:true}:e);s.notice='Current scores are unavailable. Showing last available fixture information.';render();}}
+    s.events=s.events.map(e=>{const id=match().id(e);if(!ids.includes(id))return e;const current=byId.get(id)||e,snapshot=scores.get(id);return snapshot?{...current,...match().observation(match().compact(current),snapshot),id:e.id,eventId:e.eventId,canonicalEventId:e.canonicalEventId}:{...e,stale:true};});render(true);
+   }catch{if(valid(t)){s.events=s.events.map(e=>ids.includes(match().id(e))?{...e,stale:true}:e);s.notice='Current scores are unavailable. Showing last available fixture information.';render(true);}}
    finally{if(polling===operation){polling=null;pollController=null;}}})();polling=operation;return operation;
   }
   function start(){
