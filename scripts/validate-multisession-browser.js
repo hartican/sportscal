@@ -21,7 +21,7 @@ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(
           nowAEST=()=>new Date('2026-10-24T00:00:00Z');activeTab='feed';activeView='list';activeFilter='all';document.documentElement.dataset.theme=theme;
           const fixture=(session,start)=>({id:'event:f1:2026:qa-weekend:'+session,key:'f1',name:'QA Grand Prix · '+session,sessionType:session,startTimeUtc:start,date:NOTHINGSPORTS_CALENDAR.sydneyDay(new Date(start)),timePrecision:'exact',status:'upcoming',scheduleStatus:'confirmed',sourceUrl:'https://organiser.example/qa',sourceCheckedAt:'2026-10-23T00:00:00Z',venue:'QA Circuit',participantIds:[],participants:[]});
           const sessions=[fixture('practice-1','2026-10-24T01:00:00Z'),fixture('qualifying','2026-10-24T03:00:00Z'),fixture('race','2026-10-25T03:00:00Z')];
-          activeEvents=sessions;majorEventsDocument={events:[]};tennisFeedParentDocument={tournaments:[]};
+          globalThis.qaGroupedSessions=sessions;activeEvents=sessions;majorEventsDocument={events:[]};tennisFeedParentDocument={tournaments:[]};
           renderListView();const list=document.getElementById('listView');
           const cards=[...list.querySelectorAll('.multisession-card')],practice=list.querySelector('[data-session-id$="practice-1"]');
           return {reminders:cards[0]?.querySelectorAll('.multisession-today [data-reminder-action-key]').length,cards:cards.length,todayRows:cards[0].querySelectorAll('.multisession-today > .multisession-row').length,practiceUnrated:practice.textContent.includes('Unrated practice')&&!practice.querySelector('[data-rating-phase]'),fullRows:cards[0].querySelectorAll('.multisession-full > .multisession-row').length,firstClock:cards[0].querySelector('time').dateTime,children:sessions.map(e=>e.id)};
@@ -34,6 +34,7 @@ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(
         receipts.push({engine,width,theme,...proof});
       }
       const reminders=await page.evaluate(async()=>{
+        activeEvents=qaGroupedSessions;renderListView();
         const card=document.querySelector('.multisession-card'),row=card.querySelector('.multisession-today .multisession-row'),session=activeEvents.find(e=>e.id===row.dataset.sessionId),other=activeEvents.find(e=>e.sessionType==='qualifying'),requests=[];
         ensureWebPushReminder=async(event,timing)=>{requests.push({id:NOTHINGSPORTS_MULTISESSION.id(event),...timing});return {scheduled:true};};
         removeWebPushReminder=async event=>{requests.push({id:NOTHINGSPORTS_MULTISESSION.id(event),cancelled:true});return {removed:true};};
@@ -53,6 +54,15 @@ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(
         activeEvents=sessions;updateEventAction(qualifying,{archived:false});return {restoredArchived,focused,routed};
       });
       assert(!routing.restoredArchived,'Cached closure cannot restore an archived session');assert(routing.focused);assert.equal(routing.routed,'event:f1:2026:qa-weekend:race','Rating notification uses exact competitive child');
+      const actualGolf=require('../data/code-inspector/golf.json').fixtures.filter(e=>e.golfMajorCalendar&&e.season==='2027'&&e.majorSlug==='masters');
+      await page.setViewportSize({width:390,height:1000});
+      await page.evaluate(events=>{activeEvents=events;document.documentElement.dataset.theme='day';renderListView();},actualGolf);
+      await page.locator('.multisession-card').first().waitFor();
+      assert.equal(await page.locator('.multisession-card').count(),4,'Official Masters round days use grouped cards');
+      assert((await page.locator('.multisession-card').first().innerText()).includes('Time TBC'));
+      assert.equal(await page.locator('.multisession-card').first().locator('.multisession-today [data-reminder-action-key]').count(),0,'Unpublished first tee clocks cannot schedule reminders');
+      if(process.env.QA_EVIDENCE_DIR)await page.screenshot({path:path.join(process.env.QA_EVIDENCE_DIR,`${engine}-masters-2027-390.png`)});
+      await page.evaluate(()=>{activeEvents=qaGroupedSessions;});
       const follow=await page.evaluate(async()=>{
         activeTab='follow';followHomeView='browse';activeInspectorCodeId=null;saveFollowBrowse({sportId:'sport:tennis',categoryId:'',section:'teams-players',genderBySport:{}});renderFollowView();
         const palette=()=>[...document.querySelectorAll('.follow-sport-bar [data-follow-sport]')].map(b=>b.dataset.followSport),before=palette(),choices=JSON.stringify(userPreferences.selectedSelectorEntityIds);
