@@ -32,7 +32,7 @@ node scripts/validate-public-comments-database.js --reviewed-baseline
 
 3. **Reader access denial.** Explicit account-unavailable/registered-access denial clears cached rows, draft, GIF state and composer, aborts/stops automatic reads and fences late write acknowledgements. Ordinary offline errors retain content and the existing thirty-second retry backoff. Retirement retains the same clear/stop behavior.
 
-4. **Retirement freshness.** One existing selected refresh must return `stale:false` and include the exact canonical thread ID in `checkedIds` before any retirement RPC or check-clock write. Stale/failed/omitted/unverified receipts defer without effects or another read. Healthy matching finals still use the existing shared retirement policy. Tests cover all failure/omission controls and healthy one-/two-ID cases.
+4. **Retirement freshness.** One existing selected refresh must return `stale:false` and include the exact canonical thread ID in `checkedIds` before any retirement RPC or source/snapshot observation write. The later fairness follow-up below separately records bounded scheduling attempts. Stale/failed/omitted/unverified receipts defer retirement/source changes without another read; the existing scheduling receipt rotates separately as described below. Healthy matching finals still use the existing shared retirement policy. Tests cover all failure/omission controls and healthy one-/two-ID cases.
 
 5. **Untracked cold-alert navigation.** Alert entry uses the existing notification destination dialog owner and PR37's opt-in full-card adapter. It never calls ordinary tab/focus rendering, mounts/marks a personal Feed slot or persists admission/open/seen/card choices. Full fixture and tray share one scroll container. Async media controls cover exact aliases, account-lifetime change, removed Feed membership and current Results choice. Normal Feed comment expansion remains inline under its existing full card. Native layout and final shared-adapter qualification remain separate gates.
 
@@ -58,6 +58,23 @@ node scripts/validate-public-comment-picker.js --case=privacy --reviewed-baselin
 ```
 
 The earlier six-finding REDs above, and the real PostgreSQL erasure/inventory/operator/workflow execution, retain their separate status and source bindings. No engine/native/shared operation or version allocation accompanies this follow-up.
+
+## Standards follow-up after `cee38c7e`
+
+ROOT's full `95885e63`→`cee38c7e` delta was Spec-clear, with two remaining Standards cases. The earlier ROOT Node24.21.0 light/startup pass stays bound to `cee38c7e`, not this later candidate. Both new cases have deterministic light RED→GREEN controls:
+
+```bash
+node scripts/validate-public-comment-erasure-access.js --reviewed-baseline
+node scripts/validate-public-comment-retirement.js --starvation-only --starvation-baseline
+```
+
+The first evaluates the actual tray and traverses the unchanged SDK, actual public API handler and real `authenticatedUser` implementation. Mock Auth HTTP returns the real server-owned erasure marker; the actual helper produces403 `account_erasure_in_progress` before SQL. On `cee38c7e` the cached discussion remains visible, so the exact clear assertion fails. The repaired tray recognises that distinct code, clears comments/draft/composer and fences an already-pending SDK write receipt. Real Auth transport failure preserves content/backoff, and a user-editable metadata marker does not acquire authority. HTTP/SQL remain mocked.
+
+The second runs five successive bounded maintenance passes over five threads. The permanently omitted first two repeatedly starve a later final on `cee38c7e`. The repair batch-updates only **the existing `public_threads.checked_at` scheduling-attempt receipt** for at most two selected rows before the one selected-source read. The existing thirty-minute/oldest-first scheduling then reaches the later final; only its exact healthy checked-ID proof permits the existing retirement RPC/shared policy. Unverified descriptors and their source-observation timestamps stay unchanged. Stale, missing, failed and partial read controls still prohibit retirement for unverified IDs and add no source retry.
+
+Database contract disclosure: no new column, table, RPC, grant or DDL change. The sole added backend operation is one bounded batch PATCH of the existing scheduling field per nonempty pass, on the existing maintenance owner/request budget; the two-thread/read budget is unchanged. `checked_at` schedules attempts and is not a sporting/source observation. All mutation bodies in the fairness regression are checked to contain only that receipt, and unverified `fixture` content/source clocks are compared unchanged. This is source/mock proof, not actual database fairness or automatic scheduled retirement.
+
+Both tests join the existing light aggregate; the original six-finding REDs, picker REDs and held real PostgreSQL erasure/inventory/operator/workflow execution remain distinct and unwaived. No heavy/native/shared action, new review pair, publication lane or version allocation accompanies this repair.
 
 ## Verification and boundaries
 

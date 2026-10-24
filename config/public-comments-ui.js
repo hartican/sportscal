@@ -22,7 +22,7 @@
   const entries=new Map(),nodes=new Map(),replyCursors=new Map(),versions=new Map();
   const current=()=>!disposed&&!halted&&token===generation&&owner===client.owner()&&client.registered()&&host.isConnected;
   const shown=()=>current()&&!halted&&!document.hidden&&client.active()&&visible;
-  const report=e=>{if(!current())return;backoff=true;status.textContent=e?.message||'Comments are temporarily unavailable.';if(['public_comments_retired','public_comment_account_unavailable','account_required'].includes(e?.code)||e?.status===401){halted=true;stop();gifController?.closePicker();gifController=null;entries.clear();nodes.clear();versions.clear();replyCursors.clear();input.value='';chosenGif=null;parentId=null;clientId=null;preview.replaceChildren();list.replaceChildren();form.remove();more.hidden=true;}};
+  const report=e=>{if(!current())return;backoff=true;status.textContent=e?.message||'Comments are temporarily unavailable.';if(['public_comments_retired','public_comment_account_unavailable','account_erasure_in_progress','account_required'].includes(e?.code)||e?.status===401){halted=true;stop();gifController?.closePicker();gifController=null;entries.clear();nodes.clear();versions.clear();replyCursors.clear();input.value='';chosenGif=null;parentId=null;clientId=null;preview.replaceChildren();list.replaceChildren();form.remove();more.hidden=true;}};
   function stop(){clearTimeout(timer);timer=null;abort?.abort();abort=null;}
   function schedule(){clearTimeout(timer);if(shown())timer=setTimeout(()=>void poll(),backoff?policy.POLLING.failure:policy.pollDelay(lastChange));}
   function render(){
