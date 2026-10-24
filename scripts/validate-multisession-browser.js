@@ -57,11 +57,13 @@ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(
       const actualGolf=require('../data/code-inspector/golf.json').fixtures.filter(e=>e.golfMajorCalendar&&e.season==='2027'&&e.majorSlug==='masters');
       await page.setViewportSize({width:390,height:1000});
       await page.evaluate(events=>{activeEvents=events;document.documentElement.dataset.theme='day';renderListView();},actualGolf);
-      await page.locator('.multisession-card').first().waitFor();
-      assert.equal(await page.locator('.multisession-card').count(),4,'Official Masters round days use grouped cards');
-      assert((await page.locator('.multisession-card').first().innerText()).includes('Time TBC'));
-      assert.equal(await page.locator('.multisession-card').first().locator('.multisession-today [data-reminder-action-key]').count(),0,'Unpublished first tee clocks cannot schedule reminders');
-      if(process.env.QA_EVIDENCE_DIR)await page.screenshot({path:path.join(process.env.QA_EVIDENCE_DIR,`${engine}-masters-2027-390.png`)});
+      const golfCards=page.locator('.multisession-card[data-event-group-id="event:golf:masters-2027"]');
+      await golfCards.first().waitFor();
+      assert.equal(await golfCards.count(),4,'Official Masters round days use grouped cards');
+      assert((await golfCards.first().innerText()).includes('Time TBC'));
+      assert.deepEqual(await golfCards.locator('.multisession-today .multisession-session-label').allTextContents(),['Round 1','Round 2','Round 3','Round 4']);
+      assert.equal(await golfCards.first().locator('.multisession-today [data-reminder-action-key]').count(),0,'Unpublished first tee clocks cannot schedule reminders');
+      if(process.env.QA_EVIDENCE_DIR)await golfCards.first().screenshot({path:path.join(process.env.QA_EVIDENCE_DIR,`${engine}-masters-2027-390.png`)});
       await page.evaluate(()=>{activeEvents=qaGroupedSessions;});
       const follow=await page.evaluate(async()=>{
         activeTab='follow';followHomeView='browse';activeInspectorCodeId=null;saveFollowBrowse({sportId:'sport:tennis',categoryId:'',section:'teams-players',genderBySport:{}});renderFollowView();

@@ -29,7 +29,7 @@
       for(const session of sessions){
         const row=node('div',null,'multisession-row');row.dataset.sessionId=model.id(session);
         const clock=model.start(session),time=node('time',Number.isFinite(clock)?new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',hour:'numeric',minute:'2-digit'}).format(new Date(clock)):'Time TBC');if(Number.isFinite(clock))time.dateTime=new Date(clock).toISOString();
-        const label=node('span',String(session.sessionType||session.roundLabel||session.name).replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase()),'multisession-session-label');
+        const label=node('span',String((['golf','masters'].includes(session.key)?session.roundLabel:null)||session.sessionType||session.roundLabel||session.name).replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase()),'multisession-session-label');
         if(withDay)label.prepend(document.createTextNode((model.day(session)||'Date TBC')+' · '));
         row.append(time,label);if(model.id(session)===model.id(next||{}))row.append(node('span','Next','multisession-next'));
         if(/cancelled|canceled|postponed|abandoned/.test(session.status||''))row.append(node('span',session.status,'fixture-status'));
