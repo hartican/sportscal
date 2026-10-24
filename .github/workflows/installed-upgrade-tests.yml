@@ -12,6 +12,8 @@ on:
       - styles/**
       - scripts/validate-installed-pwa-upgrade-browser.js
       - scripts/validate-account-sync-recovery-browser.js
+      - scripts/lib/installed-test-network.js
+      - scripts/validate-installed-test-network.js
       - .github/workflows/installed-upgrade-tests.yml
 
 permissions:
@@ -87,6 +89,7 @@ jobs:
         run: |
           export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
           set -o pipefail
+          node scripts/validate-installed-test-network.js
           node scripts/validate-installed-pwa-upgrade-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/browser.log"
       - name: Verify account recovery and copied diagnostics
         env:

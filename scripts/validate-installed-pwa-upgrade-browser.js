@@ -10,6 +10,7 @@ const {chromium, webkit} = require(process.env.PLAYWRIGHT_MODULE || 'playwright'
 const {assertFollowPickerJourney}=require('./validate-follow-presentation-browser');
 const {assertDirectoryDefaults}=require('./validate-recognised-follow-teams-browser');
 const root = path.resolve(__dirname,'..');
+const installedNetwork=require('./lib/installed-test-network').create();
 const {assertDiamondsFeed}=require('./validate-diamonds-retained-browser');
 async function assertCurrentScheduleAndScoreCaches(page){
  for(const slug of ['football','netball']){
@@ -596,7 +597,9 @@ function candidateFile(name){
   return bytes;
 }
 const server=http.createServer((req,res)=>{
+  if(installedNetwork.handleRequest(req))return;
   if(networkFailure){req.socket.destroy();return;}
+  if(installedNetwork.preflightDocument(req,res))return;
   let name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/+/, '')||'index.html';
   if(name==='app-version.json')versionRequests++;
   if(name.includes('..')){res.writeHead(400);res.end();return;}
@@ -608,12 +611,15 @@ const server=http.createServer((req,res)=>{
   res.writeHead(200,{...(phase==='candidate'?candidateHeaders:{}),'content-type':type,'cache-control':'no-store'});res.end(bytes);
 });
 (async()=>{
-  let browser;
+  let browser,originalFailure;
   try{
     await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
     const origin='http://127.0.0.1:'+server.address().port;
-    browser=await (process.env.PWA_BROWSER==='webkit'?webkit:chromium).launch({headless:true,...launchOptions});
+    installedNetwork.setOrigin(origin);installedNetwork.attachServer(server);
+    browser=await (process.env.PWA_BROWSER==='webkit'?webkit:chromium).launch({headless:true,...launchOptions,...installedNetwork.launchOptions()});
+    await installedNetwork.preflight(browser,{version:baselineVersion,indexSha256:crypto.createHash('sha256').update(baselineFile('index.html')).digest('hex')});
     const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,serviceWorkers:'allow'});
+    await installedNetwork.attachContext(context);
     await context.addInitScript(()=>{globalThis.qaUpgradeMessages=[];navigator.serviceWorker?.addEventListener('message',event=>{if(event.data?.type?.startsWith('nothingsport-'))qaUpgradeMessages.push({type:event.data.type,version:event.data.version||null,at:performance.now()});});});
     const page=await context.newPage();
     const pending=new Set(); context.on('request',r=>pending.add(r.url()));context.on('requestfinished',r=>pending.delete(r.url()));context.on('requestfailed',r=>pending.delete(r.url()));
@@ -734,6 +740,7 @@ const server=http.createServer((req,res)=>{
     // The later original NFL/table probes intentionally exercise men's fixtures.
     await upgraded.getByRole('tab',{name:'Men',exact:true}).tap();
     await upgraded.locator('.tabs [data-tab=feed]').tap();
+    installedNetwork.assertIsolated();
     await context.setOffline(true);
     await upgraded.evaluate(()=>NOTHINGSPORTS_APP_UPDATE.check({force:true}));
     assert.equal(await upgraded.evaluate(()=>NOTHINGSPORTS_APP_UPDATE.snapshot().phase),'offline');
@@ -793,6 +800,11 @@ const server=http.createServer((req,res)=>{
     await assertSavedNativeChoices(upgraded);
     await upgraded.waitForTimeout(3500);
     assert(upgradeNavigations<=4,'No repeat navigation after resumed update: '+JSON.stringify({frames:upgradeNavigationLog,documents:upgradeDocuments}));
+    installedNetwork.assertIsolated();
     console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,oldScheduleAndScoreKeysWarmed:warmedOld,retainedSchedulesAndCurrentScoreOwners:true,legacyAutomaticCatchup:true,upgradeNavigations,upgradeDocuments,frameNavigationEvents:upgradeNavigationLog,preferencesPreserved:true,nativeDispositionAndRemindOffVerified:!!savedSelection.entities,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true,canonicalFinalResultsCacheVerified:true,minimisedRowsCacheVerified:true,multidayRetentionCacheVerified:true,cricketStatusCacheVerified:true,nhlViewingCacheVerified:true,matchCentreCacheVerified:true,fontCacheVerified:true},null,2));
-  }finally{await browser?.close();await new Promise(resolve=>server.close(resolve));}
+  }catch(error){originalFailure=error;throw error;}
+  finally{
+    try{await installedNetwork.close(browser,server,originalFailure);}
+    finally{console.log('Installed test network',JSON.stringify(installedNetwork.snapshot()));}
+  }
 })().catch(error=>{console.error(error);process.exitCode=1;});
