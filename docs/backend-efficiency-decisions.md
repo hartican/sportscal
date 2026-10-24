@@ -1,5 +1,19 @@
 # Backend efficiency decisions
 
+## Scoped current Cricket through the existing refresh owner — 25 October 2026
+
+Permit only `--live --live-source=cricket-ca-current` in the canonical
+`update-cards.js` entrypoint, alongside the existing tennis scope. Select that
+one existing adapter through the unchanged coordinator/store/lease and 45-second
+scheduling budget; reject unsupported, duplicate and conflicting scoped flags
+before source work. Preserve genuine observations, unchanged fact hashes and
+original retained clocks. Local-only still permits shared-data writes; ROOT
+alone allocates any live run and publication. No scheduler resumes, configuration
+change, provider retry or freshness-gate relaxation is added. The real-dispatch
+regression joins the existing update-cards contract. Source budgets, conditional
+milestone writes and unchanged-poll limitations are recorded in
+[the handover](quality/cricket-live-scope-2026-10-25.md).
+
 ## Typed existing Cricket Follow formats — 25 October 2026 Sydney
 
 The actual592 phone reports initial record_validation / record_unknown_field / intent / entities. The established Cricket format writer emits cricketFormats, which the bounded receipt planner omitted. Its real writer → persisted receipt/restart → compiled helper/manual queue → actual local API path reproduces that exact refusal; removing only the test field passes with the same restored older receipt generation. This proves a source schema bug, without identifying the private phone field or guaranteeing that its remaining choices are independent. The live-job and receipt-generation observations describe different lifetimes; the latter is not an independent refusal here.
