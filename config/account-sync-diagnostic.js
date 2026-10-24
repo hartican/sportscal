@@ -56,11 +56,17 @@
     }
     return parts;
   }
+  function containerShapes(value){
+    return Object.fromEntries(Object.keys(nestedFamilies).filter(key=>Object.hasOwn(value,key))
+      .map(key=>[key,object(value[key])?{}:value[key]]));
+  }
   function changedFamilies(first,second,compare){
     const before=partitions(first),after=partitions(second);
     const changed=families.filter(family=>!compare(before[family],after[family]));
-    // Shapes not represented by the fixed families still get a fixed bucket.
-    if(!changed.length&&!compare(first,second))changed.push('unknown');
+    // Fixed partitions erase parent presence; compare that shape independently
+    // so a known change cannot conceal a simultaneous structural difference.
+    const shapeChanged=!compare(containerShapes(first),containerShapes(second));
+    if(!changed.includes('unknown')&&(shapeChanged||(!changed.length&&!compare(first,second))))changed.push('unknown');
     return changed;
   }
   function preferenceDifferences(receipt,remote,compare,accepted){

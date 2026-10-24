@@ -44,6 +44,19 @@ module.exports=async function differenceTests(){
   }
   assert.equal(outcomes[0],outcomes[1],'diagnostics leave actual branch/error/calls/saved state identical');
  }
+ // Mixed known changes cannot hide comparator-significant container shapes.
+ {
+  const c=context(sources());c.PROFILE_STORAGE=profile;
+  const receipt={ownerId:'A',basePreferences:{theme:'day'},preferences:{theme:'system',preferenceGraph:{}}};
+  c.pendingPreferenceIntent=()=>receipt;
+  c.serverSyncClient.accountSnapshot=()=>({accountId:'A',generation:0,hasSession:true});
+  c.serverSyncClient.loadState=async()=>{c.calls.reads++;return{user:{id:'A'},state:{preferences:{theme:'night',followFirst:{}}}};};
+  mount(c);let caught;try{await c.syncCurrentServerState();}catch(error){caught=error;}
+  assert.equal(caught.code,'preference_base_changed');assert.equal(c.calls.reads,1);assert.equal(c.calls.writes,0);
+  const controls={children:[],appendChild(button){this.children.push(button);}};c.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.appendRetry(controls);await controls.children[0].click();
+  const copy=JSON.parse(c.copied);
+  for(const key of ['baseToRemote','localEdits','localToRemote'])assert.deepEqual(copy.preferenceDifferences[key],['appearance','unknown'],key+' retains mixed shape differences');
+ }
  // The diagnostic must observe the same R1 receipt as the actual verifier,
  // even if a newer R2 is recorded while the read is outstanding.
  for(const mismatch of [false,true]){
@@ -69,6 +82,14 @@ module.exports=async function differenceTests(){
  for(const pair of [[{}, {followFirst:{}}],[{followFirst:{}},{}],[{preferenceGraph:null},{preferenceGraph:{}}]]){
   const diff=diagnostic.preferenceDifferences({basePreferences:pair[0],preferences:pair[0]},pair[1],compare);assert(diff.baseToRemote.includes('unknown'),'unmapped shapes get fixed unknown bucket');
  }
+ for(const [first,second] of [[{}, {followFirst:{}}],[{followFirst:{}},{}],[{}, {preferenceGraph:{}}],[{preferenceGraph:{}},{}],[{preferenceGraph:null},{preferenceGraph:{}}]]){
+  const before={...first,theme:'day'},after={...second,theme:'night'};
+  const diff=diagnostic.preferenceDifferences({basePreferences:before,preferences:before},after,compare);
+  assert.deepEqual(diff.baseToRemote,['appearance','unknown'],'known and shape changes coexist');
+ }
+ const ignoredMixed=diagnostic.preferenceDifferences({basePreferences:{theme:'day',followFirst:{},preferenceGraph:{}},preferences:{theme:'day',followFirst:{},preferenceGraph:{}}},
+  {theme:'night',followFirst:{appliedSeedHash:'automatic'},preferenceGraph:{profileId:'local'}},compare);
+ assert.deepEqual(ignoredMixed.baseToRemote,['appearance'],'ignored field changes do not invent a shape mismatch');
  const recorder=diagnostic.create(),handle=recorder.begin({current:()=>true,facts:()=>({preferenceDifferences:{baseToRemote:[sentinel],localEdits:['entities'],localToRemote:[sentinel],receiptBaseMatchesAccepted:sentinel}})});
  handle.step('verify');const copy=JSON.stringify(recorder.snapshot());assert(!copy.includes(sentinel));assert.deepEqual(recorder.snapshot().preferenceDifferences.baseToRemote,['unknown']);
  assert.equal(recorder.snapshot().preferenceDifferences.receiptBaseMatchesAccepted,null);
