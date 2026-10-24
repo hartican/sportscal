@@ -22,8 +22,10 @@
   const entityFields={profileId:text,participantId:text,followLevel:value=>['follow','priority','unfollow','mute'].includes(value)};
 
   function localView(preferences){
-    if(Object.hasOwn(preferences,'feedCompact')&&!boolean(preferences.feedCompact))return false;
-    if(!Object.hasOwn(preferences,'followBrowse'))return true;
+    // The existing apply owner preserves untouched optional views as own
+    // undefined RAM values; JSON receipt/profile storage represents them absent.
+    if(preferences.feedCompact!==undefined&&!boolean(preferences.feedCompact))return false;
+    if(preferences.followBrowse===undefined)return true;
     const browse=preferences.followBrowse;
     // These are the existing viewOnly writer's fields, not arbitrary preferences.
     const fields={sportId:text,categoryId:text,section:value=>['teams-players','schedule'].includes(value),
