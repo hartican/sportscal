@@ -62,6 +62,14 @@ ACCOUNT_RECOVERY_CASE=all node scripts/validate-account-sync-recovery-browser.js
 
 These new mounted cases are authored and syntax-checked, unexecuted by this worker. The full invocation includes nineteen cases per engine. Preserve failures and fix the actual path rather than relaxing the assertions or expanding the conflict policy.
 
+## Native harness timing correction after frozen4667
+
+ROOT's renewed Chromium `receipt-base-disjoint` run on4667 failed before any sync assertion: the visible Tune modal intercepted the native Sync now click. Preserve `/Users/jackhartican/Documents/AI/Codex/ios-account-sync-20261024/deploy-v591/native-4667/native-chromium-receipt-base-disjoint.log`; the remaining three cases were not run and no unchanged retry is claimed. Both final source reviews cleared4667 independently.
+
+Source timing explains the test-order defect: `runStartupPostLoadActions` records the named automatic promptedAt marker, then schedules Tune visibility250ms later, independently of Account button readiness. The harness checked prompt visibility only once before waiting for that button, so the modal could appear after the check. The Not now button deliberately saves refinement.deferred; using it after the stale receipt would introduce a real unaccounted preference and should correctly hold under the reviewed product policy.
+
+Only the mounted receipt-base test path changes: register a one-use visible-overlay handler around the existing native Sync click. It verifies an actual backdrop hit point, uses the existing native backdrop-dismiss gesture and waits for hidden state. That application gesture closes the prompt without saving a preference. The harness asserts projected choices and the exact owned receipt remain unchanged, then retains every original disjoint/overlap sync assertion. The handler is removed immediately after the action. No force click, hidden prompt mutation/suppression, sleep/time padding, blanket handler or test retry is added. Existing seventeen scenarios remain; no product, helper,591 metadata or historical decision record changes. This correction is syntax-checked only by the worker; ROOT owns renewed native execution and qualification.
+
 ## Shared dependencies, cache and download budget
 
 Shared seams: `index.html` reconciliation/ACK/apply, `config/profile-storage.js` ACK, generated app-shell runtime, deferred Account helper/build inputs, helper cache references and both decision records. Reconcile these with current main and other owners before integration. Original base is `3501e6f067da2303718fc75be0d092db9ba0905b`; this returned delta fast-forwards from ROOT's `2c70f89bd20132dd1041ee2712dbd1f0375f2521`.

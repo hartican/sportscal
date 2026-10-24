@@ -241,10 +241,28 @@ const server = http.createServer((req, res) => {
       holdHelper=false;for(const route of heldHelpers.splice(0))await route.continue();
       await page.evaluate(()=>ensureAccountIndicator());
       assert.deepEqual(await page.evaluate(()=>pendingPreferenceIntent(serverPersistence.user.id)),original,'helper mount cannot rewrite pending base');
-      await page.evaluate(()=>{Object.defineProperty(navigator,'onLine',{configurable:true,value:true});openSettings({section:'account'});});
-      for(const id of ['dismissTunePromptBtn','skipSelectorOptInBtn']){const button=page.locator('#'+id);if(await button.isVisible())await button.click();}
-      await page.waitForFunction(()=>!document.getElementById('syncAccountNowBtn')?.disabled);
-      await page.locator('#syncAccountNowBtn').click();
+      // Startup may show Tune 250ms after recording promptedAt, independently
+      // of Account button readiness. Handle its visible overlay at action time.
+      // Native backdrop dismissal closes it without the Not now preference edit.
+      const tuneModal=page.locator('#tunePromptModal');
+      await page.addLocatorHandler(tuneModal,async modal=>{
+        const before=await page.evaluate(()=>({preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id)}));
+        assert(await modal.evaluate(element=>{const rect=element.getBoundingClientRect();return document.elementFromPoint(rect.left+4,rect.top+4)===element;}),'native dismiss point must hit the visible Tune backdrop');
+        await modal.click({position:{x:4,y:4}});
+        await modal.waitFor({state:'hidden'});
+        const after=await page.evaluate(before=>({receipt:pendingPreferenceIntent(serverPersistence.user.id),
+          unchanged:PROFILE_STORAGE.preferenceBaseMatches({basePreferences:before.preferences},userPreferences)}),before);
+        assert.equal(after.unchanged,true,'backdrop dismissal cannot change projected choices');
+        assert.deepEqual(after.receipt,before.receipt,'backdrop dismissal cannot change the owned receipt');
+        chronology.push({phase:'native-tune-backdrop-dismissal',choicesUnchanged:true,receiptUnchanged:true});
+        console.log(JSON.stringify({phase:'native-tune-backdrop-dismissal',scenario,engine:engineName,choicesUnchanged:true,receiptUnchanged:true}));
+      },{times:1});
+      try{
+        await page.evaluate(()=>{Object.defineProperty(navigator,'onLine',{configurable:true,value:true});openSettings({section:'account'});});
+        const selectorSkip=page.locator('#skipSelectorOptInBtn');if(await selectorSkip.isVisible())await selectorSkip.click();
+        await page.waitForFunction(()=>!document.getElementById('syncAccountNowBtn')?.disabled);
+        await page.locator('#syncAccountNowBtn').click();
+      }finally{await page.removeLocatorHandler(tuneModal);}
       await page.evaluate(()=>serverSyncSequence.catch(()=>{}));
       const after=await page.evaluate(()=>({state:serverPersistence.state,receipt:pendingPreferenceIntent(serverPersistence.user.id),preferences:clonePreferences(userPreferences)}));
       if(scenario==='receipt-base-overlap'){
