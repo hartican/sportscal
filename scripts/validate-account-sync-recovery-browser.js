@@ -236,27 +236,49 @@ const server = http.createServer((req, res) => {
     async function settlePrimaryFixtureBeforeReload(){
       const epoch=documentEpoch,counts={reads,writes};
       await observeFixtureControl((async()=>{
-        const before=await page.evaluate(async()=>{
-          const before={preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id),
-            account:serverSyncClient.accountSnapshot().accountId,generation:serverSyncClient.accountSnapshot().generation,baseline:serverStateBaseline.updatedAt};
-          const owner=liveFixtureRefresh;if(owner)await owner;
-          return before;
-        });
-        const requests=[...tracedRequests].filter(([,item])=>item.path==='/api/fixtures'&&item.startedEpoch===epoch);
-        const outcomes=await Promise.all(requests.map(([request])=>fixtureTerminals.get(request).promise));
-        for(const outcome of outcomes)assert.equal(outcome.kind,'finished','fixture read failed or was cancelled before reload');
-        const after=await page.evaluate(before=>({unchanged:PROFILE_STORAGE.preferenceBaseMatches({basePreferences:before.preferences},userPreferences),
-          receipt:pendingPreferenceIntent(serverPersistence.user.id),account:serverSyncClient.accountSnapshot().accountId,
-          generation:serverSyncClient.accountSnapshot().generation,baseline:serverStateBaseline.updatedAt,
-          liveRefreshPending:Boolean(liveFixtureRefresh),liveMountScheduled:liveFixtureMountTimer!==null}),before);
-        assert.equal(after.unchanged,true,'fixture completion preserves projected choices');
-        for(const key of ['receipt','account','generation','baseline'])assert.deepEqual(after[key],before[key],'fixture completion preserves '+key);
-        assert.equal(after.liveRefreshPending,false,'a new live fixture owner remains active');
-        assert.equal(after.liveMountScheduled,false,'scheduled live fixture work remains before reload');
-        for(const [request,item] of tracedRequests)if(item.path==='/api/fixtures'&&item.startedEpoch===epoch)
-          assert.equal(fixtureTerminals.get(request).result?.kind,'finished','new or failed fixture work remains before reload');
-        assert.equal(documentEpoch,epoch,'fixture completion cannot navigate');assert.deepEqual({reads,writes},counts,'fixture completion cannot issue account operations');
-        traceResource('legacy-fixture-work-complete',{requests:requests.length,ownerPending:false,scheduled:false,choicesUnchanged:true,receiptUnchanged:true});
+        const before=await page.evaluate(()=>({preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id),
+          account:serverSyncClient.accountSnapshot().accountId,generation:serverSyncClient.accountSnapshot().generation,baseline:serverStateBaseline.updatedAt}));
+        while(true){
+          const phase=await page.evaluate(async()=>{
+            const timerState=()=>liveFixtureMountTimer===null?'unset':Number.isSafeInteger(liveFixtureMountTimer)&&liveFixtureMountTimer>=0?'scheduled':'invalid';
+            let helperAwaited=false,ownerAwaited=false;
+            if(timerState()==='unset'){
+              const loading=feedScoreUiLoading;helperAwaited=Boolean(loading);if(loading)await loading;
+              const owner=liveFixtureRefresh;ownerAwaited=Boolean(owner);if(owner)await owner;
+            }
+            return {timer:timerState(),ownerPending:Boolean(liveFixtureRefresh),helperAwaited,ownerAwaited};
+          });
+          traceResource('legacy-fixture-completion-phase',phase);
+          assert.notEqual(phase.timer,'invalid','live fixture timer must be a typed browser handle or null');
+          if(phase.timer==='scheduled'){
+            await page.waitForFunction(()=>liveFixtureMountTimer===null||!Number.isSafeInteger(liveFixtureMountTimer)||liveFixtureMountTimer<0,null,{timeout:8000});
+            continue;
+          }
+          if(phase.ownerPending)continue;
+          const requests=[...tracedRequests].filter(([,item])=>item.path==='/api/fixtures'&&item.startedEpoch===epoch);
+          const outcomes=await Promise.all(requests.map(([request])=>fixtureTerminals.get(request).promise));
+          for(const outcome of outcomes)assert.equal(outcome.kind,'finished','fixture read failed or was cancelled before reload');
+          const after=await page.evaluate(before=>({unchanged:PROFILE_STORAGE.preferenceBaseMatches({basePreferences:before.preferences},userPreferences),
+            receipt:pendingPreferenceIntent(serverPersistence.user.id),account:serverSyncClient.accountSnapshot().accountId,
+            generation:serverSyncClient.accountSnapshot().generation,baseline:serverStateBaseline.updatedAt,
+            liveRefreshPending:Boolean(liveFixtureRefresh),liveMountScheduled:liveFixtureMountTimer!==null,
+            timerValid:liveFixtureMountTimer===null||(Number.isSafeInteger(liveFixtureMountTimer)&&liveFixtureMountTimer>=0)}),before);
+          assert.equal(after.unchanged,true,'fixture completion preserves projected choices');
+          for(const key of ['receipt','account','generation','baseline'])assert.deepEqual(after[key],before[key],'fixture completion preserves '+key);
+          assert.equal(after.timerValid,true,'live fixture timer changed to an invalid handle');
+          let pending=false;
+          for(const [request,item] of tracedRequests)if(item.path==='/api/fixtures'&&item.startedEpoch===epoch){
+            const result=fixtureTerminals.get(request).result;
+            assert.notEqual(result?.kind,'failed','new fixture work failed or was cancelled before reload');
+            if(result?.kind!=='finished')pending=true;
+          }
+          assert.equal(documentEpoch,epoch,'fixture completion cannot navigate');assert.deepEqual({reads,writes},counts,'fixture completion cannot issue account operations');
+          if(after.liveMountScheduled||after.liveRefreshPending||pending)continue;
+          assert.equal(after.liveRefreshPending,false,'a new live fixture owner remains active');
+          assert.equal(after.liveMountScheduled,false,'scheduled live fixture work remains before reload');
+          traceResource('legacy-fixture-work-complete',{requests:requests.length,ownerPending:false,scheduled:false,choicesUnchanged:true,receiptUnchanged:true});
+          return;
+        }
       })(),'existing fixture owner and terminal completion');
     }
     page.setDefaultTimeout(15000);
