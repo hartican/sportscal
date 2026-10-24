@@ -267,6 +267,7 @@ jobs:
           node scripts/validate-accepted-result-continuity.js
           node scripts/validate-backend-efficiency.js
           node scripts/validate-global-read-budget.js
+          node scripts/validate-near-app-adapter.js
           node scripts/validate-interactive-snapshot-budget.js
           node scripts/validate-notifications.js
           node scripts/validate-milestone-alerts.js
@@ -309,9 +310,11 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          NS_NEAR_APP_RELEASE_SHA: ${{ inputs.sha }}
         run: |
           node scripts/validate-live-coverage-publication.js --live-read
           node scripts/validate-account-erasure-preflight.js --live-read
+          node scripts/verify-near-app-adapter.js --live-read
       - name: Bind project and preserve current production
         run: node scripts/prepare-production-release.js
       - name: Deploy or reuse exact release
