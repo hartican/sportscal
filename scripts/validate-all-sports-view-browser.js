@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict'),http=require('node:http'),fs=require('node:fs'),path=require('node:path');
-const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),sports=require('../config/all-sports-view'),match=require('../config/match-centre');
+const sports=require('../config/all-sports-view'),match=require('../config/match-centre');
 const {createMatchCentreHandler}=require('../lib/match-centre-handler');
 const root=path.resolve(__dirname,'..'),now=Date.parse('2026-10-24T04:00:00Z'),stamp=new Date(now).toISOString();
 const fixtures=Array.from({length:132},(_,i)=>({id:'fixture:nrl:all-sports-'+i,eventId:'fixture:nrl:all-sports-'+i,key:'nrl',sport:'NRL',competitionName:'NRL',name:'Panthers '+i+' v Storm '+i,date:'2026-10-24',status:'upcoming',startTimeUtc:new Date(now+3600000+i*1000).toISOString(),homeParticipantId:'team:nrl:sports-home-'+i,awayParticipantId:'team:nrl:sports-away-'+i,participantIds:['team:nrl:sports-home-'+i,'team:nrl:sports-away-'+i],sourceCheckedAt:stamp,sourceUrl:'https://organiser.example/schedule'}));
@@ -45,6 +45,34 @@ async function assertGuards(page,saved){
  const current=await personalState(page);assert.deepEqual(current.actions,saved.actions);assert.deepEqual(current.states,saved.states);assert.deepEqual(current.spoilers,saved.spoilers);
  assert.deepEqual(await page.evaluate(()=>qaCardWrites),[],'Native grid work must not write personal card/account/engagement state');
  assert.equal(await page.evaluate(()=>qaFeedPolls),0,'Match Centre must not acquire the Feed poller');
+}
+function observeApiFetch(){
+ // Observe invocation, not the later Playwright request-event delivery. Keep
+ // the real fetch and transport intact, including errors and cancellation.
+ const original=globalThis.fetch;globalThis.qaApiInvocations=[];
+ globalThis.fetch=function(input,init){
+  try{
+   const url=new URL(typeof input==='string'||input instanceof URL?String(input):input?.url,location.href),method=String(init?.method||input?.method||'GET').toUpperCase();
+   if(url.origin===location.origin&&url.pathname.startsWith('/api/')&&!['GET','HEAD'].includes(method)){
+    const headers=new Headers(init?.headers||input?.headers),entry={url:url.pathname+url.search,method,body:typeof init?.body==='string'?init.body:null,contentType:headers.get('content-type'),authorization:headers.has('authorization'),initiator:new Error().stack};
+    try{entry.tab=activeTab;entry.view=document.querySelector('#listView .mc-membership-tabs [role="tab"][aria-selected="true"]')?.textContent;entry.owner=serverSyncClient?.sessionSubject()||'public';entry.preferences=JSON.stringify(userPreferences);entry.actions=JSON.stringify(eventActions);}catch{/* An unknown caller remains a failed guard. */}
+    qaApiInvocations.push(entry);
+   }
+  }catch{/* Observation cannot change the real fetch; unmatched calls fail. */}
+  return original.apply(this,arguments);
+ };
+}
+function publicFollowedComposition(request,invocation){
+ if(!invocation||request.method!=='POST'||invocation.method!==request.method||invocation.url!==request.url||invocation.body!==request.body||request.authorization||invocation.authorization||request.contentType!=='application/json'||invocation.contentType!=='application/json')return false;
+ const url=new URL(request.url,'http://native.local');
+ if(url.pathname!=='/api/feed'||url.searchParams.size!==3||url.searchParams.get('scope')!=='match-centre'||url.searchParams.get('limit')!=='50'||url.searchParams.get('cursor')!=='0'||invocation.tab!=='match-centre'||invocation.view!=='Followed'||!/(?:^|\/)match-centre-ui(?:\.source)?\.js(?:[?:]|$)/m.test(invocation.initiator||''))return false;
+ if(typeof request.body!=='string'||Buffer.byteLength(request.body)>131072)return false;
+ try{const body=JSON.parse(request.body);return Boolean(Object.keys(body).sort().join(',')==='eventUserState,preferences'&&body.preferences&&typeof body.preferences==='object'&&!Array.isArray(body.preferences)&&body.eventUserState&&typeof body.eventUserState==='object'&&!Array.isArray(body.eventUserState)&&JSON.stringify(body.preferences)===invocation.preferences&&JSON.stringify(body.eventUserState)===invocation.actions);}catch{return false;}
+}
+function mutationRequests(requests,invocations,readBudget,readReceipts=[]){
+ const remaining=invocations.slice(),writes=[];let reads=0;
+ for(const request of requests){const index=remaining.findIndex(call=>call.url===request.url&&call.method===request.method&&call.body===request.body),call=index<0?null:remaining.splice(index,1)[0];if(publicFollowedComposition(request,call)&&++reads<=readBudget){readReceipts.push({url:request.url,tab:call.tab,view:call.view,owner:call.owner,unchangedInputs:true,initiator:call.initiator});continue;}writes.push({...request,body:undefined,invocation:call?{tab:call.tab,view:call.view,owner:call.owner,initiator:call.initiator}:null});}
+ return writes;
 }
 async function nativeRepairs(browser,base,engine){
  const cases=[
@@ -166,18 +194,22 @@ async function nativeRepairs(browser,base,engine){
   try{
    page.on('pageerror',e=>errors.push(e.message));
    await page.route('**/*',route=>new URL(route.request().url()).origin===base?route.continue():route.fulfill({status:204,body:''}));
+   await page.addInitScript(observeApiFetch);
    await page.addInitScript(({now})=>{const RealDate=Date;globalThis.qaNow=now;globalThis.Date=class extends RealDate{constructor(...args){super(...(args.length?args:[qaNow]));}static now(){return qaNow;}};localStorage.setItem('ns_preferences_v1',JSON.stringify({version:26,onboardingComplete:true,showSpoilers:true,feedControls:{spoilers:'results_visible'},followedSports:[],selectedSelectorEntityIds:[],preferenceGraph:{entityFollows:[]}}));},{now});
    await page.goto(base,{waitUntil:'domcontentloaded'});await page.locator('#startupLaunch').waitFor({state:'hidden'});await page.evaluate(()=>{setTunePromptOpen(false);suppressSessionRatingPrompt();});
    await page.locator('.tabs [data-tab=match-centre]').click();
    await page.evaluate(()=>{globalThis.qaCardWrites=[];globalThis.qaFeedPolls=0;for(const name of ['setCardState','updateEventAction','recordEventFeedAction']){const original=globalThis[name];globalThis[name]=(...args)=>{qaCardWrites.push(name);return original(...args);};}const original=queueLiveFixtureSnapshot;globalThis.queueLiveFixtureSnapshot=(...args)=>{qaFeedPolls++;return original(...args);};});
-   page.on('request',request=>{if(new URL(request.url()).origin===base&&new URL(request.url()).pathname.startsWith('/api/')&&!['GET','HEAD'].includes(request.method()))writes.push({method:request.method(),path:new URL(request.url()).pathname});});
-   await test(page,cleanup);assert.deepEqual(errors,[]);assert.deepEqual(writes,[],'The native regression must not write an account or other API');
-   console.log(JSON.stringify({engine,width:page.viewportSize().width,regression:name,mountedProductionPaths:true,accountPreserved:true,noFeedPoller:true,errors}));
+   page.on('request',request=>{const url=new URL(request.url());if(url.origin===base&&url.pathname.startsWith('/api/')&&!['GET','HEAD'].includes(request.method())){const headers=request.headers();writes.push({method:request.method(),url:url.pathname+url.search,body:request.postData(),contentType:headers['content-type'],authorization:Boolean(headers.authorization)});}});
+   await test(page,cleanup);assert.deepEqual(errors,[]);
+   const invocations=await page.evaluate(()=>qaApiInvocations),readBudget=name.startsWith('latest visit')||name.startsWith('failed optional')?2:1,publicFollowedReads=[];
+   assert.deepEqual(mutationRequests(writes,invocations,readBudget,publicFollowedReads),[],'The native regression must not write an account/API or initiate public composition outside its bounded current Followed visit');
+   console.log(JSON.stringify({engine,width:page.viewportSize().width,regression:name,mountedProductionPaths:true,accountPreserved:true,noFeedPoller:true,publicFollowedReads,errors}));
   }catch(error){console.error(JSON.stringify({engine,width:page.viewportSize().width,regression:name,errors,notice:await page.locator('.as-notice').textContent().catch(()=>null),lastRequests:requests.slice(-8)}));throw error;}
   finally{cleanup.forEach(release=>release());await page.close();}
  }
 }
 async function main(){
+ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
  const free=()=>{const disk=fs.statfsSync(root);return disk.bavail*disk.bsize;},allocated=Date.parse(process.env.ALL_SPORTS_DEADLINE||''),deadline=Math.min(Date.now()+(process.env.ALL_SPORTS_PAGER_PROBE?90000:360000),Number.isFinite(allocated)?allocated:Infinity);
  assert(free()>=4.5*1024**3,'Browser lane entry needs 4.5 GiB free');
  const server=http.createServer(async(req,res)=>{
@@ -233,4 +265,5 @@ async function main(){
   }
  }finally{server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}
 }
-main().catch(e=>{console.error(e);process.exitCode=1;});
+if(require.main===module)main().catch(e=>{console.error(e);process.exitCode=1;});
+module.exports={observeApiFetch,publicFollowedComposition,mutationRequests};

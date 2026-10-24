@@ -240,7 +240,7 @@ loadMatchCentreStyles();
   }
   refreshControl||=globalThis.createMatchCentreRefresh({panel:document.getElementById('listView'),enabled:()=>activeTab==='match-centre'&&!document.hidden,refresh:manualRefresh});
   if(!membership.length){membership=selectedView==='followed'?[...activeEvents].filter(e=>Boolean(eventFollowReason(e))):[];membershipOwner=owner();}
-  const t=ticket(),restored=restoreMembership();render();void restored.then(()=>hydrate()).then(()=>{if(!valid(t))return;render();if(!manual)void poll();}).catch(()=>{if(!valid(t))return;markAwaiting(membership.map(m().id));if(!manual)notice='Some fixtures could not load. Showing last available scores. Refresh to retry.';render();});
+  const t=ticket(),restored=restoreMembership();render();void restored.then(()=>{if(valid(t))return hydrate();}).then(()=>{if(!valid(t))return;render();if(!manual)void poll();}).catch(()=>{if(!valid(t))return;markAwaiting(membership.map(m().id));if(!manual)notice='Some fixtures could not load. Showing last available scores. Refresh to retry.';render();});
   clearInterval(timer);timer=setInterval(()=>{if(activeTab!=='match-centre'){globalThis.stopMatchCentre();return;}if(document.hidden||manual||refreshControl.pulling)return;void hydrate().then(()=>{render();void poll();}).catch(()=>{});},15000);if(!manual)void poll();
  };
  document.addEventListener('visibilitychange',()=>{if(selectedView==='all-sports')allSportsView?.visibility();else if(!document.hidden)void poll();});

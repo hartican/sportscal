@@ -27,6 +27,41 @@ async function ownerAndFailure(){
  const changed=centre();changed.context.qa.select('all-sports');changed.context.account='two';changed.context.userPreferences.showSpoilers=true;changed.context.renderMatchCentre();changed.resolve();await drain();assert.equal(changed.requests(),1);assert.deepEqual(changed.starts,[{owner:'two',results:true}],'Only the current owner may mount after a shared download');
  const failed=centre();failed.context.qa.select('all-sports');failed.context.qa.select('followed');failed.context.qa.select('all-sports');failed.reject(Error('offline'));await drain();assert(failed.panel.children.some(n=>n.textContent==='Retry'),'The current visit receives the failed shared download and a usable Retry');
 }
+function compositionCentre(){
+ let release;const restored=new Promise(resolve=>{release=resolve;}),calls=[],panel=element();panel.isConnected=true;
+ const context={console,Date,Promise,URL,URLSearchParams,Headers,AbortController,AbortSignal,Map,Set,activeTab:'match-centre',activeEvents:[],account:'',navigator:{},innerHeight:844,userPreferences:{version:26,onboardingComplete:true,showSpoilers:false,followedSports:[],feedControls:{spoilers:'strict'}},eventActions:{},serverPersistence:{user:null},NOTHINGSPORTS_MATCH_CENTRE:match,location:{href:'http://native.local/',origin:'http://native.local'},clearInterval(){},setInterval:()=>1,eventFollowReason:()=>false,createMatchCentreRefresh:()=>({cancel(){},pulling:false}),loadDeferredScript:()=>new Promise(()=>{}),
+  serverSyncClient:{sessionSubject:()=>context.account},disposableStore:{hydrate:()=>restored},document:{hidden:false,querySelector:s=>s.startsWith('#listView .mc-membership-tabs')?{textContent:context.qa.view()==='followed'?'Followed':'All Sports'}:null,querySelectorAll:()=>[],createElement:element,getElementById:()=>panel,head:element(),addEventListener(){}},
+  fetch:async(url,init)=>{const headers=new Headers(init?.headers);calls.push({url,method:init?.method||'GET',body:init?.body,contentType:headers.get('content-type'),authorization:headers.has('authorization')});return {ok:true,json:async()=>({events:[],fixtures:[],pagination:{nextCursor:null}})};}};
+ const source=fs.readFileSync('assets/js/match-centre-ui.source.js','utf8'),end=source.lastIndexOf('\n})();');assert(end>0);
+ // Only layout is the mocked host boundary. Queued restore, generation,
+ // navigation, hydration, body construction and fetch observer are real.
+ vm.createContext(context);vm.runInContext(source.slice(0,end)+'\nrender=()=>{};globalThis.qa={hydrate,select:selectMatchCentreView,view:()=>selectedView};'+source.slice(end),context,{filename:'assets/js/match-centre-ui.source.js'});
+ vm.runInContext('('+require('./validate-all-sports-view-browser').observeApiFetch.toString()+')();',context);
+ return {context,calls,release};
+}
+async function followedCompositionGuard(){
+ const {publicFollowedComposition,mutationRequests}=require('./validate-all-sports-view-browser'),c=compositionCentre(),before=JSON.stringify([c.context.userPreferences,c.context.eventActions]);
+ await c.context.qa.hydrate();assert.equal(c.calls.length,1);const request=c.calls[0],invocation=c.context.qaApiInvocations[0];
+ assert.equal(publicFollowedComposition(request,invocation),true,'The actual Followed caller uses a bounded read-only public composition POST');assert.equal(mutationRequests(c.calls,c.context.qaApiInvocations,1).length,0);assert.equal(JSON.stringify([c.context.userPreferences,c.context.eventActions]),before);
+ const changed=patch=>[{...request,...patch},{...invocation,...patch}],bad=[...['/api/user-state','/api/product-events','/api/feed','/api/feed?scope=athletes&limit=50&cursor=0','/api/feed?scope=match-centre&limit=60&cursor=0','/api/feed?scope=match-centre&limit=50&cursor=50'].map(url=>changed({url})),changed({authorization:true}),changed({method:'PUT'}),changed({contentType:'text/plain'}),changed({body:JSON.stringify({...JSON.parse(request.body),action:'save'})}),[request,{...invocation,view:'All Sports'}],[request,{...invocation,tab:'feed'}],[request,{...invocation,initiator:'another-module.js'}],[request,{...invocation,preferences:'{}'}],[request,null]];
+ for(const [r,i] of bad)assert.equal(publicFollowedComposition(r,i),false,'Unknown/wrong-scope/body/phase/auth/caller POST must remain a guard failure');
+ assert.equal(mutationRequests([request],[],1).length,1,'XHR/unobserved calls are not waived');assert.equal(mutationRequests([request,request],[invocation],2).length,1,'One invocation cannot waive two network requests');assert.equal(mutationRequests([request,request],[invocation,invocation],1).length,1,'The explicit Followed-visit read budget still applies');
+ const large=JSON.parse(request.body);large.preferences.qaPadding='x'.repeat(131072);assert.equal(publicFollowedComposition({...request,body:JSON.stringify(large)},{...invocation,body:JSON.stringify(large),preferences:JSON.stringify(large.preferences)}),false,'Even matching read inputs retain the public body-size cap');
+ await c.context.fetch('/api/user-state',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'save'})});assert.equal(mutationRequests(c.calls,c.context.qaApiInvocations,1).length,1,'The real pass-through observer still catches a personal API POST');
+ // Exercise the actual server's public POST route and pure feed builder.
+ // Private authentication/state dependencies are forbidden, not mocked green.
+ const pipeline=require('../lib/server-feed-pipeline'),clock=new Date('2026-10-24T04:00:00Z'),d={...pipeline,overlaySnapshots:require('../lib/live-fixtures').overlaySnapshots,eventFeed:{version:'native-controlled',publishedAt:clock.toISOString(),events:[]},contextualEvents:[],canonicalSportContext:{participants:[]},FOLLOW_FIXTURE_VERSION:'native-controlled',readLiveSnapshots:async()=>({revision:'native-controlled',sources:[],stale:false}),resolveUserFollowFixtures:async()=>({events:[],participants:[]})};
+ const response={setHeader(){},status(code){this.code=code;return this;},send(body){this.body=JSON.parse(body);return this;},json(body){this.body=body;return this;}};
+ await require('../api/feed').createFeedHandler({load:()=>d,clock:()=>clock,authenticate:()=>{throw Error('A public composition must not read/write private account state');}})({url:request.url,method:request.method,body:JSON.parse(request.body)},response);
+ assert.equal(response.code,200,JSON.stringify(response.body));assert.equal(response.body.events.length,0);assert.equal(JSON.stringify([c.context.userPreferences,c.context.eventActions]),before);
+}
+async function queuedHydrationFence(){
+ for(const move of ['all-sports','feed','owner','stay']){
+  const c=compositionCentre();c.context.renderMatchCentre();assert.equal(c.calls.length,0);
+  if(move==='all-sports')c.context.qa.select('all-sports');if(move==='feed')c.context.activeTab='feed';if(move==='owner')c.context.account='other';
+  c.release(null);await drain();assert.equal(c.calls.length,move==='stay'?1:0,'Queued Followed hydration must respect the original '+move+' navigation/owner ticket');
+ }
+}
 async function retainedFreshness(){
  const now=Date.now(),stamp=new Date(now).toISOString(),window=model.windowFor('today',now);
  const live={id:'fixture:nrl:retained-live-only',key:'nrl',name:'Retained live fixture',status:'live',statusCheckedAt:stamp,scoreCheckedAt:stamp,startTimeUtc:new Date(now-3600000).toISOString()};
@@ -82,6 +117,6 @@ async function matchCentreScores(){
   context.activeTab='feed';context.NOTHINGSPORTS_FEED_SCORE_UI.install(card,event);assert(card.querySelector('.feed-live-score'),'The original Feed installer still works');assert.equal(polls,1);
  }
 }
-async function run(){let failed=false;for(const [name,test] of [['pending module re-entry',reentry],['current owner/failure controls',ownerAndFailure],['retained live-only degradation',retainedFreshness],['reverse-order alias source winner',reverseAliasBridge],['late selected observation',lateSelectedObservation],['Match Centre Results ON/OFF/strict',matchCentreScores]]){try{await test();console.log('PASS '+name);}catch(error){failed=true;console.error('FAIL '+name+': '+error.message);}}if(failed)throw Error('All Sports review regressions failed');}
+async function run(){let failed=false;for(const [name,test] of [['pending module re-entry',reentry],['current owner/failure controls',ownerAndFailure],['public Followed composition versus mutation guard',followedCompositionGuard],['queued Followed hydration generation fence',queuedHydrationFence],['retained live-only degradation',retainedFreshness],['reverse-order alias source winner',reverseAliasBridge],['late selected observation',lateSelectedObservation],['Match Centre Results ON/OFF/strict',matchCentreScores]]){try{await test();console.log('PASS '+name);}catch(error){failed=true;console.error('FAIL '+name+': '+error.message);}}if(failed)throw Error('All Sports review regressions failed');}
 if(require.main===module)run().catch(e=>{console.error(e.message);process.exitCode=1;});
 module.exports=run;
