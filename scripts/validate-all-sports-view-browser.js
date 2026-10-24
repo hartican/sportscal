@@ -70,9 +70,21 @@ function publicFollowedComposition(request,invocation){
  try{const body=JSON.parse(request.body);return Boolean(Object.keys(body).sort().join(',')==='eventUserState,preferences'&&body.preferences&&typeof body.preferences==='object'&&!Array.isArray(body.preferences)&&body.eventUserState&&typeof body.eventUserState==='object'&&!Array.isArray(body.eventUserState)&&JSON.stringify(body.preferences)===invocation.preferences&&JSON.stringify(body.eventUserState)===invocation.actions);}catch{return false;}
 }
 function mutationRequests(requests,invocations,readBudget,readReceipts=[]){
- const remaining=invocations.slice(),writes=[];let reads=0;
- for(const request of requests){const index=remaining.findIndex(call=>call.url===request.url&&call.method===request.method&&call.body===request.body),call=index<0?null:remaining.splice(index,1)[0];if(publicFollowedComposition(request,call)&&++reads<=readBudget){readReceipts.push({url:request.url,tab:call.tab,view:call.view,owner:call.owner,unchangedInputs:true,initiator:call.initiator});continue;}writes.push({...request,body:undefined,invocation:call?{tab:call.tab,view:call.view,owner:call.owner,initiator:call.initiator}:null});}
- return writes;
+ const pending=requests.map((request,index)=>({request,index})),failures=[],corroborated=[];let reads=0;
+ // Every invocation is judged and counted before network pairing. A missing
+ // or delayed network event cannot erase an invalid or excess invocation.
+ const audits=invocations.map((call,index)=>{const reasons=[];if(!publicFollowedComposition(call,call))reasons.push('invalid-invocation');else if(++reads>readBudget)reasons.push('read-budget-exceeded');return {call,index,reasons};});
+ for(const {call,index:invocationIndex,reasons} of audits){
+  const match=pending.findIndex(({request})=>['url','method','body','contentType','authorization'].every(key=>request[key]===call?.[key]));
+  const network=match<0?null:pending.splice(match,1)[0];
+  if(!network)reasons.push('uncorroborated-invocation');
+  if(reasons.length)failures.push({reasons,invocationIndex,url:call?.url,method:call?.method,invocation:call?{tab:call.tab,view:call.view,owner:call.owner,initiator:call.initiator}:null});
+  else corroborated.push({invocationIndex,networkIndex:network.index,url:call.url,tab:call.tab,view:call.view,owner:call.owner,unchangedInputs:true,initiator:call.initiator});
+ }
+ for(const {request,index} of pending)failures.push({reasons:['unmatched-network-request'],networkIndex:index,...request,body:undefined});
+ // Do not grant even a partial waiver when another invocation is invalid.
+ if(!failures.length)readReceipts.push(...corroborated);
+ return failures;
 }
 async function nativeRepairs(browser,base,engine){
  const cases=[
@@ -193,13 +205,15 @@ async function nativeRepairs(browser,base,engine){
   resetScenario();const page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'}),errors=[],writes=[],cleanup=[];
   try{
    page.on('pageerror',e=>errors.push(e.message));
+   // Match the init-script observer's full page window, including the first
+   // Followed navigation. Late delivery must not orphan its invocation.
+   page.on('request',request=>{const url=new URL(request.url());if(url.origin===base&&url.pathname.startsWith('/api/')&&!['GET','HEAD'].includes(request.method())){const headers=request.headers();writes.push({method:request.method(),url:url.pathname+url.search,body:request.postData(),contentType:headers['content-type'],authorization:Boolean(headers.authorization)});}});
    await page.route('**/*',route=>new URL(route.request().url()).origin===base?route.continue():route.fulfill({status:204,body:''}));
    await page.addInitScript(observeApiFetch);
    await page.addInitScript(({now})=>{const RealDate=Date;globalThis.qaNow=now;globalThis.Date=class extends RealDate{constructor(...args){super(...(args.length?args:[qaNow]));}static now(){return qaNow;}};localStorage.setItem('ns_preferences_v1',JSON.stringify({version:26,onboardingComplete:true,showSpoilers:true,feedControls:{spoilers:'results_visible'},followedSports:[],selectedSelectorEntityIds:[],preferenceGraph:{entityFollows:[]}}));},{now});
    await page.goto(base,{waitUntil:'domcontentloaded'});await page.locator('#startupLaunch').waitFor({state:'hidden'});await page.evaluate(()=>{setTunePromptOpen(false);suppressSessionRatingPrompt();});
    await page.locator('.tabs [data-tab=match-centre]').click();
    await page.evaluate(()=>{globalThis.qaCardWrites=[];globalThis.qaFeedPolls=0;for(const name of ['setCardState','updateEventAction','recordEventFeedAction']){const original=globalThis[name];globalThis[name]=(...args)=>{qaCardWrites.push(name);return original(...args);};}const original=queueLiveFixtureSnapshot;globalThis.queueLiveFixtureSnapshot=(...args)=>{qaFeedPolls++;return original(...args);};});
-   page.on('request',request=>{const url=new URL(request.url());if(url.origin===base&&url.pathname.startsWith('/api/')&&!['GET','HEAD'].includes(request.method())){const headers=request.headers();writes.push({method:request.method(),url:url.pathname+url.search,body:request.postData(),contentType:headers['content-type'],authorization:Boolean(headers.authorization)});}});
    await test(page,cleanup);assert.deepEqual(errors,[]);
    const invocations=await page.evaluate(()=>qaApiInvocations),readBudget=name.startsWith('latest visit')||name.startsWith('failed optional')?2:1,publicFollowedReads=[];
    assert.deepEqual(mutationRequests(writes,invocations,readBudget,publicFollowedReads),[],'The native regression must not write an account/API or initiate public composition outside its bounded current Followed visit');

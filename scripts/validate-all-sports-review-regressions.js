@@ -62,6 +62,27 @@ async function queuedHydrationFence(){
   c.release(null);await drain();assert.equal(c.calls.length,move==='stay'?1:0,'Queued Followed hydration must respect the original '+move+' navigation/owner ticket');
  }
 }
+async function requestPairingGuard(){
+ const {mutationRequests}=require('./validate-all-sports-view-browser'),c=compositionCentre();await c.context.qa.hydrate();
+ const request=c.calls[0],invocation=c.context.qaApiInvocations[0],outside={...invocation,view:'All Sports'},mutation={...invocation,url:'/api/user-state',body:JSON.stringify({action:'save'})};
+ const negatives=[
+  ['orphan Followed invocation cannot waive identical All Sports request',[request],[invocation,outside],2],
+  ['invalid invocation fails even when all identical requests arrive',[request,request],[invocation,outside],2],
+  ['out-of-view invocation fails before an identical valid invocation',[request],[outside,invocation],2],
+  ['unmatched mutation invocation',[],[mutation],1],
+  ['unmatched out-of-view invocation',[],[outside],1],
+  ['unmatched over-budget invocation',[request],[invocation,invocation],1],
+  ['all unmatched invocations still consume the read budget',[],[invocation,invocation],1],
+  ['valid invocation requires network corroboration',[],[invocation],1]
+ ];
+ const escaped=[];
+ for(const [name,network,invocations,budget] of negatives){const receipts=[];if(mutationRequests(network,invocations,budget,receipts).length===0)escaped.push(name);else assert.equal(receipts.length,0,'A failed audit must not issue a read receipt: '+name);}
+ assert.deepEqual(escaped,[],'Every invocation must be classified/counted independently and corroborated one-to-one');
+ const identical=[];assert.equal(mutationRequests([request,request],[invocation,invocation],2,identical).length,0);assert.deepEqual(identical.map(r=>r.networkIndex),[0,1],'Identical valid calls still need two distinct network records');
+ c.context.userPreferences.qaPairing=1;await c.context.qa.hydrate(true);
+ assert.equal(c.calls.length,2);const receipts=[];
+ assert.equal(mutationRequests([...c.calls].reverse(),c.context.qaApiInvocations,2,receipts).length,0,'Distinct valid calls can be corroborated even when network events arrive out of order');assert.equal(receipts.length,2);
+}
 async function retainedFreshness(){
  const now=Date.now(),stamp=new Date(now).toISOString(),window=model.windowFor('today',now);
  const live={id:'fixture:nrl:retained-live-only',key:'nrl',name:'Retained live fixture',status:'live',statusCheckedAt:stamp,scoreCheckedAt:stamp,startTimeUtc:new Date(now-3600000).toISOString()};
@@ -117,6 +138,6 @@ async function matchCentreScores(){
   context.activeTab='feed';context.NOTHINGSPORTS_FEED_SCORE_UI.install(card,event);assert(card.querySelector('.feed-live-score'),'The original Feed installer still works');assert.equal(polls,1);
  }
 }
-async function run(){let failed=false;for(const [name,test] of [['pending module re-entry',reentry],['current owner/failure controls',ownerAndFailure],['public Followed composition versus mutation guard',followedCompositionGuard],['queued Followed hydration generation fence',queuedHydrationFence],['retained live-only degradation',retainedFreshness],['reverse-order alias source winner',reverseAliasBridge],['late selected observation',lateSelectedObservation],['Match Centre Results ON/OFF/strict',matchCentreScores]]){try{await test();console.log('PASS '+name);}catch(error){failed=true;console.error('FAIL '+name+': '+error.message);}}if(failed)throw Error('All Sports review regressions failed');}
+async function run(){let failed=false;for(const [name,test] of [['pending module re-entry',reentry],['current owner/failure controls',ownerAndFailure],['public Followed composition versus mutation guard',followedCompositionGuard],['queued Followed hydration generation fence',queuedHydrationFence],['native request invocation/network pairing',requestPairingGuard],['retained live-only degradation',retainedFreshness],['reverse-order alias source winner',reverseAliasBridge],['late selected observation',lateSelectedObservation],['Match Centre Results ON/OFF/strict',matchCentreScores]]){try{await test();console.log('PASS '+name);}catch(error){failed=true;console.error('FAIL '+name+': '+error.message);}}if(failed)throw Error('All Sports review regressions failed');}
 if(require.main===module)run().catch(e=>{console.error(e.message);process.exitCode=1;});
 module.exports=run;
