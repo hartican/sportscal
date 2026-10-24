@@ -104,4 +104,21 @@ node scripts/validate-public-comments-database.js
 PGLITE_MODULE=pglite-pg17 node scripts/validate-public-comments-database.js
 ```
 
-This repair has only Node24 syntax and diff checks in its implementation lane. The new old-source regression and repaired migration have not been engine-tested here; ROOT's existing pair review and fresh sequential PG18/17 allocation remain required. The native browser harness remains outstanding. No service, shared schema, customer account, browser, scheduler or delivery action accompanies this source repair.
+That first repair was syntax-checked, then reviewed and engine-tested by ROOT as `e5810a91`. It passed bulk block insertion but exposed the separate cascade failure below. It is not the final qualified SQL candidate.
+
+## Overlapping cascade diagnosis and actual PG18/17 qualification
+
+ROOT's subsequent `e5810a91` PostgreSQL18.3 run reproduced both earlier REDs, then failed during actual Auth deletion of the multi-root subject with two blocked peer replies. A newly allocated, bounded local SQL lease allowed one instrumented replay. Test-only error details established the exact public-comment transition: the parent FK detached a peer's parent with `NEW.score=1, NEW.revision=29`, while a later vote cascade had already produced final stored `score=0, revision=32` and actual vote sum0. Protected content/identity fields matched. The diagnostic changed only the error detail, and its diff/log/receipt are retained externally as `owner-e581-cascade-diagnostic.*`; no diagnostic function replacement remains in committed source.
+
+The final repair, frozen as `e14550f6b22091ec63408eaef76ee69d590d9dda`, preserves the canonical guard, timing, inventory and immutable-field checks. It additionally compares the final stored row's protected fields to the queued transition, permits parent identity only to stay unchanged or detach to null, and requires the final stored score to equal actual votes. The transition score must equal that final score, except that an actual non-null-to-null parent detachment may preserve its OLD score while the queued vote cleanup finishes. Revisions must satisfy `OLD < NEW <= final stored <= thread`. There is no blanket blocked-account exemption or trigger-depth bypass. Direct forbidden edits, forged current/future/backward revisions, later BEFORE-trigger content/score forgery and rollback assertions stay installed and passed.
+
+During the six-minute ROOT lease, all eight final commands ran sequentially with existing Node24.21.0 and installed modules, once per unchanged engine/mode. Same-connection engine output confirmed PostgreSQL18.3 (`180003`, PGlite0.5.8) and PostgreSQL17.5 (`170005`, alias0.3.14). For **each** engine:
+
+- `--reviewed-baseline` reproduced the original `95885e63` inventory denial.
+- `--erasure-baseline` reproduced `1d2f164d` block-insertion denial.
+- `--cascade-baseline` reproduced `e5810a91` overlapping-cascade denial during Auth deletion.
+- The unflagged current candidate exited0 and passed the complete actual SQL harness, including grants, inventory/operator freeze, redaction, blocked writes, Auth marker, multi-peer cleanup, hard tombstones, ordinary comments/votes/runs/GIF policy, retirement rollback and immutable yearbook checks.
+
+Each execution has an external `.json`, `.log` and `.diff` under `public-feed-20261024/owner-e14550f6-{pg18,pg17}-{inventory,block,cascade,green}` in the owner's output folder. Receipts contain exact SHA/tree, tracked/untracked status, source hashes, command, runtime, engine version, elapsed time, log hash and exit. The untracked native harness was present but was not imported or executed. The retained instrumented intermediate GREEN is separate from the final uninstrumented qualification. Existing four-and-a-half-GiB entry/three-GiB running reserves,120-second child timeout, six-minute lease and two-MiB output cap were preserved; the lane was released early with no child/DB remaining. No repeated unchanged mode, install, network, browser, VM or managed database operation was performed.
+
+These are real isolated PostgreSQL WASM results, not deployed Supabase, PostgREST, complete nine-phase erasure/storage, customer-account, provider, push or physical-device proof. ROOT's existing pair must review this final SQL delta. Native shared-card/tray/picker integration and phone acceptance remain outstanding, so Public Feed remains Working.
