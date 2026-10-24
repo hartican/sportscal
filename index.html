@@ -4899,15 +4899,16 @@ function emptyServerStatePayload(){
 function serverErrorEndsSession(error){return /^(refresh_session_terminal|missing_session|invalid_refresh_token|refresh_token_(not_found|already_used|revoked))$/.test(String(error?.code||"").toLowerCase())}
 
 function applyServerStatePreservingChanges(state, stateAtSyncStart, plan){
+  const currentState=currentServerStatePayload();
   const inFlightPatch = USER_STATE_SYNC.createPatch(
     stateAtSyncStart,
-    currentServerStatePayload(),
+    currentState,
     { baseUpdatedAt: state?.updatedAt || null }
   );
   const localState = USER_STATE_SYNC.hasChanges(inFlightPatch)
     ? USER_STATE_SYNC.applyPatch(state, inFlightPatch)
     : state;
-  applyServerState(plan?.preserve(localState)||localState);
+  applyServerState(plan?.preserve(localState,currentState.preferences)||localState);
   return inFlightPatch;
 }
 
@@ -4984,7 +4985,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
     let latest = await serverSyncClient.loadState({ accountId:scope.accountId });
     diagnostic?.step("verify",latest,preferenceReceipt);
     if (!scope.verify(latest)) return null;
-    let preferencePlan=verifyPreferenceIntentBase(preferenceReceipt,latest.state,preferenceLife);
+    let preferencePlan=verifyPreferenceIntentBase(preferenceReceipt,latest.state,preferenceLife,currentState.preferences);
     advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
     setPreferenceRecovery(latest.preferenceRecovery);
     currentState = serverAuthoritativeFixturePins(latest.state, currentState);
@@ -5040,7 +5041,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
         latest = await serverSyncClient.loadState({ accountId:scope.accountId });
         diagnostic?.step("verify",latest,preferenceReceipt);
         if (!scope.verify(latest)) return null;
-        preferencePlan=verifyPreferenceIntentBase(preferenceReceipt,latest.state,preferenceLife);
+        preferencePlan=verifyPreferenceIntentBase(preferenceReceipt,latest.state,preferenceLife,currentState.preferences);
         advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
         setPreferenceRecovery(latest.preferenceRecovery);
         currentState = serverAuthoritativeFixturePins(latest.state, currentState);
@@ -5232,6 +5233,7 @@ function acknowledgePreferenceReceipt(receipt,state,expectedLife){
   if(!receipt)return;
   const life=preferenceIntentOwner();
   if(!life||life.accountId!==receipt.ownerId||life.accountId!==expectedLife?.accountId||life.generation!==expectedLife.generation)return;
+  if(!PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC))throw Object.assign(new Error("Sync could not be confirmed. Try Sync now."),{code:"preference_base_changed"});
   activeProfileBundle=PROFILE_STORAGE.acknowledgePreferenceIntent(localStorage,activeProfileBundle,receipt,state.preferences,USER_STATE_SYNC,
     {updatedAt:state.updatedAt,generation:life.generation});
 }
@@ -5243,11 +5245,11 @@ function advancePreferenceReceiptBase(receipt,state,expectedLife){
   activeProfileBundle=PROFILE_STORAGE.advancePreferenceIntentBase(localStorage,activeProfileBundle,receipt,state);
 }
 
-function verifyPreferenceIntentBase(receipt,state,life){
+function verifyPreferenceIntentBase(receipt,state,life,currentPreferences){
+  const plan=globalThis.NOTHINGSPORTS_PREFERENCE_INTENT_RECONCILE?.ownedPlan(receipt,state,life,currentPreferences);
+  if(plan)return plan;
   if(receipt&&(!state||(!PROFILE_STORAGE.preferenceBaseMatches(receipt,state.preferences)
     &&!PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC)))){
-    const plan=globalThis.NOTHINGSPORTS_PREFERENCE_INTENT_RECONCILE?.ownedPlan(receipt,state,life);
-    if(plan)return plan;
     throw Object.assign(new Error("Your choices are saved on this device. Sync is paused because the saved account changed."),{code:"preference_base_changed"});
   }
 }
@@ -17807,7 +17809,6 @@ function runStartupFeedBarrier(){
       throw error;
     }));
   Promise.allSettled(startupTasks).then(() => {
-    // Recover only this valid timed-out attempt.
     if (startupFeedState.attempt !== attempt || !["loading", "failed"].includes(startupFeedState.phase)) return;
     const issues = tasks.filter(task => taskStates.get(task.name) !== "valid").map(task => task.name);
     if (issues.length) return;

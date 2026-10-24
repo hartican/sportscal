@@ -1,6 +1,6 @@
 # Owned pending-receipt baseline reconciliation — 24 October 2026 Sydney
 
-Stage: Ready for DEPLOY review and combined qualification. This worker has not deployed or changed production data. Physical iPhone sync acceptance remains failed/open on live v590.
+Stage: Returned to the same final Spec/Standards pair after local review repairs; release remains blocked until that review and renewed qualification pass. This worker has not deployed or changed production data. Physical iPhone sync acceptance remains failed/open on live v590.
 
 ## Evidence and cause
 
@@ -23,7 +23,7 @@ A second preserved red, `red-new-receipt.log`, proves that simply using a latest
 
 ## Local regression proof
 
-`node scripts/validate-preference-bookkeeping.js` retains the existing bookkeeping and seed-marker suite and adds forty-two cases through the generated Account helper, real bootstrap/queue/persisted receipt and actual API normalization/conditional handler. Coverage includes:
+`node scripts/validate-preference-bookkeeping.js` retains the existing bookkeeping and seed-marker suite and adds fifty-five cases through the generated Account helper, real bootstrap/queue/persisted receipt and actual API normalization/conditional handler. Coverage includes:
 
 - Exact phone-family-shaped constructed failure becoming one existing read/save/owned ACK; actual preference-system Follow/template writers and full graph shape.
 - Restart, explicit manual retry, already-applied/lost ACK, same-record independent field, remote/local removal, OFF, scoped empty and empty-versus-unseen-addition hold.
@@ -33,6 +33,18 @@ A second preserved red, `red-new-receipt.log`, proves that simply using a latest
 Four malformed legacy-read fixtures are explicitly injected after a valid API write because the real API rejects malformed comparison metadata at ingress; the non-array read shape is injected into a disposable GET result because the ordinary row normalizer also rejects it. The mismatching ACK and invalid-clock controls are synthetic response mutations. They are refusal controls, not claims that production emitted those shapes.
 
 Targeted checks: existing cross-device sync, server persistence, preference system/reset recovery, account awareness/diagnostic, startup budget, feed performance, generated critical/deferred bundle checks, browser-script syntax and `git diff --check`. Exact command receipts are in the private Codex output folder. These are local source/compiled/API checks; no native browser, installed-upgrade, hosted or physical proof is claimed by this worker.
+
+## Returned review repairs — 24 October 2026
+
+The final source pair identified two pre-release data-preservation defects. The original normalization refusal test asserted only receipt/status; it did not prove that the current and durable preferences retained the requested choices. The extended test now executes the actual `applyServerState`, profile/legacy storage writes and generated helper with disposable API responses. It reproduces current **and primary persisted** Unfollow becoming Priority while the receipt stays pending. The existing owned ACK helper now verifies semantic receipt acknowledgement before either applying the returned state or accepting its baseline. Refusal preserves all local bytes, receipt, current choices and accepted baseline. Valid later state can be accepted by an existing explicit retry. Five mismatch controls cover bounded/strict paths, OFF, empty and newer R2; the ordinary structurally identical timestamp advancement remains its existing exact-base behaviour.
+
+The second defect used receipt-only patch entries despite already captured current preferences containing an ordinary Settings/standings write made after R1. Tests execute the actual `saveSettingsPreferences`, `saveStandingsSportKeys`, `savePreferences` and durable `commitSections` path, with rendering/optional callbacks and UI normalization inert over pre-normalized test preferences. The generated helper compares that existing current snapshot to the original receipt intent before planning, also on a compatible base. Only the exact named bookkeeping and typed view fields are allowed to differ; theme, notification OFF, empty standings and unknown choices hold visibly with zero user-state upload and unchanged current/persisted state and receipt. No writer or intent policy expands.
+
+A causal continuation regression additionally shows a real ordinary Settings save after R2 is recorded being overwritten by blindly substituted continued preferences. The existing in-flight owner now supplies its already read current snapshot; the helper replays only the delta after the known R2 snapshot onto safe continued preferences, using the same bounded entity/domain merge to retain independent remote additions and ignore pointer-only array differences. The ordinary late choice remains current and durable, R2 retains its exact identity and recorded intent, and the next manual retry holds the unaccounted projected choice before any upload. A late pointer-only control still progresses without losing remote records. No additional state-payload read, network read, request or timer is added.
+
+Three causal red logs and the in-memory single-guard counterfactual runner are private under `ios-account-sync-20261024/receipt-base`: `red-mismatching-ACK-591.log`, `red-unrecorded-Settings-591.log`, `red-R2-late-Settings-591.log`, `counterfactual-reds.cjs`. These remain constructed local proof; no customer data or production transport is involved. The suite now has fifty-five compiled/helper/bootstrap/API cases. Earlier ROOT native passes (four new cases on 85e81) are pre-fix evidence only; this returned source still requires the same pair and ROOT's renewed browser/normal/installed checks.
+
+One further non-executable HTML comment moves into this source record to preserve the unchanged critical cap: “Recover only this valid timed-out attempt.” Its attempt/phase/validation guards remain executable and unchanged. The twelve earlier comment relocations and historical decision-record tails remain exact.
 
 ## Mounted cases authored for ROOT execution
 
@@ -52,11 +64,11 @@ These new mounted cases are authored and syntax-checked, unexecuted by this work
 
 ## Shared dependencies, cache and download budget
 
-Shared seams: `index.html` reconciliation/ACK/apply, `config/profile-storage.js` ACK, generated app-shell runtime, deferred Account helper/build inputs, helper cache references and both decision records. Reconcile these with current main and other owners before integration. Base is `3501e6f067da2303718fc75be0d092db9ba0905b`.
+Shared seams: `index.html` reconciliation/ACK/apply, `config/profile-storage.js` ACK, generated app-shell runtime, deferred Account helper/build inputs, helper cache references and both decision records. Reconcile these with current main and other owners before integration. Original base is `3501e6f067da2303718fc75be0d092db9ba0905b`; this returned delta fast-forwards from ROOT's `2c70f89bd20132dd1041ee2712dbd1f0375f2521`.
 
-Helper URL advances together in HTML and service worker from 5715 to 5716. Shell/app release allocation remains ROOT-owned; this branch retains baseline shell590 until integration. ROOT must allocate a coherent shell/cache/app-version change and check exact served source, both installed upgrades and normal security/update gates.
+Helper URL advances together in HTML and service worker from 5715 to 5716. ROOT already allocated coherent app/shell/worker591 on the isolated PR; this returned delta retains that metadata unchanged. ROOT must allocate a coherent shell/cache/app-version change and check exact served source, both installed upgrades and normal security/update gates.
 
-The pinned Node24.21 metric after source/build changes is seven critical requests, 431407 gzip bytes, ceiling431441. Do not raise the ceiling. To preserve it, twelve redundant non-executable comments move from downloaded HTML into this record; all executable guards and UI text remain:
+The pinned Node24.21 metric after source/build changes is seven critical requests, 431419 gzip bytes, ceiling431441. Do not raise the ceiling. To preserve it, twelve redundant non-executable comments move from downloaded HTML into this record; all executable guards and UI text remain:
 
 - Storage failure must not block reload; roll back exactly below; kept in memory below; session state is optional.
 - Storage may be unavailable; ignore unavailable storage; fall through to a selectable browser prompt; badging is a progressive enhancement.

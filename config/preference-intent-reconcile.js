@@ -33,6 +33,10 @@
     return object(browse)&&Object.keys(browse).every(key=>Object.hasOwn(fields,key)&&fields[key](browse[key]));
   }
 
+  function withoutViews(preferences){
+    const result=clone(preferences);delete result.followBrowse;delete result.feedCompact;return result;
+  }
+
   function records(list,key,fields,identity){
     if(!Array.isArray(list))throw Error('Unknown preference list');
     const result=new Map();
@@ -103,19 +107,42 @@
       // An older ACK can carry R2 forward only from the exact recorded R1
       // intent, using this same conflict policy against the acknowledged state.
       witness.originalReceipt=clone(receipt);
-      let continuedPreferences;
+      let continuedPreferences,continuedIntent;
       witness.continue=(pending,ack)=>{
+        continuedIntent=clone(pending.preferences);
         continuedPreferences=plan({...pending,basePreferences:receipt.preferences},ack,profile,follow,patches)?.receipt.preferences;
         return continuedPreferences;
       };
       const changes=patches.createPatch({preferences:state.preferences},{preferences}).changes;
-      return {receipt:witness,preserve:state=>continuedPreferences?{...state,preferences:continuedPreferences}:state,patch:patch=>({...patch,changes:[...patch.changes.filter(change=>change.path[0]!=='preferences'),...changes]})};
+      function preserve(state,currentPreferences){
+        if(!continuedPreferences)return state;
+        try{
+          // Preserve ordinary writes made after the R2 snapshot as the existing
+          // in-flight apply owner does. They are not added to the owned receipt;
+          // the next explicit sync holds any unaccounted projected choices.
+          const remaining=patches.createPatch({preferences:continuedIntent},{preferences:currentPreferences});
+          const preferences=patches.applyPatch({preferences:continuedPreferences},remaining).preferences;
+          const graphs=[continuedIntent,currentPreferences,continuedPreferences].map(value=>value.preferenceGraph);
+          preferences.preferenceGraph.entityFollows=mergeRecords(...graphs.map(graph=>graph.entityFollows),'participantId',entityFields,follow.participantFollowIdentityKey);
+          preferences.preferenceGraph.domainPreferences=mergeRecords(...graphs.map(graph=>graph.domainPreferences),'sportDomainId',domainFields,value=>value);
+          return {...state,preferences};
+        }catch{return state;}
+      }
+      return {receipt:witness,preserve,patch:patch=>({...patch,changes:[...patch.changes.filter(change=>change.path[0]!=='preferences'),...changes]})};
     }catch{return null;}
   }
-  function ownedPlan(receipt,state,life){
+  function ownedPlan(receipt,state,life,currentPreferences){
+    if(!receipt)return null;
     const owner=preferenceIntentOwner();
-    return owner?.accountId===receipt.ownerId&&owner.accountId===life?.accountId&&owner.generation===life.generation
-      ?plan(receipt,state,PROFILE_STORAGE,FOLLOW_FIRST,USER_STATE_SYNC):null;
+    if(owner?.accountId!==receipt.ownerId||owner.accountId!==life?.accountId||owner.generation!==life.generation)return null;
+    // Validate captured current choices even on a structurally compatible base:
+    // an ordinary Settings/standings write never becomes receipt-owned intent.
+    if(!object(currentPreferences)||!localView(currentPreferences)
+      ||!PROFILE_STORAGE.preferenceBaseMatches({basePreferences:withoutViews(receipt.preferences)},withoutViews(currentPreferences)))
+      throw Object.assign(new Error('Your choices are saved on this device. Sync is paused because the saved account changed.'),{code:'preference_base_changed'});
+    if(state&&(PROFILE_STORAGE.preferenceBaseMatches(receipt,state.preferences)
+      ||PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC)))return null;
+    return plan(receipt,state,PROFILE_STORAGE,FOLLOW_FIRST,USER_STATE_SYNC);
   }
   root.NOTHINGSPORTS_PREFERENCE_INTENT_RECONCILE=Object.freeze({plan,ownedPlan});
   if(typeof module==='object'&&module.exports)module.exports=root.NOTHINGSPORTS_PREFERENCE_INTENT_RECONCILE;
