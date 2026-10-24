@@ -64,7 +64,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
   "/assets/js/app-shell-runtime.js?v=590",
-  "/assets/js/account-awareness-runtime.js?v=5715",
+  "/assets/js/account-awareness-runtime.js?v=5716",
   "/assets/js/follow-schedule-panel.js?v=576",
   "/assets/js/fixture-navigation.js?v=535",
   "/assets/js/notification-navigation.js?v=534",

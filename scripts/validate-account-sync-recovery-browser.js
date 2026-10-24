@@ -19,7 +19,7 @@ const helperRaceProbe=process.env.ACCOUNT_RECOVERY_HELPER_RACE==='1'||scenario==
 if (scenario === 'all') {
   let failed = false;
   for (const engine of (process.env.ACCOUNT_RECOVERY_BROWSER ? [engineName] : ['chromium', 'webkit'])) {
-    for (const testCase of ['helper-mount', 'diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed']) {
+    for (const testCase of ['helper-mount', 'diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed', 'receipt-base-disjoint', 'receipt-base-overlap']) {
       const result = spawnSync(process.execPath, [__filename], { stdio: 'inherit', env: {
         ...process.env, ACCOUNT_RECOVERY_BROWSER: engine, ACCOUNT_RECOVERY_CASE: testCase } });
       failed ||= result.status !== 0;
@@ -56,7 +56,7 @@ const server = http.createServer((req, res) => {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, serviceWorkers: 'block' });
   let row = null, readMode = 'success', refreshMode = 'success', reads = 0, writes = 0, refreshes = 0, authSignIns = 0;
   let beforeAck = null, page;
-  const actualApi = scenario.startsWith('api-') ? require('./lib/local-user-state-api')(owner) : null;
+  const actualApi = (scenario.startsWith('api-')||scenario.startsWith('receipt-base-')) ? require('./lib/local-user-state-api')(owner) : null;
   const chronology = [];
   const heldReads = [];
   let holdHelper=false,helperHeld;const heldHelpers=[];
@@ -192,7 +192,80 @@ const server = http.createServer((req, res) => {
       globalThis.qaSyncStates = [];
       setServerPersistence = patch => { qaSyncStates.push(patch.state); return original(patch); };
     });
-    if (actualApi) {
+    if (scenario.startsWith('receipt-base-')) {
+      const participant='team:football:australian-championship:11255',other='team:football:epl:2';
+      // Establish an ordinary saved baseline, then use the actual deliberate writer.
+      await page.evaluate(participant=>{
+        const p=clonePreferences(userPreferences);
+        p.followedSports=[];p.selectedSelectorEntityIds=[];
+        p.preferenceGraph=PREFERENCE_SYSTEM.createPreferenceGraph({profileId:activeProfileBundle.profile.id});
+        p.preferenceGraph=PREFERENCE_SYSTEM.setEntityFollow(p.preferenceGraph,participant,'follow');
+        p.preferenceGraph=PREFERENCE_SYSTEM.quickAddDomain(p.preferenceGraph,'sport:football','template:like');
+        p.followBrowse={sportId:'sport:football',section:'teams-players',page:0};p.feedCompact=false;
+        if(!savePreferences(p,{deferFollowEffects:true}))throw Error('Baseline fixture rejected');
+        clearTimeout(serverSyncTimer);
+      },participant);
+      await page.evaluate(()=>syncCurrentServerState());
+      const base=clone(actualApi.state());
+      const original=await page.evaluate(participant=>{
+        const p=clonePreferences(userPreferences);
+        p.preferenceGraph=PREFERENCE_SYSTEM.setEntityFollow(p.preferenceGraph,participant,'unfollow');
+        p.preferenceGraph=PREFERENCE_SYSTEM.quickAddDomain(p.preferenceGraph,'sport:football','template:casual');
+        p.followBrowse={sportId:'sport:cricket',section:'teams-players',page:0};p.feedCompact=true;
+        if(!savePreferences(p,{deliberate:true,deferFollowEffects:true}))throw Error('Owned local edit rejected');
+        clearTimeout(serverSyncTimer);
+        return pendingPreferenceIntent(serverPersistence.user.id);
+      },participant);
+      const remote=clone(base);
+      remote.preferences.followBrowse={sportId:'sport:tennis',section:'teams-players',page:0};
+      remote.preferences.preferenceGraph.entityFollows.push({participantId:other,followLevel:'follow'});
+      remote.preferences.preferenceGraph.domainPreferences.push(require('../config/preference-system').expandTemplate('remote-B','sport:cricket','template:froth',{enabled:false}));
+      if(scenario==='receipt-base-overlap')remote.preferences.preferenceGraph.entityFollows.find(row=>row.participantId===participant).followLevel='priority';
+      const changed=await actualApi.handle({method:'PUT',url:'/api/user-state',headers:{},body:{patch:sync.createPatch(base,remote,{baseUpdatedAt:base.updatedAt})}});
+      assert.equal(changed.status,200);row=actualApi.state();const savedRemote=clone(row),beforeWrites=writes;
+      // Hold the real helper response. Offline suppresses its existing automatic
+      // recovery only during this explicit mounted manual-retry scenario.
+      holdHelper=true;
+      await page.addInitScript(()=>Object.defineProperty(navigator,'onLine',{configurable:true,value:false}));
+      await page.reload({waitUntil:'domcontentloaded'});
+      await page.waitForFunction(()=>serverPersistence.state==='error'&&Boolean(pendingPreferenceIntent(serverPersistence.user?.id)));
+      await page.locator('#startupLaunch').waitFor({state:'hidden'});
+      const restored=await page.evaluate(()=>({receipt:pendingPreferenceIntent(serverPersistence.user.id),baseline:serverStateBaseline.updatedAt,
+        compatible:PROFILE_STORAGE.preferenceBaseMatches(pendingPreferenceIntent(serverPersistence.user.id),serverStateBaseline.state.preferences)}));
+      assert.deepEqual(restored.receipt,original,'persisted restart retains exact owned receipt');
+      assert.equal(restored.baseline,row.updatedAt);assert.equal(restored.compatible,false);
+      assert.equal(writes,beforeWrites,'pre-helper bootstrap holds without saving');
+      let helperTimer;
+      try{await Promise.race([helperRequest,new Promise((_,reject)=>{helperTimer=setTimeout(()=>reject(Error('Restart helper request not observed')),8000);})]);}
+      finally{clearTimeout(helperTimer);}
+      holdHelper=false;for(const route of heldHelpers.splice(0))await route.continue();
+      await page.evaluate(()=>ensureAccountIndicator());
+      assert.deepEqual(await page.evaluate(()=>pendingPreferenceIntent(serverPersistence.user.id)),original,'helper mount cannot rewrite pending base');
+      await page.evaluate(()=>{Object.defineProperty(navigator,'onLine',{configurable:true,value:true});openSettings({section:'account'});});
+      for(const id of ['dismissTunePromptBtn','skipSelectorOptInBtn']){const button=page.locator('#'+id);if(await button.isVisible())await button.click();}
+      await page.waitForFunction(()=>!document.getElementById('syncAccountNowBtn')?.disabled);
+      await page.locator('#syncAccountNowBtn').click();
+      await page.evaluate(()=>serverSyncSequence.catch(()=>{}));
+      const after=await page.evaluate(()=>({state:serverPersistence.state,receipt:pendingPreferenceIntent(serverPersistence.user.id),preferences:clonePreferences(userPreferences)}));
+      if(scenario==='receipt-base-overlap'){
+        assert.equal(after.state,'error');assert.deepEqual(after.receipt,original);
+        assert.equal(writes,beforeWrites);assert.deepEqual(actualApi.state(),savedRemote,'overlap makes no server change');
+        assert.equal(await page.locator('#syncAccountNowBtn').isEnabled(),true);
+      }else{
+        assert.equal(after.state,'signedIn');assert.equal(after.receipt,null);assert.equal(writes,beforeWrites+1);
+        const saved=actualApi.state().preferences;
+        for(const preferences of [saved,after.preferences]){
+          assert.equal(preferences.preferenceGraph.entityFollows.find(row=>row.participantId===participant).followLevel,'unfollow');
+          assert(preferences.preferenceGraph.entityFollows.some(row=>row.participantId===other&&row.followLevel==='follow'));
+          assert.equal(preferences.preferenceGraph.domainPreferences.find(row=>row.sportDomainId==='sport:football').templateId,'template:casual');
+          assert(preferences.preferenceGraph.domainPreferences.some(row=>row.sportDomainId==='sport:cricket'&&row.templateId==='template:froth'));
+          assert.equal(preferences.followFirst.notifications.enabled,false);
+        }
+        assert.equal(saved.followBrowse.sportId,'sport:tennis');assert.equal(saved.feedCompact,false);
+        assert.equal(after.preferences.followBrowse.sportId,'sport:cricket');assert.equal(after.preferences.feedCompact,true);
+      }
+      chronology.push({phase:'persisted-base-manual-retry',scenario,receiptPreservedBeforeACK:true,writes:writes-beforeWrites,state:after.state});
+    } else if (actualApi) {
       const participant = 'team:football:australian-championship:11255';
       const snapshot = target => target.evaluate(() => {
         const receipt = pendingPreferenceIntent(serverPersistence.user?.id), life = serverSyncClient.accountSnapshot();

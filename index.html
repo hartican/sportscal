@@ -2132,7 +2132,7 @@ async function reloadForUpdatedServiceWorker(){
       eventsViewTab,
       savedAt:Date.now(),
     }));
-  }catch(_error){ /* Storage failure must not block reload. */ }
+  }catch(_error){ }
   location.reload();
 }
 const startupCoordinator = FEED_REFRESH_LIFECYCLE?.createStartupCoordinator
@@ -2782,7 +2782,7 @@ async function runOptimisticMutation({ capture, apply, request, commit, rollback
           if (typeof commit === "function") await commit(resolution.result, prior);
           return { ok:true, result:resolution.result, prior, reconciled:true };
         }
-      }catch(_error){ /* Roll back exactly below. */ }
+      }catch(_error){ }
     }
     if (typeof rollback === "function") await rollback(prior, error);
     return { ok:false, error, prior, reconciled:false };
@@ -3090,7 +3090,7 @@ function captureChatCapabilityFromLocation(){
   const fragment = new URLSearchParams(String(window.location.hash || "").replace(/^#/, ""));
   const capability = String(fragment.get("chat") || "").trim();
   if (!capability) return "";
-  try{ sessionStorage.setItem(CHAT_CAPABILITY_STORAGE_KEY, capability); }catch(_error){ /* Kept in memory below. */ }
+  try{ sessionStorage.setItem(CHAT_CAPABILITY_STORAGE_KEY, capability); }catch(_error){ }
   fragment.delete("chat");
   const remainder = fragment.toString();
   history.replaceState(null, "", `${window.location.pathname}${window.location.search}${remainder ? `#${remainder}` : ""}`);
@@ -3480,7 +3480,7 @@ function renderAccountIndicator(){
 }
 function ensureAccountIndicator(){
   if(accountIndicatorController)return Promise.resolve(accountIndicatorController);
-  accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=5715')
+  accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=5716')
     .then(()=>NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.mount())
     .catch(()=>{accountIndicatorLoading=null;renderAccountIndicator();return null;});
   return accountIndicatorLoading;
@@ -4898,7 +4898,7 @@ function emptyServerStatePayload(){
 
 function serverErrorEndsSession(error){return /^(refresh_session_terminal|missing_session|invalid_refresh_token|refresh_token_(not_found|already_used|revoked))$/.test(String(error?.code||"").toLowerCase())}
 
-function applyServerStatePreservingChanges(state, stateAtSyncStart){
+function applyServerStatePreservingChanges(state, stateAtSyncStart, plan){
   const inFlightPatch = USER_STATE_SYNC.createPatch(
     stateAtSyncStart,
     currentServerStatePayload(),
@@ -4907,7 +4907,7 @@ function applyServerStatePreservingChanges(state, stateAtSyncStart){
   const localState = USER_STATE_SYNC.hasChanges(inFlightPatch)
     ? USER_STATE_SYNC.applyPatch(state, inFlightPatch)
     : state;
-  applyServerState(localState);
+  applyServerState(plan?.preserve(localState)||localState);
   return inFlightPatch;
 }
 
@@ -4984,7 +4984,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
     let latest = await serverSyncClient.loadState({ accountId:scope.accountId });
     diagnostic?.step("verify",latest,preferenceReceipt);
     if (!scope.verify(latest)) return null;
-    verifyPreferenceIntentBase(preferenceReceipt,latest.state);
+    let preferencePlan=verifyPreferenceIntentBase(preferenceReceipt,latest.state,preferenceLife);
     advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
     setPreferenceRecovery(latest.preferenceRecovery);
     currentState = serverAuthoritativeFixturePins(latest.state, currentState);
@@ -4992,12 +4992,13 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
       baseUpdatedAt: baseline.updatedAt,
     });
 
+    localPatch=preferencePlan?.patch(localPatch)||localPatch;
     if (!USER_STATE_SYNC.hasChanges(localPatch) && latest.state){
       diagnostic?.step("acknowledge");
-      acknowledgePreferenceReceipt(preferenceReceipt,latest.state,preferenceLife);
-      if (latest.state.updatedAt !== baseline.updatedAt){
+      acknowledgePreferenceReceipt(preferencePlan?.receipt||preferenceReceipt,latest.state,preferenceLife);
+      if (preferencePlan||latest.state.updatedAt !== baseline.updatedAt){
         diagnostic?.step("apply");
-        applyServerStatePreservingChanges(latest.state, stateAtSyncStart);
+        applyServerStatePreservingChanges(latest.state, stateAtSyncStart,preferencePlan);
       }
       setServerStateBaseline(latest.state);
       setServerPersistence({
@@ -5007,7 +5008,8 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
         lastSyncedAt: latest.state.updatedAt,
         message: "",
       });
-      if (notify) showToast("Loaded your latest Nothing Sport settings.");
+      if (pendingPreferenceIntent(scope.accountId)){setServerPersistence({state:"error",message:"Newer choices are saved on this device and waiting to sync. Retry sync."});}
+      else if (notify) showToast("Loaded your latest Nothing Sport settings.");
       diagnostic?.step("complete");
       return latest;
     }
@@ -5038,7 +5040,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
         latest = await serverSyncClient.loadState({ accountId:scope.accountId });
         diagnostic?.step("verify",latest,preferenceReceipt);
         if (!scope.verify(latest)) return null;
-        verifyPreferenceIntentBase(preferenceReceipt,latest.state);
+        preferencePlan=verifyPreferenceIntentBase(preferenceReceipt,latest.state,preferenceLife);
         advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
         setPreferenceRecovery(latest.preferenceRecovery);
         currentState = serverAuthoritativeFixturePins(latest.state, currentState);
@@ -5046,15 +5048,16 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
         localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
           baseUpdatedAt: latest.state?.updatedAt || null,
         });
+        localPatch=preferencePlan?.patch(localPatch)||localPatch;
       }
     }
     if (!result?.state) throw new Error("The server did not return the reconciled profile.");
     diagnostic?.step("acknowledge");
-    acknowledgePreferenceReceipt(preferenceReceipt,result.state,preferenceLife);
+    acknowledgePreferenceReceipt(preferencePlan?.receipt||preferenceReceipt,result.state,preferenceLife);
     setPreferenceRecovery(result.preferenceRecovery);
     clearAcknowledgedFixturePinCommands(result.state);
     diagnostic?.step("apply");
-    applyServerStatePreservingChanges(result.state, stateAtSyncStart);
+    applyServerStatePreservingChanges(result.state, stateAtSyncStart,preferencePlan);
     setServerStateBaseline(result.state);
     const lastSyncedAt = result.state?.updatedAt || new Date().toISOString();
     setServerPersistence({
@@ -5240,9 +5243,11 @@ function advancePreferenceReceiptBase(receipt,state,expectedLife){
   activeProfileBundle=PROFILE_STORAGE.advancePreferenceIntentBase(localStorage,activeProfileBundle,receipt,state);
 }
 
-function verifyPreferenceIntentBase(receipt,state){
+function verifyPreferenceIntentBase(receipt,state,life){
   if(receipt&&(!state||(!PROFILE_STORAGE.preferenceBaseMatches(receipt,state.preferences)
     &&!PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC)))){
+    const plan=globalThis.NOTHINGSPORTS_PREFERENCE_INTENT_RECONCILE?.ownedPlan(receipt,state,life);
+    if(plan)return plan;
     throw Object.assign(new Error("Your choices are saved on this device. Sync is paused because the saved account changed."),{code:"preference_base_changed"});
   }
 }
@@ -5330,7 +5335,6 @@ async function bootstrapServerPersistence({ session: sessionHint = undefined, ch
         : ownedState;
       applyServerState(hydratedState);
       setServerStateBaseline(result.state);
-      // Fence account switches before optional metadata.
       startupSessionStateBaseline = null;
       setServerPersistence({
         state: "signedIn",
@@ -10358,7 +10362,6 @@ async function submitNothingscoreAction(command, panel, { success = "Your Nothin
       try {
         result = await serverSyncClient.nothingscoreRequest({}, command);
       } catch(error){
-        // Lost reply may follow commit.
         nothingscoreSubmissionStore.uncertain(key);
         const receipt = await reconcileNothingscoreSubmission(eventId,submittedPhase,{expectedOwner:owner});
         if (receipt) result = {...receipt,replayed:true};
@@ -11765,7 +11768,7 @@ function readStandingsDirectorySession(preferences = userPreferences){
 
 function writeStandingsDirectorySession(next){
   const clean = { ...defaultStandingsDirectorySession(), ...next, schemaVersion: STANDINGS_DIRECTORY_SESSION_VERSION };
-  try { sessionStorage.setItem(STANDINGS_DIRECTORY_SESSION_KEY, JSON.stringify(clean)); } catch(_error) { /* session state is optional */ }
+  try { sessionStorage.setItem(STANDINGS_DIRECTORY_SESSION_KEY, JSON.stringify(clean)); } catch(_error) { }
   return clean;
 }
 
@@ -14082,7 +14085,7 @@ function appendPublicProfileAccountSettings(body){
 function activeLocalPreferenceRecovery(reference = Date.now()){
   const stored = readStorage(PREFERENCE_RESET_STORAGE_KEY, null);
   if (!stored?.resetId || !stored?.preferences || Date.parse(stored.expiresAt || "") <= Number(reference)){
-    try{ localStorage.removeItem(PREFERENCE_RESET_STORAGE_KEY); }catch(_error){ /* Storage may be unavailable. */ }
+    try{ localStorage.removeItem(PREFERENCE_RESET_STORAGE_KEY); }catch(_error){ }
     return null;
   }
   return stored;
@@ -14124,7 +14127,7 @@ function appendPreferenceRecoverySettings(body){
       defaults:() => ({ ...mergePreferences(null), onboardingComplete:true }),
       currentPreferences:() => clonePreferences(userPreferences),
       writeLocalRecovery:value => writeStorage(PREFERENCE_RESET_STORAGE_KEY, value),
-      removeLocalRecovery:() => { try{ localStorage.removeItem(PREFERENCE_RESET_STORAGE_KEY); }catch(_error){ /* Ignore unavailable storage. */ } },
+      removeLocalRecovery:() => { try{ localStorage.removeItem(PREFERENCE_RESET_STORAGE_KEY); }catch(_error){ } },
       savePreferences,
       acceptServerResult(result){
         setPreferenceRecovery(result.preferenceRecovery);
@@ -15075,7 +15078,7 @@ async function shareOrCopyLink({ title, text, url }){
       await navigator.clipboard.writeText(url);
       showToast("Link copied.");
       return "copied";
-    }catch(_error){ /* Fall through to a selectable browser prompt. */ }
+    }catch(_error){ }
   }
   window.prompt("Copy this link", url);
   return "selectable";
@@ -15193,7 +15196,7 @@ function updateUnreadAppBadge(unread){
   try{
     if (enabled && Number(unread) > 0) void navigator.setAppBadge?.(Number(unread));
     else void navigator.clearAppBadge?.();
-  }catch(_error){ /* Badging is a progressive enhancement. */ }
+  }catch(_error){ }
 }
 
 function chatConnection(message, state = "idle"){
@@ -15609,7 +15612,7 @@ function openChatSetup(event){
 
 function clearPendingChatCapability(){
   pendingChatCapability = "";
-  try{ sessionStorage.removeItem(CHAT_CAPABILITY_STORAGE_KEY); }catch(_error){ /* Memory copy is already cleared. */ }
+  try{ sessionStorage.removeItem(CHAT_CAPABILITY_STORAGE_KEY); }catch(_error){ }
 }
 
 function sharedChatErrorCopy(error){
@@ -17458,7 +17461,7 @@ function renderNothingscoreDrawer(){
   soundCopy.innerHTML = "<strong>Impact sound</strong>On by default. Plays once after every new Impact submission, whatever score you choose.";
   sound.append(soundInput, soundCopy);
   soundInput.addEventListener("change", async () => {
-    try{ localStorage.setItem(NOTHINGSCORE_SOUND_KEY, soundInput.checked ? "on" : "off"); }catch(_error){ /* Blocked storage keeps this session-only. */ }
+    try{ localStorage.setItem(NOTHINGSCORE_SOUND_KEY, soundInput.checked ? "on" : "off"); }catch(_error){ }
     if (!soundInput.checked) return;
     const played = await playNothingscoreImpactSound(prepareNothingscoreAudio());
     const existing = body.querySelector(".nsc-audio-enable");
