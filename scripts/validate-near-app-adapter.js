@@ -73,6 +73,9 @@ test('a repeated verifier cannot overwrite its earlier exclusively claimed recei
  try{const {claimReceipt}=require('./verify-near-app-adapter'),file=claimReceipt(dir,{state:'ORIGINAL_EVIDENCE'}),original=fs.readFileSync(file);assert.throws(()=>claimReceipt(dir,{state:'REPEATED'}),error=>error.code==='EEXIST');assert(fs.readFileSync(file).equals(original));}
  finally{fs.rmSync(dir,{recursive:true,force:true});}
 });
+test('actual verifier CLI admits stat-only rewrites while rejecting real source/index changes without network',()=>{
+ const result=require('./validate-near-app-prerequisites').validate();assert(result.checks>=15);assert.equal(result.networkCalls,0);assert.equal(result.serviceRequests,0);
+});
 test('workflow keeps live read in existing publisher secret step after both guards before deployment',()=>{
  const workflow=fs.readFileSync(path.join(ROOT,'.github/workflows/sportscal-production.yml'),'utf8');
  const shared=workflow.slice(workflow.indexOf('      - name: Verify shared fixture publication input'),workflow.indexOf('      - name: Bind project and preserve current production'));

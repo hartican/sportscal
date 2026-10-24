@@ -2072,3 +2072,14 @@ readiness/capacity, normal release/public/hosted/repeated20 and actual-device
 acceptance stay separate. Failed live qualification stops BEFORE deployment;
 ROOT owns guarded recovery and sole publication. No provider/card refresh is
 required. See quality/near-app-adapter-release-gate-2026-10-25.md.
+
+The25 October prerequisite correction replaces stat-cache-only checkout rejection
+with separate actual-content/mode and staged-index comparisons. Exact main/SHA
+and exclusive receipt protections remain. Actual-CLI local regression15 and the
+existing adapter validator17 pass without service access. Fixed-stage/Git-exit
+diagnostics make failures before receipt claim actionable without raw stderr or
+private values. Historical run40138373141's precise cause remains unproven; this
+source correction is neither live loading proof nor production acceptance.
+All253 required commands and application/read/dispatcher budgets remain unchanged;
+DEPLOY retains the sole fresh normal-run/publication lane. Details and limitations
+are in the linked quality record.
