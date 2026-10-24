@@ -23,7 +23,7 @@ assert(!cancelControl||scenario==='receipt-base-disjoint','Cancellation control 
 if (scenario === 'all') {
   let failed = false;
   for (const engine of (process.env.ACCOUNT_RECOVERY_BROWSER ? [engineName] : ['chromium', 'webkit'])) {
-    for (const testCase of ['helper-mount', 'diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed', 'receipt-base-disjoint', 'receipt-base-overlap']) {
+    for (const testCase of ['helper-mount', 'diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed', 'receipt-base-disjoint', 'receipt-base-overlap', 'receipt-base-cricket']) {
       const result = spawnSync(process.execPath, [__filename], { stdio: 'inherit', env: {
         ...process.env, ACCOUNT_RECOVERY_BROWSER: engine, ACCOUNT_RECOVERY_CASE: testCase } });
       failed ||= result.status !== 0;
@@ -405,15 +405,16 @@ const server = http.createServer((req, res) => {
       }else await settleFixtureWork('baseline-fixtures-settled',true);
       resourcePhase='local-owned-follow-edit';
       const base=clone(actualApi.state());
-      const original=await page.evaluate(participant=>{
-        const p=clonePreferences(userPreferences);
+      const original=await page.evaluate(({participant,cricket})=>{
+        let p=clonePreferences(userPreferences);
         p.preferenceGraph=PREFERENCE_SYSTEM.setEntityFollow(p.preferenceGraph,participant,'unfollow');
         p.preferenceGraph=PREFERENCE_SYSTEM.quickAddDomain(p.preferenceGraph,'sport:football','template:casual');
         p.followBrowse={sportId:'sport:cricket',section:'teams-players',page:0};p.feedCompact=true;
+        if(cricket)p=NOTHINGSPORTS_CRICKET_COVERAGE.setFormatFollow(p,'team:cricket:australia','Tests',true);
         if(!savePreferences(p,{deliberate:true,deferFollowEffects:true}))throw Error('Owned local edit rejected');
         clearTimeout(serverSyncTimer);
         return pendingPreferenceIntent(serverPersistence.user.id);
-      },participant);
+      },{participant,cricket:scenario==='receipt-base-cricket'});
       const remote=clone(base);
       remote.preferences.followBrowse={sportId:'sport:tennis',section:'teams-players',page:0};
       remote.preferences.preferenceGraph.entityFollows.push({participantId:other,followLevel:'follow'});
@@ -502,6 +503,10 @@ const server = http.createServer((req, res) => {
           assert.equal(preferences.preferenceGraph.domainPreferences.find(row=>row.sportDomainId==='sport:football').templateId,'template:casual');
           assert(preferences.preferenceGraph.domainPreferences.some(row=>row.sportDomainId==='sport:cricket'&&row.templateId==='template:froth'));
           assert.equal(preferences.followFirst.notifications.enabled,false);
+          if(scenario==='receipt-base-cricket'){
+            const cricket=preferences.preferenceGraph.entityFollows.find(row=>row.participantId==='team:cricket:australia');
+            assert.equal(cricket.followLevel,'follow');assert.deepEqual(cricket.cricketFormats,['Tests']);
+          }
         }
         assert.equal(saved.followBrowse.sportId,'sport:tennis');assert.equal(saved.feedCompact,false);
         assert.equal(after.preferences.followBrowse.sportId,'sport:cricket');assert.equal(after.preferences.feedCompact,true);
