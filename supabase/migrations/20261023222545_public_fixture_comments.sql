@@ -77,7 +77,7 @@ do $$ declare t text;begin
 end $$;
 create or replace function private.nothingsports_guard_erasure_write()
 returns trigger language plpgsql security definer set search_path='' as $$
-declare actor uuid;actors uuid[]:='{}';column_name text;null_only boolean:=false;
+declare actor uuid;actors uuid[]:='{}';column_name text;null_only boolean:=false;current_comment public.nothingsports_public_comments;
 begin
  if current_setting('transaction_isolation')<>'read committed' then
   raise exception using errcode='25000',message='account_erasure_guard_requires_read_committed';
@@ -107,16 +107,23 @@ begin
   -- Text, GIF, author, deletion and identity fields must remain byte-identical;
   -- Totals and revision must agree with their existing transaction owners.
   -- AFTER ROW guards run at statement end: a same-thread batch has already
-  -- advanced the thread past its earlier rows. Verify the stored row's exact
-  -- revision and strict advance, bounded by the thread, rather than requiring
-  -- every row to equal the batch's last revision.
+  -- advanced the thread past its earlier rows. Parent and vote cascades can
+  -- also update one surviving row twice before its earlier AFTER event runs.
+  -- Every transition preserves protected fields; the final stored row must
+  -- retain them, carry the actual vote total and bound each increasing revision.
   if tg_table_schema='public' and tg_table_name='nothingsports_public_comments' then
-   if (to_jsonb(new)-array['parent_id','score','revision'])=(to_jsonb(old)-array['parent_id','score','revision'])
+   select c.* into current_comment from public.nothingsports_public_comments c where c.id=new.id;
+   if found
+     and (to_jsonb(new)-array['parent_id','score','revision'])=(to_jsonb(old)-array['parent_id','score','revision'])
+     and (to_jsonb(current_comment)-array['parent_id','score','revision'])=(to_jsonb(new)-array['parent_id','score','revision'])
      and (new.parent_id is not distinct from old.parent_id or new.parent_id is null)
-     and new.score=(select coalesce(sum(v.value),0) from public.nothingsports_public_comment_votes v where v.comment_id=new.id)
+     and (current_comment.parent_id is not distinct from new.parent_id or current_comment.parent_id is null)
+     and (new.score=current_comment.score or
+       (old.parent_id is not null and new.parent_id is null and new.score=old.score))
+     and current_comment.score=(select coalesce(sum(v.value),0) from public.nothingsports_public_comment_votes v where v.comment_id=new.id)
      and new.revision>old.revision
-     and new.revision=(select c.revision from public.nothingsports_public_comments c where c.id=new.id)
-     and new.revision<=(select t.revision from public.nothingsports_public_threads t where t.event_id=new.event_id) then
+     and new.revision<=current_comment.revision
+     and current_comment.revision<=(select t.revision from public.nothingsports_public_threads t where t.event_id=new.event_id) then
     return new;
    end if;
   end if;
