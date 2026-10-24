@@ -1220,7 +1220,7 @@ Read the current accepted account profile after the existing verified sign-in/re
 
 ## 19 October 2026 Sydney — Australian Championship retained local integration
 
-Jack approved the men's 2026 Australian Championship as a Football league: sixteen clubs, every published match and four separate published group tables. The finite eleven-response public capture is retained evidence, not an ongoing freshness or unattended-reuse grant. The current capture contains forty-two-eight group fixtures and no published finals entries; do not invent finalists, venues or times. Viewing, players and crests remain unavailable unless separately evidenced.
+Jack approved the men's 2026 Australian Championship as a Football league: sixteen clubs, every published match and four separate published group tables. The finite eleven-response public capture is retained evidence, not an ongoing freshness or unattended-reuse grant. The current capture contains forty-eight group fixtures and no published finals entries; do not invent finalists, venues or times. Viewing, players and crests remain unavailable unless separately evidenced.
 
 The league starts unfollowed. Browsing or selecting Football does not admit its matches. The explicit “Follow Australian Championship” control writes only that competition's existing preference through the shared upsert helper and invokes the existing bounded Feed rebuild owner. A club follow admits only that club's matches. Explicit competition/sport exclusions and participant mutes remain authoritative; a league follow does not revive an explicitly excluded sport. No generic parent inheritance, selector migration, retention, rating, notification or account rule changes.
 
