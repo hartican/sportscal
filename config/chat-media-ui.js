@@ -509,6 +509,10 @@
           retryButton.addEventListener("click", () => { if(valid())void search(q, { append }); });
           status.replaceChildren(message, document.createTextNode(" "), retryButton);
         }
+      }finally{
+        // Value-free completion on the existing owner, including stale/closed
+        // searches. Observers cannot change the operation's outcome.
+        try{picker.dispatchEvent(new Event("ns-chat-gif-search-settled"));}catch{}
       }
     }
 

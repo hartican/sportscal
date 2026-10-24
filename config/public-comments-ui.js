@@ -3,6 +3,7 @@
  const policy=root.NOTHINGSPORTS_PUBLIC_COMMENTS;
  const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
  const button=(text,run)=>{const b=node('button',text,'btn ghost');b.type='button';b.onclick=e=>{e.stopPropagation();run();};return b;};
+ function settled(host,name){try{host.dispatchEvent(new Event(name));}catch{}}
  let active=null,generation=0;
  function registered(){const owner=serverSyncClient.sessionSubject(),user=typeof serverPersistence==='undefined'?null:serverPersistence.user;return!!(owner&&user?.id===owner&&user.isAnonymous!==true&&user.is_anonymous!==true);}
  const defaultClient={owner:()=>serverSyncClient.sessionSubject()||'',registered,active:()=>activeTab==='feed',signIn:()=>openSettings({section:'account'}),
@@ -64,13 +65,13 @@
    if(!current()||halted||sendPending)return;sendPending=true;submit.disabled=true;render();
    try{const data=await client.request(eventId,{},command);if(!current())return;accept(data,{write:true});lastChange=Date.now();status.textContent='';if(command.action==='post'&&command.gif)gifController?.notifyGifSent([{providerAnalytics:command.gif.analytics}]);if(command.action==='post'&&command.clientId===clientId){input.value='';chosenGif=null;parentId=null;clientId=null;preview.replaceChildren();replyTo.textContent='';}void poll();}
    catch(e){report(e);if(e.code==='public_comment_handle_required'&&current()){const profile=node('div');host.append(profile);client.profile(profile);}}
-   finally{if(current()){sendPending=false;submit.disabled=false;render();}}
+   finally{if(current()){sendPending=false;submit.disabled=false;render();}settled(host,'ns-public-comment-write-settled');}
   }
   async function gifs(){
    if(!current())return;try{const config=await client.gifs();if(!current())return;await Promise.all([client.load('config/chat-media.js?v=218'),client.load('config/chat-media-ui.js?v=304')]);if(!current())return;
     gifController?.closePicker();gifController=root.NOTHINGSPORTS_CHAT_MEDIA_UI.install({media:root.NOTHINGSPORTS_CHAT_MEDIA,pickerHost:host.closest('dialog')||document.body,state:()=>({capabilities:config.capabilities,pendingAttachments:[]}),request:async()=>config,isCurrent:current,returnFocus:()=>input.focus({preventScroll:true}),connection:message=>report(Error(message)),onGifSelected:gif=>{if(!current())return;chosenGif=gif;clientId=null;preview.replaceChildren();const img=node('img');img.src=gif.previewUrl;img.alt=gif.title;img.style.maxHeight='100px';preview.append(img,button('Remove GIF',()=>{chosenGif=null;clientId=null;preview.replaceChildren();}));}});
     await gifController.stylesReady;if(current())await gifController.openPicker();
-   }catch(e){report(e);}
+   }catch(e){report(e);}finally{settled(host,'ns-public-comment-gif-settled');}
   }
   actions.append(button('GIF',()=>void gifs()),button('Cancel reply',()=>{parentId=null;clientId=null;replyTo.textContent='';}),submit);form.append(replyTo,input,preview,actions);host.append(form);
   input.oninput=()=>{clientId=null;};form.onsubmit=e=>{e.preventDefault();try{const body=policy.text(input.value);if(!body&&!chosenGif)return;clientId ||= crypto.randomUUID();void mutate({action:'post',clientId,body,...(parentId?{parentId}:{}),...(chosenGif?{gif:chosenGif}:{})});}catch(e){report(e);}};

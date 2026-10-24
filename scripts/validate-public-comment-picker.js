@@ -2,7 +2,7 @@
 // Structural/ownership tests of the existing picker; no native browser or real provider.
 const assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto'),{JSDOM}=require('jsdom');
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
-const read=file=>process.argv.includes('--reviewed-baseline')?require('node:child_process').execFileSync('git',['show','6e67b47901542621b71e3b0d43e2fd7a1310c0ef:'+file],{encoding:'utf8'}):fs.readFileSync(file,'utf8');
+const read=file=>{const baseline=process.argv.includes('--settlement-baseline')?'d4c42c3e8a1dae2cc9f0f401fea1c127a8b8c941':process.argv.includes('--reviewed-baseline')?'6e67b47901542621b71e3b0d43e2fd7a1310c0ef':null;return baseline?require('node:child_process').execFileSync('git',['show',baseline+':'+file],{encoding:'utf8'}):fs.readFileSync(file,'utf8');};
 const config=key=>({provider:'giphy',capabilities:{canUseGifs:true,lifetimeNscPoints:25},clientConfig:{apiKey:key||'synthetic-current',searchEndpoint:'https://api.giphy.com/v1/gifs/search',trendingEndpoint:'https://api.giphy.com/v1/gifs/trending'}});
 const response=(title,{total=1,offset=0}={})=>({ok:true,json:async()=>({data:[{id:'current',title:title||'Current reaction',images:{original:{url:'https://media.giphy.com/media/example/giphy.gif',width:'100',height:'100'},fixed_width:{url:'https://media.giphy.com/media/example/200w.gif',width:'100',height:'100'}}}],pagination:{count:1,total_count:total,offset}})});
 function setup(){
@@ -51,5 +51,22 @@ async function privacy(){for(const end of ['scope','closed','detached']){const h
  let resolveConfig,contacts=0;w.fetch=async()=>{contacts++;return response('New owner');};const picker=h.install({...h.publicContext,request:async()=>new Promise(resolve=>resolveConfig=resolve)}),pending=picker.openPicker();await tick();if(end==='scope')h.setAlive(false);else if(end==='closed')dialog.open=false;else dialog.remove();resolveConfig(config());await pending;assert.equal(contacts,0,'ended public lifetime cannot start a delayed provider search: '+end);assert.equal(h.selections.length,0);picker.closePicker();if(dialog.isConnected)assert(!dialog.querySelector('#chatGifPicker').classList.contains('show'));
  }finally{h.close();}}}
 
-async function main(){const selected=process.argv.find(arg=>arg.startsWith('--case='))?.slice(7);for(const[name,run]of Object.entries({descendant,bridge,config:configRace,error:errorRace,lifetime,pagination,provider,privacy}))if(!selected||selected===name){await run();console.log('Existing GIF picker source: '+name+' passed.');}}
+async function settlement(){const h=setup(),{w}=h;try{
+ let releaseConfig,completed=0;const client={owner:()=> 'reader',registered:()=>true,active:()=>true,request:async()=>({comments:[],revision:0}),gifs:()=>new Promise(resolve=>releaseConfig=resolve),load:async()=>{},signIn(){throw Error('Unexpected sign-in');}};
+ const mounted=w.NOTHINGSPORTS_PUBLIC_COMMENTS_UI.mount(w.document.getElementById('card'),{id:'fixture:one'},client);await tick();
+ mounted.host.addEventListener('ns-public-comment-gif-settled',event=>{assert.equal(event.detail,undefined);completed++;});
+ [...mounted.host.querySelectorAll('button')].find(button=>button.textContent==='GIF').click();await tick();assert(releaseConfig);w.NOTHINGSPORTS_PUBLIC_COMMENTS_UI.reset();releaseConfig(config());await tick();await tick();
+ assert.equal(completed,1,'ended actual public GIF owner must report final settlement on its original detached host');
+ }finally{h.close();}}
+
+async function searchSettlement(){const h=setup(),{w}=h;try{
+ let releaseProvider,searchCompleted=0;w.fetch=()=>new Promise(resolve=>releaseProvider=resolve);const installed=h.install(h.publicContext),pending=installed.openPicker();await tick();
+ const original=w.document.getElementById('chatGifPicker');original.addEventListener('ns-chat-gif-search-settled',event=>{assert.equal(event.detail,undefined);searchCompleted++;});
+ installed.closePicker();const privatePicker=h.install(h.privateContext);releaseProvider(response('Old provider response'));await pending;
+ assert.equal(searchCompleted,1,'actual stale search promise settles on its own replaced picker');assert.equal(h.selections.length,0);assert(!original.isConnected);
+ w.fetch=async()=>response('Observer cannot alter outcome');const current=w.document.getElementById('chatGifPicker');current.dispatchEvent=()=>{throw Error('Synthetic observer failure');};
+ await privatePicker.openPicker();assert.equal(current.querySelector('img').alt,'Observer cannot alter outcome','a throwing settlement observer cannot change the real search result');
+ }finally{h.close();}}
+
+async function main(){const selected=process.argv.find(arg=>arg.startsWith('--case='))?.slice(7);for(const[name,run]of Object.entries({descendant,bridge,config:configRace,error:errorRace,lifetime,pagination,provider,privacy,settlement,'search-settlement':searchSettlement}))if(!selected||selected===name){await run();console.log('Existing GIF picker source: '+name+' passed.');}}
 main().catch(error=>{console.error(error);process.exitCode=1;});
