@@ -35,7 +35,7 @@ const clone = value => JSON.parse(JSON.stringify(value));
 // Diagnostic only: correlate same-origin schedule reads with document lifetime.
 // Keep the original pageerror collector/gate unchanged; never handle a rejection.
 const traceResources=scenario.startsWith('receipt-base-'),resourceTrace=[];
-let resourcePhase='initial-startup',documentEpoch=0,resourceSequence=0,resourceTraceDropped=0;
+let resourcePhase='initial-startup',documentEpoch=0,resourceSequence=0,resourceTraceDropped=0,resourceTraceReported=false;
 const traceStart=Date.now(),resourceMarker='[qa-account-resource]';
 let cancelControlArmed=false,heldScheduleResponse=null,scheduleBodyObserved;
 const scheduleBodyHeld=new Promise(resolve=>{scheduleBodyObserved=resolve;});
@@ -681,11 +681,17 @@ const server = http.createServer((req, res) => {
     } else throw new Error('Unknown recovery scenario ' + scenario);
     statuses.push(...await page.evaluate(() => globalThis.qaSyncStates || []));
     resourcePhase='final-assertion';
-    if(traceResources)console.log(JSON.stringify({phase:'schedule-resource-lifetime',scenario,engine:engineName,cancellationControl:cancelControl,resourceTraceDropped,
-      blockedOrigins:[...new Set(blocked)],uncaughtErrors:errors,trace:resourceTrace}));
+    if(traceResources){console.log(JSON.stringify({phase:'schedule-resource-lifetime',scenario,engine:engineName,cancellationControl:cancelControl,resourceTraceDropped,
+      blockedOrigins:[...new Set(blocked)],uncaughtErrors:errors,trace:resourceTrace}));resourceTraceReported=true;}
     if(traceResources)assert.equal(resourceTraceDropped,0,'schedule evidence must be complete before acceptance');
     assert.deepEqual(errors, [], 'no uncaught application errors');
     console.log(JSON.stringify({ scenario, engine: engineName, passed: true, reads, writes, refreshes, authSignIns, statuses,
       blockedOrigins: [...new Set(blocked)], limits: 'Loopback mocked transport; no hosted or physical iPhone proof' }));
-  } finally { releaseScheduleBody(); await context.close(); await browser.close(); await new Promise(resolve => server.close(resolve)); }
+  } finally {
+    // Preserve intermediate failure evidence before response/browser cleanup can
+    // create terminal events. This observation does not handle the test failure.
+    if(traceResources&&!resourceTraceReported)console.log(JSON.stringify({phase:'schedule-resource-lifetime-before-cleanup',scenario,engine:engineName,
+      cancellationControl:cancelControl,resourceTraceDropped,blockedOrigins:[...new Set(blocked)],uncaughtErrors:errors,trace:resourceTrace}));
+    releaseScheduleBody(); await context.close(); await browser.close(); await new Promise(resolve => server.close(resolve));
+  }
 })().catch(error => { console.error(error); server.close(); process.exitCode = 1; });
