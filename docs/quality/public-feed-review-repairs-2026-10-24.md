@@ -36,7 +36,7 @@ node scripts/validate-public-comments-database.js --reviewed-baseline
 
 5. **Untracked cold-alert navigation.** Alert entry uses the existing notification destination dialog owner and PR37's opt-in full-card adapter. It never calls ordinary tab/focus rendering, mounts/marks a personal Feed slot or persists admission/open/seen/card choices. Full fixture and tray share one scroll container. Async media controls cover exact aliases, account-lifetime change, removed Feed membership and current Results choice. Normal Feed comment expansion remains inline under its existing full card. Native layout and final shared-adapter qualification remain separate gates.
 
-6. **Erasure contract.** Public comments use the exact existing canonical AFTER ROW INSERT OR UPDATE guard identity/type21; the inventory and operator/workflow are unchanged. The guard retains its original isolation/locks/audit-null protection. A table-specific derived-update case requires identical text/GIF/author/deletion/identity fields, unchanged-or-null parent, actual vote total and the current thread revision; ordinary blocked text or arbitrary-score writes still fail. This permits required blocked-peer vote/FK cleanup while preserving the dynamic inventory contract. The database regression now loads real existing chat/reminder DDL, original guard/auth-marker/inventory migrations, the feature migration, real direct-guard preflight and real operator/workflow freeze. It covers a nonexistent zero-row sentinel, a zero-comment account and later cascade/deletion controls; later workflow phases remain explicitly unallocated.
+6. **Erasure contract.** Public comments use the exact existing canonical AFTER ROW INSERT OR UPDATE guard identity/type21; the inventory and operator/workflow are unchanged. The guard retains its original isolation/locks/audit-null protection. A table-specific derived-update case requires identical text/GIF/author/deletion/identity fields, unchanged-or-null parent and actual vote total. The post-engine follow-up below replaces its original latest-thread equality with an exact stored-row revision, strictly advancing from OLD and bounded by the thread. Ordinary blocked text or arbitrary-score writes still fail. The database regression loads real existing chat/reminder DDL, original guard/auth-marker/inventory migrations, the feature migration, real direct-guard preflight and real operator/workflow freeze. It covers a nonexistent zero-row sentinel, a zero-comment account and later cascade/deletion controls; later workflow phases remain explicitly unallocated.
 
 ## Picker host follow-up — existing owner only
 
@@ -83,3 +83,25 @@ The expanded `node scripts/validate-public-feed.js --light` passes with current 
 The final migration/real inventory/operator/workflow test must run sequentially on PostgreSQL18 and17 after ROOT allocates it. Native Chromium/WebKit, final PR37 integration, coherent index/cache/version, hosted freshness/activation and physical-phone delivery remain unverified here. Final allocated qualification uses Node24.21.0. No required gate is weakened or waived; original earlier source/SQL evidence does not qualify this changed migration.
 
 Deliver this full repair as one frozen revision for ROOT's existing review/integration lane. Preserve additive comment/archive data if application callers are rolled back; do not drop tables or replay uncertain deliveries as a rollback shortcut.
+
+## Actual engine failure at `1d2f164d` and bounded revision repair
+
+ROOT ran the actual SQL harness on Node24.21.0 with PGlite0.5.8 (PostgreSQL18). The original `95885e63` inventory baseline failed at the expected real direct-guard check. The candidate `1d2f164d` also failed, separately: inserting an actual account-erasure block invoked the comment identity trigger's bulk `score=score` update, which raised `55000 account_erasure_in_progress` in the canonical guard. PG17 was not run. Retained evidence is `root-1d2f164d-pg18-green.log` and `root-1d2f164d-pg-receipt.json` in the owner's external `public-feed-20261024` evidence folder; that failed candidate is not qualified.
+
+The source diagnosis is the batch revision comparison: the BEFORE owner increments the thread once per row; row AFTER triggers execute at statement end, when earlier rows no longer equal the thread's final revision. This timing also applies to multi-reply FK detachment. See [PostgreSQL17 trigger timing](https://www.postgresql.org/docs/17/trigger-definition.html). The repair retains every immutable-field and actual-vote-total condition and the same combined guard identity/timing, and checks `NEW.revision > OLD.revision`, exact agreement with the currently stored comment row, and `NEW.revision <= thread.revision`. It changes no trigger grant, inventory predicate, insert exception, RPC, schedule, application shell or browser byte.
+
+The real SQL harness adds multiple roots in one thread, another thread, and two replies from a second author to the same parent. It exercises profile/persona revision redaction, direct block insertion, real Auth-marker begin for existing/new blocks, repeat begin, forbidden text/GIF/deletion/score/time/parent edits with complete row/thread rollback, successive overlapping derived-update batches, caller-supplied unchanged/decreasing/future revisions, and late BEFORE-trigger attempts to forge revisions/content/score while the canonical AFTER guard stays installed. Auth deletion must emit root tombstones, clear both blocked peers' parent/score dependencies and retain redaction; actual inventory must still pass afterwards. Successive overlapping batches are not a concurrent-transaction test or hosted Supabase proof.
+
+Keep the old controls distinct, using the current harness against each immutable migration:
+
+```bash
+# Original split-trigger inventory failure at 95885e63.
+node scripts/validate-public-comments-database.js --reviewed-baseline
+# Actual multi-row block insertion failure at 1d2f164d.
+node scripts/validate-public-comments-database.js --erasure-baseline
+# Repaired current source; requires ROOT's allocated PG18/PG17 execution.
+node scripts/validate-public-comments-database.js
+PGLITE_MODULE=pglite-pg17 node scripts/validate-public-comments-database.js
+```
+
+This repair has only Node24 syntax and diff checks in its implementation lane. The new old-source regression and repaired migration have not been engine-tested here; ROOT's existing pair review and fresh sequential PG18/17 allocation remain required. The native browser harness remains outstanding. No service, shared schema, customer account, browser, scheduler or delivery action accompanies this source repair.

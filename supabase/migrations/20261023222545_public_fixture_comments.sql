@@ -105,12 +105,18 @@ begin
   -- The combined canonical guard remains visible to the existing inventory.
   -- Only derived public-comment updates may drain blocked-peer FK/vote work.
   -- Text, GIF, author, deletion and identity fields must remain byte-identical;
-  -- totals and revision must agree with their existing transaction owners.
+  -- Totals and revision must agree with their existing transaction owners.
+  -- AFTER ROW guards run at statement end: a same-thread batch has already
+  -- advanced the thread past its earlier rows. Verify the stored row's exact
+  -- revision and strict advance, bounded by the thread, rather than requiring
+  -- every row to equal the batch's last revision.
   if tg_table_schema='public' and tg_table_name='nothingsports_public_comments' then
    if (to_jsonb(new)-array['parent_id','score','revision'])=(to_jsonb(old)-array['parent_id','score','revision'])
      and (new.parent_id is not distinct from old.parent_id or new.parent_id is null)
      and new.score=(select coalesce(sum(v.value),0) from public.nothingsports_public_comment_votes v where v.comment_id=new.id)
-     and new.revision=(select t.revision from public.nothingsports_public_threads t where t.event_id=new.event_id) then
+     and new.revision>old.revision
+     and new.revision=(select c.revision from public.nothingsports_public_comments c where c.id=new.id)
+     and new.revision<=(select t.revision from public.nothingsports_public_threads t where t.event_id=new.event_id) then
     return new;
    end if;
   end if;
