@@ -299,6 +299,8 @@ jobs:
           node scripts/validate-compact-scores-database.js
           node scripts/validate-canonical-context-batch.js
           PGLITE_MODULE=pglite-pg17 node scripts/validate-canonical-context-batch.js
+          NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg18" node scripts/validate-match-centre-near-selection.js
+          NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg17" PGLITE_MODULE=pglite-pg17 node scripts/validate-match-centre-near-selection.js
           node scripts/validate-fixture-history-retention.js
           node scripts/validate-live-fixture-api.js
           node scripts/validate-global-fixture-public.js
