@@ -11,7 +11,7 @@ function resetScenario(){fail=false;partial=false;requests=[];scenario={publishe
 resetScenario();
 const handler=createMatchCentreHandler({enabled:()=>true,clock:()=>scenario.clock,published:()=>scenario.published,snapshotRead:async()=>{if(fail)throw Error('mock source unavailable');return {stale:false,readAt:scenario.clock,sources:scenario.sources};},request:async(_path,options)=>{
  assert(options.body.p_fixture_ids.length<=60);assert.equal(options.timeoutMs,3000);
- if(scenario.scoreGate){scenario.scoreGate.entered.resolve();await scenario.scoreGate.release.promise;}
+ if(scenario.scoreGate&&(!scenario.scoreGate.ids||options.body.p_fixture_ids.some(id=>scenario.scoreGate.ids.includes(id)))){scenario.scoreGate.entered.resolve();await scenario.scoreGate.release.promise;}
  if(scenario.scoreFail)throw Error('mock score source unavailable');
  return (scenario.selected||scenario.published).filter(e=>options.body.p_fixture_ids.includes(e.id)).map(fixture=>({fixture,checked_at:fixture.scoreCheckedAt||stamp}));
 }});
@@ -218,6 +218,37 @@ async function nativeRepairs(browser,base,engine){
     await slot.locator('.event-card-disclosure').click();
    }
    console.log(JSON.stringify({engine,diagnostic:'partial passive tennis trace',diagnostics:await page.evaluate(()=>qaResultsSnapshot())}));assert.equal(downloads,1);await assertGuards(page,saved);
+  }],
+  ['selected refresh during a trusted disclosure press',async(page,cleanup)=>{
+   const leading=[nativeFixture('afl','press-leading'),nativeFixture('nrl','press-leading')],tennis=nativeFixture('tennis','press-summary',{tournamentLevel:'ATP1000',homeScore:null,awayScore:null,sets:[{home:6,away:4}],games:{home:2,away:1}});
+   scenario.published=[...leading,tennis];const gate={ids:[tennis.id],entered:deferred(),release:deferred()};scenario.scoreGate=gate;cleanup.push(()=>gate.release.resolve());
+   await page.evaluate(observeResultsInteraction,{id:tennis.id});const saved=await personalState(page),original=JSON.stringify(tennis);let target=null,pressed=false,selected,pressState;
+   try{
+    await enterAllSports(page,3);
+    await page.waitForFunction(ids=>ids.every(id=>Object.hasOwn(profileFixtureEvents.get(id)||{},'score')),leading.map(e=>e.id));
+    assert.equal(requests.filter(value=>{const url=new URL(value,base);return (url.searchParams.get('ids')||'').split(',').includes(tennis.id);}).length,0,'The off-screen target has not yet been selected');
+    const slot=page.locator('[data-sports-id="'+tennis.id+'"]');await slot.locator('.minimised-card-summary').scrollIntoViewIfNeeded();await reached(page,gate.entered);
+    target=await slot.locator('.minimised-card-summary').elementHandle();assert(target);await target.waitForElementState('stable');const box=await target.boundingBox();assert(box);
+    await page.evaluate(()=>{qaResultsTrace.phase='selected-response-during-pointer-press';});
+    await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();pressed=true;
+    const down=await page.evaluate(()=>qaResultsTrace.events.findLast(event=>event.type==='pointerdown'));
+    assert(down?.trusted&&down.id===tennis.id&&down.cardState==='compact','The genuine pointer press began on this mounted compact summary');
+    const response=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/match-centre'&&(new URL(r.url()).searchParams.get('ids')||'').split(',').includes(tennis.id));
+    gate.release.resolve();const receipt=await response;selected=await receipt.json();await receipt.finished();
+    assert.equal(selected.events.length,1);assert.equal(selected.events[0].id,tennis.id);assert.equal(selected.events[0].statusCheckedAt,tennis.statusCheckedAt);
+    assert.equal(JSON.stringify(selected.fixtures[0].score.sets),JSON.stringify(tennis.sets));assert.equal(JSON.stringify(selected.fixtures[0].score.games),JSON.stringify(tennis.games));
+    // This is the real controller's processed observation/render boundary,
+    // rather than a timer, synthetic scroll or direct renderer invocation.
+    await page.waitForFunction(id=>profileFixtureEvents.get(id)?.score?.sets?.length===1,tennis.id);
+    pressState=await target.evaluate((node,id)=>({originalConnected:node.isConnected,currentSummary:document.querySelector('[data-sports-id="'+CSS.escape(id)+'"] .minimised-card-summary')===node}),tennis.id);
+    await page.mouse.up();pressed=false;
+    await slot.locator('.feed-live-score').waitFor();
+    assert.equal(await slot.evaluate(node=>node.classList.contains('as-expanded')),true,'The same native press must still expand after the selected response');
+    assert.match(await slot.locator('.feed-live-score').innerText(),/6–4.*Games 2–1/s);assert.equal(await page.locator('.as-expanded').count(),1);
+    assert.equal(JSON.stringify(tennis),original);await assertGuards(page,saved);assert.equal((await personalState(page)).preferences,saved.preferences);
+    console.log(JSON.stringify({engine,diagnostic:'controlled selected response during trusted pointer sequence',pressState,diagnostics:await page.evaluate(()=>qaResultsSnapshot()),physicalDeviceProof:false}));
+   }catch(error){console.error(JSON.stringify({engine,regression:'selected refresh during a trusted disclosure press',pressState,selected:selected&&{events:selected.events,fixtures:selected.fixtures},guards:await page.evaluate(()=>({writes:qaCardWrites,feedPolls:qaFeedPolls})).catch(()=>null),diagnostics:await page.evaluate(()=>qaResultsSnapshot()).catch(failure=>({snapshotError:failure.message})),physicalDeviceProof:false}));if(process.env.ALL_SPORTS_DIAGNOSTIC_DIR)await page.screenshot({path:path.join(process.env.ALL_SPORTS_DIAGNOSTIC_DIR,'press-refresh-'+engine+'-failure.png'),fullPage:false}).catch(()=>{});throw error;}
+   finally{gate.release.resolve();if(pressed)await page.mouse.up().catch(()=>{});if(target)await target.dispose().catch(()=>{});}
   }]
  ];
  for(const [name,test] of cases){
