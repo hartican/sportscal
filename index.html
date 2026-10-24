@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="589">
+<meta name="app-shell-version" content="590">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=589" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=590" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2022,7 +2022,7 @@ header.top .header-utilities{display:flex;flex:1;align-items:center;flex-wrap:no
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=589"></script>
+<script src="assets/js/app-shell-runtime.js?v=590"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -3480,7 +3480,7 @@ function renderAccountIndicator(){
 }
 function ensureAccountIndicator(){
   if(accountIndicatorController)return Promise.resolve(accountIndicatorController);
-  accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=5714')
+  accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=5715')
     .then(()=>NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.mount())
     .catch(()=>{accountIndicatorLoading=null;renderAccountIndicator();return null;});
   return accountIndicatorLoading;
@@ -4982,7 +4982,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
     });
     diagnostic?.step("read");
     let latest = await serverSyncClient.loadState({ accountId:scope.accountId });
-    diagnostic?.step("verify",latest);
+    diagnostic?.step("verify",latest,preferenceReceipt);
     if (!scope.verify(latest)) return null;
     verifyPreferenceIntentBase(preferenceReceipt,latest.state);
     advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
@@ -5036,7 +5036,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
         if (error?.status !== 409 || error?.code !== "user_state_conflict" || attempt === 2) throw error;
         diagnostic?.step("read");
         latest = await serverSyncClient.loadState({ accountId:scope.accountId });
-        diagnostic?.step("verify",latest);
+        diagnostic?.step("verify",latest,preferenceReceipt);
         if (!scope.verify(latest)) return null;
         verifyPreferenceIntentBase(preferenceReceipt,latest.state);
         advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);

@@ -7,17 +7,23 @@ const syncDiagnostic=root.NOTHINGSPORTS_SYNC_DIAGNOSTIC.create();
 function beginSyncDiagnostic(scope){
   try{
     const generation=serverSyncClient.accountSnapshot?.().generation;
-    let ownerMatches=null,pendingReceipt=null;
+    let ownerMatches=null,pendingReceipt=null,preferenceDifferences=null;
     return syncDiagnostic.begin({current:()=>scope.current()&&serverSyncClient.accountSnapshot?.().generation===generation,
       versions:{shellVersion:document.querySelector('meta[name="app-shell-version"]')?.content,
         workerVersion:root.NOTHINGSPORTS_APP_UPDATE?.snapshot?.().workerVersion},
-      facts(payload,stage){
+      facts(payload,stage,receipt){
         if(['prepare','complete','failure'].includes(stage))pendingReceipt=Boolean(pendingPreferenceIntent(scope.accountId));
         if(payload){
           ownerMatches=payload.user?.id===scope.accountId;
-
+          if(stage==='verify')preferenceDifferences=null;
+          if(stage==='verify'&&receipt&&ownerMatches){
+            const base=serverStateBaseline;
+            const accepted=base?.accountId===scope.accountId&&base.generation===generation?base.state?.preferences:undefined;
+            preferenceDifferences=root.NOTHINGSPORTS_SYNC_DIAGNOSTIC.preferenceDifferences(receipt,payload.state?.preferences,
+              (first,second)=>PROFILE_STORAGE.preferenceBaseMatches({basePreferences:first},second),accepted);
+          }
         }
-        return {pendingReceipt,ownerMatches,
+        return {pendingReceipt,ownerMatches,preferenceDifferences,
           generationMatches:serverSyncClient.accountSnapshot?.().generation===generation};
       }});
   }catch(_error){}
