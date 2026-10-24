@@ -16,6 +16,8 @@ assert(testedShellVersion,'exact served source declares its shell version');
 const engineName = process.env.ACCOUNT_RECOVERY_BROWSER || 'chromium';
 const scenario = process.env.ACCOUNT_RECOVERY_CASE || 'retry-error';
 const helperRaceProbe=process.env.ACCOUNT_RECOVERY_HELPER_RACE==='1'||scenario==='helper-mount';
+const cancelControl=process.env.ACCOUNT_RECOVERY_CANCEL_CONTROL==='1';
+assert(!cancelControl||scenario==='receipt-base-disjoint','Cancellation control requires the one explicit disjoint case');
 if (scenario === 'all') {
   let failed = false;
   for (const engine of (process.env.ACCOUNT_RECOVERY_BROWSER ? [engineName] : ['chromium', 'webkit'])) {
@@ -35,6 +37,11 @@ const clone = value => JSON.parse(JSON.stringify(value));
 const traceResources=scenario.startsWith('receipt-base-'),resourceTrace=[];
 let resourcePhase='initial-startup',documentEpoch=0,resourceSequence=0,resourceTraceDropped=0;
 const traceStart=Date.now(),resourceMarker='[qa-account-resource]';
+let cancelControlArmed=false,heldScheduleResponse=null,scheduleBodyObserved;
+const scheduleBodyHeld=new Promise(resolve=>{scheduleBodyObserved=resolve;});
+function releaseScheduleBody(){
+  if(heldScheduleResponse&&!heldScheduleResponse.res.destroyed&&!heldScheduleResponse.res.writableEnded)heldScheduleResponse.res.end(heldScheduleResponse.data.subarray(1));
+}
 const schedulePath=pathname=>pathname.startsWith('/data/follow-schedule/');
 const resourceFrameUrl=request=>{try{return request.frame().url();}catch{return null;}};
 function traceResource(event,fields={}){
@@ -62,6 +69,10 @@ const server = http.createServer((req, res) => {
   }
   fs.readFile(file, (error, data) => {
     res.writeHead(error ? 404 : 200, { 'Content-Type': types[path.extname(file)] || 'application/octet-stream' });
+    if(!error&&cancelControlArmed&&!heldScheduleResponse&&pathname==='/data/follow-schedule/football.json'){
+      heldScheduleResponse={res,data};res.write(data.subarray(0,1));
+      traceResource('control-schedule-body-held',{path:pathname,bytesSent:1,totalBytes:data.length});scheduleBodyObserved();return;
+    }
     res.end(error ? 'Not found' : data);
   });
 });
@@ -235,7 +246,26 @@ const server = http.createServer((req, res) => {
     });
     if (scenario.startsWith('receipt-base-')) {
       const participant='team:football:australian-championship:11255',other='team:football:epl:2';
-      resourcePhase='baseline-follow-edit';
+      const settleFixtureWork=async(boundary,readiness)=>{
+        resourcePhase=boundary;
+        const before=await page.evaluate(()=>({preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id),
+          owner:serverSyncClient.accountSnapshot().accountId,generation:serverSyncClient.accountSnapshot().generation,baseline:serverStateBaseline.updatedAt}));
+        const settled=await page.evaluate(async({before,readiness})=>{
+          if(readiness)await ensureFeedSourceReadiness(userPreferences);
+          const work=[...followedScheduleLoads.entries()];
+          const results=await Promise.allSettled(work.map(([,promise])=>promise));
+          return {codes:work.map(([code])=>code),statuses:results.map(result=>result.status),pending:[...followedScheduleLoads.keys()],
+            unchanged:PROFILE_STORAGE.preferenceBaseMatches({basePreferences:before.preferences},userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id),
+            owner:serverSyncClient.accountSnapshot().accountId,generation:serverSyncClient.accountSnapshot().generation,baseline:serverStateBaseline.updatedAt};
+        },{before,readiness});
+        assert.equal(settled.unchanged,true,boundary+': fixture settlement cannot change account choices');
+        for(const key of ['receipt','owner','generation','baseline'])assert.deepEqual(settled[key],before[key],boundary+': fixture settlement preserves '+key);
+        assert(settled.statuses.every(status=>status==='fulfilled'),boundary+': actual fixture tasks must finish');
+        assert.deepEqual(settled.pending,[],boundary+': no existing fixture task may cross the boundary');
+        traceResource('fixture-work-settled',{boundary,codes:settled.codes,pending:settled.pending,readiness});
+      };
+      resourcePhase='baseline-follow-edit';cancelControlArmed=cancelControl;
+
       // Establish an ordinary saved baseline, then use the actual deliberate writer.
       await page.evaluate(participant=>{
         const p=clonePreferences(userPreferences);
@@ -249,6 +279,11 @@ const server = http.createServer((req, res) => {
       },participant);
       resourcePhase='baseline-sync';
       await page.evaluate(()=>syncCurrentServerState());
+      if(cancelControl){
+        let observerTimer;
+        try{await Promise.race([scheduleBodyHeld,new Promise((_,reject)=>{observerTimer=setTimeout(()=>reject(Error('Held schedule body not observed')),8000);})]);}
+        finally{clearTimeout(observerTimer);}
+      }else await settleFixtureWork('baseline-fixtures-settled',true);
       resourcePhase='local-owned-follow-edit';
       const base=clone(actualApi.state());
       const original=await page.evaluate(participant=>{
@@ -271,8 +306,15 @@ const server = http.createServer((req, res) => {
       // recovery only during this explicit mounted manual-retry scenario.
       holdHelper=true;
       await page.addInitScript(()=>Object.defineProperty(navigator,'onLine',{configurable:true,value:false}));
+      if(cancelControl)assert(await page.evaluate(()=>followedScheduleLoads.has('sport:football')),'cancellation control requires actual pending fixture work');
+      else await settleFixtureWork('pre-reload-fixtures-settled',false);
       resourcePhase='persisted-restart';traceResource('controlled-reload');
       await page.reload({waitUntil:'domcontentloaded'});
+      if(cancelControl){
+        releaseScheduleBody();
+        assert(resourceTrace.some(item=>item.event==='browser-request-failed'&&item.path==='/data/follow-schedule/football.json'&&item.startedEpoch<documentEpoch&&/cancel|abort/i.test(item.failure)),
+          'held navigation control must observe its real old-document request cancellation');
+      }
       await page.waitForFunction(()=>serverPersistence.state==='error'&&Boolean(pendingPreferenceIntent(serverPersistence.user?.id)));
       await page.locator('#startupLaunch').waitFor({state:'hidden'});
       const restored=await page.evaluate(()=>({receipt:pendingPreferenceIntent(serverPersistence.user.id),baseline:serverStateBaseline.updatedAt,
@@ -328,6 +370,11 @@ const server = http.createServer((req, res) => {
         assert.equal(saved.followBrowse.sportId,'sport:tennis');assert.equal(saved.feedCompact,false);
         assert.equal(after.preferences.followBrowse.sportId,'sport:cricket');assert.equal(after.preferences.feedCompact,true);
       }
+      const finalCounts={reads,writes};
+      await settleFixtureWork('final-fixtures-settled',true);
+      assert.deepEqual({reads,writes},finalCounts,'fixture settlement cannot issue account state reads or saves');
+      if(!cancelControl)assert.deepEqual(resourceTrace.filter(item=>item.event==='browser-request-failed'&&/cancel|abort/i.test(item.failure)),[],
+        'settled restart test must not cancel unrelated schedule work');
       chronology.push({phase:'persisted-base-manual-retry',scenario,receiptPreservedBeforeACK:true,writes:writes-beforeWrites,state:after.state});
     } else if (actualApi) {
       const participant = 'team:football:australian-championship:11255';
@@ -628,10 +675,10 @@ const server = http.createServer((req, res) => {
     } else throw new Error('Unknown recovery scenario ' + scenario);
     statuses.push(...await page.evaluate(() => globalThis.qaSyncStates || []));
     resourcePhase='final-assertion';
-    if(traceResources)console.log(JSON.stringify({phase:'schedule-resource-lifetime',scenario,engine:engineName,resourceTraceDropped,
+    if(traceResources)console.log(JSON.stringify({phase:'schedule-resource-lifetime',scenario,engine:engineName,cancellationControl:cancelControl,resourceTraceDropped,
       blockedOrigins:[...new Set(blocked)],uncaughtErrors:errors,trace:resourceTrace}));
     assert.deepEqual(errors, [], 'no uncaught application errors');
     console.log(JSON.stringify({ scenario, engine: engineName, passed: true, reads, writes, refreshes, authSignIns, statuses,
       blockedOrigins: [...new Set(blocked)], limits: 'Loopback mocked transport; no hosted or physical iPhone proof' }));
-  } finally { await context.close(); await browser.close(); await new Promise(resolve => server.close(resolve)); }
+  } finally { releaseScheduleBody(); await context.close(); await browser.close(); await new Promise(resolve => server.close(resolve)); }
 })().catch(error => { console.error(error); server.close(); process.exitCode = 1; });
