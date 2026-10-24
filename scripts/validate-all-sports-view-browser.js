@@ -86,6 +86,20 @@ function mutationRequests(requests,invocations,readBudget,readReceipts=[]){
  if(!failures.length)readReceipts.push(...corroborated);
  return failures;
 }
+function observeResultsInteraction({id}){
+ const trace={id,phase:'entry',events:[],dropped:0},tokens=new WeakMap();let serial=0,sequence=0;
+ const token=node=>{if(!node)return null;if(!tokens.has(node))tokens.set(node,++serial);return tokens.get(node);};
+ const record=(type,detail={})=>{if(trace.events.length===160){trace.events.shift();trace.dropped++;}trace.events.push({sequence:++sequence,at:performance.now(),phase:trace.phase,type,...detail});};
+ const slot=()=>document.querySelector('[data-sports-id="'+CSS.escape(id)+'"]');
+ const state=node=>{const card=node?.querySelector('.event-card');return {connected:Boolean(node?.isConnected),expanded:node?.classList.contains('as-expanded'),cardState:card?.dataset.cardState,mode:card?.dataset.cardMode,summary:token(node?.querySelector('.minimised-card-summary')),scoreNodes:node?.querySelectorAll('.feed-live-score').length};};
+ for(const type of ['pointerdown','mousedown','pointerup','mouseup','click'])document.addEventListener(type,event=>{const target=event.target,track=target.closest?.('.as-track'),row=target.closest?.('[data-sports-id]');if(row?.dataset.sportsId!==id&&!track?.querySelector('[data-sports-id="'+CSS.escape(id)+'"]'))return;record(type,{id:row?.dataset.sportsId||null,target:token(target.closest?.('.minimised-card-summary,.event-card-disclosure')||target),targetClass:target.className,trusted:event.isTrusted,...state(row?.dataset.sportsId===id?row:slot())});},{capture:true,passive:true});
+ document.addEventListener('scroll',event=>{const track=event.target;if(track.matches?.('.as-track')&&track.querySelector('[data-sports-id="'+CSS.escape(id)+'"]'))record('scroll',{left:track.scrollLeft,width:track.clientWidth,...state(slot())});},{capture:true,passive:true});
+ new MutationObserver(records=>{for(const mutation of records)for(const [type,nodes] of [['removed',mutation.removedNodes],['added',mutation.addedNodes]])for(const node of nodes){if(node.nodeType!==1)continue;for(const row of [node,...node.querySelectorAll('[data-sports-id]')])if(row.dataset.sportsId===id)record(type,state(row));}}).observe(document.getElementById('listView'),{childList:true,subtree:true});
+ const original=globalThis.fetch;
+ globalThis.fetch=function(input,init){const result=original.apply(this,arguments);try{const url=new URL(typeof input==='string'?input:input.url,location.href);if(url.pathname==='/api/match-centre'&&(url.searchParams.get('ids')||'').split(',').includes(id)){record('selected-request');void result.then(response=>record('selected-response',{status:response.status}),error=>record('selected-error',{name:error.name}));}}catch{}return result;};
+ globalThis.qaResultsTrace=trace;
+ globalThis.qaResultsSnapshot=()=>{const row=slot(),event=profileFixtureEvents.get(id),score=row?.querySelector('.feed-live-score'),rect=score?.getBoundingClientRect(),style=score&&getComputedStyle(score);return {trace,state:state(row),privacy:{results:userPreferences.showSpoilers,policy:userPreferences.feedControls.spoilers,visible:event&&isSpoilerVisible(event)},event:event&&{id:event.id,key:event.key,status:event.status,statusCheckedAt:event.statusCheckedAt,scoreCheckedAt:event.scoreCheckedAt,stale:event.stale,sets:event.sets,games:event.games,score:event.score},model:event&&{cardStatus:getEventStatus(event),supported:NOTHINGSPORTS_ALL_SPORTS.supported(event),liveState:NOTHINGSPORTS_MATCH_CENTRE.liveState(event),presentation:globalThis.NOTHINGSPORTS_FEED_LIVE_SCORES?.presentation(event,{resultsOn:isSpoilerVisible(event)})},renderer:{loader:Boolean(globalThis.NOTHINGSPORTS_FEED_SCORE_UI),scores:Boolean(globalThis.NOTHINGSPORTS_FEED_LIVE_SCORES),resultLines:row?.querySelectorAll('.card-result-line').length,tables:row?.querySelectorAll('.tennis-set-table').length},score:score&&{text:score.textContent,display:style.display,visibility:style.visibility,hidden:score.hidden,rect:{x:rect.x,y:rect.y,width:rect.width,height:rect.height}}};};
+}
 async function nativeRepairs(browser,base,engine){
  const cases=[
   ['latest visit and current owner/privacy',async(page,cleanup)=>{
@@ -173,6 +187,8 @@ async function nativeRepairs(browser,base,engine){
   ['mounted Results ON/OFF/strict and delayed score privacy',async(page,cleanup)=>{
    const entries=['nrl','afl','tennis'].map(key=>nativeFixture(key,'native-results',key==='tennis'?{tournamentLevel:'ATP1000',homeScore:null,awayScore:null,sets:[{home:6,away:4}],games:{home:2,away:1}}:{}));
    scenario.published=entries;const held=deferred(),release=deferred();cleanup.push(()=>release.resolve());let downloads=0;
+   const tennis=entries[2];
+   await page.evaluate(observeResultsInteraction,{id:tennis.id});
    await page.route('**/config/feed-live-scores.js*',async route=>{downloads++;held.resolve();await release.promise;await route.continue();});
    const saved=await personalState(page);await enterAllSports(page,3);
    const first=page.locator('[data-sports-id="'+entries[0].id+'"]');await first.locator('.minimised-card-summary').click();await reached(page,held);
@@ -184,8 +200,11 @@ async function nativeRepairs(browser,base,engine){
    await first.locator('.event-card-disclosure').click();await page.waitForFunction(()=>!document.querySelector('.as-expanded'));
    for(const event of entries){
     const slot=page.locator('[data-sports-id="'+event.id+'"]');
-    await page.evaluate(()=>{userPreferences.showSpoilers=true;userPreferences.feedControls.spoilers='results_visible';});
-    await slot.locator('.minimised-card-summary').click();await slot.locator('.feed-live-score').waitFor();
+    await page.evaluate(key=>{userPreferences.showSpoilers=true;userPreferences.feedControls.spoilers='results_visible';qaResultsTrace.phase=key+':results-on';},event.key);
+    try{
+     await slot.locator('.minimised-card-summary').click();
+     await slot.locator('.feed-live-score').waitFor();
+    }catch(error){console.error(JSON.stringify({engine,regression:'tennis selected-read/input causal trace',diagnostics:await page.evaluate(()=>qaResultsSnapshot()).catch(failure=>({snapshotError:failure.message}))}));if(process.env.ALL_SPORTS_DIAGNOSTIC_DIR)await page.screenshot({path:path.join(process.env.ALL_SPORTS_DIAGNOSTIC_DIR,'tennis-'+engine+'-failure.png'),fullPage:false}).catch(()=>{});throw error;}
     assert.match(await slot.locator('.feed-live-score').innerText(),event.key==='tennis'?/6–4.*Games 2–1/s:/Native Home 18.*Native Away 12/s);
     assert.equal(await slot.locator('.event-card').getAttribute('data-card-mode'),'schedule');
     for(const strict of [false,true]){
@@ -198,7 +217,7 @@ async function nativeRepairs(browser,base,engine){
     }
     await slot.locator('.event-card-disclosure').click();
    }
-   assert.equal(downloads,1);await assertGuards(page,saved);
+   console.log(JSON.stringify({engine,diagnostic:'partial passive tennis trace',diagnostics:await page.evaluate(()=>qaResultsSnapshot())}));assert.equal(downloads,1);await assertGuards(page,saved);
   }]
  ];
  for(const [name,test] of cases){
