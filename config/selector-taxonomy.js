@@ -36,7 +36,7 @@
   function sportNodeGlyph(id, domainId, canonicalSportKeys){
     if (id === "sport:afl") return "sport:australian-football";
     if (["sport:athletics", "sport:swimming", "sport:netball", "sport:hockey", "sport:gymnastics", "sport:boxing"].includes(id)){
-      return "sport:multi-sport";
+      return id;
     }
     const domainGlyphs = {
       "sport:motorsport": "sport:motorsport",

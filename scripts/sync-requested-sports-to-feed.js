@@ -207,6 +207,7 @@ function cardForEvent(event, schedule, participantsById){
     sourceType:source.type,
     sourceTrust:"verified",
     status:event.status || (completed ? "completed" : "upcoming"),
+    ...(!result&&((completed&&event.resultCoverage==='calendar-only')||require('../config/multisession-events').practice({...event,key:event.sportKey}))&&['f1','motogp','supercars'].includes(event.sportKey)?{resultStatus:'pending',resultSourceUrl:source.url,resultSourceCheckedAt:sourceCheckedAt}:{}),
     ...(result ? {
       resultStatus:result.status,
       resultSourceUrl:resultSource.url,
@@ -336,6 +337,7 @@ function main(){
     events:preserveRetained ? cards : [...retained, ...cards],
   });
   if (preserveRetained) next.events = [...retained, ...next.events];
+  if(!process.argv.some(arg=>/^--.*-only$/.test(arg)))next.events=require('./lib/multisession-sports').merge(next.events);
   const errors = validateFeed(next);
   if (errors.length) throw new Error(`Requested sports feed is invalid:\n- ${errors.join("\n- ")}`);
   writeJson(outputPath, next);

@@ -1,0 +1,35 @@
+'use strict';
+const assert=require('node:assert/strict'),m=require('../config/multisession-events');
+const fixture=(session,start,extra={})=>({id:`event:f1:2026:australia:${session}`,key:'f1',name:`Australian GP · ${session}`,sessionType:session,date:'2026-10-24',startTimeUtc:start,timePrecision:'exact',status:'upcoming',...extra});
+const first=fixture('practice-1','2026-10-23T23:00:00Z'),second=fixture('qualifying','2026-10-24T04:00:00Z'),race=fixture('race','2026-10-25T03:00:00Z');
+const rows=m.project([race,second,first,second]);
+assert.equal(rows.length,2);assert.equal(rows[0].date,'2026-10-24');assert.equal(rows[0].startTimeUtc,first.startTimeUtc.replace('Z','.000Z'));assert.equal(rows[0].sessions.length,3);assert.equal(rows[0].daySessions.length,2);assert.equal(first.id,'event:f1:2026:australia:practice-1');
+assert.deepEqual(m.project([first,...[second,race]]),rows,'pagination union produces identical occurrences');
+assert.equal(m.kind(first),'practice');assert.equal(m.kind(fixture('sprint','')),'sprint');
+assert.equal(m.start({...first,timeTbc:true}),Infinity);
+assert.equal(m.project([{...first,timeTbc:true},{...second,timeTbc:true}])[0].startTimeUtc,null);
+assert.equal(m.day(fixture('race','2026-10-03T15:30:00Z')),'2026-10-04','Sydney DST day');
+const now=Date.parse('2026-10-24T00:00:00Z'),prefs={followFirst:{notifications:{sessionPresets:{'competition:formula-one':{enabled:true,sessionTypes:['race','sprint']}}}}};
+assert(m.presetMatches(race,prefs,now));assert(!m.presetMatches(first,prefs,now));assert(!m.presetMatches({...race,startTimeUtc:'2026-11-25T03:00:00Z'},prefs,now));assert(!m.presetMatches(race,{},now));
+assert.equal(require('../lib/nsc-crowd').phaseFor(first,new Date(now)),null);
+const calendar=require('../config/calendar-export');
+const beforeIds=[first,second,race].map(calendar.idFor);
+assert.deepEqual(rows[0].sessions.map(calendar.idFor),beforeIds,'display identities never replace calendar export identities');
+const finished=m.project([{...first,status:'completed'},second,race]);
+assert.equal(finished[0].startTimeUtc,rows[0].startTimeUtc,'completed early session retains daily sort position');
+const rescheduled=m.project([first,{...second,startTimeUtc:'2026-10-25T04:00:00Z'},race]);
+assert.equal(rescheduled[0].daySessions.length,1);assert.equal(rescheduled[1].daySessions.length,2);
+assert.equal(m.day(fixture('race','2027-04-03T15:59:00Z')),'2027-04-04');
+assert.equal(m.day(fixture('race','2026-10-24T12:59:00Z')),'2026-10-24');
+assert.equal(m.day(fixture('race','2026-10-24T13:00:00Z')),'2026-10-25');
+const mixed=m.project([{...first,timeTbc:true},second]);assert.equal(m.id(mixed[0].daySessions[0]),m.id(second),'TBC follows timed starts');
+assert(!m.presetMatches({...race,startTimeUtc:null,timeTbc:true},prefs,now));
+const supercars=require('../lib/supercars-schedule');
+const flight=data=>'<script>self.__next_f.push([1,'+JSON.stringify('1:'+JSON.stringify(data)+'\n')+'])</script>';
+for(const source of require('./fixtures/source-coverage/supercars-2026.json')){
+ const result=supercars.sessions(flight(source.sessions),{slug:source.slug,title:source.slug,location:'Official venue'},{now:new Date(now),sourceUrl:source.sourceUrl});
+ assert.equal(result.length,source.slug.endsWith('adelaide')?10:8);assert(result.every(e=>e.id.startsWith('event:supercars:2026:')));
+}
+const tbc=supercars.sessions(flight([{name:'Practice 1',startDate:'2026-11-01',series:{name:'Repco Supercars Championship'}}]),{slug:'2026-example',title:'Example meeting'},{sourceUrl:'https://www.supercars.com/events/example/schedule'});
+assert.equal(tbc[0].startTimeUtc,null);assert.equal(tbc[0].timePrecision,'date-only');
+console.log('PASS multisession identity, daily order, pagination, TBC, DST, presets and practice phase');

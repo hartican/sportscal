@@ -228,6 +228,10 @@ function main(){
     const key=sportKeyForParticipant(record);if(!chunks.has(key))return;
     chunks.get(key).set(record.id,normalizeRecord(record,{genderCategory:record.genderCategory,sourceRefs:record.sourceRefs,sourceCheckedAt:record.sourceCheckedAt}));
   });
+  for(const event of readJson('data/canonical/rugby-organised-coverage.v1.json').events)for(const record of event.participants||[]){
+    const prior=chunks.get('rugby').get(record.id)||{};
+    chunks.get('rugby').set(record.id,normalizeRecord({...prior,...record,type:'team',leagueId:prior.leagueId||event.competitionId},{sourceRefs:[event.sourceUrl],sourceCheckedAt:event.sourceCheckedAt}));
+  }
   (requestedSports.participants || []).forEach(record => {
     const key = String(record.sportKey || "");
     if (!chunks.has(key)) return;
@@ -356,6 +360,14 @@ function main(){
     }, { countryCode:team.countryCode, genderCategory:team.gender, sourceRefs:[team.sourceUrl] }));
   });
 
+  const rugbyScope=require('../config/rugby-coverage'),activeRugbyIds=new Set([...coverage.events,...readJson('data/canonical/rugby-organised-coverage.v1.json').events].filter(rugbyScope.allowed).flatMap(e=>e.participantIds||[]));
+  const retainedRugbyGroups=readJson('data/canonical/follow-directory-curation.v1.json').sports.rugby.groups,retainedRugbyIds=new Set(retainedRugbyGroups.flatMap(g=>g.memberIds));
+  for(const [id,record]of chunks.get('rugby'))if(record.teamKind!=='national'&&!activeRugbyIds.has(id)&&!retainedRugbyIds.has(id)&&record.leagueId!=='competition:super-rugby-pacific')chunks.get('rugby').delete(id);
+  chunks.get('rugby').delete('team:rugby:wr-0');
+  if(chunks.get('rugby').has('team:rugby:wr-725'))Object.assign(chunks.get('rugby').get('team:rugby:wr-725'),{teamKind:'national'});
+  const rugbyFixtures=readJson('data/code-inspector/rugby-union.json').fixtures.filter(rugbyScope.allowed);
+  const rugbyCompetitions=rugbyScope.competitions.map(item=>({...item,logoUrl:require('./lib/rugby-artwork').competition(item)?.path,memberIds:[...new Set(rugbyFixtures.filter(f=>f.competitionId===item.id).flatMap(f=>f.participantIds||[]))].filter(id=>chunks.get('rugby').has(id))}));
+  for(const [id,record]of chunks.get('rugby'))chunks.get('rugby').set(id,{...require('./lib/rugby-artwork').decorate(record),competitionIds:rugbyCompetitions.filter(c=>c.memberIds.includes(id)).map(c=>c.id)});
   const cricketCoverage=require('../config/cricket-coverage');
   const cricketRecords=cricketCoverage.directory([...chunks.get('cricket').values()]);
   for(const country of cricketCoverage.policy.nationalTeams)if(!cricketRecords.some(r=>r.id==='team:cricket:'+country))cricketRecords.push(normalizeRecord({id:'team:cricket:'+country,displayName:country.split('-').map(x=>x[0].toUpperCase()+x.slice(1)).join(' '),type:'team',teamKind:'national',genderCategory:'male',sourceRefs:['https://www.icc-cricket.com/about/members']}));
@@ -396,6 +408,7 @@ function main(){
   }
   const generatedAt = sourceGeneratedAt.slice().sort().at(-1) || "2026-08-25T00:00:00.000Z";
   for(const chunk of chunks.values())for(const [id,record] of chunk)if(isUnresolvedTeam(record))chunk.delete(id);
+  for(const [id,record]of chunks.get('rugby'))chunks.get('rugby').set(id,require('./lib/rugby-artwork').decorate(record));
   const manifestGeneratedAt = [generatedAt, wrcContext?.generatedAt].filter(Boolean).sort().at(-1) || generatedAt;
   let manifest = {
     schemaVersion:"follow-directory-manifest.v1",
@@ -442,6 +455,7 @@ function main(){
       status:sport.status,
       sortBasis:records.some(record => Number.isFinite(record.ranking) || Number.isFinite(record.ladderPosition)) ? "ranking-or-ladder-then-alphabetical" : "alphabetical-fallback",
       records,
+      ...(sport.key==='rugby'?{competitions:rugbyCompetitions}:{}),
       ...(curation.sports[sport.key] ? {browseGroups:curation.sports[sport.key].groups} : {}),
       ...(sport.key.startsWith("tennis") ? { collections:tennisCollections.map(collection=>({...collection,memberIds:collection.memberIds.filter(id=>records.some(record=>record.id===id))})).filter(collection=>collection.memberIds.length) } : {}),
     };
@@ -475,6 +489,7 @@ function buildParticipantSearchIndex(manifest,checkOnly){
     const projection=readJson('data/code-inspector/'+filename);
     for(const fixture of projection.fixtures||[])for(const record of fixture.participants||[]){
       if(isUnresolvedTeam(record))continue;
+      if(!require('../config/cricket-coverage').followable(record.id))continue;
       if(!record.id||!/^(team|athlete|competitor|player):/.test(record.id)||records.has(identity(record.id)))continue;
       records.set(identity(record.id),{...record,displayName:record.displayName||record.name,sportKey:filename.replace('.json',''),entityType:record.id.startsWith('team:')?'team':'athlete',leagueId:record.competitionId||fixture.competitionId,leagueName:fixture.competitionName});
     }

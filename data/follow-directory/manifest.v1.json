@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-10-13T20:59:25.934Z",
+  "generatedAt": "2026-10-22T16:43:52.871Z",
   "sports": [
     {
       "key": "afl",
@@ -110,7 +110,7 @@
       "key": "rugby",
       "label": "Rugby Union",
       "status": "available",
-      "recordCount": 188,
+      "recordCount": 121,
       "jsonUrl": "data/follow-directory/rugby.v1.json",
       "scriptUrl": "data/follow-directory/rugby.v1.js"
     },
@@ -142,7 +142,7 @@
       "key": "cricket",
       "label": "Cricket",
       "status": "available",
-      "recordCount": 20,
+      "recordCount": 26,
       "jsonUrl": "data/follow-directory/cricket.v1.json",
       "scriptUrl": "data/follow-directory/cricket.v1.js"
     },
@@ -206,7 +206,7 @@
       "key": "rugby-women",
       "label": "Rugby Union Women",
       "status": "available",
-      "recordCount": 48,
+      "recordCount": 20,
       "jsonUrl": "data/follow-directory/rugby-women.v1.json",
       "scriptUrl": "data/follow-directory/rugby-women.v1.js"
     },

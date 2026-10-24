@@ -1942,3 +1942,10 @@ Numeric score slots, calendar corrections and updated descriptions cannot renew 
 The existing result-template preparer and selector now share one pure branch generator. Current fixture details must match before an automatic result branch can be selected or retained at publication. Only copy proven to depend on an outdated generated branch is reset through the existing protected storyline rule; authored preview sections/research dates and separately reviewed current recaps keep their existing lifecycle protections. This corrects the official makeup-game label without re-researching its dated preview. No additional collector, writer, service, scheduler, database or customer action is introduced.
 
 Live rechecks remain distinct: an equal live score keeps its first fact observation while the actual score/status contact receipts advance. This preserves the existing freshness qualification without adding polling or extending any deadline. The constructed zero–zero regression covers merging and persistence into canonical data and both Feed files.
+
+
+## Grouped sessions reuse existing owners — 24 October 2026
+
+Grouped race/golf appearances remain presentation projections over canonical child fixtures. Refresh mounted child IDs, capped at the existing sixty; never send synthetic daily appearance IDs to persistence/live services. Feed closes each admitted group's schedule before pagination and rechecks current browser consent before displaying cached siblings. Match Centre/All Sports remain flat.
+
+Explicit competition reminder presets use the current preferences JSON, canonical per-session choices, fifteen-minute timing, transactional reconciliation and dispatcher. New presets materialise only seven days ahead; global OFF, individual OFF, unverified/TBC/cancelled clocks and all existing budgets win. No second poller, scheduler, user-state store, production migration or paid service is added. Canonical coverage uses update-cards only. DEPLOY owns combined runtime/cache versions and release qualification.

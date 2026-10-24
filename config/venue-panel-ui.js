@@ -663,6 +663,7 @@ function followedHomeTag(event){
 
 
 function buildNothingscoreSummary(ev,{showAggregate=true}={}){
+  if(NOTHINGSPORTS_MULTISESSION.practice(ev)){const note=document.createElement('p');note.className='unrated-practice';note.textContent='Unrated practice';return note;}
   const eventId = nothingscoreEventId(ev);
   nothingscoreEventRefs.set(eventId, ev);
   registerNothingscoreEvent(ev);
@@ -708,6 +709,7 @@ function nothingscorePhaseCopy(phase){
 }
 
 function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false,showAggregate=true}={}){
+  if(NOTHINGSPORTS_MULTISESSION.practice(ev)){const note=document.createElement('p');note.textContent='Unrated practice';return note;}
   const root=document.createElement('section');root.className='nsc-peer-results';
   root.dataset.cardArea='ratings';
   const watch=document.createElement('div');watch.className='fixture-watch-rating';watch.dataset.cardArea='rating-interaction';

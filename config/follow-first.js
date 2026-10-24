@@ -42,6 +42,9 @@
     { id:"pga-championship", label:"PGA Championship", sportIds:["golf"], majorSlug:"pga-championship" },
     { id:"us-open-golf", label:"U.S. Open", sportIds:["golf"], majorSlug:"us-open" },
     { id:"the-open", label:"The Open Championship", sportIds:["golf"], majorSlug:"the-open" },
+    { id:"players-championship", label:"The Players Championship", sportIds:["golf"] },
+    { id:"australian-open-golf", label:"Australian Open", sportIds:["golf"] },
+    { id:"australian-pga", label:"Australian PGA Championship", sportIds:["golf"] },
     { id:"presidents-cup", label:"Presidents Cup", sportIds:["golf"] },
     { id:"state-of-origin", label:"State of Origin", sportIds:["nrl"] },
     { id:"australian-open", label:"Australian Open", sportIds:["tennis"] },
@@ -623,6 +626,8 @@
     const competitionPreference = (graph.competitionPreferences || []).find(item => item.competitionId === event.competitionId);
     const explicitSelectors = new Set(next.selectedSelectorEntityIds || []);
     const explicitCompetition = competitionPreference?.enabled === true;
+    const rugbyCoverage=root.NOTHINGSPORTS_RUGBY_COVERAGE||(typeof require==='function'?require('./rugby-coverage'):null);
+    if(rugbyCoverage?.competitions.some(c=>c.id===event.competitionId)&&!explicitCompetition)return null;
     if(event.competitionId==='competition:australian-championship')return explicitCompetition&&followPolicy.sportingFixture(event)?{type:'competition',entityKind:'competition',id:event.competitionId,label:null,displayTag:false}:null;
     const explicitScopedSport = explicitSelectors.has(`sport:${sourceSportId}`)
       || (!explicitSelectors.size && followedSportIds.has(sourceSportId) && !followedSportIds.has(sourceSportId.replace(/w$/, "")));
@@ -637,8 +642,8 @@
       return followPolicy.eligibleForFollow(event,{competitionFollow:golf,explicitEventFollow:direct})?{type:direct?'event':'sport-marquee',entityKind:direct?'event':'sport',id:direct?'presidents-cup':'golf',label:null,displayTag:false}:null;
     }
     if(['golf','golf-women','masters'].includes(sourceSportId)){
-      const directMajor=event.golfMajorCalendar===true&&(next.followFirst.followedMajorEventIds||[]).includes(event.eventFamilyId);
-      return (sportFollowed||directMajor)&&followPolicy.eligibleForFollow(event,{competitionFollow:true,australiansOnly:!directMajor&&(next.followFirst.australiansOnlySportIds||[]).includes('sport:golf')})?{type:directMajor?'event':'sport-marquee',entityKind:directMajor?'event':'sport',id:directMajor?event.eventFamilyId:'golf',label:null,displayTag:false}:null;
+      const directMajor=(event.golfMajorCalendar===true||event.cardType==='golf_session')&&(next.followFirst.followedMajorEventIds||[]).includes(event.eventFamilyId);
+      return (sportFollowed||directMajor)&&followPolicy.eligibleForFollow(event,{competitionFollow:true,explicitEventFollow:directMajor,australiansOnly:!directMajor&&(next.followFirst.australiansOnlySportIds||[]).includes('sport:golf')})?{type:directMajor?'event':'sport-marquee',entityKind:directMajor?'event':'sport',id:directMajor?event.eventFamilyId:'golf',label:null,displayTag:false}:null;
     }
     const concreteSportingCard = Boolean(
       followPolicy?.sportingFixture(event)

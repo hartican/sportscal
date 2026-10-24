@@ -20,7 +20,7 @@ function panel(){
 }
 function harness(request,persisted=new Map()){
   const context={Map,Date,console,globalThis:null,NOTHINGSPORTS_NSC_SUBMISSION_STATE:state,
-    serverPersistence:{user:{id:"account-a"}},serverSyncClient:{nothingscoreRequest:request},
+    serverPersistence:{user:{id:"account-a"}},serverSyncClient:{nothingscoreRequest:request,accountSnapshot:()=>({generation:0})},
     nothingscoreSnapshots:new Map([["alias",{eventId:"alias",canonicalEventId:"canonical",phase:"impact",currentUser:{submissions:{}}}]]),
     nothingscoreLoadedAt:new Map(),nothingscoreSubmissionRequests:new Map(),
     nothingscoreSubmissionStore:state.createStore({read:key=>persisted.get(key),write:(key,value)=>persisted.set(key,value)}),

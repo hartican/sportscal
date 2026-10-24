@@ -27,7 +27,8 @@ const openLiga={...rawOpenLiga,events:delayedFootball.apply(rawOpenLiga.events),
 const canonicalChampionsLeague = require("../data/canonical/uefa-champions-league-2026-27.json");
 const canonicalFinals = require("../data/canonical/afl-nrl-finals-2026.json");
 const majorEvents = require("../data/major-events.v1.json");
-const coverage = require("../data/follow-sources/coverage.v1.json");
+const retainedCoverage = require("../data/follow-sources/coverage.v1.json");
+const coverage={...retainedCoverage,events:require('./lib/multisession-sports').merge(retainedCoverage.events)};
 const restoreCompetitionContext=require('./lib/fixture-competition-context').createResolver();
 const restoreCricketContext=require('./lib/cricket-reviewed-context').createResolver();
 const enrichFixtureEditorial = require('../lib/fixture-editorial').createResolver(require('../data/editorial-knowledge.v1.json'),[...feed.events,...(coverage.events||[])]);
@@ -174,9 +175,10 @@ const clubCrestRecords=require('../config/football-club-crests.json').clubs;
 const clubCrests=new Map(clubCrestRecords.map(c=>[c.participantId,c.logoUrl]));
 const reviewedClubCrests=new Map(clubCrestRecords.filter(c=>c.logoReview).map(c=>[c.participantId,c]));
 function clubLogoForSlot(participantId,existing){
-  return reviewedClubCrests.get(participantId)?.logoUrl||existing||clubCrests.get(participantId)||null;
+  return require('./lib/rugby-artwork').participant(participantId)?.path||reviewedClubCrests.get(participantId)?.logoUrl||existing||clubCrests.get(participantId)||null;
 }
 function reviewedArtworkForParticipant(participant){
+  participant=require('./lib/rugby-artwork').decorate(participant);
   const crest=reviewedClubCrests.get(participant?.id||participant?.participantId);
   return crest?{...participant,logoUrl:crest.logoUrl,crestSourceUrl:crest.logoReview.sourceUrl}:participant;
 }
@@ -242,6 +244,7 @@ function canonicalSourceMetadata(event){
 }
 
 function normalizeFixture(event, codeId, extra = {}){
+  event=require('./lib/rugby-artwork').fixture(event);
   event=fixtureIdentity.normalizeCore(event);
   if(fixtureIdentity.sportKey(event,codeId).startsWith("tennis"))event=require("../lib/tennis-card-evidence").fixture(event);
   const sourceMetadata=canonicalSourceMetadata(event);
@@ -298,8 +301,9 @@ function normalizeFixture(event, codeId, extra = {}){
         ? { timeTbc:true, timePrecision:event.calendarNote ? "unknown" : "tbc" }
         : event.timePrecision ? { timePrecision:event.timePrecision } : {}),
     startTimeUtc: event.startTimeUtc || null,
+    ...(event.competitionLogoUrl?{competitionLogoUrl:event.competitionLogoUrl,competitionLogoSourceUrl:event.competitionLogoSourceUrl}:{}),
     ...Object.fromEntries(['schedulePrecision','weekAnchorDate','displayDateLabel','publicStageLabel','presentationTier'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
-    ...Object.fromEntries(['actualStartTimeUtc','actualStartEvidence','scorecardUrl','goalDetailsCheckedAt','goalDetailsStale','cricketDetailAttemptedAt','officialScorecardUrl','cricketPhaseConfirmed','cricketPhaseCheckedAt','roundScores','cricketBalance','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt','statusText','incidents','goalScorers','estimatedEarliestStartTimeUtc','estimatedLatestStartTimeUtc','sessionOrderEvidence','manualStartEstimate','matchDuration','matchDurationSeconds','scheduleEvidence','timingEvidence','timingVerified','court','tennisProviderMatchId','tennisProviderEventId','tennisProviderTour','sets','estimatedStartTimeUtc','lemansCalendar','sessionOrder','dakarCalendar','itineraryScope','totalDistanceKm','specialDistanceKm','golfMajorCalendar','golfMajorOverview','majorSlug','calendarProvenance','sessionType','roundNumber','editionArtworkId','editionGeometryVerified','editionEndDate','finishCountryCode','courseArtworkId','courseGeometryVerified','courseGeometrySourceUrl','venueCaption','statusSourceUrl','statusCheckedAt','canonicalEventId','venueConfigurationId','venueConfigurationVerified','venueArtworkId','venueGeometrySourceUrl','circuitLengthMetres','circuitTurns','weekendId','scheduleNote','sourceSessionIds','participantsConfirmed','resultCoverage','entries','appearances','participationCheckedAt','genderCategory','circuitId','venueOfficialName','venueId','venueVerified','venueCity','venueSourceUrl','venueProvenance','timingProvenance','scoreCheckedAt','statusCheckedAt','firstConfirmedCompleteAt','parentEventId','rubbers','spoilerSafeTitle','progressionSlots','bracketSlot','winnerParticipantId','resultSourceUrl','resultSourceCheckedAt','cardType','narrativeType','tournamentParent','tennisTournamentId','contestUnit','tour','tournamentLevel','parentTieId','tieId','eliminatedParticipantIds','loserParticipantId','isMajor','major','tournamentSlotId','drawMatchNumber','matchNumber','slotId','slotKind','tournamentId','tournamentName','eventFamilyId','eventSeriesId','majorEventName','season','detailsUnavailable','fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode','sourceAttribution','delayedResultSource'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...Object.fromEntries(['eventGroupId','eventGroupTitle','sessionKind','actualStartTimeUtc','actualStartEvidence','scorecardUrl','goalDetailsCheckedAt','goalDetailsStale','cricketDetailAttemptedAt','officialScorecardUrl','cricketPhaseConfirmed','cricketPhaseCheckedAt','roundScores','cricketBalance','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt','statusText','incidents','goalScorers','estimatedEarliestStartTimeUtc','estimatedLatestStartTimeUtc','sessionOrderEvidence','manualStartEstimate','matchDuration','matchDurationSeconds','scheduleEvidence','timingEvidence','timingVerified','court','tennisProviderMatchId','tennisProviderEventId','tennisProviderTour','sets','estimatedStartTimeUtc','lemansCalendar','sessionOrder','dakarCalendar','itineraryScope','totalDistanceKm','specialDistanceKm','golfMajorCalendar','golfMajorOverview','majorSlug','calendarProvenance','sessionType','roundNumber','editionArtworkId','editionGeometryVerified','editionEndDate','finishCountryCode','courseArtworkId','courseGeometryVerified','courseGeometrySourceUrl','venueCaption','statusSourceUrl','statusCheckedAt','canonicalEventId','venueConfigurationId','venueConfigurationVerified','venueArtworkId','venueGeometrySourceUrl','circuitLengthMetres','circuitTurns','weekendId','scheduleNote','sourceSessionIds','participantsConfirmed','resultCoverage','entries','appearances','participationCheckedAt','genderCategory','circuitId','venueOfficialName','venueId','venueSourceLabel','venueReviewDisposition','venueVerified','venueCity','venueSourceUrl','venueProvenance','timingProvenance','scoreCheckedAt','statusCheckedAt','firstConfirmedCompleteAt','parentEventId','rubbers','spoilerSafeTitle','progressionSlots','bracketSlot','winnerParticipantId','resultSourceUrl','resultSourceCheckedAt','cardType','narrativeType','tournamentParent','tennisTournamentId','contestUnit','tour','tournamentLevel','parentTieId','tieId','eliminatedParticipantIds','loserParticipantId','isMajor','major','tournamentSlotId','drawMatchNumber','matchNumber','slotId','slotKind','tournamentId','tournamentName','eventFamilyId','eventSeriesId','majorEventName','season','detailsUnavailable','fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode','sourceAttribution','delayedResultSource'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     ...(!event.scoreDisplay && derivedScore ? { scoreDisplay:derivedScore } : {}),
     ...(!event.score && derivedScore ? { score:derivedScore } : {}),
     ...Object.fromEntries(['tournamentOpeningDate','tournamentOpeningSourceUrl','eventType','eventCode','bestOf','matchType','matchupSides','sessionId','sessionStartTimeUtc','sequenceInSession','notBeforeTimeUtc','court','endTimeUtc','actualEndTimeUtc','endTimeBasis'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
@@ -456,7 +460,7 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
     if (normalizedSemantic) semanticIds.set(normalizedSemantic, retainedId);
   });
   const protectedIds=new Set(require('../data/canonical/cricket-retention.v1.json').fixtureIds);
-  return Array.from(fixtures.values()).filter(e=>require('../config/cricket-coverage').allowed(e)||[e.id,...(e.sourceEventIds||[])].some(id=>protectedIds.has(id))).sort((first, second) => (
+  return Array.from(fixtures.values()).filter(e=>require('../config/rugby-coverage').allowed(e)&&(require('../config/cricket-coverage').allowed(e)||[e.id,...(e.sourceEventIds||[])].some(id=>protectedIds.has(id)))).sort((first, second) => (
     String(first.date || first.schedulingWindow?.startsOn || "9999-12-31")
       .localeCompare(String(second.date || second.schedulingWindow?.startsOn || "9999-12-31"))
     || (first.lemansCalendar&&second.lemansCalendar?first.sessionOrder-second.sessionOrder:0)

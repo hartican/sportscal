@@ -71,6 +71,10 @@ function runStep(args) {
 }
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
+  if(argv.includes('--multisession-sports')){
+    if(argv.some(arg=>!['--multisession-sports','--local-only','-p'].includes(arg))||!argv.includes('--local-only'))throw Error('Multisession requires scoped local-only arguments');
+    return {localOnly:true,multisessionSports:true};
+  }
   if(argv.includes('--retained-coverage')){
     const codeArgs=argv.filter(arg=>arg.startsWith('--codes=')),captures=argv.filter(arg=>arg.startsWith('--capture=')),allowed=new Set(['--retained-coverage','--local-only','-p']);
     if(!argv.includes('--local-only')||codeArgs.length!==1||new Set(argv).size!==argv.length||argv.some(arg=>!allowed.has(arg)&&!arg.startsWith('--codes=')&&!arg.startsWith('--capture=')))throw Error('Retained coverage requires only declared codes, optional Football capture and local-only; no source steps ran');
@@ -444,6 +448,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-server-feed.js"],
   ["scripts/validate-followed-fixture-surfacing.js"],
   ["scripts/validate-f1-parent-feed.js"],
+  ["scripts/validate-multisession-events.js"],
+  ["scripts/validate-grouped-sports-coverage.js"],
   ["scripts/validate-authenticated-feed-startup.js"],
   ["scripts/validate-follow-fixture-resolver.js"],
   ["scripts/validate-update-cards.js"],
@@ -539,6 +545,11 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function runMain() {
   const options = parseOptions();
+  if(options.multisessionSports){
+    require('./lib/multisession-sports').apply();
+    for(const args of [['scripts/build-code-inspector.js','--codes=f1,motogp,motorsport,golf,rugby-union,cricket'],['scripts/build-follow-directories.js'],['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],['scripts/build-app-shell-runtime.js'],['scripts/validate-multisession-events.js'],['scripts/validate-grouped-sports-coverage.js']])runStep(args);
+    return;
+  }
   const retained=options.retainedCoverage||(options.australianChampionship?{codeSlugs:['football'],...options.australianChampionship}:null);
   if(retained){
     const {codeSlugs,captureFolder}=retained,codes=codeSlugs.join(',');
@@ -1125,7 +1136,7 @@ async function runMain() {
 async function main(){
   // Validate mode before creating diagnostic state or starting any source step.
   const initialOptions=parseOptions();
-  if(initialOptions.australianChampionship||initialOptions.retainedCoverage)return runMain();
+  if(initialOptions.multisessionSports||initialOptions.australianChampionship||initialOptions.retainedCoverage)return runMain();
   process.env.REFRESH_REPORT ||= path.join(os.tmpdir(),'ns-refresh-report-'+crypto.randomUUID()+'.json');
   require('./lib/refresh-report').update({mode:process.argv.includes('--quick')?'quick':'full',publicationState:'refreshing',stage:'starting',sourceFailures:[],missingResults:[],blockingError:null,failedStep:null,failureChain:[]});
   const prior=process.env.FOOTBALL_DATA_RUN_DIR;

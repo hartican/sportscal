@@ -8649,9 +8649,12 @@ async function openFriendFixture(eventId){
 function focusPendingNotificationEvent(){
   if (!pendingNotificationEventId) return false;
   if(new URLSearchParams(location.search).get('surface')==='match-centre'){notificationFixtureLoading ||= routeFixture('milestone',pendingNotificationEventId).finally(()=>notificationFixtureLoading=false);return true;}
-  const item = [...feedCardSlots.values()].find(item => String(item.event.eventId || item.event.id) === pendingNotificationEventId);
+  const matches=e=>[e.id,e.eventId,e.canonicalEventId,...(e.sourceEventIds||[])].includes(pendingNotificationEventId);
+  const item = [...feedCardSlots.values()].find(item => matches(item.event)||item.event.daySessions?.some(matches));
+  const child=item?.event.daySessions?.find(matches);
   if (item && !item.mounted){item.slot.replaceChildren(buildEventCard(item.event));item.slot.style.minHeight='';item.mounted=true;}
-  const target = document.querySelector(`.event-card[data-event-id="${CSS.escape(pendingNotificationEventId)}"]`);
+  const targetId=child?NOTHINGSPORTS_MULTISESSION.id(child):pendingNotificationEventId;
+  const target = document.querySelector(`.event-card[data-event-id="${CSS.escape(targetId)}"],.multisession-today .multisession-row[data-session-id="${CSS.escape(targetId)}"]`);
   if (!target){
     if(!notificationFixtureLoading&&!history.state?.athleteMatchReturn){notificationFixtureLoading=true;const id=pendingNotificationEventId;
       void openFriendFixture(id).then(()=>{pendingNotificationEventId='';const url=new URL(location.href);url.searchParams.delete('event');url.searchParams.delete('liveRatings');history.replaceState(history.state,'',url);}).catch(e=>showToast(e.message)).finally(()=>{notificationFixtureLoading=false;});
@@ -8662,7 +8665,7 @@ function focusPendingNotificationEvent(){
   target.focus({ preventScroll:true });
   const url = new URL(window.location.href);
   const showLiveRatings = url.searchParams.get("liveRatings") === "1";
-  const notificationEvent = item?.event || activeEvents.find(event => String(event.eventId || event.id) === pendingNotificationEventId);
+  const notificationEvent = child || (item?.event.multisessionOccurrence?null:item?.event) || activeEvents.find(matches);
   url.searchParams.delete("event");
   url.searchParams.delete("liveRatings");
   history.replaceState(history.state, "", `${url.pathname}${url.search}${url.hash}`);
@@ -9002,7 +9005,7 @@ function hydrateFeedFilter(){
 function matchesFeedViewFilters(ev){return (feedViewFilters.sport==='all'||feedFilterMatchesEvent(feedViewFilters.sport,ev))&&NOTHINGSPORTS_FEED_VIEW_FILTER.matches(nothingscoreSnapshotFor(ev),Number(feedViewFilters.minimum),actualStarValue(ev));}
 function getFilteredEvents(){
   let list = getPreferenceMatchedEvents();
-  list = list.filter(ev => !getEventAction(ev).archived && !getEventAction(ev).dismissed && !eventIsAutoArchived(ev));
+  list = list.filter(feedSessionStateAllows);
   if (activeTab === "feed" && activeFilter === "all"){
     list = list.filter(discoveryEventIncludedForSession);
   }
@@ -9010,6 +9013,7 @@ function getFilteredEvents(){
   if(activeTab==='feed')list=list.filter(matchesFeedViewFilters);
   return list;
 }
+function feedSessionStateAllows(event){const action=getEventAction(event);return !action.archived&&!action.dismissed&&!eventIsAutoArchived(event);}
 
 function focusedArchivedEvents(reference = nowAEST()){
   if (activeFilter === "all") return [];
@@ -10493,6 +10497,7 @@ function scheduleNothingscoreHeartbeat(delay){
 }
 
 function nothingscoreSubmissionPhaseForEvent(ev){
+  if(NOTHINGSPORTS_MULTISESSION.practice(ev))return null;
   const status = getEventStatus(ev);
   if (status === "live") return null;
   return status === "past" || ev?.status === "completed" ? "impact" : "heat";
@@ -10600,6 +10605,12 @@ function maybeInviteClassicReview(){
   void ensureEpicUi().then(ui=>ui.invite()).catch(()=>{});
 }
 function buildEventCard(ev, options = {}){
+  if(ev.multisessionOccurrence){
+    if(globalThis.NOTHINGSPORTS_MULTISESSION_UI)return NOTHINGSPORTS_MULTISESSION_UI.build(ev,options);
+    const slot=document.createElement('article');slot.className='event-card multisession-loading';slot.textContent=ev.eventGroupTitle+' · Loading sessions…';
+    const owner=serverSyncClient?.sessionSubject();
+    const load=()=>loadDeferredScript('assets/js/multisession-card-ui.js?v=1').then(()=>{if(slot.isConnected&&owner===serverSyncClient?.sessionSubject())slot.replaceWith(NOTHINGSPORTS_MULTISESSION_UI.build(ev,options));}).catch(()=>{if(!slot.isConnected)return;slot.textContent='Sessions could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=load;slot.append(retry);});void load();return slot;
+  }
   if(NOTHINGSPORTS_REVIEWED_FIXTURE_REPAIRS.cachedCalendarNote(ev))ev=NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(ev);
   if(ev.cardKind==='calendar-note')return buildFixtureFallbackCard(ev,options);
   if(options.mode!=='schedule' && FOLLOW_FEED_POLICY.multiDayMarker(ev))return buildTournamentMarker(ev);
@@ -11254,6 +11265,7 @@ function buildFeedCardSlot(event){
 function feedCardCardCleanup(slot){feedCardWindowObserver?.unobserve(slot);feedCardSlots.delete(slot);}
 
 function appendFeedPageToCurrentList(incomingEvents){
+  if([...incomingEvents,...activeEvents].some(event=>NOTHINGSPORTS_MULTISESSION.group(event)))return false;
   if (startupCoordinator.isHydrating() || activeTab !== "feed" || activeView !== "list" || activeSportHubKey()) return false;
   if(committedFeedPresentationFingerprint&&!committedFeedPresentationFingerprint.endsWith('|'+feedClockKey()))return false;
   if (scrollMomentumActive){
@@ -11366,6 +11378,8 @@ function renderListView(){
     temporaryTodayMoreEvents(filtered, todayStr).forEach(event => merged.set(String(event.eventId || event.id), event));
     filtered = orderSurfacedEvents([...merged.values()]);
   }
+  const groupFollowContext=buildFollowEligibilityContext();
+  filtered = NOTHINGSPORTS_MULTISESSION.project(filtered,{eligible:e=>feedSessionStateAllows(e)&&eventMeetsDerivedRetention(e)&&eventFollowReason(e,groupFollowContext)&&feedFilterMatchesEvent(activeFilter,e)&&matchesFeedViewFilters(e)});
   const timeline = NOTHINGSPORTS_FEED_TIMELINE.groups(filtered,nowAEST());
   const initial=[...timeline.retainedPast.slice(-20),...[...timeline.today,...timeline.future,...(timeline.unknown||[])].slice(0,20)];
   initialFeedCardIds=new Set(initial.map(event=>String(event.canonicalEventId||event.eventId||event.id)));
@@ -11792,8 +11806,8 @@ function directoryFilters(sportKey = readStandingsDirectorySession().directorySp
     birthCountryCode: typeof raw.birthCountryCode === "string" ? raw.birthCountryCode : "",
     prominenceTier: ["marquee", "established", "emerging"].includes(raw.prominenceTier) ? raw.prominenceTier : "",
     sortMode: ["table", "value", "alpha"].includes(raw.sortMode) ? raw.sortMode : "table",
-    genderCategory: NOTHINGSPORTS_SURFACE_CATEGORY.genderMatches({gender:'women'},sportKey)?'female':'male',
-    cricketFormat: ['Tests','ODIs','T20Is','BBL'].includes(raw.cricketFormat)?raw.cricketFormat:'Tests',
+    genderCategory: ['', 'female', 'male', 'mixed'].includes(raw.genderCategory)?raw.genderCategory:NOTHINGSPORTS_SURFACE_CATEGORY.genderMatches({gender:'women'},sportKey)?'female':'male',
+    cricketFormat: ['Tests','ODIs','T20Is','BBL','Shield','One Day Cup'].includes(raw.cricketFormat)?raw.cricketFormat:'Tests',
     collectionId: typeof raw.collectionId === "string" ? raw.collectionId.slice(0, 120) : "",
     entityType: raw.entityType === "athlete" ? "athlete" : "team",
     query: typeof raw.query === "string" ? raw.query.slice(0, 80) : "",
@@ -11845,49 +11859,6 @@ function toggleStandingsSportKey(key){
   renderAll({ preserveViewport: true });
 }
 
-function standingsPinTimestamp(competitionId, preferences = userPreferences){
-  return preferences?.standings?.pinTimestamps?.[competitionId] || null;
-}
-
-function toggleStandingsPin(competitionId){
-  const pins = { ...(userPreferences.standings?.pinTimestamps || {}) };
-  if (pins[competitionId]) delete pins[competitionId];
-  else pins[competitionId] = new Date().toISOString();
-  savePreferences({
-    ...userPreferences,
-    standings: { ...(userPreferences.standings || {}), pinTimestamps: pins },
-  });
-  renderAll({ preserveViewport: true });
-}
-
-function standingsFrothRank(competition){
-  const preference = userPreferences.preferenceGraph?.domainPreferences?.find(item => (
-    item.sportDomainId === (competition.preferenceDomainId || competition.sportDomainId)
-  ));
-  return { "template:froth": 3, "template:like": 2, "template:casual": 1, "template:custom": 1 }[preference?.templateId] || 0;
-}
-
-function orderStandingsCompetitions(competitions){
-  return competitions.slice().sort((first, second) => {
-    const firstPin = standingsPinTimestamp(first.id);
-    const secondPin = standingsPinTimestamp(second.id);
-    if (Boolean(firstPin) !== Boolean(secondPin)) return firstPin ? -1 : 1;
-    const frothGap = standingsFrothRank(second) - standingsFrothRank(first);
-    if (frothGap) return frothGap;
-    if (firstPin && secondPin){
-      const pinGap = Date.parse(secondPin) - Date.parse(firstPin);
-      if (pinGap) return pinGap;
-    }
-    return String(first.name).localeCompare(String(second.name));
-  });
-}
-
-function activeStandingsCompetitions(){
-  const selected = new Set(selectedStandingsSportKeys());
-  return orderStandingsCompetitions(rankingCompetitionsForStandings()
-    .filter(competition => selected.has(standingsSportKey(competition))));
-}
-
 function standingsCompetitionMatchesFilter(competition, filterKey){
   const preferenceDomainId = competition.preferenceDomainId || competition.sportDomainId;
   if (preferenceDomainId === `sport:${filterKey}`) return true;
@@ -11909,234 +11880,6 @@ function standingsParticipantName(participantId){
 
 function standingsParticipant(participantId){
   return canonicalSportsData?.participants?.find(item => item.id === participantId) || null;
-}
-
-function standingsTeamName(entry){
-  return entry?.teamParticipantId ? standingsParticipantName(entry.teamParticipantId) : "—";
-}
-
-function followedStandingsParticipantIds(){
-  return new Set((userPreferences.preferenceGraph?.entityFollows || [])
-    .filter(item => item.followLevel === "follow" || item.followLevel === "priority")
-    .map(item => item.participantId));
-}
-
-function standingsEntriesForVisibility(snapshot, visibility, followedParticipantIds = followedStandingsParticipantIds()){
-  const entries = Array.isArray(snapshot?.entries) ? snapshot.entries : [];
-  if (visibility !== "summary") return entries.slice();
-  const selected = entries.slice(0, 3);
-  const selectedIds = new Set(selected.map(entry => entry.participantId));
-  entries.forEach(entry => {
-    if (followedParticipantIds.has(entry.participantId) && !selectedIds.has(entry.participantId)){
-      selected.push(entry);
-      selectedIds.add(entry.participantId);
-    }
-  });
-  return selected.sort((first, second) => Number(first.rank || 0) - Number(second.rank || 0));
-}
-
-function standingsColumnsForCompetition(competition){
-  if (competition.standingsType === "leagueTable"){
-    return [
-      ["rank", "#"],
-      ["participant", "Team"],
-      ["played", "P"],
-      ["won", "W"],
-      ["drawn", "D"],
-      ["lost", "L"],
-      ["pointsDifference", "GD"],
-      ["ladderPoints", "Pts"],
-    ];
-  }
-  if (competition.standingsType === "drivers"){
-    if (competition.competitionFamilyId === "family:world-rally-championship"){
-      return [["rank", "#"], ["participant", "Driver"], ["points", "Pts"]];
-    }
-    return [
-      ["rank", "#"],
-      ["participant", "Driver"],
-      ["team", "Team"],
-      ["points", "Pts"],
-    ];
-  }
-  if (competition.standingsType === "constructors"){
-    return [
-      ["rank", "#"],
-      ["participant", "Team"],
-      ["points", "Pts"],
-    ];
-  }
-  if (competition.standingsType === "coDrivers"){
-    return [["rank", "#"], ["participant", "Co-driver"], ["points", "Pts"]];
-  }
-  if (competition.standingsType === "manufacturers"){
-    return [["rank", "#"], ["participant", "Manufacturer"], ["points", "Pts"]];
-  }
-  if (competition.standingsType === "singlesRanking"){
-    return [
-      ["rank", "#"],
-      ["participant", "Competitor"],
-      ["points", "Pts"],
-    ];
-  }
-  if (competition.standingsType === "conferenceStandings"){
-    return [
-      ["rank", "#"],
-      ["participant", "Team"],
-      ["won", "W"],
-      ["lost", "L"],
-      ["winPercentage", "PCT"],
-      ["gamesBehind", "GB"],
-    ];
-  }
-  if (competition.standingsType === "medalTable"){
-    return [
-      ["rank", "#"],
-      ["participant", "Team"],
-      ["gold", "G"],
-      ["silver", "S"],
-      ["bronze", "B"],
-      ["total", "Total"],
-    ];
-  }
-  if (competition.sportDomainId === "sport:afl"){
-    return [
-      ["rank", "#"],
-      ["participant", "Team"],
-      ["played", "P"],
-      ["won", "W"],
-      ["lost", "L"],
-      ["drawn", "D"],
-      ["percentage", "%"],
-      ["ladderPoints", "Pts"],
-    ];
-  }
-  return [
-    ["rank", "#"],
-    ["participant", "Team"],
-    ["played", "P"],
-    ["won", "W"],
-    ["lost", "L"],
-    ["pointsDifference", "+/−"],
-    ["ladderPoints", "Pts"],
-  ];
-}
-
-function appendStandingsTable(module, competition, snapshot, visibility){
-  const columns = standingsColumnsForCompetition(competition);
-  const followed = followedStandingsParticipantIds();
-  const entries = standingsEntriesForVisibility(snapshot, visibility, followed);
-  const wrap = document.createElement("div");
-  wrap.className = "standings-table-wrap";
-  const table = document.createElement("table");
-  table.className = "standings-table";
-  const thead = document.createElement("thead");
-  const headingRow = document.createElement("tr");
-  columns.forEach(([, label]) => {
-    const th = document.createElement("th");
-    th.scope = "col";
-    th.textContent = label;
-    headingRow.appendChild(th);
-  });
-  thead.appendChild(headingRow);
-  table.appendChild(thead);
-  const tbody = document.createElement("tbody");
-  entries.forEach(entry => {
-    const row = document.createElement("tr");
-    row.classList.toggle("followed", followed.has(entry.participantId));
-    columns.forEach(([key]) => {
-      const cell = document.createElement("td");
-      if (key === "participant"){
-        const participant = standingsParticipant(entry.participantId);
-        if (participant?.countryCode && ["competitor", "pair"].includes(participant.type)){
-          cell.appendChild(buildAthleteName(participant, { className: "standings-athlete" }));
-        } else {
-          cell.textContent = standingsParticipantName(entry.participantId);
-        }
-        if (followed.has(entry.participantId)){
-          const marker = document.createElement("span");
-          marker.className = "standings-followed-tag";
-          marker.textContent = "Following";
-          cell.appendChild(marker);
-        }
-      } else if (key === "team"){
-        cell.textContent = standingsTeamName(entry);
-      } else if (key === "winPercentage" && Number.isFinite(Number(entry[key]))){
-        cell.textContent = Number(entry[key]).toFixed(3).replace(/^0/, "");
-      } else if (key === "gamesBehind" && Number(entry[key]) === 0){
-        cell.textContent = "—";
-      } else if (key === "points" && Number.isFinite(Number(entry[key]))){
-        cell.textContent = Number(entry[key]).toLocaleString("en-AU");
-      } else {
-        cell.textContent = entry[key] ?? "—";
-      }
-      row.appendChild(cell);
-    });
-    tbody.appendChild(row);
-  });
-  table.appendChild(tbody);
-  wrap.appendChild(table);
-  module.appendChild(wrap);
-}
-
-function buildStandingsFilter(){
-  const available = standingsFilterSportKeys();
-  const selected = new Set(selectedStandingsSportKeys());
-  const panel = document.createElement("section");
-  panel.className = "standings-filter-panel";
-  panel.setAttribute("aria-label", "Standings filter");
-  const head = document.createElement("div");
-  head.className = "standings-filter-head";
-  const title = document.createElement("h2");
-  title.textContent = "Filter standings";
-  const actions = document.createElement("div");
-  const selectAll = document.createElement("button");
-  selectAll.type = "button";
-  selectAll.className = "btn ghost";
-  selectAll.textContent = "Select all";
-  selectAll.addEventListener("click", () => setAllStandingsSportKeys(true));
-  const deselectAll = document.createElement("button");
-  deselectAll.type = "button";
-  deselectAll.className = "btn ghost";
-  deselectAll.textContent = "Deselect all";
-  deselectAll.addEventListener("click", () => setAllStandingsSportKeys(false));
-  actions.append(selectAll, deselectAll);
-  head.append(title, actions);
-  const choices = document.createElement("div");
-  choices.className = "standings-filter-choices";
-  available.forEach(key => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = `standings-filter-choice${selected.has(key) ? " active" : ""}`;
-    button.setAttribute("role", "checkbox");
-    button.setAttribute("aria-checked", String(selected.has(key)));
-    button.textContent = SPORT_META[key]?.label || key.toUpperCase();
-    button.addEventListener("click", () => toggleStandingsSportKey(key));
-    choices.appendChild(button);
-  });
-  panel.append(head, choices);
-  return panel;
-}
-
-function buildStandingsInnerTabs(){
-  const activeView = readStandingsDirectorySession().activeView;
-  const tabs = document.createElement("div");
-  tabs.className = "standings-inner-tabs";
-  tabs.setAttribute("role", "tablist");
-  [["tables", "Tables"], ["directory", "Follow Teams & Players"]].forEach(([view, label]) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = `standings-inner-tab${activeView === view ? " active" : ""}`;
-    button.setAttribute("role", "tab");
-    button.setAttribute("aria-selected", String(activeView === view));
-    button.textContent = label;
-    button.addEventListener("click", () => {
-      updateStandingsDirectorySession({ activeView: view });
-      renderStandingsContext();
-    });
-    tabs.appendChild(button);
-  });
-  return tabs;
 }
 
 function directoryFollowLevel(participantId){
@@ -12338,7 +12081,7 @@ const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
   const url='assets/js/follow-presentation-ui.js?v=581';
-  return Promise.all([loadDeferredScript('config/participant-directory.js?v=512'),loadDeferredScript(url)]).then(()=>{
+  return Promise.all([loadDeferredScript('config/participant-directory.js?v=512'),loadDeferredScript('config/follow-sport-palette.js?v=1'),loadDeferredScript(url)]).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);
       throw new Error('Follow presentation was unavailable');
@@ -12392,177 +12135,10 @@ function renderTeamsAndPlayersDirectory(container){
 }
 
 function renderStandingsContext(options = {}){
-  const embedded = Boolean(options.container);
-  const container = options.container || document.getElementById("standingsContext");
-  if (!container) return;
-  container.innerHTML = "";
-  const scrollScope = container.id || options.sectionLabel || "standings";
-  container.dataset.scrollList = `standings:${scrollScope}`;
-  if (!embedded && activeTab === "follow"){
-    renderFollowView();
-    return;
-  }
-  if (!embedded && activeTab !== "standings") return;
-  if(!globalThis.chooseStandingsCategory){
-    container.textContent="Loading rankings…";loadDeferredScript("config/surface-category-ui.js?v=403").then(()=>renderStandingsContext(options)).catch(()=>{container.textContent="Rankings could not load.";});return;
-  }
-  const competitions = chooseStandingsCategory(options.competitions || activeStandingsCompetitions(),container,options);
-  const sectionLabel = options.sectionLabel || "Standings";
-  if (!embedded){
-    container.appendChild(buildStandingsInnerTabs());
-    if (readStandingsDirectorySession().activeView === "directory"){
-      renderTeamsAndPlayersDirectory(container);
-      return;
-    }
-    container.appendChild(buildStandingsFilter());
-  }
-  if (!competitions.length){
-    const empty = document.createElement("div");
-    empty.className = "standings-empty";
-    empty.textContent = "No supported sports are selected in the filters above.";
-    container.appendChild(empty);
-    return;
-  }
-
-  if (!userPreferences.showSpoilers && !standingsRevealApproved){
-    const module = document.createElement("section");
-    module.className = "standings-module standings-withheld";
-    const copy = document.createElement("div");
-    const title = document.createElement("h2");
-    title.textContent = sectionLabel;
-    const detail = document.createElement("p");
-    detail.textContent = "Hidden while Results is off because standings can reveal recent outcomes.";
-    copy.append(title, detail);
-    const reveal = document.createElement("button");
-    reveal.className = "btn ghost";
-    reveal.type = "button";
-    reveal.textContent = "Reveal standings";
-    reveal.addEventListener("click", () => confirmStandingsReveal(renderAll));
-    module.append(copy, reveal);
-    container.appendChild(module);
-    return;
-  }
-
-  if (!canonicalSportsData){
-    const module = document.createElement("section");
-    module.className = "standings-module";
-    const title = document.createElement("h2");
-    title.textContent = sectionLabel;
-    const status = document.createElement("p");
-    status.textContent = canonicalSportsDataError
-      ? `${sectionLabel} data is unavailable, so this area has been withheld.`
-      : "Loading current standings…";
-    module.append(title, status);
-    if (canonicalSportsDataError){
-      const retry = document.createElement("button");
-      retry.className = "btn ghost";
-      retry.type = "button";
-      retry.textContent = "Try again";
-      retry.addEventListener("click", () => {
-        canonicalSportsDataError = null;
-        loadCanonicalSportsData();
-        renderStandingsContext(options);
-      });
-      module.appendChild(retry);
-    } else {
-      loadCanonicalSportsData();
-    }
-    container.appendChild(module);
-    return;
-  }
-
-  const competitionsBySport = new Map();
-  competitions.forEach(competition => {
-    const sportKey = standingsSportKey(competition);
-    const sportCompetitions = competitionsBySport.get(sportKey) || [];
-    sportCompetitions.push(competition);
-    competitionsBySport.set(sportKey, sportCompetitions);
-  });
-
-  competitionsBySport.forEach((sportCompetitions, sportKey) => {
-    const sportSection = document.createElement("section");
-    sportSection.className = "standings-sport-section";
-    sportSection.dataset.sportSection = sportKey;
-    const heading = document.createElement("div");
-    heading.className = "standings-sport-heading";
-    heading.innerHTML = `${glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter")}<span>${SPORT_META[sportKey]?.label || sportKey.toUpperCase()}</span>`;
-    sportSection.appendChild(heading);
-    const sportContent = document.createElement("div");
-    sportContent.className = "standings-sport-content";
-    sportContent.id = `ranking-standings-${sportKey}`;
-    sportContent.dataset.scrollList = `standings:${scrollScope}:${sportKey}`;
-
-    sportCompetitions.forEach(competition => {
-      const module = document.createElement("section");
-      module.className = "standings-module";
-      const moduleScrollKey = `standings:${scrollScope}:${competition.id}`;
-      module.dataset.scrollKey = moduleScrollKey;
-      const head = document.createElement("div");
-      head.className = "standings-head";
-      const copy = document.createElement("div");
-      const title = document.createElement("h2");
-      title.textContent = competition.name;
-      const snapshot = latestStandingsSnapshot(competition.id);
-      const detail = document.createElement("p");
-      detail.textContent = snapshot?.snapshotTimeUtc
-        ? `Updated ${new Date(snapshot.snapshotTimeUtc).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}${snapshot.roundLabel ? ` · ${snapshot.roundLabel}` : ""}`
-        : "No current standings snapshot is available.";
-      copy.append(title, detail);
-      const pin = document.createElement("button");
-      const pinned = Boolean(standingsPinTimestamp(competition.id));
-      pin.type = "button";
-      pin.className = `standings-pin${pinned ? " active" : ""}`;
-      pin.setAttribute("aria-pressed", String(pinned));
-      pin.textContent = pinned ? "Pinned" : "Pin";
-      pin.addEventListener("click", () => toggleStandingsPin(competition.id));
-      head.append(copy, pin);
-      module.appendChild(head);
-      if (!snapshot?.entries?.length){
-        const withheld = document.createElement("p");
-        withheld.textContent = "No valid data is available, so this standings module has been withheld.";
-        module.appendChild(withheld);
-      } else {
-        const expanded = standingsCompetitionExpansion[competition.id] === true;
-        const summaryEntries = standingsEntriesForVisibility(snapshot, "summary");
-        appendStandingsTable(module, competition, snapshot, expanded ? "full" : "summary");
-        const freshness = document.createElement("p");
-        freshness.className = "standings-freshness-note";
-        freshness.textContent = snapshot.metadata?.roundStatus === "in-progress"
-          ? "This round is ongoing, so positions may change after the next completed match. Standings refresh periodically and may briefly differ from official sources due to update delays."
-          : "Standings refresh periodically and may briefly differ from official sources due to update delays.";
-        module.appendChild(freshness);
-        if (summaryEntries.length < snapshot.entries.length){
-          const expander = document.createElement("button");
-          expander.type = "button";
-          expander.className = "standings-table-expander";
-          expander.dataset.standingsExpander = competition.id;
-          expander.setAttribute("aria-expanded", expanded ? "true" : "false");
-          expander.setAttribute(
-            "aria-label",
-            expanded
-              ? `Collapse ${competition.name} to Top 3 plus followed`
-              : `Expand ${competition.name} to the full standings`
-          );
-          expander.innerHTML = `<span>${expanded ? "Full standings" : "Top 3 + followed"}</span>${glyphMarkup("ui:chevron-right")}`;
-          expander.addEventListener("click", () => {
-            const liveModule = Array.from(document.querySelectorAll("[data-scroll-key]"))
-              .find(element => element.dataset.scrollKey === moduleScrollKey) || module;
-            mutateWithScrollContinuity(liveModule, () => {
-              standingsCompetitionExpansion[competition.id] = standingsCompetitionExpansion[competition.id] !== true;
-              renderStandingsContext(options);
-            }, {
-              restoreFocus:true,
-              focusTarget:`[data-scroll-key="${CSS.escape(moduleScrollKey)}"] [data-standings-expander="${CSS.escape(competition.id)}"]`,
-            });
-          });
-          module.appendChild(expander);
-        }
-      }
-      sportContent.appendChild(module);
-    });
-    sportSection.appendChild(sportContent);
-    container.appendChild(sportSection);
-  });
+  if(typeof globalThis.renderStandingsContextLoaded==='function')return renderStandingsContextLoaded(options);
+  const container=options.container||document.getElementById('standingsContext');
+  if(!container)return;
+  showFollowPresentationLoading(container,()=>renderStandingsContext(options),()=>container.isConnected&&(Boolean(options.container)||['follow','standings'].includes(activeTab)));
 }
 
 function groupEventsByDate(events,{feed=false}={}){

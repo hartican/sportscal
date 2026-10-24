@@ -27,7 +27,7 @@ assert.equal(rugby.gender,'women');assert.equal(rugby.startTimeUtc,'2026-09-12T1
 assert.equal(rugby.date,'2026-09-13');assert.equal(rugby.time,'00:00');
 assert.equal(rugby.awayParticipantId,'team:rugby:australia-women');assert.equal(rugby.competitionScope,'international');
 assert.equal(rugby.homeScore,undefined,'scheduled source zeroes are not a result');
-const [midnight]=parseWorldRugby({content:[{matchId:'midnight',sport:'MRU',time:{millis:Date.parse('2026-09-12T00:00:00Z'),gmtOffset:-4,label:'2026-09-11'},teams:[],status:'LHT',scores:[7,3]}]});
+const [midnight]=parseWorldRugby({content:[{matchId:'midnight',sport:'MRU',competition:'Senior internationals',time:{millis:Date.parse('2026-09-12T00:00:00Z'),gmtOffset:-4,label:'2026-09-11'},teams:[],status:'LHT',scores:[7,3]}]});
 assert.equal(midnight.startTimeUtc,'2026-09-12T00:00:00.000Z','a real local evening must not become date-only');
 assert.equal(midnight.status,'live');
 async function discoveryChecks(){

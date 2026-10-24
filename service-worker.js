@@ -2,8 +2,11 @@ const CACHE_NAME = "nothingsport-shell-v590";
 const SHELL_VERSION = "590";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
-// Unassigned circuit candidates are optional assets, not install dependencies.
+// Circuit layouts cache after use, as F1 already does. Offline cards retain
+// their text and sport icon when that optional layout has not been viewed.
 const APP_SHELL = [
+  "/assets/js/multisession-card-ui.js?v=1",
+  "/config/follow-sport-palette.js?v=1",
   "/assets/styles/racing-details.css?v=527",
   "/config/racing-details.js?v=539",
   "/config/participant-directory.js?v=512",
@@ -37,30 +40,7 @@ const APP_SHELL = [
   "/terms.html",
   "/assets/styles/nothingsport-foundation.css?v=463",
   // Bundled modules are cached once; separate files remain cacheable on demand.
-  "/assets/identities/motogp/circuits/chang.svg",
-  "/assets/identities/motogp/circuits/cota.svg",
-  "/assets/identities/motogp/circuits/balaton-park.svg",
-  "/assets/identities/motogp/circuits/assen.svg",
-  "/assets/identities/motogp/circuits/motegi.svg",
-  "/assets/identities/motogp/circuits/mandalika.svg",
-  "/assets/identities/motogp/circuits/portimao.svg",
-  "/assets/identities/motogp/circuits/goiania.svg",
-  "/assets/identities/motogp/circuits/spielberg-motogp.svg",
   "/assets/identities/motogp/badge.svg",
-  "/assets/identities/motogp/circuits/aragon.svg",
-  "/assets/identities/motogp/circuits/brno.svg",
-  "/assets/identities/motogp/circuits/bugatti.svg",
-  "/assets/identities/motogp/circuits/catalunya.svg",
-  "/assets/identities/motogp/circuits/indianapolis.svg",
-  "/assets/identities/motogp/circuits/jerez.svg",
-  "/assets/identities/motogp/circuits/lusail.svg",
-  "/assets/identities/motogp/circuits/misano.svg",
-  "/assets/identities/motogp/circuits/mugello.svg",
-  "/assets/identities/motogp/circuits/phillip-island.svg",
-  "/assets/identities/motogp/circuits/sachsenring.svg",
-  "/assets/identities/motogp/circuits/sepang.svg",
-  "/assets/identities/motogp/circuits/silverstone.svg",
-  "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
   "/assets/js/app-shell-runtime.js?v=590",
@@ -73,7 +53,6 @@ const APP_SHELL = [
   "/assets/styles/score-details.css?v=582",
   "/config/tournament-card-details.js?v=486",
   "/assets/js/tournament-card-ui.js?v=582",
-  "/config/tournament-schedule.js?v=452",
   "/assets/js/tennis-schedule-ui.js?v=467",
   "/config/tennis-journeys.js?v=467",
   "/assets/js/nsc-rankings-ui.js?v=536",

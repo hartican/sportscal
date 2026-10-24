@@ -89,7 +89,7 @@
         "lastEventDate": "2026-05-31"
       },
       "golf": {
-        "count": 32,
+        "count": 44,
         "firstEventDate": "2026-05-14",
         "lastEventDate": "2027-07-18"
       },
@@ -119,9 +119,9 @@
         "lastEventDate": "2026-07-13"
       },
       "rugby": {
-        "count": 14,
+        "count": 616,
         "firstEventDate": "2026-07-04",
-        "lastEventDate": "2026-11-22"
+        "lastEventDate": "2027-06-26"
       },
       "tdf": {
         "count": 24,
@@ -189,9 +189,9 @@
         "lastEventDate": "2026-11-01"
       },
       "supercars": {
-        "count": 1,
+        "count": 27,
         "firstEventDate": "2026-10-11",
-        "lastEventDate": "2026-10-11"
+        "lastEventDate": "2026-11-29"
       },
       "ski": {
         "count": 4,

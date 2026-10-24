@@ -1,7 +1,7 @@
 {
   "schemaVersion": "cricket-coverage.v1",
-  "approvedAt": "2026-09-30",
-  "version": 1,
+  "approvedAt": "2026-10-24",
+  "version": 2,
   "nationalTeams": [
     "australia",
     "england",
@@ -72,7 +72,18 @@
     "team:cricket:espn-509674": "team:cricket:sydney-thunder",
     "team:cricket:espn-896401-women": "team:cricket:sydney-thunder-women",
     "team:cricket:zimbabwe": "team:cricket:zimbabwe",
-    "team:cricket:zimbabwe-women": "team:cricket:zimbabwe-women"
+    "team:cricket:zimbabwe-women": "team:cricket:zimbabwe-women",
+    "team:cricket:espn-387": "team:cricket:new-south-wales",
+    "team:cricket:espn-459": "team:cricket:queensland",
+    "team:cricket:ca-1205": "team:cricket:queensland",
+    "team:cricket:espn-584": "team:cricket:victoria",
+    "team:cricket:ca-82": "team:cricket:victoria",
+    "team:cricket:espn-520": "team:cricket:south-australia",
+    "team:cricket:ca-1214": "team:cricket:south-australia",
+    "team:cricket:espn-602": "team:cricket:western-australia",
+    "team:cricket:ca-83": "team:cricket:western-australia",
+    "team:cricket:espn-560": "team:cricket:tasmania",
+    "team:cricket:ca-85": "team:cricket:tasmania"
   },
   "followableParticipantIds": [
     "team:cricket:adelaide-strikers",
@@ -95,7 +106,13 @@
     "team:cricket:sydney-sixers",
     "team:cricket:sydney-thunder",
     "team:cricket:west-indies",
-    "team:cricket:zimbabwe"
+    "team:cricket:zimbabwe",
+    "team:cricket:new-south-wales",
+    "team:cricket:queensland",
+    "team:cricket:victoria",
+    "team:cricket:south-australia",
+    "team:cricket:western-australia",
+    "team:cricket:tasmania"
   ],
   "allowedCompetitionIds": [
     "competition:cricket:3206",
@@ -215,5 +232,13 @@
     "competition:cricket:espn:8880",
     "competition:cricket:espn:8890",
     "competition:cricket:espn:8897"
+  ],
+  "stateTeams": [
+    "new-south-wales",
+    "queensland",
+    "victoria",
+    "south-australia",
+    "western-australia",
+    "tasmania"
   ]
 }

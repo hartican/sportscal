@@ -63,7 +63,7 @@ if (replaceExisting) {
 }
 
 const identity=require('../config/fixture-identity'),scope=require('../config/cricket-coverage'),protectedIds=new Set(require('../data/canonical/cricket-retention.v1.json').fixtureIds);
-publishedFeed.events=identity.mergeOverlays([],publishedFeed.events).map(e=>{if(Array.isArray(e.participants)&&!e.participants.length){const {participants,...withoutEmptyParticipants}=e;return withoutEmptyParticipants;}return e;}).filter(e=>scope.allowed(e)||[e.id,...(e.sourceEventIds||[])].some(id=>protectedIds.has(id)));
+publishedFeed.events=identity.mergeOverlays([],publishedFeed.events).map(e=>{if(Array.isArray(e.participants)&&!e.participants.length){const {participants,...withoutEmptyParticipants}=e;return withoutEmptyParticipants;}return e;}).filter(e=>require('../config/rugby-coverage').allowed(e)&&(scope.allowed(e)||[e.id,...(e.sourceEventIds||[])].some(id=>protectedIds.has(id))));
 publishedFeed.events=publishedFeed.events.map(require('./lib/fixture-competition-context').createResolver());
 publishedFeed.events=publishedFeed.events.map(require('./lib/cricket-reviewed-context').createResolver());
 const publicationStamp = new Date().toISOString();

@@ -25,13 +25,15 @@ async function assertFollowPickerJourney(page){
   await page.locator('.follow-home-tabs').getByRole('button',{name:'Sports',exact:true}).tap();
   await page.locator('.follow-navigation').waitFor();
   const before=await pickerChoices(page);
-  await page.getByRole('tab',{name:'Women',exact:true}).tap();
   const expand=async()=>{if(await page.locator('.follow-navigation-toggle').getAttribute('aria-expanded')==='false')await page.getByRole('button',{name:'Expand Sports menu',exact:true}).tap();};
-  if(await page.evaluate(()=>followBrowseState().sportId!=='sport:tennis-women')){
-    await expand();const primary=page.locator('.follow-sport-bar > [data-follow-sport="sport:tennis-women"]');
+  const selectSport=async id=>{
+    await expand();const primary=page.locator('.follow-sport-bar > [data-follow-sport="'+id+'"]');
     if(await primary.count())await primary.tap();
-    else{await page.getByRole('button',{name:'More sports',exact:true}).tap();await page.getByRole('dialog',{name:'More sports',exact:true}).locator('[data-follow-sport="sport:tennis-women"]').tap();}
-  }
+    else{await page.getByRole('button',{name:'More sports',exact:true}).tap();await page.getByRole('dialog',{name:'More sports',exact:true}).locator('[data-follow-sport="'+id+'"]').tap();}
+  };
+  await selectSport('sport:tennis');
+  await expand();
+  await page.getByRole('tab',{name:'Women',exact:true}).tap();
   const open=async()=>{await expand();await page.getByRole('button',{name:'More sports',exact:true}).tap();await page.getByRole('dialog',{name:'More sports',exact:true}).waitFor();};
   const scroll=async()=>{
     await page.evaluate(()=>scrollTo(0,0));
@@ -61,25 +63,29 @@ async function assertFollowPickerJourney(page){
   assert.equal(await page.locator('.follow-navigation-toggle').getAttribute('aria-expanded'),'false','Ordinary downward scrolling must still collapse the toolbar without a modal');
   for(let i=0;i<2;i++){
     await open();if(i===0){await scroll();await usable();}
-    await page.getByRole('dialog',{name:'More sports',exact:true}).locator('[data-follow-sport="sport:football-women"]').tap();
-    await page.waitForFunction(()=>followBrowseState().sportId==='sport:football-women'&&followBrowseState().gender==='women');
-    assert.equal(await page.locator('dialog[open]').count(),0,'Selecting Football must release the native modal');
+    const choice=page.getByRole('dialog',{name:'More sports',exact:true}).locator('[data-follow-sport]').first(),id=await choice.getAttribute('data-follow-sport');
+    await choice.tap();
+    await page.waitForFunction(id=>followBrowseState().sportId===id,id);
+    assert.equal(await page.locator('dialog[open]').count(),0,'Selecting a sport must release the native modal');
     assert.equal(await page.locator('.follow-navigation-toggle').getAttribute('aria-expanded'),'false','Selection closes Sports');
-    assert.equal(await page.getByRole('tab',{name:'Women',exact:true}).getAttribute('aria-selected'),'true');
   }
+  await selectSport('sport:tennis');
+  await expand();
+  assert.equal(await page.getByRole('tab',{name:'Women',exact:true}).getAttribute('aria-selected'),'true','Tennis remembers its own gender choice');
   await page.locator('.tabs [data-tab=feed]').tap();await page.waitForFunction(()=>activeTab==='feed');
   await page.locator('.tabs [data-tab=follow]').tap();await page.locator('.follow-navigation').waitFor();
-  assert.equal(await page.evaluate(()=>followBrowseState().sportId),'sport:football-women','Returning to Follow must retain the selected women sport');
+  assert.equal(await page.evaluate(()=>followBrowseState().sportId),'sport:tennis','Returning to Follow retains the parent sport');
+  await expand();
   assert.equal(await page.getByRole('tab',{name:'Women',exact:true}).getAttribute('aria-selected'),'true');
   assert.equal(await pickerChoices(page),before,'Picker interactions cannot alter follows, exclusions, personal filters, Results or Remind OFF');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
   await page.setViewportSize(originalViewport);
-  return {phoneHeight:originalViewport.width<=320?568:664,scrollWhileModalOpen:true,movement,redrawPreservedDialog:true,nativeCloseAndCancel:true,ordinaryCollapse:true,repeatedFootballSelection:2,feedRoundtrip:true,choicesPreserved:true};
+  return {phoneHeight:originalViewport.width<=320?568:664,scrollWhileModalOpen:true,movement,redrawPreservedDialog:true,nativeCloseAndCancel:true,ordinaryCollapse:true,repeatedSportSelection:2,feedRoundtrip:true,choicesPreserved:true};
 }
 module.exports={assertFollowPickerJourney,ready};
 async function directory(page,sport){
   await page.evaluate(sport=>{saveFollowBrowse({sportId:'sport:'+sport,categoryId:'sport:'+sport,section:'teams-players'});renderFollowView();},sport);
-  if(sport==='football')await page.locator('.follow-directory-tabs').getByRole('button',{name:'Teams',exact:true}).click();
+  if(sport==='football')try{await page.locator('.follow-directory-tabs').getByRole('button',{name:'Teams',exact:true}).click();}catch(error){console.error('Football tabs',await directoryState(page));throw error;}
   try{await page.locator(sport==='football'?'.football-club-row':'.follow-directory-row').first().waitFor();}catch(error){
     console.error('Original directory assertion',sport,await directoryState(page));throw error;
   }
@@ -91,7 +97,7 @@ async function coldDirectoryCase(browser,engine){
   page.on('pageerror',error=>errors.push(error.message));
   try{
     await page.route('**/data/follow-directory/tennis-women.v1.*',async route=>{reads++;await gate;await route.continue();});
-    await ready(page,{onboardingComplete:true,followedSports:[],selectedSelectorEntityIds:[],followBrowse:{sportId:'sport:tennis',categoryId:'sport:tennis',section:'teams-players',gender:'men'}});
+    await ready(page,{onboardingComplete:true,followedSports:[],selectedSelectorEntityIds:[],followBrowse:{sportId:'sport:tennis',categoryId:'sport:tennis',section:'teams-players',gender:'men',genderBySport:{'sport:tennis':'men'}}});
     await page.locator('#startupLaunch').waitFor({state:'hidden'});
     await openFollow(page);await page.locator('.follow-navigation').waitFor();
     await page.waitForFunction(()=>footballDirectoryApi&&followDirectoryChunks.has('tennis'));
@@ -107,6 +113,7 @@ async function coldDirectoryCase(browser,engine){
     const initial=await directoryState(page);
     assert(initial.rows>0,'The initial downloaded Follow directory must survive concurrent Feed-only redraws: '+JSON.stringify(initial));
     const choices=await pickerChoices(page);
+    if(await page.locator('.follow-navigation-toggle').getAttribute('aria-expanded')==='false')await page.getByRole('button',{name:'Expand Sports menu',exact:true}).tap();
     await page.getByRole('tab',{name:'Women',exact:true}).tap();
     await page.waitForFunction(()=>followDirectoryChunkLoading.has('tennis-women'));
     const before=await directoryState(page);assert(!before.loaded.includes('tennis-women'));
@@ -135,7 +142,7 @@ if(require.main===module)(async()=>{
           try{
             console.log(engine+': '+width+'px native picker, '+availability+' directory');
             await page.route('**/data/follow-directory/tennis-women.v1.*',async route=>{directoryReads++;if(availability==='delayed')await gate;if(availability==='unavailable')return route.fulfill({status:503,body:'Controlled directory failure'});await route.continue();});
-            await ready(page,{onboardingComplete:true,followedSports:[],selectedSelectorEntityIds:[],followBrowse:{sportId:'sport:tennis',categoryId:'sport:tennis',section:'teams-players',gender:'men'},preferenceGraph:{entityFollows:[{participantId:'team:football:epl:2',followLevel:'mute'}]},followFirst:{notifications:{userChoice:false,enabled:false,autoRemindersEnabled:false,sportingRemindersEnabled:false}}});
+            await ready(page,{onboardingComplete:true,followedSports:[],selectedSelectorEntityIds:[],followBrowse:{sportId:'sport:tennis',categoryId:'sport:tennis',section:'teams-players',gender:'men',genderBySport:{'sport:tennis':'men'}},preferenceGraph:{entityFollows:[{participantId:'team:football:epl:2',followLevel:'mute'}]},followFirst:{notifications:{userChoice:false,enabled:false,autoRemindersEnabled:false,sportingRemindersEnabled:false}}});
             const picker=await assertFollowPickerJourney(page);assert.deepEqual(errors,[]);
             assert(directoryReads>0,'The replay must actually request the women directory');
             if(availability==='delayed')assert.equal(await page.evaluate(()=>followDirectoryChunks.has('tennis-women')),false,'Picker completes while its public directory is genuinely still pending');
@@ -149,6 +156,7 @@ if(require.main===module)(async()=>{
           const context=await browser.newContext({viewport:{width,height:844},serviceWorkers:'block'}),page=await context.newPage(),errors=[];let requests=0;
           page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(r.url().includes('/follow-presentation-ui.js'))requests++;});
           await ready(page);assert.equal(requests,0,'Feed startup must not fetch Follow presentation');
+          page.setDefaultTimeout(15000);
           const initial=await savedChoices(page);
           await openFollow(page);await page.locator('.follow-navigation').waitFor();assert.equal(requests,1);
           assert.equal(await savedChoices(page),initial,'opening Follow cannot change follows, spoiler, appearance or notification choices');

@@ -319,7 +319,7 @@
       officialName,
       aliases: Object.freeze([officialName]),
       audited: false,
-      reviewDisposition: REVIEW_DISPOSITIONS[normalized] || (contextual ? "context_required" : "unclassified"),
+      reviewDisposition: REVIEW_DISPOSITIONS[normalized] || (context.venueSourceLabel===officialName&&context.venueReviewDisposition==='source_name_pending_review'?'source_name_pending_review':contextual ? "context_required" : "unclassified"),
     });
   }
 
