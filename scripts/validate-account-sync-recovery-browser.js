@@ -155,7 +155,7 @@ const server = http.createServer((req, res) => {
     };
     await context.route('**/*', routeHandler);
     page = await context.newPage();
-    const tracedRequests=new Map();
+    const tracedRequests=new Map(),terminalScheduleRequests=new Set();
     const trackRequest=request=>{
       const u=new URL(request.url());if(!traceResources||!schedulePath(u.pathname))return null;
       if(!tracedRequests.has(request))tracedRequests.set(request,{id:'browser-'+(++resourceSequence),path:u.pathname,origin:u.origin,startedEpoch:documentEpoch});
@@ -163,8 +163,8 @@ const server = http.createServer((req, res) => {
     };
     page.on('request',request=>{const item=trackRequest(request);if(item)traceResource('browser-request',{...item,frameUrl:resourceFrameUrl(request),allowed:origins.has(item.origin)});});
     page.on('response',response=>{const item=trackRequest(response.request());if(item){const headers=response.headers();traceResource('browser-response',{...item,status:response.status(),contentType:headers['content-type']||null,allowOrigin:headers['access-control-allow-origin']||null,redirect:headers.location||null});}});
-    page.on('requestfinished',request=>{const item=trackRequest(request);if(item)traceResource('browser-request-finished',item);});
-    page.on('requestfailed',request=>{const item=trackRequest(request);if(item)traceResource('browser-request-failed',{...item,failure:String(request.failure()?.errorText||'').slice(0,400)});});
+    page.on('requestfinished',request=>{const item=trackRequest(request);if(item)terminalScheduleRequests.add(request);if(item)traceResource('browser-request-finished',item);});
+    page.on('requestfailed',request=>{const item=trackRequest(request);if(item)terminalScheduleRequests.add(request);if(item)traceResource('browser-request-failed',{...item,failure:String(request.failure()?.errorText||'').slice(0,400)});});
     page.on('framenavigated',frame=>{if(frame===page.mainFrame()){documentEpoch++;traceResource('document-navigation',{url:frame.url()});}});
     page.on('domcontentloaded',()=>traceResource('document-domcontentloaded',{url:page.url()}));
     page.on('console',message=>{const value=message.text();if(value.startsWith(resourceMarker)){try{traceResource('window-event',JSON.parse(value.slice(resourceMarker.length)));}catch{traceResource('diagnostic-decode-failed');}}});
@@ -309,12 +309,18 @@ const server = http.createServer((req, res) => {
       if(cancelControl)assert(await page.evaluate(()=>followedScheduleLoads.has('sport:football')),'cancellation control requires actual pending fixture work');
       else await settleFixtureWork('pre-reload-fixtures-settled',false);
       resourcePhase='persisted-restart';traceResource('controlled-reload');
-      await page.reload({waitUntil:'domcontentloaded'});
       if(cancelControl){
-        releaseScheduleBody();
-        assert(resourceTrace.some(item=>item.event==='browser-request-failed'&&item.path==='/data/follow-schedule/football.json'&&item.startedEpoch<documentEpoch&&/cancel|abort/i.test(item.failure)),
+        const pending=[...tracedRequests].filter(([request,item])=>item.path==='/data/follow-schedule/football.json'&&item.startedEpoch===documentEpoch&&!terminalScheduleRequests.has(request));
+        assert.equal(pending.length,1,'control must identify exactly one pending old-document Football request');
+        const oldRequest=pending[0][0];
+        // Subscribe before navigation: DOMContentLoaded does not order the old
+        // document's requestfailed event. Observe the exact request, boundedly.
+        const cancelled=page.waitForEvent('requestfailed',{predicate:request=>request===oldRequest,timeout:8000});
+        const [,failedRequest]=await Promise.all([
+          page.reload({waitUntil:'domcontentloaded'}).finally(releaseScheduleBody),cancelled]);
+        assert.match(String(failedRequest.failure()?.errorText||''),/cancel|abort/i,
           'held navigation control must observe its real old-document request cancellation');
-      }
+      }else await page.reload({waitUntil:'domcontentloaded'});
       await page.waitForFunction(()=>serverPersistence.state==='error'&&Boolean(pendingPreferenceIntent(serverPersistence.user?.id)));
       await page.locator('#startupLaunch').waitFor({state:'hidden'});
       const restored=await page.evaluate(()=>({receipt:pendingPreferenceIntent(serverPersistence.user.id),baseline:serverStateBaseline.updatedAt,
@@ -677,6 +683,7 @@ const server = http.createServer((req, res) => {
     resourcePhase='final-assertion';
     if(traceResources)console.log(JSON.stringify({phase:'schedule-resource-lifetime',scenario,engine:engineName,cancellationControl:cancelControl,resourceTraceDropped,
       blockedOrigins:[...new Set(blocked)],uncaughtErrors:errors,trace:resourceTrace}));
+    if(traceResources)assert.equal(resourceTraceDropped,0,'schedule evidence must be complete before acceptance');
     assert.deepEqual(errors, [], 'no uncaught application errors');
     console.log(JSON.stringify({ scenario, engine: engineName, passed: true, reads, writes, refreshes, authSignIns, statuses,
       blockedOrigins: [...new Set(blocked)], limits: 'Loopback mocked transport; no hosted or physical iPhone proof' }));
