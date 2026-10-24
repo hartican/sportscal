@@ -1957,3 +1957,36 @@ Numeric score slots, calendar corrections and updated descriptions cannot renew 
 The existing result-template preparer and selector now share one pure branch generator. Current fixture details must match before an automatic result branch can be selected or retained at publication. Only copy proven to depend on an outdated generated branch is reset through the existing protected storyline rule; authored preview sections/research dates and separately reviewed current recaps keep their existing lifecycle protections. This corrects the official makeup-game label without re-researching its dated preview. No additional collector, writer, service, scheduler, database or customer action is introduced.
 
 Live rechecks remain distinct: an equal live score keeps its first fact observation while the actual score/status contact receipts advance. This preserves the existing freshness qualification without adding polling or extending any deadline. The constructed zero–zero regression covers merging and persistence into canonical data and both Feed files.
+
+## 25 October 2026 — prepare indexed near selection through current owners
+
+The separately approved local module starts at6aa5979a with the CURRENT
+coalesced22 writer contracts, not the historical test factory's older writer.
+Maintain one narrow private typed admission row through the same sync_fixture,
+sync_trigger and mark_integrity_pending owners only. Preserve owned batch
+deferral first, original token/publisher helpers, source observations, complete
+alias/sides closure, independent uncertain clocks and the ordered5001 sentinel.
+Direct context changes invalidate only affected OLD/NEW keys; canonical/context
+equality prevents the narrowly granted void helper from blessing contrary data.
+Service gets SELECT only on forced-RLS metadata. No customer state, source
+request, scheduler, retry, planner setting or timeout change is added.
+
+Installation checks original D9/current22 attributes/ACL, triggers, private
+table rights/RLS/pending marker schema and generated/view dependencies. It
+installs the reader with exact original fallback and performs no backfill.
+DEPLOY alone owns bounded source-first preparation; the indexed branch becomes
+eligible only when the same statement proves complete settled metadata. The
+guarded inverse restores D9 and the same three original owner functions before
+dropping new artifacts. PG18's catalogue NOT NULL entries are excluded only
+from the constraint-list comparison; all column not-null flags stay exact on
+PG17/18.
+
+Require both-engine complete ordered-text equivalence, actual ready-path work
+counts including filtered rows, coalesced writes/pending/rollback, completion-only
+changes, direct context/error semantics, actual5001 overflow, ACL/privacy and
+exact guarded inverse/reapply. Key-only completeness scans, local work savings,
+write/storage cost and native full-response latency are separate evidence.
+Local qualification does not accept app592 or prove live loading recovery.
+ROOT/DEPLOY alone reviews source, allocates native first-use/concurrency/write
+qualification, integrates and publishes exact main after all existing gates.
+See [mechanism, checks and remaining acceptance](quality/indexed-near-selection-2026-10-25.md).
