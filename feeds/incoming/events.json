@@ -191308,14 +191308,14 @@
       "competitionName": "Premier League",
       "season": "2026/27",
       "narrativeType": "regular-season-fixture",
-      "selectedSentence": "Premier League Matchweek 11 fixture, with the scheduled kickoff sourced from the league.",
-      "fullSpiel": "Brentford v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+      "selectedSentence": "Brentford's fast-break threat meets Everton's away resistance: a matchup shaped by contrasting strengths from 2025/26.",
+      "fullSpiel": "The league's August guide highlights contrasting 2025/26 strengths: Brentford led for goals from fast breaks and throw-ins; only Arsenal and Manchester City conceded fewer away goals than Everton. This is historical context, not current form. Their November meeting asks whether Brentford can find space before Everton settle, and whether Everton can add attacking support without losing that defensive base. Watch the transitions and the second ball after restarts.",
       "sourceName": "Premier League official fixture schedule",
       "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+      "lastReviewedAt": "2026-10-24T21:16:13.432Z",
       "replayEligible": false,
       "highlightEligible": false,
       "briefingEligible": false,
@@ -191330,6 +191330,55 @@
         "checkedAt": "2026-10-03T20:55:46.267Z",
         "precision": "exact",
         "sourcePublishedAt": "2026-09-21"
+      },
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:release-20261025:129025",
+        "researchTier": "standard",
+        "hook": "Brentford's fast-break threat meets Everton's away resistance: a matchup shaped by contrasting strengths from 2025/26.",
+        "synopsis": "The league's August guide highlights contrasting 2025/26 strengths: Brentford led for goals from fast breaks and throw-ins; only Arsenal and Manchester City conceded fewer away goals than Everton. This is historical context, not current form. Their November meeting asks whether Brentford can find space before Everton settle, and whether Everton can add attacking support without losing that defensive base. Watch the transitions and the second ball after restarts.",
+        "threadIds": [
+          "thread:release-20261025:129025"
+        ],
+        "factIds": [
+          "fact:release-20261025:129025:brentford",
+          "fact:release-20261025:129025:everton",
+          "fact:release-20261025:129025:fixture"
+        ],
+        "sourceIds": [
+          "source:release-20261025:129025:club-guide",
+          "source:release-20261025:129025:fixture"
+        ],
+        "dimensions": [
+          "history",
+          "schedule"
+        ],
+        "researchedAt": "2026-10-24T21:16:13.432Z",
+        "refreshAfter": "2026-11-23T20:00:00.000Z",
+        "generationMode": "researched",
+        "phase": "preview"
+      },
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "Brentford v Everton: historical strengths meet",
+        "contextSignals": [
+          "event-specific",
+          "narrative:history",
+          "narrative:schedule"
+        ],
+        "sourceName": "Premier League August 2026 club guide: historical Brentford and Everton context",
+        "sourceUrl": "https://www.premierleague.com/en/news/4688364/how-every-premier-league-club-could-line-up-in-202627",
+        "sourceCheckedAt": "2026-10-24T21:16:13.432Z",
+        "needsPreviewRefresh": false
+      },
+      "storyline": {
+        "researchDepth": 2,
+        "arcStage": "preview",
+        "hookSpoilerOff": "Brentford's fast-break threat meets Everton's away resistance: a matchup shaped by contrasting strengths from 2025/26.",
+        "hookSpoilerOn": "Brentford's fast-break threat meets Everton's away resistance: a matchup shaped by contrasting strengths from 2025/26.",
+        "synopsisSpoilerOff": "The league's August guide highlights contrasting 2025/26 strengths: Brentford led for goals from fast breaks and throw-ins; only Arsenal and Manchester City conceded fewer away goals than Everton. This is historical context, not current form. Their November meeting asks whether Brentford can find space before Everton settle, and whether Everton can add attacking support without losing that defensive base. Watch the transitions and the second ball after restarts.",
+        "synopsisSpoilerOn": "The league's August guide highlights contrasting 2025/26 strengths: Brentford led for goals from fast breaks and throw-ins; only Arsenal and Manchester City conceded fewer away goals than Everton. This is historical context, not current form. Their November meeting asks whether Brentford can find space before Everton settle, and whether Everton can add attacking support without losing that defensive base. Watch the transitions and the second ball after restarts.",
+        "lastReviewedAt": "2026-10-24T21:16:13.432Z"
       }
     },
     {
