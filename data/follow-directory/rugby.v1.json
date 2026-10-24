@@ -7,72 +7,6 @@
   "sortBasis": "alphabetical-fallback",
   "records": [
     {
-      "id": "team:rugby:wr-4368",
-      "displayName": "Accademia FIR",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:872d2fcf-e72e-46af-ba81-9b7c68870401",
-      "leagueName": "Coppa Italia 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-4368",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-200",
-      "displayName": "Agen",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
-      "leagueName": "Pro D2 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-200",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
       "id": "team:rugby:all-blacks",
       "displayName": "All Blacks",
       "shortName": "All Blacks",
@@ -108,40 +42,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-4070",
-      "displayName": "Ampthill",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:e45b2f9d-c83c-444a-b79b-66a9e3a04461",
-      "leagueName": "English Championship 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-4070",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:andorra",
@@ -174,7 +76,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:argentina",
@@ -211,40 +114,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-2183",
-      "displayName": "Argentina XV",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:ee2acc49-be5a-4a96-9850-98752f625fa8",
-      "leagueName": "Men's Internationals 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-2183",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=1"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-2491",
@@ -265,19 +136,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2491",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2491.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-2491.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=77856c82-8f54-4fb6-87d5-42d49d2227fa&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.965159+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:77856c82-8f54-4fb6-87d5-42d49d2227fa"
+      ]
     },
     {
       "id": "team:rugby:wr-343",
@@ -298,118 +176,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-343",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-343.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-343.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-01&endDate=2027-01-06&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-01&endDate=2027-01-06&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=16e09e86-cf77-4acd-80a0-7b9aa9030e57&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-08T19:32:03.176Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-328",
-      "displayName": "Aurillac",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
-      "leagueName": "Pro D2 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-328",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-1142",
-      "displayName": "Australia A",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:ee2acc49-be5a-4a96-9850-98752f625fa8",
-      "leagueName": "Men's Internationals 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-1142",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=1"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-1156",
-      "displayName": "Australia XV",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:ee2acc49-be5a-4a96-9850-98752f625fa8",
-      "leagueName": "Men's Internationals 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-1156",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=1"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:33.128521+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://en.wikipedia.org/wiki/Auckland_(National_Provincial_Championship)",
+      "competitionIds": [
+        "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57"
+      ]
     },
     {
       "id": "team:rugby:austria",
@@ -442,7 +226,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-203",
@@ -463,19 +248,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-203",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-203.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-203.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=77856c82-8f54-4fb6-87d5-42d49d2227fa&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.965159+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://top14.lnr.fr/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:77856c82-8f54-4fb6-87d5-42d49d2227fa"
+      ]
     },
     {
       "id": "team:rugby:wr-80",
@@ -496,19 +286,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-80",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-80.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-80.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=6cacfefe-eb6f-4314-989c-893ebff51651&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.045983+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:6cacfefe-eb6f-4314-989c-893ebff51651"
+      ]
     },
     {
       "id": "team:rugby:wr-350",
@@ -529,52 +326,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-350",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-350.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-350.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=16e09e86-cf77-4acd-80a0-7b9aa9030e57&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-86",
-      "displayName": "Bedford Blues",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:e45b2f9d-c83c-444a-b79b-66a9e3a04461",
-      "leagueName": "English Championship 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-86",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:33.128521+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://en.wikipedia.org/wiki/Bay_of_Plenty_(National_Provincial_Championship)",
+      "competitionIds": [
+        "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57"
+      ]
     },
     {
       "id": "team:rugby:wr-231",
@@ -595,23 +364,28 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-231",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-231.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-231.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=413bfe21-f81b-420e-9f93-5373628cb6cd&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.474000+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd"
+      ]
     },
     {
-      "id": "team:rugby:wr-9abbc296-74b1-4c02-b7f1-531ff4685202",
-      "displayName": "Beziers",
+      "id": "team:rugby:wr-2399",
+      "displayName": "Blue Bulls",
       "shortName": null,
       "aliases": [],
       "entityType": "team",
@@ -623,156 +397,28 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
-      "leagueName": "Pro D2 2027",
+      "leagueId": "competition:rugby:wr:145a0f16-1628-498b-afd7-67fa201ab047",
+      "leagueName": "Currie Cup 2026",
       "teamKind": "club",
       "position": null,
-      "identityId": "team:rugby:wr-9abbc296-74b1-4c02-b7f1-531ff4685202",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "identityId": "team:rugby:wr-2399",
+      "logoUrl": "assets/identities/rugby/wr-2351.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-2351.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=145a0f16-1628-498b-afd7-67fa201ab047&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-229",
-      "displayName": "Biarritz Olympique",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
-      "leagueName": "Pro D2 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-229",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-4479",
-      "displayName": "Biella Rugby Club",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:2536cab2-fb7d-426c-8a34-8d3a1a8cdaf8",
-      "leagueName": "Serie A Elite 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-4479",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=1"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-585e11a6-3e7b-48d3-9ab3-24eae12774e0",
-      "displayName": "Black Lion",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:bb148549-b1ed-4a03-8ffe-be8f72f1ff47",
-      "leagueName": "EPCR Challenge Cup 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-585e11a6-3e7b-48d3-9ab3-24eae12774e0",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-06&endDate=2027-01-11&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-13T14:10:00.695Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-8",
-      "displayName": "Blackheath",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:e45b2f9d-c83c-444a-b79b-66a9e3a04461",
-      "leagueName": "English Championship 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-8",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.591383+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:145a0f16-1628-498b-afd7-67fa201ab047"
+      ]
     },
     {
       "id": "team:rugby:blues",
@@ -806,7 +452,45 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
+    },
+    {
+      "id": "team:rugby:wr-259",
+      "displayName": "Boland Kavaliers",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:rugby:wr:145a0f16-1628-498b-afd7-67fa201ab047",
+      "leagueName": "Currie Cup 2026",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:rugby:wr-259",
+      "logoUrl": "assets/identities/rugby/wr-259.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-259.png",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=145a0f16-1628-498b-afd7-67fa201ab047&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-10-24T02:03:32.591383+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://bolandrugby.co.za/",
+      "competitionIds": [
+        "competition:rugby:wr:145a0f16-1628-498b-afd7-67fa201ab047"
+      ]
     },
     {
       "id": "team:rugby:wr-85",
@@ -827,19 +511,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-85",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-85.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-85.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=6cacfefe-eb6f-4314-989c-893ebff51651&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.045983+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:6cacfefe-eb6f-4314-989c-893ebff51651"
+      ]
     },
     {
       "id": "team:rugby:brumbies",
@@ -860,8 +551,8 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:brumbies",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/brumbies.png",
+      "logoDarkUrl": "assets/identities/rugby/brumbies.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
@@ -872,40 +563,9 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-2342",
-      "displayName": "Brumbies",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:173b3ab9-4247-4dff-9bc1-9bd7ceda6482",
-      "leagueName": "Super Rugby AUS",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-2342",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-20&endDate=2026-12-26&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://super.rugby/superrugby/teams/",
+      "competitionIds": []
     },
     {
       "id": "team:rugby:bulgaria",
@@ -938,40 +598,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-10T13:46:00.245Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-1309",
-      "displayName": "Buller",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:1f280dac-f9ff-4afa-8d10-98bc461273f4",
-      "leagueName": "Heartland Championship 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-1309",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-10T13:46:00.245Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-2351",
@@ -992,85 +620,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2351",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2351.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-2351.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=413bfe21-f81b-420e-9f93-5373628cb6cd&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-73",
-      "displayName": "CA Brive",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
-      "leagueName": "Pro D2 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-73",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-4762",
-      "displayName": "Caldy",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:e45b2f9d-c83c-444a-b79b-66a9e3a04461",
-      "leagueName": "English Championship 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-4762",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.474000+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd"
+      ]
     },
     {
       "id": "team:rugby:canada",
@@ -1103,7 +672,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-342",
@@ -1124,19 +694,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-342",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-342.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-342.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=16e09e86-cf77-4acd-80a0-7b9aa9030e57&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:33.128521+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://en.wikipedia.org/wiki/Canterbury_(National_Provincial_Championship)",
+      "competitionIds": [
+        "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57"
+      ]
     },
     {
       "id": "team:rugby:wr-2213",
@@ -1157,19 +732,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2213",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2213.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-2213.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=413bfe21-f81b-420e-9f93-5373628cb6cd&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.474000+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd"
+      ]
     },
     {
       "id": "team:rugby:wr-196",
@@ -1190,52 +772,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-196",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-196.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-196.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=77856c82-8f54-4fb6-87d5-42d49d2227fa&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-3475",
-      "displayName": "Cheetahs",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:bb148549-b1ed-4a03-8ffe-be8f72f1ff47",
-      "leagueName": "EPCR Challenge Cup 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-3475",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-06&endDate=2027-01-11&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-13T14:10:00.695Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.965159+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://top14.lnr.fr/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:77856c82-8f54-4fb6-87d5-42d49d2227fa"
+      ]
     },
     {
       "id": "team:rugby:chiefs",
@@ -1269,7 +823,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:chile",
@@ -1302,106 +857,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-4563",
-      "displayName": "Chile XV",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:840754f5-1498-4028-9b04-83992721267b",
-      "leagueName": "Americas Rugby Championship South America 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-4563",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-01&endDate=2026-12-07&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-b0875f29-a3e4-4d8e-8a78-c0d2c39daf79",
-      "displayName": "Chinnor",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:e45b2f9d-c83c-444a-b79b-66a9e3a04461",
-      "leagueName": "English Championship 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-b0875f29-a3e4-4d8e-8a78-c0d2c39daf79",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-198",
-      "displayName": "Colomiers",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
-      "leagueName": "Pro D2 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-198",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-1136",
@@ -1422,52 +879,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-1136",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-1136.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-1136.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=413bfe21-f81b-420e-9f93-5373628cb6cd&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-2607",
-      "displayName": "Cornish Pirates",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:e45b2f9d-c83c-444a-b79b-66a9e3a04461",
-      "leagueName": "English Championship 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-2607",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.474000+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd"
+      ]
     },
     {
       "id": "team:rugby:wr-341",
@@ -1488,52 +919,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-341",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-341.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-341.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=16e09e86-cf77-4acd-80a0-7b9aa9030e57&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-10T13:46:00.245Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-100",
-      "displayName": "Coventry",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:e45b2f9d-c83c-444a-b79b-66a9e3a04461",
-      "leagueName": "English Championship 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-100",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:33.128521+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://en.wikipedia.org/wiki/Counties_Manukau_(National_Provincial_Championship)",
+      "competitionIds": [
+        "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57"
+      ]
     },
     {
       "id": "team:rugby:croatia",
@@ -1566,7 +969,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:crusaders",
@@ -1600,40 +1004,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-1650",
-      "displayName": "CUS Torino",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:872d2fcf-e72e-46af-ba81-9b7c68870401",
-      "leagueName": "Coppa Italia 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-1650",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:cyprus",
@@ -1666,7 +1038,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:czechia",
@@ -1699,7 +1072,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:denmark",
@@ -1732,11 +1106,12 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
-      "id": "team:rugby:wr-2676",
-      "displayName": "Doncaster Knights",
+      "id": "team:rugby:wr-254",
+      "displayName": "DHL Stormers XXIII",
       "shortName": null,
       "aliases": [],
       "entityType": "team",
@@ -1748,24 +1123,28 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:e45b2f9d-c83c-444a-b79b-66a9e3a04461",
-      "leagueName": "English Championship 2027",
+      "leagueId": "competition:rugby:wr:145a0f16-1628-498b-afd7-67fa201ab047",
+      "leagueName": "Currie Cup 2026",
       "teamKind": "club",
       "position": null,
-      "identityId": "team:rugby:wr-2676",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "identityId": "team:rugby:wr-254",
+      "logoUrl": "assets/identities/rugby/wr-2352.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-2352.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=145a0f16-1628-498b-afd7-67fa201ab047&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.591383+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:145a0f16-1628-498b-afd7-67fa201ab047"
+      ]
     },
     {
       "id": "team:rugby:wr-61b527a7-2aa4-414b-bf79-ea3fcaed375d",
@@ -1786,52 +1165,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-61b527a7-2aa4-414b-bf79-ea3fcaed375d",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-61b527a7-2aa4-414b-bf79-ea3fcaed375d.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-61b527a7-2aa4-414b-bf79-ea3fcaed375d.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=413bfe21-f81b-420e-9f93-5373628cb6cd&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-3249",
-      "displayName": "Ealing Trailfinders",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:e45b2f9d-c83c-444a-b79b-66a9e3a04461",
-      "leagueName": "English Championship 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-3249",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.474000+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd"
+      ]
     },
     {
       "id": "team:rugby:wr-69",
@@ -1852,19 +1203,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-69",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-69.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-69.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=413bfe21-f81b-420e-9f93-5373628cb6cd&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.474000+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd"
+      ]
     },
     {
       "id": "team:rugby:england",
@@ -1901,40 +1257,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-4581",
-      "displayName": "England A",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:ee2acc49-be5a-4a96-9850-98752f625fa8",
-      "leagueName": "Men's Internationals 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-4581",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=1"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:estonia",
@@ -1967,7 +1291,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-129",
@@ -1988,118 +1313,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-129",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-129.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-129.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=6cacfefe-eb6f-4314-989c-893ebff51651&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-4577",
-      "displayName": "Exeter Chiefs Women",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:rugby",
-      "leagueName": "Rugby",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-4577",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-06&endDate=2027-01-11&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-13T20:02:01.503Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-207",
-      "displayName": "FC Grenoble",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
-      "leagueName": "Pro D2 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-207",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-1395",
-      "displayName": "Fiamme Oro Rugby",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:872d2fcf-e72e-46af-ba81-9b7c68870401",
-      "leagueName": "Coppa Italia 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-1395",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=1"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.045983+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:6cacfefe-eb6f-4314-989c-893ebff51651"
+      ]
     },
     {
       "id": "team:rugby:fiji",
@@ -2132,7 +1365,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:fijian-drua",
@@ -2152,8 +1386,8 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:fijian-drua",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/fijian-drua.png",
+      "logoDarkUrl": "assets/identities/rugby/fijian-drua.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
@@ -2164,7 +1398,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://super.rugby"
     },
     {
       "id": "team:rugby:finland",
@@ -2197,7 +1432,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:force",
@@ -2218,8 +1454,8 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:force",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/force.png",
+      "logoDarkUrl": "assets/identities/rugby/force.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
@@ -2230,40 +1466,9 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-10T13:46:00.245Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-2587",
-      "displayName": "Force",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:173b3ab9-4247-4dff-9bc1-9bd7ceda6482",
-      "leagueName": "Super Rugby AUS",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-2587",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-20&endDate=2026-12-26&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://super.rugby/superrugby/teams/",
+      "competitionIds": []
     },
     {
       "id": "team:rugby:france",
@@ -2300,7 +1505,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-2593",
@@ -2321,19 +1527,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2593",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2593.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-2593.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-01&endDate=2026-12-07&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-01&endDate=2026-12-07&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=145a0f16-1628-498b-afd7-67fa201ab047&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.591383+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://en.wikipedia.org/wiki/Cheetahs_(rugby_union)",
+      "competitionIds": [
+        "competition:rugby:wr:145a0f16-1628-498b-afd7-67fa201ab047"
+      ]
     },
     {
       "id": "team:rugby:georgia",
@@ -2366,7 +1577,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:germany",
@@ -2399,7 +1611,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:gibraltar",
@@ -2432,7 +1645,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-70",
@@ -2453,19 +1667,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-70",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-70.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-70.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=413bfe21-f81b-420e-9f93-5373628cb6cd&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.474000+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd"
+      ]
     },
     {
       "id": "team:rugby:wr-83",
@@ -2486,19 +1707,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-83",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-83.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-83.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=6cacfefe-eb6f-4314-989c-893ebff51651&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.045983+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:6cacfefe-eb6f-4314-989c-893ebff51651"
+      ]
     },
     {
       "id": "team:rugby:wr-2401",
@@ -2519,19 +1747,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2401",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2401.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-2401.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-01&endDate=2026-12-07&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-01&endDate=2026-12-07&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=145a0f16-1628-498b-afd7-67fa201ab047&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.591383+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://en.wikipedia.org/wiki/Lions_(United_Rugby_Championship)",
+      "competitionIds": [
+        "competition:rugby:wr:145a0f16-1628-498b-afd7-67fa201ab047"
+      ]
     },
     {
       "id": "team:rugby:greece",
@@ -2564,7 +1797,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-3647",
@@ -2585,19 +1819,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-3647",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-3647.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-3647.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-08&endDate=2026-12-14&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-08&endDate=2026-12-14&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=145a0f16-1628-498b-afd7-67fa201ab047&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.591383+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://en.wikipedia.org/wiki/Griquas_(rugby_union)",
+      "competitionIds": [
+        "competition:rugby:wr:145a0f16-1628-498b-afd7-67fa201ab047"
+      ]
     },
     {
       "id": "team:rugby:wr-81",
@@ -2618,52 +1857,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-81",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-81.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-81.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=6cacfefe-eb6f-4314-989c-893ebff51651&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-4674",
-      "displayName": "Hartpury University RFC",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:e45b2f9d-c83c-444a-b79b-66a9e3a04461",
-      "leagueName": "English Championship 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-4674",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.045983+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.premrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:6cacfefe-eb6f-4314-989c-893ebff51651"
+      ]
     },
     {
       "id": "team:rugby:wr-3cd60100-b90c-4a04-a6bc-688e0dba17df",
@@ -2684,19 +1895,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-3cd60100-b90c-4a04-a6bc-688e0dba17df",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-3cd60100-b90c-4a04-a6bc-688e0dba17df.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-3cd60100-b90c-4a04-a6bc-688e0dba17df.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=16e09e86-cf77-4acd-80a0-7b9aa9030e57&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:33.128521+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://en.wikipedia.org/wiki/Hawke's_Bay_(National_Provincial_Championship)",
+      "competitionIds": [
+        "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57"
+      ]
     },
     {
       "id": "team:rugby:highlanders",
@@ -2730,7 +1946,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-725",
@@ -2748,7 +1965,7 @@
       "currentTeamId": null,
       "leagueId": "competition:rugby:wr:795ee1f0-cbee-4c72-b0b2-aadf1546a18e",
       "leagueName": "World Rugby Nations Cup 2026",
-      "teamKind": "club",
+      "teamKind": "national",
       "position": null,
       "identityId": "team:rugby:wr-725",
       "logoUrl": null,
@@ -2763,40 +1980,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-1444",
-      "displayName": "Horowhenua Kapiti",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:1f280dac-f9ff-4afa-8d10-98bc461273f4",
-      "leagueName": "Heartland Championship 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-1444",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:hurricanes",
@@ -2830,7 +2015,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:ireland",
@@ -2867,7 +2053,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:israel",
@@ -2900,7 +2087,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:italy",
@@ -2937,7 +2125,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:japan",
@@ -2974,40 +2163,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-351",
-      "displayName": "King Country",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:1f280dac-f9ff-4afa-8d10-98bc461273f4",
-      "leagueName": "Heartland Championship 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-351",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:kosovo",
@@ -3040,7 +2197,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-82",
@@ -3061,19 +2219,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-82",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-82.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-82.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=6cacfefe-eb6f-4314-989c-893ebff51651&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.045983+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:6cacfefe-eb6f-4314-989c-893ebff51651"
+      ]
     },
     {
       "id": "team:rugby:wr-1139",
@@ -3094,19 +2259,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-1139",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-1139.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-1139.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=413bfe21-f81b-420e-9f93-5373628cb6cd&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.474000+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd"
+      ]
     },
     {
       "id": "team:rugby:wr-2357",
@@ -3127,19 +2299,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2357",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2357.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-2357.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=413bfe21-f81b-420e-9f93-5373628cb6cd&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.474000+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd"
+      ]
     },
     {
       "id": "team:rugby:lithuania",
@@ -3172,7 +2351,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:luxembourg",
@@ -3205,7 +2385,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-1572",
@@ -3226,19 +2407,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-1572",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-1572.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-1572.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=77856c82-8f54-4fb6-87d5-42d49d2227fa&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.965159+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://top14.lnr.fr/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:77856c82-8f54-4fb6-87d5-42d49d2227fa"
+      ]
     },
     {
       "id": "team:rugby:malta",
@@ -3271,7 +2457,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-338",
@@ -3292,52 +2479,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-338",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-338.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-338.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=16e09e86-cf77-4acd-80a0-7b9aa9030e57&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-10T13:46:00.245Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-1878",
-      "displayName": "Mid Canterbury",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:1f280dac-f9ff-4afa-8d10-98bc461273f4",
-      "leagueName": "Heartland Championship 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-1878",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:33.128521+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://en.wikipedia.org/wiki/Manawatu_(National_Provincial_Championship)",
+      "competitionIds": [
+        "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57"
+      ]
     },
     {
       "id": "team:rugby:moana-pasifika",
@@ -3357,8 +2516,8 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:moana-pasifika",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/moana-pasifika.png",
+      "logoDarkUrl": "assets/identities/rugby/moana-pasifika.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
@@ -3369,7 +2528,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://super.rugby/superrugby/teams/"
     },
     {
       "id": "team:rugby:montenegro",
@@ -3402,7 +2562,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-02T18:38:01.230Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-2019",
@@ -3423,19 +2584,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2019",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2019.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-2019.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=77856c82-8f54-4fb6-87d5-42d49d2227fa&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.965159+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:77856c82-8f54-4fb6-87d5-42d49d2227fa"
+      ]
     },
     {
       "id": "team:rugby:wr-1138",
@@ -3456,52 +2624,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-1138",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-1138.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-1138.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=413bfe21-f81b-420e-9f93-5373628cb6cd&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-139",
-      "displayName": "Narbonne",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
-      "leagueName": "Pro D2 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-139",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.474000+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd"
+      ]
     },
     {
       "id": "team:rugby:wr-75",
@@ -3522,85 +2664,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-75",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-75.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-75.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=6cacfefe-eb6f-4314-989c-893ebff51651&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-1069",
-      "displayName": "Ngati Porou East Coast",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:1f280dac-f9ff-4afa-8d10-98bc461273f4",
-      "leagueName": "Heartland Championship 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-1069",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-10T13:46:00.245Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-271",
-      "displayName": "Nice",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
-      "leagueName": "Pro D2 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-271",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.045983+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.premrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:6cacfefe-eb6f-4314-989c-893ebff51651"
+      ]
     },
     {
       "id": "team:rugby:wr-340",
@@ -3621,52 +2702,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-340",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-340.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-340.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=16e09e86-cf77-4acd-80a0-7b9aa9030e57&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-1098",
-      "displayName": "North Otago",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:1f280dac-f9ff-4afa-8d10-98bc461273f4",
-      "leagueName": "Heartland Championship 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-1098",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:33.128521+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://en.wikipedia.org/wiki/North_Harbour_Rugby_Union",
+      "competitionIds": [
+        "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57"
+      ]
     },
     {
       "id": "team:rugby:wr-71",
@@ -3687,19 +2740,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-71",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-71.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-71.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=6cacfefe-eb6f-4314-989c-893ebff51651&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.045983+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:6cacfefe-eb6f-4314-989c-893ebff51651"
+      ]
     },
     {
       "id": "team:rugby:wr-818",
@@ -3720,19 +2780,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-818",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-818.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-818.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=16e09e86-cf77-4acd-80a0-7b9aa9030e57&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:33.128521+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://northlandrugby.co.nz",
+      "competitionIds": [
+        "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57"
+      ]
     },
     {
       "id": "team:rugby:norway",
@@ -3765,40 +2830,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-93",
-      "displayName": "Nottingham",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:e45b2f9d-c83c-444a-b79b-66a9e3a04461",
-      "leagueName": "English Championship 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-93",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:waratahs",
@@ -3819,8 +2852,8 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:waratahs",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/waratahs.png",
+      "logoDarkUrl": "assets/identities/rugby/waratahs.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
@@ -3831,40 +2864,9 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-10T13:46:00.245Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-1143",
-      "displayName": "NSW Waratahs",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:173b3ab9-4247-4dff-9bc1-9bd7ceda6482",
-      "leagueName": "Super Rugby AUS",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-1143",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-20&endDate=2026-12-26&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://super.rugby/superrugby/teams/",
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-2217",
@@ -3885,19 +2887,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2217",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2217.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-2217.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=413bfe21-f81b-420e-9f93-5373628cb6cd&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.474000+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd"
+      ]
     },
     {
       "id": "team:rugby:wr-339",
@@ -3918,52 +2925,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-339",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-339.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-339.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=16e09e86-cf77-4acd-80a0-7b9aa9030e57&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-2847",
-      "displayName": "Oyonnax Rugby",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
-      "leagueName": "Pro D2 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-2847",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:33.128521+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://en.wikipedia.org/wiki/Otago_Rugby_Football_Union",
+      "competitionIds": [
+        "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57"
+      ]
     },
     {
       "id": "team:rugby:paraguay",
@@ -3996,40 +2975,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-1378",
-      "displayName": "Petrarca Rugby",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:2536cab2-fb7d-426c-8a34-8d3a1a8cdaf8",
-      "leagueName": "Serie A Elite 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-1378",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=1"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:portugal",
@@ -4062,73 +3009,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-352",
-      "displayName": "Poverty Bay",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:1f280dac-f9ff-4afa-8d10-98bc461273f4",
-      "leagueName": "Heartland Championship 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-352",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-10T13:46:00.245Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-63227f00-8fc0-4520-890f-c951b14b686f",
-      "displayName": "Provence Rugby",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
-      "leagueName": "Pro D2 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-63227f00-8fc0-4520-890f-c951b14b686f",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-2400",
@@ -4149,19 +3031,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2400",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2400.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-2400.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-08&endDate=2026-12-14&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-08&endDate=2026-12-14&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=145a0f16-1628-498b-afd7-67fa201ab047&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.591383+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://pumas.co.za/",
+      "competitionIds": [
+        "competition:rugby:wr:145a0f16-1628-498b-afd7-67fa201ab047"
+      ]
     },
     {
       "id": "team:rugby:reds",
@@ -4182,8 +3069,8 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:reds",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/reds.png",
+      "logoDarkUrl": "assets/identities/rugby/reds.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
@@ -4194,40 +3081,9 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-2343",
-      "displayName": "Queensland Reds",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:173b3ab9-4247-4dff-9bc1-9bd7ceda6482",
-      "leagueName": "Super Rugby AUS",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-2343",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-20&endDate=2026-12-26&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://super.rugby/superrugby/teams/",
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-2255",
@@ -4248,52 +3104,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2255",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2255.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-2255.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=77856c82-8f54-4fb6-87d5-42d49d2227fa&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-3517",
-      "displayName": "Rangers Rugby Vicenza",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:872d2fcf-e72e-46af-ba81-9b7c68870401",
-      "leagueName": "Coppa Italia 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-3517",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=1"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.965159+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:77856c82-8f54-4fb6-87d5-42d49d2227fa"
+      ]
     },
     {
       "id": "team:rugby:wr-205",
@@ -4314,19 +3144,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-205",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-205.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-205.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=77856c82-8f54-4fb6-87d5-42d49d2227fa&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.965159+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://top14.lnr.fr/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:77856c82-8f54-4fb6-87d5-42d49d2227fa"
+      ]
     },
     {
       "id": "team:rugby:wr-2709",
@@ -4347,87 +3182,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2709",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2709.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-2709.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=77856c82-8f54-4fb6-87d5-42d49d2227fa&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:rebels",
-      "displayName": "Rebels",
-      "shortName": null,
-      "aliases": [
-        "Melbourne Rebels",
-        "Rebels"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "unknown",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": null,
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:rugby:rebels",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "catalogue:rugby"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-11",
-      "displayName": "Richmond",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:e45b2f9d-c83c-444a-b79b-66a9e3a04461",
-      "leagueName": "English Championship 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-11",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.965159+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://top14.lnr.fr/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:77856c82-8f54-4fb6-87d5-42d49d2227fa"
+      ]
     },
     {
       "id": "team:rugby:romania",
@@ -4460,139 +3232,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-127",
-      "displayName": "Rotherham Titans",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:e45b2f9d-c83c-444a-b79b-66a9e3a04461",
-      "leagueName": "English Championship 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-127",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-2568",
-      "displayName": "Rugby Mogliano",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:872d2fcf-e72e-46af-ba81-9b7c68870401",
-      "leagueName": "Coppa Italia 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-2568",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-3bcc49e4-196d-4532-a892-60e165146a0d",
-      "displayName": "Rugby Parabiago 1948",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:872d2fcf-e72e-46af-ba81-9b7c68870401",
-      "leagueName": "Coppa Italia 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-3bcc49e4-196d-4532-a892-60e165146a0d",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-291",
-      "displayName": "Rugby Rovigo Delta",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:2536cab2-fb7d-426c-8a34-8d3a1a8cdaf8",
-      "leagueName": "Serie A Elite 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-291",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-76",
@@ -4613,19 +3254,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-76",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-76.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-76.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=6cacfefe-eb6f-4314-989c-893ebff51651&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.045983+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:6cacfefe-eb6f-4314-989c-893ebff51651"
+      ]
     },
     {
       "id": "team:rugby:samoa",
@@ -4658,7 +3306,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-74",
@@ -4679,52 +3328,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-74",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-74.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-74.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=6cacfefe-eb6f-4314-989c-893ebff51651&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-3115",
-      "displayName": "Saracens Women",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:rugby",
-      "leagueName": "Rugby",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-3115",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-06&endDate=2027-01-11&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-13T20:02:01.503Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.045983+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:6cacfefe-eb6f-4314-989c-893ebff51651"
+      ]
     },
     {
       "id": "team:rugby:wr-2216",
@@ -4745,19 +3368,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2216",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2216.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-2216.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=413bfe21-f81b-420e-9f93-5373628cb6cd&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.474000+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd"
+      ]
     },
     {
       "id": "team:rugby:scotland",
@@ -4794,7 +3422,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-2825",
@@ -4815,19 +3444,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2825",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2825.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-2825.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=77856c82-8f54-4fb6-87d5-42d49d2227fa&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.965159+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:77856c82-8f54-4fb6-87d5-42d49d2227fa"
+      ]
     },
     {
       "id": "team:rugby:serbia",
@@ -4860,7 +3496,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-10T13:46:00.245Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-2353",
@@ -4881,23 +3518,28 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2353",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2353.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-2353.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=413bfe21-f81b-420e-9f93-5373628cb6cd&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.474000+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd"
+      ]
     },
     {
-      "id": "team:rugby:wr-4118",
-      "displayName": "Sitav Rugby Lyons Piacenza",
+      "id": "team:rugby:wr-2592",
+      "displayName": "Sharks XV",
       "shortName": null,
       "aliases": [],
       "entityType": "team",
@@ -4909,24 +3551,28 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:872d2fcf-e72e-46af-ba81-9b7c68870401",
-      "leagueName": "Coppa Italia 2027",
+      "leagueId": "competition:rugby:wr:145a0f16-1628-498b-afd7-67fa201ab047",
+      "leagueName": "Currie Cup 2026",
       "teamKind": "club",
       "position": null,
-      "identityId": "team:rugby:wr-4118",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "identityId": "team:rugby:wr-2592",
+      "logoUrl": "assets/identities/rugby/wr-2353.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-2353.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=2"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=145a0f16-1628-498b-afd7-67fa201ab047&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.591383+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:145a0f16-1628-498b-afd7-67fa201ab047"
+      ]
     },
     {
       "id": "team:rugby:slovenia",
@@ -4959,40 +3605,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-584",
-      "displayName": "South Canterbury",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:1f280dac-f9ff-4afa-8d10-98bc461273f4",
-      "leagueName": "Heartland Championship 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-584",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-344",
@@ -5013,52 +3627,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-344",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-344.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-344.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-02&endDate=2027-01-07&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-02&endDate=2027-01-07&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=16e09e86-cf77-4acd-80a0-7b9aa9030e57&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-09T19:40:01.082Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-714dc68d-70a3-465f-b9ca-0861846a4b88",
-      "displayName": "Soyaux Angouleme",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
-      "leagueName": "Pro D2 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-714dc68d-70a3-465f-b9ca-0861846a4b88",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:33.128521+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://en.wikipedia.org/wiki/Rugby_Southland",
+      "competitionIds": [
+        "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57"
+      ]
     },
     {
       "id": "team:rugby:spain",
@@ -5091,7 +3677,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:springboks",
@@ -5129,7 +3716,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-228",
@@ -5150,19 +3738,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-228",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-228.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-228.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=77856c82-8f54-4fb6-87d5-42d49d2227fa&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.965159+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:77856c82-8f54-4fb6-87d5-42d49d2227fa"
+      ]
     },
     {
       "id": "team:rugby:wr-2726",
@@ -5183,19 +3778,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2726",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2726.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-2726.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=77856c82-8f54-4fb6-87d5-42d49d2227fa&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.965159+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:77856c82-8f54-4fb6-87d5-42d49d2227fa"
+      ]
     },
     {
       "id": "team:rugby:wr-87",
@@ -5216,52 +3818,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-87",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-87.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-87.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=77856c82-8f54-4fb6-87d5-42d49d2227fa&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-0",
-      "displayName": "STH 1st",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:46294cf5-dee3-4234-957a-dbe1f08049f2",
-      "leagueName": "Nations Championship 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-0",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=2"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.965159+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:77856c82-8f54-4fb6-87d5-42d49d2227fa"
+      ]
     },
     {
       "id": "team:rugby:wr-2352",
@@ -5282,19 +3858,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2352",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2352.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-2352.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=413bfe21-f81b-420e-9f93-5373628cb6cd&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.474000+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd"
+      ]
     },
     {
       "id": "team:rugby:sweden",
@@ -5327,7 +3910,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-237",
@@ -5348,19 +3932,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-237",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-237.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-237.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=16e09e86-cf77-4acd-80a0-7b9aa9030e57&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:33.128521+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://trfu.co.nz",
+      "competitionIds": [
+        "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57"
+      ]
     },
     {
       "id": "team:rugby:wr-2570",
@@ -5381,52 +3970,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-2570",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-2570.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-2570.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=16e09e86-cf77-4acd-80a0-7b9aa9030e57&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-1189",
-      "displayName": "Thames Valley",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:1f280dac-f9ff-4afa-8d10-98bc461273f4",
-      "leagueName": "Heartland Championship 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-1189",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:33.128521+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://en.wikipedia.org/wiki/Tasman_Rugby_Union",
+      "competitionIds": [
+        "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57"
+      ]
     },
     {
       "id": "team:rugby:tonga",
@@ -5459,40 +4020,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-3404",
-      "displayName": "Turkey",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:9a578eb2-d415-400c-b269-e7f4e751fa73",
-      "leagueName": "Rugby Europe Conference Men's  2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-3404",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-10T13:46:00.245Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:ukraine",
@@ -5525,7 +4054,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-02T18:38:01.230Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-1137",
@@ -5546,19 +4076,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-1137",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-1137.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-1137.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=413bfe21-f81b-420e-9f93-5373628cb6cd&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.474000+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd"
+      ]
     },
     {
       "id": "team:rugby:wr-202",
@@ -5579,19 +4114,26 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-202",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-202.webp",
+      "logoDarkUrl": "assets/identities/rugby/wr-202.webp",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=918e620a-c1a4-4050-97ae-20f44da52e33&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=77856c82-8f54-4fb6-87d5-42d49d2227fa&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.965159+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "competition:rugby:wr:77856c82-8f54-4fb6-87d5-42d49d2227fa"
+      ]
     },
     {
       "id": "team:rugby:uruguay",
@@ -5624,106 +4166,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-4384",
-      "displayName": "Uruguay XV",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:840754f5-1498-4028-9b04-83992721267b",
-      "leagueName": "Americas Rugby Championship South America 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-4384",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-01&endDate=2026-12-07&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-204",
-      "displayName": "US Dax",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
-      "leagueName": "Pro D2 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-204",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-314",
-      "displayName": "US Montauban",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
-      "leagueName": "Pro D2 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-314",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:usa",
@@ -5756,7 +4200,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-216",
@@ -5777,151 +4222,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-216",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-216.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-216.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=77856c82-8f54-4fb6-87d5-42d49d2227fa&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-4447",
-      "displayName": "USON Nevers",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
-      "leagueName": "Pro D2 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-4447",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-327",
-      "displayName": "Valence Romans",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
-      "leagueName": "Pro D2 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-327",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-4547",
-      "displayName": "Valorugby Emilia",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:872d2fcf-e72e-46af-ba81-9b7c68870401",
-      "leagueName": "Coppa Italia 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-4547",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=1"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-232",
-      "displayName": "Viadana Rugby",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:2536cab2-fb7d-426c-8a34-8d3a1a8cdaf8",
-      "leagueName": "Serie A Elite 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-232",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:31.965159+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://top14.lnr.fr/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:77856c82-8f54-4fb6-87d5-42d49d2227fa"
+      ]
     },
     {
       "id": "team:rugby:wr-345",
@@ -5942,52 +4260,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-345",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-345.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-345.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=16e09e86-cf77-4acd-80a0-7b9aa9030e57&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-1428",
-      "displayName": "Wairarapa Bush",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:1f280dac-f9ff-4afa-8d10-98bc461273f4",
-      "leagueName": "Heartland Championship 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-1428",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:33.128521+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://en.wikipedia.org/wiki/Waikato_Rugby_Union",
+      "competitionIds": [
+        "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57"
+      ]
     },
     {
       "id": "team:rugby:wales",
@@ -6024,7 +4314,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wallabies",
@@ -6062,7 +4353,8 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
     },
     {
       "id": "team:rugby:wr-346",
@@ -6083,118 +4375,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-346",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-346.png",
+      "logoDarkUrl": "assets/identities/rugby/wr-346.png",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=16e09e86-cf77-4acd-80a0-7b9aa9030e57&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-582",
-      "displayName": "West Coast",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:1f280dac-f9ff-4afa-8d10-98bc461273f4",
-      "leagueName": "Heartland Championship 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-582",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-10T13:46:00.245Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-bf33260a-8b89-4829-bc9f-b3ff7d99c8ca",
-      "displayName": "Whanganui",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:1f280dac-f9ff-4afa-8d10-98bc461273f4",
-      "leagueName": "Heartland Championship 2026",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-bf33260a-8b89-4829-bc9f-b3ff7d99c8ca",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:rugby:wr-128",
-      "displayName": "Worcester Warriors",
-      "shortName": null,
-      "aliases": [],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:rugby:wr:e45b2f9d-c83c-444a-b79b-66a9e3a04461",
-      "leagueName": "English Championship 2027",
-      "teamKind": "club",
-      "position": null,
-      "identityId": "team:rugby:wr-128",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:33.128521+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://en.wikipedia.org/wiki/Wellington_Rugby_Football_Union",
+      "competitionIds": [
+        "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57"
+      ]
     },
     {
       "id": "team:rugby:wr-3514",
@@ -6215,19 +4413,24 @@
       "teamKind": "club",
       "position": null,
       "identityId": "team:rugby:wr-3514",
-      "logoUrl": null,
-      "logoDarkUrl": null,
+      "logoUrl": "assets/identities/rugby/wr-3514.svg",
+      "logoDarkUrl": "assets/identities/rugby/wr-3514.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-04&endDate=2027-01-09&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=4",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-07-01&endDate=2027-10-24&sport=mru&events=413bfe21-f81b-420e-9f93-5373628cb6cd&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceCheckedAt": "2026-10-24T02:03:32.474000+00:00",
+      "sourceReviewAfter": null,
+      "crestSourceUrl": "https://www.unitedrugby.com/clubs",
+      "competitionIds": [
+        "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd"
+      ]
     },
     {
       "id": "team:rugby:zimbabwe",
@@ -6260,7 +4463,144 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "competitionIds": []
+    }
+  ],
+  "competitions": [
+    {
+      "id": "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+      "label": "Champions Cup",
+      "family": "champions-cup",
+      "logoUrl": "assets/identities/rugby/champions-cup.webp",
+      "memberIds": [
+        "team:rugby:wr-83",
+        "team:rugby:wr-202",
+        "team:rugby:wr-76",
+        "team:rugby:wr-70",
+        "team:rugby:wr-2351",
+        "team:rugby:wr-228",
+        "team:rugby:wr-2491",
+        "team:rugby:wr-1139",
+        "team:rugby:wr-2352",
+        "team:rugby:wr-85",
+        "team:rugby:wr-2726",
+        "team:rugby:wr-2357",
+        "team:rugby:wr-1136",
+        "team:rugby:wr-74",
+        "team:rugby:wr-80",
+        "team:rugby:wr-2019",
+        "team:rugby:wr-1138",
+        "team:rugby:wr-2255",
+        "team:rugby:wr-2825",
+        "team:rugby:wr-82",
+        "team:rugby:wr-87",
+        "team:rugby:wr-129",
+        "team:rugby:wr-71",
+        "team:rugby:wr-2213"
+      ]
+    },
+    {
+      "id": "competition:rugby:wr:77856c82-8f54-4fb6-87d5-42d49d2227fa",
+      "label": "Top 14",
+      "family": "top-14",
+      "logoUrl": "assets/identities/rugby/top-14.webp",
+      "memberIds": [
+        "team:rugby:wr-1572",
+        "team:rugby:wr-2491",
+        "team:rugby:wr-196",
+        "team:rugby:wr-2709",
+        "team:rugby:wr-228",
+        "team:rugby:wr-216",
+        "team:rugby:wr-2019",
+        "team:rugby:wr-2825",
+        "team:rugby:wr-203",
+        "team:rugby:wr-205",
+        "team:rugby:wr-202",
+        "team:rugby:wr-2255",
+        "team:rugby:wr-2726",
+        "team:rugby:wr-87"
+      ]
+    },
+    {
+      "id": "competition:rugby:wr:6cacfefe-eb6f-4314-989c-893ebff51651",
+      "label": "PREM Rugby",
+      "family": "prem-rugby",
+      "logoUrl": "assets/identities/rugby/prem-rugby.webp",
+      "memberIds": [
+        "team:rugby:wr-71",
+        "team:rugby:wr-75",
+        "team:rugby:wr-81",
+        "team:rugby:wr-80",
+        "team:rugby:wr-129",
+        "team:rugby:wr-83",
+        "team:rugby:wr-76",
+        "team:rugby:wr-85",
+        "team:rugby:wr-82",
+        "team:rugby:wr-74"
+      ]
+    },
+    {
+      "id": "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd",
+      "label": "United Rugby Championship",
+      "family": "urc",
+      "logoUrl": "assets/identities/rugby/urc.png",
+      "memberIds": [
+        "team:rugby:wr-231",
+        "team:rugby:wr-61b527a7-2aa4-414b-bf79-ea3fcaed375d",
+        "team:rugby:wr-1136",
+        "team:rugby:wr-2352",
+        "team:rugby:wr-1137",
+        "team:rugby:wr-69",
+        "team:rugby:wr-2357",
+        "team:rugby:wr-1139",
+        "team:rugby:wr-2353",
+        "team:rugby:wr-2217",
+        "team:rugby:wr-3514",
+        "team:rugby:wr-2351",
+        "team:rugby:wr-1138",
+        "team:rugby:wr-70",
+        "team:rugby:wr-2216",
+        "team:rugby:wr-2213"
+      ]
+    },
+    {
+      "id": "competition:rugby:wr:145a0f16-1628-498b-afd7-67fa201ab047",
+      "label": "Currie Cup Premier Division",
+      "family": "currie-cup",
+      "logoUrl": "assets/identities/rugby/currie-cup.png",
+      "memberIds": [
+        "team:rugby:wr-2400",
+        "team:rugby:wr-2592",
+        "team:rugby:wr-254",
+        "team:rugby:wr-3647",
+        "team:rugby:wr-2593",
+        "team:rugby:wr-2401",
+        "team:rugby:wr-259",
+        "team:rugby:wr-2399"
+      ]
+    },
+    {
+      "id": "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57",
+      "label": "National Provincial Championship",
+      "family": "npc",
+      "logoUrl": "assets/identities/rugby/npc.webp",
+      "memberIds": [
+        "team:rugby:wr-345",
+        "team:rugby:wr-350",
+        "team:rugby:wr-2570",
+        "team:rugby:wr-340",
+        "team:rugby:wr-341",
+        "team:rugby:wr-237",
+        "team:rugby:wr-344",
+        "team:rugby:wr-339",
+        "team:rugby:wr-342",
+        "team:rugby:wr-343",
+        "team:rugby:wr-818",
+        "team:rugby:wr-338",
+        "team:rugby:wr-346",
+        "team:rugby:wr-3cd60100-b90c-4a04-a6bc-688e0dba17df"
+      ]
     }
   ],
   "browseGroups": [

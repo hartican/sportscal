@@ -1,0 +1,371 @@
+[
+  {
+    "slug": "2026-gold-coast",
+    "sourceUrl": "https://www.supercars.com/events/2026-gold-coast/schedule",
+    "sessions": [
+      {
+        "endDate": "2026-10-23T12:15:00.000+10:00",
+        "name": "Practice 1",
+        "startDate": "2026-10-23T11:45:00.000+10:00",
+        "type": "Practice",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-10-23T14:20:00.000+10:00",
+        "name": "Practice 2",
+        "startDate": "2026-10-23T13:50:00.000+10:00",
+        "type": "Practice",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-10-23T16:40:00.000+10:00",
+        "name": "Boost Mobile Qualifying (Race 31)",
+        "startDate": "2026-10-23T16:05:00.000+10:00",
+        "type": "Qualifying",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-10-24T13:10:00.000+10:00",
+        "name": "Boost Mobile Top Ten Shootout (Race 31)",
+        "startDate": "2026-10-24T12:35:00.000+10:00",
+        "type": "Qualifying",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-10-24T17:25:00.000+10:00",
+        "name": "Race 31",
+        "startDate": "2026-10-24T15:15:00.000+10:00",
+        "type": "Race",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-10-25T11:58:00.000+10:00",
+        "name": "Boost Mobile Qualifying (Race 32)",
+        "startDate": "2026-10-25T11:20:00.000+10:00",
+        "type": "Qualifying",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-10-25T12:40:00.000+10:00",
+        "name": "Boost Mobile Top Ten Shootout (Race 32)",
+        "startDate": "2026-10-25T12:05:00.000+10:00",
+        "type": "Qualifying",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-10-25T17:05:00.000+10:00",
+        "name": "Race 32",
+        "startDate": "2026-10-25T14:45:00.000+10:00",
+        "type": "Race",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "slug": "2026-sandown",
+    "sourceUrl": "https://www.supercars.com/events/2026-sandown/schedule",
+    "sessions": [
+      {
+        "endDate": "2026-11-06T15:10:00.000+11:00",
+        "name": "Practice 1",
+        "startDate": "2026-11-06T14:40:00.000+11:00",
+        "type": "Practice",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-06T15:55:00.000+11:00",
+        "name": "Practice 2",
+        "startDate": "2026-11-06T15:25:00.000+11:00",
+        "type": "Practice",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-07T11:55:00.000+11:00",
+        "name": "Boost Mobile Qualifying (Race 33)",
+        "startDate": "2026-11-07T11:20:00.000+11:00",
+        "type": "Qualifying",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-07T12:35:00.000+11:00",
+        "name": "Boost Mobile Top Ten Shootout (Race 33)",
+        "startDate": "2026-11-07T12:05:00.000+11:00",
+        "type": "Qualifying",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-07T17:35:00.000+11:00",
+        "name": "Race 33",
+        "startDate": "2026-11-07T15:30:00.000+11:00",
+        "type": "Race",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-08T11:55:00.000+11:00",
+        "name": "Boost Mobile Qualifying (Race 34)",
+        "startDate": "2026-11-08T11:20:00.000+11:00",
+        "type": "Qualifying",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-08T12:35:00.000+11:00",
+        "name": "Boost Mobile Top Ten Shootout (Race 34)",
+        "startDate": "2026-11-08T12:05:00.000+11:00",
+        "type": "Qualifying",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-08T17:35:00.000+11:00",
+        "name": "Race 34",
+        "startDate": "2026-11-08T15:30:00.000+11:00",
+        "type": "Race",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "slug": "2026-adelaide",
+    "sourceUrl": "https://www.supercars.com/events/2026-adelaide/schedule",
+    "sessions": [
+      {
+        "endDate": "2026-11-27T17:25:00.000+10:30",
+        "name": "Race 35",
+        "startDate": "2026-11-27T16:20:00.000+10:30",
+        "type": "Race",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-28T17:30:00.000+10:30",
+        "name": "Race 36",
+        "startDate": "2026-11-28T15:20:00.000+10:30",
+        "type": "Race",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-29T17:30:00.000+10:30",
+        "name": "Race 37",
+        "startDate": "2026-11-29T15:15:00.000+10:30",
+        "type": "Race",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-26T15:45:00.000+10:30",
+        "name": "Practice 1",
+        "startDate": "2026-11-26T15:15:00.000+10:30",
+        "type": "Practice",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-27T08:25:00.000+10:30",
+        "name": "Race 1",
+        "startDate": "2026-11-27T08:05:00.000+10:30",
+        "type": "Race",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-27T10:30:00.000+10:30",
+        "name": "Practice 2",
+        "startDate": "2026-11-27T10:00:00.000+10:30",
+        "type": "Practice",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-27T13:45:00.000+10:30",
+        "name": "Boost Mobile Qualifying (Race 35)",
+        "startDate": "2026-11-27T13:10:00.000+10:30",
+        "type": "Qualifying",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-28T12:25:00.000+10:30",
+        "name": "Boost Mobile Qualifying (Race 36)",
+        "startDate": "2026-11-28T11:45:00.000+10:30",
+        "type": "Qualifying",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-28T13:15:00.000+10:30",
+        "name": "Boost Mobile TTSO (Race 36)",
+        "startDate": "2026-11-28T12:35:00.000+10:30",
+        "type": "Qualifying",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-29T12:25:00.000+10:30",
+        "name": "Boost Mobile Qualifying (Race 37)",
+        "startDate": "2026-11-29T11:45:00.000+10:30",
+        "type": "Qualifying",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      },
+      {
+        "endDate": "2026-11-29T13:10:00.000+10:30",
+        "name": "Boost Mobile TTSO (Race 37)",
+        "startDate": "2026-11-29T12:35:00.000+10:30",
+        "type": "Qualifying",
+        "series": {
+          "name": "Repco Supercars Championship",
+          "natsoftSeriesId": "SG3",
+          "logo": {
+            "url": "https://images.ctfassets.net/xd502h20t7lh/4Q1fho0EhjZV3wRMTyMNii/89b216ef63e5b9ef6d86438e048572d2/SC24-RSC_STA-FC-RGB-POS-CROPPED.png"
+          }
+        }
+      }
+    ]
+  }
+]

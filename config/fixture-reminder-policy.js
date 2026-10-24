@@ -46,6 +46,7 @@
   return /\b(?:qf|sf|r128|r64|r32|r16|round of (?:128|64|32|16)|quarter.?final|semi.?final|grand final|preliminary final|elimination final|qualifying final|knockout|final)\b/.test(stage)||/^(?:1st|2nd|3rd|4th|first|second|third|fourth) round$/.test(stage);
  }
  function automaticEventScope(f){
+  if((globalThis.NOTHINGSPORTS_MULTISESSION||(typeof require==='function'?require('./multisession-events'):null))?.group(f))return true;
   if(!knockout(f))return false;
   const tennis=/^(?:tennis|wimbledon)/.test(String(f.key||f.sportKey||''));if(!tennis)return true;
   const category=[f.tournamentLevel,f.category,f.tourLevel,f.competitionCategory,f.tournamentCategory].filter(Boolean).join(' ').toLowerCase().replace(/_/g,' ');
@@ -60,6 +61,8 @@
  }
  function automatic(f,prefs,collections={},now=Date.now()){
   const {follow,feed}=deps(),notifications=prefs?.followFirst?.notifications||{};
+  const model=globalThis.NOTHINGSPORTS_MULTISESSION||(typeof require==='function'?require('./multisession-events'):null);
+  if(model?.group(f))return notifications.enabled!==false&&notifications.sportingRemindersEnabled!==false&&notifications.autoRemindersEnabled!==false&&!feed.explicitlyExcluded(f,prefs)&&Boolean(follow.reasonForEvent(f,prefs,collections))&&Boolean(timing(f,now))&&model.presetMatches(f,prefs,now);
   if(notifications.enabled===false||notifications.sportingRemindersEnabled===false||notifications.autoRemindersEnabled===false||feed.aggregateEvent(f)||f.tournamentParent||f.majorEventMarker||f.cardKind==='event'||f.published===false||f.participantsConfirmed===false||feed.explicitlyExcluded(f,prefs)||!knockout(f))return false;
   if(!automaticEventScope({...f,key:feed.sportKey(f)}))return false;
   if(!timing(f,now))return false;

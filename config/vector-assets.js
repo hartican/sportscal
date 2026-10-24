@@ -53,6 +53,12 @@
   };
 
   const customBodies = {
+    "sport:athletics": '<circle cx="14" cy="4" r="2"/><path d="m12 8-4 5-5 1m9-6 5 4 4-1M8 13l5 3 2 6m-2-6-6 5"/>',
+    "sport:swimming": '<circle cx="17" cy="7" r="2"/><path d="m3 14 6-5 5 4m-5-4 4-4 6 3M2 18q3-3 6 0t6 0 6 0M2 22q3-3 6 0t6 0 6 0"/>',
+    "sport:netball": '<circle cx="12" cy="13" r="8"/><path d="M4 13h16M12 5v16M6 7q12 6 0 12M18 7q-12 6 0 12M9 2h6"/>',
+    "sport:hockey": '<path d="m16 2-6 17c-2 5-8 2-6-1M20 2l-6 17c-2 5-8 2-6-1"/><circle cx="20" cy="21" r="1.5"/>',
+    "sport:gymnastics": '<circle cx="12" cy="4" r="2"/><path d="M3 8h18M12 6v8m0 0-6 7m6-7 6 7M3 22h18"/>',
+    "sport:boxing": '<path d="M7 20v-5C1 12 3 5 7 5h6c4 0 6 3 6 7v8ZM7 20h12v3H7ZM7 5V2h7v3M7 11h5"/>',
     "sport:horse-racing": '<path d="M5 3h4l-2 7c-1 5 1 8 5 8s6-3 5-8l-2-7h4l2 6c2 8-2 13-9 13S1 17 3 9Z"/><path d="M5 12h2m-2 4h2m10-4h2m-2 4h2M12 18v4"/>',
     "ui:spotlight": '<path d="M3 5h8v7H3zM11 6l10-3v12l-10-4M7 12v6m-4 3 4-3 4 3"/>',
     "sport:baseball":'<circle cx="12" cy="12" r="9"/><path d="M6 5c6 4 6 10 0 14M18 5c-6 4-6 10 0 14M8 8l-2 1M9 12H7M8 16l-2-1M16 8l2 1M15 12h2M16 16l2-1"/>',

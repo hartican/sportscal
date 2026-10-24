@@ -133,13 +133,16 @@ globalThis.renderFollowSchedulePanel=function(container){
     return;
   }
   const focused=codeInspectorFocusedOwner===(serverSyncClient?.sessionSubject()||'public')?codeInspectorFocusedFixture:null;
-  if(focused){
+  if(focused&&!NOTHINGSPORTS_MULTISESSION.group(focused)){
     setCardState(focused,'opened');const card=buildEventCard(focused,{mode:'schedule',inspectorFixture:focused});card.dataset.inspectorFixtureId=focused.id;panel.append(card);
     requestAnimationFrame(()=>{if(!card.isConnected||activeInspectorCodeId!==code.id||codeInspectorFocusedFixture!==focused)return;card.tabIndex=-1;card.scrollIntoView({block:'start',behavior:'instant'});card.focus({preventScroll:true});});
   }
   const available = (codeInspectorChunk.fixtures || []).filter(inspectorFixtureMatchesTab).filter(f=>followScheduleScopeMatches(f));
   appendFootballCalendarFilters(panel,code,available);
-  const fixtures=available.filter(f=>f.id!==focused?.id&&FOLLOW_FEED_POLICY.scheduleVisible(f,userPreferences,followCollectionsById())&&NOTHINGSPORTS_FOLLOW_NAV.matches(f,code.id));
+  const groupedFocus=focused&&NOTHINGSPORTS_MULTISESSION.group(focused);
+  const schedule=available.filter(f=>(groupedFocus||f.id!==focused?.id)&&FOLLOW_FEED_POLICY.scheduleVisible(f,userPreferences,followCollectionsById())&&NOTHINGSPORTS_FOLLOW_NAV.matches(f,code.id));
+  if(groupedFocus&&!schedule.some(f=>f.id===focused.id))schedule.push(focused);
+  const fixtures=NOTHINGSPORTS_MULTISESSION.project(schedule);
   if(['sport:skiing','sport:surf'].includes(code.id)&&code.coverageStatus==='partial'){const note=document.createElement('p');note.className='code-inspector-note';note.textContent=codeInspectorCoverageCopy(code);panel.append(note);}
   const filterButton=document.createElement('button');filterButton.type='button';filterButton.className='btn ghost';filterButton.textContent='Filter schedule';filterButton.onclick=()=>NOTHINGSPORTS_FOLLOW_NAV.openFilters(code.id,available);panel.append(filterButton);
   if (codeInspectorTab === "players"){
@@ -164,7 +167,7 @@ globalThis.renderFollowSchedulePanel=function(container){
   const eventGroup=f=>f.tournamentId||((f.dakarCalendar||f.lemansCalendar)?f.weekendId:null)||(f.circuitId?`${f.circuitId}:${String(f.date).slice(0,4)}`:null);
   const tournamentDates=new Map();for(const f of fixtures){const key=eventGroup(f);if(key&&f.date&&(!tournamentDates.has(key)||f.date<tournamentDates.get(key)))tournamentDates.set(key,f.date);}
   const useRounds=code.groupingMode==='round'&&!['sport:horse-racing','sport:golf','sport:f1','sport:cricket','sport:cricket-women','sport:skiing','competition:dakar','competition:le-mans'].includes(code.id);
-  const groupLabel=f=>{if(football)return footballPlan.key(f);if(rugby){const group=rugbyCalendarGroup(f);rugbyGroups.set(group.key,group);return group.key;}const round=useRounds?codeInspectorGroupLabel(f,'round'):null;return round&&round!=='Other fixtures'?round:`${NOTHINGSPORTS_AUSTRALIAN_DATES.date(tournamentDates.get(eventGroup(f))||f.date)} · ${f.tournamentName||(f.circuitId?f.venue:null)||f.competitionName||code.label}`;};
+  const groupLabel=f=>{if(f.multisessionOccurrence)return NOTHINGSPORTS_AUSTRALIAN_DATES.date(f.date);if(football)return footballPlan.key(f);if(rugby){const group=rugbyCalendarGroup(f);rugbyGroups.set(group.key,group);return group.key;}const round=useRounds?codeInspectorGroupLabel(f,'round'):null;return round&&round!=='Other fixtures'?round:`${NOTHINGSPORTS_AUSTRALIAN_DATES.date(tournamentDates.get(eventGroup(f))||f.date)} · ${f.tournamentName||(f.circuitId?f.venue:null)||f.competitionName||code.label}`;};
   fixtures.forEach(fixture => {
     const label = groupLabel(fixture);
     const group = grouped.get(label) || [];
@@ -198,7 +201,7 @@ globalThis.renderFollowSchedulePanel=function(container){
     rows.sort((a,b)=>String(sortDate(a)).localeCompare(String(sortDate(b)))).forEach(f=>{
       if(f.competitionId==='competition:chl'&&f.timingProvenance?.precision==='competition-stage-calendar'&&!f.participantSlots?.length){const note=document.createElement('p');note.className='schedule-rest-note chl-programme-note';note.textContent=`${f.displayDateLabel} · ${f.stage} — teams and kickoff not announced. `;const source=document.createElement('a');source.href=f.sourceUrl;source.target='_blank';source.rel='noopener noreferrer';source.textContent='CHL programme';note.append(source);list.append(note);return;}
       if(f.restDayNote){const rest=document.createElement('p');rest.className='schedule-rest-note';rest.textContent=`${NOTHINGSPORTS_AUSTRALIAN_DATES.date(f.date)} · Rest day · ${f.venue} — no competitive stage`;list.append(rest);return;}
-      const card=buildCodeInspectorFixture(f);
+      const card=f.multisessionOccurrence?buildEventCard(f,{mode:'schedule',focusSessionId:focused?.id}):buildCodeInspectorFixture(f);
       if(codeInspectorTab==='results'){
         const canonical=canonicalFeedFixtureForInspector(f),status=f.resultStatus||canonical?.resultStatus,score=f.resultScore||canonical?.score;
         if(status==='pending'){if(!card.querySelector('.fixture-result-availability')){const pending=buildFixtureResultAvailability({...f,...canonical,resultStatus:'pending'});if(pending)card.append(pending);}}
@@ -335,7 +338,8 @@ function renderCodeInspectorStandings(panel, code){
 
 function followScheduleScopeMatches(f){
   const scope=followBrowseState().scheduleScope,fixtures=codeInspectorChunk?.fixtures||[];
-  if(!NOTHINGSPORTS_SURFACE_CATEGORY.genderMatches(f,followBrowseState().sportId))return false;
+  const gender=followBrowseState().genderBySport?.[NOTHINGSPORTS_SPORT_PALETTE.parent(followBrowseState().sportId)]||'all';
+  if(['men','women'].includes(gender)&&NOTHINGSPORTS_FIXTURE_LABELS.gender(f)&&NOTHINGSPORTS_FIXTURE_LABELS.gender(f)!==gender)return false;
   if(!scope)return true;
   if(scope.tournamentId&&fixtures.some(x=>(x.tournamentId||x.tennisTournamentId)===scope.tournamentId))return (f.tournamentId||f.tennisTournamentId)===scope.tournamentId;
   if(scope.competitionId&&fixtures.some(x=>x.competitionId===scope.competitionId))return f.competitionId===scope.competitionId;

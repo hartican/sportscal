@@ -59,7 +59,7 @@
   const set=value=>{if(value&&controls.querySelector('dialog[open]'))return;const panel=container.querySelector('.follow-schedule-panel,.follow-section-panel');const before=panel?.getBoundingClientRect().top;collapsed=value;controls.hidden=value;spacer.hidden=!floating;nav.classList.toggle('is-floating',floating);nav.classList.toggle('is-collapsed',value);toggle.textContent=value?'Choose sport ⌄':'Close Sports ⌃';toggle.setAttribute('aria-label',value?'Expand Sports menu':'Collapse Sports menu');toggle.setAttribute('aria-expanded',String(!value));if(before!=null){lockedUntil=performance.now()+150;scrollBy(0,panel.getBoundingClientRect().top-before);}};
   toggle.onclick=()=>set(!collapsed);compact.append(label);
   if(['schedule','results'].includes(state.section)){const b=document.createElement('button');b.type='button';b.className='btn ghost';b.textContent='Filter';b.onclick=()=>{const code=followInspectorCode(entity);if(codeInspectorChunk?.code?.id===code?.id)openFilters(code.id,(codeInspectorChunk.fixtures||[]).filter(inspectorFixtureMatchesTab).filter(followScheduleScopeMatches));};compact.append(b);}
-  compact.append(toggle);nav.append(compact);if(raceControls)nav.append(raceControls);if(gender)nav.append(gender);nav.append(controls);if(sections)nav.append(sections);container.prepend(nav,spacer);set(collapsed);
+  compact.append(toggle);nav.append(compact);if(raceControls)nav.append(raceControls);nav.append(controls);if(gender)controls.append(gender);if(sections)nav.append(sections);container.prepend(nav,spacer);set(collapsed);
   nav.collapse=()=>set(true);
   if(cardImageLoadingUnlocked)observeDeferredCardImages();
  }

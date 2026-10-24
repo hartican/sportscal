@@ -55,7 +55,7 @@ function retainedEvents(source){
 
 function buildPagedFeed(source){
   if (!source || !Array.isArray(source.events)) throw new Error("Published events.json is invalid");
-  const publishedEvents = retainedEvents(source);
+  const publishedEvents = require('../config/multisession-events').withSchedules(retainedEvents(source));
   const pages = [];
   for (let offset = 0; offset < publishedEvents.length;){
     const pageNumber = pages.length + 1;

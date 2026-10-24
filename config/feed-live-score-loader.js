@@ -17,7 +17,7 @@ async function refreshLiveFixtureSnapshot(){
   if(liveFixtureRefresh){liveFixtureRefreshQueued=true;return liveFixtureRefresh;}
   const refreshOwner=JSON.stringify([serverSyncClient?.sessionSubject()||'public',userPreferences,eventActions]);
   const mounted=new Set([...document.querySelectorAll('.feed-card-slot .event-card:not(.tennis-feed-parent),.feed-card-slot .joint-tournament-card')].map(card=>card.closest('[data-feed-event-id]')?.dataset.feedEventId).filter(Boolean));
-  const mountedIds=[...new Set([...feedCardSlots.values()].filter(item=>mounted.has(item.slot.dataset?.feedEventId||String(item.event.canonicalEventId||item.event.eventId||item.event.id))).map(({event})=>event.key==='motogp'?(event.sourceEventIds||[]).find(id=>/^evt_motogp_/.test(id))||event.id:event.key==='cricket'?(event.sourceEventIds||[]).find(id=>/^fixture:cricket:CA:/.test(id))||event.id:event.id||event.eventId||event.canonicalEventId).filter(Boolean))].sort().slice(0,60);
+  const mountedIds=[...new Set([...feedCardSlots.values()].filter(item=>mounted.has(item.slot.dataset?.feedEventId||String(item.event.canonicalEventId||item.event.eventId||item.event.id))).flatMap(({event})=>event.multisessionOccurrence?event.daySessions:[event]).map(event=>event.key==='motogp'?(event.sourceEventIds||[]).find(id=>/^evt_motogp_/.test(id))||event.id:event.key==='cricket'?(event.sourceEventIds||[]).find(id=>/^fixture:cricket:CA:/.test(id))||event.id:event.id||event.eventId||event.canonicalEventId).filter(Boolean))].sort().slice(0,60);
   const recent=Date.now()-liveFixtureLastRequestedAt<30_000;
   const ids=recent?mountedIds.filter(id=>!liveFixtureRequestedIds.has(id)):mountedIds;
   if(!ids.length)return;

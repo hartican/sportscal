@@ -26,14 +26,14 @@ assert(f1.some(event => /qualifying/i.test(event.name)), "include actual publish
 assert(f1.some(event => /race/i.test(event.name)), "include actual published races");
 for (const event of f1){
   const practice = isPractice(event);
-  assert.equal(Boolean(follow.reasonForEvent(event,preferences)),!practice, `${event.name}: browser must show competitive F1 sessions and remove Practice`);
+  assert.equal(Boolean(follow.reasonForEvent(event,preferences)),true, `${event.name}: browser includes all published F1 sessions`);
   assert.equal(policy.explicitlyExcluded(event,preferences),false, `${event.name}: browser exclusion guard must agree`);
 }
 const server = buildServerFeed({events:catalogue(),userId:"f1-parent-regression",userState:{preferences},now,limit:1000});
 for (const event of f1){
-  assert.equal(server.events.some(item => item.id === event.id || (event.canonicalEventId && item.canonicalEventId === event.canonicalEventId)),!isPractice(event), `${event.name}: full API catalogue must retain competitive F1 and remove Practice`);
+  assert.equal(server.events.some(item => item.id === event.id || (event.canonicalEventId && item.canonicalEventId === event.canonicalEventId)),true, `${event.name}: API retains canonical practice with competitive sessions`);
 }
-assert.equal(server.events.some(isPractice),false,"server Feed contains no F1 Practice sessions");
+assert.equal(server.events.some(isPractice),true,"server retains practice for grouped timetable");
 
 const qualifying = f1.find(event => /qualifying/i.test(event.name));
 const providerDuplicate = {...qualifying,id:"provider:f1:duplicate",eventId:"provider:f1:duplicate",canonicalEventId:"provider:f1:duplicate",sourceEventIds:[]};
@@ -75,7 +75,7 @@ for (const [child,parent] of [["motogp","motorsport"],["wrc","motorsport"],["afl
   assert.equal(buildServerFeed({events:[event],userId:"qa",userState:{preferences:prefs},now}).events.length>0,expected,`${child}: server agrees`);
   assert.equal(follow.reasonForEvent(first,prefs),null,`${child} does not opt into sibling F1`);
 }
-console.log(`F1 Feed regression passed: ${f1.length} published sessions, no Practice, one card per session, exclusions and sibling isolation.`);
+console.log(`F1 Feed regression passed: ${f1.length} published sessions, unrated Practice, canonical session identities, exclusions and sibling isolation.`);
 
 const participantOptOut={...preferences,preferenceGraph:{...preferences.preferenceGraph,entityFollows:[{participantId:first.participantIds[0],followLevel:"mute"}]}};
 assert(follow.reasonForEvent(first,participantOptOut),'participant unfollow must not veto an explicit F1 competition follow');

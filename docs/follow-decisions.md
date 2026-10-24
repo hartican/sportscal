@@ -1240,3 +1240,16 @@ two animation frames and exercises a later panel mutation after moving to anothe
 team. Both original failures are retained, with native Enter/Back navigation,
 unchanged choices, outside/account/route and continued/last-page checks. No
 sporting facts, Follow membership, save owner, request or timer is added.
+
+
+## Grouped racing/golf and MVP catalogue — 24 October 2026
+
+The user-approved [implementation contract](plans/grouped-sports-follow-2026-10-24.md) supersedes the F1/MotoGP practice exclusion and gender-first Follow presentation above. F1, MotoGP and Supercars sessions share one source-backed meeting with one daily Feed/Schedule appearance, ordered by the earliest published session start that Sydney day. Practice is visible and remindable but cannot receive Heat/Live/Impact ratings. Every competitive child retains its original ratings, results, discussion, saved actions, calendar UID and exact route; daily appearances are presentation only. Flat Match Centre/All Sports identities do not change.
+
+Follow keeps adaptive seven-plus-More shortcuts from one gender-independent sport palette. Sport precedes gender and competition; remember the last gender per sport, initially All supported or Open. A display filter creates no sporting consent, and explicit gender/competition/entity exclusions retain precedence.
+
+The four men's golf majors plus The Players, Australian Open and Australian PGA receive grouped rounds. Round clocks are first official tee times, never substituted broadcast clocks. Broad Golf admits majors only; the other three require an explicit event selection or pin. Only exact edition-bound verified major course artwork is used; named logo/glyph fallbacks are allowed.
+
+Cricket scope is twelve men's national sides, six Australian states (Shield and One Day Cup), BBL and Australia Women's senior internationals. Other women's sides remain as necessary opponents without becoming followable coverage. Rugby adds Champions Cup, Top 14, PREM Rugby, URC, Currie Cup Premier and NPC while retaining current senior internationals including women, Australian domestic and Super Rugby. No SA Cup or other foreign domestic coverage is implied. Retired coverage is absent from active ingestion/search/Follow/future Feed; historical identities and saved choices remain recoverable. This supersedes incompatible earlier narrowing and destructive preference pruning.
+
+Reminder presets are explicitly activated, initially races/sprints or golf final round, with individual ON/OFF precedence and the existing fifteen-minute lead. Respect notification OFF and source timing/cancellation checks. The existing owner materialises only the next seven days of new preset reminders within unchanged inventory and dispatch limits. Regressions: validate-multisession-events, grouped-sports-coverage, multisession-browser, existing Follow/admission/automatic-reminder checks.

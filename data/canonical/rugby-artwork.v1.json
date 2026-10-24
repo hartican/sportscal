@@ -1,0 +1,769 @@
+{
+  "schemaVersion": "rugby-artwork.v1",
+  "assets": [
+    {
+      "id": "team:rugby:wr-2491",
+      "label": "ASM Clermont Auvergne",
+      "assetSourceUrl": "https://media-cdn.incrowdsports.com/95849879-7088-4036-940b-50f597d3d0cb.png?format=webp&width=125",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/wr-2491.webp",
+      "sha256": "b5424731c1a0a5f5313f8484092712ef3f757fee3ef59ed574338c76570171f8",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:wr-203",
+      "label": "Aviron Bayonnais",
+      "assetSourceUrl": "https://cdn.lnr.fr/club/bayonne/photo/logo.f4db76699f349833574170223dcee87809e6dd4a",
+      "sourceUrl": "https://top14.lnr.fr/clubs",
+      "path": "assets/identities/rugby/wr-203.png",
+      "sha256": "f60bbc7b08ef66f3541dc8c932c3f6b783785080581cc12ded33adb55877c272",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-80",
+      "label": "Bath Rugby",
+      "assetSourceUrl": "https://media-cdn.incrowdsports.com/f4d9a293-9086-41bf-aa1b-c98d1c62fe3b.png?format=webp&width=125",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/wr-80.webp",
+      "sha256": "844a90002078e04abb88afec8469e9d6460b68ae75e1b6e5714e714d5bdac44e",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:wr-231",
+      "label": "Benetton",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2025/05/Benetton-Rugby-1.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-231.svg",
+      "sha256": "7f45d1e132e7b4b9efde0176e2fef6406b6c1712d4db80417b59147cf4d24723",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg"
+    },
+    {
+      "id": "team:rugby:wr-85",
+      "label": "Bristol Bears",
+      "assetSourceUrl": "https://media-cdn.incrowdsports.com/714ab764-0396-4c96-80df-4013a723d172.png?format=webp&width=125",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/wr-85.webp",
+      "sha256": "903d7a213f3c6c3c4943ddb0ecfd8a81ab9e6fd1871f44fbaa59e243cb1c9a6c",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:brumbies",
+      "label": "Brumbies",
+      "assetSourceUrl": "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_ACT_Brumbies.png",
+      "sourceUrl": "https://super.rugby/superrugby/teams/",
+      "path": "assets/identities/rugby/brumbies.png",
+      "sha256": "a12d2114175bec8e2acf745d64707f1ec38798ccb6f8730bfbbe4f604aac5bc4",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-2351",
+      "label": "Vodacom Bulls",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2025/05/Vodacom.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-2351.svg",
+      "sha256": "387d2881505c4df1419a3c297972d10c82af95de8a417de15e14c535f9b7885c",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg"
+    },
+    {
+      "id": "team:rugby:wr-2213",
+      "label": "Cardiff Rugby",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2025/05/Cardiff-Rugby-1.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-2213.svg",
+      "sha256": "449a880057098d511b3c1310f2e9d44f51ba99b99f58c059352e64437be263af",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg"
+    },
+    {
+      "id": "team:rugby:wr-196",
+      "label": "Castres Olympique",
+      "assetSourceUrl": "https://cdn.lnr.fr/club/castres/photo/logo.f4db76699f349833574170223dcee87809e6dd4a",
+      "sourceUrl": "https://top14.lnr.fr/clubs",
+      "path": "assets/identities/rugby/wr-196.png",
+      "sha256": "acf21a4cc78191b212c33bafb256d66af098b0b73c27080ac32caa5da280f454",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-1136",
+      "label": "Connacht",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2025/05/Connacht.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-1136.svg",
+      "sha256": "6a6d30c0b08f54fc496b5c46431577b323b1f411b754a6158fb726526b4032d1",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg"
+    },
+    {
+      "id": "team:rugby:wr-69",
+      "label": "Edinburgh",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2025/05/Edinburgh-1.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-69.svg",
+      "sha256": "7aa39ce307700455bb57eea48d2aa44cd2434fcadbbfcc8386f32de2885b3510",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg"
+    },
+    {
+      "id": "team:rugby:wr-129",
+      "label": "Exeter Chiefs",
+      "assetSourceUrl": "https://media-cdn.incrowdsports.com/794f9439-1dd5-47e1-bd74-655d63c1b505.png?format=webp&width=125",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/wr-129.webp",
+      "sha256": "6fec6d616721479056525925ce1be61d5475d9def94fb63aa3b4f1bde2e3873c",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:force",
+      "label": "Force",
+      "assetSourceUrl": "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_Western_Force.png",
+      "sourceUrl": "https://super.rugby/superrugby/teams/",
+      "path": "assets/identities/rugby/force.png",
+      "sha256": "e13b543c6e311514b183439e0a49bc261ed0d28c427d1c72926023e40b159971",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-70",
+      "label": "Glasgow Warriors",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2025/05/Glasgow-Warriors-1.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-70.svg",
+      "sha256": "21fecf73f58f6e6129ecd947d7ddd4c2e0f37af8423aca8319ce3e46ce716a2d",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg"
+    },
+    {
+      "id": "team:rugby:wr-83",
+      "label": "Gloucester Rugby",
+      "assetSourceUrl": "https://media-cdn.incrowdsports.com/57109498-ebce-4d81-949a-c0bd84420813.png?format=webp&width=125",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/wr-83.webp",
+      "sha256": "bb60199945bca83f69d88a4b44a0843fcc165bc540cb65b5d375377ecf586d57",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:wr-81",
+      "label": "Harlequins",
+      "assetSourceUrl": "https://media-cdn.incrowdsports.com/ff7fb9b3-4a02-4407-b075-1d125962ce21.png?format=webp&width=1920",
+      "sourceUrl": "https://www.premrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-81.webp",
+      "sha256": "2eb20868940683faff0d5cae3952ba28c0c1523ced23ce443feb952dadeae980",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:wr-82",
+      "label": "Leicester Tigers",
+      "assetSourceUrl": "https://media-cdn.cortextech.io/438e7cd5-fe7c-4002-897c-e702a579fbf1.png?format=webp&width=125",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/wr-82.webp",
+      "sha256": "a9832bda2771eff2548440e74cb8b51aa3460d3c157dabda3b9970e8015c50ca",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:wr-1139",
+      "label": "Leinster",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2025/05/Leinster.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-1139.svg",
+      "sha256": "e3782c2b648b34d1106da5e8605b6e7ba5a6121f0d972da538709cae3ebf2e6b",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg"
+    },
+    {
+      "id": "team:rugby:wr-2357",
+      "label": "10bet Lions",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2026/09/Lions.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-2357.svg",
+      "sha256": "076f0135a2b31329b09d615e3130cc65f5775eb42d1e9e1e43c2600d0cdbae25",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg"
+    },
+    {
+      "id": "team:rugby:wr-1572",
+      "label": "LOU Rugby",
+      "assetSourceUrl": "https://cdn.lnr.fr/club/lyon/photo/logo.f4db76699f349833574170223dcee87809e6dd4a",
+      "sourceUrl": "https://top14.lnr.fr/clubs",
+      "path": "assets/identities/rugby/wr-1572.png",
+      "sha256": "fc8e959d999dd181487a7c8cf8e63068acbbad59f243239d783871bd5b22d686",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:moana-pasifika",
+      "label": "Moana Pasifika",
+      "assetSourceUrl": "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_Moana_Pasifika.png",
+      "sourceUrl": "https://super.rugby/superrugby/teams/",
+      "path": "assets/identities/rugby/moana-pasifika.png",
+      "sha256": "3bbf3e191ff43477f6f63c30dc823a9bb0b151bc015f045bdc4915b0c6682716",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-2019",
+      "label": "Montpellier H\u00e9rault Rugby",
+      "assetSourceUrl": "https://media-cdn.incrowdsports.com/4c93a14f-8cd4-4653-8463-e7be7a49d626.png?format=webp&width=125",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/wr-2019.webp",
+      "sha256": "c32ce5a5446c5fafc8585c99b2f3111158b1055bd29df060b5d262e0131e2095",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:wr-1138",
+      "label": "Munster",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2025/05/Munster-Rugby.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-1138.svg",
+      "sha256": "9de8dcdb56098c54d64fa2b97c4df7184613666c0e4b3f88e993581f5324bcc1",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg"
+    },
+    {
+      "id": "team:rugby:wr-75",
+      "label": "Newcastle Red Bulls",
+      "assetSourceUrl": "https://media-cdn.incrowdsports.com/7fc9ef97-88f9-4353-8dff-ec260bac23ad.png?format=webp&width=1920",
+      "sourceUrl": "https://www.premrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-75.webp",
+      "sha256": "7b00f1c80320bbe2824b8feaaa83f4285556534d10eb5830837d47f27da3909f",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:wr-71",
+      "label": "Northampton Saints",
+      "assetSourceUrl": "https://media-cdn.incrowdsports.com/45fedf62-349b-46af-a6c9-2504dd82ee8c.png?format=webp&width=125",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/wr-71.webp",
+      "sha256": "2ab9bef105905f86bdfe82150f68677484b5d37ffc2a8695ccec08f60d8ea8e8",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:waratahs",
+      "label": "NSW Waratahs",
+      "assetSourceUrl": "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_NSW_Waratahs.png",
+      "sourceUrl": "https://super.rugby/superrugby/teams/",
+      "path": "assets/identities/rugby/waratahs.png",
+      "sha256": "32a6194a3d9028064fcb9e0b30b9040c6ceb8e0470d3af6062f30396b4a148ba",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-2217",
+      "label": "Ospreys",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2025/05/Ospreys-1.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-2217.svg",
+      "sha256": "dc96a71dd48152c6047a921283a122d663e1ad10e171479d6116f057ac690ad3",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg"
+    },
+    {
+      "id": "team:rugby:reds",
+      "label": "Queensland Reds",
+      "assetSourceUrl": "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_Reds.png",
+      "sourceUrl": "https://super.rugby/superrugby/teams/",
+      "path": "assets/identities/rugby/reds.png",
+      "sha256": "e5243dcbf818e63cdf3668574d37eac04831dcf3caa2cfea7fd2e060343a4c33",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-2255",
+      "label": "Racing 92",
+      "assetSourceUrl": "https://media-cdn.incrowdsports.com/3cc066e0-e7e0-4116-ae7f-1c6c45618165.png?format=webp&width=125",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/wr-2255.webp",
+      "sha256": "2b6ee2d256af4f99e480cd0923fc9f4328e3e1dec917bc1665de2ad463ac76b5",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:wr-205",
+      "label": "RC Toulon",
+      "assetSourceUrl": "https://cdn.lnr.fr/club/toulon/photo/logo.e79f41e5181d88780aa0c45affa8c776f6a1af32",
+      "sourceUrl": "https://top14.lnr.fr/clubs",
+      "path": "assets/identities/rugby/wr-205.png",
+      "sha256": "758ad143ba0321b2d8f26d97c57ebfc32f1f771cee5e49d40632e430796da12a",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-2709",
+      "label": "RC Vannes",
+      "assetSourceUrl": "https://cdn.lnr.fr/club/vannes/photo/logo.f4db76699f349833574170223dcee87809e6dd4a",
+      "sourceUrl": "https://top14.lnr.fr/clubs",
+      "path": "assets/identities/rugby/wr-2709.png",
+      "sha256": "bac56f1c4800125d63ee231d0362bc443a8309e92b2bac954366d6ac7bf6b39a",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-76",
+      "label": "Sale Sharks",
+      "assetSourceUrl": "https://media-cdn.incrowdsports.com/4af4e614-7ee6-4ca8-ba6b-6631e7cf0c40.png?format=webp&width=125",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/wr-76.webp",
+      "sha256": "ae7d2a37a6019243a2acea78d4e7286e83e1d8f2cafbba60c07f041b219e7f62",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:wr-74",
+      "label": "Saracens",
+      "assetSourceUrl": "https://media-cdn.cortextech.io/17733469-fa47-4bee-bb7e-2e8c36a26e8b.png?format=webp&width=125",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/wr-74.webp",
+      "sha256": "c72616cc805993a6c3f90f5ccdbad7ae11f3f7b68f71d8223b5a06e85fb26233",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:wr-2216",
+      "label": "Scarlets",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2025/05/Scarlets-1.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-2216.svg",
+      "sha256": "cc9aabf3b0f9301ac967f1149437f618240c8bd63a57797a72d430e90e0defdd",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg"
+    },
+    {
+      "id": "team:rugby:wr-2825",
+      "label": "Section Paloise",
+      "assetSourceUrl": "https://media-cdn.incrowdsports.com/a7cf9530-88c9-43d5-b84f-414cfc5e8731.png?format=webp&width=125",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/wr-2825.webp",
+      "sha256": "cb3d54d27a841d4572a301eb2286609dc0ef24cb77e2b3da8fed6b6c2a3dcc4c",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:wr-2353",
+      "label": "Hollywoodbets Sharks",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2026/09/HollywoodbetsSharks_Dark-1.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-2353.svg",
+      "sha256": "eaf59517045031c7da4604998a54b60b66b63c990133cdc1ab9773c0990c8fdb",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg"
+    },
+    {
+      "id": "team:rugby:wr-228",
+      "label": "Stade Fran\u00e7ais Paris",
+      "assetSourceUrl": "https://media-cdn.incrowdsports.com/ad3caafb-37a8-4938-9771-171fd18b8b48.png?format=webp&width=125",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/wr-228.webp",
+      "sha256": "7fb62325dc60cd1dae0af5b3f72c09e555c6ba8f84a498ffe83ab68bcb4a4c8e",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:wr-2726",
+      "label": "Stade Rochelais",
+      "assetSourceUrl": "https://media-cdn.incrowdsports.com/19efa570-22bf-40d1-b8ad-2abb7818c31f.png?format=webp&width=125",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/wr-2726.webp",
+      "sha256": "289f454c51d7d125b830d428f32713e33ec8c5cae7b031685cb990d821d07112",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:wr-87",
+      "label": "Stade Toulousain",
+      "assetSourceUrl": "https://media-cdn.incrowdsports.com/9b827a29-a5b1-4752-b312-477492f2819a.png?format=webp&width=125",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/wr-87.webp",
+      "sha256": "9ec6adcb83e03a63346e1d7b100d85857e6e75e12c7fb2d6730e0876e2f0416f",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:wr-2352",
+      "label": "DHL Stormers",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2025/08/Stormers.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-2352.svg",
+      "sha256": "6699f32903ce88e6dae41903363ae69b4ac5cfeb739c09fe8d3188f25c543545",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg"
+    },
+    {
+      "id": "team:rugby:wr-1137",
+      "label": "Ulster",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2025/05/Ulster-1.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-1137.svg",
+      "sha256": "99f560d1bea50cb7ed05c0d899f97c3e39f64290b50b312f5b8984d8ebc79d4b",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg"
+    },
+    {
+      "id": "team:rugby:wr-202",
+      "label": "Union Bordeaux B\u00e8gles",
+      "assetSourceUrl": "https://media-cdn.cortextech.io/3a3f88b1-d089-4b5a-aece-26469a437790.png?format=webp&width=125",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/wr-202.webp",
+      "sha256": "34305b4457e84578b0093c83eb8602a6bb6f39c85867aa48065871fe651144c6",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "team:rugby:wr-216",
+      "label": "USA Perpignan",
+      "assetSourceUrl": "https://cdn.lnr.fr/club/perpignan/photo/logo.f4db76699f349833574170223dcee87809e6dd4a",
+      "sourceUrl": "https://top14.lnr.fr/clubs",
+      "path": "assets/identities/rugby/wr-216.png",
+      "sha256": "5c0e135270f330654b56edfc875564f0eb1f03d8e43a0b78a26ac34e4ba694d9",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-3514",
+      "label": "Zebre Parma",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2025/05/Zebre-Parma-1.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-3514.svg",
+      "sha256": "aa84ca4519a07690ada130b943891aaf1f19bdb86cf3d933f6d3176881e18c42",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg"
+    },
+    {
+      "id": "team:rugby:wr-343",
+      "label": "Auckland",
+      "assetSourceUrl": "https://upload.wikimedia.org/wikipedia/en/9/9d/Auckland_rugby_logo.png",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Auckland_(National_Provincial_Championship)",
+      "secondarySource": true,
+      "path": "assets/identities/rugby/wr-343.png",
+      "sha256": "8be0ce1cd957047659ae4f05eba58b676e8b4f1b949aade1c99a59f54ef04577",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-350",
+      "label": "Bay of Plenty",
+      "assetSourceUrl": "https://upload.wikimedia.org/wikipedia/en/f/fc/Bay_of_Plenty_Steamers_logo_2020.png",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Bay_of_Plenty_(National_Provincial_Championship)",
+      "secondarySource": true,
+      "path": "assets/identities/rugby/wr-350.png",
+      "sha256": "683295fbc35b908437f15fce10a2a4da3bb02d885e886707445c1d38a5f65ecc",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-342",
+      "label": "Canterbury",
+      "assetSourceUrl": "https://upload.wikimedia.org/wikipedia/en/5/50/Canterbury_rfu_logo.png",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Canterbury_(National_Provincial_Championship)",
+      "secondarySource": true,
+      "path": "assets/identities/rugby/wr-342.png",
+      "sha256": "fcbf79594f780e5dbb7824cee49505d871a97e7424efb6c86f92250ed5be2d62",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-341",
+      "label": "Counties Manukau",
+      "assetSourceUrl": "https://upload.wikimedia.org/wikipedia/en/c/c0/Counties_Manukau_Steelers_logo.png",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Counties_Manukau_(National_Provincial_Championship)",
+      "secondarySource": true,
+      "path": "assets/identities/rugby/wr-341.png",
+      "sha256": "0ab757436ca0ec2df7ff86f30388c399aed10ea20f635a964ada49b9eb54c6d0",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-2593",
+      "label": "Free State Cheetahs",
+      "assetSourceUrl": "https://thumb.wikimedia.org/wikipedia/en/thumb/d/d2/Logo_Cheetahs_Rugby.svg/250px-Logo_Cheetahs_Rugby.svg.png",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cheetahs_(rugby_union)",
+      "secondarySource": true,
+      "path": "assets/identities/rugby/wr-2593.png",
+      "sha256": "e253a7a443d942d11386e1d3907abbc220613dcb054749a5f21f57cce8cc4cdf",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-2401",
+      "label": "Golden Lions",
+      "assetSourceUrl": "https://thumb.wikimedia.org/wikipedia/en/thumb/3/3f/Lions_%28United_Rugby_Championship%29_logo.svg/120px-Lions_%28United_Rugby_Championship%29_logo.svg.png",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Lions_(United_Rugby_Championship)",
+      "secondarySource": true,
+      "path": "assets/identities/rugby/wr-2401.png",
+      "sha256": "a75a98f205935b67f3f3f3034e92c90a547a92b7dcd75fb656522d609cd28d62",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-3647",
+      "label": "Griquas",
+      "assetSourceUrl": "https://thumb.wikimedia.org/wikipedia/en/thumb/5/5d/Griquas_Rugby_Union_logo.svg/250px-Griquas_Rugby_Union_logo.svg.png",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Griquas_(rugby_union)",
+      "secondarySource": true,
+      "path": "assets/identities/rugby/wr-3647.png",
+      "sha256": "6fd9dedc225833cc73d52243a77958a9d3d44e30a578db12073e4641567d320c",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-3cd60100-b90c-4a04-a6bc-688e0dba17df",
+      "label": "Hawke's Bay",
+      "assetSourceUrl": "https://upload.wikimedia.org/wikipedia/en/6/6d/Hawke_bay_magpies_logo.png",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Hawke's_Bay_(National_Provincial_Championship)",
+      "secondarySource": true,
+      "path": "assets/identities/rugby/wr-3cd60100-b90c-4a04-a6bc-688e0dba17df.png",
+      "sha256": "de181e6edc27809b83581be991788b6d6e385988b8d5722c16d4183fb81ebeab",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-338",
+      "label": "Manawatu",
+      "assetSourceUrl": "https://upload.wikimedia.org/wikipedia/en/8/8d/Manawatu_turbos_logo.png",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Manawatu_(National_Provincial_Championship)",
+      "secondarySource": true,
+      "path": "assets/identities/rugby/wr-338.png",
+      "sha256": "f5bd3d1510fb0663c5696a1a8c2b89b35daae21fa156aa28ac6d3129a8885f2c",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "competition:champions-cup",
+      "label": "Champions cup",
+      "assetSourceUrl": "https://media-cdn.incrowdsports.com/00fb7d1f-6e16-4b44-b7d9-bcecdcaff669.svg?format=webp&width=200",
+      "sourceUrl": "https://www.epcrugby.com/champions-cup/clubs",
+      "path": "assets/identities/rugby/champions-cup.webp",
+      "sha256": "a14980115a51b52e28ecd74738f3ad5e374062d80d35c48bafaa388fb7d66e77",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "competition:top-14",
+      "label": "Top 14",
+      "assetSourceUrl": "https://assets.lnr.fr/1/1/1/8/0/7/conversions/logo-top14.e32e7e9a-logo.webp",
+      "sourceUrl": "https://top14.lnr.fr/clubs",
+      "path": "assets/identities/rugby/top-14.webp",
+      "sha256": "c0cba2beefc0e07457ab02185f26f13fbfb61dc94950d41c1ca2bb3b19c3621c",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "competition:prem-rugby",
+      "label": "PRL logo",
+      "assetSourceUrl": "https://media-cdn.cortextech.io/0708621a-5825-46bf-98c2-33b9e4f7c4fb.png?format=webp&width=1920",
+      "sourceUrl": "https://www.premrugby.com/clubs",
+      "path": "assets/identities/rugby/prem-rugby.webp",
+      "sha256": "35401572095d3e034a18158f175ecdbe3ad7149fca1fbf1cefc16b415844ec01",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp"
+    },
+    {
+      "id": "competition:currie-cup",
+      "label": "Currie Cup",
+      "assetSourceUrl": "https://media-cdn.cortextech.io/1WWmqT/1BSdBWIjCcz1KX/b3a47dea-a659-444d-9b09-2c11cc9a8018.png",
+      "sourceUrl": "https://www.sarugby.co.za/tournaments/carling-currie-cup-premier-division/",
+      "path": "assets/identities/rugby/currie-cup.png",
+      "sha256": "72e8cf2be79bac23d645c6c70e1b73fc2af905b1cbcdde8590ac36f27aba44bc",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-340",
+      "label": "North Harbour",
+      "sourceUrl": "https://en.wikipedia.org/wiki/North_Harbour_Rugby_Union",
+      "assetSourceUrl": "https://upload.wikimedia.org/wikipedia/en/0/06/North_harbour_ru_logo.png",
+      "secondarySource": true,
+      "path": "assets/identities/rugby/wr-340.png",
+      "sha256": "ab0bebaa9f9f7bc6267d1a832cc5839944be4c3efe77d6fadc10301f729f24ed",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-339",
+      "label": "Otago",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Otago_Rugby_Football_Union",
+      "assetSourceUrl": "https://thumb.wikimedia.org/wikipedia/en/thumb/4/45/Logo_Otago_Rugby_Union.svg/330px-Logo_Otago_Rugby_Union.svg.png",
+      "secondarySource": true,
+      "path": "assets/identities/rugby/wr-339.png",
+      "sha256": "996e45e001291055f86b8fc489da54c8e9a8c2be65a6187506e4623cab9830c3",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-344",
+      "label": "Southland",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Rugby_Southland",
+      "assetSourceUrl": "https://upload.wikimedia.org/wikipedia/en/c/cf/Rugby_southland_logo.png",
+      "secondarySource": true,
+      "path": "assets/identities/rugby/wr-344.png",
+      "sha256": "eea7d51782f773de46dd58723b5959e6d7f9eeb2ae47d51f9cc90382e32fdcf4",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-2570",
+      "label": "Tasman",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Tasman_Rugby_Union",
+      "assetSourceUrl": "https://upload.wikimedia.org/wikipedia/en/5/5f/Tasman_ru_logo.png",
+      "secondarySource": true,
+      "path": "assets/identities/rugby/wr-2570.png",
+      "sha256": "811c052ede0fc98671aa6e2d000a7ae67fa48fe9c1c15cf89c3cbae3f24e341a",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-345",
+      "label": "Waikato",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Waikato_Rugby_Union",
+      "assetSourceUrl": "https://thumb.wikimedia.org/wikipedia/en/thumb/5/5c/Logo_Waikato_Rugby_union.svg/330px-Logo_Waikato_Rugby_union.svg.png",
+      "secondarySource": true,
+      "path": "assets/identities/rugby/wr-345.png",
+      "sha256": "45d7d2f548f8ccc518f2485837ef484c26a639acc8f94f68fa10314209c13d9d",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-346",
+      "label": "Wellington",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Wellington_Rugby_Football_Union",
+      "assetSourceUrl": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/ac/Logo_Wellington_Rugby_Union.svg/330px-Logo_Wellington_Rugby_Union.svg.png",
+      "secondarySource": true,
+      "path": "assets/identities/rugby/wr-346.png",
+      "sha256": "e675a62a31edcbec02f6689a73591ddb7643f33773c595355ec0de3e803f3046",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-61b527a7-2aa4-414b-bf79-ea3fcaed375d",
+      "label": "Dragons",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2025/05/Dragons-1.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-61b527a7-2aa4-414b-bf79-ea3fcaed375d.svg",
+      "sha256": "68f221ca5334beede3bf588be7adf46fa556a79d4080084a7a6067d886566f7f",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg"
+    },
+    {
+      "id": "competition:urc",
+      "label": "United Rugby Championship",
+      "assetSourceUrl": "https://stats.unitedrugby.com/Logo.png",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/urc.png",
+      "sha256": "e9b2f71f07b480bcfafdac01684ca9c236e4a03c6751ae9ac6d2c09c822db019",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:fijian-drua",
+      "label": "Fijian Drua",
+      "path": "assets/identities/rugby/fijian-drua.png",
+      "sourceUrl": "https://super.rugby",
+      "assetSourceUrl": "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_Fijian_Drua_1.png",
+      "sha256": "fb03dff51396f24d69189e746a758d3768f70282b50c5b14428217ffa8027735",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-237",
+      "label": "Taranaki",
+      "path": "assets/identities/rugby/wr-237.png",
+      "sourceUrl": "https://trfu.co.nz",
+      "assetSourceUrl": "https://trfu.co.nz/cdn/shop/files/TRFU-Logo-Crest-no_background.png?v=1742174093&width=400",
+      "sha256": "9370c7684e27d92f7cf98f24003f566c033689bdd7f4227b61f1ad7a00f3c3d8",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-818",
+      "label": "Northland",
+      "path": "assets/identities/rugby/wr-818.png",
+      "sourceUrl": "https://northlandrugby.co.nz",
+      "assetSourceUrl": "https://i0.wp.com/northlandrugby.co.nz/wp-content/uploads/2025/01/NRU-Logo-Light-Blue-Portrait.png?fit=219%2C300&ssl=1",
+      "sha256": "786f1c0d33b0508abaef342d718d1c336807cddf377c599ed23b2272bf755681",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    },
+    {
+      "id": "team:rugby:wr-2400",
+      "label": "Pumas",
+      "assetSourceUrl": "https://pumas.co.za/wp-content/uploads/2023/10/cropped-New-Pumas-Composite-Logo-2022-e1698245260654-176x86.png",
+      "sourceUrl": "https://pumas.co.za/",
+      "path": "assets/identities/rugby/wr-2400.png",
+      "sha256": "ee16dccc448709ecd5df1dec78b64d30e34b33acd232fd61aca94f25f48a8b46",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png",
+      "secondarySource": false
+    },
+    {
+      "id": "npc",
+      "label": "Hilux NPC",
+      "assetSourceUrl": "https://eu-cdn.rugbypass.com/webp-images/images/competitions/logos/full/bunnings-npc.png.webp?maxw=280&v=1784199529",
+      "sourceUrl": "https://www.rugbypass.com/bunnings-npc/",
+      "path": "assets/identities/rugby/npc.webp",
+      "sha256": "2aa1e2877f33c2bd106ee039eb4917f7120f17d0bb4f865bd4cb5845c1fb3e4b",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "webp",
+      "secondarySource": true
+    },
+    {
+      "id": "team:rugby:wr-2399",
+      "label": "Blue Bulls",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2025/05/Vodacom.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-2351.svg",
+      "sha256": "387d2881505c4df1419a3c297972d10c82af95de8a417de15e14c535f9b7885c",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg",
+      "clubMarkReusedFrom": "team:rugby:wr-2351",
+      "membershipSourceUrl": "https://springboks.rugby/tournaments/carling-currie-cup-premier-division"
+    },
+    {
+      "id": "team:rugby:wr-2592",
+      "label": "Sharks XV",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2026/09/HollywoodbetsSharks_Dark-1.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-2353.svg",
+      "sha256": "eaf59517045031c7da4604998a54b60b66b63c990133cdc1ab9773c0990c8fdb",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg",
+      "clubMarkReusedFrom": "team:rugby:wr-2353",
+      "membershipSourceUrl": "https://springboks.rugby/tournaments/carling-currie-cup-premier-division"
+    },
+    {
+      "id": "team:rugby:wr-254",
+      "label": "DHL Stormers XXIII",
+      "assetSourceUrl": "https://www.unitedrugby.com/wp-content/uploads/2025/08/Stormers.svg",
+      "sourceUrl": "https://www.unitedrugby.com/clubs",
+      "path": "assets/identities/rugby/wr-2352.svg",
+      "sha256": "6699f32903ce88e6dae41903363ae69b4ac5cfeb739c09fe8d3188f25c543545",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "svg",
+      "clubMarkReusedFrom": "team:rugby:wr-2352",
+      "membershipSourceUrl": "https://springboks.rugby/tournaments/carling-currie-cup-premier-division"
+    },
+    {
+      "id": "team:rugby:wr-259",
+      "label": "Boland Kavaliers",
+      "assetSourceUrl": "https://bolandrugby.co.za/wp-content/uploads/2026/06/cropped-kava-1.png",
+      "sourceUrl": "https://bolandrugby.co.za/",
+      "path": "assets/identities/rugby/wr-259.png",
+      "sha256": "98db952fa195cd1252ee43e440fcd10cbbee31314dc55ca99ce435d2d35b502c",
+      "rights": "Original rights and trademarks retained; editorial identification. No open licence asserted.",
+      "format": "png"
+    }
+  ],
+  "gaps": []
+}

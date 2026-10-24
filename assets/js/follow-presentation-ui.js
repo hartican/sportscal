@@ -1,7 +1,7 @@
 function directoryIndividualLabel(key){return /^(f1|wrc|motorsport|supercars)$/.test(key)?'Drivers':key==='motogp'?'Riders':key.startsWith('golf')?'Golfers':/^(tennis|football|afl|nrl|rugby|nbl|nba)/.test(key)?'Players':'Athletes';}
 function directorySectionLabel(){return 'Teams & Players';}
 function directoryViewFilters(key,records){
-  const filters=directoryFilters(key),teamsAvailable=records.some(record=>(record.entityType==='team'||record.type==='team'||String(record.id).startsWith('team:'))&&!NOTHINGSPORTS_PARTICIPANT_DIRECTORY.isUnresolvedTeam(record)&&[filters.genderCategory,'unknown','mixed'].includes(record.genderCategory||'unknown'));
+  const filters=directoryFilters(key),teamsAvailable=records.some(record=>(record.entityType==='team'||record.type==='team'||String(record.id).startsWith('team:'))&&!NOTHINGSPORTS_PARTICIPANT_DIRECTORY.isUnresolvedTeam(record)&&(!filters.genderCategory||[filters.genderCategory,'unknown','mixed'].includes(record.genderCategory||'unknown')));
   const entityType=key.startsWith('cricket')?'team':teamsAvailable?filters.entityType:'athlete';
   return {...filters,teamsAvailable,entityType,collectionId:entityType==='athlete'?filters.collectionId:''};
 }
@@ -267,7 +267,21 @@ function renderFootballDirectory(container, {
 }
 
 function renderLegacyParticipantDirectory(container, sportKey){
-  const chunk = followDirectoryChunks.get(sportKey);
+  let chunk = followDirectoryChunks.get(sportKey);
+  const state=followBrowseState(),parent=NOTHINGSPORTS_SPORT_PALETTE.parent(state.sportId),gender=state.genderBySport?.[parent]||'all';
+  const counterpart=({'afl':'aflw','nrl':'nrlw'})[sportKey]||sportKey+'-women';
+  if(gender==='all'&&!sportKey.endsWith('-women')&&(followDirectoryManifest?.sports||[]).some(s=>s.key===counterpart)){
+    const other=followDirectoryChunks.get(counterpart);
+    if(other&&chunk)chunk={...chunk,records:[...new Map([...chunk.records,...other.records].map(r=>[r.id,r])).values()]};
+    else if(!followDirectoryChunkErrors.has(counterpart))void loadFollowDirectoryChunk(counterpart).then(()=>queueScrollIdleMutation(renderStandingsContext)).catch(error=>followDirectoryChunkErrors.set(counterpart,error));
+  }
+  if(parent==='sport:nba'&&gender==='all'&&!state.categoryId){
+    for(const key of ['nbl','fiba-women']){
+      const other=followDirectoryChunks.get(key);
+      if(other&&chunk)chunk={...chunk,records:[...new Map([...chunk.records,...other.records].map(r=>[r.id,r])).values()]};
+      else if(!followDirectoryChunkErrors.has(key))void loadFollowDirectoryChunk(key).then(()=>queueScrollIdleMutation(renderStandingsContext)).catch(error=>followDirectoryChunkErrors.set(key,error));
+    }
+  }
   if (!footballDirectoryApi || !chunk){
     const state = document.createElement("div");
     state.className = "standings-module football-directory-empty";
@@ -296,6 +310,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
   }
   // Profiles load only when a participant is opened.
   const filters = directoryViewFilters(sportKey,chunk.records);
+  const competition=state.scheduleScope?.competitionId;
   const curatedIds = (chunk.browseGroups || []).flatMap(group=>group.memberIds);
   const curatedOrder = new Map(curatedIds.map((id,index)=>[id,index]));
   const allRecords = chunk.records.filter(record=>!NOTHINGSPORTS_PARTICIPANT_DIRECTORY.isUnresolvedTeam(record)).map(record => ({
@@ -313,7 +328,8 @@ function renderLegacyParticipantDirectory(container, sportKey){
   const collectionsById = new Map((chunk.collections || []).map(collection => [collection.id, collection]));
   const selectedCollectionMemberIds = new Set(collectionsById.get(filters.collectionId)?.memberIds || []);
   const records = allRecords
-    .filter(record=>!sportKey.startsWith('cricket')||NOTHINGSPORTS_CRICKET_COVERAGE.policy.bblTeams.some(n=>record.id==='team:cricket:'+n)===(filters.cricketFormat==='BBL'))
+    .filter(record=>!competition||!sportKey.startsWith('rugby')||record.competitionIds?.includes(competition))
+    .filter(record=>{if(!sportKey.startsWith('cricket'))return true;const scope=NOTHINGSPORTS_CRICKET_COVERAGE.policy;return filters.cricketFormat==='BBL'?scope.bblTeams.some(n=>record.id==='team:cricket:'+n):['Shield','One Day Cup'].includes(filters.cricketFormat)?scope.stateTeams.some(n=>record.id==='team:cricket:'+n):!scope.bblTeams.some(n=>record.id==='team:cricket:'+n)&&!scope.stateTeams.some(n=>record.id==='team:cricket:'+n);})
     .filter(record => !separatedEntityDirectory || record.entityType === filters.entityType)
     .filter(record => !filters.collectionId || selectedCollectionMemberIds.has(record.id))
     .filter(record => !filters.birthCountryCode || record.countryCode === filters.birthCountryCode)
@@ -340,6 +356,18 @@ function renderLegacyParticipantDirectory(container, sportKey){
   if(!filters.query)records.sort((a,b)=>NOTHINGSPORTS_PARTICIPANT_DIRECTORY.compare(a,b,allRecords));
   const directory = document.createElement("section");
   directory.className = "football-directory";
+  if(sportKey==='rugby'&&chunk.competitions?.length){
+    const choices=document.createElement('section');choices.className='rugby-competition-choices';
+    const title=document.createElement('h3');title.textContent='Competitions';choices.append(title);
+    for(const item of chunk.competitions){
+      const row=document.createElement('label');row.className='follow-checkbox';
+      const input=document.createElement('input');input.type='checkbox';input.setAttribute('aria-label','Follow '+item.label);
+      input.checked=userPreferences.preferenceGraph?.competitionPreferences?.some(p=>p.competitionId===item.id&&p.enabled===true)===true;
+      input.onchange=()=>{const next=clonePreferences(userPreferences);next.preferenceGraph=PREFERENCE_SYSTEM.upsertCompetitionPreference(next.preferenceGraph,item.id,{enabled:input.checked,templateInheritedFromDomain:false});if(savePreferences(next,{deliberate:true}))void requestFeedRebuildAfterFollowChange();renderAll({preserveViewport:true});};
+      const image=document.createElement('img');image.src=item.logoUrl;image.alt='';image.width=40;image.height=40;image.loading='lazy';row.append(input,image,document.createTextNode(item.label));choices.append(row);
+    }
+    directory.append(choices);
+  }
   if (separatedEntityDirectory){
     appendDirectoryEntityTabs(directory,sportKey,filters);
   }
@@ -364,6 +392,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
   });
   field.appendChild(search);
   toolbar.appendChild(field);
+  if(sportKey==='rugby'&&chunk.competitions?.length)toolbar.append(buildDirectorySelect('Competition',competition||'',[['','All competitions'],...chunk.competitions.map(c=>[c.id,c.label])],id=>{saveFollowBrowse({scheduleScope:id?{competitionId:id}:null});renderFollowView();}));
   if (sportKey.startsWith("tennis") && filters.entityType==='athlete' && collectionsById.size){
     const listOptions = [["", "All players"], ...Array.from(collectionsById.values())
       .sort((first, second) => Number(first.sortOrder || 0) - Number(second.sortOrder || 0))
@@ -379,7 +408,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
       updateDirectoryFilters(sportKey, { birthCountryCode }); renderStandingsContext();
     }));
   }
-  if(sportKey.startsWith('cricket'))toolbar.appendChild(buildDirectorySelect('Format',filters.cricketFormat,[['Tests','Tests'],['ODIs','ODIs'],['T20Is','T20Is'],...(!sportKey.endsWith('-women')?[['BBL','BBL']]:[])],cricketFormat=>{updateDirectoryFilters(sportKey,{cricketFormat});renderStandingsContext();}));
+  if(sportKey.startsWith('cricket'))toolbar.appendChild(buildDirectorySelect('Format',filters.cricketFormat,[['Tests','Tests'],['ODIs','ODIs'],['T20Is','T20Is'],...(!sportKey.endsWith('-women')?[['BBL','BBL'],['Shield','Sheffield Shield'],['One Day Cup','One Day Cup']]:[])],cricketFormat=>{updateDirectoryFilters(sportKey,{cricketFormat});renderStandingsContext();}));
   const hasValues = allRecords.some(record => Number.isFinite(Number(record.marketValue ?? record.marketValueEur)));
   toolbar.appendChild(buildDirectorySelect("Sort", filters.sortMode, [
     ["table", allRecords.some(record => record.rank !== null) ? "Ranking / ladder" : "Ranking / A–Z"],
@@ -397,7 +426,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
   let directoryGroup='';
   records.slice(0,limit).forEach(record => {
     const curatedGroup=(chunk.browseGroups || []).find(group=>group.memberIds.includes(record.id));
-    const group=curatedGroup?.label || (record.teamKind==='national'||record.competitionScope==='international'?'International':record.teamKind==='club'||record.competitionScope==='domestic'?'Domestic':'Open competition');
+    const group=(competition&&chunk.competitions?.find(c=>c.id===competition)?.label)||curatedGroup?.label || (record.teamKind==='national'||record.competitionScope==='international'?'International':record.teamKind==='club'||record.competitionScope==='domestic'?'Domestic':'Open competition');
     if(group!==directoryGroup){directoryGroup=group;const heading=document.createElement('h3');heading.className='follow-directory-group';heading.textContent=group;list.appendChild(heading);}
     const row = document.createElement("div");
     row.className = "football-club-head follow-directory-row";
@@ -522,37 +551,37 @@ function renderFollowViewLoaded(){
   const raceOnly=state.sportId==='sport:horse-racing';
   if(raceOnly&&!['schedule','major-events'].includes(state.section))state.section='schedule';
   if(!userPreferences.followBrowse)saveFollowBrowse(state);
-  const female=entity=>/-women$/.test(entity.id)||['sport:aflw','sport:nrlw','sport:fiba-women','sport:netball'].includes(entity.id);
-  const gender=state.gender||(female({id:state.sportId})?'women':'men');
-  const sports=orderSelectorEntities(BASE_SPORT_SELECTOR_ENTITIES.filter(entity=>Number(entity.level)===2||['sport:aflw','sport:nrlw'].includes(entity.id)).filter(entity=>entity.id==='sport:horse-racing'||female(entity)===(gender==='women')));
-  const genderTabs=document.createElement('nav');genderTabs.className='follow-gender-tabs events-view-tabs';genderTabs.setAttribute('role','tablist');genderTabs.setAttribute('aria-label','Browse sports gender');
-  for(const [value,label]of [['men','Men'],['women','Women']]){const button=document.createElement('button');button.type='button';button.className='btn ghost'+(value===gender?' active':'');button.textContent=label;button.setAttribute('role','tab');button.setAttribute('aria-selected',String(value===gender));button.onclick=()=>{if(value===gender)return;const sportId=value==='women'?'sport:tennis-women':rankedFollowGridSports(BASE_SPORT_SELECTOR_ENTITIES.filter(e=>Number(e.level)===2&&!female(e)))[0]?.id||'sport:afl';const genderRoutes={...(state.genderRoutes||{}),[gender]:{sportId:state.sportId,categoryId:state.categoryId,section:state.section}};saveFollowBrowse({sportId,categoryId:'',section:'teams-players',...(genderRoutes[value]||{}),gender:value,genderRoutes});activeInspectorCodeId=null;renderFollowView();};genderTabs.append(button);}
-  for(const [index,button]of [...genderTabs.children].entries())button.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const target=event.key==='Home'?0:event.key==='End'?1:1-index;genderTabs.children[target].click();requestAnimationFrame(()=>container.querySelector('.follow-gender-tabs [aria-selected="true"]')?.focus({preventScroll:true}));});
-  container.insertBefore(genderTabs,retainedBar);
+  const palette=NOTHINGSPORTS_SPORT_PALETTE;
+  const sports=palette.palette(BASE_SPORT_SELECTOR_ENTITIES);
+  const rootId=palette.parent(state.sportId);
+  const root=sports.find(e=>e.id===rootId)||sports[0];
+  const options=palette.genders(root,SELECTOR_TAXONOMY.byId);
+  const legacyGender=/-women$/.test(state.sportId)||['sport:aflw','sport:nrlw'].includes(state.sportId)?'women':null;
+  const gender=state.genderBySport?.[root.id]||legacyGender||options[0][0];
+  if(state.sportId!==root.id){saveFollowBrowse({sportId:root.id,categoryId:state.sportId,genderBySport:{...(state.genderBySport||{}),[root.id]:gender}});state.sportId=root.id;}
+  const genderTabs=document.createElement('nav');genderTabs.className='follow-gender-tabs events-view-tabs';genderTabs.setAttribute('role','tablist');genderTabs.setAttribute('aria-label',root.label+' gender');
+  for(const [value,label]of options){const button=document.createElement('button');button.type='button';button.className='btn ghost'+(value===gender?' active':'');button.textContent=label;button.setAttribute('role','tab');button.setAttribute('aria-selected',String(value===gender));button.onclick=()=>{
+    const category=palette.genderEntity(root,value,SELECTOR_TAXONOMY.byId);
+    saveFollowBrowse({gender:value,genderBySport:{...(state.genderBySport||{}),[root.id]:value},categoryId:category.id===root.id?'':category.id,section:state.section,scheduleScope:null});
+    updateDirectoryFilters(root.id.slice(6),{genderCategory:value==='women'?'female':value==='men'?'male':''});activeInspectorCodeId=null;renderFollowView();
+  };genderTabs.append(button);}
   const primarySports=rankedFollowGridSports(sports);
-  if(gender==='women'&&!primarySports.length){const tennis=sports.find(e=>e.id==='sport:tennis-women');if(tennis)primarySports.push(tennis);}
   const primaryIds=primarySports.map(entity=>entity.id);
-  const gridFingerprint=gender+'|'+primaryIds.join('|');
+  const gridFingerprint=primaryIds.join('|');
   if(retainedBar&&retainedBar.dataset.sportOrder!==gridFingerprint){retainedBar.remove();}
   const currentBar=container.querySelector(':scope > .follow-sport-bar');
   if(!currentBar){
   const bar=document.createElement('nav');bar.className='follow-sport-bar';bar.setAttribute('aria-label','Choose sport');
   bar.dataset.sportOrder=gridFingerprint;
-  const primaryLabels={'sport:afl':'AFL','sport:nrl':'NRL','sport:rugby':'Rugby Union','sport:football':'Football','sport:cricket':'Cricket','sport:tennis':'Tennis','sport:motorsport':'Motorsport','sport:nba':'Basketball','sport:nbl':'NBL','sport:american-football':'NFL'};
-  const countByKey=new Map((followDirectoryManifest?.sports||[]).map(item=>[item.key,Number(item.recordCount||0)]));
-  const moreSports=sports.filter(entity=>!primaryIds.includes(entity.id)).sort((a,b)=>{
-    const priority=id=>id==='sport:american-football'?0:id==='sport:nbl'?1:2;
-    const priorityDifference=priority(a.id)-priority(b.id);if(priorityDifference)return priorityDifference;
-    const count=entity=>Math.max(...(entity.canonicalSportKeys||[]).map(key=>countByKey.get(key)||0),countByKey.get(entity.id.replace(/^sport:/,''))||0);
-    return count(b)-count(a) || Number(a.editorialOrder||999)-Number(b.editorialOrder||999);
-  });
+  const primaryLabels=Object.fromEntries(sports.map(e=>[e.id,e.label]));
+  const moreSports=sports.filter(entity=>!primaryIds.includes(entity.id));
   const addSportButton=(entity,label=entity.label,host=bar)=>{
     const button=document.createElement('button');button.type='button';button.className=`follow-sport-icon${entity.id===state.sportId?' active':''}`;
     button.dataset.followSport=entity.id;button.setAttribute('aria-pressed',String(entity.id===state.sportId));
     const sport={key:entity.preferenceKey||entity.sportKey||({ 'rugby-union':'rugby',basketball:'nba','afl-premiership':'afl','nrl-premiership':'nrl' })[entity.id.replace('sport:','')]||entity.id.replace('sport:','')};
-    const mark=document.createElement('span');mark.className='follow-sport-mark';renderEventIdentityMark(mark,sport,{...sportMetaForEvent(sport),label:entity.label});
+    const mark=document.createElement('span');mark.className='follow-sport-mark';mark.innerHTML=VECTOR_ASSETS.glyphMarkup(selectorEntityById(entity.id)?.glyph||sportMetaForEvent(sport).glyph);
     const text=document.createElement('span');text.textContent=label;button.append(mark,text);
-    button.addEventListener('click',()=>{host.closest('dialog')?.close();NOTHINGSPORTS_FOLLOW_NAV.closeMenu();saveFollowBrowse({sportId:entity.id,categoryId:'',section:entity.id==='sport:horse-racing'?'schedule':'teams-players',scheduleScope:null});activeInspectorCodeId=null;renderFollowView();});host.appendChild(button);
+    button.addEventListener('click',()=>{host.closest('dialog')?.close();NOTHINGSPORTS_FOLLOW_NAV.closeMenu();const remembered=followBrowseState().genderBySport?.[entity.id]||palette.genders(entity,SELECTOR_TAXONOMY.byId)[0][0],category=palette.genderEntity(entity,remembered,SELECTOR_TAXONOMY.byId);saveFollowBrowse({sportId:entity.id,categoryId:category.id===entity.id?'':category.id,gender:remembered,section:entity.id==='sport:horse-racing'?'schedule':'teams-players',scheduleScope:null});activeInspectorCodeId=null;renderFollowView();});host.appendChild(button);
     return button;
   };
   primarySports.forEach(entity=>addSportButton(entity,primaryLabels[entity.id]||entity.label));
@@ -567,8 +596,8 @@ function renderFollowViewLoaded(){
     currentBar.querySelectorAll('[data-follow-sport]').forEach(button=>{const selected=button.dataset.followSport===state.sportId;button.classList.toggle('active',selected);button.setAttribute('aria-pressed',String(selected));});
     currentBar.querySelector('.follow-more-trigger')?.classList.toggle('active',!primaryIds.includes(state.sportId));
   }
-  const root=selectorEntityById(state.sportId) || sports[0];
-  const children=(root.childIds || []).map(selectorEntityById).filter(Boolean).filter(e=>female(e)===(gender==='women'));
+  container.append(genderTabs);
+  const children=palette.categories(root,gender,SELECTOR_TAXONOMY.byId);
   if (children.length){
     const choices=document.createElement('nav');choices.className='follow-category-bar';choices.setAttribute('aria-label',`${root.label} categories`);
     const items=root.id==='sport:afl'?children:[{...root,label:`All ${root.label}`},...children];
@@ -576,11 +605,13 @@ function renderFollowViewLoaded(){
       const button=document.createElement('button');button.type='button';button.className=`btn ghost${state.categoryId===entity.id?' active':''}`;button.textContent=entity.label;
       button.onclick=()=>{saveFollowBrowse({categoryId:entity.id,section:'teams-players',scheduleScope:null});activeInspectorCodeId=null;renderFollowView();};choices.appendChild(button);
     });container.appendChild(choices);
-    if (!state.categoryId){
+    if (!state.categoryId&&gender!=='all'){
       saveFollowBrowse({categoryId:root.id==='sport:football'?root.id:children[0].id});
     }
   }
   const entity=followSelectedEntity();
+  const directoryKey=followDirectoryKey(entity),directoryGender=gender==='women'?'female':gender==='men'?'male':'';
+  if(directoryFilters(directoryKey).genderCategory!==directoryGender)updateDirectoryFilters(directoryKey,{genderCategory:directoryGender});
   const heading=document.createElement('h2');heading.textContent=entity.label;container.appendChild(heading);
   if (!codeInspectorManifest && !codeInspectorManifestLoading) void loadCodeInspectorManifest().then(()=>{if(activeTab==='follow') queueScrollIdleMutation(renderFollowView);}).catch(()=>{});
   const code=followInspectorCode(entity);
@@ -835,7 +866,7 @@ function rootSportIsFollowed(entity){
 
 function rankedFollowGridSports(sports){
   const affinity=new Map((followRatingAffinity.sports||[]).map(item=>[item.sportId,item]));
-  const score=entity=>affinity.get(entity.id)||[...(entity.childIds||[])].map(id=>affinity.get(id)).find(Boolean)||{count:0,lastInteractedAt:''};
+  const score=entity=>[entity.id,...(entity.paletteMemberIds||[]),...(entity.childIds||[])].map(id=>affinity.get(id)).filter(Boolean).sort((a,b)=>Number(b.count)-Number(a.count)||String(b.lastInteractedAt||'').localeCompare(String(a.lastInteractedAt||'')))[0]||{count:0,lastInteractedAt:''};
   return sports.filter(rootSportIsFollowed).sort((a,b)=>Number(score(b).count)-Number(score(a).count)||String(score(b).lastInteractedAt||'').localeCompare(String(score(a).lastInteractedAt||''))||Number(a.editorialOrder||999)-Number(b.editorialOrder||999)).slice(0,7);
 }
 
@@ -843,4 +874,452 @@ function followHasStandings(code){
   if (!code) return false;
   return code.hasStandings===true || followStandingsAvailability.get(code.id)===true || Boolean(codeInspectorChunk?.code?.id===code.id && codeInspectorChunk.standings?.length)
     || (CANONICAL_TAXONOMY.competitions || []).some(competition=>competition.supportsLadder && standingsSportKey(competition)===codeInspectorStandingsSportKey(code));
+}
+
+// Rankings presentation shares the deferred Follow surface.
+function standingsColumnsForCompetition(competition){
+  if (competition.standingsType === "leagueTable"){
+    return [
+      ["rank", "#"],
+      ["participant", "Team"],
+      ["played", "P"],
+      ["won", "W"],
+      ["drawn", "D"],
+      ["lost", "L"],
+      ["pointsDifference", "GD"],
+      ["ladderPoints", "Pts"],
+    ];
+  }
+  if (competition.standingsType === "drivers"){
+    if (competition.competitionFamilyId === "family:world-rally-championship"){
+      return [["rank", "#"], ["participant", "Driver"], ["points", "Pts"]];
+    }
+    return [
+      ["rank", "#"],
+      ["participant", "Driver"],
+      ["team", "Team"],
+      ["points", "Pts"],
+    ];
+  }
+  if (competition.standingsType === "constructors"){
+    return [
+      ["rank", "#"],
+      ["participant", "Team"],
+      ["points", "Pts"],
+    ];
+  }
+  if (competition.standingsType === "coDrivers"){
+    return [["rank", "#"], ["participant", "Co-driver"], ["points", "Pts"]];
+  }
+  if (competition.standingsType === "manufacturers"){
+    return [["rank", "#"], ["participant", "Manufacturer"], ["points", "Pts"]];
+  }
+  if (competition.standingsType === "singlesRanking"){
+    return [
+      ["rank", "#"],
+      ["participant", "Competitor"],
+      ["points", "Pts"],
+    ];
+  }
+  if (competition.standingsType === "conferenceStandings"){
+    return [
+      ["rank", "#"],
+      ["participant", "Team"],
+      ["won", "W"],
+      ["lost", "L"],
+      ["winPercentage", "PCT"],
+      ["gamesBehind", "GB"],
+    ];
+  }
+  if (competition.standingsType === "medalTable"){
+    return [
+      ["rank", "#"],
+      ["participant", "Team"],
+      ["gold", "G"],
+      ["silver", "S"],
+      ["bronze", "B"],
+      ["total", "Total"],
+    ];
+  }
+  if (competition.sportDomainId === "sport:afl"){
+    return [
+      ["rank", "#"],
+      ["participant", "Team"],
+      ["played", "P"],
+      ["won", "W"],
+      ["lost", "L"],
+      ["drawn", "D"],
+      ["percentage", "%"],
+      ["ladderPoints", "Pts"],
+    ];
+  }
+  return [
+    ["rank", "#"],
+    ["participant", "Team"],
+    ["played", "P"],
+    ["won", "W"],
+    ["lost", "L"],
+    ["pointsDifference", "+/−"],
+    ["ladderPoints", "Pts"],
+  ];
+}
+
+function appendStandingsTable(module, competition, snapshot, visibility){
+  const columns = standingsColumnsForCompetition(competition);
+  const followed = followedStandingsParticipantIds();
+  const entries = standingsEntriesForVisibility(snapshot, visibility, followed);
+  const wrap = document.createElement("div");
+  wrap.className = "standings-table-wrap";
+  const table = document.createElement("table");
+  table.className = "standings-table";
+  const thead = document.createElement("thead");
+  const headingRow = document.createElement("tr");
+  columns.forEach(([, label]) => {
+    const th = document.createElement("th");
+    th.scope = "col";
+    th.textContent = label;
+    headingRow.appendChild(th);
+  });
+  thead.appendChild(headingRow);
+  table.appendChild(thead);
+  const tbody = document.createElement("tbody");
+  entries.forEach(entry => {
+    const row = document.createElement("tr");
+    row.classList.toggle("followed", followed.has(entry.participantId));
+    columns.forEach(([key]) => {
+      const cell = document.createElement("td");
+      if (key === "participant"){
+        const participant = standingsParticipant(entry.participantId);
+        if (participant?.countryCode && ["competitor", "pair"].includes(participant.type)){
+          cell.appendChild(buildAthleteName(participant, { className: "standings-athlete" }));
+        } else {
+          cell.textContent = standingsParticipantName(entry.participantId);
+        }
+        if (followed.has(entry.participantId)){
+          const marker = document.createElement("span");
+          marker.className = "standings-followed-tag";
+          marker.textContent = "Following";
+          cell.appendChild(marker);
+        }
+      } else if (key === "team"){
+        cell.textContent = standingsTeamName(entry);
+      } else if (key === "winPercentage" && Number.isFinite(Number(entry[key]))){
+        cell.textContent = Number(entry[key]).toFixed(3).replace(/^0/, "");
+      } else if (key === "gamesBehind" && Number(entry[key]) === 0){
+        cell.textContent = "—";
+      } else if (key === "points" && Number.isFinite(Number(entry[key]))){
+        cell.textContent = Number(entry[key]).toLocaleString("en-AU");
+      } else {
+        cell.textContent = entry[key] ?? "—";
+      }
+      row.appendChild(cell);
+    });
+    tbody.appendChild(row);
+  });
+  table.appendChild(tbody);
+  wrap.appendChild(table);
+  module.appendChild(wrap);
+}
+
+function buildStandingsFilter(){
+  const available = standingsFilterSportKeys();
+  const selected = new Set(selectedStandingsSportKeys());
+  const panel = document.createElement("section");
+  panel.className = "standings-filter-panel";
+  panel.setAttribute("aria-label", "Standings filter");
+  const head = document.createElement("div");
+  head.className = "standings-filter-head";
+  const title = document.createElement("h2");
+  title.textContent = "Filter standings";
+  const actions = document.createElement("div");
+  const selectAll = document.createElement("button");
+  selectAll.type = "button";
+  selectAll.className = "btn ghost";
+  selectAll.textContent = "Select all";
+  selectAll.addEventListener("click", () => setAllStandingsSportKeys(true));
+  const deselectAll = document.createElement("button");
+  deselectAll.type = "button";
+  deselectAll.className = "btn ghost";
+  deselectAll.textContent = "Deselect all";
+  deselectAll.addEventListener("click", () => setAllStandingsSportKeys(false));
+  actions.append(selectAll, deselectAll);
+  head.append(title, actions);
+  const choices = document.createElement("div");
+  choices.className = "standings-filter-choices";
+  available.forEach(key => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `standings-filter-choice${selected.has(key) ? " active" : ""}`;
+    button.setAttribute("role", "checkbox");
+    button.setAttribute("aria-checked", String(selected.has(key)));
+    button.textContent = SPORT_META[key]?.label || key.toUpperCase();
+    button.addEventListener("click", () => toggleStandingsSportKey(key));
+    choices.appendChild(button);
+  });
+  panel.append(head, choices);
+  return panel;
+}
+
+function buildStandingsInnerTabs(){
+  const activeView = readStandingsDirectorySession().activeView;
+  const tabs = document.createElement("div");
+  tabs.className = "standings-inner-tabs";
+  tabs.setAttribute("role", "tablist");
+  [["tables", "Tables"], ["directory", "Follow Teams & Players"]].forEach(([view, label]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `standings-inner-tab${activeView === view ? " active" : ""}`;
+    button.setAttribute("role", "tab");
+    button.setAttribute("aria-selected", String(activeView === view));
+    button.textContent = label;
+    button.addEventListener("click", () => {
+      updateStandingsDirectorySession({ activeView: view });
+      renderStandingsContext();
+    });
+    tabs.appendChild(button);
+  });
+  return tabs;
+}
+
+function renderStandingsContextLoaded(options = {}){
+  const embedded = Boolean(options.container);
+  const container = options.container || document.getElementById("standingsContext");
+  if (!container) return;
+  container.innerHTML = "";
+  const scrollScope = container.id || options.sectionLabel || "standings";
+  container.dataset.scrollList = `standings:${scrollScope}`;
+  if (!embedded && activeTab === "follow"){
+    renderFollowView();
+    return;
+  }
+  if (!embedded && activeTab !== "standings") return;
+  if(!globalThis.chooseStandingsCategory){
+    container.textContent="Loading rankings…";loadDeferredScript("config/surface-category-ui.js?v=403").then(()=>renderStandingsContext(options)).catch(()=>{container.textContent="Rankings could not load.";});return;
+  }
+  const competitions = chooseStandingsCategory(options.competitions || activeStandingsCompetitions(),container,options);
+  const sectionLabel = options.sectionLabel || "Standings";
+  if (!embedded){
+    container.appendChild(buildStandingsInnerTabs());
+    if (readStandingsDirectorySession().activeView === "directory"){
+      renderTeamsAndPlayersDirectory(container);
+      return;
+    }
+    container.appendChild(buildStandingsFilter());
+  }
+  if (!competitions.length){
+    const empty = document.createElement("div");
+    empty.className = "standings-empty";
+    empty.textContent = "No supported sports are selected in the filters above.";
+    container.appendChild(empty);
+    return;
+  }
+
+  if (!userPreferences.showSpoilers && !standingsRevealApproved){
+    const module = document.createElement("section");
+    module.className = "standings-module standings-withheld";
+    const copy = document.createElement("div");
+    const title = document.createElement("h2");
+    title.textContent = sectionLabel;
+    const detail = document.createElement("p");
+    detail.textContent = "Hidden while Results is off because standings can reveal recent outcomes.";
+    copy.append(title, detail);
+    const reveal = document.createElement("button");
+    reveal.className = "btn ghost";
+    reveal.type = "button";
+    reveal.textContent = "Reveal standings";
+    reveal.addEventListener("click", () => confirmStandingsReveal(renderAll));
+    module.append(copy, reveal);
+    container.appendChild(module);
+    return;
+  }
+
+  if (!canonicalSportsData){
+    const module = document.createElement("section");
+    module.className = "standings-module";
+    const title = document.createElement("h2");
+    title.textContent = sectionLabel;
+    const status = document.createElement("p");
+    status.textContent = canonicalSportsDataError
+      ? `${sectionLabel} data is unavailable, so this area has been withheld.`
+      : "Loading current standings…";
+    module.append(title, status);
+    if (canonicalSportsDataError){
+      const retry = document.createElement("button");
+      retry.className = "btn ghost";
+      retry.type = "button";
+      retry.textContent = "Try again";
+      retry.addEventListener("click", () => {
+        canonicalSportsDataError = null;
+        loadCanonicalSportsData();
+        renderStandingsContext(options);
+      });
+      module.appendChild(retry);
+    } else {
+      loadCanonicalSportsData();
+    }
+    container.appendChild(module);
+    return;
+  }
+
+  const competitionsBySport = new Map();
+  competitions.forEach(competition => {
+    const sportKey = standingsSportKey(competition);
+    const sportCompetitions = competitionsBySport.get(sportKey) || [];
+    sportCompetitions.push(competition);
+    competitionsBySport.set(sportKey, sportCompetitions);
+  });
+
+  competitionsBySport.forEach((sportCompetitions, sportKey) => {
+    const sportSection = document.createElement("section");
+    sportSection.className = "standings-sport-section";
+    sportSection.dataset.sportSection = sportKey;
+    const heading = document.createElement("div");
+    heading.className = "standings-sport-heading";
+    heading.innerHTML = `${glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter")}<span>${SPORT_META[sportKey]?.label || sportKey.toUpperCase()}</span>`;
+    sportSection.appendChild(heading);
+    const sportContent = document.createElement("div");
+    sportContent.className = "standings-sport-content";
+    sportContent.id = `ranking-standings-${sportKey}`;
+    sportContent.dataset.scrollList = `standings:${scrollScope}:${sportKey}`;
+
+    sportCompetitions.forEach(competition => {
+      const module = document.createElement("section");
+      module.className = "standings-module";
+      const moduleScrollKey = `standings:${scrollScope}:${competition.id}`;
+      module.dataset.scrollKey = moduleScrollKey;
+      const head = document.createElement("div");
+      head.className = "standings-head";
+      const copy = document.createElement("div");
+      const title = document.createElement("h2");
+      title.textContent = competition.name;
+      const snapshot = latestStandingsSnapshot(competition.id);
+      const detail = document.createElement("p");
+      detail.textContent = snapshot?.snapshotTimeUtc
+        ? `Updated ${new Date(snapshot.snapshotTimeUtc).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}${snapshot.roundLabel ? ` · ${snapshot.roundLabel}` : ""}`
+        : "No current standings snapshot is available.";
+      copy.append(title, detail);
+      const pin = document.createElement("button");
+      const pinned = Boolean(standingsPinTimestamp(competition.id));
+      pin.type = "button";
+      pin.className = `standings-pin${pinned ? " active" : ""}`;
+      pin.setAttribute("aria-pressed", String(pinned));
+      pin.textContent = pinned ? "Pinned" : "Pin";
+      pin.addEventListener("click", () => toggleStandingsPin(competition.id));
+      head.append(copy, pin);
+      module.appendChild(head);
+      if (!snapshot?.entries?.length){
+        const withheld = document.createElement("p");
+        withheld.textContent = "No valid data is available, so this standings module has been withheld.";
+        module.appendChild(withheld);
+      } else {
+        const expanded = standingsCompetitionExpansion[competition.id] === true;
+        const summaryEntries = standingsEntriesForVisibility(snapshot, "summary");
+        appendStandingsTable(module, competition, snapshot, expanded ? "full" : "summary");
+        const freshness = document.createElement("p");
+        freshness.className = "standings-freshness-note";
+        freshness.textContent = snapshot.metadata?.roundStatus === "in-progress"
+          ? "This round is ongoing, so positions may change after the next completed match. Standings refresh periodically and may briefly differ from official sources due to update delays."
+          : "Standings refresh periodically and may briefly differ from official sources due to update delays.";
+        module.appendChild(freshness);
+        if (summaryEntries.length < snapshot.entries.length){
+          const expander = document.createElement("button");
+          expander.type = "button";
+          expander.className = "standings-table-expander";
+          expander.dataset.standingsExpander = competition.id;
+          expander.setAttribute("aria-expanded", expanded ? "true" : "false");
+          expander.setAttribute(
+            "aria-label",
+            expanded
+              ? `Collapse ${competition.name} to Top 3 plus followed`
+              : `Expand ${competition.name} to the full standings`
+          );
+          expander.innerHTML = `<span>${expanded ? "Full standings" : "Top 3 + followed"}</span>${glyphMarkup("ui:chevron-right")}`;
+          expander.addEventListener("click", () => {
+            const liveModule = Array.from(document.querySelectorAll("[data-scroll-key]"))
+              .find(element => element.dataset.scrollKey === moduleScrollKey) || module;
+            mutateWithScrollContinuity(liveModule, () => {
+              standingsCompetitionExpansion[competition.id] = standingsCompetitionExpansion[competition.id] !== true;
+              renderStandingsContext(options);
+            }, {
+              restoreFocus:true,
+              focusTarget:`[data-scroll-key="${CSS.escape(moduleScrollKey)}"] [data-standings-expander="${CSS.escape(competition.id)}"]`,
+            });
+          });
+          module.appendChild(expander);
+        }
+      }
+      sportContent.appendChild(module);
+    });
+    sportSection.appendChild(sportContent);
+    container.appendChild(sportSection);
+  });
+}
+
+
+function standingsTeamName(entry){
+  return entry?.teamParticipantId ? standingsParticipantName(entry.teamParticipantId) : "—";
+}
+
+function followedStandingsParticipantIds(){
+  return new Set((userPreferences.preferenceGraph?.entityFollows || [])
+    .filter(item => item.followLevel === "follow" || item.followLevel === "priority")
+    .map(item => item.participantId));
+}
+
+function standingsEntriesForVisibility(snapshot, visibility, followedParticipantIds = followedStandingsParticipantIds()){
+  const entries = Array.isArray(snapshot?.entries) ? snapshot.entries : [];
+  if (visibility !== "summary") return entries.slice();
+  const selected = entries.slice(0, 3);
+  const selectedIds = new Set(selected.map(entry => entry.participantId));
+  entries.forEach(entry => {
+    if (followedParticipantIds.has(entry.participantId) && !selectedIds.has(entry.participantId)){
+      selected.push(entry);
+      selectedIds.add(entry.participantId);
+    }
+  });
+  return selected.sort((first, second) => Number(first.rank || 0) - Number(second.rank || 0));
+}
+
+
+function standingsPinTimestamp(competitionId, preferences = userPreferences){
+  return preferences?.standings?.pinTimestamps?.[competitionId] || null;
+}
+
+function toggleStandingsPin(competitionId){
+  const pins = { ...(userPreferences.standings?.pinTimestamps || {}) };
+  if (pins[competitionId]) delete pins[competitionId];
+  else pins[competitionId] = new Date().toISOString();
+  savePreferences({
+    ...userPreferences,
+    standings: { ...(userPreferences.standings || {}), pinTimestamps: pins },
+  });
+  renderAll({ preserveViewport: true });
+}
+
+function standingsFrothRank(competition){
+  const preference = userPreferences.preferenceGraph?.domainPreferences?.find(item => (
+    item.sportDomainId === (competition.preferenceDomainId || competition.sportDomainId)
+  ));
+  return { "template:froth": 3, "template:like": 2, "template:casual": 1, "template:custom": 1 }[preference?.templateId] || 0;
+}
+
+function orderStandingsCompetitions(competitions){
+  return competitions.slice().sort((first, second) => {
+    const firstPin = standingsPinTimestamp(first.id);
+    const secondPin = standingsPinTimestamp(second.id);
+    if (Boolean(firstPin) !== Boolean(secondPin)) return firstPin ? -1 : 1;
+    const frothGap = standingsFrothRank(second) - standingsFrothRank(first);
+    if (frothGap) return frothGap;
+    if (firstPin && secondPin){
+      const pinGap = Date.parse(secondPin) - Date.parse(firstPin);
+      if (pinGap) return pinGap;
+    }
+    return String(first.name).localeCompare(String(second.name));
+  });
+}
+
+function activeStandingsCompetitions(){
+  const selected = new Set(selectedStandingsSportKeys());
+  return orderStandingsCompetitions(rankingCompetitionsForStandings()
+    .filter(competition => selected.has(standingsSportKey(competition))));
 }

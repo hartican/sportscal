@@ -44,7 +44,7 @@ const teamReason = followFirst.reasonForEvent({ key:"afl", participantIds:["team
 assert.equal(teamReason.label, "Because you follow Test Club");
 assert.equal(teamReason.entityKind, "team");
 assert.equal(teamReason.displayTag, false, "team follows remain eligibility-only context");
-const playerReason = followFirst.reasonForEvent({ key:"rugby", participantIds:["competitor:rugby:test"] }, followed, { participantLabel:() => "Test Player" });
+const playerReason = followFirst.reasonForEvent({ key:"rugby", competitionScope:'international', participantIds:["competitor:rugby:test"] }, followed, { participantLabel:() => "Test Player" });
 assert.equal(playerReason.label, "Because you follow Test Player");
 assert.equal(playerReason.entityKind, "athlete");
 assert.equal(playerReason.displayTag, true, "only a directly followed athlete gets visible context");
@@ -53,7 +53,7 @@ assert.equal(followFirst.reasonForEvent({ key:"rugby", competitionScope:"interna
 const australiaReason = followFirst.reasonForEvent({ key:"rugby", competitionScope:"international", representativeCountryCodes:["AUS"] }, followed);
 assert.equal(australiaReason, null, "Rugby international fixtures require explicit team or competition follows");
 assert.equal(followFirst.reasonForEvent({ key:"football", majorEventId:"fifa-world-cup", venue:"Leeds" }, { ...followed, followedSports:["football"] }, { locationMatches:true }), null, "sport, event and location metadata must not independently make a Feed card eligible");
-const fiveOfFive = { key:"rugby", eventId:"fixture:five", date:"2026-09-01", time:"19:30", stakesScore:5, cardKind:"fixture" };
+const fiveOfFive = { key:"rugby", competitionScope:'international', eventId:"fixture:five", date:"2026-09-01", time:"19:30", stakesScore:5, cardKind:"fixture" };
 assert.equal(followFirst.reasonForEvent(fiveOfFive, followed),null,"legacy stakes must not confer eligibility");
 assert(followFirst.reasonForEvent({...fiveOfFive,round:"Grand Final"}, followed),"a source-labelled Rugby final is admitted within a followed sport");
 assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, tournamentParent:true }, followed), null, "tournament parents must never qualify through a sport follow");

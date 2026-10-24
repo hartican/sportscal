@@ -119,12 +119,15 @@
     return decision ? decision === "excluded" : (preferences?.followFirst?.excludedMajorEventIds || []).some(id=>eventFamilyIds(event).includes(id));
   }
   function activeEligible(event){
+    const cricket=globalThis.NOTHINGSPORTS_CRICKET_COVERAGE||(typeof require==='function'?require('./cricket-coverage'):null),rugby=globalThis.NOTHINGSPORTS_RUGBY_COVERAGE||(typeof require==='function'?require('./rugby-coverage'):null);
+    if(cricket&&!cricket.allowed(event)||rugby&&!rugby.allowed(event))return false;
     if(!sportKey(event).startsWith('tennis'))return true;
     const levels=[event?.tournamentLevel,event?.level,event?.competitionLevel,...(event?.tourCategories||[]).map(t=>t.level)].filter(Boolean).join(' ');
     return !/250|125|challenger|itf|atp_challenger/i.test(levels+' '+String(event?.competitionId||''));
   }
   function scheduleVisible(event,preferences,collections={}){
     if(!activeEligible(event))return false;
+    if(event.cardType==='golf_session'&&(event.golfMajorCalendar||['players-championship','australian-open-golf','australian-pga'].includes(event.eventFamilyId)))return true;
     const key=sportKey(event),ids=participantIds(event);
     if(!key.startsWith('tennis')&&!['golf','golf-women','masters'].includes(key)||ids.some(id=>id.startsWith('team:'))||event.contestUnit==='tie')return true;
     if(key.startsWith('tennis')&&/^(?:(?:men.s|women.s|singles|doubles|mixed|championship|grand)\s+)*(?:quarter[ -]?finals?|semi[ -]?finals?|finals?|QF|SF)$/i.test(String(event.roundLabel||event.round||event.stage||'').trim()))return true;
@@ -218,11 +221,13 @@
       && event.published !== false && status !== "unpublished");
   }
 
+  function requireGroup(event){return (globalThis.NOTHINGSPORTS_MULTISESSION||(typeof require==='function'?require('./multisession-events'):null))?.group(event);}
   function isChampionshipMarquee(event){
     if (event?.majorEventMarker || event?.tournamentParent || event?.cardKind === "event" || ["tournament", "major_event", "ticket_sale"].includes(event?.kind)) return false;
     const competition = String(event?.competitionId || "").toLowerCase();
     const key = sportKey(event);
     if (/^competition:wrc(?:-\d{4})?$/.test(competition) || key === "wrc") return true;
+    if(['motogp','supercars'].includes(key)&&requireGroup(event)&&!isPractice(event))return true;
     if(key==='motogp')return !isPractice(event)&&/race|sprint|qualifying|grand prix/i.test([event.sessionType,event.name].join(' '));
     if(key==='sailgp')return !isPractice(event);
     if(key==='lemans'&&event.lemansCalendar===true)return ['qualifying','hyperpole','race-start','race-finish'].includes(event.sessionType)&&Boolean(event.calendarProvenance?.sourceUrl);
@@ -239,7 +244,7 @@
 
   function feedEligibleSession(event){
     if(sportKey(event)==='dakar'&&event.dakarCalendar===true&&!(['stage','prologue'].includes(event.sessionType)))return false;
-    return !(["f1","motogp","lemans"].includes(sportKey(event)) && isPractice(event));
+    return !(sportKey(event)==="lemans" && isPractice(event));
   }
 
   function isFinalsOrKnockout(event){
@@ -273,12 +278,14 @@
       // Retain the tournament identity for pins and confirmed golfer entries.
       // Broad Golf already receives its published rounds, without a fifth card.
       if(event.golfMajorOverview===true)return false;
+      if(event.cardType==='golf_session'&&explicitEventFollow)return true;
       return presidentsCup(event)?(explicitEventFollow||competitionFollow&&event.tournamentParent===true):competitionFollow&&golfMajor(event)&&(!australiansOnly||hasAustralianParticipant(event));
     }
     if(participantFollow&&participantFeedEligible(event))return true;
     if(sportFollow && (!sportKey(event).startsWith('tennis')||event.contestUnit==='tie') && isFinalsOrKnockout(event))return true;
     if(!sportingFixture(event))return false;
-    if(sportKey(event)==="f1" && competitionFollow)return true;
+    if(sportKey(event)==='f1'&&competitionFollow)return true;
+    if(['motogp','supercars'].includes(sportKey(event))&&competitionFollow&&requireGroup(event))return true;
     if(sportKey(event).startsWith("tennis"))return event.contestUnit==='tie'&&competitionFollow&&tennisModel().isFinal(event);
     if(explicitEventFollow)return isMarquee(event);
     if(["cricket","rugby"].includes(sportKey(event)))return false;

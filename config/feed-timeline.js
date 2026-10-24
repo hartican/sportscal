@@ -39,6 +39,7 @@
     return !todayOverview(event,now)&&!confirmedLive(event,now)&&(status(event,now)==='past'||Number.isFinite(start)&&start<=+now);
   }
   function orderToday(events,now=new Date()){
+    if(events.some(e=>e.multisessionOccurrence))return events.slice().sort((a,b)=>sortTime(a)-sortTime(b)||calendar.idFor(a).localeCompare(calendar.idFor(b)));
     const groups=[[],[],[],[]];for(const event of events.slice().sort((a,b)=>sortTime(a)-sortTime(b)||calendar.idFor(a).localeCompare(calendar.idFor(b))))groups[todayOverview(event,now)?0:confirmedLive(event,now)?2:beforeNow(event,now)?1:3].push(event);return groups.flat();
   }
   function normalizedStatus(event,now=new Date()){

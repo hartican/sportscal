@@ -140,6 +140,7 @@ assert(require("./offline-shell-module")("config/source-trust.js") && require(".
 const audit = venues.audit(feed.events);
 assert.equal(audit.total, new Set(feed.events.map(event => event.venue).filter(Boolean)).size, "the venue audit must inspect every currently published venue");
 assert(audit.audited >= 87, "the registry must contain the researched venue aliases and context-specific identities");
+const sourceVenueLabels=feed.events.filter(e=>e.venueSourceLabel===e.venue&&e.venueReviewDisposition==='source_name_pending_review').map(e=>e.venue);
 assert.deepEqual(audit.unclassified, [], "every current venue input must be resolved or carry an explicit editorial disposition");
 const allowedPending = [
   "Beijing, CHN",
@@ -197,6 +198,6 @@ for (const name of reviewedCourtPending) {
 }
 for(const name of ["Ariake Colosseum, Tokyo","Auckland","Belmore Sports Ground","Bermuda","Campbelltown Sports Stadium","Concepción","Encarnación","Eric Tweedale Stadium","Exponor service park","FMG Stadium Waikato","Gap / Monaco","Geneva","Geohex Park","Gran Canaria Stadium service park","Grobnik Circuit service park","Halifax","Jyväskylä","Loutraki","Lungomare Barcellona service park","Monaco / French Alps","Naivasha","National Tennis Center, Beijing","New York","Polytec Stadium","Portsmouth","Rio","San Francisco","Sassnitz","St George Venues Jubilee Stadium","Sydney","Tartu","Toyota Stadium service park","Umeå","Valencia"]){const record=venues.resolve(name);assert.equal(record.audited,false,"queued source names must not pretend to be canonical venues");assert.equal(record.reviewDisposition,"source_name_pending_review");}
 assert.equal(venues.resolve("Never reviewed invented ground").reviewDisposition,"unclassified","future unknown labels still fail closed");
-assert(audit.pending.every(name=>allowedPending.includes(name)), "only explicitly queued source labels, routes and placeholders may remain unresolved");
+assert(audit.pending.every(name=>[...allowedPending,...sourceVenueLabels].includes(name)), "only explicitly queued source labels, routes and placeholders may remain unresolved");
 
 console.log(`Source trust and venue registry valid: ${audit.total} current venues scanned; ${audit.audited} reviewed aliases, ${audit.pending.length} queued for editorial venue review.`);

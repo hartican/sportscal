@@ -3,7 +3,7 @@
 const assert=require("node:assert/strict");
 const {refreshDueSources,refreshInterval,contentHash,overlaySnapshots,createSnapshotStore}=require("../lib/live-fixtures");
 const now=new Date("2026-09-08T00:00:00Z");
-const event={id:"match",key:"rugby",name:"Test",startTimeUtc:"2026-09-08T00:10:00Z",status:"scheduled"};
+const event={id:"match",key:"rugby",competitionScope:'international',name:"Test",startTimeUtc:"2026-09-08T00:10:00Z",status:"scheduled"};
 assert.equal(refreshInterval([event],now),120000);
 assert.equal(refreshInterval([{...event,status:"live"}],now),120000);
 assert.equal(refreshInterval([{...event,startTimeUtc:"2026-10-01T00:00:00Z"}],now),30*60000);
