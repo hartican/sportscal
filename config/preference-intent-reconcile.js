@@ -19,7 +19,8 @@
     narrativeIntensity:value=>Number.isFinite(value)&&value>=0&&value<=5,
     editorialSensitivity:value=>['low','medium','high'].includes(value),reminderDefault:value=>['allFollowed','importantOnly','off'].includes(value),
     scopedCompetitionIds:strings,scopedTaxonomyNodeIds:strings};
-  const entityFields={profileId:text,participantId:text,followLevel:value=>['follow','priority','unfollow','mute'].includes(value)};
+  const entityFields={profileId:text,participantId:text,followLevel:value=>['follow','priority','unfollow','mute'].includes(value),
+    cricketFormats:value=>strings(value)&&value.every(format=>['Tests','ODIs','T20Is','BBL'].includes(format))};
 
   function emit(observe,site,reason,side=null,family=null,decision='held',scope={}){
     try{const fact=root.NOTHINGSPORTS_SYNC_DIAGNOSTIC?.guardFact({site,reason,side,family,decision,...scope});if(fact)observe?.(fact);}catch(_error){}

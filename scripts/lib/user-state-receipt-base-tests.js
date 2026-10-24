@@ -6,6 +6,11 @@ const helper={module:{exports:{}},require:createRequire(file),__dirname,console,
 vm.runInNewContext(fs.readFileSync(file,'utf8')+'\nmodule.exports.receiptProbe={sources,context};',helper,{filename:file});
 const {sources,context}=helper.module.exports.receiptProbe,profile=require('../../config/profile-storage'),sync=require('../../config/user-state-sync'),transport=require('../../config/server-sync'),follow=require('../../config/follow-first');
 const localApi=require('./local-user-state-api'),systems=require('../../config/preference-system'),clone=value=>JSON.parse(JSON.stringify(value));
+const cricket=require('../../config/cricket-coverage'),cricketId='team:cricket:australia',bblId='team:cricket:sydney-sixers';
+const cricketCases=['cricket-add','cricket-remove-format','cricket-last-OFF','cricket-BBL-alias','cricket-retain-base','cricket-retain-remote','cricket-remove-field','cricket-retain-remote-absence','cricket-writer-order','cricket-conflict','cricket-empty-conflict','cricket-order-conflict','cricket-invalid-enum','cricket-invalid-type','cricket-invalid-duplicate','cricket-invalid-null','cricket-invalid-base','cricket-invalid-remote','cricket-unknown-field','cricket-cas-disjoint','cricket-cas-conflict','new-receipt-cricket','normalization-cricket-unacknowledged'];
+function formatChoice(preferences,selected,enabled=true,id=cricketId){return cricket.setFormatFollow(preferences,id,selected,enabled);}
+function cricketRow(state,id=cricketId){return entities(state).find(row=>row.participantId===id);}
+const choice=record=>{const result=clone(record);delete result.profileId;return result;};
 const entity='team:football:australian-championship:11255',other='team:football:epl:2';
 const entities=state=>state.preferences.preferenceGraph.entityFollows,domains=state=>state.preferences.preferenceGraph.domainPreferences;
 const cases=[
@@ -13,7 +18,7 @@ const cases=[
  'domain-OFF','scoped-empty','remote-empty','entity-overlap','domain-overlap','deletion-versus-edit','local-edit-versus-deletion',
  'unknown-root','unknown-graph','unknown-record','unknown-local-view','malformed-local-view','malformed-record','duplicate-entity','duplicate-alias','duplicate-domain','missing-array','non-array',
  'notification-conflict','local-OFF-outside','invalid-identity','invalid-remote-clock','unknown-base','invalid-base-clock','cas-disjoint','cas-overlap','new-receipt-during-ACK','new-receipt-same-field','new-receipt-unknown','ordinary-settings-theme','ordinary-settings-OFF','ordinary-standings-empty','ordinary-settings-unknown','ordinary-settings-view','ordinary-bookkeeping','new-receipt-late-settings','new-receipt-late-bookkeeping','normalization-unacknowledged','normalization-strict-unacknowledged','normalization-domain-unacknowledged','normalization-empty-unacknowledged','normalization-R2-unacknowledged','normalization-acknowledged',
- 'late-owner-read','late-generation-read','late-owner-ACK','late-generation-ACK','helper-unavailable',
+ 'late-owner-read','late-generation-read','late-owner-ACK','late-generation-ACK','helper-unavailable',...cricketCases,
 ];
 // Exercise the real apply function and real profile/storage writes for ACK
 // acceptance controls. Rendering, optional Feed callbacks and UI normalization
@@ -36,14 +41,18 @@ function installPersistedApply(c,html,desired){
 }
 module.exports=async function receiptBaseTests(){
  const results=[];
- for(const kind of cases){
+ const selected=process.env.RECEIPT_BASE_CASE?cases.filter(kind=>kind===process.env.RECEIPT_BASE_CASE):cases;
+ assert(selected.length,'known receipt-base case');
+ for(const kind of selected){
   const api=localApi('A');
   const graph=systems.createPreferenceGraph({profileId:'local-A',domainIds:['sport:football']});
   graph.entityFollows=[{participantId:entity,followLevel:'follow'}];
   graph.domainPreferences=[systems.expandTemplate('local-A','sport:football','template:like',{scopedCompetitionIds:['competition:football:epl']})];
-  const preferences=follow.migratePreferences({version:27,onboardingComplete:true,standings:{selectedSportKeys:['football']},theme:'day',showSpoilers:false,feedCompact:false,followBrowse:{sportId:'sport:football',section:'teams-players',page:0},followedSports:[],selectedSelectorEntityIds:[],
+  let preferences=follow.migratePreferences({version:27,onboardingComplete:true,standings:{selectedSportKeys:['football']},theme:'day',showSpoilers:false,feedCompact:false,followBrowse:{sportId:'sport:football',section:'teams-players',page:0},followedSports:[],selectedSelectorEntityIds:[],
    followFirst:{startupMeta:{sports:[]},notifications:{enabled:kind==='ordinary-settings-OFF',userChoice:kind==='ordinary-settings-OFF'}},
    preferenceGraph:graph});
+  if(cricketCases.includes(kind)&&!['cricket-add','cricket-BBL-alias','cricket-retain-remote','new-receipt-cricket'].includes(kind))preferences=formatChoice(preferences,'Tests');
+  if(['cricket-remove-format','cricket-writer-order','cricket-order-conflict'].includes(kind))preferences=formatChoice(preferences,'ODIs');
   api.seed({preferences,profile:{},eventUserState:{},eventSpoilerState:{},archivedEvents:[],ratings:{}});
   const base=api.state(),desired=clone(base),remote=clone(base);
   desired.preferences.followBrowse={sportId:'sport:cricket',section:'schedule',scheduleScope:{codeId:'sport:cricket',tournamentId:'',competitionId:'test',label:'Test'}};
@@ -54,6 +63,28 @@ module.exports=async function receiptBaseTests(){
   entities(remote).push({participantId:other,followLevel:'follow'});
   domains(remote).push(systems.expandTemplate('local-B','sport:cricket','template:froth'));
   let held=false,late=false;
+  if(cricketCases.includes(kind)){
+   if(['cricket-add','new-receipt-cricket'].includes(kind))desired.preferences=formatChoice(desired.preferences,'Tests');
+   if(kind==='cricket-BBL-alias')desired.preferences=formatChoice(desired.preferences,'BBL',true,'team:cricket:espn-509673');
+   if(['cricket-remove-format','cricket-last-OFF','cricket-empty-conflict'].includes(kind))desired.preferences=formatChoice(desired.preferences,'Tests',false);
+   if(kind==='cricket-retain-remote')remote.preferences=formatChoice(remote.preferences,'T20Is');
+   // The ordinary whole-team writer removes a scoped field: absence means all
+   // formats, whereas an explicit empty array still means no formats.
+   if(kind==='cricket-remove-field')desired.preferences.preferenceGraph=systems.setEntityFollow(desired.preferences.preferenceGraph,cricketId,'follow');
+   if(kind==='cricket-retain-remote-absence')remote.preferences.preferenceGraph=systems.setEntityFollow(remote.preferences.preferenceGraph,cricketId,'priority');
+   if(['cricket-writer-order','cricket-order-conflict'].includes(kind))desired.preferences=formatChoice(formatChoice(desired.preferences,'Tests',false),'Tests');
+   if(['cricket-conflict','cricket-cas-disjoint','cricket-cas-conflict','normalization-cricket-unacknowledged'].includes(kind))desired.preferences=formatChoice(desired.preferences,'ODIs');
+   if(kind==='cricket-conflict'||kind==='cricket-empty-conflict')remote.preferences=formatChoice(remote.preferences,'T20Is');
+   if(kind==='cricket-order-conflict')remote.preferences=formatChoice(remote.preferences,'T20Is');
+   if(kind==='cricket-invalid-enum')cricketRow(desired).cricketFormats=['Test'];
+   if(kind==='cricket-invalid-type')cricketRow(desired).cricketFormats='Tests';
+   if(kind==='cricket-invalid-duplicate')cricketRow(desired).cricketFormats=['Tests','Tests'];
+   if(kind==='cricket-invalid-null')cricketRow(desired).cricketFormats=null;
+   if(kind==='cricket-invalid-base')cricketRow(base).cricketFormats=['Tests','Tests'];
+   if(kind==='cricket-invalid-remote')cricketRow(remote).cricketFormats=['unknown-format'];
+   if(kind==='cricket-unknown-field')cricketRow(desired).futureEntitySetting=true;
+   held=/conflict|invalid|unknown/.test(kind);
+  }
   if(kind==='same-record-independent-field')domains(remote)[0].reminderDefault='off';
   if(kind==='whole-empty-held'){desired.preferences.preferenceGraph.entityFollows=[];held=true;}
   if(kind==='domain-empty-held'){desired.preferences.preferenceGraph.domainPreferences=[];held=true;}
@@ -104,7 +135,7 @@ module.exports=async function receiptBaseTests(){
   const c=context(sources(),{A:desired,B:base});c.PROFILE_STORAGE=profile;c.SERVER_SYNC=transport;
   const values=new Map();c.localStorage={getItem:key=>values.get(key)??null,setItem:(key,value)=>values.set(key,String(value)),removeItem:key=>values.delete(key)};
   c.activeProfileBundle=profile.loadActiveProfile(c.localStorage);
-  c.activeProfileBundle=profile.recordPreferenceIntent(c.localStorage,c.activeProfileBundle,{ownerId:'A',generation:0,baseUpdatedAt:kind==='unknown-base'?null:kind==='invalid-base-clock'?'unknown':base.updatedAt,basePreferences:base.preferences,preferences:desired.preferences});
+  c.activeProfileBundle=profile.recordPreferenceIntent(c.localStorage,c.activeProfileBundle,{ownerId:'A',generation:kind==='cricket-add'?7:0,baseUpdatedAt:kind==='unknown-base'?null:kind==='invalid-base-clock'?'unknown':base.updatedAt,basePreferences:base.preferences,preferences:desired.preferences});
   const original=c.pendingPreferenceIntent('A');let stored=JSON.stringify([...values]);
   c.serverStateBaseline={state:clone(base),updatedAt:base.updatedAt,accountId:'A',generation:0};
   const mismatchingAck=kind.startsWith('normalization-')&&kind.endsWith('-unacknowledged');
@@ -126,7 +157,7 @@ module.exports=async function receiptBaseTests(){
    c.calls.writes++;const r=await api.handle({method:'PUT',url:'/api/user-state',headers:{},body:{patch}});
    if(r.status!==200)throw Object.assign(new Error('Disposable conflict'),{status:r.status,code:r.body.code});
    if((kind.startsWith('new-receipt-')||kind==='normalization-R2-unacknowledged')&&!newReceipt){
-    const next=clone(desired.preferences);if(kind==='new-receipt-same-field')next.preferenceGraph.entityFollows[0].followLevel='priority';if(kind==='new-receipt-unknown')next.futurePolicy=true;next.preferenceGraph.entityFollows.push({participantId:'team:football:epl:4',followLevel:'priority'});
+    let next=clone(desired.preferences);if(kind==='new-receipt-cricket')next=formatChoice(next,'ODIs');if(kind==='new-receipt-same-field')next.preferenceGraph.entityFollows[0].followLevel='priority';if(kind==='new-receipt-unknown')next.futurePolicy=true;next.preferenceGraph.entityFollows.push({participantId:'team:football:epl:4',followLevel:'priority'});
     next.preferenceGraph.domainPreferences[0].enabled=false;
     c.activeProfileBundle=profile.recordPreferenceIntent(c.localStorage,c.activeProfileBundle,{ownerId:'A',generation:0,baseUpdatedAt:base.updatedAt,basePreferences:base.preferences,preferences:next});
     newReceipt=c.pendingPreferenceIntent('A');assert.notEqual(newReceipt.receiptId,original.receiptId);
@@ -145,7 +176,8 @@ module.exports=async function receiptBaseTests(){
    const result=transport.stateFromDatabaseRow(r.body.state);
    responseSnapshot={device:clone(c.currentDevice()),receipt:c.pendingPreferenceIntent('A'),stored:JSON.stringify([...values])};
    if(mismatchingAck&&c.calls.writes===1){
-    if(kind==='normalization-domain-unacknowledged')result.preferences.preferenceGraph.domainPreferences[0].enabled=true;
+    if(kind==='normalization-cricket-unacknowledged')cricketRow(result).cricketFormats=['Tests','T20Is'];
+    else if(kind==='normalization-domain-unacknowledged')result.preferences.preferenceGraph.domainPreferences[0].enabled=true;
     else if(kind==='normalization-empty-unacknowledged')result.preferences.preferenceGraph.entityFollows=[{participantId:entity,followLevel:'priority'}];
     else result.preferences.preferenceGraph.entityFollows[0].followLevel='priority';
    }
@@ -153,7 +185,7 @@ module.exports=async function receiptBaseTests(){
   };
   const html=fs.readFileSync(path.join(root,'index.html'),'utf8'),start=html.indexOf('function setServerStateBaseline('),end=html.indexOf('function applyServerStatePreservingChanges(',start);
   vm.runInContext(html.slice(start,end),c);
-  const persistedApply=kind.startsWith('normalization-')||kind.startsWith('ordinary-')||kind.startsWith('new-receipt-late-');
+  const persistedApply=kind.startsWith('normalization-')||kind.startsWith('ordinary-')||kind.startsWith('new-receipt-late-')||cricketCases.includes(kind);
   if(persistedApply)installPersistedApply(c,html,desired);
   await c.bootstrapServerPersistence({checkStatus:false});
   assert.equal(c.serverPersistence.state,'error','bootstrap holds original receipt before deferred helper: '+kind);
@@ -173,6 +205,10 @@ module.exports=async function receiptBaseTests(){
   if(kind==='cas-disjoint'||kind==='cas-overlap')api.raceOnce(()=>api.mutate(state=>{
    if(kind==='cas-overlap')entities(state)[0].followLevel='priority';
    else{entities(state).push({participantId:'team:football:epl:5',followLevel:'priority'});domains(state)[0].reminderDefault='off';}
+  }));
+  if(kind==='cricket-cas-disjoint'||kind==='cricket-cas-conflict')api.raceOnce(()=>api.mutate(state=>{
+   if(kind==='cricket-cas-conflict')state.preferences=formatChoice(state.preferences,'T20Is');
+   else entities(state).push({participantId:'team:football:epl:5',followLevel:'priority'});
   }));
   if(kind.startsWith('ordinary-')||kind.startsWith('new-receipt-late-')){
    const slice=(from,to)=>{const start=html.indexOf(from),end=html.indexOf(to,start);assert(start>=0&&end>start);return html.slice(start,end);};
@@ -203,6 +239,22 @@ module.exports=async function receiptBaseTests(){
   const currentBefore=clone(c.currentDevice()),baselineBefore=clone(c.serverStateBaseline);
   const remoteBefore=api.state();intercept=true;c.calls.reads=0;c.calls.writes=0;let caught;
   try{await c.syncCurrentServerState({notify:true});}catch(error){caught=error;}
+  if(cricketCases.includes(kind)){
+   const controls={children:[],appendChild(button){this.children.push(button);}};
+   c.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.appendRetry(controls);await controls.children[0].click();
+   const diagnostic=JSON.parse(c.copied);
+   console.log(JSON.stringify({case:kind,code:caught?.code||null,guard:diagnostic.preferenceGuard,reads:c.calls.reads,writes:c.calls.writes,completed:diagnostic.completed}));
+   if(kind==='cricket-add'){
+    assert.equal(diagnostic.generationMatches,true,'live job generation remains current');
+    assert.equal(diagnostic.preferenceGuard.receiptGenerationMatches,false,'older receipt generation is an observation, not a second refusal');
+    for(const key of ['baseToRemote','localEdits','localToRemote'])assert.deepEqual(diagnostic.preferenceDifferences[key],['localView','entities','domains'],'same reported preference families');
+    if(caught){assert.equal(diagnostic.preferenceGuard.site,'record_validation');assert.equal(diagnostic.preferenceGuard.reason,'record_unknown_field');assert.equal(diagnostic.preferenceGuard.side,'intent');assert.equal(diagnostic.preferenceGuard.family,'entities');}
+   }
+   if(kind.startsWith('cricket-invalid-'))assert.equal(diagnostic.preferenceGuard.reason,'record_field_invalid');
+   if(kind==='cricket-invalid-base')assert.equal(diagnostic.preferenceGuard.side,'base');
+   if(kind==='cricket-invalid-remote')assert.equal(diagnostic.preferenceGuard.side,'remote');
+   if(kind==='cricket-unknown-field')assert.equal(diagnostic.preferenceGuard.reason,'record_unknown_field');
+  }
   const ordinaryHeld=kind.startsWith('ordinary-')&&!['ordinary-settings-view','ordinary-bookkeeping'].includes(kind);
   if(ordinaryHeld){
    if(kind==='ordinary-settings-theme')assert.equal(c.currentDevice().preferences.theme,'night','actual Settings theme saved before Sync now must not be discarded');
@@ -233,19 +285,25 @@ module.exports=async function receiptBaseTests(){
    // A deliberate retry may accept the genuine API state; the refusal adds no retry/read.
    await c.syncCurrentServerState();assert.equal(c.pendingPreferenceIntent('A'),null,'valid owned retry can finish after mismatching response hold');
    assert.equal(c.serverPersistence.state,'signedIn');
+   if(kind==='normalization-cricket-unacknowledged')assert.deepEqual(cricketRow(c.currentDevice()).cricketFormats,['Tests','ODIs'],'only matching format ACK accepted');
    if(kind==='normalization-domain-unacknowledged'||kind==='normalization-R2-unacknowledged')assert.equal(domains(c.currentDevice())[0].enabled,false);
    if(kind==='normalization-empty-unacknowledged')assert.deepEqual(entities(c.currentDevice()),[]);
   }else if(held){
-   if(malformed)assert(caught,'malformed input fails visibly: '+kind);else assert.equal(caught?.code,'preference_base_changed',kind);assert.equal(c.calls.writes,kind==='cas-overlap'?1:0,kind);
+   if(malformed)assert(caught,'malformed input fails visibly: '+kind);else assert.equal(caught?.code,'preference_base_changed',kind);assert.equal(c.calls.writes,['cas-overlap','cricket-cas-conflict'].includes(kind)?1:0,kind);
    assert.equal(JSON.stringify([...values]),stored,'hold preserves receipt bytes: '+kind);
-   if(kind!=='cas-overlap')assert.deepEqual(api.state(),remoteBefore,'held state untouched: '+kind);
+   if(cricketCases.includes(kind)){
+    assert.deepEqual(clone(c.currentDevice()),currentBefore,'guard preserves current format choices');
+    assert.deepEqual(clone(c.serverStateBaseline),baselineBefore,'guard cannot accept a new baseline');
+    assert.equal(c.calls.reads,kind==='cricket-cas-conflict'?2:1);
+   }
+   if(!['cas-overlap','cricket-cas-conflict'].includes(kind))assert.deepEqual(api.state(),remoteBefore,'held state untouched: '+kind);
   }else if(late){
    assert.equal(caught,undefined,kind);assert.equal(JSON.stringify([...values]),stored,'late lifetime cannot ACK receipt: '+kind);
    assert.equal(c.calls.writes,kind.endsWith('-ACK')?1:0,kind);
   }else{
    assert.equal(caught,undefined,'independent owned choices reconcile: '+kind);
-   assert.equal(c.calls.reads,kind==='cas-disjoint'?2:1,'only existing reads/retry: '+kind);
-   assert.equal(c.calls.writes,kind==='already-applied'?0:kind==='cas-disjoint'?2:1,kind);
+   assert.equal(c.calls.reads,['cas-disjoint','cricket-cas-disjoint'].includes(kind)?2:1,'only existing reads/retry: '+kind);
+   assert.equal(c.calls.writes,kind==='already-applied'?0:['cas-disjoint','cricket-cas-disjoint'].includes(kind)?2:1,kind);
    const saved=api.state();
    assert.equal(saved.preferences.followFirst.notifications.enabled,false,kind);assert.equal(saved.preferences.showSpoilers,false);
    assert.deepEqual(saved.preferences.followBrowse,remoteBefore.preferences.followBrowse,'server retains remote view: '+kind);
@@ -267,6 +325,16 @@ module.exports=async function receiptBaseTests(){
    }
    if(kind==='domain-OFF')assert.equal(domains(saved)[0].enabled,false);
    if(kind==='scoped-empty')assert.deepEqual(domains(saved)[0].scopedCompetitionIds,[]);
+   if(cricketCases.includes(kind)){
+    const row=cricketRow(saved,kind==='cricket-BBL-alias'?bblId:cricketId);
+    const expected=kind==='cricket-retain-remote'?cricketRow(remoteBefore):kind==='cricket-retain-remote-absence'?cricketRow(remoteBefore):cricketRow(desired,kind==='cricket-BBL-alias'?bblId:cricketId);
+    assert.deepEqual(choice(row),choice(expected),'real API preserves exact format order, presence, empty and Follow level: '+kind);
+    if(kind!=='new-receipt-cricket')assert.deepEqual(choice(cricketRow(c.currentDevice(),kind==='cricket-BBL-alias'?bblId:cricketId)),choice(expected),'accepted format choices also applied locally');
+    if(kind==='cricket-last-OFF'){assert.equal(row.followLevel,'unfollow');assert.deepEqual(row.cricketFormats,[]);}
+    if(kind==='cricket-remove-field'||kind==='cricket-retain-remote-absence')assert(!Object.hasOwn(row,'cricketFormats'));
+    if(kind==='cricket-writer-order')assert.deepEqual(row.cricketFormats,['ODIs','Tests']);
+    if(kind==='cricket-cas-disjoint')assert.equal(api.calls.filter(call=>call.status===409).length,1,'real conditional conflict before recalculated existing retry');
+   }
    if(kind==='remote-removal')assert(!entities(saved).some(row=>row.participantId===entity),'remote removal not revived');
    if(kind==='new-receipt-unknown'){
     assert.deepEqual(c.pendingPreferenceIntent('A'),newReceipt,'uncertain R2 keeps exact original receipt');
@@ -294,6 +362,7 @@ module.exports=async function receiptBaseTests(){
     assert(entities(api.state()).some(row=>row.participantId==='team:football:epl:4'&&row.followLevel==='priority'));
     assert(entities(api.state()).some(row=>row.participantId===other));
     if(kind==='new-receipt-same-field')assert.equal(entities(api.state()).find(row=>row.participantId===entity).followLevel,'priority','sequential newer same-field decision survives its older ACK');
+    if(kind==='new-receipt-cricket')assert.deepEqual(cricketRow(api.state()).cricketFormats,['Tests','ODIs'],'R2 format edit survives older ACK and explicit retry');
     assert.equal(domains(api.state())[0].enabled,false);assert(domains(api.state()).some(row=>row.sportDomainId==='sport:cricket'));
    }else{assert.equal(c.pendingPreferenceIntent('A'),null,'exact owned ACK clears R1: '+kind);assert.equal(c.serverPersistence.state,'signedIn');}
   }
