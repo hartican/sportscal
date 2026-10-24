@@ -54,3 +54,47 @@ controls. ROOT alone reviews, integrates, publishes and runs the live gate.
 Rollback of this CI-only slice is its scoped source commit; do not remove the
 gate to describe a failing deployment as passed or confuse that with the guarded
 near-schema inverse. No live performance measurement has occurred in this chat.
+
+## Prerequisite correction, 25 October 2026
+
+Normal run40138373141 on2a5fecd4 passed all253 safety commands, shared publication
+and78 erasure guards, then stopped in under90ms with `sha:null`, `reads:0`,
+`adapter_failure` and no adapter receipt. Its exact historical cause is UNPROVEN:
+the original summary omitted the prerequisite stage and Git exit status. No
+successful application read or loading improvement follows from that run.
+
+A deterministic local reproduction runs the actual verifier CLI in a disposable
+Git repository. Rewriting identical tracked bytes with a changed mtime makes the
+old `diff-index --quiet HEAD` guard reject the unchanged snapshot, with that same
+pre-claim signature. The clean baseline reaches the absent-configuration check.
+This proves a false-rejection defect; it does not identify a particular safety
+validator as the historical trigger. Broader253 tracing/reruns were stopped.
+
+The correction compares staged changes and actual worktree content independently
+with `git diff --quiet`, including modes even when local `core.filemode=false`.
+Exact HEAD, origin/main, publication context and exclusive receipt claim remain
+required. Staged edits/deletions/additions cannot hide behind a worktree restored
+to HEAD. No refresh-index repair, skip, retry or application policy change occurs.
+Git stderr is captured rather than forwarded. Safe summaries always identify the
+fixed prerequisite stage and, for failed Git commands, a bounded integer exit
+status. They never include a path, command, raw stderr, environment or payload;
+Git exit128 is not mislabelled an HTTP status. A pre-claim failure still creates
+no adapter artifact, and a repeated claim preserves the original receipt.
+
+`node scripts/validate-near-app-prerequisites.js` was RED before the correction
+(`sha:null` instead of exact HEAD for unchanged bytes), then GREEN with15 actual
+CLI cases: baseline/stat-only, content, staged content with restored worktree,
+deletions, staged deletion/addition with restored/absent worktree, unstaged/staged
+modes, wrong requested SHA/origin, occupied receipt, relative report directory,
+missing origin and absent Git repository. Each child has no service configuration
+and denies network; every case records zero service requests. The existing
+adapter validator incorporates these cases and passes17 checks. The required
+workflow safety command list remains253; no workflow or dependency changes.
+
+Related unchanged local checks pass: interactive snapshot12, global budget16 and
+complete-response deadline/cleanup. The first broad test attempt blocked the two
+tests' intentional loopback HTTP traffic; they were rerun with a loopback-only
+guard and passed with zero non-loopback attempts. Those harness failures do not
+establish a product regression. No managed SQL, credentials, provider call,
+production read, refresh, publication or deployment occurred here. DEPLOY alone
+reviews/integrates the draft and owns the fresh normal run plus all acceptance.
