@@ -2,7 +2,7 @@
 // Actual source timer -> deferred helper -> live owner -> request terminal; synthetic I/O only.
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict'),{execFileSync}=require('node:child_process');
 const root=path.resolve(__dirname,'../..'),file='scripts/validate-account-sync-recovery-browser.js',baseline=process.env.FIXTURE_LIFETIME_BASELINE;
-const source=['558a963a','3504aff6'].includes(baseline)?execFileSync('git',['show',baseline+':'+file],{cwd:root,encoding:'utf8'}):fs.readFileSync(path.join(root,file),'utf8');
+const source=['558a963a','3504aff6','674a92f8'].includes(baseline)?execFileSync('git',['show',baseline+':'+file],{cwd:root,encoding:'utf8'}):fs.readFileSync(path.join(root,file),'utf8');
 const ownerSource=fs.readFileSync(path.join(root,'config/feed-live-score-loader.js'),'utf8'),html=fs.readFileSync(path.join(root,'index.html'),'utf8');
 const turn=()=>new Promise(resolve=>setImmediate(resolve)),copy=value=>JSON.parse(JSON.stringify(value));
 function watch(promise){const state={done:false};Promise.resolve(promise).then(value=>Object.assign(state,{done:true,value}),error=>Object.assign(state,{done:true,error}));return state;}
@@ -70,6 +70,14 @@ module.exports=async function fixtureLifetimeTests(){
   s.n.onFetch=()=>{s.requests.set(request,{path:'/api/fixtures',startedEpoch:2});s.terminals.set(request,late);};
   const work=watch(s.n.settlePrimaryFixtureBeforeReload());await turn();assert.equal(work.done,false);assert.equal(s.sourceTimers.size,1);
   s.fireSourceTimer();s.releaseLoader();await turn();assert(s.b.liveFixtureRefresh);s.release();await turn();assert.equal(work.done,false);late.finish('finished');await result(work);assert.equal(s.fetchCalls,1);
+ });
+ await run('late-timer-already-fired-helper-pending',async()=>{
+  const s=setup();s.entry.finish('finished');let fired=false;const late=s.terminal(),request={};
+  s.n.beforeFinalEvaluation=()=>{if(!fired){fired=true;s.b.queueLiveFixtureSnapshot();s.fireSourceTimer();}};
+  s.n.onFetch=()=>{s.requests.set(request,{path:'/api/fixtures',startedEpoch:2});s.terminals.set(request,late);};
+  const work=watch(s.n.settlePrimaryFixtureBeforeReload());await turn();assert.equal(s.b.liveFixtureMountTimer,null);assert.equal(s.b.liveFixtureRefresh,null);assert.equal(s.fetchCalls,0);
+  assert.equal(work.done,false,'NULL timer and late unawaited helper Promise must not be accepted as quiescent');
+  s.releaseLoader();await turn();assert(s.b.liveFixtureRefresh);s.release();await turn();assert.equal(work.done,false);late.finish('finished');await result(work);assert.equal(s.fetchCalls,1);
  });
  await run('late-invalid-timer-is-refused',async()=>{
   const s=setup();s.requests.clear();s.terminals.clear();s.b.queueLiveFixtureSnapshot();const work=watch(s.n.settlePrimaryFixtureBeforeReload());await turn();s.b.liveFixtureMountTimer=undefined;s.notify();await assert.rejects(result(work),/timer.*(typed|invalid)/);

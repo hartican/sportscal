@@ -236,14 +236,17 @@ const server = http.createServer((req, res) => {
     async function settlePrimaryFixtureBeforeReload(){
       const epoch=documentEpoch,counts={reads,writes};
       await observeFixtureControl((async()=>{
-        const before=await page.evaluate(()=>({preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id),
-          account:serverSyncClient.accountSnapshot().accountId,generation:serverSyncClient.accountSnapshot().generation,baseline:serverStateBaseline.updatedAt}));
+        const before=await page.evaluate(()=>{
+          globalThis.qaFixtureBarrierHelper=undefined;
+          return {preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id),
+            account:serverSyncClient.accountSnapshot().accountId,generation:serverSyncClient.accountSnapshot().generation,baseline:serverStateBaseline.updatedAt};
+        });
         while(true){
           const phase=await page.evaluate(async()=>{
             const timerState=()=>liveFixtureMountTimer===null?'unset':Number.isSafeInteger(liveFixtureMountTimer)&&liveFixtureMountTimer>=0?'scheduled':'invalid';
             let helperAwaited=false,ownerAwaited=false;
             if(timerState()==='unset'){
-              const loading=feedScoreUiLoading;helperAwaited=Boolean(loading);if(loading)await loading;
+              const loading=feedScoreUiLoading;helperAwaited=Boolean(loading);if(loading)await loading;globalThis.qaFixtureBarrierHelper=loading;
               const owner=liveFixtureRefresh;ownerAwaited=Boolean(owner);if(owner)await owner;
             }
             return {timer:timerState(),ownerPending:Boolean(liveFixtureRefresh),helperAwaited,ownerAwaited};
@@ -262,7 +265,8 @@ const server = http.createServer((req, res) => {
             receipt:pendingPreferenceIntent(serverPersistence.user.id),account:serverSyncClient.accountSnapshot().accountId,
             generation:serverSyncClient.accountSnapshot().generation,baseline:serverStateBaseline.updatedAt,
             liveRefreshPending:Boolean(liveFixtureRefresh),liveMountScheduled:liveFixtureMountTimer!==null,
-            timerValid:liveFixtureMountTimer===null||(Number.isSafeInteger(liveFixtureMountTimer)&&liveFixtureMountTimer>=0)}),before);
+            timerValid:liveFixtureMountTimer===null||(Number.isSafeInteger(liveFixtureMountTimer)&&liveFixtureMountTimer>=0),
+            helperMatched:feedScoreUiLoading===globalThis.qaFixtureBarrierHelper}),before);
           assert.equal(after.unchanged,true,'fixture completion preserves projected choices');
           for(const key of ['receipt','account','generation','baseline'])assert.deepEqual(after[key],before[key],'fixture completion preserves '+key);
           assert.equal(after.timerValid,true,'live fixture timer changed to an invalid handle');
@@ -273,7 +277,8 @@ const server = http.createServer((req, res) => {
             if(result?.kind!=='finished')pending=true;
           }
           assert.equal(documentEpoch,epoch,'fixture completion cannot navigate');assert.deepEqual({reads,writes},counts,'fixture completion cannot issue account operations');
-          if(after.liveMountScheduled||after.liveRefreshPending||pending)continue;
+          if(after.liveMountScheduled||after.liveRefreshPending||pending||!after.helperMatched)continue;
+          assert.equal(after.helperMatched,true,'current fixture helper was not successfully awaited');
           assert.equal(after.liveRefreshPending,false,'a new live fixture owner remains active');
           assert.equal(after.liveMountScheduled,false,'scheduled live fixture work remains before reload');
           traceResource('legacy-fixture-work-complete',{requests:requests.length,ownerPending:false,scheduled:false,choicesUnchanged:true,receiptUnchanged:true});
