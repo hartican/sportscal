@@ -6,8 +6,177 @@ const root=path.resolve(__dirname,'..'),now=Date.parse('2026-10-24T04:00:00Z'),s
 const fixtures=Array.from({length:132},(_,i)=>({id:'fixture:nrl:all-sports-'+i,eventId:'fixture:nrl:all-sports-'+i,key:'nrl',sport:'NRL',competitionName:'NRL',name:'Panthers '+i+' v Storm '+i,date:'2026-10-24',status:'upcoming',startTimeUtc:new Date(now+3600000+i*1000).toISOString(),homeParticipantId:'team:nrl:sports-home-'+i,awayParticipantId:'team:nrl:sports-away-'+i,participantIds:['team:nrl:sports-home-'+i,'team:nrl:sports-away-'+i],sourceCheckedAt:stamp,sourceUrl:'https://organiser.example/schedule'}));
 fixtures.unshift({...fixtures[0],id:'fixture:nrl:underway',eventId:'fixture:nrl:underway',startTimeUtc:new Date(now-3600000).toISOString(),status:'live',statusCheckedAt:stamp,scoreCheckedAt:stamp,homeScore:321,awayScore:123});
 fixtures.push({...fixtures[1],id:'fixture:nrl:tbc',eventId:'fixture:nrl:tbc',startTimeUtc:null,timePrecision:'date-only'},{...fixtures[1],id:'fixture:nrl:tomorrow',eventId:'fixture:nrl:tomorrow',startTimeUtc:new Date(now+12*3600000).toISOString(),date:'2026-10-25'},{...fixtures[1],id:'fixture:nrl:later',eventId:'fixture:nrl:later',startTimeUtc:new Date(now+30*3600000).toISOString(),date:'2026-10-25'});
-let fail=false,partial=false,requests=[];
-const handler=createMatchCentreHandler({enabled:()=>true,clock:()=>now,published:()=>fixtures,snapshotRead:async()=>{if(fail)throw Error('mock source unavailable');return {stale:false,readAt:now,sources:[]};},request:async(_path,options)=>{assert(options.body.p_fixture_ids.length<=60);assert.equal(options.timeoutMs,3000);return fixtures.filter(e=>options.body.p_fixture_ids.includes(e.id)).map(fixture=>({fixture,checked_at:stamp}));}});
+let fail=false,partial=false,requests=[],scenario;
+function resetScenario(){fail=false;partial=false;requests=[];scenario={published:fixtures,sources:[],selected:null,clock:now,scoreGate:null,scoreFail:false};}
+resetScenario();
+const handler=createMatchCentreHandler({enabled:()=>true,clock:()=>scenario.clock,published:()=>scenario.published,snapshotRead:async()=>{if(fail)throw Error('mock source unavailable');return {stale:false,readAt:scenario.clock,sources:scenario.sources};},request:async(_path,options)=>{
+ assert(options.body.p_fixture_ids.length<=60);assert.equal(options.timeoutMs,3000);
+ if(scenario.scoreGate){scenario.scoreGate.entered.resolve();await scenario.scoreGate.release.promise;}
+ if(scenario.scoreFail)throw Error('mock score source unavailable');
+ return (scenario.selected||scenario.published).filter(e=>options.body.p_fixture_ids.includes(e.id)).map(fixture=>({fixture,checked_at:fixture.scoreCheckedAt||stamp}));
+}});
+const deferred=()=>{let resolve;const promise=new Promise(yes=>{resolve=yes;});return {promise,resolve};};
+async function reached(page,gate){
+ // Match Playwright's existing default 30-second wait and stop on page close;
+ // a missing request cannot leave a host-side promise alive past the watchdog.
+ let timer,closed;
+ try{await Promise.race([gate.promise,new Promise((_,reject)=>{closed=()=>reject(Error('Page closed before delayed transport was reached'));page.once('close',closed);timer=setTimeout(()=>reject(Error('Delayed transport was not reached')),30000);})]);}
+ finally{clearTimeout(timer);page.off('close',closed);}
+}
+function nativeFixture(key='nrl',suffix='native',facts={}){
+ const id=`fixture:${key}:${suffix}`,home=`team:${key}:${suffix}-home`,away=`team:${key}:${suffix}-away`;
+ return {...fixtures[0],id,eventId:id,key,sport:key.toUpperCase(),competitionName:key==='tennis'?'Native ATP Masters':key.toUpperCase(),name:'Native Home v Native Away',homeParticipantId:home,awayParticipantId:away,participantIds:[home,away],participants:[{id:home,displayName:'Native Home'},{id:away,displayName:'Native Away'}],status:'live',startTimeUtc:new Date(now-3600000).toISOString(),statusCheckedAt:stamp,scoreCheckedAt:stamp,homeScore:18,awayScore:12,...facts};
+}
+async function personalState(page){return page.evaluate(()=>({preferences:JSON.stringify(userPreferences),actions:JSON.stringify(eventActions),states:JSON.stringify(cardViewStates),spoilers:JSON.stringify(eventSpoilerState)}));}
+async function waitForCards(page,count){await page.waitForFunction(count=>document.querySelectorAll('[data-sports-id]').length===count&&document.querySelector('[aria-label="Refresh All Sports View"]')?.disabled===false,count);}
+async function enterAllSports(page,count){await page.getByRole('tab',{name:'All Sports',exact:true}).click();await waitForCards(page,count);}
+async function setOwner(page,owner){
+ // Use the real custom auth client's storage/lifetime listener. These are
+ // disposable unsigned test tokens, never hosted authentication evidence.
+ await page.evaluate(owner=>{
+  const key='ns_auth_persistent_session_v1',oldValue=localStorage.getItem(key),accessToken='e30.'+btoa(JSON.stringify({sub:owner}))+'.disposable';
+  const newValue=JSON.stringify({accessToken,refreshToken:'disposable-native-refresh',expiresAt:Date.now()+3600000});
+  localStorage.setItem(key,newValue);dispatchEvent(new StorageEvent('storage',{key,oldValue,newValue,storageArea:localStorage,url:location.href}));
+  renderMatchCentre();
+ },owner);
+ assert.equal(await page.evaluate(()=>serverSyncClient.sessionSubject()),owner);
+}
+async function assertGuards(page,saved){
+ const current=await personalState(page);assert.deepEqual(current.actions,saved.actions);assert.deepEqual(current.states,saved.states);assert.deepEqual(current.spoilers,saved.spoilers);
+ assert.deepEqual(await page.evaluate(()=>qaCardWrites),[],'Native grid work must not write personal card/account/engagement state');
+ assert.equal(await page.evaluate(()=>qaFeedPolls),0,'Match Centre must not acquire the Feed poller');
+}
+async function nativeRepairs(browser,base,engine){
+ const cases=[
+  ['latest visit and current owner/privacy',async(page,cleanup)=>{
+   const held=deferred(),release=deferred();let downloads=0;cleanup.push(()=>release.resolve());
+   scenario.published=[nativeFixture()];
+   await page.route('**/assets/js/all-sports-ui.js*',async route=>{downloads++;held.resolve();await release.promise;await route.continue();});
+   await page.evaluate(()=>{globalThis.qaMountOwners=[];new MutationObserver(records=>{for(const record of records)for(const node of record.addedNodes)if(node.nodeType===1&&node.matches('.all-sports-view'))qaMountOwners.push(serverSyncClient.sessionSubject()||'public');}).observe(document.getElementById('listView'),{childList:true,subtree:true});});
+   await page.getByRole('tab',{name:'All Sports',exact:true}).click();await reached(page,held);
+   await page.getByRole('button',{name:'Back to Match Centre',exact:true}).click();
+   await page.getByRole('tab',{name:'All Sports',exact:true}).click();
+   await setOwner(page,'native-owner-one');await setOwner(page,'native-owner-two');
+   await page.evaluate(()=>{userPreferences.showSpoilers=false;userPreferences.feedControls.spoilers='strict';});
+   const saved=await personalState(page);assert.equal(await page.locator('.all-sports-view').count(),0);assert.equal(downloads,1);
+   release.resolve();await waitForCards(page,1);
+   await page.locator('.minimised-card-summary').click();await page.locator('.as-expanded').waitFor();
+   assert.equal(await page.locator('.feed-live-score').count(),0);assert(!/Native Home 18|Native Away 12/.test(await page.locator('.as-expanded').innerText()));
+   assert.deepEqual(await page.evaluate(()=>qaMountOwners),['native-owner-two']);
+   assert.equal(await page.evaluate(()=>disposableStore.initial('all-sports:v1:native-owner-one:today',null)),null);
+   assert.equal(await page.evaluate(()=>disposableStore.initial('all-sports:v1:public:today',null)),null);
+   assert(await page.evaluate(()=>Boolean(disposableStore.initial('all-sports:v1:native-owner-two:today',null))));
+   assert.equal(downloads,1);await assertGuards(page,saved);assert.equal((await personalState(page)).preferences,saved.preferences);
+  }],
+  ['failed optional module, deliberate retry and stale exit',async(page,cleanup)=>{
+   scenario.published=[nativeFixture()];const held=deferred(),release=deferred();let downloads=0;cleanup.push(()=>release.resolve());
+   await page.route('**/assets/js/all-sports-ui.js*',async route=>{if(++downloads===1){await route.fulfill({status:503,body:''});return;}held.resolve();await release.promise;await route.continue();});
+   const saved=await personalState(page);await page.getByRole('tab',{name:'All Sports',exact:true}).click();
+   await page.getByRole('button',{name:'Retry',exact:true}).waitFor();assert.equal(downloads,1);assert.equal(await page.locator('.all-sports-view').count(),0);
+   assert(await page.getByRole('button',{name:'Back to Match Centre',exact:true}).isVisible());
+   await page.getByRole('button',{name:'Retry',exact:true}).click();await reached(page,held);
+   await page.getByRole('button',{name:'Back to Match Centre',exact:true}).click();release.resolve();
+   await page.waitForFunction(()=>typeof createAllSportsView==='function');
+   assert.equal(await page.locator('.all-sports-view').count(),0);assert.equal(await page.getByRole('tab',{name:'Followed',exact:true}).getAttribute('aria-selected'),'true');
+   await enterAllSports(page,1);assert.equal(downloads,2);await assertGuards(page,saved);assert.equal((await personalState(page)).preferences,saved.preferences);
+  }],
+  ['omitted source-only row in degraded complete union',async page=>{
+   const live=nativeFixture('nrl','source-only',{fixtureObservationSchema:'fixture-observations.v1',sourceType:'official',sourceUrl:'https://official.example/native-live',scoreFactObservedAt:stamp,statusFactObservedAt:stamp});
+   const ordinary=nativeFixture('nrl','static-only',{status:'upcoming',startTimeUtc:new Date(now+3600000).toISOString()});
+   scenario.published=[ordinary];scenario.sources=[{source_id:'native-official',checked_at:stamp,fixtures:[live]}];scenario.selected=[live,ordinary];
+   const original=JSON.stringify(live),saved=await personalState(page),selected=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/match-centre'&&new URL(r.url()).searchParams.has('ids'));await enterAllSports(page,2);
+   await (await selected).finished();await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+   await page.waitForFunction(()=>Boolean(disposableStore.initial('all-sports:v1:public:today',null)));
+   const cache=await page.evaluate(()=>JSON.stringify(disposableStore.initial('all-sports:v1:public:today',null)));
+   fail=true;scenario.scoreFail=true;await page.getByRole('button',{name:'Refresh All Sports View',exact:true}).click();await waitForCards(page,2);
+   await page.waitForFunction(()=>document.querySelector('.as-notice')?.textContent.includes('Current updates are unavailable'));
+   assert.match(await page.locator('[data-sports-id="'+live.id+'"] .as-qualifier').innerText(),/Awaiting update/);
+   const actual=await page.evaluate(ids=>ids.map(id=>profileFixtureEvents.get(id)),[live.id,ordinary.id]);assert(actual.every(e=>e.stale===true),'Every member of a degraded retained union is stale');
+   for(const field of ['id','status','statusCheckedAt','scoreCheckedAt','startTimeUtc','sourceUrl','sourceCheckedAt','scoreFactObservedAt','statusFactObservedAt'])assert.equal(actual[0][field],live[field],field+' remains source-owned');
+   assert.equal(await page.evaluate(()=>JSON.stringify(disposableStore.initial('all-sports:v1:public:today',null))),cache,'A degraded union must preserve last-good cache bytes');
+   assert.equal(JSON.stringify(live),original);await assertGuards(page,saved);assert.equal((await personalState(page)).preferences,saved.preferences);
+  }],
+  ['reverse alias bridge retains official facts',async page=>{
+   const official=nativeFixture('nrl','official',{status:'upcoming',startTimeUtc:null,timePrecision:'date-only',sourceType:'official',sourceUrl:'https://official.example/native-fixture',name:'Official Native Fixture'});
+   const reporting={...official,id:'fixture:nrl:reporting',eventId:'fixture:nrl:reporting',sourceType:'trusted-reporting',sourceUrl:'https://reporting.example/native-fixture',sourceCheckedAt:'2026-10-24T03:00:00Z',name:'Conflicting Reporting Fixture'};
+   const bridge={...reporting,id:'fixture:nrl:bridge',eventId:'fixture:nrl:bridge',sourceEventIds:[official.id,reporting.id],name:'Alias Bridge Fixture'};
+   const saved=await personalState(page),orders=[[reporting,official,bridge],[official,reporting,bridge]],before=JSON.stringify(orders);
+   scenario.published=orders[0];await enterAllSports(page,1);
+   for(const records of orders){
+    scenario.published=records;await page.getByRole('button',{name:'Refresh All Sports View',exact:true}).click();await waitForCards(page,1);
+    assert.equal(await page.locator('[data-sports-id="'+official.id+'"]').count(),1);
+    const actual=await page.evaluate(id=>profileFixtureEvents.get(id),official.id);
+    for(const field of ['id','eventId','name','sourceType','sourceUrl','sourceCheckedAt','status','startTimeUtc'])assert.equal(actual[field],official[field],field+' must come from the official row');
+    assert.equal(await page.evaluate(records=>{const selected=NOTHINGSPORTS_ALL_SPORTS.unique(records);return selected.length===1&&selected[0]===records.find(e=>e.sourceType==='official');},records),true,'The actual browser model retains the official object in both bridge orders');
+   }
+   assert.equal(JSON.stringify(orders),before);await assertGuards(page,saved);assert.equal((await personalState(page)).preferences,saved.preferences);
+  }],
+  ['selected observation after fixed listing anchor',async(page,cleanup)=>{
+   await page.setViewportSize({width:1280,height:844});
+   const live=nativeFixture('nrl','fresh-after-anchor'),completed=nativeFixture('nrl','completed-after-anchor'),future=nativeFixture('nrl','future-after-anchor');
+   scenario.published=[live,completed,future];const gate={entered:deferred(),release:deferred()};scenario.scoreGate=gate;cleanup.push(()=>gate.release.resolve());
+   const saved=await personalState(page),listed=page.waitForResponse(r=>new URL(r.url()).searchParams.get('view')==='all-sports'&&new URL(r.url()).searchParams.get('cursor')==='0');await enterAllSports(page,3);await reached(page,gate.entered);
+   const anchor=await (await listed).json();assert.equal(anchor.window.asOf,now);assert.equal(typeof anchor.revision,'string');
+   const bounds=await page.locator('.as-window').innerText(),listing=requests.filter(u=>u.includes('view=all-sports')&&!u.includes('ids=')).length;
+   const later=now+60000,lateStamp=new Date(later).toISOString();scenario.clock=later;
+   scenario.selected=[{...live,statusCheckedAt:lateStamp,scoreCheckedAt:lateStamp,homeScore:24},{...completed,status:'completed',statusCheckedAt:lateStamp,scoreCheckedAt:lateStamp,completedAt:lateStamp},{...future,statusCheckedAt:new Date(later+60000).toISOString(),scoreCheckedAt:lateStamp}];
+   const source=JSON.stringify(scenario.selected);await page.evaluate(later=>{qaNow=later;},later);
+   const response=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/match-centre'&&new URL(r.url()).searchParams.has('ids'));gate.release.resolve();
+   const observed=await (await response).json();assert(observed.events.some(e=>e.id===live.id&&e.statusCheckedAt===lateStamp));
+   await page.waitForFunction(id=>document.querySelectorAll('[data-sports-id]').length===1&&document.querySelector('[data-sports-id="'+id+'"]'),live.id);
+   assert.match(await page.locator('[data-sports-id="'+live.id+'"] .as-qualifier').innerText(),/^Underway$/);
+   const actual=await page.evaluate(id=>profileFixtureEvents.get(id),live.id);assert.equal(actual.statusCheckedAt,lateStamp);assert.equal(actual.homeScore,24);
+   assert.equal(await page.locator('.as-window').innerText(),bounds);assert.equal(requests.filter(u=>u.includes('view=all-sports')&&!u.includes('ids=')).length,listing,'Selected observations must not re-anchor or reload membership');
+   assert.equal(await page.evaluate(({id,window})=>NOTHINGSPORTS_ALL_SPORTS.select([profileFixtureEvents.get(id)],window).length,{id:live.id,window:anchor.window}),1,'The browser model still admits the rendered live row against the original API anchor');
+   assert.equal(JSON.stringify(scenario.selected),source);await assertGuards(page,saved);assert.equal((await personalState(page)).preferences,saved.preferences);
+  }],
+  ['mounted Results ON/OFF/strict and delayed score privacy',async(page,cleanup)=>{
+   const entries=['nrl','afl','tennis'].map(key=>nativeFixture(key,'native-results',key==='tennis'?{tournamentLevel:'ATP1000',homeScore:null,awayScore:null,sets:[{home:6,away:4}],games:{home:2,away:1}}:{}));
+   scenario.published=entries;const held=deferred(),release=deferred();cleanup.push(()=>release.resolve());let downloads=0;
+   await page.route('**/config/feed-live-scores.js*',async route=>{downloads++;held.resolve();await release.promise;await route.continue();});
+   const saved=await personalState(page);await enterAllSports(page,3);
+   const first=page.locator('[data-sports-id="'+entries[0].id+'"]');await first.locator('.minimised-card-summary').click();await reached(page,held);
+   await page.evaluate(()=>{userPreferences.showSpoilers=false;userPreferences.feedControls.spoilers='strict';});release.resolve();
+   await page.waitForFunction(()=>Boolean(globalThis.NOTHINGSPORTS_FEED_LIVE_SCORES));
+   // Wait for the real loader's completion callbacks, without adding a sleep.
+   await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+   assert.equal(await first.locator('.feed-live-score').count(),0);assert(!/Native Home 18|Native Away 12/.test(await first.innerText()));
+   await first.locator('.event-card-disclosure').click();await page.waitForFunction(()=>!document.querySelector('.as-expanded'));
+   for(const event of entries){
+    const slot=page.locator('[data-sports-id="'+event.id+'"]');
+    await page.evaluate(()=>{userPreferences.showSpoilers=true;userPreferences.feedControls.spoilers='results_visible';});
+    await slot.locator('.minimised-card-summary').click();await slot.locator('.feed-live-score').waitFor();
+    assert.match(await slot.locator('.feed-live-score').innerText(),event.key==='tennis'?/6–4.*Games 2–1/s:/Native Home 18.*Native Away 12/s);
+    assert.equal(await slot.locator('.event-card').getAttribute('data-card-mode'),'schedule');
+    for(const strict of [false,true]){
+     await page.evaluate(strict=>{userPreferences.showSpoilers=strict;userPreferences.feedControls.spoilers=strict?'strict':'results_visible';},strict);
+     // Rebuild through the grid's own native disclosure path; no installer,
+     // renderer, model or controller is replaced by the harness.
+     await slot.locator('.event-card-disclosure').click();await slot.locator('.minimised-card-summary').click();
+     assert.equal(await slot.locator('.feed-live-score').count(),0,strict?'Strict hides results even when Results ON':'Results OFF clears score detail');
+     assert(!/Native Home 18|Native Away 12|6–4|Games 2–1/.test(await slot.innerText()));
+    }
+    await slot.locator('.event-card-disclosure').click();
+   }
+   assert.equal(downloads,1);await assertGuards(page,saved);
+  }]
+ ];
+ for(const [name,test] of cases){
+  resetScenario();const page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'}),errors=[],writes=[],cleanup=[];
+  try{
+   page.on('pageerror',e=>errors.push(e.message));
+   await page.route('**/*',route=>new URL(route.request().url()).origin===base?route.continue():route.fulfill({status:204,body:''}));
+   await page.addInitScript(({now})=>{const RealDate=Date;globalThis.qaNow=now;globalThis.Date=class extends RealDate{constructor(...args){super(...(args.length?args:[qaNow]));}static now(){return qaNow;}};localStorage.setItem('ns_preferences_v1',JSON.stringify({version:26,onboardingComplete:true,showSpoilers:true,feedControls:{spoilers:'results_visible'},followedSports:[],selectedSelectorEntityIds:[],preferenceGraph:{entityFollows:[]}}));},{now});
+   await page.goto(base,{waitUntil:'domcontentloaded'});await page.locator('#startupLaunch').waitFor({state:'hidden'});await page.evaluate(()=>{setTunePromptOpen(false);suppressSessionRatingPrompt();});
+   await page.locator('.tabs [data-tab=match-centre]').click();
+   await page.evaluate(()=>{globalThis.qaCardWrites=[];globalThis.qaFeedPolls=0;for(const name of ['setCardState','updateEventAction','recordEventFeedAction']){const original=globalThis[name];globalThis[name]=(...args)=>{qaCardWrites.push(name);return original(...args);};}const original=queueLiveFixtureSnapshot;globalThis.queueLiveFixtureSnapshot=(...args)=>{qaFeedPolls++;return original(...args);};});
+   page.on('request',request=>{if(new URL(request.url()).origin===base&&new URL(request.url()).pathname.startsWith('/api/')&&!['GET','HEAD'].includes(request.method()))writes.push({method:request.method(),path:new URL(request.url()).pathname});});
+   await test(page,cleanup);assert.deepEqual(errors,[]);assert.deepEqual(writes,[],'The native regression must not write an account or other API');
+   console.log(JSON.stringify({engine,width:page.viewportSize().width,regression:name,mountedProductionPaths:true,accountPreserved:true,noFeedPoller:true,errors}));
+  }catch(error){console.error(JSON.stringify({engine,width:page.viewportSize().width,regression:name,errors,notice:await page.locator('.as-notice').textContent().catch(()=>null),lastRequests:requests.slice(-8)}));throw error;}
+  finally{cleanup.forEach(release=>release());await page.close();}
+ }
+}
 async function main(){
  const free=()=>{const disk=fs.statfsSync(root);return disk.bavail*disk.bsize;},allocated=Date.parse(process.env.ALL_SPORTS_DEADLINE||''),deadline=Math.min(Date.now()+(process.env.ALL_SPORTS_PAGER_PROBE?90000:360000),Number.isFinite(allocated)?allocated:Infinity);
  assert(free()>=4.5*1024**3,'Browser lane entry needs 4.5 GiB free');
@@ -27,10 +196,10 @@ async function main(){
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const base='http://127.0.0.1:'+server.address().port;
  try{
   for(const engine of (process.env.ALL_SPORTS_ENGINES||'chromium,webkit').split(',')){
-   const browser=await pw[engine].launch({headless:true,...(engine==='chromium'?{channel:'chrome'}:{})});
+   const browser=await pw[engine].launch({headless:true,...(engine==='chromium'?{channel:process.env.QA_BROWSER_CHANNEL||'chrome'}:{})});
    const watchdog=setInterval(()=>{if(Date.now()>deadline||free()<3*1024**3){console.error('Browser lane allocation or host reserve exceeded');void browser.close();}},5000);
    try{for(const width of (process.env.ALL_SPORTS_WIDTHS||'390,768,1280').split(',').map(Number)){
-    fail=false;partial=false;requests=[];const errors=[],page=await browser.newPage({viewport:{width,height:844},serviceWorkers:'block'});
+    resetScenario();const errors=[],page=await browser.newPage({viewport:{width,height:844},serviceWorkers:'block'});
     try{
      page.on('pageerror',e=>errors.push(e.message));
      await page.route('**/*',route=>new URL(route.request().url()).origin===base?route.continue():route.fulfill({status:204,body:''}));
@@ -60,7 +229,7 @@ async function main(){
      assert.deepEqual(errors,[]);assert(requests.some(u=>u.includes('cursor=100')),'Data pagination is independent of horizontal UI pages');assert(requests.filter(u=>u.includes('view=all-sports')&&u.includes('ids=')).every(u=>new URL(u,base).searchParams.get('ids').split(',').length<=60));
      console.log(JSON.stringify({engine,width,columns,fixtures:136,completePagination:true,rollingRanges:true,inlineExpansion:true,resultsOff:true,accountPreserved:true,tbc:true,fallback:true,partial:true,hiddenStop:true,errors}));
     }catch(error){console.error(JSON.stringify({engine,width,errors,notice:await page.locator('.as-notice').textContent().catch(()=>null),pages:await page.locator('.as-page-position').allTextContents(),tracks:await page.locator('.as-track').evaluateAll(nodes=>nodes.map(n=>({left:n.scrollLeft,width:n.clientWidth,total:n.scrollWidth}))),lastRequests:requests.slice(-8)}));throw error;}finally{await page.close();}
-   }}finally{clearInterval(watchdog);await browser.close();}
+   }if(!process.env.ALL_SPORTS_PAGER_PROBE)await nativeRepairs(browser,base,engine);}finally{clearInterval(watchdog);await browser.close();}
   }
  }finally{server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}
 }
