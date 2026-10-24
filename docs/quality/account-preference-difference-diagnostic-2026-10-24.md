@@ -8,7 +8,7 @@ Add only a value-free difference summary to the existing explicitly copied diagn
 
 ## Bounded source inventory
 
-All app preference saves pass through `savePreferences` (index4098 at589), which normalizes and atomically saves local sections. Only the explicit deliberate Follow/settings path records an owned intent; non-view-only/non-deferred saves can queue the existing serial sync. View-only saves do not immediately queue, but their in-memory fields remain inputs to later payload construction.
+Queued preference saves share `savePreferences` (index4098 at589), which normalizes and atomically saves local sections. Startup migration and account hydration also write profile sections directly. Only the explicit deliberate Follow/settings path records an owned intent; non-view-only/non-deferred saves can queue the existing serial sync. View-only saves do not immediately queue, but their in-memory fields remain inputs to later payload construction.
 
 | Source path/function at589 | Fields/family it can change | Meaning/limit |
 | --- | --- | --- |
