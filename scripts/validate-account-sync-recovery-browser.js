@@ -30,8 +30,27 @@ if (scenario === 'all') {
 const owner = 'disposable-account-a';
 const token = id => 'e30.' + Buffer.from(JSON.stringify({ sub: id })).toString('base64url') + '.disposable';
 const clone = value => JSON.parse(JSON.stringify(value));
+// Diagnostic only: correlate same-origin schedule reads with document lifetime.
+// Keep the original pageerror collector/gate unchanged; never handle a rejection.
+const traceResources=scenario.startsWith('receipt-base-'),resourceTrace=[];
+let resourcePhase='initial-startup',documentEpoch=0,resourceSequence=0,resourceTraceDropped=0;
+const traceStart=Date.now(),resourceMarker='[qa-account-resource]';
+const schedulePath=pathname=>pathname.startsWith('/data/follow-schedule/');
+const resourceFrameUrl=request=>{try{return request.frame().url();}catch{return null;}};
+function traceResource(event,fields={}){
+  if(!traceResources)return;
+  if(resourceTrace.length===160){resourceTraceDropped++;return;}
+  resourceTrace.push({event,atMs:Date.now()-traceStart,phase:resourcePhase,documentEpoch,...fields});
+}
 const server = http.createServer((req, res) => {
   const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+  if(traceResources&&schedulePath(pathname)){
+    const id='http-'+(++resourceSequence);
+    traceResource('http-request',{id,path:pathname,host:req.headers.host,origin:req.headers.origin||null});
+    req.on('aborted',()=>traceResource('http-request-aborted',{id,path:pathname}));
+    res.on('finish',()=>traceResource('http-response-finished',{id,path:pathname,status:res.statusCode}));
+    res.on('close',()=>traceResource('http-response-closed',{id,path:pathname,finished:res.writableFinished,status:res.statusCode}));
+  }
   const file = path.resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));
   if (!file.startsWith(root + path.sep)) { res.writeHead(403).end(); return; }
   const types = { '.html': 'text/html', '.js': 'application/javascript', '.json': 'application/json', '.css': 'text/css', '.svg': 'image/svg+xml' };
@@ -67,15 +86,24 @@ const server = http.createServer((req, res) => {
     archived_events: row.archivedEvents, ratings: row.ratings, updated_at: row.updatedAt } });
   const errors = [], blocked = [], statuses = [];
   try {
-    await context.addInitScript(() => {
+    await context.addInitScript(traceResources => {
       if ('serviceWorker' in navigator) Object.defineProperty(navigator.serviceWorker, 'ready', {
         configurable: true, value: Promise.resolve({ pushManager: { getSubscription: async () => null } }) });
-    });
+      if(traceResources){
+        const report=(kind,error)=>console.debug('[qa-account-resource]'+JSON.stringify({kind,document:location.origin+location.pathname,
+          name:String(error?.name||typeof error),message:String(error?.message||error||'').slice(0,400),stack:String(error?.stack||'').slice(0,1200)}));
+        addEventListener('unhandledrejection',event=>{report('unhandledrejection',event.reason);});
+        addEventListener('error',event=>{report('window-error',event.error||event.message);});
+      }
+    },traceResources);
     const routeHandler = async route => {
       const request = route.request(), u = new URL(request.url());
       if (!origins.has(u.origin)) { blocked.push(u.origin); return route.abort('blockedbyclient'); }
       if(holdHelper&&u.pathname==='/assets/js/account-awareness-runtime.js'){heldHelpers.push(route);helperHeld();return;}
-      if (!u.pathname.startsWith('/api/')) return route.continue();
+      if (!u.pathname.startsWith('/api/')){
+        if(schedulePath(u.pathname))traceResource('route-continue',{path:u.pathname,origin:u.origin,allowed:origins.has(u.origin),frameUrl:resourceFrameUrl(request)});
+        return route.continue();
+      }
       const body = request.postDataJSON() || {}, method = request.method();
       if (u.pathname === '/api/auth') {
         if (method === 'GET') return route.fulfill({ json: { configured: true } });
@@ -116,7 +144,20 @@ const server = http.createServer((req, res) => {
     };
     await context.route('**/*', routeHandler);
     page = await context.newPage();
-    page.on('pageerror', error => errors.push(error.message));
+    const tracedRequests=new Map();
+    const trackRequest=request=>{
+      const u=new URL(request.url());if(!traceResources||!schedulePath(u.pathname))return null;
+      if(!tracedRequests.has(request))tracedRequests.set(request,{id:'browser-'+(++resourceSequence),path:u.pathname,origin:u.origin,startedEpoch:documentEpoch});
+      return tracedRequests.get(request);
+    };
+    page.on('request',request=>{const item=trackRequest(request);if(item)traceResource('browser-request',{...item,frameUrl:resourceFrameUrl(request),allowed:origins.has(item.origin)});});
+    page.on('response',response=>{const item=trackRequest(response.request());if(item){const headers=response.headers();traceResource('browser-response',{...item,status:response.status(),contentType:headers['content-type']||null,allowOrigin:headers['access-control-allow-origin']||null,redirect:headers.location||null});}});
+    page.on('requestfinished',request=>{const item=trackRequest(request);if(item)traceResource('browser-request-finished',item);});
+    page.on('requestfailed',request=>{const item=trackRequest(request);if(item)traceResource('browser-request-failed',{...item,failure:String(request.failure()?.errorText||'').slice(0,400)});});
+    page.on('framenavigated',frame=>{if(frame===page.mainFrame()){documentEpoch++;traceResource('document-navigation',{url:frame.url()});}});
+    page.on('domcontentloaded',()=>traceResource('document-domcontentloaded',{url:page.url()}));
+    page.on('console',message=>{const value=message.text();if(value.startsWith(resourceMarker)){try{traceResource('window-event',JSON.parse(value.slice(resourceMarker.length)));}catch{traceResource('diagnostic-decode-failed');}}});
+    page.on('pageerror', error => {errors.push(error.message);traceResource('pageerror',{message:error.message.slice(0,400),stack:String(error.stack||'').slice(0,1200),url:page.url()});});
     page.setDefaultTimeout(15000);
     await page.goto(url, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => typeof userPreferences !== 'undefined' && !startupCoordinator.isHydrating());
@@ -194,6 +235,7 @@ const server = http.createServer((req, res) => {
     });
     if (scenario.startsWith('receipt-base-')) {
       const participant='team:football:australian-championship:11255',other='team:football:epl:2';
+      resourcePhase='baseline-follow-edit';
       // Establish an ordinary saved baseline, then use the actual deliberate writer.
       await page.evaluate(participant=>{
         const p=clonePreferences(userPreferences);
@@ -205,7 +247,9 @@ const server = http.createServer((req, res) => {
         if(!savePreferences(p,{deferFollowEffects:true}))throw Error('Baseline fixture rejected');
         clearTimeout(serverSyncTimer);
       },participant);
+      resourcePhase='baseline-sync';
       await page.evaluate(()=>syncCurrentServerState());
+      resourcePhase='local-owned-follow-edit';
       const base=clone(actualApi.state());
       const original=await page.evaluate(participant=>{
         const p=clonePreferences(userPreferences);
@@ -227,6 +271,7 @@ const server = http.createServer((req, res) => {
       // recovery only during this explicit mounted manual-retry scenario.
       holdHelper=true;
       await page.addInitScript(()=>Object.defineProperty(navigator,'onLine',{configurable:true,value:false}));
+      resourcePhase='persisted-restart';traceResource('controlled-reload');
       await page.reload({waitUntil:'domcontentloaded'});
       await page.waitForFunction(()=>serverPersistence.state==='error'&&Boolean(pendingPreferenceIntent(serverPersistence.user?.id)));
       await page.locator('#startupLaunch').waitFor({state:'hidden'});
@@ -261,6 +306,7 @@ const server = http.createServer((req, res) => {
         await page.evaluate(()=>{Object.defineProperty(navigator,'onLine',{configurable:true,value:true});openSettings({section:'account'});});
         const selectorSkip=page.locator('#skipSelectorOptInBtn');if(await selectorSkip.isVisible())await selectorSkip.click();
         await page.waitForFunction(()=>!document.getElementById('syncAccountNowBtn')?.disabled);
+        resourcePhase='manual-sync';
         await page.locator('#syncAccountNowBtn').click();
       }finally{await page.removeLocatorHandler(tuneModal);}
       await page.evaluate(()=>serverSyncSequence.catch(()=>{}));
@@ -581,6 +627,9 @@ const server = http.createServer((req, res) => {
       if (scenario !== 'terminal') await page.waitForFunction(() => document.querySelector('#accountIndicator [data-account-status]')?.dataset.accountStatus === 'signedIn');
     } else throw new Error('Unknown recovery scenario ' + scenario);
     statuses.push(...await page.evaluate(() => globalThis.qaSyncStates || []));
+    resourcePhase='final-assertion';
+    if(traceResources)console.log(JSON.stringify({phase:'schedule-resource-lifetime',scenario,engine:engineName,resourceTraceDropped,
+      blockedOrigins:[...new Set(blocked)],uncaughtErrors:errors,trace:resourceTrace}));
     assert.deepEqual(errors, [], 'no uncaught application errors');
     console.log(JSON.stringify({ scenario, engine: engineName, passed: true, reads, writes, refreshes, authSignIns, statuses,
       blockedOrigins: [...new Set(blocked)], limits: 'Loopback mocked transport; no hosted or physical iPhone proof' }));
