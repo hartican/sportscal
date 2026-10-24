@@ -1,7 +1,7 @@
 'use strict';
 // Deterministic controls only: no browser launch, external request or production I/O.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),http=require('node:http'),vm=require('node:vm'),{EventEmitter}=require('node:events'),{execFileSync}=require('node:child_process'),acorn=require('acorn');
-const {mode,create,LIMITS}=require('./lib/installed-offline-diagnostic'),{boundedSink,runtimeMetadata,validateRuntime,reapOwnedGroups,CAPS}=require('./run-installed-offline-diagnostic');
+const {mode,create,LIMITS,PREFIX,proxyTarget,CANARIES,PREFLIGHT_PATH}=require('./lib/installed-offline-diagnostic'),{boundedSink,runtimeMetadata,validateRuntime,reapOwnedGroups,CAPS}=require('./run-installed-offline-diagnostic');
 const root=path.resolve(__dirname,'..'),temporary=fs.mkdtempSync(path.join(os.tmpdir(),'ns-offline-controls-'));let passed=0;
 const check=(condition,label)=>{assert(condition,label);passed++;};
 const state={version:'593',online:true,controller:'http://127.0.0.1:12345/service-worker.js',workers:[{url:'http://127.0.0.1:12345/service-worker.js',state:'activated',version:'593'},null,null],caches:['nothingsport-shell-v593'],shell:{status:200,bytes:123,version:'593',sha256:'a'.repeat(64)}};
@@ -10,6 +10,17 @@ const request=(url,navigation=false)=>({url:()=>url,resourceType:()=>navigation?
 function context(){const c=new EventEmitter();c.route=async(pattern,handler)=>{c.pattern=pattern;c.handler=handler;};c.addInitScript=async(fn,arg)=>{c.init={fn,arg};};return c;}
 function read(directory){return JSON.parse(fs.readFileSync(path.join(directory,'offline-boundary.json'),'utf8'));}
 async function ownedServer(){const server=http.createServer();await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));return server;}
+// Only syscall/transport doubles: no DNS, browser launch or external socket.
+async function fakePreflight(probe,{http=true,https=true,controller=probe.report.origin+'/service-worker.js',document=probe.report.origin+PREFLIGHT_PATH,active='activated',version='592',outcomes={http:'rejected',https:'rejected'},closeError=false}={}){
+ const c=context(),server=new EventEmitter();probe.attachServer(server);
+ const preflightPage={goto:async url=>assert.equal(url,probe.report.origin+PREFLIGHT_PATH),waitForFunction:async()=>{},evaluate:async()=>{
+  if(http)await c.handler({request:()=>request(CANARIES.http),abort:async()=>{},continue:async()=>probe.proxyRequest({url:CANARIES.http,method:'GET',headers:{host:'ns-offline-http.invalid'},socket:{destroy(){}}},{})});
+  if(https)await c.handler({request:()=>request(CANARIES.https),abort:async()=>{},continue:async()=>server.emit('connect',{url:'ns-offline-https.invalid:443',method:'CONNECT'}, {destroy(){}})});
+  return{controller,document,active,version,outcomes};
+ }};
+ c.newPage=async()=>preflightPage;c.close=async()=>{if(closeError)throw Error('preflight close failed');};
+ await probe.preflight({newContext:async()=>c},'592');return c;
+}
 async function main(){
  try{
   check(mode({})===false&&mode({PWA_OFFLINE_DIAGNOSTIC:'0'})===false,'default mode OFF');
@@ -26,11 +37,14 @@ async function main(){
   const forbidden=new Proxy({},{get(){throw Error('disabled diagnostic touched its argument');}});
   inert.setOrigin('invalid');await inert.attach(forbidden);await inert.capture('disabled',forbidden);inert.watchBrowser(forbidden);inert.socketFailure(forbidden);inert.add('disabled');inert.flush();await inert.accepted(forbidden);
   check(!fs.existsSync(inertPath),'disabled mode writes nothing/registers nothing');
+  assert.deepEqual(inert.launchOptions(),{});passed++;inert.attachServer(forbidden);await inert.preflight(forbidden,'592');inert.beginBoundary();
+  check(inert.proxyRequest(forbidden,forbidden)===false&&inert.preflightDocument(forbidden,forbidden)===false,'normal mode never changes transport/document handling');
   let calls=0;check(await inert.reload(null,async()=>{calls++;return 17;})===17&&calls===1,'disabled mode executes original exactly once');
   const error=Error('original navigation failed');await assert.rejects(inert.reload(null,async()=>{throw error;}),value=>value===error);passed++;
   const directory=path.join(temporary,'active'),probe=create({enabled:true,directory,version:'593'});
   assert.throws(()=>probe.setOrigin('https://example.com'));passed++;
   probe.setOrigin('http://127.0.0.1:12345');const c=context();await probe.attach(c);
+  await fakePreflight(probe);probe.beginBoundary();
   check(c.pattern==='**/*'&&c.init,'external denial installed before page creation');
   for(const url of ['https://example.com/logo.png','http://localhost:12345/x','http://127.0.0.1:12346/x','http://127.0.0.1.evil:12345/x','file:///tmp/x']){
    let aborted=false,continued=false;await c.handler({request:()=>request(url),abort:async code=>{aborted=code==='blockedbyclient';},continue:async()=>{continued=true;}});check(aborted&&!continued,'deny nonowned origin: '+url);
@@ -109,12 +123,57 @@ async function main(){
    else{await assert.rejects(p.cleanup(b,server,null),/cleanup signal/);passed++;}
    const proof=read(dir);check(!server.listening&&proof.cleanup.serverClosed&&proof.cleanup.portClosed,'owned server closes even after browser-close error');
   }
+  const own='http://127.0.0.1:12345',headers={host:'127.0.0.1:12345'},transport=create({enabled:true,directory:path.join(temporary,'transport')});transport.setOrigin(own);
+  const preflightRoutes=await fakePreflight(transport);
+  for(const url of Object.values(CANARIES)){
+   let continued=0;await preflightRoutes.handler({request:()=>request(url),abort:async()=>{throw Error('fixed preflight canary must reach the proxy');},continue:async()=>{continued++;}});check(continued===1,'dedicated preflight permits exact canary to transport');
+   let aborted=0;await c.handler({request:()=>request(url),abort:async()=>{aborted++;},continue:async()=>{throw Error('main context must not exempt canaries');}});check(aborted===1,'main app context retains independent external denial');
+  }
+  let unrelatedAborted=0;await preflightRoutes.handler({request:()=>request('https://unrelated.invalid/logo'),abort:async()=>{unrelatedAborted++;},continue:async()=>{throw Error('unrelated external request must not use canary exemption');}});check(unrelatedAborted===1,'preflight exemption is not a blanket outside allowance');
+  const counterBefore={...transport.report.proxy};
+  await assert.rejects(fakePreflight(transport),/Only one proxy preflight/);passed++;
+  assert.throws(()=>transport.beginBoundary(),/requires completed verified/);passed++;
+  assert.deepEqual(transport.launchOptions(),{proxy:{server:own,bypass:'127.0.0.1:12345'}});passed++;
+  for(const url of ['/index.html','/?installed-pwa-upgrade=1','/api/user-state',own+'/config/x.js',own]){
+   const req={url,headers,socket:{destroy(){throw Error('owned transport must remain unchanged');}}};check(proxyTarget(req,own).allow&&!transport.proxyRequest(req,forbidden),'exact owned relative/absolute positive: '+url);
+  }
+  for(const [url,host]of [[CANARIES.http,'ns-offline-http.invalid'],['http://example.com/','example.com'],['https://example.com/','example.com'],['//example.com/x',headers.host],['http://127.0.0.1:12346/x',headers.host],['http://127.0.0.1.evil:12345/x',headers.host],['http://user@127.0.0.1:12345/x',headers.host],['http://127.1:12345/x',headers.host],['/index.html','wrong-host'],['\\\\example.com/x',headers.host],['/x\r\nHost:evil',headers.host],['relative',headers.host],['file:///tmp/x',headers.host]]){
+   let destroyed=0;const req={url,method:'GET',headers:{host},socket:{destroy(){destroyed++;}}};check(!proxyTarget(req,own).allow&&transport.proxyRequest(req,forbidden)&&destroyed===1,'deny without any upstream response/socket: '+url);
+  }
+  const connectServer=new EventEmitter();transport.attachServer(connectServer);
+  for(const authority of ['ns-offline-https.invalid:443','example.com:443','127.0.0.1:12345','ns-offline-https.invalid:444','user@ns-offline-https.invalid:443','ns-offline-https.invalid:443/path']){
+   let destroyed=0;connectServer.emit('connect',{url:authority,method:'CONNECT'},{destroy(){destroyed++;}});check(destroyed===1&&!proxyTarget({url:authority},own,true).allow,'deny every CONNECT tunnel: '+authority);
+  }
+  check(transport.report.proxy.canaryHttpDenied-counterBefore.canaryHttpDenied===1&&transport.report.proxy.canaryHttpsDenied-counterBefore.canaryHttpsDenied===1,'only exact HTTP URI and HTTPS authority can prove preflight');
+  let writes=0;check(transport.preflightDocument({url:PREFLIGHT_PATH},{writeHead(status,h){assert.equal(status,200);assert.equal(h['cache-control'],'no-store');writes++;},end(body){assert(body.includes('serviceWorker.register')&&!body.includes('http://')&&!body.includes('https://'));writes++;}})&&writes===2,'minimal preflight document uses only actual same-origin worker');
+  check(!transport.preflightDocument({url:'/index.html'},forbidden),'no product document/header changes');
+  for(const options of [{http:false},{https:false},{version:'old'},{controller:'http://elsewhere.invalid/service-worker.js'},{document:own+'/other'},{active:'installing'},{outcomes:{http:'resolved',https:'rejected'}},{outcomes:{http:'timeout',https:'rejected'}},{closeError:true}]){
+   const p=create({enabled:true,directory:path.join(temporary,'preflight-'+passed)});p.setOrigin(own);
+   await assert.rejects(fakePreflight(p,options));passed++;assert.throws(()=>p.beginBoundary());passed++;
+  }
+  const overflow=create({enabled:true,directory:path.join(temporary,'late-critical')});overflow.setOrigin(own);const live=context();await overflow.attach(live);await fakePreflight(overflow);
+  const lifecyclePage=new EventEmitter();live.emit('page',lifecyclePage);
+  for(let index=0;index<100;index++)lifecyclePage.emit('console',{text:()=>PREFIX+JSON.stringify({event:'pageshow',trusted:false,online:true,controller:own+'/service-worker.js',version:'593'})});
+  lifecyclePage.emit('console',{text:()=>PREFIX+JSON.stringify({event:'pageshow',trusted:true,online:true,version:'593'})});
+  for(let index=0;index<3000;index++)overflow.add('ordinary-traffic',{value:'x'.repeat(512)});
+  for(let index=0;index<200;index++)overflow.add('prelude-critical',{value:'y'.repeat(512)},true);
+  overflow.beginBoundary();const lateDocument=request(own+'/?installed-pwa-upgrade=1',true);live.emit('request',lateDocument);
+  const fixed=['setOffline-true-start','setOffline-true-end','setOffline-false-start','setOffline-false-end','reload-start','reload-resolved','reload-original-error','cleanup-start'];
+  for(const event of fixed)overflow.add(event,{},true);
+  for(let index=0;index<160;index++)overflow.socketFailure({url:'/?installed-pwa-upgrade=1',socket:{remotePort:index},headers:{'sec-fetch-mode':'same-origin'}});
+  live.emit('response',{request:()=>lateDocument,status:()=>200,fromServiceWorker:()=>true});live.emit('requestfinished',lateDocument);
+  overflow.flush();const retained=read(path.join(temporary,'late-critical'));
+  for(const event of [...fixed,'request','response','requestfinished','origin-socket-destroy'])check(retained.critical.some(item=>item.event===event),'late protocol fact survives prelude overflow: '+event);
+  check(retained.lifecycle['pageshow:synthetic'].count===100&&retained.lifecycle['pageshow:trusted'].count===1,'all resume events counted truthfully outside critical storage');
+  check(retained.critical.find(item=>item.event==='origin-socket-destroy').count===160,'repeated socket facts aggregate without losing final cleanup');
+  check(retained.dropped.events+retained.dropped.bytes>0&&retained.dropped.critical>0&&retained.critical.length<=128&&fs.statSync(path.join(temporary,'late-critical/offline-boundary.json')).size<=524288,'same byte/critical caps with truthful independent overflow');
   const baseline=execFileSync('git',['show','d31f1af9b5697502938a09f000d779abe30a6209:scripts/validate-installed-pwa-upgrade-browser.js'],{cwd:root,encoding:'utf8'}),current=fs.readFileSync(path.join(__dirname,'validate-installed-pwa-upgrade-browser.js'),'utf8');
   function callsIn(source,select){const selected=[];function walk(node){if(!node||typeof node!=='object')return;if(node.type==='CallExpression'&&select(node.callee))selected.push(source.slice(node.start,node.end));for(const value of Object.values(node)){if(Array.isArray(value))value.forEach(walk);else if(value&&typeof value==='object')walk(value);}}walk(acorn.parse(source,{ecmaVersion:'latest'}));return selected;}
   const assertion=callee=>callee.type==='Identifier'&&callee.name==='assert'||callee.type==='MemberExpression'&&callee.object.name==='assert';
   assert.deepEqual(callsIn(current,assertion),callsIn(baseline,assertion),'every original assertion retains exact text/order');passed++;
   const timed=callee=>callee.type==='MemberExpression'&&['waitForTimeout','waitForFunction'].includes(callee.property.name);
   assert.deepEqual(callsIn(current,timed),callsIn(baseline,timed),'every original timed wait/deadline retains exact text/order');passed++;
+  check(current.indexOf('await offlineProbe.preflight(browser')<current.indexOf('const context=await browser.newContext')&&current.indexOf('offlineProbe.beginBoundary();')<current.indexOf("await offlineProbe.capture('before-offline'"),'preflight precedes fresh original app context; verified boundary gate precedes offline transition');
   for(const file of ['index.html','service-worker.js','assets/js/app-update.js','assets/js/app-shell-runtime.js','assets/js/account-awareness-runtime.js']){assert(fs.readFileSync(path.join(root,file)).equals(execFileSync('git',['show','d31f1af9b5697502938a09f000d779abe30a6209:'+file],{cwd:root,maxBuffer:8*1024*1024})),file+' remains exact failing app bytes');passed++;}
   const workflow=fs.readFileSync(path.join(root,'.github/workflows/installed-upgrade-tests.yml'),'utf8');
   check(workflow.includes("'[\"webkit\"]' || '[\"chromium\",\"webkit\"]'")&&workflow.includes('OFFLINE DIAGNOSTIC - NOT RELEASE ACCEPTANCE'),'distinct single-engine opt-in check');

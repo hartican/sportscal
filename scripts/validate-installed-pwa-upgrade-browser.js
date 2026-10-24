@@ -598,7 +598,9 @@ function candidateFile(name){
   return bytes;
 }
 const server=http.createServer((req,res)=>{
+  if(offlineProbe.proxyRequest(req,res))return;
   if(networkFailure){offlineProbe.socketFailure(req);req.socket.destroy();return;}
+  if(offlineProbe.preflightDocument(req,res))return;
   let name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/+/, '')||'index.html';
   if(name==='app-version.json')versionRequests++;
   if(name.includes('..')){res.writeHead(400);res.end();return;}
@@ -615,8 +617,10 @@ const server=http.createServer((req,res)=>{
     await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
     const origin='http://127.0.0.1:'+server.address().port;
     offlineProbe.setOrigin(origin);
-    browser=await (process.env.PWA_BROWSER==='webkit'?webkit:chromium).launch({headless:true,...launchOptions});
+    offlineProbe.attachServer(server);
+    browser=await (process.env.PWA_BROWSER==='webkit'?webkit:chromium).launch({headless:true,...launchOptions,...offlineProbe.launchOptions()});
     offlineProbe.watchBrowser(browser);
+    if(offlineProbe.enabled)await offlineProbe.preflight(browser,JSON.parse(baselineFile('app-version.json')).version);
     const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,serviceWorkers:'allow'});
     await offlineProbe.attach(context);
     await context.addInitScript(()=>{globalThis.qaUpgradeMessages=[];navigator.serviceWorker?.addEventListener('message',event=>{if(event.data?.type?.startsWith('nothingsport-'))qaUpgradeMessages.push({type:event.data.type,version:event.data.version||null,at:performance.now()});});});
@@ -739,6 +743,7 @@ const server=http.createServer((req,res)=>{
     // The later original NFL/table probes intentionally exercise men's fixtures.
     await upgraded.getByRole('tab',{name:'Men',exact:true}).tap();
     await upgraded.locator('.tabs [data-tab=feed]').tap();
+    offlineProbe.beginBoundary();
     await offlineProbe.capture('before-offline',upgraded);
     offlineProbe.add('setOffline-true-start',{},true);
     await context.setOffline(true);
