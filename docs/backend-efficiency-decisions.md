@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Exact sync refusal observation — 24 October 2026 Sydney
+
+The actual591 iPhone still holds; its family summary does not identify a causal failure or intended winner. Add only a safelisted first-actual-refusal/exception observation to the existing scoped, serialised owner, including honest bounded SDK load/save call-start counters and initial/post409 verify phase. If the captured current-versus-receipt predicate refuses, report fixed families from those same projected operands; this is an observation, not another policy predicate. No values, IDs, hashes, record counts, raw keys/errors or extra retained preference snapshot are copied. Existing pending receipts, matching owned ACK, R2, ordinary Settings, explicit OFF/empty/removal, unknown/conflict and CAS protections remain exact. No new request, store, timer, scheduler, schema or merge rule. ROOT owns final review, normal/installed/hosted release gates and one coordinated useful phone copy after release. See [source proof and contract](quality/account-sync-refusal-diagnostic-2026-10-24.md).
+
 ## Disjoint owned preference reconciliation — 24 October 2026 Sydney
 
 The approved P1 sync repair may reconcile only validated, demonstrably independent entity/domain changes from an original owned pending receipt against freshly read same-account state. Use the existing canonical participant identity; domains use their exact stable sportDomainId, refusing duplicate/ambiguous identities and the legacy rally alias. Apply only recorded changed fields. Preserve remote additions, untouched remote fields, removals and OFF/empty values. A whole-list empty cannot erase unseen concurrent additions. Differing edits to the same field, deletion versus edit, unknown fields/shapes, unavailable identity/baseline and all other changed projected preferences retain a visible hold. No union, inferred intent, default revival, receipt expiry/reset or historical recovery is introduced.
