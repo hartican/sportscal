@@ -149,6 +149,16 @@ const server = http.createServer((req, res) => {
         addEventListener('error',event=>{report('window-error',event.error||event.message);});
       }
     },traceResources);
+    if(helperRaceProbe)await context.addInitScript(()=>{
+      const frame=window.requestAnimationFrame;
+      window.requestAnimationFrame=callback=>{
+        if(String(callback).includes('openSettings({ firstRun: true })')){
+          globalThis.qaReleaseStartupSetup=()=>{window.requestAnimationFrame=frame;frame(callback);};
+          return 0;
+        }
+        return frame(callback);
+      };
+    });
     const routeHandler = async route => {
       const request = route.request(), u = new URL(request.url());
       let requestContext;if(traceApiStale){try{requestContext=request.frame().page()===page?'A':'B';}catch{requestContext='unavailable';}}
@@ -289,6 +299,7 @@ const server = http.createServer((req, res) => {
     page.setDefaultTimeout(15000);
     await page.goto(url, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => typeof userPreferences !== 'undefined' && !startupCoordinator.isHydrating());
+    if(helperRaceProbe)await page.waitForFunction(()=>typeof qaReleaseStartupSetup==='function');
     row = await page.evaluate(actualApi => {
       const p = clonePreferences(userPreferences); p.onboardingComplete = true;
       if (actualApi) {
@@ -301,6 +312,34 @@ const server = http.createServer((req, res) => {
       closeSelectorOptInPrompt();
       return { ...currentServerStatePayload(), updatedAt: '2026-10-23T01:00:00Z' };
     }, Boolean(actualApi));
+    if(helperRaceProbe){
+      await page.evaluate(()=>{closeSettings();openSettings({section:'account'});});
+      await page.locator('#accountEmail').fill('disposable@example.invalid');
+      await page.locator('#accountPassword').fill('test-only-password');
+      const before=await page.evaluate(()=>{
+        globalThis.qaStartupForm=document.getElementById('accountSignInForm');
+        globalThis.qaStartupEmail=document.getElementById('accountEmail');
+        globalThis.qaStartupPassword=document.getElementById('accountPassword');
+        return {preferences:clonePreferences(userPreferences),generation:serverSyncClient.accountSnapshot().generation};
+      });
+      await page.evaluate(()=>qaReleaseStartupSetup());
+      await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+      const retained=await page.evaluate(before=>({
+        form:qaStartupForm===document.getElementById('accountSignInForm'),
+        email:qaStartupEmail===document.getElementById('accountEmail'),
+        password:qaStartupPassword===document.getElementById('accountPassword'),
+        focused:document.activeElement===qaStartupPassword,
+        valid:qaStartupEmail.validity.valid&&qaStartupPassword.validity.valid,
+        account:settingsSection==='account'&&!settingsFirstRun,
+        choices:PROFILE_STORAGE.preferenceBaseMatches({basePreferences:before.preferences},userPreferences),
+        generation:serverSyncClient.accountSnapshot().generation===before.generation,
+      }),before);
+      assert.deepEqual(retained,{form:true,email:true,password:true,focused:true,valid:true,account:true,choices:true,generation:true},'Pending first-run setup must preserve the native Account form and choices');
+      console.log(JSON.stringify({phase:'pending-first-run-form-retention',scenario,engine:engineName,retained}));
+      await page.evaluate(()=>{closeSettings();openSettings({firstRun:true});});
+      assert.deepEqual(await page.evaluate(()=>({firstRun:settingsFirstRun,section:settingsSection,open:document.getElementById('settingsModal').classList.contains('show')})),
+        {firstRun:true,section:'startup',open:true},'Explicit first-run setup remains available');
+    }
     if (actualApi) { actualApi.seed(row); row = actualApi.state(); }
     holdHelper=helperRaceProbe;
     traceApiBoundary('setup-before-controlled-reload');
@@ -329,13 +368,17 @@ const server = http.createServer((req, res) => {
     await page.locator('#accountEmail').fill('disposable@example.invalid');
     await page.locator('#accountPassword').fill('test-only-password');
     if(helperRaceProbe){
-      await page.evaluate(()=>{globalThis.qaSignInForm=document.getElementById('accountSignInForm');void ensureAccountIndicator();});
+      await page.evaluate(()=>{globalThis.qaSignInForm=document.getElementById('accountSignInForm');openFirstRunSettingsAfterFeedAlignment();void ensureAccountIndicator();});
       let helperTimer;
       try{await Promise.race([helperRequest,new Promise((_,reject)=>{helperTimer=setTimeout(()=>reject(new Error('Deferred Account helper request was not observed')),8000);})]);}
       finally{clearTimeout(helperTimer);}
       holdHelper=false;
       for(const route of heldHelpers)await route.continue();
       await page.evaluate(()=>ensureAccountIndicator());
+      // The exact filled form used by the following native submit must survive
+      // both deferred owners, including an already-completed setup callback.
+      await page.evaluate(()=>qaReleaseStartupSetup());
+      await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
       const retained=await page.evaluate(()=>({sameForm:qaSignInForm===document.getElementById('accountSignInForm'),
         passwordFocused:document.activeElement===document.getElementById('accountPassword'),
         emailValid:document.getElementById('accountEmail').validity.valid,passwordValid:document.getElementById('accountPassword').validity.valid}));

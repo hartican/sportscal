@@ -13872,7 +13872,9 @@ function closeSettings({ restoreTheme = true, restoreViewport = true, preserveAc
 
 function openFirstRunSettingsAfterFeedAlignment(){
   window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(() => openSettings({ firstRun: true }));
+    window.requestAnimationFrame(() => {
+      if (!userPreferences.onboardingComplete && !document.getElementById("settingsModal").classList.contains("show")) openSettings({ firstRun: true });
+    });
   });
 }
 
