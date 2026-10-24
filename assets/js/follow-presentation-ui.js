@@ -273,13 +273,13 @@ function renderLegacyParticipantDirectory(container, sportKey){
   if(gender==='all'&&!sportKey.endsWith('-women')&&(followDirectoryManifest?.sports||[]).some(s=>s.key===counterpart)){
     const other=followDirectoryChunks.get(counterpart);
     if(other&&chunk)chunk={...chunk,records:[...new Map([...chunk.records,...other.records].map(r=>[r.id,r])).values()]};
-    else if(!followDirectoryChunkErrors.has(counterpart))void loadFollowDirectoryChunk(counterpart).then(()=>queueScrollIdleMutation(renderStandingsContext)).catch(error=>followDirectoryChunkErrors.set(counterpart,error));
+    else if(!other&&!followDirectoryChunkErrors.has(counterpart))void loadFollowDirectoryChunk(counterpart).then(()=>queueScrollIdleMutation(renderStandingsContext)).catch(error=>followDirectoryChunkErrors.set(counterpart,error));
   }
   if(parent==='sport:nba'&&gender==='all'&&!state.categoryId){
     for(const key of ['nbl','fiba-women']){
       const other=followDirectoryChunks.get(key);
       if(other&&chunk)chunk={...chunk,records:[...new Map([...chunk.records,...other.records].map(r=>[r.id,r])).values()]};
-      else if(!followDirectoryChunkErrors.has(key))void loadFollowDirectoryChunk(key).then(()=>queueScrollIdleMutation(renderStandingsContext)).catch(error=>followDirectoryChunkErrors.set(key,error));
+      else if(!other&&!followDirectoryChunkErrors.has(key))void loadFollowDirectoryChunk(key).then(()=>queueScrollIdleMutation(renderStandingsContext)).catch(error=>followDirectoryChunkErrors.set(key,error));
     }
   }
   if (!footballDirectoryApi || !chunk){

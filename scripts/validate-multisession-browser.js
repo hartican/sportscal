@@ -45,6 +45,14 @@ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(
         return {on,off,otherChoice:getEventAction(other).reminderChoice||null,requests,preset:userPreferences.followFirst.notifications.sessionPresets['competition:formula-one'],practiceRatings:card.querySelectorAll('.multisession-detail [data-rating-phase]').length,childId:card.querySelector('.multisession-detail .event-card')?.dataset.eventId,syntheticSaved:Object.keys(eventActions).some(id=>id.includes(':day:'))};
       });
       assert.equal(reminders.on,'on');assert.equal(reminders.off,'off');assert.equal(reminders.otherChoice,null);assert.equal(reminders.requests[0].remindAt,'2026-10-24T00:45:00.000Z');assert(reminders.requests[0].id.endsWith(':practice-1'));assert(reminders.preset.enabled);assert.deepEqual(reminders.preset.sessionTypes.slice().sort(),['race','sprint']);assert.equal(reminders.practiceRatings,0);assert(reminders.childId.endsWith(':practice-1'));assert(!reminders.syntheticSaved);
+      const routing=await page.evaluate(()=>{
+        const sessions=[...activeEvents],qualifying=sessions.find(e=>e.sessionType==='qualifying'),race=sessions.find(e=>e.sessionType==='race');
+        updateEventAction(qualifying,{archived:true});activeEvents=[{...race,eventGroupSchedule:sessions}];renderListView();
+        const restoredArchived=Boolean(document.querySelector('[data-session-id="'+qualifying.id+'"]'));
+        let routed=null;openNothingscoreContribution=async event=>{routed=event.id;};pendingNotificationEventId=race.id;const url=new URL(location.href);url.searchParams.set('event',race.id);url.searchParams.set('liveRatings','1');history.replaceState(null,'',url);const focused=focusPendingNotificationEvent();
+        activeEvents=sessions;updateEventAction(qualifying,{archived:false});return {restoredArchived,focused,routed};
+      });
+      assert(!routing.restoredArchived,'Cached closure cannot restore an archived session');assert(routing.focused);assert.equal(routing.routed,'event:f1:2026:qa-weekend:race','Rating notification uses exact competitive child');
       const follow=await page.evaluate(async()=>{
         activeTab='follow';followHomeView='browse';activeInspectorCodeId=null;saveFollowBrowse({sportId:'sport:tennis',categoryId:'',section:'teams-players',genderBySport:{}});renderFollowView();
         const palette=()=>[...document.querySelectorAll('.follow-sport-bar [data-follow-sport]')].map(b=>b.dataset.followSport),before=palette(),choices=JSON.stringify(userPreferences.selectedSelectorEntityIds);
@@ -53,13 +61,27 @@ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(
         return {samePalette:JSON.stringify(before)===JSON.stringify(after),remembered,choicesUnchanged:choices===JSON.stringify(userPreferences.selectedSelectorEntityIds),sportFirst:Boolean(document.querySelector('.follow-navigation-controls')?.querySelector('.follow-sport-bar')||document.querySelector('#follow-navigation-controls .follow-sport-bar'))};
       });
       assert(follow.samePalette);assert.equal(follow.remembered,'women');assert(follow.choicesUnchanged);assert(follow.sportFirst);assert.deepEqual(errors,[]);
+      await page.evaluate(()=>{const all=[...document.querySelectorAll('.follow-gender-tabs button')].find(b=>b.textContent==='All supported');all.click();updateDirectoryFilters('tennis',{entityType:'athlete'});renderFollowView();});
+      await page.waitForFunction(()=>followDirectoryChunks.has('tennis')&&followDirectoryChunks.has('tennis-women'));
+      assert.equal(await page.evaluate(()=>directoryFilters('tennis').genderCategory),'','All supported clears the saved gender filter');
+      await page.evaluate(()=>{updateDirectoryFilters('tennis',{query:'Sabalenka'});renderFollowView();});
+      await page.waitForFunction(()=>[...document.querySelectorAll('.follow-directory-row')].some(row=>row.textContent.includes('Sabalenka')),null,{timeout:10000});
+      await page.evaluate(()=>updateDirectoryFilters('tennis',{query:''}));
       await page.evaluate(async()=>{await loadCodeInspectorManifest();await loadDeferredScript('assets/js/follow-schedule-panel.js?v=576');const code=codeInspectorManifest.codes.find(c=>c.id==='sport:f1');codeInspectorChunk={code,fixtures:activeEvents.filter(e=>e.id.startsWith('event:f1:2026:qa-weekend:')),standings:[]};activeTab='follow';saveFollowBrowse({sportId:'sport:motorsport',categoryId:'sport:f1',section:'schedule',genderBySport:{'sport:motorsport':'open'}});renderFollowView();});
       await page.locator('.follow-schedule-panel .multisession-card').first().waitFor();assert.equal(await page.locator('.follow-schedule-panel .multisession-card').count(),2,'Schedule uses the same daily projection');
+      const focus=await page.evaluate(()=>{
+        const base=codeInspectorChunk.fixtures.find(e=>e.sessionType==='race'),later=Array.from({length:5},(_,i)=>({...base,id:'event:f1:2026:qa-later-'+i+':race',date:'2026-11-'+String(1+i).padStart(2,'0'),startTimeUtc:'2026-11-'+String(1+i).padStart(2,'0')+'T01:00:00Z'}));
+        codeInspectorChunk.fixtures.push(...later);codeInspectorFocusedFixture=later.at(-1);codeInspectorFocusedOwner=serverSyncClient?.sessionSubject()||'public';renderFollowView();
+        return document.querySelector('.follow-schedule-panel .multisession-detail .event-card')?.dataset.eventId;
+      });
+      assert.equal(focus,'event:f1:2026:qa-later-4:race','Exact Schedule route selects a target outside the current three groups');
+      await page.evaluate(()=>{codeInspectorFocusedFixture=null;codeInspectorFocusedOwner=null;});
       await page.evaluate(()=>{saveFollowBrowse({sportId:'sport:nbl',categoryId:'sport:nbl',section:'teams-players'});activeInspectorCodeId=null;renderFollowView();});
       await page.waitForFunction(()=>document.querySelectorAll('.follow-directory-row').length===10);assert.equal(await page.evaluate(()=>followBrowseState().sportId),'sport:nba');assert(await page.locator('.follow-category-bar button').filter({hasText:'NBL'}).count());
       await page.evaluate(()=>{saveFollowBrowse({sportId:'sport:rugby',categoryId:'',section:'teams-players',genderBySport:{'sport:rugby':'men'}});renderFollowView();});
       await page.locator('.rugby-competition-choices').waitFor();assert.equal(await page.locator('.rugby-competition-choices input').count(),6);assert.equal(await page.locator('.rugby-competition-choices input:checked').count(),0);assert(await page.locator('.rugby-competition-choices img').evaluateAll(images=>images.every(img=>img.getAttribute('src').startsWith('assets/identities/rugby/'))));
-      console.log(JSON.stringify({engine,cases:8,follow,reminders,scheduleDailyGroups:2,nblTeams:10,rugbyCompetitions:6}));await page.close();
+      assert.deepEqual(errors,[]);
+      console.log(JSON.stringify({engine,cases:8,follow,reminders,routing,focus,scheduleDailyGroups:2,nblTeams:10,rugbyCompetitions:6}));await page.close();
     }finally{await browser.close();}
   }}finally{await new Promise(resolve=>server.close(resolve));}
   if(process.env.QA_EVIDENCE_DIR)fs.writeFileSync(path.join(process.env.QA_EVIDENCE_DIR,'browser-receipts.json'),JSON.stringify(receipts,null,2)+'\n');

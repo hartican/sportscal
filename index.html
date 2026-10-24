@@ -8649,9 +8649,12 @@ async function openFriendFixture(eventId){
 function focusPendingNotificationEvent(){
   if (!pendingNotificationEventId) return false;
   if(new URLSearchParams(location.search).get('surface')==='match-centre'){notificationFixtureLoading ||= routeFixture('milestone',pendingNotificationEventId).finally(()=>notificationFixtureLoading=false);return true;}
-  const item = [...feedCardSlots.values()].find(item => String(item.event.eventId || item.event.id) === pendingNotificationEventId||item.event.sessions?.some(e=>[e.id,e.eventId,e.canonicalEventId,...(e.sourceEventIds||[])].includes(pendingNotificationEventId)));
+  const matches=e=>[e.id,e.eventId,e.canonicalEventId,...(e.sourceEventIds||[])].includes(pendingNotificationEventId);
+  const item = [...feedCardSlots.values()].find(item => matches(item.event)||item.event.daySessions?.some(matches));
+  const child=item?.event.daySessions?.find(matches);
   if (item && !item.mounted){item.slot.replaceChildren(buildEventCard(item.event));item.slot.style.minHeight='';item.mounted=true;}
-  const target = document.querySelector(`.event-card[data-event-id="${CSS.escape(pendingNotificationEventId)}"],.multisession-row[data-session-id="${CSS.escape(pendingNotificationEventId)}"]`);
+  const targetId=child?NOTHINGSPORTS_MULTISESSION.id(child):pendingNotificationEventId;
+  const target = document.querySelector(`.event-card[data-event-id="${CSS.escape(targetId)}"],.multisession-today .multisession-row[data-session-id="${CSS.escape(targetId)}"]`);
   if (!target){
     if(!notificationFixtureLoading&&!history.state?.athleteMatchReturn){notificationFixtureLoading=true;const id=pendingNotificationEventId;
       void openFriendFixture(id).then(()=>{pendingNotificationEventId='';const url=new URL(location.href);url.searchParams.delete('event');url.searchParams.delete('liveRatings');history.replaceState(history.state,'',url);}).catch(e=>showToast(e.message)).finally(()=>{notificationFixtureLoading=false;});
@@ -8662,7 +8665,7 @@ function focusPendingNotificationEvent(){
   target.focus({ preventScroll:true });
   const url = new URL(window.location.href);
   const showLiveRatings = url.searchParams.get("liveRatings") === "1";
-  const notificationEvent = item?.event || activeEvents.find(event => String(event.eventId || event.id) === pendingNotificationEventId);
+  const notificationEvent = child || (item?.event.multisessionOccurrence?null:item?.event) || activeEvents.find(matches);
   url.searchParams.delete("event");
   url.searchParams.delete("liveRatings");
   history.replaceState(history.state, "", `${url.pathname}${url.search}${url.hash}`);
@@ -9002,7 +9005,7 @@ function hydrateFeedFilter(){
 function matchesFeedViewFilters(ev){return (feedViewFilters.sport==='all'||feedFilterMatchesEvent(feedViewFilters.sport,ev))&&NOTHINGSPORTS_FEED_VIEW_FILTER.matches(nothingscoreSnapshotFor(ev),Number(feedViewFilters.minimum),actualStarValue(ev));}
 function getFilteredEvents(){
   let list = getPreferenceMatchedEvents();
-  list = list.filter(ev => !getEventAction(ev).archived && !getEventAction(ev).dismissed && !eventIsAutoArchived(ev));
+  list = list.filter(feedSessionStateAllows);
   if (activeTab === "feed" && activeFilter === "all"){
     list = list.filter(discoveryEventIncludedForSession);
   }
@@ -9010,6 +9013,7 @@ function getFilteredEvents(){
   if(activeTab==='feed')list=list.filter(matchesFeedViewFilters);
   return list;
 }
+function feedSessionStateAllows(event){const action=getEventAction(event);return !action.archived&&!action.dismissed&&!eventIsAutoArchived(event);}
 
 function focusedArchivedEvents(reference = nowAEST()){
   if (activeFilter === "all") return [];
@@ -11375,7 +11379,7 @@ function renderListView(){
     filtered = orderSurfacedEvents([...merged.values()]);
   }
   const groupFollowContext=buildFollowEligibilityContext();
-  filtered = NOTHINGSPORTS_MULTISESSION.project(filtered,{eligible:e=>eventMeetsDerivedRetention(e)&&eventFollowReason(e,groupFollowContext)&&feedFilterMatchesEvent(activeFilter,e)&&matchesFeedViewFilters(e)});
+  filtered = NOTHINGSPORTS_MULTISESSION.project(filtered,{eligible:e=>feedSessionStateAllows(e)&&eventMeetsDerivedRetention(e)&&eventFollowReason(e,groupFollowContext)&&feedFilterMatchesEvent(activeFilter,e)&&matchesFeedViewFilters(e)});
   const timeline = NOTHINGSPORTS_FEED_TIMELINE.groups(filtered,nowAEST());
   const initial=[...timeline.retainedPast.slice(-20),...[...timeline.today,...timeline.future,...(timeline.unknown||[])].slice(0,20)];
   initialFeedCardIds=new Set(initial.map(event=>String(event.canonicalEventId||event.eventId||event.id)));
@@ -11802,7 +11806,7 @@ function directoryFilters(sportKey = readStandingsDirectorySession().directorySp
     birthCountryCode: typeof raw.birthCountryCode === "string" ? raw.birthCountryCode : "",
     prominenceTier: ["marquee", "established", "emerging"].includes(raw.prominenceTier) ? raw.prominenceTier : "",
     sortMode: ["table", "value", "alpha"].includes(raw.sortMode) ? raw.sortMode : "table",
-    genderCategory: NOTHINGSPORTS_SURFACE_CATEGORY.genderMatches({gender:'women'},sportKey)?'female':'male',
+    genderCategory: ['', 'female', 'male', 'mixed'].includes(raw.genderCategory)?raw.genderCategory:NOTHINGSPORTS_SURFACE_CATEGORY.genderMatches({gender:'women'},sportKey)?'female':'male',
     cricketFormat: ['Tests','ODIs','T20Is','BBL','Shield','One Day Cup'].includes(raw.cricketFormat)?raw.cricketFormat:'Tests',
     collectionId: typeof raw.collectionId === "string" ? raw.collectionId.slice(0, 120) : "",
     entityType: raw.entityType === "athlete" ? "athlete" : "team",

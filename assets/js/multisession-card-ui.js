@@ -44,7 +44,7 @@
     const preferences=presets(event.daySessions[0]);if(preferences)card.append(preferences);
     const detail=node('div',null,'multisession-detail');card.append(detail);
     const focused=event.daySessions.find(e=>model.id(e)===options.focusSessionId);
-    if(focused){setCardState(focused,'opened');detail.append(buildEventCard(focused,{...options,mode:'schedule'}));}
+    if(focused){setCardState(focused,'opened');detail.append(buildEventCard(focused,{...options,mode:'schedule'}));requestAnimationFrame(()=>{if(card.isConnected){detail.tabIndex=-1;detail.scrollIntoView({block:'start'});detail.focus({preventScroll:true});}});}
     return card;
   }
   globalThis.NOTHINGSPORTS_MULTISESSION_UI={build};

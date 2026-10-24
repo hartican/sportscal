@@ -29,7 +29,7 @@ function apply(){
   const archiveFile=path.join(root,'data/canonical/retired-sports-fixtures.v1.json'),archive=fs.existsSync(archiveFile)?JSON.parse(fs.readFileSync(archiveFile,'utf8')):{schemaVersion:'retired-sports-fixtures.v1',events:[]};
   const archived=new Map(archive.events.map(e=>[e.id,e])),today=require('../../config/calendar-export').sydneyDay(new Date());
   for(const name of ['feeds/incoming/events.json','data/events.json']){
-    const file=path.join(root,name),d=JSON.parse(fs.readFileSync(file,'utf8')),events=merge(d.events).map(e=>e.resultCoverage==='calendar-only'&&e.status==='completed'&&!e.score&&!e.resultStatus&&require('../../config/multisession-events').practice(e)?{...e,resultStatus:'pending',resultSourceUrl:e.sourceUrl,resultSourceCheckedAt:e.sourceCheckedAt}:e);
+    const file=path.join(root,name),d=JSON.parse(fs.readFileSync(file,'utf8')),events=merge(d.events).map(e=>!e.score&&!e.resultStatus&&require('../../config/multisession-events').practice(e)?{...e,resultStatus:'pending',resultSourceUrl:e.sourceUrl,resultSourceCheckedAt:e.sourceCheckedAt}:e);
     for(const event of events)if(!active(event))archived.set(event.id,event);
     d.events=events.filter(e=>active(e)||String(e.endDate||e.date||'9999')<today).map(require('./rugby-artwork').fixture);fs.writeFileSync(file,JSON.stringify(d,null,2)+'\n');
     if(name==='data/events.json'){

@@ -207,7 +207,7 @@ function cardForEvent(event, schedule, participantsById){
     sourceType:source.type,
     sourceTrust:"verified",
     status:event.status || (completed ? "completed" : "upcoming"),
-    ...(completed&&!result&&event.resultCoverage==='calendar-only'&&['f1','motogp','supercars'].includes(event.sportKey)?{resultStatus:'pending',resultSourceUrl:source.url,resultSourceCheckedAt:sourceCheckedAt}:{}),
+    ...(!result&&((completed&&event.resultCoverage==='calendar-only')||require('../config/multisession-events').practice({...event,key:event.sportKey}))&&['f1','motogp','supercars'].includes(event.sportKey)?{resultStatus:'pending',resultSourceUrl:source.url,resultSourceCheckedAt:sourceCheckedAt}:{}),
     ...(result ? {
       resultStatus:result.status,
       resultSourceUrl:resultSource.url,

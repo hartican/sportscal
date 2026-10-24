@@ -68085,7 +68085,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-09-11T12:30:00.000Z",
-    "sessionType": "Practice 1"
+    "sessionType": "Practice 1",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "evt_vuelta_2026_stage_19",
@@ -68373,7 +68376,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-09-11T16:00:00.000Z",
-    "sessionType": "Practice 2"
+    "sessionType": "Practice 2",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "evt_nrlw_2026_round_11_eels_cowboys",
@@ -70347,7 +70353,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-09-12T11:30:00.000Z",
-    "sessionType": "Practice 3"
+    "sessionType": "Practice 3",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "evt_vuelta_2026_stage_20",
@@ -171573,7 +171582,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-10-23T18:30:00.000Z",
-    "sessionType": "Practice 1"
+    "sessionType": "Practice 1",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "epl-2026-27-128999",
@@ -171869,7 +171881,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-10-23T22:00:00.000Z",
-    "sessionType": "Practice 2"
+    "sessionType": "Practice 2",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "event-aflw-cd_m20262641102",
@@ -173643,7 +173658,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-10-24T18:30:00.000Z",
-    "sessionType": "Practice 3"
+    "sessionType": "Practice 3",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "evt_34",
@@ -177082,7 +177100,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-10-30T19:30:00.000Z",
-    "sessionType": "Practice 1"
+    "sessionType": "Practice 1",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "evt_f1_2026_mexico_practice_2",
@@ -177212,7 +177233,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-10-30T23:00:00.000Z",
-    "sessionType": "Practice 2"
+    "sessionType": "Practice 2",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "event-aflw-cd_m20262641202",
@@ -179673,7 +179697,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "preview"
     },
     "endTimeUtc": "2026-10-31T18:30:00.000Z",
-    "sessionType": "Practice 3"
+    "sessionType": "Practice 3",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "epl-2026-27-129003",
@@ -182351,7 +182378,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "evt_f1_2026_brazil_practice_2",
@@ -182481,7 +182511,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "epl-2026-27-129016",
@@ -183371,7 +183404,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "epl-2026-27-129013",
@@ -189072,7 +189108,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-11-20T01:30:00.000Z",
-    "sessionType": "Practice 1"
+    "sessionType": "Practice 1",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "evt_f1_2026_las_vegas_practice_2",
@@ -189169,7 +189208,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-11-20T05:00:00.000Z",
-    "sessionType": "Practice 2"
+    "sessionType": "Practice 2",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "evt_nbl_2026_27_37779e30_58ad_11f1_a2d6_d729b42cc855",
@@ -189637,7 +189679,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-11-21T01:30:00.000Z",
-    "sessionType": "Practice 3"
+    "sessionType": "Practice 3",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "evt_40",
@@ -193348,7 +193393,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-11-27T14:30:00.000Z",
-    "sessionType": "Practice 1"
+    "sessionType": "Practice 1",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "evt_f1_2026_qatar_practice_2",
@@ -193445,7 +193493,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-11-27T18:00:00.000Z",
-    "sessionType": "Practice 2"
+    "sessionType": "Practice 2",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "epl-2026-27-129041",
@@ -193826,7 +193877,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-11-28T15:30:00.000Z",
-    "sessionType": "Practice 3"
+    "sessionType": "Practice 3",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "epl-2026-27-129039",
@@ -197352,7 +197406,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-12-04T10:30:00.000Z",
-    "sessionType": "Practice 1"
+    "sessionType": "Practice 1",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "evt_f1_2026_united_arab_emirates_practice_2",
@@ -197449,7 +197506,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-12-04T14:00:00.000Z",
-    "sessionType": "Practice 2"
+    "sessionType": "Practice 2",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "evt_nbl_2026_27_37770bc1_58ad_11f1_a93a_ebcda8a5e5b1",
@@ -197974,7 +198034,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeTbc": false,
     "dateOnly": false,
     "endTimeUtc": "2026-12-05T11:30:00.000Z",
-    "sessionType": "Practice 3"
+    "sessionType": "Practice 3",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
+    "resultSourceCheckedAt": "2026-10-11T12:37:25.437Z"
   },
   {
     "id": "evt_44",
@@ -251692,7 +251755,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/thailand/364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/thailand/364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_thailand_practice",
@@ -251836,7 +251902,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/thailand/364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/thailand/364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_thailand_practice_2",
@@ -251980,7 +252049,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/thailand/364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/thailand/364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_thailand_warmup",
@@ -252124,7 +252196,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/thailand/364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/thailand/364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_brazil_qualifying",
@@ -252715,7 +252790,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/brasil/11588b5a-f76c-4c8e-ae06-acba82ff1303",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/brasil/11588b5a-f76c-4c8e-ae06-acba82ff1303",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_brazil_practice",
@@ -252859,7 +252937,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/brasil/11588b5a-f76c-4c8e-ae06-acba82ff1303",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/brasil/11588b5a-f76c-4c8e-ae06-acba82ff1303",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_brazil_practice_2",
@@ -253003,7 +253084,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/brasil/11588b5a-f76c-4c8e-ae06-acba82ff1303",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/brasil/11588b5a-f76c-4c8e-ae06-acba82ff1303",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_brazil_warmup",
@@ -253147,7 +253231,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/brasil/11588b5a-f76c-4c8e-ae06-acba82ff1303",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/brasil/11588b5a-f76c-4c8e-ae06-acba82ff1303",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_united_states_qualifying",
@@ -253738,7 +253825,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/americas/8c83648e-8ec9-40f1-9ba0-b0f19883e7d7",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/americas/8c83648e-8ec9-40f1-9ba0-b0f19883e7d7",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_united_states_practice",
@@ -253882,7 +253972,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/americas/8c83648e-8ec9-40f1-9ba0-b0f19883e7d7",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/americas/8c83648e-8ec9-40f1-9ba0-b0f19883e7d7",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_united_states_practice_2",
@@ -254026,7 +254119,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/americas/8c83648e-8ec9-40f1-9ba0-b0f19883e7d7",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/americas/8c83648e-8ec9-40f1-9ba0-b0f19883e7d7",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_united_states_warmup",
@@ -254170,7 +254266,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/americas/8c83648e-8ec9-40f1-9ba0-b0f19883e7d7",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/americas/8c83648e-8ec9-40f1-9ba0-b0f19883e7d7",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_spain_qualifying",
@@ -254761,7 +254860,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/espa-a/a24be69b-8472-4aa4-9e83-d3610e0f1d98",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/espa-a/a24be69b-8472-4aa4-9e83-d3610e0f1d98",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_spain_practice",
@@ -254905,7 +255007,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/espa-a/a24be69b-8472-4aa4-9e83-d3610e0f1d98",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/espa-a/a24be69b-8472-4aa4-9e83-d3610e0f1d98",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_spain_practice_2",
@@ -255049,7 +255154,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/espa-a/a24be69b-8472-4aa4-9e83-d3610e0f1d98",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/espa-a/a24be69b-8472-4aa4-9e83-d3610e0f1d98",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_spain_warmup",
@@ -255193,7 +255301,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/espa-a/a24be69b-8472-4aa4-9e83-d3610e0f1d98",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/espa-a/a24be69b-8472-4aa4-9e83-d3610e0f1d98",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_france_qualifying",
@@ -255783,7 +255894,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/france/4237f175-c6a4-4d1e-b658-82962baf3fa3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/france/4237f175-c6a4-4d1e-b658-82962baf3fa3",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_france_practice",
@@ -255927,7 +256041,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/france/4237f175-c6a4-4d1e-b658-82962baf3fa3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/france/4237f175-c6a4-4d1e-b658-82962baf3fa3",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_france_practice_2",
@@ -256071,7 +256188,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/france/4237f175-c6a4-4d1e-b658-82962baf3fa3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/france/4237f175-c6a4-4d1e-b658-82962baf3fa3",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_france_warmup",
@@ -256215,7 +256335,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/france/4237f175-c6a4-4d1e-b658-82962baf3fa3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/france/4237f175-c6a4-4d1e-b658-82962baf3fa3",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_catalunya_qualifying",
@@ -256806,7 +256929,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/catalunya/200bf59d-3db2-4e17-a903-4be204fa3496",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/catalunya/200bf59d-3db2-4e17-a903-4be204fa3496",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_catalunya_practice",
@@ -256950,7 +257076,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/catalunya/200bf59d-3db2-4e17-a903-4be204fa3496",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/catalunya/200bf59d-3db2-4e17-a903-4be204fa3496",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_catalunya_practice_2",
@@ -257094,7 +257223,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/catalunya/200bf59d-3db2-4e17-a903-4be204fa3496",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/catalunya/200bf59d-3db2-4e17-a903-4be204fa3496",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_catalunya_warmup",
@@ -257238,7 +257370,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/catalunya/200bf59d-3db2-4e17-a903-4be204fa3496",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/catalunya/200bf59d-3db2-4e17-a903-4be204fa3496",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_italy_qualifying",
@@ -257829,7 +257964,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/italy/bf2104f9-f5cc-4a99-a993-cb5d01bccd24",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/italy/bf2104f9-f5cc-4a99-a993-cb5d01bccd24",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_italy_practice",
@@ -257973,7 +258111,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/italy/bf2104f9-f5cc-4a99-a993-cb5d01bccd24",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/italy/bf2104f9-f5cc-4a99-a993-cb5d01bccd24",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_italy_practice_2",
@@ -258117,7 +258258,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/italy/bf2104f9-f5cc-4a99-a993-cb5d01bccd24",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/italy/bf2104f9-f5cc-4a99-a993-cb5d01bccd24",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_italy_warmup",
@@ -258261,7 +258405,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/italy/bf2104f9-f5cc-4a99-a993-cb5d01bccd24",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/italy/bf2104f9-f5cc-4a99-a993-cb5d01bccd24",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_hungary_qualifying",
@@ -258852,7 +258999,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/hungria/a37708ab-914c-433f-83d4-e55d1b95ccc3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/hungria/a37708ab-914c-433f-83d4-e55d1b95ccc3",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_hungary_practice",
@@ -258996,7 +259146,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/hungria/a37708ab-914c-433f-83d4-e55d1b95ccc3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/hungria/a37708ab-914c-433f-83d4-e55d1b95ccc3",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_hungary_practice_2",
@@ -259140,7 +259293,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/hungria/a37708ab-914c-433f-83d4-e55d1b95ccc3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/hungria/a37708ab-914c-433f-83d4-e55d1b95ccc3",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_hungary_warmup",
@@ -259284,7 +259440,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/hungria/a37708ab-914c-433f-83d4-e55d1b95ccc3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/hungria/a37708ab-914c-433f-83d4-e55d1b95ccc3",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_czechia_qualifying",
@@ -259875,7 +260034,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/czeck-republiky/c2018c5e-fb82-4058-b359-1b7d9769e703",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/czeck-republiky/c2018c5e-fb82-4058-b359-1b7d9769e703",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_czechia_practice",
@@ -260019,7 +260181,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/czeck-republiky/c2018c5e-fb82-4058-b359-1b7d9769e703",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/czeck-republiky/c2018c5e-fb82-4058-b359-1b7d9769e703",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_czechia_practice_2",
@@ -260163,7 +260328,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/czeck-republiky/c2018c5e-fb82-4058-b359-1b7d9769e703",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/czeck-republiky/c2018c5e-fb82-4058-b359-1b7d9769e703",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_czechia_warmup",
@@ -260307,7 +260475,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/czeck-republiky/c2018c5e-fb82-4058-b359-1b7d9769e703",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/czeck-republiky/c2018c5e-fb82-4058-b359-1b7d9769e703",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_netherlands_qualifying",
@@ -260898,7 +261069,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/netherlands/47c25c37-d307-4d45-b1ed-b1cb5e811975",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/netherlands/47c25c37-d307-4d45-b1ed-b1cb5e811975",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_netherlands_practice",
@@ -261042,7 +261216,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/netherlands/47c25c37-d307-4d45-b1ed-b1cb5e811975",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/netherlands/47c25c37-d307-4d45-b1ed-b1cb5e811975",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_netherlands_practice_2",
@@ -261186,7 +261363,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/netherlands/47c25c37-d307-4d45-b1ed-b1cb5e811975",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/netherlands/47c25c37-d307-4d45-b1ed-b1cb5e811975",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_netherlands_warmup",
@@ -261330,7 +261510,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/netherlands/47c25c37-d307-4d45-b1ed-b1cb5e811975",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/netherlands/47c25c37-d307-4d45-b1ed-b1cb5e811975",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_germany_qualifying",
@@ -261921,7 +262104,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/germany/259be6f4-c23c-4dc2-bc42-7664842f6409",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/germany/259be6f4-c23c-4dc2-bc42-7664842f6409",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_germany_practice",
@@ -262065,7 +262251,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/germany/259be6f4-c23c-4dc2-bc42-7664842f6409",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/germany/259be6f4-c23c-4dc2-bc42-7664842f6409",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_germany_practice_2",
@@ -262209,7 +262398,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/germany/259be6f4-c23c-4dc2-bc42-7664842f6409",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/germany/259be6f4-c23c-4dc2-bc42-7664842f6409",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_germany_warmup",
@@ -262353,7 +262545,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/germany/259be6f4-c23c-4dc2-bc42-7664842f6409",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/germany/259be6f4-c23c-4dc2-bc42-7664842f6409",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_great_britain_qualifying",
@@ -262944,7 +263139,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/great-britain/41aa319a-8ec5-49d6-aa99-4e2059c88098",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/great-britain/41aa319a-8ec5-49d6-aa99-4e2059c88098",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_great_britain_practice",
@@ -263088,7 +263286,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/great-britain/41aa319a-8ec5-49d6-aa99-4e2059c88098",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/great-britain/41aa319a-8ec5-49d6-aa99-4e2059c88098",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_great_britain_practice_2",
@@ -263232,7 +263433,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/great-britain/41aa319a-8ec5-49d6-aa99-4e2059c88098",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/great-britain/41aa319a-8ec5-49d6-aa99-4e2059c88098",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_great_britain_warmup",
@@ -263376,7 +263580,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/great-britain/41aa319a-8ec5-49d6-aa99-4e2059c88098",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/great-britain/41aa319a-8ec5-49d6-aa99-4e2059c88098",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_aragon_qualifying",
@@ -263967,7 +264174,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/spain/86abdbde-5e3d-45b1-a1f0-f74044a90eb3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/spain/86abdbde-5e3d-45b1-a1f0-f74044a90eb3",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_aragon_practice",
@@ -264111,7 +264321,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/spain/86abdbde-5e3d-45b1-a1f0-f74044a90eb3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/spain/86abdbde-5e3d-45b1-a1f0-f74044a90eb3",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_aragon_practice_2",
@@ -264255,7 +264468,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/spain/86abdbde-5e3d-45b1-a1f0-f74044a90eb3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/spain/86abdbde-5e3d-45b1-a1f0-f74044a90eb3",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_aragon_warmup",
@@ -264399,7 +264615,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/spain/86abdbde-5e3d-45b1-a1f0-f74044a90eb3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/spain/86abdbde-5e3d-45b1-a1f0-f74044a90eb3",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_san_marino_qualifying",
@@ -265040,7 +265259,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_san_marino_practice",
@@ -265184,7 +265406,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_san_marino_practice_2",
@@ -265328,7 +265553,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_san_marino_warmup",
@@ -265472,7 +265700,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_austria_qualifying",
@@ -266114,7 +266345,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_austria_practice",
@@ -266258,7 +266492,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_austria_practice_2",
@@ -266402,7 +266639,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_austria_warmup",
@@ -266546,7 +266786,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_japan_qualifying",
@@ -267189,7 +267432,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_japan_practice",
@@ -267333,7 +267579,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_japan_practice_2",
@@ -267477,7 +267726,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_japan_warmup",
@@ -267621,7 +267873,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_indonesia_qualifying",
@@ -268368,7 +268623,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_indonesia_practice",
@@ -268512,7 +268770,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_indonesia_practice_2",
@@ -268656,7 +268917,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_indonesia_warmup",
@@ -268800,7 +269064,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_australia_qualifying",
@@ -269408,7 +269675,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_australia_practice_1"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_australia_practice",
@@ -269552,7 +269822,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_australia_practice"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_australia_practice_2",
@@ -269696,7 +269969,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_australia_practice_2"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_australia_warmup",
@@ -269840,7 +270116,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_australia_warmup"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_malaysia_qualifying",
@@ -270448,7 +270727,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_malaysia_practice_1"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/malaysia/d1aedfce-d7c8-4d4a-9532-99c82547baad",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_malaysia_practice",
@@ -270592,7 +270874,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_malaysia_practice"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/malaysia/d1aedfce-d7c8-4d4a-9532-99c82547baad",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_malaysia_practice_2",
@@ -270736,7 +271021,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_malaysia_practice_2"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/malaysia/d1aedfce-d7c8-4d4a-9532-99c82547baad",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_malaysia_warmup",
@@ -270880,7 +271168,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_malaysia_warmup"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/malaysia/d1aedfce-d7c8-4d4a-9532-99c82547baad",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_qatar_qualifying",
@@ -271488,7 +271779,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_qatar_practice_1"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/qatar/3f3d3f5e-851c-42d2-887a-8ce8b41fa908",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_qatar_practice",
@@ -271632,7 +271926,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_qatar_practice"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/qatar/3f3d3f5e-851c-42d2-887a-8ce8b41fa908",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_qatar_practice_2",
@@ -271776,7 +272073,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_qatar_practice_2"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/qatar/3f3d3f5e-851c-42d2-887a-8ce8b41fa908",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_qatar_warmup",
@@ -271920,7 +272220,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_qatar_warmup"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/qatar/3f3d3f5e-851c-42d2-887a-8ce8b41fa908",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_portugal_qualifying",
@@ -272528,7 +272831,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_portugal_practice_1"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/portugal/c7f7626b-807f-4a6f-813e-7ad2c68302a3",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_portugal_practice",
@@ -272672,7 +272978,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_portugal_practice"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/portugal/c7f7626b-807f-4a6f-813e-7ad2c68302a3",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_portugal_practice_2",
@@ -272816,7 +273125,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_portugal_practice_2"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/portugal/c7f7626b-807f-4a6f-813e-7ad2c68302a3",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_portugal_warmup",
@@ -272960,7 +273272,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_portugal_warmup"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/portugal/c7f7626b-807f-4a6f-813e-7ad2c68302a3",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_valencia_qualifying",
@@ -273568,7 +273883,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_valencia_practice_1"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/valencia/6ad2859f-51c4-459e-9714-338814e7537f",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_valencia_practice",
@@ -273712,7 +274030,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_valencia_practice"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/valencia/6ad2859f-51c4-459e-9714-338814e7537f",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_valencia_practice_2",
@@ -273856,7 +274177,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_valencia_practice_2"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/valencia/6ad2859f-51c4-459e-9714-338814e7537f",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2026_valencia_warmup",
@@ -274000,7 +274324,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_valencia_warmup"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.motogp.com/en/calendar/2026/event/valencia/6ad2859f-51c4-459e-9714-338814e7537f",
+    "resultSourceCheckedAt": "2026-10-11T13:40:40.662Z"
   },
   {
     "id": "evt_motogp_2027_thailand_qualifying",
@@ -293771,7 +294098,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "statusCheckedAt": "2026-10-24T01:25:40.715487+00:00",
     "venueSourceLabel": "Sandown Motor Raceway, VIC",
-    "venueReviewDisposition": "source_name_pending_review"
+    "venueReviewDisposition": "source_name_pending_review",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.supercars.com/events/2026-sandown/schedule",
+    "resultSourceCheckedAt": "2026-10-24T01:25:40.715487+00:00"
   },
   {
     "id": "event:supercars:2026:sandown:practice-2",
@@ -293822,7 +294152,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "statusCheckedAt": "2026-10-24T01:25:40.715487+00:00",
     "venueSourceLabel": "Sandown Motor Raceway, VIC",
-    "venueReviewDisposition": "source_name_pending_review"
+    "venueReviewDisposition": "source_name_pending_review",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.supercars.com/events/2026-sandown/schedule",
+    "resultSourceCheckedAt": "2026-10-24T01:25:40.715487+00:00"
   },
   {
     "id": "event:supercars:2026:sandown:boost-mobile-qualifying-race-33",
@@ -294332,7 +294665,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "statusCheckedAt": "2026-10-24T01:25:40.715487+00:00",
     "venueSourceLabel": "Adelaide Parklands Circuit, SA",
-    "venueReviewDisposition": "source_name_pending_review"
+    "venueReviewDisposition": "source_name_pending_review",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.supercars.com/events/2026-adelaide/schedule",
+    "resultSourceCheckedAt": "2026-10-24T01:25:40.715487+00:00"
   },
   {
     "id": "event:supercars:2026:adelaide:practice-2",
@@ -294383,7 +294719,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "statusCheckedAt": "2026-10-24T01:25:40.715487+00:00",
     "venueSourceLabel": "Adelaide Parklands Circuit, SA",
-    "venueReviewDisposition": "source_name_pending_review"
+    "venueReviewDisposition": "source_name_pending_review",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://www.supercars.com/events/2026-adelaide/schedule",
+    "resultSourceCheckedAt": "2026-10-24T01:25:40.715487+00:00"
   },
   {
     "id": "event:supercars:2026:adelaide:boost-mobile-qualifying-race-35",

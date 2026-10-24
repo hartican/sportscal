@@ -48,4 +48,10 @@ console.log('PASS golf consent/rounds, Supercars capture, rugby scope, recoverab
   await assert.rejects(require('../lib/nothingscore-handler')._test.ratingAction({eventId:practice.id,phase,rating:4},{id:'disposable-local-user'},null,now),e=>e.status===409&&e.code==='practice_unrated');
  }
  console.log('PASS practice rejected by both rating entry points before transport');
+ const os=require('node:os'),path=require('node:path'),folder=fs.mkdtempSync(path.join(os.tmpdir(),'ns-grouped-source-'));
+ try{
+  const file=path.join(folder,'coverage.json');fs.writeFileSync(file,JSON.stringify({events:[],sources:[],participants:[]}));
+  const published=await require('./refresh-source-coverage').refreshCoverage({now,sources:[{id:'supercars-calendar',fetch:async()=>Object.assign([fixture],{coverage:{provider:'Supercars',failures:[]}})}],outputPath:file});
+  assert.equal(published.sources[0].status,'ok');assert(published.events.some(e=>e.id===fixture.id));
+ }finally{fs.rmSync(folder,{recursive:true,force:true});}
 })().catch(error=>{console.error(error);process.exitCode=1;});
