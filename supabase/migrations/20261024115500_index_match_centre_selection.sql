@@ -257,11 +257,12 @@ CREATE OR REPLACE FUNCTION nothingsports_fixture_read_private.sync_fixture(p_sou
  LANGUAGE plpgsql
  SET search_path TO ''
 AS $function$
-declare raw_fixture jsonb;raw_score jsonb;identities text[];affected integer;
+declare raw_fixture jsonb;base_fixture jsonb;raw_score jsonb;identities text[];affected integer;first_complete timestamptz;
+ rebuilt nothingsports_fixture_read_private.fixture_context;facts record;version smallint;
 begin
  -- Canonical publishers already hold this source lock before fixture writes.
  perform 1 from public.nothingsports_fixture_sources where source_id=p_source_id for update;
- select c.fixture,c.identity_keys,s.score into raw_fixture,identities,raw_score
+ select c.fixture,c.global_fixture,c.identity_keys,s.score,s.first_completed_at into raw_fixture,base_fixture,identities,raw_score,first_complete
  from public.nothingsports_fixture_current c left join public.nothingsports_live_scores s using(source_id,fixture_id)
  where c.source_id=p_source_id and c.fixture_id=p_fixture_id;
  if not found then
@@ -272,10 +273,27 @@ begin
   on conflict(source_id,fixture_id) do update set identity_keys=excluded.identity_keys,base_key=excluded.base_key,score_key=excluded.score_key,
    has_score_key=excluded.has_score_key,participant_ids=excluded.participant_ids,sides=excluded.sides,base_selection=excluded.base_selection,score_selection=excluded.score_selection,shape_version=1
   where row(fixture_context.identity_keys,fixture_context.base_selection,fixture_context.score_selection,fixture_context.shape_version)
-   is distinct from row(excluded.identity_keys,excluded.base_selection,excluded.score_selection,1::smallint);
+   is distinct from row(excluded.identity_keys,excluded.base_selection,excluded.score_selection,1::smallint)
+  returning * into rebuilt;
   get diagnostics affected=row_count;
-  perform nothingsports_fixture_read_private.rebuild_near_selection(p_source_id,p_fixture_id);
-  if affected=0 then return;end if;
+  if affected=0 then
+   -- A no-op may leave contrary non-selection fields: retain complete validation.
+   perform nothingsports_fixture_read_private.rebuild_near_selection(p_source_id,p_fixture_id);
+   return;
+  elsif current_user='postgres' then
+   -- Only the existing canonical definer owner can write typed metadata here.
+   -- RETURNING is this upsert's authoritative context; the source lock is held.
+   select * into facts from nothingsports_fixture_read_private.near_fields(base_fixture,raw_score,rebuilt.base_selection,rebuilt.score_selection,first_complete);
+   version:=case when rebuilt.shape_version=1 and rebuilt.identity_keys is not distinct from identities and facts.complete then 1 else 0 end;
+   insert into nothingsports_fixture_read_private.near_selection values(p_source_id,p_fixture_id,version,facts.status,facts.start_kind,facts.start_at,facts.completion_at,facts.completion_unqualified,facts.lookup_uncertain)
+   on conflict(source_id,fixture_id) do update set shape_version=excluded.shape_version,status=excluded.status,start_kind=excluded.start_kind,start_at=excluded.start_at,
+    completion_at=excluded.completion_at,completion_unqualified=excluded.completion_unqualified,lookup_uncertain=excluded.lookup_uncertain
+   where row(near_selection.shape_version,near_selection.status,near_selection.start_kind,near_selection.start_at,near_selection.completion_at,near_selection.completion_unqualified,near_selection.lookup_uncertain)
+    is distinct from row(excluded.shape_version,excluded.status,excluded.start_kind,excluded.start_at,excluded.completion_at,excluded.completion_unqualified,excluded.lookup_uncertain);
+  else
+   -- Direct service writes retain the narrowly granted, checked definer boundary.
+   perform nothingsports_fixture_read_private.rebuild_near_selection(p_source_id,p_fixture_id);
+  end if;
   -- Reconcile the exact set. A score-only context change must not rewrite identical tokens.
   delete from nothingsports_fixture_read_private.fixture_tokens actual
   where actual.source_id=p_source_id and actual.fixture_id=p_fixture_id

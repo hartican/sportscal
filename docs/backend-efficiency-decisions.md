@@ -1990,3 +1990,38 @@ Local qualification does not accept app592 or prove live loading recovery.
 ROOT/DEPLOY alone reviews source, allocates native first-use/concurrency/write
 qualification, integrates and publishes exact main after all existing gates.
 See [mechanism, checks and remaining acceptance](quality/indexed-near-selection-2026-10-25.md).
+
+
+## 25 October2026 — reuse the context actually written by the canonical owner
+
+The ten-hook isolated rehearsal exposed an8s candidate initial5000 failure while
+the matched existing writer passed in6151ms. Its interruption stack does not
+identify a costly plan node. A separate bounded offline actual-adapter work
+control proves the candidate calls context_fields twice per final changed
+identity:64 derivations for32 fixtures, despite canonical batch coalescing.
+
+The revised, still-unadopted indexed module changes only sync_fixture. Its
+existing canonical postgres definer caller may reuse the context row returned
+by its own real upsert and the already-read compact base/score/first-completion
+facts, under the unchanged source lock. It derives the same typed near fields
+and keeps the same distinct-row upsert predicate. A zero-row context upsert
+retains full rebuild validation, because contrary non-selection fields may
+remain. A direct service invoker also retains the existing narrowly granted
+checked definer helper; sync_fixture stays invoker and service gets no typed
+metadata write privilege. The standalone helper, completion-only fast paths,
+publisher/token/archive semantics, all clocks and all deadlines are unchanged.
+
+Permanent offline control requires32→32, true no-op→0, combined fixture/score
+change→1, and retained full validation for direct-service/contrary-no-op paths.
+Restoring the exact rejected candidate must fail the work bound. Observer
+schema/function changes are rolled back and the original function contract is
+checked after cleanup. Full ordered-read and guarded inverse/ACL regressions
+remain. The changed candidate hash is sealed in its existing rollback guard;
+current22 preimages and the other26 candidate contracts remain exact.
+
+This proves reduced duplicate derivation work, not that it caused all native
+latency or that the new candidate passes8s. DEPLOY must separately review and
+run the materially changed candidate through the existing ten-hook maximum
+writer and managed/read/release gates. No new native/service/provider check,
+source refresh, scheduler, memory/timeout policy, customer state or publication
+is authorised by this source record.
