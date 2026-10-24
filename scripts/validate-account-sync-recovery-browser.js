@@ -332,10 +332,11 @@ const server = http.createServer((req, res) => {
         assert.equal(new URL(controlBrowserRequest.url()).pathname,held.req.url);
         let terminalTimer;
         try{
-          const interrupted=Promise.race([held.terminal,new Promise((_,reject)=>{
-            terminalTimer=setTimeout(()=>reject(Error('Exact held HTTP stream did not close within deadline')),8000);
-          })]);
-          const [,observed]=await Promise.all([page.reload({waitUntil:'domcontentloaded'}),interrupted]);
+          const observationDeadline=new Promise((_,reject)=>{
+            terminalTimer=setTimeout(()=>reject(Error('Navigation and held HTTP interruption exceeded deadline')),8000);
+          });
+          const [,observed]=await Promise.race([
+            Promise.all([page.reload({waitUntil:'domcontentloaded'}),held.terminal]),observationDeadline]);
           assertHeldScheduleInterruption(held,observed);
           assert(documentEpoch>oldEpoch,'control must navigate to a new document');
           traceResource('control-held-http-interrupted',{requestAborted:observed.requestAborted,responseFinished:observed.responseFinished,oldEpoch,newEpoch:documentEpoch});

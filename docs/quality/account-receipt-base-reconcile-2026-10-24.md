@@ -125,6 +125,8 @@ The pinned Node24.21 metric after source/build changes is seven critical request
 
 ## DEPLOY handover and acceptance
 
+The integration-only control deadline bounds the combined navigation and exact HTTP-stream interruption, including when the stream closes before navigation finishes. A source-snippet regression preserves the earlier late-navigation counterexample and verifies rejection plus unconditional cleanup. This changes only the optional test control; product behavior and the normal38 recovery cases are unchanged.
+
 DEPLOY remains sole integrator/publisher and owns the final Spec/Standards pair, native allocation, full unchanged normal workflow, exact-SHA release, immutable READY/aliases/served bytes/security/update proof and repeated fresh public reads. No additional review pair is started here. Loading and Football coverage retain their separate owners and acceptance; this change does not qualify them.
 
 After release, actual signed-in Home Screen iPhone proof must show Sync now acknowledges the original pending choices, correct account status, and cross-device preservation of deliberate removal/OFF/empty plus independent remote choices and Feed exclusion. A true conflict must remain visibly held with intact choices. If the phone still holds, its real IDs/intent remain unknown; do not treat this constructed disjoint proof as permission to choose sides. No forced logout, reinstall, storage clear, customer recovery, independent production-data change or automation restart.
