@@ -28,7 +28,7 @@ function validate(){
   const workerSource = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
   const hierarchySource = fs.readFileSync(path.join(ROOT, "config/sport-hierarchy.js"), "utf8");
   assert.equal(directory.schemaVersion, "football-directory.v1");
-  assert.equal(directory.leagues.length, 7, "six existing leagues and the retained Australian Championship must be published");
+  require('./lib/approved-football-coverage').validate(directory);
   assert(directory.leagues.some(league=>league.id==='competition:australian-championship'&&league.refreshPolicy==='retained-capture-only'));
   assert(directory.leagues.some(league => league.id === "competition:a-leagues" && league.key === "a-league-men"), "A-League Men must be available under Football leagues");
   uniqueIds(directory.leagues, "league");

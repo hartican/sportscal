@@ -1,5 +1,18 @@
 # Backend efficiency decisions
 
+## Complete approved Football QA and canonical routing checkpoint — 26 October 2026
+
+The accepted catalogue includes the existing six network leagues and retained
+Australian Championship. Catalogue QA derives complete identities, keys and
+team counts from those existing source owners; it rejects missing, extra,
+duplicate and misbound contexts instead of hardcoding six or merely raising a
+count. Original source policies, facts, clocks and all remaining gates stay.
+This source-only QA repair does not authorise restoring scheduled publication.
+DEPLOY remains sole shared operator/publisher. The current direct-main workflow
+and managed-read/write boundary still need safe candidate routing qualification;
+PR29 and additional GitHub permissions/settings remain proposals. See the
+[necessity, routing plan and explicit gaps](quality/canonical-candidate-routing-2026-10-26.md).
+
 ## Scoped current Cricket through the existing refresh owner — 25 October 2026
 
 Permit only `--live --live-source=cricket-ca-current` in the canonical

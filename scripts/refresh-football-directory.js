@@ -510,9 +510,10 @@ async function main(){
   return checkExisting();
 }
 
+// Validators reuse the approved league definitions during this CLI's own check.
+module.exports = { LEAGUES, bootstrapAndWrite, checkExisting, choosePriorityAthletes, footballDataFixtureRecord, playerRecord, refreshEuropeanFixtures, teamRecord, espnFixtureRecord, fixtureDocument, pruneRemovedLeagues };
+
 if (require.main === module) main().catch(error => {
   console.error(error.stack || error.message);
   process.exit(1);
 });
-
-module.exports = { LEAGUES, bootstrapAndWrite, checkExisting, choosePriorityAthletes, footballDataFixtureRecord, playerRecord, refreshEuropeanFixtures, teamRecord, espnFixtureRecord, fixtureDocument, pruneRemovedLeagues };
