@@ -1,0 +1,106 @@
+'use strict';
+// Cooperative, source-hash-bound Node replay guard, not an OS sandbox. No live
+// transport or managed credential is available in this first qualified slice.
+const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),crypto=require('node:crypto'),Module=require('node:module');
+const original={};for(const name of ['readFileSync','writeFileSync','renameSync','mkdirSync','rmdirSync','realpathSync','existsSync','lstatSync'])original[name]=fs[name].bind(fs);
+const config=process.env.NS_PUBLIC_CANDIDATE_CONFIG;
+if(!config||!path.isAbsolute(config))throw Error('CANDIDATE_GUARD_CONFIG');
+const cfg=JSON.parse(original.readFileSync(config,'utf8'));
+const digest=file=>crypto.createHash('sha256').update(original.readFileSync(file)).digest('hex');
+function ledger(change){
+ const lock=cfg.state+'.lock',until=Date.now()+500;
+ for(;;){try{original.mkdirSync(lock);break;}catch(error){if(error.code!=='EEXIST'||Date.now()>until)throw Error('CANDIDATE_LEDGER_UNAVAILABLE');Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,5);}}
+ try{const value=JSON.parse(original.readFileSync(cfg.state,'utf8'));const result=change(value);original.writeFileSync(cfg.state+'.'+process.pid,JSON.stringify(value),{mode:0o600});original.renameSync(cfg.state+'.'+process.pid,cfg.state);return result;}
+ finally{original.rmdirSync(lock);}
+}
+function fail(code){ledger(state=>{if(state.violations.length<16)state.violations.push(code);});throw Error(code);}
+const within=(file,root)=>file===root||file.startsWith(root+path.sep);
+function allowedFile(value,write=false){
+ if(typeof value==='number'){if(value<0)return fail('CANDIDATE_FILE_DESCRIPTOR');return value;}
+ let file;try{file=path.resolve(value instanceof URL?require('node:url').fileURLToPath(value):Buffer.isBuffer(value)?value.toString():value);}catch{return fail('CANDIDATE_FILE_PATH');}
+ if(file.split(path.sep).some(piece=>piece==='.git'||/^\.env(?:\.|$)/.test(piece)))return fail('CANDIDATE_PRIVATE_FILE');
+ let parent=file;while(!original.existsSync(parent)){const next=path.dirname(parent);if(next===parent)break;parent=next;}
+ const resolved=original.realpathSync(parent)+(parent===file?'':path.sep+path.relative(parent,file));
+ const runtime=within(resolved,cfg.runtime),workspace=within(resolved,cfg.workspace),dependency=within(resolved,cfg.dependencies);
+ if(!runtime&&!workspace&&!(!write&&dependency))return fail('CANDIDATE_PRIVATE_FILE');
+ if(write&&workspace){const relative=path.relative(cfg.workspace,resolved);if(!/^(?:data|feeds)\//.test(relative)&&!/^assets\/js\//.test(relative))return fail('CANDIDATE_IMMUTABLE_SOURCE_WRITE');}
+ return file;
+}
+const entry=path.resolve(process.argv[1]||''),relative=path.relative(cfg.workspace,entry),args=process.argv.slice(2);
+if(!cfg.frames.some(frame=>frame[0]===relative&&JSON.stringify(frame.slice(1))===JSON.stringify(args))||cfg.modules[entry]!==digest(entry))fail('CANDIDATE_COMMAND_UNQUALIFIED');
+ledger(state=>{if(state.violations.length)throw Error('CANDIDATE_PREVIOUS_VIOLATION');if(state.frames.length>=64)throw Error('CANDIDATE_COMMAND_BUDGET');state.frames.push({file:relative,args});});
+
+// Reads can only reach public clone files, already pinned JS dependencies, or
+// this invocation's private scratch. No original account/control/env path.
+for(const name of ['readFileSync','readFile','createReadStream','readdirSync','readdir','statSync','stat','lstatSync','lstat','realpathSync','realpath','existsSync','accessSync','access','readlinkSync']){
+ const fn=fs[name];if(fn)fs[name]=function(file,...rest){allowedFile(file);return fn.call(this,file,...rest);};
+}
+for(const name of ['writeFileSync','writeFile','appendFileSync','appendFile','mkdirSync','mkdir','mkdtempSync','mkdtemp','rmSync','rm','unlinkSync','unlink','rmdirSync','rmdir','chmodSync','chmod','utimesSync','utimes','createWriteStream']){
+ const fn=fs[name];if(fn)fs[name]=function(file,...rest){allowedFile(file,true);return fn.call(this,file,...rest);};
+}
+for(const name of ['renameSync','rename','copyFileSync','copyFile']){
+ const fn=fs[name];fs[name]=function(from,to,...rest){allowedFile(from,name.startsWith('rename'));allowedFile(to,true);return fn.call(this,from,to,...rest);};
+}
+for(const name of ['symlinkSync','symlink','linkSync','link'])fs[name]=()=>fail('CANDIDATE_LINK_WRITE');
+for(const name of ['openSync','open']){
+ const fn=fs[name];fs[name]=function(file,flags,...rest){allowedFile(file,typeof flags==='number'?Boolean(flags&(fs.constants.O_WRONLY|fs.constants.O_RDWR|fs.constants.O_CREAT)):!/^r$/.test(flags));return fn.call(this,file,flags,...rest);};
+}
+for(const name of Object.keys(fs.promises)){
+ const fn=fs.promises[name];if(typeof fn!=='function')continue;
+ fs.promises[name]=async function(file,...rest){
+  if(['readFile','readdir','stat','lstat','realpath','access','readlink'].includes(name))allowedFile(file);
+  else return fail('CANDIDATE_ASYNC_FILE_OPERATION_UNQUALIFIED');
+  return fn.call(this,file,...rest);
+ };
+}
+if(process.loadEnvFile)process.loadEnvFile=()=>fail('CANDIDATE_PRIVATE_ENV');
+globalThis.fetch=async(input,options={})=>{
+ const url=typeof input==='string'||input instanceof URL?String(input):input?.url;
+ if(url!==cfg.url||relative!=='scripts/refresh-nbl-schedule.js'){
+  let parsed;try{parsed=new URL(url);}catch{}
+  const rpc=parsed?.pathname.match(/^\/rest\/v1\/rpc\/(nothingsports_publish_(?:compact_scores|fixture_source(?:_report)?))$/)?.[1];
+  if(rpc){ledger(state=>{state.blockedPublicationIntent={sourceScript:relative,rpc,disposition:'blocked-unqualified-public-payload-schema',payloadRetained:false,managedWrites:0};});return fail('CANDIDATE_SHARED_PUBLICATION_UNQUALIFIED@'+relative);}
+  return fail('CANDIDATE_TRANSPORT_UNQUALIFIED@'+relative);
+ }
+ if((options.method||input?.method||'GET')!=='GET'||options.body||input?.body)return fail('CANDIDATE_MANAGED_MUTATION');
+ for(const [key]of new Headers(options.headers||input?.headers||{}))if(!['accept'].includes(key))return fail('CANDIDATE_CREDENTIAL_HEADER');
+ ledger(state=>{if(state.requests!==0||Date.now()>cfg.deadline){state.violations.push('CANDIDATE_REQUEST_BUDGET');return;}state.requests++;});
+ const state=JSON.parse(original.readFileSync(cfg.state,'utf8'));if(state.violations.length)throw Error('CANDIDATE_REQUEST_BUDGET');
+ return new Response(cfg.body,{status:200,headers:{'content-type':'application/json'}});
+};
+for(const name of ['node:http','node:https'])for(const method of ['get','request'])require(name)[method]=()=>fail('CANDIDATE_NATIVE_TRANSPORT_UNQUALIFIED');
+require('node:net').Socket.prototype.connect=()=>fail('CANDIDATE_RAW_SOCKET');
+require('node:tls').connect=()=>fail('CANDIDATE_RAW_TLS');
+for(const name of ['node:http2','node:dgram'])for(const key of Object.keys(require(name)))if(typeof require(name)[key]==='function')require(name)[key]=()=>fail('CANDIDATE_ALTERNATE_TRANSPORT');
+require('node:worker_threads').Worker=class{constructor(){fail('CANDIDATE_WORKER');}};
+process.kill=()=>fail('CANDIDATE_PROCESS_SIGNAL');
+const binding=process.binding.bind(process);process.binding=name=>{if(/^(?:fs|tcp_wrap|udp_wrap|pipe_wrap|tls_wrap|spawn_sync)$/.test(name))return fail('CANDIDATE_NATIVE_BINDING');return binding(name);};
+
+const load=Module._load;
+Module._load=function(name,parent,...rest){
+ const file=Module._resolveFilename(name,parent);
+ if(typeof file==='string'&&path.isAbsolute(file)){
+  allowedFile(file);
+  if(/\.(?:js|cjs|mjs|node)$/.test(file)){
+   const real=original.realpathSync(file),expected=cfg.modules[file]||cfg.dependencyHashes[real];
+   if(!expected||/\.node$/.test(file)||digest(file)!==expected)return fail('CANDIDATE_MODULE_UNQUALIFIED');
+  }
+ }
+ return load.call(this,name,parent,...rest);
+};
+for(const name of ['exec','execSync','fork','spawn','execFile','execFileSync'])cp[name]=()=>fail('CANDIDATE_DESCENDANT_UNQUALIFIED');
+const spawnSync=cp.spawnSync;
+cp.spawnSync=function(command,argv,options={}){
+ if(command!==process.execPath||!Array.isArray(argv)||argv[0]?.startsWith('-')||options.shell||options.detached)return fail('CANDIDATE_DESCENDANT_UNQUALIFIED');
+ const file=path.resolve(options.cwd||process.cwd(),argv[0]),frame=[path.relative(cfg.workspace,file),...argv.slice(1)];
+ if(!cfg.frames.some(allowed=>JSON.stringify(allowed)===JSON.stringify(frame))||cfg.modules[file]!==digest(file))return fail('CANDIDATE_COMMAND_UNQUALIFIED');
+ for(const [key,value]of Object.entries(options.env||{}))if(value&&/SUPABASE|VERCEL|FOLLOW_SNAPSHOT|NS_EDITORIAL|NS_EPIC|TOKEN|SECRET|PASSWORD|CREDENTIAL|API_KEY|ACCESS_KEY|SSH_AUTH|PROXY/i.test(key))return fail('CANDIDATE_DESCENDANT_CREDENTIAL');
+ const remaining=cfg.deadline-Date.now();if(remaining<=0)return fail('CANDIDATE_PROCESS_DEADLINE');
+ const env={PATH:process.env.PATH,LANG:process.env.LANG,TMPDIR:cfg.runtime,NS_PUBLIC_CANDIDATE_CONFIG:config,NODE_OPTIONS:'--require='+JSON.stringify(__filename)};
+ for(const key of ['REFRESH_REPORT','QUICK_RESULTS_REPORT','FOOTBALL_DATA_RUN_DIR','GOLF_SOURCE_REPORT','GOLF_SOURCE_RUN_ID'])if(options.env?.[key]){if(key!=='GOLF_SOURCE_RUN_ID')allowedFile(options.env[key],true);env[key]=options.env[key];}
+ return spawnSync.call(this,command,argv,{...options,cwd:cfg.workspace,env,shell:false,detached:false,timeout:Math.min(options.timeout||remaining,remaining),killSignal:'SIGKILL'});
+};
+// Record original observation time in this constructed replay; scheduling
+// deadlines continue to use the real monotonic wall clock, not the replay date.
+const RealDate=Date;global.Date=class extends RealDate{constructor(...values){super(...(values.length?values:[cfg.observedAt]));}};
+Module.syncBuiltinESMExports();
