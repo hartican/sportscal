@@ -48,9 +48,9 @@ The allocated normal pair ran once, sequentially, on frozen test source `4ccb491
 
 Those 17 invocations are six behavior groups before migration, one migration-preservation group, the same six groups after migration, one blocked-save group, one completed-cascade rollback group and two actual Auth deletions. They are not 17 native cases or a claim of 17 distinct group names. The first deletion checks the peer's entire state; the second completes that peer's erasure.
 
-Both stderr logs are empty. The local child preload forbade outbound HTTP/fetch/socket/DNS calls; no block fired. Entry space was 13,666,349,056 bytes and the existing disk/time/output caps were retained. Both children and in-memory databases closed normally; no browser, VM, container, download, managed query or shared operation ran.
+Both stderr logs are empty. The local child preload forbade outbound HTTP/fetch/socket/DNS calls; no block fired. The pair's recorded entry space was 13,658,202,112 bytes and the existing disk/time/output caps were retained. Both children and in-memory databases closed normally; no browser, VM, container, download, managed query or shared operation ran.
 
-External proof: `/Users/jackhartican/Documents/AI/Codex/public-feed-20261024/recovery-coexistence-20261026/2026-10-25T23-08-21-588Z/receipt.json`, with separate per-engine stdout/stderr logs and the actual offline preload. The receipt binds the exact full source SHA/tree, six source hashes, actual connection versions, commands/modules, duration, output hashes and completed group invocations. Only this quality record changes after the paired run; code-source hashes are retained in the publication handover.
+External proof: `/Users/jackhartican/Documents/AI/Codex/public-feed-20261024/recovery-coexistence-20261026/2026-10-25T23-08-21-588Z/receipt.json`, with separate per-engine stdout/stderr logs and the actual offline preload. The receipt binds the exact full source SHA/tree, six source hashes, actual connection versions, module names, duration, output hashes and completed group invocations. Only this quality record changes after the paired run; code-source hashes are retained in the publication handover.
 
 ## Handover and remaining gates
 
