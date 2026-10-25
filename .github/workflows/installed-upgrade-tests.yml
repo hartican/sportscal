@@ -18,6 +18,7 @@ on:
       - scripts/validate-installed-navigation-observation.js
       - scripts/validate-diamonds-retained-browser.js
       - scripts/validate-diamonds-retained-schedule.js
+      - scripts/validate-notification-landing.js
       - scripts/validate-all-sports-offline-browser.js
       - scripts/lib/all-sports-offline-errors.js
       - scripts/validate-all-sports-offline-errors.js
@@ -98,6 +99,7 @@ jobs:
           set -o pipefail
           node scripts/validate-installed-test-network.js
           node scripts/validate-diamonds-retained-schedule.js
+          node scripts/validate-notification-landing.js
           node scripts/validate-installed-pwa-upgrade-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/browser.log"
       - name: Verify installed All Sports offline behavior
         env:
