@@ -11,6 +11,13 @@ try{
  const code=require('../config/canonical-sports-taxonomy').sportDomains.find(code=>code.id==='sport:netball');assert(code);
  const retained=official.events.filter(event=>event.key==='netball'&&event.sportDomainId==='sport:netball'&&event.competitionId==='competition:constellation-cup-2026');
  assert.equal(retained.length,4,'the retained addition is exactly the four already collected fixtures');
+ // The first fixture reaches seven Sydney calendar days on 25 October and
+ // retires at the next local midnight. The capture still contains all four.
+ const boundaryCases=[
+  ['2026-10-25T12:59:59.999Z',retained.map(event=>event.id).sort()],
+  ['2026-10-25T13:00:00.000Z',retained.filter(event=>event.date!=='2026-10-18').map(event=>event.id).sort()],
+ ];
+ for(const [reference,expected]of boundaryCases)assert.deepEqual(retained.filter(event=>identity.retainedInActiveTimeline(event,new Date(reference))).map(event=>event.id).sort(),expected,'actual Sydney retention boundary at '+reference);
  const fixtureId='fixture:netball:constellation-cup-2026-2';
  const projected=builder.codeFixtures(code),fixture=projected.find(event=>event.id===fixtureId||event.eventId===fixtureId);
  assert(fixture,'actual pure Netball builder must project the retained 21 October Diamonds fixture');

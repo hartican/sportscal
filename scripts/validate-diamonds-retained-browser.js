@@ -2,9 +2,17 @@
 'use strict';
 const assert=require('node:assert/strict');
 const ID='fixture:netball:constellation-cup-2026-2';
+// This is a retained October capture, not a claim of current fixture freshness.
+// Keep the four-card cache/admission regression inside its known retention window.
+const RETAINED_REFERENCE='2026-10-25T00:00:00Z';
 async function assertDiamondsFeed(page){
  await page.waitForFunction(()=>typeof userPreferences!=='undefined'&&startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());
  const previous=await page.evaluate(()=>clonePreferences(userPreferences));
+ await page.evaluate(reference=>{
+  if(globalThis.__qaDiamondsNativeDate)throw Error('Retained fixture clock already installed');
+  const NativeDate=Date;globalThis.__qaDiamondsNativeDate=NativeDate;
+  globalThis.Date=class extends NativeDate{constructor(...args){super(...(args.length?args:[reference]));}static now(){return +new NativeDate(reference);}};
+ },RETAINED_REFERENCE);
  try{
   const facts=await page.evaluate(async id=>{
    const next=clonePreferences(userPreferences);next.feedCompact=false;next.selectedSelectorEntityIds=[];next.followedSports=[];next.showSpoilers=false;next.onboardingComplete=true;
@@ -27,8 +35,13 @@ async function assertDiamondsFeed(page){
     savePreferences(next);renderAll();return !getFilteredEvents().some(e=>e.id===id);
    },{id:ID,level});assert(hidden,level+' excludes the card through the actual Feed filter');
   }
-  return {...facts,ordinaryFeedCard:true,unknownKickoffVisible:true,sportOffAndMute:true};
- }finally{await page.evaluate(next=>{savePreferences(next);renderAll();},previous);}
+  return {...facts,ordinaryFeedCard:true,unknownKickoffVisible:true,sportOffAndMute:true,retainedReference:RETAINED_REFERENCE,currentFreshness:false};
+ }finally{await page.evaluate(next=>{
+  const NativeDate=globalThis.__qaDiamondsNativeDate;
+  if(!NativeDate)throw Error('Retained fixture clock restoration is unavailable');
+  globalThis.Date=NativeDate;delete globalThis.__qaDiamondsNativeDate;
+  savePreferences(next);renderAll();
+ },previous);}
 }
 if(require.main===module){
  const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),{chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(__dirname,'..');
