@@ -1097,14 +1097,17 @@ function buildFixtureFallbackCard(event, options = {}){
   let card = document.createElement("article");
   card._retargetCard=target=>{card=target;};card._rebuildCard=()=>buildFixtureFallbackCard(ev,options);
   const mode = options.mode || "calendar";
+  const localCardState = options.onCardStateChange;
+  const state = localCardState ? options.cardState : cardStateForEvent(ev);
   card.className = `event-card mode-${mode} is-compact-row is-fixture-fallback`;
   card.dataset.eventId = ev.eventId || ev.id;
   card.dataset.scrollKey = `event:${mode}:${ev.eventId || ev.id}`;
   card.dataset.cardMode = mode;
-  card.dataset.cardState = "compact";
-  card.dataset.cardLevel = "L0";
-  if(cardStateForEvent(ev)==='compact'||getEventAction(ev).isMinimised){
-    return mountMinimisedCard(card,ev,(state,settings)=>{if(getEventAction(ev).isMinimised)updateEventAction(ev,{isMinimised:false});setCardState(ev,state);refreshExpandableCard(card,buildFixtureFallbackCard(ev,options),settings);syncNothingscoreReadRecovery();});
+  card.dataset.cardState = localCardState ? state : "compact";
+  card.dataset.cardLevel = localCardState ? cardLevelForState(state) : "L0";
+  if(localCardState){card.classList.toggle('is-selected',state==='selected');card.classList.toggle('is-opened',state==='opened');card.setAttribute('aria-expanded',String(state!=='compact'));}
+  if(state==='compact'||!localCardState&&getEventAction(ev).isMinimised){
+    return mountMinimisedCard(card,ev,(state,settings)=>{if(localCardState)return localCardState(state);if(getEventAction(ev).isMinimised)updateEventAction(ev,{isMinimised:false});setCardState(ev,state);refreshExpandableCard(card,buildFixtureFallbackCard(ev,options),settings);syncNothingscoreReadRecovery();});
   }
   if (options.inspectorFixture) card.dataset.inspectorFixtureId = options.inspectorFixture.id;
   const copy = document.createElement("div");
@@ -1131,7 +1134,7 @@ function buildFixtureFallbackCard(event, options = {}){
   appendEventQuickActions(card,ev,{reminder:false,chat:false,highlightsOnly:true});
   if(options.inspectorFixture)appendSchedulePin(card,options.inspectorFixture,card);
   card.setAttribute("aria-label", `${label}. Fixture details.`);
-  card.append(buildCardDisclosureControl(label,'selected',(state,settings)=>{setCardState(ev,state);refreshExpandableCard(card,buildFixtureFallbackCard(ev,options),settings);syncNothingscoreReadRecovery();}));
+  card.append(buildCardDisclosureControl(label,localCardState?state:'selected',(state,settings)=>{if(localCardState)return localCardState(state);setCardState(ev,state);refreshExpandableCard(card,buildFixtureFallbackCard(ev,options),settings);syncNothingscoreReadRecovery();}));
   return card;
 }
 
