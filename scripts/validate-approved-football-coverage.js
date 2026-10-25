@@ -19,6 +19,14 @@ function run(){
  reject(next=>next.teams.pop());
  reject(next=>next.teams.push({...next.teams[0]}));
  reject(next=>{next.teams[0].leagueId='competition:unapproved';});
+ const fs=require('node:fs'),os=require('node:os'),path=require('node:path'),{spawnSync}=require('node:child_process');
+ const temp=fs.mkdtempSync(path.join(os.tmpdir(),'ns-approved-football-owner-'));
+ try{
+  const guard=path.join(temp,'deny.cjs');
+  fs.writeFileSync(guard,"global.fetch=async()=>{throw Error('Unexpected provider request in retained owner check');};for(const name of ['node:http','node:https'])for(const method of ['request','get'])require(name)[method]=()=>{throw Error('Unexpected native request in retained owner check');};\n");
+  const owner=spawnSync(process.execPath,['--require',guard,path.join(__dirname,'refresh-football-directory.js'),'--check'],{cwd:path.resolve(__dirname,'..'),encoding:'utf8',timeout:10000,env:{PATH:process.env.PATH,LANG:process.env.LANG}});
+  assert.equal(owner.status,0,owner.stderr||owner.stdout);
+ }finally{fs.rmSync(temp,{recursive:true,force:true});}
  console.log(`Approved football coverage: all ${approved.length} source-owned contexts, ordering independence and ${rejected} missing/extra/duplicate/misbound controls passed.`);
 }
 if(require.main===module)run();

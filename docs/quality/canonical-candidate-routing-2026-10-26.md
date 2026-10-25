@@ -34,10 +34,13 @@ the identities/keys/team counts from the existing six-network-league owner
 retained Championship projection. Neither generated data nor coverage is changed.
 
 Both catalogue validators reuse that complete contract. It rejects missing,
-extra, duplicate or misbound league contexts, wrong team counts, duplicate or
-foreign team identities and loss of the retained-only source policy. The pure
+extra, duplicate or misbound league contexts, wrong team counts, duplicate team
+identities, foreign league associations and loss of the retained-only source policy. The pure
 regression tests actual accepted data, order independence and seventeen negative
-controls. All original chronology, geometry, source, roster, fixture, rendering
+controls, plus the real owner's retained check under transport denial. Export
+the owner's unchanged public definitions before its CLI validates so that the
+owner/validator import order cannot leave approved definitions unavailable.
+All original chronology, geometry, source, roster, fixture, rendering
 and freshness checks remain. This is a correction to QA, not permission to
 drop a competition or fetch the retained Championship anew.
 
