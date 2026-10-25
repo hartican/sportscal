@@ -29,7 +29,7 @@ function allowedFile(value,write=false){
  const resolved=internal(()=>original.realpathSync(parent))+(parent===file?'':path.sep+path.relative(parent,file));
  const runtime=within(resolved,cfg.runtime),workspace=within(resolved,cfg.workspace),dependency=within(resolved,cfg.dependencies);
  if(!runtime&&!workspace&&!(!write&&dependency))return fail('CANDIDATE_PRIVATE_FILE');
- if(write&&workspace){const relative=path.relative(cfg.workspace,resolved);if(!/^(?:data|feeds)\//.test(relative)&&!/^assets\/js\//.test(relative))return fail('CANDIDATE_IMMUTABLE_SOURCE_WRITE');}
+ if(write&&workspace){const relative=path.relative(cfg.workspace,resolved);if(!/^(?:data|feeds)(?:\/|$)/.test(relative)&&!/^assets\/js(?:\/|$)/.test(relative))return fail('CANDIDATE_IMMUTABLE_SOURCE_WRITE');}
  return file;
 }
 const entry=path.resolve(process.argv[1]||''),relative=path.relative(cfg.workspace,entry),args=process.argv.slice(2);
@@ -83,8 +83,10 @@ process.kill=()=>fail('CANDIDATE_PROCESS_SIGNAL');
 const binding=process.binding.bind(process);process.binding=name=>{if(/^(?:fs|tcp_wrap|udp_wrap|pipe_wrap|tls_wrap|spawn_sync)$/.test(name))return fail('CANDIDATE_NATIVE_BINDING');return binding(name);};
 
 const load=Module._load;
+const builtins=new Set(['assert','assert/strict','fs','fs/promises','path','os','crypto','util','util/types','vm','events','stream','stream/web','stream/promises','module','child_process','url','perf_hooks','buffer','querystring','zlib','http','https','http2','dgram','net','tls','worker_threads','diagnostics_channel']);
 Module._load=function(name,parent,...rest){
  const file=Module._resolveFilename(name,parent);
+ if(typeof file==='string'&&!path.isAbsolute(file)&&!builtins.has(file.replace(/^node:/,'')))return fail('CANDIDATE_NATIVE_MODULE_UNQUALIFIED');
  if(typeof file==='string'&&path.isAbsolute(file)){
   allowedFile(file);
   if(/\.(?:js|cjs|mjs|node)$/.test(file)){
