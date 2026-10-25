@@ -28,6 +28,22 @@ function preflight(directory){
   fs.writeFileSync(input,JSON.stringify({schemaVersion:'canonical-public-candidate.v1',target}));
   const result=invoke(args);assert.match(result.stderr,/CANDIDATE_UNQUALIFIED_TARGET/);assert.equal(fs.existsSync(output),false);count++;
  }
+ const bodyFile=path.join(ROOT,'scripts/fixtures/public-candidate/nbl-public-input.json'),body=fs.readFileSync(bodyFile);
+ const valid={schemaVersion:'canonical-public-candidate.v1',target:'quick:nbl',sourceRevision:'0'.repeat(40),observedAt:'2026-10-22T16:43:40.438Z',provenance:'constructed-fixture',response:{url:candidate.URL,path:'nbl-public-input.json',sha256:candidate.sha(body),bytes:body.length},processMs:60000,maxGeneratedBytes:128*1024*1024,maxArtifactBytes:32*1024*1024};
+ for(const [name,edit,reason]of [
+  ['private envelope',v=>{v.profiles=[];},'CANDIDATE_INPUT_SCHEMA'],
+  ['alternate input',v=>{v.response.path='.env';},'CANDIDATE_PUBLIC_INPUT'],
+  ['changed body',v=>{v.response.sha256='0'.repeat(64);},'CANDIDATE_INPUT_HASH'],
+  ['current claim',v=>{v.provenance='live-current';},'CANDIDATE_UNQUALIFIED_PROVENANCE'],
+  ['oversize allowance',v=>{v.maxArtifactBytes=33*1024*1024;},'CANDIDATE_BUDGET'],
+  ['wrong revision',()=>{},'CANDIDATE_SOURCE_REVISION'],
+ ]){
+  const value=structuredClone(valid);edit(value);fs.writeFileSync(path.join(path.dirname(input),'nbl-public-input.json'),body);fs.writeFileSync(input,JSON.stringify(value));
+  const result=invoke(args);assert.notEqual(result.status,0,name);assert(result.stderr.includes(reason),name+': '+result.stderr);assert.equal(fs.existsSync(output),false);count++;
+ }
+ const malformed=JSON.parse(body);malformed.matches[0].venue_name={privateField:'constructed-only'};const malformedBytes=Buffer.from(JSON.stringify(malformed));
+ fs.writeFileSync(path.join(path.dirname(input),'nbl-public-input.json'),malformedBytes);fs.writeFileSync(input,JSON.stringify({...valid,response:{...valid.response,sha256:candidate.sha(malformedBytes),bytes:malformedBytes.length}}));
+ const malformedResult=invoke(args);assert.match(malformedResult.stderr,/CANDIDATE_INPUT_SCHEMA/);assert.equal(fs.existsSync(output),false);count++;
  // Inspect real default/DEPLOY builders without running their live steps.
  const owner=require('./update-cards');
  assert.equal(owner.parseOptions([],{}).localOnly,false);
@@ -62,6 +78,8 @@ function guardedDispatch(directory){
   ['raw TLS',`require('node:tls').connect(443,'synthetic.invalid')`,'CANDIDATE_RAW_TLS'],
   ['DNS',`require('node:dns')`,'CANDIDATE_NATIVE_MODULE_UNQUALIFIED'],
   ['native binding',`process.binding('fs')`,'CANDIDATE_NATIVE_BINDING'],
+  ['native process binding',`process.binding('process_wrap')`,'CANDIDATE_NATIVE_BINDING'],
+  ['native resolver binding',`process.binding('cares_wrap')`,'CANDIDATE_NATIVE_BINDING'],
   ['inspector',`require('node:inspector')`,'CANDIDATE_NATIVE_MODULE_UNQUALIFIED'],
   ['ESM inspector',`await import('node:inspector')`,'CANDIDATE_NATIVE_MODULE_UNQUALIFIED'],
   ['native module',`process.dlopen({},'/synthetic.node')`,'CANDIDATE_NATIVE_MODULE_UNQUALIFIED'],
@@ -78,6 +96,7 @@ function guardedDispatch(directory){
   ['stream descriptor',`require('node:fs').createReadStream(null,{fd:42})`,'CANDIDATE_FILE_DESCRIPTOR'],
   ['builtin alias',`process.getBuiltinModule('fs').readFileSync(${JSON.stringify(privateFile)})`,'CANDIDATE_PRIVATE_FILE'],
   ['ESM alias',`(await import('node:fs')).readFileSync(${JSON.stringify(privateFile)})`,'CANDIDATE_PRIVATE_FILE'],
+  ['output budget',`process.stdout.write('x'.repeat(2*1024*1024+1))`,'CANDIDATE_OUTPUT_BUDGET'],
  ];
  for(const [name,operation,reason]of cases){
   // Catching a refusal and exiting zero must not erase its sticky ledger.
@@ -130,6 +149,7 @@ function replay(directory){
  const unchanged=execute(staged,'unchanged');assert.equal(unchanged.result.status,0,unchanged.handover.blocker);
  assert.equal(unchanged.handover.state,'unchanged-fixture-replay');assert.equal(unchanged.handover.artifact.changed.length,0);assert.equal(fs.existsSync(path.join(unchanged.output,'candidate.bundle')),false);
  const failed=execute(ROOT,'budget-failure',{maxGeneratedBytes:1024});assert.notEqual(failed.result.status,0);assert.equal(failed.handover.blocker,'CANDIDATE_GENERATED_BUDGET');assert.equal(failed.handover.artifact,null);assert.equal(fs.existsSync(path.join(failed.output,'candidate.bundle')),false);
+ const late=execute(ROOT,'late-package-failure',{maxArtifactBytes:1024});assert.notEqual(late.result.status,0);assert.equal(late.handover.blocker,'CANDIDATE_ARTIFACT_BUDGET');assert.equal(fs.existsSync(path.join(late.output,'candidate.bundle')),false);assert.equal(fs.existsSync(path.join(late.output,'staging-intent.json')),false);
  const faultFile=path.join(staged,'scripts/quick-results.js'),original=fs.readFileSync(faultFile,'utf8');
  const faults=[['private',`require('node:fs').readFileSync(${JSON.stringify(path.join(directory,'private-not-in-candidate'))})`,'CANDIDATE_PRIVATE_FILE'],['publication',`await fetch('https://synthetic.invalid/rest/v1/rpc/nothingsports_publish_fixture_source',{method:'POST',body:'synthetic-only'})`,'CANDIDATE_SHARED_PUBLICATION_UNQUALIFIED']];
  const failures=[];
@@ -140,10 +160,17 @@ function replay(directory){
   fs.writeFileSync(faultFile,original.replace("'use strict';","'use strict';\n"+fault));
   git(staged,['add','scripts/quick-results.js']);git(staged,['-c','user.name=Fixture','-c','user.email=fixture@invalid','-c','commit.gpgsign=false','commit','-m','Constructed swallowed effect '+name]);
   const outcome=execute(staged,'swallowed-'+name);assert.notEqual(outcome.result.status,0);assert.equal(outcome.handover.childStatus,0);assert(outcome.handover.ledger.violations.some(value=>value.startsWith(reason)));assert.equal(fs.existsSync(path.join(outcome.output,'candidate.bundle')),false);
+  assert.equal(outcome.handover.reports.refresh.publicationState,'validated','A swallowed effect must block even when the ordinary child reports success');
   failures.push({name,childStatus:outcome.handover.childStatus,blocker:outcome.handover.blocker});
  }
+ const reportFault=`if(process.env.NS_PUBLIC_CANDIDATE_CONFIG){require('./lib/refresh-report').update({stage:'failed',sourceFailures:['Constructed source refusal https://synthetic.invalid/result?token=remove-me'],missingResults:[{id:'constructed-fixture',missingFields:['result']}],failedStep:'constructed-source-step',failureChain:[{step:'constructed-source-step',message:'constructed refusal'}]});process.exit(1);}\n`;
+ fs.writeFileSync(faultFile,original.replace("'use strict';","'use strict';\n"+reportFault));git(staged,['add','scripts/quick-results.js']);git(staged,['-c','user.name=Fixture','-c','user.email=fixture@invalid','-c','commit.gpgsign=false','commit','-m','Constructed structured failure']);
+ const structured=execute(staged,'structured-failure');assert.notEqual(structured.result.status,0);assert.deepEqual(structured.handover.reports.refresh.missingResults,[{id:'constructed-fixture',missingFields:['result']}]);assert.equal(structured.handover.reports.refresh.failedStep,'constructed-source-step');assert.equal(structured.handover.reports.refresh.sourceFailures[0].includes('remove-me'),false);
+ const loop=`if(process.env.NS_PUBLIC_CANDIDATE_CONFIG){while(true){}}\n`;
+ fs.writeFileSync(faultFile,original.replace("'use strict';","'use strict';\n"+loop));git(staged,['add','scripts/quick-results.js']);git(staged,['-c','user.name=Fixture','-c','user.email=fixture@invalid','-c','commit.gpgsign=false','commit','-m','Constructed deadline failure']);
+ const timeout=execute(staged,'timeout',{processMs:1000});assert.notEqual(timeout.result.status,0);assert.equal(timeout.handover.childSignal,'SIGKILL');assert.equal(timeout.handover.artifact,null);
  assert.equal(git(ROOT,['rev-parse','HEAD']),base);assert.equal(git(ROOT,['status','--porcelain','--untracked-files=no']),before);
- return {state:first.handover.state,sourceRevision:base,changedFiles:first.handover.artifact.changed.length,generatedBytes:first.handover.outputSummary.generatedBytes,revision:first.handover.artifact.revision,bundleSha256:first.handover.artifact.bundleSha256,repeatIdentical:true,unchanged:unchanged.handover.state,generatedBudgetFailure:failed.handover.blocker,swallowedFailures:failures,sourceUnchanged:true};
+ return {state:first.handover.state,sourceRevision:base,changedFiles:first.handover.artifact.changed.length,generatedBytes:first.handover.outputSummary.generatedBytes,revision:first.handover.artifact.revision,bundleSha256:first.handover.artifact.bundleSha256,repeatIdentical:true,unchanged:unchanged.handover.state,generatedBudgetFailure:failed.handover.blocker,latePackagingFailure:late.handover.blocker,swallowedFailures:failures,structuredDiagnosticsRetained:true,timeoutSignal:timeout.handover.childSignal,sourceUnchanged:true};
 }
 function run(){
  const directory=fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(),'ns-candidate-tests-')));

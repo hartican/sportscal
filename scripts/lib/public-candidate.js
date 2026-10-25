@@ -29,7 +29,7 @@ function readFile(file,maximum){
  return fs.readFileSync(file);
 }
 function capability(file){
- const value=JSON.parse(readFile(file,16384));
+ const inputBytes=readFile(file,16384),value=JSON.parse(inputBytes);
  fields(value,['schemaVersion','target','sourceRevision','observedAt','provenance','response','processMs','maxArtifactBytes','maxGeneratedBytes'],'capability');
  if(value.schemaVersion!=='canonical-public-candidate.v1')refuse('CANDIDATE_INPUT_SCHEMA','schemaVersion');
  if(value.target!=='quick:nbl')refuse('CANDIDATE_UNQUALIFIED_TARGET',value.target==='full'?'full: private Follow snapshot, ranking PDFKit and shared aggregate/export closure unqualified':'quick: sync-live-coverage source-scoped export and complete provider closure unqualified');
@@ -58,7 +58,7 @@ function capability(file){
  }
  // Reuse actual source identity/completeness/result validation before writes.
  require('../refresh-nbl-schedule').build(payload,value.observedAt,[]);
- return {...value,body:body.toString('utf8')};
+ return {...value,inputSha256:sha(inputBytes),body:body.toString('utf8')};
 }
 const gitEnv={PATH:SAFE_PATH,LANG:'en_AU.UTF-8',GIT_CONFIG_NOSYSTEM:'1',GIT_CONFIG_GLOBAL:'/dev/null'};
 function git(args,options={}){
@@ -76,7 +76,8 @@ function frames(){
  ].map(frame=>[JSON.stringify(frame),frame])).values()];
 }
 const publicPath=name=>/^(?:api|assets|config|data|feeds|lib|scripts|styles)\//.test(name)||['index.html','service-worker.js','app-version.json','package.json','package-lock.json'].includes(name);
-const generatedPath=name=>/^(?:data|feeds)\//.test(name)||/^assets\/js\/(?:app-shell-runtime|deferred-[a-z-]+|calendar-sync-ui)\.js$/.test(name);
+const generatedFiles=new Set(['data/canonical/nbl-2026-27.json','data/events.json','data/events.js','data/feed-meta.json','data/chat-fixtures.v1.json','data/code-inspector/manifest.json','data/code-inspector/nbl.json','data/follow-schedule/nbl.json','data/feed/manifest.json','feeds/incoming/events.json','assets/js/app-shell-runtime.js','assets/js/calendar-sync-ui.js',...Object.keys(require('../build-deferred-sports-ui').modules)]);
+const generatedPath=name=>generatedFiles.has(name)||/^data\/feed\/page-\d{3}\.json$/.test(name);
 function prepare({input,output}){
  credentials(process.env);
  const cap=capability(input),head=git(['rev-parse','HEAD']);
@@ -105,6 +106,7 @@ function prepare({input,output}){
    if(type!=='blob'||!['100644','100755'].includes(mode)||crypto.createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex')!==object||Boolean(s.mode&0o111)!==(mode==='100755'))refuse('CANDIDATE_SOURCE_REVISION',name);
    baseline.set(name,sha(bytes));
    fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(file,dest,fs.constants.COPYFILE_FICLONE);
+   if(sha(fs.readFileSync(dest))!==baseline.get(name))refuse('CANDIDATE_SOURCE_CHANGED_DURING_COPY',name);
    if(/\.(?:js|cjs|mjs)$/.test(name))modules[dest]=sha(bytes);
   }
   fs.symlinkSync(dependencies,path.join(workspace,'node_modules'));
@@ -144,20 +146,33 @@ function prepare({input,output}){
   g(['read-tree',head]);if(changed.length)g(['add','--',...changed.map(row=>row.path)]);
   const candidateTree=g(['write-tree']),revision=git(['--git-dir='+gitdir,'-c','user.name=Canonical candidate','-c','user.email=canonical-candidate@invalid','-c','commit.gpgsign=false','commit-tree',candidateTree,'-p',head],{input:'Constructed public replay candidate; not current source acceptance\n',env:{...gitEnv,GIT_AUTHOR_DATE:cap.observedAt,GIT_COMMITTER_DATE:cap.observedAt}});
   g(['update-ref','refs/heads/'+branch,revision]);
-  const bundle=path.join(output,'candidate.bundle');g(['bundle','create',bundle,'refs/heads/'+branch,'^'+head]);
+  const bundle=path.join(output,'candidate.bundle');g(['bundle','create',bundle,'refs/heads/'+branch,'^'+head]);fs.chmodSync(bundle,0o600);
   if(fs.statSync(bundle).size>cap.maxArtifactBytes)refuse('CANDIDATE_ARTIFACT_BUDGET');
   artifact={...artifact,revision,bundleSha256:sha(fs.readFileSync(bundle))};
   }
  }catch(error){blocked=error;}
  finally{
+  let diagnostic='',reports={},cleanupError=null;
+  const reporter=require('./refresh-report');
+  const discard=()=>{for(const file of ['candidate.bundle','staging-intent.json'])try{fs.rmSync(path.join(output,file),{force:true});}catch(error){cleanupError||=reporter.diagnosticTail(error.message);blocked||=error;}};
   try{
-   const tail=file=>{if(!fs.existsSync(file))return '';const fd=fs.openSync(file,'r');try{const size=fs.fstatSync(fd).size,bytes=Buffer.alloc(Math.min(size,65536));fs.readSync(fd,bytes,0,bytes.length,Math.max(0,size-bytes.length));return require('./refresh-report').diagnosticTail(bytes.toString());}finally{fs.closeSync(fd);}};
+   const file=path.join(runtime,'stderr');
+   if(fs.existsSync(file)){const fd=fs.openSync(file,'r');try{const size=fs.fstatSync(fd).size,bytes=Buffer.alloc(Math.min(size,65536));fs.readSync(fd,bytes,0,bytes.length,Math.max(0,size-bytes.length));diagnostic=reporter.diagnosticTail(bytes.toString());}finally{fs.closeSync(fd);}}
+   for(const [name,file]of [['refresh','refresh.json'],['quick','quick.json']]){
+    const filePath=path.join(runtime,file);if(!fs.existsSync(filePath))continue;
+    const bytes=readFile(filePath,65536),report=JSON.parse(bytes);
+    const allowed=['schemaVersion','mode','source','checkedAt','updatedAt','publicationState','stage','lastStep','failedStep','blockingError','sourceFailures','missingResults','failureChain','changed','failures','aiCalls'];
+    reports[name]=reporter.sanitise(Object.fromEntries(Object.entries(report).filter(([key])=>allowed.includes(key))));
+   }
+  }catch(error){blocked||=error;}
+  // Restore/remove the complete private candidate before fallible reporting.
+  try{fs.rmSync(scratch,{recursive:true,force:true});}catch(error){cleanupError=reporter.diagnosticTail(error.message);blocked||=error;}
+  if(blocked)discard();
+  try{
    const state=blocked?'blocked':artifact?.changed.length?'prepared-fixture-replay':'unchanged-fixture-replay';
-   const handover={schemaVersion:'canonical-candidate-handover.v1',sourceRevision:head,inputSha256:sha(fs.readFileSync(input)),sourceReceipt:{url:cap.response.url,sha256:cap.response.sha256,observedAt:cap.observedAt,provenance:cap.provenance},state,currentSourceAcceptance:false,managedWrites:0,remotePushes:0,deployment:false,scheduleChanged:false,childStatus:child?.status??null,childSignal:child?.signal||null,ledger:ledger||null,outputSummary:outputSummary||null,artifact:blocked?null:artifact,blocker:blocked?.message||null,diagnostic:tail(path.join(runtime,'stderr')),nextOwner:'DEPLOY existing-client intake; no worker PR scope or automatic promotion'};
-   if(blocked&&fs.existsSync(path.join(output,'candidate.bundle')))fs.unlinkSync(path.join(output,'candidate.bundle'));
+   const handover={schemaVersion:'canonical-candidate-handover.v1',sourceRevision:head,inputSha256:cap.inputSha256,sourceReceipt:{url:cap.response.url,sha256:cap.response.sha256,observedAt:cap.observedAt,provenance:cap.provenance},state,currentSourceAcceptance:false,managedWrites:0,remotePushes:0,deployment:false,scheduleChanged:false,childStatus:child?.status??null,childSignal:child?.signal||null,ledger:ledger||null,outputSummary:outputSummary||null,artifact:blocked?null:artifact,blocker:reporter.diagnosticTail(blocked?.message)||null,diagnostic,reports,cleanupError,nextOwner:'DEPLOY existing-client intake; no worker PR scope or automatic promotion'};
    fs.writeFileSync(path.join(output,'handover.json'),JSON.stringify(handover,null,2)+'\n',{mode:0o600});
-  }catch(error){if(!blocked)blocked=error;}
-  finally{fs.rmSync(scratch,{recursive:true,force:true});}
+  }catch(error){blocked||=error;discard();}
  }
  if(blocked)throw blocked;
  console.log(JSON.stringify({state:artifact.changed.length?'prepared-fixture-replay':'unchanged-fixture-replay',output,currentSourceAcceptance:false}));

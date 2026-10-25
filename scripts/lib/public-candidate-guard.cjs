@@ -91,7 +91,8 @@ require('node:tls').connect=()=>fail('CANDIDATE_RAW_TLS');
 for(const name of ['node:http2','node:dgram'])for(const key of Object.keys(require(name)))if(typeof require(name)[key]==='function')require(name)[key]=()=>fail('CANDIDATE_ALTERNATE_TRANSPORT');
 require('node:worker_threads').Worker=class{constructor(){fail('CANDIDATE_WORKER');}};
 process.kill=()=>fail('CANDIDATE_PROCESS_SIGNAL');
-const binding=process.binding.bind(process);process.binding=name=>{if(/^(?:fs|tcp_wrap|udp_wrap|pipe_wrap|tls_wrap|spawn_sync)$/.test(name))return fail('CANDIDATE_NATIVE_BINDING');return binding(name);};
+// No public process.binding entrypoint is qualified by this pure-JS slice.
+process.binding=()=>fail('CANDIDATE_NATIVE_BINDING');
 
 const load=Module._load;
 const builtins=new Set(['assert','assert/strict','fs','fs/promises','path','os','crypto','util','util/types','vm','events','stream','stream/web','stream/promises','module','child_process','url','perf_hooks','buffer','querystring','zlib','http','https','http2','dgram','net','tls','worker_threads','diagnostics_channel','timers/promises']);

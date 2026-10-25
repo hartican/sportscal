@@ -1,5 +1,18 @@
 # Backend efficiency decisions
 
+## First executable public-candidate slice — 26 October2026
+
+The original canonical owner now admits only an explicit constructed NBL public
+replay capability through update-cards. Use the existing scoped quick parser,
+writers and validators, original observation clocks, clean environment and
+private generated staging; deny private Follow inputs and all unknown native,
+managed and publishing effects. Retain a sticky failure even if caught by a
+child. Produce a deterministic local review bundle/handover, never main, deploy
+or a fake shared-publication ACK. DEPLOY retains existing-client draft PR/intake
+and all managed/release authority. No credential, workflow, permission, database
+or scheduler change is included. Full/unscoped quick closure and real scheduled
+acceptance remain open. See [scope, evidence and limitations](quality/canonical-public-candidate-2026-10-26.md).
+
 ## Complete approved Football QA and canonical routing checkpoint — 26 October 2026
 
 The accepted catalogue includes the existing six network leagues and retained
