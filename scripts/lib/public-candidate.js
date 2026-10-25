@@ -135,6 +135,7 @@ function prepare({input,output}){
   const branch='codex/canonical-candidate-'+sha(JSON.stringify({head,receipt:cap.response.sha256,changes:changed})).slice(0,16);
   artifact={branch,baseSha:head,changed,publication:{state:'local-staging-intent-only',managedWrites:0,requires:'DEPLOY review and separately allocated intake; no fake publication ACK'}};
   fs.writeFileSync(path.join(output,'staging-intent.json'),JSON.stringify(artifact,null,2)+'\n',{mode:0o600});
+  if(changed.length){
   // Actual local review branch; isolated object store reads the existing base
   // through alternates. Never update source refs, main, remotes or credentials.
   const gitdir=path.join(runtime,'review.git');git(['init','--bare',gitdir]);
@@ -146,18 +147,20 @@ function prepare({input,output}){
   const bundle=path.join(output,'candidate.bundle');g(['bundle','create',bundle,'refs/heads/'+branch,'^'+head]);
   if(fs.statSync(bundle).size>cap.maxArtifactBytes)refuse('CANDIDATE_ARTIFACT_BUDGET');
   artifact={...artifact,revision,bundleSha256:sha(fs.readFileSync(bundle))};
+  }
  }catch(error){blocked=error;}
  finally{
   try{
    const tail=file=>{if(!fs.existsSync(file))return '';const fd=fs.openSync(file,'r');try{const size=fs.fstatSync(fd).size,bytes=Buffer.alloc(Math.min(size,65536));fs.readSync(fd,bytes,0,bytes.length,Math.max(0,size-bytes.length));return require('./refresh-report').diagnosticTail(bytes.toString());}finally{fs.closeSync(fd);}};
-   const handover={schemaVersion:'canonical-candidate-handover.v1',sourceRevision:head,inputSha256:sha(fs.readFileSync(input)),sourceReceipt:{url:cap.response.url,sha256:cap.response.sha256,observedAt:cap.observedAt,provenance:cap.provenance},state:blocked?'blocked':'prepared-fixture-replay',currentSourceAcceptance:false,managedWrites:0,remotePushes:0,deployment:false,scheduleChanged:false,childStatus:child?.status??null,childSignal:child?.signal||null,ledger:ledger||null,outputSummary:outputSummary||null,artifact:blocked?null:artifact,blocker:blocked?.message||null,diagnostic:tail(path.join(runtime,'stderr')),nextOwner:'DEPLOY existing-client intake; no worker PR scope or automatic promotion'};
+   const state=blocked?'blocked':artifact?.changed.length?'prepared-fixture-replay':'unchanged-fixture-replay';
+   const handover={schemaVersion:'canonical-candidate-handover.v1',sourceRevision:head,inputSha256:sha(fs.readFileSync(input)),sourceReceipt:{url:cap.response.url,sha256:cap.response.sha256,observedAt:cap.observedAt,provenance:cap.provenance},state,currentSourceAcceptance:false,managedWrites:0,remotePushes:0,deployment:false,scheduleChanged:false,childStatus:child?.status??null,childSignal:child?.signal||null,ledger:ledger||null,outputSummary:outputSummary||null,artifact:blocked?null:artifact,blocker:blocked?.message||null,diagnostic:tail(path.join(runtime,'stderr')),nextOwner:'DEPLOY existing-client intake; no worker PR scope or automatic promotion'};
    if(blocked&&fs.existsSync(path.join(output,'candidate.bundle')))fs.unlinkSync(path.join(output,'candidate.bundle'));
    fs.writeFileSync(path.join(output,'handover.json'),JSON.stringify(handover,null,2)+'\n',{mode:0o600});
   }catch(error){if(!blocked)blocked=error;}
   finally{fs.rmSync(scratch,{recursive:true,force:true});}
  }
  if(blocked)throw blocked;
- console.log(JSON.stringify({state:'prepared-fixture-replay',output,currentSourceAcceptance:false}));
+ console.log(JSON.stringify({state:artifact.changed.length?'prepared-fixture-replay':'unchanged-fixture-replay',output,currentSourceAcceptance:false}));
  return artifact;
 }
 module.exports={options,credentials,capability,prepare,frames,URL,MAX_BODY,generatedPath,sha};
