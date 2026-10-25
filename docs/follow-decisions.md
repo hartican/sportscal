@@ -1,5 +1,22 @@
 # Follow and Feed decisions
 
+## All Sports View — 24 October 2026
+
+The authorised full implementation adds a separate compact chronological view
+inside Match Centre: Today now to Sydney midnight, and cumulative rolling +24
+and +48 hours. It uses supported public schedule membership independently of
+personal follows, without changing Feed admission or the existing near-live
+window. Existing cards expand locally; browsing/expansion cannot write saved
+card/account/engagement state. Likely overlaps use horizontally paged columns,
+two visible on phones and more on wider screens; unknown finishes remain split.
+Known-day untimed fixtures stay in a qualified Time TBC section. Preserve
+Results OFF, source clocks, global coverage exclusions, canonical aliases,
+ongoing/multi-day facts, full bounded data pagination and honest degraded/static
+fallback. No new source, schema, scheduler or notification path is introduced.
+See [contract and acceptance](plans/all-sports-view-2026-10-24.md); the new model
+and API validator joins the existing required Match Centre gate. Local source
+and mock-browser checks remain separate from publication and live acceptance.
+
 ## Typed existing Cricket Follow formats — 25 October 2026 Sydney
 
 The actual592 phone reports initial record_validation / record_unknown_field / intent / entities. The established Cricket format writer emits cricketFormats, which the bounded receipt planner omitted. Its real writer → persisted receipt/restart → compiled helper/manual queue → actual local API path reproduces that exact refusal; removing only the test field passes with the same restored older receipt generation. This proves a source schema bug, without identifying the private phone field or guaranteeing that its remaining choices are independent. The live-job and receipt-generation observations describe different lifetimes; the latter is not an independent refusal here.

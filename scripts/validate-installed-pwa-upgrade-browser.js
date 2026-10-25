@@ -11,6 +11,7 @@ const {assertFollowPickerJourney}=require('./validate-follow-presentation-browse
 const {assertDirectoryDefaults}=require('./validate-recognised-follow-teams-browser');
 const root = path.resolve(__dirname,'..');
 const installedNetwork=require('./lib/installed-test-network').create();
+const {create:createNavigationObservation}=require('./lib/installed-navigation-observation');
 const {assertDiamondsFeed}=require('./validate-diamonds-retained-browser');
 async function assertCurrentScheduleAndScoreCaches(page){
  for(const slug of ['football','netball']){
@@ -587,7 +588,7 @@ const matchCentrePath=html=>html.match(/loadDeferredScript\(["'](config\/match-c
 const baselineMatchCentrePath=matchCentrePath(baselineFile('index.html').toString());
 const candidateMatchCentrePath=matchCentrePath(fs.readFileSync(path.join(root,'index.html'),'utf8'));
 const launchOptions=process.env.PWA_EXECUTABLE_PATH?{executablePath:process.env.PWA_EXECUTABLE_PATH}:{};
-let phase='baseline', nextRelease=false, optionalFailure=false, coreFailure=false, networkFailure=false, versionRequests=0;
+let phase='baseline', nextRelease=false, optionalFailure=false, coreFailure=false, networkFailure=false, versionRequests=0,navigationObservation;
 function candidateFile(name){
   const file=path.join(root,name);if(!fs.existsSync(file)||!fs.statSync(file).isFile())return null;
   let bytes=fs.readFileSync(file);
@@ -598,7 +599,7 @@ function candidateFile(name){
 }
 const server=http.createServer((req,res)=>{
   if(installedNetwork.handleRequest(req))return;
-  if(networkFailure){req.socket.destroy();return;}
+  if(networkFailure){navigationObservation?.serverCutoff(req);req.socket.destroy();return;}
   if(installedNetwork.preflightDocument(req,res))return;
   let name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/+/, '')||'index.html';
   if(name==='app-version.json')versionRequests++;
@@ -615,6 +616,7 @@ const server=http.createServer((req,res)=>{
   try{
     await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
     const origin='http://127.0.0.1:'+server.address().port;
+    navigationObservation=createNavigationObservation({origin,expectedVersion:String(candidateVersion),expectedIndexSha256:crypto.createHash('sha256').update(candidateFile('index.html')).digest('hex')});
     installedNetwork.setOrigin(origin);installedNetwork.attachServer(server);
     browser=await (process.env.PWA_BROWSER==='webkit'?webkit:chromium).launch({headless:true,...launchOptions,...installedNetwork.launchOptions()});
     await installedNetwork.preflight(browser,{version:baselineVersion,indexSha256:crypto.createHash('sha256').update(baselineFile('index.html')).digest('hex')});
@@ -741,6 +743,7 @@ const server=http.createServer((req,res)=>{
     await upgraded.getByRole('tab',{name:'Men',exact:true}).tap();
     await upgraded.locator('.tabs [data-tab=feed]').tap();
     installedNetwork.assertIsolated();
+    navigationObservation.begin(upgraded);
     await context.setOffline(true);
     await upgraded.evaluate(()=>NOTHINGSPORTS_APP_UPDATE.check({force:true}));
     assert.equal(await upgraded.evaluate(()=>NOTHINGSPORTS_APP_UPDATE.snapshot().phase),'offline');
@@ -748,7 +751,8 @@ const server=http.createServer((req,res)=>{
     // browser-level offline emulation can reject navigation before dispatching
     // a service-worker fetch, which is a different scenario.
     await context.setOffline(false);networkFailure=true;
-    await upgraded.reload({waitUntil:'domcontentloaded'});
+    await navigationObservation.beforeReload();
+    await navigationObservation.reload(()=>upgraded.reload({waitUntil:'domcontentloaded'}));
     assert.equal(await upgraded.locator('meta[name="app-shell-version"]').getAttribute('content'),candidateVersion,'Offline navigation uses the validated current shell');
     await upgraded.waitForFunction(()=>Array.isArray(globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS));
     assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'offline restart retains the upgraded source observations and all positions');

@@ -22,9 +22,9 @@
  };
  const warm=async()=>{
   if(document.hidden)return;
-  await Promise.allSettled([loadDeferredScript('config/match-centre.js?v=582'),loadDeferredScript('config/score-details.js?v=582'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]);
+  await Promise.allSettled([loadDeferredScript('config/match-centre.js?v=595'),loadDeferredScript('config/score-details.js?v=595'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]);
   if(document.hidden)return;
-  await Promise.allSettled([loadDeferredScript('assets/js/match-centre-ui.js?v=576'),loadDeferredScript('config/event-overviews-ui.js?v=576')]);
+  await Promise.allSettled([loadDeferredScript('assets/js/match-centre-ui.js?v=595'),loadDeferredScript('config/event-overviews-ui.js?v=595')]);
  };
  void warm();
 })();

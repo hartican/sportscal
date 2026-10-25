@@ -17,7 +17,8 @@ function appendVenuePanel(card,main,ev){
 }
 
 
-function composeFeedCard(card,ev,{compact,renderCardState,mode}){
+function composeFeedCard(card,ev,{compact,renderCardState,mode,state}){
+  const currentState=()=>state||cardStateForEvent(ev);
   card.dataset.cardSurface=mode==='schedule'?'schedule':mode==='events'?'events':activeTab==='feed'?'feed':activeTab==='events'?'events':'calendar';
   card.classList.add('feed-fixture');
   if(ev.contestUnit==='tie'&&ev.key==='tennis')card.classList.add('tennis-team-tie');
@@ -77,10 +78,10 @@ function composeFeedCard(card,ev,{compact,renderCardState,mode}){
   const venue=document.createElement('p');venue.className='fixture-venue';venue.textContent=globalThis.NOTHINGSPORTS_COVERAGE_PAUSES.womensT20(ev)?'':NOTHINGSPORTS_FEED_CARD_PRESENTATION.venue(ev,VENUE_REGISTRY);if(venue.textContent)info.append(venue);
   info.classList.toggle('has-venue',!!venue.textContent);
   const schedule=NOTHINGSPORTS_CARD_TIMING.badgePresentation(ev,nowAEST(),{compactCricket:true});
-  if(cardStateForEvent(ev)==='opened'){const date=document.createElement('p');date.className='fixture-scheduled event-date-chip';date.textContent=(schedule.compactCricket?'Original match schedule: ':'')+schedule.fullSchedule;info.prepend(date);}
+  if(currentState()==='opened'){const date=document.createElement('p');date.className='fixture-scheduled event-date-chip';date.textContent=(schedule.compactCricket?'Original match schedule: ':'')+schedule.fullSchedule;info.prepend(date);}
 
   const rating=main.querySelector('.nsc-summary');if(rating)rating.after(info);else main.append(info);
-  const more=document.createElement('button');more.type='button';more.className='fixture-more';more.textContent=cardStateForEvent(ev)==='opened'?'Less':'More…';more.setAttribute('aria-expanded',String(cardStateForEvent(ev)==='opened'));more.onclick=e=>{e.stopPropagation();renderCardState(cardStateForEvent(ev)==='opened'?'selected':'opened',{restoreFocus:true,focusTarget:'.fixture-more'});};
+  const more=document.createElement('button');more.type='button';more.className='fixture-more';more.textContent=currentState()==='opened'?'Less':'More…';more.setAttribute('aria-expanded',String(currentState()==='opened'));more.onclick=e=>{e.stopPropagation();renderCardState(currentState()==='opened'?'selected':'opened',{restoreFocus:true,focusTarget:'.fixture-more'});};
   const footer=document.createElement('div');footer.className='fixture-card-footer';footer.append(more);
   if(actions)footer.append(actions);
   main.append(footer);
@@ -107,7 +108,7 @@ function buildTournamentMarker(event){
  const title=document.createElement('h3');title.textContent=[fixtureCompetitionLabel(event),event.name].filter((v,i,a)=>v&&a.indexOf(v)===i).join(' · ');const dates=document.createElement('p'),timing=NOTHINGSPORTS_CARD_TIMING.presentation(event,nowAEST(),{fullRange:true});dates.textContent=(NOTHINGSPORTS_FEED_TIMELINE.finalDay(event)?timing.day:timing.progress||[event.date,event.endDate!==event.date?event.endDate:null].filter(Boolean).map(value=>NOTHINGSPORTS_AUSTRALIAN_DATES.date(value)).join(' – '))+(timing.status==='FINISHED'?' · FINISHED':'');dates.title=timing.ariaLabel;summary.append(title,dates);details.append(summary);if(timing.progress){const full=document.createElement('p');full.className='fixture-source-dates';full.textContent=timing.fullSchedule;details.append(full);}
  summary.setAttribute('aria-label','Expand '+event.name+'. '+timing.ariaLabel);
  const content=document.createElement('div');content.className='feed-tournament-appearances';details.append(content);let mounted=false;
- const mount=()=>{if(details.open){tennisFeedOpenParents.add(id);if(!mounted){mounted=true;loadDeferredScript('assets/js/tournament-card-ui.js?v=582').then(()=>NOTHINGSPORTS_TOURNAMENT_CARD_UI.render(content,event)).catch(()=>{mounted=false;content.textContent='Appearances could not load. Close and reopen to retry.';});}}else tennisFeedOpenParents.delete(id);};details.addEventListener('toggle',mount);
+ const mount=()=>{if(details.open){tennisFeedOpenParents.add(id);if(!mounted){mounted=true;loadDeferredScript('assets/js/tournament-card-ui.js?v=595').then(()=>NOTHINGSPORTS_TOURNAMENT_CARD_UI.render(content,event)).catch(()=>{mounted=false;content.textContent='Appearances could not load. Close and reopen to retry.';});}}else tennisFeedOpenParents.delete(id);};details.addEventListener('toggle',mount);
  card.append(details,buildEventCardControls(event,{card}),buildCardDisclosureControl(event.name,'selected',(state,options)=>{setCardState(event,state);refreshExpandableCard(card,buildTournamentMarker(event),options);syncNothingscoreReadRecovery();}));appendEventQuickActions(card,event,{reminder:false,chat:false,highlightsOnly:true});if(details.open)queueMicrotask(mount);return card;
 }
 
@@ -227,16 +228,14 @@ function buildDetailedEventCard(ev, options = {}){
   const timingState = FEED_CONTROLS?.timingState?.(ev, nowAEST()) || null;
   const presentation = surfacePresentationForEvent(ev);
   const enrichment = eventEnrichment(ev);
-  const actual = getActual(ev);
   const displayTitle = spoilerSafeDisplayTitle(ev);
   const isTeamMatchup = CARD_IDENTITIES?.isTeamSportMatchup?.(ev, displayTitle) || false;
-  const upgraded = isUpgrade(ev) && isSpoilerVisible(ev);
   const mode = options.mode || "calendar";
-  const matchupIdentity = isTeamMatchup && mode !== "premium-rail" ? buildMatchupIdentity(ev, displayTitle) : null;
-  const soloIdentity = !matchupIdentity && mode !== "premium-rail";
   const expandable = mode !== "premium-rail";
-  const storedState = expandable ? cardStateForEvent(ev) : "compact";
-  const state = storedState;
+  const matchupIdentity = isTeamMatchup && expandable ? buildMatchupIdentity(ev, displayTitle) : null;
+  const soloIdentity = !matchupIdentity && expandable;
+  const localCardState = options.onCardStateChange;
+  const state = localCardState ? options.cardState : expandable ? cardStateForEvent(ev) : "compact";
   const importanceColor = importanceColorForEvent(ev);
   const spoilerVisible = isSpoilerVisible(ev);
   const displayedResult = status === "past" ? buildCompactResult(ev, displayTitle) : null;
@@ -246,7 +245,7 @@ function buildDetailedEventCard(ev, options = {}){
   const localGame = isLocalGame(ev);
   const recommendationClass = eventRecommendationClassification(ev);
   const action = getEventAction(ev);
-  const isMinimised = activeTab!=="feed" && Boolean(action.isMinimised);
+  const isMinimised = !localCardState && activeTab!=="feed" && Boolean(action.isMinimised);
   const card = document.createElement("article");
   let interactionCard = options.interactionCard || card;
   card._retargetCard=target=>{interactionCard=target;card._mountedCard=target;};
@@ -291,6 +290,7 @@ function buildDetailedEventCard(ev, options = {}){
     }));
   }
   const renderCardState=(nextState,{restoreFocus=false,focusTarget=interactionCard}={})=>{
+    if(localCardState)return localCardState(nextState);
     if(getEventAction(ev).isMinimised) updateEventAction(ev, {isMinimised:false});
     if(nextState==="opened")recordEventFeedAction(ev, "open", { surface:"card-content" });
     setCardState(ev, nextState);
@@ -328,9 +328,9 @@ function buildDetailedEventCard(ev, options = {}){
     }));
   }
   card.appendChild(mainDiv);
-  if(activeTab==='feed'||activeTab==='events'||mode==='schedule')composeFeedCard(card,ev,{compact:false,renderCardState,mode});
+  if(activeTab==='feed'||activeTab==='events'||mode==='schedule')composeFeedCard(card,ev,{compact:false,renderCardState,mode,state:localCardState&&state});
   else if(ev.golfMajorCalendar||['motogp','wrc','sailgp','wsl','tdf','giro','vuelta','dakar','lemans'].includes(ev.key))appendVenuePanel(card,mainDiv,ev);
-  if (interactionCard === card) observeNewSurfaceItem(card, ev, presentation);
+  if (interactionCard === card && !localCardState) observeNewSurfaceItem(card, ev, presentation);
   if (interactionCard === card && !options.archived && activeTab === "feed" && activeView === "list" && activeFilter === "all"){
     const canonicalId = ev.canonicalEventId || ev.eventId || ev.id;
     observeProductOpportunity(card, `card:${canonicalId}`, {
@@ -426,7 +426,7 @@ function buildFixtureCardEssentials(ev, {matchupIdentity, timingState, options, 
 function buildExpandedScoreDetails(ev){
  if(!(ev.key==='horse-racing'||isSpoilerVisible(ev)&&(ev.score?.racing||/^(f1|supercars|motogp|wrc|horse-racing)$/.test(ev.key)||ev.key==='cricket'||/football|soccer|fifa|premier-league|uefa-/.test(ev.key))))return null;
  const slot=document.createElement('div');slot.dataset.cardArea='expanded-information';slot.className='fixture-scorecard';
- loadDeferredScript('config/score-details.js?v=582').then(()=>NOTHINGSPORTS_SCORE_DETAILS.feed(slot,ev,()=>isSpoilerVisible(ev))).catch(()=>{if(slot.isConnected&&isSpoilerVisible(ev))slot.textContent='Scorecard unavailable.';});return slot;
+ loadDeferredScript('config/score-details.js?v=595').then(()=>NOTHINGSPORTS_SCORE_DETAILS.feed(slot,ev,()=>isSpoilerVisible(ev))).catch(()=>{if(slot.isConnected&&isSpoilerVisible(ev))slot.textContent='Scorecard unavailable.';});return slot;
 }
 function buildFootballMatchContext(ev){return ev.footballMatchContext||ev.teamMatchContext?buildEuropeanDetail(ev,'context'):null;}
 
@@ -1097,14 +1097,17 @@ function buildFixtureFallbackCard(event, options = {}){
   let card = document.createElement("article");
   card._retargetCard=target=>{card=target;};card._rebuildCard=()=>buildFixtureFallbackCard(ev,options);
   const mode = options.mode || "calendar";
+  const localCardState = options.onCardStateChange;
+  const state = localCardState ? options.cardState : cardStateForEvent(ev);
   card.className = `event-card mode-${mode} is-compact-row is-fixture-fallback`;
   card.dataset.eventId = ev.eventId || ev.id;
   card.dataset.scrollKey = `event:${mode}:${ev.eventId || ev.id}`;
   card.dataset.cardMode = mode;
-  card.dataset.cardState = "compact";
-  card.dataset.cardLevel = "L0";
-  if(cardStateForEvent(ev)==='compact'||getEventAction(ev).isMinimised){
-    return mountMinimisedCard(card,ev,(state,settings)=>{if(getEventAction(ev).isMinimised)updateEventAction(ev,{isMinimised:false});setCardState(ev,state);refreshExpandableCard(card,buildFixtureFallbackCard(ev,options),settings);syncNothingscoreReadRecovery();});
+  card.dataset.cardState = localCardState ? state : "compact";
+  card.dataset.cardLevel = localCardState ? cardLevelForState(state) : "L0";
+  if(localCardState){card.classList.toggle('is-selected',state==='selected');card.classList.toggle('is-opened',state==='opened');card.setAttribute('aria-expanded',String(state!=='compact'));}
+  if(state==='compact'||!localCardState&&getEventAction(ev).isMinimised){
+    return mountMinimisedCard(card,ev,(state,settings)=>{if(localCardState)return localCardState(state);if(getEventAction(ev).isMinimised)updateEventAction(ev,{isMinimised:false});setCardState(ev,state);refreshExpandableCard(card,buildFixtureFallbackCard(ev,options),settings);syncNothingscoreReadRecovery();});
   }
   if (options.inspectorFixture) card.dataset.inspectorFixtureId = options.inspectorFixture.id;
   const copy = document.createElement("div");
@@ -1131,7 +1134,7 @@ function buildFixtureFallbackCard(event, options = {}){
   appendEventQuickActions(card,ev,{reminder:false,chat:false,highlightsOnly:true});
   if(options.inspectorFixture)appendSchedulePin(card,options.inspectorFixture,card);
   card.setAttribute("aria-label", `${label}. Fixture details.`);
-  card.append(buildCardDisclosureControl(label,'selected',(state,settings)=>{setCardState(ev,state);refreshExpandableCard(card,buildFixtureFallbackCard(ev,options),settings);syncNothingscoreReadRecovery();}));
+  card.append(buildCardDisclosureControl(label,localCardState?state:'selected',(state,settings)=>{if(localCardState)return localCardState(state);setCardState(ev,state);refreshExpandableCard(card,buildFixtureFallbackCard(ev,options),settings);syncNothingscoreReadRecovery();}));
   return card;
 }
 
