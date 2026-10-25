@@ -1,7 +1,10 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto');
 async function main(){
+ const recovery=require('./lib/public-comment-recovery-coexistence');
+ if(process.argv.includes('--recovery-source-check')){recovery.sources();console.log('Accepted recovery SQL sources match '+recovery.ACCEPTED_SOURCE+'; no database started.');return;}
  const {PGlite}=require(process.env.PGLITE_MODULE||'@electric-sql/pglite'),db=new PGlite();
+ const coexistence=recovery.create(db);
  try{
  const engine=(await db.query("select version() as version,current_setting('server_version_num') as server_version_num")).rows[0];
  console.log('Public comments SQL engine: '+JSON.stringify(engine));
@@ -22,14 +25,18 @@ async function main(){
  await db.exec(`create schema storage;create table storage.objects(owner_id text,name text,bucket_id text);
  create table nothingsports_nsc_reward_campaigns(eligible_user_ids uuid[]);create table nothingsports_marquee_subscribers(email_normalized text);create table nothingsports_avatar_cleanup(object_path text);
  create table nothingsports_notification_send_leases(account_ids uuid[],finished_at timestamptz);grant all on all tables in schema public to service_role;`);
+ await coexistence.install();
  await db.exec(fs.readFileSync('supabase/migrations/20260927144441_guard_account_erasure_writes.sql','utf8'));
  await db.exec(fs.readFileSync('supabase/migrations/20260927150138_mark_erasure_in_auth_metadata.sql','utf8'));
  const guard=fs.readFileSync('supabase/migrations/20260927164938_redact_erased_account_audit_snapshots.sql','utf8').match(/create or replace function private\.nothingsports_guard_erasure_write\(\)[\s\S]*?end \$\$;/)?.[0];assert(guard);await db.exec(guard);
  await db.exec(fs.readFileSync('supabase/migrations/20260927152733_account_erasure_inventory.sql','utf8'));
+ await coexistence.exercise('before feature migration');
+ const recoveryBefore=await coexistence.fingerprint(),savedBefore=await coexistence.allStates();
  const controls=[['--reviewed-baseline','95885e63bd93d22980ac7526633c638239c910df','original-inventory-red'],['--erasure-baseline','1d2f164dcb00ff2f70458092969fe681e6344c63','multi-row-erasure-red'],['--cascade-baseline','e5810a9195a9b7573af1fbef85cb61d94aa5778d','overlapping-cascade-red']].filter(([flag])=>process.argv.includes(flag));assert(controls.length<=1,'Select one SQL baseline');
  const baseline=controls[0]?.[1]||null;
  console.log('Public comments SQL source: '+JSON.stringify({mode:controls[0]?.[2]||'current-candidate-green',migrationSource:baseline||'current checkout',engineModule:process.env.PGLITE_MODULE||'@electric-sql/pglite'}));
  const featureSql=baseline?require('node:child_process').execFileSync('git',['show',baseline+':supabase/migrations/20261023222545_public_fixture_comments.sql'],{encoding:'utf8'}):fs.readFileSync('supabase/migrations/20261023222545_public_fixture_comments.sql','utf8');await db.exec(featureSql);
+ if(!baseline){await coexistence.preserve(recoveryBefore,savedBefore);await coexistence.exercise('after feature migration');}
  const [a,b,c,r]=Array.from({length:4},()=>crypto.randomUUID());
  for(const [id,handle] of [[a,'alice'],[b,'bob'],[c,'carol'],[r,'reader']]){await db.query('insert into auth.users(id,email) values($1,$2)',[id,id+'@example.invalid']);await db.query("insert into nothingsports_nsc_profiles values($1,$2,'visible')",[id,handle]);}
  await db.query('insert into nothingsports_user_follows values($1,$2),($1,$3)',[r,a,c]);await db.query('insert into nothingsports_nsc_points values($1,25),($2,24)',[a,b]);
@@ -57,6 +64,7 @@ async function main(){
   await db.query("insert into nothingsports_nsc_profiles values($1,$2,'visible')",[id,handle]);
  }
  await db.exec('set role service_role');
+ await coexistence.seed(subject);await coexistence.seed(peer);
  const roots=[];for(const body of ['First subject root','Second subject root'])roots.push((await post(subject,eraseEvent,body)).comment);
  const peers=[];for(const body of ['First peer reply','Second peer reply']){
   const result=await post(peer,eraseEvent,body,{parentId:roots[0].id});peers.push(result.comment);
@@ -81,6 +89,7 @@ async function main(){
  console.log('Public comment erasure regression: inserting real block for multiple same-thread comments.');
  await db.query('insert into nothingsports_account_erasure_blocks(user_id) values($1)',[subject]);
  const afterBlock=await rowsFor(subject);assert.deepEqual(withoutRevision(afterBlock),withoutRevision(beforeBlock),'block invalidation changes revision alone');
+ await coexistence.blocked(subject);
  for(const row of afterBlock)assert(Number(row.revision)>Number(beforeBlock.find(old=>old.id===row.id).revision),'every affected row advances independently');
  const blockedDelta=await rpc(r,eraseEvent,{action:'changes',after:blockRevision});
  for(const root of roots)assert(blockedDelta.comments.some(row=>row.id===root.id&&row.deleted&&!row.body&&!row.handle&&!row.gif),'actual block insertion redacts all cached roots');
@@ -122,13 +131,16 @@ async function main(){
  const marked=(await db.query('select raw_app_meta_data from auth.users where id=any($1::uuid[])',[[subject,peer]])).rows;
  assert.equal(marked.length,2);assert(marked.every(row=>row.raw_app_meta_data?.nothingsport_erasure_started_at),'actual begin writes app_metadata for both subjects');
  const hardDeleteRevision=await revisionFor(eraseEvent);
+ await coexistence.deletionRollback(subject,peer,eraseEvent);
  await db.query('delete from auth.users where id=$1',[subject]);
+ await coexistence.erased(subject,peer);
  const surviving=await rowsFor(peer);assert.equal(surviving.length,2);
  for(const row of surviving){assert.equal(row.parent_id,null,'blocked same-parent replies detach in one FK cascade');assert.equal(row.score,0,'blocked peer vote totals drain');}
  const hardDeleted=await rpc(r,eraseEvent,{action:'changes',after:hardDeleteRevision});
  for(const root of roots)assert(hardDeleted.comments.some(row=>row.id===root.id&&row.removed),'hard deletion emits exact tombstone deltas');
  for(const row of surviving)assert(hardDeleted.comments.some(entry=>entry.id===row.id&&entry.deleted&&!entry.body),'blocked peers remain redacted after detachment');
  await db.query('delete from auth.users where id=$1',[peer]);assert.equal(await count('public_comments','where event_id=$1',[eraseEvent]),0);
+ await coexistence.erased(peer);
  await db.exec('set role service_role');verifyDirectGuards(await inventory(SENTINEL));
  console.log('Public comment erasure regression passed: multi-row block/profile/persona revisions, Auth marker, forbidden edits, blocked peer FK/vote cleanup, hard tombstones and actual inventory.');
  }
@@ -173,6 +185,7 @@ async function main(){
  await db.exec('set role authenticated');await assert.rejects(db.query('select * from nothingsports_public_comments'),/permission denied/);await assert.rejects(rpc(r,'fixture:two',{action:'page'}),/permission denied/);
  await db.exec('set role anon');await assert.rejects(db.query('select * from nothingsports_classic_comments'),/permission denied/);
  console.log('Public comments database: actual RPCs, erasure guard, grants, run sequences, replies, vote changes/removal, idempotency, GIF unlock, privacy, retirement and immutable yearbook passed.');
+ console.log('Public comments recovery coexistence summary: '+JSON.stringify({acceptedSource:recovery.ACCEPTED_SOURCE,completedGroups:coexistence.completed.length,groups:coexistence.completed}));
  }finally{await db.close();}
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});
