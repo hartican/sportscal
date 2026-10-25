@@ -63,6 +63,7 @@ function guardedDispatch(directory){
   ['DNS',`require('node:dns')`,'CANDIDATE_NATIVE_MODULE_UNQUALIFIED'],
   ['native binding',`process.binding('fs')`,'CANDIDATE_NATIVE_BINDING'],
   ['inspector',`require('node:inspector')`,'CANDIDATE_NATIVE_MODULE_UNQUALIFIED'],
+  ['ESM inspector',`await import('node:inspector')`,'CANDIDATE_NATIVE_MODULE_UNQUALIFIED'],
   ['native module',`process.dlopen({},'/synthetic.node')`,'CANDIDATE_NATIVE_MODULE_UNQUALIFIED'],
   ['native command',`require('node:child_process').execFileSync('/usr/bin/osascript',[])`,'CANDIDATE_DESCENDANT_UNQUALIFIED'],
   ['legacy default',`require('node:child_process').spawnSync(process.execPath,['scripts/update-cards.js'])`,'CANDIDATE_COMMAND_UNQUALIFIED'],
@@ -113,7 +114,8 @@ function replay(directory){
  };
  const first=execute(ROOT,'first');assert.equal(first.result.status,0,first.handover.blocker);assert.equal(first.handover.state,'prepared-fixture-replay');
  assert.equal(first.handover.ledger.requests,1);assert.deepEqual(first.handover.ledger.violations,[]);
- assert(first.handover.artifact.changed.some(row=>row.path==='data/canonical/nbl-2026-27.json'));
+ assert(first.handover.artifact.changed.some(row=>row.path==='data/events.json'));
+ assert.equal(first.handover.artifact.changed.some(row=>row.path==='data/canonical/nbl-2026-27.json'),false,'Unchanged source facts must retain their original file and clocks');
  assert.equal(first.handover.sourceReceipt.observedAt,receipt.observedAt);
  const bundle=path.join(first.output,'candidate.bundle');git(ROOT,['bundle','verify',bundle]);
  const repeat=execute(ROOT,'repeat');assert.equal(repeat.result.status,0,repeat.handover.blocker);

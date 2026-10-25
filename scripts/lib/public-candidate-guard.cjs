@@ -36,7 +36,8 @@ function allowedFile(value,write=false){
 }
 const entry=path.resolve(process.argv[1]||''),relative=path.relative(cfg.workspace,entry),args=process.argv.slice(2);
 if(!cfg.frames.some(frame=>frame[0]===relative&&JSON.stringify(frame.slice(1))===JSON.stringify(args))||cfg.modules[entry]!==digest(entry))fail('CANDIDATE_COMMAND_UNQUALIFIED');
-ledger(state=>{if(state.violations.length)throw Error('CANDIDATE_PREVIOUS_VIOLATION');if(state.frames.length>=64)throw Error('CANDIDATE_COMMAND_BUDGET');state.frames.push({file:relative,args});});
+const admission=ledger(state=>{if(state.violations.length)return 'CANDIDATE_PREVIOUS_VIOLATION';if(state.frames.length>=64){state.violations.push('CANDIDATE_COMMAND_BUDGET');return 'CANDIDATE_COMMAND_BUDGET';}state.frames.push({file:relative,args});});
+if(admission)throw Error(admission);
 function outputBudget(bytes){const exceeded=ledger(state=>{state.outputBytes=(state.outputBytes||0)+bytes;if(state.outputBytes>2*1024*1024){if(!state.violations.includes('CANDIDATE_OUTPUT_BUDGET'))state.violations.push('CANDIDATE_OUTPUT_BUDGET');return true;}return false;});if(exceeded)throw Error('CANDIDATE_OUTPUT_BUDGET');}
 for(const stream of [process.stdout,process.stderr]){const write=stream.write;stream.write=function(chunk,...rest){outputBudget(Buffer.byteLength(chunk,typeof rest[0]==='string'?rest[0]:undefined));return write.call(this,chunk,...rest);};}
 
@@ -110,6 +111,18 @@ Module._load=function(name,parent,...rest){
  }
  return load.call(this,name,parent,...rest);
 };
+// CJS alone cannot guard dynamic import(). Node24's synchronous resolution
+// hook applies the same reviewed module boundary to both loader paths.
+if(typeof Module.registerHooks!=='function')fail('CANDIDATE_NODE_RUNTIME_UNQUALIFIED');
+Module.registerHooks({resolve(specifier,context,nextResolve){
+ const resolved=nextResolve(specifier,context),url=resolved.url;
+ if(url.startsWith('node:')){if(!builtins.has(url.slice(5)))fail('CANDIDATE_NATIVE_MODULE_UNQUALIFIED');}
+ else if(url.startsWith('file:')){
+  const file=require('node:url').fileURLToPath(url);allowedFile(file);
+  if(/\.(?:js|cjs|mjs|node)$/.test(file)){const expected=cfg.modules[file]||cfg.dependencyHashes[original.realpathSync(file)];if(!expected||/\.node$/.test(file)||digest(file)!==expected)fail('CANDIDATE_MODULE_UNQUALIFIED');}
+ }else fail('CANDIDATE_MODULE_UNQUALIFIED');
+ return resolved;
+}});
 for(const name of ['exec','execSync','fork','spawn','execFile','execFileSync'])cp[name]=()=>fail('CANDIDATE_DESCENDANT_UNQUALIFIED');
 const spawnSync=cp.spawnSync;
 cp.spawnSync=function(command,argv,options={}){
