@@ -7,20 +7,26 @@ const config=process.env.NS_PUBLIC_CANDIDATE_CONFIG;
 if(!config||!path.isAbsolute(config))throw Error('CANDIDATE_GUARD_CONFIG');
 const cfg=JSON.parse(original.readFileSync(config,'utf8'));
 const digest=file=>crypto.createHash('sha256').update(original.readFileSync(file)).digest('hex');
+let internalIo=0;
+function internal(operation){internalIo++;try{return operation();}finally{internalIo--;}}
 function ledger(change){
+ return internal(()=>{
  const lock=cfg.state+'.lock',until=Date.now()+500;
  for(;;){try{original.mkdirSync(lock);break;}catch(error){if(error.code!=='EEXIST'||Date.now()>until)throw Error('CANDIDATE_LEDGER_UNAVAILABLE');Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,5);}}
  try{const value=JSON.parse(original.readFileSync(cfg.state,'utf8'));const result=change(value);original.writeFileSync(cfg.state+'.'+process.pid,JSON.stringify(value),{mode:0o600});original.renameSync(cfg.state+'.'+process.pid,cfg.state);return result;}
  finally{original.rmdirSync(lock);}
+ });
 }
 function fail(code){ledger(state=>{if(state.violations.length<16)state.violations.push(code);});throw Error(code);}
 const within=(file,root)=>file===root||file.startsWith(root+path.sep);
 function allowedFile(value,write=false){
+ if(internalIo)return value;
  if(typeof value==='number'){if(value<0)return fail('CANDIDATE_FILE_DESCRIPTOR');return value;}
  let file;try{file=path.resolve(value instanceof URL?require('node:url').fileURLToPath(value):Buffer.isBuffer(value)?value.toString():value);}catch{return fail('CANDIDATE_FILE_PATH');}
  if(file.split(path.sep).some(piece=>piece==='.git'||/^\.env(?:\.|$)/.test(piece)))return fail('CANDIDATE_PRIVATE_FILE');
- let parent=file;while(!original.existsSync(parent)){const next=path.dirname(parent);if(next===parent)break;parent=next;}
- const resolved=original.realpathSync(parent)+(parent===file?'':path.sep+path.relative(parent,file));
+ if(!within(file,cfg.runtime)&&!within(file,cfg.workspace)&&!(!write&&within(file,cfg.dependencies)))return fail('CANDIDATE_PRIVATE_FILE');
+ let parent=file;while(!internal(()=>original.existsSync(parent))){const next=path.dirname(parent);if(next===parent)break;parent=next;}
+ const resolved=internal(()=>original.realpathSync(parent))+(parent===file?'':path.sep+path.relative(parent,file));
  const runtime=within(resolved,cfg.runtime),workspace=within(resolved,cfg.workspace),dependency=within(resolved,cfg.dependencies);
  if(!runtime&&!workspace&&!(!write&&dependency))return fail('CANDIDATE_PRIVATE_FILE');
  if(write&&workspace){const relative=path.relative(cfg.workspace,resolved);if(!/^(?:data|feeds)\//.test(relative)&&!/^assets\/js\//.test(relative))return fail('CANDIDATE_IMMUTABLE_SOURCE_WRITE');}

@@ -82,7 +82,7 @@ function prepare({input,output}){
  const dependencies=fs.realpathSync(path.join(ROOT,'node_modules'));
  if(require(path.join(dependencies,'terser/package.json')).version!=='5.44.0')refuse('CANDIDATE_DEPENDENCY','Pinned Terser required');
  const files=git(['ls-files','-z']).split('\0').filter(publicPath),baseline=new Map();
- const scratch=fs.mkdtempSync(path.join(os.tmpdir(),'ns-public-candidate-'));fs.chmodSync(scratch,0o700);
+ const scratch=fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(),'ns-public-candidate-')));fs.chmodSync(scratch,0o700);
  const workspace=path.join(scratch,'workspace'),runtime=path.join(scratch,'runtime');
  fs.mkdirSync(workspace);fs.mkdirSync(runtime);fs.mkdirSync(output,{mode:0o700});
  let child,blocked,ledger,artifact;
