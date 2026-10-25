@@ -14,6 +14,9 @@ on:
       - scripts/validate-account-sync-recovery-browser.js
       - scripts/lib/installed-test-network.js
       - scripts/validate-installed-test-network.js
+      - .github/installed-production-baseline.json
+      - scripts/resolve-installed-production-baseline.js
+      - scripts/validate-installed-production-baseline.js
       - scripts/lib/installed-navigation-observation.js
       - scripts/validate-installed-navigation-observation.js
       - scripts/validate-diamonds-retained-browser.js
@@ -48,16 +51,26 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 24.21.0
+      - name: Verify and resolve installed production baseline
+        id: installed_baseline
+        env:
+          NS_INSTALLED_PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/ns-upgrade-proof"
+          set -o pipefail
+          node scripts/validate-installed-production-baseline.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/baseline-controls.log"
+          node scripts/resolve-installed-production-baseline.js --resolve 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/installed-baseline.log"
       - name: Record exact source and runtime
         env:
-          BASELINE_SHA: ${{ github.event.pull_request.base.sha }}
+          BASELINE_SHA: ${{ steps.installed_baseline.outputs.baseline_sha }}
           PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
           mkdir -p "$RUNNER_TEMP/ns-upgrade-proof"
           node <<'JS' > "$RUNNER_TEMP/ns-upgrade-proof/context.json"
           const cp=require('node:child_process');
           const git=(...args)=>cp.execFileSync('git',args,{encoding:'utf8'}).trim();
-          console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baselineSha:process.env.BASELINE_SHA,node:process.version,zlib:process.versions.zlib,playwright:'1.62.1',platform:process.platform,arch:process.arch,limits:'Existing unchanged installed upgrade and account recovery harnesses on Linux; account transport is mocked loopback. Not hosted or physical iPhone acceptance. No production credentials or deployment.'},null,2));
+          console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,baselineSha:process.env.BASELINE_SHA,node:process.version,zlib:process.versions.zlib,playwright:'1.62.1',platform:process.platform,arch:process.arch,limits:'Existing unchanged installed upgrade and account recovery harnesses on Linux; account transport is mocked loopback. Not hosted or physical iPhone acceptance. No production credentials or deployment.'},null,2));
           JS
       - name: Use the official Ubuntu archive for test dependencies
         run: |
@@ -92,7 +105,7 @@ jobs:
           } 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/install.log"
       - name: Verify installed upgrade and offline restart
         env:
-          PWA_BASELINE_SHA: ${{ github.event.pull_request.base.sha }}
+          PWA_BASELINE_SHA: ${{ steps.installed_baseline.outputs.baseline_sha }}
           PWA_BROWSER: ${{ matrix.browser }}
         run: |
           export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
