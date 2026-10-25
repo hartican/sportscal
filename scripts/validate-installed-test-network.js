@@ -84,7 +84,8 @@ async function main(){
  const late=configured(),lateFixture=browserDouble(late.network,late.server);await late.network.preflight(lateFixture.browser,lateFixture.expected);late.network.assertIsolated();
  const closing={listening:true,close(done){this.listening=false;done();}},lateBrowser={close:async()=>lateFixture.context.emit('response',{url:()=> 'https://outside.invalid/late'}),isConnected:()=>false};
  await reject(late.network.close(lateBrowser,closing,null),/external response/);ok(late.network.snapshot().externalResponses===1&&late.network.snapshot().cleanup.failed,'late response during browser close cannot follow a false passing isolation verdict');
- console.log('Installed test network: '+checks+' pure controls passed; no browser/DNS/live socket or release acceptance.');
+ const observation=await require('./validate-installed-navigation-observation')();
+ console.log('Installed test network: '+checks+' pure controls and '+observation.checks+' navigation-observation controls passed; no browser/DNS/live socket or release acceptance.');
 }
 if(require.main===module)main().catch(error=>{console.error(error);process.exitCode=1;});
 module.exports=main;
