@@ -1,12 +1,12 @@
 # Public Feed recovery coexistence qualification
 
-26 October 2026, Sydney. **The scoped SQL coexistence test packet is qualified locally and ready for ROOT's existing review/integration lane.** Full Public Feed remains Working, after full All Sports. This is not native, managed, hosted, device or release acceptance.
+26 October 2026, Sydney. **The scoped SQL coexistence test packet is qualified locally; ROOT's existing Spec and Standards reviews both clear the `eaae7be0` → `92f6d9b2` test-only delta.** Full Public Feed remains Working, after full All Sports. This is not native, managed, hosted, device or release acceptance.
 
 ## Exact source and scope
 
 The existing Public Feed database harness now installs the complete accepted user-state table, forced RLS, owner policies and grants from `supabase/nothingsports-user-state.sql`, including the backend-only snapshot SELECT grant. It loads the complete actual `fixture_alias_v1`, `cricket_preferences_v1` and SECURITY DEFINER `preferences_guard_v1` statements, the real `cricket_preferences_v1` user-state trigger, and their actual recovery-schema/function revocations from the existing Cricket recovery migration. It does not execute that migration's unrelated historic data repair/backfill.
 
-All three input files are SHA256-bound to accepted main `87958d3b87b739cef84c5f087a20a6b234a49997` / tree `ecc62bdc14106f3bb03bb4508850e0651b20638c`, which retains accepted 594 recovery foundations. The constants in `scripts/lib/public-comment-recovery-coexistence.js` are checked against the actual working-tree source; drift fails before a database starts. No copied recovery implementation, weakened policy or replacement private guard is introduced. The local `auth.uid()` fixture uses a disposable synthetic JWT-subject setting; it is not live Supabase Auth proof.
+All three input files are SHA256-bound to accepted main `87958d3b87b739cef84c5f087a20a6b234a49997` / tree `ecc62bdc14106f3bb03bb4508850e0651b20638c`, which retains accepted 594 recovery foundations. The constants in `scripts/lib/public-comment-recovery-coexistence.js` are checked against the actual working-tree source; drift fails before recovery SQL installation. Only `--recovery-source-check` exits before a database starts; the normal harness creates PGlite before checking these hashes. No copied recovery implementation, weakened policy or replacement private guard is introduced. The local `auth.uid()` fixture uses a disposable synthetic JWT-subject setting; it is not live Supabase Auth proof.
 
 The product migration `20261023222545_public_fixture_comments.sql` remains byte-identical to separately qualified `e14550f6`. The old frozen `eaae7be0` and its original validator/receipts remain in history; this revision intentionally extends the test harness only. The complete existing comment/RPC/erasure/inventory/retirement/yearbook regressions still run.
 
