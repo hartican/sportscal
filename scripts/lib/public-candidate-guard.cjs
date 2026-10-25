@@ -83,7 +83,10 @@ process.kill=()=>fail('CANDIDATE_PROCESS_SIGNAL');
 const binding=process.binding.bind(process);process.binding=name=>{if(/^(?:fs|tcp_wrap|udp_wrap|pipe_wrap|tls_wrap|spawn_sync)$/.test(name))return fail('CANDIDATE_NATIVE_BINDING');return binding(name);};
 
 const load=Module._load;
-const builtins=new Set(['assert','assert/strict','fs','fs/promises','path','os','crypto','util','util/types','vm','events','stream','stream/web','stream/promises','module','child_process','url','perf_hooks','buffer','querystring','zlib','http','https','http2','dgram','net','tls','worker_threads','diagnostics_channel']);
+const builtins=new Set(['assert','assert/strict','fs','fs/promises','path','os','crypto','util','util/types','vm','events','stream','stream/web','stream/promises','module','child_process','url','perf_hooks','buffer','querystring','zlib','http','https','http2','dgram','net','tls','worker_threads','diagnostics_channel','timers/promises']);
+if(process.getBuiltinModule){const get=process.getBuiltinModule.bind(process);process.getBuiltinModule=name=>{if(!builtins.has(name.replace(/^node:/,'')))return fail('CANDIDATE_NATIVE_MODULE_UNQUALIFIED');return get(name);};}
+process.dlopen=()=>fail('CANDIDATE_NATIVE_MODULE_UNQUALIFIED');
+if(process.execve)process.execve=()=>fail('CANDIDATE_DESCENDANT_UNQUALIFIED');
 Module._load=function(name,parent,...rest){
  const file=Module._resolveFilename(name,parent);
  if(typeof file==='string'&&!path.isAbsolute(file)&&!builtins.has(file.replace(/^node:/,'')))return fail('CANDIDATE_NATIVE_MODULE_UNQUALIFIED@'+file.replace(/[^a-z0-9:_/-]/gi,'').slice(0,80));
