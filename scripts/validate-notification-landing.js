@@ -11,14 +11,49 @@ const matchCentreCode=fs.readFileSync('assets/js/match-centre-ui.source.js','utf
 assert(retainedStart>=0&&retainedCode.includes('disposableStore'));
 // The viewport frame runs after routing may already have consumed the URL.
 const mountCode=matchCentreCode.slice(matchCentreCode.indexOf(' globalThis.openMilestoneMatchCentreFixture='),retainedStart);
-function viewportFrameGuard(){
- const frames=[],scrolls=[],focused=[],next={id:'fixture:cricket:CA:40000'};let subject='account',generation=0;
- const context={URLSearchParams,location:new URL('https://example.test/?moment=test-example'),activeTab:'match-centre',fixtureNavigationRevision:1,notificationTarget:null,notificationRetained:false,membershipOwner:'',scores:new Map(),expanded:new Set(),notice:'',owner:()=>subject,ticket:()=>({subject,generation}),valid:t=>t.subject===subject&&t.generation===generation&&context.activeTab==='match-centre',render(){},saveMembership(){},m:()=>({id:e=>e.id,compact:e=>e,observation:(e,s)=>s}),cards:new Map([event,next].map((e,index)=>[e.id,{card:{getBoundingClientRect:()=>({top:1000+index*500}),focus:options=>focused.push({id:e.id,preventScroll:options.preventScroll})}}])),requestAnimationFrame:callback=>frames.push(callback),stickyFeedChromeHeight:()=>196,scrollY:700,scrollTo:options=>scrolls.push(options.top)};context.window=context;vm.createContext(context);vm.runInContext(mountCode,context);
+// Keep the real factory closure: a notification leaves All Sports through its
+// existing selector/stop owner before taking its viewport validity ticket.
+const ticketCode=matchCentreCode.slice(matchCentreCode.indexOf(' const owner='),matchCentreCode.indexOf(' const m='));
+const selectionCode=matchCentreCode.slice(matchCentreCode.indexOf(' function selectMatchCentreView('),matchCentreCode.indexOf(' globalThis.renderMatchCentre='));
+assert(ticketCode.includes('const valid=')&&selectionCode.includes('globalThis.stopMatchCentre='));
+function viewportFrameGuard(initialView='followed',actualMount=mountCode){
+ const frames=[],scrolls=[],focused=[],privateWrites=[],stops=[],saved=[],viewRenders=[],next={id:'fixture:cricket:CA:40000'};let subject='account',generation=0;
+ const followed={events:[event],key:'retained-followed',checked:123,maxAge:120000,nextCursor:null};
+ const preferences={showSpoilers:false,feedControls:{spoilers:'strict'},followedSports:[],selectedSelectorEntityIds:[],preferenceGraph:{entityFollows:[{participantId:'team:nrl:kept-unfollow',followLevel:'unfollow'}]},notifications:{enabled:false},unknownChoice:'retain'};
+ const actions={[event.id]:{pinned:false,reminder:false}},states={[event.id]:'compact'},spoilers={[event.id]:false};
+ const personal=()=>JSON.stringify({preferences,actions,states,spoilers}),before=personal();
+ const context={URLSearchParams,location:new URL('https://example.test/?moment=test-example'),activeTab:'match-centre',fixtureNavigationRevision:1,notificationTarget:null,notificationRetained:false,membershipOwner:'',scores:new Map(),expanded:new Set(),notice:'',
+  selectedView:initialView,get generation(){return generation;},set generation(value){generation=value;},serverSyncClient:{sessionSubject:()=>subject},userPreferences:preferences,eventActions:actions,cardViewStates:states,eventSpoilerState:spoilers,
+  viewCache:new Map([['followed',followed]]),membership:[],membershipKey:'',membershipCheckedAt:0,membershipMaxAge:120000,nextCursor:null,
+  allSportsLoadingTicket:{view:'all-sports'},allSportsView:{stop:()=>stops.push('all-sports')},refreshControl:{cancel:()=>stops.push('refresh')},timer:null,clearInterval:()=>stops.push('timer'),manual:{},
+  document:{getElementById:id=>{assert.equal(id,'listView');return {removeAttribute:name=>{assert.equal(name,'aria-busy');stops.push('busy');}};}},
+  render(){},renderMatchCentre:()=>viewRenders.push({view:context.selectedView,generation}),saveMembership:t=>saved.push(t),m:()=>({id:e=>e.id,compact:e=>e,observation:(e,s)=>s}),
+  cards:new Map([event,next].map((e,index)=>[e.id,{card:{getBoundingClientRect:()=>({top:1000+index*500}),focus:options=>focused.push({id:e.id,preventScroll:options.preventScroll})}}])),requestAnimationFrame:callback=>frames.push(callback),stickyFeedChromeHeight:()=>196,scrollY:700,scrollTo:options=>scrolls.push(options.top)};
+ for(const name of ['savePreferences','setCardState','updateEventAction','recordEventFeedAction','writeStorage','queueUserStateSync'])context[name]=()=>{privateWrites.push(name);assert.fail('Notification viewport must not call personal writer '+name);};
+ context.localStorage={setItem:context.writeStorage,removeItem:context.writeStorage};context.window=context;vm.createContext(context);vm.runInContext("'use strict';\n"+ticketCode+selectionCode+actualMount,context);
  context.openMilestoneMatchCentreFixture(event);context.location.search='';frames.shift()();assert.deepEqual(scrolls,[1492],'URL cleanup cannot cancel the current heading alignment');assert.deepEqual(focused,[{id:event.id,preventScroll:true}]);
+ const switched=initialView==='all-sports',expectedView=switched?'followed':initialView;
+ assert.equal(context.selectedView,expectedView,'Only All Sports notification routing switches to Followed');assert.equal(generation,switched?1:0,'The real selector invalidates the old view before the mount ticket');
+ assert.deepEqual(stops,switched?['timer','all-sports','refresh','busy']:[]);assert.deepEqual(viewRenders,switched?[{view:'followed',generation:1}]:[]);
+ assert.equal(saved.length,1);assert.equal(saved[0].view,expectedView);assert.equal(saved[0].generation,generation);assert.equal(saved[0].owner,subject);
+ assert.equal(context.notificationTarget,event);assert.equal(context.membershipOwner,subject);assert(context.expanded.has(event.id));assert.equal(context.scores.get(event.id),event);
+ if(switched){assert.equal(context.membership,followed.events);assert.equal(context.membershipKey,followed.key);assert.equal(context.allSportsLoadingTicket,null);assert.equal(context.manual,null);}
  scrolls.length=0;focused.length=0;context.openMilestoneMatchCentreFixture(event);context.fixtureNavigationRevision++;context.openMilestoneMatchCentreFixture(next);frames.shift()();frames.shift()();assert.deepEqual(scrolls,[1992],'Only the newest fixture may scroll or focus');assert.deepEqual(focused,[{id:next.id,preventScroll:true}]);
  for(const invalidate of [()=>{subject='other-account';},()=>{context.activeTab='feed';},()=>{generation++;}]){context.activeTab='match-centre';context.openMilestoneMatchCentreFixture(next);invalidate();const before=scrolls.length;frames.shift()();assert.equal(scrolls.length,before,'Account, tab or view changes cancel the deferred viewport movement');}
+ context.activeTab='match-centre';context.openMilestoneMatchCentreFixture(next);const beforeViewChange={scrolls:scrolls.length,focused:focused.length};context.selectMatchCentreView(context.selectedView==='followed'?'everything':'followed');frames.shift()();
+ assert.deepEqual({scrolls:scrolls.length,focused:focused.length},beforeViewChange,'A real view change also cancels the deferred scroll and focus');
+ assert.equal(personal(),before,'Notification routing preserves every saved choice, action, card state and spoiler setting');assert.deepEqual(privateWrites,[]);
 }
-viewportFrameGuard();
+for(const view of ['followed','everything','all-sports'])viewportFrameGuard(view);
+// The regression must reject a skipped reset, an unconditional reset, and a
+// ticket captured before the real view switch rather than after it.
+const reset="  if(selectedView==='all-sports')selectMatchCentreView('followed');\n",takeTicket='  const t=ticket(),revision=fixtureNavigationRevision;\n';assert(mountCode.includes(reset+takeTicket));
+for(const [view,fault,message] of [
+ ['all-sports',mountCode.replace(reset,''),'Only All Sports notification routing switches to Followed'],
+ ['everything',mountCode.replace(reset,"  selectMatchCentreView('followed');\n"),'Only All Sports notification routing switches to Followed'],
+ ['all-sports',mountCode.replace(reset+takeTicket,takeTicket+reset),'URL cleanup cannot cancel the current heading alignment'],
+])assert.throws(()=>viewportFrameGuard(view,fault),error=>error.code==='ERR_ASSERTION'&&error.message.includes(message),'Actual route faults must fail at their intended assertion');
+console.log('Notification viewport: actual Followed/Everything/All Sports selector, stop and ticket closure; original guards, private choices and three source-fault controls passed.');
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 async function scenario({restoreDuringLoad=false,replacement=false}={}){
  let owner='',release,opened=null;
