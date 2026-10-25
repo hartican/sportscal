@@ -134,9 +134,13 @@ function prepare({input,output}){
   artifact={...artifact,revision,bundleSha256:sha(fs.readFileSync(bundle))};
  }catch(error){blocked=error;}
  finally{
-  const handover={schemaVersion:'canonical-candidate-handover.v1',sourceRevision:head,inputSha256:sha(fs.readFileSync(input)),sourceReceipt:{url:cap.response.url,sha256:cap.response.sha256,observedAt:cap.observedAt,provenance:cap.provenance},state:blocked?'blocked':'prepared-fixture-replay',currentSourceAcceptance:false,managedWrites:0,remotePushes:0,deployment:false,scheduleChanged:false,childStatus:child?.status??null,childSignal:child?.signal||null,ledger:ledger||null,artifact:blocked?null:artifact,blocker:blocked?.message||null,nextOwner:'DEPLOY existing-client intake; no worker PR scope or automatic promotion'};
-  fs.writeFileSync(path.join(output,'handover.json'),JSON.stringify(handover,null,2)+'\n',{mode:0o600});
-  fs.rmSync(scratch,{recursive:true,force:true});
+  try{
+   const tail=file=>{if(!fs.existsSync(file))return '';const fd=fs.openSync(file,'r');try{const size=fs.fstatSync(fd).size,bytes=Buffer.alloc(Math.min(size,65536));fs.readSync(fd,bytes,0,bytes.length,Math.max(0,size-bytes.length));return require('./refresh-report').diagnosticTail(bytes.toString());}finally{fs.closeSync(fd);}};
+   const handover={schemaVersion:'canonical-candidate-handover.v1',sourceRevision:head,inputSha256:sha(fs.readFileSync(input)),sourceReceipt:{url:cap.response.url,sha256:cap.response.sha256,observedAt:cap.observedAt,provenance:cap.provenance},state:blocked?'blocked':'prepared-fixture-replay',currentSourceAcceptance:false,managedWrites:0,remotePushes:0,deployment:false,scheduleChanged:false,childStatus:child?.status??null,childSignal:child?.signal||null,ledger:ledger||null,artifact:blocked?null:artifact,blocker:blocked?.message||null,diagnostic:tail(path.join(runtime,'stderr')),nextOwner:'DEPLOY existing-client intake; no worker PR scope or automatic promotion'};
+   if(blocked&&fs.existsSync(path.join(output,'candidate.bundle')))fs.unlinkSync(path.join(output,'candidate.bundle'));
+   fs.writeFileSync(path.join(output,'handover.json'),JSON.stringify(handover,null,2)+'\n',{mode:0o600});
+  }catch(error){if(!blocked)blocked=error;}
+  finally{fs.rmSync(scratch,{recursive:true,force:true});}
  }
  if(blocked)throw blocked;
  console.log(JSON.stringify({state:'prepared-fixture-replay',output,currentSourceAcceptance:false}));
