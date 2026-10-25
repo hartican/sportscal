@@ -124,7 +124,7 @@ function validateNrlwFinals(schedule){
 }
 
 function cardForEvent(event, schedule, participantsById){
-  if(event.horseFeature)event={...event,...require('../lib/horse-racing').preview(event)};
+  if(event.horseFeature)return require('../config/horse-coverage').project({...event,id:event.legacyCardId||stableCardId(event.id),eventId:event.legacyCardId||stableCardId(event.id),canonicalEventId:event.id});
   const source = schedule.sources[event.sourceId];
   const result = event.result || null;
   const resultSource = result ? schedule.sources[result.sourceId] : null;
@@ -304,20 +304,20 @@ function main(){
   const existingByF1=new Map((feed.events||[]).map(event=>[f1Identity(event),event]).filter(([key])=>key));
   const existingById=new Map((feed.events||[]).map(event=>[event.id,event]));
   cards.forEach((card,index)=>{
-    if(card.horseFeature&&existingById.has(card.id)){const old=existingById.get(card.id);cards[index]={...old,...card,...(Date.parse(old.score?.racing?.checkedAt)>Date.parse(card.score?.racing?.checkedAt||0)?{score:old.score,status:old.status,scoreCheckedAt:old.scoreCheckedAt}:{})};return;}
+    if(card.horseFeature){cards[index]=require('../config/horse-coverage').project(card);return;}
     if(card.key==='nrlw'&&card.resultStatus==='official'&&existingById.has(card.id)){cards[index]=mergeNrlwFinalCard(card,existingById.get(card.id));return;}
     if(card.lemansCalendar&&existingById.has(card.id)){cards[index]=mergeLemansCard(card,existingById.get(card.id));return;}
     if((card.golfMajorCalendar||['sailgp','wsl','tdf','giro','vuelta','dakar','dakar'].includes(card.key))&&existingById.has(card.id))cards[index]=mergeSailgpCard(card,existingById.get(card.id));
   });
   // Published MotoGP race IDs retain ratings, chat, reminders and results.
   cards.forEach((card,index)=>{
-    if(card.horseFeature&&existingById.has(card.id)){const old=existingById.get(card.id);cards[index]={...old,...card,...(Date.parse(old.score?.racing?.checkedAt)>Date.parse(card.score?.racing?.checkedAt||0)?{score:old.score,status:old.status,scoreCheckedAt:old.scoreCheckedAt}:{})};return;}
+    if(card.horseFeature){cards[index]=require('../config/horse-coverage').project(card);return;}
     if(card.key!=='motogp')return;
     const existing=existingById.get(card.id);
     if(existing?.fixtureResults?.sourceUrl||existing?.resultPublishedAt)cards[index]={...card,...Object.fromEntries(['status','endTimeUtc','endTimeBasis','fixtureResults','resultPublishedAt','resultStatus','resultSourceUrl','resultSourceCheckedAt','scoreCheckedAt','statusCheckedAt','outcomeText','recapText','score','resultLabels','storyline','editorialNarrative','selectedSentence','fullSpiel'].filter(key=>existing[key]!=null).map(key=>[key,existing[key]]))};
   });
   cards.forEach((card,index)=>{
-    if(card.horseFeature&&existingById.has(card.id)){const old=existingById.get(card.id);cards[index]={...old,...card,...(Date.parse(old.score?.racing?.checkedAt)>Date.parse(card.score?.racing?.checkedAt||0)?{score:old.score,status:old.status,scoreCheckedAt:old.scoreCheckedAt}:{})};return;}
+    if(card.horseFeature){cards[index]=require('../config/horse-coverage').project(card);return;}
     const identity=f1Identity(card),legacyId=F1_LEGACY_STABLE_IDS[identity],existing=existingByF1.get(identity)||existingById.get(legacyId)||existingById.get(card.id);
     if(!identity)return;
     // A published schedule cannot revoke a sourced result. Conversely, an old
@@ -327,10 +327,10 @@ function main(){
     const compatible=confirmed||existing?.storyline?.arcStage===(card.status==='completed'?'recap':'preview');
     cards[index]={...card,...facts,...(legacyId?{id:legacyId,eventId:legacyId}:{}),...(compatible?Object.fromEntries(['storyline','editorialNarrative','editorialPreview','selectedSentence','fullSpiel'].filter(key=>existing?.[key]!=null).map(key=>[key,existing[key]])):{})};
   });
-  const retained = (feed.events || []).filter(event => !canonicalIds.has(event.canonicalEventId) && !(cards.some(c=>(c.lemansCalendar||c.golfMajorCalendar||['wsl','tdf','giro','vuelta','dakar'].includes(c.key))&&c.id===event.id)) && !incomingF1.has(f1Identity(event)) && !legacyF1Ids.has(event.id));
+  const retained = (feed.events || []).filter(event => require('../config/horse-coverage').allowed(event) && !canonicalIds.has(event.canonicalEventId) && !(cards.some(c=>(c.lemansCalendar||c.golfMajorCalendar||['wsl','tdf','giro','vuelta','dakar'].includes(c.key))&&c.id===event.id)) && !incomingF1.has(f1Identity(event)) && !legacyF1Ids.has(event.id));
   // A scoped refresh owns its cards only. Normalising retained raw
   // provider IDs here can silently change unrelated tennis source identities.
-  const preserveRetained = process.argv.includes('--motogp-only') || process.argv.includes('--nrlw-finals-only') || process.argv.includes('--nrlw-season-only');
+  const preserveRetained = process.argv.includes('--horse-racing-only') || process.argv.includes('--motogp-only') || process.argv.includes('--nrlw-finals-only') || process.argv.includes('--nrlw-season-only');
   const next = normalizeFeed({
     ...feed,
     events:preserveRetained ? cards : [...retained, ...cards],

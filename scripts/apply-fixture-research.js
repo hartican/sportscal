@@ -10,6 +10,7 @@ function apply(knowledge,feed,majorEvents,research,catalogue=[],{now=new Date()}
   if(research.scope!=='horse-flagships')knowledge.eventProjections=knowledge.eventProjections.map(p=>p.targetType==='feed-event'?{...p,targetIds:p.targetIds.filter(id=>!retired.has(id))}:p).filter(p=>p.targetIds.length);
   const upsert=(field,value)=>{const index=knowledge[field].findIndex(row=>row.id===value.id);if(index<0)knowledge[field].push(value);else knowledge[field][index]=value;};
   for(const entry of research.entries){
+    if(require('../config/horse-coverage').isHorse({id:entry.id}))continue;
     // Undated Horse editions use this same researched document as Events
     // context. They cannot become fixture projections before a dated edition.
     if(entry.id.startsWith('event:horse-racing:')&&require('../feeds/provider-exports/horse-racing/marquee-calendar.v1.json').entries.some(r=>r.id===entry.id&&!r.date))continue;

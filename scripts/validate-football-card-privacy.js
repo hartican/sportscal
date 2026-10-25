@@ -1,7 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const root=path.join(__dirname,'..'),capture=require('./fixtures/football-card-privacy-20261012.json');
-const source=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const source=require('./app-shell-test-utils').readCardApplicationSource();
 function actualFunction(name,next){const start=source.indexOf('function '+name+'('),end=source.indexOf('function '+next+'(',start);assert(start>=0&&end>start);return source.slice(start,end);}
 const caller=actualFunction('buildEuropeanDetail','buildFixtureDataAttribution'),policy=actualFunction('isSpoilerVisible','markSpoilerRevealed');
 const renderer=fs.readFileSync(path.join(root,'assets/js/football-card-context.js'),'utf8');

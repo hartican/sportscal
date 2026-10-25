@@ -4,6 +4,7 @@
  const STOP=/^(completed|finished|past|live|cancelled|canceled|withdrawn|postponed|suspended|interrupted|abandoned|walkover|final)$/i;
  function fixtureId(f){return deps().identity.stableKey(f);}
  function exactTiming(f,now=Date.now()){
+  if(f&&!(globalThis.NOTHINGSPORTS_HORSE_COVERAGE||(typeof require==='function'?require('./horse-coverage'):null))?.allowed(f))return null;
   if(!f||STOP.test(f.status||'')||STOP.test(f.scheduleStatus||'')||!['upcoming','scheduled'].includes(f.status)||f.scheduleStatus!=='confirmed'||f.timingVerified===false)return null;
   const precision=f.timePrecision;
   if(!['exact','not-before','not_before'].includes(precision))return null;

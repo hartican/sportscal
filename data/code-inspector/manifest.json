@@ -1,17 +1,17 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-24T21:16:14.556Z",
+  "generatedAt": "2026-10-25T23:02:34.187Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/horse-racing.json",
       "id": "sport:horse-racing",
       "slug": "horse-racing",
-      "label": "Horse Racing",
-      "fixtureCount": 9,
+      "label": "Melbourne Cup",
+      "fixtureCount": 1,
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-22T18:01:55.820Z",
+      "freshAt": "2026-10-25T23:02:34.187Z",
       "chunkPath": "data/code-inspector/horse-racing.json"
     },
     {

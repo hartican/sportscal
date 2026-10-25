@@ -5,6 +5,7 @@ const SHELL_VERSION = "595";
 // Unassigned circuit candidates are optional assets, not install dependencies.
 const APP_SHELL = [
   "/assets/styles/racing-details.css?v=527",
+  "/config/horse-coverage.js?v=594",
   "/config/racing-details.js?v=539",
   "/config/participant-directory.js?v=512",
   "/assets/js/football-card-context.js?v=511",

@@ -112,13 +112,15 @@
   }
   function editionDecision(event, preferences){
     const states=preferences?.followFirst?.eventEditionDecisions?.states||{};
-    return (sportKey(event)==='horse-racing'&&states[event?.canonicalEventId||event?.id])||states[editionKey(event)]||null;
+    return (sportKey(event)==='horse-racing'&&states[event?.canonicalEventId||event?.id])||states[editionKey(event)]||(sportKey(event)==='horse-racing'&&event.weekendId?states[`overview:horse-racing:${event.weekendId}:${event.weekendId.split(':').at(-1)}`]:null)||null;
   }
   function eventExcluded(event, preferences){
     const decision=editionDecision(event,preferences);
     return decision ? decision === "excluded" : (preferences?.followFirst?.excludedMajorEventIds || []).some(id=>eventFamilyIds(event).includes(id));
   }
   function activeEligible(event){
+    const horse=globalThis.NOTHINGSPORTS_HORSE_COVERAGE||(typeof require==='function'?require('./horse-coverage'):null);
+    if(horse?.isHorse(event)&&(!horse.isCup(event)||!/^20\d{2}-\d{2}-\d{2}$/.test(event.date||'')))return false;
     if(!sportKey(event).startsWith('tennis'))return true;
     const levels=[event?.tournamentLevel,event?.level,event?.competitionLevel,...(event?.tourCategories||[]).map(t=>t.level)].filter(Boolean).join(' ');
     return !/250|125|challenger|itf|atp_challenger/i.test(levels+' '+String(event?.competitionId||''));
@@ -257,12 +259,7 @@
     if(!sportKey(event).startsWith('tennis')||participantIds(event).some(id=>id.startsWith('team:')))return true;
     return /500|1000|grand.?slam|major|masters|team|davis|billie|bjk|finals/i.test([event.tournamentLevel,event.level,event.category,event.competitionCategory].filter(Boolean).join(' '));
   }
-  function approvedHorseFeature(event){
-    if(event.horseFeature===false)return false;
-    const id=String(event.canonicalEventId||event.id||event.eventId||'');
-    const match=/^(?:event:horse-racing:|evt_horse_racing_)(.+?)(?::|_)(20\d{2})$/.exec(id);
-    return Boolean(match&&/^(?:caulfield-cup|the-everest|cox-plate|victoria-derby|melbourne-cup|vrc-oaks|champions-stakes|golden-slipper|australian-cup|doncaster-mile|queen-elizabeth-stakes|stradbroke-handicap)$/.test(match[1].replaceAll('_','-')));
-  }
+  function approvedHorseFeature(event){return (globalThis.NOTHINGSPORTS_HORSE_COVERAGE||(typeof require==='function'?require('./horse-coverage'):null))?.isCup(event)===true;}
   function eligibleForFollow(event,{competitionFollow=false,participantFollow=false,explicitSelection=false,explicitEventFollow=false,sportFollow=false,australiansOnly=false,australianDiscovery=false,muted=false}={}){
     if(event.universeOnly || !activeEligible(event) || !hasPublishedFixture(event) || aggregateEvent(event) && !multiDayMarker(event) || !feedEligibleSession(event))return false;
     if(muted)return false;

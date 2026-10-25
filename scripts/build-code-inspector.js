@@ -242,6 +242,8 @@ function canonicalSourceMetadata(event){
 }
 
 function normalizeFixture(event, codeId, extra = {}){
+  const horse=require('../config/horse-coverage');
+  if(horse.isHorse(event))return horse.project({...event,...extra,id:stableId(event)});
   event=fixtureIdentity.normalizeCore(event);
   if(fixtureIdentity.sportKey(event,codeId).startsWith("tennis"))event=require("../lib/tennis-card-evidence").fixture(event);
   const sourceMetadata=canonicalSourceMetadata(event);

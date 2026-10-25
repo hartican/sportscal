@@ -1,5 +1,6 @@
 (function(root,factory){const api=factory();if(typeof module==='object')module.exports=api;else root.NOTHINGSPORTS_MATCH_CENTRE=api;})(typeof globalThis==='object'?globalThis:this,function(){
  'use strict';
+ const horse=()=>globalThis.NOTHINGSPORTS_HORSE_COVERAGE||(typeof require==='function'?require('./horse-coverage'):null);
  const id=e=>String(e.canonicalEventId||e.eventId||e.id||'');
  const sport=e=>{const key=String(e.key||'').replace(/-women$/,'');return ({wimbledon:'tennis',rugby:'rugby-union'})[key]||key;};
  const final=e=>/^(completed|finished|final)$/.test(e.status||'');
@@ -44,6 +45,7 @@
   return 'awaiting-update';
  }
  function section(e,now=Date.now()){
+  if(horse()?.isHorse(e))return null;
   if(!supported(e)||/^(past|postponed)$/.test(e.status||''))return null;
   if(final(e)||/^(cancelled|canceled|abandoned)$/.test(e.status||'')){const end=completion(e);return Number.isFinite(end)&&end<=now&&now<=end+3600000?'recently-finished':null;}
   if(sport(e)==='golf'&&score(e).golf?.phase==='round-completed')return null;
@@ -85,7 +87,7 @@
  }
  function racingSummary(r){
   const l=r.leader||r.entries?.[0],names=l?.drivers?.filter(name=>typeof name==='string').join(' / ')||l?.currentDriver;
-  if(r.kind==='horse')return [['nominations','acceptances'].includes(r.phase)?'Early entries':r.statusText,r.entryCount+' entries',r.raceTime?'Race time '+r.raceTime:null].filter(Boolean).join(' · ');
+  if(r.kind==='horse')return '';
   const laps=l?.laps??l?.[r.columns?.find(([label])=>/^laps$/i.test(label))?.[1]];
   return [l?.position!=null?'P'+l.position:null,names,laps!=null?'Lap '+laps+(r.totalLaps?' / '+r.totalLaps:''):null].filter(Boolean).join(' · ');
  }
@@ -110,6 +112,7 @@
   return valid(home)&&valid(away)&&home.participantId!==away.participantId&&(!e.homeParticipantId||e.homeParticipantId===home.participantId)&&(!e.awayParticipantId||e.awayParticipantId===away.participantId)?{home,away}:null;
  }
  function score(e,{racing=false}={}){
+  if(horse()?.isHorse(e))return {};
   if(sport(e)==='golf'&&(e.score?.golf||e.roundScores?.length))return {golf:e.score?.golf||{rows:e.roundScores,officialUrl:e.sourceUrl?.replace(/tee-times$/,'leaderboard')}};
   const detail=racingDetail(e);
   if(detail){const {entries,...summary}=detail;return {racing:{...summary,entryCount:entries?.length??summary.entryCount??0,leader:detail.kind==='horse'||detail.phase==='unavailable'?null:entries?.[0]||summary.leader||null,...(racing?{entries:entries||[]}:{})}};}
@@ -154,6 +157,7 @@
  const dayIdentityKeys=['sport','homeParticipantId','awayParticipantId','startTimeUtc','gender'];
  // Keep the independent score/status clocks through status-only receipts.
  function observation(prior,next){
+  if(horse()?.isHorse(next))return compact(next);
   if(!prior)return consistentBalance(next);
   const stamp=x=>Date.parse(x.observationCheckedAt||x.statusCheckedAt||x.scoreCheckedAt||x.checkedAt||'');
   const settled=e=>final(e)||/^(abandoned|cancelled|canceled)$/.test(e.status||'');
@@ -171,6 +175,7 @@
  }
  function dayFields(e){return Object.hasOwn(e,'matchDay')?{...Object.fromEntries(['matchDay','numberOfDays','matchDaySourceCheckedAt'].filter(k=>Object.hasOwn(e,k)).map(k=>[k,e[k]])),matchDaySourceUrl:e.matchDaySourceUrl||null,...(!Object.hasOwn(e,'matchDaySourceCheckedAt')&&e.sourceCheckedAt?{matchDaySourceCheckedAt:e.sourceCheckedAt}:{})}:{};}
  function compact(e,{checkedAt=null,stale=false,rubbers=false,racing=false}={}){
+  if(horse()?.isHorse(e))e=horse().project?.(e)||{id:id(e),key:'horse-racing',status:'unpublished'};
   const value=score(e,{racing}),pair=pairedScore(e),hasScore=value.golf||value.racing||value.home!=null||value.away!=null||value.sets?.length||value.games||value.innings?.length;
   const observationCheckedAt=e.scoreCheckedAt||(!hasScore?e.statusCheckedAt:null)||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt||e.canonicalSourceCheckedAt)||null;
   return {...dayFields(e),...(sport(e)==='cricket'&&Object.hasOwn(e,'gender')?{gender:e.gender}:{}),court:e.court||null,tournamentId:e.tournamentId||e.tennisTournamentId||null,statusSourceType:e.statusSourceType||null,format:e.format||e.matchFormat||null,actualStartTimeUtc:e.actualStartTimeUtc||null,livePlayObservedAt:e.livePlayObservedAt||null,id:id(e),sport:sport(e),status:e.status||'scheduled',homeParticipantId:e.homeParticipantId||pair?.home.participantId||e.matchupSides?.[0]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[0]?.participantId||e.participantIds?.[0]:null)||null,awayParticipantId:e.awayParticipantId||pair?.away.participantId||e.matchupSides?.[1]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[1]?.participantId||e.participantIds?.[1]:null)||null,startTimeUtc:e.startTimeUtc||null,...(Object.hasOwn(e,'planningTimeEvidence')?{estimatedStartTimeUtc:e.estimatedStartTimeUtc||null,timePrecision:e.timePrecision,scheduleStatus:e.scheduleStatus,timeTbc:e.timeTbc,startTimeTbc:e.startTimeTbc===true,time:e.time,date:e.date,planningTimeEvidence:e.planningTimeEvidence}:{}),restartTimeUtc:e.restartTimeUtc||null,restartSourceUrl:e.restartSourceUrl||null,restartSourceCheckedAt:e.restartSourceCheckedAt||null,statusFactObservedAt:e.statusFactObservedAt||null,pauseObservation:e.pauseObservation||null,cricketBalance:cricketBalance(e,value.innings),completedAt:Number.isFinite(completion(e))?new Date(completion(e)).toISOString():null,scoreCheckedAt:e.scoreCheckedAt||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt)||null,statusCheckedAt:e.statusCheckedAt||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt)||null,checkedAt:observationCheckedAt,stale:stale||e.stale===true||e.sourceStale===true||Boolean(e.fixtureObservationSchema&&hasScore&&!e.scoreCheckedAt),score:value,officialUrl:officialUrl(e),...scorecard(e),statusText:typeof e.statusText==='string'?e.statusText:null,clock:duration(e),incidents:(Array.isArray(e.incidents)?e.incidents:Array.isArray(e.goalScorers)?e.goalScorers:[]).filter(i=>i&&typeof i==='object').slice(0,40).map(i=>({name:i.name||i.playerName||i.scorer?.name||(typeof i.scorer==='string'?i.scorer:null),time:i.minute??i.elapsedMinute??i.time??i.clock??null,type:i.type||(Array.isArray(e.incidents)?null:'Goal'),addedTime:i.addedTime??i.stoppageTime??null,ownGoal:i.ownGoal===true,penalty:i.penalty===true,goalType:i.goalType||null,teamName:i.teamName||i.team?.name||null,disallowed:i.disallowed===true||i.isDisallowed===true||i.cancelled===true})),...(rubbers?{rubbers:(e.rubbers||[]).slice(0,10).map(r=>({id:id(r),name:r.sides?.length?r.sides.map(s=>s.names.join(' / ')).join(' v '):r.name||'',status:r.status,score:score({...r,key:'tennis'})}))}:{})};}
@@ -192,8 +197,9 @@
   return {schema:'racing.v1',kind:'classification',eventId:id(e),sessionId:'R17',sessionName:'2026 Bathurst 1000 · Race 30',provider:'Supercars',officialUrl:url,providerAt:null,checkedAt:results.checkedAt,phase:'official-result',status:'completed',statusText:'Official classification',columns:columns.map((label,i)=>[label,'value'+i]),entries};
  }
  function racingDetail(e){
+  if(horse()?.isHorse(e))return null;
   const reviewed=reviewedBathurstClassification(e);if(reviewed)return reviewed;
-  if(e.score?.racing?.schema==='racing.v1')return typeof module==='object'?require('./racing-details').sanitizeHorseDetail(e.score.racing,{horse:sport(e)==='horse-racing'}):e.score.racing;
+  if(e.score?.racing?.schema==='racing.v1')return e.score.racing;
   if(!/^(f1|supercars|motogp|wrc)$/.test(sport(e)))return null;
   const results=e.fixtureResults,columns=results?.columns,rows=results?.rows;
   const fallback={schema:'racing.v1',kind:'classification',eventId:id(e),sessionId:id(e),sessionName:e.name,provider:e.sourceName||'Official source',officialUrl:e.officialTimingUrl||(final(e)?safeUrl(e.resultSourceUrl):null)||({'f1':'https://www.formula1.com/en/timing/f1-live-lite','motogp':'https://www.motogp.com/en/gp-results','wrc':'https://www.wrc.com/en/results-and-standings','supercars':'https://www.supercars.com/live-timing'})[sport(e)],providerAt:null,checkedAt:null,phase:'unavailable',status:e.status,statusText:'Embedded timing unavailable',entries:[]};

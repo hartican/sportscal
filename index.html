@@ -6854,9 +6854,7 @@ function fmtDateHeading(dateStr){
   return NOTHINGSPORTS_AUSTRALIAN_DATES.date(dateStr);
 }
 
-function getEventStatus(ev){
-  return NOTHINGSPORTS_FEED_TIMELINE.status(ev,nowAEST());
-}
+
 
 function localRatingAliases(eventOrId){
   const event=eventOrId && typeof eventOrId==='object' ? eventOrId : null;
@@ -10555,41 +10553,12 @@ function loadTennisFeedContests(){
   return tennisFeedContestLoading;
 }
 const tennisFeedOpenParents=new Set();
-function eventEditionFollowed(event){
-  const decision=FOLLOW_FEED_POLICY.editionDecision(event,userPreferences);
-  return decision?decision==='followed':Boolean((FOLLOW_FEED_POLICY.sportKey(event)==='horse-racing'?FOLLOW_FIRST.reasonForEvent:NOTHINGSPORTS_TENNIS_FEED.reason)(event,userPreferences,{collectionsById:followCollectionsById(),participantTours:tennisFeedParentDocument?.participantTours,now:nowAEST()}));
-}
-function buildEventEditionToggle(event){
-  const button=document.createElement('button');button.type='button';button.className='btn ghost event-edition-toggle';button.dataset.edition=FOLLOW_FEED_POLICY.editionKey(event);
-  const sync=()=>{const followed=eventEditionFollowed(event);button.textContent=followed?'Unfollow event':'Follow event';button.setAttribute('aria-pressed',String(followed));};sync();
-  button.onclick=e=>{e.stopPropagation();const next=clonePreferences(userPreferences),key=FOLLOW_FEED_POLICY.editionKey(event),followed=eventEditionFollowed(event);
-    next.followFirst.eventEditionDecisions={schemaVersion:'event-edition-decisions.v1',states:{...(next.followFirst.eventEditionDecisions?.states||{}),[key]:followed?'excluded':'followed'}};
-    if(!savePreferences(next,{deferFollowEffects:true,deliberate:true}))return false;sync();
-    document.querySelectorAll('.event-edition-toggle').forEach(b=>{if(b.dataset.edition===key){b.textContent=followed?'Follow event':'Unfollow event';b.setAttribute('aria-pressed',String(!followed));}});
-    if(activeTab==='feed')requestAnimationFrame(()=>requestAnimationFrame(()=>renderAll({preserveViewport:true})));
-  };return button;
-}
-function buildEuropeanDetail(ev,kind){
-  const node=document.createElement('div');
-  if(kind==='attribution'){
-    node.className='fixture-source-attribution fixture-source-links';
-    if(ev.sourceAttribution?.provider==='OpenLigaDB'){const link=document.createElement('a');link.href='/data/providers/openligadb/football-2026-27.json';link.textContent='OpenLigaDB data · ODbL';node.append(link);}
-    if(ev.delayedResultSource){const note=document.createElement('p'),link=document.createElement('a');link.href='https://www.football-data.org/';link.textContent='Football data provided by the Football-Data.org API';note.append(link,document.createTextNode('. Delayed final result; primary source unavailable at recovery.'));node.append(note);}
-  }
-  loadDeferredScript('assets/js/football-card-context.js?v=511').then(async()=>{const detail=await NOTHINGSPORTS_FOOTBALL_CONTEXT[kind](ev,()=>isSpoilerVisible(ev));if(!node.isConnected)return;if(detail)node.replaceWith(detail);else node.remove();}).catch(()=>{if(kind==='context')node.remove();if(kind==='standings'&&node.isConnected){node.textContent='Standings unavailable. ';const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry standings';retry.onclick=()=>node.replaceWith(buildEuropeanDetail(ev,kind));node.append(retry);}});
-  return node;
-}
-function buildFixtureDataAttribution(ev){return ev.sourceAttribution||ev.delayedResultSource?buildEuropeanDetail(ev,'attribution'):null;}
 
-function buildFixtureResultAvailability(ev){
-  const pending=ev.resultStatus==='pending';
-  if(!pending&&!(ev.resultStatus==='official'&&ev.status==='completed'&&isSpoilerVisible(ev)&&!ev.delayedResultSource&&/^https:\/\//.test(ev.resultSourceUrl||'')))return null;
-  const note=document.createElement('p');note.className='compact-card-meta fixture-status fixture-result-availability';note.style.gridColumn='1 / -1';
-  const checked=new Date(ev.resultSourceCheckedAt||'');
-  note.textContent=(pending?(ev.key==='wrc'?'Official FIA classification pending.':'Official result unavailable'):'Verified result')+(Number.isFinite(+checked)&&+checked<=Date.now()?' · checked '+new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',day:'numeric',month:'short',hour:'numeric',minute:'2-digit'}).format(checked)+' (Sydney time)':'');
-  if(/^https:\/\//.test(ev.resultSourceUrl||'')){const link=document.createElement('a');link.href=ev.resultSourceUrl;link.target='_blank';link.rel='noopener noreferrer';link.textContent=pending?'Official source':'Result source';link.setAttribute('aria-label','Check result source for '+(ev.name||'this fixture'));note.append(document.createTextNode(' · '),link);}
-  return note;
-}
+
+
+
+
+
 
 function installFantasyCard(card,ev,options){globalThis.NOTHINGSPORTS_FANTASY_UI?.install(card,ev,options);}
 function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.clearSpace();}
@@ -10611,50 +10580,7 @@ function maybeInviteClassicReview(){
   if(!serverPersistence.user||NOTHINGSPORTS_EPIC.reviewYear()<2026)return;
   void ensureEpicUi().then(ui=>ui.invite()).catch(()=>{});
 }
-function buildEventCard(ev, options = {}){
-  if(NOTHINGSPORTS_REVIEWED_FIXTURE_REPAIRS.cachedCalendarNote(ev))ev=NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(ev);
-  if(ev.cardKind==='calendar-note')return buildFixtureFallbackCard(ev,options);
-  if(options.mode!=='schedule' && FOLLOW_FEED_POLICY.multiDayMarker(ev))return buildTournamentMarker(ev);
-  if(options.mode!=='schedule'&&NOTHINGSPORTS_FEED_CARD_PRESENTATION.parentCompact(ev,nowAEST()))return buildTournamentMarker(ev);
-  profileFixtureEvents.set(String(ev.eventId||ev.id),ev);
-  try {
-    const card = buildDetailedEventCard(ev, options);
-    if(card.classList.contains('is-minimised-row'))return card;
-    installFeedLiveScore(card,ev);
-    installFantasyCard(card,ev,options);
-    const attribution=buildFixtureDataAttribution(ev);if(attribution)card.append(attribution);
-    const availability=buildFixtureResultAvailability(ev);if(availability)(card.querySelector('.compact-card-summary')||card).append(availability);
-    const scheduleLink=buildFeedScheduleLink(ev);
-    if(card.classList.contains('feed-fixture')){
-      scheduleLink.classList.add('fixture-competition-link');
-      const header=card.querySelector('.fixture-card-header');
-      if(header){const tennis=NOTHINGSPORTS_FIXTURE_LABELS.tennisContext(ev);if(tennis&&!scheduleLink.textContent.startsWith(fixtureCompetitionLabel(ev)))scheduleLink.textContent=fixtureCompetitionLabel(ev)+' · '+scheduleLink.textContent;const format='';if(format&&!scheduleLink.textContent.toLowerCase().includes(format.toLowerCase())&&!format.toLowerCase().includes(scheduleLink.textContent.toLowerCase()))scheduleLink.textContent=format+' · '+scheduleLink.textContent;const mark=header.querySelector('img');scheduleLink.replaceChildren(...(mark?[mark]:[]),document.createTextNode(scheduleLink.textContent));header.replaceChildren(scheduleLink);}
-      else (card.classList.contains('is-minimal-fixture')?card.querySelector('.event-quick-actions')||card:card).appendChild(scheduleLink);
-    }else card.appendChild(scheduleLink);
-    if(cardStateForEvent(ev)!=="compact")appendTournamentSlots(card,ev);
-    if (isMarqueeFixture(ev)){
-      card.classList.add("is-marquee-fixture");
-      if(activeTab!=='feed'){
-        const label=document.createElement('span');label.className='fixture-marquee-label';
-        label.textContent=FOLLOW_FIRST.stageLabel(ev) || '';if(label.textContent)card.prepend(label);
-      }
-    }
-    const status = String(ev.scheduleStatus || ev.status || "").toLowerCase();
-    if (["cancelled","canceled","abandoned","postponed"].includes(status)){
-      const label = document.createElement("p");
-      label.className = "compact-card-meta fixture-status";
-      label.textContent = status[0].toUpperCase()+status.slice(1);
-      card.append(label);
-    }
-    return card;
-  } catch (_error){
-    console.warn("Fixture card fallback", ev?.eventId || ev?.id);
-    const fallback=buildFixtureFallbackCard(ev, options);
-    const attribution=buildFixtureDataAttribution(ev);if(attribution)fallback.append(attribution);
-    const availability=buildFixtureResultAvailability(ev);if(availability)fallback.append(availability);
-    return fallback;
-  }
-}
+
 
 
 function jointTournamentIsActive(document = jointTournamentData, reference = nowAEST()){
@@ -12592,18 +12518,7 @@ function eventEndDateTime(ev){
   return new Date(start.getTime() + (ev.liveWindow || 3) * 3600 * 1000);
 }
 
-function archivedEvents(){
-  const explicit = CARD_LIFECYCLE
-    ? CARD_LIFECYCLE.rebuildArchive(archivedEventRefs, activeEvents).events
-    : activeEvents.filter(ev => getEventAction(ev).archived && eventMeetsDerivedRetention(ev));
-  const automatic = getPreferenceMatchedEvents().filter(ev => (
-    !getEventAction(ev).archived
-    && eventIsAutoArchived(ev)
-  ));
-  const byId = new Map();
-  [...explicit, ...automatic].forEach(ev => byId.set(ev.eventId || ev.id, ev));
-  return Array.from(byId.values());
-}
+
 
 function formatFeedbackTimestamp(date = new Date()){
   return new Intl.DateTimeFormat("en-AU", {

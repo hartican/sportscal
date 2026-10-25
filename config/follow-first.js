@@ -882,6 +882,8 @@
   }
 
   function viewingOptions(event, selectedProviderIds = []){
+    const horse=root.NOTHINGSPORTS_HORSE_COVERAGE||(typeof require==='function'?require('./horse-coverage'):null);
+    if(horse?.isHorse(event)){if(!horse.allowed(event))return [];if(horse.project)event=horse.project(event);if(!event)return [];}
     if((event?.grandTourCalendar===true||event?.golfMajorCalendar===true||event?.dakarCalendar===true||event?.lemansCalendar===true)&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC')return [];
     const broadcasterIds = new Set();
     // Official draw lists these as separate broadcast and streaming services.

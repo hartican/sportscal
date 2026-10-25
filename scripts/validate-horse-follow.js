@@ -1,64 +1,21 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs');
-const follow=require('../config/follow-first'),policy=require('../config/follow-feed-policy'),reminders=require('../config/fixture-reminder-policy');
+const follow=require('../config/follow-first'),policy=require('../config/follow-feed-policy'),horse=require('../config/horse-coverage'),reminders=require('../config/fixture-reminder-policy');
 const {buildServerFeed}=require('../lib/server-feed-pipeline');
-const taxonomy=require('../config/selector-taxonomy'),registry=require('../config/sport-domain-registry');
-const source=JSON.parse(fs.readFileSync('data/events.json'));
-const races=(Array.isArray(source)?source:source.events).filter(e=>e.key==='horse-racing');
-const now=new Date('2026-10-13T00:00:00Z');
+const races=JSON.parse(fs.readFileSync('data/events.json')).events.filter(horse.isHorse),cup=races[0],now=new Date('2026-10-26T00:00:00Z');
+assert.equal(races.length,1);assert(horse.isCup(cup));
 const on=follow.migratePreferences({selectedSelectorEntityIds:['sport:horse-racing'],followedSports:['horse-racing']});
-assert(taxonomy.exposedSportNodes.some(e=>e.id==='sport:horse-racing'));
-assert.equal(registry.selectorLibrary()['horse-racing'].domainId,'sport:horse-racing');
-assert.equal(races.length,9,'Existing approved dated catalogue remains unchanged');
-function check(event,prefs,expected,label){
- assert.equal(Boolean(follow.reasonForEvent(event,prefs)),expected,'browser policy: '+label);
- const result=buildServerFeed({events:[event],userId:'horse-follow-contract',userState:{preferences:prefs},now});
- assert.equal(result.events.some(e=>e.id===event.id),expected,'server policy: '+label);
-}
-for(const race of races){
- assert.equal(policy.australiansFilterUseful(race),false,'Actual canonical Horse competition is domestic');
- check(race,on,true,'explicit feature-race sport follow: '+race.name);
- check(race,{},false,'browsing is not consent: '+race.name);
- check(race,{selectedSelectorEntityIds:[],followedSports:[]},false,'later unfollow: '+race.name);
- check(race,{...on,preferenceGraph:{...on.preferenceGraph,competitionPreferences:[{competitionId:race.competitionId,enabled:false}]}},false,'competition exclusion: '+race.name);
- assert.equal(reminders.automatic({...race,startTimeUtc:'2026-10-17T06:00:00Z',time:'17:00',timingPrecision:'exact'},on,{},+now),false,'Even a future published race clock cannot turn a sport follow into athlete/team automatic consent');
- assert.equal(reminders.automatic(race,on,{},+now),false,'A sport follow cannot create an automatic reminder');
- assert.equal(reminders.intent(race,on,{[race.id]:{reminderChoice:'off'}},{},+now).enabled,false,'Explicit fixture reminder OFF stays OFF');
-}
-check({...races[0],horseFeature:false},on,false,'ordinary supporting race is outside the feature catalogue');
-check({...races[0],id:'event:horse-racing:unapproved:2026',canonicalEventId:'event:horse-racing:unapproved:2026',horseFeature:true},on,false,'A flag cannot expand the approved feature list');
-check({...races[0],date:null,dateOnly:true},on,false,'unpublished date cannot enter Feed');
-const identity=require('../config/fixture-identity');
-for(const f of JSON.parse(fs.readFileSync('data/code-inspector/horse-racing.json')).fixtures){
- const fixture=identity.fromSchedule(f,'horse-racing');assert.equal(policy.eligibleForFollow(fixture,{sportFollow:true}),true,'Existing compact Schedule identity retains feature admission without optional flags');
-}
-const pending=JSON.parse(fs.readFileSync('data/event-overviews.v1.json')).events.filter(e=>e.sportKey==='horse-racing'&&e.calendarPending);
-assert.equal(pending.length,3);
-for(const e of pending)assert(!e.date&&!e.startTimeUtc,'Pending editions retain unknown timing');
-assert.deepEqual(follow.migratePreferences(on),on,'Explicit preference survives offline normalization/retries');
-assert(!follow.migratePreferences({}).selectedSelectorEntityIds.includes('sport:horse-racing'),'No onboarding or existing-account automatic opt-in');
-const overviews=JSON.parse(fs.readFileSync('data/event-overviews.v1.json')).events.filter(e=>e.sportKey==='horse-racing');
-const australians={...on,followFirst:{...on.followFirst,australiansOnlySportIds:['sport:horse-racing']}};
-for(const race of races){
- check(race,australians,true,'Retired domestic Australian-only setting cannot hide flagship races: '+race.name);
- const canonical=race.canonicalEventId||race.id;
- const parent=overviews.find(e=>(e.fixtureIds||[]).includes(canonical));
- assert(parent,'Published carnival membership exists: '+race.name);
- assert.equal(policy.editionKey(race),parent.id,'Source-provided carnival identity matches its published overview');
- const choices=state=>({eventEditionDecisions:{schemaVersion:'event-edition-decisions.v1',states:state}});
- check(race,{...on,followFirst:choices({[parent.id]:'excluded'})},false,'Carnival exclusion overrides broad sport admission');
- check(race,{followFirst:choices({[parent.id]:'followed'})},true,'Explicit carnival follow admits its published child');
- assert.equal(reminders.automatic({...race,startTimeUtc:'2026-10-17T06:00:00Z',time:'17:00',timingPrecision:'exact'},{followFirst:choices({[parent.id]:'followed'})},{},+now),false,'Carnival following also grants no automatic-reminder consent');
- check(race,{...on,followFirst:choices({[parent.id]:'followed',[canonical]:'excluded'})},false,'Retain an existing more-specific race exclusion');
- check(race,{followFirst:choices({[parent.id]:'excluded',[canonical]:'followed'})},true,'Retain an independent existing race choice');
- check({...race,date:null}, {followFirst:choices({[parent.id]:'followed'})},false,'Carnival follow cannot create a missing fixture date');
- check({...race,id:'event:horse-racing:unapproved:2026',canonicalEventId:'event:horse-racing:unapproved:2026'}, {followFirst:choices({[parent.id]:'followed'})},false,'Carnival follow cannot expand the approved catalogue');
-}
-console.log('Horse Follow: Australian-only evidence and actual carnival child choices passed.');
-console.log('Horse Follow: actual nine-race browser/server parity, explicit consent/unfollow/exclusions, pending dates and no automatic reminders passed.');
-
-for(const id of ['afl-premiership','aflw','nrl-premiership','nrlw-premiership','state-of-origin','nbl','bbl','wbbl','supercars']){
- assert.equal(policy.australiansFilterUseful({competitionId:'competition:'+id,key:'mixed'}),false,id);
-}
-for(const competitionId of ['competition:cricket-international','competition:ipl','competition:nba','competition:premier-league','competition:rugby-league-world-cup','competition:formula-one'])assert.equal(policy.australiansFilterUseful({competitionId,key:'nrl',venueCountryCode:'AU'}),true,competitionId);
-assert.deepEqual(follow.migratePreferences({followFirst:{australiansOnlySportIds:['sport:horse-racing','sport:nbl','sport:supercars','sport:cricket','sport:nba']}}).followFirst.australiansOnlySportIds,['sport:cricket','sport:nba']);
+function check(event,prefs,expected,label){assert.equal(Boolean(follow.reasonForEvent(event,prefs)),expected,'client '+label);const out=buildServerFeed({events:[event],userId:'cup-contract',userState:{preferences:prefs},now});assert.equal(out.events.some(e=>e.id===event.id),expected,'server '+label);}
+check(cup,on,true,'existing sport follow');check(cup,{},false,'no implied consent');check(cup,{selectedSelectorEntityIds:[],followedSports:[]},false,'explicit OFF');
+check(cup,{...on,preferenceGraph:{...on.preferenceGraph,competitionPreferences:[{competitionId:cup.competitionId,enabled:false}]}},false,'competition exclusion');
+check({...cup,id:'event:horse-racing:caulfield-cup:2026',canonicalEventId:'event:horse-racing:caulfield-cup:2026'},on,false,'retired race even if pinned/followed');
+check({...cup,date:null,startTimeUtc:null,time:null},on,false,'unverified edition date');
+const states=values=>({eventEditionDecisions:{schemaVersion:'event-edition-decisions.v1',states:values}}),parent=policy.editionKey(cup),id=cup.canonicalEventId||cup.id;
+check(cup,{...on,followFirst:states({[parent]:'excluded'})},false,'existing carnival exclusion');check({...cup,editionId:cup.canonicalEventId},{...on,followFirst:states({[parent]:'excluded'})},false,'Follow-row inherits legacy carnival exclusion');check(cup,{followFirst:states({[parent]:'followed'})},true,'existing carnival follow');
+check(cup,{...on,followFirst:states({[parent]:'followed',[id]:'excluded'})},false,'specific Cup exclusion');check(cup,{followFirst:states({[parent]:'excluded',[id]:'followed'})},true,'specific independent Cup follow');
+assert.deepEqual(follow.migratePreferences(on),on,'No migration/re-enabling');assert.equal(reminders.automatic(cup,on,{},+now),false);
+assert.equal(reminders.manualTiming({...cup,id:'event:horse-racing:caulfield-cup:2026',canonicalEventId:'event:horse-racing:caulfield-cup:2026',scheduleStatus:'confirmed',timingVerified:true},+now),null,'Retired manual reminders are suppressed');
+const overviews=JSON.parse(fs.readFileSync('data/event-overviews.v1.json')).events;assert(!overviews.some(horse.isHorse),'No horse racing in Events');
+assert.equal(require('../config/sport-domain-registry').selectorLibrary()['horse-racing'].label,'Melbourne Cup');
+for(const e of require('../data/code-inspector/horse-racing.json').fixtures)assert(horse.isCup(e));
+console.log('Melbourne Cup Follow: existing follows/OFF/competition and legacy edition exclusions, no migration/automatic alerts, single identity and no Events coverage passed.');

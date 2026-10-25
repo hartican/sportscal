@@ -20,7 +20,8 @@
     const knownStart=Date.parse(event.startTimeUtc||'');
     const stopped=['live','in_progress','completed','finished','final','cancelled','canceled','abandoned','retired','postponed','suspended'].includes(status)||(Number.isFinite(knownStart)&&!event.dateOnly&&!event.timeTbc&&!event.startTimeTbc&&knownStart<=+new Date(now));
     const ongoing=cricket.isCricket(event)&&cricket.phase(event,now)==='ongoing';
-    const inWindow=ongoing||Number.isFinite(days)&&days>=0&&days<=14&&!stopped;
+    const horse=globalThis.NOTHINGSPORTS_HORSE_COVERAGE||(typeof require==='function'?require('./horse-coverage'):null);
+    const inWindow=!horse?.isHorse(event)&&(ongoing||Number.isFinite(days)&&days>=0&&days<=14&&!stopped);
     const cadenceDays=ongoing?1:days>=7?5:days>=2?2:1;
     const checked=state.last_checked_at&&Number.isFinite(Date.parse(state.last_checked_at))?day(state.last_checked_at):null;
     const nextDueDate=checked?plus(checked,cadenceDays):today;

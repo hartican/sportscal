@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+const html=require('./app-shell-test-utils').readCardApplicationSource();
 const source=html.match(/function buildFixtureResultAvailability\(ev\)\{[\s\S]*?\n\}/)?.[0];assert(source);
 class Node{constructor(tag){this.tag=tag;this.style={};this.children=[];this.attributes={};this.value='';}set textContent(v){this.value=v;}get textContent(){return this.value+this.children.map(n=>n.textContent).join('');}append(...nodes){this.children.push(...nodes);}setAttribute(k,v){this.attributes[k]=v;}}
 const document={createElement:tag=>new Node(tag),createTextNode:text=>({textContent:text})};
