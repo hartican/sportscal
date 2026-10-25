@@ -14,8 +14,13 @@ on:
       - scripts/validate-account-sync-recovery-browser.js
       - scripts/lib/installed-test-network.js
       - scripts/validate-installed-test-network.js
+      - scripts/lib/installed-navigation-observation.js
+      - scripts/validate-installed-navigation-observation.js
       - scripts/validate-diamonds-retained-browser.js
       - scripts/validate-diamonds-retained-schedule.js
+      - scripts/validate-all-sports-offline-browser.js
+      - scripts/lib/all-sports-offline-errors.js
+      - scripts/validate-all-sports-offline-errors.js
       - .github/workflows/installed-upgrade-tests.yml
 
 permissions:
@@ -94,6 +99,17 @@ jobs:
           node scripts/validate-installed-test-network.js
           node scripts/validate-diamonds-retained-schedule.js
           node scripts/validate-installed-pwa-upgrade-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/browser.log"
+      - name: Verify installed All Sports offline behavior
+        env:
+          ALL_SPORTS_OFFLINE_ENGINES: ${{ matrix.browser }}
+          ALL_SPORTS_OFFLINE_CASES: first-use,return
+        run: |
+          export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
+          set -o pipefail
+          node scripts/validate-all-sports-offline-errors.js
+          node scripts/validate-all-sports-offline-browser.js --check-cleanup
+          node scripts/validate-all-sports-offline-browser.js --check-fixtures
+          timeout --signal=TERM --kill-after=5s 150s node scripts/validate-all-sports-offline-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/all-sports-offline.log"
       - name: Verify account recovery and copied diagnostics
         env:
           ACCOUNT_RECOVERY_BROWSER: ${{ matrix.browser }}
