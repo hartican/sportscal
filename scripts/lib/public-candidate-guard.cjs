@@ -6,6 +6,7 @@ const original={};for(const name of ['readFileSync','writeFileSync','renameSync'
 const config=process.env.NS_PUBLIC_CANDIDATE_CONFIG;
 if(!config||!path.isAbsolute(config))throw Error('CANDIDATE_GUARD_CONFIG');
 const cfg=JSON.parse(original.readFileSync(config,'utf8'));
+const descriptors=new Map([[0,false],[1,true],[2,true]]);
 const digest=file=>crypto.createHash('sha256').update(original.readFileSync(file)).digest('hex');
 let internalIo=0;
 function internal(operation){internalIo++;try{return operation();}finally{internalIo--;}}
@@ -21,10 +22,11 @@ function fail(code){ledger(state=>{if(state.violations.length<16)state.violation
 const within=(file,root)=>file===root||file.startsWith(root+path.sep);
 function allowedFile(value,write=false){
  if(internalIo)return value;
- if(typeof value==='number'){if(value<0)return fail('CANDIDATE_FILE_DESCRIPTOR');return value;}
+ if(typeof value==='number'){if(!descriptors.has(value)||write&&!descriptors.get(value))return fail('CANDIDATE_FILE_DESCRIPTOR');return value;}
  let file;try{file=path.resolve(value instanceof URL?require('node:url').fileURLToPath(value):Buffer.isBuffer(value)?value.toString():value);}catch{return fail('CANDIDATE_FILE_PATH');}
  if(file.split(path.sep).some(piece=>piece==='.git'||/^\.env(?:\.|$)/.test(piece)))return fail('CANDIDATE_PRIVATE_FILE');
  if(!within(file,cfg.runtime)&&!within(file,cfg.workspace)&&!(!write&&within(file,cfg.dependencies)))return fail('CANDIDATE_PRIVATE_FILE');
+ if(file===config||file===cfg.state||file.startsWith(cfg.state+'.')||write&&[config,cfg.state].some(control=>within(control,file)))return fail('CANDIDATE_CONTROL_FILE');
  let parent=file;while(!internal(()=>original.existsSync(parent))){const next=path.dirname(parent);if(next===parent)break;parent=next;}
  const resolved=internal(()=>original.realpathSync(parent))+(parent===file?'':path.sep+path.relative(parent,file));
  const runtime=within(resolved,cfg.runtime),workspace=within(resolved,cfg.workspace),dependency=within(resolved,cfg.dependencies);
@@ -35,22 +37,29 @@ function allowedFile(value,write=false){
 const entry=path.resolve(process.argv[1]||''),relative=path.relative(cfg.workspace,entry),args=process.argv.slice(2);
 if(!cfg.frames.some(frame=>frame[0]===relative&&JSON.stringify(frame.slice(1))===JSON.stringify(args))||cfg.modules[entry]!==digest(entry))fail('CANDIDATE_COMMAND_UNQUALIFIED');
 ledger(state=>{if(state.violations.length)throw Error('CANDIDATE_PREVIOUS_VIOLATION');if(state.frames.length>=64)throw Error('CANDIDATE_COMMAND_BUDGET');state.frames.push({file:relative,args});});
+function outputBudget(bytes){const exceeded=ledger(state=>{state.outputBytes=(state.outputBytes||0)+bytes;if(state.outputBytes>2*1024*1024){if(!state.violations.includes('CANDIDATE_OUTPUT_BUDGET'))state.violations.push('CANDIDATE_OUTPUT_BUDGET');return true;}return false;});if(exceeded)throw Error('CANDIDATE_OUTPUT_BUDGET');}
+for(const stream of [process.stdout,process.stderr]){const write=stream.write;stream.write=function(chunk,...rest){outputBudget(Buffer.byteLength(chunk,typeof rest[0]==='string'?rest[0]:undefined));return write.call(this,chunk,...rest);};}
 
 // Reads can only reach public clone files, already pinned JS dependencies, or
 // this invocation's private scratch. No original account/control/env path.
-for(const name of ['readFileSync','readFile','createReadStream','readdirSync','readdir','statSync','stat','lstatSync','lstat','realpathSync','realpath','existsSync','accessSync','access','readlinkSync']){
+for(const name of ['readFileSync','readFile','readdirSync','readdir','statSync','stat','lstatSync','lstat','realpathSync','realpath','existsSync','accessSync','access','readlinkSync']){
  const fn=fs[name];if(fn)fs[name]=function(file,...rest){allowedFile(file);return fn.call(this,file,...rest);};
 }
 for(const name of ['writeFileSync','writeFile','appendFileSync','appendFile','mkdirSync','mkdir','mkdtempSync','mkdtemp','rmSync','rm','unlinkSync','unlink','rmdirSync','rmdir','chmodSync','chmod','utimesSync','utimes','createWriteStream']){
- const fn=fs[name];if(fn)fs[name]=function(file,...rest){allowedFile(file,true);return fn.call(this,file,...rest);};
+const fn=fs[name];if(fn)fs[name]=function(file,...rest){const existingDirectory=name.startsWith('mkdir')&&internal(()=>original.existsSync(file)&&original.lstatSync(file).isDirectory());allowedFile(file,!existingDirectory);if(name==='createWriteStream'&&rest[0]?.fd!==undefined)allowedFile(rest[0].fd,true);return fn.call(this,file,...rest);};
 }
 for(const name of ['renameSync','rename','copyFileSync','copyFile']){
  const fn=fs[name];fs[name]=function(from,to,...rest){allowedFile(from,name.startsWith('rename'));allowedFile(to,true);return fn.call(this,from,to,...rest);};
 }
 for(const name of ['symlinkSync','symlink','linkSync','link'])fs[name]=()=>fail('CANDIDATE_LINK_WRITE');
+for(const name of ['cp','cpSync','watch','watchFile','opendir','opendirSync','openAsBlob','truncate','truncateSync','ftruncate','ftruncateSync','chown','chownSync','lchown','lchownSync','fchown','fchownSync','lchmod','lchmodSync','fchmod','fchmodSync'])if(fs[name])fs[name]=()=>fail('CANDIDATE_FILE_OPERATION_UNQUALIFIED');
 for(const name of ['openSync','open']){
- const fn=fs[name];fs[name]=function(file,flags,...rest){allowedFile(file,typeof flags==='number'?Boolean(flags&(fs.constants.O_WRONLY|fs.constants.O_RDWR|fs.constants.O_CREAT)):!/^r$/.test(flags));return fn.call(this,file,flags,...rest);};
+ const fn=fs[name];fs[name]=function(file,flags,...rest){const write=typeof flags==='number'?Boolean(flags&(fs.constants.O_WRONLY|fs.constants.O_RDWR|fs.constants.O_CREAT)):!/^r$/.test(flags);allowedFile(file,write);if(name==='openSync'){const fd=fn.call(this,file,flags,...rest);descriptors.set(fd,write);return fd;}const callback=rest.pop();return fn.call(this,file,flags,...rest,(error,fd)=>{if(!error)descriptors.set(fd,write);callback(error,fd);});};
 }
+const closeSync=fs.closeSync;fs.closeSync=function(fd){allowedFile(fd);const result=closeSync.call(this,fd);descriptors.delete(fd);return result;};
+const close=fs.close;fs.close=function(fd,callback){allowedFile(fd);return close.call(this,fd,error=>{if(!error)descriptors.delete(fd);callback(error);});};
+for(const name of ['read','readSync','readv','readvSync','fstat','fstatSync','fsync','fsyncSync','fdatasync','fdatasyncSync','futimes','futimesSync','write','writeSync','writev','writevSync']){const fn=fs[name];if(fn)fs[name]=function(fd,...rest){allowedFile(fd,/^(?:write|futimes)/.test(name));return fn.call(this,fd,...rest);};}
+const createReadStream=fs.createReadStream;fs.createReadStream=function(file,options){if(options?.fd!==undefined)allowedFile(options.fd);else allowedFile(file);return createReadStream.call(this,file,options);};
 for(const name of Object.keys(fs.promises)){
  const fn=fs.promises[name];if(typeof fn!=='function')continue;
  fs.promises[name]=async function(file,...rest){
@@ -71,11 +80,12 @@ globalThis.fetch=async(input,options={})=>{
  if((options.method||input?.method||'GET')!=='GET'||options.body||input?.body)return fail('CANDIDATE_MANAGED_MUTATION');
  for(const [key]of new Headers(options.headers||input?.headers||{}))if(!['accept'].includes(key))return fail('CANDIDATE_CREDENTIAL_HEADER');
  ledger(state=>{if(state.requests!==0||Date.now()>cfg.deadline){state.violations.push('CANDIDATE_REQUEST_BUDGET');return;}state.requests++;});
- const state=JSON.parse(original.readFileSync(cfg.state,'utf8'));if(state.violations.length)throw Error('CANDIDATE_REQUEST_BUDGET');
+ const state=internal(()=>JSON.parse(original.readFileSync(cfg.state,'utf8')));if(state.violations.length)throw Error('CANDIDATE_REQUEST_BUDGET');
  return new Response(cfg.body,{status:200,headers:{'content-type':'application/json'}});
 };
 for(const name of ['node:http','node:https'])for(const method of ['get','request'])require(name)[method]=()=>fail('CANDIDATE_NATIVE_TRANSPORT_UNQUALIFIED');
 require('node:net').Socket.prototype.connect=()=>fail('CANDIDATE_RAW_SOCKET');
+require('node:net').Server.prototype.listen=()=>fail('CANDIDATE_RAW_SOCKET');
 require('node:tls').connect=()=>fail('CANDIDATE_RAW_TLS');
 for(const name of ['node:http2','node:dgram'])for(const key of Object.keys(require(name)))if(typeof require(name)[key]==='function')require(name)[key]=()=>fail('CANDIDATE_ALTERNATE_TRANSPORT');
 require('node:worker_threads').Worker=class{constructor(){fail('CANDIDATE_WORKER');}};
@@ -86,6 +96,7 @@ const load=Module._load;
 const builtins=new Set(['assert','assert/strict','fs','fs/promises','path','os','crypto','util','util/types','vm','events','stream','stream/web','stream/promises','module','child_process','url','perf_hooks','buffer','querystring','zlib','http','https','http2','dgram','net','tls','worker_threads','diagnostics_channel','timers/promises']);
 if(process.getBuiltinModule){const get=process.getBuiltinModule.bind(process);process.getBuiltinModule=name=>{if(!builtins.has(name.replace(/^node:/,'')))return fail('CANDIDATE_NATIVE_MODULE_UNQUALIFIED');return get(name);};}
 process.dlopen=()=>fail('CANDIDATE_NATIVE_MODULE_UNQUALIFIED');
+if(process._linkedBinding)process._linkedBinding=()=>fail('CANDIDATE_NATIVE_BINDING');
 if(process.execve)process.execve=()=>fail('CANDIDATE_DESCENDANT_UNQUALIFIED');
 Module._load=function(name,parent,...rest){
  const file=Module._resolveFilename(name,parent);

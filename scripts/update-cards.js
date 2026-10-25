@@ -71,7 +71,7 @@ function runStep(args) {
 }
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
-  if(argv.some(arg=>arg==='--public-candidate'||arg.startsWith('--candidate-')))return require('./lib/public-candidate').options(argv,env);
+  if(argv.some(arg=>arg.startsWith('--public-candidate')||arg.startsWith('--candidate-')))return require('./lib/public-candidate').options(argv,env);
   if(argv.includes('--retained-coverage')){
     const codeArgs=argv.filter(arg=>arg.startsWith('--codes=')),captures=argv.filter(arg=>arg.startsWith('--capture=')),allowed=new Set(['--retained-coverage','--local-only','-p']);
     if(!argv.includes('--local-only')||codeArgs.length!==1||new Set(argv).size!==argv.length||argv.some(arg=>!allowed.has(arg)&&!arg.startsWith('--codes=')&&!arg.startsWith('--capture=')))throw Error('Retained coverage requires only declared codes, optional Football capture and local-only; no source steps ran');

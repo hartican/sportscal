@@ -3,6 +3,7 @@
 // This is not a live collector, managed publisher, or scheduler activation.
 const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),crypto=require('node:crypto'),cp=require('node:child_process');
 const ROOT=path.resolve(__dirname,'../..');
+const SAFE_PATH=path.dirname(process.execPath)+':/usr/bin:/bin';
 const URL='https://schedule.nbl.com.au/api/calendar/schedule?league=nbl&limit=500&offset=0&year=2026';
 const MAX_BODY=2*1024*1024,MAX_ARTIFACT=32*1024*1024;
 const sha=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
@@ -33,7 +34,7 @@ function capability(file){
  if(value.schemaVersion!=='canonical-public-candidate.v1')refuse('CANDIDATE_INPUT_SCHEMA','schemaVersion');
  if(value.target!=='quick:nbl')refuse('CANDIDATE_UNQUALIFIED_TARGET',value.target==='full'?'full: private Follow snapshot, ranking PDFKit and shared aggregate/export closure unqualified':'quick: sync-live-coverage source-scoped export and complete provider closure unqualified');
  if(value.provenance!=='constructed-fixture')refuse('CANDIDATE_UNQUALIFIED_PROVENANCE','Live/current producer evidence needs DEPLOY qualification');
- if(!/^[a-f0-9]{40}$/.test(value.sourceRevision)||!Number.isFinite(Date.parse(value.observedAt)))refuse('CANDIDATE_INPUT_SCHEMA','source revision/observation');
+ if(typeof value.sourceRevision!=='string'||!/^[a-f0-9]{40}$/.test(value.sourceRevision)||typeof value.observedAt!=='string'||!Number.isFinite(Date.parse(value.observedAt))||new Date(value.observedAt).toISOString()!==value.observedAt)refuse('CANDIDATE_INPUT_SCHEMA','source revision/observation');
  if(!Number.isInteger(value.processMs)||value.processMs<1000||value.processMs>60000||!Number.isInteger(value.maxArtifactBytes)||value.maxArtifactBytes<1024||value.maxArtifactBytes>MAX_ARTIFACT)refuse('CANDIDATE_BUDGET');
  fields(value.response,['url','path','sha256','bytes'],'response');
  const r=value.response;
@@ -43,18 +44,23 @@ function capability(file){
  const payload=JSON.parse(body);
  fields(payload,['leaguePath','year','fallback','offset','total','seasons_meta','matches'],'NBL public projection');
  if(!Array.isArray(payload.seasons_meta)||!Array.isArray(payload.matches))refuse('CANDIDATE_INPUT_SCHEMA','NBL arrays');
- for(const season of payload.seasons_meta)fields(season,['id','name','season_type','match_count'],'NBL season');
+ const text=(value,label,optional=false)=>{if(optional&&(value===undefined||value===null))return;if(typeof value!=='string'||value.length>200||/[\x00-\x1f\x7f]/.test(value))refuse('CANDIDATE_INPUT_SCHEMA',label);};
+ const integer=(value,label,optional=false)=>{if(optional&&(value===undefined||value===null))return;if(!Number.isSafeInteger(value)||value<0)refuse('CANDIDATE_INPUT_SCHEMA',label);};
+ for(const season of payload.seasons_meta){fields(season,['id','name','season_type','match_count'],'NBL season');for(const key of ['id','name','season_type'])text(season[key],'season '+key);integer(season.match_count,'season count');}
  for(const match of payload.matches){
   fields(match,['id','season_id','season_type','starts_at_ms','round_label','phase','venue_name','home','away','home_score','away_score','primary_broadcaster','secondary_broadcaster'],'NBL public fixture');
-  for(const team of [match.home,match.away])fields(team,['name','position','wins','losses'],'NBL public team');
-  for(const broadcaster of [match.primary_broadcaster,match.secondary_broadcaster].filter(Boolean))fields(broadcaster,['label'],'NBL broadcaster');
+  for(const key of ['id','season_id','season_type','round_label','phase'])text(match[key],'fixture '+key);
+  text(match.venue_name,'venue',true);
+  for(const key of ['starts_at_ms','home_score','away_score'])integer(match[key],'fixture '+key,key!=='starts_at_ms');
+  for(const team of [match.home,match.away]){fields(team,['name','position','wins','losses'],'NBL public team');text(team.name,'team name');for(const key of ['position','wins','losses'])integer(team[key],'team '+key,true);}
+  for(const broadcaster of [match.primary_broadcaster,match.secondary_broadcaster].filter(value=>value!==undefined&&value!==null)){fields(broadcaster,['label'],'NBL broadcaster');text(broadcaster.label,'broadcaster label');}
  }
  // Reuse actual source identity/completeness/result validation before writes.
  require('../refresh-nbl-schedule').build(payload,value.observedAt,[]);
  return {...value,body:body.toString('utf8')};
 }
 function git(args,options={}){
- const result=cp.spawnSync('git',args,{cwd:ROOT,encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,GIT_CONFIG_NOSYSTEM:'1',GIT_CONFIG_GLOBAL:'/dev/null'},...options});
+ const result=cp.spawnSync('/usr/bin/git',['-c','core.fsmonitor=false','-c','core.hooksPath=/dev/null',...args],{cwd:ROOT,encoding:'utf8',env:{PATH:SAFE_PATH,LANG:'en_AU.UTF-8',GIT_CONFIG_NOSYSTEM:'1',GIT_CONFIG_GLOBAL:'/dev/null'},...options});
  if(result.status!==0)refuse('CANDIDATE_GIT',String(result.stderr||'Local Git failed').slice(-300));
  return result.stdout.trim();
 }
@@ -63,11 +69,12 @@ function frames(){
  return [...new Map([
   ['scripts/update-cards.js','--quick','--source=nbl','--local-only'],
   ['scripts/validate-fixture-history-retention.js'],['scripts/quick-results.js','--source=nbl'],['scripts/refresh-nbl-schedule.js'],
+  ['scripts/build-follow-directories.js'],['scripts/build-follow-directories.js','--check'],
   ...projections([]),...projections(['NBL 1']),...projections(['NBL standings']),
  ].map(frame=>[JSON.stringify(frame),frame])).values()];
 }
 const publicPath=name=>/^(?:api|assets|config|data|feeds|lib|scripts|styles)\//.test(name)||['index.html','service-worker.js','app-version.json','package.json','package-lock.json'].includes(name);
-const generatedPath=name=>/^(?:data|feeds)\//.test(name)||/^assets\/js\/(?:app-shell-runtime|deferred-[a-z-]+|optional-calendar-sync)\.js$/.test(name);
+const generatedPath=name=>/^(?:data|feeds)\//.test(name)||/^assets\/js\/(?:app-shell-runtime|deferred-[a-z-]+|calendar-sync-ui)\.js$/.test(name);
 function prepare({input,output}){
  credentials(process.env);
  const cap=capability(input),head=git(['rev-parse','HEAD']);
@@ -81,17 +88,20 @@ function prepare({input,output}){
  const dependencyHashes=Object.fromEntries(dependencyFiles.map(file=>[fs.realpathSync(file),sha(fs.readFileSync(file))]));
  const dependencies=fs.realpathSync(path.join(ROOT,'node_modules'));
  if(require(path.join(dependencies,'terser/package.json')).version!=='5.44.0')refuse('CANDIDATE_DEPENDENCY','Pinned Terser required');
- const files=git(['ls-files','-z']).split('\0').filter(publicPath),baseline=new Map();
+ const tree=git(['ls-tree','-r','-z',head]).split('\0').filter(Boolean).map(row=>{const [metadata,name]=row.split('\t');const [mode,type,object]=metadata.split(' ');return {name,mode,type,object};}).filter(row=>publicPath(row.name));
+ const baseline=new Map();
  const scratch=fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(),'ns-public-candidate-')));fs.chmodSync(scratch,0o700);
  const workspace=path.join(scratch,'workspace'),runtime=path.join(scratch,'runtime');
  fs.mkdirSync(workspace);fs.mkdirSync(runtime);fs.mkdirSync(output,{mode:0o700});
  let child,blocked,ledger,artifact;
  try{
   const modules={};
-  for(const name of files){
+  for(const {name,mode,type,object}of tree){
    const file=path.join(ROOT,name),s=fs.lstatSync(file);
    if(!s.isFile()||fs.realpathSync(file)!==file)refuse('CANDIDATE_SOURCE_PATH',name);
-   const bytes=fs.readFileSync(file),dest=path.join(workspace,name);baseline.set(name,sha(bytes));
+   const bytes=fs.readFileSync(file),dest=path.join(workspace,name);
+   if(type!=='blob'||!['100644','100755'].includes(mode)||crypto.createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex')!==object||Boolean(s.mode&0o111)!==(mode==='100755'))refuse('CANDIDATE_SOURCE_REVISION',name);
+   baseline.set(name,sha(bytes));
    fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(file,dest,fs.constants.COPYFILE_FICLONE);
    if(/\.(?:js|cjs|mjs)$/.test(name))modules[dest]=sha(bytes);
   }
@@ -99,7 +109,8 @@ function prepare({input,output}){
   const state=path.join(runtime,'ledger.json'),config=path.join(runtime,'capability.json'),guard=path.join(workspace,'scripts/lib/public-candidate-guard.cjs');
   fs.writeFileSync(state,JSON.stringify({requests:0,frames:[],violations:[]}),{mode:0o600});
   fs.writeFileSync(config,JSON.stringify({workspace,runtime,state,modules,dependencyHashes,dependencies,frames:frames(),url:URL,body:cap.body,observedAt:cap.observedAt,deadline:Date.now()+cap.processMs}),{mode:0o600});
-  const env={PATH:process.env.PATH,LANG:process.env.LANG,TMPDIR:runtime,NS_PUBLIC_CANDIDATE_CONFIG:config,NODE_OPTIONS:'--require='+JSON.stringify(guard),REFRESH_REPORT:path.join(runtime,'refresh.json'),QUICK_RESULTS_REPORT:path.join(runtime,'quick.json')};
+  fs.writeFileSync(path.join(output,'source-manifest.json'),JSON.stringify({sourceRevision:head,files:[...baseline].map(([path,sha256])=>({path,sha256})),dependencies:Object.entries(dependencyHashes).map(([file,sha256])=>({path:path.relative(dependencies,file),sha256})),node:process.version,terser:'5.44.0'},null,2)+'\n',{mode:0o600});
+  const env={PATH:SAFE_PATH,LANG:'en_AU.UTF-8',TMPDIR:runtime,NS_PUBLIC_CANDIDATE_CONFIG:config,NODE_OPTIONS:'--require='+JSON.stringify(guard),REFRESH_REPORT:path.join(runtime,'refresh.json'),QUICK_RESULTS_REPORT:path.join(runtime,'quick.json')};
   const stdout=fs.openSync(path.join(runtime,'stdout'),'w',0o600),stderr=fs.openSync(path.join(runtime,'stderr'),'w',0o600);
   try{child=cp.spawnSync(process.execPath,[path.join(workspace,'scripts/update-cards.js'),'--quick','--source=nbl','--local-only'],{cwd:workspace,env,stdio:['ignore',stdout,stderr],timeout:cap.processMs,killSignal:'SIGKILL',detached:true});}
   finally{fs.closeSync(stdout);fs.closeSync(stderr);if(child?.pid)try{process.kill(-child.pid,'SIGKILL');}catch(error){if(error.code!=='ESRCH')throw error;}}
@@ -127,7 +138,7 @@ function prepare({input,output}){
   fs.writeFileSync(path.join(gitdir,'objects/info/alternates'),path.resolve(ROOT,git(['rev-parse','--git-path','objects']))+'\n');
   const g=args=>git(['--git-dir='+gitdir,'--work-tree='+workspace,...args]);
   g(['read-tree',head]);if(changed.length)g(['add','--',...changed.map(row=>row.path)]);
-  const tree=g(['write-tree']),revision=git(['--git-dir='+gitdir,'-c','user.name=Canonical candidate','-c','user.email=canonical-candidate@invalid','-c','commit.gpgsign=false','commit-tree',tree,'-p',head],{input:'Constructed public replay candidate; not current source acceptance\n'});
+  const candidateTree=g(['write-tree']),revision=git(['--git-dir='+gitdir,'-c','user.name=Canonical candidate','-c','user.email=canonical-candidate@invalid','-c','commit.gpgsign=false','commit-tree',candidateTree,'-p',head],{input:'Constructed public replay candidate; not current source acceptance\n'});
   g(['update-ref','refs/heads/'+branch,revision]);
   const bundle=path.join(output,'candidate.bundle');g(['bundle','create',bundle,'refs/heads/'+branch,'^'+head]);
   if(fs.statSync(bundle).size>cap.maxArtifactBytes)refuse('CANDIDATE_ARTIFACT_BUDGET');
