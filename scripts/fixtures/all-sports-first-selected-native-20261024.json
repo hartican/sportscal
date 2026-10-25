@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "all-sports-mock-native-replay.v1",
+  "evidence": "Synthetic fixture from the existing browser harness; captured failed5b0215c9 controlled press. This is not a provider result or physical-device proof.",
+  "commit": "5b0215c96561c8da34330b98a6954b2112f16fa3",
+  "harnessSha256": "0f59036d5233fc6d2d691e22c039a7c5ed5054560422d6e45eb088d1e112f555",
+  "now": "2026-10-24T04:00:00.000Z",
+  "published": {
+    "id": "fixture:tennis:press-summary",
+    "eventId": "fixture:tennis:press-summary",
+    "key": "tennis",
+    "sport": "TENNIS",
+    "competitionName": "Native ATP Masters",
+    "name": "Native Home v Native Away",
+    "date": "2026-10-24",
+    "status": "live",
+    "startTimeUtc": "2026-10-24T03:00:00.000Z",
+    "homeParticipantId": "team:tennis:press-summary-home",
+    "awayParticipantId": "team:tennis:press-summary-away",
+    "participantIds": [
+      "team:tennis:press-summary-home",
+      "team:tennis:press-summary-away"
+    ],
+    "sourceCheckedAt": "2026-10-24T04:00:00.000Z",
+    "sourceUrl": "https://organiser.example/schedule",
+    "statusCheckedAt": "2026-10-24T04:00:00.000Z",
+    "scoreCheckedAt": "2026-10-24T04:00:00.000Z",
+    "homeScore": null,
+    "awayScore": null,
+    "participants": [
+      {
+        "id": "team:tennis:press-summary-home",
+        "displayName": "Native Home"
+      },
+      {
+        "id": "team:tennis:press-summary-away",
+        "displayName": "Native Away"
+      }
+    ],
+    "tournamentLevel": "ATP1000",
+    "sets": [
+      {
+        "home": 6,
+        "away": 4
+      }
+    ],
+    "games": {
+      "home": 2,
+      "away": 1
+    }
+  },
+  "globalSources": [],
+  "selected": {
+    "events": [
+      {
+        "id": "fixture:tennis:press-summary",
+        "eventId": "fixture:tennis:press-summary",
+        "key": "tennis",
+        "sport": "TENNIS",
+        "competitionName": "Native ATP Masters",
+        "name": "Native Home v Native Away",
+        "date": "2026-10-24",
+        "status": "live",
+        "startTimeUtc": "2026-10-24T03:00:00.000Z",
+        "homeParticipantId": "team:tennis:press-summary-home",
+        "awayParticipantId": "team:tennis:press-summary-away",
+        "participantIds": [
+          "team:tennis:press-summary-home",
+          "team:tennis:press-summary-away"
+        ],
+        "sourceCheckedAt": "2026-10-24T04:00:00.000Z",
+        "sourceUrl": "https://organiser.example/schedule",
+        "statusCheckedAt": "2026-10-24T04:00:00.000Z",
+        "scoreCheckedAt": "2026-10-24T04:00:00.000Z",
+        "homeScore": null,
+        "awayScore": null,
+        "participants": [
+          {
+            "id": "team:tennis:press-summary-home",
+            "displayName": "Native Home"
+          },
+          {
+            "id": "team:tennis:press-summary-away",
+            "displayName": "Native Away"
+          }
+        ],
+        "tournamentLevel": "ATP1000",
+        "sets": [
+          {
+            "home": 6,
+            "away": 4
+          }
+        ],
+        "games": {
+          "home": 2,
+          "away": 1
+        },
+        "manualEstimateHeld": false,
+        "canonicalEventId": "fixture:tennis:press-summary",
+        "sourceEventIds": [
+          "fixture:tennis:press-summary"
+        ],
+        "displayTitleCompact": "Native Home v Native Away",
+        "time": "14:00",
+        "timePrecision": "exact",
+        "venue": null,
+        "broadcaster": "",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "representativeCountryCodes": [],
+        "broadcastOptions": [],
+        "broadcasterIds": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "consensusTags": []
+      }
+    ],
+    "fixtures": [
+      {
+        "court": null,
+        "tournamentId": null,
+        "statusSourceType": null,
+        "format": null,
+        "actualStartTimeUtc": null,
+        "livePlayObservedAt": null,
+        "id": "fixture:tennis:press-summary",
+        "sport": "tennis",
+        "status": "live",
+        "homeParticipantId": "team:tennis:press-summary-home",
+        "awayParticipantId": "team:tennis:press-summary-away",
+        "startTimeUtc": "2026-10-24T03:00:00.000Z",
+        "restartTimeUtc": null,
+        "restartSourceUrl": null,
+        "restartSourceCheckedAt": null,
+        "statusFactObservedAt": null,
+        "pauseObservation": null,
+        "cricketBalance": null,
+        "completedAt": null,
+        "scoreCheckedAt": "2026-10-24T04:00:00.000Z",
+        "statusCheckedAt": "2026-10-24T04:00:00.000Z",
+        "checkedAt": "2026-10-24T04:00:00.000Z",
+        "stale": false,
+        "score": {
+          "sets": [
+            {
+              "home": 6,
+              "away": 4
+            }
+          ],
+          "games": {
+            "home": 2,
+            "away": 1
+          },
+          "home": null,
+          "away": null
+        },
+        "officialUrl": "https://organiser.example/schedule",
+        "scorecardUrl": null,
+        "scorecardOfficial": false,
+        "statusText": null,
+        "clock": null,
+        "incidents": []
+      }
+    ]
+  }
+}

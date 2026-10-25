@@ -206,5 +206,5 @@
   const entries=rows.map(r=>({id:'entry:'+r[number],number:r[number],drivers:[r[driver]],position:r[0],...Object.fromEntries(r.map((v,i)=>['value'+i,v]))}));
   return {...fallback,officialUrl:safeUrl(results.sourceUrl)||fallback.officialUrl,checkedAt:results.checkedAt||e.scoreCheckedAt||null,phase:e.resultStatus==='official'?'official-result':'provisional-result',statusText:e.resultStatus==='official'?'Official classification':'Provisional classification',columns:columns.map((label,i)=>[label,'value'+i]),entries};
  }
- return {id,sport,final,interrupted,halftime,interruption,unexpected,interruptionPresentation,pausedLabel,supported,completion,observed,liveState,section,courtKey,conflicts,eligible,select,interval,compact,dayFields,observation,racingDetail,racingSummary};
+ return {id,sport,final,interrupted,halftime,interruption,unexpected,interruptionPresentation,pausedLabel,supported,completion,observed,liveState,section,courtKey,conflicts,contest,eligible,select,interval,compact,dayFields,observation,racingDetail,racingSummary};
 });
