@@ -5,7 +5,7 @@ const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),cryp
 const ROOT=path.resolve(__dirname,'../..');
 const SAFE_PATH=path.dirname(process.execPath)+':/usr/bin:/bin';
 const URL='https://schedule.nbl.com.au/api/calendar/schedule?league=nbl&limit=500&offset=0&year=2026';
-const MAX_BODY=2*1024*1024,MAX_ARTIFACT=32*1024*1024;
+const MAX_BODY=2*1024*1024,MAX_ARTIFACT=32*1024*1024,MAX_GENERATED=128*1024*1024;
 const sha=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 function refuse(code,detail=''){throw Error(code+(detail?': '+detail:''));}
 function fields(value,allowed,label){
@@ -30,12 +30,13 @@ function readFile(file,maximum){
 }
 function capability(file){
  const value=JSON.parse(readFile(file,16384));
- fields(value,['schemaVersion','target','sourceRevision','observedAt','provenance','response','processMs','maxArtifactBytes'],'capability');
+ fields(value,['schemaVersion','target','sourceRevision','observedAt','provenance','response','processMs','maxArtifactBytes','maxGeneratedBytes'],'capability');
  if(value.schemaVersion!=='canonical-public-candidate.v1')refuse('CANDIDATE_INPUT_SCHEMA','schemaVersion');
  if(value.target!=='quick:nbl')refuse('CANDIDATE_UNQUALIFIED_TARGET',value.target==='full'?'full: private Follow snapshot, ranking PDFKit and shared aggregate/export closure unqualified':'quick: sync-live-coverage source-scoped export and complete provider closure unqualified');
  if(value.provenance!=='constructed-fixture')refuse('CANDIDATE_UNQUALIFIED_PROVENANCE','Live/current producer evidence needs DEPLOY qualification');
  if(typeof value.sourceRevision!=='string'||!/^[a-f0-9]{40}$/.test(value.sourceRevision)||typeof value.observedAt!=='string'||!Number.isFinite(Date.parse(value.observedAt))||new Date(value.observedAt).toISOString()!==value.observedAt)refuse('CANDIDATE_INPUT_SCHEMA','source revision/observation');
  if(!Number.isInteger(value.processMs)||value.processMs<1000||value.processMs>60000||!Number.isInteger(value.maxArtifactBytes)||value.maxArtifactBytes<1024||value.maxArtifactBytes>MAX_ARTIFACT)refuse('CANDIDATE_BUDGET');
+ if(!Number.isInteger(value.maxGeneratedBytes)||value.maxGeneratedBytes<1024||value.maxGeneratedBytes>MAX_GENERATED)refuse('CANDIDATE_BUDGET');
  fields(value.response,['url','path','sha256','bytes'],'response');
  const r=value.response;
  if(r.url!==URL||r.path!=='nbl-public-input.json'||!/^[a-f0-9]{64}$/.test(r.sha256)||!Number.isInteger(r.bytes)||r.bytes<1||r.bytes>MAX_BODY)refuse('CANDIDATE_PUBLIC_INPUT','Only bounded exact NBL public projection input is qualified');
@@ -59,8 +60,9 @@ function capability(file){
  require('../refresh-nbl-schedule').build(payload,value.observedAt,[]);
  return {...value,body:body.toString('utf8')};
 }
+const gitEnv={PATH:SAFE_PATH,LANG:'en_AU.UTF-8',GIT_CONFIG_NOSYSTEM:'1',GIT_CONFIG_GLOBAL:'/dev/null'};
 function git(args,options={}){
- const result=cp.spawnSync('/usr/bin/git',['-c','core.fsmonitor=false','-c','core.hooksPath=/dev/null',...args],{cwd:ROOT,encoding:'utf8',env:{PATH:SAFE_PATH,LANG:'en_AU.UTF-8',GIT_CONFIG_NOSYSTEM:'1',GIT_CONFIG_GLOBAL:'/dev/null'},...options});
+ const result=cp.spawnSync('/usr/bin/git',['-c','core.fsmonitor=false','-c','core.hooksPath=/dev/null',...args],{cwd:ROOT,encoding:'utf8',env:gitEnv,...options});
  if(result.status!==0)refuse('CANDIDATE_GIT',String(result.stderr||'Local Git failed').slice(-300));
  return result.stdout.trim();
 }
@@ -92,9 +94,9 @@ function prepare({input,output}){
  const baseline=new Map();
  const scratch=fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(),'ns-public-candidate-')));fs.chmodSync(scratch,0o700);
  const workspace=path.join(scratch,'workspace'),runtime=path.join(scratch,'runtime');
- fs.mkdirSync(workspace);fs.mkdirSync(runtime);fs.mkdirSync(output,{mode:0o700});
- let child,blocked,ledger,artifact;
+ let child,blocked,ledger,artifact,outputSummary;
  try{
+  fs.mkdirSync(workspace);fs.mkdirSync(runtime);fs.mkdirSync(output,{mode:0o700});
   const modules={};
   for(const {name,mode,type,object}of tree){
    const file=path.join(ROOT,name),s=fs.lstatSync(file);
@@ -128,7 +130,8 @@ function prepare({input,output}){
    }
   }}visit(workspace);
   for(const name of baseline.keys())if(!fs.existsSync(path.join(workspace,name)))refuse('CANDIDATE_REMOVAL_UNQUALIFIED',name);
-  if(changed.reduce((n,f)=>n+f.bytes,0)>cap.maxArtifactBytes)refuse('CANDIDATE_ARTIFACT_BUDGET');
+  outputSummary={files:changed.length,generatedBytes:changed.reduce((n,f)=>n+f.bytes,0),maxGeneratedBytes:cap.maxGeneratedBytes,maxArtifactBytes:cap.maxArtifactBytes};
+  if(outputSummary.generatedBytes>cap.maxGeneratedBytes)refuse('CANDIDATE_GENERATED_BUDGET');
   const branch='codex/canonical-candidate-'+sha(JSON.stringify({head,receipt:cap.response.sha256,changes:changed})).slice(0,16);
   artifact={branch,baseSha:head,changed,publication:{state:'local-staging-intent-only',managedWrites:0,requires:'DEPLOY review and separately allocated intake; no fake publication ACK'}};
   fs.writeFileSync(path.join(output,'staging-intent.json'),JSON.stringify(artifact,null,2)+'\n',{mode:0o600});
@@ -138,7 +141,7 @@ function prepare({input,output}){
   fs.writeFileSync(path.join(gitdir,'objects/info/alternates'),path.resolve(ROOT,git(['rev-parse','--git-path','objects']))+'\n');
   const g=args=>git(['--git-dir='+gitdir,'--work-tree='+workspace,...args]);
   g(['read-tree',head]);if(changed.length)g(['add','--',...changed.map(row=>row.path)]);
-  const candidateTree=g(['write-tree']),revision=git(['--git-dir='+gitdir,'-c','user.name=Canonical candidate','-c','user.email=canonical-candidate@invalid','-c','commit.gpgsign=false','commit-tree',candidateTree,'-p',head],{input:'Constructed public replay candidate; not current source acceptance\n'});
+  const candidateTree=g(['write-tree']),revision=git(['--git-dir='+gitdir,'-c','user.name=Canonical candidate','-c','user.email=canonical-candidate@invalid','-c','commit.gpgsign=false','commit-tree',candidateTree,'-p',head],{input:'Constructed public replay candidate; not current source acceptance\n',env:{...gitEnv,GIT_AUTHOR_DATE:cap.observedAt,GIT_COMMITTER_DATE:cap.observedAt}});
   g(['update-ref','refs/heads/'+branch,revision]);
   const bundle=path.join(output,'candidate.bundle');g(['bundle','create',bundle,'refs/heads/'+branch,'^'+head]);
   if(fs.statSync(bundle).size>cap.maxArtifactBytes)refuse('CANDIDATE_ARTIFACT_BUDGET');
@@ -147,7 +150,7 @@ function prepare({input,output}){
  finally{
   try{
    const tail=file=>{if(!fs.existsSync(file))return '';const fd=fs.openSync(file,'r');try{const size=fs.fstatSync(fd).size,bytes=Buffer.alloc(Math.min(size,65536));fs.readSync(fd,bytes,0,bytes.length,Math.max(0,size-bytes.length));return require('./refresh-report').diagnosticTail(bytes.toString());}finally{fs.closeSync(fd);}};
-   const handover={schemaVersion:'canonical-candidate-handover.v1',sourceRevision:head,inputSha256:sha(fs.readFileSync(input)),sourceReceipt:{url:cap.response.url,sha256:cap.response.sha256,observedAt:cap.observedAt,provenance:cap.provenance},state:blocked?'blocked':'prepared-fixture-replay',currentSourceAcceptance:false,managedWrites:0,remotePushes:0,deployment:false,scheduleChanged:false,childStatus:child?.status??null,childSignal:child?.signal||null,ledger:ledger||null,artifact:blocked?null:artifact,blocker:blocked?.message||null,diagnostic:tail(path.join(runtime,'stderr')),nextOwner:'DEPLOY existing-client intake; no worker PR scope or automatic promotion'};
+   const handover={schemaVersion:'canonical-candidate-handover.v1',sourceRevision:head,inputSha256:sha(fs.readFileSync(input)),sourceReceipt:{url:cap.response.url,sha256:cap.response.sha256,observedAt:cap.observedAt,provenance:cap.provenance},state:blocked?'blocked':'prepared-fixture-replay',currentSourceAcceptance:false,managedWrites:0,remotePushes:0,deployment:false,scheduleChanged:false,childStatus:child?.status??null,childSignal:child?.signal||null,ledger:ledger||null,outputSummary:outputSummary||null,artifact:blocked?null:artifact,blocker:blocked?.message||null,diagnostic:tail(path.join(runtime,'stderr')),nextOwner:'DEPLOY existing-client intake; no worker PR scope or automatic promotion'};
    if(blocked&&fs.existsSync(path.join(output,'candidate.bundle')))fs.unlinkSync(path.join(output,'candidate.bundle'));
    fs.writeFileSync(path.join(output,'handover.json'),JSON.stringify(handover,null,2)+'\n',{mode:0o600});
   }catch(error){if(!blocked)blocked=error;}
