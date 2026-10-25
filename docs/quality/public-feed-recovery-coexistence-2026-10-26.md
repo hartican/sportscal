@@ -1,6 +1,6 @@
 # Public Feed recovery coexistence qualification
 
-26 October 2026, Sydney. **Test-only source prepared; the one allocated local PostgreSQL pair is pending.** Full Public Feed remains Working, after full All Sports. This is not native, managed, hosted, device or release acceptance.
+26 October 2026, Sydney. **The scoped SQL coexistence test packet is qualified locally and ready for ROOT's existing review/integration lane.** Full Public Feed remains Working, after full All Sports. This is not native, managed, hosted, device or release acceptance.
 
 ## Exact source and scope
 
@@ -36,6 +36,21 @@ PGLITE_MODULE=pglite-pg17 node scripts/validate-public-comments-database.js
 ```
 
 The source-only flag exits before loading PGlite. The normal pair runs PostgreSQL 18 then 17 sequentially once at frozen source, stopping on the first RED and retaining its receipt/log. Preserve the existing 4.5 GiB entry/3 GiB running disk reserves, 120-second child timeout and bounded output. Historical eight SQL modes are not rerun for this addition. Any retry requires an identified causal source correction; a product defect returns to ROOT before broadening the feature scope.
+
+## Observed result
+
+The allocated normal pair ran once, sequentially, on frozen test source `4ccb4913` with Node 24.21.0. Both exited 0 without a retry, setup failure or product-source correction:
+
+| Engine reported by the actual connection | Module | Elapsed | Result |
+| --- | --- | ---: | --- |
+| PostgreSQL 18.3 / `180003` | PGlite 0.5.8 | 3,353 ms | Existing full SQL harness plus 17 completed coexistence group invocations passed |
+| PostgreSQL 17.5 / `170005` | existing `pglite-pg17` alias | 2,093 ms | Existing full SQL harness plus 17 completed coexistence group invocations passed |
+
+Those 17 invocations are six behavior groups before migration, one migration-preservation group, the same six groups after migration, one blocked-save group, one completed-cascade rollback group and two actual Auth deletions. They are not 17 native cases or a claim of 17 distinct group names. The first deletion checks the peer's entire state; the second completes that peer's erasure.
+
+Both stderr logs are empty. The local child preload forbade outbound HTTP/fetch/socket/DNS calls; no block fired. Entry space was 13,666,349,056 bytes and the existing disk/time/output caps were retained. Both children and in-memory databases closed normally; no browser, VM, container, download, managed query or shared operation ran.
+
+External proof: `/Users/jackhartican/Documents/AI/Codex/public-feed-20261024/recovery-coexistence-20261026/2026-10-25T23-08-21-588Z/receipt.json`, with separate per-engine stdout/stderr logs and the actual offline preload. The receipt binds the exact full source SHA/tree, six source hashes, actual connection versions, commands/modules, duration, output hashes and completed group invocations. Only this quality record changes after the paired run; code-source hashes are retained in the publication handover.
 
 ## Handover and remaining gates
 
