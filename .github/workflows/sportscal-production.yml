@@ -305,6 +305,11 @@ jobs:
           node scripts/validate-fixture-history-retention.js
           node scripts/validate-live-fixture-api.js
           node scripts/validate-global-fixture-public.js
+          node scripts/validate-grouped-fixture-transport.js
+          node scripts/validate-grouped-fixture-view.js
+          PGLITE_MODULE=pglite-pg17 node scripts/validate-grouped-fixture-view.js
+          PGLITE_MODULE=pglite-pg17 node scripts/validate-grouped-fixture-diagnostic.js
+          node scripts/validate-global-app-adapter.js
           node scripts/validate-laver-cup.js
       - name: Verify shared fixture publication input
         env:
@@ -315,6 +320,7 @@ jobs:
           node scripts/validate-live-coverage-publication.js --live-read
           node scripts/validate-account-erasure-preflight.js --live-read
           node scripts/verify-near-app-adapter.js --live-read
+          node scripts/verify-global-app-adapter.js --live-read
       - name: Bind project and preserve current production
         run: node scripts/prepare-production-release.js
       - name: Deploy or reuse exact release

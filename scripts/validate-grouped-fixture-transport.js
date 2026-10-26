@@ -33,6 +33,9 @@ async function response(handler,url){const res={headers:{},setHeader(k,v){this.h
  verify(()=>{assert.equal(candidate.calls.length,2);assert.deepEqual(candidate.calls[1].options.headers,groups.HEADERS);assert(candidate.calls.every(c=>c.options.timeoutMs<=6000));});
  verify(()=>assert.deepEqual(overlaySnapshots([],sources),overlaySnapshots([],reference)));
  verify(()=>assert.equal(contentHash(sources),contentHash(reference)));
+ for(const badManifest of [[],[manifest[0],manifest[0]]]){
+  await assert.rejects(fixtureStore({wire,manifest:badManifest}).store.read(),/Incomplete grouped fixture manifest/);checks++;
+ }
  // The existing default source-row guard is still exact, even for a grouped-capable server.
  const legacy={schemaVersion:'current-fixture-bundle.v1',complete:false,rows:rows.slice(0,5001)};
  await assert.rejects(fixtureStore({wire:legacy,manifest},{candidate:false}).store.read(),/Incomplete current fixture bundle/);checks++;

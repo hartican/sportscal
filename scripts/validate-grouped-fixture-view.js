@@ -20,11 +20,15 @@ let checks=0;
   assert.equal((original.match(/LIMIT 5001/g)||[]).length,1);
   await db.exec('create view public.qa_group_full_reference with(security_invoker=true)as '+original.replace('LIMIT 5001','LIMIT 10001')+';grant select on public.qa_group_full_reference to service_role');
   const forward=sql.forward(original),before=await facts();
+  const migrationNames=fs.readdirSync(path.join(__dirname,'../supabase/migrations')).filter(name=>name.endsWith('_use_lossless_global_fixture_groups.sql'));
+  assert.equal(migrationNames.length,1,'Exactly one prepared grouped migration');
+  assert.equal(fs.readFileSync(path.join(__dirname,'../supabase/migrations',migrationNames[0]),'utf8'),forward+'\n');checks++;
   for(const change of ["alter view public.nothingsports_current_global_fixture_bundle set(security_invoker=false)","grant select on public.nothingsports_current_global_fixture_bundle to anon","alter function public.nothingsports_fixture_observation_time(text)immutable","alter table public.nothingsports_fixture_current disable row level security"]){
    await db.exec('begin;'+change);await assert.rejects(db.exec(forward),/differ/);await db.exec('rollback');checks++;
   }
   await db.exec('begin;'+forward+'commit');assert.equal(await facts(),before);assert.deepEqual(await viewState(),rights);assert.equal(await functionState(),functions);checks+=3;
   const candidateMd5=(await db.query("select md5(pg_get_viewdef('public.nothingsports_current_global_fixture_bundle'::regclass,true))h")).rows[0].h;
+  assert.equal(fs.readFileSync(path.join(__dirname,'../supabase/rollbacks',migrationNames[0]),'utf8'),sql.inverse(original,candidateMd5)+'\n');checks++;
   await db.exec('begin');await assert.rejects(db.exec(forward),/differs/);await db.exec('rollback');checks++;
   const headers=async h=>db.query("select set_config('request.headers',$1,false)",[h]);
   const read=async(view='public.nothingsports_current_global_fixture_bundle')=>{await db.exec('set role service_role');try{return(await db.query('select bundle from '+view)).rows[0].bundle;}finally{await db.exec('reset role');}};

@@ -23,7 +23,7 @@ function claimReceipt(directory,report){
 async function main({argv=process.argv.slice(2),environment=process.env,log=console.log}={}){
  if(!argv.length){log(JSON.stringify({state:'INERT_NO_LIVE_READ',serviceCalls:0,releaseAcceptance:false}));return;}
  assert.deepEqual(argv,['--live-read']);
- const report={schemaVersion:'global-app-adapter-release.v1',state:'STOP_BEFORE_READ',prerequisite:{stage:'runtime'},reads:[],readOnly:true,releaseAcceptance:false,proposedCapacityNotAdopted:true,allocationStartedAt:new Date().toISOString(),allocationLimitMs:gate.ALLOCATION_MS};
+ const report={schemaVersion:'global-app-adapter-release.v1',state:'STOP_BEFORE_READ',prerequisite:{stage:'runtime'},reads:[],readOnly:true,releaseAcceptance:false,capacityContract:'fixture-source-groups.v1',allocationStartedAt:new Date().toISOString(),allocationLimitMs:gate.ALLOCATION_MS};
  let owner,finished=false;
  const save=()=>owner?.save(report);
  const at=(stage,operation,git=false)=>{report.prerequisite={stage};try{return operation();}catch(error){if(git&&Number.isInteger(error?.status)&&error.status>=0&&error.status<=255)report.prerequisite.gitExitStatus=error.status;throw error;}};
