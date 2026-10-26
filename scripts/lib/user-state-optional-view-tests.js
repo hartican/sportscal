@@ -5,8 +5,7 @@ const root=path.resolve(__dirname,'../..'),html=fs.readFileSync(path.join(root,'
 const profile=require('../../config/profile-storage'),transport=require('../../config/server-sync'),patches=require('../../config/user-state-sync');
 const follow=require('../../config/follow-first'),systems=require('../../config/preference-system');
 const slice=(from,to)=>{const a=html.indexOf(from),b=html.indexOf(to,a);assert(a>=0&&b>a);return html.slice(a,b);};
-module.exports=async function optionalViewTests(){
- for(const helperFile of ['config/preference-intent-reconcile.js','assets/js/account-awareness-runtime.js']){
+function actualContext(helperFile){
  const values=new Map(),storage={getItem:key=>values.get(key)??null,setItem:(key,value)=>values.set(key,value),removeItem:key=>values.delete(key)};
  const c={structuredClone,console,PROFILE_STORAGE:profile,SERVER_SYNC:transport,USER_STATE_SYNC:patches,FOLLOW_FIRST:follow,PREFERENCE_SYSTEM:systems,
   DISCOVERY_CATALOGUE:require('../../config/discovery-catalogue'),FEED_CONTROLS:require('../../config/feed-controls'),RATING_SYSTEM:require('../../config/rating-system'),
@@ -33,6 +32,11 @@ module.exports=async function optionalViewTests(){
   +slice('function applyServerState(state){','\nasync function hydrateUserMetaSeed(')+'\n'
   +slice('function preferenceIntentOwner(','\nfunction acknowledgePreferenceReceipt('),c);
  vm.runInContext(fs.readFileSync(path.join(root,helperFile),'utf8'),c);
+ return {c,values,storage};
+}
+module.exports=async function optionalViewTests(){
+ for(const helperFile of ['config/preference-intent-reconcile.js','assets/js/account-awareness-runtime.js']){
+ const {c,values,storage}=actualContext(helperFile);
  c.userPreferences=c.mergePreferences({version:27,onboardingComplete:true,theme:'day',pilotMeasurement:{enabled:false}});
  const seed=c.currentServerStatePayload();seed.updatedAt='2026-10-24T00:00:00Z';
  c.serverStateBaseline={state:seed,updatedAt:seed.updatedAt,accountId:'A',generation:0};
@@ -72,4 +76,5 @@ module.exports=async function optionalViewTests(){
  console.log(JSON.stringify({helperFile,optionalViews:'actual apply/merge/save/payload/profile seam',ramOwnUndefined:true,durableAndReceiptAbsent:true,accepted:true,negativeHolds:8,persistenceUnchanged:true}));
  }
 };
+module.exports.actualContext=actualContext;
 if(require.main===module)module.exports().catch(error=>{console.error(error);process.exitCode=1;});

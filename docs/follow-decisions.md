@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## 26 October 2026 — scope delayed collection snapshots to their original choices
+
+The existing asynchronous collection-directory completion may snapshot only the preference object and collection list for which its loads started, in the same accepted account/session generation, app sync generation and local profile. If any has changed, retain the current choices and receipt and return the existing load results without a preference write. A later already-existing load for the current choices may complete normally. Matching guest and signed-in loads keep the current snapshot policy, including explicit mutes and OFF choices; do not add a retry, request, store or new follow intent.
+
+A deterministic actual apply/merge/save/profile/directory regression reproduces an earlier men-only request freezing a newer mixed collection before its women's directory arrived, permanently omitting inherited members. The guard prevents that source race; it does not establish the cause of the live @dougal missing-fixture report or restore any historical follows. The existing bookkeeping gate includes26 collection completion/source-and-compiled-helper cases, retaining all prior receipt and optional-view checks. Fixture coverage, the separate summary grouping issue, sport-checkbox behaviour, golf admission and the12 October tennis policy remain separate scopes. DEPLOY owns integration, full release gates and any hosted/device acceptance.
+
 ## All Sports View — 24 October 2026
 
 The authorised full implementation adds a separate compact chronological view
