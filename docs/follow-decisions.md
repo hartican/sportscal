@@ -1,5 +1,19 @@
 # Follow and Feed decisions
 
+## Optional standings presentation keeps its existing owner — 26 October 2026
+
+The approved download-budget repair moves only standings-exclusive helpers and
+the unchanged renderer body into the already deferred Follow presentation.
+Keep its existing entry/loader, inactive and Follow routing, connected-target
+and navigation fences, failure/retry, pin actions and Results OFF. Cold event
+preview table helpers stay immediately available. An incomplete cached module
+must fail visibly through the existing retry path, without a repeat loop.
+No Follow, gender, admission, account, source or notification rule changes.
+See [source contract and equivalence](quality/standings-presentation-deferral-2026-10-26.md).
+The existing collection-loading gate includes the focused caller/loader test;
+combined native, offline and installed release qualification stays with DEPLOY.
+
+
 ## All Sports View — 24 October 2026
 
 The authorised full implementation adds a separate compact chronological view
