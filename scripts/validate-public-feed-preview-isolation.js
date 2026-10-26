@@ -5,6 +5,14 @@ async function main(){
  try{
   Object.assign(w,{Response,Headers,Request,fetch:async(input,options)=>{delegated.push({input:String(input),method:options?.method||'GET'});return new Response('{}');}});
   for(const file of ['config/public-comments.js','config/epic-classics.js','preview/public-feed/model.js','preview/public-feed/bootstrap.js'])w.eval(fs.readFileSync(file,'utf8'));
+  w.eval(fs.readFileSync('config/server-sync.js','utf8'));
+  const client=w.NOTHINGSPORTS_SERVER_SYNC.createClient();
+  assert(client.sessionSubject(),'The actual SDK recognises the seeded test account');
+  assert(w.sessionStorage.getItem('ns_auth_session_v1'),'Test identity stays in this tab');
+  assert.equal(w.localStorage.getItem('ns_auth_persistent_session_v1'),null,'No persistent identity can switch another test tab');
+  await client.signIn('alice@test.invalid','preview-only',{persist:false});
+  assert(w.sessionStorage.getItem('ns_auth_session_v1'));
+  assert.equal(w.localStorage.getItem('ns_auth_persistent_session_v1'),null);
   const address='https://api.giphy.com/v1/gifs/trending?api_key=TEST';
   for(const input of [address,new w.URL(address),new w.Request(address)]){
    const result=await(await w.fetch(input)).json();assert.equal(result.data.length,2);assert(result.data.every(row=>row.id.startsWith('preview-')));
@@ -18,7 +26,7 @@ async function main(){
   await w.fetch('/assets/example.js');assert.equal(delegated.length,1);assert.equal(delegated[0].method,'GET');
   const img=w.document.createElement('img');img.src='https://media.giphy.com/media/preview-cheer/giphy.gif';assert.equal(img.src,'https://preview.invalid/preview/gifs/cheer.gif');
   const link=w.document.createElement('a');link.href='https://giphy.com/';assert.equal(link.getAttribute('href'),'#test-link-disabled');link.href='blob:https://preview.invalid/test';assert.equal(link.href,'blob:https://preview.invalid/test');
-  console.log('Preview isolation source: actual transport String/URL/Request, local GIF bytes, fail-closed origins/API/writes, allowlisted reads and local-only export links passed. No browser/server/provider run.');
+  console.log('Preview isolation source: actual SDK tab-only identity, transport String/URL/Request, local GIF bytes, fail-closed origins/API/writes, allowlisted reads and local-only export links passed. No browser/server/provider run.');
  }finally{dom.window.close();}
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

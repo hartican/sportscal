@@ -23,6 +23,8 @@ let html=fs.readFileSync(path.join(root,'index.html'),'utf8');
 html=html.replace(/<html([^>]*)>/,'<html$1 data-public-feed-test>').replace(/<title>[\s\S]*?<\/title>/,'<title>Public Feed · TEST MODE</title>');
 html=html.replace(/<link\b[^>]*href=["']https?:[^>]*>/g,'').replace(/<link\b[^>]*rel=["']manifest["'][^>]*>/g,'').replace(/<script\b[^>]*src=["']\/?assets\/js\/app-update\.js[^"']*["'][^>]*><\/script>/g,'');
 html=html.replace(/<meta\b[^>]*(?:property|name)=["'](?:og:url|twitter:url)["'][^>]*>/g,'');
+// Keep the app's expected audio element, without loading its disabled soundtrack.
+html=html.replace(/(<audio\b[^>]*?)\s+src=["'][^"']*["']/g,'$1');
 const metaCsp=csp.replace("; frame-ancestors 'none'",'');
 const injected='<meta http-equiv="Content-Security-Policy" content="'+metaCsp+'"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer"><meta name="public-feed-test" content="synthetic-only"><link rel="stylesheet" href="/preview/preview.css"><script src="/config/public-comments.js"></script><script src="/config/epic-classics.js"></script><script src="/preview/model.js"></script><script src="/preview/bootstrap.js"></script>';
 html=html.replace(/<head>/,'<head>'+injected).replace(/<body([^>]*)>/,'<body$1><p id="test-loading">PUBLIC FEED · TEST MODE · Loading synthetic fixtures…</p>');
