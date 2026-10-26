@@ -308,6 +308,8 @@ jobs:
           node scripts/validate-grouped-fixture-transport.js
           node scripts/validate-grouped-fixture-view.js
           PGLITE_MODULE=pglite-pg17 node scripts/validate-grouped-fixture-view.js
+          node scripts/validate-global-fixture-admission.js
+          PGLITE_MODULE=pglite-pg17 node scripts/validate-global-fixture-admission.js
           PGLITE_MODULE=pglite-pg17 node scripts/validate-grouped-fixture-diagnostic.js
           node scripts/validate-global-app-adapter.js
           node scripts/validate-laver-cup.js
