@@ -124,10 +124,29 @@ Deadline exceptions now retain the same rollback/remaining-close path as IO
 failures; missing keys require null extraction, while present explicit nulls
 remain valid. Both controls failed before repair and pass after it.
 
-No PostgreSQL/native execution or actual SELECT/framing result is proved by
-these tests. Both source reviews and ROOT's separately allocated real query are
-required; it may honestly time out, refuse a bucket, exceed framing limits or
-fail whole-tool delivery. No generic full-capacity or healthy-service claim.
+Those receiver tests alone prove no PostgreSQL execution. ROOT subsequently
+allocated one <=180-second disposable cached PG17 functional window. The exact
+reviewed SQL and static receiver bytes from `5fdc5aad` passed actual PG17.5/WASM
+execution on three tiny constructed tables through
+`scripts/validate-public-state-sql.js`. Literal precision/Unicode/alias/null and
+receipt cases, excluded source-fixtures/raw-report/lease sentinels and unchanged
+stored rows passed. A 6,293,897-byte result passed in three whole-row parts.
+Count10,001, oversized-row, >16-bin skew and >40 MiB framed cases returned only
+the refusal packet; an expired actual packet left no receiver output.
+
+The first invocation stopped on an invalid harness assumption that a tiny query
+would necessarily exceed a stricter 1 ms fault deadline. Its proof is retained;
+the assertion was corrected and remaining qualification finished inside the
+same original 180-second window (119.919 seconds wall time). The stricter timer
+did not fire and SQL cancellation remains unqualified. The original five-second
+statement/one-second lock settings were not changed. Both owned process groups,
+memory engines and temporary files closed; no network/managed/provider/native
+VM/install or real export occurred. Cached PostgreSQL17.5/WASM is not production
+PostgreSQL17.6 or platform/performance parity. No PG18 or unchanged suite repeat.
+
+ROOT's separately allocated real query is still required; it may honestly time
+out, refuse a bucket, exceed framing limits or fail whole-tool delivery. No
+generic full-capacity or healthy-service claim.
 The result is only an exact public stored-fact/receipt reference graph. Actual
 reminder saved-wanted membership stays private; physical/TOAST, full health,
 HTTP latency, canonical full/quick, production and natural scheduled acceptance
