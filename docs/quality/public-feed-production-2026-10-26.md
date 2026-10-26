@@ -85,6 +85,23 @@ node scripts/validate-public-comments-state.js --case=sameVisibility
 
 The baseline command intentionally remains RED on `3c8de9ef`. A green source control is not a new native pass. Freeze the correction, run affected source/light/preflight gates, obtain both ROOT reviews and wait for a fresh coherent full-60 allocation; no third native run or shared-service operation is authorised by this correction.
 
+## Retained detached-admission fixture failure
+
+Both ROOT review axes cleared `f38c51a1`. Its separately allocated single full-60 attempt ran 13:01:04–13:01:07 UTC on 26 October (00:01 Sydney on 27 October), passed three outcomes, then failed before any public-comments read: the actual alert route rejected a fixture no longer present in Feed. The retained trace's snapshot immediately before opening has an empty slot registry; the earlier `3c8de9ef` snapshot still contained the seeded fixture. The failed frame, complete empty read ledger, transport/console evidence, exact source pins and 3.013-second run receipt are preserved. The owned process group has no survivors. This is not a new pass for either prior product correction.
+
+The native setup called the actual lazy Feed-slot builder but left its registered slot detached. The actual Feed-window observer cleans every detached slot whenever any observation arrives, including one for an older observed card whose registry entry was cleared. An actual builder/observer/cleanup source regression reproduces the old setup losing admission. The retained native trace does not directly identify the exact cleanup invocation; source causality and the empty pre-open snapshot are separate evidence.
+
+The fixture correction keeps the same actual builder, Map and cleanup, placing its lazy placeholder in a connected hidden admission-fixture holder. Only that controlled admission placeholder is hidden; the full fixture, Comments target and tray under test remain visible and all pointer/layout/privacy/mutation checks remain. The real observer still observes the placeholder, a nonintersecting report cannot mount an ordinary card, and real detachment still deletes admission. No product function, real Feed rule, clock, permission, observer or cleanup is replaced or suppressed. This is a test-lifetime correction; product source and SQL remain frozen at the previously reviewed candidate.
+
+The Sydney-midnight hypothesis was separately falsified with the unchanged failed fixture's exact date/start/status/score clocks at 12:59:59.999 and 13:00:00.001 UTC. Controls execute the actual route admission predicate, actual getEventAction helpers and actual eventMeetsDerivedRetention caller with real identity/lifecycle/EPIC/calendar/reminder modules. Retention succeeds on both sides of midnight, while admission changes only with registry/action state; old detached cleanup fails at either clock. Expired finals still fail retention, and unknown/dismissed/detached fixtures still fail admission. The native application/fixture/API clock is not pinned, replaced or redated to conceal this unrelated lifetime defect.
+
+```sh
+node scripts/validate-public-feed-browser-fixtures.js --case=admission --admission-baseline
+node scripts/validate-public-feed-browser-fixtures.js --case=admission
+```
+
+The exact `f38c51a1` setup remains RED. A corrected source control does not authorise a native retry: freeze the fixture delta, preserve source/light/preflight evidence and await ROOT's review and fresh allocation. Never combine the earlier partial passes.
+
 ## SQL evidence reuse
 
 Product migration `20261023222545_public_fixture_comments.sql` remains SHA256 `217c1f4096f33e65a8f60796bb20d05e6512a5278cff499beb6a2faa7e910f30`, unchanged from the qualified `e14550f6` product source. The recovery helper/database harness and all three source-bound recovery SQL inputs remain unchanged; the latter also equal current main. Preserve the [completed PG18/PG17 coexistence pair](public-feed-recovery-coexistence-2026-10-26.md) at `4ccb4913` and earlier erasure/retirement controls. Those are reused unchanged-input local evidence, not a newly run engine pair, actual managed fingerprint or complete managed erasure/storage workflow. Rerun only affected local SQL checks when a source/input change justifies it and ROOT allocates the work.

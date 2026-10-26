@@ -276,6 +276,21 @@ function seedBrowserFixture({registered, token, owner, anonymous, selectorVersio
   if(registered) sessionStorage.setItem('ns_auth_session_v1', JSON.stringify({accessToken:token, refreshToken:'synthetic-only', expiresAt:Date.now() + 3600000}));
   globalThis.__publicFeedFixtureAccount = {owner, anonymous};
 }
+function installAdmittedFixture({event, registered, owner, anonymous, cold}){
+  setTunePromptOpen(false); suppressSessionRatingPrompt(); closeSettings({restoreTheme:false});
+  // Admission is controlled test data. Keep its real lazy slot connected so
+  // the actual Feed observer can clean detached slots without deleting it.
+  serverPersistence.user = registered ? {id:owner, isAnonymous:anonymous} : null;
+  activeTab = 'feed'; activeEvents = [event]; liveFixtureEvents = [];
+  feedCardSlots.clear(); initialFeedCardIds.clear();
+  const admission = document.createElement('div'); admission.hidden = true;
+  admission.dataset.publicFeedAdmissionFixture = 'true'; document.body.append(admission);
+  globalThis.__publicFeedSlot = buildFeedCardSlot(event); admission.append(__publicFeedSlot);
+  globalThis.__publicFeedHost = document.createElement('div');
+  __publicFeedHost.id = 'public-feed-native-host'; document.body.append(__publicFeedHost);
+  if(cold){ userPreferences.showSpoilers = false; userPreferences.feedControls.spoilers = 'strict'; }
+}
+
 async function boot(browser, base, model, width, query = ''){
   const context = await browser.newContext({viewport:{width, height:844}, hasTouch:true, serviceWorkers:'block'});
   const page = await context.newPage(); page.setDefaultTimeout(15000); page.setDefaultNavigationTimeout(30000);
@@ -291,18 +306,7 @@ async function boot(browser, base, model, width, query = ''){
   await page.goto(base + '/' + query, {waitUntil:'domcontentloaded'});
   await page.waitForFunction(() => typeof buildEventCard === 'function' && typeof buildDetailedEventCard === 'function' && startupFunnelFinished && !startupCoordinator.isHydrating());
   await page.locator('#startupLaunch').waitFor({state:'hidden'});
-  await page.evaluate(async ({event, registered, owner, anonymous, cold, navigationPath}) => {
-    setTunePromptOpen(false); suppressSessionRatingPrompt(); closeSettings({restoreTheme:false});
-    // Disposable account, sporting input and Feed admission are fixtures, not
-    // replacements of authentication, rendering, card state or network code.
-    serverPersistence.user = registered ? {id:owner, isAnonymous:anonymous} : null;
-    activeTab = 'feed'; activeEvents = [event]; liveFixtureEvents = [];
-    feedCardSlots.clear(); initialFeedCardIds.clear();
-    globalThis.__publicFeedSlot = buildFeedCardSlot(event); // detached; never observed/mounted
-    globalThis.__publicFeedHost = document.createElement('div');
-    __publicFeedHost.id = 'public-feed-native-host'; document.body.append(__publicFeedHost);
-    if(cold){ userPreferences.showSpoilers = false; userPreferences.feedControls.spoilers = 'strict'; }
-  }, {event:model.event, registered:model.registered, owner:model.owner, anonymous:model.anonymous, cold:!!query});
+  await page.evaluate(installAdmittedFixture, {event:model.event, registered:model.registered, owner:model.owner, anonymous:model.anonymous, cold:!!query});
   await page.evaluate(installPersonalStateObserver);
   await page.evaluate(async ({cold, navigationPath}) => {
     if(cold) await loadDeferredScript(navigationPath);
@@ -721,4 +725,4 @@ async function main(){
   }
 }
 if(require.main === module) main().catch(error => { console.error(error); process.exitCode = error.message?.startsWith('DEPENDENCY_PENDING') ? 2 : 1; });
-module.exports = {scenario, api, recordWrite, assertAllowedWrites, commentPage, paginatedFixture, installPersonalStateObserver, seedBrowserFixture};
+module.exports = {scenario, api, recordWrite, assertAllowedWrites, commentPage, paginatedFixture, installPersonalStateObserver, seedBrowserFixture, installAdmittedFixture};
