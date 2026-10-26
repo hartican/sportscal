@@ -4,7 +4,7 @@ This is a full-scope interaction preview using the actual current shared fixture
 renderer, public-comment tray, GIF picker and yearbook UI/export. It is not a
 production release, test-runner upload or backend correctness claim.
 
-The dedicated static artifact starts from accepted main `a6ddd15c` plus the frozen
+The dedicated static artifact starts from current main source `a6ddd15c` plus the frozen
 full Public Feed `2c7f7649`, with the real delivered All Sports adapter and reviewed
 P1 account compatibility source `7221edbf`. Original PR38 and its evidence stay
 frozen; preview work lives on `codex/public-feed-test-preview-20261026`.
