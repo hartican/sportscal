@@ -14,7 +14,7 @@ async function main(){
   const watchdog=setInterval(()=>{if(Date.now()-started>360000||free()<3*1024**3)void browser.close();},1000);
   const mark=name=>{receipt.cases.push({engine,width:390,name,passed:true});console.log(engine+': '+name+' PASS');};
   const nav=name=>page.locator('#public-feed-test nav').getByRole('button',{name:new RegExp('^'+name)}).click();
-  const open=async(index=0)=>{await page.locator('.test-fixture').nth(index).getByRole('button',{name:'Open public comments',exact:true}).click();await page.getByRole('textbox',{name:'Write a public comment'}).waitFor();};
+  const open=async(index=0)=>{await page.locator('.test-fixture').nth(index).getByRole('button',{name:'Open public comments',exact:true}).click();await page.getByRole('textbox',{name:'Write a public comment'}).waitFor();await page.locator('.public-comment').first().waitFor({state:'attached'});};
   const post=async text=>{await page.getByRole('textbox',{name:'Write a public comment'}).fill(text);await page.getByRole('button',{name:'Post comment',exact:true}).click();await page.locator('.public-comments').getByText(text,{exact:true}).waitFor();};
   const choose=async name=>{await page.getByRole('combobox',{name:'Choose a test account'}).selectOption({label:name});await page.waitForFunction(label=>!PUBLIC_FEED_PREVIEW.busy()&&document.getElementById('test-identity').textContent.includes(label),name.startsWith('Visitor')?'Visitor':name.split(' · ')[0]);};
   try{

@@ -38,7 +38,7 @@
   return json({error:'TEST MODE: this service is disabled.',code:'test_service_disabled'},503);
  }
  globalThis.fetch=async(input,options={})=>{
-  const url=new URL(typeof input==='string'?input:input.url,location.href);
+  const url=new URL(typeof input==='string'||input instanceof URL?String(input):input.url,location.href);
   if(options.signal?.aborted)throw new DOMException('Aborted','AbortError');
   try{
    if(url.origin==='https://api.giphy.com'&&['/v1/gifs/search','/v1/gifs/trending'].includes(url.pathname))return json(gifPayload(Number(url.searchParams.get('offset')||0),url.searchParams.get('q')||''));
@@ -52,7 +52,7 @@
    if(!['GET','HEAD'].includes((options.method||'GET').toUpperCase()))throw Error('Network writes are disabled in TEST MODE.');
    if(!/^\/(?:assets|config|styles|preview)\//.test(url.pathname)&&url.pathname!=='/app-version.json')throw Error('This path is not part of the test artifact.');
    return nativeFetch(input,options);
-  }catch(error){if(url.pathname.startsWith('/api/'))return json({error:error.message,code:error.code||'test_request_refused'},error.status||400);throw error;}
+  }catch(error){if(url.origin===location.origin&&url.pathname.startsWith('/api/'))return json({error:error.message,code:error.code||'test_request_refused'},error.status||400);throw error;}
  };
  // Trusted GIPHY-shaped metadata is exercised by the real picker. Every pixel
  // is a bundled synthetic GIF; no provider request or analytics leave the page.
