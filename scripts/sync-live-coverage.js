@@ -58,8 +58,8 @@ async function sync({now=new Date(),file=FILE,rows,request,publicCapture}={}){
  if(result.report.changed)fs.writeFileSync(file,JSON.stringify(result.document,null,2)+'\n');
  return {...result.report,...(saved?{publicCapture:saved.receipt}:{})};
 }
-async function capturePublic({request=supabaseServiceRequest,clock,output}={}){
- const {receipt}=await require('./lib/public-coverage-producer').produce({request,clock,output});
+async function capturePublic({request=supabaseServiceRequest,clock,output,format}={}){
+ const {receipt}=await require('./lib/public-coverage-producer').produce({request,clock,output,format});
  return receipt;
 }
 module.exports={SOURCES,PAGE_SIZE,MAX_PAGES,readRows,project,sync,capturePublic};

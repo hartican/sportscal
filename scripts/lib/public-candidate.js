@@ -43,8 +43,13 @@ function capability(file){
  if(r.url!==(coverage?require('./live-coverage-read-contract').RPC:URL)||r.path!==(coverage?'public-coverage.json':'nbl-public-input.json')||!/^[a-f0-9]{64}$/.test(r.sha256)||!Number.isInteger(r.bytes)||r.bytes<1||r.bytes>MAX_BODY)refuse('CANDIDATE_PUBLIC_INPUT','Only the declared bounded public projection input is qualified');
  const body=readFile(path.join(path.dirname(file),r.path),MAX_BODY);
  if(body.length!==r.bytes||sha(body)!==r.sha256)refuse('CANDIDATE_INPUT_HASH');
- const payload=JSON.parse(body);
- if(coverage){const receipt=require('./public-coverage-capture').validate(payload);if(value.observedAt!==receipt.capturedAt)refuse('CANDIDATE_CAPTURE_CLOCK');if(value.provenance!==receipt.provenance)refuse('CANDIDATE_UNQUALIFIED_PROVENANCE','Saved input and capability provenance differ');return {...value,inputSha256:sha(inputBytes),body:body.toString('utf8'),publicCoverageReceipt:receipt};}
+ let payload;try{payload=JSON.parse(body);}catch{refuse('CANDIDATE_INPUT_SCHEMA','Public input JSON is invalid');}
+ if(coverage){
+  const v3=payload?.schemaVersion==='live-coverage-public-capture.v3';
+  if(v3){payload=require('./public-coverage-capture').read(path.join(path.dirname(file),r.path));if(sha(Buffer.from(payload.manifestBody))!==r.sha256)refuse('CANDIDATE_INPUT_HASH');}
+  const receipt=require('./public-coverage-capture').validate(payload);if(value.observedAt!==receipt.capturedAt)refuse('CANDIDATE_CAPTURE_CLOCK');if(value.provenance!==receipt.provenance)refuse('CANDIDATE_UNQUALIFIED_PROVENANCE','Saved input and capability provenance differ');
+  return {...value,inputSha256:sha(inputBytes),body:v3?payload.manifestBody:body.toString('utf8'),publicCoverageReceipt:receipt,...(v3?{publicCoverageSet:payload}:{})};
+ }
  fields(payload,['leaguePath','year','fallback','offset','total','seasons_meta','matches'],'NBL public projection');
  if(!Array.isArray(payload.seasons_meta)||!Array.isArray(payload.matches))refuse('CANDIDATE_INPUT_SCHEMA','NBL arrays');
  const text=(value,label,optional=false)=>{if(optional&&(value===undefined||value===null))return;if(typeof value!=='string'||value.length>200||/[\x00-\x1f\x7f]/.test(value))refuse('CANDIDATE_INPUT_SCHEMA',label);};
@@ -86,6 +91,17 @@ const publicPath=name=>/^(?:api|assets|config|data|feeds|lib|scripts|styles)\//.
 const generatedFiles=new Set(['data/canonical/nbl-2026-27.json','data/events.json','data/events.js','data/feed-meta.json','data/chat-fixtures.v1.json','data/code-inspector/manifest.json','data/code-inspector/nbl.json','data/follow-schedule/nbl.json','data/feed/manifest.json','feeds/incoming/events.json','assets/js/app-shell-runtime.js','assets/js/calendar-sync-ui.js',...Object.keys(require('../build-deferred-sports-ui').modules)]);
 const generatedPath=name=>generatedFiles.has(name)||/^data\/feed\/page-\d{3}\.json$/.test(name);
 const coverageGenerated=new Set(['data/follow-sources/coverage.v1.json','data/code-inspector/manifest.json','data/chat-fixtures.v1.json',...['cricket','rugby-union'].flatMap(code=>['data/code-inspector/'+code+'.json','data/follow-schedule/'+code+'.json'])]);
+function materializeCoverage(cap,runtime){
+ const file=path.join(runtime,'public-coverage.json');
+ if(cap.publicCoverageSet){
+  const set=structuredClone(cap.publicCoverageSet);
+  if(cap.target!=='coverage:shared'||typeof set.manifestBody!=='string'||Buffer.byteLength(set.manifestBody)!==cap.response.bytes||sha(Buffer.from(set.manifestBody))!==cap.response.sha256)refuse('CANDIDATE_INPUT_HASH');
+  const {receipt}=require('./public-coverage-capsules').consume(set);
+  if(receipt.capturedAt!==cap.observedAt||receipt.provenance!==cap.provenance||receipt.sha256!==cap.publicCoverageReceipt.sha256)refuse('CANDIDATE_INPUT_HASH');
+  require('./public-coverage-capsules').materialize(set,runtime);
+ }else fs.writeFileSync(file,cap.body,{mode:0o600,flag:'wx'});
+ return file;
+}
 function preparationState(cap,changed){const suffix=cap.provenance==='constructed-fixture'?'fixture-replay':cap.provenance==='service-read'?'public-observations':'test-observations';return (changed?'prepared-':'unchanged-')+suffix;}
 function prepare({input,output}){
  credentials(process.env);
@@ -121,7 +137,7 @@ function prepare({input,output}){
   fs.symlinkSync(dependencies,path.join(workspace,'node_modules'));
   const state=path.join(runtime,'ledger.json'),config=path.join(runtime,'capability.json'),guard=path.join(workspace,'scripts/lib/public-candidate-guard.cjs');
   const capturePath=path.join(runtime,'public-coverage.json');
-  if(cap.target==='coverage:shared')fs.writeFileSync(capturePath,cap.body,{mode:0o600});
+  if(cap.target==='coverage:shared')materializeCoverage(cap,runtime);
   const qualifiedFrames=frames(cap,capturePath),command=qualifiedFrames[0].slice(1);
   fs.writeFileSync(state,JSON.stringify({requests:0,frames:[],violations:[]}),{mode:0o600});
   fs.writeFileSync(config,JSON.stringify({workspace,runtime,state,modules,dependencyHashes,dependencies,frames:qualifiedFrames,url:cap.response.url,body:cap.body,observedAt:cap.observedAt,deadline:Date.now()+cap.processMs}),{mode:0o600});
@@ -190,4 +206,4 @@ function prepare({input,output}){
  console.log(JSON.stringify({state:preparationState(cap,artifact.changed.length),output,currentSourceAcceptance:false}));
  return artifact;
 }
-module.exports={options,credentials,capability,prepare,frames,URL,MAX_BODY,generatedPath,sha};
+module.exports={options,credentials,capability,prepare,frames,URL,MAX_BODY,generatedPath,sha,materializeCoverage};
