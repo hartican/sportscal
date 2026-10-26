@@ -8,6 +8,7 @@ require('./validate-publisher-planning-times');
 require('./validate-played-starts');
 require('./validate-useful-starts');
 require('./validate-cricket-compact-summary');
+require('./validate-cricket-upcoming-range');
 assert.equal(dateOnlyLabel({eventType:'match',dateOnly:true}),'Time TBD','A dated single match cannot claim multiple session times');
 assert.equal(dateOnlyLabel({cardType:'golf_tournament',dateOnly:true}),'Session times vary');
 assert.equal(dateOnlyLabel({eventType:'match',status:'completed'}),'Completed');
