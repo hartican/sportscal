@@ -72,6 +72,13 @@ function runStep(args) {
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
   if(argv.some(arg=>arg.startsWith('--public-candidate')||arg.startsWith('--candidate-')))return require('./lib/public-candidate').options(argv,env);
+  if(argv.some(arg=>arg.startsWith('--capture-live-coverage-public'))){
+    const outputs=argv.filter(arg=>arg.startsWith('--capture-live-coverage-public='));
+    if(!argv.includes('--coverage-live')||!argv.includes('--local-only')||outputs.length!==1||new Set(argv).size!==argv.length||argv.some(arg=>!['--coverage-live','--local-only'].includes(arg)&&!arg.startsWith('--capture-live-coverage-public=')))throw Error('Public coverage export requires only --coverage-live --local-only --capture-live-coverage-public=<absolute public-coverage.json>');
+    const output=outputs[0].slice('--capture-live-coverage-public='.length);
+    require('./lib/public-coverage-producer').outputPath(output);
+    return {localOnly:true,publicCoverageOutput:output};
+  }
   if(argv.some(arg=>arg.startsWith('--live-coverage-public'))){
     const inputs=argv.filter(arg=>arg.startsWith('--live-coverage-public='));
     if(!argv.includes('--coverage-live')||!argv.includes('--local-only')||inputs.length!==1||new Set(argv).size!==argv.length||argv.some(arg=>!['--coverage-live','--local-only'].includes(arg)&&!arg.startsWith('--live-coverage-public=')))throw Error('Public coverage capture requires only --coverage-live --local-only --live-coverage-public=<absolute public-coverage.json>');
@@ -1142,9 +1149,15 @@ async function runMain(options = parseOptions()) {
   }
 }
 
+async function capturePublicCoverage(options,boundary={}){
+  const receipt=await require('./sync-live-coverage').capturePublic({...boundary,output:options.publicCoverageOutput});
+  console.log(JSON.stringify({mode:'public-coverage-export',...receipt}));return receipt;
+}
+
 async function main(){
   // Validate mode before creating diagnostic state or starting any source step.
   const initialOptions=parseOptions();
+  if(initialOptions.publicCoverageOutput)return capturePublicCoverage(initialOptions);
   if(initialOptions.publicCandidate)return require('./lib/public-candidate').prepare(initialOptions.publicCandidate);
   if(initialOptions.australianChampionship||initialOptions.retainedCoverage)return runMain();
   process.env.REFRESH_REPORT ||= path.join(os.tmpdir(),'ns-refresh-report-'+crypto.randomUUID()+'.json');
@@ -1192,4 +1205,5 @@ module.exports = {
   buildVenueReviewSteps,
   discoverCanonicalFixtureBundles,
   parseOptions,
+  capturePublicCoverage,
 };

@@ -35,6 +35,7 @@ function fixture(value,row,capturedAt){
  if(scores.length===1||scores.some(key=>!Number.isSafeInteger(value[key])||value[key]<0))reject('SCORE');
 }
 function validate(value){
+ if(value?.schemaVersion==='live-coverage-public-capture.v2')return require('./public-coverage-producer').validate(value);
  fields(value,['schemaVersion','provenance','capturedAt','pages']);
  if(value.schemaVersion!=='live-coverage-public-capture.v1'||value.provenance!=='constructed-fixture')reject('PROVENANCE_UNQUALIFIED');
  const capturedAt=instant(value.capturedAt);
