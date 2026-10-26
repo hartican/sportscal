@@ -312,13 +312,23 @@
           }
         }
         const legacyRugbyPlaceholder = p => /^team:rugby:wr-0(?:-women)?(?:-sevens)?$/.test(p?.id||'') || String(p?.sourceIds?.worldRugby??'').trim()==='0';
-        const resolved = record => (record?.participants || []).length >= 2 &&
-          record.participants.every(p => !legacyRugbyPlaceholder(p) && !/winner of|loser of|\btbc\b|\btbd\b|to be confirmed/i.test(p.name || p.displayName || '') && Boolean(p.name || p.displayName));
-        // An explicit labelled unknown slot can retract only this known legacy
-        // provider0 sentinel. JSON may omit undefined side keys; prevent the
-        // final additive spread from silently restoring that false identity.
-        for(const [field,slot]of [['homeParticipantId',1],['awayParticipantId',2]]){
-          if(!event[field] && event.participantSlots?.some(p=>p.slot===slot&&!p.participantId) && base.participants?.some(p=>p.id===base[field]&&legacyRugbyPlaceholder(p)))event[field]=undefined;
+        const resolvedParticipant = p => !legacyRugbyPlaceholder(p) && !/winner of|loser of|\btbc\b|\btbd\b|to be confirmed/i.test(p.name || p.displayName || '') && Boolean(p.name || p.displayName);
+        const resolved = record => (record?.participants || []).length >= 2 && record.participants.every(resolvedParticipant);
+        // Only a retained provider0 pair needs per-side recovery. Keep a real
+        // counterpart independently, while retracting the sentinel through JSON
+        // omission and the final additive spread. Planning labels stay supplied.
+        if(base.participants?.some(legacyRugbyPlaceholder)){
+          let participants=event.participants||[],retained=false;
+          for(const [field,slotNumber,role]of [['homeParticipantId',1,'home'],['awayParticipantId',2,'away']]){
+            const slot=event.participantSlots?.find(p=>p.slot===slotNumber&&!p.participantId),prior=base.participants.find(p=>p.id===base[field]);
+            if(event[field]||!slot||!prior)continue;
+            if(legacyRugbyPlaceholder(prior))event[field]=undefined;
+            else if(resolvedParticipant(prior)){
+              event[field]=prior.id;participants=[...participants.filter(p=>p.id!==prior.id),{...prior,role}];retained=true;
+              event.participantSlots=event.participantSlots.map(p=>p===slot?{...p,participantId:prior.id}:p);
+            }
+          }
+          if(retained){event.participants=participants.sort((a,b)=>(a.role==='home'?0:1)-(b.role==='home'?0:1));event.participantIds=event.participants.map(p=>p.id);}
         }
         if(resolved(base) && !resolved(event)){
           for(const field of ['name','displayName','displayTitleCompact','participants','participantIds','homeParticipantId','awayParticipantId','participantSlots']){

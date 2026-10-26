@@ -61,3 +61,12 @@ separately allocate any real source update/current intake and generated/release
 proof. The separately approved v3 lossless multi-capsule unit is subsequent,
 not included here. No provider, service, SQL, native, CI, main, deploy or schedule
 operation occurs in this unit.
+
+
+Independent review found a mixed-case gap: a retained real side plus provider0
+lost the real side when a later source supplied two unknown slots. A second
+actual JSON/continuity/public-producer regression failed for both orientations.
+Recovery now keeps each independently known real counterpart and its supplied
+planning slot, retracting only the opposite sentinel. Participant arrays, side
+fields and slots remain consistent; raw planning labels and all clocks stay
+unchanged. This does not clear or migrate any real action identity.

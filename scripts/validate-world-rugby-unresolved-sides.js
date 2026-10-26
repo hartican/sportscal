@@ -21,6 +21,13 @@ async function run(){let checks=0;const root=fs.realpathSync(fs.mkdtempSync(path
    assert.deepEqual(merged.participantIds,[],'Continuity fallback must not restore legacy zero identity');assert.deepEqual(merged.participants,[]);assert(!merged.homeParticipantId);assert(!merged.awayParticipantId);assert.equal(merged.id,previous.id);assert.equal(merged.sourceCheckedAt,previous.sourceCheckedAt);assert.equal(identity.canonicalFixtureId(merged.id),identity.canonicalFixtureId(previous.id));checks++;
    incoming.push(row(json(identity.normalizeCore(merged)),sample.game.sport));
   }
+  for(const knownSlot of [1,2]){
+   const sample=samples[0],[unknown]=parseWorldRugby({content:[sample.game]},sample),sentinel='team:rugby:wr-0';
+   const prior={...json(unknown),participantSlots:[],participants:[{id:sentinel,name:'Unresolved home',role:'home',sourceIds:{worldRugby:'0'}},{id:sentinel,name:'Unresolved away',role:'away',sourceIds:{worldRugby:'0'}}],participantIds:[sentinel,sentinel],homeParticipantId:sentinel,awayParticipantId:sentinel};
+   prior.participants[knownSlot-1]={id:'team:rugby:wallabies',name:'Australia',role:knownSlot===1?'home':'away',sourceIds:{worldRugby:'38'}};prior.participantIds[knownSlot-1]='team:rugby:wallabies';prior[knownSlot===1?'homeParticipantId':'awayParticipantId']='team:rugby:wallabies';
+   const [mixed]=identity.mergeOverlays([prior],[json(unknown)]);assert.deepEqual(mixed.participantIds,['team:rugby:wallabies'],'Real side retained independently of sentinel');assert.equal(mixed.participants[0].id,'team:rugby:wallabies');assert.equal(mixed[knownSlot===1?'homeParticipantId':'awayParticipantId'],'team:rugby:wallabies');assert(!mixed[knownSlot===1?'awayParticipantId':'homeParticipantId']);assert.equal(mixed.participantSlots[knownSlot-1].participantId,'team:rugby:wallabies');assert(!mixed.participantSlots[knownSlot===1?1:0].participantId);assert.equal(mixed.sourceCheckedAt,prior.sourceCheckedAt);
+   await require('./lib/public-coverage-producer').produce({clock:()=>new Date(Date.parse(sample.checkedAt)+1000),request:async()=>[row(json(mixed),'MRU')]});checks++;
+  }
   const at=new Date(Math.max(...samples.map(s=>Date.parse(s.checkedAt)))+1000),sorted=incoming.sort((a,b)=>a.source_id.localeCompare(b.source_id)||a.fixture_id.localeCompare(b.fixture_id));
   const output=path.join(root,'public-coverage.json');await require('./sync-live-coverage').capturePublic({output,clock:()=>at,request:async()=>structuredClone(sorted)});
   const capture=require('./lib/public-coverage-capture').read(output);assert.equal(capture.pages[0].rows.length,7);assert(capture.pages[0].rows.every(r=>r.fixture.participantSlots.every(s=>s.participantId==='')));checks++;
