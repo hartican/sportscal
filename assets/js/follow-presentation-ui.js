@@ -844,3 +844,282 @@ function followHasStandings(code){
   return code.hasStandings===true || followStandingsAvailability.get(code.id)===true || Boolean(codeInspectorChunk?.code?.id===code.id && codeInspectorChunk.standings?.length)
     || (CANONICAL_TAXONOMY.competitions || []).some(competition=>competition.supportsLadder && standingsSportKey(competition)===codeInspectorStandingsSportKey(code));
 }
+
+
+// Optional standings presentation; bodies moved unchanged from the shell.
+function standingsPinTimestamp(competitionId, preferences = userPreferences){
+  return preferences?.standings?.pinTimestamps?.[competitionId] || null;
+}
+
+function toggleStandingsPin(competitionId){
+  const pins = { ...(userPreferences.standings?.pinTimestamps || {}) };
+  if (pins[competitionId]) delete pins[competitionId];
+  else pins[competitionId] = new Date().toISOString();
+  savePreferences({
+    ...userPreferences,
+    standings: { ...(userPreferences.standings || {}), pinTimestamps: pins },
+  });
+  renderAll({ preserveViewport: true });
+}
+
+function standingsFrothRank(competition){
+  const preference = userPreferences.preferenceGraph?.domainPreferences?.find(item => (
+    item.sportDomainId === (competition.preferenceDomainId || competition.sportDomainId)
+  ));
+  return { "template:froth": 3, "template:like": 2, "template:casual": 1, "template:custom": 1 }[preference?.templateId] || 0;
+}
+
+function orderStandingsCompetitions(competitions){
+  return competitions.slice().sort((first, second) => {
+    const firstPin = standingsPinTimestamp(first.id);
+    const secondPin = standingsPinTimestamp(second.id);
+    if (Boolean(firstPin) !== Boolean(secondPin)) return firstPin ? -1 : 1;
+    const frothGap = standingsFrothRank(second) - standingsFrothRank(first);
+    if (frothGap) return frothGap;
+    if (firstPin && secondPin){
+      const pinGap = Date.parse(secondPin) - Date.parse(firstPin);
+      if (pinGap) return pinGap;
+    }
+    return String(first.name).localeCompare(String(second.name));
+  });
+}
+
+function activeStandingsCompetitions(){
+  const selected = new Set(selectedStandingsSportKeys());
+  return orderStandingsCompetitions(rankingCompetitionsForStandings()
+    .filter(competition => selected.has(standingsSportKey(competition))));
+}
+
+function buildStandingsFilter(){
+  const available = standingsFilterSportKeys();
+  const selected = new Set(selectedStandingsSportKeys());
+  const panel = document.createElement("section");
+  panel.className = "standings-filter-panel";
+  panel.setAttribute("aria-label", "Standings filter");
+  const head = document.createElement("div");
+  head.className = "standings-filter-head";
+  const title = document.createElement("h2");
+  title.textContent = "Filter standings";
+  const actions = document.createElement("div");
+  const selectAll = document.createElement("button");
+  selectAll.type = "button";
+  selectAll.className = "btn ghost";
+  selectAll.textContent = "Select all";
+  selectAll.addEventListener("click", () => setAllStandingsSportKeys(true));
+  const deselectAll = document.createElement("button");
+  deselectAll.type = "button";
+  deselectAll.className = "btn ghost";
+  deselectAll.textContent = "Deselect all";
+  deselectAll.addEventListener("click", () => setAllStandingsSportKeys(false));
+  actions.append(selectAll, deselectAll);
+  head.append(title, actions);
+  const choices = document.createElement("div");
+  choices.className = "standings-filter-choices";
+  available.forEach(key => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `standings-filter-choice${selected.has(key) ? " active" : ""}`;
+    button.setAttribute("role", "checkbox");
+    button.setAttribute("aria-checked", String(selected.has(key)));
+    button.textContent = SPORT_META[key]?.label || key.toUpperCase();
+    button.addEventListener("click", () => toggleStandingsSportKey(key));
+    choices.appendChild(button);
+  });
+  panel.append(head, choices);
+  return panel;
+}
+
+function buildStandingsInnerTabs(){
+  const activeView = readStandingsDirectorySession().activeView;
+  const tabs = document.createElement("div");
+  tabs.className = "standings-inner-tabs";
+  tabs.setAttribute("role", "tablist");
+  [["tables", "Tables"], ["directory", "Follow Teams & Players"]].forEach(([view, label]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `standings-inner-tab${activeView === view ? " active" : ""}`;
+    button.setAttribute("role", "tab");
+    button.setAttribute("aria-selected", String(activeView === view));
+    button.textContent = label;
+    button.addEventListener("click", () => {
+      updateStandingsDirectorySession({ activeView: view });
+      renderStandingsContext();
+    });
+    tabs.appendChild(button);
+  });
+  return tabs;
+}
+
+function renderStandingsContextLoaded(options = {}){
+  const embedded = Boolean(options.container);
+  const container = options.container || document.getElementById("standingsContext");
+  if (!container) return;
+  container.innerHTML = "";
+  const scrollScope = container.id || options.sectionLabel || "standings";
+  container.dataset.scrollList = `standings:${scrollScope}`;
+  if (!embedded && activeTab === "follow"){
+    renderFollowView();
+    return;
+  }
+  if (!embedded && activeTab !== "standings") return;
+  if(!globalThis.chooseStandingsCategory){
+    container.textContent="Loading rankings…";loadDeferredScript("config/surface-category-ui.js?v=403").then(()=>renderStandingsContext(options)).catch(()=>{container.textContent="Rankings could not load.";});return;
+  }
+  const competitions = chooseStandingsCategory(options.competitions || activeStandingsCompetitions(),container,options);
+  const sectionLabel = options.sectionLabel || "Standings";
+  if (!embedded){
+    container.appendChild(buildStandingsInnerTabs());
+    if (readStandingsDirectorySession().activeView === "directory"){
+      renderTeamsAndPlayersDirectory(container);
+      return;
+    }
+    container.appendChild(buildStandingsFilter());
+  }
+  if (!competitions.length){
+    const empty = document.createElement("div");
+    empty.className = "standings-empty";
+    empty.textContent = "No supported sports are selected in the filters above.";
+    container.appendChild(empty);
+    return;
+  }
+
+  if (!userPreferences.showSpoilers && !standingsRevealApproved){
+    const module = document.createElement("section");
+    module.className = "standings-module standings-withheld";
+    const copy = document.createElement("div");
+    const title = document.createElement("h2");
+    title.textContent = sectionLabel;
+    const detail = document.createElement("p");
+    detail.textContent = "Hidden while Results is off because standings can reveal recent outcomes.";
+    copy.append(title, detail);
+    const reveal = document.createElement("button");
+    reveal.className = "btn ghost";
+    reveal.type = "button";
+    reveal.textContent = "Reveal standings";
+    reveal.addEventListener("click", () => confirmStandingsReveal(renderAll));
+    module.append(copy, reveal);
+    container.appendChild(module);
+    return;
+  }
+
+  if (!canonicalSportsData){
+    const module = document.createElement("section");
+    module.className = "standings-module";
+    const title = document.createElement("h2");
+    title.textContent = sectionLabel;
+    const status = document.createElement("p");
+    status.textContent = canonicalSportsDataError
+      ? `${sectionLabel} data is unavailable, so this area has been withheld.`
+      : "Loading current standings…";
+    module.append(title, status);
+    if (canonicalSportsDataError){
+      const retry = document.createElement("button");
+      retry.className = "btn ghost";
+      retry.type = "button";
+      retry.textContent = "Try again";
+      retry.addEventListener("click", () => {
+        canonicalSportsDataError = null;
+        loadCanonicalSportsData();
+        renderStandingsContext(options);
+      });
+      module.appendChild(retry);
+    } else {
+      loadCanonicalSportsData();
+    }
+    container.appendChild(module);
+    return;
+  }
+
+  const competitionsBySport = new Map();
+  competitions.forEach(competition => {
+    const sportKey = standingsSportKey(competition);
+    const sportCompetitions = competitionsBySport.get(sportKey) || [];
+    sportCompetitions.push(competition);
+    competitionsBySport.set(sportKey, sportCompetitions);
+  });
+
+  competitionsBySport.forEach((sportCompetitions, sportKey) => {
+    const sportSection = document.createElement("section");
+    sportSection.className = "standings-sport-section";
+    sportSection.dataset.sportSection = sportKey;
+    const heading = document.createElement("div");
+    heading.className = "standings-sport-heading";
+    heading.innerHTML = `${glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter")}<span>${SPORT_META[sportKey]?.label || sportKey.toUpperCase()}</span>`;
+    sportSection.appendChild(heading);
+    const sportContent = document.createElement("div");
+    sportContent.className = "standings-sport-content";
+    sportContent.id = `ranking-standings-${sportKey}`;
+    sportContent.dataset.scrollList = `standings:${scrollScope}:${sportKey}`;
+
+    sportCompetitions.forEach(competition => {
+      const module = document.createElement("section");
+      module.className = "standings-module";
+      const moduleScrollKey = `standings:${scrollScope}:${competition.id}`;
+      module.dataset.scrollKey = moduleScrollKey;
+      const head = document.createElement("div");
+      head.className = "standings-head";
+      const copy = document.createElement("div");
+      const title = document.createElement("h2");
+      title.textContent = competition.name;
+      const snapshot = latestStandingsSnapshot(competition.id);
+      const detail = document.createElement("p");
+      detail.textContent = snapshot?.snapshotTimeUtc
+        ? `Updated ${new Date(snapshot.snapshotTimeUtc).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}${snapshot.roundLabel ? ` · ${snapshot.roundLabel}` : ""}`
+        : "No current standings snapshot is available.";
+      copy.append(title, detail);
+      const pin = document.createElement("button");
+      const pinned = Boolean(standingsPinTimestamp(competition.id));
+      pin.type = "button";
+      pin.className = `standings-pin${pinned ? " active" : ""}`;
+      pin.setAttribute("aria-pressed", String(pinned));
+      pin.textContent = pinned ? "Pinned" : "Pin";
+      pin.addEventListener("click", () => toggleStandingsPin(competition.id));
+      head.append(copy, pin);
+      module.appendChild(head);
+      if (!snapshot?.entries?.length){
+        const withheld = document.createElement("p");
+        withheld.textContent = "No valid data is available, so this standings module has been withheld.";
+        module.appendChild(withheld);
+      } else {
+        const expanded = standingsCompetitionExpansion[competition.id] === true;
+        const summaryEntries = standingsEntriesForVisibility(snapshot, "summary");
+        appendStandingsTable(module, competition, snapshot, expanded ? "full" : "summary");
+        const freshness = document.createElement("p");
+        freshness.className = "standings-freshness-note";
+        freshness.textContent = snapshot.metadata?.roundStatus === "in-progress"
+          ? "This round is ongoing, so positions may change after the next completed match. Standings refresh periodically and may briefly differ from official sources due to update delays."
+          : "Standings refresh periodically and may briefly differ from official sources due to update delays.";
+        module.appendChild(freshness);
+        if (summaryEntries.length < snapshot.entries.length){
+          const expander = document.createElement("button");
+          expander.type = "button";
+          expander.className = "standings-table-expander";
+          expander.dataset.standingsExpander = competition.id;
+          expander.setAttribute("aria-expanded", expanded ? "true" : "false");
+          expander.setAttribute(
+            "aria-label",
+            expanded
+              ? `Collapse ${competition.name} to Top 3 plus followed`
+              : `Expand ${competition.name} to the full standings`
+          );
+          expander.innerHTML = `<span>${expanded ? "Full standings" : "Top 3 + followed"}</span>${glyphMarkup("ui:chevron-right")}`;
+          expander.addEventListener("click", () => {
+            const liveModule = Array.from(document.querySelectorAll("[data-scroll-key]"))
+              .find(element => element.dataset.scrollKey === moduleScrollKey) || module;
+            mutateWithScrollContinuity(liveModule, () => {
+              standingsCompetitionExpansion[competition.id] = standingsCompetitionExpansion[competition.id] !== true;
+              renderStandingsContext(options);
+            }, {
+              restoreFocus:true,
+              focusTarget:`[data-scroll-key="${CSS.escape(moduleScrollKey)}"] [data-standings-expander="${CSS.escape(competition.id)}"]`,
+            });
+          });
+          module.appendChild(expander);
+        }
+      }
+      sportContent.appendChild(module);
+    });
+    sportSection.appendChild(sportContent);
+    container.appendChild(sportSection);
+  });
+}
