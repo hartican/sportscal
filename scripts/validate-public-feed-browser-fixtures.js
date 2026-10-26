@@ -1,0 +1,173 @@
+'use strict';
+// Source checks of the exact request audit and pagination used by the native
+// harness. No browser, server, database, provider or dependency installation.
+const assert = require('node:assert/strict'), crypto = require('node:crypto'), vm = require('node:vm'), cp = require('node:child_process'), fs = require('node:fs');
+const fixture = require('./validate-public-feed-browser');
+const base = 'http://127.0.0.1:12345';
+const selected = process.argv.find(arg => arg.startsWith('--case='))?.slice(7);
+const baseline = process.argv.includes('--reviewed-baseline');
+const old = baseline ? cp.execFileSync('git', ['show', 'd4c42c3e8a1dae2cc9f0f401fea1c127a8b8c941:scripts/validate-public-feed-browser.js'], {encoding:'utf8'}) : null;
+const oldApi = old ? vm.runInNewContext('(' + old.slice(old.indexOf('async function api('), old.indexOf('\nasync function isolate(')) + ')', {assert, crypto, session:() => ({}), gifConfig:() => ({capabilities:{}})}) : null;
+const oldAudit = old ? new Function('assert', 'state', 'return (' + old.slice(old.indexOf('async function untouched('), old.indexOf('\nasync function open(')) + ');')(assert, async () => ({})) : null;
+const token = owner => 'e30.' + Buffer.from(JSON.stringify({sub:owner})).toString('base64url') + '.synthetic';
+const request = (method, body, owner) => ({method:() => method, postDataJSON:() => body, headers:() => ({authorization:'Bearer ' + token(owner)})});
+const model = () => Object.assign(fixture.scenario(), {base});
+async function invoke(target, method, body, actor = target.owner){
+  let response;
+  await (oldApi || fixture.api)({request:() => request(method, body, actor), fulfill:async value => { response = value; }}, target, new URL('/api/chat', base));
+  return response;
+}
+const query = (target, values = {}) => { const url = new URL('/api/chat', base); url.search = new URLSearchParams({mode:'public-comments', roomId:target.event.id, ...values}); return url; };
+
+async function mutation(method){
+  const target = model();
+  const response = await invoke(target, method, {action:'update-preferences', followedSports:['nrl']});
+  assert.equal(target.apiWrites.length, 1, method + ' must be recorded even when no POST body path executes');
+  if(oldAudit){
+    await assert.rejects(oldAudit({evaluate:async () => []}, {}, target, 0), /Every mutating method/, 'Original chat-path exemption must fail the control');
+  }else{
+    assert.equal(response.status, 405); assert.equal(target.apiWrites[0].method, method); assert.equal(target.apiWrites[0].allowed, false);
+    assert.throws(() => fixture.assertAllowedWrites(target), /Every mutating method/);
+  }
+}
+
+function ownership(){
+  const target = model(), row = target.rows[0];
+  const validVote = {action:'public-comment-vote', eventId:target.event.id, id:row.id, value:1};
+  const audit = (method, body, owner = target.owner, pathname = '/api/chat') => fixture.recordWrite(request(method, body, owner), target, new URL(pathname, base));
+  assert(audit('POST', validVote).allowed);
+  const media = require('../config/chat-media-ui'), gif = media.normalizedGiphyItem({id:'synthetic-0', title:'Actual picker shape', images:{original:{url:'https://media.giphy.com/media/synthetic/giphy.gif'}, fixed_width:{url:'https://media.giphy.com/media/synthetic/200w.gif'}}});
+  assert.equal(gif.contentType, undefined, 'Actual picker input is normalized by the server, not pre-normalized in this audit');
+  assert(audit('POST', {action:'public-comment-post', eventId:target.event.id, clientId:crypto.randomUUID(), body:'', gif}).allowed);
+  for(const [body, owner] of [[validVote, '33333333-3333-4333-8333-333333333333'], [{...validVote, eventId:'fixture:wrong'}], [{...validVote, value:100}], [{...validVote, preferences:{followedSports:['nrl']}}], [{action:'public-comment-delete', eventId:target.event.id, id:row.id}]]) assert.equal(audit('POST', body, owner).allowed, false);
+  assert.equal(audit('POST', {action:'gif-reference', roomId:'synthetic-private', gif:{contentUrl:'https://media.giphy.com/media/synthetic/giphy.gif'}}).allowed, false, 'No inferred private membership');
+  target.privateMembers.add(target.owner);
+  assert(audit('POST', {action:'gif-reference', roomId:'synthetic-private', gif:{contentUrl:'https://media.giphy.com/media/synthetic/giphy.gif'}}).allowed);
+  target.points = 24;
+  assert.equal(audit('POST', {action:'gif-reference', roomId:'synthetic-private', gif:{contentUrl:'https://media.giphy.com/media/synthetic/giphy.gif'}}).allowed, false);
+  for(const method of ['PUT', 'PATCH', 'DELETE', 'TRACE']) assert.equal(audit(method, validVote).allowed, false);
+  assert.equal(audit('POST', validVote, target.owner, '/api/preferences').allowed, false);
+  assert.equal(audit('POST', {action:'password-sign-in', email:'synthetic@example.invalid', password:'synthetic'}, target.owner, '/api/auth').allowed, false);
+  assert(target.apiWrites.every(record => record.method && record.currentOwner));
+}
+
+async function pagination(){
+  const target = model(); fixture.paginatedFixture(target);
+  if(oldApi){
+    let response; await oldApi({request:() => request('GET', null, target.owner), fulfill:async value => { response = value; }}, target, query(target));
+    assert(response.json.comments.filter(row => !row.parentId).length <= 25, 'Original unbounded root response must fail the control'); return;
+  }
+  const read = values => fixture.commentPage(target, query(target, values), target.owner);
+  const roots = [], rootTokens = []; let cursor, pages = 0;
+  do{
+    const result = read(cursor ? {before:cursor} : {}); assert(!result.status); assert(result.json.comments.filter(row => !row.parentId).length <= 25);
+    roots.push(...result.json.comments.filter(row => !row.parentId).map(row => row.id)); cursor = result.json.nextCursor; if(cursor) rootTokens.push(cursor); assert(++pages <= 3);
+  }while(cursor);
+  assert.equal(pages, 3); assert.equal(roots.length, 52); assert.equal(new Set(roots).size, 52);
+  const replies = [], replyTokens = []; cursor = null; pages = 0;
+  do{
+    const result = read({q:target.rows[0].id, ...(cursor ? {before:cursor} : {})}); assert(!result.status); assert(result.json.comments.length <= 25);
+    replies.push(...result.json.comments.map(row => row.id)); cursor = result.json.nextCursor; if(cursor) replyTokens.push(cursor); assert(++pages <= 3);
+  }while(cursor);
+  assert.equal(replies.length, 57); assert.equal(new Set(replies).size, 57);
+  assert.equal(read({q:target.rows[0].id, before:rootTokens[0]}).status, 400);
+  assert.equal(read({q:target.rows[1].id, before:replyTokens[0]}).status, 400);
+  assert.equal(read({before:rootTokens[0] + 'tampered'}).status, 400);
+  assert.equal(read({before:'x'.repeat(1025)}).status, 400);
+  assert.equal(read({after:'-1'}).status, 400); assert.equal(read({after:String(target.revision + 1)}).status, 409);
+  let after = 0, changes = [], batches = 0;
+  do{ const result = read({after:String(after)}).json; assert(result.comments.length <= 102); assert(result.revision > after); changes.push(...result.comments); after = result.revision; assert(++batches <= 2); if(!result.hasMore) break; }while(true);
+  assert.equal(batches, 2); assert.equal(new Set(changes.map(row => row.id)).size, target.rows.length);
+  target.revision++; assert.equal(read({before:rootTokens[0]}).status, 409);
+  assert.equal(fixture.commentPage(target, query(target), 'wrong-owner').status, 401);
+  assert.equal(fixture.commentPage(target, query(target, {roomId:'fixture:other'}), target.owner).status, 404);
+}
+
+async function seenState(){
+  const html=fs.readFileSync('index.html','utf8'),declaration=html.match(/const surfaceSeenEvents = new WeakMap\(\);/)?.[0];
+  assert(declaration,'Read the actual current owner declaration, not a substitute Map');
+  const element={id:'visible'},slot={id:'detached-slot'},extra={id:'public-only'},elements=[element],forwarded=[];
+  const context={document:{querySelectorAll:()=>elements},userPreferences:{showSpoilers:false},eventActions:{},cardViewStates:{},eventSpoilerState:{},sessionOpenedEventIds:new Set(),feedCardSlots:new Map([[1,{slot,event:{id:'fixture:child'},mounted:false}]]),activeTab:'feed',
+    setCardState(...args){forwarded.push(args);return 'actual-return';},updateEventAction(){},recordEventFeedAction(){},surfacePresentationForEvent:()=>({isNew:true}),getSurfaceSeenObserver:()=>({observe(){forwarded.push('observed');}})};
+  vm.createContext(context);vm.runInContext(declaration,context);context.element=element;context.slot=slot;context.extra=extra;
+  vm.runInContext("surfaceSeenEvents.set(element,{id:'visible-before'});surfaceSeenEvents.set(slot,{id:'detached-before'});",context);
+  const observe=html.slice(html.indexOf('function observeNewSurfaceItem('),html.indexOf('\nfunction latestEventFeedbackDirection('));vm.runInContext(observe,context);
+  if(process.argv.includes('--snapshot-baseline')){
+    const reviewed=cp.execFileSync('git',['show','382e7055606a091f37e64ba8dfc5f05441e99703:scripts/validate-public-feed-browser.js'],{encoding:'utf8'});
+    const oldState=vm.runInContext('('+reviewed.slice(reviewed.indexOf('async function state(page){'),reviewed.indexOf('\nasync function untouched('))+')',context);
+    await oldState({evaluate:fn=>vm.runInContext('('+fn.toString()+')()',context)});return;
+  }
+  vm.runInContext('('+fixture.installPersonalStateObserver.toString()+')()',context);
+  const snapshot=()=>JSON.stringify(context.__publicFeedSnapshot()),before=snapshot();
+  elements.push(extra);elements.shift();assert.equal(snapshot(),before,'DOM insertion/removal cannot renumber captured keys or lose detached state');
+  assert(context.__publicFeedSnapshot().seen.includes('detached-before'));
+  assert.equal(context.setCardState('fixture:child','opened'),'actual-return');assert.deepEqual(forwarded[0],['fixture:child','opened']);
+  context.observeNewSurfaceItem(extra,{id:'new-real-observation'});
+  assert(context.__publicFeedWrites.includes('observeNewSurfaceItem'));assert(context.__publicFeedWrites.includes('surfaceSeenEvents.set'));assert.notEqual(snapshot(),before);
+  assert.equal(vm.runInContext('surfaceSeenEvents.get(extra).id',context),'new-real-observation','The original WeakMap write is forwarded, never suppressed');
+  assert.equal(vm.runInContext('surfaceSeenEvents.delete(slot)',context),true);assert(context.__publicFeedWrites.includes('surfaceSeenEvents.delete'));
+  assert.equal(vm.runInContext('surfaceSeenEvents.has(slot)',context),false);
+  const count=context.__publicFeedWrites.length;vm.runInContext('new WeakMap().set(extra,{id:"peer"})',context);assert.equal(context.__publicFeedWrites.length,count,'Peer WeakMaps are untouched');
+}
+
+async function admissionLifetime(){
+  await require('./validate-public-feed-native-admission').run(fixture);
+}
+
+async function initialAccountFixture(){
+  const target=model(),subject=target.owner,life={accountId:subject,generation:7},context={URL,location:new URL(base+'/?discussion='+target.event.id),startupPostLoadHandled:false,feedCardSlots:new Map(),serverPersistence:{state:'error',user:null},serverSyncClient:{sessionSubject:()=>subject,accountSnapshot:()=>life}};
+  vm.createContext(context);const install=vm.runInContext('('+fixture.installInitialFixtureAccount.toString()+')',context),order=[];
+  for(const actor of ['wrong-owner',null])assert.throws(()=>install({owner:subject,actor}),/does not match/);
+  assert.equal(context.serverPersistence.user,null);assert.throws(()=>install({owner:'wrong-owner',actor:'wrong-owner'}),/does not match/);assert.equal(context.serverPersistence.user,null);
+  life.generation=NaN;assert.throws(()=>install({owner:subject,actor:subject}),/does not match/);assert.equal(context.serverPersistence.user,null);life.generation=7;
+  target.prepareInitialAccount=async actor=>{order.push('initial-account');return install({owner:subject,actor});};
+  const read=async actor=>{let response;await fixture.api({request:()=>request('GET',null,actor),fulfill:async value=>{order.push('fulfil');response=value;}},target,new URL('/api/feed?cursor=0&limit=20',base));return response;};
+  assert.equal((await read('wrong-owner')).status,401);assert.equal(context.serverPersistence.user,null);assert.equal(typeof target.prepareInitialAccount,'function');order.length=0;
+  assert.equal((await read(subject)).json.schemaVersion,'server-feed.v3');assert.deepEqual(order,['initial-account','fulfil']);assert.equal(target.prepareInitialAccount,null);assert.equal(context.serverPersistence.user.id,subject);assert.equal(context.serverPersistence.user.isAnonymous,false);assert.equal(context.serverPersistence.state,'error');assert.equal(life.generation,7);assert.equal(target.initialAccountObservation.generation,7);assert.equal(target.initialAccountObservation.discussion,target.event.id);
+  await read(subject);assert.deepEqual(order,['initial-account','fulfil','fulfil'],'A later Feed read cannot repeat initial account setup');assert.deepEqual(target.apiWrites,[]);
+  for(const [registered,anonymous] of [[false,false],[true,true]]){
+    Object.assign(target,{registered,anonymous,prepareInitialAccount:async()=>{throw Error('Negative account must not receive a positive fixture user');}});context.serverPersistence.user=null;await read(subject);assert.equal(context.serverPersistence.user,null);
+  }
+  context.__publicFeedSlot={isConnected:true};context.document={createElement:()=>({}),body:{append(){}}};context.setTunePromptOpen=context.suppressSessionRatingPrompt=context.closeSettings=()=>{};
+  assert.throws(()=>vm.runInContext('('+fixture.installFixtureHost.toString()+')',context)({event:target.event,registered:true,owner:subject,anonymous:false,cold:false}),/did not arrive/);assert.equal(context.serverPersistence.user,null,'Late host may not restore a positive account');
+  Object.assign(target,{registered:true,anonymous:false,prepareInitialAccount:null});
+  const cold=fixture.initialPreferences(target,{cold:true}),ordinary=fixture.initialPreferences(target);
+  assert.equal(cold.showSpoilers,false);assert.equal(cold.feedControls.spoilers,'strict');assert.equal(ordinary.showSpoilers,true);assert.equal(ordinary.feedControls.spoilers,'results_visible');
+  assert.equal(cold.preferenceGraph.entityFollows.length,1);assert.deepEqual(cold.preferenceGraph.entityFollows,ordinary.preferenceGraph.entityFollows);assert.deepEqual(cold.followedSports,[]);assert.deepEqual(cold.selectedSelectorEntityIds,[]);assert.equal(cold.followFirst.notifications.userChoice,false);
+  context.serverPersistence.user={id:subject,isAnonymous:false};context.feedCardSlots.set('fixture',{event:target.event,slot:{isConnected:true}});context.userPreferences={showSpoilers:true,feedControls:{spoilers:'results_visible'}};
+  const host=vm.runInContext('('+fixture.installFixtureHost.toString()+')',context),before=JSON.stringify(context.userPreferences);
+  assert.throws(()=>host({event:target.event,registered:true,owner:subject,anonymous:false,cold:true}),/Results OFF was not supplied/);assert.equal(JSON.stringify(context.userPreferences),before,'Late host may not repair an incorrect Results input');
+}
+
+function discoveryFixture(){
+  const html=fs.readFileSync('index.html','utf8'),key=html.match(/selectorReleaseAcknowledgement: "([^"]+)"/)?.[1],taxonomy=require('../config/selector-taxonomy'),values=new Map(),sessionValues=new Map();let opened=0;
+  assert(key,'Use the actual application storage key');
+  const context={console,localStorage:{getItem:k=>values.get(k)||null,setItem:(k,v)=>values.set(k,String(v))},sessionStorage:{setItem:(k,v)=>sessionValues.set(k,String(v))},STORAGE_KEYS:{selectorReleaseAcknowledgement:key},SELECTOR_TAXONOMY:taxonomy,userPreferences:{onboardingComplete:true},
+    selectorOptInViewportAnchor:null,pendingSelectorPromptIds:new Set(),captureViewportRenderAnchor:()=>({}),renderSelectorOptInPrompt:()=>opened++,restoreViewportAnchorAfterLayout(){},document:{getElementById:()=>({classList:{contains:()=>false,add(){}},setAttribute(){}}),body:{classList:{add(){}}}}};
+  vm.createContext(context);
+  vm.runInContext(html.slice(html.indexOf('function readStorage('),html.indexOf('\nfunction writeStorage(')),context);
+  vm.runInContext(html.slice(html.indexOf('function openSelectorOptInPrompt(){'),html.indexOf('\ndocument.getElementById("skipSelectorOptInBtn")')),context);
+  let seed=fixture.seedBrowserFixture.toString();
+  if(process.argv.includes('--discovery-baseline')){
+    const oldBoot=cp.execFileSync('git',['show','0284a0a2c6ddab50ab903522a226a75ae37857e5:scripts/validate-public-feed-browser.js'],{encoding:'utf8'}),start=oldBoot.indexOf('await page.addInitScript(')+'await page.addInitScript('.length,end=oldBoot.indexOf('}, {registered:model.registered',start)+1;
+    assert(start>0&&end>start);seed=oldBoot.slice(start,end);
+  }
+  vm.runInContext('('+seed+')',context)({registered:false,token:'synthetic',owner:'synthetic',anonymous:false,selectorVersion:taxonomy.version,preferences:fixture.initialPreferences({...fixture.scenario(),registered:false})});
+  context.userPreferences=JSON.parse(values.get('ns_preferences_v1'));
+  const before=JSON.stringify(context.userPreferences);
+  assert.equal(vm.runInContext('openSelectorOptInPrompt()',context),false,'Existing Not now metadata must prevent the unrelated discovery modal, without changing the real predicate');
+  assert.equal(opened,0);assert.equal(JSON.parse(values.get(key)),taxonomy.version);assert.equal(sessionValues.size,0,'This does not register a signed-out account');
+  assert.equal(context.userPreferences.followedSports.length,0);assert.equal(context.userPreferences.selectedSelectorEntityIds.length,0);assert.equal(context.userPreferences.followFirst.notifications.enabled,false);
+  values.delete(key);assert.equal(vm.runInContext('openSelectorOptInPrompt()',context),true,'Actual unacknowledged prompt still opens');assert.equal(opened,1);assert.equal(JSON.stringify(context.userPreferences),before,'Neither control manufactures a Follow or changes OFF choices');
+}
+
+async function main(){
+  for(const method of ['POST', 'PUT', 'PATCH', 'DELETE']) if(!selected || selected === method){ await mutation(method); console.log('Native fixture write audit: ' + method + ' passed.'); }
+  if(!selected && !baseline){ ownership(); console.log('Native fixture write ownership/target/permission controls passed.'); }
+  if(!selected || selected === 'pagination'){ await pagination(); console.log('Native fixture scoped root/reply pages and bounded deltas passed.'); }
+  if(!baseline && (!selected || selected === 'seen')){ await seenState(); console.log('Actual WeakMap owner: stable keys, detached values, real mutations and forwarding controls passed.'); }
+  if(!baseline && (!selected || selected === 'discovery')){ discoveryFixture(); console.log('Actual discovery predicate: acknowledged test fixture stays clear, unacknowledged control opens, empty/OFF/account choices unchanged.'); }
+  if(!baseline && (!selected || selected === 'admission')){ await admissionLifetime(); console.log('Actual SDK/client/server Feed admission: initial team follow and normal rebuild retain the fixture; empty, OFF, anonymous, unknown, dismissed, expired and detached controls remain.'); }
+  if(!baseline && (!selected || selected === 'initial-account')){ await initialAccountFixture(); console.log('Initial account fixture: actor/SDK ownership, unchanged generation/error state, one-shot before Feed fulfilment, negative accounts and late-host refusal passed.'); }
+}
+main().catch(error => { console.error(error); process.exitCode = 1; });

@@ -2,6 +2,7 @@
  'use strict';
  const node=(tag,text,cls)=>{const e=document.createElement(tag);if(text!=null)e.textContent=text;if(cls)e.className=cls;return e;};
  function copy(item,spoilers){
+  if(item.phase==='public-comments')return{title:'New fixture comments',detail:'Someone you follow started commenting.'};
   const actor=item.actor||'A Nothinger',room=item.roomName||'chat',bonus=item.points?` · +${item.points} point${item.points===1?'':'s'}`:'';
   switch(item.kind){
    case 'chat':return {title:item.messageCount>1?`${item.messageCount} new messages in ${room}`:`${item.sender||actor} sent a message in ${room}`,detail:spoilers&&item.preview?`${item.sender||actor}: ${item.preview.slice(0,140)}`:'Open chat to read.'};
@@ -75,12 +76,12 @@
   function hide(){generation++;busy=false;opened=false;position=body.scrollTop;observer.disconnect();clearTimeout(timer);clearTimeout(readTimer);pending.clear();dialog.close();document.body.classList.remove('notifications-open');trigger.setAttribute('aria-expanded','false');trigger.focus({preventScroll:true});}
   function dismiss(){hide();if(history.state?.inbox)history.replaceState({},'');}
   async function activate(item){
-   const who=account;
+   const who=account,epoch=generation;
    pending.set(item.id,{id:item.id,version:item.version});await markVisible();
-   if(who!==owner()||who!==account)return;
+   if(who!==owner()||who!==account||epoch!==generation)return;
    if(item.available===false){status.textContent='This message is no longer available.';return;}
-   hide();try{await navigate(item);if(who!==owner()){closeDestination();return;}if(history.state?.inbox)history.pushState({inboxDestination:true},'');else history.replaceState({...history.state,inbox:false,inboxDestination:true},'');}
-   catch(error){closeDestination();show(false);status.textContent=error.message||'This activity is no longer available.';}
+   hide();const ticket=generation;try{if(item.phase==='public-comments'){await loadDeferredScript('assets/js/public-comments-ui.js?v=1');if(ticket!==generation||who!==owner())return;await root.NOTHINGSPORTS_PUBLIC_COMMENTS_UI.openFixture(item.eventId);}else await navigate(item);if(who!==owner()){closeDestination();return;}if(history.state?.inbox)history.pushState({inboxDestination:true},'');else history.replaceState({...history.state,inbox:false,inboxDestination:true},'');}
+   catch(error){if(item.phase==='public-comments'&&(ticket!==generation||who!==owner()))return;closeDestination();show(false);status.textContent=error.message||'This activity is no longer available.';}
   }
   close.onclick=dismiss;dialog.addEventListener('cancel',e=>{e.preventDefault();dismiss();});dialog.addEventListener('click',e=>{if(e.target===dialog)dismiss();});trigger.onclick=()=>show();
   addEventListener('popstate',()=>{if(history.state?.appRoute==='notifications'&&history.state?.inbox){closeDestination();show(false);}else if(opened)hide();});

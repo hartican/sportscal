@@ -1,6 +1,22 @@
-# Public Feed — settled deferred specification
+# Public Feed — settled specification
 
 22 October 2026. **Specification settled; implementation remains deferred and requires its later allocation.** Existing owner: Public Feed, chat `01a1624e-098f-71f3-a337-6a7d14aaf939`. This updates the existing queue item; it creates no task, publisher, scheduler or release exception. Preserve the established tail order: existing higher-priority work, Public Feed, then All Sports View. The earlier five-minute/30-minute batching proposal is rejected and superseded.
+
+## Implementation allocation — 24 October 2026 Sydney
+
+Jack authorised the full settled feature through Flot and DEPLOY, targeting the 24–25 October weekend without a reduced preview or guaranteed completion date. Work is isolated on `codex/public-feed-20261024`, initially based on accepted `9df58ea0faf9c1497abc9de09a44b31516b0536d`. The 22 October deferral above is historical; this allocation permits implementation and a draft PR, not a new publisher or production activation. DEPLOY retains queue ordering, final review, generated shell/cache version allocation, migration activation and publication. Existing paused jobs remain paused.
+
+Comment-alert expansion depends on the final reviewed PR37 opt-in shared card adapter (`cardState`, `onCardStateChange(nextState)`). Its host owns ephemeral expansion and focus; it must not persist Follow/admission/seen/open choices. Do not copy its renderer or critical generated runtime. The adapter remains under its original owner and may change before acceptance.
+
+Resource hold: continue light source/API/DOM checks; local native browsers, VMs and PGlite engine runs require renewed DEPLOY headroom allocation. No implementation-complete, Ready, hosted or physical-device claim follows from those light checks. Release acceptance below remains required in full.
+
+## Full real feature continuation — 26 October 2026 Sydney
+
+Jack ended the synthetic prototype direction and asked to trial the full feature after DEPLOY publishes it live. Continue the complete settled scope through the original PR38 lineage in the existing Public Feed worktree. Preserve the separate preview source, PR73, deployment, access and evidence without further preview work. The production continuation contains no preview facade, browser-local account model or TEST-mode application.
+
+The source-only continuation starts at `6514b0109a1507ce36eb275d0bb4853822733ca4`, the merge of original Public Feed `2c7f7649` and current main `a6ddd15c`. Its historical commit message incorrectly called main accepted; it is current source, not accepted/live production. The actual shared card adapter arrived through main/PR59, so obsolete PR37 integration is no longer a source blocker. ROOT owns subsequent combined-source reconciliation, generated version/cache allocation, shared migration/service/native lanes and publication. The separate P1 source and unready peer branches are not pulled into this continuation.
+
+The overnight MVP grant permits independent implementation and proportionate qualification without a new phone prerequisite or routine permission question. It does not waive required gates, authorize purchases/customer-state repair, or create a second publisher. The executable source/native/managed acceptance boundary and precise notification dependency are recorded in [the production qualification record](../quality/public-feed-production-2026-10-26.md).
 
 ## Fixture discussion
 

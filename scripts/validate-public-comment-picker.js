@@ -1,0 +1,72 @@
+'use strict';
+// Structural/ownership tests of the existing picker; no native browser or real provider.
+const assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto'),{JSDOM}=require('jsdom');
+const tick=()=>new Promise(resolve=>setImmediate(resolve));
+const read=file=>{const baseline=process.argv.includes('--settlement-baseline')?'d4c42c3e8a1dae2cc9f0f401fea1c127a8b8c941':process.argv.includes('--reviewed-baseline')?'6e67b47901542621b71e3b0d43e2fd7a1310c0ef':null;return baseline?require('node:child_process').execFileSync('git',['show',baseline+':'+file],{encoding:'utf8'}):fs.readFileSync(file,'utf8');};
+const config=key=>({provider:'giphy',capabilities:{canUseGifs:true,lifetimeNscPoints:25},clientConfig:{apiKey:key||'synthetic-current',searchEndpoint:'https://api.giphy.com/v1/gifs/search',trendingEndpoint:'https://api.giphy.com/v1/gifs/trending'}});
+const response=(title,{total=1,offset=0}={})=>({ok:true,json:async()=>({data:[{id:'current',title:title||'Current reaction',images:{original:{url:'https://media.giphy.com/media/example/giphy.gif',width:'100',height:'100'},fixed_width:{url:'https://media.giphy.com/media/example/200w.gif',width:'100',height:'100'}}}],pagination:{count:1,total_count:total,offset}})});
+function setup(){
+ const dom=new JSDOM('<!doctype html><link data-chat-media-styles><form id="chatRoomComposer"><button data-chat-gif-trigger type="button">Private GIF</button></form><dialog open><input id="publicFocus"><article id="card"></article></dialog>',{url:'https://ns.invalid/',runScripts:'outside-only',pretendToBeVisual:true}),w=dom.window;
+ w.crypto.randomUUID=crypto.randomUUID;w.scrollBy=()=>{};w.fetch=async()=>response();
+ for(const file of ['config/chat-media.js','config/chat-media-ui.js','config/public-comments.js','config/public-comments-ui.js'])w.eval(read(file));
+ const dialog=w.document.querySelector('dialog'),actions=[],selections=[],messages=[],privateState={capabilities:config().capabilities,pendingAttachments:[],currentRoom:{roomId:'private-room',viewer:{canPost:true}}};
+ const privateContext={media:w.NOTHINGSPORTS_CHAT_MEDIA,state:()=>privateState,connection:message=>messages.push(message),request:async(q,command)=>{if(!command)return config();actions.push(command.action);return{attachment:{attachmentId:crypto.randomUUID(),url:'https://media.giphy.com/media/example/giphy.gif'}};}};
+ let alive=true;const publicContext={media:w.NOTHINGSPORTS_CHAT_MEDIA,pickerHost:dialog,state:()=>({capabilities:config().capabilities,pendingAttachments:[]}),connection:message=>messages.push(message),request:async()=>config(),isCurrent:()=>alive,returnFocus:()=>w.document.getElementById('publicFocus')?.focus(),onGifSelected:gif=>selections.push(gif)};
+ return{w,dialog,actions,selections,messages,privateState,privateContext,publicContext,setAlive:value=>alive=value,install:context=>w.NOTHINGSPORTS_CHAT_MEDIA_UI.install(context),close(){alive=false;w.NOTHINGSPORTS_PUBLIC_COMMENTS_UI.reset();dom.window.close();}};
+}
+async function descendant(){const h=setup(),{w,dialog}=h;try{
+ const privatePicker=h.install(h.privateContext);await privatePicker.openPicker();assert.equal(w.document.getElementById('chatGifPicker').parentElement,w.document.body,'default private picker host remains body');
+ const publicPicker=h.install(h.publicContext);await publicPicker.openPicker();let picker=w.document.getElementById('chatGifPicker');assert(dialog.contains(picker),'existing public picker must be a descendant of its native dialog');assert.equal(w.document.querySelectorAll('#chatGifPicker').length,1);assert(picker.textContent.includes('Powered by GIPHY'));picker.querySelector('#chatGifResults button').click();assert.equal(h.selections.length,1);assert.equal(h.actions.length,0);assert.equal(w.document.activeElement.id,'publicFocus');
+ await privatePicker.openPicker();picker=w.document.getElementById('chatGifPicker');assert.equal(picker.parentElement,w.document.body);const current=picker.querySelector('#chatGifResults').firstElementChild,focus=w.document.activeElement;publicPicker.closePicker();assert.equal(picker.querySelector('#chatGifResults').firstElementChild,current,'stale public close cannot clear the new private picker');assert.equal(w.document.activeElement,focus);picker.querySelector('#chatGifResults button').click();await tick();assert.deepEqual(h.actions,['gif-reference']);assert.equal(h.selections.length,1,'private/public/private keeps the correct selection owner');
+ h.privateState.capabilities={canUseGifs:false,lifetimeNscPoints:24};let contacts=0;w.fetch=async()=>{contacts++;return response();};await privatePicker.openPicker();assert.equal(contacts,0);assert(h.messages.some(message=>message.includes('25 NSC points')));
+ }finally{h.close();}}
+async function bridge(){const h=setup(),{w,dialog}=h;try{
+ const loads=[],client={owner:()=> 'reader',registered:()=>true,active:()=>true,request:async()=>({comments:[],revision:0}),gifs:async()=>config(),load:async src=>loads.push(src),signIn(){throw Error('Unexpected sign-in');}};
+ w.NOTHINGSPORTS_PUBLIC_COMMENTS_UI.mount(w.document.getElementById('card'),{id:'fixture:one'},client);await tick();[...dialog.querySelectorAll('button')].find(button=>button.textContent==='GIF').click();await tick();await tick();assert(dialog.contains(w.document.getElementById('chatGifPicker')),'actual Public Feed caller must pass the containing native dialog to the existing picker');assert.deepEqual(loads.sort(),['config/chat-media-ui.js?v=304','config/chat-media.js?v=218'].sort(),'retain the existing deferred media loader paths');
+ const picker=w.document.getElementById('chatGifPicker');w.NOTHINGSPORTS_PUBLIC_COMMENTS_UI.reset();assert(!picker.classList.contains('show'));assert.equal(picker.querySelector('#chatGifResults').children.length,0,'disposing the tray clears its owned picker even after its current predicate becomes false');
+ }finally{h.close();}}
+async function configRace(){const h=setup(),{w}=h;try{
+ let resolveConfig,configCalls=0;const requests=[];w.fetch=async url=>{requests.push(String(url));return response();};
+ const privatePicker=h.install({...h.privateContext,request:async(q,command)=>{if(command)return h.privateContext.request(q,command);configCalls++;return configCalls===1?new Promise(resolve=>resolveConfig=resolve):config('fresh-key');}}),old=privatePicker.openPicker();await tick();
+ const publicPicker=h.install(h.publicContext);await publicPicker.openPicker();resolveConfig(config('stale-key'));await old;assert.equal(requests.length,1,'late config must not start provider contact for a replaced picker');assert(!requests.some(url=>url.includes('stale-key')));
+ await privatePicker.openPicker();assert.equal(configCalls,2,'stale config is not cached into a later private lifetime');assert(requests.at(-1).includes('fresh-key'));
+ }finally{h.close();}}
+async function errorRace(){const h=setup(),{w}=h;try{
+ let rejectOld,count=0;w.fetch=async()=>++count===1?new Promise((resolve,reject)=>rejectOld=reject):response('Fresh result');const picker=h.install(h.privateContext),old=picker.openPicker();await tick();picker.closePicker();await picker.openPicker();assert.equal(w.document.querySelector('#chatGifResults img')?.alt,'Fresh result');
+ rejectOld(Error('Old sensitive search failure'));await old;assert(!w.document.getElementById('chatGifPickerStatus').textContent.includes('Old sensitive'),'late old failure cannot overwrite a reopened picker status');
+ }finally{h.close();}}
+async function lifetime(){const h=setup(),{w,dialog}=h;try{
+ const privatePicker=h.install(h.privateContext);await privatePicker.openPicker();const staleButton=w.document.querySelector('#chatGifResults button'),staleClose=w.document.getElementById('closeChatGifPickerBtn');const publicPicker=h.install(h.publicContext);await publicPicker.openPicker();await privatePicker.openPicker();staleButton.click();await tick();assert.equal(h.actions.length,0,'old detached result cannot select into a reopened private picker');staleClose.click();assert(w.document.getElementById('chatGifPicker').classList.contains('show'),'old detached close cannot dismiss a reopened private picker');w.document.querySelector('#chatGifResults button').click();await tick();assert.equal(h.actions.length,1,'current private result still works');
+ await publicPicker.openPicker();dialog.open=false;await privatePicker.openPicker();const current=w.document.getElementById('chatGifPicker');await publicPicker.openPicker();assert.equal(w.document.getElementById('chatGifPicker'),current,'closed dialog cannot steal a current private picker');dialog.remove();await publicPicker.openPicker();assert.equal(w.document.getElementById('chatGifPicker'),current,'detached dialog cannot fall back to a body picker');
+ }finally{h.close();}}
+async function pagination(){const h=setup(),{w}=h;try{
+ w.fetch=async url=>{const offset=Number(new w.URL(String(url)).searchParams.get('offset'));return response(offset?'Second page':'First page',{total:2,offset});};const picker=h.install(h.privateContext);await picker.openPicker();const first=w.document.querySelector('#chatGifResults button');w.document.querySelector('.chat-gif-more').click();await tick();await tick();assert.equal(w.document.querySelectorAll('#chatGifResults img').length,2);first.click();await tick();assert.equal(h.actions.length,1,'visible first-page GIF stays selectable after loading another page');assert.equal(h.privateState.pendingAttachments[0].sourceGif.title,'First page');
+ }finally{h.close();}}
+
+async function provider(){const h=setup(),{w}=h;try{
+ let resolveOld,count=0;w.fetch=async()=>++count===1?new Promise(resolve=>resolveOld=resolve):response(count===2?'Public current':'Latest private');const privatePicker=h.install(h.privateContext),old=privatePicker.openPicker();await tick();const publicPicker=h.install(h.publicContext);await publicPicker.openPicker();await privatePicker.openPicker();assert.equal(w.document.querySelector('#chatGifResults img')?.alt,'Latest private');resolveOld(response('Old private query'));await old;assert.equal(w.document.querySelector('#chatGifResults img')?.alt,'Latest private','late provider success cannot replace a newer private/public/private view');assert.equal(h.actions.length,0);assert.equal(h.selections.length,0);
+ }finally{h.close();}}
+
+async function privacy(){for(const end of ['scope','closed','detached']){const h=setup(),{w,dialog}=h;try{
+ let resolveConfig,contacts=0;w.fetch=async()=>{contacts++;return response('New owner');};const picker=h.install({...h.publicContext,request:async()=>new Promise(resolve=>resolveConfig=resolve)}),pending=picker.openPicker();await tick();if(end==='scope')h.setAlive(false);else if(end==='closed')dialog.open=false;else dialog.remove();resolveConfig(config());await pending;assert.equal(contacts,0,'ended public lifetime cannot start a delayed provider search: '+end);assert.equal(h.selections.length,0);picker.closePicker();if(dialog.isConnected)assert(!dialog.querySelector('#chatGifPicker').classList.contains('show'));
+ }finally{h.close();}}}
+
+async function settlement(){const h=setup(),{w}=h;try{
+ let releaseConfig,completed=0;const client={owner:()=> 'reader',registered:()=>true,active:()=>true,request:async()=>({comments:[],revision:0}),gifs:()=>new Promise(resolve=>releaseConfig=resolve),load:async()=>{},signIn(){throw Error('Unexpected sign-in');}};
+ const mounted=w.NOTHINGSPORTS_PUBLIC_COMMENTS_UI.mount(w.document.getElementById('card'),{id:'fixture:one'},client);await tick();
+ mounted.host.addEventListener('ns-public-comment-gif-settled',event=>{assert.equal(event.detail,undefined);completed++;});
+ [...mounted.host.querySelectorAll('button')].find(button=>button.textContent==='GIF').click();await tick();assert(releaseConfig);w.NOTHINGSPORTS_PUBLIC_COMMENTS_UI.reset();releaseConfig(config());await tick();await tick();
+ assert.equal(completed,1,'ended actual public GIF owner must report final settlement on its original detached host');
+ }finally{h.close();}}
+
+async function searchSettlement(){const h=setup(),{w}=h;try{
+ let releaseProvider,searchCompleted=0;w.fetch=()=>new Promise(resolve=>releaseProvider=resolve);const installed=h.install(h.publicContext),pending=installed.openPicker();await tick();
+ const original=w.document.getElementById('chatGifPicker');original.addEventListener('ns-chat-gif-search-settled',event=>{assert.equal(event.detail,undefined);searchCompleted++;});
+ installed.closePicker();const privatePicker=h.install(h.privateContext);releaseProvider(response('Old provider response'));await pending;
+ assert.equal(searchCompleted,1,'actual stale search promise settles on its own replaced picker');assert.equal(h.selections.length,0);assert(!original.isConnected);
+ w.fetch=async()=>response('Observer cannot alter outcome');const current=w.document.getElementById('chatGifPicker');current.dispatchEvent=()=>{throw Error('Synthetic observer failure');};
+ await privatePicker.openPicker();assert.equal(current.querySelector('img').alt,'Observer cannot alter outcome','a throwing settlement observer cannot change the real search result');
+ }finally{h.close();}}
+
+async function main(){const selected=process.argv.find(arg=>arg.startsWith('--case='))?.slice(7);for(const[name,run]of Object.entries({descendant,bridge,config:configRace,error:errorRace,lifetime,pagination,provider,privacy,settlement,'search-settlement':searchSettlement}))if(!selected||selected===name){await run();console.log('Existing GIF picker source: '+name+' passed.');}}
+main().catch(error=>{console.error(error);process.exitCode=1;});
