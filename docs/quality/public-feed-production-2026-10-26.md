@@ -115,6 +115,8 @@ node scripts/validate-public-comments-state.js --case=localExposure --exposure-b
 node scripts/validate-public-comments-state.js --case=localExposure
 ```
 
+The neutral standalone regression is `scripts/validate-transient-card-exposure.js`; the Public Feed state gate calls that same module. Its default run reads only the actual shared renderer, ordinary shell owner functions and product-events helper, with no Public Feed helper, fixture, migration or application-mode dependency. `--baseline-ref=<existing-local-ref>` optionally reproduces the old renderer's RED. ROOT can apply only the one-line shared-renderer fix and this standalone script to its independent candidate, then rebuild its own current canonical runtime. Never copy the Public Feed branch's generated runtime across candidates.
+
 The baseline remains RED. This product delta requires both ROOT source reviews, affected renderer/runtime/source gates and a separately allocated coherent full native attempt. Earlier failures remain failed; no repeated full suite, hidden mutation or new preview substitutes for qualification. ROOT owns combining later shared-renderer changes and final version/cache/release handling.
 
 ## SQL evidence reuse
