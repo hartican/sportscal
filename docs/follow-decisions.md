@@ -1,5 +1,25 @@
 # Follow and Feed decisions
 
+## Selected-sport Follow control remains visible — 26 October 2026
+
+The reported disappearing sport checkbox is reproduced through the existing
+Follow render block and navigation owner: initial collapse hides the control,
+opening shows it, and scrolling collapses it again. Keep that same selected
+sport control outside the collapsible browsing menu. Preserve its native label,
+checked value and existing save handler, including explicit men/women/code
+scope. If that handler refuses a save, restore the last saved checked value;
+do not turn refusal into a write or change the previous choices. Separate competition and Australian-only controls keep their existing
+scope. Browsing, menu changes and redraws must not create follows or change
+exclusions, empty choices, notification OFF or account state.
+
+This is a presentation repair, independent of frozen grouped-cards PR41 and its
+new preference fields/source coverage. It does not change admission, selection,
+sync reconciliation or receipt policy. Regression:
+`validate-follow-sport-control.js` through the existing Follow decision gate;
+focused mounted browser checks cover actual taps, late loads, redraw and menu
+states. Local source checks are not hosted or physical-device acceptance.
+
+
 ## All Sports View — 24 October 2026
 
 The authorised full implementation adds a separate compact chronological view
