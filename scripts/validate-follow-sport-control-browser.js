@@ -49,7 +49,7 @@ if (process.argv.includes('--preflight')) {
           for (const width of [320, 390]) for (const theme of ['day', 'night']) {
             const scope = theme === 'night' ? 'sport:tennis-women' : 'sport:tennis';
             const directory = scope.slice(6), initialChecked = width === 390;
-            const context = await browser.newContext({ viewport: { width, height: 844 }, hasTouch: true, serviceWorkers: 'block' });
+            const context = await browser.newContext({ viewport: { width, height: width === 320 ? 568 : 844 }, hasTouch: true, serviceWorkers: 'block' });
             const page = await context.newPage(), errors = [];
             page.setDefaultTimeout(15000); page.on('pageerror', error => errors.push(error.message));
             let release; const directoryGate = new Promise(resolve => { release = resolve; });
@@ -77,6 +77,7 @@ if (process.argv.includes('--preflight')) {
               await assertAvailable(page);
               release();
               await page.waitForFunction(key => followDirectoryChunks.has(key), directory);
+              await page.locator('.follow-directory-tabs').getByRole('button', { name: 'Players', exact: true }).tap();
               await page.locator('.follow-directory-row').first().waitFor();
               const toggle = page.locator('.follow-navigation-toggle');
               if (await toggle.getAttribute('aria-expanded') === 'false') await toggle.tap();
