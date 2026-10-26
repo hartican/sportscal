@@ -1,7 +1,7 @@
 'use strict';
 // Pure checks of the exact request audit and pagination used by the native
 // harness. No browser, server, database, provider or dependency installation.
-const assert = require('node:assert/strict'), crypto = require('node:crypto'), vm = require('node:vm'), cp = require('node:child_process');
+const assert = require('node:assert/strict'), crypto = require('node:crypto'), vm = require('node:vm'), cp = require('node:child_process'), fs = require('node:fs');
 const fixture = require('./validate-public-feed-browser');
 const base = 'http://127.0.0.1:12345';
 const selected = process.argv.find(arg => arg.startsWith('--case='))?.slice(7);
@@ -83,9 +83,37 @@ async function pagination(){
   assert.equal(fixture.commentPage(target, query(target, {roomId:'fixture:other'}), target.owner).status, 404);
 }
 
+async function seenState(){
+  const html=fs.readFileSync('index.html','utf8'),declaration=html.match(/const surfaceSeenEvents = new WeakMap\(\);/)?.[0];
+  assert(declaration,'Read the actual current owner declaration, not a substitute Map');
+  const element={id:'visible'},slot={id:'detached-slot'},extra={id:'public-only'},elements=[element],forwarded=[];
+  const context={document:{querySelectorAll:()=>elements},userPreferences:{showSpoilers:false},eventActions:{},cardViewStates:{},eventSpoilerState:{},sessionOpenedEventIds:new Set(),feedCardSlots:new Map([[1,{slot,event:{id:'fixture:child'},mounted:false}]]),activeTab:'feed',
+    setCardState(...args){forwarded.push(args);return 'actual-return';},updateEventAction(){},recordEventFeedAction(){},surfacePresentationForEvent:()=>({isNew:true}),getSurfaceSeenObserver:()=>({observe(){forwarded.push('observed');}})};
+  vm.createContext(context);vm.runInContext(declaration,context);context.element=element;context.slot=slot;context.extra=extra;
+  vm.runInContext("surfaceSeenEvents.set(element,{id:'visible-before'});surfaceSeenEvents.set(slot,{id:'detached-before'});",context);
+  const observe=html.slice(html.indexOf('function observeNewSurfaceItem('),html.indexOf('\nfunction latestEventFeedbackDirection('));vm.runInContext(observe,context);
+  if(process.argv.includes('--snapshot-baseline')){
+    const reviewed=cp.execFileSync('git',['show','382e7055606a091f37e64ba8dfc5f05441e99703:scripts/validate-public-feed-browser.js'],{encoding:'utf8'});
+    const oldState=vm.runInContext('('+reviewed.slice(reviewed.indexOf('async function state(page){'),reviewed.indexOf('\nasync function untouched('))+')',context);
+    await oldState({evaluate:fn=>vm.runInContext('('+fn.toString()+')()',context)});return;
+  }
+  vm.runInContext('('+fixture.installPersonalStateObserver.toString()+')()',context);
+  const snapshot=()=>JSON.stringify(context.__publicFeedSnapshot()),before=snapshot();
+  elements.push(extra);elements.shift();assert.equal(snapshot(),before,'DOM insertion/removal cannot renumber captured keys or lose detached state');
+  assert(context.__publicFeedSnapshot().seen.includes('detached-before'));
+  assert.equal(context.setCardState('fixture:child','opened'),'actual-return');assert.deepEqual(forwarded[0],['fixture:child','opened']);
+  context.observeNewSurfaceItem(extra,{id:'new-real-observation'});
+  assert(context.__publicFeedWrites.includes('observeNewSurfaceItem'));assert(context.__publicFeedWrites.includes('surfaceSeenEvents.set'));assert.notEqual(snapshot(),before);
+  assert.equal(vm.runInContext('surfaceSeenEvents.get(extra).id',context),'new-real-observation','The original WeakMap write is forwarded, never suppressed');
+  assert.equal(vm.runInContext('surfaceSeenEvents.delete(slot)',context),true);assert(context.__publicFeedWrites.includes('surfaceSeenEvents.delete'));
+  assert.equal(vm.runInContext('surfaceSeenEvents.has(slot)',context),false);
+  const count=context.__publicFeedWrites.length;vm.runInContext('new WeakMap().set(extra,{id:"peer"})',context);assert.equal(context.__publicFeedWrites.length,count,'Peer WeakMaps are untouched');
+}
+
 async function main(){
   for(const method of ['POST', 'PUT', 'PATCH', 'DELETE']) if(!selected || selected === method){ await mutation(method); console.log('Native fixture write audit: ' + method + ' passed.'); }
   if(!selected && !baseline){ ownership(); console.log('Native fixture write ownership/target/permission controls passed.'); }
   if(!selected || selected === 'pagination'){ await pagination(); console.log('Native fixture scoped root/reply pages and bounded deltas passed.'); }
+  if(!baseline && (!selected || selected === 'seen')){ await seenState(); console.log('Actual WeakMap owner: stable keys, detached values, real mutations and forwarding controls passed.'); }
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });

@@ -37,6 +37,19 @@ On the first failure, stop, preserve the actual receipt/log/trace and establish 
 
 The native harness uses actual app/SDK/renderers/picker/functions, controlled API/GIPHY responses and forwarding spies on personal-state owners. It verifies the full shared card and wide tray below its details, not just document overflow; fallback fails. It preserves warning/error observations in receipts instead of hiding them. Native fixtures do not establish managed Auth/RLS/CAS/concurrency, real provider, installed-worker, push or physical-phone acceptance.
 
+## Retained native harness failure
+
+The first native attempt at `382e7055` stopped before any case: the old harness tried to spread `surfaceSeenEvents`, but the real app owns a nonenumerable WeakMap. This is a harness integration failure, not a feature pass or a demonstrated product defect. The receipt and actual browser error are retained under `native-382e7055-attempt1`; failure occurred before per-case tracing began, so no case trace was produced.
+
+The corrected harness keeps that actual WeakMap. A shared observer captures stable DOM/slot key identities (including detached keys), reads their actual values, and forwards/records every set/delete plus the existing state-owner calls. It never substitutes a Map, serializes the store as an empty object or suppresses mutations. Source controls evaluate the actual app's WeakMap declaration and exact old state helper to reproduce the failure; positive controls prove stable snapshots across DOM changes, retained detached values, forwarded original writes and peer-WeakMap isolation. This correction consumes the single materially changed second-attempt allowance; it does not authorize unchanged retries.
+
+```sh
+node scripts/validate-public-feed-browser-fixtures.js --case=seen --snapshot-baseline
+node scripts/validate-public-feed-browser-fixtures.js
+```
+
+The first command intentionally fails against the original `382e7055` helper; its RED must remain RED. The normal source controls are green. Actual browser outcomes remain bound to their separately frozen candidate/receipt.
+
 ## SQL evidence reuse
 
 Product migration `20261023222545_public_fixture_comments.sql` remains SHA256 `217c1f4096f33e65a8f60796bb20d05e6512a5278cff499beb6a2faa7e910f30`, unchanged from the qualified `e14550f6` product source. The recovery helper/database harness and all three source-bound recovery SQL inputs remain unchanged; the latter also equal current main. Preserve the [completed PG18/PG17 coexistence pair](public-feed-recovery-coexistence-2026-10-26.md) at `4ccb4913` and earlier erasure/retirement controls. Those are reused unchanged-input local evidence, not a newly run engine pair, actual managed fingerprint or complete managed erasure/storage workflow. Rerun only affected local SQL checks when a source/input change justifies it and ROOT allocates the work.

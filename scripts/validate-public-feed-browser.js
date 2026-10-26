@@ -296,23 +296,38 @@ async function boot(browser, base, model, width, query = ''){
     globalThis.__publicFeedSlot = buildFeedCardSlot(event); // detached; never observed/mounted
     globalThis.__publicFeedHost = document.createElement('div');
     __publicFeedHost.id = 'public-feed-native-host'; document.body.append(__publicFeedHost);
-    globalThis.__publicFeedWrites = [];
-    for(const name of ['setCardState', 'updateEventAction', 'recordEventFeedAction', 'observeNewSurfaceItem']){
-      const original = globalThis[name]; if(typeof original !== 'function') throw Error('Missing actual state owner: ' + name);
-      globalThis[name] = function(...args){ __publicFeedWrites.push(name); return original.apply(this, args); };
-    }
     if(cold){ userPreferences.showSpoilers = false; userPreferences.feedControls.spoilers = 'strict'; }
-    globalThis.__publicFeedInitialPersonal = {preferences:JSON.stringify(userPreferences), actions:JSON.stringify(eventActions), cards:JSON.stringify(cardViewStates), spoilers:JSON.stringify(eventSpoilerState), opened:JSON.stringify([...sessionOpenedEventIds]), seen:JSON.stringify([...surfaceSeenEvents]), mounted:[...feedCardSlots.values()].map(item => [item.event.id, item.mounted]), activeTab};
+  }, {event:model.event, registered:model.registered, owner:model.owner, anonymous:model.anonymous, cold:!!query});
+  await page.evaluate(installPersonalStateObserver);
+  await page.evaluate(async ({cold, navigationPath}) => {
     if(cold) await loadDeferredScript(navigationPath);
     else await loadDeferredScript('assets/js/public-comments-ui.js?v=1');
-  }, {event:model.event, registered:model.registered, owner:model.owner, anonymous:model.anonymous, cold:!!query, navigationPath});
+  }, {cold:!!query, navigationPath});
   return {page, context};
   }catch(error){ await context.close(); throw error; }
 }
 
+function installPersonalStateObserver(){
+  globalThis.__publicFeedWrites = [];
+  for(const name of ['setCardState', 'updateEventAction', 'recordEventFeedAction', 'observeNewSurfaceItem']){
+    const original = globalThis[name]; if(typeof original !== 'function') throw Error('Missing actual state owner: ' + name);
+    globalThis[name] = function(...args){ __publicFeedWrites.push(name); return original.apply(this, args); };
+  }
+  if(Object.prototype.toString.call(surfaceSeenEvents) !== '[object WeakMap]') throw Error('Expected the actual surface-seen WeakMap owner');
+  // WeakMaps cannot be enumerated. Retain real key identities, including
+  // detached slots, and forward every mutation on the original owner.
+  const seenKeys = new Set([...document.querySelectorAll('*'), ...[...feedCardSlots.values()].map(item => item.slot)]);
+  for(const name of ['set', 'delete']){
+    const original = surfaceSeenEvents[name];
+    surfaceSeenEvents[name] = function(...args){ __publicFeedWrites.push('surfaceSeenEvents.' + name); seenKeys.add(args[0]); return original.apply(this, args); };
+  }
+  globalThis.__publicFeedSnapshot = () => ({preferences:JSON.stringify(userPreferences), actions:JSON.stringify(eventActions), cards:JSON.stringify(cardViewStates), spoilers:JSON.stringify(eventSpoilerState),
+    opened:JSON.stringify([...sessionOpenedEventIds]), seen:JSON.stringify([...seenKeys].map((element, index) => [index, surfaceSeenEvents.has(element), surfaceSeenEvents.get(element)])),
+    mounted:[...feedCardSlots.values()].map(item => [item.event.id, item.mounted]), activeTab});
+  globalThis.__publicFeedInitialPersonal = __publicFeedSnapshot();
+}
 async function state(page){
-  return page.evaluate(() => ({preferences:JSON.stringify(userPreferences), actions:JSON.stringify(eventActions), cards:JSON.stringify(cardViewStates), spoilers:JSON.stringify(eventSpoilerState),
-    opened:JSON.stringify([...sessionOpenedEventIds]), seen:JSON.stringify([...surfaceSeenEvents]), mounted:[...feedCardSlots.values()].map(item => [item.event.id, item.mounted]), activeTab}));
+  return page.evaluate(() => __publicFeedSnapshot());
 }
 async function untouched(page, before, model, writeStart){
   assert.deepEqual(await state(page), before, 'Discussion must preserve personal Feed, card, seen, Results and follow choices');
@@ -692,4 +707,4 @@ async function main(){
   }
 }
 if(require.main === module) main().catch(error => { console.error(error); process.exitCode = error.message?.startsWith('DEPENDENCY_PENDING') ? 2 : 1; });
-module.exports = {scenario, api, recordWrite, assertAllowedWrites, commentPage, paginatedFixture};
+module.exports = {scenario, api, recordWrite, assertAllowedWrites, commentPage, paginatedFixture, installPersonalStateObserver};
