@@ -45,7 +45,7 @@
    return{comments:[...page,...previews],revision:thread.revision,nextCursor:next};
   }
   function write(eventId,command,actor=state.owner){
-   registered(actor);const prior=threadFor(eventId);const duplicate=command.action==='post'&&prior.thread.rows.find(r=>r.author===actor&&r.clientId===command.clientId);if(duplicate){if(duplicate.body!==policy.text(command.body||'')||JSON.stringify(duplicate.gif)!==JSON.stringify(command.gif||null))throw failure('This comment changed.',409,'public_comment_id_conflict');return{comment:visible({...duplicate,eventId:prior.fixture.id},actor),replayed:true};}
+   registered(actor);const prior=threadFor(eventId);const duplicate=command.action==='post'&&prior.thread.rows.find(r=>r.author===actor&&r.clientId===command.clientId);if(duplicate){if(duplicate.body!==policy.text(command.body||'')||JSON.stringify(duplicate.gif)!==JSON.stringify(command.gif?{...command.gif,contentType:'image/gif'}:null))throw failure('This comment changed.',409,'public_comment_id_conflict');return{comment:visible({...duplicate,eventId:prior.fixture.id},actor),replayed:true};}
    return transaction('comment',s=>{
     const a=registered(actor,s),{fixture,thread}=threadFor(eventId,s),minute=Math.floor(Date.parse(s.clock)/60000),limit=s.limits[actor]?.minute===minute?s.limits[actor]:{minute,posts:0,votes:0};s.limits[actor]=limit;
     let row;
