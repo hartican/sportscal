@@ -629,7 +629,7 @@ function renderFollowViewLoaded(){
   if(followViewSection==='major-events'){
     if(followDirectoryKey(entity).startsWith('tennis')){renderTennisMajorEvents(container);return;}
     const host=document.createElement('div');host.textContent='Loading published events…';container.append(host);
-    void loadDeferredScript('config/event-overviews-ui.js?v=595').then(()=>NOTHINGSPORTS_EVENT_OVERVIEWS_UI.followRows(host,followDirectoryKey(entity))).catch(()=>{if(host.isConnected){host.textContent='Events could not load. ';const retry=document.createElement('button');retry.type='button';retry.textContent='Retry events';retry.onclick=renderFollowView;host.append(retry);}});
+    void loadDeferredScript('config/event-overviews-ui.js?v=596').then(()=>NOTHINGSPORTS_EVENT_OVERVIEWS_UI.followRows(host,followDirectoryKey(entity))).catch(()=>{if(host.isConnected){host.textContent='Events could not load. ';const retry=document.createElement('button');retry.type='button';retry.textContent='Retry events';retry.onclick=renderFollowView;host.append(retry);}});
     return;
   }
   const panel=document.createElement('section');panel.className='follow-section-panel';panel.dataset.scrollKey=`follow-directory:${entity.id}`;
