@@ -5,6 +5,44 @@ actual existing-operator read. No capture, service/SQL/provider/native run,
 source refresh, database writer, new RPC/schema, release or scheduler is added.
 The Python program only receives stdin and saves an owned local artifact.
 
+## Narrow materialisation revision after the failed actual attempt
+
+ROOT's single managed attempt with frozen `f7203908` returned PostgreSQL 57014
+at the unchanged five-second statement limit. The tool round trip was 8,843 ms;
+no packet was returned, no data was sent to the receiver and no public reference
+was accepted. That failure remains recorded. It does not identify the Match
+Centre loading cause or a sporting-source, stdin or ENOBUFS failure.
+
+The next source unit removes only a redundant intermediate representation. Each
+of the same three branches produces its exact existing serialized raw line
+directly. The materialised `framed` relation keeps that line, small routing keys
+and the coalesced receipt-key boolean; it no longer also keeps the complete row
+as JSONB. The ordered `positioned` relation explicitly projects only its needed
+keys, line and bucket. The manifest counts the same receipt presence boolean.
+No captured field, sorting, packing, hash, count, source/null/provenance rule or
+5s/1s/60s limit changes. No other optimisation is included.
+
+`scripts/fixtures/public-state-capture-f7203908.sql` preserves the exact prior
+SQL (SHA256 `a648a08d840971b22ff6eb181e63b8ec001c78af048e2c2b91e8fe8316bab86c`).
+The existing disposable PG17 functional harness executes both versions over
+identical constructed tables: tiny precision/null/receipt cases, an empty graph,
+the existing 6 MiB whole-row case and existing count/row/bin/total refusals.
+It compares every raw line and complete part byte/descriptor, and the complete
+manifest text normalising **only** tooling `sourceGitSha` and `snapshotAt` after
+verifying each manifest's MD5. Rebound deliberate changes to decimal scale,
+large integer, original microseconds, alias order, SQL-null flags, receipt
+presence and manifest facts must still fail that comparison. Final actual
+packets pass through the unchanged exact-length static receiver; an expired
+packet must still leave no output. Results belong to the separate dated handover.
+
+This is a separately allocated, once-only cached PG17.5/WASM functional window,
+not a benchmark, managed17.6 equivalence or proof that the changed query meets
+five seconds. There is no new managed read/retry allocation. ROOT alone decides
+whether to qualify and allocate a changed-input actual read. Full capture,
+reader context, canonical refresh, deployment and automatic-run acceptance remain
+open; PR84 and any successor stay source-only until the existing owner accepts
+the relevant evidence.
+
 ## Evidence and updated transport
 
 ROOT's bounded read-only sizing measured 8,646 current and 8,646 score rows

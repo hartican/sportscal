@@ -15,29 +15,33 @@ WITH inventory AS MATERIALIZED (
   SELECT *, current_count <= 10000 AND score_count <= 10000 AND source_count <= 128
     AND current_setting('transaction_read_only') = 'on'
     AND current_setting('server_encoding') = 'UTF8' AS ok FROM inventory
-), records AS MATERIALIZED (
+), framed AS MATERIALIZED (
+  -- Retain the final raw frame, not a second full JSONB row alongside it.
   SELECT 0 AS kind_order, 'current'::text AS kind, c.source_id, c.fixture_id,
-    jsonb_build_object('source_id', c.source_id, 'fixture_id', c.fixture_id,
+    jsonb_build_object('kind', 'current'::text, 'row',
+      jsonb_build_object('source_id', c.source_id, 'fixture_id', c.fixture_id,
       'identity_keys', c.identity_keys, 'identity_keys_is_sql_null', c.identity_keys IS NULL,
       'fixture', c.fixture, 'fixture_is_sql_null', c.fixture IS NULL,
-      'content_hash', c.content_hash, 'updated_at', c.updated_at) AS value
+      'content_hash', c.content_hash, 'updated_at', c.updated_at))::text || E'\n' AS line,
+    false AS receipt_key_present
   FROM public.nothingsports_fixture_current c CROSS JOIN permitted p WHERE p.ok
   UNION ALL
   SELECT 1, 'scores', s.source_id, s.fixture_id,
-    jsonb_build_object('source_id', s.source_id, 'fixture_id', s.fixture_id,
+    jsonb_build_object('kind', 'scores'::text, 'row',
+      jsonb_build_object('source_id', s.source_id, 'fixture_id', s.fixture_id,
       'score', s.score, 'score_is_sql_null', s.score IS NULL,
-      'content_hash', s.content_hash, 'first_completed_at', s.first_completed_at)
+      'content_hash', s.content_hash, 'first_completed_at', s.first_completed_at))::text || E'\n',
+    false
   FROM public.nothingsports_live_scores s CROSS JOIN permitted p WHERE p.ok
   UNION ALL
   SELECT 2, 'sources', s.source_id, ''::text,
-    jsonb_build_object('source_id', s.source_id, 'revision', s.revision,
+    jsonb_build_object('kind', 'sources'::text, 'row',
+      jsonb_build_object('source_id', s.source_id, 'revision', s.revision,
       'checked_at', s.checked_at, 'next_due_at', s.next_due_at, 'failure_count', s.failure_count,
       'receipt_key_present', coalesce(s.discovery_report ? '_fixtureObservations', false),
-      'fixture_observations', s.discovery_report -> '_fixtureObservations')
+      'fixture_observations', s.discovery_report -> '_fixtureObservations'))::text || E'\n',
+    coalesce(s.discovery_report ? '_fixtureObservations', false)
   FROM public.nothingsports_fixture_sources s CROSS JOIN permitted p WHERE p.ok
-), framed AS MATERIALIZED (
-  SELECT *, jsonb_build_object('kind', kind, 'row', value)::text || E'\n' AS line
-  FROM records
 ), row_bounds AS MATERIALIZED (
   SELECT coalesce(sum(octet_length(line)), 0) AS bytes,
     coalesce(max(octet_length(line)), 0) AS largest,
@@ -47,7 +51,8 @@ WITH inventory AS MATERIALIZED (
   -- Linear packing after the fixed order. Width = part limit - largest row.
   -- All starts in one width interval span < width + largest <= part limit;
   -- rows remain whole. A largest row equal to the limit safely refuses.
-  SELECT f.*, ((sum(octet_length(line)) OVER (
+  SELECT f.kind_order, f.kind, f.source_id, f.fixture_id, f.line,
+    ((sum(octet_length(line)) OVER (
     ORDER BY kind_order, source_id COLLATE "C", fixture_id COLLATE "C" ROWS UNBOUNDED PRECEDING
   ) - octet_length(line)) / (4194304 - b.largest))::integer AS bucket
   FROM framed f CROSS JOIN row_bounds b WHERE b.bytes <= 41943040 AND b.largest < 4194304
@@ -70,7 +75,7 @@ WITH inventory AS MATERIALIZED (
     'counts', jsonb_build_object('current', p.current_count, 'scores', p.score_count, 'sources', p.source_count,
       'currentFactSources', (SELECT count(DISTINCT source_id) FROM framed WHERE kind = 'current'),
       'scoreFactSources', (SELECT count(DISTINCT source_id) FROM framed WHERE kind = 'scores'),
-      'receiptKeys', (SELECT count(*) FROM framed WHERE kind = 'sources' AND value -> 'receipt_key_present' = 'true'::jsonb)),
+      'receiptKeys', (SELECT count(*) FROM framed WHERE kind = 'sources' AND receipt_key_present)),
     'partBytes', b.bytes, 'orderedRowsMd5', b.graph_md5,
     'parts', (SELECT coalesce(jsonb_agg(jsonb_build_object('name', name, 'bytes', bytes, 'rows', rows, 'md5', checksum) ORDER BY bucket), '[]'::jsonb) FROM descriptors)
   )::text || E'\n' AS body, p.ok, b.bytes, b.largest
