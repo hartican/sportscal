@@ -76,6 +76,6 @@ function localFallbackKeepsSavedChoices(){
  }
 }
 
-function run(){defaultFallbackStillUsesSavedChoices();console.log('PASS default fallback retains saved-state behaviour without a callback');localFallbackKeepsSavedChoices();console.log('PASS actual render-error fallback keeps all four local choices isolated from saved state');}
+function run(){require('./validate-transient-card-exposure').run();console.log('PASS transient renderer preserves private exposure/participation state');defaultFallbackStillUsesSavedChoices();console.log('PASS default fallback retains saved-state behaviour without a callback');localFallbackKeepsSavedChoices();console.log('PASS actual render-error fallback keeps all four local choices isolated from saved state');}
 if(require.main===module){try{run();}catch(error){console.error(error.stack);process.exitCode=1;}}
 module.exports=run;
