@@ -11,3 +11,5 @@ const chunks={tennis:require('../data/follow-directory/tennis.v1.json'),'tennis-
  }
  console.log('Follow collections: gender-specific cold loads, shared membership independent of load order, frozen individual follows passed.');
 })().catch(e=>{console.error(e);process.exitCode=1;});
+
+require('./validate-standings-presentation-deferral');
