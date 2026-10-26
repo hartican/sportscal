@@ -1,0 +1,20 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+function validate(directory){
+ const root=path.resolve(directory),manifest=JSON.parse(fs.readFileSync(path.join(root,'preview-manifest.json'),'utf8')),hash=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+ assert.equal(manifest.mode,'TEST');assert.equal(manifest.schemaVersion,'public-feed-test-artifact.v1');
+ assert.deepEqual(manifest.runtimeInputs.standings,[]);assert.deepEqual(manifest.runtimeInputs.pinnedEditorial,{});
+ const allowed=new Set([...Object.keys(manifest.files),'preview-manifest.json']);let bytes=0,count=0;
+ function walk(dir){for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const full=path.join(dir,entry.name),relative=path.relative(root,full).split(path.sep).join('/');assert(!entry.isSymbolicLink(),'No symlinks');if(entry.isDirectory()){assert(!/^(?:api|functions|scripts|supabase|\.vercel|\.git|planning)/.test(relative),'No server/private runner directory');walk(full);}else{assert(allowed.has(relative),'No unmanifested file: '+relative);assert(!/\.map$|(^|\/)\.env|credential|backup|keys\.txt|package(?:-lock)?\.json|service-worker\.js|app-update\.js/i.test(relative),'No private/deployment/runtime entry: '+relative);if(relative!=='preview-manifest.json')assert.equal(hash(full),manifest.files[relative],'Artifact bytes must match manifest');if(relative.startsWith('data/'))assert.equal(relative,'data/events.js');if(/\.(?:js|json|html|css)$/.test(relative)){const text=fs.readFileSync(full,'utf8');assert(!/(?:sb_secret_[A-Za-z0-9_-]{16,}|sbp_[A-Fa-f0-9]{20,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|eyJhbGciOiJIUzI1Ni[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,})/.test(text),'No credential-like value: '+relative);assert(!/\/Users\/jackhartican|\/private\/tmp\//.test(text),'No local source/output paths: '+relative);}bytes+=fs.statSync(full).size;count++;}}}walk(root);
+ const html=fs.readFileSync(path.join(root,'index.html'),'utf8'),bootstrap=fs.readFileSync(path.join(root,'preview/bootstrap.js'),'utf8'),config=JSON.parse(fs.readFileSync(path.join(root,'vercel.json'),'utf8'));
+ assert(html.includes('PUBLIC FEED · TEST MODE'));assert(html.includes('public-feed-test'));assert(!/<script[^>]*src=["'][^"']*app-update\.js/.test(html));assert(!/<link[^>]*rel=["']manifest/.test(html));
+ const headers=Object.fromEntries(config.headers[0].headers.map(h=>[h.key.toLowerCase(),h.value]));
+ assert(headers['content-security-policy'].includes("connect-src 'self'"));for(const directive of ["worker-src 'none'","form-action 'none'","frame-src 'none'","object-src 'none'","frame-ancestors 'none'"])assert(headers['content-security-policy'].includes(directive));assert.equal(headers['cache-control'],'no-store');assert.equal(headers['x-frame-options'],'DENY');
+ assert(bootstrap.includes("if(url.origin!==location.origin)throw"));assert(bootstrap.includes("if(url.pathname.startsWith('/api/'))return await api"));assert(bootstrap.includes('nativeFetch(input,options)'));assert(bootstrap.includes("Network writes are disabled"));
+ assert(!fs.existsSync(path.join(root,'service-worker.js')));assert(!fs.existsSync(path.join(root,'api')));assert(!fs.existsSync(path.join(root,'.vercel')));
+ const runtime=fs.readFileSync(path.join(root,'assets/js/app-shell-runtime.js'),'utf8');assert(runtime.includes('NOTHINGSPORTS_FEED_CARD_STANDINGS=[]'));assert(runtime.includes('NOTHINGSPORTS_PINNED_FIXTURE_EDITORIAL={}'));
+ for(const label of ['cheer','wow','clap'])assert.equal(fs.readFileSync(path.join(root,'preview/gifs',label+'.gif')).subarray(0,6).toString(),'GIF89a');
+ return{manifest,count,bytes,manifestSha256:hash(path.join(root,'preview-manifest.json'))};
+}
+if(require.main===module){const r=validate(process.argv[2]);console.log(JSON.stringify({mode:'TEST',sha:r.manifest.sha,dirty:!!r.manifest.dirty,fileCount:r.count,bytes:r.bytes,manifestSha256:r.manifestSha256,staticIsolationChecks:'PASS',native:false}));}
+module.exports={validate};
