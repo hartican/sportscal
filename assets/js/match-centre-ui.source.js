@@ -236,7 +236,7 @@ loadMatchCentreStyles();
     const panel=document.getElementById('listView'),back=node('button','Back to Match Centre','btn ghost');allSportsLoadingTicket=ticket();back.type='button';back.onclick=()=>selectMatchCentreView('followed');panel.replaceChildren(back,node('p','Loading All Sports View…'));
     allSportsLoading||=loadDeferredScript('assets/js/all-sports-ui.js?v=595').then(()=>{if(allSportsLoadingTicket&&valid(allSportsLoadingTicket))renderMatchCentre();}).catch(()=>{if(allSportsLoadingTicket&&valid(allSportsLoadingTicket)){const retry=node('button','Retry','btn ghost');retry.type='button';retry.onclick=renderMatchCentre;panel.replaceChildren(back,node('p','All Sports View could not load.'),retry);}}).finally(()=>{allSportsLoading=null;allSportsLoadingTicket=null;});return;
    }
-   allSportsView||=globalThis.createAllSportsView({active:()=>activeTab==='match-centre'&&selectedView==='all-sports',owner,selectView:selectMatchCentreView});allSportsView.start();return;
+   allSportsView||=globalThis.createAllSportsView({active:()=>activeTab==='match-centre'&&selectedView==='all-sports',owner,selectView:selectMatchCentreView,feedButton});allSportsView.start();return;
   }
   refreshControl||=globalThis.createMatchCentreRefresh({panel:document.getElementById('listView'),enabled:()=>activeTab==='match-centre'&&!document.hidden,refresh:manualRefresh});
   if(!membership.length){membership=selectedView==='followed'?[...activeEvents].filter(e=>Boolean(eventFollowReason(e))):[];membershipOwner=owner();}

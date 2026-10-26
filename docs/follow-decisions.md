@@ -1,5 +1,14 @@
 # Follow and Feed decisions
 
+## All Sports explicit Add to Feed — 26 October 2026
+
+Expanded All Sports cards expose the existing Match Centre Add to Feed action.
+Only an explicit button tap saves the canonical fixture pin through the existing
+action and pin-command queue. Existing In Feed, explicit exclusion and Schedule
+only restrictions apply; adding one fixture never follows either participant or
+changes reminders, Results or other saved card choices. Browsing, expansion and
+horizontal paging remain local. Regression: `validate-all-sports-feed-action.js`.
+
 ## All Sports View — 24 October 2026
 
 The authorised full implementation adds a separate compact chronological view
