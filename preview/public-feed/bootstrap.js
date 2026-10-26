@@ -112,6 +112,8 @@
  }
  function idsFor(name){return PUBLIC_FEED_TEST_MODEL.ids[name];}
  async function start(){
+  // The real score presenter captures this model at script evaluation time.
+  await loadDeferredScript('config/match-centre.js?v=595');
   await Promise.all([loadDeferredScript('assets/js/public-comments-ui.js?v=1'),loadDeferredScript('config/chat-media-ui.js?v=304'),loadDeferredScript('config/feed-live-scores.js?v=576'),loadDeferredScript('assets/js/epic-classics-ui.js?v=1')]);
   setTunePromptOpen(false);suppressSessionRatingPrompt();closeSettings({restoreTheme:false});closeAll();serverPersistence.user=model.account()?{id:model.account().id,isAnonymous:false}:null;
   const root=node('main');root.id='public-feed-test';const header=node('header');header.className='test-header';header.append(node('strong','PUBLIC FEED · TEST MODE'),node('p','Test accounts and fixtures only. Nothing is posted or sent to the live service.'));
