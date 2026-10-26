@@ -8,4 +8,5 @@ function requestForPage(page){
  return {path:RPC+`?source_id=in.(${SOURCES.join(',')})&order=source_id.asc,fixture_id.asc&limit=${PAGE_SIZE}&offset=${page*PAGE_SIZE}`,method:'POST',body:{p_fixture_ids:null},timeoutMs:10000};
 }
 function manifest(){return {schemaVersion:'live-coverage-read-contract.v1',rpc:RPC,method:'POST',body:{p_fixture_ids:null},sources:[...SOURCES],order:'source_id.asc,fixture_id.asc',pageSize:PAGE_SIZE,maxPages:MAX_PAGES,timeoutMs:10000,retries:0,columns:['source_id','fixture_id','fixture','identity_keys'],consistency:'per-statement; paged read is not an atomic snapshot',authority:'existing service-only reader; no new credential or live grant',producerBasis:'supabase/migrations/20261002171936_preserve_compact_fixture_observations.sql'};}
-module.exports={SOURCES,PAGE_SIZE,MAX_PAGES,RPC,requestForPage,manifest};
+const reviewedDefinition=Object.freeze({reader:'8f7e452c8a96f15ed11b50b4ea5cb751',projector:'44d1edfc00ada08fad8deb987472ad54'});
+module.exports={SOURCES,PAGE_SIZE,MAX_PAGES,RPC,requestForPage,manifest,reviewedDefinition};

@@ -79,7 +79,7 @@ function actualCli(root,input,forceFailure=false){
  const sourceRoot=path.resolve(__dirname,'..'),runtime=path.join(root,forceFailure?'cli-failure':'cli-success'),workspace=path.join(runtime,'workspace');fs.mkdirSync(runtime);fs.mkdirSync(path.join(workspace,'data/follow-sources'),{recursive:true});fs.mkdirSync(path.join(workspace,'feeds'));fs.symlinkSync(path.join(sourceRoot,'scripts'),path.join(workspace,'scripts'));
  const inputFile=path.join(runtime,'public-coverage.json');fs.writeFileSync(inputFile,JSON.stringify(input));
  const stable=require('./sync-live-coverage').project({events:[],participants:[],competitions:[],sources:[]},input.pages[0].rows,{now:new Date(input.capturedAt)}).document;
- if(forceFailure){stable.events[0].homeScore=3;stable.events[0].scoreDisplay='3–7';stable.events[0].sourceCheckedAt='2026-10-21T16:00:00.000Z';stable.events[0].unknownProtectedAnnotation={retain:true};}
+ if(forceFailure){const target=stable.events.find(f=>f.homeScore!=null)||stable.events[0];target.homeScore=3;target.scoreDisplay='3–7';target.sourceCheckedAt='2026-10-21T16:00:00.000Z';target.unknownProtectedAnnotation={retain:true};}
  const coverageFile=path.join(workspace,'data/follow-sources/coverage.v1.json');fs.writeFileSync(coverageFile,JSON.stringify(stable));const before=fs.readFileSync(coverageFile);
  const sourceCoverage=fs.readFileSync(path.join(sourceRoot,'data/follow-sources/coverage.v1.json'));
  const names=cp.spawnSync('/usr/bin/git',['ls-files','-z'],{cwd:sourceRoot,encoding:'utf8'}).stdout.split('\0').filter(name=>/\.(?:cjs|mjs|js)$/.test(name));
@@ -97,5 +97,6 @@ function actualCli(root,input,forceFailure=false){
  else{assert.deepEqual(ledger.violations,[]);assert.equal(ledger.frames.length,2);assert.equal(report.publicCoverage.publicCapture.pages,1);assert.equal(report.publicationState,'validated');}
  return {state:report.publicationState,frames:ledger.frames.map(f=>f.file),sourceUnchanged:true,fixtureRolledBack:forceFailure,networkRequests:0};
 }
-if(require.main===module)run().catch(error=>{console.error(error.message);process.exitCode=1;});
-module.exports={run,capture,fixture};
+async function runChain(){await require('./validate-supabase-response-bound').run();await require('./validate-public-coverage-producer').run();return run();}
+if(require.main===module)runChain().catch(error=>{console.error(error.message);process.exitCode=1;});
+module.exports={run,runChain,capture,fixture,actualCli};

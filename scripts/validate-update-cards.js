@@ -568,3 +568,6 @@ assert.equal(stagingCheck.status, 0, `immutable deployment staging must pass: ${
 assert.match(stagingCheck.stdout, /Immutable release snapshot verified:/, "the staging check must report the verified commit");
 
 console.log("Canonical update modes valid: local-only and SKIP_RELEASE suppress nested releases; immutable CLI deployment is the sole production path.");
+
+// Existing release gate includes the public producer/transport owner contracts.
+if(require.main===module)require('./validate-public-coverage-capture').runChain().catch(error=>{console.error(error.message);process.exitCode=1;});

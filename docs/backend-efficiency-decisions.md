@@ -2124,3 +2124,23 @@ source correction is neither live loading proof nor production acceptance.
 All253 required commands and application/read/dispatcher budgets remain unchanged;
 DEPLOY retains the sole fresh normal-run/publication lane. Details and limitations
 are in the linked quality record.
+
+## 26 October 2026 — bounded public observations through canonical owner
+
+The original refresh owner may prepare a closed public saved observation input
+through its existing service-only reader and canonical update-cards entrypoint.
+Keep the exact twelve-source/page/deadline/zero-retry contract. Preserve supported
+sporting details, unknowns, reviewed aliases, viewing and original observation
+clocks; unknown/private nested fields reject rather than being silently dropped.
+The existing service client gains an opt-in2MiB fetch-body stream bound only for
+this producer; default callers and all existing budgets remain unchanged.
+
+Independent pages remain explicitly non-atomic additive observations. Hashes,
+short terminal pages and expected reader SQL definitions do not prove a coherent
+whole database, source freshness or publication permission; omitted records stay
+retained. V1 constructed input remains supported; v2 preserves service/test
+provenance without claiming authenticity or current acceptance. Full/quick private,
+native and shared-publication closure remains separate. ROOT/DEPLOY alone grants
+real intake, integrates/publishes and qualifies the natural scheduled runs; this
+source record enables no source call, workflow or scheduler. See
+[contract, tests and remaining intake](quality/canonical-public-producer-2026-10-26.md).

@@ -1,0 +1,1424 @@
+{
+  "provenance": "retained-source-shaped-test-input",
+  "basisSha256": "b389c6381603a1a60dc8a348c0e7a860339f8df4194330ebcb6ee97d06ba7db5",
+  "originalPointer": "/body/0/bundle/rows",
+  "rows": [
+    {
+      "source_id": "cricket-ca-current",
+      "fixture_id": "fixture:cricket:CA:39991",
+      "identity_keys": [
+        "fixture:cricket:CA:39991"
+      ],
+      "fixture": {
+        "id": "fixture:cricket:CA:39991",
+        "key": "cricket",
+        "date": "2026-10-18",
+        "name": "South Africa Men v Australia Men",
+        "time": "19:00",
+        "sport": "Cricket",
+        "venue": "St George's Park, Gqeberha",
+        "format": "Test",
+        "gender": "men",
+        "status": "completed",
+        "eventId": "fixture:cricket:CA:39991",
+        "innings": [
+          {
+            "id": 76842,
+            "day": 1,
+            "team": "South Africa Men",
+            "balls": 763,
+            "extras": {
+              "byes": 0,
+              "total": 14,
+              "wides": 5,
+              "legByes": 8,
+              "noBalls": 1,
+              "penalties": 0
+            },
+            "batting": [
+              {
+                "name": "Aiden Markram",
+                "runs": 11,
+                "balls": 28,
+                "fours": 2,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Scott Boland",
+                "playerId": 668,
+                "didNotBat": false,
+                "dismissal": "b: Scott Boland",
+                "isBatting": false,
+                "strikeRate": 39.29,
+                "dismissedBy": "Scott Boland"
+              },
+              {
+                "name": "Marques Ackerman",
+                "runs": 6,
+                "balls": 38,
+                "fours": 0,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Scott Boland",
+                "playerId": 2627,
+                "didNotBat": false,
+                "dismissal": "c: Alex Carey b: Scott Boland",
+                "isBatting": false,
+                "strikeRate": 15.79,
+                "dismissedBy": "Alex Carey"
+              },
+              {
+                "name": "David Bedingham",
+                "runs": 0,
+                "balls": 1,
+                "fours": 0,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Scott Boland",
+                "playerId": 2651,
+                "didNotBat": false,
+                "dismissal": "c: Alex Carey b: Scott Boland",
+                "isBatting": false,
+                "strikeRate": 0,
+                "dismissedBy": "Alex Carey"
+              },
+              {
+                "name": "Temba Bavuma",
+                "runs": 179,
+                "balls": 334,
+                "fours": 18,
+                "sixes": 1,
+                "notOut": false,
+                "bowledBy": "Mitchell Starc",
+                "playerId": 1748,
+                "didNotBat": false,
+                "dismissal": "c: Alex Carey b: Mitchell Starc",
+                "isBatting": false,
+                "strikeRate": 53.59,
+                "dismissedBy": "Alex Carey"
+              },
+              {
+                "name": "Matthew Breetzke",
+                "runs": 4,
+                "balls": 17,
+                "fours": 0,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Mitchell Starc",
+                "playerId": 2615,
+                "didNotBat": false,
+                "dismissal": "c: Alex Carey b: Mitchell Starc",
+                "isBatting": false,
+                "strikeRate": 23.53,
+                "dismissedBy": "Alex Carey"
+              },
+              {
+                "name": "Ryan Rickelton",
+                "runs": 31,
+                "balls": 51,
+                "fours": 5,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Scott Boland",
+                "playerId": 2646,
+                "didNotBat": false,
+                "dismissal": "c: Matt Renshaw b: Scott Boland",
+                "isBatting": false,
+                "strikeRate": 60.78,
+                "dismissedBy": "Matt Renshaw"
+              },
+              {
+                "name": "Wiaan Mulder",
+                "runs": 13,
+                "balls": 38,
+                "fours": 1,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Mitchell Starc",
+                "playerId": 673,
+                "didNotBat": false,
+                "dismissal": "c: Matt Renshaw b: Mitchell Starc",
+                "isBatting": false,
+                "strikeRate": 34.21,
+                "dismissedBy": "Matt Renshaw"
+              },
+              {
+                "name": "Marco Jansen",
+                "runs": 85,
+                "balls": 100,
+                "fours": 9,
+                "sixes": 3,
+                "notOut": false,
+                "bowledBy": "Scott Boland",
+                "playerId": 2705,
+                "didNotBat": false,
+                "dismissal": "c: Travis Head b: Scott Boland",
+                "isBatting": false,
+                "strikeRate": 85,
+                "dismissedBy": "Travis Head"
+              },
+              {
+                "name": "Simon Harmer",
+                "runs": 82,
+                "balls": 157,
+                "fours": 10,
+                "sixes": 1,
+                "notOut": false,
+                "bowledBy": "Marnus Labuschagne",
+                "playerId": 19,
+                "didNotBat": false,
+                "dismissal": "b: Marnus Labuschagne",
+                "isBatting": false,
+                "strikeRate": 52.23,
+                "dismissedBy": "Marnus Labuschagne"
+              },
+              {
+                "name": "Kagiso Rabada",
+                "runs": 0,
+                "balls": 0,
+                "fours": 0,
+                "sixes": 0,
+                "notOut": true,
+                "bowledBy": null,
+                "playerId": 675,
+                "didNotBat": false,
+                "dismissal": "not out",
+                "isBatting": true,
+                "strikeRate": null,
+                "dismissedBy": null
+              },
+              {
+                "name": "Anrich Nortje",
+                "runs": null,
+                "balls": 0,
+                "fours": null,
+                "sixes": null,
+                "notOut": false,
+                "bowledBy": null,
+                "playerId": 2385,
+                "didNotBat": true,
+                "dismissal": "yet to bat",
+                "isBatting": false,
+                "strikeRate": null,
+                "dismissedBy": null
+              }
+            ],
+            "bowling": [
+              {
+                "name": "Mitchell Starc",
+                "runs": 89,
+                "overs": "24",
+                "wides": 1,
+                "economy": 3.68,
+                "maidens": 4,
+                "noBalls": 1,
+                "wickets": 3,
+                "playerId": 724
+              },
+              {
+                "name": "Josh Hazlewood",
+                "runs": 43,
+                "overs": "14",
+                "wides": 0,
+                "economy": 3.07,
+                "maidens": 2,
+                "noBalls": 0,
+                "wickets": 0,
+                "playerId": 1185
+              },
+              {
+                "name": "Scott Boland",
+                "runs": 81,
+                "overs": "29",
+                "wides": 0,
+                "economy": 2.79,
+                "maidens": 7,
+                "noBalls": 0,
+                "wickets": 5,
+                "playerId": 802
+              },
+              {
+                "name": "Pat Cummins",
+                "runs": 96,
+                "overs": "26",
+                "wides": 0,
+                "economy": 3.69,
+                "maidens": 3,
+                "noBalls": 0,
+                "wickets": 0,
+                "playerId": 1149
+              },
+              {
+                "name": "Beau Webster",
+                "runs": 43,
+                "overs": "19",
+                "wides": 0,
+                "economy": 2.26,
+                "maidens": 6,
+                "noBalls": 0,
+                "wickets": 0,
+                "playerId": 1097
+              },
+              {
+                "name": "Matt Renshaw",
+                "runs": 33,
+                "overs": "8",
+                "wides": 0,
+                "economy": 4.13,
+                "maidens": 1,
+                "noBalls": 0,
+                "wickets": 0,
+                "playerId": 290
+              },
+              {
+                "name": "Nic Maddinson",
+                "runs": 24,
+                "overs": "5",
+                "wides": 0,
+                "economy": 4.8,
+                "maidens": 0,
+                "noBalls": 0,
+                "wickets": 0,
+                "playerId": 859
+              },
+              {
+                "name": "Marnus Labuschagne",
+                "runs": 8,
+                "overs": "2",
+                "wides": 0,
+                "economy": 4,
+                "maidens": 0,
+                "noBalls": 0,
+                "wickets": 1,
+                "playerId": 348
+              }
+            ],
+            "noBalls": 1,
+            "byesRuns": 0,
+            "fixtureId": 39991,
+            "penalties": 0,
+            "wideBalls": 5,
+            "isDeclared": true,
+            "isFollowOn": false,
+            "runsScored": 425,
+            "detailStale": false,
+            "isForfeited": false,
+            "legByesRuns": 8,
+            "oversBowled": "127.1",
+            "totalExtras": 14,
+            "inningNumber": 1,
+            "battingTeamId": 21,
+            "bowlingTeamId": 23,
+            "fallOfWickets": [
+              {
+                "name": "Aiden Markram",
+                "runs": 12,
+                "overs": "8.4",
+                "wicket": 1
+              },
+              {
+                "name": "David Bedingham",
+                "runs": 12,
+                "overs": "8.5",
+                "wicket": 2
+              },
+              {
+                "name": "Marques Ackerman",
+                "runs": 25,
+                "overs": "14.3",
+                "wicket": 3
+              },
+              {
+                "name": "Matthew Breetzke",
+                "runs": 40,
+                "overs": "21.3",
+                "wicket": 4
+              },
+              {
+                "name": "Ryan Rickelton",
+                "runs": 92,
+                "overs": "39.4",
+                "wicket": 5
+              },
+              {
+                "name": "Wiaan Mulder",
+                "runs": 110,
+                "overs": "49.6",
+                "wicket": 6
+              },
+              {
+                "name": "Marco Jansen",
+                "runs": 242,
+                "overs": "80.5",
+                "wicket": 7
+              },
+              {
+                "name": "Simon Harmer",
+                "runs": 425,
+                "overs": "126.6",
+                "wicket": 8
+              },
+              {
+                "name": "Temba Bavuma",
+                "runs": 425,
+                "overs": "127.1",
+                "wicket": 9
+              }
+            ],
+            "overnightRuns": 0,
+            "participantId": "team:cricket:south-africa",
+            "currentRunRate": 3.34,
+            "detailCheckedAt": "2026-10-22T14:02:01.416Z",
+            "detailSourceUrl": "https://apiv2.cricket.com.au/web/views/scorecard?fixtureId=39991&jsconfig=eccn%3Atrue&format=json",
+            "overnightWickets": 0,
+            "duckworthLewisOvers": "",
+            "numberOfWicketsFallen": 9
+          },
+          {
+            "id": 76868,
+            "day": 1,
+            "team": "Australia Men",
+            "balls": 255,
+            "extras": {
+              "byes": 4,
+              "total": 6,
+              "wides": 0,
+              "legByes": 1,
+              "noBalls": 1,
+              "penalties": 0
+            },
+            "batting": [
+              {
+                "name": "Nic Maddinson",
+                "runs": 0,
+                "balls": 4,
+                "fours": 0,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Kagiso Rabada",
+                "playerId": 859,
+                "didNotBat": false,
+                "dismissal": "c: Simon Harmer b: Kagiso Rabada",
+                "isBatting": false,
+                "strikeRate": 0,
+                "dismissedBy": "Simon Harmer"
+              },
+              {
+                "name": "Travis Head",
+                "runs": 14,
+                "balls": 24,
+                "fours": 3,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Marco Jansen",
+                "playerId": 288,
+                "didNotBat": false,
+                "dismissal": "lbw: Marco Jansen",
+                "isBatting": false,
+                "strikeRate": 58.33,
+                "dismissedBy": "Marco Jansen"
+              },
+              {
+                "name": "Scott Boland",
+                "runs": 2,
+                "balls": 14,
+                "fours": 0,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Marco Jansen",
+                "playerId": 802,
+                "didNotBat": false,
+                "dismissal": "c: Ryan Rickelton b: Marco Jansen",
+                "isBatting": false,
+                "strikeRate": 14.29,
+                "dismissedBy": "Ryan Rickelton"
+              },
+              {
+                "name": "Marnus Labuschagne",
+                "runs": 14,
+                "balls": 25,
+                "fours": 3,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Anrich Nortje",
+                "playerId": 348,
+                "didNotBat": false,
+                "dismissal": "c: Simon Harmer b: Anrich Nortje",
+                "isBatting": false,
+                "strikeRate": 56,
+                "dismissedBy": "Simon Harmer"
+              },
+              {
+                "name": "Steve Smith",
+                "runs": 28,
+                "balls": 88,
+                "fours": 2,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Wiaan Mulder",
+                "playerId": 1075,
+                "didNotBat": false,
+                "dismissal": "b: Wiaan Mulder",
+                "isBatting": false,
+                "strikeRate": 31.82,
+                "dismissedBy": "Wiaan Mulder"
+              },
+              {
+                "name": "Matt Renshaw",
+                "runs": 12,
+                "balls": 48,
+                "fours": 0,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Marco Jansen",
+                "playerId": 290,
+                "didNotBat": false,
+                "dismissal": "c: Simon Harmer b: Marco Jansen",
+                "isBatting": false,
+                "strikeRate": 25,
+                "dismissedBy": "Simon Harmer"
+              },
+              {
+                "name": "Alex Carey",
+                "runs": 0,
+                "balls": 2,
+                "fours": 0,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Marco Jansen",
+                "playerId": 291,
+                "didNotBat": false,
+                "dismissal": "c: Ryan Rickelton b: Marco Jansen",
+                "isBatting": false,
+                "strikeRate": 0,
+                "dismissedBy": "Ryan Rickelton"
+              },
+              {
+                "name": "Beau Webster",
+                "runs": 13,
+                "balls": 28,
+                "fours": 2,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Marco Jansen",
+                "playerId": 1097,
+                "didNotBat": false,
+                "dismissal": "c: Aiden Markram b: Marco Jansen",
+                "isBatting": false,
+                "strikeRate": 46.43,
+                "dismissedBy": "Aiden Markram"
+              },
+              {
+                "name": "Pat Cummins",
+                "runs": 7,
+                "balls": 16,
+                "fours": 1,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Wiaan Mulder",
+                "playerId": 1149,
+                "didNotBat": false,
+                "dismissal": "c: Matthew Breetzke b: Wiaan Mulder",
+                "isBatting": false,
+                "strikeRate": 43.75,
+                "dismissedBy": "Matthew Breetzke"
+              },
+              {
+                "name": "Mitchell Starc",
+                "runs": 1,
+                "balls": 4,
+                "fours": 0,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Kagiso Rabada",
+                "playerId": 724,
+                "didNotBat": false,
+                "dismissal": "c: Ryan Rickelton b: Kagiso Rabada",
+                "isBatting": false,
+                "strikeRate": 25,
+                "dismissedBy": "Ryan Rickelton"
+              },
+              {
+                "name": "Josh Hazlewood",
+                "runs": 2,
+                "balls": 3,
+                "fours": 0,
+                "sixes": 0,
+                "notOut": true,
+                "bowledBy": null,
+                "playerId": 1185,
+                "didNotBat": false,
+                "dismissal": "not out",
+                "isBatting": true,
+                "strikeRate": 66.67,
+                "dismissedBy": null
+              }
+            ],
+            "bowling": [
+              {
+                "name": "Kagiso Rabada",
+                "runs": 33,
+                "overs": "12",
+                "wides": 0,
+                "economy": 2.75,
+                "maidens": 2,
+                "noBalls": 0,
+                "wickets": 2,
+                "playerId": 675
+              },
+              {
+                "name": "Simon Harmer",
+                "runs": 9,
+                "overs": "5",
+                "wides": 0,
+                "economy": 1.64,
+                "maidens": 0,
+                "noBalls": 0,
+                "wickets": 0,
+                "playerId": 19
+              },
+              {
+                "name": "Aiden Markram",
+                "runs": 0,
+                "overs": "1",
+                "wides": 0,
+                "economy": 0,
+                "maidens": 1,
+                "noBalls": 0,
+                "wickets": 0,
+                "playerId": 668
+              },
+              {
+                "name": "Marco Jansen",
+                "runs": 33,
+                "overs": "11",
+                "wides": 0,
+                "economy": 3,
+                "maidens": 2,
+                "noBalls": 0,
+                "wickets": 5,
+                "playerId": 2705
+              },
+              {
+                "name": "Anrich Nortje",
+                "runs": 5,
+                "overs": "3",
+                "wides": 0,
+                "economy": 1.43,
+                "maidens": 0,
+                "noBalls": 0,
+                "wickets": 1,
+                "playerId": 2385
+              },
+              {
+                "name": "Wiaan Mulder",
+                "runs": 14,
+                "overs": "9",
+                "wides": 0,
+                "economy": 1.47,
+                "maidens": 3,
+                "noBalls": 1,
+                "wickets": 2,
+                "playerId": 673
+              }
+            ],
+            "noBalls": 1,
+            "byesRuns": 4,
+            "fixtureId": 39991,
+            "penalties": 0,
+            "wideBalls": 0,
+            "isDeclared": false,
+            "isFollowOn": false,
+            "runsScored": 99,
+            "detailStale": false,
+            "isForfeited": false,
+            "legByesRuns": 1,
+            "oversBowled": "42.3",
+            "totalExtras": 6,
+            "inningNumber": 2,
+            "battingTeamId": 23,
+            "bowlingTeamId": 21,
+            "fallOfWickets": [
+              {
+                "name": "Nic Maddinson",
+                "runs": 0,
+                "overs": "0.4",
+                "wicket": 1
+              },
+              {
+                "name": "Scott Boland",
+                "runs": 11,
+                "overs": "5.1",
+                "wicket": 2
+              },
+              {
+                "name": "Travis Head",
+                "runs": 22,
+                "overs": "9.2",
+                "wicket": 3
+              },
+              {
+                "name": "Marnus Labuschagne",
+                "runs": 45,
+                "overs": "13.6",
+                "wicket": 4
+              },
+              {
+                "name": "Matt Renshaw",
+                "runs": 65,
+                "overs": "29.4",
+                "wicket": 5
+              },
+              {
+                "name": "Alex Carey",
+                "runs": 65,
+                "overs": "29.6",
+                "wicket": 6
+              },
+              {
+                "name": "Beau Webster",
+                "runs": 84,
+                "overs": "37.4",
+                "wicket": 7
+              },
+              {
+                "name": "Steve Smith",
+                "runs": 96,
+                "overs": "40.4",
+                "wicket": 8
+              },
+              {
+                "name": "Mitchell Starc",
+                "runs": 97,
+                "overs": "41.2",
+                "wicket": 9
+              },
+              {
+                "name": "Pat Cummins",
+                "runs": 99,
+                "overs": "42.3",
+                "wicket": 10
+              }
+            ],
+            "overnightRuns": 0,
+            "participantId": "team:cricket:australia",
+            "currentRunRate": 2.32,
+            "detailCheckedAt": "2026-10-22T14:02:01.416Z",
+            "detailSourceUrl": "https://apiv2.cricket.com.au/web/views/scorecard?fixtureId=39991&jsconfig=eccn%3Atrue&format=json",
+            "requiredRunRate": 0,
+            "overnightWickets": 0,
+            "duckworthLewisOvers": "",
+            "numberOfWicketsFallen": 10
+          },
+          {
+            "id": 76876,
+            "day": 1,
+            "team": "Australia Men",
+            "balls": 643,
+            "extras": {
+              "byes": 4,
+              "total": 13,
+              "wides": 0,
+              "legByes": 5,
+              "noBalls": 4,
+              "penalties": 0
+            },
+            "batting": [
+              {
+                "name": "Nic Maddinson",
+                "runs": 8,
+                "balls": 10,
+                "fours": 2,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Kagiso Rabada",
+                "playerId": 859,
+                "didNotBat": false,
+                "dismissal": "c: Ryan Rickelton b: Kagiso Rabada",
+                "isBatting": false,
+                "strikeRate": 80,
+                "dismissedBy": "Ryan Rickelton"
+              },
+              {
+                "name": "Travis Head",
+                "runs": 121,
+                "balls": 190,
+                "fours": 15,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Wiaan Mulder",
+                "playerId": 288,
+                "didNotBat": false,
+                "dismissal": "b: Wiaan Mulder",
+                "isBatting": false,
+                "strikeRate": 63.68,
+                "dismissedBy": "Wiaan Mulder"
+              },
+              {
+                "name": "Scott Boland",
+                "runs": 40,
+                "balls": 166,
+                "fours": 6,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Wiaan Mulder",
+                "playerId": 802,
+                "didNotBat": false,
+                "dismissal": "b: Wiaan Mulder",
+                "isBatting": false,
+                "strikeRate": 24.1,
+                "dismissedBy": "Wiaan Mulder"
+              },
+              {
+                "name": "Marnus Labuschagne",
+                "runs": 39,
+                "balls": 98,
+                "fours": 4,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Simon Harmer",
+                "playerId": 348,
+                "didNotBat": false,
+                "dismissal": "c: Marco Jansen b: Simon Harmer",
+                "isBatting": false,
+                "strikeRate": 39.8,
+                "dismissedBy": "Marco Jansen"
+              },
+              {
+                "name": "Steve Smith",
+                "runs": 3,
+                "balls": 20,
+                "fours": 0,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Kagiso Rabada",
+                "playerId": 1075,
+                "didNotBat": false,
+                "dismissal": "c: Matthew Breetzke b: Kagiso Rabada",
+                "isBatting": false,
+                "strikeRate": 15,
+                "dismissedBy": "Matthew Breetzke"
+              },
+              {
+                "name": "Matt Renshaw",
+                "runs": 11,
+                "balls": 23,
+                "fours": 2,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Kagiso Rabada",
+                "playerId": 290,
+                "didNotBat": false,
+                "dismissal": "b: Kagiso Rabada",
+                "isBatting": false,
+                "strikeRate": 47.83,
+                "dismissedBy": "Kagiso Rabada"
+              },
+              {
+                "name": "Alex Carey",
+                "runs": 37,
+                "balls": 69,
+                "fours": 4,
+                "sixes": 0,
+                "notOut": true,
+                "bowledBy": null,
+                "playerId": 291,
+                "didNotBat": false,
+                "dismissal": "not out",
+                "isBatting": true,
+                "strikeRate": 53.62,
+                "dismissedBy": null
+              },
+              {
+                "name": "Beau Webster",
+                "runs": 8,
+                "balls": 33,
+                "fours": 0,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Simon Harmer",
+                "playerId": 1097,
+                "didNotBat": false,
+                "dismissal": "lbw: Simon Harmer",
+                "isBatting": false,
+                "strikeRate": 24.24,
+                "dismissedBy": "Simon Harmer"
+              },
+              {
+                "name": "Pat Cummins",
+                "runs": 4,
+                "balls": 8,
+                "fours": 1,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Wiaan Mulder",
+                "playerId": 1149,
+                "didNotBat": false,
+                "dismissal": "b: Wiaan Mulder",
+                "isBatting": false,
+                "strikeRate": 50,
+                "dismissedBy": "Wiaan Mulder"
+              },
+              {
+                "name": "Mitchell Starc",
+                "runs": 11,
+                "balls": 28,
+                "fours": 1,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Kagiso Rabada",
+                "playerId": 724,
+                "didNotBat": false,
+                "dismissal": "b: Kagiso Rabada",
+                "isBatting": false,
+                "strikeRate": 39.29,
+                "dismissedBy": "Kagiso Rabada"
+              },
+              {
+                "name": "Josh Hazlewood",
+                "runs": 0,
+                "balls": 2,
+                "fours": 0,
+                "sixes": 0,
+                "notOut": false,
+                "bowledBy": "Marco Jansen",
+                "playerId": 1185,
+                "didNotBat": false,
+                "dismissal": "c: Aiden Markram b: Marco Jansen",
+                "isBatting": false,
+                "strikeRate": 0,
+                "dismissedBy": "Aiden Markram"
+              }
+            ],
+            "bowling": [
+              {
+                "name": "Kagiso Rabada",
+                "runs": 77,
+                "overs": "23",
+                "wides": 0,
+                "economy": 3.35,
+                "maidens": 3,
+                "noBalls": 1,
+                "wickets": 4,
+                "playerId": 675
+              },
+              {
+                "name": "Marco Jansen",
+                "runs": 34,
+                "overs": "17",
+                "wides": 0,
+                "economy": 1.98,
+                "maidens": 3,
+                "noBalls": 0,
+                "wickets": 1,
+                "playerId": 2705
+              },
+              {
+                "name": "Wiaan Mulder",
+                "runs": 64,
+                "overs": "21",
+                "wides": 0,
+                "economy": 3.05,
+                "maidens": 5,
+                "noBalls": 2,
+                "wickets": 3,
+                "playerId": 673
+              },
+              {
+                "name": "Simon Harmer",
+                "runs": 93,
+                "overs": "39",
+                "wides": 0,
+                "economy": 2.38,
+                "maidens": 8,
+                "noBalls": 1,
+                "wickets": 2,
+                "playerId": 19
+              },
+              {
+                "name": "Aiden Markram",
+                "runs": 18,
+                "overs": "7",
+                "wides": 0,
+                "economy": 2.57,
+                "maidens": 1,
+                "noBalls": 0,
+                "wickets": 0,
+                "playerId": 668
+              }
+            ],
+            "noBalls": 4,
+            "byesRuns": 4,
+            "fixtureId": 39991,
+            "penalties": 0,
+            "wideBalls": 0,
+            "isDeclared": false,
+            "isFollowOn": false,
+            "runsScored": 295,
+            "detailStale": false,
+            "isForfeited": false,
+            "legByesRuns": 5,
+            "oversBowled": "107.1",
+            "totalExtras": 13,
+            "inningNumber": 3,
+            "battingTeamId": 23,
+            "bowlingTeamId": 21,
+            "fallOfWickets": [
+              {
+                "name": "Nic Maddinson",
+                "runs": 8,
+                "overs": "2.4",
+                "wicket": 1
+              },
+              {
+                "name": "Marnus Labuschagne",
+                "runs": 100,
+                "overs": "31.6",
+                "wicket": 2
+              },
+              {
+                "name": "Matt Renshaw",
+                "runs": 123,
+                "overs": "38.5",
+                "wicket": 3
+              },
+              {
+                "name": "Beau Webster",
+                "runs": 150,
+                "overs": "47.5",
+                "wicket": 4
+              },
+              {
+                "name": "Travis Head",
+                "runs": 209,
+                "overs": "74.4",
+                "wicket": 5
+              },
+              {
+                "name": "Steve Smith",
+                "runs": 225,
+                "overs": "82.1",
+                "wicket": 6
+              },
+              {
+                "name": "Scott Boland",
+                "runs": 256,
+                "overs": "94.6",
+                "wicket": 7
+              },
+              {
+                "name": "Pat Cummins",
+                "runs": 262,
+                "overs": "96.5",
+                "wicket": 8
+              },
+              {
+                "name": "Mitchell Starc",
+                "runs": 290,
+                "overs": "104.5",
+                "wicket": 9
+              },
+              {
+                "name": "Josh Hazlewood",
+                "runs": 295,
+                "overs": "107.1",
+                "wicket": 10
+              }
+            ],
+            "overnightRuns": 0,
+            "participantId": "team:cricket:australia",
+            "currentRunRate": 2.75,
+            "detailCheckedAt": "2026-10-22T14:02:01.416Z",
+            "detailSourceUrl": "https://apiv2.cricket.com.au/web/views/scorecard?fixtureId=39991&jsconfig=eccn%3Atrue&format=json",
+            "requiredRunRate": 0,
+            "overnightWickets": 0,
+            "duckworthLewisOvers": "",
+            "numberOfWicketsFallen": 10
+          }
+        ],
+        "isSenior": true,
+        "matchDay": 5,
+        "sourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
+        "broadcasts": [],
+        "endTimeUtc": "2026-10-22T11:00:00Z",
+        "roundLabel": "2nd Test",
+        "sourceName": "Cricket Australia",
+        "sourceType": "official",
+        "statusText": null,
+        "broadcaster": "",
+        "sourceStale": false,
+        "cricketChase": null,
+        "numberOfDays": 5,
+        "participants": [
+          {
+            "id": "team:cricket:south-africa",
+            "name": "South Africa Men",
+            "teamKind": "national",
+            "countryCode": "ZA",
+            "genderCategory": "male"
+          },
+          {
+            "id": "team:cricket:australia",
+            "name": "Australia Men",
+            "teamKind": "national",
+            "countryCode": "AU",
+            "genderCategory": "male"
+          }
+        ],
+        "scoreDisplay": "South Africa win by an innings and 31 runs",
+        "startTimeUtc": "2026-10-18T08:00:00.000Z",
+        "competitionId": "competition:cricket:4568",
+        "consensusTags": [],
+        "sportDomainId": "sport:cricket",
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "cricketBalance": "South Africa win by an innings and 31 runs",
+        "participantIds": [
+          "team:cricket:south-africa",
+          "team:cricket:australia"
+        ],
+        "restartTimeUtc": null,
+        "scoreCheckedAt": "2026-10-22T22:30:00.833+00:00",
+        "sourceEventIds": [
+          "fixture:cricket:CA:39991"
+        ],
+        "viewingOptions": [],
+        "competitionName": "South Africa v Australia Tests 2026 - Men",
+        "isInternational": true,
+        "sourceCheckedAt": "2026-10-22T17:22:00.415Z",
+        "sourceFixtureId": "CA:39991",
+        "statusCheckedAt": "2026-10-22T22:30:00.833+00:00",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:cricket:CA:39991",
+        "competitionScope": "international",
+        "participantSlots": [],
+        "pauseObservation": null,
+        "restartSourceUrl": null,
+        "timingProvenance": {
+          "kind": "official",
+          "checkedAt": "2026-10-22T17:22:00.415Z",
+          "sourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
+        },
+        "awayParticipantId": "team:cricket:australia",
+        "homeParticipantId": "team:cricket:south-africa",
+        "matchDaySourceUrl": "https://www.cricket.com.au/matches/",
+        "livePlayObservedAt": "2026-10-22T13:00:00.692Z",
+        "displayTitleCompact": "South Africa Men v Australia Men",
+        "scoreFactObservedAt": "2026-10-22T14:04:00.721+00:00",
+        "officialScorecardUrl": "https://www.cricket.com.au/matches/CA%3A39991",
+        "statusFactObservedAt": "2026-10-22T14:02:01.416+00:00",
+        "cricketPhaseCheckedAt": "2026-10-22T14:02:01.416Z",
+        "cricketPhaseConfirmed": true,
+        "restartSourceCheckedAt": null,
+        "participantCountryCodes": [
+          "ZA",
+          "AU"
+        ],
+        "cricketDetailAttemptedAt": "2026-10-22T14:02:01.416Z",
+        "firstConfirmedCompleteAt": "2026-10-22T14:02:02.904168+00:00",
+        "fixtureObservationSchema": "fixture-observations.v1",
+        "representativeCountryCodes": []
+      }
+    },
+    {
+      "source_id": "discovery-rugby-mru",
+      "fixture_id": "fixture:rugby:wr:025a7627-133e-4dfa-a4af-6b7233eb208e",
+      "identity_keys": [
+        "fixture:rugby:wr:025a7627-133e-4dfa-a4af-6b7233eb208e"
+      ],
+      "fixture": {
+        "id": "fixture:rugby:wr:025a7627-133e-4dfa-a4af-6b7233eb208e",
+        "key": "rugby",
+        "date": "2026-12-12",
+        "name": "Coventry v Chinnor",
+        "time": null,
+        "sport": "Rugby Union",
+        "venue": "Nick Newbold Stadium, Coventry",
+        "gender": "men",
+        "status": "scheduled",
+        "eventId": "fixture:rugby:wr:025a7627-133e-4dfa-a4af-6b7233eb208e",
+        "dateOnly": true,
+        "isSenior": true,
+        "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-15&endDate=2027-01-20&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3",
+        "broadcasts": [],
+        "discipline": "rugby-union",
+        "roundLabel": "League",
+        "sourceName": "World Rugby",
+        "sourceTime": {
+          "label": "2026-12-12",
+          "millis": 1797033600000,
+          "gmtOffset": 0
+        },
+        "sourceType": "official",
+        "broadcaster": "",
+        "participants": [
+          {
+            "id": "team:rugby:wr-100",
+            "name": "Coventry",
+            "role": "home",
+            "teamKind": "club",
+            "sourceIds": {
+              "worldRugby": "100"
+            },
+            "countryCode": null,
+            "displayName": "Coventry",
+            "genderCategory": "male"
+          },
+          {
+            "id": "team:rugby:wr-b0875f29-a3e4-4d8e-8a78-c0d2c39daf79",
+            "name": "Chinnor",
+            "role": "away",
+            "teamKind": "club",
+            "sourceIds": {
+              "worldRugby": "b0875f29-a3e4-4d8e-8a78-c0d2c39daf79"
+            },
+            "countryCode": null,
+            "displayName": "Chinnor",
+            "genderCategory": "male"
+          }
+        ],
+        "sourceStatus": "U",
+        "startTimeUtc": null,
+        "competitionId": "competition:rugby:wr:e45b2f9d-c83c-444a-b79b-66a9e3a04461",
+        "consensusTags": [],
+        "sportDomainId": "sport:rugby-union",
+        "timePrecision": "date-only",
+        "broadcasterIds": [],
+        "participantIds": [
+          "team:rugby:wr-100",
+          "team:rugby:wr-b0875f29-a3e4-4d8e-8a78-c0d2c39daf79"
+        ],
+        "scoreCheckedAt": null,
+        "sourceEventIds": [
+          "fixture:rugby:wr:025a7627-133e-4dfa-a4af-6b7233eb208e"
+        ],
+        "viewingOptions": [],
+        "competitionName": "English Championship 2027",
+        "isInternational": false,
+        "sourceCheckedAt": "2026-10-22T11:04:00.648Z",
+        "sourceFixtureId": "025a7627-133e-4dfa-a4af-6b7233eb208e",
+        "statusCheckedAt": "2026-10-22T17:06:01.482+00:00",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:rugby:wr:025a7627-133e-4dfa-a4af-6b7233eb208e",
+        "competitionScope": "domestic",
+        "participantSlots": [],
+        "timingProvenance": {
+          "kind": "official",
+          "checkedAt": "2026-10-22T11:04:00.648Z",
+          "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-15&endDate=2027-01-20&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=3"
+        },
+        "awayParticipantId": "team:rugby:wr-b0875f29-a3e4-4d8e-8a78-c0d2c39daf79",
+        "discoverySourceId": "rugby-wr-mru",
+        "homeParticipantId": "team:rugby:wr-100",
+        "displayTitleCompact": "Coventry v Chinnor",
+        "scoreFactObservedAt": null,
+        "statusFactObservedAt": "2026-10-02T18:38:01.23+00:00",
+        "participantCountryCodes": [],
+        "fixtureObservationSchema": "fixture-observations.v1",
+        "representativeCountryCodes": []
+      }
+    },
+    {
+      "source_id": "discovery-rugby-mru",
+      "fixture_id": "fixture:rugby:wr:09416a3a-93cc-4f69-8d3c-c3c56ac7dfd3",
+      "identity_keys": [
+        "fixture:rugby:wr:09416a3a-93cc-4f69-8d3c-c3c56ac7dfd3"
+      ],
+      "fixture": {
+        "id": "fixture:rugby:wr:09416a3a-93cc-4f69-8d3c-c3c56ac7dfd3",
+        "key": "rugby",
+        "date": "2026-10-18",
+        "name": "Fiamme Oro Rugby v Valorugby Emilia",
+        "time": "00:30",
+        "sport": "Rugby Union",
+        "venue": "Stadio Renato Gamboni, Roma",
+        "gender": "men",
+        "status": "completed",
+        "eventId": "fixture:rugby:wr:09416a3a-93cc-4f69-8d3c-c3c56ac7dfd3",
+        "dateOnly": false,
+        "isSenior": true,
+        "awayScore": 7,
+        "homeScore": 10,
+        "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-15&endDate=2027-01-20&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "broadcasts": [],
+        "discipline": "rugby-union",
+        "roundLabel": null,
+        "sourceName": "World Rugby",
+        "sourceTime": {
+          "label": "2026-10-17",
+          "millis": 1792243800000,
+          "gmtOffset": 2
+        },
+        "sourceType": "official",
+        "broadcaster": "",
+        "participants": [
+          {
+            "id": "team:rugby:wr-1395",
+            "name": "Fiamme Oro Rugby",
+            "role": "home",
+            "teamKind": "club",
+            "sourceIds": {
+              "worldRugby": "1395"
+            },
+            "countryCode": null,
+            "displayName": "Fiamme Oro Rugby",
+            "genderCategory": "male"
+          },
+          {
+            "id": "team:rugby:wr-4547",
+            "name": "Valorugby Emilia",
+            "role": "away",
+            "teamKind": "club",
+            "sourceIds": {
+              "worldRugby": "4547"
+            },
+            "countryCode": null,
+            "displayName": "Valorugby Emilia",
+            "genderCategory": "male"
+          }
+        ],
+        "scoreDisplay": "10–7",
+        "sourceStatus": "C",
+        "startTimeUtc": "2026-10-17T13:30:00.000Z",
+        "competitionId": "competition:rugby:wr:2536cab2-fb7d-426c-8a34-8d3a1a8cdaf8",
+        "consensusTags": [],
+        "sportDomainId": "sport:rugby-union",
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "participantIds": [
+          "team:rugby:wr-1395",
+          "team:rugby:wr-4547"
+        ],
+        "scoreCheckedAt": "2026-10-22T17:06:01.482+00:00",
+        "sourceEventIds": [
+          "fixture:rugby:wr:09416a3a-93cc-4f69-8d3c-c3c56ac7dfd3"
+        ],
+        "viewingOptions": [],
+        "competitionName": "Serie A Elite 2027",
+        "isInternational": false,
+        "sourceCheckedAt": "2026-10-22T11:04:00.648Z",
+        "sourceFixtureId": "09416a3a-93cc-4f69-8d3c-c3c56ac7dfd3",
+        "statusCheckedAt": "2026-10-22T17:06:01.482+00:00",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:rugby:wr:09416a3a-93cc-4f69-8d3c-c3c56ac7dfd3",
+        "competitionScope": "domestic",
+        "participantSlots": [],
+        "timingProvenance": {
+          "kind": "official",
+          "checkedAt": "2026-10-22T11:04:00.648Z",
+          "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-15&endDate=2027-01-20&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        },
+        "awayParticipantId": "team:rugby:wr-4547",
+        "discoverySourceId": "rugby-wr-mru",
+        "homeParticipantId": "team:rugby:wr-1395",
+        "displayTitleCompact": "Fiamme Oro Rugby v Valorugby Emilia",
+        "scoreFactObservedAt": "2026-10-19T10:40:01.704+00:00",
+        "statusFactObservedAt": "2026-10-19T10:40:01.704+00:00",
+        "participantCountryCodes": [],
+        "firstConfirmedCompleteAt": "2026-10-19T10:40:14.352108+00:00",
+        "fixtureObservationSchema": "fixture-observations.v1",
+        "representativeCountryCodes": []
+      }
+    },
+    {
+      "source_id": "discovery-rugby-mru",
+      "fixture_id": "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8",
+      "identity_keys": [
+        "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8"
+      ],
+      "fixture": {
+        "id": "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8",
+        "key": "rugby",
+        "date": "2026-10-17",
+        "name": "Australia v New Zealand",
+        "time": "16:45",
+        "sport": "Rugby Union",
+        "venue": "Stadium Australia, Sydney | Wangal",
+        "gender": "men",
+        "status": "scheduled",
+        "eventId": "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8",
+        "dateOnly": false,
+        "isSenior": true,
+        "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-25&endDate=2026-12-31&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=1",
+        "broadcasts": [],
+        "discipline": "rugby-union",
+        "roundLabel": null,
+        "sourceName": "World Rugby",
+        "sourceTime": {
+          "label": "2026-10-17",
+          "millis": 1792215900000,
+          "gmtOffset": 10
+        },
+        "sourceType": "official",
+        "broadcaster": "",
+        "participants": [
+          {
+            "id": "team:rugby:wallabies",
+            "name": "Australia",
+            "role": "home",
+            "teamKind": "national",
+            "sourceIds": {
+              "worldRugby": "38"
+            },
+            "countryCode": "AU",
+            "displayName": "Australia",
+            "genderCategory": "male"
+          },
+          {
+            "id": "team:rugby:all-blacks",
+            "name": "New Zealand",
+            "role": "away",
+            "teamKind": "national",
+            "sourceIds": {
+              "worldRugby": "37"
+            },
+            "countryCode": "NZ",
+            "displayName": "New Zealand",
+            "genderCategory": "male"
+          }
+        ],
+        "sourceStatus": "U",
+        "startTimeUtc": "2026-10-17T05:45:00.000Z",
+        "competitionId": "competition:rugby:wr:11c5aced-2f8c-4987-8f53-85d943466447",
+        "consensusTags": [],
+        "sportDomainId": "sport:rugby-union",
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "participantIds": [
+          "team:rugby:wallabies",
+          "team:rugby:all-blacks"
+        ],
+        "scoreCheckedAt": null,
+        "sourceEventIds": [
+          "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8"
+        ],
+        "viewingOptions": [],
+        "competitionName": "Bledisloe Cup 2026",
+        "isInternational": true,
+        "sourceCheckedAt": "2026-10-02T12:36:00.784Z",
+        "sourceFixtureId": "e3cbae12-66b3-4835-b1ce-4014b63055c8",
+        "statusCheckedAt": null,
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8",
+        "competitionScope": "international",
+        "participantSlots": [],
+        "timingProvenance": {
+          "kind": "official",
+          "checkedAt": "2026-10-02T12:36:00.784Z",
+          "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-25&endDate=2026-12-31&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=1"
+        },
+        "awayParticipantId": "team:rugby:all-blacks",
+        "discoverySourceId": "rugby-wr-mru",
+        "homeParticipantId": "team:rugby:wallabies",
+        "displayTitleCompact": "Australia v New Zealand",
+        "scoreFactObservedAt": null,
+        "statusFactObservedAt": null,
+        "participantCountryCodes": [
+          "AU",
+          "NZ"
+        ],
+        "fixtureObservationSchema": "fixture-observations.v1",
+        "representativeCountryCodes": []
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 'use strict';
-// First qualified slice: credential-free, explicitly constructed public replay.
-// This is not a live collector, managed publisher, or scheduler activation.
+// Credential-free candidate preparation from bounded public saved input.
+// Collection, managed publication and scheduler activation remain separate.
 const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),crypto=require('node:crypto'),cp=require('node:child_process');
 const ROOT=path.resolve(__dirname,'../..');
 const SAFE_PATH=path.dirname(process.execPath)+':/usr/bin:/bin';
@@ -33,7 +33,7 @@ function capability(file){
  fields(value,['schemaVersion','target','sourceRevision','observedAt','provenance','response','processMs','maxArtifactBytes','maxGeneratedBytes'],'capability');
  if(value.schemaVersion!=='canonical-public-candidate.v1')refuse('CANDIDATE_INPUT_SCHEMA','schemaVersion');
  if(!['quick:nbl','coverage:shared'].includes(value.target))refuse('CANDIDATE_UNQUALIFIED_TARGET',value.target==='full'?'full: private Follow snapshot, ranking PDFKit and shared aggregate/export closure unqualified':'quick: complete provider closure and actual shared-export/public-producer qualification remain unqualified');
- if(value.provenance!=='constructed-fixture')refuse('CANDIDATE_UNQUALIFIED_PROVENANCE','Live/current producer evidence needs DEPLOY qualification');
+ if(value.provenance!=='constructed-fixture'&&!(value.target==='coverage:shared'&&['service-read','test-service-response'].includes(value.provenance)))refuse('CANDIDATE_UNQUALIFIED_PROVENANCE','Only bounded public producer or explicitly constructed input; DEPLOY still qualifies actual intake');
  if(typeof value.sourceRevision!=='string'||!/^[a-f0-9]{40}$/.test(value.sourceRevision)||typeof value.observedAt!=='string'||!Number.isFinite(Date.parse(value.observedAt))||new Date(value.observedAt).toISOString()!==value.observedAt)refuse('CANDIDATE_INPUT_SCHEMA','source revision/observation');
  if(!Number.isInteger(value.processMs)||value.processMs<1000||value.processMs>60000||!Number.isInteger(value.maxArtifactBytes)||value.maxArtifactBytes<1024||value.maxArtifactBytes>MAX_ARTIFACT)refuse('CANDIDATE_BUDGET');
  if(!Number.isInteger(value.maxGeneratedBytes)||value.maxGeneratedBytes<1024||value.maxGeneratedBytes>MAX_GENERATED)refuse('CANDIDATE_BUDGET');
@@ -44,7 +44,7 @@ function capability(file){
  const body=readFile(path.join(path.dirname(file),r.path),MAX_BODY);
  if(body.length!==r.bytes||sha(body)!==r.sha256)refuse('CANDIDATE_INPUT_HASH');
  const payload=JSON.parse(body);
- if(coverage){const receipt=require('./public-coverage-capture').validate(payload);if(value.observedAt!==receipt.capturedAt)refuse('CANDIDATE_CAPTURE_CLOCK');return {...value,inputSha256:sha(inputBytes),body:body.toString('utf8'),publicCoverageReceipt:receipt};}
+ if(coverage){const receipt=require('./public-coverage-capture').validate(payload);if(value.observedAt!==receipt.capturedAt)refuse('CANDIDATE_CAPTURE_CLOCK');if(value.provenance!==receipt.provenance)refuse('CANDIDATE_UNQUALIFIED_PROVENANCE','Saved input and capability provenance differ');return {...value,inputSha256:sha(inputBytes),body:body.toString('utf8'),publicCoverageReceipt:receipt};}
  fields(payload,['leaguePath','year','fallback','offset','total','seasons_meta','matches'],'NBL public projection');
  if(!Array.isArray(payload.seasons_meta)||!Array.isArray(payload.matches))refuse('CANDIDATE_INPUT_SCHEMA','NBL arrays');
  const text=(value,label,optional=false)=>{if(optional&&(value===undefined||value===null))return;if(typeof value!=='string'||value.length>200||/[\x00-\x1f\x7f]/.test(value))refuse('CANDIDATE_INPUT_SCHEMA',label);};
@@ -86,6 +86,7 @@ const publicPath=name=>/^(?:api|assets|config|data|feeds|lib|scripts|styles)\//.
 const generatedFiles=new Set(['data/canonical/nbl-2026-27.json','data/events.json','data/events.js','data/feed-meta.json','data/chat-fixtures.v1.json','data/code-inspector/manifest.json','data/code-inspector/nbl.json','data/follow-schedule/nbl.json','data/feed/manifest.json','feeds/incoming/events.json','assets/js/app-shell-runtime.js','assets/js/calendar-sync-ui.js',...Object.keys(require('../build-deferred-sports-ui').modules)]);
 const generatedPath=name=>generatedFiles.has(name)||/^data\/feed\/page-\d{3}\.json$/.test(name);
 const coverageGenerated=new Set(['data/follow-sources/coverage.v1.json','data/code-inspector/manifest.json','data/chat-fixtures.v1.json',...['cricket','rugby-union'].flatMap(code=>['data/code-inspector/'+code+'.json','data/follow-schedule/'+code+'.json'])]);
+function preparationState(cap,changed){const suffix=cap.provenance==='constructed-fixture'?'fixture-replay':cap.provenance==='service-read'?'public-observations':'test-observations';return (changed?'prepared-':'unchanged-')+suffix;}
 function prepare({input,output}){
  credentials(process.env);
  const cap=capability(input),head=git(['rev-parse','HEAD']);
@@ -155,7 +156,7 @@ function prepare({input,output}){
   fs.writeFileSync(path.join(gitdir,'objects/info/alternates'),path.resolve(ROOT,git(['rev-parse','--git-path','objects']))+'\n');
   const g=args=>git(['--git-dir='+gitdir,'--work-tree='+workspace,...args]);
   g(['read-tree',head]);if(changed.length)g(['add','--',...changed.map(row=>row.path)]);
-  const candidateTree=g(['write-tree']),revision=git(['--git-dir='+gitdir,'-c','user.name=Canonical candidate','-c','user.email=canonical-candidate@invalid','-c','commit.gpgsign=false','commit-tree',candidateTree,'-p',head],{input:'Constructed public replay candidate; not current source acceptance\n',env:{...gitEnv,GIT_AUTHOR_DATE:cap.observedAt,GIT_COMMITTER_DATE:cap.observedAt}});
+  const candidateTree=g(['write-tree']),revision=git(['--git-dir='+gitdir,'-c','user.name=Canonical candidate','-c','user.email=canonical-candidate@invalid','-c','commit.gpgsign=false','commit-tree',candidateTree,'-p',head],{input:(cap.provenance==='constructed-fixture'?'Constructed public replay candidate':'Saved public observation candidate')+'; not current source acceptance\n',env:{...gitEnv,GIT_AUTHOR_DATE:cap.observedAt,GIT_COMMITTER_DATE:cap.observedAt}});
   g(['update-ref','refs/heads/'+branch,revision]);
   const bundle=path.join(output,'candidate.bundle');g(['bundle','create',bundle,'refs/heads/'+branch,'^'+head]);fs.chmodSync(bundle,0o600);
   if(fs.statSync(bundle).size>cap.maxArtifactBytes)refuse('CANDIDATE_ARTIFACT_BUDGET');
@@ -180,13 +181,13 @@ function prepare({input,output}){
   try{fs.rmSync(scratch,{recursive:true,force:true});}catch(error){cleanupError=reporter.diagnosticTail(error.message);blocked||=error;}
   if(blocked)discard();
   try{
-   const state=blocked?'blocked':artifact?.changed.length?'prepared-fixture-replay':'unchanged-fixture-replay';
+   const state=blocked?'blocked':preparationState(cap,artifact?.changed.length);
    const handover={schemaVersion:'canonical-candidate-handover.v1',sourceRevision:head,inputSha256:cap.inputSha256,candidateTarget:cap.target,sourceReceipt:{url:cap.response.url,sha256:cap.response.sha256,observedAt:cap.observedAt,provenance:cap.provenance},...(cap.publicCoverageReceipt?{publicCoverage:cap.publicCoverageReceipt}:{}),state,currentSourceAcceptance:false,managedWrites:0,remotePushes:0,deployment:false,scheduleChanged:false,childStatus:child?.status??null,childSignal:child?.signal||null,ledger:ledger||null,outputSummary:outputSummary||null,artifact:blocked?null:artifact,blocker:reporter.diagnosticTail(blocked?.message)||null,diagnostic,reports,cleanupError,nextOwner:'DEPLOY existing-client intake; no worker PR scope or automatic promotion'};
    fs.writeFileSync(path.join(output,'handover.json'),JSON.stringify(handover,null,2)+'\n',{mode:0o600});
   }catch(error){blocked||=error;discard();}
  }
  if(blocked)throw blocked;
- console.log(JSON.stringify({state:artifact.changed.length?'prepared-fixture-replay':'unchanged-fixture-replay',output,currentSourceAcceptance:false}));
+ console.log(JSON.stringify({state:preparationState(cap,artifact.changed.length),output,currentSourceAcceptance:false}));
  return artifact;
 }
 module.exports={options,credentials,capability,prepare,frames,URL,MAX_BODY,generatedPath,sha};
