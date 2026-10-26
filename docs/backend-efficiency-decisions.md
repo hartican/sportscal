@@ -1,5 +1,20 @@
 # Backend efficiency decisions
 
+## Saved public coverage read dependency — 26 October 2026
+
+The existing canonical sync-live-coverage owner may consume an explicit bounded
+constructed public capture in place of its service request. Share the unchanged
+POST read-RPC/source/page/body/deadline contract; do not use a generic HTTP-method
+fence. Validate all public fields, identities, clocks, hashes and terminal pages
+before effects; stale/invalid input must never trigger a managed fallback. Keep
+original facts/observations, unrelated records and unknown protected content.
+Use existing local candidate rollback and packaging, with explicit pending
+DEPLOY producer/privacy/retirement/publication checks. Export no private Follow
+state. Actual producer public-projection/completeness authority remains
+unqualified; genuine receipts, complete full/unscoped modes and routine
+restoration are still refused. No provider, schema, credential, permission,
+deadline, workflow or scheduler change is added. See [scope and method manifest](quality/canonical-public-coverage-capture-2026-10-26.md).
+
 ## First executable public-candidate slice — 26 October2026
 
 The original canonical owner now admits only an explicit constructed NBL public

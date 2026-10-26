@@ -72,6 +72,13 @@ function runStep(args) {
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
   if(argv.some(arg=>arg.startsWith('--public-candidate')||arg.startsWith('--candidate-')))return require('./lib/public-candidate').options(argv,env);
+  if(argv.some(arg=>arg.startsWith('--live-coverage-public'))){
+    const inputs=argv.filter(arg=>arg.startsWith('--live-coverage-public='));
+    if(!argv.includes('--coverage-live')||!argv.includes('--local-only')||inputs.length!==1||new Set(argv).size!==argv.length||argv.some(arg=>!['--coverage-live','--local-only'].includes(arg)&&!arg.startsWith('--live-coverage-public=')))throw Error('Public coverage capture requires only --coverage-live --local-only --live-coverage-public=<absolute public-coverage.json>');
+    const file=inputs[0].slice('--live-coverage-public='.length);
+    if(!path.isAbsolute(file)||path.basename(file)!=='public-coverage.json')throw Error('Public coverage capture requires an absolute public-coverage.json input');
+    return {localOnly:true,publicCoverage:require('./lib/public-coverage-capture').read(file)};
+  }
   if(argv.includes('--retained-coverage')){
     const codeArgs=argv.filter(arg=>arg.startsWith('--codes=')),captures=argv.filter(arg=>arg.startsWith('--capture=')),allowed=new Set(['--retained-coverage','--local-only','-p']);
     if(!argv.includes('--local-only')||codeArgs.length!==1||new Set(argv).size!==argv.length||argv.some(arg=>!allowed.has(arg)&&!arg.startsWith('--codes=')&&!arg.startsWith('--capture=')))throw Error('Retained coverage requires only declared codes, optional Football capture and local-only; no source steps ran');
@@ -542,8 +549,7 @@ function buildSteps({ localOnly = false } = {}) {
   return steps;
 }
 
-async function runMain() {
-  const options = parseOptions();
+async function runMain(options = parseOptions()) {
   const retained=options.retainedCoverage||(options.australianChampionship?{codeSlugs:['football'],...options.australianChampionship}:null);
   if(retained){
     const {codeSlugs,captureFolder}=retained,codes=codeSlugs.join(',');
@@ -1065,12 +1071,20 @@ async function runMain() {
     runStep(['scripts/build-app-shell-runtime.js']);return;
   }
   if(process.argv.includes('--coverage-live')){
+    const execute=async()=>{
     const snapshot=process.argv.find(arg=>arg.startsWith('--live-coverage-snapshot='));
     const rows=snapshot?JSON.parse(fs.readFileSync(snapshot.slice('--live-coverage-snapshot='.length),'utf8')):undefined;
-    const report=await require('./sync-live-coverage').sync({rows});
+    const report=await require('./sync-live-coverage').sync(options.publicCoverage?{publicCapture:options.publicCoverage,now:new Date(options.publicCoverage.capturedAt)}:{rows});
     if(report.codes.length)runStep(['scripts/build-code-inspector.js',`--codes=${report.codes.join(',')}`]);
     runStep(['scripts/validate-source-coverage.js']);
-    console.log(JSON.stringify(report));return;
+    if(options.publicCoverage)require('./lib/refresh-report').update({publicCoverage:report});
+    console.log(JSON.stringify(report));return report;
+    };
+    if(options.publicCoverage){
+      require('./lib/refresh-report').update({mode:'public-coverage-replay'});
+      return require('./quick-results').atomicRefresh({},{refreshOperation:execute});
+    }
+    return execute();
   }
   if(process.argv.includes("--coverage")){
     const coverageScope=process.argv.find(arg=>arg.startsWith('--coverage-source='));
@@ -1144,7 +1158,7 @@ async function main(){
   try{
     require('../lib/golf-source-observations').create({mode:process.argv.includes('--offline')?'offline':process.argv.includes('--quick')?'quick':'full'}).save();
     if(!process.argv.includes('--offline'))require('./lib/football-data-backup').record({state:'invocation',mode:process.argv.includes('--quick')?'quick':process.argv.includes('--european-football')?'european-football':'full'},{directory});
-    const result=await runMain();
+    const result=await runMain(initialOptions.publicCoverage?initialOptions:undefined);
     require('./lib/refresh-report').update({publicationState:'validated',stage:'validated'});
     return result;
   }catch(error){
