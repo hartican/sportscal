@@ -14,6 +14,8 @@ Before production acceptance, require exact guarded forward/inverse SQL, unchang
 
 The migration and inverse are prepared from the byte-identical PG17/18 rehearsal outputs. Staging behind the exact private service header preserves old callers; production activation belongs to the same sole publisher. Evidence and later acceptance belong in the release queue and `docs/quality/global-fixture-groups-proposed-2026-10-26.md`, with dated ROOT receipts under the Codex output folder.
 
+ROOT staged those exact forward bytes at 26 October 02:11 UTC after all 258 combined local safety commands passed with no tracked-byte changes. Managed history assigned version `20261026021111`; both source migration and inverse filenames now use that actual version, with unchanged SQL bytes. The installed view matches the two-engine candidate digest `d3d5341fcf5dc901c3e1240145b3acd7`. Fresh metadata confirms the original invoker/owner/json/service-only permission contract, clock/projector helpers and generated projection. Existing production callers still take the unchanged legacy branch. This is gated private-view staging, not successful SDK qualification, application deployment or production acceptance; the same publisher's live gates remain mandatory.
+
 ## Scoped current Cricket through the existing refresh owner — 25 October 2026
 
 Permit only `--live --live-source=cricket-ca-current` in the canonical

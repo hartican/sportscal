@@ -2,6 +2,8 @@
 
 Status: **isolated source/local prototype; no production adoption or speed claim**. Base6f83a6cbc7070eb33ec4faed17ae50a56643f114. DEPLOY/ROOT alone owns integration, service/native qualification, migrations, canonical refresh, main and publication. No existing production caller enables this protocol.
 
+**ROOT staging update:** after all 258 combined local safety commands passed, ROOT alone installed the byte-identical guarded private view at 26 October 02:11 UTC. Managed migration `20261026021111_use_lossless_global_fixture_groups` and its source inverse match the rehearsed bodies. Candidate digest and original invoker/owner/json/service-only permissions/helpers/generated projection are verified. The source-only prototype claims below retain their original scope; existing deployed callers remain on the unchanged legacy branch. Actual SDK, normal deployment and repeated/hosted/security acceptance are still pending. No fact, customer, scheduler or permission change occurred.
+
 ## Problem and allocated experiment
 
 The final global release check refused a complete=false bundle before projection. ROOT's later exact-original-reader key census at26October00:29:49UTC found5,145admitted source rows for2,586exact fixture storage keys, at most8source rows/key. Repeated keys are separate source observations, not proof of identical facts or safely deletable records. The original13MB failed response was not retained; current aggregates do not replay that historical body.
