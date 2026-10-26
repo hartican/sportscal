@@ -2099,3 +2099,9 @@ source correction is neither live loading proof nor production acceptance.
 All253 required commands and application/read/dispatcher budgets remain unchanged;
 DEPLOY retains the sole fresh normal-run/publication lane. Details and limitations
 are in the linked quality record.
+
+## 26 October 2026 — bounded already-agreed event sync accommodation
+
+Use the existing owned receipt, fresh account read, canonical Follow validation and conditional entity/domain save path when event choices already match intent and remote. The event comparison is read-only: no migration output, event union, event write, persisted receipt field, schema, endpoint, polling, retry budget or scheduler is introduced. A RAM-only proof adds an AND condition to the existing central save-acknowledgement predicate; malformed, rejecting or throwing provided proofs fail closed, while existing witnesses without a proof keep their behaviour. Pin exact remote event values and presence through ACK and keep existing R2/lifetime/current-edit fences.
+
+The required bookkeeping suite retains all78 previous cases and adds28 event cases plus central proof controls; mounted manual retry adds one case per existing engine without removing an assertion. Its test-only offline setup and actual directory/idle/fixture settlement prevent background Follow work crossing the controlled restart. The first failed WebKit cancellation trace and the negative for canonical defaults in an incomplete old base are retained. No live Supabase/customer mutation or release is part of this source work. DEPLOY owns version/cache binding, required full gates including GLOBAL loading, publication and physical iPhone acceptance.

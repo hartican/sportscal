@@ -403,6 +403,10 @@
 
   function preferenceIntentMatches(receipt,preferences,patches){
     if(!receipt)return false;
+    if(receipt.originalReceipt&&Object.hasOwn(receipt,'acceptsAcknowledgement')){
+      try{if(typeof receipt.acceptsAcknowledgement!=="function"||receipt.acceptsAcknowledgement(preferences)!==true)return false;}
+      catch{return false;}
+    }
     const expected=patches
       ? patches.applyPatch({preferences},patches.createPatch({preferences:receipt.basePreferences},{preferences:receipt.preferences})).preferences
       : receipt.preferences;
