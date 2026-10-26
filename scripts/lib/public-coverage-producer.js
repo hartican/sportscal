@@ -34,7 +34,7 @@ function validate(value){
 }
 function outputPath(file){
  if(!path.isAbsolute(file)||path.basename(file)!=='public-coverage.json'||fs.realpathSync(path.dirname(file))!==path.dirname(file))schema.fail('OUTPUT_PATH');
- if(fs.existsSync(file))schema.fail('OUTPUT_EXISTS');return file;
+ try{fs.lstatSync(file);schema.fail('OUTPUT_EXISTS');}catch(error){if(error.code!=='ENOENT')throw error;}return file;
 }
 function save(value,file){
  outputPath(file);const data=JSON.stringify(value)+'\n';

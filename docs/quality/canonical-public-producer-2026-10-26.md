@@ -156,3 +156,23 @@ malformed/error JSON, missing stream, body failure, caller abort/deadline/late
 fetch cleanup, timing observers, credentials and default no-option compatibility.
 Explicit logs/hashes/counts belong in the dated source handback. Normal full
 release, generated-output and live/native gates remain DEPLOY-owned.
+
+
+A broader retained-only schema census then checked850 observations from the
+same saved response:843 passed;7 were correctly refused for colliding opponent
+IDs. Six men's World Rugby fixtures use `team:rugby:wr-0` for both NTH/STH
+position labels; one women's fixture similarly uses `team:rugby:wr-0-women`
+for both semifinal labels. These are unresolved source slots, not distinct
+confirmed opponents. The producer does not silently drop them or weaken side
+identity. This historical census is not proof of today's service contents.
+If a future allocated intake still encounters this pattern, the next minimal
+unit belongs to the existing World Rugby parser's `team.id=0`/unresolved-slot
+representation, with unchanged fixture identity, raw labels and observation
+clocks, or an explicitly allocated existing-owner per-card deferral contract.
+That source repair is outside this producer/transport slice.
+
+Independent Standards review caught a dangling-output-symlink preflight gap:
+`existsSync` follows the link and could permit service reads before exclusive
+save rejected it. The permanent trapped-request control first failed, then
+passed after preflight switched to `lstatSync`, treating only ENOENT as absent.
+The symlink itself remains untouched and no request is made.

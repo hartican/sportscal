@@ -43,6 +43,7 @@ async function run(){
    ['wrong source family',r=>{r[0].source_id='discovery-rugby-wru';},'SOURCE_SPORT'],
    ['unsupported source',r=>{r[0].source_id='discovery-cricket-future-0';},'SOURCE_OR_DUPLICATE'],
    ['contrary ordered sides',r=>{r[1].fixture.participantIds.reverse();},'SIDES'],
+   ['colliding unresolved provider sides',r=>{const f=r[1].fixture;f.participantIds=['team:rugby:wr-0','team:rugby:wr-0'];f.participants.forEach(p=>{p.id='team:rugby:wr-0';});f.homeParticipantId=f.awayParticipantId='team:rugby:wr-0';},'SIDES'],
    ['partial rugby score',r=>{delete r[2].fixture.awayScore;},'SCORE'],
    ['contrary innings participant',r=>{r[0].fixture.innings[0].participantId='team:unrelated';},'SCORE'],
    ['duplicate innings',r=>{r[0].fixture.innings=[r[0].fixture.innings[0],r[0].fixture.innings[0]];},'SCORE'],
@@ -71,6 +72,7 @@ async function run(){
   let n=0;await assert.rejects(()=>producer.produce({clock:()=>new Date(at),request:async()=>paged.slice(0,500).map(row=>{const r=structuredClone(row),id='fixture:rugby:wr:00000000-0000-4000-8000-'+String(n++).padStart(12,'0');r.fixture_id=r.fixture.id=r.fixture.eventId=r.fixture.canonicalEventId=id;r.identity_keys=r.fixture.sourceEventIds=[id];return r;})}),/budget|PAGE_BUDGET/);checks++;
   const target=output();let calls=0;await assert.rejects(()=>producer.produce({output:target,clock:()=>new Date(at),request:async()=>{if(calls++)throw Error('simulated second-page failure');return paged.slice(0,500);}}),/PUBLIC_COVERAGE_SERVICE_READ_FAILED/);assert.equal(calls,2);assert(!fs.existsSync(target));checks++;
   const protectedOutput=output();fs.writeFileSync(protectedOutput,'last-good');await assert.rejects(()=>owner.capturePublic({output:protectedOutput,request:async()=>{throw Error('Existing output must reject before request');}}),/OUTPUT_EXISTS/);assert.equal(fs.readFileSync(protectedOutput,'utf8'),'last-good');checks++;
+  const dangling=output();fs.symlinkSync(path.join(root,'missing-target'),dangling);let danglingRequests=0;await assert.rejects(()=>owner.capturePublic({output:dangling,clock:()=>new Date(at),request:async()=>{danglingRequests++;return structuredClone(sample.rows);}}),/OUTPUT_EXISTS/);assert.equal(danglingRequests,0);assert(fs.lstatSync(dangling).isSymbolicLink());checks++;
   const late=await make(sample.rows,{clock:()=>new Date('2026-10-26T00:00:00Z')});assert.equal(late.receipt.currentSourceAcceptance,false);
   await assert.rejects(()=>owner.sync({file,now:new Date(late.value.capturedAt),publicCapture:late.value}),/No recent/);assert(fs.readFileSync(file).equals(bytes));checks++;
   const mutated=structuredClone(saved),replay=captureReader.replay(mutated);mutated.pages[0].rows[0].fixture.innings[0].runsScored=999;
