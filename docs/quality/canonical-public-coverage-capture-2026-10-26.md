@@ -48,6 +48,12 @@ they are not silently copied or stripped. Detailed Cricket innings/results,
 viewing/editorial structures and uncertain/TBC sides/starts are not qualified
 by this narrow schema. It is not an exporter of arbitrary privileged fixture
 JSON or a promise that existing server JSON is intrinsically public.
+Alternate event/canonical/source/row identities must belong to equivalences
+already established by the existing identity owner; a supplied alias cannot
+select an unrelated retained fixture. TBC/draw-slot/qualifier participants
+refuse. Replay snapshots the complete envelope before validation and consumes
+only that private copy, so later caller mutation cannot change accepted rows
+while retaining an older receipt hash.
 
 Validated saved pages replace only the request dependency of the real
 `readRows`/`project`/`sync` owner. Invalid/empty/stale input never falls back to

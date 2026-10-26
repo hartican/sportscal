@@ -1,6 +1,7 @@
 'use strict';
 const fs=require('node:fs'),crypto=require('node:crypto');
 const contract=require('./live-coverage-read-contract');
+const identity=require('../../config/fixture-identity');
 const MAX_BYTES=2*1024*1024;
 const digest=value=>crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const canonical=value=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])])):value;
@@ -15,6 +16,8 @@ function fixture(value,row,capturedAt){
  fields(value,fixtureFields);id(value.id);if(value.id!==row.fixture_id)reject('IDENTITY');
  for(const key of ['eventId','canonicalEventId','competitionId','sourceFixtureId','discoverySourceId'])if(value[key]!==undefined)id(value[key]);
  for(const key of ['sourceEventIds','participantIds'])if(value[key]!==undefined){if(!Array.isArray(value[key])||value[key].length>32||new Set(value[key]).size!==value[key].length)reject('IDENTITY');value[key].forEach(id);}
+ const reviewed=new Set(identity.fixtureAliases(row.fixture_id)),canonicalId=identity.canonicalFixtureId(row.fixture_id);
+ for(const alias of [value.eventId,value.canonicalEventId,...(value.sourceEventIds||[]),...row.identity_keys].filter(alias=>alias!==undefined))if(!reviewed.has(alias)&&identity.canonicalFixtureId(alias)!==canonicalId)reject('ALIAS_UNQUALIFIED');
  for(const key of ['key','sportDomainId','name','sourceUrl'])text(value[key],500);
  for(const key of ['sportKey','competitionName','competitionScope','gender','sourceName','scoreDisplay'])if(value[key]!==undefined)text(value[key],500);
  if(!['cricket','rugby','rugby-union'].includes(value.key)||!['sport:cricket','sport:rugby-union'].includes(value.sportDomainId)||(row.source_id.includes('cricket')?value.key!=='cricket'||value.sportDomainId!=='sport:cricket':value.key==='cricket'||value.sportDomainId!=='sport:rugby-union'))reject('SOURCE_SPORT');
@@ -25,7 +28,7 @@ function fixture(value,row,capturedAt){
  let url;try{url=new URL(value.sourceUrl);}catch{reject('SOURCE_URL');}
  if(url.protocol!=='https:'||url.username||url.password||url.hash||url.search)reject('SOURCE_URL');
  if(!Array.isArray(value.participants)||value.participants.length!==2||!Array.isArray(value.participantIds)||value.participantIds.length!==2)reject('SIDES');
- for(const p of value.participants){fields(p,['id','name']);id(p.id);text(p.name);}
+ for(const p of value.participants){fields(p,['id','name']);id(p.id);text(p.name);if(/\b(?:tbc|tbd|to be confirmed|winner of|loser of|unknown|qualifier)\b/i.test(p.name))reject('SIDES');}
  id(value.homeParticipantId);id(value.awayParticipantId);
  if(value.homeParticipantId===value.awayParticipantId||JSON.stringify(value.participantIds)!==JSON.stringify([value.homeParticipantId,value.awayParticipantId])||JSON.stringify(value.participants.map(p=>p.id))!==JSON.stringify(value.participantIds))reject('SIDES');
  const scores=['homeScore','awayScore'].filter(key=>value[key]!==undefined);
@@ -55,7 +58,7 @@ function validate(value){
 }
 function read(file){const stat=fs.lstatSync(file);if(!stat.isFile()||stat.size>MAX_BYTES||fs.realpathSync(file)!==file)reject('INPUT_PATH');const bytes=fs.readFileSync(file);const value=JSON.parse(bytes);validate(value);return value;}
 function replay(value){
- const receipt=validate(value);let page=0;
- return {receipt,async request(path,options){const actual={path,...options};if(page>=value.pages.length||JSON.stringify(canonical(actual))!==JSON.stringify(canonical(contract.requestForPage(page))))reject('REQUEST_CONTRACT');return structuredClone(value.pages[page++].rows);},complete(){if(page!==value.pages.length)reject('PAGE_COMPLETENESS');}};
+ const saved=structuredClone(value),receipt=validate(saved);let page=0;
+ return {receipt,async request(path,options){const actual={path,...options};if(page>=saved.pages.length||JSON.stringify(canonical(actual))!==JSON.stringify(canonical(contract.requestForPage(page))))reject('REQUEST_CONTRACT');return structuredClone(saved.pages[page++].rows);},complete(){if(page!==saved.pages.length)reject('PAGE_COMPLETENESS');}};
 }
 module.exports={MAX_BYTES,validate,read,replay,fixtureFields};

@@ -31,6 +31,11 @@ async function run(){
    ['extra header',c=>{c.pages[0].request.headers={Authorization:'synthetic-only'};},'REQUEST_CONTRACT'],
    ['wrong hash',c=>{c.pages[0].sha256='0'.repeat(64);},'PAGE_HASH'],
    ['wrong identity',c=>{c.pages[0].rows[0].fixture_id='fixture:wrong';},'IDENTITY'],
+   ['unreviewed canonical alias',c=>{c.pages[0].rows[0].fixture.canonicalEventId='fixture:rugby:unrelated-protected';},'ALIAS_UNQUALIFIED'],
+   ['unreviewed source alias',c=>{c.pages[0].rows[0].fixture.sourceEventIds=['fixture:rugby:unrelated-protected'];},'ALIAS_UNQUALIFIED'],
+   ['unreviewed row alias',c=>{c.pages[0].rows[0].identity_keys.push('fixture:rugby:unrelated-protected');},'ALIAS_UNQUALIFIED'],
+   ['TBC side',c=>{c.pages[0].rows[0].fixture.participants[0].name='TBC';},'SIDES'],
+   ['draw-slot side',c=>{c.pages[0].rows[0].fixture.participants[0].name='Winner of Match 1';},'SIDES'],
    ['wrong source family',c=>{c.pages[0].rows[0].source_id='cricket-ca-current';},'SOURCE_SPORT'],
    ['duplicate row',c=>{c.pages[0].rows.push(structuredClone(c.pages[0].rows[0]));},'SOURCE_OR_DUPLICATE'],
    ['partial score',c=>{delete c.pages[0].rows[0].fixture.awayScore;},'SCORE'],
@@ -54,6 +59,8 @@ async function run(){
   const pages=capture(),full=Array.from({length:500},(_,i)=>{const row=structuredClone(pages.pages[0].rows[0]);row.fixture_id=row.fixture.id='fixture:rugby:page-'+i;row.identity_keys=[row.fixture.id];return row;});pages.pages[0].rows=full;pages.pages[0].sha256=hash(full);pages.pages.push({...structuredClone(pages.pages[0]),request:{...pages.pages[0].request,path:pages.pages[0].request.path.replace('offset=0','offset=500')},rows:[],sha256:hash([])});
   const replay=require('./lib/public-coverage-capture').replay(pages),rows=await require('./sync-live-coverage').readRows(replay.request);replay.complete();assert.equal(rows.length,500);checks++;
   assert.throws(()=>require('./lib/public-coverage-capture').validate({...pages,pages:[pages.pages[0]]}),/PAGE_COMPLETENESS/);checks++;
+  const mutable=capture(),saved=require('./lib/public-coverage-capture').replay(mutable);mutable.pages[0].rows[0].fixture.homeScore=999;
+  const frozenRows=await require('./sync-live-coverage').readRows(saved.request);saved.complete();assert.equal(frozenRows[0].fixture.homeScore,12,'Validated capture must be an immutable consumed snapshot');checks++;
   await assert.rejects(()=>require('./quick-results').refresh({coverageCapture:{profiles:[]}}),/PUBLIC_COVERAGE_PRIVATE_OR_UNKNOWN_FIELD/);checks++;
   await assert.rejects(()=>require('./quick-results').refresh({source:'nbl',now:new Date(capture().capturedAt),coverageCapture:capture()}),/REPLAY_CLOCK_OR_MODE/);checks++;
   const inputDir=path.join(root,'candidate-inputs');fs.mkdirSync(inputDir);const body=Buffer.from(JSON.stringify(capture()));fs.writeFileSync(path.join(inputDir,'public-coverage.json'),body);
