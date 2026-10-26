@@ -114,6 +114,31 @@ async function admissionLifetime(){
   await require('./validate-public-feed-native-admission').run(fixture);
 }
 
+async function initialAccountFixture(){
+  const target=model(),subject=target.owner,life={accountId:subject,generation:7},context={URL,location:new URL(base+'/?discussion='+target.event.id),startupPostLoadHandled:false,feedCardSlots:new Map(),serverPersistence:{state:'error',user:null},serverSyncClient:{sessionSubject:()=>subject,accountSnapshot:()=>life}};
+  vm.createContext(context);const install=vm.runInContext('('+fixture.installInitialFixtureAccount.toString()+')',context),order=[];
+  for(const actor of ['wrong-owner',null])assert.throws(()=>install({owner:subject,actor}),/does not match/);
+  assert.equal(context.serverPersistence.user,null);assert.throws(()=>install({owner:'wrong-owner',actor:'wrong-owner'}),/does not match/);assert.equal(context.serverPersistence.user,null);
+  life.generation=NaN;assert.throws(()=>install({owner:subject,actor:subject}),/does not match/);assert.equal(context.serverPersistence.user,null);life.generation=7;
+  target.prepareInitialAccount=async actor=>{order.push('initial-account');return install({owner:subject,actor});};
+  const read=async actor=>{let response;await fixture.api({request:()=>request('GET',null,actor),fulfill:async value=>{order.push('fulfil');response=value;}},target,new URL('/api/feed?cursor=0&limit=20',base));return response;};
+  assert.equal((await read('wrong-owner')).status,401);assert.equal(context.serverPersistence.user,null);assert.equal(typeof target.prepareInitialAccount,'function');order.length=0;
+  assert.equal((await read(subject)).json.schemaVersion,'server-feed.v3');assert.deepEqual(order,['initial-account','fulfil']);assert.equal(target.prepareInitialAccount,null);assert.equal(context.serverPersistence.user.id,subject);assert.equal(context.serverPersistence.user.isAnonymous,false);assert.equal(context.serverPersistence.state,'error');assert.equal(life.generation,7);assert.equal(target.initialAccountObservation.generation,7);assert.equal(target.initialAccountObservation.discussion,target.event.id);
+  await read(subject);assert.deepEqual(order,['initial-account','fulfil','fulfil'],'A later Feed read cannot repeat initial account setup');assert.deepEqual(target.apiWrites,[]);
+  for(const [registered,anonymous] of [[false,false],[true,true]]){
+    Object.assign(target,{registered,anonymous,prepareInitialAccount:async()=>{throw Error('Negative account must not receive a positive fixture user');}});context.serverPersistence.user=null;await read(subject);assert.equal(context.serverPersistence.user,null);
+  }
+  context.__publicFeedSlot={isConnected:true};context.document={createElement:()=>({}),body:{append(){}}};context.setTunePromptOpen=context.suppressSessionRatingPrompt=context.closeSettings=()=>{};
+  assert.throws(()=>vm.runInContext('('+fixture.installFixtureHost.toString()+')',context)({event:target.event,registered:true,owner:subject,anonymous:false,cold:false}),/did not arrive/);assert.equal(context.serverPersistence.user,null,'Late host may not restore a positive account');
+  Object.assign(target,{registered:true,anonymous:false,prepareInitialAccount:null});
+  const cold=fixture.initialPreferences(target,{cold:true}),ordinary=fixture.initialPreferences(target);
+  assert.equal(cold.showSpoilers,false);assert.equal(cold.feedControls.spoilers,'strict');assert.equal(ordinary.showSpoilers,true);assert.equal(ordinary.feedControls.spoilers,'results_visible');
+  assert.equal(cold.preferenceGraph.entityFollows.length,1);assert.deepEqual(cold.preferenceGraph.entityFollows,ordinary.preferenceGraph.entityFollows);assert.deepEqual(cold.followedSports,[]);assert.deepEqual(cold.selectedSelectorEntityIds,[]);assert.equal(cold.followFirst.notifications.userChoice,false);
+  context.serverPersistence.user={id:subject,isAnonymous:false};context.feedCardSlots.set('fixture',{event:target.event,slot:{isConnected:true}});context.userPreferences={showSpoilers:true,feedControls:{spoilers:'results_visible'}};
+  const host=vm.runInContext('('+fixture.installFixtureHost.toString()+')',context),before=JSON.stringify(context.userPreferences);
+  assert.throws(()=>host({event:target.event,registered:true,owner:subject,anonymous:false,cold:true}),/Results OFF was not supplied/);assert.equal(JSON.stringify(context.userPreferences),before,'Late host may not repair an incorrect Results input');
+}
+
 function discoveryFixture(){
   const html=fs.readFileSync('index.html','utf8'),key=html.match(/selectorReleaseAcknowledgement: "([^"]+)"/)?.[1],taxonomy=require('../config/selector-taxonomy'),values=new Map(),sessionValues=new Map();let opened=0;
   assert(key,'Use the actual application storage key');
@@ -143,5 +168,6 @@ async function main(){
   if(!baseline && (!selected || selected === 'seen')){ await seenState(); console.log('Actual WeakMap owner: stable keys, detached values, real mutations and forwarding controls passed.'); }
   if(!baseline && (!selected || selected === 'discovery')){ discoveryFixture(); console.log('Actual discovery predicate: acknowledged test fixture stays clear, unacknowledged control opens, empty/OFF/account choices unchanged.'); }
   if(!baseline && (!selected || selected === 'admission')){ await admissionLifetime(); console.log('Actual SDK/client/server Feed admission: initial team follow and normal rebuild retain the fixture; empty, OFF, anonymous, unknown, dismissed, expired and detached controls remain.'); }
+  if(!baseline && (!selected || selected === 'initial-account')){ await initialAccountFixture(); console.log('Initial account fixture: actor/SDK ownership, unchanged generation/error state, one-shot before Feed fulfilment, negative accounts and late-host refusal passed.'); }
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });

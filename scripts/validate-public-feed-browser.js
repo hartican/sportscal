@@ -54,15 +54,15 @@ function scenario(){
     commentOwners:new Map(rows.map(row => [row.id, otherOwner])), privateMembers:new Set(), authIntent:null, expectedRejectedWrites:new Set(), reads:[], issuedCursors:new Map(), gateByRequest:new Map()};
 }
 
-function initialPreferences(model){
+function initialPreferences(model, {cold = false} = {}){
   // Disposable INITIAL account intent, before navigation or any exercise. An
   // ordinary fixture needs an actual team follow; a sport choice alone does
   // not override the approved marquee/finals Feed policy. The existing compact
   // Feed view leaves the separately tested full transient card as the subject.
   let graph = preferenceSystem.createPreferenceGraph({profileId:'profile:public-feed-native', domainIds:[]});
   if(model.registered && !model.anonymous) graph = preferenceSystem.setEntityFollow(graph, model.event.homeParticipantId, 'follow');
-  return {version:27, onboardingComplete:true, showSpoilers:true, feedCompact:true, followedSports:[], selectedSelectorEntityIds:[], preferenceGraph:graph,
-    feedControls:{spoilers:'results_visible'}, fantasyDeadlines:require('../config/fantasy-deadlines').normalizePreferences({enabled:false}),
+  return {version:27, onboardingComplete:true, showSpoilers:!cold, feedCompact:true, followedSports:[], selectedSelectorEntityIds:[], preferenceGraph:graph,
+    feedControls:{spoilers:cold ? 'strict' : 'results_visible'}, fantasyDeadlines:require('../config/fantasy-deadlines').normalizePreferences({enabled:false}),
     followFirst:{notifications:{enabled:false, userChoice:false, autoRemindersEnabled:false}, refinement:{promptedAt:'2026-10-24'}}};
 }
 function initialUserState(model){
@@ -217,6 +217,8 @@ async function api(route, model, url){
   }
   if(url.pathname === '/api/feed'){
     if(request.method() !== 'GET' || !model.registered || requestActor(request) !== model.owner) return route.fulfill({status:401, json:{code:'missing_session'}});
+    const prepare = model.prepareInitialAccount;
+    if(prepare && !model.anonymous){ model.prepareInitialAccount = null; model.initialAccountObservation = await prepare(requestActor(request)); }
     return route.fulfill({json:initialFeed(model, url)});
   }
   if(url.pathname === '/api/nothingscore') return route.fulfill({json:{points:model.points, settlements:[], entries:[], privileges:[]}});
@@ -302,18 +304,30 @@ function seedBrowserFixture({registered, token, owner, anonymous, selectorVersio
   if(registered) sessionStorage.setItem('ns_auth_session_v1', JSON.stringify({accessToken:token, refreshToken:'synthetic-only', expiresAt:Date.now() + 3600000}));
   globalThis.__publicFeedFixtureAccount = {owner, anonymous};
 }
+function installInitialFixtureAccount({owner, actor}){
+  const life = serverSyncClient.accountSnapshot(), subject = serverSyncClient.sessionSubject();
+  if(actor !== owner || subject !== owner || life.accountId !== owner || !Number.isSafeInteger(life.generation)) throw Error('Initial fixture account does not match the owned Feed read');
+  const observation = {owner, actor, subject, generation:life.generation, priorUser:serverPersistence.user?.id || null, state:serverPersistence.state,
+    startupHandled:startupPostLoadHandled, discussion:new URL(location.href).searchParams.get('discussion'), feedSlots:feedCardSlots.size};
+  // Existing controlled positive Auth fixture, before its first Feed response.
+  // Do not mark sync successful, manufacture state, or change SDK lifetime.
+  serverPersistence.user = {id:owner, isAnonymous:false};
+  const after = serverSyncClient.accountSnapshot();
+  if(after.accountId !== owner || after.generation !== life.generation) throw Error('Initial fixture account lifetime changed');
+  return observation;
+}
 function installFixtureHost({event, registered, owner, anonymous, cold}){
   setTunePromptOpen(false); suppressSessionRatingPrompt(); closeSettings({restoreTheme:false});
   // Retain the existing controlled Auth fixture boundary. The real account
   // bootstrap remains unavailable; this UI matrix is not Auth/backend proof.
-  serverPersistence.user = registered ? {id:owner, isAnonymous:anonymous} : null;
+  if(!registered || anonymous) serverPersistence.user = registered ? {id:owner, isAnonymous:anonymous} : null;
   // The ordinary app/SDK Feed read owns admission. Never insert or restore a
   // slot here: a failed precondition must remain visible to the qualification.
   globalThis.__publicFeedSlot = [...feedCardSlots.values()].find(item => item.event.id === event.id)?.slot || null;
   if(registered && !anonymous && (!__publicFeedSlot?.isConnected || serverPersistence.user?.id !== owner)) throw Error('Initial followed fixture did not arrive through the ordinary Feed read');
   globalThis.__publicFeedHost = document.createElement('div');
   __publicFeedHost.id = 'public-feed-native-host'; document.body.append(__publicFeedHost);
-  if(cold){ userPreferences.showSpoilers = false; userPreferences.feedControls.spoilers = 'strict'; }
+  if(cold && (userPreferences.showSpoilers !== false || userPreferences.feedControls.spoilers !== 'strict')) throw Error('Cold fixture Results OFF was not supplied before navigation');
 }
 
 async function boot(browser, base, model, width, query = ''){
@@ -327,7 +341,10 @@ async function boot(browser, base, model, width, query = ''){
   try{
   await context.tracing.start({screenshots:true, snapshots:true, sources:true});
   await isolate(page, model, base);
-  model.initialPreferences = initialPreferences(model);
+  const initialOwner = model.owner;
+  model.prepareInitialAccount = model.registered && !model.anonymous
+    ? actor => page.evaluate(installInitialFixtureAccount, {owner:initialOwner, actor}) : null;
+  model.initialPreferences = initialPreferences(model, {cold:!!query});
   await page.addInitScript(seedBrowserFixture, {registered:model.registered, token:session(model).access_token, owner:model.owner, anonymous:model.anonymous, selectorVersion, preferences:model.initialPreferences});
   await page.goto(base + '/' + query, {waitUntil:'domcontentloaded'});
   await page.waitForFunction(({registered, anonymous, id, owner}) => typeof buildEventCard === 'function' && typeof buildDetailedEventCard === 'function' && startupFunnelFinished && !startupCoordinator.isHydrating()
@@ -732,10 +749,10 @@ async function main(){
               assert.deepEqual(errors, []); assertAllowedWrites(model);
               assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, 'No horizontal page overflow');
               await page.screenshot({path:path.join(output, label + '.png')});
-              const result = {engine, width, name, passed:true, publicReads:model.publicReads, writes:model.apiWrites, continuations:model.reads, heldOperations:model.gates.map(gate => gate.observed), providerStubs:model.providerCalls, offOriginDenied:[...new Set(model.blocked)], errors, console:model.console}; receipt.cases.push(result); console.log(JSON.stringify(result));
+              const result = {engine, width, name, passed:true, initialAccount:model.initialAccountObservation, publicReads:model.publicReads, writes:model.apiWrites, continuations:model.reads, heldOperations:model.gates.map(gate => gate.observed), providerStubs:model.providerCalls, offOriginDenied:[...new Set(model.blocked)], errors, console:model.console}; receipt.cases.push(result); console.log(JSON.stringify(result));
             }catch(error){
               const actualState=await page.evaluate(()=>{const focus=document.activeElement;return{personal:typeof __publicFeedSnapshot==='function'?__publicFeedSnapshot():null,focus:focus?{tag:focus.tagName,label:focus.getAttribute('aria-label'),comment:focus.closest('[data-comment]')?.dataset.comment||null,disabled:focus.disabled===true,ariaDisabled:focus.getAttribute('aria-disabled'),connected:focus.isConnected}:null};}).catch(snapshotError=>({unavailable:snapshotError.message}));
-              receipt.cases.push({engine, width, name, passed:false, error:error.message, publicReads:model.publicReads, continuations:model.reads, actualState, errors, console:model.console, commands:model.commands, blocked:model.blocked});
+              receipt.cases.push({engine, width, name, passed:false, error:error.message, initialAccount:model.initialAccountObservation, publicReads:model.publicReads, continuations:model.reads, actualState, errors, console:model.console, commands:model.commands, blocked:model.blocked});
               await page.screenshot({path:path.join(output, label + '-failure.png')}).catch(() => {}); throw error;
             }finally{
               for(const gate of model.gates) gate.resolve(); await context.tracing.stop({path:path.join(output, label + '.zip')}).catch(() => {}); await context.close();
@@ -754,4 +771,4 @@ async function main(){
   }
 }
 if(require.main === module) main().catch(error => { console.error(error); process.exitCode = error.message?.startsWith('DEPENDENCY_PENDING') ? 2 : 1; });
-module.exports = {scenario, initialPreferences, initialUserState, initialFeed, api, recordWrite, assertAllowedWrites, commentPage, paginatedFixture, installPersonalStateObserver, seedBrowserFixture, installFixtureHost};
+module.exports = {scenario, initialPreferences, initialUserState, initialFeed, api, recordWrite, assertAllowedWrites, commentPage, paginatedFixture, installPersonalStateObserver, seedBrowserFixture, installInitialFixtureAccount, installFixtureHost};
