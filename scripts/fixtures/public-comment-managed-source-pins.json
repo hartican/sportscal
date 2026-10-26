@@ -1,0 +1,84 @@
+{
+  "sourceSha": "f8a46ce86f1aacdfa7e5896e6ea92755657e4968",
+  "observation": {
+    "project": "mkghopnkhcxtmfrcjdbc",
+    "observedAtUtc": "2026-10-26T20:16:38.84981+00:00",
+    "querySha256": "3d7cc0bf0d7908ef728ef6b0af5ed8967b4417dd329ed5eab65db42c79a8db20",
+    "catalogSha256": "d2a3e2678cbc19f96346137bc067696e6c6b295d45c23c1e093822dadc85e751",
+    "receiptSha256": "5c63d491bdb67c61f2e659e95e256f901337ef4dea0f49d89e7088007ad9c9dc",
+    "scope": "Metadata only; no managed Auth/RLS/deletion/runtime qualification."
+  },
+  "files": {
+    "supabase/migrations/20261023222545_public_fixture_comments.sql": "217c1f4096f33e65a8f60796bb20d05e6512a5278cff499beb6a2faa7e910f30",
+    "supabase/nothingsports-user-state.sql": "9e87daa37fa42897f69dfadda051f78dfa9a9e038a728ba7a52a3512b5cdec5b",
+    "supabase/nothingsports-user-state-service-snapshot.sql": "52e17e0b35b3de5d1bd61a309ed81c7016b82542a73370cac2367821a9c963dc",
+    "supabase/migrations/20260927144441_guard_account_erasure_writes.sql": "fec13a3357e6f82799c8ffcc9e23219b7f05d1823afcdbf9880e44181d04b5f5",
+    "supabase/migrations/20260927150138_mark_erasure_in_auth_metadata.sql": "4ee9c44532dec29b22eb2b3e4724c4b86460d346879f23c972582c65c9d9e4b4",
+    "supabase/migrations/20260927152733_account_erasure_inventory.sql": "8ba8e294ac11f764dcb908cc2e4ddb6d3f0e2a7786450e3829dd8f1ac80f5b27",
+    "supabase/migrations/20260927164938_redact_erased_account_audit_snapshots.sql": "1514b820885c6e985d210000962ecb06093da7ce1ac3fcadcdd1715fd4eeb5fd",
+    "supabase/migrations/20260930100449_cricket_coverage_v1.sql": "9c380bd06ee155165a58b1ea9f4b57170132437c4ce43d26f5c7651123a1e467",
+    "supabase/migrations/20261002035913_rugby_reviewed_identity_reconciliation.sql": "0e042ae0f0206a40f9603db7b6c66a6a7f3f9ebf26d471f508c9e76099e0fbd3",
+    "supabase/migrations/20261012203115_epl_provider_alias_bridge.sql": "961f2977578cd9b53dfc8a66671e79395dcaa5aa49e47aba41c1cfe780985fbb",
+    "supabase/migrations/20261014052040_epic_classics_and_curators.sql": "702f1a2ee2724b80f947011a68a009aedb218419a9f56eb53d4f62db1847fe0a",
+    "supabase/migrations/20261002081559_global_fixture_reminders.sql": "465b13e1d862867107b97c9ff8f5e656b2ab8d296bbcaa41bbcc2844a17f55b9",
+    "supabase/migrations/20261002104010_bledisloe_future_identity_reconciliation.sql": "e69c8d5a9240c499de435f1570b4a9ee2d62fb20165f92ba474accf1592b2f86",
+    "supabase/migrations/20260901003907_preference_reset_recovery.sql": "07b6b6243bf545cc65bf129536631fffd3f53021515029b784019f80a11d5576",
+    "supabase/follow-first-user-meta-and-notifications.sql": "3762c65000bd4d4b859b78ee39d678b54d2d47f7b2e0a71d788a254bc95b6e41",
+    "supabase/migrations/20260927160736_reconcile_football_reminder_times.sql": "18a5c3018f05ad6718cf3443645bbb88249f6e5f261b243a71f9ac1198f94c71",
+    "scripts/lib/public-comment-recovery-coexistence.js": "381a65b282aee6cdb575b3a514f23bc89cec4b254cc2ecaa499c70b0512d7321",
+    "scripts/validate-public-comments-database.js": "c226ce332e7733dad9a881778e5b62dd36fd435396f2646c98ab8774d49be7c1"
+  },
+  "bodies": {
+    "nothingsports_recovery.cricket_preferences_v1(jsonb)": "9a422efacee404b04477c601faa91606",
+    "nothingsports_recovery.fixture_alias_v1(text)": "a7c3100f9c4de1e50cd58538daf61c43",
+    "nothingsports_recovery.preferences_guard_v1()": "d2e58d617d907c96ebb93084889b9ae6",
+    "private.nothingsports_guard_erasure_write()": "e7900f809ee41c367385cfe22151f88d",
+    "private.nothingsports_preserve_card_purges()": "53c94144fb3e193c26f0a555361e9d27",
+    "public.nothingsports_sync_reminder_choices()": "3e4ee72f21b928c39bdd0934c3c61afb"
+  },
+  "userState": {
+    "acl": "{postgres=arwdDxtm/postgres,service_role=arwdDxtm/postgres,authenticated=arw/postgres}",
+    "columnAcls": {
+      "preferences": "{service_role=w/postgres}",
+      "updated_at": "{service_role=w/postgres}"
+    },
+    "triggers": [
+      {
+        "name": "cricket_preferences_v1",
+        "type": 23,
+        "enabled": "O",
+        "columns": "4",
+        "args_hex": "",
+        "function": "nothingsports_recovery.preferences_guard_v1()",
+        "function_body_md5": "d2e58d617d907c96ebb93084889b9ae6"
+      },
+      {
+        "name": "nothingsports_account_erasure_guard",
+        "type": 21,
+        "enabled": "O",
+        "columns": "",
+        "args_hex": "757365725f696400",
+        "function": "private.nothingsports_guard_erasure_write()",
+        "function_body_md5": "e7900f809ee41c367385cfe22151f88d"
+      },
+      {
+        "name": "nothingsports_preserve_card_purges",
+        "type": 19,
+        "enabled": "O",
+        "columns": "",
+        "args_hex": "",
+        "function": "private.nothingsports_preserve_card_purges()",
+        "function_body_md5": "53c94144fb3e193c26f0a555361e9d27"
+      },
+      {
+        "name": "nothingsports_reminder_choices",
+        "type": 23,
+        "enabled": "O",
+        "columns": "5",
+        "args_hex": "",
+        "function": "public.nothingsports_sync_reminder_choices()",
+        "function_body_md5": "3e4ee72f21b928c39bdd0934c3c61afb"
+      }
+    ]
+  }
+}
