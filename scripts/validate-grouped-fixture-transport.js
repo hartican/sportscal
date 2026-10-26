@@ -100,6 +100,25 @@ async function response(handler,url){const res={headers:{},setHeader(k,v){this.h
   const nullDefault=fixtureStore({wire:old,manifest},{candidate:false});
   await assert.rejects(readLiveSnapshots({store:nullDefault.store,ids:null,now:60003,timer:()=>0}),TypeError);
   verify(()=>assert.equal(nullDefault.calls.length,0,'candidate repair cannot add reads to an ordinary rejected-null caller'));
+  // Exercise the real default factory and SDK without a service connection.
+  // Enabling groups must not turn a rejected null selection into a wide read.
+  const originalFetch=globalThis.fetch,environmentKeys=Object.keys(process.env).filter(k=>k.startsWith('SUPABASE_'));
+  const originalEnvironment=Object.fromEntries(environmentKeys.map(k=>[k,process.env[k]])),defaultCalls=[];
+  let defaultValue,nullFailure;
+  try{
+   for(const key of environmentKeys)delete process.env[key];
+   process.env.SUPABASE_URL='https://local.invalid';process.env.SUPABASE_SECRET_KEY='sb_secret_constructed_only';
+   globalThis.fetch=async(url,options)=>{const health=String(url).includes('nothingsports_read_fixture_source_health');defaultCalls.push({method:options.method,groupHeader:new Headers(options.headers).get('x-ns-fixture-source-groups')});return new Response(JSON.stringify(health?[]:[{bundle:groupWire([])}]),{status:200});};
+   defaultValue=await readLiveSnapshots({now:120000,maxAgeMs:0});
+   verify(()=>{assert.equal(defaultValue.stale,false);assert.deepEqual(defaultValue.sources,[]);assert.equal(defaultCalls.length,2);assert.equal(defaultCalls[1].groupHeader,'v1');});
+   defaultCalls.length=0;
+   try{await readLiveSnapshots({ids:null,now:120001,maxAgeMs:0});}catch(error){nullFailure=error;}
+  }finally{
+   globalThis.fetch=originalFetch;
+   for(const key of Object.keys(process.env).filter(k=>k.startsWith('SUPABASE_')))delete process.env[key];
+   Object.assign(process.env,originalEnvironment);
+  }
+  verify(()=>{assert(nullFailure instanceof TypeError,'Default null must reject before SDK reads; observed '+defaultCalls.length+' reads');assert.equal(defaultCalls.length,0);});
  // Actual public-handler output and validators, including retained Fantasy, agree.
  const sample=require('./fixtures/fantasy-fpl.json'),fpl=require('../lib/fantasy/providers/fpl'),fantasy=fpl.normalize(sample),modeRows=[...sample.events.map(fixture=>({source_id:'published',fixture_id:fixture.id,identity_keys:[fixture.id,fixture.canonicalEventId],fixture})),...fantasy.map(fixture=>({source_id:'live-fantasy-fpl',fixture_id:fixture.id,identity_keys:[fixture.id],fixture}))];
  const mm=manifestFor(modeRows),candidateMode=await fixtureStore({wire:groupWire(modeRows),manifest:mm}).store.read(),legacyMode=await fixtureStore({wire:{schemaVersion:'current-fixture-bundle.v1',complete:true,rows:modeRows},manifest:mm},{candidate:false}).store.read();
