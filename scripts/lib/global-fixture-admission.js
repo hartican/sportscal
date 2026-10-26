@@ -5,6 +5,7 @@ const prior=require('../prototypes/grouped-fixture-view');
 const STAGED='d3d5341fcf5dc901c3e1240145b3acd7';
 const REFINED='5d0feacdb947642b6b3f9f8d762a5887';
 const BODY_SHA256='dec055471e30c29cb1f15565f467b9ce497ace2c790870f495ae36e88096e43c';
+const EMITTED_BODY_SHA256='d564d441cd8556ace8b5465b829d7b67e9293884ffff984ac1ec665a7a02756c';
 const migrationNames=fs.readdirSync(path.join(__dirname,'../../supabase/migrations')).filter(name=>name.endsWith('_refine_global_fixture_admission.sql'));
 assert.equal(migrationNames.length,1,'Exactly one prepared admission migration');
 const VERSION=migrationNames[0];
@@ -51,6 +52,16 @@ function candidate(original){
 function stagedForward(original){
  const source=prior.forward(original);assert.equal(fs.readFileSync(path.join(__dirname,'../../supabase/migrations/20261026021111_use_lossless_global_fixture_groups.sql'),'utf8'),source+'\n','Staged migration differs');return source;
 }
+function emittedCandidate(original){
+ const archived=candidate(original);
+ // The qualified input stays exact. Emission deletes this sole whitespace-only
+ // line outside SQL literals; no general SQL formatting or token change.
+ const marker='\n                \n UNION ALL\n SELECT c.source_id,c.fixture_id FROM raw_fallback_keys c';
+ const clean=once(archived,marker,marker.replace('\n                \n','\n'));
+ assert.equal(archived.length-clean.length,17,'Only the qualified whitespace line may be deleted');
+ assert.equal(sha(clean),EMITTED_BODY_SHA256,'Formatting-clean admission emission differs');
+ seal(qualify(prior.candidate(original)),clean);return clean;
+}
 function metadataGuard(original,expected){
  assert(/^[a-f0-9]{32}$/.test(expected));
  return once(stagedForward(original).split('\nCREATE OR REPLACE VIEW ')[0],prior.ORIGINAL,expected);
@@ -72,11 +83,11 @@ function lookupGuard(){
 }
 function forward(original){
  const source=stagedForward(original),statement='CREATE OR REPLACE VIEW '+source.split('\nCREATE OR REPLACE VIEW ')[1];
- return `BEGIN;\nSET LOCAL search_path=public;\n${metadataGuard(original,STAGED)}\n${lookupGuard()}\n${once(statement,prior.candidate(original),candidate(original))}\n${metadataGuard(original,REFINED)}\nCOMMIT;\n`;
+ return `BEGIN;\nSET LOCAL search_path=public;\n${metadataGuard(original,STAGED)}\n${lookupGuard()}\n${once(statement,prior.candidate(original),emittedCandidate(original))}\n${metadataGuard(original,REFINED)}\nCOMMIT;\n`;
 }
 function inverse(original,staged,refinedMd5){
  assert.equal(prior.md5(staged),STAGED,'Inverse staged view differs');
  assert.equal(refinedMd5,REFINED,'Inverse refined view differs');
  return `BEGIN;\nSET LOCAL search_path=public;\n${metadataGuard(original,refinedMd5)}\n${lookupGuard()}\nCREATE OR REPLACE VIEW ${TARGET} WITH(security_invoker=true)AS ${staged.trim().replace(/;$/,'')};\n${metadataGuard(original,STAGED)}\nCOMMIT;\n`;
 }
-module.exports={STAGED,REFINED,BODY_SHA256,VERSION,candidate,qualify,seal,forward,inverse,lookupGuard};
+module.exports={STAGED,REFINED,BODY_SHA256,EMITTED_BODY_SHA256,VERSION,candidate,emittedCandidate,qualify,seal,forward,inverse,lookupGuard};

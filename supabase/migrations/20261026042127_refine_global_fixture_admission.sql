@@ -130,7 +130,6 @@ ELSE ctx.base_window -> 'schedulingWindow'::text
                    FROM public.nothingsports_fixture_current c
                      JOIN public.nothingsports_fixture_sources src USING (source_id)
                   WHERE NULL::text[] IS NOT NULL AND c.identity_keys && NULL::text[]
-                
  UNION ALL
  SELECT c.source_id,c.fixture_id FROM raw_fallback_keys c
  CROSS JOIN LATERAL(SELECT base.global_fixture,s.score
