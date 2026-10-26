@@ -173,7 +173,7 @@
   // A local, open-use sport mark covers every supported sport. This avoids
   // treating a governing body's protected trademark as the app's own identity.
   const sportMarks = Object.freeze({
-    "horse-racing":Object.freeze({...wordmarkMark("sport:horse-racing","Horse Racing","HR",{light:"#111111",dark:"#ffffff"}),sourceUrl:"https://github.com/hartican/sportscal"}),
+    "horse-racing":Object.freeze({...wordmarkMark("sport:horse-racing","Melbourne Cup","MC",{light:"#111111",dark:"#ffffff"}),sourceUrl:"https://github.com/hartican/sportscal"}),
     f1: sportMark("f1", "Formula One", "sport:motorsport", "F1"),
     motogp: Object.freeze({...sportMark("motogp", "MotoGP", "sport:motorcycle", "MGP"),assetClass:"licensed",rightsStatus:"user-supplied",sourceUrl:"https://www.flaticon.com/free-icon/motorbike_1768191",author:"Magnific",license:"Flaticon License (attribution required)"}),
     dakar: sportMark("dakar","Dakar Rally","sport:motorsport","DKR"),

@@ -2083,3 +2083,7 @@ source correction is neither live loading proof nor production acceptance.
 All253 required commands and application/read/dispatcher budgets remain unchanged;
 DEPLOY retains the sole fresh normal-run/publication lane. Details and limitations
 are in the linked quality record.
+
+## 26 October 2026 — Retire detailed horse racing collection
+
+Horse provider collection and race-detail reads are closed, including legacy refresh flags and selected API paths. The canonical update-cards owner may publish only individually reviewed Cup calendar basics and verified viewing evidence. Ratings cannot schedule detailed horse editorial research. Sanitize old fixtures at publication, API, cached-render and archive boundaries without mutating customer history or shared production state. No endpoint, database or scheduler changes; motorsport collection and tables retain their contracts. See [approved contract](melbourne-cup-coverage-spec.md).

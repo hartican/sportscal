@@ -123,7 +123,7 @@
     { key: "boxing", domainId: "sport:boxing", label: "Boxing", selectorLabel: "Boxing", detail: "Major boxing bouts and medal sessions.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 155, selector: false, supportsLadders: false, supportsNarrative: false },
     { key: "multi-sport", domainId: "sport:multi-sport", label: "Commonwealth Games compatibility", selectorLabel: "Commonwealth Games compatibility", detail: "Historical multi-sport event compatibility only.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 156, selector: false, supportsLadders: false, supportsNarrative: false },
     { key: "cwg", domainId: "special:commonwealth-games", label: "Commonwealth Games", selectorLabel: "Commonwealth Games", detail: "Curated Glasgow 2026 sessions, top-competitor follows, and a spoiler-protected medal table.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 140, selector: false, supportsLadders: true, supportsNarrative: true },
-    { key: "horse-racing", domainId: "sport:horse-racing", label: "Horse Racing", selectorLabel: "Horse Racing", detail: "Published feature races and carnival schedules.", color: "#946126", glyph: "sport:horse-racing", sortOrder: 143.5, selector: true, supportsLadders: false, supportsNarrative: false },
+    { key: "horse-racing", domainId: "sport:horse-racing", label: "Melbourne Cup", selectorLabel: "Melbourne Cup", detail: "Basic Melbourne Cup event information only.", color: "#946126", glyph: "sport:horse-racing", sortOrder: 143.5, selector: true, supportsLadders: false, supportsNarrative: false },
   ].map(domain => Object.freeze({
     ...domain,
     narrativeProfile: narrativeProfiles[domain.key] || narrativeProfiles[narrativeProfileKeyByDomainId[domain.domainId]],

@@ -34,4 +34,5 @@ function readCardFunction(name){
   assert(node,`${name} must exist in the actual ordered card runtime owner`);
   return source.slice(node.start,node.end);
 }
-module.exports = {assertShellModule,readFollowApplicationSource,readCardApplicationSource,readCardFunction};
+function readApplicationFunction(name){const source=readCardApplicationSource(),start=source.indexOf('function '+name+'(');assert(start>=0,'Production function missing: '+name);const node=require('acorn').parseExpressionAt(source,start,{ecmaVersion:'latest'});return source.slice(start,node.end);}
+module.exports = {assertShellModule,readFollowApplicationSource,readCardApplicationSource,readCardFunction,readApplicationFunction};

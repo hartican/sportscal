@@ -341,6 +341,8 @@ function fixtureSourceMetadata(event, editorialSource){
 }
 
 function applyToFeedEvent(event, projection, indexes, now=new Date()){
+  const horseCoverage=require('../../config/horse-coverage');
+  if(horseCoverage.isHorse(event))return horseCoverage.project(event)||{id:event.id,published:false,coverageRetired:true};
   const locks=require("../../config/editorial-locks");
   projection=locks.projection(event,projection);
   const pauses=require("../../config/coverage-pauses");

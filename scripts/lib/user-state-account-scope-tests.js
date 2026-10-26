@@ -129,7 +129,7 @@ async function horseAccountScopes(){
  const edition='overview:horse-racing:carnival:melbourne-cup-carnival:2026:2026';
  const state=(sport,choice)=>({preferences:follow.migratePreferences({theme:'night',selectedSelectorEntityIds:sport?['sport:horse-racing']:[],followedSports:sport?['horse-racing']:[],followFirst:{eventEditionDecisions:{schemaVersion:'event-edition-decisions.v1',states:{[edition]:choice}}}}),profile:{},eventUserState:{}});
  const cases=[],src=sources();
- for(const [label,A,B,count] of [['on-to-off',state(true,'followed'),state(false,'excluded'),0],['off-to-on',state(false,'excluded'),state(true,'excluded'),5],['edition-to-off',state(false,'followed'),state(false,'excluded'),0]])for(const phase of ['load','write']){
+ for(const [label,A,B,count] of [['on-to-off',state(true,'followed'),state(false,'excluded'),0],['off-to-on-with-exclusion',state(false,'excluded'),state(true,'excluded'),0],['off-to-on',state(false,'excluded'),state(true,'followed'),1],['edition-to-off',state(false,'followed'),state(false,'excluded'),0]])for(const phase of ['load','write']){
   const c=context(src,{A,B}),old=c.serverSyncClient.loadState;
   if(phase==='load')c.serverSyncClient.loadState=async opts=>{const response=await old(opts);c.switchAccount();return response;};
   else c.serverSyncClient.savePatch=async()=>{c.calls.writes++;c.switchAccount();return {user:{id:'A'},state:A};};

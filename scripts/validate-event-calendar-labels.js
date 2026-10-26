@@ -17,7 +17,7 @@ async function followFinalDay(){
   const overviewSource=fs.readFileSync('config/event-overviews-ui.js','utf8');
   let reference=new Date('2026-11-29T12:00:00Z'),records=[parent],overview=[];
   const node=()=>({children:[],dataset:{},isConnected:true,append(...nodes){this.children.push(...nodes);},replaceChildren(...nodes){this.children=[...nodes];},setAttribute(){}});
-  const environment={document:{querySelector:()=>true,createElement:node},fetch:async()=>({ok:true,json:async()=>({events:overview})}),
+  const environment={NOTHINGSPORTS_HORSE_COVERAGE:require('../config/horse-coverage'),document:{querySelector:()=>true,createElement:node},fetch:async()=>({ok:true,json:async()=>({events:overview})}),
     nowAEST:()=>reference,formatDateKey:require('../config/major-events').dateKey,MAJOR_EVENTS:require('../config/major-events'),
     loadMajorEventsData:async()=>{},majorEventsDocument:{get events(){return records;}},majorEventActionEvent:()=>({}),
     COMPETITION_CLASSIFICATION:require('../config/competition-classification'),FOLLOW_FEED_POLICY:{activeEligible:()=>true,editionKey:e=>e.id},

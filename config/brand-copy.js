@@ -12,7 +12,7 @@
         Object.freeze({ title: "Follow on your terms.", body: "Your interests guide your experience. You choose what to follow, whether to show scores and which reminders to receive. We aim to make sport fit into your life and respect your attention." }),
         Object.freeze({ title: "Every fan is welcome.", body: "Nothing Sport welcomes longstanding fans, newcomers and people reconnecting with sport without betting. We keep the focus on sport and treat people’s histories and choices with respect." }),
       ]),
-      coverage: "We cover sports on their sporting merits, including racing. Factual competition names and sporting imagery may include existing sponsors; their appearance does not represent a gambling partnership or endorsement by Nothing Sport.",
+      coverage: "Horse-racing coverage is limited to basic Melbourne Cup event information. NS does not provide runner details, race analysis or results. Factual competition names and sporting imagery may include existing sponsors; their appearance does not represent a gambling partnership or endorsement by Nothing Sport.",
     }),
   });
   const brand = Object.freeze(typeof NOTHINGSPORTS_SETTINGS_COPY_ONLY !== "undefined" && NOTHINGSPORTS_SETTINGS_COPY_ONLY ? {

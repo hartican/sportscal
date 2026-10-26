@@ -97,6 +97,8 @@
   }
 
   function belongsInEvents(input){
+    const horse=globalThis.NOTHINGSPORTS_HORSE_COVERAGE||(typeof require==='function'?require('./horse-coverage'):null);
+    if(horse?.isHorse(input))return false;
     return classificationFor(input).surface === EVENT_SURFACE;
   }
 

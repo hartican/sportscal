@@ -51,7 +51,7 @@
     let value = event && typeof event === "object" && !Array.isArray(event) ? event : {};
     const text = input => typeof input === "string" ? input : "";
     const normalized = {...value, key:sportKey(value)};
-    if(typeof module==='object'&&normalized.score?.racing?.kind==='horse')normalized.score={racing:require('./racing-details').sanitizeHorseDetail(normalized.score.racing)};
+
     const reviewed=globalThis.NOTHINGSPORTS_REVIEWED_FIXTURE_REPAIRS || (typeof require==='function'?require('./reviewed-fixture-repairs'):null);
     const reviewedFacts=reviewed?.facts(canonicalFixtureId(value.id||value.eventId),value)||{};
     // A reviewed computed window never replaces a confirmed end. An explicit
@@ -127,7 +127,9 @@
       }
     }
     const pauses=globalThis.NOTHINGSPORTS_COVERAGE_PAUSES || (typeof require==="function"?require("./coverage-pauses"):null);
-    return pauses ? pauses.apply(normalized) : normalized;
+    const result = pauses ? pauses.apply(normalized) : normalized;
+    const horse=globalThis.NOTHINGSPORTS_HORSE_COVERAGE||(typeof require==='function'?require('./horse-coverage'):null);
+    return horse?.project&&horse.isHorse(result)?horse.project(result)||{id:normalized.id,eventId:normalized.eventId,canonicalEventId:normalized.canonicalEventId,key:'horse-racing',published:false,coverageRetired:true,name:'Coverage discontinued'}:result;
   }
 
   function fromSchedule(fixture, code = {}){
@@ -278,7 +280,8 @@
   }
 
   function mergeOverlays(events,updates){
-    const result=reconcileReviewedFixtureAliases(events).slice(),indexes=new Map(),semanticIndexes=new Map();
+    const horse=globalThis.NOTHINGSPORTS_HORSE_COVERAGE||(typeof require==='function'?require('./horse-coverage'):null);
+    const result=reconcileReviewedFixtureAliases(events).filter(e=>!horse||horse.allowed(e)).map(e=>horse?.project&&horse.isHorse(e)?normalizeCore(e):e),indexes=new Map(),semanticIndexes=new Map();
     const aliases=event=>[event?.canonicalEventId,event?.eventId,event?.id,...(event?.sourceEventIds||[])].filter(Boolean);
     const semanticKey=event=>{
       const ids=[...new Set([event.homeParticipantId,event.awayParticipantId].filter(Boolean))];
@@ -290,6 +293,12 @@
     // Enrichment is an additive overlay, never a replacement score/status feed.
     const ordered=[...(updates||[]).filter(event=>!event.enrichmentOnly),...(updates||[]).filter(event=>event.enrichmentOnly)];
     for(const update of ordered){
+      if(horse&&!horse.allowed(update))continue;
+      if(horse?.project&&horse.isHorse(update)){
+        const clean=horse.project(update);
+        if(clean){const index=aliases(clean).map(id=>indexes.get(id)).find(i=>i!=null);if(index==null){const at=result.length;result.push(normalizeCore(clean));aliases(clean).forEach(id=>indexes.set(id,at));}else if(!update.score?.racing&&Date.parse(clean.sourceCheckedAt||'')>=Date.parse(result[index].sourceCheckedAt||''))result[index]=normalizeCore({...result[index],...clean});}
+        continue; // Existing calendar facts never accept a live field/result overlay.
+      }
       const reviewedId=canonicalFixtureId(update?.id||update?.eventId);
       const event = {...(FIXTURE_TARGETS.get(reviewedId)||(globalThis.NOTHINGSPORTS_REVIEWED_FIXTURE_REPAIRS||(typeof require==='function'?require('./reviewed-fixture-repairs'):null))?.facts(reviewedId)?normalizeCore(update):update)};
       const ids=aliases(event);if(!ids.length)continue;

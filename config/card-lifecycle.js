@@ -287,8 +287,10 @@
     const events = [];
     const missingReferences = [];
     (Array.isArray(references) ? references : []).forEach(reference => {
+      const horse=globalThis.NOTHINGSPORTS_HORSE_COVERAGE||(typeof require==='function'?require('./horse-coverage'):null);
+      if(horse&&!horse.allowed({id:reference.canonicalEventId}))return;
       const event = eventsById.get(reference.canonicalEventId);
-      if (event) events.push(clone(event));
+      if(event&&(!horse||horse.allowed(event))){const clean=horse?.project?horse.project(event):event;if(clean)events.push(clone(clean));}
       else missingReferences.push(clone(reference));
     });
     return { events, missingReferences };

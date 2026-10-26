@@ -1280,3 +1280,7 @@ two animation frames and exercises a later panel mutation after moving to anothe
 team. Both original failures are retained, with native Enter/Back navigation,
 unchanged choices, outside/account/route and continued/last-page checks. No
 sporting facts, Follow membership, save owner, request or timer is added.
+
+## 26 October 2026 — Melbourne Cup-only racing coverage
+
+Only reviewed Melbourne Cup basics are admitted, subject to existing Follow consent and exclusions (including legacy carnival decisions). Rename discovery Melbourne Cup, retire every other race even in stale saved/archive views, and keep Cup out of Events. Upcoming All Sports consumes the same sanitized shared card. This supersedes earlier twelve-feature racing scope; stable account IDs and authored history remain unchanged. No preference migration or automatic re-enabling. See [approved contract](melbourne-cup-coverage-spec.md) and the horse Follow/policy regressions.

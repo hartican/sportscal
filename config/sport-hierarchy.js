@@ -134,12 +134,9 @@
     ["event-series:us-open-golf", "U.S. Open", "event_series", "competition:golf-majors"],
     ["event-series:the-open", "The Open", "event_series", "competition:golf-majors"],
 
-    ["sport:horse-racing", "Horse racing", "sport"],
-    ["discipline:horse-racing:thoroughbred", "Thoroughbred racing", "discipline", "sport:horse-racing"],
-    ["discipline:horse-racing:harness", "Harness racing", "discipline", "sport:horse-racing"],
-    ["competition:australian-thoroughbred", "Australian thoroughbred racing", "competition", "discipline:horse-racing:thoroughbred"],
-    ["event-series:melbourne-cup-carnival", "Melbourne Cup Carnival", "event_series", "competition:australian-thoroughbred"],
-    ["event-series:the-everest", "The Everest", "event_series", "competition:australian-thoroughbred"],
+    ["sport:horse-racing", "Melbourne Cup", "sport"],
+    ["discipline:horse-racing:thoroughbred", "Melbourne Cup", "discipline", "sport:horse-racing"],
+    ["competition:australian-thoroughbred", "Melbourne Cup", "competition", "discipline:horse-racing:thoroughbred"],
 
     ["sport:basketball", "Basketball", "sport"],
     ["discipline:basketball:professional", "Professional basketball", "discipline", "sport:basketball"],
