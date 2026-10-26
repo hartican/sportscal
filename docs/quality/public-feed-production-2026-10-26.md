@@ -59,6 +59,17 @@ node scripts/validate-public-feed-browser-fixtures.js --case=discovery --discove
 node scripts/validate-public-feed-browser-fixtures.js
 ```
 
+## Retained late-presenter failure
+
+The fresh `0dfef545` run passed three Chromium390 outcomes (signed-out, anonymous and forbidden-write audit) before the pagination case failed the comments-below-details assertion. The retained frame showed a full readable card; the trace's ordered DOM children then proved a real late-arrival defect: the existing score presenter appended its Comments button after an already-open discussion. The narrow product correction places that action before its own direct discussion section; with no section it retains the ordinary append behavior. It never targets a nested child tray, detaches the open discussion, changes a draft/focus, duplicates the action or weakens the layout gate. The actual presenter/UI DOM regression reproduced RED on `0dfef545` and passes after the correction. These are DOM-order controls, not a new native pass.
+
+```sh
+node scripts/validate-public-comments-state.js --case=lateActions --late-actions-baseline
+node scripts/validate-public-comments-state.js --case=lateActions
+```
+
+The original fresh-window failure remains retained with frame/trace and its three partial passes are not combined with another SHA. The real product delta requires both source reviews and a separately allocated coherent full native run. No automatic second run was performed.
+
 ## SQL evidence reuse
 
 Product migration `20261023222545_public_fixture_comments.sql` remains SHA256 `217c1f4096f33e65a8f60796bb20d05e6512a5278cff499beb6a2faa7e910f30`, unchanged from the qualified `e14550f6` product source. The recovery helper/database harness and all three source-bound recovery SQL inputs remain unchanged; the latter also equal current main. Preserve the [completed PG18/PG17 coexistence pair](public-feed-recovery-coexistence-2026-10-26.md) at `4ccb4913` and earlier erasure/retirement controls. Those are reused unchanged-input local evidence, not a newly run engine pair, actual managed fingerprint or complete managed erasure/storage workflow. Rerun only affected local SQL checks when a source/input change justifies it and ROOT allocates the work.
