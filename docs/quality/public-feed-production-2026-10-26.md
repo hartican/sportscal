@@ -102,6 +102,21 @@ node scripts/validate-public-feed-browser-fixtures.js --case=admission
 
 The exact `f38c51a1` setup remains RED. A corrected source control does not authorise a native retry: freeze the fixture delta, preserve source/light/preflight evidence and await ROOT's review and fresh allocation. Never combine the earlier partial passes.
 
+## Retained transient-card measurement failure
+
+The single allocated `3ddb60a4` native attempt ran 13:22:07–13:22:14 UTC on 26 October (00:22 Sydney on 27 October). It passed three outcomes, then failed the fourth case's unchanged personal-state assertion after completing its root 25/25/2, reply 25/25/7, scoped/invalid/stale cursor and bounded-change checks. These are observations within a failed case, not a fourth pass or a complete matrix. Fourteen actual public read observations and the frame/trace are retained. The decoded pre/post snapshots differ only in pilotMeasurement.participationStartedAt, from null to the time the transient full card opened. The owned process group has no survivors.
+
+This exposes a product defect rather than a fixture metadata omission. The actual detailed renderer already excludes local transient cards from observeNewSurfaceItem, but its adjacent observeProductOpportunity branch lacked the same localCardState guard. That calls actual pilotMeasurementEligible and ensureDefaultPilotMeasurementParticipation, which can save preferences before recording an ordinary curated-Feed exposure. Seeding an earlier participation timestamp or filtering the snapshot would conceal this path and leave the unwanted exposure intact.
+
+The narrow correction adds the existing localCardState exclusion to that adjacent opportunity branch and rebuilds the canonical app-shell runtime. It preserves ordinary Feed participation and measurement; it changes no consent, pilot setting, exposure timer, fixture/card ownership or saved preference default. The regression runs the actual renderer, exposure observer factory, eligibility and participation-owner source, with controlled layout, platform and persistence boundaries. Old `3ddb60a4` source reproduces the unwanted preference-write payload. Local transient cards preserve the complete controlled preferences and never observe an opportunity; ordinary Feed cards still start eligible participation and observe normally. Explicit OFF, prior participation and signed-out controls retain their behavior.
+
+```sh
+node scripts/validate-public-comments-state.js --case=localExposure --exposure-baseline
+node scripts/validate-public-comments-state.js --case=localExposure
+```
+
+The baseline remains RED. This product delta requires both ROOT source reviews, affected renderer/runtime/source gates and a separately allocated coherent full native attempt. Earlier failures remain failed; no repeated full suite, hidden mutation or new preview substitutes for qualification. ROOT owns combining later shared-renderer changes and final version/cache/release handling.
+
 ## SQL evidence reuse
 
 Product migration `20261023222545_public_fixture_comments.sql` remains SHA256 `217c1f4096f33e65a8f60796bb20d05e6512a5278cff499beb6a2faa7e910f30`, unchanged from the qualified `e14550f6` product source. The recovery helper/database harness and all three source-bound recovery SQL inputs remain unchanged; the latter also equal current main. Preserve the [completed PG18/PG17 coexistence pair](public-feed-recovery-coexistence-2026-10-26.md) at `4ccb4913` and earlier erasure/retirement controls. Those are reused unchanged-input local evidence, not a newly run engine pair, actual managed fingerprint or complete managed erasure/storage workflow. Rerun only affected local SQL checks when a source/input change justifies it and ROOT allocates the work.
