@@ -60,6 +60,7 @@ async function polishMain(){
    browser=await pw[engine].launch({headless:true,...(engine==='chromium'?{channel:process.env.QA_BROWSER_CHANNEL||'chrome'}:{}),...network.launchOptions()});
    watchdog=setInterval(()=>{if(Date.now()>deadline||free()<3*1024**3){console.error('Polish browser allocation or host reserve exceeded');void browser.close().catch(()=>{});}},2000);
    await network.preflight(browser,{version,indexSha256:crypto.createHash('sha256').update(index).digest('hex')});await polish(browser,base,engine,network);
+   resetScenario();await require('./validate-all-sports-card-size-browser')({browser,base,engine,network,scenario,nativeFixture,now,personalState,enterAllSports});
   }catch(failure){error=failure;throw failure;}
   finally{clearInterval(watchdog);try{await network.close(browser,server,error);}finally{console.log(JSON.stringify({engine,polishIsolationAndCleanup:network.snapshot()}));}}
  }
