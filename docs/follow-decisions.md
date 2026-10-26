@@ -1,5 +1,16 @@
 # Follow and Feed decisions
 
+## Upcoming multi-day Cricket date range — 26 October 2026
+
+The Australia–South Africa third Test is one match starting 27 October and
+scheduled through 31 October. All Sports places it at the start; Feed retains
+the approved final-day placement. Before a confirmed scheduled start, the card
+must show the full published range so those views cannot suggest two separate
+matches. Once play is source-reported, keep the existing compact day/phase
+presentation. Source dates, observations, aliases, saved actions and reminder
+choices are unchanged. Regression: `validate-cricket-upcoming-range.js` joins
+the existing card-timing gate and replays the retained source/canonical union.
+
 ## All Sports View — 24 October 2026
 
 The authorised full implementation adds a separate compact chronological view
