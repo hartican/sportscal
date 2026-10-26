@@ -31,6 +31,7 @@ const [midnight]=parseWorldRugby({content:[{matchId:'midnight',sport:'MRU',time:
 assert.equal(midnight.startTimeUtc,'2026-09-12T00:00:00.000Z','a real local evening must not become date-only');
 assert.equal(midnight.status,'live');
 async function discoveryChecks(){
+ await require('./validate-world-rugby-unresolved-sides').run();
  const source=discoverySources(async url=>({ok:true,json:async()=>({pageInfo:{page:Number(new URL(url).searchParams.get('page')),numPages:2,numEntries:2},content:[{matchId:new URL(url).searchParams.get('page')==='0'?'page-one':'page-two',sport:'WRU',competition:'WXV',time:{label:'2026-09-12'},teams:[],status:'U'}]})})).find(source=>source.id==='discovery-rugby-wru');
  const found=await source.fetch({now:new Date('2026-09-08T00:00:00Z'),previous:[]});
  assert.deepEqual(found.map(event=>event.id),['fixture:rugby:wr:page-one','fixture:rugby:wr:page-two']);

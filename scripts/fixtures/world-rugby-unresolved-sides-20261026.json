@@ -1,0 +1,279 @@
+{
+  "provenance": "reconstructed-raw-shaped-test-fixtures-from-retained-public-rows",
+  "basisSha256": "b389c6381603a1a60dc8a348c0e7a860339f8df4194330ebcb6ee97d06ba7db5",
+  "samples": [
+    {
+      "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-15&endDate=2027-01-20&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=2",
+      "checkedAt": "2026-10-22T11:04:00.648Z",
+      "game": {
+        "matchId": "01dcdaf6-4559-45e7-a55c-b50390bafe2a",
+        "sport": "MRU",
+        "competition": "Nations Championship 2026",
+        "time": {
+          "label": "2026-11-29",
+          "millis": 1795957800000,
+          "gmtOffset": 0
+        },
+        "teams": [
+          {
+            "id": "0",
+            "name": "NTH 4th"
+          },
+          {
+            "id": "0",
+            "name": "STH 4th"
+          }
+        ],
+        "status": "U",
+        "events": [
+          {
+            "id": "46294cf5-dee3-4234-957a-dbe1f08049f2",
+            "label": "Nations Championship 2026"
+          }
+        ],
+        "venue": {
+          "name": "TBC, TBC"
+        },
+        "description": null
+      },
+      "expectedId": "fixture:rugby:wr:01dcdaf6-4559-45e7-a55c-b50390bafe2a",
+      "expectedName": "NTH 4th v STH 4th",
+      "expectedStartTimeUtc": "2026-11-29T13:10:00.000Z",
+      "expectedDate": "2026-11-30"
+    },
+    {
+      "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-15&endDate=2027-01-20&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=2",
+      "checkedAt": "2026-10-22T11:04:00.648Z",
+      "game": {
+        "matchId": "2920bb4c-fd91-4204-a5e1-4b02dad492eb",
+        "sport": "MRU",
+        "competition": "Nations Championship 2026",
+        "time": {
+          "label": "2026-11-28",
+          "millis": 1795871400000,
+          "gmtOffset": 0
+        },
+        "teams": [
+          {
+            "id": "0",
+            "name": "NTH 5th"
+          },
+          {
+            "id": "0",
+            "name": "STH 5th"
+          }
+        ],
+        "status": "U",
+        "events": [
+          {
+            "id": "46294cf5-dee3-4234-957a-dbe1f08049f2",
+            "label": "Nations Championship 2026"
+          }
+        ],
+        "venue": {
+          "name": "TBC, TBC"
+        },
+        "description": null
+      },
+      "expectedId": "fixture:rugby:wr:2920bb4c-fd91-4204-a5e1-4b02dad492eb",
+      "expectedName": "NTH 5th v STH 5th",
+      "expectedStartTimeUtc": "2026-11-28T13:10:00.000Z",
+      "expectedDate": "2026-11-29"
+    },
+    {
+      "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-15&endDate=2027-01-20&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=2",
+      "checkedAt": "2026-10-22T11:04:00.648Z",
+      "game": {
+        "matchId": "92fc4306-b5bf-44b6-a061-6cc412c9f0bc",
+        "sport": "MRU",
+        "competition": "Nations Championship 2026",
+        "time": {
+          "label": "2026-11-28",
+          "millis": 1795884000000,
+          "gmtOffset": 0
+        },
+        "teams": [
+          {
+            "id": "0",
+            "name": "NTH 2nd"
+          },
+          {
+            "id": "0",
+            "name": "STH 2nd"
+          }
+        ],
+        "status": "U",
+        "events": [
+          {
+            "id": "46294cf5-dee3-4234-957a-dbe1f08049f2",
+            "label": "Nations Championship 2026"
+          }
+        ],
+        "venue": {
+          "name": "TBC, TBC"
+        },
+        "description": null
+      },
+      "expectedId": "fixture:rugby:wr:92fc4306-b5bf-44b6-a061-6cc412c9f0bc",
+      "expectedName": "NTH 2nd v STH 2nd",
+      "expectedStartTimeUtc": "2026-11-28T16:40:00.000Z",
+      "expectedDate": "2026-11-29"
+    },
+    {
+      "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-15&endDate=2027-01-20&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=2",
+      "checkedAt": "2026-10-22T11:04:00.648Z",
+      "game": {
+        "matchId": "b1d07ba6-de16-4c54-99c1-fbc145c18c75",
+        "sport": "MRU",
+        "competition": "Nations Championship 2026",
+        "time": {
+          "label": "2026-11-27",
+          "millis": 1795810200000,
+          "gmtOffset": 0
+        },
+        "teams": [
+          {
+            "id": "0",
+            "name": "NTH 3rd"
+          },
+          {
+            "id": "0",
+            "name": "STH 3rd"
+          }
+        ],
+        "status": "U",
+        "events": [
+          {
+            "id": "46294cf5-dee3-4234-957a-dbe1f08049f2",
+            "label": "Nations Championship 2026"
+          }
+        ],
+        "venue": {
+          "name": "TBC, TBC"
+        },
+        "description": null
+      },
+      "expectedId": "fixture:rugby:wr:b1d07ba6-de16-4c54-99c1-fbc145c18c75",
+      "expectedName": "NTH 3rd v STH 3rd",
+      "expectedStartTimeUtc": "2026-11-27T20:10:00.000Z",
+      "expectedDate": "2026-11-28"
+    },
+    {
+      "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-15&endDate=2027-01-20&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=2",
+      "checkedAt": "2026-10-22T11:04:00.648Z",
+      "game": {
+        "matchId": "bbe9b401-9955-4147-a612-d6d9d2ea469e",
+        "sport": "MRU",
+        "competition": "Nations Championship 2026",
+        "time": {
+          "label": "2026-11-29",
+          "millis": 1795970400000,
+          "gmtOffset": 0
+        },
+        "teams": [
+          {
+            "id": "0",
+            "name": "NTH 1st"
+          },
+          {
+            "id": "0",
+            "name": "STH 1st"
+          }
+        ],
+        "status": "U",
+        "events": [
+          {
+            "id": "46294cf5-dee3-4234-957a-dbe1f08049f2",
+            "label": "Nations Championship 2026"
+          }
+        ],
+        "venue": {
+          "name": "TBC, TBC"
+        },
+        "description": null
+      },
+      "expectedId": "fixture:rugby:wr:bbe9b401-9955-4147-a612-d6d9d2ea469e",
+      "expectedName": "NTH 1st v STH 1st",
+      "expectedStartTimeUtc": "2026-11-29T16:40:00.000Z",
+      "expectedDate": "2026-11-30"
+    },
+    {
+      "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-15&endDate=2027-01-20&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=2",
+      "checkedAt": "2026-10-22T11:04:00.648Z",
+      "game": {
+        "matchId": "e7d020c9-fe59-405e-ab5e-39696c8ce9b7",
+        "sport": "MRU",
+        "competition": "Nations Championship 2026",
+        "time": {
+          "label": "2026-11-27",
+          "millis": 1795797600000,
+          "gmtOffset": 0
+        },
+        "teams": [
+          {
+            "id": "0",
+            "name": "NTH 6th"
+          },
+          {
+            "id": "0",
+            "name": "STH 6th"
+          }
+        ],
+        "status": "U",
+        "events": [
+          {
+            "id": "46294cf5-dee3-4234-957a-dbe1f08049f2",
+            "label": "Nations Championship 2026"
+          }
+        ],
+        "venue": {
+          "name": "TBC, TBC"
+        },
+        "description": null
+      },
+      "expectedId": "fixture:rugby:wr:e7d020c9-fe59-405e-ab5e-39696c8ce9b7",
+      "expectedName": "NTH 6th v STH 6th",
+      "expectedStartTimeUtc": "2026-11-27T16:40:00.000Z",
+      "expectedDate": "2026-11-28"
+    },
+    {
+      "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-15&endDate=2027-01-20&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+      "checkedAt": "2026-10-22T04:56:00.819Z",
+      "game": {
+        "matchId": "7f476eef-2603-45eb-8790-3ff7ae310180",
+        "sport": "WRU",
+        "competition": "Premiership Womens Rugby Cup 2026",
+        "time": {
+          "label": "2026-11-07",
+          "millis": 1794009600000,
+          "gmtOffset": 0
+        },
+        "teams": [
+          {
+            "id": "0",
+            "name": "SF1"
+          },
+          {
+            "id": "0",
+            "name": "SF2"
+          }
+        ],
+        "status": "U",
+        "events": [
+          {
+            "id": "5ad2f75b-c8ed-401a-96ca-1109149237a2",
+            "label": "Premiership Womens Rugby Cup 2026"
+          }
+        ],
+        "venue": {
+          "name": null
+        },
+        "description": "Final"
+      },
+      "expectedId": "fixture:rugby:wr:7f476eef-2603-45eb-8790-3ff7ae310180",
+      "expectedName": "SF1 Women v SF2 Women",
+      "expectedStartTimeUtc": null,
+      "expectedDate": "2026-11-07"
+    }
+  ]
+}
