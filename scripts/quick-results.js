@@ -154,7 +154,11 @@ function refreshNbl(changes,{published=false}={}){
    else if(nblStandingsChanged(previous.standings,schedule.standings)||previous.standingsStatus!==schedule.standingsStatus)changes.push('NBL standings');
    else write(nblPath,previous);
 }
-async function refresh({now=new Date(),offline=false,source=null}={}){
+async function refresh({now=new Date(),offline=false,source=null,coverageCapture}={}){
+ if(coverageCapture!==undefined){
+  const receipt=require('./lib/public-coverage-capture').validate(coverageCapture);
+  if(offline||source||+now!==Date.parse(receipt.capturedAt))throw Error('PUBLIC_COVERAGE_REPLAY_CLOCK_OR_MODE');
+ }
  if(source){
   if(source==='mlb'&&!offline){
    const mlb=await require('../lib/mlb-postseason').refresh({now});
@@ -231,7 +235,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
   failures.push(...european.failures.map(f=>`European Football ${f.league}: ${f.message}`));
  }catch(error){failures.push(`European Football: ${error.message}`);}
  if(!offline)try{
-  liveCoverage=await require('./sync-live-coverage').sync({now});for(const code of liveCoverage.codes)changes.push(`Live coverage ${code}`);
+  liveCoverage=coverageCapture?await require('./sync-live-coverage').sync({now,publicCapture:coverageCapture}):await require('./sync-live-coverage').sync({now});for(const code of liveCoverage.codes)changes.push(`Live coverage ${code}`);
  }catch(error){failures.push(`Live coverage: ${error.message}`);}
  const previousBundle=read(bundlePath);let bundle=previousBundle;
  const near=ev=>{const start=Date.parse(ev.startTimeUtc||'');return Number.isFinite(start)&&Math.abs(start-+now)<=7*86400000;};

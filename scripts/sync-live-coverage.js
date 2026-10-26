@@ -5,13 +5,13 @@ const fs=require('node:fs');
 const identity=require('../config/fixture-identity');
 const {contentHash}=require('../lib/live-fixtures');
 const {supabaseServiceRequest}=require('../lib/supabase-server');
-const SOURCES=['cricket-ca-current','cricket-ca-4710','discovery-cricket-history','discovery-cricket-near',...['mru','wru','mrs','wrs'].flatMap(s=>[`discovery-rugby-${s}`,`discovery-rugby-${s}-near`])];
+const {SOURCES,PAGE_SIZE,MAX_PAGES,requestForPage}=require('./lib/live-coverage-read-contract');
 const codeFor=f=>identity.sportKey(f)==='rugby'?'rugby-union':identity.sportKey(f);
-const FILE='data/follow-sources/coverage.v1.json',PAGE_SIZE=500,MAX_PAGES=8;
+const FILE='data/follow-sources/coverage.v1.json';
 async function readRows(request=supabaseServiceRequest){
  const rows=[],seen=new Set();
  for(let page=0;page<MAX_PAGES;page++){
-  const data=await request(`/rest/v1/rpc/nothingsports_read_current_fixtures?source_id=in.(${SOURCES.join(',')})&order=source_id.asc,fixture_id.asc&limit=${PAGE_SIZE}&offset=${page*PAGE_SIZE}`,{method:'POST',body:{p_fixture_ids:null},timeoutMs:10000});
+  const {path,...options}=requestForPage(page),data=await request(path,options);
   if(!Array.isArray(data)||data.length>PAGE_SIZE)throw Error('Invalid live coverage page');
   for(const row of data){const id=`${row.source_id}|${row.fixture_id}`;if(!SOURCES.includes(row.source_id)||!row.fixture_id||seen.has(id))throw Error('Invalid or overlapping live coverage page');seen.add(id);rows.push(row);}
   if(data.length<PAGE_SIZE)return rows;
@@ -47,10 +47,15 @@ function project(previous,rows,{now=new Date()}={}){
  const competitions=new Map((previous.competitions||[]).map(c=>[c.id,c]));for(const f of changed)if(f.competitionId&&!competitions.has(f.competitionId))competitions.set(f.competitionId,{id:f.competitionId,name:f.competitionName,sport:f.key,scope:f.competitionScope,gender:f.gender});
  return {document:changed.length?{...previous,events:merged,participants:[...participants.values()],competitions:[...competitions.values()]}:previous,report:{checkedAt:now.toISOString(),rowsRead:rows.length,staleObservationsSkipped:stale,changed:changed.length,codes}};
 }
-async function sync({now=new Date(),file=FILE,rows,request}={}){
+async function sync({now=new Date(),file=FILE,rows,request,publicCapture}={}){
+ const saved=publicCapture===undefined?null:require('./lib/public-coverage-capture').replay(publicCapture);
+ if(saved&&rows!==undefined)throw Error('PUBLIC_COVERAGE_AMBIGUOUS_INPUT');
+ if(saved&&+now!==Date.parse(saved.receipt.capturedAt))throw Error('PUBLIC_COVERAGE_REPLAY_CLOCK');
  const previous=JSON.parse(fs.readFileSync(file,'utf8'));
- const result=project(previous,rows||await readRows(request),{now});
+ const incoming=saved?await readRows(saved.request):rows||await readRows(request);
+ if(saved)saved.complete();
+ const result=project(previous,incoming,{now});
  if(result.report.changed)fs.writeFileSync(file,JSON.stringify(result.document,null,2)+'\n');
- return result.report;
+ return {...result.report,...(saved?{publicCapture:saved.receipt}:{})};
 }
 module.exports={SOURCES,PAGE_SIZE,MAX_PAGES,readRows,project,sync};
