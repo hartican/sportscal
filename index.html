@@ -12076,7 +12076,8 @@ function followCollectionsById(){
 }
 
 function ensureFollowCollectionDirectories(preferences = userPreferences){
-  const collectionIds = preferences?.followFirst?.collectionFollows || [];
+  const collectionIds = (preferences?.followFirst?.collectionFollows || []).slice();
+  const owner = preferenceIntentOwner(), generation = serverStateSyncGeneration, profileId = activeProfileBundle?.profile?.id;
   const loads = [];
   const tennis=collectionIds.filter(id => String(id).startsWith("collection:tennis:"));
   const men=new Set(['collection:tennis:mens-top-10','collection:tennis:atp-mens-watch']);
@@ -12088,6 +12089,10 @@ function ensureFollowCollectionDirectories(preferences = userPreferences){
   if (profileHasAflEntityFollow(preferences)) loads.push(loadAflFollowIndex());
   if (profileHasAflwEntityFollow(preferences)) loads.push(loadAflwFollowIndex());
   return Promise.all(loads).then(results=>{
+    const currentOwner = preferenceIntentOwner();
+    if(preferences !== userPreferences || generation !== serverStateSyncGeneration || profileId !== activeProfileBundle?.profile?.id
+      || owner?.accountId !== currentOwner?.accountId || owner?.generation !== currentOwner?.generation
+      || JSON.stringify(collectionIds) !== JSON.stringify(userPreferences?.followFirst?.collectionFollows || []))return results;
     const collections=followCollectionsById(),next=FOLLOW_FIRST.freezeCollections(userPreferences,collections);
     if(JSON.stringify(next.followFirst.collectionFollows)!==JSON.stringify(userPreferences.followFirst.collectionFollows))savePreferences(next,{deferFollowEffects:true});
     return results;

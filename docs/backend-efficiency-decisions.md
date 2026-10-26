@@ -2099,3 +2099,10 @@ source correction is neither live loading proof nor production acceptance.
 All253 required commands and application/read/dispatcher budgets remain unchanged;
 DEPLOY retains the sole fresh normal-run/publication lane. Details and limitations
 are in the linked quality record.
+
+
+## 27 October 2026 — discard stale collection-directory writes
+
+Capture the existing preference reference, copied collection-load plan, account/session generation, app-sync generation and profile ID before asynchronous directory work. Check those same owners before the existing freeze/save. Stale work returns its load results with zero preference or receipt write; matching complete directories keep existing behavior. There is no new request, timer, retry, cache, schema, persistence owner, provider refresh or scheduler change.
+
+The existing bookkeeping chain includes26 actual source/compiled-helper hydration controls while retaining all pre-existing checks. ROOT isolated the product/test change from source b0792f76 without importing the separate pending-receipt planner. Genuine optional standings deferral supplies download headroom; fixed budgets and full combined release/installed/hosted acceptance remain. This source proof is not a customer-state restoration or physical-device claim.

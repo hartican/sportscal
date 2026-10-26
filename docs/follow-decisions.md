@@ -1,5 +1,12 @@
 # Follow and Feed decisions
 
+
+## 27 October 2026 — fence delayed collection snapshots
+
+A collection-directory completion may snapshot only the preference object and copied collection plan for which it started, in the same account/session generation, app-sync generation and local profile. A stale completion returns its existing load results without changing preferences or the pending receipt. Current matching loads retain existing guest, mute and OFF semantics. No request, retry, store or inferred follow intent is added.
+
+The actual local apply/merge/save/profile/directory regression reproduces an earlier men-only load freezing newer mixed collection choices before the women’s directory arrives. This guard prevents that source race; it does not establish a real account’s historical cause or restore follows. The existing bookkeeping gate retains prior checks and adds26 source/compiled-helper controls. DEPLOY isolated the guard from its worker’s pending-receipt parent; receipt reconciliation policy is unchanged. See [scope and acceptance](quality/collection-hydration-guard-2026-10-27.md).
+
 ## Optional standings presentation keeps its existing owner — 26 October 2026
 
 The approved download-budget repair moves only standings-exclusive helpers and
