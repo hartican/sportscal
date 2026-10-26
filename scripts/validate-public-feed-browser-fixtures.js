@@ -110,10 +110,33 @@ async function seenState(){
   const count=context.__publicFeedWrites.length;vm.runInContext('new WeakMap().set(extra,{id:"peer"})',context);assert.equal(context.__publicFeedWrites.length,count,'Peer WeakMaps are untouched');
 }
 
+function discoveryFixture(){
+  const html=fs.readFileSync('index.html','utf8'),key=html.match(/selectorReleaseAcknowledgement: "([^"]+)"/)?.[1],taxonomy=require('../config/selector-taxonomy'),values=new Map(),sessionValues=new Map();let opened=0;
+  assert(key,'Use the actual application storage key');
+  const context={console,localStorage:{getItem:k=>values.get(k)||null,setItem:(k,v)=>values.set(k,String(v))},sessionStorage:{setItem:(k,v)=>sessionValues.set(k,String(v))},STORAGE_KEYS:{selectorReleaseAcknowledgement:key},SELECTOR_TAXONOMY:taxonomy,userPreferences:{onboardingComplete:true},
+    selectorOptInViewportAnchor:null,pendingSelectorPromptIds:new Set(),captureViewportRenderAnchor:()=>({}),renderSelectorOptInPrompt:()=>opened++,restoreViewportAnchorAfterLayout(){},document:{getElementById:()=>({classList:{contains:()=>false,add(){}},setAttribute(){}}),body:{classList:{add(){}}}}};
+  vm.createContext(context);
+  vm.runInContext(html.slice(html.indexOf('function readStorage('),html.indexOf('\nfunction writeStorage(')),context);
+  vm.runInContext(html.slice(html.indexOf('function openSelectorOptInPrompt(){'),html.indexOf('\ndocument.getElementById("skipSelectorOptInBtn")')),context);
+  let seed=fixture.seedBrowserFixture.toString();
+  if(process.argv.includes('--discovery-baseline')){
+    const oldBoot=cp.execFileSync('git',['show','0284a0a2c6ddab50ab903522a226a75ae37857e5:scripts/validate-public-feed-browser.js'],{encoding:'utf8'}),start=oldBoot.indexOf('await page.addInitScript(')+'await page.addInitScript('.length,end=oldBoot.indexOf('}, {registered:model.registered',start)+1;
+    assert(start>0&&end>start);seed=oldBoot.slice(start,end);
+  }
+  vm.runInContext('('+seed+')',context)({registered:false,token:'synthetic',owner:'synthetic',anonymous:false,selectorVersion:taxonomy.version});
+  context.userPreferences=JSON.parse(values.get('ns_preferences_v1'));
+  const before=JSON.stringify(context.userPreferences);
+  assert.equal(vm.runInContext('openSelectorOptInPrompt()',context),false,'Existing Not now metadata must prevent the unrelated discovery modal, without changing the real predicate');
+  assert.equal(opened,0);assert.equal(JSON.parse(values.get(key)),taxonomy.version);assert.equal(sessionValues.size,0,'This does not register a signed-out account');
+  assert.equal(context.userPreferences.followedSports.length,0);assert.equal(context.userPreferences.selectedSelectorEntityIds.length,0);assert.equal(context.userPreferences.followFirst.notifications.enabled,false);
+  values.delete(key);assert.equal(vm.runInContext('openSelectorOptInPrompt()',context),true,'Actual unacknowledged prompt still opens');assert.equal(opened,1);assert.equal(JSON.stringify(context.userPreferences),before,'Neither control manufactures a Follow or changes OFF choices');
+}
+
 async function main(){
   for(const method of ['POST', 'PUT', 'PATCH', 'DELETE']) if(!selected || selected === method){ await mutation(method); console.log('Native fixture write audit: ' + method + ' passed.'); }
   if(!selected && !baseline){ ownership(); console.log('Native fixture write ownership/target/permission controls passed.'); }
   if(!selected || selected === 'pagination'){ await pagination(); console.log('Native fixture scoped root/reply pages and bounded deltas passed.'); }
   if(!baseline && (!selected || selected === 'seen')){ await seenState(); console.log('Actual WeakMap owner: stable keys, detached values, real mutations and forwarding controls passed.'); }
+  if(!baseline && (!selected || selected === 'discovery')){ discoveryFixture(); console.log('Actual discovery predicate: acknowledged test fixture stays clear, unacknowledged control opens, empty/OFF/account choices unchanged.'); }
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });

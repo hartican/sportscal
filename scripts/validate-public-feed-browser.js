@@ -21,8 +21,9 @@ const fileHash = name => crypto.createHash('sha256').update(fs.readFileSync(path
 const git = (...args) => execFileSync('git', args, {cwd:root, encoding:'utf8'}).trim();
 const deferred = () => { let resolve; const promise = new Promise(yes => { resolve = yes; }); return {promise, resolve}; };
 const diskFree = () => { const stat = fs.statfsSync(root); return stat.bavail * stat.bsize; };
-const engineFiles = ['scripts/validate-public-feed-browser.js', 'index.html', 'assets/js/app-shell-runtime.js', 'config/venue-panel-ui.js', 'config/feed-live-scores.js', 'config/public-comments-ui.js', 'assets/js/public-comments-ui.js', 'config/chat-media-ui.js', 'assets/js/notification-navigation.js'];
+const engineFiles = ['scripts/validate-public-feed-browser.js', 'scripts/validate-public-feed-browser-fixtures.js', 'index.html', 'assets/js/app-shell-runtime.js', 'config/venue-panel-ui.js', 'config/feed-live-score-loader.js', 'config/match-centre.js', 'config/feed-live-scores.js', 'config/selector-taxonomy.js', 'config/public-comments-ui.js', 'assets/js/public-comments-ui.js', 'config/chat-media-ui.js', 'assets/js/notification-navigation.js'];
 const navigationPath = fs.readFileSync(path.join(root, 'index.html'), 'utf8').match(/assets\/js\/notification-navigation\.js\?v=\d+/)?.[0];
+const selectorVersion = require('../config/selector-taxonomy').version;
 
 function dependencyCheck(){
   assert.equal(process.version, 'v24.21.0', 'Use the allocated Node24.21.0 runtime');
@@ -268,6 +269,13 @@ async function isolate(page, model, base){
   });
 }
 
+function seedBrowserFixture({registered, token, owner, anonymous, selectorVersion}){
+  localStorage.setItem('ns_preferences_v1', JSON.stringify({version:27, onboardingComplete:true, showSpoilers:true, followedSports:[], selectedSelectorEntityIds:[], feedControls:{spoilers:'results_visible'}, fantasyDeadlines:{enabled:false}, followFirst:{notifications:{enabled:false, autoRemindersEnabled:false}, refinement:{promptedAt:'2026-10-24'}}}));
+  // Existing "Not now" acknowledgement, not a discovery selection or Follow.
+  localStorage.setItem('ns_selector_release_ack_v1', JSON.stringify(selectorVersion));
+  if(registered) sessionStorage.setItem('ns_auth_session_v1', JSON.stringify({accessToken:token, refreshToken:'synthetic-only', expiresAt:Date.now() + 3600000}));
+  globalThis.__publicFeedFixtureAccount = {owner, anonymous};
+}
 async function boot(browser, base, model, width, query = ''){
   const context = await browser.newContext({viewport:{width, height:844}, hasTouch:true, serviceWorkers:'block'});
   const page = await context.newPage(); page.setDefaultTimeout(15000); page.setDefaultNavigationTimeout(30000);
@@ -277,12 +285,9 @@ async function boot(browser, base, model, width, query = ''){
     if(message.text().startsWith('Fixture card fallback')) model.errors.push(message.text());
   });
   try{
+  await context.tracing.start({screenshots:true, snapshots:true, sources:true});
   await isolate(page, model, base);
-  await page.addInitScript(({registered, token, owner, anonymous}) => {
-    localStorage.setItem('ns_preferences_v1', JSON.stringify({version:27, onboardingComplete:true, showSpoilers:true, followedSports:[], selectedSelectorEntityIds:[], feedControls:{spoilers:'results_visible'}, fantasyDeadlines:{enabled:false}, followFirst:{notifications:{enabled:false, autoRemindersEnabled:false}, refinement:{promptedAt:'2026-10-24'}}}));
-    if(registered) sessionStorage.setItem('ns_auth_session_v1', JSON.stringify({accessToken:token, refreshToken:'synthetic-only', expiresAt:Date.now() + 3600000}));
-    globalThis.__publicFeedFixtureAccount = {owner, anonymous};
-  }, {registered:model.registered, token:session(model).access_token, owner:model.owner, anonymous:model.anonymous});
+  await page.addInitScript(seedBrowserFixture, {registered:model.registered, token:session(model).access_token, owner:model.owner, anonymous:model.anonymous, selectorVersion});
   await page.goto(base + '/' + query, {waitUntil:'domcontentloaded'});
   await page.waitForFunction(() => typeof buildEventCard === 'function' && typeof buildDetailedEventCard === 'function' && startupFunnelFinished && !startupCoordinator.isHydrating());
   await page.locator('#startupLaunch').waitFor({state:'hidden'});
@@ -304,7 +309,12 @@ async function boot(browser, base, model, width, query = ''){
     else await loadDeferredScript('assets/js/public-comments-ui.js?v=1');
   }, {cold:!!query, navigationPath});
   return {page, context};
-  }catch(error){ await context.close(); throw error; }
+  }catch(error){
+    const label=browser.browserType().name()+'-'+width+'-boot-failure';
+    await page.screenshot({path:path.join(output,label+'.png')}).catch(()=>{});
+    await context.tracing.stop({path:path.join(output,label+'.zip')}).catch(()=>{});
+    await context.close(); throw error;
+  }
 }
 
 function installPersonalStateObserver(){
@@ -364,7 +374,8 @@ async function inline(page, event){
 }
 async function pointer(locator, touch){
   await locator.scrollIntoViewIfNeeded();
-  assert(await locator.evaluate(element => { const r = element.getBoundingClientRect(), hit = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2); return !!hit && (element === hit || element.contains(hit)); }), 'Native hit target must reach the control');
+  const observed=await locator.evaluate(element => { const r=element.getBoundingClientRect(),hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2),describe=node=>node?{tag:node.tagName,id:node.id,className:String(node.className)}:null;return{reachable:!!hit&&(element===hit||element.contains(hit)),target:describe(element),rect:{x:r.x,y:r.y,width:r.width,height:r.height},hit:describe(hit),modals:[...document.querySelectorAll('dialog[open],.modal-backdrop.show')].map(describe)}; });
+  assert(observed.reachable, 'Native hit target must reach the control: '+JSON.stringify(observed));
   if(touch) await locator.tap(); else await locator.click();
 }
 async function privateRoom(page){
@@ -630,6 +641,7 @@ const cases = [
 async function accessCase(browser, base, width, anonymous){
   const model = scenario(); model.registered = anonymous; model.anonymous = anonymous;
   const {page, context} = await boot(browser, base, model, width);
+  const label=browser.browserType().name()+'-'+width+'-'+(anonymous?'anonymous':'signed-out');
   try{
     await page.evaluate(event => { const draw = next => __publicFeedHost.replaceChildren(buildEventCard(event, {mode:'schedule', cardState:next, onCardStateChange:draw})); draw('opened'); }, model.event);
     await pointer(page.locator('#public-feed-native-host .fixture-public-comments'), width < 768);
@@ -637,8 +649,10 @@ async function accessCase(browser, base, width, anonymous){
     await page.evaluate(id => NOTHINGSPORTS_PUBLIC_COMMENTS_UI.openFixture(id), model.event.id);
     assert.equal(await page.locator('dialog.public-comments-destination').count(), 0); assert.equal(model.publicReads, 0);
     assert.deepEqual(model.errors, []); assertAllowedWrites(model);
+    await page.screenshot({path:path.join(output,label+'.png')});
     return {console:model.console};
-  }finally{ await context.close(); }
+  }catch(error){await page.screenshot({path:path.join(output,label+'-failure.png')}).catch(()=>{});throw error;}
+  finally{await context.tracing.stop({path:path.join(output,label+'.zip')}).catch(()=>{});await context.close();}
 }
 
 async function main(){
@@ -679,7 +693,7 @@ async function main(){
             assert(!failure && Date.now() < deadline, 'ROOT allocation expired');
             const model = scenario(), query = name.startsWith('cold discussion') ? '?discussion=' + encodeURIComponent(model.event.id) : '';
             const {page, context} = await boot(browser, base, model, width, query), errors = model.errors;
-            const label = engine + '-' + width + '-' + receipt.cases.length; await context.tracing.start({screenshots:true, snapshots:true, sources:true});
+            const label = engine + '-' + width + '-' + receipt.cases.length;
             try{
               await run({page, model, touch:width < 768});
               for(const gate of model.gates) await settled(page, gate);
@@ -707,4 +721,4 @@ async function main(){
   }
 }
 if(require.main === module) main().catch(error => { console.error(error); process.exitCode = error.message?.startsWith('DEPENDENCY_PENDING') ? 2 : 1; });
-module.exports = {scenario, api, recordWrite, assertAllowedWrites, commentPage, paginatedFixture, installPersonalStateObserver};
+module.exports = {scenario, api, recordWrite, assertAllowedWrites, commentPage, paginatedFixture, installPersonalStateObserver, seedBrowserFixture};

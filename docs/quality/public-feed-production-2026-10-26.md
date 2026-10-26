@@ -50,6 +50,15 @@ node scripts/validate-public-feed-browser-fixtures.js
 
 The first command intentionally fails against the original `382e7055` helper; its RED must remain RED. The normal source controls are green. Actual browser outcomes remain bound to their separately frozen candidate/receipt.
 
+The corrected `0284a0a2` attempt also stopped with zero completed cases, at the signed-out Comments button's strict native hit check. A separate bounded, read-only Chromium390 diagnosis measured the real button at x145/y664.78, width99.95/height44: it fit the viewport and the real full card rendered correctly. The actual hit stack was the unrelated `selectorOptInModal` discovery prompt covering the viewport. Its source/observations/viewport/full-page image/trace remain under `hit-target-0284a0a2-diagnostic`; no click or acceptance run occurred in that diagnosis.
+
+The next fixture correction seeds the existing `ns_selector_release_ack_v1` with the actual selector taxonomy version, exactly the metadata recorded by the real Not now handler. It changes no follow selection, OFF choice, account permission, product predicate or modal DOM. Source controls execute the real `readStorage` and `openSelectorOptInPrompt`: the exact old seed reproduces the prompt; the new seed prevents it; deleting only the acknowledgement makes the real prompt open again. Signed-out remains signed-out. Native hit checks are retained and now report the actual target/occluder. Tracing begins before boot and access-case failures save frames, closing the observed setup-evidence gap. Both original failures remain failed. A fresh full qualification requires ROOT's next allocation after the FOLLOW lane; it is not a third attempt in the original two-attempt window.
+
+```sh
+node scripts/validate-public-feed-browser-fixtures.js --case=discovery --discovery-baseline
+node scripts/validate-public-feed-browser-fixtures.js
+```
+
 ## SQL evidence reuse
 
 Product migration `20261023222545_public_fixture_comments.sql` remains SHA256 `217c1f4096f33e65a8f60796bb20d05e6512a5278cff499beb6a2faa7e910f30`, unchanged from the qualified `e14550f6` product source. The recovery helper/database harness and all three source-bound recovery SQL inputs remain unchanged; the latter also equal current main. Preserve the [completed PG18/PG17 coexistence pair](public-feed-recovery-coexistence-2026-10-26.md) at `4ccb4913` and earlier erasure/retirement controls. Those are reused unchanged-input local evidence, not a newly run engine pair, actual managed fingerprint or complete managed erasure/storage workflow. Rerun only affected local SQL checks when a source/input change justifies it and ROOT allocates the work.
