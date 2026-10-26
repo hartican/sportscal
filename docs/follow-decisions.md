@@ -1,5 +1,18 @@
 # Follow and Feed decisions
 
+## Optional standings presentation keeps its existing owner — 26 October 2026
+
+The approved download-budget repair moves only standings-exclusive helpers and
+the unchanged renderer body into the already deferred Follow presentation.
+Keep its existing entry/loader, inactive and Follow routing, connected-target
+and navigation fences, failure/retry, pin actions and Results OFF. Cold event
+preview table helpers stay immediately available. An incomplete cached module
+must fail visibly through the existing retry path, without a repeat loop.
+No Follow, gender, admission, account, source or notification rule changes.
+See [source contract and equivalence](quality/standings-presentation-deferral-2026-10-26.md).
+The existing collection-loading gate includes the focused caller/loader test;
+combined native, offline and installed release qualification stays with DEPLOY.
+
 ## 27 October 2026 — fence delayed collection snapshots
 
 A collection-directory completion may snapshot only the preference object and copied collection plan for which it started, in the same account/session generation, app-sync generation and local profile. A stale completion returns its existing load results without changing preferences or the pending receipt. Current matching loads retain existing guest, mute and OFF semantics. No request, retry, store or inferred follow intent is added.
