@@ -7800,15 +7800,7 @@ function editorialConsequenceForDisplay(record){
   return consequence.previewSentence || "";
 }
 
-function buildEventTimingStateChip(event, timing = FEED_CONTROLS?.timingState?.(event, nowAEST())){
-  timing ||= NOTHINGSPORTS_CARD_TIMING.tournamentPhase(event);
-  if (!timing) return null;
-  const chip = document.createElement("span");
-  chip.className = `event-timing-state ${timing.key}`;
-  chip.textContent = timing.label;
-  chip.setAttribute("aria-label", timing.ariaLabel || timing.label);
-  return chip;
-}
+
 
 function eventSpielForDisplay(ev){
   if(NOTHINGSPORTS_CRICKET_EDITORIAL.isCricket(ev))return storylineCopyForDisplay(ev).synopsis;
@@ -10190,12 +10182,7 @@ function buildEventCardControls(ev, {card=null,eventsOnly=activeTab==='events',d
   controls.appendChild(dismiss);return controls;
 }
 
-function buildCardDisclosureControl(displayLabel,state,activate){
-  const button=document.createElement('button');button.type='button';button.className='event-card-disclosure';button.dataset.cardControl='disclosure';
-  const compact=state==='compact';button.textContent=compact?'⤢':'−';button.setAttribute('aria-label',`${compact?'Expand':'Minimise'} ${displayLabel}`);button.setAttribute('aria-expanded',String(!compact));
-  button.onclick=event=>{event.stopPropagation();activate(compact?'selected':'compact',{restoreFocus:true,focusTarget:'[data-card-control="disclosure"]'});};
-  return button;
-}
+
 
 function eventMajorEventId(ev){
   const eventId = String(ev?.majorEventId || ev?.parentMajorEventId || "").trim();

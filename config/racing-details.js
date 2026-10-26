@@ -28,7 +28,7 @@ function patch(slot,detail,{visible=()=>true,followed=()=>false}={}){
  if(!slot.isConnected)return;
  if(!visible()||detail?.kind==='horse'){slot.replaceChildren();views.delete(slot);return;}
  styles();let view=views.get(slot);const fields=detail?.columns||columns,fieldKey=JSON.stringify(fields),scroll=view?.wrap.scrollLeft||0,focused=view?.wrap===document.activeElement;
- if(view&&(view.kind!==(detail?.kind||'circuit')||view.fieldKey!==fieldKey)){slot.replaceChildren();views.delete(slot);view=null;}
+ if(view&&(view.wrap.parentNode!==slot||view.kind!==(detail?.kind||'circuit')||view.fieldKey!==fieldKey)){slot.replaceChildren();views.delete(slot);view=null;}
  if(!view){const note=node('p'),wrap=node('div'),table=node('table'),caption=node('caption'),head=node('thead'),tr=node('tr'),body=node('tbody'),source=node('a'),age=node('small');wrap.className='racing-table-wrap';wrap.tabIndex=0;wrap.setAttribute('aria-label','Full racing field');table.className='racing-table';for(const [label] of fields){const th=node('th',label);th.scope='col';tr.append(th);}head.append(tr);table.append(caption,head,body);wrap.append(table);source.textContent='Official timing / results';source.target='_blank';source.rel='noopener noreferrer';slot.append(note,wrap,age,source);view={note,wrap,caption,body,source,age,kind:detail?.kind||'circuit',fieldKey,rows:new Map()};views.set(slot,view);if(focused)wrap.focus({preventScroll:true});wrap.scrollLeft=scroll;}
  view.note.textContent=summary(detail);view.caption.textContent=detail?.sessionName||'Full racing field';
  const entries=detail?.entries||[],keep=new Set(entries.map(e=>e.id));for(const [id,row] of view.rows)if(!keep.has(id)){row.remove();view.rows.delete(id);}
@@ -48,6 +48,14 @@ async function mount(slot,event,options={}){
  if(detail?.entries?.length){cache.set(id,{readAt:Date.now(),detail});return;}
  try{const full=await read(id);patch(slot,full,options);}catch{const old=cache.get(id)?.detail;if(old)patch(slot,old,options);}
 }
-function appendCupCoverage(card,event,state){if(!globalThis.NOTHINGSPORTS_HORSE_COVERAGE.isCup(event)||card.querySelector('[data-cup-coverage]'))return;const target=card.querySelector('.event-main,.compact-card-summary')||card;const opened=state==='opened',note=node('p',opened?NOTHINGSPORTS_HORSE_COVERAGE.note:NOTHINGSPORTS_HORSE_COVERAGE.label);note.dataset.cupCoverage='';note.className='compact-card-meta cup-coverage-note';note.style.gridColumn='1 / -1';target.append(note);if(opened){const warning=node('div');warning.dataset.cupWarning='';warning.style.gridColumn='1 / -1';warning.append(horseNotice());target.append(warning);}}
+function appendCupCoverage(card,event,state){
+ if(!globalThis.NOTHINGSPORTS_HORSE_COVERAGE.isCup(event)||card.querySelector('[data-cup-coverage]'))return;
+ const compact=card.classList.contains('is-minimised-row'),target=card.querySelector('.event-main,.compact-card-summary')||card,opened=state==='opened';
+ const note=node(compact?'span':'p',opened?NOTHINGSPORTS_HORSE_COVERAGE.note:NOTHINGSPORTS_HORSE_COVERAGE.label);note.dataset.cupCoverage='';
+ note.className='compact-card-meta cup-coverage-note';note.style.gridColumn='1 / -1';
+ if(compact){target.style.flexWrap='wrap';note.style.cssText='flex:0 0 100%;margin:0;font-size:.65rem;line-height:1.3';target.setAttribute('aria-label',(target.getAttribute('aria-label')||'Melbourne Cup')+'. '+NOTHINGSPORTS_HORSE_COVERAGE.label);}
+ target.append(note);
+ if(opened){const warning=node('div');warning.dataset.cupWarning='';warning.style.gridColumn='1 / -1';warning.append(horseNotice());target.append(warning);}
+}
 return {mount,patch,summary,lap,sanitizeHorseDetail,horseNotice,appendCupCoverage};
 });

@@ -655,7 +655,7 @@
     const scopedSportIds = [sourceSportId,sportId,sourceSportId === 'afl' ? 'afl-premiership' : '',sourceSportId === 'f1' ? 'motorsport' : ''].filter(Boolean).map(id=>`sport:${id}`);
     const families = new Set(next.followFirst.followedMajorEventIds || []);
     const eventFamily = String(event?.eventFamilyId || event?.majorEventId || event?.parentEventId || "").replace(/^(?:major-event|major|event):/, "").replace(/-\d{4}.*$/, "");
-    if (concreteSportingCard && families.has(eventFamily) && followPolicy.eligibleForFollow(event,{explicitEventFollow:true})){
+    if (concreteSportingCard && (families.has(eventFamily)||sportId==='horse-racing'&&followPolicy.eventFamilyIds(event).some(id=>families.has(id))) && followPolicy.eligibleForFollow(event,{explicitEventFollow:true})){
       return {type:"event",entityKind:"event",id:eventFamily,label:null,displayTag:false};
     }
     if (competitionPreference?.enabled === false || domains.some(domain => domain.enabled === false)) return null;

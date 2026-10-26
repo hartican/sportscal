@@ -1,3 +1,18 @@
+function buildCardDisclosureControl(displayLabel,state,activate){
+  const button=document.createElement('button');button.type='button';button.className='event-card-disclosure';button.dataset.cardControl='disclosure';
+  const compact=state==='compact';button.textContent=compact?'⤢':'−';button.setAttribute('aria-label',`${compact?'Expand':'Minimise'} ${displayLabel}`);button.setAttribute('aria-expanded',String(!compact));
+  button.onclick=event=>{event.stopPropagation();activate(compact?'selected':'compact',{restoreFocus:true,focusTarget:'[data-card-control="disclosure"]'});};
+  return button;
+}
+function buildEventTimingStateChip(event, timing = FEED_CONTROLS?.timingState?.(event, nowAEST())){
+  timing ||= NOTHINGSPORTS_CARD_TIMING.tournamentPhase(event);
+  if (!timing) return null;
+  const chip = document.createElement("span");
+  chip.className = `event-timing-state ${timing.key}`;
+  chip.textContent = timing.label;
+  chip.setAttribute("aria-label", timing.ariaLabel || timing.label);
+  return chip;
+}
 function appendVenuePanel(card,main,ev){
   if((!ev.golfMajorCalendar&&!['f1','motogp','wrc','sailgp','wsl','tdf','giro','vuelta','dakar','lemans'].includes(ev.key))||!main||main.querySelector('.venue-location-hero'))return;
   const p=NOTHINGSPORTS_FEED_CARD_PRESENTATION, palette=p.palette(ev);
@@ -1476,7 +1491,7 @@ async function openNothingscoreContribution(ev, {showResults = false} = {}){
 
 
 function getEventStatus(ev){
-  if(ev.key==='horse-racing')return Date.parse(ev.startTimeUtc||ev.date+'T23:59:59Z')<+nowAEST()?'past':'upcoming';
+  if(ev.key==='horse-racing'&&ev.status==='upcoming')return Date.parse(ev.startTimeUtc||ev.date+'T23:59:59Z')<+nowAEST()?'past':'upcoming';
   return NOTHINGSPORTS_FEED_TIMELINE.status(ev,nowAEST());
 }
 

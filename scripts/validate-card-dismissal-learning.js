@@ -125,10 +125,7 @@ assert.doesNotMatch(
 assert.match(swipeHandler, /\{ card = null \}/, "the dismissal handler must receive the exact initiating card");
 // The retired suggestion builder never admitted a suggestion. Exercise the
 // current shared Dismiss control, rather than requiring its unused Like code.
-const controlsStart = html.indexOf('function buildEventCardControls(');
-const controlsEnd = html.indexOf('\nfunction buildCardDisclosureControl(', controlsStart);
-assert(controlsStart >= 0 && controlsEnd > controlsStart, 'shared card controls must be available');
-const controlsSource = html.slice(controlsStart, controlsEnd);
+const controlsSource = require('./app-shell-test-utils').readApplicationFunction('buildEventCardControls');
 function verifyDismissControl(source){
   for (const eventsOnly of [false, true]) for (const hasInitiatingCard of [false, true]){
     const event = {id:'fixture:dismiss-control',name:'Current fixture'};

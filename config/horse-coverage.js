@@ -2,10 +2,7 @@
   'use strict';
   const label='Limited coverage · Gambling-free policy';
   const note='NS deliberately limits Melbourne Cup coverage to basic event information, in line with our gambling-free stance. We do not provide runner details, race analysis or results.';
-  const identity=e=>String(e?.canonicalEventId||e?.eventId||e?.id||'');
-  function isHorse(e){return [e?.key,e?.sportKey,e?.sportDomainId,e?.sportId,e?.sport].some(k=>k==='horse-racing'||k==='sport:horse-racing')||/^(?:event:horse-racing:|evt_horse_racing_|overview:horse-racing:)/.test(identity(e))||e?.score?.racing?.kind==='horse';}
-  function isCup(e){return /^(?:event:horse-racing:melbourne-cup:20\d{2}|evt_horse_racing_melbourne_cup_20\d{2})$/.test(identity(e))&&e?.horseFeature!==false&&e?.published!==false&&!e?.coverageRetired&&e?.status!=='unpublished';}
-  function allowed(e){return !isHorse(e)||isCup(e);}
+  const {isHorse,isCup,allowed}=typeof module==='object'&&module.exports?require('./horse-policy'):globalThis.NOTHINGSPORTS_HORSE_COVERAGE;
   const pick=(value,keys)=>Object.fromEntries(keys.split(' ').filter(k=>['string','number','boolean'].includes(typeof value[k])).map(k=>[k,value[k]]));
   function project(event){
     if(!isHorse(event))return event;

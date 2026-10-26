@@ -1,6 +1,8 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),terser=require('terser'),root=path.resolve(__dirname,'..');
 const modules={
+ 'assets/js/racing-details.js':['config/racing-details.js'],
+ 'assets/js/horse-coverage.js':['config/horse-coverage.js'],
  'assets/js/account-awareness-runtime.js':['config/account-awareness.js','config/account-sync-diagnostic.js','config/preference-intent-reconcile.js','assets/js/account-awareness-ui.js','assets/js/account-indicator-app.js'],
  'assets/js/match-centre-ui.js':['assets/js/match-centre-ui.source.js'],
  'assets/js/all-sports-ui.js':['config/all-sports-view.js','assets/js/all-sports-ui.source.js'],

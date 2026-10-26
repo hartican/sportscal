@@ -13,7 +13,7 @@
   function remember(){if(chrome?.root.isConnected){for(const t of chrome.body.querySelectorAll('[data-overlap-group]'))positions.set(range+':'+t.dataset.overlapGroup,t.scrollLeft);state().scroll=scrollY;}}
   function stop(){remember();revision++;clearInterval(timer);timer=null;controller?.abort();pollController?.abort();controller=null;pollController=null;loading=null;polling=null;}
   function qualifyCard(slot,item){
-   const approximate=item.event.estimatedStartTimeUtc?' · Approximate timing only':'',text=item.underway?(match().liveState(item.event)==='playing'?'Underway':'Ongoing · '+(match().interruption(item.event)?.label||'Awaiting update')):item.tbc?(item.qualified?'May fall within this range':'Start time unavailable')+approximate:'';
+   const approximate=item.event.estimatedStartTimeUtc?' · Approximate timing only':'',text=item.underway?(match().liveState(item.event)==='playing'?'Underway':'Ongoing · '+(match().interruption(item.event)?.label||'Awaiting update')):item.tbc?(item.event.limitedCoverage&&item.event.startTimeUtc?'Scheduled time unconfirmed':item.qualified?'May fall within this range':'Start time unavailable')+approximate:'';
    let label=slot.querySelector(':scope > .as-qualifier');if(!text){label?.remove();return;}if(!label){label=el('small',null,'as-qualifier');slot.prepend(label);}label.textContent=text;
   }
   const cardKey=item=>{

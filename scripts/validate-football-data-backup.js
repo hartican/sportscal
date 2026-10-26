@@ -126,8 +126,7 @@ test('published delayed facts require existing fixture identities, reviewed team
 });
 
 test('the actual public fallback retains delayed attribution when optional source detail fails',async()=>{
- const source=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8'),start=source.indexOf('function buildEuropeanDetail('),end=source.indexOf('function buildFixtureResultAvailability(',start);
- assert(start>=0&&end>start);
+ const source=['buildEuropeanDetail','buildFixtureDataAttribution'].map(name=>require('./app-shell-test-utils').readApplicationFunction(name)).join('\n'),start=0,end=source.length;
  const element=()=>({children:[],textContent:'',append(...children){this.children.push(...children);},remove(){this.removed=true;}});
  const text=node=>[node.textContent,...(node.children||[]).map(text)].join('');
  for(const primary of [undefined,{provider:'Football-Data.org'},{provider:'OpenLigaDB'}]){

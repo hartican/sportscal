@@ -157,7 +157,17 @@
  const dayIdentityKeys=['sport','homeParticipantId','awayParticipantId','startTimeUtc','gender'];
  // Keep the independent score/status clocks through status-only receipts.
  function observation(prior,next){
-  if(horse()?.isHorse(next))return compact(next);
+  if(horse()?.isHorse(next)){
+   if(!next.key&&next.sport==='horse-racing'){if(horse().project)return compact(next);return {id:id(next),sport:'horse-racing',status:horse().isCup(next)?(['cancelled','canceled','postponed','abandoned'].includes(next.status)?next.status:'upcoming'):'unpublished',score:{}};}
+   if(horse().project)return horse().project(next)||{id:id(next),key:'horse-racing',status:'unpublished'};
+   if(!horse().isCup(next))return {id:id(next),key:'horse-racing',status:'unpublished'};
+   // A cold selected receipt may beat the deferred card module. Keep only
+   // calendar primitives so that receipt cannot erase the public reference.
+   const pick=(e,keys)=>Object.fromEntries(keys.split(' ').filter(k=>['string','number','boolean'].includes(typeof e[k])).map(k=>[k,e[k]]));
+   const basic=pick(next,'id eventId canonicalEventId date time startTimeUtc timeZone timePrecision dateOnly timeTbc startTimeTbc sourceName sourceUrl sourceCheckedAt raceNumber weekendId parentEventId competitionId');
+   const broadcastOptions=(Array.isArray(next.broadcastOptions)?next.broadcastOptions:[]).filter(o=>o&&typeof o==='object').map(o=>pick(o,'providerId serviceId rightsScope webUrl sourceUrl verifiedAt territory accessType'));
+   return {...basic,broadcastOptions,key:'horse-racing',sportKey:'horse-racing',name:'Melbourne Cup',horseFeature:true,limitedCoverage:true,timingVerified:false,status:['cancelled','canceled','postponed','abandoned'].includes(next.status)&&!next.score?.racing?next.status:'upcoming',scheduleStatus:['cancelled','canceled','postponed','abandoned'].includes(next.status)&&!next.score?.racing?next.status:'scheduled'};
+  }
   if(!prior)return consistentBalance(next);
   const stamp=x=>Date.parse(x.observationCheckedAt||x.statusCheckedAt||x.scoreCheckedAt||x.checkedAt||'');
   const settled=e=>final(e)||/^(abandoned|cancelled|canceled)$/.test(e.status||'');

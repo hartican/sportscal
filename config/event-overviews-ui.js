@@ -17,7 +17,7 @@ async function render(container){
  const today=formatDateKey(nowAEST()),scope=prefs.eventsScope==='all'?'all':'followed';
  const target=globalThis.pendingTournamentFocusFixture||activeEvents.find(e=>String(e.eventId||e.id)===pendingMajorEventFocusId)||tennisFeedParentDocument?.parents?.find(e=>e.id===pendingMajorEventFocusId);
  const isTarget=e=>e.id===pendingMajorEventFocusId || e.fixtureIds?.includes(pendingMajorEventFocusId) || target&&e.tournamentId&&[target.tournamentId,target.tennisTournamentId,...(target.tournamentIds||[])].includes(e.tournamentId)||target&&e.fixtureIds?.some(id=>[target.id,target.eventId,target.canonicalEventId,...(target.sourceEventIds||[])].includes(id));
- const current=eventOverviewsDocument.events.filter(e=>e.sportKey!=='horse-racing'&&FOLLOW_FEED_POLICY.activeEligible({...e,key:e.sportKey})&&(e.calendarPending||(e.endDate||e.date)>=today||isTarget(e)));
+ const current=eventOverviewsDocument.events.filter(e=>!NOTHINGSPORTS_HORSE_COVERAGE.isHorse(e)&&FOLLOW_FEED_POLICY.activeEligible({...e,key:e.sportKey})&&(e.calendarPending||(e.endDate||e.date)>=today||isTarget(e)));
  const available=current.filter(e=>isTarget(e)||scope==='all'||!FOLLOW_FEED_POLICY.eventExcluded(e,prefs)&&(FOLLOW_FEED_POLICY.editionDecision(e,prefs)==='followed'||followsEvent(e)));
  const controls=document.createElement('nav');controls.className='events-view-tabs';controls.setAttribute('aria-label','Events scope');
  for(const [value,label]of [['followed','Followed events'],['all','All events']]){const button=text('button',label,'events-view-tab'+(scope===value?' active':''));button.type='button';button.setAttribute('aria-pressed',String(scope===value));button.onclick=()=>{const next=clonePreferences(userPreferences);next.eventsScope=value;savePreferences(next,{viewOnly:true});renderEventsView();};controls.append(button);}
@@ -38,19 +38,13 @@ async function render(container){
   const context=[event.venueCity,event.tour,event.tournamentLevel,stage].filter(Boolean);if(context.length)card.append(text('p',[...new Set(context)].join(' · ')));
   for(const fixture of next.slice(0,2)){const row=text('p',fixture.spoilerSafeTitle||fixture.name,'athletes-next-match');const timing=NOTHINGSPORTS_CARD_TIMING.presentation(fixture,nowAEST());row.append(document.createTextNode(' · '+timing.fullSchedule));card.append(row);}
   if(!next.length&&(event.participantIds||[]).some(follows))card.append(text('p','Next followed appearance has not been verified.','athletes-coverage-gap'));
-  if(event.sportKey!=='horse-racing'||event.calendarPending)card.append(buildEventEditionToggle({...event,tournamentParent:true}));
+  card.append(buildEventEditionToggle({...event,tournamentParent:true}));
   const details=document.createElement('details'),summary=text('summary','Fixtures');details.append(summary);details.open=state==='opened'||eventOverviewOpen.has(event.id)||openTarget;card.append(details);let loaded=false;
-  if(event.sportKey==='horse-racing'){
-   if(event.calendarPending&&event.hook){const story=text('p',[event.hook,event.context].filter(Boolean).join(' '),'horse-editorial-story');details.append(story);}
-   const fine=document.createElement('div');details.append(fine);
-   const notice=()=>{if(!details.open)return;void loadDeferredScript('config/racing-details.js?v=527').then(()=>{if(!fine.isConnected||!details.open)return;fine.replaceChildren(NOTHINGSPORTS_RACING_DETAILS.horseNotice());}).catch(()=>{});};
-   details.addEventListener('toggle',notice);notice();
-  }
 
   if(timing.progress)details.append(text('p',timing.fullSchedule,'fixture-source-dates'));
   const mount=async()=>{if(!details.open||loaded)return;loaded=true;const list=document.createElement('div');list.textContent='Loading published fixtures…';details.append(list);try{
     let fixtures;if(event.sportKey.startsWith('tennis'))fixtures=(await loadTennisFeedContests()).fixtures.filter(f=>(f.tournamentId||f.tennisTournamentId)===event.tournamentId);
-    else if(['f1','horse-racing'].includes(event.sportKey)){
+    else if(event.sportKey==='f1'){
       if(!sessionSchedules.has(event.sportKey))sessionSchedules.set(event.sportKey,fetchJson('data/follow-schedule/'+event.sportKey+'.json',{cache:'no-cache'}).catch(error=>{sessionSchedules.delete(event.sportKey);throw error;}));
       const schedule=await sessionSchedules.get(event.sportKey);fixtures=(schedule.fixtures||[]).filter(f=>event.fixtureIds.includes(f.id));
     }else {await loadDeferredScript('assets/js/tournament-fixture-ui.js?v=533');const horizon=await loadTournamentHorizon();fixtures=horizon.tournaments?.find(t=>t.tournamentId===event.tournamentId)?.publishedFixtures||[];}
