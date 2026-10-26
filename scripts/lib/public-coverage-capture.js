@@ -35,6 +35,7 @@ function fixture(value,row,capturedAt){
  if(scores.length===1||scores.some(key=>!Number.isSafeInteger(value[key])||value[key]<0))reject('SCORE');
 }
 function validate(value){
+ if(value?.schemaVersion==='live-coverage-public-capture.v3')return require('./public-coverage-capsules').consume(value).receipt;
  if(value?.schemaVersion==='live-coverage-public-capture.v2')return require('./public-coverage-producer').validate(value);
  fields(value,['schemaVersion','provenance','capturedAt','pages']);
  if(value.schemaVersion!=='live-coverage-public-capture.v1'||value.provenance!=='constructed-fixture')reject('PROVENANCE_UNQUALIFIED');
@@ -57,9 +58,15 @@ function validate(value){
  if(value.pages.at(-1).rows.length===contract.PAGE_SIZE)reject('PAGE_COMPLETENESS');
  return {schemaVersion:value.schemaVersion,provenance:value.provenance,capturedAt:value.capturedAt,pages:value.pages.length,rows,sha256:digest(value),requestContract:contract.manifest(),currentSourceAcceptance:false,pendingIntents:['DEPLOY must validate actual producer/public projection and source scope','DEPLOY must check private protected-content/retirement rules without exporting them','DEPLOY alone qualifies shared publication; no publication ACK is implied']};
 }
-function read(file){const stat=fs.lstatSync(file);if(!stat.isFile()||stat.size>MAX_BYTES||fs.realpathSync(file)!==file)reject('INPUT_PATH');const bytes=fs.readFileSync(file);const value=JSON.parse(bytes);validate(value);return value;}
+function read(file){
+ const files=require('./public-coverage-files'),pinned=files.open(file,MAX_BYTES);let primary;
+ try{const bytes=pinned.read(),value=files.json(bytes);
+  if(value?.schemaVersion==='live-coverage-public-capture.v3')return require('./public-coverage-capsules').read(file,pinned,new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(bytes));
+  validate(value);pinned.verify();return value;
+ }catch(error){primary=error;throw error;}finally{try{pinned.close();}catch(error){if(!primary)throw error;}}
+}
 function replay(value){
- const saved=structuredClone(value),receipt=validate(saved);let page=0;
- return {receipt,async request(path,options){const actual={path,...options};if(page>=saved.pages.length||JSON.stringify(canonical(actual))!==JSON.stringify(canonical(contract.requestForPage(page))))reject('REQUEST_CONTRACT');return structuredClone(saved.pages[page++].rows);},complete(){if(page!==saved.pages.length)reject('PAGE_COMPLETENESS');}};
+ const saved=structuredClone(value),v3=saved?.schemaVersion==='live-coverage-public-capture.v3'?require('./public-coverage-capsules').consume(saved):null,receipt=v3?v3.receipt:validate(saved),pages=v3?v3.pages:saved.pages;let page=0;
+ return {receipt,async request(path,options){const actual={path,...options};if(page>=pages.length||JSON.stringify(canonical(actual))!==JSON.stringify(canonical(contract.requestForPage(page))))reject('REQUEST_CONTRACT');return structuredClone(pages[page++].rows);},complete(){if(page!==pages.length)reject('PAGE_COMPLETENESS');}};
 }
 module.exports={MAX_BYTES,validate,read,replay,fixtureFields};

@@ -2159,3 +2159,21 @@ This source-only correction migrates no customer/source records, refreshes no
 provider and changes no scheduler. Actual intake/generated/release proof and
 the separate bounded v3 contract stay ROOT-owned. See
 [actual seam, red/green and limits](quality/world-rugby-unresolved-sides-2026-10-26.md).
+
+## 27 October 2026 — explicit bounded v3 public capsule set
+
+ROOT approved a separate saved-input format with2MiB per public capsule,
+4MiB aggregate including a <=64KiB manifest, at most8 pages/parts. Legacyv1/v2
+whole2MiB caps and all app/GLOBAL/transport/source/page/deadline/no-retry rules
+stay unchanged. Preserve supported facts/aliases/unknowns/clocks without pruning
+or compression. One executable manifest is shared by the existing producer,
+canonical reader and credential-free packager; no parallel owner or scheduler.
+
+Validate the whole fixed-name same-directory regular set before source work,
+with actual fstat sizes before body reads, hashes/counts/timing/terminal witness,
+NOFOLLOW and namespace/stat stability. Use private immutable bytes thereafter;
+exclusive writes/manifest-last and owned-file cleanup preserve last-good state.
+Pages are still non-atomic additive observations, with no deletion/completeness,
+authenticity, source-freshness or publication claim. Historical bad-side rows
+remain refused. Actual current intake/generated/release/hosted and scheduled
+proof remain ROOT-owned. See [contract and limits](quality/canonical-public-capsules-v3-2026-10-27.md).

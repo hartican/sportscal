@@ -72,6 +72,12 @@ function runStep(args) {
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
   if(argv.some(arg=>arg.startsWith('--public-candidate')||arg.startsWith('--candidate-')))return require('./lib/public-candidate').options(argv,env);
+  if(argv.some(arg=>arg.startsWith('--capture-live-coverage-capsules'))){
+    const outputs=argv.filter(arg=>arg.startsWith('--capture-live-coverage-capsules='));
+    if(!argv.includes('--coverage-live')||!argv.includes('--local-only')||outputs.length!==1||new Set(argv).size!==argv.length||argv.some(arg=>!['--coverage-live','--local-only'].includes(arg)&&!arg.startsWith('--capture-live-coverage-capsules=')))throw Error('Public coverage capsules require only --coverage-live --local-only --capture-live-coverage-capsules=<absolute public-coverage.json>');
+    const output=outputs[0].slice('--capture-live-coverage-capsules='.length);
+    require('./lib/public-coverage-capsules').outputPath(output);return {localOnly:true,publicCoverageOutput:output,publicCoverageFormat:'v3'};
+  }
   if(argv.some(arg=>arg.startsWith('--capture-live-coverage-public'))){
     const outputs=argv.filter(arg=>arg.startsWith('--capture-live-coverage-public='));
     if(!argv.includes('--coverage-live')||!argv.includes('--local-only')||outputs.length!==1||new Set(argv).size!==argv.length||argv.some(arg=>!['--coverage-live','--local-only'].includes(arg)&&!arg.startsWith('--capture-live-coverage-public=')))throw Error('Public coverage export requires only --coverage-live --local-only --capture-live-coverage-public=<absolute public-coverage.json>');
@@ -1150,7 +1156,7 @@ async function runMain(options = parseOptions()) {
 }
 
 async function capturePublicCoverage(options,boundary={}){
-  const receipt=await require('./sync-live-coverage').capturePublic({...boundary,output:options.publicCoverageOutput});
+  const receipt=await require('./sync-live-coverage').capturePublic({...boundary,output:options.publicCoverageOutput,format:options.publicCoverageFormat});
   console.log(JSON.stringify({mode:'public-coverage-export',...receipt}));return receipt;
 }
 

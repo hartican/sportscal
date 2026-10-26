@@ -77,9 +77,10 @@ async function run(){
 }
 function actualCli(root,input,forceFailure=false){
  const sourceRoot=path.resolve(__dirname,'..'),runtime=path.join(root,forceFailure?'cli-failure':'cli-success'),workspace=path.join(runtime,'workspace');fs.mkdirSync(runtime);fs.mkdirSync(path.join(workspace,'data/follow-sources'),{recursive:true});fs.mkdirSync(path.join(workspace,'feeds'));fs.symlinkSync(path.join(sourceRoot,'scripts'),path.join(workspace,'scripts'));
- const inputFile=path.join(runtime,'public-coverage.json');fs.writeFileSync(inputFile,JSON.stringify(input));
- const stable=require('./sync-live-coverage').project({events:[],participants:[],competitions:[],sources:[]},input.pages[0].rows,{now:new Date(input.capturedAt)}).document;
- if(forceFailure){const target=stable.events.find(f=>f.homeScore!=null)||stable.events[0];target.homeScore=3;target.scoreDisplay='3–7';target.sourceCheckedAt='2026-10-21T16:00:00.000Z';target.unknownProtectedAnnotation={retain:true};}
+ const inputFile=path.join(runtime,'public-coverage.json'),v3=input.schemaVersion==='live-coverage-public-capture.v3';if(v3)require('./lib/public-coverage-capsules').materialize(input,runtime);else fs.writeFileSync(inputFile,JSON.stringify(input));
+ const rows=v3?require('./lib/public-coverage-capsules').consume(input).pages.flatMap(p=>p.rows):input.pages[0].rows;
+ const stable=require('./sync-live-coverage').project({events:[],participants:[],competitions:[],sources:[]},rows,{now:new Date(input.capturedAt)}).document;
+ if(forceFailure){const target=stable.events.find(f=>f.homeScore!=null)||stable.events[0];target.name='Retained pre-update test title';target.homeScore=3;target.scoreDisplay='3–7';target.sourceCheckedAt='2026-10-21T16:00:00.000Z';target.unknownProtectedAnnotation={retain:true};}
  const coverageFile=path.join(workspace,'data/follow-sources/coverage.v1.json');fs.writeFileSync(coverageFile,JSON.stringify(stable));const before=fs.readFileSync(coverageFile);
  const sourceCoverage=fs.readFileSync(path.join(sourceRoot,'data/follow-sources/coverage.v1.json'));
  const names=cp.spawnSync('/usr/bin/git',['ls-files','-z'],{cwd:sourceRoot,encoding:'utf8'}).stdout.split('\0').filter(name=>/\.(?:cjs|mjs|js)$/.test(name));
@@ -94,9 +95,9 @@ function actualCli(root,input,forceFailure=false){
  const ledger=JSON.parse(fs.readFileSync(state));assert.equal(result.status,forceFailure?1:0,result.stderr+' '+JSON.stringify(ledger));assert.equal(ledger.requests,0);assert(fs.readFileSync(coverageFile).equals(before));assert(fs.readFileSync(path.join(sourceRoot,'data/follow-sources/coverage.v1.json')).equals(sourceCoverage));
  const report=JSON.parse(fs.readFileSync(path.join(runtime,'refresh.json')));assert.equal(report.mode,'public-coverage-replay');
  if(forceFailure){assert(ledger.violations.includes('CANDIDATE_COMMAND_UNQUALIFIED'));assert.equal(report.publicationState,'blocked-rolled-back');}
- else{assert.deepEqual(ledger.violations,[]);assert.equal(ledger.frames.length,2);assert.equal(report.publicCoverage.publicCapture.pages,1);assert.equal(report.publicationState,'validated');}
+ else{assert.deepEqual(ledger.violations,[]);assert.equal(ledger.frames.length,2);assert.equal(report.publicCoverage.publicCapture.pages,v3?require('./lib/public-coverage-capsules').consume(input).pages.length:input.pages.length);assert.equal(report.publicationState,'validated');}
  return {state:report.publicationState,frames:ledger.frames.map(f=>f.file),sourceUnchanged:true,fixtureRolledBack:forceFailure,networkRequests:0};
 }
-async function runChain(){await require('./validate-supabase-response-bound').run();await require('./validate-public-coverage-producer').run();return run();}
+async function runChain(){await require('./validate-supabase-response-bound').run();await require('./validate-public-coverage-producer').run();await require('./validate-public-coverage-capsules').run();return run();}
 if(require.main===module)runChain().catch(error=>{console.error(error.message);process.exitCode=1;});
 module.exports={run,runChain,capture,fixture,actualCli};
