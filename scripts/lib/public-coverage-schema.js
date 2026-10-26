@@ -29,7 +29,7 @@ function url(v){
 const ids=list(identifier),texts=list(text),clock=nullable(instant),urls=list(url);
 const fields=(keys,check)=>Object.fromEntries(keys.split(' ').map(k=>[k,check]));
 const participant=object({...fields('id',identifier),...fields('name displayName role teamKind genderCategory',text),countryCode:nullable(text),aliases:texts,sourceIds:object({espn:identifier,worldRugby:identifier,cricketAustralia:identifier})});
-const slot=object({slot:integer,participantId:nullable(identifier),label:text,logoUrl:nullable(v=>{string(v);if(!/^assets\/[a-z0-9_./-]+$/i.test(v))url(v);})});
+const slot=object({slot:integer,participantId:nullable(value=>{if(value!=='')identifier(value);}),label:text,logoUrl:nullable(v=>{string(v);if(!/^assets\/[a-z0-9_./-]+$/i.test(v))url(v);})});
 const viewing=object({...fields('providerId reviewId',identifier),...fields('rightsScope linkScope territory liveOrReplay accessType label name type',text),...fields('webUrl sportUrl sourceUrl url',url),...fields('verifiedAt checkedAt sourceCheckedAt',instant)});
 const batting=object({...fields('playerId battingOrder sourceOrder runs balls fours sixes',nullable(integer)),strikeRate:nullable(number),...fields('name dismissalType dismissal bowledBy dismissedBy',nullable(text)),...fields('isBatting notOut didNotBat',boolean)});
 const bowling=object({...fields('playerId maidens runs wickets wides noBalls',nullable(integer)),economy:nullable(number),name:nullable(text),overs:nullable(text)});

@@ -2144,3 +2144,18 @@ native and shared-publication closure remains separate. ROOT/DEPLOY alone grants
 real intake, integrates/publishes and qualifies the natural scheduled runs; this
 source record enables no source call, workflow or scheduler. See
 [contract, tests and remaining intake](quality/canonical-public-producer-2026-10-26.md).
+
+## 26 October 2026 — World Rugby provider0 remains an unknown slot
+
+The existing World Rugby parser must treat string/numeric provider team0 as an
+unresolved position, not a followable club shared by both opponents. Preserve
+fixture/action identities, original labels/time/status/score/source clocks and
+valid known sides. Reuse existing labelled participant slots and their empty/
+null unknown marker; invent no real opponent or global alias. Continuity must
+not restore only this known legacy sentinel from retained name-only fallback.
+Independently verified real sides retain existing protection. Unknown-side
+scored data remains explicitly intake-refused with last-good preservation.
+This source-only correction migrates no customer/source records, refreshes no
+provider and changes no scheduler. Actual intake/generated/release proof and
+the separate bounded v3 contract stay ROOT-owned. See
+[actual seam, red/green and limits](quality/world-rugby-unresolved-sides-2026-10-26.md).

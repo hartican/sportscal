@@ -311,8 +311,15 @@
             if(base[field] !== undefined) event[field] = base[field];
           }
         }
+        const legacyRugbyPlaceholder = p => /^team:rugby:wr-0(?:-women)?(?:-sevens)?$/.test(p?.id||'') || String(p?.sourceIds?.worldRugby??'').trim()==='0';
         const resolved = record => (record?.participants || []).length >= 2 &&
-          record.participants.every(p => !/winner of|loser of|\btbc\b|\btbd\b|to be confirmed/i.test(p.name || p.displayName || '') && Boolean(p.name || p.displayName));
+          record.participants.every(p => !legacyRugbyPlaceholder(p) && !/winner of|loser of|\btbc\b|\btbd\b|to be confirmed/i.test(p.name || p.displayName || '') && Boolean(p.name || p.displayName));
+        // An explicit labelled unknown slot can retract only this known legacy
+        // provider0 sentinel. JSON may omit undefined side keys; prevent the
+        // final additive spread from silently restoring that false identity.
+        for(const [field,slot]of [['homeParticipantId',1],['awayParticipantId',2]]){
+          if(!event[field] && event.participantSlots?.some(p=>p.slot===slot&&!p.participantId) && base.participants?.some(p=>p.id===base[field]&&legacyRugbyPlaceholder(p)))event[field]=undefined;
+        }
         if(resolved(base) && !resolved(event)){
           for(const field of ['name','displayName','displayTitleCompact','participants','participantIds','homeParticipantId','awayParticipantId','participantSlots']){
             if(base[field] !== undefined) event[field] = base[field];
