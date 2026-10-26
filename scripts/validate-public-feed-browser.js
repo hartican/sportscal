@@ -1,5 +1,5 @@
 'use strict';
-// Native, isolated UI qualification. Requires ROOT's coherent PR37 + Public
+// Native, isolated UI qualification. Requires the delivered shared adapter + Public
 // Feed integration; never substitutes an adapter, SDK, picker, fetch or clock.
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
@@ -29,7 +29,7 @@ function dependencyCheck(){
   assert(navigationPath, 'Actual deferred notification route is required');
   const adapter = fs.readFileSync(path.join(root, 'config/venue-panel-ui.js'), 'utf8');
   assert(adapter.includes('options.onCardStateChange') && adapter.includes('options.cardState'),
-    'DEPENDENCY_PENDING: ROOT must combine the real reviewed PR37 cardState/onCardStateChange adapter; no substitute renderer is permitted.');
+    'DEPENDENCY_PENDING: production source must include the reviewed cardState/onCardStateChange adapter; no substitute renderer is permitted.');
   assert(engines.length && engines.every(name => ['chromium', 'webkit'].includes(name)), 'Use chromium and/or webkit');
   assert(widths.length && widths.every(width => Number.isInteger(width) && width >= 320 && width <= 1920), 'Invalid viewport widths');
 }
@@ -47,7 +47,7 @@ function scenario(){
   const event = fixture();
   const rows = Array.from({length:18}, (_, index) => ({id:crypto.randomUUID(), handle:'@synthetic' + index, body:'Public comment ' + index + ' 😀 — ' + 'A readable public discussion. '.repeat(3), parentId:null,
     score:18 - index, myVote:0, own:false, createdAt:new Date(Date.now() - 60000 + index).toISOString(), revision:index + 1}));
-  return {event, rows, revision:rows.length, points:25, owner, anonymous:false, registered:true, publicReads:0, commands:[], apiWrites:[], blocked:[], stubs:[], errors:[], configCalls:0, providerCalls:0, gates:[], configGate:null, providerGate:null, voteGate:null, denial:null,
+  return {event, rows, revision:rows.length, points:25, owner, anonymous:false, registered:true, publicReads:0, commands:[], apiWrites:[], blocked:[], stubs:[], errors:[], console:[], configCalls:0, providerCalls:0, gates:[], configGate:null, providerGate:null, voteGate:null, denial:null,
     commentOwners:new Map(rows.map(row => [row.id, otherOwner])), privateMembers:new Set(), authIntent:null, expectedRejectedWrites:new Set(), reads:[], issuedCursors:new Map(), gateByRequest:new Map()};
 }
 
@@ -272,6 +272,10 @@ async function boot(browser, base, model, width, query = ''){
   const context = await browser.newContext({viewport:{width, height:844}, hasTouch:true, serviceWorkers:'block'});
   const page = await context.newPage(); page.setDefaultTimeout(15000); page.setDefaultNavigationTimeout(30000);
   page.on('pageerror', error => model.errors.push(error.message));
+  page.on('console', message => {
+    if(['error', 'warning'].includes(message.type())) model.console.push({type:message.type(), text:message.text()});
+    if(message.text().startsWith('Fixture card fallback')) model.errors.push(message.text());
+  });
   try{
   await isolate(page, model, base);
   await page.addInitScript(({registered, token, owner, anonymous}) => {
@@ -315,11 +319,24 @@ async function untouched(page, before, model, writeStart){
   assert.deepEqual(await page.evaluate(() => __publicFeedWrites), [], 'Discussion must not call personal card/engagement/seen owners');
   assertAllowedWrites(model, writeStart);
 }
+async function fullFixtureLayout(tray){
+  const layout = await tray.evaluate(tray => {
+    const card = tray.closest('.event-card'), main = card?.querySelector('.event-main'), box = tray.getBoundingClientRect(), cardBox = card?.getBoundingClientRect();
+    const siblings = card ? [...card.children].filter(node => node !== tray && !['absolute', 'fixed'].includes(getComputedStyle(node).position)) : [];
+    return {fullCard:card?.dataset.cardState === 'opened' && !card.classList.contains('is-fixture-fallback') && !!main,
+      belowDetails:siblings.every(node => node.getBoundingClientRect().bottom <= box.top + 1),
+      fullWidth:!!cardBox && box.width >= cardBox.width - 40,
+      insideCard:!!cardBox && box.left >= cardBox.left && box.right <= cardBox.right + 1,
+      contentFits:tray.scrollWidth <= tray.clientWidth + 1};
+  });
+  assert.deepEqual(layout, {fullCard:true, belowDetails:true, fullWidth:true, insideCard:true, contentFits:true}, 'Comments must remain readable below the actual full fixture, including inside clipped cards');
+}
 async function open(page, event){
   await page.evaluate(id => NOTHINGSPORTS_PUBLIC_COMMENTS_UI.openFixture(id), event.id);
   await page.locator('dialog.public-comments-destination[open] .public-comment').first().waitFor({state:'attached'});
   await page.locator('dialog.public-comments-destination h3').scrollIntoViewIfNeeded();
   assert.equal(await page.locator('dialog.public-comments-destination .event-card').getAttribute('data-card-state'), 'opened', 'Actual shared adapter must consume local opened state');
+  await fullFixtureLayout(page.locator('dialog.public-comments-destination .public-comments'));
 }
 async function inline(page, event){
   await page.evaluate(event => {
@@ -328,6 +345,7 @@ async function inline(page, event){
   }, event);
   await page.locator('#public-feed-native-host .fixture-public-comments').click();
   await page.locator('#public-feed-native-host .public-comment').first().waitFor({state:'attached'});
+  await fullFixtureLayout(page.locator('#public-feed-native-host .public-comments'));
 }
 async function pointer(locator, touch){
   await locator.scrollIntoViewIfNeeded();
@@ -604,6 +622,7 @@ async function accessCase(browser, base, width, anonymous){
     await page.evaluate(id => NOTHINGSPORTS_PUBLIC_COMMENTS_UI.openFixture(id), model.event.id);
     assert.equal(await page.locator('dialog.public-comments-destination').count(), 0); assert.equal(model.publicReads, 0);
     assert.deepEqual(model.errors, []); assertAllowedWrites(model);
+    return {console:model.console};
   }finally{ await context.close(); }
 }
 
@@ -611,6 +630,7 @@ async function main(){
   fs.mkdirSync(output, {recursive:true});
   const receipt = {sha:git('rev-parse', 'HEAD'), tree:git('rev-parse', 'HEAD^{tree}'), dirty:git('status', '--porcelain'), node:process.version, platform:process.platform, arch:process.arch,
     files:Object.fromEntries(engineFiles.map(name => [name, fileHash(name)])), cases:[], complete:false,
+    plannedCases:engines.flatMap(engine => widths.flatMap(width => ['signed-out denied', 'anonymous account denied', ...cases.map(([name]) => name)].map(name => ({engine, width, name})))),
     limits:'Synthetic account/API/GIPHY only. Native desktop engines with touch emulation; not hosted SQL, real provider, installed PWA, push tap or physical phone evidence. No product function replacement; forwarding state-owner spies only.'};
   let server;
   try{
@@ -639,7 +659,7 @@ async function main(){
       let failure; const watchdog = setInterval(() => { if(Date.now() > deadline || diskFree() < 3 * 1024 ** 3){ failure = Error('ROOT runtime reserve/allocation exceeded'); void browser.close(); } }, 1000);
       try{
         for(const width of widths){
-          for(const anonymous of [false, true]){ await accessCase(browser, base, width, anonymous); receipt.cases.push({engine, width, name:anonymous ? 'anonymous account denied' : 'signed-out denied', passed:true}); }
+          for(const anonymous of [false, true]){ const observed = await accessCase(browser, base, width, anonymous); receipt.cases.push({engine, width, name:anonymous ? 'anonymous account denied' : 'signed-out denied', passed:true, ...observed}); }
           for(const [name, run] of cases){
             assert(!failure && Date.now() < deadline, 'ROOT allocation expired');
             const model = scenario(), query = name.startsWith('cold discussion') ? '?discussion=' + encodeURIComponent(model.event.id) : '';
@@ -651,9 +671,9 @@ async function main(){
               assert.deepEqual(errors, []); assertAllowedWrites(model);
               assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, 'No horizontal page overflow');
               await page.screenshot({path:path.join(output, label + '.png')});
-              const result = {engine, width, name, passed:true, publicReads:model.publicReads, writes:model.apiWrites, continuations:model.reads, heldOperations:model.gates.map(gate => gate.observed), providerStubs:model.providerCalls, offOriginDenied:[...new Set(model.blocked)], errors}; receipt.cases.push(result); console.log(JSON.stringify(result));
+              const result = {engine, width, name, passed:true, publicReads:model.publicReads, writes:model.apiWrites, continuations:model.reads, heldOperations:model.gates.map(gate => gate.observed), providerStubs:model.providerCalls, offOriginDenied:[...new Set(model.blocked)], errors, console:model.console}; receipt.cases.push(result); console.log(JSON.stringify(result));
             }catch(error){
-              receipt.cases.push({engine, width, name, passed:false, error:error.message, errors, commands:model.commands, blocked:model.blocked});
+              receipt.cases.push({engine, width, name, passed:false, error:error.message, errors, console:model.console, commands:model.commands, blocked:model.blocked});
               await page.screenshot({path:path.join(output, label + '-failure.png')}).catch(() => {}); throw error;
             }finally{
               for(const gate of model.gates) gate.resolve(); await context.tracing.stop({path:path.join(output, label + '.zip')}).catch(() => {}); await context.close();

@@ -10,6 +10,14 @@ Comment-alert expansion depends on the final reviewed PR37 opt-in shared card ad
 
 Resource hold: continue light source/API/DOM checks; local native browsers, VMs and PGlite engine runs require renewed DEPLOY headroom allocation. No implementation-complete, Ready, hosted or physical-device claim follows from those light checks. Release acceptance below remains required in full.
 
+## Full real feature continuation — 26 October 2026 Sydney
+
+Jack ended the synthetic prototype direction and asked to trial the full feature after DEPLOY publishes it live. Continue the complete settled scope through the original PR38 lineage in the existing Public Feed worktree. Preserve the separate preview source, PR73, deployment, access and evidence without further preview work. The production continuation contains no preview facade, browser-local account model or TEST-mode application.
+
+The source-only continuation starts at `6514b0109a1507ce36eb275d0bb4853822733ca4`, the merge of original Public Feed `2c7f7649` and current main `a6ddd15c`. Its historical commit message incorrectly called main accepted; it is current source, not accepted/live production. The actual shared card adapter arrived through main/PR59, so obsolete PR37 integration is no longer a source blocker. ROOT owns subsequent combined-source reconciliation, generated version/cache allocation, shared migration/service/native lanes and publication. The separate P1 source and unready peer branches are not pulled into this continuation.
+
+The overnight MVP grant permits independent implementation and proportionate qualification without a new phone prerequisite or routine permission question. It does not waive required gates, authorize purchases/customer-state repair, or create a second publisher. The executable source/native/managed acceptance boundary and precise notification dependency are recorded in [the production qualification record](../quality/public-feed-production-2026-10-26.md).
+
 ## Fixture discussion
 
 Add a public discussion tray directly below the full details of existing Feed fixture cards, with Instagram-like placement. The full card and comments scroll together on phones; do not pin a separate summary or introduce a separately scrolling comment pane. Update comments live while the tray is open. Reading, expanding and posting require a registered signed-in account; anonymous/guest Auth sessions do not qualify. Identify authors by existing public @handles and stable internal ownership, without private identities. Reuse registration/profile flow when a handle is needed.

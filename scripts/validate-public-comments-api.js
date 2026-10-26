@@ -11,6 +11,12 @@ async function main(){
  user=null;assert.equal((await request({query:{eventId:'fixture:alias'}})).code,401);user={id:owner};
  let reply=await request({query:{mode:'public-comments',roomId:'fixture:alias'}});assert.equal(reply.code,200);assert.equal(reply.headers['Cache-Control'],'private, no-store');assert.equal(calls.at(-1).body.target_fixture,'fixture:canonical');assert.equal(calls.at(-1).body.target_user,owner);
  assert.equal((await request({query:{eventId:['fixture:canonical']}})).code,400);assert.equal((await request({query:{eventId:'fixture:missing'}})).code,404);assert.equal((await request({query:{eventId:'fixture:alias',after:'-1'}})).code,400);
+ const parent='event:golf:group:day:2026-10-24',writesBefore=calls.filter(c=>c.path.endsWith('/nothingsports_public_comments')).length;
+ for(const body of [null,{action:'public-comment-post',eventId:parent,clientId:crypto.randomUUID(),body:'No parent thread'},
+  {action:'public-comment-vote',eventId:parent,id:comment,value:1},{action:'public-comment-delete',eventId:parent,id:comment}]){
+  const result=await request(body?{method:'POST',body}:{query:{eventId:parent}});assert.equal(result.code,404,'Display-only daily parents cannot become discussion targets');
+ }
+ assert.equal(calls.filter(c=>c.path.endsWith('/nothingsports_public_comments')).length,writesBefore,'Unknown parent IDs cannot reach the service RPC; resolve an admitted canonical child first');
  const command={action:'public-comment-post',eventId:'fixture:alias',clientId:crypto.randomUUID(),body:'<img onerror=evil()>😀'};
  reply=await request({method:'POST',body:command});assert.equal(reply.code,200);assert.equal(calls.filter(c=>c.path.endsWith('/nothingsports_public_comments')).at(-1).body.command.body,command.body);
  for(const extra of [{authorId:crypto.randomUUID()},{attachment:{type:'image/png'}},{body:'a'.repeat(501)},{gif:{provider:'giphy',gifId:'x',contentUrl:'https://evil.example/a.gif',previewUrl:'https://evil.example/a.gif'}}])assert.equal((await request({method:'POST',body:{...command,...extra}})).code,400);
