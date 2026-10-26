@@ -47,7 +47,9 @@ async function regression(db,report){
   const before=await facts(),beforeView=(await db.query("SELECT md5(pg_get_viewdef('public.nothingsports_current_global_fixture_bundle'::regclass,true))h")).rows[0].h;
   await db.exec('SAVEPOINT gc_negative');let error;
   try{await operation();}catch(e){error=e;}finally{await db.exec('ROLLBACK TO SAVEPOINT gc_negative;RELEASE SAVEPOINT gc_negative;RESET ROLE');}
-  assert(error,label+' must refuse');assert.match(error.message,pattern);assert.deepEqual(await facts(),before,label+' original-column facts unchanged');assert.equal((await db.query("SELECT md5(pg_get_viewdef('public.nothingsports_current_global_fixture_bundle'::regclass,true))h")).rows[0].h,beforeView);mark(label,{refused:true,code:error.code});
+  assert(error,label+' must refuse');let diagnostic;
+  if(typeof pattern==='function')diagnostic=await pattern(error);else assert.match(error.message,pattern);
+  assert.deepEqual(await facts(),before,label+' original-column facts unchanged');assert.equal((await db.query("SELECT md5(pg_get_viewdef('public.nothingsports_current_global_fixture_bundle'::regclass,true))h")).rows[0].h,beforeView);mark(label,{refused:true,code:error.code,...diagnostic});
  }
  async function witnessCollisions(phase){
   await db.exec('BEGIN');try{for(const [kind,name]of [['TABLE','ns_gc_expected_context'],['VIEW','ns_gc_expected_view']]){
@@ -104,7 +106,13 @@ async function regression(db,report){
     assert.equal(beforeCount,1);assert.deepEqual(await facts(),stable,'Clock movement changes no canonical/context/token/observation value');await derived();
    }finally{await db.exec('ROLLBACK TO SAVEPOINT gc_clock;RELEASE SAVEPOINT gc_clock');}
   }
-  await negative('generated validity cannot be forged',()=>db.query('UPDATE '+table+' SET global_window_valid=true WHERE source_id=$1',[sourceId]),/generated|non-DEFAULT/i);
+  const generatedState=async()=>(await db.query('SELECT fixture_id,global_base_window::text AS base_window,global_score_window::text AS score_window,global_window_valid AS valid FROM '+table+' WHERE source_id=$1 ORDER BY fixture_id',[sourceId])).rows;
+  const beforeRefusal=await generatedState();assert.equal(beforeRefusal.length,1,'A real generated row must be protected');
+  await negative('generated validity cannot be forged',()=>db.query('UPDATE '+table+' SET global_window_valid=true WHERE source_id=$1',[sourceId]),async error=>{
+   assert.equal(error.code,'428C9','Require actual generated_always SQLSTATE, not English wording');
+   assert.deepEqual(await generatedState(),beforeRefusal,'Prohibited assignment leaves every derived value unchanged');
+   return {message:error.message,derivedStateUnchanged:true};
+  });
   for(const role of ['anon','authenticated']){
    await negative(role+' cannot read private generated metadata',async()=>{await db.exec('SET ROLE '+role);await db.query('SELECT global_window_valid FROM '+table);},/permission denied/i);
    await negative(role+' cannot read service-only GLOBAL view',async()=>{await db.exec('SET ROLE '+role);await db.query('SELECT bundle FROM public.nothingsports_current_global_fixture_bundle');},/permission denied/i);
