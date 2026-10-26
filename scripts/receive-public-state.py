@@ -215,13 +215,22 @@ class Output:
             raise errors[0]
 
 
-def receive(stream, destination, source_sha, cutoff):
+def receive(stream, destination, source_sha, cutoff, input_bytes):
     require(re.fullmatch("[a-f0-9]{40}", source_sha) is not None, "SOURCE_SHA")
     check = lambda: require(time.monotonic() < cutoff, "CAPTURE_DEADLINE")
     check()
-    wire = stream.read(WIRE + 1)
-    require(len(wire) <= WIRE, "WIRE_BUDGET")
+    require(type(input_bytes) is int and 0 < input_bytes <= WIRE, "WIRE_BUDGET")
+    # One explicitly sized frame. A raw TTY stays open after write_stdin; EOF
+    # and Ctrl-D are neither required nor interpreted as a transport boundary.
+    wire = bytearray()
+    while len(wire) < input_bytes:
+        check()
+        requested = min(65536, input_bytes - len(wire))
+        chunk = stream.read(requested)
+        require(type(chunk) is bytes and 0 < len(chunk) <= requested, "INPUT_TRUNCATED")
+        wire.extend(chunk)
     packet = parse(wire)
+    del wire
     exact(packet, ("status", "manifest_text", "manifest_md5", "parts"))
     require(packet["status"] == "ready", "DATABASE_REFUSED")
     require(type(packet["manifest_text"]) is str, "MANIFEST_FORMAT")
@@ -270,6 +279,7 @@ def receive(stream, destination, source_sha, cutoff):
                 data = base64.b64decode(transport["data_base64"], validate=True)
             except (ValueError, UnicodeError):
                 raise Refusal("BASE64_FORMAT") from None
+            transport["data_base64"] = ""  # release this encoded part; never retain another envelope
             require(len(data) == descriptor["bytes"] and md5(data) == descriptor["md5"], "PART_HASH")
             lines = data.splitlines(keepends=True)
             require(len(lines) == descriptor["rows"], "ROW_COUNT")
@@ -332,13 +342,15 @@ def main():
     parser.add_argument("--output", required=True)
     parser.add_argument("--source-sha", required=True)
     parser.add_argument("--deadline", required=True, type=float, help="ROOT's absolute epoch deadline, set before its SQL request")
+    parser.add_argument("--input-bytes", required=True, type=int, help="Exact outer-envelope UTF8 byte count, at most56MiB")
     args = parser.parse_args()
     remaining = args.deadline - time.time()
     require(math.isfinite(remaining) and 0 < remaining <= 60, "CAPTURE_DEADLINE")
     signal.signal(signal.SIGALRM, lambda *_: (_ for _ in ()).throw(Refusal("CAPTURE_DEADLINE")))
     signal.setitimer(signal.ITIMER_REAL, remaining)
     try:
-        result = receive(sys.stdin.buffer, args.output, args.source_sha, time.monotonic() + remaining)
+        with open(sys.stdin.fileno(), "rb", buffering=0, closefd=False) as stream:
+            result = receive(stream, args.output, args.source_sha, time.monotonic() + remaining, args.input_bytes)
         print(json.dumps(result, separators=(",", ":")))
     finally:
         signal.setitimer(signal.ITIMER_REAL, 0)

@@ -24,8 +24,9 @@ async function runQuery(label,{refused=false,text=sql}={}){
 }
 function consume(packet,label,{expired=false}={}){
  const directory=path.join(temp,label),deadline=(Date.now()+ (expired?-1000:20000))/1000;
- const result=cp.spawnSync('python3',[receiver,'--output',directory,'--source-sha',sha,'--deadline',String(deadline)],
-  {cwd:root,input:JSON.stringify(packet),encoding:'utf8',timeout:25000,maxBuffer:1024*1024,
+ const wire=JSON.stringify(packet); // Constructed local test only; operator uses incremental chunks.
+ const result=cp.spawnSync('python3',[receiver,'--output',directory,'--source-sha',sha,'--deadline',String(deadline),'--input-bytes',String(Buffer.byteLength(wire))],
+  {cwd:root,input:wire,encoding:'utf8',timeout:25000,maxBuffer:1024*1024,
    env:{PATH:process.env.PATH,LANG:'en_AU.UTF-8',PYTHONDONTWRITEBYTECODE:'1'}});
  assert.ifError(result.error);assert.equal(result.status,expired?1:0,result.stderr);
  if(expired){assert(!fs.existsSync(directory));assert(result.stderr.includes('CAPTURE_DEADLINE'));return;}

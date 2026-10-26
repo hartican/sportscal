@@ -5,11 +5,15 @@ import hashlib
 import importlib.util
 import io
 import json
+import os
 from pathlib import Path
+import pty
+import select
 import subprocess
 import stat
 import sys
 import tempfile
+import termios
 import time
 import unittest
 from unittest import mock
@@ -70,10 +74,11 @@ def rebind_manifest(value, edit):
 
 class ReceiverControls(unittest.TestCase):
     def invoke(self, value, output):
+        wire = value if type(value) is bytes else json.dumps(value).encode()
         return subprocess.run([sys.executable, str(ROOT / "receive-public-state.py"),
                                "--output", str(output), "--source-sha", SHA,
-                               "--deadline", str(time.time() + 15)],
-                              input=value if type(value) is bytes else json.dumps(value).encode(), capture_output=True, timeout=20)
+                               "--deadline", str(time.time() + 15), "--input-bytes", str(len(wire))],
+                              input=wire, capture_output=True, timeout=20)
 
     def test_operator_query_has_one_renderable_source_binding(self):
         template = (ROOT / "capture-public-state.sql").read_text()
@@ -82,6 +87,62 @@ class ReceiverControls(unittest.TestCase):
         rendered = template.replace(marker, SHA)
         self.assertNotIn(marker, rendered)
         self.assertIn("'sourceGitSha', '" + SHA + "'", rendered)
+
+    def raw_tty(self, wire, output, declared, duration=5):
+        master, slave = pty.openpty()
+        settings = termios.tcgetattr(slave); settings[3] &= ~(termios.ECHO | termios.ICANON)
+        settings[6][termios.VMIN], settings[6][termios.VTIME] = 1, 0
+        termios.tcsetattr(slave, termios.TCSANOW, settings)
+        child = subprocess.Popen([sys.executable, str(ROOT / "receive-public-state.py"),
+                                  "--output", str(output), "--source-sha", SHA,
+                                  "--deadline", str(time.time() + duration), "--input-bytes", str(declared)],
+                                 stdin=slave, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        os.close(slave); os.set_blocking(master, False)
+        try:
+            sent = 0; deadline = time.monotonic() + duration + 1
+            while sent < len(wire) and child.poll() is None and time.monotonic() < deadline:
+                if select.select([], [master], [], 0.1)[1]:
+                    try: sent += os.write(master, wire[sent:sent + 16384])
+                    except BlockingIOError: pass
+                    except OSError: break
+            child.wait(timeout=duration + 2)
+            stdout, stderr = child.communicate()
+            os.fstat(master)  # still OPEN: no EOF, Ctrl-D or canonical input
+            return child.returncode, stdout, stderr, sent
+        finally:
+            if child.poll() is None: child.kill(); child.wait()
+            os.close(master)
+
+    def test_actual_raw_tty_finishes_known_frame_without_eof(self):
+        for size in [65536, RECEIVER.PART - len(score_line(b'{"padding":""}'))]:
+            line = score_line(b'{"padding":"' + b'x' * size + b'"}')
+            wire = json.dumps(packet([line])).encode()
+            with tempfile.TemporaryDirectory() as folder:
+                output = Path(folder).resolve() / "capture"
+                code, stdout, stderr, sent = self.raw_tty(wire, output, len(wire))
+                self.assertEqual(code, 0, stderr); self.assertEqual(sent, len(wire))
+                self.assertEqual((output / "part-00.ndjson").read_bytes(), line)
+                self.assertEqual(json.loads(stdout)["state"], "validated-public-reference-only")
+
+    def test_raw_tty_short_delivery_hits_deadline_without_partial_output(self):
+        wire = json.dumps(packet([source_line()])).encode()
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder).resolve() / "capture"
+            code, _, stderr, sent = self.raw_tty(wire, output, len(wire) + 1, duration=0.3)
+            self.assertEqual(code, 1); self.assertEqual(sent, len(wire))
+            self.assertIn(b'CAPTURE_DEADLINE', stderr); self.assertFalse(output.exists())
+
+    def test_frame_count_over_cap_or_short_pipe_refuses_before_output(self):
+        wire = json.dumps(packet([source_line()])).encode()
+        class NeverRead:
+            def read(self, _): raise AssertionError('over-cap frame must not consume')
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder).resolve() / 'capture'
+            with self.assertRaisesRegex(RECEIVER.Refusal, 'WIRE_BUDGET'):
+                RECEIVER.receive(NeverRead(), output, SHA, time.monotonic() + 10, RECEIVER.WIRE + 1)
+            with self.assertRaisesRegex(RECEIVER.Refusal, 'INPUT_TRUNCATED'):
+                RECEIVER.receive(io.BytesIO(wire), output, SHA, time.monotonic() + 10, len(wire) + 1)
+            self.assertFalse(output.exists())
 
     def test_raw_numbers_times_unicode_and_nulls_survive_actual_stdin(self):
         line = source_line().replace(b'"fixture:qa"', '"fixture:日"'.encode())
@@ -150,7 +211,8 @@ class ReceiverControls(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             with mock.patch.object(RECEIVER.base64, "b64decode", side_effect=AssertionError("must not decode")):
                 with self.assertRaisesRegex(RECEIVER.Refusal, "ROW_BUDGET"):
-                    RECEIVER.receive(io.BytesIO(json.dumps(value).encode()), Path(folder).resolve() / "capture", SHA, time.monotonic() + 10)
+                    wire = json.dumps(value).encode()
+                    RECEIVER.receive(io.BytesIO(wire), Path(folder).resolve() / "capture", SHA, time.monotonic() + 10, len(wire))
         value = packet([source_line()])
         def oversized(manifest):
             manifest["parts"] = [{"name": "part-" + str(i).zfill(2) + ".ndjson", "bytes": RECEIVER.PART,
@@ -161,7 +223,8 @@ class ReceiverControls(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             with mock.patch.object(RECEIVER.base64, "b64decode", side_effect=AssertionError("must not decode")):
                 with self.assertRaisesRegex(RECEIVER.Refusal, "TOTAL_BUDGET"):
-                    RECEIVER.receive(io.BytesIO(json.dumps(value).encode()), Path(folder).resolve() / "capture", SHA, time.monotonic() + 10)
+                    wire = json.dumps(value).encode()
+                    RECEIVER.receive(io.BytesIO(wire), Path(folder).resolve() / "capture", SHA, time.monotonic() + 10, len(wire))
 
     def test_exact_manifest_limit_and_plus_one(self):
         for extra in [0, 1]:
@@ -206,7 +269,7 @@ class ReceiverControls(unittest.TestCase):
             def read(self, _): raise AssertionError("expired receiver must not consume")
         with tempfile.TemporaryDirectory() as folder:
             with self.assertRaisesRegex(RECEIVER.Refusal, "CAPTURE_DEADLINE"):
-                RECEIVER.receive(NeverRead(), Path(folder).resolve() / "capture", SHA, time.monotonic() - 1)
+                RECEIVER.receive(NeverRead(), Path(folder).resolve() / "capture", SHA, time.monotonic() - 1, 1)
 
     def test_directory_close_failure_rejects_and_cleans_instead_of_leaving_manifest(self):
         value = json.dumps(packet([source_line()])).encode(); close = RECEIVER.os.close; original_stat = RECEIVER.os.fstat
@@ -222,7 +285,7 @@ class ReceiverControls(unittest.TestCase):
             output = Path(folder).resolve() / "capture"
             with mock.patch.object(RECEIVER.os, "close", fail_once):
                 with self.assertRaisesRegex(OSError, "forced final directory close"):
-                    RECEIVER.receive(io.BytesIO(value), output, SHA, time.monotonic() + 10)
+                    RECEIVER.receive(io.BytesIO(value), output, SHA, time.monotonic() + 10, len(value))
             self.assertFalse(output.exists())
 
     def test_deadline_exception_during_final_close_rolls_back_and_closes_remaining_handles(self):
@@ -243,7 +306,7 @@ class ReceiverControls(unittest.TestCase):
             try:
                 with mock.patch.object(RECEIVER.os, "open", track), mock.patch.object(RECEIVER.os, "close", timeout_once):
                     with self.assertRaisesRegex(RECEIVER.Refusal, "CAPTURE_DEADLINE"):
-                        RECEIVER.receive(io.BytesIO(value), output, SHA, time.monotonic() + 10)
+                        RECEIVER.receive(io.BytesIO(value), output, SHA, time.monotonic() + 10, len(value))
                 self.assertFalse(output.exists())
                 for fd in opened:
                     with self.assertRaises(OSError): original_stat(fd)
@@ -267,7 +330,7 @@ class ReceiverControls(unittest.TestCase):
             output = Path(folder).resolve() / "capture"
             with mock.patch.object(RECEIVER.os, "read", read_fail), mock.patch.object(RECEIVER.os, "close", close_fail):
                 with self.assertRaises(OSError) as found:
-                    RECEIVER.receive(io.BytesIO(value), output, SHA, time.monotonic() + 10)
+                    RECEIVER.receive(io.BytesIO(value), output, SHA, time.monotonic() + 10, len(value))
                 self.assertIs(found.exception, failure)
             self.assertFalse(output.exists())
 
@@ -285,7 +348,7 @@ class ReceiverControls(unittest.TestCase):
             try:
                 with mock.patch.object(RECEIVER.os, "open", track), mock.patch.object(RECEIVER.os, "fstat", fail_once):
                     with self.assertRaisesRegex(OSError, "forced directory stat"):
-                        RECEIVER.receive(io.BytesIO(value), output, SHA, time.monotonic() + 10)
+                        RECEIVER.receive(io.BytesIO(value), output, SHA, time.monotonic() + 10, len(value))
                 for fd in opened:
                     with self.assertRaises(OSError): original_stat(fd)
                 self.assertFalse(output.exists())
@@ -300,7 +363,7 @@ class ReceiverControls(unittest.TestCase):
             output = Path(folder).resolve() / "capture"
             with mock.patch.object(RECEIVER.os, "write", side_effect=failure):
                 with self.assertRaises(OSError) as found:
-                    RECEIVER.receive(io.BytesIO(value), output, SHA, time.monotonic() + 10)
+                    RECEIVER.receive(io.BytesIO(value), output, SHA, time.monotonic() + 10, len(value))
             self.assertIs(found.exception, failure)
             self.assertFalse(output.exists())
 

@@ -81,10 +81,38 @@ outer object, keeping `manifest_text` and base64 strings opaque. Send that
 envelope as **stdin data** to this static file, with no payload embedded in code:
 
 ```
-python3 scripts/receive-public-state.py --output /absolute/new-private-folder --source-sha <frozen-40hex> --deadline <original-window-epoch-deadline>
+python3 scripts/receive-public-state.py --output /absolute/new-private-folder --source-sha <frozen-40hex> --deadline <original-window-epoch-deadline> --input-bytes <exact-outer-envelope-UTF8-length>
 ```
 
-The receiver bounds stdin to 56 MiB, enforces the remaining absolute deadline,
+The receiver requires an exact input byte count before reading. It consumes
+only that one frame with unbuffered bounded reads; EOF, Ctrl-D and stdin closure
+are not required. ROOT must disable TTY ECHO/ICANON **before the first data**,
+as in its successful control, avoiding echo and canonical line limits. A short
+pipe fails immediately; a short still-open TTY fails at the same absolute
+deadline. The declared frame must be positive and at most 56 MiB. The channel
+is not reused for another frame.
+
+`scripts/lib/public-state-stdin-frame.js` contains the small static sender
+functions: `size(packet)` computes the exact ASCII envelope byte count from
+small header encodings plus base64 lengths; `chunks(packet)` yields those
+headers and at most 4 MiB data chunks. They never stringify or join the full
+envelope. SQL's manifest/control fields and base64 are ASCII; unexpected
+non-ASCII transport fields refuse rather than guessing the byte count. The
+strict 64 KiB code-review limit is about **executable code**, not these separately
+sent data arguments. Do not embed any chunk in executable JavaScript, shell
+code, an argument/env value or a generated script.
+
+The actual functions runner retains only its one extracted packet: discard the
+raw tool-text/other envelope reference after outer parsing, do not `store()` or
+print the payload, compute `size`, launch the static receiver with only metadata
+arguments, and iterate/await data-only `write_stdin` calls over `chunks`. Do not
+spread/join the iterator or make another whole `JSON.stringify(packet)` copy.
+Discard the packet after sending; only the receiver's small receipt is printed.
+Reuse the reviewed static functions directly in that short runner; no dynamic
+eval or code/data interpolation. The receiver releases its wire buffer after
+outer parsing and each encoded part after decoding.
+
+The receiver enforces the remaining absolute deadline,
 validates the manifest/part list, decodes each at most 4 MiB part, compares its DB
 MD5 and keeps the original UTF8 bytes. It verifies whole-row framing, complete
 kind/source/compound identities, order, counts, receipt presence and the same
@@ -123,6 +151,17 @@ an impossible absent-receipt/non-null-value combination, with hashes rebound.
 Deadline exceptions now retain the same rollback/remaining-close path as IO
 failures; missing keys require null extraction, while present explicit nulls
 remain valid. Both controls failed before repair and pass after it.
+
+The pipe-based controls originally closed stdin implicitly. ROOT's later
+transport-interface review found that a real raw TTY remains open. Required
+exact-length framing repairs that mismatch. Local actual raw-TTY controls now
+complete both a >4 KiB envelope and an exact 4 MiB decoded part while the master
+stays open, with no Ctrl-D/EOF. A missing final byte times out without output.
+`node scripts/validate-public-state-input-frame.js` checks the static sender's
+exact count, preserved outer fields, bounded chunk iteration and refusals. These
+are local constructed controls, no managed tool delivery or SQL repeat. The
+functional PG17 harness's CLI call uses the new required count; it has not been
+rerun solely for this framing change. SQL bytes remain unchanged.
 
 Those receiver tests alone prove no PostgreSQL execution. ROOT subsequently
 allocated one <=180-second disposable cached PG17 functional window. The exact
