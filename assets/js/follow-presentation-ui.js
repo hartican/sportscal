@@ -586,9 +586,9 @@ function renderFollowViewLoaded(){
   const code=followInspectorCode(entity);
   const commonControls=document.createElement('div');commonControls.className='follow-common-controls';
   const followed=selectorEntityIsEffectivelySelected(entity.id,userPreferences);
-  const followLabel=document.createElement('label');followLabel.className='follow-checkbox';
+  const followLabel=document.createElement('label');followLabel.className='follow-checkbox follow-sport-control';
   const follow=document.createElement('input');follow.type='checkbox';follow.checked=followed;follow.setAttribute('aria-label',`Follow ${entity.label}`);
-  follow.addEventListener('change',()=>saveFollowSport({id:entity.canonicalSportKeys?.[0],selectorId:entity.id,label:entity.label},follow.checked));
+  follow.addEventListener('change',()=>{if(saveFollowSport({id:entity.canonicalSportKeys?.[0],selectorId:entity.id,label:entity.label},follow.checked)===false)follow.checked=followed;});
   followLabel.append(follow,document.createTextNode(`Follow ${entity.label}`));commonControls.appendChild(followLabel);
   if(entity.id==='sport:football'){
     const label=document.createElement('label');label.className='follow-checkbox';
