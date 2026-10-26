@@ -76,7 +76,7 @@
   actions.append(button('GIF',()=>void gifs()),button('Cancel reply',()=>{parentId=null;clientId=null;replyTo.textContent='';}),submit);form.append(replyTo,input,preview,actions);host.append(form);
   input.oninput=()=>{clientId=null;};form.onsubmit=e=>{e.preventDefault();try{const body=policy.text(input.value);if(!body&&!chosenGif)return;clientId ||= crypto.randomUUID();void mutate({action:'post',clientId,body,...(parentId?{parentId}:{}),...(chosenGif?{gif:chosenGif}:{})});}catch(e){report(e);}};
   const visibility=()=>{stop();if(shown())void poll();};document.addEventListener('visibilitychange',visibility);
-  const observer=typeof IntersectionObserver==='function'?new IntersectionObserver(records=>{visible=records.some(r=>r.isIntersecting);visibility();}):null;observer?.observe(host);
+  const observer=typeof IntersectionObserver==='function'?new IntersectionObserver(records=>{const nextVisible=records.some(r=>r.isIntersecting);if(nextVisible!==visible){visible=nextVisible;visibility();}}):null;observer?.observe(host);
   active={card,host,dispose(){disposed=true;stop();gifController?.closePicker();observer?.disconnect();document.removeEventListener('visibilitychange',visibility);host.remove();}};
   void loadPage();return active;
  }

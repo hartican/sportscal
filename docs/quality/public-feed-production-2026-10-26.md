@@ -70,6 +70,21 @@ node scripts/validate-public-comments-state.js --case=lateActions
 
 The original fresh-window failure remains retained with frame/trace and its three partial passes are not combined with another SHA. The real product delta requires both source reviews and a separately allocated coherent full native run. No automatic second run was performed.
 
+## Retained duplicate initial-page failure
+
+Both ROOT source-review axes cleared `3c8de9ef`. Its fresh-window second native attempt passed three Chromium390 outcomes and the corrected full-card/tray layout, then stopped on the unchanged strict root-page ledger: expected 25/25/2, observed 25/25/25/2. That exhausted the two-attempt allocation. The actual UI reached 52 roots and 57 replies, but the extra initial read is a failure and is never filtered out or merged with another run's passes.
+
+The retained trace records the actual openFixture call, two identical initial HTTP200 responses about 1009 ms apart, then two user Load more taps with the exact preceding response cursors. Both initial responses contain 25 roots and six bounded preview replies; later root pages contain 25 and two roots. HTTP200 proves a transport response, not whether the SDK accepted or aborted it. The first literal comment snapshot appears after the second initial response. The retained trace does not directly expose the first SDK promise's terminal state.
+
+An actual-UI/actual-server-sync-SDK regression supplies the missing causal boundary: while the initial request is pending, the platform's first IntersectionObserver report repeats visible=true; the old UI unconditionally stops and aborts the real SDK signal. Its busy retry then waits the existing one-second cadence with no accepted baseline. The narrow correction invokes visibility handling only when the intersection state changes. Source controls preserve the pending initial and cursor-page signals, accepted rows, draft/focus, polling deadline and exact 25/25/2 sequence; genuine offscreen/visible, document hide, account replacement, close and the offscreen notification after detach still cancel/stop through the actual SDK. Controlled responses are test fixtures, not managed Auth/backend evidence. Failure receipts now retain every request/cursor observation as well as the original failed count assertion.
+
+```sh
+node scripts/validate-public-comments-state.js --case=sameVisibility --visibility-baseline
+node scripts/validate-public-comments-state.js --case=sameVisibility
+```
+
+The baseline command intentionally remains RED on `3c8de9ef`. A green source control is not a new native pass. Freeze the correction, run affected source/light/preflight gates, obtain both ROOT reviews and wait for a fresh coherent full-60 allocation; no third native run or shared-service operation is authorised by this correction.
+
 ## SQL evidence reuse
 
 Product migration `20261023222545_public_fixture_comments.sql` remains SHA256 `217c1f4096f33e65a8f60796bb20d05e6512a5278cff499beb6a2faa7e910f30`, unchanged from the qualified `e14550f6` product source. The recovery helper/database harness and all three source-bound recovery SQL inputs remain unchanged; the latter also equal current main. Preserve the [completed PG18/PG17 coexistence pair](public-feed-recovery-coexistence-2026-10-26.md) at `4ccb4913` and earlier erasure/retirement controls. Those are reused unchanged-input local evidence, not a newly run engine pair, actual managed fingerprint or complete managed erasure/storage workflow. Rerun only affected local SQL checks when a source/input change justifies it and ROOT allocates the work.
