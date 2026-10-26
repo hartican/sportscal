@@ -100,11 +100,11 @@ class Output:
                 try:
                     value = os.fstat(self.directory)  # cleanup-only identity recovery
                     self.identity = value.st_dev, value.st_ino
-                except OSError:
+                except BaseException:
                     pass
             try:
                 self.close(True)
-            except OSError:
+            except BaseException:
                 pass
             raise
 
@@ -135,11 +135,11 @@ class Output:
                 try:
                     value = os.fstat(fd)  # cleanup identity only; never retry a write
                     owned["identity"] = value.st_dev, value.st_ino
-                except OSError:
+                except BaseException:
                     pass
             try:
                 os.close(fd)
-            except OSError:
+            except BaseException:
                 if primary is None:
                     raise
 
@@ -164,7 +164,7 @@ class Output:
         finally:
             try:
                 os.close(fd)
-            except OSError:
+            except BaseException:
                 if primary is None:
                     raise
 
@@ -207,7 +207,7 @@ class Output:
             if fd is not None:
                 try:
                     os.close(fd)
-                except OSError as error:
+                except BaseException as error:
                     errors.append(error)
         if errors:
             if not failed:
@@ -290,6 +290,7 @@ def receive(stream, destination, source_sha, cutoff):
                 source_sets[kind].add(row["source_id"])
                 if kind == "sources":
                     require(type(row["receipt_key_present"]) is bool, "RECEIPT_PRESENCE")
+                    require(row["receipt_key_present"] or row["fixture_observations"] is None, "RECEIPT_PRESENCE")
                     observed["receiptKeys"] += row["receipt_key_present"]
                 for flag, field in (("score_is_sql_null", "score"), ("fixture_is_sql_null", "fixture"), ("identity_keys_is_sql_null", "identity_keys")):
                     if flag in row:
@@ -321,7 +322,7 @@ def receive(stream, destination, source_sha, cutoff):
     finally:
         try:
             output.close(failed)
-        except OSError:
+        except BaseException:
             if primary is None:
                 raise
 

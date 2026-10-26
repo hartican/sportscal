@@ -36,21 +36,28 @@ WITH inventory AS MATERIALIZED (
       'fixture_observations', s.discovery_report -> '_fixtureObservations')
   FROM public.nothingsports_fixture_sources s CROSS JOIN permitted p WHERE p.ok
 ), framed AS MATERIALIZED (
-  SELECT *, jsonb_build_object('kind', kind, 'row', value)::text || E'\n' AS line,
-    get_byte(decode(md5(kind || E'\n' || source_id || E'\n' || fixture_id), 'hex'), 0) % 16 AS bucket
+  SELECT *, jsonb_build_object('kind', kind, 'row', value)::text || E'\n' AS line
   FROM records
 ), row_bounds AS MATERIALIZED (
   SELECT coalesce(sum(octet_length(line)), 0) AS bytes,
     coalesce(max(octet_length(line)), 0) AS largest,
     md5(coalesce(string_agg(md5(line), '' ORDER BY kind_order, source_id COLLATE "C", fixture_id COLLATE "C"), '')) AS graph_md5
   FROM framed
+), positioned AS MATERIALIZED (
+  -- Linear packing after the fixed order. Width = part limit - largest row.
+  -- All starts in one width interval span < width + largest <= part limit;
+  -- rows remain whole. A largest row equal to the limit safely refuses.
+  SELECT f.*, ((sum(octet_length(line)) OVER (
+    ORDER BY kind_order, source_id COLLATE "C", fixture_id COLLATE "C" ROWS UNBOUNDED PRECEDING
+  ) - octet_length(line)) / (4194304 - b.largest))::integer AS bucket
+  FROM framed f CROSS JOIN row_bounds b WHERE b.bytes <= 41943040 AND b.largest < 4194304
+), packing_bounds AS MATERIALIZED (
+  SELECT coalesce(max(bucket), -1) < 16 AS fits FROM positioned
 ), parts AS MATERIALIZED (
-  -- Fixed deterministic buckets, whole rows. A skewed/oversized bucket refuses;
-  -- there is no implicit repartition, sampling, truncation or byte-limit change.
   SELECT bucket, 'part-' || lpad(bucket::text, 2, '0') || '.ndjson' AS name,
     count(*) AS rows,
     string_agg(line, '' ORDER BY kind_order, source_id COLLATE "C", fixture_id COLLATE "C") AS body
-  FROM framed CROSS JOIN row_bounds b WHERE b.bytes <= 41943040 AND b.largest <= 4194304
+  FROM positioned CROSS JOIN packing_bounds p WHERE p.fits
   GROUP BY bucket
 ), descriptors AS MATERIALIZED (
   SELECT bucket, name, rows, body, octet_length(body) AS bytes, md5(body) AS checksum FROM parts
@@ -69,7 +76,7 @@ WITH inventory AS MATERIALIZED (
   )::text || E'\n' AS body, p.ok, b.bytes, b.largest
   FROM permitted p CROSS JOIN row_bounds b
 ), approved AS MATERIALIZED (
-  SELECT *, ok AND largest <= 4194304 AND octet_length(body) <= 65536
+  SELECT *, ok AND largest < 4194304 AND (SELECT fits FROM packing_bounds) AND octet_length(body) <= 65536
     AND bytes + octet_length(body) <= 41943040
     AND NOT EXISTS (SELECT 1 FROM descriptors WHERE bytes > 4194304) AS fits FROM manifest
 )

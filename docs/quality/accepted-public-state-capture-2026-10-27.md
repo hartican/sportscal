@@ -42,10 +42,19 @@ There is no retry, alternate query or cap increase after refusal.
 The query first counts all rows, then measures exact typed NDJSON UTF8 framing.
 Bounds: 10,000 current, 10,000 scores, 128 metadata rows; 40 MiB decoded total
 **including the manifest**, 64 KiB manifest, 4 MiB per complete row/part, at most
-16 parts. Deterministic MD5-byte buckets keep whole rows; a skewed oversized
-bucket refuses, without repartition, sampling or truncation. No sporting data
+16 parts. In fixed kind/source/fixture order, put each whole row into the bin of
+its cumulative starting byte divided by `(4 MiB - measured largest row)`. Starts
+within one bin span less than that width; adding the last whole row stays within
+4 MiB. A largest row equal to 4 MiB or a bin index beyond 15 safely refuses.
+No sporting data
 is returned when inventory, row, part or total bounds refuse. The bounded refusal
 packet contains no values.
+
+Before any real read, the saved sizing bounds plus this exact framing give
+31,558,560 bytes and a maximum row of at most 1,965,057 bytes: width 2,229,247,
+at most 15 bins, leaving 10,384,480 bytes before the 40 MiB total for a <=64 KiB
+manifest. This is an arithmetic bound for the witnessed unchanged rows, not a
+fresh snapshot or executed SQL result. The actual query remeasures everything.
 
 Current rows retain source/fixture IDs, original ordered identity arrays, full
 raw fixture, stored hash and updated time. Scores retain raw score, explicit
@@ -61,6 +70,9 @@ There is no universal source error column. The manifest requires
 `reportErrorPresence: UNVERIFIED` and `readerContextAccepted: false`. Preserving
 failure count and receipts does not manufacture an error-presence predicate.
 This explicitly leaves full reader/health context and the release gate open.
+The original REMINDER owner's source clarification confirms that a universal
+error boolean is not required for this limited reference graph; its amended
+contract is SHA256 `a7632ba03b84d6c517837f364a9bd4397dbb04399666016eb8a6872c783e1f1c`.
 
 ## Static data-only bridge and receiver
 
@@ -106,6 +118,11 @@ before decode, truncation, duplicate/order/private/scope/hash refusal, existing
 output protection, deadline, write/read/close failures and owned cleanup.
 Initial directory-stat failure reproduced a descriptor leak; cleanup-only inode
 recovery, unconditional close and original-error preservation repair it.
+Review also reproduced a deadline exception during final directory close and
+an impossible absent-receipt/non-null-value combination, with hashes rebound.
+Deadline exceptions now retain the same rollback/remaining-close path as IO
+failures; missing keys require null extraction, while present explicit nulls
+remain valid. Both controls failed before repair and pass after it.
 
 No PostgreSQL/native execution or actual SELECT/framing result is proved by
 these tests. Both source reviews and ROOT's separately allocated real query are

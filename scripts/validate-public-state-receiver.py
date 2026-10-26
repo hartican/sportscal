@@ -193,6 +193,14 @@ class ReceiverControls(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertEqual((output / "part-00.ndjson").read_bytes(), first + second)
 
+    def test_absent_receipt_cannot_have_nonnull_value_even_with_rebound_hashes(self):
+        impossible = source_line().replace(b'"receipt_key_present":true', b'"receipt_key_present":false')
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder).resolve() / "capture"
+            result = self.invoke(packet([impossible]), output)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertFalse(output.exists())
+
     def test_expired_deadline_does_not_read_or_create(self):
         class NeverRead:
             def read(self, _): raise AssertionError("expired receiver must not consume")
@@ -216,6 +224,33 @@ class ReceiverControls(unittest.TestCase):
                 with self.assertRaisesRegex(OSError, "forced final directory close"):
                     RECEIVER.receive(io.BytesIO(value), output, SHA, time.monotonic() + 10)
             self.assertFalse(output.exists())
+
+    def test_deadline_exception_during_final_close_rolls_back_and_closes_remaining_handles(self):
+        value = json.dumps(packet([source_line()])).encode()
+        close, open_file, original_stat = RECEIVER.os.close, RECEIVER.os.open, RECEIVER.os.fstat
+        opened = []; fired = False
+        def track(*args, **kwargs):
+            fd = open_file(*args, **kwargs); opened.append(fd); return fd
+        def timeout_once(fd):
+            nonlocal fired
+            directory = stat.S_ISDIR(original_stat(fd).st_mode)
+            close(fd)
+            if directory and not fired:
+                fired = True
+                raise RECEIVER.Refusal("CAPTURE_DEADLINE")
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder).resolve() / "capture"
+            try:
+                with mock.patch.object(RECEIVER.os, "open", track), mock.patch.object(RECEIVER.os, "close", timeout_once):
+                    with self.assertRaisesRegex(RECEIVER.Refusal, "CAPTURE_DEADLINE"):
+                        RECEIVER.receive(io.BytesIO(value), output, SHA, time.monotonic() + 10)
+                self.assertFalse(output.exists())
+                for fd in opened:
+                    with self.assertRaises(OSError): original_stat(fd)
+            finally:
+                for fd in opened:
+                    try: close(fd)
+                    except OSError: pass
 
     def test_original_readback_failure_survives_secondary_close_failure(self):
         value = json.dumps(packet([source_line()])).encode(); close = RECEIVER.os.close
