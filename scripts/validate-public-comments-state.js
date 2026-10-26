@@ -63,6 +63,20 @@ async function lateActions(){const h=harness(),{w,card}=h;try{
  const parent=w.document.createElement('article'),child=w.document.createElement('article'),nested=w.document.createElement('section');parent.dataset.cardState='opened';nested.className='public-comments';child.append(nested);parent.append(child);w.NOTHINGSPORTS_FEED_LIVE_SCORES.install(parent,event,{resultsOn:false});assert.equal(nested.parentElement,child,'A nested child discussion must not be selected as the parent insertion reference');assert.equal(parent.lastElementChild.className,'btn ghost fixture-public-comments');
  }finally{h.close();}}
 async function localExposure(){return require('./validate-transient-card-exposure').run({baselineRef:process.argv.includes('--exposure-baseline')?'3ddb60a4b87c29c92eaacc5638e6b88482a74182':undefined});}
+async function voteFocus(){
+ for(const outcome of ['success','failure','moved','account']){const h=harness(),{w,card,timers}=h,commands=[];let resolveWrite,rejectWrite;try{
+  if(process.argv.includes('--vote-focus-baseline'))w.eval(require('node:child_process').execFileSync('git',['show','7092f6937b93e448fcb193799472ae6295781180:config/public-comments-ui.js'],{encoding:'utf8'}));
+  const a=entry('Focused vote'),c=client(async(id,q,command)=>{if(command){commands.push(command);return new Promise((resolve,reject)=>{resolveWrite=resolve;rejectWrite=reject;});}return{comments:[a],revision:1};});
+  w.NOTHINGSPORTS_PUBLIC_COMMENTS_UI.mount(card,{id:'fixture:one'},c);await tick();const input=card.querySelector('textarea'),up=card.querySelector('[aria-label="Upvote comment"]'),down=card.querySelector('[aria-label="Downvote comment"]');input.value='Unsent draft';up.focus();up.click();await tick();
+  assert.equal(up.disabled,false,'A focused live vote must stay natively focusable while its write is pending');assert.equal(up.getAttribute('aria-disabled'),'true');assert.equal(down.getAttribute('aria-disabled'),'true');assert.equal(w.document.activeElement,up);
+  up.click();down.click();card.querySelector('form').dispatchEvent(new w.Event('submit',{cancelable:true}));await tick();assert.equal(commands.length,1,'The existing pending-write guard rejects duplicate votes and posts despite retained keyboard focus');assert.equal(input.value,'Unsent draft');
+  if(outcome==='moved')input.focus();
+  if(outcome==='account'){w.dispatchEvent(new w.Event('ns-account-change'));resolveWrite({comment:{...a,myVote:1,revision:2}});await tick();assert.equal(card.querySelector('.public-comments'),null);assert.equal(timers.size,0);assert.notEqual(w.document.activeElement,up);continue;}
+  if(outcome==='failure')rejectWrite(Error('Write unavailable'));else resolveWrite({comment:{...a,myVote:1,revision:2}});for(let i=0;i<3;i++)await tick();
+  assert.equal(card.querySelector('[aria-label="Upvote comment"]'),up);assert.equal(up.getAttribute('aria-disabled'),'false');assert.equal(up.disabled,false);assert.equal(up.getAttribute('aria-pressed'),String(outcome!=='failure'));assert.equal(w.document.activeElement,outcome==='moved'?input:up,'Settling a write cannot lose retained focus or steal deliberately moved focus');assert.equal(input.value,'Unsent draft');assert.equal(commands.length,1);
+ }finally{h.close();}}
+ const h=harness();try{h.w.NOTHINGSPORTS_PUBLIC_COMMENTS_UI.mount(h.card,{id:'fixture:one'},client(async()=>({comments:[entry('',{deleted:true})],revision:1})));await tick();const votes=h.card.querySelectorAll('[aria-label$="vote comment"]');assert.equal(votes.length,2);for(const vote of votes){assert.equal(vote.disabled,true,'Unavailable deleted content retains native vote refusal');assert.equal(vote.getAttribute('aria-disabled'),'true');}}finally{h.close();}
+}
 async function sameVisibility(){const h=harness(),{w,card,timers}=h,pending=[],accepted=[];let notify;try{
  w.IntersectionObserver=class{constructor(callback){notify=callback;}observe(){}disconnect(){}};
  w.eval(fs.readFileSync('config/server-sync.js','utf8'));
@@ -86,5 +100,5 @@ async function sameVisibility(){const h=harness(),{w,card,timers}=h,pending=[],a
  w.NOTHINGSPORTS_PUBLIC_COMMENTS_UI.mount(card,{id:'fixture:one'});await tick();assert.equal(pending.length,7);w.NOTHINGSPORTS_PUBLIC_COMMENTS_UI.reset();assert.equal(pending[6].signal.aborted,true,'Closing still cancels the actual SDK read');await tick();assert.equal(timers.size,0);
  w.NOTHINGSPORTS_PUBLIC_COMMENTS_UI.mount(card,{id:'fixture:one'});await tick();assert.equal(pending.length,8);card.querySelector('.public-comments').remove();notify([{isIntersecting:false}]);assert.equal(pending[7].signal.aborted,true,'The real offscreen signal after detach still cancels the actual SDK read');await tick();assert.equal(timers.size,0);assert.equal(card.querySelector('.public-comments'),null);
  }finally{h.close();}}
-async function main(){const which=process.argv.find(arg=>arg.startsWith('--case='))?.slice(7);for(const[name,run]of Object.entries({delta,denial,cold,scroll,lateActions,sameVisibility,localExposure}))if(!which||which===name){await run();console.log('Public comments actual-source state: '+name+' passed.');}}
+async function main(){const which=process.argv.find(arg=>arg.startsWith('--case='))?.slice(7);for(const[name,run]of Object.entries({delta,denial,cold,scroll,lateActions,sameVisibility,localExposure,voteFocus}))if(!which||which===name){await run();console.log('Public comments actual-source state: '+name+' passed.');}}
 main().catch(error=>{console.error(error);process.exitCode=1;});

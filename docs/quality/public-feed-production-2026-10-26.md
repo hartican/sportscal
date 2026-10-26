@@ -119,6 +119,21 @@ The neutral standalone regression is `scripts/validate-transient-card-exposure.j
 
 The baseline remains RED. This product delta requires both ROOT source reviews, affected renderer/runtime/source gates and a separately allocated coherent full native attempt. Earlier failures remain failed; no repeated full suite, hidden mutation or new preview substitutes for qualification. ROOT owns combining later shared-renderer changes and final version/cache/release handling.
 
+## Retained pending-vote focus failure
+
+The single allocated `7092f693` attempt ran 13:59:38–13:59:52 UTC on 26 October (00:59 Sydney on 27 October), completing eight Chromium390 outcomes before the ninth failed. Its shared-scroll, Results OFF, live insert anchor and pre-vote focus assertions passed, then the focused upvote was accepted but the post-vote focus assertion returned false. The nine-outcome receipt remains incomplete, with eight partial passes bound only to that exact SHA; no other width or browser passed. The full read ledger, single accepted vote, actual frame/trace and source pins remain. Owned group 48556 has no survivors and its server port 54076 is closed; ROOT owns the next heavy lane.
+
+The actual UI renders all vote controls natively disabled while a write is pending. Its existing focus restoration cannot focus a disabled control; the later render observes focus after that interruption. The old JSDOM focus check did not model native focus loss when disabling. The new source regression therefore checks the actual intermediate focusability property directly: exact old `7092f693` source sets disabled=true on the focused live vote and is RED. The retained native assertion proves focus was lost, but does not separately identify the final active element.
+
+The narrow correction keeps a pending live vote focusable and marks it aria-disabled, with matching muted appearance. The unchanged current/sendPending guard still rejects repeat votes and posts. Deleted-content votes remain natively disabled. No delayed focus restoration, new timer, request, owner or polling change is introduced. Actual UI controls cover successful/error replies, explicit focus movement without stealing it back, account reset with late acknowledgement, preserved draft, one write despite repeated activation and deleted-content refusal. These are source/DOM controls over a controlled request boundary, not a new native or SDK qualification.
+
+```sh
+node scripts/validate-public-comments-state.js --case=voteFocus --vote-focus-baseline
+node scripts/validate-public-comments-state.js --case=voteFocus
+```
+
+Future native failure receipts also retain the actual personal-state snapshot and focused-element metadata, alongside every read observation. All assertions remain unchanged. Freeze and review this correction and retain the former failure; a further native attempt needs ROOT's fresh allocation after its combined-release qualification.
+
 ## SQL evidence reuse
 
 Product migration `20261023222545_public_fixture_comments.sql` remains SHA256 `217c1f4096f33e65a8f60796bb20d05e6512a5278cff499beb6a2faa7e910f30`, unchanged from the qualified `e14550f6` product source. The recovery helper/database harness and all three source-bound recovery SQL inputs remain unchanged; the latter also equal current main. Preserve the [completed PG18/PG17 coexistence pair](public-feed-recovery-coexistence-2026-10-26.md) at `4ccb4913` and earlier erasure/retirement controls. Those are reused unchanged-input local evidence, not a newly run engine pair, actual managed fingerprint or complete managed erasure/storage workflow. Rerun only affected local SQL checks when a source/input change justifies it and ROOT allocates the work.

@@ -706,7 +706,8 @@ async function main(){
               await page.screenshot({path:path.join(output, label + '.png')});
               const result = {engine, width, name, passed:true, publicReads:model.publicReads, writes:model.apiWrites, continuations:model.reads, heldOperations:model.gates.map(gate => gate.observed), providerStubs:model.providerCalls, offOriginDenied:[...new Set(model.blocked)], errors, console:model.console}; receipt.cases.push(result); console.log(JSON.stringify(result));
             }catch(error){
-              receipt.cases.push({engine, width, name, passed:false, error:error.message, publicReads:model.publicReads, continuations:model.reads, errors, console:model.console, commands:model.commands, blocked:model.blocked});
+              const actualState=await page.evaluate(()=>{const focus=document.activeElement;return{personal:typeof __publicFeedSnapshot==='function'?__publicFeedSnapshot():null,focus:focus?{tag:focus.tagName,label:focus.getAttribute('aria-label'),comment:focus.closest('[data-comment]')?.dataset.comment||null,disabled:focus.disabled===true,ariaDisabled:focus.getAttribute('aria-disabled'),connected:focus.isConnected}:null};}).catch(snapshotError=>({unavailable:snapshotError.message}));
+              receipt.cases.push({engine, width, name, passed:false, error:error.message, publicReads:model.publicReads, continuations:model.reads, actualState, errors, console:model.console, commands:model.commands, blocked:model.blocked});
               await page.screenshot({path:path.join(output, label + '-failure.png')}).catch(() => {}); throw error;
             }finally{
               for(const gate of model.gates) gate.resolve(); await context.tracing.stop({path:path.join(output, label + '.zip')}).catch(() => {}); await context.close();
