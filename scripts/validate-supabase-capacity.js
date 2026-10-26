@@ -3,7 +3,8 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('nod
 const check=require('./capture-supabase-capacity');
 const tests=[],test=(name,run)=>tests.push({name,run});
 const stamp=Date.parse('2026-10-27T00:00:00Z');
-const environment=stage=>({schemaVersion:'supabase-capacity-environment.v1',stage,project:'mkghopnkhcxtmfrcjdbc',observedAt:new Date(stamp).toISOString(),plan:stage==='before'?'free':'pro',compute:stage==='before'?null:'micro',deployment:{id:'dpl_controlled',sha:'a'.repeat(40),version:'595',state:'READY'},database:{codeFingerprint:'a'.repeat(32),factFingerprint:'b'.repeat(32)}});
+const environment=stage=>({schemaVersion:'supabase-capacity-environment.v1',stage,project:'mkghopnkhcxtmfrcjdbc',observedAt:new Date(stamp).toISOString(),plan:stage==='before'?'free':'pro',compute:stage==='before'?null:'micro',deployment:{id:'dpl_controlled',sha:'a'.repeat(40),version:'595',state:'READY'},database:{codeFingerprint:'a'.repeat(32),factFingerprint:'b'.repeat(32),sourceObservationFingerprint:'c'.repeat(32)}});
+const closing=()=>({schemaVersion:'supabase-capacity-database.v1',observedAt:new Date(stamp).toISOString(),...environment('before').database});
 function wire(kind){
  const base={generatedAt:new Date(stamp).toISOString()};
  if(kind==='membership')return{...base,enabled:true,membershipStale:false,events:[],fixtures:[]};
@@ -36,8 +37,13 @@ test('complete offline window exercises all30 calls and four rounds',async()=>{
  }finally{fs.rmSync(directory,{recursive:true,force:true});}
 });
 test('comparison retains failures and refuses changed app/data/instrument',()=>{
- const a=structuredClone(baseline),b=structuredClone(baseline);b.stage='after';b.environment=environment('after');assert(check.compare(a,b).comparable);
- b.rounds[0].reads[0].passed=false;b.rounds[0].reads[0].elapsedMs=3000;let c=check.compare(a,b);assert.equal(c.after.membership.failed,1);assert.equal(c.after.membership.attempts,4);
- for(const change of [x=>x.instrumentSha256='other',x=>x.environment.database.factFingerprint='c'.repeat(32),x=>x.environment.deployment.sha='d'.repeat(40),x=>x.environment.compute=null,x=>x.metadata.before['/']='other',x=>x.rounds[0].reads[0].identitySha256='other']){const changed=structuredClone(b);change(changed);assert(!check.compare(a,changed).comparable);}
+ const a=structuredClone(baseline),b=structuredClone(baseline);b.stage='after';b.environment=environment('after');assert(check.compare(a,b,closing(),closing()).comparable);
+ b.rounds[0].reads[0].passed=false;b.rounds[0].reads[0].elapsedMs=3000;let c=check.compare(a,b,closing(),closing());assert.equal(c.after.membership.failed,1);assert.equal(c.after.membership.attempts,4);assert(!c.repeatedLoadingChecksPassed);
+ for(const change of [x=>x.instrumentSha256='other',x=>x.environment.database.factFingerprint='c'.repeat(32),x=>x.environment.deployment.sha='d'.repeat(40),x=>x.environment.compute=null,x=>x.metadata.before['/']='other',x=>x.rounds[0].reads[0].identitySha256='other']){const changed=structuredClone(b);change(changed);assert(!check.compare(a,changed,closing(),closing()).comparable);}
+});
+test('closing database drift or missing/mistimed observation refuses comparison',()=>{
+ const after=structuredClone(baseline);after.stage='after';after.environment=environment('after');assert(!check.compare(baseline,after).comparable);
+ for(const change of [x=>x.codeFingerprint='d'.repeat(32),x=>x.factFingerprint='d'.repeat(32),x=>x.sourceObservationFingerprint='d'.repeat(32),x=>x.observedAt=new Date(stamp-6000).toISOString(),x=>x.observedAt=new Date(stamp+600001).toISOString()]){const changed=closing();change(changed);assert(!check.compare(baseline,after,changed,closing()).comparable);assert(!check.compare(baseline,after,closing(),changed).comparable);}
+ const receipt=check.compare(baseline,after,closing(),closing());assert.match(receipt.closingObservationSha256.before,/^[a-f0-9]{64}$/);
 });
 (async()=>{for(const t of tests){await t.run();console.log('PASS '+t.name);}console.log(tests.length+' capacity-check controls passed; no external service.');})().catch(e=>{console.error(e);process.exitCode=1;});

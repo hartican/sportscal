@@ -17,11 +17,11 @@ function environmentProjection(e,stage,now){
  assert.equal(e.project,'mkghopnkhcxtmfrcjdbc');assert.equal(e.deployment.state,'READY');
  assert(/^dpl_[A-Za-z0-9]+$/.test(e.deployment.id));assert(/^[a-f0-9]{40}$/.test(e.deployment.sha));
  assert(/^\d{1,5}$/.test(e.deployment.version));assert(['free','pro'].includes(e.plan));
- assert(/^[a-f0-9]{32}$/.test(e.database.codeFingerprint));assert(/^[a-f0-9]{32}$/.test(e.database.factFingerprint));
+ for(const key of ['codeFingerprint','factFingerprint','sourceObservationFingerprint'])assert(/^[a-f0-9]{32}$/.test(e.database[key]));
  return {schemaVersion:e.schemaVersion,stage,project:e.project,observedAt:e.observedAt,plan:e.plan,
   compute:['nano','micro','small'].includes(e.compute)?e.compute:null,
   deployment:{id:e.deployment.id,sha:e.deployment.sha,version:e.deployment.version,state:'READY'},
-  database:{codeFingerprint:e.database.codeFingerprint,factFingerprint:e.database.factFingerprint},
+  database:{codeFingerprint:e.database.codeFingerprint,factFingerprint:e.database.factFingerprint,sourceObservationFingerprint:e.database.sourceObservationFingerprint},
   cpuSaturationObserved:typeof e.cpuSaturationObserved==='boolean'?e.cpuSaturationObserved:null};
 }
 async function request(url,options,{fetchImpl=fetch,now=Date.now,timer=()=>performance.now(),signal}={}){
@@ -102,7 +102,7 @@ async function capture({stage,directory,environment,fetchImpl=fetch,sleep=ms=>ne
  finally{clearTimeout(timeout);controller.abort();report.finishedAt=new Date(now()).toISOString();save();fs.closeSync(fd);}
  return report;
 }
-function compare(before,after){
+function compare(before,after,beforeClosing,afterClosing){
  assert(before.schemaVersion==='supabase-capacity-capture.v1'&&after.schemaVersion===before.schemaVersion);assert(before.stage==='before'&&after.stage==='after');
  const reasons=[];const requireSame=(a,b,label)=>{if(!same(a,b))reasons.push(label);};
  requireSame(before.instrumentSha256,after.instrumentSha256,'instrument_changed');requireSame(before.environment.deployment,after.environment.deployment,'deployment_changed');
@@ -110,6 +110,16 @@ function compare(before,after){
  requireSame(before.selectedFixture,after.selectedFixture,'fixture_changed');requireSame(before.participantIds,after.participantIds,'participants_changed');
  requireSame(before.environment.database.codeFingerprint,after.environment.database.codeFingerprint,'database_code_changed');
  requireSame(before.environment.database.factFingerprint,after.environment.database.factFingerprint,'sporting_facts_changed');
+ requireSame(before.environment.database.sourceObservationFingerprint,after.environment.database.sourceObservationFingerprint,'source_observations_changed');
+ const closingHashes={};
+ for(const [report,closing]of [[before,beforeClosing],[after,afterClosing]]){
+  const prefix=report.stage+'_closing_';
+  if(!closing||closing.schemaVersion!=='supabase-capacity-database.v1'){reasons.push(prefix+'observation_missing');continue;}
+  closingHashes[report.stage]=hash(JSON.stringify(closing));
+  const observed=Date.parse(closing.observedAt),end=Date.parse(report.finishedAt);
+  if(!Number.isFinite(observed)||!Number.isFinite(end)||observed<end-5000||observed>end+600000)reasons.push(prefix+'time_unbound');
+  for(const key of ['codeFingerprint','factFingerprint','sourceObservationFingerprint'])requireSame(report.environment.database[key],closing[key],prefix+key+'_changed');
+ }
  for(const kind of ['membership','selected','participant0','participant1','global']){
   const fingerprints=report=>report.rounds.flatMap(r=>r.reads).filter(x=>x.kind===kind).map(x=>[x.identitySha256??null,x.revisionSha256??null,x.rows??null]);
   requireSame(fingerprints(before),fingerprints(after),'observed_'+kind+'_changed');
@@ -121,7 +131,7 @@ function compare(before,after){
   return [kind,{attempts:samples.length,passed:samples.filter(x=>x.passed).length,failed:samples.filter(x=>!x.passed).length,medianMs:times.length?(times[Math.floor((times.length-1)/2)]+times[Math.floor(times.length/2)])/2:null,worstMs:times.at(-1)??null}];
  }));
  if(before.environment.plan!=='free'||after.environment.plan!=='pro'||after.environment.compute!=='micro')reasons.push('expected_capacity_change_unconfirmed');
- return {schemaVersion:'supabase-capacity-comparison.v1',comparable:reasons.length===0,confounders:reasons,before:summary(before),after:summary(after),
+ return {schemaVersion:'supabase-capacity-comparison.v1',comparable:reasons.length===0,confounders:reasons,closingObservationSha256:closingHashes,before:summary(before),after:summary(after),
   capacityChangeConfirmed:before.environment.plan==='free'&&after.environment.plan==='pro'&&after.environment.compute==='micro',
   repeatedLoadingChecksPassed:after.allChecksPassed===true&&after.rounds.length===ROUNDS&&after.rounds.every(r=>r.reads.length===5&&r.reads.every(x=>x.passed===true)),releaseAcceptance:false,
   limits:'Four rounds are a bounded signal, not long-term reliability or a causal experiment. Failures remain in totals. Header/body timing is not isolated SQL time; no CPU saturation or physical-phone proof.'};
@@ -129,8 +139,8 @@ function compare(before,after){
 async function main(argv=process.argv.slice(2)){
  if(!argv.length){console.log('INERT: explicit before/after capture or saved-file comparison required.');return;}
  if(argv[0]==='--capture'&&argv.length===4){const report=await capture({stage:argv[1],directory:argv[2],environment:JSON.parse(fs.readFileSync(argv[3]))});console.log(JSON.stringify({state:report.state,requests:report.requests,releaseAcceptance:false}));if(!report.allChecksPassed)process.exitCode=1;return;}
- if(argv[0]==='--compare'&&argv.length===3){console.log(JSON.stringify(compare(...argv.slice(1).map(p=>JSON.parse(fs.readFileSync(p)))),null,2));return;}
- throw Error('Expected --capture before|after /absolute/output /absolute/environment.json or --compare before.json after.json');
+ if(argv[0]==='--compare'&&argv.length===5){console.log(JSON.stringify(compare(...argv.slice(1).map(p=>JSON.parse(fs.readFileSync(p)))),null,2));return;}
+ throw Error('Expected --capture before|after /absolute/output /absolute/environment.json or --compare before.json after.json before-closing.json after-closing.json');
 }
 if(require.main===module)main().catch(()=>{console.error('Capacity check refused; no retry or purchase.');process.exitCode=1;});
 module.exports={main,capture,compare,qualify,request,environmentProjection,timings,FIXTURE,PARTICIPANTS,STATIC};
