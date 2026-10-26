@@ -176,3 +176,14 @@ Independent Standards review caught a dangling-output-symlink preflight gap:
 save rejected it. The permanent trapped-request control first failed, then
 passed after preflight switched to `lstatSync`, treating only ENOENT as absent.
 The symlink itself remains untouched and no request is made.
+
+The same850 retained rows alone serialise to2,399,979 compact JSON bytes,
+exceeding the unchanged2,097,152-byte **whole saved envelope** cap before any
+envelope overhead. Their two individual page bodies are1,427,838 and972,142
+bytes. Thus that old whole capture must also refuse on total size; per-page
+bounds do not imply aggregate acceptance. Current service size remains unknown.
+Do not prune facts, compress around or raise the bound. If this remains at
+allocated real intake, ROOT must decide a reviewed existing-owner lossless
+multi-capsule contract with explicit per-file/aggregate limits and traversal
+rules, a different lossless public projection, or an explicit per-card deferral
+contract. None of those is implemented or authorised by this slice.
