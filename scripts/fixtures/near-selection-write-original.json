@@ -1,0 +1,21 @@
+{
+  "sourceCommit": "e710f4244dc03a495cde93f05a2a4cf6eaa141fb",
+  "contract": {
+    "signature": "nothingsports_fixture_read_private.sync_fixture(text,text)",
+    "contract": {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "cost": 100,
+      "owner": "postgres",
+      "config": [
+        "search_path=\"\""
+      ],
+      "strict": false,
+      "definer": false,
+      "parallel": "u",
+      "volatile": "v",
+      "leakproof": false,
+      "definition": "6980af8a71950a914829958935e89c6c"
+    }
+  },
+  "definition": "CREATE OR REPLACE FUNCTION nothingsports_fixture_read_private.sync_fixture(p_source_id text, p_fixture_id text)\n RETURNS void\n LANGUAGE plpgsql\n SET search_path TO ''\nAS $function$\ndeclare raw_fixture jsonb;raw_score jsonb;identities text[];affected integer;\nbegin\n -- Canonical publishers already hold this source lock before fixture writes.\n perform 1 from public.nothingsports_fixture_sources where source_id=p_source_id for update;\n select c.fixture,c.identity_keys,s.score into raw_fixture,identities,raw_score\n from public.nothingsports_fixture_current c left join public.nothingsports_live_scores s using(source_id,fixture_id)\n where c.source_id=p_source_id and c.fixture_id=p_fixture_id;\n if not found then\n  delete from nothingsports_fixture_read_private.fixture_context where source_id=p_source_id and fixture_id=p_fixture_id;\n else\n  insert into nothingsports_fixture_read_private.fixture_context(source_id,fixture_id,identity_keys,base_key,score_key,has_score_key,participant_ids,sides,base_selection,score_selection)\n  select p_source_id,p_fixture_id,identities,f.* from nothingsports_fixture_read_private.context_fields(raw_fixture,raw_score) f\n  on conflict(source_id,fixture_id) do update set identity_keys=excluded.identity_keys,base_key=excluded.base_key,score_key=excluded.score_key,\n   has_score_key=excluded.has_score_key,participant_ids=excluded.participant_ids,sides=excluded.sides,base_selection=excluded.base_selection,score_selection=excluded.score_selection,shape_version=1\n  where row(fixture_context.identity_keys,fixture_context.base_selection,fixture_context.score_selection,fixture_context.shape_version)\n   is distinct from row(excluded.identity_keys,excluded.base_selection,excluded.score_selection,1::smallint);\n  get diagnostics affected=row_count;\n  perform nothingsports_fixture_read_private.rebuild_near_selection(p_source_id,p_fixture_id);\n  if affected=0 then return;end if;\n  -- Reconcile the exact set. A score-only context change must not rewrite identical tokens.\n  delete from nothingsports_fixture_read_private.fixture_tokens actual\n  where actual.source_id=p_source_id and actual.fixture_id=p_fixture_id\n    and not exists (\n      select 1 from (\n        select distinct 1::smallint kind,id token from unnest(identities) id where id is not null\n        union all select 2::smallint,sides from nothingsports_fixture_read_private.fixture_context\n          where source_id=p_source_id and fixture_id=p_fixture_id and sides is not null\n      ) expected where expected.kind=actual.kind and expected.token=actual.token\n    );\n  insert into nothingsports_fixture_read_private.fixture_tokens\n  select distinct p_source_id,p_fixture_id,1::smallint,id from unnest(identities) id where id is not null\n  union all select source_id,fixture_id,2::smallint,sides from nothingsports_fixture_read_private.fixture_context where source_id=p_source_id and fixture_id=p_fixture_id and sides is not null\n  on conflict(source_id,fixture_id,kind,token) do nothing;\n  -- Preserve the old rebuild's repair of missing source membership too.\n  insert into nothingsports_fixture_read_private.source_tokens(source_id,kind,token)\n  select distinct desired.source_id,desired.kind,desired.token\n  from nothingsports_fixture_read_private.fixture_tokens desired\n  where desired.source_id=p_source_id and desired.fixture_id=p_fixture_id\n    and not exists(select 1 from nothingsports_fixture_read_private.source_tokens actual\n      where actual.source_id=desired.source_id and actual.kind=desired.kind and actual.token=desired.token)\n  on conflict(source_id,kind,token) do nothing;\n end if;\nend;\n$function$;"
+}

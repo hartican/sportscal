@@ -9,6 +9,7 @@ const { buildBroadcasterReviewSteps, buildVenueReviewSteps, buildQuickSteps, bui
 const { projectionSteps: quickProjectionSteps } = require("./quick-results");
 require('./validate-reviewed-fixture-projections');
 require('./validate-editorial-projection-repair');
+require('./validate-cricket-live-scope').run();
 
 // The actual retained-tennis projection must refresh both gender directories.
 const tennisProjectionRoot=fs.mkdtempSync(path.join(os.tmpdir(),'ns-tennis-projection-route-'));

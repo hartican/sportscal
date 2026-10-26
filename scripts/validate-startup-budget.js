@@ -45,4 +45,24 @@ assert(JSON.parse(fs.readFileSync('config/app-shell-modules.json','utf8')).inclu
 assert(!assets.includes('/config/server-sync.js'), 'Account sync must not be downloaded twice in the installed shell; standalone owner use caches normally');
 assert(html.includes('id="soundtrackAudio"') && html.includes('preload="none"'), "soundtrack must defer network work until explicitly played");
 
+const deferredSetup=html.match(/function openFirstRunSettingsAfterFeedAlignment\(\)\{[\s\S]*?\n\}/)?.[0];
+assert(deferredSetup,'the existing first-run alignment owner remains available');
+for(const [label,complete,settingsOpen,expected]of [
+  ['untouched cold setup',false,false,1],
+  ['completed while queued',true,false,0],
+  ['Account opened while queued',false,true,0],
+  ['completed and Account open',true,true,0],
+]){
+  const frames=[],opened=[],preferences={onboardingComplete:false},modal={open:false};
+  const context={userPreferences:preferences,window:{requestAnimationFrame:callback=>frames.push(callback)},
+    document:{getElementById:id=>{assert.equal(id,'settingsModal');return{classList:{contains:name=>{assert.equal(name,'show');return modal.open;}}};}},
+    openSettings:options=>opened.push(options)};
+  vm.runInNewContext(deferredSetup+'\nopenFirstRunSettingsAfterFeedAlignment();',context);
+  assert.equal(frames.length,1);frames.shift()();
+  preferences.onboardingComplete=complete;modal.open=settingsOpen;
+  assert.equal(frames.length,1);frames.shift()();
+  assert.equal(opened.length,expected,label+' must use current completion/navigation at the final frame');
+  if(expected)assert.equal(opened[0].firstRun,true);
+}
+
 console.log(`Startup budget valid: ${assets.length} shell assets, ${(bytes / 1024 / 1024).toFixed(2)} MB precache, generated feed fallback deferred.`);

@@ -1,0 +1,38 @@
+'use strict';
+// Disposable PostgreSQL work control through the actual canonical adapter.
+const assert=require('node:assert/strict');
+const ns='nothingsports_fixture_read_private.',signature=ns+'context_fields(jsonb,jsonb)';
+async function regression(db,report){
+ const live=require('../../lib/live-fixtures'),previous=process.env.MATCH_CENTRE_SCORE_WRITES,source='discovery-qa-near-derivation',token='00000000-0000-4000-8000-000000000062';
+ const specs={nothingsports_claim_fixture_source:['p_source_id:text','p_token:uuid'],nothingsports_publish_compact_scores:['p_source_id:text','p_token:uuid','p_fixtures:jsonb','p_scores:jsonb','p_hash:text','p_interval_ms:integer','p_report:jsonb']};
+ async function rpc(url,o){const name=url.split('/').pop(),spec=specs[name];assert(spec,'Only canonical claim/compact publication');const keys=spec.map(x=>x.split(':')[0]),types=spec.map(x=>x.slice(x.indexOf(':')+1));assert.deepEqual(Object.keys(o.body).sort(),keys.slice().sort());const args=types.map((t,i)=>'$'+(i+1)+'::'+t).join(','),values=keys.map((k,i)=>types[i]==='jsonb'?JSON.stringify(o.body[k]):o.body[k]);return name==='nothingsports_claim_fixture_source'?(await db.query('select * from public.'+name+'('+args+')',values)).rows:(await db.query('select public.'+name+'('+args+')v',values)).rows[0].v;}
+ async function service(fn){await db.exec('set role service_role');try{return await fn();}finally{await db.exec('reset role');}}
+ const owner=()=>live.createSnapshotStore({request:rpc}),now=Date.now(),at=new Date(now-120000).toISOString(),later=new Date(now-60000).toISOString(),future=new Date(now+300*86400000).toISOString();
+ const fixtures=Array.from({length:32},(_,i)=>({id:'near-write:'+i,key:'football',status:'scheduled',date:new Date(now).toISOString().slice(0,10),startTimeUtc:future,homeParticipantId:'team:near-write:h:'+i,awayParticipantId:'team:near-write:a:'+i,homeScore:0,awayScore:0,sourceCheckedAt:at,statusCheckedAt:at,scoreCheckedAt:at}));
+ const counts=async()=>(await db.query('select fixture_id,count(*)::int n from qa_near_derivation.calls group by fixture_id order by fixture_id')).rows,clear=()=>db.exec('delete from qa_near_derivation.calls');
+ async function publish(rows,id=source){await db.query('update public.nothingsports_fixture_sources set next_due_at=clock_timestamp()where source_id=$1',[id]);return service(async()=>{assert(await owner().claim(id,token));return owner().publish(id,token,{fixtures:rows,hash:live.contentHash(rows),intervalMs:120000,coverage:{status:'complete'},observedFixtures:rows,observedAt:new Date(now)});});}
+ const drain=()=>db.exec('set constraints all immediate;set constraints all deferred');
+ async function exact(){const r=(await db.query('select public.nothingsports_read_match_centre_fixture_bundle($1)::text actual,'+ns+'read_near_raw($1)::text original',[fixtures.map(f=>f.id)])).rows[0];assert.equal(r.actual,r.original,'Complete ordered reader text stays exact');}
+ const work=report.writeDerivation={scope:'Actual canonical path with disposable context_fields call observer; work count, not native latency',inputCount:fixtures.length};
+ const original=(await db.query('select pg_get_functiondef($1::regprocedure)d',[signature])).rows[0].d;
+ await db.exec('begin');process.env.MATCH_CENTRE_SCORE_WRITES='true';
+ try{
+  await db.exec("create schema qa_near_derivation;grant usage on schema qa_near_derivation to service_role;create table qa_near_derivation.calls(fixture_id text);grant select,insert,delete on qa_near_derivation.calls to service_role;");
+  await db.exec(original.replace(ns+'context_fields(', 'qa_near_derivation.context_original('));
+  const prefix=original.slice(0,original.indexOf('AS $function$')).replace('\n LANGUAGE sql\n','\n LANGUAGE plpgsql\n').replace('\n IMMUTABLE\n','\n VOLATILE\n');assert(prefix.includes('LANGUAGE plpgsql')&&prefix.includes('VOLATILE'));
+  await db.exec(prefix+"AS $function$begin insert into qa_near_derivation.calls values($1->>'id');return query select * from qa_near_derivation.context_original($1,$2);end;$function$;");
+  await publish(fixtures);work.initial=await counts();
+  assert.deepEqual(work.initial,fixtures.map(f=>({fixture_id:f.id,n:1})).sort((a,b)=>a.fixture_id.localeCompare(b.fixture_id)),'One context_fields derivation per final changed identity');
+  await drain();await exact();await clear();await publish(fixtures);work.unchanged=await counts();assert.deepEqual(work.unchanged,[],'True no-op does not derive context');await drain();
+  const changed=fixtures.map((f,i)=>i?f:{...f,status:'live',homeScore:2,sourceCheckedAt:later,statusCheckedAt:later,scoreCheckedAt:later});await publish(changed);work.changed=await counts();assert.deepEqual(work.changed,[{fixture_id:fixtures[0].id,n:1}],'Combined fixture+score change derives once');await drain();await exact();
+  await clear();await service(()=>db.query('update public.nothingsports_fixture_current set fixture=fixture||$3::jsonb where source_id=$1 and fixture_id=$2',[source,fixtures[1].id,JSON.stringify({awayParticipantId:'team:near-write:direct-away'})]));work.directService=await counts();assert.deepEqual(work.directService,[{fixture_id:fixtures[1].id,n:2}],'Direct service path retains checked definer validation');await drain();await exact();
+  // A zero-row context upsert is NOT authority to bless contrary cached fields.
+  await db.exec('savepoint contrary');await db.query('update '+ns+"fixture_context set base_key='contrary-direct-value'where source_id=$1 and fixture_id=$2",[source,fixtures[0].id]);await clear();await db.query('select '+ns+'sync_fixture($1,$2)',[source,fixtures[0].id]);work.contraryNoop=await counts();assert.deepEqual(work.contraryNoop,[{fixture_id:fixtures[0].id,n:2}],'Owner no-op still invokes standalone full validation');assert.equal((await db.query('select shape_version from '+ns+'near_selection where source_id=$1 and fixture_id=$2',[source,fixtures[0].id])).rows[0].shape_version,0,'Contrary context stays unready');await service(()=>db.query('select '+ns+'rebuild_near_selection($1,$2)',[source,fixtures[0].id]));assert.equal((await db.query('select shape_version from '+ns+'near_selection where source_id=$1 and fixture_id=$2',[source,fixtures[0].id])).rows[0].shape_version,0);await exact();await db.exec('rollback to savepoint contrary');
+  // Permanent causal negative: the exact rejected candidate duplicates derivation.
+  await db.exec('savepoint old_candidate');const rejected=require('../fixtures/near-selection-write-original.json');await db.exec(rejected.definition);assert.equal((await db.query("select md5(pg_get_functiondef('nothingsports_fixture_read_private.sync_fixture(text,text)'::regprocedure))d")).rows[0].d,rejected.contract.contract.definition,'Exact rejected candidate definition restored for negative control');await clear();const negative=fixtures.slice(0,2).map((f,i)=>({...f,id:'near-write-negative:'+i}));await publish(negative,source+'-negative');work.oldCandidate=await counts();assert.equal(work.oldCandidate.reduce((n,r)=>n+r.n,0),negative.length*2);assert.throws(()=>assert(work.oldCandidate.every(r=>r.n<=1)),'Exact old candidate must fail work bound');await db.exec('rollback to savepoint old_candidate');
+  work.passed=true;
+ }finally{await db.exec('rollback');if(previous===undefined)delete process.env.MATCH_CENTRE_SCORE_WRITES;else process.env.MATCH_CENTRE_SCORE_WRITES=previous;}
+ assert.equal((await db.query('select pg_get_functiondef($1::regprocedure)d',[signature])).rows[0].d,original,'Observer removed; exact original derivation contract restored');
+ assert.equal((await db.query("select to_regnamespace('qa_near_derivation')v")).rows[0].v,null);report.checks=(report.checks||0)+6;
+}
+module.exports={regression};

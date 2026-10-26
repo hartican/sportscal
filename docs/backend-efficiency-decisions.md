@@ -1,5 +1,57 @@
 # Backend efficiency decisions
 
+## 26 October 2026 — staged lossless GLOBAL source transport
+
+Status: local integration and gated staging; **not production acceptance**. DEPLOY owns this reversible repair under the existing approval to fix loading and publish only passing work. No worker may enable the protocol, apply its SQL or publish independently.
+
+The deployed original global reader admits source/fixture pairs. A fresh exact-admission census found 5,145 source observations for 2,586 fixture storage keys, at most eight observations per key. Rolling Cricket discovery buckets retain older copies when fixtures move between relative week windows; their observation receipts differ. Omissions are not deletions. Do not retire a source, choose one observation as the winner, change the calendar window, remove Fantasy or infer identical facts from matching keys.
+
+For the explicit trusted grouped transport only, the proposed capacity unit is an exact fixture storage-key group. This is a NEW representation contract: at most 5,000 groups, 10,000 source edges, 16 edges/key and 16 MiB combined actual complete health/bundle text. It is not the unchanged old 5,000-source-row budget. The default SQL branch and explicit legacy store retain that original guard. Every source value, ordered row, identity/alias and observation survives reconstruction before the existing hashes/merge. This changes no Follow rule, customer record, provider/refresh owner, scheduler, credential or permission. GLOBAL six seconds, interactive five seconds, selected sixty IDs/three seconds, two requests, thirty-second cache and no GLOBAL automatic retry remain; the separate existing reminder retry policy stays unchanged. Byte refusal is after download/parse, not streaming protection. Rejected null selections must still make zero SDK reads, including after the application factory opts in.
+
+Source/PGlite reviews are not enough for adoption. The corrected actual read-only producer completed the current 5,145-edge frame in 4,495 ms under the six-second statement allowance. A separate full-value comparison found zero source/fixture/alias/value/order mismatches across all 5,145 observations in one snapshot. That functional control used a twelve-second allowance for producer plus complete decode/reference work and took 7,874 ms; it is not an application timing result or a production timeout change. Earlier six-second probes included extra comparison or repeated large-JSON metadata inspection; their failures remain retained and do not isolate producer latency. The first constructed grouped frame was 2.019% larger than its full-value reference; no speed, CPU or cash saving is established.
+
+Before production acceptance, require exact guarded forward/inverse SQL, unchanged default output/ACLs/helpers/facts, complete actual SDK body/decode/projection/hash checks within six seconds on both fixed fresh reads, source-edge closure and failure/cancellation controls, and all existing applicable normal/client/security/public/repeated-read gates. Any required failure stops publication. Current real data is about 13.6 MB before the health leg, so volume headroom remains limited: lossless duplicate-work reduction is follow-up reliability work, not a reason to shed fixtures or silently widen limits. A single successful measurement is not repeated or cold-server proof. Full current-data accuracy, Football MVP readiness and physical iPhone acceptance are separate.
+
+The migration and inverse are prepared from the byte-identical PG17/18 rehearsal outputs. Staging behind the exact private service header preserves old callers; production activation belongs to the same sole publisher. Evidence and later acceptance belong in the release queue and `docs/quality/global-fixture-groups-proposed-2026-10-26.md`, with dated ROOT receipts under the Codex output folder.
+
+ROOT staged those exact forward bytes at 26 October 02:11 UTC after all 258 combined local safety commands passed with no tracked-byte changes. Managed history assigned version `20261026021111`; both source migration and inverse filenames now use that actual version, with unchanged SQL bytes. The installed view matches the two-engine candidate digest `d3d5341fcf5dc901c3e1240145b3acd7`. Fresh metadata confirms the original invoker/owner/json/service-only permission contract, clock/projector helpers and generated projection. Existing production callers still take the unchanged legacy branch. This is gated private-view staging, not successful SDK qualification, application deployment or production acceptance; the same publisher's live gates remain mandatory.
+
+## Scoped current Cricket through the existing refresh owner — 25 October 2026
+
+Permit only `--live --live-source=cricket-ca-current` in the canonical
+`update-cards.js` entrypoint, alongside the existing tennis scope. Select that
+one existing adapter through the unchanged coordinator/store/lease and 45-second
+scheduling budget; reject unsupported, duplicate and conflicting scoped flags
+before source work. Preserve genuine observations, unchanged fact hashes and
+original retained clocks. Local-only still permits shared-data writes; ROOT
+alone allocates any live run and publication. No scheduler resumes, configuration
+change, provider retry or freshness-gate relaxation is added. The real-dispatch
+regression joins the existing update-cards contract. Source budgets, conditional
+milestone writes and unchanged-poll limitations are recorded in
+[the handover](quality/cricket-live-scope-2026-10-25.md).
+
+## Typed existing Cricket Follow formats — 25 October 2026 Sydney
+
+The actual592 phone reports initial record_validation / record_unknown_field / intent / entities. The established Cricket format writer emits cricketFormats, which the bounded receipt planner omitted. Its real writer → persisted receipt/restart → compiled helper/manual queue → actual local API path reproduces that exact refusal; removing only the test field passes with the same restored older receipt generation. This proves a source schema bug, without identifying the private phone field or guaranteeing that its remaining choices are independent. The live-job and receipt-generation observations describe different lifetimes; the latter is not an independent refusal here.
+
+Recognise only the existing cricketFormats field as a unique array drawn from Tests, ODIs, T20Is and BBL. Keep exact array order, presence and explicit empty values through the existing field-level comparison; do not coerce, sort, union, default or broaden unknown records. Whole-team Follow may remove the field; absence differs from an explicit empty list. Differing concurrent format edits and malformed/unknown records still hold. Existing removals/OFF, original pending receipt, current-choice checks, conditional save, matching ACK, R2 and owner/generation protections remain. No private account change, historical restoration, request, store, schema migration, config, cache/version allocation or sync owner is added.
+
+Regression: 23 new actual-writer/compiled-helper/persisted/API cases extend the existing 55 to 78; one mounted receipt-base-cricket scenario joins the existing recovery matrix (20 per engine). ROOT owns native/browser/installed execution, integration and all hosted acceptance. No repeat phone test is requested now. See [source proof and handover](quality/account-cricket-format-sync-2026-10-25.md).
+
+## Exact sync refusal observation — 24 October 2026 Sydney
+
+The actual591 iPhone still holds; its family summary does not identify a causal failure or intended winner. Add only a safelisted first-actual-refusal/exception observation to the existing scoped, serialised owner, including honest bounded SDK load/save call-start counters and initial/post409 verify phase. If the captured current-versus-receipt predicate refuses, report fixed families from those same projected operands; this is an observation, not another policy predicate. No values, IDs, hashes, record counts, raw keys/errors or extra retained preference snapshot are copied. Existing pending receipts, matching owned ACK, R2, ordinary Settings, explicit OFF/empty/removal, unknown/conflict and CAS protections remain exact. No new request, store, timer, scheduler, schema or merge rule. ROOT owns final review, normal/installed/hosted release gates and one coordinated useful phone copy after release. See [source proof and contract](quality/account-sync-refusal-diagnostic-2026-10-24.md).
+
+## Disjoint owned preference reconciliation — 24 October 2026 Sydney
+
+The approved P1 sync repair may reconcile only validated, demonstrably independent entity/domain changes from an original owned pending receipt against freshly read same-account state. Use the existing canonical participant identity; domains use their exact stable sportDomainId, refusing duplicate/ambiguous identities and the legacy rally alias. Apply only recorded changed fields. Preserve remote additions, untouched remote fields, removals and OFF/empty values. A whole-list empty cannot erase unseen concurrent additions. Differing edits to the same field, deletion versus edit, unknown fields/shapes, unavailable identity/baseline and all other changed projected preferences retain a visible hold. No union, inferred intent, default revival, receipt expiry/reset or historical recovery is introduced.
+
+Only typed existing followBrowse and feedCompact view semantics are device-local here: preserve the remote view on the server and the current device's view through the existing applyServerState owner. Unknown view keys/types remain held; this is not a blanket comparison exclusion. Existing applyServerState may retain an untouched optional view as an own undefined RAM value; JSON receipt/profile storage omits it. Treat only undefined for these two known optional views as absence, while null, malformed types and unknown view fields still hold. The original persisted receipt/base stays unchanged before ACK. A transient, original-receipt-bound plan uses the existing SDK queue and conditional save, recalculating from the original receipt after a real409. Only a matching owned ACK may clear R1 or advance R2 without changing R2's identity. A newer recorded edit is reconciled from the exact R1 intent against the acknowledged state with the same conservative policy; uncertain continuation stays unchanged/pending. A lost/already-applied ACK must also apply accepted remote choices locally, even when the accepted timestamp is already current.
+
+Before replacing preference patch entries, compare the already captured current preferences against the recorded receipt intent, allowing only the exact named bookkeeping and typed device-local views. A genuine ordinary Settings/standings save not represented by that receipt must remain current and durable with the receipt unchanged and zero state upload, including after R2's base becomes compatible. A semantically mismatching successful save response must stop at the existing owned ACK boundary before applying or accepting its baseline; retain all current/persisted choices and pending receipt. A later ordinary write after the known R2 snapshot remains local through the existing in-flight delta; preserve independent accepted entity/domain records with the same bounded merge. Do not turn that ordinary write into receipt-owned intent; its next explicit retry holds before upload.
+
+The pure planner joins the existing deferred Account helper, with strict protection before it loads and no added request, store, timer or sync owner. Regression: fifty-five compiled-helper/persisted-restart/bootstrap/manual queue/actual API cases join the existing preference-bookkeeping safety command. Two new mounted cases extend the existing seventeen recovery cases per engine; ROOT runs these, normal qualification and installed/hosted/physical acceptance. Local constructed reproduction matches the v590 phone's diagnostic families but does not establish its private identities or whether its particular changes conflict. See [scope, proof and release handover](quality/account-receipt-base-reconcile-2026-10-24.md). No deployment or customer-data change is authorised by this source record.
+
 ## Public fixture discussion reuses bounded owners — 24 October 2026 Sydney
 
 Full isolated implementation follows the [settled Public Feed specification](plans/public-feed-2026-10-22.md). Load its optional UI only on deliberate expansion/alert handoff, using the existing authenticated chat request factory and server-verified nonanonymous account. Service-only forced-RLS tables/RPCs retain fixed empty search paths and invoker privileges. Reuse canonical fixture identity, the existing public handle/profile flow, GIPHY picker/provider/capability checks and the existing account-erasure write barrier. No private-room membership or NSC reward is created.
@@ -11,6 +63,7 @@ The dated notification exception is exact followed-author runs per recipient/fix
 Only the existing maintenance/dispatcher owner checks at most two aged thread descriptors per pass using selected stored fixture snapshots. The shared retirement policy proves eligibility; SQL rechecks the Sydney calendar date and captures the immutable top-three text-only existing EPIC snapshot before live deletion in one transaction. Only IDs proved by a healthy selected snapshot can authorize retirement; stale, omitted or failed reads defer without content/source-observation changes or another read. One batch PATCH advances only the existing thread checked_at attempt receipt for at most the two selected candidates before the source read, so permanently omitted rows cannot starve later work. This adds no schema/RPC/grant and does not change fixture/source clocks. Account erasure cascades remove authored live/archive content, votes and outbox data; hard-delete tombstones and profile/privacy revisions clear cached discussion. Root deletion preserves surviving replies. Keep the existing combined AFTER INSERT OR UPDATE canonical erasure guard and unchanged dynamic inventory/workflow contract; only verified derived totals/revisions or parent-null detachment on public comments may drain while a peer erases. Keep user-facing exports complete over continuation pages and suppress all comment snapshots with Results OFF.
 
 The new aggregate gate `validate-public-feed.js` is added to canonical QA and the existing production workflow. Light source checks do not satisfy held database/native-browser or hosted/physical-phone acceptance. PR37's final shared transient-card adapter and DEPLOY-owned schema/shell/cache integration remain required; existing startup/cache/request ceilings remain unchanged.
+
 
 
 ## Automatic seed hydration is not a preference decision — 24 October 2026
@@ -1955,3 +2008,107 @@ Numeric score slots, calendar corrections and updated descriptions cannot renew 
 The existing result-template preparer and selector now share one pure branch generator. Current fixture details must match before an automatic result branch can be selected or retained at publication. Only copy proven to depend on an outdated generated branch is reset through the existing protected storyline rule; authored preview sections/research dates and separately reviewed current recaps keep their existing lifecycle protections. This corrects the official makeup-game label without re-researching its dated preview. No additional collector, writer, service, scheduler, database or customer action is introduced.
 
 Live rechecks remain distinct: an equal live score keeps its first fact observation while the actual score/status contact receipts advance. This preserves the existing freshness qualification without adding polling or extending any deadline. The constructed zero–zero regression covers merging and persistence into canonical data and both Feed files.
+
+## 25 October 2026 — prepare indexed near selection through current owners
+
+The separately approved local module starts at6aa5979a with the CURRENT
+coalesced22 writer contracts, not the historical test factory's older writer.
+Maintain one narrow private typed admission row through the same sync_fixture,
+sync_trigger and mark_integrity_pending owners only. Preserve owned batch
+deferral first, original token/publisher helpers, source observations, complete
+alias/sides closure, independent uncertain clocks and the ordered5001 sentinel.
+Direct context changes invalidate only affected OLD/NEW keys; canonical/context
+equality prevents the narrowly granted void helper from blessing contrary data.
+Service gets SELECT only on forced-RLS metadata. No customer state, source
+request, scheduler, retry, planner setting or timeout change is added.
+
+Installation checks original D9/current22 attributes/ACL, triggers, private
+table rights/RLS/pending marker schema and generated/view dependencies. It
+installs the reader with exact original fallback and performs no backfill.
+DEPLOY alone owns bounded source-first preparation; the indexed branch becomes
+eligible only when the same statement proves complete settled metadata. The
+guarded inverse restores D9 and the same three original owner functions before
+dropping new artifacts. PG18's catalogue NOT NULL entries are excluded only
+from the constraint-list comparison; all column not-null flags stay exact on
+PG17/18.
+
+Require both-engine complete ordered-text equivalence, actual ready-path work
+counts including filtered rows, coalesced writes/pending/rollback, completion-only
+changes, direct context/error semantics, actual5001 overflow, ACL/privacy and
+exact guarded inverse/reapply. Key-only completeness scans, local work savings,
+write/storage cost and native full-response latency are separate evidence.
+Local qualification does not accept app592 or prove live loading recovery.
+ROOT/DEPLOY alone reviews source, allocates native first-use/concurrency/write
+qualification, integrates and publishes exact main after all existing gates.
+See [mechanism, checks and remaining acceptance](quality/indexed-near-selection-2026-10-25.md).
+
+
+## 25 October2026 — reuse the context actually written by the canonical owner
+
+The ten-hook isolated rehearsal exposed an8s candidate initial5000 failure while
+the matched existing writer passed in6151ms. Its interruption stack does not
+identify a costly plan node. A separate bounded offline actual-adapter work
+control proves the candidate calls context_fields twice per final changed
+identity:64 derivations for32 fixtures, despite canonical batch coalescing.
+
+The revised, still-unadopted indexed module changes only sync_fixture. Its
+existing canonical postgres definer caller may reuse the context row returned
+by its own real upsert and the already-read compact base/score/first-completion
+facts, under the unchanged source lock. It derives the same typed near fields
+and keeps the same distinct-row upsert predicate. A zero-row context upsert
+retains full rebuild validation, because contrary non-selection fields may
+remain. A direct service invoker also retains the existing narrowly granted
+checked definer helper; sync_fixture stays invoker and service gets no typed
+metadata write privilege. The standalone helper, completion-only fast paths,
+publisher/token/archive semantics, all clocks and all deadlines are unchanged.
+
+Permanent offline control requires32→32, true no-op→0, combined fixture/score
+change→1, and retained full validation for direct-service/contrary-no-op paths.
+Restoring the exact rejected candidate must fail the work bound. Observer
+schema/function changes are rolled back and the original function contract is
+checked after cleanup. Full ordered-read and guarded inverse/ACL regressions
+remain. The changed candidate hash is sealed in its existing rollback guard;
+current22 preimages and the other26 candidate contracts remain exact.
+
+This proves reduced duplicate derivation work, not that it caused all native
+latency or that the new candidate passes8s. DEPLOY must separately review and
+run the materially changed candidate through the existing ten-hook maximum
+writer and managed/read/release gates. No new native/service/provider check,
+source refresh, scheduler, memory/timeout policy, customer state or publication
+is authorised by this source record.
+
+## 25 October 2026 — read-only app-adapter gate in the existing publisher
+
+The sole manual exact-main production workflow reuses its existing shared
+publication/erasure step's Supabase URL/secret for one bounded application-reader
+qualification before deployment. No PR workflow secret, new job/permission/key,
+provider call, DDL, source refresh, scheduler or customer mutation is added.
+Default verifier invocation is inert; a separate memory-only command joins the
+existing safety list without removing a check.
+
+Two sequential ordinary Match Centre reads each retain the existing concurrent
+health/bundle requests and five-second policy, with complete delivery/JSON parse/
+consumer acceptance at <=4000ms. Enforce complete health/source/fixture identity
+coverage, valid genuine empty input, 4MiB complete-body cap, no fallback third
+request/retry, absolute60s cancellation and admission/completion expiry. Keep
+safe bounded release evidence including failed/in-flight phases, counts and
+parsed-value hashes; never log payloads, keys, fixture IDs or raw errors.
+
+This is the first OWN adapter read at that stage after functional SQL has
+already touched buffers, not first-ever/cold/same-backend or literal-wire proof.
+ROOT's ordered full-server D9 equality, managed <=256 preparation/preservation/
+readiness/capacity, normal release/public/hosted/repeated20 and actual-device
+acceptance stay separate. Failed live qualification stops BEFORE deployment;
+ROOT owns guarded recovery and sole publication. No provider/card refresh is
+required. See quality/near-app-adapter-release-gate-2026-10-25.md.
+
+The25 October prerequisite correction replaces stat-cache-only checkout rejection
+with separate actual-content/mode and staged-index comparisons. Exact main/SHA
+and exclusive receipt protections remain. Actual-CLI local regression15 and the
+existing adapter validator17 pass without service access. Fixed-stage/Git-exit
+diagnostics make failures before receipt claim actionable without raw stderr or
+private values. Historical run40138373141's precise cause remains unproven; this
+source correction is neither live loading proof nor production acceptance.
+All253 required commands and application/read/dispatcher budgets remain unchanged;
+DEPLOY retains the sole fresh normal-run/publication lane. Details and limitations
+are in the linked quality record.

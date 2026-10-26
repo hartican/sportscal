@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="589">
+<meta name="app-shell-version" content="595">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=589" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=595" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2022,7 +2022,7 @@ header.top .header-utilities{display:flex;flex:1;align-items:center;flex-wrap:no
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=589"></script>
+<script src="assets/js/app-shell-runtime.js?v=595"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -2132,7 +2132,7 @@ async function reloadForUpdatedServiceWorker(){
       eventsViewTab,
       savedAt:Date.now(),
     }));
-  }catch(_error){ /* Storage failure must not block reload. */ }
+  }catch(_error){ }
   location.reload();
 }
 const startupCoordinator = FEED_REFRESH_LIFECYCLE?.createStartupCoordinator
@@ -2782,7 +2782,7 @@ async function runOptimisticMutation({ capture, apply, request, commit, rollback
           if (typeof commit === "function") await commit(resolution.result, prior);
           return { ok:true, result:resolution.result, prior, reconciled:true };
         }
-      }catch(_error){ /* Roll back exactly below. */ }
+      }catch(_error){ }
     }
     if (typeof rollback === "function") await rollback(prior, error);
     return { ok:false, error, prior, reconciled:false };
@@ -3090,7 +3090,7 @@ function captureChatCapabilityFromLocation(){
   const fragment = new URLSearchParams(String(window.location.hash || "").replace(/^#/, ""));
   const capability = String(fragment.get("chat") || "").trim();
   if (!capability) return "";
-  try{ sessionStorage.setItem(CHAT_CAPABILITY_STORAGE_KEY, capability); }catch(_error){ /* Kept in memory below. */ }
+  try{ sessionStorage.setItem(CHAT_CAPABILITY_STORAGE_KEY, capability); }catch(_error){ }
   fragment.delete("chat");
   const remainder = fragment.toString();
   history.replaceState(null, "", `${window.location.pathname}${window.location.search}${remainder ? `#${remainder}` : ""}`);
@@ -3480,7 +3480,7 @@ function renderAccountIndicator(){
 }
 function ensureAccountIndicator(){
   if(accountIndicatorController)return Promise.resolve(accountIndicatorController);
-  accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=5714')
+  accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=5718')
     .then(()=>NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.mount())
     .catch(()=>{accountIndicatorLoading=null;renderAccountIndicator();return null;});
   return accountIndicatorLoading;
@@ -3930,659 +3930,659 @@ function feedScopeForIntent(intent){
 }
 
 function mergePreferences(saved){
-  const existingFantasyProfile=Boolean(saved&&typeof saved==='object'&&Object.keys(saved).some(key=>!['followBrowse','feedCompact'].includes(key)));
-  const merged = typeof structuredClone === "function" ? structuredClone(DEFAULT_PREFERENCES) : JSON.parse(JSON.stringify(DEFAULT_PREFERENCES));
-  if (!saved || typeof saved !== "object"){
-    merged.taxonomySelection = taxonomySelectionForSelectorIds(merged.selectedSelectorEntityIds);
-    return merged;
-  }
-  const profileGraph = activeProfileBundle && (
-    activeProfileBundle.domainPreferences?.length
-    || activeProfileBundle.competitionPreferences?.length
-    || activeProfileBundle.entityFollows?.length
-    || activeProfileBundle.viewingPreference
-    || activeProfileBundle.learningPreference
-  ) ? {
-    schemaVersion: PREFERENCE_SYSTEM?.SCHEMA_VERSION,
-    profileId: activeProfileBundle.profile?.id,
-    domainPreferences: activeProfileBundle.domainPreferences || [],
-    competitionPreferences: activeProfileBundle.competitionPreferences || [],
-    entityFollows: activeProfileBundle.entityFollows || [],
-    viewing: activeProfileBundle.viewingPreference || null,
-    learning: activeProfileBundle.learningPreference || null,
-  } : null;
-  if (!saved.preferenceGraph && profileGraph) saved = { ...saved, preferenceGraph: profileGraph };
-  saved = FOLLOW_FIRST?.migratePreferences?.(saved) || saved;
-  const savedPreferenceVersion = Number(saved.version || 0);
-  saved = DISCOVERY_CATALOGUE?.migratePreferences?.(saved) || saved;
-  const savedPilotMeasurement = saved.pilotMeasurement && typeof saved.pilotMeasurement === "object" && !Array.isArray(saved.pilotMeasurement)
-    ? saved.pilotMeasurement
-    : {};
-  const legacyParticipationStartedAt = PRODUCT_EVENTS?.participationStartedAt?.(savedPilotMeasurement)
-    || null;
-  const lastPulseSurveyId = PRODUCT_EVENTS?.normalizeWeeklyPulseSurveyId?.(savedPilotMeasurement.lastPulseSurveyId)
-    || null;
-  const savedSelectorEntityIds = Array.isArray(saved.selectedSelectorEntityIds)
-    ? normalizeSelectorEntityIds(saved.selectedSelectorEntityIds)
-    : legacySelectorIdsForFollowedSports(saved.followedSports);
-  const shouldSeedEmptyLegacyProfile = savedPreferenceVersion < LEGACY_SEEDED_DEFAULTS_VERSION
-    && !savedSelectorEntityIds.length;
-  const selectedSelectorEntityIds = shouldSeedEmptyLegacyProfile
-    ? DEFAULT_FIRST_RUN_SELECTOR_IDS.slice()
-    : savedSelectorEntityIds;
-  const migratedSelectorEntityIds = selectedSelectorEntityIds;
-  const legacySelectedBroadcasters = uniqueArray(saved.selectedBroadcasters || merged.selectedBroadcasters).filter(key => BROADCASTER_LIBRARY[key]);
-  const priorDefaultBroadcasters = ["kayo", "stan", "sbs", "nine", "foxtel", "fis"];
-  const priorCwgDefaultBroadcasters = [...priorDefaultBroadcasters, "seven"];
-  const legacySelectionWasDefault = savedPreferenceVersion < LEGACY_SEEDED_DEFAULTS_VERSION
-    && [priorDefaultBroadcasters, priorCwgDefaultBroadcasters].some(defaults =>
-      defaults.length === legacySelectedBroadcasters.length && defaults.every(id => legacySelectedBroadcasters.includes(id))
-    );
-  const preferenceGraph = PREFERENCE_SYSTEM?.migratePreferenceGraph(saved.preferenceGraph || profileGraph, {
-    preserveMutes:Number(saved.version||0)>=24,
-    profileId: activeProfileBundle?.profile?.id || "profile:local",
-    domainIds: selectedPreferenceDomainIds({ selectedSelectorEntityIds: migratedSelectorEntityIds }),
-    broadcasterIds: Object.keys(BROADCASTER_LIBRARY),
-    legacySelectedBroadcasterIds: legacySelectionWasDefault ? undefined : legacySelectedBroadcasters,
-  }) || null;
-  const migratedBroadcasters = preferenceGraph?.viewing?.selectedBroadcasterIds || Object.keys(BROADCASTER_LIBRARY);
-  const preferences = {
-    ...merged,
-    ...saved,
-    version: Math.max(DEFAULT_PREFERENCES.version,Number(saved.version)||0),
-    theme: normalizeThemePreference(saved.theme ?? merged.theme),
-    fantasyDeadlines: existingFantasyProfile
-      ? globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.migratePreferences(saved.fantasyDeadlines)
-      : globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.normalizePreferences(saved.fantasyDeadlines),
-    showSpoilers: Boolean(saved.showSpoilers ?? merged.showSpoilers),
-    feedIntent: PERSONALISED_FEED?.normaliseFeedIntent?.(saved.feedIntent || feedIntentForScope(saved.feedControls?.scope)) || "balanced",
-    feedControls: FEED_CONTROLS?.normalize?.(saved.feedControls || {
-      spoilers: saved.showSpoilers ? "results_visible" : "standard",
-    }, {
-      showSpoilers: Boolean(saved.showSpoilers ?? merged.showSpoilers),
-    }) || merged.feedControls,
-    standings: {
-      selectedSportKeys: Array.isArray(saved.standings?.selectedSportKeys)
-        ? uniqueArray(saved.standings.selectedSportKeys.map(key => key === "rally" ? "wrc" : key))
-        : [],
-      pinTimestamps: saved.standings?.pinTimestamps && typeof saved.standings.pinTimestamps === "object"
-        ? Object.fromEntries(Object.entries(saved.standings.pinTimestamps)
-          .filter(([competitionId, value]) => String(competitionId).startsWith("competition:") && !Number.isNaN(Date.parse(value)))
-          .map(([competitionId, value]) => [competitionId === "competition:world-rally" ? "competition:wrc-2026" : competitionId, new Date(value).toISOString()]))
-        : {},
-    },
-    swipeCoaching: {
-      dismissedAt: !Number.isNaN(Date.parse(saved.swipeCoaching?.dismissedAt))
-        ? new Date(saved.swipeCoaching.dismissedAt).toISOString()
-        : null,
-    },
+const existingFantasyProfile=Boolean(saved&&typeof saved==='object'&&Object.keys(saved).some(key=>!['followBrowse','feedCompact'].includes(key)));
+const merged = typeof structuredClone === "function" ? structuredClone(DEFAULT_PREFERENCES) : JSON.parse(JSON.stringify(DEFAULT_PREFERENCES));
+if (!saved || typeof saved !== "object"){
+merged.taxonomySelection = taxonomySelectionForSelectorIds(merged.selectedSelectorEntityIds);
+return merged;
+}
+const profileGraph = activeProfileBundle && (
+activeProfileBundle.domainPreferences?.length
+|| activeProfileBundle.competitionPreferences?.length
+|| activeProfileBundle.entityFollows?.length
+|| activeProfileBundle.viewingPreference
+|| activeProfileBundle.learningPreference
+) ? {
+schemaVersion: PREFERENCE_SYSTEM?.SCHEMA_VERSION,
+profileId: activeProfileBundle.profile?.id,
+domainPreferences: activeProfileBundle.domainPreferences || [],
+competitionPreferences: activeProfileBundle.competitionPreferences || [],
+entityFollows: activeProfileBundle.entityFollows || [],
+viewing: activeProfileBundle.viewingPreference || null,
+learning: activeProfileBundle.learningPreference || null,
+} : null;
+if (!saved.preferenceGraph && profileGraph) saved = { ...saved, preferenceGraph: profileGraph };
+saved = FOLLOW_FIRST?.migratePreferences?.(saved) || saved;
+const savedPreferenceVersion = Number(saved.version || 0);
+saved = DISCOVERY_CATALOGUE?.migratePreferences?.(saved) || saved;
+const savedPilotMeasurement = saved.pilotMeasurement && typeof saved.pilotMeasurement === "object" && !Array.isArray(saved.pilotMeasurement)
+? saved.pilotMeasurement
+: {};
+const legacyParticipationStartedAt = PRODUCT_EVENTS?.participationStartedAt?.(savedPilotMeasurement)
+|| null;
+const lastPulseSurveyId = PRODUCT_EVENTS?.normalizeWeeklyPulseSurveyId?.(savedPilotMeasurement.lastPulseSurveyId)
+|| null;
+const savedSelectorEntityIds = Array.isArray(saved.selectedSelectorEntityIds)
+? normalizeSelectorEntityIds(saved.selectedSelectorEntityIds)
+: legacySelectorIdsForFollowedSports(saved.followedSports);
+const shouldSeedEmptyLegacyProfile = savedPreferenceVersion < LEGACY_SEEDED_DEFAULTS_VERSION
+&& !savedSelectorEntityIds.length;
+const selectedSelectorEntityIds = shouldSeedEmptyLegacyProfile
+? DEFAULT_FIRST_RUN_SELECTOR_IDS.slice()
+: savedSelectorEntityIds;
+const migratedSelectorEntityIds = selectedSelectorEntityIds;
+const legacySelectedBroadcasters = uniqueArray(saved.selectedBroadcasters || merged.selectedBroadcasters).filter(key => BROADCASTER_LIBRARY[key]);
+const priorDefaultBroadcasters = ["kayo", "stan", "sbs", "nine", "foxtel", "fis"];
+const priorCwgDefaultBroadcasters = [...priorDefaultBroadcasters, "seven"];
+const legacySelectionWasDefault = savedPreferenceVersion < LEGACY_SEEDED_DEFAULTS_VERSION
+&& [priorDefaultBroadcasters, priorCwgDefaultBroadcasters].some(defaults =>
+defaults.length === legacySelectedBroadcasters.length && defaults.every(id => legacySelectedBroadcasters.includes(id))
+);
+const preferenceGraph = PREFERENCE_SYSTEM?.migratePreferenceGraph(saved.preferenceGraph || profileGraph, {
+preserveMutes:Number(saved.version||0)>=24,
+profileId: activeProfileBundle?.profile?.id || "profile:local",
+domainIds: selectedPreferenceDomainIds({ selectedSelectorEntityIds: migratedSelectorEntityIds }),
+broadcasterIds: Object.keys(BROADCASTER_LIBRARY),
+legacySelectedBroadcasterIds: legacySelectionWasDefault ? undefined : legacySelectedBroadcasters,
+}) || null;
+const migratedBroadcasters = preferenceGraph?.viewing?.selectedBroadcasterIds || Object.keys(BROADCASTER_LIBRARY);
+const preferences = {
+...merged,
+...saved,
+version: Math.max(DEFAULT_PREFERENCES.version,Number(saved.version)||0),
+theme: normalizeThemePreference(saved.theme ?? merged.theme),
+fantasyDeadlines: existingFantasyProfile
+? globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.migratePreferences(saved.fantasyDeadlines)
+: globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.normalizePreferences(saved.fantasyDeadlines),
+showSpoilers: Boolean(saved.showSpoilers ?? merged.showSpoilers),
+feedIntent: PERSONALISED_FEED?.normaliseFeedIntent?.(saved.feedIntent || feedIntentForScope(saved.feedControls?.scope)) || "balanced",
+feedControls: FEED_CONTROLS?.normalize?.(saved.feedControls || {
+spoilers: saved.showSpoilers ? "results_visible" : "standard",
+}, {
+showSpoilers: Boolean(saved.showSpoilers ?? merged.showSpoilers),
+}) || merged.feedControls,
+standings: {
+selectedSportKeys: Array.isArray(saved.standings?.selectedSportKeys)
+? uniqueArray(saved.standings.selectedSportKeys.map(key => key === "rally" ? "wrc" : key))
+: [],
+pinTimestamps: saved.standings?.pinTimestamps && typeof saved.standings.pinTimestamps === "object"
+? Object.fromEntries(Object.entries(saved.standings.pinTimestamps)
+.filter(([competitionId, value]) => String(competitionId).startsWith("competition:") && !Number.isNaN(Date.parse(value)))
+.map(([competitionId, value]) => [competitionId === "competition:world-rally" ? "competition:wrc-2026" : competitionId, new Date(value).toISOString()]))
+: {},
+},
+swipeCoaching: {
+dismissedAt: !Number.isNaN(Date.parse(saved.swipeCoaching?.dismissedAt))
+? new Date(saved.swipeCoaching.dismissedAt).toISOString()
+: null,
+},
 
-    localVenueIds: [],
-    selectedSelectorEntityIds: migratedSelectorEntityIds,
-    followedSports: canonicalSportKeysForSelectorIds(migratedSelectorEntityIds),
-    taxonomySelection: taxonomySelectionForSelectorIds(migratedSelectorEntityIds),
-    selectedBroadcasters: migratedBroadcasters,
-    preferenceGraph,
-    pilotMeasurement: {
-      ...merged.pilotMeasurement,
-      enabled: savedPilotMeasurement.enabled !== false,
-      participationVersion: PRODUCT_EVENTS?.PILOT_MEASUREMENT_PARTICIPATION_VERSION || "pilot-participation.v1",
-      participationStartedAt: legacyParticipationStartedAt,
-      lastPulseWeek: /^\d{4}-\d{2}-\d{2}$/.test(String(savedPilotMeasurement.lastPulseWeek || ""))
-        ? savedPilotMeasurement.lastPulseWeek
-        : null,
-      lastPulseSurveyId: /^[A-Za-z0-9][A-Za-z0-9:._-]{7,95}$/.test(String(lastPulseSurveyId || ""))
-        ? lastPulseSurveyId
-        : null,
-    },
-    ratingPromptState: RATING_SYSTEM?.normalizePromptState?.(
-      saved.ratingPromptState || merged.ratingPromptState
-    ) || merged.ratingPromptState,
-    tennis: { ...merged.tennis, ...(saved.tennis || {}) },
-    fifa: { ...merged.fifa, ...(saved.fifa || {}) },
-  };
-  if (saved.feedControls && typeof saved.feedControls === "object"){
-    preferences.showSpoilers = preferences.feedControls?.spoilers === "results_visible";
-  }
-  preferences.feedControls = FEED_CONTROLS?.normalize?.({
-    ...preferences.feedControls,
-    scope: feedScopeForIntent(preferences.feedIntent),
-    spoilers: preferences.showSpoilers ? "results_visible" : preferences.feedControls?.spoilers,
-  }, { showSpoilers: preferences.showSpoilers }) || preferences.feedControls;
-  delete preferences.soundtrack;
-  return FOLLOW_FIRST?.migratePreferences?.(preferences) || preferences;
+localVenueIds: [],
+selectedSelectorEntityIds: migratedSelectorEntityIds,
+followedSports: canonicalSportKeysForSelectorIds(migratedSelectorEntityIds),
+taxonomySelection: taxonomySelectionForSelectorIds(migratedSelectorEntityIds),
+selectedBroadcasters: migratedBroadcasters,
+preferenceGraph,
+pilotMeasurement: {
+...merged.pilotMeasurement,
+enabled: savedPilotMeasurement.enabled !== false,
+participationVersion: PRODUCT_EVENTS?.PILOT_MEASUREMENT_PARTICIPATION_VERSION || "pilot-participation.v1",
+participationStartedAt: legacyParticipationStartedAt,
+lastPulseWeek: /^\d{4}-\d{2}-\d{2}$/.test(String(savedPilotMeasurement.lastPulseWeek || ""))
+? savedPilotMeasurement.lastPulseWeek
+: null,
+lastPulseSurveyId: /^[A-Za-z0-9][A-Za-z0-9:._-]{7,95}$/.test(String(lastPulseSurveyId || ""))
+? lastPulseSurveyId
+: null,
+},
+ratingPromptState: RATING_SYSTEM?.normalizePromptState?.(
+saved.ratingPromptState || merged.ratingPromptState
+) || merged.ratingPromptState,
+tennis: { ...merged.tennis, ...(saved.tennis || {}) },
+fifa: { ...merged.fifa, ...(saved.fifa || {}) },
+};
+if (saved.feedControls && typeof saved.feedControls === "object"){
+preferences.showSpoilers = preferences.feedControls?.spoilers === "results_visible";
+}
+preferences.feedControls = FEED_CONTROLS?.normalize?.({
+...preferences.feedControls,
+scope: feedScopeForIntent(preferences.feedIntent),
+spoilers: preferences.showSpoilers ? "results_visible" : preferences.feedControls?.spoilers,
+}, { showSpoilers: preferences.showSpoilers }) || preferences.feedControls;
+delete preferences.soundtrack;
+return FOLLOW_FIRST?.migratePreferences?.(preferences) || preferences;
 }
 
 function saveActivePreferenceGraph(graph){
-  if (!PROFILE_STORAGE || !activeProfileBundle || !graph) return false;
-  try{
-    return saveActiveProfileSections({
-      domainPreferences: graph.domainPreferences || [],
-      competitionPreferences: graph.competitionPreferences || [],
-      entityFollows: graph.entityFollows || [],
-      viewingPreference: graph.viewing || null,
-      learningPreference: graph.learning || null,
-    });
-  }catch(error){
-    console.warn("Profile preference graph write failed", error);
-    return false;
-  }
+if (!PROFILE_STORAGE || !activeProfileBundle || !graph) return false;
+try{
+return saveActiveProfileSections({
+domainPreferences: graph.domainPreferences || [],
+competitionPreferences: graph.competitionPreferences || [],
+entityFollows: graph.entityFollows || [],
+viewingPreference: graph.viewing || null,
+learningPreference: graph.learning || null,
+});
+}catch(error){
+console.warn("Profile preference graph write failed", error);
+return false;
+}
 }
 
 function loadPreferences(){
-  const scoped = activeProfileSection("preferences", null);
-  if (scoped && typeof scoped === "object"){
-    const migrated = mergePreferences(scoped);
-    saveActiveProfileSection("preferences", migrated);
-    return migrated;
-  }
-  const current = readStorage(STORAGE_KEYS.preferences, null);
-  if (current && typeof current === "object"){
-    const migrated = mergePreferences(current);
-    writeStorage(STORAGE_KEYS.preferences, migrated);
-    saveActiveProfileSection("preferences", migrated);
-    return migrated;
-  }
-  const legacy = readStorage(STORAGE_KEYS.legacyPreferences, null);
-  if (legacy && typeof legacy === "object"){
-    const migrated = mergePreferences(legacy);
-    writeStorage(STORAGE_KEYS.preferences, migrated);
-    saveActiveProfileSection("preferences", migrated);
-    return migrated;
-  }
-  const defaults = mergePreferences(null);
-  saveActiveProfileSection("preferences", defaults);
-  return defaults;
+const scoped = activeProfileSection("preferences", null);
+if (scoped && typeof scoped === "object"){
+const migrated = mergePreferences(scoped);
+saveActiveProfileSection("preferences", migrated);
+return migrated;
+}
+const current = readStorage(STORAGE_KEYS.preferences, null);
+if (current && typeof current === "object"){
+const migrated = mergePreferences(current);
+writeStorage(STORAGE_KEYS.preferences, migrated);
+saveActiveProfileSection("preferences", migrated);
+return migrated;
+}
+const legacy = readStorage(STORAGE_KEYS.legacyPreferences, null);
+if (legacy && typeof legacy === "object"){
+const migrated = mergePreferences(legacy);
+writeStorage(STORAGE_KEYS.preferences, migrated);
+saveActiveProfileSection("preferences", migrated);
+return migrated;
+}
+const defaults = mergePreferences(null);
+saveActiveProfileSection("preferences", defaults);
+return defaults;
 }
 
 function savePreferences(next,{viewOnly=false,deferFollowEffects=false,deliberate=false}={}){
-  const priorFollowState = JSON.stringify({
-    events:userPreferences?.followFirst?.followedMajorEventIds,
-    excludedEvents:userPreferences?.followFirst?.excludedMajorEventIds,
-    sports:(userPreferences?.followedSports || []).slice().sort(),
-    entities:(userPreferences?.preferenceGraph?.entityFollows || []).slice().sort((first, second) => String(first.participantId).localeCompare(String(second.participantId))),
-    collections:(userPreferences?.followFirst?.collectionFollows || []).slice().sort(),
-  });
-  const mergedInput = SERVER_SYNC?.mergeSettings
-    ? SERVER_SYNC.mergeSettings(userPreferences || {}, next)
-    : { ...(userPreferences || {}), ...(next || {}) };
-  const clean = mergePreferences(mergedInput);
-  const profilePreferences = { ...clean };
-  delete profilePreferences.preferenceGraph;
-  const graph = clean.preferenceGraph || {};
-  const sections = {
-    preferences: profilePreferences,
-    domainPreferences: graph.domainPreferences || [],
-    competitionPreferences: graph.competitionPreferences || [],
-    entityFollows: graph.entityFollows || [],
-    viewingPreference: graph.viewing || null,
-    learningPreference: graph.learning || null,
-  };
-  let profileSaved;
-  if(deliberate&&!viewOnly&&serverPersistence.user){
-    try{
-      const life=preferenceIntentOwner();
-      if(!life||life.accountId!==serverPersistence.user.id||serverStateBaseline?.accountId!==life.accountId
-        ||serverStateBaseline.generation!==life.generation)throw new Error("Wait for this account's saved choices before changing follows.");
-      activeProfileBundle=PROFILE_STORAGE.recordPreferenceIntent(localStorage,activeProfileBundle,{
-        ownerId:life.accountId,generation:life.generation,baseUpdatedAt:serverStateBaseline.updatedAt,
-        basePreferences:serverStateBaseline.state.preferences,preferences:clean,sections,
-      });
-      profileSaved=true;
-      setServerPersistence({state:"syncing",message:"Saved on this device; waiting to sync."});
-    }catch(error){
-      setServerPersistence({state:"error",message:"Your change was not saved. Your previous choices are unchanged."});
-      showToast("Your follow change was not saved. Your previous choices are unchanged.");
-      return false;
-    }
-  }else profileSaved=saveActiveProfileSections(sections);
-  if(!profileSaved)return false;
-  userPreferences = clean;
-  globalThis.fantasyDeadlineController?.sync();
-  const nextFollowState = JSON.stringify({
-    events:clean.followFirst?.followedMajorEventIds,
-    excludedEvents:clean.followFirst?.excludedMajorEventIds,
-    sports:(clean.followedSports || []).slice().sort(),
-    entities:(clean.preferenceGraph?.entityFollows || []).slice().sort((first, second) => String(first.participantId).localeCompare(String(second.participantId))),
-    collections:(clean.followFirst?.collectionFollows || []).slice().sort(),
-  });
-  if (!viewOnly && !deferFollowEffects) queueServerStateSync();
-  if (!viewOnly && document.readyState !== "loading" && clean.followFirst?.notifications?.enabled){
-    void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
-  }
-  if (priorFollowState !== nextFollowState && typeof activeEvents !== "undefined"){
-    if(deferFollowEffects)queueDirectoryFollowEffects();else void requestFeedRebuildAfterFollowChange();
-  }
-  return profileSaved;
+const priorFollowState = JSON.stringify({
+events:userPreferences?.followFirst?.followedMajorEventIds,
+excludedEvents:userPreferences?.followFirst?.excludedMajorEventIds,
+sports:(userPreferences?.followedSports || []).slice().sort(),
+entities:(userPreferences?.preferenceGraph?.entityFollows || []).slice().sort((first, second) => String(first.participantId).localeCompare(String(second.participantId))),
+collections:(userPreferences?.followFirst?.collectionFollows || []).slice().sort(),
+});
+const mergedInput = SERVER_SYNC?.mergeSettings
+? SERVER_SYNC.mergeSettings(userPreferences || {}, next)
+: { ...(userPreferences || {}), ...(next || {}) };
+const clean = mergePreferences(mergedInput);
+const profilePreferences = { ...clean };
+delete profilePreferences.preferenceGraph;
+const graph = clean.preferenceGraph || {};
+const sections = {
+preferences: profilePreferences,
+domainPreferences: graph.domainPreferences || [],
+competitionPreferences: graph.competitionPreferences || [],
+entityFollows: graph.entityFollows || [],
+viewingPreference: graph.viewing || null,
+learningPreference: graph.learning || null,
+};
+let profileSaved;
+if(deliberate&&!viewOnly&&serverPersistence.user){
+try{
+const life=preferenceIntentOwner();
+if(!life||life.accountId!==serverPersistence.user.id||serverStateBaseline?.accountId!==life.accountId
+||serverStateBaseline.generation!==life.generation)throw new Error("Wait for this account's saved choices before changing follows.");
+activeProfileBundle=PROFILE_STORAGE.recordPreferenceIntent(localStorage,activeProfileBundle,{
+ownerId:life.accountId,generation:life.generation,baseUpdatedAt:serverStateBaseline.updatedAt,
+basePreferences:serverStateBaseline.state.preferences,preferences:clean,sections,
+});
+profileSaved=true;
+setServerPersistence({state:"syncing",message:"Saved on this device; waiting to sync."});
+}catch(error){
+setServerPersistence({state:"error",message:"Your change was not saved. Your previous choices are unchanged."});
+showToast("Your follow change was not saved. Your previous choices are unchanged.");
+return false;
+}
+}else profileSaved=saveActiveProfileSections(sections);
+if(!profileSaved)return false;
+userPreferences = clean;
+globalThis.fantasyDeadlineController?.sync();
+const nextFollowState = JSON.stringify({
+events:clean.followFirst?.followedMajorEventIds,
+excludedEvents:clean.followFirst?.excludedMajorEventIds,
+sports:(clean.followedSports || []).slice().sort(),
+entities:(clean.preferenceGraph?.entityFollows || []).slice().sort((first, second) => String(first.participantId).localeCompare(String(second.participantId))),
+collections:(clean.followFirst?.collectionFollows || []).slice().sort(),
+});
+if (!viewOnly && !deferFollowEffects) queueServerStateSync();
+if (!viewOnly && document.readyState !== "loading" && clean.followFirst?.notifications?.enabled){
+void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
+}
+if (priorFollowState !== nextFollowState && typeof activeEvents !== "undefined"){
+if(deferFollowEffects)queueDirectoryFollowEffects();else void requestFeedRebuildAfterFollowChange();
+}
+return profileSaved;
 }
 
 function applyThemePreference(theme){
-  const nextTheme = normalizeThemePreference(theme);
-  document.documentElement.dataset.theme = nextTheme;
-  const systemDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
-  const useDark = nextTheme === "night" || (nextTheme === "system" && systemDark);
-  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", useDark ? "#0a0a0f" : "#f3f5f7");
-  syncThemeBrandAssets(useDark);
+const nextTheme = normalizeThemePreference(theme);
+document.documentElement.dataset.theme = nextTheme;
+const systemDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+const useDark = nextTheme === "night" || (nextTheme === "system" && systemDark);
+document.querySelector('meta[name="theme-color"]')?.setAttribute("content", useDark ? "#0a0a0f" : "#f3f5f7");
+syncThemeBrandAssets(useDark);
 }
 
 function loadRatings(){
-  const scoped = activeProfileSection("ratings", null);
-  if (scoped && typeof scoped === "object") return scoped;
-  const current = readStorage(STORAGE_KEYS.ratings, null);
-  if (current && typeof current === "object"){
-    saveActiveProfileSection("ratings", current);
-    return current;
-  }
-  const prior = readStorage(STORAGE_KEYS.legacyRatingsV2, null);
-  if (prior && typeof prior === "object"){
-    writeStorage(STORAGE_KEYS.ratings, prior);
-    saveActiveProfileSection("ratings", prior);
-    return prior;
-  }
-  const legacy = readStorage(STORAGE_KEYS.legacyRatings, {});
-  if (legacy && typeof legacy === "object"){
-    writeStorage(STORAGE_KEYS.ratings, legacy);
-    saveActiveProfileSection("ratings", legacy);
-    return legacy;
-  }
-  return {};
+const scoped = activeProfileSection("ratings", null);
+if (scoped && typeof scoped === "object") return scoped;
+const current = readStorage(STORAGE_KEYS.ratings, null);
+if (current && typeof current === "object"){
+saveActiveProfileSection("ratings", current);
+return current;
+}
+const prior = readStorage(STORAGE_KEYS.legacyRatingsV2, null);
+if (prior && typeof prior === "object"){
+writeStorage(STORAGE_KEYS.ratings, prior);
+saveActiveProfileSection("ratings", prior);
+return prior;
+}
+const legacy = readStorage(STORAGE_KEYS.legacyRatings, {});
+if (legacy && typeof legacy === "object"){
+writeStorage(STORAGE_KEYS.ratings, legacy);
+saveActiveProfileSection("ratings", legacy);
+return legacy;
+}
+return {};
 }
 
 function saveRatings(r){
-  saveActiveProfileSection("ratings", r);
-  queueServerStateSync();
+saveActiveProfileSection("ratings", r);
+queueServerStateSync();
 }
 
 function loadEventActions(){
-  const scoped = activeProfileSection("eventUserState", null);
-  if (scoped && typeof scoped === "object" && Object.keys(scoped).length){
-    const migrated = migrateEventActionRecords(scoped);
-    saveActiveProfileSection("eventUserState", migrated);
-    return migrated;
-  }
-  const current = readStorage(STORAGE_KEYS.eventUserState, null);
-  if (current && typeof current === "object"){
-    const migrated = migrateEventActionRecords(current);
-    writeStorage(STORAGE_KEYS.eventUserState, migrated);
-    saveActiveProfileSection("eventUserState", migrated);
-    return migrated;
-  }
+const scoped = activeProfileSection("eventUserState", null);
+if (scoped && typeof scoped === "object" && Object.keys(scoped).length){
+const migrated = migrateEventActionRecords(scoped);
+saveActiveProfileSection("eventUserState", migrated);
+return migrated;
+}
+const current = readStorage(STORAGE_KEYS.eventUserState, null);
+if (current && typeof current === "object"){
+const migrated = migrateEventActionRecords(current);
+writeStorage(STORAGE_KEYS.eventUserState, migrated);
+saveActiveProfileSection("eventUserState", migrated);
+return migrated;
+}
 
-  const legacy = readStorage(STORAGE_KEYS.legacyEventActions, {});
-  if (!legacy || typeof legacy !== "object") return {};
-  const migrated = migrateEventActionRecords(legacy);
-  writeStorage(STORAGE_KEYS.eventUserState, migrated);
-  saveActiveProfileSection("eventUserState", migrated);
-  return migrated;
+const legacy = readStorage(STORAGE_KEYS.legacyEventActions, {});
+if (!legacy || typeof legacy !== "object") return {};
+const migrated = migrateEventActionRecords(legacy);
+writeStorage(STORAGE_KEYS.eventUserState, migrated);
+saveActiveProfileSection("eventUserState", migrated);
+return migrated;
 }
 
 function migrateEventActionRecords(records){
-  const normalized = Object.fromEntries(Object.entries(records || {}).map(([key, action]) => {
-    if (!action || typeof action !== "object") return [key, action];
-    const { mustWatch:_legacyMustWatch, mustWatchAddedAt:_legacyMustWatchAddedAt, mustWatchSeenAt:_legacyMustWatchSeenAt, ...cleanAction } = action;
-    const legacyEventsDismissed = !Object.hasOwn(action, "isDismissed") && action.dismissed && action.dismissalSource === "events";
-    const eventsDismissed = Boolean(action.isDismissed || legacyEventsDismissed);
-    const feedDismissedAt = action.dismissed && !legacyEventsDismissed && !Number.isNaN(Date.parse(action.dismissedAt || action.lastActionAt || ""))
-      ? new Date(action.dismissedAt || action.lastActionAt).toISOString()
-      : null;
-    const eventsDismissedAt = eventsDismissed && !Number.isNaN(Date.parse(action.eventsDismissedAt || action.dismissedAt || action.lastActionAt || ""))
-      ? new Date(action.eventsDismissedAt || action.dismissedAt || action.lastActionAt).toISOString()
-      : null;
-    const wasSavedForLater = Boolean(
-      action.watchLater
-      || action.savedForCatchup
-      || action.reminderState === "saved_for_catchup"
-    );
-    return [key, {
-      ...cleanAction,
-      watchLater: false,
-      saved: Boolean(action.saved || wasSavedForLater),
-      archived: Boolean(action.archived || wasSavedForLater),
-      dismissed: Boolean(action.dismissed && !legacyEventsDismissed),
-      isDismissed: eventsDismissed,
-      isMinimised: Boolean(action.isMinimised),
-      dismissedAt: feedDismissedAt,
-      eventsDismissedAt,
-      lastActionAt: action.lastActionAt || null,
-    }];
-  }));
-  return EVENT_ACTION_IDENTITY?.migrateActions?.(normalized) || normalized;
+const normalized = Object.fromEntries(Object.entries(records || {}).map(([key, action]) => {
+if (!action || typeof action !== "object") return [key, action];
+const { mustWatch:_legacyMustWatch, mustWatchAddedAt:_legacyMustWatchAddedAt, mustWatchSeenAt:_legacyMustWatchSeenAt, ...cleanAction } = action;
+const legacyEventsDismissed = !Object.hasOwn(action, "isDismissed") && action.dismissed && action.dismissalSource === "events";
+const eventsDismissed = Boolean(action.isDismissed || legacyEventsDismissed);
+const feedDismissedAt = action.dismissed && !legacyEventsDismissed && !Number.isNaN(Date.parse(action.dismissedAt || action.lastActionAt || ""))
+? new Date(action.dismissedAt || action.lastActionAt).toISOString()
+: null;
+const eventsDismissedAt = eventsDismissed && !Number.isNaN(Date.parse(action.eventsDismissedAt || action.dismissedAt || action.lastActionAt || ""))
+? new Date(action.eventsDismissedAt || action.dismissedAt || action.lastActionAt).toISOString()
+: null;
+const wasSavedForLater = Boolean(
+action.watchLater
+|| action.savedForCatchup
+|| action.reminderState === "saved_for_catchup"
+);
+return [key, {
+...cleanAction,
+watchLater: false,
+saved: Boolean(action.saved || wasSavedForLater),
+archived: Boolean(action.archived || wasSavedForLater),
+dismissed: Boolean(action.dismissed && !legacyEventsDismissed),
+isDismissed: eventsDismissed,
+isMinimised: Boolean(action.isMinimised),
+dismissedAt: feedDismissedAt,
+eventsDismissedAt,
+lastActionAt: action.lastActionAt || null,
+}];
+}));
+return EVENT_ACTION_IDENTITY?.migrateActions?.(normalized) || normalized;
 }
 
 function saveEventActions(next){
-  eventActions = next && typeof next === "object" ? next : {};
-  saveActiveProfileSection("eventUserState", eventActions);
-  queueServerStateSync();
+eventActions = next && typeof next === "object" ? next : {};
+saveActiveProfileSection("eventUserState", eventActions);
+queueServerStateSync();
 }
 
 function loadFixturePinQueue(){
-  const stored = readStorage(STORAGE_KEYS.fixturePinQueue, {});
-  return stored && typeof stored === "object" && !Array.isArray(stored) ? stored : {};
+const stored = readStorage(STORAGE_KEYS.fixturePinQueue, {});
+return stored && typeof stored === "object" && !Array.isArray(stored) ? stored : {};
 }
 
 let fixturePinQueue = loadFixturePinQueue();
 
 function saveFixturePinQueue(next){
-  fixturePinQueue = next && typeof next === "object" ? next : {};
-  writeStorage(STORAGE_KEYS.fixturePinQueue, fixturePinQueue);
-  return fixturePinQueue;
+fixturePinQueue = next && typeof next === "object" ? next : {};
+writeStorage(STORAGE_KEYS.fixturePinQueue, fixturePinQueue);
+return fixturePinQueue;
 }
 
 function queueFixturePinCommand(actionKey, action){
-  if (!actionKey || !action?.pinMutationId) return fixturePinQueue;
-  return saveFixturePinQueue({
-    ...fixturePinQueue,
-    [actionKey]: {
-      mutationId: action.pinMutationId,
-      enabled: Boolean(action.addedToFixtures),
-      queuedAt: action.lastActionAt || new Date().toISOString(),
-    },
-  });
+if (!actionKey || !action?.pinMutationId) return fixturePinQueue;
+return saveFixturePinQueue({
+...fixturePinQueue,
+[actionKey]: {
+mutationId: action.pinMutationId,
+enabled: Boolean(action.addedToFixtures),
+queuedAt: action.lastActionAt || new Date().toISOString(),
+},
+});
 }
 
 function fixturePinAction(action){
-  return Boolean(action && typeof action === "object" && (
-    action.pinMutationId
-    || action.pinRevision
-    || action.addedFixture?.manualPin === true
-  ));
+return Boolean(action && typeof action === "object" && (
+action.pinMutationId
+|| action.pinRevision
+|| action.addedFixture?.manualPin === true
+));
 }
 
 function serverAuthoritativeFixturePins(serverState, localState){
-  if (!serverState || !localState) return localState;
-  const next = typeof structuredClone === "function"
-    ? structuredClone(localState)
-    : JSON.parse(JSON.stringify(localState));
-  const serverActions = serverState.eventUserState && typeof serverState.eventUserState === "object" ? serverState.eventUserState : {};
-  const localActions = next.eventUserState && typeof next.eventUserState === "object" ? next.eventUserState : {};
-  next.eventUserState = localActions;
-  USER_STATE_SYNC?.preservePurges?.(serverState,next);
-  const keys = new Set([...Object.keys(serverActions), ...Object.keys(localActions)]);
-  keys.forEach(key => {
-    if (fixturePinQueue[key]) return;
-    if (!fixturePinAction(serverActions[key]) && !fixturePinAction(localActions[key])) return;
-    if (serverActions[key]) localActions[key] = serverActions[key];
-    else delete localActions[key];
-  });
-  return next;
+if (!serverState || !localState) return localState;
+const next = typeof structuredClone === "function"
+? structuredClone(localState)
+: JSON.parse(JSON.stringify(localState));
+const serverActions = serverState.eventUserState && typeof serverState.eventUserState === "object" ? serverState.eventUserState : {};
+const localActions = next.eventUserState && typeof next.eventUserState === "object" ? next.eventUserState : {};
+next.eventUserState = localActions;
+USER_STATE_SYNC?.preservePurges?.(serverState,next);
+const keys = new Set([...Object.keys(serverActions), ...Object.keys(localActions)]);
+keys.forEach(key => {
+if (fixturePinQueue[key]) return;
+if (!fixturePinAction(serverActions[key]) && !fixturePinAction(localActions[key])) return;
+if (serverActions[key]) localActions[key] = serverActions[key];
+else delete localActions[key];
+});
+return next;
 }
 
 function clearAcknowledgedFixturePinCommands(serverState){
-  const serverActions = serverState?.eventUserState && typeof serverState.eventUserState === "object" ? serverState.eventUserState : {};
-  const next = { ...fixturePinQueue };
-  let changed = false;
-  Object.entries(fixturePinQueue).forEach(([key, command]) => {
-    if (serverActions[key]?.pinMutationId !== command?.mutationId) return;
-    delete next[key];
-    changed = true;
-  });
-  if (changed) saveFixturePinQueue(next);
-  return changed;
+const serverActions = serverState?.eventUserState && typeof serverState.eventUserState === "object" ? serverState.eventUserState : {};
+const next = { ...fixturePinQueue };
+let changed = false;
+Object.entries(fixturePinQueue).forEach(([key, command]) => {
+if (serverActions[key]?.pinMutationId !== command?.mutationId) return;
+delete next[key];
+changed = true;
+});
+if (changed) saveFixturePinQueue(next);
+return changed;
 }
 
 function loadEventSpoilerState(actions = {}){
-  const scoped = activeProfileSection("eventSpoilerState", null);
-  if (scoped && typeof scoped === "object" && Object.keys(scoped).length){
-    const migrated = Object.fromEntries(Object.entries(scoped).map(([key, value]) => [key,
-      value && typeof value === "object"
-        ? value
-        : { override: "show", revealedAt: value || null }
-    ]));
-    saveActiveProfileSection("eventSpoilerState", migrated);
-    return migrated;
-  }
-  const current = readStorage(STORAGE_KEYS.eventSpoilerState, null);
-  if (current && typeof current === "object"){
-    saveActiveProfileSection("eventSpoilerState", current);
-    return current;
-  }
+const scoped = activeProfileSection("eventSpoilerState", null);
+if (scoped && typeof scoped === "object" && Object.keys(scoped).length){
+const migrated = Object.fromEntries(Object.entries(scoped).map(([key, value]) => [key,
+value && typeof value === "object"
+? value
+: { override: "show", revealedAt: value || null }
+]));
+saveActiveProfileSection("eventSpoilerState", migrated);
+return migrated;
+}
+const current = readStorage(STORAGE_KEYS.eventSpoilerState, null);
+if (current && typeof current === "object"){
+saveActiveProfileSection("eventSpoilerState", current);
+return current;
+}
 
-  const legacyReveals = readStorage(STORAGE_KEYS.legacySpoilerReveals, {});
-  const migrated = {};
-  Object.entries(legacyReveals || {}).forEach(([key, revealedAt]) => {
-    migrated[key] = { override: "show", revealedAt: revealedAt || null };
-  });
-  Object.entries(actions || {}).forEach(([key, action]) => {
-    if (!action?.spoilerOverride || action.spoilerOverride === "inherit") return;
-    migrated[key] = {
-      override: action.spoilerOverride,
-      revealedAt: action.spoilerOverride === "show" ? action.lastActionAt || null : null,
-    };
-  });
-  writeStorage(STORAGE_KEYS.eventSpoilerState, migrated);
-  saveActiveProfileSection("eventSpoilerState", migrated);
-  return migrated;
+const legacyReveals = readStorage(STORAGE_KEYS.legacySpoilerReveals, {});
+const migrated = {};
+Object.entries(legacyReveals || {}).forEach(([key, revealedAt]) => {
+migrated[key] = { override: "show", revealedAt: revealedAt || null };
+});
+Object.entries(actions || {}).forEach(([key, action]) => {
+if (!action?.spoilerOverride || action.spoilerOverride === "inherit") return;
+migrated[key] = {
+override: action.spoilerOverride,
+revealedAt: action.spoilerOverride === "show" ? action.lastActionAt || null : null,
+};
+});
+writeStorage(STORAGE_KEYS.eventSpoilerState, migrated);
+saveActiveProfileSection("eventSpoilerState", migrated);
+return migrated;
 }
 
 function saveEventSpoilerState(next){
-  eventSpoilerState = next && typeof next === "object" ? next : {};
-  saveActiveProfileSection("eventSpoilerState", eventSpoilerState);
-  queueServerStateSync();
+eventSpoilerState = next && typeof next === "object" ? next : {};
+saveActiveProfileSection("eventSpoilerState", eventSpoilerState);
+queueServerStateSync();
 }
 
 function loadSurfacePresentation(){
-  const current = readStorage(STORAGE_KEYS.surfacePresentation, null);
-  const migrated = current && typeof current === "object" && !Array.isArray(current) ? current : {};
-  if (current){
-    disposableStore?.set("surfacePresentation", migrated);
-    flushDisposableStore().then(async written => {
-      const verified = written ? await disposableStore.hydrate("surfacePresentation", null) : null;
-      if (verified && JSON.stringify(verified) === JSON.stringify(migrated)) localStorage.removeItem(STORAGE_KEYS.surfacePresentation);
-    });
-  }
-  disposableStore?.hydrate("surfacePresentation", migrated).then(value => {
-    if (!value || typeof value !== "object" || Array.isArray(value)) return;
-    surfacePresentationState = value;
-  });
-  return migrated;
+const current = readStorage(STORAGE_KEYS.surfacePresentation, null);
+const migrated = current && typeof current === "object" && !Array.isArray(current) ? current : {};
+if (current){
+disposableStore?.set("surfacePresentation", migrated);
+flushDisposableStore().then(async written => {
+const verified = written ? await disposableStore.hydrate("surfacePresentation", null) : null;
+if (verified && JSON.stringify(verified) === JSON.stringify(migrated)) localStorage.removeItem(STORAGE_KEYS.surfacePresentation);
+});
+}
+disposableStore?.hydrate("surfacePresentation", migrated).then(value => {
+if (!value || typeof value !== "object" || Array.isArray(value)) return;
+surfacePresentationState = value;
+});
+return migrated;
 }
 
 function saveSurfacePresentation(next){
-  surfacePresentationState = next && typeof next === "object" ? next : {};
-  disposableStore?.set("surfacePresentation", surfacePresentationState);
+surfacePresentationState = next && typeof next === "object" ? next : {};
+disposableStore?.set("surfacePresentation", surfacePresentationState);
 }
 
 function loadDerivedCardCache(){
-  const raw = readStorage(STORAGE_KEYS.derivedCardCache, null);
-  const initial = CARD_LIFECYCLE?.normalizeCache(raw) || { schemaVersion: "derived-card-cache.unavailable", generatedAt: new Date().toISOString(), derivedCards: [] };
-  if (raw){
-    disposableStore?.set("derivedCardCache", initial);
-    flushDisposableStore().then(async written => {
-      const verified = written ? await disposableStore.hydrate("derivedCardCache", null) : null;
-      if (verified && JSON.stringify(verified) === JSON.stringify(initial)) localStorage.removeItem(STORAGE_KEYS.derivedCardCache);
-    });
-  }
-  disposableStore?.hydrate("derivedCardCache", initial).then(value => {
-    const hydrated = CARD_LIFECYCLE?.normalizeCache(value);
-    if (hydrated?.derivedCards?.length) derivedCardCache = hydrated;
-  });
-  return initial;
+const raw = readStorage(STORAGE_KEYS.derivedCardCache, null);
+const initial = CARD_LIFECYCLE?.normalizeCache(raw) || { schemaVersion: "derived-card-cache.unavailable", generatedAt: new Date().toISOString(), derivedCards: [] };
+if (raw){
+disposableStore?.set("derivedCardCache", initial);
+flushDisposableStore().then(async written => {
+const verified = written ? await disposableStore.hydrate("derivedCardCache", null) : null;
+if (verified && JSON.stringify(verified) === JSON.stringify(initial)) localStorage.removeItem(STORAGE_KEYS.derivedCardCache);
+});
+}
+disposableStore?.hydrate("derivedCardCache", initial).then(value => {
+const hydrated = CARD_LIFECYCLE?.normalizeCache(value);
+if (hydrated?.derivedCards?.length) derivedCardCache = hydrated;
+});
+return initial;
 }
 
 function saveDerivedCardCache(cache){
-  derivedCardCache = cache;
-  disposableStore?.set("derivedCardCache", cache);
-  return cache;
+derivedCardCache = cache;
+disposableStore?.set("derivedCardCache", cache);
+return cache;
 }
 
 function saveArchivedEventRefs(references){
-  archivedEventRefs = Array.isArray(references) ? references : [];
-  saveActiveProfileSection("archivedEvents", archivedEventRefs);
-  queueServerStateSync();
-  return archivedEventRefs;
+archivedEventRefs = Array.isArray(references) ? references : [];
+saveActiveProfileSection("archivedEvents", archivedEventRefs);
+queueServerStateSync();
+return archivedEventRefs;
 }
 
 function syncLegacyArchiveReferences(events = activeEvents){
-  if (!CARD_LIFECYCLE) return archivedEventRefs;
-  let next = archivedEventRefs;
-  events.forEach(ev => {
-    if (!getEventAction(ev).archived || next.some(reference => reference.canonicalEventId === (ev.eventId || ev.id))) return;
-    next = CARD_LIFECYCLE.archiveReference(next, ev, {
-      profileId: activeProfileBundle?.profile?.id || "profile:local",
-      archivedFromCardId: derivedCardIdForEvent(ev),
-      now: getEventAction(ev).lastActionAt ? new Date(getEventAction(ev).lastActionAt) : new Date(),
-    });
-  });
-  if (next !== archivedEventRefs) saveArchivedEventRefs(next);
-  return archivedEventRefs;
+if (!CARD_LIFECYCLE) return archivedEventRefs;
+let next = archivedEventRefs;
+events.forEach(ev => {
+if (!getEventAction(ev).archived || next.some(reference => reference.canonicalEventId === (ev.eventId || ev.id))) return;
+next = CARD_LIFECYCLE.archiveReference(next, ev, {
+profileId: activeProfileBundle?.profile?.id || "profile:local",
+archivedFromCardId: derivedCardIdForEvent(ev),
+now: getEventAction(ev).lastActionAt ? new Date(getEventAction(ev).lastActionAt) : new Date(),
+});
+});
+if (next !== archivedEventRefs) saveArchivedEventRefs(next);
+return archivedEventRefs;
 }
 
 function derivedCardIdForEvent(ev){
-  const id = ev.eventId || ev.id;
-  return derivedCardCache?.derivedCards?.find(card => card.canonicalEventId === id)?.id || null;
+const id = ev.eventId || ev.id;
+return derivedCardCache?.derivedCards?.find(card => card.canonicalEventId === id)?.id || null;
 }
 
 function rebuildDerivedCardCache(events = activeEvents, reference = nowAEST()){
-  if (!CARD_LIFECYCLE || !ENRICHMENT_ENGINE) return derivedCardCache;
-  const cache = CARD_LIFECYCLE.materialize(events, {
-    profileId: activeProfileBundle?.profile?.id || "profile:local",
-    enrich: calculateEventEnrichment,
-    feed:true,
-    actionFor: getEventAction,
-    now: reference,
-  });
-  return saveDerivedCardCache(cache);
+if (!CARD_LIFECYCLE || !ENRICHMENT_ENGINE) return derivedCardCache;
+const cache = CARD_LIFECYCLE.materialize(events, {
+profileId: activeProfileBundle?.profile?.id || "profile:local",
+enrich: calculateEventEnrichment,
+feed:true,
+actionFor: getEventAction,
+now: reference,
+});
+return saveDerivedCardCache(cache);
 }
 
 function appendDerivedCardCache(events, reference = nowAEST()){
-  if (!CARD_LIFECYCLE || !ENRICHMENT_ENGINE || !events.length) return derivedCardCache;
-  const pageCache = CARD_LIFECYCLE.materialize(events, {
-    profileId: activeProfileBundle?.profile?.id || "profile:local",
-    enrich: calculateEventEnrichment,
-    feed:true,
-    actionFor: getEventAction,
-    now: reference,
-  });
-  const cards = [...(derivedCardCache?.derivedCards || []), ...(pageCache?.derivedCards || [])]
-    .filter((card, index, all) => all.findIndex(item => item.canonicalEventId === card.canonicalEventId) === index);
-  return saveDerivedCardCache(CARD_LIFECYCLE.normalizeCache({ ...pageCache, derivedCards: cards }));
+if (!CARD_LIFECYCLE || !ENRICHMENT_ENGINE || !events.length) return derivedCardCache;
+const pageCache = CARD_LIFECYCLE.materialize(events, {
+profileId: activeProfileBundle?.profile?.id || "profile:local",
+enrich: calculateEventEnrichment,
+feed:true,
+actionFor: getEventAction,
+now: reference,
+});
+const cards = [...(derivedCardCache?.derivedCards || []), ...(pageCache?.derivedCards || [])]
+.filter((card, index, all) => all.findIndex(item => item.canonicalEventId === card.canonicalEventId) === index);
+return saveDerivedCardCache(CARD_LIFECYCLE.normalizeCache({ ...pageCache, derivedCards: cards }));
 }
 
 function purgeDerivedCardCache(reference = nowAEST()){
-  if (!CARD_LIFECYCLE) return { removedCount: 0, cache: derivedCardCache };
-  const result = CARD_LIFECYCLE.purgeExpired(derivedCardCache, reference);
-  saveDerivedCardCache(result.cache);
-  return result;
+if (!CARD_LIFECYCLE) return { removedCount: 0, cache: derivedCardCache };
+const result = CARD_LIFECYCLE.purgeExpired(derivedCardCache, reference);
+saveDerivedCardCache(result.cache);
+return result;
 }
 
 function clearAndRebuildDerivedCardCache(reference = nowAEST()){
-  if (!CARD_LIFECYCLE) return derivedCardCache;
-  saveDerivedCardCache(CARD_LIFECYCLE.emptyCache(reference));
-  return rebuildDerivedCardCache(activeEvents, reference);
+if (!CARD_LIFECYCLE) return derivedCardCache;
+saveDerivedCardCache(CARD_LIFECYCLE.emptyCache(reference));
+return rebuildDerivedCardCache(activeEvents, reference);
 }
 
 function setBackgroundNotificationPreference(preferences, enabled){
-  const next = preferences;
-  next.followFirst.notifications.enabled = Boolean(enabled);
-  next.followFirst.notifications.userChoice = Boolean(enabled);
-  next.followFirst.notifications.defaultLeadMinutes = 15;
-  next.followFirst.notifications.permissionPromptedAt ||= new Date().toISOString();
-  next.preferenceGraph.viewing = {
-    ...(next.preferenceGraph.viewing || {}),
-    browserAlertsEnabled:Boolean(enabled),
-    reminderLeadMinutes:[15],
-  };
-  return next;
+const next = preferences;
+next.followFirst.notifications.enabled = Boolean(enabled);
+next.followFirst.notifications.userChoice = Boolean(enabled);
+next.followFirst.notifications.defaultLeadMinutes = 15;
+next.followFirst.notifications.permissionPromptedAt ||= new Date().toISOString();
+next.preferenceGraph.viewing = {
+...(next.preferenceGraph.viewing || {}),
+browserAlertsEnabled:Boolean(enabled),
+reminderLeadMinutes:[15],
+};
+return next;
 }
 
 function clearSpoilerOverrides(override){
-  const matchingKeys = Object.keys(eventSpoilerState).filter(key => eventSpoilerState[key]?.override === override);
-  if (!matchingKeys.length) return 0;
-  const next = { ...eventSpoilerState };
-  matchingKeys.forEach(key => delete next[key]);
-  saveEventSpoilerState(next);
-  return matchingKeys.length;
+const matchingKeys = Object.keys(eventSpoilerState).filter(key => eventSpoilerState[key]?.override === override);
+if (!matchingKeys.length) return 0;
+const next = { ...eventSpoilerState };
+matchingKeys.forEach(key => delete next[key]);
+saveEventSpoilerState(next);
+return matchingKeys.length;
 }
 
 function clearHiddenSpoilerOverrides(){
-  return clearSpoilerOverrides("hide");
+return clearSpoilerOverrides("hide");
 }
 
 function clearShownSpoilerOverrides(){
-  return clearSpoilerOverrides("show");
+return clearSpoilerOverrides("show");
 }
 
 function applyGlobalSpoilerPolicy(nextShowSpoilers, previousShowSpoilers){
-  if (Boolean(nextShowSpoilers) === Boolean(previousShowSpoilers)) return 0;
-  return nextShowSpoilers ? clearHiddenSpoilerOverrides() : clearShownSpoilerOverrides();
+if (Boolean(nextShowSpoilers) === Boolean(previousShowSpoilers)) return 0;
+return nextShowSpoilers ? clearHiddenSpoilerOverrides() : clearShownSpoilerOverrides();
 }
 
 function renderHomeSpoilerToggle(){
-  const toggle = document.getElementById("homeSpoilerToggle");
-  if (!toggle) return;
-  const shown = Boolean(userPreferences.showSpoilers);
-  toggle.classList.toggle("active", shown);
-  toggle.setAttribute("aria-checked", shown ? "true" : "false");
-  toggle.setAttribute("aria-label", shown ? "Results ON" : "Results OFF");
-  const state = toggle.querySelector(".spoiler-home-state");
-  if (state) state.textContent = shown ? "ON" : "OFF";
+const toggle = document.getElementById("homeSpoilerToggle");
+if (!toggle) return;
+const shown = Boolean(userPreferences.showSpoilers);
+toggle.classList.toggle("active", shown);
+toggle.setAttribute("aria-checked", shown ? "true" : "false");
+toggle.setAttribute("aria-label", shown ? "Results ON" : "Results OFF");
+const state = toggle.querySelector(".spoiler-home-state");
+if (state) state.textContent = shown ? "ON" : "OFF";
 }
 
 function renderSoundtrackToggle(){
-  const toggle = document.getElementById("soundtrackToggle");
-  if (!toggle) return;
-  const playing = Boolean(SOUNDTRACK?.state().playing);
-  toggle.classList.toggle("active", playing);
-  toggle.setAttribute("aria-checked", playing ? "true" : "false");
-  toggle.setAttribute("aria-label", `${playing ? "Stop" : "Play"} soundtrack: Skyscraper Samba by Scott Buckley`);
-  const state = toggle.querySelector(".soundtrack-toggle-state");
-  if (state) state.textContent = playing ? "ON" : "OFF";
+const toggle = document.getElementById("soundtrackToggle");
+if (!toggle) return;
+const playing = Boolean(SOUNDTRACK?.state().playing);
+toggle.classList.toggle("active", playing);
+toggle.setAttribute("aria-checked", playing ? "true" : "false");
+toggle.setAttribute("aria-label", `${playing ? "Stop" : "Play"} soundtrack: Skyscraper Samba by Scott Buckley`);
+const state = toggle.querySelector(".soundtrack-toggle-state");
+if (state) state.textContent = playing ? "ON" : "OFF";
 }
 
 async function toggleSoundtrack(){
-  if (!SOUNDTRACK){
-    showToast("Soundtrack could not start. Check your connection and tap again.");
-    return false;
-  }
-  const toggle = document.getElementById("soundtrackToggle");
-  if (!toggle) return false;
-  toggle.disabled = true;
-  try{
-    if (SOUNDTRACK.state().playing){
-      SOUNDTRACK.stop();
-      renderSoundtrackToggle();
-      showToast("Soundtrack off.");
-      return false;
-    }
-    await SOUNDTRACK.start();
-    renderSoundtrackToggle();
-    showToast("Soundtrack on: Skyscraper Samba.");
-    return true;
-  }catch(error){
-    SOUNDTRACK.stop();
-    renderSoundtrackToggle();
-    console.warn("Soundtrack playback failed", error);
-    showToast("Soundtrack could not start. Check your connection and tap again.");
-    return false;
-  }finally{
-    toggle.disabled = false;
-  }
+if (!SOUNDTRACK){
+showToast("Soundtrack could not start. Check your connection and tap again.");
+return false;
+}
+const toggle = document.getElementById("soundtrackToggle");
+if (!toggle) return false;
+toggle.disabled = true;
+try{
+if (SOUNDTRACK.state().playing){
+SOUNDTRACK.stop();
+renderSoundtrackToggle();
+showToast("Soundtrack off.");
+return false;
+}
+await SOUNDTRACK.start();
+renderSoundtrackToggle();
+showToast("Soundtrack on: Skyscraper Samba.");
+return true;
+}catch(error){
+SOUNDTRACK.stop();
+renderSoundtrackToggle();
+console.warn("Soundtrack playback failed", error);
+showToast("Soundtrack could not start. Check your connection and tap again.");
+return false;
+}finally{
+toggle.disabled = false;
+}
 }
 
 function setGlobalSpoilerPreference(nextShowSpoilers, { notify = false } = {}){
-  const previousShowSpoilers = Boolean(userPreferences.showSpoilers);
-  const next = Boolean(nextShowSpoilers);
-  if (!next) standingsRevealApproved = false;
-  savePreferences({
-    ...userPreferences,
-    showSpoilers: next,
-    feedControls: FEED_CONTROLS?.normalize?.({
-      ...userPreferences.feedControls,
-      spoilers: next ? "results_visible" : "standard",
-    }) || userPreferences.feedControls,
-  });
-  const resetCount = applyGlobalSpoilerPolicy(next, previousShowSpoilers);
-  renderAll({ preserveViewport: true });
-  if (notify){
-    const resetCopy = resetCount ? ` ${resetCount} event override${resetCount === 1 ? " was" : "s were"} reset.` : "";
-    showToast(`Spoilers ${next ? "shown" : "protected"} globally.${resetCopy}`);
-  }
+const previousShowSpoilers = Boolean(userPreferences.showSpoilers);
+const next = Boolean(nextShowSpoilers);
+if (!next) standingsRevealApproved = false;
+savePreferences({
+...userPreferences,
+showSpoilers: next,
+feedControls: FEED_CONTROLS?.normalize?.({
+...userPreferences.feedControls,
+spoilers: next ? "results_visible" : "standard",
+}) || userPreferences.feedControls,
+});
+const resetCount = applyGlobalSpoilerPolicy(next, previousShowSpoilers);
+renderAll({ preserveViewport: true });
+if (notify){
+const resetCopy = resetCount ? ` ${resetCount} event override${resetCount === 1 ? " was" : "s were"} reset.` : "";
+showToast(`Spoilers ${next ? "shown" : "protected"} globally.${resetCopy}`);
+}
 }
 
 let userPreferences = loadPreferences();
 void ensureFollowCollectionDirectories(userPreferences).then(() => {
 
-  if (document.readyState !== "loading") renderAll({ preserveViewport:true });
+if (document.readyState !== "loading") renderAll({ preserveViewport:true });
 }).catch(() => {});
 let ratings = loadRatings();
 let eventActions = loadEventActions();
@@ -4598,778 +4598,791 @@ const followFirstOpenId = globalThis.crypto?.randomUUID?.() || `open_${Date.now(
 const preferencesAfterOpen = FOLLOW_FIRST?.registerOpen?.(userPreferences, followFirstOpenId);
 if (preferencesAfterOpen) savePreferences(preferencesAfterOpen);
 if (RATING_SYSTEM){
-  const startedRatingPromptState = RATING_SYSTEM.startSession(
-    userPreferences.ratingPromptState,
-    productEventSessionId
-  );
-  savePreferences({ ...userPreferences, ratingPromptState: startedRatingPromptState });
+const startedRatingPromptState = RATING_SYSTEM.startSession(
+userPreferences.ratingPromptState,
+productEventSessionId
+);
+savePreferences({ ...userPreferences, ratingPromptState: startedRatingPromptState });
 }
 
 function bootstrapExistingSurfaceHistory(events, reference = nowAEST()){
-  if (Object.keys(surfacePresentationState).length || !userPreferences.onboardingComplete) return;
-  const timestamp = new Date(reference).toISOString();
-  saveSurfacePresentation(Object.fromEntries(events.map(ev => [
-    surfacePresentationKey(ev),
-    { firstSurfacedAt: timestamp, seenAt: timestamp },
-  ])));
+if (Object.keys(surfacePresentationState).length || !userPreferences.onboardingComplete) return;
+const timestamp = new Date(reference).toISOString();
+saveSurfacePresentation(Object.fromEntries(events.map(ev => [
+surfacePresentationKey(ev),
+{ firstSurfacedAt: timestamp, seenAt: timestamp },
+])));
 }
 
 bootstrapExistingSurfaceHistory(activeEvents);
 
 function pilotMeasurementPreferences(preferences = userPreferences){
-  const source = preferences?.pilotMeasurement;
-  return source && typeof source === "object" && !Array.isArray(source)
-    ? source
-    : DEFAULT_PREFERENCES.pilotMeasurement;
+const source = preferences?.pilotMeasurement;
+return source && typeof source === "object" && !Array.isArray(source)
+? source
+: DEFAULT_PREFERENCES.pilotMeasurement;
 }
 
 function pilotMeasurementEligible(){
-  ensureDefaultPilotMeasurementParticipation();
-  const pilot = pilotMeasurementPreferences();
-  return Boolean(
-    PRODUCT_EVENTS
-    && productEventsQueue
-    && serverPersistence.user?.id
-    && pilot.enabled
-    && typeof pilot.participationStartedAt === "string"
-    && pilot.participationStartedAt
-  );
+ensureDefaultPilotMeasurementParticipation();
+const pilot = pilotMeasurementPreferences();
+return Boolean(
+PRODUCT_EVENTS
+&& productEventsQueue
+&& serverPersistence.user?.id
+&& pilot.enabled
+&& typeof pilot.participationStartedAt === "string"
+&& pilot.participationStartedAt
+);
 }
 
 function ensureDefaultPilotMeasurementParticipation(reference = new Date()){
-  const pilot = pilotMeasurementPreferences();
-  if (!serverPersistence.user || !pilot.enabled || pilot.participationStartedAt) return false;
-  const next = clonePreferences(userPreferences);
-  next.pilotMeasurement = {
-    ...pilotMeasurementPreferences(next),
-    enabled: true,
-    participationStartedAt: reference.toISOString(),
-  };
-  savePreferences(next);
-  return true;
+const pilot = pilotMeasurementPreferences();
+if (!serverPersistence.user || !pilot.enabled || pilot.participationStartedAt) return false;
+const next = clonePreferences(userPreferences);
+next.pilotMeasurement = {
+...pilotMeasurementPreferences(next),
+enabled: true,
+participationStartedAt: reference.toISOString(),
+};
+savePreferences(next);
+return true;
 }
 
 function currentWeeklyPulseSurvey(){
-  return {
-    surveyId: PRODUCT_EVENTS?.weeklyPulseSurveyId?.() || "weekly-pulse.v1",
-  };
+return {
+surveyId: PRODUCT_EVENTS?.weeklyPulseSurveyId?.() || "weekly-pulse.v1",
+};
 }
 
 function setPilotPulsePromptOpen(open){
-  const modal = document.getElementById("pilotPulsePromptModal");
-  modal.classList.toggle("show", open);
-  modal.setAttribute("aria-hidden", open ? "false" : "true");
-  document.body.classList.toggle("modal-open", open);
-  if (open) document.getElementById("openPilotPulseSurveyBtn")?.focus({ preventScroll: true });
+const modal = document.getElementById("pilotPulsePromptModal");
+modal.classList.toggle("show", open);
+modal.setAttribute("aria-hidden", open ? "false" : "true");
+document.body.classList.toggle("modal-open", open);
+if (open) document.getElementById("openPilotPulseSurveyBtn")?.focus({ preventScroll: true });
 }
 
 let weeklyPulsePromptDismissedForOpen = false;
 function dismissWeeklyPulsePrompt(reference = new Date()){
-  const modal = document.getElementById("pilotPulsePromptModal");
-  if (!modal?.classList.contains("show") || weeklyPulsePromptDismissedForOpen) return false;
-  weeklyPulsePromptDismissedForOpen = true;
-  const { surveyId } = currentWeeklyPulseSurvey(reference);
-  const promptStorageKey = `${STORAGE_KEYS.weeklyPulsePrompt}:${serverPersistence.user?.id || "guest"}`;
-  const current = pilotMeasurementPreferences().promptState || readStorage(promptStorageKey, null);
-  const promptState = PRODUCT_EVENTS.dismissWeeklyPulsePrompt(current, { surveyId, reference });
-  writeStorage(promptStorageKey, promptState);
-  if (serverPersistence.user){
-    const next = clonePreferences(userPreferences);
-    next.pilotMeasurement = { ...pilotMeasurementPreferences(next), promptState };
-    savePreferences(next);
-  }
-  setPilotPulsePromptOpen(false);
-  return true;
+const modal = document.getElementById("pilotPulsePromptModal");
+if (!modal?.classList.contains("show") || weeklyPulsePromptDismissedForOpen) return false;
+weeklyPulsePromptDismissedForOpen = true;
+const { surveyId } = currentWeeklyPulseSurvey(reference);
+const promptStorageKey = `${STORAGE_KEYS.weeklyPulsePrompt}:${serverPersistence.user?.id || "guest"}`;
+const current = pilotMeasurementPreferences().promptState || readStorage(promptStorageKey, null);
+const promptState = PRODUCT_EVENTS.dismissWeeklyPulsePrompt(current, { surveyId, reference });
+writeStorage(promptStorageKey, promptState);
+if (serverPersistence.user){
+const next = clonePreferences(userPreferences);
+next.pilotMeasurement = { ...pilotMeasurementPreferences(next), promptState };
+savePreferences(next);
+}
+setPilotPulsePromptOpen(false);
+return true;
 }
 
 function registerWeeklyPulseAppOpen(reference = new Date()){
-  if (!PRODUCT_EVENTS || !serverPersistence.user) return false;
-  ensureDefaultPilotMeasurementParticipation(reference);
-  const pilot = pilotMeasurementPreferences();
-  if (!PRODUCT_EVENTS.pilotSurveyActive(pilot, reference)) return false;
-  const { surveyId } = currentWeeklyPulseSurvey(reference);
-  const dayKey = PRODUCT_EVENTS.sydneyDateKey(reference);
-  const promptStorageKey = `${STORAGE_KEYS.weeklyPulsePrompt}:${serverPersistence.user.id}`;
-  const promptState = PRODUCT_EVENTS.nextWeeklyPulsePromptState(
-    pilot.promptState || readStorage(promptStorageKey, null),
-    { surveyId, dayKey }
-  );
-  writeStorage(promptStorageKey, promptState);
-  const next = clonePreferences(userPreferences);
-  next.pilotMeasurement = { ...pilotMeasurementPreferences(next), promptState };
-  savePreferences(next);
-  if (!PRODUCT_EVENTS.shouldPromptWeeklyPulse({ pilot, promptState, surveyId, reference })) return false;
-  window.setTimeout(() => {
-    if (!document.querySelector(".modal-backdrop.show")){
-      weeklyPulsePromptDismissedForOpen = false;
-      setPilotPulsePromptOpen(true);
-    }
-  }, 250);
-  return true;
+if (!PRODUCT_EVENTS || !serverPersistence.user) return false;
+ensureDefaultPilotMeasurementParticipation(reference);
+const pilot = pilotMeasurementPreferences();
+if (!PRODUCT_EVENTS.pilotSurveyActive(pilot, reference)) return false;
+const { surveyId } = currentWeeklyPulseSurvey(reference);
+const dayKey = PRODUCT_EVENTS.sydneyDateKey(reference);
+const promptStorageKey = `${STORAGE_KEYS.weeklyPulsePrompt}:${serverPersistence.user.id}`;
+const promptState = PRODUCT_EVENTS.nextWeeklyPulsePromptState(
+pilot.promptState || readStorage(promptStorageKey, null),
+{ surveyId, dayKey }
+);
+writeStorage(promptStorageKey, promptState);
+const next = clonePreferences(userPreferences);
+next.pilotMeasurement = { ...pilotMeasurementPreferences(next), promptState };
+savePreferences(next);
+if (!PRODUCT_EVENTS.shouldPromptWeeklyPulse({ pilot, promptState, surveyId, reference })) return false;
+window.setTimeout(() => {
+if (!document.querySelector(".modal-backdrop.show")){
+weeklyPulsePromptDismissedForOpen = false;
+setPilotPulsePromptOpen(true);
+}
+}, 250);
+return true;
 }
 
 function productEventContextForEvent(event){
-  if (!event) return {};
-  return {
-    ...(event.key ? { sport: String(event.key).toLowerCase() } : {}),
-    ...((event.competitionId || event.canonicalCompetitionId)
-      ? { competitionId: event.competitionId || event.canonicalCompetitionId }
-      : {}),
-    ...((event.canonicalEventId || event.eventId || event.id)
-      ? { canonicalEventId: event.canonicalEventId || event.eventId || event.id }
-      : {}),
-  };
+if (!event) return {};
+return {
+...(event.key ? { sport: String(event.key).toLowerCase() } : {}),
+...((event.competitionId || event.canonicalCompetitionId)
+? { competitionId: event.competitionId || event.canonicalCompetitionId }
+: {}),
+...((event.canonicalEventId || event.eventId || event.id)
+? { canonicalEventId: event.canonicalEventId || event.eventId || event.id }
+: {}),
+};
 }
 
 function productMeasurementIsColdStart(preferences = userPreferences){
-  const signals = preferences?.preferenceGraph?.learning?.signals;
-  const interactionCount = Math.max(
-    Array.isArray(signals) ? signals.length : 0,
-    Number(preferences?.preferenceGraph?.learning?.tuningInteractionCount || 0)
-  );
-  return interactionCount < 10;
+const signals = preferences?.preferenceGraph?.learning?.signals;
+const interactionCount = Math.max(
+Array.isArray(signals) ? signals.length : 0,
+Number(preferences?.preferenceGraph?.learning?.tuningInteractionCount || 0)
+);
+return interactionCount < 10;
 }
 
 function productRecommendationContext(event, options = {}){
-  const recommendationClass = options.recommendationClass || eventRecommendationClassification(event);
-  return {
-    ...(["direct", "adjacent", "discovery"].includes(recommendationClass)
-      ? { recommendationClass }
-      : {}),
-    coldStart: options.coldStart === undefined
-      ? productMeasurementIsColdStart()
-      : Boolean(options.coldStart),
-  };
+const recommendationClass = options.recommendationClass || eventRecommendationClassification(event);
+return {
+...(["direct", "adjacent", "discovery"].includes(recommendationClass)
+? { recommendationClass }
+: {}),
+coldStart: options.coldStart === undefined
+? productMeasurementIsColdStart()
+: Boolean(options.coldStart),
+};
 }
 
 function eventFeedActionSurface(options = {}){
-  if (options.archived) return "archive";
-  if (activeSportHubKey()) return "sport_hub";
-  return activeTab === "feed" ? "curated_feed" : "event_card";
+if (options.archived) return "archive";
+if (activeSportHubKey()) return "sport_hub";
+return activeTab === "feed" ? "curated_feed" : "event_card";
 }
 
 function recordEventFeedAction(event, action, options = {}){
-  return recordProductEvent({
-    eventName: "feed_action",
-    surface: options.surface || eventFeedActionSurface(options),
-    ...productEventContextForEvent(event),
-    properties: {
-      action,
-      ...productRecommendationContext(event, options),
-    },
-  });
+return recordProductEvent({
+eventName: "feed_action",
+surface: options.surface || eventFeedActionSurface(options),
+...productEventContextForEvent(event),
+properties: {
+action,
+...productRecommendationContext(event, options),
+},
+});
 }
 
 function recordWatchDecision(event, decision, options = {}){
-  return recordProductEvent({
-    eventName: "watch_decision",
-    surface: options.surface || eventFeedActionSurface(options),
-    ...productEventContextForEvent(event),
-    properties: { decision },
-  });
+return recordProductEvent({
+eventName: "watch_decision",
+surface: options.surface || eventFeedActionSurface(options),
+...productEventContextForEvent(event),
+properties: { decision },
+});
 }
 
 function recordProductEvent(input){
-  if (!pilotMeasurementEligible()) return null;
-  try{
-    const event = PRODUCT_EVENTS.createEvent(input, { sessionId: productEventSessionId });
-    productEventsQueue.enqueue(event);
-    return event;
-  }catch(error){
-    console.warn("Product event rejected locally", error);
-    return null;
-  }
+if (!pilotMeasurementEligible()) return null;
+try{
+const event = PRODUCT_EVENTS.createEvent(input, { sessionId: productEventSessionId });
+productEventsQueue.enqueue(event);
+return event;
+}catch(error){
+console.warn("Product event rejected locally", error);
+return null;
+}
 }
 
 async function flushProductEvents(){
-  if (!pilotMeasurementEligible()) return { sent: 0 };
-  return productEventsQueue.flush();
+if (!pilotMeasurementEligible()) return { sent: 0 };
+return productEventsQueue.flush();
 }
 
 function recordFixtureCheck(sportKey, {
-  entry,
-  roundNumber = null,
-  canonicalEventId = null,
+entry,
+roundNumber = null,
+canonicalEventId = null,
 } = {}){
-  const sport = SPORT_HUBS?.sportConfig(sportKey);
-  if (!sport) return null;
-  return recordProductEvent({
-    eventName: "fixture_check",
-    surface: entry === "round_summary" ? "round_summary" : "sport_hub",
-    sport: sportKey,
-    competitionId: sport.competitionId,
-    ...(canonicalEventId ? { canonicalEventId } : {}),
-    properties: {
-      entry,
-      ...(Number.isInteger(roundNumber) ? { roundNumber } : {}),
-    },
-  });
+const sport = SPORT_HUBS?.sportConfig(sportKey);
+if (!sport) return null;
+return recordProductEvent({
+eventName: "fixture_check",
+surface: entry === "round_summary" ? "round_summary" : "sport_hub",
+sport: sportKey,
+competitionId: sport.competitionId,
+...(canonicalEventId ? { canonicalEventId } : {}),
+properties: {
+entry,
+...(Number.isInteger(roundNumber) ? { roundNumber } : {}),
+},
+});
 }
 
 function setServerPersistence(patch){
-  const previousOwnerId = serverPersistence.user?.id || null;
-  serverPersistence = { ...serverPersistence, ...(patch || {}) };
-  const nextOwnerId = serverPersistence.user?.id || null;
-  if (previousOwnerId !== nextOwnerId || productEventOwnerId !== nextOwnerId){
-    if(previousOwnerId!==nextOwnerId)globalThis.NOTHINGSPORTS_EPIC_UI?.reset?.();
-    if (previousOwnerId && previousOwnerId !== nextOwnerId) void clearCachedPersonalisedFeed(previousOwnerId);
-    productEventsQueue?.clear();
-    productExposureKeys.clear();
-    productEventOwnerId = nextOwnerId;
-  }
-  const settingsOpen = typeof document !== "undefined"
-    && document.getElementById("settingsModal")?.classList.contains("show");
-  if (settingsOpen && ["account", "pilot"].includes(settingsSection) && draftPreferences){
-    renderSettingsScreen();
-  }
-  syncChatSessionState(previousOwnerId, nextOwnerId);
-  syncNothingscoreSessionState(previousOwnerId, nextOwnerId);
-  const life=serverSyncClient?.accountSnapshot?.();
-  if(patch?.state==='signedIn' && nextOwnerId===life?.accountId)accountIndicatorGeneration=life.generation;
-  renderAccountIndicator();
-  if(patch?.state==='signedIn' && nextOwnerId && nextOwnerId===life?.accountId &&
-      (publicProfileSettingsLoading?.owner!==nextOwnerId || publicProfileSettingsLoading?.generation!==life.generation) &&
-      (nothingscoreViewerScope?.owner!==nextOwnerId || nothingscoreViewerScope?.generation!==life.generation)){
-    void refreshNothingscoreViewer().catch(()=>{});
-  }
-  return serverPersistence;
+const previousOwnerId = serverPersistence.user?.id || null;
+serverPersistence = { ...serverPersistence, ...(patch || {}) };
+const nextOwnerId = serverPersistence.user?.id || null;
+if (previousOwnerId !== nextOwnerId || productEventOwnerId !== nextOwnerId){
+if(previousOwnerId!==nextOwnerId)globalThis.NOTHINGSPORTS_EPIC_UI?.reset?.();
+if (previousOwnerId && previousOwnerId !== nextOwnerId) void clearCachedPersonalisedFeed(previousOwnerId);
+productEventsQueue?.clear();
+productExposureKeys.clear();
+productEventOwnerId = nextOwnerId;
+}
+const settingsOpen = typeof document !== "undefined"
+&& document.getElementById("settingsModal")?.classList.contains("show");
+if (settingsOpen && ["account", "pilot"].includes(settingsSection) && draftPreferences){
+renderSettingsScreen();
+}
+syncChatSessionState(previousOwnerId, nextOwnerId);
+syncNothingscoreSessionState(previousOwnerId, nextOwnerId);
+const life=serverSyncClient?.accountSnapshot?.();
+if(patch?.state==='signedIn' && nextOwnerId===life?.accountId)accountIndicatorGeneration=life.generation;
+renderAccountIndicator();
+if(patch?.state==='signedIn' && nextOwnerId && nextOwnerId===life?.accountId &&
+(publicProfileSettingsLoading?.owner!==nextOwnerId || publicProfileSettingsLoading?.generation!==life.generation) &&
+(nothingscoreViewerScope?.owner!==nextOwnerId || nothingscoreViewerScope?.generation!==life.generation)){
+void refreshNothingscoreViewer().catch(()=>{});
+}
+return serverPersistence;
 }
 
 function ensureServerSyncStatus(){
-  if (!serverSyncClient || serverPersistence.state !== "checking" || serverStatusRequest) return serverStatusRequest;
-  serverStatusRequest = serverSyncClient.status().then(status => {
-    setServerPersistence(status.configured
-      ? { configured:true, state:"signedOut", user:null, message:"" }
-      : { configured:false, state:"local", user:null, message:"" });
-  }).catch(error => {
-    setServerPersistence({
-      configured:false,
-      state:error?.status === 404 ? "local" : "error",
-      user:null,
-      message:error?.status === 404 ? "" : "Server sync is temporarily unavailable.",
-    });
-  }).finally(() => {
-    serverStatusRequest = null;
-  });
-  return serverStatusRequest;
+if (!serverSyncClient || serverPersistence.state !== "checking" || serverStatusRequest) return serverStatusRequest;
+serverStatusRequest = serverSyncClient.status().then(status => {
+setServerPersistence(status.configured
+? { configured:true, state:"signedOut", user:null, message:"" }
+: { configured:false, state:"local", user:null, message:"" });
+}).catch(error => {
+setServerPersistence({
+configured:false,
+state:error?.status === 404 ? "local" : "error",
+user:null,
+message:error?.status === 404 ? "" : "Server sync is temporarily unavailable.",
+});
+}).finally(() => {
+serverStatusRequest = null;
+});
+return serverStatusRequest;
 }
 
 function currentServerStatePayload(){
-  if (!SERVER_SYNC) return null;
-  const profile = activeProfileBundle?.profile || {};
-  const baselineProfile = serverStateBaseline?.state?.profile || {};
-  const baselinePreferences = serverStateBaseline?.state?.preferences || {};
-  return SERVER_SYNC.buildUserState({
-    profile: {
-      ...baselineProfile,
-      usernameLabel: profile.usernameLabel || "Local profile",
-      timezone: profile.timezone || "Australia/Sydney",
-      onboardingCompleted: Boolean(userPreferences.onboardingComplete),
-    },
-    preferences: SERVER_SYNC.mergeSettings(baselinePreferences, userPreferences),
-    eventUserState: eventActions,
-    eventSpoilerState,
-    archivedEvents: archivedEventRefs.map(reference => ({
-      canonicalEventId: reference.canonicalEventId,
-      archivedAt: reference.archivedAt,
-      ...(reference.archivedFromCardId ? { archivedFromCardId: reference.archivedFromCardId } : {}),
-      ...(reference.note ? { note: reference.note } : {}),
-    })),
-    ratings,
-  });
+if (!SERVER_SYNC) return null;
+const profile = activeProfileBundle?.profile || {};
+const baselineProfile = serverStateBaseline?.state?.profile || {};
+const baselinePreferences = serverStateBaseline?.state?.preferences || {};
+return SERVER_SYNC.buildUserState({
+profile: {
+...baselineProfile,
+usernameLabel: profile.usernameLabel || "Local profile",
+timezone: profile.timezone || "Australia/Sydney",
+onboardingCompleted: Boolean(userPreferences.onboardingComplete),
+},
+preferences: SERVER_SYNC.mergeSettings(baselinePreferences, userPreferences),
+eventUserState: eventActions,
+eventSpoilerState,
+archivedEvents: archivedEventRefs.map(reference => ({
+canonicalEventId: reference.canonicalEventId,
+archivedAt: reference.archivedAt,
+...(reference.archivedFromCardId ? { archivedFromCardId: reference.archivedFromCardId } : {}),
+...(reference.note ? { note: reference.note } : {}),
+})),
+ratings,
+});
 }
 
 function setServerStateBaseline(state){
-  const life=preferenceIntentOwner();
-  serverStateBaseline = {
-    state: state
-      ? SERVER_SYNC.buildUserState(state)
-      : emptyServerStatePayload(),
-    updatedAt: state?.updatedAt || null,
-    accountId:life?.accountId||null,
-    generation:life?.generation??null,
-  };
-  return serverStateBaseline;
+const life=preferenceIntentOwner();
+serverStateBaseline = {
+state: state
+? SERVER_SYNC.buildUserState(state)
+: emptyServerStatePayload(),
+updatedAt: state?.updatedAt || null,
+accountId:life?.accountId||null,
+generation:life?.generation??null,
+};
+return serverStateBaseline;
 }
 
 function emptyServerStatePayload(){
-  return SERVER_SYNC?.buildUserState?.() || {};
+return SERVER_SYNC?.buildUserState?.() || {};
 }
 
 function serverErrorEndsSession(error){return /^(refresh_session_terminal|missing_session|invalid_refresh_token|refresh_token_(not_found|already_used|revoked))$/.test(String(error?.code||"").toLowerCase())}
 
-function applyServerStatePreservingChanges(state, stateAtSyncStart){
-  const inFlightPatch = USER_STATE_SYNC.createPatch(
-    stateAtSyncStart,
-    currentServerStatePayload(),
-    { baseUpdatedAt: state?.updatedAt || null }
-  );
-  const localState = USER_STATE_SYNC.hasChanges(inFlightPatch)
-    ? USER_STATE_SYNC.applyPatch(state, inFlightPatch)
-    : state;
-  applyServerState(localState);
-  return inFlightPatch;
+function applyServerStatePreservingChanges(state, stateAtSyncStart, plan){
+const currentState=currentServerStatePayload();
+const inFlightPatch = USER_STATE_SYNC.createPatch(
+stateAtSyncStart,
+currentState,
+{ baseUpdatedAt: state?.updatedAt || null }
+);
+const localState = USER_STATE_SYNC.hasChanges(inFlightPatch)
+? USER_STATE_SYNC.applyPatch(state, inFlightPatch)
+: state;
+applyServerState(plan?.preserve(localState,currentState.preferences)||localState);
+return inFlightPatch;
 }
 
 function queueServerStateSync(){
-  if (
-    serverSyncApplying
-    || !serverSyncClient
-    || !serverPersistence.user
-    || ["local", "signedOut", "checking", "requesting"].includes(serverPersistence.state)
-  ) return false;
-  clearTimeout(serverSyncTimer);
-  serverSyncTimer = setTimeout(() => {
-    serverSyncTimer = null;
-    const hydration = startupFunnelFinished ? beginInSessionLoading("Saving settings") : null;
-    syncCurrentServerState()
-      .then(() => hydration?.complete())
-      .catch(error => {
-        hydration?.fail("Settings are saved locally; online sync will retry.");
-        console.warn("Deferred server sync failed", error);
-      });
-  }, 650);
-  return true;
+if (
+serverSyncApplying
+|| !serverSyncClient
+|| !serverPersistence.user
+|| ["local", "signedOut", "checking", "requesting"].includes(serverPersistence.state)
+) return false;
+clearTimeout(serverSyncTimer);
+serverSyncTimer = setTimeout(() => {
+serverSyncTimer = null;
+const hydration = startupFunnelFinished ? beginInSessionLoading("Saving settings") : null;
+syncCurrentServerState()
+.then(() => hydration?.complete())
+.catch(error => {
+hydration?.fail("Settings are saved locally; online sync will retry.");
+console.warn("Deferred server sync failed", error);
+});
+}, 650);
+return true;
 }
 
 function invalidateServerStateSyncScope(){
-  globalThis.NOTHINGSPORTS_EPIC_UI?.reset();
-  clearTimeout(serverSyncTimer);
-  serverSyncTimer = null;
-  return ++serverStateSyncGeneration;
+globalThis.NOTHINGSPORTS_EPIC_UI?.reset();
+clearTimeout(serverSyncTimer);
+serverSyncTimer = null;
+return ++serverStateSyncGeneration;
 }
 
 function serverStateSyncScope({ accountId = serverPersistence.user?.id, generation = serverStateSyncGeneration, requireUser = true } = {}){
-  const expected = String(accountId || "");
-  const current = ({ allowEndedSession = false } = {}) => {
-    const subject = serverSyncClient?.sessionSubject?.() || "";
-    return Boolean(expected && generation === serverStateSyncGeneration
-      && (subject === expected || (allowEndedSession && !subject))
-      && (!requireUser || (serverPersistence.user?.id === expected
-        && !["local", "signedOut", "checking", "requesting"].includes(serverPersistence.state))));
-  };
-  return {
-    accountId:expected,
-    current,
-    verify(payload){
-      if (!current()) return false;
-      if (payload?.user?.id !== expected){
-        throw Object.assign(new Error("The returned profile does not belong to this account."), { code:"user_state_identity_mismatch" });
-      }
-      return true;
-    },
-  };
+const expected = String(accountId || "");
+const current = ({ allowEndedSession = false } = {}) => {
+const subject = serverSyncClient?.sessionSubject?.() || "";
+return Boolean(expected && generation === serverStateSyncGeneration
+&& (subject === expected || (allowEndedSession && !subject))
+&& (!requireUser || (serverPersistence.user?.id === expected
+&& !["local", "signedOut", "checking", "requesting"].includes(serverPersistence.state))));
+};
+return {
+accountId:expected,
+current,
+verify(payload){
+if (!current()) return false;
+if (payload?.user?.id !== expected){
+throw Object.assign(new Error("The returned profile does not belong to this account."), { code:"user_state_identity_mismatch" });
+}
+return true;
+},
+};
 }
 
 async function reconcileCurrentServerState({ notify = false, scope = serverStateSyncScope() } = {}){
-  if (!serverSyncClient || !serverPersistence.user) return null;
-  if (!scope.current()) return null;
-  const diagnostic=globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.beginDiagnostic?.(scope);
-  clearTimeout(serverSyncTimer);
-  serverSyncTimer = null;
-  setServerPersistence({ state: "syncing", message: "Checking for newer choices…" });
-  try{
-    const preferenceLife=preferenceIntentOwner();
-    const preferenceReceipt=pendingPreferenceIntent(scope.accountId);
-    let currentState = currentServerStatePayload();
-    const stateAtSyncStart = currentState;
-    const baseline = serverStateBaseline || {
-      state: emptyServerStatePayload(),
-      updatedAt: null,
-    };
-    let localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
-      baseUpdatedAt: baseline.updatedAt,
-    });
-    diagnostic?.step("read");
-    let latest = await serverSyncClient.loadState({ accountId:scope.accountId });
-    diagnostic?.step("verify",latest);
-    if (!scope.verify(latest)) return null;
-    verifyPreferenceIntentBase(preferenceReceipt,latest.state);
-    advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
-    setPreferenceRecovery(latest.preferenceRecovery);
-    currentState = serverAuthoritativeFixturePins(latest.state, currentState);
-    localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
-      baseUpdatedAt: baseline.updatedAt,
-    });
+if (!serverSyncClient || !serverPersistence.user) return null;
+if (!scope.current()) return null;
+const diagnostic=globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.beginDiagnostic?.(scope);
+clearTimeout(serverSyncTimer);
+serverSyncTimer = null;
+setServerPersistence({ state: "syncing", message: "Checking for newer choices…" });
+try{
+const preferenceLife=preferenceIntentOwner();
+const preferenceReceipt=pendingPreferenceIntent(scope.accountId);
+let currentState = currentServerStatePayload();
+const stateAtSyncStart = currentState;
+const baseline = serverStateBaseline || {
+state: emptyServerStatePayload(),
+updatedAt: null,
+};
+let localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
+baseUpdatedAt: baseline.updatedAt,
+});
+diagnostic?.step("read");
+let latest = await serverSyncClient.loadState({ accountId:scope.accountId });
+diagnostic?.step("verify",latest,preferenceReceipt);
+if (!scope.verify(latest)) return null;
+let preferencePlan=verifyPreferenceIntentBase(preferenceReceipt,latest.state,preferenceLife,currentState.preferences,diagnostic?.guard);
+advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
+setPreferenceRecovery(latest.preferenceRecovery);
+currentState = serverAuthoritativeFixturePins(latest.state, currentState);
+localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
+baseUpdatedAt: baseline.updatedAt,
+});
 
-    if (!USER_STATE_SYNC.hasChanges(localPatch) && latest.state){
-      diagnostic?.step("acknowledge");
-      acknowledgePreferenceReceipt(preferenceReceipt,latest.state,preferenceLife);
-      if (latest.state.updatedAt !== baseline.updatedAt){
-        diagnostic?.step("apply");
-        applyServerStatePreservingChanges(latest.state, stateAtSyncStart);
-      }
-      setServerStateBaseline(latest.state);
-      setServerPersistence({
-        configured: true,
-        state: "signedIn",
-        user: latest.user || serverPersistence.user,
-        lastSyncedAt: latest.state.updatedAt,
-        message: "",
-      });
-      if (notify) showToast("Loaded your latest Nothing Sport settings.");
-      diagnostic?.step("complete");
-      return latest;
-    }
+localPatch=preferencePlan?.patch(localPatch)||localPatch;
+if (!USER_STATE_SYNC.hasChanges(localPatch) && latest.state){
+diagnostic?.step("acknowledge");
+acknowledgePreferenceReceipt(preferencePlan?.receipt||preferenceReceipt,latest.state,preferenceLife,diagnostic?.guard);
+if (preferencePlan||latest.state.updatedAt !== baseline.updatedAt){
+diagnostic?.step("apply");
+applyServerStatePreservingChanges(latest.state, stateAtSyncStart,preferencePlan);
+}
+setServerStateBaseline(latest.state);
+setServerPersistence({
+configured: true,
+state: "signedIn",
+user: latest.user || serverPersistence.user,
+lastSyncedAt: latest.state.updatedAt,
+message: "",
+});
+if (pendingPreferenceIntent(scope.accountId)){setServerPersistence({state:"error",message:"Newer choices are saved on this device and waiting to sync. Retry sync."});}
+else if (notify) showToast("Loaded your latest Nothing Sport settings.");
+diagnostic?.step("complete");
+return latest;
+}
 
-    if (!latest.state && !USER_STATE_SYNC.hasChanges(localPatch)){
-      localPatch = USER_STATE_SYNC.createPatch(emptyServerStatePayload(), currentState, {
-        baseUpdatedAt: null,
-      });
-    }
+if (!latest.state && !USER_STATE_SYNC.hasChanges(localPatch)){
+localPatch = USER_STATE_SYNC.createPatch(emptyServerStatePayload(), currentState, {
+baseUpdatedAt: null,
+});
+}
 
-    let result = null;
-    for (let attempt = 0; attempt < 3; attempt += 1){
-      const rebasedPatch = {
-        ...localPatch,
-        baseUpdatedAt: latest.state?.updatedAt || null,
-      };
-      try{
-        if (!scope.current()) return null;
-        diagnostic?.step("save");
-        result = await serverSyncClient.savePatch(rebasedPatch, { accountId:scope.accountId });
-        diagnostic?.step("save-response",result);
-        if (!scope.verify(result)) return null;
-        break;
-      }catch(error){
-        if (!scope.current({ allowEndedSession:serverErrorEndsSession(error) })) return null;
-        if (error?.status !== 409 || error?.code !== "user_state_conflict" || attempt === 2) throw error;
-        diagnostic?.step("read");
-        latest = await serverSyncClient.loadState({ accountId:scope.accountId });
-        diagnostic?.step("verify",latest);
-        if (!scope.verify(latest)) return null;
-        verifyPreferenceIntentBase(preferenceReceipt,latest.state);
-        advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
-        setPreferenceRecovery(latest.preferenceRecovery);
-        currentState = serverAuthoritativeFixturePins(latest.state, currentState);
+let result = null;
+for (let attempt = 0; attempt < 3; attempt += 1){
+const rebasedPatch = {
+...localPatch,
+baseUpdatedAt: latest.state?.updatedAt || null,
+};
+try{
+if (!scope.current()) return null;
+diagnostic?.step("save");
+result = await serverSyncClient.savePatch(rebasedPatch, { accountId:scope.accountId });
+diagnostic?.step("save-response",result);
+if (!scope.verify(result)) return null;
+break;
+}catch(error){
+if (!scope.current({ allowEndedSession:serverErrorEndsSession(error) })) return null;
+if (error?.status !== 409 || error?.code !== "user_state_conflict" || attempt === 2) throw error;
+diagnostic?.step("read");
+latest = await serverSyncClient.loadState({ accountId:scope.accountId });
+diagnostic?.step("verify",latest,preferenceReceipt);
+if (!scope.verify(latest)) return null;
+preferencePlan=verifyPreferenceIntentBase(preferenceReceipt,latest.state,preferenceLife,currentState.preferences,diagnostic?.guard);
+advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
+setPreferenceRecovery(latest.preferenceRecovery);
+currentState = serverAuthoritativeFixturePins(latest.state, currentState);
 
-        localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
-          baseUpdatedAt: latest.state?.updatedAt || null,
-        });
-      }
-    }
-    if (!result?.state) throw new Error("The server did not return the reconciled profile.");
-    diagnostic?.step("acknowledge");
-    acknowledgePreferenceReceipt(preferenceReceipt,result.state,preferenceLife);
-    setPreferenceRecovery(result.preferenceRecovery);
-    clearAcknowledgedFixturePinCommands(result.state);
-    diagnostic?.step("apply");
-    applyServerStatePreservingChanges(result.state, stateAtSyncStart);
-    setServerStateBaseline(result.state);
-    const lastSyncedAt = result.state?.updatedAt || new Date().toISOString();
-    setServerPersistence({
-      configured: true,
-      state: "signedIn",
-      user: result.user || serverPersistence.user,
-      lastSyncedAt,
-      message: "",
-    });
-    if (pendingPreferenceIntent(scope.accountId)){setServerPersistence({state:"error",message:"Newer choices are saved on this device and waiting to sync. Retry sync."});}
-    else if (notify) showToast("Your latest changes are synced across devices.");
-    diagnostic?.step("complete");
-    return result;
-  }catch(error){
-    diagnostic?.fail(error);
-    const signedOut = serverErrorEndsSession(error);
-    if (!scope.current({ allowEndedSession:signedOut })) return null;
-    setServerPersistence({
-      state: signedOut ? "signedOut" : "error",
-      user: signedOut ? null : serverPersistence.user,
-      message: signedOut
-        ? "Your session ended. Sign in again to resume sync."
-        : "Sync could not be confirmed. Try Sync now.",
-    });
-    if (notify) showToast(serverPersistence.message);
-    throw error;
-  }
+localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
+baseUpdatedAt: latest.state?.updatedAt || null,
+});
+localPatch=preferencePlan?.patch(localPatch)||localPatch;
+}
+}
+if (!result?.state) throw new Error("The server did not return the reconciled profile.");
+diagnostic?.step("acknowledge");
+acknowledgePreferenceReceipt(preferencePlan?.receipt||preferenceReceipt,result.state,preferenceLife,diagnostic?.guard);
+setPreferenceRecovery(result.preferenceRecovery);
+clearAcknowledgedFixturePinCommands(result.state);
+diagnostic?.step("apply");
+applyServerStatePreservingChanges(result.state, stateAtSyncStart,preferencePlan);
+setServerStateBaseline(result.state);
+const lastSyncedAt = result.state?.updatedAt || new Date().toISOString();
+setServerPersistence({
+configured: true,
+state: "signedIn",
+user: result.user || serverPersistence.user,
+lastSyncedAt,
+message: "",
+});
+if (pendingPreferenceIntent(scope.accountId)){setServerPersistence({state:"error",message:"Newer choices are saved on this device and waiting to sync. Retry sync."});}
+else if (notify) showToast("Your latest changes are synced across devices.");
+diagnostic?.step("complete");
+return result;
+}catch(error){
+diagnostic?.fail(error);
+const signedOut = serverErrorEndsSession(error);
+if (!scope.current({ allowEndedSession:signedOut })) return null;
+setServerPersistence({
+state: signedOut ? "signedOut" : "error",
+user: signedOut ? null : serverPersistence.user,
+message: signedOut
+? "Your session ended. Sign in again to resume sync."
+: "Sync could not be confirmed. Try Sync now.",
+});
+if (notify) showToast(serverPersistence.message);
+throw error;
+}
 }
 
 function syncCurrentServerState(options = {}){
-  const scope = serverStateSyncScope();
-  const run = serverSyncSequence
-    .catch(() => null)
-    .then(() => scope.current() ? reconcileCurrentServerState({ ...options, scope }) : null);
-  serverSyncSequence = run;
-  return run;
+const scope = serverStateSyncScope();
+const run = serverSyncSequence
+.catch(() => null)
+.then(() => scope.current() ? reconcileCurrentServerState({ ...options, scope }) : null);
+serverSyncSequence = run;
+return run;
 }
 
 function normalizeServerArchiveReferences(references, profileId){
-  return (Array.isArray(references) ? references : [])
-    .filter(reference => reference && typeof reference.canonicalEventId === "string")
-    .map(reference => ({
-      ...reference,
-      id: `archive:${profileId}:${reference.canonicalEventId}`,
-      profileId,
-    }));
+return (Array.isArray(references) ? references : [])
+.filter(reference => reference && typeof reference.canonicalEventId === "string")
+.map(reference => ({
+...reference,
+id: `archive:${profileId}:${reference.canonicalEventId}`,
+profileId,
+}));
 }
 
 function fantasyPreferencesDiffer(state){
-  return USER_STATE_SYNC.hasChanges(USER_STATE_SYNC.createPatch(
-    {preferences:{fantasyDeadlines:state.preferences?.fantasyDeadlines}},
-    {preferences:{fantasyDeadlines:userPreferences.fantasyDeadlines}}
-  ));
+return USER_STATE_SYNC.hasChanges(USER_STATE_SYNC.createPatch(
+{preferences:{fantasyDeadlines:state.preferences?.fantasyDeadlines}},
+{preferences:{fantasyDeadlines:userPreferences.fantasyDeadlines}}
+));
 }
 function applyServerState(state){
-  if (!state) return false;
-  setTimeout(()=>void followSharedHandle(),0);
-  serverSyncApplying = true;
-  try{
-    const localBrowse=userPreferences.followBrowse;
-    const localCompact=userPreferences.feedCompact;
-    const incomingPreferences={...state.preferences,followBrowse:localBrowse,feedCompact:localCompact};
-    if(state.preferences&&Object.keys(state.preferences).length)incomingPreferences.fantasyDeadlines=globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.hydratePreferences(state.preferences.fantasyDeadlines,userPreferences.fantasyDeadlines);
-    userPreferences = mergePreferences(incomingPreferences);
-    clearFantasyPlaceholderSpace();
-    globalThis.fantasyDeadlineController?.sync();
-    void ensureFeedSourceReadiness(userPreferences).then(() => {
-      rebuildDerivedCardCache(activeEvents);
-      renderAll({ preserveViewport:true });
-    }).catch(() => {});
-    eventActions = state.eventUserState && typeof state.eventUserState === "object"
-      ? migrateEventActionRecords(state.eventUserState)
-      : {};
-    eventSpoilerState = state.eventSpoilerState && typeof state.eventSpoilerState === "object"
-      ? state.eventSpoilerState
-      : {};
-    ratings = state.ratings && typeof state.ratings === "object" ? state.ratings : {};
-    const localProfileId = activeProfileBundle?.profile?.id || "profile:local";
-    archivedEventRefs = normalizeServerArchiveReferences(state.archivedEvents, localProfileId);
-    syncLegacyArchiveReferences(activeEvents);
+if (!state) return false;
+setTimeout(()=>void followSharedHandle(),0);
+serverSyncApplying = true;
+try{
+const localBrowse=userPreferences.followBrowse;
+const localCompact=userPreferences.feedCompact;
+const incomingPreferences={...state.preferences,followBrowse:localBrowse,feedCompact:localCompact};
+if(state.preferences&&Object.keys(state.preferences).length)incomingPreferences.fantasyDeadlines=globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.hydratePreferences(state.preferences.fantasyDeadlines,userPreferences.fantasyDeadlines);
+userPreferences = mergePreferences(incomingPreferences);
+clearFantasyPlaceholderSpace();
+globalThis.fantasyDeadlineController?.sync();
+void ensureFeedSourceReadiness(userPreferences).then(() => {
+rebuildDerivedCardCache(activeEvents);
+renderAll({ preserveViewport:true });
+}).catch(() => {});
+eventActions = state.eventUserState && typeof state.eventUserState === "object"
+? migrateEventActionRecords(state.eventUserState)
+: {};
+eventSpoilerState = state.eventSpoilerState && typeof state.eventSpoilerState === "object"
+? state.eventSpoilerState
+: {};
+ratings = state.ratings && typeof state.ratings === "object" ? state.ratings : {};
+const localProfileId = activeProfileBundle?.profile?.id || "profile:local";
+archivedEventRefs = normalizeServerArchiveReferences(state.archivedEvents, localProfileId);
+syncLegacyArchiveReferences(activeEvents);
 
-    writeStorage(STORAGE_KEYS.preferences, userPreferences);
-    writeStorage(STORAGE_KEYS.eventUserState, eventActions);
-    writeStorage(STORAGE_KEYS.eventSpoilerState, eventSpoilerState);
-    writeStorage(STORAGE_KEYS.ratings, ratings);
+writeStorage(STORAGE_KEYS.preferences, userPreferences);
+writeStorage(STORAGE_KEYS.eventUserState, eventActions);
+writeStorage(STORAGE_KEYS.eventSpoilerState, eventSpoilerState);
+writeStorage(STORAGE_KEYS.ratings, ratings);
 
-    if (PROFILE_STORAGE && activeProfileBundle){
-      const profilePreferences = { ...userPreferences };
-      delete profilePreferences.preferenceGraph;
-      const graph = userPreferences.preferenceGraph;
-      const serverProfile = state.profile && typeof state.profile === "object" ? state.profile : {};
-      activeProfileBundle = PROFILE_STORAGE.saveBundle(localStorage, {
-        ...activeProfileBundle,
-        profile: {
-          ...activeProfileBundle.profile,
-          usernameLabel: serverProfile.usernameLabel || activeProfileBundle.profile.usernameLabel,
-          timezone: serverProfile.timezone || activeProfileBundle.profile.timezone,
-          onboardingCompleted: Boolean(userPreferences.onboardingComplete),
-          id: localProfileId,
-        },
-        preferences: profilePreferences,
-        domainPreferences: graph?.domainPreferences || [],
-        competitionPreferences: graph?.competitionPreferences || [],
-        entityFollows: graph?.entityFollows || [],
-        viewingPreference: graph?.viewing || null,
-        learningPreference: graph?.learning || null,
-        ratings,
-        eventUserState: eventActions,
-        eventSpoilerState,
-        archivedEvents: archivedEventRefs,
-      });
-    }
+if (PROFILE_STORAGE && activeProfileBundle){
+const profilePreferences = { ...userPreferences };
+delete profilePreferences.preferenceGraph;
+const graph = userPreferences.preferenceGraph;
+const serverProfile = state.profile && typeof state.profile === "object" ? state.profile : {};
+activeProfileBundle = PROFILE_STORAGE.saveBundle(localStorage, {
+...activeProfileBundle,
+profile: {
+...activeProfileBundle.profile,
+usernameLabel: serverProfile.usernameLabel || activeProfileBundle.profile.usernameLabel,
+timezone: serverProfile.timezone || activeProfileBundle.profile.timezone,
+onboardingCompleted: Boolean(userPreferences.onboardingComplete),
+id: localProfileId,
+},
+preferences: profilePreferences,
+domainPreferences: graph?.domainPreferences || [],
+competitionPreferences: graph?.competitionPreferences || [],
+entityFollows: graph?.entityFollows || [],
+viewingPreference: graph?.viewing || null,
+learningPreference: graph?.learning || null,
+ratings,
+eventUserState: eventActions,
+eventSpoilerState,
+archivedEvents: archivedEventRefs,
+});
+}
 
-    const settingsOpen = document.getElementById("settingsModal")?.classList.contains("show");
-    if (settingsOpen && draftPreferences && settingsDraftBaseline){
-      const draftPatch = USER_STATE_SYNC.createPatch(
-        { preferences: settingsDraftBaseline },
-        { preferences: draftPreferences }
-      );
-      draftPreferences = USER_STATE_SYNC.applyPatch(
-        { preferences: userPreferences },
-        draftPatch
-      ).preferences;
-      settingsDraftBaseline = clonePreferences(userPreferences);
-      syncDraftPreferenceGraph();
-    }
+const settingsOpen = document.getElementById("settingsModal")?.classList.contains("show");
+if (settingsOpen && draftPreferences && settingsDraftBaseline){
+const draftPatch = USER_STATE_SYNC.createPatch(
+{ preferences: settingsDraftBaseline },
+{ preferences: draftPreferences }
+);
+draftPreferences = USER_STATE_SYNC.applyPatch(
+{ preferences: userPreferences },
+draftPatch
+).preferences;
+settingsDraftBaseline = clonePreferences(userPreferences);
+syncDraftPreferenceGraph();
+}
 
-    applyThemePreference(userPreferences.theme);
-    rebuildDerivedCardCache(activeEvents);
-    renderAll({ preserveViewport: true });
-    setTimeout(maybeInviteClassicReview,0);
-    void backfillWebPushReminders({ force:true }).catch(error => console.warn("Reminder backfill failed", error));
-    return true;
-  }finally{
-    serverSyncApplying = false;
-    if(fantasyPreferencesDiffer(state))setTimeout(queueServerStateSync,0);
-  }
+applyThemePreference(userPreferences.theme);
+rebuildDerivedCardCache(activeEvents);
+renderAll({ preserveViewport: true });
+setTimeout(maybeInviteClassicReview,0);
+void backfillWebPushReminders({ force:true }).catch(error => console.warn("Reminder backfill failed", error));
+return true;
+}finally{
+serverSyncApplying = false;
+if(fantasyPreferencesDiffer(state))setTimeout(queueServerStateSync,0);
+}
 }
 
 async function hydrateUserMetaSeed(scope = serverStateSyncScope()){
-  if (!serverSyncClient || !serverPersistence.user) return null;
-  if (!scope.current()) return null;
-  const payload = await serverSyncClient.loadMeta({ accountId:scope.accountId });
-  if (!scope.current()) return null;
-  let meta = payload?.meta || null;
-  if (!meta){
-    const localMeta = FOLLOW_FIRST.normalizeMeta(userPreferences.followFirst?.startupMeta);
+if (!serverSyncClient || !serverPersistence.user) return null;
+if (!scope.current()) return null;
+const payload = await serverSyncClient.loadMeta({ accountId:scope.accountId });
+if (!scope.current()) return null;
+let meta = payload?.meta || null;
+if (!meta){
+const localMeta = FOLLOW_FIRST.normalizeMeta(userPreferences.followFirst?.startupMeta);
 
-    if (!localMeta.sports.length) return null;
-    const created = await serverSyncClient.saveMeta(localMeta, { accountId:scope.accountId });
-    if (!scope.current()) return null;
-    meta = created?.meta || userPreferences.followFirst.startupMeta;
-  }
-  const seeded = FOLLOW_FIRST.applyMetaSeed(userPreferences, meta);
-  if (seeded.changed) savePreferences(seeded.preferences);
-  return meta;
+if (!localMeta.sports.length) return null;
+const created = await serverSyncClient.saveMeta(localMeta, { accountId:scope.accountId });
+if (!scope.current()) return null;
+meta = created?.meta || userPreferences.followFirst.startupMeta;
+}
+const seeded = FOLLOW_FIRST.applyMetaSeed(userPreferences, meta);
+if (seeded.changed) savePreferences(seeded.preferences);
+return meta;
 }
 
 function preferenceIntentOwner(){
-  const life=serverSyncClient?.accountSnapshot?.();
-  return life?.hasSession&&life.accountId===serverSyncClient.sessionSubject()
-    &&Number.isSafeInteger(life.generation)?life:null;
+const life=serverSyncClient?.accountSnapshot?.();
+return life?.hasSession&&life.accountId===serverSyncClient.sessionSubject()
+&&Number.isSafeInteger(life.generation)?life:null;
 }
 
 function pendingPreferenceIntent(ownerId){
-  if(typeof PROFILE_STORAGE==='undefined'||!PROFILE_STORAGE?.readPreferenceIntent
-    ||typeof activeProfileBundle==='undefined'||!activeProfileBundle)return null;
-  return PROFILE_STORAGE.readPreferenceIntent(localStorage,activeProfileBundle,ownerId);
+if(typeof PROFILE_STORAGE==='undefined'||!PROFILE_STORAGE?.readPreferenceIntent
+||typeof activeProfileBundle==='undefined'||!activeProfileBundle)return null;
+return PROFILE_STORAGE.readPreferenceIntent(localStorage,activeProfileBundle,ownerId);
 }
 
-function acknowledgePreferenceReceipt(receipt,state,expectedLife){
+function acknowledgePreferenceReceipt(receipt,state,expectedLife,observe){
+  const report=fact=>{try{observe?.(fact);}catch(_error){}};
   if(!receipt)return;
   const life=preferenceIntentOwner();
-  if(!life||life.accountId!==receipt.ownerId||life.accountId!==expectedLife?.accountId||life.generation!==expectedLife.generation)return;
+  if(!life||life.accountId!==receipt.ownerId||life.accountId!==expectedLife?.accountId||life.generation!==expectedLife.generation){report({site:9,reason:41,decision:'retained'});return;}
+  let matches;try{matches=PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC);}
+  catch(error){report({site:10,reason:52,decision:'exception'});throw error;}
+  if(!matches){report({site:10,reason:42,decision:'held'});throw Object.assign(new Error("Sync could not be confirmed. Try Sync now."),{code:"preference_base_changed"});}
   activeProfileBundle=PROFILE_STORAGE.acknowledgePreferenceIntent(localStorage,activeProfileBundle,receipt,state.preferences,USER_STATE_SYNC,
-    {updatedAt:state.updatedAt,generation:life.generation});
+    {updatedAt:state.updatedAt,generation:life.generation,observe});
 }
+
 
 function advancePreferenceReceiptBase(receipt,state,expectedLife){
-  if(!receipt)return;
-  const life=preferenceIntentOwner();
-  if(!life||life.accountId!==receipt.ownerId||life.accountId!==expectedLife?.accountId||life.generation!==expectedLife.generation)return;
-  activeProfileBundle=PROFILE_STORAGE.advancePreferenceIntentBase(localStorage,activeProfileBundle,receipt,state);
+if(!receipt)return;
+const life=preferenceIntentOwner();
+if(!life||life.accountId!==receipt.ownerId||life.accountId!==expectedLife?.accountId||life.generation!==expectedLife.generation)return;
+activeProfileBundle=PROFILE_STORAGE.advancePreferenceIntentBase(localStorage,activeProfileBundle,receipt,state);
 }
 
-function verifyPreferenceIntentBase(receipt,state){
-  if(receipt&&(!state||(!PROFILE_STORAGE.preferenceBaseMatches(receipt,state.preferences)
-    &&!PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC)))){
-    throw Object.assign(new Error("Your choices are saved on this device. Sync is paused because the saved account changed."),{code:"preference_base_changed"});
-  }
+function verifyPreferenceIntentBase(receipt,state,life,currentPreferences,observe){
+const helper=globalThis.NOTHINGSPORTS_PREFERENCE_INTENT_RECONCILE;
+if(helper?.verify)return helper.verify(receipt,state,life,currentPreferences,observe);
+try{observe?.({site:0,reason:0,decision:'unavailable'});}catch(_error){}
+const plan=helper?.ownedPlan(receipt,state,life,currentPreferences,observe);
+if(plan)return plan;
+if(receipt&&(!state||(!PROFILE_STORAGE.preferenceBaseMatches(receipt,state.preferences)
+&&!PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC)))){
+throw Object.assign(new Error("Your choices are saved on this device. Sync is paused because the saved account changed."),{code:"preference_base_changed"});
+}
 }
 
 async function bootstrapServerPersistence({ session: sessionHint = undefined, checkStatus = true } = {}){
-  const accountJourney=accountIndicatorJourney?.phase==='signing-up'?accountIndicatorJourney:null;
-  const accountLife=serverSyncClient?.accountSnapshot?.();
-  const generation = invalidateServerStateSyncScope();
-  const currentGeneration = () => generation === serverStateSyncGeneration;
-  let scope = null;
-  if (!serverSyncClient){
-    setServerPersistence({ configured: false, state: "local", message: "" });
-    return serverPersistence;
-  }
-  setServerPersistence({ state: "checking", message: "Checking server sync…" });
-  try{
-    if (checkStatus){
-      const status = await serverSyncClient.status();
-      if (!currentGeneration()) return serverPersistence;
-      if (!status.configured){
-        setServerPersistence({
-          configured: false,
-          state: "local",
-          user: null,
-          message: "",
-        });
-        return serverPersistence;
-      }
-    }
+const accountJourney=accountIndicatorJourney?.phase==='signing-up'?accountIndicatorJourney:null;
+const accountLife=serverSyncClient?.accountSnapshot?.();
+const generation = invalidateServerStateSyncScope();
+const currentGeneration = () => generation === serverStateSyncGeneration;
+let scope = null;
+if (!serverSyncClient){
+setServerPersistence({ configured: false, state: "local", message: "" });
+return serverPersistence;
+}
+setServerPersistence({ state: "checking", message: "Checking server sync…" });
+try{
+if (checkStatus){
+const status = await serverSyncClient.status();
+if (!currentGeneration()) return serverPersistence;
+if (!status.configured){
+setServerPersistence({
+configured: false,
+state: "local",
+user: null,
+message: "",
+});
+return serverPersistence;
+}
+}
 
-    setServerPersistence({ configured: true });
-    const session = sessionHint === undefined
-      ? await serverSyncClient.restoreSession()
-      : sessionHint;
-    if (!currentGeneration()) return serverPersistence;
-    if (!session){
-      setServerPersistence({ state: "signedOut", user: null, message: "" });
-      return serverPersistence;
-    }
+setServerPersistence({ configured: true });
+const session = sessionHint === undefined
+? await serverSyncClient.restoreSession()
+: sessionHint;
+if (!currentGeneration()) return serverPersistence;
+if (!session){
+setServerPersistence({ state: "signedOut", user: null, message: "" });
+return serverPersistence;
+}
 
-    scope = serverStateSyncScope({ accountId:serverSyncClient.sessionSubject(), generation, requireUser:false });
-    if (!scope.current()) throw Object.assign(new Error("The account session is unavailable."), { code:"missing_session" });
+scope = serverStateSyncScope({ accountId:serverSyncClient.sessionSubject(), generation, requireUser:false });
+if (!scope.current()) throw Object.assign(new Error("The account session is unavailable."), { code:"missing_session" });
 
-    setServerPersistence({
-      state: "syncing",
-      message: "Loading your saved profile…",
-    });
-    const result = await serverSyncClient.loadState({ accountId:scope.accountId });
-    if (!scope.verify(result)) return serverPersistence;
-    setPreferenceRecovery(result.preferenceRecovery);
-    const user = result.user;
-    if(!result.state&&pendingPreferenceIntent(scope.accountId)){
-      const receipt=pendingPreferenceIntent(scope.accountId);
-      applyServerState({...emptyServerStatePayload(),preferences:receipt.preferences});
-      startupSessionStateBaseline=null;
-      setServerPersistence({state:"error",user,message:"Your choices are saved on this device. Sync is paused while your account is unavailable."});
-      return serverPersistence;
-    }
-    if (result.state){
-      const preferenceLife=preferenceIntentOwner();
-      let preferenceReceipt=pendingPreferenceIntent(scope.accountId);
-      if(preferenceReceipt&&PROFILE_STORAGE.preferenceIntentMatches(preferenceReceipt,result.state.preferences,USER_STATE_SYNC)){
-        acknowledgePreferenceReceipt(preferenceReceipt,result.state,preferenceLife);
-        preferenceReceipt=pendingPreferenceIntent(scope.accountId);
-      }
-      if(preferenceReceipt&&!PROFILE_STORAGE.preferenceBaseMatches(preferenceReceipt,result.state.preferences)){
-        applyServerState({...result.state,preferences:preferenceReceipt.preferences});
-        setServerStateBaseline(result.state);
-        startupSessionStateBaseline=null;
-        setServerPersistence({state:"error",user,message:"Your choices are saved on this device. Sync is paused because the saved account changed."});
-        return serverPersistence;
-      }
-      advancePreferenceReceiptBase(preferenceReceipt,result.state,preferenceLife);
-      preferenceReceipt=pendingPreferenceIntent(scope.accountId);
-      const stateBeforeHydration = currentServerStatePayload();
-      const sessionPatch = USER_STATE_SYNC.createPatch(
-        startupSessionStateBaseline || stateBeforeHydration,
-        stateBeforeHydration,
-        { baseUpdatedAt: result.state.updatedAt }
-      );
-      if(preferenceReceipt)sessionPatch.changes=sessionPatch.changes.filter(change=>change.path[0]!=="preferences");
-      const ownedState=preferenceReceipt?{...result.state,preferences:preferenceReceipt.preferences}:result.state;
-      const hydratedState = USER_STATE_SYNC.hasChanges(sessionPatch)
-        ? USER_STATE_SYNC.applyPatch(ownedState, sessionPatch)
-        : ownedState;
-      applyServerState(hydratedState);
-      setServerStateBaseline(result.state);
-      // Fence account switches before optional metadata.
-      startupSessionStateBaseline = null;
-      setServerPersistence({
-        state: "signedIn",
-        user,
-        lastSyncedAt: result.state.updatedAt,
-        message: "",
-      });
-      await hydrateUserMetaSeed(scope);
-      if (!scope.current()) return serverPersistence;
-      if (preferenceReceipt||USER_STATE_SYNC.hasChanges(sessionPatch)||fantasyPreferencesDiffer(result.state)) await syncCurrentServerState();
-    } else {
-      setServerPersistence({ state: "signedIn", user, message: "" });
-      serverStateBaseline = {
-        state: emptyServerStatePayload(),
-        updatedAt: null,
-      };
-      startupSessionStateBaseline = null;
-      await hydrateUserMetaSeed(scope);
-      if (!scope.current()) return serverPersistence;
-      await syncCurrentServerState();
-    }
-  }catch(error){
-    if (!currentGeneration()) return serverPersistence;
-    if (scope && !scope.current({ allowEndedSession:serverErrorEndsSession(error) })) return serverPersistence;
-    const unavailablePreview = error?.status === 404;
-    const signedOut = serverErrorEndsSession(error);
-    setServerPersistence({
-      configured: !unavailablePreview,
-      state: unavailablePreview ? "local" : signedOut ? "signedOut" : "error",
-      user: signedOut ? null : serverPersistence.user,
-      message: unavailablePreview
-        ? ""
-        : signedOut
-          ? "Your session ended. Sign in again to resume sync."
-          : "Your local copy is active. Server sync is temporarily unavailable.",
-    });
-  }
-  globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.complete(accountJourney,accountLife);
-  return serverPersistence;
+setServerPersistence({
+state: "syncing",
+message: "Loading your saved profile…",
+});
+const result = await serverSyncClient.loadState({ accountId:scope.accountId });
+if (!scope.verify(result)) return serverPersistence;
+setPreferenceRecovery(result.preferenceRecovery);
+const user = result.user;
+if(!result.state&&pendingPreferenceIntent(scope.accountId)){
+const receipt=pendingPreferenceIntent(scope.accountId);
+applyServerState({...emptyServerStatePayload(),preferences:receipt.preferences});
+startupSessionStateBaseline=null;
+setServerPersistence({state:"error",user,message:"Your choices are saved on this device. Sync is paused while your account is unavailable."});
+return serverPersistence;
+}
+if (result.state){
+const preferenceLife=preferenceIntentOwner();
+let preferenceReceipt=pendingPreferenceIntent(scope.accountId);
+if(preferenceReceipt&&PROFILE_STORAGE.preferenceIntentMatches(preferenceReceipt,result.state.preferences,USER_STATE_SYNC)){
+acknowledgePreferenceReceipt(preferenceReceipt,result.state,preferenceLife);
+preferenceReceipt=pendingPreferenceIntent(scope.accountId);
+}
+if(preferenceReceipt&&!PROFILE_STORAGE.preferenceBaseMatches(preferenceReceipt,result.state.preferences)){
+applyServerState({...result.state,preferences:preferenceReceipt.preferences});
+setServerStateBaseline(result.state);
+startupSessionStateBaseline=null;
+setServerPersistence({state:"error",user,message:"Your choices are saved on this device. Sync is paused because the saved account changed."});
+return serverPersistence;
+}
+advancePreferenceReceiptBase(preferenceReceipt,result.state,preferenceLife);
+preferenceReceipt=pendingPreferenceIntent(scope.accountId);
+const stateBeforeHydration = currentServerStatePayload();
+const sessionPatch = USER_STATE_SYNC.createPatch(
+startupSessionStateBaseline || stateBeforeHydration,
+stateBeforeHydration,
+{ baseUpdatedAt: result.state.updatedAt }
+);
+if(preferenceReceipt)sessionPatch.changes=sessionPatch.changes.filter(change=>change.path[0]!=="preferences");
+const ownedState=preferenceReceipt?{...result.state,preferences:preferenceReceipt.preferences}:result.state;
+const hydratedState = USER_STATE_SYNC.hasChanges(sessionPatch)
+? USER_STATE_SYNC.applyPatch(ownedState, sessionPatch)
+: ownedState;
+applyServerState(hydratedState);
+setServerStateBaseline(result.state);
+startupSessionStateBaseline = null;
+setServerPersistence({
+state: "signedIn",
+user,
+lastSyncedAt: result.state.updatedAt,
+message: "",
+});
+await hydrateUserMetaSeed(scope);
+if (!scope.current()) return serverPersistence;
+if (preferenceReceipt||USER_STATE_SYNC.hasChanges(sessionPatch)||fantasyPreferencesDiffer(result.state)) await syncCurrentServerState();
+} else {
+setServerPersistence({ state: "signedIn", user, message: "" });
+serverStateBaseline = {
+state: emptyServerStatePayload(),
+updatedAt: null,
+};
+startupSessionStateBaseline = null;
+await hydrateUserMetaSeed(scope);
+if (!scope.current()) return serverPersistence;
+await syncCurrentServerState();
+}
+}catch(error){
+if (!currentGeneration()) return serverPersistence;
+if (scope && !scope.current({ allowEndedSession:serverErrorEndsSession(error) })) return serverPersistence;
+const unavailablePreview = error?.status === 404;
+const signedOut = serverErrorEndsSession(error);
+setServerPersistence({
+configured: !unavailablePreview,
+state: unavailablePreview ? "local" : signedOut ? "signedOut" : "error",
+user: signedOut ? null : serverPersistence.user,
+message: unavailablePreview
+? ""
+: signedOut
+? "Your session ended. Sign in again to resume sync."
+: "Your local copy is active. Server sync is temporarily unavailable.",
+});
+}
+globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.complete(accountJourney,accountLife);
+return serverPersistence;
 }
 
 function sydneyPartsFromIso(iso){
@@ -5747,7 +5760,7 @@ function liveScheduleFixtures(fixtures,code=codeInspectorChunk?.code){
 }
 
 let feedScoreUiLoading=null;
-function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=582').catch(error=>{feedScoreUiLoading=null;throw error;});}
+function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=595').catch(error=>{feedScoreUiLoading=null;throw error;});}
 function installFeedLiveScore(card,event){
   if(globalThis.NOTHINGSPORTS_FEED_SCORE_UI){globalThis.NOTHINGSPORTS_FEED_SCORE_UI.install(card,event);return;}
   const owner=serverSyncClient?.sessionSubject()||'public',tab=activeTab;
@@ -10359,7 +10372,6 @@ async function submitNothingscoreAction(command, panel, { success = "Your Nothin
       try {
         result = await serverSyncClient.nothingscoreRequest({}, command);
       } catch(error){
-        // Lost reply may follow commit.
         nothingscoreSubmissionStore.uncertain(key);
         const receipt = await reconcileNothingscoreSubmission(eventId,submittedPhase,{expectedOwner:owner});
         if (receipt) result = {...receipt,replayed:true};
@@ -11766,7 +11778,7 @@ function readStandingsDirectorySession(preferences = userPreferences){
 
 function writeStandingsDirectorySession(next){
   const clean = { ...defaultStandingsDirectorySession(), ...next, schemaVersion: STANDINGS_DIRECTORY_SESSION_VERSION };
-  try { sessionStorage.setItem(STANDINGS_DIRECTORY_SESSION_KEY, JSON.stringify(clean)); } catch(_error) { /* session state is optional */ }
+  try { sessionStorage.setItem(STANDINGS_DIRECTORY_SESSION_KEY, JSON.stringify(clean)); } catch(_error) { }
   return clean;
 }
 
@@ -12338,7 +12350,7 @@ const followStandingsLoading=new Set();
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=581';
+  const url='assets/js/follow-presentation-ui.js?v=595';
   return Promise.all([loadDeferredScript('config/participant-directory.js?v=512'),loadDeferredScript(url)]).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);
@@ -12384,7 +12396,7 @@ async function loadMatchCentre(){
   const panel=document.getElementById('listView');
   if(globalThis.renderMatchCentre){globalThis.renderMatchCentre();return;}
   panel.className='match-centre';panel.textContent='Loading Match Centre…';
-  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=582'),loadDeferredScript('config/score-details.js?v=582'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=576')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
+  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=595'),loadDeferredScript('config/score-details.js?v=595'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=595')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
 }
 function renderTeamsAndPlayersDirectory(container){
   if(typeof globalThis.renderTeamsAndPlayersDirectoryLoaded==='function')return globalThis.renderTeamsAndPlayersDirectoryLoaded(container);
@@ -13081,7 +13093,7 @@ function buildDismissedEventStub(record){
 
 async function renderEventOverviews(container){
  const host=document.createElement('div');host.className='event-overviews-host';container.append(host);
- try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=576');
+ try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=595');
  if(!host.isConnected)return;
  return NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(host);
  }catch{if(!host.isConnected)return;const notice=document.createElement('p');notice.textContent='Events could not load. Open a sport’s Schedule in Follow.';host.append(notice);}
@@ -13861,7 +13873,9 @@ function closeSettings({ restoreTheme = true, restoreViewport = true, preserveAc
 
 function openFirstRunSettingsAfterFeedAlignment(){
   window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(() => openSettings({ firstRun: true }));
+    window.requestAnimationFrame(() => {
+      if (!userPreferences.onboardingComplete && !document.getElementById("settingsModal").classList.contains("show")) openSettings({ firstRun: true });
+    });
   });
 }
 
@@ -14083,7 +14097,7 @@ function appendPublicProfileAccountSettings(body){
 function activeLocalPreferenceRecovery(reference = Date.now()){
   const stored = readStorage(PREFERENCE_RESET_STORAGE_KEY, null);
   if (!stored?.resetId || !stored?.preferences || Date.parse(stored.expiresAt || "") <= Number(reference)){
-    try{ localStorage.removeItem(PREFERENCE_RESET_STORAGE_KEY); }catch(_error){ /* Storage may be unavailable. */ }
+    try{ localStorage.removeItem(PREFERENCE_RESET_STORAGE_KEY); }catch(_error){ }
     return null;
   }
   return stored;
@@ -14125,7 +14139,7 @@ function appendPreferenceRecoverySettings(body){
       defaults:() => ({ ...mergePreferences(null), onboardingComplete:true }),
       currentPreferences:() => clonePreferences(userPreferences),
       writeLocalRecovery:value => writeStorage(PREFERENCE_RESET_STORAGE_KEY, value),
-      removeLocalRecovery:() => { try{ localStorage.removeItem(PREFERENCE_RESET_STORAGE_KEY); }catch(_error){ /* Ignore unavailable storage. */ } },
+      removeLocalRecovery:() => { try{ localStorage.removeItem(PREFERENCE_RESET_STORAGE_KEY); }catch(_error){ } },
       savePreferences,
       acceptServerResult(result){
         setPreferenceRecovery(result.preferenceRecovery);
@@ -15076,7 +15090,7 @@ async function shareOrCopyLink({ title, text, url }){
       await navigator.clipboard.writeText(url);
       showToast("Link copied.");
       return "copied";
-    }catch(_error){ /* Fall through to a selectable browser prompt. */ }
+    }catch(_error){ }
   }
   window.prompt("Copy this link", url);
   return "selectable";
@@ -15194,7 +15208,7 @@ function updateUnreadAppBadge(unread){
   try{
     if (enabled && Number(unread) > 0) void navigator.setAppBadge?.(Number(unread));
     else void navigator.clearAppBadge?.();
-  }catch(_error){ /* Badging is a progressive enhancement. */ }
+  }catch(_error){ }
 }
 
 function chatConnection(message, state = "idle"){
@@ -15610,7 +15624,7 @@ function openChatSetup(event){
 
 function clearPendingChatCapability(){
   pendingChatCapability = "";
-  try{ sessionStorage.removeItem(CHAT_CAPABILITY_STORAGE_KEY); }catch(_error){ /* Memory copy is already cleared. */ }
+  try{ sessionStorage.removeItem(CHAT_CAPABILITY_STORAGE_KEY); }catch(_error){ }
 }
 
 function sharedChatErrorCopy(error){
@@ -17459,7 +17473,7 @@ function renderNothingscoreDrawer(){
   soundCopy.innerHTML = "<strong>Impact sound</strong>On by default. Plays once after every new Impact submission, whatever score you choose.";
   sound.append(soundInput, soundCopy);
   soundInput.addEventListener("change", async () => {
-    try{ localStorage.setItem(NOTHINGSCORE_SOUND_KEY, soundInput.checked ? "on" : "off"); }catch(_error){ /* Blocked storage keeps this session-only. */ }
+    try{ localStorage.setItem(NOTHINGSCORE_SOUND_KEY, soundInput.checked ? "on" : "off"); }catch(_error){ }
     if (!soundInput.checked) return;
     const played = await playNothingscoreImpactSound(prepareNothingscoreAudio());
     const existing = body.querySelector(".nsc-audio-enable");
@@ -17725,7 +17739,7 @@ async function ensureFeedSourceReadiness(preferences=userPreferences){
   rebuildDerivedCardCache(activeEvents);
 }
 function loadDeferredStartupContext(){
-  return loadDeferredScript('config/startup-view-cache.js?v=582').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
+  return loadDeferredScript('config/startup-view-cache.js?v=595').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
 }
 
 let startupPostLoadHandled = false;
@@ -17805,7 +17819,6 @@ function runStartupFeedBarrier(){
       throw error;
     }));
   Promise.allSettled(startupTasks).then(() => {
-    // Recover only this valid timed-out attempt.
     if (startupFeedState.attempt !== attempt || !["loading", "failed"].includes(startupFeedState.phase)) return;
     const issues = tasks.filter(task => taskStates.get(task.name) !== "valid").map(task => task.name);
     if (issues.length) return;

@@ -339,20 +339,31 @@
   }
 
   function acknowledgePreferenceIntent(storage,bundle,receipt,preferences,patches,acknowledgement){
-    const latest=preferenceSyncBundle(storage,bundle),entries=latest.preferenceSync?.entries||[];
-    const current=receipt&&entries.find(entry=>entry.ownerId===receipt.ownerId);
-    if(!current||!preferenceIntentMatches(receipt,preferences,patches))return clone(latest);
-    if(current.receiptId===receipt.receiptId){
-      return writePreferenceSync(storage,latest,entries.filter(entry=>entry.ownerId!==receipt.ownerId||entry.receiptId!==receipt.receiptId));
-    }
-    // An owned in-flight ACK may advance a newer receipt, but never clear it.
-    if(!patches||current.generation!==acknowledgement?.generation
-      ||!Number.isFinite(Date.parse(acknowledgement?.updatedAt))
-      ||!preferenceBaseMatches(current,receipt.basePreferences))return clone(latest);
-    const remaining=patches.createPatch({preferences:receipt.preferences},{preferences:current.preferences});
-    const continued={...current,baseUpdatedAt:acknowledgement.updatedAt,basePreferences:clone(preferences),
-      preferences:patches.applyPatch({preferences},remaining).preferences};
-    return writePreferenceSync(storage,latest,entries.map(entry=>entry===current?continued:entry));
+    const observe=(reason,site=11/*ack_witness*/,decision='retained')=>{try{acknowledgement?.observe?.({site,reason,decision});}catch(_error){}};
+    try{
+      const latest=preferenceSyncBundle(storage,bundle),entries=latest.preferenceSync?.entries||[];
+      const current=receipt&&entries.find(entry=>entry.ownerId===receipt.ownerId);
+      const original=receipt?.originalReceipt||receipt;
+      const retain=reason=>{observe(reason);return clone(latest);};
+      if(!current||!original)return retain(43/*ack_current_receipt_unavailable*/);
+      if(original.ownerId!==receipt.ownerId||original.receiptId!==receipt.receiptId||original.generation!==receipt.generation)return retain(44/*ack_original_witness_invalid*/);
+      if(!preferenceIntentMatches(receipt,preferences,patches))return retain(42/*ack_semantics_mismatch*/);
+      if(receipt.originalReceipt&&current.receiptId===receipt.receiptId&&!samePreferenceValues(original,current))return retain(45/*ack_original_receipt_changed*/);
+      if(current.receiptId===receipt.receiptId){
+        return writePreferenceSync(storage,latest,entries.filter(entry=>entry.ownerId!==receipt.ownerId||entry.receiptId!==receipt.receiptId));
+      }
+      // An owned in-flight ACK may advance a newer receipt, never clear it.
+      if(!patches)return retain(46/*ack_patch_unavailable*/);
+      if(current.generation!==acknowledgement?.generation)return retain(47/*ack_newer_generation_rejected*/);
+      if(!Number.isFinite(Date.parse(acknowledgement?.updatedAt)))return retain(48/*ack_time_invalid*/);
+      if(!preferenceBaseMatches(current,original.basePreferences))return retain(49/*ack_newer_base_incompatible*/);
+      const remainingPreferences=receipt.originalReceipt
+        ?receipt.continue?.(clone(current),{preferences:clone(preferences),updatedAt:acknowledgement.updatedAt})
+        :patches.applyPatch({preferences},patches.createPatch({preferences:receipt.preferences},{preferences:current.preferences})).preferences;
+      if(!remainingPreferences)return retain(50/*continuation_refused*/);
+      const continued={...current,baseUpdatedAt:acknowledgement.updatedAt,basePreferences:clone(preferences),preferences:remainingPreferences};
+      return writePreferenceSync(storage,latest,entries.map(entry=>entry===current?continued:entry));
+    }catch(error){observe(56/*unexpected_exception*/,11/*ack_witness*/,'exception');throw error;}
   }
 
   // These local profile pointers, seed marker and prompt counters do not express a user's

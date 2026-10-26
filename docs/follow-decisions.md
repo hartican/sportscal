@@ -1,5 +1,44 @@
 # Follow and Feed decisions
 
+## All Sports View — 24 October 2026
+
+The authorised full implementation adds a separate compact chronological view
+inside Match Centre: Today now to Sydney midnight, and cumulative rolling +24
+and +48 hours. It uses supported public schedule membership independently of
+personal follows, without changing Feed admission or the existing near-live
+window. Existing cards expand locally; browsing/expansion cannot write saved
+card/account/engagement state. Likely overlaps use horizontally paged columns,
+two visible on phones and more on wider screens; unknown finishes remain split.
+Known-day untimed fixtures stay in a qualified Time TBC section. Preserve
+Results OFF, source clocks, global coverage exclusions, canonical aliases,
+ongoing/multi-day facts, full bounded data pagination and honest degraded/static
+fallback. No new source, schema, scheduler or notification path is introduced.
+See [contract and acceptance](plans/all-sports-view-2026-10-24.md); the new model
+and API validator joins the existing required Match Centre gate. Local source
+and mock-browser checks remain separate from publication and live acceptance.
+
+## Typed existing Cricket Follow formats — 25 October 2026 Sydney
+
+The actual592 phone reports initial record_validation / record_unknown_field / intent / entities. The established Cricket format writer emits cricketFormats, which the bounded receipt planner omitted. Its real writer → persisted receipt/restart → compiled helper/manual queue → actual local API path reproduces that exact refusal; removing only the test field passes with the same restored older receipt generation. This proves a source schema bug, without identifying the private phone field or guaranteeing that its remaining choices are independent. The live-job and receipt-generation observations describe different lifetimes; the latter is not an independent refusal here.
+
+Recognise only the existing cricketFormats field as a unique array drawn from Tests, ODIs, T20Is and BBL. Keep exact array order, presence and explicit empty values through the existing field-level comparison; do not coerce, sort, union, default or broaden unknown records. Whole-team Follow may remove the field; absence differs from an explicit empty list. Differing concurrent format edits and malformed/unknown records still hold. Existing removals/OFF, original pending receipt, current-choice checks, conditional save, matching ACK, R2 and owner/generation protections remain. No private account change, historical restoration, request, store, schema migration, config, cache/version allocation or sync owner is added.
+
+Regression: 23 new actual-writer/compiled-helper/persisted/API cases extend the existing 55 to 78; one mounted receipt-base-cricket scenario joins the existing recovery matrix (20 per engine). ROOT owns native/browser/installed execution, integration and all hosted acceptance. No repeat phone test is requested now. See [source proof and handover](quality/account-cricket-format-sync-2026-10-25.md).
+
+## Exact sync refusal observation — 24 October 2026 Sydney
+
+The actual591 iPhone still holds; its family summary does not identify a causal failure or intended winner. Add only a safelisted first-actual-refusal/exception observation to the existing scoped, serialised owner, including honest bounded SDK load/save call-start counters and initial/post409 verify phase. If the captured current-versus-receipt predicate refuses, report fixed families from those same projected operands; this is an observation, not another policy predicate. No values, IDs, hashes, record counts, raw keys/errors or extra retained preference snapshot are copied. Existing pending receipts, matching owned ACK, R2, ordinary Settings, explicit OFF/empty/removal, unknown/conflict and CAS protections remain exact. No new request, store, timer, scheduler, schema or merge rule. ROOT owns final review, normal/installed/hosted release gates and one coordinated useful phone copy after release. See [source proof and contract](quality/account-sync-refusal-diagnostic-2026-10-24.md).
+
+## Disjoint owned preference reconciliation — 24 October 2026 Sydney
+
+The approved P1 sync repair may reconcile only validated, demonstrably independent entity/domain changes from an original owned pending receipt against freshly read same-account state. Use the existing canonical participant identity; domains use their exact stable sportDomainId, refusing duplicate/ambiguous identities and the legacy rally alias. Apply only recorded changed fields. Preserve remote additions, untouched remote fields, removals and OFF/empty values. A whole-list empty cannot erase unseen concurrent additions. Differing edits to the same field, deletion versus edit, unknown fields/shapes, unavailable identity/baseline and all other changed projected preferences retain a visible hold. No union, inferred intent, default revival, receipt expiry/reset or historical recovery is introduced.
+
+Only typed existing followBrowse and feedCompact view semantics are device-local here: preserve the remote view on the server and the current device's view through the existing applyServerState owner. Unknown view keys/types remain held; this is not a blanket comparison exclusion. Existing applyServerState may retain an untouched optional view as an own undefined RAM value; JSON receipt/profile storage omits it. Treat only undefined for these two known optional views as absence, while null, malformed types and unknown view fields still hold. The original persisted receipt/base stays unchanged before ACK. A transient, original-receipt-bound plan uses the existing SDK queue and conditional save, recalculating from the original receipt after a real409. Only a matching owned ACK may clear R1 or advance R2 without changing R2's identity. A newer recorded edit is reconciled from the exact R1 intent against the acknowledged state with the same conservative policy; uncertain continuation stays unchanged/pending. A lost/already-applied ACK must also apply accepted remote choices locally, even when the accepted timestamp is already current.
+
+Before replacing preference patch entries, compare the already captured current preferences against the recorded receipt intent, allowing only the exact named bookkeeping and typed device-local views. A genuine ordinary Settings/standings save not represented by that receipt must remain current and durable with the receipt unchanged and zero state upload, including after R2's base becomes compatible. A semantically mismatching successful save response must stop at the existing owned ACK boundary before applying or accepting its baseline; retain all current/persisted choices and pending receipt. A later ordinary write after the known R2 snapshot remains local through the existing in-flight delta; preserve independent accepted entity/domain records with the same bounded merge. Do not turn that ordinary write into receipt-owned intent; its next explicit retry holds before upload.
+
+The pure planner joins the existing deferred Account helper, with strict protection before it loads and no added request, store, timer or sync owner. Regression: fifty-five compiled-helper/persisted-restart/bootstrap/manual queue/actual API cases join the existing preference-bookkeeping safety command. Two new mounted cases extend the existing seventeen recovery cases per engine; ROOT runs these, normal qualification and installed/hosted/physical acceptance. Local constructed reproduction matches the v590 phone's diagnostic families but does not establish its private identities or whether its particular changes conflict. See [scope, proof and release handover](quality/account-receipt-base-reconcile-2026-10-24.md). No deployment or customer-data change is authorised by this source record.
+
 ## Public fixture discussion and followed-author runs — 24 October 2026 Sydney
 
 The full [Public Feed contract](plans/public-feed-2026-10-22.md) is allocated for isolated implementation. Registered signed-in users may expand/read a public fixture thread, reply one level, post text/emojis and existing 25-lifetime-point-unlocked GIFs, and change/remove up/down votes. Net score ranks roots and each reply group with deterministic oldest/ID ties; updates preserve scroll/focus. The full fixture and tray share the page scroll. No comment/vote rewards or new moderation workflow are added; existing account/privacy/erasure controls remain.
@@ -9,6 +48,7 @@ The full [Public Feed contract](plans/public-feed-2026-10-22.md) is allocated fo
 Personal dismissal never deletes a shared thread. The existing verified seven-Sydney-calendar-day retirement policy and ongoing/unknown safeguards apply. A successful transaction freezes up to three highest-net-voted nonblank text/emoji entries, including replies, for existing genuine personal-5/5 EPIC/yearbook qualification before deleting live comments/GIF references. Capture failure retains live data for the existing maintenance owner. Preserve yearbook ownership, private/erased author redaction, Results OFF and export controls. This is source work, not production activation; PR37 adapter and full release/phone acceptance remain dependencies.
 
 Regressions: `validate-public-feed.js` runs policy/API/delivery/navigation/DOM/export and both PostgreSQL engines; existing Follow, private chat, notification and EPIC gates remain.
+
 
 
 ## Automatic seed hydration is not a preference decision — 24 October 2026

@@ -36,7 +36,7 @@ try {
     "data/events.json", "data/major-events.v1.json", "data/editorial-knowledge.v1.json",
     "assets/js/app-shell-runtime.js", "assets/js/calendar-sync-ui.js", "assets/js/calendar-sync-ui.source.js",
     "assets/js/account-awareness-ui.js", "assets/js/account-indicator-app.js", "assets/js/account-awareness-runtime.js"]
-    .concat(["assets/js/app-update.js", "assets/js/app-update.source.js", "assets/js/notifications-inbox.js", "assets/js/notifications-inbox.source.js"])
+    .concat(["assets/js/app-update.js", "assets/js/app-update.source.js", "assets/js/notifications-inbox.js", "assets/js/notifications-inbox.source.js", "assets/js/all-sports-ui.js", "assets/js/all-sports-ui.source.js"])
     .forEach(copy);
   require("../config/app-shell-modules.json").filter(file => !file.startsWith("config/")).forEach(copy);
   const builder = require(path.join(temporary, "scripts/build-app-shell-runtime.js"));
@@ -63,6 +63,13 @@ try {
   fs.writeFileSync(path.join(temporary, "assets/js/app-shell-runtime.js"), original);
   const valid = cp.spawnSync(process.execPath, ["scripts/build-app-shell-runtime.js", "--check"], { cwd: temporary, encoding: "utf8" });
   assert.equal(valid.status, 0, valid.stderr);
+  const sportsInput = path.join(temporary, "assets/js/all-sports-ui.source.js");
+  const originalSportsInput = fs.readFileSync(sportsInput, "utf8");
+  fs.writeFileSync(sportsInput, originalSportsInput + "\nglobalThis.NOTHINGSPORTS_RANGE_BUILD_PROBE=1;\n");
+  const staleSports = cp.spawnSync(process.execPath, ["scripts/build-app-shell-runtime.js", "--check"], {cwd:temporary, encoding:"utf8"});
+  assert.notEqual(staleSports.status, 0, "range source changes must invalidate the optional generated bundle");
+  assert.match(staleSports.stderr, /Deferred sports UI is stale: assets\/js\/all-sports-ui\.js/);
+  fs.writeFileSync(sportsInput, originalSportsInput);
   const accountInput = path.join(temporary, "assets/js/account-awareness-ui.js");
   const originalAccountInput = fs.readFileSync(accountInput, "utf8");
   fs.writeFileSync(accountInput, originalAccountInput + "\nglobalThis.NOTHINGSPORTS_ACCOUNT_BUILD_PROBE=1;\n");
