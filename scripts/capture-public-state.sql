@@ -1,0 +1,95 @@
+-- SOURCE ONLY. ROOT separately allocates execution through its existing SQL
+-- operator. Replace the sole quoted source marker with the reviewed
+-- 40-character lowercase Git SHA, then bind the rendered query hash in receipt.
+-- One snapshot-bound SELECT; no function/schema/writer/provider invocation.
+BEGIN READ ONLY;
+SET LOCAL statement_timeout = '5s';
+SET LOCAL lock_timeout = '1s';
+SET LOCAL timezone = 'UTC';
+SET LOCAL datestyle = 'ISO, YMD';
+WITH inventory AS MATERIALIZED (
+  SELECT (SELECT count(*) FROM public.nothingsports_fixture_current) AS current_count,
+    (SELECT count(*) FROM public.nothingsports_live_scores) AS score_count,
+    (SELECT count(*) FROM public.nothingsports_fixture_sources) AS source_count
+), permitted AS MATERIALIZED (
+  SELECT *, current_count <= 10000 AND score_count <= 10000 AND source_count <= 128
+    AND current_setting('transaction_read_only') = 'on'
+    AND current_setting('server_encoding') = 'UTF8' AS ok FROM inventory
+), framed AS MATERIALIZED (
+  -- Retain the final raw frame, not a second full JSONB row alongside it.
+  SELECT 0 AS kind_order, 'current'::text AS kind, c.source_id, c.fixture_id,
+    jsonb_build_object('kind', 'current'::text, 'row',
+      jsonb_build_object('source_id', c.source_id, 'fixture_id', c.fixture_id,
+      'identity_keys', c.identity_keys, 'identity_keys_is_sql_null', c.identity_keys IS NULL,
+      'fixture', c.fixture, 'fixture_is_sql_null', c.fixture IS NULL,
+      'content_hash', c.content_hash, 'updated_at', c.updated_at))::text || E'\n' AS line,
+    false AS receipt_key_present
+  FROM public.nothingsports_fixture_current c CROSS JOIN permitted p WHERE p.ok
+  UNION ALL
+  SELECT 1, 'scores', s.source_id, s.fixture_id,
+    jsonb_build_object('kind', 'scores'::text, 'row',
+      jsonb_build_object('source_id', s.source_id, 'fixture_id', s.fixture_id,
+      'score', s.score, 'score_is_sql_null', s.score IS NULL,
+      'content_hash', s.content_hash, 'first_completed_at', s.first_completed_at))::text || E'\n',
+    false
+  FROM public.nothingsports_live_scores s CROSS JOIN permitted p WHERE p.ok
+  UNION ALL
+  SELECT 2, 'sources', s.source_id, ''::text,
+    jsonb_build_object('kind', 'sources'::text, 'row',
+      jsonb_build_object('source_id', s.source_id, 'revision', s.revision,
+      'checked_at', s.checked_at, 'next_due_at', s.next_due_at, 'failure_count', s.failure_count,
+      'receipt_key_present', coalesce(s.discovery_report ? '_fixtureObservations', false),
+      'fixture_observations', s.discovery_report -> '_fixtureObservations'))::text || E'\n',
+    coalesce(s.discovery_report ? '_fixtureObservations', false)
+  FROM public.nothingsports_fixture_sources s CROSS JOIN permitted p WHERE p.ok
+), row_bounds AS MATERIALIZED (
+  SELECT coalesce(sum(octet_length(line)), 0) AS bytes,
+    coalesce(max(octet_length(line)), 0) AS largest,
+    md5(coalesce(string_agg(md5(line), '' ORDER BY kind_order, source_id COLLATE "C", fixture_id COLLATE "C"), '')) AS graph_md5
+  FROM framed
+), positioned AS MATERIALIZED (
+  -- Linear packing after the fixed order. Width = part limit - largest row.
+  -- All starts in one width interval span < width + largest <= part limit;
+  -- rows remain whole. A largest row equal to the limit safely refuses.
+  SELECT f.kind_order, f.kind, f.source_id, f.fixture_id, f.line,
+    ((sum(octet_length(line)) OVER (
+    ORDER BY kind_order, source_id COLLATE "C", fixture_id COLLATE "C" ROWS UNBOUNDED PRECEDING
+  ) - octet_length(line)) / (4194304 - b.largest))::integer AS bucket
+  FROM framed f CROSS JOIN row_bounds b WHERE b.bytes <= 41943040 AND b.largest < 4194304
+), packing_bounds AS MATERIALIZED (
+  SELECT coalesce(max(bucket), -1) < 16 AS fits FROM positioned
+), parts AS MATERIALIZED (
+  SELECT bucket, 'part-' || lpad(bucket::text, 2, '0') || '.ndjson' AS name,
+    count(*) AS rows,
+    string_agg(line, '' ORDER BY kind_order, source_id COLLATE "C", fixture_id COLLATE "C") AS body
+  FROM positioned CROSS JOIN packing_bounds p WHERE p.fits
+  GROUP BY bucket
+), descriptors AS MATERIALIZED (
+  SELECT bucket, name, rows, body, octet_length(body) AS bytes, md5(body) AS checksum FROM parts
+), manifest AS MATERIALIZED (
+  SELECT jsonb_build_object(
+    'schemaVersion', 'accepted-public-state.v1', 'sourceGitSha', '__CAPTURE_SOURCE_SHA__',
+    'snapshotAt', statement_timestamp(), 'readOnly', current_setting('transaction_read_only') = 'on',
+    'coherence', 'one-select-mvcc-snapshot', 'databaseEncoding', current_setting('server_encoding'),
+    'reportErrorPresence', 'UNVERIFIED', 'readerContextAccepted', false,
+    'counts', jsonb_build_object('current', p.current_count, 'scores', p.score_count, 'sources', p.source_count,
+      'currentFactSources', (SELECT count(DISTINCT source_id) FROM framed WHERE kind = 'current'),
+      'scoreFactSources', (SELECT count(DISTINCT source_id) FROM framed WHERE kind = 'scores'),
+      'receiptKeys', (SELECT count(*) FROM framed WHERE kind = 'sources' AND receipt_key_present)),
+    'partBytes', b.bytes, 'orderedRowsMd5', b.graph_md5,
+    'parts', (SELECT coalesce(jsonb_agg(jsonb_build_object('name', name, 'bytes', bytes, 'rows', rows, 'md5', checksum) ORDER BY bucket), '[]'::jsonb) FROM descriptors)
+  )::text || E'\n' AS body, p.ok, b.bytes, b.largest
+  FROM permitted p CROSS JOIN row_bounds b
+), approved AS MATERIALIZED (
+  SELECT *, ok AND largest < 4194304 AND (SELECT fits FROM packing_bounds) AND octet_length(body) <= 65536
+    AND bytes + octet_length(body) <= 41943040
+    AND NOT EXISTS (SELECT 1 FROM descriptors WHERE bytes > 4194304) AS fits FROM manifest
+)
+SELECT CASE WHEN fits THEN jsonb_build_object(
+  'status', 'ready', 'manifest_text', body, 'manifest_md5', md5(body),
+  'parts', (SELECT coalesce(jsonb_agg(jsonb_build_object('name', name, 'bytes', bytes, 'rows', rows,
+    'md5', checksum, 'data_base64', replace(encode(convert_to(body, 'UTF8'), 'base64'), E'\n', ''))
+    ORDER BY bucket), '[]'::jsonb) FROM descriptors)
+) ELSE jsonb_build_object('status', 'refused', 'manifest_text', '', 'manifest_md5', md5(''), 'parts', '[]'::jsonb) END AS capture_packet
+FROM approved;
+ROLLBACK;

@@ -1,0 +1,230 @@
+# Accepted public-state reference packet — 27 October 2026
+
+Separate source-only unit over frozen PR82/`6dce765a`. ROOT alone allocates the
+actual existing-operator read. No capture, service/SQL/provider/native run,
+source refresh, database writer, new RPC/schema, release or scheduler is added.
+The Python program only receives stdin and saves an owned local artifact.
+
+## Narrow materialisation revision after the failed actual attempt
+
+ROOT's single managed attempt with frozen `f7203908` returned PostgreSQL 57014
+at the unchanged five-second statement limit. The tool round trip was 8,843 ms;
+no packet was returned, no data was sent to the receiver and no public reference
+was accepted. That failure remains recorded. It does not identify the Match
+Centre loading cause or a sporting-source, stdin or ENOBUFS failure.
+
+The next source unit removes only a redundant intermediate representation. Each
+of the same three branches produces its exact existing serialized raw line
+directly. The materialised `framed` relation keeps that line, small routing keys
+and the coalesced receipt-key boolean; it no longer also keeps the complete row
+as JSONB. The ordered `positioned` relation explicitly projects only its needed
+keys, line and bucket. The manifest counts the same receipt presence boolean.
+No captured field, sorting, packing, hash, count, source/null/provenance rule or
+5s/1s/60s limit changes. No other optimisation is included.
+
+`scripts/fixtures/public-state-capture-f7203908.sql` preserves the exact prior
+SQL (SHA256 `a648a08d840971b22ff6eb181e63b8ec001c78af048e2c2b91e8fe8316bab86c`).
+The existing disposable PG17 functional harness executes both versions over
+identical constructed tables: tiny precision/null/receipt cases, an empty graph,
+the existing 6 MiB whole-row case and existing count/row/bin/total refusals.
+It compares every raw line and complete part byte/descriptor, and the complete
+manifest text normalising **only** tooling `sourceGitSha` and `snapshotAt` after
+verifying each manifest's MD5. Rebound deliberate changes to decimal scale,
+large integer, original microseconds, alias order, SQL-null flags, receipt
+presence and manifest facts must still fail that comparison. Final actual
+packets pass through the unchanged exact-length static receiver; an expired
+packet must still leave no output. Results belong to the separate dated handover.
+
+This is a separately allocated, once-only cached PG17.5/WASM functional window,
+not a benchmark, managed17.6 equivalence or proof that the changed query meets
+five seconds. There is no new managed read/retry allocation. ROOT alone decides
+whether to qualify and allocate a changed-input actual read. Full capture,
+reader context, canonical refresh, deployment and automatic-run acceptance remain
+open; PR84 and any successor stay source-only until the existing owner accepts
+the relevant evidence.
+
+## Evidence and updated transport
+
+ROOT's bounded read-only sizing measured 8,646 current and 8,646 score rows
+across **40 fact-source IDs**, with **45 source metadata rows** and 44 receipt
+keys. Allowlisted row JSON measured 30,493,797 bytes before this framing. That
+suggests room under 40 MiB; the query must measure its actual representation.
+Keep the 1,964,962-byte current row, including all 957 US Open children. Its size
+and dates do not establish October GLOBAL admission or latency causality.
+
+ROOT separately proved a synthetic 4,193,592-byte text/base64 transport through
+the existing SQL connector, outer-envelope-only handling and a static stdin
+receiver. Decoded bytes and DB MD5 matched; SHA256 readback preserved the large
+integer, decimal scale, microsecond timestamp and Unicode. Base64 is transport
+only. This supersedes the earlier proposed ban on base64 wrapping, not any
+sporting value or raw artifact format. Whole 40 MiB tool delivery remains
+unqualified. No large payload is embedded or evaluated as JavaScript/Python.
+
+## One existing-operator query, separate actual allocation
+
+`scripts/capture-public-state.sql` has one snapshot-bound SELECT inside READ
+ONLY, five-second statement/one-second lock limits, UTC/ISO serialization and
+ROLLBACK. All three table layers share that SELECT's MVCC snapshot. It reads
+only existing current fixtures, compact scores and the source metadata/receipt
+allowlist. It neither calls a publisher/provider nor copies proposed packets
+back into storage. No account, intent, reminder, installation or profile table.
+
+Before execution ROOT must bind the exact reviewed source and separately
+accepted schema/definition metadata. Replace the **single**
+`__CAPTURE_SOURCE_SHA__` marker with the frozen lowercase 40-hex source SHA;
+validate that input and record the rendered SQL hash. Never interpolate data or
+credentials. Record the operator window start and absolute epoch deadline
+**before** the SQL request; the receiver must finish within that same 60 seconds.
+There is no retry, alternate query or cap increase after refusal.
+
+The query first counts all rows, then measures exact typed NDJSON UTF8 framing.
+Bounds: 10,000 current, 10,000 scores, 128 metadata rows; 40 MiB decoded total
+**including the manifest**, 64 KiB manifest, 4 MiB per complete row/part, at most
+16 parts. In fixed kind/source/fixture order, put each whole row into the bin of
+its cumulative starting byte divided by `(4 MiB - measured largest row)`. Starts
+within one bin span less than that width; adding the last whole row stays within
+4 MiB. A largest row equal to 4 MiB or a bin index beyond 15 safely refuses.
+No sporting data
+is returned when inventory, row, part or total bounds refuse. The bounded refusal
+packet contains no values.
+
+Before any real read, the saved sizing bounds plus this exact framing give
+31,558,560 bytes and a maximum row of at most 1,965,057 bytes: width 2,229,247,
+at most 15 bins, leaving 10,384,480 bytes before the 40 MiB total for a <=64 KiB
+manifest. This is an arithmetic bound for the witnessed unchanged rows, not a
+fresh snapshot or executed SQL result. The actual query remeasures everything.
+
+Current rows retain source/fixture IDs, original ordered identity arrays, full
+raw fixture, stored hash and updated time. Scores retain raw score, explicit
+SQL-null flag, stored hash and original first completion. Current fixture and
+identity-array SQL-null flags distinguish SQL NULL from JSON null/absence.
+Metadata retains revision/check/due/failure count, receipt-key presence and the
+raw `_fixtureObservations` value. Source JSON strings and numeric precision/scale
+stay as PostgreSQL text bytes; timestamptz instants retain PostgreSQL precision,
+not JavaScript milliseconds. No legacy duplicate source fixture array, lease
+token, unrelated quota/media bookkeeping or raw error report is exported.
+
+There is no universal source error column. The manifest requires
+`reportErrorPresence: UNVERIFIED` and `readerContextAccepted: false`. Preserving
+failure count and receipts does not manufacture an error-presence predicate.
+This explicitly leaves full reader/health context and the release gate open.
+The original REMINDER owner's source clarification confirms that a universal
+error boolean is not required for this limited reference graph; its amended
+contract is SHA256 `a7632ba03b84d6c517837f364a9bd4397dbb04399666016eb8a6872c783e1f1c`.
+
+## Static data-only bridge and receiver
+
+ROOT reuses its reviewed bridge: extract exactly the returned `capture_packet`
+outer object, keeping `manifest_text` and base64 strings opaque. Send that
+envelope as **stdin data** to this static file, with no payload embedded in code:
+
+```
+python3 scripts/receive-public-state.py --output /absolute/new-private-folder --source-sha <frozen-40hex> --deadline <original-window-epoch-deadline> --input-bytes <exact-outer-envelope-UTF8-length>
+```
+
+The receiver requires an exact input byte count before reading. It consumes
+only that one frame with unbuffered bounded reads; EOF, Ctrl-D and stdin closure
+are not required. ROOT must disable TTY ECHO/ICANON **before the first data**,
+as in its successful control, avoiding echo and canonical line limits. A short
+pipe fails immediately; a short still-open TTY fails at the same absolute
+deadline. The declared frame must be positive and at most 56 MiB. The channel
+is not reused for another frame.
+
+`scripts/lib/public-state-stdin-frame.js` contains the small static sender
+functions: `size(packet)` computes the exact ASCII envelope byte count from
+small header encodings plus base64 lengths; `chunks(packet)` yields those
+headers and at most 4 MiB data chunks. They never stringify or join the full
+envelope. SQL's manifest/control fields and base64 are ASCII; unexpected
+non-ASCII transport fields refuse rather than guessing the byte count. The
+strict 64 KiB code-review limit is about **executable code**, not these separately
+sent data arguments. Do not embed any chunk in executable JavaScript, shell
+code, an argument/env value or a generated script.
+
+The actual functions runner retains only its one extracted packet: discard the
+raw tool-text/other envelope reference after outer parsing, do not `store()` or
+print the payload, compute `size`, launch the static receiver with only metadata
+arguments, and iterate/await data-only `write_stdin` calls over `chunks`. Do not
+spread/join the iterator or make another whole `JSON.stringify(packet)` copy.
+Discard the packet after sending; only the receiver's small receipt is printed.
+Reuse the reviewed static functions directly in that short runner; no dynamic
+eval or code/data interpolation. The receiver releases its wire buffer after
+outer parsing and each encoded part after decoding.
+
+The receiver enforces the remaining absolute deadline,
+validates the manifest/part list, decodes each at most 4 MiB part, compares its DB
+MD5 and keeps the original UTF8 bytes. It verifies whole-row framing, complete
+kind/source/compound identities, order, counts, receipt presence and the same
+snapshot's globally ordered row-hash footer. Python Decimal is used solely for
+inspecting raw numeric tokens; raw rows are never re-encoded or dates parsed.
+Unexpected fields in the wrapper/column contract, known private keys,
+duplicate keys/rows, truncation, missing parts or inconsistent hashes refuse.
+The privacy guard is a known-key refusal, not independent certification that
+every arbitrary string in current sporting tables is public.
+
+Output uses an exclusive new canonical directory, mode 0700; fixed files are
+exclusive, single-link regular files at 0600. Each part is reread for DB MD5 and
+SHA256, and the entire saved set is rechecked before writing the manifest last.
+Failures close descriptors, preserve the first refusal and remove only
+inode-identified owned output; foreign files survive. If the OS cannot recover
+an inode for cleanup, do not delete an unverified pathname. This is not an OS
+sandbox against a privileged hostile host. No partial set is accepted.
+
+Tool truncation or an undelivered whole envelope fails parsing/bounds/deadline;
+it does not qualify a partial graph or trigger another query. MD5/SHA256 bind
+bytes, not collector authenticity. ROOT retains the actual caller/definition,
+transport result and accepted-state provenance receipt separately.
+
+## Local proof and remaining actual acceptance
+
+`python3 scripts/validate-public-state-receiver.py` exercises the actual static
+CLI/stdin/filesystem with constructed text only: large numbers/decimal scale,
+microseconds/Unicode, SQL versus JSON null, receipt absence versus explicit null,
+exact/+1 4 MiB part and 64 KiB manifest, whole-manifest inclusion, count overflow
+before decode, truncation, duplicate/order/private/scope/hash refusal, existing
+output protection, deadline, write/read/close failures and owned cleanup.
+Initial directory-stat failure reproduced a descriptor leak; cleanup-only inode
+recovery, unconditional close and original-error preservation repair it.
+Review also reproduced a deadline exception during final directory close and
+an impossible absent-receipt/non-null-value combination, with hashes rebound.
+Deadline exceptions now retain the same rollback/remaining-close path as IO
+failures; missing keys require null extraction, while present explicit nulls
+remain valid. Both controls failed before repair and pass after it.
+
+The pipe-based controls originally closed stdin implicitly. ROOT's later
+transport-interface review found that a real raw TTY remains open. Required
+exact-length framing repairs that mismatch. Local actual raw-TTY controls now
+complete both a >4 KiB envelope and an exact 4 MiB decoded part while the master
+stays open, with no Ctrl-D/EOF. A missing final byte times out without output.
+`node scripts/validate-public-state-input-frame.js` checks the static sender's
+exact count, preserved outer fields, bounded chunk iteration and refusals. These
+are local constructed controls, no managed tool delivery or SQL repeat. The
+functional PG17 harness's CLI call uses the new required count; it has not been
+rerun solely for this framing change. SQL bytes remain unchanged.
+
+Those receiver tests alone prove no PostgreSQL execution. ROOT subsequently
+allocated one <=180-second disposable cached PG17 functional window. The exact
+reviewed SQL and static receiver bytes from `5fdc5aad` passed actual PG17.5/WASM
+execution on three tiny constructed tables through
+`scripts/validate-public-state-sql.js`. Literal precision/Unicode/alias/null and
+receipt cases, excluded source-fixtures/raw-report/lease sentinels and unchanged
+stored rows passed. A 6,293,897-byte result passed in three whole-row parts.
+Count10,001, oversized-row, >16-bin skew and >40 MiB framed cases returned only
+the refusal packet; an expired actual packet left no receiver output.
+
+The first invocation stopped on an invalid harness assumption that a tiny query
+would necessarily exceed a stricter 1 ms fault deadline. Its proof is retained;
+the assertion was corrected and remaining qualification finished inside the
+same original 180-second window (119.919 seconds wall time). The stricter timer
+did not fire and SQL cancellation remains unqualified. The original five-second
+statement/one-second lock settings were not changed. Both owned process groups,
+memory engines and temporary files closed; no network/managed/provider/native
+VM/install or real export occurred. Cached PostgreSQL17.5/WASM is not production
+PostgreSQL17.6 or platform/performance parity. No PG18 or unchanged suite repeat.
+
+ROOT's separately allocated real query is still required; it may honestly time
+out, refuse a bucket, exceed framing limits or fail whole-tool delivery. No
+generic full-capacity or healthy-service claim.
+The result is only an exact public stored-fact/receipt reference graph. Actual
+reminder saved-wanted membership stays private; physical/TOAST, full health,
+HTTP latency, canonical full/quick, production and natural scheduled acceptance
+remain separate. PR79/81/82 and their narrower projected caps stay unchanged.
