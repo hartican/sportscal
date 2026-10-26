@@ -53,8 +53,10 @@ private Follow control or staging/deployment path is introduced.
 ## Filesystem and failure boundary
 
 Only canonical same-directory regular paths and exact assigned filenames are
-accepted. Leaf symlinks/dangling links and parent path escapes refuse. Inputs
-use NOFOLLOW descriptors, actual fstat size checks against descriptors **before
+accepted. Leaf symlinks/dangling links, multiply hard-linked files and parent
+path escapes refuse. Inputs use nonblocking NOFOLLOW descriptors, so opening
+a FIFO cannot wait indefinitely before the regular-file check. Actual fstat
+size checks against descriptors run **before
 any part body read**, bounded reads, post-read and final fstat/namespace/parent
 identity checks, and hashes. All descriptors close on failure. No missing,
 extra, reordered or duplicate capsule/page is accepted.
@@ -70,6 +72,11 @@ pages. Exclusive0600 files preserve last-good/other-owner files. The manifest
 is written last, only after the complete public set validates. A write/readback
 failure removes only files created by that operation and identified by inode;
 foreign files are preserved. No partial set is accepted as source input.
+The output descriptor is protected immediately after its exclusive open. If
+the first stat fails, a cleanup-only stat can recover its inode; failure to
+identify it never authorises deletion of an unverified pathname. The descriptor
+still closes and the original error remains the refusal. A secondary readback
+close failure cannot replace the original readback error.
 
 Separate requests remain **non-atomic additive observations**. A short terminal
 page proves traversal termination, not absence of changes between statements.
@@ -92,6 +99,11 @@ duplicate parts/pages, malformed JSON, extra files, links/parent escapes,
 namespace and in-place TOCTOU, descriptor cleanup, output write failure, stale
 observations, no extra page after refusal, immutable replay/materialization and
 legacy v2 whole-cap refusal. The existing release validator chain includes v3.
+Independent review added seven actual file-boundary controls. The unchanged
+implementation failed six (both FIFO inputs, both hard links, first output
+stat cleanup, and primary readback error preservation); the close-only control
+already passed. All seven pass after repair. FIFO cases run in short-lived
+bounded local children, with no network or managed service operation.
 
 An optional retained-file regression reads the original hash-bound historical
 850-row response locally: its seven colliding Rugby identities still refuse,

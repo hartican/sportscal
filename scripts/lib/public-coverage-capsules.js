@@ -86,10 +86,22 @@ function save(value,file,guard){
   // complete; exclusive opens never replace another owner's or last-good file.
   for(const item of [...value.capsules,{path:'public-coverage.json',body:value.manifestBody}]){
    stableParent();const target=path.join(dir,item.path),fd=fs.openSync(target,fs.constants.O_WRONLY|fs.constants.O_CREAT|fs.constants.O_EXCL|fs.constants.O_NOFOLLOW,0o600);
-   const stat=fs.fstatSync(fd,{bigint:true});created.push({target,dev:stat.dev,ino:stat.ino});let error;
-   try{fs.writeFileSync(fd,item.body);}catch(e){error=e;}try{fs.closeSync(fd);}catch(e){error ||= e;}if(error)throw error;stableParent();
+   const owned={target};created.push(owned);let error;
+   try{
+    const stat=fs.fstatSync(fd,{bigint:true});owned.dev=stat.dev;owned.ino=stat.ino;
+    if(!stat.isFile()||stat.nlink!==1n)schema.fail('OUTPUT_CHANGED');
+    fs.writeFileSync(fd,item.body);
+   }catch(e){error=e;}finally{
+    // A failed first stat must still close the descriptor. One cleanup-only
+    // stat can recover its identity; never delete an unverified pathname.
+    if(owned.ino===undefined)try{const stat=fs.fstatSync(fd,{bigint:true});owned.dev=stat.dev;owned.ino=stat.ino;}catch{}
+    try{fs.closeSync(fd);}catch(e){error ||= e;}
+   }
+   if(error)throw error;stableParent();
   }
-  const pinned=files.open(file,MANIFEST_BYTES);try{const reread=read(file,pinned,new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(pinned.read()));if(consume(reread).receipt.sha256!==receipt.sha256)schema.fail('OUTPUT_CHANGED');}finally{pinned.close();}
+  const pinned=files.open(file,MANIFEST_BYTES);let primary;
+  try{const reread=read(file,pinned,new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(pinned.read()));if(consume(reread).receipt.sha256!==receipt.sha256)schema.fail('OUTPUT_CHANGED');}
+  catch(error){primary=error;throw error;}finally{try{pinned.close();}catch(error){if(!primary)throw error;}}
  }catch(error){
   for(const item of created.reverse())try{const stat=fs.lstatSync(item.target,{bigint:true});if(stat.dev===item.dev&&stat.ino===item.ino)fs.unlinkSync(item.target);}catch{}
   throw error;
