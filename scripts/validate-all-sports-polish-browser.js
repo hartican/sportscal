@@ -20,6 +20,7 @@ async function polish(browser,base,engine,network){
   await page.goto(base,{waitUntil:'domcontentloaded'});await page.locator('#startupLaunch').waitFor({state:'hidden'});await page.evaluate(()=>{setTunePromptOpen(false);suppressSessionRatingPrompt();});
   await page.locator('.tabs [data-tab=match-centre]').click();const before=await personalState(page);
   await enterAllSports(page,4);await page.evaluate(()=>document.fonts.ready);
+  const sizeQA=require('./validate-all-sports-card-size-browser'),rooms=await sizeQA.seedFixtureRooms(page,scenario.published,'upcoming');
   const text=await page.evaluate(()=>{const label=document.querySelector('[data-sports-id] .minimised-card-label'),box=label.getBoundingClientRect(),card=label.closest('.event-card').getBoundingClientRect();return {text:label.textContent,label:{top:box.top,bottom:box.bottom,height:box.height},card:{top:card.top,bottom:card.bottom,height:card.height},client:label.clientHeight,scroll:label.scrollHeight};});
   const last=page.locator('[data-sports-id="fixture:nrl:polish-3"]');await last.locator('.minimised-card-summary').scrollIntoViewIfNeeded();await last.locator('.minimised-card-summary').click();await page.locator('.as-expanded').waitFor();
   // Set the real horizontal viewport for this layout assertion. The unchanged
@@ -33,11 +34,16 @@ async function polish(browser,base,engine,network){
   assert(layout.offscreenExpanded,'The expanded card is on another horizontal page');assert(layout.track-layout.visibleMax<45,'An offscreen expanded card must not leave a large blank gap');assert.equal(layout.visibleClipped,false,'Visible cards fit completely inside the horizontal viewport');assert.equal(layout.documentOverflow,0);
   assert.deepEqual(await personalState(page),before,'Browsing, expansion and paging preserve saved personal state');
   await last.locator('button').filter({hasText:'Add to Feed'}).scrollIntoViewIfNeeded();
+  const sample=await page.waitForFunction(sizeQA.fittedCardGeometry,'fixture:nrl:polish-3',{timeout:8000});let controls;
+  try{controls=await sample.jsonValue();}finally{await sample.dispose();}sizeQA.controlsFit(controls,{upcoming:true});
+  console.log(JSON.stringify({engine,probe:'upcoming actual Remind Chat Add controls',constructedChatRooms:true,geometry:controls}));
+  if(process.env.ALL_SPORTS_DIAGNOSTIC_DIR)await page.screenshot({path:path.join(process.env.ALL_SPORTS_DIAGNOSTIC_DIR,'upcoming-controls-'+engine+'.png')});
   await page.evaluate(()=>{globalThis.qaCardWrites=[];for(const name of ['setCardState','updateEventAction','recordEventFeedAction']){const original=globalThis[name];globalThis[name]=(...args)=>{qaCardWrites.push(name);return original(...args);};}});
   await last.getByRole('button',{name:'Add to Feed',exact:true}).click();await last.getByRole('button',{name:'In Feed',exact:true}).waitFor();
   const pin=await page.evaluate(id=>{const e=profileFixtureEvents.get(id),action=getEventAction(e);return {action,queue:fixturePinQueue[eventActionKey(e)],writes:qaCardWrites,active:activeEvents.some(e=>e.id===id),expanded:document.querySelector('[data-sports-id="'+id+'"]')?.classList.contains('as-expanded')};},'fixture:nrl:polish-3');
   assert.equal(pin.action.addedToFixtures,true);assert.equal(pin.action.pinState,'added');assert.equal(pin.queue.enabled,true);assert.equal(pin.queue.mutationId,pin.action.pinMutationId);assert.equal(pin.active,true);assert.equal(pin.expanded,true);assert.deepEqual(pin.writes,['updateEventAction']);
   const after=await personalState(page);for(const field of ['preferences','states','spoilers'])assert.equal(after[field],before[field]);assert.deepEqual(errors,[]);
+  assert.equal(await page.evaluate(()=>JSON.stringify(chatState.rooms)),rooms,'The in-memory chat fixture remains unchanged');
   network.assertIsolated();console.log(JSON.stringify({engine,probe:'All Sports Feed action and layout',wrappedText:true,visiblePageHeight:true,canonicalPin:true,privateChoicesPreserved:true,errors}));
  }catch(error){originalError=error;console.error(JSON.stringify({engine,probe:'polish failure',error:error.message,errors,tracks:await page.locator('.as-track').evaluateAll(nodes=>nodes.map(n=>({left:n.scrollLeft,top:n.scrollTop,height:n.clientHeight,scrollHeight:n.scrollHeight,width:n.clientWidth,style:n.style.height}))).catch(()=>null)}));throw error;}
  finally{try{await page.close();}catch(cleanupError){if(!originalError)throw cleanupError;console.error(JSON.stringify({engine,secondaryPageCleanupError:cleanupError.message}));}}

@@ -11,11 +11,22 @@ function fittedCardGeometry(id){
  const controls=[...slot.querySelectorAll('button')].map(button=>{const rect=button.getBoundingClientRect();return {label:button.textContent.replace(/\s+/g,' ').trim(),top:rect.top,bottom:rect.bottom,left:rect.left,right:rect.right,width:rect.width,height:rect.height};}).filter(button=>/^(Remind|Chat|Add to Feed)$/.test(button.label));
  return {track:box.height,card:r.height,trackTop:box.top,trackBottom:box.bottom,trackLeft:box.left,trackRight:box.right,controls,visibleMax:Math.max(...visible.map(r=>r.height)),left:track.scrollLeft,rows:slot.querySelectorAll('tr').length,observations:qaCardSizeObservers.filter(o=>[...o.targets].some(t=>t.classList.contains('as-fixture'))).map(o=>({targets:o.targets.size,deliveries:o.deliveries}))};
 }
-function controlsFit(sample){
- for(const label of ['Remind','Chat','Add to Feed']){
+function controlsFit(sample,{upcoming=true}={}){
+ if(!upcoming)assert(!sample.controls.some(button=>button.label==='Remind'),'Live fixtures must not acquire an upcoming-only Remind button');
+ for(const label of upcoming?['Remind','Chat','Add to Feed']:['Chat','Add to Feed']){
   const button=sample.controls.find(button=>button.label===label);assert(button&&button.width>0&&button.height>0,label+' has a visible, nonzero button rectangle');
   assert(button.top>=sample.trackTop-1&&button.bottom<=sample.trackBottom+1&&button.left>=sample.trackLeft-1&&button.right<=sample.trackRight+1,label+' fits completely inside the visible track');
  }
+}
+async function seedFixtureRooms(page,events,status){
+ // Fresh owned contexts have no memberships. Supply an in-memory existing-room
+ // fixture to exercise the real Chat eligibility branch, without auth or writes.
+ return page.evaluate(({events,status})=>{
+  if(!CHAT||!serverSyncClient?.chatRequest||chatState.rooms.length)throw Error('Expected an empty owned chat fixture host');
+  if(events.some(event=>getEventStatus(event)!==status))throw Error('Fixture phase differs from the explicit control contract');
+  chatState.rooms=events.map((event,index)=>({roomId:'constructed-room-'+index,canonicalFixtureId:chatFixtureId(event)}));
+  return JSON.stringify(chatState.rooms);
+ },{events,status});
 }
 module.exports=async function cardSize({browser,base,engine,network,scenario,nativeFixture,now,personalState,enterAllSports}){
  const home='team:cricket:australia',away='team:cricket:south-africa';
@@ -43,24 +54,29 @@ module.exports=async function cardSize({browser,base,engine,network,scenario,nat
   },{now});
   await page.goto(base,{waitUntil:'domcontentloaded'});await page.locator('#startupLaunch').waitFor({state:'hidden'});await page.evaluate(()=>{setTunePromptOpen(false);suppressSessionRatingPrompt();});
   await page.locator('.tabs [data-tab=match-centre]').click();const before=await personalState(page);await enterAllSports(page,5);await page.evaluate(()=>document.fonts.ready);
+  const rooms=await seedFixtureRooms(page,scenario.published,'live');
   const card=page.locator('[data-sports-id="'+cricket.id+'"]');await card.locator('.minimised-card-summary').scrollIntoViewIfNeeded();await card.locator('.minimised-card-summary').click();await card.locator('.fixture-scorecard').waitFor();
   const mounted=await card.elementHandle();
   async function fitted(target=card){const sample=await page.waitForFunction(fittedCardGeometry,await target.getAttribute('data-sports-id'),{timeout:8000});try{return await sample.jsonValue();}finally{await sample.dispose();}}
-  const choose=card.getByRole('combobox',{name:'Scorecard innings',exact:true});await choose.waitFor();const short=await fitted();assert(short.rows>0);controlsFit(short);
-  await choose.selectOption('1');const tall=await fitted();assert(tall.track>short.track+200,'The actual innings selector expands the longer scorecard');controlsFit(tall);
-  await choose.selectOption('2');const shrunk=await fitted();assert(Math.abs(shrunk.track-short.track)<2,'The short innings removes the extra space');controlsFit(shrunk);assert.equal(await mounted.evaluate(slot=>slot===document.querySelector('.as-expanded')),true,'Details changes preserve the mounted card');
+  const choose=card.getByRole('combobox',{name:'Scorecard innings',exact:true});await choose.waitFor();const short=await fitted();assert(short.rows>0);controlsFit(short,{upcoming:false});
+  await choose.selectOption('1');const tall=await fitted();assert(tall.track>short.track+200,'The actual innings selector expands the longer scorecard');controlsFit(tall,{upcoming:false});
+  await choose.selectOption('2');const shrunk=await fitted();assert(Math.abs(shrunk.track-short.track)<2,'The short innings removes the extra space');controlsFit(shrunk,{upcoming:false});assert.equal(await mounted.evaluate(slot=>slot===document.querySelector('.as-expanded')),true,'Details changes preserve the mounted card');
   await card.locator('..').evaluate(track=>track.scrollTo({left:0,behavior:'instant'}));await page.waitForFunction(()=>document.querySelector('.as-track').scrollLeft<2);const compact=await fitted();assert(compact.card>compact.visibleMax,'The expanded card is offscreen');
   const deliveries=compact.observations.reduce((n,o)=>n+o.deliveries,0);await choose.evaluate(select=>{select.value='1';select.dispatchEvent(new Event('change',{bubbles:true}));});
   await page.waitForFunction(before=>qaCardSizeObservers.reduce((n,o)=>n+([...o.targets].some(t=>t.classList.contains('as-fixture'))?o.deliveries:0),0)>before,deliveries);const offscreen=await fitted();assert.equal(offscreen.track,compact.track,'Offscreen detail growth leaves compact pages short');
-  await card.evaluate(slot=>slot.scrollIntoView({block:'nearest',inline:'start',behavior:'instant'}));const returned=await fitted();assert(Math.abs(returned.track-tall.track)<2,'Paging back fits the same expanded innings');controlsFit(returned);
+  await card.evaluate(slot=>slot.scrollIntoView({block:'nearest',inline:'start',behavior:'instant'}));const returned=await fitted();assert(Math.abs(returned.track-tall.track)<2,'Paging back fits the same expanded innings');controlsFit(returned,{upcoming:false});
   const race=page.locator('[data-sports-id="'+racing.id+'"]'),requested=page.waitForRequest(request=>{const url=new URL(request.url());return url.searchParams.get('details')==='racing'&&url.searchParams.get('ids')===racing.id;});
   await race.locator('.minimised-card-summary').scrollIntoViewIfNeeded();await race.locator('.minimised-card-summary').click();await requested;await race.locator('.racing-table-wrap').waitFor({state:'attached'});
-  const empty=await fitted(race),raceMounted=await race.elementHandle();controlsFit(empty);assert(detailRequests>0);assert.equal(await race.locator('[data-racing-entry-id]').count(),0,'The real full-field read is still pending');releaseDetails();
-  await page.waitForFunction(()=>document.querySelectorAll('.as-expanded [data-racing-entry-id]').length===22);const arrived=await fitted(race);assert(arrived.track>empty.track+100,'Async full-field arrival grows the existing track');controlsFit(arrived);assert.equal(await raceMounted.evaluate(slot=>slot===document.querySelector('.as-expanded')),true);
+  const empty=await fitted(race),raceMounted=await race.elementHandle();controlsFit(empty,{upcoming:false});assert(detailRequests>0);assert.equal(await race.locator('[data-racing-entry-id]').count(),0,'The real full-field read is still pending');releaseDetails();
+  await page.waitForFunction(()=>document.querySelectorAll('.as-expanded [data-racing-entry-id]').length===22);const arrived=await fitted(race);assert(arrived.track>empty.track+100,'Async full-field arrival grows the existing track');controlsFit(arrived,{upcoming:false});assert.equal(await raceMounted.evaluate(slot=>slot===document.querySelector('.as-expanded')),true);
+  if(process.env.ALL_SPORTS_DIAGNOSTIC_DIR){await race.getByRole('button',{name:'Add to Feed',exact:true}).scrollIntoViewIfNeeded();controlsFit(await fitted(race),{upcoming:false});await page.screenshot({path:process.env.ALL_SPORTS_DIAGNOSTIC_DIR+'/live-controls-'+engine+'.png'});}
   await page.getByRole('tab',{name:'Everything',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('.all-sports-view'));
   const cleanup=await page.evaluate(()=>qaCardSizeObservers.filter(o=>o.cards&&o.disconnects).map(o=>({targets:o.targets.size,disconnects:o.disconnects})));assert(cleanup.length>0);assert(cleanup.every(o=>o.targets===0),'Leaving All Sports disconnects mounted-card observations');
-  assert.deepEqual(await personalState(page),before,'Detail changes and paging preserve saved personal choices');assert.equal(JSON.stringify(scenario.published),original);assert.deepEqual(errors,[]);network.assertIsolated();
-  console.log(JSON.stringify({engine,probe:'native Cricket innings and deferred racing size',constructed:true,physicalDeviceProof:false,short,tall,shrunk,compact,offscreen,returned,deferredRacing:{requests:detailRequests,empty,arrived,entries:22},cleanup,sourceFactsPreserved:true,privateChoicesPreserved:true,errors}));
+  assert.deepEqual(await personalState(page),before,'Detail changes and paging preserve saved personal choices');assert.equal(await page.evaluate(()=>JSON.stringify(chatState.rooms)),rooms,'The in-memory chat fixture remains unchanged');assert.equal(JSON.stringify(scenario.published),original);assert.deepEqual(errors,[]);network.assertIsolated();
+  console.log(JSON.stringify({engine,probe:'native Cricket innings and deferred racing size',constructed:true,constructedChatRooms:true,physicalDeviceProof:false,short,tall,shrunk,compact,offscreen,returned,deferredRacing:{requests:detailRequests,empty,arrived,entries:22},cleanup,sourceFactsPreserved:true,privateChoicesPreserved:true,errors}));
  }catch(error){originalError=error;console.error(JSON.stringify({engine,probe:'dynamic card size failure',error:error.message,errors}));throw error;}
  finally{releaseDetails();try{await page.close();}catch(cleanupError){if(!originalError)throw cleanupError;console.error(JSON.stringify({engine,secondarySizeCleanupError:cleanupError.message}));}}
 };
+module.exports.fittedCardGeometry=fittedCardGeometry;
+module.exports.controlsFit=controlsFit;
+module.exports.seedFixtureRooms=seedFixtureRooms;
