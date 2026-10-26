@@ -43,7 +43,7 @@ async function request(url,options,{fetchImpl=fetch,now=Date.now,timer=()=>perfo
 function qualify(kind,result){
  const {entry,body,at,finishedAt}=result,checks=[];
  const check=(ok,code)=>{if(!ok)checks.push(code);};
- check(entry.status===200,'http_status');check(!entry.failure,'complete_body');check(body&&typeof body==='object','json_body');
+ check(entry.status===200,'http_status');check(!entry.failure,'complete_body');check(body&&typeof body==='object','json_body');check(['MISS','BYPASS'].includes(entry.edgeCache),'fresh_origin_response');
  if(body&&entry.status===200){
   if(kind==='membership'){
    check(body.enabled===true,'enabled');check(body.membershipStale===false,'fresh_membership');
@@ -78,10 +78,10 @@ async function capture({stage,directory,environment,fetchImpl=fetch,sleep=ms=>ne
  fs.mkdirSync(directory,{recursive:true,mode:0o700});const dir=fs.lstatSync(directory);assert(dir.isDirectory()&&!dir.isSymbolicLink()&&dir.uid===process.getuid()&&(dir.mode&0o022)===0,'Owned non-writable report directory required');const file=path.join(directory,'capacity-'+stage+'.json');
  const fd=fs.openSync(file,'wx',0o600),report={schemaVersion:'supabase-capacity-capture.v1',stage,environment:env,origin:ORIGIN,
   instrumentSha256:hash(Buffer.concat([fs.readFileSync(__filename),fs.readFileSync(require.resolve('../lib/snapshot-failure-receipt'))])),selectedFixture:FIXTURE,participantIds:PARTICIPANTS,requestBodySha256:hash(JSON.stringify(PREFERENCES)),
-  roundCount:ROUNDS,gapMs:GAP_MS,startedAt:new Date(now()).toISOString(),requests:0,metadata:{},rounds:[],releaseAcceptance:false};
+  roundCount:ROUNDS,gapMs:GAP_MS,requestPolicy:'Distinct opaque query per request; cached/unknown CDN app replies fail fresh-origin proof',startedAt:new Date(now()).toISOString(),requests:0,metadata:{},rounds:[],releaseAcceptance:false};
  const save=()=>{const b=JSON.stringify(report,null,2)+'\n';assert(Buffer.byteLength(b)<131072);fs.ftruncateSync(fd,0);fs.writeSync(fd,b,0,'utf8');};
  const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),MAX_MS),nonce=crypto.randomUUID();
- const read=async(route,options={})=>{assert(!controller.signal.aborted&&++report.requests<=30);return request(ORIGIN+route+(route.includes('?')?'&':'?')+'capacityCheck='+nonce,{method:'GET',...options},{fetchImpl,now,timer,signal:controller.signal});};
+ const read=async(route,options={})=>{assert(!controller.signal.aborted&&++report.requests<=30);return request(ORIGIN+route+(route.includes('?')?'&':'?')+'capacityCheck='+nonce+'-'+report.requests,{method:'GET',...options},{fetchImpl,now,timer,signal:controller.signal});};
  const metadata=async()=>{
   const values={};for(const route of STATIC){const r=await read(route);assert.equal(r.entry.status,200,'Static identity read failed');assert(!r.entry.failure,'Static body incomplete');values[route]=r.entry.bodySha256;if(route==='/app-version.json')assert.equal(String(r.body?.version),env.deployment.version,'Served version changed');}return values;
  };
@@ -125,6 +125,7 @@ function compare(before,after,beforeClosing,afterClosing){
   requireSame(fingerprints(before),fingerprints(after),'observed_'+kind+'_changed');
  }
  if(!before.staticInputsUnchanged||!after.staticInputsUnchanged)reasons.push('static_inputs_changed_within_window');
+ for(const report of [before,after])if(report.rounds.flatMap(r=>r.reads).some(x=>!['MISS','BYPASS'].includes(x.edgeCache)))reasons.push(report.stage+'_cdn_cache_unqualified');
  if(before.rounds.length!==ROUNDS||after.rounds.length!==ROUNDS||before.state==='INCOMPLETE_STOPPED_NO_RETRY'||after.state==='INCOMPLETE_STOPPED_NO_RETRY')reasons.push('incomplete_window');
  const summary=report=>Object.fromEntries(['membership','selected','participant0','participant1','global'].map(kind=>{
   const samples=report.rounds.flatMap(r=>r.reads).filter(x=>x.kind===kind),times=samples.map(x=>x.elapsedMs).filter(Number.isFinite).sort((a,b)=>a-b);
@@ -133,7 +134,7 @@ function compare(before,after,beforeClosing,afterClosing){
  if(before.environment.plan!=='free'||after.environment.plan!=='pro'||after.environment.compute!=='micro')reasons.push('expected_capacity_change_unconfirmed');
  return {schemaVersion:'supabase-capacity-comparison.v1',comparable:reasons.length===0,confounders:reasons,closingObservationSha256:closingHashes,before:summary(before),after:summary(after),
   capacityChangeConfirmed:before.environment.plan==='free'&&after.environment.plan==='pro'&&after.environment.compute==='micro',
-  repeatedLoadingChecksPassed:after.allChecksPassed===true&&after.rounds.length===ROUNDS&&after.rounds.every(r=>r.reads.length===5&&r.reads.every(x=>x.passed===true)),releaseAcceptance:false,
+  repeatedLoadingChecksPassed:after.allChecksPassed===true&&after.rounds.length===ROUNDS&&after.rounds.every(r=>r.reads.length===5&&r.reads.every(x=>x.passed===true&&['MISS','BYPASS'].includes(x.edgeCache))),releaseAcceptance:false,
   limits:'Four rounds are a bounded signal, not long-term reliability or a causal experiment. Failures remain in totals. Header/body timing is not isolated SQL time; no CPU saturation or physical-phone proof.'};
 }
 async function main(argv=process.argv.slice(2)){

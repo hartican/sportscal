@@ -4,7 +4,7 @@ Prepare one matching before/after pair for Nothing Sport. No purchase, plan/comp
 
 ## Fixed comparison
 
-- One **before** window and one **after** window; four rounds in each,40seconds between rounds. No warm-up or retry. Each window makes20 anonymous app reads plus10 static identity reads, at most30HTTPrequests and10minutes. Failed or stale reads stay in totals. HTTP429 stops immediately; static identity failure stops rather than silently changing app versions. This measurement deliberately retains later preallocated diagnostic samples after a loading failure; it never supplies release acceptance or changes fail-fast release gates.
+- One **before** window and one **after** window; four rounds in each,40seconds between rounds. No warm-up or retry. Each window makes20 anonymous app reads plus10 static identity reads, at most30HTTPrequests and10minutes. Every request has a distinct opaque query value; CDN HIT/STALE/unknown app replies fail fresh-origin proof. Failed or stale reads stay in totals. HTTP429 stops immediately; static identity failure stops rather than silently changing app versions. This measurement deliberately retains later preallocated diagnostic samples after a loading failure; it never supplies release acceptance or changes fail-fast release gates.
 - Use the same script/dependency hashes, app version/commit/READY deployment, served document/worker/runtime/feed metadata, primary address, real selected fixture, two participants and request bodies. Frozen selected fixture is published A-League Sydney–Adelaide `event:football:a-league-men:401892151`; missing identity is a recorded failure, never an invented replacement. Source observation staleness is reported separately from successful fresh retrieval. A different actual current fixture requires a new explicit paired plan, not a mid-window substitution.
 - Routes are Match Centre membership, that selected fixture, SydneyFC and AlexdeMinaur public participant pages, and the existing global-backed tennis history. ParticipantPOSTs use the existing anonymous read-only API with constructed preferences; they neither read nor save a real user's follows. No auth token, provider lookup, fixture refresh or reminder dispatch.
 - Preserve5s interactive/3s selected policies,4s interactive and<2.5s selected headroom checks,30s cache TTL, original observations, coverage and all release budgets. GLOBAL6s qualification remains the existing actual-SDK publisher gate, not a longer public-fetch assertion. The15s observer transport ceiling includes public platform work; it changes no app/backend deadline. Complete public response bodies are capped at4MiB for this diagnostic, not truncated or treated as successful when oversized.
@@ -31,6 +31,10 @@ node scripts/capture-supabase-capacity.js --compare /absolute/output/before/capa
 ```
 
 Default capture command is inert. Output files are exclusively created; existing receipts are never overwritten. No recurring automation is created. Source tests use loopback-free controlled streams and disposable output only.
+
+## Retained observer limitation and correction
+
+Original7f8377f9 captures reused one opaque query value across a window. Actual repeated GETs returned CDNSTALE, so those receipts are retained as diagnostic observations and cannot certify four fresh backend reads or a causal paid-plan speed percentage. No old receipt is rewritten. A new actual-qualification regression first fails on cached membership falsely qualifying; the correction gives all30requests unique URLs and rejects cached/unknown app responses. The offline full-window control asserts URL uniqueness, and comparison independently refuses cached samples. Existing actual-SDK and publisher repeated-read gates remain separate and unchanged. No automatic recapture is authorised by this correction.
 
 ## Decision and release
 
