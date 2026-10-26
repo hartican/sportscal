@@ -1,5 +1,13 @@
 # Backend efficiency decisions
 
+## 26 October 2026 — lossless grouped admission repair candidate
+
+DEPLOY allocated one backend module after the actual original/H1/refined plans and a same-snapshot source-key proof. Share complete narrow current/source keys, retain the existing calendar materialization and all descriptor/type/NULL/pending/raw fallback rules; remove only the extra valid-window copy and per-valid-key probes. The grouped producer is sealed to dec055471e30c29cb1f15565f467b9ce497ace2c790870f495ae36e88096e43c. Legacy/default output, complete observations/Fantasy/aliases, original facts/clocks, caps, private invoker/ACL boundaries, SDK/cache/scheduler ownership and 6s/5s/3s budgets remain.
+
+Prepare an exact guarded D3d→refined view and inverse→D3d, with actual coalesced/adopted-near PG17/18 large ordered-frame, focused malformed/pending, writer/default/permission/fact and reversal tests. Keep all 258 publisher commands and add the affected validator once per engine. ROOT alone integrates, stages and publishes after independent reviews and normal/actual SDK/repeated gates. No client cache/version change or new state owner is part of this module.
+
+ROOT's actual admission-key proof passed on 5,146 observations/2,587 keys with zero EXCEPT ALL differences and sealed unchanged downstream construction. The failed 12-second full serialized comparison remains failed/unknown; construction equivalence is not a claim that it passed. Native timing observations are unpaired and do not prove faster UI or production readiness. [Scoped specification, proof and remaining gates](quality/global-fixture-admission-2026-10-26.md).
+
 ## 26 October 2026 — staged lossless GLOBAL source transport
 
 Status: local integration and gated staging; **not production acceptance**. DEPLOY owns this reversible repair under the existing approval to fix loading and publish only passing work. No worker may enable the protocol, apply its SQL or publish independently.
