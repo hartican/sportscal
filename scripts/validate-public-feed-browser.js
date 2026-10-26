@@ -9,6 +9,8 @@ const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 const commentPolicy = require('../config/public-comments');
 const {normalizedGiphyReference} = require('../lib/giphy-provider');
+const preferenceSystem = require('../config/preference-system');
+const feedPipeline = require('../lib/server-feed-pipeline');
 
 const root = path.resolve(__dirname, '..');
 const output = path.resolve(process.env.PUBLIC_FEED_OUTPUT || path.join(require('node:os').tmpdir(), 'ns-public-feed-native-' + process.pid));
@@ -21,7 +23,7 @@ const fileHash = name => crypto.createHash('sha256').update(fs.readFileSync(path
 const git = (...args) => execFileSync('git', args, {cwd:root, encoding:'utf8'}).trim();
 const deferred = () => { let resolve; const promise = new Promise(yes => { resolve = yes; }); return {promise, resolve}; };
 const diskFree = () => { const stat = fs.statfsSync(root); return stat.bavail * stat.bsize; };
-const engineFiles = ['scripts/validate-public-feed-browser.js', 'scripts/validate-public-feed-browser-fixtures.js', 'index.html', 'assets/js/app-shell-runtime.js', 'config/venue-panel-ui.js', 'config/feed-live-score-loader.js', 'config/match-centre.js', 'config/feed-live-scores.js', 'config/selector-taxonomy.js', 'config/public-comments-ui.js', 'assets/js/public-comments-ui.js', 'config/chat-media-ui.js', 'assets/js/notification-navigation.js'];
+const engineFiles = ['scripts/validate-public-feed-browser.js', 'scripts/validate-public-feed-browser-fixtures.js', 'scripts/validate-public-feed-native-admission.js', 'index.html', 'assets/js/app-shell-runtime.js', 'config/venue-panel-ui.js', 'config/feed-live-score-loader.js', 'config/match-centre.js', 'config/feed-live-scores.js', 'config/selector-taxonomy.js', 'config/public-comments-ui.js', 'assets/js/public-comments-ui.js', 'config/chat-media-ui.js', 'assets/js/notification-navigation.js'];
 const navigationPath = fs.readFileSync(path.join(root, 'index.html'), 'utf8').match(/assets\/js\/notification-navigation\.js\?v=\d+/)?.[0];
 const selectorVersion = require('../config/selector-taxonomy').version;
 
@@ -50,6 +52,26 @@ function scenario(){
     score:18 - index, myVote:0, own:false, createdAt:new Date(Date.now() - 60000 + index).toISOString(), revision:index + 1}));
   return {event, rows, revision:rows.length, points:25, owner, anonymous:false, registered:true, publicReads:0, commands:[], apiWrites:[], blocked:[], stubs:[], errors:[], console:[], configCalls:0, providerCalls:0, gates:[], configGate:null, providerGate:null, voteGate:null, denial:null,
     commentOwners:new Map(rows.map(row => [row.id, otherOwner])), privateMembers:new Set(), authIntent:null, expectedRejectedWrites:new Set(), reads:[], issuedCursors:new Map(), gateByRequest:new Map()};
+}
+
+function initialPreferences(model){
+  // Disposable INITIAL account intent, before navigation or any exercise. An
+  // ordinary fixture needs an actual team follow; a sport choice alone does
+  // not override the approved marquee/finals Feed policy. The existing compact
+  // Feed view leaves the separately tested full transient card as the subject.
+  let graph = preferenceSystem.createPreferenceGraph({profileId:'profile:public-feed-native', domainIds:[]});
+  if(model.registered && !model.anonymous) graph = preferenceSystem.setEntityFollow(graph, model.event.homeParticipantId, 'follow');
+  return {version:27, onboardingComplete:true, showSpoilers:true, feedCompact:true, followedSports:[], selectedSelectorEntityIds:[], preferenceGraph:graph,
+    feedControls:{spoilers:'results_visible'}, fantasyDeadlines:require('../config/fantasy-deadlines').normalizePreferences({enabled:false}),
+    followFirst:{notifications:{enabled:false, userChoice:false, autoRemindersEnabled:false}, refinement:{promptedAt:'2026-10-24'}}};
+}
+function initialUserState(model){
+  return {schema_version:'user-state.v2', preferences:model.initialPreferences || initialPreferences(model), profile:{}, event_user_state:{}, event_spoiler_state:{}, archived_events:[], ratings:{}, updated_at:'2026-10-24T00:00:00.000Z'};
+}
+function initialFeed(model, url){
+  return feedPipeline.buildServerFeed({events:[model.event], userId:model.owner, userState:initialUserState(model),
+    sourceVersion:'synthetic-public-feed-native', sourcePublishedAt:model.event.statusCheckedAt,
+    now:new Date(), cursor:url.searchParams.get('cursor'), limit:url.searchParams.get('limit')});
 }
 
 const safeMethods = new Set(['GET', 'HEAD', 'OPTIONS']);
@@ -193,6 +215,10 @@ async function api(route, model, url){
     const current = session(model);
     return route.fulfill({json:{configured:true, user:model.registered ? current.user : null, ...(command ? {session:current} : {})}});
   }
+  if(url.pathname === '/api/feed'){
+    if(request.method() !== 'GET' || !model.registered || requestActor(request) !== model.owner) return route.fulfill({status:401, json:{code:'missing_session'}});
+    return route.fulfill({json:initialFeed(model, url)});
+  }
   if(url.pathname === '/api/nothingscore') return route.fulfill({json:{points:model.points, settlements:[], entries:[], privileges:[]}});
   if(url.pathname === '/api/chat'){
     if(url.searchParams.get('mode') === 'gif-config'){
@@ -269,23 +295,22 @@ async function isolate(page, model, base){
   });
 }
 
-function seedBrowserFixture({registered, token, owner, anonymous, selectorVersion}){
-  localStorage.setItem('ns_preferences_v1', JSON.stringify({version:27, onboardingComplete:true, showSpoilers:true, followedSports:[], selectedSelectorEntityIds:[], feedControls:{spoilers:'results_visible'}, fantasyDeadlines:{enabled:false}, followFirst:{notifications:{enabled:false, autoRemindersEnabled:false}, refinement:{promptedAt:'2026-10-24'}}}));
+function seedBrowserFixture({registered, token, owner, anonymous, selectorVersion, preferences}){
+  localStorage.setItem('ns_preferences_v1', JSON.stringify(preferences));
   // Existing "Not now" acknowledgement, not a discovery selection or Follow.
   localStorage.setItem('ns_selector_release_ack_v1', JSON.stringify(selectorVersion));
   if(registered) sessionStorage.setItem('ns_auth_session_v1', JSON.stringify({accessToken:token, refreshToken:'synthetic-only', expiresAt:Date.now() + 3600000}));
   globalThis.__publicFeedFixtureAccount = {owner, anonymous};
 }
-function installAdmittedFixture({event, registered, owner, anonymous, cold}){
+function installFixtureHost({event, registered, owner, anonymous, cold}){
   setTunePromptOpen(false); suppressSessionRatingPrompt(); closeSettings({restoreTheme:false});
-  // Admission is controlled test data. Keep its real lazy slot connected so
-  // the actual Feed observer can clean detached slots without deleting it.
+  // Retain the existing controlled Auth fixture boundary. The real account
+  // bootstrap remains unavailable; this UI matrix is not Auth/backend proof.
   serverPersistence.user = registered ? {id:owner, isAnonymous:anonymous} : null;
-  activeTab = 'feed'; activeEvents = [event]; liveFixtureEvents = [];
-  feedCardSlots.clear(); initialFeedCardIds.clear();
-  const admission = document.createElement('div'); admission.hidden = true;
-  admission.dataset.publicFeedAdmissionFixture = 'true'; document.body.append(admission);
-  globalThis.__publicFeedSlot = buildFeedCardSlot(event); admission.append(__publicFeedSlot);
+  // The ordinary app/SDK Feed read owns admission. Never insert or restore a
+  // slot here: a failed precondition must remain visible to the qualification.
+  globalThis.__publicFeedSlot = [...feedCardSlots.values()].find(item => item.event.id === event.id)?.slot || null;
+  if(registered && !anonymous && (!__publicFeedSlot?.isConnected || serverPersistence.user?.id !== owner)) throw Error('Initial followed fixture did not arrive through the ordinary Feed read');
   globalThis.__publicFeedHost = document.createElement('div');
   __publicFeedHost.id = 'public-feed-native-host'; document.body.append(__publicFeedHost);
   if(cold){ userPreferences.showSpoilers = false; userPreferences.feedControls.spoilers = 'strict'; }
@@ -302,11 +327,14 @@ async function boot(browser, base, model, width, query = ''){
   try{
   await context.tracing.start({screenshots:true, snapshots:true, sources:true});
   await isolate(page, model, base);
-  await page.addInitScript(seedBrowserFixture, {registered:model.registered, token:session(model).access_token, owner:model.owner, anonymous:model.anonymous, selectorVersion});
+  model.initialPreferences = initialPreferences(model);
+  await page.addInitScript(seedBrowserFixture, {registered:model.registered, token:session(model).access_token, owner:model.owner, anonymous:model.anonymous, selectorVersion, preferences:model.initialPreferences});
   await page.goto(base + '/' + query, {waitUntil:'domcontentloaded'});
-  await page.waitForFunction(() => typeof buildEventCard === 'function' && typeof buildDetailedEventCard === 'function' && startupFunnelFinished && !startupCoordinator.isHydrating());
+  await page.waitForFunction(({registered, anonymous, id, owner}) => typeof buildEventCard === 'function' && typeof buildDetailedEventCard === 'function' && startupFunnelFinished && !startupCoordinator.isHydrating()
+    && (!(registered && !anonymous) || startupPostLoadHandled && !remoteFeedRefreshInFlight && [...feedCardSlots.values()].some(item => item.event.id === id && item.slot.isConnected)),
+    {registered:model.registered, anonymous:model.anonymous, id:model.event.id, owner:model.owner});
   await page.locator('#startupLaunch').waitFor({state:'hidden'});
-  await page.evaluate(installAdmittedFixture, {event:model.event, registered:model.registered, owner:model.owner, anonymous:model.anonymous, cold:!!query});
+  await page.evaluate(installFixtureHost, {event:model.event, registered:model.registered, owner:model.owner, anonymous:model.anonymous, cold:!!query});
   await page.evaluate(installPersonalStateObserver);
   await page.evaluate(async ({cold, navigationPath}) => {
     if(cold) await loadDeferredScript(navigationPath);
@@ -726,4 +754,4 @@ async function main(){
   }
 }
 if(require.main === module) main().catch(error => { console.error(error); process.exitCode = error.message?.startsWith('DEPENDENCY_PENDING') ? 2 : 1; });
-module.exports = {scenario, api, recordWrite, assertAllowedWrites, commentPage, paginatedFixture, installPersonalStateObserver, seedBrowserFixture, installAdmittedFixture};
+module.exports = {scenario, initialPreferences, initialUserState, initialFeed, api, recordWrite, assertAllowedWrites, commentPage, paginatedFixture, installPersonalStateObserver, seedBrowserFixture, installFixtureHost};
