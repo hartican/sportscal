@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## 26 October 2026 — typed compatibility for the approved full FOLLOW producer
+
+The approved PR41 writer emits device-view gender (all, men, women or open), per-sport remembered gender, and state-team Cricket formats Shield and One Day Cup. Recognise those exact existing fields in the bounded receipt planner. A remembered-gender map must be an object with known sport IDs from the existing selector taxonomy and valid gender values; empty is allowed, while missing taxonomy, unknown keys/values, arrays, null and unknown view fields retain their holds. Preserve exact Cricket format presence, array order and explicit empty/OFF; no sorting, union, default or broader record field is introduced.
+
+The actual view-only writer cannot create an owned receipt. An independent entity/domain plan keeps device views locally and remote views unchanged; an ordinary compatible-base save retains its established behaviour, including a later R2 leg. Actual deliberate writers, original six-field receipts, current-choice checks, fresh conditional versions, CAS rereads, matching ACK, R2 and owner/generation fences remain. The existing bookkeeping command adds78 composed-source writer/receipt/normal-queue/API cases through source and compiled helpers, with exact approved PR41/35384b98 Cricket producer bytes used only as a pinned test fixture. This prepares compatibility for full PR41; it neither implements that UI/coverage nor attributes the separate live @dougal report. ROOT owns shared integration, full gates and physical acceptance.
+
 ## All Sports View — 24 October 2026
 
 The authorised full implementation adds a separate compact chronological view

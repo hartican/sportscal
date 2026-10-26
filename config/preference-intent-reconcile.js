@@ -12,6 +12,7 @@
   const text=value=>typeof value==='string';
   const strings=value=>Array.isArray(value)&&value.every(text)&&new Set(value).size===value.length;
   const boolean=value=>typeof value==='boolean';
+  const gender=value=>['all','men','women','open'].includes(value);
   const domainFields={profileId:text,sportDomainId:text,taxonomyNodeId:value=>value===null||text(value),
     enabled:boolean,templateId:value=>['template:casual','template:like','template:froth','template:custom'].includes(value),
     includeAllFixtures:boolean,includeMajorEvents:boolean,includeFollowedTeams:boolean,
@@ -20,7 +21,7 @@
     editorialSensitivity:value=>['low','medium','high'].includes(value),reminderDefault:value=>['allFollowed','importantOnly','off'].includes(value),
     scopedCompetitionIds:strings,scopedTaxonomyNodeIds:strings};
   const entityFields={profileId:text,participantId:text,followLevel:value=>['follow','priority','unfollow','mute'].includes(value),
-    cricketFormats:value=>strings(value)&&value.every(format=>['Tests','ODIs','T20Is','BBL'].includes(format))};
+    cricketFormats:value=>strings(value)&&value.every(format=>['Tests','ODIs','T20Is','BBL','Shield','One Day Cup'].includes(format))};
 
   function emit(observe,site,reason,side=null,family=null,decision='held',scope={}){
     try{const fact=root.NOTHINGSPORTS_SYNC_DIAGNOSTIC?.guardFact({site,reason,side,family,decision,...scope});if(fact)observe?.(fact);}catch(_error){}
@@ -32,6 +33,8 @@
     const browse=preferences.followBrowse;
     const fields={sportId:text,categoryId:text,section:value=>['teams-players','schedule'].includes(value),
       page:value=>Number.isSafeInteger(value)&&value>=0,
+      gender,genderBySport:value=>object(value)&&Object.entries(value).every(([id,choice])=>id.startsWith('sport:')
+        &&Object.hasOwn(root.NOTHINGSPORTS_SELECTOR_TAXONOMY?.byId||{},id)&&gender(choice)),
       scheduleScope:value=>value===null||(object(value)&&Object.keys(value).length===4
         &&['codeId','tournamentId','competitionId','label'].every(key=>text(value[key])))};
     if(!object(browse))return invalid(18/*view_shape_invalid*/);
