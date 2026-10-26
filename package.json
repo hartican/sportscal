@@ -14,6 +14,7 @@
     "@electric-sql/pglite": "0.5.8",
     "ajv": "8.17.1",
     "ajv-formats": "3.0.1",
+    "jsdom": "26.1.0",
     "pglite-pg17": "npm:@electric-sql/pglite@0.3.14",
     "supabase": "^2.117.0",
     "terser": "5.44.0"

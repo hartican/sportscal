@@ -21,6 +21,15 @@ assert(profile.preferenceBaseMatches(receipt, metadata), 'device graph IDs and p
 const applied = patches.applyPatch({ preferences: metadata }, patches.createPatch({ preferences: base }, { preferences: desired })).preferences;
 assert(profile.preferenceIntentMatches(receipt, applied, patches), 'acknowledge the actual removal while retaining remote bookkeeping');
 assert.equal(profile.preferenceIntentMatches(receipt, metadata, patches), false, 'bookkeeping compatibility cannot acknowledge an unapplied unfollow');
+const witnessed={...receipt,originalReceipt:clone(receipt)};
+assert(profile.preferenceIntentMatches(witnessed,applied,patches),'existing witnesses without optional proof retain their behaviour');
+for(const proof of [undefined,null,false,{},'invalid',()=>false,()=>({}),()=>'yes',()=>{throw Error('Disposable invalid proof');}]){
+  assert.equal(profile.preferenceIntentMatches({...witnessed,acceptsAcknowledgement:proof},applied,patches),false,'provided invalid or rejecting witness proof fails closed');
+}
+const pinned={...witnessed,acceptsAcknowledgement:value=>value.theme==='day'};
+assert(profile.preferenceIntentMatches({...pinned},applied,patches),'RAM witness proof survives the existing spread construction');
+assert.equal(profile.preferenceIntentMatches(pinned,{...applied,theme:'night'},patches),false,'proof also protects values outside the outgoing delta');
+assert.equal(profile.preferenceIntentMatches({...witnessed,acceptsAcknowledgement:()=>true},metadata,patches),false,'proof cannot bypass the existing semantic ACK check');
 for (const [label, mutate] of [
   ['theme', p => { p.theme = 'night'; }],
   ['explicit OFF', p => { p.followFirst.notifications.enabled = true; }],

@@ -1,0 +1,12 @@
+html[data-public-feed-test] body> :not(#public-feed-test):not(#test-loading):not(dialog.public-comments-destination):not(dialog.epic-dialog):not(#chatGifPicker){display:none!important}
+html[data-public-feed-test] body{margin:0;overflow:auto!important;background:#071510;color:#edf5ef;font-family:Arial,sans-serif}
+#public-feed-test{max-width:900px;margin:auto;padding:16px 16px max(28px,env(safe-area-inset-bottom));box-sizing:border-box}
+#public-feed-test .test-header{padding:14px 0;border-bottom:1px solid #365044}#public-feed-test .test-header>strong{color:#d6ff42;letter-spacing:.06em}
+#public-feed-test p{line-height:1.55}#public-feed-test button,#public-feed-test select{min-height:44px;max-width:100%;padding:9px 12px;font:inherit;border:1px solid #4b6357;border-radius:9px;background:#152c21;color:#edf5ef;cursor:pointer}
+#public-feed-test nav,#public-feed-test .test-card-tools{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}#public-feed-test nav button[aria-current=true]{border-color:#d6ff42;color:#d6ff42}
+#public-feed-test .test-fixture{margin:20px 0 36px}#public-feed-test .test-fixture>.event-card{max-width:100%;box-sizing:border-box}
+#public-feed-test .test-notification,#public-feed-test #test-content>section{border:1px solid #365044;border-radius:12px;padding:16px;margin:16px 0}
+#public-feed-test #test-content>section>button{margin:5px}#public-feed-test label{display:flex;align-items:center;gap:12px;min-height:48px}#public-feed-test input[type=checkbox]{width:22px;height:22px}
+#test-status{padding:12px;border-left:3px solid #d6ff42;background:#152c21;overflow-wrap:anywhere}#test-loading{padding:30px}
+html[data-public-feed-test] dialog.public-comments-destination::before,html[data-public-feed-test] dialog.epic-dialog::before{content:'TEST MODE · browser-only';display:block;color:#d6ff42;font-weight:bold;margin:0 0 12px}
+@media(max-width:500px){#public-feed-test{padding:12px}#public-feed-test nav{gap:6px}#public-feed-test nav button{flex:1 1 40%}#public-feed-test .test-card-tools>button{flex:1 1 100%}}

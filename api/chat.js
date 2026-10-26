@@ -1585,6 +1585,7 @@ async function handlePost(request, user, admin, profile){
 }
 
 async function chatHandler(request, response){
+  if (queryValue(request, "route") === "public-comments" || queryValue(request,"mode") === "public-comments") return require("../lib/public-comments-api")(request,response);
   setPrivateHeaders(response);
   try{
     if (!["GET", "POST"].includes(request.method || "GET")){
@@ -1593,6 +1594,7 @@ async function chatHandler(request, response){
       return;
     }
     const body = (request.method || "GET") === "POST" ? requestBody(request) : null;
+    if (/^public-comment-(post|vote|delete)$/.test(body?.action||"")) return require("../lib/public-comments-api")(request,response);
     if (body?.action === "guest-preview"){
       response.status(200).json(await guestPreview(body));
       return;

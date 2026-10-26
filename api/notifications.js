@@ -189,6 +189,7 @@ async function notificationsHandler(request, response){
           live_ratings_enabled:installationPreference(body,"liveRatingsEnabled",existing,"live_ratings_enabled"),
           social_alerts_enabled:installationPreference(body,"socialAlertsEnabled",existing,"social_alerts_enabled"),
           chat_alerts_enabled:installationPreference(body, "chatAlertsEnabled", existing, "chat_alerts_enabled"),
+          followed_comment_alerts_enabled:installationPreference(body,"commentAlertsEnabled",existing,"followed_comment_alerts_enabled"),
           badges_enabled:installationPreference(body, "badgesEnabled", existing, "badges_enabled"),
           updated_at:new Date().toISOString(),
           last_seen_at:new Date().toISOString(),

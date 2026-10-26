@@ -4,6 +4,8 @@
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
+const path = require("node:path"), os = require("node:os");
+const { buildRegistry } = require("./build-chat-fixture-registry");
 const chatHandler = require("../api/chat");
 const chatPolicy = require("../config/chat-policy");
 
@@ -18,8 +20,23 @@ assert.equal(chatPolicy.fixtureTiming(alcaraz).startTimeUtc, null, "follows timi
 assert.equal(chatPolicy.fixtureTiming(alcaraz).sessionStartTimeUtc, "2026-08-31T15:30:00.000Z");
 const fixtureMap = chatHandler._test.loadFixtureMap();
 const tennis = followFixtures.filter(f => f.key === "tennis" || f.sport === "tennis");
-assert(tennis.length, "the published Follow schedule must contain tennis fixtures");
-for (const fixture of tennis) assert(fixtureMap.has(fixture.canonicalEventId || fixture.eventId || fixture.id), "Chat registry must retain every published tennis Follow fixture");
+function assertRegistryIncludes(fixtures, registry){
+  for (const fixture of fixtures) assert(registry.has(fixture.canonicalEventId || fixture.eventId || fixture.id), "Chat registry must retain every published tennis Follow fixture");
+}
+assertRegistryIncludes(tennis,fixtureMap);
+// Run the actual schedule-to-registry builder and API reader unconditionally,
+// even when the rolling published schedule has no tennis in its current window.
+const rootDir=fs.mkdtempSync(path.join(os.tmpdir(),"ns-chat-registry-"));
+try{
+  fs.mkdirSync(path.join(rootDir,"data/code-inspector"),{recursive:true});
+  const fixture={...alcaraz,id:"qa:tennis:source",canonicalEventId:"qa:tennis:canonical",key:"tennis",sourceEventIds:["qa:tennis:alias"]};
+  fs.writeFileSync(path.join(rootDir,"data/code-inspector/manifest.json"),JSON.stringify({schemaVersion:"code-inspector.v1",codes:[{followSchedulePath:"data/tennis.json"}]}));
+  fs.writeFileSync(path.join(rootDir,"data/tennis.json"),JSON.stringify({fixtures:[fixture]}));
+  const registry=buildRegistry({rootDir});assert.equal(registry.fixtureCount,1,"deterministic tennis must enter the actual registry builder");
+  const load=fixtures=>chatHandler._test.loadFixtureMap(()=>JSON.stringify({...registry,fixtures}),rootDir),actual=load(registry.fixtures);
+  assertRegistryIncludes([fixture],actual);assert.equal(actual.get("qa:tennis:alias").canonicalEventId,fixture.canonicalEventId);
+  assert.throws(()=>assertRegistryIncludes([fixture],load([])),/Chat registry must retain/,"removing the registry fixture must genuinely fail the same inclusion gate");
+}finally{fs.rmSync(rootDir,{recursive:true,force:true});}
 assert.equal(chatHandler._test.fixtureIsUpcomingOrLive(alcaraz, new Date("2026-08-31T12:00:00Z")), true);
 
 assert.equal(chatPolicy.GIF_UNLOCK_POINTS, 25);
