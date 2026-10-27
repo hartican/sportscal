@@ -77,7 +77,7 @@ async function runCase(kind){
  const next=clone(c.userPreferences);next.preferenceGraph=systems.quickAddDomain(next.preferenceGraph,'sport:football','template:casual');
  if(kind==='constructed-opaque-root')next.futureScopePolicy={decision:'keep'};
  if(kind==='intent-invalid')next.eventsScope={invalid:true};
- if(kind==='domain-OFF')next.preferenceGraph.domainPreferences[0].enabled=false;
+ if(kind==='retained-domain-OFF')next.preferenceGraph.domainPreferences[0].enabled=false;
  if(kind==='domain-empty')next.preferenceGraph.domainPreferences=[];
  assert.equal(c.savePreferences(next,{deliberate:true,deferFollowEffects:true}),true);
  const receipt=clone(c.pendingPreferenceIntent('A'));assert(receipt);assert.equal(Object.keys(receipt).length,6);
@@ -111,13 +111,36 @@ async function runCase(kind){
  c.serverSyncClient.savePatch=async patch=>{
   assert.deepEqual(clone(c.pendingPreferenceIntent('A')),newReceipt||receipt,'no pre-ACK receipt rewrite');
   calls.writes++;assert.equal(patch.baseUpdatedAt,api.state().updatedAt);
-  assert(patch.changes.filter(change=>change.path[0]==='preferences').every(change=>change.path[1]==='preferenceGraph'&&change.path[2]==='domainPreferences'),'scope and agreed event bytes are never outgoing writes');
+  if(kind==='R2-domain'){
+   const paths=patch.changes.filter(change=>change.path[0]==='preferences').map(change=>change.path.join('.')).sort();
+   assert(paths.length<=12&&paths.every(value=>value.length<=160),'bounded disposable path observation');
+   const controls=node('aside');c.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.appendRetry(controls);
+   assert(controls.children[0]);await controls.children[0].click();
+   const observed=JSON.parse(c.copied);
+   console.log(JSON.stringify({kind:'r2-domain-path-observation',phase:calls.writes===1?'first-planned-save':'second-explicit-retry',preferencePaths:paths,stage:observed.stage,guard:observed.preferenceGuard}));
+   if(calls.writes===2){
+    assert.equal(observed.preferenceGuard.reason,'compatible_base');
+    assert(profile.preferenceBaseMatches(newReceipt,api.state().preferences),'R2 retry uses its exact accepted preference base');
+    assert.deepEqual(paths,['preferences.feedCompact','preferences.preferenceGraph.domainPreferences'],'later ordinary retry carries exactly the real R2 template and retained compact view');
+    assert.equal(patch.changes.find(change=>change.path.join('.')==='preferences.feedCompact').value,false);
+   }
+  }
+  const ordinaryR2=kind==='R2-domain'&&calls.writes===2;
+  assert(patch.changes.filter(change=>change.path[0]==='preferences').every(change=>
+   change.path[1]==='preferenceGraph'&&change.path[2]==='domainPreferences'
+   ||ordinaryR2&&change.path.length===2&&change.path[1]==='feedCompact'),
+  'scoped saves are domain-only; the proven later compatible-base R2 path adds only compact view, never scope/event/opaque data');
   const result=await api.handle({method:'PUT',url:'/api/user-state',headers:{},body:{patch}});
   if(result.status!==200)throw Object.assign(Error('Disposable API refusal'),{status:result.status,code:result.body.code});
   if(!newReceipt&&kind.startsWith('R2-')){
    const second=clone(c.userPreferences);
-   if(kind==='R2-domain')second.preferenceGraph.domainPreferences[0].enabled=false;else second.eventsScope='followed';
+   if(kind==='R2-domain')second.preferenceGraph=systems.quickAddDomain(second.preferenceGraph,'sport:football','template:froth');else second.eventsScope='followed';
    assert(c.savePreferences(second,{deliberate:true,deferFollowEffects:true}));newReceipt=clone(c.pendingPreferenceIntent('A'));assert.notEqual(newReceipt.receiptId,receipt.receiptId);
+   if(kind==='R2-domain'){
+    assert.equal(receipt.preferences.preferenceGraph.domainPreferences[0].templateId,'template:casual');
+    assert.equal(newReceipt.preferences.preferenceGraph.domainPreferences[0].templateId,'template:froth','the persisted second writer makes a real template change before the old ACK');
+    assert.equal(c.userPreferences.preferenceGraph.domainPreferences[0].templateId,'template:froth');
+   }
   }
   const state=transport.stateFromDatabaseRow(result.body.state);
   if(kind==='ACK-scope'||kind==='ACK-both')state.preferences.eventsScope='followed';
@@ -143,9 +166,15 @@ async function runCase(kind){
   assert.equal(caught,undefined);if(kind==='R2-scope')assert.deepEqual(clone(c.pendingPreferenceIntent('A')),newReceipt);
   assert.equal(c.pendingPreferenceIntent('A').receiptId,newReceipt.receiptId,'R1 ACK cannot clear R2');
   if(kind==='R2-domain'){
-   assert.equal(c.userPreferences.preferenceGraph.domainPreferences[0].enabled,false);
+   assert.equal(c.userPreferences.preferenceGraph.domainPreferences[0].templateId,'template:froth');
+   assert.equal(c.pendingPreferenceIntent('A').basePreferences.preferenceGraph.domainPreferences[0].templateId,'template:casual');
+   assert.equal(c.pendingPreferenceIntent('A').preferences.preferenceGraph.domainPreferences[0].templateId,'template:froth');
+   assert.equal(c.serverStateBaseline.state.preferences.preferenceGraph.domainPreferences[0].templateId,'template:casual');
+   assert.equal(api.state().preferences.preferenceGraph.domainPreferences[0].templateId,'template:casual');
+   assert.equal(c.pendingPreferenceIntent('A').baseUpdatedAt,api.state().updatedAt);
    newReceipt=clone(c.pendingPreferenceIntent('A'));await c.syncCurrentServerState({notify:true});assert.equal(c.pendingPreferenceIntent('A'),null);
-   assert.equal(api.state().preferences.preferenceGraph.domainPreferences[0].enabled,false);
+   assert.equal(api.state().preferences.preferenceGraph.domainPreferences[0].templateId,'template:froth');
+   assert.equal(c.userPreferences.preferenceGraph.domainPreferences[0].templateId,'template:froth');
   }else{
    assert.equal(c.userPreferences.eventsScope,'followed');
    let retry;try{await c.syncCurrentServerState();}catch(error){retry=error;}
@@ -177,8 +206,8 @@ async function runCase(kind){
   assert.equal(diagnostic.pendingReceipt,false);assert.equal(c.pendingPreferenceIntent('A'),null);
   assert.deepEqual(api.state().preferences.eventsScope,remote.preferences.eventsScope);
   if(kind==='domain-empty')assert.deepEqual(api.state().preferences.preferenceGraph.domainPreferences,[]);
-  else assert.equal(api.state().preferences.preferenceGraph.domainPreferences[0].templateId,'template:casual');
-  if(kind==='domain-OFF')assert.equal(api.state().preferences.preferenceGraph.domainPreferences[0].enabled,false);
+  else assert.equal(api.state().preferences.preferenceGraph.domainPreferences[0].templateId,kind==='R2-domain'?'template:froth':'template:casual');
+  if(kind==='retained-domain-OFF')assert.equal(api.state().preferences.preferenceGraph.domainPreferences[0].enabled,false);
   if(kind==='cas-disjoint')assert(api.state().preferences.preferenceGraph.entityFollows.some(row=>row.participantId==='team:football:epl:2'));
   assert.deepEqual(api.state().preferences.followFirst,beforeRemote.preferences.followFirst);
   assert.equal(c.userPreferences.feedCompact,false,'existing local-view owner retains this device view');
@@ -217,7 +246,7 @@ function knownRootObservations(){
 module.exports=async function eventsScopeTests(){
  new vm.Script(fs.readFileSync(path.join(root,'scripts/validate-account-sync-recovery-browser.js'),'utf8'),{filename:'mounted-recovery-source-only'});
  const results=[];
- for(const kind of ['actual-events-all','actual-events-followed','actual-events-unchanged','scope-only','base-absent','base-invalid','intent-invalid','intent-missing','remote-invalid','remote-missing','scope-divergent','legacy-unchanged','current-edit','constructed-opaque-root','constructed-parent-absence','domain-conflict','domain-OFF','domain-empty','cas-disjoint','cas-scope-drift','ACK-scope','ACK-missing-scope','ACK-event','ACK-both','R2-domain','R2-scope','owner-read','generation-read','owner-ACK','generation-ACK'])results.push(await runCase(kind));
+ for(const kind of ['actual-events-all','actual-events-followed','actual-events-unchanged','scope-only','base-absent','base-invalid','intent-invalid','intent-missing','remote-invalid','remote-missing','scope-divergent','legacy-unchanged','current-edit','constructed-opaque-root','constructed-parent-absence','domain-conflict','retained-domain-OFF','domain-empty','cas-disjoint','cas-scope-drift','ACK-scope','ACK-missing-scope','ACK-event','ACK-both','R2-domain','R2-scope','owner-read','generation-read','owner-ACK','generation-ACK'])results.push(await runCase(kind));
  console.log('Events scope: '+results.length+' actual source writer/manual queue/API cases passed; generated Account asset remains ROOT-owned and needs rebuilding.');
  return [...results,...knownRootObservations()];
 };
