@@ -27,13 +27,16 @@ now binds existing `editionId` metadata through the overview's exact
 `fixtureIds`, matching sport, competition and the published date window. It
 preserves an existing edition, refuses ambiguous membership and leaves unknown
 children unresolved. No competition/year/name inference admits another fixture.
-The manifest lists only that Cricket code's published edition IDs so an exact
-followed tour can load its schedule without creating a sport follow. Unknown
-keys and excluded tours cannot request it.
+The manifest lists that Cricket code's published edition IDs and exact child
+membership context so a followed tour can load its schedule without creating a
+sport follow. Unknown keys and excluded tours cannot request it. The same
+indexed resolver binds older saved rows before a failed schedule read returns
+its fallback. Without exact published membership, those rows stay unresolved.
 
 The server catalogue and Feed normalizer use the same exact published membership
 resolver. This retains the link for older persisted rows without `editionId`.
-The lookup is indexed once for the Feed normalizer, not rebuilt per fixture.
+The shared identity owner indexes each loaded metadata array once and retains
+only membership context, with no score, status or source-observation cache.
 Existing exact child edition choices retain precedence over the linked parent.
 Independent participant and event choices keep the existing 9 October contract:
 an event exclusion does not remove an independently followed team's match.
@@ -63,7 +66,8 @@ fresh manifest → schedule → visible Feed selection, client/server parity,
 serialized local reload, explicit format/empty/Unfollow choices, captured
 directory intent, event/participant precedence, competition and exact-child
 exclusions, manual pin/dismissal preservation, foreign IDs/sport/gender/season,
-unknown editions, missing/conflicting membership, and older live/store rows.
+unknown editions, missing/conflicting membership, older live/store rows and the
+actual saved-cache/failed-read branch with and without published evidence.
 
 The DOM, static-data transport and local save boundary are disposable doubles.
 The actual server module uses the retained public overview input in an isolated

@@ -69,8 +69,8 @@ const { buildServerFeed } = serverModule.exports;
 function context(preferences = {}, actions = {}) {
   const document = new Element('document'); document.body = new Element('body'); document.append(document.body);
   document.createElement = tag => new Element(tag); document.removeEventListener = () => {};
-  const saved = [], browse = { filtersBySport: {} }, reads = [];
-  const ctx = { document, console, structuredClone, Date, Map, Set, userPreferences: follow.migratePreferences(preferences), actions,
+  const saved = [], browse = { filtersBySport: {} }, reads = [], warnings = [], faults = {};
+  const ctx = { document, console: {...console,warn:(...args)=>warnings.push(args)}, structuredClone, Date, Map, Set, userPreferences: follow.migratePreferences(preferences), actions,
     FOLLOW_FIRST: follow, FOLLOW_FEED_POLICY: policy, NOTHINGSPORTS_CRICKET_COVERAGE: cricket, PREFERENCE_SYSTEM: preferenceSystem,
     NOTHINGSPORTS_SURFACE_CATEGORY: require('../config/surface-category'),
     NOTHINGSPORTS_TENNIS_FEED: require('../config/tennis-feed'), tennisFeedParentDocument: null,
@@ -86,12 +86,12 @@ function context(preferences = {}, actions = {}) {
     getEventAction: e => actions[e.id] || {}, followedParticipantLabel: id => id,
     activeEvents: [], liveFixtureRevision: 'disposable', disposableStore: null, followedScheduleFixtures: new Map(), followedScheduleLoads: new Map(), startupFunnelFinished: false,
     codeInspectorManifest: null, codeInspectorManifestLoading: null, CODE_INSPECTOR_MANIFEST_URL: 'disposable-manifest',
-    fetchJson: async url => { reads.push(url); return url === 'disposable-manifest' ? { schemaVersion: 'code-inspector.v1', codes: [{ ...schedule.code, eventEditionIds: publishedOverviews.map(e=>e.id), followSchedulePath: 'disposable-cricket' }] } : schedule; },
+    fetchJson: async url => { reads.push(url); if(url!=='disposable-manifest'&&faults.schedule)throw Error('Controlled schedule transport failure'); return url === 'disposable-manifest' ? { schemaVersion: 'code-inspector.v1', codes: [{ ...schedule.code, eventEditionIds: publishedOverviews.map(e=>e.id), ...(faults.membership?{}:{eventEditions: publishedOverviews}), followSchedulePath: 'disposable-cricket' }] } : schedule; },
     mergeCanonicalEventPages: (a, b) => [...new Map([...a, ...b].map(e => [e.id, e])).values()], mergeFootballFixtureEvents: x => x,
     eventMeetsDerivedRetention: e => identity.retainedInActiveTimeline(e, new Date('2026-10-27T04:00:00Z')), normalizeEvents() {}, rebuildDerivedCardCache() {},
     tennisFeedParentCandidates: events => events, majorEventsDocument: null, activeFilter: 'all', eventIsAutoArchived: () => false,
     discoveryEventIncludedForSession: () => true, matchesFeedViewFilters: () => true,
-    requestAnimationFrame() {}, addEventListener() {}, removeEventListener() {}, saved, browse, reads,
+    requestAnimationFrame() {}, addEventListener() {}, removeEventListener() {}, saved, browse, reads, warnings, faults,
   };
   ctx.NOTHINGSPORTS_FIXTURE_IDENTITY = { ...identity, retainedInActiveTimeline: e => identity.retainedInActiveTimeline(e, ctx.nowAEST()) };
   ctx.buildFollowEligibilityContext = () => ({ playerTeams: new Map(), participantsById: new Map(), collectionsById: {}, preparedPreferences: follow.migratePreferences(ctx.userPreferences) });
@@ -212,8 +212,10 @@ function directoryFollow(ctx, format) {
     }
     const existing = { ...raw, editionId: 'retained-explicit-edition' }; assert.strictEqual(overviewModel.withCricketEditions([existing], [overview])[0], existing);
     assert.strictEqual(overviewModel.withCricketEditions([raw], [])[0], raw, 'missing membership stays unresolved');
+    for(const fields of [{date:null},{competitionId:null},{fixtureIds:null}])assert.strictEqual(overviewModel.withCricketEditions([raw],[{...overview,...fields}])[0],raw,'incomplete published context stays unresolved');
     assert.throws(() => overviewModel.withCricketEditions([raw], [overview, { ...overview, id: overview.id + '-ambiguous' }]), /Ambiguous/);
     assert.throws(() => overviewModel.withCricketEditions([raw], [overview, { ...overview, competitionId: 'conflict' }]), /Ambiguous/);
+    assert.strictEqual(identity.cricketEditionResolver(publishedOverviews),identity.cricketEditionResolver(publishedOverviews),'one membership index per loaded metadata array');
   });
   await check('unknown/excluded tour cannot request a schedule or create consent', async () => {
     for (const [id, state] of [[overview.id, 'excluded'], ['overview:cricket:unknown:2026', 'followed'], ['overview:rugby:unknown:2026', 'followed'], [overview.id, true]]) {
@@ -228,6 +230,23 @@ function directoryFollow(ctx, format) {
     const check = e => { for(const copyEvents of [true,false]){const result = buildServerFeed({ events: [e], userId: 'disposable-older', userState: { preferences: tourPreferences('followed') }, now,copyEvents }); assert(result.events.some(row => row.id === fixture.id));} };
     check(raw); check(merged[0]);
     const input = JSON.stringify(raw); check(raw); assert.equal(JSON.stringify(raw), input, 'server normalization cannot rewrite an older source row');
+  });
+  await check('actual old saved-schedule fallback keeps verified tour membership after fetch failure', async () => {
+    const ctx=context(tourPreferences('followed'));ctx.faults.schedule=true;
+    ctx.disposableStore={hydrate:async()=>({events:publishedSchedule.fixtures}),set(){throw Error('A failed read must not invent a cache observation');}};
+    await ctx.loadFollowedScheduleFixtures();ctx.activeTab='feed';
+    assert(ctx.getFilteredEvents().some(e=>e.id===fixture.id),'tour-only old cached child remains in visible Feed');
+    assert(ctx.getFilteredEvents().every(e=>overview.fixtureIds.includes(e.id)),'cached sibling tours stay out');
+    assert.deepEqual(ctx.reads,['disposable-manifest','disposable-cricket']);assert.equal(ctx.warnings.length,1);
+    assert(!publishedSchedule.fixtures.some(e=>e.editionId),'cached source input stays unchanged');
+    ctx.userPreferences.preferenceGraph.competitionPreferences=[{competitionId:fixture.competitionId,enabled:false}];
+    assert(!ctx.getFilteredEvents().some(e=>e.id===fixture.id),'a verified cached link cannot override an explicit exclusion');
+  });
+  await check('old saved-schedule fallback without exact published evidence stays unresolved', async () => {
+    const ctx=context(tourPreferences('followed'));ctx.faults.schedule=true;ctx.faults.membership=true;
+    ctx.disposableStore={hydrate:async()=>({events:publishedSchedule.fixtures}),set(){throw Error('No new cache write');}};
+    await ctx.loadFollowedScheduleFixtures();ctx.activeTab='feed';
+    assert(!ctx.getFilteredEvents().some(e=>e.id===fixture.id),'an edition label alone cannot invent child membership');
   });
   await check('actual Code producer preserves existing edition metadata', () => {
     const producer=require('./build-code-inspector'), raw=publishedSchedule.fixtures.find(e=>e.id===fixture.id);

@@ -630,6 +630,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR,retainedFootballOnly=false,r
     const projectedFixtures=codeFixtures(code),projectedStandings=codeStandings(code);
     const championship=row=>row.competitionId==='competition:australian-championship';
     const fixtures=retainedChunk?[...retainedChunk.fixtures.filter(row=>!championship(row)),...projectedFixtures.filter(championship)]:projectedFixtures;
+    const eventEditions=code.id==='sport:cricket'?require('../lib/event-overviews').build(fixtures).filter(e=>['cricket','cricket-women'].includes(e.sportKey)).map(e=>Object.fromEntries(['id','key','competitionId','date','endDate','fixtureIds'].map(key=>[key,e[key]]))):null;
     const standings=retainedChunk?[...retainedChunk.standings.filter(row=>!championship(row)),...projectedStandings.filter(championship)]:projectedStandings;
     const coverageStatus = fixtures.length === 0
       ? "unavailable"
@@ -658,7 +659,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR,retainedFootballOnly=false,r
       slug: code.slug,
       label: code.name,
       fixtureCount: fixtures.length,
-      ...(code.id==='sport:cricket'?{eventEditionIds:[...new Set(fixtures.map(f=>f.editionId).filter(Boolean))]}:{}),
+      ...(eventEditions?{eventEditionIds:eventEditions.map(e=>e.id),eventEditions}:{}),
       ...(fixtures.some(f=>f.calendarNote)?{calendarNoteCount:fixtures.filter(f=>f.calendarNote).length,scheduledFixtureCount:fixtures.filter(f=>!f.calendarNote).length}:{}),
       hasStandings:standings.length > 0,
       ...(code.id==='sport:ice-hockey'?{coverageNote:'NHL and CHL: published match windows and sourced records. CHL knockout dates are programme context until teams and kickoffs are announced; viewing and wider quality checks remain partial.'}:{}),

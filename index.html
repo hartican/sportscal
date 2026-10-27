@@ -5789,8 +5789,10 @@ async function loadFollowedScheduleFixtures(preferences = userPreferences){
       if (followedScheduleLoads.has(code.id)) return followedScheduleLoads.get(code.id);
       const read = (async () => {
         const cacheKey = `followed-schedule:v3:${code.id}`;
+        const bindEdition=identity.cricketEditionResolver(code.eventEditions);
         const saved = await disposableStore?.hydrate?.(cacheKey,null);
         if (!followedScheduleFixtures.has(code.id) && Array.isArray(saved?.events)) followedScheduleFixtures.set(code.id,saved.events);
+        if(followedScheduleFixtures.has(code.id))followedScheduleFixtures.set(code.id,followedScheduleFixtures.get(code.id).map(bindEdition));
         let document;
         try {
           document = await fetchJson(code.followSchedulePath || code.chunkPath, {cache:"no-store"});
@@ -5799,7 +5801,7 @@ async function loadFollowedScheduleFixtures(preferences = userPreferences){
           const context=buildFollowEligibilityContext();
           const retainedIds = new Set([...previous,...activeEvents].map(event => String(event.id || event.eventId)));
 
-          const incoming = document.fixtures.filter(fixture => fixture?.id && identity.retainedInActiveTimeline(fixture) && (automaticEventFollowReason(identity.fromSchedule(fixture,code),context) || code.id === 'sport:golf' && retainedIds.has(String(fixture.id)) && fixture.participantsConfirmed === true)).map(fixture => identity.fromSchedule(fixture,code));
+          const incoming = document.fixtures.map(bindEdition).filter(fixture => fixture?.id && identity.retainedInActiveTimeline(fixture) && (automaticEventFollowReason(identity.fromSchedule(fixture,code),context) || code.id === 'sport:golf' && retainedIds.has(String(fixture.id)) && fixture.participantsConfirmed === true)).map(fixture => identity.fromSchedule(fixture,code));
           const events = mergeCanonicalEventPages(incoming,previous).filter(event => eventMeetsDerivedRetention(event));
           followedScheduleFixtures.set(code.id,events);
           disposableStore?.set(cacheKey,{events},{ttlMs:14*86400000});
