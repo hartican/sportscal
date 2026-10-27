@@ -23,12 +23,12 @@
   const version=value=>typeof value==='string'&&/^\d{1,6}$/.test(value)?value:null;
   const bool=value=>typeof value==='boolean'?value:null;
   // These names are code-owned families, never paths/keys from account data.
-  const rootFamilies={version:'format',cricketCoverageVersion:'format',theme:'appearance',
+  const rootFamilies={version:'format',cricketCoverageVersion:'format',discoveryCatalogueVersion:'format',aflFamilyMigration:'selection',theme:'appearance',
     selectedSelectorEntityIds:'selection',followedSports:'selection',taxonomySelection:'selection',
     selectedBroadcasters:'viewing',localVenueIds:'location',fantasyDeadlines:'fantasy',
     showSpoilers:'feed',feedIntent:'feed',feedControls:'feed',standings:'standings',
     swipeCoaching:'coaching',onboardingComplete:'onboarding',pilotMeasurement:'measurement',
-    ratingPromptState:'ratingPrompt',followBrowse:'localView',feedCompact:'localView'};
+    ratingPromptState:'ratingPrompt',followBrowse:'localView',feedCompact:'localView',eventsScope:'localView'};
   const nestedFamilies={
     preferenceGraph:{schemaVersion:'format',profileId:'bookkeeping',updatedAt:'bookkeeping',
       entityFollows:'entities',domainPreferences:'domains',competitionPreferences:'competitions',viewing:'viewing',learning:'learning'},
