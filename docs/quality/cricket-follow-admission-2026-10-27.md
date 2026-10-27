@@ -37,6 +37,9 @@ The server catalogue and Feed normalizer use the same exact published membership
 resolver. This retains the link for older persisted rows without `editionId`.
 The shared identity owner indexes each loaded metadata array once and retains
 only membership context, with no score, status or source-observation cache.
+It retains the existing gender-aware Follow classifier locally; normalized
+edition context survives the manifest even when an older raw key is Cricket.
+Changing only gender cannot attach a match to the other gender's edition.
 Existing exact child edition choices retain precedence over the linked parent.
 Independent participant and event choices keep the existing 9 October contract:
 an event exclusion does not remove an independently followed team's match.
