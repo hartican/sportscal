@@ -160,7 +160,11 @@
     for(const [key,id] of Object.entries(competitionCodes))if(keys.has(key)||competitions.has(id))ids.add(id);
     if((preferences?.preferenceGraph?.entityFollows || []).some(follow=>/^competitor:f1:/.test(follow.participantId)&&['follow','priority'].includes(follow.followLevel)))ids.add('sport:motorsport');
     // A taxonomy parent does not imply data containment (e.g. AFL and AFLW).
-    return codes.filter(code => ids.has(code.id) || keys.has(code.slug));
+    const editions=preferences?.followFirst?.eventEditionDecisions?.states || {};
+    // Only editions listed by this published Cricket code can request its
+    // schedule. Reading it grants neither a sport follow nor sibling admission.
+    return codes.filter(code => ids.has(code.id) || keys.has(code.slug)
+      || code.id==='sport:cricket' && Array.isArray(code.eventEditionIds) && code.eventEditionIds.some(id=>editions[id]==='followed'));
   }
 
   const SCORE_OBSERVATION_FIELDS=['homeScore','awayScore','scoreDisplay','score','sets','games','innings','rubbers','canonicalResultScoreline'];

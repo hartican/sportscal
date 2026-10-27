@@ -1,5 +1,28 @@
 # Follow and Feed decisions
 
+## Generic Cricket team and tour follows reach Feed — 27 October 2026
+
+A generic team Follow from a profile means all currently supported formats for
+that team, using the existing absence of `cricketFormats`. Only a control in an
+explicitly format-filtered directory writes that format. Its intent is captured
+when the control is built; a different browsing filter cannot change its click.
+Do not reinterpret or broaden saved Tests-only, empty, Unfollow or other
+deliberate format records. Browsing and automatic hydration grant no consent.
+
+Following a Cricket tour edition admits its exact published child fixtures.
+Bind the existing `editionId` through the overview's explicit `fixtureIds` with
+matching sporting context; unknown/ambiguous membership cannot be guessed from
+competition, year or name. The exact published manifest edition list may load
+the existing schedule without enabling the sport or sibling tours. Restore the
+same verified link when reading older source rows without that metadata.
+
+Keep existing edition/participant precedence, exact child choices, competition
+exclusions, supported coverage/gender boundaries and manual fixture actions.
+No account schema, preference migration, historical widening, source clock,
+provider or sync-policy change is authorised. The existing required Follow
+decision gate includes the actual-route regression. See the
+[source contract and acceptance](quality/cricket-follow-admission-2026-10-27.md).
+
 ## Optional standings presentation keeps its existing owner — 26 October 2026
 
 The approved download-budget repair moves only standings-exclusive helpers and

@@ -1,0 +1,404 @@
+{
+  "schemaVersion": "cricket-follow-admission-fixtures.v1",
+  "sourceBase": "8849bd09bd8c875a917a9c0852792a1f6bc71d41",
+  "sourceSha256": {
+    "data/follow-schedule/cricket.json": "49589b7ba5d4c454b970e9f354dfcb51bc109f00a447c3328a38745100069a6b",
+    "data/event-overviews.v1.json": "e8230f64e00144b7261a3ad65c45844850d5d388b556ea99483901d0c7627f5f"
+  },
+  "code": {
+    "id": "sport:cricket",
+    "slug": "cricket"
+  },
+  "fixtures": [
+    {
+      "id": "fixture:cricket:espn:1539432",
+      "canonicalEventId": "fixture:cricket:espn:1539432",
+      "sourceEventIds": [
+        "fixture:cricket:espn:1539432"
+      ],
+      "key": "cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:espn:24469",
+      "competitionName": "India tour of New Zealand 2026/27",
+      "name": "New Zealand v India",
+      "date": "2026-10-22",
+      "endDate": "2026-10-22",
+      "startTimeUtc": "2026-10-22T07:00:00.000Z",
+      "format": "T20",
+      "gender": "men",
+      "participantIds": [
+        "team:cricket:new-zealand",
+        "team:cricket:india"
+      ],
+      "status": "scheduled",
+      "sourceUrl": "https://www.espn.in/cricket/series/24469/game/1539432/new-zealand-vs-india-1st-t20i-24469",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:cricket:espn:1539433",
+      "canonicalEventId": "fixture:cricket:espn:1539433",
+      "sourceEventIds": [
+        "fixture:cricket:espn:1539433"
+      ],
+      "key": "cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:espn:24469",
+      "competitionName": "India tour of New Zealand 2026/27",
+      "name": "New Zealand v India",
+      "date": "2026-10-24",
+      "endDate": "2026-10-24",
+      "startTimeUtc": "2026-10-24T07:00:00.000Z",
+      "format": "T20",
+      "gender": "men",
+      "participantIds": [
+        "team:cricket:new-zealand",
+        "team:cricket:india"
+      ],
+      "status": "scheduled",
+      "sourceUrl": "https://www.espn.in/cricket/series/24469/game/1539433/new-zealand-vs-india-2nd-t20i-24469",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:cricket:espn:1539434",
+      "canonicalEventId": "fixture:cricket:espn:1539434",
+      "sourceEventIds": [
+        "fixture:cricket:espn:1539434"
+      ],
+      "key": "cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:espn:24469",
+      "competitionName": "India tour of New Zealand 2026/27",
+      "name": "New Zealand v India",
+      "date": "2026-10-27",
+      "endDate": "2026-10-27",
+      "startTimeUtc": "2026-10-27T07:00:00.000Z",
+      "format": "T20",
+      "gender": "men",
+      "participantIds": [
+        "team:cricket:new-zealand",
+        "team:cricket:india"
+      ],
+      "status": "scheduled",
+      "sourceUrl": "https://www.espn.in/cricket/series/24469/game/1539434/new-zealand-vs-india-3rd-t20i-24469",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:cricket:espn:1539435",
+      "canonicalEventId": "fixture:cricket:espn:1539435",
+      "sourceEventIds": [
+        "fixture:cricket:espn:1539435"
+      ],
+      "key": "cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:espn:24469",
+      "competitionName": "India tour of New Zealand 2026/27",
+      "name": "New Zealand v India",
+      "date": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTimeUtc": "2026-10-30T07:00:00.000Z",
+      "format": "T20",
+      "gender": "men",
+      "participantIds": [
+        "team:cricket:new-zealand",
+        "team:cricket:india"
+      ],
+      "status": "scheduled",
+      "sourceUrl": "https://www.espn.in/cricket/series/24469/game/1539435/new-zealand-vs-india-4th-t20i-24469",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:cricket:espn:1539436",
+      "canonicalEventId": "fixture:cricket:espn:1539436",
+      "sourceEventIds": [
+        "fixture:cricket:espn:1539436"
+      ],
+      "key": "cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:espn:24469",
+      "competitionName": "India tour of New Zealand 2026/27",
+      "name": "New Zealand v India",
+      "date": "2026-11-01",
+      "endDate": "2026-11-01",
+      "startTimeUtc": "2026-11-01T07:00:00.000Z",
+      "format": "T20",
+      "gender": "men",
+      "participantIds": [
+        "team:cricket:new-zealand",
+        "team:cricket:india"
+      ],
+      "status": "scheduled",
+      "sourceUrl": "https://www.espn.in/cricket/series/24469/game/1539436/new-zealand-vs-india-5th-t20i-24469",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:cricket:espn:1539437",
+      "canonicalEventId": "fixture:cricket:espn:1539437",
+      "sourceEventIds": [
+        "fixture:cricket:espn:1539437"
+      ],
+      "key": "cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:espn:24469",
+      "competitionName": "India tour of New Zealand 2026/27",
+      "name": "New Zealand v India",
+      "date": "2026-11-04",
+      "endDate": "2026-11-04",
+      "startTimeUtc": "2026-11-04T02:00:00.000Z",
+      "format": "ODI",
+      "gender": "men",
+      "participantIds": [
+        "team:cricket:new-zealand",
+        "team:cricket:india"
+      ],
+      "status": "scheduled",
+      "sourceUrl": "https://www.espn.in/cricket/series/24469/game/1539437/new-zealand-vs-india-1st-odi-24469",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:cricket:espn:1539438",
+      "canonicalEventId": "fixture:cricket:espn:1539438",
+      "sourceEventIds": [
+        "fixture:cricket:espn:1539438"
+      ],
+      "key": "cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:espn:24469",
+      "competitionName": "India tour of New Zealand 2026/27",
+      "name": "New Zealand v India",
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "startTimeUtc": "2026-11-07T02:00:00.000Z",
+      "format": "ODI",
+      "gender": "men",
+      "participantIds": [
+        "team:cricket:new-zealand",
+        "team:cricket:india"
+      ],
+      "status": "scheduled",
+      "sourceUrl": "https://www.espn.in/cricket/series/24469/game/1539438/new-zealand-vs-india-2nd-odi-24469",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:cricket:espn:1539439",
+      "canonicalEventId": "fixture:cricket:espn:1539439",
+      "sourceEventIds": [
+        "fixture:cricket:espn:1539439"
+      ],
+      "key": "cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:espn:24469",
+      "competitionName": "India tour of New Zealand 2026/27",
+      "name": "New Zealand v India",
+      "date": "2026-11-10",
+      "endDate": "2026-11-10",
+      "startTimeUtc": "2026-11-10T02:00:00.000Z",
+      "format": "ODI",
+      "gender": "men",
+      "participantIds": [
+        "team:cricket:new-zealand",
+        "team:cricket:india"
+      ],
+      "status": "scheduled",
+      "sourceUrl": "https://www.espn.in/cricket/series/24469/game/1539439/new-zealand-vs-india-3rd-odi-24469",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:cricket:espn:1539440",
+      "canonicalEventId": "fixture:cricket:espn:1539440",
+      "sourceEventIds": [
+        "fixture:cricket:espn:1539440"
+      ],
+      "key": "cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:espn:24469",
+      "competitionName": "India tour of New Zealand 2026/27",
+      "name": "New Zealand v India",
+      "date": "2026-11-13",
+      "endDate": "2026-11-13",
+      "startTimeUtc": "2026-11-13T02:00:00.000Z",
+      "format": "ODI",
+      "gender": "men",
+      "participantIds": [
+        "team:cricket:new-zealand",
+        "team:cricket:india"
+      ],
+      "status": "scheduled",
+      "sourceUrl": "https://www.espn.in/cricket/series/24469/game/1539440/new-zealand-vs-india-4th-odi-24469",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:cricket:espn:1539441",
+      "canonicalEventId": "fixture:cricket:espn:1539441",
+      "sourceEventIds": [
+        "fixture:cricket:espn:1539441"
+      ],
+      "key": "cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:espn:24469",
+      "competitionName": "India tour of New Zealand 2026/27",
+      "name": "New Zealand v India",
+      "date": "2026-11-15",
+      "endDate": "2026-11-15",
+      "startTimeUtc": "2026-11-15T02:00:00.000Z",
+      "format": "ODI",
+      "gender": "men",
+      "participantIds": [
+        "team:cricket:new-zealand",
+        "team:cricket:india"
+      ],
+      "status": "scheduled",
+      "sourceUrl": "https://www.espn.in/cricket/series/24469/game/1539441/new-zealand-vs-india-5th-odi-24469",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:cricket:espn:1539442",
+      "canonicalEventId": "fixture:cricket:espn:1539442",
+      "sourceEventIds": [
+        "fixture:cricket:espn:1539442"
+      ],
+      "key": "cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:espn:24469",
+      "competitionName": "India tour of New Zealand 2026/27",
+      "name": "New Zealand v India",
+      "date": "2026-11-19",
+      "endDate": "2026-11-23",
+      "startTimeUtc": "2026-11-18T22:00:00.000Z",
+      "format": "Test",
+      "gender": "men",
+      "participantIds": [
+        "team:cricket:new-zealand",
+        "team:cricket:india"
+      ],
+      "status": "scheduled",
+      "sourceUrl": "https://www.espn.in/cricket/series/24469/game/1539442/new-zealand-vs-india-1st-test-24469",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:cricket:espn:1539443",
+      "canonicalEventId": "fixture:cricket:espn:1539443",
+      "sourceEventIds": [
+        "fixture:cricket:espn:1539443"
+      ],
+      "key": "cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:espn:24469",
+      "competitionName": "India tour of New Zealand 2026/27",
+      "name": "New Zealand v India",
+      "date": "2026-11-27",
+      "endDate": "2026-12-01",
+      "startTimeUtc": "2026-11-26T22:00:00.000Z",
+      "format": "Test",
+      "gender": "men",
+      "participantIds": [
+        "team:cricket:new-zealand",
+        "team:cricket:india"
+      ],
+      "status": "scheduled",
+      "sourceUrl": "https://www.espn.in/cricket/series/24469/game/1539443/new-zealand-vs-india-2nd-test-24469",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:cricket:espn:1529235",
+      "canonicalEventId": "fixture:cricket:espn:1529235",
+      "sourceEventIds": [
+        "fixture:cricket:espn:1529235"
+      ],
+      "key": "cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:espn:24286",
+      "competitionName": "Sri Lanka tour of India 2026/27",
+      "name": "India v Sri Lanka",
+      "date": "2026-12-13",
+      "endDate": "2026-12-13",
+      "startTimeUtc": "2026-12-13T08:30:00.000Z",
+      "format": "ODI",
+      "gender": "men",
+      "participantIds": [
+        "team:cricket:india",
+        "team:cricket:sri-lanka"
+      ],
+      "status": "scheduled",
+      "sourceUrl": "https://www.espn.in/cricket/series/24286/game/1529235/india-vs-sri-lanka-1st-odi-24286",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    }
+  ],
+  "overviews": [
+    {
+      "id": "overview:cricket:competition:cricket:espn:24469:2026",
+      "key": "cricket",
+      "sportKey": "cricket",
+      "competitionId": "competition:cricket:espn:24469",
+      "name": "India tour of New Zealand 2026/27",
+      "date": "2026-10-22",
+      "endDate": "2026-12-01",
+      "fixtureIds": [
+        "fixture:cricket:espn:1539432",
+        "fixture:cricket:espn:1539433",
+        "fixture:cricket:espn:1539434",
+        "fixture:cricket:espn:1539435",
+        "fixture:cricket:espn:1539436",
+        "fixture:cricket:espn:1539437",
+        "fixture:cricket:espn:1539438",
+        "fixture:cricket:espn:1539439",
+        "fixture:cricket:espn:1539440",
+        "fixture:cricket:espn:1539441",
+        "fixture:cricket:espn:1539442",
+        "fixture:cricket:espn:1539443"
+      ],
+      "participantIds": [
+        "team:cricket:new-zealand",
+        "team:cricket:india"
+      ],
+      "gender": "men"
+    },
+    {
+      "id": "overview:cricket:competition:cricket:espn:24286:2026",
+      "key": "cricket",
+      "sportKey": "cricket",
+      "competitionId": "competition:cricket:espn:24286",
+      "name": "Sri Lanka tour of India 2026/27",
+      "date": "2026-12-13",
+      "endDate": "2026-12-28",
+      "fixtureIds": [
+        "fixture:cricket:espn:1529235",
+        "fixture:cricket:espn:1529236",
+        "fixture:cricket:espn:1529237",
+        "fixture:cricket:espn:1529238",
+        "fixture:cricket:espn:1529239",
+        "fixture:cricket:espn:1529240"
+      ],
+      "participantIds": [
+        "team:cricket:india",
+        "team:cricket:sri-lanka"
+      ],
+      "gender": "men"
+    }
+  ]
+}
