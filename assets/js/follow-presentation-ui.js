@@ -454,7 +454,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
     const wrcRole = ({ driver:"Driver", "co-driver":"Co-driver", manufacturer:"Manufacturer" })[record.position];
     detail.textContent = `${isWrcRecord ? wrcRole || (athlete ? "Competitor" : "Manufacturer") : motorsportDirectory ? (athlete ? "Driver" : "Constructor") : record.sectionLabel || FOLLOW_FIRST?.directoryEntityLabel?.(record) || "Selection"}${numberLabel}${rankLabel}`;
     copy.append(name, detail);
-    const follow = record.profileOnly ? document.createElement("span") : buildDirectoryFollowButton(record.id, { sportKey, label: record.displayName });
+    const follow = record.profileOnly ? document.createElement("span") : buildDirectoryFollowButton(record.id, { sportKey, label: record.displayName, cricketFormat: sportKey.startsWith('cricket') ? filters.cricketFormat : null });
     [icon,copy].forEach(target=>{target.dataset.profileTrigger=(target===icon?'icon:':'copy:')+record.id;target.setAttribute('aria-label',`Open ${record.displayName} profile in Follow`);target.setAttribute('role','button');target.tabIndex=0;target.onclick=()=>void openAthleteProfile(record.id,record.displayName,isF1Record?'f1':sportKey,target);target.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();target.click();}};});
     row.append(icon, copy, follow);
     list.appendChild(row);
