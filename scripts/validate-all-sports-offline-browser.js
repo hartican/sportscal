@@ -3,12 +3,12 @@
 // public disposable store; constructed loopback fixtures, not hosted freshness.
 // ALL_SPORTS_OFFLINE_ENGINES=chromium|webkit and
 // ALL_SPORTS_OFFLINE_CASES=first-use|return select a smaller diagnostic run.
-const assert=require('node:assert/strict'),http=require('node:http'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const assert=require('node:assert/strict'),http=require('node:http'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),vm=require('node:vm');
 const {createMatchCentreHandler}=require('../lib/match-centre-handler');
 const match=require('../config/match-centre');
 const {observeApiFetch,mutationRequests}=require('./validate-all-sports-view-browser');
 const network=require('./lib/installed-test-network');
-const {classify}=require('./lib/all-sports-offline-errors');
+const {classify,classifyOptionalModule}=require('./lib/all-sports-offline-errors');
 const acorn=require('acorn');
 const root=path.resolve(__dirname,'..'),now=Date.parse('2026-10-26T04:00:00Z'),stamp=new Date(now).toISOString();
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
@@ -144,6 +144,17 @@ async function checkFixtures(){
  assert.equal(cached.get('/assets/js/all-sports-ui.js?v=596'),undefined,'A new shell tag cannot stand in for the declared asset tag');
  for(const source of ['loadDeferredScript(dynamicUrl)','loadDeferredScript("assets/js/all-sports-ui.js")','loadDeferredScript("assets/js/all-sports-ui.js?v=unknown")','loadDeferredScript("assets/js/all-sports-ui.js?v=595");loadDeferredScript("assets/js/all-sports-ui.js?v=596")',"const text=\"loadDeferredScript('assets/js/all-sports-ui.js?v=595')\";"])assert.throws(()=>declaredModulePath(source));
  console.log('All Sports offline asset identity: declared loader URL, independent shell/asset versions, strict cache lookup and five invalid/ambiguous-source controls PASS.');
+ const source=fs.readFileSync(__filename,'utf8'),callbacks=[];
+ const visit=node=>{if(!node||typeof node!=='object')return;if(node.type==='CallExpression'&&node.callee.type==='MemberExpression'&&node.callee.object.name==='http'&&node.callee.property.name==='createServer')callbacks.push(node.arguments[0]);for(const value of Object.values(node))if(Array.isArray(value))value.forEach(visit);else if(value&&typeof value==='object')visit(value);};
+ visit(acorn.parse(source,{ecmaVersion:'latest'}));assert.equal(callbacks.length,1);
+ const callback=source.slice(callbacks[0].start,callbacks[0].end);
+ const arrival="if(url.pathname==='/assets/js/all-sports-ui.js')moduleRequests.push(url.pathname+url.search);";
+ assert.equal(callback.split(arrival).length,2);
+ const boundary=async text=>{const state={URL,net:{handleRequest:()=>false},unreachable:true,failedOwned:0,ownedFailures:[],stage:'first-use:feature',moduleRequests:[]};const handler=vm.runInNewContext('('+text+')',state);let destroyed=0;for(let n=0;n<2;n++)await handler({url:modulePath,method:'GET',socket:{destroy(){destroyed++;}}},{});assert.equal(destroyed,2);assert.equal(state.failedOwned,2);return state;};
+ assert.deepEqual(Array.from((await boundary(callback)).moduleRequests),[modulePath,modulePath],'Actual origin arrivals are counted before the outage cutoff');
+ const oldOrder=callback.replace(arrival,'').replace('if(net.preflightDocument(req,res))return;',arrival+'\n  if(net.preflightDocument(req,res))return;');
+ assert.equal((await boundary(oldOrder)).moduleRequests.length,0,'The original counter order reproduces the missing arrival evidence');
+ console.log('All Sports offline arrival boundary: actual server callback counts both cutoff arrivals; original-order mutation remains RED (no sockets).');
  let result;await handler({method:'GET',url:'/api/match-centre?view=all-sports&ids='+encodeURIComponent(fixtures.map(e=>e.id).join(','))},{setHeader(){},status(code){assert.equal(code,200);return this;},json(body){result=body;}});
  assert.equal(result.events.length,fixtures.length);
  const facts=result.events.map(e=>({fields:Object.fromEntries(sourceFields.filter(key=>Object.hasOwn(e,key)).map(key=>[key,e[key]])),score:match.compact(e).score})).sort((a,b)=>a.fields.id.localeCompare(b.fields.id));
@@ -154,9 +165,10 @@ async function engineRun(pw,engine,cases){
  const net=network.create(),apiRequests=[],moduleRequests=[],contexts=new Set(),ownedFailures=[];let browser,error,stage='setup',unreachable=false,failedOwned=0;
  const server=http.createServer(async(req,res)=>{
   if(net.handleRequest(req))return;
-  if(unreachable){failedOwned++;const url=new URL(req.url,'http://localhost');if(ownedFailures.length<64)ownedFailures.push({method:req.method,path:url.pathname+url.search,stage,unreachable:true});req.socket.destroy();return;}
-  if(net.preflightDocument(req,res))return;
   const url=new URL(req.url,'http://localhost');
+  if(url.pathname==='/assets/js/all-sports-ui.js')moduleRequests.push(url.pathname+url.search);
+  if(unreachable){failedOwned++;if(ownedFailures.length<64)ownedFailures.push({method:req.method,path:url.pathname+url.search,stage,unreachable:true});req.socket.destroy();return;}
+  if(net.preflightDocument(req,res))return;
   if(url.pathname.startsWith('/api/')){
    apiRequests.push({method:req.method,path:url.pathname+url.search});
    if(url.pathname==='/api/match-centre'){
@@ -164,7 +176,6 @@ async function engineRun(pw,engine,cases){
    }
    res.statusCode=url.searchParams.get('scope')==='match-centre'?200:503;res.setHeader('content-type','application/json');res.end(JSON.stringify(url.searchParams.get('scope')==='match-centre'?{events:[],pagination:{nextCursor:null}}:{}));return;
   }
-  if(url.pathname==='/assets/js/all-sports-ui.js')moduleRequests.push(url.pathname+url.search);
   let name;try{name=decodeURIComponent(url.pathname).replace(/^\/+/, '')||'index.html';}catch{res.writeHead(400);res.end();return;}
   const file=path.resolve(root,name);if(!file.startsWith(root+path.sep)){res.writeHead(403);res.end();return;}
   fs.readFile(file,(failure,bytes)=>{res.writeHead(failure?404:200,{'content-type':({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css','.woff2':'font/woff2','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.webmanifest':'application/manifest+json'})[path.extname(file)]||'application/octet-stream','cache-control':'no-store'});res.end(failure?'':bytes);});
@@ -206,8 +217,14 @@ async function engineRun(pw,engine,cases){
      await page.getByRole('button',{name:'Retry',exact:true}).click();await page.getByRole('button',{name:'Retry',exact:true}).waitFor();
      assert.equal(await cachedModule(page),null);assert.equal(await page.evaluate(()=>typeof createAllSportsView),'undefined');
      await page.getByRole('button',{name:'Back to Match Centre',exact:true}).click();assert.equal(await page.getByRole('tab',{name:'Followed',exact:true}).getAttribute('aria-selected'),'true');
-     await assertPersonal(page,saved);const publicFollowedReads=await audit(page,writes,2);assert.deepEqual(errors,[]);net.assertIsolated();
-     console.log(JSON.stringify({engine,case:name,shell,installedDocumentFromWorker:true,firstUseOffline:true,optionalModuleAbsent:true,honestRetryAndBack:true,noCardsClaimed:true,personalChoicesPreserved:true,publicFollowedReads,errors}));
+     await assertPersonal(page,saved);const publicFollowedReads=await audit(page,writes,2);net.assertIsolated();
+     const offlineVerified=await page.evaluate(()=>navigator.onLine===false),moduleAbsentVerified=await cachedModule(page)===null;
+     assert(offlineVerified&&moduleAbsentVerified,'The failed optional script remains absent in a genuinely offline installed document');
+     assert.equal(moduleRequests.length,requestStart,'Neither offline attempt reached the origin');assert.equal(responses.length,0,'No optional-module response was supplied');
+     const classification=classifyOptionalModule({engine,origin,workerVerified:installedDocument.fromServiceWorker(),offlineVerified,moduleAbsentVerified,modulePath,originModuleRequests:moduleRequests.length-requestStart,moduleResponses:responses.length,errors:errorDetails,requests:transportFailures});
+     console.log(JSON.stringify({engine,case:name,rawErrors:errorDetails,transportFailures,expectedOptionalModulePairs:classification.expected,unclassifiedErrors:classification.unexpected}));
+     assert.deepEqual(classification.unexpected,[],'Unrelated or unproven first-use errors must still fail');
+     console.log(JSON.stringify({engine,case:name,shell,installedDocumentFromWorker:true,firstUseOffline:true,optionalModuleAbsent:true,honestRetryAndBack:true,noCardsClaimed:true,personalChoicesPreserved:true,publicFollowedReads,errors,expectedOptionalModulePairs:classification.expected.length,unclassifiedErrors:classification.unexpected.length}));
     }else{
      await page.getByRole('tab',{name:'All Sports',exact:true}).click();await cards(page);
      await page.waitForFunction(()=>Boolean(disposableStore.initial('all-sports:v1:public:today',null)));

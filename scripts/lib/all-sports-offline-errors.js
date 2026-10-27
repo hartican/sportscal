@@ -31,4 +31,27 @@ function classify({engine,origin,workerVerified,allowedIds,errors,requests,serve
  }
  return {expected,unexpected};
 }
-module.exports={classify};
+// An absent optional script cannot load while the browser is explicitly offline.
+// New WebKit exposes this caught load failure as a separate page-error pair.
+// This is a different proof from return-visit origin cutoffs; never reuse or
+// broaden that server/request classifier for the emulated-offline case.
+function classifyOptionalModule({engine,origin,workerVerified,offlineVerified,moduleAbsentVerified,modulePath,originModuleRequests,moduleResponses,errors,requests}){
+ const expected=[],unexpected=[],used=new Set();let owned;
+ try{owned=new URL(origin);}catch{}
+ const stage='first-use:feature',phase=x=>x?.stage===stage&&x.unreachable===true;
+ const environment=engine==='webkit'&&workerVerified===true&&offlineVerified===true&&moduleAbsentVerified===true&&originModuleRequests===0&&moduleResponses===0
+  &&owned?.origin===origin&&owned.protocol==='http:'&&owned.hostname==='127.0.0.1'&&Boolean(owned.port)&&!owned.username&&!owned.password
+  &&/^\/assets\/js\/all-sports-ui\.js\?v=\d+$/.test(modulePath);
+ const failed=requests.filter(x=>x.path===modulePath);
+ const exactRequests=failed.length===2&&failed.every(x=>x.method==='GET'&&phase(x)&&x.error==='FetchEvent.respondWith received an error: TypeError: Load failed');
+ for(let index=0;index<errors.length;index++){
+  const first=errors[index],second=errors[index+1];
+  const pair=environment&&exactRequests&&errors.length===4&&first?.name==='FetchEvent.respondWith received an error'&&first.message==='TypeError: Load failed'&&first.stack===''&&phase(first)
+   &&second?.name==='Cannot load http'&&second.message==='/'+owned.host+modulePath+'.'&&second.stack===''&&phase(second);
+  const requestIndex=pair?requests.findIndex((x,i)=>!used.has(i)&&failed.includes(x)):-1;
+  if(requestIndex>=0){used.add(requestIndex);expected.push({errorIndices:[index,index+1],path:modulePath,stage,requestIndex,evidence:'verified-offline-absent-optional-script'});index++;}
+  else unexpected.push({index,error:first,reason:'No exact optional-script pair with offline, absent-cache and single-use failed-GET proof'});
+ }
+ return{expected,unexpected};
+}
+module.exports={classify,classifyOptionalModule};

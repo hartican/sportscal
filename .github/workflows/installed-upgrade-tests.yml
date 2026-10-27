@@ -26,6 +26,7 @@ on:
       - scripts/validate-all-sports-offline-browser.js
       - scripts/lib/all-sports-offline-errors.js
       - scripts/validate-all-sports-offline-errors.js
+      - scripts/fixtures/all-sports-offline-webkit-164-first-use.json
       - .github/workflows/installed-upgrade-tests.yml
 
 permissions:
