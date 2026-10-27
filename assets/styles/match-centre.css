@@ -37,6 +37,7 @@
 .as-fixture .minimised-card-summary{min-width:0;max-width:100%;padding:10px;box-sizing:border-box}
 .as-fixture .minimised-card-name,.as-fixture .minimised-card-label{min-width:0;white-space:normal;overflow-wrap:anywhere}
 .as-fixture .minimised-card-summary{display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+.as-fixture .minimised-card-summary *{pointer-events:none}
 #listView .as-fixture>.event-card.is-minimised-row{height:auto;max-height:none;min-height:56px;contain-intrinsic-size:none}
 .as-fixture .minimised-card-summary{height:auto}
 .as-fixture .minimised-card-name{flex:initial;width:100%;overflow:visible}
