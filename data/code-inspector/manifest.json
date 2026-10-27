@@ -212,10 +212,576 @@
       "slug": "cricket",
       "label": "Cricket",
       "fixtureCount": 151,
+      "eventEditionIds": [
+        "overview:cricket:competition:cricket:espn:24752:2026",
+        "overview:cricket:competition:cricket:espn:23806:2026",
+        "overview:cricket:competition:cricket:4714:2026",
+        "overview:cricket:competition:cricket:espn:24303:2026",
+        "overview:cricket:competition:cricket:3207:2026",
+        "overview:cricket:competition:cricket:espn:8626:2026",
+        "overview:cricket:competition:cricket:3208:2026",
+        "overview:cricket:competition:cricket:4719:2026",
+        "overview:cricket:competition:cricket:espn:24746:2026",
+        "overview:cricket:competition:cricket:4567:2026",
+        "overview:cricket:competition:cricket:4612:2026",
+        "overview:cricket:competition:cricket:espn:24203:2026",
+        "overview:cricket:competition:cricket:4718:2026",
+        "overview:cricket:competition:cricket:espn:22547:2026",
+        "overview:cricket:competition:cricket:4675:2026",
+        "overview:cricket:competition:cricket:4613:2026",
+        "overview:cricket:competition:cricket:espn:8043:2026",
+        "overview:cricket:competition:cricket:4720:2026",
+        "overview:cricket:competition:cricket:4715:2026",
+        "overview:cricket:competition:cricket:espn:24289:2026",
+        "overview:cricket:competition:cricket:espn:24707:2026",
+        "overview:cricket:competition:cricket:4721:2026",
+        "overview:cricket:competition:cricket:espn:1555109:2026",
+        "overview:cricket:competition:cricket:espn:1550706:2026",
+        "overview:cricket:competition:cricket:espn:24469:2026",
+        "overview:cricket:competition:cricket:espn:8050:2026",
+        "overview:cricket:competition:cricket:espn:24799:2026",
+        "overview:cricket:competition:cricket:espn:24756:2026",
+        "overview:cricket:competition:cricket:espn:24273:2026",
+        "overview:cricket:competition:cricket:espn:24484:2026",
+        "overview:cricket:competition:cricket:espn:24270:2026",
+        "overview:cricket:competition:cricket:espn:8044:2026",
+        "overview:cricket:competition:cricket:espn:24286:2026",
+        "overview:cricket:competition:cricket:espn:24198:2026",
+        "overview:cricket:competition:cricket:espn:8044:2027",
+        "overview:cricket:competition:cricket:espn:24198:2027",
+        "overview:cricket:competition:cricket:espn:24283:2027",
+        "overview:cricket:competition:cricket:espn:24270:2027"
+      ],
+      "eventEditions": [
+        {
+          "id": "overview:cricket:competition:cricket:espn:24752:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24752",
+          "date": "2026-09-01",
+          "endDate": "2026-09-06",
+          "fixtureIds": [
+            "fixture:cricket:espn:1549527",
+            "fixture:cricket:espn:1549530"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:23806:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:23806",
+          "date": "2026-09-09",
+          "endDate": "2026-09-13",
+          "fixtureIds": [
+            "fixture:cricket:espn:1496584"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:4714:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:4714",
+          "date": "2026-09-14",
+          "endDate": "2026-09-18",
+          "fixtureIds": [
+            "fixture:cricket:CA:40972",
+            "fixture:cricket:CA:40973",
+            "fixture:cricket:CA:40974"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:24303:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24303",
+          "date": "2026-09-15",
+          "endDate": "2026-09-20",
+          "fixtureIds": [
+            "fixture:cricket:espn:1530203",
+            "fixture:cricket:espn:1530204",
+            "fixture:cricket:espn:1530205"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:3207:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:3207",
+          "date": "2026-09-16",
+          "endDate": "2026-09-19",
+          "fixtureIds": [
+            "fixture:cricket:CA:24495",
+            "fixture:cricket:CA:24496",
+            "fixture:cricket:CA:24497"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:8626:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:8626",
+          "date": "2026-09-19",
+          "endDate": "2026-11-16",
+          "fixtureIds": [
+            "fixture:cricket:espn:1544843",
+            "fixture:cricket:espn:1544845",
+            "fixture:cricket:espn:1544847",
+            "fixture:cricket:espn:1544849",
+            "fixture:cricket:espn:1544853",
+            "fixture:cricket:espn:1544855"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:3208:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:3208",
+          "date": "2026-09-22",
+          "endDate": "2026-09-27",
+          "fixtureIds": [
+            "fixture:cricket:CA:24498",
+            "fixture:cricket:CA:24499",
+            "fixture:cricket:CA:24500"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:4719:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:4719",
+          "date": "2026-09-22",
+          "endDate": "2026-09-22",
+          "fixtureIds": [
+            "fixture:cricket:CA:41003"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:24746:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24746",
+          "date": "2026-09-22",
+          "endDate": "2026-09-22",
+          "fixtureIds": [
+            "fixture:cricket:espn:1552859"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:4567:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:4567",
+          "date": "2026-09-24",
+          "endDate": "2026-09-30",
+          "fixtureIds": [
+            "fixture:cricket:CA:39987",
+            "fixture:cricket:CA:39989"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:4612:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:4612",
+          "date": "2026-09-27",
+          "endDate": "2026-10-03",
+          "fixtureIds": [
+            "fixture:cricket:CA:40207",
+            "fixture:cricket:CA:40208",
+            "fixture:cricket:CA:40209"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:24203:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24203",
+          "date": "2026-09-27",
+          "endDate": "2026-10-31",
+          "fixtureIds": [
+            "fixture:cricket:espn:1525656",
+            "fixture:cricket:espn:1525659",
+            "fixture:cricket:espn:1525660",
+            "fixture:cricket:espn:1525661"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:4718:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:4718",
+          "date": "2026-10-01",
+          "endDate": "2026-10-03",
+          "fixtureIds": [
+            "fixture:cricket:CA:40999",
+            "fixture:cricket:CA:41000",
+            "fixture:cricket:CA:41001"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:22547:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:22547",
+          "date": "2026-10-01",
+          "endDate": "2026-10-03",
+          "fixtureIds": [
+            "fixture:cricket:espn:1552777",
+            "fixture:cricket:espn:1552779"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:4675:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:4675",
+          "date": "2026-10-03",
+          "endDate": "2026-10-04",
+          "fixtureIds": [
+            "fixture:cricket:espn:1525658"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:4613:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:4613",
+          "date": "2026-10-07",
+          "endDate": "2026-10-18",
+          "fixtureIds": [
+            "fixture:cricket:CA:40210",
+            "fixture:cricket:CA:40211",
+            "fixture:cricket:espn:1529234"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:8043:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:8043",
+          "date": "2026-10-08",
+          "endDate": "2026-12-06",
+          "fixtureIds": [
+            "fixture:cricket:espn:1544865",
+            "fixture:cricket:espn:1544873",
+            "fixture:cricket:espn:1544876",
+            "fixture:cricket:espn:1544879"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:4720:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:4720",
+          "date": "2026-10-09",
+          "endDate": "2026-10-13",
+          "fixtureIds": [
+            "fixture:cricket:CA:41004"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:4715:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:4715",
+          "date": "2026-10-10",
+          "endDate": "2026-10-12",
+          "fixtureIds": [
+            "fixture:cricket:CA:40975",
+            "fixture:cricket:CA:40976"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:24289:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24289",
+          "date": "2026-10-12",
+          "endDate": "2026-10-15",
+          "fixtureIds": [
+            "fixture:cricket:espn:1529232",
+            "fixture:cricket:espn:1529233"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:24707:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24707",
+          "date": "2026-10-14",
+          "endDate": "2026-11-21",
+          "fixtureIds": [
+            "fixture:cricket:espn:1550710",
+            "fixture:cricket:espn:1550711",
+            "fixture:cricket:espn:1550712"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:4721:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:4721",
+          "date": "2026-10-17",
+          "endDate": "2026-10-17",
+          "fixtureIds": [
+            "fixture:cricket:CA:41005"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:1555109:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:1555109",
+          "date": "2026-10-17",
+          "endDate": "2026-10-21",
+          "fixtureIds": [
+            "fixture:cricket:espn:1555117",
+            "fixture:cricket:espn:1555118",
+            "fixture:cricket:espn:1555119"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:1550706:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:1550706",
+          "date": "2026-10-18",
+          "endDate": "2026-10-29",
+          "fixtureIds": [
+            "fixture:cricket:espn:1550713",
+            "fixture:cricket:espn:1550714",
+            "fixture:cricket:espn:1550715",
+            "fixture:cricket:espn:1550716",
+            "fixture:cricket:espn:1550717",
+            "fixture:cricket:espn:1550718"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:24469:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24469",
+          "date": "2026-10-22",
+          "endDate": "2026-12-01",
+          "fixtureIds": [
+            "fixture:cricket:espn:1539432",
+            "fixture:cricket:espn:1539433",
+            "fixture:cricket:espn:1539434",
+            "fixture:cricket:espn:1539435",
+            "fixture:cricket:espn:1539436",
+            "fixture:cricket:espn:1539437",
+            "fixture:cricket:espn:1539438",
+            "fixture:cricket:espn:1539439",
+            "fixture:cricket:espn:1539440",
+            "fixture:cricket:espn:1539441",
+            "fixture:cricket:espn:1539442",
+            "fixture:cricket:espn:1539443"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:8050:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:8050",
+          "date": "2026-10-26",
+          "endDate": "2026-10-29",
+          "fixtureIds": [
+            "fixture:cricket:espn:1546580"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:24799:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24799",
+          "date": "2026-10-27",
+          "endDate": "2026-11-17",
+          "fixtureIds": [
+            "fixture:cricket:espn:1555120",
+            "fixture:cricket:espn:1555121",
+            "fixture:cricket:espn:1555122",
+            "fixture:cricket:espn:1555123",
+            "fixture:cricket:espn:1555124"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:24756:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24756",
+          "date": "2026-10-28",
+          "endDate": "2026-11-09",
+          "fixtureIds": [
+            "fixture:cricket:espn:1553295",
+            "fixture:cricket:espn:1553296"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:24273:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24273",
+          "date": "2026-11-13",
+          "endDate": "2026-12-02",
+          "fixtureIds": [
+            "cricket-australia-england-first-odi-2026",
+            "cricket-australia-england-second-odi-2026",
+            "cricket-australia-england-third-odi-2026",
+            "cricket-australia-england-first-t20-2026",
+            "cricket-australia-england-second-t20-2026",
+            "cricket-australia-england-third-t20-2026",
+            "cricket-australia-england-fourth-t20-2026",
+            "cricket-australia-england-fifth-t20-2026"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:24484:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24484",
+          "date": "2026-11-15",
+          "endDate": "2026-12-13",
+          "fixtureIds": [
+            "fixture:cricket:espn:1525662",
+            "fixture:cricket:espn:1525663",
+            "fixture:cricket:espn:1525664",
+            "fixture:cricket:espn:1525665",
+            "fixture:cricket:espn:1525666",
+            "fixture:cricket:espn:1525667",
+            "fixture:cricket:espn:1525668",
+            "fixture:cricket:espn:1525669"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:24270:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24270",
+          "date": "2026-12-09",
+          "endDate": "2026-12-30",
+          "fixtureIds": [
+            "cricket-australia-new-zealand-test-2026",
+            "fixture:cricket:espn:1528712",
+            "evt_90"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:8044:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:8044",
+          "date": "2026-12-12",
+          "endDate": "2026-12-31",
+          "fixtureIds": [
+            "fixture:cricket:espn:1545498",
+            "fixture:cricket:espn:1545499",
+            "fixture:cricket:espn:1545500",
+            "fixture:cricket:espn:1545501",
+            "fixture:cricket:espn:1545502",
+            "fixture:cricket:espn:1545503",
+            "fixture:cricket:espn:1545504",
+            "fixture:cricket:espn:1545505",
+            "fixture:cricket:espn:1545506",
+            "fixture:cricket:espn:1545507",
+            "fixture:cricket:espn:1545508",
+            "fixture:cricket:espn:1545509",
+            "fixture:cricket:espn:1545510",
+            "fixture:cricket:espn:1545511",
+            "fixture:cricket:espn:1545512",
+            "fixture:cricket:espn:1545513",
+            "fixture:cricket:espn:1545514",
+            "fixture:cricket:espn:1545515"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:24286:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24286",
+          "date": "2026-12-13",
+          "endDate": "2026-12-28",
+          "fixtureIds": [
+            "fixture:cricket:espn:1529235",
+            "fixture:cricket:espn:1529236",
+            "fixture:cricket:espn:1529237",
+            "fixture:cricket:espn:1529238",
+            "fixture:cricket:espn:1529239",
+            "fixture:cricket:espn:1529240"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:24198:2026",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24198",
+          "date": "2026-12-17",
+          "endDate": "2026-12-30",
+          "fixtureIds": [
+            "fixture:cricket:espn:1525671",
+            "fixture:cricket:espn:1525672"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:8044:2027",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:8044",
+          "date": "2027-01-01",
+          "endDate": "2027-01-09",
+          "fixtureIds": [
+            "fixture:cricket:espn:1545516",
+            "fixture:cricket:espn:1545517",
+            "fixture:cricket:espn:1545518",
+            "fixture:cricket:espn:1545519",
+            "fixture:cricket:espn:1545520",
+            "fixture:cricket:espn:1545521",
+            "fixture:cricket:espn:1545522",
+            "fixture:cricket:espn:1545523",
+            "fixture:cricket:espn:1545524",
+            "fixture:cricket:espn:1545525",
+            "fixture:cricket:espn:1545526"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:24198:2027",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24198",
+          "date": "2027-01-03",
+          "endDate": "2027-01-07",
+          "fixtureIds": [
+            "fixture:cricket:espn:1525673"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:24283:2027",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24283",
+          "date": "2027-01-03",
+          "endDate": "2027-01-09",
+          "fixtureIds": [
+            "fixture:cricket:espn:1529241",
+            "fixture:cricket:espn:1529242",
+            "fixture:cricket:espn:1529243"
+          ]
+        },
+        {
+          "id": "overview:cricket:competition:cricket:espn:24270:2027",
+          "key": "cricket",
+          "gender": "men",
+          "competitionId": "competition:cricket:espn:24270",
+          "date": "2027-01-04",
+          "endDate": "2027-01-08",
+          "fixtureIds": [
+            "evt_91"
+          ]
+        }
+      ],
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-22T22:10:48.141Z",
+      "freshAt": "2026-10-24T21:16:14.556Z",
       "chunkPath": "data/code-inspector/cricket.json"
     },
     {
