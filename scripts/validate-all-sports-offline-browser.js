@@ -9,10 +9,30 @@ const match=require('../config/match-centre');
 const {observeApiFetch,mutationRequests}=require('./validate-all-sports-view-browser');
 const network=require('./lib/installed-test-network');
 const {classify}=require('./lib/all-sports-offline-errors');
+const acorn=require('acorn');
 const root=path.resolve(__dirname,'..'),now=Date.parse('2026-10-26T04:00:00Z'),stamp=new Date(now).toISOString();
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const index=fs.readFileSync(path.join(root,'index.html')),version=index.toString().match(/name="app-shell-version" content="(\d+)"/)[1];
-const modulePath='/assets/js/all-sports-ui.js?v='+version,moduleHash=hash(fs.readFileSync(path.join(root,'assets/js/all-sports-ui.js')));
+function declaredModulePath(source){
+ const paths=new Set();
+ const visit=node=>{
+  if(!node||typeof node!=='object')return;
+  if(node.type==='CallExpression'&&node.callee.type==='Identifier'&&node.callee.name==='loadDeferredScript'){
+   const argument=node.arguments[0],url=argument?.type==='Literal'?argument.value:null;
+   if(typeof url==='string'&&url.replace(/^\//,'').split('?')[0]==='assets/js/all-sports-ui.js'){
+    assert(/^\/?assets\/js\/all-sports-ui\.js\?v=\d+$/.test(url),'The declared optional module must have an explicit version');
+    paths.add('/'+url.replace(/^\//,''));
+   }
+  }
+  for(const value of Object.values(node))if(Array.isArray(value))value.forEach(visit);else if(value&&typeof value==='object')visit(value);
+ };
+ visit(acorn.parse(source,{ecmaVersion:'latest'}));
+ assert.equal(paths.size,1,'Exactly one optional-module URL must be declared by its actual loader');
+ return [...paths][0];
+}
+// Shell caches and unchanged optional assets have independent version tags.
+// Validate the exact URL used by the parent loader inside the current shell.
+const modulePath=declaredModulePath(fs.readFileSync(path.join(root,'assets/js/match-centre-ui.js'),'utf8')),moduleHash=hash(fs.readFileSync(path.join(root,'assets/js/all-sports-ui.js')));
 const parentSource=index.toString().match(/async function loadMatchCentre\(\)\{[\s\S]*?\n\}/)[0];
 const parentDependencies=[...parentSource.matchAll(/loadDeferredScript\('([^']+)'\)/g)].map(([,url])=>({url:'/'+url,sha256:hash(fs.readFileSync(path.join(root,url.split('?')[0])))}));
 const sourceFields=['id','eventId','name','status','startTimeUtc','endTimeUtc','timePrecision','date','homeScore','awayScore','sourceUrl','sourceCheckedAt','statusCheckedAt','scoreCheckedAt','scoreFactObservedAt','statusFactObservedAt'];
@@ -116,6 +136,14 @@ async function checkCleanup(){
  assert.equal(closes,5);console.log('All Sports offline cleanup: 5 fault controls PASS (no browser/network).');
 }
 async function checkFixtures(){
+ const declared=declaredModulePath('loadDeferredScript("assets/js/all-sports-ui.js?v=595")');
+ assert.equal(declared,'/assets/js/all-sports-ui.js?v=595');
+ assert.equal(declaredModulePath("loadDeferredScript('/assets/js/all-sports-ui.js?v=527')"),'/assets/js/all-sports-ui.js?v=527');
+ const cached=new Map([[declared,'exact-module-bytes']]);
+ assert.equal(cached.get(declared),'exact-module-bytes');
+ assert.equal(cached.get('/assets/js/all-sports-ui.js?v=596'),undefined,'A new shell tag cannot stand in for the declared asset tag');
+ for(const source of ['loadDeferredScript(dynamicUrl)','loadDeferredScript("assets/js/all-sports-ui.js")','loadDeferredScript("assets/js/all-sports-ui.js?v=unknown")','loadDeferredScript("assets/js/all-sports-ui.js?v=595");loadDeferredScript("assets/js/all-sports-ui.js?v=596")',"const text=\"loadDeferredScript('assets/js/all-sports-ui.js?v=595')\";"])assert.throws(()=>declaredModulePath(source));
+ console.log('All Sports offline asset identity: declared loader URL, independent shell/asset versions, strict cache lookup and five invalid/ambiguous-source controls PASS.');
  let result;await handler({method:'GET',url:'/api/match-centre?view=all-sports&ids='+encodeURIComponent(fixtures.map(e=>e.id).join(','))},{setHeader(){},status(code){assert.equal(code,200);return this;},json(body){result=body;}});
  assert.equal(result.events.length,fixtures.length);
  const facts=result.events.map(e=>({fields:Object.fromEntries(sourceFields.filter(key=>Object.hasOwn(e,key)).map(key=>[key,e[key]])),score:match.compact(e).score})).sort((a,b)=>a.fields.id.localeCompare(b.fields.id));
@@ -240,4 +268,4 @@ async function main(){
  finally{clearInterval(watchdog);}
 }
 if(require.main===module)(process.argv.includes('--check-cleanup')?checkCleanup():process.argv.includes('--check-fixtures')?checkFixtures():main()).catch(failure=>{console.error(failure);process.exitCode=1;});
-module.exports={main,closeCaseContext};
+module.exports={main,closeCaseContext,declaredModulePath};
