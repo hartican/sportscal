@@ -15,6 +15,8 @@ const testedShellVersion=testedHtml.match(/<meta name="app-shell-version" conten
 assert(testedShellVersion,'exact served source declares its shell version');
 const engineName = process.env.ACCOUNT_RECOVERY_BROWSER || 'chromium';
 const scenario = process.env.ACCOUNT_RECOVERY_CASE || 'retry-error';
+const eventsScopeScenario=scenario==='receipt-base-events-scope';
+const eventAgreementScenario=scenario==='receipt-base-event-agreement'||eventsScopeScenario;
 const helperRaceProbe=process.env.ACCOUNT_RECOVERY_HELPER_RACE==='1'||scenario==='helper-mount';
 const cancelControl=process.env.ACCOUNT_RECOVERY_CANCEL_CONTROL==='1';
 const fixtureControl=process.env.ACCOUNT_RECOVERY_LIVE_FIXTURE_CONTROL||null;
@@ -23,7 +25,7 @@ assert(!cancelControl||scenario==='receipt-base-disjoint','Cancellation control 
 if (scenario === 'all') {
   let failed = false;
   for (const engine of (process.env.ACCOUNT_RECOVERY_BROWSER ? [engineName] : ['chromium', 'webkit'])) {
-    for (const testCase of ['helper-mount', 'diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed', 'receipt-base-disjoint', 'receipt-base-overlap', 'receipt-base-cricket', 'receipt-base-event-agreement']) {
+    for (const testCase of ['helper-mount', 'diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed', 'receipt-base-disjoint', 'receipt-base-overlap', 'receipt-base-cricket', 'receipt-base-event-agreement', 'receipt-base-events-scope']) {
       const result = spawnSync(process.execPath, [__filename], { stdio: 'inherit', env: {
         ...process.env, ACCOUNT_RECOVERY_BROWSER: engine, ACCOUNT_RECOVERY_CASE: testCase } });
       failed ||= result.status !== 0;
@@ -407,6 +409,23 @@ const server = http.createServer((req, res) => {
       setServerPersistence = patch => { qaSyncStates.push(patch.state); return original(patch); };
     });
     if (scenario.startsWith('receipt-base-')) {
+      async function withTuneDismissal(action){
+      const tuneModal=page.locator('#tunePromptModal');
+      await page.addLocatorHandler(tuneModal,async modal=>{
+        const before=await page.evaluate(()=>({preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id)}));
+        assert(await modal.evaluate(element=>{const rect=element.getBoundingClientRect();return document.elementFromPoint(rect.left+4,rect.top+4)===element;}),'native dismiss point must hit the visible Tune backdrop');
+        await modal.click({position:{x:4,y:4}});
+        await modal.waitFor({state:'hidden'});
+        const after=await page.evaluate(before=>({receipt:pendingPreferenceIntent(serverPersistence.user.id),
+          unchanged:PROFILE_STORAGE.preferenceBaseMatches({basePreferences:before.preferences},userPreferences)}),before);
+        assert.equal(after.unchanged,true,'backdrop dismissal cannot change projected choices');
+        assert.deepEqual(after.receipt,before.receipt,'backdrop dismissal cannot change the owned receipt');
+        chronology.push({phase:'native-tune-backdrop-dismissal',choicesUnchanged:true,receiptUnchanged:true});
+        console.log(JSON.stringify({phase:'native-tune-backdrop-dismissal',scenario,engine:engineName,choicesUnchanged:true,receiptUnchanged:true}));
+      },{times:1});
+        try{return await action();}finally{await page.removeLocatorHandler(tuneModal);}
+      }
+
       const participant='team:football:australian-championship:11255',other='team:football:epl:2';
       const settleFixtureWork=async(boundary,readiness)=>{
         resourcePhase=boundary;
@@ -439,6 +458,7 @@ const server = http.createServer((req, res) => {
         if(!savePreferences(p,{deferFollowEffects:true}))throw Error('Baseline fixture rejected');
         clearTimeout(serverSyncTimer);
       },participant);
+      if(eventsScopeScenario)await page.evaluate(()=>{const p=clonePreferences(userPreferences);p.eventsScope='followed';if(!savePreferences(p,{deferFollowEffects:true}))throw Error('Events scope baseline rejected');clearTimeout(serverSyncTimer);});
       resourcePhase='baseline-sync';
       await page.evaluate(()=>syncCurrentServerState());
       if(cancelControl){
@@ -448,7 +468,17 @@ const server = http.createServer((req, res) => {
       }else await settleFixtureWork('baseline-fixtures-settled',true);
       resourcePhase='local-owned-follow-edit';
       const base=clone(actualApi.state());
-      if(scenario==='receipt-base-event-agreement')await page.evaluate(()=>Object.defineProperty(navigator,'onLine',{configurable:true,value:false}));
+      if(eventAgreementScenario)await page.evaluate(()=>Object.defineProperty(navigator,'onLine',{configurable:true,value:false}));
+      if(eventsScopeScenario){
+        // Real served module and native scope click before the deliberate receipt.
+        await withTuneDismissal(async()=>{
+          await page.evaluate(()=>closeSettings());
+          await page.locator('[data-tab="events"]').click();
+          await page.locator('#events-view-tab-overviews').click();
+          await page.getByRole('navigation',{name:'Events scope'}).getByRole('button',{name:'All events',exact:true}).click();
+        });
+        assert.deepEqual(await page.evaluate(()=>({scope:userPreferences.eventsScope,receipt:pendingPreferenceIntent(serverPersistence.user.id)})),{scope:'all',receipt:null},'native scope-only gesture persists no invented intent');
+      }
       const original=await page.evaluate(({participant,cricket,eventAgreement})=>{
         if(eventAgreement){toggleMajorEventFollow('commonwealth-games');clearTimeout(serverSyncTimer);}
         let p=clonePreferences(userPreferences);
@@ -459,9 +489,10 @@ const server = http.createServer((req, res) => {
         if(!savePreferences(p,{deliberate:true,deferFollowEffects:true}))throw Error('Owned local edit rejected');
         clearTimeout(serverSyncTimer);
         return pendingPreferenceIntent(serverPersistence.user.id);
-      },{participant,cricket:scenario==='receipt-base-cricket',eventAgreement:scenario==='receipt-base-event-agreement'});
+      },{participant,cricket:scenario==='receipt-base-cricket',eventAgreement:eventAgreementScenario});
       const remote=clone(base);
-      if(scenario==='receipt-base-event-agreement')for(const key of ['followedMajorEventIds','excludedMajorEventIds','eventFamilyDecisions','eventEditionDecisions'])remote.preferences.followFirst[key]=clone(original.preferences.followFirst[key]);
+      if(eventAgreementScenario)for(const key of ['followedMajorEventIds','excludedMajorEventIds','eventFamilyDecisions','eventEditionDecisions'])remote.preferences.followFirst[key]=clone(original.preferences.followFirst[key]);
+      if(eventsScopeScenario)remote.preferences.eventsScope=original.preferences.eventsScope;
       remote.preferences.followBrowse={sportId:'sport:tennis',section:'teams-players',page:0};
       remote.preferences.preferenceGraph.entityFollows.push({participantId:other,followLevel:'follow'});
       remote.preferences.preferenceGraph.domainPreferences.push(require('../config/preference-system').expandTemplate('remote-B','sport:cricket','template:froth',{enabled:false}));
@@ -472,7 +503,7 @@ const server = http.createServer((req, res) => {
       // recovery only during this explicit mounted manual-retry scenario.
       holdHelper=true;
       await page.addInitScript(()=>Object.defineProperty(navigator,'onLine',{configurable:true,value:false}));
-      if(scenario==='receipt-base-event-agreement'){
+      if(eventAgreementScenario){
         // The real event writer starts ordinary Follow work. Drain its queued
         // directory/idle callback before the existing fixture/reload barrier.
         await page.waitForFunction(()=>!directoryFollowEffectsTimer&&!followFeedRefreshTimer&&!followFeedRefreshInFlight);
@@ -520,26 +551,13 @@ const server = http.createServer((req, res) => {
       // Startup may show Tune 250ms after recording promptedAt, independently
       // of Account button readiness. Handle its visible overlay at action time.
       // Native backdrop dismissal closes it without the Not now preference edit.
-      const tuneModal=page.locator('#tunePromptModal');
-      await page.addLocatorHandler(tuneModal,async modal=>{
-        const before=await page.evaluate(()=>({preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id)}));
-        assert(await modal.evaluate(element=>{const rect=element.getBoundingClientRect();return document.elementFromPoint(rect.left+4,rect.top+4)===element;}),'native dismiss point must hit the visible Tune backdrop');
-        await modal.click({position:{x:4,y:4}});
-        await modal.waitFor({state:'hidden'});
-        const after=await page.evaluate(before=>({receipt:pendingPreferenceIntent(serverPersistence.user.id),
-          unchanged:PROFILE_STORAGE.preferenceBaseMatches({basePreferences:before.preferences},userPreferences)}),before);
-        assert.equal(after.unchanged,true,'backdrop dismissal cannot change projected choices');
-        assert.deepEqual(after.receipt,before.receipt,'backdrop dismissal cannot change the owned receipt');
-        chronology.push({phase:'native-tune-backdrop-dismissal',choicesUnchanged:true,receiptUnchanged:true});
-        console.log(JSON.stringify({phase:'native-tune-backdrop-dismissal',scenario,engine:engineName,choicesUnchanged:true,receiptUnchanged:true}));
-      },{times:1});
-      try{
+      await withTuneDismissal(async()=>{
         await page.evaluate(()=>{Object.defineProperty(navigator,'onLine',{configurable:true,value:true});openSettings({section:'account'});});
         const selectorSkip=page.locator('#skipSelectorOptInBtn');if(await selectorSkip.isVisible())await selectorSkip.click();
         await page.waitForFunction(()=>!document.getElementById('syncAccountNowBtn')?.disabled);
         resourcePhase='manual-sync';
         await page.locator('#syncAccountNowBtn').click();
-      }finally{await page.removeLocatorHandler(tuneModal);}
+      });
       await page.evaluate(()=>serverSyncSequence.catch(()=>{}));
       const after=await page.evaluate(()=>({state:serverPersistence.state,receipt:pendingPreferenceIntent(serverPersistence.user.id),preferences:clonePreferences(userPreferences)}));
       if(scenario==='receipt-base-overlap'){
@@ -550,7 +568,7 @@ const server = http.createServer((req, res) => {
         assert.equal(after.state,'signedIn');assert.equal(after.receipt,null);assert.equal(writes,beforeWrites+1);
         const saved=actualApi.state().preferences;
         for(const preferences of [saved,after.preferences]){
-          assert.equal(preferences.preferenceGraph.entityFollows.find(row=>row.participantId===participant).followLevel,scenario==='receipt-base-event-agreement'?'follow':'unfollow');
+          assert.equal(preferences.preferenceGraph.entityFollows.find(row=>row.participantId===participant).followLevel,eventAgreementScenario?'follow':'unfollow');
           assert(preferences.preferenceGraph.entityFollows.some(row=>row.participantId===other&&row.followLevel==='follow'));
           assert.equal(preferences.preferenceGraph.domainPreferences.find(row=>row.sportDomainId==='sport:football').templateId,'template:casual');
           assert(preferences.preferenceGraph.domainPreferences.some(row=>row.sportDomainId==='sport:cricket'&&row.templateId==='template:froth'));
@@ -559,12 +577,13 @@ const server = http.createServer((req, res) => {
             const cricket=preferences.preferenceGraph.entityFollows.find(row=>row.participantId==='team:cricket:australia');
             assert.equal(cricket.followLevel,'follow');assert.deepEqual(cricket.cricketFormats,['Tests']);
           }
-          if(scenario==='receipt-base-event-agreement')for(const key of ['followedMajorEventIds','excludedMajorEventIds','eventFamilyDecisions','eventEditionDecisions'])assert.deepEqual(preferences.followFirst[key],original.preferences.followFirst[key],'actual event writer decisions remain exact');
+          if(eventAgreementScenario)for(const key of ['followedMajorEventIds','excludedMajorEventIds','eventFamilyDecisions','eventEditionDecisions'])assert.deepEqual(preferences.followFirst[key],original.preferences.followFirst[key],'actual event writer decisions remain exact');
         }
-        if(scenario==='receipt-base-event-agreement'){
+        if(eventAgreementScenario){
           const save=actualApi.calls.filter(call=>call.method==='PUT').at(-1);
           assert(save.changedPaths.filter(path=>path.startsWith('preferences.')).every(path=>path==='preferences.preferenceGraph.domainPreferences'),'native event-agreement retry writes only domain preferences');
         }
+        if(eventsScopeScenario)for(const preferences of [saved,after.preferences])assert.equal(preferences.eventsScope,'all','restart/manual ACK retains exact agreed scope');
         assert.equal(saved.followBrowse.sportId,'sport:tennis');assert.equal(saved.feedCompact,false);
         assert.equal(after.preferences.followBrowse.sportId,'sport:cricket');assert.equal(after.preferences.feedCompact,true);
       }
