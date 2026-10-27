@@ -630,7 +630,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR,retainedFootballOnly=false,r
     const projectedFixtures=codeFixtures(code),projectedStandings=codeStandings(code);
     const championship=row=>row.competitionId==='competition:australian-championship';
     const fixtures=retainedChunk?[...retainedChunk.fixtures.filter(row=>!championship(row)),...projectedFixtures.filter(championship)]:projectedFixtures;
-    const eventEditions=code.id==='sport:cricket'?require('../lib/event-overviews').build(fixtures).filter(e=>['cricket','cricket-women'].includes(e.sportKey)).map(e=>Object.fromEntries(['id','key','competitionId','date','endDate','fixtureIds'].map(key=>[key,e[key]]))):null;
+    const eventEditions=code.id==='sport:cricket'?require('../lib/event-overviews').build(fixtures).filter(e=>['cricket','cricket-women'].includes(e.sportKey)).map(e=>({id:e.id,key:e.sportKey,gender:e.gender,competitionId:e.competitionId,date:e.date,endDate:e.endDate,fixtureIds:e.fixtureIds})):null;
     const standings=retainedChunk?[...retainedChunk.standings.filter(row=>!championship(row)),...projectedStandings.filter(championship)]:projectedStandings;
     const coverageStatus = fixtures.length === 0
       ? "unavailable"

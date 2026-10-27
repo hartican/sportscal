@@ -15,19 +15,26 @@ const identity = require('../config/fixture-identity');
 const lifecycle = require('../config/card-lifecycle');
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const profileSource = fs.readFileSync(path.join(root, 'config/athlete-profile-ui.js'), 'utf8');
+function visit(node, callback){
+  if(!node || typeof node!=='object')return;
+  callback(node);
+  for(const value of Object.values(node))if(Array.isArray(value))value.forEach(child=>visit(child,callback));else if(value&&typeof value==='object')visit(value,callback);
+}
 function declarations(source, isHtml = false) {
   const map = new Map();
   const scripts = isHtml ? [...source.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi)]
     .filter(m => !/\bsrc\s*=|application\/json/i.test(m[1])).map(m => m[2]) : [source];
   for (const script of scripts) {
-    const walk = node => {
-      if (!node || typeof node !== 'object') return;
+    visit(acorn.parse(script, { ecmaVersion: 'latest' }), node=>{
       if (node.type === 'FunctionDeclaration') map.set(node.id.name, script.slice(node.start, node.end));
-      for (const value of Object.values(node)) if (Array.isArray(value)) value.forEach(walk); else if (value && typeof value === 'object') walk(value);
-    };
-    walk(acorn.parse(script, { ecmaVersion: 'latest' }));
+    });
   }
   return map;
+}
+function initializer(source,name){
+  let expression;
+  visit(acorn.parse(source,{ecmaVersion:'latest'}),node=>{if(node.type==='VariableDeclarator'&&node.id.name===name)expression=source.slice(node.init.start,node.init.end);});
+  assert(expression,name+' is an actual production initializer');return expression;
 }
 const inline = declarations(html, true), profiles = declarations(profileSource);
 const venueFunctions = declarations(fs.readFileSync(path.join(root, 'config/venue-panel-ui.js'), 'utf8'));
@@ -126,11 +133,8 @@ function directoryFollow(ctx, format) {
   // Execute the actual format-filtered directory call site, with its captured
   // record and filters. Profile tests above execute the full production route.
   const source = directoryFunctions.get('renderLegacyParticipantDirectory');
-  const program = acorn.parse(source, { ecmaVersion: 'latest' }); let expression;
-  const walk = node => { if (!node || typeof node !== 'object') return; if (node.type === 'VariableDeclarator' && node.id.name === 'follow' && node.init.type === 'ConditionalExpression') expression = source.slice(node.init.start, node.init.end); for (const v of Object.values(node)) if (Array.isArray(v)) v.forEach(walk); else if (v && typeof v === 'object') walk(v); };
-  walk(program); assert(expression);
   ctx.record = { id: 'team:cricket:india', displayName: 'India' }; ctx.sportKey = 'cricket'; ctx.filters = { cricketFormat: format };
-  return vm.runInContext(expression, ctx);
+  return vm.runInContext(initializer(source,'follow'), ctx);
 }
 (async () => {
   const failures = []; let passed = 0;
@@ -205,9 +209,9 @@ function directoryFollow(ctx, format) {
     const bound = overviewModel.withCricketEditions(publishedSchedule.fixtures, publishedOverviews);
     for (let i = 0; i < bound.length; i++) { const { editionId, ...rest } = bound[i]; assert.deepEqual(rest, publishedSchedule.fixtures[i]); }
     assert.equal(JSON.stringify(publishedSchedule.fixtures), source, 'every source field and original observation remains unchanged');
-    for (const fields of [{ id: 'fixture:unpublished:same-competition' }, { key: 'cricket-women', sportKey: 'cricket-women', sportDomainId: 'sport:cricket-women' }, { competitionId: 'competition:cricket:foreign' }, { date: '2027-10-27', endDate: '2027-10-27' }]) {
+    for (const fields of [{ id: 'fixture:unpublished:same-competition' }, { key: 'cricket-women', sportKey: 'cricket-women', sportDomainId: 'sport:cricket-women' }, {gender:'women'}, { competitionId: 'competition:cricket:foreign' }, { date: '2027-10-27', endDate: '2027-10-27' }]) {
       const event = { ...raw, ...fields }, [result] = overviewModel.withCricketEditions([event], [overview]);
-      assert(!result.editionId, 'unknown ID/sport/gender/competition/season cannot inherit membership');
+      assert(!result.editionId, 'unknown ID/sport/gender/competition/season cannot inherit membership: '+JSON.stringify(fields));
       assert(!follow.reasonForEvent(result, tourPreferences('followed')));
     }
     const existing = { ...raw, editionId: 'retained-explicit-edition' }; assert.strictEqual(overviewModel.withCricketEditions([existing], [overview])[0], existing);
@@ -254,6 +258,15 @@ function directoryFollow(ctx, format) {
     const produced=producer.codeFixtures({id:'sport:cricket',slug:'cricket',name:'Cricket'}), parents=overviewModel.build(produced);
     assert(produced.length);
     for(const event of produced.filter(f=>f.editionId))assert(parents.some(p=>p.id===event.editionId&&p.fixtureIds.includes(event.id)), 'actual producer binds only a published parent child');
+  });
+  await check('actual manifest publisher retains normalized women context without changing the raw fixture key',()=>{
+    const builderPath=require.resolve('./build-code-inspector'),source=declarations(fs.readFileSync(builderPath,'utf8')).get('build');
+    const raw=publishedSchedule.fixtures.find(e=>e.id===fixture.id),women={...raw,id:'fixture:controlled:women-context',gender:'women'};
+    const metadata=vm.runInNewContext(initializer(source,'eventEditions'),{code:{id:'sport:cricket'},fixtures:[women],require:Module.createRequire(builderPath)});
+    assert.equal(women.key,'cricket');assert.equal(metadata[0].key,'cricket-women');assert.equal(metadata[0].gender,'women');
+    const bind=identity.cricketEditionResolver(metadata);
+    assert.equal(bind(women).editionId,metadata[0].id);
+    assert(!bind({...women,gender:'men'}).editionId,'gender-only contradiction cannot acquire a women edition');
   });
   assert.equal(failures.length, 0, failures.join('; '));
   console.log('Cricket Follow admission: ' + passed + ' source-route, client/server, cold-load and preservation checks passed.');

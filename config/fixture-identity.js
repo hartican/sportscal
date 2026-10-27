@@ -144,9 +144,11 @@
   function cricketEditionResolver(overviews){
    if(!Array.isArray(overviews))return f=>f;
    if(cricketEditionResolvers.has(overviews))return cricketEditionResolvers.get(overviews);
+   const policy=globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY || (typeof require==='function'?require('./follow-feed-policy'):null);
+   if(!policy)return f=>f;
    const membership=new Map();
    for(const overview of overviews){
-    const key=sportKey(overview);
+    const key=policy.sportKey(overview);
     if(!['cricket','cricket-women'].includes(key) || !/^overview:cricket(?:-women)?:/.test(overview.id || '') || !Array.isArray(overview.fixtureIds) || !overview.date || !overview.competitionId)continue;
     const metadata={id:overview.id,key,competitionId:overview.competitionId,date:overview.date,endDate:overview.endDate};
     for(const id of overview.fixtureIds){
@@ -156,7 +158,7 @@
    }
    const resolve=f=>{
     const overview=membership.get(f.id);
-    if(f.editionId || !overview || sportKey(f)!==overview.key || f.competitionId!==overview.competitionId
+    if(f.editionId || !overview || policy.sportKey(f)!==overview.key || f.competitionId!==overview.competitionId
       || !f.date || f.date<overview.date || (f.endDate || f.date)>(overview.endDate || overview.date))return f;
     return {...f,editionId:overview.id};
    };
