@@ -23,7 +23,90 @@ concurrency:
   group: sportscal-production-and-cleanup
   cancel-in-progress: false
 jobs:
+  sql-safety:
+    name: SQL safety / ${{ matrix.batch }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        batch: [canonical-context, near-selection, grouped-view, grouped-diagnostic]
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: Verify requested mainline SQL checks
+        env:
+          RELEASE_SHA: ${{ inputs.sha }}
+        shell: bash
+        run: |
+          [[ "$RELEASE_SHA" =~ ^[a-f0-9]{40}$ ]]
+          test "$RELEASE_SHA" = "$(git rev-parse origin/main)"
+          git checkout --detach "$RELEASE_SHA"
+      - run: npm ci
+      - name: canonical-context-pg18
+        if: matrix.batch == 'canonical-context'
+        shell: bash
+        run: |
+          started=$SECONDS
+          trap 'rc=$?; echo "SQL_CHECK elapsed_seconds=$((SECONDS - started)) exit=$rc"; exit "$rc"' EXIT
+          node scripts/validate-canonical-context-batch.js
+      - name: canonical-context-pg17
+        if: matrix.batch == 'canonical-context'
+        shell: bash
+        run: |
+          started=$SECONDS
+          trap 'rc=$?; echo "SQL_CHECK elapsed_seconds=$((SECONDS - started)) exit=$rc"; exit "$rc"' EXIT
+          PGLITE_MODULE=pglite-pg17 node scripts/validate-canonical-context-batch.js
+      - name: near-selection-pg18
+        if: matrix.batch == 'near-selection'
+        shell: bash
+        run: |
+          started=$SECONDS
+          trap 'rc=$?; echo "SQL_CHECK elapsed_seconds=$((SECONDS - started)) exit=$rc"; exit "$rc"' EXIT
+          NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg18" node scripts/validate-match-centre-near-selection.js
+      - name: near-selection-pg17
+        if: matrix.batch == 'near-selection'
+        shell: bash
+        run: |
+          started=$SECONDS
+          trap 'rc=$?; echo "SQL_CHECK elapsed_seconds=$((SECONDS - started)) exit=$rc"; exit "$rc"' EXIT
+          NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg17" PGLITE_MODULE=pglite-pg17 node scripts/validate-match-centre-near-selection.js
+      - name: grouped-view-pg18
+        if: matrix.batch == 'grouped-view'
+        shell: bash
+        run: |
+          started=$SECONDS
+          trap 'rc=$?; echo "SQL_CHECK elapsed_seconds=$((SECONDS - started)) exit=$rc"; exit "$rc"' EXIT
+          node scripts/validate-grouped-fixture-view.js
+      - name: grouped-view-pg17
+        if: matrix.batch == 'grouped-view'
+        shell: bash
+        run: |
+          started=$SECONDS
+          trap 'rc=$?; echo "SQL_CHECK elapsed_seconds=$((SECONDS - started)) exit=$rc"; exit "$rc"' EXIT
+          PGLITE_MODULE=pglite-pg17 node scripts/validate-grouped-fixture-view.js
+      - name: grouped-diagnostic-pg17
+        if: matrix.batch == 'grouped-diagnostic'
+        shell: bash
+        run: |
+          started=$SECONDS
+          trap 'rc=$?; echo "SQL_CHECK elapsed_seconds=$((SECONDS - started)) exit=$rc"; exit "$rc"' EXIT
+          PGLITE_MODULE=pglite-pg17 node scripts/validate-grouped-fixture-diagnostic.js
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
+        if: ${{ always() && matrix.batch == 'near-selection' }}
+        with:
+          name: sql-near-selection-${{ inputs.sha }}
+          path: ${{ runner.temp }}/near-selection-pg*
+          if-no-files-found: ignore
+          retention-days: 14
   deploy:
+    needs: [sql-safety]
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
@@ -51,6 +134,8 @@ jobs:
           test -z "$NS_SELECTED_FEED_PROOF_SHA" || test "$NS_SELECTED_FEED_PROOF_SHA" = "$RELEASE_SHA"
           git checkout --detach "$RELEASE_SHA"
       - run: npm ci && npm install --global vercel@59.1.4
+      - name: Verify production SQL batch contract
+        run: node scripts/validate-production-sql-batches.js
       - name: Verify feed and deployment safety contracts
         run: |
           node scripts/build-fantasy-ui.js --check
@@ -298,17 +383,10 @@ jobs:
           node scripts/validate-live-coverage-publication.js
           node scripts/validate-match-observations.js
           node scripts/validate-compact-scores-database.js
-          node scripts/validate-canonical-context-batch.js
-          PGLITE_MODULE=pglite-pg17 node scripts/validate-canonical-context-batch.js
-          NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg18" node scripts/validate-match-centre-near-selection.js
-          NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg17" PGLITE_MODULE=pglite-pg17 node scripts/validate-match-centre-near-selection.js
           node scripts/validate-fixture-history-retention.js
           node scripts/validate-live-fixture-api.js
           node scripts/validate-global-fixture-public.js
           node scripts/validate-grouped-fixture-transport.js
-          node scripts/validate-grouped-fixture-view.js
-          PGLITE_MODULE=pglite-pg17 node scripts/validate-grouped-fixture-view.js
-          PGLITE_MODULE=pglite-pg17 node scripts/validate-grouped-fixture-diagnostic.js
           node scripts/validate-global-app-adapter.js
           node scripts/validate-laver-cup.js
       - name: Verify shared fixture publication input
