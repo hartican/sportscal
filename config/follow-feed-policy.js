@@ -112,7 +112,7 @@
   }
   function editionDecision(event, preferences){
     const states=preferences?.followFirst?.eventEditionDecisions?.states||{};
-    return (sportKey(event)==='horse-racing'&&states[event?.canonicalEventId||event?.id])||states[editionKey(event)]||null;
+    return (['horse-racing','cricket','cricket-women'].includes(sportKey(event))&&states[event?.canonicalEventId||event?.id])||states[editionKey(event)]||null;
   }
   function eventExcluded(event, preferences){
     const decision=editionDecision(event,preferences);
