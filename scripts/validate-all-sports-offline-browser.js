@@ -3,16 +3,36 @@
 // public disposable store; constructed loopback fixtures, not hosted freshness.
 // ALL_SPORTS_OFFLINE_ENGINES=chromium|webkit and
 // ALL_SPORTS_OFFLINE_CASES=first-use|return select a smaller diagnostic run.
-const assert=require('node:assert/strict'),http=require('node:http'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const assert=require('node:assert/strict'),http=require('node:http'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),vm=require('node:vm');
 const {createMatchCentreHandler}=require('../lib/match-centre-handler');
 const match=require('../config/match-centre');
 const {observeApiFetch,mutationRequests}=require('./validate-all-sports-view-browser');
 const network=require('./lib/installed-test-network');
-const {classify}=require('./lib/all-sports-offline-errors');
+const {classify,classifyOptionalModule}=require('./lib/all-sports-offline-errors');
+const acorn=require('acorn');
 const root=path.resolve(__dirname,'..'),now=Date.parse('2026-10-26T04:00:00Z'),stamp=new Date(now).toISOString();
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const index=fs.readFileSync(path.join(root,'index.html')),version=index.toString().match(/name="app-shell-version" content="(\d+)"/)[1];
-const modulePath='/assets/js/all-sports-ui.js?v='+version,moduleHash=hash(fs.readFileSync(path.join(root,'assets/js/all-sports-ui.js')));
+function declaredModulePath(source){
+ const paths=new Set();
+ const visit=node=>{
+  if(!node||typeof node!=='object')return;
+  if(node.type==='CallExpression'&&node.callee.type==='Identifier'&&node.callee.name==='loadDeferredScript'){
+   const argument=node.arguments[0],url=argument?.type==='Literal'?argument.value:null;
+   if(typeof url==='string'&&url.replace(/^\//,'').split('?')[0]==='assets/js/all-sports-ui.js'){
+    assert(/^\/?assets\/js\/all-sports-ui\.js\?v=\d+$/.test(url),'The declared optional module must have an explicit version');
+    paths.add('/'+url.replace(/^\//,''));
+   }
+  }
+  for(const value of Object.values(node))if(Array.isArray(value))value.forEach(visit);else if(value&&typeof value==='object')visit(value);
+ };
+ visit(acorn.parse(source,{ecmaVersion:'latest'}));
+ assert.equal(paths.size,1,'Exactly one optional-module URL must be declared by its actual loader');
+ return [...paths][0];
+}
+// Shell caches and unchanged optional assets have independent version tags.
+// Validate the exact URL used by the parent loader inside the current shell.
+const modulePath=declaredModulePath(fs.readFileSync(path.join(root,'assets/js/match-centre-ui.js'),'utf8')),moduleHash=hash(fs.readFileSync(path.join(root,'assets/js/all-sports-ui.js')));
 const parentSource=index.toString().match(/async function loadMatchCentre\(\)\{[\s\S]*?\n\}/)[0];
 const parentDependencies=[...parentSource.matchAll(/loadDeferredScript\('([^']+)'\)/g)].map(([,url])=>({url:'/'+url,sha256:hash(fs.readFileSync(path.join(root,url.split('?')[0])))}));
 const sourceFields=['id','eventId','name','status','startTimeUtc','endTimeUtc','timePrecision','date','homeScore','awayScore','sourceUrl','sourceCheckedAt','statusCheckedAt','scoreCheckedAt','scoreFactObservedAt','statusFactObservedAt'];
@@ -37,6 +57,32 @@ function seed({now}){
  if(!localStorage.getItem('ns_preferences_v1'))localStorage.setItem('ns_preferences_v1',JSON.stringify({version:26,onboardingComplete:true,showSpoilers:false,feedControls:{spoilers:'strict'},followedSports:[],selectedSelectorEntityIds:[],preferenceGraph:{entityFollows:[]}}));
 }
 async function personal(page){return page.evaluate(()=>({preferences:structuredClone(userPreferences),actions:structuredClone(eventActions),states:structuredClone(cardViewStates),spoilers:structuredClone(eventSpoilerState)}));}
+function initialSourceSnapshot(){
+ return{manifestReady:typeof codeInspectorManifest!=='undefined'&&codeInspectorManifest?.schemaVersion==='code-inspector.v1'&&Array.isArray(codeInspectorManifest.codes),manifestLoading:typeof codeInspectorManifestLoading==='undefined'||Boolean(codeInspectorManifestLoading),pendingCodes:typeof followedScheduleLoads==='undefined'?null:followedScheduleLoads.size};
+}
+function initialSourceReady(){
+ return typeof codeInspectorManifest!=='undefined'&&codeInspectorManifest?.schemaVersion==='code-inspector.v1'&&Array.isArray(codeInspectorManifest.codes)
+  &&typeof codeInspectorManifestLoading!=='undefined'&&!codeInspectorManifestLoading&&typeof followedScheduleLoads!=='undefined'&&followedScheduleLoads.size===0;
+}
+async function settleInitialSource(page,requests,epoch,currentEpoch,log=console.log){
+ const before=await page.evaluate(initialSourceSnapshot);
+ // Read the naturally queued startup completion point. Do not call a loader,
+ // stop work, sleep, clear an error, or impose this on the later offline restart.
+ await page.waitForFunction(initialSourceReady);
+ const observed=[...requests.values()].filter(record=>record.epoch===epoch);
+ assert(observed.length>0,'The initial document must actually read its Schedule manifest');
+ const outcomes=await Promise.all(observed.map(record=>record.promise));
+ assert(outcomes.every(outcome=>outcome==='finished'),'Initial manifest reads must finish without cancellation/failure');
+ assert.equal(currentEpoch(),epoch,'The setup barrier cannot navigate the document');
+ const after=await page.evaluate(initialSourceSnapshot);assert.deepEqual(after,{manifestReady:true,manifestLoading:false,pendingCodes:0});
+ assert.equal(currentEpoch(),epoch,'The completed setup barrier retains the initial document');
+ assert([...requests.values()].filter(record=>record.epoch===epoch).every(record=>record.result==='finished'),'No new manifest request may cross the setup reload');
+ log(JSON.stringify({phase:'initial-source-before-controlled-reload',before,after,observedManifestReads:observed.length,manifestRequestsFinished:true,sourceWorkStartedByBarrier:false}));
+}
+async function withinInitialBoundary(promise,deadline){
+ let timer;try{return await Promise.race([promise,new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('Initial source boundary exceeded the existing QA deadline')),Math.max(1,deadline-Date.now()));})]);}
+ finally{clearTimeout(timer);}
+}
 async function startDocument(page){
  await page.locator('#startupLaunch').waitFor({state:'hidden'});
  await page.evaluate(()=>{
@@ -116,19 +162,48 @@ async function checkCleanup(){
  assert.equal(closes,5);console.log('All Sports offline cleanup: 5 fault controls PASS (no browser/network).');
 }
 async function checkFixtures(){
+ const declared=declaredModulePath('loadDeferredScript("assets/js/all-sports-ui.js?v=595")');
+ assert.equal(declared,'/assets/js/all-sports-ui.js?v=595');
+ assert.equal(declaredModulePath("loadDeferredScript('/assets/js/all-sports-ui.js?v=527')"),'/assets/js/all-sports-ui.js?v=527');
+ const cached=new Map([[declared,'exact-module-bytes']]);
+ assert.equal(cached.get(declared),'exact-module-bytes');
+ assert.equal(cached.get('/assets/js/all-sports-ui.js?v=596'),undefined,'A new shell tag cannot stand in for the declared asset tag');
+ for(const source of ['loadDeferredScript(dynamicUrl)','loadDeferredScript("assets/js/all-sports-ui.js")','loadDeferredScript("assets/js/all-sports-ui.js?v=unknown")','loadDeferredScript("assets/js/all-sports-ui.js?v=595");loadDeferredScript("assets/js/all-sports-ui.js?v=596")',"const text=\"loadDeferredScript('assets/js/all-sports-ui.js?v=595')\";"])assert.throws(()=>declaredModulePath(source));
+ console.log('All Sports offline asset identity: declared loader URL, independent shell/asset versions, strict cache lookup and five invalid/ambiguous-source controls PASS.');
+ const source=fs.readFileSync(__filename,'utf8'),callbacks=[];
+ const visit=node=>{if(!node||typeof node!=='object')return;if(node.type==='CallExpression'&&node.callee.type==='MemberExpression'&&node.callee.object.name==='http'&&node.callee.property.name==='createServer')callbacks.push(node.arguments[0]);for(const value of Object.values(node))if(Array.isArray(value))value.forEach(visit);else if(value&&typeof value==='object')visit(value);};
+ visit(acorn.parse(source,{ecmaVersion:'latest'}));assert.equal(callbacks.length,1);
+ const callback=source.slice(callbacks[0].start,callbacks[0].end);
+ const arrival="if(url.pathname==='/assets/js/all-sports-ui.js')moduleRequests.push(url.pathname+url.search);";
+ assert.equal(callback.split(arrival).length,2);
+ const boundary=async text=>{const state={URL,net:{handleRequest:()=>false},unreachable:true,failedOwned:0,ownedFailures:[],stage:'first-use:feature',moduleRequests:[]};const handler=vm.runInNewContext('('+text+')',state);let destroyed=0;for(let n=0;n<2;n++)await handler({url:modulePath,method:'GET',socket:{destroy(){destroyed++;}}},{});assert.equal(destroyed,2);assert.equal(state.failedOwned,2);return state;};
+ assert.deepEqual(Array.from((await boundary(callback)).moduleRequests),[modulePath,modulePath],'Actual origin arrivals are counted before the outage cutoff');
+ const oldOrder=callback.replace(arrival,'').replace('if(net.preflightDocument(req,res))return;',arrival+'\n  if(net.preflightDocument(req,res))return;');
+ assert.equal((await boundary(oldOrder)).moduleRequests.length,0,'The original counter order reproduces the missing arrival evidence');
+ console.log('All Sports offline arrival boundary: actual server callback counts both cutoff arrivals; original-order mutation remains RED (no sockets).');
+ const valid={codeInspectorManifest:{schemaVersion:'code-inspector.v1',codes:[]},codeInspectorManifestLoading:null,followedScheduleLoads:new Map()};
+ const ready=state=>vm.runInNewContext('('+initialSourceReady.toString()+')()',state);
+ assert(ready(valid));for(const patch of [{codeInspectorManifest:null},{codeInspectorManifest:{schemaVersion:'bad',codes:[]}},{codeInspectorManifest:{schemaVersion:'code-inspector.v1',codes:null}},{codeInspectorManifestLoading:Promise.resolve()},{followedScheduleLoads:new Map([['sport:nrl',Promise.resolve()]])}])assert.equal(ready({...valid,...patch}),false);
+ let finish;const terminal={epoch:1,result:null,promise:new Promise(resolve=>{finish=value=>{terminal.result=value;resolve(value);};})},ledger=new Map([[{},terminal]]);
+ const page={evaluate:async fn=>JSON.parse(JSON.stringify(vm.runInNewContext('('+fn.toString()+')()',valid))),waitForFunction:async fn=>assert(vm.runInNewContext('('+fn.toString()+')()',valid))};let returned=false;
+ const waiting=settleInitialSource(page,ledger,1,()=>1,()=>{}).then(()=>{returned=true;});await Promise.resolve();await Promise.resolve();assert.equal(returned,false,'Even a ready model cannot cross an unfinished actual request');finish('finished');await waiting;
+ const failed={epoch:1,result:'failed',promise:Promise.resolve('failed')};await assert.rejects(settleInitialSource(page,new Map([[{},failed]]),1,()=>1,()=>{}),/without cancellation/);
+ await assert.rejects(settleInitialSource(page,ledger,1,()=>2,()=>{}),/cannot navigate/);
+ console.log('All Sports initial source boundary: actual readiness predicate and terminal/cancellation/epoch fault controls PASS (no browser/network).');
  let result;await handler({method:'GET',url:'/api/match-centre?view=all-sports&ids='+encodeURIComponent(fixtures.map(e=>e.id).join(','))},{setHeader(){},status(code){assert.equal(code,200);return this;},json(body){result=body;}});
  assert.equal(result.events.length,fixtures.length);
  const facts=result.events.map(e=>({fields:Object.fromEntries(sourceFields.filter(key=>Object.hasOwn(e,key)).map(key=>[key,e[key]])),score:match.compact(e).score})).sort((a,b)=>a.fields.id.localeCompare(b.fields.id));
  assert.deepEqual(facts,expectedFacts,'Constructed source fixtures survive the actual selected handler without absent/default expectation races');
  console.log('All Sports offline fixtures: actual selected handler source facts/clocks PASS (no browser/network).');
 }
-async function engineRun(pw,engine,cases){
- const net=network.create(),apiRequests=[],moduleRequests=[],contexts=new Set(),ownedFailures=[];let browser,error,stage='setup',unreachable=false,failedOwned=0;
+async function engineRun(pw,engine,cases,deadline){
+ const net=network.create(),apiRequests=[],moduleRequests=[],contexts=new Set(),ownedFailures=[];let browser,error,stage='setup',unreachable=false,failedOwned=0,manifestGate;
  const server=http.createServer(async(req,res)=>{
   if(net.handleRequest(req))return;
-  if(unreachable){failedOwned++;const url=new URL(req.url,'http://localhost');if(ownedFailures.length<64)ownedFailures.push({method:req.method,path:url.pathname+url.search,stage,unreachable:true});req.socket.destroy();return;}
-  if(net.preflightDocument(req,res))return;
   const url=new URL(req.url,'http://localhost');
+  if(url.pathname==='/assets/js/all-sports-ui.js')moduleRequests.push(url.pathname+url.search);
+  if(unreachable){failedOwned++;if(ownedFailures.length<64)ownedFailures.push({method:req.method,path:url.pathname+url.search,stage,unreachable:true});req.socket.destroy();return;}
+  if(net.preflightDocument(req,res))return;
   if(url.pathname.startsWith('/api/')){
    apiRequests.push({method:req.method,path:url.pathname+url.search});
    if(url.pathname==='/api/match-centre'){
@@ -136,10 +211,18 @@ async function engineRun(pw,engine,cases){
    }
    res.statusCode=url.searchParams.get('scope')==='match-centre'?200:503;res.setHeader('content-type','application/json');res.end(JSON.stringify(url.searchParams.get('scope')==='match-centre'?{events:[],pagination:{nextCursor:null}}:{}));return;
   }
-  if(url.pathname==='/assets/js/all-sports-ui.js')moduleRequests.push(url.pathname+url.search);
   let name;try{name=decodeURIComponent(url.pathname).replace(/^\/+/, '')||'index.html';}catch{res.writeHead(400);res.end();return;}
   const file=path.resolve(root,name);if(!file.startsWith(root+path.sep)){res.writeHead(403);res.end();return;}
-  fs.readFile(file,(failure,bytes)=>{res.writeHead(failure?404:200,{'content-type':({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css','.woff2':'font/woff2','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.webmanifest':'application/manifest+json'})[path.extname(file)]||'application/octet-stream','cache-control':'no-store'});res.end(failure?'':bytes);});
+  fs.readFile(file,(failure,bytes)=>{
+   res.writeHead(failure?404:200,{'content-type':({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css','.woff2':'font/woff2','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.webmanifest':'application/manifest+json'})[path.extname(file)]||'application/octet-stream','cache-control':'no-store'});
+   if(!failure&&url.pathname==='/data/code-inspector/manifest.json'&&manifestGate&&!manifestGate.held){
+    const gate=manifestGate;gate.held=true;res.flushHeaders();gate.enteredResolve({sha256:hash(bytes),bytes:bytes.length});
+    // Hold the original natural response body, with no artificial timer or
+    // replacement payload. The actual setup barrier must wait for its finish.
+    void gate.released.then(()=>res.end(bytes));return;
+   }
+   res.end(failure?'':bytes);
+  });
  });
  try{
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const origin='http://127.0.0.1:'+server.address().port;net.setOrigin(origin);net.attachServer(server);
@@ -147,9 +230,20 @@ async function engineRun(pw,engine,cases){
   stage='network-preflight';await net.preflight(browser,{version,indexSha256:hash(index)});net.assertIsolated();
   for(const name of cases){
    stage=name+':installed-shell';unreachable=false;ownedFailures.length=0;
+   manifestGate={held:false};manifestGate.entered=new Promise(resolve=>{manifestGate.enteredResolve=resolve;});manifestGate.released=new Promise(resolve=>{manifestGate.release=resolve;});
    const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,serviceWorkers:'allow'});contexts.add(context);await net.attachContext(context);
    await context.addInitScript(observeApiFetch);await context.addInitScript(seed,{now});
-   const page=await context.newPage(),errors=[],errorDetails=[],transportFailures=[],writes=[],responses=[],parentResponses=[],parentFailures=[],requestStart=moduleRequests.length;let caseError;
+   const page=await context.newPage(),errors=[],errorDetails=[],transportFailures=[],writes=[],responses=[],parentResponses=[],parentFailures=[],requestStart=moduleRequests.length,manifestRequests=new Map();let caseError,documentEpoch=0,manifestOverflow=false;
+   const manifestRequest=request=>{const url=new URL(request.url());return url.origin===origin&&url.pathname==='/data/code-inspector/manifest.json';};
+   page.on('request',request=>{
+    if(request.isNavigationRequest()&&request.resourceType()==='document'&&request.frame()===page.mainFrame())documentEpoch++;
+    if(manifestRequest(request)){
+     if(manifestRequests.size>=16){manifestOverflow=true;return;}
+     let finish;const record={epoch:documentEpoch,result:null,promise:new Promise(resolve=>{finish=resolve;})};record.finish=outcome=>{if(record.result!==null)return;record.result=outcome;finish(outcome);};manifestRequests.set(request,record);
+    }
+   });
+   page.on('requestfinished',request=>manifestRequests.get(request)?.finish('finished'));
+   page.on('requestfailed',request=>manifestRequests.get(request)?.finish('failed'));
    page.on('pageerror',failure=>{errors.push(failure.message);errorDetails.push({name:failure.name,message:failure.message,stack:failure.stack,stage,unreachable});});
    page.on('requestfailed',request=>{const url=new URL(request.url());if(url.origin===origin&&transportFailures.length<64)transportFailures.push({method:request.method(),path:url.pathname+url.search,error:request.failure()?.errorText,stage,unreachable});});
    page.on('response',response=>{if(new URL(response.url()).pathname==='/assets/js/all-sports-ui.js')responses.push({url:response.url(),status:response.status(),fromServiceWorker:response.fromServiceWorker()});});
@@ -159,6 +253,14 @@ async function engineRun(pw,engine,cases){
    page.on('request',request=>{const url=new URL(request.url());if(url.origin===origin&&url.pathname.startsWith('/api/')&&!['GET','HEAD'].includes(request.method())){const headers=request.headers();writes.push({method:request.method(),url:url.pathname+url.search,body:request.postData(),contentType:headers['content-type'],authorization:Boolean(headers.authorization)});}});
    try{
     await page.goto(origin+'/?all-sports-installed-qa=1',{waitUntil:'domcontentloaded'});await startDocument(page);await installedShell(page);
+    const heldManifest=await withinInitialBoundary(manifestGate.entered,deadline),initialEpoch=documentEpoch;
+    assert.equal(await page.evaluate(initialSourceReady),false,'The original online setup boundary is not sufficient while its natural manifest body is held');
+    const initialBarrier=withinInitialBoundary(settleInitialSource(page,manifestRequests,initialEpoch,()=>documentEpoch),deadline);initialBarrier.catch(()=>{});
+    assert.equal(await page.evaluate(()=>Boolean(codeInspectorManifestLoading)),true,'The same naturally started source task is still pending');
+    assert.equal(documentEpoch,initialEpoch,'The setup has not reloaded across the held source task');
+    manifestGate.release();await initialBarrier;
+    console.log(JSON.stringify({engine,case:name,phase:'held-natural-initial-manifest',...heldManifest,originalBoundaryReady:false,completedBeforeControlledReload:true,sourceBodyReplaced:false}));
+    assert.equal(manifestOverflow,false,'Manifest observation remains bounded without losing evidence');
     await audit(page,writes,0);writes.length=0;parentResponses.length=0;parentFailures.length=0;
     // Use the normal installed validator's fresh controlled document boundary.
     // Merely observing controller after clients.claim does not establish that
@@ -178,8 +280,14 @@ async function engineRun(pw,engine,cases){
      await page.getByRole('button',{name:'Retry',exact:true}).click();await page.getByRole('button',{name:'Retry',exact:true}).waitFor();
      assert.equal(await cachedModule(page),null);assert.equal(await page.evaluate(()=>typeof createAllSportsView),'undefined');
      await page.getByRole('button',{name:'Back to Match Centre',exact:true}).click();assert.equal(await page.getByRole('tab',{name:'Followed',exact:true}).getAttribute('aria-selected'),'true');
-     await assertPersonal(page,saved);const publicFollowedReads=await audit(page,writes,2);assert.deepEqual(errors,[]);net.assertIsolated();
-     console.log(JSON.stringify({engine,case:name,shell,installedDocumentFromWorker:true,firstUseOffline:true,optionalModuleAbsent:true,honestRetryAndBack:true,noCardsClaimed:true,personalChoicesPreserved:true,publicFollowedReads,errors}));
+     await assertPersonal(page,saved);const publicFollowedReads=await audit(page,writes,2);net.assertIsolated();
+     const offlineVerified=await page.evaluate(()=>navigator.onLine===false),moduleAbsentVerified=await cachedModule(page)===null;
+     assert(offlineVerified&&moduleAbsentVerified,'The failed optional script remains absent in a genuinely offline installed document');
+     assert.equal(moduleRequests.length,requestStart,'Neither offline attempt reached the origin');assert.equal(responses.length,0,'No optional-module response was supplied');
+     const classification=classifyOptionalModule({engine,origin,workerVerified:installedDocument.fromServiceWorker(),offlineVerified,moduleAbsentVerified,modulePath,originModuleRequests:moduleRequests.length-requestStart,moduleResponses:responses.length,errors:errorDetails,requests:transportFailures});
+     console.log(JSON.stringify({engine,case:name,rawErrors:errorDetails,transportFailures,expectedOptionalModulePairs:classification.expected,unclassifiedErrors:classification.unexpected}));
+     assert.deepEqual(classification.unexpected,[],'Unrelated or unproven first-use errors must still fail');
+     console.log(JSON.stringify({engine,case:name,shell,installedDocumentFromWorker:true,firstUseOffline:true,optionalModuleAbsent:true,honestRetryAndBack:true,noCardsClaimed:true,personalChoicesPreserved:true,publicFollowedReads,errors,expectedOptionalModulePairs:classification.expected.length,unclassifiedErrors:classification.unexpected.length}));
     }else{
      await page.getByRole('tab',{name:'All Sports',exact:true}).click();await cards(page);
      await page.waitForFunction(()=>Boolean(disposableStore.initial('all-sports:v1:public:today',null)));
@@ -219,10 +327,11 @@ async function engineRun(pw,engine,cases){
      console.log(JSON.stringify({engine,case:name,shell,installedDocumentFromWorker:true,onlineFirstUseCachedModule:true,offlineDocumentFromWorker:true,newDocument:true,offlineModuleFromWorker:true,publicStoreRestored:true,fixtures:fixtures.length,sourceFactsAndClocksPreserved:true,staleAll:true,notice,privateWrites:0,noFeedPoller:true,personalChoicesPreserved:true,onlineReads,offlineReads,rawErrorCount:errors.length,expectedWorkerTransportPairs:classification.expected.length,unclassifiedErrors:classification.unexpected.length}));
     }
    }catch(failure){caseError=failure;console.error(JSON.stringify({engine,case:name,stage,error:failure.message,errors,errorDetails,transportFailures,ownedFailures,notice:await page.locator('#listView').innerText().catch(()=>null),apiRequests:apiRequests.slice(-8),moduleResponses:responses,parentResponses,parentFailures,parentDependencies:await parentCache(page).catch(()=>null),network:net.snapshot()}));throw failure;}
-   finally{try{const closure=await closeCaseContext(context,caseError);if(!closure.closed)console.error(JSON.stringify({engine,case:name,contextCleanup:closure}));}finally{contexts.delete(context);unreachable=false;}}
+   finally{manifestGate?.release();try{const closure=await closeCaseContext(context,caseError);if(!closure.closed)console.error(JSON.stringify({engine,case:name,contextCleanup:closure}));}finally{contexts.delete(context);unreachable=false;}}
   }
  }catch(failure){error=failure;console.error(JSON.stringify({engine,stage,setupFailure:['setup','network-preflight'].includes(stage)||stage.endsWith(':installed-shell'),error:failure.message}));throw failure;}
  finally{
+  manifestGate?.release();
   for(const context of contexts){const closure=await closeCaseContext(context,error);if(!closure.closed)console.error(JSON.stringify({engine,contextCleanup:closure}));}
   try{await net.close(browser,server,error);}finally{activeBrowser=null;console.log(JSON.stringify({engine,isolationAndCleanup:net.snapshot()}));}
  }
@@ -236,8 +345,8 @@ async function main(){
   if(!stopFailure&&(Date.now()>deadline||free()<3*1024**3)){stopFailure=Error('Offline browser allocation or host reserve exceeded');console.error(stopFailure.message);void activeBrowser?.close();}
  },1000);
  console.log(JSON.stringify({suite:'all-sports-installed-offline.v1',engines,cases,version,indexSha256:hash(index),moduleSha256:moduleHash,constructedLoopbackFixtures:true,productionFreshness:false,physicalDeviceProof:false}));
- try{const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');for(const engine of engines){if(stopFailure)throw stopFailure;await engineRun(pw,engine,cases);if(stopFailure)throw stopFailure;}}
+ try{const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');for(const engine of engines){if(stopFailure)throw stopFailure;await engineRun(pw,engine,cases,deadline);if(stopFailure)throw stopFailure;}}
  finally{clearInterval(watchdog);}
 }
 if(require.main===module)(process.argv.includes('--check-cleanup')?checkCleanup():process.argv.includes('--check-fixtures')?checkFixtures():main()).catch(failure=>{console.error(failure);process.exitCode=1;});
-module.exports={main,closeCaseContext};
+module.exports={main,closeCaseContext,declaredModulePath,initialSourceReady,settleInitialSource};

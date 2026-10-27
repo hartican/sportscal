@@ -43,6 +43,26 @@
     const result=clone(preferences);delete result.followBrowse;delete result.feedCompact;return result;
   }
 
+  function excludeAgreedEventDecisions(values,outside,follow){
+    const fields=['followedMajorEventIds','excludedMajorEventIds','eventFamilyDecisions','eventEditionDecisions'];
+    const first=values.map(value=>value.followFirst);
+    if(!first.every(object))return;
+    if(!fields.some(key=>!same(first[0][key],first[1][key])||!same(first[0][key],first[2][key])))return;
+    let canonical;
+    try{canonical=values.map(value=>follow.migratePreferences(clone(value)).followFirst);}catch{return;}
+    // Reuse the current canonical event rules as a read-only check. Never use
+    // their coerced/defaulted output as a decision or write it into a receipt.
+    if(!first.every((value,index)=>fields.every(key=>Object.hasOwn(value,key)===Object.hasOwn(canonical[index],key)
+      &&same(value[key],canonical[index][key]))))return;
+    for(const key of fields){
+      if(!Object.hasOwn(first[1],key)||!Object.hasOwn(first[2],key)||!same(first[1][key],first[2][key]))continue;
+      // These exact decisions already agree with the fresh server read. Keep
+      // them there; only the existing entity/domain plan may produce writes.
+      for(const value of outside)delete value.followFirst[key];
+    }
+    return fields;
+  }
+
   function records(list,key,fields,identity,observe,side){
     const family=key==='participantId'?'entities':'domains';
     const invalid=(reason,message)=>{emit(observe,6,reason,side,family);throw Error(message);};
@@ -123,6 +143,7 @@
         const result=clone(value);delete result.followBrowse;delete result.feedCompact;
         delete result.preferenceGraph.entityFollows;delete result.preferenceGraph.domainPreferences;return result;
       });
+      const agreedEvents=excludeAgreedEventDecisions(values,outside,follow);
       if(!profile.preferenceBaseMatches({basePreferences:outside[0]},outside[1]))return refuse(21/*outside_supported_scope_changed*/,'intent',5);
       if(!profile.preferenceBaseMatches({basePreferences:outside[0]},outside[2]))return refuse(21/*outside_supported_scope_changed*/,'remote',5);
       const preferences=clone(state.preferences),graphs=values.map(value=>value.preferenceGraph);
@@ -130,6 +151,9 @@
       preferences.preferenceGraph.domainPreferences=mergeRecords(...graphs.map(graph=>graph.domainPreferences),'sportDomainId',domainFields,value=>value,observe);
       // Remote view values stay on the server; applyServerState retains this device's views.
       const witness={...clone(receipt),baseUpdatedAt:state.updatedAt,basePreferences:clone(state.preferences),preferences};
+      if(agreedEvents)witness.acceptsAcknowledgement=value=>object(value?.followFirst)&&agreedEvents.every(key=>
+        Object.hasOwn(witness.basePreferences.followFirst,key)===Object.hasOwn(value.followFirst,key)
+        &&same(witness.basePreferences.followFirst[key],value.followFirst[key]));
       // An older ACK can carry R2 forward only from the exact recorded R1
       // intent, using this same conflict policy against the acknowledged state.
       witness.originalReceipt=clone(receipt);

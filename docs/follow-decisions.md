@@ -1,5 +1,24 @@
 # Follow and Feed decisions
 
+## Optional standings presentation keeps its existing owner — 26 October 2026
+
+The approved download-budget repair moves only standings-exclusive helpers and
+the unchanged renderer body into the already deferred Follow presentation.
+Keep its existing entry/loader, inactive and Follow routing, connected-target
+and navigation fences, failure/retry, pin actions and Results OFF. Cold event
+preview table helpers stay immediately available. An incomplete cached module
+must fail visibly through the existing retry path, without a repeat loop.
+No Follow, gender, admission, account, source or notification rule changes.
+See [source contract and equivalence](quality/standings-presentation-deferral-2026-10-26.md).
+The existing collection-loading gate includes the focused caller/loader test;
+combined native, offline and installed release qualification stays with DEPLOY.
+
+## 27 October 2026 — fence delayed collection snapshots
+
+A collection-directory completion may snapshot only the preference object and copied collection plan for which it started, in the same account/session generation, app-sync generation and local profile. A stale completion returns its existing load results without changing preferences or the pending receipt. Current matching loads retain existing guest, mute and OFF semantics. No request, retry, store or inferred follow intent is added.
+
+The actual local apply/merge/save/profile/directory regression reproduces an earlier men-only load freezing newer mixed collection choices before the women’s directory arrives. This guard prevents that source race; it does not establish a real account’s historical cause or restore follows. The existing bookkeeping gate retains prior checks and adds26 source/compiled-helper controls. DEPLOY isolated the guard from its worker’s pending-receipt parent; receipt reconciliation policy is unchanged. See [scope and acceptance](quality/collection-hydration-guard-2026-10-27.md).
+
 ## All Sports View — 24 October 2026
 
 The authorised full implementation adds a separate compact chronological view
@@ -1244,6 +1263,12 @@ This first slice observes the existing Account journey and its completed matchin
 The top bar uses only the current accepted app handle, with Account if absent. It never substitutes email or display name as that label and never derives or changes a handle. The current app profile picture wins; otherwise use initials from the current app display name, or a neutral icon when missing. Accepted viewer ownership and session-generation provenance survive loading before the optional helper; old owners/lifetimes cannot supply profile or image callbacks.
 
 Avatar and handle are separate accessible controls. Handle opens existing Account and Sync. A real eligible photo/initials click opens that same page, focuses the existing picture editor and starts its existing native chooser once within the original user gesture. Selection previews only; upload remains behind the existing explicit Save Public Profile action. Preserve cancellation, delayed loading, account-switch fences, normal fallback Account focus and guest follows. Account remains left; Settings is immediately left of Calendar, with existing remaining controls, themes and 44px targets. No action gating/import policy, new profile store, request/poll, uploader or private-image expansion is introduced. Actual controlled chooser, identity and geometry regressions remain separate from real-account/physical-device proof.
+
+## 26 October 2026 — already-agreed event choices during owned sync
+
+When a pending owned receipt and the fresh account read already agree exactly on the existing major-event family/edition decisions, those decisions may stop blocking an independent entity/domain reconciliation. Validate their present fields against the existing canonical Follow migration without applying its defaults or output. Keep the fresh remote event values unchanged; the outgoing preference patch remains restricted to the existing entity/domain plan. This does not merge divergent event choices, reorder lists, erase unknown fields or widen the supported preference scope.
+
+Pin the agreed event values and field presence through the existing matching save acknowledgement with a transient witness. Keep the persisted six-field receipt unchanged until that acknowledgement. Current local edits, absent-versus-empty differences, canonical coercion/defaults, unknown choices, owner/generation changes, conditional-version conflicts and newer-receipt continuation retain their existing holds. Regression: validate-preference-bookkeeping.js (106 real helper/API cases and central witness checks) and validate-account-sync-recovery-browser.js receipt-base-event-agreement through the mounted manual retry. Local Chromium/WebKit evidence is separate from deployment and physical iPhone acceptance.
 
 ## 20 October 2026 — hydrate the existing profile independently of fixtures
 

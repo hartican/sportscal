@@ -8,6 +8,9 @@ const {sources,context}=helper.module.exports.receiptProbe,profile=require('../.
 const localApi=require('./local-user-state-api'),systems=require('../../config/preference-system'),clone=value=>JSON.parse(JSON.stringify(value));
 const cricket=require('../../config/cricket-coverage'),cricketId='team:cricket:australia',bblId='team:cricket:sydney-sixers';
 const cricketCases=['cricket-add','cricket-remove-format','cricket-last-OFF','cricket-BBL-alias','cricket-retain-base','cricket-retain-remote','cricket-remove-field','cricket-retain-remote-absence','cricket-writer-order','cricket-conflict','cricket-empty-conflict','cricket-order-conflict','cricket-invalid-enum','cricket-invalid-type','cricket-invalid-duplicate','cricket-invalid-null','cricket-invalid-base','cricket-invalid-remote','cricket-unknown-field','cricket-cas-disjoint','cricket-cas-conflict','new-receipt-cricket','normalization-cricket-unacknowledged'];
+const eventAgreementCases=['event-agreed-domain','event-agreed-exclusion','event-agreed-edition','event-empty-inconsistent','event-agreed-domain-OFF',
+ 'event-divergent','event-extra-roundtrip','event-extra-wrapper','event-future-version','event-edition-extra','event-malformed-map','event-duplicate-list','event-base-default','event-absent-versus-empty','event-empty-versus-absent','event-order-conflict',
+ 'event-current-edit','event-cas-disjoint','event-cas-event-drift','event-r2-domain','event-r2-event','event-owner-read','event-generation-read','event-owner-ACK','event-generation-ACK','event-invalid-base','event-save-failure','event-ACK-mismatch'];
 function formatChoice(preferences,selected,enabled=true,id=cricketId){return cricket.setFormatFollow(preferences,id,selected,enabled);}
 function cricketRow(state,id=cricketId){return entities(state).find(row=>row.participantId===id);}
 const choice=record=>{const result=clone(record);delete result.profileId;return result;};
@@ -18,7 +21,7 @@ const cases=[
  'domain-OFF','scoped-empty','remote-empty','entity-overlap','domain-overlap','deletion-versus-edit','local-edit-versus-deletion',
  'unknown-root','unknown-graph','unknown-record','unknown-local-view','malformed-local-view','malformed-record','duplicate-entity','duplicate-alias','duplicate-domain','missing-array','non-array',
  'notification-conflict','local-OFF-outside','invalid-identity','invalid-remote-clock','unknown-base','invalid-base-clock','cas-disjoint','cas-overlap','new-receipt-during-ACK','new-receipt-same-field','new-receipt-unknown','ordinary-settings-theme','ordinary-settings-OFF','ordinary-standings-empty','ordinary-settings-unknown','ordinary-settings-view','ordinary-bookkeeping','new-receipt-late-settings','new-receipt-late-bookkeeping','normalization-unacknowledged','normalization-strict-unacknowledged','normalization-domain-unacknowledged','normalization-empty-unacknowledged','normalization-R2-unacknowledged','normalization-acknowledged',
- 'late-owner-read','late-generation-read','late-owner-ACK','late-generation-ACK','helper-unavailable',...cricketCases,
+ 'late-owner-read','late-generation-read','late-owner-ACK','late-generation-ACK','helper-unavailable',...cricketCases,...eventAgreementCases,
 ];
 // Exercise the real apply function and real profile/storage writes for ACK
 // acceptance controls. Rendering, optional Feed callbacks and UI normalization
@@ -39,11 +42,181 @@ function installPersistedApply(c,html,desired){
  assert(start>=0&&end>start);vm.runInContext(html.slice(start,end),c);
  const apply=c.applyServerState;c.applyServerState=state=>{try{return apply(state);}catch(error){c.qaApplyError=String(error);throw error;}};
 }
+async function eventAgreementCase(kind){
+ const api=localApi('A'),html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+ const graph=systems.createPreferenceGraph({profileId:'local-A',domainIds:['sport:football']});
+ graph.domainPreferences=[systems.expandTemplate('local-A','sport:football','template:like')];
+ const preferences=follow.migratePreferences({version:27,onboardingComplete:true,theme:'day',showSpoilers:false,
+  followFirst:{startupMeta:{sports:[]},notifications:{enabled:false,userChoice:false}},preferenceGraph:graph});
+ if(['event-agreed-exclusion','event-empty-inconsistent'].includes(kind)){
+  preferences.followFirst.followedMajorEventIds=['commonwealth-games'];
+  preferences.followFirst.eventFamilyDecisions.states={'commonwealth-games':'followed'};
+ }
+ if(kind==='event-base-default')delete preferences.followFirst.eventEditionDecisions;
+ api.seed({preferences,profile:{},eventUserState:{},eventSpoilerState:{},archivedEvents:[],ratings:{}});
+ const base=api.state(),c=context(sources(),{A:base,B:base}),values=new Map();
+ Object.assign(c,{PROFILE_STORAGE:profile,SERVER_SYNC:transport,FOLLOW_FIRST:follow,
+  localStorage:{getItem:key=>values.get(key)??null,setItem:(key,value)=>values.set(key,String(value)),removeItem:key=>values.delete(key)},
+  clonePreferences:clone,queueServerStateSync(){},queueDirectoryFollowEffects(){},requestFeedRebuildAfterFollowChange:async()=>{}});
+ c.activeProfileBundle=profile.loadActiveProfile(c.localStorage);
+ let generation=0,newReceipt,sent=[];
+ c.serverSyncClient.accountSnapshot=()=>({accountId:c.serverSyncClient.sessionSubject(),generation,hasSession:true});
+ c.serverStateBaseline={state:clone(base),updatedAt:base.updatedAt,accountId:'A',generation:0};
+ if(kind==='event-invalid-base')c.serverStateBaseline.updatedAt='unknown';
+ installPersistedApply(c,html,base);c.applyServerState(base);
+ const slice=(from,to)=>{const start=html.indexOf(from),end=html.indexOf(to,start);assert(start>=0&&end>start);return html.slice(start,end);};
+ vm.runInContext(slice('function saveActiveProfileSections(','\nlet activeFilter =')+'\n'
+  +slice('function savePreferences(','\nfunction applyThemePreference(')+'\n'
+  +slice('function toggleMajorEventFollow(','\nfunction majorEventVisibilityPreferences(')+'\n'
+  +slice('function buildEventEditionToggle(','\nfunction buildEuropeanDetail('),c);
+ // The actual deliberate event writer persists its receipt; the next actual
+ // preferences save adds an independent domain edit to the same known base.
+ if(kind==='event-agreed-edition'){
+  c.FOLLOW_FEED_POLICY=require('../../config/follow-feed-policy');c.eventEditionFollowed=()=>false;c.activeTab='events';
+  c.document={createElement:()=>({dataset:{},setAttribute(){}}),querySelectorAll:()=>[]};
+  const button=c.buildEventEditionToggle({id:'major-event:australian-open-2027',key:'tennis',majorEventId:'major-event:australian-open-2027',date:'2027-01-17'});button.onclick({stopPropagation(){}});
+ }else c.toggleMajorEventFollow('commonwealth-games');
+ const next=clone(c.userPreferences);next.preferenceGraph=systems.quickAddDomain(next.preferenceGraph,'sport:football','template:casual');
+ if(kind==='event-agreed-domain-OFF')next.preferenceGraph.domainPreferences[0].enabled=false;
+ if(kind==='event-empty-inconsistent'){
+  next.followFirst.followedMajorEventIds=[];next.followFirst.excludedMajorEventIds=[];
+  next.followFirst.eventFamilyDecisions={schemaVersion:'event-family-decisions.v1',states:{}};
+ }
+ if(kind==='event-extra-roundtrip')next.followFirst.futureEventDecisions={schemaVersion:'future-events.v1',states:{future:'followed'}};
+ if(kind==='event-extra-wrapper')next.followFirst.eventFamilyDecisions.futureChoice=true;
+ if(kind==='event-future-version')next.followFirst.eventFamilyDecisions.schemaVersion='event-family-decisions.v2';
+ if(kind==='event-edition-extra')next.followFirst.eventEditionDecisions.futureChoice=true;
+ if(kind==='event-malformed-map')next.followFirst.eventFamilyDecisions.states=[];
+ if(kind==='event-duplicate-list')next.followFirst.followedMajorEventIds=['commonwealth-games','commonwealth-games'];
+ if(kind==='event-order-conflict'){
+  next.followFirst.followedMajorEventIds=['commonwealth-games','olympics'];
+  next.followFirst.eventFamilyDecisions.states={'commonwealth-games':'followed',olympics:'followed'};
+ }
+ if(kind==='event-absent-versus-empty')next.followFirst.eventEditionDecisions=undefined;
+ assert(c.savePreferences(next,{deliberate:true,deferFollowEffects:true}));
+ const original=c.pendingPreferenceIntent('A'),current=clone(c.currentDevice());
+ if(kind==='event-absent-versus-empty')assert(!Object.hasOwn(current.preferences.followFirst,'eventEditionDecisions'),'negative fixture must really persist absence, not merge the old empty object');
+ assert(original&&profile.preferenceBaseMatches(original,base.preferences));
+ const remote=clone(base);remote.preferences.followFirst=clone(current.preferences.followFirst);
+ const excluded=state=>{
+  state.followFirst.followedMajorEventIds=[];state.followFirst.excludedMajorEventIds=['commonwealth-games'];
+  state.followFirst.eventFamilyDecisions={schemaVersion:'event-family-decisions.v1',states:{'commonwealth-games':'excluded'}};
+ };
+ if(kind==='event-divergent')excluded(remote.preferences);
+ if(kind==='event-absent-versus-empty')remote.preferences.followFirst.eventEditionDecisions={schemaVersion:'event-edition-decisions.v1',states:{}};
+ if(kind==='event-empty-versus-absent')delete remote.preferences.followFirst.eventEditionDecisions;
+ if(kind==='event-order-conflict')remote.preferences.followFirst.followedMajorEventIds.reverse();
+ const written=await api.handle({method:'PUT',url:'/api/user-state',headers:{},body:{patch:sync.createPatch(base,remote,{baseUpdatedAt:base.updatedAt})}});assert.equal(written.status,200);
+ // Model exact already-stored empty/legacy-invalid values. The legacy partial
+ // Follow-array translator may otherwise replace them before this read seam.
+ if(['event-empty-inconsistent','event-extra-wrapper','event-future-version','event-malformed-map','event-duplicate-list','event-edition-extra'].includes(kind)){
+  api.mutate(state=>{state.preferences.followFirst=clone(current.preferences.followFirst);});
+  assert.deepEqual(api.state().preferences.followFirst,current.preferences.followFirst);
+ }
+ c.activeProfileBundle=profile.loadActiveProfile(c.localStorage);assert.deepEqual(c.pendingPreferenceIntent('A'),original,'persisted profile read retains actual writer receipt');
+ if(kind==='event-current-edit'){
+  const ordinary=clone(c.userPreferences);excluded(ordinary);assert(c.savePreferences(ordinary,{deferFollowEffects:true}));
+  assert.deepEqual(c.pendingPreferenceIntent('A'),original,'ordinary current edit does not replace the recorded intent');
+ }
+ c.serverSyncClient.loadState=async()=>{
+  c.calls.reads++;const r=await api.handle({method:'GET',url:'/api/user-state',headers:{}});
+  if(kind==='event-owner-read')c.switchAccount();
+  if(kind==='event-generation-read'){generation++;c.invalidateServerStateSyncScope();}
+  return{user:r.body.user,state:transport.stateFromDatabaseRow(r.body.state)};
+ };
+ c.serverSyncClient.savePatch=async patch=>{
+  assert.deepEqual(c.pendingPreferenceIntent('A'),newReceipt||original,'no pre-ACK receipt rewrite');sent.push(clone(patch));c.calls.writes++;
+  assert.equal(patch.baseUpdatedAt,api.state().updatedAt,'domain save uses the fresh conditional server version');
+  assert(patch.changes.filter(change=>change.path[0]==='preferences').every(change=>change.path[1]==='preferenceGraph'&&change.path[2]==='domainPreferences'),'every preference write is domain-only');
+  if(kind==='event-save-failure')throw Object.assign(Error('Disposable unavailable save'),{code:'server_sync_failed'});
+  const r=await api.handle({method:'PUT',url:'/api/user-state',headers:{},body:{patch}});if(r.status!==200)throw Object.assign(Error('Disposable conflict'),{status:r.status,code:r.body.code});
+  if(!newReceipt&&kind==='event-r2-domain'){
+   const changed=clone(c.userPreferences);changed.preferenceGraph.domainPreferences[0].enabled=false;
+   assert(c.savePreferences(changed,{deliberate:true,deferFollowEffects:true}));newReceipt=c.pendingPreferenceIntent('A');
+  }else if(!newReceipt&&kind==='event-r2-event'){c.toggleMajorEventFollow('commonwealth-games');newReceipt=c.pendingPreferenceIntent('A');}
+  if(kind==='event-owner-ACK')c.switchAccount();
+  if(kind==='event-generation-ACK'){generation++;c.invalidateServerStateSyncScope();}
+  const state=transport.stateFromDatabaseRow(r.body.state);if(kind==='event-ACK-mismatch')excluded(state.preferences);
+  return{user:r.body.user,state};
+ };
+ c.document={querySelector:()=>({content:JSON.parse(fs.readFileSync(path.join(root,'app-version.json'),'utf8')).version}),getElementById:()=>null,createElement:()=>({addEventListener(type,fn){this[type]=fn;}})};
+ c.navigator={clipboard:{writeText:async value=>{c.copied=value;}}};
+ vm.runInContext(fs.readFileSync(path.join(root,'assets/js/account-awareness-runtime.js'),'utf8'),c);
+ if(kind==='event-cas-disjoint'||kind==='event-cas-event-drift')api.raceOnce(()=>api.mutate(state=>{
+  if(kind==='event-cas-event-drift')excluded(state.preferences);
+  else state.preferences.preferenceGraph.entityFollows.push({participantId:other,followLevel:'follow'});
+ }));
+ const beforeStored=JSON.stringify([...values]),beforeRemote=api.state(),beforeCurrent=clone(c.currentDevice()),beforeBaseline=clone(c.serverStateBaseline);let caught;
+ let eventWitnessChecks=0;
+ c.PROFILE_STORAGE={...c.PROFILE_STORAGE,preferenceIntentMatches(receipt,...args){
+  if(receipt?.originalReceipt){assert.equal(typeof receipt.acceptsAcknowledgement,'function','actual constructed event witness retains its RAM-only ACK proof');eventWitnessChecks++;}
+  return profile.preferenceIntentMatches(receipt,...args);
+ }};
+ try{await c.syncCurrentServerState({notify:true});}catch(error){caught=error;}
+ if(['event-owner-read','event-generation-read','event-owner-ACK','event-generation-ACK'].includes(kind)){
+  assert.equal(c.calls.reads,1);assert.equal(c.calls.writes,kind.endsWith('ACK')?1:0);
+  assert.deepEqual(c.pendingPreferenceIntent('A'),original,'stale owner/generation cannot acknowledge');
+  assert.equal(JSON.stringify([...values]),beforeStored,'stale lifetime cannot rewrite persisted choices');
+  console.log(JSON.stringify({case:kind,passed:true,reads:c.calls.reads,writes:c.calls.writes,staleReceiptRetained:true}));
+  return{kind,passed:true,reads:c.calls.reads,writes:c.calls.writes};
+ }
+ const controls={children:[],appendChild(button){this.children.push(button);}};c.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.appendRetry(controls);await controls.children[0].click();const diagnostic=JSON.parse(c.copied);
+ console.log(JSON.stringify({case:kind,diagnostic,reads:c.calls.reads,writes:c.calls.writes}));
+ const held=['event-empty-inconsistent','event-divergent','event-extra-roundtrip','event-extra-wrapper','event-future-version','event-edition-extra','event-malformed-map','event-duplicate-list','event-base-default','event-absent-versus-empty','event-empty-versus-absent','event-order-conflict','event-current-edit','event-cas-event-drift','event-invalid-base','event-save-failure','event-ACK-mismatch'].includes(kind);
+ if(kind==='event-agreed-domain'&&caught){
+  assert.equal(caught.code,'preference_base_changed');assert.equal(diagnostic.preferenceGuard.site,'plan_scope');assert.equal(diagnostic.preferenceGuard.reason,'outside_supported_scope_changed');assert.equal(diagnostic.preferenceGuard.side,'intent');
+  assert.deepEqual(diagnostic.preferenceDifferences,{baseToRemote:['eventDecisions'],localEdits:['domains','eventDecisions'],localToRemote:['domains'],receiptBaseMatchesAccepted:true});
+  assert.equal(JSON.stringify([...values]),beforeStored);assert.deepEqual(api.state(),beforeRemote);assert.equal(c.calls.writes,0);
+ }
+ if(held){
+  assert(caught,'unsupported or conflicting event choices must retain the guard: '+kind);
+  assert.equal(c.pendingPreferenceIntent('A').receiptId,original.receiptId);assert.deepEqual(c.pendingPreferenceIntent('A'),original);
+  assert.equal(JSON.stringify([...values]),beforeStored,'held actual preferences/receipt remain durable');
+  assert.deepEqual(clone(c.currentDevice()),beforeCurrent);assert.deepEqual(clone(c.serverStateBaseline),beforeBaseline);
+  assert.equal(diagnostic.completed,false);assert.equal(diagnostic.pendingReceipt,true);
+  assert.equal(c.calls.writes,['event-cas-event-drift','event-save-failure','event-ACK-mismatch'].includes(kind)?1:0);
+  if(kind==='event-current-edit')assert.equal(diagnostic.preferenceGuard.reason,'current_differs_from_receipt');
+  if(kind==='event-cas-event-drift'){assert.equal(c.calls.reads,2);assert.equal(api.calls.filter(call=>call.status===409).length,1);assert.equal(api.state().preferences.followFirst.eventFamilyDecisions.states['commonwealth-games'],'excluded');}
+  else if(kind==='event-ACK-mismatch'){assert.equal(diagnostic.saveResponseReceived,true);assert.equal(api.state().preferences.preferenceGraph.domainPreferences[0].templateId,'template:casual');}
+  else assert.deepEqual(api.state(),beforeRemote,'held save cannot change remote preferences');
+  if(kind==='event-extra-roundtrip')assert.deepEqual(follow.migratePreferences(current.preferences).followFirst.futureEventDecisions,current.preferences.followFirst.futureEventDecisions,'unknown extra really survives the canonical migration');
+  if(kind==='event-empty-inconsistent')assert.notDeepEqual(follow.migratePreferences(current.preferences).followFirst,current.preferences.followFirst,'empty lists cannot hide a contradictory retained decision state');
+  return{kind,passed:true,reads:c.calls.reads,writes:c.calls.writes};
+ }
+ assert.equal(caught,undefined,'Already-agreed event choices must not block the remaining independent domain save');
+ if(kind==='event-r2-domain'||kind==='event-r2-event'){
+  assert(newReceipt&&newReceipt.receiptId!==original.receiptId);assert.equal(c.pendingPreferenceIntent('A').receiptId,newReceipt.receiptId,'old ACK cannot clear R2');
+  assert.equal(diagnostic.completed,false);assert.equal(diagnostic.pendingReceipt,true);
+  if(kind==='event-r2-event'){
+   assert.deepEqual(c.pendingPreferenceIntent('A'),newReceipt,'unsupported newer event edit cannot be rebased by old ACK');
+   assert.equal(c.currentDevice().preferences.followFirst.eventFamilyDecisions.states['commonwealth-games'],'excluded');
+   const pendingBytes=JSON.stringify([...values]);await assert.rejects(c.syncCurrentServerState(),error=>error.code==='preference_base_changed');assert.equal(c.calls.writes,1);assert.equal(JSON.stringify([...values]),pendingBytes);
+  }else{
+   assert.equal(c.currentDevice().preferences.preferenceGraph.domainPreferences[0].enabled,false);newReceipt=c.pendingPreferenceIntent('A');
+   await c.syncCurrentServerState();assert.equal(c.pendingPreferenceIntent('A'),null);assert.equal(c.calls.writes,2);assert.equal(api.state().preferences.preferenceGraph.domainPreferences[0].enabled,false);
+  }
+ }else{
+  assert.equal(c.calls.reads,kind==='event-cas-disjoint'?2:1);assert.equal(c.calls.writes,kind==='event-cas-disjoint'?2:1);
+  assert.equal(diagnostic.completed,true);assert.equal(diagnostic.pendingReceipt,false);assert.equal(diagnostic.saveResponseReceived,true);
+ }
+ assert(sent.every(patch=>!patch.changes.some(change=>change.path[0]==='preferences'&&change.path[1]==='followFirst')),'no event-choice rewrite in any planned patch');
+ assert(eventWitnessChecks>0,'actual helper ACK flow must evaluate the accommodated event witness');
+ for(const [,body] of values){const data=JSON.parse(body);if(data?.preferenceSync)for(const receipt of data.preferenceSync.entries)assert.equal(Object.keys(receipt).length,6,'ACK proof never enters persisted receipts');}
+ assert.equal(JSON.stringify(api.state().preferences.followFirst),JSON.stringify(beforeRemote.preferences.followFirst),'already-agreed remote event bytes remain exact');
+ assert.equal(api.state().preferences.preferenceGraph.domainPreferences[0].templateId,'template:casual');assert.equal(api.state().preferences.followFirst.notifications.enabled,false);assert.equal(api.state().preferences.showSpoilers,false);
+ if(kind==='event-agreed-domain-OFF')assert.equal(api.state().preferences.preferenceGraph.domainPreferences[0].enabled,false);
+ if(['event-agreed-exclusion','event-agreed-edition'].includes(kind))assert.deepEqual(api.state().preferences.followFirst.followedMajorEventIds,[],'explicit empty Follow list cannot revive');
+ if(kind==='event-agreed-edition')assert.deepEqual(api.state().preferences.followFirst.excludedMajorEventIds,[]);
+ if(kind==='event-cas-disjoint'){assert(api.state().preferences.preferenceGraph.entityFollows.some(row=>row.participantId===other));assert.equal(api.calls.filter(call=>call.status===409).length,1);}
+ if(kind!=='event-r2-event')assert.equal(c.pendingPreferenceIntent('A'),null,'only matching owned ACK clears the actual persisted receipt');
+ return{kind,passed:true,reads:c.calls.reads,writes:c.calls.writes};
+}
 module.exports=async function receiptBaseTests(){
  const results=[];
  const selected=process.env.RECEIPT_BASE_CASE?cases.filter(kind=>kind===process.env.RECEIPT_BASE_CASE):cases;
  assert(selected.length,'known receipt-base case');
  for(const kind of selected){
+  if(eventAgreementCases.includes(kind)){results.push(await eventAgreementCase(kind));continue;}
   const api=localApi('A');
   const graph=systems.createPreferenceGraph({profileId:'local-A',domainIds:['sport:football']});
   graph.entityFollows=[{participantId:entity,followLevel:'follow'}];
