@@ -145,7 +145,7 @@
    if(!Array.isArray(overviews))return f=>f;
    if(cricketEditionResolvers.has(overviews))return cricketEditionResolvers.get(overviews);
    const policy=globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY || (typeof require==='function'?require('./follow-feed-policy'):null);
-   if(!policy)return f=>f;
+   if(typeof policy?.sportKey!=='function')return f=>f;
    const membership=new Map();
    for(const overview of overviews){
     const key=policy.sportKey(overview);

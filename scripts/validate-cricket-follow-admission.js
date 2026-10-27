@@ -268,6 +268,19 @@ function directoryFollow(ctx, format) {
     assert.equal(bind(women).editionId,metadata[0].id);
     assert(!bind({...women,gender:'men'}).editionId,'gender-only contradiction cannot acquire a women edition');
   });
+  await check('actual browser module order and isolated CommonJS policy initialization',()=>{
+    const browser=vm.createContext({console}),parents=[overview],raw=publishedSchedule.fixtures.find(e=>e.id===fixture.id);
+    const files=require('../config/app-shell-modules.json').filter(p=>['config/fixture-labels.js','config/fixture-identity.js','config/follow-feed-policy.js'].includes(p));
+    for(const file of files){
+      vm.runInContext(fs.readFileSync(path.join(root,file),'utf8'),browser);
+      if(browser.NOTHINGSPORTS_FIXTURE_IDENTITY&&!browser.NOTHINGSPORTS_FOLLOW_FEED_POLICY)assert.strictEqual(browser.NOTHINGSPORTS_FIXTURE_IDENTITY.cricketEditionResolver(parents)(raw),raw,'an unavailable policy cannot attach metadata or poison the later index');
+    }
+    const bind=browser.NOTHINGSPORTS_FIXTURE_IDENTITY.cricketEditionResolver(parents);
+    assert.equal(bind(raw).editionId,overview.id);assert(!bind({...raw,gender:'women'}).editionId);
+    const identityPath=require.resolve('../config/fixture-identity'),commonjs={module:{exports:{}},require:Module.createRequire(identityPath)};
+    vm.runInNewContext(fs.readFileSync(identityPath,'utf8'),commonjs);
+    assert.equal(commonjs.module.exports.cricketEditionResolver(parents)(raw).editionId,overview.id,'existing CommonJS policy loads lazily after identity initialization');
+  });
   assert.equal(failures.length, 0, failures.join('; '));
   console.log('Cricket Follow admission: ' + passed + ' source-route, client/server, cold-load and preservation checks passed.');
 })().catch(error => { console.error(error.message); process.exitCode = 1; });
