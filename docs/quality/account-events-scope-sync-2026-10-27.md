@@ -53,6 +53,35 @@ objects remain unknown because current source only defaults/merges their old
 filter objects without establishing a more specific active writer/consumer.
 No scope accommodation or merge exemption is added for these roots.
 
+## Defensive known-decision compatibility shortcut
+
+Two retained source REDs expose a separate continuation boundary. A newer scope
+choice can return to its original base while R1's acknowledged account state
+contains the intervening value. An actual canonical family toggle can likewise
+go excluded → followed → excluded. The original base-to-R2 delta is then empty
+for that choice. The existing compatible_intent shortcut can accept that empty
+delta even though recorded/current R2 differs from the fresh account, skipping
+the conservative planner. The observed second attempts contain scope/event
+paths; strict test assertions stop them before the disposable API.
+
+Those own-R1ACK fixtures attempt the current recorded R2 choice and do not prove
+lost customer intent or a third-party conflict. The approved correction enforces
+the conservative known-field boundary: keep compatible_base first unchanged;
+before compatible_intent may bypass the planner, require raw exact field
+presence/value agreement for only eventsScope and the four existing event
+decision fields. Respect known wrapper shape without supplying defaults. A
+mismatch emits the existing plan_scope/outside_supported_scope_changed(remote)
+and throws preference_base_changed. Falling through plan alone is insufficient
+because verify's fallback rechecks the same semantic predicate.
+
+This is a defensive hold, not a new merge, central comparator, recovery or data
+restoration policy. The newer receipt, local choice, accepted baseline and
+remote remain intact. Known fields that agree, including unchanged legacy
+representations, keep the existing compatible-intent path. Ordinary exact-base
+saves still write their legitimately recorded known choices. The full queue
+controls verify zero second save for both reversals, exact already-applied
+acknowledgement and ordinary compatible-base outcomes.
+
 ## Regression and generation boundaries
 
 The existing required validate-preference-bookkeeping.js gate retains its seed,
@@ -70,7 +99,9 @@ and negative cases cover both scope directions, absent base, unchanged legacy,
 scope-only/compound event agreement, missing/invalid/divergent/current scope,
 opaque and parent controls, domain conflict/OFF/empty, conditional reread,
 scope/event/both ACK mismatch, missing scope ACK, newer receipt continuation
-and stale read/ACK lifetimes. Original compiled gate cases remain in place.
+and stale read/ACK lifetimes. It includes the actual family reversal and positive
+ordinary base-compatible and exact already-applied/unchanged-legacy controls.
+Original compiled gate cases remain in place.
 
 The existing mounted recovery harness retains all21 scenarios per engine and
 adds receipt-base-events-scope: a native real served Events scope button,
