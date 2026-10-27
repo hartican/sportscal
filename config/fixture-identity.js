@@ -139,6 +139,30 @@
     });
   }
 
+  // Exact published Cricket child membership is shared by online and cached readers.
+  const cricketEditionResolvers=new WeakMap();
+  function cricketEditionResolver(overviews){
+   if(!Array.isArray(overviews))return f=>f;
+   if(cricketEditionResolvers.has(overviews))return cricketEditionResolvers.get(overviews);
+   const membership=new Map();
+   for(const overview of overviews){
+    const key=sportKey(overview);
+    if(!['cricket','cricket-women'].includes(key) || !/^overview:cricket(?:-women)?:/.test(overview.id || '') || !Array.isArray(overview.fixtureIds) || !overview.date || !overview.competitionId)continue;
+    const metadata={id:overview.id,key,competitionId:overview.competitionId,date:overview.date,endDate:overview.endDate};
+    for(const id of overview.fixtureIds){
+     if(membership.has(id) && membership.get(id)!==metadata)throw Error('Ambiguous Cricket edition membership');
+     membership.set(id,metadata);
+    }
+   }
+   const resolve=f=>{
+    const overview=membership.get(f.id);
+    if(f.editionId || !overview || sportKey(f)!==overview.key || f.competitionId!==overview.competitionId
+      || !f.date || f.date<overview.date || (f.endDate || f.date)>(overview.endDate || overview.date))return f;
+    return {...f,editionId:overview.id};
+   };
+   cricketEditionResolvers.set(overviews,resolve);return resolve;
+  }
+
   function followedScheduleCodes(preferences, codes){
     const keys = new Set(preferences?.followedSports || []);
     for(const id of preferences?.selectedSelectorEntityIds||[]){
@@ -469,5 +493,5 @@
     const horizon=new Date(Date.UTC(futureYear,month,Math.min(Number(parts.day),lastDay))).toISOString().slice(0,10);
     return (!/^\d{4}-\d{2}-\d{2}$/.test(end || "") || end >= cutoff) && (!/^\d{4}-\d{2}-\d{2}$/.test(start || "") || start<=horizon);
   }
-  return Object.freeze({canonicalParticipantId,canonicalFixtureId,fixtureAliases,sportKey, scheduleCode, normalizeCore, fromSchedule, followedScheduleCodes,mergeOverlays,hasScore,hasScoreFields,estimateTimeline,retainedInActiveTimeline,consensusTagsForEvent});
+  return Object.freeze({canonicalParticipantId,canonicalFixtureId,fixtureAliases,sportKey, scheduleCode, normalizeCore, fromSchedule, cricketEditionResolver, followedScheduleCodes,mergeOverlays,hasScore,hasScoreFields,estimateTimeline,retainedInActiveTimeline,consensusTagsForEvent});
 });
