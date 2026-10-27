@@ -12265,7 +12265,7 @@ const followStandingsLoading=new Set();
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=595';
+  const url='assets/js/follow-presentation-ui.js?v=596';
   return Promise.all([loadDeferredScript('config/participant-directory.js?v=512'),loadDeferredScript(url)]).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function' || typeof globalThis.renderStandingsContextLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);
