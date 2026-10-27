@@ -6,24 +6,36 @@ const digest=v=>typeof v==='string'&&/^[a-f0-9]{64}$/.test(v)?v:null;
 const lifecycle=v=>['absent','installing','installed','activating','activated','redundant'].includes(v)?v:'unavailable';
 const boolean=v=>typeof v==='boolean'?v:null;
 async function pageSnapshot(expected){
+ let stage='registration';
+ try{
  const registration=await navigator.serviceWorker.getRegistration(),controller=navigator.serviceWorker.controller;
  const workerState=worker=>worker?.state||'absent',owned=new URL('/service-worker.js',location.href).href;
+ stage='cache_keys';
  const key='nothingsport-shell-v'+expected.version,keys=await caches.keys(),cachePresent=keys.includes(key);
- const response=cachePresent?await(await caches.open(key)).match('/index.html'):null;
+ let response=null;
+ if(cachePresent){stage='cache_open';const cache=await caches.open(key);stage='cache_match';response=await cache.match('/index.html');}
  let indexVersion=null,indexSha256=null,indexAvailable=false;
  if(response?.ok){
+  stage='index_body';
   const bytes=await response.arrayBuffer();
   if(bytes.byteLength<=4194304){
    indexAvailable=true;indexVersion=new TextDecoder().decode(bytes).match(/name="app-shell-version" content="(\d{1,16})"/)?.[1]||null;
+   stage='index_digest';
    indexSha256=[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(v=>v.toString(16).padStart(2,'0')).join('');
   }
  }
+ stage='document_state';
  return{documentVersion:document.querySelector('meta[name="app-shell-version"]')?.content,online:navigator.onLine,
   controllerPresent:!!controller,controllerMatches:!!controller&&controller.scriptURL===owned,controllerState:workerState(controller),
   active:workerState(registration?.active),waiting:workerState(registration?.waiting),installing:workerState(registration?.installing),
   cachePresent,indexAvailable,indexVersion,indexSha256};
+ }catch(error){
+  let errorClass='other';try{if(['AbortError','InvalidStateError','SecurityError','TypeError','NotFoundError'].includes(error?.name))errorClass=error.name;}catch{}
+  return{snapshotFailure:true,stage,errorClass};
+ }
 }
 function sanitiseSnapshot(raw,expected){
+ if(raw?.snapshotFailure===true)return{capture:'unavailable',reason:'snapshot_rejected',stage:['registration','cache_keys','cache_open','cache_match','index_body','index_digest','document_state'].includes(raw.stage)?raw.stage:'unavailable',errorClass:['AbortError','InvalidStateError','SecurityError','TypeError','NotFoundError'].includes(raw.errorClass)?raw.errorClass:'other'};
  return{capture:'available',documentVersion:version(raw?.documentVersion),online:boolean(raw?.online),controllerPresent:boolean(raw?.controllerPresent),
   controllerMatches:boolean(raw?.controllerMatches),controllerState:lifecycle(raw?.controllerState),active:lifecycle(raw?.active),waiting:lifecycle(raw?.waiting),installing:lifecycle(raw?.installing),
   cachePresent:boolean(raw?.cachePresent),indexAvailable:boolean(raw?.indexAvailable),indexVersion:version(raw?.indexVersion),indexSha256:digest(raw?.indexSha256),
@@ -59,9 +71,9 @@ function create({origin,expectedVersion,expectedIndexSha256,log=console.log,sche
   }catch{unavailable=Math.min(999,unavailable+1);}
  }
  async function beforeReload(){
-  let timer;
-  try{const raw=await Promise.race([page.evaluate(pageSnapshot,expected),new Promise((_,reject)=>{timer=schedule(()=>reject(Error('Observation expired')),1000);})]);before=sanitiseSnapshot(raw,expected);}
-  catch{before={capture:'unavailable'};}
+  let timer,expired=false;
+  try{const raw=await Promise.race([page.evaluate(pageSnapshot,expected),new Promise((_,reject)=>{timer=schedule(()=>{expired=true;reject(Error('Observation expired'));},1000);})]);before=sanitiseSnapshot(raw,expected);}
+  catch{before={capture:'unavailable',reason:expired?'observation_deadline':'evaluation_rejected',stage:'unavailable',evaluationMayStillBePending:expired};}
   finally{try{if(timer!==undefined)cancel(timer);}catch{before={capture:'unavailable'};}}
   emit('before_reload');
  }
