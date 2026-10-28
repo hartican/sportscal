@@ -48,7 +48,7 @@ async function observeManifestControl(work, label) {
 }
 function releaseManifestResponse() {
   const held = heldManifestResponse;
-  if (held && !held.res.destroyed && !held.res.writableEnded) held.release();
+  if (held?.release && !held.res.destroyed && !held.res.writableEnded) held.release();
 }
 const manifestPath = '/data/code-inspector/manifest.json';
 const manifestTrace = [], manifestTraceStart = performance.now();
@@ -104,6 +104,15 @@ function traceResource(event,fields={}){
 }
 const server = http.createServer((req, res) => {
   const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+  // Reserve at HTTP arrival, not asynchronous file-read completion order.
+  if (manifestControl && pathname === manifestPath && !heldManifestResponse) {
+    let closed;
+    const terminal = new Promise(resolve => { closed = resolve; });
+    const held = heldManifestResponse = {req, res, terminal, requestAborted:false, release:null};
+    req.once('aborted', () => {held.requestAborted=true;});
+    res.once('close', () => closed({req, res, requestAborted:held.requestAborted, finished:res.writableFinished}));
+    traceManifest('control-first-request-reserved');
+  }
   if (diagnosticTrace && pathname === manifestPath) {
     const id = 'http-' + (++manifestSequence);
     traceManifest('http-request', {id, path:pathname, host:req.headers.host, origin:req.headers.origin||null});
@@ -138,15 +147,11 @@ const server = http.createServer((req, res) => {
     return;
   }
   fs.readFile(file, (error, data) => {
-    if (manifestControl && pathname === manifestPath && !heldManifestResponse) {
-      let closed;
-      const terminal = new Promise(resolve => { closed = resolve; });
-      const held = heldManifestResponse = {req, res, terminal, requestAborted:false, release:() => {
+    if (manifestControl && heldManifestResponse?.req === req) {
+      heldManifestResponse.release = () => {
         res.writeHead(error ? 404 : 200, {'Content-Type':types[path.extname(file)] || 'application/octet-stream'});
         res.end(error ? 'Not found' : data);
-      }};
-      req.once('aborted', () => {held.requestAborted=true;});
-      res.once('close', () => closed({req, res, requestAborted:held.requestAborted, finished:res.writableFinished}));
+      };
       traceManifest('control-held-before-headers', {fileReadOk:!error, plannedStatus:error?404:200, bytesSent:0});
       manifestHeld();
       return;
