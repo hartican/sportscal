@@ -33,6 +33,16 @@ if (scenario === 'all') {
   }
   process.exit(failed ? 1 : 0);
 }
+// Opt-in evidence only; all-case execution/order and original gates stay intact.
+const diagnosticTrace = process.env.ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE === '1' && scenario === 'diagnostic';
+const manifestPath = '/data/code-inspector/manifest.json';
+const manifestTrace = [], manifestTraceStart = performance.now();
+let manifestPhase = 'initial-startup', manifestEpoch = 0, manifestSequence = 0, manifestDropped = 0;
+function traceManifest(event, fields = {}) {
+  if (!diagnosticTrace) return;
+  if (manifestTrace.length >= 256) { manifestDropped++; return; }
+  manifestTrace.push({event, atMs: performance.now()-manifestTraceStart, phase:manifestPhase, epoch:manifestEpoch, ...fields});
+}
 const owner = 'disposable-account-a';
 const token = id => 'e30.' + Buffer.from(JSON.stringify({ sub: id })).toString('base64url') + '.disposable';
 const clone = value => JSON.parse(JSON.stringify(value));
@@ -79,6 +89,13 @@ function traceResource(event,fields={}){
 }
 const server = http.createServer((req, res) => {
   const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+  if (diagnosticTrace && pathname === manifestPath) {
+    const id = 'http-' + (++manifestSequence);
+    traceManifest('http-request', {id, path:pathname, host:req.headers.host, origin:req.headers.origin||null});
+    req.on('aborted', () => traceManifest('http-aborted', {id}));
+    res.on('finish', () => traceManifest('http-finished', {id, status:res.statusCode}));
+    res.on('close', () => traceManifest('http-closed', {id, status:res.statusCode, finished:res.writableFinished}));
+  }
   if(traceResources&&tracedResourcePath(pathname)){
     const id='http-'+(++resourceSequence);
     traceResource('http-request',{id,path:pathname,host:req.headers.host,origin:req.headers.origin||null});
@@ -141,6 +158,38 @@ const server = http.createServer((req, res) => {
     archived_events: row.archivedEvents, ratings: row.ratings, updated_at: row.updatedAt } });
   const errors = [], blocked = [], statuses = [];
   try {
+    if (diagnosticTrace) await context.addInitScript(() => {
+      const marker = '[qa-diagnostic-manifest]';
+      let count = 0;
+      const report = (event, fields = {}) => {
+        if (count++ > 128) return;
+        try { console.debug(marker + JSON.stringify({event:count===129?'document-truncated':event,
+          timeOrigin:performance.timeOrigin, atMs:performance.now(), document:location.origin+location.pathname, ...fields})); } catch {}
+      };
+      const originalFetch = window.fetch;
+      window.fetch = function(...args) {
+        try {
+          const input = args[0];
+          const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url, document.baseURI);
+          if (url.origin === location.origin && url.pathname === '/data/code-inspector/manifest.json')
+            report('fetch-entry', {url:url.origin+url.pathname, stack:String(new Error().stack||'').slice(0,2400)});
+        } catch {}
+        return Reflect.apply(originalFetch, this, args);
+      };
+      addEventListener('error', event => report('window-error', {name:String(event.error?.name||''),
+        message:String(event.message||'').slice(0,600), stack:String(event.error?.stack||'').slice(0,2400),
+        filename:String(event.filename||'').slice(0,300), line:event.lineno, column:event.colno, defaultPrevented:event.defaultPrevented}));
+      addEventListener('unhandledrejection', event => report('unhandledrejection', {name:String(event.reason?.name||''),
+        message:String(event.reason?.message||event.reason||'').slice(0,600), stack:String(event.reason?.stack||'').slice(0,2400), defaultPrevented:event.defaultPrevented}));
+      for (const name of ['beforeunload','pagehide','pageshow']) addEventListener(name, () => report(name));
+      document.addEventListener('click', event => {
+        const id = event.target.closest?.('button')?.id;
+        if (id === 'syncAccountNowBtn' || id === 'signOutAccountBtn' || event.target.closest?.('button')?.textContent === 'Copy sync diagnostic')
+          report('native-click', {target:id||'copy-diagnostic'});
+      }, true);
+      // Called only inside the already-existing setup evaluation; no new wait.
+      globalThis.qaManifestSetupSnapshot = fields => report('setup-owner-snapshot', fields);
+    });
     await context.addInitScript(traceResources => {
       if ('serviceWorker' in navigator) Object.defineProperty(navigator.serviceWorker, 'ready', {
         configurable: true, value: Promise.resolve({ pushManager: { getSubscription: async () => null } }) });
@@ -165,6 +214,7 @@ const server = http.createServer((req, res) => {
       const request = route.request(), u = new URL(request.url());
       let requestContext;if(traceApiStale){try{requestContext=request.frame().page()===page?'A':'B';}catch{requestContext='unavailable';}}
       if(traceApiStale&&u.pathname==='/api/fixtures')traceResource('route-fixtures-start',{context:requestContext,path:u.pathname,origin:u.origin,allowed:origins.has(u.origin)});
+      if (diagnosticTrace && u.pathname === manifestPath) traceManifest('route', {origin:u.origin, path:u.pathname, allowed:origins.has(u.origin)});
       if (!origins.has(u.origin)) { blocked.push(u.origin); return route.abort('blockedbyclient'); }
       if(holdHelper&&u.pathname==='/assets/js/account-awareness-runtime.js'){heldHelpers.push(route);helperHeld();return;}
       if (!u.pathname.startsWith('/api/')){
@@ -219,6 +269,29 @@ const server = http.createServer((req, res) => {
     };
     await context.route('**/*', routeHandler);
     page = await context.newPage();
+    if (diagnosticTrace) {
+      const requests = new WeakMap();
+      const identify = request => {
+        const u = new URL(request.url());
+        if (u.pathname !== manifestPath) return null;
+        if (!requests.has(request)) requests.set(request, {id:'browser-'+(++manifestSequence), origin:u.origin,
+          path:u.pathname, startedEpoch:manifestEpoch, frameUrl:resourceFrameUrl(request)});
+        return requests.get(request);
+      };
+      page.on('request', request => {const item=identify(request); if(item)traceManifest('browser-request',item);});
+      page.on('response', response => {const item=identify(response.request()); if(item){const h=response.headers();
+        traceManifest('browser-response',{...item,status:response.status(),redirect:h.location||null,allowOrigin:h['access-control-allow-origin']||null,contentType:h['content-type']||null});}});
+      page.on('requestfinished', request => {const item=identify(request);if(item)traceManifest('browser-finished',item);});
+      page.on('requestfailed', request => {const item=identify(request);if(item)traceManifest('browser-failed',{...item,failure:String(request.failure()?.errorText||'').slice(0,600)});});
+      page.on('framenavigated', frame => {if(frame===page.mainFrame()){manifestEpoch++;traceManifest('navigation',{url:frame.url()});}});
+      page.on('domcontentloaded', () => traceManifest('domcontentloaded'));
+      page.on('pageerror', error => traceManifest('pageerror',{message:error.message.slice(0,600),stack:String(error.stack||'').slice(0,2400)}));
+      page.on('console', message => {
+        const value=message.text(),marker='[qa-diagnostic-manifest]';
+        if(value.startsWith(marker)){try{traceManifest('document-event',JSON.parse(value.slice(marker.length)));}catch{traceManifest('decode-error');}}
+        else if(message.type()==='error') traceManifest('console-error',{message:value.slice(0,600),location:message.location()});
+      });
+    }
     const tracedRequests=new Map(),terminalScheduleRequests=new Set(),failedScheduleRequests=new Map(),fixtureTerminals=new Map();
     const trackRequest=request=>{
       const u=new URL(request.url());if((!traceResources&&!legacyFixtureCase)||!tracedResourcePath(u.pathname))return null;
@@ -299,6 +372,7 @@ const server = http.createServer((req, res) => {
       })(),'existing fixture owner and terminal completion');
     }
     page.setDefaultTimeout(15000);
+    manifestPhase='initial-goto';
     await page.goto(url, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => typeof userPreferences !== 'undefined' && !startupCoordinator.isHydrating());
     if(helperRaceProbe)await page.waitForFunction(()=>typeof qaReleaseStartupSetup==='function');
@@ -312,6 +386,7 @@ const server = http.createServer((req, res) => {
       }
       savePreferences(p); writeStorage(STORAGE_KEYS.selectorReleaseAcknowledgement, SELECTOR_TAXONOMY.version);
       closeSelectorOptInPrompt();
+      globalThis.qaManifestSetupSnapshot?.({sharedLoaderPresent:codeInspectorManifestLoading!==null,manifestLoaded:Boolean(codeInspectorManifest)});
       return { ...currentServerStatePayload(), updatedAt: '2026-10-23T01:00:00Z' };
     }, Boolean(actualApi));
     if(helperRaceProbe){
@@ -344,8 +419,10 @@ const server = http.createServer((req, res) => {
     }
     if (actualApi) { actualApi.seed(row); row = actualApi.state(); }
     holdHelper=helperRaceProbe;
+    manifestPhase='setup-before-controlled-reload';
     traceApiBoundary('setup-before-controlled-reload');
     await page.reload({ waitUntil: 'domcontentloaded' });
+    manifestPhase='setup-after-controlled-reload';
     if(traceApiStale)resourcePhase='setup-after-controlled-reload';
     await page.waitForFunction(() => !startupCoordinator.isHydrating());
     await page.locator('#startupLaunch').waitFor({ state: 'hidden' });
@@ -387,6 +464,7 @@ const server = http.createServer((req, res) => {
       console.log(JSON.stringify({phase:'held-helper-form-retention',scenario,engine:engineName,retained}));
       assert.deepEqual(retained,{sameForm:true,passwordFocused:true,emailValid:true,passwordValid:true},'helper mount must retain the actual filled form and focus');
     }
+    manifestPhase='native-sign-in';
     await page.locator('#accountSignInForm button[type="submit"]').click();
     if(helperRaceProbe){
       const trace=await page.evaluate(()=>qaSignInTrace);
@@ -739,15 +817,18 @@ const server = http.createServer((req, res) => {
     } else if (scenario === 'helper-mount') {
       assert.equal(authSignIns,1,'exactly one native password-sign-in request follows the original form submit');
     } else if (scenario === 'diagnostic') {
+      manifestPhase='diagnostic-setup';
       await page.evaluate(() => {
         globalThis.qaDiagnosticCopies=[];
         Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async value=>qaDiagnosticCopies.push(value)}});
       });
       readMode='failure';
+      manifestPhase='manual-sync-failure';
       await page.locator('#syncAccountNowBtn').click();
       await page.waitForFunction(() => serverPersistence.state==='error');
       assert.equal(await page.locator('#accountSyncDetail').innerText(),'Sync could not be confirmed. Try Sync now.');
       assert.equal(await page.evaluate(() => qaDiagnosticCopies.length),0);
+      manifestPhase='copy-diagnostic';
       const copy=page.getByRole('button',{name:'Copy sync diagnostic',exact:true});
       await copy.click();
       const copied=await page.evaluate(() => qaDiagnosticCopies);
@@ -756,6 +837,7 @@ const server = http.createServer((req, res) => {
       assert.equal(detail.shellVersion,testedShellVersion);
       assert(!copied[0].includes(owner));assert(!copied[0].includes('disposable'));
       assert.equal(detail.ownerMatches,null,'a failed read has no verified response owner');
+      manifestPhase='native-sign-out';
       await page.locator('#signOutAccountBtn').click();
       await page.waitForFunction(() => serverPersistence.state==='signedOut');
       assert.equal(await page.getByRole('button',{name:'Copy sync diagnostic',exact:true}).count(),0);
@@ -967,6 +1049,7 @@ const server = http.createServer((req, res) => {
       if(failure!==undefined)assert.match(failure,/cancel|abort/i,'browser failure, when emitted, must describe cancellation');
       traceResource('control-browser-failure-observation',{emitted:failure!==undefined,failure:failure??null});
     }
+    manifestPhase='final-assertion';
     resourcePhase='final-assertion';
     if(traceResources){console.log(JSON.stringify({phase:'schedule-resource-lifetime',scenario,engine:engineName,cancellationControl:cancelControl,fixtureControl,fixtureControlOriginalPending,resourceTraceDropped,
       blockedOrigins:[...new Set(blocked)],uncaughtErrors:errors,trace:resourceTrace}));resourceTraceReported=true;}
@@ -976,6 +1059,10 @@ const server = http.createServer((req, res) => {
     console.log(JSON.stringify({ scenario, engine: engineName, passed: true, reads, writes, refreshes, authSignIns, statuses,
       blockedOrigins: [...new Set(blocked)], limits: 'Loopback mocked transport; no hosted or physical iPhone proof' }));
   } finally {
+    if (diagnosticTrace) console.log(JSON.stringify({phase:'diagnostic-manifest-before-cleanup',scenario,engine:engineName,
+      shellVersion:testedShellVersion,truncated:manifestDropped>0,dropped:manifestDropped,trace:manifestTrace,
+      limits:'Passive instrumentation can perturb timing; HTTP terminal is not application promise settlement; identical browser/HTTP requests may have ambiguous joins'}));
+    manifestPhase='cleanup';
     // Preserve intermediate failure evidence before response/browser cleanup can
     // create terminal events. This observation does not handle the test failure.
     if(traceResources&&!resourceTraceReported)console.log(JSON.stringify({phase:'schedule-resource-lifetime-before-cleanup',scenario,engine:engineName,
