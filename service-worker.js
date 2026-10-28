@@ -4,6 +4,8 @@ const SHELL_VERSION = "597";
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
 const APP_SHELL = [
+  "/assets/brand/web/nothingsport-logomark.svg",
+  "/icons/nothingsport-favicon.svg",
   "/assets/styles/racing-details.css?v=527",
   "/config/racing-details.js?v=539",
   "/config/participant-directory.js?v=512",
@@ -17,7 +19,6 @@ const APP_SHELL = [
   "/assets/identities/wrc/routes/sardegna-lerno-2026.svg",
   "/assets/identities/wrc/helmet-white.svg",
   "/assets/identities/sailgp/sailing-white.svg",
-  "/assets/icons/flaticon/meaicon-steak.png",
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=552",

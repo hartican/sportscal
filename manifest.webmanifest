@@ -6,8 +6,8 @@
   "id": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#0a0a0f",
-  "theme_color": "#0a0a0f",
+  "background_color": "#0C1010",
+  "theme_color": "#0C1010",
   "icons": [
     {
       "src": "/icons/nothingsport-app-192.png",

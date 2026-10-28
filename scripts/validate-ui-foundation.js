@@ -15,7 +15,7 @@ pages.forEach(page => {
   assert(source.includes(`href="${stylesheet}"`), `${page} must use the shared Nothing Sport UI foundation`);
 });
 
-["--ns-accent:#ff4778", "--ns-touch-target:44px", "--ns-radius-control:12px", "--ns-radius-card:18px"].forEach(token => {
+["--ns-accent:#FB3D6C", "--ns-touch-target:44px", "--ns-radius-control:12px", "--ns-radius-card:18px"].forEach(token => {
   assert(foundation.includes(token), `shared UI token ${token} must remain explicit`);
 });
 assert(foundation.includes("prefers-reduced-motion:reduce"), "the shared foundation must respect reduced-motion preferences");

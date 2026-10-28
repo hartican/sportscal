@@ -1334,3 +1334,8 @@ two animation frames and exercises a later panel mutation after moving to anothe
 team. Both original failures are retained, with native Enter/Back navigation,
 unchanged choices, outside/account/route and continued/last-page checks. No
 sporting facts, Follow membership, save owner, request or timer is added.
+
+
+## Peach navigation presentation — 28 October 2026
+
+The approved redesign uses exactly three persistent main destinations: Feed, Match Centre and Follow. Legacy `#events` routes and restored Events navigation resolve to Match Centre without changing any saved Follow, event-family decision, rating, pin or reminder. The existing nsDEPLOY Events-distribution work owns functional retirement of tournament overview and ticket interfaces; this visual candidate must not introduce a competing redistribution or data migration. Its agreed target is fixtures-only presentation. Existing eligibility and exclusions remain authoritative. Regression: `node scripts/validate-peach-redesign.js`, plus the existing Follow policy and fixture routing checks.
