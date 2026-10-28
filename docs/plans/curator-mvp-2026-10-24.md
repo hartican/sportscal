@@ -184,3 +184,17 @@ The prioritisation floor, urgency buckets, learning cap and editorial review int
 At contract capture, the repository record still describes Public Feed and All Sports View as deferred, with earlier work ahead of them. Therefore this phase may save and propose the queue amendment but must not implement or activate Curator ahead of them. A locally prepared entry or draft pull request is not an acknowledged/merged authoritative queue update.
 
 Update [the delivery record](../cto-delivery-plan.md), [Follow decisions](../follow-decisions.md) and [backend efficiency decisions](../backend-efficiency-decisions.md) alongside their actual affected implementation when the respective phase becomes active. The queue capture alone does not make the future navigation, ranking or manual-add rules effective.
+
+## 28 October 2026 — match cards and continuing multi-day play
+
+Original-owner receipt: the 28 October user clarification was relayed by coordination task `01a167bb-08c3-7015-bb37-cc06b889d029`, reference `Sentinel_3abec71e6ea4819196043057c5c0e0b0`. It supplements the approved 24 October contract; the earlier decision history is retained.
+
+> exclude tournament overview cards. Treat multi-day events like test cricket cards, where matchplay continues at a known time if the teams stay the same. If teams or players change, and matches change (like tennis), just treat each match as it's own card. Acknowledge that it's part of a tournament or multi-day event, but what really matters is the match in hand, and that's what deserves the dedicated card on Feed.
+
+- No tournament overview cards enter Feed. Tournament/series context belongs on each match card; discovery and overview access remain under Follow → Major Events/Schedule.
+- One continuing match, such as a Test, retains its own canonical card across days. Show its next session/resumption time only when known from qualified source evidence; otherwise preserve unknown timing. An overnight break does not create a new match card.
+- Distinct matches retain distinct cards, including within the same tournament and even when the participants repeat. Identical teams or players alone never justify merging fixture identities. Source-confirmed continuation of the same match, rather than participant equality, determines continuity.
+- Preserve settled navigation removal, Schedule-only manual Add to Feed, follows, exclusions, saved actions, legacy routes and source identities. Curator's related-fixture selection cap does not merge or delete separate Feed cards.
+- Add acceptance cases for one Test continuing over several days, known versus unknown next-session times, separate tennis matches within a tournament, and separate fixtures with identical participants.
+
+Documentation only. The active phone-sync incident retains priority. Curator stays after all existing predecessors, including Public Feed and All Sports View, with no ETA. No runtime work, new owner, main merge or deployment is authorised by this clarification.
