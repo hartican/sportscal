@@ -10,6 +10,8 @@ function fixture(label,options={}){
  let newer=null;
  return {
   acceptRemote:options.acceptRemote!==false,
+  skipEvent:Boolean(options.skipEvent),
+  allowGraphTimestamp:Boolean(options.expectedTennis),
   seed(seed){delete seed.preferences.tennis;options.seed?.(seed);},
   intent(next){options.intent?.(next);},
   afterWrite({c,storage,base}){
@@ -26,6 +28,7 @@ function fixture(label,options={}){
    remote.preferences.tennis=defaults;options.remote?.(remote,context);
   },
   patch(patch){
+   if(options.expectedTennis)console.log(JSON.stringify({kind:label,preferencePaths:patch.changes.filter(change=>change.path[0]==='preferences').map(change=>change.path.join('.'))}));
    assert(patch.changes.every(change=>change.path[0]!=='preferences'||(change.path.length>1&&change.path[1]!=='tennis')),
     'never write tennis or replace its preferences parent');
   },
@@ -62,7 +65,7 @@ function fixture(label,options={}){
    }else{
     assert.equal(caught,undefined,label);assert.equal(diagnostic.completed,true);assert.equal(c.pendingPreferenceIntent('A'),null);
     assert.deepEqual(api.state().preferences.tennis,options.expectedTennis||defaultTennis);
-    if(options.kind==='already-applied-known')assert.equal(calls.writes,0,'new remote-only tennis value needs no save');
+    if(options.expectedTennis)assert.equal(calls.writes,1,'only existing recorded independent fields may be saved');
     assert.deepEqual(api.state().preferences.followFirst,remote.preferences.followFirst,'no event consent invented');
     assert.deepEqual(api.state().preferences.preferenceGraph.entityFollows,beforeRemote.preferences.preferenceGraph.entityFollows,'no entity consent invented');
     assert.equal(api.state().preferences.preferenceGraph.domainPreferences.length,1,'only pre-existing domain');
@@ -114,8 +117,8 @@ module.exports=async function tennisDefaultTests(){
    const next=clone(c.userPreferences);next.tennis.round='final';assert(c.savePreferences(next,{deferFollowEffects:true}));
    assert.deepEqual(clone(c.pendingPreferenceIntent('A')),receipt,'ordinary current edit leaves pending receipt intact');
   }}],
-  ['base-owned-remote-only',{kind:'already-applied-known',seed:s=>{s.preferences.tennis=clone(defaultTennis);},
-   remote:s=>{s.preferences.tennis.round='final';},expectedTennis:{...defaultTennis,round:'final'}}],
+  ['base-owned-remote-only',{acceptRemote:false,skipEvent:true,seed:s=>{s.preferences.tennis=clone(defaultTennis);},
+   remote:(s,{receipt})=>{s.preferences=clone(receipt.preferences);s.preferences.tennis.round='final';},expectedTennis:{...defaultTennis,round:'final'}}],
   ['cas-tennis',{held:true,cas:true,beforeSync:({api})=>api.raceOnce(()=>api.mutate(s=>{s.preferences.tennis.round='final';}))}],
  ];
  const results=[];

@@ -83,7 +83,7 @@ async function runCase(kind,fixture=null){
  assert.equal(c.pendingPreferenceIntent('A'),null,'actual view-only writer does not invent a receipt');
  const event={id:'major-event:australian-open-2027',key:'tennis',majorEventId:'major-event:australian-open-2027',date:'2027-01-17'};
  if(kind==='R2-family'){c.toggleMajorEventFollow('commonwealth-games');assert.equal(c.userPreferences.followFirst.eventFamilyDecisions.states['commonwealth-games'],'followed');}
- else if(kind!=='scope-only')c.buildEventEditionToggle(event).onclick({stopPropagation(){}});
+ else if(kind!=='scope-only'&&!fixture?.skipEvent)c.buildEventEditionToggle(event).onclick({stopPropagation(){}});
  const next=clone(c.userPreferences);next.preferenceGraph=systems.quickAddDomain(next.preferenceGraph,'sport:football','template:casual');
  if(kind==='constructed-opaque-root')next.futureScopePolicy={decision:'keep'};
  if(kind==='intent-invalid')next.eventsScope={invalid:true};
@@ -168,7 +168,9 @@ async function runCase(kind,fixture=null){
   const ordinaryR2=kind==='R2-domain'&&calls.writes===2;
   try{assert(kind==='base-compatible-known'||patch.changes.filter(change=>change.path[0]==='preferences').every(change=>
    change.path[1]==='preferenceGraph'&&change.path[2]==='domainPreferences'
-   ||ordinaryR2&&change.path.length===2&&change.path[1]==='feedCompact'),
+   ||ordinaryR2&&change.path.length===2&&change.path[1]==='feedCompact'
+   ||fixture?.allowGraphTimestamp&&change.path.length===3&&change.path[1]==='preferenceGraph'&&change.path[2]==='updatedAt'
+     &&change.value===receipt.preferences.preferenceGraph.updatedAt),
   'scoped saves are domain-only; the proven later compatible-base R2 path adds only compact view, never scope/event/opaque data');}
   catch(error){if(kind==='R2-scope'||kind==='R2-family')console.log(JSON.stringify({kind:kind==='R2-family'?'r2-family-nested-error':'r2-scope-nested-error',code:error.code,name:error.name,operator:error.operator}));throw error;}
   const result=await api.handle({method:'PUT',url:'/api/user-state',headers:{},body:{patch}});
