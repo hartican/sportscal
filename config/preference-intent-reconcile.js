@@ -54,6 +54,16 @@
     return true;
   }
 
+  function excludeAgreedTennisDefault(values,outside){
+    // Historical absence only: recognize the existing normalizer's exact default,
+    // never an arbitrary agreed object or permission to create a remote value.
+    const defaults={enthusiasm:'froth',gender:'both',eventType:'both',round:'all'};
+    if(Object.hasOwn(values[0],'tennis')||!values.slice(1).every(value=>
+      Object.hasOwn(value,'tennis')&&same(value.tennis,defaults)))return false;
+    for(const value of outside)delete value.tennis;
+    return true;
+  }
+
   function excludeAgreedEventDecisions(values,outside,follow){
     const fields=eventDecisionFields;
     const first=values.map(value=>value.followFirst);
@@ -163,6 +173,7 @@
       });
       const agreedEvents=excludeAgreedEventDecisions(values,outside,follow);
       const agreedScope=excludeAgreedEventsScope(values,outside);
+      const agreedTennis=excludeAgreedTennisDefault(values,outside);
       if(!profile.preferenceBaseMatches({basePreferences:outside[0]},outside[1]))return refuse(21/*outside_supported_scope_changed*/,'intent',5);
       if(!profile.preferenceBaseMatches({basePreferences:outside[0]},outside[2]))return refuse(21/*outside_supported_scope_changed*/,'remote',5);
       const preferences=clone(state.preferences),graphs=values.map(value=>value.preferenceGraph);
@@ -170,12 +181,13 @@
       preferences.preferenceGraph.domainPreferences=mergeRecords(...graphs.map(graph=>graph.domainPreferences),'sportDomainId',domainFields,value=>value,observe);
       // Remote view values stay on the server; applyServerState retains this device's views.
       const witness={...clone(receipt),baseUpdatedAt:state.updatedAt,basePreferences:clone(state.preferences),preferences};
-      if(agreedEvents||agreedScope)witness.acceptsAcknowledgement=value=>object(value)
+      if(agreedEvents||agreedScope||agreedTennis)witness.acceptsAcknowledgement=value=>object(value)
         &&(!agreedEvents||(object(value.followFirst)&&agreedEvents.every(key=>
           Object.hasOwn(witness.basePreferences.followFirst,key)===Object.hasOwn(value.followFirst,key)
           &&same(witness.basePreferences.followFirst[key],value.followFirst[key]))))
         &&(!agreedScope||(Object.hasOwn(value,'eventsScope')===Object.hasOwn(witness.basePreferences,'eventsScope')
-          &&same(value.eventsScope,witness.basePreferences.eventsScope)));
+          &&same(value.eventsScope,witness.basePreferences.eventsScope)))
+        &&(!agreedTennis||(Object.hasOwn(value,'tennis')&&same(value.tennis,witness.basePreferences.tennis)));
       // An older ACK can carry R2 forward only from the exact recorded R1
       // intent, using this same conflict policy against the acknowledged state.
       witness.originalReceipt=clone(receipt);
@@ -228,7 +240,10 @@
     try{
       if(state&&PROFILE_STORAGE.preferenceBaseMatches(receipt,state.preferences)){emit(observe,2/*compatibility*/,38/*compatible_base*/,null,null,'compatible');return null;}
       compatibleIntent=Boolean(state&&PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC));
-      if(compatibleIntent)knownAgreement=knownDecisionsAgree(receipt.preferences,state.preferences);
+      if(compatibleIntent)knownAgreement=knownDecisionsAgree(receipt.preferences,state.preferences)
+        &&(Object.hasOwn(receipt.basePreferences,'tennis')
+          ||(Object.hasOwn(receipt.preferences,'tennis')===Object.hasOwn(state.preferences,'tennis')
+            &&same(receipt.preferences.tennis,state.preferences.tennis)));
     }catch(error){emit(observe,2/*compatibility*/,52/*comparison_exception*/,null,null,'exception');throw error;}
     if(compatibleIntent){
       if(!knownAgreement){
