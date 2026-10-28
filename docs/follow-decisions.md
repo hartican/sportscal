@@ -1,5 +1,28 @@
 # Follow and Feed decisions
 
+## Generic Cricket team and tour follows reach Feed — 27 October 2026
+
+A generic team Follow from a profile means all currently supported formats for
+that team, using the existing absence of `cricketFormats`. Only a control in an
+explicitly format-filtered directory writes that format. Its intent is captured
+when the control is built; a different browsing filter cannot change its click.
+Do not reinterpret or broaden saved Tests-only, empty, Unfollow or other
+deliberate format records. Browsing and automatic hydration grant no consent.
+
+Following a Cricket tour edition admits its exact published child fixtures.
+Bind the existing `editionId` through the overview's explicit `fixtureIds` with
+matching sporting context; unknown/ambiguous membership cannot be guessed from
+competition, year or name. The exact published manifest edition list may load
+the existing schedule without enabling the sport or sibling tours. Restore the
+same verified link when reading older source rows without that metadata.
+
+Keep existing edition/participant precedence, exact child choices, competition
+exclusions, supported coverage/gender boundaries and manual fixture actions.
+No account schema, preference migration, historical widening, source clock,
+provider or sync-policy change is authorised. The existing required Follow
+decision gate includes the actual-route regression. See the
+[source contract and acceptance](quality/cricket-follow-admission-2026-10-27.md).
+
 ## Optional standings presentation keeps its existing owner — 26 October 2026
 
 The approved download-budget repair moves only standings-exclusive helpers and
@@ -1269,6 +1292,12 @@ Avatar and handle are separate accessible controls. Handle opens existing Accoun
 When a pending owned receipt and the fresh account read already agree exactly on the existing major-event family/edition decisions, those decisions may stop blocking an independent entity/domain reconciliation. Validate their present fields against the existing canonical Follow migration without applying its defaults or output. Keep the fresh remote event values unchanged; the outgoing preference patch remains restricted to the existing entity/domain plan. This does not merge divergent event choices, reorder lists, erase unknown fields or widen the supported preference scope.
 
 Pin the agreed event values and field presence through the existing matching save acknowledgement with a transient witness. Keep the persisted six-field receipt unchanged until that acknowledgement. Current local edits, absent-versus-empty differences, canonical coercion/defaults, unknown choices, owner/generation changes, conditional-version conflicts and newer-receipt continuation retain their existing holds. Regression: validate-preference-bookkeeping.js (106 real helper/API cases and central witness checks) and validate-account-sync-recovery-browser.js receipt-base-event-agreement through the mounted manual retry. Local Chromium/WebKit evidence is separate from deployment and physical iPhone acceptance.
+
+## 27 October 2026 — already-agreed existing Events view choice
+
+The existing All events / Followed events writer must not block an independent owned entity/domain save when its recorded eventsScope and fresh remote both own the same exact valid enum. Accommodate only an actual difference from an absent or valid base, without coercion, defaulting or writing scope. Keep current-versus-recorded comparison strict and compose exact scope presence/value into the transient ACK proof with the existing event witness. Unchanged legacy scope keeps its prior path; unknown, divergent, malformed, absent intent/remote, ordinary current edits, OFF/empty, conditional retry and newer receipt/lifetime holds remain. This does not change device-view ownership or identify the private iPhone596 unknown field. [Contract, regression and release limits](quality/account-events-scope-sync-2026-10-27.md).
+
+An R2 choice returning to its original base must not bypass this conservative boundary merely because its original delta is empty. Keep ordinary compatible_base first. Before the compatible_intent shortcut, require raw exact recorded-intent/fresh-remote presence/value equality for eventsScope and the four existing event fields, including their known wrapper shape. Mismatch throws the existing guarded hold before save; fallthrough alone cannot override verify's semantic fallback. Preserve current R2/receipt/accepted/remote bytes, exact already-applied/unchanged legacy paths and ordinary exact-base known-choice writes. This is a narrow defensive hold, not a central-comparator/global-unknown rewrite or a claim of lost customer state.
 
 ## 20 October 2026 — hydrate the existing profile independently of fixtures
 

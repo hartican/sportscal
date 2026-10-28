@@ -15,6 +15,8 @@ const testedShellVersion=testedHtml.match(/<meta name="app-shell-version" conten
 assert(testedShellVersion,'exact served source declares its shell version');
 const engineName = process.env.ACCOUNT_RECOVERY_BROWSER || 'chromium';
 const scenario = process.env.ACCOUNT_RECOVERY_CASE || 'retry-error';
+const eventsScopeScenario=scenario==='receipt-base-events-scope';
+const eventAgreementScenario=scenario==='receipt-base-event-agreement'||eventsScopeScenario;
 const helperRaceProbe=process.env.ACCOUNT_RECOVERY_HELPER_RACE==='1'||scenario==='helper-mount';
 const cancelControl=process.env.ACCOUNT_RECOVERY_CANCEL_CONTROL==='1';
 const fixtureControl=process.env.ACCOUNT_RECOVERY_LIVE_FIXTURE_CONTROL||null;
@@ -23,13 +25,38 @@ assert(!cancelControl||scenario==='receipt-base-disjoint','Cancellation control 
 if (scenario === 'all') {
   let failed = false;
   for (const engine of (process.env.ACCOUNT_RECOVERY_BROWSER ? [engineName] : ['chromium', 'webkit'])) {
-    for (const testCase of ['helper-mount', 'diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed', 'receipt-base-disjoint', 'receipt-base-overlap', 'receipt-base-cricket', 'receipt-base-event-agreement']) {
+    for (const testCase of ['helper-mount', 'diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed', 'receipt-base-disjoint', 'receipt-base-overlap', 'receipt-base-cricket', 'receipt-base-event-agreement', 'receipt-base-events-scope']) {
       const result = spawnSync(process.execPath, [__filename], { stdio: 'inherit', env: {
         ...process.env, ACCOUNT_RECOVERY_BROWSER: engine, ACCOUNT_RECOVERY_CASE: testCase } });
       failed ||= result.status !== 0;
     }
   }
   process.exit(failed ? 1 : 0);
+}
+// Opt-in evidence only; all-case execution/order and original gates stay intact.
+const diagnosticTrace = process.env.ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE === '1' && scenario === 'diagnostic';
+const manifestControl = process.env.ACCOUNT_RECOVERY_MANIFEST_CONTROL || '';
+assert(!manifestControl || (manifestControl === 'original' && diagnosticTrace && !process.env.ACCOUNT_RECOVERY_BASELINE),
+  'Manifest control requires diagnostic + trace on current source');
+let heldManifestResponse = null, manifestHeld;
+const manifestRequestHeld = new Promise(resolve => { manifestHeld = resolve; });
+async function observeManifestControl(work, label) {
+  let timer;
+  try { return await Promise.race([work, new Promise((_, reject) => {
+    timer = setTimeout(() => reject(Error(label + ' not observed within8s')), 8000);
+  })]); } finally { clearTimeout(timer); }
+}
+function releaseManifestResponse() {
+  const held = heldManifestResponse;
+  if (held?.release && !held.res.destroyed && !held.res.writableEnded) held.release();
+}
+const manifestPath = '/data/code-inspector/manifest.json';
+const manifestTrace = [], manifestTraceStart = performance.now();
+let manifestPhase = 'initial-startup', manifestEpoch = 0, manifestSequence = 0, manifestDropped = 0, manifestDocumentTruncated = false;
+function traceManifest(event, fields = {}) {
+  if (!diagnosticTrace) return;
+  if (manifestTrace.length >= 256) { manifestDropped++; return; }
+  manifestTrace.push({event, atMs: performance.now()-manifestTraceStart, phase:manifestPhase, epoch:manifestEpoch, ...fields});
 }
 const owner = 'disposable-account-a';
 const token = id => 'e30.' + Buffer.from(JSON.stringify({ sub: id })).toString('base64url') + '.disposable';
@@ -77,6 +104,22 @@ function traceResource(event,fields={}){
 }
 const server = http.createServer((req, res) => {
   const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+  // Reserve at HTTP arrival, not asynchronous file-read completion order.
+  if (manifestControl && pathname === manifestPath && !heldManifestResponse) {
+    let closed;
+    const terminal = new Promise(resolve => { closed = resolve; });
+    const held = heldManifestResponse = {req, res, terminal, requestAborted:false, release:null};
+    req.once('aborted', () => {held.requestAborted=true;});
+    res.once('close', () => closed({req, res, requestAborted:held.requestAborted, finished:res.writableFinished}));
+    traceManifest('control-first-request-reserved');
+  }
+  if (diagnosticTrace && pathname === manifestPath) {
+    const id = 'http-' + (++manifestSequence);
+    traceManifest('http-request', {id, path:pathname, host:req.headers.host, origin:req.headers.origin||null});
+    req.on('aborted', () => traceManifest('http-aborted', {id}));
+    res.on('finish', () => traceManifest('http-finished', {id, status:res.statusCode}));
+    res.on('close', () => traceManifest('http-closed', {id, status:res.statusCode, finished:res.writableFinished}));
+  }
   if(traceResources&&tracedResourcePath(pathname)){
     const id='http-'+(++resourceSequence);
     traceResource('http-request',{id,path:pathname,host:req.headers.host,origin:req.headers.origin||null});
@@ -104,6 +147,15 @@ const server = http.createServer((req, res) => {
     return;
   }
   fs.readFile(file, (error, data) => {
+    if (manifestControl && heldManifestResponse?.req === req) {
+      heldManifestResponse.release = () => {
+        res.writeHead(error ? 404 : 200, {'Content-Type':types[path.extname(file)] || 'application/octet-stream'});
+        res.end(error ? 'Not found' : data);
+      };
+      traceManifest('control-held-before-headers', {fileReadOk:!error, plannedStatus:error?404:200, bytesSent:0});
+      manifestHeld();
+      return;
+    }
     res.writeHead(error ? 404 : 200, { 'Content-Type': types[path.extname(file)] || 'application/octet-stream' });
     if(!error&&cancelControlArmed&&!heldScheduleResponse&&pathname==='/data/follow-schedule/football.json'){
       let closed;
@@ -139,6 +191,39 @@ const server = http.createServer((req, res) => {
     archived_events: row.archivedEvents, ratings: row.ratings, updated_at: row.updatedAt } });
   const errors = [], blocked = [], statuses = [];
   try {
+    if (diagnosticTrace) await context.addInitScript(originalControl => {
+      globalThis.qaManifestOriginalControl = originalControl;
+      const marker = '[qa-diagnostic-manifest]';
+      let count = 0;
+      const report = (event, fields = {}) => {
+        if (count++ > 128) return;
+        try { console.debug(marker + JSON.stringify({event:count===129?'document-truncated':event,
+          timeOrigin:performance.timeOrigin, atMs:performance.now(), document:location.origin+location.pathname, ...fields})); } catch {}
+      };
+      const originalFetch = window.fetch;
+      window.fetch = function(...args) {
+        try {
+          const input = args[0];
+          const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url, document.baseURI);
+          if (url.origin === location.origin && url.pathname === '/data/code-inspector/manifest.json')
+            report('fetch-entry', {url:url.origin+url.pathname, stack:String(new Error().stack||'').slice(0,2400)});
+        } catch {}
+        return Reflect.apply(originalFetch, this, args);
+      };
+      addEventListener('error', event => report('window-error', {name:String(event.error?.name||''),
+        message:String(event.message||'').slice(0,600), stack:String(event.error?.stack||'').slice(0,2400),
+        filename:String(event.filename||'').slice(0,300), line:event.lineno, column:event.colno, defaultPrevented:event.defaultPrevented}));
+      addEventListener('unhandledrejection', event => report('unhandledrejection', {name:String(event.reason?.name||''),
+        message:String(event.reason?.message||event.reason||'').slice(0,600), stack:String(event.reason?.stack||'').slice(0,2400), defaultPrevented:event.defaultPrevented}));
+      for (const name of ['beforeunload','pagehide','pageshow']) addEventListener(name, () => report(name));
+      document.addEventListener('click', event => {
+        const id = event.target.closest?.('button')?.id;
+        if (id === 'syncAccountNowBtn' || id === 'signOutAccountBtn' || event.target.closest?.('button')?.textContent === 'Copy sync diagnostic')
+          report('native-click', {target:id||'copy-diagnostic'});
+      }, true);
+      // Called only inside the already-existing setup evaluation; no new wait.
+      globalThis.qaManifestSetupSnapshot = fields => report('setup-owner-snapshot', fields);
+    }, manifestControl === 'original');
     await context.addInitScript(traceResources => {
       if ('serviceWorker' in navigator) Object.defineProperty(navigator.serviceWorker, 'ready', {
         configurable: true, value: Promise.resolve({ pushManager: { getSubscription: async () => null } }) });
@@ -163,6 +248,7 @@ const server = http.createServer((req, res) => {
       const request = route.request(), u = new URL(request.url());
       let requestContext;if(traceApiStale){try{requestContext=request.frame().page()===page?'A':'B';}catch{requestContext='unavailable';}}
       if(traceApiStale&&u.pathname==='/api/fixtures')traceResource('route-fixtures-start',{context:requestContext,path:u.pathname,origin:u.origin,allowed:origins.has(u.origin)});
+      if (diagnosticTrace && u.pathname === manifestPath) traceManifest('route', {origin:u.origin, path:u.pathname, allowed:origins.has(u.origin)});
       if (!origins.has(u.origin)) { blocked.push(u.origin); return route.abort('blockedbyclient'); }
       if(holdHelper&&u.pathname==='/assets/js/account-awareness-runtime.js'){heldHelpers.push(route);helperHeld();return;}
       if (!u.pathname.startsWith('/api/')){
@@ -217,6 +303,31 @@ const server = http.createServer((req, res) => {
     };
     await context.route('**/*', routeHandler);
     page = await context.newPage();
+    if (diagnosticTrace) {
+      const requests = new WeakMap();
+      const identify = request => {
+        const u = new URL(request.url());
+        if (u.pathname !== manifestPath) return null;
+        if (!requests.has(request)) requests.set(request, {id:'browser-'+(++manifestSequence), origin:u.origin,
+          path:u.pathname, startedEpoch:manifestEpoch, frameUrl:resourceFrameUrl(request)});
+        return requests.get(request);
+      };
+      page.on('request', request => {const item=identify(request); if(item)traceManifest('browser-request',item);});
+      page.on('response', response => {const item=identify(response.request()); if(item){const h=response.headers();
+        traceManifest('browser-response',{...item,status:response.status(),redirect:h.location||null,allowOrigin:h['access-control-allow-origin']||null,contentType:h['content-type']||null});}});
+      page.on('requestfinished', request => {const item=identify(request);if(item)traceManifest('browser-finished',item);});
+      page.on('requestfailed', request => {const item=identify(request);if(item)traceManifest('browser-failed',{...item,failure:String(request.failure()?.errorText||'').slice(0,600)});});
+      page.on('framenavigated', frame => {if(frame===page.mainFrame()){manifestEpoch++;traceManifest('navigation',{url:frame.url()});}});
+      page.on('domcontentloaded', () => traceManifest('domcontentloaded'));
+      page.on('pageerror', error => traceManifest('pageerror',{message:error.message.slice(0,600),stack:String(error.stack||'').slice(0,2400)}));
+      page.on('console', message => {
+        const value=message.text(),marker='[qa-diagnostic-manifest]';
+        if(value.startsWith(marker)){try{const entry=JSON.parse(value.slice(marker.length));
+          if(entry.event==='document-truncated')manifestDocumentTruncated=true;
+          traceManifest('document-event',entry);}catch{traceManifest('decode-error');}}
+        else if(message.type()==='error') traceManifest('console-error',{message:value.slice(0,600),location:message.location()});
+      });
+    }
     const tracedRequests=new Map(),terminalScheduleRequests=new Set(),failedScheduleRequests=new Map(),fixtureTerminals=new Map();
     const trackRequest=request=>{
       const u=new URL(request.url());if((!traceResources&&!legacyFixtureCase)||!tracedResourcePath(u.pathname))return null;
@@ -297,6 +408,7 @@ const server = http.createServer((req, res) => {
       })(),'existing fixture owner and terminal completion');
     }
     page.setDefaultTimeout(15000);
+    manifestPhase='initial-goto';
     await page.goto(url, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => typeof userPreferences !== 'undefined' && !startupCoordinator.isHydrating());
     if(helperRaceProbe)await page.waitForFunction(()=>typeof qaReleaseStartupSetup==='function');
@@ -310,6 +422,11 @@ const server = http.createServer((req, res) => {
       }
       savePreferences(p); writeStorage(STORAGE_KEYS.selectorReleaseAcknowledgement, SELECTOR_TAXONOMY.version);
       closeSelectorOptInPrompt();
+      if (globalThis.qaManifestOriginalControl) globalThis.qaManifestBefore = {
+        choices:JSON.stringify(currentServerStatePayload()), account:serverSyncClient.accountSnapshot().accountId,
+        generation:serverSyncClient.accountSnapshot().generation
+      };
+      globalThis.qaManifestSetupSnapshot?.({sharedLoaderPresent:codeInspectorManifestLoading!==null,manifestLoaded:Boolean(codeInspectorManifest)});
       return { ...currentServerStatePayload(), updatedAt: '2026-10-23T01:00:00Z' };
     }, Boolean(actualApi));
     if(helperRaceProbe){
@@ -342,8 +459,32 @@ const server = http.createServer((req, res) => {
     }
     if (actualApi) { actualApi.seed(row); row = actualApi.state(); }
     holdHelper=helperRaceProbe;
+    manifestPhase='setup-before-controlled-reload';
     traceApiBoundary('setup-before-controlled-reload');
-    await page.reload({ waitUntil: 'domcontentloaded' });
+    if (manifestControl) {
+      const counts = {reads,writes,authSignIns};
+      await observeManifestControl(manifestRequestHeld, 'Natural first manifest request');
+      const held = heldManifestResponse;
+      assert(!held.req.aborted && !held.res.destroyed && !held.res.writableEnded && !held.res.headersSent,
+        'Exact held manifest request/response must remain live before headers');
+      const facts = await page.evaluate(() => ({
+        originalBarrierReady:!startupCoordinator.isHydrating(), sharedLoaderPresent:codeInspectorManifestLoading!==null,
+        choicesUnchanged:qaManifestBefore.choices===JSON.stringify(currentServerStatePayload()),
+        accountUnchanged:qaManifestBefore.account===serverSyncClient.accountSnapshot().accountId,
+        generationUnchanged:qaManifestBefore.generation===serverSyncClient.accountSnapshot().generation
+      }));
+      traceManifest('control-original-barrier', facts);
+      assert.deepEqual(facts, {originalBarrierReady:true,sharedLoaderPresent:true,choicesUnchanged:true,accountUnchanged:true,generationUnchanged:true});
+      assert.deepEqual({reads,writes,authSignIns}, counts, 'No account traffic while awaiting natural startup manifest');
+      const [, terminal] = await observeManifestControl(Promise.all([
+        page.reload({waitUntil:'domcontentloaded'}), held.terminal
+      ]), 'Original reload and exact held manifest close');
+      assert.equal(terminal.req, held.req, 'Closed request is exact held manifest request');
+      assert.equal(terminal.res, held.res, 'Closed response is exact held manifest response');
+      traceManifest('control-held-terminal', {requestAborted:terminal.requestAborted,finished:terminal.finished});
+      assert.equal(terminal.finished, false, 'Original reload must interrupt held response before completion');
+    } else await page.reload({ waitUntil: 'domcontentloaded' });
+    manifestPhase='setup-after-controlled-reload';
     if(traceApiStale)resourcePhase='setup-after-controlled-reload';
     await page.waitForFunction(() => !startupCoordinator.isHydrating());
     await page.locator('#startupLaunch').waitFor({ state: 'hidden' });
@@ -385,6 +526,7 @@ const server = http.createServer((req, res) => {
       console.log(JSON.stringify({phase:'held-helper-form-retention',scenario,engine:engineName,retained}));
       assert.deepEqual(retained,{sameForm:true,passwordFocused:true,emailValid:true,passwordValid:true},'helper mount must retain the actual filled form and focus');
     }
+    manifestPhase='native-sign-in';
     await page.locator('#accountSignInForm button[type="submit"]').click();
     if(helperRaceProbe){
       const trace=await page.evaluate(()=>qaSignInTrace);
@@ -407,6 +549,23 @@ const server = http.createServer((req, res) => {
       setServerPersistence = patch => { qaSyncStates.push(patch.state); return original(patch); };
     });
     if (scenario.startsWith('receipt-base-')) {
+      async function withTuneDismissal(action){
+      const tuneModal=page.locator('#tunePromptModal');
+      await page.addLocatorHandler(tuneModal,async modal=>{
+        const before=await page.evaluate(()=>({preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id)}));
+        assert(await modal.evaluate(element=>{const rect=element.getBoundingClientRect();return document.elementFromPoint(rect.left+4,rect.top+4)===element;}),'native dismiss point must hit the visible Tune backdrop');
+        await modal.click({position:{x:4,y:4}});
+        await modal.waitFor({state:'hidden'});
+        const after=await page.evaluate(before=>({receipt:pendingPreferenceIntent(serverPersistence.user.id),
+          unchanged:PROFILE_STORAGE.preferenceBaseMatches({basePreferences:before.preferences},userPreferences)}),before);
+        assert.equal(after.unchanged,true,'backdrop dismissal cannot change projected choices');
+        assert.deepEqual(after.receipt,before.receipt,'backdrop dismissal cannot change the owned receipt');
+        chronology.push({phase:'native-tune-backdrop-dismissal',choicesUnchanged:true,receiptUnchanged:true});
+        console.log(JSON.stringify({phase:'native-tune-backdrop-dismissal',scenario,engine:engineName,choicesUnchanged:true,receiptUnchanged:true}));
+      },{times:1});
+        try{return await action();}finally{await page.removeLocatorHandler(tuneModal);}
+      }
+
       const participant='team:football:australian-championship:11255',other='team:football:epl:2';
       const settleFixtureWork=async(boundary,readiness)=>{
         resourcePhase=boundary;
@@ -439,6 +598,7 @@ const server = http.createServer((req, res) => {
         if(!savePreferences(p,{deferFollowEffects:true}))throw Error('Baseline fixture rejected');
         clearTimeout(serverSyncTimer);
       },participant);
+      if(eventsScopeScenario)await page.evaluate(()=>{const p=clonePreferences(userPreferences);p.eventsScope='followed';if(!savePreferences(p,{deferFollowEffects:true}))throw Error('Events scope baseline rejected');clearTimeout(serverSyncTimer);});
       resourcePhase='baseline-sync';
       await page.evaluate(()=>syncCurrentServerState());
       if(cancelControl){
@@ -448,7 +608,17 @@ const server = http.createServer((req, res) => {
       }else await settleFixtureWork('baseline-fixtures-settled',true);
       resourcePhase='local-owned-follow-edit';
       const base=clone(actualApi.state());
-      if(scenario==='receipt-base-event-agreement')await page.evaluate(()=>Object.defineProperty(navigator,'onLine',{configurable:true,value:false}));
+      if(eventAgreementScenario)await page.evaluate(()=>Object.defineProperty(navigator,'onLine',{configurable:true,value:false}));
+      if(eventsScopeScenario){
+        // Real served module and native scope click before the deliberate receipt.
+        await withTuneDismissal(async()=>{
+          await page.evaluate(()=>closeSettings());
+          await page.locator('[data-tab="events"]').click();
+          await page.locator('#events-view-tab-overviews').click();
+          await page.getByRole('navigation',{name:'Events scope'}).getByRole('button',{name:'All events',exact:true}).click();
+        });
+        assert.deepEqual(await page.evaluate(()=>({scope:userPreferences.eventsScope,receipt:pendingPreferenceIntent(serverPersistence.user.id)})),{scope:'all',receipt:null},'native scope-only gesture persists no invented intent');
+      }
       const original=await page.evaluate(({participant,cricket,eventAgreement})=>{
         if(eventAgreement){toggleMajorEventFollow('commonwealth-games');clearTimeout(serverSyncTimer);}
         let p=clonePreferences(userPreferences);
@@ -459,9 +629,10 @@ const server = http.createServer((req, res) => {
         if(!savePreferences(p,{deliberate:true,deferFollowEffects:true}))throw Error('Owned local edit rejected');
         clearTimeout(serverSyncTimer);
         return pendingPreferenceIntent(serverPersistence.user.id);
-      },{participant,cricket:scenario==='receipt-base-cricket',eventAgreement:scenario==='receipt-base-event-agreement'});
+      },{participant,cricket:scenario==='receipt-base-cricket',eventAgreement:eventAgreementScenario});
       const remote=clone(base);
-      if(scenario==='receipt-base-event-agreement')for(const key of ['followedMajorEventIds','excludedMajorEventIds','eventFamilyDecisions','eventEditionDecisions'])remote.preferences.followFirst[key]=clone(original.preferences.followFirst[key]);
+      if(eventAgreementScenario)for(const key of ['followedMajorEventIds','excludedMajorEventIds','eventFamilyDecisions','eventEditionDecisions'])remote.preferences.followFirst[key]=clone(original.preferences.followFirst[key]);
+      if(eventsScopeScenario)remote.preferences.eventsScope=original.preferences.eventsScope;
       remote.preferences.followBrowse={sportId:'sport:tennis',section:'teams-players',page:0};
       remote.preferences.preferenceGraph.entityFollows.push({participantId:other,followLevel:'follow'});
       remote.preferences.preferenceGraph.domainPreferences.push(require('../config/preference-system').expandTemplate('remote-B','sport:cricket','template:froth',{enabled:false}));
@@ -472,7 +643,7 @@ const server = http.createServer((req, res) => {
       // recovery only during this explicit mounted manual-retry scenario.
       holdHelper=true;
       await page.addInitScript(()=>Object.defineProperty(navigator,'onLine',{configurable:true,value:false}));
-      if(scenario==='receipt-base-event-agreement'){
+      if(eventAgreementScenario){
         // The real event writer starts ordinary Follow work. Drain its queued
         // directory/idle callback before the existing fixture/reload barrier.
         await page.waitForFunction(()=>!directoryFollowEffectsTimer&&!followFeedRefreshTimer&&!followFeedRefreshInFlight);
@@ -520,26 +691,13 @@ const server = http.createServer((req, res) => {
       // Startup may show Tune 250ms after recording promptedAt, independently
       // of Account button readiness. Handle its visible overlay at action time.
       // Native backdrop dismissal closes it without the Not now preference edit.
-      const tuneModal=page.locator('#tunePromptModal');
-      await page.addLocatorHandler(tuneModal,async modal=>{
-        const before=await page.evaluate(()=>({preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id)}));
-        assert(await modal.evaluate(element=>{const rect=element.getBoundingClientRect();return document.elementFromPoint(rect.left+4,rect.top+4)===element;}),'native dismiss point must hit the visible Tune backdrop');
-        await modal.click({position:{x:4,y:4}});
-        await modal.waitFor({state:'hidden'});
-        const after=await page.evaluate(before=>({receipt:pendingPreferenceIntent(serverPersistence.user.id),
-          unchanged:PROFILE_STORAGE.preferenceBaseMatches({basePreferences:before.preferences},userPreferences)}),before);
-        assert.equal(after.unchanged,true,'backdrop dismissal cannot change projected choices');
-        assert.deepEqual(after.receipt,before.receipt,'backdrop dismissal cannot change the owned receipt');
-        chronology.push({phase:'native-tune-backdrop-dismissal',choicesUnchanged:true,receiptUnchanged:true});
-        console.log(JSON.stringify({phase:'native-tune-backdrop-dismissal',scenario,engine:engineName,choicesUnchanged:true,receiptUnchanged:true}));
-      },{times:1});
-      try{
+      await withTuneDismissal(async()=>{
         await page.evaluate(()=>{Object.defineProperty(navigator,'onLine',{configurable:true,value:true});openSettings({section:'account'});});
         const selectorSkip=page.locator('#skipSelectorOptInBtn');if(await selectorSkip.isVisible())await selectorSkip.click();
         await page.waitForFunction(()=>!document.getElementById('syncAccountNowBtn')?.disabled);
         resourcePhase='manual-sync';
         await page.locator('#syncAccountNowBtn').click();
-      }finally{await page.removeLocatorHandler(tuneModal);}
+      });
       await page.evaluate(()=>serverSyncSequence.catch(()=>{}));
       const after=await page.evaluate(()=>({state:serverPersistence.state,receipt:pendingPreferenceIntent(serverPersistence.user.id),preferences:clonePreferences(userPreferences)}));
       if(scenario==='receipt-base-overlap'){
@@ -550,7 +708,7 @@ const server = http.createServer((req, res) => {
         assert.equal(after.state,'signedIn');assert.equal(after.receipt,null);assert.equal(writes,beforeWrites+1);
         const saved=actualApi.state().preferences;
         for(const preferences of [saved,after.preferences]){
-          assert.equal(preferences.preferenceGraph.entityFollows.find(row=>row.participantId===participant).followLevel,scenario==='receipt-base-event-agreement'?'follow':'unfollow');
+          assert.equal(preferences.preferenceGraph.entityFollows.find(row=>row.participantId===participant).followLevel,eventAgreementScenario?'follow':'unfollow');
           assert(preferences.preferenceGraph.entityFollows.some(row=>row.participantId===other&&row.followLevel==='follow'));
           assert.equal(preferences.preferenceGraph.domainPreferences.find(row=>row.sportDomainId==='sport:football').templateId,'template:casual');
           assert(preferences.preferenceGraph.domainPreferences.some(row=>row.sportDomainId==='sport:cricket'&&row.templateId==='template:froth'));
@@ -559,12 +717,13 @@ const server = http.createServer((req, res) => {
             const cricket=preferences.preferenceGraph.entityFollows.find(row=>row.participantId==='team:cricket:australia');
             assert.equal(cricket.followLevel,'follow');assert.deepEqual(cricket.cricketFormats,['Tests']);
           }
-          if(scenario==='receipt-base-event-agreement')for(const key of ['followedMajorEventIds','excludedMajorEventIds','eventFamilyDecisions','eventEditionDecisions'])assert.deepEqual(preferences.followFirst[key],original.preferences.followFirst[key],'actual event writer decisions remain exact');
+          if(eventAgreementScenario)for(const key of ['followedMajorEventIds','excludedMajorEventIds','eventFamilyDecisions','eventEditionDecisions'])assert.deepEqual(preferences.followFirst[key],original.preferences.followFirst[key],'actual event writer decisions remain exact');
         }
-        if(scenario==='receipt-base-event-agreement'){
+        if(eventAgreementScenario){
           const save=actualApi.calls.filter(call=>call.method==='PUT').at(-1);
           assert(save.changedPaths.filter(path=>path.startsWith('preferences.')).every(path=>path==='preferences.preferenceGraph.domainPreferences'),'native event-agreement retry writes only domain preferences');
         }
+        if(eventsScopeScenario)for(const preferences of [saved,after.preferences])assert.equal(preferences.eventsScope,'all','restart/manual ACK retains exact agreed scope');
         assert.equal(saved.followBrowse.sportId,'sport:tennis');assert.equal(saved.feedCompact,false);
         assert.equal(after.preferences.followBrowse.sportId,'sport:cricket');assert.equal(after.preferences.feedCompact,true);
       }
@@ -720,15 +879,18 @@ const server = http.createServer((req, res) => {
     } else if (scenario === 'helper-mount') {
       assert.equal(authSignIns,1,'exactly one native password-sign-in request follows the original form submit');
     } else if (scenario === 'diagnostic') {
+      manifestPhase='diagnostic-setup';
       await page.evaluate(() => {
         globalThis.qaDiagnosticCopies=[];
         Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async value=>qaDiagnosticCopies.push(value)}});
       });
       readMode='failure';
+      manifestPhase='manual-sync-failure';
       await page.locator('#syncAccountNowBtn').click();
       await page.waitForFunction(() => serverPersistence.state==='error');
       assert.equal(await page.locator('#accountSyncDetail').innerText(),'Sync could not be confirmed. Try Sync now.');
       assert.equal(await page.evaluate(() => qaDiagnosticCopies.length),0);
+      manifestPhase='copy-diagnostic';
       const copy=page.getByRole('button',{name:'Copy sync diagnostic',exact:true});
       await copy.click();
       const copied=await page.evaluate(() => qaDiagnosticCopies);
@@ -737,6 +899,7 @@ const server = http.createServer((req, res) => {
       assert.equal(detail.shellVersion,testedShellVersion);
       assert(!copied[0].includes(owner));assert(!copied[0].includes('disposable'));
       assert.equal(detail.ownerMatches,null,'a failed read has no verified response owner');
+      manifestPhase='native-sign-out';
       await page.locator('#signOutAccountBtn').click();
       await page.waitForFunction(() => serverPersistence.state==='signedOut');
       assert.equal(await page.getByRole('button',{name:'Copy sync diagnostic',exact:true}).count(),0);
@@ -948,6 +1111,7 @@ const server = http.createServer((req, res) => {
       if(failure!==undefined)assert.match(failure,/cancel|abort/i,'browser failure, when emitted, must describe cancellation');
       traceResource('control-browser-failure-observation',{emitted:failure!==undefined,failure:failure??null});
     }
+    manifestPhase='final-assertion';
     resourcePhase='final-assertion';
     if(traceResources){console.log(JSON.stringify({phase:'schedule-resource-lifetime',scenario,engine:engineName,cancellationControl:cancelControl,fixtureControl,fixtureControlOriginalPending,resourceTraceDropped,
       blockedOrigins:[...new Set(blocked)],uncaughtErrors:errors,trace:resourceTrace}));resourceTraceReported=true;}
@@ -957,10 +1121,14 @@ const server = http.createServer((req, res) => {
     console.log(JSON.stringify({ scenario, engine: engineName, passed: true, reads, writes, refreshes, authSignIns, statuses,
       blockedOrigins: [...new Set(blocked)], limits: 'Loopback mocked transport; no hosted or physical iPhone proof' }));
   } finally {
+    if (diagnosticTrace) console.log(JSON.stringify({phase:'diagnostic-manifest-before-cleanup',scenario,engine:engineName,
+      manifestControl,shellVersion:testedShellVersion,truncated:manifestDropped>0||manifestDocumentTruncated,dropped:manifestDropped,documentTruncated:manifestDocumentTruncated,trace:manifestTrace,
+      limits:'Passive instrumentation can perturb timing; HTTP terminal is not application promise settlement; identical browser/HTTP requests may have ambiguous joins'}));
+    manifestPhase='cleanup';
     // Preserve intermediate failure evidence before response/browser cleanup can
     // create terminal events. This observation does not handle the test failure.
     if(traceResources&&!resourceTraceReported)console.log(JSON.stringify({phase:'schedule-resource-lifetime-before-cleanup',scenario,engine:engineName,
       cancellationControl:cancelControl,fixtureControl,fixtureControlOriginalPending,resourceTraceDropped,blockedOrigins:[...new Set(blocked)],uncaughtErrors:errors,trace:resourceTrace}));
-    releaseFixtureResponse();releaseScheduleBody(); await context.close(); await browser.close(); await new Promise(resolve => server.close(resolve));
+    releaseManifestResponse();releaseFixtureResponse();releaseScheduleBody(); await context.close(); await browser.close(); await new Promise(resolve => server.close(resolve));
   }
 })().catch(error => { console.error(error); server.close(); process.exitCode = 1; });

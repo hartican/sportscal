@@ -56,6 +56,7 @@ for(const [date,expected] of [['2026-09-01',true],['2026-08-31',false],['2027-09
 assert(timeline.retainedInActiveTimeline(fixture({date:'2026-08-20',endDate:'2026-09-10'}),now),'ongoing multi-day fixture');
 assert(timeline.retainedInActiveTimeline(fixture({date:'2026-09-28'}),new Date('2026-10-04T14:00:00Z')),'seven local days across daylight saving');
 require('./validate-horse-follow');
+require('./validate-cricket-follow-admission');
 
 // The new independent choices must survive the real state sanitizer and CAS patch.
 const milestonePrefs={followFirst:{notifications:{milestones:{enabled:false,sports:{cricket:{coverage:'off',families:{centuries:false}}}}}}};

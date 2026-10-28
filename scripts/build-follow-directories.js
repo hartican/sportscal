@@ -417,7 +417,9 @@ function main(){
     const refreshed=manifest.sports.filter(sport=>selectedCodes.has(sport.key));
     manifest={...previous,sports:[...previous.sports.filter(sport=>!selectedCodes.has(sport.key)),...refreshed].sort((a,b)=>manifest.sports.findIndex(s=>s.key===a.key)-manifest.sports.findIndex(s=>s.key===b.key))};
   }
-  let changed = writeIfChanged(MANIFEST_PATH, `${JSON.stringify(manifest, null, 2)}\n`, checkOnly);
+  // This manifest is installed with the app shell; omit formatting bytes while
+  // retaining every value, ordering and source timestamp.
+  let changed = writeIfChanged(MANIFEST_PATH, `${JSON.stringify(manifest)}\n`, checkOnly);
   changed = writeIfChanged(path.join(OUTPUT_DIR, "manifest.v1.js"), `globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_MANIFEST = ${JSON.stringify(manifest)};\n`, checkOnly) || changed;
   const manifestByKey = new Map(manifest.sports.map(sport => [sport.key, sport]));
   directorySports.filter(sport=>!selectedCodes.size||selectedCodes.has(sport.key)).forEach(directorySport => {

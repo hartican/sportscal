@@ -21,6 +21,7 @@
     scopedCompetitionIds:strings,scopedTaxonomyNodeIds:strings};
   const entityFields={profileId:text,participantId:text,followLevel:value=>['follow','priority','unfollow','mute'].includes(value),
     cricketFormats:value=>strings(value)&&value.every(format=>['Tests','ODIs','T20Is','BBL'].includes(format))};
+  const eventDecisionFields=['followedMajorEventIds','excludedMajorEventIds','eventFamilyDecisions','eventEditionDecisions'];
 
   function emit(observe,site,reason,side=null,family=null,decision='held',scope={}){
     try{const fact=root.NOTHINGSPORTS_SYNC_DIAGNOSTIC?.guardFact({site,reason,side,family,decision,...scope});if(fact)observe?.(fact);}catch(_error){}
@@ -43,8 +44,18 @@
     const result=clone(preferences);delete result.followBrowse;delete result.feedCompact;return result;
   }
 
+  function excludeAgreedEventsScope(values,outside){
+    const key='eventsScope',owns=value=>Object.hasOwn(value,key),valid=value=>['all','followed'].includes(value[key]);
+    if(!values.slice(1).every(value=>owns(value)&&valid(value))||!same(values[1][key],values[2][key]))return false;
+    if(owns(values[0])&&(!valid(values[0])||same(values[0][key],values[1][key])))return false;
+    // Only the existing view writer's exact, already-agreed enum is accommodated.
+    // The original receipt and fresh remote value remain untouched.
+    for(const value of outside)delete value[key];
+    return true;
+  }
+
   function excludeAgreedEventDecisions(values,outside,follow){
-    const fields=['followedMajorEventIds','excludedMajorEventIds','eventFamilyDecisions','eventEditionDecisions'];
+    const fields=eventDecisionFields;
     const first=values.map(value=>value.followFirst);
     if(!first.every(object))return;
     if(!fields.some(key=>!same(first[0][key],first[1][key])||!same(first[0][key],first[2][key])))return;
@@ -61,6 +72,13 @@
       for(const value of outside)delete value.followFirst[key];
     }
     return fields;
+  }
+
+  function knownDecisionsAgree(intent,remote){
+    const equalField=(first,second,key)=>Object.hasOwn(first,key)===Object.hasOwn(second,key)&&same(first[key],second[key]);
+    if(!object(intent)||!object(remote)||!equalField(intent,remote,'eventsScope'))return false;
+    const first=intent.followFirst,second=remote.followFirst;
+    return same(first,second)||(object(first)&&object(second)&&eventDecisionFields.every(key=>equalField(first,second,key)));
   }
 
   function records(list,key,fields,identity,observe,side){
@@ -144,6 +162,7 @@
         delete result.preferenceGraph.entityFollows;delete result.preferenceGraph.domainPreferences;return result;
       });
       const agreedEvents=excludeAgreedEventDecisions(values,outside,follow);
+      const agreedScope=excludeAgreedEventsScope(values,outside);
       if(!profile.preferenceBaseMatches({basePreferences:outside[0]},outside[1]))return refuse(21/*outside_supported_scope_changed*/,'intent',5);
       if(!profile.preferenceBaseMatches({basePreferences:outside[0]},outside[2]))return refuse(21/*outside_supported_scope_changed*/,'remote',5);
       const preferences=clone(state.preferences),graphs=values.map(value=>value.preferenceGraph);
@@ -151,9 +170,12 @@
       preferences.preferenceGraph.domainPreferences=mergeRecords(...graphs.map(graph=>graph.domainPreferences),'sportDomainId',domainFields,value=>value,observe);
       // Remote view values stay on the server; applyServerState retains this device's views.
       const witness={...clone(receipt),baseUpdatedAt:state.updatedAt,basePreferences:clone(state.preferences),preferences};
-      if(agreedEvents)witness.acceptsAcknowledgement=value=>object(value?.followFirst)&&agreedEvents.every(key=>
-        Object.hasOwn(witness.basePreferences.followFirst,key)===Object.hasOwn(value.followFirst,key)
-        &&same(witness.basePreferences.followFirst[key],value.followFirst[key]));
+      if(agreedEvents||agreedScope)witness.acceptsAcknowledgement=value=>object(value)
+        &&(!agreedEvents||(object(value.followFirst)&&agreedEvents.every(key=>
+          Object.hasOwn(witness.basePreferences.followFirst,key)===Object.hasOwn(value.followFirst,key)
+          &&same(witness.basePreferences.followFirst[key],value.followFirst[key]))))
+        &&(!agreedScope||(Object.hasOwn(value,'eventsScope')===Object.hasOwn(witness.basePreferences,'eventsScope')
+          &&same(value.eventsScope,witness.basePreferences.eventsScope)));
       // An older ACK can carry R2 forward only from the exact recorded R1
       // intent, using this same conflict policy against the acknowledged state.
       witness.originalReceipt=clone(receipt);
@@ -202,10 +224,21 @@
         return hold(7/*current_differs_from_receipt*/,{currentToReceipt});
       }
     }catch(error){emit(observe,2/*compatibility*/,52/*comparison_exception*/,'current',null,'exception');throw error;}
+    let compatibleIntent=false,knownAgreement=false;
     try{
       if(state&&PROFILE_STORAGE.preferenceBaseMatches(receipt,state.preferences)){emit(observe,2/*compatibility*/,38/*compatible_base*/,null,null,'compatible');return null;}
-      if(state&&PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC)){emit(observe,2/*compatibility*/,39/*compatible_intent*/,null,null,'compatible');return null;}
+      compatibleIntent=Boolean(state&&PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC));
+      if(compatibleIntent)knownAgreement=knownDecisionsAgree(receipt.preferences,state.preferences);
     }catch(error){emit(observe,2/*compatibility*/,52/*comparison_exception*/,null,null,'exception');throw error;}
+    if(compatibleIntent){
+      if(!knownAgreement){
+        // A newer choice can return to its original base while an older ACK has
+        // changed the account. An empty original delta is not an agreement.
+        emit(observe,5/*plan_scope*/,21/*outside_supported_scope_changed*/,'remote');
+        throw Object.assign(new Error('Your choices are saved on this device. Sync is paused because the saved account changed.'),{code:'preference_base_changed'});
+      }
+      emit(observe,2/*compatibility*/,39/*compatible_intent*/,null,null,'compatible');return null;
+    }
     return plan(receipt,state,PROFILE_STORAGE,FOLLOW_FIRST,USER_STATE_SYNC,observe);
   }
 

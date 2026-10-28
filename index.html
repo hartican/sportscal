@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="596">
+<meta name="app-shell-version" content="597">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=596" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=597" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2022,7 +2022,7 @@ header.top .header-utilities{display:flex;flex:1;align-items:center;flex-wrap:no
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=596"></script>
+<script src="assets/js/app-shell-runtime.js?v=597"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -3480,7 +3480,7 @@ function renderAccountIndicator(){
 }
 function ensureAccountIndicator(){
   if(accountIndicatorController)return Promise.resolve(accountIndicatorController);
-  accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=596')
+  accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=597')
     .then(()=>NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.mount())
     .catch(()=>{accountIndicatorLoading=null;renderAccountIndicator();return null;});
   return accountIndicatorLoading;
@@ -5789,8 +5789,10 @@ async function loadFollowedScheduleFixtures(preferences = userPreferences){
       if (followedScheduleLoads.has(code.id)) return followedScheduleLoads.get(code.id);
       const read = (async () => {
         const cacheKey = `followed-schedule:v3:${code.id}`;
+        const bindEdition=identity.cricketEditionResolver(code.eventEditions);
         const saved = await disposableStore?.hydrate?.(cacheKey,null);
         if (!followedScheduleFixtures.has(code.id) && Array.isArray(saved?.events)) followedScheduleFixtures.set(code.id,saved.events);
+        if(followedScheduleFixtures.has(code.id))followedScheduleFixtures.set(code.id,followedScheduleFixtures.get(code.id).map(bindEdition));
         let document;
         try {
           document = await fetchJson(code.followSchedulePath || code.chunkPath, {cache:"no-store"});
@@ -5799,7 +5801,7 @@ async function loadFollowedScheduleFixtures(preferences = userPreferences){
           const context=buildFollowEligibilityContext();
           const retainedIds = new Set([...previous,...activeEvents].map(event => String(event.id || event.eventId)));
 
-          const incoming = document.fixtures.filter(fixture => fixture?.id && identity.retainedInActiveTimeline(fixture) && (automaticEventFollowReason(identity.fromSchedule(fixture,code),context) || code.id === 'sport:golf' && retainedIds.has(String(fixture.id)) && fixture.participantsConfirmed === true)).map(fixture => identity.fromSchedule(fixture,code));
+          const incoming = document.fixtures.map(bindEdition).filter(fixture => fixture?.id && identity.retainedInActiveTimeline(fixture) && (automaticEventFollowReason(identity.fromSchedule(fixture,code),context) || code.id === 'sport:golf' && retainedIds.has(String(fixture.id)) && fixture.participantsConfirmed === true)).map(fixture => identity.fromSchedule(fixture,code));
           const events = mergeCanonicalEventPages(incoming,previous).filter(event => eventMeetsDerivedRetention(event));
           followedScheduleFixtures.set(code.id,events);
           disposableStore?.set(cacheKey,{events},{ttlMs:14*86400000});
@@ -12113,24 +12115,24 @@ function syncDirectoryFollowButton(button, participantId){
   button.textContent = followed ? "Following" : "Follow";
 }
 
-function buildDirectoryFollowButton(participantId, { sportKey = "football", leagueId = null, label = "Selection" } = {}){
+function buildDirectoryFollowButton(participantId, { sportKey = "football", leagueId = null, label = "Selection", cricketFormat = null } = {}){
   const button = document.createElement("button");
   button.type = "button";
   button.className = "football-follow-toggle";
   button.setAttribute("aria-label", `Follow ${label}`);
-  if(sportKey.startsWith("cricket"))button.dataset.cricketFormat=directoryFilters(sportKey).cricketFormat;
+  if(sportKey.startsWith("cricket") && cricketFormat)button.dataset.cricketFormat=cricketFormat;
   syncDirectoryFollowButton(button, participantId);
   button.addEventListener("click", () => {
     const nextLevel = button.dataset.followLevel === "follow" ? "unfollow" : "follow";
-    setDirectoryEntityFollow(participantId, nextLevel, { sportKey, leagueId, label });
+    setDirectoryEntityFollow(participantId, nextLevel, { sportKey, leagueId, label, cricketFormat });
     syncDirectoryFollowButton(button, participantId);
   });
   return button;
 }
 
-function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "football", leagueId = null, label = "Selection" } = {}){
+function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "football", leagueId = null, label = "Selection", cricketFormat = null } = {}){
   let next = clonePreferences(userPreferences);
-  if(sportKey.startsWith("cricket"))next=NOTHINGSPORTS_CRICKET_COVERAGE.setFormatFollow(next,participantId,directoryFilters(sportKey).cricketFormat,["follow","priority"].includes(followLevel));
+  if(sportKey.startsWith("cricket") && cricketFormat)next=NOTHINGSPORTS_CRICKET_COVERAGE.setFormatFollow(next,participantId,cricketFormat,["follow","priority"].includes(followLevel));
   else next.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(next.preferenceGraph, participantId, followLevel);
   if(!savePreferences(next,{deferFollowEffects:true,deliberate:true}))return false;
   recordPreferenceChange(["none","unfollow","mute"].includes(followLevel) ? "unfollow" : "follow", participantId.startsWith("team:") ? "team" : "player", { sport: sportKey });
@@ -12265,7 +12267,7 @@ const followStandingsLoading=new Set();
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=596';
+  const url='assets/js/follow-presentation-ui.js?v=597';
   return Promise.all([loadDeferredScript('config/participant-directory.js?v=512'),loadDeferredScript(url)]).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function' || typeof globalThis.renderStandingsContextLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);

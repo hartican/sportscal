@@ -276,6 +276,7 @@ function normalizeFixture(event, codeId, extra = {}){
     ...Object.fromEntries(['tournamentProgress','matchDay','matchDaySourceUrl','numberOfDays','drawId','drawType','sourceLocalDate','mainDraw','eventCode','matchType','drawName','isQualifying','isExhibition','isWarmup','sourceStale','stale','matchupSides'].filter(k=>event[k]!=null).map(k=>[k,event[k]])),
     codeId,
     key,
+    ...(['cricket','cricket-women'].includes(key) && event.editionId ? {editionId:event.editionId} : {}),
     ...(event.competitionId==='competition:australian-championship'?Object.fromEntries(['shootout','sourceWinnerId','sourceMatchInfo','sourceEndTimeUtc','scheduledEndStatus','endTimeBasis','groupId','groupName','sourceUpdatedAt','providerResponseTimestamp','captureReceivedAt','sourceBroadcasters','viewingStatus'].filter(k=>event[k]!=null).map(k=>[k,event[k]])):{}),
     ...(Array.isArray(event.innings)&&event.innings.length?{innings:event.innings}:{}),
     ...Object.fromEntries(["livePlayObservedAt","actualStartTimeUtc","statusCheckedAt","statusSourceName","statusSourceType","scoreCheckedAt","scoreFactObservedAt","statusFactObservedAt","fixtureObservationSchema","sets","format","marqueeClassification","sportDomainId","preferenceDomainId","discoverySportId","sessionType","cardKind"].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
@@ -497,7 +498,8 @@ function codeFixtures(code){
           ? canonicalWrc.events || []
         : [];
   const sourced=fixtureIdentity.mergeOverlays([...crossDisciplineFixtures,...openLiga.events,...(coverage.events || [])],require('../data/discovery/enrichment.v1.json').events).filter(event=>eventMatchesCode(event,code));
-  return require('../lib/fixture-highlights').applyCached(mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced, ...programme, ...golf, ...aLeague,...championship,...retainedDiamonds], code.id, new Set([...canonical,...sourced,...golf,...aLeague,...championship,...retainedDiamonds])).map(enrichFixtureEditorial).map(require('../lib/reviewed-au-viewing').reviewedAuViewing));
+  const fixtures=require('../lib/fixture-highlights').applyCached(mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced, ...programme, ...golf, ...aLeague,...championship,...retainedDiamonds], code.id, new Set([...canonical,...sourced,...golf,...aLeague,...championship,...retainedDiamonds])).map(enrichFixtureEditorial).map(require('../lib/reviewed-au-viewing').reviewedAuViewing));
+  return require('../lib/event-overviews').withCricketEditions(fixtures);
 }
 
 function groupingMode(fixtures){
@@ -628,6 +630,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR,retainedFootballOnly=false,r
     const projectedFixtures=codeFixtures(code),projectedStandings=codeStandings(code);
     const championship=row=>row.competitionId==='competition:australian-championship';
     const fixtures=retainedChunk?[...retainedChunk.fixtures.filter(row=>!championship(row)),...projectedFixtures.filter(championship)]:projectedFixtures;
+    const eventEditions=code.id==='sport:cricket'?require('../lib/event-overviews').build(fixtures).filter(e=>['cricket','cricket-women'].includes(e.sportKey)).map(e=>({id:e.id,key:e.sportKey,gender:e.gender,competitionId:e.competitionId,date:e.date,endDate:e.endDate,fixtureIds:e.fixtureIds})):null;
     const standings=retainedChunk?[...retainedChunk.standings.filter(row=>!championship(row)),...projectedStandings.filter(championship)]:projectedStandings;
     const coverageStatus = fixtures.length === 0
       ? "unavailable"
@@ -656,6 +659,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR,retainedFootballOnly=false,r
       slug: code.slug,
       label: code.name,
       fixtureCount: fixtures.length,
+      ...(eventEditions?{eventEditionIds:eventEditions.map(e=>e.id),eventEditions}:{}),
       ...(fixtures.some(f=>f.calendarNote)?{calendarNoteCount:fixtures.filter(f=>f.calendarNote).length,scheduledFixtureCount:fixtures.filter(f=>!f.calendarNote).length}:{}),
       hasStandings:standings.length > 0,
       ...(code.id==='sport:ice-hockey'?{coverageNote:'NHL and CHL: published match windows and sourced records. CHL knockout dates are programme context until teams and kickoffs are announced; viewing and wider quality checks remain partial.'}:{}),
