@@ -7059,7 +7059,7 @@ async function syncCodeInspectorFromLocation(){
 }
 
 async function syncAppRouteFromLocation(){
-  if(/^#events(?:\/|$)/.test(location.hash)){history.replaceState({matchCentre:true},"","#match-centre");activeTab="match-centre";renderAll();return;}
+  if(/^#events(?:\/|$)/.test(location.hash)){activateTopLevelTab("match-centre",{resetViewport:false});return;}
   const returningToFollow=(location.hash==='#follow/browse'||location.hash==='#follow')&&eventsDeepLinkReturnState?.activeTab==='follow';
   if(location.hash.startsWith('#athletes')||location.hash.startsWith('#follow/profile/')){activeTab='follow';followHomeView='favourites';await loadAthletes();globalThis.NOTHINGSPORTS_ATHLETES_UI?.route();return;}
   if(globalThis.NOTHINGSPORTS_ATHLETES_UI?.route())return;
@@ -11561,7 +11561,7 @@ document.querySelectorAll(".tab-btn[data-tab]").forEach(btn => {
   document.addEventListener('pointerdown',event=>{if(!panel.contains(event.target)&&!button.contains(event.target))closeMore();});
   header.addEventListener('focusin',showHeader);
   narrow.addEventListener('change',resize);resize();
-  window.addEventListener('scroll',()=>{if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{scheduled=false;const y=Math.max(0,scrollY),delta=y-last;last=y;if(Math.abs(delta)<4)return;const pinned=header.contains(document.activeElement)||button.getAttribute('aria-expanded')==='true';header.classList.toggle('is-scroll-hidden',!pinned&&delta>0&&y>header.offsetHeight);syncFeedFilterDockOffset();});},{passive:true});
+  window.addEventListener('scroll',()=>{if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{scheduled=false;const y=Math.max(0,scrollY),delta=y-last;if(y<=header.offsetHeight){last=y;showHeader();return;}if(Math.abs(delta)<4)return;last=y;const pinned=header.contains(document.activeElement)||button.getAttribute('aria-expanded')==='true';header.classList.toggle('is-scroll-hidden',!pinned&&delta>0&&y>header.offsetHeight);syncFeedFilterDockOffset();});},{passive:true});
 })();
 
 document.getElementById("tuneNavBtn")?.addEventListener("click", () => openTuneSheet());

@@ -19,11 +19,31 @@ for(const mode of ['day','night','system'])assert(html.includes('"'+mode+'"'));
 const route=html.match(/async function syncAppRouteFromLocation\(\)\{\n  (if\(\/\^#events[^\n]+)/)?.[1];
 assert(route);
 for(const hash of ['#events','#events/major/us-open','#events/alert/tickets']){
-  const preferences={followed:['kept'],results:false},copy=JSON.stringify(preferences),history=[],renders=[];
-  const context={location:{hash},history:{replaceState:(...args)=>history.push(args)},activeTab:'feed',renderAll:()=>renders.push(true),preferences};
+  const preferences={followed:['kept'],results:false},copy=JSON.stringify(preferences),history=[],renders=[],closed=[];
+  const context={location:{hash,pathname:'/',search:''},activeTab:'follow',activeInspectorCodeId:'competition:qa',calendarBulkController:null,
+    eventsViewTab:'major-events',majorEventsDocument:null,majorEventsLoading:false,syncTopLevelNavigationState(){},renderAll:()=>renders.push(true),preferences};
+  context.window={location:context.location};
+  context.history={replaceState:(...args)=>{history.push(args);context.location.hash=args[2].startsWith('#')?args[2]:'';},pushState:(...args)=>history.push(args)};
+  context.closeCodeInspector=options=>{closed.push(options);context.activeInspectorCodeId=null;};
+  const activate=html.match(/function activateTopLevelTab\([^\n]*\{[\s\S]*?\n\}/)?.[0];assert(activate);
+  vm.runInNewContext(activate,context);
   vm.runInNewContext('(function(){'+route+'})()',context);
-  assert.equal(context.activeTab,'match-centre');assert.equal(history[0][2],'#match-centre');assert.equal(renders.length,1);assert.equal(JSON.stringify(preferences),copy);
+  assert.equal(context.activeTab,'match-centre');assert.equal(history.at(-1)[2],'#match-centre');assert.equal(renders.length,1);assert.equal(JSON.stringify(preferences),copy);
+  assert.equal(context.activeInspectorCodeId,null);assert.equal(closed.length,1);assert.equal(closed[0].render,false);
 }
+// Exercise real scroll/disclosure listeners, including small per-frame movements.
+const navigation=html.match(/\(function initialisePeachNavigation\(\)\{[\s\S]*?\n\}\)\(\);/)?.[0];assert(navigation);
+const classes=new Set(),listeners={},frames=[],attrs={},buttonListeners={},headerListeners={};
+const header={offsetHeight:100,classList:{remove:k=>classes.delete(k),toggle:(k,on)=>on?classes.add(k):classes.delete(k)},contains:()=>false,addEventListener:(k,fn)=>headerListeners[k]=fn};
+const more={setAttribute:(k,v)=>attrs[k]=v,getAttribute:k=>attrs[k],contains:()=>false,focus(){},addEventListener:(k,fn)=>buttonListeners[k]=fn};
+const panel={hidden:false,contains:()=>false,querySelector:()=>({focus(){}}),addEventListener(){}};
+const scrollContext={scrollY:200,matchMedia:()=>({matches:true,addEventListener(){}}),document:{activeElement:null,querySelector:()=>header,getElementById:id=>id==='headerMoreBtn'?more:panel,addEventListener(){}},
+  syncFeedFilterDockOffset(){},window:{addEventListener:(k,fn)=>listeners[k]=fn},requestAnimationFrame:fn=>frames.push(fn)};
+vm.runInNewContext(navigation,scrollContext);
+function scroll(y){scrollContext.scrollY=y;listeners.scroll();frames.shift()();}
+scroll(210);assert(classes.has('is-scroll-hidden'));scroll(208);scroll(206);assert(!classes.has('is-scroll-hidden'),'slow upward motion must accumulate and reveal');
+scroll(220);assert(classes.has('is-scroll-hidden'));scroll(0);assert(!classes.has('is-scroll-hidden'),'the page top must always show the header');
+buttonListeners.click();assert.equal(attrs['aria-expanded'],'true');scroll(240);assert(!classes.has('is-scroll-hidden'),'open More must pin the header');
 const oldKeys=[...require('../config/nothingsport-core-icons.json')];
 for(const key of oldKeys){
   const image=vectors.glyphMarkup(key,{label:key,preferImage:true});
