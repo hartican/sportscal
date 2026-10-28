@@ -180,7 +180,11 @@ async function capturedFirstSelection(){
  assert.equal(JSON.stringify(replay),original,'The exact captured clocks/inputs stay immutable');
 }
 async function selectedStaticFactsRefresh(){
- const now=Date.now(),stamp=new Date(now-1000).toISOString(),id='fixture:tennis:static-refresh';
+ // Keep the fixture, handler and real controller on the same Sydney test day.
+ const RealDate=Date,now=RealDate.parse('2026-10-28T12:00:00+11:00');
+ global.Date=class extends RealDate{constructor(...args){super(...(args.length?args:[now]));}static now(){return now;}};
+ try{
+ const stamp=new Date(now-1000).toISOString(),id='fixture:tennis:static-refresh';
  const initial={id,eventId:id,key:'tennis',name:'Home v Away',competitionName:'Native Masters',tour:'ATP',tournamentLevel:'ATP1000',gender:'men',format:'Singles',matchFormat:'Singles',roundLabel:'Round 1',round:'R1',stage:'Singles',date:model.dayKey(now),startTimeUtc:new Date(now+3600000).toISOString(),status:'upcoming',displayTimeLabel:'Original schedule note',fixtureObservationSchema:'fixture-observations.v1',statusCheckedAt:stamp,scoreCheckedAt:stamp,sourceCheckedAt:stamp,sourceUrl:'https://organiser.example/fixture',homeParticipantId:'home',awayParticipantId:'away',sets:[{home:6,away:4}],games:{home:2,away:1}};
  const cases=[
   ['format',{format:'Doubles'},'live','.fixture-kind',/Men’s Doubles/],
@@ -223,7 +227,28 @@ async function selectedStaticFactsRefresh(){
   for(const key of ['scoreCheckedAt','statusCheckedAt','sourceCheckedAt'])assert.equal(built[0][key],stamp,name+' is a static-only receipt, without advancing '+key);
   if(selector){const node=contents.map(section=>section.querySelector(selector)).find(Boolean);assert(node,name+' mounts the actual shared output');assert.match(node.textContent,expected);assert.notEqual(node.textContent,before,name+' must not leave the previous visible value');}
  }
+ }finally{global.Date=RealDate;}
 }
-async function run(){let failed=false;for(const [name,test] of [['pending module re-entry',reentry],['current owner/failure controls',ownerAndFailure],['public Followed composition versus mutation guard',followedCompositionGuard],['queued Followed hydration generation fence',queuedHydrationFence],['native request invocation/network pairing',requestPairingGuard],['retained live-only degradation',retainedFreshness],['reverse-order alias source winner',reverseAliasBridge],['late selected observation',lateSelectedObservation],['Match Centre Results ON/OFF/strict',matchCentreScores],['selected refresh retains mounted card lifecycle',selectedCardsStayMounted],['captured empty-source first selection retains card',capturedFirstSelection],['selected static facts and unknown shapes refresh',selectedStaticFactsRefresh],['render-error fallback keeps local choice isolated',require('./validate-all-sports-card-fallback')]]){try{await test();console.log('PASS '+name);}catch(error){failed=true;console.error('FAIL '+name+': '+error.message);}}if(failed)throw Error('All Sports review regressions failed');}
+async function todayMidnightBoundary(){
+ const RealDate=Date,now=RealDate.parse('2026-10-28T23:30:00+11:00');
+ global.Date=class extends RealDate{constructor(...args){super(...(args.length?args:[now]));}static now(){return now;}};
+ try{
+  const fixtures=[
+   ['before-midnight','2026-10-28','2026-10-28T23:59:59.999+11:00'],
+   ['at-midnight','2026-10-29','2026-10-29T00:00:00+11:00'],
+   ['next-day','2026-10-29','2026-10-29T00:30:00+11:00']
+  ].map(([suffix,date,startTimeUtc])=>({id:'fixture:tennis:'+suffix,key:'tennis',name:'Home v Away',date,startTimeUtc,status:'upcoming'})),original=JSON.stringify(fixtures);
+  const handler=require('../lib/match-centre-handler').createMatchCentreHandler({enabled:()=>true,published:()=>fixtures,clock:()=>now,snapshotRead:async options=>{assert.equal(options.scope,'global');assert.equal(options.now,now);return {sources:[],stale:false};},request:async()=>{throw Error('Membership must not add a selected score read');}});
+  const response=()=>({setHeader(){},status(code){this.code=code;return this;},json(body){this.body=body;return this;}}),today=response(),rolling=response();
+  await handler({url:'/api/match-centre?view=all-sports&membership=everything&range=today'},today);
+  await handler({url:'/api/match-centre?view=all-sports&membership=everything&range=24'},rolling);
+  assert.equal(today.code,200);assert.equal(rolling.code,200);
+  assert.equal(today.body.window.end,RealDate.parse('2026-10-29T00:00:00+11:00'));
+  assert.deepEqual(today.body.events.map(e=>e.id),['fixture:tennis:before-midnight'],'Today excludes fixtures at midnight and later, even when they are less than an hour away');
+  assert.deepEqual(rolling.body.events.map(e=>e.id),['fixture:tennis:before-midnight','fixture:tennis:at-midnight','fixture:tennis:next-day'],'The separate rolling range can include the same next-day fixtures');
+  assert.equal(JSON.stringify(fixtures),original,'Boundary checks must not change published fixture facts');
+ }finally{global.Date=RealDate;}
+}
+async function run(){let failed=false;for(const [name,test] of [['pending module re-entry',reentry],['current owner/failure controls',ownerAndFailure],['public Followed composition versus mutation guard',followedCompositionGuard],['queued Followed hydration generation fence',queuedHydrationFence],['native request invocation/network pairing',requestPairingGuard],['retained live-only degradation',retainedFreshness],['reverse-order alias source winner',reverseAliasBridge],['late selected observation',lateSelectedObservation],['Match Centre Results ON/OFF/strict',matchCentreScores],['selected refresh retains mounted card lifecycle',selectedCardsStayMounted],['captured empty-source first selection retains card',capturedFirstSelection],['selected static facts and unknown shapes refresh',selectedStaticFactsRefresh],['Today excludes midnight and next-day fixtures',todayMidnightBoundary],['render-error fallback keeps local choice isolated',require('./validate-all-sports-card-fallback')]]){try{await test();console.log('PASS '+name);}catch(error){failed=true;console.error('FAIL '+name+': '+error.message);}}if(failed)throw Error('All Sports review regressions failed');}
 if(require.main===module)run().catch(e=>{console.error(e.message);process.exitCode=1;});
 module.exports=run;
