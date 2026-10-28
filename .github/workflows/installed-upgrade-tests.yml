@@ -138,6 +138,7 @@ jobs:
         env:
           ACCOUNT_RECOVERY_BROWSER: ${{ matrix.browser }}
           ACCOUNT_RECOVERY_CASE: all
+          ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE: '1'
           QA_BROWSER_CHANNEL: chromium
         run: |
           export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"

@@ -8,7 +8,7 @@
     "state": "READY",
     "releaseGitSha": "8849bd09bd8c875a917a9c0852792a1f6bc71d41",
     "origin": "https://nothingsport.app",
-    "checkedAt": "2026-10-27T05:07:32.917Z"
+    "checkedAt": "2026-10-28T08:58:28.802Z"
   },
   "files": {
     "index.html": {
@@ -16,21 +16,21 @@
       "servedSha256": "d8c7b2dabafd050c89093ed1a59b257b571cbb0f4e64bdfcff7ea140c5fe1962",
       "servedBytes": 953271,
       "status": 200,
-      "checkedAt": "2026-10-27T05:07:29.195Z"
+      "checkedAt": "2026-10-28T08:56:56.892Z"
     },
     "service-worker.js": {
       "gitSha256": "a6ddb54c3c61a594b8e429f469ba5a7b669f7a69b7caf042c52cc73bdbd1e542",
       "servedSha256": "a6ddb54c3c61a594b8e429f469ba5a7b669f7a69b7caf042c52cc73bdbd1e542",
       "servedBytes": 28693,
       "status": 200,
-      "checkedAt": "2026-10-27T05:07:29.258Z"
+      "checkedAt": "2026-10-28T08:53:02.082Z"
     },
     "app-version.json": {
       "gitSha256": "d8203afbe319bad3ba813ff41c75734ee9fb4a978a06e57fbe7f9bfd2720f63b",
       "servedSha256": "d8203afbe319bad3ba813ff41c75734ee9fb4a978a06e57fbe7f9bfd2720f63b",
       "servedBytes": 23,
       "status": 200,
-      "checkedAt": "2026-10-27T05:07:29.320Z"
+      "checkedAt": "2026-10-28T08:53:01.915Z"
     }
   }
 }
