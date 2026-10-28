@@ -1334,3 +1334,7 @@ two animation frames and exercises a later panel mutation after moving to anothe
 team. Both original failures are retained, with native Enter/Back navigation,
 unchanged choices, outside/account/route and continued/last-page checks. No
 sporting facts, Follow membership, save owner, request or timer is added.
+
+## Exact already-agreed historical tennis default — 28 October 2026 Sydney
+
+A compiled597 source reproduction shows that the existing normalizer can fill a missing historical tennis root and then block an independent domain save even when that exact default already agrees with the fresh remote. Only original-base absence plus intent/remote ownership of the exact four-key existing default (enthusiasm=froth, gender=both, eventType=both, round=all) may be excluded from temporary outside-scope comparisons. Keep raw remote data; never write/default tennis or create consent. Present/invalid/nondefault/unknown/container/conflicting values still hold; FIFA is excluded. Compose tennis ACK ownership/value with all existing Events/event witnesses, preserve current/R2/CAS/owner fences, and require raw tennis agreement before an absent-base compatible-intent shortcut. Base-owned remote-only choices retain their existing path. No global comparator, receipt schema or apply-owner change. This is a bounded source defect repair, not identification of the physical597 phone's unknown field. See [source contract and limits](quality/account-tennis-default-sync-2026-10-28.md).

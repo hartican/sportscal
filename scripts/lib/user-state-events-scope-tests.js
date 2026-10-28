@@ -18,7 +18,7 @@ function find(container,label){
  if(container.tag==='button'&&container.textContent===label)return container;
  for(const child of container.children||[]){const found=find(child,label);if(found)return found;}
 }
-async function runCase(kind){
+async function runCase(kind,fixture=null){
  const {c,values,storage}=actualContext('assets/js/account-awareness-runtime.js'),api=localApi('A');
  const calls={reads:0,writes:0,catalogueFakeReads:0,renderEffects:0};
  let account='A',generation=0,newReceipt=null;
@@ -69,6 +69,7 @@ async function runCase(kind){
  // then supplies its named defaults; its extra family differences are reported separately.
  if(kind==='constructed-parent-absence')delete seed.preferences.followFirst;
  if(kind==='base-absent'||kind==='intent-missing')delete seed.preferences.eventsScope;
+ fixture?.seed?.(seed);
  api.seed(seed);const base=api.state();c.setServerStateBaseline(base);assert.equal(c.applyServerState(base),true);
  assert.equal(c.pendingPreferenceIntent('A'),null);
  vm.runInContext(fs.readFileSync(path.join(root,'config/event-overviews-ui.js'),'utf8'),c);
@@ -82,13 +83,15 @@ async function runCase(kind){
  assert.equal(c.pendingPreferenceIntent('A'),null,'actual view-only writer does not invent a receipt');
  const event={id:'major-event:australian-open-2027',key:'tennis',majorEventId:'major-event:australian-open-2027',date:'2027-01-17'};
  if(kind==='R2-family'){c.toggleMajorEventFollow('commonwealth-games');assert.equal(c.userPreferences.followFirst.eventFamilyDecisions.states['commonwealth-games'],'followed');}
- else if(kind!=='scope-only')c.buildEventEditionToggle(event).onclick({stopPropagation(){}});
+ else if(kind!=='scope-only'&&!fixture?.skipEvent)c.buildEventEditionToggle(event).onclick({stopPropagation(){}});
  const next=clone(c.userPreferences);next.preferenceGraph=systems.quickAddDomain(next.preferenceGraph,'sport:football','template:casual');
  if(kind==='constructed-opaque-root')next.futureScopePolicy={decision:'keep'};
  if(kind==='intent-invalid')next.eventsScope={invalid:true};
  if(kind==='retained-domain-OFF')next.preferenceGraph.domainPreferences[0].enabled=false;
  if(kind==='domain-empty')next.preferenceGraph.domainPreferences=[];
+ fixture?.intent?.(next);
  assert.equal(c.savePreferences(next,{deliberate:true,deferFollowEffects:true}),true);
+ fixture?.afterWrite?.({c,storage,base});
  const receipt=clone(c.pendingPreferenceIntent('A'));assert(receipt);assert.equal(Object.keys(receipt).length,6);
  assert.deepEqual(receipt.preferences.eventsScope,c.userPreferences.eventsScope);
  assert(profile.preferenceBaseMatches(receipt,base.preferences),'actual writer retains the accepted base');
@@ -109,14 +112,15 @@ async function runCase(kind){
  if(kind==='scope-divergent')remote.preferences.eventsScope='followed';
  if(kind==='intent-missing')remote.preferences.eventsScope='all';
  if(kind==='domain-conflict')remote.preferences.preferenceGraph.domainPreferences[0]=systems.expandTemplate('remote-A','sport:football','template:froth');
+ fixture?.remote?.(remote,{c,base,receipt});
  const setup=await api.handle({method:'PUT',url:'/api/user-state',headers:{},body:{patch:patches.createPatch(base,remote,{baseUpdatedAt:base.updatedAt})}});
  assert.equal(setup.status,200);assert.deepEqual(api.state().preferences.eventsScope,remote.preferences.eventsScope);
  assert.equal(Object.hasOwn(api.state().preferences,'eventsScope'),Object.hasOwn(remote.preferences,'eventsScope'));
  assert.deepEqual(api.state().preferences.followFirst,remote.preferences.followFirst);
- // Durable receipt reload, not a new bootstrap accepting the latest row: the
- // observed phone says its pending base still equals the accepted app baseline.
+ // Reload the original durable receipt. Fixtures explicitly select whether its
+ // base still matches the accepted baseline; this is not a full app restart.
  c.activeProfileBundle=profile.loadActiveProfile(storage);assert.deepEqual(clone(c.pendingPreferenceIntent('A')),receipt);
- if(kind.startsWith('already-applied-'))c.setServerStateBaseline(api.state());
+ if(kind.startsWith('already-applied-')||fixture?.acceptRemote)c.setServerStateBaseline(api.state());
  if(kind==='current-edit'){
   const ordinary=clone(c.userPreferences);ordinary.eventsScope='followed';
   assert(c.savePreferences(ordinary,{deferFollowEffects:true}));assert.deepEqual(clone(c.pendingPreferenceIntent('A')),receipt);
@@ -124,6 +128,7 @@ async function runCase(kind){
  c.serverSyncClient.loadState=async()=>{calls.reads++;const result=await api.handle({method:'GET',url:'/api/user-state',headers:{}});if(stale&&kind.endsWith('read'))alterLifetime();return {user:result.body.user,state:transport.stateFromDatabaseRow(result.body.state)};};
  c.serverSyncClient.savePatch=async patch=>{
   assert.deepEqual(clone(c.pendingPreferenceIntent('A')),newReceipt||receipt,'no pre-ACK receipt rewrite');
+  fixture?.patch?.(patch);
   calls.writes++;assert.equal(patch.baseUpdatedAt,api.state().updatedAt);
   if(kind.startsWith('R2-')||kind==='base-compatible-known'){
    const paths=patch.changes.filter(change=>change.path[0]==='preferences').map(change=>change.path.join('.')).sort();
@@ -163,7 +168,9 @@ async function runCase(kind){
   const ordinaryR2=kind==='R2-domain'&&calls.writes===2;
   try{assert(kind==='base-compatible-known'||patch.changes.filter(change=>change.path[0]==='preferences').every(change=>
    change.path[1]==='preferenceGraph'&&change.path[2]==='domainPreferences'
-   ||ordinaryR2&&change.path.length===2&&change.path[1]==='feedCompact'),
+   ||ordinaryR2&&change.path.length===2&&change.path[1]==='feedCompact'
+   ||fixture?.allowGraphTimestamp&&change.path.length===3&&change.path[1]==='preferenceGraph'&&change.path[2]==='updatedAt'
+     &&change.value===receipt.preferences.preferenceGraph.updatedAt),
   'scoped saves are domain-only; the proven later compatible-base R2 path adds only compact view, never scope/event/opaque data');}
   catch(error){if(kind==='R2-scope'||kind==='R2-family')console.log(JSON.stringify({kind:kind==='R2-family'?'r2-family-nested-error':'r2-scope-nested-error',code:error.code,name:error.name,operator:error.operator}));throw error;}
   const result=await api.handle({method:'PUT',url:'/api/user-state',headers:{},body:{patch}});
@@ -187,6 +194,7 @@ async function runCase(kind){
   if(kind==='ACK-scope'||kind==='ACK-both')state.preferences.eventsScope='followed';
   if(kind==='ACK-missing-scope')delete state.preferences.eventsScope;
   if(kind==='ACK-event'||kind==='ACK-both')state.preferences.followFirst.eventEditionDecisions.states[c.FOLLOW_FEED_POLICY.editionKey(event)]='excluded';
+  fixture?.ack?.(state,{c,receipt});
   if(stale&&kind.endsWith('ACK'))alterLifetime();
   return {user:result.body.user,state};
  };
@@ -194,6 +202,7 @@ async function runCase(kind){
   if(kind==='cas-scope-drift')state.preferences.eventsScope='followed';
   else state.preferences.preferenceGraph.entityFollows.push({participantId:'team:football:epl:2',followLevel:'follow'});
  }));
+ fixture?.beforeSync?.({c,api,receipt,storage,base});
  const beforeStored=JSON.stringify([...values]),beforeCurrent=clone(c.currentServerStatePayload()),beforeBaseline=clone(c.serverStateBaseline),beforeRemote=api.state();
  let caught;try{await c.syncCurrentServerState({notify:true});}catch(error){caught=error;}
  if(stale){
@@ -229,6 +238,7 @@ async function runCase(kind){
  const controls=node('aside');c.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.appendRetry(controls);
  assert(controls.children[0],'actual Copy sync diagnostic control');await controls.children[0].click();
  const diagnostic=JSON.parse(c.copied),held=['base-invalid','intent-invalid','intent-missing','remote-invalid','remote-missing','scope-divergent','current-edit','constructed-opaque-root','constructed-parent-absence','domain-conflict','cas-scope-drift','ACK-scope','ACK-missing-scope','ACK-event','ACK-both'].includes(kind);
+ if(fixture?.check)return fixture.check({c,api,storage,values,calls,receipt,remote,base,diagnostic,caught,beforeStored,beforeCurrent,beforeBaseline,beforeRemote});
  assert.equal(calls.reads,kind.startsWith('cas-')||kind.startsWith('R2-')?2:1);assert.equal(diagnostic.shellVersion,'596');assert.equal(diagnostic.workerVersion,'596');
  if(held){
   assert.equal(caught?.code,'preference_base_changed');assert.equal(calls.writes,kind==='cas-scope-drift'||kind.startsWith('ACK-')?1:0);
@@ -300,3 +310,5 @@ module.exports=async function eventsScopeTests(){
  console.log('Events scope: '+results.length+' actual source writer/manual queue/API cases passed; generated Account asset remains ROOT-owned and needs rebuilding.');
  return [...results,...knownRootObservations()];
 };
+
+module.exports.runCase=runCase;
