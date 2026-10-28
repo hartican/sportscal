@@ -37,7 +37,7 @@ if (scenario === 'all') {
 const diagnosticTrace = process.env.ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE === '1' && scenario === 'diagnostic';
 const manifestPath = '/data/code-inspector/manifest.json';
 const manifestTrace = [], manifestTraceStart = performance.now();
-let manifestPhase = 'initial-startup', manifestEpoch = 0, manifestSequence = 0, manifestDropped = 0;
+let manifestPhase = 'initial-startup', manifestEpoch = 0, manifestSequence = 0, manifestDropped = 0, manifestDocumentTruncated = false;
 function traceManifest(event, fields = {}) {
   if (!diagnosticTrace) return;
   if (manifestTrace.length >= 256) { manifestDropped++; return; }
@@ -288,7 +288,9 @@ const server = http.createServer((req, res) => {
       page.on('pageerror', error => traceManifest('pageerror',{message:error.message.slice(0,600),stack:String(error.stack||'').slice(0,2400)}));
       page.on('console', message => {
         const value=message.text(),marker='[qa-diagnostic-manifest]';
-        if(value.startsWith(marker)){try{traceManifest('document-event',JSON.parse(value.slice(marker.length)));}catch{traceManifest('decode-error');}}
+        if(value.startsWith(marker)){try{const entry=JSON.parse(value.slice(marker.length));
+          if(entry.event==='document-truncated')manifestDocumentTruncated=true;
+          traceManifest('document-event',entry);}catch{traceManifest('decode-error');}}
         else if(message.type()==='error') traceManifest('console-error',{message:value.slice(0,600),location:message.location()});
       });
     }
@@ -1060,7 +1062,7 @@ const server = http.createServer((req, res) => {
       blockedOrigins: [...new Set(blocked)], limits: 'Loopback mocked transport; no hosted or physical iPhone proof' }));
   } finally {
     if (diagnosticTrace) console.log(JSON.stringify({phase:'diagnostic-manifest-before-cleanup',scenario,engine:engineName,
-      shellVersion:testedShellVersion,truncated:manifestDropped>0,dropped:manifestDropped,trace:manifestTrace,
+      shellVersion:testedShellVersion,truncated:manifestDropped>0||manifestDocumentTruncated,dropped:manifestDropped,documentTruncated:manifestDocumentTruncated,trace:manifestTrace,
       limits:'Passive instrumentation can perturb timing; HTTP terminal is not application promise settlement; identical browser/HTTP requests may have ambiguous joins'}));
     manifestPhase='cleanup';
     // Preserve intermediate failure evidence before response/browser cleanup can
