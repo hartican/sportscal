@@ -35,6 +35,21 @@ if (scenario === 'all') {
 }
 // Opt-in evidence only; all-case execution/order and original gates stay intact.
 const diagnosticTrace = process.env.ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE === '1' && scenario === 'diagnostic';
+const manifestControl = process.env.ACCOUNT_RECOVERY_MANIFEST_CONTROL || '';
+assert(!manifestControl || (manifestControl === 'original' && diagnosticTrace && !process.env.ACCOUNT_RECOVERY_BASELINE),
+  'Manifest control requires diagnostic + trace on current source');
+let heldManifestResponse = null, manifestHeld;
+const manifestRequestHeld = new Promise(resolve => { manifestHeld = resolve; });
+async function observeManifestControl(work, label) {
+  let timer;
+  try { return await Promise.race([work, new Promise((_, reject) => {
+    timer = setTimeout(() => reject(Error(label + ' not observed within8s')), 8000);
+  })]); } finally { clearTimeout(timer); }
+}
+function releaseManifestResponse() {
+  const held = heldManifestResponse;
+  if (held && !held.res.destroyed && !held.res.writableEnded) held.release();
+}
 const manifestPath = '/data/code-inspector/manifest.json';
 const manifestTrace = [], manifestTraceStart = performance.now();
 let manifestPhase = 'initial-startup', manifestEpoch = 0, manifestSequence = 0, manifestDropped = 0, manifestDocumentTruncated = false;
@@ -123,6 +138,19 @@ const server = http.createServer((req, res) => {
     return;
   }
   fs.readFile(file, (error, data) => {
+    if (manifestControl && pathname === manifestPath && !heldManifestResponse) {
+      let closed;
+      const terminal = new Promise(resolve => { closed = resolve; });
+      const held = heldManifestResponse = {req, res, terminal, requestAborted:false, release:() => {
+        res.writeHead(error ? 404 : 200, {'Content-Type':types[path.extname(file)] || 'application/octet-stream'});
+        res.end(error ? 'Not found' : data);
+      }};
+      req.once('aborted', () => {held.requestAborted=true;});
+      res.once('close', () => closed({req, res, requestAborted:held.requestAborted, finished:res.writableFinished}));
+      traceManifest('control-held-before-headers', {fileReadOk:!error, plannedStatus:error?404:200, bytesSent:0});
+      manifestHeld();
+      return;
+    }
     res.writeHead(error ? 404 : 200, { 'Content-Type': types[path.extname(file)] || 'application/octet-stream' });
     if(!error&&cancelControlArmed&&!heldScheduleResponse&&pathname==='/data/follow-schedule/football.json'){
       let closed;
@@ -158,7 +186,8 @@ const server = http.createServer((req, res) => {
     archived_events: row.archivedEvents, ratings: row.ratings, updated_at: row.updatedAt } });
   const errors = [], blocked = [], statuses = [];
   try {
-    if (diagnosticTrace) await context.addInitScript(() => {
+    if (diagnosticTrace) await context.addInitScript(originalControl => {
+      globalThis.qaManifestOriginalControl = originalControl;
       const marker = '[qa-diagnostic-manifest]';
       let count = 0;
       const report = (event, fields = {}) => {
@@ -189,7 +218,7 @@ const server = http.createServer((req, res) => {
       }, true);
       // Called only inside the already-existing setup evaluation; no new wait.
       globalThis.qaManifestSetupSnapshot = fields => report('setup-owner-snapshot', fields);
-    });
+    }, manifestControl === 'original');
     await context.addInitScript(traceResources => {
       if ('serviceWorker' in navigator) Object.defineProperty(navigator.serviceWorker, 'ready', {
         configurable: true, value: Promise.resolve({ pushManager: { getSubscription: async () => null } }) });
@@ -388,6 +417,10 @@ const server = http.createServer((req, res) => {
       }
       savePreferences(p); writeStorage(STORAGE_KEYS.selectorReleaseAcknowledgement, SELECTOR_TAXONOMY.version);
       closeSelectorOptInPrompt();
+      if (globalThis.qaManifestOriginalControl) globalThis.qaManifestBefore = {
+        choices:JSON.stringify(currentServerStatePayload()), account:serverSyncClient.accountSnapshot().accountId,
+        generation:serverSyncClient.accountSnapshot().generation
+      };
       globalThis.qaManifestSetupSnapshot?.({sharedLoaderPresent:codeInspectorManifestLoading!==null,manifestLoaded:Boolean(codeInspectorManifest)});
       return { ...currentServerStatePayload(), updatedAt: '2026-10-23T01:00:00Z' };
     }, Boolean(actualApi));
@@ -423,7 +456,29 @@ const server = http.createServer((req, res) => {
     holdHelper=helperRaceProbe;
     manifestPhase='setup-before-controlled-reload';
     traceApiBoundary('setup-before-controlled-reload');
-    await page.reload({ waitUntil: 'domcontentloaded' });
+    if (manifestControl) {
+      const counts = {reads,writes,authSignIns};
+      await observeManifestControl(manifestRequestHeld, 'Natural first manifest request');
+      const held = heldManifestResponse;
+      assert(!held.req.aborted && !held.res.destroyed && !held.res.writableEnded && !held.res.headersSent,
+        'Exact held manifest request/response must remain live before headers');
+      const facts = await page.evaluate(() => ({
+        originalBarrierReady:!startupCoordinator.isHydrating(), sharedLoaderPresent:codeInspectorManifestLoading!==null,
+        choicesUnchanged:qaManifestBefore.choices===JSON.stringify(currentServerStatePayload()),
+        accountUnchanged:qaManifestBefore.account===serverSyncClient.accountSnapshot().accountId,
+        generationUnchanged:qaManifestBefore.generation===serverSyncClient.accountSnapshot().generation
+      }));
+      traceManifest('control-original-barrier', facts);
+      assert.deepEqual(facts, {originalBarrierReady:true,sharedLoaderPresent:true,choicesUnchanged:true,accountUnchanged:true,generationUnchanged:true});
+      assert.deepEqual({reads,writes,authSignIns}, counts, 'No account traffic while awaiting natural startup manifest');
+      const [, terminal] = await observeManifestControl(Promise.all([
+        page.reload({waitUntil:'domcontentloaded'}), held.terminal
+      ]), 'Original reload and exact held manifest close');
+      assert.equal(terminal.req, held.req, 'Closed request is exact held manifest request');
+      assert.equal(terminal.res, held.res, 'Closed response is exact held manifest response');
+      traceManifest('control-held-terminal', {requestAborted:terminal.requestAborted,finished:terminal.finished});
+      assert.equal(terminal.finished, false, 'Original reload must interrupt held response before completion');
+    } else await page.reload({ waitUntil: 'domcontentloaded' });
     manifestPhase='setup-after-controlled-reload';
     if(traceApiStale)resourcePhase='setup-after-controlled-reload';
     await page.waitForFunction(() => !startupCoordinator.isHydrating());
@@ -1062,13 +1117,13 @@ const server = http.createServer((req, res) => {
       blockedOrigins: [...new Set(blocked)], limits: 'Loopback mocked transport; no hosted or physical iPhone proof' }));
   } finally {
     if (diagnosticTrace) console.log(JSON.stringify({phase:'diagnostic-manifest-before-cleanup',scenario,engine:engineName,
-      shellVersion:testedShellVersion,truncated:manifestDropped>0||manifestDocumentTruncated,dropped:manifestDropped,documentTruncated:manifestDocumentTruncated,trace:manifestTrace,
+      manifestControl,shellVersion:testedShellVersion,truncated:manifestDropped>0||manifestDocumentTruncated,dropped:manifestDropped,documentTruncated:manifestDocumentTruncated,trace:manifestTrace,
       limits:'Passive instrumentation can perturb timing; HTTP terminal is not application promise settlement; identical browser/HTTP requests may have ambiguous joins'}));
     manifestPhase='cleanup';
     // Preserve intermediate failure evidence before response/browser cleanup can
     // create terminal events. This observation does not handle the test failure.
     if(traceResources&&!resourceTraceReported)console.log(JSON.stringify({phase:'schedule-resource-lifetime-before-cleanup',scenario,engine:engineName,
       cancellationControl:cancelControl,fixtureControl,fixtureControlOriginalPending,resourceTraceDropped,blockedOrigins:[...new Set(blocked)],uncaughtErrors:errors,trace:resourceTrace}));
-    releaseFixtureResponse();releaseScheduleBody(); await context.close(); await browser.close(); await new Promise(resolve => server.close(resolve));
+    releaseManifestResponse();releaseFixtureResponse();releaseScheduleBody(); await context.close(); await browser.close(); await new Promise(resolve => server.close(resolve));
   }
 })().catch(error => { console.error(error); server.close(); process.exitCode = 1; });
