@@ -144,6 +144,17 @@ jobs:
           export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
           set -o pipefail
           node scripts/validate-account-sync-recovery-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/account-recovery.log"
+      - name: Observe original readiness barrier with a pending manifest
+        if: matrix.browser == 'webkit'
+        env:
+          ACCOUNT_RECOVERY_BROWSER: webkit
+          ACCOUNT_RECOVERY_CASE: diagnostic
+          ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE: '1'
+          ACCOUNT_RECOVERY_MANIFEST_CONTROL: original
+        run: |
+          export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
+          set -o pipefail
+          node scripts/validate-account-sync-recovery-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/manifest-original-control.log"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
