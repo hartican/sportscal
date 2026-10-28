@@ -34,6 +34,20 @@ assert(Object.keys(catalogue).length>=120);
 for(const [key,body]of Object.entries(catalogue))assert(body&&/<(?:path|circle|ellipse|rect)\b/.test(body),key+' has real artwork');
 assert.equal(catalogue['sport:a-leagues-women'],catalogue['sport:football']);
 assert.notEqual(catalogue['sport:a-leagues-women'],catalogue['sport:cricket']);
+// Execute the actual mounted card control factories and their actual glyph
+// wrapper, rather than accepting source strings that name a nonexistent helper.
+const cardContext={VECTOR_ASSETS:vectors,activeTab:'feed',document:{createElement:tag=>({tag,dataset:{},style:{},children:[],attributes:{},appendChild(child){this.children.push(child);},setAttribute(key,value){this.attributes[key]=value;}})}};
+for(const name of ['glyphMarkup','buildEventCardControls','buildCardDisclosureControl']){
+  const source=html.match(new RegExp('function '+name+'\\([^\\n]*\\{[\\s\\S]*?\\n\\}'))?.[0];
+  assert(source,name+' must retain its actual renderer');vm.runInNewContext(source,cardContext);
+}
+const dismiss=cardContext.buildEventCardControls({name:'Local QA fixture'}).children[0];
+assert.equal(dismiss.attributes['aria-label'],'Dismiss Local QA fixture');assert.match(dismiss.innerHTML,/<img\b/);
+for(const state of ['compact','selected']){
+  const changes=[],button=cardContext.buildCardDisclosureControl('Local QA fixture',state,(...args)=>changes.push(args));
+  assert.match(button.innerHTML,/<img\b/);button.onclick({stopPropagation(){}});
+  assert.equal(changes[0][0],state==='compact'?'selected':'compact');assert.equal(changes[0][1].restoreFocus,true);
+}
 for(const key of ['social:instagram','social:x','social:linkedin'])assert.equal(vectors.openUse[key].library,'Simple Icons');
 function luminance(hex){const rgb=hex.replace('#','').match(/../g).map(x=>parseInt(x,16)/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4);return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722;}
 function contrast(a,b){const x=luminance(a),y=luminance(b);return(Math.max(x,y)+.05)/(Math.min(x,y)+.05);}

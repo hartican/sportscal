@@ -2019,7 +2019,7 @@ function leaveChatRoom(nextRoomId = null){
   const draft = chatRoomDrafts.get(nextRoomId);
   if (draft) Object.assign(chatState, { draftBody:draft.body, replyToMessageId:draft.replyToMessageId, pendingAttachments:draft.attachments });
   document.getElementById("closeChatBtn").setAttribute("aria-label", nextRoomId ? "Back to chats" : "Close chats");
-  document.getElementById("closeChatBtn").innerHTML = vectorMarkup(nextRoomId ? "ui:chevron-left" : "ui:close");
+  document.getElementById("closeChatBtn").innerHTML = glyphMarkup(nextRoomId ? "ui:chevron-left" : "ui:close");
 }
 let chatActiveTimer = null;
 let chatRoomTimer = null;
@@ -7730,7 +7730,7 @@ function renderFeedViewActions(container){
 let compactPersistTimer=null,compactRenderFrame=null,compactDesiredValue=null;
 function setFeedCompact(value){
   compactDesiredValue=Boolean(value);
-  document.querySelectorAll('.feed-compact-toggle').forEach(node=>{node.setAttribute('aria-pressed',String(compactDesiredValue));node.innerHTML=vectorMarkup(compactDesiredValue?'ui:expand':'ui:minus',{preferImage:true});node.setAttribute('aria-label',compactDesiredValue?'Expand all cards':'Collapse all cards');});
+  document.querySelectorAll('.feed-compact-toggle').forEach(node=>{node.setAttribute('aria-pressed',String(compactDesiredValue));node.innerHTML=glyphMarkup(compactDesiredValue?'ui:expand':'ui:minus',{preferImage:true});node.setAttribute('aria-label',compactDesiredValue?'Expand all cards':'Collapse all cards');});
   if(compactRenderFrame!==null)return;
   compactRenderFrame=requestAnimationFrame(()=>{
     compactRenderFrame=null;
@@ -8654,7 +8654,7 @@ function restoreEventCardControlFocus(card, controlName){
 function buildEventCardControls(ev, {card=null,eventsOnly=activeTab==='events',displayLabel=null}={}){
   const controls=document.createElement('div');controls.className='event-card-controls';
   const dismiss=document.createElement('button');dismiss.type='button';dismiss.className='event-card-control card-dismiss';
-  dismiss.dataset.cardControl='dismiss';dismiss.innerHTML=vectorMarkup('ui:close',{preferImage:true});dismiss.setAttribute('aria-label',`Dismiss ${displayLabel || ev.name || 'fixture'}`);
+  dismiss.dataset.cardControl='dismiss';dismiss.innerHTML=glyphMarkup('ui:close',{preferImage:true});dismiss.setAttribute('aria-label',`Dismiss ${displayLabel || ev.name || 'fixture'}`);
   dismiss.style.touchAction="manipulation";
   dismiss.onclick=event=>{event.stopPropagation();const previous=storedEventAction(ev);dismissEventCard(ev,{previousAction:previous?{...previous}:null,card:event.currentTarget.closest('.event-card') || card,eventsOnly,displayLabel});};
   controls.appendChild(dismiss);return controls;
@@ -8662,7 +8662,7 @@ function buildEventCardControls(ev, {card=null,eventsOnly=activeTab==='events',d
 
 function buildCardDisclosureControl(displayLabel,state,activate){
   const button=document.createElement('button');button.type='button';button.className='event-card-disclosure';button.dataset.cardControl='disclosure';
-  const compact=state==='compact';button.innerHTML=vectorMarkup(compact?'ui:expand':'ui:minus',{preferImage:true});button.setAttribute('aria-label',`${compact?'Expand':'Minimise'} ${displayLabel}`);button.setAttribute('aria-expanded',String(!compact));
+  const compact=state==='compact';button.innerHTML=glyphMarkup(compact?'ui:expand':'ui:minus',{preferImage:true});button.setAttribute('aria-label',`${compact?'Expand':'Minimise'} ${displayLabel}`);button.setAttribute('aria-expanded',String(!compact));
   button.onclick=event=>{event.stopPropagation();activate(compact?'selected':'compact',{restoreFocus:true,focusTarget:'[data-card-control="disclosure"]'});};
   return button;
 }
@@ -9570,7 +9570,7 @@ function buildJointTournamentCard(tournamentDocument = jointTournamentData, { mo
   const openGlyph = globalThis.document.createElement("span");
   openGlyph.className = "joint-tournament-open-glyph";
   openGlyph.setAttribute("aria-hidden", "true");
-  openGlyph.innerHTML = vectorMarkup("ui:chevron-right",{preferImage:true});
+  openGlyph.innerHTML = glyphMarkup("ui:chevron-right",{preferImage:true});
   head.append(identity, openGlyph);
   const toggleNavigation = () => {
     const liveCard = document.getElementById("cincinnatiTournamentCard") || card;
@@ -10005,7 +10005,7 @@ function syncContextualJumpButton(){
   const atNow=feedTimeline&&nowAnchor&&Math.abs(nowAnchor.getBoundingClientRect().top-edge)<=80&&(!todayAnchor||Math.abs(todayAnchor.getBoundingClientRect().top-edge)>Math.abs(nowAnchor.getBoundingClientRect().top-edge));
   const destination=atNow?'today':'now',label=atNow?'Jump to Today':'Jump to Now';button.dataset.jumpDestination=destination;button.hidden=false;button.setAttribute('aria-label',label);if(button.textContent.trim()!==label)button.replaceChildren(document.createTextNode(label));
   const compact=Boolean(userPreferences.feedCompact),expand=document.getElementById('timelineExpandBtn');
-  expand.innerHTML=vectorMarkup(compact?'ui:expand':'ui:minus',{preferImage:true});expand.setAttribute('aria-label',compact?'Expand all cards':'Collapse all cards');
+  expand.innerHTML=glyphMarkup(compact?'ui:expand':'ui:minus',{preferImage:true});expand.setAttribute('aria-label',compact?'Expand all cards':'Collapse all cards');
 }
 
 function keepStartupFeedAtNow(){return !startupReloadRestoreState && !startupFeedNavigationTouched && activeTab==="feed" && activeView==="list" && !activeInspectorCodeId;}
