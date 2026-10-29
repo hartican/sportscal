@@ -105,6 +105,7 @@ function renderAppearanceSettings(body){
   });
   appearance.appendChild(pilot);
   stack.appendChild(appearance);
+  globalThis.NOTHINGSPORTS_APP_ICON_SETTINGS.appearance(stack);
 }
 
 function renderSubscriptionSettings(body){

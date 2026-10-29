@@ -1,0 +1,32 @@
+Nothing Sport individual PNG export set
+Created using the built-in image-generation tool; resized and encoded as individual RGBA PNG exports.
+
+Use case: precise-object-edit / export.
+Asset type: one standalone Nothing Sport app icon PNG, square, 1024 by 1024.
+REFERENCE IMAGE 1 is the APPROVED corrected brand sheet. Reference image 2 is the original flat wordmark, for the stepped n shape and flat fill.
+Export/reconstruct ONLY the specified icon from the sheet as a clean large individual PNG. Preserve that icon's layout and typography, no redesign. The large capital SPORT is chunky bold block lettering under the n, perfectly spelled S P O R T. The stepped n is the source wordmark's first glyph. Both elements together have approximately 10% clear padding from the tile edges. The tile fills the square canvas with just its rounded corners cut out, no extra outer margin.
+CRITICAL MATERIAL SEPARATION: the n glyph and SPORT letters are perfectly FLAT 2D, crisp, fully opaque. No glass, bevels, reflections, embossing or extrusion ON the n or letters. The flat vertical peach-to-hot-pink gradient inside full-color n is correct, and stays smooth/flat.
+ONLY the rounded square BACKGROUND tile has a polished iOS-style glass effect: luminous fine beveled rim, subtle edge refraction and broad delicate surface reflection. This is a real RGBA PNG with REAL SEMI-TRANSPARENT glass surface, NOT an opaque square with glass-looking highlights. Tile interior alpha approximately 30–50% (75–128 out of 255), rim highlight up to 70–90% alpha. The underlying background must actually show through the glass tile. The n and SPORT must have alpha 255. Outside the rounded tile, alpha 0. Preserve original palette and contrast, use anti-aliased edges.
+No background environment, no white/black matte outside the tile, no checkerboard drawn into the image, no caption, no additional wordmarks or logos. Deliver just the ONE isolated icon on transparency.
+
+dark-full-colour
+VARIANT TO EXPORT: DARK FULL COLOUR: match the large upper-right DARK icon and first icon in the row. Background tile is charcoal/black semi-transparent glass; flat n is peach at top to hot pink at bottom; SPORT is solid pale lavender-white.
+light-full-colour
+VARIANT TO EXPORT: LIGHT FULL COLOUR: match the large upper-right LIGHT icon and second icon in the row. Background tile is soft white/pale lavender semi-transparent glass; flat n is peach at top to hot pink at bottom; SPORT is solid ink black.
+clear-glass
+VARIANT TO EXPORT: CLEAR GLASS: match the THIRD icon in the icon-variations row. Background tile is very pale lavender-clear semi-transparent glass, approximately 20–30% alpha; flat n is peach at top to hot pink at bottom; SPORT is solid pale lavender-white with a very thin flat lavender outline for contrast. Letters must be fully opaque, NOT outline-only.
+greyscale-dark
+VARIANT TO EXPORT: GREYSCALE DARK: match the FOURTH icon in the icon-variations row. Background tile is charcoal/black semi-transparent glass; flat n is a simple light-to-dark neutral-grey vertical gradient; SPORT is solid white. No colored tint.
+greyscale-light
+VARIANT TO EXPORT: GREYSCALE LIGHT: match the FIFTH icon in the icon-variations row. Background tile is soft white semi-transparent glass; flat n is a simple neutral medium-grey vertical gradient; SPORT is solid ink black. No colored tint.
+inverted
+VARIANT TO EXPORT: INVERTED: match the SIXTH icon in the icon-variations row. Background tile is vivid hot-pink #FF2D6D semi-transparent tinted glass; n is solid flat white; SPORT is solid flat white.
+high-contrast-neon
+VARIANT TO EXPORT: HIGH CONTRAST NEON: match the SEVENTH icon in the icon-variations row. Background tile is charcoal/black semi-transparent glass; n is solid flat saturated neon pink; SPORT is solid flat pale lavender-white.
+monochrome-white
+VARIANT TO EXPORT: MONOCHROME WHITE: match the EIGHTH icon in the icon-variations row. Background tile is charcoal/black semi-transparent glass; n is solid flat white; SPORT is solid flat white. No color tint.
+
+All variants after the dark master also used the dark master as a reference and this instruction:
+Preserve its exact geometry, composition, n shape, SPORT letter shapes, spacing, rounded-square proportions and flat foreground. Change only the colourway to this variant. Glass stays ONLY on the tile. Use visibly partial alpha for the tile interior, fully opaque brand artwork.
+
+Export finishing: transparent exterior; glass surface alpha approximately 35–50%, highlights up to 85%; foreground opaque; small n-only favicons.

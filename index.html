@@ -28,14 +28,11 @@
 <meta name="twitter:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
 <meta name="twitter:image" content="https://nothingsport.vercel.app/assets/brand/web/nothingsport-social-preview.png">
 <link rel="manifest" href="/manifest.webmanifest">
-<link rel="icon" href="/icons/nothingsport-app-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="/icons/nothingsport-app-180.png" sizes="180x180">
-<link rel="apple-touch-icon" href="/icons/nothingsport-app-192.png" sizes="192x192">
-<link rel="apple-touch-icon" href="/icons/nothingsport-app-512.png" sizes="512x512">
-<link rel="apple-touch-icon" href="/icons/nothingsport-app-180.png" sizes="167x167">
-<link rel="apple-touch-icon" href="/icons/nothingsport-app-180.png" sizes="152x152">
-<link rel="apple-touch-icon" href="/icons/nothingsport-app-180.png" sizes="120x120">
-<link rel="apple-touch-icon-precomposed" href="/icons/nothingsport-app-180.png">
+<link rel="icon" href="/icons/brand/dark-full-colour-n-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/icons/brand/dark-full-colour-180.png" sizes="180x180">
+<link rel="apple-touch-icon" href="/icons/brand/dark-full-colour-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/icons/brand/dark-full-colour-512.png" sizes="512x512">
+<link rel="apple-touch-icon-precomposed" href="/icons/brand/dark-full-colour-180.png">
 <style>:root{color-scheme:dark;--bg:#0C1010;--bg-elev:#141718;--bg-card:#191B1E;--bg-card-hover:#222127;--border:#3B343E;--text:#F1E7F6;--text-dim:#B9AEBD;--text-faint:#9B8D9E;--color-contrast:#ffffff;--accent:#FB3D6C;--events-text-accent:#FB3D6C;--ticket-action-bg:#FB3D6C;--ticket-action-text:#0C1010;--ticket-action-border:#F9BC9B;--ticket-action-hover:#FB7B82;--brand-start:#ffffff;--brand-end:#FB3D6C;--header-bg:rgba(10,10,15,0.88);--panel-bg:#141718;--overlay-bg:rgba(3,3,8,0.78);--soft-fill:rgba(255,255,255,0.025);--soft-fill-strong:rgba(255,255,255,0.06);--shadow:rgba(0,0,0,0.55);--positive:#36c98f;--attention:#f7d000;--glyph-image-filter:brightness(0) invert(1);--startup-logo-mask:url("assets/brand/web/nothingsport-logo.png");--c-f1:#e8002d;--c-rugby:#1a6b3a;--c-tennis:#4a7c59;--c-football:#1d6fa4;--c-cycling:#f7d000;--c-nrl:#0047ab;--c-cricket:#b5793a;--c-nba:#c9082a;--c-golf:#1e5128;--c-lemans:#d4a017;--c-ski:#4fc3f7;--c-nfl:#1a237e;--c-afl:#8b1d2c;--c-cwg:#6f4cc3;--c-motorsport:#7f57c2;--c-extreme:#ff7a18;--c-surf:#0bb3d9;}:root[data-theme="day"]{color-scheme:light;--bg:#F8F1F5;--bg-elev:#ffffff;--bg-card:#ffffff;--bg-card-hover:#FCF7FA;--border:#D8C8D3;--text:#271E2B;--text-dim:#67586B;--text-faint:#79667F;--color-contrast:#271E2B;--accent:#A7224D;--events-text-accent:#A7224D;--ticket-action-bg:#A7224D;--ticket-action-text:#ffffff;--ticket-action-border:#86203F;--ticket-action-hover:#86203F;--brand-start:#271E2B;--brand-end:#A7224D;--header-bg:rgba(243,245,247,0.9);--panel-bg:#ffffff;--overlay-bg:rgba(28,34,42,0.38);--soft-fill:rgba(15,25,38,0.035);--soft-fill-strong:rgba(15,25,38,0.075);--shadow:rgba(20,28,38,0.22);--positive:#157a53;--attention:#9a6a00;--glyph-image-filter:none;}
 @media (prefers-color-scheme:light){:root[data-theme="system"]{color-scheme:light;--bg:#F8F1F5;--bg-elev:#ffffff;--bg-card:#ffffff;--bg-card-hover:#FCF7FA;--border:#D8C8D3;--text:#271E2B;--text-dim:#67586B;--text-faint:#79667F;--color-contrast:#271E2B;--accent:#A7224D;--events-text-accent:#A7224D;--ticket-action-bg:#A7224D;--ticket-action-text:#ffffff;--ticket-action-border:#86203F;--ticket-action-hover:#86203F;--brand-start:#271E2B;--brand-end:#A7224D;--header-bg:rgba(243,245,247,0.9);--panel-bg:#ffffff;--overlay-bg:rgba(28,34,42,0.38);--soft-fill:rgba(15,25,38,0.035);--soft-fill-strong:rgba(15,25,38,0.075);--shadow:rgba(20,28,38,0.22);--positive:#157a53;--attention:#9a6a00;--glyph-image-filter:none;}
 }*{box-sizing:border-box;margin:0;padding:0;}html,body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;min-height:100vh;min-height:100dvh;overscroll-behavior-y:none;-webkit-text-size-adjust:100%;width:100%;max-width:100%;overflow-x:clip;}html{touch-action:manipulation;overscroll-behavior:none;}body{background:
@@ -2235,42 +2232,7 @@ return orderSelectorEntities(
 function normalizeThemePreference(value){
 return ["day", "night", "system"].includes(value) ? value : "system";
 }
-const BRAND_ASSETS = Object.freeze({
-logo: Object.freeze({
-day: "assets/brand/web/nothingsport-logo.png",
-night: "assets/brand/web/nothingsport-logo.png",
-  }),
-icon: Object.freeze({
-day: "assets/brand/web/nothingsport-app-icon.png",
-night: "assets/brand/web/nothingsport-app-icon.png",
-  }),
-hero: Object.freeze({
-day: "assets/brand/web/nothingsport-hero-logo.png",
-night: "assets/brand/web/nothingsport-hero-logo.png",
-  }),
-});
-const BRAND_COPY = globalThis.NOTHINGSPORTS_BRAND || Object.freeze({});
-function syncBrandCopy(){
-document.querySelectorAll("[data-brand-copy]").forEach(element => {
-const nextCopy = BRAND_COPY[element.dataset.brandCopy];
-if (typeof nextCopy === "string" && nextCopy && element.dataset.typewriterActive !== "true") element.textContent = nextCopy;
-  });
-document.querySelectorAll("[data-brand-copy-content]").forEach(element => {
-const nextCopy = BRAND_COPY[element.dataset.brandCopyContent];
-if (typeof nextCopy === "string" && nextCopy) element.setAttribute("content", nextCopy);
-  });
-}
-function syncThemeBrandAssets(useDark){
-const mode = useDark ? "night" : "day";
-const launchLogo = BRAND_ASSETS.logo?.[mode];
-if (launchLogo) document.documentElement.style.setProperty("--startup-logo-mask", `url("${launchLogo}")`);
-document.querySelectorAll("[data-brand-asset]").forEach(image => {
-const nextSrc = BRAND_ASSETS[image.dataset.brandAsset]?.[mode];
-if (nextSrc && image.getAttribute("src") !== nextSrc) image.setAttribute("src", nextSrc);
-  });
-syncThemeTeamAssets(useDark);
-syncThemeEventAssets(useDark);
-}
+const BRAND_ASSETS=Object.freeze({logo:Object.freeze({day:"assets/brand/web/nothingsport-logo.png",night:"assets/brand/web/nothingsport-logo.png"}),hero:Object.freeze({day:"assets/brand/web/nothingsport-hero-logo.png",night:"assets/brand/web/nothingsport-hero-logo.png"})});const BRAND_COPY=globalThis.NOTHINGSPORTS_BRAND||Object.freeze({});function syncBrandCopy(){document.querySelectorAll("[data-brand-copy]").forEach(t=>{const e=BRAND_COPY[t.dataset.brandCopy];if(typeof e==="string"&&e&&t.dataset.typewriterActive!=="true")t.textContent=e});document.querySelectorAll("[data-brand-copy-content]").forEach(t=>{const e=BRAND_COPY[t.dataset.brandCopyContent];if(typeof e==="string"&&e)t.setAttribute("content",e)})}function syncThemeBrandAssets(t){const e=t?"night":"day";let n=readStorage("nsIcon","dark-full-colour");if(!/^(dark-full-colour|light-full-colour|clear-glass|greyscale-(dark|light)|inverted|high-contrast-neon|monochrome-white)$/.test(n))n="dark-full-colour";const o="/icons/brand/"+n;for(const t of document.querySelectorAll("link")){if(t.rel==="manifest")t.href=n==="dark-full-colour"?"/manifest.webmanifest":o+".webmanifest";else if(t.rel==="icon"||t.rel.startsWith("apple-touch-icon"))t.href=o+(t.rel==="icon"?"-n-32":"-"+(t.sizes.value.split("x")[0]||180))+".png"}const s=BRAND_ASSETS.logo?.[e];if(s)document.documentElement.style.setProperty("--startup-logo-mask",`url("${s}")`);document.querySelectorAll("[data-brand-asset]").forEach(t=>{const n=t.dataset.brandAsset==="icon"?o+"-192.png":BRAND_ASSETS[t.dataset.brandAsset]?.[e];if(n&&t.getAttribute("src")!==n)t.setAttribute("src",n)});syncThemeTeamAssets(t);syncThemeEventAssets(t)}
 function feedIntentForScope(scope){
 return { following: "focused", for_you: "balanced", explore: "discovery" }[scope] || "balanced";
 }
@@ -2499,14 +2461,7 @@ if(deferFollowEffects)queueDirectoryFollowEffects();else void requestFeedRebuild
 }
 return profileSaved;
 }
-function applyThemePreference(theme){
-const nextTheme = normalizeThemePreference(theme);
-document.documentElement.dataset.theme = nextTheme;
-const systemDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
-const useDark = nextTheme === "night" || (nextTheme === "system" && systemDark);
-document.querySelector('meta[name="theme-color"]')?.setAttribute("content", useDark ? "#0C1010" : "#F8F1F5");
-syncThemeBrandAssets(useDark);
-}
+function applyThemePreference(e){const t=normalizeThemePreference(e);document.documentElement.dataset.theme=t;const n=window.matchMedia?.("(prefers-color-scheme: dark)").matches;const c=t==="night"||t==="system"&&n;document.querySelector('meta[name="theme-color"]')?.setAttribute("content",c?"#0C1010":"#F8F1F5");syncThemeBrandAssets(c)}
 function loadRatings(){
 const scoped = activeProfileSection("ratings", null);
 if (scoped && typeof scoped === "object") return scoped;
