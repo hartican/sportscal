@@ -3450,6 +3450,7 @@ let serverSyncTimer = null;
 let serverSyncSequence = Promise.resolve();
 let serverStateSyncGeneration = 0;
 let localPreferenceRecoveryBusy = false;
+let localPreferenceRecoveryHold = null;
 let followFeedRefreshPending = false;
 let followFeedRefreshInFlight = null;
 let followFeedRefreshTimer = null;
@@ -4913,8 +4914,14 @@ applyServerState(plan?.preserve(localState,currentState.preferences)||localState
 return inFlightPatch;
 }
 
+function localPreferenceRecoveryBlocked(){
+const held=localPreferenceRecoveryHold,life=preferenceIntentOwner();
+return Boolean(held&&life?.accountId===held.accountId&&life.generation===held.sessionGeneration
+ &&activeProfileBundle?.profile?.id===held.profileId);
+}
+
 function queueServerStateSync(){
-if(localPreferenceRecoveryBusy)return false;
+if(localPreferenceRecoveryBusy||localPreferenceRecoveryBlocked())return false;
 if (
 serverSyncApplying
 || !serverSyncClient
@@ -4946,7 +4953,7 @@ function serverStateSyncScope({ accountId = serverPersistence.user?.id, generati
 const expected = String(accountId || "");
 const current = ({ allowEndedSession = false } = {}) => {
 const subject = serverSyncClient?.sessionSubject?.() || "";
-return Boolean(!localPreferenceRecoveryBusy && expected && generation === serverStateSyncGeneration
+return Boolean(!localPreferenceRecoveryBusy && !localPreferenceRecoveryBlocked() && expected && generation === serverStateSyncGeneration
 && (subject === expected || (allowEndedSession && !subject))
 && (!requireUser || (serverPersistence.user?.id === expected
 && !["local", "signedOut", "checking", "requesting"].includes(serverPersistence.state))));
@@ -5091,7 +5098,7 @@ throw error;
 }
 
 function syncCurrentServerState(options = {}){
-if(localPreferenceRecoveryBusy)return Promise.resolve(null);
+if(localPreferenceRecoveryBusy||localPreferenceRecoveryBlocked())return Promise.resolve(null);
 const scope = serverStateSyncScope();
 const run = serverSyncSequence
 .catch(() => null)
@@ -13874,6 +13881,7 @@ function setPreferenceRecovery(value){
 }
 
 async function useSavedAccountPreferences(){
+if(localPreferenceRecoveryBlocked())throw Object.assign(new Error("This device's previous local save is uncertain; keep the app open."),{code:"local_recovery_storage_uncertain"});
 if(localPreferenceRecoveryBusy)throw new Error("Recovery is already running.");
 const confirmedOwner=preferenceIntentOwner(),confirmedProfile=activeProfileBundle?.profile?.id,confirmedGeneration=serverStateSyncGeneration;
 const confirmedRaw=localStorage.getItem(PROFILE_STORAGE.KEYS.profilePrefix+confirmedProfile),confirmedPreferences=JSON.stringify(userPreferences);
@@ -13887,7 +13895,6 @@ if(!owner||owner.accountId!==confirmedOwner.accountId||owner.generation!==confir
  ||localStorage.getItem(PROFILE_STORAGE.KEYS.profilePrefix+confirmedProfile)!==confirmedRaw)throw new Error("The confirmed local preferences changed.");
 localPreferenceRecoveryBusy=true;
 const generation=invalidateServerStateSyncScope();
-let storageUncertain=false;
 const helper=globalThis.NOTHINGSPORTS_LOCAL_PREFERENCE_RECOVERY;
 try{
 return await helper.recover({
@@ -13923,10 +13930,10 @@ return await helper.recover({
 });
 }catch(error){
  if(error.code==='local_recovery_storage_uncertain'){
-  storageUncertain=true;setServerPersistence({state:"error",message:"This device could not verify its local save. Keep the app open; sync is paused."});
+  localPreferenceRecoveryHold={accountId:owner.accountId,profileId:confirmedProfile,sessionGeneration:owner.generation,syncGeneration:generation};setServerPersistence({state:"error",message:"This device could not verify its local save. Keep the app open; sync is paused."});
  }
  throw error;
-}finally{localPreferenceRecoveryBusy=storageUncertain;}
+}finally{localPreferenceRecoveryBusy=false;}
 }
 
 let preferenceResetUiLoad = null;

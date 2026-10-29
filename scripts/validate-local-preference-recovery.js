@@ -8,7 +8,7 @@ function part(a,b){const start=html.indexOf(a),end=html.indexOf(b,start);assert(
 let cases=0;
 function fixture(){
  const {c,values,storage}=require('./lib/user-state-optional-view-tests').actualContext('config/preference-intent-reconcile.js');
- Object.assign(c,{localPreferenceRecoveryBusy:false,serverSyncSequence:Promise.resolve(),serverSyncTimer:null,accountIndicatorJourney:null,
+ Object.assign(c,{localPreferenceRecoveryBusy:false,localPreferenceRecoveryHold:null,serverSyncSequence:Promise.resolve(),serverSyncTimer:null,accountIndicatorJourney:null,
    clearTimeout(){},clearAcknowledgedFixturePinCommands(){},setPreferenceRecovery(){},serverAuthoritativeFixturePins:(_remote,current)=>current});
  vm.runInContext(part('function activeProfileSection(','\nfunction saveActiveProfileSections(')+part('function loadPreferences(){','\nfunction savePreferences(')+part('function queueServerStateSync(){','\nfunction invalidateServerStateSyncScope(')+part('function setServerStateBaseline(','\nfunction queueServerStateSync(')+part('function invalidateServerStateSyncScope(){','\nasync function reconcileCurrentServerState(')
   +part('async function reconcileCurrentServerState(','\nfunction normalizeServerArchiveReferences(')
@@ -89,7 +89,7 @@ async function run(){
  const unavailable={...x.storage,getItem(k){if(unreadable)throw Error('synthetic unavailable');return x.storage.getItem(k);},setItem(k,v){uncertainWrites++;x.storage.setItem(k,v);unreadable=true;}};
  assert.throws(()=>profiles.recoverPreferences(unavailable,bundle,args),e=>e.code==='local_recovery_storage_uncertain');assert.equal(uncertainWrites,1,'unreadable ownership must not trigger blind rollback');cases++;
  const hold=fixture(),holdKey='ns_profile_v1:'+hold.profileId;let committedHold=false;hold.c.localStorage={...hold.storage,getItem(k){if(committedHold&&k===holdKey)throw Error('synthetic read unavailable');return hold.storage.getItem(k);},setItem(k,v){hold.storage.setItem(k,v);if(k===holdKey)committedHold=true;}};
- await assert.rejects(hold.c.useSavedAccountPreferences(),e=>e.code==='local_recovery_storage_uncertain');assert.equal(hold.c.localPreferenceRecoveryBusy,true);assert.equal(hold.c.activeProfileBundle.preferenceSync.entries[0].receiptId,hold.receipt.receiptId);assert.equal(hold.c.userPreferences.theme,'day');await hold.c.syncCurrentServerState();assert.equal(hold.counters.save,0);cases++;
+ await assert.rejects(hold.c.useSavedAccountPreferences(),e=>e.code==='local_recovery_storage_uncertain');assert.equal(hold.c.localPreferenceRecoveryBusy,false);assert.equal(hold.c.localPreferenceRecoveryBlocked(),true);assert.equal(hold.c.activeProfileBundle.preferenceSync.entries[0].receiptId,hold.receipt.receiptId);assert.equal(hold.c.userPreferences.theme,'day');await hold.c.syncCurrentServerState();assert.equal(hold.counters.save,0);cases++;
  for(const bad of [{...args,expectedRaw:'stale'},{...args,expectedReceipt:{...receipt,receiptId:'other'}},{...args,sections:{preferences:{}}}]){x.values.set(xkey,original);assert.throws(()=>profiles.recoverPreferences(x.storage,bundle,bad));assert.equal(x.values.get(xkey),original);cases++;}
  await transportAndApi();
  console.log(JSON.stringify({kind:'local-preference-recovery-synthetic',passed:true,cases,customerOperation:false,phoneFixed:false,sourceOnly:true}));
@@ -121,5 +121,22 @@ async function transportAndApi(){
  assert.equal(actions,0);node('[data-local-recovery-open]').handlers.click();assert.equal(node('[data-local-recovery-warning]').hidden,false);
  const button=node('[data-local-recovery-confirm]'),event={currentTarget:button},first=button.handlers.click(event);await button.handlers.click(event);assert.equal(actions,1);finish();await first;assert.equal(button.disabled,false);assert(node('[data-local-recovery-status]').textContent.includes('loaded'));cases++;
 }
-if(require.main===module)run().catch(error=>{console.error(error.stack);process.exitCode=1;});
+if(require.main===module)(process.argv.includes('--uncertainty-scope-only')?uncertaintyScopeTests():run()).catch(error=>{console.error(error.stack);process.exitCode=1;});
 module.exports=run;
+
+async function uncertaintyScopeTests(){
+ const f=fixture(),key='ns_profile_v1:'+f.profileId;let written=false;
+ f.c.localStorage={...f.storage,getItem(k){if(written&&k===key)throw Error('synthetic unreadable');return f.storage.getItem(k);},setItem(k,v){f.storage.setItem(k,v);if(k===key)written=true;}};
+ await assert.rejects(f.c.useSavedAccountPreferences(),e=>e.code==='local_recovery_storage_uncertain');
+ assert.equal(f.c.localPreferenceRecoveryBusy,false);assert.equal(f.c.localPreferenceRecoveryBlocked(),true);
+ assert.equal(f.c.queueServerStateSync(),false);await f.c.syncCurrentServerState();assert.equal(f.counters.save,0);
+ await assert.rejects(f.c.useSavedAccountPreferences(),e=>e.code==='local_recovery_storage_uncertain');
+ assert.equal(f.c.activeProfileBundle.preferenceSync.entries[0].receiptId,f.receipt.receiptId);assert.equal(f.c.userPreferences.theme,'day');
+ const heldScope=f.c.localPreferenceRecoveryHold;assert.equal(heldScope.accountId,'A');assert.equal(heldScope.profileId,f.profileId);assert.equal(heldScope.sessionGeneration,0);
+ f.c.serverSyncClient.accountSnapshot=()=>({hasSession:true,accountId:'B',generation:1});f.c.serverSyncClient.sessionSubject=()=> 'B';f.c.serverPersistence.user={id:'B'};
+ assert.equal(f.c.localPreferenceRecoveryBlocked(),false);assert.equal(f.c.queueServerStateSync(),true);
+ f.c.serverSyncClient.accountSnapshot=()=>({hasSession:true,accountId:'A',generation:1});f.c.serverSyncClient.sessionSubject=()=> 'A';f.c.serverPersistence.user={id:'A'};assert.equal(f.c.localPreferenceRecoveryBlocked(),false);
+ f.c.serverSyncClient.accountSnapshot=()=>({hasSession:true,accountId:'A',generation:0});f.c.activeProfileBundle={...f.c.activeProfileBundle,profile:{id:'other'}};assert.equal(f.c.localPreferenceRecoveryBlocked(),false);
+ assert.equal(f.counters.snapshot,1);assert.equal(f.counters.save,0);
+ console.log(JSON.stringify({kind:'local-recovery-uncertainty-scope',passed:true,cases:7,accountSwitchUnblocked:true,originalRamRetained:true,customerOperation:false,phoneFixed:false}));
+}
