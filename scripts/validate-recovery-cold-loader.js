@@ -1,11 +1,10 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
-const {fixture}=require('./validate-local-preference-recovery');
 const recovery=require('../config/local-preference-recovery');
 const html=fs.readFileSync(__dirname+'/../index.html','utf8');
 function slice(a,b){const start=html.indexOf(a),end=html.indexOf(b,start);assert(start>=0&&end>start);return html.slice(start,end);}
 function deferred(){let resolve,reject;const promise=new Promise((yes,no)=>{resolve=yes;reject=no;});return {promise,resolve,reject};}
-function coldFixture(){
+function coldFixture(fixture){
  const f=fixture(),gate=deferred();let loads=0;delete f.c.NOTHINGSPORTS_LOCAL_PREFERENCE_RECOVERY;
  f.c.document.querySelector=()=>({content:'599'});
  f.c.loadDeferredScript=()=>{loads++;return gate.promise;};
@@ -26,9 +25,9 @@ function scheduledFollowOwner(f){
   }time=target;
  }};
 }
-async function run(){
+async function run(fixture=require('./validate-local-preference-recovery').fixture){
  let cases=0;
- const f=coldFixture(),scheduler=scheduledFollowOwner(f),key='ns_profile_v1:'+f.profileId,original=f.values.get(key);
+ const f=coldFixture(fixture),scheduler=scheduledFollowOwner(f),key='ns_profile_v1:'+f.profileId,original=f.values.get(key);
  f.c.queueDirectoryFollowEffects(); // Actual baseline's existing delayed owner is queued BEFORE confirmation.
  const operation=f.c.useSavedAccountPreferences({current:()=>true});let originalFailure;
  try{
@@ -53,34 +52,34 @@ async function run(){
   ['baseline',x=>{x.c.serverStateBaseline.updatedAt='2026-10-29T02:00:00Z';}],
   ['modal',x=>{x.open=false;}],
  ]){
-  const x=coldFixture();x.open=true;const key='ns_profile_v1:'+x.profileId;
+  const x=coldFixture(fixture);x.open=true;const key='ns_profile_v1:'+x.profileId;
   const pending=x.c.useSavedAccountPreferences({current:()=>x.open});
   mutate(x);const raw=x.values.get(key),ram=JSON.stringify(x.c.userPreferences);x.release();
   await assert.rejects(pending,undefined,name);assert.equal(x.c.localPreferenceRecoveryBusy,false,name);
   assert.equal(x.values.get(key),raw,name);assert.equal(JSON.stringify(x.c.userPreferences),ram,name);
   assert.equal(x.counters.snapshot,0,name);assert.equal(x.counters.save,0,name);cases++;
  }
- const failed=coldFixture(),failedRaw=failed.values.get('ns_profile_v1:'+failed.profileId);
+ const failed=coldFixture(fixture),failedRaw=failed.values.get('ns_profile_v1:'+failed.profileId);
  const failure=failed.c.useSavedAccountPreferences();failed.gate.reject(new Error('synthetic loader failure'));
  await assert.rejects(failure,/synthetic loader failure/);assert.equal(failed.c.localPreferenceRecoveryBusy,false);
  assert.equal(failed.values.get('ns_profile_v1:'+failed.profileId),failedRaw);assert.equal(failed.counters.snapshot,0);cases++;
  const invalidator=fixture();invalidator.c.NOTHINGSPORTS_EPIC_UI={reset(){throw new Error('synthetic invalidation failure');}};
  await assert.rejects(invalidator.c.useSavedAccountPreferences(),/synthetic invalidation failure/);
  assert.equal(invalidator.c.localPreferenceRecoveryBusy,false);assert.equal(invalidator.counters.snapshot,0);cases++;
- const duplicate=coldFixture(),first=duplicate.c.useSavedAccountPreferences();
+ const duplicate=coldFixture(fixture),first=duplicate.c.useSavedAccountPreferences();
  await assert.rejects(duplicate.c.useSavedAccountPreferences(),/already running/);
  assert.equal(duplicate.c.localPreferenceRecoveryBusy,true);assert.equal(duplicate.loads,1);
  assert.equal(duplicate.c.queueServerStateSync(),false);await duplicate.c.syncCurrentServerState();assert.equal(duplicate.counters.read,0);
  duplicate.release();await first;assert.equal(duplicate.counters.snapshot,1);assert.equal(duplicate.c.localPreferenceRecoveryBusy,false);cases++;
  // Recovery waits for issued work to finish; it does not cancel or hide that work.
- const issued=coldFixture(),settled=deferred();let issuedDone=false;
+ const issued=coldFixture(fixture),settled=deferred();let issuedDone=false;
  issued.c.serverSyncSequence=settled.promise.then(()=>{issuedDone=true;});
  const waiting=issued.c.useSavedAccountPreferences();issued.release();
  await Promise.resolve();await Promise.resolve();assert.equal(issued.counters.snapshot,0);assert.equal(issuedDone,false);
  settled.resolve();await waiting;assert.equal(issuedDone,true);assert.equal(issued.counters.snapshot,1);cases++;
  // Actual issued normal read must settle before loader-failure cleanup restores a usable button.
  for(const switched of [false,true]){
-  const x=coldFixture(),read=deferred();let readStarted=false,recoveryEnded=false;
+  const x=coldFixture(fixture),read=deferred();let readStarted=false,recoveryEnded=false;
   x.c.serverSyncClient.loadState=async()=>{readStarted=true;x.counters.read++;await read.promise;return {user:{id:'A'},state:x.state};};
   const normal=x.c.syncCurrentServerState();await Promise.resolve();await Promise.resolve();
   assert.equal(readStarted,true);assert.equal(x.c.serverPersistence.state,'syncing');
