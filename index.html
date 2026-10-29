@@ -11464,8 +11464,8 @@ function applyQuickAdd(customise = false){
   renderSettingsScreen();
 }
 
-function settingsBackgroundInert(open){
-  document.querySelectorAll('#mainContent,header.top,nav.tabs,#calendarControls,.app-footer,.skip-link').forEach(node=>{node.inert=open||(node.matches('#mainContent,header.top,nav.tabs')&&document.body.classList.contains('nsc-open'));});
+function settingsBackgroundInert(open=document.getElementById('settingsModal').classList.contains('show')){
+  document.querySelectorAll('#mainContent,header.top,nav.tabs,#timelineTools,#calendarControls,.app-footer,.skip-link').forEach(node=>{node.inert=open||(node.matches('#mainContent,header.top,nav.tabs,#timelineTools')&&document.body.classList.contains('nsc-open'));});
 }
 function openSettings({ firstRun = false, section = "main" } = {}){
   if(!document.getElementById('settingsModal').classList.contains('show'))settingsReturnFocus=document.activeElement;
@@ -11518,7 +11518,7 @@ function closeSettings({ restoreTheme = true, restoreViewport = true, preserveAc
   settingsDraftBaseline = null;
   settingsViewportAnchor = null;
   settingsBackgroundInert(false);
-  (settingsReturnFocus?.closest('#headerUtilityActions')&&document.getElementById('headerUtilityActions').hidden?document.getElementById('headerMoreBtn'):settingsReturnFocus)?.focus({preventScroll:true});
+  (document.body.classList.contains('nsc-open')?document.getElementById('closeNothingscoreBtn'):settingsReturnFocus?.closest('#headerUtilityActions')&&document.getElementById('headerUtilityActions').hidden?document.getElementById('headerMoreBtn'):settingsReturnFocus)?.focus({preventScroll:true});
   settingsReturnFocus=null;
   if (restoreViewport) restoreViewportAnchorAfterLayout(viewportAnchor);
   setTimeout(openSelectorOptInPrompt, 0);
@@ -14974,8 +14974,7 @@ function setNothingscoreDrawerOpen(open){
   const wasOpen=backdrop.classList.contains('show');
   backdrop.classList.toggle('show',open);backdrop.setAttribute('aria-hidden',String(!open));
   document.body.classList.toggle('nsc-open',open);
-  document.getElementById('mainContent').inert=open;
-  document.querySelector('header.top').inert=open;document.querySelector('nav.tabs').inert=open;
+  settingsBackgroundInert();
   if(open){
     if(!wasOpen){nscReturnPosition=captureViewportRenderAnchor();nothingscorePreviousFocus=document.activeElement;}
     renderNothingscoreDrawer();
@@ -14985,7 +14984,7 @@ function setNothingscoreDrawerOpen(open){
     nothingscoreWatching.clear();nothingscoreWatchingStartedAt.clear();nothingscoreWatchingConfirmed.clear();window.clearTimeout(nothingscoreHeartbeatTimer);
     activeNothingscoreContributionEvent=null;activeNothingscoreContributionError='';
     if(nscReturnPosition)restoreViewportRenderAnchor(nscReturnPosition);
-    nothingscorePreviousFocus?.focus?.({preventScroll:true});nothingscorePreviousFocus=null;
+    (document.getElementById('settingsModal').classList.contains('show')?document.getElementById('closeSettingsBtn'):nothingscorePreviousFocus)?.focus?.({preventScroll:true});nothingscorePreviousFocus=null;
   }
 }
 function syncNscPageFromHistory(){
