@@ -98,7 +98,7 @@ editorialLabels.forEach(label => assert.match(vectorAssets.editorialMarkup(label
 ["off", "on", "synced", "missed"].forEach(state => assert.match(vectorAssets.reminderMarkup(state), /<svg\b/, `${state} reminder state must render`));
 const stableCardSportIcon = vectorAssets.glyphMarkup("sport:rugby", { label: "Rugby", preferImage: true });
 assert.match(stableCardSportIcon, /<img\b/, "card sport icons must avoid Safari's scroll-sensitive CSS mask rendering path");
-assert.match(stableCardSportIcon, /assets\/icons\/sporticon\/rugby\.svg/, "stable card sport icons must retain the licensed local Sporticon asset");
+assert.match(stableCardSportIcon, /data:image\/svg\+xml/, "board-inspired sport icons retain the stable local image-backed rendering path");
 assert.doesNotMatch(stableCardSportIcon, /vector-mask/, "stable card sport icons must not use CSS masks");
 const stableCardClockIcon = vectorAssets.glyphMarkup("ui:clock", { label: "Start time", preferImage: true });
 assert.match(stableCardClockIcon, /<img\b/, "small card controls must use an image-backed glyph on Safari");
