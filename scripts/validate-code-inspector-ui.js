@@ -20,7 +20,7 @@ const html = require("./app-shell-test-utils").readFollowApplicationSource();
 const manifestPath = path.join(ROOT, "data/code-inspector/manifest.json");
 const wrcContext = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/wrc-context-2026.json"), "utf8"));
 
-assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Match Centre','Follow']);
+require('./app-shell-test-utils').assertPrimaryNavigation(html);
 assert(html.includes('Back to Feed')&&html.includes('#follow/')&&html.includes('follow|standings-fixtures|inspect'),'legacy links resolve to Follow with Back restoration');
 assert(html.includes('inspectorReturnState')&&html.includes('popstate'),'dedicated screens retain navigation state');
 assert(html.includes('follow-more-trigger')&&html.includes('follow-more-dialog')&&html.includes('rankedFollowGridSports')&&html.includes('.slice(0,7)'),'Follow ranks up to seven followed sports and keeps the remainder in More');
