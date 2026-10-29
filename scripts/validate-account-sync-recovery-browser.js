@@ -693,8 +693,10 @@ const server = http.createServer((req, res) => {
       if(attributionBytes<=131072)console.log(attributionText);
       else console.log(JSON.stringify({phase:'recovery-row-read-attribution',scenario,engine:engineName,complete:false,overflow:true,omittedBytes:attributionBytes}));
       assert.equal(recoverySnapshotGets-counts.snapshots,1,'one scoped snapshot GET');
-      assert.equal(actualApi.metrics.stateLoads-counts.stateLoads,1,'production mode reads one own row');
-      assert.equal(actualApi.metrics.recoveryRpcs-counts.recoveryRpcs,0,'snapshot cannot run active-reset RPC');
+      const accounting=require('./lib/recovery-request-accounting')(packet);
+      console.log(JSON.stringify({phase:'recovery-request-accounting',scenario,engine:engineName,...accounting}));
+      assert.equal(accounting.snapshot.stateLoads,1,'production mode reads one own row');
+      assert.equal(accounting.snapshot.recoveryRpcs,0,'snapshot cannot run active-reset RPC');
       assert.equal(actualApi.metrics.rowWrites-counts.rowWrites,0,'snapshot/recovery cannot write the disposable server row');
       assert.deepEqual({writes,refreshes,authSignIns},{writes:counts.writes,refreshes:counts.refreshes,authSignIns:counts.authSignIns},'recovery cannot PUT, refresh or sign in');
       assert.deepEqual(actualApi.state(),savedCopy,'server row is unchanged by device-only recovery');

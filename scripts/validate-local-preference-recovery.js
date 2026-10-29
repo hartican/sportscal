@@ -97,6 +97,7 @@ async function run(){
  await transportAndApi();
  console.log(JSON.stringify({kind:'local-preference-recovery-synthetic',passed:true,cases,customerOperation:false,phoneFixed:false,sourceOnly:true}));
  await require('./validate-recovery-cold-loader').run(fixture);
+ await require('./validate-recovery-request-accounting').run(fixture);
 }
 async function transportAndApi(){
  const f=fixture(),row={user_id:'A',schema_version:'user-state.v2',profile:f.state.profile,preferences:f.state.preferences,event_user_state:{},event_spoiler_state:{},ratings:{},archived_events:[],updated_at:f.state.updatedAt},own=recovery.projectOwnRow(row,'A');
