@@ -37,6 +37,14 @@ assert.equal(vectors.custom["ui:spotlight"].provenance, "first-party");
 assert.match(vectors.glyphMarkup("ui:spotlight", {label:"Expected Spectacle"}), /<svg\b[^>]*aria-label="Expected Spectacle"/);
 assert.doesNotMatch(vectors.glyphMarkup("ui:spotlight"), /<(?:image|img)\b|https?:/,
   "the pre-match spotlight must render without an external artwork request");
+// Exercise the active resolver: a catalogue override previously replaced this
+// original megaphone while the legacy fallback and phase key stayed correct.
+const originalMegaphone = '<path d="M3 5h8v7H3zM11 6l10-3v12l-10-4M7 12v6m-4 3 4-3 4 3" stroke-width="2"/>';
+assert(vectors.glyphMarkup("ui:spotlight").includes(originalMegaphone),
+  "the active spectacle glyph must retain the original megaphone and stroke");
+const megaphoneImage = vectors.glyphMarkup("ui:spotlight", {preferImage:true});
+assert(decodeURIComponent(megaphoneImage.match(/src="data:image\/svg\+xml,([^"]+)"/)?.[1] || "").includes(originalMegaphone),
+  "the scrolling-card image path must resolve the same original megaphone");
 
 for (const api of [nsc, browser, fallback]){
   assert.equal(api.HEAT_PROMPT, "How good a spectacle do you expect?");
