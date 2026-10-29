@@ -13617,6 +13617,7 @@ function openSettings({ firstRun = false, section = "main" } = {}){
 }
 
 function closeSettings({ restoreTheme = true, restoreViewport = true, preserveAccountJourney = false } = {}){
+  globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI?.clearLocalRecovery?.(document.getElementById("settingsBody"));
   if(!preserveAccountJourney)globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.finish(null);
   const viewportAnchor = settingsViewportAnchor;
   const modal = document.getElementById("settingsModal");
@@ -13880,23 +13881,25 @@ function setPreferenceRecovery(value){
   return preferenceRecovery;
 }
 
-async function useSavedAccountPreferences(){
+async function useSavedAccountPreferences(confirmationScope=null){
+if(confirmationScope&&!confirmationScope.current())throw new Error("Reopen recovery and confirm the current device preferences.");
 if(localPreferenceRecoveryBlocked())throw Object.assign(new Error("This device's previous local save is uncertain; keep the app open."),{code:"local_recovery_storage_uncertain"});
 if(localPreferenceRecoveryBusy)throw new Error("Recovery is already running.");
-const confirmedOwner=preferenceIntentOwner(),confirmedProfile=activeProfileBundle?.profile?.id,confirmedGeneration=serverStateSyncGeneration;
+const confirmedOwner=preferenceIntentOwner(),confirmedProfile=activeProfileBundle?.profile?.id;
+const confirmedBaseline=JSON.stringify(serverStateBaseline);
 const confirmedRaw=localStorage.getItem(PROFILE_STORAGE.KEYS.profilePrefix+confirmedProfile),confirmedPreferences=JSON.stringify(userPreferences);
 if(!confirmedOwner||serverPersistence.user?.id!==confirmedOwner.accountId)throw new Error("Sign in to your saved account first.");
-if(!globalThis.NOTHINGSPORTS_LOCAL_PREFERENCE_RECOVERY)await loadDeferredScript("config/local-preference-recovery.js?v="+document.querySelector('meta[name="app-shell-version"]').content);
-if(localPreferenceRecoveryBusy)throw new Error("Recovery is already running.");
-const owner=preferenceIntentOwner();
-if(!owner||owner.accountId!==confirmedOwner.accountId||owner.generation!==confirmedOwner.generation
- ||serverPersistence.user?.id!==owner.accountId||activeProfileBundle?.profile?.id!==confirmedProfile
- ||serverStateSyncGeneration!==confirmedGeneration||JSON.stringify(userPreferences)!==confirmedPreferences
- ||localStorage.getItem(PROFILE_STORAGE.KEYS.profilePrefix+confirmedProfile)!==confirmedRaw)throw new Error("The confirmed local preferences changed.");
 localPreferenceRecoveryBusy=true;
-const generation=invalidateServerStateSyncScope();
-const helper=globalThis.NOTHINGSPORTS_LOCAL_PREFERENCE_RECOVERY;
+let generation;
 try{
+generation=invalidateServerStateSyncScope();
+if(!globalThis.NOTHINGSPORTS_LOCAL_PREFERENCE_RECOVERY)await loadDeferredScript("config/local-preference-recovery.js?v="+document.querySelector('meta[name="app-shell-version"]').content);
+const owner=preferenceIntentOwner();
+if((confirmationScope&&!confirmationScope.current())||!owner||owner.accountId!==confirmedOwner.accountId||owner.generation!==confirmedOwner.generation
+ ||serverPersistence.user?.id!==owner.accountId||activeProfileBundle?.profile?.id!==confirmedProfile
+ ||serverStateSyncGeneration!==generation||JSON.stringify(serverStateBaseline)!==confirmedBaseline||JSON.stringify(userPreferences)!==confirmedPreferences
+ ||localStorage.getItem(PROFILE_STORAGE.KEYS.profilePrefix+confirmedProfile)!==confirmedRaw)throw new Error("The confirmed local preferences changed.");
+const helper=globalThis.NOTHINGSPORTS_LOCAL_PREFERENCE_RECOVERY;
 return await helper.recover({
  capture(){
   const profileId=activeProfileBundle?.profile?.id;
@@ -13910,7 +13913,7 @@ return await helper.recover({
  },
  current(captured){
   const current=preferenceIntentOwner();
-  return current?.accountId===captured.accountId&&current.generation===captured.sessionGeneration
+  return (!confirmationScope||confirmationScope.current())&&current?.accountId===captured.accountId&&current.generation===captured.sessionGeneration
    &&serverPersistence.user?.id===captured.accountId&&serverStateSyncGeneration===captured.generation
    &&activeProfileBundle?.profile?.id===captured.profileId
    &&JSON.parse(localStorage.getItem(PROFILE_STORAGE.KEYS.activeProfileId))===captured.profileId
@@ -13929,11 +13932,31 @@ return await helper.recover({
  },
 });
 }catch(error){
+ await serverSyncSequence.catch(()=>null);
+ const current=preferenceIntentOwner();
+ const recoveryOwnerCurrent=current?.accountId===confirmedOwner.accountId&&current.generation===confirmedOwner.generation
+  &&serverPersistence.user?.id===confirmedOwner.accountId&&activeProfileBundle?.profile?.id===confirmedProfile
+  &&serverStateSyncGeneration===generation;
+ if(error.code!=='local_recovery_storage_uncertain'&&recoveryOwnerCurrent&&serverPersistence.state==='syncing'){
+  setServerPersistence({state:"error",message:"Local recovery could not be completed. Your choices are saved on this device. Try Sync now."});
+ }
  if(error.code==='local_recovery_storage_uncertain'){
-  localPreferenceRecoveryHold={accountId:owner.accountId,profileId:confirmedProfile,sessionGeneration:owner.generation,syncGeneration:generation};setServerPersistence({state:"error",message:"This device could not verify its local save. Keep the app open; sync is paused."});
+  localPreferenceRecoveryHold={accountId:confirmedOwner.accountId,profileId:confirmedProfile,sessionGeneration:confirmedOwner.generation,syncGeneration:generation};
+  if(recoveryOwnerCurrent)setServerPersistence({state:"error",message:"This device could not verify its local save. Keep the app open; sync is paused."});
  }
  throw error;
 }finally{localPreferenceRecoveryBusy=false;}
+}
+
+function captureLocalRecoveryUiScope(){
+const life=serverSyncClient?.accountSnapshot?.(),profileId=activeProfileBundle?.profile?.id,modal=settingsViewportAnchor;
+if(!life?.hasSession||life.accountId!==serverPersistence.user?.id||!profileId||!modal)return null;
+return {accountId:life.accountId,profileId,sessionGeneration:life.generation,modal,current:()=>{
+ const now=serverSyncClient?.accountSnapshot?.();
+ return now?.hasSession&&now.accountId===life.accountId&&now.generation===life.generation
+  &&serverPersistence.user?.id===life.accountId&&activeProfileBundle?.profile?.id===profileId
+  &&settingsViewportAnchor===modal&&settingsSection==="account"&&Boolean(document.getElementById("settingsModal")?.classList.contains("show"));
+}};
 }
 
 let preferenceResetUiLoad = null;
@@ -13951,13 +13974,14 @@ function appendPreferenceRecoverySettings(body){
   (body.querySelector(".preference-stack") || body).appendChild(placeholder);
   preferenceResetUiLoad ||= globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI
     ? Promise.resolve(globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI)
-    : loadDeferredScript("config/preference-reset-ui.js?v=423").then(() => globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI);
+    : loadDeferredScript("config/preference-reset-ui.js?v="+document.querySelector('meta[name="app-shell-version"]').content).then(() => globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI);
   void preferenceResetUiLoad.then(ui => {
     if (!placeholder.isConnected || !ui?.mount) return;
     placeholder.remove();
     ui.mount(body, {
       signedIn:() => Boolean(serverPersistence.user),
       captureScope:() => recoveryScope,
+      captureLocalRecoveryScope:captureLocalRecoveryUiScope,
       serverSync:serverSyncClient,
       recovery:() => preferenceRecovery,
       localRecovery:activeLocalPreferenceRecovery,
@@ -14565,6 +14589,7 @@ async function renderAllFollowedSettings(body){
 
 function renderSettingsScreen(){
   const body = document.getElementById("settingsBody");
+  if(settingsSection!=="account")globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI?.clearLocalRecovery?.(body);
   const title = document.getElementById("settingsTitle");
   const copy = document.getElementById("settingsCopy");
   const back = document.getElementById("settingsBackBtn");
