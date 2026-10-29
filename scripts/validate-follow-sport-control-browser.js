@@ -5,11 +5,13 @@ const http = require('node:http');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const modulePath = process.env.PLAYWRIGHT_MODULE || 'playwright';
+const requestedEngines = (process.env.FOLLOW_CONTROL_ENGINES || 'chromium,webkit').split(',');
+assert(requestedEngines.length && new Set(requestedEngines).size === requestedEngines.length && requestedEngines.every(engine => ['chromium', 'webkit'].includes(engine)), 'Choose each supported Follow browser at most once');
 if (process.argv.includes('--preflight')) {
   assert(fs.readFileSync(path.join(root, 'assets/js/follow-navigation.js'), 'utf8').includes("const followControl=controls.querySelector('.follow-sport-control')"));
   assert(fs.readFileSync(path.join(root, 'assets/js/follow-presentation-ui.js'), 'utf8').includes('follow.checked=followed'));
   require('./validate-follow-sport-control');
-  console.log(JSON.stringify({ preflight: true, cases: 8, browsersStarted: 0, externalRequests: 0 }));
+  console.log(JSON.stringify({ preflight: true, cases: requestedEngines.length * 4, browsersStarted: 0, externalRequests: 0 }));
 } else {
   const engines = require(modulePath);
   const server = http.createServer((request, response) => {
@@ -43,7 +45,7 @@ if (process.argv.includes('--preflight')) {
     const url = 'http://127.0.0.1:' + server.address().port;
     const evidence = [];
     try {
-      for (const engine of ['chromium', 'webkit']) {
+      for (const engine of requestedEngines) {
         const browser = await engines[engine].launch({ headless: true });
         try {
           for (const width of [320, 390]) for (const theme of ['day', 'night']) {
@@ -114,6 +116,7 @@ if (process.argv.includes('--preflight')) {
           }
         } finally { await browser.close(); }
       }
+      assert.equal(evidence.length, requestedEngines.length * 4, 'Every requested browser must finish all four original Follow cases');
     } finally { await new Promise(resolve => server.close(resolve)); }
     if (process.env.FOLLOW_CONTROL_EVIDENCE_DIR) fs.writeFileSync(path.join(process.env.FOLLOW_CONTROL_EVIDENCE_DIR, 'browser-receipts.json'), JSON.stringify({ cases: evidence, limits: 'Actual local app with disposable preferences and controlled network; service workers blocked. No hosted account, real delivery or physical-device claim.' }, null, 2) + '\n');
   })().catch(error => { console.error(error); process.exitCode = 1; });
