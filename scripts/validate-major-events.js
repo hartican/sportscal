@@ -323,7 +323,8 @@ invalidCopies.forEach(([document, message]) => {
   assert.match(majorEvents.validateDocument(document, { reference: REFERENCE, verifiedTicketUrl: ticketing.verifiedSellerUrl }).join("\n"), message);
 });
 
-assert(html.includes('data-tab="feed"') && html.indexOf('data-tab="feed"') < html.indexOf('data-tab="events"') && html.indexOf('data-tab="events"') < html.indexOf('data-tab="follow"'), "Events must sit directly after Feed");
+require('./app-shell-test-utils').assertPrimaryNavigation(html);
+require('./app-shell-test-utils').assertLegacyEventsNavigation(html);
 assert(html.includes('url: "data/major-events.v1.json"') && html.includes("function loadMajorEventsData(options={})"), "Events data must load on demand");
 const shellVersion = html.match(/name="app-shell-version" content="(\d+)"/)[1];
 const lazyModule=html.match(/moduleScriptUrl: "(config\/major-events\.js\?v=\d+)"/)?.[1];
