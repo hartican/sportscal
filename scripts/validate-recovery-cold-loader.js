@@ -93,6 +93,19 @@ async function run(fixture=require('./validate-local-preference-recovery').fixtu
   assert.equal(x.c.localPreferenceRecoveryBusy,false);assert.equal(x.values.get('ns_profile_v1:'+x.profileId),raw);
   assert.equal(JSON.stringify(x.c.userPreferences),ram);assert.equal(x.counters.snapshot,0);assert.equal(x.counters.save,0);cases++;
  }
+ // Actual uncertain readback: a changed account during failure settlement keeps its own status.
+ const uncertain=fixture(),uncertainKey='ns_profile_v1:'+uncertain.profileId,cleanup=deferred(),writtenSignal=deferred();let unreadable=false;
+ uncertain.c.localStorage={...uncertain.storage,getItem(k){if(unreadable&&k===uncertainKey)throw Error('synthetic unreadable');return uncertain.storage.getItem(k);},
+  setItem(k,v){uncertain.storage.setItem(k,v);if(k===uncertainKey){unreadable=true;uncertain.c.serverSyncSequence=cleanup.promise;writtenSignal.resolve();}}};
+ const uncertainOperation=uncertain.c.useSavedAccountPreferences();
+ const uncertainRejected=assert.rejects(uncertainOperation,error=>error.code==='local_recovery_storage_uncertain');
+ await writtenSignal.promise;await Promise.resolve();
+ uncertain.c.serverSyncClient.accountSnapshot=()=>({hasSession:true,accountId:'B',generation:1});
+ uncertain.c.serverPersistence.user={id:'B'};uncertain.c.serverPersistence.state='ready';uncertain.c.serverPersistence.message='B status sentinel';
+ cleanup.resolve();await uncertainRejected;
+ assert.equal(uncertain.c.serverPersistence.state,'ready','old uncertain recovery cannot overwrite another account status');
+ assert.equal(uncertain.c.serverPersistence.message,'B status sentinel');assert.equal(uncertain.c.localPreferenceRecoveryHold.accountId,'A');
+ assert.equal(uncertain.c.localPreferenceRecoveryBusy,false);assert.equal(uncertain.c.localPreferenceRecoveryBlocked(),false);cases++;
  console.log(JSON.stringify({kind:'recovery-cold-loader',passed:true,cases,customerOperation:false,nativeExecuted:false}));
 }
 if(require.main===module)run().catch(error=>{console.error(error.stack);process.exitCode=1;});
