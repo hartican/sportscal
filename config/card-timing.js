@@ -110,8 +110,8 @@
     const now = new Date(reference);
     const statuses = [event.status,event.scheduleStatus].map(value => String(value || "").toLowerCase());
     const terminal=statuses.some(value=>['completed','finished','final','cancelled','canceled','abandoned','postponed'].includes(value));
-    const compact=compactCricket&&multiDayCricket(event);
-    const started=played(event),actual=compact&&!terminal?null:actualStart(event,reference);
+    const started=played(event),compact=compactCricket&&multiDayCricket(event)&&(started||!(new Date(event.startTimeUtc)>now));
+    const actual=compact&&!terminal?null:actualStart(event,reference);
     const precision = actual?'actual':event.timePrecision;
     const uncertain = event.timeTbc || event.startTimeTbc;
     const pausedRestart=compact?null:pausePresentation(event,reference)?.restartTimeUtc||null;

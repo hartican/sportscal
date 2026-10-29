@@ -1,0 +1,87 @@
+{
+  "captureBoundary": "Existing local native shadow qualification over retained input, not a new provider or production read.",
+  "retainedArtifact": "/Users/jackhartican/Documents/AI/Codex/match-centre-latency-20261023/global-generation-qualification-run-2/correctness-hot-native.json",
+  "retainedArtifactSha256": "b389c6381603a1a60dc8a348c0e7a860339f8df4194330ebcb6ee97d06ba7db5",
+  "pointer": "/body/0/bundle/rows/1",
+  "fixture": {
+    "id": "fixture:cricket:CA:39992",
+    "key": "cricket",
+    "date": "2026-10-27",
+    "name": "South Africa Men v Australia Men",
+    "time": "19:30",
+    "sport": "Cricket",
+    "venue": "Newlands Cricket Ground, Cape Town",
+    "format": "Test",
+    "gender": "men",
+    "status": "scheduled",
+    "eventId": "fixture:cricket:CA:39992",
+    "isSenior": true,
+    "sourceUrl": "https://www.cricket.com.au/matches/",
+    "broadcasts": [],
+    "endTimeUtc": "2026-10-31T11:00:00Z",
+    "roundLabel": "3rd Test",
+    "sourceName": "Cricket Australia",
+    "sourceType": "official",
+    "broadcaster": "",
+    "numberOfDays": 5,
+    "participants": [
+      {
+        "id": "team:cricket:south-africa",
+        "name": "South Africa Men",
+        "teamKind": "national",
+        "countryCode": "ZA",
+        "genderCategory": "male"
+      },
+      {
+        "id": "team:cricket:australia",
+        "name": "Australia Men",
+        "teamKind": "national",
+        "countryCode": "AU",
+        "genderCategory": "male"
+      }
+    ],
+    "startTimeUtc": "2026-10-27T08:30:00.000Z",
+    "competitionId": "competition:cricket:4568",
+    "consensusTags": [],
+    "sportDomainId": "sport:cricket",
+    "timePrecision": "exact",
+    "broadcasterIds": [],
+    "participantIds": [
+      "team:cricket:south-africa",
+      "team:cricket:australia"
+    ],
+    "scoreCheckedAt": null,
+    "sourceEventIds": [
+      "fixture:cricket:CA:39992"
+    ],
+    "viewingOptions": [],
+    "competitionName": "South Africa v Australia Tests 2026 - Men",
+    "isInternational": true,
+    "sourceCheckedAt": "2026-10-22T17:22:00.415Z",
+    "sourceFixtureId": "CA:39992",
+    "statusCheckedAt": "2026-10-22T22:30:00.833+00:00",
+    "broadcastOptions": [],
+    "canonicalEventId": "fixture:cricket:CA:39992",
+    "competitionScope": "international",
+    "participantSlots": [],
+    "timingProvenance": {
+      "kind": "official",
+      "checkedAt": "2026-10-22T17:22:00.415Z",
+      "sourceUrl": "https://www.cricket.com.au/matches/"
+    },
+    "awayParticipantId": "team:cricket:australia",
+    "homeParticipantId": "team:cricket:south-africa",
+    "displayTitleCompact": "South Africa Men v Australia Men",
+    "scoreFactObservedAt": null,
+    "statusFactObservedAt": "2026-10-22T10:14:01.435+00:00",
+    "participantCountryCodes": [
+      "ZA",
+      "AU"
+    ],
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "representativeCountryCodes": []
+  },
+  "officialSchedule": "https://www.cricket.com.au/matches/series/CA:4568/",
+  "officialMatch": "https://www.cricket.com.au/matches/CA:39992/south-africa-men-australia-men-3rd-test",
+  "interpretation": "One source-confirmed third Test27\u201331Oct. This is a retained fixture observation, not a new provider capture or current hosted proof."
+}

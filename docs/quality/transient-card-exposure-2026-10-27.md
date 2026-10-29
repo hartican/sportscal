@@ -1,0 +1,11 @@
+# Keep transient cards out of personal Feed measurement
+
+Strict Public Feed UI verification caught a real preference mutation when opening a discussion card: pilot participation changed from absent to a timestamp. The shared detailed renderer already excludes a local/transient card from the ordinary seen owner, but its adjacent opportunity branch still entered the eligibility/participation writer.
+
+Apply only the matching `!localCardState` guard to that opportunity branch. Ordinary Feed cards retain their existing measurement, OFF, existing-participant and signed-out behavior. No timestamp is seeded or ignored and no consent default, source fact, polling schedule, personal-state assertion or account policy changes.
+
+The neutral regression uses the actual renderer, observer factory, eligibility and participation-owner chain with controlled layout/platform/persistence boundaries. Eight controls preserve the entire transient preference object and ordinary positive/negative behavior. It joins the existing All Sports fallback/review gate, so no normal safety command is removed. The original source RED and the separate failed native personal-state audit remain in the dated delivery evidence.
+
+The test uses the exact jsdom26.1.0 development dependency already pinned in the full Public Feed source. Only that package/lock delta is reused; no Public Feed parent, feature code or generated runtime is imported. Local verification reuses the existing pinned test cache without modifying protected dependencies. The first incorrect module-path attempt refused before running tests; the correctly configured run passed. Normal CI still installs its checked-in lock as usual. No browser/API runtime imports jsdom in this change.
+
+DEPLOY rebuilds its own canonical runtime and retains the prepared596 cache identity. Source reviews clear the guard and neutral test; full combined release, native/installed and hosted acceptance remain required. The full Public Feed feature and its backend qualification are separate. No customer update, provider refresh, database/configuration, scheduler or purchase occurs. Roll back source through the same publisher and rebuild a newly versioned shell; no data inverse.

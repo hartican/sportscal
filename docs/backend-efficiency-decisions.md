@@ -2100,6 +2100,13 @@ All253 required commands and application/read/dispatcher budgets remain unchange
 DEPLOY retains the sole fresh normal-run/publication lane. Details and limitations
 are in the linked quality record.
 
+
+## 27 October 2026 — discard stale collection-directory writes
+
+Capture the existing preference reference, copied collection-load plan, account/session generation, app-sync generation and profile ID before asynchronous directory work. Check those same owners before the existing freeze/save. Stale work returns its load results with zero preference or receipt write; matching complete directories keep existing behavior. There is no new request, timer, retry, cache, schema, persistence owner, provider refresh or scheduler change.
+
+The existing bookkeeping chain includes26 actual source/compiled-helper hydration controls while retaining all pre-existing checks. ROOT isolated the product/test change from source b0792f76 without importing the separate pending-receipt planner. Genuine optional standings deferral supplies download headroom; fixed budgets and full combined release/installed/hosted acceptance remain. This source proof is not a customer-state restoration or physical-device claim.
+
 ## 26 October 2026 — bounded already-agreed event sync accommodation
 
 Use the existing owned receipt, fresh account read, canonical Follow validation and conditional entity/domain save path when event choices already match intent and remote. The event comparison is read-only: no migration output, event union, event write, persisted receipt field, schema, endpoint, polling, retry budget or scheduler is introduced. A RAM-only proof adds an AND condition to the existing central save-acknowledgement predicate; malformed, rejecting or throwing provided proofs fail closed, while existing witnesses without a proof keep their behaviour. Pin exact remote event values and presence through ACK and keep existing R2/lifetime/current-edit fences.

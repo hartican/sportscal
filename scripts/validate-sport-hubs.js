@@ -9,8 +9,32 @@ const feedEvents = Array.isArray(published) ? published : published.events;
 const aflFixtures = hub.canonicalFixturesForSport(canonical, "afl");
 const nrlFixtures = hub.canonicalFixturesForSport(canonical, "sport:nrl");
 
-assert.equal(aflFixtures.length, canonical.events.filter(event => event.sportDomainId === "sport:afl").length, "AFL hub truth must come from every canonical AFL fixture");
-assert.equal(nrlFixtures.length, canonical.events.filter(event => event.sportDomainId === "sport:nrl").length, "NRL hub truth must come from every canonical NRL fixture");
+// Expected scope comes from the explicit approved competition contracts, not
+// from sportConfig() or the implementation's domain/round filters.
+const approvedHubContracts = [
+  { key: "afl", argument: "afl", competitionId: "competition:afl-premiership-2026", bundle: canonical, fixtures: aflFixtures },
+  { key: "nrl", argument: "sport:nrl", competitionId: "competition:nrl-premiership-2026", bundle: canonical, fixtures: nrlFixtures },
+  { key: "wrc", argument: "wrc", competitionId: "competition:wrc-2026", bundle: require("../data/canonical/wrc-context-2026.json") },
+];
+const sourceAflw = canonical.events.find(event => event.competitionId === "competition:aflw-2026");
+assert(sourceAflw && sourceAflw.sportDomainId === "sport:afl", "The negative control must be a real source-shaped AFLW fixture in the shared AFL domain");
+for (const contract of approvedHubContracts){
+  const expectedRows = contract.bundle.events.filter(event => event.competitionId === contract.competitionId);
+  assert(expectedRows.length > 0, `${contract.key} contract has retained canonical evidence`);
+  const expectedIds = new Set(expectedRows.map(event => event.id));
+  assert.equal(expectedIds.size, expectedRows.length, `${contract.key} source fixture identities are unique`);
+  const actual = contract.fixtures || hub.canonicalFixturesForSport(contract.bundle, contract.argument);
+  assert.equal(actual.length, expectedIds.size, `${contract.key} hub must return each approved fixture exactly once`);
+  assert.deepEqual(new Set(actual.map(event => event.id)), expectedIds, `${contract.key} hub must contain the exact competition-scoped canonical ID set`);
+  const otherCompetition = contract.key === "afl"
+    ? { ...sourceAflw, id: "fixture:qa:other-competition:aflw" }
+    : { ...expectedRows[0], id: `fixture:qa:other-competition:${contract.key}`, competitionId: `competition:qa:other-${contract.key}` };
+  const mixed = { ...contract.bundle, events: [...contract.bundle.events, otherCompetition] };
+  const withOtherCompetition = hub.canonicalFixturesForSport(mixed, contract.argument);
+  assert(!withOtherCompetition.some(event => event.id === otherCompetition.id), `${contract.key} must exclude a source-shaped fixture from another competition`);
+  assert.equal(withOtherCompetition.length, expectedIds.size, `${contract.key} other-competition control cannot add or duplicate approved fixtures`);
+  assert.deepEqual(new Set(withOtherCompetition.map(event => event.id)), expectedIds, `${contract.key} other-competition exclusion preserves the complete approved ID set`);
+}
 
 const syntheticRounds = [
   { id: "round-1-a", roundNumber: 1, roundLabel: "Round 1", status: "completed", startTimeUtc: "2026-03-01T01:00:00Z", displayName: "A v B" },
