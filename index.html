@@ -13885,20 +13885,21 @@ async function useSavedAccountPreferences(confirmationScope=null){
 if(confirmationScope&&!confirmationScope.current())throw new Error("Reopen recovery and confirm the current device preferences.");
 if(localPreferenceRecoveryBlocked())throw Object.assign(new Error("This device's previous local save is uncertain; keep the app open."),{code:"local_recovery_storage_uncertain"});
 if(localPreferenceRecoveryBusy)throw new Error("Recovery is already running.");
-const confirmedOwner=preferenceIntentOwner(),confirmedProfile=activeProfileBundle?.profile?.id,confirmedGeneration=serverStateSyncGeneration;
+const confirmedOwner=preferenceIntentOwner(),confirmedProfile=activeProfileBundle?.profile?.id;
+const confirmedBaseline=JSON.stringify(serverStateBaseline);
 const confirmedRaw=localStorage.getItem(PROFILE_STORAGE.KEYS.profilePrefix+confirmedProfile),confirmedPreferences=JSON.stringify(userPreferences);
 if(!confirmedOwner||serverPersistence.user?.id!==confirmedOwner.accountId)throw new Error("Sign in to your saved account first.");
+localPreferenceRecoveryBusy=true;
+let generation;
+try{
+generation=invalidateServerStateSyncScope();
 if(!globalThis.NOTHINGSPORTS_LOCAL_PREFERENCE_RECOVERY)await loadDeferredScript("config/local-preference-recovery.js?v="+document.querySelector('meta[name="app-shell-version"]').content);
-if(localPreferenceRecoveryBusy)throw new Error("Recovery is already running.");
 const owner=preferenceIntentOwner();
 if((confirmationScope&&!confirmationScope.current())||!owner||owner.accountId!==confirmedOwner.accountId||owner.generation!==confirmedOwner.generation
  ||serverPersistence.user?.id!==owner.accountId||activeProfileBundle?.profile?.id!==confirmedProfile
- ||serverStateSyncGeneration!==confirmedGeneration||JSON.stringify(userPreferences)!==confirmedPreferences
+ ||serverStateSyncGeneration!==generation||JSON.stringify(serverStateBaseline)!==confirmedBaseline||JSON.stringify(userPreferences)!==confirmedPreferences
  ||localStorage.getItem(PROFILE_STORAGE.KEYS.profilePrefix+confirmedProfile)!==confirmedRaw)throw new Error("The confirmed local preferences changed.");
-localPreferenceRecoveryBusy=true;
-const generation=invalidateServerStateSyncScope();
 const helper=globalThis.NOTHINGSPORTS_LOCAL_PREFERENCE_RECOVERY;
-try{
 return await helper.recover({
  capture(){
   const profileId=activeProfileBundle?.profile?.id;
@@ -13932,7 +13933,7 @@ return await helper.recover({
 });
 }catch(error){
  if(error.code==='local_recovery_storage_uncertain'){
-  localPreferenceRecoveryHold={accountId:owner.accountId,profileId:confirmedProfile,sessionGeneration:owner.generation,syncGeneration:generation};setServerPersistence({state:"error",message:"This device could not verify its local save. Keep the app open; sync is paused."});
+  localPreferenceRecoveryHold={accountId:confirmedOwner.accountId,profileId:confirmedProfile,sessionGeneration:confirmedOwner.generation,syncGeneration:generation};setServerPersistence({state:"error",message:"This device could not verify its local save. Keep the app open; sync is paused."});
  }
  throw error;
 }finally{localPreferenceRecoveryBusy=false;}

@@ -144,3 +144,5 @@ async function uncertaintyScopeTests(){
  assert.equal(f.counters.snapshot,1);assert.equal(f.counters.save,0);
  console.log(JSON.stringify({kind:'local-recovery-uncertainty-scope',passed:true,cases:7,accountSwitchUnblocked:true,originalRamRetained:true,customerOperation:false,phoneFixed:false}));
 }
+// Reuse the same actual app/profile/transport fixture in bounded source race controls.
+module.exports.fixture=fixture;
