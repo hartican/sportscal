@@ -52,6 +52,7 @@ function releaseManifestResponse() {
   if (held?.release && !held.res.destroyed && !held.res.writableEnded) held.release();
 }
 const manifestPath = '/data/code-inspector/manifest.json';
+const tracedStaticPath=pathname=>pathname===manifestPath||pathname==='/data/feed/manifest.json'||/^\/data\/feed\/page-\d+\.json$/.test(pathname);
 const manifestTrace = [], manifestTraceStart = performance.now();
 let manifestPhase = 'initial-startup', manifestEpoch = 0, manifestSequence = 0, manifestDropped = 0, manifestDocumentTruncated = false;
 function traceManifest(event, fields = {}) {
@@ -114,7 +115,7 @@ const server = http.createServer((req, res) => {
     res.once('close', () => closed({req, res, requestAborted:held.requestAborted, finished:res.writableFinished}));
     traceManifest('control-first-request-reserved');
   }
-  if (diagnosticTrace && pathname === manifestPath) {
+  if (diagnosticTrace && tracedStaticPath(pathname)) {
     const id = 'http-' + (++manifestSequence);
     traceManifest('http-request', {id, path:pathname, host:req.headers.host, origin:req.headers.origin||null});
     req.on('aborted', () => traceManifest('http-aborted', {id}));
@@ -230,14 +231,15 @@ const server = http.createServer((req, res) => {
       const report = (event, fields = {}) => {
         if (count++ > 128) return;
         try { console.debug(marker + JSON.stringify({event:count===129?'document-truncated':event,
-          timeOrigin:performance.timeOrigin, atMs:performance.now(), document:location.origin+location.pathname, ...fields})); } catch {}
+          documentSequence:count,timeOrigin:performance.timeOrigin, atMs:performance.now(), document:location.origin+location.pathname, ...fields})); } catch {}
       };
+      const observedStaticPath=pathname=>pathname==='/data/code-inspector/manifest.json'||pathname==='/data/feed/manifest.json'||/^\/data\/feed\/page-\d+\.json$/.test(pathname);
       const originalFetch = window.fetch;
       window.fetch = function(...args) {
         try {
           const input = args[0];
           const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url, document.baseURI);
-          if (url.origin === location.origin && url.pathname === '/data/code-inspector/manifest.json')
+          if (url.origin === location.origin && observedStaticPath(url.pathname))
             report('fetch-entry', {url:url.origin+url.pathname, stack:String(new Error().stack||'').slice(0,2400)});
         } catch {}
         return Reflect.apply(originalFetch, this, args);
@@ -280,7 +282,7 @@ const server = http.createServer((req, res) => {
       const request = route.request(), u = new URL(request.url());
       let requestContext;if(traceApiStale){try{requestContext=request.frame().page()===page?'A':'B';}catch{requestContext='unavailable';}}
       if(traceApiStale&&u.pathname==='/api/fixtures')traceResource('route-fixtures-start',{context:requestContext,path:u.pathname,origin:u.origin,allowed:origins.has(u.origin)});
-      if (diagnosticTrace && u.pathname === manifestPath) traceManifest('route', {origin:u.origin, path:u.pathname, allowed:origins.has(u.origin)});
+      if (diagnosticTrace && tracedStaticPath(u.pathname)) traceManifest('route', {origin:u.origin, path:u.pathname, allowed:origins.has(u.origin)});
       if (!origins.has(u.origin)) { blocked.push(u.origin); return route.abort('blockedbyclient'); }
       if(holdHelper&&u.pathname==='/assets/js/account-awareness-runtime.js'){heldHelpers.push(route);helperHeld();return;}
       if (!u.pathname.startsWith('/api/')){
@@ -365,7 +367,7 @@ const server = http.createServer((req, res) => {
       const requests = new WeakMap();
       const identify = request => {
         const u = new URL(request.url());
-        if (u.pathname !== manifestPath) return null;
+        if (!tracedStaticPath(u.pathname)) return null;
         if (!requests.has(request)) requests.set(request, {id:'browser-'+(++manifestSequence), origin:u.origin,
           path:u.pathname, startedEpoch:manifestEpoch, frameUrl:resourceFrameUrl(request)});
         return requests.get(request);
@@ -484,7 +486,8 @@ const server = http.createServer((req, res) => {
         choices:JSON.stringify(currentServerStatePayload()), account:serverSyncClient.accountSnapshot().accountId,
         generation:serverSyncClient.accountSnapshot().generation
       };
-      globalThis.qaManifestSetupSnapshot?.({sharedLoaderPresent:codeInspectorManifestLoading!==null,manifestLoaded:Boolean(codeInspectorManifest)});
+      globalThis.qaManifestSetupSnapshot?.({sharedLoaderPresent:codeInspectorManifestLoading!==null,manifestLoaded:Boolean(codeInspectorManifest),
+        backgroundFeedRefreshPending:Boolean(remoteFeedRefreshInFlight),startupFeedPhase:startupFeedState.phase,publicFeedManifestLoaded:Boolean(publicFeedManifest)});
       return { ...currentServerStatePayload(), updatedAt: '2026-10-23T01:00:00Z' };
     }, Boolean(actualApi));
     if(helperRaceProbe){

@@ -14,6 +14,10 @@ const batches=[
  ['grouped-view','grouped-view-pg17','PGLITE_MODULE=pglite-pg17 node scripts/validate-grouped-fixture-view.js'],
  ['grouped-diagnostic','grouped-diagnostic-pg17','PGLITE_MODULE=pglite-pg17 node scripts/validate-grouped-fixture-diagnostic.js']
 ];
+const recoveryCommands=Object.freeze([
+ 'node scripts/validate-local-preference-recovery.js',
+ 'node scripts/validate-local-recovery-ui-lifecycle.js'
+]);
 const safety='      - name: Verify feed and deployment safety contracts\n        run: |\n';
 const shared='      - name: Verify shared fixture publication input\n';
 const preflight='      - name: Verify production SQL batch contract\n        run: node scripts/validate-production-sql-batches.js\n';
@@ -70,11 +74,15 @@ function validate(text){
  assert(lines.every(line=>/^          \S/.test(line)),'Publisher command block contains only literal command lines');
  const commands=lines.map(line=>line.slice(10)),moved=batches.map(row=>row[2]);
  assert.equal(original.commands.length,258);assert.equal(moved.length,7);assert.equal(new Set(moved).size,7);
- assert.deepEqual(commands,original.commands.filter(command=>!moved.includes(command)),'All other 251 commands retain their exact relative order and environment');
- assert.deepEqual([...commands,...moved].sort(),[...original.commands].sort(),'Original occurrences including duplicates are preserved exactly once per original occurrence');
+ const originalPublisher=original.commands.filter(command=>!moved.includes(command));
+ assert.equal(originalPublisher.length,251);
+ const recoveryAt=originalPublisher.indexOf('node scripts/validate-preference-bookkeeping.js');assert(recoveryAt>=0);
+ const expectedPublisher=[...originalPublisher.slice(0,recoveryAt+1),...recoveryCommands,...originalPublisher.slice(recoveryAt+1)];
+ assert.deepEqual(commands,expectedPublisher,'All original 251 publisher commands retain their exact order and environment, with both required recovery checks immediately after preference bookkeeping');
+ assert.deepEqual([...commands,...moved].sort(),[...original.commands,...recoveryCommands].sort(),'All original occurrences and exactly two required recovery additions are preserved');
  assert.equal(hash(normalized.slice(0,at+safety.length)+'\0'+normalized.slice(end)),original.publisherScaffoldSha256,'Publisher SHA, credentials, deadlines, live gates, deploy and public checks unchanged');
  assert(!/continue-on-error|\beval\b/.test(text),'No soft failure or dynamic command evaluation');
- return {originalOccurrences:258,publisherOccurrences:commands.length,movedOccurrences:moved.length,batches:4};
+ return {originalOccurrences:258,addedRecoveryOccurrences:recoveryCommands.length,publisherOccurrences:commands.length,movedOccurrences:moved.length,requiredOccurrences:commands.length+moved.length,batches:4};
 }
 function regressions(text){
  const controls=[
@@ -93,7 +101,14 @@ function regressions(text){
   ['raised job cap',s=>s.replace('    timeout-minutes: 30','    timeout-minutes: 31')],
   ['overlapping publication',s=>s.replace('  cancel-in-progress: false','  cancel-in-progress: true')],
   ['live gate removed',s=>s.replace('          node scripts/verify-global-app-adapter.js --live-read\n','')],
-  ['arrangement check bypassed',s=>s.replace(preflight,'')]
+  ['arrangement check bypassed',s=>s.replace(preflight,'')],
+  ['missing recovery check',s=>s.replace('          '+recoveryCommands[0]+'\n','')],
+  ['missing recovery UI check',s=>s.replace('          '+recoveryCommands[1]+'\n','')],
+  ['duplicate recovery check',s=>s.replace('          '+recoveryCommands[0]+'\n','          '+recoveryCommands[0]+'\n          '+recoveryCommands[0]+'\n')],
+  ['recovery checks reordered',s=>s.replace(recoveryCommands.map(command=>'          '+command+'\n').join(''),[...recoveryCommands].reverse().map(command=>'          '+command+'\n').join(''))],
+  ['recovery command altered',s=>s.replace('          '+recoveryCommands[0]+'\n','          '+recoveryCommands[0]+' --skip\n')],
+  ['original publisher check lost',s=>s.replace('          node scripts/validate-preference-bookkeeping.js\n','')],
+  ['unreviewed extra command',s=>s.replace('          '+recoveryCommands[1]+'\n','          '+recoveryCommands[1]+'\n          node scripts/validate-unreviewed-recovery.js\n')]
  ];
  for(const[name,mutate]of controls){const broken=mutate(text);assert.notEqual(broken,text,name+' mutation must apply');assert.throws(()=>validate(broken),undefined,name+' must refuse');}
  return controls.length;
