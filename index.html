@@ -4677,6 +4677,8 @@ if (!SERVER_SYNC) return null;
 const profile = activeProfileBundle?.profile || {};
 const baselineProfile = serverStateBaseline?.state?.profile || {};
 const baselinePreferences = serverStateBaseline?.state?.preferences || {};
+const life = preferenceIntentOwner();
+const ownedBaseline = life && life.accountId === serverPersistence.user?.id && serverStateBaseline?.accountId === life.accountId && serverStateBaseline?.generation === life.generation && serverStateBaseline?.profileId === profile.id;
 return SERVER_SYNC.buildUserState({
 profile: {
 ...baselineProfile,
@@ -4684,7 +4686,9 @@ usernameLabel: profile.usernameLabel || "Local profile",
 timezone: profile.timezone || "Australia/Sydney",
 onboardingCompleted: Boolean(userPreferences.onboardingComplete),
 },
-preferences: SERVER_SYNC.mergeSettings(baselinePreferences, userPreferences),
+preferences: SERVER_SYNC.settingsForServer(baselinePreferences, userPreferences, {
+profileId:ownedBaseline ? profile.id : null,participantIdentity:FOLLOW_FIRST.participantFollowIdentityKey,
+}),
 eventUserState: eventActions,
 eventSpoilerState,
 archivedEvents: archivedEventRefs.map(reference => ({
@@ -4705,6 +4709,7 @@ state: state
 updatedAt: state?.updatedAt || null,
 accountId:life?.accountId||null,
 generation:life?.generation??null,
+profileId:activeProfileBundle?.profile?.id||null,
 };
 return serverStateBaseline;
 }

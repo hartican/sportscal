@@ -1,5 +1,13 @@
 # Backend efficiency decisions
 
+## Device profile pointers do not create outgoing edits — 30 October 2026
+
+The hosted 599 removal check exposed a normalization-only second save. A stale device successfully saved Unfollow against the newest account copy, then local graph normalization changed the accepted response's profile pointers to its own device profile. A subsequent manual sync uploaded those pointers again. The source regression reproduces the actual default scheduled writer, real API conditional save, receipt ACK and normal manual reconciliation before and after the repair.
+
+Only the outgoing settings projection retains accepted graph/view/learning and uniquely matched entity/domain/competition record `profileId` pointers when the current pointer equals this device's local profile. Reuse the existing participant identity canonicalizer; ambiguous/missing identities remain untouched, and new records keep their pointers. Every meaningful and unknown field remains current. Enable this projection only for the accepted baseline's same account, SDK subject, UI owner, session generation and captured local profile. The captured profile ID is ephemeral local baseline metadata, not a persisted or wire field. The raw accepted response, receipt meaning, comparison/planner rules, CAS and Feed policy remain unchanged.
+
+The new regression joins the existing required preference-bookkeeping gate, including persisted/in-flight receipts, real disjoint and conflicting 409 cases, alias collisions and lifetime fences. No request, sync owner, endpoint, schema, storage key, retry or deadline is added. The exact regenerated shell remains within the unchanged static budget. Source acceptance is not hosted or physical iPhone acceptance; ROOT/DEPLOY alone integrates, qualifies and publishes. See [repair and release boundary](quality/device-pointer-sync-2026-10-30.md).
+
 ## 26 October 2026 — staged lossless GLOBAL source transport
 
 Status: local integration and gated staging; **not production acceptance**. DEPLOY owns this reversible repair under the existing approval to fix loading and publish only passing work. No worker may enable the protocol, apply its SQL or publish independently.
