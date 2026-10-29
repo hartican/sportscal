@@ -3449,6 +3449,7 @@ let serverSyncApplying = false;
 let serverSyncTimer = null;
 let serverSyncSequence = Promise.resolve();
 let serverStateSyncGeneration = 0;
+let localPreferenceRecoveryBusy = false;
 let followFeedRefreshPending = false;
 let followFeedRefreshInFlight = null;
 let followFeedRefreshTimer = null;
@@ -4913,6 +4914,7 @@ return inFlightPatch;
 }
 
 function queueServerStateSync(){
+if(localPreferenceRecoveryBusy)return false;
 if (
 serverSyncApplying
 || !serverSyncClient
@@ -4944,7 +4946,7 @@ function serverStateSyncScope({ accountId = serverPersistence.user?.id, generati
 const expected = String(accountId || "");
 const current = ({ allowEndedSession = false } = {}) => {
 const subject = serverSyncClient?.sessionSubject?.() || "";
-return Boolean(expected && generation === serverStateSyncGeneration
+return Boolean(!localPreferenceRecoveryBusy && expected && generation === serverStateSyncGeneration
 && (subject === expected || (allowEndedSession && !subject))
 && (!requireUser || (serverPersistence.user?.id === expected
 && !["local", "signedOut", "checking", "requesting"].includes(serverPersistence.state))));
@@ -5089,6 +5091,7 @@ throw error;
 }
 
 function syncCurrentServerState(options = {}){
+if(localPreferenceRecoveryBusy)return Promise.resolve(null);
 const scope = serverStateSyncScope();
 const run = serverSyncSequence
 .catch(() => null)
@@ -13870,6 +13873,62 @@ function setPreferenceRecovery(value){
   return preferenceRecovery;
 }
 
+async function useSavedAccountPreferences(){
+if(localPreferenceRecoveryBusy)throw new Error("Recovery is already running.");
+const confirmedOwner=preferenceIntentOwner(),confirmedProfile=activeProfileBundle?.profile?.id,confirmedGeneration=serverStateSyncGeneration;
+const confirmedRaw=localStorage.getItem(PROFILE_STORAGE.KEYS.profilePrefix+confirmedProfile),confirmedPreferences=JSON.stringify(userPreferences);
+if(!confirmedOwner||serverPersistence.user?.id!==confirmedOwner.accountId)throw new Error("Sign in to your saved account first.");
+if(!globalThis.NOTHINGSPORTS_LOCAL_PREFERENCE_RECOVERY)await loadDeferredScript("config/local-preference-recovery.js?v="+document.querySelector('meta[name="app-shell-version"]').content);
+if(localPreferenceRecoveryBusy)throw new Error("Recovery is already running.");
+const owner=preferenceIntentOwner();
+if(!owner||owner.accountId!==confirmedOwner.accountId||owner.generation!==confirmedOwner.generation
+ ||serverPersistence.user?.id!==owner.accountId||activeProfileBundle?.profile?.id!==confirmedProfile
+ ||serverStateSyncGeneration!==confirmedGeneration||JSON.stringify(userPreferences)!==confirmedPreferences
+ ||localStorage.getItem(PROFILE_STORAGE.KEYS.profilePrefix+confirmedProfile)!==confirmedRaw)throw new Error("The confirmed local preferences changed.");
+localPreferenceRecoveryBusy=true;
+const generation=invalidateServerStateSyncScope();
+let storageUncertain=false;
+const helper=globalThis.NOTHINGSPORTS_LOCAL_PREFERENCE_RECOVERY;
+try{
+return await helper.recover({
+ capture(){
+  const profileId=activeProfileBundle?.profile?.id;
+  const receipt=pendingPreferenceIntent(owner.accountId);
+  if(!receipt)throw new Error("No held preference request was found.");
+  if(serverStateBaseline?.accountId!==owner.accountId||serverStateBaseline.generation!==owner.generation
+    ||!Number.isFinite(Date.parse(serverStateBaseline.updatedAt)))throw new Error("The saved account starting point is unavailable.");
+  return {accountId:owner.accountId,sessionGeneration:owner.generation,generation,profileId,receipt,
+   raw:localStorage.getItem(PROFILE_STORAGE.KEYS.profilePrefix+profileId),preferences:JSON.stringify(userPreferences),
+   baseline:JSON.stringify(serverStateBaseline),acceptedUpdatedAt:serverStateBaseline.updatedAt,acceptedPreferences:clonePreferences(serverStateBaseline.state.preferences),acceptedState:clonePreferences(serverStateBaseline.state)};
+ },
+ current(captured){
+  const current=preferenceIntentOwner();
+  return current?.accountId===captured.accountId&&current.generation===captured.sessionGeneration
+   &&serverPersistence.user?.id===captured.accountId&&serverStateSyncGeneration===captured.generation
+   &&activeProfileBundle?.profile?.id===captured.profileId
+   &&JSON.parse(localStorage.getItem(PROFILE_STORAGE.KEYS.activeProfileId))===captured.profileId
+   &&localStorage.getItem(PROFILE_STORAGE.KEYS.profilePrefix+captured.profileId)===captured.raw
+   &&JSON.stringify(userPreferences)===captured.preferences&&JSON.stringify(serverStateBaseline)===captured.baseline;
+ },
+ settle:()=>serverSyncSequence.catch(()=>null),
+ load:accountId=>serverSyncClient.loadRecoverySnapshot({accountId}),
+ normalize:preferences=>mergePreferences(preferences),
+ project:(remote,preferences)=>SERVER_SYNC.mergeSettings(remote,preferences),
+ commit:(captured,sections)=>PROFILE_STORAGE.recoverPreferences(localStorage,activeProfileBundle,{ownerId:captured.accountId,expectedRaw:captured.raw,expectedReceipt:captured.receipt,sections}),
+ accept(bundle,preferences,state){
+  activeProfileBundle=bundle;userPreferences=preferences;
+  setServerStateBaseline(state);startupSessionStateBaseline=null;
+  setServerPersistence({state:"error",message:"Saved account preferences loaded on this device. Use Sync now to verify sync.",lastSyncedAt:null});
+ },
+});
+}catch(error){
+ if(error.code==='local_recovery_storage_uncertain'){
+  storageUncertain=true;setServerPersistence({state:"error",message:"This device could not verify its local save. Keep the app open; sync is paused."});
+ }
+ throw error;
+}finally{localPreferenceRecoveryBusy=storageUncertain;}
+}
+
 let preferenceResetUiLoad = null;
 function appendPreferenceRecoverySettings(body){
   const generation = serverStateSyncGeneration;
@@ -13898,6 +13957,11 @@ function appendPreferenceRecoverySettings(body){
       setRecovery:setPreferenceRecovery,
       defaults:() => ({ ...mergePreferences(null), onboardingComplete:true }),
       currentPreferences:() => clonePreferences(userPreferences),
+      useSavedAccountPreferences,
+      afterLocalRecovery(){
+        draftPreferences=clonePreferences(userPreferences);settingsDraftBaseline=clonePreferences(userPreferences);
+        applyThemePreference(userPreferences.theme);renderAll({preserveViewport:true});renderSettingsScreen();
+      },
       writeLocalRecovery:value => writeStorage(PREFERENCE_RESET_STORAGE_KEY, value),
       removeLocalRecovery:() => { try{ localStorage.removeItem(PREFERENCE_RESET_STORAGE_KEY); }catch(_error){ } },
       savePreferences,

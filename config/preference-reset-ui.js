@@ -69,6 +69,10 @@
     section.innerHTML = `<h3>Data & recovery</h3>
       <p class="preference-help">Reset follows, Feed tuning, providers, location, notification and display preferences without deleting your account or durable participation.</p>
       ${active ? `<p class="preference-help">A pre-reset snapshot is available until ${new Date(active.expiresAt).toLocaleString("en-AU", { day:"numeric", month:"short", hour:"numeric", minute:"2-digit" })}.</p><button class="btn ghost" type="button" data-reset-action="undo">Undo reset</button>` : ""}
+      ${api.signedIn() ? `<button class="btn ghost" type="button" data-local-recovery-open>Use saved account preferences on this device</button>
+      <div data-local-recovery-warning hidden><p class="preference-help">This discards unsynced follows and preferences on this device and replaces them with your saved account preferences. You may need to follow items again. Your account, saved server data, ratings, archived cards and individual fixture actions are kept.</p>
+      <button class="btn ghost" type="button" data-local-recovery-confirm>Discard unsynced preferences and use saved copy</button></div>
+      <p class="preference-help" data-local-recovery-status role="status" aria-live="polite"></p>` : ""}
       <button class="btn ghost" type="button" data-reset-action="open">Reset all preferences…</button>
       <div data-reset-warning="one" hidden>
         <p class="preference-help"><strong>Warning 1 of 2.</strong> This resets follows, Feed tuning, providers, location, notification and display preferences. Your account, chats, media, NSC history, ratings, saved or archived cards and individual reminders remain.</p>
@@ -82,6 +86,15 @@
         <p class="preference-help" data-reset-status role="status" aria-live="polite"></p>
       </div>`;
     stack.appendChild(section);
+    section.querySelector('[data-local-recovery-open]')?.addEventListener('click',()=>{section.querySelector('[data-local-recovery-warning]').hidden=false;});
+    section.querySelector('[data-local-recovery-confirm]')?.addEventListener('click',async event=>{
+      const button=event.currentTarget,status=section.querySelector('[data-local-recovery-status]');
+      if(button.disabled)return;button.disabled=true;
+      try{requireCurrent(api);status.textContent='Loading your saved account preferences…';await api.useSavedAccountPreferences();
+        status.textContent='Saved account preferences loaded on this device. Use Sync now to check.';api.afterLocalRecovery();}
+      catch(error){status.textContent=error.code==='local_recovery_storage_uncertain'?'This device could not verify its local save. Keep this app open; sync is paused.':'Recovery could not be completed. No account data was reset. Reopen Account & sync to try again.';}
+      finally{button.disabled=false;}
+    });
     section.querySelector('[data-reset-action="undo"]')?.addEventListener("click", async event => {
       event.currentTarget.disabled = true;
       try{ await undo(api); }

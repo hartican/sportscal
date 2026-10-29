@@ -817,6 +817,22 @@
         }
         return payload;
       },
+      async loadRecoverySnapshot({ accountId = "" } = {}){
+        if(!accountId)throw accountScopeError();
+        const scope=accountSnapshot();
+        const active=session || storageRead(storage,SESSION_STORAGE_KEY)
+          || (persistSession ? storageRead(persistentStorage,PERSISTENT_SESSION_STORAGE_KEY) : null);
+        if(scope.accountId!==accountId||sessionSubject(active)!==accountId)throw accountScopeError();
+        if(!active||active.expiresAt<=now()+REFRESH_EARLY_MS){
+          throw Object.assign(new Error('A current sign-in is required for local recovery.'),{status:401,code:'backup_session_unavailable'});
+        }
+        const payload=await jsonRequest('/api/user-state?recovery-snapshot=v1',{
+          headers:{Authorization:`Bearer ${active.accessToken}`},
+        });
+        const current=accountSnapshot();
+        if(current.accountId!==accountId||current.generation!==scope.generation)throw accountScopeError();
+        return payload;
+      },
       async savePatch(patch, { accountId = "" } = {}){
         invalidateFeed();
         const payload = await authenticatedRequest("/api/user-state", {
