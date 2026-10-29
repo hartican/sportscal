@@ -33,6 +33,9 @@ on:
       - scripts/validate-code-inspector-ui.js
       - scripts/validate-follow-first.js
       - scripts/validate-major-events.js
+      - scripts/validate-all-sports-card-fallback.js
+      - scripts/validate-card-dismissal-learning.js
+      - scripts/validate-shared-chat-ui.js
 
 permissions:
   contents: read

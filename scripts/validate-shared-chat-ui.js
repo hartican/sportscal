@@ -27,11 +27,14 @@ function assertOrder(source, markers, message){
   });
 }
 
-// The app share action belongs in the brand row and shares only the canonical app URL.
-const brandRow = section(html, '<div class="brand-title-row">', '<div class="slogan"');
-assert.match(brandRow, /id="shareAppBtn"/);
-assert.match(brandRow, /data-vector-glyph="ui:share"/);
-assert.match(brandRow, /class="share-app-label">Share</);
+// The existing Share owner is in the responsive header utilities/More group.
+const utilityActions = section(html, '<div class="header-utility-actions" id="headerUtilityActions">', '</div>');
+const shareButton = utilityActions.match(/<button\b[^>]*id="shareAppBtn"[^>]*>[\s\S]*?<\/button>/)?.[0] || '';
+assert.equal((html.match(/\bid="shareAppBtn"/g)||[]).length,1,'one existing app Share owner must remain');
+assert.match(html, /id="headerMoreBtn"[^>]*aria-controls="headerUtilityActions"/);
+assert.match(shareButton, /data-vector-glyph="ui:share"/);
+assert.match(shareButton, /class="utility-label">Share</);
+assert.match(shareButton, /aria-label="Share Nothing Sport"/);
 const appShare = section(html, "function canonicalAppShareUrl()", 'document.getElementById("homeSpoilerToggle")');
 assert.match(html, /<link rel="canonical" href="https:\/\/nothingsport\.vercel\.app\/">/, "the clean production app URL must be configured independently of preview origins");
 assert.match(appShare, /document\.querySelector\('link\[rel="canonical"\]'\)/);
