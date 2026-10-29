@@ -34,4 +34,16 @@ function readCardFunction(name){
   assert(node,`${name} must exist in the actual ordered card runtime owner`);
   return source.slice(node.start,node.end);
 }
-module.exports = {assertShellModule,readFollowApplicationSource,readCardApplicationSource,readCardFunction};
+function readInlineOwner(name, html=fs.readFileSync(path.join(root,'index.html'),'utf8')){
+  const acorn=require('acorn');
+  for(const match of html.matchAll(/<script>([\s\S]*?)<\/script>/g)){
+    const source=match[1];
+    for(const node of acorn.parse(source,{ecmaVersion:'latest'}).body){
+      if(node.type==='FunctionDeclaration'&&node.id?.name===name)return source.slice(node.start,node.end);
+      const call=node.type==='ExpressionStatement'&&node.expression;
+      if(call?.type==='CallExpression'&&call.callee.type==='FunctionExpression'&&call.callee.id?.name===name)return source.slice(node.start,node.end);
+    }
+  }
+  assert.fail(`${name} must exist in the actual inline application owner`);
+}
+module.exports = {assertShellModule,readFollowApplicationSource,readCardApplicationSource,readCardFunction,readInlineOwner};

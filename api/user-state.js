@@ -124,6 +124,19 @@ module.exports = async function userStateHandler(request, response){
     const user = await authenticatedUser(accessToken);
 
     if ((request.method || "GET") === "GET"){
+      const snapshotUrl=new URL(request.url || '/api/user-state','https://nothingsport.local');
+      if(snapshotUrl.searchParams.has('recovery-snapshot')){
+        if(snapshotUrl.searchParams.get('recovery-snapshot')!=='v1'||snapshotUrl.searchParams.getAll('recovery-snapshot').length!==1||Object.keys(requestBody(request)).length!==0||[...snapshotUrl.searchParams.keys()].some(key=>key!=='recovery-snapshot')){
+          throw new SupabaseRequestError('The backup request is invalid.',{status:400,payload:{code:'invalid_recovery_snapshot_request'}});
+        }
+        const state=await loadUserState(user.id,accessToken);
+        if(!state)throw new SupabaseRequestError('Saved account state is unavailable.',{status:404,payload:{code:'recovery_snapshot_unavailable'}});
+        let snapshot;
+        try{snapshot=require('../config/local-preference-recovery').projectOwnRow(state,user.id);}
+        catch{throw new SupabaseRequestError('A complete safe backup could not be verified.',{status:409,payload:{code:'recovery_snapshot_blocked'}});}
+        response.status(200).json(snapshot);
+        return;
+      }
       const [state, preferenceRecovery] = await Promise.all([
         loadUserState(user.id, accessToken),
         activePreferenceRecovery(user.id),

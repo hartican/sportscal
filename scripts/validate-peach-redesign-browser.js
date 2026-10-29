@@ -1,0 +1,168 @@
+#!/usr/bin/env node
+'use strict';
+// Bounded disposable loopback UI proof. No installed worker or real account.
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
+const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(__dirname,'..');
+const output=process.env.PEACH_QA_OUTPUT;
+const engines=process.env.PEACH_QA_ENGINE?[process.env.PEACH_QA_ENGINE]:['chromium','webkit'];
+const records=[],errors=[],blocked=new Set();let server,browser,activePage,requests=0,timedOut=false;
+const fixture=require('../data/events.json').events.find(event=>event.key==='cricket');assert(fixture,'retained source fixture for renderer checks');
+const receipt={mode:'Disposable local browser, API unavailable; no installed/hosted/physical acceptance',engines,records,errors,blocked:[],cleanup:{}};
+if(output)fs.mkdirSync(output,{recursive:true});
+async function check(label,operation){await operation();records.push({label,passed:true});console.log(label);}
+(async()=>{
+ const deadline=setTimeout(()=>{timedOut=true;void browser?.close();server?.closeAllConnections();},180000);
+ try{
+  server=http.createServer((req,res)=>{
+   requests++;if(requests>600){res.writeHead(429);res.end();return;}
+   const url=new URL(req.url,'http://localhost'),file=path.resolve(root,'.'+(url.pathname==='/'?'/index.html':url.pathname));
+   if(url.pathname.startsWith('/api/')){res.writeHead(503,{'content-type':'application/json'});res.end('{}');return;}
+   if(!file.startsWith(root+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile()){res.writeHead(404);res.end();return;}
+   const type={'.html':'text/html','.js':'application/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.webmanifest':'application/manifest+json','.woff2':'font/woff2'}[path.extname(file)]||'application/octet-stream';
+   res.writeHead(200,{'content-type':type,'cache-control':'no-store'});res.end(fs.readFileSync(file));
+  });
+  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+  const base='http://127.0.0.1:'+server.address().port;receipt.origin=base;
+  for(const engine of engines){
+   assert(['chromium','webkit'].includes(engine));browser=await pw[engine].launch({headless:true});
+   const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block'});
+   context.setDefaultTimeout(10000);
+   await context.route('**/*',route=>{
+    const url=new URL(route.request().url());
+    if(url.origin!==base){blocked.add(url.origin);return route.abort('blockedbyclient');}
+    return route.continue();
+   });
+   await context.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,theme:'night',followedSports:['cricket'],selectedSelectorEntityIds:['sport:cricket']})));
+   const page=await context.newPage();activePage=page;page.on('pageerror',error=>errors.push({engine,message:error.message}));
+   await page.goto(base,{waitUntil:'domcontentloaded'});
+   await page.waitForFunction(()=>typeof userPreferences!=='undefined'&&startupFunnelFinished&&!startupCoordinator.isHydrating(),null,{timeout:45000});
+   await page.evaluate(()=>{setTunePromptOpen(false);suppressSessionRatingPrompt();acknowledgeSelectorRelease();if(document.getElementById('selectorOptInModal').classList.contains('show'))closeSelectorOptInPrompt();});
+   await page.evaluate(fixture=>{
+    const host=document.createElement('section');host.id='peach-rendered-card';setCardState(fixture,'opened');host.append(buildEventCard(fixture));document.getElementById('mainContent').append(host);
+   },fixture);
+   const choices=()=>page.evaluate(()=>JSON.stringify({sports:userPreferences.followedSports,graph:userPreferences.preferenceGraph,selected:userPreferences.selectedSelectorEntityIds,first:userPreferences.followFirst?.excludedMajorEventIds,scope:userPreferences.eventsScope}));
+   const originalChoices=await choices();
+   let documentChoices=originalChoices;
+   for(const width of [320,390,768,1280])for(const theme of ['day','night']){
+    await page.setViewportSize({width,height:844});await page.evaluate(theme=>{applyThemePreference(theme);window.scrollTo(0,0);},theme);
+    await check(`${engine}/${width}/${theme}: fixed three destinations and clearance`,async()=>{
+     const geometry=await page.evaluate(()=>{
+      const nav=document.querySelector('nav.tabs'),box=nav.getBoundingClientRect();
+      return {width:innerWidth,overflow:document.documentElement.scrollWidth>innerWidth+1,bottom:box.bottom,position:getComputedStyle(nav).position,
+       tabs:[...nav.querySelectorAll('button')].map(b=>({tab:b.dataset.tab,height:b.getBoundingClientRect().height,width:b.getBoundingClientRect().width,label:b.textContent.trim()})),
+       clearance:parseFloat(getComputedStyle(document.body).paddingBottom),height:box.height,more:getComputedStyle(document.getElementById('headerMoreBtn')).display};
+     });
+     assert.equal(geometry.overflow,false);assert.equal(geometry.position,'fixed');assert(Math.abs(geometry.bottom-844)<1);
+     assert.deepEqual(geometry.tabs.map(tab=>tab.tab),['feed','match-centre','follow']);assert(geometry.tabs.every(tab=>tab.height>=44&&tab.width>=44&&tab.label));
+     assert(geometry.clearance>=geometry.height);assert.equal(geometry.more==='none',width>=768);
+     if(output&&width===390)await page.screenshot({path:path.join(output,`${engine}-${theme}-390.png`)});
+    });
+   }
+   await page.setViewportSize({width:390,height:844});
+   await check(`${engine}: retained source card native collapse and expand`,async()=>{
+    const host=page.locator('#peach-rendered-card');await host.locator('.event-card-disclosure').click();
+    await host.locator('.minimised-card-summary').click();await host.locator('.event-card-disclosure').waitFor();
+    assert.equal(await choices(),originalChoices);
+    await page.evaluate(()=>window.scrollTo(0,0));
+   });
+   await check(`${engine}: System follows both appearances and reduced motion`,async()=>{
+    await page.evaluate(()=>{userPreferences.theme='system';applyThemePreference('system');});
+    for(const colorScheme of ['dark','light']){
+     await page.emulateMedia({colorScheme,reducedMotion:'reduce'});
+     await page.waitForFunction(dark=>matchMedia('(prefers-color-scheme: dark)').matches===dark,colorScheme==='dark');
+     await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+     await page.waitForFunction(expected=>getComputedStyle(document.body).backgroundColor===expected,colorScheme==='dark'?'rgb(12, 16, 16)':'rgb(248, 241, 245)',{timeout:1000});
+     assert.equal(await page.evaluate(()=>document.documentElement.dataset.theme),'system');
+     const sample=await page.evaluate(()=>({theme:document.documentElement.dataset.theme,preference:userPreferences.theme,
+      dark:matchMedia('(prefers-color-scheme: dark)').matches,light:matchMedia('(prefers-color-scheme: light)').matches,
+      background:getComputedStyle(document.body).backgroundColor,nsBg:getComputedStyle(document.documentElement).getPropertyValue('--ns-bg'),bg:getComputedStyle(document.documentElement).getPropertyValue('--bg'),
+      sheets:[...document.styleSheets].map(sheet=>({href:sheet.href,rules:sheet.cssRules.length}))}));
+     (receipt.systemSamples||=[]).push({engine,colorScheme,...sample});
+     assert.equal(sample.background,colorScheme==='dark'?'rgb(12, 16, 16)':'rgb(248, 241, 245)');
+    }
+    await page.evaluate(()=>{userPreferences.theme='night';applyThemePreference('night');});
+    assert.equal(await page.locator('header.top').evaluate(element=>getComputedStyle(element).transitionDuration),'0s');
+   });
+   await check(`${engine}: More native controls, Escape and focus`,async()=>{
+    const more=page.locator('#headerMoreBtn');await more.click();
+    assert.equal(await more.getAttribute('aria-expanded'),'true');
+    assert.equal(await page.evaluate(()=>document.activeElement.id),'settingsBtn');
+    for(const id of ['settingsBtn','calendarSyncBtn','shareAppBtn'])assert(await page.locator('#'+id).isVisible());
+    await page.keyboard.press('Escape');assert.equal(await more.getAttribute('aria-expanded'),'false');assert.equal(await page.evaluate(()=>document.activeElement.id),'headerMoreBtn');
+    await more.click();await page.locator('#settingsBtn').click();await page.locator('#settingsModal').waitFor({state:'visible'});
+    assert.equal(await page.locator('header.top').evaluate(node=>node.inert),true);assert.equal(await page.locator('nav.tabs').evaluate(node=>node.inert),true);
+    assert.equal(await page.locator('.app-footer').evaluate(node=>node.inert),true);assert.equal(await page.evaluate(()=>document.activeElement.id),'closeSettingsBtn');
+    await page.evaluate(()=>closeSettings());assert.equal(await page.locator('nav.tabs').evaluate(node=>node.inert),false);
+   });
+   await check(`${engine}: scroll direction and keyboard pin`,async()=>{
+    await page.evaluate(()=>{document.activeElement?.blur();const space=document.createElement('div');space.id='peach-scroll-space';space.style.height='2400px';document.body.append(space);window.scrollTo(0,0);});
+    await page.mouse.move(200,500);
+    await page.mouse.wheel(0,650);await page.waitForFunction(()=>document.querySelector('header.top').classList.contains('is-scroll-hidden'));
+    assert(Math.abs((await page.locator('nav.tabs').boundingBox()).y+(await page.locator('nav.tabs').boundingBox()).height-844)<1);
+    await page.mouse.wheel(0,-120);await page.waitForFunction(()=>!document.querySelector('header.top').classList.contains('is-scroll-hidden'));
+    await page.locator('#headerMoreBtn').focus();await page.mouse.wheel(0,180);
+    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+    assert.equal(await page.locator('header.top').evaluate(node=>node.classList.contains('is-scroll-hidden')),false);
+    await page.evaluate(()=>{document.activeElement?.blur();window.scrollTo(0,document.body.scrollHeight);});
+    await page.locator('#peach-scroll-space').evaluate(node=>node.remove());await page.evaluate(()=>window.scrollTo(0,0));
+   });
+   await check(`${engine}: actual tabs, legacy routes, Inspector cleanup and Back`,async()=>{
+    await page.locator('[data-tab="follow"]').click();await page.waitForFunction(()=>activeTab==='follow');
+    await page.evaluate(()=>openCodeInspector('sport:cricket',{pushHistory:true}));
+    assert.equal(await page.evaluate(()=>activeInspectorCodeId),'sport:cricket');
+    await page.getByRole('button',{name:'Major Events',exact:true}).click();
+    await page.waitForFunction(()=>followViewSection==='major-events');
+    assert.equal(await choices(),originalChoices,'retained discovery cannot alter saved choices');
+    for(const hash of ['#events','#events/major/us-open','#events/alert/tickets']){
+     await page.evaluate(hash=>{location.hash=hash;},hash);await page.waitForFunction(()=>activeTab==='match-centre'&&location.hash==='#match-centre');
+     assert.equal(await page.evaluate(()=>activeInspectorCodeId),null);assert.equal(await page.locator('[data-tab="match-centre"]').getAttribute('class').then(value=>value.includes('active')),true);
+    }
+    await page.locator('[data-tab="follow"]').click();await page.waitForFunction(()=>location.hash==='#follow');
+    await page.goBack();await page.waitForFunction(()=>activeTab==='match-centre');
+    await page.locator('[data-tab="feed"]').click();await page.waitForFunction(()=>activeTab==='feed');
+    assert.equal(await choices(),originalChoices,'navigation cannot change saved follow/major-event choices');
+   });
+   await check(`${engine}: actual notification URL retains fixture and choices`,async()=>{
+    await page.goto(base+'/?event='+encodeURIComponent(fixture.eventId||fixture.id),{waitUntil:'domcontentloaded'});
+    await page.waitForFunction(()=>startupFunnelFinished&&!startupCoordinator.isHydrating(),null,{timeout:45000});
+    assert.equal(await page.evaluate(()=>activeTab),'feed');
+    assert.equal(await page.evaluate(()=>pendingNotificationEventId),String(fixture.eventId||fixture.id));
+    const restored=JSON.parse(await choices()),expected=JSON.parse(originalChoices);
+    const stamp=Date.parse(restored.graph.updatedAt),clock=await page.evaluate(()=>({start:performance.timeOrigin,now:Date.now()}));
+    assert(stamp>=Math.floor(clock.start)&&stamp<=clock.now,'restored graph stamp belongs to this actual document');
+    assert(stamp>=Date.parse(expected.graph.updatedAt));expected.graph.updatedAt=restored.graph.updatedAt;
+    assert.deepEqual(restored,expected,'complete restored choices permit only their source-owned graph timestamp; key order is not choice identity');
+    documentChoices=await choices();
+   });
+   await check(`${engine}: real recovery explanation survives Account rerender`,async()=>{
+    await page.evaluate(()=>{
+     const token='qa.'+btoa(JSON.stringify({sub:'disposable-peach-owner'}))+'.local';
+     sessionStorage.setItem('ns_auth_session_v1',JSON.stringify({accessToken:token,refreshToken:'disposable-local-only',expiresAt:Date.now()+3600000}));
+     serverPersistence={...serverPersistence,state:'error',user:{id:'disposable-peach-owner'},message:'Disposable local UI fixture'};
+     openSettings({section:'account'});
+    });
+    const open=page.locator('[data-local-recovery-open]'),warning=page.locator('[data-local-recovery-warning]');
+    await open.waitFor();await open.click();assert(await warning.isVisible());
+    await page.evaluate(()=>renderSettingsScreen());await warning.waitFor({state:'visible'});
+    await page.locator('[data-local-recovery-confirm]').focus();assert.equal(await page.evaluate(()=>document.activeElement.hasAttribute('data-local-recovery-confirm')),true);
+    assert.equal(await page.locator('nav.tabs').evaluate(node=>node.inert),true);
+    await page.evaluate(()=>closeSettings());
+    await page.evaluate(()=>openSettings({section:'account'}));await open.waitFor();assert.equal(await warning.isVisible(),false,'new settings opening needs a fresh explanation');
+    await page.evaluate(()=>closeSettings());assert.equal(await choices(),documentChoices);
+   });
+   assert.deepEqual(errors,[]);await context.close();await browser.close();browser=null;
+  }
+  assert.equal(timedOut,false);assert(requests<=600,'owned loopback request ceiling');receipt.passed=true;
+ }catch(error){
+  receipt.passed=false;receipt.failure=error.stack;
+  if(activePage&&!activePage.isClosed())receipt.failureState=await activePage.evaluate(()=>({scrollY,bodyClass:document.body.className,activeId:document.activeElement?.id,openModals:[...document.querySelectorAll('.modal-backdrop.show')].map(node=>node.id)})).catch(()=>null);
+  throw error;
+ }
+ finally{
+  clearTimeout(deadline);if(browser)await browser.close();receipt.cleanup.browserClosed=true;
+  if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}receipt.cleanup.serverClosed=true;
+  receipt.requests=requests;receipt.blocked=[...blocked];receipt.timedOut=timedOut;
+  if(output)fs.writeFileSync(path.join(output,'peach-browser-receipt.json'),JSON.stringify(receipt,null,2)+'\n');
+  console.log(JSON.stringify(receipt));
+ }
+})().catch(error=>{console.error(error);process.exitCode=1;});

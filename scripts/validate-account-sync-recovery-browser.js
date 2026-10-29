@@ -15,6 +15,7 @@ const testedShellVersion=testedHtml.match(/<meta name="app-shell-version" conten
 assert(testedShellVersion,'exact served source declares its shell version');
 const engineName = process.env.ACCOUNT_RECOVERY_BROWSER || 'chromium';
 const scenario = process.env.ACCOUNT_RECOVERY_CASE || 'retry-error';
+const localRecoveryScenario=scenario==='local-preference-recovery';
 const eventsScopeScenario=scenario==='receipt-base-events-scope';
 const eventAgreementScenario=scenario==='receipt-base-event-agreement'||eventsScopeScenario;
 const helperRaceProbe=process.env.ACCOUNT_RECOVERY_HELPER_RACE==='1'||scenario==='helper-mount';
@@ -25,7 +26,7 @@ assert(!cancelControl||scenario==='receipt-base-disjoint','Cancellation control 
 if (scenario === 'all') {
   let failed = false;
   for (const engine of (process.env.ACCOUNT_RECOVERY_BROWSER ? [engineName] : ['chromium', 'webkit'])) {
-    for (const testCase of ['helper-mount', 'diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed', 'receipt-base-disjoint', 'receipt-base-overlap', 'receipt-base-cricket', 'receipt-base-event-agreement', 'receipt-base-events-scope']) {
+    for (const testCase of ['helper-mount', 'diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed', 'receipt-base-disjoint', 'receipt-base-overlap', 'receipt-base-cricket', 'receipt-base-event-agreement', 'receipt-base-events-scope', 'local-preference-recovery']) {
       const result = spawnSync(process.execPath, [__filename], { stdio: 'inherit', env: {
         ...process.env, ACCOUNT_RECOVERY_BROWSER: engine, ACCOUNT_RECOVERY_CASE: testCase } });
       failed ||= result.status !== 0;
@@ -34,9 +35,9 @@ if (scenario === 'all') {
   process.exit(failed ? 1 : 0);
 }
 // Opt-in evidence only; all-case execution/order and original gates stay intact.
-const diagnosticTrace = process.env.ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE === '1' && scenario === 'diagnostic';
+const diagnosticTrace = process.env.ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE === '1';
 const manifestControl = process.env.ACCOUNT_RECOVERY_MANIFEST_CONTROL || '';
-assert(!manifestControl || (manifestControl === 'original' && diagnosticTrace && !process.env.ACCOUNT_RECOVERY_BASELINE),
+assert(!manifestControl || (manifestControl === 'original' && scenario === 'diagnostic' && diagnosticTrace && !process.env.ACCOUNT_RECOVERY_BASELINE),
   'Manifest control requires diagnostic + trace on current source');
 let heldManifestResponse = null, manifestHeld;
 const manifestRequestHeld = new Promise(resolve => { manifestHeld = resolve; });
@@ -51,6 +52,7 @@ function releaseManifestResponse() {
   if (held?.release && !held.res.destroyed && !held.res.writableEnded) held.release();
 }
 const manifestPath = '/data/code-inspector/manifest.json';
+const tracedStaticPath=pathname=>pathname===manifestPath||pathname==='/data/feed/manifest.json'||/^\/data\/feed\/page-\d+\.json$/.test(pathname);
 const manifestTrace = [], manifestTraceStart = performance.now();
 let manifestPhase = 'initial-startup', manifestEpoch = 0, manifestSequence = 0, manifestDropped = 0, manifestDocumentTruncated = false;
 function traceManifest(event, fields = {}) {
@@ -113,7 +115,7 @@ const server = http.createServer((req, res) => {
     res.once('close', () => closed({req, res, requestAborted:held.requestAborted, finished:res.writableFinished}));
     traceManifest('control-first-request-reserved');
   }
-  if (diagnosticTrace && pathname === manifestPath) {
+  if (diagnosticTrace && tracedStaticPath(pathname)) {
     const id = 'http-' + (++manifestSequence);
     traceManifest('http-request', {id, path:pathname, host:req.headers.host, origin:req.headers.origin||null});
     req.on('aborted', () => traceManifest('http-aborted', {id}));
@@ -180,7 +182,11 @@ const server = http.createServer((req, res) => {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, serviceWorkers: 'block' });
   let row = null, readMode = 'success', refreshMode = 'success', reads = 0, writes = 0, refreshes = 0, authSignIns = 0;
   let beforeAck = null, page, controlBrowserRequest=null;
-  const actualApi = (scenario.startsWith('api-')||scenario.startsWith('receipt-base-')) ? require('./lib/local-user-state-api')(owner) : null;
+  let recoverySnapshotGets=0,recoveryReopenCapture=false;
+  const recoveryReopenPuts=[];
+  const actualApi = (scenario.startsWith('api-')||scenario.startsWith('receipt-base-')||localRecoveryScenario) ? require('./lib/local-user-state-api')(owner,{traceRequests:localRecoveryScenario}) : null;
+  const recoveryClickMarker='[qa-recovery-browser-order]';
+  const recoveryNativeClickCounts={open:0,confirm:0};let recoveryObserverInvalid=false;
   const chronology = [];
   const heldReads = [];
   let holdHelper=false,helperHeld;const heldHelpers=[];
@@ -191,6 +197,33 @@ const server = http.createServer((req, res) => {
     archived_events: row.archivedEvents, ratings: row.ratings, updated_at: row.updatedAt } });
   const errors = [], blocked = [], statuses = [];
   try {
+    if(localRecoveryScenario)await context.addInitScript(marker=>{
+      let sequence=0;
+      const report=(event,fields={})=>{
+        const current=++sequence;if(current>129)return;
+        try{console.debug(marker+JSON.stringify({event:current===129?'observer-truncated':event,sequence:current,
+          timeOrigin:performance.timeOrigin,atMs:performance.now(),busy:localPreferenceRecoveryBusy,
+          serverSyncTimerPending:serverSyncTimer!==null,directoryTimerPending:directoryFollowEffectsTimer!==null,
+          followTimerPending:followFeedRefreshTimer!==null,followRebuildPending:Boolean(followFeedRefreshInFlight),...fields}));}catch{}
+      };
+      const originalFetch=window.fetch;
+      window.fetch=function(...args){
+        try{
+          const input=args[0],url=new URL(typeof input==='string'?input:input instanceof URL?input.href:input.url,document.baseURI);
+          if(url.origin===location.origin&&url.pathname==='/api/user-state'){
+            const requestedMethod=String(args[1]?.method||input?.method||'GET').toUpperCase();
+            report('fetch-entry',{method:['GET','PUT'].includes(requestedMethod)?requestedMethod:'other',
+              mode:url.search==='?recovery-snapshot=v1'?'snapshot-v1':url.search?'other-query':'normal',
+              url:url.pathname+(url.search==='?recovery-snapshot=v1'?'?recovery-snapshot=v1':url.search?'?<redacted-other-query>':'')});
+          }
+        }catch{}
+        return Reflect.apply(originalFetch,this,args);
+      };
+      document.addEventListener('click',event=>{
+        const button=event.target.closest?.('[data-local-recovery-open],[data-local-recovery-confirm]');
+        if(button&&event.isTrusted)report('trusted-native-click',{action:button.hasAttribute('data-local-recovery-confirm')?'confirm':'open',trusted:true});
+      },true);
+    },recoveryClickMarker);
     if (diagnosticTrace) await context.addInitScript(originalControl => {
       globalThis.qaManifestOriginalControl = originalControl;
       const marker = '[qa-diagnostic-manifest]';
@@ -198,14 +231,15 @@ const server = http.createServer((req, res) => {
       const report = (event, fields = {}) => {
         if (count++ > 128) return;
         try { console.debug(marker + JSON.stringify({event:count===129?'document-truncated':event,
-          timeOrigin:performance.timeOrigin, atMs:performance.now(), document:location.origin+location.pathname, ...fields})); } catch {}
+          documentSequence:count,timeOrigin:performance.timeOrigin, atMs:performance.now(), document:location.origin+location.pathname, ...fields})); } catch {}
       };
+      const observedStaticPath=pathname=>pathname==='/data/code-inspector/manifest.json'||pathname==='/data/feed/manifest.json'||/^\/data\/feed\/page-\d+\.json$/.test(pathname);
       const originalFetch = window.fetch;
       window.fetch = function(...args) {
         try {
           const input = args[0];
           const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url, document.baseURI);
-          if (url.origin === location.origin && url.pathname === '/data/code-inspector/manifest.json')
+          if (url.origin === location.origin && observedStaticPath(url.pathname))
             report('fetch-entry', {url:url.origin+url.pathname, stack:String(new Error().stack||'').slice(0,2400)});
         } catch {}
         return Reflect.apply(originalFetch, this, args);
@@ -248,7 +282,7 @@ const server = http.createServer((req, res) => {
       const request = route.request(), u = new URL(request.url());
       let requestContext;if(traceApiStale){try{requestContext=request.frame().page()===page?'A':'B';}catch{requestContext='unavailable';}}
       if(traceApiStale&&u.pathname==='/api/fixtures')traceResource('route-fixtures-start',{context:requestContext,path:u.pathname,origin:u.origin,allowed:origins.has(u.origin)});
-      if (diagnosticTrace && u.pathname === manifestPath) traceManifest('route', {origin:u.origin, path:u.pathname, allowed:origins.has(u.origin)});
+      if (diagnosticTrace && tracedStaticPath(u.pathname)) traceManifest('route', {origin:u.origin, path:u.pathname, allowed:origins.has(u.origin)});
       if (!origins.has(u.origin)) { blocked.push(u.origin); return route.abort('blockedbyclient'); }
       if(holdHelper&&u.pathname==='/assets/js/account-awareness-runtime.js'){heldHelpers.push(route);helperHeld();return;}
       if (!u.pathname.startsWith('/api/')){
@@ -271,7 +305,13 @@ const server = http.createServer((req, res) => {
       if (u.pathname === '/api/user-state') {
         reads++;
         if (actualApi) {
-          const result = await actualApi.handle({ url: u.pathname, method, headers: request.headers(), body });
+          if(localRecoveryScenario&&u.searchParams.has('recovery-snapshot')){
+            assert.equal(method,'GET');assert.equal(u.search,'?recovery-snapshot=v1');
+            assert.equal(request.headers().authorization,'Bearer '+token(owner));recoverySnapshotGets++;
+          }
+          const result = await actualApi.handle({ url: localRecoveryScenario ? u.pathname+u.search : u.pathname, method, headers: request.headers(), body });
+          if(localRecoveryScenario&&recoveryReopenCapture&&method==='PUT'&&recoveryReopenPuts.length<2)
+            recoveryReopenPuts.push({body:clone(body),metadata:structuredClone(actualApi.calls.at(-1))});
           if (method === 'PUT' && result.status === 200) writes++;
           row = actualApi.state();
           chronology.push({ context: request.frame().page() === page ? 'A' : 'B', ...actualApi.calls.at(-1) });
@@ -303,11 +343,31 @@ const server = http.createServer((req, res) => {
     };
     await context.route('**/*', routeHandler);
     page = await context.newPage();
+    if(localRecoveryScenario)page.on('console',message=>{
+      const text=message.text();if(!text.startsWith(recoveryClickMarker))return;
+      try{
+        const input=JSON.parse(text.slice(recoveryClickMarker.length));
+        const flags=['busy','serverSyncTimerPending','directoryTimerPending','followTimerPending','followRebuildPending'];
+        if(!['trusted-native-click','fetch-entry','observer-truncated'].includes(input.event)||!Number.isInteger(input.sequence)||input.sequence<1||input.sequence>129
+          ||!Number.isFinite(input.timeOrigin)||!Number.isFinite(input.atMs)||flags.some(key=>typeof input[key]!=='boolean'))throw Error('Invalid safe observer evidence');
+        const event={event:input.event,browserSequence:input.sequence,browserTimeOrigin:input.timeOrigin,browserAtMs:input.atMs,
+          ...Object.fromEntries(flags.map(key=>[key,input[key]]))};
+        if(input.event==='trusted-native-click'){
+          if(!['open','confirm'].includes(input.action)||input.trusted!==true)throw Error('Invalid trusted click evidence');
+          event.action=input.action;event.trusted=true;recoveryNativeClickCounts[input.action]++;
+        }else if(input.event==='fetch-entry'){
+          const paths={normal:'/api/user-state','snapshot-v1':'/api/user-state?recovery-snapshot=v1','other-query':'/api/user-state?<redacted-other-query>'};
+          if(!['GET','PUT','other'].includes(input.method)||!Object.hasOwn(paths,input.mode)||input.url!==paths[input.mode])throw Error('Invalid safe fetch evidence');
+          event.method=input.method;event.mode=input.mode;event.url=input.url;
+        }else recoveryObserverInvalid=true;
+        actualApi.trace.browser(event);
+      }catch{recoveryObserverInvalid=true;actualApi.trace.browser({event:'invalid-browser-order-evidence'});}
+    });
     if (diagnosticTrace) {
       const requests = new WeakMap();
       const identify = request => {
         const u = new URL(request.url());
-        if (u.pathname !== manifestPath) return null;
+        if (!tracedStaticPath(u.pathname)) return null;
         if (!requests.has(request)) requests.set(request, {id:'browser-'+(++manifestSequence), origin:u.origin,
           path:u.pathname, startedEpoch:manifestEpoch, frameUrl:resourceFrameUrl(request)});
         return requests.get(request);
@@ -426,7 +486,8 @@ const server = http.createServer((req, res) => {
         choices:JSON.stringify(currentServerStatePayload()), account:serverSyncClient.accountSnapshot().accountId,
         generation:serverSyncClient.accountSnapshot().generation
       };
-      globalThis.qaManifestSetupSnapshot?.({sharedLoaderPresent:codeInspectorManifestLoading!==null,manifestLoaded:Boolean(codeInspectorManifest)});
+      globalThis.qaManifestSetupSnapshot?.({sharedLoaderPresent:codeInspectorManifestLoading!==null,manifestLoaded:Boolean(codeInspectorManifest),
+        backgroundFeedRefreshPending:Boolean(remoteFeedRefreshInFlight),startupFeedPhase:startupFeedState.phase,publicFeedManifestLoaded:Boolean(publicFeedManifest)});
       return { ...currentServerStatePayload(), updatedAt: '2026-10-23T01:00:00Z' };
     }, Boolean(actualApi));
     if(helperRaceProbe){
@@ -457,6 +518,7 @@ const server = http.createServer((req, res) => {
       assert.deepEqual(await page.evaluate(()=>({firstRun:settingsFirstRun,section:settingsSection,open:document.getElementById('settingsModal').classList.contains('show')})),
         {firstRun:true,section:'startup',open:true},'Explicit first-run setup remains available');
     }
+    if(localRecoveryScenario)row.ratings={...row.ratings,'fixture-local-recovery':3};
     if (actualApi) { actualApi.seed(row); row = actualApi.state(); }
     holdHelper=helperRaceProbe;
     manifestPhase='setup-before-controlled-reload';
@@ -548,7 +610,247 @@ const server = http.createServer((req, res) => {
       globalThis.qaSyncStates = [];
       setServerPersistence = patch => { qaSyncStates.push(patch.state); return original(patch); };
     });
-    if (scenario.startsWith('receipt-base-')) {
+    if(localRecoveryScenario){
+      const assertRawAppPreferences=(actual,wireExpected,label)=>{
+        // applyServerState explicitly retains these two device-local slots, including absent values.
+        const rawExpected=structuredClone(wireExpected);
+        for(const field of ['followBrowse','feedCompact']){
+          assert.equal(Object.hasOwn(wireExpected,field),false,label+': independently saved fixture omits '+field);
+          assert.equal(Object.hasOwn(actual,field),true,label+': actual source creates the own '+field+' slot');
+          assert.equal(actual[field],undefined,label+': only the exact source-owned absent '+field+' slot is allowed');
+          rawExpected[field]=undefined;
+        }
+        assert.deepEqual(actual,rawExpected,label+': complete raw shape rejects every other undefined/defined/null/empty/unknown difference');
+        assert.deepEqual(JSON.parse(JSON.stringify(actual)),wireExpected,label+': actual existing JSON representation matches the independently saved copy');
+      };
+      // Fixture setup uses existing real writers, never a replacement recovery/helper/guard.
+      await page.evaluate(()=>{
+        const p=clonePreferences(userPreferences);p.onboardingComplete=true;
+        p.followedSports=[];p.selectedSelectorEntityIds=[];
+        p.preferenceGraph=PREFERENCE_SYSTEM.createPreferenceGraph({profileId:activeProfileBundle.profile.id});
+        p.preferenceGraph=PREFERENCE_SYSTEM.quickAddDomain(p.preferenceGraph,'sport:football','template:casual');
+        p.preferenceGraph.domainPreferences[0].enabled=false;
+        p.followFirst.followedMajorEventIds=[];p.followFirst.excludedMajorEventIds=['commonwealth-games'];
+        if(!savePreferences(p,{deferFollowEffects:true}))throw Error('Recovery baseline fixture rejected');
+        clearTimeout(serverSyncTimer);
+      });
+      await page.evaluate(()=>syncCurrentServerState());
+      const baseline=clone(actualApi.state());
+      assert.equal(baseline.preferences.preferenceGraph.domainPreferences[0].enabled,false);
+      assert.deepEqual(baseline.preferences.preferenceGraph.entityFollows,[]);
+      assert.deepEqual(baseline.preferences.followedSports,[]);
+      assert.equal(baseline.ratings['fixture-local-recovery'],3);
+      const themeOrder=['system','day','night'],baseTheme=baseline.preferences.theme;
+      assert(themeOrder.includes(baseTheme));
+      const localTheme=themeOrder[(themeOrder.indexOf(baseTheme)+1)%3],remoteTheme=themeOrder[(themeOrder.indexOf(baseTheme)+2)%3];
+      // Establish the disposable concurrent conflict before the actual writer, not by racing a canceled producer.
+      actualApi.mutate(state=>{state.preferences.theme=remoteTheme;});row=actualApi.state();
+      const savedCopy=clone(row),beforeHeldWrites=writes;
+      const originalReceipt=await page.evaluate(theme=>{
+        const p=clonePreferences(userPreferences);p.theme=theme;
+        if(!savePreferences(p,{deliberate:true}))throw Error('Held intent fixture rejected');
+        return pendingPreferenceIntent(serverPersistence.user.id);
+      },localTheme);
+      assert(originalReceipt,'actual deliberate writer must create the pending request');
+      await page.waitForFunction(id=>serverSyncTimer===null&&serverPersistence.state==='error'&&pendingPreferenceIntent(serverPersistence.user.id)?.receiptId===id,originalReceipt.receiptId);
+      const automaticHold=await page.evaluate(async()=>{try{await serverSyncSequence;return {fulfilled:true};}catch(error){return {fulfilled:false,code:error.code};}});
+      assert.deepEqual(automaticHold,{fulfilled:false,code:'preference_base_changed'},'the actual ordinary producer must reach the real conflict guard');
+      assert.equal(writes,beforeHeldWrites,'the automatic guarded hold cannot write');
+      // Native retry occurs only after that real queue has settled to its guarded error.
+      await page.locator('#syncAccountNowBtn').click();
+      const manualHold=await page.evaluate(async()=>{try{await serverSyncSequence;return {fulfilled:true};}catch(error){return {fulfilled:false,code:error.code};}});
+      assert.deepEqual(manualHold,{fulfilled:false,code:'preference_base_changed'},'native guard retry must finish its owned read before recovery counters start');
+      await page.waitForFunction(()=>serverPersistence.state==='error');
+      assert.equal(writes,beforeHeldWrites,'held retry cannot send a PUT');
+      assert.deepEqual(await page.evaluate(()=>pendingPreferenceIntent(serverPersistence.user.id)),originalReceipt);
+      // Fail visibly if this actual fixture is not a supported normalizer fixed point.
+      assert.deepEqual(await page.evaluate(saved=>mergePreferences(clonePreferences(saved)),savedCopy.preferences),savedCopy.preferences,
+        'saved-copy fixture must be compatible; no normalizer/guard overlay is allowed');
+      const unrelated=await page.evaluate(()=>({
+        ratings:clonePreferences(ratings),actions:clonePreferences(eventActions),spoilers:clonePreferences(eventSpoilerState),archives:clonePreferences(archivedEventRefs),
+        pins:clonePreferences(fixturePinQueue),storedPins:localStorage.getItem(STORAGE_KEYS.fixturePinQueue),
+        auth:localStorage.getItem('ns_auth_persistent_session_v1'),session:sessionStorage.getItem('ns_auth_session_v1'),
+        owner:serverSyncClient.accountSnapshot().accountId,generation:serverSyncClient.accountSnapshot().generation,
+      }));
+      const counts={writes,refreshes,authSignIns,snapshots:recoverySnapshotGets,...actualApi.metrics};
+      actualApi.trace.mark('recovery-baseline-before-explanation',{metrics:{...actualApi.metrics},snapshotGets:recoverySnapshotGets,completedCalls:actualApi.calls.length});
+      const opening=page.locator('[data-local-recovery-open]'),confirm=page.locator('[data-local-recovery-confirm]');
+      await opening.waitFor({state:'visible'});
+      assert.equal(await confirm.isVisible(),false,'discard action requires its explanation/confirmation');
+      await opening.click();await confirm.waitFor({state:'visible'});
+      actualApi.trace.mark('explanation-visible');
+      assert.match(await page.locator('[data-local-recovery-warning]').innerText(),/discards unsynced|follow items again/i);
+      assert.equal(recoverySnapshotGets,counts.snapshots,'opening explanation performs no read/discard');
+      actualApi.trace.mark('node-confirm-dispatch-before-native-click');
+      await confirm.click();
+      await page.waitForFunction(theme=>!localPreferenceRecoveryBusy&&!pendingPreferenceIntent(serverPersistence.user.id)&&userPreferences.theme===theme,remoteTheme);
+      actualApi.trace.mark('recovery-done',{metrics:{...actualApi.metrics},snapshotGets:recoverySnapshotGets,completedCalls:actualApi.calls.length});
+      const attribution=actualApi.trace.snapshot();
+      const nativeClicksComplete=recoveryNativeClickCounts.open===1&&recoveryNativeClickCounts.confirm===1;
+      const packet={phase:'recovery-row-read-attribution',scenario,engine:engineName,baseline:counts,
+        current:{writes,refreshes,authSignIns,snapshots:recoverySnapshotGets,...actualApi.metrics},...attribution,
+        complete:attribution.complete&&nativeClicksComplete&&!recoveryObserverInvalid,nativeClicksComplete,recoveryObserverInvalid,
+        intervalContract:'Original global baseline precedes explanation. Compare browser-local sequence only within the same timeOrigin for trusted clicks versus fetch invocation; Node phase/console arrival cannot establish that ordering.',
+        limitsNote:'Loopback constructed account only. ALS IDs exactly own handler SELECT/RPC/write events; browser sequences and ALS IDs have no asserted cross-ID join. No controller hooks, headers, bodies, identities or tokens are logged.'};
+      const attributionText=JSON.stringify(packet),attributionBytes=Buffer.byteLength(attributionText,'utf8');
+      if(attributionBytes<=131072)console.log(attributionText);
+      else console.log(JSON.stringify({phase:'recovery-row-read-attribution',scenario,engine:engineName,complete:false,overflow:true,omittedBytes:attributionBytes}));
+      assert.equal(recoverySnapshotGets-counts.snapshots,1,'one scoped snapshot GET');
+      const accounting=require('./lib/recovery-request-accounting')(packet);
+      console.log(JSON.stringify({phase:'recovery-request-accounting',scenario,engine:engineName,...accounting}));
+      assert.equal(accounting.snapshot.stateLoads,1,'production mode reads one own row');
+      assert.equal(accounting.snapshot.recoveryRpcs,0,'snapshot cannot run active-reset RPC');
+      assert.equal(actualApi.metrics.rowWrites-counts.rowWrites,0,'snapshot/recovery cannot write the disposable server row');
+      assert.deepEqual({writes,refreshes,authSignIns},{writes:counts.writes,refreshes:counts.refreshes,authSignIns:counts.authSignIns},'recovery cannot PUT, refresh or sign in');
+      assert.deepEqual(actualApi.state(),savedCopy,'server row is unchanged by device-only recovery');
+      const recovered=await page.evaluate(()=>({preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id),
+        storedReceipt:PROFILE_STORAGE.readPreferenceIntent(localStorage,activeProfileBundle,serverPersistence.user.id),
+        ratings:clonePreferences(ratings),actions:clonePreferences(eventActions),spoilers:clonePreferences(eventSpoilerState),archives:clonePreferences(archivedEventRefs),
+        pins:clonePreferences(fixturePinQueue),storedPins:localStorage.getItem(STORAGE_KEYS.fixturePinQueue),
+        auth:localStorage.getItem('ns_auth_persistent_session_v1'),session:sessionStorage.getItem('ns_auth_session_v1'),
+        owner:serverSyncClient.accountSnapshot().accountId,generation:serverSyncClient.accountSnapshot().generation}));
+      assert.equal(recovered.receipt,null);assert.equal(recovered.storedReceipt,null);
+      assert.deepEqual(recovered.preferences,savedCopy.preferences,'no old receipt intent is reapplied');
+      for(const key of Object.keys(unrelated))assert.deepEqual(recovered[key],unrelated[key],'recovery preserves '+key);
+      const postRecoveryWrites=writes;
+      await page.locator('#syncAccountNowBtn').click();
+      const immediateSync=await page.evaluate(async()=>{try{await serverSyncSequence;return {fulfilled:true};}catch(error){return {fulfilled:false,code:error.code};}});
+      assert.deepEqual(immediateSync,{fulfilled:true},'immediate native sync must finish its actual owner before assertions and reload');
+      await page.waitForFunction(()=>serverPersistence.state==='signedIn');
+      assert.equal(writes,postRecoveryWrites,'ordinary immediate sync has no stale preference PUT');
+      assert.deepEqual(actualApi.state(),savedCopy);
+      const reopenCallStart=actualApi.calls.length,reopenServerBefore=clone(actualApi.state());
+      const reopenAppBefore=await page.evaluate(()=>({openId:followFirstOpenId,sessionId:productEventSessionId}));
+      recoveryReopenCapture=true;
+      await page.reload({waitUntil:'domcontentloaded'});
+      await page.waitForFunction(()=>!startupCoordinator.isHydrating()&&serverPersistence.state==='signedIn');
+      await page.evaluate(()=>serverSyncSequence);
+      const tune=page.locator('#tunePromptModal');await tune.waitFor({state:'visible'});
+      assert.equal(reopenServerBefore.preferences.followFirst.refinement.promptedAt,null);
+      assert.equal(reopenServerBefore.preferences.followFirst.refinement.completedAt,null);
+      const shown=await page.evaluate(previousPromptedAt=>{
+        const eligible=clonePreferences(userPreferences);eligible.followFirst.refinement.promptedAt=previousPromptedAt;
+        const life=serverSyncClient.accountSnapshot();
+        return {preferences:clonePreferences(userPreferences),openId:followFirstOpenId,sessionId:productEventSessionId,
+          promptedAt:userPreferences.followFirst.refinement.promptedAt,timeOrigin:performance.timeOrigin,now:Date.now(),
+          startupPostLoadHandled,startupFunnelFinished,activeRecovery:Boolean(activeRecoverySession),
+          eligibleBeforeStamp:FOLLOW_FIRST.shouldPromptRefinement(eligible),life,
+          baselineOwner:serverStateBaseline?.accountId,baselineGeneration:serverStateBaseline?.generation,
+          receipt:pendingPreferenceIntent(serverPersistence.user.id),storedReceipt:PROFILE_STORAGE.readPreferenceIntent(localStorage,activeProfileBundle,serverPersistence.user.id)};
+      },reopenServerBefore.preferences.followFirst.refinement.promptedAt);
+      assert.equal(shown.startupPostLoadHandled,true);assert.equal(shown.startupFunnelFinished,true);assert.equal(shown.activeRecovery,false);
+      assert.equal(shown.eligibleBeforeStamp,true);assert.equal(shown.life.accountId,owner);assert.equal(shown.life.hasSession,true);
+      assert.equal(shown.baselineOwner,owner);assert.equal(shown.baselineGeneration,shown.life.generation);
+      assert.equal(shown.receipt,null);assert.equal(shown.storedReceipt,null);
+      const promptTime=Date.parse(shown.promptedAt);assert(Number.isFinite(promptTime));
+      assert.equal(new Date(promptTime).toISOString(),shown.promptedAt);
+      assert(promptTime>=Math.floor(shown.timeOrigin)&&promptTime<=shown.now,'prompt stamp belongs to this actual current document');
+      const expectedShown=clone(reopenServerBefore.preferences);
+      expectedShown.followFirst.refinement.distinctOpenCount+=1;expectedShown.followFirst.refinement.lastOpenId=shown.openId;
+      expectedShown.ratingPromptState.sessionCount+=1;expectedShown.ratingPromptState.lastSessionId=shown.sessionId;
+      expectedShown.followFirst.refinement.promptedAt=shown.promptedAt;
+      assertRawAppPreferences(shown.preferences,expectedShown,'visible real prompt adds exactly its source-written local stamp to the four reopen fields');
+      assert(await tune.evaluate(element=>{const rect=element.getBoundingClientRect();return document.elementFromPoint(rect.left+4,rect.top+4)===element;}),'native backdrop target must hit the actual visible Tune overlay');
+      // The backdrop handler closes only. The Not now button would deliberately set deferred=true.
+      await tune.click({position:{x:4,y:4}});await tune.waitFor({state:'hidden'});
+      const dismissed=await page.evaluate(()=>({preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id),storedReceipt:PROFILE_STORAGE.readPreferenceIntent(localStorage,activeProfileBundle,serverPersistence.user.id),life:serverSyncClient.accountSnapshot()}));
+      assert.deepEqual(dismissed.preferences,shown.preferences);assert.equal(dismissed.receipt,null);assert.equal(dismissed.storedReceipt,null);assert.deepEqual(dismissed.life,shown.life);
+      await page.evaluate(()=>{closeSettings();openSettings({section:'account'});});
+      await page.locator('#syncAccountNowBtn').click();
+      await page.waitForFunction(()=>serverPersistence.state==='signedIn'&&serverSyncTimer===null&&!pendingPreferenceIntent(serverPersistence.user.id));
+      await page.evaluate(()=>serverSyncSequence);
+      const reopened=await page.evaluate(()=>({preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id),
+        storedReceipt:PROFILE_STORAGE.readPreferenceIntent(localStorage,activeProfileBundle,serverPersistence.user.id),
+        payload:currentServerStatePayload(),accepted:serverStateBaseline.state,acceptedUpdatedAt:serverStateBaseline.updatedAt,
+        openId:followFirstOpenId,sessionId:productEventSessionId,
+        auth:localStorage.getItem('ns_auth_persistent_session_v1'),session:sessionStorage.getItem('ns_auth_session_v1'),ratings:clonePreferences(ratings)}));
+      assert.equal(reopened.receipt,null);assert.equal(reopened.preferences.theme,remoteTheme);
+      assert.equal(reopened.preferences.preferenceGraph.domainPreferences[0].enabled,false);
+      assert.deepEqual(reopened.preferences.preferenceGraph.entityFollows,[]);assert.deepEqual(reopened.preferences.followedSports,[]);
+      assert.deepEqual(reopened.preferences.followFirst.excludedMajorEventIds,savedCopy.preferences.followFirst.excludedMajorEventIds);
+      assert.equal(reopened.preferences.followFirst.notifications.enabled,false);assert.deepEqual(reopened.ratings,unrelated.ratings);
+      assert.equal(reopened.auth,unrelated.auth);assert.equal(reopened.session,unrelated.session);
+      recoveryReopenCapture=false;
+      // Observed reopen counters plus the actual visible startup prompt and its normal queue.
+      // Permit exactly those five concrete values; no other preference or root may move.
+      const reopenPuts=actualApi.calls.slice(reopenCallStart).filter(call=>call.method==='PUT');
+      const bookkeepingPaths=['preferences.followFirst.refinement.distinctOpenCount','preferences.followFirst.refinement.lastOpenId',
+        'preferences.ratingPromptState.sessionCount','preferences.ratingPromptState.lastSessionId'].sort();
+      const promptPath='preferences.followFirst.refinement.promptedAt',allReopenPaths=[...bookkeepingPaths,promptPath].sort();
+      assert([1,2].includes(reopenPuts.length),'only observed coalesced-five or four-then-prompt transactions are supported; maximum two');
+      assert.equal(writes,postRecoveryWrites+reopenPuts.length,'all reopen PUT attempts must be the successful supported shape');
+      assert.equal(recoveryReopenPuts.length,reopenPuts.length);
+      const reopenShape=reopenPuts.length===1?'coalesced-five':'four-then-prompt';
+      let actualBase=reopenServerBefore.updatedAt;
+      for(let index=0;index<reopenPuts.length;index++){
+        const metadata=reopenPuts[index],sent=recoveryReopenPuts[index];
+        const expectedPaths=reopenPuts.length===1?allReopenPaths:index===0?bookkeepingPaths:[promptPath];
+        assert.equal(metadata.status,200);assert.deepEqual(sent.metadata,metadata);
+        assert.deepEqual(metadata.changedPaths.slice().sort(),expectedPaths);
+        assert.deepEqual(sent.body.patch.changes.map(change=>change.path.join('.')).sort(),expectedPaths);
+        assert.equal(sent.body.patch.baseUpdatedAt,actualBase);assert.equal(metadata.patchBaseUpdatedAt,actualBase,'each ordinary transaction uses the actual current CAS base');
+        assert(Number.isFinite(Date.parse(metadata.responseUpdatedAt))&&Date.parse(metadata.responseUpdatedAt)>Date.parse(actualBase),'each actual returned timestamp strictly advances its CAS base');
+        actualBase=metadata.responseUpdatedAt;
+      }
+      const reopenedServer=clone(actualApi.state());
+      assert.equal(reopenedServer.updatedAt,actualBase,'final row timestamp equals the last actual successful response');
+      const expectedPreferences=clone(reopenServerBefore.preferences);
+      assert.equal(reopenedServer.preferences.followFirst.refinement.distinctOpenCount,expectedPreferences.followFirst.refinement.distinctOpenCount+1);
+      assert.equal(reopenedServer.preferences.ratingPromptState.sessionCount,expectedPreferences.ratingPromptState.sessionCount+1);
+      for(const [fresh,previous]of [[reopened.openId,reopenAppBefore.openId],[reopened.sessionId,reopenAppBefore.sessionId]]){
+        assert.equal(typeof fresh,'string');assert.match(fresh,/^[A-Za-z0-9][A-Za-z0-9:._-]{0,159}$/);assert.notEqual(fresh,previous);
+      }
+      assert.equal(reopenedServer.preferences.followFirst.refinement.lastOpenId,reopened.openId);
+      assert.equal(reopenedServer.preferences.ratingPromptState.lastSessionId,reopened.sessionId);
+      assert.notEqual(reopened.openId,expectedPreferences.followFirst.refinement.lastOpenId);
+      assert.notEqual(reopened.sessionId,expectedPreferences.ratingPromptState.lastSessionId);
+      expectedPreferences.followFirst.refinement.distinctOpenCount+=1;expectedPreferences.followFirst.refinement.lastOpenId=reopened.openId;
+      expectedPreferences.ratingPromptState.sessionCount+=1;expectedPreferences.ratingPromptState.lastSessionId=reopened.sessionId;
+      assert.equal(reopened.openId,shown.openId);assert.equal(reopened.sessionId,shown.sessionId);
+      expectedPreferences.followFirst.refinement.promptedAt=shown.promptedAt;
+      const expectedState={...clone(reopenServerBefore),preferences:expectedPreferences,updatedAt:reopenedServer.updatedAt};
+      for(const sent of recoveryReopenPuts)for(const change of sent.body.patch.changes){
+        assert.notEqual(change.remove,true,'ordinary reopen metadata cannot remove a fact');assert.equal(Object.hasOwn(change,'value'),true);
+        const independentlyExpectedValue=change.path.reduce((value,key)=>value?.[key],expectedState);
+        assert.deepEqual(change.value,independentlyExpectedValue,'every actual request value matches the independent causal five-value state');
+      }
+      assert.deepEqual(reopenedServer,expectedState,'complete server state may change only the four reopen values, exact observed source prompt stamp and returned timestamp');
+      assertRawAppPreferences(reopened.preferences,expectedPreferences,'complete app preferences cannot replay old intent or change a graph/decision');
+      const expectedPayload=clone(expectedState);delete expectedPayload.updatedAt;
+      const expectedRawPayload=structuredClone(expectedPayload);for(const field of ['followBrowse','feedCompact'])expectedRawPayload.preferences[field]=undefined;
+      assert.deepEqual(reopened.payload,expectedRawPayload,'complete raw app payload allows only the source-owned undefined browse slot');
+      assert.deepEqual(JSON.parse(JSON.stringify(reopened.payload)),expectedPayload,'complete actual JSON payload matches the independently verified current row');
+      for(const field of ['followBrowse','feedCompact'])assert.equal(Object.hasOwn(reopened.accepted.preferences,field),false,'accepted baseline comes from the actual JSON response, not current RAM');
+      assert.deepEqual(reopened.accepted,expectedPayload);assert.equal(reopened.acceptedUpdatedAt,reopenedServer.updatedAt);
+      assert.equal(reopened.storedReceipt,null);
+
+      // A real deliberate edit keeps its normal queue producer. Capture its CAS base before it can run.
+      await page.evaluate(()=>{closeSettings();openSettings({section:'account'});});
+      const beforeLater=actualApi.state().updatedAt,callStart=actualApi.calls.length;
+      const nextReceipt=await page.evaluate(theme=>{const p=clonePreferences(userPreferences);p.theme=theme;
+        if(!savePreferences(p,{deliberate:true}))throw Error('Later genuine edit rejected');
+        return pendingPreferenceIntent(serverPersistence.user.id);},localTheme);
+      assert(nextReceipt&&nextReceipt.receiptId!==originalReceipt.receiptId);
+      await page.waitForFunction(()=>serverSyncTimer===null&&serverPersistence.state==='signedIn'&&!pendingPreferenceIntent(serverPersistence.user.id));
+      await page.evaluate(()=>serverSyncSequence);
+      const afterAutomaticWrites=writes;
+      assert.equal(actualApi.calls.slice(callStart).filter(call=>call.method==='PUT').length,1,'the normal queued edit reaches exactly one conditional save and matching ACK');
+      const [nativeCheck]=await Promise.all([
+        page.waitForResponse(response=>new URL(response.url()).origin===url&&new URL(response.url()).pathname==='/api/user-state'&&!new URL(response.url()).search&&response.request().method()==='GET'),
+        page.locator('#syncAccountNowBtn').click(),
+      ]);
+      assert.equal(nativeCheck.status(),200);
+      await page.waitForFunction(()=>serverPersistence.state==='signedIn'&&!pendingPreferenceIntent(serverPersistence.user.id));
+      await page.evaluate(()=>serverSyncSequence);
+      assert.equal(writes,afterAutomaticWrites,'native Sync after the automatic ACK performs no additional PUT');
+      const laterPuts=actualApi.calls.slice(callStart).filter(call=>call.method==='PUT');
+      assert.equal(laterPuts.length,1);assert.equal(laterPuts[0].status,200);assert.equal(laterPuts[0].patchBaseUpdatedAt,beforeLater);
+      assert.deepEqual(laterPuts[0].changedPaths,['preferences.theme'],'the genuine edit changes only its new theme intent');
+      assert.equal(actualApi.state().preferences.theme,localTheme);assert.equal(actualApi.state().preferences.followFirst.notifications.enabled,false);
+      console.log(JSON.stringify({phase:'native-local-preference-recovery',scenario,engine:engineName,productionSnapshotHandler:true,
+        snapshotGets:1,recoveryPuts:0,resetRpcs:0,oldReceiptRemoved:true,reopenNoStalePut:true,reopenPuts:reopenPuts.length,reopenShape,promptObserved:true,nativeBackdropDismissed:true,reopenPaths:allReopenPaths,laterConditionalPut:1,
+        limits:'Actual loopback browser proof; not hosted or physical iPhone acceptance'}));
+    } else if (scenario.startsWith('receipt-base-')) {
       async function withTuneDismissal(action){
       const tuneModal=page.locator('#tunePromptModal');
       await page.addLocatorHandler(tuneModal,async modal=>{
@@ -1034,9 +1336,11 @@ const server = http.createServer((req, res) => {
     } else if (scenario === 'follow-roundtrip') {
       const participant = 'team:football:australian-championship:11255';
       const saveFollow = async level => {
+        manifestPhase='primary-follow-'+level;
         await page.evaluate(({ participant, level }) => {
           const p = clonePreferences(userPreferences);
           p.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(p.preferenceGraph, participant, level);
+          globalThis.qaManifestSetupSnapshot?.({boundary:'before-follow-'+level,sharedLoaderPresent:codeInspectorManifestLoading!==null,manifestLoaded:Boolean(codeInspectorManifest),directoryTimerPending:directoryFollowEffectsTimer!==null,followTimerPending:followFeedRefreshTimer!==null,followRebuildPending:Boolean(followFeedRefreshInFlight)});
           if (!savePreferences(p, { deliberate: true, deferFollowEffects: true })) throw new Error('Disposable Follow was not saved');
         }, { participant, level });
         await page.evaluate(() => syncCurrentServerState());
@@ -1049,6 +1353,7 @@ const server = http.createServer((req, res) => {
         await other.route('**/*', routeHandler);
         await other.addInitScript(session => localStorage.setItem('ns_auth_persistent_session_v1', JSON.stringify(session)), session);
         const second = await other.newPage();
+        manifestPhase='follow-secondary-goto';
         await second.goto(url, { waitUntil: 'domcontentloaded' });
         await second.waitForFunction(participant => serverPersistence.state === 'signedIn' && userPreferences.preferenceGraph.entityFollows.some(item => item.participantId === participant && item.followLevel === 'follow'), participant);
         const collection = require('../data/football/fixtures/australian-championship.json');
@@ -1061,9 +1366,11 @@ const server = http.createServer((req, res) => {
         await second.waitForTimeout(1200);
         await second.waitForFunction(() => Boolean(accountIndicatorController));
         await second.evaluate(() => serverSyncSequence);
+        manifestPhase='follow-primary-refresh-baseline';
         await page.evaluate(() => syncCurrentServerState()); // Establish the newer device baseline before a new edit.
         await saveFollow('unfollow');
         assert.equal(feed().events.some(item => item.id === fixture.id), false, 'explicit unfollow excludes the same fixture');
+        manifestPhase='follow-secondary-foreground';
         await second.clock.install();
         await second.clock.setFixedTime(new Date(Date.now() + 16000)); // A later foreground, outside the event-burst throttle.
         await second.evaluate(() => dispatchEvent(new Event('pageshow')));
@@ -1071,9 +1378,10 @@ const server = http.createServer((req, res) => {
           console.error(JSON.stringify({ second: await second.evaluate(() => ({ state: serverPersistence, follows: userPreferences.preferenceGraph.entityFollows, baseline: serverStateBaseline?.updatedAt, life: serverSyncClient.accountSnapshot(), hidden:document.hidden })), remote: row.preferences.preferenceGraph.entityFollows, remoteAt:row.updatedAt }));
           throw error;
         });
+        manifestPhase='follow-secondary-reload';
         await second.reload({ waitUntil: 'domcontentloaded' });
         await second.waitForFunction(participant => serverPersistence.state === 'signedIn' && userPreferences.preferenceGraph.entityFollows.some(item => item.participantId === participant && item.followLevel === 'unfollow'), participant);
-      } finally { await other.close(); }
+      } finally { manifestPhase='follow-secondary-cleanup';await other.close(); }
     } else if (['resume', 'terminal', 'refresh-failure'].includes(scenario)) {
       const localBefore = await page.evaluate(() => JSON.stringify(userPreferences));
       if (scenario === 'terminal') refreshMode = 'terminal';

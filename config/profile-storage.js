@@ -264,6 +264,42 @@
     return clone(migrated);
   }
 
+  // Deliberate device-only discard, not an acknowledgement or ordinary bundle save.
+  function recoverPreferences(storage, bundle, { ownerId, expectedRaw, expectedReceipt, sections }){
+    const key=profileKey(bundle?.profile?.id);
+    const latestRaw=storage.getItem(key);
+    if(typeof expectedRaw!=="string"||latestRaw!==expectedRaw)throw new Error("Local choices changed; reopen recovery.");
+    const latest=JSON.parse(latestRaw),sync=latest.preferenceSync;
+    if(latest.schemaVersion!==PROFILE_SCHEMA_VERSION||latest.profile?.id!==bundle?.profile?.id
+      ||sync?.writer!=="owned-preference-intent.v1"||!Array.isArray(sync.entries)
+      ||sync.entries.filter(entry=>entry.ownerId===ownerId).length!==1
+      ||!samePreferenceValues(sync.entries.find(entry=>entry.ownerId===ownerId),expectedReceipt))throw new Error("The pending preference request changed.");
+    const allowed=["preferences","domainPreferences","competitionPreferences","entityFollows","viewingPreference","learningPreference"];
+    if(!sections||Object.keys(sections).length!==allowed.length||!allowed.every(name=>Object.hasOwn(sections,name)))throw new Error("Incomplete recovery preferences.");
+    const next={...latest,...clone(sections),preferenceSync:{...sync,entries:sync.entries.filter(entry=>entry.ownerId!==ownerId)}};
+    const text=JSON.stringify(next);
+    try{
+      storage.setItem(key,text);
+      const readback=storage.getItem(key);
+      if(readback!==text){
+        // Never overwrite a different, newer value found during verification.
+        if(readback===latestRaw)throw new Error("Local recovery was not stored.");
+        throw new Error("Local choices changed during recovery.");
+      }
+    }catch(error){
+      // Native localStorage is synchronous. Roll back only our own unverified write.
+      let current;try{current=storage.getItem(key);}catch(_readError){
+        throw Object.assign(new Error("Local recovery completion is unknown; sync must remain paused."),{code:"local_recovery_storage_uncertain"});
+      }
+      if(current===text){
+        try{storage.setItem(key,latestRaw);if(storage.getItem(key)!==latestRaw)throw new Error("Unverified rollback");}
+        catch(_rollbackError){throw Object.assign(new Error("Local recovery rollback could not be verified; sync must remain paused."),{code:"local_recovery_storage_uncertain"});}
+      }
+      throw error;
+    }
+    return clone(next);
+  }
+
   function commitSections(storage, bundle, sections, options){
     const profileId = bundle?.profile?.id;
     if (!profileId) throw new Error("A stable profile id is required");
@@ -429,6 +465,7 @@
     loadActiveProfile,
     saveBundle,
     commitSections,
+    recoverPreferences,
     readPreferenceIntent,
     recordPreferenceIntent,
     acknowledgePreferenceIntent,

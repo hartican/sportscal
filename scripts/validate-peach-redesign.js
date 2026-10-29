@@ -2,6 +2,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto'),vm=require('node:vm');
 const vectors=require('../config/vector-assets'),catalogue=require('../config/nothingsport-iconography.source');
+const {readInlineOwner}=require('./app-shell-test-utils');
 const html=fs.readFileSync('index.html','utf8'),css=fs.readFileSync('assets/styles/nothingsport-foundation.css','utf8');
 const hash=crypto.createHash('sha256').update(fs.readFileSync('assets/brand/web/nothingsport-logo.png')).digest('hex');
 assert.equal(hash,require('./build-peach-brand').expected,'the original wordmark must remain byte-identical');
@@ -16,8 +17,10 @@ assert.match(css,/body\{padding-bottom:var\(--ns-nav-space\)/);
 assert.match(css,/--panel-bg:#191B1E/,'the unchanged wordmark and Account controls keep a dark brand area in Day mode');
 for(const mode of ['day','night','system'])assert(html.includes('"'+mode+'"'));
 // Execute the actual legacy-route branch, with the first navigation frame's state.
-const route=html.match(/async function syncAppRouteFromLocation\(\)\{\n  (if\(\/\^#events[^\n]+)/)?.[1];
-assert(route);
+const routeOwner=readInlineOwner('syncAppRouteFromLocation',html);
+const routeNode=require('acorn').parse(routeOwner,{ecmaVersion:'latest'}).body[0].body.body[0];
+assert.equal(routeNode.type,'IfStatement');
+const route=routeOwner.slice(routeNode.start,routeNode.end);
 for(const hash of ['#events','#events/major/us-open','#events/alert/tickets']){
   const preferences={followed:['kept'],results:false},copy=JSON.stringify(preferences),history=[],renders=[],closed=[];
   const context={location:{hash,pathname:'/',search:''},activeTab:'follow',activeInspectorCodeId:'competition:qa',calendarBulkController:null,
@@ -25,14 +28,15 @@ for(const hash of ['#events','#events/major/us-open','#events/alert/tickets']){
   context.window={location:context.location};
   context.history={replaceState:(...args)=>{history.push(args);context.location.hash=args[2].startsWith('#')?args[2]:'';},pushState:(...args)=>history.push(args)};
   context.closeCodeInspector=options=>{closed.push(options);context.activeInspectorCodeId=null;};
-  const activate=html.match(/function activateTopLevelTab\([^\n]*\{[\s\S]*?\n\}/)?.[0];assert(activate);
+  const activate=readInlineOwner('activateTopLevelTab',html);
   vm.runInNewContext(activate,context);
   vm.runInNewContext('(function(){'+route+'})()',context);
   assert.equal(context.activeTab,'match-centre');assert.equal(history.at(-1)[2],'#match-centre');assert.equal(renders.length,1);assert.equal(JSON.stringify(preferences),copy);
   assert.equal(context.activeInspectorCodeId,null);assert.equal(closed.length,1);assert.equal(closed[0].render,false);
 }
 // Exercise real scroll/disclosure listeners, including small per-frame movements.
-const navigation=html.match(/\(function initialisePeachNavigation\(\)\{[\s\S]*?\n\}\)\(\);/)?.[0];assert(navigation);
+const navigation=readInlineOwner('initialisePeachNavigation',html);
+assert.equal(readInlineOwner('activateTopLevelTab',html.split('\n').map(line=>line.trimStart()).join('\n')).replace(/\s/g,''),readInlineOwner('activateTopLevelTab',html).replace(/\s/g,''),'source compaction must retain the actual complete navigation owner');
 const classes=new Set(),listeners={},frames=[],attrs={},buttonListeners={},headerListeners={};
 const header={offsetHeight:100,classList:{remove:k=>classes.delete(k),toggle:(k,on)=>on?classes.add(k):classes.delete(k)},contains:()=>false,addEventListener:(k,fn)=>headerListeners[k]=fn};
 const more={setAttribute:(k,v)=>attrs[k]=v,getAttribute:k=>attrs[k],contains:()=>false,focus(){},addEventListener:(k,fn)=>buttonListeners[k]=fn};
@@ -58,8 +62,8 @@ assert.notEqual(catalogue['sport:a-leagues-women'],catalogue['sport:cricket']);
 // wrapper, rather than accepting source strings that name a nonexistent helper.
 const cardContext={VECTOR_ASSETS:vectors,activeTab:'feed',document:{createElement:tag=>({tag,dataset:{},style:{},children:[],attributes:{},appendChild(child){this.children.push(child);},setAttribute(key,value){this.attributes[key]=value;}})}};
 for(const name of ['glyphMarkup','buildEventCardControls','buildCardDisclosureControl']){
-  const source=html.match(new RegExp('function '+name+'\\([^\\n]*\\{[\\s\\S]*?\\n\\}'))?.[0];
-  assert(source,name+' must retain its actual renderer');vm.runInNewContext(source,cardContext);
+  const source=readInlineOwner(name,html);
+  vm.runInNewContext(source,cardContext);
 }
 const dismiss=cardContext.buildEventCardControls({name:'Local QA fixture'}).children[0];
 assert.equal(dismiss.attributes['aria-label'],'Dismiss Local QA fixture');assert.match(dismiss.innerHTML,/<img\b/);

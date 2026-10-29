@@ -33,6 +33,7 @@ function ensureGeneratedShellVersion({root=path.resolve(__dirname,'..'),baseline
  let worker=replace(originals.get('service-worker.js'),new RegExp('const CACHE_NAME = "nothingsport-shell-v'+version+'";','g'),'const CACHE_NAME = "nothingsport-shell-v'+next+'";',1);
  worker=replace(worker,new RegExp('const SHELL_VERSION = "'+version+'";','g'),'const SHELL_VERSION = "'+next+'";',1);
  worker=replace(worker,new RegExp('/assets/js/app-shell-runtime\\.js\\?v='+version+'(?=")','g'),'/assets/js/app-shell-runtime.js?v='+next,1);
+ worker=replace(worker,new RegExp('/config/preference-reset-ui\\.js\\?v='+version+'(?=")','g'),'/config/preference-reset-ui.js?v='+next,1);
  if(next===version)return {changed:false,reason:'already versioned',version};
  if(files.some(file=>originals.get(file)!==prior(file).toString()))throw Error('Pending shell edits require a separately versioned release; no files changed');
  const outputs=new Map([['app-version.json',JSON.stringify({...JSON.parse(originals.get(files[0])),version:next})+'\n'],['index.html',html],['service-worker.js',worker]]);
