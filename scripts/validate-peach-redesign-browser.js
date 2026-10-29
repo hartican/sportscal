@@ -82,7 +82,7 @@ async function timelineControls(page,engine){
    const nav=document.querySelector('nav.tabs'),tools=document.getElementById('timelineTools'),box=nav.getBoundingClientRect();
    return {width:innerWidth,height:innerHeight,navSpace:getComputedStyle(document.documentElement).getPropertyValue('--ns-nav-space'),
     nav:{...box.toJSON(),position:getComputedStyle(nav).position,z:getComputedStyle(nav).zIndex},
-    tools:{...tools.getBoundingClientRect().toJSON(),hidden:tools.hidden,inert:tools.inert,bottom:getComputedStyle(tools).bottom,z:getComputedStyle(tools).zIndex},
+    tools:{...tools.getBoundingClientRect().toJSON(),hidden:tools.hidden,inert:tools.inert,cssBottom:getComputedStyle(tools).bottom,z:getComputedStyle(tools).zIndex},
     controls:['feedViewFilterBtn','timelineExpandBtn','jumpTodayBtn'].map(id=>{const button=document.getElementById(id),r=button.getBoundingClientRect(),x=r.x+r.width/2,y=r.y+r.height/2;
      return {id,...r.toJSON(),hidden:button.hidden,label:button.getAttribute('aria-label'),hit:button.contains(document.elementFromPoint(x,y)),
       stack:document.elementsFromPoint(x,y).slice(0,5).map(node=>({tag:node.tagName,id:node.id,className:node.getAttribute('class')}))};})};
