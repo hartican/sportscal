@@ -35,7 +35,7 @@ if (scenario === 'all') {
   process.exit(failed ? 1 : 0);
 }
 // Opt-in evidence only; all-case execution/order and original gates stay intact.
-const diagnosticTrace = process.env.ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE === '1' && ['diagnostic','follow-roundtrip'].includes(scenario);
+const diagnosticTrace = process.env.ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE === '1';
 const manifestControl = process.env.ACCOUNT_RECOVERY_MANIFEST_CONTROL || '';
 assert(!manifestControl || (manifestControl === 'original' && scenario === 'diagnostic' && diagnosticTrace && !process.env.ACCOUNT_RECOVERY_BASELINE),
   'Manifest control requires diagnostic + trace on current source');
