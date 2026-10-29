@@ -94,7 +94,7 @@ const APP_SHELL = [
   "/config/tennis-coverage.js",
   "/config/sport-hubs.js",
   "/config/optimistic-mutation.js",
-  "/config/preference-reset-ui.js?v=599",
+  "/config/preference-reset-ui.js?v=600",
   "/config/marquee-campaigns.js",
   // Account sync is already in the required runtime; the owner console caches
   // its separate source after first use.
