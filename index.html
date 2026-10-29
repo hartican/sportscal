@@ -13932,6 +13932,13 @@ return await helper.recover({
  },
 });
 }catch(error){
+ await serverSyncSequence.catch(()=>null);
+ const current=preferenceIntentOwner();
+ if(error.code!=='local_recovery_storage_uncertain'&&current?.accountId===confirmedOwner.accountId&&current.generation===confirmedOwner.generation
+  &&serverPersistence.user?.id===confirmedOwner.accountId&&activeProfileBundle?.profile?.id===confirmedProfile
+  &&serverStateSyncGeneration===generation&&serverPersistence.state==='syncing'){
+  setServerPersistence({state:"error",message:"Local recovery could not be completed. Your choices are saved on this device. Try Sync now."});
+ }
  if(error.code==='local_recovery_storage_uncertain'){
   localPreferenceRecoveryHold={accountId:confirmedOwner.accountId,profileId:confirmedProfile,sessionGeneration:confirmedOwner.generation,syncGeneration:generation};setServerPersistence({state:"error",message:"This device could not verify its local save. Keep the app open; sync is paused."});
  }

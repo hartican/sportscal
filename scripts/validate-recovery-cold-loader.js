@@ -78,6 +78,22 @@ async function run(){
  const waiting=issued.c.useSavedAccountPreferences();issued.release();
  await Promise.resolve();await Promise.resolve();assert.equal(issued.counters.snapshot,0);assert.equal(issuedDone,false);
  settled.resolve();await waiting;assert.equal(issuedDone,true);assert.equal(issued.counters.snapshot,1);cases++;
+ // Actual issued normal read must settle before loader-failure cleanup restores a usable button.
+ for(const switched of [false,true]){
+  const x=coldFixture(),read=deferred();let readStarted=false,recoveryEnded=false;
+  x.c.serverSyncClient.loadState=async()=>{readStarted=true;x.counters.read++;await read.promise;return {user:{id:'A'},state:x.state};};
+  const normal=x.c.syncCurrentServerState();await Promise.resolve();await Promise.resolve();
+  assert.equal(readStarted,true);assert.equal(x.c.serverPersistence.state,'syncing');
+  const raw=x.values.get('ns_profile_v1:'+x.profileId),ram=JSON.stringify(x.c.userPreferences);
+  const recover=x.c.useSavedAccountPreferences();const rejected=assert.rejects(recover,/synthetic loader failure/).then(()=>{recoveryEnded=true;});
+  if(switched){x.c.serverPersistence.user={id:'B'};x.c.serverPersistence.state='syncing';}
+  x.gate.reject(new Error('synthetic loader failure'));await Promise.resolve();await Promise.resolve();
+  assert.equal(recoveryEnded,false,'failure cleanup waits for already-issued transport');
+  read.resolve();await normal;await rejected;
+  assert.equal(x.c.serverPersistence.state,switched?'syncing':'error','only the captured account gets failure cleanup');
+  assert.equal(x.c.localPreferenceRecoveryBusy,false);assert.equal(x.values.get('ns_profile_v1:'+x.profileId),raw);
+  assert.equal(JSON.stringify(x.c.userPreferences),ram);assert.equal(x.counters.snapshot,0);assert.equal(x.counters.save,0);cases++;
+ }
  console.log(JSON.stringify({kind:'recovery-cold-loader',passed:true,cases,customerOperation:false,nativeExecuted:false}));
 }
 if(require.main===module)run().catch(error=>{console.error(error.stack);process.exitCode=1;});
