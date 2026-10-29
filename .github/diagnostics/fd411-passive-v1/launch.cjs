@@ -1,0 +1,22 @@
+'use strict';
+// ROOT's allocated supervisor is the only caller. No app loads without these pins.
+const fs = require('node:fs');
+const path = require('node:path');
+const Module = require('node:module');
+const assert = require('node:assert/strict');
+assert.equal(process.env.ACCOUNT_SIGNIN_PROBE_ALLOCATED, 'fd411-passive-v1', 'INERT: ROOT allocation required');
+assert.equal(process.platform, 'linux', 'Only the failed supported Linux runtime is valid');
+assert.equal(process.versions.node, '24.21.0');
+assert.equal(process.env.ACCOUNT_RECOVERY_BROWSER, 'webkit');
+assert.equal(process.env.ACCOUNT_RECOVERY_CASE, 'diagnostic');
+assert.equal(process.env.ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE, '1');
+assert.equal(process.env.ACCOUNT_RECOVERY_MANIFEST_CONTROL, 'original');
+assert.equal(process.env.ACCOUNT_RECOVERY_BASELINE, undefined);
+assert(path.isAbsolute(process.env.PLAYWRIGHT_MODULE || ''));
+assert.equal(JSON.parse(fs.readFileSync(path.join(process.env.PLAYWRIGHT_MODULE, 'package.json'), 'utf8')).version, '1.64.1');
+assert(path.isAbsolute(process.env.ACCOUNT_SIGNIN_PROBE_EVIDENCE_DIR || ''));
+const filename = path.join(process.cwd(), 'scripts/validate-account-sync-recovery-browser.js');
+const diagnostic = new Module(filename, module);
+diagnostic.filename = filename;
+diagnostic.paths = Module._nodeModulePaths(path.dirname(filename));
+diagnostic._compile(fs.readFileSync(path.join(__dirname, 'diagnostic.js'), 'utf8'), filename);

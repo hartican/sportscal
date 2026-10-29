@@ -157,6 +157,7 @@ jobs:
           node scripts/validate-account-sync-recovery-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/account-recovery.log"
       - name: Observe original readiness barrier with a pending manifest
         if: matrix.browser == 'webkit'
+        timeout-minutes: 2
         env:
           ACCOUNT_RECOVERY_BROWSER: webkit
           ACCOUNT_RECOVERY_CASE: diagnostic
@@ -165,7 +166,8 @@ jobs:
         run: |
           export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
           set -o pipefail
-          node scripts/validate-account-sync-recovery-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/manifest-original-control.log"
+          python3 .github/diagnostics/fd411-passive-v1/allocate-ci.py
+          python3 .github/diagnostics/fd411-passive-v1/run-inert.py --allocation "$RUNNER_TEMP/ns-upgrade-proof/signin-hit-allocation.json" --run 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/manifest-original-control.log"
       - name: Verify native Follow controls
         env:
           FOLLOW_CONTROL_ENGINES: ${{ matrix.browser }}

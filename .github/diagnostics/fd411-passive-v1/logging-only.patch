@@ -1,0 +1,136 @@
+--- original.js
++++ diagnostic.js
+@@ -552,6 +552,96 @@
+     await page.locator('#startupLaunch').waitFor({ state: 'hidden' });
+     await page.evaluate(() => {
+       globalThis.qaSignInTrace=[];
++      if (globalThis.qaManifestOriginalControl) {
++        // Passive disposable-test observation only. Original qaSignInTrace stays unchanged.
++        (() => {
++          const records = [], faults = [], identities = new WeakMap();
++          let nextIdentity = 0, dropped = 0, faultDropped = 0, sequence = 0;
++          const safeIds = new Set(['accountSignInForm', 'accountEmail', 'accountPassword', 'keepAccountSignedIn', 'accountSyncHelp', 'accountSyncDetail', 'accountSyncControls', 'settingsBody', 'settingsModal', 'closeSettingsBtn']);
++          const fault = stage => { if (faults.length < 8) faults.push({ stage, atMs: performance.now() }); else faultDropped++; };
++          const identity = node => { if (!node) return null; if (!identities.has(node)) identities.set(node, ++nextIdentity); return identities.get(node); };
++          const finite = value => Number.isFinite(value) ? value : null;
++          const rect = element => {
++            if (!element?.getBoundingClientRect) return null;
++            const box = element.getBoundingClientRect();
++            return Object.fromEntries(['x', 'y', 'width', 'height', 'top', 'right', 'bottom', 'left'].map(key => [key, finite(box[key])]));
++          };
++          const node = element => {
++            if (!element || element.nodeType !== 1) return null;
++            const style = getComputedStyle(element);
++            return {
++              identity: identity(element), tag: element.tagName,
++              id: safeIds.has(element.id) ? element.id : null,
++              role: ['button', 'dialog', 'form', 'checkbox', 'textbox', 'tab', 'tablist', 'navigation'].includes(element.getAttribute('role')) ? element.getAttribute('role') : null,
++              type: element.tagName === 'BUTTON' && ['button', 'submit', 'reset'].includes(element.getAttribute('type')) ? element.getAttribute('type') : null,
++              connected: element.isConnected, hidden: element.hidden, disabled: Boolean(element.disabled), inert: Boolean(element.inert),
++              rect: rect(element), scrollTop: finite(element.scrollTop), scrollLeft: finite(element.scrollLeft),
++              style: Object.fromEntries(['display', 'visibility', 'pointer-events', 'position', 'z-index', 'transform', 'overflow-x', 'overflow-y', 'scroll-padding-top', 'scroll-padding-bottom'].map(key => [key, style.getPropertyValue(key)])),
++            };
++          };
++          const point = (label, x, y) => ({ label, x: finite(x), y: finite(y),
++            stack: Number.isFinite(x) && Number.isFinite(y) ? document.elementsFromPoint(x, y).slice(0, 7).map(node) : [] });
++          const copyLength = id => document.getElementById(id)?.textContent.length ?? null;
++          const snapshot = (kind, event = null, mutation = null) => {
++            const form = document.getElementById('accountSignInForm');
++            const submit = form?.querySelector('button[type="submit"]');
++            const box = rect(submit), viewport = globalThis.visualViewport;
++            const x = finite(event?.clientX), y = finite(event?.clientY);
++            return {
++              sequence: ++sequence, kind, atMs: performance.now(), timeOrigin: performance.timeOrigin,
++              event: event ? { type: event.type, trusted: event.isTrusted, defaultPrevented: event.defaultPrevented,
++                eventPhase: event.eventPhase, button: finite(event.button), buttons: finite(event.buttons),
++                clientX: x, clientY: y, pointerType: ['mouse', 'touch', 'pen', ''].includes(event.pointerType) ? event.pointerType : null,
++                target: node(event.target), relatedTarget: node(event.relatedTarget) } : null,
++              mutation, form: node(form), submit: node(submit), activeElement: node(document.activeElement),
++              points: [point('event', x, y), ...(box ? [point('submit-center', box.x + box.width / 2, box.y + box.height / 2)] : [])],
++              helpLength: copyLength('accountSyncHelp'), detailLength: copyLength('accountSyncDetail'),
++              helperModulePresent: Boolean(globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP),
++              helperControllerPresent: typeof accountIndicatorController !== 'undefined' && Boolean(accountIndicatorController),
++              activeTab: typeof activeTab !== 'undefined' && ['feed', 'events', 'follow', 'live', 'match-centre'].includes(activeTab) ? activeTab : null,
++              followPaddingScopeMatches: document.documentElement.matches('html:has(#listView.follow-view>.follow-navigation)'),
++              viewport: { innerWidth, innerHeight, scrollX, scrollY, devicePixelRatio,
++                visual: viewport ? Object.fromEntries(['width', 'height', 'offsetTop', 'offsetLeft', 'pageTop', 'pageLeft', 'scale'].map(key => [key, finite(viewport[key])])) : null },
++              containers: ['html', 'body', '#settingsModal', '#settingsModal .onboarding-panel', '#settingsBody', '#settingsModal .onboarding-head'].map(selector => ({ selector, element: node(document.querySelector(selector)) })),
++            };
++          };
++          const record = (kind, event = null, mutation = null) => {
++            try {
++              const entry = snapshot(kind, event, mutation);
++              if (records.length === 64) { records.shift(); dropped++; }
++              records.push(entry);
++            } catch (_) { fault(kind); }
++          };
++          const belongs = target => Boolean(target?.closest?.('#accountSignInForm'));
++          for (const type of ['pointerdown', 'pointerup', 'pointercancel', 'mousedown', 'mouseup', 'click', 'submit', 'focusin', 'focusout']) {
++            document.addEventListener(type, event => { if (belongs(event.target)) record('capture:' + type, event); }, { capture: true, passive: true });
++          }
++          // Bubble sees prevention performed by the real target handlers; it never prevents an event.
++          for (const type of ['pointerdown', 'pointerup', 'mousedown', 'mouseup', 'click', 'submit']) {
++            document.addEventListener(type, event => { if (belongs(event.target)) record('bubble:' + type, event); }, { passive: true });
++          }
++          document.addEventListener('scroll', event => {
++            if (event.target === document || event.target?.closest?.('#settingsModal')) record('scroll');
++          }, { capture: true, passive: true });
++          const body = document.getElementById('settingsBody');
++          const relevant = element => Boolean(element?.matches?.('#accountSyncHelp,#accountSyncDetail,#accountSignInForm,#accountSignInForm button[type="submit"]') || element?.closest?.('#accountSyncHelp,#accountSyncDetail,#accountSignInForm') || element?.querySelector?.('#accountSyncHelp,#accountSyncDetail,#accountSignInForm'));
++          if (body) new MutationObserver(batch => {
++            try {
++              const selected = batch.filter(change => relevant(change.target.nodeType === 1 ? change.target : change.target.parentElement) || [...change.addedNodes, ...change.removedNodes].some(relevant));
++              if (selected.length) record('mutation', null, selected.slice(0, 6).map(change => ({
++                type: change.type, targetIdentity: identity(change.target), attribute: change.attributeName,
++                added: change.addedNodes.length, removed: change.removedNodes.length,
++              })));
++            } catch (_) { fault('mutation'); }
++          }).observe(body, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['disabled', 'hidden', 'inert', 'class', 'style'] });
++          globalThis.qaSignInGeometryCapture = () => {
++            let final = null;
++            try { final = snapshot('failure-final'); } catch (_) { fault('failure-final'); }
++            return { schema: 'account-signin-hit.passive.v1', capacity: 64, records: [...records], dropped,
++              final, faults: [...faults], faultDropped, limits: 'Disposable-test passive observations; layout reads can perturb timing. No entered values, password lengths, text, account IDs or tokens captured.' };
++          };
++        })();
++      }
+       const forms=new WeakMap();let nextForm=0;
+       const snapshot=event=>{
+         const form=document.getElementById('accountSignInForm');
+@@ -599,6 +689,36 @@
+       console.error(JSON.stringify({phase:'initial-sign-in',scenario,engine:engineName,reads,writes,refreshes,errors,
+         state:await page.evaluate(()=>({state:serverPersistence.state,message:serverPersistence.message,
+           hasSession:serverSyncClient.accountSnapshot().hasSession,pending:Boolean(pendingPreferenceIntent(serverPersistence.user?.id)),trace:qaSignInTrace}))}));
++      if (manifestControl === 'original' && diagnosticTrace) {
++        const captureStarted = performance.now(), captureDeadline = captureStarted + 5000;
++        const remaining = () => Math.max(1, Math.ceil(captureDeadline - performance.now()));
++        const bounded = async work => {
++          let timer;
++          try { return await Promise.race([work, new Promise((_, reject) => { timer = setTimeout(() => reject(new Error('Passive capture deadline')), remaining()); })]); }
++          finally { clearTimeout(timer); }
++        };
++        const capture = { phase: 'account-signin-hit-failure', scenario, engine: engineName,
++          candidate: 'fd411c9313ec1e8c08392ac429086abcd809fa20', diagnosticOnly: true, acceptance: false,
++          captureBudgetMs: 5000, geometry: null, screenshot: null, captureErrors: [] };
++        try {
++          capture.geometry = await bounded(page.evaluate(() => globalThis.qaSignInGeometryCapture?.() ?? null));
++        } catch (_) { capture.captureErrors.push('geometry'); }
++        const output = process.env.ACCOUNT_SIGNIN_PROBE_EVIDENCE_DIR;
++        if (output) {
++          const capturePath = path.join(output, 'account-signin-hit-failure.json');
++          const save = () => fs.writeFileSync(capturePath, JSON.stringify(capture, null, 2) + '\n');
++          try { save(); } catch (_) { capture.captureErrors.push('initial-write'); }
++          if (performance.now() < captureDeadline) {
++            try {
++              await bounded(page.screenshot({ path: path.join(output, 'account-signin-hit-failure.png'), timeout: remaining() }));
++              capture.screenshot = 'account-signin-hit-failure.png';
++            } catch (_) { capture.captureErrors.push('screenshot'); }
++          } else { capture.captureErrors.push('capture-deadline'); }
++          capture.elapsedMs = performance.now() - captureStarted;
++          try { save(); } catch (_) { capture.captureErrors.push('final-write'); }
++        } else { capture.captureErrors.push('missing-output-directory'); }
++        console.error(JSON.stringify(capture));
++      }
+       throw error;
+     });
+     await page.waitForFunction(() => Boolean(accountIndicatorController));

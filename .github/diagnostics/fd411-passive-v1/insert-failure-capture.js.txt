@@ -1,0 +1,30 @@
+      if (manifestControl === 'original' && diagnosticTrace) {
+        const captureStarted = performance.now(), captureDeadline = captureStarted + 5000;
+        const remaining = () => Math.max(1, Math.ceil(captureDeadline - performance.now()));
+        const bounded = async work => {
+          let timer;
+          try { return await Promise.race([work, new Promise((_, reject) => { timer = setTimeout(() => reject(new Error('Passive capture deadline')), remaining()); })]); }
+          finally { clearTimeout(timer); }
+        };
+        const capture = { phase: 'account-signin-hit-failure', scenario, engine: engineName,
+          candidate: 'fd411c9313ec1e8c08392ac429086abcd809fa20', diagnosticOnly: true, acceptance: false,
+          captureBudgetMs: 5000, geometry: null, screenshot: null, captureErrors: [] };
+        try {
+          capture.geometry = await bounded(page.evaluate(() => globalThis.qaSignInGeometryCapture?.() ?? null));
+        } catch (_) { capture.captureErrors.push('geometry'); }
+        const output = process.env.ACCOUNT_SIGNIN_PROBE_EVIDENCE_DIR;
+        if (output) {
+          const capturePath = path.join(output, 'account-signin-hit-failure.json');
+          const save = () => fs.writeFileSync(capturePath, JSON.stringify(capture, null, 2) + '\n');
+          try { save(); } catch (_) { capture.captureErrors.push('initial-write'); }
+          if (performance.now() < captureDeadline) {
+            try {
+              await bounded(page.screenshot({ path: path.join(output, 'account-signin-hit-failure.png'), timeout: remaining() }));
+              capture.screenshot = 'account-signin-hit-failure.png';
+            } catch (_) { capture.captureErrors.push('screenshot'); }
+          } else { capture.captureErrors.push('capture-deadline'); }
+          capture.elapsedMs = performance.now() - captureStarted;
+          try { save(); } catch (_) { capture.captureErrors.push('final-write'); }
+        } else { capture.captureErrors.push('missing-output-directory'); }
+        console.error(JSON.stringify(capture));
+      }
