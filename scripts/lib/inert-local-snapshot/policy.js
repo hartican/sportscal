@@ -28,7 +28,8 @@ function inspect(value){
   }
   if(typeof item!=='object'||seen.has(item))fail('NON_JSON_DATA');
   const prototype=Object.getPrototypeOf(item);
-  if(!Array.isArray(item)&&prototype!==Object.prototype&&prototype!==null)fail('NON_JSON_DATA');
+  if(Array.isArray(item)?prototype!==Array.prototype:prototype!==Object.prototype&&prototype!==null)fail('NON_JSON_DATA');
+  if('toJSON' in item)fail('NON_JSON_DATA');
   if(Object.getOwnPropertySymbols(item).length)fail('NON_JSON_DATA');
   seen.add(item);
   const descriptors=Object.getOwnPropertyDescriptors(item);

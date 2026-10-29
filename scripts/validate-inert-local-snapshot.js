@@ -72,6 +72,9 @@ function run(){
   const changed=JSON.parse(result.text);changed.ram.ratings.synthetic=2;let mismatch;try{validateSnapshot(JSON.stringify(changed),binding,reference);}catch(error){mismatch=error.code;}assert.equal(mismatch,'ROUNDTRIP_MISMATCH');cases++;
   let safeError;try{collectSnapshot({readRam(){throw Error('SYNTHETIC_PRIVATE_SENTINEL');},readStorage(){}},binding);}catch(error){safeError=error;}assert.equal(safeError.code,'SNAPSHOT_REJECTED');assert(!String(safeError).includes('SYNTHETIC_PRIVATE_SENTINEL'));cases++;
   const accessor=sample();let getterCalls=0;Object.defineProperty(accessor.ram.preferences,'synthetic',{enumerable:true,get(){getterCalls++;throw Error('SYNTHETIC_PRIVATE_SENTINEL');}});let accessorError;try{collectSnapshot({readRam:()=>accessor.ram,readStorage(){throw Error('must not read');}},binding);}catch(error){accessorError=error.code;}assert.equal(accessorError,'NON_JSON_DATA');assert.equal(getterCalls,0);cases++;
+  const customArray=sample();let toJsonCalls=0;const array=[1];Object.setPrototypeOf(array,{toJSON(){toJsonCalls++;return ['SYNTHETIC_PRIVATE_SENTINEL'];}});customArray.ram.ratings.synthetic=array;
+  let prototypeError;try{collectSnapshot({readRam:()=>customArray.ram,readStorage(){throw Error('must not read');}},binding);}catch(error){prototypeError=error.code;}
+  assert.equal(prototypeError,'NON_JSON_DATA');assert.equal(toJsonCalls,0,'custom array serialization must never execute');cases++;
   assert.equal(globalReads,0);assert.equal(outputs,0,'collector and validator never log backup payloads');
  }finally{
   for(const key of Object.keys(saved))console[key]=saved[key];
