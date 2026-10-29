@@ -13,7 +13,7 @@ function fixture(){
  vm.runInContext(part('function activeProfileSection(','\nfunction saveActiveProfileSections(')+part('function loadPreferences(){','\nfunction savePreferences(')+part('function queueServerStateSync(){','\nfunction invalidateServerStateSyncScope(')+part('function setServerStateBaseline(','\nfunction queueServerStateSync(')+part('function invalidateServerStateSyncScope(){','\nasync function reconcileCurrentServerState(')
   +part('async function reconcileCurrentServerState(','\nfunction normalizeServerArchiveReferences(')
   +part('function acknowledgePreferenceReceipt(','\nasync function bootstrapServerPersistence(')
-  +part('async function useSavedAccountPreferences(){','\nlet preferenceResetUiLoad'),c);
+  +part('async function useSavedAccountPreferences(','\nlet preferenceResetUiLoad'),c);
  c.NOTHINGSPORTS_LOCAL_PREFERENCE_RECOVERY=recovery;
  const profileId=c.activeProfileBundle.profile.id;
  let remote=c.mergePreferences({version:28,onboardingComplete:true,theme:'night',followedSports:[],selectedSelectorEntityIds:[],preferenceGraph:{schemaVersion:'preference-system.v1',profileId,domainPreferences:[{sportDomainId:'sport:football',enabled:false}],competitionPreferences:[],entityFollows:[]},followFirst:{followedMajorEventIds:[],excludedMajorEventIds:['event:synthetic'],eventFamilyDecisions:{schemaVersion:'event-family-decisions.v1',states:{synthetic:'excluded'}}}});
@@ -91,8 +91,12 @@ async function run(){
  const hold=fixture(),holdKey='ns_profile_v1:'+hold.profileId;let committedHold=false;hold.c.localStorage={...hold.storage,getItem(k){if(committedHold&&k===holdKey)throw Error('synthetic read unavailable');return hold.storage.getItem(k);},setItem(k,v){hold.storage.setItem(k,v);if(k===holdKey)committedHold=true;}};
  await assert.rejects(hold.c.useSavedAccountPreferences(),e=>e.code==='local_recovery_storage_uncertain');assert.equal(hold.c.localPreferenceRecoveryBusy,false);assert.equal(hold.c.localPreferenceRecoveryBlocked(),true);assert.equal(hold.c.activeProfileBundle.preferenceSync.entries[0].receiptId,hold.receipt.receiptId);assert.equal(hold.c.userPreferences.theme,'day');await hold.c.syncCurrentServerState();assert.equal(hold.counters.save,0);cases++;
  for(const bad of [{...args,expectedRaw:'stale'},{...args,expectedReceipt:{...receipt,receiptId:'other'}},{...args,sections:{preferences:{}}}]){x.values.set(xkey,original);assert.throws(()=>profiles.recoverPreferences(x.storage,bundle,bad));assert.equal(x.values.get(xkey),original);cases++;}
+ const modalChanged=fixture(),modalOriginal=modalChanged.values.get('ns_profile_v1:'+modalChanged.profileId);let uiCurrent=true;
+ modalChanged.setHook(()=>{uiCurrent=false;});await assert.rejects(modalChanged.c.useSavedAccountPreferences({current:()=>uiCurrent}));assert.equal(modalChanged.values.get('ns_profile_v1:'+modalChanged.profileId),modalOriginal);assert.equal(modalChanged.counters.save,0);cases++;
+ const invalidUi=fixture();await assert.rejects(invalidUi.c.useSavedAccountPreferences({current:()=>false}));assert.equal(invalidUi.counters.snapshot,0);cases++;
  await transportAndApi();
  console.log(JSON.stringify({kind:'local-preference-recovery-synthetic',passed:true,cases,customerOperation:false,phoneFixed:false,sourceOnly:true}));
+ await require('./validate-recovery-cold-loader').run(fixture);
 }
 async function transportAndApi(){
  const f=fixture(),row={user_id:'A',schema_version:'user-state.v2',profile:f.state.profile,preferences:f.state.preferences,event_user_state:{},event_spoiler_state:{},ratings:{},archived_events:[],updated_at:f.state.updatedAt},own=recovery.projectOwnRow(row,'A');
@@ -117,8 +121,9 @@ async function transportAndApi(){
  // Actual deferred UI handler; confirmation is explicit and duplicate clicks do not reenter.
  const nodes=new Map(),node=key=>{if(!nodes.has(key))nodes.set(key,{hidden:true,disabled:false,handlers:{},addEventListener(type,fn){this.handlers[type]=fn;},focus(){}});return nodes.get(key);};
  const section={querySelector:node},ui={module:{exports:{}},Date,document:{createElement:()=>section}};vm.runInNewContext(fs.readFileSync(__dirname+'/../config/preference-reset-ui.js','utf8'),ui);
- let actions=0,finish;const pending=new Promise(resolve=>{finish=resolve;});ui.module.exports.mount({querySelector:()=>({appendChild(){}})},{captureScope:()=>({current:()=>true}),signedIn:()=>true,recovery:()=>null,setRecovery:x=>x,useSavedAccountPreferences:async()=>{actions++;await pending;},afterLocalRecovery(){}});
+ let actions=0,finish;const pending=new Promise(resolve=>{finish=resolve;});ui.module.exports.mount({querySelector:()=>({appendChild(){}})},{captureScope:()=>({current:()=>true}),captureLocalRecoveryScope:()=>({accountId:'A',profileId:'profile:synthetic',sessionGeneration:0,modal:{},current:()=>true}),signedIn:()=>true,recovery:()=>null,setRecovery:x=>x,useSavedAccountPreferences:async()=>{actions++;await pending;},afterLocalRecovery(){}});
  assert.equal(actions,0);node('[data-local-recovery-open]').handlers.click();assert.equal(node('[data-local-recovery-warning]').hidden,false);
+ node('[data-local-recovery-open]').handlers.click();
  const button=node('[data-local-recovery-confirm]'),event={currentTarget:button},first=button.handlers.click(event);await button.handlers.click(event);assert.equal(actions,1);finish();await first;assert.equal(button.disabled,false);assert(node('[data-local-recovery-status]').textContent.includes('loaded'));cases++;
 }
 if(require.main===module)(process.argv.includes('--uncertainty-scope-only')?uncertaintyScopeTests():run()).catch(error=>{console.error(error.stack);process.exitCode=1;});
@@ -140,3 +145,5 @@ async function uncertaintyScopeTests(){
  assert.equal(f.counters.snapshot,1);assert.equal(f.counters.save,0);
  console.log(JSON.stringify({kind:'local-recovery-uncertainty-scope',passed:true,cases:7,accountSwitchUnblocked:true,originalRamRetained:true,customerOperation:false,phoneFixed:false}));
 }
+// Reuse the same actual app/profile/transport fixture in bounded source race controls.
+module.exports.fixture=fixture;

@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## Explicit device-local saved-preference recovery — 29 October 2026
+
+The user accepts losing unsynced follows and wants the quickest supported local recovery. A clearly explained, deliberately confirmed Account action may use a fresh verified copy of saved account preferences on this device and discard only its exact matching pending preference receipt. This is an explicit device-local replacement, not an automatic merge, server reset or receipt ACK. Preserve authentication, server state, unrelated local actions/ratings/archive/pin commands, other profiles and every normal sync/owner/CAS safeguard. Unknown storage completion stays explicit and fail-closed. No actual customer recovery is authorised by source preparation or deployment; the originating chat owns the eventual user step. See [scope and source proof](quality/local-preference-recovery-2026-10-29.md).
+
 ## Generic Cricket team and tour follows reach Feed — 27 October 2026
 
 A generic team Follow from a profile means all currently supported formats for
