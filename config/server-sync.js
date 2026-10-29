@@ -66,7 +66,7 @@
       return result;
     };
     pointer(previous, graph);
-    for (const key of ["viewing", "learning"]) pointer(previous[key], graph[key]);
+    pointer(previous.viewing, graph.viewing);
     for (const [name, key, identity] of [
       ["entityFollows", "participantId", participantIdentity],
       ["domainPreferences", "sportDomainId", value => value],

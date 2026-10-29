@@ -67,7 +67,19 @@ function projectionCases(){
  const base={preferenceGraph:{profileId:'remote-B',viewing:{profileId:'remote-B',enabled:false},learning:{profileId:'remote-B',unknown:7},
   entityFollows:[{profileId:'remote-B',participantId:'team:one',followLevel:'follow',unknown:{enabled:false}}],
   domainPreferences:[{profileId:'remote-B',sportDomainId:'sport:football',enabled:false}],competitionPreferences:[{profileId:'remote-B',competitionId:'competition:one',enabled:false}]}};
- const incoming=clone(base);for(const value of [incoming.preferenceGraph,incoming.preferenceGraph.viewing,incoming.preferenceGraph.learning,...incoming.preferenceGraph.entityFollows,...incoming.preferenceGraph.domainPreferences,...incoming.preferenceGraph.competitionPreferences])value.profileId='local-A';
+ const incoming=clone(base);for(const value of [incoming.preferenceGraph,incoming.preferenceGraph.viewing,...incoming.preferenceGraph.entityFollows,...incoming.preferenceGraph.domainPreferences,...incoming.preferenceGraph.competitionPreferences])value.profileId='local-A';
+ // learning.profileId has no normalizer producer. Its name does not grant
+ // permission to suppress it, or any unrelated nested profileId preference.
+ const learningBase=clone(base),learningIncoming=clone(incoming);
+ learningBase.preferenceGraph.learning.profileId='unknown-old';learningIncoming.preferenceGraph.learning.profileId='local-A';
+ const learningOutput=transport.settingsForServer(learningBase,learningIncoming,options);
+ assert.equal(learningOutput.preferenceGraph.learning.profileId,'local-A','Unknown learning.profileId must remain incoming');
+ assert(require(root+'/config/user-state-sync').createPatch({preferences:learningBase},{preferences:learningOutput}).changes.some(change=>change.path.join('.')==='preferences.preferenceGraph.learning.profileId'),'Unknown learning pointer remains an outgoing change');
+ for(const locate of [x=>x,x=>x.preferenceGraph,x=>x.preferenceGraph.learning,x=>x.preferenceGraph.viewing,x=>x.preferenceGraph.entityFollows[0],x=>x.preferenceGraph.domainPreferences[0],x=>x.preferenceGraph.competitionPreferences[0]]){
+  const b=clone(base),l=clone(incoming);locate(b).unrelated={profileId:'unknown-old'};locate(l).unrelated={profileId:'local-A'};
+  const saved=clone(b),current=clone(l),output=transport.settingsForServer(b,l,options);
+  assert.deepEqual(locate(output).unrelated,{profileId:'local-A'},'Unrelated nested profileId remains incoming');assert.deepEqual(b,saved);assert.deepEqual(l,current);
+ }
  const before=clone(base),local=clone(incoming);assert.deepEqual(transport.settingsForServer(base,incoming,options),base);assert.deepEqual(base,before);assert.deepEqual(incoming,local);
  for(const [name,key]of [['entityFollows','participantId'],['domainPreferences','sportDomainId'],['competitionPreferences','competitionId']]){
   for(const duplicateSide of ['base','incoming']){const b=clone(base),l=clone(incoming);(duplicateSide==='base'?b:l).preferenceGraph[name].push(clone((duplicateSide==='base'?b:l).preferenceGraph[name][0]));assert.equal(transport.settingsForServer(b,l,options).preferenceGraph[name][0].profileId,'local-A','ambiguous list never projects record pointers');}
