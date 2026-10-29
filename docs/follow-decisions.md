@@ -1,5 +1,16 @@
 # Follow and Feed decisions
 
+## Follow content scrolls clear of pinned controls — 30 October 2026
+
+Native scrolling in Follow must reserve the actual pinned navigation height,
+the existing home-tab offset and bottom navigation space. Keep the selected
+sport checkbox, gender and section tabs visible, with their existing handlers
+and touch targets. Resize, font wrapping, collapse and redraw update the measured
+height; a detached or superseded navigation cannot overwrite it. The document
+scroll reservation applies only while Follow navigation is mounted. Browsing,
+saved choices, source data and all other tabs retain their existing owners.
+See [failure evidence and verification limits](quality/follow-scroll-insets-2026-10-30.md).
+
 ## Explicit device-local saved-preference recovery — 29 October 2026
 
 The user accepts losing unsynced follows and wants the quickest supported local recovery. A clearly explained, deliberately confirmed Account action may use a fresh verified copy of saved account preferences on this device and discard only its exact matching pending preference receipt. This is an explicit device-local replacement, not an automatic merge, server reset or receipt ACK. Preserve authentication, server state, unrelated local actions/ratings/archive/pin commands, other profiles and every normal sync/owner/CAS safeguard. Unknown storage completion stays explicit and fail-closed. No actual customer recovery is authorised by source preparation or deployment; the originating chat owns the eventual user step. See [scope and source proof](quality/local-preference-recovery-2026-10-29.md).

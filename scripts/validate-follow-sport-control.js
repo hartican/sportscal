@@ -49,6 +49,7 @@ const proofs = [];
 for (const id of ['sport:tennis', 'sport:tennis-women', 'sport:football', 'sport:horse-racing']) {
   for (const checked of [false, true]) for (const rejected of [false, true]) {
     const document = new Element('document');
+    document.documentElement = { style: { setProperty: () => {} } };
     document.createElement = tag => new Element(tag);
     document.createTextNode = text => Object.assign(new Element('#text'), { textContent: text });
     const container = new Element('section'); document.append(container);

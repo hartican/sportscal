@@ -68,3 +68,4 @@ const milestoneSync=require('../config/user-state-sync'),before={preferences:mil
 assert.equal(milestoneSync.applyPatch(before,milestoneSync.createPatch(before,after)).preferences.followFirst.notifications.milestones.enabled,false,'Changing advanced coverage cannot turn the category back on');
 
 require('./validate-follow-sport-control');
+require('./validate-follow-scroll-insets');
