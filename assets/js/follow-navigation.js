@@ -1,7 +1,7 @@
 /* Follow owns its browsing filters; they never mutate sporting follows or Feed filters. */
 (()=>{
  const savedKey='ns_follow_filters_v1';let filters={};try{filters=JSON.parse(localStorage.getItem(savedKey)||'{}');}catch{}
- const windows=new Map();let collapsed=true,floating=false,lastY=scrollY,lockedUntil=0;
+ const windows=new Map();let collapsed=true,floating=false,lastY=scrollY,lockedUntil=0,sizeObserver=null;
  const persist=()=>{try{localStorage.setItem(savedKey,JSON.stringify(filters));}catch{}};
  const selected=code=>filters[code]||{};
  const rawValues=(f,key)=>{
@@ -62,6 +62,11 @@
   if(['schedule','results'].includes(state.section)){const b=document.createElement('button');b.type='button';b.className='btn ghost';b.textContent='Filter';b.onclick=()=>{const code=followInspectorCode(entity);if(codeInspectorChunk?.code?.id===code?.id)openFilters(code.id,(codeInspectorChunk.fixtures||[]).filter(inspectorFixtureMatchesTab).filter(followScheduleScopeMatches));};compact.append(b);}
   compact.append(toggle);nav.append(compact);if(followControl)nav.append(followControl);if(raceControls)nav.append(raceControls);if(gender)nav.append(gender);nav.append(controls);if(sections)nav.append(sections);container.prepend(nav,spacer);set(collapsed);
   nav.collapse=()=>set(true);
+  // Native scrolling must leave room for the complete pinned Follow stack.
+  sizeObserver?.disconnect();
+  const measure=()=>{if(nav.isConnected)document.documentElement.style.setProperty('--follow-navigation-height',`${Math.ceil(nav.getBoundingClientRect().height)}px`);};
+  measure();
+  if(globalThis.ResizeObserver){const observer=new ResizeObserver(()=>{if(sizeObserver!==observer)return;if(!nav.isConnected){observer.disconnect();return;}measure();});sizeObserver=observer;observer.observe(nav);}
   if(cardImageLoadingUnlocked)observeDeferredCardImages();
  }
  addEventListener('scroll',()=>{const y=scrollY;if(performance.now()>lockedUntil&&y>lastY+6&&y>100&&!document.activeElement?.matches('.follow-navigation input:not([type=checkbox]),.follow-navigation select,.follow-navigation textarea'))document.querySelector('.follow-navigation:not(.is-collapsed)')?.collapse();lastY=y;},{passive:true});
