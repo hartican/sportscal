@@ -6,6 +6,31 @@
   "use strict";
 
   const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+  const localRecoveryViews = new WeakMap();
+  function clearLocalRecovery(body){
+    const prior=localRecoveryViews.get(body);
+    if(prior){prior.invalid=true;prior.section=null;localRecoveryViews.delete(body);}
+  }
+  function localRecoveryView(body,api){
+    const scope=api.captureLocalRecoveryScope?.();
+    const valid=scope&&typeof scope.accountId==='string'&&scope.accountId&&typeof scope.profileId==='string'&&scope.profileId
+      &&Number.isSafeInteger(scope.sessionGeneration)&&scope.sessionGeneration>=0&&scope.modal&&typeof scope.modal==='object';
+    let state=localRecoveryViews.get(body);
+    if(!valid||!state||!['accountId','profileId','sessionGeneration','modal'].every(key=>state.scope[key]===scope[key])){
+      clearLocalRecovery(body);
+      state={scope:valid?scope:null,expanded:false,busy:false,status:'',section:null,invalid:!valid};
+      if(valid)localRecoveryViews.set(body,state);
+    }
+    return state;
+  }
+  function recoveryViewCurrent(body,state){
+    try{return !state.invalid&&localRecoveryViews.get(body)===state&&Boolean(state.scope?.current());}catch(_error){return false;}
+  }
+  function paintLocalRecovery(state){
+    const section=state.section;if(!section||section.isConnected===false)return;
+    const warning=section.querySelector('[data-local-recovery-warning]'),confirm=section.querySelector('[data-local-recovery-confirm]'),open=section.querySelector('[data-local-recovery-open]'),status=section.querySelector('[data-local-recovery-status]');
+    if(warning)warning.hidden=!state.expanded;if(confirm)confirm.disabled=state.busy;if(open)open.disabled=state.busy;if(status)status.textContent=state.status;
+  }
 
   function scopedApi(api){
     return { ...api, accountScope:api.accountScope || api.captureScope?.() };
@@ -86,14 +111,21 @@
         <p class="preference-help" data-reset-status role="status" aria-live="polite"></p>
       </div>`;
     stack.appendChild(section);
-    section.querySelector('[data-local-recovery-open]')?.addEventListener('click',()=>{section.querySelector('[data-local-recovery-warning]').hidden=false;});
-    section.querySelector('[data-local-recovery-confirm]')?.addEventListener('click',async event=>{
-      const button=event.currentTarget,status=section.querySelector('[data-local-recovery-status]');
-      if(button.disabled)return;button.disabled=true;
-      try{requireCurrent(api);status.textContent='Loading your saved account preferences…';await api.useSavedAccountPreferences();
-        status.textContent='Saved account preferences loaded on this device. Use Sync now to check.';api.afterLocalRecovery();}
-      catch(error){status.textContent=error.code==='local_recovery_storage_uncertain'?'This device could not verify its local save. Keep this app open; sync is paused.':'Recovery could not be completed. No account data was reset. Reopen Account & sync to try again.';}
-      finally{button.disabled=false;}
+    const localView=localRecoveryView(body,api);localView.section=section;paintLocalRecovery(localView);
+    section.querySelector('[data-local-recovery-open]')?.addEventListener('click',()=>{
+      if(localView.section!==section||localView.busy||!recoveryViewCurrent(body,localView))return;
+      localView.expanded=true;paintLocalRecovery(localView);
+    });
+    section.querySelector('[data-local-recovery-confirm]')?.addEventListener('click',async()=>{
+      if(localView.section!==section||!localView.expanded||localView.busy||!recoveryViewCurrent(body,localView))return;
+      try{
+        requireCurrent(api);localView.busy=true;localView.status='Loading your saved account preferences…';paintLocalRecovery(localView);
+        await api.useSavedAccountPreferences({current:()=>recoveryViewCurrent(body,localView)});
+        if(!recoveryViewCurrent(body,localView))return;
+        localView.status='Saved account preferences loaded on this device. Use Sync now to check.';api.afterLocalRecovery();
+      }catch(error){
+        if(recoveryViewCurrent(body,localView))localView.status=error.code==='local_recovery_storage_uncertain'?'This device could not verify its local save. Keep this app open; sync is paused.':'Recovery could not be completed. No account data was reset. Reopen Account & sync to try again.';
+      }finally{localView.busy=false;if(recoveryViewCurrent(body,localView))paintLocalRecovery(localView);}
     });
     section.querySelector('[data-reset-action="undo"]')?.addEventListener("click", async event => {
       event.currentTarget.disabled = true;
@@ -122,5 +154,5 @@
     return section;
   }
 
-  return Object.freeze({ mount, reset, undo });
+  return Object.freeze({ mount, reset, undo, clearLocalRecovery });
 });
