@@ -21,6 +21,23 @@ if (process.argv.includes('--preflight')) {
     response.setHeader('content-type', ({ '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.css': 'text/css', '.svg': 'image/svg+xml' })[path.extname(file)] || 'application/octet-stream');
     response.end(fs.readFileSync(file));
   });
+  function prepareFollowDocumentWheel() {
+    const main = document.getElementById('mainContent'), list = document.getElementById('listView'), root = document.scrollingElement;
+    if (!main?.isConnected || !list?.isConnected || !root || root === main) throw new Error('Document wheel needs mounted MAIN and a separate document scroll owner');
+    const m = main.getBoundingClientRect(), l = list.getBoundingClientRect();
+    const left = Math.max(0, m.left), right = Math.min(innerWidth, m.right, l.left);
+    const point = { x: (left + right) / 2, y: innerHeight / 2 };
+    if (!(right > left && point.x > 0 && point.x < innerWidth && point.y > Math.max(0, m.top) && point.y < Math.min(innerHeight, m.bottom))) throw new Error('Document wheel needs a visible MAIN gutter point');
+    const style = getComputedStyle(main), rootStyle = getComputedStyle(root), bodyStyle = getComputedStyle(document.body);
+    if (document.elementFromPoint(point.x, point.y) !== main || main.closest('[inert]') || style.display === 'none' || style.visibility !== 'visible' || style.pointerEvents === 'none' || ['fixed', 'sticky'].includes(style.position)) throw new Error('Document wheel point must hit the visible non-overlay MAIN itself');
+    if (root.scrollHeight - root.clientHeight <= 100 || [rootStyle, bodyStyle].some(style => ['hidden', 'clip'].includes(style.overflowY)) || (['auto', 'scroll'].includes(style.overflowY) && main.scrollHeight > main.clientHeight + 1)) throw new Error('Document wheel needs an unlocked scrollable document, not a nested MAIN scroller');
+    globalThis.qaFollowDocumentWheel = null;
+    document.addEventListener('wheel', event => {
+      globalThis.qaFollowDocumentWheel = { trusted: event.isTrusted, targetMain: event.target === main, mainConnected: main.isConnected,
+        clientX: event.clientX, clientY: event.clientY, deltaX: event.deltaX, deltaY: event.deltaY, deltaMode: event.deltaMode, defaultPrevented: event.defaultPrevented };
+    }, { passive: true, once: true });
+    return { ...point, rootMaxScroll: root.scrollHeight - root.clientHeight, target: 'MAIN#mainContent' };
+  }
   const choiceSnapshot = page => page.evaluate(() => JSON.stringify({
     selected: userPreferences.selectedSelectorEntityIds,
     sports: userPreferences.followedSports,
@@ -86,9 +103,15 @@ if (process.argv.includes('--preflight')) {
               await assertAvailable(page);
               await page.evaluate(() => scrollTo(0, 0));
               await page.waitForTimeout(180); // Beyond the existing navigation owner's150ms scroll lock.
+              const wheelOrigin = await page.evaluate(prepareFollowDocumentWheel);
+              await page.mouse.move(wheelOrigin.x, wheelOrigin.y);
               await page.mouse.wheel(0, 350);
               await page.waitForFunction(() => scrollY > 100);
               await page.waitForFunction(() => document.querySelector('.follow-navigation-toggle')?.getAttribute('aria-expanded') === 'false');
+              const wheelGesture = await page.evaluate(() => globalThis.qaFollowDocumentWheel);
+              assert.deepEqual(wheelGesture, { trusted: true, targetMain: true, mainConnected: true,
+                clientX: wheelOrigin.x, clientY: wheelOrigin.y, deltaX: 0, deltaY: 350, deltaMode: 0, defaultPrevented: false },
+              'The unchanged wheel must be a trusted gesture over the guarded MAIN document point');
               await assertAvailable(page);
               await page.evaluate(() => renderAll({ preserveViewport: true }));
               control = await assertAvailable(page);
@@ -110,7 +133,7 @@ if (process.argv.includes('--preflight')) {
               assert.equal(await page.evaluate(({ scope }) => userPreferences.selectedSelectorEntityIds.includes(scope === 'sport:tennis' ? 'sport:tennis-women' : 'sport:tennis'), { scope }), false, 'No sibling gender follow is created');
               assert.deepEqual(errors, []);
               if (process.env.FOLLOW_CONTROL_EVIDENCE_DIR) await page.screenshot({ path: path.join(process.env.FOLLOW_CONTROL_EVIDENCE_DIR, `${engine}-${width}-${theme}.png`) });
-              const receipt = { engine, width, theme, scope, initialChecked, directoryReads, delayedDirectory: width === 320, initialOpenCollapseRedraw: true, realTapAndKeyboard: true, realSaveRefusal: true, globalOffAndSiblingScope: true, errors: [] };
+              const receipt = { engine, width, theme, scope, initialChecked, directoryReads, delayedDirectory: width === 320, initialOpenCollapseRedraw: true, realTapAndKeyboard: true, realSaveRefusal: true, globalOffAndSiblingScope: true, wheelOrigin, wheelGesture, errors: [] };
               evidence.push(receipt); console.log(JSON.stringify(receipt));
             } finally { release(); await page.unrouteAll({ behavior: 'ignoreErrors' }); await context.close(); }
           }
