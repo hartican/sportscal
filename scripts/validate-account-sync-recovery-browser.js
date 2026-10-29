@@ -35,9 +35,9 @@ if (scenario === 'all') {
   process.exit(failed ? 1 : 0);
 }
 // Opt-in evidence only; all-case execution/order and original gates stay intact.
-const diagnosticTrace = process.env.ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE === '1' && scenario === 'diagnostic';
+const diagnosticTrace = process.env.ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE === '1' && ['diagnostic','follow-roundtrip'].includes(scenario);
 const manifestControl = process.env.ACCOUNT_RECOVERY_MANIFEST_CONTROL || '';
-assert(!manifestControl || (manifestControl === 'original' && diagnosticTrace && !process.env.ACCOUNT_RECOVERY_BASELINE),
+assert(!manifestControl || (manifestControl === 'original' && scenario === 'diagnostic' && diagnosticTrace && !process.env.ACCOUNT_RECOVERY_BASELINE),
   'Manifest control requires diagnostic + trace on current source');
 let heldManifestResponse = null, manifestHeld;
 const manifestRequestHeld = new Promise(resolve => { manifestHeld = resolve; });
@@ -1268,9 +1268,11 @@ const server = http.createServer((req, res) => {
     } else if (scenario === 'follow-roundtrip') {
       const participant = 'team:football:australian-championship:11255';
       const saveFollow = async level => {
+        manifestPhase='primary-follow-'+level;
         await page.evaluate(({ participant, level }) => {
           const p = clonePreferences(userPreferences);
           p.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(p.preferenceGraph, participant, level);
+          globalThis.qaManifestSetupSnapshot?.({boundary:'before-follow-'+level,sharedLoaderPresent:codeInspectorManifestLoading!==null,manifestLoaded:Boolean(codeInspectorManifest),directoryTimerPending:directoryFollowEffectsTimer!==null,followTimerPending:followFeedRefreshTimer!==null,followRebuildPending:Boolean(followFeedRefreshInFlight)});
           if (!savePreferences(p, { deliberate: true, deferFollowEffects: true })) throw new Error('Disposable Follow was not saved');
         }, { participant, level });
         await page.evaluate(() => syncCurrentServerState());
@@ -1283,6 +1285,7 @@ const server = http.createServer((req, res) => {
         await other.route('**/*', routeHandler);
         await other.addInitScript(session => localStorage.setItem('ns_auth_persistent_session_v1', JSON.stringify(session)), session);
         const second = await other.newPage();
+        manifestPhase='follow-secondary-goto';
         await second.goto(url, { waitUntil: 'domcontentloaded' });
         await second.waitForFunction(participant => serverPersistence.state === 'signedIn' && userPreferences.preferenceGraph.entityFollows.some(item => item.participantId === participant && item.followLevel === 'follow'), participant);
         const collection = require('../data/football/fixtures/australian-championship.json');
@@ -1295,9 +1298,11 @@ const server = http.createServer((req, res) => {
         await second.waitForTimeout(1200);
         await second.waitForFunction(() => Boolean(accountIndicatorController));
         await second.evaluate(() => serverSyncSequence);
+        manifestPhase='follow-primary-refresh-baseline';
         await page.evaluate(() => syncCurrentServerState()); // Establish the newer device baseline before a new edit.
         await saveFollow('unfollow');
         assert.equal(feed().events.some(item => item.id === fixture.id), false, 'explicit unfollow excludes the same fixture');
+        manifestPhase='follow-secondary-foreground';
         await second.clock.install();
         await second.clock.setFixedTime(new Date(Date.now() + 16000)); // A later foreground, outside the event-burst throttle.
         await second.evaluate(() => dispatchEvent(new Event('pageshow')));
@@ -1305,9 +1310,10 @@ const server = http.createServer((req, res) => {
           console.error(JSON.stringify({ second: await second.evaluate(() => ({ state: serverPersistence, follows: userPreferences.preferenceGraph.entityFollows, baseline: serverStateBaseline?.updatedAt, life: serverSyncClient.accountSnapshot(), hidden:document.hidden })), remote: row.preferences.preferenceGraph.entityFollows, remoteAt:row.updatedAt }));
           throw error;
         });
+        manifestPhase='follow-secondary-reload';
         await second.reload({ waitUntil: 'domcontentloaded' });
         await second.waitForFunction(participant => serverPersistence.state === 'signedIn' && userPreferences.preferenceGraph.entityFollows.some(item => item.participantId === participant && item.followLevel === 'unfollow'), participant);
-      } finally { await other.close(); }
+      } finally { manifestPhase='follow-secondary-cleanup';await other.close(); }
     } else if (['resume', 'terminal', 'refresh-failure'].includes(scenario)) {
       const localBefore = await page.evaluate(() => JSON.stringify(userPreferences));
       if (scenario === 'terminal') refreshMode = 'terminal';

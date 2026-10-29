@@ -126,7 +126,7 @@ async function parentCache(page){return page.evaluate(async({version,dependencie
  return result;
 },{version,dependencies:parentDependencies});}
 async function installedShell(page){
- await page.waitForFunction(()=>navigator.serviceWorker.controller?.scriptURL===new URL('/service-worker.js',location.href).href);
+ await page.waitForFunction(()=>navigator.serviceWorker.controller?.state==='activated'&&navigator.serviceWorker.controller.scriptURL===new URL('/service-worker.js',location.href).href);
  const result=await page.evaluate(async version=>{
   const registration=await navigator.serviceWorker.getRegistration(),cache=await caches.open('nothingsport-shell-v'+version),response=await cache.match('/index.html');
   const bytes=await response.arrayBuffer();return {active:registration.active.state,indexSha256:[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(n=>n.toString(16).padStart(2,'0')).join('')};
