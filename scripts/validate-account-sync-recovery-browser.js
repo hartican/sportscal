@@ -912,14 +912,26 @@ const server = http.createServer((req, res) => {
       const base=clone(actualApi.state());
       if(eventAgreementScenario)await page.evaluate(()=>Object.defineProperty(navigator,'onLine',{configurable:true,value:false}));
       if(eventsScopeScenario){
-        // Real served module and native scope click before the deliberate receipt.
-        await withTuneDismissal(async()=>{
-          await page.evaluate(()=>closeSettings());
-          await page.locator('[data-tab="events"]').click();
-          await page.locator('#events-view-tab-overviews').click();
-          await page.getByRole('navigation',{name:'Events scope'}).getByRole('button',{name:'All events',exact:true}).click();
+        // The current three-tab app aliases Events to Match Centre. This is a
+        // controlled legacy saved-view fixture, not a native current-UX gesture.
+        // Reuse the retained module's existing viewOnly preference writer; do not
+        // mount its retired screen or fabricate Follow intent for this view.
+        const legacyView=await page.evaluate(()=>{
+          closeSettings();
+          const before={preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id),
+            baseline:clonePreferences(serverStateBaseline),life:serverSyncClient.accountSnapshot(),profileId:activeProfileBundle.profile.id};
+          const next=clonePreferences(userPreferences);next.eventsScope='all';
+          if(!savePreferences(next,{viewOnly:true}))throw Error('Legacy saved-view fixture rejected');
+          const after={preferences:clonePreferences(userPreferences),receipt:pendingPreferenceIntent(serverPersistence.user.id),
+            baseline:clonePreferences(serverStateBaseline),life:serverSyncClient.accountSnapshot(),profileId:activeProfileBundle.profile.id};
+          const durableScope=PROFILE_STORAGE.loadActiveProfile(localStorage).preferences.eventsScope;
+          delete before.preferences.eventsScope;delete after.preferences.eventsScope;
+          return {before,after,durableScope};
         });
-        assert.deepEqual(await page.evaluate(()=>({scope:userPreferences.eventsScope,receipt:pendingPreferenceIntent(serverPersistence.user.id)})),{scope:'all',receipt:null},'native scope-only gesture persists no invented intent');
+        assert.deepEqual(legacyView.after,legacyView.before,'legacy view-only restoration preserves other choices, receipt and account lifetime');
+        assert.equal(legacyView.durableScope,'all','legacy view-only restoration persists the exact saved scope');
+        assert.deepEqual(await page.evaluate(()=>({scope:userPreferences.eventsScope,receipt:pendingPreferenceIntent(serverPersistence.user.id)})),{scope:'all',receipt:null},'legacy saved-view fixture persists no invented intent');
+        chronology.push({phase:'controlled-legacy-events-scope',writer:'savePreferences-viewOnly',scope:'all',nativeGesture:false,otherChoicesAndReceiptUnchanged:true});
       }
       const original=await page.evaluate(({participant,cricket,eventAgreement})=>{
         if(eventAgreement){toggleMajorEventFollow('commonwealth-games');clearTimeout(serverSyncTimer);}
