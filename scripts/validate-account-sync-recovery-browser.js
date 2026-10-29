@@ -183,7 +183,9 @@ const server = http.createServer((req, res) => {
   let beforeAck = null, page, controlBrowserRequest=null;
   let recoverySnapshotGets=0,recoveryReopenCapture=false;
   const recoveryReopenPuts=[];
-  const actualApi = (scenario.startsWith('api-')||scenario.startsWith('receipt-base-')||localRecoveryScenario) ? require('./lib/local-user-state-api')(owner) : null;
+  const actualApi = (scenario.startsWith('api-')||scenario.startsWith('receipt-base-')||localRecoveryScenario) ? require('./lib/local-user-state-api')(owner,{traceRequests:localRecoveryScenario}) : null;
+  const recoveryClickMarker='[qa-recovery-browser-order]';
+  const recoveryNativeClickCounts={open:0,confirm:0};let recoveryObserverInvalid=false;
   const chronology = [];
   const heldReads = [];
   let holdHelper=false,helperHeld;const heldHelpers=[];
@@ -194,6 +196,33 @@ const server = http.createServer((req, res) => {
     archived_events: row.archivedEvents, ratings: row.ratings, updated_at: row.updatedAt } });
   const errors = [], blocked = [], statuses = [];
   try {
+    if(localRecoveryScenario)await context.addInitScript(marker=>{
+      let sequence=0;
+      const report=(event,fields={})=>{
+        const current=++sequence;if(current>129)return;
+        try{console.debug(marker+JSON.stringify({event:current===129?'observer-truncated':event,sequence:current,
+          timeOrigin:performance.timeOrigin,atMs:performance.now(),busy:localPreferenceRecoveryBusy,
+          serverSyncTimerPending:serverSyncTimer!==null,directoryTimerPending:directoryFollowEffectsTimer!==null,
+          followTimerPending:followFeedRefreshTimer!==null,followRebuildPending:Boolean(followFeedRefreshInFlight),...fields}));}catch{}
+      };
+      const originalFetch=window.fetch;
+      window.fetch=function(...args){
+        try{
+          const input=args[0],url=new URL(typeof input==='string'?input:input instanceof URL?input.href:input.url,document.baseURI);
+          if(url.origin===location.origin&&url.pathname==='/api/user-state'){
+            const requestedMethod=String(args[1]?.method||input?.method||'GET').toUpperCase();
+            report('fetch-entry',{method:['GET','PUT'].includes(requestedMethod)?requestedMethod:'other',
+              mode:url.search==='?recovery-snapshot=v1'?'snapshot-v1':url.search?'other-query':'normal',
+              url:url.pathname+(url.search==='?recovery-snapshot=v1'?'?recovery-snapshot=v1':url.search?'?<redacted-other-query>':'')});
+          }
+        }catch{}
+        return Reflect.apply(originalFetch,this,args);
+      };
+      document.addEventListener('click',event=>{
+        const button=event.target.closest?.('[data-local-recovery-open],[data-local-recovery-confirm]');
+        if(button&&event.isTrusted)report('trusted-native-click',{action:button.hasAttribute('data-local-recovery-confirm')?'confirm':'open',trusted:true});
+      },true);
+    },recoveryClickMarker);
     if (diagnosticTrace) await context.addInitScript(originalControl => {
       globalThis.qaManifestOriginalControl = originalControl;
       const marker = '[qa-diagnostic-manifest]';
@@ -312,6 +341,26 @@ const server = http.createServer((req, res) => {
     };
     await context.route('**/*', routeHandler);
     page = await context.newPage();
+    if(localRecoveryScenario)page.on('console',message=>{
+      const text=message.text();if(!text.startsWith(recoveryClickMarker))return;
+      try{
+        const input=JSON.parse(text.slice(recoveryClickMarker.length));
+        const flags=['busy','serverSyncTimerPending','directoryTimerPending','followTimerPending','followRebuildPending'];
+        if(!['trusted-native-click','fetch-entry','observer-truncated'].includes(input.event)||!Number.isInteger(input.sequence)||input.sequence<1||input.sequence>129
+          ||!Number.isFinite(input.timeOrigin)||!Number.isFinite(input.atMs)||flags.some(key=>typeof input[key]!=='boolean'))throw Error('Invalid safe observer evidence');
+        const event={event:input.event,browserSequence:input.sequence,browserTimeOrigin:input.timeOrigin,browserAtMs:input.atMs,
+          ...Object.fromEntries(flags.map(key=>[key,input[key]]))};
+        if(input.event==='trusted-native-click'){
+          if(!['open','confirm'].includes(input.action)||input.trusted!==true)throw Error('Invalid trusted click evidence');
+          event.action=input.action;event.trusted=true;recoveryNativeClickCounts[input.action]++;
+        }else if(input.event==='fetch-entry'){
+          const paths={normal:'/api/user-state','snapshot-v1':'/api/user-state?recovery-snapshot=v1','other-query':'/api/user-state?<redacted-other-query>'};
+          if(!['GET','PUT','other'].includes(input.method)||!Object.hasOwn(paths,input.mode)||input.url!==paths[input.mode])throw Error('Invalid safe fetch evidence');
+          event.method=input.method;event.mode=input.mode;event.url=input.url;
+        }else recoveryObserverInvalid=true;
+        actualApi.trace.browser(event);
+      }catch{recoveryObserverInvalid=true;actualApi.trace.browser({event:'invalid-browser-order-evidence'});}
+    });
     if (diagnosticTrace) {
       const requests = new WeakMap();
       const identify = request => {
@@ -621,14 +670,28 @@ const server = http.createServer((req, res) => {
         owner:serverSyncClient.accountSnapshot().accountId,generation:serverSyncClient.accountSnapshot().generation,
       }));
       const counts={writes,refreshes,authSignIns,snapshots:recoverySnapshotGets,...actualApi.metrics};
+      actualApi.trace.mark('recovery-baseline-before-explanation',{metrics:{...actualApi.metrics},snapshotGets:recoverySnapshotGets,completedCalls:actualApi.calls.length});
       const opening=page.locator('[data-local-recovery-open]'),confirm=page.locator('[data-local-recovery-confirm]');
       await opening.waitFor({state:'visible'});
       assert.equal(await confirm.isVisible(),false,'discard action requires its explanation/confirmation');
       await opening.click();await confirm.waitFor({state:'visible'});
+      actualApi.trace.mark('explanation-visible');
       assert.match(await page.locator('[data-local-recovery-warning]').innerText(),/discards unsynced|follow items again/i);
       assert.equal(recoverySnapshotGets,counts.snapshots,'opening explanation performs no read/discard');
+      actualApi.trace.mark('node-confirm-dispatch-before-native-click');
       await confirm.click();
       await page.waitForFunction(theme=>!localPreferenceRecoveryBusy&&!pendingPreferenceIntent(serverPersistence.user.id)&&userPreferences.theme===theme,remoteTheme);
+      actualApi.trace.mark('recovery-done',{metrics:{...actualApi.metrics},snapshotGets:recoverySnapshotGets,completedCalls:actualApi.calls.length});
+      const attribution=actualApi.trace.snapshot();
+      const nativeClicksComplete=recoveryNativeClickCounts.open===1&&recoveryNativeClickCounts.confirm===1;
+      const packet={phase:'recovery-row-read-attribution',scenario,engine:engineName,baseline:counts,
+        current:{writes,refreshes,authSignIns,snapshots:recoverySnapshotGets,...actualApi.metrics},...attribution,
+        complete:attribution.complete&&nativeClicksComplete&&!recoveryObserverInvalid,nativeClicksComplete,recoveryObserverInvalid,
+        intervalContract:'Original global baseline precedes explanation. Compare browser-local sequence only within the same timeOrigin for trusted clicks versus fetch invocation; Node phase/console arrival cannot establish that ordering.',
+        limitsNote:'Loopback constructed account only. ALS IDs exactly own handler SELECT/RPC/write events; browser sequences and ALS IDs have no asserted cross-ID join. No controller hooks, headers, bodies, identities or tokens are logged.'};
+      const attributionText=JSON.stringify(packet),attributionBytes=Buffer.byteLength(attributionText,'utf8');
+      if(attributionBytes<=131072)console.log(attributionText);
+      else console.log(JSON.stringify({phase:'recovery-row-read-attribution',scenario,engine:engineName,complete:false,overflow:true,omittedBytes:attributionBytes}));
       assert.equal(recoverySnapshotGets-counts.snapshots,1,'one scoped snapshot GET');
       assert.equal(actualApi.metrics.stateLoads-counts.stateLoads,1,'production mode reads one own row');
       assert.equal(actualApi.metrics.recoveryRpcs-counts.recoveryRpcs,0,'snapshot cannot run active-reset RPC');
