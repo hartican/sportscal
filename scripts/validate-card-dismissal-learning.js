@@ -137,16 +137,19 @@ function verifyDismissControl(source){
     let sent = null, stopped = 0;
     const context = {
       activeTab:'feed',
+      VECTOR_ASSETS:require('../config/vector-assets'),
       document:{createElement:()=>({children:[],dataset:{},style:{},attributes:{},appendChild(child){this.children.push(child);},setAttribute(key,value){this.attributes[key]=value;}})},
       storedEventAction:()=>previous,
       dismissEventCard:(fixture,options)=>{sent={fixture,options};options.previousAction.dismissed=true;},
     };
+    vm.runInNewContext(require('./app-shell-test-utils').readInlineOwner('glyphMarkup',html),context);
     vm.runInNewContext(source,context);
     const controls = context.buildEventCardControls(event,{card:fallbackCard,eventsOnly,displayLabel:'Reviewed fixture'});
     assert.equal(controls.children.length,1,'each card has one shared Dismiss control');
     const button = controls.children[0];
     assert.equal(button.dataset.cardControl,'dismiss');
     assert.equal(button.attributes['aria-label'],'Dismiss Reviewed fixture');
+    assert.match(button.innerHTML,/<img\b[^>]*src="data:image\/svg\+xml/,'Dismiss uses the actual image-backed icon family');
     button.onclick({stopPropagation:()=>stopped++,currentTarget:{closest:selector=>{assert.equal(selector,'.event-card');return hasInitiatingCard?initiatingCard:null;}}});
     assert.equal(stopped,1,'Dismiss cannot also expand or navigate the card');
     assert.equal(sent.fixture,event,'the exact fixture reaches its persistent dismissal owner');
