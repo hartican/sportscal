@@ -48,6 +48,14 @@ function scroll(y){scrollContext.scrollY=y;listeners.scroll();frames.shift()();}
 scroll(210);assert(classes.has('is-scroll-hidden'));scroll(208);scroll(206);assert(!classes.has('is-scroll-hidden'),'slow upward motion must accumulate and reveal');
 scroll(220);assert(classes.has('is-scroll-hidden'));scroll(0);assert(!classes.has('is-scroll-hidden'),'the page top must always show the header');
 buttonListeners.click();assert.equal(attrs['aria-expanded'],'true');scroll(240);assert(!classes.has('is-scroll-hidden'),'open More must pin the header');
+// The two existing modal owners compose their background state in either order.
+for(const settings of [false,true])for(const nsc of [false,true]){
+  const ids=['#mainContent','header.top','nav.tabs','#timelineTools','#calendarControls','.app-footer','.skip-link'];
+  const nodes=ids.map(id=>({id,matches:selector=>selector.split(',').includes(id)}));
+  const c={document:{getElementById:()=>({classList:{contains:()=>settings}}),querySelectorAll:()=>nodes,body:{classList:{contains:()=>nsc}}}};
+  vm.createContext(c);vm.runInContext(readInlineOwner('settingsBackgroundInert',html)+';settingsBackgroundInert();',c);
+  for(const [index,node]of nodes.entries())assert.equal(node.inert,settings||(nsc&&index<4),node.id+' retains the current modal owner');
+}
 const oldKeys=[...require('../config/nothingsport-core-icons.json')];
 for(const key of oldKeys){
   const image=vectors.glyphMarkup(key,{label:key,preferImage:true});
