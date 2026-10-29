@@ -11,6 +11,7 @@ on:
       - config/**
       - styles/**
       - scripts/validate-installed-pwa-upgrade-browser.js
+      - scripts/validate-peach-redesign-browser.js
       - scripts/validate-account-sync-recovery-browser.js
       - scripts/lib/installed-test-network.js
       - scripts/validate-installed-test-network.js
@@ -163,6 +164,15 @@ jobs:
           export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
           set -o pipefail
           node scripts/validate-account-sync-recovery-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/manifest-original-control.log"
+      - name: Verify Feed controls above fixed navigation
+        env:
+          PEACH_QA_ENGINE: ${{ matrix.browser }}
+          PEACH_QA_CASE: timeline-controls
+        run: |
+          export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
+          export PEACH_QA_OUTPUT="$RUNNER_TEMP/ns-upgrade-proof/feed-controls"
+          set -o pipefail
+          timeout --signal=TERM --kill-after=5s 190s node scripts/validate-peach-redesign-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/feed-controls.log"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
