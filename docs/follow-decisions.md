@@ -23,6 +23,13 @@ provider or sync-policy change is authorised. The existing required Follow
 decision gate includes the actual-route regression. See the
 [source contract and acceptance](quality/cricket-follow-admission-2026-10-27.md).
 
+
+## 27 October 2026 — fence delayed collection snapshots
+
+A collection-directory completion may snapshot only the preference object and copied collection plan for which it started, in the same account/session generation, app-sync generation and local profile. A stale completion returns its existing load results without changing preferences or the pending receipt. Current matching loads retain existing guest, mute and OFF semantics. No request, retry, store or inferred follow intent is added.
+
+The actual local apply/merge/save/profile/directory regression reproduces an earlier men-only load freezing newer mixed collection choices before the women’s directory arrives. This guard prevents that source race; it does not establish a real account’s historical cause or restore follows. The existing bookkeeping gate retains prior checks and adds26 source/compiled-helper controls. DEPLOY isolated the guard from its worker’s pending-receipt parent; receipt reconciliation policy is unchanged. See [scope and acceptance](quality/collection-hydration-guard-2026-10-27.md).
+
 ## Optional standings presentation keeps its existing owner — 26 October 2026
 
 The approved download-budget repair moves only standings-exclusive helpers and
@@ -36,11 +43,45 @@ See [source contract and equivalence](quality/standings-presentation-deferral-20
 The existing collection-loading gate includes the focused caller/loader test;
 combined native, offline and installed release qualification stays with DEPLOY.
 
-## 27 October 2026 — fence delayed collection snapshots
+## Selected-sport Follow control remains visible — 26 October 2026
 
-A collection-directory completion may snapshot only the preference object and copied collection plan for which it started, in the same account/session generation, app-sync generation and local profile. A stale completion returns its existing load results without changing preferences or the pending receipt. Current matching loads retain existing guest, mute and OFF semantics. No request, retry, store or inferred follow intent is added.
+The reported disappearing sport checkbox is reproduced through the existing
+Follow render block and navigation owner: initial collapse hides the control,
+opening shows it, and scrolling collapses it again. Keep that same selected
+sport control outside the collapsible browsing menu. Preserve its native label,
+checked value and existing save handler, including explicit men/women/code
+scope. If that handler refuses a save, restore the last saved checked value;
+do not turn refusal into a write or change the previous choices. Separate competition and Australian-only controls keep their existing
+scope. Browsing, menu changes and redraws must not create follows or change
+exclusions, empty choices, notification OFF or account state.
 
-The actual local apply/merge/save/profile/directory regression reproduces an earlier men-only load freezing newer mixed collection choices before the women’s directory arrives. This guard prevents that source race; it does not establish a real account’s historical cause or restore follows. The existing bookkeeping gate retains prior checks and adds26 source/compiled-helper controls. DEPLOY isolated the guard from its worker’s pending-receipt parent; receipt reconciliation policy is unchanged. See [scope and acceptance](quality/collection-hydration-guard-2026-10-27.md).
+This is a presentation repair, independent of frozen grouped-cards PR41 and its
+new preference fields/source coverage. It does not change admission, selection,
+sync reconciliation or receipt policy. Regression:
+`validate-follow-sport-control.js` through the existing Follow decision gate;
+focused mounted browser checks cover actual taps, late loads, redraw and menu
+states. Local source checks are not hosted or physical-device acceptance.
+
+
+## Upcoming multi-day Cricket date range — 26 October 2026
+
+The Australia–South Africa third Test is one match starting 27 October and
+scheduled through 31 October. All Sports places it at the start; Feed retains
+the approved final-day placement. Before a confirmed scheduled start, the card
+must show the full published range so those views cannot suggest two separate
+matches. Once play is source-reported, keep the existing compact day/phase
+presentation. Source dates, observations, aliases, saved actions and reminder
+choices are unchanged. Regression: `validate-cricket-upcoming-range.js` joins
+the existing card-timing gate and replays the retained source/canonical union.
+
+## All Sports explicit Add to Feed — 26 October 2026
+
+Expanded All Sports cards expose the existing Match Centre Add to Feed action.
+Only an explicit button tap saves the canonical fixture pin through the existing
+action and pin-command queue. Existing In Feed, explicit exclusion and Schedule
+only restrictions apply; adding one fixture never follows either participant or
+changes reminders, Results or other saved card choices. Browsing, expansion and
+horizontal paging remain local. Regression: `validate-all-sports-feed-action.js`.
 
 ## All Sports View — 24 October 2026
 

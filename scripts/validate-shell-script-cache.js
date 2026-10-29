@@ -17,7 +17,7 @@ assert(cached.has('/'+centreUrls[0]),'Both Match Centre entry paths use the exac
 let milestoneLoaders=0;
 for(const directory of ['config','assets/js'])for(const file of fs.readdirSync(directory,{recursive:true}).filter(file=>file.endsWith('.js'))){
  const source=fs.readFileSync(directory+'/'+file,'utf8');
- for(const match of source.matchAll(/loadDeferredScript\(['"]((?:config\/(?:match-centre|score-details)|assets\/js\/tournament-card-ui)\.js\?v=\d+)['"]\)/g))assert(cached.has('/'+match[1]),'Deferred consumers must use the exact cached shared owner in '+directory+'/'+file+': '+match[1]);
+ for(const match of source.matchAll(/loadDeferredScript\(['"]((?:config\/(?:match-centre|score-details|event-overviews-ui)|assets\/js\/(?:tournament-card-ui|follow-navigation|football-card-context|follow-schedule-panel))\.js\?v=\d+)['"]\)/g))assert(cached.has('/'+match[1]),'Deferred consumers must use the exact cached shared owner in '+directory+'/'+file+': '+match[1]);
  for(const match of source.matchAll(/loadDeferredScript\(['"](assets\/js\/milestone-alerts-ui\.js\?v=\d+)['"]\)/g)){
   milestoneLoaders++;assert(cached.has('/'+match[1]),'Milestone loader must use the exact cached dependency in '+directory+'/'+file+': '+match[1]);
  }

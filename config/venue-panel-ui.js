@@ -331,7 +331,7 @@ function buildDetailedEventCard(ev, options = {}){
   if(activeTab==='feed'||activeTab==='events'||mode==='schedule')composeFeedCard(card,ev,{compact:false,renderCardState,mode,state:localCardState&&state});
   else if(ev.golfMajorCalendar||['motogp','wrc','sailgp','wsl','tdf','giro','vuelta','dakar','lemans'].includes(ev.key))appendVenuePanel(card,mainDiv,ev);
   if (interactionCard === card && !localCardState) observeNewSurfaceItem(card, ev, presentation);
-  if (interactionCard === card && !options.archived && activeTab === "feed" && activeView === "list" && activeFilter === "all"){
+  if (interactionCard === card && !localCardState && !options.archived && activeTab === "feed" && activeView === "list" && activeFilter === "all"){
     const canonicalId = ev.canonicalEventId || ev.eventId || ev.id;
     observeProductOpportunity(card, `card:${canonicalId}`, {
       eventName: "opportunity_exposed",

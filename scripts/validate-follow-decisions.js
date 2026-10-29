@@ -66,3 +66,5 @@ assert.equal(milestoneState.event_user_state['fixture:cricket:CA:39990'].milesto
 assert.equal(milestoneState.event_user_state['fixture:cricket:CA:39990'].reminderChoice,'off');
 const milestoneSync=require('../config/user-state-sync'),before={preferences:milestonePrefs},after={preferences:{followFirst:{notifications:{milestones:{...milestonePrefs.followFirst.notifications.milestones,sports:{cricket:{coverage:'high'}}}}}}};
 assert.equal(milestoneSync.applyPatch(before,milestoneSync.createPatch(before,after)).preferences.followFirst.notifications.milestones.enabled,false,'Changing advanced coverage cannot turn the category back on');
+
+require('./validate-follow-sport-control');
