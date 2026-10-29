@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="599">
+<meta name="app-shell-version" content="600">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=599" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=600" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2022,7 +2022,7 @@ header.top .header-utilities{display:flex;flex:1;align-items:center;flex-wrap:no
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=599"></script>
+<script src="assets/js/app-shell-runtime.js?v=600"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -4677,6 +4677,8 @@ if (!SERVER_SYNC) return null;
 const profile = activeProfileBundle?.profile || {};
 const baselineProfile = serverStateBaseline?.state?.profile || {};
 const baselinePreferences = serverStateBaseline?.state?.preferences || {};
+const life = preferenceIntentOwner();
+const ownedBaseline = life && life.accountId === serverPersistence.user?.id && serverStateBaseline?.accountId === life.accountId && serverStateBaseline?.generation === life.generation && serverStateBaseline?.profileId === profile.id;
 return SERVER_SYNC.buildUserState({
 profile: {
 ...baselineProfile,
@@ -4684,7 +4686,9 @@ usernameLabel: profile.usernameLabel || "Local profile",
 timezone: profile.timezone || "Australia/Sydney",
 onboardingCompleted: Boolean(userPreferences.onboardingComplete),
 },
-preferences: SERVER_SYNC.mergeSettings(baselinePreferences, userPreferences),
+preferences: SERVER_SYNC.settingsForServer(baselinePreferences, userPreferences, {
+profileId:ownedBaseline ? profile.id : null,participantIdentity:FOLLOW_FIRST.participantFollowIdentityKey,
+}),
 eventUserState: eventActions,
 eventSpoilerState,
 archivedEvents: archivedEventRefs.map(reference => ({
@@ -4705,6 +4709,7 @@ state: state
 updatedAt: state?.updatedAt || null,
 accountId:life?.accountId||null,
 generation:life?.generation??null,
+profileId:activeProfileBundle?.profile?.id||null,
 };
 return serverStateBaseline;
 }

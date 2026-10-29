@@ -40,6 +40,46 @@
     return merged;
   }
 
+  // Local graph normalization must not turn another device's saved pointers
+  // into edits. Project only these pointers; keep the raw accepted state intact.
+  function settingsForServer(base, incoming, { profileId, participantIdentity } = {}){
+    const merged = mergeSettings(base, incoming);
+    const previous = plainObject(base?.preferenceGraph, null);
+    const graph = plainObject(merged.preferenceGraph, null);
+    if (!previous || !graph || typeof profileId !== "string" || !profileId) return merged;
+    const pointer = (before, current) => {
+      if (plainObject(before, null) && plainObject(current, null)
+        && current.profileId === profileId && typeof before.profileId === "string" && before.profileId){
+        current.profileId = before.profileId;
+      }
+    };
+    const records = (list, key, identity) => {
+      if (!Array.isArray(list)) return null;
+      const result = new Map();
+      for (const record of list){
+        if (!plainObject(record, null) || typeof record[key] !== "string" || !record[key]) return null;
+        let id;
+        try{ id = identity(record[key]); }catch{ return null; }
+        if (typeof id !== "string" || !id || result.has(id)) return null;
+        result.set(id, record);
+      }
+      return result;
+    };
+    pointer(previous, graph);
+    pointer(previous.viewing, graph.viewing);
+    for (const [name, key, identity] of [
+      ["entityFollows", "participantId", participantIdentity],
+      ["domainPreferences", "sportDomainId", value => value],
+      ["competitionPreferences", "competitionId", value => value],
+    ]){
+      if (typeof identity !== "function") continue;
+      const before = records(previous[name], key, identity), current = records(graph[name], key, identity);
+      if (!before || !current) continue;
+      for (const [id, record] of current) pointer(before.get(id), record);
+    }
+    return merged;
+  }
+
   function parseSession(input, now = Date.now()){
     const source = plainObject(input, null);
     if (!source) return null;
@@ -934,6 +974,7 @@
     buildUserState,
     createClient,
     mergeSettings,
+    settingsForServer,
     parseSession,
     parseRecoveryFragment,
     captureRecoveryFromLocation,
