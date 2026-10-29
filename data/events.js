@@ -193567,14 +193567,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 12 fixture, with the scheduled kickoff sourced from the league.",
-    "fullSpiel": "Nottingham Forest v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+    "selectedSentence": "Forest's Bournemouth trip and Chelsea's Leeds meeting lead into a Friday-night opener.",
+    "fullSpiel": "Forest are scheduled to visit Bournemouth on 21 November, while Chelsea host Leeds that same Saturday. Six days later they meet in the first fixture of the Premier League weekend, on Friday 27 November at 20:00 GMT. For viewers in eastern Australia, that is 07:00 AEDT on Saturday 28 November, with the rest of that weekend's league programme following afterwards.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+    "lastReviewedAt": "2026-10-29T02:30:53.610848Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -193604,6 +193604,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-09-21"
+    },
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:fixture-research:epl-2026-27-129041",
+      "researchTier": "standard",
+      "hook": "Forest's Bournemouth trip and Chelsea's Leeds meeting lead into a Friday-night opener.",
+      "synopsis": "Forest are scheduled to visit Bournemouth on 21 November, while Chelsea host Leeds that same Saturday. Six days later they meet in the first fixture of the Premier League weekend, on Friday 27 November at 20:00 GMT. For viewers in eastern Australia, that is 07:00 AEDT on Saturday 28 November, with the rest of that weekend's league programme following afterwards.",
+      "threadIds": [
+        "thread:fixture-research:epl-2026-27-129041:revision-a917a16177445ff6fd92ba92b852b8856a203c29bf8952918f75495ed017c8a1"
+      ],
+      "factIds": [
+        "fact:fixture-research:epl-2026-27-129041:revision-a917a16177445ff6fd92ba92b852b8856a203c29bf8952918f75495ed017c8a1:0",
+        "fact:fixture-research:epl-2026-27-129041:revision-a917a16177445ff6fd92ba92b852b8856a203c29bf8952918f75495ed017c8a1:1",
+        "fact:fixture-research:epl-2026-27-129041:revision-a917a16177445ff6fd92ba92b852b8856a203c29bf8952918f75495ed017c8a1:2",
+        "fact:fixture-research:epl-2026-27-129041:revision-a917a16177445ff6fd92ba92b852b8856a203c29bf8952918f75495ed017c8a1:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:epl-2026-27-129041:revision-a917a16177445ff6fd92ba92b852b8856a203c29bf8952918f75495ed017c8a1:0"
+      ],
+      "dimensions": [
+        "schedule",
+        "path"
+      ],
+      "researchedAt": "2026-10-29T02:30:53.610848Z",
+      "refreshAfter": "2026-11-27T20:00:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Nottingham Forest v Chelsea",
+      "contextSignals": [
+        "event-specific",
+        "narrative:schedule",
+        "narrative:path"
+      ],
+      "sourceName": "Premier League: confirmed November 2026 fixture amendments",
+      "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+      "sourceCheckedAt": "2026-10-29T02:30:53.610848Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "researchDepth": 2,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Forest's Bournemouth trip and Chelsea's Leeds meeting lead into a Friday-night opener.",
+      "hookSpoilerOn": "Forest's Bournemouth trip and Chelsea's Leeds meeting lead into a Friday-night opener.",
+      "synopsisSpoilerOff": "Forest are scheduled to visit Bournemouth on 21 November, while Chelsea host Leeds that same Saturday. Six days later they meet in the first fixture of the Premier League weekend, on Friday 27 November at 20:00 GMT. For viewers in eastern Australia, that is 07:00 AEDT on Saturday 28 November, with the rest of that weekend's league programme following afterwards.",
+      "synopsisSpoilerOn": "Forest are scheduled to visit Bournemouth on 21 November, while Chelsea host Leeds that same Saturday. Six days later they meet in the first fixture of the Premier League weekend, on Friday 27 November at 20:00 GMT. For viewers in eastern Australia, that is 07:00 AEDT on Saturday 28 November, with the rest of that weekend's league programme following afterwards.",
+      "lastReviewedAt": "2026-10-29T02:30:53.610848Z"
     }
   },
   {
