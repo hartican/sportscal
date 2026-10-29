@@ -13,7 +13,7 @@ function actualContext(helperFile){
   NOTHINGSPORTS_FANTASY_DEADLINES:require('../../config/fantasy-deadlines'),
   taxonomySelectionForSelectorIds:()=>null,normalizeSelectorEntityIds:x=>x,legacySelectorIdsForFollowedSports:()=>[],canonicalSportKeysForSelectorIds:()=>[],selectedPreferenceDomainIds:()=>[],
   normalizeThemePreference:x=>x,feedIntentForScope:()=> 'balanced',feedScopeForIntent:()=> 'for_you',uniqueArray:x=>[...new Set(x)],
-  localStorage:storage,activeProfileBundle:profile.loadActiveProfile(storage),serverPersistence:{state:'signedIn',user:{id:'A'}},serverStateSyncGeneration:0,
+  localStorage:storage,activeProfileBundle:profile.loadActiveProfile(storage),serverPersistence:{state:'signedIn',user:{id:'A'}},localPreferenceRecoveryBusy:false,localPreferenceRecoveryHold:null,serverStateSyncGeneration:0,
   serverSyncClient:{sessionSubject:()=> 'A',accountSnapshot:()=>({hasSession:true,accountId:'A',generation:0})},
   eventActions:{},eventSpoilerState:{},archivedEventRefs:[],ratings:{},activeEvents:[],serverSyncApplying:false,serverStateBaseline:null,
   setTimeout:()=>0,clearTimeout(){},document:{readyState:'complete',getElementById:()=>null},

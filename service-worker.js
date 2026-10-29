@@ -1,9 +1,11 @@
-const CACHE_NAME = "nothingsport-shell-v599";
-const SHELL_VERSION = "599";
+const CACHE_NAME = "nothingsport-shell-v601";
+const SHELL_VERSION = "601";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
 const APP_SHELL = [
+  "/assets/brand/web/nothingsport-logomark.svg",
+  "/icons/nothingsport-favicon.svg",
   "/assets/styles/racing-details.css?v=527",
   "/config/racing-details.js?v=539",
   "/config/participant-directory.js?v=512",
@@ -17,7 +19,6 @@ const APP_SHELL = [
   "/assets/identities/wrc/routes/sardegna-lerno-2026.svg",
   "/assets/identities/wrc/helmet-white.svg",
   "/assets/identities/sailgp/sailing-white.svg",
-  "/assets/icons/flaticon/meaicon-steak.png",
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=552",
@@ -63,8 +64,8 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=599",
-  "/assets/js/account-awareness-runtime.js?v=598",
+  "/assets/js/app-shell-runtime.js?v=601",
+  "/assets/js/account-awareness-runtime.js?v=599",
   "/assets/js/follow-schedule-panel.js?v=599",
   "/assets/js/fixture-navigation.js?v=535",
   "/assets/js/notification-navigation.js?v=534",
@@ -94,7 +95,7 @@ const APP_SHELL = [
   "/config/tennis-coverage.js",
   "/config/sport-hubs.js",
   "/config/optimistic-mutation.js",
-  "/config/preference-reset-ui.js?v=423",
+  "/config/preference-reset-ui.js?v=601",
   "/config/marquee-campaigns.js",
   // Account sync is already in the required runtime; the owner console caches
   // its separate source after first use.

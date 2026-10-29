@@ -61,7 +61,7 @@ const handler=createFeedHandler({load:()=>deps,authenticate:()=>deps,clock:()=>n
  r=response();await handler({method:'POST',url:'/api/feed?scope=athletes&participantId='+encodeURIComponent(ids[0]),body:{preferences:{}}},r);assert.equal(r.body.events.length,1,'anonymous unfollowed profile has its own bounded schedule');
  r=response();await handler({method:'GET',url:'/api/feed?scope=athletes',headers:{authorization:'erased'}},r);assert.notEqual(r.code,200,'erasure/auth guards retain control');
  r=response();await handler({method:'POST',url:'/api/feed?scope=athletes',body:{preferences:{blob:'x'.repeat(131073)}}},r);assert.equal(r.code,413);
- const html=fs.readFileSync('index.html','utf8');assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Match Centre','Follow']);
+ const html=fs.readFileSync('index.html','utf8');require('./app-shell-test-utils').assertPrimaryNavigation(html);
  const ui=fs.readFileSync('assets/js/athletes-ui.js','utf8');assert(!ui.includes('setInterval('),'reuse the sole visible sporting refresh coordinator');assert(!ui.includes('requestPermission('),'profile navigation never asks notification permission');
  console.log('Athletes: effective individual follows, roles, aliases, dismissal, source state, bounded feed scope and account/erasure isolation passed.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

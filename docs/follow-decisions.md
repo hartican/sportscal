@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## Explicit device-local saved-preference recovery — 29 October 2026
+
+The user accepts losing unsynced follows and wants the quickest supported local recovery. A clearly explained, deliberately confirmed Account action may use a fresh verified copy of saved account preferences on this device and discard only its exact matching pending preference receipt. This is an explicit device-local replacement, not an automatic merge, server reset or receipt ACK. Preserve authentication, server state, unrelated local actions/ratings/archive/pin commands, other profiles and every normal sync/owner/CAS safeguard. Unknown storage completion stays explicit and fail-closed. No actual customer recovery is authorised by source preparation or deployment; the originating chat owns the eventual user step. See [scope and source proof](quality/local-preference-recovery-2026-10-29.md).
+
 ## Generic Cricket team and tour follows reach Feed — 27 October 2026
 
 A generic team Follow from a profile means all currently supported formats for
@@ -1379,3 +1383,9 @@ sporting facts, Follow membership, save owner, request or timer is added.
 ## Exact already-agreed historical tennis default — 28 October 2026 Sydney
 
 A compiled597 source reproduction shows that the existing normalizer can fill a missing historical tennis root and then block an independent domain save even when that exact default already agrees with the fresh remote. Only original-base absence plus intent/remote ownership of the exact four-key existing default (enthusiasm=froth, gender=both, eventType=both, round=all) may be excluded from temporary outside-scope comparisons. Keep raw remote data; never write/default tennis or create consent. Present/invalid/nondefault/unknown/container/conflicting values still hold; FIFA is excluded. Compose tennis ACK ownership/value with all existing Events/event witnesses, preserve current/R2/CAS/owner fences, and require raw tennis agreement before an absent-base compatible-intent shortcut. Base-owned remote-only choices retain their existing path. No global comparator, receipt schema or apply-owner change. This is a bounded source defect repair, not identification of the physical597 phone's unknown field. See [source contract and limits](quality/account-tennis-default-sync-2026-10-28.md).
+
+
+## Peach navigation presentation — 28 October 2026
+
+The approved redesign uses exactly three persistent main destinations: Feed, Match Centre and Follow. Legacy `#events` routes and restored Events navigation resolve to Match Centre without changing any saved Follow, event-family decision, rating, pin or reminder. The existing nsDEPLOY Events-distribution work owns functional retirement of tournament overview and ticket interfaces; this visual candidate must not introduce a competing redistribution or data migration. Its agreed target is fixtures-only presentation. Existing eligibility and exclusions remain authoritative. Regression: `node scripts/validate-peach-redesign.js`, plus the existing Follow policy and fixture routing checks.
+

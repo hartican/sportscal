@@ -25,6 +25,8 @@ try{
  assert(worker.includes('"/'+asset+'"'),'fresh page and required worker cache use the same new script key');
  assert(!worker.includes('/assets/js/app-shell-runtime.js?v='+previous+'"'),'old cached script cannot satisfy the new required key');
  assert(worker.includes('const SHELL_VERSION = "'+result.version+'";'),'installed page gets an actual forward upgrade');
+ assert(worker.includes('/config/preference-reset-ui.js?v='+result.version+'"'),'automatic upgrades cache the dynamic recovery UI at the new shell version');
+ assert(!worker.includes('/config/preference-reset-ui.js?v='+previous+'"'),'old recovery UI cache keys cannot satisfy the upgraded page');
  const unchangedStartup=before.get('index.html').match(/assets\/js\/app-update\.js\?v=\d+/)?.[0];assert(unchangedStartup,'baseline startup script reference exists');
  assert(html.includes(unchangedStartup),'unrelated script versions remain intact');
  const once=new Map(files.map(file=>[file,fs.readFileSync(path.join(root,file),'utf8')]));

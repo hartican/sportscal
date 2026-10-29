@@ -34,4 +34,46 @@ function readCardFunction(name){
   assert(node,`${name} must exist in the actual ordered card runtime owner`);
   return source.slice(node.start,node.end);
 }
-module.exports = {assertShellModule,readFollowApplicationSource,readCardApplicationSource,readCardFunction};
+function readInlineOwner(name, html=fs.readFileSync(path.join(root,'index.html'),'utf8')){
+  const acorn=require('acorn');
+  for(const match of html.matchAll(/<script>([\s\S]*?)<\/script>/g)){
+    const source=match[1];
+    for(const node of acorn.parse(source,{ecmaVersion:'latest'}).body){
+      if(node.type==='FunctionDeclaration'&&node.id?.name===name)return source.slice(node.start,node.end);
+      const call=node.type==='ExpressionStatement'&&node.expression;
+      if(call?.type==='CallExpression'&&call.callee.type==='FunctionExpression'&&call.callee.id?.name===name)return source.slice(node.start,node.end);
+    }
+  }
+  assert.fail(`${name} must exist in the actual inline application owner`);
+}
+function assertPrimaryNavigation(html){
+  const navs=[...html.matchAll(/<nav class="tabs"[^>]*>[\s\S]*?<\/nav>/g)];
+  assert.equal(navs.length,1,'one primary navigation owner must remain');
+  const nav=navs[0][0];
+  assert.deepEqual([...nav.matchAll(/data-tab="([^"]+)"/g)].map(match=>match[1]),['feed','match-centre','follow'],'approved primary destination IDs and order');
+  assert.deepEqual([...nav.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(match=>match[1]),['Feed','Match Centre','Follow'],'approved primary labels and order');
+  assert.equal((nav.match(/<button\b/g)||[]).length,3,'no extra or unlabelled primary destination');
+  assert(html.indexOf(nav)>html.indexOf('</header>'),'persistent navigation stays outside the scrolling header');
+}
+function assertLegacyEventsNavigation(html){
+  const vm=require('node:vm'),owner=readInlineOwner('syncAppRouteFromLocation',html);
+  const branch=require('acorn').parse(owner,{ecmaVersion:'latest'}).body[0].body.body[0];
+  assert.equal(branch.type,'IfStatement','legacy routing must enter the current route owner');
+  for(const hash of ['#events','#events/major/us-open','#events/alert/tickets']){
+    const preferences={followedSports:['cricket'],followFirst:{excludedMajorEventIds:['kept']},showSpoilers:false};
+    const before=JSON.stringify(preferences),renders=[],closed=[];
+    const location={hash,pathname:'/',search:''};
+    const c={location,window:{location},activeTab:'follow',activeInspectorCodeId:'sport:cricket',calendarBulkController:null,
+      userPreferences:preferences,syncTopLevelNavigationState(){},renderAll:()=>renders.push(true),
+      closeCodeInspector:options=>{closed.push(options);c.activeInspectorCodeId=null;}};
+    c.history={replaceState:(state,title,url)=>{location.hash=url.startsWith('#')?url:'';},pushState(){}};
+    vm.createContext(c);vm.runInContext(readInlineOwner('activateTopLevelTab',html),c);
+    vm.runInContext('(function(){'+owner.slice(branch.start,branch.end)+'})()',c);
+    assert.equal(c.activeTab,'match-centre',hash+' reaches the approved fixture destination');
+    assert.equal(location.hash,'#match-centre');assert.equal(renders.length,1);
+    assert.equal(c.activeInspectorCodeId,null,'legacy navigation closes the prior Inspector');
+    assert.equal(closed.length,1);assert.equal(closed[0].render,false,'the navigation owner controls the final render');
+    assert.equal(JSON.stringify(preferences),before,'legacy routing preserves saved choices and Results');
+  }
+}
+module.exports = {assertShellModule,readFollowApplicationSource,readCardApplicationSource,readCardFunction,readInlineOwner,assertPrimaryNavigation,assertLegacyEventsNavigation};

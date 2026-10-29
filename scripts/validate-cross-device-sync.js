@@ -218,7 +218,7 @@ async function validateActualConflictRetry(){
     let writes = 0, reads = 0, persistedWrites=0;
     const patches = [];
     const context = {
-      USER_STATE_SYNC:scenario.legacyFollow?{...userStateSync,createPatch(...args){const patch=userStateSync.createPatch(...args);for(const change of patch.changes)if(change.path.join('.')==='preferences.preferenceGraph.entityFollows')delete change.baseValue;return patch;}}:userStateSync, structuredClone, serverSyncTimer:null, serverStateSyncGeneration:0, fixturePinQueue:{},
+      USER_STATE_SYNC:scenario.legacyFollow?{...userStateSync,createPatch(...args){const patch=userStateSync.createPatch(...args);for(const change of patch.changes)if(change.path.join('.')==='preferences.preferenceGraph.entityFollows')delete change.baseValue;return patch;}}:userStateSync, structuredClone, serverSyncTimer:null, localPreferenceRecoveryBusy:false, localPreferenceRecoveryHold:null, serverStateSyncGeneration:0, fixturePinQueue:{},
       serverStateBaseline:{ state:clone(baseline), updatedAt:"2026-08-12T00:00:00.000Z" },
       serverPersistence:{ state:"signedIn", user:{ id:"synthetic-account" } },
       clearTimeout(){}, currentServerStatePayload(){ return clone(device); }, emptyServerStatePayload(){ return {}; },
@@ -395,7 +395,7 @@ async function validateAcceptedBootstrapBaseline(){
     const storage=()=>{const values=new Map();return {getItem:key=>values.get(key)||null,setItem:(key,value)=>values.set(key,String(value)),removeItem:key=>values.delete(key)};};
     const requests=[],listeners=new Map();
     const app={module:{exports:{}},AbortController,Event,Response,URLSearchParams,Buffer,structuredClone,setTimeout,clearTimeout,
-      USER_STATE_SYNC:userStateSync,accountIndicatorJourney:null,serverSyncTimer:null,serverStateSyncGeneration:0,serverSyncSequence:Promise.resolve(),serverPersistence:{state:'signedOut',user:null},serverStateBaseline:null,startupSessionStateBaseline:clone(device),
+      USER_STATE_SYNC:userStateSync,accountIndicatorJourney:null,serverSyncTimer:null,localPreferenceRecoveryBusy:false,localPreferenceRecoveryHold:null,serverStateSyncGeneration:0,serverSyncSequence:Promise.resolve(),serverPersistence:{state:'signedOut',user:null},serverStateBaseline:null,startupSessionStateBaseline:clone(device),
       userPreferences:device.preferences,currentServerStatePayload:()=>clone(device),emptyServerStatePayload:()=>({}),
       setServerPersistence:patch=>Object.assign(app.serverPersistence,patch),setPreferenceRecovery(){},setServerStateBaseline:value=>{app.serverStateBaseline={state:clone(value),updatedAt:value.updatedAt};},serverAuthoritativeFixturePins:(_state,local)=>local,clearAcknowledgedFixturePinCommands(){},
       applyServerState:value=>{device=clone(value);app.userPreferences=device.preferences;applied++;},serverErrorEndsSession:error=>error.code==='invalid_refresh_token',showToast(){},fantasyPreferencesDiffer:()=>false,savePreferences(){throw Error('This fixture does not seed metadata');},console:{warn(){}},

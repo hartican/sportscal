@@ -4644,6 +4644,60 @@
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-10-22T14:24:58.417Z"
       }
+    },
+    {
+      "id": "epl-2026-27-129041",
+      "title": "Nottingham Forest v Chelsea",
+      "researchDepth": 2,
+      "hook": "Forest's Bournemouth trip and Chelsea's Leeds meeting lead into a Friday-night opener.",
+      "synopsis": "Forest are scheduled to visit Bournemouth on 21 November, while Chelsea host Leeds that same Saturday. Six days later they meet in the first fixture of the Premier League weekend, on Friday 27 November at 20:00 GMT. For viewers in eastern Australia, that is 07:00 AEDT on Saturday 28 November, with the rest of that weekend's league programme following afterwards.",
+      "sources": [
+        "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november"
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+          "name": "Premier League: confirmed November 2026 fixture amendments",
+          "checkedAt": "2026-10-29T02:30:53.610848Z",
+          "sourceType": "official"
+        }
+      ],
+      "facts": [
+        {
+          "statement": "Nottingham Forest v Chelsea is scheduled for Friday 27 November 2026 at 20:00 GMT.",
+          "dimension": "schedule",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "The preceding published league appointments are Bournemouth v Nottingham Forest and Chelsea v Leeds on Saturday 21 November 2026.",
+          "dimension": "path",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "The revised fixture list opens the 27–29 November league weekend with Nottingham Forest v Chelsea.",
+          "dimension": "schedule",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "20:00 GMT on 27 November 2026 is 07:00 Australia/Sydney (AEDT) on 28 November, derived from the confirmed UTC kickoff.",
+          "dimension": "schedule",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-29T02:30:53.610848Z",
+      "refreshAfter": "2026-11-27T20:00:00.000Z",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-29T02:30:53.610848Z"
+      }
     }
   ]
 }

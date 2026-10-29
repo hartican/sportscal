@@ -28,6 +28,14 @@ on:
       - scripts/validate-all-sports-offline-errors.js
       - scripts/fixtures/all-sports-offline-webkit-164-first-use.json
       - .github/workflows/installed-upgrade-tests.yml
+      - scripts/app-shell-test-utils.js
+      - scripts/validate-athletes.js
+      - scripts/validate-code-inspector-ui.js
+      - scripts/validate-follow-first.js
+      - scripts/validate-major-events.js
+      - scripts/validate-all-sports-card-fallback.js
+      - scripts/validate-card-dismissal-learning.js
+      - scripts/validate-shared-chat-ui.js
 
 permissions:
   contents: read
