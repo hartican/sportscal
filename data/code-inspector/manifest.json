@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-29T02:35:35.843Z",
+  "generatedAt": "2026-10-29T17:22:13.484Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/horse-racing.json",
@@ -179,7 +179,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-22T18:01:55.820Z",
+      "freshAt": "2026-10-29T17:22:13.484Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {
@@ -191,7 +191,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-29T02:35:35.843Z",
+      "freshAt": "2026-10-29T17:22:13.484Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {
