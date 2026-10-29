@@ -83,8 +83,8 @@ async function timelineControls(page,engine){
    return {width:innerWidth,height:innerHeight,navSpace:getComputedStyle(document.documentElement).getPropertyValue('--ns-nav-space'),
     nav:{...box.toJSON(),position:getComputedStyle(nav).position,z:getComputedStyle(nav).zIndex},
     tools:{...tools.getBoundingClientRect().toJSON(),hidden:tools.hidden,inert:tools.inert,cssBottom:getComputedStyle(tools).bottom,z:getComputedStyle(tools).zIndex},
-    controls:['feedViewFilterBtn','timelineExpandBtn','jumpTodayBtn'].map(id=>{const button=document.getElementById(id),r=button.getBoundingClientRect(),x=r.x+r.width/2,y=r.y+r.height/2;
-     return {id,...r.toJSON(),hidden:button.hidden,label:button.getAttribute('aria-label'),hit:button.contains(document.elementFromPoint(x,y)),
+    controls:['feedViewFilterBtn','timelineExpandBtn','jumpTodayBtn'].map(id=>{const button=document.getElementById(id),r=button.getBoundingClientRect(),s=getComputedStyle(button),x=r.x+r.width/2,y=r.y+r.height/2;
+     return {id,...r.toJSON(),hidden:button.hidden,label:button.getAttribute('aria-label'),text:button.textContent.trim(),visibility:s.visibility,opacity:Number(s.opacity),hit:button.contains(document.elementFromPoint(x,y)),
       stack:document.elementsFromPoint(x,y).slice(0,5).map(node=>({tag:node.tagName,id:node.id,className:node.getAttribute('class')}))};})};
   });
   (receipt.timelineGeometry||=[]).push({engine,label,...state});
@@ -95,6 +95,10 @@ async function timelineControls(page,engine){
   assert(state.tools.bottom<=state.nav.top-8,'Feed controls must clear the fixed bottom navigation');
   assert(state.controls.every(button=>!button.hidden&&button.width>=44&&button.height>=44&&button.label&&button.hit),
    'all three Feed controls must have unobstructed native pointer targets');
+  if(label==='390-after-native-controls'){
+   assert(state.controls.every(button=>button.visibility==='visible'&&button.opacity===1),'all three controls must be visibly painted after startup');
+   assert.match(state.controls.find(button=>button.id==='jumpTodayBtn').text,/^Jump to (?:Now|Today)$/,'the contextual jump has visible text, not only an accessible label');
+  }
   records.push({label:`${engine}: timeline ${label} clears footer and all three hit targets`,passed:true});
  }
  for(const width of [390,320,768,1280])for(const theme of ['night','day']){
