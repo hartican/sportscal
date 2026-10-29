@@ -1,0 +1,35 @@
+{
+  "preparedAt": "2026-10-29T20:46:47.329477+00:00",
+  "status": "INERT_NO_ALLOCATION",
+  "sourceCandidate": "153123267def97386b7c1b92da9560795a73cbe8",
+  "sourceTree": "a79e6d3713ae446b5785333fdb1acd91227b65ca",
+  "originalHarnessSha256": "b3b6f0ee9c2fd2e9ebccd0ad6351e188439e4671d112d06b21d2529a6e1d7e1b",
+  "originalBytes": 10686,
+  "derivedBytes": 20797,
+  "twoInsertionsOnly": true,
+  "inverseOriginalByteIdentity": true,
+  "noNewAwaitOrActionBeforeWheel": true,
+  "originalFullWebKit4OrderActionsAssertionsFinallyPreserved": true,
+  "dormantUntilActualWheel": true,
+  "firstWheelEdgesAndFinalReserved": true,
+  "privacyStaticTokenAudit": "PASS",
+  "pythonAstParse": "PASS",
+  "ownedCleanupByteExact": true,
+  "oldSpentManifestUnchanged": true,
+  "oldManifestSha256": "2ef6028279b93a91d284a79d2a86dee9ac9b27da22fb44e51a0ce0de4b90e1e0",
+  "sourceTrackedClean": true,
+  "executed": {
+    "app": false,
+    "native": false,
+    "CI": false,
+    "operator": false,
+    "install": false,
+    "push": false
+  },
+  "jsSyntaxOnly": {
+    "diagnostic": "PASS",
+    "launcher": "PASS"
+  },
+  "explicitMutationBatchOmissions": true,
+  "wheelSequenceAndReservedFirstEdges": true
+}

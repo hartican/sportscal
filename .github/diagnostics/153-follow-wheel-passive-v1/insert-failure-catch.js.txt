@@ -1,0 +1,29 @@
+            } catch (originalError) {
+              const captureStarted = performance.now(), captureDeadline = captureStarted + 5000;
+              const remaining = () => Math.max(1, Math.ceil(captureDeadline - performance.now()));
+              const bounded = async work => {
+                let timer;
+                try { return await Promise.race([work, new Promise((_, reject) => { timer = setTimeout(() => reject(new Error('Passive capture deadline')), remaining()); })]); }
+                finally { clearTimeout(timer); }
+              };
+              const capture = { phase: 'follow-wheel-failure', engine, width, theme, scope, initialChecked, directoryReads,
+                completedCases: evidence, sourceCandidate: '153123267def97386b7c1b92da9560795a73cbe8',
+                diagnosticOnly: true, acceptance: false, captureBudgetMs: 5000,
+                error: { name: originalError.name, message: String(originalError.message).slice(0, 16000), stack: String(originalError.stack).slice(0, 24000) },
+                geometry: null, screenshot: null, captureErrors: [] };
+              try { capture.geometry = await bounded(page.evaluate(() => globalThis.qaFollowWheelCapture?.() ?? null)); }
+              catch (_) { capture.captureErrors.push('geometry'); }
+              const output = process.env.FOLLOW_CONTROL_EVIDENCE_DIR;
+              if (output) {
+                const basename = `${engine}-${width}-${theme}-wheel-failure`;
+                const save = () => fs.writeFileSync(path.join(output, basename + '.json'), JSON.stringify(capture, null, 2) + '\n');
+                try { save(); } catch (_) { capture.captureErrors.push('initial-write'); }
+                if (performance.now() < captureDeadline) {
+                  try { await bounded(page.screenshot({ path: path.join(output, basename + '.png'), timeout: remaining() })); capture.screenshot = basename + '.png'; }
+                  catch (_) { capture.captureErrors.push('screenshot'); }
+                } else { capture.captureErrors.push('capture-deadline'); }
+                capture.elapsedMs = performance.now() - captureStarted;
+                try { save(); } catch (_) { capture.captureErrors.push('final-write'); }
+              } else { capture.captureErrors.push('missing-output-directory'); }
+              console.error(JSON.stringify(capture));
+              throw originalError;

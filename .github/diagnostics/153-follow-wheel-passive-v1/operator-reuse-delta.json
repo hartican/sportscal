@@ -1,0 +1,48 @@
+{
+  "reviewedParentOperatorSha256": "d5e5967fa01229854936d0e37ee031bc31e91a55ae8d84580242a1a4fd775e0e",
+  "changes": [
+    {
+      "from": "SOURCE = 'fd411c9313ec1e8c08392ac429086abcd809fa20'",
+      "to": "SOURCE = '153123267def97386b7c1b92da9560795a73cbe8'"
+    },
+    {
+      "from": "TREE = '3723b0cc3ce121d3b757326cfebe5b577adb9858'",
+      "to": "TREE = 'a79e6d3713ae446b5785333fdb1acd91227b65ca'"
+    },
+    {
+      "from": "HARNESS = 'scripts/validate-account-sync-recovery-browser.js'",
+      "to": "HARNESS = 'scripts/validate-follow-sport-control-browser.js'"
+    },
+    {
+      "from": "        'PLAYWRIGHT_MODULE': str(module), 'ACCOUNT_RECOVERY_BROWSER': 'webkit',\n        'ACCOUNT_RECOVERY_CASE': 'diagnostic', 'ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE': '1',\n        'ACCOUNT_RECOVERY_MANIFEST_CONTROL': 'original',\n        'ACCOUNT_SIGNIN_PROBE_ALLOCATED': 'fd411-passive-v1',\n        'ACCOUNT_SIGNIN_PROBE_EVIDENCE_DIR': str(out),",
+      "to": "        'PLAYWRIGHT_MODULE': str(module), 'FOLLOW_CONTROL_ENGINES': 'webkit',\n        'FOLLOW_WHEEL_PROBE_ALLOCATED': '153-follow-wheel-passive-v1',\n        'FOLLOW_CONTROL_EVIDENCE_DIR': str(out),"
+    },
+    {
+      "from": "'schema': 'account-signin-hit.supervisor.v1'",
+      "to": "'schema': 'follow-wheel.supervisor.v1'"
+    },
+    {
+      "from": "    capture = out / 'account-signin-hit-failure.json'\n    report['failureCapturePresent'] = capture.is_file()",
+      "to": "    captures = sorted(out.glob('*-wheel-failure.json'))\n    report['failureCaptures'] = [p.name for p in captures]\n    report['failureCapturePresent'] = bool(captures)"
+    },
+    {
+      "from": "elif capture.is_file():",
+      "to": "elif captures:"
+    },
+    {
+      "from": "'SIGN_IN_RED_RETAINED_CAUSE_NOT_AUTOMATICALLY_PROVEN'",
+      "to": "'FOLLOW_RED_RETAINED_CAUSE_NOT_AUTOMATICALLY_PROVEN'"
+    },
+    {
+      "from": "    # ROOT may carry this packet in the same CI job. No app/data/test body change is allowed.",
+      "to": "    # Fresh153 binding; old sign-in packet/allocations stay frozen and unused."
+    },
+    {
+      "from": "'Exact reviewed CI-carriage files only; no application changes'",
+      "to": "'Exact reviewed NEW153 CI-carriage files only; no application or old-packet changes'"
+    }
+  ],
+  "ownedCleanupByteIdentical": true,
+  "newSourceBinding": "153123267def97386b7c1b92da9560795a73cbe8",
+  "oldPacketMutated": false
+}

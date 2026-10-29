@@ -1,0 +1,74 @@
+              (() => {
+                const ring = [], faults = [], identities = new WeakMap();
+                let armed = false, dropped = 0, faultDropped = 0, nextId = 0, sequence = 0;
+                let wheelCount = 0, firstWheelCapture = null, firstWheelBubble = null, lastWheelPoint = null;
+                const selectors = ['#follow-navigation-controls', '.follow-navigation-toggle', '.follow-navigation', '.follow-home-tabs', '.follow-directory-tabs', '.follow-directory-row', '.follow-section-panel', '.follow-schedule-panel', '#listView', '#mainContent', 'header.top', '.tabs', '#settingsModal', '#tuneSheet', '#startupLaunch', 'html', 'body'];
+                const finite = number => Number.isFinite(number) ? number : null;
+                const identity = element => { if (!element) return null; if (!identities.has(element)) identities.set(element, ++nextId); return identities.get(element); };
+                const fault = stage => { if (faults.length < 8) faults.push({ stage, atMs: performance.now() }); else faultDropped++; };
+                const node = element => {
+                  if (!element || element.nodeType !== 1) return null;
+                  const r = element.getBoundingClientRect(), style = getComputedStyle(element);
+                  return {
+                    identity: identity(element), tag: element.tagName,
+                    alias: selectors.find(selector => element.matches(selector)) || null,
+                    connected: element.isConnected, hidden: Boolean(element.hidden), inert: Boolean(element.inert),
+                    rect: Object.fromEntries(['x', 'y', 'width', 'height', 'top', 'right', 'bottom', 'left'].map(key => [key, finite(r[key])])),
+                    scrollTop: finite(element.scrollTop), scrollLeft: finite(element.scrollLeft),
+                    scrollHeight: finite(element.scrollHeight), clientHeight: finite(element.clientHeight),
+                    maxScrollTop: finite(Math.max(0, element.scrollHeight - element.clientHeight)),
+                    style: Object.fromEntries(['display', 'visibility', 'overflow-x', 'overflow-y', 'overscroll-behavior-y', 'scroll-snap-type', 'scroll-behavior', 'scroll-padding-top', 'scroll-padding-bottom', 'touch-action', 'position', 'z-index', 'pointer-events', 'transform'].map(key => [key, style.getPropertyValue(key)])),
+                  };
+                };
+                const snapshot = (kind, event = null, mutation = null) => {
+                  const x = finite(event?.clientX), y = finite(event?.clientY), ancestors = [];
+                  for (let current = event?.target?.nodeType === 1 ? event.target : null; current && ancestors.length < 8; current = current.parentElement) ancestors.push(node(current));
+                  const viewport = globalThis.visualViewport, rootStyle = getComputedStyle(document.documentElement);
+                  return {
+                    sequence: ++sequence, kind, atMs: performance.now(), timeOrigin: performance.timeOrigin, armed, wheelSequence: wheelCount,
+                    event: event ? { type: event.type, trusted: event.isTrusted, phase: event.eventPhase,
+                      cancelable: event.cancelable, defaultPrevented: event.defaultPrevented,
+                      clientX: x, clientY: y, deltaX: finite(event.deltaX), deltaY: finite(event.deltaY), deltaMode: finite(event.deltaMode),
+                      target: node(event.target), ancestors,
+                      hitStack: Number.isFinite(x) && Number.isFinite(y) ? document.elementsFromPoint(x, y).slice(0, 8).map(node) : [] } : null,
+                    mutation, scrollY, scrollX, innerWidth, innerHeight, devicePixelRatio,
+                    lastObservedWheelPoint: lastWheelPoint ? { ...lastWheelPoint, hitStack: Number.isFinite(lastWheelPoint.x) && Number.isFinite(lastWheelPoint.y) ? document.elementsFromPoint(lastWheelPoint.x, lastWheelPoint.y).slice(0, 8).map(node) : [] } : null,
+                    visualViewport: viewport ? Object.fromEntries(['width', 'height', 'offsetTop', 'offsetLeft', 'pageTop', 'pageLeft', 'scale'].map(key => [key, finite(viewport[key])])) : null,
+                    scrollingElement: node(document.scrollingElement),
+                    navigationExpanded: document.querySelector('.follow-navigation-toggle')?.getAttribute('aria-expanded') ?? null,
+                    bodyFlags: { modalOpen: document.body.classList.contains('modal-open'), settingsOpen: document.body.classList.contains('settings-open'), scoreOpen: document.body.classList.contains('nsc-open') },
+                    rootVariables: Object.fromEntries(['--sticky-top-bar-height', '--follow-navigation-height', '--ns-nav-space'].map(key => [key, rootStyle.getPropertyValue(key)])),
+                    nodes: selectors.map(selector => ({ selector, element: node(document.querySelector(selector)) })),
+                  };
+                };
+                const record = (kind, event = null, mutation = null) => {
+                  try { const entry = snapshot(kind, event, mutation); if (ring.length === 64) { ring.shift(); dropped++; } ring.push(entry); return entry; }
+                  catch (_) { fault(kind); }
+                };
+                const relevant = target => target === document.documentElement || target === document.body || target?.matches?.('.follow-navigation,#follow-navigation-controls,#listView');
+                const observer = new MutationObserver(batch => {
+                  if (!armed) return;
+                  try {
+                    const selected = batch.filter(change => relevant(change.target));
+                    if (selected.length) record('mutation', null, { total: selected.length, omitted: Math.max(0, selected.length - 6), items: selected.slice(0, 6).map(change => ({ type: change.type, target: node(change.target), attribute: change.attributeName, added: change.addedNodes.length, removed: change.removedNodes.length })) });
+                  } catch (_) { fault('mutation'); }
+                });
+                document.addEventListener('wheel', event => {
+                  wheelCount++; lastWheelPoint = { x: finite(event.clientX), y: finite(event.clientY) };
+                  if (!armed) {
+                    armed = true;
+                    observer.observe(document.documentElement, { subtree: true, attributes: true, childList: true, attributeFilter: ['class', 'style', 'hidden', 'inert'] });
+                  }
+                  const entry = record('wheel:capture', event); if (wheelCount === 1) firstWheelCapture = entry || null;
+                }, { capture: true, passive: true });
+                document.addEventListener('wheel', event => { const entry = record('wheel:bubble', event); if (wheelCount === 1) firstWheelBubble = entry || null; }, { passive: true });
+                addEventListener('scroll', event => { if (armed) record('scroll:window-capture', event); }, { capture: true, passive: true });
+                document.addEventListener('scroll', event => { if (armed) record('scroll:document-capture', event); }, { capture: true, passive: true });
+                globalThis.qaFollowWheelCapture = () => {
+                  let final = null;
+                  try { final = snapshot('failure-final'); } catch (_) { fault('failure-final'); }
+                  return { schema: 'follow-wheel.passive.v1', armed, capacity: 64, records: [...ring], dropped, wheelCount,
+                    firstWheelCapture, firstWheelBubble, final, faults: [...faults], faultDropped,
+                    limits: 'Passive disposable-test observations; synchronous geometry reads may perturb timing. No text, raw classes, values, preferences, account IDs or tokens.' };
+                };
+              })();
