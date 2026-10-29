@@ -12,6 +12,7 @@ function receipt(value,binding){
 function bundle(value,binding){
  const known=('schemaVersion profile preferences domainPreferences competitionPreferences entityFollows viewingPreference learningPreference ratings eventUserState eventSpoilerState archivedEvents preferenceSync').split(' ');
  if(!p.record(value)||Object.keys(value).some(k=>!known.includes(k))||value.schemaVersion!==6||value.profile?.id!==binding.profileId)p.fail('UNSUPPORTED_PROFILE');
+ if(!p.record(value.profile)||Object.keys(value.profile).some(key=>!['id','usernameLabel','createdAt','updatedAt','schemaVersion','onboardingCompleted','timezone'].includes(key)))p.fail('UNSUPPORTED_PROFILE');
  if(value.preferences!==null)p.preferences(value.preferences);
  if(value.preferenceSync!==undefined){
   p.exactKeys(value.preferenceSync,['writer','entries']);

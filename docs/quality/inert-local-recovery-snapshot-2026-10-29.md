@@ -22,7 +22,7 @@ Explicit omissions: auth/session credentials, fresh server snapshot, other profi
 
 `node scripts/validate-inert-local-snapshot.js` is a finite synthetic-only test entry. It traps live window/document/localStorage access, freezes supplied in-memory originals, verifies allowlisted reads, explicit OFF/empty/exclusions/removals and both ON/OFF pending pins, raw text retention, independent-reference tamper rejection, owner/generation failures, unsupported choice blocking, credential sentinel rejection without output, adapter-error redaction and inert import. It never imports a restore/reset path or executes the saved receipt.
 
-The first28-case run passed. Source inspection then added negative-zero/nonfinite/Date-object and uncertain-query-URL controls; the32-case run passed. Both used Node24.21.0 with deny-network/child/worker preload, each under30seconds and aggregate well under90seconds. Real phone capture and restore are untested and unallocated.
+The first28-case run passed. Source inspection then added negative-zero/nonfinite/Date-object and uncertain-query-URL controls; the32-case run passed. Source reviews then identified unrecognised private/signing/service-role key fields and sparse arrays with expando properties; both were corrected with explicit own-index checks and credential controls. A44-case run passed, with additional session/auth-field and conservative profile-metadata controls prepared for final qualification. All runs used Node24.21.0 with deny-network/child/worker preload, each under30seconds and aggregate well under90seconds. Real phone capture and restore are untested and unallocated.
 
 ## Concrete continuation to a practical export (not implemented here)
 

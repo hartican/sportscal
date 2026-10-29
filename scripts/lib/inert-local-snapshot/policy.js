@@ -32,12 +32,16 @@ function inspect(value){
   if(Object.getOwnPropertySymbols(item).length)fail('NON_JSON_DATA');
   seen.add(item);
   const descriptors=Object.getOwnPropertyDescriptors(item);
-  if(Array.isArray(item)&&Object.keys(item).length!==item.length)fail('NON_JSON_DATA');
+  if(Array.isArray(item)){
+   if(item.length>200000)fail('CAPACITY_EXCEEDED');
+   if(Object.keys(item).length!==item.length||Object.keys(descriptors).length!==item.length+1)fail('NON_JSON_DATA');
+   for(let i=0;i<item.length;i++)if(!Object.hasOwn(descriptors,String(i)))fail('NON_JSON_DATA');
+  }
   for(const [key,descriptor]of Object.entries(descriptors)){
    if(Array.isArray(item)&&key==='length')continue;
    if(!descriptor.enumerable||!Object.hasOwn(descriptor,'value'))fail('NON_JSON_DATA');
    const normal=key.toLowerCase().replace(/[^a-z0-9]/g,'');
-   if(['__proto__','prototype','constructor'].includes(key)||forbidden.has(normal)||/(?:token|secret|password)$/.test(normal))fail('SENSITIVE_CONTENT');
+   if(['__proto__','prototype','constructor'].includes(key)||forbidden.has(normal)||/(?:password|passphrase|credential|authorization|cookie|privatekey|signingkey|servicerole|apikey|accesstoken|refreshtoken|idtoken)/.test(normal)||/(?:token|secret|auth)$/.test(normal)||/auth(?:entication|orization|state|data|session|token|key)/.test(normal)||(/session/.test(normal)&&!['sessioncount','lastsessionid','lastpromptsessionid'].includes(normal)))fail('SENSITIVE_CONTENT');
    visit(descriptor.value,depth+1);
   }
   seen.delete(item);
@@ -63,7 +67,11 @@ function preferences(value){
 function parse(text){if(typeof text!=='string'||new TextEncoder().encode(text).length>8000000)fail('CAPACITY_EXCEEDED');let value;try{value=JSON.parse(text);}catch{fail('INVALID_JSON');}inspect(value);return value;}
 function equal(a,b){
  if(a===b)return true;
- if(Array.isArray(a)&&Array.isArray(b))return a.length===b.length&&a.every((v,i)=>equal(v,b[i]));
+ if(Array.isArray(a)||Array.isArray(b)){
+  if(!Array.isArray(a)||!Array.isArray(b)||a.length!==b.length||Object.keys(a).length!==a.length||Object.keys(b).length!==b.length)return false;
+  for(let i=0;i<a.length;i++)if(!Object.hasOwn(a,i)||!Object.hasOwn(b,i)||!equal(a[i],b[i]))return false;
+  return true;
+ }
  return record(a)&&record(b)&&Object.keys(a).length===Object.keys(b).length&&Object.keys(a).every(k=>Object.hasOwn(b,k)&&equal(a[k],b[k]));
 }
 module.exports=Object.freeze({fail,safeFailure,record,exactKeys,scope,storageKeys,inspect,preferences,parse,equal,coverage,omissions,ramKeys});

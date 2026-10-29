@@ -60,6 +60,12 @@ function run(){
   blocked('negative zero cannot roundtrip exactly',r=>{r.ram.ratings.synthetic=-0;},'NON_JSON_DATA');
   blocked('nonfinite number',r=>{r.ram.ratings.synthetic=Infinity;},'NON_JSON_DATA');
   blocked('non-JSON object',r=>{r.ram.ratings.synthetic=new Date(0);},'NON_JSON_DATA');
+  blocked('sparse array with expando',r=>{r.ram.ratings.synthetic=Object.assign(Array(1),{extra:'synthetic'});},'NON_JSON_DATA');
+  blocked('dense array with expando',r=>{r.ram.ratings.synthetic=Object.assign([1],{extra:'synthetic'});},'NON_JSON_DATA');
+  for(const key of ['privateKey','private_key','signingKey','serviceRoleKey','passwordHash','currentSession','authState']){
+   blocked('credential in RAM profile',r=>{r.ram.activeProfileBundle.profile[key]='SYNTHETIC_PRIVATE_SENTINEL';},'SENSITIVE_CONTENT');
+   blocked('credential in stored profile',r=>{const b=JSON.parse(r.storage[2].text);b.profile[key]='SYNTHETIC_PRIVATE_SENTINEL';r.storage[2].text=JSON.stringify(b);},'SENSITIVE_CONTENT');
+  }
   for(const key of ['access_token','refreshToken','password','authorization','cookie','calendarToken'])blocked('sensitive key',r=>{r.ram.preferences[key]='SYNTHETIC_PRIVATE_SENTINEL';},'SENSITIVE_CONTENT');
   for(const value of ['Bearer SYNTHETIC_PRIVATE_SENTINEL','eyJhbGciOiJub25lIn0.eyJ1c2VyIjoic3ludGhldGljIn0.signature','https://example.invalid/calendar/SYNTHETIC_PRIVATE_SENTINEL','https://user:SYNTHETIC_PRIVATE_SENTINEL@example.invalid/','https://example.invalid/share?signature=SYNTHETIC_PRIVATE_SENTINEL'])blocked('sensitive value',r=>{r.ram.eventUserState.added.userLabel=value;},'SENSITIVE_CONTENT');
   blocked('secret in persisted raw profile',r=>{const b=JSON.parse(r.storage[2].text);b.profile.accessToken='SYNTHETIC_PRIVATE_SENTINEL';r.storage[2].text=JSON.stringify(b);},'SENSITIVE_CONTENT');
