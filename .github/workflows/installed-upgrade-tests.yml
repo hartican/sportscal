@@ -239,11 +239,15 @@ jobs:
           head=git('rev-parse','HEAD');before=git('status','--porcelain','--untracked-files=no');assert before==''
           harness=root/'scripts/validate-follow-sport-control-browser.js';source_hash=digest(harness)
           collector_options=re.findall(r'\}, (\{ passive: [^\n]+\})\);', harness.read_text());assert len(collector_options)==1
+          # This one observation is deliberately ineligible for qualification.
+          diagnostic=os.environ['FOLLOW_CONTROL_ENGINES']=='webkit'
+          command=[str(node),'scripts/validate-follow-sport-control-browser.js']+(['--diagnose-default-scroll']if diagnostic else[])
           started=time.monotonic();deadline=started+110
           report={'head':head,'tree':git('rev-parse','HEAD^{tree}'),'engine':os.environ['FOLLOW_CONTROL_ENGINES'],'runtime':runtime,'harnessSha256':source_hash,'collectorOptionsLiteral':collector_options[0],'attempts':1,'retries':0,'nativeLimitSeconds':90,'wholeLimitSeconds':110,'releaseAcceptance':False,'passed':False}
+          report.update(diagnosticOnly=diagnostic,qualificationEligible=not diagnostic,collectorRequested=not diagnostic,standardCasesExpected=0 if diagnostic else 4,observationMode='no-test-wheel-observer'if diagnostic else 'standard-four-cases')
           report_file.write_text(json.dumps(report,indent=2)+'\n');proc=None
           try:
-              proc=subprocess.Popen([str(node),'scripts/validate-follow-sport-control-browser.js'],start_new_session=True)
+              proc=subprocess.Popen(command,start_new_session=True)
               report['pid']=proc.pid
               try:report['exitCode']=proc.wait(timeout=90)
               except subprocess.TimeoutExpired:report['timedOut']=True
@@ -252,7 +256,8 @@ jobs:
               if proc is not None:report['cleanup']=cleanup(proc,deadline)
               report['sourceUnchanged']=git('rev-parse','HEAD')==head and git('status','--porcelain','--untracked-files=no')==before and digest(harness)==source_hash
               report['elapsedSeconds']=time.monotonic()-started
-              report['passed']=report.get('exitCode')==0 and report['sourceUnchanged'] and report.get('cleanup',{}).get('complete') and not report.get('cleanup',{}).get('forced') and report['elapsedSeconds']<=110
+              report['processPassed']=report.get('exitCode')==0 and report['sourceUnchanged'] and report.get('cleanup',{}).get('complete') and not report.get('cleanup',{}).get('forced') and report['elapsedSeconds']<=110
+              report['passed']=report['processPassed'] and not diagnostic
               report_file.write_text(json.dumps(report,indent=2)+'\n')
           print(json.dumps({'followOwnedCheck':True,'passed':report['passed'],'elapsedSeconds':report['elapsedSeconds'],'cleanup':report.get('cleanup')}),flush=True)
           sys.exit(0 if report['passed'] else 1)

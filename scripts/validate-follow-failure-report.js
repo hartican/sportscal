@@ -13,6 +13,7 @@ async function check(mode) {
   let now = 0, screenshots = 0;
   const context = {
     qa, engine: 'webkit', width: 320, theme: 'day', scope: 'sport:tennis', initialChecked: false, evidence: [], path,
+    diagnostic: null, diagnoseDefaultScroll: false,
     performance: { now: () => now },
     process: { env: mode === 'missing-output' ? {} : { FOLLOW_CONTROL_EVIDENCE_DIR: '/disposable-test' } },
     fs: { writeFileSync: (_file, value) => { if (mode === 'write-failure') throw new Error('Disposable write refused'); writes.push(JSON.parse(value)); } },
