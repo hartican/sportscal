@@ -34,7 +34,7 @@ function validateCandidate(surfaces,{fixtures,cards,checkedAt,overlay,deferredFi
   const id=identities.binding(event).record.primaryId;if(!oldById.has(id))oldById.set(id,[]);oldById.get(id).push(event);
  }
  for(const fixture of fixtures){
-  const playing=fixture.status==='L'&&['1','2','H'].includes(fixture.phase),final=fixture.status==='C',start=fixture.kickoff?.millis,at=Date.parse(checkedAt);
+  const playing=fixture.status==='L',final=fixture.status==='C',start=fixture.kickoff?.millis,at=Date.parse(checkedAt);
   // Display or incomplete score fields must not conceal a separately evaluable
   // future-final/playing claim or reopening of an accepted final.
   if(Number.isFinite(start)&&Number.isFinite(new Date(start).getTime())&&(final?start>=at:playing&&start>at))throw Error('EPL playing/final fixture has a future kickoff relative to its source observation');
@@ -79,7 +79,7 @@ async function refresh({now=new Date()}={}){
  for(const deferred of cardReport.deferredFixtures||[])failures.push('EPL fixture '+deferred.fixtureId+': '+deferred.reason);
  const report={mode:'quick',source:'epl',checkedAt,changed:changes,failures,deferredFixtures:cardReport.deferredFixtures||[],backup,resources:{fixtures:{state:cards?(cardReport.acceptedPrimaryFixtures===0?'retained-last-good':cardReport.deferredFixtures?.length?'partial-primary':backup.retainedOverlayFixtureIds.length?'primary-with-retained-delayed-overlay':'primary'):'retained-last-good',acceptedPrimaryFixtures:cards?cardReport.acceptedPrimaryFixtures:0,deferredFixtureCount:cardReport.deferredFixtures?.length||0,expectedResources:4,observations:observations.fixtures},table:{state:context?'primary':'retained-last-good',expectedResources:1,observations:observations.table}},publicationState:failures.length?'partial-candidate':'candidate',aiCalls:0};
  if((!cards||cardReport.acceptedPrimaryFixtures===0)&&!context){fixtureError ||= Error('No supported EPL fixture facts or official table observation; last-good facts retained.');try{fixtureError.eplReport={...report,publicationState:'blocked-retained'};}catch{}throw fixtureError;}
- let count=0;const deferredViewing=new Set(),updatedIds=new Set();
+ let count=0;const deferredViewing=new Set(),updatedIds=new Set();report.updatedFixtureIdsBySurface=Object.fromEntries(FEEDS.map(file=>[file,[]]));
  if(cards)for(const {file,document}of surfaces){
   const byId=new Map(cards.map(card=>[identities.binding(card).record.primaryId,card]));
   const updates=document.events.filter(event=>event.competitionId===COMPETITION).map(old=>{
@@ -98,7 +98,7 @@ async function refresh({now=new Date()}={}){
    }
    return update;
   });
-  const patched=patchKnown(document.events,updates);if(patched.count){for(let i=0;i<patched.events.length;i++)if(patched.events[i]!==document.events[i])updatedIds.add(patched.events[i].id);write(file,{...document,events:patched.events});count+=patched.count;}
+  const patched=patchKnown(document.events,updates);if(patched.count){for(let i=0;i<patched.events.length;i++)if(patched.events[i]!==document.events[i]){const id=patched.events[i].id;updatedIds.add(id);report.updatedFixtureIdsBySurface[file].push(id);}write(file,{...document,events:patched.events});count+=patched.count;}
  }
  report.updatedFixtureIds=[...updatedIds];
  report.deferredViewingFixtureIds=[...deferredViewing];

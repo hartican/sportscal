@@ -34,7 +34,10 @@ const normalizeInput=value=>normalizeFeed(scoped?{...value,events:value.events.f
 const feed = normalizeInput(originalInput);
 const eplIdentities=require('../lib/epl-provider-identities');
 feed.events=eplIdentities.reconcile(feed.events);
-const errors = validateFeed(feed);
+// One surface may already be current while its counterpart changed. An empty
+// selected subset is legal; the stitched complete Feed is still mandatory.
+const validateInput=value=>epl&&value.events.length===0?[]:validateFeed(value);
+const errors = validateInput(feed);
 
 if (errors.length) {
   console.error(`Refusing to publish invalid feed from ${inputPath}:`);
@@ -48,7 +51,7 @@ if (replaceExisting) {
   try {
     const existing = normalizeInput(readJson(eventsOutPath));
     existing.events=eplIdentities.reconcile(existing.events);
-    const existingErrors = validateFeed(existing);
+    const existingErrors = validateInput(existing);
     if (existingErrors.length) throw new Error(existingErrors.join("; "));
     publishedFeed = { ...feed, events: protectVerifiedEventFacts(feed.events, existing.events) };
   } catch (error) {
@@ -58,7 +61,7 @@ if (replaceExisting) {
   try {
     const existing = normalizeInput(readJson(eventsOutPath));
     existing.events=eplIdentities.reconcile(existing.events);
-    const existingErrors = validateFeed(existing);
+    const existingErrors = validateInput(existing);
     if (existingErrors.length) {
       throw new Error(existingErrors.join("; "));
     }

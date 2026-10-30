@@ -55,9 +55,9 @@ function run(file,...args){
   const eplScope=require('./lib/epl-publication-scope'),epl=eplScope.parse(args);
   if(epl&&coverageSport)throw Error('Mixed scoped Feed publication');
   const codeFor=e=>require('../config/fixture-identity').sportKey(e)==='rugby'?'rugby-union':require('../config/fixture-identity').sportKey(e);
-  const selected=epl?d.events.filter(e=>eplScope.selected(e,epl.ids)):coverageSport?d.events.filter(e=>codeFor(e)===coverageSport):d.events;
+  const selected=epl?d.events.filter(e=>eplScope.selected(e,epl.incomingIds)):coverageSport?d.events.filter(e=>codeFor(e)===coverageSport):d.events;
   const projected=require('./lib/editorial-publication').reconcileFullPreviews(selected,read('data/editorial-knowledge.v1.json'));
-  const events=epl?eplScope.retain(d.events,projected,epl.ids):coverageSport?coverageScope.retainOutsideScope(d.events,projected,coverageSport,codeFor):projected;
+  const events=epl?eplScope.retain(d.events,projected,epl.incomingIds):coverageSport?coverageScope.retainOutsideScope(d.events,projected,coverageSport,codeFor):projected;
   if(JSON.stringify(events)!==JSON.stringify(d.events))write(p,{...d,events});
  }
  const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(file))for(const key of ['FOOTBALL_DATA_API_TOKEN','FOOTBALL_DATA_RUN_DIR','FOOTBALL_DATA_REPORT','GOLF_SOURCE_REPORT','GOLF_SOURCE_RUN_ID'])delete env[key];if(/^scripts\/validate-/.test(file))delete env.REFRESH_REPORT;
@@ -217,7 +217,7 @@ async function refresh({now=new Date(),offline=false,source=null,coverageSport}=
    try{report=await require('./lib/epl-only-refresh').refresh({now});}
    catch(error){if(error.eplReport)writeQuickFailureReport(error.eplReport);throw error;}
    writeQuickFailureReport(report);
-   runProjectionSteps(retainedFeedProjectionSteps(report.changed,{eplUpdatedIds:report.updatedFixtureIds}));
+   runProjectionSteps(retainedFeedProjectionSteps(report.changed,{eplUpdatedIds:report.updatedFixtureIdsBySurface}));
    return report;
   }
   if(source==='nhl'&&!offline){
