@@ -1,17 +1,17 @@
 /* The delegated Match Centre range view. Only one Match Centre view owns work. */
 (() => {
  'use strict';
- globalThis.createAllSportsView=({active,owner,selectView})=>{
+ globalThis.createAllSportsView=({active,owner,selectView,feedButton})=>{
   const model=()=>NOTHINGSPORTS_ALL_SPORTS,match=()=>NOTHINGSPORTS_MATCH_CENTRE;
   const states=new Map(),requested=new Map(),positions=new Map();
-  let range='today',revision=0,account=owner(),timer=null,loading=null,polling=null,controller=null,pollController=null,expanded=null,compactPosition=0,chrome=null;
+  let range='today',revision=0,account=owner(),timer=null,loading=null,polling=null,controller=null,pollController=null,expanded=null,compactPosition=0,chrome=null,sizeObserver=null;
   const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;};
   const state=()=>{if(!states.has(range))states.set(range,{events:[],window:model().windowFor(range),complete:false,notice:'',checked:0,scroll:0});return states.get(range);};
   const valid=(ticket)=>active()&&!document.hidden&&ticket===revision&&account===owner();
   const storageKey=()=>`all-sports:v1:${account}:${range}`;
   const dateLabel=day=>new Intl.DateTimeFormat('en-AU',{timeZone:model().ZONE,weekday:'long',day:'numeric',month:'short'}).format(new Date(model().midnight(day)));
   function remember(){if(chrome?.root.isConnected){for(const t of chrome.body.querySelectorAll('[data-overlap-group]'))positions.set(range+':'+t.dataset.overlapGroup,t.scrollLeft);state().scroll=scrollY;}}
-  function stop(){remember();revision++;clearInterval(timer);timer=null;controller?.abort();pollController?.abort();controller=null;pollController=null;loading=null;polling=null;}
+  function stop(){remember();revision++;stopSizes();clearInterval(timer);timer=null;controller?.abort();pollController?.abort();controller=null;pollController=null;loading=null;polling=null;}
   function qualifyCard(slot,item){
    const approximate=item.event.estimatedStartTimeUtc?' · Approximate timing only':'',text=item.underway?(match().liveState(item.event)==='playing'?'Underway':'Ongoing · '+(match().interruption(item.event)?.label||'Awaiting update')):item.tbc?(item.qualified?'May fall within this range':'Start time unavailable')+approximate:'';
    let label=slot.querySelector(':scope > .as-qualifier');if(!text){label?.remove();return;}if(!label){label=el('small',null,'as-qualifier');slot.prepend(label);}label.textContent=text;
@@ -52,20 +52,41 @@
     else{compactPosition=prior;expanded=id;render();const next=chrome.body.querySelector(`[data-sports-id="${CSS.escape(id)}"]`);next?.scrollIntoView({block:'nearest',inline:'start'});}
     const target=chrome.body.querySelector(`[data-sports-id="${CSS.escape(id)}"]`);(target?.querySelector('.event-card-disclosure,button')||target)?.focus({preventScroll:true});
    }});
+   if(expanded===id&&feedButton){let actions=card.querySelector('.event-card-primary-actions');if(!actions){actions=el('div',null,'match-centre-actions');card.append(actions);}actions.append(feedButton(item.event));}
    slot.append(card);
    qualifyCard(slot,item);
    return slot;
   }
+  function fitTrack(track){
+   if(!track?.isConnected||!track.getBoundingClientRect)return;const box=track.getBoundingClientRect();if(!box.width)return;
+   const visible=[...track.children].map(node=>node.getBoundingClientRect()).filter(r=>r.right>box.left+1&&r.left<box.right-1);
+   if(visible.length){const style=getComputedStyle(track),spacing=parseFloat(style.paddingTop)+parseFloat(style.paddingBottom)+track.offsetHeight-track.clientHeight,height=Math.ceil(Math.max(...visible.map(r=>r.height))+spacing)+'px';if(track.style.height!==height)track.style.height=height;}
+  }
+  function fitTracks(){for(const track of chrome?.body.querySelectorAll('.as-track')||[])fitTrack(track);}
+  function stopSizes(){sizeObserver?.disconnect();sizeObserver=null;}
+  function watchSizes(){
+   if(sizeObserver||!globalThis.ResizeObserver||!valid(revision))return;
+   const ticket=revision,observer=new ResizeObserver(entries=>{
+    if(sizeObserver!==observer||!valid(ticket))return;
+    // Watch natural card size, not the constrained track. Deferred details and
+    // innings changes retain the mounted card and fit only its visible page.
+    for(const track of new Set(entries.map(({target})=>target.closest('.as-track'))))fitTrack(track);
+   });
+   sizeObserver=observer;
+   for(const track of chrome.body.querySelectorAll('.as-track'))for(const slot of track.children)observer.observe(slot);
+  }
+  globalThis.addEventListener?.('resize',()=>{if(active()&&!document.hidden)fitTracks();});
+  document.fonts?.ready.then(()=>{if(active()&&!document.hidden)fitTracks();});
   function groupNode(group){
    const section=el('div',null,'as-overlap'),track=el('div',null,'as-track');track.dataset.overlapGroup=group.id;track.classList.toggle('as-multiple',group.entries.length>1);track.setAttribute('role','group');track.setAttribute('aria-label',group.entries.length>1?'Overlapping fixtures':'Fixture');
    group.entries.forEach(item=>track.append(makeCard(item)));section.append(track);
    if(group.entries.length>1){
     const controls=el('div',null,'as-page-controls'),previous=el('button','Previous','btn ghost'),next=el('button','Next','btn ghost'),position=el('span',null,'as-page-position');previous.type=next.type='button';previous.setAttribute('aria-label','Previous overlapping fixtures');next.setAttribute('aria-label','Next overlapping fixtures');position.setAttribute('aria-live','polite');
-    const update=()=>{const size=Math.max(1,track.clientWidth),stride=size+12,total=Math.max(1,Math.ceil((track.scrollWidth+12)/stride)),page=Math.min(total,Math.round(track.scrollLeft/stride)+1);position.textContent=`Page ${page} of ${total}`;previous.disabled=track.scrollLeft<2;next.disabled=track.scrollLeft+size>=track.scrollWidth-2;};
+    const update=()=>{fitTrack(track);const size=Math.max(1,track.clientWidth),stride=size+12,total=Math.max(1,Math.ceil((track.scrollWidth+12)/stride)),page=Math.min(total,Math.round(track.scrollLeft/stride)+1);position.textContent=`Page ${page} of ${total}`;previous.disabled=track.scrollLeft<2;next.disabled=track.scrollLeft+size>=track.scrollWidth-2;};
     previous.onclick=()=>track.scrollBy({left:-track.clientWidth,behavior:'auto'});next.onclick=()=>track.scrollBy({left:track.clientWidth,behavior:'auto'});
     track.addEventListener('scroll',()=>{positions.set(range+':'+group.id,track.scrollLeft);update();void poll();},{passive:true});controls.append(previous,position,next);section.append(controls);requestAnimationFrame(update);
    }
-   requestAnimationFrame(()=>{if(track.isConnected)track.scrollLeft=positions.get(range+':'+group.id)||0;});return section;
+   requestAnimationFrame(()=>{if(track.isConnected){track.scrollLeft=positions.get(range+':'+group.id)||0;fitTrack(track);}});return section;
   }
   function render(selected=false){
    if(!active())return;
@@ -92,9 +113,9 @@
     if(day.tbc.length){const unknown=el('section',null,'as-tbc');unknown.append(el('h4','Time TBC'));day.tbc.forEach(item=>unknown.append(makeCard(item)));section.append(unknown);}
     children.push(section);
    }
-   if(!patched){if(!children.length&&!loading)children.push(el('p',s.complete?'No known fixtures in this range.':'No published fixtures loaded yet. Refresh to retry.'));chrome.body.replaceChildren(...children);chrome.layout=key;}
+   if(!patched){stopSizes();if(!children.length&&!loading)children.push(el('p',s.complete?'No known fixtures in this range.':'No published fixtures loaded yet. Refresh to retry.'));chrome.body.replaceChildren(...children);chrome.layout=key;}
    if(mounting){const mounted=chrome;requestAnimationFrame(()=>{if(mounted===chrome&&mounted.root.isConnected){scrollTo({top:savedScroll,behavior:'auto'});mounted.restoringScroll=false;}});}
-   if(id){const next=chrome.body.querySelector(`[data-sports-id="${CSS.escape(id)}"]`);if(next)scrollBy({top:next.getBoundingClientRect().top-before,behavior:'auto'});}
+   fitTracks();watchSizes();if(id){const next=chrome.body.querySelector(`[data-sports-id="${CSS.escape(id)}"]`);if(next)scrollBy({top:next.getBoundingClientRect().top-before,behavior:'auto'});}
    if(focusSlot&&focusIndex>=0)chrome.body.querySelector(`[data-sports-id="${CSS.escape(focusSlot.dataset.sportsId)}"]`)?.querySelectorAll('button,a,input,select,textarea')[focusIndex]?.focus({preventScroll:true});
   }
   async function restore(){
