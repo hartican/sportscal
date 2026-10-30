@@ -7,6 +7,10 @@ const pl=require('./refresh-premier-league-cards');
 const officialResults=require('./sync-official-card-results');
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const coverageScope=require('./lib/live-coverage-scope');
+function validateQuickOptions(options){
+ coverageScope.validateOptions(options);
+ if(options.source==='epl'&&(options.offline||options.coverageSport!=null))throw Error('EPL-only refresh requires online primary source access without another sport selector.');
+}
 const write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
 function writeQuickFailureReport(report){
  if(!process.env.QUICK_RESULTS_REPORT)return;
@@ -161,7 +165,7 @@ function refreshNbl(changes,{published=false}={}){
    else write(nblPath,previous);
 }
 async function refresh({now=new Date(),offline=false,source=null,coverageSport}={}){
- coverageScope.validateOptions({source,offline,coverageSport});
+ validateQuickOptions({source,offline,coverageSport});
  if(source){
   if(source==='live-coverage'&&!offline){
    let liveCoverage;
@@ -204,6 +208,14 @@ async function refresh({now=new Date(),offline=false,source=null,coverageSport}=
    return report;
   }
   if(source==='football'&&!offline)return refreshFootball({now});
+  if(source==='epl'&&!offline){
+   let report;
+   try{report=await require('./lib/epl-only-refresh').refresh({now});}
+   catch(error){if(error.eplReport)writeQuickFailureReport(error.eplReport);throw error;}
+   writeQuickFailureReport(report);
+   runProjectionSteps(retainedFeedProjectionSteps(report.changed));
+   return report;
+  }
   if(source==='nhl'&&!offline){
    let nhl;
    try{nhl=await refreshNhl();}catch(error){const report={mode:'quick',source,checkedAt:new Date().toISOString(),changed:[],failures:[`NHL: ${error.message}`],aiCalls:0};writeQuickFailureReport(report);console.log(JSON.stringify(report));throw error;}
@@ -350,7 +362,7 @@ async function refresh({now=new Date(),offline=false,source=null,coverageSport}=
  return {changes,failures};
 }
 async function atomicRefresh(options,{refreshOperation=refresh}={}){
- coverageScope.validateOptions(options);
+ validateQuickOptions(options);
  const files=new Map();function collect(dir){for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const name=dir+'/'+entry.name;if(entry.isDirectory())collect(name);else if(/\.(json|js)$/.test(name))files.set(name,fs.readFileSync(name));}}
  const runtimeBefore=new Map(require('./build-app-shell-runtime').generatedFiles().map(file=>[file,fs.existsSync(file)?fs.readFileSync(file):null]));
  collect('data');collect('feeds');
@@ -374,7 +386,7 @@ async function atomicRefresh(options,{refreshOperation=refresh}={}){
   throw error;
  }
 }
-function parseQuickOptions(argv){return {offline:argv.includes('--offline'),source:argv.find(arg=>arg.startsWith('--source='))?.slice(9),coverageSport:coverageScope.parseArgs(argv,{child:true})};}
+function parseQuickOptions(argv){if(argv.includes('--source=epl')&&(new Set(argv).size!==argv.length||argv.some(arg=>arg!=='--source=epl')))throw Error('EPL-only quick child requires exactly --source=epl.');return {offline:argv.includes('--offline'),source:argv.find(arg=>arg.startsWith('--source='))?.slice(9),coverageSport:coverageScope.parseArgs(argv,{child:true})};}
 if(require.main===module)Promise.resolve().then(()=>atomicRefresh(parseQuickOptions(process.argv.slice(2)))).then(result=>{if(process.argv.some(arg=>arg.startsWith('--source=')))console.log(JSON.stringify(result));}).catch(error=>{console.error(error.message);process.exitCode=1;});
 async function text(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{accept:'text/html','user-agent':'nothingSport canonical refresh/1.0'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.text();}
 async function refreshChl(options={}){

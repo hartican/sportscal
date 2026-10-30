@@ -32,4 +32,7 @@ console.log('Football: 380 stable fixtures, 38 sourced matchweeks, dated 20-club
 
 // The published schedule and its existing primary/live source share one gate.
 require('./validate-epl-kickoff-certainty');
+// These two standalone controls own HTTP/clock/FS doubles; isolate them before
+// the existing asynchronous source-shape rehearsal changes its own doubles.
+for(const file of ['validate-epl-scoped-refresh.js','validate-epl-source-body.js'])require('node:child_process').execFileSync(process.execPath,[require('node:path').join(__dirname,file)],{stdio:'inherit'});
 require('./validate-premier-league-source-shape');
