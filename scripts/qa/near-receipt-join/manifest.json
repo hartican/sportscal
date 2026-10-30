@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "state": "ROOT_BOUND_OVERFLOW_PER_REQUEST_PACKET_NOT_EXECUTED",
+  "sourceSha": "98af9164d15cddfb198fd35cd9e226b267723216",
+  "priorWireManifestSha256": "02131782c10ec027ad77ccee0b274520ea29d652a76b23777c9f34946e819a33",
+  "expectedPriorCarrier": "1404cd81abcc86c430f81a1bbeebb2205edf75a0",
+  "files": [
+    {
+      "file": "ORDERED-WIRE-DIAGNOSIS.md",
+      "sha256": "f997f3c64cb34db8a1471374c12b9b44241f406ed20ad7cb46308431bebe4a01",
+      "bytes": 3744
+    },
+    {
+      "file": "OVERFLOW-REQUEST-PROOF.md",
+      "sha256": "2ed555726f2b82b0f210998a739eca859609b5777aa94f98909cff060dd76303",
+      "bytes": 4354
+    },
+    {
+      "file": "PASSFILE-DIAGNOSIS.md",
+      "sha256": "72cba99e9786673c33473802a320c91bd245b6450f5916f4a0ce324183526a1c",
+      "bytes": 3644
+    },
+    {
+      "file": "PUSH-BINDING.md",
+      "sha256": "f17fa5dd6e5aa00452c944589cf56358dc1855bc4ea7648466ea2121aeed29ce",
+      "bytes": 3646
+    },
+    {
+      "file": "README.md",
+      "sha256": "889ce5d60733065b6120a7ca44bda4d24f7107d13bf1668633c27cc3a39138a3",
+      "bytes": 9327
+    },
+    {
+      "file": "adapter.cjs",
+      "sha256": "8a67835591e12d6b1d4876b3cc62c284b6dcbe39c3927788033f450b1da5838c",
+      "bytes": 35671
+    },
+    {
+      "file": "lifecycle-controls.cjs",
+      "sha256": "f667fd531aef0b9a256b21ec8c722e9f02d11c307f21b5d04aefce9a29ad0c19",
+      "bytes": 4912
+    },
+    {
+      "file": "native-client.cjs",
+      "sha256": "a8fec184ad1f987e254679aa70201e4d8ab6da15b21d6eab72f693438315654c",
+      "bytes": 4802
+    },
+    {
+      "file": "native-json-controls.cjs",
+      "sha256": "d71af09524e063ed3759e4c092943a67e728ae11c4ff764bf83e085abc3ecfb2",
+      "bytes": 2692
+    },
+    {
+      "file": "near-receipt-native-20261030-3.yml",
+      "sha256": "124a74abe302c6c7400c3c479e0156f91bdea2db7c4f1951f50e5039c25c4a52",
+      "bytes": 2892
+    },
+    {
+      "file": "official-native-image-digests.json",
+      "sha256": "da599ddd3308b831e2f9c54c8ce534a9e173ab627ce03ff0edcb1801efde67dc",
+      "bytes": 1904
+    },
+    {
+      "file": "ordered-wire-controls.cjs",
+      "sha256": "44cacc6facf67ef50c48d203f8a002cfa6ce1b6226b7aaac3b8b55342a6bc513",
+      "bytes": 2984
+    },
+    {
+      "file": "overflow-controls.cjs",
+      "sha256": "a42004fd9744bd1ec2b9adefea8cf69838444f4f52a75f7537812f83527d4d91",
+      "bytes": 3445
+    },
+    {
+      "file": "overflow-proof.cjs",
+      "sha256": "db46bfdd15847505640858d08895e0412da440565291ff8e00d071a947e29673",
+      "bytes": 3907
+    },
+    {
+      "file": "owned-process.cjs",
+      "sha256": "be5953a0025febf574dd88860f23cb0ca342f29d87391c5e7b591e808ae20e72",
+      "bytes": 3306
+    },
+    {
+      "file": "pure-checks.cjs",
+      "sha256": "7ae9e9c18b4d36de6ba5c89ff39fea203b9212ee62c9e5d7f99329997ac2ab02",
+      "bytes": 1830
+    },
+    {
+      "file": "push-binding-pure-checks.cjs",
+      "sha256": "e36a67dacb5463d1db6c1135a8c23907d4bd8d7a30db066bd218bc4912eec3f2",
+      "bytes": 2758
+    },
+    {
+      "file": "push-binding.cjs",
+      "sha256": "683f7491c7a13b6712633c7e14470b21ce6c4ad5ba8990f40607605cc1b3b028",
+      "bytes": 4982
+    },
+    {
+      "file": "receipt-join-candidate-body.sql",
+      "sha256": "fb07a5dada46f42fda93d888437c93901c90a476377cb86a876b75edf28c3856",
+      "bytes": 7000
+    },
+    {
+      "file": "receipt-join-native-boundary.sql",
+      "sha256": "b7528ee3e97e9ab89f005ff3e831c9a058d07e2fbd11dcfb968f156ee1ca85a7",
+      "bytes": 4663
+    },
+    {
+      "file": "receipt-join-native-forward.sql",
+      "sha256": "2ef2501cdf6b5cb803c773c3802a1d5a96f6098ac2e73df41aba3fcedf64d888",
+      "bytes": 3694
+    },
+    {
+      "file": "receipt-join-native-inverse.sql",
+      "sha256": "8ce43df73e360d5eeb4616df129fc238d600f787750b62206a200d4bd3397b46",
+      "bytes": 3696
+    },
+    {
+      "file": "receipt-join-native-reference.sql",
+      "sha256": "8cf846f505844981ea90921a31560b95e6251ad6860fc84b244baab090875065",
+      "bytes": 1595
+    },
+    {
+      "file": "receipt-join-original-body.sql",
+      "sha256": "192a2f7e8e9b2eb4ff1b18c125197d8ac97e0f56417e1c28b35016048b9babbf",
+      "bytes": 6986
+    },
+    {
+      "file": "repro-controls.cjs",
+      "sha256": "18bf8b110456d67c755bf414893c0b1e8d8e72beb60c3d26f23923822a222abc",
+      "bytes": 1231
+    },
+    {
+      "file": "retained-original-plan.json",
+      "sha256": "d8acc35cdddb2d58ade3f2ebd8335ea129b180dcbadd17dd686828b4d3682131",
+      "bytes": 118025
+    }
+  ]
+}
