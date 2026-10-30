@@ -2,7 +2,7 @@
   "schemaVersion": "canonical-sports.v1",
   "taxonomyVersion": "sports-taxonomy.v1",
   "season": 2026,
-  "generatedAt": "2026-10-22T16:43:52.871Z",
+  "generatedAt": "2026-10-30T22:34:42.562Z",
   "sources": [
     {
       "provider": "AFL",
@@ -32,7 +32,7 @@
       "provider": "Premier League",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-22T16:43:52.871Z"
+      "checkedAt": "2026-10-30T22:34:42.562Z"
     }
   ],
   "sportDomains": [
@@ -2443,20 +2443,20 @@
       "canonicalName": "Brighton & Hove Albion"
     },
     {
-      "id": "team:football:epl:4",
-      "type": "team",
-      "sportDomainId": "sport:football",
-      "displayName": "Chelsea",
-      "shortName": "Chelsea",
-      "canonicalName": "Chelsea"
-    },
-    {
       "id": "team:football:epl:10",
       "type": "team",
       "sportDomainId": "sport:football",
       "displayName": "Liverpool",
       "shortName": "Liverpool",
       "canonicalName": "Liverpool"
+    },
+    {
+      "id": "team:football:epl:4",
+      "type": "team",
+      "sportDomainId": "sport:football",
+      "displayName": "Chelsea",
+      "shortName": "Chelsea",
+      "canonicalName": "Chelsea"
     },
     {
       "id": "team:football:epl:130",
@@ -2475,30 +2475,6 @@
       "canonicalName": "Leeds United"
     },
     {
-      "id": "team:football:epl:7",
-      "type": "team",
-      "sportDomainId": "sport:football",
-      "displayName": "Everton",
-      "shortName": "Everton",
-      "canonicalName": "Everton"
-    },
-    {
-      "id": "team:football:epl:41",
-      "type": "team",
-      "sportDomainId": "sport:football",
-      "displayName": "Hull City",
-      "shortName": "Hull",
-      "canonicalName": "Hull City"
-    },
-    {
-      "id": "team:football:epl:8",
-      "type": "team",
-      "sportDomainId": "sport:football",
-      "displayName": "Ipswich Town",
-      "shortName": "Ipswich",
-      "canonicalName": "Ipswich Town"
-    },
-    {
       "id": "team:football:epl:23",
       "type": "team",
       "sportDomainId": "sport:football",
@@ -2515,20 +2491,28 @@
       "canonicalName": "Aston Villa"
     },
     {
-      "id": "team:football:epl:12",
+      "id": "team:football:epl:41",
       "type": "team",
       "sportDomainId": "sport:football",
-      "displayName": "Manchester United",
-      "shortName": "Man United",
-      "canonicalName": "Manchester United"
+      "displayName": "Hull City",
+      "shortName": "Hull",
+      "canonicalName": "Hull City"
     },
     {
-      "id": "team:football:epl:6",
+      "id": "team:football:epl:7",
       "type": "team",
       "sportDomainId": "sport:football",
-      "displayName": "Crystal Palace",
-      "shortName": "C Palace",
-      "canonicalName": "Crystal Palace"
+      "displayName": "Everton",
+      "shortName": "Everton",
+      "canonicalName": "Everton"
+    },
+    {
+      "id": "team:football:epl:8",
+      "type": "team",
+      "sportDomainId": "sport:football",
+      "displayName": "Ipswich Town",
+      "shortName": "Ipswich",
+      "canonicalName": "Ipswich Town"
     },
     {
       "id": "team:football:epl:127",
@@ -2547,14 +2531,6 @@
       "canonicalName": "Tottenham Hotspur"
     },
     {
-      "id": "team:football:epl:5",
-      "type": "team",
-      "sportDomainId": "sport:football",
-      "displayName": "Coventry City",
-      "shortName": "Coventry",
-      "canonicalName": "Coventry City"
-    },
-    {
       "id": "team:football:epl:34",
       "type": "team",
       "sportDomainId": "sport:football",
@@ -2563,12 +2539,36 @@
       "canonicalName": "Fulham"
     },
     {
+      "id": "team:football:epl:12",
+      "type": "team",
+      "sportDomainId": "sport:football",
+      "displayName": "Manchester United",
+      "shortName": "Man United",
+      "canonicalName": "Manchester United"
+    },
+    {
+      "id": "team:football:epl:6",
+      "type": "team",
+      "sportDomainId": "sport:football",
+      "displayName": "Crystal Palace",
+      "shortName": "C Palace",
+      "canonicalName": "Crystal Palace"
+    },
+    {
       "id": "team:football:epl:15",
       "type": "team",
       "sportDomainId": "sport:football",
       "displayName": "Nottingham Forest",
       "shortName": "Nottm Forest",
       "canonicalName": "Nottingham Forest"
+    },
+    {
+      "id": "team:football:epl:5",
+      "type": "team",
+      "sportDomainId": "sport:football",
+      "displayName": "Coventry City",
+      "shortName": "Coventry",
+      "canonicalName": "Coventry City"
     },
     {
       "id": "team:football:epl:29",
@@ -41334,196 +41334,220 @@
       "id": "ladder:premier-league-2026-27:current",
       "competitionId": "competition:premier-league-2026-27",
       "seasonLabel": "2026/27",
-      "roundLabel": "After Matchweek 7",
-      "snapshotTimeUtc": "2026-10-22T16:43:52.871Z",
+      "roundLabel": "After Matchweek 8",
+      "snapshotTimeUtc": "2026-10-30T22:34:42.562Z",
       "entries": [
         {
           "participantId": "team:football:epl:11",
           "rank": 1,
-          "played": 7,
+          "played": 8,
           "won": 7,
           "drawn": 0,
-          "lost": 0,
-          "pointsFor": 19,
-          "pointsAgainst": 7,
-          "pointsDifference": 12,
+          "lost": 1,
+          "pointsFor": 20,
+          "pointsAgainst": 9,
+          "pointsDifference": 11,
           "ladderPoints": 21
         },
         {
           "participantId": "team:football:epl:1",
           "rank": 2,
-          "played": 7,
-          "won": 6,
+          "played": 8,
+          "won": 7,
           "drawn": 0,
           "lost": 1,
-          "pointsFor": 11,
+          "pointsFor": 13,
           "pointsAgainst": 5,
-          "pointsDifference": 6,
-          "ladderPoints": 18
+          "pointsDifference": 8,
+          "ladderPoints": 21
         },
         {
           "participantId": "team:football:epl:131",
           "rank": 3,
-          "played": 7,
+          "played": 8,
           "won": 5,
           "drawn": 1,
-          "lost": 1,
+          "lost": 2,
           "pointsFor": 23,
-          "pointsAgainst": 5,
-          "pointsDifference": 18,
+          "pointsAgainst": 7,
+          "pointsDifference": 16,
           "ladderPoints": 16
         },
         {
-          "participantId": "team:football:epl:4",
-          "rank": 4,
-          "played": 7,
-          "won": 4,
-          "drawn": 1,
-          "lost": 2,
-          "pointsFor": 17,
-          "pointsAgainst": 13,
-          "pointsDifference": 4,
-          "ladderPoints": 13
-        },
-        {
           "participantId": "team:football:epl:10",
-          "rank": 5,
-          "played": 7,
-          "won": 3,
+          "rank": 4,
+          "played": 8,
+          "won": 4,
           "drawn": 3,
           "lost": 1,
-          "pointsFor": 9,
+          "pointsFor": 11,
           "pointsAgainst": 8,
-          "pointsDifference": 1,
-          "ladderPoints": 12
+          "pointsDifference": 3,
+          "ladderPoints": 15
+        },
+        {
+          "participantId": "team:football:epl:4",
+          "rank": 5,
+          "played": 8,
+          "won": 4,
+          "drawn": 1,
+          "lost": 3,
+          "pointsFor": 17,
+          "pointsAgainst": 15,
+          "pointsDifference": 2,
+          "ladderPoints": 13
         },
         {
           "participantId": "team:football:epl:130",
           "rank": 6,
-          "played": 7,
+          "played": 8,
           "won": 2,
-          "drawn": 4,
+          "drawn": 5,
           "lost": 1,
-          "pointsFor": 13,
-          "pointsAgainst": 8,
+          "pointsFor": 14,
+          "pointsAgainst": 9,
           "pointsDifference": 5,
-          "ladderPoints": 10
+          "ladderPoints": 11
         },
         {
           "participantId": "team:football:epl:9",
           "rank": 7,
-          "played": 7,
+          "played": 8,
           "won": 2,
-          "drawn": 4,
+          "drawn": 5,
           "lost": 1,
           "pointsFor": 9,
           "pointsAgainst": 6,
           "pointsDifference": 3,
+          "ladderPoints": 11
+        },
+        {
+          "participantId": "team:football:epl:23",
+          "rank": 8,
+          "played": 8,
+          "won": 3,
+          "drawn": 2,
+          "lost": 3,
+          "pointsFor": 12,
+          "pointsAgainst": 14,
+          "pointsDifference": -2,
+          "ladderPoints": 11
+        },
+        {
+          "participantId": "team:football:epl:2",
+          "rank": 9,
+          "played": 8,
+          "won": 3,
+          "drawn": 2,
+          "lost": 3,
+          "pointsFor": 9,
+          "pointsAgainst": 12,
+          "pointsDifference": -3,
+          "ladderPoints": 11
+        },
+        {
+          "participantId": "team:football:epl:41",
+          "rank": 10,
+          "played": 8,
+          "won": 2,
+          "drawn": 4,
+          "lost": 2,
+          "pointsFor": 9,
+          "pointsAgainst": 8,
+          "pointsDifference": 1,
           "ladderPoints": 10
         },
         {
           "participantId": "team:football:epl:7",
-          "rank": 8,
-          "played": 7,
+          "rank": 11,
+          "played": 8,
           "won": 2,
           "drawn": 4,
-          "lost": 1,
+          "lost": 2,
           "pointsFor": 8,
-          "pointsAgainst": 7,
-          "pointsDifference": 1,
+          "pointsAgainst": 9,
+          "pointsDifference": -1,
           "ladderPoints": 10
         },
         {
-          "participantId": "team:football:epl:41",
-          "rank": 9,
-          "played": 7,
+          "participantId": "team:football:epl:8",
+          "rank": 12,
+          "played": 8,
+          "won": 3,
+          "drawn": 1,
+          "lost": 4,
+          "pointsFor": 12,
+          "pointsAgainst": 16,
+          "pointsDifference": -4,
+          "ladderPoints": 10
+        },
+        {
+          "participantId": "team:football:epl:127",
+          "rank": 13,
+          "played": 8,
           "won": 2,
           "drawn": 3,
-          "lost": 2,
+          "lost": 3,
+          "pointsFor": 12,
+          "pointsAgainst": 13,
+          "pointsDifference": -1,
+          "ladderPoints": 9
+        },
+        {
+          "participantId": "team:football:epl:21",
+          "rank": 14,
+          "played": 8,
+          "won": 2,
+          "drawn": 3,
+          "lost": 3,
           "pointsFor": 8,
-          "pointsAgainst": 7,
-          "pointsDifference": 1,
+          "pointsAgainst": 10,
+          "pointsDifference": -2,
           "ladderPoints": 9
         },
         {
-          "participantId": "team:football:epl:8",
-          "rank": 10,
-          "played": 7,
-          "won": 3,
-          "drawn": 0,
+          "participantId": "team:football:epl:34",
+          "rank": 15,
+          "played": 8,
+          "won": 2,
+          "drawn": 2,
           "lost": 4,
-          "pointsFor": 11,
-          "pointsAgainst": 15,
-          "pointsDifference": -4,
-          "ladderPoints": 9
-        },
-        {
-          "participantId": "team:football:epl:23",
-          "rank": 11,
-          "played": 7,
-          "won": 2,
-          "drawn": 2,
-          "lost": 3,
-          "pointsFor": 10,
-          "pointsAgainst": 14,
-          "pointsDifference": -4,
-          "ladderPoints": 8
-        },
-        {
-          "participantId": "team:football:epl:2",
-          "rank": 12,
-          "played": 7,
-          "won": 2,
-          "drawn": 2,
-          "lost": 3,
-          "pointsFor": 7,
-          "pointsAgainst": 11,
-          "pointsDifference": -4,
+          "pointsFor": 8,
+          "pointsAgainst": 10,
+          "pointsDifference": -2,
           "ladderPoints": 8
         },
         {
           "participantId": "team:football:epl:12",
-          "rank": 13,
-          "played": 7,
+          "rank": 16,
+          "played": 8,
           "won": 1,
           "drawn": 4,
-          "lost": 2,
+          "lost": 3,
           "pointsFor": 10,
-          "pointsAgainst": 10,
-          "pointsDifference": 0,
+          "pointsAgainst": 13,
+          "pointsDifference": -3,
           "ladderPoints": 7
         },
         {
           "participantId": "team:football:epl:6",
-          "rank": 14,
-          "played": 7,
+          "rank": 17,
+          "played": 8,
           "won": 2,
           "drawn": 1,
-          "lost": 4,
+          "lost": 5,
           "pointsFor": 9,
-          "pointsAgainst": 17,
-          "pointsDifference": -8,
+          "pointsAgainst": 19,
+          "pointsDifference": -10,
           "ladderPoints": 7
         },
         {
-          "participantId": "team:football:epl:127",
-          "rank": 15,
-          "played": 7,
+          "participantId": "team:football:epl:15",
+          "rank": 18,
+          "played": 8,
           "won": 1,
           "drawn": 3,
-          "lost": 3,
-          "pointsFor": 9,
-          "pointsAgainst": 13,
-          "pointsDifference": -4,
-          "ladderPoints": 6
-        },
-        {
-          "participantId": "team:football:epl:21",
-          "rank": 16,
-          "played": 7,
-          "won": 1,
-          "drawn": 3,
-          "lost": 3,
+          "lost": 4,
           "pointsFor": 6,
           "pointsAgainst": 10,
           "pointsDifference": -4,
@@ -41531,58 +41555,34 @@
         },
         {
           "participantId": "team:football:epl:5",
-          "rank": 17,
-          "played": 7,
+          "rank": 19,
+          "played": 8,
           "won": 2,
           "drawn": 0,
-          "lost": 5,
+          "lost": 6,
           "pointsFor": 6,
-          "pointsAgainst": 14,
-          "pointsDifference": -8,
+          "pointsAgainst": 15,
+          "pointsDifference": -9,
           "ladderPoints": 6
-        },
-        {
-          "participantId": "team:football:epl:34",
-          "rank": 18,
-          "played": 7,
-          "won": 1,
-          "drawn": 2,
-          "lost": 4,
-          "pointsFor": 7,
-          "pointsAgainst": 10,
-          "pointsDifference": -3,
-          "ladderPoints": 5
-        },
-        {
-          "participantId": "team:football:epl:15",
-          "rank": 19,
-          "played": 7,
-          "won": 1,
-          "drawn": 2,
-          "lost": 4,
-          "pointsFor": 5,
-          "pointsAgainst": 9,
-          "pointsDifference": -4,
-          "ladderPoints": 5
         },
         {
           "participantId": "team:football:epl:29",
           "rank": 20,
-          "played": 7,
+          "played": 8,
           "won": 1,
-          "drawn": 1,
+          "drawn": 2,
           "lost": 5,
           "pointsFor": 6,
           "pointsAgainst": 14,
           "pointsDifference": -8,
-          "ladderPoints": 4
+          "ladderPoints": 5
         }
       ],
       "source": {
         "provider": "Premier League",
         "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
         "sourceType": "official",
-        "checkedAt": "2026-10-22T16:43:52.871Z"
+        "checkedAt": "2026-10-30T22:34:42.562Z"
       },
       "metadata": {
         "coverageStatus": "complete",

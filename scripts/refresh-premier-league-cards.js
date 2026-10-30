@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const https = require("node:https");
 const { readJson, validateFeed, writeJson } = require("./lib/feed-utils");
 const eplIdentities = require('../lib/epl-provider-identities');
 
@@ -24,38 +23,21 @@ const SYDNEY_FORMATTER = new Intl.DateTimeFormat("en-CA", {
   hourCycle: "h23",
 });
 
-function fetchJson(url){
-  return new Promise((resolve, reject) => {
-    let deadline;
-    const fail = error => { clearTimeout(deadline); reject(error); };
-    const request = https.get(url, { headers: { Origin: "https://www.premierleague.com" } }, response => {
-      let body = "";
-      response.setEncoding("utf8");
-      response.on("error", fail);
-      response.on("aborted", () => fail(new Error("Premier League fixture page ended before completion.")));
-      response.on("data", chunk => { body += chunk; });
-      response.on("end", () => {
-        clearTimeout(deadline);
-        if (response.statusCode !== 200) return reject(new Error(`Premier League fixture service returned ${response.statusCode}.`));
-        try { resolve(JSON.parse(body)); } catch (error) { reject(new Error(`Premier League fixture service returned invalid JSON: ${error.message}`)); }
-      });
-    });
-    request.setTimeout(20_000, () => request.destroy(new Error("Premier League fixture service timed out.")));
-    request.on("error", fail);
-    // Socket inactivity alone permits an endlessly active response. Keep the
-    // existing 20-second duration as a fixed network deadline for each page.
-    deadline = setTimeout(() => request.destroy(new Error("Premier League fixture service exceeded its 20-second deadline.")), 20_000);
-    deadline.unref?.();
-  });
+function fetchJson(url,options){
+  return require('./lib/epl-source-json').readJson(url,options);
 }
 
-function validateFixturePage(payload, page){
+function validateFixturePage(payload, page, {allowFixtureDeferrals=false}={}){
   const info = payload?.pageInfo;
   const expectedSize = Math.min(PAGE_SIZE, EXPECTED_FIXTURE_COUNT - page * PAGE_SIZE);
   if (!info || info.page !== page || info.pageSize !== PAGE_SIZE || info.numPages !== EXPECTED_PAGE_COUNT || info.numEntries !== EXPECTED_FIXTURE_COUNT || !Array.isArray(payload.content) || payload.content.length !== expectedSize) {
     throw new Error(`Premier League fixture page ${page} failed validation: expected a consistent ${EXPECTED_PAGE_COUNT}-page, ${EXPECTED_FIXTURE_COUNT}-fixture collection with ${expectedSize} records on this page.`);
   }
-  for (const fixture of payload.content) sourceFixtureStatus(fixture);
+  if(!allowFixtureDeferrals)for (const fixture of payload.content) sourceFixtureStatus(fixture);
+}
+
+function unsupportedFixtureFact(fixture,reason,message){
+  return Object.assign(new Error(message),{code:'EPL_UNSUPPORTED_FIXTURE_FACT',fixtureId:fixture?.id,reason});
 }
 
 function sourceFixtureStatus(fixture){
@@ -68,23 +50,23 @@ function sourceFixtureStatus(fixture){
   if (fixture?.status === "L") {
     // Actual L/H and the matching official HT display were captured on
     // 10 October. Other interruptions remain unreviewed, never inferred.
-    if(!['1','2','H'].includes(fixture.phase))throw new Error(`Premier League live fixture ${id} has a missing or unreviewed playing phase; retain last-good data.`);
+    if(!['1','2','H'].includes(fixture.phase))throw unsupportedFixtureFact(fixture,'UNREVIEWED_PHASE',`Premier League live fixture ${id} has a missing or unreviewed playing phase; retain last-good data.`);
     const scores=fixture.teams?.map(team=>team.score);
-    if(!scores||scores.length!==2||scores.some(score=>!Number.isSafeInteger(score)||score<0))throw new Error(`Premier League live fixture ${id} lacks a confirmed integer score.`);
+    if(!scores||scores.length!==2||scores.some(score=>!Number.isSafeInteger(score)||score<0))throw unsupportedFixtureFact(fixture,'INCOMPLETE_LIVE_SCORE',`Premier League live fixture ${id} lacks a confirmed integer score.`);
     return fixture.phase==='H' ? 'break' : 'live';
   }
   const code=typeof fixture?.status==='string'&&fixture.status.length<=16?fixture.status:'invalid';
-  throw new Error(`Premier League fixture ${id} has a missing or unreviewed source status (${code}); retain last-good data pending primary status verification.`);
+  throw unsupportedFixtureFact(fixture,'UNREVIEWED_STATUS',`Premier League fixture ${id} has a missing or unreviewed source status (${code}); retain last-good data pending primary status verification.`);
 }
 
-function validateFixtureCollection(fixtures){
+function validateFixtureCollection(fixtures,{allowFixtureDeferrals=false}={}){
   const fixtureIds = new Set(), teamIds = new Set(), gameweeks = new Set(), pairs = new Set();
   for (const fixture of fixtures){
     const week = fixture?.gameweek;
     if (week?.compSeason?.id !== SEASON_ID || week.compSeason?.competition?.id !== COMPETITION_ID) throw new Error("Premier League fixture has the wrong competition or season.");
     if (!Number.isSafeInteger(week.gameweek) || week.gameweek < 1 || week.gameweek > 38) throw new Error("Premier League fixture has an invalid matchweek.");
     if (!Number.isSafeInteger(fixture.id) || fixture.id <= 0 || fixtureIds.has(fixture.id)) throw new Error("Premier League fixture identity is invalid or duplicated.");
-    sourceFixtureStatus(fixture);
+    if(!allowFixtureDeferrals)sourceFixtureStatus(fixture);
     if (!Array.isArray(fixture.teams) || fixture.teams.length !== 2) throw new Error("Premier League fixture requires exactly two clubs.");
     const [home, away] = fixture.teams.map(entry => entry?.team?.club?.id || entry?.team?.id);
     if (![home, away].every(id => Number.isSafeInteger(id) && id > 0) || home === away) throw new Error("Premier League fixture has an invalid club identity or self match.");
@@ -95,17 +77,21 @@ function validateFixtureCollection(fixtures){
   if (fixtures.length !== EXPECTED_FIXTURE_COUNT || fixtureIds.size !== EXPECTED_FIXTURE_COUNT || teamIds.size !== EXPECTED_TEAM_COUNT || gameweeks.size !== 38 || pairs.size !== EXPECTED_FIXTURE_COUNT) {
     throw new Error(`Premier League fixture refresh failed closed: expected ${EXPECTED_FIXTURE_COUNT} unique fixtures and directed pairings across ${EXPECTED_TEAM_COUNT} clubs and 38 matchweeks; received ${fixtures.length} fixtures, ${fixtureIds.size} identities, ${teamIds.size} clubs, ${gameweeks.size} matchweeks and ${pairs.size} pairings.`);
   }
+  if(allowFixtureDeferrals)eplIdentities.validatePrimaryCollection(fixtures.map(fixture=>{
+    const ids=fixture.teams.map(entry=>'team:football:epl:'+(entry.team.club?.id||entry.team.id));
+    return {id:'epl-2026-27-'+fixture.id,competitionId:'competition:premier-league-2026-27',season:'2026/27',key:'premier-league',participantIds:ids,homeParticipantId:ids[0],awayParticipantId:ids[1]};
+  }));
 }
 
-async function loadFixtures(){
+async function loadFixtures({fetcher=fetchJson,allowFixtureDeferrals=false}={}){
   const pages = [];
   for (let page = 0; page < EXPECTED_PAGE_COUNT; page += 1){
     const query = new URLSearchParams({ comps: String(COMPETITION_ID), comp: String(COMPETITION_ID), compSeasons: String(SEASON_ID), page: String(page), pageSize: String(PAGE_SIZE), altIds: "true" });
-    const payload = await fetchJson(`${PULSE_FIXTURES_URL}?${query}`);
-    validateFixturePage(payload, page);
+    const payload = await fetcher(`${PULSE_FIXTURES_URL}?${query}`);
+    validateFixturePage(payload, page,{allowFixtureDeferrals});
     pages.push(...payload.content);
   }
-  validateFixtureCollection(pages);
+  validateFixtureCollection(pages,{allowFixtureDeferrals});
   return pages;
 }
 
@@ -114,11 +100,13 @@ function sydneyDateAndTime(utcMillis){
   return { date: `${parts.year}-${parts.month}-${parts.day}`, time: `${parts.hour}:${parts.minute}` };
 }
 
-function teamFromEntry(entry){
+function teamFromEntry(entry,fixture){
   const team = entry?.team;
-  const name = String(team?.name || team?.club?.name || "").trim();
+  const label=team?.name||team?.club?.name;
+  const name = typeof label==='string'?label.trim():'';
   const id = team?.club?.id || team?.id;
-  if (!name || !id) throw new Error("Premier League fixture has an unresolved club identity.");
+  if (!id)throw new Error("Premier League fixture has an unresolved club identity.");
+  if(!name)throw unsupportedFixtureFact(fixture,'MISSING_CLUB_LABEL',"Premier League fixture has an unresolved club label.");
   return { id: `team:football:epl:${id}`, name };
 }
 
@@ -145,8 +133,10 @@ function resultScoreline(fixture, home, away){
 }
 
 function cardForFixture(fixture, checkedAt){
-  const [home, away] = (fixture.teams || []).map(teamFromEntry);
-  if (!home || !away || !Number.isFinite(fixture?.kickoff?.millis)) throw new Error(`Premier League fixture ${fixture?.id || "unknown"} is missing teams or a confirmed kickoff.`);
+  const [home, away] = (fixture.teams || []).map(entry=>teamFromEntry(entry,fixture));
+  if (!home || !away)throw new Error(`Premier League fixture ${fixture?.id || "unknown"} is missing teams.`);
+  if(!Number.isFinite(fixture?.kickoff?.millis))throw unsupportedFixtureFact(fixture,'MISSING_KICKOFF',`Premier League fixture ${fixture?.id || "unknown"} is missing a confirmed kickoff.`);
+  if(!Number.isFinite(new Date(fixture.kickoff.millis).getTime()))throw unsupportedFixtureFact(fixture,'INVALID_KICKOFF','Premier League fixture has an invalid confirmed kickoff.');
   const startTimeUtc = new Date(fixture.kickoff.millis).toISOString();
   const { date, time } = sydneyDateAndTime(fixture.kickoff.millis);
   const status = sourceFixtureStatus(fixture);
@@ -154,7 +144,7 @@ function cardForFixture(fixture, checkedAt){
   const inProgress = status === 'live' || status === 'break';
   if(inProgress&&(!Number.isFinite(Date.parse(checkedAt))||!/Z$/.test(checkedAt)))throw new Error('Premier League live fixture requires a valid source observation.');
   const result = completed ? resultScoreline(fixture, home, away) : null;
-  if(completed && !result)throw new Error("Premier League completed fixture lacks a confirmed integer score.");
+  if(completed && !result)throw unsupportedFixtureFact(fixture,'INCOMPLETE_FINAL_SCORE',"Premier League completed fixture lacks a confirmed integer score.");
   const gameweek = fixture.gameweek?.gameweek;
   const name = `${home.name} v ${away.name}`;
   return eplIdentities.withAliases(require('./lib/epl-kickoff-certainty').qualify({
@@ -242,18 +232,41 @@ function cardForFixture(fixture, checkedAt){
   }));
 }
 
-async function loadCards(known,{loader=loadFixtures,checkedAt=new Date().toISOString(),backupOptions={}}={}){
-  const backup=require('./lib/football-data-backup');
+async function loadCards(known,{loader=loadFixtures,checkedAt=new Date().toISOString(),backupOptions={},allowFixtureDeferrals=false,validateCandidate=()=>{},onReport=()=>{}}={}){
+  const backup=require('./lib/football-data-backup'),delayed=require('../lib/football-delayed-results');
   try{
-    const cards=(await loader()).map(f=>cardForFixture(f,checkedAt));
+    const fixtures=await loader(),observedAt=typeof checkedAt==='function'?checkedAt():checkedAt;
+    if(allowFixtureDeferrals)validateFixtureCollection(fixtures,{allowFixtureDeferrals:true});
+    const knownById=new Map(known.map(e=>[eplIdentities.binding(e)?.record.primaryId,e])),deferred=[],fresh=[];
+    const cards=fixtures.map(fixture=>{
+      try{const card=cardForFixture(fixture,observedAt);fresh.push(card);return card;}
+      catch(error){
+        const old=knownById.get('epl-2026-27-'+fixture.id);
+        if(!allowFixtureDeferrals||error.code!=='EPL_UNSUPPORTED_FIXTURE_FACT'||error.fixtureId!==fixture.id||!old)throw error;
+        deferred.push({fixtureId:old.id,primaryId:'epl-2026-27-'+fixture.id,reasonCode:error.reason,reason:error.message,repairAction:'Review this primary fixture fact; retain its last-good facts and original observations.'});
+        return old;
+      }
+    });
     eplIdentities.validatePrimaryCollection(cards);
-    const next=require('../lib/football-delayed-results').apply(cards,backup.readOverlay(backupOptions.outputPath)),byId=new Map(next.map(e=>[e.id,e]));
-    for(const old of known){const card=byId.get(old.id);if(!card||old.homeParticipantId!==card.homeParticipantId||old.awayParticipantId!==card.awayParticipantId||old.status==='completed'&&card.status!=='completed')throw Error('Premier League identity/result continuity failed');}
-    const result=backup.primary(cards,backupOptions);
-    backup.record({code:'PL',state:'primary',newFinals:0},backupOptions);
+    const savedOverlay=backup.readOverlay(backupOptions.outputPath),next=delayed.apply(cards,savedOverlay),retainedDelayed=new Map();
+    if(allowFixtureDeferrals)for(const event of next){const old=knownById.get(eplIdentities.binding(event)?.record.primaryId),raw=fresh.find(card=>card.id===event.id);if(old?.status==='completed'&&old.delayedResultSource&&event.delayedResultSource&&raw&&raw.status!=='completed')retainedDelayed.set(event.id,old);}
+    const byId=new Map(next.map(e=>[eplIdentities.binding(e)?.record.primaryId,e]));
+    for(const old of known){const card=byId.get(eplIdentities.binding(old)?.record.primaryId);if(!card||old.homeParticipantId!==card.homeParticipantId||old.awayParticipantId!==card.awayParticipantId||old.status==='completed'&&card.status!=='completed')throw Error('Premier League identity/result continuity failed');}
+    // Scope admission sees the raw sporting claims as well as deferred cards.
+    // It must finish before primary confirmation can retire a saved overlay.
+    validateCandidate({fixtures,cards:next.map(e=>retainedDelayed.get(e.id)||e),checkedAt:observedAt,overlay:savedOverlay,deferredFixtures:deferred});
+    // Deferred old finals are not new primary confirmations and must not prune
+    // their saved delayed overlay. The complete380 identity gate above stays strict.
+    const primary=backup.primary(fresh,backupOptions),updated=new Map(primary.map(e=>[e.id,e]));
+    const result=next.map(e=>retainedDelayed.get(e.id)||updated.get(e.id)||e);
+    eplIdentities.validatePrimaryCollection(result);
+    const state=deferred.length?(fresh.length?'partial-primary':'last-good'):'primary';
+    backup.record({code:'PL',state,newFinals:0,...(deferred.length?{deferredFixtures:deferred.length}:{} )},backupOptions);
+    onReport({acceptedPrimaryFixtures:fresh.length-retainedDelayed.size,deferredFixtures:deferred,retainedOverlayFixtureIds:result.filter(e=>e.delayedResultSource).map(e=>e.id),state});
     return result;
   }catch(error){
     const recovery=await backup.recover({code:'PL',events:known,primaryError:error,...backupOptions});
+    onReport({state:recovery.recovered?'backup':'retained-last-good',backup:recovery.row,deferredFixtures:[]});
     if(!recovery.recovered)throw error;
     eplIdentities.validatePrimaryCollection(recovery.events);
     console.warn('Premier League primary degraded; validated delayed backup retained existing facts and identities.');
@@ -281,4 +294,4 @@ if (require.main === module){
   });
 }
 
-module.exports = { loadCards, cardForFixture, loadFixtures, refreshPremierLeagueCards, resultScoreline, sydneyDateAndTime, validateFixtureCollection, validateFixturePage };
+module.exports = { loadCards, cardForFixture, loadFixtures, fetchJson, refreshPremierLeagueCards, resultScoreline, sydneyDateAndTime, validateFixtureCollection, validateFixturePage };

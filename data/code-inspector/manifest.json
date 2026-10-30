@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-30T06:33:10.815Z",
+  "generatedAt": "2026-10-30T23:06:40.076Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/horse-racing.json",
@@ -191,7 +191,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-29T17:22:13.484Z",
+      "freshAt": "2026-10-30T23:06:40.076Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {

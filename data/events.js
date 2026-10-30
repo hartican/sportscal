@@ -171634,7 +171634,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "expected": 6,
     "liveWindow": 3,
     "round": "all",
@@ -171643,11 +171643,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Nottingham Forest's Glasner reset comes to Ipswich Town, directly testing Ipswich's immediate top-flight return.",
-    "fullSpiel": "Ipswich Town arrives with 3W-0D-3L, while Nottingham Forest brings 1W-2D-2L. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
+    "selectedSentence": "Ipswich Town v Nottingham Forest is complete. Reveal results for the outcome.",
+    "fullSpiel": "Ipswich Town v Nottingham Forest is complete. Results stay hidden until you choose to reveal them.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+    "sourceCheckedAt": "2026-10-30T22:34:42.173Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-10-11T12:38:51.272Z",
@@ -171691,28 +171691,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Ipswich Town — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Nottingham Forest's Glasner reset comes to Ipswich Town, directly testing Ipswich's immediate top-flight return.",
-      "hookSpoilerOn": "Nottingham Forest's Glasner reset comes to Ipswich Town, directly testing Ipswich's immediate top-flight return.",
-      "synopsisSpoilerOff": "Ipswich Town arrives with 3W-0D-3L, while Nottingham Forest brings 1W-2D-2L. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
-      "synopsisSpoilerOn": "Ipswich Town arrives with 3W-0D-3L, while Nottingham Forest brings 1W-2D-2L. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-10-11T12:38:51.272Z"
+      "arcStage": "recap",
+      "hookSpoilerOff": "Ipswich Town v Nottingham Forest is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Ipswich Town drew Nottingham Forest 1-1.",
+      "synopsisSpoilerOff": "Ipswich Town v Nottingham Forest is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Ipswich Town and Nottingham Forest shared the points after a 1-1 draw.",
+      "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+      "stakes": 3,
+      "intensity": 3,
+      "expectedSpectacle": 6,
+      "intensitySource": "computed"
     },
     "statusCheckedAt": "2026-09-30T13:17:48.846Z",
     "timePrecision": "exact",
@@ -171736,7 +171726,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-08-17"
-    }
+    },
+    "score": "Ipswich Town 1-1 Nottingham Forest",
+    "outcomeText": "Ipswich Town drew Nottingham Forest 1-1.",
+    "recapText": "Ipswich Town and Nottingham Forest shared the points after a 1-1 draw.",
+    "homeScore": 1,
+    "awayScore": 1,
+    "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "resultSourceCheckedAt": "2026-10-30T22:34:42.173Z",
+    "scoreCheckedAt": "2026-10-30T22:34:42.173Z"
   },
   {
     "id": "evt_f1_2026_united_states_practice_2",
@@ -172904,7 +172902,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "expected": 6,
     "liveWindow": 3,
     "round": "all",
@@ -172913,11 +172911,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Aston Villa's post-Europa rebuild meets Manchester City's first post-Guardiola campaign; one fixture now moves both season-defining questions.",
-    "fullSpiel": "Aston Villa arrives with 1W-2D-3L, while Manchester City brings 5 wins from 5. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new midfield and defensive spine against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
+    "selectedSentence": "Aston Villa v Manchester City is complete. Reveal results for the outcome.",
+    "fullSpiel": "Aston Villa v Manchester City is complete. Results stay hidden until you choose to reveal them.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+    "sourceCheckedAt": "2026-10-30T22:34:42.173Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-10-11T12:38:51.272Z",
@@ -172961,28 +172959,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Aston Villa — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Aston Villa's post-Europa rebuild meets Manchester City's first post-Guardiola campaign; one fixture now moves both season-defining questions.",
-      "hookSpoilerOn": "Aston Villa's post-Europa rebuild meets Manchester City's first post-Guardiola campaign; one fixture now moves both season-defining questions.",
-      "synopsisSpoilerOff": "Aston Villa arrives with 1W-2D-3L, while Manchester City brings 5 wins from 5. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new midfield and defensive spine against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
-      "synopsisSpoilerOn": "Aston Villa arrives with 1W-2D-3L, while Manchester City brings 5 wins from 5. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new midfield and defensive spine against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-10-11T12:38:51.272Z"
+      "arcStage": "recap",
+      "hookSpoilerOff": "Aston Villa v Manchester City is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Aston Villa defeated Manchester City 2-1.",
+      "synopsisSpoilerOff": "Aston Villa v Manchester City is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Aston Villa completed a 1-goal win in Premier League Matchweek 8.",
+      "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+      "stakes": 3,
+      "intensity": 3,
+      "expectedSpectacle": 6,
+      "intensitySource": "computed"
     },
     "statusCheckedAt": "2026-09-30T13:17:48.846Z",
     "timePrecision": "exact",
@@ -173006,7 +172994,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-08-17"
-    }
+    },
+    "score": "Aston Villa 2-1 Manchester City",
+    "outcomeText": "Aston Villa defeated Manchester City 2-1.",
+    "recapText": "Aston Villa completed a 1-goal win in Premier League Matchweek 8.",
+    "homeScore": 2,
+    "awayScore": 1,
+    "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "resultSourceCheckedAt": "2026-10-30T22:34:42.173Z",
+    "scoreCheckedAt": "2026-10-30T22:34:42.173Z"
   },
   {
     "id": "epl-2026-27-128993",
@@ -173070,7 +173066,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "expected": 6,
     "liveWindow": 3,
     "round": "all",
@@ -173079,11 +173075,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Arsenal host Everton with Arsenal's first title defence in 22 years and Everton's search for more attack both under examination.",
-    "fullSpiel": "Arsenal arrives with 5W-0D-1L, while Everton brings 2W-3D-0L. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of settled champion structure against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
+    "selectedSentence": "Arsenal v Everton is complete. Reveal results for the outcome.",
+    "fullSpiel": "Arsenal v Everton is complete. Results stay hidden until you choose to reveal them.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+    "sourceCheckedAt": "2026-10-30T22:34:42.173Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-10-11T12:38:51.272Z",
@@ -173127,28 +173123,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Arsenal — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Arsenal host Everton with Arsenal's first title defence in 22 years and Everton's search for more attack both under examination.",
-      "hookSpoilerOn": "Arsenal host Everton with Arsenal's first title defence in 22 years and Everton's search for more attack both under examination.",
-      "synopsisSpoilerOff": "Arsenal arrives with 5W-0D-1L, while Everton brings 2W-3D-0L. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of settled champion structure against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
-      "synopsisSpoilerOn": "Arsenal arrives with 5W-0D-1L, while Everton brings 2W-3D-0L. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of settled champion structure against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-10-11T12:38:51.272Z"
+      "arcStage": "recap",
+      "hookSpoilerOff": "Arsenal v Everton is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Arsenal defeated Everton 2-0.",
+      "synopsisSpoilerOff": "Arsenal v Everton is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Arsenal completed a 2-goal win in Premier League Matchweek 8.",
+      "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+      "stakes": 3,
+      "intensity": 3,
+      "expectedSpectacle": 6,
+      "intensitySource": "computed"
     },
     "statusCheckedAt": "2026-09-30T13:17:48.846Z",
     "timePrecision": "exact",
@@ -173172,7 +173158,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-08-17"
-    }
+    },
+    "score": "Arsenal 2-0 Everton",
+    "outcomeText": "Arsenal defeated Everton 2-0.",
+    "recapText": "Arsenal completed a 2-goal win in Premier League Matchweek 8.",
+    "homeScore": 2,
+    "awayScore": 0,
+    "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "resultSourceCheckedAt": "2026-10-30T22:34:42.173Z",
+    "scoreCheckedAt": "2026-10-30T22:34:42.173Z"
   },
   {
     "id": "epl-2026-27-128996",
@@ -173236,7 +173230,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "expected": 6,
     "liveWindow": 3,
     "round": "all",
@@ -173245,11 +173239,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Coventry's return after 25 years against Fulham's first post-Marco Silva season: one result will move two very different season stories.",
-    "fullSpiel": "Coventry City arrives with 1W-0D-4L, while Fulham brings 0W-2D-4L. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
+    "selectedSentence": "Coventry City v Fulham is complete. Reveal results for the outcome.",
+    "fullSpiel": "Coventry City v Fulham is complete. Results stay hidden until you choose to reveal them.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+    "sourceCheckedAt": "2026-10-30T22:34:42.173Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-10-11T12:38:51.272Z",
@@ -173293,28 +173287,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Coventry City — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Coventry's return after 25 years against Fulham's first post-Marco Silva season: one result will move two very different season stories.",
-      "hookSpoilerOn": "Coventry's return after 25 years against Fulham's first post-Marco Silva season: one result will move two very different season stories.",
-      "synopsisSpoilerOff": "Coventry City arrives with 1W-0D-4L, while Fulham brings 0W-2D-4L. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
-      "synopsisSpoilerOn": "Coventry City arrives with 1W-0D-4L, while Fulham brings 0W-2D-4L. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-10-11T12:38:51.272Z"
+      "arcStage": "recap",
+      "hookSpoilerOff": "Coventry City v Fulham is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Fulham defeated Coventry City 1-0.",
+      "synopsisSpoilerOff": "Coventry City v Fulham is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Fulham completed a 1-goal win in Premier League Matchweek 8.",
+      "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+      "stakes": 3,
+      "intensity": 3,
+      "expectedSpectacle": 6,
+      "intensitySource": "computed"
     },
     "statusCheckedAt": "2026-09-30T13:17:48.846Z",
     "timePrecision": "exact",
@@ -173338,7 +173322,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-08-17"
-    }
+    },
+    "score": "Coventry City 0-1 Fulham",
+    "outcomeText": "Fulham defeated Coventry City 1-0.",
+    "recapText": "Fulham completed a 1-goal win in Premier League Matchweek 8.",
+    "homeScore": 0,
+    "awayScore": 1,
+    "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "resultSourceCheckedAt": "2026-10-30T22:34:42.173Z",
+    "scoreCheckedAt": "2026-10-30T22:34:42.173Z"
   },
   {
     "id": "epl-2026-27-128995",
@@ -173402,7 +173394,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "expected": 6,
     "liveWindow": 3,
     "round": "all",
@@ -173411,11 +173403,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Tottenham's first full De Zerbi season comes to Chelsea, directly testing Chelsea's Xabi Alonso reset.",
-    "fullSpiel": "Chelsea arrives with 3W-1D-2L, while Tottenham Hotspur brings 0W-3D-3L. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
+    "selectedSentence": "Chelsea v Tottenham Hotspur is complete. Reveal results for the outcome.",
+    "fullSpiel": "Chelsea v Tottenham Hotspur is complete. Results stay hidden until you choose to reveal them.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+    "sourceCheckedAt": "2026-10-30T22:34:42.173Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-10-11T12:38:51.272Z",
@@ -173459,28 +173451,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Chelsea — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Tottenham's first full De Zerbi season comes to Chelsea, directly testing Chelsea's Xabi Alonso reset.",
-      "hookSpoilerOn": "Tottenham's first full De Zerbi season comes to Chelsea, directly testing Chelsea's Xabi Alonso reset.",
-      "synopsisSpoilerOff": "Chelsea arrives with 3W-1D-2L, while Tottenham Hotspur brings 0W-3D-3L. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
-      "synopsisSpoilerOn": "Chelsea arrives with 3W-1D-2L, while Tottenham Hotspur brings 0W-3D-3L. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-10-11T12:38:51.272Z"
+      "arcStage": "recap",
+      "hookSpoilerOff": "Chelsea v Tottenham Hotspur is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Tottenham Hotspur defeated Chelsea 2-0.",
+      "synopsisSpoilerOff": "Chelsea v Tottenham Hotspur is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Tottenham Hotspur completed a 2-goal win in Premier League Matchweek 8.",
+      "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+      "stakes": 3,
+      "intensity": 3,
+      "expectedSpectacle": 6,
+      "intensitySource": "computed"
     },
     "statusCheckedAt": "2026-09-30T13:17:48.846Z",
     "timePrecision": "exact",
@@ -173504,7 +173486,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-08-17"
-    }
+    },
+    "score": "Chelsea 0-2 Tottenham Hotspur",
+    "outcomeText": "Tottenham Hotspur defeated Chelsea 2-0.",
+    "recapText": "Tottenham Hotspur completed a 2-goal win in Premier League Matchweek 8.",
+    "homeScore": 0,
+    "awayScore": 2,
+    "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "resultSourceCheckedAt": "2026-10-30T22:34:42.173Z",
+    "scoreCheckedAt": "2026-10-30T22:34:42.173Z"
   },
   {
     "id": "evt_f1_2026_united_states_practice_3",
@@ -174875,7 +174865,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "expected": 6,
     "liveWindow": 3,
     "round": "all",
@@ -174884,11 +174874,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Crystal Palace host Newcastle United with Crystal Palace's Pierre Sage transition and Newcastle's new era after a summer exodus both under examination.",
-    "fullSpiel": "Crystal Palace arrives with 1W-1D-3L, while Newcastle United brings 2W-2D-1L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of a new build-from-the-back version of their established shape against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
+    "selectedSentence": "Crystal Palace v Newcastle United is complete. Reveal results for the outcome.",
+    "fullSpiel": "Crystal Palace v Newcastle United is complete. Results stay hidden until you choose to reveal them.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+    "sourceCheckedAt": "2026-10-30T22:34:42.173Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-30T22:50:31.966Z",
@@ -174932,28 +174922,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Crystal Palace — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Crystal Palace host Newcastle United with Crystal Palace's Pierre Sage transition and Newcastle's new era after a summer exodus both under examination.",
-      "hookSpoilerOn": "Crystal Palace host Newcastle United with Crystal Palace's Pierre Sage transition and Newcastle's new era after a summer exodus both under examination.",
-      "synopsisSpoilerOff": "Crystal Palace arrives with 1W-1D-3L, while Newcastle United brings 2W-2D-1L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of a new build-from-the-back version of their established shape against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
-      "synopsisSpoilerOn": "Crystal Palace arrives with 1W-1D-3L, while Newcastle United brings 2W-2D-1L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of a new build-from-the-back version of their established shape against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-30T22:50:31.966Z"
+      "arcStage": "recap",
+      "hookSpoilerOff": "Crystal Palace v Newcastle United is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Newcastle United defeated Crystal Palace 2-0.",
+      "synopsisSpoilerOff": "Crystal Palace v Newcastle United is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Newcastle United completed a 2-goal win in Premier League Matchweek 8.",
+      "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+      "stakes": 3,
+      "intensity": 3,
+      "expectedSpectacle": 6,
+      "intensitySource": "computed"
     },
     "statusCheckedAt": "2026-09-30T13:17:48.846Z",
     "timePrecision": "exact",
@@ -174977,7 +174957,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-08-17"
-    }
+    },
+    "score": "Crystal Palace 0-2 Newcastle United",
+    "outcomeText": "Newcastle United defeated Crystal Palace 2-0.",
+    "recapText": "Newcastle United completed a 2-goal win in Premier League Matchweek 8.",
+    "homeScore": 0,
+    "awayScore": 2,
+    "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "resultSourceCheckedAt": "2026-10-30T22:34:42.173Z",
+    "scoreCheckedAt": "2026-10-30T22:34:42.173Z"
   },
   {
     "id": "epl-2026-27-128998",
@@ -175041,7 +175029,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "expected": 6,
     "liveWindow": 3,
     "round": "all",
@@ -175050,11 +175038,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Hull's top-flight return after nine years meets Brentford's fast-break identity; one fixture now moves both season-defining questions.",
-    "fullSpiel": "Hull City arrives with 2W-2D-1L, while Brentford brings 2W-4D-0L. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of a playoff-built counterattack against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
+    "selectedSentence": "Hull City v Brentford is complete. Reveal results for the outcome.",
+    "fullSpiel": "Hull City v Brentford is complete. Results stay hidden until you choose to reveal them.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+    "sourceCheckedAt": "2026-10-30T22:34:42.173Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-10-11T12:38:51.272Z",
@@ -175098,28 +175086,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Hull City — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Hull's top-flight return after nine years meets Brentford's fast-break identity; one fixture now moves both season-defining questions.",
-      "hookSpoilerOn": "Hull's top-flight return after nine years meets Brentford's fast-break identity; one fixture now moves both season-defining questions.",
-      "synopsisSpoilerOff": "Hull City arrives with 2W-2D-1L, while Brentford brings 2W-4D-0L. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of a playoff-built counterattack against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
-      "synopsisSpoilerOn": "Hull City arrives with 2W-2D-1L, while Brentford brings 2W-4D-0L. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of a playoff-built counterattack against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-10-11T12:38:51.272Z"
+      "arcStage": "recap",
+      "hookSpoilerOff": "Hull City v Brentford is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Hull City drew Brentford 1-1.",
+      "synopsisSpoilerOff": "Hull City v Brentford is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Hull City and Brentford shared the points after a 1-1 draw.",
+      "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+      "stakes": 3,
+      "intensity": 3,
+      "expectedSpectacle": 6,
+      "intensitySource": "computed"
     },
     "statusCheckedAt": "2026-09-30T13:17:48.846Z",
     "timePrecision": "exact",
@@ -175143,7 +175121,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-08-17"
-    }
+    },
+    "score": "Hull City 1-1 Brentford",
+    "outcomeText": "Hull City drew Brentford 1-1.",
+    "recapText": "Hull City and Brentford shared the points after a 1-1 draw.",
+    "homeScore": 1,
+    "awayScore": 1,
+    "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "resultSourceCheckedAt": "2026-10-30T22:34:42.173Z",
+    "scoreCheckedAt": "2026-10-30T22:34:42.173Z"
   },
   {
     "id": "epl-2026-27-129000",
@@ -175207,7 +175193,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "expected": 6,
     "liveWindow": 3,
     "round": "all",
@@ -175216,11 +175202,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Brighton's goals-by-committee attack comes to Liverpool, directly testing Liverpool's high-press rebuild.",
-    "fullSpiel": "Liverpool arrives with 2W-3D-0L, while Brighton & Hove Albion brings 4W-1D-1L. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
+    "selectedSentence": "Liverpool v Brighton & Hove Albion is complete. Reveal results for the outcome.",
+    "fullSpiel": "Liverpool v Brighton & Hove Albion is complete. Results stay hidden until you choose to reveal them.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+    "sourceCheckedAt": "2026-10-30T22:34:42.173Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-10-11T12:38:51.272Z",
@@ -175264,28 +175250,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Liverpool — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Brighton's goals-by-committee attack comes to Liverpool, directly testing Liverpool's high-press rebuild.",
-      "hookSpoilerOn": "Brighton's goals-by-committee attack comes to Liverpool, directly testing Liverpool's high-press rebuild.",
-      "synopsisSpoilerOff": "Liverpool arrives with 2W-3D-0L, while Brighton & Hove Albion brings 4W-1D-1L. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
-      "synopsisSpoilerOn": "Liverpool arrives with 2W-3D-0L, while Brighton & Hove Albion brings 4W-1D-1L. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-10-11T12:38:51.272Z"
+      "arcStage": "recap",
+      "hookSpoilerOff": "Liverpool v Brighton & Hove Albion is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Liverpool defeated Brighton & Hove Albion 2-0.",
+      "synopsisSpoilerOff": "Liverpool v Brighton & Hove Albion is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Liverpool completed a 2-goal win in Premier League Matchweek 8.",
+      "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+      "stakes": 3,
+      "intensity": 3,
+      "expectedSpectacle": 6,
+      "intensitySource": "computed"
     },
     "statusCheckedAt": "2026-09-30T13:17:48.846Z",
     "timePrecision": "exact",
@@ -175309,7 +175285,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-09-01"
-    }
+    },
+    "score": "Liverpool 2-0 Brighton & Hove Albion",
+    "outcomeText": "Liverpool defeated Brighton & Hove Albion 2-0.",
+    "recapText": "Liverpool completed a 2-goal win in Premier League Matchweek 8.",
+    "homeScore": 2,
+    "awayScore": 0,
+    "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "resultSourceCheckedAt": "2026-10-30T22:34:42.173Z",
+    "scoreCheckedAt": "2026-10-30T22:34:42.173Z"
   },
   {
     "id": "epl-2026-27-129001",
@@ -175373,7 +175357,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "expected": 6,
     "liveWindow": 3,
     "round": "all",
@@ -175382,11 +175366,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Manchester United's Carrick rebuild meets Bournemouth's first European-season balancing act; one fixture now moves both season-defining questions.",
-    "fullSpiel": "Manchester United arrives with 1W-3D-2L, while AFC Bournemouth brings 0W-3D-3L. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
+    "selectedSentence": "Manchester United v Bournemouth is complete. Reveal results for the outcome.",
+    "fullSpiel": "Manchester United v Bournemouth is complete. Results stay hidden until you choose to reveal them.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+    "sourceCheckedAt": "2026-10-30T22:34:42.173Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-10-11T12:38:51.272Z",
@@ -175430,28 +175414,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Manchester United — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Manchester United's Carrick rebuild meets Bournemouth's first European-season balancing act; one fixture now moves both season-defining questions.",
-      "hookSpoilerOn": "Manchester United's Carrick rebuild meets Bournemouth's first European-season balancing act; one fixture now moves both season-defining questions.",
-      "synopsisSpoilerOff": "Manchester United arrives with 1W-3D-2L, while AFC Bournemouth brings 0W-3D-3L. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
-      "synopsisSpoilerOn": "Manchester United arrives with 1W-3D-2L, while AFC Bournemouth brings 0W-3D-3L. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-10-11T12:38:51.272Z"
+      "arcStage": "recap",
+      "hookSpoilerOff": "Manchester United v Bournemouth is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Bournemouth defeated Manchester United 3-0.",
+      "synopsisSpoilerOff": "Manchester United v Bournemouth is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Bournemouth completed a 3-goal win in Premier League Matchweek 8.",
+      "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+      "stakes": 3,
+      "intensity": 3,
+      "expectedSpectacle": 6,
+      "intensitySource": "computed"
     },
     "statusCheckedAt": "2026-09-30T13:17:48.846Z",
     "timePrecision": "exact",
@@ -175475,7 +175449,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-08-17"
-    }
+    },
+    "score": "Manchester United 0-3 Bournemouth",
+    "outcomeText": "Bournemouth defeated Manchester United 3-0.",
+    "recapText": "Bournemouth completed a 3-goal win in Premier League Matchweek 8.",
+    "homeScore": 0,
+    "awayScore": 3,
+    "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "resultSourceCheckedAt": "2026-10-30T22:34:42.173Z",
+    "scoreCheckedAt": "2026-10-30T22:34:42.173Z"
   },
   {
     "id": "epl-2026-27-129002",
@@ -175539,7 +175521,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "expected": 6,
     "liveWindow": 3,
     "round": "all",
@@ -175548,11 +175530,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Sunderland host Leeds United with Sunderland's Europe-and-league balancing act and Leeds' carry-over momentum both under examination.",
-    "fullSpiel": "Sunderland arrives with 1W-1D-4L, while Leeds United brings 2W-3D-1L. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of the defensive base behind last season's seventh place against the physical 3-4-2-1 that lost only three of its final 14 last season, and the next result will advance both season threads.",
+    "selectedSentence": "Sunderland v Leeds United is complete. Reveal results for the outcome.",
+    "fullSpiel": "Sunderland v Leeds United is complete. Results stay hidden until you choose to reveal them.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+    "sourceCheckedAt": "2026-10-30T22:34:42.173Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-10-11T12:38:51.272Z",
@@ -175596,28 +175578,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Sunderland — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Sunderland host Leeds United with Sunderland's Europe-and-league balancing act and Leeds' carry-over momentum both under examination.",
-      "hookSpoilerOn": "Sunderland host Leeds United with Sunderland's Europe-and-league balancing act and Leeds' carry-over momentum both under examination.",
-      "synopsisSpoilerOff": "Sunderland arrives with 1W-1D-4L, while Leeds United brings 2W-3D-1L. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of the defensive base behind last season's seventh place against the physical 3-4-2-1 that lost only three of its final 14 last season, and the next result will advance both season threads.",
-      "synopsisSpoilerOn": "Sunderland arrives with 1W-1D-4L, while Leeds United brings 2W-3D-1L. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of the defensive base behind last season's seventh place against the physical 3-4-2-1 that lost only three of its final 14 last season, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-10-11T12:38:51.272Z"
+      "arcStage": "recap",
+      "hookSpoilerOff": "Sunderland v Leeds United is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Sunderland drew Leeds United 0-0.",
+      "synopsisSpoilerOff": "Sunderland v Leeds United is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Sunderland and Leeds United shared the points after a 0-0 draw.",
+      "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+      "stakes": 3,
+      "intensity": 3,
+      "expectedSpectacle": 6,
+      "intensitySource": "computed"
     },
     "statusCheckedAt": "2026-09-30T13:17:48.846Z",
     "timePrecision": "exact",
@@ -175641,7 +175613,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-08-17"
-    }
+    },
+    "score": "Sunderland 0-0 Leeds United",
+    "outcomeText": "Sunderland drew Leeds United 0-0.",
+    "recapText": "Sunderland and Leeds United shared the points after a 0-0 draw.",
+    "homeScore": 0,
+    "awayScore": 0,
+    "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "resultSourceCheckedAt": "2026-10-30T22:34:42.173Z",
+    "scoreCheckedAt": "2026-10-30T22:34:42.173Z"
   },
   {
     "id": "evt_35",

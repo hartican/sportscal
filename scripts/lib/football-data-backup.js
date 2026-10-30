@@ -86,7 +86,12 @@ async function compareTable({code,entries,primaryError,coordinator=createCoordin
   }catch(error){record({code,state:'last-good-table',primaryFailure:safe(primaryError?.message),backupFailure:safe(error.message)},{directory,now});return null;}
 }
 function primary(events,{outputPath=OUTPUT}={}){
-  const previous=readOverlay(outputPath);const completed=new Set(events.filter(e=>e.status==='completed').map(e=>String(e.id||e.eventId)));
+  const previous=readOverlay(outputPath);const completed=new Set(events.filter(e=>e.status==='completed').flatMap(e=>{
+    // Only the existing reviewed EPL slot binding can retire a saved alias.
+    // Other competitions keep their exact-ID cleanup behavior.
+    const identities=e.competitionId==='competition:premier-league-2026-27'?require('../../lib/epl-provider-identities'):null,bound=identities?.binding(e);
+    return bound?identities.aliasesForId(bound.record.primaryId):[String(e.id||e.eventId)];
+  }));
   const results=previous.results.filter(r=>!completed.has(r.fixtureId));
   if(results.length!==previous.results.length)write(outputPath,{...previous,results});
   return overlay.apply(events,{...previous,results});

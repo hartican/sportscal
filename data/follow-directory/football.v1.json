@@ -70,7 +70,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
+      "rankingBasis": "After Matchweek 8",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -82,7 +82,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
+      "rankingCheckedOn": "2026-10-30",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -228,7 +228,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
+      "rankingBasis": "After Matchweek 8",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -240,7 +240,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
+      "rankingCheckedOn": "2026-10-30",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -501,7 +501,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
+      "rankingBasis": "After Matchweek 8",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -512,7 +512,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
+      "rankingCheckedOn": "2026-10-30",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -671,45 +671,6 @@
       "competitionId": "competition:uefa-europa-league"
     },
     {
-      "id": "team:football:epl:4",
-      "displayName": "Chelsea",
-      "shortName": "Chelsea",
-      "aliases": [
-        "Chelsea"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 4,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:premier-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:epl:4",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
-      "sourceRefs": [
-        "source:football:premier-league:official",
-        "source:football:premier-league:bootstrap",
-        "source:football:premier-league:clubs-current"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
-      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "competitionId": "competition:premier-league-2026-27"
-    },
-    {
       "id": "team:football:australian-championship:11022",
       "displayName": "Lions FC",
       "shortName": "Lions FC",
@@ -747,6 +708,47 @@
       "rankingSourceUrl": "https://api.ffa.football/c1143/s2026/ladder",
       "competitionId": "competition:australian-championship",
       "standingGroup": "Australian Championship · Group D"
+    },
+    {
+      "id": "team:football:epl:10",
+      "displayName": "Liverpool",
+      "shortName": "Liverpool",
+      "aliases": [
+        "Liverpool",
+        "FC Liverpool"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 4,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:premier-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:epl:10",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": "After Matchweek 8",
+      "sourceRefs": [
+        "source:football:premier-league:official",
+        "source:football:premier-league:bootstrap",
+        "source:football:premier-league:clubs-current",
+        "https://api.openligadb.de/getmatchdata/ucl/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-30",
+      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "competitionId": "competition:premier-league-2026-27"
     },
     {
       "id": "team:football:australian-championship:3502",
@@ -866,12 +868,11 @@
       "standingGroup": "Australian Championship · Group B"
     },
     {
-      "id": "team:football:epl:10",
-      "displayName": "Liverpool",
-      "shortName": "Liverpool",
+      "id": "team:football:epl:4",
+      "displayName": "Chelsea",
+      "shortName": "Chelsea",
       "aliases": [
-        "Liverpool",
-        "FC Liverpool"
+        "Chelsea"
       ],
       "entityType": "team",
       "current": true,
@@ -885,24 +886,23 @@
       "leagueId": "competition:premier-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:epl:10",
+      "identityId": "team:football:epl:4",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
+      "rankingBasis": "After Matchweek 8",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
-        "source:football:premier-league:clubs-current",
-        "https://api.openligadb.de/getmatchdata/ucl/2026"
+        "source:football:premier-league:clubs-current"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
+      "rankingCheckedOn": "2026-10-30",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -930,7 +930,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
+      "rankingBasis": "After Matchweek 8",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -941,7 +941,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
+      "rankingCheckedOn": "2026-10-30",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1044,7 +1044,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
+      "rankingBasis": "After Matchweek 8",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1055,16 +1055,17 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
+      "rankingCheckedOn": "2026-10-30",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
     {
-      "id": "team:football:epl:7",
-      "displayName": "Everton",
-      "shortName": "Everton",
+      "id": "team:football:epl:23",
+      "displayName": "Newcastle United",
+      "shortName": "Newcastle",
       "aliases": [
-        "Everton"
+        "Newcastle United",
+        "Newcastle"
       ],
       "entityType": "team",
       "current": true,
@@ -1078,12 +1079,12 @@
       "leagueId": "competition:premier-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:epl:7",
+      "identityId": "team:football:epl:23",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
+      "rankingBasis": "After Matchweek 8",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1094,7 +1095,47 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
+      "rankingCheckedOn": "2026-10-30",
+      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "competitionId": "competition:premier-league-2026-27"
+    },
+    {
+      "id": "team:football:epl:2",
+      "displayName": "Aston Villa",
+      "shortName": "Aston Villa",
+      "aliases": [
+        "Aston Villa"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 9,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:premier-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:epl:2",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": "After Matchweek 8",
+      "sourceRefs": [
+        "source:football:premier-league:official",
+        "source:football:premier-league:bootstrap",
+        "source:football:premier-league:clubs-current",
+        "https://api.openligadb.de/getmatchdata/ucl/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-30",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1112,7 +1153,7 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 9,
+      "ladderPosition": 10,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:premier-league",
@@ -1123,7 +1164,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
+      "rankingBasis": "After Matchweek 8",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1134,47 +1175,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
-      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "competitionId": "competition:premier-league-2026-27"
-    },
-    {
-      "id": "team:football:epl:8",
-      "displayName": "Ipswich Town",
-      "shortName": "Ipswich",
-      "aliases": [
-        "Ipswich Town",
-        "Ipswich"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 10,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:premier-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:epl:8",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
-      "sourceRefs": [
-        "source:football:premier-league:official",
-        "source:football:premier-league:bootstrap",
-        "source:football:premier-league:clubs-current"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
+      "rankingCheckedOn": "2026-10-30",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1253,12 +1254,11 @@
       "competitionId": "competition:uefa-champions-league"
     },
     {
-      "id": "team:football:epl:23",
-      "displayName": "Newcastle United",
-      "shortName": "Newcastle",
+      "id": "team:football:epl:7",
+      "displayName": "Everton",
+      "shortName": "Everton",
       "aliases": [
-        "Newcastle United",
-        "Newcastle"
+        "Everton"
       ],
       "entityType": "team",
       "current": true,
@@ -1272,12 +1272,12 @@
       "leagueId": "competition:premier-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:epl:23",
+      "identityId": "team:football:epl:7",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
+      "rankingBasis": "After Matchweek 8",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1288,7 +1288,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
+      "rankingCheckedOn": "2026-10-30",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1330,11 +1330,12 @@
       "competitionId": "competition:uefa-europa-league"
     },
     {
-      "id": "team:football:epl:2",
-      "displayName": "Aston Villa",
-      "shortName": "Aston Villa",
+      "id": "team:football:epl:8",
+      "displayName": "Ipswich Town",
+      "shortName": "Ipswich",
       "aliases": [
-        "Aston Villa"
+        "Ipswich Town",
+        "Ipswich"
       ],
       "entityType": "team",
       "current": true,
@@ -1348,24 +1349,23 @@
       "leagueId": "competition:premier-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:epl:2",
+      "identityId": "team:football:epl:8",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
+      "rankingBasis": "After Matchweek 8",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
-        "source:football:premier-league:clubs-current",
-        "https://api.openligadb.de/getmatchdata/ucl/2026"
+        "source:football:premier-league:clubs-current"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
+      "rankingCheckedOn": "2026-10-30",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1444,6 +1444,126 @@
       "competitionId": "competition:uefa-europa-league"
     },
     {
+      "id": "team:football:epl:127",
+      "displayName": "AFC Bournemouth",
+      "shortName": "Bournemouth",
+      "aliases": [
+        "AFC Bournemouth",
+        "Bournemouth"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 13,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:premier-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:epl:127",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": "After Matchweek 8",
+      "sourceRefs": [
+        "source:football:premier-league:official",
+        "source:football:premier-league:bootstrap",
+        "source:football:premier-league:clubs-current",
+        "https://api.openligadb.de/getmatchdata/uel2026/2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-30",
+      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "competitionId": "competition:premier-league-2026-27"
+    },
+    {
+      "id": "team:football:epl:21",
+      "displayName": "Tottenham Hotspur",
+      "shortName": "Spurs",
+      "aliases": [
+        "Tottenham Hotspur",
+        "Spurs"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 14,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:premier-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:epl:21",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": "After Matchweek 8",
+      "sourceRefs": [
+        "source:football:premier-league:official",
+        "source:football:premier-league:bootstrap",
+        "source:football:premier-league:clubs-current"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-30",
+      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "competitionId": "competition:premier-league-2026-27"
+    },
+    {
+      "id": "team:football:epl:34",
+      "displayName": "Fulham",
+      "shortName": "Fulham",
+      "aliases": [
+        "Fulham"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 15,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:premier-league",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:epl:34",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": "After Matchweek 8",
+      "sourceRefs": [
+        "source:football:premier-league:official",
+        "source:football:premier-league:bootstrap",
+        "source:football:premier-league:clubs-current"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-30",
+      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "competitionId": "competition:premier-league-2026-27"
+    },
+    {
       "id": "team:football:epl:12",
       "displayName": "Manchester United",
       "shortName": "Man United",
@@ -1458,7 +1578,7 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 13,
+      "ladderPosition": 16,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:premier-league",
@@ -1469,7 +1589,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
+      "rankingBasis": "After Matchweek 8",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1481,7 +1601,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
+      "rankingCheckedOn": "2026-10-30",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1500,7 +1620,7 @@
       "countryBasis": null,
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 14,
+      "ladderPosition": 17,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:premier-league",
@@ -1511,7 +1631,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
+      "rankingBasis": "After Matchweek 8",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1523,128 +1643,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
-      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "competitionId": "competition:premier-league-2026-27"
-    },
-    {
-      "id": "team:football:epl:127",
-      "displayName": "AFC Bournemouth",
-      "shortName": "Bournemouth",
-      "aliases": [
-        "AFC Bournemouth",
-        "Bournemouth"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 15,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:premier-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:epl:127",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
-      "sourceRefs": [
-        "source:football:premier-league:official",
-        "source:football:premier-league:bootstrap",
-        "source:football:premier-league:clubs-current",
-        "https://api.openligadb.de/getmatchdata/uel2026/2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
-      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "competitionId": "competition:premier-league-2026-27"
-    },
-    {
-      "id": "team:football:epl:21",
-      "displayName": "Tottenham Hotspur",
-      "shortName": "Spurs",
-      "aliases": [
-        "Tottenham Hotspur",
-        "Spurs"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 16,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:premier-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:epl:21",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
-      "sourceRefs": [
-        "source:football:premier-league:official",
-        "source:football:premier-league:bootstrap",
-        "source:football:premier-league:clubs-current"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
-      "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "competitionId": "competition:premier-league-2026-27"
-    },
-    {
-      "id": "team:football:epl:5",
-      "displayName": "Coventry City",
-      "shortName": "Coventry",
-      "aliases": [
-        "Coventry City",
-        "Coventry"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 17,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:premier-league",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:football:epl:5",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
-      "sourceRefs": [
-        "source:football:premier-league:official",
-        "source:football:premier-league:bootstrap",
-        "source:football:premier-league:clubs-current"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
+      "rankingCheckedOn": "2026-10-30",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1723,11 +1722,12 @@
       "competitionId": "competition:uefa-champions-league"
     },
     {
-      "id": "team:football:epl:34",
-      "displayName": "Fulham",
-      "shortName": "Fulham",
+      "id": "team:football:epl:15",
+      "displayName": "Nottingham Forest",
+      "shortName": "Nottm Forest",
       "aliases": [
-        "Fulham"
+        "Nottingham Forest",
+        "Nottm Forest"
       ],
       "entityType": "team",
       "current": true,
@@ -1741,12 +1741,12 @@
       "leagueId": "competition:premier-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:epl:34",
+      "identityId": "team:football:epl:15",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
+      "rankingBasis": "After Matchweek 8",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1757,7 +1757,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
+      "rankingCheckedOn": "2026-10-30",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1836,12 +1836,12 @@
       "competitionId": "competition:uefa-champions-league"
     },
     {
-      "id": "team:football:epl:15",
-      "displayName": "Nottingham Forest",
-      "shortName": "Nottm Forest",
+      "id": "team:football:epl:5",
+      "displayName": "Coventry City",
+      "shortName": "Coventry",
       "aliases": [
-        "Nottingham Forest",
-        "Nottm Forest"
+        "Coventry City",
+        "Coventry"
       ],
       "entityType": "team",
       "current": true,
@@ -1855,12 +1855,12 @@
       "leagueId": "competition:premier-league",
       "teamKind": null,
       "position": null,
-      "identityId": "team:football:epl:15",
+      "identityId": "team:football:epl:5",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
+      "rankingBasis": "After Matchweek 8",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1871,7 +1871,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
+      "rankingCheckedOn": "2026-10-30",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1974,7 +1974,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "After Matchweek 7",
+      "rankingBasis": "After Matchweek 8",
       "sourceRefs": [
         "source:football:premier-league:official",
         "source:football:premier-league:bootstrap",
@@ -1986,7 +1986,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-22",
+      "rankingCheckedOn": "2026-10-30",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -3236,7 +3236,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 13
     },
     {
       "id": "competitor:football:espn:333419",
@@ -3269,7 +3269,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:364746",
@@ -3722,7 +3722,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 13
     },
     {
       "id": "competitor:football:espn:361258",
@@ -3984,7 +3984,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:197627",
@@ -4438,7 +4438,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:166396",
@@ -5080,7 +5080,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:310869",
@@ -5177,7 +5177,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 13
     },
     {
       "id": "competitor:football:espn:192146",
@@ -5242,7 +5242,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:156416",
@@ -5403,7 +5403,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:408251",
@@ -5692,7 +5692,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:349922",
@@ -5949,7 +5949,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:228557",
@@ -6014,7 +6014,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:222614",
@@ -6720,7 +6720,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:387061",
@@ -6881,7 +6881,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:307419",
@@ -7431,7 +7431,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:265997",
@@ -7560,7 +7560,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 13
     },
     {
       "id": "competitor:football:espn:200910",
@@ -7722,7 +7722,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:310452",
@@ -8622,7 +8622,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:267530",
@@ -8964,7 +8964,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 8
     },
     {
       "id": "team:football:belgium",
@@ -9065,7 +9065,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 13
     },
     {
       "id": "competitor:football:espn:268870",
@@ -9163,7 +9163,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:318785",
@@ -9356,7 +9356,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:139363",
@@ -9549,7 +9549,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:289511",
@@ -9582,7 +9582,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 11
     },
     {
       "id": "competitor:football:espn:279137",
@@ -9775,7 +9775,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 19
     },
     {
       "id": "team:football:club:bologna",
@@ -9983,7 +9983,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:404832",
@@ -10446,7 +10446,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:3102821",
@@ -10708,7 +10708,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:261419",
@@ -10741,7 +10741,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:138924",
@@ -10807,7 +10807,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:345106",
@@ -10972,7 +10972,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:195790",
@@ -11422,7 +11422,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 12
     },
     {
       "id": "team:football:club:celje",
@@ -11612,7 +11612,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:330552",
@@ -11677,7 +11677,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:296319",
@@ -11774,7 +11774,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:football:espn:327167",
@@ -11839,7 +11839,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 11
     },
     {
       "id": "competitor:football:espn:360062",
@@ -12002,7 +12002,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:297165",
@@ -12291,7 +12291,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 11
     },
     {
       "id": "competitor:football:espn:339198",
@@ -12580,7 +12580,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:296395",
@@ -12613,7 +12613,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 5
     },
     {
       "id": "team:football:colombia",
@@ -12719,7 +12719,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:266696",
@@ -12752,7 +12752,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:362794",
@@ -13139,7 +13139,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:256966",
@@ -13494,7 +13494,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:417372",
@@ -13752,7 +13752,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:399747",
@@ -13817,7 +13817,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:313230",
@@ -13882,7 +13882,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 13
     },
     {
       "id": "competitor:football:espn:111337",
@@ -13915,7 +13915,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:108482",
@@ -14301,7 +14301,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:356000",
@@ -14626,7 +14626,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:234300",
@@ -14883,7 +14883,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:football:espn:238902",
@@ -14916,7 +14916,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:355982",
@@ -15013,7 +15013,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 13
     },
     {
       "id": "competitor:football:espn:168453",
@@ -15143,7 +15143,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:221278",
@@ -15208,7 +15208,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:259481",
@@ -15337,7 +15337,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:386117",
@@ -15499,7 +15499,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:228402",
@@ -16281,7 +16281,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:football:espn:238472",
@@ -16347,7 +16347,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:football:espn:282647",
@@ -16380,7 +16380,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:209595",
@@ -16509,7 +16509,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:158626",
@@ -16542,7 +16542,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:330707",
@@ -16899,7 +16899,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:379062",
@@ -16996,7 +16996,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:231697",
@@ -17549,7 +17549,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 13
     },
     {
       "id": "competitor:football:espn:299457",
@@ -17774,7 +17774,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:231049",
@@ -18289,7 +18289,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:282642",
@@ -18460,7 +18460,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:323147",
@@ -19105,7 +19105,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:215035",
@@ -19298,7 +19298,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:306548",
@@ -19750,7 +19750,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 13
     },
     {
       "id": "competitor:football:espn:165424",
@@ -20953,7 +20953,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:276067",
@@ -21316,7 +21316,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:273424",
@@ -21702,7 +21702,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:170785",
@@ -22039,7 +22039,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:142200",
@@ -22104,7 +22104,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:194801",
@@ -22202,7 +22202,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:280806",
@@ -22235,7 +22235,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:246560",
@@ -22332,7 +22332,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 11
     },
     {
       "id": "competitor:football:espn:178978",
@@ -22461,7 +22461,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:football:espn:206835",
@@ -22782,7 +22782,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:377495",
@@ -22911,7 +22911,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:234143",
@@ -23266,7 +23266,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 11
     },
     {
       "id": "competitor:football:espn:304503",
@@ -23786,7 +23786,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:230963",
@@ -23819,7 +23819,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:158151",
@@ -24012,7 +24012,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:football:espn:172850",
@@ -24111,7 +24111,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:139744",
@@ -24144,7 +24144,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:172836",
@@ -24177,7 +24177,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:380318",
@@ -24306,7 +24306,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:357337",
@@ -24371,7 +24371,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:274649",
@@ -24437,7 +24437,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:283586",
@@ -24470,7 +24470,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 11
     },
     {
       "id": "competitor:football:espn:303821",
@@ -24567,7 +24567,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:155226",
@@ -24600,7 +24600,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 11
     },
     {
       "id": "competitor:football:espn:307118",
@@ -24666,7 +24666,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:307391",
@@ -24795,7 +24795,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:205916",
@@ -24988,7 +24988,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 11
     },
     {
       "id": "competitor:football:espn:290512",
@@ -25182,7 +25182,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:386252",
@@ -25215,7 +25215,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:243408",
@@ -25441,7 +25441,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:228707",
@@ -25602,7 +25602,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:football:espn:234757",
@@ -25732,7 +25732,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:186024",
@@ -25989,7 +25989,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:297362",
@@ -26086,7 +26086,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:350961",
@@ -26183,7 +26183,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:232325",
@@ -26313,7 +26313,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:307270",
@@ -26474,7 +26474,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:football:espn:162843",
@@ -26507,7 +26507,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:157974",
@@ -26572,7 +26572,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:265926",
@@ -27021,7 +27021,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:191712",
@@ -27086,7 +27086,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 11
     },
     {
       "id": "competitor:football:espn:240660",
@@ -27215,7 +27215,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:307019",
@@ -27601,7 +27601,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:299910",
@@ -28051,7 +28051,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 13
     },
     {
       "id": "competitor:football:espn:387975",
@@ -28180,7 +28180,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:339797",
@@ -28213,7 +28213,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 13
     },
     {
       "id": "competitor:football:espn:261054",
@@ -28438,7 +28438,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 13
     },
     {
       "id": "team:football:club:juventus",
@@ -28541,7 +28541,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:357030",
@@ -28767,7 +28767,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:282646",
@@ -28832,7 +28832,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:233654",
@@ -29025,7 +29025,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:169532",
@@ -29091,7 +29091,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:304151",
@@ -29188,7 +29188,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:134947",
@@ -29542,7 +29542,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 11
     },
     {
       "id": "competitor:football:espn:283375",
@@ -30584,7 +30584,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 12
     },
     {
       "id": "team:football:club:lens",
@@ -30915,7 +30915,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 5
     },
     {
       "id": "team:football:club:levski-sofia",
@@ -30990,7 +30990,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:football:espn:223452",
@@ -31023,7 +31023,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 13
     },
     {
       "id": "competitor:football:espn:147106",
@@ -31121,7 +31121,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:269341",
@@ -31154,7 +31154,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:271879",
@@ -31187,7 +31187,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:football:espn:290141",
@@ -31322,7 +31322,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:366823",
@@ -32127,7 +32127,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:262482",
@@ -32289,7 +32289,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:football:espn:238525",
@@ -32898,7 +32898,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:134169",
@@ -33594,7 +33594,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:301416",
@@ -33723,7 +33723,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:312399",
@@ -34108,7 +34108,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:301406",
@@ -34366,7 +34366,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:192570",
@@ -34495,7 +34495,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:146127",
@@ -34560,7 +34560,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:177545",
@@ -35010,7 +35010,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 11
     },
     {
       "id": "competitor:football:espn:179211",
@@ -35337,7 +35337,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:203669",
@@ -35563,7 +35563,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:388880",
@@ -35693,7 +35693,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:141438",
@@ -35919,7 +35919,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:173749",
@@ -36080,7 +36080,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:388779",
@@ -36241,7 +36241,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:364892",
@@ -36338,7 +36338,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:285937",
@@ -36467,7 +36467,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:179497",
@@ -36500,7 +36500,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:358496",
@@ -36629,7 +36629,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:318316",
@@ -37054,7 +37054,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 11
     },
     {
       "id": "competitor:football:espn:386387",
@@ -37219,7 +37219,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 11
     },
     {
       "id": "competitor:football:espn:286831",
@@ -37701,7 +37701,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:371973",
@@ -37958,7 +37958,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:football:espn:248633",
@@ -38091,7 +38091,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:243396",
@@ -38124,7 +38124,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:176816",
@@ -38480,7 +38480,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "team:football:club:n-e-c",
@@ -38945,7 +38945,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 11
     },
     {
       "id": "competitor:football:espn:120829",
@@ -39074,7 +39074,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:322693",
@@ -39466,7 +39466,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:170257",
@@ -39692,7 +39692,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:308288",
@@ -40563,7 +40563,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:367058",
@@ -40916,7 +40916,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:193010",
@@ -40949,7 +40949,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:football:espn:297751",
@@ -41078,7 +41078,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:215401",
@@ -41405,7 +41405,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:365997",
@@ -41470,7 +41470,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:football:espn:305821",
@@ -41695,7 +41695,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:320947",
@@ -42645,7 +42645,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:371498",
@@ -42934,7 +42934,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:386579",
@@ -44355,7 +44355,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:346596",
@@ -45057,7 +45057,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:349185",
@@ -45186,7 +45186,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:206761",
@@ -45444,7 +45444,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:318773",
@@ -45766,7 +45766,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:332689",
@@ -46119,7 +46119,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:181946",
@@ -46377,7 +46377,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 13
     },
     {
       "id": "competitor:football:espn:243576",
@@ -46410,7 +46410,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:football:espn:241253",
@@ -46443,7 +46443,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:363886",
@@ -46796,7 +46796,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:304258",
@@ -47117,7 +47117,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 12
     },
     {
       "id": "competitor:football:espn:396009",
@@ -47490,7 +47490,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:271130",
@@ -47747,7 +47747,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:football:espn:270186",
@@ -47812,7 +47812,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:270389",
@@ -48363,7 +48363,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 12
     },
     {
       "id": "team:football:socceroos",
@@ -48967,7 +48967,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:197796",
@@ -49167,7 +49167,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:159348",
@@ -49232,7 +49232,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:303308",
@@ -49330,7 +49330,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 17
+      "currentTeamRank": 19
     },
     {
       "id": "competitor:football:espn:300049",
@@ -49363,7 +49363,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:403125",
@@ -49588,7 +49588,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 11
     },
     {
       "id": "competitor:football:espn:214401",
@@ -50006,7 +50006,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:128521",
@@ -50071,7 +50071,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:122273",
@@ -50232,7 +50232,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 15
     },
     {
       "id": "competitor:football:espn:283683",
@@ -50767,7 +50767,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 15
+      "currentTeamRank": 13
     },
     {
       "id": "competitor:football:espn:300853",
@@ -50800,7 +50800,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:181312",
@@ -50833,7 +50833,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 9
     },
     {
       "id": "team:football:club:udinese",
@@ -51199,7 +51199,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:football:espn:277301",
@@ -51498,7 +51498,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:football:espn:388090",
@@ -51697,7 +51697,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:football:espn:403234",
@@ -51923,7 +51923,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 4
     },
     {
       "id": "team:football:club:wellington-phoenix-fc",
@@ -52029,7 +52029,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 5
     },
     {
       "id": "team:football:western-sydney-wanderers",
@@ -52098,7 +52098,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:162162",
@@ -52195,7 +52195,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:277385",
@@ -52421,7 +52421,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "competitor:football:espn:332962",
@@ -52454,7 +52454,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 14
     },
     {
       "id": "competitor:football:espn:326234",
@@ -52937,7 +52937,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 17
     },
     {
       "id": "competitor:football:espn:224077",
@@ -52970,7 +52970,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:football:espn:359793",
@@ -53035,7 +53035,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 16
     },
     {
       "id": "competitor:football:espn:382532",
