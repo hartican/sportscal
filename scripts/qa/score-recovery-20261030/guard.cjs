@@ -14,6 +14,8 @@ const control=p.mode==='owned-control'&&p.controlBoundary?require(p.controlBound
 if(!['owned-control','live-coverage-canonical'].includes(p.mode)||p.http.requests!==8||p.http.bodyDeadlineMs!==10000||p.http.maxCapturedBytes!==4194304||p.http.maxCumulativeBytes!==16777216||p.http.retries!==0||p.http.redirect!=='error')throw P.error('GUARD_PROTOCOL_POLICY');
 if(p.http.origin!==P.ORIGIN||p.http.rpc!==P.RPC||p.http.method!=='POST'||JSON.stringify(p.http.body)!=='{"p_fixture_ids":null}'||p.http.pageSize!==500)throw P.error('GUARD_PROTOCOL_POLICY');
 if(p.mode==='live-coverage-canonical'&&(p.root!==p.sourceRoot||Object.keys(p).some(k=>k.startsWith('control'))||p.nodeOptions!=='--require='+__filename))throw P.error('GUARD_ACTUAL_PROFILE');
+P.validateActualScope(p);
+if(p.mode==='live-coverage-canonical'&&p.publicFixtureShape!==path.join(__dirname,'public-fixture-shape.rugby.json'))throw P.error('GUARD_ACTUAL_SCHEMA');
 function log(row){internalWrite(ledger,JSON.stringify({at:new Date().toISOString(),pid:process.pid,...row})+'\n','a');}
 function mark(error){try{const diagnostic=P.shapeFailure(error),summary=P.shapeFailures(error);internalWrite(failure,JSON.stringify({at:new Date().toISOString(),pid:process.pid,name:'Error',code:/^(?:POST_GUARD|GUARD)_[A-Z0-9_]+$/.test(error.code||'')?error.code:'GUARD_PROCESS_FAILURE',message:/^(?:POST_GUARD|GUARD)_[A-Z0-9_]+$/.test(error.code||'')?error.code:'GUARD_PROCESS_FAILURE',...(diagnostic?{shapeFailure:diagnostic}:{}),...(summary?{shapeFailures:summary}:{})})+'\n','wx');}catch(e){if(e.code!=='EEXIST')process.stderr.write('Guard failure receipt unavailable\n');}}
 function deny(code){const e=Error(code);e.code=code;mark(e);log({state:'denied',code});throw e;}
@@ -43,7 +45,7 @@ const capture={
  commit:(ordinal,bytes)=>{const file=path.join(run,'page-'+String(ordinal).padStart(2,'0')+'.raw');internalWrite(file,bytes,'wx');return true;},
  finish:row=>{internalWrite(path.join(run,'page-'+String(row.ordinal).padStart(2,'0')+'.json'),JSON.stringify(row,null,2)+'\n');},
 };
-const tx=new transport.Transport({schema:JSON.parse(raw.readFileSync(p.publicFixtureShape)),values:P.credentials(),capture});
+const tx=new transport.Transport({schema:JSON.parse(raw.readFileSync(p.publicFixtureShape)),values:P.credentials(),capture,coverageSport:p.coverageSport});
 global.fetch=async(input,options={})=>{if(!sourceRole||raw.existsSync(failure))deny('GUARD_FETCH_SCOPE');try{return await tx.fetch(input,options,(url,opts)=>scope.run(true,()=>originalFetch(url,opts)));}catch(error){if(tx.active)tx.active.first=error;mark(error);throw error;}};
 const server=require(path.join(p.sourceRoot,'lib/supabase-server')),service=server.supabaseServiceRequest;
 server.supabaseServiceRequest=async function(url,options={}){if(!sourceRole||raw.existsSync(failure))deny('GUARD_SERVICE_SCOPE');try{return await tx.service(url,options,()=>service.call(this,url,options));}catch(error){mark(error);throw error;}};

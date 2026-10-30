@@ -17,6 +17,21 @@ def manifest(root):
    rows.append(row)
  return sorted(rows,key=lambda row:row['path'])
 
+def validate_route(p,policy_path):
+ """Pure prelaunch contract. Tests may inspect this without running a source."""
+ source=pathlib.Path(p['sourceRoot']);root=pathlib.Path(p['root'])
+ assert p.get('coverageSport')in[None,'rugby-union'],'Unsupported finite source scope'
+ if p['mode']=='live-coverage-canonical':
+  assert root==source and p['sourceGitSha']=='3d3ec1af93cb261598e9f22db1d67b0ae402fd08','Exact frozen source required'
+  assert p.get('coverageSport')=='rugby-union','Actual mode requires the fixed eight Rugby sources'
+  assert p['entryArgv']==['scripts/update-cards.js','--quick','--source=live-coverage','--coverage-sport=rugby-union','--local-only']
+  assert p['sourceArgv']==['scripts/quick-results.js','--source=live-coverage','--coverage-sport=rugby-union']and p['wholeSeconds']==180
+  assert p['publicFixtureShape']==str(policy_path.parent/'public-fixture-shape.rugby.json')
+  assert not any(a[0]in['scripts/quick-results.js','scripts/publish-feed.js']and '--coverage-sport=rugby-union'not in a for a in p['childArgvs'])
+ else:
+  expected=[str(source/'scripts/quick-results.js'),'--source=live-coverage']+(['--coverage-sport=rugby-union']if p.get('coverageSport')else[])
+  assert p['entryArgv']==p['sourceArgv']==expected,'Controls use the same admitted source process'
+
 def main():
  began=time.monotonic();os.umask(0o077)
  ap=argparse.ArgumentParser();ap.add_argument('--policy',required=True);ap.add_argument('--expected-sha256',required=True);ap.add_argument('--inspect',action='store_true');ap.add_argument('--allocation');args=ap.parse_args()
@@ -25,10 +40,8 @@ def main():
  p=json.loads(policy_bytes);assert p['mode']in['live-coverage-canonical','owned-control'];assert 0<p['wholeSeconds']<=180
  root=pathlib.Path(p['root']).resolve();run=pathlib.Path(p['runDir']);tmp=pathlib.Path(p['tmpDir']);source=pathlib.Path(p['sourceRoot'])
  assert run.is_absolute()and tmp.parent==run and not run.exists(),'Exclusive run directory required'
+ validate_route(p,policy_path)
  if p['mode']=='live-coverage-canonical':
-  assert root==source.resolve()and p['sourceGitSha']=='3b1f6ceab669d3c643535ef303976742b14705eb','Exact frozen source required'
-  assert p['entryArgv']==['scripts/update-cards.js','--quick','--source=live-coverage','--local-only']
-  assert p['sourceArgv']==['scripts/quick-results.js','--source=live-coverage']and p['wholeSeconds']==180
   assert p['nodeOptions']=='--require='+str(policy_path.parent/'guard.cjs')and not any(k.startswith('control')for k in p),'Actual profile cannot contain control hooks'
   assert p['minimumFreeBytes']>=int(4.5*1024**3),'Existing resource floor required'
   if not args.inspect:
@@ -42,7 +55,6 @@ def main():
  environment={'PATH':'/usr/bin:/bin:/usr/sbin:/sbin','LANG':'en_AU.UTF-8','TZ':'Australia/Sydney','TMPDIR':str(tmp),'NODE_OPTIONS':p['nodeOptions'],'NS_SCORE_GUARD_POLICY':str(policy_path),'NS_SCORE_GUARD_POLICY_SHA256':args.expected_sha256,'REFRESH_REPORT':str(run/'refresh-report.json'),'QUICK_RESULTS_REPORT':str(run/'quick-results-report.json')}
  if p['mode']=='owned-control':
   assert root!=source.resolve()and p.get('controlBoundary'),'Controls require an isolated owned tree'
-  assert p['entryArgv']==[str(source/'scripts/quick-results.js'),'--source=live-coverage'],'Controls use the same admitted source process'
  environment['SUPABASE_URL']='https://mkghopnkhcxtmfrcjdbc.supabase.co'
  if not args.inspect:
   if p['mode']=='live-coverage-canonical'and os.environ.get('SUPABASE_MAINTENANCE_MODE','').strip().lower()in['1','true','yes','on']:raise RuntimeError('SUPABASE_MAINTENANCE_ACTIVE')

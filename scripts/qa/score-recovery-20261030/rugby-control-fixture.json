@@ -1,0 +1,58 @@
+{
+  "scope": "CONSTRUCTED PUBLIC CONTROL ONLY; not current result evidence",
+  "card": {
+    "id": "fixture:rugby:wr:11111111-1111-4111-8111-111111111111",
+    "eventId": "fixture:rugby:wr:11111111-1111-4111-8111-111111111111",
+    "canonicalEventId": "fixture:rugby:wr:11111111-1111-4111-8111-111111111111",
+    "key": "rugby",
+    "sportDomainId": "sport:rugby-union",
+    "name": "Constructed Home v Constructed Away",
+    "status": "upcoming",
+    "startTimeUtc": "2026-10-12T20:00:00.000Z",
+    "participantIds": [
+      "team:rugby:controlled-home",
+      "team:rugby:controlled-away"
+    ],
+    "homeParticipantId": "team:rugby:controlled-home",
+    "awayParticipantId": "team:rugby:controlled-away",
+    "sourceName": "World Rugby",
+    "sourceType": "official",
+    "sourceFixtureId": "11111111-1111-4111-8111-111111111111",
+    "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-12&endDate=2027-01-12&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+    "sourceCheckedAt": "2026-10-01T00:00:00.000Z",
+    "viewingOptions": [
+      {
+        "providerId": "stan"
+      }
+    ]
+  },
+  "result": {
+    "id": "fixture:rugby:wr:11111111-1111-4111-8111-111111111111",
+    "eventId": "fixture:rugby:wr:11111111-1111-4111-8111-111111111111",
+    "canonicalEventId": "fixture:rugby:wr:11111111-1111-4111-8111-111111111111",
+    "key": "rugby",
+    "sportDomainId": "sport:rugby-union",
+    "name": "Constructed Home v Constructed Away",
+    "status": "completed",
+    "sourceStatus": "C",
+    "startTimeUtc": "2026-10-12T20:00:00.000Z",
+    "participantIds": [
+      "team:rugby:controlled-home",
+      "team:rugby:controlled-away"
+    ],
+    "homeParticipantId": "team:rugby:controlled-home",
+    "awayParticipantId": "team:rugby:controlled-away",
+    "homeScore": 0,
+    "awayScore": 0,
+    "scoreDisplay": "0\u20130",
+    "sourceName": "World Rugby",
+    "sourceType": "official",
+    "sourceFixtureId": "11111111-1111-4111-8111-111111111111",
+    "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-12&endDate=2027-01-12&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+    "sourceCheckedAt": "2026-10-13T11:30:00.000Z",
+    "scoreFactObservedAt": "2026-10-13T11:26:00.714+00:00",
+    "statusFactObservedAt": "2026-10-13T11:27:00.000Z",
+    "livePlayObservedAt": null
+  },
+  "aliasRecords": []
+}

@@ -2,8 +2,8 @@
 import argparse,datetime,hashlib,importlib.util,json,math,os,pathlib,platform,re,secrets,shutil,subprocess,sys
 sys.dont_write_bytecode=True
 HERE=pathlib.Path(__file__).resolve().parent
-SOURCE_SHA='3b1f6ceab669d3c643535ef303976742b14705eb'
-CARRIER_BASE_SHA='e944cc4895b90b208fb034553ef76a87aedafd1f'
+SOURCE_SHA='3d3ec1af93cb261598e9f22db1d67b0ae402fd08'
+CARRIER_BASE_SHA='1a1b3b1646f9ef98259ed03deb7d78a4d958a91c'
 BRANCH='refs/heads/codex/score-recovery-live-coverage-20261030'
 QA_PATH='scripts/qa/score-recovery-20261030'
 WORKFLOW='.github/workflows/score-recovery-oneoff.yml'
@@ -26,7 +26,7 @@ def verify_pins(pins):
 def captured_bytes(value):return value.encode('utf-8')if isinstance(value,str)else value if isinstance(value,bytes)else b''
 def control_failure_witness(phase,result,reason):
     """Export enums, bounded scalars and hashes; never child diagnostic text."""
-    require(phase in ['carrier-export-controls','source-shape-controls','linux-controls']and reason in ['CHILD_EXIT','CHILD_TIMEOUT','CONTROL_RECEIPTS'],'WITNESS_PHASE')
+    require(phase in ['carrier-export-controls','source-shape-controls','linux-controls','selected-model-controls','selected-policy-controls','selected-linux-controls']and reason in ['CHILD_EXIT','CHILD_TIMEOUT','CONTROL_RECEIPTS'],'WITNESS_PHASE')
     stdout=captured_bytes(result.stdout);stderr=captured_bytes(result.stderr);rows=[]
     bounds={'supervisorExit':(-128,255),'sourceProcessStarts':(0,1),'requests':(0,8),'capturedBytes':(0,16777216),'actualServiceOrProviderRequests':(0,8)}
     for line in stdout.splitlines():
@@ -34,7 +34,7 @@ def control_failure_witness(phase,result,reason):
         if len(line)>8192:continue
         try:value=json.loads(line)
         except(ValueError,UnicodeError,RecursionError):continue
-        if not isinstance(value,dict)or not isinstance(value.get('case'),str)or value['case']not in CONTROL_CASES or value.get('status')not in ['PASS','FAIL']:continue
+        if not isinstance(value,dict)or not isinstance(value.get('case'),str)or value['case']not in CONTROL_CASES|{'cricket-source','cricket-fixture'} or value.get('status')not in ['PASS','FAIL']:continue
         row={'case':value['case'],'status':value['status']}
         for key,(low,high)in bounds.items():
             if type(value.get(key))is int and low<=value[key]<=high:row[key]=value[key]
@@ -115,9 +115,17 @@ def qualify(args):
         complete=len(rows)==64 and{r.get('case')for r in rows}==CONTROL_CASES and all(r['status']=='PASS'and r['actualServiceOrProviderRequests']==0 for r in rows)
     except(ValueError,UnicodeError,TypeError,KeyError,RecursionError):complete=False
     if not complete:control_failure_witness('linux-controls',result,'CONTROL_RECEIPTS');raise RuntimeError('CONTROL_RECEIPTS')
+    selected_models=selected_model_controls(context)
+    selected_policy=control_child('selected-policy-controls',['/usr/bin/python3',str(HERE/'validate-selected-policy.py'),'--report',str(HERE/'selected-policy-report.json')],20)
+    policy_controls=read(HERE/'selected-policy-report.json')
+    require(policy_controls.get('status')=='PASS'and policy_controls.get('checks')==12 and policy_controls.get('sourceExecutions')==0,'SELECTED_POLICY_RECEIPTS')
+    selected_linux=control_child('selected-linux-controls',['/usr/bin/python3',str(HERE/'selected-linux-controls.py')],180)
+    selected_controls=read(HERE/'selected-linux-results.json');selected_cases=load('selected-linux-controls').CASES
+    selected_rows=[json.loads(line)for line in selected_linux.stdout.splitlines()if line.startswith(b'{')]
+    require(selected_controls.get('status')=='PASS'and selected_controls.get('coverageSport')=='rugby-union'and len(selected_rows)==len(selected_cases)==25 and {r.get('case')for r in selected_rows}==set(selected_cases)and all(r.get('status')=='PASS'and r.get('actualServiceOrProviderRequests')==0 for r in selected_rows),'SELECTED_LINUX_RECEIPTS')
     verify_pins(context['sourcePins']);verify_pins(context['dependencyPins'])
     require(not git(context['sourceRoot'],'status','--porcelain','--untracked-files=no'),'CONTROL_SOURCE_CHANGED')
-    qualification={'status':'PASS_LOCAL_CONTROLS_ONLY'if context['localControlOnly']else'PASS_64_NATIVE_LINUX_NO_SERVICE_CONTROLS','source':SOURCE_SHA,'nodeSha256':context['nodeSha256'],'platform':context['platform'],'sourcePins':context['sourcePins'],'cases':rows,'carrierExportControls':read(HERE/'metadata-controls/metadata-controls.json'),'sourceShapeControls':source_shapes,'actualServiceRequests':0}
+    qualification={'status':'PASS_LOCAL_CONTROLS_ONLY'if context['localControlOnly']else'PASS_DEFAULT64_SELECTED25_NATIVE_LINUX_NO_SERVICE_CONTROLS','source':SOURCE_SHA,'coverageSport':'rugby-union','nodeSha256':context['nodeSha256'],'platform':context['platform'],'sourcePins':context['sourcePins'],'cases':rows,'carrierExportControls':read(HERE/'metadata-controls/metadata-controls.json'),'sourceShapeControls':source_shapes,'selectedModelControls':selected_models,'selectedPolicyControls':policy_controls,'selectedLinuxControls':selected_controls,'actualServiceRequests':0}
     write(HERE/'qualification.json',qualification)
     public=HERE/'public-evidence';public.mkdir(mode=0o700,exist_ok=True)
     write(public/'controls.json',qualification)
@@ -125,7 +133,19 @@ def qualify(args):
         binding(context['qaRoot'],context);build_policy(context)
         if args.github_output:
             with open(args.github_output,'a')as out:out.write('ready=true\n')
-    print('All 64 controls passed; no real request. Local controls are not Linux or current-score acceptance.'if context['localControlOnly']else'All 64 native Linux controls passed; guarded actual step may use the separately bound allocation.')
+    print('Default64 and selected25 native controls passed with selected model and policy checks; no real service request. Actual acceptance remains separate.')
+def selected_model_controls(context):
+    no_keys();marker='sb_secret_'+secrets.token_urlsafe(36);report=HERE/'selected-model-report.json'
+    try:result=subprocess.run([context['node'],str(HERE/'validate-selected-rugby.cjs'),'--source-root',context['sourceRoot'],'--report',str(report)],env={**ENV,'NS_SELECTED_TEST_KEY':marker},capture_output=True,timeout=60)
+    except subprocess.TimeoutExpired as error:
+        control_failure_witness('selected-model-controls',error,'CHILD_TIMEOUT');raise RuntimeError('SELECTED_MODEL_CONTROLS_FAILED')from None
+    scanner=load('credential-scan');scanner.selftest(marker)
+    require(not any(scanner.contains(b,marker)for b in[captured_bytes(result.stdout),captured_bytes(result.stderr),report.read_bytes()if report.exists()else b'']),'SELECTED_MODEL_EXPORT_REFUSED')
+    if result.returncode!=0:control_failure_witness('selected-model-controls',result,'CHILD_EXIT');raise RuntimeError('SELECTED_MODEL_CONTROLS_FAILED')
+    value=read(report);require(value.get('status')=='PASS'and value.get('checks')==33 and value.get('realKeys')==value.get('realServiceRequests')==value.get('nativeAttempts')==0,'SELECTED_MODEL_RECEIPTS')
+    for row in value.get('rejections',[]):validate_shape_diagnostics(row,'rugby-union')
+    public=HERE/'public-evidence';public.mkdir(mode=0o700,exist_ok=True);write(public/'selected-model-controls.json',value)
+    return value
 def source_shape_controls(context):
     no_keys();marker='sb_secret_'+secrets.token_urlsafe(36);report=HERE/'source-shape-report.json'
     argv=[context['node'],str(HERE/'validate-source-shapes.cjs'),'--source-root',context['sourceRoot'],'--report',str(report)]
@@ -141,11 +161,12 @@ def source_shape_controls(context):
     if result.returncode!=0:control_failure_witness('source-shape-controls',result,'CHILD_EXIT');raise RuntimeError('SOURCE_SHAPE_CONTROLS_FAILED')
     value=read(report);require(value.get('status')=='PASS'and value.get('checks')==26 and value.get('realServiceRequests')==0 and value.get('realKeys')==0,'SOURCE_SHAPE_CONTROL_RECEIPTS')
     return value
-def validate_shape_diagnostics(record):
+def validate_shape_diagnostics(record,coverageSport=None):
     """A new diagnostic is fixed enums, schema indices and bounded counts only."""
     if not isinstance(record,dict):return
     if 'shapeFailure'in record or 'shapeFailures'in record:
-        schema=read(HERE/'public-fixture-shape.json');paths=sorted(schema['paths']);limit=schema['maxNodes']
+        require(coverageSport in[None,'rugby-union'],'SHAPE_DIAGNOSTIC_SCOPE')
+        schema=read(HERE/('public-fixture-shape.rugby.json'if coverageSport else'public-fixture-shape.json'));paths=sorted(schema['paths']);limit=schema['maxNodes']
         def descriptor(value,count=False):
             require(isinstance(value,dict),'SHAPE_DIAGNOSTIC')
             reason=value.get('reason');field='parentIndex'if reason=='UNKNOWN_PATH'else'pathIndex'
@@ -165,13 +186,15 @@ def validate_shape_diagnostics(record):
         signatures=[{k:v for k,v in row.items()if k!='count'}for row in rows]
         require(signatures[0]==record['shapeFailure']and len({json.dumps(v,sort_keys=True)for v in signatures})==len(rows)and sum(v['count']for v in rows)+overflow==total,'SHAPE_DIAGNOSTIC')
     if isinstance(record.get('pages'),list):
-        for page in record['pages']:validate_shape_diagnostics(page)
+        for page in record['pages']:validate_shape_diagnostics(page,coverageSport)
 def build_policy(context):
     profile=read(HERE/'profile.json');source=pathlib.Path(context['sourceRoot']);supervisor=load('supervisor');run=HERE/'actual-run-one'
     require(not run.exists(),'ACTUAL_ATTEMPT_ALREADY_STARTED')
     before=supervisor.manifest(source);write(HERE/'actual-baseline-manifest.json',{'files':before})
-    p={k:profile[k]for k in ['sourceGitSha','baseGitSha','entryArgv','sourceArgv','childArgvs','environmentKeys','credentialEnvironmentNames','wholeSeconds','minimumSecondsBeforeLaunch','minimumFreeBytes','maximumNewDiskBytes','maxRollbackBytes','maxFileBytes','http']}
+    p={k:profile[k]for k in ['sourceGitSha','baseGitSha','coverageSport','entryArgv','sourceArgv','childArgvs','environmentKeys','credentialEnvironmentNames','wholeSeconds','minimumSecondsBeforeLaunch','minimumFreeBytes','maximumNewDiskBytes','maxRollbackBytes','maxFileBytes','http']}
     p.update(mode='live-coverage-canonical',root=str(source),sourceRoot=str(source),runDir=str(run),tmpDir=str(run/'tmp'),node=context['node'],nodeVersion=context['nodeVersion'],nodeSha256=context['nodeSha256'],nodeOptions='--require='+str(HERE/'guard.cjs'),sourcePins={**context['sourcePins'],str(HERE/'runtime-context.json'):digest(HERE/'runtime-context.json'),str(HERE/'qualification.json'):digest(HERE/'qualification.json'),str(HERE/'root-allocation.json'):digest(HERE/'root-allocation.json')},dependencyPins=context['dependencyPins'],baselineManifest=str(HERE/'actual-baseline-manifest.json'),baselineManifestSha256=digest(HERE/'actual-baseline-manifest.json'),writeFiles=[str(source/f)for f in profile['writeFiles']],writeCaps={str(source/f):cap for f,cap in profile['writeCaps'].items()},rollbackHashes={str(source/f):d for f,d in profile['rollbackHashes'].items()},publicFixtureShape=str(HERE/'public-fixture-shape.json'))
+    p['publicFixtureShape']=str(HERE/'public-fixture-shape.rugby.json')
+    supervisor.validate_route(p,HERE/'actual-policy.json')
     p['writeDirectories']=sorted({str(pathlib.Path(f).parent)for f in p['writeFiles']}|{str(run),str(run/'tmp')})
     write(HERE/'actual-policy.json',p)
     grant=read(HERE/'root-allocation.json')
@@ -193,7 +216,7 @@ def export_public(p,result,keys):
     for f in candidates:
         if f.is_file():
             require(not f.is_symlink()and f.stat().st_size<=33554432 and safe(f.read_bytes()),'INDEPENDENT_SECRET_SCAN')
-            if f.name=='first-error.json'or re.fullmatch(r'(?:page-\d+|transport-\d+)\.json',f.name):validate_shape_diagnostics(read(f))
+            if f.name=='first-error.json'or re.fullmatch(r'(?:page-\d+|transport-\d+)\.json',f.name):validate_shape_diagnostics(read(f),p.get('coverageSport'))
     require(safe(result.stdout.encode())and safe(result.stderr.encode()),'INDEPENDENT_DIAGNOSTIC_SCAN')
     inventory={}
     def copy(file,name):
@@ -220,7 +243,7 @@ def export_public(p,result,keys):
 def actual(args):
     context=read(HERE/'runtime-context.json');require(not context['localControlOnly']and platform.system()=='Linux'and context['platform']['platform']=='linux','LINUX_QUALIFICATION_REQUIRED')
     binding(context['qaRoot'],context);qualification=read(HERE/'qualification.json')
-    require(qualification['status']=='PASS_64_NATIVE_LINUX_NO_SERVICE_CONTROLS'and qualification.get('sourceShapeControls',{}).get('status')=='PASS','QUALIFICATION_REQUIRED');verify_pins(context['sourcePins']);verify_pins(context['dependencyPins'])
+    require(qualification['status']=='PASS_DEFAULT64_SELECTED25_NATIVE_LINUX_NO_SERVICE_CONTROLS'and qualification.get('coverageSport')=='rugby-union'and all(qualification.get(k,{}).get('status')=='PASS'for k in['sourceShapeControls','selectedModelControls','selectedPolicyControls','selectedLinuxControls']),'QUALIFICATION_REQUIRED');verify_pins(context['sourcePins']);verify_pins(context['dependencyPins'])
     p=read(HERE/'actual-policy.json');require(not pathlib.Path(p['runDir']).exists(),'ACTUAL_ATTEMPT_ALREADY_STARTED')
     keys=[os.environ[k]for k in KEYS if os.environ.get(k)];require(keys,'EXISTING_REPOSITORY_KEY_REQUIRED')
     key=next(k for k in KEYS if os.environ.get(k));environment={**ENV,key:os.environ[key]}

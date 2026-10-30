@@ -16,17 +16,19 @@ for(const key of ['writeFileSync','appendFileSync','mkdirSync','mkdtempSync','un
 };}
 for(const key of ['renameSync','copyFileSync']){const original=fs[key];fs[key]=function(a,b,...args){return original.call(this,map(a),map(b),...args);};}
 const counts={constructedFetches:0,readerCancels:0,nativeConnections:0},streams=[];
-const fixture=JSON.parse(native.read(path.join(source,'scripts/fixtures/refresh-cricket-result-20261016.json'),'utf8')).result;
+const fixture=JSON.parse(native.read(p.coverageSport?path.join(__dirname,'rugby-control-fixture.json'):path.join(source,'scripts/fixtures/refresh-cricket-result-20261016.json'),'utf8')).result;
 const now=()=>new Date().toISOString();
 function row(index=0){
- const f=index===0?{...structuredClone(fixture),sourceCheckedAt:now()}:{id:'fixture:cricket:CA:'+(50000+index),key:'cricket',name:'Controlled scheduled fixture '+index,status:'scheduled',startTimeUtc:'2026-11-12T03:00:00.000Z',sourceCheckedAt:now(),sourceName:'Cricket Australia',sourceType:'official',sourceUrl:'https://www.cricket.com.au/matches/'};
- return {source_id:'cricket-ca-current',fixture_id:f.id,fixture:f,identity_keys:[f.id]};
+ const f=index===0?{...structuredClone(fixture),sourceCheckedAt:now()}:p.coverageSport?{id:'controlled-rugby-'+index,key:'rugby',name:'Controlled scheduled fixture '+index,status:'scheduled',startTimeUtc:'2026-11-12T03:00:00.000Z',sourceCheckedAt:now(),sourceName:'World Rugby',sourceType:'official',sourceUrl:fixture.sourceUrl}:{id:'fixture:cricket:CA:'+(50000+index),key:'cricket',name:'Controlled scheduled fixture '+index,status:'scheduled',startTimeUtc:'2026-11-12T03:00:00.000Z',sourceCheckedAt:now(),sourceName:'Cricket Australia',sourceType:'official',sourceUrl:'https://www.cricket.com.au/matches/'};
+ return {source_id:p.coverageSport?'discovery-rugby-mru':'cricket-ca-current',fixture_id:f.id,fixture:f,identity_keys:[f.id]};
 }
 function payload(page){
  const paged=['short-pages','eight-full','later-failure','overlap','cumulative-overflow','cumulative-exact'].includes(caseName);
  const length=caseName==='row-overflow'?501:paged?(caseName==='short-pages'&&page===1||caseName==='cumulative-exact'&&page===3?1:500):1;
  const rows=Array.from({length},(_,i)=>row(page*500+i));
  if(caseName==='overlap'&&page===1)rows[0]=row(0);
+ if(caseName==='cricket-source')rows[0].source_id='cricket-ca-current';
+ if(caseName==='cricket-fixture')rows[0].fixture.key='cricket';
  if(caseName==='private-row')rows[0].user_id='private-account';
  if(caseName==='private-fixture')rows[0].fixture.preferences={follow:'private'};
  if(caseName==='private-nested')rows[0].fixture.participants=[{id:'team:cricket:australia',name:'Australia',access_token:'private-account'}];
@@ -84,7 +86,7 @@ const server=require(path.join(source,'lib/supabase-server')),request=server.sup
 server.supabaseServiceRequest=function(url,options){
  if(caseName==='bad-origin')options={...options,environment:{...process.env,SUPABASE_URL:'https://outside.invalid'}};
  if(caseName==='bad-rpc')url='/rest/v1/private_accounts';
- if(caseName==='bad-filter')url=url.replace('cricket-ca-current','private-account-source');
+ if(caseName==='bad-filter')url=url.replace(p.coverageSport?'discovery-rugby-mru':'cricket-ca-current','private-account-source');
  if(caseName==='bad-order')url=url.replace('source_id.asc,fixture_id.asc','fixture_id.desc');
  if(caseName==='bad-offset')url=url.replace('offset=0','offset=500');
  if(caseName==='bad-limit')url=url.replace('limit=500','limit=501');

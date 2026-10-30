@@ -67,7 +67,7 @@ async function producerModels(){
  for(const name of ['http','https'])for(const key of ['request','get'])require('node:'+name)[key]=deny;
  for(const [name,keys]of [['net',['connect','createConnection']],['tls',['connect']],['dns',['lookup','resolve','resolve4','resolve6']]])for(const key of keys)require('node:'+name)[key]=deny;
  require('node:net').Socket.prototype.connect=deny;
- const {PGlite}=require(code('node_modules/@electric-sql/pglite')),db=new PGlite();
+ const {PGlite}=require(require.resolve('@electric-sql/pglite',{paths:[root,...(process.env.NODE_PATH||'').split(path.delimiter).filter(Boolean)]})),db=new PGlite();
  try{
   await db.exec("set timezone='UTC';create table public.nothingsports_fixture_current(source_id text,fixture_id text,fixture jsonb,identity_keys text[]);create table public.nothingsports_fixture_sources(source_id text,discovery_report jsonb);create table public.nothingsports_live_scores(source_id text,fixture_id text,score jsonb,first_completed_at timestamptz);");
   const sql=fs.readFileSync(code('supabase/migrations/20261002171936_preserve_compact_fixture_observations.sql'),'utf8');

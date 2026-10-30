@@ -1,7 +1,8 @@
 'use strict';
 const {performance}=require('node:perf_hooks');
 const ORIGIN='https://mkghopnkhcxtmfrcjdbc.supabase.co',RPC='/rest/v1/rpc/nothingsports_read_current_fixtures';
-const SOURCES=['cricket-ca-current','cricket-ca-4710','discovery-cricket-history','discovery-cricket-near',...['mru','wru','mrs','wrs'].flatMap(s=>[`discovery-rugby-${s}`,`discovery-rugby-${s}-near`])];
+const RUGBY_SOURCES=Object.freeze(['mru','wru','mrs','wrs'].flatMap(s=>[`discovery-rugby-${s}`,`discovery-rugby-${s}-near`]));
+const SOURCES=Object.freeze(['cricket-ca-current','cricket-ca-4710','discovery-cricket-history','discovery-cricket-near',...RUGBY_SOURCES]);
 const PAGE=500,MAX_REQUESTS=8,DEADLINE=10000,PAGE_BYTES=4194304,TOTAL_BYTES=16777216;
 const error=code=>Object.assign(Error(code),{code});
 // Only this validator can mint a descriptor. Upstream error properties and
@@ -10,7 +11,13 @@ const ownedShapeFailures=new WeakMap();
 const shapeFailure=error=>ownedShapeFailures.get(error);
 const ownedShapeSummaries=new WeakMap();
 const shapeFailures=error=>ownedShapeSummaries.get(error);
-const endpoint=ordinal=>`${ORIGIN}${RPC}?source_id=in.(${SOURCES.join(',')})&order=source_id.asc,fixture_id.asc&limit=500&offset=${ordinal*500}`;
+function sourcesFor(coverageSport){if(coverageSport==null)return SOURCES;if(coverageSport!=='rugby-union')throw error('POST_GUARD_SCOPE');return RUGBY_SOURCES;}
+function validateActualScope(p){
+ if(p.mode!=='live-coverage-canonical'){sourcesFor(p.coverageSport);return;}
+ const scoped='--coverage-sport=rugby-union';
+ if(p.coverageSport!=='rugby-union'||p.sourceGitSha!=='3d3ec1af93cb261598e9f22db1d67b0ae402fd08'||JSON.stringify(p.entryArgv)!==JSON.stringify(['scripts/update-cards.js','--quick','--source=live-coverage',scoped,'--local-only'])||JSON.stringify(p.sourceArgv)!==JSON.stringify(['scripts/quick-results.js','--source=live-coverage',scoped])||p.childArgvs.some(a=>['scripts/quick-results.js','scripts/publish-feed.js'].includes(a[0])&&!a.includes(scoped)))throw error('GUARD_ACTUAL_SCOPE');
+}
+const endpoint=(ordinal,coverageSport)=>`${ORIGIN}${RPC}?source_id=in.(${sourcesFor(coverageSport).join(',')})&order=source_id.asc,fixture_id.asc&limit=500&offset=${ordinal*500}`;
 function credentials(environment=process.env){return [...new Set(['SUPABASE_SECRET_KEY','SUPABASE_SERVICE_ROLE_KEY'].flatMap(k=>[environment[k],environment[k]?.trim()]).filter(Boolean))];}
 function privacy(values){
  const variants=values.flatMap(value=>[value,Buffer.from(value).toString('base64'),Buffer.from(value).toString('base64url'),Buffer.from(value).toString('hex')]);
@@ -41,7 +48,8 @@ function rejectDuplicateKeys(text){
   if(token.startsWith('"')&&top.key){const key=JSON.parse(token);if(top.seen.has(key))throw error('POST_GUARD_DUPLICATE_KEY');top.seen.add(key);top.key=false;}
  }
 }
-function validatePublic(rows,schema,secret,check=()=>{}){
+function validatePublic(rows,schema,secret,check=()=>{},coverageSport){
+ const selectedSources=sourcesFor(coverageSport);
  if(!Array.isArray(rows)||rows.length>PAGE)throw error('POST_GUARD_ROW_SHAPE');
  let nodes=0,firstShape=null,totalRefusals=0,overflowCount=0;const descriptors=new Map();
  const indexes=new Map(Object.keys(schema.paths).sort().map((key,index)=>[key,index]));
@@ -85,10 +93,10 @@ function validatePublic(rows,schema,secret,check=()=>{}){
  }
  try{for(const row of rows){
   check();
-  if(!row||typeof row!=='object'||Array.isArray(row)||Object.keys(row).some(k=>!['source_id','fixture_id','fixture','identity_keys'].includes(k))||!SOURCES.includes(row.source_id)||typeof row.fixture_id!=='string'||!row.fixture_id||row.fixture_id.length>300||!row.fixture||row.fixture.id!==row.fixture_id)throw error('POST_GUARD_ROW_SHAPE');
+  if(!row||typeof row!=='object'||Array.isArray(row)||Object.keys(row).some(k=>!['source_id','fixture_id','fixture','identity_keys'].includes(k))||!selectedSources.includes(row.source_id)||typeof row.fixture_id!=='string'||!row.fixture_id||row.fixture_id.length>300||!row.fixture||row.fixture.id!==row.fixture_id||coverageSport&&row.fixture.key!=='rugby')throw error('POST_GUARD_ROW_SHAPE');
   if(row.identity_keys!=null&&(!Array.isArray(row.identity_keys)||row.identity_keys.length>64||row.identity_keys.some(id=>typeof id!=='string'||id.length>300)))throw error('POST_GUARD_ROW_SHAPE');
   walk(row.fixture,'',0);
  }}catch(e){if(firstShape){finish(false);throw firstShape;}throw e;}
  if(firstShape){finish(true);throw firstShape;}
 }
-module.exports={ORIGIN,RPC,SOURCES,PAGE,MAX_REQUESTS,DEADLINE,PAGE_BYTES,TOTAL_BYTES,error,endpoint,credentials,privacy,rejectDuplicateKeys,validatePublic,shapeFailure,shapeFailures,performance};
+module.exports={ORIGIN,RPC,SOURCES,RUGBY_SOURCES,sourcesFor,validateActualScope,PAGE,MAX_REQUESTS,DEADLINE,PAGE_BYTES,TOTAL_BYTES,error,endpoint,credentials,privacy,rejectDuplicateKeys,validatePublic,shapeFailure,shapeFailures,performance};

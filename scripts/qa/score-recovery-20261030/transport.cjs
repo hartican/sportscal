@@ -4,7 +4,8 @@
 const crypto=require('node:crypto'),P=require('./protocol.cjs');
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 class Transport{
- constructor({schema,values,capture}){
+ constructor({schema,values,capture,coverageSport=null}){
+  P.sourcesFor(coverageSport);this.coverageSport=coverageSport;
   this.schema=schema;this.values=values;this.secret=P.privacy(values);this.capture=capture;
   this.requests=0;this.received=0;this.captured=0;this.finished=false;this.failed=false;this.active=null;this.seen=new Set();this.records=[];
  }
@@ -13,13 +14,13 @@ class Transport{
   if(this.failed)throw P.error('POST_GUARD_AFTER_FAILURE');
   if(this.active)throw P.error('POST_GUARD_CONCURRENT_REQUEST');
   if(this.finished||this.requests>=P.MAX_REQUESTS)throw P.error('POST_GUARD_REQUEST_BUDGET');
-  if(path!==P.endpoint(this.requests).slice(P.ORIGIN.length)||options?.method!=='POST'||JSON.stringify(options.body)!=='{"p_fixture_ids":null}'||options.timeoutMs!==P.DEADLINE||Object.keys(options).some(k=>!['method','body','timeoutMs'].includes(k)))throw P.error('POST_GUARD_SERVICE_SCOPE');
+  if(path!==P.endpoint(this.requests,this.coverageSport).slice(P.ORIGIN.length)||options?.method!=='POST'||JSON.stringify(options.body)!=='{"p_fixture_ids":null}'||options.timeoutMs!==P.DEADLINE||Object.keys(options).some(k=>!['method','body','timeoutMs'].includes(k)))throw P.error('POST_GUARD_SERVICE_SCOPE');
   const started=P.performance.now(),controller=new AbortController(),ctx={ordinal:this.requests,started,deadline:started+P.DEADLINE,controller,bytes:0,reader:null,readDone:false,readerReleased:false,captureFileOpened:false,captureFileClosed:true};
   this.active=ctx;ctx.cancelled=new Promise((_,reject)=>{ctx.reject=reject;});ctx.cancelled.catch(()=>{});
   ctx.timer=setTimeout(()=>{controller.abort();ctx.reject(P.error('POST_GUARD_BODY_DEADLINE'));},Math.max(1,ctx.deadline-P.performance.now()));
   let first;
   try{
-   this.capture.start({ordinal:ctx.ordinal,url:P.endpoint(ctx.ordinal),startedAt:new Date().toISOString(),deadlineMs:P.DEADLINE});
+   this.capture.start({ordinal:ctx.ordinal,url:P.endpoint(ctx.ordinal,this.coverageSport),startedAt:new Date().toISOString(),deadlineMs:P.DEADLINE});
    const result=await call();this.check(ctx);
    if(!ctx.buffer||!ctx.parsed||ctx.textCalls!==1||hash(JSON.stringify(result))!==ctx.parsedHash)throw P.error('POST_GUARD_CONSUMER_PARSE');
    const closed=this.capture.commit(ctx.ordinal,ctx.buffer);ctx.captureFileOpened=true;ctx.captureFileClosed=closed===true;
@@ -43,7 +44,7 @@ class Transport{
  }
  async fetch(input,options,fetchImpl){
   const ctx=this.active;
-  if(!ctx||ctx.fetchUsed||typeof input!=='string'||input!==P.endpoint(ctx.ordinal))throw P.error('POST_GUARD_FETCH_SCOPE');
+  if(!ctx||ctx.fetchUsed||typeof input!=='string'||input!==P.endpoint(ctx.ordinal,this.coverageSport))throw P.error('POST_GUARD_FETCH_SCOPE');
   if(options?.method!=='POST'||options.body!=='{"p_fixture_ids":null}'||Object.keys(options).some(k=>!['method','body','headers','signal'].includes(k)))throw P.error('POST_GUARD_FETCH_OPTIONS');
   const h=options.headers;if(!h||Object.getPrototypeOf(h)!==Object.prototype)throw P.error('POST_GUARD_HEADERS');
   const keys=Object.keys(h).map(k=>k.toLowerCase()),headers=Object.fromEntries(Object.entries(h).map(([k,v])=>[k.toLowerCase(),v]));
@@ -77,7 +78,7 @@ class Transport{
    ctx.buffer=Buffer.concat(chunks);if(this.secret.contains(ctx.buffer))throw P.error('POST_GUARD_PRIVATE_PAYLOAD');
    let text;try{text=new TextDecoder('utf-8',{fatal:true}).decode(ctx.buffer);}catch{throw P.error('POST_GUARD_UTF8');}
    this.check(ctx);try{ctx.parsed=JSON.parse(text);}catch{throw P.error('POST_GUARD_JSON');}this.check(ctx);
-   P.rejectDuplicateKeys(text);P.validatePublic(ctx.parsed,this.schema,this.secret,()=>this.check(ctx));this.check(ctx);
+   P.rejectDuplicateKeys(text);P.validatePublic(ctx.parsed,this.schema,this.secret,()=>this.check(ctx),this.coverageSport);this.check(ctx);
    const pairs=new Set();for(const row of ctx.parsed){const id=row.source_id+'|'+row.fixture_id;if(pairs.has(id)||this.seen.has(id))throw P.error('POST_GUARD_OVERLAP');pairs.add(id);}
    ctx.parsedHash=hash(JSON.stringify(ctx.parsed));ctx.textCalls=0;
    return Object.freeze({ok:true,status:200,url:input,headers:new Headers({'content-type':'application/json'}),text:async()=>{if(ctx.textCalls++)throw P.error('POST_GUARD_BODY_USED');this.check(ctx);return text;}});
