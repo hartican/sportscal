@@ -35,7 +35,7 @@ if (process.argv.includes('--preflight')) {
     document.addEventListener('wheel', event => {
       globalThis.qaFollowDocumentWheel = { trusted: event.isTrusted, targetMain: event.target === main, mainConnected: main.isConnected,
         clientX: event.clientX, clientY: event.clientY, deltaX: event.deltaX, deltaY: event.deltaY, deltaMode: event.deltaMode, defaultPrevented: event.defaultPrevented };
-    }, { passive: true, once: true });
+    }, { passive: false });
     return { ...point, rootMaxScroll: root.scrollHeight - root.clientHeight, target: 'MAIN#mainContent' };
   }
   const choiceSnapshot = page => page.evaluate(() => JSON.stringify({
