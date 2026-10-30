@@ -88,6 +88,12 @@ try{
  for(const name of ['manifest.v1.json','manifest.v1.js'])assert.equal(fs.readFileSync(path.join(directory,name),'utf8'),importedDirectory.get(name).toString().replace(oldClockField,newClockField),name+': every byte outside the explicit manifest header clock stays exact');
  for(const [name,bytes]of importedDirectory)if(!['manifest.v1.json','manifest.v1.js'].includes(name))assert(fs.readFileSync(path.join(directory,name)).equals(bytes),`${name}: fixture preparation must retain every non-manifest byte`);
  assert.equal(fs.readFileSync(path.join(directory,'manifest.v1.js'),'utf8'),`globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_MANIFEST = ${JSON.stringify(coherentManifest)};\n`,'Script and JSON baseline contain exactly the same complete manifest');
+ const requireImportedFiles=()=>assert.deepEqual(fs.readdirSync(directory).sort(),[...importedDirectory.keys()].sort(),'Fixture preparation cannot admit or drop directory files');
+ requireImportedFiles();
+ const unexpected=path.join(directory,'__unreviewed-test-output.v1.json');assert(!fs.existsSync(unexpected));
+ try{fs.writeFileSync(unexpected,'{}\n');assert.throws(requireImportedFiles,/Fixture preparation cannot admit or drop directory files/);}
+ finally{fs.unlinkSync(unexpected);}
+ requireImportedFiles();
  const savedDirectory=new Map(fs.readdirSync(directory).map(name=>[name,fs.readFileSync(path.join(directory,name))]));
  const manifest=JSON.parse(savedDirectory.get('manifest.v1.json'));
  manifest.sports.find(sport=>sport.key==='rugby-women').recordCount++;
