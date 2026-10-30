@@ -131,3 +131,4 @@ if(process.argv.includes('--published')){
  assert.deepEqual(require('../data/code-inspector/nbl.json').standings,schedule.standings);
 }
 console.log('NBL standings: ten published ranks, regular-season result reconciliation, source/identity/status guards, rank-only changes and no observation churn passed.');
+require('./validate-nbl-result-observations').run().catch(error=>{console.error(error.stack||error);process.exitCode=1;});
