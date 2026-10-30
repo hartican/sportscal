@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="603">
+<meta name="app-shell-version" content="604">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=603" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=604" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -192,7 +192,7 @@ to{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 14%,transparent);}
 @media(max-width:600px){}.feed-schedule-link{display:inline-block;color:var(--accent);background:none;border:0;padding:6px 0;font:inherit;font-size:.75rem;text-decoration:underline;text-underline-offset:3px;min-height:32px;}.follow-common-controls,.follow-event-bulk{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:10px 0;}.follow-schedule-panel{min-width:0;}.fixture-timing-badge{display:flex;flex-direction:column;align-items:center;text-align:center}.fixture-timing-day,.fixture-timing-clock{font-size:inherit;font-weight:750;line-height:1.2}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=463">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=603">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=604">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=536">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -487,7 +487,7 @@ to{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 14%,transparent);}
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=603"></script>
+<script src="assets/js/app-shell-runtime.js?v=604"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -7344,11 +7344,22 @@ return candidates.find(candidate => candidate.getBoundingClientRect().top >= dow
 || target
 || null;
 }
+function recordFollowScrollSequence(actor,origin,owner,a,b,c,d,anchors){
+  try{
+    if(typeof activeTab==='undefined'||activeTab!=='follow')return;
+    const state=globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE;
+    if(state?.flag!=='follow-scroll-sequence-v1'||state.armed!==true)return;
+    const append=globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE_APPEND;
+    if(typeof append==='function')append(actor,origin,owner,a,b,c,d,anchors);
+    else globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE_FAULT=true;
+  }catch{try{globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE_FAULT=true;}catch{}}
+}
 let scrollContinuityAnchorLockDepth = 0;
 let scrollContinuityPreviousAnchorStyles = null;
 function lockNativeScrollAnchoring(){
 const root = document.documentElement;
 const body = document.body;
+const sequenceDepthBefore = scrollContinuityAnchorLockDepth;
 if (scrollContinuityAnchorLockDepth++ === 0){
 scrollContinuityPreviousAnchorStyles = {
 root:root.style.overflowAnchor,
@@ -7357,14 +7368,18 @@ body:body?.style.overflowAnchor || "",
 root.style.overflowAnchor = "none";
 if (body) body.style.overflowAnchor = "none";
   }
+recordFollowScrollSequence('lease-acquire','anchor',null,sequenceDepthBefore,scrollContinuityAnchorLockDepth,null,null,scrollContinuityPreviousAnchorStyles);
 let released = false;
 return () => {
 if (released) return;
 released = true;
+const sequenceDepthBefore = scrollContinuityAnchorLockDepth;
 scrollContinuityAnchorLockDepth = Math.max(0, scrollContinuityAnchorLockDepth - 1);
+recordFollowScrollSequence('lease-release','anchor',null,sequenceDepthBefore,scrollContinuityAnchorLockDepth,null,null,scrollContinuityPreviousAnchorStyles);
 if (scrollContinuityAnchorLockDepth || !scrollContinuityPreviousAnchorStyles) return;
 root.style.overflowAnchor = scrollContinuityPreviousAnchorStyles.root;
 if (body) body.style.overflowAnchor = scrollContinuityPreviousAnchorStyles.body;
+recordFollowScrollSequence('lease-restored','anchor',null,scrollContinuityAnchorLockDepth,null,null,null,scrollContinuityPreviousAnchorStyles);
 scrollContinuityPreviousAnchorStyles = null;
   };
 }
@@ -7389,11 +7404,14 @@ if (currentAnchor && Number.isFinite(anchorTop)){
 const measuredAt = globalThis.performance?.now?.() || Date.now();
 if (measuredAt - lastCorrectionAt < 40) return;
 const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-const correction = scrollCorrectionForAnchor(anchorTop, currentAnchor.getBoundingClientRect().top, window.scrollY, maxScrollY);
+const sequenceAnchorTop = currentAnchor.getBoundingClientRect().top;
+const correction = scrollCorrectionForAnchor(anchorTop, sequenceAnchorTop, window.scrollY, maxScrollY);
 if (Math.abs(correction) >= 0.5){
 lastCorrectionAt = measuredAt;
 expectedCorrectionScrollY = window.scrollY + correction;
+recordFollowScrollSequence('anchor-write-before',interactionName,currentAnchor,correction,expectedCorrectionScrollY,anchorTop,sequenceAnchorTop);
 window.scrollTo({ top:expectedCorrectionScrollY, behavior:"instant" });
+recordFollowScrollSequence('anchor-write-after',interactionName,currentAnchor,correction,expectedCorrectionScrollY,anchorTop,sequenceAnchorTop);
       }
 recordInteractionDisplacement(interactionName, anchorTop, currentAnchor.getBoundingClientRect().top);
     }
@@ -7409,7 +7427,8 @@ restoreFrame = null;
 if (stabilizing) restoreAnchor();
     });
   };
-const stopStabilizing = () => {
+const stopStabilizing = sequenceIntent => {
+recordFollowScrollSequence('lease-stop',sequenceIntent,null,scrollContinuityAnchorLockDepth,stabilizing);
 stabilizing = false;
 resizeObserver?.disconnect?.();
 if (lateRestoreTimer !== null) window.clearInterval(lateRestoreTimer);
@@ -7421,11 +7440,12 @@ releaseNativeAnchor();
 const intentEvents = ["pointerdown", "touchstart", "wheel", "keydown"];
 const cleanupIntentListeners = () => intentEvents.forEach(type => window.removeEventListener(type, stopStabilizing, true));
 const stopForExternalScroll = () => {
+recordFollowScrollSequence('anchor-scroll','scroll',null,expectedCorrectionScrollY,stabilizing,scrollContinuityAnchorLockDepth);
 if (expectedCorrectionScrollY !== null && Math.abs(window.scrollY - expectedCorrectionScrollY) <= 1){
 expectedCorrectionScrollY = null;
 return;
     }
-stopStabilizing();
+stopStabilizing('scroll');
   };
 intentEvents.forEach(type => window.addEventListener(type, stopStabilizing, { capture:true, once:true, passive:true }));
 window.addEventListener("scroll", stopForExternalScroll, { passive:true });
@@ -7516,12 +7536,20 @@ const anchorCard = anchor.card?.isConnected
 .find(card => scrollKeyForElement(card) === anchor.scrollKey)
 : null;
 if (anchorCard && Number.isFinite(anchor.top)){
-const offset = scrollOffsetToPreserveAnchor(anchor.top, anchorCard.getBoundingClientRect().top);
-if (Math.abs(offset) >= 0.5) window.scrollBy(0, offset);
+const sequenceAnchorTop = anchorCard.getBoundingClientRect().top;
+const offset = scrollOffsetToPreserveAnchor(anchor.top, sequenceAnchorTop);
+if (Math.abs(offset) >= 0.5){
+recordFollowScrollSequence('viewport-write-before','viewport',anchorCard,offset,anchor.top,sequenceAnchorTop);
+window.scrollBy(0, offset);
+recordFollowScrollSequence('viewport-write-after','viewport',anchorCard,offset,anchor.top,sequenceAnchorTop);
+}
 return;
   }
 const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-window.scrollTo({ top: Math.min(anchor.scrollY, maxScrollY), behavior: "auto" });
+const sequenceDesiredY = Math.min(anchor.scrollY, maxScrollY);
+recordFollowScrollSequence('viewport-write-before','viewport',null,sequenceDesiredY,anchor.scrollY,maxScrollY);
+window.scrollTo({ top: sequenceDesiredY, behavior: "auto" });
+recordFollowScrollSequence('viewport-write-after','viewport',null,sequenceDesiredY,anchor.scrollY,maxScrollY);
 }
 function setTunePromptOpen(open, dislikeCount = pendingTunePromptDislikeCount){
 const modal = document.getElementById("tunePromptModal");
@@ -8296,7 +8324,6 @@ if (owner !== (serverPersistence.user?.id || "")) return result;
     panel.querySelectorAll("button, input, select").forEach(control => { control.disabled = false; });
   }
 }
-
 async function reconcileNothingscoreSubmission(eventId,phase,{expectedOwner = serverPersistence.user?.id || ""} = {}){
   const owner = expectedOwner;
   const ownerGeneration=serverSyncClient.accountSnapshot().generation;
@@ -8316,18 +8343,12 @@ async function reconcileNothingscoreSubmission(eventId,phase,{expectedOwner = se
     return receipt || null;
   } catch(_error){ return null; }
 }
-
-
-
-
-
 function visiblePulseNothingscoreIds(){
   return [...document.querySelectorAll('.event-card[data-nsc-phase="pulse"]')]
     .filter(card => card.getClientRects().length&&card.querySelector('.nsc-summary'))
     .map(card => card.querySelector('.nsc-summary')?.dataset.nscEventId||card.dataset.eventId)
     .filter(id=>id&&!nothingscoreLoadErrors.has(id)&&!nothingscoreBatchInFlight.has(id)&&!nothingscorePendingIds.has(id));
 }
-
 function scheduleNothingscorePoll(delay = 120_000){
   window.clearTimeout(nothingscorePollTimer);
   if (document.visibilityState === "hidden" || navigator.onLine===false || nothingscorePollFailures >= 3) return;
@@ -8351,7 +8372,6 @@ function scheduleNothingscorePoll(delay = 120_000){
     }
   }, delay);
 }
-
 function scheduleNothingscoreHeartbeat(delay){
   window.clearTimeout(nothingscoreHeartbeatTimer);
   if (!nothingscoreWatching.size || document.visibilityState === "hidden") return;
@@ -8371,31 +8391,25 @@ function scheduleNothingscoreHeartbeat(delay){
     scheduleNothingscoreHeartbeat();
   }, nextDelay);
 }
-
 function nothingscoreSubmissionPhaseForEvent(ev){
   const status = getEventStatus(ev);
   if (status === "live") return null;
   return status === "past" || ev?.status === "completed" ? "impact" : "heat";
 }
-
 function nothingscoreSubmissionKey(eventId, phase){
   const canonical = nothingscoreSnapshots.get(String(eventId))?.canonicalEventId || String(eventId);
   return `${serverPersistence.user?.id || "signed-out"}|${canonical}|${phase}`;
 }
-
 function nothingscoreSubmissionIsSealed(ev){
   const phase = nothingscoreSubmissionPhaseForEvent(ev);
   if (!phase) return false;
   return Boolean(nothingscoreSnapshotFor(ev)?.currentUser?.submissions?.[phase]
     || nothingscoreSubmissionStore.get(nothingscoreSubmissionKey(nothingscoreEventId(ev),phase)).receipt);
 }
-
 function nothingscoreActionLabelForEvent(ev){
   const phase=nothingscoreSnapshots.get(nothingscoreEventId(ev))?.phase;
   return phase==='pulse'?'Live crowd rating':phase==='impact'?'Past crowd rating':'Upcoming crowd rating';
 }
-
-
 function isMarqueeFixture(ev){
   return /grand final/i.test(FOLLOW_FIRST.stageLabel(ev) || "") || ev.marquee === true || ev.editorialMarquee === true
     || eventEnrichment(ev)?.cardVariant === "marquee";
@@ -8444,11 +8458,10 @@ function buildEuropeanDetail(ev,kind){
     if(ev.sourceAttribution?.provider==='OpenLigaDB'){const link=document.createElement('a');link.href='/data/providers/openligadb/football-2026-27.json';link.textContent='OpenLigaDB data · ODbL';node.append(link);}
     if(ev.delayedResultSource){const note=document.createElement('p'),link=document.createElement('a');link.href='https://www.football-data.org/';link.textContent='Football data provided by the Football-Data.org API';note.append(link,document.createTextNode('. Delayed final result; primary source unavailable at recovery.'));node.append(note);}
   }
-  loadDeferredScript('assets/js/football-card-context.js?v=511').then(async()=>{const detail=await NOTHINGSPORTS_FOOTBALL_CONTEXT[kind](ev,()=>isSpoilerVisible(ev));if(!node.isConnected)return;if(detail)node.replaceWith(detail);else node.remove();}).catch(()=>{if(kind==='context')node.remove();if(kind==='standings'&&node.isConnected){node.textContent='Standings unavailable. ';const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry standings';retry.onclick=()=>node.replaceWith(buildEuropeanDetail(ev,kind));node.append(retry);}});
+  loadDeferredScript('assets/js/football-card-context.js?v=604').then(async()=>{const detail=await NOTHINGSPORTS_FOOTBALL_CONTEXT[kind](ev,()=>isSpoilerVisible(ev));if(!node.isConnected)return;if(detail)node.replaceWith(detail);else node.remove();}).catch(()=>{if(kind==='context')node.remove();if(kind==='standings'&&node.isConnected){node.textContent='Standings unavailable. ';const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry standings';retry.onclick=()=>node.replaceWith(buildEuropeanDetail(ev,kind));node.append(retry);}});
   return node;
 }
 function buildFixtureDataAttribution(ev){return ev.sourceAttribution||ev.delayedResultSource?buildEuropeanDetail(ev,'attribution'):null;}
-
 function buildFixtureResultAvailability(ev){
   const pending=ev.resultStatus==='pending';
   if(!pending&&!(ev.resultStatus==='official'&&ev.status==='completed'&&isSpoilerVisible(ev)&&!ev.delayedResultSource&&/^https:\/\//.test(ev.resultSourceUrl||'')))return null;
@@ -8458,7 +8471,6 @@ function buildFixtureResultAvailability(ev){
   if(/^https:\/\//.test(ev.resultSourceUrl||'')){const link=document.createElement('a');link.href=ev.resultSourceUrl;link.target='_blank';link.rel='noopener noreferrer';link.textContent=pending?'Official source':'Result source';link.setAttribute('aria-label','Check result source for '+(ev.name||'this fixture'));note.append(document.createTextNode(' · '),link);}
   return note;
 }
-
 function installFantasyCard(card,ev,options){globalThis.NOTHINGSPORTS_FANTASY_UI?.install(card,ev,options);}
 function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.clearSpace();}
 let fantasyUiLoading=null;
@@ -8523,8 +8535,6 @@ function buildEventCard(ev, options = {}){
     return fallback;
   }
 }
-
-
 function jointTournamentIsActive(document = jointTournamentData, reference = nowAEST()){
   const tournament = document?.tournament;
   const localDay = JOINT_TENNIS_TOURNAMENT?.zonedDateKey?.(reference, tournament?.timezone);
@@ -8540,7 +8550,6 @@ function jointTournamentIsActive(document = jointTournamentData, reference = now
     && Number.isFinite(retrievedAt)
     && retrievedAt <= new Date(reference).getTime());
 }
-
 function eventIsJointTournamentFeedChild(ev, tournamentDocument = jointTournamentData, reference = nowAEST()){
   if (!jointTournamentIsActive(tournamentDocument, reference)) return false;
   const tournament = tournamentDocument?.tournament;
@@ -8555,7 +8564,6 @@ function eventIsJointTournamentFeedChild(ev, tournamentDocument = jointTournamen
     && String(ev.eventId || ev.id) !== tournament.tournamentId
   );
 }
-
 function normalizeJointTournamentFreshness(document, reference = new Date()){
   if (!document?.schedule?.matches?.length) return document;
   const freshnessTime = Date.parse(document.freshness?.lastSuccessfulAt || document.retrievedAt || "");
@@ -8579,7 +8587,6 @@ function normalizeJointTournamentFreshness(document, reference = new Date()){
   delete fallback.resultsByMatchId;
   return fallback;
 }
-
 function jointMatchActionEvent(match, document = jointTournamentData){
   const matchScheduleDate = match.scheduleDate || document?.schedule?.date;
   const scheduledAtUtc = match.scheduledAtUtc
@@ -8625,7 +8632,6 @@ function jointMatchActionEvent(match, document = jointTournamentData){
     status: document.resultsByMatchId?.[match.matchId]?.status === "completed" ? "completed" : "scheduled",
   };
 }
-
 function jointMatchTimingLabel(match, tournamentDocument = jointTournamentData){
   const timing = match.timing || {};
   const matchScheduleDate = match.scheduleDate || tournamentDocument?.schedule?.date;
@@ -8653,7 +8659,6 @@ function jointMatchTimingLabel(match, tournamentDocument = jointTournamentData){
       ? "Session only · Ohio schedule"
       : timing.label || "Time unavailable";
 }
-
 function buildAthleteName(athlete, { className = "athlete-with-flag", sportKey } = {}){
   const identity = globalThis.document.createElement("span");
   identity.className = className;
@@ -8667,7 +8672,6 @@ function buildAthleteName(athlete, { className = "athlete-with-flag", sportKey }
   if (flag) identity.insertAdjacentHTML("beforeend", flag);
   return identity;
 }
-
 function buildJointTournamentMatch(match, tournamentDocument, { savedSection = false } = {}){
   const event = jointMatchActionEvent(match, tournamentDocument);
   const action = getEventAction(event);
@@ -8721,7 +8725,6 @@ function buildJointTournamentMatch(match, tournamentDocument, { savedSection = f
   row.append(orderCopy, copy, actions);
   return row;
 }
-
 function buildJointTournamentReporting(items, headingText = "Highlights & commentary"){
   if (!items?.length) return null;
   const section = globalThis.document.createElement("section");
@@ -8744,7 +8747,6 @@ function buildJointTournamentReporting(items, headingText = "Highlights & commen
   section.append(heading, list);
   return section;
 }
-
 function jointTournamentDayGroups(tournamentDocument){
   const uniqueMatches = new Map();
   [...(tournamentDocument.schedule?.matches || []), ...(tournamentDocument.matchHistory || [])].forEach(match => {
@@ -8763,7 +8765,6 @@ function jointTournamentDayGroups(tournamentDocument){
       matches: matches.sort((first, second) => (first.scheduledSequence || 0) - (second.scheduledSequence || 0) || first.matchId.localeCompare(second.matchId)),
     }));
 }
-
 function jointTournamentDayLabel(date, tournamentDocument){
   const start = new Date(`${tournamentDocument.tournament.startDate}T00:00:00Z`);
   const day = new Date(`${date}T00:00:00Z`);
@@ -8771,7 +8772,6 @@ function jointTournamentDayLabel(date, tournamentDocument){
   const label = new Intl.DateTimeFormat("en-AU", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" }).format(day);
   return `Day ${dayNumber} · ${label}`;
 }
-
 function buildJointTournamentDays(tournamentDocument){
   const groups = jointTournamentDayGroups(tournamentDocument);
   if (!groups.length) return null;
@@ -8801,7 +8801,6 @@ function buildJointTournamentDays(tournamentDocument){
   });
   return details;
 }
-
 function jointTournamentDateRange(tournamentDocument){
   const start = new Date(`${tournamentDocument.tournament.startDate}T00:00:00Z`);
   const end = new Date(`${tournamentDocument.tournament.endDate}T00:00:00Z`);
@@ -8811,7 +8810,6 @@ function jointTournamentDateRange(tournamentDocument){
   }
   return `${formatter.format(start)}–${formatter.format(end)}`;
 }
-
 function setJointTournamentDrilldown(panel){
   const card = document.getElementById("cincinnatiTournamentCard");
   mutateWithScrollContinuity(card, () => {
@@ -8823,7 +8821,6 @@ function setJointTournamentDrilldown(panel){
     focusTarget:`#jointTournamentDrilldown-${panel}`,
   });
 }
-
 function buildJointTournamentNavigation(){
   const nav = globalThis.document.createElement("nav");
   nav.className = "joint-tournament-links";
@@ -8846,7 +8843,6 @@ function buildJointTournamentNavigation(){
   });
   return nav;
 }
-
 function buildJointTournamentSchedulePanel(tournamentDocument){
   const section = globalThis.document.createElement("section");
   section.className = "joint-tournament-drilldown joint-tournament-schedule";
@@ -8902,14 +8898,12 @@ function buildJointTournamentSchedulePanel(tournamentDocument){
   }
   return section;
 }
-
 function jointTournamentRankingCompetitions(){
   return (CANONICAL_TAXONOMY.competitions || []).filter(competition => (
     competition.supportsLadder
     && (competition.preferenceDomainId === "sport:tennis" || competition.sportDomainId === "sport:tennis")
   ));
 }
-
 function buildJointTournamentTablesPanel(){
   const section = globalThis.document.createElement("section");
   section.className = "joint-tournament-drilldown";
@@ -8939,13 +8933,11 @@ function buildJointTournamentTablesPanel(){
   renderStandingsContext({ container: body, competitions, sectionLabel: "Tennis rankings" });
   return section;
 }
-
 function buildJointTournamentDrilldown(tournamentDocument){
   if (jointTournamentDrilldownPanel === "schedule") return buildJointTournamentSchedulePanel(tournamentDocument);
   if (jointTournamentDrilldownPanel === "tables") return buildJointTournamentTablesPanel();
   return null;
 }
-
 function buildJointTournamentCard(tournamentDocument = jointTournamentData, { mode = "calendar" } = {}){
   const spoilerView = JOINT_TENNIS_TOURNAMENT?.spoilerSafeView?.(tournamentDocument, userPreferences.showSpoilers) || tournamentDocument;
   const card = tournamentDocument === null ? null : globalThis.document.createElement("section");
@@ -9004,7 +8996,6 @@ function buildJointTournamentCard(tournamentDocument = jointTournamentData, { mo
   }
   return card;
 }
-
 function jointTournamentFeedEvent(document = jointTournamentData){
   const tournament = document?.tournament;
   if (!tournament) return null;
@@ -9023,14 +9014,11 @@ function jointTournamentFeedEvent(document = jointTournamentData){
     tournamentParent: true,
   };
 }
-
 function jointTournamentShouldSurface(document = jointTournamentData){
   void document;
   return false;
 }
-
 function temporaryTodayMoreEvents(){ return []; }
-
 function appendFocusedArchiveRecovery(container, events){
   if (!events.length) return false;
   const filterLabel = selectorEntityById(activeFilter)?.label || "this sport";
@@ -9053,14 +9041,12 @@ function appendFocusedArchiveRecovery(container, events){
   container.appendChild(section);
   return true;
 }
-
 function premiumSurfaceContext(){
   return {
     now: nowAEST(),
     contextForEvent: enrichmentContextForEvent,
   };
 }
-
 function appendPremiumRail(container, items, { id, title, description, className }){
   if (!items.length) return false;
   const section = document.createElement("section");
@@ -9132,7 +9118,6 @@ function buildFeedCardSlot(event){
   return slot;
 }
 function feedCardCardCleanup(slot){feedCardWindowObserver?.unobserve(slot);feedCardSlots.delete(slot);}
-
 function appendFeedPageToCurrentList(incomingEvents){
   if (startupCoordinator.isHydrating() || activeTab !== "feed" || activeView !== "list" || activeSportHubKey()) return false;
   if(committedFeedPresentationFingerprint&&!committedFeedPresentationFingerprint.endsWith('|'+feedClockKey()))return false;
@@ -9209,7 +9194,6 @@ function appendFeedPageToCurrentList(incomingEvents){
   committedFeedPresentationFingerprint = currentFeedPresentationFingerprint();
   return true;
 }
-
 function renderListView(){
   if(activeTab==='feed'&&(feedViewFilters.sport!=='all'||feedViewFilters.minimum)&&!startupCoordinator.isHydrating()){
     if(!feedFilterHydration&&feedFilterHydratedKey!==feedFilterKey())void hydrateFeedFilter();
@@ -9325,7 +9309,6 @@ function renderListView(){
   observeFeedPageSentinel(container);
   scheduleInitialCalendarJump();
 }
-
 function renderStartupFeedLoading(){
   if (activeEvents.length && mergeMainFeedSpecialEvents(getFilteredEvents()).length){
     renderListView();
@@ -9345,15 +9328,12 @@ function renderStartupFeedLoading(){
       </div>`;
   document.getElementById("startupFeedRetryBtn")?.addEventListener("click", () => runStartupFeedBarrier());
 }
-
 function formatDateKey(dt){
   return NOTHINGSPORTS_CALENDAR.sydneyDay(dt);
 }
-
 function activeTodayAnchorId(){
   return activeTab === "events" ? "eventsTodayAnchor" : "calendarTodayAnchor";
 }
-
 function focusedRecentPastDateKey(dateKeys, todayKey, filterValue = activeFilter){
   if (filterValue === "all") return null;
   return (dateKeys || []).reduce((latest, dateKey) => {
@@ -9361,11 +9341,9 @@ function focusedRecentPastDateKey(dateKeys, todayKey, filterValue = activeFilter
     return !latest || dateKey > latest ? dateKey : latest;
   }, null);
 }
-
 function activeInitialFeedAnchorId(){
   return activeTab==='feed'&&document.getElementById('calendarNowAnchor')?'calendarNowAnchor':activeTodayAnchorId();
 }
-
 function scrollActiveFeedToInitialAnchor({ behavior = "auto" } = {}){
   if(activeInspectorCodeId)return scrollInspectorToNow({behavior});
   const anchor = activeTab==='events'?(document.querySelector('.events-now-marker.is-active')||document.querySelector('[data-events-now-for]')||document.getElementById(activeInitialFeedAnchorId())):document.getElementById(activeInitialFeedAnchorId());
@@ -9374,7 +9352,6 @@ function scrollActiveFeedToInitialAnchor({ behavior = "auto" } = {}){
   window.scrollTo({ top: Math.max(0, top), behavior });
   return true;
 }
-
 function scrollActiveFeedToToday({ behavior = "smooth" } = {}){
   const anchor = document.getElementById(activeTodayAnchorId());
   if (!anchor) return false;
@@ -9382,7 +9359,6 @@ function scrollActiveFeedToToday({ behavior = "smooth" } = {}){
   window.scrollTo({ top: Math.max(0, top), behavior });
   return true;
 }
-
 function scrollInspectorToNow({behavior='smooth'}={}){
   if(!codeInspectorChunk||codeInspectorTab==='players')return false;
   const fixtures=(codeInspectorChunk.fixtures||[]).slice().sort((a,b)=>(Date.parse(a.startTimeUtc||a.date||'')||Infinity)-(Date.parse(b.startTimeUtc||b.date||'')||Infinity));
@@ -9393,7 +9369,6 @@ function scrollInspectorToNow({behavior='smooth'}={}){
   const target=document.querySelector(`[data-inspector-fixture-id="${CSS.escape(next.id)}"]`);
   if(!target)return false;window.scrollTo({top:Math.max(0,window.scrollY+target.getBoundingClientRect().top-stickyFeedChromeHeight()-14),behavior});return true;
 }
-
 function syncContextualJumpButton(){
   const button = document.getElementById("jumpTodayBtn");
   if (!button) return;
@@ -9407,7 +9382,6 @@ function syncContextualJumpButton(){
   const compact=Boolean(userPreferences.feedCompact),expand=document.getElementById('timelineExpandBtn');
   expand.innerHTML=glyphMarkup(compact?'ui:expand':'ui:minus',{preferImage:true});expand.setAttribute('aria-label',compact?'Expand all cards':'Collapse all cards');
 }
-
 function keepStartupFeedAtNow(){return !startupReloadRestoreState && !startupFeedNavigationTouched && activeTab==="feed" && activeView==="list" && !activeInspectorCodeId;}
 function scheduleInitialCalendarJump(){
   if(keepStartupFeedAtNow()){calendarInitialJumpPending=false;scrollActiveFeedToInitialAnchor({behavior:"auto"});return;}
@@ -9417,22 +9391,18 @@ function scheduleInitialCalendarJump(){
     window.requestAnimationFrame(() => scrollActiveFeedToInitialAnchor({ behavior: "auto" }));
   });
 }
-
 function sportHubCanonicalFixtures(sportKey = activeSportHubKey()){
   return SPORT_HUBS?.canonicalFixturesForSport(canonicalSportsData, sportKey) || [];
 }
-
 function sportHubMutedParticipantIds(){
   return new Set(); // See docs/shell-source-notes.md
 }
-
 function sportHubCuratedCanonicalIds(sportKey, reference = nowAEST()){
   return new Set(getPreferenceMatchedEvents(reference)
     .filter(event => event.key === sportKey)
     .map(event => event.canonicalEventId)
     .filter(Boolean));
 }
-
 function followedSupportedSportKeys(preferences = userPreferences){
   if (!SPORT_HUBS) return [];
   const selectedDomains = new Set(selectedPreferenceDomainIds(preferences));
@@ -9445,7 +9415,6 @@ function followedSupportedSportKeys(preferences = userPreferences){
     return domainPreference?.enabled !== false && sportHubFullCoverageAllowed(sportKey);
   });
 }
-
 function sportRoundSummaryData(reference = nowAEST()){
   if (!SPORT_HUBS || !canonicalSportsData || activeFilter !== "all" || activeView !== "list") return [];
   const mutedParticipantIds = sportHubMutedParticipantIds();
@@ -9459,11 +9428,9 @@ function sportRoundSummaryData(reference = nowAEST()){
     return summary ? { ...summary, sportKey, sportLabel: sport.label } : null;
   }).filter(Boolean);
 }
-
 function roundSummaryCountCopy(count, singular, plural = `${singular}s`){
   return `${count} ${count === 1 ? singular : plural}`;
 }
-
 function openSportRoundSummary(sportKey, roundNumber){
   const sport = SPORT_HUBS?.sportConfig(sportKey);
   if (!sport) return Promise.resolve();
@@ -9474,7 +9441,6 @@ function openSportRoundSummary(sportKey, roundNumber){
     startingGroup:summary?.roundLabel || `Round ${roundNumber}`,
   });
 }
-
 function buildSportRoundSummaryCard(summary){
   const sportMeta = SPORT_META[summary.sportKey] || {};
   const card = document.createElement("button");
@@ -9542,7 +9508,6 @@ function buildSportRoundSummaryCard(summary){
   });
   return card;
 }
-
 function appendSportRoundSummaries(container){
   const summaries = sportRoundSummaryData();
   if (!summaries.length) return false;
@@ -9554,20 +9519,17 @@ function appendSportRoundSummaries(container){
   container.appendChild(section);
   return true;
 }
-
 function sportHubEmptyState(copy){
   const empty = document.createElement("div");
   empty.className = "sport-hub-empty";
   empty.textContent = copy;
   return empty;
 }
-
 function renderSportHub(){
   if(globalThis.renderSportHubLoaded)return globalThis.renderSportHubLoaded();
   const panel=document.getElementById('listView');panel.textContent='Loading sport…';
   void loadDeferredScript('assets/js/sport-hub-ui.js?v=548').then(()=>{if(activeTab==='feed'&&activeSportHubKey())globalThis.renderSportHubLoaded();}).catch(()=>{if(panel.isConnected){panel.textContent='Sport could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderSportHub;panel.append(retry);}});
 }
-
 function standingsSportKey(competition){
   if (
     competition?.standingsType === "leagueTable"
@@ -9578,7 +9540,6 @@ function standingsSportKey(competition){
       .split(":")
       .at(-1);
 }
-
 function rankingCompetitionsForStandings(preferences = userPreferences){
   const selectedDomains = new Set(selectedPreferenceDomainIds(preferences));
   const graph = preferences?.preferenceGraph;
@@ -9602,12 +9563,10 @@ function rankingCompetitionsForStandings(preferences = userPreferences){
       return true;
     });
 }
-
 function rankingSportKeysForStandings(preferences = userPreferences){
   const keys = new Set(rankingCompetitionsForStandings(preferences).map(standingsSportKey));
   return FILTER_ORDER.filter(key => key !== "all" && keys.has(key));
 }
-
 function standingsFilterSportKeys(preferences = userPreferences){
   return Array.from(new Set(["football", ...rankingSportKeysForStandings(preferences)]));
 }
@@ -9623,7 +9582,6 @@ function defaultStandingsDirectorySession(preferences = userPreferences){
     filtersBySport: {},
   };
 }
-
 function readStandingsDirectorySession(preferences = userPreferences){
   const fallback = defaultStandingsDirectorySession(preferences);
   try{
@@ -9642,17 +9600,14 @@ function readStandingsDirectorySession(preferences = userPreferences){
     return fallback;
   }
 }
-
 function writeStandingsDirectorySession(next){
   const clean = { ...defaultStandingsDirectorySession(), ...next, schemaVersion: STANDINGS_DIRECTORY_SESSION_VERSION };
   try { sessionStorage.setItem(STANDINGS_DIRECTORY_SESSION_KEY, JSON.stringify(clean)); } catch(_error) { }
   return clean;
 }
-
 function updateStandingsDirectorySession(patch){
   return writeStandingsDirectorySession({ ...readStandingsDirectorySession(), ...patch });
 }
-
 function normalizeExpandedTeamIds(raw = {}){
   const legacyExpandedTeamId = typeof raw.expandedTeamId === "string" ? raw.expandedTeamId : "";
   return Array.isArray(raw.expandedTeamIds)
@@ -9661,7 +9616,6 @@ function normalizeExpandedTeamIds(raw = {}){
       ? [legacyExpandedTeamId]
       : [];
 }
-
 function directoryFilters(sportKey = readStandingsDirectorySession().directorySportKey){
   const raw = readStandingsDirectorySession().filtersBySport?.[sportKey] || {};
   const legacyExpandedTeamId = typeof raw.expandedTeamId === "string" ? raw.expandedTeamId : "";
@@ -9681,7 +9635,6 @@ function directoryFilters(sportKey = readStandingsDirectorySession().directorySp
     expandedTeamId: legacyExpandedTeamId,
   };
 }
-
 function updateDirectoryFilters(sportKey, patch){
   const session = readStandingsDirectorySession();
   writeStandingsDirectorySession({
@@ -9692,14 +9645,12 @@ function updateDirectoryFilters(sportKey, patch){
     },
   });
 }
-
 function selectedStandingsSportKeys(preferences = userPreferences){
   const available = standingsFilterSportKeys(preferences);
   const saved = preferences?.standings?.selectedSportKeys;
   if (!Array.isArray(saved)) return [];
   return available.filter(key => saved.includes(key));
 }
-
 function saveStandingsSportKeys(keys){
   const available = standingsFilterSportKeys();
   const selected = available.filter(key => keys.includes(key));
@@ -9711,12 +9662,10 @@ function saveStandingsSportKeys(keys){
   });
   return true;
 }
-
 function setAllStandingsSportKeys(selected){
   saveStandingsSportKeys(selected ? standingsFilterSportKeys() : []);
   renderAll({ preserveViewport: true });
 }
-
 function toggleStandingsSportKey(key){
   const selected = new Set(selectedStandingsSportKeys());
   if (selected.has(key)) selected.delete(key);
@@ -9724,50 +9673,33 @@ function toggleStandingsSportKey(key){
   saveStandingsSportKeys(Array.from(selected));
   renderAll({ preserveViewport: true });
 }
-
-
-
-
-
-
-
-
-
-
-
 function standingsCompetitionMatchesFilter(competition, filterKey){
   const preferenceDomainId = competition.preferenceDomainId || competition.sportDomainId;
   if (preferenceDomainId === `sport:${filterKey}`) return true;
   const selectorEntity = selectorEntityById(preferenceDomainId);
   return selectorEntityCanonicalSportKeys(selectorEntity).includes(filterKey);
 }
-
 function latestStandingsSnapshot(competitionId){
   const snapshots = canonicalSportsData?.ladderSnapshots?.filter(snapshot => snapshot.competitionId === competitionId) || [];
   return snapshots.slice().sort((first, second) => (
     Date.parse(second.snapshotTimeUtc || 0) - Date.parse(first.snapshotTimeUtc || 0)
   ))[0] || null;
 }
-
 function standingsParticipantName(participantId){
   const participant = canonicalSportsData?.participants?.find(item => item.id === participantId);
   return participant?.displayName || participant?.shortName || participantId;
 }
-
 function standingsParticipant(participantId){
   return canonicalSportsData?.participants?.find(item => item.id === participantId) || null;
 }
-
 function standingsTeamName(entry){
   return entry?.teamParticipantId ? standingsParticipantName(entry.teamParticipantId) : "—";
 }
-
 function followedStandingsParticipantIds(){
   return new Set((userPreferences.preferenceGraph?.entityFollows || [])
     .filter(item => item.followLevel === "follow" || item.followLevel === "priority")
     .map(item => item.participantId));
 }
-
 function standingsEntriesForVisibility(snapshot, visibility, followedParticipantIds = followedStandingsParticipantIds()){
   const entries = Array.isArray(snapshot?.entries) ? snapshot.entries : [];
   if (visibility !== "summary") return entries.slice();
@@ -9781,7 +9713,6 @@ function standingsEntriesForVisibility(snapshot, visibility, followedParticipant
   });
   return selected.sort((first, second) => Number(first.rank || 0) - Number(second.rank || 0));
 }
-
 function standingsColumnsForCompetition(competition){
   if (competition.standingsType === "leagueTable"){
     return [
@@ -9868,7 +9799,6 @@ function standingsColumnsForCompetition(competition){
     ["ladderPoints", "Pts"],
   ];
 }
-
 function appendStandingsTable(module, competition, snapshot, visibility){
   const columns = standingsColumnsForCompetition(competition);
   const followed = followedStandingsParticipantIds();
@@ -9925,15 +9855,9 @@ function appendStandingsTable(module, competition, snapshot, visibility){
   wrap.appendChild(table);
   module.appendChild(wrap);
 }
-
-
-
-
-
 function directoryFollowLevel(participantId){
   return userPreferences.preferenceGraph?.entityFollows?.find(item => item.participantId === participantId)?.followLevel || "none";
 }
-
 function followCollectionsById(){
   const collections = {};
   followDirectoryChunks.forEach(chunk => (chunk.collections || []).forEach(collection => {
@@ -9942,7 +9866,6 @@ function followCollectionsById(){
   }));
   return collections;
 }
-
 function ensureFollowCollectionDirectories(preferences = userPreferences){
   const collectionIds = (preferences?.followFirst?.collectionFollows || []).slice();
   const owner = preferenceIntentOwner(), generation = serverStateSyncGeneration, profileId = activeProfileBundle?.profile?.id;
@@ -9966,7 +9889,6 @@ function ensureFollowCollectionDirectories(preferences = userPreferences){
     return results;
   });
 }
-
 function syncDirectoryFollowButton(button, participantId){
   const effective = FOLLOW_FIRST?.effectiveParticipantFollow?.(participantId, userPreferences, followCollectionsById())
     || { followed:["follow", "priority"].includes(directoryFollowLevel(participantId)), source:"explicit" };
@@ -9980,7 +9902,6 @@ function syncDirectoryFollowButton(button, participantId){
   button.setAttribute("aria-pressed", String(followed));
   button.textContent = followed ? "Following" : "Follow";
 }
-
 function buildDirectoryFollowButton(participantId, { sportKey = "football", leagueId = null, label = "Selection", cricketFormat = null } = {}){
   const button = document.createElement("button");
   button.type = "button";
@@ -9995,7 +9916,6 @@ function buildDirectoryFollowButton(participantId, { sportKey = "football", leag
   });
   return button;
 }
-
 function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "football", leagueId = null, label = "Selection", cricketFormat = null } = {}){
   let next = clonePreferences(userPreferences);
   if(sportKey.startsWith("cricket") && cricketFormat)next=NOTHINGSPORTS_CRICKET_COVERAGE.setFormatFollow(next,participantId,cricketFormat,["follow","priority"].includes(followLevel));
@@ -10041,19 +9961,16 @@ function saveFollowSport(sport, followed){
   if(!savePreferences(next,{deliberate:true}))return false;
   renderAll({ preserveViewport:true });
 }
-
 function toggleAustraliaInternationals(){
   const next = clonePreferences(userPreferences);
   next.followFirst.australiaInternationalsEnabled = next.followFirst.australiaInternationalsEnabled === false;
   if(!savePreferences(next,{deliberate:true}))return false;
   renderAll({ preserveViewport:true });
 }
-
 function installFollowEventBulk(container){
   if(globalThis.installFollowEventBulkUI)return globalThis.installFollowEventBulkUI(container);
   void loadDeferredScript('assets/js/follow-event-bulk-ui.js?v=581').then(()=>{if(container.isConnected&&!container.querySelector('.follow-event-bulk'))globalThis.installFollowEventBulkUI(container);});
 }
-
 function toggleMajorEventFollow(eventId){
   const next = clonePreferences(userPreferences);
   const selected = new Set(next.followFirst.followedMajorEventIds || []);
@@ -10068,7 +9985,6 @@ function toggleMajorEventFollow(eventId){
   if(!savePreferences(next,{deliberate:true}))return false;
   renderAll({ preserveViewport:true });
 }
-
 function majorEventVisibilityPreferences(){
   const followedParticipants = followedMajorEventParticipants();
   return {
@@ -10082,9 +9998,6 @@ function majorEventVisibilityPreferences(){
     followedParticipantNames:followedParticipants.names,
   };
 }
-
-
-
 function followBrowseState(){
   if(userPreferences.followBrowse)return userPreferences.followBrowse;
   const firstId=(userPreferences.selectedSelectorEntityIds||[]).find(id=>id.startsWith('sport:'));
@@ -10133,7 +10046,7 @@ const followStandingsLoading=new Set();
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=597';
+  const url='assets/js/follow-presentation-ui.js?v=604';
   return Promise.all([loadDeferredScript('config/participant-directory.js?v=512'),loadDeferredScript(url)]).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function' || typeof globalThis.renderStandingsContextLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);
@@ -10179,14 +10092,13 @@ async function loadMatchCentre(){
   const panel=document.getElementById('listView');
   if(globalThis.renderMatchCentre){globalThis.renderMatchCentre();return;}
   panel.className='match-centre';panel.textContent='Loading Match Centre…';
-  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=595'),loadDeferredScript('config/score-details.js?v=595'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=595')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
+  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=595'),loadDeferredScript('config/score-details.js?v=595'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=604')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
 }
 function renderTeamsAndPlayersDirectory(container){
   if(typeof globalThis.renderTeamsAndPlayersDirectoryLoaded==='function')return globalThis.renderTeamsAndPlayersDirectoryLoaded(container);
   const tab=activeTab;
   showFollowPresentationLoading(container,()=>{container.replaceChildren();renderTeamsAndPlayersDirectory(container);},()=>container.isConnected && activeTab===tab);
 }
-
 function renderStandingsContext(options = {}){
   if(typeof globalThis.renderStandingsContextLoaded==='function')return globalThis.renderStandingsContextLoaded(options);
   const embedded = Boolean(options.container);
@@ -10203,7 +10115,6 @@ function renderStandingsContext(options = {}){
   const tab = activeTab;
   showFollowPresentationLoading(container,()=>renderStandingsContext(options),()=>container.isConnected && activeTab===tab);
 }
-
 function groupEventsByDate(events,{feed=false}={}){
   return events.reduce((groups, ev) => {
     const date=feed?NOTHINGSPORTS_FEED_TIMELINE.displayDate(ev,nowAEST()):ev.date;
@@ -10212,13 +10123,11 @@ function groupEventsByDate(events,{feed=false}={}){
     return groups;
   }, {});
 }
-
 function eventEndDateTime(ev){
   if (ev.dateOnly && ev.endDate) return new Date(`${ev.endDate}T23:59:59+10:00`);
   const start = eventDateTime(ev);
   return new Date(start.getTime() + (ev.liveWindow || 3) * 3600 * 1000);
 }
-
 function archivedEvents(){
   const explicit = CARD_LIFECYCLE
     ? CARD_LIFECYCLE.rebuildArchive(archivedEventRefs, activeEvents).events
@@ -10231,7 +10140,6 @@ function archivedEvents(){
   [...explicit, ...automatic].forEach(ev => byId.set(ev.eventId || ev.id, ev));
   return Array.from(byId.values());
 }
-
 function formatFeedbackTimestamp(date = new Date()){
   return new Intl.DateTimeFormat("en-AU", {
     timeZone: "Australia/Sydney",
@@ -10245,7 +10153,6 @@ function formatFeedbackTimestamp(date = new Date()){
     timeZoneName: "short",
   }).format(date);
 }
-
 function buildFeedbackMessage(category, message, date = new Date()){
   return [
     "Nothing Sport feedback",
@@ -10259,7 +10166,6 @@ function buildFeedbackMessage(category, message, date = new Date()){
     "Sent from Nothing Sport",
   ].join("\n");
 }
-
 function buildFeedbackSmsUrl(category, message, date = new Date()){
   return `sms:${FEEDBACK_RECIPIENT}?&body=${encodeURIComponent(buildFeedbackMessage(category, message, date))}`;
 }
@@ -10298,7 +10204,6 @@ window.addEventListener("keydown", noteInputPaint, {capture:true,passive:true});
 function majorEventDateLabel(record){
   return NOTHINGSPORTS_AUSTRALIAN_DATES.programme(record);
 }
-
 function majorEventIdentityEvent(record){
   return {
     key: record.sportKey,
@@ -10308,7 +10213,6 @@ function majorEventIdentityEvent(record){
     brandId: /nrl-finals-series/i.test(String(record.id || "")) ? "nrl-finals-series" : null,
   };
 }
-
 function majorEventNothingscoreEvent(record){
   return {
     ...record,
@@ -10324,7 +10228,6 @@ function majorEventNothingscoreEvent(record){
     liveWindow:24,
   };
 }
-
 function majorSubEventNothingscoreEvent(subEvent, record, fixture = null){
   return fixture || {
     ...subEvent,
@@ -10341,7 +10244,6 @@ function majorSubEventNothingscoreEvent(subEvent, record, fixture = null){
     liveWindow:Number(subEvent.liveWindow || 3),
   };
 }
-
 function majorEventActionEvent(record){
   const fixtures = visibleMajorEventSubEvents(record)
     .map(subEvent => majorEventFixtureSnapshot(subEvent, record))
@@ -10377,7 +10279,6 @@ function majorEventActionEvent(record){
     representativeCountryCodes: record.representativeCountryCodes || [],
   };
 }
-
 function buildMajorEventTicketLink(record, className = "major-event-ticket-link event-quick-action"){
   const offer = preferredTicketOfferForEvent({ ...record, majorEventId: record.parentEventId || record.id }, { surface: "events", localVenueMatched: false });
   if (!offer) return null;
@@ -10394,7 +10295,6 @@ function buildMajorEventTicketLink(record, className = "major-event-ticket-link 
   link.title = `${offer.provider} - verified ${new Date(offer.verifiedAt).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}`;
   return link;
 }
-
 function prioritisedMajorEventSubEvents(record, limit = Infinity){
   const scheduled = visibleMajorEventSubEvents(record).map((subEvent, order) => ({
     subEvent,
@@ -10405,7 +10305,6 @@ function prioritisedMajorEventSubEvents(record, limit = Infinity){
   scheduled.sort((left, right) => left.sortTime - right.sortTime || left.order - right.order);
   return Number.isFinite(limit) ? scheduled.slice(0, limit) : scheduled;
 }
-
 function majorEventTimelineDateLabel(item){
   const todayKey = MAJOR_EVENTS.dateKey?.(nowAEST()) || formatDateKey(nowAEST());
   const tomorrow = new Date(`${todayKey}T00:00:00Z`);
@@ -10413,7 +10312,6 @@ function majorEventTimelineDateLabel(item){
   const tomorrowKey = tomorrow.toISOString().slice(0, 10);
   return item.localDate === tomorrowKey ? `Tomorrow · ${item.displayDate}` : item.displayDate;
 }
-
 function buildMajorEventSchedule(record, { level = "L2", headingText = "Published matches", compact = false, includeOlder = false } = {}){
   const timeline = MAJOR_EVENTS.phaseTimeline({ ...record, subEvents:visibleMajorEventSubEvents(record) }, nowAEST(), { level, timeZone:"Australia/Sydney", includeOlder });
   const timelineItems = compact
@@ -10461,7 +10359,6 @@ function buildMajorEventSchedule(record, { level = "L2", headingText = "Publishe
   section.append(heading, list);
   return section;
 }
-
 function buildMajorEventTablePreview(record){
   if (record.scheduleAdapter !== "joint-tennis-tournament-2026") return null;
   const section = document.createElement("section");
@@ -10489,7 +10386,6 @@ function buildMajorEventTablePreview(record){
   });
   return section.children.length > 1 ? section : null;
 }
-
 function buildMajorEventDraw(record){
   const subEvents = majorEventSubEvents(record);
   if (subEvents.length < 2) return null;
@@ -10559,7 +10455,6 @@ function buildMajorEventDraw(record){
   figure.append(caption, scroller);
   return figure;
 }
-
 function buildMajorEventCard(record, options = {}){
   try {return buildDetailedMajorEventCard(record,options);}
   catch (_error){
@@ -10570,8 +10465,6 @@ function buildMajorEventCard(record, options = {}){
     return card;
   }
 }
-
-
 function focusMajorEventSchedule(eventId){
   const selector = `[data-major-event-timetable="${CSS.escape(String(eventId))}"]`;
   const target = document.querySelector(selector);
@@ -10583,7 +10476,6 @@ function focusMajorEventSchedule(eventId){
   target.focus({ preventScroll:true });
   return true;
 }
-
 function focusMajorEventCard(eventId){
   const targetId = `major-event-card-${String(eventId || "").replace(/[^a-z0-9_-]/gi, "-")}`;
   const target = document.getElementById(targetId);
@@ -10606,7 +10498,6 @@ function focusMajorEventCard(eventId){
   }, 450);
   return true;
 }
-
 function focusTicketAlertCard(alertId){
   const targetId = `ticket-sale-card-${String(alertId || "").replace(/[^a-z0-9_-]/gi, "-")}`;
   const target = document.getElementById(targetId);
@@ -10616,17 +10507,14 @@ function focusTicketAlertCard(alertId){
   target.scrollIntoView({ behavior: "auto", block: "start" });
   return true;
 }
-
 function eventsDeepLinkHash(type, id){
   return `#events/${type}/${encodeURIComponent(id)}`;
 }
-
 function eventsDeepLinkFromLocation(){
   const match = String(window.location.hash || "").match(/^#events\/(major|alert|tournament)\/(.+)$/);
   if (!match) return null;
   try{ return { type: match[1], id: decodeURIComponent(match[2]) }; }catch(_error){ return null; }
 }
-
 function resolveMajorEventId(eventId){
   const requested = String(eventId || "");
   const records = majorEventsDocument?.events || [];
@@ -10638,7 +10526,6 @@ function resolveMajorEventId(eventId){
   const reference = formatDateKey(nowAEST());
   return related.find(record => (record.endDate || record.startDate || "") >= reference)?.id || related[related.length - 1].id;
 }
-
 function openMajorEventInEvents(eventId, { pushHistory = true, tournament = false } = {}){
   const codeTarget = COMPETITION_CLASSIFICATION?.legacyNavigationTarget?.(eventId);
   if (!tournament && codeTarget?.codeId){
@@ -10659,7 +10546,6 @@ function openMajorEventInEvents(eventId, { pushHistory = true, tournament = fals
   if (pushHistory && window.location.hash !== hash) history.pushState({ eventsDeepLink: { type: "major", id: resolvedEventId } }, "", hash);
   activateTopLevelTab("events", { resetViewport:false });
 }
-
 function openTicketAlertInEvents(alertId, { pushHistory = true } = {}){
   if (!eventsDeepLinkReturnState){
     eventsDeepLinkReturnState = { activeTab, activeView, activeFilter, scrollY: window.scrollY };
@@ -10671,7 +10557,6 @@ function openTicketAlertInEvents(alertId, { pushHistory = true } = {}){
   if (pushHistory && window.location.hash !== hash) history.pushState({ eventsDeepLink: { type: "alert", id: alertId } }, "", hash);
   activateTopLevelTab("events", { resetViewport:false });
 }
-
 function buildTicketSaleCard(record, {interactionCard=null}={}){
   const card=buildMajorEventCard(record,{interactionCard});
   card.classList.add('ticket-sale-card');card.dataset.ticketAlertId=record.id;
@@ -10682,17 +10567,14 @@ function buildTicketSaleCard(record, {interactionCard=null}={}){
   if(!card.classList.contains('is-compact-row'))card.querySelector('.major-event-identity')?.appendChild(sale);
   return card;
 }
-
 function buildMajorEventMarker(event){
   const card=buildTournamentMarker(event);card.classList.add('feed-major-event-card');card.dataset.majorEventMarker=event.majorEventId;return card;
 }
-
 function compareDismissedEventRecords(first, second){
   const firstAt = Date.parse(getEventAction(majorEventActionEvent(first)).eventsDismissedAt || "") || 0;
   const secondAt = Date.parse(getEventAction(majorEventActionEvent(second)).eventsDismissedAt || "") || 0;
   return firstAt - secondAt || MAJOR_EVENTS.compareRecords(first, second, nowAEST());
 }
-
 function buildDismissedEventStub(record){
   const event = majorEventActionEvent(record);
   const action = getEventAction(event);
@@ -10716,10 +10598,9 @@ function buildDismissedEventStub(record){
   stub.append(copy, restore);
   return stub;
 }
-
 async function renderEventOverviews(container){
  const host=document.createElement('div');host.className='event-overviews-host';container.append(host);
- try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=595');
+ try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=604');
  if(!host.isConnected)return;
  return NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(host);
  }catch{if(!host.isConnected)return;const notice=document.createElement('p');notice.textContent='Events could not load. Open a sport’s Schedule in Follow.';host.append(notice);}
@@ -10911,7 +10792,6 @@ function renderEventsView(){
   }
   window.requestAnimationFrame(syncContextualJumpButton);
 }
-
 function activateTopLevelTab(nextTab, { resetViewport = true, athleteMatch = false } = {}){
   if(nextTab === "events") nextTab = "match-centre";
   if(nextTab!=='follow')globalThis.NOTHINGSPORTS_ATHLETES_UI?.stop();
@@ -10995,7 +10875,6 @@ function feedEventsForPresentationFingerprint(){
     ? activeEvents.filter(event => event.key === hubSportKey)
     : getFilteredEvents();
 }
-
 function currentFeedPresentationFingerprint(){
   if (!FEED_REFRESH_LIFECYCLE) return null;
   return FEED_REFRESH_LIFECYCLE.presentationFingerprint({
@@ -11003,7 +10882,6 @@ function currentFeedPresentationFingerprint(){
     derivedCards: derivedCardCache?.derivedCards || [],
   })+'|'+feedClockKey();
 }
-
 function renderFeedIfPresentationChanged({ preserveViewport = true } = {}){
   if (startupCoordinator.isHydrating()){renderAll({preserveViewport});return true;}
   if(activeTab==='follow')return false;
@@ -11018,7 +10896,6 @@ function renderFeedIfPresentationChanged({ preserveViewport = true } = {}){
   renderAll({ preserveViewport });
   return true;
 }
-
 function renderCurrentSection(){
   if((activeTab==='follow'&&followHomeView==='favourites')){void loadAthletes();return;}
   if (activeInspectorCodeId){
@@ -11036,7 +10913,6 @@ function renderCurrentSection(){
   } else renderListView();
   scheduleIdentityImageRecovery(document.getElementById("listView") || document);
 }
-
 function renderTabCounts(){
   const feedCount = getPreferenceMatchedEvents()
     .filter(ev => !getEventAction(ev).archived && !getEventAction(ev).dismissed && !eventIsAutoArchived(ev))
@@ -11052,7 +10928,6 @@ function renderTabCounts(){
   document.getElementById("followTabCount").textContent = (userPreferences.preferenceGraph?.entityFollows || [])
     .filter(item => ["follow", "priority"].includes(item.followLevel)).length;
 }
-
 function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   if(activeTab==='follow'&&document.querySelector('#listView .follow-more-dialog[open]'))return;
   if(userPreferences.fantasyDeadlines.enabled)void ensureFantasyUi().then(()=>globalThis.fantasyDeadlineController.sync()).catch(()=>{});
@@ -11145,41 +11020,33 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   scheduleIdentityImageRecovery(listView);
   syncNothingscoreReadRecovery();
 }
-
 function firstNormalFeedCard(){
   return document.querySelector('#listView .joint-tournament-card, #listView .event-card:not(.mode-archived-focused):not(.mode-today-more)');
 }
-
 function scheduleFirstCardViewportFit(){
   syncFeedFilterDockOffset();
 }
-
 function clonePreferences(prefs){
   return typeof structuredClone === "function" ? structuredClone(prefs) : JSON.parse(JSON.stringify(prefs));
 }
-
 function toggleArrayValue(list, value){
   return list.includes(value) ? list.filter(item => item !== value) : list.concat(value);
 }
-
 function restoreViewportAnchorAfterLayout(anchor){
   if (!anchor) return;
   window.requestAnimationFrame(() => {
     window.requestAnimationFrame(() => restoreViewportRenderAnchor(anchor));
   });
 }
-
 function selectorNewMarkerMarkup(entity){
   return entity?.isNew ? '<span class="new-dot" aria-label="New selector item"></span>' : "";
 }
-
 function syncDraftSelectorSports(){
   draftPreferences.selectedSelectorEntityIds = normalizeSelectorEntityIds(draftPreferences.selectedSelectorEntityIds);
   draftPreferences.followedSports = canonicalSportKeysForSelectorIds(draftPreferences.selectedSelectorEntityIds);
   draftPreferences.taxonomySelection = taxonomySelectionForSelectorIds(draftPreferences.selectedSelectorEntityIds);
   syncDraftPreferenceGraph();
 }
-
 function syncDraftPreferenceGraph(){
   if (!draftPreferences || !PREFERENCE_SYSTEM) return;
   const broadcasterIds = Object.keys(BROADCASTER_LIBRARY);
@@ -11195,13 +11062,11 @@ function syncDraftPreferenceGraph(){
   }, broadcasterIds);
   draftPreferences.preferenceGraph = graph;
 }
-
 function selectorCategoryLeafIds(categoryId){
   if (categoryId === "category:sports") return BASE_SPORT_SELECTOR_ENTITIES.map(entity => entity.id);
   if (categoryId === "category:special-events") return (SELECTOR_TAXONOMY.specialEvents || []).map(entity => entity.id);
   return [];
 }
-
 function clearSelectorCategoryFromDraft(categoryId){
   const removeIds = new Set([categoryId, ...selectorCategoryLeafIds(categoryId)]);
   if (categoryId === "category:special-events"){
@@ -11210,13 +11075,11 @@ function clearSelectorCategoryFromDraft(categoryId){
   draftPreferences.selectedSelectorEntityIds = draftPreferences.selectedSelectorEntityIds.filter(id => !removeIds.has(id));
   syncDraftSelectorSports();
 }
-
 function setDraftSelectorCategory(categoryId, selected){
   clearSelectorCategoryFromDraft(categoryId);
   if (selected) draftPreferences.selectedSelectorEntityIds.push(categoryId);
   syncDraftSelectorSports();
 }
-
 function toggleSelectorEntityInDraft(entityId){
   const selected = new Set(draftPreferences.selectedSelectorEntityIds);
   const entity = selectorEntityById(entityId);
@@ -11280,7 +11143,6 @@ function tuningInteractionDelta(){
   const current = userPreferences.preferenceGraph?.learning?.tuningInteractionCount || 0;
   return Math.max(0, current - (tuneSessionRuntime?.interactionCountAtStart || current));
 }
-
 function startTuneSession(){
   if (tuneSessionRuntime) return tuneSessionRuntime;
   tuneSessionRuntime = {
@@ -11294,7 +11156,6 @@ function startTuneSession(){
   });
   return tuneSessionRuntime;
 }
-
 function closeTuneSession(action = "exited"){
   if (!tuneSessionRuntime || tuneSessionRuntime.closed) return;
   tuneSessionRuntime.closed = true;
@@ -11305,14 +11166,12 @@ function closeTuneSession(action = "exited"){
   });
   tuneSessionRuntime = null;
 }
-
 function persistTuningGraph(graph){
   const next = clonePreferences(userPreferences);
   next.preferenceGraph = graph;
   if(!savePreferences(next,{deliberate:true}))return false;
   draftPreferences = clonePreferences(userPreferences);
 }
-
 function applyFineTuneChoice(target, value){
   if (!target || !PREFERENCE_SYSTEM || ![-1, 1].includes(value)) return;
   startTuneSession();
@@ -11338,7 +11197,6 @@ function applyFineTuneChoice(target, value){
   renderSettingsScreen();
   showToast(`${target.label}: ${value > 0 ? "more" : "less"} like this saved.`);
 }
-
 function completeFineTuneSession(){
   startTuneSession();
   const graph = PREFERENCE_SYSTEM.completeTuningSession(userPreferences.preferenceGraph);
@@ -11349,14 +11207,12 @@ function completeFineTuneSession(){
   renderSettingsScreen();
   showToast("Tune session saved. Your curated ranking is already updated.");
 }
-
 function tuningSummaryCopy(learning){
   const interactions = learning?.tuningInteractionCount || 0;
   const domains = learning?.tuningDomainIds?.length || 0;
   const sessions = learning?.completedTuningSessionCount || 0;
   return `${interactions} interaction${interactions === 1 ? "" : "s"} · ${domains} domain${domains === 1 ? "" : "s"} · ${sessions} completed session${sessions === 1 ? "" : "s"}`;
 }
-
 function renderFineTuningSettings(body){
   startTuneSession();
   const sections = FINE_TUNING?.sections || [];
@@ -11404,29 +11260,24 @@ function renderFineTuningSettings(body){
   });
   document.getElementById("completeTuneSessionBtn")?.addEventListener("click", completeFineTuneSession);
 }
-
 function preferenceDomainLabel(domainId){
   return selectorEntityById(domainId)?.label
     || CANONICAL_TAXONOMY.sportDomains?.find(domain => domain.id === domainId)?.name
     || domainId.replace(/^(sport|special):/, "");
 }
-
 function preferenceDomainById(domainId){
   return draftPreferences?.preferenceGraph?.domainPreferences?.find(preference => preference.sportDomainId === domainId) || null;
 }
-
 function wizardProgressMarkup(){
   if (!settingsFirstRun) return "";
   return `<div class="wizard-progress" aria-label="Setup step ${settingsWizardStep + 1} of ${ONBOARDING_SECTIONS.length}">${ONBOARDING_SECTIONS.map((_step, index) => `<span class="${index < settingsWizardStep ? "complete" : index === settingsWizardStep ? "active" : ""}"></span>`).join("")}</div>`;
 }
-
 function closeQuickAddPrompt(){
   const modal = document.getElementById("quickAddModal");
   modal.classList.remove("show");
   modal.setAttribute("aria-hidden", "true");
   pendingQuickAddDomainId = null;
 }
-
 function openQuickAddPrompt(domainId){
   pendingQuickAddDomainId = domainId;
   const label = preferenceDomainLabel(domainId);
@@ -11436,7 +11287,6 @@ function openQuickAddPrompt(domainId){
   modal.classList.add("show");
   modal.setAttribute("aria-hidden", "false");
 }
-
 function handleSelectorDomainToggle(domainId){
   const isSelected = selectorEntityIsEffectivelySelected(domainId, draftPreferences);
   if (!isSelected && !settingsFirstRun && userPreferences.onboardingComplete){
@@ -11448,7 +11298,6 @@ function handleSelectorDomainToggle(domainId){
     draftPreferences.preferenceGraph = PREFERENCE_SYSTEM?.disableDomain(draftPreferences.preferenceGraph, domainId) || draftPreferences.preferenceGraph;
   }
 }
-
 function applyQuickAdd(customise = false){
   const domainId = pendingQuickAddDomainId;
   if (!domainId) return;
@@ -11494,7 +11343,6 @@ function openSettings({ firstRun = false, section = "main" } = {}){
   settingsBackgroundInert(true);
   document.getElementById('closeSettingsBtn').focus({preventScroll:true});
 }
-
 function closeSettings({ restoreTheme = true, restoreViewport = true, preserveAccountJourney = false } = {}){
   globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI?.clearLocalRecovery?.(document.getElementById("settingsBody"));
   if(!preserveAccountJourney)globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.finish(null);
@@ -11523,7 +11371,6 @@ function closeSettings({ restoreTheme = true, restoreViewport = true, preserveAc
   if (restoreViewport) restoreViewportAnchorAfterLayout(viewportAnchor);
   setTimeout(openSelectorOptInPrompt, 0);
 }
-
 function openFirstRunSettingsAfterFeedAlignment(){
   window.requestAnimationFrame(() => {
     window.requestAnimationFrame(() => {
@@ -11531,8 +11378,6 @@ function openFirstRunSettingsAfterFeedAlignment(){
     });
   });
 }
-
-
 function setStandingsSpoilerModalOpen(open){
   const modal = document.getElementById("standingsSpoilerModal");
   modal.classList.toggle("show", open);
@@ -11542,7 +11387,6 @@ function setStandingsSpoilerModalOpen(open){
     open || document.getElementById("settingsModal").classList.contains("show")
   );
 }
-
 function confirmStandingsReveal(onConfirm){
   if (userPreferences.showSpoilers || standingsRevealApproved){
     onConfirm();
@@ -11551,14 +11395,12 @@ function confirmStandingsReveal(onConfirm){
   pendingStandingsReveal = onConfirm;
   setStandingsSpoilerModalOpen(true);
 }
-
 function selectionActionsMarkup(group, label){
   return `<div class="selection-actions" aria-label="${label} selection controls">
     <button class="selection-action" type="button" data-selection-group="${group}" data-selection-action="select-all">Select all</button>
     <button class="selection-action" type="button" data-selection-group="${group}" data-selection-action="deselect-all">Deselect all</button>
   </div>`;
 }
-
 function bindSelectionActions(body, group, selectAll, deselectAll){
   body.querySelector(`[data-selection-group="${group}"][data-selection-action="select-all"]`)?.addEventListener("click", () => {
     selectAll();
@@ -11569,8 +11411,6 @@ function bindSelectionActions(body, group, selectAll, deselectAll){
     renderSettingsScreen();
   });
 }
-
-
 function navigateSettingsSection(section, { replace = false } = {}){
   const nextSection = String(section || "main");
   if (nextSection === settingsSection) return;
@@ -11579,13 +11419,11 @@ function navigateSettingsSection(section, { replace = false } = {}){
   settingsSection = nextSection;
   renderSettingsScreen();
 }
-
 function navigateBackInSettings(){
   settingsFocusedDomainId = null;
   settingsSection = settingsNavigationStack.pop() || "main";
   renderSettingsScreen();
 }
-
 function openLegalDocument(documentKey){
   const section = documentKey === "terms" ? "terms" : "privacy";
   const modalOpen = document.getElementById("settingsModal")?.classList.contains("show");
@@ -11595,8 +11433,6 @@ function openLegalDocument(documentKey){
   }
   openSettings({ section });
 }
-
-
 function showPasswordRecoveryState({ invalid = false, success = false } = {}){
   const modal = document.getElementById("passwordRecoveryModal");
   const form = document.getElementById("passwordRecoveryForm");
@@ -11619,7 +11455,6 @@ function showPasswordRecoveryState({ invalid = false, success = false } = {}){
     window.requestAnimationFrame(() => document.getElementById("recoveryPassword")?.focus());
   }
 }
-
 function bindPasswordRecoveryFlow(){
   if (!activeRecoverySession) return;
   showPasswordRecoveryState({ invalid:Boolean(activeRecoverySession.invalid) });
@@ -11685,7 +11520,6 @@ function bindPasswordRecoveryFlow(){
     openSettings({ section:"account" });
   });
 }
-
 function appendPublicProfileAccountSettings(body){
   const section = document.createElement("section");
   section.className = "filter-panel";
@@ -11746,7 +11580,6 @@ function appendPublicProfileAccountSettings(body){
   }
   body.querySelector(".preference-stack")?.appendChild(section);
 }
-
 function activeLocalPreferenceRecovery(reference = Date.now()){
   const stored = readStorage(PREFERENCE_RESET_STORAGE_KEY, null);
   if (!stored?.resetId || !stored?.preferences || Date.parse(stored.expiresAt || "") <= Number(reference)){
@@ -11755,7 +11588,6 @@ function activeLocalPreferenceRecovery(reference = Date.now()){
   }
   return stored;
 }
-
 function setPreferenceRecovery(value){
   preferenceRecovery = value?.resetId && Date.parse(value.expiresAt || "") > Date.now()
     ? { resetId:String(value.resetId), createdAt:value.createdAt || null, expiresAt:value.expiresAt }
@@ -11896,7 +11728,6 @@ function appendPreferenceRecoverySettings(body){
     });
   }).catch(error => { placeholder.querySelector("p").textContent = error.message || "Recovery controls could not load."; });
 }
-
 function renderAccountSettings(body){
   if (serverPersistence.state === "checking" && !serverSyncClient?.getSession?.()) void ensureServerSyncStatus();
   const state = serverPersistence.state;
@@ -12075,7 +11906,6 @@ function renderAccountSettings(body){
   });
   appendPreferenceRecoverySettings(body);
 }
-
 function renderPilotSettings(body){
   const signedIn = Boolean(serverPersistence.user);
   const pilot = pilotMeasurementPreferences();
@@ -12208,26 +12038,18 @@ function renderPilotSettings(body){
     }
   });
 }
-
 function renderSettingsMenu(body){body.textContent='Loading settings…';void ensureFantasyUi().then(()=>{if(settingsSection==='main'&&body.isConnected)NOTHINGSPORTS_ARCHIVE_SETTINGS_UI.renderSettingsMenu(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});}
-
 function renderSubscriptionSettings(body){
   void ensureFantasyUi().then(ui=>{if(settingsSection==='subscriptions')ui.renderSubscriptionSettings(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});
 }
-
 function renderNotificationSettings(body){
   void ensureFantasyUi().then(ui=>{if(settingsSection==='notifications')ui.renderNotificationSettings(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});
 }
-
 function renderLocationSettings(body){
   void ensureFantasyUi().then(ui=>{if(settingsSection==='location')ui.renderLocationSettings(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});
 }
-
 function renderArchiveSettings(body){body.textContent='Loading settings…';void ensureFantasyUi().then(()=>{if(settingsSection==='archive'&&body.isConnected)NOTHINGSPORTS_ARCHIVE_SETTINGS_UI.renderArchiveSettings(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});}
-
-
 function renderHiddenEventsSettings(body){body.textContent='Loading settings…';void ensureFantasyUi().then(()=>{if(settingsSection==='hidden'&&body.isConnected)NOTHINGSPORTS_ARCHIVE_SETTINGS_UI.renderHiddenEventsSettings(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});}
-
 function coverageModeFor(preference){
   if (preference?.includeAllFixtures) return "all";
   if (preference?.includeFollowedTeams) return "majorFollowed";
@@ -12256,7 +12078,6 @@ const PREFERENCE_TO_CANONICAL_DOMAIN = Object.freeze({
 function canonicalDomainIdForPreferenceDomain(domainId){
   return PREFERENCE_TO_CANONICAL_DOMAIN[domainId] || domainId;
 }
-
 function competitionsForPreferenceDomain(domainId){
   const canonicalDomainId = canonicalDomainIdForPreferenceDomain(domainId);
   if (canonicalDomainId.startsWith("competition:")){
@@ -12267,7 +12088,6 @@ function competitionsForPreferenceDomain(domainId){
     && (!competition.preferenceDomainId || competition.preferenceDomainId === domainId)
   ));
 }
-
 function participantsForPreferenceDomain(domainId){
   const canonicalDomainId = canonicalDomainIdForPreferenceDomain(domainId);
   const explicitlyScoped = canonicalPreferenceParticipants.filter(participant => (
@@ -12286,7 +12106,6 @@ function participantsForPreferenceDomain(domainId){
   if (domainIsReservedForAnotherPreference) return [];
   return canonicalPreferenceParticipants.filter(participant => participant.sportDomainId === canonicalDomainId);
 }
-
 function detailedCoverageDomainIds(preferences){
   return selectedPreferenceDomainIds(preferences).filter(domainId => {
     const preference = preferences?.preferenceGraph?.domainPreferences?.find(item => item.sportDomainId === domainId);
@@ -12297,7 +12116,6 @@ function detailedCoverageDomainIds(preferences){
       || participants.some(participant => ["team", "nationalSide", "competitor", "pair"].includes(participant.type));
   });
 }
-
 async function loadCanonicalSportsData(){
   if (canonicalSportsData || canonicalSportsDataLoading) return canonicalSportsData;
   const hydration = startupFunnelFinished ? beginInSessionLoading("Loading Standings") : null;
@@ -12334,11 +12152,9 @@ async function loadCanonicalSportsData(){
   }
   return canonicalSportsData;
 }
-
 async function loadCanonicalPreferenceParticipants(){
   return loadCanonicalSportsData();
 }
-
 function renderFeedbackSettings(body){
   body.innerHTML = `<form id="feedbackForm"><div class="preference-stack"><label class="field-label" for="feedbackCategory">Category<select id="feedbackCategory" required><option>Add a sport</option><option>Add a competition</option><option>Bug report</option><option selected>General feedback</option><option>Feature request</option></select></label><label class="field-label" for="feedbackMessage">Message<textarea id="feedbackMessage" maxlength="800" required placeholder="Tell us what should change or what Nothing Sport is missing."></textarea></label><div class="sms-preview" id="feedbackPreview" aria-live="polite"></div><button class="btn primary" type="submit">Open SMS composer</button><p class="preference-help">Creates a prefilled SMS to 0437 041 326. Nothing is sent until you press Send in Messages.</p></div></form><section class="filter-panel privacy-summary" aria-labelledby="feedbackPrivacyTitle"><h3 id="feedbackPrivacyTitle">Privacy, briefly</h3><ul><li><strong>What is sent:</strong> your selected category and message are placed in an SMS draft.</li><li><strong>When it is shared:</strong> only after you press Send in Messages; Nothing Sport does not send the draft itself.</li><li><strong>Deletion or privacy questions:</strong> text 0437 041 326, or read the <a href="/privacy.html">Privacy Policy</a>.</li></ul></section>`;
   const category = document.getElementById("feedbackCategory");
@@ -12348,7 +12164,6 @@ function renderFeedbackSettings(body){
   document.getElementById("feedbackForm").addEventListener("submit", submitFeedbackForm);
   updateFeedbackPreview();
 }
-
 function saveFantasySetting(next){globalThis.NOTHINGSPORTS_FANTASY_UI?.save(next);}
 function renderFantasySettings(body){
   body.textContent='Loading fantasy settings…';
@@ -12357,11 +12172,9 @@ function renderFantasySettings(body){
 function renderAppearanceSettings(body){
   void ensureFantasyUi().then(ui=>{if(settingsSection==='appearance')ui.renderAppearanceSettings(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});
 }
-
 function renderAboutSettings(body){
   void ensureFantasyUi().then(ui=>{if(settingsSection==='about')ui.renderAboutSettings(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});
 }
-
 function renderLegalSettings(body, documentKey){
   const legalDocuments = {
     privacy:{ path:"/privacy.html", other:"terms", otherLabel:"Terms & Conditions" },
@@ -12413,11 +12226,9 @@ function renderLegalSettings(body, documentKey){
     }
   })();
 }
-
 function startupMetaDraft(){
   return FOLLOW_FIRST.normalizeMeta(draftPreferences.followFirst?.startupMeta || {});
 }
-
 function applyStartupMetaDraft(patch){
   const current = startupMetaDraft();
   const meta = FOLLOW_FIRST.normalizeMeta({ ...current, ...patch, source:"user" });
@@ -12426,7 +12237,6 @@ function applyStartupMetaDraft(patch){
   syncDraftPreferenceGraph();
   return meta;
 }
-
 async function resolveSetupLocation(query){
   const response = await fetch(`/api/location?q=${encodeURIComponent(query)}`, { headers:{ Accept:"application/json" } });
   const payload = await response.json().catch(() => ({}));
@@ -12434,7 +12244,6 @@ async function resolveSetupLocation(query){
   applyStartupMetaDraft({ location:{ ...payload.location, radiusKm:startupMetaDraft().location.radiusKm, mode:"home", source:payload.location.source || "places", updatedAt:new Date().toISOString() } });
   renderSettingsScreen();
 }
-
 async function useCurrentSetupLocation(){
   if (!navigator.geolocation) throw new Error("Location is not supported on this device.");
   const position = await new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy:false, timeout:10000, maximumAge:300000 }));
@@ -12451,12 +12260,10 @@ async function useCurrentSetupLocation(){
   applyStartupMetaDraft({ location:{ label, region, countryCode:"AU", latitude, longitude, radiusKm:startupMetaDraft().location.radiusKm, mode:"automatic", source:"system", updatedAt:new Date().toISOString() } });
   renderSettingsScreen();
 }
-
 function renderStartupMetadataSettings(body){
   body.textContent='Loading setup…';
   void ensureFantasyUi().then(ui=>{if(settingsSection==='startup')ui.renderStartupSettings(body);}).catch(()=>{body.textContent='Setup temporarily unavailable. Try again.';});
 }
-
 async function renderAllFollowedSettings(body){
   body.textContent='Loading follows…';
   try{
@@ -12468,7 +12275,6 @@ async function renderAllFollowedSettings(body){
     });
   }catch(error){body.textContent='Could not load follows. Close and reopen to retry.';}
 }
-
 function renderSettingsScreen(){
   const body = document.getElementById("settingsBody");
   if(settingsSection!=="account")globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI?.clearLocalRecovery?.(body);
@@ -12524,7 +12330,6 @@ function renderSettingsScreen(){
   else if (settingsSection === "pilot") renderPilotSettings(body);
   else renderSettingsMenu(body);
 }
-
 function productSportForPreferenceIdentifier(identifier){
   const selector = selectorEntityById(identifier);
   const selectorSport = selectorEntityCanonicalSportKeys(selector).find(key => SPORT_META[key]);
@@ -12534,7 +12339,6 @@ function productSportForPreferenceIdentifier(identifier){
     .reverse()
     .find(key => SPORT_META[key]) || null;
 }
-
 function recordPreferenceChange(action, targetType, context = {}){
   return recordProductEvent({
     eventName: "preference_change",
@@ -12544,7 +12348,6 @@ function recordPreferenceChange(action, targetType, context = {}){
     properties: { action, targetType, coldStart: productMeasurementIsColdStart() },
   });
 }
-
 function recordSavedPreferenceChanges(previous, next){
   const previousDomains = new Set(selectedPreferenceDomainIds(previous));
   const nextDomains = new Set(selectedPreferenceDomainIds(next));
@@ -12590,7 +12393,6 @@ function recordSavedPreferenceChanges(previous, next){
     });
   });
 }
-
 function saveSettingsPreferences(){
   const viewportAnchor = settingsViewportAnchor;
   if(settingsFirstRun)draftPreferences.fantasyDeadlines=globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.onboardingChoice(draftPreferences.fantasyDeadlines.enabled);
@@ -12619,7 +12421,6 @@ function saveSettingsPreferences(){
   renderAll({ viewportAnchor });
   showToast("Settings saved.");
 }
-
 function advanceOnboardingOrSave(){
   if (!settingsFirstRun){
     if (settingsSection === "account"){
@@ -12742,11 +12543,9 @@ function closeSelectorOptInPrompt({ restoreViewport = true } = {}){
   selectorOptInViewportAnchor = null;
   if (restoreViewport) restoreViewportAnchorAfterLayout(viewportAnchor);
 }
-
 function acknowledgeSelectorRelease(){
   writeStorage(STORAGE_KEYS.selectorReleaseAcknowledgement, SELECTOR_TAXONOMY.version);
 }
-
 function renderSelectorOptInPrompt(){
   const list = document.getElementById("selectorOptInList");
   list.innerHTML = "";
@@ -12766,7 +12565,6 @@ function renderSelectorOptInPrompt(){
   });
   document.getElementById("confirmSelectorOptInBtn").disabled = pendingSelectorPromptIds.size === 0;
 }
-
 function openSelectorOptInPrompt(){
   if (!userPreferences.onboardingComplete) return false;
   if (readStorage(STORAGE_KEYS.selectorReleaseAcknowledgement, null) === SELECTOR_TAXONOMY.version) return false;
@@ -12813,7 +12611,6 @@ function canonicalAppShareUrl(){
   const configured = document.querySelector('link[rel="canonical"]')?.href || window.location.origin;
   return new URL("/", configured).href;
 }
-
 async function shareOrCopyLink({ title, text, url }){
   if (navigator.share){
     try{
@@ -12887,12 +12684,10 @@ document.getElementById("standingsSpoilerModal").addEventListener("click", event
 function chatFixtureId(event){
   return String(event?.canonicalEventId || event?.eventId || event?.id || "").trim();
 }
-
 function chatRoomsForFixture(event){
   const fixtureId = chatFixtureId(event);
   return chatState.rooms.filter(room => room.canonicalFixtureId === fixtureId);
 }
-
 function chatFixtureEligible(event){
   const status = String(event?.status || event?.scheduleStatus || "").toLowerCase();
   if (["cancelled", "postponed", "completed", "past", "finished", "final"].includes(status)) return false;
@@ -12905,7 +12700,6 @@ function chatFixtureEligible(event){
   const windowMs = follows ? 12 * 60 * 60 * 1000 : Math.max(.25, Math.min(24, Number(event?.liveWindow || 3))) * 60 * 60 * 1000;
   return start > Date.now() || Date.now() <= start + windowMs;
 }
-
 function appendFixtureChatActions(container, event){
   if (!serverSyncClient?.chatRequest || !CHAT) return;
   const rooms = chatRoomsForFixture(event);
@@ -12926,7 +12720,6 @@ function appendFixtureChatActions(container, event){
     container.appendChild(chat);
   }
 }
-
 function updateActiveChatButton(){
   const button = document.getElementById("activeChatsBtn");
   const count = document.getElementById("activeChatCount");
@@ -12940,7 +12733,6 @@ function updateActiveChatButton(){
     : `Active chats, ${chatState.rooms.length} open ${chatState.rooms.length === 1 ? "room" : "rooms"}`);
   updateUnreadAppBadge(unread);
 }
-
 function updateUnreadAppBadge(unread){
   const enabled = userPreferences?.followFirst?.notifications?.badgesEnabled !== false;
   try{
@@ -12948,13 +12740,11 @@ function updateUnreadAppBadge(unread){
     else void navigator.clearAppBadge?.();
   }catch(_error){ }
 }
-
 function chatConnection(message, state = "idle"){
   const status = document.getElementById("chatConnection");
   status.textContent = message;
   status.dataset.state = state;
 }
-
 function lockChatViewport(){
   if (chatViewportLock) return;
   const scrollY = window.scrollY;
@@ -12980,7 +12770,6 @@ function lockChatViewport(){
   window.visualViewport?.addEventListener("resize", syncHeight);
   window.visualViewport?.addEventListener("scroll", syncHeight);
 }
-
 function unlockChatViewport(){
   if (!chatViewportLock) return;
   const lock = chatViewportLock;
@@ -12995,11 +12784,9 @@ function unlockChatViewport(){
   document.body.style.overflow = lock.overflow;
   window.scrollTo({ top:lock.scrollY, left:0, behavior:"instant" });
 }
-
 function chatDraftStorageKey(roomId = chatState.currentRoom?.roomId){
   return roomId ? `ns_chat_draft_v2:${roomId}` : "";
 }
-
 function persistCurrentChatDraft(){
   const key = chatDraftStorageKey();
   if (!key) return;
@@ -13010,7 +12797,6 @@ function persistCurrentChatDraft(){
     }));
   }catch(_error){}
 }
-
 function restoreChatDraft(roomId){
   try{
     const draft = JSON.parse(sessionStorage.getItem(chatDraftStorageKey(roomId)) || "null");
@@ -13019,7 +12805,6 @@ function restoreChatDraft(roomId){
     chatState.replyToMessageId = draft.replyToMessageId || null;
   }catch(_error){}
 }
-
 function setChatDrawerOpen(open){
   const backdrop = document.getElementById("chatBackdrop");
   backdrop.classList.toggle("show", open);
@@ -13047,12 +12832,10 @@ function setChatDrawerOpen(open){
     unlockChatViewport();
   }
 }
-
 function setChatHeading(title, subtitle){
   document.getElementById("chatTitle").textContent = title;
   document.getElementById("chatSubtitle").textContent = subtitle;
 }
-
 function chatRoomRow(room,{selecting=false}={}){
   if(selecting){const label=document.createElement('label');label.className='chat-room-row';const input=document.createElement('input');input.type='checkbox';input.checked=chatState.selectedRoomIds.includes(room.roomId);input.onchange=()=>{const ids=new Set(chatState.selectedRoomIds);input.checked?ids.add(room.roomId):ids.delete(room.roomId);chatState.selectedRoomIds=[...ids];};const copy=document.createElement('span');const name=document.createElement('strong');name.textContent=room.roomName;const fixture=document.createElement('span');fixture.textContent=room.fixture?.name||'Fixture chat';copy.append(name,fixture);label.append(input,copy);return label;}
   const button = document.createElement("button");
@@ -13075,7 +12858,6 @@ function chatRoomRow(room,{selecting=false}={}){
   button.addEventListener("click", () => { void openChatRoom(room.roomId); });
   return button;
 }
-
 function chatMembershipRow(room,{selecting=false}={}){
   const row=document.createElement('div');
   row.appendChild(chatRoomRow(room,{selecting}));
@@ -13094,7 +12876,6 @@ function chatMembershipRow(room,{selecting=false}={}){
   }
   return row;
 }
-
 async function deleteSelectedChats(button){
   if (!chatState.selectedRoomIds.length) return;
   button.disabled=true;
@@ -13113,7 +12894,6 @@ async function deleteSelectedChats(button){
     chatConnection(error.message||'Chats could not be deleted. Your remaining selection is saved.','retrying');
   }finally{button.disabled=false;}
 }
-
 function renderActiveChats(){
   chatSetupFixture = null;
   leaveChatRoom();
@@ -13166,7 +12946,6 @@ function renderActiveChats(){
     body.appendChild(inspection);
   }
 }
-
 async function renderSavedGameMedia(){
   setChatHeading("Saved game media", "Only media you explicitly saved is kept after a chat closes.");
   const body = document.getElementById("chatBody");
@@ -13202,14 +12981,12 @@ async function renderSavedGameMedia(){
     body.appendChild(list);
   }catch(error){ status.textContent = error.message || "Saved media is unavailable."; }
 }
-
 function openActiveChats(){
   prepareChatAudio();
   setChatDrawerOpen(true);
   renderActiveChats();
   void refreshChatActive({ rerenderOpenList:true });
 }
-
 function renderFixtureRoomChooser(event){
   leaveChatRoom();
   chatState.currentRoom = null;
@@ -13235,7 +13012,6 @@ function renderFixtureRoomChooser(event){
     body.appendChild(setup);
   }
 }
-
 function openFixtureChats(event){
   prepareChatAudio();
   const rooms = chatRoomsForFixture(event);
@@ -13243,7 +13019,6 @@ function openFixtureChats(event){
   if (rooms.length === 1) void openChatRoom(rooms[0].roomId);
   else renderFixtureRoomChooser(event);
 }
-
 function renderChatUserSearch(host, { exclude = new Set(), onSelection } = {}){
   const label = document.createElement("label");
   label.className = "field-label";
@@ -13295,7 +13070,6 @@ function renderChatUserSearch(host, { exclude = new Set(), onSelection } = {}){
     }
   });
 }
-
 function openChatSetup(event){
   if (!serverPersistence.user || chatState.isGuest) return;
   prepareChatAudio();
@@ -13359,19 +13133,16 @@ function openChatSetup(event){
   });
   body.append(disclosure, form);
 }
-
 function clearPendingChatCapability(){
   pendingChatCapability = "";
   try{ sessionStorage.removeItem(CHAT_CAPABILITY_STORAGE_KEY); }catch(_error){ }
 }
-
 function sharedChatErrorCopy(error){
   if (["chat_share_invalid", "chat_share_disabled"].includes(error?.code)) return "This guest chat link is invalid, expired, or no longer enabled.";
   if (error?.code === "chat_room_closed") return "This chat room is closed.";
   if (error?.code === "chat_room_full") return "This chat room already has 25 participants.";
   return error?.message || "This guest chat link is unavailable.";
 }
-
 function renderGuestChatPreview(preview, capability){
   const room = preview.room;
   setChatHeading(room.roomName || "Join chat", room.fixture?.name || "Fixture chat");
@@ -13430,7 +13201,6 @@ function renderGuestChatPreview(preview, capability){
   previewCard.append(heading, fixture, note, form);
   body.appendChild(previewCard);
 }
-
 async function openPendingSharedChat(){
   if (!pendingChatCapability || !serverSyncClient?.chatGuestPreview) return false;
   const capability = pendingChatCapability;
@@ -13466,7 +13236,6 @@ async function openPendingSharedChat(){
     return false;
   }
 }
-
 async function openRequestedChatRoomFromLocation(){
   const params = new URLSearchParams(window.location.search);
   const roomId = String(params.get("chatRoom") || "");
@@ -13491,7 +13260,6 @@ async function prepareChatAudio({ force = false } = {}){
     return chatAudioContext;
   }catch(_error){ return null; }
 }
-
 async function playIncomingChatSound({ force = false } = {}){
   const audio = await prepareChatAudio({ force });
   if (!audio || audio.state !== "running") return false;
@@ -13509,7 +13277,6 @@ async function playIncomingChatSound({ force = false } = {}){
     return true;
   }catch(_error){ return false; }
 }
-
 function buildChatAlertPrompt(){
   const notifications = userPreferences?.followFirst?.notifications || {};
   const permission = typeof Notification === "undefined" ? "unsupported" : Notification.permission;
@@ -13556,11 +13323,9 @@ function buildChatAlertPrompt(){
   }
   return prompt;
 }
-
 function chatMessageById(messageId){
   return chatState.messages.find(message => message.messageId === messageId) || null;
 }
-
 function optimisticReactionRows(reactions, emoji){
   const next = (Array.isArray(reactions) ? reactions : []).map(reaction => ({ ...reaction }));
   const match = next.find(reaction => reaction.emoji === emoji);
@@ -13572,7 +13337,6 @@ function optimisticReactionRows(reactions, emoji){
   }
   return [...next, { emoji, count:1, own:true }];
 }
-
 async function toggleChatReaction(messageId, emoji, control){
   const scope = chatScope();
   const room = chatState.currentRoom;
@@ -13604,7 +13368,6 @@ async function toggleChatReaction(messageId, emoji, control){
     chatConnection(`${outcome.error?.message || "That reaction could not be changed."} Tap to retry.`, "retrying");
   }
 }
-
 async function saveChatAttachment(message, attachment, save){
   const outcome = await runOptimisticMutation({
     capture:() => ({ saved:Boolean(attachment.saved), text:save.textContent }),
@@ -13628,7 +13391,6 @@ async function saveChatAttachment(message, attachment, save){
   });
   if (!outcome.ok) chatConnection(outcome.error?.message || "That media could not be saved. Tap Retry save.", "retrying");
 }
-
 async function deleteChatMessage(message, control){
   const scope = chatScope();
   const room = chatState.currentRoom;
@@ -13650,7 +13412,6 @@ async function deleteChatMessage(message, control){
     control.disabled = false;
   }
 }
-
 function chatMessageUrls(value){
   const matches = String(value || "").match(/https?:\/\/[^\s<>"']+/gi) || [];
   return [...new Set(matches.map(url => url.replace(/[),.!?;:]+$/g, "")).filter(url => {
@@ -13658,7 +13419,6 @@ function chatMessageUrls(value){
     catch(_error){ return false; }
   }))].slice(0, 3);
 }
-
 function appendChatMessageText(host, value){
   const text = String(value || "");
   const pattern = /https?:\/\/[^\s<>"']+/gi;
@@ -13684,7 +13444,6 @@ function appendChatMessageText(host, value){
   }
   if (cursor < text.length) host.appendChild(document.createTextNode(text.slice(cursor)));
 }
-
 function chatLinkPreview(url){
   const parsed = new URL(url);
   const link = document.createElement("a");
@@ -13699,12 +13458,10 @@ function chatLinkPreview(url){
   link.append(title, path);
   return link;
 }
-
 function publicProfileInitials(displayName){
   const parts=String(displayName||"Member").trim().split(/\s+/).filter(Boolean);
   return (parts.length>1?`${parts[0][0]}${parts.at(-1)[0]}`:parts[0]?.slice(0,2)||"NS").toUpperCase();
 }
-
 function chatAvatarElement({ avatarUrl = null, displayName = "Member", className = "" } = {}){
   const avatar=document.createElement("span");
   avatar.className=["chat-avatar",className].filter(Boolean).join(" ");
@@ -13797,7 +13554,6 @@ function buildPublicProfileAvatarEditor({ avatarUrl = null, displayName = "Membe
     finally{input.disabled=false;}
   }};
 }
-
 function chatMessageElement(message,{groupStart=true}={}){
   const item = document.createElement("article");
   item.className = `chat-message${message.own ? " own" : ""}${groupStart ? " group-start" : " group-continuation"}`;
@@ -13932,7 +13688,6 @@ function chatMessageElement(message,{groupStart=true}={}){
   item.appendChild(status);
   return item;
 }
-
 function renderChatPublicProfileForm(host, { onSaved } = {}){
   const form = document.createElement("form");
   form.className = "chat-form";
@@ -13985,7 +13740,6 @@ function renderChatPublicProfileForm(host, { onSaved } = {}){
   });
   host.appendChild(form);
 }
-
 function renderChatAdminControls(host, room){
   const list = document.createElement("div");
   list.className = "chat-member-list";
@@ -14114,11 +13868,9 @@ function renderChatAdminControls(host, room){
     host.appendChild(remove);
   }
 }
-
 function roomGuestShareUrl(capability){
   return `${canonicalAppShareUrl()}#chat=${encodeURIComponent(String(capability || ""))}`;
 }
-
 async function shareRoomWithGuests(room, mode = "enable"){
   const scope = chatScope();
   const action = mode === "rotate" ? "rotate-share" : "enable-share";
@@ -14140,7 +13892,6 @@ async function shareRoomWithGuests(room, mode = "enable"){
     chatConnection("Guest link ready", "connected");
   }catch(error){ if (!chatScopeCurrent(scope)) return; chatConnection(error.message || "Guest sharing could not be enabled.", "retrying"); }
 }
-
 async function disableRoomGuestSharing(room){
   const scope = chatScope();
   chatConnection("Disabling guest access…");
@@ -14151,7 +13902,6 @@ async function disableRoomGuestSharing(room){
     await openChatRoom(room.roomId);
   }catch(error){ if (!chatScopeCurrent(scope)) return; chatConnection(error.message || "Guest access could not be disabled.", "retrying"); }
 }
-
 function renderChatMembersDisclosure(room){
   const details = document.createElement("details");
   details.className = "chat-members";
@@ -14173,7 +13923,6 @@ function renderChatMembersDisclosure(room){
   details.append(summary, content);
   return details;
 }
-
 function buildChatReplyPreview(){
   const message = chatMessageById(chatState.replyToMessageId);
   if (!message) return null;
@@ -14196,7 +13945,6 @@ function buildChatReplyPreview(){
   preview.append(copy, cancel);
   return preview;
 }
-
 function sizeChatComposerInput(input){
   input.style.height = "auto";
   input.style.height = `${Math.min(180, Math.max(52, input.scrollHeight))}px`;
@@ -14223,32 +13971,26 @@ async function ensureChatMediaUi(){
   })().finally(() => { chatMediaUiLoading = null; });
   return chatMediaUiLoading;
 }
-
 function pendingAttachmentPreview(item){
   return chatMediaUi.preview(item);
 }
-
 function refreshChatAttachmentPreviews(){
   chatMediaUi?.refreshPreviews();
   syncChatComposerOffset();
 }
-
 async function chooseChatFiles(input, options = {}){
   const scope = chatScope();
   const ui = await ensureChatMediaUi();
   if (chatScopeCurrent(scope)) return ui.choose(input, options);
 }
-
 function closeChatGifPicker(){
   chatMediaUi?.closePicker();
 }
-
 async function openChatGifPicker(){
   const scope = chatScope();
   const ui = await ensureChatMediaUi();
   if (chatScopeCurrent(scope)) return ui.openPicker();
 }
-
 async function sendChatMessage(form){
   const scope = chatScope();
   const input = form.querySelector("textarea");
@@ -14342,7 +14084,6 @@ async function sendChatMessage(form){
     renderOpenChatRoom({ autoScroll:true, focusComposer:true });
   }
 }
-
 function buildChatComposer({ focus = false } = {}){
   const form = document.createElement("form");
   form.className = "chat-room-composer";
@@ -14436,16 +14177,13 @@ function chatWindowStart(messages, end = messages.length){
   }
   return start;
 }
-
 function visibleChatMessages(){
   const start = Math.max(0, Math.min(Number(chatState.visibleMessageStart || 0), chatState.messages.length));
   return chatState.messages.slice(start);
 }
-
 function chatSenderGroupKey(message){
   return `${message.own?"own":"other"}|${message.senderName||""}|${message.avatarUrl||""}`;
 }
-
 function chatMessageRenderSignature(message,groupStart=true){
   return JSON.stringify({
     body:message.body,
@@ -14462,7 +14200,6 @@ function chatMessageRenderSignature(message,groupStart=true){
     reactions:message.reactions || [],
   });
 }
-
 function chatOlderButton(){
   const older = document.createElement("button");
   older.type = "button";
@@ -14471,7 +14208,6 @@ function chatOlderButton(){
   older.addEventListener("click", () => { void loadOlderChatMessages(older); });
   return older;
 }
-
 function buildChatMessageList(){
   const list = document.createElement("div");
   list.className = "chat-message-list";
@@ -14493,7 +14229,6 @@ function buildChatMessageList(){
   }
   return list;
 }
-
 function patchChatMessageList(list){
   const messages = visibleChatMessages();
   const existing = new Map([...list.querySelectorAll(":scope > [data-message-id]")].map(element => [element.dataset.messageId, element]));
@@ -14531,7 +14266,6 @@ function patchChatMessageList(list){
     list.appendChild(empty);
   }
 }
-
 function refreshChatMessageStream({ autoScroll = false, showNew = false, preserveScroll = true } = {}){
   const body = document.getElementById("chatBody");
   const list = body.querySelector(".chat-message-list");
@@ -14556,7 +14290,6 @@ function refreshChatMessageStream({ autoScroll = false, showNew = false, preserv
   } else if (preserveScroll) body.scrollTop = previousScrollTop;
   updateChatJumpButton(Boolean(showNew));
 }
-
 function renderOpenChatRoom({ autoScroll = true, showNew = false, focusComposer = false, preserveScroll = false } = {}){
   const room = chatState.currentRoom;
   if (!room) return;
@@ -14600,17 +14333,14 @@ function renderOpenChatRoom({ autoScroll = true, showNew = false, focusComposer 
   updateChatJumpButton(Boolean(showNew));
   chatConnection(room.status === "closed" ? "Closed · admin read-only" : (navigator.onLine ? "Connected" : "Offline — polling paused"), room.status === "closed" || !navigator.onLine ? "retrying" : "connected");
 }
-
 function chatBodyAtBottom(){
   const body = document.getElementById("chatBody");
   return body.scrollHeight - body.scrollTop - body.clientHeight < 56;
 }
-
 function updateChatJumpButton(force = false){
   const button = document.getElementById("chatNewMessagesBtn");
   button.classList.toggle("show", Boolean(chatState.currentRoom && (force || !chatBodyAtBottom())));
 }
-
 async function markCurrentChatRead(){
   const room = chatState.currentRoom;
   if (!room || room.readOnly) return;
@@ -14620,7 +14350,6 @@ async function markCurrentChatRead(){
     await refreshChatActive();
   }catch(_error){  }
 }
-
 function mergeChatReceipts(changes){
   let changed=false;
   const byId=new Map(chatState.messages.map(message=>[message.messageId,message]));
@@ -14630,7 +14359,6 @@ function mergeChatReceipts(changes){
   }
   return changed;
 }
-
 function mergeChatMessages(messages, { followLatest = false } = {}){
   const byId = new Map(chatState.messages.map(message => [message.messageId, message]));
   (messages || []).forEach(message => {
@@ -14643,7 +14371,6 @@ function mergeChatMessages(messages, { followLatest = false } = {}){
   chatState.messages = [...byId.values()].sort((first, second) => Date.parse(first.sentAt) - Date.parse(second.sentAt));
   if (followLatest && !chatState.historyExpanded) chatState.visibleMessageStart = chatWindowStart(chatState.messages);
 }
-
 function mergeChatReactionChanges(changes){
   let changed = false;
   (changes || []).forEach(change => {
@@ -14657,11 +14384,9 @@ function mergeChatReactionChanges(changes){
   });
   return changed;
 }
-
 function laterChatReactionCursor(first, second){
   return Date.parse(second || "") > Date.parse(first || "") ? second : first || second || "";
 }
-
 function chatLoadingIndicator(label, { compact = false } = {}){
   const loading = document.createElement("div");
   loading.className = `chat-loading${compact ? " is-compact" : ""}`;
@@ -14674,14 +14399,12 @@ function chatLoadingIndicator(label, { compact = false } = {}){
   loading.append(wheel, copy);
   return loading;
 }
-
 function syncChatComposerOffset(){
   window.requestAnimationFrame(() => {
     const composer = document.getElementById("chatRoomComposer");
     document.getElementById("chatDrawer").style.setProperty("--chat-composer-height", `${Math.ceil(composer?.getBoundingClientRect().height || 56)}px`);
   });
 }
-
 async function openChatRoom(roomId){
   hideChatIncomingBanner();
   window.clearTimeout(chatRoomTimer);
@@ -14725,7 +14448,6 @@ async function openChatRoom(roomId){
     body.appendChild(message);
   }
 }
-
 async function loadOlderChatMessages(button){
   const scope = chatScope();
   const room = chatState.currentRoom;
@@ -14768,13 +14490,11 @@ async function loadOlderChatMessages(button){
     button.disabled = false;
   }
 }
-
 function scheduleChatRoomPoll(delay){
   window.clearTimeout(chatRoomTimer);
   if (!chatState.currentRoom || chatState.currentRoom.status !== "open" || document.visibilityState !== "visible" || !document.getElementById("chatBackdrop").classList.contains("show")) return;
   chatRoomTimer = window.setTimeout(pollChatRoom, delay);
 }
-
 async function pollChatRoom(){
   const scope = chatScope();
   if (!chatState.currentRoom) return;
@@ -14818,7 +14538,6 @@ async function pollChatRoom(){
     scheduleChatRoomPoll(CHAT.POLLING.failureMs);
   }
 }
-
 function chatUnreadIncreasedOutsideOpenRoom(previousRooms, nextRooms, currentRoomId){
   const previousUnreadByRoom = new Map((previousRooms || []).map(room => [room.roomId, Number(room.unreadCount || 0)]));
   return (nextRooms || []).find(room => (
@@ -14846,7 +14565,6 @@ function showChatIncomingBanner(room){
   window.clearTimeout(chatIncomingBannerTimer);
   chatIncomingBannerTimer=window.setTimeout(hideChatIncomingBanner,7000);
 }
-
 async function refreshChatActive({ rerenderOpenList = false } = {}){
   const generation = chatNavigationGeneration;
   const hasChatSession = Boolean(serverPersistence.user || serverSyncClient?.getGuestChatSession?.());
@@ -14889,13 +14607,11 @@ async function refreshChatActive({ rerenderOpenList = false } = {}){
     return null;
   }
 }
-
 function scheduleChatActivePoll(delay = CHAT?.POLLING?.activeMs || 30_000){
   window.clearTimeout(chatActiveTimer);
   if (!(serverPersistence.user || serverSyncClient?.getGuestChatSession?.()) || !serverSyncClient?.chatRequest) return;
   chatActiveTimer = window.setTimeout(() => { void refreshChatActive(); }, delay);
 }
-
 function syncChatSessionState(previousOwnerId, nextOwnerId){
   if (!CHAT || !serverSyncClient?.chatRequest) return;
   if (previousOwnerId !== nextOwnerId){
@@ -14914,7 +14630,6 @@ function syncChatSessionState(previousOwnerId, nextOwnerId){
   }
   if (previousOwnerId !== nextOwnerId || !chatActiveTimer) void refreshChatActive();
 }
-
 function syncNothingscoreSessionState(previousOwnerId, nextOwnerId){
   if (!NOTHINGSCORE || previousOwnerId === nextOwnerId) return;
   ++nothingscoreReadGeneration;nothingscoreReadRecovery.reset();
@@ -14938,7 +14653,6 @@ function syncNothingscoreSessionState(previousOwnerId, nextOwnerId){
   nothingscoreQueueRender();
   if (document.getElementById("nothingscoreBackdrop")?.classList.contains("show")) void refreshNothingscoreDrawer();
 }
-
 async function refreshNothingscoreViewer(){
   const owner=serverPersistence.user?.id||"";
   const life=serverSyncClient.accountSnapshot(),generation=life.generation;
@@ -15008,7 +14722,6 @@ function nscPageBack(){
   if(activeNothingscoreContributionEvent&&nscOpenedFromRankings){activeNothingscoreContributionEvent=null;nscMyView=false;renderNothingscoreDrawer();return;}
   setNothingscoreDrawerOpen(false);
 }
-
 function nothingscoreProfileForm(){
   const form = document.createElement("form");
   form.className = "nsc-profile-form";
@@ -15074,7 +14787,6 @@ function nothingscoreProfileForm(){
   });
   return form;
 }
-
 async function setNothingscoreProfileVisibility(visibility){
   await serverSyncClient.nothingscoreRequest({}, { action:"profile-visibility", visibility });
   await refreshNothingscoreViewer();
@@ -15108,7 +14820,6 @@ async function renderMyForesight(body){
     if(!result.entries?.length){const note=document.createElement('p');note.textContent='No active prize draws.';section.appendChild(note);}
   }catch(error){section.textContent=error.message || 'Rewards unavailable.';}
 }
-
 function buildMyNscAccountSection(){
   const profileSection = document.createElement("section");
   if (!serverPersistence.user){
@@ -15153,7 +14864,6 @@ function buildMyNscAccountSection(){
   return profileSection;
 
 }
-
 function refreshMyNscAccountSection(section){
   if(!serverPersistence.user || nothingscoreViewer.signedIn)return;
   void refreshNothingscoreViewer().then(()=>{
@@ -15165,7 +14875,6 @@ function refreshMyNscAccountSection(section){
     retry.onclick=()=>{retry.disabled=true;refreshMyNscAccountSection(section);};section.appendChild(retry);
   });
 }
-
 function renderNothingscoreDrawer(){
   document.getElementById('nscMyAccountBtn')?.remove();
   if(!activeNothingscoreContributionEvent && !nscMyView){renderCrowdRankings();return;}
@@ -15294,7 +15003,6 @@ function renderNothingscoreDrawer(){
   body.append(heading, tabs, board);
   void loadNothingscoreLeaderboard();
 }
-
 async function loadNothingscoreLeaderboard(){
   const board = document.getElementById("nothingscoreLeaderboard");
   if (!board) return;
@@ -15331,7 +15039,6 @@ async function loadNothingscoreLeaderboard(){
     board.textContent = error.message || "Leaderboard temporarily unavailable.";
   }
 }
-
 async function refreshNothingscoreDrawer(){
   if (!activeNothingscoreContributionEvent && !nscMyView){renderCrowdRankings();return;}
   if (activeNothingscoreContributionEvent){
@@ -15444,7 +15151,6 @@ function setUtilityModalOpen(id, open){
   modal.classList.toggle("show", open);
   modal.setAttribute("aria-hidden", open ? "false" : "true");
 }
-
 function updateFeedbackPreview(){
   const category = document.getElementById("feedbackCategory");
   const message = document.getElementById("feedbackMessage");
@@ -15452,7 +15158,6 @@ function updateFeedbackPreview(){
   if (!category || !message || !preview) return;
   preview.textContent = buildFeedbackMessage(category.value, message.value);
 }
-
 function submitFeedbackForm(evt){
   evt.preventDefault();
   const category = document.getElementById("feedbackCategory").value;
@@ -15463,20 +15168,18 @@ function submitFeedbackForm(evt){
   }
   window.location.href = buildFeedbackSmsUrl(category, message);
 }
-
 function startupFeedTaskDescriptors(){
   return [
     { name:"published feed", run:refreshFeedOnFirstLoad, valid:value => Boolean(value && Number(value.eventCount) > 0) },
   ];
 }
-
 async function ensureFeedSourceReadiness(preferences=userPreferences){
   await ensureFollowCollectionDirectories(preferences).catch(()=>{});
   await loadFollowedScheduleFixtures(preferences).catch(()=>{});
   rebuildDerivedCardCache(activeEvents);
 }
 function loadDeferredStartupContext(){
-  return loadDeferredScript('config/startup-view-cache.js?v=595').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
+  return loadDeferredScript('config/startup-view-cache.js?v=604').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
 }
 
 let startupPostLoadHandled = false;
@@ -15496,7 +15199,6 @@ function runStartupPostLoadActions(){
     if (document.visibilityState === "visible") registerWeeklyPulseAppOpen();
   }
 }
-
 function completeStartupFeedHydration(){
   startupFeedState = { ...startupFeedState, phase:"ready", issues:[] };
   startupFeedRevealPending = true;
@@ -15529,7 +15231,6 @@ function completeStartupFeedHydration(){
   void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
   runStartupPostLoadActions();
 }
-
 function runStartupFeedBarrier(){
   const attempt = startupFeedState.attempt + 1;
   const retryNames = new Set(startupFeedState.issues || []);
@@ -15598,6 +15299,7 @@ for (const eventName of ["pointerdown", "touchstart", "wheel", "keydown"]){
     startupFeedNavigationTouched = true;
     feedNavigationInteractionVersion += 1;
     unlockDeferredCardImageLoading();
+    recordFollowScrollSequence('input',eventName,null,feedNavigationInteractionVersion,startupFeedNavigationTouched,cardImageLoadingUnlocked);
   }, { passive: true });
 }
 runStartupFeedBarrier();

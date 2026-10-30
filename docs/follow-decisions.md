@@ -1,5 +1,16 @@
 # Follow and Feed decisions
 
+## Follow content scrolls clear of pinned controls — 30 October 2026
+
+Native scrolling in Follow must reserve the actual pinned navigation height,
+the existing home-tab offset and bottom navigation space. Keep the selected
+sport checkbox, gender and section tabs visible, with their existing handlers
+and touch targets. Resize, font wrapping, collapse and redraw update the measured
+height; a detached or superseded navigation cannot overwrite it. The document
+scroll reservation applies only while Follow navigation is mounted. Browsing,
+saved choices, source data and all other tabs retain their existing owners.
+See [failure evidence and verification limits](quality/follow-scroll-insets-2026-10-30.md).
+
 ## Explicit device-local saved-preference recovery — 29 October 2026
 
 The user accepts losing unsynced follows and wants the quickest supported local recovery. A clearly explained, deliberately confirmed Account action may use a fresh verified copy of saved account preferences on this device and discard only its exact matching pending preference receipt. This is an explicit device-local replacement, not an automatic merge, server reset or receipt ACK. Preserve authentication, server state, unrelated local actions/ratings/archive/pin commands, other profiles and every normal sync/owner/CAS safeguard. Unknown storage completion stays explicit and fail-closed. No actual customer recovery is authorised by source preparation or deployment; the originating chat owns the eventual user step. See [scope and source proof](quality/local-preference-recovery-2026-10-29.md).
@@ -27,6 +38,13 @@ provider or sync-policy change is authorised. The existing required Follow
 decision gate includes the actual-route regression. See the
 [source contract and acceptance](quality/cricket-follow-admission-2026-10-27.md).
 
+
+## 27 October 2026 — fence delayed collection snapshots
+
+A collection-directory completion may snapshot only the preference object and copied collection plan for which it started, in the same account/session generation, app-sync generation and local profile. A stale completion returns its existing load results without changing preferences or the pending receipt. Current matching loads retain existing guest, mute and OFF semantics. No request, retry, store or inferred follow intent is added.
+
+The actual local apply/merge/save/profile/directory regression reproduces an earlier men-only load freezing newer mixed collection choices before the women’s directory arrives. This guard prevents that source race; it does not establish a real account’s historical cause or restore follows. The existing bookkeeping gate retains prior checks and adds26 source/compiled-helper controls. DEPLOY isolated the guard from its worker’s pending-receipt parent; receipt reconciliation policy is unchanged. See [scope and acceptance](quality/collection-hydration-guard-2026-10-27.md).
+
 ## Optional standings presentation keeps its existing owner — 26 October 2026
 
 The approved download-budget repair moves only standings-exclusive helpers and
@@ -40,11 +58,45 @@ See [source contract and equivalence](quality/standings-presentation-deferral-20
 The existing collection-loading gate includes the focused caller/loader test;
 combined native, offline and installed release qualification stays with DEPLOY.
 
-## 27 October 2026 — fence delayed collection snapshots
+## Selected-sport Follow control remains visible — 26 October 2026
 
-A collection-directory completion may snapshot only the preference object and copied collection plan for which it started, in the same account/session generation, app-sync generation and local profile. A stale completion returns its existing load results without changing preferences or the pending receipt. Current matching loads retain existing guest, mute and OFF semantics. No request, retry, store or inferred follow intent is added.
+The reported disappearing sport checkbox is reproduced through the existing
+Follow render block and navigation owner: initial collapse hides the control,
+opening shows it, and scrolling collapses it again. Keep that same selected
+sport control outside the collapsible browsing menu. Preserve its native label,
+checked value and existing save handler, including explicit men/women/code
+scope. If that handler refuses a save, restore the last saved checked value;
+do not turn refusal into a write or change the previous choices. Separate competition and Australian-only controls keep their existing
+scope. Browsing, menu changes and redraws must not create follows or change
+exclusions, empty choices, notification OFF or account state.
 
-The actual local apply/merge/save/profile/directory regression reproduces an earlier men-only load freezing newer mixed collection choices before the women’s directory arrives. This guard prevents that source race; it does not establish a real account’s historical cause or restore follows. The existing bookkeeping gate retains prior checks and adds26 source/compiled-helper controls. DEPLOY isolated the guard from its worker’s pending-receipt parent; receipt reconciliation policy is unchanged. See [scope and acceptance](quality/collection-hydration-guard-2026-10-27.md).
+This is a presentation repair, independent of frozen grouped-cards PR41 and its
+new preference fields/source coverage. It does not change admission, selection,
+sync reconciliation or receipt policy. Regression:
+`validate-follow-sport-control.js` through the existing Follow decision gate;
+focused mounted browser checks cover actual taps, late loads, redraw and menu
+states. Local source checks are not hosted or physical-device acceptance.
+
+
+## Upcoming multi-day Cricket date range — 26 October 2026
+
+The Australia–South Africa third Test is one match starting 27 October and
+scheduled through 31 October. All Sports places it at the start; Feed retains
+the approved final-day placement. Before a confirmed scheduled start, the card
+must show the full published range so those views cannot suggest two separate
+matches. Once play is source-reported, keep the existing compact day/phase
+presentation. Source dates, observations, aliases, saved actions and reminder
+choices are unchanged. Regression: `validate-cricket-upcoming-range.js` joins
+the existing card-timing gate and replays the retained source/canonical union.
+
+## All Sports explicit Add to Feed — 26 October 2026
+
+Expanded All Sports cards expose the existing Match Centre Add to Feed action.
+Only an explicit button tap saves the canonical fixture pin through the existing
+action and pin-command queue. Existing In Feed, explicit exclusion and Schedule
+only restrictions apply; adding one fixture never follows either participant or
+changes reminders, Results or other saved card choices. Browsing, expansion and
+horizontal paging remain local. Regression: `validate-all-sports-feed-action.js`.
 
 ## All Sports View — 24 October 2026
 
@@ -1347,4 +1399,21 @@ A compiled597 source reproduction shows that the existing normalizer can fill a 
 ## Peach navigation presentation — 28 October 2026
 
 The approved redesign uses exactly three persistent main destinations: Feed, Match Centre and Follow. Legacy `#events` routes and restored Events navigation resolve to Match Centre without changing any saved Follow, event-family decision, rating, pin or reminder. The existing nsDEPLOY Events-distribution work owns functional retirement of tournament overview and ticket interfaces; this visual candidate must not introduce a competing redistribution or data migration. Its agreed target is fixtures-only presentation. Existing eligibility and exclusions remain authoritative. Regression: `node scripts/validate-peach-redesign.js`, plus the existing Follow policy and fixture routing checks.
+
+## Current-source Follow qualification — 30 October 2026
+
+Reconcile the approved All Sports/Follow source onto accepted 602 while preserving
+the restored Feed controls. Retain the reviewed native mouse origin and original
+once/passive wheel collector for the first current-source check. Add failure-only
+reporting with the original error and cleanup preserved, without a pre-input
+observer or product overscroll change. Historical failures remain unresolved;
+DEPLOY owns forward version/baseline assembly and current runtime qualification.
+[Source checks, preserved boundaries and handover](quality/all-sports-ui-602-source-reconciliation-2026-10-30.md).
+
+After the original megaphones were accepted in 603, reconcile the same complete
+reviewed scope onto accepted main59b250 without copying the old All Sports
+runtime. Preserve the canonical icon and rating guards, Feed controls and
+original current-source A fixture. Keep source identity603; ROOT owns fresh603
+baseline and forward604 assembly. The prior602 source/diagnostic records remain
+historical. [Current603 source boundary](quality/all-sports-ui-603-source-reconciliation-2026-10-30.md).
 

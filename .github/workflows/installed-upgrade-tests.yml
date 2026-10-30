@@ -12,6 +12,10 @@ on:
       - styles/**
       - scripts/validate-installed-pwa-upgrade-browser.js
       - scripts/validate-peach-redesign-browser.js
+      - scripts/validate-follow-sport-control-browser.js
+      - scripts/validate-follow-sport-control.js
+      - scripts/validate-follow-scroll-insets.js
+      - scripts/validate-follow-failure-report.js
       - scripts/validate-account-sync-recovery-browser.js
       - scripts/lib/installed-test-network.js
       - scripts/validate-installed-test-network.js
@@ -143,7 +147,128 @@ jobs:
           node scripts/validate-all-sports-offline-browser.js --check-cleanup
           node scripts/validate-all-sports-offline-browser.js --check-fixtures
           timeout --signal=TERM --kill-after=5s 150s node scripts/validate-all-sports-offline-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/all-sports-offline.log"
+      - name: Verify native Follow control after scroll and redraw
+        id: follow_writer_sequence
+        timeout-minutes: 2
+        env:
+          FOLLOW_CONTROL_ENGINES: ${{ matrix.browser }}
+        run: |
+          export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
+          export FOLLOW_CONTROL_EVIDENCE_DIR="$RUNNER_TEMP/ns-upgrade-proof/follow-controls"
+          mkdir -p "$FOLLOW_CONTROL_EVIDENCE_DIR"
+          set -o pipefail
+          node scripts/validate-follow-sport-control-browser.js --preflight
+          python3 - <<'PYOWN' 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/follow-controls.log"
+          import os,sys,json,time,pathlib,subprocess,signal,hashlib,shutil,re
+          def members(group,deadline):
+              remaining=deadline-time.monotonic()
+              if remaining<=0:raise TimeoutError('cleanup_deadline')
+              result=subprocess.run(['ps','-axo','pid=,pgid='],capture_output=True,text=True,check=True,timeout=min(1,remaining))
+              return [int(parts[0])for line in result.stdout.splitlines()if len(parts:=line.split())==2 and int(parts[1])==group]
+
+          def cleanup(proc,deadline):
+              result={'forced':False,'signals':[],'remainingProcessGroupMembers':None,'complete':False}
+              try:
+                  remaining=members(proc.pid,deadline)
+                  if remaining:
+                      result['forced']=True
+                      try:os.killpg(proc.pid,signal.SIGTERM);result['signals'].append('SIGTERM')
+                      except ProcessLookupError:pass
+                      term_end=min(time.monotonic()+2,deadline-2)
+                      while time.monotonic()<term_end:
+                          proc.poll();remaining=members(proc.pid,deadline)
+                          if not remaining:break
+                          time.sleep(min(.05,max(0,term_end-time.monotonic())))
+                      remaining=members(proc.pid,deadline)
+                      if remaining:
+                          try:os.killpg(proc.pid,signal.SIGKILL);result['signals'].append('SIGKILL')
+                          except ProcessLookupError:pass
+                  # Group cleanup is independent of whether its immediate leader exited.
+                  while time.monotonic()<deadline:
+                      proc.poll();remaining=members(proc.pid,deadline)
+                      if not remaining:break
+                      time.sleep(min(.05,max(0,deadline-time.monotonic())))
+                  result['remainingProcessGroupMembers']=remaining
+                  result['complete']=not remaining and proc.poll() is not None and time.monotonic()<=deadline
+              except Exception as error:result['error']=type(error).__name__
+              return result
+          out=pathlib.Path(os.environ['FOLLOW_CONTROL_EVIDENCE_DIR']);out.mkdir(parents=True,exist_ok=True)
+          report_file=out/'supervisor.json';assert not report_file.exists(), 'Preserve prior attempt'
+          root=pathlib.Path.cwd();node=pathlib.Path(shutil.which('node')).resolve();module=pathlib.Path(os.environ['PLAYWRIGHT_MODULE']).resolve()
+          def digest(file):return hashlib.sha256(pathlib.Path(file).read_bytes()).hexdigest()
+          def git(*args):return subprocess.check_output(['git',*args],text=True,timeout=5).strip()
+          assert sys.platform=='linux' and subprocess.check_output([str(node),'--version'],text=True).strip()=='v24.21.0'
+          assert json.loads((module/'package.json').read_text())['version']=='1.64.1'
+          runtime={'nodeSha256':digest(node),'playwrightPackageSha256':digest(module/'package.json'),'browserRegistrySha256':digest(module.parent/'playwright-core/browsers.json')}
+          assert runtime['nodeSha256']=='7fde7b8afa198da66257f42ee2001d874c7355631e6d1579a5fb5ef1f246df4c'
+          assert runtime['playwrightPackageSha256']=='313d23ce667d93962d3a1ab4be80908cefe840e4d9e48f1cd5863b91f65e8e39'
+          assert runtime['browserRegistrySha256']=='2cfd419f71ac6475d81e1301fa86c34cf2a2a6bae2a0da4b5a2b18310216b6bf'
+          if os.environ['FOLLOW_CONTROL_ENGINES']=='webkit':
+              launcher=pathlib.Path(subprocess.check_output([str(node),'-e','process.stdout.write(require(process.argv[1]).webkit.executablePath())',str(module)],text=True,timeout=5))
+              runtime.update(browserLauncherPath=str(launcher),browserLauncherSha256=digest(launcher))
+              assert runtime['browserLauncherSha256']=='a85baad3d8c07173ac387a59b41500c382b21ed692afe0964d29aac247ccc63b'
+          head=git('rev-parse','HEAD');before=git('status','--porcelain','--untracked-files=no');assert before==''
+          harness=root/'scripts/validate-follow-sport-control-browser.js';source_hash=digest(harness)
+          collector_options=re.findall(r'\}, (\{ passive: [^\n]+\})\);', harness.read_text());assert len(collector_options)==1
+          # This one observation is deliberately ineligible for qualification.
+          diagnostic=os.environ['FOLLOW_CONTROL_ENGINES']=='webkit'
+          command=[str(node),'scripts/validate-follow-sport-control-browser.js']+(['--diagnose-follow-scroll-sequence']if diagnostic else[])
+          started=time.monotonic();deadline=started+110
+          report={'head':head,'tree':git('rev-parse','HEAD^{tree}'),'engine':os.environ['FOLLOW_CONTROL_ENGINES'],'runtime':runtime,'harnessSha256':source_hash,'collectorOptionsLiteral':collector_options[0],'attempts':1,'retries':0,'nativeLimitSeconds':90,'wholeLimitSeconds':110,'releaseAcceptance':False,'passed':False}
+          report.update(diagnosticOnly=diagnostic,qualificationEligible=not diagnostic,collectorRequested=not diagnostic,standardCasesExpected=0 if diagnostic else 4,diagnosticCellsExpected=1 if diagnostic else 0,observationMode='no-test-wheel-observer-follow-writer-sequence'if diagnostic else 'standard-four-cases')
+          report_file.write_text(json.dumps(report,indent=2)+'\n');proc=None
+          try:
+              proc=subprocess.Popen(command,start_new_session=True)
+              report['pid']=proc.pid
+              try:report['exitCode']=proc.wait(timeout=90)
+              except subprocess.TimeoutExpired:report['timedOut']=True
+          except Exception as error:report['failure']=type(error).__name__
+          finally:
+              if proc is not None:report['cleanup']=cleanup(proc,deadline)
+              report['sourceUnchanged']=git('rev-parse','HEAD')==head and git('status','--porcelain','--untracked-files=no')==before and digest(harness)==source_hash
+              report['elapsedSeconds']=time.monotonic()-started
+              report['processPassed']=report.get('exitCode')==0 and report['sourceUnchanged'] and report.get('cleanup',{}).get('complete') and not report.get('cleanup',{}).get('forced') and report['elapsedSeconds']<=110
+              report['passed']=report['processPassed'] and not diagnostic
+              report_file.write_text(json.dumps(report,indent=2)+'\n')
+          print(json.dumps({'followOwnedCheck':True,'passed':report['passed'],'elapsedSeconds':report['elapsedSeconds'],'cleanup':report.get('cleanup')}),flush=True)
+          sys.exit(0 if report['passed'] else 1)
+          PYOWN
+      - name: Check natural Follow cleanup before remaining diagnostics
+        id: follow_writer_sequence_cleanup
+        if: ${{ !cancelled() && steps.follow_writer_sequence.outcome == 'failure' }}
+        env:
+          FOLLOW_ORDER_ENGINE: ${{ matrix.browser }}
+        run: |
+          python3 - <<'PYORDER'
+          import hashlib, json, math, os, pathlib, signal
+          signal.alarm(5)
+          root = pathlib.Path.cwd()
+          report = json.loads((pathlib.Path(os.environ['RUNNER_TEMP'])/'ns-upgrade-proof/follow-controls/supervisor.json').read_text())
+          engine = os.environ['FOLLOW_ORDER_ENGINE']
+          assert engine in ('chromium', 'webkit') and report['engine'] == engine
+          diagnostic = engine == 'webkit'
+          assert report['head'] == os.environ['GITHUB_SHA']
+          assert report['sourceUnchanged'] is True and report['releaseAcceptance'] is False
+          assert report['attempts'] == 1 and report['retries'] == 0
+          assert report['nativeLimitSeconds'] == 90 and report['wholeLimitSeconds'] == 110
+          assert math.isfinite(report['elapsedSeconds']) and 0 <= report['elapsedSeconds'] <= 110
+          assert report['harnessSha256'] == hashlib.sha256((root/'scripts/validate-follow-sport-control-browser.js').read_bytes()).hexdigest()
+          cleanup = report['cleanup']
+          assert cleanup['complete'] is True and cleanup['forced'] is False
+          assert cleanup['remainingProcessGroupMembers'] == [] and cleanup['signals'] == [] and 'error' not in cleanup
+          assert report['diagnosticOnly'] is diagnostic and report['qualificationEligible'] is (not diagnostic)
+          assert report['collectorRequested'] is (not diagnostic)
+          assert report['standardCasesExpected'] == (0 if diagnostic else 4)
+          assert report['diagnosticCellsExpected'] == (1 if diagnostic else 0)
+          assert report['observationMode'] == ('no-test-wheel-observer-follow-writer-sequence' if diagnostic else 'standard-four-cases')
+          if diagnostic:
+              assert report['passed'] is False
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('safe_to_continue=true\n')
+          print('Natural Follow cleanup verified; original failure remains a failure.')
+          PYORDER
       - name: Verify account recovery and copied diagnostics
+        if: ${{ !cancelled() && (success() || steps.follow_writer_sequence_cleanup.outputs.safe_to_continue == 'true') }}
         env:
           ACCOUNT_RECOVERY_BROWSER: ${{ matrix.browser }}
           ACCOUNT_RECOVERY_CASE: all
@@ -154,7 +279,7 @@ jobs:
           set -o pipefail
           node scripts/validate-account-sync-recovery-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/account-recovery.log"
       - name: Observe original readiness barrier with a pending manifest
-        if: matrix.browser == 'webkit'
+        if: ${{ !cancelled() && matrix.browser == 'webkit' && (success() || steps.follow_writer_sequence_cleanup.outputs.safe_to_continue == 'true') }}
         env:
           ACCOUNT_RECOVERY_BROWSER: webkit
           ACCOUNT_RECOVERY_CASE: diagnostic
@@ -165,6 +290,7 @@ jobs:
           set -o pipefail
           node scripts/validate-account-sync-recovery-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/manifest-original-control.log"
       - name: Verify Feed controls above fixed navigation
+        if: ${{ !cancelled() && (success() || steps.follow_writer_sequence_cleanup.outputs.safe_to_continue == 'true') }}
         env:
           PEACH_QA_ENGINE: ${{ matrix.browser }}
           PEACH_QA_CASE: timeline-controls
@@ -178,4 +304,159 @@ jobs:
         with:
           name: installed-upgrade-${{ github.event.pull_request.head.sha }}-${{ matrix.browser }}
           path: ${{ runner.temp }}/ns-upgrade-proof
+          retention-days: 1
+
+  all-sports-interaction:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, webkit]
+    env:
+      ALL_SPORTS_ENGINES: ${{ matrix.browser }}
+      CRICKET_RANGE_ENGINES: ${{ matrix.browser }}
+      QA_BROWSER_CHANNEL: chromium
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24.21.0
+      - name: Record exact interaction source
+        env:
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          export INTERACTION_PROOF_DIR="$RUNNER_TEMP/ns-all-sports-proof"
+          mkdir -p "$INTERACTION_PROOF_DIR/screens"
+          {
+            echo "PLAYWRIGHT_MODULE=$RUNNER_TEMP/ns-playwright/node_modules/playwright"
+            echo "INTERACTION_PROOF_DIR=$INTERACTION_PROOF_DIR"
+            echo "ALL_SPORTS_DIAGNOSTIC_DIR=$INTERACTION_PROOF_DIR/screens"
+            echo "CRICKET_RANGE_DIAGNOSTIC_DIR=$INTERACTION_PROOF_DIR/screens"
+          } >> "$GITHUB_ENV"
+          node <<'JS' > "$INTERACTION_PROOF_DIR/context.json"
+          const cp=require('node:child_process');const git=(...a)=>cp.execFileSync('git',a,{encoding:'utf8'}).trim();
+          console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,node:process.version,playwright:'1.64.1',platform:process.platform,arch:process.arch,scope:'Full All Sports/Cricket local real-renderer/handler controls; no customer, provider, production credentials or publication'},null,2));
+          JS
+      - name: Use the official Ubuntu archive for test dependencies
+        run: |
+          set -o pipefail
+          sudo python3 - <<'PY' 2>&1 | tee "$RUNNER_TEMP/ns-all-sports-proof/apt-mirror.log"
+          from pathlib import Path
+          import json
+          root = Path('/etc/apt')
+          files = [*root.glob('*.list'), *root.glob('apt-mirrors*.txt'),
+                   *(root / 'sources.list.d').glob('*.list'), *(root / 'sources.list.d').glob('*.sources')]
+          changed = []
+          has_archive = False
+          for file in files:
+              if not file.is_file() or file.is_symlink():
+                  continue
+              before = file.read_text()
+              after = before.replace('azure.archive.ubuntu.com', 'archive.ubuntu.com')
+              has_archive = has_archive or 'archive.ubuntu.com' in after
+              if after != before:
+                  file.write_text(after)
+                  changed.append(str(file))
+          assert has_archive, 'Expected official Ubuntu package archive configuration'
+          print(json.dumps({'changedFiles': changed, 'archive': 'archive.ubuntu.com', 'packageSignatureValidation': 'unchanged'}))
+          PY
+      - name: Install isolated test dependencies
+        run: |
+          set -o pipefail
+          {
+            npm ci
+            npm install --prefix "$RUNNER_TEMP/ns-playwright" --no-save --package-lock=false playwright@1.64.1
+            node "$RUNNER_TEMP/ns-playwright/node_modules/playwright/cli.js" install --with-deps "${{ matrix.browser }}"
+          } 2>&1 | tee "$RUNNER_TEMP/ns-all-sports-proof/install.log"
+      - name: Prepare owned interaction runner
+        run: |
+          cat > "$RUNNER_TEMP/ns-interaction-runner.py" <<'PYOWN'
+          import os,sys,json,time,pathlib,subprocess,signal,hashlib,shutil
+          def members(group,deadline):
+              remaining=deadline-time.monotonic()
+              if remaining<=0:raise TimeoutError('cleanup_deadline')
+              result=subprocess.run(['ps','-axo','pid=,pgid='],capture_output=True,text=True,check=True,timeout=min(1,remaining))
+              return [int(parts[0])for line in result.stdout.splitlines()if len(parts:=line.split())==2 and int(parts[1])==group]
+
+          def cleanup(proc,deadline):
+              result={'forced':False,'signals':[],'remainingProcessGroupMembers':None,'complete':False}
+              try:
+                  remaining=members(proc.pid,deadline)
+                  if remaining:
+                      result['forced']=True
+                      try:os.killpg(proc.pid,signal.SIGTERM);result['signals'].append('SIGTERM')
+                      except ProcessLookupError:pass
+                      term_end=min(time.monotonic()+2,deadline-2)
+                      while time.monotonic()<term_end:
+                          proc.poll();remaining=members(proc.pid,deadline)
+                          if not remaining:break
+                          time.sleep(min(.05,max(0,term_end-time.monotonic())))
+                      remaining=members(proc.pid,deadline)
+                      if remaining:
+                          try:os.killpg(proc.pid,signal.SIGKILL);result['signals'].append('SIGKILL')
+                          except ProcessLookupError:pass
+                  # Group cleanup is independent of whether its immediate leader exited.
+                  while time.monotonic()<deadline:
+                      proc.poll();remaining=members(proc.pid,deadline)
+                      if not remaining:break
+                      time.sleep(min(.05,max(0,deadline-time.monotonic())))
+                  result['remainingProcessGroupMembers']=remaining
+                  result['complete']=not remaining and proc.poll() is not None and time.monotonic()<=deadline
+              except Exception as error:result['error']=type(error).__name__
+              return result
+          root=pathlib.Path.cwd();out=pathlib.Path(os.environ['INTERACTION_PROOF_DIR']);node=pathlib.Path(shutil.which('node')).resolve();module=pathlib.Path(os.environ['PLAYWRIGHT_MODULE']).resolve()
+          def digest(p):return hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
+          def git(*args):return subprocess.check_output(['git',*args],text=True,timeout=5).strip()
+          assert sys.platform=='linux' and subprocess.check_output([str(node),'--version'],text=True).strip()=='v24.21.0'
+          assert json.loads((module/'package.json').read_text())['version']=='1.64.1'
+          runtime={'nodeSha256':digest(node),'playwrightPackageSha256':digest(module/'package.json'),'browserRegistrySha256':digest(module.parent/'playwright-core/browsers.json')}
+          assert runtime['nodeSha256']=='7fde7b8afa198da66257f42ee2001d874c7355631e6d1579a5fb5ef1f246df4c'
+          assert runtime['playwrightPackageSha256']=='313d23ce667d93962d3a1ab4be80908cefe840e4d9e48f1cd5863b91f65e8e39'
+          assert runtime['browserRegistrySha256']=='2cfd419f71ac6475d81e1301fa86c34cf2a2a6bae2a0da4b5a2b18310216b6bf'
+          engine=os.environ['ALL_SPORTS_ENGINES'];assert engine in ['chromium','webkit'] and os.environ['CRICKET_RANGE_ENGINES']==engine
+          launcher=pathlib.Path(subprocess.check_output([str(node),'-e','process.stdout.write(require(process.argv[1])[process.argv[2]].executablePath())',str(module),engine],text=True,timeout=5));runtime['browserLauncherSha256']=digest(launcher)
+          if engine=='webkit':assert runtime['browserLauncherSha256']=='a85baad3d8c07173ac387a59b41500c382b21ed692afe0964d29aac247ccc63b'
+          cases={'view':('validate-all-sports-view-browser.js',370,390),'polish':('validate-all-sports-polish-browser.js',130,150),'cricket':('validate-cricket-upcoming-range-browser.js',130,150)}
+          assert len(sys.argv)==2 and sys.argv[1]in cases;case=sys.argv[1];script,native_limit,whole_limit=cases[case]
+          assert not os.environ.get('ALL_SPORTS_PAGER_PROBE')and not os.environ.get('ALL_SPORTS_WIDTHS')and not os.environ.get('REPAIR_QA_URL')
+          file=out/(case+'-supervisor.json');assert not file.exists(),'Preserve actual attempt';head=git('rev-parse','HEAD');before=git('status','--porcelain','--untracked-files=no');assert before==''
+          source=digest(root/'scripts'/script);started=time.monotonic();deadline=started+whole_limit
+          report={'head':head,'tree':git('rev-parse','HEAD^{tree}'),'engine':engine,'case':case,'script':script,'scriptSha256':source,'runtime':runtime,'attempts':1,'retries':0,'nativeLimitSeconds':native_limit,'wholeLimitSeconds':whole_limit,'releaseAcceptance':False,'passed':False};file.write_text(json.dumps(report,indent=2)+'\n');proc=None
+          try:
+           proc=subprocess.Popen([str(node),'scripts/'+script],start_new_session=True);report['pid']=proc.pid
+           try:report['exitCode']=proc.wait(timeout=native_limit)
+           except subprocess.TimeoutExpired:report['timedOut']=True
+          except Exception as error:report['failure']=type(error).__name__
+          finally:
+           if proc is not None:report['cleanup']=cleanup(proc,deadline)
+           report['sourceUnchanged']=git('rev-parse','HEAD')==head and git('status','--porcelain','--untracked-files=no')==before and digest(root/'scripts'/script)==source
+           report['elapsedSeconds']=time.monotonic()-started;report['passed']=report.get('exitCode')==0 and report['sourceUnchanged']and report.get('cleanup',{}).get('complete')and not report.get('cleanup',{}).get('forced')and report['elapsedSeconds']<=whole_limit;file.write_text(json.dumps(report,indent=2)+'\n')
+          print(json.dumps({'case':case,'passed':report['passed'],'elapsedSeconds':report['elapsedSeconds'],'cleanup':report.get('cleanup')}),flush=True);sys.exit(0 if report['passed']else 1)
+          PYOWN
+      - name: Verify complete All Sports view and privacy
+        timeout-minutes: 7
+        run: |
+          set -o pipefail
+          python3 "$RUNNER_TEMP/ns-interaction-runner.py" view 2>&1 | tee "$INTERACTION_PROOF_DIR/view.log"
+      - name: Verify All Sports presentation and control fitting
+        timeout-minutes: 3
+        run: |
+          set -o pipefail
+          python3 "$RUNNER_TEMP/ns-interaction-runner.py" polish 2>&1 | tee "$INTERACTION_PROOF_DIR/polish.log"
+      - name: Verify upcoming Cricket range and score patch
+        timeout-minutes: 3
+        run: |
+          set -o pipefail
+          python3 "$RUNNER_TEMP/ns-interaction-runner.py" cricket 2>&1 | tee "$INTERACTION_PROOF_DIR/cricket.log"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: all-sports-interaction-${{ github.event.pull_request.head.sha }}-${{ matrix.browser }}
+          path: ${{ runner.temp }}/ns-all-sports-proof
           retention-days: 1

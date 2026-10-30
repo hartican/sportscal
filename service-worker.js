@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v603";
-const SHELL_VERSION = "603";
+const CACHE_NAME = "nothingsport-shell-v604";
+const SHELL_VERSION = "604";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -9,13 +9,13 @@ const APP_SHELL = [
   "/assets/styles/racing-details.css?v=527",
   "/config/racing-details.js?v=539",
   "/config/participant-directory.js?v=512",
-  "/assets/js/football-card-context.js?v=511",
+  "/assets/js/football-card-context.js?v=604",
   "/assets/js/tennis-parent-ui.js?v=548",
   "/assets/js/calendar-sync-ui.js?v=513",
 
   "/assets/identities/wsl/wave-white.svg",
   "/assets/identities/wsl/brand.png",
-  "/assets/js/follow-presentation-ui.js?v=597",
+  "/assets/js/follow-presentation-ui.js?v=604",
   "/assets/identities/wrc/routes/sardegna-lerno-2026.svg",
   "/assets/identities/wrc/helmet-white.svg",
   "/assets/identities/sailgp/sailing-white.svg",
@@ -24,7 +24,7 @@ const APP_SHELL = [
   "/assets/js/notifications-inbox.js?v=552",
   "/assets/js/impact-feedback-ui.js?v=552",
   "/assets/js/settings-optional-ui.js?v=572",
-  "/assets/js/follow-navigation.js?v=522",
+  "/assets/js/follow-navigation.js?v=604",
   "/assets/js/tournament-fixture-ui.js?v=533",
   "/assets/styles/notifications-inbox.css?v=280",
   "/assets/js/app-update.js?v=533",
@@ -64,9 +64,9 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=603",
+  "/assets/js/app-shell-runtime.js?v=604",
   "/assets/js/account-awareness-runtime.js?v=599",
-  "/assets/js/follow-schedule-panel.js?v=576",
+  "/assets/js/follow-schedule-panel.js?v=604",
   "/assets/js/fixture-navigation.js?v=535",
   "/assets/js/notification-navigation.js?v=534",
   "/config/cricket-innings.js?v=582",
@@ -87,7 +87,7 @@ const APP_SHELL = [
   "/config/follow-summary.js?v=397",
   "/assets/identities/events/le-mans-24-hours.png",
   "/assets/identities/competitions/supercars.png",
-  "/styles/follow-feed-rework.css?v=603",
+  "/styles/follow-feed-rework.css?v=604",
   "/config/marquee-live-renderer.js?v=358",
   "/styles/comms-live.css?v=358",
   "/styles/owner-content.css?v=358",
@@ -95,18 +95,18 @@ const APP_SHELL = [
   "/config/tennis-coverage.js",
   "/config/sport-hubs.js",
   "/config/optimistic-mutation.js",
-  "/config/preference-reset-ui.js?v=603",
+  "/config/preference-reset-ui.js?v=604",
   "/config/marquee-campaigns.js",
   // Account sync is already in the required runtime; the owner console caches
   // its separate source after first use.
   "/config/major-events.js?v=556",
-  "/config/event-overviews-ui.js?v=595",
+  "/config/event-overviews-ui.js?v=604",
   "/config/surface-category-ui.js?v=403",
-  "/assets/styles/match-centre.css?v=595",
+  "/assets/styles/match-centre.css?v=604",
   "/config/match-centre.js?v=595",
   // An upgrading page can receive this deferred module from its old worker.
   // Own it in the new cache before activation removes that old cache.
-  "/assets/js/match-centre-ui.js?v=595",
+  "/assets/js/match-centre-ui.js?v=604",
   "/assets/js/milestone-alerts-ui.js?v=535",
   "/config/feed-live-scores.js?v=576",
   "/config/feed-live-score-loader.js?v=595",

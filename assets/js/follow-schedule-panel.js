@@ -310,7 +310,7 @@ function renderCodeInspectorStandings(panel, code){
         if(globalThis.NOTHINGSPORTS_FOOTBALL_CONTEXT?.footballTableWarning)paint();
         else{
           note.textContent=rows.find(row=>row.stale)?.staleNote||'Checking table against recorded results…';
-          void loadDeferredScript('assets/js/football-card-context.js?v=511').then(()=>{if(!section.isConnected)return;if(!userPreferences.showSpoilers&&!standingsRevealApproved){note.remove();return;}paint();}).catch(()=>{if(section.isConnected)note.textContent='Table comparison unavailable.';});
+          void loadDeferredScript('assets/js/football-card-context.js?v=604').then(()=>{if(!section.isConnected)return;if(!userPreferences.showSpoilers&&!standingsRevealApproved){note.remove();return;}paint();}).catch(()=>{if(section.isConnected)note.textContent='Table comparison unavailable.';});
         }
       }else if(rows.some(row=>row.stale)){const note=document.createElement('p');note.textContent=rows.find(row=>row.stale)?.staleNote||'Table awaits primary-source confirmation.';section.append(note);}
       if(asOf){const checked=document.createElement('p');checked.textContent=`Table checked ${new Intl.DateTimeFormat('en-AU',{dateStyle:'medium',timeStyle:'short',timeZone:'Australia/Sydney'}).format(new Date(asOf))} (Sydney)`;section.append(checked);}
