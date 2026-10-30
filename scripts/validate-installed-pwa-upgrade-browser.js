@@ -10,6 +10,8 @@ const {chromium, webkit} = require(process.env.PLAYWRIGHT_MODULE || 'playwright'
 const {assertFollowPickerJourney}=require('./validate-follow-presentation-browser');
 const {assertDirectoryDefaults}=require('./validate-recognised-follow-teams-browser');
 const root = path.resolve(__dirname,'..');
+const automaticAccount=process.env.PWA_AUTOMATIC_ACCOUNT==='1'?require('./lib/installed-automatic-account').create({root}):null;
+if(automaticAccount){assert(/^[a-f0-9]{40}$/.test(process.env.PWA_BASELINE_SHA||''),'ROOT full baseline SHA required');assert.equal(execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),process.env.PWA_AUTO_EXPECTED_SHA,'ROOT exact committed forward candidate required');}
 const installedNetwork=require('./lib/installed-test-network').create();
 const {create:createNavigationObservation}=require('./lib/installed-navigation-observation');
 const {assertDiamondsFeed}=require('./validate-diamonds-retained-browser');
@@ -601,6 +603,7 @@ const server=http.createServer((req,res)=>{
   if(installedNetwork.handleRequest(req))return;
   if(networkFailure){navigationObservation?.serverCutoff(req);req.socket.destroy();return;}
   if(installedNetwork.preflightDocument(req,res))return;
+  if(automaticAccount?.route(req,res))return;
   let name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/+/, '')||'index.html';
   if(name==='app-version.json')versionRequests++;
   if(name.includes('..')){res.writeHead(400);res.end();return;}
@@ -618,6 +621,7 @@ const server=http.createServer((req,res)=>{
     const origin='http://127.0.0.1:'+server.address().port;
     navigationObservation=createNavigationObservation({origin,expectedVersion:String(candidateVersion),expectedIndexSha256:crypto.createHash('sha256').update(candidateFile('index.html')).digest('hex')});
     installedNetwork.setOrigin(origin);installedNetwork.attachServer(server);
+    automaticAccount?.memory();
     browser=await (process.env.PWA_BROWSER==='webkit'?webkit:chromium).launch({headless:true,...launchOptions,...installedNetwork.launchOptions()});
     await installedNetwork.preflight(browser,{version:baselineVersion,indexSha256:crypto.createHash('sha256').update(baselineFile('index.html')).digest('hex')});
     const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,serviceWorkers:'allow'});
@@ -805,6 +809,15 @@ const server=http.createServer((req,res)=>{
     await upgraded.waitForTimeout(3500);
     assert(upgradeNavigations<=4,'No repeat navigation after resumed update: '+JSON.stringify({frames:upgradeNavigationLog,documents:upgradeDocuments}));
     installedNetwork.assertIsolated();
+    if(automaticAccount){
+      // Original suite is complete. Close it before changing server phase for
+      // additive contexts; never count its synthetic nextRelease as this proof.
+      await context.close();
+      const automaticEvidence=await automaticAccount.run({browser,origin,installedNetwork,baselineSha,baselineVersion,candidateVersion,
+        expectedSha:process.env.PWA_AUTO_EXPECTED_SHA,actualSha:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),baselineFile,candidateFile,
+        serve(value){phase=value;nextRelease=false;optionalFailure=false;coreFailure=false;networkFailure=false;},networkCutoff(value){networkFailure=value;}});
+      console.log(JSON.stringify({phase:'additive-installed-no-manual-sync',...automaticEvidence}));
+    }
     console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,oldScheduleAndScoreKeysWarmed:warmedOld,retainedSchedulesAndCurrentScoreOwners:true,legacyAutomaticCatchup:true,upgradeNavigations,upgradeDocuments,frameNavigationEvents:upgradeNavigationLog,preferencesPreserved:true,nativeDispositionAndRemindOffVerified:!!savedSelection.entities,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true,canonicalFinalResultsCacheVerified:true,minimisedRowsCacheVerified:true,multidayRetentionCacheVerified:true,cricketStatusCacheVerified:true,nhlViewingCacheVerified:true,matchCentreCacheVerified:true,fontCacheVerified:true},null,2));
   }catch(error){originalFailure=error;throw error;}
   finally{

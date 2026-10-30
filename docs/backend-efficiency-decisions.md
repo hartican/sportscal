@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Preserve one witnessed reconnect during failed account work — 30 October 2026
+
+Source candidate only: the actual deferred lifecycle owner loses an online event arriving during an issued read that later fails503. Preserve one bounded witness until the existing15-second burst boundary; retain it across still-busy work and consume it after matching settlement only for the same account/subject/session/local-profile/app-generation error state through the existing serialized recovery owner. Observe the complete bootstrap promise through metadata and pending-intent reconcile; an intermediate signedIn/render is not settlement. This observation adds no queue or owner. Visible window focus joins that same coalesced path; ended/replaced witnesses cancel their timers. The actual default request timeout remains15000ms; the burst boundary is not a request or aggregate-work deadline. Clean work and failure without a new witness schedule no recheck; a failed follow-up cannot loop. Existing hidden/offline, receipt/base/current/ACK/CAS and recovery uncertainty gates remain. No second owner, polling, forced save, destructive reset, endpoint, schema, retry/deadline or budget-cap increase.
+
+Actual-source/compiled-helper startup/lifecycle/default-writer/conditional-handler controls join required preference bookkeeping. Synthetic worker-to-new-source-realm controls do not prove real installed upgrades or suspended-iOS execution. Version603 identity/baseline stays frozen; ROOT owns integration, forward version/cache and all runtime/hosted/device qualification. All Sports continues independently. See [scope and limitations](quality/automatic-account-sync-2026-10-30.md).
+
 ## Device profile pointers do not create outgoing edits — 30 October 2026
 
 The hosted 599 removal check exposed a normalization-only second save. A stale device successfully saved Unfollow against the newest account copy, then local graph normalization changed the accepted response's profile pointers to its own device profile. A subsequent manual sync uploaded those pointers again. The source regression reproduces the actual default scheduled writer, real API conditional save, receipt ACK and normal manual reconciliation before and after the repair.

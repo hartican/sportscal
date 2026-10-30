@@ -63,6 +63,80 @@ function traceManifest(event, fields = {}) {
 const owner = 'disposable-account-a';
 const token = id => 'e30.' + Buffer.from(JSON.stringify({ sub: id })).toString('base64url') + '.disposable';
 const clone = value => JSON.parse(JSON.stringify(value));
+// Reporting only. Neither helper can turn the original failed gate green.
+function formatInitialSignInDiagnostic(record){
+ const limit=65535; // Reserve one byte for the log newline within64KiB.
+ let payload={...record,diagnosticRecordTruncated:false},text=JSON.stringify(payload);
+ if(Buffer.byteLength(text)<=limit)return text;
+ const state=record.state||{};
+ payload={phase:'initial-sign-in',scenario:String(record.scenario).slice(0,80),engine:String(record.engine).slice(0,20),
+  reads:record.reads,writes:record.writes,refreshes:record.refreshes,authSignIns:record.authSignIns,
+  diagnosticRecordTruncated:true,omitted:['errors','state.message'],
+  state:{state:['checking','requesting','signedOut','signedIn','syncing','error','local'].includes(state.state)?state.state:'other',
+   hasSession:state.hasSession===true,pending:state.pending===true,trace:Array.isArray(state.trace)?state.trace.slice(0,128):[],
+   traceStatus:state.traceStatus,lastSnapshot:state.lastSnapshot}};
+ text=JSON.stringify(payload);
+ while(Buffer.byteLength(text)>limit&&payload.state.trace.length){payload.state.trace.pop();payload.recordTraceDropped=(payload.recordTraceDropped||0)+1;text=JSON.stringify(payload);}
+ if(Buffer.byteLength(text)>limit)text=JSON.stringify({phase:'initial-sign-in',diagnosticRecordTruncated:true,diagnosticUnavailable:true,reason:'record_over_budget'});
+ return text;
+}
+async function reportInitialSignInFailure(originalError,fields,read,emit){
+ try{emit(formatInitialSignInDiagnostic({...fields,state:await read()}));}
+ catch{try{emit(JSON.stringify({phase:'initial-sign-in',diagnosticUnavailable:true,reason:'observation_failed'}));}catch{}}
+ throw originalError;
+}
+
+// Failure-only B observation. No values, messages, IDs, event or click history.
+function secondaryReadinessSnapshot(){
+ const raw=typeof serverPersistence==='object'?serverPersistence:null;
+ const life=typeof serverSyncClient==='object'&&serverSyncClient?.accountSnapshot?serverSyncClient.accountSnapshot():null;
+ const form=document.getElementById('accountSignInForm'),email=document.getElementById('accountEmail'),password=document.getElementById('accountPassword');
+ const submit=form?.querySelector('button[type="submit"]');
+ return {
+  state:['checking','requesting','signedOut','signedIn','syncing','error','local'].includes(raw?.state)?raw.state:'other',
+  indicatorPresent:typeof accountIndicatorController!=='undefined'&&Boolean(accountIndicatorController),
+  sdkSession:life?.hasSession===true,
+  ownerMatches:Boolean(life?.accountId&&raw?.user?.id&&life.accountId===raw.user.id),
+  busy:typeof serverStatusRequest!=='undefined'&&Boolean(serverStatusRequest),
+  generationMatches:typeof accountIndicatorGeneration==='number'&&Number.isSafeInteger(life?.generation)&&accountIndicatorGeneration===life.generation,
+  formConnected:form?.isConnected===true,emailPresent:Boolean(email),passwordPresent:Boolean(password),
+  emailValid:email?.validity?.valid===true,passwordValid:password?.validity?.valid===true,
+  submitConnected:submit?.isConnected===true,submitDisabled:submit?.disabled===true,
+ };
+}
+function formatSecondaryReadiness(state,scenario,engine){
+ const flags=['indicatorPresent','sdkSession','ownerMatches','busy','generationMatches','formConnected','emailPresent','passwordPresent','emailValid','passwordValid','submitConnected','submitDisabled'];
+ const safe={state:['checking','requesting','signedOut','signedIn','syncing','error','local'].includes(state?.state)?state.state:'other'};
+ for(const key of flags)safe[key]=state?.[key]===true;
+ return JSON.stringify({phase:'secondary-readiness',context:'B',scenario:['api-stale','api-timestamp','api-race','api-changed'].includes(scenario)?scenario:'other',engine:['chromium','webkit'].includes(engine)?engine:'other',state:safe,
+  busyMeaning:'existing_status_request_present',generationMeaning:'indicator_generation_equals_sdk_generation',requestDeltas:'omitted_no_existing_B_boundary_shared_A_B_counters',
+  limits:'Current disposable B snapshot only; no historical click/trust or cause inference'});
+}
+async function reportSecondaryReadinessFailure(originalError,{read,emit,pending,scenario,engine}){
+ let timer;
+ try{
+  const work=Promise.resolve().then(read);pending.add(work);
+  work.then(()=>pending.delete(work),()=>pending.delete(work));
+  const state=await Promise.race([work,new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('SECONDARY_CAPTURE_DEADLINE')),5000);})]);
+  emit(formatSecondaryReadiness(state,scenario,engine));
+ }catch{
+  try{emit(JSON.stringify({phase:'secondary-readiness',context:'B',diagnosticUnavailable:true,reason:'capture_failed_or_timed_out'}));}catch{}
+ }finally{clearTimeout(timer);}
+ throw originalError;
+}
+async function closeSecondaryReadinessFailure(originalError,{close,pending,reportBeforeClose,reportAfterClose}){
+ // Exactly one failure-only capture can exist. Closing B cancels its real eval;
+ // all settlement remains owned by B's original finally and unchanged job cap.
+ let closeSucceeded=false,tasksSettled=false;
+ try{try{reportBeforeClose();}catch{}}
+ finally{
+  try{await close();closeSucceeded=true;}catch{}
+  finally{try{await Promise.allSettled([...pending]);tasksSettled=pending.size===0;}catch{}}
+ }
+ try{reportAfterClose({complete:closeSucceeded&&tasksSettled,closeSucceeded,tasksSettled});}catch{}
+ throw originalError;
+}
+
 // Diagnostic only: correlate same-origin schedule reads with document lifetime.
 // Keep the original pageerror collector/gate unchanged; never handle a rejection.
 const traceApiStale=scenario==='api-stale';
@@ -552,17 +626,66 @@ const server = http.createServer((req, res) => {
     await page.locator('#startupLaunch').waitFor({ state: 'hidden' });
     await page.evaluate(() => {
       globalThis.qaSignInTrace=[];
-      const forms=new WeakMap();let nextForm=0;
-      const snapshot=event=>{
-        const form=document.getElementById('accountSignInForm');
-        if(form&&!forms.has(form))forms.set(form,++nextForm);
-        const email=document.getElementById('accountEmail'),password=document.getElementById('accountPassword');
-        qaSignInTrace.push({event,form:form?forms.get(form):null,emailPresent:Boolean(email?.value),
-          passwordPresent:Boolean(password?.value),emailValid:email?.validity.valid??null,
-          passwordValid:password?.validity.valid??null,state:serverPersistence.state});
+      globalThis.qaSignInTraceStatus={truncated:false,dropped:0,faults:0,bytes:2,maxEvents:128,maxTraceBytes:49152};
+      const forms=new WeakMap(),nodes=new WeakMap();let nextForm=0,nextNode=0,sequence=0,pressedSubmit=null,activePress=false;
+      const fault=()=>{qaSignInTraceStatus.faults=Math.min(9999,qaSignInTraceStatus.faults+1);};
+      const number=value=>Number.isFinite(value)?Math.round(value*100)/100:null;
+      const nodeID=node=>{if(!node||typeof node!=='object')return null;if(!nodes.has(node))nodes.set(node,++nextNode);return nodes.get(node);};
+      const formID=form=>{if(!form)return null;if(!forms.has(form))forms.set(form,++nextForm);return forms.get(form);};
+      const kind=(target,form)=>{
+        if(!target)return 'none';if(target===form)return 'form';
+        if(target===document.getElementById('accountEmail'))return 'email';
+        if(target===document.getElementById('accountPassword'))return 'password';
+        if(target===document.getElementById('keepAccountSignedIn'))return 'persistence-toggle';
+        if(target.closest?.('button[type="submit"]')?.form===form)return 'submit-button';
+        if(target.closest?.('button')?.form===form)return 'other-button';
+        return target.closest?.('#accountSignInForm')===form?'form-content':'outside-form';
       };
-      for(const type of ['input','change','invalid','click','submit'])document.addEventListener(type,event=>{
-        if(event.target.closest?.('#accountSignInForm'))snapshot(type+':'+(event.target.id||event.target.tagName));
+      const rect=node=>{if(!node)return null;const r=node.getBoundingClientRect();return{x:number(r.x),y:number(r.y),width:number(r.width),height:number(r.height)};};
+      const scroll=node=>node?{left:number(node.scrollLeft),top:number(node.scrollTop),clientWidth:number(node.clientWidth),clientHeight:number(node.clientHeight),scrollWidth:number(node.scrollWidth),scrollHeight:number(node.scrollHeight)}:null;
+      const capture=(event,actual=null)=>{
+        const form=document.getElementById('accountSignInForm'),submit=form?.querySelector('button[type="submit"]'),target=actual?.target||null;
+        const email=document.getElementById('accountEmail'),password=document.getElementById('accountPassword'),viewport=window.visualViewport;
+        return{event,form:formID(form),emailPresent:Boolean(email?.value),passwordPresent:Boolean(password?.value),
+          emailValid:email?.validity.valid??null,passwordValid:password?.validity.valid??null,state:serverPersistence.state,
+          sequence:++sequence,timeOrigin:number(performance.timeOrigin),atMs:number(performance.now()),
+          trusted:actual?actual.isTrusted===true:null,defaultPrevented:actual?actual.defaultPrevented===true:null,observationPhase:actual?'capture':'snapshot',
+          targetKind:kind(target,form),targetNode:nodeID(target),targetConnected:target?target.isConnected===true:null,
+          targetForm:formID(target?.form||target?.closest?.('#accountSignInForm')||null),
+          targetDisabled:typeof target?.disabled==='boolean'?target.disabled:null,
+          submitNode:nodeID(submit),submitConnected:submit?submit.isConnected===true:null,submitForm:formID(submit?.form||null),submitDisabled:submit?submit.disabled===true:null,
+          pressedSubmitNode:nodeID(pressedSubmit),pressedSubmitConnected:pressedSubmit?pressedSubmit.isConnected===true:null,
+          point:actual&&Number.isFinite(actual.clientX)&&Number.isFinite(actual.clientY)?{x:number(actual.clientX),y:number(actual.clientY)}:null,
+          submitRect:rect(submit),window:{x:number(window.scrollX),y:number(window.scrollY),width:number(window.innerWidth),height:number(window.innerHeight)},
+          modal:scroll(document.getElementById('settingsModal')),panel:scroll(document.querySelector('#settingsModal .settings-panel')),body:scroll(document.getElementById('settingsBody')),
+          visualViewport:viewport?{x:number(viewport.offsetLeft),y:number(viewport.offsetTop),pageX:number(viewport.pageLeft),pageY:number(viewport.pageTop),width:number(viewport.width),height:number(viewport.height),scale:number(viewport.scale)}:null};
+      };
+      const snapshot=(event,actual=null)=>{
+        try{
+          if(qaSignInTrace.length>=128){qaSignInTraceStatus.truncated=true;qaSignInTraceStatus.dropped=Math.min(9999,qaSignInTraceStatus.dropped+1);return;}
+          const entry=capture(event,actual),bytes=new TextEncoder().encode(JSON.stringify(entry)).byteLength+(qaSignInTrace.length?1:0);
+          if(qaSignInTraceStatus.bytes+bytes>49152){qaSignInTraceStatus.truncated=true;qaSignInTraceStatus.dropped=Math.min(9999,qaSignInTraceStatus.dropped+1);return;}
+          qaSignInTrace.push(entry);qaSignInTraceStatus.bytes+=bytes;
+        }catch{fault();}
+      };
+      // This is a current failure-time snapshot, not click-time geometry.
+      globalThis.qaSignInFailureSnapshot=()=>{try{return capture('failure-snapshot');}catch{fault();return{capture:'unavailable'};}};
+      const eventName=(type,target)=>{
+        const id=['accountSignInForm','accountEmail','accountPassword','keepAccountSignedIn','createAccountBtn','forgotPasswordBtn'].includes(target?.id)?target.id:null;
+        const tag=['BUTTON','FORM','INPUT','LABEL','SPAN'].includes(target?.tagName)?target.tagName:'OTHER';
+        return type+':'+(id||tag);
+      };
+      for(const type of ['input','change','invalid','click','submit','pointerdown','mousedown','pointerup','mouseup','focus','blur'])document.addEventListener(type,event=>{
+        try{
+          const form=document.getElementById('accountSignInForm'),inside=!!form&&event.target.closest?.('#accountSignInForm')===form;
+          const ending=type==='pointerup'||type==='mouseup';
+          if(!inside&&(type==='pointerdown'||type==='mousedown'||type==='click'))activePress=false;
+          if(!inside&&!(ending&&activePress))return;
+          if((type==='focus'||type==='blur')&&event.target.tagName!=='INPUT')return;
+          if(type==='pointerdown'||type==='mousedown'){pressedSubmit=event.target.closest?.('button[type="submit"]')||null;activePress=!!pressedSubmit;}
+          snapshot(eventName(type,event.target),event);
+          if(type==='mouseup'||type==='click')activePress=false;
+        }catch{fault();}
       },true);
       const render=renderAccountSettings;
       renderAccountSettings=function(...args){snapshot('before-render');const result=render(...args);snapshot('after-render');return result;};
@@ -596,10 +719,11 @@ const server = http.createServer((req, res) => {
       assert.equal(trace.filter(event=>event.event==='submit:accountSignInForm').length,1,'a filled form must submit even when its deferred helper finishes before the click');
     }
     await page.waitForFunction(() => serverPersistence.state === 'signedIn').catch(async error=>{
-      console.error(JSON.stringify({phase:'initial-sign-in',scenario,engine:engineName,reads,writes,refreshes,errors,
-        state:await page.evaluate(()=>({state:serverPersistence.state,message:serverPersistence.message,
-          hasSession:serverSyncClient.accountSnapshot().hasSession,pending:Boolean(pendingPreferenceIntent(serverPersistence.user?.id)),trace:qaSignInTrace}))}));
-      throw error;
+      return reportInitialSignInFailure(error,{phase:'initial-sign-in',scenario,engine:engineName,reads,writes,refreshes,authSignIns,errors},
+        ()=>page.evaluate(()=>({state:serverPersistence.state,message:serverPersistence.message,
+          hasSession:serverSyncClient.accountSnapshot().hasSession,pending:Boolean(pendingPreferenceIntent(serverPersistence.user?.id)),
+          lastSnapshot:qaSignInFailureSnapshot(),trace:qaSignInTrace,traceStatus:qaSignInTraceStatus})),
+        record=>console.error(record));
     });
     await page.waitForFunction(() => Boolean(accountIndicatorController));
     await page.waitForFunction(() => nothingscoreViewerScope?.owner === serverPersistence.user?.id);
@@ -1120,6 +1244,7 @@ const server = http.createServer((req, res) => {
       await page.evaluate(() => serverSyncSequence);
       const beforeB = clone(actualApi.state());
       const other = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: 'block' });
+      const secondaryReadinessPending=new Set();let secondaryReadinessFailure=null;
       try {
         await other.route('**/*', routeHandler);
         await other.addInitScript(preferences => localStorage.setItem('ns_preferences_v1', JSON.stringify(preferences)), beforeB.preferences);
@@ -1147,7 +1272,10 @@ const server = http.createServer((req, res) => {
         await second.locator('#accountEmail').fill('disposable@example.invalid');
         await second.locator('#accountPassword').fill('test-only-password');
         await second.locator('#accountSignInForm button[type="submit"]').click();
-        await second.waitForFunction(() => serverPersistence.state === 'signedIn' && Boolean(accountIndicatorController));
+        await second.waitForFunction(() => serverPersistence.state === 'signedIn' && Boolean(accountIndicatorController)).catch(error=>{
+          secondaryReadinessFailure=error;
+          return reportSecondaryReadinessFailure(error,{read:()=>second.evaluate(secondaryReadinessSnapshot),emit:record=>console.error(record),pending:secondaryReadinessPending,scenario,engine:engineName});
+        });
         await second.waitForTimeout(1500);
         await second.evaluate(() => serverSyncSequence);
         const changedByB = sync.createPatch(beforeB, actualApi.state()).changes.map(change => change.path.join('.'));
@@ -1183,12 +1311,19 @@ const server = http.createServer((req, res) => {
           assert.equal(actualApi.state().preferences.pilotMeasurement.enabled, false);
         }
         chronology.push({ phase: 'after-removal', A: await snapshot(page), B: await snapshot(second) });
-      } catch (error) { chronology.push({ phase: 'failure', A: await snapshot(page) }); throw error; }
+      } catch (error) { if(secondaryReadinessFailure)throw secondaryReadinessFailure;chronology.push({ phase: 'failure', A: await snapshot(page) }); throw error; }
       finally {
+        if(secondaryReadinessFailure)await closeSecondaryReadinessFailure(secondaryReadinessFailure,{
+          pending:secondaryReadinessPending,close:()=>other.close(),
+          reportBeforeClose:()=>{console.log(JSON.stringify({scenario,engine:engineName,chronology}));if(traceApiStale){resourcePhase='legacy-secondary-close';traceResource('secondary-context-close-start');}},
+          reportAfterClose:outcome=>{if(traceApiStale){traceResource(outcome.complete?'secondary-context-close-complete':'secondary-context-close-incomplete',{context:'B',closeSucceeded:outcome.closeSucceeded,captureTasksSettled:outcome.tasksSettled});if(outcome.complete)traceApiBoundary('legacy-before-final-gate');}},
+        });
+        else {
         console.log(JSON.stringify({ scenario, engine: engineName, chronology }));
         if(traceApiStale){resourcePhase='legacy-secondary-close';traceResource('secondary-context-close-start');}
         await other.close();
         if(traceApiStale){traceResource('secondary-context-close-complete');traceApiBoundary('legacy-before-final-gate');}
+        }
       }
     } else if (scenario === 'helper-mount') {
       assert.equal(authSignIns,1,'exactly one native password-sign-in request follows the original form submit');

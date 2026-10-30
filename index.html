@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="603">
+<meta name="app-shell-version" content="604">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=603" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=604" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -487,7 +487,7 @@ to{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 14%,transparent);}
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=603"></script>
+<script src="assets/js/app-shell-runtime.js?v=604"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -1856,6 +1856,7 @@ message: "",
 let accountIndicatorController = null, accountIndicatorLoading = null, accountIndicatorJourney = null;
 let accountIndicatorGeneration = -1;
 function renderAccountIndicator(){
+globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.stateChanged?.();
 if(accountIndicatorController)return accountIndicatorController.render();
 const button=document.getElementById('accountIndicatorFallback');
 if(button){
@@ -1866,7 +1867,7 @@ button.setAttribute('aria-label',button.textContent+'. Open Account.');
 }
 function ensureAccountIndicator(){
 if(accountIndicatorController)return Promise.resolve(accountIndicatorController);
-accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=599')
+accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=604')
 .then(()=>NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.mount())
 .catch(()=>{accountIndicatorLoading=null;renderAccountIndicator();return null;});
 return accountIndicatorLoading;
@@ -3530,6 +3531,8 @@ throw Object.assign(new Error("Your choices are saved on this device. Sync is pa
 }
 }
 async function bootstrapServerPersistence({ session: sessionHint = undefined, checkStatus = true } = {}){
+// Observe the complete existing job, including metadata and receipt reconcile.
+const task=(async()=>{
 const accountJourney=accountIndicatorJourney?.phase==='signing-up'?accountIndicatorJourney:null;
 const accountLife=serverSyncClient?.accountSnapshot?.();
 const generation = invalidateServerStateSyncScope();
@@ -3648,6 +3651,14 @@ message: unavailablePreview
 }
 globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.complete(accountJourney,accountLife);
 return serverPersistence;
+})();
+globalThis.NOTHINGSPORTS_ACCOUNT_BOOTSTRAP=task;
+try{return await task;}finally{
+if(globalThis.NOTHINGSPORTS_ACCOUNT_BOOTSTRAP===task){
+globalThis.NOTHINGSPORTS_ACCOUNT_BOOTSTRAP=null;
+globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.stateChanged?.();
+}
+}
 }
 function sydneyPartsFromIso(iso){
 if (!iso) return null;
