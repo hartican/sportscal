@@ -1,0 +1,61 @@
+name: One-use near receipt native push qualification
+run-name: Native receipt ROOT a5963c4d69e4ad10caf75dce4d8754aa
+on:
+  push:
+    branches: ['codex/near-receipt-native-20261030-2']
+    paths: ['.github/workflows/near-receipt-native-20261030-2.yml']
+permissions:
+  contents: read
+concurrency:
+  group: sportscal-production-and-cleanup
+  cancel-in-progress: false
+jobs:
+  paired-native:
+    if: github.event_name == 'push' && github.repository == 'hartican/sportscal' && github.ref == 'refs/heads/codex/near-receipt-native-20261030-2' && github.event.created == true && github.event.deleted == false && github.event.forced == false && github.run_attempt == 1
+    runs-on: ubuntu-24.04
+    timeout-minutes: 11
+    env:
+      NEAR_NONCE: a5963c4d69e4ad10caf75dce4d8754aa
+      NEAR_ALLOCATION: receipt-join-native-pg17-pg18-once
+      NEAR_PACKET_SHA: 1ba51c7cd7dc71fbe6e559646d686e07508b09c9
+      NEAR_PACKET_MANIFEST_SHA256: 247d05d25d5c6114aa80c3b4d2e1375c5a89cc779d536a81425f63eb5dfbc8f6
+      NEAR_SOURCE: ${{ github.workspace }}/source
+    steps:
+      - name: Bind actual push and start unchanged whole allocation
+        shell: bash
+        run: |
+          test "$GITHUB_EVENT_NAME" = push
+          test "$GITHUB_REPOSITORY" = hartican/sportscal
+          test "$GITHUB_REF" = refs/heads/codex/near-receipt-native-20261030-2
+          test "$GITHUB_SHA" = "$GITHUB_WORKFLOW_SHA"
+          test "$GITHUB_RUN_ATTEMPT" = 1
+          [[ "$NEAR_NONCE" =~ ^[a-f0-9]{32}$ ]]
+          [[ "$NEAR_PACKET_SHA" =~ ^[a-f0-9]{40}$ ]]
+          [[ "$NEAR_PACKET_MANIFEST_SHA256" =~ ^[a-f0-9]{64}$ ]]
+          echo "NEAR_STARTED_MS=$(date +%s%3N)" >> "$GITHUB_ENV"
+          echo "NEAR_OUTPUT=$RUNNER_TEMP/near-receipt-$NEAR_NONCE" >> "$GITHUB_ENV"
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          repository: hartican/sportscal
+          ref: 1ba51c7cd7dc71fbe6e559646d686e07508b09c9
+          path: packet
+          persist-credentials: false
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          repository: hartican/sportscal
+          ref: 98af9164d15cddfb198fd35cd9e226b267723216
+          path: source
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444
+        with:
+          node-version: 24
+      - name: One allocated test; unchanged sequential PG17 and PG18
+        run: node packet/scripts/qa/near-receipt-join/adapter.cjs
+      - name: Retain non-sensitive ledger and metrics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: near-receipt-native-a5963c4d69e4ad10caf75dce4d8754aa
+          path: ${{ runner.temp }}/near-receipt-a5963c4d69e4ad10caf75dce4d8754aa/result.json
+          if-no-files-found: error
+          retention-days: 7
