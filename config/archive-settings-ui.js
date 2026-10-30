@@ -66,6 +66,7 @@ function renderSettingsMenu(body){
     button.addEventListener("click", () => void updates.check({ force:true }));
   }
   bindSettingsMenuNavigation(body);
+  root.NOTHINGSPORTS_APP_ICON_SETTINGS.menu(body);
   document.getElementById("refreshAndRebuildFeedBtn").addEventListener("click", async () => {
     const button = document.getElementById("refreshAndRebuildFeedBtn");
     const status = document.getElementById("refreshAndRebuildFeedStatus");

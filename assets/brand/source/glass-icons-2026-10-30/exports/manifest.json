@@ -1,0 +1,1582 @@
+{
+  "pngCount": 173,
+  "appSizes": [
+    1024,
+    512,
+    256,
+    192,
+    180,
+    152,
+    144,
+    128,
+    108,
+    96,
+    76,
+    72,
+    64
+  ],
+  "favSizes": [
+    64,
+    48,
+    32,
+    16
+  ],
+  "files": [
+    {
+      "file": "icons/dark-full-colour/app/nothing-sport-dark-full-colour-1024x1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "234516570b2c9e4c66967d27ead0a487677c7454b9b0d618a7938de2598f8ab9",
+      "type": "app-icon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/app/nothing-sport-dark-full-colour-512x512.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "sha256": "970ab19b28af76ed9b942e3f2901c34ef1d09d2b907bd5fe5f55896f6623365b",
+      "type": "app-icon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/app/nothing-sport-dark-full-colour-256x256.png",
+      "width": 256,
+      "height": 256,
+      "alpha": true,
+      "sha256": "f0bd8cdb102dce4c5231f64bfe8ec7c845a011cb6e32b6ee901aa0202307e24c",
+      "type": "app-icon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/app/nothing-sport-dark-full-colour-192x192.png",
+      "width": 192,
+      "height": 192,
+      "alpha": true,
+      "sha256": "b1b4e6578147fd77686af66e2402a2fd533658da5ccf6c77af6dbe15f71298b2",
+      "type": "app-icon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/app/nothing-sport-dark-full-colour-180x180.png",
+      "width": 180,
+      "height": 180,
+      "alpha": true,
+      "sha256": "8d5b3a745cb395ef0a877a5c50156ce35de41fef078da67d7331c4b310afd43c",
+      "type": "app-icon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/app/nothing-sport-dark-full-colour-152x152.png",
+      "width": 152,
+      "height": 152,
+      "alpha": true,
+      "sha256": "6de0cb0d1efa4e4357accf087620335ff196226eb04f331a7c6309315da395ae",
+      "type": "app-icon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/app/nothing-sport-dark-full-colour-144x144.png",
+      "width": 144,
+      "height": 144,
+      "alpha": true,
+      "sha256": "cd235781cd867ed14d84e8936ba70e9db36135fc0fe21aa322f07b812cfc2efc",
+      "type": "app-icon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/app/nothing-sport-dark-full-colour-128x128.png",
+      "width": 128,
+      "height": 128,
+      "alpha": true,
+      "sha256": "d4b9615cb58784d80475970367fc92fb48d11a71471e4915b760074fdd0d8450",
+      "type": "app-icon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/app/nothing-sport-dark-full-colour-108x108.png",
+      "width": 108,
+      "height": 108,
+      "alpha": true,
+      "sha256": "ef90cb37cd9b6f98b1f76af52a8b695219825445b85f1d0ebc60a2a59b93fa7b",
+      "type": "app-icon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/app/nothing-sport-dark-full-colour-96x96.png",
+      "width": 96,
+      "height": 96,
+      "alpha": true,
+      "sha256": "7ddac282ce052ec5220b89719d277b210844d77383999606b69c04fe1bd53500",
+      "type": "app-icon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/app/nothing-sport-dark-full-colour-76x76.png",
+      "width": 76,
+      "height": 76,
+      "alpha": true,
+      "sha256": "56b52a971bc33000df517f58ae5b5ee31eb50d2919c4cff2a188d7a7a175f31b",
+      "type": "app-icon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/app/nothing-sport-dark-full-colour-72x72.png",
+      "width": 72,
+      "height": 72,
+      "alpha": true,
+      "sha256": "23d4250041f4e982ec6ca943a4a6a3819f1e022a4364f52d6694dd9a0a5c22d5",
+      "type": "app-icon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/app/nothing-sport-dark-full-colour-64x64.png",
+      "width": 64,
+      "height": 64,
+      "alpha": true,
+      "sha256": "c7cd6d7bcc3dd3a0afe221cb3decbedce97006f1858e1614aa6d4330920754cc",
+      "type": "app-icon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/favicon/nothing-sport-dark-full-colour-n-only-64x64.png",
+      "width": 64,
+      "height": 64,
+      "alpha": true,
+      "sha256": "813977f4bf1f221ba378f892cc2cbbd9c95ad2224d09f02dea452dc4a96167a1",
+      "type": "favicon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/favicon/nothing-sport-dark-full-colour-n-only-48x48.png",
+      "width": 48,
+      "height": 48,
+      "alpha": true,
+      "sha256": "acb31ee1e9c2403f647cbc35ecedeaa59aad356813c20d59031b35538212ecdf",
+      "type": "favicon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/favicon/nothing-sport-dark-full-colour-n-only-32x32.png",
+      "width": 32,
+      "height": 32,
+      "alpha": true,
+      "sha256": "cdf1b3718b12613210d0147355becc0a0959305693fbcb867d9e55b36f3aca1a",
+      "type": "favicon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/favicon/nothing-sport-dark-full-colour-n-only-16x16.png",
+      "width": 16,
+      "height": 16,
+      "alpha": true,
+      "sha256": "0a42cf8645013b130d602c50f29235556f50e5f68c38bdf50e3157ddf013fd8c",
+      "type": "favicon",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/favicon/nothing-sport-dark-full-colour-n-only-master-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "1e09c5f16f7325b154d85a2d1c0ced9827b60af9b0247905971d58c8a601d73f",
+      "type": "favicon-master",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/layers/glass-background-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "aa35eb47fe31f6454b57f69daabbf5e3e0382ec389fb6248b830e76ed8f90dc5",
+      "type": "glass-background",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/dark-full-colour/layers/flat-artwork-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "7196fa30a5dc661c013e83f55a6f5cbbb0c1590da08a01222be1e91fd7ac7a58",
+      "type": "foreground",
+      "variant": "dark-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/app/nothing-sport-light-full-colour-1024x1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "82daeb66bd34139ded0848dc7af2f647428957be35d9b6e694133c0e18c3c3bf",
+      "type": "app-icon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/app/nothing-sport-light-full-colour-512x512.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "sha256": "b8e07ff439e89338f9dffc8f60a2307dbe99f5698ad2bb8912c9f4c1de98756e",
+      "type": "app-icon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/app/nothing-sport-light-full-colour-256x256.png",
+      "width": 256,
+      "height": 256,
+      "alpha": true,
+      "sha256": "52beb4f8584304c7968bc57e5840d2d285f8d6c55ec399e0950c1be350ca8590",
+      "type": "app-icon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/app/nothing-sport-light-full-colour-192x192.png",
+      "width": 192,
+      "height": 192,
+      "alpha": true,
+      "sha256": "9fb38d662de4dd7477484d8315b9c8a830195264f1c67556930d39f09dbe4600",
+      "type": "app-icon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/app/nothing-sport-light-full-colour-180x180.png",
+      "width": 180,
+      "height": 180,
+      "alpha": true,
+      "sha256": "a8f65fa3925e0c87d96b75d0eca98aea0941a61bc72e4f7e450038ccdd93d5fb",
+      "type": "app-icon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/app/nothing-sport-light-full-colour-152x152.png",
+      "width": 152,
+      "height": 152,
+      "alpha": true,
+      "sha256": "fad8b33a88dcf1967c588ca5b40e42ebc92870afe472c53fcd9f64caca49320f",
+      "type": "app-icon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/app/nothing-sport-light-full-colour-144x144.png",
+      "width": 144,
+      "height": 144,
+      "alpha": true,
+      "sha256": "bd3fff2aac1b3fabaa3802dfa54aec5482a7207d4b4c38358dc67a18589ce3ea",
+      "type": "app-icon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/app/nothing-sport-light-full-colour-128x128.png",
+      "width": 128,
+      "height": 128,
+      "alpha": true,
+      "sha256": "3a2ae5dd50bd252108370cf6947b01e601722f5de07145700bcd49d18a72c3aa",
+      "type": "app-icon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/app/nothing-sport-light-full-colour-108x108.png",
+      "width": 108,
+      "height": 108,
+      "alpha": true,
+      "sha256": "9f3b5bf53f168fe44c616b91faeae449b694031af1ab4b76dec3e8c523abd325",
+      "type": "app-icon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/app/nothing-sport-light-full-colour-96x96.png",
+      "width": 96,
+      "height": 96,
+      "alpha": true,
+      "sha256": "332c925646f1a581ab1422283e55d35dc2c9bc4e8855f97f5dd41168d0b03991",
+      "type": "app-icon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/app/nothing-sport-light-full-colour-76x76.png",
+      "width": 76,
+      "height": 76,
+      "alpha": true,
+      "sha256": "9ec22ca596189ef2f30f9c4db1c70a3e012252bae0cd31578cac967e9cb5e359",
+      "type": "app-icon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/app/nothing-sport-light-full-colour-72x72.png",
+      "width": 72,
+      "height": 72,
+      "alpha": true,
+      "sha256": "c234cd87e293f940e229cec9cc96966093f0a4d8405d8056575adf2a7d11d0ca",
+      "type": "app-icon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/app/nothing-sport-light-full-colour-64x64.png",
+      "width": 64,
+      "height": 64,
+      "alpha": true,
+      "sha256": "2ed5cc10838e9c1d47089b680523cee378749e51820de57fcb8cc72e5d4e882b",
+      "type": "app-icon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/favicon/nothing-sport-light-full-colour-n-only-64x64.png",
+      "width": 64,
+      "height": 64,
+      "alpha": true,
+      "sha256": "4f9a6e015c922cf3f97b592a0db7f261cdc00066ac5a480999c1397b930521f5",
+      "type": "favicon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/favicon/nothing-sport-light-full-colour-n-only-48x48.png",
+      "width": 48,
+      "height": 48,
+      "alpha": true,
+      "sha256": "c1a42f05ffb6c30ce600bf57e21ebf690c70610230e24d63673bf1f996ed57bb",
+      "type": "favicon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/favicon/nothing-sport-light-full-colour-n-only-32x32.png",
+      "width": 32,
+      "height": 32,
+      "alpha": true,
+      "sha256": "e105a6a88cf23ac11449aac8d72f57638a2ac66fbc95b7c30cfc8382fa1a6ecc",
+      "type": "favicon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/favicon/nothing-sport-light-full-colour-n-only-16x16.png",
+      "width": 16,
+      "height": 16,
+      "alpha": true,
+      "sha256": "fa9cb5b81f1a5ef2632cd8fe477c823dc79cd9a5221073a5889f6e793338a48a",
+      "type": "favicon",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/favicon/nothing-sport-light-full-colour-n-only-master-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "1afbc1b6ba0c5093d25667c5a00da6a396e02dcb30ffd0971d5e1a2c0c1a4059",
+      "type": "favicon-master",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/layers/glass-background-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "3324894c33ba8a18ffb3770c03b5f30a2f37f8db804c5e0083c9c75e25fed428",
+      "type": "glass-background",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/light-full-colour/layers/flat-artwork-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "f516f286c49824343265f9c8cd34deb1220a1294ad9eeb2a282837935a7d5224",
+      "type": "foreground",
+      "variant": "light-full-colour"
+    },
+    {
+      "file": "icons/clear-glass/app/nothing-sport-clear-glass-1024x1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "0046f69a62e0362f6bc724364f2cebfbbefbcaecf7ada13db239513a11e15330",
+      "type": "app-icon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/app/nothing-sport-clear-glass-512x512.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "sha256": "f66d82dceef03d7669cc990e646ea01dc1b25da5c78dff0d94d828684381a296",
+      "type": "app-icon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/app/nothing-sport-clear-glass-256x256.png",
+      "width": 256,
+      "height": 256,
+      "alpha": true,
+      "sha256": "a1d6d593b794c938c235389d62adaf2c4571cb8c1a239cf7e006e921fcd2ce8f",
+      "type": "app-icon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/app/nothing-sport-clear-glass-192x192.png",
+      "width": 192,
+      "height": 192,
+      "alpha": true,
+      "sha256": "6c39b8464f5345079605e6907f5916dfb349d9ff77c7cef6d07ebc83dbee922d",
+      "type": "app-icon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/app/nothing-sport-clear-glass-180x180.png",
+      "width": 180,
+      "height": 180,
+      "alpha": true,
+      "sha256": "35c4cf99eafdbc4d5bb75b51e150181c655e6176899600f0b9760eab252ae1a4",
+      "type": "app-icon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/app/nothing-sport-clear-glass-152x152.png",
+      "width": 152,
+      "height": 152,
+      "alpha": true,
+      "sha256": "8478fc77473a11ec6ec9a0bf4eae1b3119936c3f43bdd685af4c515e7261a38a",
+      "type": "app-icon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/app/nothing-sport-clear-glass-144x144.png",
+      "width": 144,
+      "height": 144,
+      "alpha": true,
+      "sha256": "3d7e2ea1cf853a5dcc6510087453faa29cf809ee1ad0286ee0e42ca5bf8b0ae7",
+      "type": "app-icon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/app/nothing-sport-clear-glass-128x128.png",
+      "width": 128,
+      "height": 128,
+      "alpha": true,
+      "sha256": "7741e5b321b35c617dddcf1d6a98333534e78c543be07a0a98597e7d9a6dd0f9",
+      "type": "app-icon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/app/nothing-sport-clear-glass-108x108.png",
+      "width": 108,
+      "height": 108,
+      "alpha": true,
+      "sha256": "debd10c33bd93851e96da59dcb3e156e64a4a0a3555c114e79f9391a51497270",
+      "type": "app-icon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/app/nothing-sport-clear-glass-96x96.png",
+      "width": 96,
+      "height": 96,
+      "alpha": true,
+      "sha256": "73e3a4851674cb891c3026f6d5c87d591d690ce63b9a1244423474bffc8d43d1",
+      "type": "app-icon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/app/nothing-sport-clear-glass-76x76.png",
+      "width": 76,
+      "height": 76,
+      "alpha": true,
+      "sha256": "b751d83410ff8f2196e7bb2672e0f7ae270b0d22a13a4d68bface62152d30841",
+      "type": "app-icon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/app/nothing-sport-clear-glass-72x72.png",
+      "width": 72,
+      "height": 72,
+      "alpha": true,
+      "sha256": "ad3d88a4db2333836237ef9a8baed24a662614d2753c841c301cd48ed5f5a034",
+      "type": "app-icon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/app/nothing-sport-clear-glass-64x64.png",
+      "width": 64,
+      "height": 64,
+      "alpha": true,
+      "sha256": "fdb919b5bf808712f8bfa6faf965eb6364f5942438d5126f8acca6f01446cfef",
+      "type": "app-icon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/favicon/nothing-sport-clear-glass-n-only-64x64.png",
+      "width": 64,
+      "height": 64,
+      "alpha": true,
+      "sha256": "b5d5cd891641a6dcb862174ce01751d5a41ab59b38d6eea73fc6a97cd004afc3",
+      "type": "favicon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/favicon/nothing-sport-clear-glass-n-only-48x48.png",
+      "width": 48,
+      "height": 48,
+      "alpha": true,
+      "sha256": "a69c42d66a7dc0f594c3291e73082f732fefd99348c703a035e884ff67347ecf",
+      "type": "favicon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/favicon/nothing-sport-clear-glass-n-only-32x32.png",
+      "width": 32,
+      "height": 32,
+      "alpha": true,
+      "sha256": "7d304fcb90199803281ce03a6103d6e32e008a92d251db60b56b3a036f466f78",
+      "type": "favicon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/favicon/nothing-sport-clear-glass-n-only-16x16.png",
+      "width": 16,
+      "height": 16,
+      "alpha": true,
+      "sha256": "c083b8d42c4f046fe6d5fc1f0f4642a950334c38cdf7ac7cf47722c9efa89c4f",
+      "type": "favicon",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/favicon/nothing-sport-clear-glass-n-only-master-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "cc64a67feeac82eaa188a2bcd7d5d53230d4981ed1b13e2e49d4c79c7a419e1b",
+      "type": "favicon-master",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/layers/glass-background-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "86505cdf72c35efd49bac21906270c983d6a502e8e94f0ce0562edaa309608c4",
+      "type": "glass-background",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/clear-glass/layers/flat-artwork-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "7c5417b7c000069c8856bb8ad42eae44591e22d6160d6f4c978ccdd5f89c6baa",
+      "type": "foreground",
+      "variant": "clear-glass"
+    },
+    {
+      "file": "icons/greyscale-dark/app/nothing-sport-greyscale-dark-1024x1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "62f9f45117fd06db00b6e9a16fb91bf385ca871bc1812e8929915109b50836ad",
+      "type": "app-icon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/app/nothing-sport-greyscale-dark-512x512.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "sha256": "02b98e2e4f60e087f741aa853e6edabdc59fa858dac8c438f351765110fc8537",
+      "type": "app-icon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/app/nothing-sport-greyscale-dark-256x256.png",
+      "width": 256,
+      "height": 256,
+      "alpha": true,
+      "sha256": "71c1c49fae8f58935ca832bdd0f3f636a6ef5c279ce6dbd6a48cad2a934ddd8b",
+      "type": "app-icon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/app/nothing-sport-greyscale-dark-192x192.png",
+      "width": 192,
+      "height": 192,
+      "alpha": true,
+      "sha256": "e964254dbb80cf41a2e86ee01710656ddeae41df45ab16bcf4f5b47f6e8e9d86",
+      "type": "app-icon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/app/nothing-sport-greyscale-dark-180x180.png",
+      "width": 180,
+      "height": 180,
+      "alpha": true,
+      "sha256": "fa2d57dfe7fb14f6245f14ae9a0d1161da7fa8912d1ec8d4842873356dc0af56",
+      "type": "app-icon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/app/nothing-sport-greyscale-dark-152x152.png",
+      "width": 152,
+      "height": 152,
+      "alpha": true,
+      "sha256": "91b3184cbc82cc25670bb38c6f5c4702da8905320c5598db4260f39937f3f98b",
+      "type": "app-icon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/app/nothing-sport-greyscale-dark-144x144.png",
+      "width": 144,
+      "height": 144,
+      "alpha": true,
+      "sha256": "411ec8911475a3ec0999d5f9cb5cc02292fda8c8f74109225b48c58fded1a090",
+      "type": "app-icon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/app/nothing-sport-greyscale-dark-128x128.png",
+      "width": 128,
+      "height": 128,
+      "alpha": true,
+      "sha256": "62490a647915bdcd063e7ddc00dcb6844883ba3aa1930273521ba6c08c67f5cb",
+      "type": "app-icon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/app/nothing-sport-greyscale-dark-108x108.png",
+      "width": 108,
+      "height": 108,
+      "alpha": true,
+      "sha256": "80a6ee96b9010efe7d88d5352362d4bf8ca1d84397dc6cc72c29a15a028b43a3",
+      "type": "app-icon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/app/nothing-sport-greyscale-dark-96x96.png",
+      "width": 96,
+      "height": 96,
+      "alpha": true,
+      "sha256": "daf87bf2447a9443b6c70d28f911f62f291c450488ae07840e8b07660c358c26",
+      "type": "app-icon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/app/nothing-sport-greyscale-dark-76x76.png",
+      "width": 76,
+      "height": 76,
+      "alpha": true,
+      "sha256": "00fdc0bdbc0f1cf3852c92b79f7bfc8b5e6e8a0f4add3d40e15975339889c9f7",
+      "type": "app-icon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/app/nothing-sport-greyscale-dark-72x72.png",
+      "width": 72,
+      "height": 72,
+      "alpha": true,
+      "sha256": "de6d7dd3b4d9713ac9fc52678278cd0336ec96a65638ca0c0d3af619ab2fbcb5",
+      "type": "app-icon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/app/nothing-sport-greyscale-dark-64x64.png",
+      "width": 64,
+      "height": 64,
+      "alpha": true,
+      "sha256": "f08449b34bf6b720b9c380adff47609aa497c7fe6c0404f16f4f95cffd25a3d2",
+      "type": "app-icon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/favicon/nothing-sport-greyscale-dark-n-only-64x64.png",
+      "width": 64,
+      "height": 64,
+      "alpha": true,
+      "sha256": "a4fa4920e6adfdd8d23a5b158839953fbb97240e312591dfa8df5136682593bf",
+      "type": "favicon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/favicon/nothing-sport-greyscale-dark-n-only-48x48.png",
+      "width": 48,
+      "height": 48,
+      "alpha": true,
+      "sha256": "72f632403c2e18ab99aa3a790d2c0abb795142cadc0a77f2dbfe2daf484895c7",
+      "type": "favicon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/favicon/nothing-sport-greyscale-dark-n-only-32x32.png",
+      "width": 32,
+      "height": 32,
+      "alpha": true,
+      "sha256": "0c2a00692d7d1b1ca21a80d9de5806827a7b1d00a1777193d9d93cc39f2eb1fd",
+      "type": "favicon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/favicon/nothing-sport-greyscale-dark-n-only-16x16.png",
+      "width": 16,
+      "height": 16,
+      "alpha": true,
+      "sha256": "c1363c83aeb30bf08d7d17af28c31e3cb924e9104f5acb0cde8bd684baca237f",
+      "type": "favicon",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/favicon/nothing-sport-greyscale-dark-n-only-master-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "8351632cb5aee22ffb5059f1ca9f3faefd8aed270cbd383054885c5bd5af11f0",
+      "type": "favicon-master",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/layers/glass-background-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "7de38eaae21454ce617440d083e7bfb20b86628ea373cba57ec15de1e82afa97",
+      "type": "glass-background",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-dark/layers/flat-artwork-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "e3aac7ec861daacfa19f9df04ae10628d883b9e14338a777447e78121ae7191e",
+      "type": "foreground",
+      "variant": "greyscale-dark"
+    },
+    {
+      "file": "icons/greyscale-light/app/nothing-sport-greyscale-light-1024x1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "ce80d75d0e610c293250237a91ddb0a47b66ddc0b489214251117674942696dc",
+      "type": "app-icon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/app/nothing-sport-greyscale-light-512x512.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "sha256": "21a794fc33945ad08695ecab6333a4493827591e2f29dfee8c6d8d4eeddb303b",
+      "type": "app-icon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/app/nothing-sport-greyscale-light-256x256.png",
+      "width": 256,
+      "height": 256,
+      "alpha": true,
+      "sha256": "35304f003add350f1f558d9b7f74ae98ca2416cc05933041237f36c4f7636d9d",
+      "type": "app-icon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/app/nothing-sport-greyscale-light-192x192.png",
+      "width": 192,
+      "height": 192,
+      "alpha": true,
+      "sha256": "f2a76f9c1b103646d3cdb9e79443135b5a0217f0ff42d4555a8f77c2b60338cc",
+      "type": "app-icon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/app/nothing-sport-greyscale-light-180x180.png",
+      "width": 180,
+      "height": 180,
+      "alpha": true,
+      "sha256": "d5f551571016144377cf8bd2521a86a310bbf541604787bb089c1ff5fe88a943",
+      "type": "app-icon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/app/nothing-sport-greyscale-light-152x152.png",
+      "width": 152,
+      "height": 152,
+      "alpha": true,
+      "sha256": "860bc2e10ff206065eb511de3f577afeb46e8e2855a400e60ab48bbcd31b02c9",
+      "type": "app-icon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/app/nothing-sport-greyscale-light-144x144.png",
+      "width": 144,
+      "height": 144,
+      "alpha": true,
+      "sha256": "9d7a590c717faddc42df56e6ae1783a2e64f0299bce2c54318f9d346a026a2c4",
+      "type": "app-icon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/app/nothing-sport-greyscale-light-128x128.png",
+      "width": 128,
+      "height": 128,
+      "alpha": true,
+      "sha256": "407e53bebc9f0303faf22894d7c33111fe64c8889bd506db1b6f7d4803ab3d8d",
+      "type": "app-icon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/app/nothing-sport-greyscale-light-108x108.png",
+      "width": 108,
+      "height": 108,
+      "alpha": true,
+      "sha256": "c5d0bb35298f231c55955069b33b3f5584c5aa9af4f255a5648995888b3d7d76",
+      "type": "app-icon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/app/nothing-sport-greyscale-light-96x96.png",
+      "width": 96,
+      "height": 96,
+      "alpha": true,
+      "sha256": "1ee0268ae1838e25bfee57fe87fed9aeb5672bdb19d264de2351cda408c7ba4c",
+      "type": "app-icon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/app/nothing-sport-greyscale-light-76x76.png",
+      "width": 76,
+      "height": 76,
+      "alpha": true,
+      "sha256": "b070f447a0b826df78bfd10f04d2f91f8f632879ac461c3eaa61c2462b5377c8",
+      "type": "app-icon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/app/nothing-sport-greyscale-light-72x72.png",
+      "width": 72,
+      "height": 72,
+      "alpha": true,
+      "sha256": "8a463da62e56ac365854b2f5b0ca55b236a5a6c358faea9b2615990ee320655e",
+      "type": "app-icon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/app/nothing-sport-greyscale-light-64x64.png",
+      "width": 64,
+      "height": 64,
+      "alpha": true,
+      "sha256": "807c9f128a2a7dbcc485016bda37b8d51981c8361aa00d491993e2d357b1932c",
+      "type": "app-icon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/favicon/nothing-sport-greyscale-light-n-only-64x64.png",
+      "width": 64,
+      "height": 64,
+      "alpha": true,
+      "sha256": "acb356a839eaaffd7be11fee303fdcb38753157c402e6161d78bb744d52622a1",
+      "type": "favicon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/favicon/nothing-sport-greyscale-light-n-only-48x48.png",
+      "width": 48,
+      "height": 48,
+      "alpha": true,
+      "sha256": "044aa8e851973623d30462be4b90f1797ce991962ac1c0d9b15042a561b01dec",
+      "type": "favicon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/favicon/nothing-sport-greyscale-light-n-only-32x32.png",
+      "width": 32,
+      "height": 32,
+      "alpha": true,
+      "sha256": "acf4cc85abd4e75d5c857e1f9391678a0982e8e2c3077a5aa2ccf49e2c980e29",
+      "type": "favicon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/favicon/nothing-sport-greyscale-light-n-only-16x16.png",
+      "width": 16,
+      "height": 16,
+      "alpha": true,
+      "sha256": "85fa075b9054e900b7a82a5f12ff42633ea38815b212875ba457568881b67f0e",
+      "type": "favicon",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/favicon/nothing-sport-greyscale-light-n-only-master-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "2c5b869eebf98952a2261832e59285be4e8ff108910b7ba737742c13802bb019",
+      "type": "favicon-master",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/layers/glass-background-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "5304648b6345b5c293723ca0610866d138ec5a889a94506aabc2973b7810afb3",
+      "type": "glass-background",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/greyscale-light/layers/flat-artwork-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "b8e49062b696a9284612b45eb6778a3c98ad725bb8edb317200df22fa7264981",
+      "type": "foreground",
+      "variant": "greyscale-light"
+    },
+    {
+      "file": "icons/inverted/app/nothing-sport-inverted-1024x1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "e28b7037c601c85ca5a87453a46d98d16a5ece167cdfa8a573486ce72251f240",
+      "type": "app-icon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/app/nothing-sport-inverted-512x512.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "sha256": "090150ae38e19205087d90f3509ba6674fb40506ce62dbd2d27fa68f308e5840",
+      "type": "app-icon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/app/nothing-sport-inverted-256x256.png",
+      "width": 256,
+      "height": 256,
+      "alpha": true,
+      "sha256": "f6575a7fc9b122f151ea82c13a768f3ad088d132eb1d398439581087c703637b",
+      "type": "app-icon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/app/nothing-sport-inverted-192x192.png",
+      "width": 192,
+      "height": 192,
+      "alpha": true,
+      "sha256": "9ea2e5a6e41a140a3ae6f55a68b4238cd51165c07167ccb58d4637d75d59604f",
+      "type": "app-icon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/app/nothing-sport-inverted-180x180.png",
+      "width": 180,
+      "height": 180,
+      "alpha": true,
+      "sha256": "d20cbc6b0286447c7c4998fb215d7891b06173dcdbaaf4ea30421bd06b5bc728",
+      "type": "app-icon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/app/nothing-sport-inverted-152x152.png",
+      "width": 152,
+      "height": 152,
+      "alpha": true,
+      "sha256": "fb07a5ba5a460ae1cfe817195a0db61b15aeeb67b0a370aec8f1c43a715e3b4d",
+      "type": "app-icon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/app/nothing-sport-inverted-144x144.png",
+      "width": 144,
+      "height": 144,
+      "alpha": true,
+      "sha256": "6a26983ff4f39b2d9f306272e9fbc4134bbc72cf17150883f843bda844d26db5",
+      "type": "app-icon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/app/nothing-sport-inverted-128x128.png",
+      "width": 128,
+      "height": 128,
+      "alpha": true,
+      "sha256": "a4e586f376ac184b705ba09f16839d6be9b52673d48639a3dc82a7db5e1929c7",
+      "type": "app-icon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/app/nothing-sport-inverted-108x108.png",
+      "width": 108,
+      "height": 108,
+      "alpha": true,
+      "sha256": "a8f829ab935f05d5109b5c68081511597b866c42b9be4972e08ed6cc18cc6f8d",
+      "type": "app-icon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/app/nothing-sport-inverted-96x96.png",
+      "width": 96,
+      "height": 96,
+      "alpha": true,
+      "sha256": "bda3434d4d2adf15aa3a06a197b941c0a984cc098d08598fdd49e12764f3be5f",
+      "type": "app-icon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/app/nothing-sport-inverted-76x76.png",
+      "width": 76,
+      "height": 76,
+      "alpha": true,
+      "sha256": "8aa5c755e0293eb103523ed33c51f910269dc7f1a8b1f3334717bec8752e2ca8",
+      "type": "app-icon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/app/nothing-sport-inverted-72x72.png",
+      "width": 72,
+      "height": 72,
+      "alpha": true,
+      "sha256": "94fce0686d056daa7de07078ed0fa2e4ee8448e1b509774e7b2a7898ada29bdf",
+      "type": "app-icon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/app/nothing-sport-inverted-64x64.png",
+      "width": 64,
+      "height": 64,
+      "alpha": true,
+      "sha256": "12fa08a5260d1ffe663ab8ce2216730dce7bfa9db37f51d059b6ca3bc4d0cf5d",
+      "type": "app-icon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/favicon/nothing-sport-inverted-n-only-64x64.png",
+      "width": 64,
+      "height": 64,
+      "alpha": true,
+      "sha256": "18487f5e8590e91d7111e8a0639b459bcd215514fc1a2433e41163714ad01408",
+      "type": "favicon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/favicon/nothing-sport-inverted-n-only-48x48.png",
+      "width": 48,
+      "height": 48,
+      "alpha": true,
+      "sha256": "dcbaf3e35ec4728f11cf2984f19f09b14b4f283af73c2edf637464c2adb8e1de",
+      "type": "favicon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/favicon/nothing-sport-inverted-n-only-32x32.png",
+      "width": 32,
+      "height": 32,
+      "alpha": true,
+      "sha256": "aa48ddc2f422deaced580d997ff7e705f2ee740bb5e6177168e2e9dbf4599c31",
+      "type": "favicon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/favicon/nothing-sport-inverted-n-only-16x16.png",
+      "width": 16,
+      "height": 16,
+      "alpha": true,
+      "sha256": "44ebe4885db23fdee6ad4fb3831f7b7a830db67ab71173567490b24ee53fa92a",
+      "type": "favicon",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/favicon/nothing-sport-inverted-n-only-master-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "acf8a1ef1eb68dc7097e6cb4a2bb2dc6bf56dee85326df55b5dc97b90a90a4fd",
+      "type": "favicon-master",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/layers/glass-background-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "4fbba773a7c1ce654a67fd18a2a7c9d3020990ca58121718f958c6ac4508c4d9",
+      "type": "glass-background",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/inverted/layers/flat-artwork-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "30419feac5bc45d57696790c0837271e3a5085980d281dbb5c908a2a1cec1d85",
+      "type": "foreground",
+      "variant": "inverted"
+    },
+    {
+      "file": "icons/high-contrast-neon/app/nothing-sport-high-contrast-neon-1024x1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "9f5b207060b0d287bca824402506b9ab6cb992db3dcb842218429802ecc5ba6a",
+      "type": "app-icon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/app/nothing-sport-high-contrast-neon-512x512.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "sha256": "25ec081e0a9583be74a45598dd266c0294ac2d09ee6e3c7f740a073248dd57b9",
+      "type": "app-icon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/app/nothing-sport-high-contrast-neon-256x256.png",
+      "width": 256,
+      "height": 256,
+      "alpha": true,
+      "sha256": "9bb77931226194a909cc56e7dd50d28a68aa0d146309a5e3e862f7f006a991f9",
+      "type": "app-icon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/app/nothing-sport-high-contrast-neon-192x192.png",
+      "width": 192,
+      "height": 192,
+      "alpha": true,
+      "sha256": "c4ddd72fb30f339e99c3156a532103cf6e86cb4fa433c04b1ef3f82ae80313f3",
+      "type": "app-icon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/app/nothing-sport-high-contrast-neon-180x180.png",
+      "width": 180,
+      "height": 180,
+      "alpha": true,
+      "sha256": "34332631f7b5be41c7172cf2d284dc45a0296f81ee10bf77e4e500d6bcfca356",
+      "type": "app-icon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/app/nothing-sport-high-contrast-neon-152x152.png",
+      "width": 152,
+      "height": 152,
+      "alpha": true,
+      "sha256": "b7a7fe1441311a7c281b4334b5d1e4eb29171e7b873ea7225752ebd239a37d59",
+      "type": "app-icon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/app/nothing-sport-high-contrast-neon-144x144.png",
+      "width": 144,
+      "height": 144,
+      "alpha": true,
+      "sha256": "e6861a824d55d67b490dc92627249e372b5914f9734988b5f917581fc0eefe87",
+      "type": "app-icon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/app/nothing-sport-high-contrast-neon-128x128.png",
+      "width": 128,
+      "height": 128,
+      "alpha": true,
+      "sha256": "936ce51bbf0e762075c282db19118e59e002e2d316dde8fc3c68f8ba504a5a15",
+      "type": "app-icon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/app/nothing-sport-high-contrast-neon-108x108.png",
+      "width": 108,
+      "height": 108,
+      "alpha": true,
+      "sha256": "9834c40cfb97be0ea93cbdc9d415dd11ba075384ef42ea2323c6738210381358",
+      "type": "app-icon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/app/nothing-sport-high-contrast-neon-96x96.png",
+      "width": 96,
+      "height": 96,
+      "alpha": true,
+      "sha256": "c80a8d0c35aa630301501902a7eef07c12622a6a3dfdc8056759c3071ccd9e28",
+      "type": "app-icon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/app/nothing-sport-high-contrast-neon-76x76.png",
+      "width": 76,
+      "height": 76,
+      "alpha": true,
+      "sha256": "4c30cf386da1c1a09a7d5a2d66a08da0548fa457bd75016cab5dea2acc537444",
+      "type": "app-icon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/app/nothing-sport-high-contrast-neon-72x72.png",
+      "width": 72,
+      "height": 72,
+      "alpha": true,
+      "sha256": "47afddc9b8e1c8a08fc073b129519ed7045571eb5fbb8f77249db59dc3d2fd71",
+      "type": "app-icon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/app/nothing-sport-high-contrast-neon-64x64.png",
+      "width": 64,
+      "height": 64,
+      "alpha": true,
+      "sha256": "45d65884400341d3d5142904335e277267c6ed7a0e62a8c4e2e0ada4bde44498",
+      "type": "app-icon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/favicon/nothing-sport-high-contrast-neon-n-only-64x64.png",
+      "width": 64,
+      "height": 64,
+      "alpha": true,
+      "sha256": "844c915825e7fecf9b3ad551c07a5abcb087cbe45cce5e264586fbfbcb8c1bea",
+      "type": "favicon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/favicon/nothing-sport-high-contrast-neon-n-only-48x48.png",
+      "width": 48,
+      "height": 48,
+      "alpha": true,
+      "sha256": "0cff78826821ed7260f074d17ff0d81994486936e75648143c5c521ae3f65bc7",
+      "type": "favicon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/favicon/nothing-sport-high-contrast-neon-n-only-32x32.png",
+      "width": 32,
+      "height": 32,
+      "alpha": true,
+      "sha256": "a74e2301db7ce7565ef8ccf4dbd8f1e3ce9e0a0a442ae8161f927f261eec807f",
+      "type": "favicon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/favicon/nothing-sport-high-contrast-neon-n-only-16x16.png",
+      "width": 16,
+      "height": 16,
+      "alpha": true,
+      "sha256": "97ef52a312733be4c488c34e1f476087a8d4eb33a7c6391ede037b39b017d4d3",
+      "type": "favicon",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/favicon/nothing-sport-high-contrast-neon-n-only-master-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "7c14f13304cc0adbbf4828c2466b2f3ca214aa684bda9b87f7b1fe17571b1f60",
+      "type": "favicon-master",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/layers/glass-background-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "cf50a8bef1363d7b84aafbb440e65e371539a0149cbf6988b65817f4be6ee9eb",
+      "type": "glass-background",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/high-contrast-neon/layers/flat-artwork-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "0c12fee81ebf8099c96692815072d87055b235cf31d28787784ee503a18b6aae",
+      "type": "foreground",
+      "variant": "high-contrast-neon"
+    },
+    {
+      "file": "icons/monochrome-white/app/nothing-sport-monochrome-white-1024x1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "a4b32a1ab7c4761fa8ab862fad440f9deaf900507b86008e4f86664a69052830",
+      "type": "app-icon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/app/nothing-sport-monochrome-white-512x512.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "sha256": "22ce5f5c38b2a5c2d47f6dd68e4976eabfb97fbce6845d389dbf4b739c44e941",
+      "type": "app-icon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/app/nothing-sport-monochrome-white-256x256.png",
+      "width": 256,
+      "height": 256,
+      "alpha": true,
+      "sha256": "4b55f5efdcaa01f90e74c73a08bf7699d86365e1704181c5e065d381383167a8",
+      "type": "app-icon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/app/nothing-sport-monochrome-white-192x192.png",
+      "width": 192,
+      "height": 192,
+      "alpha": true,
+      "sha256": "9ab8f39e82d2cae0d8cebef2950abaac0122ebe3c4c2acccf499d4f5e68b8407",
+      "type": "app-icon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/app/nothing-sport-monochrome-white-180x180.png",
+      "width": 180,
+      "height": 180,
+      "alpha": true,
+      "sha256": "d1751896380b717d5df36b45d37b7ad968d55745ad2205288336f4766ccd968c",
+      "type": "app-icon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/app/nothing-sport-monochrome-white-152x152.png",
+      "width": 152,
+      "height": 152,
+      "alpha": true,
+      "sha256": "00ab10ee10489d709bf8af66a19b7e12fa151de859c89849cd15cd4c551acb09",
+      "type": "app-icon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/app/nothing-sport-monochrome-white-144x144.png",
+      "width": 144,
+      "height": 144,
+      "alpha": true,
+      "sha256": "e64e94f2413a3bc3037e7f32d714ba06f0c7fbf5aa9009438acbe8ae218943a4",
+      "type": "app-icon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/app/nothing-sport-monochrome-white-128x128.png",
+      "width": 128,
+      "height": 128,
+      "alpha": true,
+      "sha256": "0bca27ae1c6eeda39a11a095f7edd73f0ad7212c24449178863fb89054efcd88",
+      "type": "app-icon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/app/nothing-sport-monochrome-white-108x108.png",
+      "width": 108,
+      "height": 108,
+      "alpha": true,
+      "sha256": "4d9045086f728fd296f5223aaf2bb04055ffac77728292832c642d3d6b2381b1",
+      "type": "app-icon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/app/nothing-sport-monochrome-white-96x96.png",
+      "width": 96,
+      "height": 96,
+      "alpha": true,
+      "sha256": "baf87a073e84375b5d5d3c05d40924e9423e1f455e9db0fd51aaa6d410150088",
+      "type": "app-icon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/app/nothing-sport-monochrome-white-76x76.png",
+      "width": 76,
+      "height": 76,
+      "alpha": true,
+      "sha256": "2943e6fbd1c8401baa0ce4d48608f008a38dc552dac6f66726c98e2d7566e48a",
+      "type": "app-icon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/app/nothing-sport-monochrome-white-72x72.png",
+      "width": 72,
+      "height": 72,
+      "alpha": true,
+      "sha256": "99d33042e6e11500e6ef0078e5d399aa5da0f2bf2e14b0f9852ad7a457f77a88",
+      "type": "app-icon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/app/nothing-sport-monochrome-white-64x64.png",
+      "width": 64,
+      "height": 64,
+      "alpha": true,
+      "sha256": "259b9a78d597221a835b776a76c5487427f349740b6825f6242804f9f8a3c7e5",
+      "type": "app-icon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/favicon/nothing-sport-monochrome-white-n-only-64x64.png",
+      "width": 64,
+      "height": 64,
+      "alpha": true,
+      "sha256": "e6479616643d0f81eeb085dff039f2bbbbad058427461762c69303dcb51004eb",
+      "type": "favicon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/favicon/nothing-sport-monochrome-white-n-only-48x48.png",
+      "width": 48,
+      "height": 48,
+      "alpha": true,
+      "sha256": "3114f6f927d2cc337c089013ca3df7f2ea8904a5244789071c17697ca3467923",
+      "type": "favicon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/favicon/nothing-sport-monochrome-white-n-only-32x32.png",
+      "width": 32,
+      "height": 32,
+      "alpha": true,
+      "sha256": "4a235d98bed614bf0f59e99b9d6e43597efa8985355a97a991f1745ceb76752d",
+      "type": "favicon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/favicon/nothing-sport-monochrome-white-n-only-16x16.png",
+      "width": 16,
+      "height": 16,
+      "alpha": true,
+      "sha256": "5e5d08321362b1e5413622a56fa794b1b4f96e1d71a29c321a31b38745606fd7",
+      "type": "favicon",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/favicon/nothing-sport-monochrome-white-n-only-master-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "79832ce56e2b1f834a1c531f4ee1c67729228c7eed5db0a3931fcea0d0fa5506",
+      "type": "favicon-master",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/layers/glass-background-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "1062026788c794031ea48ca2e4836c2a286e62684ae83a9c7cef818c8bf93987",
+      "type": "glass-background",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "icons/monochrome-white/layers/flat-artwork-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "30419feac5bc45d57696790c0837271e3a5085980d281dbb5c908a2a1cec1d85",
+      "type": "foreground",
+      "variant": "monochrome-white"
+    },
+    {
+      "file": "logos/primary/nothing-sport-primary-original-2000x2000.png",
+      "width": 2000,
+      "height": 2000,
+      "alpha": true,
+      "sha256": "73001ecbc5a69bb76aca018ccdf2ec7de48017f74007c83dc5a5acabc7b6fbda",
+      "type": "original-logo",
+      "source": "Original flat transparent source"
+    },
+    {
+      "file": "logos/primary/nothing-sport-primary-transparent-native.png",
+      "width": 1860,
+      "height": 680,
+      "alpha": true,
+      "sha256": "a777f247c7c795f265fcec0c8ec00d8de416e9e0eff251c9cdeaf45e7abc0543",
+      "type": "logo",
+      "source": "Original flat transparent source"
+    },
+    {
+      "file": "logos/primary/nothing-sport-primary-transparent-1600w.png",
+      "width": 1600,
+      "height": 585,
+      "alpha": true,
+      "sha256": "879a02c7999db7ad07dac0812ab940297ffb19200416c2b92a4475171cd0a693",
+      "type": "logo",
+      "source": "Original flat transparent source"
+    },
+    {
+      "file": "logos/primary/nothing-sport-primary-transparent-1024w.png",
+      "width": 1024,
+      "height": 374,
+      "alpha": true,
+      "sha256": "ce4f11f123b3284eda28fd4fecdc6c836cbaae742eae524d51c0fcb598bef5c0",
+      "type": "logo",
+      "source": "Original flat transparent source"
+    },
+    {
+      "file": "logos/primary/nothing-sport-primary-transparent-512w.png",
+      "width": 512,
+      "height": 187,
+      "alpha": true,
+      "sha256": "ed57899c448ca1af5798ac9df3ae7299e640263ca4b3d134a387dc5781e7338a",
+      "type": "logo",
+      "source": "Original flat transparent source"
+    },
+    {
+      "file": "logos/primary/nothing-sport-primary-transparent-256w.png",
+      "width": 256,
+      "height": 94,
+      "alpha": true,
+      "sha256": "5d2c29fed0ec771ea3726c57b1a3854069eec1e32da029ce2ceb149104c95266",
+      "type": "logo",
+      "source": "Original flat transparent source"
+    },
+    {
+      "file": "logos/hero-skier/nothing-sport-hero-skier-original-2000x2000.png",
+      "width": 2000,
+      "height": 2000,
+      "alpha": true,
+      "sha256": "0aae05af5a2d8061bb45444c19308e37a43b5d15f262509884bfc72015ed3022",
+      "type": "original-logo",
+      "source": "Original flat transparent source"
+    },
+    {
+      "file": "logos/hero-skier/nothing-sport-hero-skier-transparent-native.png",
+      "width": 1920,
+      "height": 1137,
+      "alpha": true,
+      "sha256": "d31c5ab05051b743fe4dfe78369424e28fb74316ab265d8680e26bf0a276bb8a",
+      "type": "logo",
+      "source": "Original flat transparent source"
+    },
+    {
+      "file": "logos/hero-skier/nothing-sport-hero-skier-transparent-1600w.png",
+      "width": 1600,
+      "height": 948,
+      "alpha": true,
+      "sha256": "0145a5a3c9dfcdf87cefcc16bff666679e5db4778a81705a003841ca1e2f5bee",
+      "type": "logo",
+      "source": "Original flat transparent source"
+    },
+    {
+      "file": "logos/hero-skier/nothing-sport-hero-skier-transparent-1024w.png",
+      "width": 1024,
+      "height": 606,
+      "alpha": true,
+      "sha256": "d5e0ca27bb96c2aefa769eefdafd09c606b84a8ae041788c2ea8c0baa2e91ae1",
+      "type": "logo",
+      "source": "Original flat transparent source"
+    },
+    {
+      "file": "logos/hero-skier/nothing-sport-hero-skier-transparent-512w.png",
+      "width": 512,
+      "height": 303,
+      "alpha": true,
+      "sha256": "e8aaee5836ae96b223de176ca0f42df319a2884e6ae2845da73112487144d4df",
+      "type": "logo",
+      "source": "Original flat transparent source"
+    },
+    {
+      "file": "logos/hero-skier/nothing-sport-hero-skier-transparent-256w.png",
+      "width": 256,
+      "height": 152,
+      "alpha": true,
+      "sha256": "546c3a8a3fe664e53b7412c0904b5279cf470e843f1f4eaa8fe7481a3f7879b3",
+      "type": "logo",
+      "source": "Original flat transparent source"
+    },
+    {
+      "file": "preview-light-dark.png",
+      "width": 1600,
+      "height": 1010,
+      "alpha": true,
+      "sha256": "58fe9624939aec0b473864a5ca3136e16b4c87a7f79361f8527c52a4ab330468",
+      "type": "preview"
+    }
+  ]
+}

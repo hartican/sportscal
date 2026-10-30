@@ -1,0 +1,301 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "variant": "dark-full-colour",
+      "artworkCoreOpaque": true,
+      "artworkOpaquePixels": 310503,
+      "glassOnlyPixels": 682280,
+      "glassPartialPercent": 100,
+      "backgroundAlphaRange": [
+        1,
+        206
+      ],
+      "samples": [
+        {
+          "x": 512,
+          "y": 512,
+          "backgroundAlpha": 108,
+          "compositeAlpha": 108
+        },
+        {
+          "x": 90,
+          "y": 512,
+          "backgroundAlpha": 108,
+          "compositeAlpha": 108
+        },
+        {
+          "x": 512,
+          "y": 170,
+          "backgroundAlpha": 110,
+          "compositeAlpha": 255
+        },
+        {
+          "x": 512,
+          "y": 900,
+          "backgroundAlpha": 108,
+          "compositeAlpha": 108
+        }
+      ]
+    },
+    {
+      "variant": "light-full-colour",
+      "artworkCoreOpaque": true,
+      "artworkOpaquePixels": 310503,
+      "glassOnlyPixels": 682239,
+      "glassPartialPercent": 100,
+      "backgroundAlphaRange": [
+        1,
+        195
+      ],
+      "samples": [
+        {
+          "x": 512,
+          "y": 512,
+          "backgroundAlpha": 97,
+          "compositeAlpha": 97
+        },
+        {
+          "x": 90,
+          "y": 512,
+          "backgroundAlpha": 97,
+          "compositeAlpha": 97
+        },
+        {
+          "x": 512,
+          "y": 170,
+          "backgroundAlpha": 98,
+          "compositeAlpha": 255
+        },
+        {
+          "x": 512,
+          "y": 900,
+          "backgroundAlpha": 97,
+          "compositeAlpha": 97
+        }
+      ]
+    },
+    {
+      "variant": "clear-glass",
+      "artworkCoreOpaque": true,
+      "artworkOpaquePixels": 310503,
+      "glassOnlyPixels": 682158,
+      "glassPartialPercent": 100,
+      "backgroundAlphaRange": [
+        1,
+        166
+      ],
+      "samples": [
+        {
+          "x": 512,
+          "y": 512,
+          "backgroundAlpha": 69,
+          "compositeAlpha": 69
+        },
+        {
+          "x": 90,
+          "y": 512,
+          "backgroundAlpha": 69,
+          "compositeAlpha": 69
+        },
+        {
+          "x": 512,
+          "y": 170,
+          "backgroundAlpha": 69,
+          "compositeAlpha": 255
+        },
+        {
+          "x": 512,
+          "y": 900,
+          "backgroundAlpha": 69,
+          "compositeAlpha": 69
+        }
+      ]
+    },
+    {
+      "variant": "greyscale-dark",
+      "artworkCoreOpaque": true,
+      "artworkOpaquePixels": 310503,
+      "glassOnlyPixels": 682279,
+      "glassPartialPercent": 100,
+      "backgroundAlphaRange": [
+        1,
+        206
+      ],
+      "samples": [
+        {
+          "x": 512,
+          "y": 512,
+          "backgroundAlpha": 108,
+          "compositeAlpha": 108
+        },
+        {
+          "x": 90,
+          "y": 512,
+          "backgroundAlpha": 108,
+          "compositeAlpha": 108
+        },
+        {
+          "x": 512,
+          "y": 170,
+          "backgroundAlpha": 111,
+          "compositeAlpha": 255
+        },
+        {
+          "x": 512,
+          "y": 900,
+          "backgroundAlpha": 109,
+          "compositeAlpha": 109
+        }
+      ]
+    },
+    {
+      "variant": "greyscale-light",
+      "artworkCoreOpaque": true,
+      "artworkOpaquePixels": 310503,
+      "glassOnlyPixels": 682248,
+      "glassPartialPercent": 100,
+      "backgroundAlphaRange": [
+        1,
+        194
+      ],
+      "samples": [
+        {
+          "x": 512,
+          "y": 512,
+          "backgroundAlpha": 97,
+          "compositeAlpha": 97
+        },
+        {
+          "x": 90,
+          "y": 512,
+          "backgroundAlpha": 97,
+          "compositeAlpha": 97
+        },
+        {
+          "x": 512,
+          "y": 170,
+          "backgroundAlpha": 98,
+          "compositeAlpha": 255
+        },
+        {
+          "x": 512,
+          "y": 900,
+          "backgroundAlpha": 98,
+          "compositeAlpha": 98
+        }
+      ]
+    },
+    {
+      "variant": "inverted",
+      "artworkCoreOpaque": true,
+      "artworkOpaquePixels": 310503,
+      "glassOnlyPixels": 682284,
+      "glassPartialPercent": 100,
+      "backgroundAlphaRange": [
+        1,
+        209
+      ],
+      "samples": [
+        {
+          "x": 512,
+          "y": 512,
+          "backgroundAlpha": 111,
+          "compositeAlpha": 111
+        },
+        {
+          "x": 90,
+          "y": 512,
+          "backgroundAlpha": 111,
+          "compositeAlpha": 111
+        },
+        {
+          "x": 512,
+          "y": 170,
+          "backgroundAlpha": 113,
+          "compositeAlpha": 255
+        },
+        {
+          "x": 512,
+          "y": 900,
+          "backgroundAlpha": 112,
+          "compositeAlpha": 112
+        }
+      ]
+    },
+    {
+      "variant": "high-contrast-neon",
+      "artworkCoreOpaque": true,
+      "artworkOpaquePixels": 310503,
+      "glassOnlyPixels": 682272,
+      "glassPartialPercent": 100,
+      "backgroundAlphaRange": [
+        1,
+        207
+      ],
+      "samples": [
+        {
+          "x": 512,
+          "y": 512,
+          "backgroundAlpha": 108,
+          "compositeAlpha": 108
+        },
+        {
+          "x": 90,
+          "y": 512,
+          "backgroundAlpha": 108,
+          "compositeAlpha": 108
+        },
+        {
+          "x": 512,
+          "y": 170,
+          "backgroundAlpha": 110,
+          "compositeAlpha": 255
+        },
+        {
+          "x": 512,
+          "y": 900,
+          "backgroundAlpha": 109,
+          "compositeAlpha": 109
+        }
+      ]
+    },
+    {
+      "variant": "monochrome-white",
+      "artworkCoreOpaque": true,
+      "artworkOpaquePixels": 310503,
+      "glassOnlyPixels": 682281,
+      "glassPartialPercent": 100,
+      "backgroundAlphaRange": [
+        1,
+        206
+      ],
+      "samples": [
+        {
+          "x": 512,
+          "y": 512,
+          "backgroundAlpha": 108,
+          "compositeAlpha": 108
+        },
+        {
+          "x": 90,
+          "y": 512,
+          "backgroundAlpha": 108,
+          "compositeAlpha": 108
+        },
+        {
+          "x": 512,
+          "y": 170,
+          "backgroundAlpha": 110,
+          "compositeAlpha": 255
+        },
+        {
+          "x": 512,
+          "y": 900,
+          "backgroundAlpha": 109,
+          "compositeAlpha": 109
+        }
+      ]
+    }
+  ]
+}

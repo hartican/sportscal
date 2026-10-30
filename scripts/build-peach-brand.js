@@ -29,9 +29,7 @@ async function build(){
   fs.writeFileSync(path.join(web,'nothingsport-iconography.svg'),'<svg xmlns="http://www.w3.org/2000/svg"><defs>'+Object.entries(catalogue).map(([key,body])=>`<symbol id="${key.replace(':','-')}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${body}</symbol>`).join('')+'</defs></svg>');
   fs.writeFileSync(path.join(web,'nothingsport-logomark.svg'),logomark());
   fs.writeFileSync(path.join(icons,'nothingsport-favicon.svg'),logomark(true,4));
-  for(const size of [32,180,192,512])await sharp(Buffer.from(logomark(true,5))).resize(size,size).png().toFile(path.join(icons,`nothingsport-app-${size}.png`));
-  await sharp(Buffer.from(logomark(true,11))).resize(512,512).png().toFile(path.join(icons,'nothingsport-app-maskable-512.png'));
-  await sharp(Buffer.from(logomark(true,5))).resize(720,720).png().toFile(path.join(web,'nothingsport-app-icon.png'));
+  await require("./build-glass-brand-icons")();
   if(!original.equals(fs.readFileSync(path.join(web,'nothingsport-logo.png'))))throw Error('Wordmark must remain byte-identical');
   console.log(`Built ${Object.keys(catalogue).length} catalogue icons / ${Object.keys(active).length} active icons, separate logomark and launcher assets; original wordmark SHA-256 unchanged.`);
 }

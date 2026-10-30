@@ -1,0 +1,5 @@
+173 PNGs verified.
+8 icon colourways verified.
+Every PNG dimension and checksum verified.
+Every artwork core is fully opaque; every glass-only pixel has partial alpha.
+ZIP archive passed its integrity check.

@@ -1,0 +1,22 @@
+Nothing Sport — glass icon backgrounds only
+Built-in image-generation tool.
+
+Use case: precise-object-edit.
+Asset type: corrected Nothing Sport brand identity sheet.
+INPUT ROLES: Image 1 is the design sheet to edit, for its layout and the full set of variations. Image 2 is the authoritative ORIGINAL FLAT simple logo. Image 3 is the authoritative ORIGINAL FLAT hero-skier logo.
+USER CORRECTION — HIGHEST PRIORITY: The user ONLY wants the ROUNDED SQUARE TILE BACKGROUND of the APP ICONS to have an iOS-style shiny glass effect. They do NOT want ANY letters, glyphs, logo marks, or skier to be glass, shiny, embossed, bevelled, extruded, reflective, metallic, translucent or 3D.
+RESTORE ALL ARTWORK TO FLAT:
+- Replace every glass-rendered full wordmark on Image 1, including PRIMARY LOGO, HERO-SKIER VARIANT, all LOGO VARIATIONS and both PRINT REFERENCE swatches, with the authentic FLAT TWO-DIMENSIONAL wordmark styling from Images 2 and 3.
+- Preserve original stepped lowercase nothing letter contours, peach-top to hot-pink-bottom smooth FLAT gradient fill, and flat pale-lavender uppercase SPORT underneath. No highlights on letter edges, no rims, no shadows, no depth, no reflections underneath the wordmarks.
+- The hero skier remains the original photographic cutout in original crossed-ski pose, pale yellow/teal clothes, behind and above the flat wordmark. No material effect on the person.
+- Inside EVERY app icon, icon variant, small size sample, safe-area sample and favicon: the n glyph and SPORT letters are perfectly flat opaque 2D graphics. The n uses the original stepped shape with flat peach-to-pink gradient or flat monochrome fill appropriate to variant; SPORT is flat high-contrast chunky block type. No glossy highlights anywhere ON these foreground elements. The original 2D gradient is allowed and required in full-color artwork; it is not glass.
+GLASS ONLY ON ICON SQUARES:
+- Retain and refine the shiny glass appearance of the rounded-square BACKGROUND tiles BEHIND the n and SPORT. Apply realistic iOS glass feel to the tile surface and rim only: soft translucent material, gentle diffuse frosted light, a crisp fine edge highlight, subtle depth at rounded outer edges, tasteful surface sheen. Black/dark glass, pale/white glass, clear/lavender glass, greyscale dark/light glass, hot-pink glass for inverted, dark glass for high contrast. Foreground n and text remain flat as if printed as opaque vector artwork on a separate layer.
+- Do not apply any glass to the rectangular logo presentation swatches or primary/hero black canvases. Those backgrounds stay plain flat black or white.
+PRESERVE: same landscape design sheet, spacing, section organization and labels except label corrections below, corrected branding, original skier inclusion, sizes and padding. Every full logo reads exactly seven lowercase letters n o t h i n g with exactly ONE uppercase SPORT below. Never a lowercase sport suffix. Tiny 32/16 favicons show n ONLY; other app icons show n above SPORT. Maintain 10% internal padding.
+LABEL CLEANUP:
+- Masthead "NOTHING SPORT / BRAND STUDY", subtitle "Flat artwork · glass icon backgrounds".
+- LOGO VARIATIONS six swatches, left to right: Dark (full colour), Light (full colour), White on dark, Greyscale (dark), Inverted, Black on light. These are ALL flat, legible logo treatments. Third swatch white/lavender FLAT wordmark on plain black; final swatch black FLAT wordmark on plain white.
+- In ICON VARIATIONS the third caption may remain "Clear glass", because that describes its square background only.
+- PRINT REFERENCE uses flat black wordmark on white and flat greyscale hero on black.
+Final quality check: NONE of the wordmarks or n+SPORT foreground artwork looks shiny or 3D. ONLY the rounded square tile backgrounds do. Return the full revised high-resolution sheet.
