@@ -4,7 +4,7 @@ ROOT must review and bind this file in an immutable test-only snapshot first.
 Run as root in the disposable runner so cleanup can also own apt descendants;
 npm and browser processes explicitly run as the original runner user.
 """
-import argparse, ctypes, hashlib, json, os, pwd, re, shutil, signal, subprocess, sys, time
+import argparse, ctypes, hashlib, json, os, pwd, re, shutil, signal, stat, subprocess, sys, time
 from http.cookies import SimpleCookie
 from pathlib import Path
 from urllib.parse import quote, quote_plus, unquote_plus
@@ -332,6 +332,34 @@ def finalize(created_work):
             remember(error, 'final-failure-report')
     return 0 if receipt['passed'] else 1
 
+def validate_npm_configs(folder, environment, uid, gid):
+    folder = folder.resolve(strict=True)
+    paths = [Path(environment[key]) for key in ('NPM_CONFIG_USERCONFIG', 'NPM_CONFIG_GLOBALCONFIG')]
+    assert all(path.is_absolute() and path.parent.resolve(strict=True) == folder for path in paths), 'npm configs must be inside owned work'
+    assert paths[0].resolve(strict=True) != paths[1].resolve(strict=True), 'npm user/global config paths must differ'
+    values = [path.lstat() for path in paths]
+    assert (values[0].st_dev, values[0].st_ino) != (values[1].st_dev, values[1].st_ino), 'npm user/global config inodes must differ'
+    for value in values:
+        assert stat.S_ISREG(value.st_mode) and value.st_size == 0, 'npm config must be an empty regular file'
+        assert value.st_uid == uid and value.st_gid == gid and stat.S_IMODE(value.st_mode) == 0o600, 'npm config must be private and runner-readable'
+    return [{'name': path.name, 'bytes': value.st_size, 'uid': value.st_uid, 'gid': value.st_gid,
+             'mode': oct(stat.S_IMODE(value.st_mode)), 'device': value.st_dev, 'inode': value.st_ino}
+            for path, value in zip(paths, values)]
+
+def prepare_npm_configs(folder, uid, gid):
+    files = {'NPM_CONFIG_USERCONFIG': folder / 'npm-user-empty.rc',
+             'NPM_CONFIG_GLOBALCONFIG': folder / 'npm-global-empty.rc'}
+    for path in files.values():
+        descriptor = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+        try:
+            os.fchown(descriptor, uid, gid)
+            os.fchmod(descriptor, 0o600)
+        finally:
+            os.close(descriptor)
+    environment = {key: str(path) for key, path in files.items()}
+    validate_npm_configs(folder, environment, uid, gid)
+    return environment
+
 def main():
     global args, work, proof, clean_env, receipt, whole_deadline
     args = parser.parse_args()
@@ -383,18 +411,20 @@ def main():
         xdg = work / 'tmp/xdg'
         xdg.mkdir(mode=0o700)
         os.chown(xdg, args.runner_uid, args.runner_gid)
+        npm_configs = prepare_npm_configs(work, args.runner_uid, args.runner_gid)
         # Only original runner identity and explicit task paths; no GitHub, Site,
         # provider, database, auth, registry, or visitor credentials inherited.
         clean_env = {'PATH': str(Path(args.node).parent) + ':/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
                      'HOME': pwd.getpwuid(args.runner_uid).pw_dir, 'LANG': 'C.UTF-8', 'TZ': 'UTC',
                      'TMPDIR': str(work / 'tmp'), 'XDG_RUNTIME_DIR': str(xdg), 'PLAYWRIGHT_BROWSERS_PATH': str(work / 'browsers'),
                      'PLAYWRIGHT_MODULE': str(work / 'runtime/node_modules/playwright'),
-                     'NPM_CONFIG_USERCONFIG': '/dev/null', 'NPM_CONFIG_GLOBALCONFIG': '/dev/null',
+                     **npm_configs,
                      'NPM_CONFIG_REGISTRY': 'https://registry.npmjs.org', 'NPM_CONFIG_CACHE': str(work / 'npm-cache'),
                      'NPM_CONFIG_UPDATE_NOTIFIER': 'false', 'CI': '1'}
         verifier = str(payload / 'scripts/verify-measurement-browser.cjs')
         base = [args.node, verifier, '--root=' + str(payload), '--manifest=' + str(manifest_path)]
         stage('integrity', base + ['--verify-only'], 10)
+        receipt['npmConfigPreflight'] = validate_npm_configs(work, clean_env, args.runner_uid, args.runner_gid)
         stage('npm', [str(Path(args.node).with_name('npm')), 'install', '--prefix', str(work / 'runtime'),
                       '--no-save', '--package-lock=false', 'playwright@1.64.1'], 120)
         mirror = "from pathlib import Path; r=Path('/etc/apt'); files=[*r.glob('*.list'),*r.glob('apt-mirrors*.txt'),*(r/'sources.list.d').glob('*.list'),*(r/'sources.list.d').glob('*.sources')]; selected=[f for f in files if f.is_file() and not f.is_symlink()]; assert any('archive.ubuntu.com' in f.read_text() for f in selected); [(f.write_text(f.read_text().replace('azure.archive.ubuntu.com','archive.ubuntu.com'))) for f in selected if 'azure.archive.ubuntu.com' in f.read_text()]; print('Official Ubuntu mirror; signature validation unchanged')"

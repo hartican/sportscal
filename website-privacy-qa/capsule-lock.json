@@ -1,5 +1,5 @@
 {
-  "purpose": "Controller-only qualification; no npm/browser/Meta/product/DB/deployment",
+  "purpose": "Changed npm setup only; repeat controller qualification then mock and actual browser privacy. No app/Site publication.",
   "source": "d9460cae05cc32507facc8fb8c184ae8ed866e52",
   "sourceTree": "1bf417647ef3fb54c04c6198e019887fa593c401",
   "payloadBytes": 211934,
@@ -25,12 +25,16 @@
     "website-privacy-qa/payload/scripts/validate-measurement.cjs": "981c2556b9c31acec823fd6b01b0e5f2a237555b90f821bf2b39a0ec2579a525",
     "website-privacy-qa/payload/scripts/verify-measurement-browser.cjs": "60bd72b64860743e55a9f7d0163ba4a8d1b9ab7dfafdc3d9f5952861794f6329",
     "website-privacy-qa/payload/docs/measurement-candidate-2026-10-30.md": "9c531f7cce0b74e5eb6c8e7de9655709b0b9dda753932ca117131ae5c117c651",
-    "website-privacy-qa/supervisor.py": "9474c651dfaec69e6c65fccb60a30a7eb870e53b6a3b37a0b8667bb37d166a85",
+    "website-privacy-qa/supervisor.py": "5a95427d9577a43c87b48215828dc9cd4407bec5370aa6a4b2e805bfd3ca7a4f",
     "website-privacy-qa/controller-controls.py": "81da5b465688da19342ab5f6aa24f4c6686c259a6a503ee79e60f41ff090a9fa"
   },
   "networkGuardReviews": {
     "spec-network-header-closure-d946.json": "10fb510a1c9a06f009039e4c9cdfa26f931d79b8a9e94a10afe88d85c497e358",
     "standards-network-header-scope-d946.md": "90761185204e369cb2906bee5fa828baf26d63c522803ccf1ac41037a376c13c"
   },
-  "priorFailedRun": 41024636716
+  "priorFailedRun": 41027652254,
+  "npmSetupReviews": {
+    "spec-npm-setup-d946.json": "117ac779092bc55a7146c34e15a9570ff1ac8dd6837b6f9de8eba1c2e1a02722",
+    "standards-npm-setup-d946.md": "e243b7d0bfb43925bd9b723a70a3224c6d8f8d7a314595e1d6eae337040de316"
+  }
 }
