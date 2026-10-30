@@ -7,6 +7,7 @@ const SOURCE_URL="https://schedule.nbl.com.au/api/calendar/schedule?league=nbl&l
 const PAGE_URL="https://schedule.nbl.com.au/nbl";
 const {nblMatchContext}=require("./lib/nbl-match-context");
 const {officialStandings}=require("./lib/nbl-standings");
+const {isDeepStrictEqual}=require('node:util');
 const directory=require("../data/canonical/nbl-directory.v1.json");
 
 const slug=value=>String(value||"").toLowerCase().replace(/&/g,"and").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
@@ -24,7 +25,29 @@ function viewingFor(match,checkedAt){
   ...(providerId==='nine'?{}:{rightsSourceUrl:'https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season',rightsCheckedAt:'2026-09-27T17:28:49.660Z'}),
  }));
 }
-function build(payload,checkedAt=new Date().toISOString(),previousStandings=[]){
+function retainResultObservations(events,previousEvents,checkedAt){
+ const byId=new Map(),providerCounts=new Map();
+ for(const event of Array.isArray(previousEvents)?previousEvents:[]){
+  if(!event||typeof event!=='object')continue;
+  byId.set(event.id,byId.has(event.id)?null:event);
+  providerCounts.set(event.providerId,(providerCounts.get(event.providerId)||0)+1);
+ }
+ return events.map(event=>{
+  const previous=byId.get(event.id),clock=previous?.result?.checkedAt;
+  if(event.status!=='completed'||!previous?.result||!event.result||providerCounts.get(event.providerId)!==1)return event;
+  const identity=['id','providerId','codeId','sportKey','competitionId','season','sourceId','participantIds','startTimeUtc','status'];
+  if(!identity.every(key=>isDeepStrictEqual(event[key],previous[key])))return event;
+  const observed=Date.parse(clock),start=Date.parse(event.startTimeUtc);
+  if(typeof clock!=='string'||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(clock)||!Number.isFinite(observed)
+    ||new Date(observed).toISOString().slice(0,19)!==clock.slice(0,19)||observed<start||observed>Math.min(Date.parse(checkedAt),Date.now()))return event;
+  // Exclude only this independent observation clock. Every other result key,
+  // including unknown future fields, must match before an old clock survives.
+  const facts=result=>Object.fromEntries(Object.entries(result).filter(([key])=>key!=='checkedAt'));
+  if(!isDeepStrictEqual(facts(previous.result),facts(event.result)))return event;
+  return {...event,result:{...event.result,checkedAt:clock}};
+ });
+}
+function build(payload,checkedAt=new Date().toISOString(),previousStandings=[],previousEvents=[]){
  if(payload?.leaguePath!=='nbl'||payload.year!==2026||payload.fallback!==false||payload.offset!==0||!Array.isArray(payload.matches)||payload.total!==payload.matches.length||!Number.isFinite(Date.parse(checkedAt)))throw Error('NBL schedule scope, completeness or observation is unverified');
  const season=payload.seasons_meta?.filter(s=>s.name==='NBL27'&&s.season_type==='regular');
  if(season?.length!==1||!season[0].id||season[0].match_count!==165)throw Error('NBL regular-season identity is unverified');
@@ -38,7 +61,7 @@ function build(payload,checkedAt=new Date().toISOString(),previousStandings=[]){
   if(teamFor(match.home).id===teamFor(match.away).id)throw Error('NBL fixture cannot match a club against itself');
   if(match.phase==='complete'&&(start>=Date.parse(checkedAt)||![match.home_score,match.away_score].every(n=>Number.isSafeInteger(n)&&n>=0)||match.home_score===match.away_score))throw Error('NBL completed fixture needs a past kickoff and decisive scores');
  }
- const events=matches.map(match=>{const home=teamFor(match.home),away=teamFor(match.away),start=new Date(match.starts_at_ms),local=localParts(start);
+ const events=retainResultObservations(matches.map(match=>{const home=teamFor(match.home),away=teamFor(match.away),start=new Date(match.starts_at_ms),local=localParts(start);
  const finalScoreline=match.phase==='complete'?`${home.displayName} ${match.home_score}, ${away.displayName} ${match.away_score}`:undefined;
  return{
   id:`event:nbl:2026-27:${match.id}`,sportKey:"nbl",codeId:"sport:nbl",competitionId:"competition:nbl",season:"2026-27",name:`${home.displayName} v ${away.displayName}`,
@@ -47,7 +70,7 @@ function build(payload,checkedAt=new Date().toISOString(),previousStandings=[]){
   result:match.phase==="complete"&&Number.isSafeInteger(match.home_score)&&Number.isSafeInteger(match.away_score)&&match.home_score>=0&&match.away_score>=0&&match.home_score!==match.away_score?{status:"official",homeScore:match.home_score,awayScore:match.away_score,score:`${match.home_score}-${match.away_score}`,winnerParticipantId:Number(match.home_score)>Number(match.away_score)?home.id:away.id,outcomeText:finalScoreline,recapText:finalScoreline,sourceId:"nbl27-schedule",checkedAt}:undefined,
   viewingOptions:viewingFor(match,checkedAt),
   hook:`${home.displayName} face ${away.displayName} in NBL27.`,context:`Official NBL27 Round ${match.round_label} fixture.`,providerId:match.id,
- };});
+ };}),previousEvents,checkedAt);
  for(const event of events)event.teamMatchContext=nblMatchContext(events,event,{season:"2026-27",checkedAt,participants:directory.teams});
  let standings,standingsStatus;
  try{standings=officialStandings(matches,events,{checkedAt,teamFor,sourceUrl:PAGE_URL});standingsStatus='current';}
@@ -60,6 +83,6 @@ function build(payload,checkedAt=new Date().toISOString(),previousStandings=[]){
  }
  return{schemaVersion:"requested-sports-schedule.v1",seasonLabel:"2026-27",generatedAt:checkedAt,sources:{"nbl27-schedule":{name:"NBL official schedule",url:PAGE_URL,apiUrl:SOURCE_URL,type:"official",checkedAt}},participants:[...(directory.teams||[])].map(team=>({id:team.id,sportKey:"nbl",displayName:team.displayName,countryCode:team.id.includes("new-zealand")?"NZ":"AU",type:"team"})),events,standings,standingsStatus};
 }
-async function main(){const response=await fetch(SOURCE_URL,{signal:AbortSignal.timeout(15000),headers:{Accept:"application/json"}});if(!response.ok)throw new Error(`NBL schedule HTTP ${response.status}`);const prior=fs.existsSync(OUTPUT)?JSON.parse(fs.readFileSync(OUTPUT)):null;const next=build(await response.json(),new Date().toISOString(),prior?.standings||[]);if(next.standingsStatus!=='current')console.warn(`NBL standings ${next.standingsStatus}; valid fixture updates retained.`);const check=process.argv.includes("--check");if(check){const prior=JSON.parse(fs.readFileSync(OUTPUT));if(JSON.stringify(prior.events)!==JSON.stringify(next.events))throw new Error("NBL schedule is stale; run refresh-nbl-schedule.js");console.log("NBL27 schedule is current: 165 games.");return;}fs.writeFileSync(OUTPUT,JSON.stringify(next,null,2)+"\n");console.log("NBL27 schedule refreshed: 165 games.");}
+async function main(){const response=await fetch(SOURCE_URL,{signal:AbortSignal.timeout(15000),headers:{Accept:"application/json"}});if(!response.ok)throw new Error(`NBL schedule HTTP ${response.status}`);const prior=fs.existsSync(OUTPUT)?JSON.parse(fs.readFileSync(OUTPUT)):null;const next=build(await response.json(),new Date().toISOString(),prior?.standings||[],prior?.events||[]);if(next.standingsStatus!=='current')console.warn(`NBL standings ${next.standingsStatus}; valid fixture updates retained.`);const check=process.argv.includes("--check");if(check){const prior=JSON.parse(fs.readFileSync(OUTPUT));if(JSON.stringify(prior.events)!==JSON.stringify(next.events))throw new Error("NBL schedule is stale; run refresh-nbl-schedule.js");console.log("NBL27 schedule is current: 165 games.");return;}fs.writeFileSync(OUTPUT,JSON.stringify(next,null,2)+"\n");console.log("NBL27 schedule refreshed: 165 games.");}
 if(require.main===module)main().catch(error=>{console.error(error.stack||error);process.exitCode=1;});
-module.exports={build,localParts,viewingFor};
+module.exports={build,localParts,viewingFor,main};
