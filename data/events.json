@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "nothingsport-official-results-2026-09-15-v1-20261022180155820-20261022221048141-20261024211614556-20261029023535843-20261029172213484-20261030063310815-20261030230640076-20261030233059042-20261030233417333",
-  "publishedAt": "2026-10-30T23:34:17.333Z",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261022180155820-20261022221048141-20261024211614556-20261029023535843-20261029172213484-20261030063310815-20261030230640076-20261030233059042-20261030233417333-20261030233813154",
+  "publishedAt": "2026-10-30T23:38:13.154Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
   "events": [
     {
@@ -195623,8 +195623,8 @@
       "roundLabel": "Race",
       "stage": "Race",
       "narrativeType": "all",
-      "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
-      "fullSpiel": "R21 Qatar GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "selectedSentence": "Piastri's second place behind Verstappen in 2025 supplies a concrete Qatar benchmark.",
+      "fullSpiel": "The retained 11 October 2026 tables had Antonelli on 325 points to Russell's 236, with Mercedes ahead of Ferrari by 561 to 418 in the constructors' standings. That is dated context, not the order entering the 29 November Lusail race. Qatar's previous result supplies circuit-specific history; the intervening rounds may change the championship context.",
       "sourceName": "Formula 1 official race hub",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
       "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
@@ -195649,25 +195649,28 @@
         "intensitySource": "computed",
         "arcStage": "preview",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
-        "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
-        "synopsisSpoilerOff": "R21 Qatar GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-        "synopsisSpoilerOn": "R21 Qatar GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-        "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+        "hookSpoilerOff": "Piastri's second place behind Verstappen in 2025 supplies a concrete Qatar benchmark.",
+        "hookSpoilerOn": "Piastri's second place behind Verstappen in 2025 supplies a concrete Qatar benchmark.",
+        "synopsisSpoilerOff": "The retained 11 October 2026 tables had Antonelli on 325 points to Russell's 236, with Mercedes ahead of Ferrari by 561 to 418 in the constructors' standings. That is dated context, not the order entering the 29 November Lusail race. Qatar's previous result supplies circuit-specific history; the intervening rounds may change the championship context.",
+        "synopsisSpoilerOn": "The retained 11 October 2026 tables had Antonelli on 325 points to Russell's 236, with Mercedes ahead of Ferrari by 561 to 418 in the constructors' standings. That is dated context, not the order entering the 29 November Lusail race. Qatar's previous result supplies circuit-specific history; the intervening rounds may change the championship context.",
+        "lastReviewedAt": "2026-10-30T23:29:54.351Z",
+        "researchDepth": 5
       },
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "Race",
+        "angle": "Qatar Grand Prix: retained official context",
         "contextSignals": [
-          "official-schedule",
-          "Race"
+          "event-specific",
+          "narrative:form",
+          "narrative:schedule",
+          "narrative:history"
         ],
-        "sourceName": "Formula 1 official race hub",
-        "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
-        "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+        "sourceName": "Formula 1 drivers standings - retained 11 October snapshot",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-10-11T12:37:25.437Z",
+      "lastReviewedAt": "2026-10-30T23:29:54.351Z",
       "statusCheckedAt": "2026-09-30T12:09:04.338Z",
       "participantIds": [],
       "participantSlots": [],
@@ -195681,7 +195684,38 @@
       "startTimeTbc": false,
       "dateOnly": false,
       "endTimeUtc": "2026-11-29T18:00:00.000Z",
-      "sessionType": "Race"
+      "sessionType": "Race",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:fixture-research:evt_43",
+        "researchTier": "marquee",
+        "hook": "Piastri's second place behind Verstappen in 2025 supplies a concrete Qatar benchmark.",
+        "synopsis": "The retained 11 October 2026 tables had Antonelli on 325 points to Russell's 236, with Mercedes ahead of Ferrari by 561 to 418 in the constructors' standings. That is dated context, not the order entering the 29 November Lusail race. Qatar's previous result supplies circuit-specific history; the intervening rounds may change the championship context.",
+        "threadIds": [
+          "thread:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f"
+        ],
+        "factIds": [
+          "fact:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:0",
+          "fact:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:1",
+          "fact:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:2",
+          "fact:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:3"
+        ],
+        "sourceIds": [
+          "source:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:0",
+          "source:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:1",
+          "source:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:2",
+          "source:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:3"
+        ],
+        "dimensions": [
+          "form",
+          "schedule",
+          "history"
+        ],
+        "researchedAt": "2026-10-30T23:29:54.351Z",
+        "refreshAfter": "2026-11-29T16:00:00.000Z",
+        "generationMode": "researched",
+        "phase": "preview"
+      }
     },
     {
       "id": "epl-2026-27-129033",
