@@ -72,6 +72,13 @@ function runStep(args) {
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
   require('./lib/live-coverage-scope').parseArgs(argv);
+  const reviewedEditorial = argv.filter(arg => arg.startsWith('--reviewed-editorial='));
+  if (reviewedEditorial.length) {
+    const allowed = new Set(['--reviewed-fixtures', '--editorial-projections', '--local-only', '-p']);
+    const ids = argv.filter(arg => arg.startsWith('--ids='));
+    if (reviewedEditorial.length !== 1 || !reviewedEditorial[0].slice(21) || ids.length !== 1 || !ids[0].slice(6) || !argv.includes('--local-only') || !argv.includes('--reviewed-fixtures') || !argv.includes('--editorial-projections') || new Set(argv).size !== argv.length || argv.some(arg => !allowed.has(arg) && !arg.startsWith('--ids=') && !arg.startsWith('--reviewed-editorial='))) throw Error('Reviewed editorial research requires exact IDs, one reviewed input and the local-only reviewed-fixtures/editorial-projections route. No source steps ran.');
+    return {localOnly:true, reviewedEditorial:{ids:ids[0].slice(6).split(','), file:reviewedEditorial[0].slice(21)}};
+  }
   if(argv.includes('--retained-coverage')){
     const codeArgs=argv.filter(arg=>arg.startsWith('--codes=')),captures=argv.filter(arg=>arg.startsWith('--capture=')),allowed=new Set(['--retained-coverage','--local-only','-p']);
     if(!argv.includes('--local-only')||codeArgs.length!==1||new Set(argv).size!==argv.length||argv.some(arg=>!allowed.has(arg)&&!arg.startsWith('--codes=')&&!arg.startsWith('--capture=')))throw Error('Retained coverage requires only declared codes, optional Football capture and local-only; no source steps ran');
@@ -544,6 +551,12 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function runMain() {
   const options = parseOptions();
+  if (options.reviewedEditorial) {
+    const {ids, file} = options.reviewedEditorial;
+    console.log(JSON.stringify(require('./lib/reviewed-editorial-research').applyScopedResearch(ids, file)));
+    console.log('Reviewed source and selected copy staged locally; use the existing scoped editorial projection rebuild before release. No source requests or derived publication.');
+    return;
+  }
   const retained=options.retainedCoverage||(options.australianChampionship?{codeSlugs:['football'],...options.australianChampionship}:null);
   if(retained){
     const {codeSlugs,captureFolder}=retained,codes=codeSlugs.join(',');
@@ -1132,7 +1145,7 @@ async function runMain() {
 async function main(){
   // Validate mode before creating diagnostic state or starting any source step.
   const initialOptions=parseOptions();
-  if(initialOptions.australianChampionship||initialOptions.retainedCoverage)return runMain();
+  if(initialOptions.australianChampionship||initialOptions.retainedCoverage||initialOptions.reviewedEditorial)return runMain();
   process.env.REFRESH_REPORT ||= path.join(os.tmpdir(),'ns-refresh-report-'+crypto.randomUUID()+'.json');
   require('./lib/refresh-report').update({mode:process.argv.includes('--quick')?'quick':'full',publicationState:'refreshing',stage:'starting',sourceFailures:[],missingResults:[],blockingError:null,failedStep:null,failureChain:[]});
   const prior=process.env.FOOTBALL_DATA_RUN_DIR;
