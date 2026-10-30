@@ -63,6 +63,29 @@ function traceManifest(event, fields = {}) {
 const owner = 'disposable-account-a';
 const token = id => 'e30.' + Buffer.from(JSON.stringify({ sub: id })).toString('base64url') + '.disposable';
 const clone = value => JSON.parse(JSON.stringify(value));
+// Reporting only. Neither helper can turn the original failed gate green.
+function formatInitialSignInDiagnostic(record){
+ const limit=65535; // Reserve one byte for the log newline within64KiB.
+ let payload={...record,diagnosticRecordTruncated:false},text=JSON.stringify(payload);
+ if(Buffer.byteLength(text)<=limit)return text;
+ const state=record.state||{};
+ payload={phase:'initial-sign-in',scenario:String(record.scenario).slice(0,80),engine:String(record.engine).slice(0,20),
+  reads:record.reads,writes:record.writes,refreshes:record.refreshes,authSignIns:record.authSignIns,
+  diagnosticRecordTruncated:true,omitted:['errors','state.message'],
+  state:{state:['checking','requesting','signedOut','signedIn','syncing','error','local'].includes(state.state)?state.state:'other',
+   hasSession:state.hasSession===true,pending:state.pending===true,trace:Array.isArray(state.trace)?state.trace.slice(0,128):[],
+   traceStatus:state.traceStatus,lastSnapshot:state.lastSnapshot}};
+ text=JSON.stringify(payload);
+ while(Buffer.byteLength(text)>limit&&payload.state.trace.length){payload.state.trace.pop();payload.recordTraceDropped=(payload.recordTraceDropped||0)+1;text=JSON.stringify(payload);}
+ if(Buffer.byteLength(text)>limit)text=JSON.stringify({phase:'initial-sign-in',diagnosticRecordTruncated:true,diagnosticUnavailable:true,reason:'record_over_budget'});
+ return text;
+}
+async function reportInitialSignInFailure(originalError,fields,read,emit){
+ try{emit(formatInitialSignInDiagnostic({...fields,state:await read()}));}
+ catch{try{emit(JSON.stringify({phase:'initial-sign-in',diagnosticUnavailable:true,reason:'observation_failed'}));}catch{}}
+ throw originalError;
+}
+
 // Diagnostic only: correlate same-origin schedule reads with document lifetime.
 // Keep the original pageerror collector/gate unchanged; never handle a rejection.
 const traceApiStale=scenario==='api-stale';
@@ -552,17 +575,66 @@ const server = http.createServer((req, res) => {
     await page.locator('#startupLaunch').waitFor({ state: 'hidden' });
     await page.evaluate(() => {
       globalThis.qaSignInTrace=[];
-      const forms=new WeakMap();let nextForm=0;
-      const snapshot=event=>{
-        const form=document.getElementById('accountSignInForm');
-        if(form&&!forms.has(form))forms.set(form,++nextForm);
-        const email=document.getElementById('accountEmail'),password=document.getElementById('accountPassword');
-        qaSignInTrace.push({event,form:form?forms.get(form):null,emailPresent:Boolean(email?.value),
-          passwordPresent:Boolean(password?.value),emailValid:email?.validity.valid??null,
-          passwordValid:password?.validity.valid??null,state:serverPersistence.state});
+      globalThis.qaSignInTraceStatus={truncated:false,dropped:0,faults:0,bytes:2,maxEvents:128,maxTraceBytes:49152};
+      const forms=new WeakMap(),nodes=new WeakMap();let nextForm=0,nextNode=0,sequence=0,pressedSubmit=null,activePress=false;
+      const fault=()=>{qaSignInTraceStatus.faults=Math.min(9999,qaSignInTraceStatus.faults+1);};
+      const number=value=>Number.isFinite(value)?Math.round(value*100)/100:null;
+      const nodeID=node=>{if(!node||typeof node!=='object')return null;if(!nodes.has(node))nodes.set(node,++nextNode);return nodes.get(node);};
+      const formID=form=>{if(!form)return null;if(!forms.has(form))forms.set(form,++nextForm);return forms.get(form);};
+      const kind=(target,form)=>{
+        if(!target)return 'none';if(target===form)return 'form';
+        if(target===document.getElementById('accountEmail'))return 'email';
+        if(target===document.getElementById('accountPassword'))return 'password';
+        if(target===document.getElementById('keepAccountSignedIn'))return 'persistence-toggle';
+        if(target.closest?.('button[type="submit"]')?.form===form)return 'submit-button';
+        if(target.closest?.('button')?.form===form)return 'other-button';
+        return target.closest?.('#accountSignInForm')===form?'form-content':'outside-form';
       };
-      for(const type of ['input','change','invalid','click','submit'])document.addEventListener(type,event=>{
-        if(event.target.closest?.('#accountSignInForm'))snapshot(type+':'+(event.target.id||event.target.tagName));
+      const rect=node=>{if(!node)return null;const r=node.getBoundingClientRect();return{x:number(r.x),y:number(r.y),width:number(r.width),height:number(r.height)};};
+      const scroll=node=>node?{left:number(node.scrollLeft),top:number(node.scrollTop),clientWidth:number(node.clientWidth),clientHeight:number(node.clientHeight),scrollWidth:number(node.scrollWidth),scrollHeight:number(node.scrollHeight)}:null;
+      const capture=(event,actual=null)=>{
+        const form=document.getElementById('accountSignInForm'),submit=form?.querySelector('button[type="submit"]'),target=actual?.target||null;
+        const email=document.getElementById('accountEmail'),password=document.getElementById('accountPassword'),viewport=window.visualViewport;
+        return{event,form:formID(form),emailPresent:Boolean(email?.value),passwordPresent:Boolean(password?.value),
+          emailValid:email?.validity.valid??null,passwordValid:password?.validity.valid??null,state:serverPersistence.state,
+          sequence:++sequence,timeOrigin:number(performance.timeOrigin),atMs:number(performance.now()),
+          trusted:actual?actual.isTrusted===true:null,defaultPrevented:actual?actual.defaultPrevented===true:null,observationPhase:actual?'capture':'snapshot',
+          targetKind:kind(target,form),targetNode:nodeID(target),targetConnected:target?target.isConnected===true:null,
+          targetForm:formID(target?.form||target?.closest?.('#accountSignInForm')||null),
+          targetDisabled:typeof target?.disabled==='boolean'?target.disabled:null,
+          submitNode:nodeID(submit),submitConnected:submit?submit.isConnected===true:null,submitForm:formID(submit?.form||null),submitDisabled:submit?submit.disabled===true:null,
+          pressedSubmitNode:nodeID(pressedSubmit),pressedSubmitConnected:pressedSubmit?pressedSubmit.isConnected===true:null,
+          point:actual&&Number.isFinite(actual.clientX)&&Number.isFinite(actual.clientY)?{x:number(actual.clientX),y:number(actual.clientY)}:null,
+          submitRect:rect(submit),window:{x:number(window.scrollX),y:number(window.scrollY),width:number(window.innerWidth),height:number(window.innerHeight)},
+          modal:scroll(document.getElementById('settingsModal')),panel:scroll(document.querySelector('#settingsModal .settings-panel')),body:scroll(document.getElementById('settingsBody')),
+          visualViewport:viewport?{x:number(viewport.offsetLeft),y:number(viewport.offsetTop),pageX:number(viewport.pageLeft),pageY:number(viewport.pageTop),width:number(viewport.width),height:number(viewport.height),scale:number(viewport.scale)}:null};
+      };
+      const snapshot=(event,actual=null)=>{
+        try{
+          if(qaSignInTrace.length>=128){qaSignInTraceStatus.truncated=true;qaSignInTraceStatus.dropped=Math.min(9999,qaSignInTraceStatus.dropped+1);return;}
+          const entry=capture(event,actual),bytes=new TextEncoder().encode(JSON.stringify(entry)).byteLength+(qaSignInTrace.length?1:0);
+          if(qaSignInTraceStatus.bytes+bytes>49152){qaSignInTraceStatus.truncated=true;qaSignInTraceStatus.dropped=Math.min(9999,qaSignInTraceStatus.dropped+1);return;}
+          qaSignInTrace.push(entry);qaSignInTraceStatus.bytes+=bytes;
+        }catch{fault();}
+      };
+      // This is a current failure-time snapshot, not click-time geometry.
+      globalThis.qaSignInFailureSnapshot=()=>{try{return capture('failure-snapshot');}catch{fault();return{capture:'unavailable'};}};
+      const eventName=(type,target)=>{
+        const id=['accountSignInForm','accountEmail','accountPassword','keepAccountSignedIn','createAccountBtn','forgotPasswordBtn'].includes(target?.id)?target.id:null;
+        const tag=['BUTTON','FORM','INPUT','LABEL','SPAN'].includes(target?.tagName)?target.tagName:'OTHER';
+        return type+':'+(id||tag);
+      };
+      for(const type of ['input','change','invalid','click','submit','pointerdown','mousedown','pointerup','mouseup','focus','blur'])document.addEventListener(type,event=>{
+        try{
+          const form=document.getElementById('accountSignInForm'),inside=!!form&&event.target.closest?.('#accountSignInForm')===form;
+          const ending=type==='pointerup'||type==='mouseup';
+          if(!inside&&(type==='pointerdown'||type==='mousedown'||type==='click'))activePress=false;
+          if(!inside&&!(ending&&activePress))return;
+          if((type==='focus'||type==='blur')&&event.target.tagName!=='INPUT')return;
+          if(type==='pointerdown'||type==='mousedown'){pressedSubmit=event.target.closest?.('button[type="submit"]')||null;activePress=!!pressedSubmit;}
+          snapshot(eventName(type,event.target),event);
+          if(type==='mouseup'||type==='click')activePress=false;
+        }catch{fault();}
       },true);
       const render=renderAccountSettings;
       renderAccountSettings=function(...args){snapshot('before-render');const result=render(...args);snapshot('after-render');return result;};
@@ -596,10 +668,11 @@ const server = http.createServer((req, res) => {
       assert.equal(trace.filter(event=>event.event==='submit:accountSignInForm').length,1,'a filled form must submit even when its deferred helper finishes before the click');
     }
     await page.waitForFunction(() => serverPersistence.state === 'signedIn').catch(async error=>{
-      console.error(JSON.stringify({phase:'initial-sign-in',scenario,engine:engineName,reads,writes,refreshes,errors,
-        state:await page.evaluate(()=>({state:serverPersistence.state,message:serverPersistence.message,
-          hasSession:serverSyncClient.accountSnapshot().hasSession,pending:Boolean(pendingPreferenceIntent(serverPersistence.user?.id)),trace:qaSignInTrace}))}));
-      throw error;
+      return reportInitialSignInFailure(error,{phase:'initial-sign-in',scenario,engine:engineName,reads,writes,refreshes,authSignIns,errors},
+        ()=>page.evaluate(()=>({state:serverPersistence.state,message:serverPersistence.message,
+          hasSession:serverSyncClient.accountSnapshot().hasSession,pending:Boolean(pendingPreferenceIntent(serverPersistence.user?.id)),
+          lastSnapshot:qaSignInFailureSnapshot(),trace:qaSignInTrace,traceStatus:qaSignInTraceStatus})),
+        record=>console.error(record));
     });
     await page.waitForFunction(() => Boolean(accountIndicatorController));
     await page.waitForFunction(() => nothingscoreViewerScope?.owner === serverPersistence.user?.id);
