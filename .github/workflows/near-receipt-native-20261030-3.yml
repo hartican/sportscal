@@ -1,5 +1,5 @@
 name: One-use near receipt native push qualification
-run-name: Native receipt ROOT 8520acb7d67d2dd9a1ececa6f9c4a00e
+run-name: Native receipt ROOT 0ad809e1ed3c37ac7ed3cee4be2a2a89
 on:
   push:
     branches: ['codex/near-receipt-native-20261030-3']
@@ -11,14 +11,14 @@ concurrency:
   cancel-in-progress: false
 jobs:
   paired-native:
-    if: github.event_name == 'push' && github.repository == 'hartican/sportscal' && github.ref == 'refs/heads/codex/near-receipt-native-20261030-3' && github.event.created == true && github.event.deleted == false && github.event.forced == false && github.run_attempt == 1
+    if: github.event_name == 'push' && github.repository == 'hartican/sportscal' && github.ref == 'refs/heads/codex/near-receipt-native-20261030-3' && github.event.created == false && github.event.before == '06a2c5d73af16e3718d1fc9e5dfa99bfff83b6e3' && github.event.deleted == false && github.event.forced == false && github.run_attempt == 1
     runs-on: ubuntu-24.04
     timeout-minutes: 11
     env:
-      NEAR_NONCE: 8520acb7d67d2dd9a1ececa6f9c4a00e
+      NEAR_NONCE: 0ad809e1ed3c37ac7ed3cee4be2a2a89
       NEAR_ALLOCATION: receipt-join-native-pg17-pg18-once
-      NEAR_PACKET_SHA: 0a9e8359717bcd1749f8bcf79a55050eab8346a4
-      NEAR_PACKET_MANIFEST_SHA256: 58ad805b84e9be8c89f011c3ff78b67f4ee497a4b107bfea40802524e568860f
+      NEAR_PACKET_SHA: ec2e579c25042e34a2d24ab7170fd8f224747563
+      NEAR_PACKET_MANIFEST_SHA256: 51be853adc4c6906917d9b003d33bccaeed003cef5393cd28cb0b3c87420f453
       NEAR_SOURCE: ${{ github.workspace }}/source
     steps:
       - name: Bind actual push and start unchanged whole allocation
@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
           repository: hartican/sportscal
-          ref: 0a9e8359717bcd1749f8bcf79a55050eab8346a4
+          ref: ec2e579c25042e34a2d24ab7170fd8f224747563
           path: packet
           persist-credentials: false
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
@@ -55,7 +55,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: near-receipt-native-8520acb7d67d2dd9a1ececa6f9c4a00e
-          path: ${{ runner.temp }}/near-receipt-8520acb7d67d2dd9a1ececa6f9c4a00e/result.json
+          name: near-receipt-native-0ad809e1ed3c37ac7ed3cee4be2a2a89
+          path: ${{ runner.temp }}/near-receipt-0ad809e1ed3c37ac7ed3cee4be2a2a89/result.json
           if-no-files-found: error
           retention-days: 7
