@@ -24,7 +24,7 @@
   if(document.hidden)return;
   await Promise.allSettled([loadDeferredScript('config/match-centre.js?v=595'),loadDeferredScript('config/score-details.js?v=595'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]);
   if(document.hidden)return;
-  await Promise.allSettled([loadDeferredScript('assets/js/match-centre-ui.js?v=599'),loadDeferredScript('config/event-overviews-ui.js?v=599')]);
+  await Promise.allSettled([loadDeferredScript('assets/js/match-centre-ui.js?v=604'),loadDeferredScript('config/event-overviews-ui.js?v=604')]);
  };
  void warm();
 })();

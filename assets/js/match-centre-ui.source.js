@@ -3,7 +3,7 @@
  'use strict';
 function loadMatchCentreStyles(){
  const link=document.querySelector('link[data-mc-style]')||document.createElement('link');
- if(link.getAttribute('href')!=='assets/styles/match-centre.css?v=599')link.href='assets/styles/match-centre.css?v=599';
+ if(link.getAttribute('href')!=='assets/styles/match-centre.css?v=604')link.href='assets/styles/match-centre.css?v=604';
  if(!link.isConnected){link.rel='stylesheet';link.dataset.mcStyle='';document.head.append(link);}
 }
 loadMatchCentreStyles();
@@ -234,7 +234,7 @@ loadMatchCentreStyles();
   if(selectedView==='all-sports'){
    if(!globalThis.createAllSportsView){
     const panel=document.getElementById('listView'),back=node('button','Back to Match Centre','btn ghost');allSportsLoadingTicket=ticket();back.type='button';back.onclick=()=>selectMatchCentreView('followed');panel.replaceChildren(back,node('p','Loading All Sports View…'));
-    allSportsLoading||=loadDeferredScript('assets/js/all-sports-ui.js?v=599').then(()=>{if(allSportsLoadingTicket&&valid(allSportsLoadingTicket))renderMatchCentre();}).catch(()=>{if(allSportsLoadingTicket&&valid(allSportsLoadingTicket)){const retry=node('button','Retry','btn ghost');retry.type='button';retry.onclick=renderMatchCentre;panel.replaceChildren(back,node('p','All Sports View could not load.'),retry);}}).finally(()=>{allSportsLoading=null;allSportsLoadingTicket=null;});return;
+    allSportsLoading||=loadDeferredScript('assets/js/all-sports-ui.js?v=604').then(()=>{if(allSportsLoadingTicket&&valid(allSportsLoadingTicket))renderMatchCentre();}).catch(()=>{if(allSportsLoadingTicket&&valid(allSportsLoadingTicket)){const retry=node('button','Retry','btn ghost');retry.type='button';retry.onclick=renderMatchCentre;panel.replaceChildren(back,node('p','All Sports View could not load.'),retry);}}).finally(()=>{allSportsLoading=null;allSportsLoadingTicket=null;});return;
    }
    allSportsView||=globalThis.createAllSportsView({active:()=>activeTab==='match-centre'&&selectedView==='all-sports',owner,selectView:selectMatchCentreView,feedButton});allSportsView.start();return;
   }

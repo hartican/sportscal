@@ -506,7 +506,7 @@ function renderTeamsAndPlayersDirectoryLoaded(container){
 function renderFollowViewLoaded(){
   if(!globalThis.NOTHINGSPORTS_FOLLOW_NAV){
     const panel=document.getElementById('listView');panel.replaceChildren();buildFollowHomeTabs(panel);const state=document.createElement('p');state.textContent='Loading sports…';state.setAttribute('role','status');panel.append(state);
-    void loadDeferredScript('assets/js/follow-navigation.js?v=599').then(()=>{if(activeTab==='follow')renderFollowView();}).catch(()=>{if(activeTab==='follow'){panel.textContent='Follow could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderFollowView;panel.append(retry);}});return;
+    void loadDeferredScript('assets/js/follow-navigation.js?v=604').then(()=>{if(activeTab==='follow')renderFollowView();}).catch(()=>{if(activeTab==='follow'){panel.textContent='Follow could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderFollowView;panel.append(retry);}});return;
   }
   const oldNavigation=document.querySelector('#listView > .follow-navigation');
   if(oldNavigation){for(const child of [...oldNavigation.querySelector('#follow-navigation-controls').children])oldNavigation.before(child);oldNavigation.remove();}
@@ -629,7 +629,7 @@ function renderFollowViewLoaded(){
   if(followViewSection==='major-events'){
     if(followDirectoryKey(entity).startsWith('tennis')){renderTennisMajorEvents(container);return;}
     const host=document.createElement('div');host.textContent='Loading published events…';container.append(host);
-    void loadDeferredScript('config/event-overviews-ui.js?v=599').then(()=>NOTHINGSPORTS_EVENT_OVERVIEWS_UI.followRows(host,followDirectoryKey(entity))).catch(()=>{if(host.isConnected){host.textContent='Events could not load. ';const retry=document.createElement('button');retry.type='button';retry.textContent='Retry events';retry.onclick=renderFollowView;host.append(retry);}});
+    void loadDeferredScript('config/event-overviews-ui.js?v=604').then(()=>NOTHINGSPORTS_EVENT_OVERVIEWS_UI.followRows(host,followDirectoryKey(entity))).catch(()=>{if(host.isConnected){host.textContent='Events could not load. ';const retry=document.createElement('button');retry.type='button';retry.textContent='Retry events';retry.onclick=renderFollowView;host.append(retry);}});
     return;
   }
   const panel=document.createElement('section');panel.className='follow-section-panel';panel.dataset.scrollKey=`follow-directory:${entity.id}`;
@@ -811,7 +811,7 @@ function codeInspectorStandingsSportKey(code){
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=599').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=604').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function followStandingsLabel(code){
