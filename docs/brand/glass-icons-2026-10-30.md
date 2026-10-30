@@ -16,6 +16,8 @@ The existing authenticated Nothingscore route exposes `GET /api/nothingscore?ico
 
 The optional Settings bundle caches the entitlement for 30 seconds per account and generation, and rechecks it on action/selection. Responses from another account generation cannot save a choice. A missing session, failed request or invalid entitlement keeps the action locked. Local storage holds only the selected colourway for this device; it cannot supply points or entitlement. The preference does not alter Follow data or create server-state saves.
 
+A failed fresh read replaces any earlier positive entitlement with a locked result; an older overlapping response cannot replace the newest check. Pending actions and selections must still belong to the same open Settings view, opening token, section and draft as well as the same account generation. Closing, reopening or changing that context cancels their UI effects. Unlocking an already open Appearance view replaces its controls with exactly eight unique choices and removes the exhausted unlock action.
+
 The chosen design updates in-app brand icons, the browser favicon, Apple touch-icon metadata and the referenced installation manifest. All variant manifests retain the same app ID, scope and start URL. This is a best-effort request to the browser/OS; immediate replacement of an existing Home Screen icon is not guaranteed. Per the user's direction, there are no icon-change instructions in the interface. The normal public website installation guide is unchanged.
 
 ## Website
@@ -25,6 +27,8 @@ The existing public `nothingsport.com` Site keeps its identity and audience. The
 ## Verification and release
 
 `scripts/validate-app-icon-choice.js` exercises the actual authenticated handler with fixture rows, anonymous rejection and private headers, plus real Chromium/WebKit controls at 0/99/100 points, every colourway, reload persistence and stale-account rejection. It uses local fixtures and does not mutate a production account. The database schema/positive-award constraint is checked separately without reading customer rows.
+
+`node scripts/validate-app-icon-settings-lifecycle.js` uses the real icon module, account client, Settings open/close/navigation and Appearance functions in an existing jsdom installation (available through `NODE_PATH` or `JSDOM_MODULE`). Eighteen no-I/O controls cover cached-positive failure, overlapping reads, 99→100 repeated unlocks, theme use, late action/selection after close/reopen/draft/section/account/generation changes, and all eight successful choices. Network, child-process and worker attempts are blocked and counted. This source test does not launch a browser or replace native/hosted acceptance.
 
 The existing startup-size, performance, protected-wordmark, brand/footer and provider-brand checks remain required. Full-app settings and website layout screenshots are separate local visual checks; they are not physical-iPhone or installed-icon proof.
 

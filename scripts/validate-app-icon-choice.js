@@ -25,14 +25,14 @@ async function main(){
  const registry=source.match(/const BRAND_ASSETS[\s\S]*?(?=function syncBrandCopy)/)?.[0];assert(registry);
  assert(fs.readFileSync(path.join(root,'config/archive-settings-ui.js'),'utf8').includes('APP_ICON_SETTINGS.menu(body)'));
  assert(fs.readFileSync(path.join(root,'config/fantasy-deadline-ui.js'),'utf8').includes('APP_ICON_SETTINGS.appearance(stack)'));
- const harness=()=>`<!doctype html><html><head><link rel="icon" href="/icons/nothingsport-app-32.png"><link rel="apple-touch-icon" href="/icons/nothingsport-app-180.png"><link rel="manifest" href="/manifest.webmanifest"></head><body><img id="liveIcon" data-brand-asset="icon"><main id="body"><div class="settings-menu"><button data-settings-section="appearance">Appearance</button></div></main><script>
+ const harness=()=>`<!doctype html><html><head><link rel="icon" href="/icons/nothingsport-app-32.png"><link rel="apple-touch-icon" href="/icons/nothingsport-app-180.png"><link rel="manifest" href="/manifest.webmanifest"></head><body><img id="liveIcon" data-brand-asset="icon"><div id="settingsModal" class="show"><main id="body"><div class="settings-menu"><button data-settings-section="appearance">Appearance</button></div></main></div><script>
 window.__points=Number(new URL(location.href).searchParams.get('points')||0);window.__owner='fixture';window.__generation=1;window.__hold=false;window.__release=null;
 window.serverSyncClient={accountSnapshot:()=>({hasSession:!!window.__owner,accountId:window.__owner,generation:window.__generation}),nothingscoreRequest:async q=>{if(!q.icon)throw Error('Unexpected read');if(window.__hold)await new Promise(resolve=>window.__release=resolve);return {canChooseIcon:window.__points>=100,minimumPoints:100};}};
 window.readStorage=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}};
-window.draftPreferences={theme:'night'};window.userPreferences={theme:'night'};window.syncThemeTeamAssets=()=>{};window.syncThemeEventAssets=()=>{};
+window.draftPreferences={theme:'night'};window.settingsViewportAnchor={};window.settingsSection='main';window.userPreferences={theme:'night'};window.syncThemeTeamAssets=()=>{};window.syncThemeEventAssets=()=>{};
 ${registry}${sync}
 window.applyThemePreference=()=>syncThemeBrandAssets(true);
-window.navigateSettingsSection=()=>{const body=document.getElementById('body');body.replaceChildren();NOTHINGSPORTS_APP_ICON_SETTINGS.appearance(body);};
+window.navigateSettingsSection=()=>{window.settingsSection='appearance';const body=document.getElementById('body');body.replaceChildren();NOTHINGSPORTS_APP_ICON_SETTINGS.appearance(body);};
 </script><script src="/config/app-icon-choice.js"></script><script src="/config/app-icon-settings-ui.js"></script><script>applyThemePreference();NOTHINGSPORTS_APP_ICON_SETTINGS.menu(document.getElementById('body'));</script></body></html>`;
  const local=http.createServer((req,res)=>{
   const url=new URL(req.url,'http://local');if(url.pathname==='/__icons'){res.setHeader('Content-Type','text/html');res.end(harness());return;}
