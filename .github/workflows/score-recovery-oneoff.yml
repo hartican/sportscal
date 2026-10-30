@@ -16,7 +16,7 @@ jobs:
     if: >-
       github.repository == 'hartican/sportscal' &&
       github.ref == 'refs/heads/codex/score-recovery-live-coverage-20261030' &&
-      github.event.before == 'a93122d1e4dc09488d9ed43b13b79ee0a6a6a88a' &&
+      github.event.before == '3992a4ab25a5a50c347038e40c924da5beabcb30' &&
       github.event.created == false && github.event.deleted == false &&
       github.event.forced == false && github.run_attempt == '1' &&
       github.event.after == github.sha && github.workflow_sha == github.sha

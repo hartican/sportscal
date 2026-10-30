@@ -6,7 +6,7 @@
     "notBefore": null,
     "status": "UNALLOCATED"
   },
-  "carrierBeforeSha": "a93122d1e4dc09488d9ed43b13b79ee0a6a6a88a",
+  "carrierBeforeSha": "3992a4ab25a5a50c347038e40c924da5beabcb30",
   "credentialEnvironmentNames": [],
   "dependencyPins": {
     "node_modules/@electric-sql/pglite/LICENSE": "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9",

@@ -1,7 +1,7 @@
 """ROOT Linux only: actual c34 caller+guard+supervisor; owned HTTPS/projection IO.
 Heavy builders remain disclosed stand-ins; no service/provider request occurs.
 """
-import hashlib,importlib.util,json,os,pathlib,platform,secrets,subprocess,sys,time
+import hashlib,importlib.util,json,os,pathlib,platform,secrets,stat,subprocess,sys,time
 sys.dont_write_bytecode=True
 HERE=pathlib.Path(__file__).resolve().parent
 CASES=('good','gzip','deflate','br','partial-collection','wrong-identity','table-failure','both-resources-fail','wire-overflow','decoded-overflow','invalid-json','invalid-utf8','partial-length','redirect','privacy','deferred-label','native-escape','fetch-escape','request-escape','projection-get','forged-selector','callback-escape','partial-runtime-failure','late-failure','hang-child','interrupted-rollback','headers-timeout','body-timeout')
@@ -17,6 +17,11 @@ FAILURE_KINDS=frozenset(('ASSERTION','CHILD_TIMEOUT','OS_ERROR','RECEIPT_JSON_ER
 SUPERVISOR_CODES=frozenset(('NONE','DISK_RESERVE','NODE_PIN','SOURCE_PIN','SOURCE_GIT_SHA','ROLLBACK_BUDGET','CANDIDATE_BASELINE','PREFLIGHT_WINDOW','WHOLE_WINDOW_TIMEOUT','OUTPUT_LIMIT','FINALIZATION_WINDOW_TIMEOUT','SUPERVISOR_AssertionError','SUPERVISOR_OSError','SUPERVISOR_FileNotFoundError','SUPERVISOR_PermissionError','SUPERVISOR_ValueError','SUPERVISOR_KeyError','SUPERVISOR_TypeError','SUPERVISOR_InterruptedError','OTHER_SUPERVISOR_FAILURE'))
 GUARD_CODES=frozenset(read(HERE/'epl-profile.json')['exportGuardCodes'])|{'NONE','UNREVIEWED_GUARD_REFUSAL'}
 DIAGNOSTIC_CODES=frozenset(('NONE','EPL_POSTCONDITIONS','OTHER_SUPERVISOR_DIAGNOSTIC'))
+SOURCE_WITNESS_STATES=frozenset(('NOT_OWNED','NOT_CLOSED','ABSENT','UNREADABLE','OVERSIZE','UNREVIEWED','VERIFIED'))
+CANONICAL_FAILURE_STATES=frozenset(('NOT_OWNED','NOT_CLOSED','ABSENT','UNREADABLE','OVERSIZE','UNREVIEWED','FAILED','FAILED_UNKNOWN_STEP'))
+SOURCE_ERROR_CLASSES=frozenset(('NONE','ERROR','TYPE_ERROR','REFERENCE_ERROR','SYNTAX_ERROR','RANGE_ERROR','OTHER_ERROR_CLASS'))
+SOURCE_ERROR_CODES=frozenset(('NONE','OTHER_ERROR_CODE','MODULE_NOT_FOUND','ERR_REQUIRE_ESM','ERR_INVALID_ARG_TYPE'))|frozenset(read(HERE/'epl-profile.json')['exportGuardCodes'])
+KNOWN_FAILURE_STEPS=frozenset(read(HERE/'epl-profile.json')['exportGateSteps'])
 _failure_evidence={}
 def failure_stage(stage):
  assert stage in FAILURE_STAGES,'Unreviewed EPL diagnostic stage'
@@ -31,6 +36,57 @@ def receipt_evidence(result,receipt):
  value=receipt.get('supervisorError');row['supervisorCode']='NONE'if value is None else value if isinstance(value,str)and value in SUPERVISOR_CODES else'OTHER_SUPERVISOR_FAILURE'
  errors=receipt.get('diagnosticErrors');row['diagnosticCode']='NONE'if not errors else'EPL_POSTCONDITIONS'if isinstance(errors,list)and'EPL_POSTCONDITIONS'in errors else'OTHER_SUPERVISOR_DIAGNOSTIC'
  return row
+
+def bounded_diagnostic(file,limit):
+ """Fixed private diagnostic only; no symlink, special file or unbounded read."""
+ fd=None
+ try:
+  info=file.lstat()
+  if not stat.S_ISREG(info.st_mode):return 'UNREADABLE',None
+  if info.st_size>limit:return 'OVERSIZE',None
+  fd=os.open(file,os.O_RDONLY|os.O_NOFOLLOW|os.O_NONBLOCK)
+  with os.fdopen(fd,'rb')as stream:
+   fd=None;info=os.fstat(stream.fileno())
+   if not stat.S_ISREG(info.st_mode):return 'UNREADABLE',None
+   if info.st_size>limit:return 'OVERSIZE',None
+   body=stream.read(limit+1)
+  if len(body)>limit:return 'OVERSIZE',None
+  def unique(pairs):
+   value={}
+   for key,item in pairs:
+    if key in value:raise ValueError('Duplicate diagnostic field')
+    value[key]=item
+   return value
+  return 'READ',json.loads(body,object_pairs_hook=unique)
+ except FileNotFoundError:return 'ABSENT',None
+ except BaseException:return 'UNREADABLE',None
+ finally:
+  if fd is not None:
+   try:os.close(fd)
+   except BaseException:pass
+
+def source_failure_evidence(p,receipt):
+ """Observe only after closure; never promote private error/report text."""
+ if p.get('mode')!='owned-control'or p.get('sourceProtocol')!='epl':return {'sourceExitWitnessState':'NOT_OWNED','canonicalReportState':'NOT_OWNED'}
+ if receipt.get('processGroupClosed')is not True:return {'sourceExitWitnessState':'NOT_CLOSED','canonicalReportState':'NOT_CLOSED'}
+ value={'sourceExitWitnessState':'UNREADABLE','canonicalReportState':'UNREADABLE'}
+ try:
+  run=pathlib.Path(p['runDir']);root=pathlib.Path(p['root']);source=pathlib.Path(p['sourceRoot'])
+  if not run.is_absolute()or run!=root.parent/'run'or root==source:return value
+  state,row=bounded_diagnostic(run/'owned-source-exit.json',1024);value['sourceExitWitnessState']=state
+  if state=='READ':
+   value['sourceExitWitnessState']='UNREVIEWED'
+   if isinstance(row,dict)and set(row)=={'schemaVersion','exitCode','uncaughtExceptionObserved','errorClass','errorCode'}and row['schemaVersion']=='owned-epl-source-exit.v1'and type(row['exitCode'])is int and -128<=row['exitCode']<=255 and type(row['uncaughtExceptionObserved'])is bool and isinstance(row['errorClass'],str)and row['errorClass']in SOURCE_ERROR_CLASSES and isinstance(row['errorCode'],str)and row['errorCode']in SOURCE_ERROR_CODES:
+    if (row['uncaughtExceptionObserved']and row['errorClass']!='NONE')or(not row['uncaughtExceptionObserved']and row['errorClass']==row['errorCode']=='NONE'):
+     value['sourceExitWitnessState']='VERIFIED';value['sourceExit']={key:row[key]for key in ['exitCode','uncaughtExceptionObserved','errorClass','errorCode']}
+  state,report=bounded_diagnostic(run/'refresh-report.json',65536);value['canonicalReportState']=state
+  if state=='READ':
+   value['canonicalReportState']='UNREVIEWED'
+   if isinstance(report,dict)and report.get('schemaVersion')=='canonical-refresh-report.v1'and report.get('stage')=='failed':
+    step=report.get('failedStep');value['canonicalReportState']='FAILED_UNKNOWN_STEP'
+    if isinstance(step,str)and step in KNOWN_FAILURE_STEPS:value['canonicalReportState']='FAILED';value['failedStep']=step
+ except BaseException:pass
+ return value
 
 def prepare(case):
  context=read(HERE/'runtime-context.json');profile=read(HERE/'epl-profile.json');fixture=read(HERE/'epl-control-fixture.json');source=pathlib.Path(context['sourceRoot']);parent=HERE/'epl-controls'/case;root=parent/'fixture';root.mkdir(parents=True,exist_ok=False)
@@ -61,7 +117,10 @@ def run_case(case,scanner):
  failure_stage('CAPTURED_OUTPUT_PRIVACY')
  assert not scanner.contains(result.stdout+result.stderr,marker),'EPL_CONTROL_EXPORT_PRIVACY'
  failure_stage('RECEIPT_JSON');receipt=json.loads(result.stdout);assert isinstance(receipt,dict),'EPL_CONTROL_RECEIPT_OBJECT'
- _failure_evidence.update(receipt_evidence(result,receipt));failure_stage('SUPERVISOR_EXIT')
+ _failure_evidence.update(receipt_evidence(result,receipt))
+ try:_failure_evidence['sourceFailure']=source_failure_evidence(p,receipt)
+ except BaseException:_failure_evidence['sourceFailure']={'sourceExitWitnessState':'UNREADABLE','canonicalReportState':'UNREADABLE'}
+ failure_stage('SUPERVISOR_EXIT')
  assert result.returncode==(1 if case in FAIL else 0),(case,'EXIT',receipt.get('diagnosticErrors'),receipt.get('firstGuardError'))
  failure_stage('GROUP_AND_ROLLBACK')
  assert receipt['processGroupClosed']and receipt['rollback']['verified']and not receipt['ownedTemporaryFilesRemaining'],(case,'CLOSURE')

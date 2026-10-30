@@ -1,5 +1,5 @@
 """Pure actual-module policy/env/export controls; no main/inspect/child/native IO."""
-import contextlib,copy,hashlib,importlib.util,io,json,pathlib,sys,types
+import contextlib,copy,hashlib,importlib.util,io,json,pathlib,sys,tempfile,types
 from unittest.mock import patch
 sys.dont_write_bytecode=True
 HERE=pathlib.Path(__file__).resolve().parent
@@ -96,6 +96,67 @@ def main():
     else:raise AssertionError('Original child/receipt/privacy failure was swallowed')
    row=json.loads(stream.getvalue());good('actual driver keeps finite '+name+' failure boundary',lambda r=row,s=expected_stage,k=expected_kind:ci.require(r['failureStage']==s and r['failureKind']==k and'guardCode'not in r and private not in json.dumps(r),'EPL_REFUSAL_BOUNDARY'))
   denied('unreviewed diagnostic stage remains refused',lambda:driver.failure_stage(private))
+  # Actual private-file reader and actual driver -> CI failure boundary, with
+  # owned files and a mocked supervisor result. No process/event is executed.
+  with tempfile.TemporaryDirectory(prefix='owned-epl-diagnostic-')as temporary:
+   parent=pathlib.Path(temporary);run=parent/'run';run.mkdir();owned={**profile,'mode':'owned-control','sourceProtocol':'epl','root':str(parent/'fixture'),'sourceRoot':'/owned/frozen-source','runDir':str(run),'wholeSeconds':15}
+   closed={'processGroupClosed':True};status_file=run/'owned-source-exit.json';report_file=run/'refresh-report.json'
+   status={'schemaVersion':'owned-epl-source-exit.v1','exitCode':1,'uncaughtExceptionObserved':True,'errorClass':'REFERENCE_ERROR','errorCode':'MODULE_NOT_FOUND'}
+   report={'schemaVersion':'canonical-refresh-report.v1','stage':'failed','failedStep':'scripts/build-canonical-context-bundle.js','blockingError':private,'failureChain':[{'message':private}],'unknownPrivate':private}
+   status_file.write_text(json.dumps(status));report_file.write_text(json.dumps(report))
+   projected=driver.source_failure_evidence(owned,closed)
+   good('actual bounded private reader retains only finite source exception and known canonical step',lambda:ci.require(projected=={'sourceExitWitnessState':'VERIFIED','canonicalReportState':'FAILED','sourceExit':{k:status[k]for k in ['exitCode','uncaughtExceptionObserved','errorClass','errorCode']},'failedStep':report['failedStep']}and private not in json.dumps(projected),'INNER_SOURCE_FIELDS'))
+   good('independent CI admission agrees on exact source diagnostic schema',lambda:ci.require(ci.epl_source_failure_public(projected)==projected,'INNER_SOURCE_FIELDS'))
+   with patch.object(driver,'bounded_diagnostic',side_effect=AssertionError('READ_BEFORE_CLOSURE'))as reader:
+    for value in [False,None,1,'true']:
+     unknown=driver.source_failure_evidence(owned,{'processGroupClosed':value});assert unknown=={'sourceExitWitnessState':'NOT_CLOSED','canonicalReportState':'NOT_CLOSED'}
+    reader.assert_not_called()
+   good('source diagnostic never reads before strict verified group closure',lambda:None)
+   with patch.object(driver,'bounded_diagnostic',side_effect=AssertionError('ACTUAL_OR_PROJECTION_READ'))as reader:
+    unknown=driver.source_failure_evidence({**owned,'mode':'epl-canonical'},closed);assert unknown=={'sourceExitWitnessState':'NOT_OWNED','canonicalReportState':'NOT_OWNED'};reader.assert_not_called()
+   good('actual-mode diagnostic observation remains refused',lambda:None)
+   result=types.SimpleNamespace(stdout=json.dumps({**refusal,'firstGuardError':None,'diagnosticErrors':[]}).encode(),stderr=b'',returncode=1);stream=io.StringIO()
+   with patch.object(driver,'prepare',return_value=(parent/'policy.json',owned)),patch.object(driver,'digest',return_value='0'*64),patch.object(driver.subprocess,'run',return_value=result),contextlib.redirect_stdout(stream):
+    try:driver.case_boundary('good',lambda case:driver.run_case(case,scanner))
+    except AssertionError as original:assert original.args[0][1]=='EXIT'
+    else:raise AssertionError('Original nonzero source exit was swallowed')
+   saved=[]
+   with patch.object(pathlib.Path,'mkdir'),patch.object(ci,'write',side_effect=lambda f,v:saved.append(v)):ci.control_failure_witness('epl-linux-controls',types.SimpleNamespace(stdout=stream.getvalue().encode(),stderr=private.encode(),returncode=1),'CHILD_EXIT')
+   good('actual native driver to CI witness preserves inner reason while original gate stays failed',lambda:ci.require(saved[0]['completedRecords'][0]['sourceFailure']==projected and saved[0]['ready']is False and private not in json.dumps(saved),'INNER_SOURCE_ACTUAL_SEAM'))
+   saved=[]
+   with patch.object(pathlib.Path,'mkdir'),patch.object(ci,'write',side_effect=lambda f,v:saved.append(v)):ci.control_failure_witness('linux-controls',types.SimpleNamespace(stdout=stream.getvalue().encode(),stderr=b'',returncode=1),'CHILD_EXIT')
+   good('legacy failure witness gains no inner source diagnostic fields',lambda:ci.require('sourceFailure'not in saved[0]['completedRecords'][0],'INNER_SOURCE_NAMESPACE'))
+   for key,value in [('schemaVersion',private),('exitCode',True),('exitCode',256),('uncaughtExceptionObserved','true'),('errorClass',private),('errorCode',private),('message',private),('uncaughtExceptionObserved',False)]:
+    status_file.write_text(json.dumps({**status,key:value}));value1=driver.source_failure_evidence(owned,closed)
+    good('source private reader rejects forged '+key+' diagnostic',lambda v=value1:ci.require(v['sourceExitWitnessState']=='UNREVIEWED'and'sourceExit'not in v and private not in json.dumps(v),'INNER_SOURCE_FORGERY'))
+   status_file.write_text(json.dumps(status).replace('"exitCode": 1','"exitCode": 0,"exitCode": 1'));value1=driver.source_failure_evidence(owned,closed)
+   good('duplicate private diagnostic fields remain unadmitted',lambda:ci.require(value1['sourceExitWitnessState']=='UNREADABLE','INNER_SOURCE_DUPLICATE'))
+   for payload,expected in [('x'*1025,'OVERSIZE'),('{invalid','UNREADABLE')]:
+    status_file.write_text(payload);value1=driver.source_failure_evidence(owned,closed)
+    good('source diagnostic read bounds and JSON failure are explicit '+expected,lambda v=value1,e=expected:ci.require(v['sourceExitWitnessState']==e,'INNER_SOURCE_BOUND'))
+   status_file.unlink();value1=driver.source_failure_evidence(owned,closed)
+   good('missing source witness is explicit and not no-error evidence',lambda:ci.require(value1['sourceExitWitnessState']=='ABSENT'and'sourceExit'not in value1,'INNER_SOURCE_MISSING'))
+   outside=parent/'outside';outside.write_text(json.dumps(status));status_file.symlink_to(outside);value1=driver.source_failure_evidence(owned,closed)
+   good('source diagnostic symlink remains unreadable',lambda:ci.require(value1['sourceExitWitnessState']=='UNREADABLE','INNER_SOURCE_SYMLINK'));status_file.unlink();status_file.write_text(json.dumps(status))
+   report_file.write_text(json.dumps({**report,'failedStep':private}));value1=driver.source_failure_evidence(owned,closed)
+   good('unreviewed canonical step stays unknown without private label',lambda:ci.require(value1['canonicalReportState']=='FAILED_UNKNOWN_STEP'and'failedStep'not in value1 and private not in json.dumps(value1),'INNER_SOURCE_STEP'))
+   report_file.write_bytes(b'x'*65537);value1=driver.source_failure_evidence(owned,closed)
+   good('canonical failure report has its own64KiB hard read bound',lambda:ci.require(value1['canonicalReportState']=='OVERSIZE','INNER_SOURCE_REPORT_CAP'))
+   report_file.unlink();value1=driver.source_failure_evidence(owned,closed)
+   good('missing canonical report stays explicit beside verified source exception',lambda:ci.require(value1['canonicalReportState']=='ABSENT'and value1['sourceExitWitnessState']=='VERIFIED','INNER_SOURCE_MISSING'))
+   for label,mutate in [('extra-field',lambda v:v.update(private=private)),('raw-source-field',lambda v:v['sourceExit'].update(message=private)),('class',lambda v:v['sourceExit'].update(errorClass=private)),('code',lambda v:v['sourceExit'].update(errorCode=private)),('step',lambda v:v.update(failedStep=private)),('missing-source',lambda v:v.pop('sourceExit')),('bool-exit',lambda v:v['sourceExit'].update(exitCode=True)),('false-uncaught',lambda v:v['sourceExit'].update(uncaughtExceptionObserved=False))]:
+    forged=copy.deepcopy(projected);mutate(forged);denied('independent CI rejects forged inner '+label,lambda v=forged:ci.epl_source_failure_public(v))
+   denied('independent CI rejects contradictory early observation states',lambda:ci.epl_source_failure_public({'sourceExitWitnessState':'NOT_CLOSED','canonicalReportState':'ABSENT'}))
+   for label,change in [('open-group',{'groupClosed':False}),('forged-inner',{'sourceFailure':{**projected,'private':private}})]:
+    row={**diagnostic,'sourceFailure':projected,**change};saved=[]
+    with patch.object(pathlib.Path,'mkdir'),patch.object(ci,'write',side_effect=lambda f,v:saved.append(v)):ci.control_failure_witness('epl-linux-controls',types.SimpleNamespace(stdout=json.dumps(row).encode(),stderr=private.encode(),returncode=1),'CHILD_EXIT')
+    good('actual CI exporter withholds '+label+' source diagnostic',lambda v=saved:ci.require(v[0]['completedRecords'][0]['sourceFailure']=={'sourceExitWitnessState':'UNREVIEWED','canonicalReportState':'UNREVIEWED'}and private not in json.dumps(v),'INNER_SOURCE_EXPORT_CLOSURE'))
+   stream=io.StringIO()
+   with patch.object(driver,'prepare',return_value=(parent/'policy.json',owned)),patch.object(driver,'digest',return_value='0'*64),patch.object(driver.subprocess,'run',return_value=result),patch.object(driver,'source_failure_evidence',side_effect=RuntimeError(private)),contextlib.redirect_stdout(stream):
+    try:driver.case_boundary('good',lambda case:driver.run_case(case,scanner))
+    except AssertionError as original:assert original.args[0][1]=='EXIT'
+    else:raise AssertionError('Projection failure changed the original source refusal')
+   value1=json.loads(stream.getvalue());good('fallible source diagnostic projection cannot replace original assertion',lambda:ci.require(value1['failureStage']=='SUPERVISOR_EXIT'and value1['sourceFailure']=={'sourceExitWitnessState':'UNREADABLE','canonicalReportState':'UNREADABLE'}and private not in stream.getvalue(),'INNER_SOURCE_FAILURE_PRESERVATION'))
   launch.assert_not_called()
  print(json.dumps({'status':'PASS','checks':len(results),'cases':results,'sourceExecutions':0,'actualProviderRequests':0,'nativeMainOrInspect':0}))
 if __name__=='__main__':main()

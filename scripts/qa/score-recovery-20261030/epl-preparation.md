@@ -58,7 +58,7 @@ budget directory's golf-source-report.json and GOLF_SOURCE_RUN_ID to a UUID;
 these diagnostics grant no Golf source child or connection. Synthetic privacy
 markers exist only in owned controls. Actual workflow contains no secret block.
 
-ROOT's same-branch push must have beforea93122d1 and exact snapshot-A child,
+ROOT's same-branch push must have before3992a4ab and exact snapshot-A child,
 allocation-only-B child, matching checkout/workflow/event SHA, first attempt,
 no force/create/delete, nonce/time-bound one-use grant. This snapshot remains
 UNALLOCATED with no nonce/time. Currentc34 source pins explicitly replace the
@@ -124,3 +124,36 @@ freshness, score recovery or publication acceptance. The original native cause
 remains unknown. The accepted-only604 release remains held for EPL under ROOT's
 latest direct-human clarification; this supersedes the earlier packet's
 publication-status sentence without rewriting that frozen historical packet.
+
+## Reviewed inner-source observation implemented locally
+
+The508562f4 proposal is now implemented in the existing owned boundary, native
+driver and CI witness. Only the exact owned sourceArgv can register the
+nonhandling uncaughtExceptionMonitor and exit observer. Actual mode, projection
+children, a missing synthetic witness, aliased source/fixture roots or a
+substituted run path cannot register it. It reads no arbitrary error name,
+message, stack, constructor or getter. Intrinsic prototype classes and own-data
+known-code descriptors produce finite categories; unknowns stay explicit.
+
+One private captured writer can create only run/owned-source-exit.json with
+wx/0600 and a1024-byte cap. It is never exported and accepts no path. Repeated
+callbacks do not retry or replace an existing file. Registration, classification,
+partial-write or close failures cannot replace the original source failure.
+This owned diagnostic permission adds no candidate or actual-source write.
+
+After verified native group closure, the driver reads that fixed status and
+the existing refresh-report.json, bounded1024B/64KiB with no symlinks or special
+files. Exact schema/enums and a known failedStep are independently checked again
+by CI in the EPL-native phase only. No raw report, blockingError, message,
+stack, provider label, customer field, stdout or stderr is exported. Missing,
+unknown or failed observations remain distinct from evidence of no exception.
+
+Source-only actual-module VM/process/FS/error mocks and actual-driver/CI owned
+receipt tests reproduce missing observer/witness on4650 and pass with this
+change. They do not establish real Linux exception delivery, observer/guard exit
+ordering, native FD/group/kill cleanup, real exclusive-file behavior or current
+provider success. Those remain ROOT's later117-case qualification; every prior
+assertion/case, APPc34, guard/transport/supervisor, source/result/privacy/resource
+and release gate is unchanged. Original41120933354 cause remains UNKNOWN and
+unfixed. The actual workflow stays literalfalse. There is no runtime, provider,
+nonce, window or publication allocation here;604 remains held for EPL.

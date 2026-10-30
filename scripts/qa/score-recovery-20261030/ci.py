@@ -3,7 +3,7 @@ import argparse,datetime,hashlib,importlib.util,json,math,os,pathlib,platform,re
 sys.dont_write_bytecode=True
 HERE=pathlib.Path(__file__).resolve().parent
 SOURCE_SHA='c34bc991643c7f68ba856eec143d76c66ce4fb63'
-CARRIER_BASE_SHA='a93122d1e4dc09488d9ed43b13b79ee0a6a6a88a'
+CARRIER_BASE_SHA='3992a4ab25a5a50c347038e40c924da5beabcb30'
 BRANCH='refs/heads/codex/score-recovery-live-coverage-20261030'
 QA_PATH='scripts/qa/score-recovery-20261030'
 WORKFLOW='.github/workflows/score-recovery-oneoff.yml'
@@ -24,6 +24,29 @@ def stamp():return datetime.datetime.now(datetime.timezone.utc)
 def verify_pins(pins):
     require(all(pathlib.Path(f).is_file()and digest(f)==d for f,d in pins.items()),'PIN_CHANGED')
 def captured_bytes(value):return value.encode('utf-8')if isinstance(value,str)else value if isinstance(value,bytes)else b''
+def epl_source_failure_public(value):
+    """Independent exact-field/enum admission; no driver validator is reused."""
+    require(isinstance(value,dict),'EPL_INNER_DIAGNOSTIC')
+    source_states={'NOT_OWNED','NOT_CLOSED','ABSENT','UNREADABLE','OVERSIZE','UNREVIEWED','VERIFIED'}
+    report_states={'NOT_OWNED','NOT_CLOSED','ABSENT','UNREADABLE','OVERSIZE','UNREVIEWED','FAILED','FAILED_UNKNOWN_STEP'}
+    source=value.get('sourceExitWitnessState');report=value.get('canonicalReportState')
+    require(isinstance(source,str)and source in source_states and isinstance(report,str)and report in report_states,'EPL_INNER_DIAGNOSTIC')
+    require(not({source,report}&{'NOT_OWNED','NOT_CLOSED'})or source==report,'EPL_INNER_DIAGNOSTIC')
+    fields={'sourceExitWitnessState','canonicalReportState'}|({'sourceExit'}if source=='VERIFIED'else set())|({'failedStep'}if report=='FAILED'else set())
+    require(set(value)==fields,'EPL_INNER_DIAGNOSTIC')
+    result={'sourceExitWitnessState':source,'canonicalReportState':report}
+    if source=='VERIFIED':
+        row=value['sourceExit'];require(isinstance(row,dict)and set(row)=={'exitCode','uncaughtExceptionObserved','errorClass','errorCode'},'EPL_INNER_DIAGNOSTIC')
+        require(type(row['exitCode'])is int and -128<=row['exitCode']<=255 and type(row['uncaughtExceptionObserved'])is bool,'EPL_INNER_DIAGNOSTIC')
+        classes={'NONE','ERROR','TYPE_ERROR','REFERENCE_ERROR','SYNTAX_ERROR','RANGE_ERROR','OTHER_ERROR_CLASS'}
+        codes={'NONE','OTHER_ERROR_CODE','MODULE_NOT_FOUND','ERR_REQUIRE_ESM','ERR_INVALID_ARG_TYPE'}|set(read(HERE/'epl-profile.json')['exportGuardCodes'])
+        require(isinstance(row['errorClass'],str)and row['errorClass']in classes and isinstance(row['errorCode'],str)and row['errorCode']in codes,'EPL_INNER_DIAGNOSTIC')
+        require((row['uncaughtExceptionObserved']and row['errorClass']!='NONE')or(not row['uncaughtExceptionObserved']and row['errorClass']==row['errorCode']=='NONE'),'EPL_INNER_DIAGNOSTIC')
+        result['sourceExit']={key:row[key]for key in ['exitCode','uncaughtExceptionObserved','errorClass','errorCode']}
+    if report=='FAILED':
+        require(isinstance(value['failedStep'],str)and value['failedStep']in read(HERE/'epl-profile.json')['exportGateSteps'],'EPL_INNER_DIAGNOSTIC')
+        result['failedStep']=value['failedStep']
+    return result
 def control_failure_witness(phase,result,reason):
     """Export enums, bounded scalars and hashes; never child diagnostic text."""
     require(phase in ['carrier-export-controls','source-shape-controls','linux-controls','selected-model-controls','selected-policy-controls','selected-linux-controls','epl-model-controls','epl-policy-controls','epl-linux-controls']and reason in ['CHILD_EXIT','CHILD_TIMEOUT','CONTROL_RECEIPTS'],'WITNESS_PHASE')
@@ -48,6 +71,12 @@ def control_failure_witness(phase,result,reason):
         if epl_driver:
             for field,allowed in [('failureStage',epl_driver.FAILURE_STAGES),('failureKind',epl_driver.FAILURE_KINDS),('guardCode',epl_driver.GUARD_CODES),('supervisorCode',epl_driver.SUPERVISOR_CODES),('diagnosticCode',epl_driver.DIAGNOSTIC_CODES)]:
                 if isinstance(value.get(field),str)and value[field]in allowed:row[field]=value[field]
+            if 'sourceFailure'in value:
+                try:
+                    projected=epl_source_failure_public(value['sourceFailure'])
+                    require(projected['sourceExitWitnessState']in ['NOT_OWNED','NOT_CLOSED']or value.get('groupClosed')is True,'EPL_INNER_DIAGNOSTIC_CLOSURE')
+                    row['sourceFailure']=projected
+                except BaseException:row['sourceFailure']={'sourceExitWitnessState':'UNREVIEWED','canonicalReportState':'UNREVIEWED'}
         rows.append(row)
     code=getattr(result,'returncode',None)
     witness={'state':'failed','phase':phase,'reason':reason,'returnCode':code if type(code)is int else None,'outputSha256':{'stdout':sha(stdout),'stderr':sha(stderr)},'outputBytes':{'stdout':len(stdout),'stderr':len(stderr)},'completedRecords':rows,'ready':False}

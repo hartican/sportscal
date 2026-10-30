@@ -5,6 +5,34 @@ const raw={read:fs.readFileSync.bind(fs),write:fs.writeFileSync.bind(fs),exists:
 const p=JSON.parse(raw.read(process.env.NS_SCORE_GUARD_POLICY)),marker=process.env.NS_EPL_TEST_KEY;
 if(p.mode!=='owned-control'||p.sourceProtocol!=='epl'||p.root===p.sourceRoot||p.controlBoundary!==__filename||!marker||marker.length<32)throw Error('EPL_OWNED_BOUNDARY_ONLY');
 const source=path.resolve(p.sourceRoot),root=path.resolve(p.root),scenario=p.controlCase;
+// Observe only this owned source process, before the guard loads. The monitor
+// never handles an exception, reads its text/stack/getters, or changes its exit.
+try{
+ const expected=[path.join(source,'scripts/quick-results.js'),'--source=epl'];
+ if(root!==source&&JSON.stringify(p.sourceArgv)===JSON.stringify(expected)&&JSON.stringify(process.argv.slice(1))===JSON.stringify(expected)&&path.isAbsolute(p.runDir)&&p.runDir===path.join(path.dirname(root),'run')){
+  const open=fs.openSync.bind(fs),write=fs.writeSync.bind(fs),close=fs.closeSync.bind(fs),descriptor=Object.getOwnPropertyDescriptor,prototype=Object.getPrototypeOf;
+  const nativeError=require('node:util').types.isNativeError;
+  const file=path.join(p.runDir,'owned-source-exit.json'),guardCodes=JSON.parse(raw.read(path.join(__dirname,'epl-profile.json'))).exportGuardCodes;
+  const codes=new Set(['MODULE_NOT_FOUND','ERR_REQUIRE_ESM','ERR_INVALID_ARG_TYPE',...guardCodes]);
+  const classes=[[TypeError.prototype,'TYPE_ERROR'],[ReferenceError.prototype,'REFERENCE_ERROR'],[SyntaxError.prototype,'SYNTAX_ERROR'],[RangeError.prototype,'RANGE_ERROR'],[Error.prototype,'ERROR']];
+  let observed=false,errorClass='NONE',errorCode='NONE',attempted=false;
+  process.on('uncaughtExceptionMonitor',error=>{
+   if(observed)return;observed=true;errorClass='OTHER_ERROR_CLASS';errorCode='OTHER_ERROR_CODE';
+   try{if(!nativeError(error))return;}catch{return;}
+   try{const proto=prototype(error);errorClass=classes.find(([value])=>value===proto)?.[1]||'OTHER_ERROR_CLASS';}catch{}
+   try{const code=descriptor(error,'code');errorCode=!code?'NONE':Object.hasOwn(code,'value')&&typeof code.value==='string'&&codes.has(code.value)?code.value:'OTHER_ERROR_CODE';}catch{}
+  });
+  process.on('exit',exitCode=>{
+   if(attempted)return;attempted=true;let fd;
+   try{
+    if(!Number.isInteger(exitCode)||exitCode< -128||exitCode>255)return;
+    const body=Buffer.from(JSON.stringify({schemaVersion:'owned-epl-source-exit.v1',exitCode,uncaughtExceptionObserved:observed,errorClass,errorCode})+'\n');
+    if(body.length>1024)return;fd=open(file,'wx',0o600);
+    for(let at=0;at<body.length;){const n=write(fd,body,at,body.length-at);if(!Number.isInteger(n)||n<=0||n>body.length-at)break;at+=n;}
+   }catch{}finally{try{if(fd!==undefined)close(fd);}catch{}}
+  });
+ }
+}catch{}
 const map=file=>{const f=path.resolve(String(file));return ['data','feeds','assets/js'].some(dir=>f===source+'/'+dir||f.startsWith(source+'/'+dir+'/'))?root+f.slice(source.length):f;};
 fs.readFileSync=function(file,...args){const f=map(file);return raw.read(f!==path.resolve(String(file))&&raw.exists(f)?f:file,...args);};
 fs.readdirSync=function(file,...args){const f=map(file);return raw.readdir(f!==path.resolve(String(file))&&raw.exists(f)?f:file,...args);};
