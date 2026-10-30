@@ -4,7 +4,7 @@ No browser, dependency install, socket, SDK, provider or publication operation.
 System-boundary fault injections call the same stage/cleanup/curation/finalize.
 """
 import argparse, contextlib, hashlib, importlib.util, json, os, pwd, shutil
-import signal, subprocess, sys, time, types
+import signal, subprocess, sys, tempfile, time, types, re
 from pathlib import Path
 from unittest.mock import patch
 from urllib.parse import quote, quote_plus
@@ -18,6 +18,210 @@ parser.add_argument('--runner-uid', type=int, required=True)
 parser.add_argument('--runner-gid', type=int, required=True)
 parser.add_argument('--worker', action='store_true')
 hash_bytes = lambda data: hashlib.sha256(data).hexdigest()
+SOURCE = 'd9460cae05cc32507facc8fb8c184ae8ed866e52'
+
+def bootstrap_write(path, report, reserve=False):
+    # Available before importing the controller; reserve a fresh initial FAIL.
+    if reserve:
+        with path.open('x') as handle:
+            json.dump(report, handle, indent=2)
+            handle.write('\n')
+        return
+    temporary = path.with_suffix(path.suffix + '.next')
+    with temporary.open('x') as handle:
+        json.dump(report, handle, indent=2)
+        handle.write('\n')
+    temporary.replace(path)
+
+def parse_netdev(data):
+    assert len(data) <= 65536, 'proc net/dev observation exceeds 64 KiB'
+    text = data.decode('ascii')
+    lines = text.splitlines()
+    assert len(lines) >= 3, 'Missing proc net/dev header or devices'
+    assert [part.split() for part in lines[0].split('|')] == [['Inter-'], ['Receive'], ['Transmit']], 'Invalid proc net/dev header'
+    assert [part.split() for part in lines[1].split('|')] == [
+        ['face'], ['bytes', 'packets', 'errs', 'drop', 'fifo', 'frame', 'compressed', 'multicast'],
+        ['bytes', 'packets', 'errs', 'drop', 'fifo', 'colls', 'carrier', 'compressed']
+    ], 'Invalid proc net/dev columns'
+    names = []
+    for line in lines[2:]:
+        assert line.strip(), 'Blank proc net/dev device row'
+        name, counters = line.rsplit(':', 1)
+        name, counters = name.strip(), counters.split()
+        assert name and name not in names and len(counters) == 16 and all(value.isdecimal() for value in counters), 'Invalid proc net/dev device row'
+        names.append(name)
+    return {'interfaceNames': sorted(names), 'bytes': len(data), 'sha256': hash_bytes(data)}
+
+def read_netdev(path=Path('/proc/self/net/dev')):
+    with path.open('rb') as handle:
+        return parse_netdev(handle.read(65537))
+
+def observe_network():
+    result = {'errors': [], 'authority': '/proc/self/net/dev and /proc/*/ns/net; sysfs is diagnostic only'}
+    def probe(name, function):
+        try:
+            result[name] = function()
+        except BaseException as error:
+            result['errors'].append({'probe': name, 'name': type(error).__name__, 'message': str(error)[:400]})
+    def identity(path):
+        value = os.stat(path)
+        return [value.st_dev, value.st_ino]
+    def sysfs_names():
+        names = []
+        for path in Path('/sys/class/net').iterdir():
+            assert len(names) < 512, 'sysfs diagnostic interface cap exceeded'
+            names.append(path.name)
+        return sorted(names)
+    probe('selfNetns', lambda: os.readlink('/proc/self/ns/net'))
+    probe('pid1Netns', lambda: os.readlink('/proc/1/ns/net'))
+    probe('selfNetnsIdentity', lambda: identity('/proc/self/ns/net'))
+    probe('pid1NetnsIdentity', lambda: identity('/proc/1/ns/net'))
+    probe('procSelfNetDev', read_netdev)
+    probe('sysfsInterfaceNamesDiagnostic', sysfs_names)
+    return result
+
+def require_isolation(observation):
+    required = {'selfNetns', 'pid1Netns', 'selfNetnsIdentity', 'pid1NetnsIdentity', 'procSelfNetDev'}
+    assert not any(row['probe'] in required for row in observation['errors']), 'Required network observation failed'
+    assert required.issubset(observation), 'Required network observation missing'
+    assert observation['procSelfNetDev']['interfaceNames'] == ['lo'], 'External network interface present in current namespace'
+    assert all(re.fullmatch(r'net:\[\d+\]', observation[name]) for name in ('selfNetns', 'pid1Netns')), 'Invalid network namespace identity'
+    assert all(isinstance(observation[name], list) and len(observation[name]) == 2 and
+               all(isinstance(value, int) and value >= 0 for value in observation[name]) and observation[name][1] > 0
+               for name in ('selfNetnsIdentity', 'pid1NetnsIdentity')), 'Invalid namespace device/inode observation'
+    assert observation['selfNetns'] != observation['pid1Netns'], 'Owned isolated network namespace required'
+    assert observation['selfNetnsIdentity'] != observation['pid1NetnsIdentity'], 'Distinct network namespace device/inode required'
+
+def prepare_guard(options):
+    directory = Path(options.proof).resolve(strict=True)
+    target = directory / ('controller-worker-guard.json' if options.worker else 'controller-controls.json')
+    report = {'passed': False, 'source': SOURCE, 'phase': 'before-platform-guard', 'guardPassed': False,
+              'moduleImported': False, 'platform': sys.platform, 'euid': os.geteuid(),
+              'networkNamespace': 'unverified', 'cases': []}
+    bootstrap_write(target, report, reserve=True)
+    try:
+        assert sys.platform == 'linux' and os.geteuid() == 0, 'Linux root controls only'
+        report.update(supervisorSha256=hash_bytes(Path(options.supervisor).read_bytes()),
+                      controlsSha256=hash_bytes(Path(__file__).read_bytes()), phase='network-observation')
+        report['networkObservation'] = observe_network()
+        bootstrap_write(target, report)  # Persist names/identities before validation.
+        require_isolation(report['networkObservation'])
+        report.update(guardPassed=True, phase='before-module-import', networkNamespace='isolated-no-external-interface')
+    except BaseException as error:
+        report['firstError'] = {'name': type(error).__name__, 'message': str(error)}
+    bootstrap_write(target, report)
+    return report, target
+
+def guard_controls():
+    rows = []
+    header = b'Inter-|   Receive | Transmit\n face |bytes packets errs drop fifo frame compressed multicast|bytes packets errs drop fifo colls carrier compressed\n'
+    device = lambda name: name.encode() + b': ' + b' '.join([b'0'] * 16) + b'\n'
+    base = {'errors': [], 'selfNetns': 'net:[12]', 'pid1Netns': 'net:[11]',
+            'selfNetnsIdentity': [4, 12], 'pid1NetnsIdentity': [4, 11],
+            'procSelfNetDev': parse_netdev(header + device('lo')), 'sysfsInterfaceNamesDiagnostic': ['eth0', 'lo']}
+    clone = lambda: json.loads(json.dumps(base))
+    def rejects(value):
+        try:
+            require_isolation(value)
+        except AssertionError:
+            return
+        raise AssertionError('Unsafe network observation was accepted')
+    def check(name, function):
+        row = {'name': name, 'passed': False}
+        rows.append(row)
+        try:
+            function()
+            row['passed'] = True
+        except BaseException as error:
+            row['error'] = str(error)
+    check('current-proc-loopback-with-inherited-sysfs', lambda: require_isolation(base))
+    def external():
+        value = clone()
+        value['sysfsInterfaceNamesDiagnostic'] = ['lo']
+        value['procSelfNetDev'] = parse_netdev(header + device('lo') + device('eth0'))
+        rejects(value)
+    check('current-proc-external-interface-rejected', external)
+    def identities():
+        for field in ('selfNetns', 'selfNetnsIdentity'):
+            value = clone()
+            value[field] = value[field.replace('self', 'pid1')]
+            rejects(value)
+    check('same-link-or-inode-rejected', identities)
+    def invalid():
+        value = clone()
+        value['errors'] = [{'probe': 'procSelfNetDev', 'message': 'Synthetic unavailable proc file'}]
+        rejects(value)
+        for data in (b'', header + device('lo') + device('lo'), header + b'lo: 0\n'):
+            try:
+                parse_netdev(data)
+            except (AssertionError, ValueError):
+                continue
+            raise AssertionError('Invalid proc device observation accepted')
+        top, columns = header.splitlines()
+        spaced = b' \t Inter- \t |  Receive\t |\t Transmit \t\n\t face\t | bytes\tpackets errs drop fifo frame compressed multicast \t|\t bytes packets errs drop fifo colls carrier compressed \n'
+        assert parse_netdev(spaced + device('lo'))['interfaceNames'] == ['lo']
+        rows[-1]['whitespaceHeaderAccepted'] = True
+        malformed = [
+            ('reported-substring-bypass', b'Inter-| Receive Transmit', b'packets'),
+            ('top-missing-label', b'Inter-| | Transmit', columns),
+            ('top-duplicate-label', b'Inter-| Receive Receive | Transmit', columns),
+            ('top-renamed-label', b'Inter-| Receive | Send', columns),
+            ('top-reordered-labels', b'Inter-| Transmit | Receive', columns),
+            ('top-prefix-junk', b'junk Inter-| Receive | Transmit', columns),
+            ('top-suffix-junk', b'Inter-| Receive | Transmit junk', columns),
+            ('top-extra-delimiter', b'Inter-|| Receive | Transmit', columns),
+            ('columns-missing-label', top, columns.replace(b' multicast', b'', 1)),
+            ('columns-duplicate-label', top, columns.replace(b'bytes packets', b'bytes packets packets', 1)),
+            ('columns-renamed-label', top, columns.replace(b' errs ', b' errors ', 1)),
+            ('columns-reordered-labels', top, columns.replace(b'bytes packets', b'packets bytes', 1)),
+            ('columns-prefix-junk', top, b'junk ' + columns),
+            ('columns-suffix-junk', top, columns + b' junk'),
+            ('columns-missing-delimiter', top, columns.replace(b'|', b' ', 1)),
+            ('columns-extra-delimiter', top, columns + b'|')
+        ]
+        rows[-1]['headerNegativeCases'] = []
+        for name, first, second in malformed:
+            try:
+                parse_netdev(first + b'\n' + second + b'\n' + device('lo'))
+            except AssertionError:
+                rows[-1]['headerNegativeCases'].append(name)
+                continue
+            raise AssertionError('Malformed header accepted: ' + name)
+    check('unreadable-malformed-duplicate-proc-rejected', invalid)
+    def bounded():
+        with tempfile.TemporaryDirectory(prefix='ns-net-guard-') as folder:
+            file = Path(folder) / 'dev'
+            file.write_bytes(header + device('lo'))
+            assert read_netdev(file)['interfaceNames'] == ['lo']
+            file.write_bytes(b'x' * 65537)
+            try:
+                read_netdev(file)
+            except AssertionError:
+                return
+            raise AssertionError('Oversized proc observation accepted')
+    check('bounded-proc-reader', bounded)
+    def failure_receipt():
+        global args
+        saved_args = args
+        try:
+            with tempfile.TemporaryDirectory(prefix='ns-net-bootstrap-') as folder:
+                options = types.SimpleNamespace(proof=folder, supervisor=args.supervisor, work=str(Path(folder) / 'unused'), worker=False)
+                unsafe = clone()
+                unsafe['procSelfNetDev'] = parse_netdev(header + device('lo') + device('eth0'))
+                with patch.object(parser, 'parse_args', return_value=options), \
+                     patch.object(sys.modules[__name__], 'observe_network', return_value=unsafe), \
+                     patch.object(sys.modules[__name__], 'load', side_effect=AssertionError('Controller import must not run')) as import_probe:
+                    assert main() == 1 and import_probe.call_count == 0
+                receipt = json.loads((Path(folder) / 'controller-controls.json').read_text())
+                assert not receipt['passed'] and not receipt['guardPassed'] and not receipt['moduleImported']
+                assert receipt['networkNamespace'] == 'unverified' and receipt['firstError']
+                assert receipt['networkObservation']['procSelfNetDev']['interfaceNames'] == ['eth0', 'lo']
+                assert receipt['networkObservation']['selfNetns'] == 'net:[12]'
+                assert not Path(options.work).exists() and receipt['cases'] == []
+        finally:
+            args = saved_args
+    check('failed-bootstrap-recorded-before-any-module-import', failure_receipt)
+    return rows
 
 def load(path):
     spec = importlib.util.spec_from_file_location('actual_website_qa_supervisor', path)
@@ -214,29 +418,40 @@ def interruption():
         assert process.wait(timeout=15) == 1
     result = json.loads((worker_root / 'worker-result.json').read_text())
     case_evidence.append({'actualInterruptedWorkerReceipt': result, 'workerExitCode': process.returncode})
+    case_evidence.append({'actualInterruptedWorkerGuard': json.loads((proof_dir / 'controller-worker-guard.json').read_text())})
     assert not result['passed'] and 'Supervisor interrupted' in result['firstError']['message']
     assert result['remaining'] == [] and not m.owned()
 
 def main():
     global args, m, root, proof_dir, real_cleanup, case_evidence
     args = parser.parse_args()
-    assert sys.platform == 'linux' and os.geteuid() == 0, 'Linux root controls only'
-    assert {p.name for p in Path('/sys/class/net').iterdir()} == {'lo'}, 'External network interface present'
-    assert os.readlink('/proc/self/ns/net') != os.readlink('/proc/1/ns/net'), 'Owned isolated network namespace required'
-    m = load(args.supervisor)
-    real_cleanup = m.cleanup
+    report, target = prepare_guard(args)
+    if not report['guardPassed']:
+        return 1
     root, proof_dir = Path(args.work).resolve(), Path(args.proof).resolve(strict=True)
     case_evidence = []
+    if not args.worker:
+        report['networkGuardControls'] = guard_controls()
+        if len(report['networkGuardControls']) != 6 or not all(row['passed'] for row in report['networkGuardControls']):
+            report['firstError'] = {'name': 'AssertionError', 'message': 'Focused network guard controls failed'}
+            bootstrap_write(target, report)
+            return 1
+    try:
+        m = load(args.supervisor)
+        assert m.SOURCE == SOURCE
+        real_cleanup = m.cleanup
+        report.update(moduleImported=True, phase='controller-cases')
+    except BaseException as error:
+        report['firstError'] = {'name': type(error).__name__, 'message': str(error)}
+        bootstrap_write(target, report)
+        return 1
+    bootstrap_write(target, report)
     if args.worker:
         return worker()
-    root.mkdir()
-    report = {'passed': False, 'source': m.SOURCE, 'supervisorSha256': hash_bytes(Path(args.supervisor).read_bytes()),
-              'controlsSha256': hash_bytes(Path(__file__).read_bytes()), 'networkNamespace': 'isolated-no-external-interface', 'cases': []}
-    target = proof_dir / 'controller-controls.json'
-    m.atomic(target, report)
     functions = (normal, detached, term, kill, stalled, fast_log, fast_deadline, primary_faults,
                  success_faults, evidence_deadline, curation, interruption)
     try:
+        root.mkdir()
         m.enable_subreaper()
         for name, function in zip(m.CONTROLS_REQUIRED, functions):
             case_evidence = []
@@ -252,6 +467,9 @@ def main():
                 row['evidence'] = case_evidence
                 m.atomic(target, report)
         report['passed'] = len(report['cases']) == len(functions) and all(row['passed'] for row in report['cases'])
+    except BaseException as error:
+        report['passed'] = False
+        report.setdefault('firstError', {'name': type(error).__name__, 'message': str(error)})
     finally:
         if hasattr(m, 'receipt'):
             actions, remaining = real_cleanup()

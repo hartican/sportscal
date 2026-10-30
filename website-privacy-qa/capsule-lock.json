@@ -26,6 +26,11 @@
     "website-privacy-qa/payload/scripts/verify-measurement-browser.cjs": "60bd72b64860743e55a9f7d0163ba4a8d1b9ab7dfafdc3d9f5952861794f6329",
     "website-privacy-qa/payload/docs/measurement-candidate-2026-10-30.md": "9c531f7cce0b74e5eb6c8e7de9655709b0b9dda753932ca117131ae5c117c651",
     "website-privacy-qa/supervisor.py": "9474c651dfaec69e6c65fccb60a30a7eb870e53b6a3b37a0b8667bb37d166a85",
-    "website-privacy-qa/controller-controls.py": "7261c871ee99b85ff72cae8a8558b79ef16c6ef7374fa43ecb9a750feaf07fe7"
-  }
+    "website-privacy-qa/controller-controls.py": "81da5b465688da19342ab5f6aa24f4c6686c259a6a503ee79e60f41ff090a9fa"
+  },
+  "networkGuardReviews": {
+    "spec-network-header-closure-d946.json": "10fb510a1c9a06f009039e4c9cdfa26f931d79b8a9e94a10afe88d85c497e358",
+    "standards-network-header-scope-d946.md": "90761185204e369cb2906bee5fa828baf26d63c522803ccf1ac41037a376c13c"
+  },
+  "priorFailedRun": 41024636716
 }
