@@ -147,37 +147,8 @@ jobs:
           node scripts/validate-all-sports-offline-browser.js --check-cleanup
           node scripts/validate-all-sports-offline-browser.js --check-fixtures
           timeout --signal=TERM --kill-after=5s 150s node scripts/validate-all-sports-offline-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/all-sports-offline.log"
-      - name: Verify account recovery and copied diagnostics
-        env:
-          ACCOUNT_RECOVERY_BROWSER: ${{ matrix.browser }}
-          ACCOUNT_RECOVERY_CASE: all
-          ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE: '1'
-          QA_BROWSER_CHANNEL: chromium
-        run: |
-          export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
-          set -o pipefail
-          node scripts/validate-account-sync-recovery-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/account-recovery.log"
-      - name: Observe original readiness barrier with a pending manifest
-        if: matrix.browser == 'webkit'
-        env:
-          ACCOUNT_RECOVERY_BROWSER: webkit
-          ACCOUNT_RECOVERY_CASE: diagnostic
-          ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE: '1'
-          ACCOUNT_RECOVERY_MANIFEST_CONTROL: original
-        run: |
-          export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
-          set -o pipefail
-          node scripts/validate-account-sync-recovery-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/manifest-original-control.log"
-      - name: Verify Feed controls above fixed navigation
-        env:
-          PEACH_QA_ENGINE: ${{ matrix.browser }}
-          PEACH_QA_CASE: timeline-controls
-        run: |
-          export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
-          export PEACH_QA_OUTPUT="$RUNNER_TEMP/ns-upgrade-proof/feed-controls"
-          set -o pipefail
-          timeout --signal=TERM --kill-after=5s 190s node scripts/validate-peach-redesign-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/feed-controls.log"
       - name: Verify native Follow control after scroll and redraw
+        id: follow_writer_sequence
         timeout-minutes: 2
         env:
           FOLLOW_CONTROL_ENGINES: ${{ matrix.browser }}
@@ -262,6 +233,72 @@ jobs:
           print(json.dumps({'followOwnedCheck':True,'passed':report['passed'],'elapsedSeconds':report['elapsedSeconds'],'cleanup':report.get('cleanup')}),flush=True)
           sys.exit(0 if report['passed'] else 1)
           PYOWN
+      - name: Check natural Follow cleanup before remaining diagnostics
+        id: follow_writer_sequence_cleanup
+        if: ${{ !cancelled() && steps.follow_writer_sequence.outcome == 'failure' }}
+        env:
+          FOLLOW_ORDER_ENGINE: ${{ matrix.browser }}
+        run: |
+          python3 - <<'PYORDER'
+          import hashlib, json, math, os, pathlib, signal
+          signal.alarm(5)
+          root = pathlib.Path.cwd()
+          report = json.loads((pathlib.Path(os.environ['RUNNER_TEMP'])/'ns-upgrade-proof/follow-controls/supervisor.json').read_text())
+          engine = os.environ['FOLLOW_ORDER_ENGINE']
+          assert engine in ('chromium', 'webkit') and report['engine'] == engine
+          diagnostic = engine == 'webkit'
+          assert report['head'] == os.environ['GITHUB_SHA']
+          assert report['sourceUnchanged'] is True and report['releaseAcceptance'] is False
+          assert report['attempts'] == 1 and report['retries'] == 0
+          assert report['nativeLimitSeconds'] == 90 and report['wholeLimitSeconds'] == 110
+          assert math.isfinite(report['elapsedSeconds']) and 0 <= report['elapsedSeconds'] <= 110
+          assert report['harnessSha256'] == hashlib.sha256((root/'scripts/validate-follow-sport-control-browser.js').read_bytes()).hexdigest()
+          cleanup = report['cleanup']
+          assert cleanup['complete'] is True and cleanup['forced'] is False
+          assert cleanup['remainingProcessGroupMembers'] == [] and cleanup['signals'] == [] and 'error' not in cleanup
+          assert report['diagnosticOnly'] is diagnostic and report['qualificationEligible'] is (not diagnostic)
+          assert report['collectorRequested'] is (not diagnostic)
+          assert report['standardCasesExpected'] == (0 if diagnostic else 4)
+          assert report['diagnosticCellsExpected'] == (1 if diagnostic else 0)
+          assert report['observationMode'] == ('no-test-wheel-observer-follow-writer-sequence' if diagnostic else 'standard-four-cases')
+          if diagnostic:
+              assert report['passed'] is False
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('safe_to_continue=true\n')
+          print('Natural Follow cleanup verified; original failure remains a failure.')
+          PYORDER
+      - name: Verify account recovery and copied diagnostics
+        if: ${{ !cancelled() && (success() || steps.follow_writer_sequence_cleanup.outputs.safe_to_continue == 'true') }}
+        env:
+          ACCOUNT_RECOVERY_BROWSER: ${{ matrix.browser }}
+          ACCOUNT_RECOVERY_CASE: all
+          ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE: '1'
+          QA_BROWSER_CHANNEL: chromium
+        run: |
+          export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
+          set -o pipefail
+          node scripts/validate-account-sync-recovery-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/account-recovery.log"
+      - name: Observe original readiness barrier with a pending manifest
+        if: ${{ !cancelled() && matrix.browser == 'webkit' && (success() || steps.follow_writer_sequence_cleanup.outputs.safe_to_continue == 'true') }}
+        env:
+          ACCOUNT_RECOVERY_BROWSER: webkit
+          ACCOUNT_RECOVERY_CASE: diagnostic
+          ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE: '1'
+          ACCOUNT_RECOVERY_MANIFEST_CONTROL: original
+        run: |
+          export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
+          set -o pipefail
+          node scripts/validate-account-sync-recovery-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/manifest-original-control.log"
+      - name: Verify Feed controls above fixed navigation
+        if: ${{ !cancelled() && (success() || steps.follow_writer_sequence_cleanup.outputs.safe_to_continue == 'true') }}
+        env:
+          PEACH_QA_ENGINE: ${{ matrix.browser }}
+          PEACH_QA_CASE: timeline-controls
+        run: |
+          export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
+          export PEACH_QA_OUTPUT="$RUNNER_TEMP/ns-upgrade-proof/feed-controls"
+          set -o pipefail
+          timeout --signal=TERM --kill-after=5s 190s node scripts/validate-peach-redesign-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/feed-controls.log"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
