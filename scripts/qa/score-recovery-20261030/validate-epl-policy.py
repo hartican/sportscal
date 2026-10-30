@@ -107,6 +107,21 @@ def main():
    projected=driver.source_failure_evidence(owned,closed)
    good('actual bounded private reader retains only finite source exception and known canonical step',lambda:ci.require(projected=={'sourceExitWitnessState':'VERIFIED','canonicalReportState':'FAILED','sourceExit':{k:status[k]for k in ['exitCode','uncaughtExceptionObserved','errorClass','errorCode']},'failedStep':report['failedStep']}and private not in json.dumps(projected),'INNER_SOURCE_FIELDS'))
    good('independent CI admission agrees on exact source diagnostic schema',lambda:ci.require(ci.epl_source_failure_public(projected)==projected,'INNER_SOURCE_FIELDS'))
+   for code in ['ENOENT','ENOTDIR','EISDIR','EACCES','EPERM','EBADF','ERR_MODULE_NOT_FOUND','ERR_PACKAGE_PATH_NOT_EXPORTED']:
+    public_status={**status,'errorClass':'ERROR','errorCode':code};status_file.write_text(json.dumps(public_status));public=driver.source_failure_evidence(owned,closed)
+    good('actual private reader admits exact public code '+code,lambda v=public,c=code:ci.require(v.get('sourceExit',{}).get('errorCode')==c and v['sourceExitWitnessState']=='VERIFIED','PUBLIC_ERROR_CODE_NOT_ADMITTED'))
+    good('independent CI admits exact public code '+code,lambda v=public:ci.require(ci.epl_source_failure_public(v)==v,'PUBLIC_ERROR_CODE_NOT_ADMITTED'))
+    child_result=types.SimpleNamespace(stdout=json.dumps({**refusal,'firstGuardError':None,'diagnosticErrors':[]}).encode(),stderr=b'',returncode=1);stream=io.StringIO()
+    with patch.object(driver,'prepare',return_value=(parent/'policy.json',owned)),patch.object(driver,'digest',return_value='0'*64),patch.object(driver.subprocess,'run',return_value=child_result),contextlib.redirect_stdout(stream):
+     try:driver.case_boundary('good',lambda case:driver.run_case(case,scanner))
+     except AssertionError as original:assert original.args[0][1]=='EXIT'
+     else:raise AssertionError('Public code changed the failed native gate')
+    saved=[]
+    with patch.object(pathlib.Path,'mkdir'),patch.object(ci,'write',side_effect=lambda f,v:saved.append(v)):ci.control_failure_witness('epl-linux-controls',types.SimpleNamespace(stdout=stream.getvalue().encode(),stderr=private.encode(),returncode=1),'CHILD_EXIT')
+    good('actual driver to CI retains '+code+' while original gate remains failed',lambda v=saved,c=code:ci.require(v[0]['completedRecords'][0]['sourceFailure']['sourceExit']['errorCode']==c and v[0]['ready']is False and private not in json.dumps(v),'PUBLIC_ERROR_CODE_GATE'))
+   status_file.write_text(json.dumps(status))
+   historical={'sourceExitWitnessState':'VERIFIED','canonicalReportState':'ABSENT','sourceExit':{'exitCode':1,'uncaughtExceptionObserved':True,'errorClass':'ERROR','errorCode':'OTHER_ERROR_CODE'}}
+   good('historical native OTHER remains unknown after public-code expansion',lambda:ci.require(ci.epl_source_failure_public(historical)==historical,'HISTORICAL_CODE_NOT_REINTERPRETED'))
    with patch.object(driver,'bounded_diagnostic',side_effect=AssertionError('READ_BEFORE_CLOSURE'))as reader:
     for value in [False,None,1,'true']:
      unknown=driver.source_failure_evidence(owned,{'processGroupClosed':value});assert unknown=={'sourceExitWitnessState':'NOT_CLOSED','canonicalReportState':'NOT_CLOSED'}

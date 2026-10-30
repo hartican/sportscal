@@ -3,7 +3,7 @@ import argparse,datetime,hashlib,importlib.util,json,math,os,pathlib,platform,re
 sys.dont_write_bytecode=True
 HERE=pathlib.Path(__file__).resolve().parent
 SOURCE_SHA='c34bc991643c7f68ba856eec143d76c66ce4fb63'
-CARRIER_BASE_SHA='3992a4ab25a5a50c347038e40c924da5beabcb30'
+CARRIER_BASE_SHA='d4b3f85bfa0efe8df0b6e9417a0311ee7981e03b'
 BRANCH='refs/heads/codex/score-recovery-live-coverage-20261030'
 QA_PATH='scripts/qa/score-recovery-20261030'
 WORKFLOW='.github/workflows/score-recovery-oneoff.yml'
@@ -39,7 +39,7 @@ def epl_source_failure_public(value):
         row=value['sourceExit'];require(isinstance(row,dict)and set(row)=={'exitCode','uncaughtExceptionObserved','errorClass','errorCode'},'EPL_INNER_DIAGNOSTIC')
         require(type(row['exitCode'])is int and -128<=row['exitCode']<=255 and type(row['uncaughtExceptionObserved'])is bool,'EPL_INNER_DIAGNOSTIC')
         classes={'NONE','ERROR','TYPE_ERROR','REFERENCE_ERROR','SYNTAX_ERROR','RANGE_ERROR','OTHER_ERROR_CLASS'}
-        codes={'NONE','OTHER_ERROR_CODE','MODULE_NOT_FOUND','ERR_REQUIRE_ESM','ERR_INVALID_ARG_TYPE'}|set(read(HERE/'epl-profile.json')['exportGuardCodes'])
+        codes={'NONE','OTHER_ERROR_CODE','MODULE_NOT_FOUND','ERR_REQUIRE_ESM','ERR_INVALID_ARG_TYPE','ENOENT','ENOTDIR','EISDIR','EACCES','EPERM','EBADF','ERR_MODULE_NOT_FOUND','ERR_PACKAGE_PATH_NOT_EXPORTED'}|set(read(HERE/'epl-profile.json')['exportGuardCodes'])
         require(isinstance(row['errorClass'],str)and row['errorClass']in classes and isinstance(row['errorCode'],str)and row['errorCode']in codes,'EPL_INNER_DIAGNOSTIC')
         require((row['uncaughtExceptionObserved']and row['errorClass']!='NONE')or(not row['uncaughtExceptionObserved']and row['errorClass']==row['errorCode']=='NONE'),'EPL_INNER_DIAGNOSTIC')
         result['sourceExit']={key:row[key]for key in ['exitCode','uncaughtExceptionObserved','errorClass','errorCode']}

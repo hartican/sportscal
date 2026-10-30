@@ -13,7 +13,7 @@ try{
   const open=fs.openSync.bind(fs),write=fs.writeSync.bind(fs),close=fs.closeSync.bind(fs),descriptor=Object.getOwnPropertyDescriptor,prototype=Object.getPrototypeOf;
   const nativeError=require('node:util').types.isNativeError;
   const file=path.join(p.runDir,'owned-source-exit.json'),guardCodes=JSON.parse(raw.read(path.join(__dirname,'epl-profile.json'))).exportGuardCodes;
-  const codes=new Set(['MODULE_NOT_FOUND','ERR_REQUIRE_ESM','ERR_INVALID_ARG_TYPE',...guardCodes]);
+  const codes=new Set(['MODULE_NOT_FOUND','ERR_REQUIRE_ESM','ERR_INVALID_ARG_TYPE','ENOENT','ENOTDIR','EISDIR','EACCES','EPERM','EBADF','ERR_MODULE_NOT_FOUND','ERR_PACKAGE_PATH_NOT_EXPORTED',...guardCodes]);
   const classes=[[TypeError.prototype,'TYPE_ERROR'],[ReferenceError.prototype,'REFERENCE_ERROR'],[SyntaxError.prototype,'SYNTAX_ERROR'],[RangeError.prototype,'RANGE_ERROR'],[Error.prototype,'ERROR']];
   let observed=false,errorClass='NONE',errorCode='NONE',attempted=false;
   process.on('uncaughtExceptionMonitor',error=>{

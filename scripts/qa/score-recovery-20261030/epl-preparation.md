@@ -58,7 +58,7 @@ budget directory's golf-source-report.json and GOLF_SOURCE_RUN_ID to a UUID;
 these diagnostics grant no Golf source child or connection. Synthetic privacy
 markers exist only in owned controls. Actual workflow contains no secret block.
 
-ROOT's same-branch push must have before3992a4ab and exact snapshot-A child,
+ROOT's same-branch push must have befored4b3f85b and exact snapshot-A child,
 allocation-only-B child, matching checkout/workflow/event SHA, first attempt,
 no force/create/delete, nonce/time-bound one-use grant. This snapshot remains
 UNALLOCATED with no nonce/time. Currentc34 source pins explicitly replace the
@@ -157,3 +157,23 @@ assertion/case, APPc34, guard/transport/supervisor, source/result/privacy/resour
 and release gate is unchanged. Original41120933354 cause remains UNKNOWN and
 unfixed. The actual workflow stays literalfalse. There is no runtime, provider,
 nonce, window or publication allocation here;604 remains held for EPL.
+
+## Exact public error-code labels — source-only follow-up
+
+The9d0c0a20 proposal adds exactly these eight public own-data string labels to
+the existing observer and independently to driver/CI: ENOENT, ENOTDIR, EISDIR,
+EACCES, EPERM, EBADF, ERR_MODULE_NOT_FOUND, ERR_PACKAGE_PATH_NOT_EXPORTED.
+Native-error branding, own-data descriptors, fixed fields/path, wx0600,1024B/64KiB
+limits, strict closure, unchanged failure behavior and all native cases remain
+exact. There is no code prefix, wildcard, regex, getter or coercion admission.
+Private/unknown/accessor/nonstring values still become OTHER_ERROR_CODE.
+
+The original41127374547 artifact remains ERROR/OTHER_ERROR_CODE with no known
+underlying code or root cause. It is not reinterpreted as a filesystem or loader
+failure. The full SOURCE_MOCK_ENTRY passed with owned inputs and stand-ins;
+it did not clear or reproduce the native failure. This follow-up improves only
+future observation. Both affected source-only suites cover all eight producer,
+driver and CI admissions while preserving the original failed gate and privacy
+negatives. No native/CI/provider trial is run or allocated here. The inactive
+snapshot follows current consumed d4b3; the actual workflow remains literalfalse
+and publication604 remains held for EPL.
