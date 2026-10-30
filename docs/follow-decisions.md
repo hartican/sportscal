@@ -1,5 +1,16 @@
 # Follow and Feed decisions
 
+## Automatic Sports-menu collapse yields to native scrolling — 30 October 2026
+
+When native scrolling closes the Sports menu, the navigation owner must not
+write a competing panel-anchor correction. Explicit opening, closing and the
+existing explicit collapse API retain their position-preserving behavior. Keep
+the existing scroll direction/distance/time, focused-input and open-dialog
+guards, visible sport checkbox, accessibility state and all saved choices.
+The recorded source-write regression joins the existing Follow decision gate;
+native scrolling and Players tap acceptance remain with DEPLOY. See
+[source proof and remaining native limits](quality/follow-auto-collapse-2026-10-30.md).
+
 ## Follow content scrolls clear of pinned controls — 30 October 2026
 
 Native scrolling in Follow must reserve the actual pinned navigation height,

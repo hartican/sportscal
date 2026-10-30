@@ -69,3 +69,4 @@ assert.equal(milestoneSync.applyPatch(before,milestoneSync.createPatch(before,af
 
 require('./validate-follow-sport-control');
 require('./validate-follow-scroll-insets');
+require('./validate-follow-auto-collapse');
