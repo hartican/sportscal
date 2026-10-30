@@ -58,7 +58,7 @@ budget directory's golf-source-report.json and GOLF_SOURCE_RUN_ID to a UUID;
 these diagnostics grant no Golf source child or connection. Synthetic privacy
 markers exist only in owned controls. Actual workflow contains no secret block.
 
-ROOT's same-branch push must have beforef12d4a39 and exact snapshot-A child,
+ROOT's same-branch push must have beforea93122d1 and exact snapshot-A child,
 allocation-only-B child, matching checkout/workflow/event SHA, first attempt,
 no force/create/delete, nonce/time-bound one-use grant. This snapshot remains
 UNALLOCATED with no nonce/time. Currentc34 source pins explicitly replace the
@@ -85,3 +85,42 @@ process/group/signal/timer/kill test, service/provider/key/DB, CI/install/push,
 nonce/allocation, scheduler or deployment runs on this Mac. ROOT alone owns
 fresh Linux qualification, actual5GET trial, adoption, full release gates and
 hosted acceptance. Source complete is not native accepted or live scores.
+
+The first EPL qualification41101116976 failed its owned good case and skipped
+the actual step (zero provider GETs). Its retained witness identifies the case
+but has no assertion stage or supervisor refusal. ROOT's read of the existing
+job log also recovered no underlying traceback; the original native cause
+therefore remains unknown. Do not retry or claim it repaired from local models.
+
+The source-only diagnostic repair marks each existing case boundary with a
+fixed stage and exception-kind enum. It retains only already-bounded supervisor
+exit/start/request scalars, closure booleans and fixed guard/supervisor/diagnostic
+codes. Unknown code values become fixed OTHER refusals; arbitrary strings and
+exception/receipt messages stay private. The existing CI witness independently
+admits those enums only for the EPL-native phase. Cases reset their diagnostic
+state and rethrow the original exception. Every original native assertion and
+all64 default/25 selected/28 EPL obligations remain mandatory. Owned mocked
+receipt/prepare/timeout/privacy controls cover the reporting repair; they do
+not establish the Linux failure cause or authorize another attempt.
+
+## Next variant: diagnostic-only Linux qualification
+
+The workflow's actual EPL step now has the unconditional literal guard
+`if: ${{ false }}`. It stays skipped even if all controls pass and their existing
+ready output is true. This variant changes no qualification command, native
+assertion, source/runtime behavior, allocation schema, request cap or deadline.
+All117 current-c34 native cases and mandatory metadata/models remain required;
+they use owned provider substitutes and make zero external provider GETs.
+Existing package installation and GitHub artifact traffic are separate from
+provider access. No new runner, scheduler or publisher is introduced.
+
+The workflow source and its seals are prepared locally only. ROOT alone may
+allocate/publish one changed bounded Linux diagnostic through existing PR114
+and the existing serializer. This source packet contains no nonce, window or
+actual-trial grant. Existing preparation or readiness output cannot enable the
+disabled actual step. A later provider trial requires a separate explicit ROOT
+allocation and reviewed workflow change; diagnostic success is not source
+freshness, score recovery or publication acceptance. The original native cause
+remains unknown. The accepted-only604 release remains held for EPL under ROOT's
+latest direct-human clarification; this supersedes the earlier packet's
+publication-status sentence without rewriting that frozen historical packet.

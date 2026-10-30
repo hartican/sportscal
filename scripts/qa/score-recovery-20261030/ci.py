@@ -3,7 +3,7 @@ import argparse,datetime,hashlib,importlib.util,json,math,os,pathlib,platform,re
 sys.dont_write_bytecode=True
 HERE=pathlib.Path(__file__).resolve().parent
 SOURCE_SHA='c34bc991643c7f68ba856eec143d76c66ce4fb63'
-CARRIER_BASE_SHA='f12d4a39d17bfb16deee281724a32d0a79dff16c'
+CARRIER_BASE_SHA='a93122d1e4dc09488d9ed43b13b79ee0a6a6a88a'
 BRANCH='refs/heads/codex/score-recovery-live-coverage-20261030'
 QA_PATH='scripts/qa/score-recovery-20261030'
 WORKFLOW='.github/workflows/score-recovery-oneoff.yml'
@@ -28,7 +28,8 @@ def control_failure_witness(phase,result,reason):
     """Export enums, bounded scalars and hashes; never child diagnostic text."""
     require(phase in ['carrier-export-controls','source-shape-controls','linux-controls','selected-model-controls','selected-policy-controls','selected-linux-controls','epl-model-controls','epl-policy-controls','epl-linux-controls']and reason in ['CHILD_EXIT','CHILD_TIMEOUT','CONTROL_RECEIPTS'],'WITNESS_PHASE')
     stdout=captured_bytes(result.stdout);stderr=captured_bytes(result.stderr);rows=[]
-    allowed_cases=frozenset(load('epl-linux-controls').CASES)if phase=='epl-linux-controls'else CONTROL_CASES|{'cricket-source','cricket-fixture'}
+    epl_driver=load('epl-linux-controls')if phase=='epl-linux-controls'else None
+    allowed_cases=frozenset(epl_driver.CASES)if epl_driver else CONTROL_CASES|{'cricket-source','cricket-fixture'}
     bounds={'supervisorExit':(-128,255),'sourceProcessStarts':(0,1),'requests':(0,8),'capturedBytes':(0,16777216),'actualServiceOrProviderRequests':(0,8)}
     for line in stdout.splitlines():
         if len(rows)>=64:break
@@ -44,6 +45,9 @@ def control_failure_witness(phase,result,reason):
         elapsed=value.get('elapsedSeconds')
         if type(elapsed)in [int,float]and 0<=elapsed<=300 and math.isfinite(elapsed):row['elapsedSeconds']=elapsed
         if value.get('credentialScan')=='CLEAR_RAW_UTF16_BASE64_HEX_UNICODE_PERCENT':row['credentialScan']=value['credentialScan']
+        if epl_driver:
+            for field,allowed in [('failureStage',epl_driver.FAILURE_STAGES),('failureKind',epl_driver.FAILURE_KINDS),('guardCode',epl_driver.GUARD_CODES),('supervisorCode',epl_driver.SUPERVISOR_CODES),('diagnosticCode',epl_driver.DIAGNOSTIC_CODES)]:
+                if isinstance(value.get(field),str)and value[field]in allowed:row[field]=value[field]
         rows.append(row)
     code=getattr(result,'returncode',None)
     witness={'state':'failed','phase':phase,'reason':reason,'returnCode':code if type(code)is int else None,'outputSha256':{'stdout':sha(stdout),'stderr':sha(stderr)},'outputBytes':{'stdout':len(stdout),'stderr':len(stderr)},'completedRecords':rows,'ready':False}

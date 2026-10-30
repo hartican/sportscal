@@ -52,13 +52,50 @@ def main():
    try:driver.case_boundary('callback-escape',lambda case:(_ for _ in[]).throw(AssertionError(private)))
    except AssertionError:pass
    else:raise AssertionError('Failed control was swallowed')
-  failrow=json.loads(stream.getvalue());good('native per-case boundary emits finite failure identity and keeps gate failed',lambda:ci.require(failrow=={'case':'callback-escape','status':'FAIL','code':'EPL_NATIVE_CONTROL_FAILED','actualServiceOrProviderRequests':0}and private not in stream.getvalue(),'EPL_CASE_WITNESS'))
+  failrow=json.loads(stream.getvalue());good('native per-case boundary emits finite failure identity and keeps gate failed',lambda:ci.require(failrow=={'case':'callback-escape','status':'FAIL','code':'EPL_NATIVE_CONTROL_FAILED','actualServiceOrProviderRequests':0,'failureStage':'CASE_START','failureKind':'ASSERTION'}and private not in stream.getvalue(),'EPL_CASE_WITNESS'))
   saved=[];result=types.SimpleNamespace(stdout=stream.getvalue().encode(),stderr=private.encode(),returncode=1)
   with patch.object(pathlib.Path,'mkdir'),patch.object(ci,'write',side_effect=lambda f,v:saved.append(v)):ci.control_failure_witness('epl-linux-controls',result,'CHILD_EXIT')
-  good('finite EPL failure witness retains new-only case without exception text',lambda:ci.require(saved[0]['completedRecords']==[{'case':'callback-escape','status':'FAIL','actualServiceOrProviderRequests':0}]and private not in json.dumps(saved),'EPL_CASE_WITNESS'))
+  good('finite EPL failure witness retains new-only case without exception text',lambda:ci.require(saved[0]['completedRecords']==[{'case':'callback-escape','status':'FAIL','actualServiceOrProviderRequests':0,'failureStage':'CASE_START','failureKind':'ASSERTION'}]and private not in json.dumps(saved),'EPL_CASE_WITNESS'))
   saved=[]
   with patch.object(pathlib.Path,'mkdir'),patch.object(ci,'write',side_effect=lambda f,v:saved.append(v)):ci.control_failure_witness('linux-controls',result,'CHILD_EXIT')
   good('legacy witness does not acquire arbitrary EPL case names',lambda:ci.require(saved[0]['completedRecords']==[],'EPL_CASE_WITNESS'))
+  # Reproduce the actual failed good-case boundary with an owned refused
+  # supervisor receipt. No supervisor/guard/native process is launched.
+  refusal={'diagnosticErrors':['EPL_POSTCONDITIONS'],'firstGuardError':{'code':'GUARD_SOURCE_PIN','message':private},'nodeStarts':1,'processGroupClosed':True,'rollback':{'verified':True},'transport':{'requests':1}}
+  result=types.SimpleNamespace(stdout=json.dumps(refusal).encode(),stderr=private.encode(),returncode=1);stream=io.StringIO()
+  with patch.object(driver,'prepare',return_value=(pathlib.Path('/owned/policy.json'),{'wholeSeconds':15})),patch.object(driver,'digest',return_value='0'*64),patch.object(driver.subprocess,'run',return_value=result)as child,contextlib.redirect_stdout(stream):
+   try:driver.case_boundary('good',lambda case:driver.run_case(case,types.SimpleNamespace(selftest=lambda marker:None,contains=lambda blob,marker:False)))
+   except AssertionError as original:ci.require(original.args[0][1]=='EXIT','ORIGINAL_REFUSAL')
+   else:raise AssertionError('Failed native supervisor receipt was swallowed')
+   child.assert_called_once()
+  diagnostic=json.loads(stream.getvalue());good('actual good-case driver preserves supervisor refusal stage and original gate',lambda:ci.require(diagnostic['failureStage']=='SUPERVISOR_EXIT'and diagnostic['failureKind']=='ASSERTION'and diagnostic['supervisorExit']==1 and diagnostic['sourceProcessStarts']==1 and diagnostic['requests']==1 and diagnostic['groupClosed']and diagnostic['rollbackVerified'],'EPL_REFUSAL_STAGE'))
+  saved=[]
+  with patch.object(pathlib.Path,'mkdir'),patch.object(ci,'write',side_effect=lambda f,v:saved.append(v)):ci.control_failure_witness('epl-linux-controls',types.SimpleNamespace(stdout=stream.getvalue().encode(),stderr=private.encode(),returncode=1),'CHILD_EXIT')
+  public=saved[0]['completedRecords'][0];good('existing CI exporter retains only fixed supervisor refusal codes',lambda:ci.require(public['failureStage']=='SUPERVISOR_EXIT'and public['guardCode']=='GUARD_SOURCE_PIN'and public['diagnosticCode']=='EPL_POSTCONDITIONS'and private not in json.dumps(saved)and saved[0]['ready']is False,'EPL_REFUSAL_STAGE'))
+  weird=driver.receipt_evidence(types.SimpleNamespace(returncode=True),{'nodeStarts':2,'processGroupClosed':1,'rollback':[private],'transport':[private],'firstGuardError':{'code':[private]},'supervisorError':{'private':private},'diagnosticErrors':[private]})
+  good('malformed diagnostic fields cannot replace the original refusal or export text',lambda:ci.require(weird=={'guardCode':'UNREVIEWED_GUARD_REFUSAL','supervisorCode':'OTHER_SUPERVISOR_FAILURE','diagnosticCode':'OTHER_SUPERVISOR_DIAGNOSTIC'},'EPL_REFUSAL_SHAPE'))
+  forged={**diagnostic,**dict.fromkeys(['failureStage','failureKind','guardCode','supervisorCode','diagnosticCode'],private)};saved=[]
+  with patch.object(pathlib.Path,'mkdir'),patch.object(ci,'write',side_effect=lambda f,v:saved.append(v)):ci.control_failure_witness('epl-linux-controls',types.SimpleNamespace(stdout=json.dumps(forged).encode(),stderr=b'',returncode=1),'CHILD_EXIT')
+  good('unreviewed stage kind and code strings are never exported',lambda:ci.require(private not in json.dumps(saved)and not any(k in saved[0]['completedRecords'][0]for k in ['failureStage','failureKind','guardCode','supervisorCode','diagnosticCode']),'EPL_REFUSAL_ENUMS'))
+  saved=[]
+  with patch.object(pathlib.Path,'mkdir'),patch.object(ci,'write',side_effect=lambda f,v:saved.append(v)):ci.control_failure_witness('linux-controls',types.SimpleNamespace(stdout=json.dumps(diagnostic).encode(),stderr=b'',returncode=1),'CHILD_EXIT')
+  good('legacy good-case witness retains old field namespace',lambda:ci.require(not any(k in saved[0]['completedRecords'][0]for k in ['failureStage','failureKind','guardCode','supervisorCode','diagnosticCode']),'EPL_REFUSAL_NAMESPACE'))
+  for error,kind in [(FileNotFoundError(private),'OS_ERROR'),(ValueError(private),'OTHER_CONTROL_FAILURE')]:
+   stream=io.StringIO()
+   with patch.object(driver,'prepare',side_effect=error),contextlib.redirect_stdout(stream):
+    try:driver.case_boundary('good',lambda case:driver.run_case(case,None))
+    except BaseException as actual:assert actual is error
+    else:raise AssertionError('Original preparation failure was swallowed')
+   row=json.loads(stream.getvalue());good('finite '+kind+' witness resets prior receipt and rethrows original',lambda r=row:ci.require(r['failureStage']=='PREPARATION'and r['failureKind']==kind and'guardCode'not in r and private not in json.dumps(r),'EPL_REFUSAL_RESET'))
+  scanner=types.SimpleNamespace(selftest=lambda marker:None,contains=lambda blob,marker:False)
+  for name,child_result,expected_stage,expected_kind,scan in [('child timeout',__import__('subprocess').TimeoutExpired(['owned'],20,output=private.encode()),'SUPERVISOR_CHILD','CHILD_TIMEOUT',scanner),('invalid receipt',types.SimpleNamespace(stdout=private.encode(),stderr=b'',returncode=1),'RECEIPT_JSON','RECEIPT_JSON_ERROR',scanner),('privacy refusal',result,'CAPTURED_OUTPUT_PRIVACY','ASSERTION',types.SimpleNamespace(selftest=lambda marker:None,contains=lambda blob,marker:True))]:
+   stream=io.StringIO();options={'side_effect':child_result}if isinstance(child_result,BaseException)else{'return_value':child_result}
+   with patch.object(driver,'prepare',return_value=(pathlib.Path('/owned/policy.json'),{'wholeSeconds':15})),patch.object(driver,'digest',return_value='0'*64),patch.object(driver.subprocess,'run',**options),contextlib.redirect_stdout(stream):
+    try:driver.case_boundary('good',lambda case:driver.run_case(case,scan))
+    except BaseException:pass
+    else:raise AssertionError('Original child/receipt/privacy failure was swallowed')
+   row=json.loads(stream.getvalue());good('actual driver keeps finite '+name+' failure boundary',lambda r=row,s=expected_stage,k=expected_kind:ci.require(r['failureStage']==s and r['failureKind']==k and'guardCode'not in r and private not in json.dumps(r),'EPL_REFUSAL_BOUNDARY'))
+  denied('unreviewed diagnostic stage remains refused',lambda:driver.failure_stage(private))
   launch.assert_not_called()
  print(json.dumps({'status':'PASS','checks':len(results),'cases':results,'sourceExecutions':0,'actualProviderRequests':0,'nativeMainOrInspect':0}))
 if __name__=='__main__':main()
