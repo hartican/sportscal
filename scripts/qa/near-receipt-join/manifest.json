@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "state": "ROOT_BOUND_NONCE_FROZEN_PACKET_NOT_EXECUTED",
+  "sourceSha": "98af9164d15cddfb198fd35cd9e226b267723216",
+  "priorSetupManifestSha256": "ee66e6c63187c748f288db898bd96985a9e98f7878cb19caffe456cc2a1dae5e",
+  "files": [
+    {
+      "file": "PASSFILE-DIAGNOSIS.md",
+      "sha256": "72cba99e9786673c33473802a320c91bd245b6450f5916f4a0ce324183526a1c",
+      "bytes": 3644
+    },
+    {
+      "file": "PUSH-BINDING.md",
+      "sha256": "db37f2d48b842b0fd6dda6f5c844135aa50b4bbc562c864224c15f39a91b5cf7",
+      "bytes": 6641
+    },
+    {
+      "file": "README.md",
+      "sha256": "9cfd7f344f04f04bf98ef41a3cc1e66bacb81560e1d59f09c0e9f07f19eeb681",
+      "bytes": 8161
+    },
+    {
+      "file": "adapter.cjs",
+      "sha256": "bd6c6847d18789ec426eeb8b5ad9c15b1fd3ca66c29160e0075d48a780a0f06e",
+      "bytes": 34869
+    },
+    {
+      "file": "lifecycle-controls.cjs",
+      "sha256": "f667fd531aef0b9a256b21ec8c722e9f02d11c307f21b5d04aefce9a29ad0c19",
+      "bytes": 4912
+    },
+    {
+      "file": "native-client.cjs",
+      "sha256": "af07ca87ca8f8597c9646b2662eb61e537d71770e930699b057caea9b5b75c88",
+      "bytes": 4511
+    },
+    {
+      "file": "native-json-controls.cjs",
+      "sha256": "d71af09524e063ed3759e4c092943a67e728ae11c4ff764bf83e085abc3ecfb2",
+      "bytes": 2692
+    },
+    {
+      "file": "near-receipt-native-20261030-3.yml",
+      "sha256": "1efa4094db2e75f9e059d943d2d976685d84c3fff9c69f05acf340654ee64241",
+      "bytes": 2822
+    },
+    {
+      "file": "official-native-image-digests.json",
+      "sha256": "da599ddd3308b831e2f9c54c8ce534a9e173ab627ce03ff0edcb1801efde67dc",
+      "bytes": 1904
+    },
+    {
+      "file": "owned-process.cjs",
+      "sha256": "be5953a0025febf574dd88860f23cb0ca342f29d87391c5e7b591e808ae20e72",
+      "bytes": 3306
+    },
+    {
+      "file": "pure-checks.cjs",
+      "sha256": "7ae9e9c18b4d36de6ba5c89ff39fea203b9212ee62c9e5d7f99329997ac2ab02",
+      "bytes": 1830
+    },
+    {
+      "file": "push-binding-pure-checks.cjs",
+      "sha256": "6d844a0b22c6852ddc06535949a6f93320b712966d1cf025df8ab8cb58f8c269",
+      "bytes": 2713
+    },
+    {
+      "file": "push-binding.cjs",
+      "sha256": "ee2f1d46488017c39dd323ad8164f64c99639ac8445491b90ac75f82ffa1ec95",
+      "bytes": 4812
+    },
+    {
+      "file": "receipt-join-candidate-body.sql",
+      "sha256": "fb07a5dada46f42fda93d888437c93901c90a476377cb86a876b75edf28c3856",
+      "bytes": 7000
+    },
+    {
+      "file": "receipt-join-native-boundary.sql",
+      "sha256": "b7528ee3e97e9ab89f005ff3e831c9a058d07e2fbd11dcfb968f156ee1ca85a7",
+      "bytes": 4663
+    },
+    {
+      "file": "receipt-join-native-forward.sql",
+      "sha256": "2ef2501cdf6b5cb803c773c3802a1d5a96f6098ac2e73df41aba3fcedf64d888",
+      "bytes": 3694
+    },
+    {
+      "file": "receipt-join-native-inverse.sql",
+      "sha256": "8ce43df73e360d5eeb4616df129fc238d600f787750b62206a200d4bd3397b46",
+      "bytes": 3696
+    },
+    {
+      "file": "receipt-join-native-reference.sql",
+      "sha256": "8cf846f505844981ea90921a31560b95e6251ad6860fc84b244baab090875065",
+      "bytes": 1595
+    },
+    {
+      "file": "receipt-join-original-body.sql",
+      "sha256": "192a2f7e8e9b2eb4ff1b18c125197d8ac97e0f56417e1c28b35016048b9babbf",
+      "bytes": 6986
+    },
+    {
+      "file": "repro-controls.cjs",
+      "sha256": "18bf8b110456d67c755bf414893c0b1e8d8e72beb60c3d26f23923822a222abc",
+      "bytes": 1231
+    },
+    {
+      "file": "retained-original-plan.json",
+      "sha256": "d8acc35cdddb2d58ade3f2ebd8335ea129b180dcbadd17dd686828b4d3682131",
+      "bytes": 118025
+    }
+  ]
+}
