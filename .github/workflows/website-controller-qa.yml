@@ -25,15 +25,15 @@ jobs:
           PY
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
-          ref: b41907d2a50fa53a6346775b924f748ba6638b09
+          ref: 0707a7147872cb1e7090051479974a0f9b07dfcc
           fetch-depth: 1
           persist-credentials: false
           sparse-checkout: website-privacy-qa
           sparse-checkout-cone-mode: true
       - name: Verify exact source, controllers and payload before execution
         env:
-          EXPECTED_SNAPSHOT: b41907d2a50fa53a6346775b924f748ba6638b09
-          EXPECTED_TREE: 6eb4550fa9a4384ca1eb607acbc6ff441b22f777
+          EXPECTED_SNAPSHOT: 0707a7147872cb1e7090051479974a0f9b07dfcc
+          EXPECTED_TREE: 49580c03e30f3d2499565e9ac924ccc30f462c50
         run: |
           python3 - <<'PY'
           import hashlib,json,os,platform,subprocess
@@ -48,7 +48,7 @@ jobs:
           assert len(lock['files'])==18
           for name,digest in lock['files'].items():
               p=Path(name);assert not p.is_symlink() and h(p.read_bytes())==digest,name
-          expected={'supervisor.py':'9474c651dfaec69e6c65fccb60a30a7eb870e53b6a3b37a0b8667bb37d166a85','controller-controls.py':'7261c871ee99b85ff72cae8a8558b79ef16c6ef7374fa43ecb9a750feaf07fe7'}
+          expected={'supervisor.py':'9474c651dfaec69e6c65fccb60a30a7eb870e53b6a3b37a0b8667bb37d166a85','controller-controls.py':'81da5b465688da19342ab5f6aa24f4c6686c259a6a503ee79e60f41ff090a9fa'}
           assert all(h((q/n).read_bytes())==digest for n,digest in expected.items())
           assert 'sdkEnabled:false' in (q/'payload/public/measurement-start.js').read_text()
           proof={'snapshot':g('rev-parse','HEAD'),'snapshotTree':g('rev-parse','HEAD^{tree}'),'source':lock['source'],'python':platform.python_version(),'platform':platform.platform(),'controllerFiles':expected,'scope':'Exact controller-only capsule; no Node/Playwright/browser/Meta qualification'}
@@ -72,13 +72,17 @@ jobs:
           d=json.loads(p.read_text());tree=ast.parse((q/'supervisor.py').read_text())
           names=next(ast.literal_eval(n.value)for n in tree.body if isinstance(n,ast.Assign)and any(isinstance(t,ast.Name)and t.id=='CONTROLS_REQUIRED'for t in n.targets))
           assert d['passed'] is True and len(d['cases'])==12
+          assert d['guardPassed'] is True and d['moduleImported'] is True
+          assert len(d['networkGuardControls'])==6 and all(x['passed']for x in d['networkGuardControls'])
+          obs=d['networkObservation'];assert obs['procSelfNetDev']['interfaceNames']==['lo']
+          assert obs['selfNetns']!=obs['pid1Netns'] and obs['selfNetnsIdentity']!=obs['pid1NetnsIdentity']
           assert [x['name']for x in d['cases']]==list(names) and all(x['passed']for x in d['cases'])
           assert d['networkNamespace']=='isolated-no-external-interface'
           assert d['supervisorSha256']==hashlib.sha256((q/'supervisor.py').read_bytes()).hexdigest()
           assert d['controlsSha256']==hashlib.sha256((q/'controller-controls.py').read_bytes()).hexdigest()
           assert d['finalCleanup']=={'actions':[],'remaining':[]}
           assert not (Path(os.environ['RUNNER_TEMP'])/'website-controller-controls').exists()
-          print('Twelve actual controller controls passed; closure verified. Browser/Meta unrun.')
+          print('Six isolation controls and twelve controller controls passed; closure verified. Browser/Meta unrun.')
           PY
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
