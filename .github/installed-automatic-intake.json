@@ -1,0 +1,26 @@
+{
+  "format": "installed-automatic-intake.v1",
+  "candidateHead": "78092a7e7332dd2127c371edd59afe4766d4a2b6",
+  "candidateTree": "c860d12099cdc49f15f999e11d6e5cf360988634",
+  "productSourceSha": "0460082701d5ff032b514deaddba48c0110a6221",
+  "candidateVersion": "604",
+  "candidateFiles": {
+    "index.html": "a9f18d22e2f46372ca86b4e8bad4fee0ab13cf8d873829d065d6b3a46086e50f",
+    "service-worker.js": "81a76180c8f7774a9e6b7c5ebc4f2e8dba4abdc29d1314ad74900d6175dc608d",
+    "app-version.json": "11718ea226cd39c65aae2e6a811a7b98f7590e9bd42af009f95752cf8ac3cf4b",
+    "config/server-sync.js": "db405f737e238395f677b53ef74692f56f300464b6f2e05daa00a5275a9eeca2",
+    "config/preference-reset-ui.js": "3fd4172f1d376c5b488165526fb8ba731e73e2222c2a1880712b4b238ddb3d5f",
+    "config/local-preference-recovery.js": "3f2ae09fdb057113603c0d70a19a57025f5d559151d67bf4230d3a0728fd39af",
+    "assets/js/app-shell-runtime.js": "292ac2ed6374a4e83e7b09592cf26eeb659e01be3e49f40b8619be77856a0df1",
+    "assets/js/account-awareness-runtime.js": "f1aa5ebdc4137d15adcabaf56774505fc348ea9e808d1bfdb13eeeddee52954f",
+    "assets/js/account-indicator-app.js": "c5ddb32cae8ff5f1639a81dd8b813e7b22ca9a31e4ea1d1ca514aa1c5481b40f",
+    "scripts/validate-installed-pwa-upgrade-browser.js": "61f68eb0bbf7fd1442fe9ada5c62baa7c949b7a42de7d3ba7e99c7f79cad05e2",
+    "scripts/lib/installed-automatic-account.js": "64241e82c7b408a7bbd902cc967f2e719c9a4f479c76c9ceb4dd9f8f8f838cf1",
+    "scripts/lib/installed-recovery-proof.js": "5a5a0399b9f38420804ff849d3b5fb7f35ed0762506f6bc1ed5e2c562f502001",
+    "scripts/validate-account-sync-recovery-browser.js": "7dd014a125b46e6d1cab833686732f6967772e8b9fd205b717c073ffe23fc2c9",
+    ".github/installed-production-baseline.json": "c41b7c2e82fde00b196adcfbf5ec73107e19db555c423d6f0f51a3c731265e9b",
+    ".github/workflows/sportscal-production.yml": "a702599ec9258454326c4b96ac7a9d64e25d4a8ce269ea1129ef4e05daba81e6"
+  },
+  "baselineSha": "59b25031f621924fa13a670c369de4b3821f4706",
+  "baselineVersion": "603"
+}

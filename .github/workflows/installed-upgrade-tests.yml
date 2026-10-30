@@ -14,6 +14,9 @@ on:
       - scripts/validate-peach-redesign-browser.js
       - scripts/validate-account-sync-recovery-browser.js
       - scripts/lib/installed-test-network.js
+      - scripts/lib/installed-automatic-account.js
+      - scripts/lib/installed-recovery-proof.js
+      - .github/installed-automatic-intake.json
       - scripts/validate-installed-test-network.js
       - .github/installed-production-baseline.json
       - scripts/resolve-installed-production-baseline.js
@@ -179,3 +182,456 @@ jobs:
           name: installed-upgrade-${{ github.event.pull_request.head.sha }}-${{ matrix.browser }}
           path: ${{ runner.temp }}/ns-upgrade-proof
           retention-days: 1
+
+  installed-automatic-account:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, webkit]
+    env:
+      PWA_BROWSER: ${{ matrix.browser }}
+      NS_INSTALLED_PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+      PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+      QA_BROWSER_CHANNEL: chromium
+    steps:
+      - name: Start separately allocated automatic-sync budget
+        timeout-minutes: 1
+        run: |
+          cat > "$RUNNER_TEMP/ns-automatic-runner.py" <<'PYRUNNER'
+          import os, sys, json, time, pathlib, subprocess, signal, hashlib, shutil, re
+
+          # Exact members()/cleanup() bodies are inserted from normal eb790c18 Follow supervision.
+          def members(group,deadline):
+              remaining=deadline-time.monotonic()
+              if remaining<=0:raise TimeoutError('cleanup_deadline')
+              result=subprocess.run(['ps','-axo','pid=,pgid='],capture_output=True,text=True,check=True,timeout=min(1,remaining))
+              return [int(parts[0])for line in result.stdout.splitlines()if len(parts:=line.split())==2 and int(parts[1])==group]
+
+          def cleanup(proc,deadline):
+              result={'forced':False,'signals':[],'remainingProcessGroupMembers':None,'complete':False}
+              try:
+                  remaining=members(proc.pid,deadline)
+                  if remaining:
+                      result['forced']=True
+                      try:os.killpg(proc.pid,signal.SIGTERM);result['signals'].append('SIGTERM')
+                      except ProcessLookupError:pass
+                      term_end=min(time.monotonic()+2,deadline-2)
+                      while time.monotonic()<term_end:
+                          proc.poll();remaining=members(proc.pid,deadline)
+                          if not remaining:break
+                          time.sleep(min(.05,max(0,term_end-time.monotonic())))
+                      remaining=members(proc.pid,deadline)
+                      if remaining:
+                          try:os.killpg(proc.pid,signal.SIGKILL);result['signals'].append('SIGKILL')
+                          except ProcessLookupError:pass
+                  # Group cleanup is independent of whether its immediate leader exited.
+                  while time.monotonic()<deadline:
+                      proc.poll();remaining=members(proc.pid,deadline)
+                      if not remaining:break
+                      time.sleep(min(.05,max(0,deadline-time.monotonic())))
+                  result['remainingProcessGroupMembers']=remaining
+                  result['complete']=not remaining and proc.poll() is not None and time.monotonic()<=deadline
+              except Exception as error:result['error']=type(error).__name__
+              return result
+
+          RECOVERY_EVIDENCE_SOURCE_READY = True
+          LIMITS = {'setup':150, 'native':650, 'whole':670, 'artifactAcceptance':40,
+                    'artifactActionHardKill':60, 'overheadReserve':40, 'job':900}
+          PINS = {
+           'product':'0460082701d5ff032b514deaddba48c0110a6221',
+           'automaticParent':'61f68eb0bbf7fd1442fe9ada5c62baa7c949b7a42de7d3ba7e99c7f79cad05e2',
+           'automaticHelper':'64241e82c7b408a7bbd902cc967f2e719c9a4f479c76c9ceb4dd9f8f8f838cf1',
+           'recoveryObserver':'5a5a0399b9f38420804ff849d3b5fb7f35ed0762506f6bc1ed5e2c562f502001',
+           'node':'7fde7b8afa198da66257f42ee2001d874c7355631e6d1579a5fb5ef1f246df4c',
+           'playwrightPackage':'313d23ce667d93962d3a1ab4be80908cefe840e4d9e48f1cd5863b91f65e8e39',
+           'browserRegistry':'2cfd419f71ac6475d81e1301fa86c34cf2a2a6bae2a0da4b5a2b18310216b6bf',
+           'webkitLauncher':'a85baad3d8c07173ac387a59b41500c382b21ed692afe0964d29aac247ccc63b'}
+
+          out=pathlib.Path(os.environ['RUNNER_TEMP'])/'ns-automatic-proof'
+          out.mkdir(exist_ok=True)
+          def digest(file):return hashlib.sha256(pathlib.Path(file).read_bytes()).hexdigest()
+          def write(name,value):
+              file=out/name
+              assert not file.exists(), 'Preserve prior attempt: '+name
+              file.write_text(json.dumps(value,indent=2)+'\n')
+          def read(name):return json.loads((out/name).read_text())
+          def git(*args):return subprocess.check_output(['git',*args],text=True,timeout=5).strip()
+          def require(value,reason):
+              if not value:raise RuntimeError(reason)
+          def error_text(error):
+              try:return str(error).replace('\n','\\n').replace('\r','\\r')[:768]
+              except Exception:return '<unprintable>'
+          def diagnostic(kind,site,error):
+              # Bounded best-effort stderr never displaces an already selected failure.
+              detail=error_text(error)
+              line=(kind+' '+site+' '+type(error).__name__+': '+detail)[:768]+'\n'
+              try:sys.stderr.write(line);sys.stderr.flush()
+              except Exception:pass
+          def first_failure(primary,secondary,site):
+              if secondary is None:return primary
+              if primary is None:return secondary
+              diagnostic('SECONDARY',site,secondary)
+              return primary
+          def receipt(name,value,primary=None):
+              if primary is not None:diagnostic('PRIMARY',name,primary)
+              try:write(name,value)
+              except Exception as error:return first_failure(primary,error,'receipt:'+name)
+              return primary
+          def finish_supervised(report,proc,whole_end,started,report_name,primary):
+              try:
+                  if proc is not None:report['cleanup']=cleanup(proc,whole_end)
+              except Exception as error:primary=first_failure(primary,error,'cleanup')
+              report['elapsedSeconds']=time.monotonic()-started
+              report['withinWholeDeadline']=time.monotonic()<=whole_end
+              report['passed']=(primary is None and report.get('exitCode')==0 and not report.get('timedOut')
+                                and report.get('cleanup',{}).get('complete')
+                                and not report.get('cleanup',{}).get('forced') and report['withinWholeDeadline'])
+              if not report['passed'] and primary is None:
+                  primary=RuntimeError(report_name.upper()+'_FAILED')
+              return receipt(report_name+'.json',report,primary)
+          def finish_post_source(original,unchanged,post_error):
+              primary=first_failure(original,post_error,'post-source-capture')
+              if not unchanged:primary=first_failure(primary,RuntimeError('POST_SOURCE_CHANGED'),'post-source-status')
+              primary=receipt('post-source.json',{'unchanged':unchanged,'captureError':type(post_error).__name__ if post_error else None},primary)
+              if primary is not None:raise primary
+          def outer_failure(phase,error):
+              # receipt prints the original BEFORE optional disk reporting; every path exits1.
+              receipt('failure-'+phase+'.json',{'phase':phase,'error':type(error).__name__,'message':error_text(error),'nativeQualified':False},error)
+              return 1
+          def bind_baseline_versions(chosen,record,selected_version,resolved_sha=None):
+              version=chosen['baselineVersion']
+              require(isinstance(version,str) and re.fullmatch(r'(0|[1-9]\d{0,15})',version),'INTAKE_BASELINE_VERSION_SHAPE')
+              require(record['baselineSha']==chosen['baselineSha'],'BASELINE_RECORD_SHA')
+              require(version==selected_version==record['baselineVersion'],'BASELINE_VERSION_IDENTITY')
+              if resolved_sha is not None:require(resolved_sha==chosen['baselineSha'],'RESOLVED_ROOT_BASELINE')
+              return {'baselineSha':chosen['baselineSha'],'baselineVersion':selected_version}
+          def setup_checkpoint(deadline):
+              now=time.monotonic()
+              require(now<=deadline,'SETUP_OVER_150')
+              return now
+          def setup_remaining(deadline):
+              remaining=deadline-time.monotonic()
+              require(remaining>0,'SETUP_OVER_150')
+              return remaining
+          def setup_git(deadline,*args):
+              value=subprocess.check_output(['git',*args],text=True,timeout=min(5,setup_remaining(deadline))).strip()
+              setup_checkpoint(deadline)
+              return value
+          def setup_read(deadline,file):
+              setup_checkpoint(deadline);value=file.read_text();setup_checkpoint(deadline)
+              return value
+          def setup_receipt(deadline,name,value):
+              setup_checkpoint(deadline)
+              primary=receipt(name,value)
+              if time.monotonic()>deadline:primary=first_failure(primary,RuntimeError('SETUP_OVER_150'),'setup-receipt-clock')
+              if primary is not None:raise primary
+          def verify_setup_baseline(deadline,context):
+              baseline_line=setup_read(deadline,out/'baseline-output.txt').strip()
+              require(baseline_line.startswith('baseline_sha=') and '\n' not in baseline_line,'BASELINE_RESOLVER_OUTPUT')
+              require(setup_git(deadline,'rev-parse','HEAD')==context['testedSha'],'BASELINE_RESOLVER_HEAD_CHANGED')
+              record_text=setup_git(deadline,'show','HEAD:.github/installed-production-baseline.json')
+              version_text=setup_git(deadline,'show',context['baselineSha']+':app-version.json')
+              require(hashlib.sha256(record_text.encode()).hexdigest()==context['baselineRecordSha256']
+                      and hashlib.sha256(version_text.encode()).hexdigest()==context['baselineVersionBlobSha256'],'BASELINE_SOURCE_CHANGED')
+              binding=bind_baseline_versions(context['rootIntake'],json.loads(record_text),json.loads(version_text)['version'],baseline_line[len('baseline_sha='):])
+              setup_receipt(deadline,'baseline-verified.json',{**binding,'resolverValidated':True,'recordSha256':context['baselineRecordSha256'],
+                                                              'versionBlobSha256':context['baselineVersionBlobSha256']})
+              return binding
+          def complete_setup(start,deadline,binding):
+              snapshot=setup_checkpoint(deadline);elapsed=snapshot-start
+              # A file cannot timestamp the completion of its own later write. State the
+              # snapshot point honestly, then independently check after mandatory I/O.
+              setup_receipt(deadline,'setup-complete.json',{**binding,'elapsedSeconds':elapsed,
+                  'snapshotMonotonic':snapshot,'within150':elapsed<=150,
+                  'timingPoint':'before-own-write; postwrite guard and independent native clock required'})
+              completed=setup_checkpoint(deadline)
+              print(json.dumps({'setupAfterReceiptSeconds':completed-start,'within150':completed-start<=150,
+                                'includesRequiredReceiptWork':True}))
+              setup_checkpoint(deadline)
+          def admit_setup(start,complete,baseline,now):
+              elapsed=complete['elapsedSeconds'];snapshot=complete['snapshotMonotonic']
+              require(isinstance(elapsed,(int,float)) and not isinstance(elapsed,bool)
+                      and isinstance(snapshot,(int,float)) and not isinstance(snapshot,bool),'SETUP_CLOCK_SHAPE')
+              require(0<=elapsed<=150 and snapshot==start+elapsed and snapshot<=now<=start+150,'SETUP_ADMISSION_OVER_150')
+              require(complete['within150'] is (elapsed<=150),'SETUP_FALSE_WITHIN150')
+              require(complete['timingPoint']=='before-own-write; postwrite guard and independent native clock required','SETUP_TIMING_POINT')
+              require(baseline['resolverValidated'] is True and all(complete[key]==baseline[key] for key in ['baselineSha','baselineVersion']),'SETUP_BASELINE_RECEIPT')
+              return {'setupElapsedSeconds':now-start,'completionSnapshotSeconds':elapsed,
+                      'timingPoint':'after required setup receipt reads; before own admission-receipt write',
+                      'within150':now-start<=150}
+          def supervised(argv, *, native_end, whole_end, report_name, env=None):
+              # No global traps, shell command interpolation, process-name kill, or retry.
+              report={'argv':argv,'attempts':1,'retries':0,'passed':False}
+              proc=None;started=time.monotonic();primary=None
+              try:
+                  require(native_end>started and whole_end>=native_end,'NO_ALLOCATED_TIME')
+                  report.update(nativeSeconds=native_end-started,wholeSeconds=whole_end-started)
+                  with (out/(report_name+'.log')).open('x') as log:
+                      proc=subprocess.Popen(argv,start_new_session=True,stdout=log,stderr=subprocess.STDOUT,env=env)
+                      report['pid']=proc.pid
+                      try:report['exitCode']=proc.wait(timeout=max(0,native_end-time.monotonic()))
+                      except subprocess.TimeoutExpired:
+                          report['timedOut']=True;primary=RuntimeError(report_name.upper()+'_TIMEOUT')
+                      if primary is None and report.get('exitCode')!=0:
+                          primary=RuntimeError(report_name.upper()+'_EXIT_'+str(report.get('exitCode')))
+              except Exception as error:
+                  primary=first_failure(primary,error,'process')
+                  report['failure']=type(primary).__name__+': '+error_text(primary)
+              finally:
+                  primary=finish_supervised(report,proc,whole_end,started,report_name,primary)
+              if primary is not None:raise primary
+              return report
+
+          def source_context():
+              head=git('rev-parse','HEAD');tree=git('rev-parse','HEAD^{tree}')
+              prhead=os.environ['PR_HEAD_SHA'];prbase=os.environ['PR_BASE_SHA']
+              record={'testedSha':head,'testedTree':tree,'prHeadSha':prhead,'prBaseSha':prbase,
+                      'githubSha':os.environ['GITHUB_SHA'],'githubRef':os.environ['GITHUB_REF'],
+                      'engine':os.environ['PWA_BROWSER'],'limits':LIMITS,
+                      'runId':os.environ['GITHUB_RUN_ID'],'attempt':os.environ['GITHUB_RUN_ATTEMPT'],
+                      'phase':'source-preflight','nativeStarted':False,'blocked':[]}
+              for name in ['index.html','service-worker.js','app-version.json',
+                           'assets/js/app-shell-runtime.js','assets/js/account-awareness-runtime.js',
+                           'scripts/validate-installed-pwa-upgrade-browser.js',
+                           'scripts/lib/installed-automatic-account.js',
+                           'scripts/lib/installed-recovery-proof.js',
+                           'config/preference-reset-ui.js','config/local-preference-recovery.js']:
+                  file=pathlib.Path(name)
+                  record.setdefault('sourceFiles',{})[name]=digest(file) if file.is_file() else None
+              record['candidateVersion']=json.loads(pathlib.Path('app-version.json').read_text())['version']
+              for label,condition in [('MERGE_HEAD_MISMATCH',head==record['githubSha']),
+                  ('NON_MERGE_REF',bool(re.fullmatch(r'refs/pull/\d+/merge',record['githubRef']))),
+                  ('DIRTY_SOURCE',git('status','--porcelain','--untracked-files=no')==''),
+                  ('AUTOMATIC_PARENT_BYTES',record['sourceFiles']['scripts/validate-installed-pwa-upgrade-browser.js']==PINS['automaticParent']),
+                  ('AUTOMATIC_HELPER_BYTES',record['sourceFiles']['scripts/lib/installed-automatic-account.js']==PINS['automaticHelper']),
+                  ('RECOVERY_OBSERVER_BYTES',record['sourceFiles']['scripts/lib/installed-recovery-proof.js']==PINS['recoveryObserver'])]:
+                  if not condition:record['blocked'].append(label)
+              if re.fullmatch('[a-f0-9]{40}',prhead) and re.fullmatch('[a-f0-9]{40}',prbase):
+                  record['prHeadTree']=git('rev-parse',prhead+'^{tree}')
+                  record['prBaseTree']=git('rev-parse',prbase+'^{tree}')
+                  record['testedParents']=git('show','-s','--format=%P','HEAD').split()
+                  if record['testedParents']!=[prbase,prhead]:record['blocked'].append('TESTED_MERGE_PARENTS')
+              else:record['blocked'].append('PR_SHA_SHAPE')
+              # A future ROOT intake names an already immutable assembled candidate before
+              # the test-only carrier commit, avoiding a self-referential commit SHA.
+              intake=pathlib.Path('.github/installed-automatic-intake.json')
+              if not intake.is_file():record['blocked'].append('ROOT_FORWARD_INTAKE_MISSING')
+              else:
+                  chosen=json.loads(intake.read_text());record['rootIntake']=chosen
+                  require(chosen['format']=='installed-automatic-intake.v1','INTAKE_FORMAT')
+                  for key in ['candidateHead','candidateTree','baselineSha']:
+                      require(re.fullmatch('[a-f0-9]{40}',chosen[key]),'INTAKE_'+key)
+                  require(git('rev-parse',chosen['candidateHead']+'^{tree}')==chosen['candidateTree'],'ROOT_TREE')
+                  subprocess.run(['git','merge-base','--is-ancestor',chosen['candidateHead'],prhead],check=True,timeout=5)
+                  require(chosen['productSourceSha']==PINS['product'],'ROOT_SOURCE_PROVENANCE')
+                  record['rootCandidateHead']=chosen['candidateHead'];record['rootCandidateTree']=chosen['candidateTree']
+                  require(chosen['candidateVersion']==record['candidateVersion'],'ROOT_VERSION')
+                  require(chosen['candidateFiles'] and all(re.fullmatch('[a-f0-9]{64}',v) for v in chosen['candidateFiles'].values()),'ROOT_FILE_PINS')
+                  required={'index.html','service-worker.js','app-version.json','config/server-sync.js',
+                            'assets/js/app-shell-runtime.js','assets/js/account-awareness-runtime.js',
+                            'config/preference-reset-ui.js','config/local-preference-recovery.js',
+                            'scripts/validate-installed-pwa-upgrade-browser.js',
+                            'scripts/lib/installed-automatic-account.js','scripts/lib/installed-recovery-proof.js'}
+                  require(required<=set(chosen['candidateFiles']),'ROOT_REQUIRED_FILE_PINS')
+                  for file,expected in chosen['candidateFiles'].items():
+                      require(not pathlib.PurePosixPath(file).is_absolute() and '..' not in pathlib.PurePosixPath(file).parts,'ROOT_PATH')
+                      original=subprocess.check_output(['git','show',chosen['candidateHead']+':'+file],timeout=5)
+                      require(hashlib.sha256(original).hexdigest()==expected and digest(file)==expected,'ROOT_PRODUCT_BYTES')
+                  record['baselineSha']=chosen['baselineSha'];record['baselineVersion']=chosen['baselineVersion']
+                  baseline_record_text=git('show',head+':.github/installed-production-baseline.json')
+                  baseline_version_text=git('show',chosen['baselineSha']+':app-version.json')
+                  binding=bind_baseline_versions(chosen,json.loads(baseline_record_text),json.loads(baseline_version_text)['version'])
+                  record['baselineRecordSha256']=hashlib.sha256(baseline_record_text.encode()).hexdigest()
+                  record['baselineVersionBlobSha256']=hashlib.sha256(baseline_version_text.encode()).hexdigest()
+                  record['baselineBinding']={**binding,'resolverValidated':False}
+                  require(int(str(record['candidateVersion']))>int(str(record['baselineVersion'])),'REAL_FORWARD_REQUIRED')
+              if not RECOVERY_EVIDENCE_SOURCE_READY:record['blocked'].append('RECOVERY_EVIDENCE_SOURCE_NOT_REVIEWED')
+              record['cacheClaims']='No cache or execution claim from source hashes; actual membership/executed-byte evidence required'
+              primary=RuntimeError('SOURCE_GATES: '+','.join(record['blocked'])) if record['blocked'] else None
+              primary=receipt('source-context.json',record,primary)
+              if primary is not None:raise primary
+              return record
+
+          def run_setup():
+              budget=read('budget-start.json');start=budget['startedMonotonic'];deadline=start+150
+              require(time.monotonic()<deadline,'SETUP_BUDGET_EXHAUSTED')
+              require(RECOVERY_EVIDENCE_SOURCE_READY,'RECOVERY_EVIDENCE_SOURCE_NOT_REVIEWED')
+              context=read('source-context.json')
+              require(not context['blocked'],'SOURCE_PREFLIGHT_INCOMPLETE')
+              require(os.environ.get('PWA_KEEP_OPEN','0')=='0','UNALLOCATED_KEEP_OPEN')
+              for flag in ['ALL_SPORTS_PAGER_PROBE','ALL_SPORTS_WIDTHS','REPAIR_QA_URL','PWA_REQUIRED_FAILURE_ASSET']:
+                  require(not os.environ.get(flag),'UNALLOCATED_OVERRIDE_'+flag)
+              body=pathlib.Path(os.environ['RUNNER_TEMP'])/'ns-automatic-setup.sh'
+              body.write_text('set -euo pipefail\nnode scripts/validate-installed-production-baseline.js > "$RUNNER_TEMP/ns-automatic-proof/baseline-controls.log" 2>&1\npython3 - "$RUNNER_TEMP/ns-automatic-proof/baseline-output.txt" <<\'PYOUTPUT\'\nimport os,sys\nfd=os.open(sys.argv[1],os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW,0o600)\nos.close(fd)\nPYOUTPUT\nGITHUB_OUTPUT="$RUNNER_TEMP/ns-automatic-proof/baseline-output.txt" node scripts/resolve-installed-production-baseline.js --resolve > "$RUNNER_TEMP/ns-automatic-proof/baseline-resolver.log" 2>&1\nnode scripts/validate-installed-test-network.js\nnode scripts/validate-diamonds-retained-schedule.js\nnode scripts/validate-notification-landing.js\nset -o pipefail\nsudo python3 - <<\'PY\' 2>&1 | tee "$RUNNER_TEMP/ns-automatic-proof/apt-mirror.log"\nfrom pathlib import Path\nimport json\nroot = Path(\'/etc/apt\')\nfiles = [*root.glob(\'*.list\'), *root.glob(\'apt-mirrors*.txt\'),\n         *(root / \'sources.list.d\').glob(\'*.list\'), *(root / \'sources.list.d\').glob(\'*.sources\')]\nchanged = []\nhas_archive = False\nfor file in files:\n    if not file.is_file() or file.is_symlink():\n        continue\n    before = file.read_text()\n    after = before.replace(\'azure.archive.ubuntu.com\', \'archive.ubuntu.com\')\n    has_archive = has_archive or \'archive.ubuntu.com\' in after\n    if after != before:\n        file.write_text(after)\n        changed.append(str(file))\nassert has_archive, \'Expected official Ubuntu package archive configuration\'\nprint(json.dumps({\'changedFiles\': changed, \'archive\': \'archive.ubuntu.com\', \'packageSignatureValidation\': \'unchanged\'}))\nPY\n\nnpm ci\nnpm install --prefix "$RUNNER_TEMP/ns-playwright" --no-save --package-lock=false playwright@1.64.1\nnode "$RUNNER_TEMP/ns-playwright/node_modules/playwright/cli.js" install --with-deps "$PWA_BROWSER"\n')
+              supervised(['bash',str(body)],native_end=deadline-5,whole_end=deadline,report_name='setup-process')
+              binding=verify_setup_baseline(deadline,context)
+              complete_setup(start,deadline,binding)
+
+          def seal_recovery_evidence(result,context):
+              # The exact pinned helper unconditionally asserts the full operation join
+              # before returning this case. This seal does not claim a second execution.
+              cases=result['cases']
+              require(len(cases)==10 and len({c['case'] for c in cases})==10,'COMPLETE_UNIQUE_CASES')
+              for case in cases:
+                  cleanup=case.get('cleanup',{})
+                  require(case.get('sourceSha')==context['testedSha'] and case.get('baselineSha')==context['baselineSha']
+                          and str(case.get('candidateVersion'))==str(context['candidateVersion']),'CASE_SOURCE_BINDING')
+                  require(case.get('activeAndCachesVerified') is True and case.get('attemptLedgerVerified') is True
+                          and case.get('manualSyncCalls')==0 and case.get('manualSyncInteractions')==0,'CASE_ACCEPTANCE')
+                  require(case.get('contextClosed') is True and cleanup.get('contextClosed') is True
+                          and cleanup.get('pendingComplete') is True and cleanup.get('pendingRemaining')==0
+                          and cleanup.get('recoveryDetached') is True and not cleanup.get('failures'),'CASE_NATURAL_CLEANUP')
+              chosen=[case for case in cases if case['case']=='unknown-hold']
+              require(len(chosen)==1 and chosen[0]['cleanup'].get('withinPhaseDeadline') is True,'RECOVERY_PHASE_AND_CLEANUP')
+              natural=chosen[0].get('recoveryBytes') or {};proof=natural.get('proof') or {};wire=natural.get('wire') or []
+              boundary='Source-bound native path plus observed natural evaluation and stable public references; private lexical captures unobserved; hidden rebind-and-restore between observations not excluded.'
+              require(proof.get('sourceChain') is True and proof.get('privateCapturesObserved') is False
+                      and proof.get('boundary')==boundary and str(proof.get('version'))==str(context['candidateVersion']),'RECOVERY_INFERENCE_BOUNDARY')
+              resources=proof.get('resources') or [];require(len(resources)==2 and len(wire)==2,'NATURAL_RECOVERY_RESOURCES')
+              summaries=[]
+              for alias,path in [('ui','config/preference-reset-ui.js'),('helper','config/local-preference-recovery.js')]:
+                  matches=[r for r in resources if r.get('alias')==alias];observed=[w for w in wire if w.get('alias')==alias]
+                  require(len(matches)==1 and len(observed)==1,'UNIQUE_NATURAL_RECOVERY_RESOURCE')
+                  resource=matches[0];response=observed[0];expected=context['rootIntake']['candidateFiles'][path]
+                  url='/'+path+'?v='+str(context['candidateVersion'])
+                  require(resource.get('hash')==response.get('hash')==expected and resource.get('url')==response.get('url')==url,'RECOVERY_CANDIDATE_BYTES')
+                  require(all(resource.get(k) is True for k in ['loaded','trusted','entry','settled','sourceEqual','referencesStable'])
+                          and response.get('complete') is True and response.get('status')==200,'RECOVERY_EVALUATED_AND_COMPLETE')
+                  cache=resource.get('cache') or {};require(type(cache.get('cacheMember')) is bool,'HONEST_CACHE_MEMBERSHIP')
+                  summaries.append({'alias':alias,'url':url,'sha256':expected,'cacheMember':cache['cacheMember']})
+              return {'format':'installed-recovery-evidence-seal.v1','testedSha':context['testedSha'],
+                      'candidateVersion':context['candidateVersion'],'fullPredicate':'assertRecoveryProof in exact pinned helper',
+                      'privateCapturesObserved':False,'boundary':boundary,'resources':summaries,
+                      'caseCleanupVerified':True,'releaseAcceptance':False}
+
+          def run_native():
+              require(RECOVERY_EVIDENCE_SOURCE_READY,'RECOVERY_EVIDENCE_SOURCE_NOT_REVIEWED')
+              budget=read('budget-start.json');setup_start=budget['startedMonotonic'];setup_deadline=setup_start+150
+              complete=json.loads(setup_read(setup_deadline,out/'setup-complete.json'))
+              baseline=json.loads(setup_read(setup_deadline,out/'baseline-verified.json'))
+              admission=admit_setup(setup_start,complete,baseline,setup_checkpoint(setup_deadline))
+              setup_receipt(setup_deadline,'setup-admission.json',admission)
+              started=setup_checkpoint(setup_deadline)
+              node=pathlib.Path(shutil.which('node')).resolve()
+              module=pathlib.Path(os.environ['PLAYWRIGHT_MODULE']).resolve()
+              require(sys.platform=='linux','LINUX_REQUIRED')
+              require(subprocess.check_output([str(node),'--version'],text=True,timeout=5).strip()=='v24.21.0','NODE_VERSION')
+              runtime={'nodeSha256':digest(node),'playwrightPackageSha256':digest(module/'package.json'),
+                       'browserRegistrySha256':digest(module.parent/'playwright-core/browsers.json')}
+              require(runtime['nodeSha256']==PINS['node'] and runtime['playwrightPackageSha256']==PINS['playwrightPackage']
+                      and runtime['browserRegistrySha256']==PINS['browserRegistry'],'RUNTIME_BYTES')
+              engine=os.environ['PWA_BROWSER'];require(engine in ['chromium','webkit'],'ENGINE')
+              launcher=pathlib.Path(subprocess.check_output([str(node),'-e',
+                  'process.stdout.write(require(process.argv[1])[process.argv[2]].executablePath())',str(module),engine],text=True,timeout=5))
+              runtime['browserLauncherSha256']=digest(launcher)
+              if engine=='webkit':require(runtime['browserLauncherSha256']==PINS['webkitLauncher'],'WEBKIT_BYTES')
+              write('runtime.json',runtime)
+              context=read('source-context.json');require(git('rev-parse','HEAD')==context['testedSha'],'HEAD_CHANGED')
+              require(git('status','--porcelain','--untracked-files=no')=='','SOURCE_CHANGED')
+              child_env=os.environ.copy()
+              child_env.update(PWA_AUTOMATIC_ACCOUNT='1',PWA_AUTO_EXPECTED_SHA=context['testedSha'],
+                               PWA_BASELINE_SHA=context['baselineSha'],PWA_KEEP_OPEN='0')
+              write('native-inputs.json',{'baselineSha':child_env['PWA_BASELINE_SHA'],
+                 'expectedSha':child_env['PWA_AUTO_EXPECTED_SHA'],'browser':engine,'keepOpen':'0',
+                 'automaticAccount':'1','transportDeadlineMs':15000,'activationWaitMs':45000,
+                 'startedMonotonic':started,'setupElapsedSeconds':started-setup_start,'nativeEnd':started+650,'wholeEnd':started+670})
+              original=None
+              try:
+                  supervised([str(node),'scripts/validate-installed-pwa-upgrade-browser.js'],
+                             native_end=started+650,whole_end=started+670,report_name='native-process',env=child_env)
+              except Exception as error:original=error
+              # Never use a finally error to replace an original native failure.
+              post_error=None;unchanged=False
+              try:unchanged=git('rev-parse','HEAD')==context['testedSha'] and git('status','--porcelain','--untracked-files=no')==''
+              except Exception as error:post_error=error
+              finish_post_source(original,unchanged,post_error)
+              log=(out/'native-process.log').read_text()
+              rows=[]
+              for line in log.splitlines():
+                  try:value=json.loads(line)
+                  except json.JSONDecodeError:continue
+                  if isinstance(value,dict) and value.get('phase')=='additive-installed-no-manual-sync':rows.append(value)
+              require(len(rows)==1 and rows[0].get('logicalPhases')==14 and rows[0].get('contexts')==10
+                      and len(rows[0].get('cases',[]))==10,'COMPLETE_AUTOMATIC_EVIDENCE_MISSING')
+              # Static source readiness never substitutes for actual returned native evidence.
+              recovery=seal_recovery_evidence(rows[0],context)
+              write('recovery-evidence.json',recovery)
+              elapsed=time.monotonic()-started
+              primary=RuntimeError('WHOLE_NATIVE_OVER_670') if elapsed>670 else None
+              primary=receipt('native-complete.json',{'startedMonotonic':started,'elapsedSeconds':elapsed,'within670':elapsed<=670},primary)
+              if primary is not None:raise primary
+
+          def main():
+              phase=sys.argv[1]
+              if phase=='init':
+                  write('budget-start.json',{'startedMonotonic':time.monotonic(),'limits':LIMITS,
+                      'meaning':'No headroom claim. Artifact40 acceptance/60 hard action;20 extra charged to40 reserve.'})
+              elif phase=='preflight':source_context()
+              elif phase=='setup':run_setup()
+              elif phase=='native':run_native()
+              elif phase=='artifact-start':
+                  write('artifact-start.json',{'startedMonotonic':time.monotonic()})
+              elif phase=='artifact-finish':
+                  elapsed=time.monotonic()-read('artifact-start.json')['startedMonotonic']
+                  total=time.monotonic()-read('budget-start.json')['startedMonotonic']
+                  primary=RuntimeError('ARTIFACT_ACCEPTANCE_OVER_40') if elapsed>40 else None
+                  if total>900:primary=first_failure(primary,RuntimeError('WHOLE_JOB_OVER_900'),'job-clock')
+                  primary=receipt('artifact-finish.json',{'elapsedSeconds':elapsed,'within40':elapsed<=40,'elapsedJobSeconds':total},primary)
+                  try:print(json.dumps({'artifactSeconds':elapsed,'artifactWithin40':elapsed<=40,'elapsedJobSeconds':total}))
+                  except Exception as error:primary=first_failure(primary,error,'artifact-clock-print')
+                  if primary is not None:raise primary
+                  if (out/'native-complete.json').exists():
+                      overhead=total-read('native-inputs.json')['setupElapsedSeconds']-read('native-complete.json')['elapsedSeconds']-elapsed
+                      primary=RuntimeError('REMAINING_OVERHEAD_OVER_20') if overhead>20 else None
+                      primary=receipt('overhead.json',{'elapsedSeconds':overhead,'limitSeconds':20,'within20':overhead<=20},primary)
+                      if primary is not None:raise primary
+              else:raise RuntimeError('UNKNOWN_PHASE')
+
+          if __name__=='__main__':
+              try:main()
+              except Exception as error:
+                  # Only fixed diagnostics/paths; never dump environment, secrets or account values.
+                  phase=sys.argv[1] if len(sys.argv)>1 else 'missing'
+                  sys.exit(outer_failure(phase,error))
+          PYRUNNER
+          python3 "$RUNNER_TEMP/ns-automatic-runner.py" init
+      - uses: actions/checkout@v5
+        timeout-minutes: 1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Require source-bound recovery proof before install or browser
+        timeout-minutes: 1
+        run: python3 "$RUNNER_TEMP/ns-automatic-runner.py" preflight
+      - uses: actions/setup-node@v5
+        timeout-minutes: 1
+        with:
+          node-version: 24.21.0
+      - name: Set up within the original separate150 second allocation
+        timeout-minutes: 3
+        run: python3 "$RUNNER_TEMP/ns-automatic-runner.py" setup
+      - name: Verify complete installed automatic account sync
+        timeout-minutes: 12
+        run: |
+          export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
+          python3 "$RUNNER_TEMP/ns-automatic-runner.py" native
+      - name: Start bounded artifact accounting after every outcome
+        if: always()
+        timeout-minutes: 1
+        run: python3 "$RUNNER_TEMP/ns-automatic-runner.py" artifact-start
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        timeout-minutes: 1
+        with:
+          name: installed-automatic-${{ github.run_id }}-${{ github.run_attempt }}-${{ github.event.pull_request.head.sha }}-${{ matrix.browser }}
+          path: ${{ runner.temp }}/ns-automatic-proof
+          retention-days: 1
+          if-no-files-found: error
+      - name: Reject artifact time above forty seconds
+        if: always()
+        timeout-minutes: 1
+        run: python3 "$RUNNER_TEMP/ns-automatic-runner.py" artifact-finish
