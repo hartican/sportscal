@@ -10,13 +10,13 @@ class Binding(unittest.TestCase):
         self.tmp=tempfile.TemporaryDirectory(prefix='binding-',dir=OUTPUT);self.addCleanup(self.tmp.cleanup);self.root=pathlib.Path(self.tmp.name)
         command(self.root,'init','-q');command(self.root,'commit','--allow-empty','-qm','owned source');self.base=command(self.root,'rev-parse','HEAD')
         self.file=self.root/ci.QA_PATH/'allocation.json';self.file.parent.mkdir(parents=True);ci.write(self.file,{'status':'UNALLOCATED'});command(self.root,'add','.');command(self.root,'commit','-qm','inactive QA snapshot');self.snapshot=command(self.root,'rev-parse','HEAD')
-        now=ci.stamp();self.allocation={'status':'ROOT_BOUND_ONE_ATTEMPT','sourceGitSha':self.base,'qaSnapshotSha':self.snapshot,'nonce':'a'*64,'notBefore':(now-datetime.timedelta(seconds=10)).isoformat(),'expiresAt':(now+datetime.timedelta(seconds=600)).isoformat()}
+        now=ci.stamp();self.allocation={'status':'ROOT_BOUND_ONE_ATTEMPT','sourceGitSha':ci.SOURCE_SHA,'qaSnapshotSha':self.snapshot,'nonce':'a'*64,'notBefore':(now-datetime.timedelta(seconds=10)).isoformat(),'expiresAt':(now+datetime.timedelta(seconds=600)).isoformat()}
         ci.write(self.file,self.allocation);command(self.root,'add','.');command(self.root,'commit','-qm','allocation-only carrier');self.head=command(self.root,'rev-parse','HEAD')
         self.event={'before':self.base,'after':self.head,'created':False,'forced':False,'deleted':False};self.event_file=self.root/'event.json';ci.write(self.event_file,self.event)
         self.env={'GITHUB_REPOSITORY':'hartican/sportscal','GITHUB_EVENT_NAME':'push','GITHUB_REF':ci.BRANCH,'GITHUB_RUN_ATTEMPT':'1','GITHUB_EVENT_PATH':str(self.event_file),'GITHUB_SHA':self.head,'QA_WORKFLOW_SHA':self.head}
     def call(self):
         ci.write(self.event_file,self.event)
-        with patch.object(ci,'SOURCE_SHA',self.base),patch.dict(os.environ,self.env,clear=True):return ci.binding(self.root)
+        with patch.object(ci,'CARRIER_BASE_SHA',self.base),patch.dict(os.environ,self.env,clear=True):return ci.binding(self.root)
     def rebind(self):
         ci.write(self.file,self.allocation);command(self.root,'add',ci.QA_PATH+'/allocation.json');command(self.root,'commit','--amend','--no-edit','-q')
         self.head=command(self.root,'rev-parse','HEAD');self.event['after']=self.head;self.env.update(GITHUB_SHA=self.head,QA_WORKFLOW_SHA=self.head)
@@ -44,7 +44,8 @@ class Binding(unittest.TestCase):
 class PublicExport(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory(prefix='export-',dir=OUTPUT);self.addCleanup(self.tmp.cleanup);self.root=pathlib.Path(self.tmp.name)
-        shutil.copyfile(HERE/'credential-scan.py',self.root/'credential-scan.py');self.run=self.root/'run';self.run.mkdir();(self.root/'public-evidence').mkdir();self.source=self.root/'source';self.source.mkdir()
+        for name in ['credential-scan.py','public-fixture-shape.json']:shutil.copyfile(HERE/name,self.root/name)
+        self.run=self.root/'run';self.run.mkdir();(self.root/'public-evidence').mkdir();self.source=self.root/'source';self.source.mkdir()
         self.p={'runDir':str(self.run),'sourceRoot':str(self.source),'writeFiles':[],'rollbackHashes':{}};ci.write(self.root/'actual-policy.json',self.p)
         for label in['before','after']:ci.write(self.run/(label+'-manifest.json'),{'files':[]})
         self.receipt={'source':ci.SOURCE_SHA,'changedPaths':[],'state':'candidate-finished-pending-review','processGroupClosed':True,'rollback':{'required':False,'verified':True}}
@@ -62,6 +63,22 @@ class PublicExport(unittest.TestCase):
         for _ in range(4):value=json.dumps(value)
         self.page(value.encode());self.assertRaisesRegex(RuntimeError,'INDEPENDENT_SECRET_SCAN',self.call);self.assertEqual(list((self.root/'public-evidence').iterdir()),[])
     def test_raw_diagnostic_key_withheld(self):(self.run/'stderr.log').write_text(self.marker);self.assertRaisesRegex(RuntimeError,'INDEPENDENT_SECRET_SCAN',self.call)
+    def shape_receipt(self):
+        d={'reason':'UNKNOWN_PATH','parentIndex':0,'actualType':'object'}
+        return {'error':'POST_GUARD_FIXTURE_SHAPE','consumerParsed':False,'captured':False,'sha256':None,'shapeFailure':d,'shapeFailures':{'descriptors':[{**d,'count':2}],'totalRefusals':2,'overflowCount':0,'knownScanComplete':True}}
+    def test_fixed_shape_receipt_exported_without_raw_body(self):
+        value=self.shape_receipt();ci.write(self.run/'page-00.json',value);self.assertEqual(self.call(),0)
+        self.assertEqual(ci.read(self.root/'public-evidence/receipts/page-00.json'),value);self.assertFalse((self.root/'public-evidence/capture').exists())
+    def test_malformed_shape_descriptors_withheld_before_any_copy(self):
+        changes=[lambda v:v['shapeFailure'].update(reason='arbitrary'),lambda v:v['shapeFailure'].update(path='unapproved.name'),lambda v:v['shapeFailure'].update(parentIndex=True),lambda v:v['shapeFailure'].update(parentIndex=999999),lambda v:v['shapeFailure'].update(actualType='unknown'),lambda v:v['shapeFailures'].update(totalRefusals=3),lambda v:v['shapeFailures'].update(knownScanComplete=1),lambda v:v['shapeFailures']['descriptors'][0].update(count=False),lambda v:v['shapeFailures']['descriptors'].extend(v['shapeFailures']['descriptors']*16),lambda v:v.update(error='POST_GUARD_PRIVATE_PAYLOAD')]
+        for change in changes:
+            with self.subTest():
+                value=self.shape_receipt();change(value);ci.write(self.run/'page-00.json',value)
+                self.assertRaisesRegex(RuntimeError,'SHAPE_DIAGNOSTIC',self.call);self.assertEqual(list((self.root/'public-evidence').iterdir()),[])
+    def test_secret_bearing_unknown_diagnostic_names_withheld(self):
+        for name in ['unknown-'+self.marker,'unknown-'+self.marker.encode().hex().upper()]:
+            value=self.shape_receipt();value['shapeFailure'][name]='not a public descriptor';ci.write(self.run/'first-error.json',value)
+            self.assertRaisesRegex(RuntimeError,'INDEPENDENT_SECRET_SCAN',self.call);self.assertEqual(list((self.root/'public-evidence').iterdir()),[])
     def test_path_outside_generated_scope_refused_before_read(self):self.receipt['changedPaths']=['../outside.json'];self.assertRaisesRegex(RuntimeError,'GENERATED_EXPORT_SCOPE',self.call)
     def test_zero_node_resource_refusal_retains_safe_receipt(self):
         baseline=self.root/'baseline.json';ci.write(baseline,{'files':[]});self.p['baselineManifest']=str(baseline);(self.run/'before-manifest.json').unlink()
@@ -99,7 +116,7 @@ sys.exit(0 if scenario=='partial'else 7)
             try:r=self.real_run(['/usr/bin/python3',str(self.helper),phase],**kwargs)
             except subprocess.TimeoutExpired as error:self.completed.append(error);raise
             self.completed.append(r);return r
-        with patch.object(ci,'HERE',self.root),patch.dict(os.environ,ci.ENV,clear=True),patch.object(subprocess,'run',side_effect=child),patch.object(ci,'git')as git_call:
+        with patch.object(ci,'HERE',self.root),patch.dict(os.environ,ci.ENV,clear=True),patch.object(ci,'source_shape_controls',return_value={'status':'PASS'}),patch.object(subprocess,'run',side_effect=child),patch.object(ci,'git')as git_call:
             with self.assertRaises((RuntimeError,subprocess.TimeoutExpired)):ci.qualify(argparse.Namespace(github_output=str(self.output)))
             git_call.assert_not_called()
         files=list((self.root/'public-evidence').glob('*failure.json'))

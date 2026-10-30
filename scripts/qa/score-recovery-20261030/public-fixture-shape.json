@@ -1,11 +1,12 @@
 {
-  "version": "frozen-public-sporting-fixture-shape.v1",
-  "sourceCommit": "3b1f6ceab669d3c643535ef303976742b14705eb",
   "basis": {
-    "data/follow-sources/coverage.v1.json": "53b0ec0d4b263accbd5b149396cc6be4d4fb5cf950119527ae9c66c2931ec0de",
     "data/code-inspector/cricket.json": "d96a1e655d4db0eaf02834c02b7c993e5fd3c4be6d72cee674c9ab1fc0c674ba",
-    "data/code-inspector/rugby-union.json": "ef4862f7d23026127e128077b2f8d8b83ffcb4e0f358db8edfbdffc9bb6f8b4a"
+    "data/code-inspector/rugby-union.json": "ef4862f7d23026127e128077b2f8d8b83ffcb4e0f358db8edfbdffc9bb6f8b4a",
+    "data/follow-sources/coverage.v1.json": "53b0ec0d4b263accbd5b149396cc6be4d4fb5cf950119527ae9c66c2931ec0de"
   },
+  "maxDepth": 16,
+  "maxNodes": 250000,
+  "maxStringBytes": 262144,
   "observationContract": "lib/compact-fixture-observations.js: public score/status observation fields; no health/private report maps",
   "paths": {
     "": [
@@ -690,7 +691,17 @@
       "string"
     ],
     ".pauseObservation": [
-      "null"
+      "null",
+      "object"
+    ],
+    ".pauseObservation.observedAt": [
+      "string"
+    ],
+    ".pauseObservation.reason": [
+      "string"
+    ],
+    ".pauseObservation.status": [
+      "string"
     ],
     ".playingFormat": [
       "string"
@@ -1045,8 +1056,19 @@
       "string"
     ]
   },
+  "sourceCommit": "3b1f6ceab669d3c643535ef303976742b14705eb",
+  "typedContractAdditions": {
+    "pauseObservation": {
+      "evidence": "Actual writer and checked-in public RPC projection; not attributed to failed live response.",
+      "fields": [
+        "status",
+        "reason",
+        "observedAt"
+      ],
+      "sourceCommit": "3b1f6ceab669d3c643535ef303976742b14705eb",
+      "writer": "lib/fixture-pause-observations.js:29-31"
+    }
+  },
   "unknownKeys": "refuse, never strip",
-  "maxDepth": 16,
-  "maxNodes": 250000,
-  "maxStringBytes": 262144
+  "version": "frozen-public-sporting-fixture-shape.v1"
 }

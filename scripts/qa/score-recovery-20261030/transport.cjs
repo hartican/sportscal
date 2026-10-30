@@ -35,6 +35,8 @@ class Transport{
    clearTimeout(ctx.timer);ctx.removeCaller?.();
    if(first)controller.abort();
    const record={ordinal:ctx.ordinal,status:ctx.status??null,bytesReceived:ctx.bytes,bodyComplete:ctx.readDone,guardParsed:Boolean(ctx.parsed),consumerParsed:Boolean(ctx.consumerParsed),readerAcquired:Boolean(ctx.reader),readerReleased:!ctx.reader||ctx.readerReleased,captureFileOpened:ctx.captureFileOpened,captureFileClosed:ctx.captureFileClosed,captured:ctx.consumerParsed===true,elapsedMs:Math.max(0,P.performance.now()-started),error:first?.code||null,sha256:ctx.captureFileOpened?hash(ctx.buffer):null,cleanupErrors:ctx.cleanupErrors||[]};
+   const diagnostic=P.shapeFailure(first);if(diagnostic)record.shapeFailure=diagnostic;
+   const summary=P.shapeFailures(first);if(summary)record.shapeFailures=summary;
    this.records.push(record);ctx.buffer=null;ctx.parsed=null;this.active=null;
    try{this.capture.finish(record);}catch{this.failed=true;if(!first)throw P.error('POST_GUARD_RECEIPT');}
   }
@@ -75,7 +77,7 @@ class Transport{
    ctx.buffer=Buffer.concat(chunks);if(this.secret.contains(ctx.buffer))throw P.error('POST_GUARD_PRIVATE_PAYLOAD');
    let text;try{text=new TextDecoder('utf-8',{fatal:true}).decode(ctx.buffer);}catch{throw P.error('POST_GUARD_UTF8');}
    this.check(ctx);try{ctx.parsed=JSON.parse(text);}catch{throw P.error('POST_GUARD_JSON');}this.check(ctx);
-   P.rejectDuplicateKeys(text);P.validatePublic(ctx.parsed,this.schema,this.secret);this.check(ctx);
+   P.rejectDuplicateKeys(text);P.validatePublic(ctx.parsed,this.schema,this.secret,()=>this.check(ctx));this.check(ctx);
    const pairs=new Set();for(const row of ctx.parsed){const id=row.source_id+'|'+row.fixture_id;if(pairs.has(id)||this.seen.has(id))throw P.error('POST_GUARD_OVERLAP');pairs.add(id);}
    ctx.parsedHash=hash(JSON.stringify(ctx.parsed));ctx.textCalls=0;
    return Object.freeze({ok:true,status:200,url:input,headers:new Headers({'content-type':'application/json'}),text:async()=>{if(ctx.textCalls++)throw P.error('POST_GUARD_BODY_USED');this.check(ctx);return text;}});

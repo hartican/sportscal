@@ -1,8 +1,9 @@
 """Temporary one-use CI carrier. No provider, publisher or credential export."""
-import argparse,datetime,hashlib,importlib.util,json,math,os,pathlib,platform,re,shutil,subprocess,sys
+import argparse,datetime,hashlib,importlib.util,json,math,os,pathlib,platform,re,secrets,shutil,subprocess,sys
 sys.dont_write_bytecode=True
 HERE=pathlib.Path(__file__).resolve().parent
 SOURCE_SHA='3b1f6ceab669d3c643535ef303976742b14705eb'
+CARRIER_BASE_SHA='e944cc4895b90b208fb034553ef76a87aedafd1f'
 BRANCH='refs/heads/codex/score-recovery-live-coverage-20261030'
 QA_PATH='scripts/qa/score-recovery-20261030'
 WORKFLOW='.github/workflows/score-recovery-oneoff.yml'
@@ -25,7 +26,7 @@ def verify_pins(pins):
 def captured_bytes(value):return value.encode('utf-8')if isinstance(value,str)else value if isinstance(value,bytes)else b''
 def control_failure_witness(phase,result,reason):
     """Export enums, bounded scalars and hashes; never child diagnostic text."""
-    require(phase in ['carrier-export-controls','linux-controls']and reason in ['CHILD_EXIT','CHILD_TIMEOUT','CONTROL_RECEIPTS'],'WITNESS_PHASE')
+    require(phase in ['carrier-export-controls','source-shape-controls','linux-controls']and reason in ['CHILD_EXIT','CHILD_TIMEOUT','CONTROL_RECEIPTS'],'WITNESS_PHASE')
     stdout=captured_bytes(result.stdout);stderr=captured_bytes(result.stderr);rows=[]
     bounds={'supervisorExit':(-128,255),'sourceProcessStarts':(0,1),'requests':(0,8),'capturedBytes':(0,16777216),'actualServiceOrProviderRequests':(0,8)}
     for line in stdout.splitlines():
@@ -61,14 +62,14 @@ def binding(qa_root,context=None):
     require(os.environ.get('GITHUB_EVENT_NAME')=='push'and os.environ.get('GITHUB_REF')==BRANCH,'ONE_USE_PUSH_ONLY')
     require(os.environ.get('GITHUB_RUN_ATTEMPT')=='1','RERUN_NOT_ALLOWED')
     event=read(os.environ['GITHUB_EVENT_PATH']);head=git(qa_root,'rev-parse','HEAD')
-    require(event.get('before')==SOURCE_SHA and event.get('created')is False and event.get('forced')is False and event.get('deleted')is False,'PUSH_BOUNDARY')
+    require(event.get('before')==CARRIER_BASE_SHA and event.get('created')is False and event.get('forced')is False and event.get('deleted')is False,'PUSH_BOUNDARY')
     require(event.get('after')==head==os.environ.get('GITHUB_SHA')==os.environ.get('QA_WORKFLOW_SHA'),'HEAD_WORKFLOW_EVENT_AGREEMENT')
     require(re.fullmatch('[a-f0-9]{40}',head)is not None,'HEAD_FORMAT')
     allocation=read(pathlib.Path(qa_root)/QA_PATH/'allocation.json');snapshot=allocation.get('qaSnapshotSha','')
     require(allocation==json.loads(git(qa_root,'show',head+':'+QA_PATH+'/allocation.json')),'ALLOCATION_NOT_COMMITTED')
     require(allocation.get('status')=='ROOT_BOUND_ONE_ATTEMPT'and allocation.get('sourceGitSha')==SOURCE_SHA,'ROOT_ALLOCATION_REQUIRED')
     require(isinstance(snapshot,str)and re.fullmatch('[a-f0-9]{40}',snapshot)is not None,'QA_SNAPSHOT_FORMAT')
-    require(git(qa_root,'rev-parse',snapshot+'^')==SOURCE_SHA and git(qa_root,'rev-parse',head+'^')==snapshot,'EXACT_FAST_FORWARD_LINEAGE')
+    require(git(qa_root,'rev-parse',snapshot+'^')==CARRIER_BASE_SHA and git(qa_root,'rev-parse',head+'^')==snapshot,'EXACT_FAST_FORWARD_LINEAGE')
     require(git(qa_root,'diff','--name-only',snapshot,head)==QA_PATH+'/allocation.json','ALLOCATION_ONLY_CARRIER')
     prior=json.loads(git(qa_root,'show',snapshot+':'+QA_PATH+'/allocation.json'))
     require(prior.get('status')=='UNALLOCATED','SNAPSHOT_NOT_INACTIVE')
@@ -105,6 +106,7 @@ def prepare(args):
 def qualify(args):
     no_keys();context=read(HERE/'runtime-context.json');verify_pins(context['sourcePins']);verify_pins(context['dependencyPins'])
     control_child('carrier-export-controls',['/usr/bin/python3',str(HERE/'validate-ci-preparation.py'),'--output',str(HERE/'metadata-controls')],60)
+    source_shapes=source_shape_controls(context)
     result=control_child('linux-controls',['/usr/bin/python3',str(HERE/'controls.py'),'--suite=linux-port','--all'],240)
     # Never stream diagnostic output. Each actual-source control independently
     # scans its synthetic marker before writing the bounded per-case records.
@@ -115,15 +117,55 @@ def qualify(args):
     if not complete:control_failure_witness('linux-controls',result,'CONTROL_RECEIPTS');raise RuntimeError('CONTROL_RECEIPTS')
     verify_pins(context['sourcePins']);verify_pins(context['dependencyPins'])
     require(not git(context['sourceRoot'],'status','--porcelain','--untracked-files=no'),'CONTROL_SOURCE_CHANGED')
-    qualification={'status':'PASS_LOCAL_CONTROLS_ONLY'if context['localControlOnly']else'PASS_64_NATIVE_LINUX_NO_SERVICE_CONTROLS','source':SOURCE_SHA,'nodeSha256':context['nodeSha256'],'platform':context['platform'],'sourcePins':context['sourcePins'],'cases':rows,'carrierExportControls':read(HERE/'metadata-controls/metadata-controls.json'),'actualServiceRequests':0}
+    qualification={'status':'PASS_LOCAL_CONTROLS_ONLY'if context['localControlOnly']else'PASS_64_NATIVE_LINUX_NO_SERVICE_CONTROLS','source':SOURCE_SHA,'nodeSha256':context['nodeSha256'],'platform':context['platform'],'sourcePins':context['sourcePins'],'cases':rows,'carrierExportControls':read(HERE/'metadata-controls/metadata-controls.json'),'sourceShapeControls':source_shapes,'actualServiceRequests':0}
     write(HERE/'qualification.json',qualification)
-    public=HERE/'public-evidence';public.mkdir(mode=0o700)
+    public=HERE/'public-evidence';public.mkdir(mode=0o700,exist_ok=True)
     write(public/'controls.json',qualification)
     if not context['localControlOnly']:
         binding(context['qaRoot'],context);build_policy(context)
         if args.github_output:
             with open(args.github_output,'a')as out:out.write('ready=true\n')
     print('All 64 controls passed; no real request. Local controls are not Linux or current-score acceptance.'if context['localControlOnly']else'All 64 native Linux controls passed; guarded actual step may use the separately bound allocation.')
+def source_shape_controls(context):
+    no_keys();marker='sb_secret_'+secrets.token_urlsafe(36);report=HERE/'source-shape-report.json'
+    argv=[context['node'],str(HERE/'validate-source-shapes.cjs'),'--source-root',context['sourceRoot'],'--report',str(report)]
+    try:result=subprocess.run(argv,env={**ENV,'NS_SOURCE_SHAPE_TEST_KEY':marker},capture_output=True,timeout=60)
+    except subprocess.TimeoutExpired as error:
+        control_failure_witness('source-shape-controls',error,'CHILD_TIMEOUT');raise RuntimeError('SOURCE_SHAPE_CONTROLS_FAILED')from None
+    scanner=load('credential-scan');scanner.selftest(marker)
+    require(not any(scanner.contains(b,marker)for b in [captured_bytes(result.stdout),captured_bytes(result.stderr),report.read_bytes()if report.exists()else b'']),'SOURCE_SHAPE_CONTROL_EXPORT_REFUSED')
+    if report.exists():
+        value=read(report)
+        for row in value.get('rejections',[]):validate_shape_diagnostics(row)
+        public=HERE/'public-evidence';public.mkdir(mode=0o700,exist_ok=True);write(public/'source-shape-controls.json',value)
+    if result.returncode!=0:control_failure_witness('source-shape-controls',result,'CHILD_EXIT');raise RuntimeError('SOURCE_SHAPE_CONTROLS_FAILED')
+    value=read(report);require(value.get('status')=='PASS'and value.get('checks')==26 and value.get('realServiceRequests')==0 and value.get('realKeys')==0,'SOURCE_SHAPE_CONTROL_RECEIPTS')
+    return value
+def validate_shape_diagnostics(record):
+    """A new diagnostic is fixed enums, schema indices and bounded counts only."""
+    if not isinstance(record,dict):return
+    if 'shapeFailure'in record or 'shapeFailures'in record:
+        schema=read(HERE/'public-fixture-shape.json');paths=sorted(schema['paths']);limit=schema['maxNodes']
+        def descriptor(value,count=False):
+            require(isinstance(value,dict),'SHAPE_DIAGNOSTIC')
+            reason=value.get('reason');field='parentIndex'if reason=='UNKNOWN_PATH'else'pathIndex'
+            require(reason in ['UNKNOWN_PATH','TYPE_NOT_ALLOWED','NON_FINITE_NUMBER']and set(value)=={'reason',field,'actualType'}|({'count'}if count else set()),'SHAPE_DIAGNOSTIC')
+            index=value[field];kind=value['actualType']
+            require(type(index)is int and 0<=index<len(paths)and kind in ['null','array','object','number','string','boolean'],'SHAPE_DIAGNOSTIC')
+            if reason=='UNKNOWN_PATH':require(any(k in schema['paths'][paths[index]]for k in ['object','array']),'SHAPE_DIAGNOSTIC')
+            if reason=='NON_FINITE_NUMBER':require(kind=='number'and kind in schema['paths'][paths[index]],'SHAPE_DIAGNOSTIC')
+            if reason=='TYPE_NOT_ALLOWED':require(kind not in schema['paths'][paths[index]],'SHAPE_DIAGNOSTIC')
+            if count:require(type(value['count'])is int and 1<=value['count']<=limit,'SHAPE_DIAGNOSTIC')
+        require(record.get('error',record.get('code'))=='POST_GUARD_FIXTURE_SHAPE','SHAPE_DIAGNOSTIC')
+        descriptor(record.get('shapeFailure'));summary=record.get('shapeFailures')
+        require(isinstance(summary,dict)and set(summary)=={'descriptors','totalRefusals','overflowCount','knownScanComplete'},'SHAPE_DIAGNOSTIC')
+        rows=summary['descriptors'];total=summary['totalRefusals'];overflow=summary['overflowCount']
+        require(isinstance(rows,list)and 1<=len(rows)<=16 and type(total)is int and 1<=total<=limit and type(overflow)is int and 0<=overflow<total and type(summary['knownScanComplete'])is bool,'SHAPE_DIAGNOSTIC')
+        for row in rows:descriptor(row,True)
+        signatures=[{k:v for k,v in row.items()if k!='count'}for row in rows]
+        require(signatures[0]==record['shapeFailure']and len({json.dumps(v,sort_keys=True)for v in signatures})==len(rows)and sum(v['count']for v in rows)+overflow==total,'SHAPE_DIAGNOSTIC')
+    if isinstance(record.get('pages'),list):
+        for page in record['pages']:validate_shape_diagnostics(page)
 def build_policy(context):
     profile=read(HERE/'profile.json');source=pathlib.Path(context['sourceRoot']);supervisor=load('supervisor');run=HERE/'actual-run-one'
     require(not run.exists(),'ACTUAL_ATTEMPT_ALREADY_STARTED')
@@ -149,7 +191,9 @@ def export_public(p,result,keys):
     require(isinstance(changed,list)and all(isinstance(f,str)and str(source/f)in generated for f in changed),'GENERATED_EXPORT_SCOPE')
     candidates=list(run.rglob('*'))+[source/f for f in changed]
     for f in candidates:
-        if f.is_file():require(not f.is_symlink()and f.stat().st_size<=33554432 and safe(f.read_bytes()),'INDEPENDENT_SECRET_SCAN')
+        if f.is_file():
+            require(not f.is_symlink()and f.stat().st_size<=33554432 and safe(f.read_bytes()),'INDEPENDENT_SECRET_SCAN')
+            if f.name=='first-error.json'or re.fullmatch(r'(?:page-\d+|transport-\d+)\.json',f.name):validate_shape_diagnostics(read(f))
     require(safe(result.stdout.encode())and safe(result.stderr.encode()),'INDEPENDENT_DIAGNOSTIC_SCAN')
     inventory={}
     def copy(file,name):
@@ -176,7 +220,7 @@ def export_public(p,result,keys):
 def actual(args):
     context=read(HERE/'runtime-context.json');require(not context['localControlOnly']and platform.system()=='Linux'and context['platform']['platform']=='linux','LINUX_QUALIFICATION_REQUIRED')
     binding(context['qaRoot'],context);qualification=read(HERE/'qualification.json')
-    require(qualification['status']=='PASS_64_NATIVE_LINUX_NO_SERVICE_CONTROLS','QUALIFICATION_REQUIRED');verify_pins(context['sourcePins']);verify_pins(context['dependencyPins'])
+    require(qualification['status']=='PASS_64_NATIVE_LINUX_NO_SERVICE_CONTROLS'and qualification.get('sourceShapeControls',{}).get('status')=='PASS','QUALIFICATION_REQUIRED');verify_pins(context['sourcePins']);verify_pins(context['dependencyPins'])
     p=read(HERE/'actual-policy.json');require(not pathlib.Path(p['runDir']).exists(),'ACTUAL_ATTEMPT_ALREADY_STARTED')
     keys=[os.environ[k]for k in KEYS if os.environ.get(k)];require(keys,'EXISTING_REPOSITORY_KEY_REQUIRED')
     key=next(k for k in KEYS if os.environ.get(k));environment={**ENV,key:os.environ[key]}

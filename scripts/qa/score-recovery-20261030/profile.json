@@ -1,5 +1,17 @@
 {
   "baseGitSha": "59b25031f621924fa13a670c369de4b3821f4706",
+  "baselineReviewedHelperSha256": {
+    "control-boundary.cjs": "6eb1709e0b3226bcd5d2f95804df204d907894a1f78ca3b9c3957b3ceb54d18d",
+    "control-projection.cjs": "d28705d1d3cfbd9fa76c32b330b63ac16e2163ef461db854c64cbce8e2f70483",
+    "controls.py": "1c04258d10bff67069497cdc9c40a2b3b30bb1777385f9d56b70f7cf2f56abb9",
+    "credential-scan.py": "029515b81eb7a9e74eea84755c417a437b21a159078f7ad4652b472ad3de7ce5",
+    "guard.cjs": "d49ca3802bdb94dcf22a8bc470a46d83ffc2ee3dcfc52f09d0df4fb25e4d3d53",
+    "protocol.cjs": "9fb3296b6c338ec05d829f339d396bb825e244e8696a2e2729743aae19a5421c",
+    "public-fixture-shape.json": "1bfa3ad91f1bc22a7cf016b39a699aa180175ee725689b63d063898a6d2cff94",
+    "supervisor-control.py": "2bdbe5512e76def1724c74f1867d229a1ae404059dbfa43203e6551f993db8c6",
+    "supervisor.py": "a9f5e9ce9ba660dbc97e4dadc0121052ba84f7ceaa03ba40929647eea50e5fa4",
+    "transport.cjs": "10e441bdad26f43ec35abc46043d4341ed4cc83ba6c5e4949d24cac446431c1c"
+  },
   "childArgvs": [
     [
       "scripts/quick-results.js",
@@ -106,6 +118,61 @@
     "node_modules/terser/package.json": "8ae3bc0348bd24b1abffe3305e1273db20a9b41590b0a96f370f80a74037970f",
     "node_modules/terser/tools/domprops.js": "014bf279ca57603f7d5df9182f08cf3bb46a3d84c7536fd70363cf4f9cac833d"
   },
+  "diagnosticContract": {
+    "actualOffendingField": "UNKNOWN; no invalid raw body retained",
+    "carrierBeforeSha": "e944cc4895b90b208fb034553ef76a87aedafd1f",
+    "descriptor": {
+      "actualTypes": [
+        "null",
+        "array",
+        "object",
+        "number",
+        "string",
+        "boolean"
+      ],
+      "indexMeaning": "zero-based sorted immutable schema.paths; nearest approved parent for unknown keys",
+      "invalidBodyCaptured": false,
+      "maximumDescriptors": 16,
+      "overflowMeaning": "unretained refusal occurrences, not unique count",
+      "reasons": [
+        "UNKNOWN_PATH",
+        "TYPE_NOT_ALLOWED",
+        "NON_FINITE_NUMBER"
+      ],
+      "summaryFields": [
+        "descriptors",
+        "totalRefusals",
+        "overflowCount",
+        "knownScanComplete"
+      ],
+      "unknownSubtreesTraversed": false
+    },
+    "priorFailedRun": 41042752714,
+    "qualification": {
+      "constructedSourceShapeControls": 26,
+      "newMetadataControls": 3,
+      "newNativeLinuxAndActualAttempt": "PENDING; ROOT allocation only",
+      "retainedMetadataControls": 30,
+      "retainedNativeLinuxControls": 64
+    },
+    "schemaBaselineSha256": "1bfa3ad91f1bc22a7cf016b39a699aa180175ee725689b63d063898a6d2cff94",
+    "typedAddition": {
+      "keys": [
+        "status",
+        "reason",
+        "observedAt"
+      ],
+      "path": ".pauseObservation",
+      "reason": "Exact existing public writer; not attributed to prior live failure",
+      "types": [
+        "string",
+        "string",
+        "string"
+      ],
+      "writer": "lib/fixture-pause-observations.js",
+      "writerSha256": "5103f04309a04905f2ae2c5d83c19abc939055809a58cc5afe60f57820166e83"
+    }
+  },
   "entryArgv": [
     "scripts/update-cards.js",
     "--quick",
@@ -156,12 +223,12 @@
     "control-projection.cjs": "d28705d1d3cfbd9fa76c32b330b63ac16e2163ef461db854c64cbce8e2f70483",
     "controls.py": "1c04258d10bff67069497cdc9c40a2b3b30bb1777385f9d56b70f7cf2f56abb9",
     "credential-scan.py": "029515b81eb7a9e74eea84755c417a437b21a159078f7ad4652b472ad3de7ce5",
-    "guard.cjs": "d49ca3802bdb94dcf22a8bc470a46d83ffc2ee3dcfc52f09d0df4fb25e4d3d53",
-    "protocol.cjs": "9fb3296b6c338ec05d829f339d396bb825e244e8696a2e2729743aae19a5421c",
-    "public-fixture-shape.json": "1bfa3ad91f1bc22a7cf016b39a699aa180175ee725689b63d063898a6d2cff94",
+    "guard.cjs": "b130d47ac17c1f364e58ab916e6b99bdfd8de8162981ae9f0655b08a75b7e00b",
+    "protocol.cjs": "63d7053f167312c5bb1ce571746ea0c2c18afac2f38ed31b5850b44e1a07c017",
+    "public-fixture-shape.json": "2e8d81ba40bdd6a63c638a33017c15ba8b42166229ae58637505936754d80f7f",
     "supervisor-control.py": "2bdbe5512e76def1724c74f1867d229a1ae404059dbfa43203e6551f993db8c6",
     "supervisor.py": "a9f5e9ce9ba660dbc97e4dadc0121052ba84f7ceaa03ba40929647eea50e5fa4",
-    "transport.cjs": "10e441bdad26f43ec35abc46043d4341ed4cc83ba6c5e4949d24cac446431c1c"
+    "transport.cjs": "a9197aad34e30b4f30ebb0f5ce697636bf720e8947be682e447746a5a01a276e"
   },
   "reviewedLocalPolicySha256": "7f260954f30e6d5826f6dcbf532941a9c81cf65ad5a5c93ec7bef031bf6361f1",
   "rollbackHashes": {
@@ -1960,7 +2027,8 @@
     "scripts/verify-result-completeness.js": "aff0e508751a669bc80a2aaa472c1e7150aa27f0e4cd95aa825c013b2c636108",
     "scripts/verify-selected-feed-public.js": "6b94d427770ef6156358afa5cd695ae0fd137a2c6f569502c3bbe7e28b1f7d4b",
     "scripts/version-generated-shell.js": "64207d558a67b09e4f7600c988c2bc2b26880e58f0965c4ed830990611170a1e",
-    "scripts/weekend-editorial.js": "bdd2fbb01c16e668330c5d25881971eb4bf85cb83cce26e061fd22075b90a1f3"
+    "scripts/weekend-editorial.js": "bdd2fbb01c16e668330c5d25881971eb4bf85cb83cce26e061fd22075b90a1f3",
+    "supabase/migrations/20261002171936_preserve_compact_fixture_observations.sql": "d1ae51682a58b74c9069f1308937c75c53a26825556cd9e4ee6a3ebba18ecab0"
   },
   "wholeSeconds": 180,
   "writeCaps": {
