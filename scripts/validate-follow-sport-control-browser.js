@@ -35,7 +35,7 @@ if (process.argv.includes('--preflight')) {
     document.addEventListener('wheel', event => {
       globalThis.qaFollowDocumentWheel = { trusted: event.isTrusted, targetMain: event.target === main, mainConnected: main.isConnected,
         clientX: event.clientX, clientY: event.clientY, deltaX: event.deltaX, deltaY: event.deltaY, deltaMode: event.deltaMode, defaultPrevented: event.defaultPrevented };
-    }, { passive: false });
+    }, { passive: true, once: true });
     return { ...point, rootMaxScroll: root.scrollHeight - root.clientHeight, target: 'MAIN#mainContent' };
   }
   const choiceSnapshot = page => page.evaluate(() => JSON.stringify({
@@ -53,7 +53,29 @@ if (process.argv.includes('--preflight')) {
     assert.equal(await label.count(), 1, 'Exactly one selected-sport Follow control');
     assert(await label.isVisible(), 'Follow remains visible while the sports menu is collapsed');
     assert(await label.locator('input').isEnabled());
-    assert(await label.evaluate(element => element.getBoundingClientRect().height >= 44), 'The native label has a44px touch target');
+    assert(await label.evaluate(function followLabelHasTouchTarget(element) {
+      const rect = element.getBoundingClientRect();
+      if (rect.height >= 44) return true;
+      // Failure only: retain the exact measured node before a later remount.
+      try {
+        const describe = (node, measuredRect) => {
+          if (!node) return null;
+          const box = measuredRect || node.getBoundingClientRect(), style = getComputedStyle(node);
+          return { connected: node.isConnected, hidden: Boolean(node.hidden), inert: Boolean(node.inert),
+            hiddenAncestor: Boolean(node.closest('[hidden]')), current: node === document.querySelector('.follow-sport-control'),
+            rect: Object.fromEntries(['x', 'y', 'width', 'height', 'top', 'right', 'bottom', 'left'].map(key => [key, box[key]])),
+            style: Object.fromEntries(['display', 'visibility', 'min-height', 'height', 'max-height', 'box-sizing', 'font-family', 'font-size', 'line-height', 'padding-top', 'padding-bottom', 'border-top-width', 'border-bottom-width', 'transform', 'zoom', 'content-visibility'].map(key => [key, style.getPropertyValue(key)])) };
+        };
+        const current = document.querySelector('.follow-sport-control');
+        globalThis.qaFollowLabelFailure = { measuredHeight: rect.height,
+          measured: describe(element, rect), current: describe(current, current === element ? rect : null),
+          sameNode: current === element, currentCount: document.querySelectorAll('.follow-sport-control').length,
+          fontStatus: document.fonts?.status ?? null };
+      } catch (_) {
+        try { globalThis.qaFollowLabelFailure = { measuredHeight: rect.height, captureError: true }; } catch (_) {}
+      }
+      return false;
+    }), 'The native label has a44px touch target');
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), 'No horizontal overflow');
     return label;
   }
@@ -146,7 +168,7 @@ if (process.argv.includes('--preflight')) {
                 state: null, screenshot: null, captureErrors: [] };
               try {
                 capture.state = await bounded(page.evaluate(() => {
-                  const selectors = ['html', 'body', '#mainContent', '#listView', 'header.top', '.tabs', '.follow-home-tabs', '.follow-navigation', '.follow-navigation-toggle', '#follow-navigation-controls', '.follow-section-panel', '.follow-schedule-panel', '#settingsModal', '#tuneSheet', '#startupLaunch'];
+                  const selectors = ['html', 'body', '#mainContent', '#listView', 'header.top', '.tabs', '.follow-home-tabs', '.follow-navigation', '.follow-navigation-toggle', '.follow-sport-control', '.follow-sport-control input', '#follow-navigation-controls', '.follow-section-panel', '.follow-schedule-panel', '#settingsModal', '#tuneSheet', '#startupLaunch'];
                   const describe = element => {
                     if (!element || element.nodeType !== 1) return null;
                     const r = element.getBoundingClientRect(), style = getComputedStyle(element);
@@ -155,13 +177,14 @@ if (process.argv.includes('--preflight')) {
                       rect: Object.fromEntries(['x', 'y', 'width', 'height', 'top', 'right', 'bottom', 'left'].map(key => [key, r[key]])),
                       scrollTop: element.scrollTop, scrollHeight: element.scrollHeight, clientHeight: element.clientHeight,
                       maxScrollTop: Math.max(0, element.scrollHeight - element.clientHeight),
-                      style: Object.fromEntries(['display', 'visibility', 'overflow-x', 'overflow-y', 'overscroll-behavior-y', 'touch-action', 'scroll-padding-top', 'scroll-padding-bottom', 'position', 'z-index', 'pointer-events', 'transform'].map(key => [key, style.getPropertyValue(key)])) };
+                      style: Object.fromEntries(['display', 'visibility', 'overflow-x', 'overflow-y', 'overscroll-behavior-y', 'touch-action', 'scroll-padding-top', 'scroll-padding-bottom', 'position', 'z-index', 'pointer-events', 'transform', 'min-height', 'height', 'max-height', 'box-sizing', 'font-family', 'font-size', 'line-height', 'zoom', 'content-visibility'].map(key => [key, style.getPropertyValue(key)])) };
                   };
                   const wheel = globalThis.qaFollowDocumentWheel ?? null, viewport = globalThis.visualViewport;
                   return { shellVersion: document.querySelector('meta[name="app-shell-version"]')?.content ?? null,
                     hasFocus: document.hasFocus(), visibilityState: document.visibilityState,
                     activeElement: document.activeElement ? { tag: document.activeElement.tagName, alias: selectors.find(selector => document.activeElement.matches(selector)) || null } : null,
                     wheelRecorderPresent: Object.hasOwn(globalThis, 'qaFollowDocumentWheel'), wheel,
+                    failedLabelMeasurement: globalThis.qaFollowLabelFailure ?? null,
                     scrollY, scrollX, innerWidth, innerHeight, scrollingElement: describe(document.scrollingElement),
                     visualViewport: viewport ? Object.fromEntries(['width', 'height', 'offsetTop', 'offsetLeft', 'pageTop', 'pageLeft', 'scale'].map(key => [key, viewport[key]])) : null,
                     navigationExpanded: document.querySelector('.follow-navigation-toggle')?.getAttribute('aria-expanded') ?? null,
