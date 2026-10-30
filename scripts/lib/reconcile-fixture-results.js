@@ -11,6 +11,15 @@ function instant(value,now,id){if(!text(value)||!Number.isFinite(Date.parse(valu
 function url(value){try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password;}catch{return false;}}
 const typedOfficialResult=f=>['score','outcomeText','recapText'].every(key=>text(f[key]))&&url(f.resultSourceUrl);
 const rawRugbyResult=f=>identity.sportKey(f)==='rugby'&&!typedOfficialResult(f);
+function resultObservations(fixture,now){
+ const score=Object.hasOwn(fixture,'scoreFactObservedAt')?fixture.scoreFactObservedAt:Object.hasOwn(fixture,'scoreCheckedAt')?fixture.scoreCheckedAt:fixture.resultSourceCheckedAt;
+ const status=Object.hasOwn(fixture,'statusFactObservedAt')?fixture.statusFactObservedAt:fixture.statusCheckedAt;
+ const result=Object.hasOwn(fixture,'resultSourceCheckedAt')?fixture.resultSourceCheckedAt:score;
+ const start=Date.parse(fixture.startTimeUtc),valid=value=>text(value)&&Number.isFinite(Date.parse(value))&&Date.parse(value)>=start&&Date.parse(value)<=+now;
+ const checked=Date.parse(fixture.sourceCheckedAt||fixture.canonicalSourceCheckedAt);
+ if(!Number.isFinite(start)||![score,status,result].every(valid)||fixture.firstConfirmedCompleteAt!=null&&!valid(fixture.firstConfirmedCompleteAt)||!Number.isFinite(checked)||checked>+now+5*60000)return null;
+ return {score,status,result};
+}
 function rugbyResult(fixture,now){
  const unavailable=reason=>({unavailable:reason});
  let source;try{source=new URL(fixture.sourceUrl);}catch{}
@@ -22,20 +31,24 @@ function rugbyResult(fixture,now){
  if(![fixture.homeScore,fixture.awayScore].every(score=>Number.isSafeInteger(score)&&score>=0))return unavailable('World Rugby numeric score incomplete');
  const score=`${fixture.homeScore}–${fixture.awayScore}`;
  if(fixture.scoreDisplay!=null&&fixture.scoreDisplay!==score||fixture.score!=null&&fixture.score!==score)return unavailable('World Rugby score display conflicts with numeric sides');
- const observed=Object.hasOwn(fixture,'scoreFactObservedAt')?fixture.scoreFactObservedAt:fixture.resultSourceCheckedAt??fixture.scoreCheckedAt;
- const statusObserved=Object.hasOwn(fixture,'statusFactObservedAt')?fixture.statusFactObservedAt:fixture.statusCheckedAt;
- const start=Date.parse(fixture.startTimeUtc),valid=value=>text(value)&&Number.isFinite(Date.parse(value))&&Date.parse(value)>=start&&Date.parse(value)<=+now;
- if(!Number.isFinite(start)||!valid(observed)||!valid(statusObserved)||fixture.firstConfirmedCompleteAt!=null&&!valid(fixture.firstConfirmedCompleteAt)||!text(fixture.sourceCheckedAt)||!Number.isFinite(Date.parse(fixture.sourceCheckedAt))||Date.parse(fixture.sourceCheckedAt)>+now)return unavailable('World Rugby original result/status observations incomplete');
- return {score,homeScore:fixture.homeScore,awayScore:fixture.awayScore,outcomeText:score,recapText:`World Rugby reports: ${score}.`,resultSourceName:'World Rugby',resultSourceType:'official',resultSourceUrl:source.href,resultSourceCheckedAt:observed,scoreCheckedAt:observed,statusCheckedAt:statusObserved};
+ const observed=resultObservations(fixture,now);
+ if(!observed)return unavailable('World Rugby original result/status observations incomplete');
+ return {score,homeScore:fixture.homeScore,awayScore:fixture.awayScore,outcomeText:score,recapText:`World Rugby reports: ${score}.`,resultSourceName:'World Rugby',resultSourceType:'official',resultSourceUrl:source.href,resultSourceCheckedAt:observed.result,scoreCheckedAt:observed.score,statusCheckedAt:observed.status};
 }
-function resultFor(fixture,now){
+function resultFor(fixture,now,{strictSourceEvidence=false}={}){
  if(rawRugbyResult(fixture))return rugbyResult(fixture,now);
  const ca=fixture.key==='cricket'&&fixture.sourceType==='official'&&fixture.sourceName==='Cricket Australia';
  if(ca){
+  const reject=message=>{if(strictSourceEvidence)return {unavailable:message};fail(fixture.id,message);};
   let source;try{source=new URL(fixture.officialScorecardUrl||fixture.sourceUrl);}catch{}
-  if(!source||!['www.cricket.com.au','apiv2.cricket.com.au'].includes(source.hostname)||!url(source.href))fail(fixture.id,'missing official Cricket result source');
-  if(source.hostname==='www.cricket.com.au'&&!/^\/matches\/CA(?::|%3A)\d+(?:\/|$)/i.test(source.pathname)||source.hostname==='apiv2.cricket.com.au'&&!/^\/web\/(?:fixtures\/yearfilter|views\/scorecard)$/.test(source.pathname))fail(fixture.id,'unsupported official Cricket result source');
-  if(!text(fixture.scoreDisplay))fail(fixture.id,'missing verified result text');
+  if(!source||!['www.cricket.com.au','apiv2.cricket.com.au'].includes(source.hostname)||!url(source.href))return reject('missing official Cricket result source');
+  if(source.hostname==='www.cricket.com.au'&&!/^\/matches\/CA(?::|%3A)\d+(?:\/|$)/i.test(source.pathname)||source.hostname==='apiv2.cricket.com.au'&&!/^\/web\/(?:fixtures\/yearfilter|views\/scorecard)$/.test(source.pathname))return reject('unsupported official Cricket result source');
+  if(!text(fixture.scoreDisplay))return reject('missing verified result text');
+  if(strictSourceEvidence){
+   const observed=resultObservations(fixture,now);
+   if(!observed)return reject('Cricket original result/status observations incomplete');
+   return {score:fixture.scoreDisplay,outcomeText:fixture.scoreDisplay,recapText:`Cricket Australia reports: ${fixture.scoreDisplay.replace(/\.$/,'')}.`,resultSourceName:fixture.sourceName,resultSourceType:'official',resultSourceUrl:source.href,resultSourceCheckedAt:observed.result,scoreCheckedAt:observed.score,statusCheckedAt:observed.status};
+  }
   instant(fixture.sourceCheckedAt,now,fixture.id);
   const observed=instant(fixture.scoreFactObservedAt||fixture.resultSourceCheckedAt||fixture.scoreCheckedAt||fixture.sourceCheckedAt,now,fixture.id);
   if(!Number.isFinite(Date.parse(fixture.startTimeUtc))||Date.parse(observed)<Date.parse(fixture.startTimeUtc))fail(fixture.id,'result observed before sporting start');
@@ -43,10 +56,29 @@ function resultFor(fixture,now){
  }
  if(!/^official(?:-|$)/.test(fixture.resultSourceType||fixture.sourceType||''))return null;
  if(!['score','outcomeText','recapText'].every(key=>text(fixture[key]))||!url(fixture.resultSourceUrl))return null;
+ if(strictSourceEvidence){
+  const observed=resultObservations(fixture,now);
+  if(!observed)return {unavailable:'Original result/status observations incomplete'};
+  return {...Object.fromEntries(['score','outcomeText','recapText','resultSourceName','resultSourceType','resultSourceUrl'].filter(key=>fixture[key]!=null).map(key=>[key,fixture[key]])),resultSourceCheckedAt:observed.result,scoreCheckedAt:observed.score,statusCheckedAt:observed.status};
+ }
  const observed=instant(fixture.resultSourceCheckedAt,now,fixture.id);
  return Object.fromEntries(['score','outcomeText','recapText','resultSourceName','resultSourceType','resultSourceUrl'].filter(key=>fixture[key]!=null).map(key=>[key,fixture[key]]).concat([['resultSourceCheckedAt',observed],['scoreCheckedAt',observed],['statusCheckedAt',instant(fixture.statusCheckedAt||observed,now,fixture.id)]]));
 }
-function reconcile(events,fixtures,{aliasRecords=[],now=new Date()}={}){
+function assertRetainedCoverage(base,fixture,result){
+ const participants=f=>(f.participantIds||[]).map(identity.canonicalParticipantId).sort();
+ if(participants(base).length===2&&JSON.stringify(participants(base))!==JSON.stringify(participants(fixture)))fail(fixture.id,'result conflicts with retained coverage participants');
+ const start=Date.parse(base.startTimeUtc);
+ if(Number.isFinite(start)&&start!==Date.parse(fixture.startTimeUtc))fail(fixture.id,'result conflicts with retained coverage start');
+ if(identity.sportKey(fixture)==='rugby'){
+  const sides=f=>[f.homeParticipantId||f.participantIds?.[0],f.awayParticipantId||f.participantIds?.[1]].map(identity.canonicalParticipantId);
+  if(sides(base).every(Boolean)&&JSON.stringify(sides(base))!==JSON.stringify(sides(fixture)))fail(fixture.id,'result conflicts with retained coverage sides');
+ }
+ if(base.status!=='completed')return;
+ for(const key of ['homeScore','awayScore'])if(Number.isSafeInteger(base[key])&&result[key]!=null&&base[key]!==result[key])fail(fixture.id,'result conflicts with retained coverage score');
+ const prior=typeof base.score==='string'?base.score:base.scoreDisplay;
+ if(text(prior)&&meaning(prior)!==meaning(result.score))fail(fixture.id,'result conflicts with retained coverage final');
+}
+function reconcile(events,fixtures,{aliasRecords=[],now=new Date(),strictSourceEvidence=false}={}){
  if(!Number.isFinite(+now))throw Error('Invalid result reconciliation time');
  // Recorded IDs establish equivalence. Participant/time checks validate an
  // established match; they never discover or admit one.
@@ -63,14 +95,14 @@ function reconcile(events,fixtures,{aliasRecords=[],now=new Date()}={}){
   if(!matching.length)return event;
   const complete=event.status==='completed'&&['score','outcomeText','recapText','sourceName','sourceUrl','sourceCheckedAt'].every(key=>Boolean(event[key]));
   // Existing other-sport owners retain their specialised score formats.
-  const candidates=matching.filter(f=>f.key==='cricket'||rawRugbyResult(f)||!complete).map(f=>({fixture:f,result:resultFor(f,now)}));
+  const candidates=matching.filter(f=>f.key==='cricket'||rawRugbyResult(f)||!complete).map(f=>({fixture:f,result:resultFor(f,now,{strictSourceEvidence})}));
   for(const {fixture,result}of candidates)if(result?.unavailable||!result&&!complete)deferred.push({id:event.id,fixtureId:fixture.id,reason:result?.unavailable||'Unsupported official result evidence'});
   const supported=candidates.filter(row=>row.result&&!row.result.unavailable);
-  if(!supported.length){if(!complete&&event.key==='cricket')fail(event.id,'matched final lacks supported official evidence');return event;}
+  if(!supported.length){if(!strictSourceEvidence&&!complete&&event.key==='cricket')fail(event.id,'matched final lacks supported official evidence');return event;}
   for(const {fixture,result}of supported){
    const participants=f=>(f.participantIds||[]).map(identity.canonicalParticipantId).sort();
    if(participants(event).length<2||JSON.stringify(participants(event))!==JSON.stringify(participants(fixture))||!Number.isFinite(Date.parse(event.startTimeUtc))||Date.parse(event.startTimeUtc)!==Date.parse(fixture.startTimeUtc))fail(event.id,'recorded alias conflicts with participants or start');
-   if(rawRugbyResult(fixture)){
+   if(rawRugbyResult(fixture)||strictSourceEvidence&&identity.sportKey(fixture)==='rugby'){
     const sides=f=>[f.homeParticipantId||f.participantIds?.[0],f.awayParticipantId||f.participantIds?.[1]].map(identity.canonicalParticipantId);
     if(JSON.stringify(sides(event))!==JSON.stringify(sides(fixture)))fail(event.id,'verified Rugby result conflicts with retained sides');
    }
@@ -88,16 +120,16 @@ function reconcile(events,fixtures,{aliasRecords=[],now=new Date()}={}){
  });
  return {events:next,changed,deferred};
 }
-function reconcileFiles({root=ROOT,fixtures,aliasRecords,now=new Date()}={}){
+function reconcileFiles({root=ROOT,fixtures,aliasRecords,now=new Date(),strictSourceEvidence=false}={}){
  const read=file=>JSON.parse(fs.readFileSync(path.join(root,file),'utf8'));
  fixtures ||= read('data/follow-sources/coverage.v1.json').events;
  if(!aliasRecords){const directory=path.join(root,'data/code-inspector');aliasRecords=fs.readdirSync(directory).filter(name=>name.endsWith('.json')).flatMap(name=>read('data/code-inspector/'+name).fixtures||[]);}
  const updates=['feeds/incoming/events.json','data/events.json'].map(file=>{
-  const filename=path.join(root,file),before=fs.readFileSync(filename),document=JSON.parse(before),result=reconcile(document.events,fixtures,{aliasRecords,now});
+  const filename=path.join(root,file),before=fs.readFileSync(filename),document=JSON.parse(before),result=reconcile(document.events,fixtures,{aliasRecords,now,strictSourceEvidence});
   return {filename,before,result,document};
  });
  try{for(const update of updates)if(update.result.changed.length)fs.writeFileSync(update.filename,JSON.stringify({...update.document,events:update.result.events},null,2)+'\n');}
  catch(error){for(const update of updates)fs.writeFileSync(update.filename,update.before);throw error;}
  return {changed:[...new Set(updates.flatMap(update=>update.result.changed))],surfaces:updates.filter(update=>update.result.changed.length).map(update=>path.relative(root,update.filename)),deferred:[...new Map(updates.flatMap(update=>update.result.deferred).map(row=>[JSON.stringify(row),row])).values()]};
 }
-module.exports={reconcile,reconcileFiles,rawRugbyResult,rugbyResult};
+module.exports={reconcile,reconcileFiles,resultFor,assertRetainedCoverage,rawRugbyResult,rugbyResult};

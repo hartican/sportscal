@@ -4,6 +4,7 @@
 // controlled. No canonical CLI, network, database or native child is executed.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),os=require('node:os');
 const ROOT=path.resolve(__dirname,'..'),AT='2026-10-14T03:00:00.000Z';
+const ASSETS=['assets/js/app-shell-runtime.js','assets/js/calendar-sync-ui.js',...Object.keys(require('./build-deferred-sports-ui').modules)];
 const original={...Object.fromEntries(['readFileSync','existsSync','readdirSync','openSync','closeSync','fstatSync','readSync'].map(k=>[k,fs[k]])),Date:global.Date};
 const receipt=JSON.parse(original.readFileSync(path.join(__dirname,'fixtures/refresh-cricket-result-20261016.json')));
 const other={id:'unrelated-epl',key:'premier-league',status:'completed',score:'2–1',sourceCheckedAt:'2026-10-01T06:00:00Z',selectedSentence:'Retained reviewed writing',unknown:{keep:true}};
@@ -16,13 +17,13 @@ function reset(){
   ['feeds/incoming/events.json',JSON.stringify({events:[receipt.card,other]})],
   ['data/follow-sources/coverage.v1.json',JSON.stringify({events:[],participants:[],competitions:[],sources:[]})],
   ['data/code-inspector/cricket.json',JSON.stringify({fixtures:receipt.aliasRecords})],
-  ['assets/js/app-shell-runtime.js','retained-runtime'],
+  ...ASSETS.map(file=>[file,'retained-'+file]),
  ].map(([p,b])=>[path.join(ROOT,p),Buffer.from(b)]));
  children=[];calls=[];pages=[[{source_id:'cricket-ca-current',fixture_id:receipt.result.id,fixture:structuredClone(receipt.result)}]];failedChild=null;fds=new Map();sequence=0;
 }
 fs.readFileSync=function(p,encoding){const b=files?.get(resolve(p));return b?(typeof encoding==='string'?b.toString(encoding):Buffer.from(b)):original.readFileSync.apply(this,arguments);};
-fs.writeFileSync=(p,b)=>{p=resolve(p);assert(p.startsWith(ROOT+'/data/')||p.startsWith(ROOT+'/feeds/')||p===ROOT+'/assets/js/app-shell-runtime.js'||p.startsWith('/tmp/ns-live-noio/'),'Unexpected write '+p);files.set(p,Buffer.from(b));};
-fs.existsSync=p=>files?.has(resolve(p))||original.existsSync(p);
+fs.writeFileSync=(p,b)=>{p=resolve(p);assert(p.startsWith(ROOT+'/data/')||p.startsWith(ROOT+'/feeds/')||ASSETS.some(f=>p===ROOT+'/'+f)||p.startsWith('/tmp/ns-live-noio/'),'Unexpected write '+p);files.set(p,Buffer.from(b));};
+fs.existsSync=p=>ASSETS.some(f=>resolve(p)===ROOT+'/'+f)?files.has(resolve(p)):files?.has(resolve(p))||original.existsSync(p);
 fs.readdirSync=(p,options)=>{p=resolve(p);if(p===ROOT+'/data'||p.startsWith(ROOT+'/data/')||p===ROOT+'/feeds'||p.startsWith(ROOT+'/feeds/')){const names=[...new Set([...files.keys()].filter(f=>f.startsWith(p+'/')).map(f=>f.slice(p.length+1).split('/')[0]))];return options?.withFileTypes?names.map(name=>({name,isDirectory:()=>[...files.keys()].some(f=>f.startsWith(p+'/'+name+'/'))})):names;}return original.readdirSync(p,options);};
 fs.unlinkSync=p=>{assert(files.delete(resolve(p)));};
 fs.mkdirSync=p=>{assert(resolve(p).startsWith('/tmp/ns-live-noio'));};
@@ -33,7 +34,7 @@ fs.fstatSync=fd=>fds.has(fd)?{size:files.get(fds.get(fd)).length}:original.fstat
 fs.readSync=(fd,...args)=>fds.has(fd)?0:original.readSync(fd,...args);
 fs.closeSync=fd=>{if(fds.has(fd))fds.delete(fd);else original.closeSync(fd);};
 fs.rmSync=p=>{p=resolve(p);assert(p.startsWith('/tmp/ns-live-noio/'));for(const file of files.keys())if(file===p||file.startsWith(p+'/'))files.delete(file);};
-cp.spawnSync=(_command,args)=>{assert(!/refresh-|redeploy|settle-|update-cards/.test(args[0]),'Unexpected source/publisher child '+args[0]);children.push(args);if(failedChild===args[0]){files.set(ROOT+'/assets/js/app-shell-runtime.js',Buffer.from('rejected-runtime'));files.set(ROOT+'/data/new-candidate.json',Buffer.from('{}'));return{status:1};}return{status:0};};
+cp.spawnSync=(_command,args)=>{assert(!/refresh-|redeploy|settle-|update-cards/.test(args[0]),'Unexpected source/publisher child '+args[0]);children.push(args);if(args[0]==='scripts/build-app-shell-runtime.js')for(const file of ASSETS)files.set(ROOT+'/'+file,Buffer.from('candidate-'+file));if(failedChild===args[0]){files.set(ROOT+'/data/new-candidate.json',Buffer.from('{}'));return{status:1};}return{status:0};};
 for(const name of ['spawn','exec','execSync','execFile','execFileSync','fork'])cp[name]=()=>assert.fail('Unexpected native child');
 for(const name of ['http','https','net','tls'])for(const key of ['get','request','connect','createConnection'])if(require('node:'+name)[key])require('node:'+name)[key]=()=>assert.fail('Unexpected native network');
 process.env.SUPABASE_URL='https://public-fixture-test.invalid';process.env.SUPABASE_SERVICE_ROLE_KEY='constructed-test-key';delete process.env.SUPABASE_SECRET_KEY;delete process.env.SUPABASE_MAINTENANCE_MODE;
@@ -101,7 +102,6 @@ async function run(){
   ['wrong fixture key',()=>{pages[0][0].fixture_id='wrong';}],
   ['wrong sport',()=>{pages[0][0].fixture.key='football';}],
   ['missing observation',()=>{delete pages[0][0].fixture.sourceCheckedAt;}],
-  ['missing matched Cricket evidence',()=>{pages[0][0].fixture.scoreDisplay='';}],
   ['conflicting recorded participants',()=>{pages[0][0].fixture.participantIds=['team:cricket:england','team:cricket:australia'];}],
   ['conflicting retained final',()=>{const d=document('data/events.json');d.events[0]={...d.events[0],status:'completed',score:'Different official result',outcomeText:'Different official result',recapText:'An existing accepted final.'};put('data/events.json',d);}],
  ])await check(name+' preserves the entire candidate',async()=>{edit();const before=snapshot();await assert.rejects(()=>quick.atomicRefresh({source:'live-coverage',now:new Date(AT)}));restored(before);assert.equal(children.length,0);});
@@ -144,6 +144,7 @@ async function run(){
   ['unofficial source',f=>{f.sourceType='unverified';}],
   ['unrecognised provider name',f=>{f.sourceName='Unknown reporter';}],
   ['wrong official endpoint',f=>{f.sourceUrl='https://example.com/rugby/v3/match';}],
+  ['typed tuple cannot bypass the allocated World Rugby source',f=>{f.sourceUrl='https://example.com/rugby/v3/match';f.score='0–0';f.outcomeText='0–0';f.recapText='Controlled result tuple';f.resultSourceUrl=f.sourceUrl;f.resultSourceCheckedAt=f.scoreFactObservedAt;}],
   ['wrong provider fixture ID',f=>{f.sourceFixtureId='22222222-2222-4222-8222-222222222222';}],
   ['unconfirmed terminal phase',f=>{f.sourceStatus='L';}],
   ['duplicate ordered sides',f=>{f.awayParticipantId=f.homeParticipantId;}],
@@ -182,6 +183,46 @@ async function run(){
  for(const variant of ['mru','wru','mrs','wrs'])await check('existing '+variant+' source variant retains its exact coverage and verified zero draw',async()=>{
   addRugby(f=>{f.sourceUrl=f.sourceUrl.replace('sport=mru','sport='+variant);f.gender=variant.startsWith('w')?'women':'men';f.discipline=variant.endsWith('rs')?'rugby-sevens':'rugby-union';});pages[0][1].source_id='discovery-rugby-'+variant;
   await quick.atomicRefresh({source:'live-coverage',now:new Date(AT)});const card=document('data/events.json').events.find(e=>e.id===rugby.id);assert.equal(card.score,'0–0');assert.equal(card.scoreCheckedAt,rugby.scoreFactObservedAt);
+ });
+ await check('missing Cricket result text defers that card beside independent verified Rugby',async()=>{
+  pages[0][0].fixture.scoreDisplay='';addRugby();
+  const report=await quick.atomicRefresh({source:'live-coverage',now:new Date(AT)});
+  assert.equal(document('data/events.json').events[0].status,'upcoming');assert.equal(document('data/events.json').events.find(e=>e.id===rugby.id).status,'completed');assert(report.deferredResults.some(r=>r.fixtureId===receipt.result.id));
+ });
+ await check('conflicting final retained only in Schedule still rolls back the entire candidate',async()=>{
+  addRugby(f=>{f.homeScore=1;f.scoreDisplay='1–0';f.scoreFactObservedAt='2026-10-14T02:30:00Z';f.sourceCheckedAt='2026-10-14T02:30:00Z';});
+  for(const file of ['data/events.json','feeds/incoming/events.json'])put(file,{events:document(file).events.filter(e=>e.id!==rugby.id)});
+  const coverage=document('data/follow-sources/coverage.v1.json');coverage.events.push(structuredClone(rugby));put('data/follow-sources/coverage.v1.json',coverage);
+  const before=snapshot();await assert.rejects(()=>quick.atomicRefresh({source:'live-coverage',now:new Date(AT)}),/conflict/);restored(before);assert.equal(children.length,0);
+ });
+ for(const key of ['scoreFactObservedAt','statusFactObservedAt'])await check('explicit unknown Cricket '+key+' cannot borrow a later poll',async()=>{
+  pages[0][0].fixture[key]=null;pages[0][0].fixture.sourceCheckedAt='2026-10-14T02:00:00Z';addRugby();
+  const report=await quick.atomicRefresh({source:'live-coverage',now:new Date(AT)});
+  assert.equal(document('data/events.json').events[0].status,'upcoming');assert.equal(document('data/events.json').events.find(e=>e.id===rugby.id).status,'completed');assert(report.deferredResults.some(r=>r.fixtureId===receipt.result.id));
+ });
+ await check('later required failure restores all eight generated assets and removes a newly created one',async()=>{
+  files.delete(ROOT+'/assets/js/calendar-sync-ui.js');const before=snapshot();failedChild='scripts/validate-current-card-coverage.js';
+  await assert.rejects(()=>quick.atomicRefresh({source:'live-coverage',now:new Date(AT)}),/failed/);restored(before);assert.equal(fds.size,0);
+ });
+ await check('Schedule-only recorded side reversal cannot replace accepted result identities',async()=>{
+  addRugby(f=>{f.participantIds.reverse();[f.homeParticipantId,f.awayParticipantId]=[f.awayParticipantId,f.homeParticipantId];});
+  for(const file of ['data/events.json','feeds/incoming/events.json'])put(file,{events:document(file).events.filter(e=>e.id!==rugby.id)});
+  const coverage=document('data/follow-sources/coverage.v1.json');coverage.events.push({...structuredClone(rugby),status:'scheduled'});put('data/follow-sources/coverage.v1.json',coverage);
+  const before=snapshot();await assert.rejects(()=>quick.atomicRefresh({source:'live-coverage',now:new Date(AT)}),/sides/);restored(before);
+ });
+ await check('Schedule-only reviewed canonical alias cannot hide a conflicting final',async()=>{
+  const uuid='e3cbae12-66b3-4835-b1ce-4014b63055c8',fixture={...structuredClone(rugby),id:'fixture:rugby:wr:'+uuid,sourceFixtureId:uuid,startTimeUtc:'2026-10-17T05:00:00Z',sourceCheckedAt:'2026-10-18T02:00:00Z',scoreFactObservedAt:'2026-10-18T01:00:00Z',statusFactObservedAt:'2026-10-18T00:00:00Z'};
+  pages=[[{source_id:'discovery-rugby-mru',fixture_id:fixture.id,fixture}]];
+  const base={...fixture,id:'rugby-australia-new-zealand-2026-10-17',homeScore:1,scoreDisplay:'1–0'};put('data/follow-sources/coverage.v1.json',{events:[base],participants:[],competitions:[],sources:[]});
+  const before=snapshot();await assert.rejects(()=>quick.atomicRefresh({source:'live-coverage',now:new Date('2026-10-18T03:00:00Z')}),/conflict/);restored(before);
+ });
+ await check('five-minute general observation tolerance never renews original Rugby fact clocks',async()=>{
+  addRugby(f=>{f.sourceCheckedAt='2026-10-14T03:05:00.000Z';});const report=await quick.atomicRefresh({source:'live-coverage',now:new Date(AT)});
+  assert.deepEqual(report.deferredResults,[]);const card=document('data/events.json').events.find(e=>e.id===rugby.id);assert.equal(card.status,'completed');assert.equal(card.scoreCheckedAt,rugby.scoreFactObservedAt);
+ });
+ await check('source phase metadata does not pretend an unchanged final is a new result',async()=>{
+  addRugby();pages[0].shift();const base=structuredClone(rugby);delete base.sourceStatus;put('data/follow-sources/coverage.v1.json',{events:[base],participants:[],competitions:[],sources:[]});
+  const report=await quick.atomicRefresh({source:'live-coverage',now:new Date(AT)});assert.deepEqual(report.liveCoverage.scoreChangedFixtureIds,[]);assert.deepEqual(report.liveCoverage.finalResultChangedFixtureIds,[]);assert(report.liveCoverage.statusChangedFixtureIds.includes(rugby.id));
  });
  console.log(JSON.stringify({checks:records.length,passed:records,networkAttempts:0,canonicalCliInvocations:0,nativeChildren:0}));
 }

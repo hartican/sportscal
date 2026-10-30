@@ -158,10 +158,10 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  if(source){
   if(source==='live-coverage'&&!offline){
    let liveCoverage;
-   try{liveCoverage=await require('./sync-live-coverage').sync({now,validateRugbyFinals:true});}
+   try{liveCoverage=await require('./sync-live-coverage').sync({now,strictSourceEvidence:true});}
    catch(error){writeQuickFailureReport({mode:'quick',source,changed:[],failures:[require('./lib/refresh-report').sanitise(error.message)],liveCoverage:error.liveCoverageReport,aiCalls:0});throw error;}
    const fixtures=read('data/follow-sources/coverage.v1.json').events.filter(f=>['cricket','rugby'].includes(require('../config/fixture-identity').sportKey(f)));
-   const reconciliation=require('./lib/reconcile-fixture-results').reconcileFiles({fixtures,now});
+   const reconciliation=require('./lib/reconcile-fixture-results').reconcileFiles({fixtures,now,strictSourceEvidence:true});
    const changes=liveCoverage.codes.map(code=>`Live coverage ${code}`);
    if(reconciliation.changed.length){
     const ids=new Set(reconciliation.changed);
@@ -344,7 +344,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
 }
 async function atomicRefresh(options,{refreshOperation=refresh}={}){
  const files=new Map();function collect(dir){for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const name=dir+'/'+entry.name;if(entry.isDirectory())collect(name);else if(/\.(json|js)$/.test(name))files.set(name,fs.readFileSync(name));}}
- const runtime='assets/js/app-shell-runtime.js',runtimeBefore=fs.existsSync(runtime)?fs.readFileSync(runtime):null;
+ const runtimeBefore=new Map(require('./build-app-shell-runtime').generatedFiles().map(file=>[file,fs.existsSync(file)?fs.readFileSync(file):null]));
  collect('data');collect('feeds');
  try{return await refreshOperation(options);}catch(error){
   // Restore the entire candidate before any fallible diagnostic IO. A broken
@@ -352,7 +352,7 @@ async function atomicRefresh(options,{refreshOperation=refresh}={}){
   const after=new Map(files);files.clear();collect('data');collect('feeds');
   for(const name of files.keys())if(!after.has(name))fs.unlinkSync(name);
   for(const [name,content] of after)fs.writeFileSync(name,content);
-  if(runtimeBefore)fs.writeFileSync(runtime,runtimeBefore);else if(fs.existsSync(runtime))fs.unlinkSync(runtime);
+  for(const [file,content]of runtimeBefore)if(content)fs.writeFileSync(file,content);else if(fs.existsSync(file))fs.unlinkSync(file);
   try{require('./lib/refresh-report').failure(error.message,error.refreshFailure);}
   catch(diagnosticError){console.warn(`::warning::Canonical failure report unavailable: ${require('./lib/refresh-report').sanitise(diagnosticError.message)}`);}
   if(process.env.QUICK_RESULTS_REPORT){
