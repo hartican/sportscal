@@ -179,7 +179,7 @@
   },
   "diagnosticContract": {
     "actualOffendingField": "UNKNOWN; no invalid raw body retained",
-    "carrierBeforeSha": "f890cb4be560134d0c9ff5185c25e1f2f1e8c560",
+    "carrierBeforeSha": "7b63fa91fa99b675d32e04688b76a286170ce328",
     "descriptor": {
       "actualTypes": [
         "null",
@@ -293,8 +293,8 @@
   "minimumSecondsBeforeLaunch": 160,
   "nodeVersion": "v24.21.0",
   "reviewedHelperSha256": {
-    "control-boundary.cjs": "a315b14c4c18ec91794b1a1f9c58aef5a158b5636bc0670a32a6828519f0f4cf",
-    "control-projection.cjs": "d28705d1d3cfbd9fa76c32b330b63ac16e2163ef461db854c64cbce8e2f70483",
+    "control-boundary.cjs": "5972fe49016d2b9017e4a1a6a17e8a5114fd1b4dca70620626bf1a6fb7140b69",
+    "control-projection.cjs": "fc3153601ea1d7b82a8515a5946fbdc471444415db87159889229977dd719979",
     "controls.py": "1c04258d10bff67069497cdc9c40a2b3b30bb1777385f9d56b70f7cf2f56abb9",
     "credential-scan.py": "029515b81eb7a9e74eea84755c417a437b21a159078f7ad4652b472ad3de7ce5",
     "guard.cjs": "9f337b852746f66f4e43e0f721bf3ee14308e8493f0c49a45956fe3d0065b96e",

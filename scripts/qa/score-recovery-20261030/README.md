@@ -73,7 +73,7 @@ No install or disk-floor change is performed locally.
 ## Exact next carrier
 
 ROOT creates inactive QA snapshot A as a child of existing carrier
-`f890cb4be560134d0c9ff5185c25e1f2f1e8c560`, then allocation-only carrier B as A's
+`7b63fa91fa99b675d32e04688b76a286170ce328`, then allocation-only carrier B as A's
 child. Event before must be that exact existing carrier; after, checkout and
 workflow SHA must agree. allocation.json remains UNALLOCATED with no nonce or
 window. ROOT alone may assign a new64-hex nonce and at most15-minute UTC window
@@ -93,3 +93,32 @@ The current source adds one captured receipt-backed Rugby appointment correction
 and honest changed-byte rollback. No schema, route, control or resource change
 is introduced by this source/lineage rebinding. Native qualification and the
 next actual attempt remain ROOT-only, unallocated and unspent.
+
+## Necessary rollback fault fixture — 31 October 2026
+
+Trial41062828921 stopped after54 default PASS receipts, before real keys or
+service use. The next declared case is interrupted-rollback; the exact hidden
+Linux assertion remains UNKNOWN. A local real-module/owned-IO model proves an
+independent stale control assumption: production correctly skips byte-identical
+restoration, while the old fault hook waited for an unchanged retained-only
+file to be rewritten. This model does not reproduce Linux timing or group kill.
+
+Only the owned interrupted-rollback publisher stand-in now dirties that exact
+rollback-only fixture before its existing deliberate exit. The fixed method
+requires owned-control mode, a distinct source checkout, the exact scenario,
+absence from ordinary writeFiles and matching original rollback hash. It
+accepts no path argument. The existing hook still truncates during necessary
+restoration and hangs for the unchanged native supervisor to terminate the
+group and restore the original bytes. This grants no application write and
+changes no assertion, control count, source, transport, schema or resource cap.
+All64 default and25 selected native obligations remain mandatory and pending
+fresh ROOT Linux qualification. The app source remains frozen1b9.
+
+validate-interrupted-rollback-fixture.cjs is a cheap local source/VM model only.
+It executes the actual projection branch and fault-preparation function with
+owned FS/exit boundaries and actual atomicRefresh. The interruption predicate
+is extracted from the real hook; a throwing probe replaces its infinite wait.
+It demonstrates old-source/old-control reachability, repaired-source/old-control
+non-reachability, repaired-source/changed-control reachability and five refused
+fault preparations. It never loads the guard preload or runs a supervisor,
+native child, hang, timer or live request. Passing it is not native qualification.

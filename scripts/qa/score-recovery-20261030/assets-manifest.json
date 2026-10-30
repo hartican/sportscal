@@ -1,15 +1,15 @@
 {
-  "carrierBeforeSha": "f890cb4be560134d0c9ff5185c25e1f2f1e8c560",
+  "carrierBeforeSha": "7b63fa91fa99b675d32e04688b76a286170ce328",
   "files": {
-    "README.md": "804615790f334a9a6b38b516f689bb98cebeb9b1d58d62e04a5fc0eb921368ef",
-    "ci.py": "d2555091add0e1647ed85f8c8913de276fb1d7a64bb76276e6c047f5b5390d09",
-    "control-boundary.cjs": "a315b14c4c18ec91794b1a1f9c58aef5a158b5636bc0670a32a6828519f0f4cf",
-    "control-projection.cjs": "d28705d1d3cfbd9fa76c32b330b63ac16e2163ef461db854c64cbce8e2f70483",
+    "README.md": "1c6014e17908685c23aa512c924946baf40d5d8297b8dd395039f383d764f055",
+    "ci.py": "d0231a02bcca4f0f5dcbd70bfcdb729a71978dfe952799aeee6460833bde6567",
+    "control-boundary.cjs": "5972fe49016d2b9017e4a1a6a17e8a5114fd1b4dca70620626bf1a6fb7140b69",
+    "control-projection.cjs": "fc3153601ea1d7b82a8515a5946fbdc471444415db87159889229977dd719979",
     "controls.py": "1c04258d10bff67069497cdc9c40a2b3b30bb1777385f9d56b70f7cf2f56abb9",
     "credential-scan.py": "029515b81eb7a9e74eea84755c417a437b21a159078f7ad4652b472ad3de7ce5",
     "guard.cjs": "9f337b852746f66f4e43e0f721bf3ee14308e8493f0c49a45956fe3d0065b96e",
     "prepare-control.py": "43ea71ceeba9083a3688d1d0dc5485f214c6bd792076fbd8e9e0e875d48dbdc9",
-    "profile.json": "e56bb7dfd051d959e14ed4f3a246ad259cb26641bb696da20f0554b6f1f8d22a",
+    "profile.json": "4223b3c012a63fbbaa3efa9d231521247deb4efb7ef0076c89dc4e6a3b6c03b7",
     "protocol.cjs": "4dfe777179abcb25dd727bfdbd8b565baf817ce3a94a6a5f0e750fb4a5a61d5e",
     "public-fixture-shape.baseline.json": "1bfa3ad91f1bc22a7cf016b39a699aa180175ee725689b63d063898a6d2cff94",
     "public-fixture-shape.json": "2e8d81ba40bdd6a63c638a33017c15ba8b42166229ae58637505936754d80f7f",
@@ -20,10 +20,11 @@
     "supervisor.py": "dfea34cff0040efb67e7252aa376497433c02f73674763026010f9504653a3b3",
     "transport.cjs": "73f1c0fa9ef3020bd6ca911064ff90dffd90f9aed38b6e81d135b958a0a1cdb8",
     "validate-ci-preparation.py": "b9615c683046f9e3be50d80027d6d3368c4b52b2063dcd29d01bbdecc6146f66",
+    "validate-interrupted-rollback-fixture.cjs": "80e394e8ca1c1b0328ea325bea53869f6a2b22175c3d9899796b674104391b9c",
     "validate-selected-policy.py": "5eb6ca5ad33e9a1acfa0e51e63e6170e6d522aaf77ef6362cb9c6aa677770a8f",
     "validate-selected-rugby.cjs": "941d994919194bcaaaeeff1d0f09352aef53f4a7b588581fb8dafdd5ee6398ff",
     "validate-source-shapes.cjs": "2c665507b352b11f66bac3352c26e61d9ca03c487680869a746eb06a428890a2"
   },
   "sourceGitSha": "1b9e50029d744a74b05566f23bb1253204a35dbb",
-  "workflowSha256": "500616ee0c6291459b8367735affb2f300fada6a5dffef7b8bdcd347548b5caa"
+  "workflowSha256": "bdb844f4cd9886e32477f55338e7839c08435a332d2bd856d4e8dbfb581a5a22"
 }

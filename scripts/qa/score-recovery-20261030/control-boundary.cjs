@@ -95,6 +95,14 @@ server.supabaseServiceRequest=function(url,options){
  if(caseName==='bad-header')options={...options,headers:{Authorization:'Bearer wrong'}};
  return request.call(this,url,options);
 };
-module.exports={mapPath:map,summary:()=>({...counts,streamsLocked:streams.filter(s=>s?.locked).length}),rawRead:native.read,
+function dirtyInterruptedRollback(){
+ // Owned fault injection only: the candidate must really differ before the
+ // existing interruption hook can exercise necessary rollback. Never grant an
+ // ordinary write to this rollback-only baseline or touch a source checkout.
+ const file=path.join(root,'data/retained-only.json'),baseline=p.rollbackHashes?.[file];
+ if(p.mode!=='owned-control'||p.root===p.sourceRoot||caseName!=='interrupted-rollback'||p.writeFiles.includes(file)||!baseline||!native.exists(file)||crypto.createHash('sha256').update(native.read(file)).digest('hex')!==baseline)throw Error('CONTROL_ROLLBACK_FIXTURE_REQUIRED');
+ native.write(file,'controlled dirty rollback-only baseline\n');
+}
+module.exports={dirtyInterruptedRollback,mapPath:map,summary:()=>({...counts,streamsLocked:streams.filter(s=>s?.locked).length}),rawRead:native.read,
  corruptCapture:()=>{if(caseName==='late-capture-corruption')native.write(path.join(p.runDir,'page-00.raw'),'controlled integrity fault\n');},
 };
