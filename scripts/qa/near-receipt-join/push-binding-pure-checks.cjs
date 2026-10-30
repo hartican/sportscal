@@ -1,0 +1,11 @@
+'use strict';
+const assert=require('node:assert/strict'),{ROOT,validateEvent,assertPushBinding}=require('./push-binding.cjs');
+const expected={...ROOT,nonce:'a'.repeat(32)},env={GITHUB_ACTIONS:'true',GITHUB_EVENT_NAME:'push',GITHUB_RUN_ATTEMPT:'1',GITHUB_REPOSITORY:'hartican/sportscal',GITHUB_REPOSITORY_OWNER:'hartican',GITHUB_REF:ROOT.ref,GITHUB_REF_TYPE:'branch',GITHUB_REF_NAME:'codex/near-receipt-native-20261030-2',GITHUB_WORKFLOW_REF:ROOT.repository+'/'+ROOT.workflow+'@'+ROOT.ref,GITHUB_SHA:'b'.repeat(40),GITHUB_WORKFLOW_SHA:'b'.repeat(40),NEAR_ALLOCATION:'receipt-join-native-pg17-pg18-once',NEAR_NONCE:expected.nonce,NEAR_PACKET_SHA:'c'.repeat(40),NEAR_PACKET_MANIFEST_SHA256:'d'.repeat(64)};
+const event={ref:ROOT.ref,repository:{full_name:ROOT.repository,owner:{login:'hartican'},fork:false},created:true,before:'0'.repeat(40),deleted:false,forced:false,after:env.GITHUB_SHA,head_commit:{id:env.GITHUB_SHA}};
+assert.equal(validateEvent(env,event,expected).event,'push');let refused=0;
+for(const patch of [{GITHUB_EVENT_NAME:'workflow_dispatch'},{GITHUB_REPOSITORY:'other/sportscal'},{GITHUB_REF:'refs/heads/main'},{GITHUB_REF_TYPE:'tag'},{GITHUB_RUN_ATTEMPT:'2'},{NEAR_NONCE:'f'.repeat(32)},{NEAR_PACKET_SHA:'main'},{NEAR_PACKET_SHA:env.GITHUB_SHA},{GITHUB_WORKFLOW_SHA:'e'.repeat(40)},{GITHUB_WORKFLOW_REF:'other'},{NEAR_PACKET_MANIFEST_SHA256:'moving'}]){assert.throws(()=>validateEvent({...env,...patch},event,expected));refused++;}
+for(const patch of [{created:false},{before:'a'.repeat(40)},{deleted:true},{forced:true},{after:'e'.repeat(40)},{head_commit:{id:'e'.repeat(40)}},{ref:'refs/heads/main'},{repository:{full_name:ROOT.repository,owner:{login:'hartican'},fork:true}}]){assert.throws(()=>validateEvent(env,{...event,...patch},expected));refused++;}
+assert.throws(()=>assertPushBinding(env),/Unbound ROOT nonce/);refused++;
+const oldRef='refs/heads/codex/near-receipt-native-20261030',oldWorkflow='hartican/sportscal/.github/workflows/near-receipt-native-20261030.yml@'+oldRef;
+assert.throws(()=>validateEvent({...env,GITHUB_REF:oldRef,GITHUB_REF_NAME:'codex/near-receipt-native-20261030',GITHUB_WORKFLOW_REF:oldWorkflow},{...event,ref:oldRef},expected));refused++;
+console.log(JSON.stringify({state:'PURE_BINDING_MODEL_ONLY',positive:1,refusals:refused,fileOrGitReads:0,nativeOrSQLCalls:0,CIOrPush:0,usesExampleNonceOnlyInPureModel:true}));
