@@ -357,15 +357,19 @@ async function atomicRefresh(options,{refreshOperation=refresh}={}){
  try{return await refreshOperation(options);}catch(error){
   // Restore the entire candidate before any fallible diagnostic IO. A broken
   // report must neither skip rollback nor replace the original refresh error.
-  const after=new Map(files);files.clear();collect('data');collect('feeds');
-  for(const name of files.keys())if(!after.has(name))fs.unlinkSync(name);
-  for(const [name,content] of after)fs.writeFileSync(name,content);
-  for(const [file,content]of runtimeBefore)if(content)fs.writeFileSync(file,content);else if(fs.existsSync(file))fs.unlinkSync(file);
+  const rollbackErrors=[],restore=operation=>{try{operation();}catch(rollbackError){rollbackErrors.push(require('./lib/refresh-report').sanitise(rollbackError.message));}};
+  const after=new Map(files);files.clear();restore(()=>{collect('data');collect('feeds');});
+  for(const name of files.keys())if(!after.has(name))restore(()=>fs.unlinkSync(name));
+  // The snapshot includes retained files outside the mutation allowlist. Skip
+  // identical bytes; attempt every necessary restoration before diagnostics.
+  for(const [name,content] of after)restore(()=>{if(!fs.existsSync(name)||!fs.readFileSync(name).equals(content))fs.writeFileSync(name,content);});
+  for(const [file,content]of runtimeBefore)restore(()=>{if(content){if(!fs.existsSync(file)||!fs.readFileSync(file).equals(content))fs.writeFileSync(file,content);}else if(fs.existsSync(file))fs.unlinkSync(file);});
+  error.refreshRollback={status:rollbackErrors.length?'failed':'restored',failures:rollbackErrors};
   try{require('./lib/refresh-report').failure(error.message,error.refreshFailure);}
   catch(diagnosticError){console.warn(`::warning::Canonical failure report unavailable: ${require('./lib/refresh-report').sanitise(diagnosticError.message)}`);}
   if(process.env.QUICK_RESULTS_REPORT){
    let report={mode:'quick',aiCalls:0};try{report=read(process.env.QUICK_RESULTS_REPORT);}catch{}
-   writeQuickFailureReport({...report,publicationState:'blocked-rolled-back',blockingError:error.message});
+   writeQuickFailureReport({...report,publicationState:rollbackErrors.length?'blocked-rollback-failed':'blocked-rolled-back',blockingError:error.message,rollback:error.refreshRollback});
   }
   throw error;
  }

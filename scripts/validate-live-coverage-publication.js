@@ -56,7 +56,7 @@ const prior={events:[base],sources:[{id:'discovery-rugby-mru',checkedAt:base.sou
   console.log(JSON.stringify({mode:'read-only-live-validation',...proof.report}));
  }
  if(!process.argv.includes('--live-read')){
-  for(const script of ['validate-live-coverage-scoped-refresh.js','validate-rugby-scoped-publication.js']){
+  for(const script of ['validate-live-coverage-scoped-refresh.js','validate-rugby-scoped-publication.js','validate-refresh-rollback-write-scope.js','validate-rugby-reviewed-start.js']){
    const result=require('node:child_process').spawnSync(process.execPath,[path.join(__dirname,script)],{encoding:'utf8'});
    assert.equal(result.status,0,result.stderr||result.error?.message||'Scoped shared coverage regression failed');
    console.log(result.stdout.trim());

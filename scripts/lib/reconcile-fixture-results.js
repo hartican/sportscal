@@ -67,7 +67,8 @@ function resultFor(fixture,now,{strictSourceEvidence=false}={}){
 function assertRetainedCoverage(base,fixture,result){
  const participants=f=>(f.participantIds||[]).map(identity.canonicalParticipantId).sort();
  if(participants(base).length===2&&JSON.stringify(participants(base))!==JSON.stringify(participants(fixture)))fail(fixture.id,'result conflicts with retained coverage participants');
- const start=Date.parse(base.startTimeUtc);
+ const reviewed=identity.sportKey(fixture)==='rugby'?require('./accepted-rugby-calendar').apply(base,fixture):base;
+ const start=Date.parse(reviewed.startTimeUtc);
  if(Number.isFinite(start)&&start!==Date.parse(fixture.startTimeUtc))fail(fixture.id,'result conflicts with retained coverage start');
  if(identity.sportKey(fixture)==='rugby'){
   const sides=f=>[f.homeParticipantId||f.participantIds?.[0],f.awayParticipantId||f.participantIds?.[1]].map(identity.canonicalParticipantId);

@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Retained refresh baselines need no unchanged writes — 31 October 2026
+
+The quick owner compares captured data/Feed and runtime bytes before restoring them. Restore changed or missing baseline files and remove newly created outputs, but never rewrite byte-identical retained files merely because they were snapshotted. This preserves the existing narrow write allowlist and original source refusal; it grants no extra mutation permission. A saved World Rugby final disagrees with its retained start by fifteen minutes; the exact reviewed-calendar receipt binds its old retained tuple, pre-match08:30 observation, completed08:30 result, ordered sides, provider identity and original score/status clocks. Only that tuple can validate the15-minute correction; other starts, identities, observations and score contradictions remain strict. Captured history stays in the receipt, no result clock is refreshed, and unrelated viewing/writing/user facts are untouched. Failed restoration is recorded explicitly while preserving the original source exception and attempting the remaining restorations. The offline publication gate covers the actual owner with protected unchanged files, changed data/Feed/runtime, absent outputs and failed diagnostics. Captured public evidence is a local reproduction, not a new read, resolved calendar or publication acceptance. All source, result, spoiler, rollback, resource and single-publisher rules remain unchanged.
+
 ## Independent saved Rugby publication — 30 October 2026
 
 The existing canonical quick shared-coverage route accepts one explicit
