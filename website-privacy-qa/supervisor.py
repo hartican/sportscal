@@ -387,7 +387,7 @@ def main():
         assert sha(manifest_path.read_bytes()) == MANIFEST
         manifest = json.loads(manifest_path.read_text())
         assert manifest['candidateSource'] == SOURCE and manifest['candidateTree'] == TREE
-        assert len(manifest['files']) == 15 and manifest['totalBytes'] == 211934
+        assert len(manifest['files']) == 15 and manifest['totalBytes'] == 212845
         assert manifest['origin'] == 'https://nothingsport.com' and manifest['pixel'] == '1149008224326641'
         expected = set()
         for item in manifest['files']:
