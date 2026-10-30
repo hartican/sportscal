@@ -75,6 +75,7 @@ function build(){
   return output;
 }
 const target = path.join(root,"assets/js/app-shell-runtime.js");
+function generatedFiles(){return ['assets/js/app-shell-runtime.js','assets/js/calendar-sync-ui.js',...Object.keys(require('./build-deferred-sports-ui').modules)];}
 if (require.main === module){
   require("./build-deferred-sports-ui").build({check:process.argv.includes("--check")});
   const optionalTarget=path.join(root,'assets/js/calendar-sync-ui.js');
@@ -87,4 +88,4 @@ if (require.main === module){
   } else { fs.mkdirSync(path.dirname(target),{recursive:true}); fs.writeFileSync(target,output); }
   console.log("App shell runtime: "+shellModules().length+" modules, "+Buffer.byteLength(output)+" bytes, one request.");
 }
-module.exports = {build,cardStandings,standingsSource,pinnedFixtureEditorial,pinnedFixtureEditorialSource};
+module.exports = {build,generatedFiles,cardStandings,standingsSource,pinnedFixtureEditorial,pinnedFixtureEditorialSource};

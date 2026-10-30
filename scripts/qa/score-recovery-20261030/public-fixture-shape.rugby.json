@@ -1,0 +1,1082 @@
+{
+  "basis": {
+    "data/code-inspector/cricket.json": "d96a1e655d4db0eaf02834c02b7c993e5fd3c4be6d72cee674c9ab1fc0c674ba",
+    "data/code-inspector/rugby-union.json": "ef4862f7d23026127e128077b2f8d8b83ffcb4e0f358db8edfbdffc9bb6f8b4a",
+    "data/follow-sources/coverage.v1.json": "53b0ec0d4b263accbd5b149396cc6be4d4fb5cf950119527ae9c66c2931ec0de"
+  },
+  "maxDepth": 16,
+  "maxNodes": 250000,
+  "maxStringBytes": 262144,
+  "observationContract": "lib/compact-fixture-observations.js: public score/status observation fields; no health/private report maps",
+  "paths": {
+    "": [
+      "object"
+    ],
+    ".awayParticipantId": [
+      "string"
+    ],
+    ".awayScore": [
+      "number",
+      "string"
+    ],
+    ".broadcastOptions": [
+      "array"
+    ],
+    ".broadcastOptions[]": [
+      "string"
+    ],
+    ".broadcastSourceUrl": [
+      "string"
+    ],
+    ".broadcaster": [
+      "null",
+      "string"
+    ],
+    ".broadcasterIds": [
+      "array"
+    ],
+    ".broadcasterIds[]": [
+      "string"
+    ],
+    ".broadcasts": [
+      "array"
+    ],
+    ".calendarNote": [
+      "object"
+    ],
+    ".calendarNote.identityStatus": [
+      "string"
+    ],
+    ".calendarNote.observationBasis": [
+      "string"
+    ],
+    ".calendarNote.observedAt": [
+      "string"
+    ],
+    ".calendarNote.reviewId": [
+      "string"
+    ],
+    ".calendarNote.sourceSha256": [
+      "string"
+    ],
+    ".calendarNote.sourceUrl": [
+      "string"
+    ],
+    ".calendarNote.state": [
+      "string"
+    ],
+    ".calendarProvenance": [
+      "object"
+    ],
+    ".calendarProvenance.basis": [
+      "string"
+    ],
+    ".calendarProvenance.checkedAt": [
+      "string"
+    ],
+    ".calendarProvenance.fields": [
+      "array"
+    ],
+    ".calendarProvenance.fields[]": [
+      "string"
+    ],
+    ".calendarProvenance.kind": [
+      "string"
+    ],
+    ".calendarProvenance.sourceCompetitionId": [
+      "string"
+    ],
+    ".calendarProvenance.sourceEventId": [
+      "string"
+    ],
+    ".calendarProvenance.sourceUrl": [
+      "string"
+    ],
+    ".canonicalEventId": [
+      "string"
+    ],
+    ".canonicalSourceCheckedAt": [
+      "null",
+      "string"
+    ],
+    ".cardKind": [
+      "string"
+    ],
+    ".codeId": [
+      "string"
+    ],
+    ".competitionId": [
+      "null",
+      "string"
+    ],
+    ".competitionName": [
+      "string"
+    ],
+    ".competitionProvenance": [
+      "object"
+    ],
+    ".competitionProvenance.checkedAt": [
+      "string"
+    ],
+    ".competitionProvenance.kind": [
+      "string"
+    ],
+    ".competitionProvenance.sourceEventId": [
+      "string"
+    ],
+    ".competitionProvenance.sourceUrl": [
+      "string"
+    ],
+    ".competitionScope": [
+      "null",
+      "string"
+    ],
+    ".consensusResult": [
+      "object"
+    ],
+    ".consensusResult.loser": [
+      "string"
+    ],
+    ".consensusResult.marginText": [
+      "string"
+    ],
+    ".consensusResult.summary": [
+      "string"
+    ],
+    ".consensusResult.winner": [
+      "string"
+    ],
+    ".consensusTags": [
+      "array"
+    ],
+    ".consensusTags[]": [
+      "object"
+    ],
+    ".consensusTags[].confidence": [
+      "number"
+    ],
+    ".consensusTags[].label": [
+      "string"
+    ],
+    ".consensusTags[].method": [
+      "string"
+    ],
+    ".consensusTags[].sourceUrls": [
+      "array"
+    ],
+    ".consensusTags[].sourceUrls[]": [
+      "string"
+    ],
+    ".cricketBalance": [
+      "string"
+    ],
+    ".cricketDetailAttemptedAt": [
+      "string"
+    ],
+    ".cricketPhaseCheckedAt": [
+      "string"
+    ],
+    ".cricketPhaseConfirmed": [
+      "boolean"
+    ],
+    ".date": [
+      "null",
+      "string"
+    ],
+    ".dateOnly": [
+      "boolean"
+    ],
+    ".dateStatus": [
+      "string"
+    ],
+    ".detailsExpectedAt": [
+      "null"
+    ],
+    ".discipline": [
+      "string"
+    ],
+    ".discoverySourceId": [
+      "string"
+    ],
+    ".displayDateLabel": [
+      "string"
+    ],
+    ".displayTitleCompact": [
+      "string"
+    ],
+    ".editionId": [
+      "string"
+    ],
+    ".editorialNarrative": [
+      "object"
+    ],
+    ".editorialNarrative.closingCopy": [
+      "string"
+    ],
+    ".editorialNarrative.dimensions": [
+      "array"
+    ],
+    ".editorialNarrative.dimensions[]": [
+      "string"
+    ],
+    ".editorialNarrative.factIds": [
+      "array"
+    ],
+    ".editorialNarrative.factIds[]": [
+      "string"
+    ],
+    ".editorialNarrative.formCopy": [
+      "string"
+    ],
+    ".editorialNarrative.generationMode": [
+      "string"
+    ],
+    ".editorialNarrative.hook": [
+      "string"
+    ],
+    ".editorialNarrative.hookSpoilerOn": [
+      "string"
+    ],
+    ".editorialNarrative.phase": [
+      "string"
+    ],
+    ".editorialNarrative.projectionId": [
+      "string"
+    ],
+    ".editorialNarrative.refreshAfter": [
+      "null",
+      "string"
+    ],
+    ".editorialNarrative.researchTier": [
+      "string"
+    ],
+    ".editorialNarrative.researchedAt": [
+      "string"
+    ],
+    ".editorialNarrative.resultResearchRequired": [
+      "boolean"
+    ],
+    ".editorialNarrative.resultSignature": [
+      "string"
+    ],
+    ".editorialNarrative.schemaVersion": [
+      "string"
+    ],
+    ".editorialNarrative.sourceIds": [
+      "array"
+    ],
+    ".editorialNarrative.sourceIds[]": [
+      "string"
+    ],
+    ".editorialNarrative.synopsis": [
+      "string"
+    ],
+    ".editorialNarrative.synopsisSpoilerOn": [
+      "string"
+    ],
+    ".editorialNarrative.threadIds": [
+      "array"
+    ],
+    ".editorialNarrative.threadIds[]": [
+      "string"
+    ],
+    ".editorialPreview": [
+      "object"
+    ],
+    ".editorialPreview.angle": [
+      "string"
+    ],
+    ".editorialPreview.contextSignals": [
+      "array"
+    ],
+    ".editorialPreview.contextSignals[]": [
+      "string"
+    ],
+    ".editorialPreview.needsPreviewRefresh": [
+      "boolean"
+    ],
+    ".editorialPreview.sourceCheckedAt": [
+      "string"
+    ],
+    ".editorialPreview.sourceName": [
+      "string"
+    ],
+    ".editorialPreview.sourceUrl": [
+      "string"
+    ],
+    ".editorialPreview.status": [
+      "string"
+    ],
+    ".endDate": [
+      "string"
+    ],
+    ".endTimeBasis": [
+      "string"
+    ],
+    ".endTimeUtc": [
+      "null",
+      "string"
+    ],
+    ".eventId": [
+      "string"
+    ],
+    ".expected": [
+      "null",
+      "number"
+    ],
+    ".firstConfirmedCompleteAt": [
+      "null",
+      "string"
+    ],
+    ".fixtureObservationSchema": [
+      "string"
+    ],
+    ".format": [
+      "null",
+      "string"
+    ],
+    ".fullSpiel": [
+      "string"
+    ],
+    ".gender": [
+      "string"
+    ],
+    ".groupOrder": [
+      "number"
+    ],
+    ".homeParticipantId": [
+      "string"
+    ],
+    ".homeScore": [
+      "number",
+      "string"
+    ],
+    ".id": [
+      "string"
+    ],
+    ".innings": [
+      "array"
+    ],
+    ".innings[]": [
+      "object"
+    ],
+    ".innings[].balls": [
+      "number"
+    ],
+    ".innings[].ballsRemaining": [
+      "number"
+    ],
+    ".innings[].batting": [
+      "array"
+    ],
+    ".innings[].battingTeamId": [
+      "number"
+    ],
+    ".innings[].batting[]": [
+      "object"
+    ],
+    ".innings[].batting[].balls": [
+      "number"
+    ],
+    ".innings[].batting[].bowledBy": [
+      "null",
+      "string"
+    ],
+    ".innings[].batting[].didNotBat": [
+      "boolean"
+    ],
+    ".innings[].batting[].dismissal": [
+      "string"
+    ],
+    ".innings[].batting[].dismissedBy": [
+      "null",
+      "string"
+    ],
+    ".innings[].batting[].fours": [
+      "null",
+      "number"
+    ],
+    ".innings[].batting[].name": [
+      "string"
+    ],
+    ".innings[].batting[].notOut": [
+      "boolean"
+    ],
+    ".innings[].batting[].playerId": [
+      "number"
+    ],
+    ".innings[].batting[].runs": [
+      "null",
+      "number"
+    ],
+    ".innings[].batting[].sixes": [
+      "null",
+      "number"
+    ],
+    ".innings[].batting[].strikeRate": [
+      "null",
+      "number"
+    ],
+    ".innings[].bowling": [
+      "array"
+    ],
+    ".innings[].bowlingTeamId": [
+      "number"
+    ],
+    ".innings[].bowling[]": [
+      "object"
+    ],
+    ".innings[].bowling[].economy": [
+      "number"
+    ],
+    ".innings[].bowling[].maidens": [
+      "number"
+    ],
+    ".innings[].bowling[].name": [
+      "string"
+    ],
+    ".innings[].bowling[].noBalls": [
+      "number"
+    ],
+    ".innings[].bowling[].overs": [
+      "string"
+    ],
+    ".innings[].bowling[].playerId": [
+      "number"
+    ],
+    ".innings[].bowling[].runs": [
+      "number"
+    ],
+    ".innings[].bowling[].wickets": [
+      "number"
+    ],
+    ".innings[].bowling[].wides": [
+      "number"
+    ],
+    ".innings[].byesRuns": [
+      "number"
+    ],
+    ".innings[].currentRunRate": [
+      "number"
+    ],
+    ".innings[].day": [
+      "number"
+    ],
+    ".innings[].detailCheckedAt": [
+      "string"
+    ],
+    ".innings[].detailSourceUrl": [
+      "string"
+    ],
+    ".innings[].detailStale": [
+      "boolean"
+    ],
+    ".innings[].duckworthLewisOvers": [
+      "string"
+    ],
+    ".innings[].extras": [
+      "object"
+    ],
+    ".innings[].extras.byes": [
+      "number"
+    ],
+    ".innings[].extras.legByes": [
+      "number"
+    ],
+    ".innings[].extras.noBalls": [
+      "number"
+    ],
+    ".innings[].extras.penalties": [
+      "number"
+    ],
+    ".innings[].extras.total": [
+      "number"
+    ],
+    ".innings[].extras.wides": [
+      "number"
+    ],
+    ".innings[].fallOfWickets": [
+      "array"
+    ],
+    ".innings[].fallOfWickets[]": [
+      "object"
+    ],
+    ".innings[].fallOfWickets[].name": [
+      "string"
+    ],
+    ".innings[].fallOfWickets[].overs": [
+      "string"
+    ],
+    ".innings[].fallOfWickets[].runs": [
+      "number"
+    ],
+    ".innings[].fallOfWickets[].wicket": [
+      "number"
+    ],
+    ".innings[].fixtureId": [
+      "number"
+    ],
+    ".innings[].id": [
+      "number"
+    ],
+    ".innings[].inningNumber": [
+      "number"
+    ],
+    ".innings[].isDeclared": [
+      "boolean"
+    ],
+    ".innings[].isFollowOn": [
+      "boolean"
+    ],
+    ".innings[].isForfeited": [
+      "boolean"
+    ],
+    ".innings[].legByesRuns": [
+      "number"
+    ],
+    ".innings[].noBalls": [
+      "number"
+    ],
+    ".innings[].numberOfWicketsFallen": [
+      "number"
+    ],
+    ".innings[].overnightRuns": [
+      "number"
+    ],
+    ".innings[].overnightWickets": [
+      "number"
+    ],
+    ".innings[].oversBowled": [
+      "string"
+    ],
+    ".innings[].participantId": [
+      "string"
+    ],
+    ".innings[].penalties": [
+      "number"
+    ],
+    ".innings[].requiredRunRate": [
+      "number"
+    ],
+    ".innings[].runsScored": [
+      "number"
+    ],
+    ".innings[].team": [
+      "string"
+    ],
+    ".innings[].totalExtras": [
+      "number"
+    ],
+    ".innings[].wideBalls": [
+      "number"
+    ],
+    ".isFinals": [
+      "boolean"
+    ],
+    ".isInternational": [
+      "boolean"
+    ],
+    ".isSenior": [
+      "boolean"
+    ],
+    ".key": [
+      "string"
+    ],
+    ".livePlayObservedAt": [
+      "null",
+      "string"
+    ],
+    ".matchDay": [
+      "number"
+    ],
+    ".matchDaySourceUrl": [
+      "string"
+    ],
+    ".matchFormat": [
+      "string"
+    ],
+    ".name": [
+      "string"
+    ],
+    ".narrativeType": [
+      "string"
+    ],
+    ".numberOfDays": [
+      "number"
+    ],
+    ".observationSchema": [
+      "string"
+    ],
+    ".officialScorecardUrl": [
+      "string"
+    ],
+    ".outcomeText": [
+      "string"
+    ],
+    ".participantCountryCodes": [
+      "array"
+    ],
+    ".participantCountryCodes[]": [
+      "string"
+    ],
+    ".participantIds": [
+      "array"
+    ],
+    ".participantIds[]": [
+      "string"
+    ],
+    ".participantSlots": [
+      "array"
+    ],
+    ".participantSlots[]": [
+      "object"
+    ],
+    ".participantSlots[].label": [
+      "string"
+    ],
+    ".participantSlots[].logoUrl": [
+      "null",
+      "string"
+    ],
+    ".participantSlots[].participantId": [
+      "null",
+      "string"
+    ],
+    ".participantSlots[].slot": [
+      "number"
+    ],
+    ".participants": [
+      "array"
+    ],
+    ".participantsConfirmed": [
+      "boolean"
+    ],
+    ".participants[]": [
+      "object"
+    ],
+    ".participants[].aliases": [
+      "array"
+    ],
+    ".participants[].aliases[]": [
+      "string"
+    ],
+    ".participants[].countryCode": [
+      "null",
+      "string"
+    ],
+    ".participants[].displayName": [
+      "string"
+    ],
+    ".participants[].genderCategory": [
+      "string"
+    ],
+    ".participants[].id": [
+      "string"
+    ],
+    ".participants[].name": [
+      "string"
+    ],
+    ".participants[].role": [
+      "string"
+    ],
+    ".participants[].sourceIds": [
+      "object"
+    ],
+    ".participants[].sourceIds.espn": [
+      "string"
+    ],
+    ".participants[].sourceIds.worldRugby": [
+      "string"
+    ],
+    ".participants[].teamKind": [
+      "string"
+    ],
+    ".pauseObservation": [
+      "null",
+      "object"
+    ],
+    ".pauseObservation.observedAt": [
+      "string"
+    ],
+    ".pauseObservation.reason": [
+      "string"
+    ],
+    ".pauseObservation.status": [
+      "string"
+    ],
+    ".playingFormat": [
+      "string"
+    ],
+    ".recapText": [
+      "string"
+    ],
+    ".representativeCountryCodes": [
+      "array"
+    ],
+    ".representativeCountryCodes[]": [
+      "string"
+    ],
+    ".restartSourceCheckedAt": [
+      "null"
+    ],
+    ".restartSourceUrl": [
+      "null"
+    ],
+    ".restartTimeUtc": [
+      "null"
+    ],
+    ".resultCoverage": [
+      "string"
+    ],
+    ".resultLabels": [
+      "array"
+    ],
+    ".resultLabels[]": [
+      "string"
+    ],
+    ".resultPublishedAt": [
+      "string"
+    ],
+    ".resultSourceCheckedAt": [
+      "null",
+      "string"
+    ],
+    ".resultSourceUrl": [
+      "string"
+    ],
+    ".resultStatus": [
+      "string"
+    ],
+    ".resultText": [
+      "string"
+    ],
+    ".round": [
+      "string"
+    ],
+    ".roundLabel": [
+      "null",
+      "string"
+    ],
+    ".roundNumber": [
+      "null"
+    ],
+    ".schedulePrecision": [
+      "string"
+    ],
+    ".scheduleStatus": [
+      "string"
+    ],
+    ".schedulingWindow": [
+      "null",
+      "object"
+    ],
+    ".schedulingWindow.endsOn": [
+      "string"
+    ],
+    ".schedulingWindow.startsOn": [
+      "string"
+    ],
+    ".schedulingWindow.timeZone": [
+      "string"
+    ],
+    ".score": [
+      "string"
+    ],
+    ".scoreCheckedAt": [
+      "null",
+      "string"
+    ],
+    ".scoreDisplay": [
+      "null",
+      "string"
+    ],
+    ".scoreFactObservedAt": [
+      "null",
+      "string"
+    ],
+    ".scoreObserved": [
+      "boolean"
+    ],
+    ".selectedSentence": [
+      "string"
+    ],
+    ".sourceCheckedAt": [
+      "string"
+    ],
+    ".sourceCoverage": [
+      "string"
+    ],
+    ".sourceEventIds": [
+      "array"
+    ],
+    ".sourceEventIds[]": [
+      "string"
+    ],
+    ".sourceFixtureId": [
+      "string"
+    ],
+    ".sourceName": [
+      "string"
+    ],
+    ".sourceRefs": [
+      "array"
+    ],
+    ".sourceRefs[]": [
+      "string"
+    ],
+    ".sourceStale": [
+      "boolean"
+    ],
+    ".sourceStatus": [
+      "string"
+    ],
+    ".sourceTime": [
+      "object"
+    ],
+    ".sourceTime.gmtOffset": [
+      "number"
+    ],
+    ".sourceTime.label": [
+      "string"
+    ],
+    ".sourceTime.millis": [
+      "number"
+    ],
+    ".sourceTrust": [
+      "string"
+    ],
+    ".sourceType": [
+      "string"
+    ],
+    ".sourceUrl": [
+      "string"
+    ],
+    ".sport": [
+      "string"
+    ],
+    ".sportDomainId": [
+      "string"
+    ],
+    ".stage": [
+      "null",
+      "string"
+    ],
+    ".stakesScore": [
+      "number"
+    ],
+    ".startTimeTbc": [
+      "boolean"
+    ],
+    ".startTimeUtc": [
+      "null",
+      "string"
+    ],
+    ".status": [
+      "string"
+    ],
+    ".statusCheckedAt": [
+      "null",
+      "string"
+    ],
+    ".statusFactObservedAt": [
+      "null",
+      "string"
+    ],
+    ".statusObserved": [
+      "boolean"
+    ],
+    ".statusSourceName": [
+      "string"
+    ],
+    ".statusSourceType": [
+      "string"
+    ],
+    ".statusSourceUrl": [
+      "string"
+    ],
+    ".statusText": [
+      "null",
+      "string"
+    ],
+    ".storyline": [
+      "object"
+    ],
+    ".storyline.arcStage": [
+      "string"
+    ],
+    ".storyline.archetype": [
+      "string"
+    ],
+    ".storyline.expectedSpectacle": [
+      "number"
+    ],
+    ".storyline.hookSpoilerOff": [
+      "string"
+    ],
+    ".storyline.hookSpoilerOn": [
+      "string"
+    ],
+    ".storyline.intensity": [
+      "number"
+    ],
+    ".storyline.intensitySource": [
+      "string"
+    ],
+    ".storyline.lastReviewedAt": [
+      "string"
+    ],
+    ".storyline.researchDepth": [
+      "number"
+    ],
+    ".storyline.stakes": [
+      "number"
+    ],
+    ".storyline.synopsisSpoilerOff": [
+      "string"
+    ],
+    ".storyline.synopsisSpoilerOn": [
+      "string"
+    ],
+    ".ticketUrl": [
+      "null"
+    ],
+    ".time": [
+      "null",
+      "string"
+    ],
+    ".timePrecision": [
+      "string"
+    ],
+    ".timeTbc": [
+      "boolean"
+    ],
+    ".timingProvenance": [
+      "object"
+    ],
+    ".timingProvenance.checkedAt": [
+      "string"
+    ],
+    ".timingProvenance.kind": [
+      "string"
+    ],
+    ".timingProvenance.northRank": [
+      "number"
+    ],
+    ".timingProvenance.observedAt": [
+      "string"
+    ],
+    ".timingProvenance.precision": [
+      "string"
+    ],
+    ".timingProvenance.publisherFixtureId": [
+      "number"
+    ],
+    ".timingProvenance.reviewId": [
+      "string"
+    ],
+    ".timingProvenance.sourceSha256": [
+      "string"
+    ],
+    ".timingProvenance.sourceUrl": [
+      "string"
+    ],
+    ".timingProvenance.southRank": [
+      "number"
+    ],
+    ".timingProvenance.worldRugbyMatchUrl": [
+      "string"
+    ],
+    ".venue": [
+      "null",
+      "string"
+    ],
+    ".venueProvenance": [
+      "object"
+    ],
+    ".venueProvenance.checkedAt": [
+      "string"
+    ],
+    ".venueProvenance.kind": [
+      "string"
+    ],
+    ".venueProvenance.sourceUrl": [
+      "string"
+    ],
+    ".viewingOptions": [
+      "array"
+    ],
+    ".viewingOptions[]": [
+      "object"
+    ],
+    ".viewingOptions[].accessType": [
+      "string"
+    ],
+    ".viewingOptions[].coverageWindow": [
+      "array"
+    ],
+    ".viewingOptions[].coverageWindow[]": [
+      "array",
+      "null",
+      "string"
+    ],
+    ".viewingOptions[].coverageWindow[][]": [
+      "null",
+      "string"
+    ],
+    ".viewingOptions[].linkScope": [
+      "string"
+    ],
+    ".viewingOptions[].liveOrReplay": [
+      "string"
+    ],
+    ".viewingOptions[].providerId": [
+      "string"
+    ],
+    ".viewingOptions[].reviewId": [
+      "string"
+    ],
+    ".viewingOptions[].rightsScope": [
+      "string"
+    ],
+    ".viewingOptions[].sourceUrl": [
+      "string"
+    ],
+    ".viewingOptions[].sportUrl": [
+      "string"
+    ],
+    ".viewingOptions[].territory": [
+      "string"
+    ],
+    ".viewingOptions[].verifiedAt": [
+      "string"
+    ],
+    ".viewingOptions[].webUrl": [
+      "string"
+    ],
+    ".winnerParticipantId": [
+      "string"
+    ]
+  },
+  "selectedScope": "rugby-union",
+  "sourceCommit": "3b1f6ceab669d3c643535ef303976742b14705eb",
+  "typedClockContract": {
+    "meaning": "explicit terminal null clears a prior witness; absence cannot invent one; original clocks retained; no unknown root-null admission",
+    "overlay": "supabase/migrations/20261002171936_preserve_compact_fixture_observations.sql:89-95",
+    "sourceGitSha": "3d3ec1af93cb261598e9f22db1d67b0ae402fd08",
+    "writer": "config/fixture-identity.js:248,265-266"
+  },
+  "typedContractAdditions": {
+    "pauseObservation": {
+      "evidence": "Actual writer and checked-in public RPC projection; not attributed to failed live response.",
+      "fields": [
+        "status",
+        "reason",
+        "observedAt"
+      ],
+      "sourceCommit": "3b1f6ceab669d3c643535ef303976742b14705eb",
+      "writer": "lib/fixture-pause-observations.js:29-31"
+    }
+  },
+  "unknownKeys": "refuse, never strip",
+  "version": "frozen-public-sporting-fixture-shape.v1"
+}
