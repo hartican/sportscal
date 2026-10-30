@@ -23,7 +23,9 @@ function project(previous,rows,{now=new Date(),strictSourceEvidence=false}={}){
  if(!Number.isFinite(+now))throw Error('Invalid live coverage clock');
  const updates=[],staleIds=new Set(),olderIds=new Set(),deferredResults=[];let stale=0,recent=0;
  const previousById=new Map(previous.events.flatMap(f=>[f.id,f.eventId,f.canonicalEventId,...(f.sourceEventIds||[])].filter(Boolean).map(id=>[id,f])));
- const aliases=f=>[f.id,f.eventId,f.canonicalEventId,...(f.sourceEventIds||[])].filter(Boolean).map(identity.canonicalFixtureId),retainedByAlias=new Map();
+ const evidence=strictSourceEvidence?require('./lib/reconcile-fixture-results'):null;
+ const groups=strictSourceEvidence?evidence.aliasGroups([...previous.events,...rows.flatMap(row=>row?.fixture&&typeof row.fixture==='object'&&!Array.isArray(row.fixture)?[row.fixture]:[])]):null;
+ const aliases=f=>[...new Set([f.id,f.eventId,f.canonicalEventId,...(f.sourceEventIds||[])].filter(Boolean).map(identity.canonicalFixtureId).flatMap(id=>[...(groups?.get(id)||[id])]))],retainedByAlias=new Map(),acceptedFinals=new Map();
  if(strictSourceEvidence)for(const f of previous.events)for(const id of aliases(f)){if(!retainedByAlias.has(id))retainedByAlias.set(id,new Set());retainedByAlias.get(id).add(f);}
  for(const row of rows){
   const f=row.fixture,code=f&&codeFor(f),checked=Date.parse(f?.sourceCheckedAt||f?.canonicalSourceCheckedAt);
@@ -35,11 +37,13 @@ function project(previous,rows,{now=new Date(),strictSourceEvidence=false}={}){
   const retained=strictSourceEvidence?[...new Set(aliases(f).flatMap(id=>[...(retainedByAlias.get(id)||[])]))]:[];
   const base=strictSourceEvidence?retained.sort((a,b)=>Date.parse(b.sourceCheckedAt||b.canonicalSourceCheckedAt)-Date.parse(a.sourceCheckedAt||a.canonicalSourceCheckedAt))[0]:previousById.get(f.id);
   if(base&&checked<Date.parse(base.sourceCheckedAt||base.canonicalSourceCheckedAt)){stale++;olderIds.add(f.id);continue;}
-  if(strictSourceEvidence&&(f.status==='completed'||f.sourceStatus==='C')){
-   const evidence=require('./lib/reconcile-fixture-results');
+  if(strictSourceEvidence&&(f.status==='completed'||code==='rugby-union'&&f.sourceStatus==='C')){
    const result=code==='rugby-union'?evidence.rugbyResult(f,now):evidence.resultFor(f,now,{strictSourceEvidence:true});
    if(!result||result.unavailable){deferredResults.push({fixtureId:f.id,reason:result?.unavailable||'Unsupported official result evidence'});continue;}
    for(const prior of retained)evidence.assertRetainedCoverage(prior,f,result);
+   const current=[...new Set(aliases(f).flatMap(id=>[...(acceptedFinals.get(id)||[])]))];
+   for(const prior of current)evidence.assertRetainedCoverage(prior,f,result);
+   for(const id of aliases(f)){if(!acceptedFinals.has(id))acceptedFinals.set(id,new Set());acceptedFinals.get(id).add(f);}
   }
   updates.push(f);
  }

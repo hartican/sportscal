@@ -224,6 +224,29 @@ async function run(){
   addRugby();pages[0].shift();const base=structuredClone(rugby);delete base.sourceStatus;put('data/follow-sources/coverage.v1.json',{events:[base],participants:[],competitions:[],sources:[]});
   const report=await quick.atomicRefresh({source:'live-coverage',now:new Date(AT)});assert.deepEqual(report.liveCoverage.scoreChangedFixtureIds,[]);assert.deepEqual(report.liveCoverage.finalResultChangedFixtureIds,[]);assert(report.liveCoverage.statusChangedFixtureIds.includes(rugby.id));
  });
+ await check('default unscoped reconciliation retains its prior raw Rugby behavior',async()=>{
+  addRugby();const card=document('data/events.json').events.find(e=>e.id===rugby.id);
+  const result=require('./lib/reconcile-fixture-results').reconcile([card],[rugby],{now:new Date(AT)});
+  assert.deepEqual(result.events,[card]);assert.deepEqual(result.changed,[]);
+ });
+ await check('two current sources cannot collapse conflicting Schedule-only finals',async()=>{
+  addRugby();for(const file of ['data/events.json','feeds/incoming/events.json'])put(file,{events:document(file).events.filter(e=>e.id!==rugby.id)});
+  const next=structuredClone(pages[0][1]);next.source_id='discovery-rugby-mru-near';next.fixture.homeScore=1;next.fixture.scoreDisplay='1–0';next.fixture.sourceCheckedAt='2026-10-14T02:30:00Z';next.fixture.scoreFactObservedAt='2026-10-14T02:30:00Z';pages[0].push(next);
+  const before=snapshot();await assert.rejects(()=>quick.atomicRefresh({source:'live-coverage',now:new Date(AT)}),/conflict/);restored(before);assert.equal(children.length,0);
+ });
+ for(const surface of ['Feed','Schedule-only'])await check('two current source rows cannot reverse ordered sides for '+surface,async()=>{
+  addRugby();if(surface==='Schedule-only')for(const file of ['data/events.json','feeds/incoming/events.json'])put(file,{events:document(file).events.filter(e=>e.id!==rugby.id)});
+  const next=structuredClone(pages[0][1]);next.source_id='discovery-rugby-mru-near';next.fixture.participantIds.reverse();[next.fixture.homeParticipantId,next.fixture.awayParticipantId]=[next.fixture.awayParticipantId,next.fixture.homeParticipantId];pages[0].push(next);
+  const before=snapshot();await assert.rejects(()=>quick.atomicRefresh({source:'live-coverage',now:new Date(AT)}),/sides/);restored(before);assert.equal(children.length,0);
+ });
+ await check('an older current-source poll cannot hide a conflicting verified final',async()=>{
+  addRugby();const next=structuredClone(pages[0][1]);next.source_id='discovery-rugby-mru-near';next.fixture.homeScore=1;next.fixture.scoreDisplay='1–0';next.fixture.sourceCheckedAt='2026-10-14T01:00:00Z';next.fixture.scoreFactObservedAt='2026-10-14T00:30:00Z';pages[0].push(next);
+  const before=snapshot();await assert.rejects(()=>quick.atomicRefresh({source:'live-coverage',now:new Date(AT)}),/conflict/);restored(before);
+ });
+ await check('identical new finals retain the selected source fact clock rather than publication time',async()=>{
+  addRugby();const next=structuredClone(pages[0][1]);next.source_id='discovery-rugby-mru-near';next.fixture.sourceCheckedAt='2026-10-14T02:30:00Z';next.fixture.scoreFactObservedAt='2026-10-14T02:30:00Z';pages[0].push(next);
+  await quick.atomicRefresh({source:'live-coverage',now:new Date(AT)});assert.equal(document('data/events.json').events.find(e=>e.id===rugby.id).scoreCheckedAt,'2026-10-14T02:30:00Z');
+ });
  console.log(JSON.stringify({checks:records.length,passed:records,networkAttempts:0,canonicalCliInvocations:0,nativeChildren:0}));
 }
 if(require.main===module)run().catch(error=>{console.error(error.stack);process.exitCode=1;});

@@ -36,7 +36,7 @@ function rugbyResult(fixture,now){
  return {score,homeScore:fixture.homeScore,awayScore:fixture.awayScore,outcomeText:score,recapText:`World Rugby reports: ${score}.`,resultSourceName:'World Rugby',resultSourceType:'official',resultSourceUrl:source.href,resultSourceCheckedAt:observed.result,scoreCheckedAt:observed.score,statusCheckedAt:observed.status};
 }
 function resultFor(fixture,now,{strictSourceEvidence=false}={}){
- if(rawRugbyResult(fixture))return rugbyResult(fixture,now);
+ if(strictSourceEvidence&&rawRugbyResult(fixture))return rugbyResult(fixture,now);
  const ca=fixture.key==='cricket'&&fixture.sourceType==='official'&&fixture.sourceName==='Cricket Australia';
  if(ca){
   const reject=message=>{if(strictSourceEvidence)return {unavailable:message};fail(fixture.id,message);};
@@ -78,15 +78,19 @@ function assertRetainedCoverage(base,fixture,result){
  const prior=typeof base.score==='string'?base.score:base.scoreDisplay;
  if(text(prior)&&meaning(prior)!==meaning(result.score))fail(fixture.id,'result conflicts with retained coverage final');
 }
+function aliasGroups(records){
+ const groups=new Map();
+ for(const record of records){
+  const ids=aliases(record),group=new Set(ids.flatMap(id=>[...(groups.get(id)||[id])]));
+  for(const id of group)groups.set(id,group);
+ }
+ return groups;
+}
 function reconcile(events,fixtures,{aliasRecords=[],now=new Date(),strictSourceEvidence=false}={}){
  if(!Number.isFinite(+now))throw Error('Invalid result reconciliation time');
  // Recorded IDs establish equivalence. Participant/time checks validate an
  // established match; they never discover or admit one.
- const groups=new Map();
- for(const record of [...aliasRecords,...events,...fixtures]){
-  const ids=aliases(record),group=new Set(ids.flatMap(id=>[...(groups.get(id)||[id])]));
-  for(const id of group)groups.set(id,group);
- }
+ const groups=aliasGroups([...aliasRecords,...events,...fixtures]);
  const changed=[],deferred=[];
  const next=events.map(event=>{
   if(event.cardKind==='event'||event.cardType==='tournament_overview')return event;
@@ -95,7 +99,7 @@ function reconcile(events,fixtures,{aliasRecords=[],now=new Date(),strictSourceE
   if(!matching.length)return event;
   const complete=event.status==='completed'&&['score','outcomeText','recapText','sourceName','sourceUrl','sourceCheckedAt'].every(key=>Boolean(event[key]));
   // Existing other-sport owners retain their specialised score formats.
-  const candidates=matching.filter(f=>f.key==='cricket'||rawRugbyResult(f)||!complete).map(f=>({fixture:f,result:resultFor(f,now,{strictSourceEvidence})}));
+  const candidates=matching.filter(f=>f.key==='cricket'||strictSourceEvidence&&rawRugbyResult(f)||!complete).map(f=>({fixture:f,result:resultFor(f,now,{strictSourceEvidence})}));
   for(const {fixture,result}of candidates)if(result?.unavailable||!result&&!complete)deferred.push({id:event.id,fixtureId:fixture.id,reason:result?.unavailable||'Unsupported official result evidence'});
   const supported=candidates.filter(row=>row.result&&!row.result.unavailable);
   if(!supported.length){if(!strictSourceEvidence&&!complete&&event.key==='cricket')fail(event.id,'matched final lacks supported official evidence');return event;}
@@ -132,4 +136,4 @@ function reconcileFiles({root=ROOT,fixtures,aliasRecords,now=new Date(),strictSo
  catch(error){for(const update of updates)fs.writeFileSync(update.filename,update.before);throw error;}
  return {changed:[...new Set(updates.flatMap(update=>update.result.changed))],surfaces:updates.filter(update=>update.result.changed.length).map(update=>path.relative(root,update.filename)),deferred:[...new Map(updates.flatMap(update=>update.result.deferred).map(row=>[JSON.stringify(row),row])).values()]};
 }
-module.exports={reconcile,reconcileFiles,resultFor,assertRetainedCoverage,rawRugbyResult,rugbyResult};
+module.exports={reconcile,reconcileFiles,aliasGroups,resultFor,assertRetainedCoverage,rawRugbyResult,rugbyResult};
