@@ -61,21 +61,45 @@ const lastInspector=fullSteps.map(step=>step[0]).lastIndexOf('scripts/build-code
 assert(fullSteps.slice(lastInspector+1).some(step=>step[0]==='scripts/build-follow-directories.js'&&step.includes('--check')),'Full refresh checks directory/search after the final fixture projection');
 
 // A Football-only build must not leave another changed directory out of step.
-// Exercise the actual quick caller and generator, then restore every byte.
-const directory=path.join(__dirname,'../data/follow-directory');
-const savedDirectory=new Map(fs.readdirSync(directory).map(name=>[name,fs.readFileSync(path.join(directory,name))]));
+// Use a disposable source/data copy: a legitimate newer derived build clock is
+// not a sporting observation, and this regression must not rewrite the checkout.
+const fixtureRoot=fs.mkdtempSync(path.join(os.tmpdir(),'ns-quick-directory-repair-'));
 try{
+ const sourceRoot=path.resolve(__dirname,'..');
+ for(const folder of ['scripts','config','lib','api','data','feeds'])fs.cpSync(path.join(sourceRoot,folder),path.join(fixtureRoot,folder),{recursive:true});
+ const denyNetwork=path.join(fixtureRoot,'no-test-network.cjs');
+ fs.writeFileSync(denyNetwork,"global.fetch=()=>{throw Error('UNEXPECTED_TEST_NETWORK')};for(const name of ['http','https','net','tls','dns']){const m=require('node:'+name);for(const key of ['get','request','connect','createConnection','lookup','resolve','resolve4','resolve6'])if(m[key])m[key]=()=>{throw Error('UNEXPECTED_TEST_NETWORK')};}\n");
+ const environment={PATH:process.env.PATH,LANG:'C',TZ:'Australia/Sydney',NODE_OPTIONS:'--require='+denyNetwork,NODE_PATH:process.env.NODE_PATH||path.join(sourceRoot,'node_modules')};
+ const invoke=args=>require('node:child_process').spawnSync(process.execPath,args,{cwd:fixtureRoot,env:environment,encoding:'utf8'});
+ const builder=path.join(fixtureRoot,'scripts/build-follow-directories.js');
+ const directory=path.join(fixtureRoot,'data/follow-directory');
+ const importedDirectory=new Map(fs.readdirSync(directory).map(name=>[name,fs.readFileSync(path.join(directory,name))]));
  const manifestPath=path.join(directory,'manifest.v1.json');
+ const importedManifest=JSON.parse(importedDirectory.get('manifest.v1.json'));
+ // Existing output correctly retains an older generatedAt on clock-only
+ // changes. Construct a coherent disposable manifest baseline with the real
+ // builder, before deliberately corrupting its non-clock sporting metadata.
+ for(const name of ['manifest.v1.json','manifest.v1.js'])fs.unlinkSync(path.join(directory,name));
+ const prepared=invoke([builder]);assert.equal(prepared.status,0,prepared.stderr);
+ const coherentManifest=JSON.parse(fs.readFileSync(manifestPath,'utf8'));
+ assert(Number.isFinite(Date.parse(coherentManifest.generatedAt))&&Date.parse(coherentManifest.generatedAt)>=Date.parse(importedManifest.generatedAt),'Derived manifest build clock must be valid and non-regressing');
+ assert.deepEqual(coherentManifest,{...importedManifest,generatedAt:coherentManifest.generatedAt},'Only the explicit derived-build clock may advance while preparing the fixture');
+ const oldClockField='"generatedAt":'+JSON.stringify(importedManifest.generatedAt),newClockField='"generatedAt":'+JSON.stringify(coherentManifest.generatedAt);
+ for(const name of ['manifest.v1.json','manifest.v1.js'])assert.equal(fs.readFileSync(path.join(directory,name),'utf8'),importedDirectory.get(name).toString().replace(oldClockField,newClockField),name+': every byte outside the explicit manifest header clock stays exact');
+ for(const [name,bytes]of importedDirectory)if(!['manifest.v1.json','manifest.v1.js'].includes(name))assert(fs.readFileSync(path.join(directory,name)).equals(bytes),`${name}: fixture preparation must retain every non-manifest byte`);
+ assert.equal(fs.readFileSync(path.join(directory,'manifest.v1.js'),'utf8'),`globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_MANIFEST = ${JSON.stringify(coherentManifest)};\n`,'Script and JSON baseline contain exactly the same complete manifest');
+ const savedDirectory=new Map(fs.readdirSync(directory).map(name=>[name,fs.readFileSync(path.join(directory,name))]));
  const manifest=JSON.parse(savedDirectory.get('manifest.v1.json'));
  manifest.sports.find(sport=>sport.key==='rugby-women').recordCount++;
  fs.writeFileSync(manifestPath,JSON.stringify(manifest,null,2)+'\n');
- const check=()=>require('node:child_process').spawnSync(process.execPath,[path.join(__dirname,'build-follow-directories.js'),'--check'],{cwd:path.join(__dirname,'..'),encoding:'utf8'});
+ const check=()=>invoke([builder,'--check']);
  const stale=check();assert.equal(stale.status,1);assert.match(stale.stderr,/manifest\.v1\.json is stale/);
- require('./quick-results').runProjectionSteps([['scripts/build-follow-directories.js','--codes=football']]);
+ const repair=invoke(['-e',"require('./scripts/quick-results').runProjectionSteps([['scripts/build-follow-directories.js','--codes=football']])"]);assert.equal(repair.status,0,repair.stderr);
  const current=check();assert.equal(current.status,0,current.stderr);
  for(const [name,bytes] of savedDirectory)assert(fs.readFileSync(path.join(directory,name)).equals(bytes),`${name}: unchanged facts retain their original bytes`);
+ assert.deepEqual(fs.readdirSync(directory).sort(),[...savedDirectory.keys()].sort(),'Repair cannot admit or remove directory files');
+ for(const [name,bytes]of importedDirectory)assert(fs.readFileSync(path.join(sourceRoot,'data/follow-directory',name)).equals(bytes),'Disposable repair must not rewrite '+name+' in the source checkout');
  console.log('Actual quick caller repairs a stale sibling directory; all unchanged directory bytes survive.');
 }finally{
- for(const name of fs.readdirSync(directory))if(!savedDirectory.has(name))fs.unlinkSync(path.join(directory,name));
- for(const [name,bytes] of savedDirectory)fs.writeFileSync(path.join(directory,name),bytes);
+ fs.rmSync(fixtureRoot,{recursive:true,force:true});
 }

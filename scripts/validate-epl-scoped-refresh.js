@@ -70,6 +70,19 @@ const records=[];const document=f=>JSON.parse(files.get(ROOT+'/'+f));
 const final=e=>document('data/events.json').events.find(row=>row.id===e.id);
 async function check(name,fn){reset();await fn();records.push({name,passed:true});}
 function editFeeds(edit){for(const f of['feeds/incoming/events.json','data/events.json']){const value=document(f);edit(value.events);files.set(ROOT+'/'+f,Buffer.from(JSON.stringify(value)));}}
+function capturedFixtureClock(captured){
+ const keys=['sourceCheckedAt','canonicalSourceCheckedAt','scoreCheckedAt','resultSourceCheckedAt','statusCheckedAt'];
+ const observations=captured.events.filter(event=>event.key==='premier-league').flatMap(event=>keys.map(key=>event[key]).filter(value=>value!=null));
+ assert(observations.every(value=>typeof value==='string'&&Number.isFinite(original.Date.parse(value))),'Captured fixture clocks must be valid');
+ // Pin the model clock once from immutable inputs, before a negative control
+ // edits any fixture. Keep every captured observation intact.
+ return new original.Date(Math.max(original.Date.parse(AT),...observations.map(value=>original.Date.parse(value)))+1000);
+}
+async function withFixtureClock(now,operation){
+ const previous=global.Date;
+ global.Date=class extends original.Date{constructor(...args){super(...(args.length?args:[+now]));}static now(){return +now;}};
+ try{return await operation();}finally{global.Date=previous;}
+}
 async function run(){
  for(const [name,edit]of[
   ['future-final-with-missing-label',f=>{f.kickoff.millis=Date.parse(AT)+3600000;delete f.teams[0].team.name;delete f.teams[0].team.club.name;}],
@@ -326,12 +339,25 @@ async function run(){
    files.set(ROOT+'/'+file,Buffer.from(JSON.stringify({...captured,events:[{...unrelated,surface:file},...events]})));
   }
   const before=new Map(Object.keys(retainedIds).map(file=>[file,structuredClone(document(file).events)]));
-  const options={...retainedOptions(),eplUpdatedIds:Object.fromEntries(Object.keys(retainedIds).map(file=>[file,[seedCards[0].id]]))};
-  https.get=()=>assert.fail('Unexpected source');await quick.atomicRefresh(options);
+  const now=capturedFixtureClock(captured),options={...retainedOptions(),now,eplUpdatedIds:Object.fromEntries(Object.keys(retainedIds).map(file=>[file,[seedCards[0].id]]))};
+  https.get=()=>assert.fail('Unexpected source');await withFixtureClock(now,()=>quick.atomicRefresh(options));
   for(const [file,events]of before)assert.deepEqual(document(file).events,events);
   assert.notEqual(document('feeds/incoming/events.json').events[1].score,document('data/events.json').events[1].score);
   assert(children.some(args=>args[0]==='scripts/publish-feed.js'));
   assert.equal(calls.length,0);
+ });
+ await check('captured retained EPL observations after the pinned model clock still reject before projections',async()=>{
+  const captured=JSON.parse(original.readFileSync(ROOT+'/data/events.json','utf8')),now=capturedFixtureClock(captured);
+  const capturedEvents=captured.events.filter(event=>event.key==='premier-league');
+  const future=new original.Date(+now+1).toISOString();
+  for(const key of ['sourceCheckedAt','canonicalSourceCheckedAt','scoreCheckedAt','resultSourceCheckedAt','statusCheckedAt']){
+   for(const file of Object.keys(retainedIds))files.set(ROOT+'/'+file,Buffer.from(JSON.stringify({...captured,events:structuredClone(capturedEvents)})));
+   const doc=document('data/events.json');doc.events[0][key]=future;files.set(ROOT+'/data/events.json',Buffer.from(JSON.stringify(doc)));
+   const before=new Map([...files].map(([file,bytes])=>[file,Buffer.from(bytes)]));
+   await withFixtureClock(now,()=>assert.rejects(()=>quick.atomicRefresh({...retainedOptions(),now}),/fixture observation is future/));
+   for(const [file,bytes]of before)assert.deepEqual(files.get(file),bytes,file);
+  }
+  assert.equal(children.length,0);assert.equal(calls.length,0);
  });
  await check('retained EPL invalid flags refuse before filesystem snapshots and source IO',async()=>{
   const owner=require('./update-cards'),base=['--quick','--source=epl','--rebuild','--local-only',retainedArg];
