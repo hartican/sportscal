@@ -125,13 +125,36 @@ function acceptAccountIndicatorProfile(viewer,owner,generation){
 // Resume uses the existing scoped, serialised sync path. No polling or second
 // auth owner: one bounded read per foreground burst, no retries while hidden.
 let recoveryJob=null,lastRecovery=null;
+let recoveryWake=null;
+function rememberRecoveryEvent(life){
+  const profileId=activeProfileBundle?.profile?.id,generation=serverStateSyncGeneration;
+  if(recoveryWake){
+    if(recoveryWake.accountId===life.accountId && recoveryWake.generation===life.generation
+      && recoveryWake.profileId===profileId && recoveryWake.syncGeneration===generation)return;
+    clearTimeout(recoveryWake.timer);
+  }
+  const wake={...life,profileId,syncGeneration:generation,timer:null};
+  recoveryWake=wake;
+  const since=lastRecovery?.accountId===life.accountId && lastRecovery.generation===life.generation ? lastRecovery.at : Date.now();
+  wake.timer=setTimeout(()=>{
+    if(recoveryWake!==wake)return;
+    recoveryWake=null;
+    const current=serverSyncClient?.accountSnapshot?.();
+    if(!current?.hasSession || current.accountId!==wake.accountId || current.generation!==wake.generation
+      || serverSyncClient.sessionSubject()!==wake.accountId || activeProfileBundle?.profile?.id!==wake.profileId
+      || serverStateSyncGeneration!==wake.syncGeneration || serverPersistence.state!=='error')return;
+    // One witnessed event, one follow-up through the existing owner. Failure
+    // cannot schedule another attempt without a new lifecycle event.
+    void recoverAccount();
+  },Math.max(0,15000-(Date.now()-since)));
+}
 function recoverAccount({manual=false}={}){
   const life=serverSyncClient?.accountSnapshot?.();
   if(!life?.hasSession || !navigator.onLine || document.hidden)return Promise.resolve();
   const same=value=>value?.accountId===life.accountId && value?.generation===life.generation;
-  if(same(recoveryJob))return recoveryJob.promise;
-  if(['checking','requesting','syncing'].includes(serverPersistence.state))return Promise.resolve();
-  if(!manual && same(lastRecovery) && Date.now()-lastRecovery.at<15000)return Promise.resolve();
+  if(same(recoveryJob)){if(!manual)rememberRecoveryEvent(life);return recoveryJob.promise;}
+  if(['checking','requesting','syncing'].includes(serverPersistence.state)){if(!manual)rememberRecoveryEvent(life);return Promise.resolve();}
+  if(!manual && same(lastRecovery) && Date.now()-lastRecovery.at<15000){if(serverPersistence.state==='error')rememberRecoveryEvent(life);return Promise.resolve();}
   lastRecovery={...life,at:Date.now()};
   const job={...life,promise:null};
   recoveryJob=job;
