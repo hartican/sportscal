@@ -7,6 +7,16 @@ const pl=require('./refresh-premier-league-cards');
 const officialResults=require('./sync-official-card-results');
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const coverageScope=require('./lib/live-coverage-scope');
+function validateQuickOptions(options){
+ coverageScope.validateOptions(options);
+ if(options.eplUpdatedIds!=null&&options.source!=='epl')throw Error('EPL selector requires retained EPL rebuild');
+ if(options.source==='epl'&&(options.offline||options.coverageSport!=null))throw Error('EPL-only refresh requires online primary source access without another sport selector.');
+ if(options.source==='epl'){
+  if(options.rebuild!=null&&typeof options.rebuild!=='boolean')throw Error('Invalid EPL rebuild mode');
+  if(options.rebuild){if(options.localOnly!==true)throw Error('EPL rebuild requires local-only');require('./lib/epl-publication-scope').argument(options.eplUpdatedIds);}
+  else if(options.eplUpdatedIds!=null)throw Error('EPL selector requires retained rebuild');
+ }
+}
 const write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
 function writeQuickFailureReport(report){
  if(!process.env.QUICK_RESULTS_REPORT)return;
@@ -48,10 +58,12 @@ async function json(url){const response=await fetch(url,{signal:AbortSignal.time
 function run(file,...args){
  if(file==='scripts/publish-feed.js'){
   const p='feeds/incoming/events.json',d=read(p),coverageSport=args.includes('--coverage-sport=rugby-union')?'rugby-union':null;
+  const eplScope=require('./lib/epl-publication-scope'),epl=eplScope.parse(args);
+  if(epl&&coverageSport)throw Error('Mixed scoped Feed publication');
   const codeFor=e=>require('../config/fixture-identity').sportKey(e)==='rugby'?'rugby-union':require('../config/fixture-identity').sportKey(e);
-  const selected=coverageSport?d.events.filter(e=>codeFor(e)===coverageSport):d.events;
+  const selected=epl?d.events.filter(e=>eplScope.selected(e,epl.incomingIds)):coverageSport?d.events.filter(e=>codeFor(e)===coverageSport):d.events;
   const projected=require('./lib/editorial-publication').reconcileFullPreviews(selected,read('data/editorial-knowledge.v1.json'));
-  const events=coverageSport?coverageScope.retainOutsideScope(d.events,projected,coverageSport,codeFor):projected;
+  const events=epl?eplScope.retain(d.events,projected,epl.incomingIds):coverageSport?coverageScope.retainOutsideScope(d.events,projected,coverageSport,codeFor):projected;
   if(JSON.stringify(events)!==JSON.stringify(d.events))write(p,{...d,events});
  }
  const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(file))for(const key of ['FOOTBALL_DATA_API_TOKEN','FOOTBALL_DATA_RUN_DIR','FOOTBALL_DATA_REPORT','GOLF_SOURCE_REPORT','GOLF_SOURCE_RUN_ID'])delete env[key];if(/^scripts\/validate-/.test(file))delete env.REFRESH_REPORT;
@@ -118,9 +130,11 @@ function nblProjectionSteps(changes){
  if(changes.length&&changes.every(change=>change==='NBL standings'))return [['scripts/build-code-inspector.js','--codes=nbl']];
  return retainedFeedProjectionSteps(changes);
 }
-function retainedFeedProjectionSteps(changes,{coverageSport}={}){
+function retainedFeedProjectionSteps(changes,{coverageSport,eplUpdatedIds}={}){
  coverageScope.sourcesFor(coverageSport);
- return projectionSteps(changes).filter(args=>!['scripts/enrich-storyline-cards.js','scripts/select-result-editorial.js'].includes(args[0])).map(args=>args[0]==='scripts/publish-feed.js'?[args[0],'data/events.json',...args.slice(2),...(coverageSport?['--coverage-sport='+coverageSport]:[])]:args);
+ if(coverageSport&&eplUpdatedIds)throw Error('Mixed scoped Feed publication');
+ const eplArg=eplUpdatedIds==null?[]:[require('./lib/epl-publication-scope').argument(eplUpdatedIds)];
+ return projectionSteps(changes).filter(args=>!['scripts/enrich-storyline-cards.js','scripts/select-result-editorial.js'].includes(args[0])).map(args=>args[0]==='scripts/publish-feed.js'?[args[0],'data/events.json',...args.slice(2),...(coverageSport?['--coverage-sport='+coverageSport]:[]),...eplArg]:args);
 }
 function nblStandingsChanged(before,after){
  const facts=rows=>rows?.map(({asOf,...row})=>row);
@@ -160,8 +174,8 @@ function refreshNbl(changes,{published=false}={}){
    else if(nblStandingsChanged(previous.standings,schedule.standings)||previous.standingsStatus!==schedule.standingsStatus)changes.push('NBL standings');
    else write(nblPath,previous);
 }
-async function refresh({now=new Date(),offline=false,source=null,coverageSport}={}){
- coverageScope.validateOptions({source,offline,coverageSport});
+async function refresh({now=new Date(),offline=false,source=null,coverageSport,rebuild=false,localOnly=false,eplUpdatedIds}={}){
+ validateQuickOptions({source,offline,coverageSport,rebuild,localOnly,eplUpdatedIds});
  if(source){
   if(source==='live-coverage'&&!offline){
    let liveCoverage;
@@ -204,6 +218,16 @@ async function refresh({now=new Date(),offline=false,source=null,coverageSport}=
    return report;
   }
   if(source==='football'&&!offline)return refreshFootball({now});
+  if(source==='epl'&&!offline){
+   let report;
+   const retained=rebuild?['feeds/incoming/events.json','data/events.json','data/canonical/afl-nrl-2026.json'].map(file=>[file,read(file)]):null;
+   try{const owner=require('./lib/epl-only-refresh');report=rebuild?owner.retainedRebuild({now,updatedFixtureIdsBySurface:eplUpdatedIds}):await owner.refresh({now});}
+   catch(error){if(error.eplReport)writeQuickFailureReport(error.eplReport);throw error;}
+   writeQuickFailureReport(report);
+   runProjectionSteps(retainedFeedProjectionSteps(report.changed,{eplUpdatedIds:report.updatedFixtureIdsBySurface}));
+   if(retained)for(const [file,before]of retained){const after=read(file);if(JSON.stringify(file.endsWith('events.json')?after.events:after)!==JSON.stringify(file.endsWith('events.json')?before.events:before))throw Error('EPL retained rebuild changed adopted fixture records or canonical facts; candidate rejected');}
+   return report;
+  }
   if(source==='nhl'&&!offline){
    let nhl;
    try{nhl=await refreshNhl();}catch(error){const report={mode:'quick',source,checkedAt:new Date().toISOString(),changed:[],failures:[`NHL: ${error.message}`],aiCalls:0};writeQuickFailureReport(report);console.log(JSON.stringify(report));throw error;}
@@ -350,7 +374,7 @@ async function refresh({now=new Date(),offline=false,source=null,coverageSport}=
  return {changes,failures};
 }
 async function atomicRefresh(options,{refreshOperation=refresh}={}){
- coverageScope.validateOptions(options);
+ validateQuickOptions(options);
  const files=new Map();function collect(dir){for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const name=dir+'/'+entry.name;if(entry.isDirectory())collect(name);else if(/\.(json|js)$/.test(name))files.set(name,fs.readFileSync(name));}}
  const runtimeBefore=new Map(require('./build-app-shell-runtime').generatedFiles().map(file=>[file,fs.existsSync(file)?fs.readFileSync(file):null]));
  collect('data');collect('feeds');
@@ -374,7 +398,7 @@ async function atomicRefresh(options,{refreshOperation=refresh}={}){
   throw error;
  }
 }
-function parseQuickOptions(argv){return {offline:argv.includes('--offline'),source:argv.find(arg=>arg.startsWith('--source='))?.slice(9),coverageSport:coverageScope.parseArgs(argv,{child:true})};}
+function parseQuickOptions(argv){const epl=require('./lib/epl-publication-scope').rebuildOptions(argv,{child:true});return {offline:argv.includes('--offline'),source:argv.find(arg=>arg.startsWith('--source='))?.slice(9),coverageSport:coverageScope.parseArgs(argv,{child:true}),...(epl||{})};}
 if(require.main===module)Promise.resolve().then(()=>atomicRefresh(parseQuickOptions(process.argv.slice(2)))).then(result=>{if(process.argv.some(arg=>arg.startsWith('--source=')))console.log(JSON.stringify(result));}).catch(error=>{console.error(error.message);process.exitCode=1;});
 async function text(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{accept:'text/html','user-agent':'nothingSport canonical refresh/1.0'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.text();}
 async function refreshChl(options={}){

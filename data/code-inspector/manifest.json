@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-30T06:33:10.815Z",
+  "generatedAt": "2026-10-30T23:38:13.154Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/horse-racing.json",
@@ -23,7 +23,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-22T18:01:55.820Z",
+      "freshAt": "2026-10-30T23:34:17.333Z",
       "chunkPath": "data/code-inspector/baseball.json"
     },
     {
@@ -35,7 +35,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-22T18:01:55.820Z",
+      "freshAt": "2026-10-30T23:38:13.154Z",
       "chunkPath": "data/code-inspector/supercars.json"
     },
     {
@@ -99,7 +99,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-22T18:01:55.820Z",
+      "freshAt": "2026-10-30T23:38:13.154Z",
       "chunkPath": "data/code-inspector/motorsport.json",
       "coverageNote": "Motorsport coverage is partial. Goodwood is an organiser calendar window with UK-local dates, not a scheduled competitive fixture. Sydney session starts and Australian viewing are unconfirmed."
     },
@@ -125,7 +125,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-22T18:01:55.820Z",
+      "freshAt": "2026-10-30T23:38:13.154Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/f1.json"
     },
@@ -191,7 +191,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-29T17:22:13.484Z",
+      "freshAt": "2026-10-30T23:06:40.076Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {
@@ -998,7 +998,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-22T18:01:55.820Z",
+      "freshAt": "2026-10-30T23:38:13.154Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/lemans.json"
     },
@@ -1011,7 +1011,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-22T18:01:55.820Z",
+      "freshAt": "2026-10-30T23:38:13.154Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/dakar.json"
     },

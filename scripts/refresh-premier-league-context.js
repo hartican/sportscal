@@ -3,7 +3,6 @@
 "use strict";
 
 const fs = require("node:fs");
-const https = require("node:https");
 const path = require("node:path");
 const taxonomy = require("../config/canonical-sports-taxonomy.js");
 
@@ -17,26 +16,8 @@ const EXPECTED_TEAM_COUNT = 20;
 const SOURCE_URL = "https://www.premierleague.com/en/tables/premier-league/2026-27";
 const STANDINGS_URL = `https://footballapi.pulselive.com/football/standings?compSeasons=${PULSE_SEASON_ID}&comps=${PULSE_COMPETITION_ID}&comp=${PULSE_COMPETITION_ID}&altIds=true&page=0&pageSize=100`;
 
-function fetchJson(url){
-  return new Promise((resolve, reject) => {
-    const request = https.get(url, {
-      headers: {
-        Accept: "application/json",
-        Origin: "https://www.premierleague.com",
-        "User-Agent": "nothingsport-premier-league-standings/1.0",
-      },
-    }, response => {
-      let body = "";
-      response.setEncoding("utf8");
-      response.on("data", chunk => { body += chunk; });
-      response.on("end", () => {
-        if (response.statusCode !== 200) return reject(new Error(`Premier League standings service returned ${response.statusCode}.`));
-        try { resolve(JSON.parse(body)); } catch (error) { reject(new Error(`Premier League standings service returned invalid JSON: ${error.message}`)); }
-      });
-    });
-    request.setTimeout(20_000, () => request.destroy(new Error("Premier League standings service timed out.")));
-    request.on("error", reject);
-  });
+function fetchJson(url,options){
+  return require('./lib/epl-source-json').readJson(url,options);
 }
 
 function officialSource(checkedAt){
@@ -300,6 +281,8 @@ if (require.main === module){
 module.exports = {
   COMPETITION_ID,
   EXPECTED_TEAM_COUNT,
+  STANDINGS_URL,
+  fetchJson,
   buildSnapshot,
   refresh,
   standingsEntries,

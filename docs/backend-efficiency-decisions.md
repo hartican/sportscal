@@ -1,5 +1,39 @@
 # Backend efficiency decisions
 
+## Retained EPL rebuild stays with the canonical owner — 31 October 2026
+
+The explicit local-only `update-cards.js --quick --source=epl --rebuild` route
+accepts one bounded existing `--epl-updated-ids=` selector with separate incoming
+and published existing-ID lists. Missing, duplicate, mixed, non-local and offline
+forms refuse before diagnostic/source work. The source child receives the same
+selector and local-only rebuild mode. This is retained-data projection, not a
+primary/backup source check: zero provider, credential, database or account calls.
+
+Validate both complete 380-fixture reviewed identity/ordered-pair/season sets,
+all 38 twenty-club matchweek sets, original observations and completed numeric
+results, plus the retained official 20-club table. Reuse the existing per-surface
+retained publisher, full Feed/spoiler/build gates and quick-owner atomic rollback.
+Rebuild canonical contexts from the retained table even without new source facts.
+Require all adopted Feed records/order and canonical bundle facts to remain exact;
+an unexpected normalization rejects the complete candidate. Publication metadata
+may receive a new truthful stamp; retained fact clocks never become new checks.
+Restore changed/missing data and all eight runtimes and remove new outputs on any
+failure. Broad quick offline behavior and the online five-GET EPL scope remain
+unchanged. ROOT/nsDEPLOY alone adopts verified output records, allocates combined
+qualification and publishes; source/mocked proof does not grant those operations.
+
+## EPL card-local deferrals preserve the complete season — 31 October 2026
+
+The existing canonical `update-cards.js --quick --source=epl --local-only` scope keeps its four exact official fixture pages and separate official table (at most five primary GETs, no retry or redirect). The common transport enforces its original20-second whole-resource header/body/decode/JSON clock, with separate wire and decoded limits884,736bytes per fixture page and147,456bytes for the table, strict UTF8/complete-body admission and safe observation/hash receipts. No new provider, scheduler, source/dependency installation, account/DB operation or key grant is created.
+
+Before card-local deferral, require the complete380 raw fixture identities, exact page envelopes, reviewed provider/ordered-club bindings, season,20clubs,38matchweeks and380directed pairings. Missing/duplicate/ambiguous/wrong identities still reject the collection. Only typed unsupported status/phase, missing/invalid kickoff, unresolved display label (after exact numeric identity binding), or incomplete score facts may retain their own known card; independent supported facts proceed. Preserve each incoming/published surface's original last-good facts and clocks, even if they differ. Report each deferred primary identity, fixed reason and next source-review action. No time-based completion or guessed phase is introduced. Future sporting/calendar contradictions, source-clock failures and final reopening remain strict; the official table is independent, never calculated from partial cards. No supported fixture facts plus no valid table observation is a failed refresh.
+
+Check independently evaluable raw future-playing/final and reopened-final claims even when a display, kickoff, score or live-phase field is deferred. A known raw live status remains a live sporting claim without guessing its unreviewed phase. Validate both retained surfaces before primary-confirmation cleanup can retire saved delayed evidence; an independently accepted table cannot legitimise cleanup from a rejected fixture collection. Only an exact reviewed-identity, ordered-pair, round, score and original source-clock match to the saved delayed result can explain its retained final while the primary still lags. The retained publisher and incoming editorial-preservation hook receive separate exact changed fixture IDs for their own surface from the two-surface patch receipt. A change in one surface cannot authorize normalization of its unchanged counterpart. Normalize and transform only those bound existing EPL cards, then stitch all deferred, unchanged and unrelated cards back in their original order and fields. Full Feed validation still rejects invalid untouched cards. This private bounded publisher selector adds no canonical entrypoint or source allocation.
+
+Reuse `loadCards` and the existing saved delayed-result overlay, primary-confirmation cleanup and `football-data-backup.recover` path. A deferred old final is not a newly confirmed primary final and cannot prune its overlay. Retained delayed finals keep their original attribution/observations and never become live scores. This primary-only scope explicitly defers additional backup network access (zero backup GETs); a failed collection reports that deferral without silently acquiring a token or calling a second source. Other existing canonical callers retain their validated delayed recovery and shared coordinator cap of four invocation resources,6,500ms between starts,15-second resource allowance,2MB bound and same-invocation memoization. Reusing those paths grants no additional runtime allocation.
+
+The existing required Football schedule gate now owns the isolated scoped-caller and transport controls, including full-season integrity failures, card independence, delayed-overlay retention/catch-up, exact selector dispatch and complete quick-owner rollback. Source/mock success is not current-provider, native-containment, production, hosted or device acceptance. ROOT/nsDEPLOY alone integrates accepted main, qualifies and publishes; the Rugby source/QA and existing owner order remain separate and frozen.
+
 ## Retained refresh baselines need no unchanged writes — 31 October 2026
 
 The quick owner compares captured data/Feed and runtime bytes before restoring them. Restore changed or missing baseline files and remove newly created outputs, but never rewrite byte-identical retained files merely because they were snapshotted. This preserves the existing narrow write allowlist and original source refusal; it grants no extra mutation permission. A saved World Rugby final disagrees with its retained start by fifteen minutes; the exact reviewed-calendar receipt binds its old retained tuple, pre-match08:30 observation, completed08:30 result, ordered sides, provider identity and original score/status clocks. Only that tuple can validate the15-minute correction; other starts, identities, observations and score contradictions remain strict. Captured history stays in the receipt, no result clock is refreshed, and unrelated viewing/writing/user facts are untouched. Failed restoration is recorded explicitly while preserving the original source exception and attempting the remaining restorations. The offline publication gate covers the actual owner with protected unchanged files, changed data/Feed/runtime, absent outputs and failed diagnostics. Captured public evidence is a local reproduction, not a new read, resolved calendar or publication acceptance. All source, result, spoiler, rollback, resource and single-publisher rules remain unchanged.

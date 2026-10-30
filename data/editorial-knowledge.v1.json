@@ -1646,6 +1646,11 @@
       "id": "subject:fixture-research:epl-2026-27-129041:revision-a917a16177445ff6fd92ba92b852b8856a203c29bf8952918f75495ed017c8a1",
       "kind": "event",
       "name": "Nottingham Forest v Chelsea"
+    },
+    {
+      "id": "subject:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f",
+      "kind": "event",
+      "name": "Qatar Grand Prix: retained official context"
     }
   ],
   "sources": [
@@ -8543,6 +8548,34 @@
       "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceType": "official",
       "checkedAt": "2026-10-11T12:38:51.272Z"
+    },
+    {
+      "id": "source:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:0",
+      "name": "Formula 1 drivers standings - retained 11 October snapshot",
+      "url": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceType": "official",
+      "checkedAt": "2026-10-11T12:37:25.402Z"
+    },
+    {
+      "id": "source:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:1",
+      "name": "Formula 1 constructors standings - retained 11 October snapshot",
+      "url": "https://www.formula1.com/en/results/2026/team",
+      "sourceType": "official",
+      "checkedAt": "2026-10-11T12:37:25.402Z"
+    },
+    {
+      "id": "source:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:2",
+      "name": "Formula 1 official Qatar race hub - retained schedule",
+      "url": "https://www.formula1.com/en/racing/2026/qatar",
+      "sourceType": "official",
+      "checkedAt": "2026-10-11T12:37:25.437Z"
+    },
+    {
+      "id": "source:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:3",
+      "name": "Formula 1 official 2025 Qatar hub - dated race classification",
+      "url": "https://www.formula1.com/en/racing/2025/qatar",
+      "sourceType": "official",
+      "checkedAt": "2026-10-30T23:28:25.790Z"
     }
   ],
   "narrativeFacts": [
@@ -40539,6 +40572,58 @@
       ],
       "expiresAt": null,
       "observedAt": "2026-09-30T22:50:31.966Z"
+    },
+    {
+      "id": "fact:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:0",
+      "subjectIds": [
+        "subject:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f"
+      ],
+      "statement": "In the official 11 October snapshot, Kimi Antonelli had 325 points and George Russell had 236 points, an 89-point difference.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:0"
+      ],
+      "observedAt": "2026-10-11T12:37:25.402Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:1",
+      "subjectIds": [
+        "subject:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f"
+      ],
+      "statement": "In the official 11 October constructors snapshot, Mercedes had 561 points and Ferrari had 418 points.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:1"
+      ],
+      "observedAt": "2026-10-11T12:37:25.402Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:2",
+      "subjectIds": [
+        "subject:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f"
+      ],
+      "statement": "The retained official fixture identifies Qatar GP Race at Lusail International Circuit with startTimeUtc 2026-11-29T16:00:00.000Z.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:2"
+      ],
+      "observedAt": "2026-10-11T12:37:25.437Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:3",
+      "subjectIds": [
+        "subject:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f"
+      ],
+      "statement": "Formula 1 records Max Verstappen as winner of the 30 November 2025 Qatar Grand Prix, with Oscar Piastri classified second.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:3"
+      ],
+      "observedAt": "2026-10-30T23:28:25.790Z",
+      "expiresAt": null
     }
   ],
   "narrativeThreads": [
@@ -45414,6 +45499,22 @@
       ],
       "status": "active",
       "updatedAt": "2026-10-29T02:30:53.610848Z"
+    },
+    {
+      "id": "thread:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f",
+      "subjectIds": [
+        "subject:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f"
+      ],
+      "title": "Qatar Grand Prix: retained official context",
+      "summary": "The retained 11 October 2026 tables had Antonelli on 325 points to Russell's 236, with Mercedes ahead of Ferrari by 561 to 418 in the constructors' standings. That is dated context, not the order entering the 29 November Lusail race. Qatar's previous result supplies circuit-specific history; the intervening rounds may change the championship context.",
+      "factIds": [
+        "fact:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:0",
+        "fact:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:1",
+        "fact:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:2",
+        "fact:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-30T23:29:54.351Z"
     }
   ],
   "audienceMemories": [],
@@ -63727,6 +63828,40 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-10-22T16:43:52.871Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:evt_43",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_43",
+        "event:f1:2026:qatar:race"
+      ],
+      "researchDepth": 5,
+      "hook": "Piastri's second place behind Verstappen in 2025 supplies a concrete Qatar benchmark.",
+      "synopsis": "The retained 11 October 2026 tables had Antonelli on 325 points to Russell's 236, with Mercedes ahead of Ferrari by 561 to 418 in the constructors' standings. That is dated context, not the order entering the 29 November Lusail race. Qatar's previous result supplies circuit-specific history; the intervening rounds may change the championship context.",
+      "threadIds": [
+        "thread:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:0",
+        "fact:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:1",
+        "fact:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:2",
+        "fact:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:0",
+        "source:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:1",
+        "source:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:2",
+        "source:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f:3"
+      ],
+      "researchedAt": "2026-10-30T23:29:54.351Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-11-29T16:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-30T23:29:54.351Z"
       }
     }
   ]

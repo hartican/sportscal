@@ -1,4 +1,5 @@
 'use strict';
+require('./validate-reviewed-editorial-research');
 require('./validate-editorial-reconciliation');
 const assert=require('node:assert/strict'),fs=require('node:fs');
 const {apply}=require('./apply-fixture-research');

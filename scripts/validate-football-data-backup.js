@@ -64,6 +64,10 @@ test('a primary outage followed by a backup outage retains a previously accepted
  const primary=known.map(e=>e.id===target.id?{...e,status:'completed',homeScore:1,awayScore:2}:e);
  const next=backup.primary(primary,c);assert.equal(next.find(e=>e.id===target.id).homeScore,1);assert.equal(backup.readOverlay(c.outputPath).results.length,0);
 }));
+test('a primary EPL confirmation retires its reviewed saved alias without touching another overlay',()=>scoped(async c=>{
+ const bound=require('../lib/epl-provider-identities').binding(target);assert(bound);const alias=bound.record.secondaryId,retained={fixtureId:'unrelated-overlay',competitionId:'competition:uefa-champions-league',homeScore:0,awayScore:1};fs.writeFileSync(c.outputPath,JSON.stringify({schemaVersion:'football-delayed-results.v1',results:[{fixtureId:alias,competitionId:target.competitionId,homeScore:0,awayScore:2},retained]}));
+ backup.primary([{...target,status:'completed',homeScore:0,awayScore:2}],c);assert.deepEqual(backup.readOverlay(c.outputPath).results,[retained]);
+}));
 test('the real UCL adapter recovers finals beside a valid Europa refresh without contaminating the provider dataset',()=>scoped(async c=>{
  const source=JSON.parse(fs.readFileSync(path.join(__dirname,'../data/providers/openligadb/football-2026-27.json')));
  const ucl=source.events.filter(e=>e.competitionId===trial.SCOPE.CL.competitionId),p=payload(ucl,'CL');

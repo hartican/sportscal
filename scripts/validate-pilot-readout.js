@@ -17,11 +17,41 @@ assert([retainedCanonical.generatedAt,retainedFeedMeta.publishedAt].every(value=
 const retainedReadiness = buildReadinessReport({canonical:retainedCanonical,feedMeta:retainedFeedMeta,finals:readFinalsEvidence(),now:storedNow});
 if((+storedNow-Date.parse(retainedCanonical.generatedAt))/3600000>15){assert.equal(retainedReadiness.ready,false);assert(retainedReadiness.issues.includes('Canonical snapshot must be no more than 15 hours old.'),'a newer unrelated Feed publication must not refresh retained source facts');}
 if((+storedNow-Date.parse(retainedFeedMeta.publishedAt))/3600000>15){assert.equal(retainedReadiness.ready,false);assert(retainedReadiness.issues.includes('Published feed must be no more than 15 hours old.'));}
-// The positive source-content contract uses the actual source observation.
-// Synchronize only its in-memory Feed receipt; never advance canonical facts.
-// The separate current-clock operational verifier remains a release gate.
-const observationNow = new Date(retainedCanonical.generatedAt);
-const canonical=retainedCanonical,feedMeta={...retainedFeedMeta,publishedAt:observationNow.toISOString()};
+// The mixed container may be generated again for an unrelated EPL table.
+// Bind this historical AFL/NRL content fixture to its exact component receipt,
+// not that newer container date. Keep all sporting records and clocks intact.
+const sourceReceipts=[
+  ['AFL','https://www.afl.com.au/fixture'],
+  ['AFLW','https://www.afl.com.au/aflw/fixture'],
+  ['NRL Match Centre / Champion Data','https://www.nrl.com/draw'],
+].map(([provider,url])=>{
+  const rows=retainedCanonical.sources.filter(row=>row.provider===provider&&row.sourceUrl===url);
+  assert.equal(rows.length,1,'each supported source needs its exact retained receipt');return rows[0];
+});
+assert(sourceReceipts.every(row=>Number.isFinite(Date.parse(row.checkedAt)))&&new Set(sourceReceipts.map(row=>row.checkedAt)).size===1,'the historical fixture needs one evidenced AFL/NRL component observation');
+const observationNow = new Date(sourceReceipts[0].checkedAt);
+assert(retainedCanonical.events.filter(event=>['sport:afl','sport:nrl'].includes(event.sportDomainId)).every(event=>event.source?.checkedAt===observationNow.toISOString()),'the fixture clock must bind every retained supported sporting source');
+// Only these in-memory test receipt wrappers are coherent at that observation.
+// This is not current operational readiness or a fresh canonical observation.
+const canonical={...retainedCanonical,generatedAt:observationNow.toISOString()},feedMeta={...retainedFeedMeta,publishedAt:observationNow.toISOString()};
+assert.equal(canonical.events,retainedCanonical.events);
+assert.equal(canonical.sources,retainedCanonical.sources);
+
+// Real current-clock omissions stay visible on untouched inputs, including
+// when a newer unrelated publication supplies a fresh Feed receipt. A later
+// legitimate result may resolve a row; it must not invalidate this regression.
+const actualNow=new Date(),actualReadiness=buildReadinessReport({canonical:retainedCanonical,feedMeta:retainedFeedMeta,finals:readFinalsEvidence(),now:actualNow});
+const republishedReadiness=buildReadinessReport({canonical:retainedCanonical,feedMeta:{...retainedFeedMeta,publishedAt:actualNow.toISOString()},finals:readFinalsEvidence(),now:actualNow});
+const retainedOverdueIds=[...Array.from({length:9},(_,index)=>'event:aflw:cd_m2026264110'+(index+1)),'event:aflw:cd_m20262641201'];
+const retainedOverdueFixtures=retainedCanonical.events.filter(event=>retainedOverdueIds.includes(event.id));
+assert.equal(retainedOverdueFixtures.length,10,'all ten recorded fixture identities remain retained');
+const actualPendingFixtures=retainedOverdueFixtures.filter(event=>event.status==='scheduled'&&Date.parse(event.startTimeUtc)+6*3600000<=+actualNow);
+for(const report of [actualReadiness,republishedReadiness])if(actualPendingFixtures.length){
+  assert.equal(report.ready,false,'current missing results must remain operationally degraded');
+  assert.equal(READOUT.buildMeasurementReport(inputFromReadout([{cohort:'all'}],report)).operationalReady,false);
+  for(const event of actualPendingFixtures)assert(report.overdueResults.some(row=>row.id===event.id),'current missing result must remain visible: '+event.id);
+}
+console.log(`Historical source-content fixture: ${observationNow.toISOString()}; actual retained readiness: ${actualReadiness.ready?'ready':'degraded'}, ${actualReadiness.overdueResultCount} overdue results.`);
 
 // Reproduce the eight retained Round10 omissions independently of whether a
 // later source refresh has filled them. A newer publication must keep both
