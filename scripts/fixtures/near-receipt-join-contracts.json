@@ -925,8 +925,8 @@
   ],
   "originalBodyMd5": "3e1d234315b0eae31e2fc4ec491de3dd",
   "candidateBodyMd5": "402458f178989eed547f96e2ce2995c1",
-  "installSha256": "7780356a20bfa58e72421ee6541f13accf9f0eaa6a1a03f7cd5b179acebd359a",
-  "inverseSha256": "4ff1420ca92949c3da13917cb9054a9c25656a22dfac4f923104ecb7cd9b23c3",
+  "installSha256": "11a7a115f3f050d5daef80643290626acabb4bac3012a5ce482d82137f2a87a4",
+  "inverseSha256": "a6f6adc8397fd64a7588e6306915f388284191cf6b30bbaf7783e3e5202f0fb8",
   "table": {
     "acl": "{postgres=arwdDxtm/postgres,service_role=r/postgres}",
     "rls": true,
@@ -939,7 +939,8 @@
         "text",
         true,
         "",
-        false
+        false,
+        null
       ],
       [
         2,
@@ -947,7 +948,8 @@
         "text",
         true,
         "",
-        false
+        false,
+        null
       ],
       [
         3,
@@ -955,7 +957,8 @@
         "smallint",
         true,
         "",
-        false
+        false,
+        null
       ],
       [
         4,
@@ -963,7 +966,8 @@
         "text",
         false,
         "",
-        false
+        false,
+        null
       ],
       [
         5,
@@ -971,7 +975,8 @@
         "smallint",
         true,
         "",
-        false
+        false,
+        null
       ],
       [
         6,
@@ -979,7 +984,8 @@
         "timestamp with time zone",
         false,
         "",
-        false
+        false,
+        null
       ],
       [
         7,
@@ -987,7 +993,8 @@
         "timestamp with time zone",
         false,
         "",
-        false
+        false,
+        null
       ],
       [
         8,
@@ -995,7 +1002,8 @@
         "boolean",
         true,
         "",
-        false
+        false,
+        null
       ],
       [
         9,
@@ -1003,7 +1011,8 @@
         "boolean",
         true,
         "",
-        false
+        false,
+        null
       ]
     ],
     "indexes": [
@@ -1033,9 +1042,14 @@
         "near_selection_start_kind_check",
         "CHECK ((start_kind = ANY (ARRAY[0, 1, 2])))"
       ]
-    ]
+    ],
+    "policies": 0,
+    "schema": {
+      "owner": "postgres",
+      "acl": "{postgres=UC/postgres,service_role=U/postgres}"
+    }
   },
-  "structureSql": "select jsonb_build_object('acl',c.relacl::text,'owner',pg_get_userbyid(c.relowner),'rls',c.relrowsecurity,'forced',c.relforcerowsecurity,'columns',(select jsonb_agg(jsonb_build_array(a.attnum,a.attname,format_type(a.atttypid,a.atttypmod),a.attnotnull,a.attgenerated::text,a.atthasdef)order by a.attnum)from pg_attribute a where a.attrelid=c.oid and a.attnum>0 and not a.attisdropped),'constraints',(select jsonb_agg(jsonb_build_array(conname,pg_get_constraintdef(oid))order by conname)from pg_constraint where conrelid=c.oid and contype<>'n'),'indexes',(select jsonb_agg(pg_get_indexdef(indexrelid)order by indexrelid::regclass::text)from pg_index where indrelid=c.oid)) contract from pg_class c where c.oid='nothingsports_fixture_read_private.near_selection'::regclass",
+  "structureSql": "select jsonb_build_object('acl',c.relacl::text,'owner',pg_get_userbyid(c.relowner),'rls',c.relrowsecurity,'forced',c.relforcerowsecurity,'columns',(select jsonb_agg(jsonb_build_array(a.attnum,a.attname,format_type(a.atttypid,a.atttypmod),a.attnotnull,a.attgenerated::text,a.atthasdef,a.attacl::text)order by a.attnum)from pg_attribute a where a.attrelid=c.oid and a.attnum>0 and not a.attisdropped),'constraints',(select jsonb_agg(jsonb_build_array(conname,pg_get_constraintdef(oid))order by conname)from pg_constraint where conrelid=c.oid and contype<>'n'),'indexes',(select jsonb_agg(pg_get_indexdef(indexrelid)order by indexrelid::regclass::text)from pg_index where indrelid=c.oid),'policies',(select count(*)from pg_policy where polrelid=c.oid),'schema',(select jsonb_build_object('owner',pg_get_userbyid(n.nspowner),'acl',n.nspacl::text)from pg_namespace n where n.oid=c.relnamespace)) contract from pg_class c where c.oid='nothingsports_fixture_read_private.near_selection'::regclass",
   "nativeQualification": {
     "run": 41041100314,
     "artifactDigest": "8a9e3af97de55fdd0a071903e16738efdd3c7104e901c4fb1049f3d40b737af0",

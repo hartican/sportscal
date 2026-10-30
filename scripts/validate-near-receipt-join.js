@@ -58,6 +58,9 @@ async function run(){
    ['unchanged readiness helper','alter function '+ns+'near_index_ready() cost 101'],
    ['original fallback ACL','grant execute on function '+ns+'read_near_raw(text[])to authenticated'],
    ['private table rights','grant update on '+ns+'near_selection to service_role'],
+   ['private column rights','grant update(shape_version)on '+ns+'near_selection to service_role'],
+   ['unexpected RLS policy','create policy unexpected on '+ns+'near_selection for select to service_role using(true)'],
+   ['private schema rights','grant usage on schema nothingsports_fixture_read_private to anon'],
    ['private RLS','alter table '+ns+'near_selection no force row level security'],
    ['private columns','alter table '+ns+'near_selection add column unexpected text']
   ];

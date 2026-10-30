@@ -50,7 +50,8 @@ Each transaction uses a five-second statement and one-second lock limit.
 
 Before replacement, both directions require exact definitions and attributes
 for all 27 existing functions plus the sealed private near-table structure,
-indexes, constraints, owner, ACL and forced RLS. They require the exact input
+indexes, constraints, owner, table/column ACL, schema owner/ACL, forced RLS and
+absence of policies. They require the exact input
 body and unique rewrite boundaries, construct an exact reversible rewrite,
 then verify the canonical output and all contracts again. A replay or drift
 refuses the transaction; it cannot silently replace a newer implementation.
@@ -75,7 +76,7 @@ The existing regression function accepts an explicit full candidate contract
 list; its default and every existing assertion are unchanged. The new suite
 requires all 27 contracts, with exactly the one reader-definition difference.
 
-`validate-near-receipt-join.js` runs the actual forward/inverse/reapply, 20
+`validate-near-receipt-join.js` runs the actual forward/inverse/reapply, 26
 deliberate function/owner/ACL/body/missing-reader/helper/private-table refusals,
 both replay refusals, full ordered original-indexed-reference comparisons,
 service-role access, receipt shapes and source/fixture binding. Equal fixture
@@ -88,8 +89,9 @@ combined changes, checked direct-service path, contrary no-op and the exact
 rejected double-derivation negative). Thus the native report's 111 existing
 checks are the same 105 named entries plus these six, not a different set of
 assertions. All named entries match the retained native artifact after only
-test-clock labels are normalized. The new total is 111 existing plus 41 added,
-or 152. Later facts survive exact inverse and reapply.
+test-clock labels are normalized. The new total is 111 existing plus 47 added,
+or 158, including the six permission-boundary controls below.
+Later facts survive exact inverse and reapply.
 
 Run separately with the pinned local dependencies:
 
@@ -99,7 +101,14 @@ NEAR_EVIDENCE_DIR=/absolute/output/pg17 PGLITE_MODULE=pglite-pg17 node scripts/v
 node scripts/validate-production-sql-batches.js
 ```
 
-Both engines passed 152 local checks each. The two historical functional-only
+Independent review of the first frozen source (`c297075d`) identified one P2:
+the inherited structure query did not serialize column grants, RLS policies or
+schema privileges. The amended guard seals all three, with real deliberate
+column-UPDATE, unexpected-policy and schema-USAGE refusals in both directions.
+It creates no production policy/grant and leaves the qualified reader body
+unchanged. The failed review is retained alongside its closure evidence.
+
+Both engines passed 158 local checks each. The two historical functional-only
 engine runs verify the regression's unchanged default independently. These are
 disposable Wasm SQL/source checks, not repeated native speed experiments.
 
