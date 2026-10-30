@@ -1,0 +1,79 @@
+name: One-use guarded score recovery QA
+run-name: Guarded score candidate ${{ github.sha }}
+on:
+  push:
+    branches: [codex/score-recovery-live-coverage-20261030]
+    paths:
+      - .github/workflows/score-recovery-oneoff.yml
+      - scripts/qa/score-recovery-20261030/**
+permissions:
+  contents: read
+concurrency:
+  group: sportscal-production-and-cleanup
+  cancel-in-progress: false
+jobs:
+  guarded-candidate:
+    if: >-
+      github.repository == 'hartican/sportscal' &&
+      github.ref == 'refs/heads/codex/score-recovery-live-coverage-20261030' &&
+      github.event.before == '3b1f6ceab669d3c643535ef303976742b14705eb' &&
+      github.event.created == false && github.event.deleted == false &&
+      github.event.forced == false && github.run_attempt == '1' &&
+      github.event.after == github.sha && github.workflow_sha == github.sha
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      QA_WORKFLOW_SHA: ${{ github.workflow_sha }}
+    steps:
+      - name: Check out immutable QA carrier
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.sha }}
+          path: qa
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check out frozen actual source
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: 3b1f6ceab669d3c643535ef303976742b14705eb
+          path: source
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Set up exact Node without a shared cache
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: 24.21.0
+          architecture: x64
+          check-latest: false
+          package-manager-cache: false
+      - name: Install frozen lockfile before credentials exist
+        working-directory: source
+        env:
+          NPM_CONFIG_CACHE: ${{ runner.temp }}/score-recovery-npm
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Verify inactive snapshot and ROOT carrier allocation
+        shell: bash
+        run: >-
+          python3 qa/scripts/qa/score-recovery-20261030/ci.py prepare
+          --source "$GITHUB_WORKSPACE/source"
+          --node "$(command -v node)"
+          --runtime "$RUNNER_TEMP/score-recovery-qa"
+      - name: Qualify native Linux controls without real keys
+        id: controls
+        run: >-
+          python3 "$RUNNER_TEMP/score-recovery-qa/ci.py" qualify
+          --github-output "$GITHUB_OUTPUT"
+      - name: One ROOT-bound canonical local-only attempt
+        if: success() && steps.controls.outputs.ready == 'true'
+        env:
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python3 "$RUNNER_TEMP/score-recovery-qa/ci.py" actual
+      - name: Preserve independently scanned public evidence only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
+        with:
+          name: guarded-score-candidate-${{ github.run_id }}
+          path: ${{ runner.temp }}/score-recovery-qa/public-evidence
+          if-no-files-found: warn
+          retention-days: 3

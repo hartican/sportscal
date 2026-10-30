@@ -1,0 +1,21 @@
+{
+  "files": {
+    "README.md": "ede7de7d495f62a067d8ec00d05054b77462ebd252b4b9bde152423c95aefb9f",
+    "ci.py": "a4c809b9f8d904425e715e261a52cb4d4f09fe25ecd80e42d10304e406bb6576",
+    "control-boundary.cjs": "6eb1709e0b3226bcd5d2f95804df204d907894a1f78ca3b9c3957b3ceb54d18d",
+    "control-projection.cjs": "d28705d1d3cfbd9fa76c32b330b63ac16e2163ef461db854c64cbce8e2f70483",
+    "controls.py": "1c04258d10bff67069497cdc9c40a2b3b30bb1777385f9d56b70f7cf2f56abb9",
+    "credential-scan.py": "029515b81eb7a9e74eea84755c417a437b21a159078f7ad4652b472ad3de7ce5",
+    "guard.cjs": "d49ca3802bdb94dcf22a8bc470a46d83ffc2ee3dcfc52f09d0df4fb25e4d3d53",
+    "prepare-control.py": "de5299f86280421bad4403ebaa2a6c3d9726b965d1567cefd2dd0fe5d339e612",
+    "profile.json": "8e077317e88650b89f3358806dda45e181f08dc19526d0633905820ecc8ecc67",
+    "protocol.cjs": "9fb3296b6c338ec05d829f339d396bb825e244e8696a2e2729743aae19a5421c",
+    "public-fixture-shape.json": "1bfa3ad91f1bc22a7cf016b39a699aa180175ee725689b63d063898a6d2cff94",
+    "supervisor-control.py": "2bdbe5512e76def1724c74f1867d229a1ae404059dbfa43203e6551f993db8c6",
+    "supervisor.py": "a9f5e9ce9ba660dbc97e4dadc0121052ba84f7ceaa03ba40929647eea50e5fa4",
+    "transport.cjs": "10e441bdad26f43ec35abc46043d4341ed4cc83ba6c5e4949d24cac446431c1c",
+    "validate-ci-preparation.py": "86d42210a9fe45d07471a904f317f8fd0fdcf5beb9bc31298018d849ace6400d"
+  },
+  "sourceGitSha": "3b1f6ceab669d3c643535ef303976742b14705eb",
+  "workflowSha256": "c93258c580f178b6ecd0b6aca39aa1c2320725b84bd00a73b6da99cf59c97fe0"
+}
