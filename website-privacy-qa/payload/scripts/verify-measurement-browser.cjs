@@ -211,7 +211,9 @@ async function run(){
      for(let i=0;i<staticLinks;i++)await mockedOpen(f,f.page.locator('a[href^="https://nothingsport.app"]').nth(i));
      await f.page.locator('[data-install]').first().click();await mockedOpen(f,f.page.locator('#main-dialog a[href^="https://nothingsport.app"]').first());await f.page.locator('.close-dialog').click();
      await f.page.locator('[data-event]').first().click();await mockedOpen(f,f.page.locator('#main-dialog a[href^="https://nothingsport.app"]').first());await f.page.locator('.close-dialog').click();
-     const before=count(f,'OpenApp');await f.page.locator('a[href="#how-it-works"]').click();await f.page.locator('#refresh-feed').click();await f.page.setViewportSize({width:1280,height:900});await f.page.locator('img[src="/assets/app-qr.svg"]').first().click();assert.equal(count(f,'OpenApp'),before);assert.equal(count(f,'PageView'),1);
+     const before=count(f,'OpenApp');await f.page.setViewportSize({width:1280,height:900});
+     const how=f.page.locator('.main-nav a[href="#how-it-works"]');assert(await how.isVisible(),'How it works must be visible in the desktop navigation');await how.click();await f.page.waitForURL(ORIGIN+'/#how-it-works');
+     await f.page.locator('#refresh-feed').click();await f.page.locator('img[src="/assets/app-qr.svg"]').first().click();assert.equal(count(f,'OpenApp'),before);assert.equal(count(f,'PageView'),1);
     });
     for(const options of [{feedFailure:true},{emptyFeed:true}])await useFixture({enable:true,stored:true,...options},async failed=>{await failed.page.goto(ORIGIN+'/',{waitUntil:'domcontentloaded'});await failed.page.waitForFunction(()=>document.getElementById('measurement-status').textContent==='Optional measurement is on.');await mockedOpen(failed,failed.page.locator('.empty-state a[href^="https://nothingsport.app"]').first());});
    });

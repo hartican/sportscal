@@ -9,9 +9,9 @@ from http.cookies import SimpleCookie
 from pathlib import Path
 from urllib.parse import quote, quote_plus, unquote_plus
 
-SOURCE = 'd9460cae05cc32507facc8fb8c184ae8ed866e52'
-TREE = '1bf417647ef3fb54c04c6198e019887fa593c401'
-MANIFEST = 'ac3d76f83cdfe8c74b1d90bc36951df9dd390b461bdc4f259953ed50d70f92ce'
+SOURCE = 'd68639a09c4a46a94934de5d54ef92a9cca10b18'
+TREE = 'c3a585b9d1ba2943c6ea6330bb65d15e8cee970e'
+MANIFEST = '3659f9e373a5a8f79a05e73a03dfbef98996674a18d6a8a1c7308760e2fde1ad'
 CONTROLS_REQUIRED = ('normal-descendants', 'detached-descendants', 'term-cleanup', 'kill-cleanup',
                      'stalled-cleanup', 'fast-log-cap', 'fast-deadline', 'primary-secondary-faults',
                      'success-evidence-faults', 'post-evidence-deadline', 'curation', 'outer-interruption')

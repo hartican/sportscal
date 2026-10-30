@@ -5,13 +5,13 @@
   "pixel": "1149008224326641",
   "originalVersion": 4,
   "originalSource": "6b023136d56548c13e458a30d4a9afbe983ade13",
-  "candidateSource": "d9460cae05cc32507facc8fb8c184ae8ed866e52",
-  "candidateTree": "1bf417647ef3fb54c04c6198e019887fa593c401",
-  "candidateBranch": "codex/website-consent-20261030",
+  "candidateSource": "d68639a09c4a46a94934de5d54ef92a9cca10b18",
+  "candidateTree": "c3a585b9d1ba2943c6ea6330bb65d15e8cee970e",
+  "candidateBranch": "codex/website-consent-qa-navigation-20261030",
   "sdkGate": "disabled-in-shipped-bootstrap",
   "publication": "not-pushed-or-published",
-  "native": "unrun",
-  "totalBytes": 211934,
+  "native": "corrected-source-unrun; parent-native-mock-red-preserved",
+  "totalBytes": 212845,
   "files": [
     {
       "path": ".openai/hosting.json",
@@ -80,14 +80,14 @@
     },
     {
       "path": "scripts/verify-measurement-browser.cjs",
-      "bytes": 33165,
-      "sha256": "60bd72b64860743e55a9f7d0163ba4a8d1b9ab7dfafdc3d9f5952861794f6329"
+      "bytes": 33337,
+      "sha256": "69b84c514d1a58aa46b2218f37ba0570453daff40335faaf4e7ffe2b0c4edefa"
     },
     {
       "path": "docs/measurement-candidate-2026-10-30.md",
-      "bytes": 9659,
-      "sha256": "9c531f7cce0b74e5eb6c8e7de9655709b0b9dda753932ca117131ae5c117c651"
+      "bytes": 10398,
+      "sha256": "cd8ca5faae1e2ebd1631df50d77e7353b82b3b1c1bf8b0b79cc5f526c4894b74"
     }
   ],
-  "repairParent": "0ce6bfb6a528c95cc31373db90aba8f77ddc6d2c"
+  "repairParent": "d9460cae05cc32507facc8fb8c184ae8ed866e52"
 }

@@ -18,7 +18,7 @@ parser.add_argument('--runner-uid', type=int, required=True)
 parser.add_argument('--runner-gid', type=int, required=True)
 parser.add_argument('--worker', action='store_true')
 hash_bytes = lambda data: hashlib.sha256(data).hexdigest()
-SOURCE = 'd9460cae05cc32507facc8fb8c184ae8ed866e52'
+SOURCE = 'd68639a09c4a46a94934de5d54ef92a9cca10b18'
 
 def bootstrap_write(path, report, reserve=False):
     # Available before importing the controller; reserve a fresh initial FAIL.

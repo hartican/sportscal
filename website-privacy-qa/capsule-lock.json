@@ -1,15 +1,15 @@
 {
-  "purpose": "Changed npm setup only; repeat controller qualification then mock and actual browser privacy. No app/Site publication.",
-  "source": "d9460cae05cc32507facc8fb8c184ae8ed866e52",
-  "sourceTree": "1bf417647ef3fb54c04c6198e019887fa593c401",
-  "payloadBytes": 211934,
-  "sourceManifestSha256": "ac3d76f83cdfe8c74b1d90bc36951df9dd390b461bdc4f259953ed50d70f92ce",
+  "purpose": "Changed navigation verifier plus source-binding metadata only; repeat full browser privacy. No app/Site publication.",
+  "source": "d68639a09c4a46a94934de5d54ef92a9cca10b18",
+  "sourceTree": "c3a585b9d1ba2943c6ea6330bb65d15e8cee970e",
+  "payloadBytes": 212845,
+  "sourceManifestSha256": "3659f9e373a5a8f79a05e73a03dfbef98996674a18d6a8a1c7308760e2fde1ad",
   "reviews": {
     "spec-linux-profile-repaired-d946.json": "cf17f538b2ed345dff1ade0eefddb173d828fe643a3a2b5efac1e50fa03cea91",
     "standards-linux-profile-repaired-d946.md": "2f5a816211800671f9e592a56a5c25b8151c3265cca33e6b53771dae72a7bbd6"
   },
   "files": {
-    "website-privacy-qa/manifest.json": "ac3d76f83cdfe8c74b1d90bc36951df9dd390b461bdc4f259953ed50d70f92ce",
+    "website-privacy-qa/manifest.json": "3659f9e373a5a8f79a05e73a03dfbef98996674a18d6a8a1c7308760e2fde1ad",
     "website-privacy-qa/payload/.openai/hosting.json": "d41a9b15c11ddc2bfbf6754c9416bca7a2b5e7765faa7e33610a5dd781b6cd43",
     "website-privacy-qa/payload/app/route.ts": "fa7770a3612399fd8665153e86b7fd83bb765e3abd22bb705745782da532b0fa",
     "website-privacy-qa/payload/app/privacy/reload/route.ts": "18e505720cc45cec16cc09820edab75c6e79ce8cdfcfdc9458c909c9c0dd1094",
@@ -23,18 +23,23 @@
     "website-privacy-qa/payload/public/measurement.js": "0bc697e27a18743152ca3ce93739f6da02072d534e238600308fe8f0fb596f3d",
     "website-privacy-qa/payload/public/measurement-start.js": "7fdae95825d3b836dbf71309ea34bc5510fa4f7fc489f2e33893146d188f0d91",
     "website-privacy-qa/payload/scripts/validate-measurement.cjs": "981c2556b9c31acec823fd6b01b0e5f2a237555b90f821bf2b39a0ec2579a525",
-    "website-privacy-qa/payload/scripts/verify-measurement-browser.cjs": "60bd72b64860743e55a9f7d0163ba4a8d1b9ab7dfafdc3d9f5952861794f6329",
-    "website-privacy-qa/payload/docs/measurement-candidate-2026-10-30.md": "9c531f7cce0b74e5eb6c8e7de9655709b0b9dda753932ca117131ae5c117c651",
-    "website-privacy-qa/supervisor.py": "5a95427d9577a43c87b48215828dc9cd4407bec5370aa6a4b2e805bfd3ca7a4f",
-    "website-privacy-qa/controller-controls.py": "81da5b465688da19342ab5f6aa24f4c6686c259a6a503ee79e60f41ff090a9fa"
+    "website-privacy-qa/payload/scripts/verify-measurement-browser.cjs": "69b84c514d1a58aa46b2218f37ba0570453daff40335faaf4e7ffe2b0c4edefa",
+    "website-privacy-qa/payload/docs/measurement-candidate-2026-10-30.md": "cd8ca5faae1e2ebd1631df50d77e7353b82b3b1c1bf8b0b79cc5f526c4894b74",
+    "website-privacy-qa/supervisor.py": "af5fc7bc29dfed32555a30aecb03eac83dcd533625cce15634f23014eba9fd39",
+    "website-privacy-qa/controller-controls.py": "4894c18733f6abe9fc7e8d5c9bed5ef6e8322ec2ab184ef2272a4deb7b79896d"
   },
   "networkGuardReviews": {
     "spec-network-header-closure-d946.json": "10fb510a1c9a06f009039e4c9cdfa26f931d79b8a9e94a10afe88d85c497e358",
     "standards-network-header-scope-d946.md": "90761185204e369cb2906bee5fa828baf26d63c522803ccf1ac41037a376c13c"
   },
-  "priorFailedRun": 41027652254,
+  "priorFailedRun": 41029290330,
   "npmSetupReviews": {
     "spec-npm-setup-d946.json": "117ac779092bc55a7146c34e15a9570ff1ac8dd6837b6f9de8eba1c2e1a02722",
     "standards-npm-setup-d946.md": "e243b7d0bfb43925bd9b723a70a3224c6d8f8d7a314595e1d6eae337040de316"
-  }
+  },
+  "navigationReviews": {
+    "spec-navigation-closure-d686.json": "8ea0488f8a36ce061a54350851b9c87d7d8a1ff5c12b0f6a083fcf347ccbc7dd",
+    "standards-navigation-closure-d686.md": "f959f654490ff42da0497dd5e54c55f6340c6cdcccd930808d88ba5208af5eac"
+  },
+  "bindingOnlyProofSha256": "42ad7ce57377b6b86fffbcd5a00cb18985b4a179e21b08776350f1783908df3f"
 }
