@@ -83,6 +83,13 @@ try {
   reject(() => { const input = read('data/events.json'); input.events.push(clone(input.events[0])); write('data/events.json', input); }, /ambiguous/i);
   reject(() => { const input = read('data/events.json'); input.events[0].status='completed'; input.events[0].outcomeText='A newer confirmed result'; write('data/events.json', input); }, /fixture.*binding/i);
   reject(() => { const input=read('data/events.json'); input.events[0].editorialNarrative={projectionId:'retained:newer',hook:'Keep newly retained owner writing.',synopsis:'This retained writing is not owned by the new missing-projection review.'}; write('data/events.json',input); }, /retained writing/i);
+  for(const field of ['sourceIds','factIds','researchedAt']) reject(doc=>{
+    write('review.json',doc);
+    applyScopedResearch(['evt_43'],path.join(sandbox,'review.json'),sandbox);
+    const input=read('data/events.json');
+    input.events[0].editorialNarrative[field]=field==='researchedAt'?'2026-10-31T01:00:00.000Z':[...input.events[0].editorialNarrative[field],'retained:newer:evidence'];
+    write('data/events.json',input);
+  },/retained writing/i);
   reject(doc => { doc.targets[0].id='evt_84'; doc.targets[0].canonicalEventId='major-match:nrl-finals-2026:grand-final'; doc.entries[0].id='evt_84'; for(const file of files.slice(1)){ const input=read(file); Object.assign(input.events[0], {id:'evt_84',eventId:'evt_84',canonicalEventId:'major-match:nrl-finals-2026:grand-final'});write(file,input); } }, /protected/i, ['evt_84']);
   for (const invalid of [args.filter(arg=>arg!=='--local-only'), [...args,'--quick'], [...args,args[4]], args.filter(arg=>arg!=='--editorial-projections'), ['--reviewed-editorial=review.json']]) {
     assert.throws(() => require('./update-cards').parseOptions(invalid, {}), /reviewed|editorial/i);checks++;
@@ -121,5 +128,17 @@ try {
   assert.equal(child.status,0,child.stderr);
   check(/reviewed-editorial-research/.test(child.stdout), 'The actual canonical CLI dispatches source staging and no provider/build/release child.');
   check(read('data/events.json').events[0].editorialNarrative.hook===frozen.entries[0].hook, 'The real canonical caller writes the selected projection.');
+  prepare();
+  fs.appendFileSync(preload, `;{const fs=require('node:fs'),original=fs.rmSync;fs.rmSync=(file,options)=>{if(String(file).includes('/ns-reviewed-copy-stage-')&&options?.recursive){fs.writeFileSync(${JSON.stringify(path.join(sandbox,'recovery.txt'))},String(file));throw Error('controlled final staging cleanup failure')}return original(file,options)}}`);
+  const cleanupChild=spawnSync(process.execPath,['--require',preload,path.join(ROOT,'scripts/update-cards.js'),...args],{cwd:sandbox,env:environment,encoding:'utf8',timeout:30000});
+  try {
+    assert.equal(cleanupChild.status,1);
+    assert.match(cleanupChild.stderr,/Reviewed outputs committed; staging cleanup failed; retain .*ns-reviewed-copy-stage-/);
+    check(read('data/events.json').events[0].editorialNarrative.hook===frozen.entries[0].hook,'The actual CLI reports post-commit cleanup state truthfully.');
+  } finally {
+    const recovery=fs.readFileSync(path.join(sandbox,'recovery.txt'),'utf8');
+    assert(path.basename(recovery).startsWith('ns-reviewed-copy-stage-'));
+    fs.rmSync(recovery,{recursive:true,force:true});
+  }
   console.log(`Reviewed editorial research: ${checks} controls passed; exact identity/source binding, no network, actual canonical caller, facts/clocks, rollback and protected original.`);
 } finally { fs.rmSync(sandbox,{recursive:true,force:true}); }

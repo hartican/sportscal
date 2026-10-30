@@ -85,7 +85,7 @@ function applyScopedResearch(ids, input, root=process.cwd()){
       assert(event.canonicalEventId===target.canonicalEventId, 'Canonical identity binding differs for '+id);
       assert(target.fixtureHashes?.[relative]===hash(facts(event)), 'Retained fixture binding differs for '+relative+' '+id);
       const retainedProjection=narrative.projectionForTarget(knowledge,'feed-event',event);
-      assert(!event.editorialNarrative || retainedProjection && ['projectionId','hook','synopsis','formCopy','closingCopy'].every(key=>isDeepStrictEqual(event.editorialNarrative[key],key==='projectionId'?retainedProjection.id:retainedProjection[key])), 'Existing retained writing cannot be replaced by missing-projection staging.');
+      assert(!event.editorialNarrative || retainedProjection && ['projectionId','hook','synopsis','formCopy','closingCopy','sourceIds','factIds','threadIds','researchedAt'].every(key=>isDeepStrictEqual(event.editorialNarrative[key],key==='projectionId'?retainedProjection.id:retainedProjection[key])), 'Existing retained writing cannot be replaced by missing-projection staging.');
       narrative.projectionTargetIds(event).forEach(alias=>aliases.add(alias));
       selected.push(event);
     }
@@ -137,6 +137,7 @@ function applyScopedResearch(ids, input, root=process.cwd()){
   assert.deepEqual(narrative.validateKnowledge(result.knowledge),[], 'Reviewed projection must satisfy the unchanged whole-knowledge depth/provenance bar.');
   const temporary=fs.mkdtempSync(path.join(os.tmpdir(),'ns-reviewed-copy-stage-'));
   let failure;
+  let committed=false;
   try {
     for (const relative of files) {
       const file=path.join(temporary,relative);fs.mkdirSync(path.dirname(file),{recursive:true});
@@ -145,12 +146,13 @@ function applyScopedResearch(ids, input, root=process.cwd()){
     const repaired=applyScopedFeed(ids,temporary);
     const plans=files.map(relative=>({file:path.join(root,relative),before:originals.get(relative),document:JSON.parse(fs.readFileSync(path.join(temporary,relative),'utf8'))})).filter((plan,index)=>!isDeepStrictEqual(plan.document,documents.get(files[index])));
     commit(plans);
+    committed=plans.length>0;
     return {changed:repaired.changed ? research.targets.length : 0,updatedIds:repaired.changed ? ids : [],sourceRequests:0,scope:'reviewed-editorial-research',derivedPublication:false};
   } catch (error) { failure=error; throw error; }
   finally {
     try { fs.rmSync(temporary,{recursive:true,force:true}); }
     catch (error) {
-      if (!failure) throw Object.assign(error,{committed:true,recoveryFiles:[temporary]});
+      if (!failure) throw Object.assign(new Error((committed?'Reviewed outputs committed':'No reviewed outputs committed')+'; staging cleanup failed; retain '+temporary+': '+error.message),{cause:error,committed,recoveryFiles:[temporary]});
       failure.cleanupFailures ||= [];
       failure.recoveryFiles ||= [];
       failure.cleanupFailures.push(error.message);
