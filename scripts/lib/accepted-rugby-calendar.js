@@ -4,7 +4,7 @@
 const assert=require('node:assert/strict'),crypto=require('node:crypto');
 const receipt=require('../fixtures/rugby-retained-start-20261030.json');
 const sha=value=>crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
-const fields=['id','key','sourceName','sourceType','sourceFixtureId','sourceUrl','participantIds','homeParticipantId','awayParticipantId','startTimeUtc','status','sourceStatus','homeScore','awayScore','scoreDisplay','scoreFactObservedAt','statusFactObservedAt','scoreCheckedAt','statusCheckedAt','eventId','canonicalEventId','sourceEventIds','date','endDate','actualStartTimeUtc','actualEndTimeUtc','score','sets','games','innings','outcomeText','recapText','result','winnerParticipantId'];
+const fields=['id','key','sourceName','sourceType','sourceFixtureId','sourceUrl','participantIds','homeParticipantId','awayParticipantId','startTimeUtc','status','sourceStatus','homeScore','awayScore','scoreDisplay','scoreFactObservedAt','statusFactObservedAt','scoreCheckedAt','statusCheckedAt','eventId','canonicalEventId','sourceEventIds','date','endDate','actualStartTimeUtc','actualEndTimeUtc','score','sets','games','innings','outcomeText','recapText','result','winnerParticipantId','sourceCheckedAt','canonicalSourceCheckedAt','resultSourceCheckedAt','resultSourceName','resultSourceType','resultSourceUrl','resultPublishedAt','firstConfirmedCompleteAt','firstCompletedAt','completedAt'];
 const tuple=record=>Object.fromEntries(fields.filter(k=>Object.hasOwn(record,k)).map(k=>[k,record[k]]));
 function apply(base,fixture){
  if(base?.id!=='fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862'||base.startTimeUtc!=='2026-10-23T08:45:00.000Z')return base;

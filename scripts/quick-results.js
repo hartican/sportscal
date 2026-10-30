@@ -358,7 +358,7 @@ async function atomicRefresh(options,{refreshOperation=refresh}={}){
   // Restore the entire candidate before any fallible diagnostic IO. A broken
   // report must neither skip rollback nor replace the original refresh error.
   const rollbackErrors=[],restore=operation=>{try{operation();}catch(rollbackError){rollbackErrors.push(require('./lib/refresh-report').sanitise(rollbackError.message));}};
-  const after=new Map(files);files.clear();restore(()=>{collect('data');collect('feeds');});
+  const after=new Map(files);files.clear();restore(()=>collect('data'));restore(()=>collect('feeds'));
   for(const name of files.keys())if(!after.has(name))restore(()=>fs.unlinkSync(name));
   // The snapshot includes retained files outside the mutation allowlist. Skip
   // identical bytes; attempt every necessary restoration before diagnostics.
