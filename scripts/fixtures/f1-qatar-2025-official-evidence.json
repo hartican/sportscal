@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "sportscal.official-editorial-evidence.v1",
+  "sourceRecords": [
+    {
+      "id": "official:f1:2025:qatar:race-result",
+      "sourceUrl": "https://www.formula1.com/en/racing/2025/qatar",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-30T23:28:25.790Z",
+      "captureType": "web-tool-extracted-document-and-metadata",
+      "captureSha256": "cad4ccba2a2998160e71d46d329193b65c325d9fc4db6e59985971f98357fd2c",
+      "observationBasis": "Actual tool retrieval; not raw HTTP bytes or publisher last-modified time.",
+      "raceDate": "2025-11-30",
+      "classification": [
+        {
+          "position": 1,
+          "driver": "Max Verstappen"
+        },
+        {
+          "position": 2,
+          "driver": "Oscar Piastri"
+        }
+      ],
+      "support": "Official 2025 Qatar hub: Race 30 Nov and Race Result rows1-2 (extracted lines21,25-32)."
+    }
+  ]
+}
