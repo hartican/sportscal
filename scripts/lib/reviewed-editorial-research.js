@@ -94,8 +94,8 @@ function applyScopedResearch(ids, input, root=process.cwd()){
   assert(Array.isArray(research.sourceBindings) && research.sourceBindings.length, 'Complete retained source bindings are required.');
   const bindings=new Map();
   for (const binding of research.sourceBindings) {
-    assert(typeof binding.path==='string' && /^(?:data\/canonical\/[a-z0-9-]+\.json|data\/events\.json|feeds\/incoming\/events\.json)$/.test(binding.path), 'Invalid retained source path.');
-    assert(['events','ladderSnapshots'].includes(binding.collection) && ['canonicalEventId','competitionId'].includes(binding.identityField), 'Invalid retained source collection/identity binding.');
+    assert(typeof binding.path==='string' && /^(?:data\/canonical\/[a-z0-9-]+\.json|data\/events\.json|feeds\/incoming\/events\.json|scripts\/fixtures\/f1-qatar-2025-official-evidence\.json)$/.test(binding.path), 'Invalid retained source path.');
+    assert(['events','ladderSnapshots','sourceRecords'].includes(binding.collection) && ['canonicalEventId','competitionId','id'].includes(binding.identityField), 'Invalid retained source collection/identity binding.');
     const file=fs.realpathSync(path.join(root,binding.path));
     assert(file.startsWith(root+path.sep), 'Retained source path escapes the owned checkout.');
     if (!documents.has(binding.path)) documents.set(binding.path,JSON.parse(fs.readFileSync(file,'utf8')));

@@ -63,7 +63,8 @@ try {
   }
   const knowledge = read(files[0]);
   assert.deepEqual(knowledge.sources.map(source => source.checkedAt), frozen.sourceBindings.map(source => source.checkedAt), 'Copy assembly cannot renew retained source observations.');
-  check(knowledge.narrativeFacts.every(fact => fact.observedAt.startsWith('2026-10-11')), 'Dated factual observations remain dated.');
+  check(knowledge.narrativeFacts.slice(0,3).every(fact => fact.observedAt.startsWith('2026-10-11')), 'Dated factual observations remain dated.');
+  check(knowledge.narrativeFacts[3].observedAt===frozen.sourceBindings.at(-1).checkedAt, 'The newly checked historical classification has its separate actual observation clock.');
   const once = bytes();
   check(applyScopedResearch(['evt_43'], path.join(sandbox, 'review.json'), sandbox).changed === 0, 'An unchanged review does not create a new publication.');
   assert.deepEqual(bytes(), once, 'Unchanged retry preserves exact bytes.');
@@ -71,6 +72,7 @@ try {
   reject(doc => { doc.targets[0].canonicalEventId = 'event:f1:2026:other:race'; }, /identity|binding/i);
   reject(doc => { doc.targets[0].fixtureHashes['data/events.json'] = '0'.repeat(64); }, /fixture.*binding/i);
   reject(doc => { doc.sourceBindings[0].sha256 = '0'.repeat(64); }, /source.*binding/i);
+  reject(doc => { doc.sourceBindings.at(-1).sha256 = '0'.repeat(64); }, /source.*binding/i);
   reject(doc => { doc.sourceBindings[0].path = '../private.json'; }, /source.*path/i);
   reject(doc => { doc.sourceBindings[0].url = 'https://example.test/unbound'; }, /source.*binding/i);
   reject(doc => { const file='data/canonical/f1-context-2026.json'; const context=read(file); context.ladderSnapshots[0].source.sourceType='broadcaster'; write(file,context); doc.sourceBindings[0].sha256=hash(context.ladderSnapshots[0]); }, /source classification/i);
