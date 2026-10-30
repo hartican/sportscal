@@ -51,7 +51,8 @@ function appearance(stack){
    button.addEventListener('click',async()=>{
     if(grid.dataset.saving==='true')return;grid.dataset.saving='true';status.textContent='Checking points…';
     try{
-     const fresh=await privilege(true);if(!section.isConnected||scope()!==owner)return;
+     const fresh=await privilege(true);if(!section.isConnected)return;
+     if(scope()!==owner){grid.replaceChildren();status.textContent='Reopen Appearance to check this account.';return;}
      if(!fresh.canChooseIcon){grid.replaceChildren();status.textContent=lockedCopy;return;}
      localStorage.setItem(policy.KEY,JSON.stringify(v.id));applyThemePreference(draftPreferences?.theme||userPreferences.theme);
      grid.querySelectorAll('[data-icon-choice]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.iconChoice===v.id)));
