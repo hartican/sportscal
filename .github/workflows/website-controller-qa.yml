@@ -31,7 +31,7 @@ jobs:
           PY
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
-          ref: 0707a7147872cb1e7090051479974a0f9b07dfcc
+          ref: 6d6a112e6b4edb769d7a1441f28490360bead257
           fetch-depth: 1
           persist-credentials: false
           sparse-checkout: website-privacy-qa
@@ -41,7 +41,7 @@ jobs:
           node-version: 24.21.0
       - name: Record immutable test-only snapshot and runner context
         env:
-          NS_QA_EXPECTED_SNAPSHOT: 0707a7147872cb1e7090051479974a0f9b07dfcc
+          NS_QA_EXPECTED_SNAPSHOT: 6d6a112e6b4edb769d7a1441f28490360bead257
         run: |
           python3 - <<'PY'
           import hashlib, json, os, platform, re, subprocess
@@ -50,13 +50,13 @@ jobs:
           assert re.fullmatch('[0-9a-f]{40}', expected), 'ROOT has not bound a reviewed snapshot'
           actual = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
           assert actual == expected
-          assert subprocess.check_output(['git','rev-parse','HEAD^{tree}'],text=True).strip()=='49580c03e30f3d2499565e9ac924ccc30f462c50'
+          assert subprocess.check_output(['git','rev-parse','HEAD^{tree}'],text=True).strip()=='32eed7b523bedef1d17aa0ab8c2ae11e45007bb6'
           lock=json.loads(Path('website-privacy-qa/capsule-lock.json').read_text())
           assert lock['source']=='d9460cae05cc32507facc8fb8c184ae8ed866e52'
           assert len(lock['files'])==18
           for filename,digest in lock['files'].items():
               assert hashlib.sha256(Path(filename).read_bytes()).hexdigest()==digest,filename
-          assert hashlib.sha256(Path('website-privacy-qa/supervisor.py').read_bytes()).hexdigest()=='9474c651dfaec69e6c65fccb60a30a7eb870e53b6a3b37a0b8667bb37d166a85'
+          assert hashlib.sha256(Path('website-privacy-qa/supervisor.py').read_bytes()).hexdigest()=='5a95427d9577a43c87b48215828dc9cd4407bec5370aa6a4b2e805bfd3ca7a4f'
           assert hashlib.sha256(Path('website-privacy-qa/controller-controls.py').read_bytes()).hexdigest()=='81da5b465688da19342ab5f6aa24f4c6686c259a6a503ee79e60f41ff090a9fa'
           files = ['website-privacy-qa/manifest.json', 'website-privacy-qa/supervisor.py', 'website-privacy-qa/controller-controls.py']
           record = {'snapshot': actual, 'snapshotTree': subprocess.check_output(['git', 'rev-parse', 'HEAD^{tree}'], text=True).strip(), 'runner': platform.platform(), 'runnerPython': platform.python_version(), 'node': subprocess.check_output(['node', '--version'], text=True).strip(), 'expectedPlaywright': '1.64.1', 'controllerFiles': {p: hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in files}, 'actionReferences': {'checkout': 'fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09', 'setupNode': 'a0853c24544627f65ddf259abe73b1d18a591444', 'uploadArtifact': 'cf430e030ddbb5b0abf93d22962f4752f3646cd9'}, 'limits': 'Pinned official actions and exact reviewed source/controller snapshot; only browser privacy qualification, no hosted or publication proof.'}
