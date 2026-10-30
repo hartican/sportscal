@@ -52,10 +52,12 @@ async function json(url){const response=await fetch(url,{signal:AbortSignal.time
 function run(file,...args){
  if(file==='scripts/publish-feed.js'){
   const p='feeds/incoming/events.json',d=read(p),coverageSport=args.includes('--coverage-sport=rugby-union')?'rugby-union':null;
+  const eplScope=require('./lib/epl-publication-scope'),epl=eplScope.parse(args);
+  if(epl&&coverageSport)throw Error('Mixed scoped Feed publication');
   const codeFor=e=>require('../config/fixture-identity').sportKey(e)==='rugby'?'rugby-union':require('../config/fixture-identity').sportKey(e);
-  const selected=coverageSport?d.events.filter(e=>codeFor(e)===coverageSport):d.events;
+  const selected=epl?d.events.filter(e=>eplScope.selected(e,epl.ids)):coverageSport?d.events.filter(e=>codeFor(e)===coverageSport):d.events;
   const projected=require('./lib/editorial-publication').reconcileFullPreviews(selected,read('data/editorial-knowledge.v1.json'));
-  const events=coverageSport?coverageScope.retainOutsideScope(d.events,projected,coverageSport,codeFor):projected;
+  const events=epl?eplScope.retain(d.events,projected,epl.ids):coverageSport?coverageScope.retainOutsideScope(d.events,projected,coverageSport,codeFor):projected;
   if(JSON.stringify(events)!==JSON.stringify(d.events))write(p,{...d,events});
  }
  const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(file))for(const key of ['FOOTBALL_DATA_API_TOKEN','FOOTBALL_DATA_RUN_DIR','FOOTBALL_DATA_REPORT','GOLF_SOURCE_REPORT','GOLF_SOURCE_RUN_ID'])delete env[key];if(/^scripts\/validate-/.test(file))delete env.REFRESH_REPORT;
@@ -122,9 +124,11 @@ function nblProjectionSteps(changes){
  if(changes.length&&changes.every(change=>change==='NBL standings'))return [['scripts/build-code-inspector.js','--codes=nbl']];
  return retainedFeedProjectionSteps(changes);
 }
-function retainedFeedProjectionSteps(changes,{coverageSport}={}){
+function retainedFeedProjectionSteps(changes,{coverageSport,eplUpdatedIds}={}){
  coverageScope.sourcesFor(coverageSport);
- return projectionSteps(changes).filter(args=>!['scripts/enrich-storyline-cards.js','scripts/select-result-editorial.js'].includes(args[0])).map(args=>args[0]==='scripts/publish-feed.js'?[args[0],'data/events.json',...args.slice(2),...(coverageSport?['--coverage-sport='+coverageSport]:[])]:args);
+ if(coverageSport&&eplUpdatedIds)throw Error('Mixed scoped Feed publication');
+ const eplArg=eplUpdatedIds==null?[]:[require('./lib/epl-publication-scope').argument(eplUpdatedIds)];
+ return projectionSteps(changes).filter(args=>!['scripts/enrich-storyline-cards.js','scripts/select-result-editorial.js'].includes(args[0])).map(args=>args[0]==='scripts/publish-feed.js'?[args[0],'data/events.json',...args.slice(2),...(coverageSport?['--coverage-sport='+coverageSport]:[]),...eplArg]:args);
 }
 function nblStandingsChanged(before,after){
  const facts=rows=>rows?.map(({asOf,...row})=>row);
@@ -213,7 +217,7 @@ async function refresh({now=new Date(),offline=false,source=null,coverageSport}=
    try{report=await require('./lib/epl-only-refresh').refresh({now});}
    catch(error){if(error.eplReport)writeQuickFailureReport(error.eplReport);throw error;}
    writeQuickFailureReport(report);
-   runProjectionSteps(retainedFeedProjectionSteps(report.changed));
+   runProjectionSteps(retainedFeedProjectionSteps(report.changed,{eplUpdatedIds:report.updatedFixtureIds}));
    return report;
   }
   if(source==='nhl'&&!offline){

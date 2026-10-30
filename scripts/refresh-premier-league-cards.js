@@ -232,7 +232,7 @@ function cardForFixture(fixture, checkedAt){
   }));
 }
 
-async function loadCards(known,{loader=loadFixtures,checkedAt=new Date().toISOString(),backupOptions={},allowFixtureDeferrals=false,onReport=()=>{}}={}){
+async function loadCards(known,{loader=loadFixtures,checkedAt=new Date().toISOString(),backupOptions={},allowFixtureDeferrals=false,validateCandidate=()=>{},onReport=()=>{}}={}){
   const backup=require('./lib/football-data-backup'),delayed=require('../lib/football-delayed-results');
   try{
     const fixtures=await loader(),observedAt=typeof checkedAt==='function'?checkedAt():checkedAt;
@@ -248,10 +248,13 @@ async function loadCards(known,{loader=loadFixtures,checkedAt=new Date().toISOSt
       }
     });
     eplIdentities.validatePrimaryCollection(cards);
-    const next=delayed.apply(cards,backup.readOverlay(backupOptions.outputPath)),retainedDelayed=new Map();
+    const savedOverlay=backup.readOverlay(backupOptions.outputPath),next=delayed.apply(cards,savedOverlay),retainedDelayed=new Map();
     if(allowFixtureDeferrals)for(const event of next){const old=knownById.get(eplIdentities.binding(event)?.record.primaryId),raw=fresh.find(card=>card.id===event.id);if(old?.status==='completed'&&old.delayedResultSource&&event.delayedResultSource&&raw&&raw.status!=='completed')retainedDelayed.set(event.id,old);}
     const byId=new Map(next.map(e=>[eplIdentities.binding(e)?.record.primaryId,e]));
     for(const old of known){const card=byId.get(eplIdentities.binding(old)?.record.primaryId);if(!card||old.homeParticipantId!==card.homeParticipantId||old.awayParticipantId!==card.awayParticipantId||old.status==='completed'&&card.status!=='completed')throw Error('Premier League identity/result continuity failed');}
+    // Scope admission sees the raw sporting claims as well as deferred cards.
+    // It must finish before primary confirmation can retire a saved overlay.
+    validateCandidate({fixtures,cards:next.map(e=>retainedDelayed.get(e.id)||e),checkedAt:observedAt,overlay:savedOverlay,deferredFixtures:deferred});
     // Deferred old finals are not new primary confirmations and must not prune
     // their saved delayed overlay. The complete380 identity gate above stays strict.
     const primary=backup.primary(fresh,backupOptions),updated=new Map(primary.map(e=>[e.id,e]));

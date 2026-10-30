@@ -16,6 +16,35 @@ function observation(value){
  if(new Date(time+shift).toISOString().slice(0,19)!==value.slice(0,19))throw Error('EPL source observation clock has an invalid calendar date');
  return time;
 }
+function supportedDelayedFinal(old,overlay,checkedAt){
+ if(old.delayedResultSource?.provider!=='Football-Data.org')return false;
+ const aliases=new Set(identities.aliasesForId(identities.binding(old).record.primaryId));
+ const rows=(overlay.results||[]).filter(row=>aliases.has(row.fixtureId));
+ if(rows.length!==1)return false;
+ const row=rows[0],start=Date.parse(old.startTimeUtc),limit=Date.parse(checkedAt);
+ return row.competitionId===old.competitionId&&row.homeParticipantId===old.homeParticipantId&&row.awayParticipantId===old.awayParticipantId&&row.roundNumber===old.roundNumber
+  &&[row.homeScore,row.awayScore].every(score=>Number.isSafeInteger(score)&&score>=0)&&row.homeScore===old.homeScore&&row.awayScore===old.awayScore
+  &&row.sourceUrl==='https://www.football-data.org/'&&old.delayedResultSource.sourceUrl===row.sourceUrl
+  &&['sourceCheckedAt','sourceUpdatedAt'].every(key=>typeof row[key]==='string'&&Number.isFinite(Date.parse(row[key]))&&Date.parse(row[key])>=start&&Date.parse(row[key])<=limit)
+  &&old.delayedResultSource.checkedAt===row.sourceCheckedAt&&old.delayedResultSource.updatedAt===row.sourceUpdatedAt;
+}
+function validateCandidate(surfaces,{fixtures,cards,checkedAt,overlay,deferredFixtures}){
+ const oldById=new Map();
+ for(const {document}of surfaces)for(const event of document.events.filter(e=>e.competitionId===COMPETITION)){
+  const id=identities.binding(event).record.primaryId;if(!oldById.has(id))oldById.set(id,[]);oldById.get(id).push(event);
+ }
+ for(const fixture of fixtures){
+  const playing=fixture.status==='L'&&['1','2','H'].includes(fixture.phase),final=fixture.status==='C',start=fixture.kickoff?.millis,at=Date.parse(checkedAt);
+  // Display or incomplete score fields must not conceal a separately evaluable
+  // future-final/playing claim or reopening of an accepted final.
+  if(Number.isFinite(start)&&Number.isFinite(new Date(start).getTime())&&(final?start>=at:playing&&start>at))throw Error('EPL playing/final fixture has a future kickoff relative to its source observation');
+  if(fixture.status==='U'||playing)for(const old of oldById.get('epl-2026-27-'+fixture.id)||[])if(old.status==='completed'&&!supportedDelayedFinal(old,overlay,checkedAt))throw Error('EPL primary result continuity failed: source reopens a retained final');
+ }
+ identities.validatePrimaryCollection(cards);
+ for(const card of cards)if(card.status==='completed'?Date.parse(card.startTimeUtc)>=Date.parse(checkedAt):['live','break'].includes(card.status)&&Date.parse(card.startTimeUtc)>Date.parse(checkedAt))throw Error('EPL playing/final fixture has a future kickoff relative to its source observation');
+ const byId=new Map(cards.map(e=>[identities.binding(e).record.primaryId,e])),deferred=new Set(deferredFixtures.map(row=>row.primaryId));
+ for(const [id,previous]of oldById){if(deferred.has(id))continue;const next=byId.get(id);for(const old of previous)if(!next||old.status==='completed'&&next.status!=='completed'||JSON.stringify(old.participantIds)!==JSON.stringify(next.participantIds))throw Error('EPL primary identity/result continuity failed');}
+}
 async function refresh({now=new Date()}={}){
  if(!Number.isFinite(+now)||+now>Date.now())throw Error('EPL collection clock is invalid or future');
  const surfaces=FEEDS.map(file=>({file,document:read(file)})),bundle=read(BUNDLE),priorTable=table.validatePublishedContext(bundle);
@@ -35,17 +64,9 @@ async function refresh({now=new Date()}={}){
    loader:()=>primary.loadFixtures({allowFixtureDeferrals:true,fetcher:url=>primary.fetchJson(url,{onObservation:record('fixtures')})}),
    checkedAt:()=>observations.fixtures.at(-1).observedAt,allowFixtureDeferrals:true,
    backupOptions:{now,coordinator:async()=>{throw Error('EPL backup network deferred: this scope permits five primary GETs only.');}},
+   validateCandidate:candidate=>validateCandidate(surfaces,candidate),
    onReport:report=>{cardReport=report;backup.retainedOverlayFixtureIds=report.retainedOverlayFixtureIds||[];if(report.backup){backup.state='deferred-unallocated';backup.recovery=report.backup;}},
   });
-  const checkedAt=observations.fixtures.at(-1).observedAt;
-  identities.validatePrimaryCollection(cards);
-  for(const card of cards)if(card.status==='completed'?Date.parse(card.startTimeUtc)>=Date.parse(checkedAt):['live','break'].includes(card.status)&&Date.parse(card.startTimeUtc)>Date.parse(checkedAt))throw Error('EPL playing/final fixture has a future kickoff relative to its source observation');
-  const byId=new Map(cards.map(e=>[identities.binding(e).record.primaryId,e])),deferred=new Set((cardReport.deferredFixtures||[]).map(row=>row.primaryId));
-  for(const {document}of surfaces)for(const old of document.events.filter(e=>e.competitionId===COMPETITION)){
-   const id=identities.binding(old).record.primaryId;if(deferred.has(id))continue;
-   const next=byId.get(id);
-   if(!next||old.status==='completed'&&next.status!=='completed'||JSON.stringify(old.participantIds)!==JSON.stringify(next.participantIds))throw Error('EPL primary identity/result continuity failed');
-  }
  }catch(error){fixtureError=error;cards=null;failures.push('EPL fixtures: '+require('./refresh-report').sanitise(error.message));}
  try{
   const payload=await table.fetchJson(table.STANDINGS_URL,{onObservation:record('table')});
@@ -58,7 +79,7 @@ async function refresh({now=new Date()}={}){
  for(const deferred of cardReport.deferredFixtures||[])failures.push('EPL fixture '+deferred.fixtureId+': '+deferred.reason);
  const report={mode:'quick',source:'epl',checkedAt,changed:changes,failures,deferredFixtures:cardReport.deferredFixtures||[],backup,resources:{fixtures:{state:cards?(cardReport.acceptedPrimaryFixtures===0?'retained-last-good':cardReport.deferredFixtures?.length?'partial-primary':backup.retainedOverlayFixtureIds.length?'primary-with-retained-delayed-overlay':'primary'):'retained-last-good',acceptedPrimaryFixtures:cards?cardReport.acceptedPrimaryFixtures:0,deferredFixtureCount:cardReport.deferredFixtures?.length||0,expectedResources:4,observations:observations.fixtures},table:{state:context?'primary':'retained-last-good',expectedResources:1,observations:observations.table}},publicationState:failures.length?'partial-candidate':'candidate',aiCalls:0};
  if((!cards||cardReport.acceptedPrimaryFixtures===0)&&!context){fixtureError ||= Error('No supported EPL fixture facts or official table observation; last-good facts retained.');try{fixtureError.eplReport={...report,publicationState:'blocked-retained'};}catch{}throw fixtureError;}
- let count=0;const deferredViewing=new Set();
+ let count=0;const deferredViewing=new Set(),updatedIds=new Set();
  if(cards)for(const {file,document}of surfaces){
   const byId=new Map(cards.map(card=>[identities.binding(card).record.primaryId,card]));
   const updates=document.events.filter(event=>event.competitionId===COMPETITION).map(old=>{
@@ -77,8 +98,9 @@ async function refresh({now=new Date()}={}){
    }
    return update;
   });
-  const patched=patchKnown(document.events,updates);if(patched.count){write(file,{...document,events:patched.events});count+=patched.count;}
+  const patched=patchKnown(document.events,updates);if(patched.count){for(let i=0;i<patched.events.length;i++)if(patched.events[i]!==document.events[i])updatedIds.add(patched.events[i].id);write(file,{...document,events:patched.events});count+=patched.count;}
  }
+ report.updatedFixtureIds=[...updatedIds];
  report.deferredViewingFixtureIds=[...deferredViewing];
  if(count)changes.push('Premier League '+count);
  if(context){

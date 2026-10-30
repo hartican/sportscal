@@ -23,7 +23,7 @@ for(const card of seedCards){card.storyline=rules.storylineFor(card);card.editor
 const other={id:'unrelated-fixture',key:'cricket',sourceCheckedAt:OLD,selectedSentence:'Reviewed other-sport copy',unknown:{keep:true}};
 const seedBundle=JSON.parse(original.readFileSync(path.join(ROOT,'data/canonical/afl-nrl-2026.json')));
 const previousContext=table.buildSnapshot(tablePayload(),directory,OLD);const seed=table.updateBundle(seedBundle,previousContext,OLD);
-let files,fds,nextFd,sequence,calls,children,failedChild;
+let files,fds,nextFd,sequence,calls,children,failedChild,actualPublisher;
 const resolve=p=>path.resolve(String(p));
 function reset(){files=new Map([
  [path.join(ROOT,'data/events.json'),Buffer.from(JSON.stringify({events:[other,...seedCards]}))],
@@ -31,13 +31,13 @@ function reset(){files=new Map([
  [path.join(ROOT,'data/canonical/afl-nrl-2026.json'),Buffer.from(JSON.stringify(seed))],
  [path.join(ROOT,'assets/js/app-shell-runtime.js'),Buffer.from('unchanged runtime')],
  [path.join(ROOT,'data/canonical/football-delayed-results.v1.json'),Buffer.from(JSON.stringify({schemaVersion:'football-delayed-results.v1',results:[]}))],
- ]);fds=new Map();nextFd=10000;sequence=0;calls=[];children=[];failedChild=null;}
+ ]);fds=new Map();nextFd=10000;sequence=0;calls=[];children=[];failedChild=null;actualPublisher=false;}
 fs.readFileSync=function(p,encoding){const b=files?.get(resolve(p));return b?(typeof encoding==='string'?b.toString(encoding):encoding?.encoding?b.toString(encoding.encoding):Buffer.from(b)):original.readFileSync.apply(this,arguments);};
 fs.writeFileSync=(p,body)=>{const key=resolve(p);assert(key.startsWith(ROOT+'/data/')||key.startsWith(ROOT+'/feeds/')||key===ROOT+'/assets/js/app-shell-runtime.js'||key.startsWith('/tmp/epl-noio-'),'Forbidden write '+key);files.set(key,Buffer.from(body));};
 fs.existsSync=p=>files?.has(resolve(p))||original.existsSync(p);
 fs.readdirSync=(p,options)=>{const base=resolve(p);if(base===ROOT+'/data'||base.startsWith(ROOT+'/data/')||base===ROOT+'/feeds'||base.startsWith(ROOT+'/feeds/')){const names=[...new Set([...files.keys()].filter(x=>x.startsWith(base+'/')).map(x=>x.slice(base.length+1).split('/')[0]))];return options?.withFileTypes?names.map(name=>({name,isDirectory:()=>[...files.keys()].some(x=>x.startsWith(base+'/'+name+'/'))})):names;}return original.readdirSync(p,options);};
 fs.unlinkSync=p=>{assert(files.has(resolve(p)));files.delete(resolve(p));};
-fs.mkdirSync=p=>{assert(resolve(p).startsWith('/tmp/epl-noio-')||resolve(p)===ROOT+'/data/canonical');};
+fs.mkdirSync=p=>{assert(resolve(p).startsWith('/tmp/epl-noio-')||resolve(p)===ROOT+'/data/canonical'||actualPublisher&&(resolve(p)===ROOT+'/data'||resolve(p)===ROOT+'/feeds/incoming'));};
 fs.mkdtempSync=()=>'/tmp/epl-noio-'+(++sequence);
 fs.openSync=(p,flags,...args)=>{if(flags==='r')return original.openSync(p,flags,...args);const key=resolve(p);assert(key.startsWith('/tmp/epl-noio-'));files.set(key,Buffer.alloc(0));const fd=nextFd++;fds.set(fd,key);return fd;};
 fs.fstatSync=fd=>fds.has(fd)?{size:files.get(fds.get(fd)).length}:original.fstatSync(fd);
@@ -45,7 +45,13 @@ fs.readSync=(fd,...args)=>fds.has(fd)?0:original.readSync(fd,...args);
 fs.closeSync=fd=>{if(fds.has(fd))fds.delete(fd);else original.closeSync(fd);};
 fs.rmSync=p=>{const key=resolve(p);assert(key.startsWith('/tmp/epl-noio-'));for(const name of files.keys())if(name.startsWith(key))files.delete(name);};
 fs.renameSync=(a,b)=>{a=resolve(a);b=resolve(b);assert(files.has(a)&&(b.startsWith(ROOT+'/data/')||b.startsWith('/tmp/epl-noio-')));files.set(b,files.get(a));files.delete(a);};
-cp.spawnSync=(_command,args)=>{assert(!/refresh-|redeploy|settle-|update-cards/.test(args[0]),'Unexpected source/publisher child '+args[0]);children.push(args);if(failedChild===args[0]){files.set(ROOT+'/assets/js/app-shell-runtime.js',Buffer.from('rejected generated runtime'));return{status:1};}return{status:0};};
+cp.spawnSync=(_command,args)=>{assert(!/refresh-|redeploy|settle-|update-cards/.test(args[0]),'Unexpected source/publisher child '+args[0]);children.push(args);if(failedChild===args[0]){files.set(ROOT+'/assets/js/app-shell-runtime.js',Buffer.from('rejected generated runtime'));return{status:1};}
+ if(actualPublisher&&args[0]==='scripts/publish-feed.js'){
+  const Module=require('node:module'),file=path.join(ROOT,args[0]),saved={argv:process.argv,exit:process.exit,log:console.log,error:console.error};const errors=[];
+  try{process.argv=[process.execPath,...args];process.exit=code=>{throw Error('OWNED_PUBLISHER_EXIT_'+code+' '+errors.join(' '));};console.log=()=>{};console.error=(...values)=>errors.push(values.join(' '));const m=new Module(file,module);m.filename=file;m.paths=Module._nodeModulePaths(path.dirname(file));m._compile(original.readFileSync(file,'utf8'),file);}
+  finally{process.argv=saved.argv;process.exit=saved.exit;console.log=saved.log;console.error=saved.error;}
+ }
+ return{status:0};};
 for(const key of['spawn','exec','execSync','execFile','execFileSync','fork'])cp[key]=()=>assert.fail('Unexpected child');
 class Clock extends original.Date{constructor(...args){super(...(args.length?args:[AT]));}static now(){return original.Date.parse(AT);}}
 global.Date=Clock;
@@ -65,6 +71,32 @@ const final=e=>document('data/events.json').events.find(row=>row.id===e.id);
 async function check(name,fn){reset();await fn();records.push({name,passed:true});}
 function editFeeds(edit){for(const f of['feeds/incoming/events.json','data/events.json']){const value=document(f);edit(value.events);files.set(ROOT+'/'+f,Buffer.from(JSON.stringify(value)));}}
 async function run(){
+ for(const [name,edit]of[
+  ['future-final-with-missing-label',f=>{f.kickoff.millis=Date.parse(AT)+3600000;delete f.teams[0].team.name;delete f.teams[0].team.club.name;}],
+  ['reopened-final-with-missing-kickoff',f=>{f.status='U';delete f.kickoff;}],
+ ])await check(name+' cannot be hidden by a card-local deferral',async()=>{
+  const before=Buffer.from(files.get(ROOT+'/data/events.json'));transport(input=>edit(input.pages[0].content[0]));const report=await quick.refresh({source:'epl',now:new Date(AT)});assert.equal(report.resources.fixtures.state,'retained-last-good');assert.equal(report.resources.table.state,'primary');assert.deepEqual(files.get(ROOT+'/data/events.json'),before);assert(report.failures.some(row=>/future|continuity|reopen/i.test(row)));
+ });
+ await check('rejected fixture branch cannot prune the saved delayed overlay beside a valid table',async()=>{
+  const target=seedCards[1],row={fixtureId:target.id,competitionId:target.competitionId,homeParticipantId:target.homeParticipantId,awayParticipantId:target.awayParticipantId,roundNumber:target.roundNumber,homeScore:0,awayScore:2,sourceUrl:'https://www.football-data.org/',sourceCheckedAt:OLD,sourceUpdatedAt:new original.Date(Date.parse(target.startTimeUtc)+7200000).toISOString()},overlay={schemaVersion:'football-delayed-results.v1',results:[row]};files.set(ROOT+'/data/canonical/football-delayed-results.v1.json',Buffer.from(JSON.stringify(overlay)));editFeeds(events=>{const i=events.findIndex(e=>e.id===target.id);events[i]=require('../lib/football-delayed-results').apply([events[i]],overlay)[0];});const bytes=Buffer.from(files.get(ROOT+'/data/canonical/football-delayed-results.v1.json')),before=Buffer.from(files.get(ROOT+'/data/events.json'));
+  transport(input=>{input.pages[0].content[0].kickoff.millis=Date.parse(AT)+3600000;const f=input.pages[0].content[1];f.status='C';f.teams[0].score=0;f.teams[1].score=2;});const report=await quick.refresh({source:'epl',now:new Date(AT)});assert.equal(report.resources.fixtures.state,'retained-last-good');assert.equal(report.resources.table.state,'primary');assert.deepEqual(files.get(ROOT+'/data/events.json'),before);assert.deepEqual(files.get(ROOT+'/data/canonical/football-delayed-results.v1.json'),bytes,'Rejected fixture collection must not retire its saved overlay');
+ });
+ await check('actual publisher and incoming prehook preserve deferred and unrelated optional fields',async()=>{
+  actualPublisher=true;const captured=JSON.parse(original.readFileSync(ROOT+'/data/events.json','utf8')),unrelated=structuredClone(captured.events.find(e=>e.key==='cricket'&&e.cardKind!=='event'&&e.cardType!=='tournament_overview'&&!(e.matchupParticipants||[]).some(p=>p.sourceEventId)));assert(unrelated);delete unrelated.venue;
+  for(const file of['feeds/incoming/events.json','data/events.json']){const events=structuredClone(seedCards);for(const event of events)delete event.editorialPreview;delete events[1].venue;files.set(ROOT+'/'+file,Buffer.from(JSON.stringify({...captured,events:[unrelated,...events]})));}
+  const prior=structuredClone(document('data/events.json'));transport(input=>{input.pages[0].content[1].status='UNKNOWN';const good=input.pages[0].content[2];good.status='C';good.teams[0].score=1;good.teams[1].score=0;});const report=await quick.refresh({source:'epl',now:new Date(AT)});
+  for(const file of['feeds/incoming/events.json','data/events.json']){const output=document(file);assert.deepEqual(output.events.map(e=>e.id),prior.events.map(e=>e.id));for(const old of prior.events)if(old.id!==seedCards[2].id)assert.deepEqual(output.events.find(e=>e.id===old.id),old,'Deferred, unchanged or unrelated card changed during actual publication');assert.equal(output.events.find(e=>e.id===seedCards[2].id).status,'completed');}assert(children.some(args=>args[0]==='scripts/publish-feed.js'));assert.deepEqual(report.updatedFixtureIds,[seedCards[2].id]);
+ });
+ await check('actual scoped publisher still rejects an invalid untouched card and rolls back the candidate',async()=>{
+  actualPublisher=true;const captured=JSON.parse(original.readFileSync(ROOT+'/data/events.json','utf8')),unrelated=structuredClone(captured.events.find(e=>e.key==='cricket'&&e.cardKind!=='event'&&e.cardType!=='tournament_overview'&&!(e.matchupParticipants||[]).some(p=>p.sourceEventId)));delete unrelated.name;
+  for(const file of['feeds/incoming/events.json','data/events.json']){const events=structuredClone(seedCards);for(const event of events)delete event.editorialPreview;files.set(ROOT+'/'+file,Buffer.from(JSON.stringify({...captured,events:[unrelated,...events]})));}
+  const before=new Map([...files].map(([key,value])=>[key,Buffer.from(value)]));transport(input=>{const f=input.pages[0].content[2];f.status='C';f.teams[0].score=1;f.teams[1].score=0;});await assert.rejects(()=>quick.atomicRefresh({source:'epl',now:new Date(AT)}),/OWNED_PUBLISHER_EXIT_1/);for(const [key,value]of before)assert.deepEqual(files.get(key),value,key);
+ });
+ await check('private publisher selector rejects unreviewed duplicate or mixed fixture identities',async()=>{
+  const scope=require('./lib/epl-publication-scope'),valid=scope.argument([seedCards[0].id]);assert.equal(scope.parse([valid]).ids.size,1);
+  for(const args of[['--epl-updated-ids'],[valid,valid],['--epl-updated-ids=bad-json'],['--epl-updated-ids=["unrelated-fixture"]'],['--epl-updated-ids='+JSON.stringify([seedCards[0].id,seedCards[0].id])]])assert.throws(()=>scope.parse(args),/Invalid EPL/);
+  assert.throws(()=>quick.retainedFeedProjectionSteps(['Premier League 1'],{coverageSport:'rugby-union',eplUpdatedIds:[seedCards[0].id]}),/Mixed scoped/);
+ });
  await check('five complete primary resources, original finals and other sports preserved',async()=>{
   transport();const report=await quick.refresh({source:'epl',now:new Date(AT)});
   assert.equal(report.source,'epl');assert.equal(calls.length,5);assert.deepEqual(document('data/events.json').events[0],other);
