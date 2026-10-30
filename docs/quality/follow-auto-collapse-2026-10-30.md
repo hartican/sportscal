@@ -56,12 +56,30 @@ frames, timers, CSS changes, gesture changes or scroll-to-target workarounds.
 All existing direction, distance, position, focus, dialog and timing guards are
 unchanged. The selected sport checkbox remains outside the collapsible controls.
 
-The regression is now GREEN and joins validate-follow-decisions.js. Its nine
+The regression is now GREEN and joins validate-follow-decisions.js. Its mounted
 cases also retain explicit close/reopen compensation, the public collapse API,
 focused input/select/textarea exclusion, focused checkbox visibility/focus,
 open-dialog exclusion and direction/distance/position/time guards. Existing
 sport-save/refusal/gender/privacy controls and measured inset lifecycle remain
 in that gate. The existing continuity lease source is untouched.
+
+Independent review found that initial source commit
+`0ff0de58548165ac8d6d0cb98553bbc8907b09f9` also skipped the original automatic
+collapse lock assignment. That commit and its earlier RED/GREEN evidence remain
+historical. The corrected setter keeps the original `before!=null` condition
+and `lockedUntil=performance.now()+150` assignment; only scrollBy is conditional
+on preserveAnchor. It adds no lock when the panel is missing, and an open dialog
+still returns before either assignment or scroll correction.
+
+Three additional lexical unit controls execute the exact setter declaration
+from navigation source with its real DOM nodes and a controlled clock. The
+automatic path was RED on0ff (lock71 instead of1400 at now1250), then GREEN
+after correction. Missing-panel and dialog paths retain71, and no case writes
+scroll. This seam exposes the existing private variable only in a test VM;
+there is no production hook/export and no copy of the setter or timer logic.
+It proves assignment conditions in the real setter, not public observation of
+the mounted closure's private clock or actual browser timing. The nine mounted
+controls remain, for12 source controls in total. Native acceptance is unchanged.
 
 ## Remaining acceptance
 

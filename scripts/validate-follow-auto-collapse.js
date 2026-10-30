@@ -2,6 +2,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const vm = require('node:vm');
 const { JSDOM } = require('jsdom');
 const navigation = fs.readFileSync(path.join(__dirname, '../assets/js/follow-navigation.js'), 'utf8');
 // I/41008854825 recorded panel tops 364.046875 -> 239 at scrollY165.
@@ -23,7 +24,7 @@ function fixture() {
   const nav = container.querySelector('.follow-navigation'), toggle = nav.querySelector('.follow-navigation-toggle');
   panel.getBoundingClientRect = () => ({ top: (nav.classList.contains('is-collapsed') ? 404 : 529.046875) - y });
   const advance = (position, time = now + 200) => { y = position; now = time; window.dispatchEvent(new window.Event('scroll')); };
-  return { dom, document, nav, toggle, panel, writes, advance, y: () => y, open: () => toggle.click() };
+  return { dom, document, container, nav, toggle, panel, writes, advance, y: () => y, open: () => toggle.click() };
 }
 const results = [];
 function check(name, run) {
@@ -77,6 +78,31 @@ check('Existing direction, distance, position and time guards remain', f => {
   f.advance(100, 1200); f.advance(106, 1220); f.advance(104, 1240);
   assert(!f.nav.classList.contains('is-collapsed'), 'No collapse below threshold, at six pixels, or upwards');
   assert.deepEqual(f.writes, []);
+});
+// The mounted module's private clock has no public readback. Execute its exact
+// setter declaration at a lexical unit seam; never copy its timer logic or add
+// a production export. This proves assignment conditions, not browser timing.
+const setterStart = navigation.indexOf('  const set=');
+const setterEnd = navigation.indexOf('\n  toggle.onclick=', setterStart);
+assert(setterStart >= 0 && setterEnd > setterStart, 'Use the actual navigation setter declaration');
+const setterSource = navigation.slice(setterStart, setterEnd);
+for (const mode of ['automatic', 'missing-panel', 'open-dialog']) check('Setter clock preservation: ' + mode, f => {
+  f.open(); f.writes.length = 0;
+  if (mode === 'missing-panel') f.panel.remove();
+  const controls = f.nav.querySelector('#follow-navigation-controls');
+  if (mode === 'open-dialog') {
+    const dialog = f.document.createElement('dialog'); dialog.setAttribute('open', ''); controls.append(dialog);
+  }
+  const context = {
+    controls, container: f.container, nav: f.nav, toggle: f.toggle,
+    spacer: f.container.querySelector('.follow-navigation-spacer'),
+    collapsed: false, floating: false, lockedUntil: 71,
+    performance: { now: () => 1250 }, scrollBy: (...args) => f.dom.window.scrollBy(...args),
+  };
+  vm.runInNewContext(setterSource + '\nset(true,false);', context);
+  assert.equal(context.lockedUntil, mode === 'automatic' ? 1400 : 71,
+    'Automatic collapse keeps the original now+150 assignment only when a panel exists and no dialog blocks it');
+  assert.deepEqual(f.writes, [], 'Preserving the clock must not restore the competing scroll write');
 });
 console.log(JSON.stringify({ passed: results.every(r => r.passed), cases: results, limits: 'Actual mounted source and handlers with recorded synthetic geometry. No browser layout, trusted gesture, momentum, navigation tap or device acceptance is established.' }));
 if (results.some(r => !r.passed)) process.exitCode = 1;
