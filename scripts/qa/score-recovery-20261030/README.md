@@ -1,3 +1,16 @@
+# Current finite EPL source preparation
+
+See [epl-preparation.md](epl-preparation.md) for the active implemented SOURCE
+contract. APPc34 is frozen, actual source is keyless, current QA is UNALLOCATED,
+and ROOT alone qualifies/allocates/publishes through this existing PR114 lane.
+All89 original default/Rugby native assertions now bind currentc34; none are
+replaced by the new EPL models. Native28 EPL obligations also remain pending.
+The following prior Rugby write-up is preserved as historical context only;
+its old source/carrier/credential actual-mode descriptions are not the current
+EPL workflow, source pins or an execution grant.
+
+---
+
 # Temporary fixed-eight Rugby qualification
 
 Preparation only. ROOT/nsDEPLOY alone owns allocation, the same-PR carrier push,

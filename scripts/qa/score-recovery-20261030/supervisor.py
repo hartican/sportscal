@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """One scoped owner process. A prepared policy is not permission to execute it."""
-import argparse,datetime,hashlib,json,os,pathlib,resource,signal,stat,subprocess,time
+import argparse,datetime,hashlib,importlib.util,json,os,pathlib,resource,signal,stat,subprocess,time
+
+def epl_module():
+ spec=importlib.util.spec_from_file_location("finite_epl_supervisor",pathlib.Path(__file__).with_name("epl-supervisor.py"));m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
 
 def sha(data):return hashlib.sha256(data).hexdigest()
 def manifest(root):
@@ -19,10 +22,11 @@ def manifest(root):
 
 def validate_route(p,policy_path):
  """Pure prelaunch contract. Tests may inspect this without running a source."""
+ if p.get("sourceProtocol")=="epl":return epl_module().validate_route(p,policy_path)
  source=pathlib.Path(p['sourceRoot']);root=pathlib.Path(p['root'])
  assert p.get('coverageSport')in[None,'rugby-union'],'Unsupported finite source scope'
  if p['mode']=='live-coverage-canonical':
-  assert root==source and p['sourceGitSha']=='1b9e50029d744a74b05566f23bb1253204a35dbb','Exact frozen source required'
+  assert root==source and p['sourceGitSha']=='c34bc991643c7f68ba856eec143d76c66ce4fb63','Exact frozen source required'
   assert p.get('coverageSport')=='rugby-union','Actual mode requires the fixed eight Rugby sources'
   assert p['entryArgv']==['scripts/update-cards.js','--quick','--source=live-coverage','--coverage-sport=rugby-union','--local-only']
   assert p['sourceArgv']==['scripts/quick-results.js','--source=live-coverage','--coverage-sport=rugby-union']and p['wholeSeconds']==180
@@ -37,17 +41,17 @@ def main():
  ap=argparse.ArgumentParser();ap.add_argument('--policy',required=True);ap.add_argument('--expected-sha256',required=True);ap.add_argument('--inspect',action='store_true');ap.add_argument('--allocation');args=ap.parse_args()
  policy_path=pathlib.Path(args.policy).resolve();policy_bytes=policy_path.read_bytes()
  assert sha(policy_bytes)==args.expected_sha256,'Policy hash mismatch'
- p=json.loads(policy_bytes);assert p['mode']in['live-coverage-canonical','owned-control'];assert 0<p['wholeSeconds']<=180
+ p=json.loads(policy_bytes);assert p['mode']in['live-coverage-canonical','epl-canonical','owned-control'];assert 0<p['wholeSeconds']<=180
  root=pathlib.Path(p['root']).resolve();run=pathlib.Path(p['runDir']);tmp=pathlib.Path(p['tmpDir']);source=pathlib.Path(p['sourceRoot'])
  assert run.is_absolute()and tmp.parent==run and not run.exists(),'Exclusive run directory required'
  validate_route(p,policy_path)
- if p['mode']=='live-coverage-canonical':
+ if p['mode']in['live-coverage-canonical','epl-canonical']:
   assert p['nodeOptions']=='--require='+str(policy_path.parent/'guard.cjs')and not any(k.startswith('control')for k in p),'Actual profile cannot contain control hooks'
   assert p['minimumFreeBytes']>=int(4.5*1024**3),'Existing resource floor required'
   if not args.inspect:
    assert args.allocation,'ROOT_ALLOCATION_REQUIRED: preparation alone cannot execute'
    grant=json.loads(pathlib.Path(args.allocation).read_text());now=datetime.datetime.now(datetime.timezone.utc)
-   assert grant['policySha256']==args.expected_sha256 and grant['sourceGitSha']==p['sourceGitSha']and grant['scope']=='one-live-coverage-canonical-local-only'
+   assert grant['policySha256']==args.expected_sha256 and grant['sourceGitSha']==p['sourceGitSha']and grant['scope']==('one-epl-canonical-local-only'if p.get('sourceProtocol')=='epl'else'one-live-coverage-canonical-local-only')
    assert grant['requestId']and grant['minimumFreeBytes']==p['minimumFreeBytes']
    assert datetime.datetime.fromisoformat(grant['notBefore'])<=now<datetime.datetime.fromisoformat(grant['expiresAt']),'Allocation is not current'
    assert (datetime.datetime.fromisoformat(grant['expiresAt'])-now).total_seconds()>=p['wholeSeconds'],'Allocation must contain the whole bounded attempt'
@@ -55,8 +59,13 @@ def main():
  environment={'PATH':'/usr/bin:/bin:/usr/sbin:/sbin','LANG':'en_AU.UTF-8','TZ':'Australia/Sydney','TMPDIR':str(tmp),'NODE_OPTIONS':p['nodeOptions'],'NS_SCORE_GUARD_POLICY':str(policy_path),'NS_SCORE_GUARD_POLICY_SHA256':args.expected_sha256,'REFRESH_REPORT':str(run/'refresh-report.json'),'QUICK_RESULTS_REPORT':str(run/'quick-results-report.json')}
  if p['mode']=='owned-control':
   assert root!=source.resolve()and p.get('controlBoundary'),'Controls require an isolated owned tree'
- environment['SUPABASE_URL']='https://mkghopnkhcxtmfrcjdbc.supabase.co'
- if not args.inspect:
+ if p.get('sourceProtocol')=='epl':
+  environment=epl_module().environment(p,policy_path,args.expected_sha256)
+  if p['mode']=='owned-control':
+   assert os.environ.get('NS_EPL_TEST_KEY'),'Synthetic privacy witness required'
+   environment['NS_EPL_TEST_KEY']=os.environ['NS_EPL_TEST_KEY']
+ else:environment['SUPABASE_URL']='https://mkghopnkhcxtmfrcjdbc.supabase.co'
+ if not args.inspect and p.get('sourceProtocol')!='epl':
   if p['mode']=='live-coverage-canonical'and os.environ.get('SUPABASE_MAINTENANCE_MODE','').strip().lower()in['1','true','yes','on']:raise RuntimeError('SUPABASE_MAINTENANCE_ACTIVE')
   names=p.get('credentialEnvironmentNames',[])
   assert names and all(k in ['SUPABASE_SERVICE_ROLE_KEY','SUPABASE_SECRET_KEY']for k in names)
@@ -191,7 +200,17 @@ def main():
    receipt['ownedTemporaryFilesRemovedAfterGroupClose']=temporary_removed
    if diagnostics or receipt['elapsedSeconds']>p['wholeSeconds'] or receipt['ownedTemporaryFilesRemaining']:receipt['state']='failed'
    if not rollback['verified']:receipt['state']='failed'
-   if receipt['state']=='candidate-finished-pending-review'and(not source_transport or not source_transport.get('collectionComplete')or source_transport.get('failed')or source_transport.get('activeCall')or source_transport.get('readersOpen')or not pages or any(not all(row.get(k)for k in['bodyComplete','guardParsed','consumerParsed','readerReleased','captureFileClosed'])for row in pages)):receipt['state']='failed'
+   if p.get('sourceProtocol')=='epl'and receipt['state']=='candidate-finished-pending-review':
+    try:
+     assert len([r for r in transports if r.get('sourceRole')])==1
+     assert all(not r.get('requests')for r in transports if not r.get('sourceRole'))
+     assert not list(run.glob('page-*.raw'))
+     ledger=[json.loads(line)for line in(run/'guard-ledger.jsonl').read_text().splitlines()]
+     assert all(r.get('ownedWriteDescriptorsRemaining',0)==0 for r in ledger if r.get('state')=='exit')
+     epl_module().postconditions(p,receipt,rollback_before,lambda f:pathlib.Path(f).read_bytes())
+    except Exception:
+     receipt['state']='failed';diagnostics.append('EPL_POSTCONDITIONS')
+   if p.get('sourceProtocol')!='epl'and receipt['state']=='candidate-finished-pending-review'and(not source_transport or not source_transport.get('collectionComplete')or source_transport.get('failed')or source_transport.get('activeCall')or source_transport.get('readersOpen')or not pages or any(not all(row.get(k)for k in['bodyComplete','guardParsed','consumerParsed','readerReleased','captureFileClosed'])for row in pages)):receipt['state']='failed'
    def refresh_readback():
     try:
      after=manifest(root);old={row['path']:row for row in before or[]};new={row['path']:row for row in after}

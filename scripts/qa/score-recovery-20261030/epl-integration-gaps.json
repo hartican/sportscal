@@ -1,0 +1,21 @@
+{
+  "status": "SOURCE_IMPLEMENTED_NATIVE_QUALIFICATION_PENDING",
+  "source": "c34bc991643c7f68ba856eec143d76c66ce4fb63",
+  "carrierBefore": "f12d4a39d17bfb16deee281724a32d0a79dff16c",
+  "allocation": "UNALLOCATED",
+  "implemented": {
+    "privateHttps": "epl-transport.cjs + guard.cjs",
+    "startupAndDag": "epl-policy.cjs + guard.cjs",
+    "supervisor": "epl-supervisor.py + supervisor.py",
+    "ciAndWorkflow": "ci.py + existing score-recovery-oneoff.yml",
+    "typedExport": "ci.py epl_resource_public/epl_public_facts/export_epl_public"
+  },
+  "remainingProof": [
+    "Both independent full-code source reviews",
+    "Fresh ROOT Linux original64+25 assertion qualification against currentc34",
+    "Fresh ROOT Linux28 EPL native cases",
+    "ROOT allocation-only carrier after inactive snapshot",
+    "One real keyless5GET canonical trial and later release/hosted acceptance"
+  ],
+  "claims": "Executable source preparation only; no native qualification or actual execution by this owner"
+}

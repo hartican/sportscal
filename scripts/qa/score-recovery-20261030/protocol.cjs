@@ -15,7 +15,7 @@ function sourcesFor(coverageSport){if(coverageSport==null)return SOURCES;if(cove
 function validateActualScope(p){
  if(p.mode!=='live-coverage-canonical'){sourcesFor(p.coverageSport);return;}
  const scoped='--coverage-sport=rugby-union';
- if(p.coverageSport!=='rugby-union'||p.sourceGitSha!=='1b9e50029d744a74b05566f23bb1253204a35dbb'||JSON.stringify(p.entryArgv)!==JSON.stringify(['scripts/update-cards.js','--quick','--source=live-coverage',scoped,'--local-only'])||JSON.stringify(p.sourceArgv)!==JSON.stringify(['scripts/quick-results.js','--source=live-coverage',scoped])||p.childArgvs.some(a=>['scripts/quick-results.js','scripts/publish-feed.js'].includes(a[0])&&!a.includes(scoped)))throw error('GUARD_ACTUAL_SCOPE');
+ if(p.coverageSport!=='rugby-union'||p.sourceGitSha!=='c34bc991643c7f68ba856eec143d76c66ce4fb63'||JSON.stringify(p.entryArgv)!==JSON.stringify(['scripts/update-cards.js','--quick','--source=live-coverage',scoped,'--local-only'])||JSON.stringify(p.sourceArgv)!==JSON.stringify(['scripts/quick-results.js','--source=live-coverage',scoped])||p.childArgvs.some(a=>['scripts/quick-results.js','scripts/publish-feed.js'].includes(a[0])&&!a.includes(scoped)))throw error('GUARD_ACTUAL_SCOPE');
 }
 const endpoint=(ordinal,coverageSport)=>`${ORIGIN}${RPC}?source_id=in.(${sourcesFor(coverageSport).join(',')})&order=source_id.asc,fixture_id.asc&limit=500&offset=${ordinal*500}`;
 function credentials(environment=process.env){return [...new Set(['SUPABASE_SECRET_KEY','SUPABASE_SERVICE_ROLE_KEY'].flatMap(k=>[environment[k],environment[k]?.trim()]).filter(Boolean))];}

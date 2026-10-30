@@ -5,7 +5,7 @@ HERE=pathlib.Path(__file__).resolve().parent
 CONTEXT=json.loads((HERE/'runtime-context.json').read_text())
 SOURCE=pathlib.Path(CONTEXT['sourceRoot'])
 PROFILE=json.loads((HERE/'profile.json').read_text())
-SHA='1b9e50029d744a74b05566f23bb1253204a35dbb'
+SHA='c34bc991643c7f68ba856eec143d76c66ce4fb63'
 def digest(p):return hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
 def prepare(name,baseline=False,scenario=None,coverageSport=None):
     assert coverageSport in[None,'rugby-union'],'Finite controlled source scope only'
