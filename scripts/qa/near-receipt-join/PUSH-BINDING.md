@@ -8,7 +8,7 @@ PR/branch, delete/recreate/force that ref, or rerun the old job. No default-bran
 registration or repo-rule change. This worker prepares source only.
 
 Independent expected prior carrier, fixed in both packet code and workflow:
-`06a2c5d73af16e3718d1fc9e5dfa99bfff83b6e3`.
+`1404cd81abcc86c430f81a1bbeebb2205edf75a0`.
 
 ## ROOT binding order after targeted review
 

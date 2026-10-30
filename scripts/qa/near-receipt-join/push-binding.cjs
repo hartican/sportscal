@@ -2,7 +2,7 @@
 // Launch binding only. Does not change any SQL, test, resource or timing logic.
 // ROOT substitutes this nonce BEFORE committing the separate packet snapshot.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto'),{execFileSync}=require('node:child_process');
-const ROOT=Object.freeze({nonce:'0ad809e1ed3c37ac7ed3cee4be2a2a89',repository:'hartican/sportscal',ref:'refs/heads/codex/near-receipt-native-20261030-3',workflow:'.github/workflows/near-receipt-native-20261030-3.yml',source:'98af9164d15cddfb198fd35cd9e226b267723216',before:'06a2c5d73af16e3718d1fc9e5dfa99bfff83b6e3'});
+const ROOT=Object.freeze({nonce:'07cc54a15c996619595092a79bf3bead',repository:'hartican/sportscal',ref:'refs/heads/codex/near-receipt-native-20261030-3',workflow:'.github/workflows/near-receipt-native-20261030-3.yml',source:'98af9164d15cddfb198fd35cd9e226b267723216',before:'1404cd81abcc86c430f81a1bbeebb2205edf75a0'});
 function validateEvent(env,event,expected=ROOT){
  assert.match(expected.nonce,/^[a-f0-9]{32}$/,'Unbound ROOT nonce; template cannot run');
  assert.equal(env.GITHUB_ACTIONS,'true');assert.equal(env.GITHUB_EVENT_NAME,'push','Actual push event required');assert.equal(env.GITHUB_RUN_ATTEMPT,'1','One use; job reruns refused');assert.equal(env.GITHUB_REPOSITORY,expected.repository);assert.equal(env.GITHUB_REPOSITORY_OWNER,'hartican');

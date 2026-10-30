@@ -1,5 +1,5 @@
 name: One-use near receipt native push qualification
-run-name: Native receipt ROOT 0ad809e1ed3c37ac7ed3cee4be2a2a89
+run-name: Native receipt ROOT 07cc54a15c996619595092a79bf3bead
 on:
   push:
     branches: ['codex/near-receipt-native-20261030-3']
@@ -11,11 +11,11 @@ concurrency:
   cancel-in-progress: false
 jobs:
   paired-native:
-    if: github.event_name == 'push' && github.repository == 'hartican/sportscal' && github.ref == 'refs/heads/codex/near-receipt-native-20261030-3' && github.event.created == false && github.event.before == '06a2c5d73af16e3718d1fc9e5dfa99bfff83b6e3' && github.event.deleted == false && github.event.forced == false && github.run_attempt == 1
+    if: github.event_name == 'push' && github.repository == 'hartican/sportscal' && github.ref == 'refs/heads/codex/near-receipt-native-20261030-3' && github.event.created == false && github.event.before == '1404cd81abcc86c430f81a1bbeebb2205edf75a0' && github.event.deleted == false && github.event.forced == false && github.run_attempt == 1
     runs-on: ubuntu-24.04
     timeout-minutes: 11
     env:
-      NEAR_NONCE: 0ad809e1ed3c37ac7ed3cee4be2a2a89
+      NEAR_NONCE: 07cc54a15c996619595092a79bf3bead
       NEAR_ALLOCATION: receipt-join-native-pg17-pg18-once
       NEAR_PACKET_SHA: __ROOT_IMMUTABLE_PACKET_SHA40__
       NEAR_PACKET_MANIFEST_SHA256: __ROOT_PACKET_MANIFEST_SHA256__
@@ -55,7 +55,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: near-receipt-native-0ad809e1ed3c37ac7ed3cee4be2a2a89
-          path: ${{ runner.temp }}/near-receipt-0ad809e1ed3c37ac7ed3cee4be2a2a89/result.json
+          name: near-receipt-native-07cc54a15c996619595092a79bf3bead
+          path: ${{ runner.temp }}/near-receipt-07cc54a15c996619595092a79bf3bead/result.json
           if-no-files-found: error
           retention-days: 7

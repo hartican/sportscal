@@ -1,5 +1,15 @@
 # One source-only Linux native test packet
 
+Current isolated overflow correction: read OVERFLOW-REQUEST-PROOF.md and the
+current PUSH-BINDING.md first; historical notes below retain their original
+failures/partial proof. Only the final5001 comparison now uses separate complete
+A/B/B/A reads in one verified REPEATABLE READ transaction, each still5s/1s and
+whole response/parse/proof <=5s. Exact text5001/completefalse remains mandatory.
+All985-row equality/perf and other SQL/native/lifecycle/release gates remain.
+SamePR117/-3, next exact before1404cd81abcc86c430f81a1bbeebb2205edf75a0.
+No runtime/database/CI/push or managed change was made by this source worker.
+
+
 Current ordered-wire correction: read ORDERED-WIRE-DIAGNOSIS.md and the current
 PUSH-BINDING.md first. They supersede historical launch instructions below.
 The latest run has PARTIAL PG17 speed/equality proof, but failed later and is not

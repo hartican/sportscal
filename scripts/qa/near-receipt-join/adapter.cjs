@@ -153,11 +153,12 @@ async function run(){
   er.afterRegressions=await equality(['preserved:late']);assert.equal(er.afterRegressions.complete,true);
   er.sourceReceiptShapes=[];
   for(const value of [null,[],17,'unavailable',{}]){await db.exec('begin');try{await db.query("update public.nothingsports_fixture_sources set discovery_report=$1::jsonb where source_id='near-selection-local'",[JSON.stringify({_fixtureObservations:value})]);await db.exec("set local role service_role;set local search_path=''");const pair=(await db.query("select qa_receipt_join.original_reader('{preserved:late}')::text a,public.nothingsports_read_match_centre_fixture_bundle('{preserved:late}')::text b")).rows[0];assert.equal(pair.a,pair.b);er.sourceReceiptShapes.push({kind:value===null?'null':Array.isArray(value)?'array':typeof value,fullOrderedTextEqual:true});}finally{await db.exec('rollback');}}
-  await db.exec('begin');try{
+  await db.exec('begin isolation level repeatable read');try{
    await db.query("insert into public.nothingsports_fixture_sources(source_id)values('qa-receipt-overflow')");
    for(let start=0;start<5001;start+=128){const rows=Array.from({length:Math.min(128,5001-start)},(_,offset)=>({id:'qa-overflow-'+(start+offset),status:'live',statusCheckedAt:old,homeParticipantId:'qa-overflow-home-'+(start+offset),awayParticipantId:'qa-overflow-away-'+(start+offset)}));await db.query("insert into public.nothingsports_fixture_current(source_id,fixture_id,identity_keys,fixture,content_hash)select 'qa-receipt-overflow',e->>'id',array[e->>'id'],e,md5(e::text) from jsonb_array_elements($1::jsonb)e",[JSON.stringify(rows)]);}
-   await db.exec("set constraints all immediate;set constraints all deferred;set local role service_role;set local search_path=''");
-   const values=(await db.query("with a as materialized(select qa_receipt_join.original_reader('{}')::text t),b as materialized(select public.nothingsports_read_match_centre_fixture_bundle('{}')::text t from a)select a.t as original_text,b.t as candidate_text from a cross join b")).rows[0];assert.equal(values.original_text,values.candidate_text);const parsed=JSON.parse(values.original_text);assert.equal(parsed.complete,false);assert.equal(parsed.rows.length,5001);er.overflow={actualRows:5001,complete:false,fullOrderedTextEqual:true};
+   await db.exec("set constraints all immediate;set constraints all deferred;set local statement_timeout='5s';set local lock_timeout='1s';set local role service_role;set local search_path=''");
+   er.overflowAttempt={};await require('./overflow-proof.cjs').compareOverflow(db,er.overflowAttempt,{phase:value=>{report.phase=value;},persist:save});
+   er.overflow={...er.overflowAttempt};
   }finally{await db.exec('rollback');}
   await db.exec(fs.readFileSync(path.join(packet,'receipt-join-native-inverse.sql'),'utf8'));assert.equal((await db.query('select md5(pg_get_functiondef($1::regprocedure))h',[SIG])).rows[0].h,ORIGINAL);
   await dropCurrentDatabase();

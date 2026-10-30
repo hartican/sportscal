@@ -1,14 +1,19 @@
 {
   "schemaVersion": 1,
-  "state": "ROOT_BOUND_EXACT_FAST_FORWARD_PACKET_NOT_EXECUTED",
+  "state": "ROOT_BOUND_OVERFLOW_PER_REQUEST_PACKET_NOT_EXECUTED",
   "sourceSha": "98af9164d15cddfb198fd35cd9e226b267723216",
-  "priorConnectionManifestSha256": "b40eefb60cd3649871e6dd45e824a115f00f5e33fb57b5a6b368e2b29f826473",
-  "expectedPriorCarrier": "06a2c5d73af16e3718d1fc9e5dfa99bfff83b6e3",
+  "priorWireManifestSha256": "02131782c10ec027ad77ccee0b274520ea29d652a76b23777c9f34946e819a33",
+  "expectedPriorCarrier": "1404cd81abcc86c430f81a1bbeebb2205edf75a0",
   "files": [
     {
       "file": "ORDERED-WIRE-DIAGNOSIS.md",
       "sha256": "f997f3c64cb34db8a1471374c12b9b44241f406ed20ad7cb46308431bebe4a01",
       "bytes": 3744
+    },
+    {
+      "file": "OVERFLOW-REQUEST-PROOF.md",
+      "sha256": "2ed555726f2b82b0f210998a739eca859609b5777aa94f98909cff060dd76303",
+      "bytes": 4354
     },
     {
       "file": "PASSFILE-DIAGNOSIS.md",
@@ -17,18 +22,18 @@
     },
     {
       "file": "PUSH-BINDING.md",
-      "sha256": "33d920aab5e35c8dd9ee16eae835b856724fc85813340235cb9cdc5c413271d1",
+      "sha256": "f17fa5dd6e5aa00452c944589cf56358dc1855bc4ea7648466ea2121aeed29ce",
       "bytes": 3646
     },
     {
       "file": "README.md",
-      "sha256": "412b2d5fda3db6c0eab0da2b8157d6022e18dd506e4aedca67b4fe355bf845b6",
-      "bytes": 8702
+      "sha256": "889ce5d60733065b6120a7ca44bda4d24f7107d13bf1668633c27cc3a39138a3",
+      "bytes": 9327
     },
     {
       "file": "adapter.cjs",
-      "sha256": "7d3a2bcae23c8b9fda51bcf0573ee221a26ae7c8af161fa892399cadf2edb9cd",
-      "bytes": 35925
+      "sha256": "8a67835591e12d6b1d4876b3cc62c284b6dcbe39c3927788033f450b1da5838c",
+      "bytes": 35671
     },
     {
       "file": "lifecycle-controls.cjs",
@@ -47,7 +52,7 @@
     },
     {
       "file": "near-receipt-native-20261030-3.yml",
-      "sha256": "2b03d78fbfcb77a6a7596ef671db16d3ed304d1ada6df85e09e20113f186f4fe",
+      "sha256": "124a74abe302c6c7400c3c479e0156f91bdea2db7c4f1951f50e5039c25c4a52",
       "bytes": 2892
     },
     {
@@ -59,6 +64,16 @@
       "file": "ordered-wire-controls.cjs",
       "sha256": "44cacc6facf67ef50c48d203f8a002cfa6ce1b6226b7aaac3b8b55342a6bc513",
       "bytes": 2984
+    },
+    {
+      "file": "overflow-controls.cjs",
+      "sha256": "a42004fd9744bd1ec2b9adefea8cf69838444f4f52a75f7537812f83527d4d91",
+      "bytes": 3445
+    },
+    {
+      "file": "overflow-proof.cjs",
+      "sha256": "db46bfdd15847505640858d08895e0412da440565291ff8e00d071a947e29673",
+      "bytes": 3907
     },
     {
       "file": "owned-process.cjs",
@@ -77,7 +92,7 @@
     },
     {
       "file": "push-binding.cjs",
-      "sha256": "546a501ed311664115b8b4ff0bbcd2a29f0abc8ee804b36d0b7c9711536ad8ea",
+      "sha256": "683f7491c7a13b6712633c7e14470b21ce6c4ad5ba8990f40607605cc1b3b028",
       "bytes": 4982
     },
     {
