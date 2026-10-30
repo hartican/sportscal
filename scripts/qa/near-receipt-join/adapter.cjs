@@ -113,22 +113,24 @@ async function run(){
  }
  async function equality(ids=[]){return await readonly(async()=>{const row=(await bridge.query("with a as materialized(select qa_receipt_join.original_reader($1)::text t),b as materialized(select public.nothingsports_read_match_centre_fixture_bundle($1)::text t from a)select a.t as original_text,b.t as candidate_text from a cross join b",[ids])).rows[0];assert.equal(row.original_text,row.candidate_text,'Full ordered reader output differs');const parsed=JSON.parse(row.original_text);return {rows:parsed.rows.length,complete:parsed.complete,bytes:Buffer.byteLength(row.original_text),sha256:sha(row.original_text),fullOrderedTextEqual:true};});}
  async function sample(which){return await readonly(async()=>{const fn=which==='A'?'qa_receipt_join.original_reader':'public.nothingsports_read_match_centre_fixture_bundle',start=performance.now();const r=(await bridge.query('select '+fn+"('{}'::text[])::text body")).rows[0];const v=JSON.parse(r.body),elapsed=performance.now()-start;assert.equal(v.complete,true);assert.equal(v.rows.length,985);assert(elapsed<5000,'Whole reader including delivery/parse exceeds 5s');return {which,elapsedMs:elapsed,rows:v.rows.length,bytes:Buffer.byteLength(r.body),sha256:sha(r.body),complete:true};});}
- async function expectRefusal(sql,pattern){await bridge.exec('begin;savepoint guard_negative');let error;try{await bridge.exec(stripTx(sql));}catch(e){error=e;}finally{await bridge.exec('rollback');}assert(error,'Negative control did not refuse');assert.match(error.message,pattern);return {refused:true,sqlstate:error.code||null};}
+ async function expectRefusal(sql,pattern,label){report.phase=label+':begin';await bridge.exec('begin;savepoint guard_negative');let error;try{report.phase=label+':statement';await bridge.exec(stripTx(sql));}catch(e){error=e;}finally{report.phase=label+':rollback';await bridge.exec('rollback');}report.phase=label+':assert-refusal';try{assert(error,'Negative control did not refuse');assert.match(error.message,pattern);}catch(e){if(error?.nativeDiagnostic)e.nativeDiagnostic=error.nativeDiagnostic;if(error?.nativeStatementStatus)e.nativeStatementStatus=error.nativeStatementStatus;throw e;}return {refused:true,sqlstate:error.code||null,phase:label};}
  async function nativeGuards(er){
   const forward=fs.readFileSync(path.join(packet,'receipt-join-native-forward.sql'),'utf8'),inverse=fs.readFileSync(path.join(packet,'receipt-join-native-inverse.sql'),'utf8');
   er.negative=[];
-  er.negative.push(await expectRefusal(forward,/Input body differs/));
-  for(const drift of ['grant execute on function '+SIG+' to anon','alter function '+SIG+' cost 101','alter function '+NS+'near_index_ready() cost 101'])er.negative.push(await expectRefusal(drift+';'+stripTx(inverse),/differs|changed/));
+  er.negative.push(await expectRefusal(forward,/Input body differs/,'guard:forward-replay'));
+  for(const [index,drift]of ['grant execute on function '+SIG+' to anon','alter function '+SIG+' cost 101','alter function '+NS+'near_index_ready() cost 101'].entries())er.negative.push(await expectRefusal(drift+';'+stripTx(inverse),/differs|changed/,'guard:inverse-drift-'+index));
   for(const role of ['anon','authenticated']){
+   report.phase='guard:'+role+':schema-privacy';
    assert.equal((await bridge.query('select has_schema_privilege($1,$2,\'usage\') allowed',[role,'qa_receipt_join'])).rows[0].allowed,false);
-   er.negative.push(await expectRefusal('set local role '+role+";select public.nothingsports_read_match_centre_fixture_bundle('{}')",/permission denied/));
+   er.negative.push(await expectRefusal('set local role '+role+";select public.nothingsports_read_match_centre_fixture_bundle('{}')",/permission denied/,'guard:'+role+':reader-denial'));
   }
+  report.phase='guard:post-forward-fact';
   await bridge.query("update public.nothingsports_fixture_current set fixture=fixture||$1::jsonb where fixture_id=$2",[JSON.stringify({qaPostForwardFact:'preserve-after-inverse',statusCheckedAt:current.workload.old}),'qa-receipt-fixture-0']);
   const facts=(await bridge.query("select md5(string_agg(source_id||fixture_id||fixture::text,'' order by source_id,fixture_id)) h from public.nothingsports_fixture_current")).rows[0].h;
-  await bridge.exec(inverse);assert.equal((await bridge.query('select md5(pg_get_functiondef($1::regprocedure))h',[SIG])).rows[0].h,ORIGINAL);
+  report.phase='guard:inverse';await bridge.exec(inverse);assert.equal((await bridge.query('select md5(pg_get_functiondef($1::regprocedure))h',[SIG])).rows[0].h,ORIGINAL);
   assert.equal((await bridge.query("select md5(string_agg(source_id||fixture_id||fixture::text,'' order by source_id,fixture_id))h from public.nothingsports_fixture_current")).rows[0].h,facts);
   er.inverse={originalDefinitionRestored:true,interveningFactsPreserved:true,factsMd5:facts};
-  await bridge.exec(forward);er.reapply=true;
+  report.phase='guard:reapply';await bridge.exec(forward);er.reapply=true;
  }
  async function functional(er){
   const db=await database('checks'),future=new Date(Date.now()+300*86400000).toISOString(),old=new Date(Date.now()-86400000).toISOString();
@@ -184,18 +186,18 @@ async function run(){
    await docker(['exec',current.cid,'/bin/sh','-c','for n in $(seq 1 30); do /usr/lib/postgresql/'+major+'/bin/pg_isready -h /var/run/postgresql -U postgres >/dev/null 2>&1 && exit 0; sleep 0.5; done; exit 1'],{maxMs:18000});await inspectOwned(current);
    await docker(['exec','-u','postgres',current.cid,'/bin/sh','-ceu','umask 077; set -C; : > "$1"; test -f "$1"; test ! -L "$1"; test ! -s "$1"; test "$(stat -c %u:%a:%s "$1")" = "$(id -u):600:0"','ns-owned-empty-passfile',EMPTY_PASSFILE],{maxMs:5000});
    current.emptyPasswordFilePath=EMPTY_PASSFILE;current.emptyPasswordFileVerified=true;current.verified=true;save();
-   await database('perf');await bootstrapWorkload(bridge);await bridge.exec(fs.readFileSync(path.join(packet,'receipt-join-native-reference.sql'),'utf8'));
+   report.phase='setup:perf-database';await database('perf');report.phase='setup:workload';await bootstrapWorkload(bridge);report.phase='setup:reference';await bridge.exec(fs.readFileSync(path.join(packet,'receipt-join-native-reference.sql'),'utf8'));
    const boundaryText=stripTx(fs.readFileSync(path.join(packet,'receipt-join-native-boundary.sql'),'utf8')).replace(/^SET LOCAL[^;]+;\s*$/gm,'').replace(/^--[^\n]*(?:\n|$)/gm,'').trim().replace(/;\s*$/,'');
-   er.boundary=(await bridge.query(boundaryText)).rows[0];assert.deepEqual([er.boundary.original_rows,er.boundary.candidate_rows,er.boundary.full_value_bag_differences,er.boundary.unsafe_inner_join_negative_differences,er.boundary.multiple_payload_receipt_rows,er.boundary.preserved_missing_receipt,er.boundary.missing_payload_rows,er.boundary.preserved_json_null,er.boundary.preserved_sql_null].map(Number),[11,11,0,1,6,1,0,1,1]);
-   await plans(er);await bridge.exec(fs.readFileSync(path.join(packet,'receipt-join-native-forward.sql'),'utf8'));
-   er.equality=await equality([]);assert.equal(er.equality.rows,985);assert.equal(er.equality.complete,true);
-   er.samples=[];for(const which of ['A','B','B','A']){er.samples.push(await sample(which));save();}
+   report.phase='boundary';er.boundary=(await bridge.query(boundaryText)).rows[0];assert.deepEqual([er.boundary.original_rows,er.boundary.candidate_rows,er.boundary.full_value_bag_differences,er.boundary.unsafe_inner_join_negative_differences,er.boundary.multiple_payload_receipt_rows,er.boundary.preserved_missing_receipt,er.boundary.missing_payload_rows,er.boundary.preserved_json_null,er.boundary.preserved_sql_null].map(Number),[11,11,0,1,6,1,0,1,1]);
+   report.phase='plans';await plans(er);report.phase='candidate:forward';await bridge.exec(fs.readFileSync(path.join(packet,'receipt-join-native-forward.sql'),'utf8'));
+   report.phase='complete-equality';er.equality=await equality([]);assert.equal(er.equality.rows,985);assert.equal(er.equality.complete,true);
+   er.samples=[];for(const which of ['A','B','B','A']){report.phase='ABBA:'+er.samples.length+':'+which;er.samples.push(await sample(which));save();}
    const a=er.samples.filter(x=>x.which==='A'),b=er.samples.filter(x=>x.which==='B');for(const s of er.samples){assert.equal(s.sha256,er.equality.sha256);assert.equal(s.bytes,er.equality.bytes);}
    er.originalMedianMs=(a[0].elapsedMs+a[1].elapsedMs)/2;er.candidateMedianMs=(b[0].elapsedMs+b[1].elapsedMs)/2;er.improvement=1-er.candidateMedianMs/er.originalMedianMs;assert(er.improvement>=0.20,'Less than 20 percent whole-reader median improvement');
-   await nativeGuards(er);await dropCurrentDatabase();await functional(er);await inspectOwned(current);await docker(['rm','-f','-v',current.cid]);current.removed=true;save();current=null;
+   report.phase='guards';await nativeGuards(er);report.phase='perf-database:cleanup';await dropCurrentDatabase();report.phase='functional';await functional(er);report.phase='functional:cleanup';await inspectOwned(current);await docker(['rm','-f','-v',current.cid]);current.removed=true;save();current=null;
   }
   if(runState.signalFailure)throw Error('Interrupted: '+runState.signalFailure);report.state='PASS_LOCAL_NATIVE_QUALIFICATION_ONLY';report.requiredEngines=[17,18];report.noReleaseOrHTTPClaim=true;runState.finished=true;
- }catch(e){if(!report.failure){report.state=e.code==='NO_REPRO'?'NO_REPRO':'FAIL';report.failure={message:String(e.message).slice(0,400),code:e.code||null};if(e.code==='NATIVE_JSON_DECODE')report.failure.nativeDiagnostic=e.nativeDiagnostic;}runState.finished=false;}
+ }catch(e){if(!report.failure){report.state=e.code==='NO_REPRO'?'NO_REPRO':'FAIL';report.failure={message:String(e.message).slice(0,400),code:e.code||null,phase:report.phase||'unlabelled'};if(e.nativeDiagnostic)report.failure.nativeDiagnostic=e.nativeDiagnostic;if(e.nativeStatementStatus)report.failure.nativeStatementStatus=e.nativeStatementStatus;}runState.finished=false;}
  finally{
   cleaning=true;report.cleanup={confirmed:false};save();
   try{if(client){try{await client.close();}catch(e){report.cleanup.clientExitError=String(e.message).slice(0,200);runState.finished=false;if(String(report.state).startsWith('PASS'))report.state='FAIL_CHILD_EXIT_UNCONFIRMED';report.failure=report.failure||{message:String(e.message).slice(0,200),code:e.code||null};}client=null;}

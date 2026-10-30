@@ -3,14 +3,16 @@
 const {spawn}=require('node:child_process'),crypto=require('node:crypto');
 const literal=v=>v===null||v===undefined?'null':typeof v==='boolean'?(v?'true':'false'):typeof v==='number'?(Number.isFinite(v)?String(v):(()=>{throw Error('Nonfinite SQL number');})()):"'"+String(v).replace(/'/g,"''")+"'";
 const EMPTY_PASSFILE='/var/lib/postgresql/data/qa/.nothingsport-native-empty.pgpass';
-function parseJsonStrict(text,raw=text){try{return JSON.parse(text);}catch(error){error.code='NATIVE_JSON_DECODE';error.nativeDiagnostic={outputBytes:Buffer.byteLength(raw),prefix:raw.slice(0,512),suffix:raw.length>512?raw.slice(-512):null,truncated:raw.length>1024};throw error;}}
+const ORDERED_PSQL_WRAPPER='exec "$@" 2>&1';
+const boundedNativeDiagnostic=raw=>({outputBytes:Buffer.byteLength(raw),prefix:raw.slice(0,512),suffix:raw.length>512?raw.slice(-512):null,truncated:raw.length>1024});
+function parseJsonStrict(text,raw=text){try{return JSON.parse(text);}catch(error){error.code='NATIVE_JSON_DECODE';error.nativeDiagnostic=boundedNativeDiagnostic(raw);throw error;}}
 class Client{
  constructor(database,limits){
   const binding=limits.binding(database);if(database!=='postgres'&&!/^ns_near_receipt_(17|18)_[a-f0-9]{12}_(perf|checks)$/.test(database))throw Error('Unexpected isolated database');
   this.limits=limits;this.database=database;this.closed=false;this.active=null;this.buffer='';
   if(!/^[a-f0-9]{64}$/.test(binding.cid)||![17,18].includes(binding.major))throw Error('Unverified isolated container');
   if(binding.emptyPasswordFileVerified!==true||binding.emptyPasswordFilePath!==EMPTY_PASSFILE)throw Error('Verified owned empty0600 password file required');
-  this.child=spawn('/usr/bin/docker',['--host','unix:///var/run/docker.sock','exec','-i','-u','postgres',binding.cid,'/usr/bin/env','-i','PATH=/usr/bin:/bin','LANG=C.UTF-8','PGHOST=/var/run/postgresql','PGPORT=5432','PGUSER=postgres','PGDATABASE='+database,'PGPASSFILE='+EMPTY_PASSFILE,'PGSERVICEFILE=/dev/null','/usr/lib/postgresql/'+binding.major+'/bin/psql','-X','-h','/var/run/postgresql','-p','5432','-U','postgres','-d',database,'-qAt','-P','pager=off','-v','VERBOSITY=verbose'],{env:binding.env,stdio:['pipe','pipe','pipe']});
+  this.child=spawn('/usr/bin/docker',['--host','unix:///var/run/docker.sock','exec','-i','-u','postgres',binding.cid,'/bin/sh','-c',ORDERED_PSQL_WRAPPER,'ns-ordered-psql','/usr/bin/env','-i','PATH=/usr/bin:/bin','LANG=C.UTF-8','PGHOST=/var/run/postgresql','PGPORT=5432','PGUSER=postgres','PGDATABASE='+database,'PGPASSFILE='+EMPTY_PASSFILE,'PGSERVICEFILE=/dev/null','/usr/lib/postgresql/'+binding.major+'/bin/psql','-X','-h','/var/run/postgresql','-p','5432','-U','postgres','-d',database,'-qAt','-P','pager=off','-v','VERBOSITY=verbose'],{env:binding.env,stdio:['pipe','pipe','pipe']});
   limits.processControl.track(this.child);this.child.stdout.setEncoding('utf8');this.child.stderr.setEncoding('utf8');
   this.child.stdout.on('data',s=>{this.buffer+=s;this.drain();});this.child.stderr.on('data',s=>{this.buffer+=s;this.drain();});
   const ended=(error)=>{this.closed=true;if(this.active){clearTimeout(this.active.timer);this.active.reject(error);this.active=null;}};
@@ -21,7 +23,7 @@ class Client{
   const p=this.active;if(!p)return;const at=this.buffer.indexOf(p.marker);if(at<0)return;const end=this.buffer.indexOf('\n',at);if(end<0)return;
   const text=this.buffer.slice(0,at).trim(),status=this.buffer.slice(at+p.marker.length,end).trim();this.buffer=this.buffer.slice(end+1);this.active=null;clearTimeout(p.timer);
   const error=text.match(/(?:^|\n)(?:ERROR|FATAL):\s+(?:([0-9A-Z]{5}):\s*)?([^\n]+)/);
-  if(error||status!=='00000'){const e=Error(error?.[2]||'Native SQLSTATE '+status);e.code=error?.[1]||status;e.nativeOutput=text;p.reject(e);}else p.resolve(text);
+  if(error||status!=='00000'){const e=Error(error?.[2]||'Native SQLSTATE '+status);e.code=error?.[1]||status;e.nativeOutput=text;e.nativeDiagnostic=boundedNativeDiagnostic(text);e.nativeStatementStatus=status;p.reject(e);}else p.resolve(text);
  }
  abort(message){if(this.active){clearTimeout(this.active.timer);this.active.reject(Error(message));this.active=null;}this.child.kill('SIGKILL');}
  command(sql,{cleanup=false}={}){
@@ -38,4 +40,4 @@ class Client{
   return await this.limits.processControl.settle(this.child,{graceMs:1500,forceMs:1500});
  }
 }
-module.exports={Client,literal,EMPTY_PASSFILE,parseJsonStrict};
+module.exports={Client,literal,EMPTY_PASSFILE,parseJsonStrict,ORDERED_PSQL_WRAPPER,boundedNativeDiagnostic};

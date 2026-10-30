@@ -1,5 +1,14 @@
 # One source-only Linux native test packet
 
+Current ordered-wire correction: read ORDERED-WIRE-DIAGNOSIS.md and the current
+PUSH-BINDING.md first. They supersede historical launch instructions below.
+The latest run has PARTIAL PG17 speed/equality proof, but failed later and is not
+qualified. This copy restores the retained single psql output wire, adds bounded
+SQL/phase diagnostics, and uses ROOT's exact one-update before-carrier binding
+on existing PR117/-3. No grants, denials, SQL, performance or release gates change.
+No new runtime/CI/managed/push action has occurred here.
+
+
 Connection setup profile3 only: follow PUSH-BINDING.md and the exact new branch/
 workflow ending `20261030-3`. Run41032332223 reached a PG17 container but failed
 decoding its first admin response; no QA database/workload/plan/ABBA was reached,

@@ -2,7 +2,7 @@
 // Launch binding only. Does not change any SQL, test, resource or timing logic.
 // ROOT substitutes this nonce BEFORE committing the separate packet snapshot.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto'),{execFileSync}=require('node:child_process');
-const ROOT=Object.freeze({nonce:'8520acb7d67d2dd9a1ececa6f9c4a00e',repository:'hartican/sportscal',ref:'refs/heads/codex/near-receipt-native-20261030-3',workflow:'.github/workflows/near-receipt-native-20261030-3.yml',source:'98af9164d15cddfb198fd35cd9e226b267723216'});
+const ROOT=Object.freeze({nonce:'0ad809e1ed3c37ac7ed3cee4be2a2a89',repository:'hartican/sportscal',ref:'refs/heads/codex/near-receipt-native-20261030-3',workflow:'.github/workflows/near-receipt-native-20261030-3.yml',source:'98af9164d15cddfb198fd35cd9e226b267723216',before:'06a2c5d73af16e3718d1fc9e5dfa99bfff83b6e3'});
 function validateEvent(env,event,expected=ROOT){
  assert.match(expected.nonce,/^[a-f0-9]{32}$/,'Unbound ROOT nonce; template cannot run');
  assert.equal(env.GITHUB_ACTIONS,'true');assert.equal(env.GITHUB_EVENT_NAME,'push','Actual push event required');assert.equal(env.GITHUB_RUN_ATTEMPT,'1','One use; job reruns refused');assert.equal(env.GITHUB_REPOSITORY,expected.repository);assert.equal(env.GITHUB_REPOSITORY_OWNER,'hartican');
@@ -13,7 +13,7 @@ function validateEvent(env,event,expected=ROOT){
  assert.match(env.NEAR_PACKET_SHA||'',/^[a-f0-9]{40}$/);assert.notEqual(env.NEAR_PACKET_SHA,env.GITHUB_SHA,'Separate immutable packet snapshot required');assert.notEqual(env.NEAR_PACKET_SHA,expected.source);
  assert.match(env.NEAR_PACKET_MANIFEST_SHA256||'',/^[a-f0-9]{64}$/);
  assert.equal(event.ref,expected.ref);assert.equal(event.repository?.full_name,expected.repository);assert.equal(event.repository?.owner?.login,'hartican');assert.equal(event.repository?.fork,false);
- assert.equal(event.created,true,'One fresh branch-creation push only');assert.equal(event.before,'0'.repeat(40));assert.equal(event.deleted,false);assert.equal(event.forced,false,'Forced push is outside allocation');assert.equal(event.after,env.GITHUB_SHA);assert.equal(event.head_commit?.id,env.GITHUB_SHA);
+ assert.match(expected.before,/^[a-f0-9]{40}$/);assert.equal(event.created,false,'One exact fast-forward update only');assert.equal(event.before,expected.before,'Prior carrier differs');assert.notEqual(env.GITHUB_SHA,expected.before);assert.equal(event.deleted,false);assert.equal(event.forced,false,'Forced push is outside allocation');assert.equal(event.after,env.GITHUB_SHA);assert.equal(event.head_commit?.id,env.GITHUB_SHA);
  return {event:'push',ref:expected.ref,carrierSha:env.GITHUB_SHA,packetSha:env.NEAR_PACKET_SHA,manifestSha256:env.NEAR_PACKET_MANIFEST_SHA256,nonce:expected.nonce};
 }
 function assertPushBinding(env){
