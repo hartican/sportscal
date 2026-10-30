@@ -58,7 +58,7 @@ budget directory's golf-source-report.json and GOLF_SOURCE_RUN_ID to a UUID;
 these diagnostics grant no Golf source child or connection. Synthetic privacy
 markers exist only in owned controls. Actual workflow contains no secret block.
 
-ROOT's same-branch push must have befored4b3f85b and exact snapshot-A child,
+ROOT's same-branch push must have before20d323cb and exact snapshot-A child,
 allocation-only-B child, matching checkout/workflow/event SHA, first attempt,
 no force/create/delete, nonce/time-bound one-use grant. This snapshot remains
 UNALLOCATED with no nonce/time. Currentc34 source pins explicitly replace the
@@ -174,6 +174,38 @@ failure. The full SOURCE_MOCK_ENTRY passed with owned inputs and stand-ins;
 it did not clear or reproduce the native failure. This follow-up improves only
 future observation. Both affected source-only suites cover all eight producer,
 driver and CI admissions while preserving the original failed gate and privacy
-negatives. No native/CI/provider trial is run or allocated here. The inactive
-snapshot follows current consumed d4b3; the actual workflow remains literalfalse
+negatives. No native/CI/provider trial is run or allocated here. That prior inactive
+snapshot followed d4b3; the actual workflow remains literalfalse
 and publication604 remains held for EPL.
+
+## Owned read/open routing repair
+
+The controlled Node24 Buffer read now reproduces a concrete boundary defect.
+The outer readFileSync correctly chose a frozen-source fallback when its owned
+counterpart was absent, but Node's internal exported openSync then remapped that
+read to the missing owned file. UTF8 fast-path reads bypassed that second hook,
+which is why the earlier SOURCE_MOCK_ENTRY looked green: it incorrectly left
+read-only opens unmapped. Those earlier artifacts remain preserved as limited
+proof and do not qualify the current native failure.
+
+Only owned EPL open routing changes. Read-only r/rs and numeric flags without
+WRONLY/RDWR/CREAT/TRUNC/APPEND honor the existing outer read fallback and still
+prefer an existing owned counterpart. Every write/read-write/create/truncate/
+append remains mapped into the owned tree; an owned path cannot gain a source
+fallback. No broader source read surface or permission is introduced.
+
+Actual Node FS tests cover Buffer/UTF8, direct string/numeric read-only opens,
+owned precedence, r+/RDWR/CREAT/TRUNC/APPEND and byte-identical frozen files.
+SOURCE_MOCK_ENTRY using the actual old FS fragment fails at the unseeded owned
+football-directory read with ERROR/ENOENT before requests/children; the repaired
+fragment completes five owned HTTP resources and fifteen owned projection
+stand-ins with zero external network attempts. This is a functional test-boundary
+repair, not a new observation code or an application data/source fix.
+
+The exact native filename was not exported in41133227952. The modeled file/phase
+and error category match its evidence, but fresh ROOT Linux qualification must
+confirm resolution; no native filename/root-cause clearance is claimed locally.
+APPc34, guard/transport/supervisor, all native assertions/cases, source/result/
+privacy/resource/release gates and all caps remain unchanged. The next inactive
+snapshot follows current consumed20d3, actual step stays literalfalse, allocation
+is null, and604 remains held for EPL.

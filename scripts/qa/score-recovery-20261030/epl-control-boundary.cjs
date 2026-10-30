@@ -36,7 +36,11 @@ try{
 const map=file=>{const f=path.resolve(String(file));return ['data','feeds','assets/js'].some(dir=>f===source+'/'+dir||f.startsWith(source+'/'+dir+'/'))?root+f.slice(source.length):f;};
 fs.readFileSync=function(file,...args){const f=map(file);return raw.read(f!==path.resolve(String(file))&&raw.exists(f)?f:file,...args);};
 fs.readdirSync=function(file,...args){const f=map(file);return raw.readdir(f!==path.resolve(String(file))&&raw.exists(f)?f:file,...args);};
-for(const key of['writeFileSync','appendFileSync','mkdirSync','mkdtempSync','unlinkSync','rmSync','rmdirSync','chmodSync','chownSync','utimesSync','truncateSync','openSync']){const original=fs[key];fs[key]=function(file,...args){if(scenario==='interrupted-rollback'&&key==='writeFileSync'&&map(file)===root+'/data/retained-only.json'&&raw.exists(path.join(p.runDir,'first-error.json'))){raw.write(map(file),'truncated necessary owned restore');for(;;){}}return original.call(this,map(file),...args);};}
+for(const key of['writeFileSync','appendFileSync','mkdirSync','mkdtempSync','unlinkSync','rmSync','rmdirSync','chmodSync','chownSync','utimesSync','truncateSync']){const original=fs[key];fs[key]=function(file,...args){if(scenario==='interrupted-rollback'&&key==='writeFileSync'&&map(file)===root+'/data/retained-only.json'&&raw.exists(path.join(p.runDir,'first-error.json'))){raw.write(map(file),'truncated necessary owned restore');for(;;){}}return original.call(this,map(file),...args);};}
+// Buffer readFileSync delegates to this exported openSync. Preserve the same
+// frozen-source fallback as the outer reader; every write/read-write stays owned.
+const ownedOpen=fs.openSync;
+fs.openSync=function(file,flags,...args){const f=map(file),readOnly=typeof flags==='number'?(flags&(fs.constants.O_WRONLY|fs.constants.O_RDWR|fs.constants.O_CREAT|fs.constants.O_TRUNC|fs.constants.O_APPEND))===0:flags==='r'||flags==='rs';return ownedOpen.call(this,readOnly&&f!==path.resolve(String(file))&&!raw.exists(f)?file:f,flags,...args);};
 for(const key of['renameSync','copyFileSync']){const original=fs[key];fs[key]=function(a,b,...args){return original.call(this,map(a),map(b),...args);};}
 const fixture=JSON.parse(raw.read(path.join(__dirname,'epl-control-fixture.json'))),C=require('./epl-contract.cjs');let calls=0;const resources=[];
 let nativeConnections=0;

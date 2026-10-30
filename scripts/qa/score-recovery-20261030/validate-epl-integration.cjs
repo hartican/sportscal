@@ -77,4 +77,36 @@ for(const code of ['ENOENT','ENOTDIR','EISDIR','EACCES','EPERM','EBADF','ERR_MOD
 }
 good('getter returning an approved public code remains unread',()=>{const m=ownedBoundary(),error=new Error('owned');let reads=0;Object.defineProperty(error,'code',{get(){reads++;return'ENOENT';}});m.listeners.get('uncaughtExceptionMonitor')(error);m.listeners.get('exit')(1);assert.equal(reads,0);assert.equal(m.read().errorCode,'OTHER_ERROR_CODE');});
 good('object matching a public code is never coerced',()=>{const m=ownedBoundary(),error=new Error('owned');let coercions=0;error.code={toString(){coercions++;return'ENOENT';}};m.listeners.get('uncaughtExceptionMonitor')(error);m.listeners.get('exit')(1);assert.equal(coercions,0);assert.equal(m.read().errorCode,'OTHER_ERROR_CODE');});
+// Real Node Buffer reads delegate to the exported openSync. Replay the actual
+// owned FS fragment only, with disposable files: no preload or process hooks.
+good('actual owned read routing preserves Buffer fallback and confines all writes',()=>{
+ const keys=['readFileSync','readdirSync','writeFileSync','appendFileSync','mkdirSync','mkdtempSync','unlinkSync','rmSync','rmdirSync','chmodSync','chownSync','utimesSync','truncateSync','openSync','renameSync','copyFileSync'],original=Object.fromEntries(keys.map(k=>[k,fs[k]]));
+ const temp=original.mkdtempSync(path.join(require('node:os').tmpdir(),'owned-epl-read-routing-')),source=path.join(temp,'frozen-source'),root=path.join(temp,'fixture'),relative='data/canonical/football-directory.v1.json',frozen=path.join(source,relative),owned=path.join(root,relative),bytes=Buffer.from('{"reviewed":"frozen source bytes"}\n');
+ original.mkdirSync(path.dirname(frozen),{recursive:true});original.mkdirSync(path.dirname(owned),{recursive:true});original.writeFileSync(frozen,bytes);
+ const start=boundaryText.indexOf('const map=file=>'),end=boundaryText.indexOf('\nconst fixture=JSON.parse',start);assert(start>=0&&end>start);
+ const raw={read:original.readFileSync.bind(fs),write:original.writeFileSync.bind(fs),exists:fs.existsSync.bind(fs),readdir:original.readdirSync.bind(fs)};let verified=false;
+ try{
+  vm.runInNewContext('(function(){'+boundaryText.slice(start,end)+'})()',{fs,path,raw,source,root,scenario:'good',p:{runDir:path.join(temp,'run')}});
+  assert.equal(fs.readFileSync(frozen,'utf8'),bytes.toString(),'UTF8_FALLBACK_CONTROL');
+  assert.deepEqual(fs.readFileSync(frozen),bytes,'BUFFER_FALLBACK_WAS_REDIRECTED_TO_MISSING_FIXTURE');
+  for(const flags of ['r','rs',fs.constants.O_RDONLY]){const fd=fs.openSync(frozen,flags),body=Buffer.alloc(bytes.length);try{fs.readSync(fd,body,0,body.length,0);assert.deepEqual(body,bytes);}finally{fs.closeSync(fd);}}
+  assert.throws(()=>fs.openSync(frozen,'r+'),error=>error.code==='ENOENT'&&error.path===owned,'READ_WRITE_MUST_NOT_FALL_BACK_TO_SOURCE');
+  for(const flags of [fs.constants.O_RDWR,fs.constants.O_TRUNC,fs.constants.O_APPEND])assert.throws(()=>fs.openSync(frozen,flags),error=>error.code==='ENOENT'&&error.path===owned,'NUMERIC_MUTATIVE_FLAGS_MUST_STAY_OWNED');
+  const created=fs.openSync(frozen,fs.constants.O_RDONLY|fs.constants.O_CREAT,0o600);fs.closeSync(created);assert.equal(original.readFileSync(owned).length,0,'NUMERIC_CREATE_MUST_TARGET_OWNED_FILE');original.unlinkSync(owned);
+  const fd=fs.openSync(frozen,'w');try{fs.writeSync(fd,'owned replacement');}finally{fs.closeSync(fd);}
+  assert.equal(original.readFileSync(owned,'utf8'),'owned replacement');
+  assert.equal(fs.readFileSync(frozen,'utf8'),'owned replacement','OWNED_BYTES_STILL_TAKE_PRECEDENCE');
+  assert.equal(fs.readFileSync(frozen).toString(),'owned replacement');
+  const preferred=fs.openSync(frozen,'r'),body=Buffer.alloc(17);try{fs.readSync(preferred,body,0,body.length,0);assert.equal(body.toString(),'owned replacement');}finally{fs.closeSync(preferred);}
+  const appended=fs.openSync(frozen,fs.constants.O_WRONLY|fs.constants.O_APPEND);try{fs.writeSync(appended,' appended');}finally{fs.closeSync(appended);}assert.equal(original.readFileSync(owned,'utf8'),'owned replacement appended');
+  original.unlinkSync(owned);const fd1=fs.openSync(frozen,fs.constants.O_WRONLY|fs.constants.O_CREAT|fs.constants.O_TRUNC,0o600);try{fs.writeSync(fd1,'numeric owned replacement');}finally{fs.closeSync(fd1);}
+  assert.equal(original.readFileSync(owned,'utf8'),'numeric owned replacement');
+  const missing=path.join(root,'data/canonical/never-seeded.json');assert.throws(()=>fs.readFileSync(missing),error=>error.code==='ENOENT'&&error.path===missing,'OWNED_PATH_MUST_NOT_GAIN_A_SOURCE_FALLBACK');
+  verified=true;
+ }finally{
+  for(const key of keys)fs[key]=original[key];
+  try{assert.deepEqual(original.readFileSync(frozen),bytes,'FROZEN_SOURCE_MUST_REMAIN_BYTE_IDENTICAL');}finally{original.rmSync(temp,{recursive:true,force:true});}
+ }
+ assert(verified);
+});
 console.log(JSON.stringify({status:'PASS',checks:cases.length,cases,actualProviderRequests:0,nativeConnections:0,guardPreloadExecutions:0,supervisorMainOrInspect:0,nativeChildren:0,ownedProcessEventsOnly:true}));

@@ -3,7 +3,7 @@ import argparse,datetime,hashlib,importlib.util,json,math,os,pathlib,platform,re
 sys.dont_write_bytecode=True
 HERE=pathlib.Path(__file__).resolve().parent
 SOURCE_SHA='c34bc991643c7f68ba856eec143d76c66ce4fb63'
-CARRIER_BASE_SHA='d4b3f85bfa0efe8df0b6e9417a0311ee7981e03b'
+CARRIER_BASE_SHA='20d323cb6fd703077786312f6b5aa02bf84c5969'
 BRANCH='refs/heads/codex/score-recovery-live-coverage-20261030'
 QA_PATH='scripts/qa/score-recovery-20261030'
 WORKFLOW='.github/workflows/score-recovery-oneoff.yml'
