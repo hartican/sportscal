@@ -1,6 +1,6 @@
 {
   "schemaVersion": "near-receipt-join-contracts.v1",
-  "migration": "20261030104046_reorder_match_centre_receipts.sql",
+  "migration": "20261030110044_reorder_match_centre_receipts.sql",
   "original": [
     {
       "signature": "nothingsports_fixture_observation_time(text)",

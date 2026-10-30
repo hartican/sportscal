@@ -43,7 +43,7 @@ installation, full HTTP download/parse, app release, browser or physical phone.
 
 ## Guarded production change and inverse
 
-Forward: `supabase/migrations/20261030104046_reorder_match_centre_receipts.sql`.
+Forward: `supabase/migrations/20261030110044_reorder_match_centre_receipts.sql`.
 Inverse: the same basename under `supabase/rollbacks/`.
 The migration file was created through the existing CLI's `migration new`.
 Each transaction uses a five-second statement and one-second lock limit.
@@ -136,3 +136,15 @@ drift, alter customer state, replay notifications or run warming requests.
 Workflow, immutable READY, exact `releaseGitSha`, aliases, served bytes, hosted
 behaviour and database changes must be recorded separately. Physical iPhone
 receipt remains a separate evidence goal, with no outstanding owner question.
+
+## ROOT managed staging — 30 October, 11:00 UTC
+
+ROOT applied the exact reviewed forward bytes once through the managed migration
+service. History assigned version `20261030110044`; the forward and inverse
+filenames and fixture reference now use that version, with byte-identical SQL.
+The metadata-only readback at11:00:52UTC matches all27candidate function
+contracts, the table/column/policy/schema boundary and reader body4024 exactly.
+No sporting facts were written or payload reader warmed. This is guarded
+installation, not HTTP, app, release, repeated-load or device acceptance.
+The unchanged normal262-command workflow and live4s headroom gate still apply.
+ROOT retains the exact inverse; do not resume automation or repeat old probes.
