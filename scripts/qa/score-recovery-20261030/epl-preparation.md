@@ -1,7 +1,11 @@
 # Finite EPL native source — 31 October 2026 Sydney
 
-Executable SOURCE preparation, UNALLOCATED. No native qualification or actual
-provider run has occurred here. APP PR120 stays frozen at
+Executable SOURCE preparation for a separately allocated actual trial,
+UNALLOCATED. ROOT qualification41136790278 passed all117 current-source native
+cases and mandatory metadata/models; no actual provider run has occurred.
+The restored workflow condition is prepared source only, not a runtime grant.
+Historical diagnostic sections below retain their then-current limitations.
+APP PR120 stays frozen at
 c34bc991643c7f68ba856eec143d76c66ce4fb63/tree0f8f7a0. The existing temporary
 QA PR114 is TEST ONLY, never an APP merge or another publisher/framework.
 Historical proposal581/ba2 and their P2/RED evidence remain immutable in Git and
@@ -58,7 +62,7 @@ budget directory's golf-source-report.json and GOLF_SOURCE_RUN_ID to a UUID;
 these diagnostics grant no Golf source child or connection. Synthetic privacy
 markers exist only in owned controls. Actual workflow contains no secret block.
 
-ROOT's same-branch push must have before20d323cb and exact snapshot-A child,
+ROOT's same-branch push must have before0b055c42 and exact snapshot-A child,
 allocation-only-B child, matching checkout/workflow/event SHA, first attempt,
 no force/create/delete, nonce/time-bound one-use grant. This snapshot remains
 UNALLOCATED with no nonce/time. Currentc34 source pins explicitly replace the
@@ -103,7 +107,7 @@ all64 default/25 selected/28 EPL obligations remain mandatory. Owned mocked
 receipt/prepare/timeout/privacy controls cover the reporting repair; they do
 not establish the Linux failure cause or authorize another attempt.
 
-## Next variant: diagnostic-only Linux qualification
+## Historical variant: diagnostic-only Linux qualification
 
 The workflow's actual EPL step now has the unconditional literal guard
 `if: ${{ false }}`. It stays skipped even if all controls pass and their existing
@@ -209,3 +213,30 @@ APPc34, guard/transport/supervisor, all native assertions/cases, source/result/
 privacy/resource/release gates and all caps remain unchanged. The next inactive
 snapshot follows current consumed20d3, actual step stays literalfalse, allocation
 is null, and604 remains held for EPL.
+
+## Prepared actual step after verified native qualification
+
+ROOT verified41136790278 at carrier0b055c42720a0754227246a1d30e655d2af5a54f,
+source44840f02/APPc34:64default+25Rugby+28EPL native cases all PASS, including
+originalgood, group closure and restoration; mandatory metadata/models also
+passed. The actual preflight was PREPARED_NOT_EXECUTED, nodeStarts0 and provider0.
+This clears the controlled owned-read routing blocker. It does not establish
+current provider freshness, hosted behavior or publication acceptance. Native
+failure filenames were never exported; prior failures and the model omission
+remain historical evidence rather than retrospectively changed results.
+
+The actual step is restored to its original condition:
+`success() && steps.controls.outputs.ready == 'true'`. Every existing117 native
+case and metadata/model gate still precedes ready=true. ROOT alone can allocate
+one subsequent attempt through the existing PR114 carrier and serializer;
+the local snapshot is UNALLOCATED with null nonce, time window and snapshot ID.
+No local execution, CI dispatch, provider request, push or publication is granted.
+
+The only actual scope remains canonical update-cards.js --quick --source=epl
+--local-only: exactly the existing four official fixture-page GETs and separate
+official table GET, each once, maximum5,20s per resource, existing wire/decoded
+caps,180s whole/160s minimum launch. Zero retry, redirect, backup, key or DB path.
+Functional44840f helpers, source pins, inventories, Node24.21.0,12-minute job,
+no-secrets policy and source/result/spoiler/rollback/security/release gates remain
+unchanged. ROOT's future CI must rerun all mandatory gates; this binding-only
+preparation does not repeat unchanged local suites.604 remains held for EPL.
