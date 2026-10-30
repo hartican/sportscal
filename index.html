@@ -1856,6 +1856,7 @@ message: "",
 let accountIndicatorController = null, accountIndicatorLoading = null, accountIndicatorJourney = null;
 let accountIndicatorGeneration = -1;
 function renderAccountIndicator(){
+globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.stateChanged?.();
 if(accountIndicatorController)return accountIndicatorController.render();
 const button=document.getElementById('accountIndicatorFallback');
 if(button){

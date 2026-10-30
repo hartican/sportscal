@@ -126,6 +126,22 @@ function acceptAccountIndicatorProfile(viewer,owner,generation){
 // auth owner: one bounded read per foreground burst, no retries while hidden.
 let recoveryJob=null,lastRecovery=null;
 let recoveryWake=null;
+function checkRecoveryWake(){
+  const wake=recoveryWake;
+  if(!wake)return;
+  const current=serverSyncClient?.accountSnapshot?.();
+  if(!current?.hasSession || current.accountId!==wake.accountId || current.generation!==wake.generation
+    || serverSyncClient.sessionSubject()!==wake.accountId || activeProfileBundle?.profile?.id!==wake.profileId
+    || serverStateSyncGeneration!==wake.syncGeneration || !navigator.onLine || document.hidden
+    || localPreferenceRecoveryBusy || localPreferenceRecoveryBlocked()){
+    clearTimeout(wake.timer);recoveryWake=null;return;
+  }
+  // A boundary is not settlement. Keep the witness until the owned job (or
+  // startup state transition) actually finishes, without polling/rearming.
+  if(!wake.ready || recoveryJob || ['checking','requesting','syncing'].includes(serverPersistence.state))return;
+  clearTimeout(wake.timer);recoveryWake=null;
+  if(serverPersistence.state==='error')void recoverAccount();
+}
 function rememberRecoveryEvent(life){
   const profileId=activeProfileBundle?.profile?.id,generation=serverStateSyncGeneration;
   if(recoveryWake){
@@ -133,20 +149,10 @@ function rememberRecoveryEvent(life){
       && recoveryWake.profileId===profileId && recoveryWake.syncGeneration===generation)return;
     clearTimeout(recoveryWake.timer);
   }
-  const wake={...life,profileId,syncGeneration:generation,timer:null};
+  const wake={...life,profileId,syncGeneration:generation,timer:null,ready:false};
   recoveryWake=wake;
   const since=lastRecovery?.accountId===life.accountId && lastRecovery.generation===life.generation ? lastRecovery.at : Date.now();
-  wake.timer=setTimeout(()=>{
-    if(recoveryWake!==wake)return;
-    recoveryWake=null;
-    const current=serverSyncClient?.accountSnapshot?.();
-    if(!current?.hasSession || current.accountId!==wake.accountId || current.generation!==wake.generation
-      || serverSyncClient.sessionSubject()!==wake.accountId || activeProfileBundle?.profile?.id!==wake.profileId
-      || serverStateSyncGeneration!==wake.syncGeneration || serverPersistence.state!=='error')return;
-    // One witnessed event, one follow-up through the existing owner. Failure
-    // cannot schedule another attempt without a new lifecycle event.
-    void recoverAccount();
-  },Math.max(0,15000-(Date.now()-since)));
+  wake.timer=setTimeout(()=>{if(recoveryWake===wake){wake.ready=true;checkRecoveryWake();}},Math.max(0,15000-(Date.now()-since)));
 }
 function recoverAccount({manual=false}={}){
   const life=serverSyncClient?.accountSnapshot?.();
@@ -164,7 +170,7 @@ function recoverAccount({manual=false}={}){
     return serverPersistence.user?.id===life.accountId && accountIndicatorGeneration===life.generation
       ? syncCurrentServerState({notify:manual})
       : bootstrapServerPersistence({checkStatus:false});
-  }).catch(()=>{}).finally(()=>{if(recoveryJob===job)recoveryJob=null;renderAccountIndicator();});
+  }).catch(()=>{}).finally(()=>{if(recoveryJob===job)recoveryJob=null;checkRecoveryWake();renderAccountIndicator();});
   return job.promise;
 }
 function appendAccountRetry(controls){
@@ -185,7 +191,7 @@ function mount(){
   accountIndicatorController=NOTHINGSPORTS_ACCOUNT_AWARENESS_UI.create({host,readSnapshot:accountIndicatorSnapshot,openAccount:openIndicatorAccount,openPicture:options=>openIndicatorAccount({...options,profilePicture:true})});
   if(focused)host.querySelector('.account-awareness-control').focus();
   addEventListener('ns-account-change',()=>{syncDiagnostic.snapshot();});
-  for(const event of ['online','pageshow'])addEventListener(event,foregroundAccount);
+  for(const event of ['online','pageshow','focus'])addEventListener(event,foregroundAccount);
   addEventListener('offline',()=>{lastRecovery=null;renderAccountIndicator();});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)foregroundAccount();});
   if(serverPersistence.state==='error')void recoverAccount();
@@ -200,6 +206,6 @@ function mount(){
   }
   return accountIndicatorController;
 }
-root.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP=Object.freeze({beginDiagnostic:beginSyncDiagnostic,mount,open:openIndicatorAccount,finish:finishAccountIndicatorJourney,complete:completeAccountIndicatorJourney,acceptProfile:acceptAccountIndicatorProfile,appendRetry:appendAccountRetry,identityPrefix:accountIdentityPrefix,syncDetail:accountSyncDetail});
+root.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP=Object.freeze({stateChanged:checkRecoveryWake,beginDiagnostic:beginSyncDiagnostic,mount,open:openIndicatorAccount,finish:finishAccountIndicatorJourney,complete:completeAccountIndicatorJourney,acceptProfile:acceptAccountIndicatorProfile,appendRetry:appendAccountRetry,identityPrefix:accountIdentityPrefix,syncDetail:accountSyncDetail});
 
 })(globalThis);
