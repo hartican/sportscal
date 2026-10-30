@@ -160,6 +160,8 @@ async function run(){
   ['unreviewed-live-phase',f=>{f.status='L';f.phase='PAUSE_UNREVIEWED';f.teams.forEach(t=>t.score=0);}],
   ['incomplete-final-score',f=>{f.status='C';f.teams[0].score=1;}],
   ['missing-kickoff',f=>{delete f.kickoff;}],
+  ['invalid-kickoff',f=>{f.kickoff.millis=Number.MAX_VALUE;}],
+  ['missing-club-label',f=>{delete f.teams[0].team.name;delete f.teams[0].team.club.name;}],
  ])await check(name+' retains that card while independent verified final proceeds',async()=>{
   const prior=structuredClone(final(seedCards[1]));transport(input=>{edit(input.pages[0].content[1]);const good=input.pages[0].content[2];good.status='C';good.teams[0].score=1;good.teams[1].score=0;});
   const report=await quick.refresh({source:'epl',now:new Date(AT)});assert.deepEqual(final(seedCards[1]),prior);assert.equal(final(seedCards[2]).status,'completed');assert.equal(report.resources.fixtures.state,'partial-primary');assert(report.deferredFixtures.some(row=>row.fixtureId===prior.id));assert.equal(report.resources.table.state,'primary');assert.equal(calls.length,5);assert.equal(report.backup.networkRequestsAllowed,0);

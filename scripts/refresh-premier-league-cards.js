@@ -100,11 +100,13 @@ function sydneyDateAndTime(utcMillis){
   return { date: `${parts.year}-${parts.month}-${parts.day}`, time: `${parts.hour}:${parts.minute}` };
 }
 
-function teamFromEntry(entry){
+function teamFromEntry(entry,fixture){
   const team = entry?.team;
-  const name = String(team?.name || team?.club?.name || "").trim();
+  const label=team?.name||team?.club?.name;
+  const name = typeof label==='string'?label.trim():'';
   const id = team?.club?.id || team?.id;
-  if (!name || !id) throw new Error("Premier League fixture has an unresolved club identity.");
+  if (!id)throw new Error("Premier League fixture has an unresolved club identity.");
+  if(!name)throw unsupportedFixtureFact(fixture,'MISSING_CLUB_LABEL',"Premier League fixture has an unresolved club label.");
   return { id: `team:football:epl:${id}`, name };
 }
 
@@ -131,9 +133,10 @@ function resultScoreline(fixture, home, away){
 }
 
 function cardForFixture(fixture, checkedAt){
-  const [home, away] = (fixture.teams || []).map(teamFromEntry);
+  const [home, away] = (fixture.teams || []).map(entry=>teamFromEntry(entry,fixture));
   if (!home || !away)throw new Error(`Premier League fixture ${fixture?.id || "unknown"} is missing teams.`);
   if(!Number.isFinite(fixture?.kickoff?.millis))throw unsupportedFixtureFact(fixture,'MISSING_KICKOFF',`Premier League fixture ${fixture?.id || "unknown"} is missing a confirmed kickoff.`);
+  if(!Number.isFinite(new Date(fixture.kickoff.millis).getTime()))throw unsupportedFixtureFact(fixture,'INVALID_KICKOFF','Premier League fixture has an invalid confirmed kickoff.');
   const startTimeUtc = new Date(fixture.kickoff.millis).toISOString();
   const { date, time } = sydneyDateAndTime(fixture.kickoff.millis);
   const status = sourceFixtureStatus(fixture);
