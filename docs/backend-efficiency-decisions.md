@@ -1,5 +1,27 @@
 # Backend efficiency decisions
 
+## Retained EPL rebuild stays with the canonical owner — 31 October 2026
+
+The explicit local-only `update-cards.js --quick --source=epl --rebuild` route
+accepts one bounded existing `--epl-updated-ids=` selector with separate incoming
+and published existing-ID lists. Missing, duplicate, mixed, non-local and offline
+forms refuse before diagnostic/source work. The source child receives the same
+selector and local-only rebuild mode. This is retained-data projection, not a
+primary/backup source check: zero provider, credential, database or account calls.
+
+Validate both complete 380-fixture reviewed identity/ordered-pair/season sets,
+all 38 twenty-club matchweek sets, original observations and completed numeric
+results, plus the retained official 20-club table. Reuse the existing per-surface
+retained publisher, full Feed/spoiler/build gates and quick-owner atomic rollback.
+Rebuild canonical contexts from the retained table even without new source facts.
+Require all adopted Feed records/order and canonical bundle facts to remain exact;
+an unexpected normalization rejects the complete candidate. Publication metadata
+may receive a new truthful stamp; retained fact clocks never become new checks.
+Restore changed/missing data and all eight runtimes and remove new outputs on any
+failure. Broad quick offline behavior and the online five-GET EPL scope remain
+unchanged. ROOT/nsDEPLOY alone adopts verified output records, allocates combined
+qualification and publishes; source/mocked proof does not grant those operations.
+
 ## EPL card-local deferrals preserve the complete season — 31 October 2026
 
 The existing canonical `update-cards.js --quick --source=epl --local-only` scope keeps its four exact official fixture pages and separate official table (at most five primary GETs, no retry or redirect). The common transport enforces its original20-second whole-resource header/body/decode/JSON clock, with separate wire and decoded limits884,736bytes per fixture page and147,456bytes for the table, strict UTF8/complete-body admission and safe observation/hash receipts. No new provider, scheduler, source/dependency installation, account/DB operation or key grant is created.

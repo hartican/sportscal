@@ -23,7 +23,7 @@ for(const card of seedCards){card.storyline=rules.storylineFor(card);card.editor
 const other={id:'unrelated-fixture',key:'cricket',sourceCheckedAt:OLD,selectedSentence:'Reviewed other-sport copy',unknown:{keep:true}};
 const seedBundle=JSON.parse(original.readFileSync(path.join(ROOT,'data/canonical/afl-nrl-2026.json')));
 const previousContext=table.buildSnapshot(tablePayload(),directory,OLD);const seed=table.updateBundle(seedBundle,previousContext,OLD);
-let files,fds,nextFd,sequence,calls,children,failedChild,actualPublisher;
+let files,fds,nextFd,sequence,calls,children,failedChild,actualPublisher,childHook,runtimeWrites;
 const resolve=p=>path.resolve(String(p));
 function reset(){files=new Map([
  [path.join(ROOT,'data/events.json'),Buffer.from(JSON.stringify({events:[other,...seedCards]}))],
@@ -31,9 +31,9 @@ function reset(){files=new Map([
  [path.join(ROOT,'data/canonical/afl-nrl-2026.json'),Buffer.from(JSON.stringify(seed))],
  [path.join(ROOT,'assets/js/app-shell-runtime.js'),Buffer.from('unchanged runtime')],
  [path.join(ROOT,'data/canonical/football-delayed-results.v1.json'),Buffer.from(JSON.stringify({schemaVersion:'football-delayed-results.v1',results:[]}))],
- ]);fds=new Map();nextFd=10000;sequence=0;calls=[];children=[];failedChild=null;actualPublisher=false;}
+ ]);fds=new Map();nextFd=10000;sequence=0;calls=[];children=[];failedChild=null;actualPublisher=false;childHook=null;runtimeWrites=new Set([ROOT+'/assets/js/app-shell-runtime.js']);}
 fs.readFileSync=function(p,encoding){const b=files?.get(resolve(p));return b?(typeof encoding==='string'?b.toString(encoding):encoding?.encoding?b.toString(encoding.encoding):Buffer.from(b)):original.readFileSync.apply(this,arguments);};
-fs.writeFileSync=(p,body)=>{const key=resolve(p);assert(key.startsWith(ROOT+'/data/')||key.startsWith(ROOT+'/feeds/')||key===ROOT+'/assets/js/app-shell-runtime.js'||key.startsWith('/tmp/epl-noio-'),'Forbidden write '+key);files.set(key,Buffer.from(body));};
+fs.writeFileSync=(p,body)=>{const key=resolve(p);assert(key.startsWith(ROOT+'/data/')||key.startsWith(ROOT+'/feeds/')||runtimeWrites.has(key)||key.startsWith('/tmp/epl-noio-'),'Forbidden write '+key);files.set(key,Buffer.from(body));};
 fs.existsSync=p=>files?.has(resolve(p))||original.existsSync(p);
 fs.readdirSync=(p,options)=>{const base=resolve(p);if(base===ROOT+'/data'||base.startsWith(ROOT+'/data/')||base===ROOT+'/feeds'||base.startsWith(ROOT+'/feeds/')){const names=[...new Set([...files.keys()].filter(x=>x.startsWith(base+'/')).map(x=>x.slice(base.length+1).split('/')[0]))];return options?.withFileTypes?names.map(name=>({name,isDirectory:()=>[...files.keys()].some(x=>x.startsWith(base+'/'+name+'/'))})):names;}return original.readdirSync(p,options);};
 fs.unlinkSync=p=>{assert(files.has(resolve(p)));files.delete(resolve(p));};
@@ -45,7 +45,7 @@ fs.readSync=(fd,...args)=>fds.has(fd)?0:original.readSync(fd,...args);
 fs.closeSync=fd=>{if(fds.has(fd))fds.delete(fd);else original.closeSync(fd);};
 fs.rmSync=p=>{const key=resolve(p);assert(key.startsWith('/tmp/epl-noio-'));for(const name of files.keys())if(name.startsWith(key))files.delete(name);};
 fs.renameSync=(a,b)=>{a=resolve(a);b=resolve(b);assert(files.has(a)&&(b.startsWith(ROOT+'/data/')||b.startsWith('/tmp/epl-noio-')));files.set(b,files.get(a));files.delete(a);};
-cp.spawnSync=(_command,args)=>{assert(!/refresh-|redeploy|settle-|update-cards/.test(args[0]),'Unexpected source/publisher child '+args[0]);children.push(args);if(failedChild===args[0]){files.set(ROOT+'/assets/js/app-shell-runtime.js',Buffer.from('rejected generated runtime'));return{status:1};}
+cp.spawnSync=(_command,args)=>{assert(!/refresh-|redeploy|settle-|update-cards/.test(args[0]),'Unexpected source/publisher child '+args[0]);children.push(args);if(childHook){const result=childHook(args);if(result)return result;}if(failedChild===args[0]){files.set(ROOT+'/assets/js/app-shell-runtime.js',Buffer.from('rejected generated runtime'));return{status:1};}
  if(actualPublisher&&args[0]==='scripts/publish-feed.js'){
   const Module=require('node:module'),file=path.join(ROOT,args[0]),saved={argv:process.argv,exit:process.exit,log:console.log,error:console.error};const errors=[];
   try{process.argv=[process.execPath,...args];process.exit=code=>{throw Error('OWNED_PUBLISHER_EXIT_'+code+' '+errors.join(' '));};console.log=()=>{};console.error=(...values)=>errors.push(values.join(' '));const m=new Module(file,module);m.filename=file;m.paths=Module._nodeModulePaths(path.dirname(file));m._compile(original.readFileSync(file,'utf8'),file);}
@@ -278,6 +278,104 @@ async function run(){
  await check('canonical EPL flags reject mixed routes before dispatch',async()=>{
   const owner=require('./update-cards');assert.equal(owner.parseOptions(['--quick','--source=epl','--local-only'],{}).localOnly,true);
   for(const args of[['--source=epl'],['--quick','--source=epl','--source=football'],['--quick','--source=epl','--offline'],['--quick','--source=epl','--reviewed-fixtures'],['--quick','--source=epl','--source=epl']])assert.throws(()=>owner.parseOptions(args,{}),/EPL-only/);
+ });
+ const retainedIds={'feeds/incoming/events.json':[seedCards[1].id],'data/events.json':[seedCards[2].id]};
+ const retainedArg=require('./lib/epl-publication-scope').argument(retainedIds);
+ const retainedOptions=()=>({source:'epl',rebuild:true,localOnly:true,eplUpdatedIds:structuredClone(retainedIds),now:new Date(AT)});
+ await check('actual canonical retained EPL dispatcher accepts only the bounded local rebuild',async()=>{
+  const vm=require('node:vm'),{createRequire}=require('node:module'),file=path.join(__dirname,'update-cards.js'),text=original.readFileSync(file,'utf8'),start=text.indexOf('async function runMain()'),end=text.indexOf('async function main()',start);
+  for(const local of ['--local-only','-p']){
+   const args=['--quick','--source=epl','--rebuild',local,retainedArg],steps=[];
+   assert.equal(require('./update-cards').parseOptions(args,{}).localOnly,true);
+   const context={require:createRequire(file),process:{argv:['node',file,...args],env:{}},parseOptions:()=>require('./update-cards').parseOptions(args,{}),runStep:args=>steps.push(args),console:{log(){}}};
+   vm.runInNewContext(text.slice(start,end)+';globalThis.invoke=runMain',context);await context.invoke();
+   assert.deepEqual(JSON.parse(JSON.stringify(steps)),[['scripts/quick-results.js','--source=epl','--rebuild','--local-only',retainedArg]]);
+  }
+  assert.equal(calls.length,0);
+ });
+ await check('retained EPL rebuild uses separate selectors and the real context renderer without any source',async()=>{
+  const before=new Map(['feeds/incoming/events.json','data/events.json'].map(file=>[file,structuredClone(document(file).events)]));
+  // Deliberately different retained scores, writing and clocks must never cross
+  // surfaces. Omitted unrelated fields must not gain normalizer defaults.
+  for(const [file,index]of [['feeds/incoming/events.json',1],['data/events.json',2]]){
+   const doc=document(file);doc.events[index+1].unknown={surface:file};doc.events[index+1].sourceCheckedAt=OLD;delete doc.events[0].venue;
+   files.set(ROOT+'/'+file,Buffer.from(JSON.stringify(doc)));before.set(file,structuredClone(doc.events));
+  }
+  files.set(ROOT+'/data/canonical/contexts.js',Buffer.from('stale context'));
+  childHook=args=>{
+   if(args[0]==='scripts/build-canonical-context-bundle.js'){
+    const builder=require('./build-canonical-context-bundle');fs.writeFileSync(builder.OUTPUT_PATH,builder.renderBundle());
+   }
+  };
+  https.get=()=>assert.fail('Retained rebuild attempted primary or backup source');
+  const report=await quick.atomicRefresh(retainedOptions());assert.equal(report.sourceRequests,0);assert.equal(report.retainedSourceObservations,true);
+  for(const [file,events]of before)assert.deepEqual(document(file).events,events);
+  const rendered={};require('node:vm').runInNewContext(files.get(ROOT+'/data/canonical/contexts.js').toString(),rendered);
+  assert.deepEqual(JSON.parse(JSON.stringify(rendered.NOTHINGSPORTS_CANONICAL_CONTEXTS.leagueSports.ladderSnapshots.find(s=>s.competitionId===table.COMPETITION_ID))),seed.ladderSnapshots.find(s=>s.competitionId===table.COMPETITION_ID));
+  assert(children.some(args=>args[0]==='scripts/build-canonical-context-bundle.js'));
+  const pub=children.find(args=>args[0]==='scripts/publish-feed.js');assert(pub);assert.equal(pub.at(-1),retainedArg);
+  assert(!children.some(args=>['scripts/enrich-storyline-cards.js','scripts/select-result-editorial.js','scripts/sync-canonical-fixtures-to-feed.js'].includes(args[0])));
+  assert.equal(calls.length,0);
+ });
+ await check('retained EPL actual publisher preserves unchanged and disjoint surface records',async()=>{
+  actualPublisher=true;const captured=JSON.parse(original.readFileSync(ROOT+'/data/events.json','utf8'));
+  const unrelated=structuredClone(captured.events.find(e=>e.key==='cricket'&&e.cardKind!=='event'&&e.cardType!=='tournament_overview'&&!(e.matchupParticipants||[]).some(p=>p.sourceEventId)));delete unrelated.venue;
+  for(const file of Object.keys(retainedIds)){
+   let events=structuredClone(captured.events.filter(event=>event.key==='premier-league'));
+   if(file==='feeds/incoming/events.json')events=quick.patchKnown(events,[source.cardForFixture(fixtures[0],OLD)]).events;
+   files.set(ROOT+'/'+file,Buffer.from(JSON.stringify({...captured,events:[{...unrelated,surface:file},...events]})));
+  }
+  const before=new Map(Object.keys(retainedIds).map(file=>[file,structuredClone(document(file).events)]));
+  const options={...retainedOptions(),eplUpdatedIds:Object.fromEntries(Object.keys(retainedIds).map(file=>[file,[seedCards[0].id]]))};
+  https.get=()=>assert.fail('Unexpected source');await quick.atomicRefresh(options);
+  for(const [file,events]of before)assert.deepEqual(document(file).events,events);
+  assert.notEqual(document('feeds/incoming/events.json').events[1].score,document('data/events.json').events[1].score);
+  assert(children.some(args=>args[0]==='scripts/publish-feed.js'));
+  assert.equal(calls.length,0);
+ });
+ await check('retained EPL invalid flags refuse before filesystem snapshots and source IO',async()=>{
+  const owner=require('./update-cards'),base=['--quick','--source=epl','--rebuild','--local-only',retainedArg];
+  for(const args of [base.filter(a=>a!=='--local-only'),base.filter(a=>a!=='--rebuild'),base.filter(a=>a!==retainedArg),[...base,'--offline'],[...base,'--source=football'],[...base,'--rebuild'],[...base,'-p'],[...base,'--epl-updated-ids={}'],['--quick','--local-only',retainedArg]])assert.throws(()=>owner.parseOptions(args,{}),/EPL|selector|rebuild/i);
+  const readdir=fs.readdirSync;let snapshots=0;fs.readdirSync=()=>{snapshots++;throw Error('UNEXPECTED_SNAPSHOT');};
+  try{for(const options of [{...retainedOptions(),localOnly:false},{...retainedOptions(),eplUpdatedIds:undefined},{...retainedOptions(),offline:true}])await assert.rejects(()=>quick.atomicRefresh(options),/EPL|selector|rebuild/i);}
+  finally{fs.readdirSync=readdir;}
+  assert.equal(snapshots,0);assert.equal(calls.length,0);
+ });
+ await check('retained EPL rejects incomplete fixture and official table evidence without projections',async()=>{
+  for(const edit of [
+   ()=>editFeeds(events=>events.splice(1,1)),
+   ()=>editFeeds(events=>events[1].season='2025/26'),
+   ()=>editFeeds(events=>events[1].roundNumber=39),
+   ()=>editFeeds(events=>events[1].participantIds.reverse()),
+   ()=>editFeeds(events=>delete events[1].scoreCheckedAt),
+   ()=>{const b=document('data/canonical/afl-nrl-2026.json');b.ladderSnapshots.find(s=>s.competitionId===table.COMPETITION_ID).source.sourceUrl='https://example.invalid/';files.set(ROOT+'/data/canonical/afl-nrl-2026.json',Buffer.from(JSON.stringify(b)));},
+  ]){reset();edit();await assert.rejects(()=>quick.atomicRefresh(retainedOptions()),/EPL|Premier League/);assert.equal(children.length,0);assert.equal(calls.length,0);}
+ });
+ await check('retained EPL empty selectors still run complete Feed and spoiler gates',async()=>{
+  const options={...retainedOptions(),eplUpdatedIds:Object.fromEntries(Object.keys(retainedIds).map(file=>[file,[]]))};
+  await quick.atomicRefresh(options);
+  for(const file of Object.keys(retainedIds))assert(children.some(args=>args[0]==='scripts/qa-storyline-spoilers.js'&&args[1]===file));
+  assert(children.some(args=>args[0]==='scripts/validate-feed.js'));assert.equal(calls.length,0);
+ });
+ await check('retained EPL rejects an unexpected selected-record normalization and rolls back',async()=>{
+  const doc=document('data/events.json');delete doc.events[2].venue;files.set(ROOT+'/data/events.json',Buffer.from(JSON.stringify(doc)));
+  const before=new Map([...files].map(([key,value])=>[key,Buffer.from(value)]));
+  childHook=args=>{if(args[0]==='scripts/build-paged-feed.js'){const doc=document('data/events.json');doc.events[2].venue=null;files.set(ROOT+'/data/events.json',Buffer.from(JSON.stringify(doc)));}};
+  await assert.rejects(()=>quick.atomicRefresh(retainedOptions()),/changed adopted fixture/);
+  for(const [key,value]of before)assert.deepEqual(files.get(key),value,key);assert.equal(calls.length,0);
+ });
+ await check('retained EPL late failure restores all data and runtime bytes and removes absent outputs',async()=>{
+  const absent=ROOT+'/assets/js/calendar-sync-ui.js',exists=fs.existsSync;
+  fs.existsSync=p=>resolve(p)===absent?files.has(absent):exists(p);
+  runtimeWrites=new Set(require('./build-app-shell-runtime').generatedFiles().map(resolve));assert.equal(runtimeWrites.size,8);
+  const runtimeBefore=new Map([...runtimeWrites].map(file=>[file,fs.existsSync(file)?Buffer.from(fs.readFileSync(file)):null]));
+  const before=new Map([...files].map(([k,v])=>[k,Buffer.from(v)]));
+  childHook=args=>{if(args[0]==='scripts/validate-feed.js'){files.set(ROOT+'/data/new-rejected-epl-output.json',Buffer.from('{}'));for(const file of runtimeWrites)files.set(file,Buffer.from('new rejected runtime'));return{status:1};}};
+  try{await assert.rejects(()=>quick.atomicRefresh(retainedOptions()),/validate-feed.js failed/);}
+  finally{fs.existsSync=exists;}
+  for(const [k,v]of before)assert.deepEqual(files.get(k),v,k);
+  for(const [file,bytes]of runtimeBefore)if(bytes)assert.deepEqual(fs.readFileSync(file),bytes,file);else assert(!files.has(file),file);
+  assert(!files.has(absent));assert(!files.has(ROOT+'/data/new-rejected-epl-output.json'));assert.equal(calls.length,0);
  });
  console.log(JSON.stringify({kind:'actual-EPL-quick-caller-with-native-HTTPS-and-filesystem-doubles',externalIO:0,canonicalCLIInvocations:0,records},null,2));
 }

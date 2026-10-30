@@ -9,7 +9,13 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const coverageScope=require('./lib/live-coverage-scope');
 function validateQuickOptions(options){
  coverageScope.validateOptions(options);
+ if(options.eplUpdatedIds!=null&&options.source!=='epl')throw Error('EPL selector requires retained EPL rebuild');
  if(options.source==='epl'&&(options.offline||options.coverageSport!=null))throw Error('EPL-only refresh requires online primary source access without another sport selector.');
+ if(options.source==='epl'){
+  if(options.rebuild!=null&&typeof options.rebuild!=='boolean')throw Error('Invalid EPL rebuild mode');
+  if(options.rebuild){if(options.localOnly!==true)throw Error('EPL rebuild requires local-only');require('./lib/epl-publication-scope').argument(options.eplUpdatedIds);}
+  else if(options.eplUpdatedIds!=null)throw Error('EPL selector requires retained rebuild');
+ }
 }
 const write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
 function writeQuickFailureReport(report){
@@ -168,8 +174,8 @@ function refreshNbl(changes,{published=false}={}){
    else if(nblStandingsChanged(previous.standings,schedule.standings)||previous.standingsStatus!==schedule.standingsStatus)changes.push('NBL standings');
    else write(nblPath,previous);
 }
-async function refresh({now=new Date(),offline=false,source=null,coverageSport}={}){
- validateQuickOptions({source,offline,coverageSport});
+async function refresh({now=new Date(),offline=false,source=null,coverageSport,rebuild=false,localOnly=false,eplUpdatedIds}={}){
+ validateQuickOptions({source,offline,coverageSport,rebuild,localOnly,eplUpdatedIds});
  if(source){
   if(source==='live-coverage'&&!offline){
    let liveCoverage;
@@ -214,10 +220,12 @@ async function refresh({now=new Date(),offline=false,source=null,coverageSport}=
   if(source==='football'&&!offline)return refreshFootball({now});
   if(source==='epl'&&!offline){
    let report;
-   try{report=await require('./lib/epl-only-refresh').refresh({now});}
+   const retained=rebuild?['feeds/incoming/events.json','data/events.json','data/canonical/afl-nrl-2026.json'].map(file=>[file,read(file)]):null;
+   try{const owner=require('./lib/epl-only-refresh');report=rebuild?owner.retainedRebuild({now,updatedFixtureIdsBySurface:eplUpdatedIds}):await owner.refresh({now});}
    catch(error){if(error.eplReport)writeQuickFailureReport(error.eplReport);throw error;}
    writeQuickFailureReport(report);
    runProjectionSteps(retainedFeedProjectionSteps(report.changed,{eplUpdatedIds:report.updatedFixtureIdsBySurface}));
+   if(retained)for(const [file,before]of retained){const after=read(file);if(JSON.stringify(file.endsWith('events.json')?after.events:after)!==JSON.stringify(file.endsWith('events.json')?before.events:before))throw Error('EPL retained rebuild changed adopted fixture records or canonical facts; candidate rejected');}
    return report;
   }
   if(source==='nhl'&&!offline){
@@ -390,7 +398,7 @@ async function atomicRefresh(options,{refreshOperation=refresh}={}){
   throw error;
  }
 }
-function parseQuickOptions(argv){if(argv.includes('--source=epl')&&(new Set(argv).size!==argv.length||argv.some(arg=>arg!=='--source=epl')))throw Error('EPL-only quick child requires exactly --source=epl.');return {offline:argv.includes('--offline'),source:argv.find(arg=>arg.startsWith('--source='))?.slice(9),coverageSport:coverageScope.parseArgs(argv,{child:true})};}
+function parseQuickOptions(argv){const epl=require('./lib/epl-publication-scope').rebuildOptions(argv,{child:true});return {offline:argv.includes('--offline'),source:argv.find(arg=>arg.startsWith('--source='))?.slice(9),coverageSport:coverageScope.parseArgs(argv,{child:true}),...(epl||{})};}
 if(require.main===module)Promise.resolve().then(()=>atomicRefresh(parseQuickOptions(process.argv.slice(2)))).then(result=>{if(process.argv.some(arg=>arg.startsWith('--source=')))console.log(JSON.stringify(result));}).catch(error=>{console.error(error.message);process.exitCode=1;});
 async function text(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{accept:'text/html','user-agent':'nothingSport canonical refresh/1.0'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.text();}
 async function refreshChl(options={}){

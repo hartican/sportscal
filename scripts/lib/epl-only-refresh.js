@@ -115,4 +115,31 @@ async function refresh({now=new Date()}={}){
  }
  return report;
 }
-module.exports={refresh};
+function retainedRebuild({now=new Date(),updatedFixtureIdsBySurface}={}){
+ if(!Number.isFinite(+now)||+now>Date.now())throw Error('EPL rebuild clock is invalid');
+ require('./epl-publication-scope').argument(updatedFixtureIdsBySurface);
+ const clubs=new Set();
+ for(const file of FEEDS){
+  const document=read(file),events=identities.validatePrimaryCollection(document.events),rounds=new Map();
+  const ids=new Set(events.map(event=>event.id));
+  if(updatedFixtureIdsBySurface[file].some(id=>!ids.has(id)))throw Error('EPL rebuild selector is not present on its retained surface');
+  for(const event of events){
+   if(event.season!==identities.SEASON||!Number.isInteger(event.roundNumber)||event.roundNumber<1||event.roundNumber>38)throw Error('EPL retained fixture season or round is invalid');
+   const start=observation(event.startTimeUtc);
+   if(!['upcoming','completed','live','break'].includes(event.status))throw Error('EPL retained fixture status is unsupported');
+   if(event.status==='completed'&&(![event.homeScore,event.awayScore].every(score=>Number.isSafeInteger(score)&&score>=0)||observation(event.scoreCheckedAt)<=start||observation(event.resultSourceCheckedAt)<=start))throw Error('EPL retained final evidence is incomplete');
+   const round=rounds.get(event.roundNumber)||new Set();
+   for(const id of event.participantIds){if(round.has(id))throw Error('EPL retained round repeats a club');round.add(id);}
+   rounds.set(event.roundNumber,round);
+   for(const id of event.participantIds)clubs.add(id);
+   for(const key of ['sourceCheckedAt','canonicalSourceCheckedAt','scoreCheckedAt','resultSourceCheckedAt','statusCheckedAt'])if(event[key]!=null&&observation(event[key])>+now)throw Error('EPL retained fixture observation is future');
+  }
+  if(rounds.size!==38||[...rounds.values()].some(round=>round.size!==20))throw Error('EPL retained round set is incomplete');
+ }
+ const bundle=read(BUNDLE),snapshot=table.validatePublishedContext(bundle);
+ if(bundle.ladderSnapshots.filter(row=>row.competitionId===COMPETITION).length!==1||snapshot.seasonLabel!==identities.SEASON||snapshot.source?.provider!=='Premier League'||snapshot.source.sourceType!=='official'||snapshot.source.sourceUrl!=='https://www.premierleague.com/en/tables/premier-league/2026-27'||observation(snapshot.snapshotTimeUtc)>+now||observation(snapshot.source.checkedAt)>+now||clubs.size!==20||snapshot.entries.some(row=>!clubs.has(row.participantId)))throw Error('EPL retained official table evidence is invalid');
+ // Even empty per-surface selectors keep full Feed/spoiler/build validation.
+ const changed=['EPL standings retained rebuild','Premier League retained rebuild'];
+ return {mode:'quick',source:'epl',rebuiltAt:now.toISOString(),changed,failures:[],updatedFixtureIdsBySurface,sourceRequests:0,retainedSourceObservations:true,tableSnapshotTimeUtc:snapshot.snapshotTimeUtc,aiCalls:0,publicationState:'candidate'};
+}
+module.exports={refresh,retainedRebuild};
