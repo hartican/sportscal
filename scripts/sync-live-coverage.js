@@ -18,20 +18,33 @@ async function readRows(request=supabaseServiceRequest){
  }
  throw Error('Live coverage exceeded its publication budget; existing coverage retained');
 }
-function project(previous,rows,{now=new Date()}={}){
+function project(previous,rows,{now=new Date(),validateRugbyFinals=false}={}){
  if(!Array.isArray(rows))throw Error('Invalid live coverage collection');
- const updates=[];let stale=0,recent=0;
+ if(!Number.isFinite(+now))throw Error('Invalid live coverage clock');
+ const updates=[],staleIds=new Set(),olderIds=new Set(),deferredResults=[];let stale=0,recent=0;
  const previousById=new Map(previous.events.flatMap(f=>[f.id,f.eventId,f.canonicalEventId,...(f.sourceEventIds||[])].filter(Boolean).map(id=>[id,f])));
  for(const row of rows){
   const f=row.fixture,code=f&&codeFor(f),checked=Date.parse(f?.sourceCheckedAt||f?.canonicalSourceCheckedAt);
   if(!SOURCES.includes(row.source_id)||!f||!['cricket','rugby-union'].includes(code)||f.id!==row.fixture_id||!Number.isFinite(checked))throw Error('Invalid live coverage observation');
+  if(validateRugbyFinals&&row.source_id.startsWith('discovery-rugby-')!==(code==='rugby-union'))throw Error('Invalid live coverage source/sport identity');
   // Never substitute a source poll time for the fixture's actual observation.
-  if(checked<+now-36*3600000||checked>+now+5*60000){stale++;continue;}
+  if(checked<+now-36*3600000||checked>+now+5*60000){stale++;staleIds.add(f.id);continue;}
   recent++;
-  const base=previousById.get(f.id);if(base&&checked<Date.parse(base.sourceCheckedAt||base.canonicalSourceCheckedAt)){stale++;continue;}
+  const base=previousById.get(f.id);if(base&&checked<Date.parse(base.sourceCheckedAt||base.canonicalSourceCheckedAt)){stale++;olderIds.add(f.id);continue;}
+  if(validateRugbyFinals&&(f.status==='completed'||f.sourceStatus==='C')){
+   const evidence=require('./lib/reconcile-fixture-results');
+   if(evidence.rawRugbyResult(f)){
+    const result=evidence.rugbyResult(f,now);
+    if(result.unavailable){deferredResults.push({fixtureId:f.id,reason:result.unavailable});continue;}
+   }
+  }
   updates.push(f);
  }
- if(!recent)throw Error('No recent shared coverage observations; existing coverage retained');
+ if(!recent){
+  const error=Error('No recent shared coverage observations; existing coverage retained');
+  error.liveCoverageReport={checkedAt:now.toISOString(),rowsRead:rows.length,staleObservationsSkipped:stale,staleFixtureIds:[...staleIds].sort(),deferredResults};
+  throw error;
+ }
  updates.sort((a,b)=>Date.parse(a.sourceCheckedAt||a.canonicalSourceCheckedAt)-Date.parse(b.sourceCheckedAt||b.canonicalSourceCheckedAt));
  const old=new Map(previous.events.map(f=>[f.id,f]));
  const merged=identity.mergeOverlays(previous.events,updates).map(record=>{
@@ -41,15 +54,28 @@ function project(previous,rows,{now=new Date()}={}){
   return old.has(f.id)&&contentHash([old.get(f.id)])===contentHash([f])?old.get(f.id):f;
  });
  const changed=merged.filter(f=>!old.has(f.id)||contentHash([old.get(f.id)])!==contentHash([f]));
+ const scoreFields=['score','scoreDisplay','homeScore','awayScore','innings','result','fixtureResults','outcomeText','recapText'];
+ const statusFields=['status','sourceStatus','resultStatus','firstConfirmedCompleteAt'];
+ const scheduleFields=['startTimeUtc','endTimeUtc','actualEndTimeUtc','date','endDate','timePrecision','participants','participantIds','homeParticipantId','awayParticipantId'];
+ const differs=(before,after,fields)=>contentHash([Object.fromEntries(fields.map(k=>[k,before?.[k]]))])!==contentHash([Object.fromEntries(fields.map(k=>[k,after[k]]))]);
+ const scoreChanged=changed.filter(f=>identity.hasScore(f)&&differs(old.get(f.id),f,scoreFields));
+ const statusChanged=changed.filter(f=>differs(old.get(f.id),f,statusFields));
+ const scoreIds=new Set(scoreChanged.map(f=>f.id)),statusIds=new Set(statusChanged.map(f=>f.id)),changedIds=new Set(changed.map(f=>f.id));
+ const sorted=items=>[...new Set(items)].sort();
+ const observations={changedFixtureIds:sorted(changedIds),scoreChangedFixtureIds:sorted(scoreIds),statusChangedFixtureIds:sorted(statusIds),
+  finalResultChangedFixtureIds:changed.filter(f=>f.status==='completed'&&identity.hasScore(f)&&(scoreIds.has(f.id)||statusIds.has(f.id))).map(f=>f.id).sort(),
+  scheduleOnlyChangedFixtureIds:changed.filter(f=>!scoreIds.has(f.id)&&(!statusIds.has(f.id)||!old.has(f.id)&&/^(scheduled|upcoming|pending)$/.test(f.status))&&differs(old.get(f.id),f,scheduleFields)).map(f=>f.id).sort(),
+  unchangedFixtureIds:sorted(updates.filter(f=>!changedIds.has(f.id)).map(f=>f.id)),staleFixtureIds:sorted(staleIds),olderFixtureIds:sorted(olderIds),
+  missingScoreFixtureIds:merged.filter(f=>f.status==='completed'&&!identity.hasScore(f)).map(f=>f.id).sort()};
  const codes=[...new Set(changed.map(codeFor))].sort();
  const participants=new Map((previous.participants||[]).map(p=>[p.id,p]));
  for(const f of changed)for(const p of f.participants||[])if(p.id&&!participants.has(p.id))participants.set(p.id,{...p,type:'team',displayName:p.name,sportDomainId:f.sportDomainId,leagueId:f.competitionId,sourceRefs:[f.sourceUrl],sourceCheckedAt:f.sourceCheckedAt});
  const competitions=new Map((previous.competitions||[]).map(c=>[c.id,c]));for(const f of changed)if(f.competitionId&&!competitions.has(f.competitionId))competitions.set(f.competitionId,{id:f.competitionId,name:f.competitionName,sport:f.key,scope:f.competitionScope,gender:f.gender});
- return {document:changed.length?{...previous,events:merged,participants:[...participants.values()],competitions:[...competitions.values()]}:previous,report:{checkedAt:now.toISOString(),rowsRead:rows.length,staleObservationsSkipped:stale,changed:changed.length,codes}};
+ return {document:changed.length?{...previous,events:merged,participants:[...participants.values()],competitions:[...competitions.values()]}:previous,report:{checkedAt:now.toISOString(),rowsRead:rows.length,staleObservationsSkipped:stale,changed:changed.length,codes,...observations,deferredResults}};
 }
-async function sync({now=new Date(),file=FILE,rows,request}={}){
+async function sync({now=new Date(),file=FILE,rows,request,validateRugbyFinals=false}={}){
  const previous=JSON.parse(fs.readFileSync(file,'utf8'));
- const result=project(previous,rows||await readRows(request),{now});
+ const result=project(previous,rows||await readRows(request),{now,validateRugbyFinals});
  if(result.report.changed)fs.writeFileSync(file,JSON.stringify(result.document,null,2)+'\n');
  return result.report;
 }

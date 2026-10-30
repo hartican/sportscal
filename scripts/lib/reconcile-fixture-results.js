@@ -9,7 +9,27 @@ const meaning=value=>String(value).toLowerCase().replace(/\bwon\b/g,'win').repla
 function fail(id,message){throw Error(`Result reconciliation ${id}: ${message}`);}
 function instant(value,now,id){if(!text(value)||!Number.isFinite(Date.parse(value))||Date.parse(value)>+now)fail(id,'invalid or future result observation');return value;}
 function url(value){try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password;}catch{return false;}}
+const typedOfficialResult=f=>['score','outcomeText','recapText'].every(key=>text(f[key]))&&url(f.resultSourceUrl);
+const rawRugbyResult=f=>identity.sportKey(f)==='rugby'&&!typedOfficialResult(f);
+function rugbyResult(fixture,now){
+ const unavailable=reason=>({unavailable:reason});
+ let source;try{source=new URL(fixture.sourceUrl);}catch{}
+ const provider=fixture.sourceFixtureId;
+ if(fixture.sourceName!=='World Rugby'||fixture.sourceType!=='official'||!source||!url(source.href)||source.hostname!=='api.wr-rims-prod.pulselive.com'||source.port||source.pathname!=='/rugby/v3/match'||!/^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i.test(provider||'')||identity.canonicalFixtureId('fixture:rugby:wr:'+provider)!==identity.canonicalFixtureId(fixture.id))return unavailable('Unverified World Rugby source or provider identity');
+ if(fixture.status!=='completed'||fixture.sourceStatus!=='C')return unavailable('World Rugby terminal completion unconfirmed');
+ const sides=[fixture.homeParticipantId,fixture.awayParticipantId].map(identity.canonicalParticipantId),participants=(fixture.participantIds||[]).map(identity.canonicalParticipantId);
+ if(sides.some(id=>!id)||new Set(sides).size!==2||JSON.stringify(sides)!==JSON.stringify(participants))return unavailable('World Rugby ordered sides unresolved');
+ if(![fixture.homeScore,fixture.awayScore].every(score=>Number.isSafeInteger(score)&&score>=0))return unavailable('World Rugby numeric score incomplete');
+ const score=`${fixture.homeScore}–${fixture.awayScore}`;
+ if(fixture.scoreDisplay!=null&&fixture.scoreDisplay!==score||fixture.score!=null&&fixture.score!==score)return unavailable('World Rugby score display conflicts with numeric sides');
+ const observed=Object.hasOwn(fixture,'scoreFactObservedAt')?fixture.scoreFactObservedAt:fixture.resultSourceCheckedAt??fixture.scoreCheckedAt;
+ const statusObserved=Object.hasOwn(fixture,'statusFactObservedAt')?fixture.statusFactObservedAt:fixture.statusCheckedAt;
+ const start=Date.parse(fixture.startTimeUtc),valid=value=>text(value)&&Number.isFinite(Date.parse(value))&&Date.parse(value)>=start&&Date.parse(value)<=+now;
+ if(!Number.isFinite(start)||!valid(observed)||!valid(statusObserved)||fixture.firstConfirmedCompleteAt!=null&&!valid(fixture.firstConfirmedCompleteAt)||!text(fixture.sourceCheckedAt)||!Number.isFinite(Date.parse(fixture.sourceCheckedAt))||Date.parse(fixture.sourceCheckedAt)>+now)return unavailable('World Rugby original result/status observations incomplete');
+ return {score,homeScore:fixture.homeScore,awayScore:fixture.awayScore,outcomeText:score,recapText:`World Rugby reports: ${score}.`,resultSourceName:'World Rugby',resultSourceType:'official',resultSourceUrl:source.href,resultSourceCheckedAt:observed,scoreCheckedAt:observed,statusCheckedAt:statusObserved};
+}
 function resultFor(fixture,now){
+ if(rawRugbyResult(fixture))return rugbyResult(fixture,now);
  const ca=fixture.key==='cricket'&&fixture.sourceType==='official'&&fixture.sourceName==='Cricket Australia';
  if(ca){
   let source;try{source=new URL(fixture.officialScorecardUrl||fixture.sourceUrl);}catch{}
@@ -35,7 +55,7 @@ function reconcile(events,fixtures,{aliasRecords=[],now=new Date()}={}){
   const ids=aliases(record),group=new Set(ids.flatMap(id=>[...(groups.get(id)||[id])]));
   for(const id of group)groups.set(id,group);
  }
- const changed=[];
+ const changed=[],deferred=[];
  const next=events.map(event=>{
   if(event.cardKind==='event'||event.cardType==='tournament_overview')return event;
   const ids=new Set(aliases(event).flatMap(id=>[...(groups.get(id)||[id])]));
@@ -43,11 +63,17 @@ function reconcile(events,fixtures,{aliasRecords=[],now=new Date()}={}){
   if(!matching.length)return event;
   const complete=event.status==='completed'&&['score','outcomeText','recapText','sourceName','sourceUrl','sourceCheckedAt'].every(key=>Boolean(event[key]));
   // Existing other-sport owners retain their specialised score formats.
-  const supported=matching.filter(f=>f.key==='cricket'||!complete).map(f=>({fixture:f,result:resultFor(f,now)})).filter(row=>row.result);
+  const candidates=matching.filter(f=>f.key==='cricket'||rawRugbyResult(f)||!complete).map(f=>({fixture:f,result:resultFor(f,now)}));
+  for(const {fixture,result}of candidates)if(result?.unavailable||!result&&!complete)deferred.push({id:event.id,fixtureId:fixture.id,reason:result?.unavailable||'Unsupported official result evidence'});
+  const supported=candidates.filter(row=>row.result&&!row.result.unavailable);
   if(!supported.length){if(!complete&&event.key==='cricket')fail(event.id,'matched final lacks supported official evidence');return event;}
   for(const {fixture,result}of supported){
    const participants=f=>(f.participantIds||[]).map(identity.canonicalParticipantId).sort();
    if(participants(event).length<2||JSON.stringify(participants(event))!==JSON.stringify(participants(fixture))||!Number.isFinite(Date.parse(event.startTimeUtc))||Date.parse(event.startTimeUtc)!==Date.parse(fixture.startTimeUtc))fail(event.id,'recorded alias conflicts with participants or start');
+   if(rawRugbyResult(fixture)){
+    const sides=f=>[f.homeParticipantId||f.participantIds?.[0],f.awayParticipantId||f.participantIds?.[1]].map(identity.canonicalParticipantId);
+    if(JSON.stringify(sides(event))!==JSON.stringify(sides(fixture)))fail(event.id,'verified Rugby result conflicts with retained sides');
+   }
    if(meaning(result.score)!==meaning(supported[0].result.score))fail(event.id,'conflicting verified final results');
    if(complete&&meaning(event.score)!==meaning(result.score))fail(event.id,'verified final conflicts with retained result');
   }
@@ -60,7 +86,7 @@ function reconcile(events,fixtures,{aliasRecords=[],now=new Date()}={}){
   if(updated.editorialNarrative)updated.editorialNarrative={...updated.editorialNarrative,phase:'recap',resultResearchRequired:true};
   changed.push(event.id);return updated;
  });
- return {events:next,changed};
+ return {events:next,changed,deferred};
 }
 function reconcileFiles({root=ROOT,fixtures,aliasRecords,now=new Date()}={}){
  const read=file=>JSON.parse(fs.readFileSync(path.join(root,file),'utf8'));
@@ -72,6 +98,6 @@ function reconcileFiles({root=ROOT,fixtures,aliasRecords,now=new Date()}={}){
  });
  try{for(const update of updates)if(update.result.changed.length)fs.writeFileSync(update.filename,JSON.stringify({...update.document,events:update.result.events},null,2)+'\n');}
  catch(error){for(const update of updates)fs.writeFileSync(update.filename,update.before);throw error;}
- return {changed:[...new Set(updates.flatMap(update=>update.result.changed))],surfaces:updates.filter(update=>update.result.changed.length).map(update=>path.relative(root,update.filename))};
+ return {changed:[...new Set(updates.flatMap(update=>update.result.changed))],surfaces:updates.filter(update=>update.result.changed.length).map(update=>path.relative(root,update.filename)),deferred:[...new Map(updates.flatMap(update=>update.result.deferred).map(row=>[JSON.stringify(row),row])).values()]};
 }
-module.exports={reconcile,reconcileFiles};
+module.exports={reconcile,reconcileFiles,rawRugbyResult,rugbyResult};

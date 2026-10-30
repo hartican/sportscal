@@ -156,6 +156,28 @@ function refreshNbl(changes,{published=false}={}){
 }
 async function refresh({now=new Date(),offline=false,source=null}={}){
  if(source){
+  if(source==='live-coverage'&&!offline){
+   let liveCoverage;
+   try{liveCoverage=await require('./sync-live-coverage').sync({now,validateRugbyFinals:true});}
+   catch(error){writeQuickFailureReport({mode:'quick',source,changed:[],failures:[require('./lib/refresh-report').sanitise(error.message)],liveCoverage:error.liveCoverageReport,aiCalls:0});throw error;}
+   const fixtures=read('data/follow-sources/coverage.v1.json').events.filter(f=>['cricket','rugby'].includes(require('../config/fixture-identity').sportKey(f)));
+   const reconciliation=require('./lib/reconcile-fixture-results').reconcileFiles({fixtures,now});
+   const changes=liveCoverage.codes.map(code=>`Live coverage ${code}`);
+   if(reconciliation.changed.length){
+    const ids=new Set(reconciliation.changed);
+    for(const file of ['feeds/incoming/events.json','data/events.json'])for(const card of read(file).events.filter(e=>ids.has(e.id))){
+     const key=require('../config/fixture-identity').sportKey(card),change=`Live coverage ${key==='rugby'?'rugby-union':key}`;
+     if(!changes.includes(change))changes.push(change);
+    }
+    changes.push('Reconciled fixture results');
+   }
+   const deferredResults=[...liveCoverage.deferredResults,...reconciliation.deferred];
+   const report={mode:'quick',source,checkedAt:now.toISOString(),changed:changes,failures:deferredResults.map(row=>`${row.id||row.fixtureId}: ${row.reason}`),liveCoverage,reconciledResults:reconciliation.changed,deferredResults,aiCalls:0,publicationState:'candidate'};
+   writeQuickFailureReport(report);
+   runProjectionSteps(retainedFeedProjectionSteps(changes));
+   if(deferredResults.length&&!changes.length)throw Error('Shared coverage results deferred; preserved last-good facts. See source report.');
+   return report;
+  }
   if(source==='mlb'&&!offline){
    const mlb=await require('../lib/mlb-postseason').refresh({now});
    runProjectionSteps(retainedFeedProjectionSteps(mlb.changed?['MLB postseason source check']:[]));
