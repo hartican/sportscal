@@ -3,7 +3,7 @@ const assert=require('node:assert/strict');
 const ns='nothingsports_fixture_read_private.',reader='public.nothingsports_read_match_centre_fixture_bundle';
 const contractSql="jsonb_build_object('definition',md5(pg_get_functiondef(p.oid)),'acl',p.proacl::text,'owner',pg_get_userbyid(p.proowner),'definer',p.prosecdef,'volatile',p.provolatile,'parallel',p.proparallel,'strict',p.proisstrict,'cost',p.procost,'leakproof',p.proleakproof,'config',p.proconfig)";
 async function contracts(db,list){for(const item of list){assert.deepEqual((await db.query('select '+contractSql+' contract from pg_proc p where oid=to_regprocedure($1)',[item.signature])).rows[0]?.contract,item.contract,item.signature);}}
-async function regression(db,report){
+async function regression(db,report,{candidateContracts=require('../fixtures/near-selection-contracts.json').candidate}={}){
  const checks=report.regressions=[];const mark=name=>checks.push(name),source='near-selection-local';
  const rawDefinition=(await db.query('select pg_get_functiondef($1::regprocedure)definition',[ns+'read_near_raw(text[])'])).rows[0].definition;
  assert.equal(rawDefinition.replace(ns+'read_near_raw(',reader+'('),require('../fixtures/near-selection-originals.json').reader);mark('reference fallback is exact original D9 definition apart from private name');
@@ -150,7 +150,7 @@ async function regression(db,report){
   });
  }
  await require('./near-write-derivation-regression').regression(db,report);mark('canonical owner reuses one authoritative derivation; guarded direct/no-op paths remain');
- await contracts(db,require('../fixtures/near-selection-contracts.json').candidate);mark('exact27 candidate contracts after instrumentation rollback');
+ await contracts(db,candidateContracts);mark('exact27 candidate contracts after instrumentation rollback');
  report.checks+=checks.length;
 }
 async function inverse(db,report){

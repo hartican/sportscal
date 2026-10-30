@@ -18,6 +18,11 @@ const recoveryCommands=Object.freeze([
  'node scripts/validate-local-preference-recovery.js',
  'node scripts/validate-local-recovery-ui-lifecycle.js'
 ]);
+const receiptBatches=[
+ ['near-selection','near-receipt-join-pg18','NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg18/receipt-join" node scripts/validate-near-receipt-join.js'],
+ ['near-selection','near-receipt-join-pg17','NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg17/receipt-join" PGLITE_MODULE=pglite-pg17 node scripts/validate-near-receipt-join.js']
+];
+const allBatches=[...batches.slice(0,4),...receiptBatches,...batches.slice(4)];
 const safety='      - name: Verify feed and deployment safety contracts\n        run: |\n';
 const shared='      - name: Verify shared fixture publication input\n';
 const preflight='      - name: Verify production SQL batch contract\n        run: node scripts/validate-production-sql-batches.js\n';
@@ -65,7 +70,7 @@ function validate(text){
  assert.deepEqual(jobs.map(m=>m[1]),['sql-safety','deploy'],'Only four prerequisite matrix batches and the one publisher');
  assert.equal(hash(text.slice(0,jobs[0].index)),original.headerSha256,'Triggers, permissions and serialized workflow concurrency unchanged');
  const worker=text.slice(jobs[0].index,jobs[1].index),publisher=text.slice(jobs[1].index);
- assert.equal(worker,workerPrefix+batches.map(workerStep).join('')+workerSuffix,'Literal engine commands, SHA binding, four batches, timing and no worker secrets');
+ assert.equal(worker,workerPrefix+allBatches.map(workerStep).join('')+workerSuffix,'Literal engine commands, SHA binding, four batches, timing and no worker secrets');
  assert.equal((publisher.match(/^    needs: \[sql-safety\]$/gm)||[]).length,1,'Every matrix instance must succeed before publisher starts');
  assert.equal((publisher.match(new RegExp(preflight.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'))||[]).length,1,'Pure arrangement check is itself required');
  const normalized=publisher.replace('    needs: [sql-safety]\n','').replace(preflight,'');
@@ -79,10 +84,11 @@ function validate(text){
  const recoveryAt=originalPublisher.indexOf('node scripts/validate-preference-bookkeeping.js');assert(recoveryAt>=0);
  const expectedPublisher=[...originalPublisher.slice(0,recoveryAt+1),...recoveryCommands,...originalPublisher.slice(recoveryAt+1)];
  assert.deepEqual(commands,expectedPublisher,'All original 251 publisher commands retain their exact order and environment, with both required recovery checks immediately after preference bookkeeping');
- assert.deepEqual([...commands,...moved].sort(),[...original.commands,...recoveryCommands].sort(),'All original occurrences and exactly two required recovery additions are preserved');
+ const receiptCommands=receiptBatches.map(row=>row[2]);
+ assert.deepEqual([...commands,...moved,...receiptCommands].sort(),[...original.commands,...recoveryCommands,...receiptCommands].sort(),'All original occurrences, both required recovery additions and both receipt-join engines are preserved');
  assert.equal(hash(normalized.slice(0,at+safety.length)+'\0'+normalized.slice(end)),original.publisherScaffoldSha256,'Publisher SHA, credentials, deadlines, live gates, deploy and public checks unchanged');
  assert(!/continue-on-error|\beval\b/.test(text),'No soft failure or dynamic command evaluation');
- return {originalOccurrences:258,addedRecoveryOccurrences:recoveryCommands.length,publisherOccurrences:commands.length,movedOccurrences:moved.length,requiredOccurrences:commands.length+moved.length,batches:4};
+ return {originalOccurrences:258,addedRecoveryOccurrences:recoveryCommands.length,addedReceiptOccurrences:receiptCommands.length,publisherOccurrences:commands.length,movedOccurrences:moved.length,requiredOccurrences:commands.length+moved.length+receiptCommands.length,batches:4};
 }
 function regressions(text){
  const controls=[
@@ -108,7 +114,11 @@ function regressions(text){
   ['recovery checks reordered',s=>s.replace(recoveryCommands.map(command=>'          '+command+'\n').join(''),[...recoveryCommands].reverse().map(command=>'          '+command+'\n').join(''))],
   ['recovery command altered',s=>s.replace('          '+recoveryCommands[0]+'\n','          '+recoveryCommands[0]+' --skip\n')],
   ['original publisher check lost',s=>s.replace('          node scripts/validate-preference-bookkeeping.js\n','')],
-  ['unreviewed extra command',s=>s.replace('          '+recoveryCommands[1]+'\n','          '+recoveryCommands[1]+'\n          node scripts/validate-unreviewed-recovery.js\n')]
+  ['unreviewed extra command',s=>s.replace('          '+recoveryCommands[1]+'\n','          '+recoveryCommands[1]+'\n          node scripts/validate-unreviewed-recovery.js\n')],
+  ['missing receipt PG18',s=>s.replace('          '+receiptBatches[0][2]+'\n','')],
+  ['missing receipt PG17',s=>s.replace('          '+receiptBatches[1][2]+'\n','')],
+  ['receipt wrong engine',s=>s.replace(receiptBatches[1][2],receiptBatches[1][2].replace('pglite-pg17','@electric-sql/pglite'))],
+  ['receipt evidence removed',s=>s.replace(receiptBatches[0][2],receiptBatches[0][2].replace('NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg18/receipt-join" ',''))]
  ];
  for(const[name,mutate]of controls){const broken=mutate(text);assert.notEqual(broken,text,name+' mutation must apply');assert.throws(()=>validate(broken),undefined,name+' must refuse');}
  return controls.length;

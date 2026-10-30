@@ -77,6 +77,20 @@ jobs:
           started=$SECONDS
           trap 'rc=$?; echo "SQL_CHECK elapsed_seconds=$((SECONDS - started)) exit=$rc"; exit "$rc"' EXIT
           NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg17" PGLITE_MODULE=pglite-pg17 node scripts/validate-match-centre-near-selection.js
+      - name: near-receipt-join-pg18
+        if: matrix.batch == 'near-selection'
+        shell: bash
+        run: |
+          started=$SECONDS
+          trap 'rc=$?; echo "SQL_CHECK elapsed_seconds=$((SECONDS - started)) exit=$rc"; exit "$rc"' EXIT
+          NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg18/receipt-join" node scripts/validate-near-receipt-join.js
+      - name: near-receipt-join-pg17
+        if: matrix.batch == 'near-selection'
+        shell: bash
+        run: |
+          started=$SECONDS
+          trap 'rc=$?; echo "SQL_CHECK elapsed_seconds=$((SECONDS - started)) exit=$rc"; exit "$rc"' EXIT
+          NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg17/receipt-join" PGLITE_MODULE=pglite-pg17 node scripts/validate-near-receipt-join.js
       - name: grouped-view-pg18
         if: matrix.batch == 'grouped-view'
         shell: bash
