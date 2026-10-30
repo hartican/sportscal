@@ -3531,6 +3531,8 @@ throw Object.assign(new Error("Your choices are saved on this device. Sync is pa
 }
 }
 async function bootstrapServerPersistence({ session: sessionHint = undefined, checkStatus = true } = {}){
+// Observe the complete existing job, including metadata and receipt reconcile.
+const task=(async()=>{
 const accountJourney=accountIndicatorJourney?.phase==='signing-up'?accountIndicatorJourney:null;
 const accountLife=serverSyncClient?.accountSnapshot?.();
 const generation = invalidateServerStateSyncScope();
@@ -3649,6 +3651,14 @@ message: unavailablePreview
 }
 globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.complete(accountJourney,accountLife);
 return serverPersistence;
+})();
+globalThis.NOTHINGSPORTS_ACCOUNT_BOOTSTRAP=task;
+try{return await task;}finally{
+if(globalThis.NOTHINGSPORTS_ACCOUNT_BOOTSTRAP===task){
+globalThis.NOTHINGSPORTS_ACCOUNT_BOOTSTRAP=null;
+globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.stateChanged?.();
+}
+}
 }
 function sydneyPartsFromIso(iso){
 if (!iso) return null;

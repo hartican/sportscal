@@ -33,7 +33,7 @@ async function fixture({compiled=false}={}){
  c.serverSyncClient.savePatch=p=>request('PUT',p);
  function mount(sourceOverride=null){if(sourceOverride){execute(fs.readFileSync(__dirname+'/../config/account-sync-diagnostic.js','utf8'),c);execute(sourceOverride,c);}else if(compiled)execute(fs.readFileSync(__dirname+'/../assets/js/account-awareness-runtime.js','utf8'),c);else{execute(fs.readFileSync(__dirname+'/../config/account-sync-diagnostic.js','utf8'),c);execute(fs.readFileSync(__dirname+'/../assets/js/account-indicator-app.js','utf8'),c);}c.NOTHINGSPORTS_ACCOUNT_AWARENESS_UI={create:()=>({render(){}})};c.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.mount();}
  async function settle(wait=true){for(let i=0;i<30;i++)await Promise.resolve();if(wait)await c.serverSyncSequence.catch(()=>{});for(let i=0;i<10;i++)await Promise.resolve();}
- return {c,api,mount,get loads(){return loads;},setFail(value){fail=value;},hold(){let resolve;gate={promise:new Promise(r=>resolve=r),resolve};return ()=>{const old=gate;gate=null;old.resolve();};},event(name){for(const fn of listeners.get(name)||[])fn();},settle,async advance(to,wait=true){while(true){const job=[...timers].filter(([,j])=>j.at<=to).sort((a,b)=>a[1].at-b[1].at)[0];if(!job)break;timers.delete(job[0]);tick=job[1].at;await job[1].fn();await settle(wait);}tick=to;await settle(wait);},edit(){const p=clone(c.userPreferences);p.theme='day';assert(c.savePreferences(p,{deliberate:true}));},get timerCount(){return timers.size;},get cancelledTimers(){return cancelled;}};
+ return {c,api,values:f.values,mount,get loads(){return loads;},setFail(value){fail=value;},hold(){let resolve;gate={promise:new Promise(r=>resolve=r),resolve};return ()=>{const old=gate;gate=null;old.resolve();};},event(name){for(const fn of listeners.get(name)||[])fn();},settle,async advance(to,wait=true){while(true){const job=[...timers].filter(([,j])=>j.at<=to).sort((a,b)=>a[1].at-b[1].at)[0];if(!job)break;timers.delete(job[0]);tick=job[1].at;await job[1].fn();await settle(wait);}tick=to;await settle(wait);},edit(){const p=clone(c.userPreferences);p.theme='day';assert(c.savePreferences(p,{deliberate:true}));},get timerCount(){return timers.size;},get cancelledTimers(){return cancelled;}};
 }
 async function forwardUpdate(compiled,dirty=false){
  const fresh=await fixture({compiled});if(dirty)fresh.edit();fresh.c.serverPersistence={state:'checking',user:null};fresh.c.serverStateBaseline=null;
@@ -62,9 +62,22 @@ async function reviewCase(compiled,kind,sourceOverride=null){
  f.setFail('once');release();await f.settle();await f.advance(16000);
  assert.equal(f.loads,2,'late failed settlement must retain and consume the same availability witness');assert.equal(f.c.serverPersistence.state,'signedIn');assert.equal(f.api.calls.filter(x=>x.method==='PUT').length,0);await f.advance(60000);assert.equal(f.loads,2);
 }
+async function reviewBootstrapCase(compiled,clean=false,sourceOverride=null,fence=null){
+ const f=await fixture({compiled});f.edit();const original=clone(f.c.pendingPreferenceIntent('A'));
+ f.c.serverPersistence={state:'checking',user:null};let releaseMeta,metaStarted=false;
+ f.c.serverSyncClient.loadMeta=async()=>{metaStarted=true;await new Promise(resolve=>releaseMeta=resolve);return {meta:null};};
+ const firstRead=f.hold();const bootstrap=f.c.bootstrapServerPersistence({checkStatus:false});f.mount(sourceOverride);f.event('online');firstRead();await f.settle(false);
+ assert(metaStarted);assert.equal(f.c.serverPersistence.state,'signedIn','actual bootstrap exposes intermediate signedIn before metadata and pending intent reconcile');await f.advance(16000,false);assert.equal(f.loads,1,'held metadata cannot start another state request');
+ const durable=JSON.stringify([...f.values]);
+ if(fence==='owner'){f.c.serverSyncClient.accountSnapshot=()=>({hasSession:true,accountId:'B',generation:1});f.c.serverSyncClient.sessionSubject=()=> 'B';}if(fence==='profile')f.c.activeProfileBundle.profile.id='other';if(fence==='generation')f.c.serverStateSyncGeneration++;if(fence==='session')f.c.serverSyncClient.accountSnapshot=()=>({hasSession:true,accountId:'A',generation:1});if(fence==='hidden')f.c.document.hidden=true;if(fence==='offline')f.c.navigator.onLine=false;if(fence==='recovery-busy')f.c.localPreferenceRecoveryBusy=true;if(fence==='uncertain')f.c.localPreferenceRecoveryHold={accountId:'A',profileId:f.c.activeProfileBundle.profile.id,sessionGeneration:0};
+ if(!clean)f.setFail('once');releaseMeta();await bootstrap;await f.settle();await f.advance(60000);
+ if(fence){assert.equal(f.loads,['owner','generation','recovery-busy','uncertain'].includes(fence)?1:2,'only already-owned remaining work may settle; no stale follow-up '+fence);assert.equal(f.api.calls.filter(x=>x.method==='PUT').length,0);assert.equal(JSON.stringify([...f.values]),durable,'late bootstrap fence preserves stored intent '+fence);assert.equal(f.c.NOTHINGSPORTS_ACCOUNT_BOOTSTRAP,null);assert.equal(f.timerCount,0);return;}
+
+ assert.equal(f.loads,clean?2:3,'complete bootstrap settlement retains the witness across intermediate signedIn');assert.equal(f.api.calls.filter(x=>x.method==='PUT').length,1);assert.equal(f.c.pendingPreferenceIntent('A'),null);assert.equal(f.api.state().preferences.theme,original.preferences.theme);assert.equal(f.c.serverPersistence.state,'signedIn');
+}
 async function run(){
  for(const compiled of [false,true]){
-  await reviewCase(compiled,'focus');await reviewCase(compiled,'late');
+  await reviewCase(compiled,'focus');await reviewCase(compiled,'late');await reviewBootstrapCase(compiled);await reviewBootstrapCase(compiled,true);for(const fence of ['owner','profile','generation','session','hidden','offline','recovery-busy','uncertain'])await reviewBootstrapCase(compiled,false,null,fence);
   const restoring=await fixture({compiled});restoring.c.serverPersistence={state:'checking',user:null};const finishRestore=restoring.hold();await restoring.c.refreshFeedOnFirstLoad();restoring.mount();restoring.event('online');await restoring.advance(16000,false);assert.equal(restoring.loads,1);restoring.setFail('once');finishRestore();await restoring.settle();await restoring.advance(16000);assert.equal(restoring.loads,2,'late bootstrap settlement releases the witnessed wake through actual state rendering');assert.equal(restoring.c.serverPersistence.state,'signedIn');assert.equal(restoring.api.calls.filter(call=>call.method==='PUT').length,0);
   const lateClean=await fixture({compiled});lateClean.mount();const finish=lateClean.hold();lateClean.event('focus');for(let i=0;i<20;i++)await Promise.resolve();lateClean.event('online');await lateClean.advance(16000,false);assert.equal(lateClean.loads,1);finish();await lateClean.settle();await lateClean.advance(60000);assert.equal(lateClean.loads,1,'late clean settlement consumes witness without another request');assert.equal(lateClean.timerCount,0);
   for(const fence of ['owner','profile','generation','session','hidden','offline','recovery-busy','uncertain']){
@@ -107,4 +120,4 @@ async function run(){
  }
  console.log('Automatic source controls PASS; no browser/installed/OS-suspended proof.');
 }
-module.exports={run,fixture,reviewCase};if(require.main===module)run().catch(error=>{console.error(error);process.exitCode=1;});
+module.exports={run,fixture,reviewCase,reviewBootstrapCase};if(require.main===module)run().catch(error=>{console.error(error);process.exitCode=1;});
