@@ -1,0 +1,93 @@
+{
+  "kind": "website-only-static-QA-whitelist",
+  "projectId": "appgprj_6ae13085ea2c81919e7e8b16cdbbe05e",
+  "origin": "https://nothingsport.com",
+  "pixel": "1149008224326641",
+  "originalVersion": 4,
+  "originalSource": "6b023136d56548c13e458a30d4a9afbe983ade13",
+  "candidateSource": "d9460cae05cc32507facc8fb8c184ae8ed866e52",
+  "candidateTree": "1bf417647ef3fb54c04c6198e019887fa593c401",
+  "candidateBranch": "codex/website-consent-20261030",
+  "sdkGate": "disabled-in-shipped-bootstrap",
+  "publication": "not-pushed-or-published",
+  "native": "unrun",
+  "totalBytes": 211934,
+  "files": [
+    {
+      "path": ".openai/hosting.json",
+      "bytes": 91,
+      "sha256": "d41a9b15c11ddc2bfbf6754c9416bca7a2b5e7765faa7e33610a5dd781b6cd43"
+    },
+    {
+      "path": "app/route.ts",
+      "bytes": 340,
+      "sha256": "fa7770a3612399fd8665153e86b7fd83bb765e3abd22bb705745782da532b0fa"
+    },
+    {
+      "path": "app/privacy/reload/route.ts",
+      "bytes": 153,
+      "sha256": "18e505720cc45cec16cc09820edab75c6e79ce8cdfcfdc9458c909c9c0dd1094"
+    },
+    {
+      "path": "lib/measurement-reload.mjs",
+      "bytes": 374,
+      "sha256": "93e4df2f74de70765358bb376d99b016e8906edf261e0c6386857016a220be37"
+    },
+    {
+      "path": "site/index.html",
+      "bytes": 25953,
+      "sha256": "c5d9f5484218ccf639e10bcfeaf119acc9bb8800168659c60f0c38e550f87863"
+    },
+    {
+      "path": "public/style.css",
+      "bytes": 39409,
+      "sha256": "c19fccdfb626534258f26efc2b371c1bbb9b254a46e631984447df963f546342"
+    },
+    {
+      "path": "public/website.css",
+      "bytes": 31236,
+      "sha256": "69328403dd88264880ed74f94918a9b5a274931917f5df55b9bd18a4ef4fd716"
+    },
+    {
+      "path": "public/peach.css",
+      "bytes": 4395,
+      "sha256": "91f547b14ddd51e7e4c33b1f81948d12df8c3f3bcd2acb19997e147b583bec9b"
+    },
+    {
+      "path": "public/measurement.css",
+      "bytes": 953,
+      "sha256": "3a4d62506288be65e9ed69b7201f7da8d6ba4c229346c659c083e997883b16bb"
+    },
+    {
+      "path": "public/website.js",
+      "bytes": 27779,
+      "sha256": "1f0a3eac05ef929906c4aae376db1a145afc8210d43fe2470ba45993216dff95"
+    },
+    {
+      "path": "public/measurement.js",
+      "bytes": 8759,
+      "sha256": "0bc697e27a18743152ca3ce93739f6da02072d534e238600308fe8f0fb596f3d"
+    },
+    {
+      "path": "public/measurement-start.js",
+      "bytes": 222,
+      "sha256": "7fdae95825d3b836dbf71309ea34bc5510fa4f7fc489f2e33893146d188f0d91"
+    },
+    {
+      "path": "scripts/validate-measurement.cjs",
+      "bytes": 29446,
+      "sha256": "981c2556b9c31acec823fd6b01b0e5f2a237555b90f821bf2b39a0ec2579a525"
+    },
+    {
+      "path": "scripts/verify-measurement-browser.cjs",
+      "bytes": 33165,
+      "sha256": "60bd72b64860743e55a9f7d0163ba4a8d1b9ab7dfafdc3d9f5952861794f6329"
+    },
+    {
+      "path": "docs/measurement-candidate-2026-10-30.md",
+      "bytes": 9659,
+      "sha256": "9c531f7cce0b74e5eb6c8e7de9655709b0b9dda753932ca117131ae5c117c651"
+    }
+  ],
+  "repairParent": "0ce6bfb6a528c95cc31373db90aba8f77ddc6d2c"
+}
