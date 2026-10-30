@@ -1,5 +1,39 @@
 # Backend efficiency decisions
 
+## Retained refresh baselines need no unchanged writes — 31 October 2026
+
+The quick owner compares captured data/Feed and runtime bytes before restoring them. Restore changed or missing baseline files and remove newly created outputs, but never rewrite byte-identical retained files merely because they were snapshotted. This preserves the existing narrow write allowlist and original source refusal; it grants no extra mutation permission. A saved World Rugby final disagrees with its retained start by fifteen minutes; the exact reviewed-calendar receipt binds its old retained tuple, pre-match08:30 observation, completed08:30 result, ordered sides, provider identity and original score/status clocks. Only that tuple can validate the15-minute correction; other starts, identities, observations and score contradictions remain strict. Captured history stays in the receipt, no result clock is refreshed, and unrelated viewing/writing/user facts are untouched. Failed restoration is recorded explicitly while preserving the original source exception and attempting the remaining restorations. The offline publication gate covers the actual owner with protected unchanged files, changed data/Feed/runtime, absent outputs and failed diagnostics. Captured public evidence is a local reproduction, not a new read, resolved calendar or publication acceptance. All source, result, spoiler, rollback, resource and single-publisher rules remain unchanged.
+
+## Independent saved Rugby publication — 30 October 2026
+
+The existing canonical quick shared-coverage route accepts one explicit
+`--coverage-sport=rugby-union` selector with `--local-only`. Omission retains the
+combined Cricket/Rugby behavior. Validate selectors before diagnostic/source IO;
+forward the exact selector to the existing quick owner. The same saved-fixture
+RPC requests the complete eight existing MRU/WRU/MRS/WRS and near sources before
+transfer, with unchanged pagination, deadline, no-retry, observation and result
+limits. Unexpected sources or sport identities refuse the whole candidate.
+
+Only selected Rugby records enter normalization, reconciliation and publication
+transforms. Pass other sports through with their IDs, order, values, viewing,
+reviewed writing and genuine clocks intact. Keep global alias/final conflicts,
+full Feed validation, spoiler/build/release checks and complete eight-runtime
+rollback. Report Cricket as deferred for its raw-provider contract review;
+retained observations are not new source checks. No provider/DB/account access,
+new owner, scheduler, editorial generation or alternate publication path is
+added. The original 62 controlled caller cases and 13 rollback-diagnostic cases
+remain; new source/SDK/dispatcher and actual-publisher controls use owned inputs
+and IO boundaries. These prove source behavior, not current Rugby validity,
+credentialed acceptance or production. ROOT alone allocates those later gates.
+
+## Scoped publication of saved Cricket and Rugby observations — 30 October 2026
+
+The canonical `update-cards.js --quick --source=live-coverage --local-only` route reuses the existing allowlisted shared fixture reader and merger. It makes no provider request, database write, account read, editorial research or deployment. Reject mixed, duplicate, offline and non-local flags before source work. Keep the existing 500-row pages, eight-page ceiling, ten-second request deadline, no retry, 36-hour fixture-observation window and five-minute future tolerance. ROOT alone allocates any credentialed read and publication; local source qualification is not an allocation or current-data acceptance.
+
+Use existing recorded identities and retained Feed reconciliation so supported official finals reach incoming and published cards without admitting cards or replacing unrelated writing. The narrow World Rugby numeric-final case requires explicit official completion, its exact official API/provider identity, unique ordered sides, nonnegative integer scores, a sporting start and original nonfuture score/status observations. Preserve zero scores and draws without inventing winners or recap depth. Unknown fact clocks cannot borrow a later poll. In this scoped route, incomplete Cricket or Rugby final evidence retains last-good Schedule and Feed facts and records a deferral beside independent valid results. Conflicting accepted finals or retained sides, including Schedule-only records and recorded aliases, still roll back the complete candidate. Existing official source classes and the default refresh routes remain strict.
+
+Report actual score/final/status changes separately from schedule-only changes, unchanged observations, stale/older observations and missing/deferred evidence. A passed scheduled window never proves completion. Retained projections preserve published IDs, viewing and source clocks, skip editorial generation, and keep the existing spoiler and shared integrity checks. Atomic rollback uses the runtime builder's eight-output inventory, restoring prior bytes and removing outputs absent before the attempt as well as restoring data/Feed files. The actual caller regression joins the existing live-coverage publication gate once in its offline mode; the credentialed preflight gains no extra read or retry.
+
 ## Device profile pointers do not create outgoing edits — 30 October 2026
 
 The hosted 599 removal check exposed a normalization-only second save. A stale device successfully saved Unfollow against the newest account copy, then local graph normalization changed the accepted response's profile pointers to its own device profile. A subsequent manual sync uploaded those pointers again. The source regression reproduces the actual default scheduled writer, real API conditional save, receipt ACK and normal manual reconciliation before and after the repair.

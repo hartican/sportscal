@@ -71,6 +71,7 @@ function runStep(args) {
 }
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
+  require('./lib/live-coverage-scope').parseArgs(argv);
   if(argv.includes('--retained-coverage')){
     const codeArgs=argv.filter(arg=>arg.startsWith('--codes=')),captures=argv.filter(arg=>arg.startsWith('--capture=')),allowed=new Set(['--retained-coverage','--local-only','-p']);
     if(!argv.includes('--local-only')||codeArgs.length!==1||new Set(argv).size!==argv.length||argv.some(arg=>!allowed.has(arg)&&!arg.startsWith('--codes=')&&!arg.startsWith('--capture=')))throw Error('Retained coverage requires only declared codes, optional Football capture and local-only; no source steps ran');
@@ -669,8 +670,9 @@ async function runMain() {
   }
   if(process.argv.some(arg=>arg.startsWith('--source='))){
     const sources=process.argv.filter(arg=>arg.startsWith('--source='));
-    if(sources.length!==1||!['--source=mlb','--source=nbl','--source=football','--source=nfl-standings','--source=nfl','--source=chl','--source=nhl','--source=known-finals'].includes(sources[0])||!process.argv.includes('--quick')||process.argv.includes('--offline'))throw new Error('Scoped refresh requires --quick with a reviewed NBL/Football/NFL/CHL/NHL/known-finals source and live source access');
-    runStep(['scripts/quick-results.js',sources[0]]);
+    if(sources.length!==1||!['--source=live-coverage','--source=mlb','--source=nbl','--source=football','--source=nfl-standings','--source=nfl','--source=chl','--source=nhl','--source=known-finals'].includes(sources[0])||!process.argv.includes('--quick')||process.argv.includes('--offline'))throw new Error('Scoped refresh requires --quick with a reviewed shared coverage/NBL/Football/NFL/CHL/NHL/known-finals source and live source access');
+    const coverageSport=require('./lib/live-coverage-scope').parseArgs(process.argv.slice(2));
+    runStep(['scripts/quick-results.js',sources[0],...(coverageSport?['--coverage-sport='+coverageSport]:[])]);
     return;
   }
   if(process.argv.includes('--aflw-final-date')){

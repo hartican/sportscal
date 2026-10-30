@@ -1,0 +1,316 @@
+{
+  "scope": "Approved public capture from ROOT run41058864818; no corrected calendar or publication acceptance",
+  "sourceGitSha": "3d3ec1af93cb261598e9f22db1d67b0ae402fd08",
+  "now": "2026-10-30T12:59:00.000Z",
+  "captureSha256": {
+    "page-00.raw": "c87a9652c92b6b345a10f7070dc0ef5d32c545961336d47b64cc003ff178a86b",
+    "page-01.raw": "bcf3964e6cf9e87b49cc15243b4ed22aa099f6c022f3245e4ba4f946a38a5925",
+    "page-02.raw": "a4e7ca326ef0802e64b2bcb525238e5b6e9f1b09f2d4cfbb6e5534844f9a9419"
+  },
+  "retained": {
+    "id": "fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862",
+    "eventId": "fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862",
+    "canonicalEventId": "fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862",
+    "key": "rugby",
+    "sport": "Rugby Union",
+    "sportDomainId": "sport:rugby-union",
+    "name": "Australia Women v Scotland Women",
+    "competitionId": "competition:rugby:wr:14de5b79-3cda-4025-8150-843fa3f19ee8",
+    "competitionName": "WXV 2026",
+    "competitionScope": "international",
+    "isInternational": true,
+    "isSenior": true,
+    "gender": "women",
+    "discipline": "rugby-union",
+    "startTimeUtc": "2026-10-23T08:45:00.000Z",
+    "date": "2026-10-23",
+    "timePrecision": "exact",
+    "dateOnly": false,
+    "status": "scheduled",
+    "roundLabel": null,
+    "venue": "GIO Stadium, Canberra",
+    "participants": [
+      {
+        "id": "team:rugby:australia-women",
+        "name": "Australia Women",
+        "role": "home",
+        "teamKind": "national",
+        "sourceIds": {
+          "worldRugby": "2577"
+        },
+        "countryCode": "AU",
+        "displayName": "Australia",
+        "genderCategory": "female"
+      },
+      {
+        "id": "team:rugby:scotland-women",
+        "name": "Scotland Women",
+        "role": "away",
+        "teamKind": "national",
+        "sourceIds": {
+          "worldRugby": "2522"
+        },
+        "countryCode": "GB",
+        "displayName": "Scotland",
+        "genderCategory": "female"
+      }
+    ],
+    "participantIds": [
+      "team:rugby:australia-women",
+      "team:rugby:scotland-women"
+    ],
+    "participantCountryCodes": [
+      "AU",
+      "GB"
+    ],
+    "homeParticipantId": "team:rugby:australia-women",
+    "awayParticipantId": "team:rugby:scotland-women",
+    "sourceFixtureId": "731beb0c-e76a-4137-a739-cbeac9e1d862",
+    "sourceName": "World Rugby",
+    "sourceType": "official",
+    "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-06&endDate=2027-01-11&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+    "sourceCheckedAt": "2026-10-13T20:02:01.503Z",
+    "timingProvenance": {
+      "kind": "official",
+      "checkedAt": "2026-10-13T20:02:01.503Z",
+      "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-06&endDate=2027-01-11&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+    },
+    "discoverySourceId": "rugby-wr-wru",
+    "displayTitleCompact": "Australia Women v Scotland Women",
+    "time": "19:45",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [],
+    "sourceStatus": "U",
+    "sourceTime": {
+      "label": "2026-10-23",
+      "millis": 1792745100000,
+      "gmtOffset": 11
+    },
+    "statusCheckedAt": "2026-10-13T20:02:01.503+00:00",
+    "sourceEventIds": [
+      "fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862"
+    ],
+    "scoreCheckedAt": null,
+    "scoreFactObservedAt": null,
+    "statusFactObservedAt": "2026-10-02T18:38:01.23+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1"
+  },
+  "rows": [
+    {
+      "source_id": "discovery-rugby-wru",
+      "fixture_id": "fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862",
+      "fixture": {
+        "id": "fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862",
+        "key": "rugby",
+        "date": "2026-10-23",
+        "name": "Australia Women v Scotland Women",
+        "time": "19:30",
+        "sport": "Rugby Union",
+        "venue": "GIO Stadium, Canberra",
+        "gender": "women",
+        "status": "completed",
+        "eventId": "fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862",
+        "dateOnly": false,
+        "isSenior": true,
+        "awayScore": 31,
+        "homeScore": 38,
+        "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-23&endDate=2027-01-28&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "broadcasts": [],
+        "discipline": "rugby-union",
+        "roundLabel": null,
+        "sourceName": "World Rugby",
+        "sourceTime": {
+          "label": "2026-10-23",
+          "millis": 1792744200000,
+          "gmtOffset": 11
+        },
+        "sourceType": "official",
+        "broadcaster": "",
+        "participants": [
+          {
+            "id": "team:rugby:australia-women",
+            "name": "Australia Women",
+            "role": "home",
+            "teamKind": "national",
+            "sourceIds": {
+              "worldRugby": "2577"
+            },
+            "countryCode": "AU",
+            "displayName": "Australia",
+            "genderCategory": "female"
+          },
+          {
+            "id": "team:rugby:scotland-women",
+            "name": "Scotland Women",
+            "role": "away",
+            "teamKind": "national",
+            "sourceIds": {
+              "worldRugby": "2522"
+            },
+            "countryCode": "GB",
+            "displayName": "Scotland",
+            "genderCategory": "female"
+          }
+        ],
+        "scoreDisplay": "38\u201331",
+        "sourceStatus": "C",
+        "startTimeUtc": "2026-10-23T08:30:00.000Z",
+        "competitionId": "competition:rugby:wr:14de5b79-3cda-4025-8150-843fa3f19ee8",
+        "consensusTags": [],
+        "sportDomainId": "sport:rugby-union",
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "participantIds": [
+          "team:rugby:australia-women",
+          "team:rugby:scotland-women"
+        ],
+        "scoreCheckedAt": "2026-10-30T11:08:00.48+00:00",
+        "sourceEventIds": [
+          "fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862"
+        ],
+        "viewingOptions": [],
+        "competitionName": "WXV 2026",
+        "isInternational": true,
+        "sourceCheckedAt": "2026-10-30T05:06:00.198Z",
+        "sourceFixtureId": "731beb0c-e76a-4137-a739-cbeac9e1d862",
+        "statusCheckedAt": "2026-10-30T11:08:00.48+00:00",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862",
+        "competitionScope": "international",
+        "participantSlots": [],
+        "timingProvenance": {
+          "kind": "official",
+          "checkedAt": "2026-10-30T05:06:00.198Z",
+          "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-23&endDate=2027-01-28&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        },
+        "awayParticipantId": "team:rugby:scotland-women",
+        "discoverySourceId": "rugby-wr-wru",
+        "homeParticipantId": "team:rugby:australia-women",
+        "displayTitleCompact": "Australia Women v Scotland Women",
+        "scoreFactObservedAt": "2026-10-25T22:32:04.112+00:00",
+        "statusFactObservedAt": "2026-10-25T22:32:04.112+00:00",
+        "participantCountryCodes": [
+          "AU",
+          "GB"
+        ],
+        "firstConfirmedCompleteAt": "2026-10-25T22:32:44.796232+00:00",
+        "fixtureObservationSchema": "fixture-observations.v1",
+        "representativeCountryCodes": []
+      },
+      "identity_keys": [
+        "fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862"
+      ]
+    },
+    {
+      "source_id": "discovery-rugby-wru-near",
+      "fixture_id": "fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862",
+      "fixture": {
+        "id": "fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862",
+        "key": "rugby",
+        "date": "2026-10-23",
+        "name": "Australia Women v Scotland Women",
+        "time": "19:30",
+        "sport": "Rugby Union",
+        "venue": "GIO Stadium, Canberra",
+        "gender": "women",
+        "status": "scheduled",
+        "eventId": "fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862",
+        "dateOnly": false,
+        "isSenior": true,
+        "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-21&endDate=2026-10-23&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+        "broadcasts": [],
+        "discipline": "rugby-union",
+        "roundLabel": null,
+        "sourceName": "World Rugby",
+        "sourceTime": {
+          "label": "2026-10-23",
+          "millis": 1792744200000,
+          "gmtOffset": 11
+        },
+        "sourceType": "official",
+        "broadcaster": "",
+        "participants": [
+          {
+            "id": "team:rugby:australia-women",
+            "name": "Australia Women",
+            "role": "home",
+            "teamKind": "national",
+            "sourceIds": {
+              "worldRugby": "2577"
+            },
+            "countryCode": "AU",
+            "displayName": "Australia",
+            "genderCategory": "female"
+          },
+          {
+            "id": "team:rugby:scotland-women",
+            "name": "Scotland Women",
+            "role": "away",
+            "teamKind": "national",
+            "sourceIds": {
+              "worldRugby": "2522"
+            },
+            "countryCode": "GB",
+            "displayName": "Scotland",
+            "genderCategory": "female"
+          }
+        ],
+        "sourceStatus": "U",
+        "startTimeUtc": "2026-10-23T08:30:00.000Z",
+        "competitionId": "competition:rugby:wr:14de5b79-3cda-4025-8150-843fa3f19ee8",
+        "consensusTags": [],
+        "sportDomainId": "sport:rugby-union",
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "participantIds": [
+          "team:rugby:australia-women",
+          "team:rugby:scotland-women"
+        ],
+        "scoreCheckedAt": null,
+        "sourceEventIds": [
+          "fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862"
+        ],
+        "viewingOptions": [],
+        "competitionName": "WXV 2026",
+        "isInternational": true,
+        "sourceCheckedAt": "2026-10-22T00:14:00.997Z",
+        "sourceFixtureId": "731beb0c-e76a-4137-a739-cbeac9e1d862",
+        "statusCheckedAt": "2026-10-22T22:32:01.167+00:00",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862",
+        "competitionScope": "international",
+        "participantSlots": [],
+        "timingProvenance": {
+          "kind": "official",
+          "checkedAt": "2026-10-22T00:14:00.997Z",
+          "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-21&endDate=2026-10-23&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        },
+        "awayParticipantId": "team:rugby:scotland-women",
+        "discoverySourceId": "rugby-wr-wru",
+        "homeParticipantId": "team:rugby:australia-women",
+        "displayTitleCompact": "Australia Women v Scotland Women",
+        "scoreFactObservedAt": null,
+        "statusFactObservedAt": "2026-10-22T00:14:00.997+00:00",
+        "participantCountryCodes": [
+          "AU",
+          "GB"
+        ],
+        "fixtureObservationSchema": "fixture-observations.v1",
+        "representativeCountryCodes": []
+      },
+      "identity_keys": [
+        "fixture:rugby:wr:731beb0c-e76a-4137-a739-cbeac9e1d862"
+      ]
+    }
+  ],
+  "sha256": {
+    "retained": "87a77c811fb022273044c6057eb8af5ca962d4b060961a9cf54ff576132572e0",
+    "rows": "bc0598048a729aaa7da19ce1d4f81001c639b8c7b4930f841e766f7de6cee87e"
+  }
+}
