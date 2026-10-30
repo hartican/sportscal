@@ -134877,20 +134877,22 @@
       ],
       "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
       "statusCheckedAt": "2026-10-06T04:12:36.040Z",
-      "selectedSentence": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
-      "fullSpiel": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
+      "selectedSentence": "New York Yankees v Tampa Bay Rays: ALDS 'A' Game 4, if needed, in the race for the American League Championship Series.",
+      "fullSpiel": "American League Division Series Game 4 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Yankee Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
       "lastReviewedAt": "2026-10-22T18:01:54.632Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "preview",
-        "hookSpoilerOff": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
-        "synopsisSpoilerOff": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
-        "hookSpoilerOn": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
-        "synopsisSpoilerOn": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
+        "hookSpoilerOff": "New York Yankees v Tampa Bay Rays: ALDS 'A' Game 4, if needed, in the race for the American League Championship Series.",
+        "synopsisSpoilerOff": "American League Division Series Game 4 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Yankee Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+        "hookSpoilerOn": "New York Yankees v Tampa Bay Rays: ALDS 'A' Game 4, if needed, in the race for the American League Championship Series.",
+        "synopsisSpoilerOn": "American League Division Series Game 4 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Yankee Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 2,
+        "lastReviewedAt": "2026-10-11T02:39:29.237Z"
       },
       "broadcaster": "Australian viewing unconfirmed",
       "sourceTrust": "verified",
@@ -140451,20 +140453,22 @@
       ],
       "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
       "statusCheckedAt": "2026-10-06T04:12:36.040Z",
-      "selectedSentence": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "fullSpiel": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "selectedSentence": "Los Angeles Dodgers v Atlanta Braves: NLDS 'B' Game 5, if needed, in the race for the National League Championship Series.",
+      "fullSpiel": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists UNIQLO Field at Dodger Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
       "lastReviewedAt": "2026-10-22T18:01:54.632Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "preview",
-        "hookSpoilerOff": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-        "synopsisSpoilerOff": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-        "hookSpoilerOn": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-        "synopsisSpoilerOn": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "hookSpoilerOff": "Los Angeles Dodgers v Atlanta Braves: NLDS 'B' Game 5, if needed, in the race for the National League Championship Series.",
+        "synopsisSpoilerOff": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists UNIQLO Field at Dodger Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+        "hookSpoilerOn": "Los Angeles Dodgers v Atlanta Braves: NLDS 'B' Game 5, if needed, in the race for the National League Championship Series.",
+        "synopsisSpoilerOn": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists UNIQLO Field at Dodger Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 2,
+        "lastReviewedAt": "2026-10-11T02:39:29.237Z"
       },
       "broadcaster": "Australian viewing unconfirmed",
       "sourceTrust": "verified",
@@ -140623,20 +140627,22 @@
       ],
       "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
       "statusCheckedAt": "2026-10-06T04:12:36.040Z",
-      "selectedSentence": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
-      "fullSpiel": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
+      "selectedSentence": "Milwaukee Brewers v San Diego Padres: NLDS 'A' Game 5, if needed, in the race for the National League Championship Series.",
+      "fullSpiel": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
       "lastReviewedAt": "2026-10-22T18:01:54.632Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "preview",
-        "hookSpoilerOff": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
-        "synopsisSpoilerOff": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
-        "hookSpoilerOn": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
-        "synopsisSpoilerOn": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
+        "hookSpoilerOff": "Milwaukee Brewers v San Diego Padres: NLDS 'A' Game 5, if needed, in the race for the National League Championship Series.",
+        "synopsisSpoilerOff": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+        "hookSpoilerOn": "Milwaukee Brewers v San Diego Padres: NLDS 'A' Game 5, if needed, in the race for the National League Championship Series.",
+        "synopsisSpoilerOn": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 2,
+        "lastReviewedAt": "2026-10-11T02:39:29.237Z"
       },
       "broadcaster": "Australian viewing unconfirmed",
       "sourceTrust": "verified",
@@ -146536,20 +146542,22 @@
       ],
       "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
       "statusCheckedAt": "2026-10-06T04:12:36.040Z",
-      "selectedSentence": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
-      "fullSpiel": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
+      "selectedSentence": "Tampa Bay Rays v New York Yankees: ALDS 'A' Game 5, if needed, in the race for the American League Championship Series.",
+      "fullSpiel": "American League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
       "lastReviewedAt": "2026-10-22T18:01:54.632Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "preview",
-        "hookSpoilerOff": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
-        "synopsisSpoilerOff": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
-        "hookSpoilerOn": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
-        "synopsisSpoilerOn": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
+        "hookSpoilerOff": "Tampa Bay Rays v New York Yankees: ALDS 'A' Game 5, if needed, in the race for the American League Championship Series.",
+        "synopsisSpoilerOff": "American League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+        "hookSpoilerOn": "Tampa Bay Rays v New York Yankees: ALDS 'A' Game 5, if needed, in the race for the American League Championship Series.",
+        "synopsisSpoilerOn": "American League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 2,
+        "lastReviewedAt": "2026-10-11T02:39:29.237Z"
       },
       "broadcaster": "Australian viewing unconfirmed",
       "sourceTrust": "verified",
@@ -147151,20 +147159,22 @@
       ],
       "sourceCheckedAt": "2026-10-12T22:43:24.652Z",
       "statusCheckedAt": "2026-10-12T22:43:24.652Z",
-      "selectedSentence": "NLCS Game 1 is complete. Reveal results for the outcome.",
-      "fullSpiel": "NLCS Game 1 is complete. Reveal results for the outcome.",
+      "selectedSentence": "Milwaukee Brewers v Los Angeles Dodgers is complete. Reveal results for the outcome.",
+      "fullSpiel": "Milwaukee Brewers v Los Angeles Dodgers is complete. Reveal results for the outcome.",
       "lastReviewedAt": "2026-10-12T22:43:24.652Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "NLCS Game 1 is complete. Reveal results for the outcome.",
-        "synopsisSpoilerOff": "NLCS Game 1 is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers is complete. Reveal results for the outcome.",
         "hookSpoilerOn": "Milwaukee Brewers 2–1 Los Angeles Dodgers",
-        "synopsisSpoilerOn": "Milwaukee Brewers 2–1 Los Angeles Dodgers",
+        "synopsisSpoilerOn": "NLCS Game 1: Milwaukee Brewers 2–1 Los Angeles Dodgers. MLB reports this game as final.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 2,
+        "lastReviewedAt": "2026-10-11T02:39:29.237Z"
       },
       "sourceTrust": "verified",
       "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
@@ -150827,20 +150837,22 @@
       ],
       "sourceCheckedAt": "2026-10-13T20:59:25.934Z",
       "statusCheckedAt": "2026-10-13T20:59:25.934Z",
-      "selectedSentence": "NLCS Game 2 is complete. Reveal results for the outcome.",
-      "fullSpiel": "NLCS Game 2 is complete. Reveal results for the outcome.",
+      "selectedSentence": "Milwaukee Brewers v Los Angeles Dodgers is complete. Reveal results for the outcome.",
+      "fullSpiel": "Milwaukee Brewers v Los Angeles Dodgers is complete. Reveal results for the outcome.",
       "lastReviewedAt": "2026-10-13T20:59:25.934Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "NLCS Game 2 is complete. Reveal results for the outcome.",
-        "synopsisSpoilerOff": "NLCS Game 2 is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers is complete. Reveal results for the outcome.",
         "hookSpoilerOn": "Milwaukee Brewers 7–4 Los Angeles Dodgers",
-        "synopsisSpoilerOn": "Milwaukee Brewers 7–4 Los Angeles Dodgers",
+        "synopsisSpoilerOn": "NLCS Game 2: Milwaukee Brewers 7–4 Los Angeles Dodgers. MLB reports this game as final.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 2,
+        "lastReviewedAt": "2026-10-11T02:39:29.237Z"
       },
       "sourceTrust": "verified",
       "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
@@ -151017,20 +151029,22 @@
       ],
       "sourceCheckedAt": "2026-10-13T20:59:25.934Z",
       "statusCheckedAt": "2026-10-13T20:59:25.934Z",
-      "selectedSentence": "ALCS Game 1 is complete. Reveal results for the outcome.",
-      "fullSpiel": "ALCS Game 1 is complete. Reveal results for the outcome.",
+      "selectedSentence": "Tampa Bay Rays v Cleveland Guardians is complete. Reveal results for the outcome.",
+      "fullSpiel": "Tampa Bay Rays v Cleveland Guardians is complete. Reveal results for the outcome.",
       "lastReviewedAt": "2026-10-13T20:59:25.934Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "ALCS Game 1 is complete. Reveal results for the outcome.",
-        "synopsisSpoilerOff": "ALCS Game 1 is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Tampa Bay Rays v Cleveland Guardians is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Tampa Bay Rays v Cleveland Guardians is complete. Reveal results for the outcome.",
         "hookSpoilerOn": "Tampa Bay Rays 3–7 Cleveland Guardians",
-        "synopsisSpoilerOn": "Tampa Bay Rays 3–7 Cleveland Guardians",
+        "synopsisSpoilerOn": "ALCS Game 1: Tampa Bay Rays 3–7 Cleveland Guardians. MLB reports this game as final.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 2,
+        "lastReviewedAt": "2026-10-11T12:38:02.024Z"
       },
       "sourceTrust": "verified",
       "displayTitleCompact": "Tampa Bay Rays v Cleveland Guardians",
@@ -154224,20 +154238,22 @@
       ],
       "sourceCheckedAt": "2026-10-14T04:26:01.278Z",
       "statusCheckedAt": "2026-10-14T11:36:00.653+00:00",
-      "selectedSentence": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
-      "fullSpiel": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
+      "selectedSentence": "Tampa Bay Rays v Cleveland Guardians is complete. Reveal results for the outcome.",
+      "fullSpiel": "Tampa Bay Rays v Cleveland Guardians is complete. Reveal results for the outcome.",
       "lastReviewedAt": "2026-10-11T12:38:02.024Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
-        "synopsisSpoilerOff": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
+        "hookSpoilerOff": "Tampa Bay Rays v Cleveland Guardians is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Tampa Bay Rays v Cleveland Guardians is complete. Reveal results for the outcome.",
         "hookSpoilerOn": "Tampa Bay Rays 3–1 Cleveland Guardians",
         "synopsisSpoilerOn": "ALCS Game 2: Tampa Bay Rays 3–1 Cleveland Guardians. MLB reports this game as final.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 2,
+        "lastReviewedAt": "2026-10-11T12:38:02.024Z"
       },
       "sourceTrust": "verified",
       "displayTitleCompact": "Tampa Bay Rays v Cleveland Guardians",
@@ -154278,7 +154294,11 @@
         "researchedAt": "2026-10-11T12:38:02.024Z",
         "refreshAfter": null,
         "generationMode": "researched",
-        "phase": "preview"
+        "resultResearchRequired": false,
+        "phase": "preview",
+        "resultSignature": "[\"completed\",\"Tampa Bay Rays 3–1 Cleveland Guardians\",\"Tampa Bay Rays 3–1 Cleveland Guardians\",\"ALCS Game 2: Tampa Bay Rays 3–1 Cleveland Guardians. MLB reports this game as final.\"]",
+        "hookSpoilerOn": "Tampa Bay Rays 3–1 Cleveland Guardians",
+        "synopsisSpoilerOn": "ALCS Game 2: Tampa Bay Rays 3–1 Cleveland Guardians. MLB reports this game as final."
       },
       "resultEditorialBranches": {
         "home": {
@@ -157247,20 +157267,22 @@
       ],
       "sourceCheckedAt": "2026-10-15T04:16:01.581Z",
       "statusCheckedAt": "2026-10-15T11:58:00.738+00:00",
-      "selectedSentence": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "fullSpiel": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-09T06:52:22.809Z",
+      "selectedSentence": "Los Angeles Dodgers v Milwaukee Brewers is complete. Reveal results for the outcome.",
+      "fullSpiel": "Los Angeles Dodgers v Milwaukee Brewers is complete. Reveal results for the outcome.",
+      "lastReviewedAt": "2026-10-11T02:39:29.237Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-        "synopsisSpoilerOff": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "hookSpoilerOff": "Los Angeles Dodgers v Milwaukee Brewers is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Los Angeles Dodgers v Milwaukee Brewers is complete. Reveal results for the outcome.",
         "hookSpoilerOn": "Los Angeles Dodgers 2–6 Milwaukee Brewers",
         "synopsisSpoilerOn": "NLCS Game 3: Los Angeles Dodgers 2–6 Milwaukee Brewers. MLB reports this game as final.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 2,
+        "lastReviewedAt": "2026-10-11T02:39:29.237Z"
       },
       "sourceTrust": "verified",
       "displayTitleCompact": "Los Angeles Dodgers v Milwaukee Brewers",
@@ -157301,7 +157323,11 @@
         "researchedAt": "2026-10-11T02:39:29.237Z",
         "refreshAfter": null,
         "generationMode": "researched",
-        "phase": "preview"
+        "resultResearchRequired": false,
+        "phase": "preview",
+        "resultSignature": "[\"completed\",\"Los Angeles Dodgers 2–6 Milwaukee Brewers\",\"Los Angeles Dodgers 2–6 Milwaukee Brewers\",\"NLCS Game 3: Los Angeles Dodgers 2–6 Milwaukee Brewers. MLB reports this game as final.\"]",
+        "hookSpoilerOn": "Los Angeles Dodgers 2–6 Milwaukee Brewers",
+        "synopsisSpoilerOn": "NLCS Game 3: Los Angeles Dodgers 2–6 Milwaukee Brewers. MLB reports this game as final."
       },
       "resultEditorialBranches": {
         "home": {
@@ -158334,20 +158360,22 @@
       ],
       "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
       "statusCheckedAt": "2026-10-16T06:48:20.213Z",
-      "selectedSentence": "ALCS Game 3 is complete. Reveal results for the outcome.",
-      "fullSpiel": "ALCS Game 3 is complete. Reveal results for the outcome.",
+      "selectedSentence": "Cleveland Guardians v Tampa Bay Rays is complete. Reveal results for the outcome.",
+      "fullSpiel": "Cleveland Guardians v Tampa Bay Rays is complete. Reveal results for the outcome.",
       "lastReviewedAt": "2026-10-22T17:03:49.824Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "ALCS Game 3 is complete. Reveal results for the outcome.",
-        "synopsisSpoilerOff": "ALCS Game 3 is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Cleveland Guardians v Tampa Bay Rays is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Cleveland Guardians v Tampa Bay Rays is complete. Reveal results for the outcome.",
         "hookSpoilerOn": "Cleveland Guardians 3–2 Tampa Bay Rays",
-        "synopsisSpoilerOn": "Cleveland Guardians 3–2 Tampa Bay Rays",
+        "synopsisSpoilerOn": "ALCS Game 3: Cleveland Guardians 3–2 Tampa Bay Rays. MLB reports this game as final.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 2,
+        "lastReviewedAt": "2026-10-11T12:38:02.024Z"
       },
       "sourceTrust": "verified",
       "displayTitleCompact": "Cleveland Guardians v Tampa Bay Rays",
@@ -158388,7 +158416,11 @@
         "researchedAt": "2026-10-11T12:38:02.024Z",
         "refreshAfter": null,
         "generationMode": "researched",
-        "phase": "preview"
+        "resultResearchRequired": false,
+        "phase": "preview",
+        "resultSignature": "[\"completed\",\"Cleveland Guardians 3–2 Tampa Bay Rays\",\"Cleveland Guardians 3–2 Tampa Bay Rays\",\"ALCS Game 3: Cleveland Guardians 3–2 Tampa Bay Rays. MLB reports this game as final.\"]",
+        "hookSpoilerOn": "Cleveland Guardians 3–2 Tampa Bay Rays",
+        "synopsisSpoilerOn": "ALCS Game 3: Cleveland Guardians 3–2 Tampa Bay Rays. MLB reports this game as final."
       },
       "resultEditorialBranches": {
         "home": {
@@ -158528,20 +158560,22 @@
       ],
       "sourceCheckedAt": "2026-10-16T07:27:29.485Z",
       "statusCheckedAt": "2026-10-16T07:27:29.485Z",
-      "selectedSentence": "NLCS Game 4 is complete. Reveal results for the outcome.",
-      "fullSpiel": "NLCS Game 4 is complete. Reveal results for the outcome.",
+      "selectedSentence": "Los Angeles Dodgers v Milwaukee Brewers is complete. Reveal results for the outcome.",
+      "fullSpiel": "Los Angeles Dodgers v Milwaukee Brewers is complete. Reveal results for the outcome.",
       "lastReviewedAt": "2026-10-22T17:03:49.824Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "NLCS Game 4 is complete. Reveal results for the outcome.",
-        "synopsisSpoilerOff": "NLCS Game 4 is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Los Angeles Dodgers v Milwaukee Brewers is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Los Angeles Dodgers v Milwaukee Brewers is complete. Reveal results for the outcome.",
         "hookSpoilerOn": "Los Angeles Dodgers 4–6 Milwaukee Brewers",
-        "synopsisSpoilerOn": "Los Angeles Dodgers 4–6 Milwaukee Brewers",
+        "synopsisSpoilerOn": "NLCS Game 4: Los Angeles Dodgers 4–6 Milwaukee Brewers. MLB reports this game as final.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 2,
+        "lastReviewedAt": "2026-10-11T02:39:29.237Z"
       },
       "sourceTrust": "verified",
       "displayTitleCompact": "Los Angeles Dodgers v Milwaukee Brewers",
@@ -158582,7 +158616,11 @@
         "researchedAt": "2026-10-11T02:39:29.237Z",
         "refreshAfter": null,
         "generationMode": "researched",
-        "phase": "preview"
+        "resultResearchRequired": false,
+        "phase": "preview",
+        "resultSignature": "[\"completed\",\"Los Angeles Dodgers 4–6 Milwaukee Brewers\",\"Los Angeles Dodgers 4–6 Milwaukee Brewers\",\"NLCS Game 4: Los Angeles Dodgers 4–6 Milwaukee Brewers. MLB reports this game as final.\"]",
+        "hookSpoilerOn": "Los Angeles Dodgers 4–6 Milwaukee Brewers",
+        "synopsisSpoilerOn": "NLCS Game 4: Los Angeles Dodgers 4–6 Milwaukee Brewers. MLB reports this game as final."
       },
       "resultEditorialBranches": {
         "home": {
@@ -161953,7 +161991,7 @@
       "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
       "statusCheckedAt": "2026-10-22T17:03:49.824Z",
       "selectedSentence": "Cleveland Guardians v Tampa Bay Rays is complete. Reveal results for the outcome.",
-      "fullSpiel": "Cleveland Guardians v Tampa Bay Rays is complete. Results stay hidden until you choose to reveal them.",
+      "fullSpiel": "Cleveland Guardians v Tampa Bay Rays is complete. Reveal results for the outcome.",
       "lastReviewedAt": "2026-10-22T18:01:54.632Z",
       "stakesScore": 4,
       "storyline": {
@@ -161961,11 +161999,13 @@
         "intensity": 4,
         "arcStage": "recap",
         "hookSpoilerOff": "Cleveland Guardians v Tampa Bay Rays is complete. Reveal results for the outcome.",
-        "synopsisSpoilerOff": "Cleveland Guardians v Tampa Bay Rays is complete. Results stay hidden until you choose to reveal them.",
+        "synopsisSpoilerOff": "Cleveland Guardians v Tampa Bay Rays is complete. Reveal results for the outcome.",
         "hookSpoilerOn": "Cleveland Guardians 3–7 Tampa Bay Rays",
         "synopsisSpoilerOn": "ALCS Game 4: Cleveland Guardians 3–7 Tampa Bay Rays. MLB reports this game as final.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 5,
+        "lastReviewedAt": "2026-10-15T22:13:16.591Z"
       },
       "sourceTrust": "verified",
       "displayTitleCompact": "Cleveland Guardians v Tampa Bay Rays",
@@ -162010,10 +162050,11 @@
         "researchedAt": "2026-10-15T22:13:16.591Z",
         "refreshAfter": null,
         "generationMode": "researched",
+        "resultResearchRequired": true,
         "phase": "preview",
+        "resultSignature": "[\"completed\",\"Cleveland Guardians 3–7 Tampa Bay Rays\",\"Cleveland Guardians 3–7 Tampa Bay Rays\",\"ALCS Game 4: Cleveland Guardians 3–7 Tampa Bay Rays. MLB reports this game as final.\"]",
         "hookSpoilerOn": "Cleveland Guardians 3–7 Tampa Bay Rays",
-        "synopsisSpoilerOn": "ALCS Game 4: Cleveland Guardians 3–7 Tampa Bay Rays. MLB reports this game as final.",
-        "resultResearchRequired": true
+        "synopsisSpoilerOn": "ALCS Game 4: Cleveland Guardians 3–7 Tampa Bay Rays. MLB reports this game as final."
       },
       "resultEditorialBranches": {
         "home": {
@@ -162051,7 +162092,22 @@
       "endTimeUtc": "2026-10-18T06:08:00.000Z",
       "endTimeBasis": "scheduled-live-window",
       "statusFactObservedAt": "2026-10-22T17:03:49.824Z",
-      "scoreFactObservedAt": "2026-10-22T17:03:49.824Z"
+      "scoreFactObservedAt": "2026-10-22T17:03:49.824Z",
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 5",
+        "contextSignals": [
+          "event-specific",
+          "narrative:history",
+          "narrative:matchup",
+          "narrative:form",
+          "narrative:consequence"
+        ],
+        "sourceName": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 5 — primary research",
+        "sourceUrl": "https://www.mlb.com/rays/news/junior-caminero-facing-team-that-traded-him-to-rays-in-2026-alcs",
+        "sourceCheckedAt": "2026-10-15T22:13:16.591Z",
+        "needsPreviewRefresh": false
+      }
     },
     {
       "id": "event-aflw-cd_m20262641006",
@@ -163840,7 +163896,7 @@
       "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
       "statusCheckedAt": "2026-10-22T17:03:49.824Z",
       "selectedSentence": "Cleveland Guardians v Tampa Bay Rays is complete. Reveal results for the outcome.",
-      "fullSpiel": "Cleveland Guardians v Tampa Bay Rays is complete. Results stay hidden until you choose to reveal them.",
+      "fullSpiel": "Cleveland Guardians v Tampa Bay Rays is complete. Reveal results for the outcome.",
       "lastReviewedAt": "2026-10-22T18:01:54.632Z",
       "stakesScore": 4,
       "storyline": {
@@ -163848,11 +163904,13 @@
         "intensity": 4,
         "arcStage": "recap",
         "hookSpoilerOff": "Cleveland Guardians v Tampa Bay Rays is complete. Reveal results for the outcome.",
-        "synopsisSpoilerOff": "Cleveland Guardians v Tampa Bay Rays is complete. Results stay hidden until you choose to reveal them.",
+        "synopsisSpoilerOff": "Cleveland Guardians v Tampa Bay Rays is complete. Reveal results for the outcome.",
         "hookSpoilerOn": "Cleveland Guardians 1–3 Tampa Bay Rays",
         "synopsisSpoilerOn": "ALCS Game 5, Makeup of 10/16: Cleveland Guardians 1–3 Tampa Bay Rays. MLB reports this game as final.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 5,
+        "lastReviewedAt": "2026-10-15T22:13:16.591Z"
       },
       "sourceTrust": "verified",
       "displayTitleCompact": "Cleveland Guardians v Tampa Bay Rays",
@@ -163897,10 +163955,11 @@
         "researchedAt": "2026-10-15T22:13:16.591Z",
         "refreshAfter": "2026-10-16T22:00:00.000Z",
         "generationMode": "researched",
+        "resultResearchRequired": true,
         "phase": "preview",
+        "resultSignature": "[\"completed\",\"Cleveland Guardians 1–3 Tampa Bay Rays\",\"Cleveland Guardians 1–3 Tampa Bay Rays\",\"ALCS Game 5, Makeup of 10/16: Cleveland Guardians 1–3 Tampa Bay Rays. MLB reports this game as final.\"]",
         "hookSpoilerOn": "Cleveland Guardians 1–3 Tampa Bay Rays",
-        "synopsisSpoilerOn": "ALCS Game 5, Makeup of 10/16: Cleveland Guardians 1–3 Tampa Bay Rays. MLB reports this game as final.",
-        "resultResearchRequired": true
+        "synopsisSpoilerOn": "ALCS Game 5, Makeup of 10/16: Cleveland Guardians 1–3 Tampa Bay Rays. MLB reports this game as final."
       },
       "resultEditorialBranches": {
         "home": {
@@ -163938,7 +163997,22 @@
       "endTimeUtc": "2026-10-19T03:08:00.000Z",
       "endTimeBasis": "scheduled-live-window",
       "statusFactObservedAt": "2026-10-22T17:03:49.824Z",
-      "scoreFactObservedAt": "2026-10-22T17:03:49.824Z"
+      "scoreFactObservedAt": "2026-10-22T17:03:49.824Z",
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 4",
+        "contextSignals": [
+          "event-specific",
+          "narrative:history",
+          "narrative:matchup",
+          "narrative:form",
+          "narrative:consequence"
+        ],
+        "sourceName": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 4 — primary research",
+        "sourceUrl": "https://www.mlb.com/rays/news/junior-caminero-facing-team-that-traded-him-to-rays-in-2026-alcs",
+        "sourceCheckedAt": "2026-10-15T22:13:16.591Z",
+        "needsPreviewRefresh": false
+      }
     },
     {
       "id": "fixture:mlb:849806",
@@ -164345,19 +164419,21 @@
       "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
       "statusCheckedAt": "2026-10-22T17:03:49.824Z",
       "selectedSentence": "Tampa Bay Rays v Cleveland Guardians is complete. Reveal results for the outcome.",
-      "fullSpiel": "Tampa Bay Rays v Cleveland Guardians is complete. Results stay hidden until you choose to reveal them.",
+      "fullSpiel": "Tampa Bay Rays v Cleveland Guardians is complete. Reveal results for the outcome.",
       "lastReviewedAt": "2026-10-22T18:01:54.632Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "Tampa Bay Rays v Cleveland Guardians in ALCS Game 6: the result is available to reveal.",
-        "synopsisSpoilerOff": "Tampa Bay Rays v Cleveland Guardians is complete. Results stay hidden until you choose to reveal them.",
-        "hookSpoilerOn": "Tampa Bay Rays defeated Cleveland Guardians in ALCS Game 6.",
+        "hookSpoilerOff": "Tampa Bay Rays v Cleveland Guardians is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Tampa Bay Rays v Cleveland Guardians is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Tampa Bay Rays 7–3 Cleveland Guardians",
         "synopsisSpoilerOn": "ALCS Game 6: Tampa Bay Rays 7–3 Cleveland Guardians. MLB reports this game as final.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 2,
+        "lastReviewedAt": "2026-10-11T12:38:02.024Z"
       },
       "sourceTrust": "verified",
       "displayTitleCompact": "Tampa Bay Rays v Cleveland Guardians",
@@ -164398,9 +164474,11 @@
         "researchedAt": "2026-10-11T12:38:02.024Z",
         "refreshAfter": null,
         "generationMode": "researched",
+        "resultResearchRequired": false,
         "phase": "preview",
-        "hookSpoilerOn": "Tampa Bay Rays defeated Cleveland Guardians in ALCS Game 6.",
-        "synopsisSpoilerOn": "Tampa Bay Rays defeated Cleveland Guardians in ALCS Game 6. ALCS Game 6: Tampa Bay Rays 7–3 Cleveland Guardians. MLB reports this game as final."
+        "resultSignature": "[\"completed\",\"Tampa Bay Rays 7–3 Cleveland Guardians\",\"Tampa Bay Rays 7–3 Cleveland Guardians\",\"ALCS Game 6: Tampa Bay Rays 7–3 Cleveland Guardians. MLB reports this game as final.\"]",
+        "hookSpoilerOn": "Tampa Bay Rays 7–3 Cleveland Guardians",
+        "synopsisSpoilerOn": "ALCS Game 6: Tampa Bay Rays 7–3 Cleveland Guardians. MLB reports this game as final."
       },
       "resultEditorialBranches": {
         "home": {
@@ -164438,7 +164516,21 @@
       "endTimeUtc": "2026-10-20T06:08:00.000Z",
       "endTimeBasis": "scheduled-live-window",
       "statusFactObservedAt": "2026-10-22T17:03:49.824Z",
-      "scoreFactObservedAt": "2026-10-22T17:03:49.824Z"
+      "scoreFactObservedAt": "2026-10-22T17:03:49.824Z",
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "ALCS Game 6: the path to the World Series",
+        "contextSignals": [
+          "event-specific",
+          "narrative:format",
+          "narrative:path",
+          "narrative:matchup"
+        ],
+        "sourceName": "MLB official game",
+        "sourceUrl": "https://www.mlb.com/gameday/849815",
+        "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
+        "needsPreviewRefresh": false
+      }
     },
     {
       "id": "fixture:mlb:849807",
@@ -164518,20 +164610,22 @@
       ],
       "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
       "statusCheckedAt": "2026-10-09T06:52:22.809Z",
-      "selectedSentence": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
-      "fullSpiel": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+      "selectedSentence": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 7, if needed, in the race for the World Series.",
+      "fullSpiel": "National League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
       "lastReviewedAt": "2026-10-22T18:01:54.632Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "preview",
-        "hookSpoilerOff": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
-        "synopsisSpoilerOff": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
-        "hookSpoilerOn": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
-        "synopsisSpoilerOn": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+        "hookSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 7, if needed, in the race for the World Series.",
+        "synopsisSpoilerOff": "National League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+        "hookSpoilerOn": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 7, if needed, in the race for the World Series.",
+        "synopsisSpoilerOn": "National League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 2,
+        "lastReviewedAt": "2026-10-11T02:39:29.237Z"
       },
       "sourceTrust": "verified",
       "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
@@ -164887,20 +164981,22 @@
       ],
       "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
       "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-      "selectedSentence": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
-      "fullSpiel": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
+      "selectedSentence": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 7, if needed, in the race for the World Series.",
+      "fullSpiel": "American League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
       "lastReviewedAt": "2026-10-22T18:01:54.632Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "preview",
-        "hookSpoilerOff": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
-        "synopsisSpoilerOff": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
-        "hookSpoilerOn": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
-        "synopsisSpoilerOn": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
+        "hookSpoilerOff": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 7, if needed, in the race for the World Series.",
+        "synopsisSpoilerOff": "American League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+        "hookSpoilerOn": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 7, if needed, in the race for the World Series.",
+        "synopsisSpoilerOn": "American League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed"
+        "intensitySource": "computed",
+        "researchDepth": 2,
+        "lastReviewedAt": "2026-10-11T12:38:02.024Z"
       },
       "sourceTrust": "verified",
       "displayTitleCompact": "Tampa Bay Rays v Cleveland Guardians",
