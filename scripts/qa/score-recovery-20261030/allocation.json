@@ -1,8 +1,8 @@
 {
-  "status": "ROOT_BOUND_ONE_ATTEMPT",
-  "sourceGitSha": "3d3ec1af93cb261598e9f22db1d67b0ae402fd08",
-  "qaSnapshotSha": "7735a81e0cd7c386ce33ec4dfef4288f47ec53c6",
-  "nonce": "84e1c08d677929391df50e4eb8d2204c39e54f5bea9c706ea76ea3df672053cd",
-  "notBefore": "2026-10-30T12:53:59.210352+00:00",
-  "expiresAt": "2026-10-30T13:08:59.210352+00:00"
+  "status": "UNALLOCATED",
+  "sourceGitSha": "1b9e50029d744a74b05566f23bb1253204a35dbb",
+  "qaSnapshotSha": null,
+  "nonce": null,
+  "notBefore": null,
+  "expiresAt": null
 }

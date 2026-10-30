@@ -22,7 +22,7 @@ def validate_route(p,policy_path):
  source=pathlib.Path(p['sourceRoot']);root=pathlib.Path(p['root'])
  assert p.get('coverageSport')in[None,'rugby-union'],'Unsupported finite source scope'
  if p['mode']=='live-coverage-canonical':
-  assert root==source and p['sourceGitSha']=='3d3ec1af93cb261598e9f22db1d67b0ae402fd08','Exact frozen source required'
+  assert root==source and p['sourceGitSha']=='1b9e50029d744a74b05566f23bb1253204a35dbb','Exact frozen source required'
   assert p.get('coverageSport')=='rugby-union','Actual mode requires the fixed eight Rugby sources'
   assert p['entryArgv']==['scripts/update-cards.js','--quick','--source=live-coverage','--coverage-sport=rugby-union','--local-only']
   assert p['sourceArgv']==['scripts/quick-results.js','--source=live-coverage','--coverage-sport=rugby-union']and p['wholeSeconds']==180

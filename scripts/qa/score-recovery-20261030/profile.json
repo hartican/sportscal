@@ -179,7 +179,7 @@
   },
   "diagnosticContract": {
     "actualOffendingField": "UNKNOWN; no invalid raw body retained",
-    "carrierBeforeSha": "1a1b3b1646f9ef98259ed03deb7d78a4d958a91c",
+    "carrierBeforeSha": "f890cb4be560134d0c9ff5185c25e1f2f1e8c560",
     "descriptor": {
       "actualTypes": [
         "null",
@@ -265,10 +265,11 @@
     "combinedMode": "owned default controls only; never actual",
     "cricketRawContract": "STOP; unchanged, no widening",
     "onlySchemaExtension": ".livePlayObservedAt:null, selected schema only",
+    "previousQaTree": "30762884083144008accc358e9e051c4425c23e3",
     "priorCombinedFailedRun": 41051110276,
     "priorCombinedTree": "d962c6a56fc99145ab34db80042d41bd956aa2ac",
     "sourceCount": 8,
-    "sourceGitSha": "3d3ec1af93cb261598e9f22db1d67b0ae402fd08"
+    "sourceGitSha": "1b9e50029d744a74b05566f23bb1253204a35dbb"
   },
   "http": {
     "body": {
@@ -297,11 +298,11 @@
     "controls.py": "1c04258d10bff67069497cdc9c40a2b3b30bb1777385f9d56b70f7cf2f56abb9",
     "credential-scan.py": "029515b81eb7a9e74eea84755c417a437b21a159078f7ad4652b472ad3de7ce5",
     "guard.cjs": "9f337b852746f66f4e43e0f721bf3ee14308e8493f0c49a45956fe3d0065b96e",
-    "protocol.cjs": "5f6484e041a6f418acfe2f69268dbf4441fe4558e42216f659dadb7492c0b353",
+    "protocol.cjs": "4dfe777179abcb25dd727bfdbd8b565baf817ce3a94a6a5f0e750fb4a5a61d5e",
     "public-fixture-shape.json": "2e8d81ba40bdd6a63c638a33017c15ba8b42166229ae58637505936754d80f7f",
     "public-fixture-shape.rugby.json": "e65939f43c7eaee53ac2d1e1d92e2b0c42718368843bf36be5ab81e2cc14e35b",
     "supervisor-control.py": "2bdbe5512e76def1724c74f1867d229a1ae404059dbfa43203e6551f993db8c6",
-    "supervisor.py": "3abbffb606bcc4f2d95619b5f7354e32c1a0d6d24db8dee3d0217c77fe4a7bd4",
+    "supervisor.py": "dfea34cff0040efb67e7252aa376497433c02f73674763026010f9504653a3b3",
     "transport.cjs": "73f1c0fa9ef3020bd6ca911064ff90dffd90f9aed38b6e81d135b958a0a1cdb8"
   },
   "reviewedLocalPolicySha256": "7f260954f30e6d5826f6dcbf532941a9c81cf65ad5a5c93ec7bef031bf6361f1",
@@ -751,7 +752,7 @@
     "--source=live-coverage",
     "--coverage-sport=rugby-union"
   ],
-  "sourceGitSha": "3d3ec1af93cb261598e9f22db1d67b0ae402fd08",
+  "sourceGitSha": "1b9e50029d744a74b05566f23bb1253204a35dbb",
   "sourcePins": {
     "config/account-awareness.js": "305ff6beaf88a21c88de10d1a61b507d6bd7e491b9de0ae8552d64eab8072034",
     "config/account-sync-diagnostic.js": "3bf9d2657b16752260fb53f6cd29517f67ad1a5e88d7817bd71652e1d0ff68df",
@@ -894,7 +895,7 @@
     "config/venue-panel-ui.js": "5b45fa70ff37b0943c5f8f8f157a3e17485322d4133508c28255ab57aee3fa55",
     "config/venue-registry.js": "41efdf0b560d98731d31af9325f1c1bd79ce6c6e15fe75c2babfa56f510359f1",
     "config/wrc-venues.json": "7d9083dfe4af6de385f0354da7db10513b10901113f0441a3486a2c75862ed8c",
-    "docs/backend-efficiency-decisions.md": "84c69028135cf87450afb378a55d58df0985d363de1da5c1f2810ed6dbb31ead",
+    "docs/backend-efficiency-decisions.md": "c115c7cb6b5c1162763c88122b749b2325b99cd33e774fb42022208fe797ad25",
     "lib/account-erasure-auth.js": "26b68b6133192f5f907803c845f4411e6ad80784d738e5697c8bd9137c4e90b7",
     "lib/account-erasure-final-storage.js": "6852f15aa7b03b82938f09f2ce88b0ba83d553bd6fc860337a28a265898fb809",
     "lib/account-erasure-journal.js": "ac0bc774afa0d9417c16b0f30d1ddd1ec0955a60224d5946525d61eb9cecad3f",
@@ -1194,6 +1195,7 @@
     "scripts/fixtures/rlwc-sport-labels-live-20261017.json": "271edaa25b2ed693472343a92aaec2ac7bf003c0e8c6b75ae1f6fe735a36be82",
     "scripts/fixtures/rugby-identity-operator-rollback.sql": "fde32d57e8ddc61a5e344d2f7afc5060a2498b637621f2e519dd74322cb56ec1",
     "scripts/fixtures/rugby-identity-schema.json": "7407df58589a6d775213c8402e92b7c1979db22c350adea7c49e401758445eaf",
+    "scripts/fixtures/rugby-retained-start-20261030.json": "b0f048b4624bd55fbeae7843ec9aae80ef819ea7906a7fb29b8c1d70b75547dc",
     "scripts/fixtures/rugby-reviewed-provider-pair.json": "af42676493660b56413c5a67e3ecec96198ebb29523a291533e92b3ca9d51195",
     "scripts/fixtures/rugby-seed-evt-100-20261012.json": "7a75a3921c66cb3519ea1998c7dce4cf910fafe2461a72365dca62b5f1be3d4f",
     "scripts/fixtures/shanghai-highlights-184950.json": "df973949a68786a7f940119607ed545518265ece851b380a0ceed595bd853b5f",
@@ -1229,6 +1231,7 @@
     "scripts/lib/accepted-cricket-result.js": "9753361af0bf41449561c25b0a2a1a237f78286ef14d0cc37b9c9b7ac2a1a24d",
     "scripts/lib/accepted-result-calendar.js": "9696a8de04c86b803662057bd2f3cfaca313db38142d8079b28e42c741671251",
     "scripts/lib/accepted-result-projection.js": "cb3395faa13fdd88b5148392e9896b2af999f12891bd048ab52b52fab2475470",
+    "scripts/lib/accepted-rugby-calendar.js": "9f46a560a99fe2da68119ffb46159ff9068dbd71b8abdb7381e1e33bdf83c82d",
     "scripts/lib/account-erasure-guard-verification.js": "f51bd21aaac947f38b7733efa71c40ee3956fa0f9207cc4ec2468b1f68e42188",
     "scripts/lib/account-fixture-lifetime-tests.js": "395c570e44123c9cbe3c17580899faf6b71efd2c439a4a5bdb8661f507d87587",
     "scripts/lib/account-sync-difference-tests.js": "c1e50933a79d03cc12088981171d3550cfc035322dcb71566b82afaf66d69379",
@@ -1300,7 +1303,7 @@
     "scripts/lib/pilot-finals-readiness.js": "6b490cf687fc9e8b8d9bce904a577bc651caecc51138d5f0d92d05fa2386b9e1",
     "scripts/lib/production-aliases.js": "6805002be58aa993318c5db922bb7c255c204c7ff7074950821ce6cc3dda15e7",
     "scripts/lib/public-fixture-read-tests.js": "7f100cf7ad4625f1a919c0c3c806a68d08a04fab27a30abf2e484acd505f843c",
-    "scripts/lib/reconcile-fixture-results.js": "e780501930801c2e4a786964bc2589110141d6fea5b1b9519647fa4eb7213241",
+    "scripts/lib/reconcile-fixture-results.js": "df0089b02a848ff5e675120f06cec9947a7953fe9c541b8a63d3b1c82c05706b",
     "scripts/lib/recovery-request-accounting.js": "e05dc36f78da1b3d1b2611e1a01467b452eb17e3c72afc06f77466571cf5928f",
     "scripts/lib/refresh-child.js": "e9af8cd54e916e635c2dbf1b762aa1302fa4df6861dd41e9cfb381d530c1e62f",
     "scripts/lib/refresh-report.js": "2f8d22d8cd29719ff9a8fd099c9c7b8ab1f591a6afcaa3d8f35182fc51176b60",
@@ -1341,7 +1344,7 @@
     "scripts/publish-feed.js": "ecc00ca7576ded66d2b6c21cd7970a7e5363f9db5dbd1a89c98de163c6c625f1",
     "scripts/qa-storyline-spoilers.js": "524b323a8de1ea90b650813e162387eeb2cca23c2703b1178eb03eca5baa4a92",
     "scripts/quick-results-cadence.js": "077f43f8c10c1392f3895c07c7f00ec24afab4cbfe7bcdef3eeae3660e5c9875",
-    "scripts/quick-results.js": "2fae83068b413a812a6dede1d82f0404d95825762b3cf354141bef06ff03aefd",
+    "scripts/quick-results.js": "279a90b01a358031b3800d64a8220a4a80255e3c4b1ad2397a16dfea2c99b53d",
     "scripts/reconcile-australian-marquee-events.js": "b28ba824fcb1130e31366d48c34b5541eb3c5ec4ee1c94d8a7991d149f08ff5d",
     "scripts/reconcile-fixture-results.js": "9f61a769b09ac2bd47f6ef56ad7186a190f9cc3c0e57848ee6c506b80765d79b",
     "scripts/redeploy-and-release.sh": "e956dc54ad84b6f039fd3d5b5714739a780d378ecd3553f932a23c5433080f27",
@@ -1809,7 +1812,7 @@
     "scripts/validate-lemans-venue-browser.js": "e339ed5148de9fcb1bf52c8dba75807bc94c2f09e1977cd4cbc125e8a8accf9f",
     "scripts/validate-live-afl-adapter.js": "56d2b2f9497aa0c7fc9fda916ebb8c01aa60e0bd293f22356920662759a2b534",
     "scripts/validate-live-coverage-browser.js": "02e1c8b0f50583f1bd5dfa1c3408743a51fd08f12eb2445aa2fe4c9d91dea11d",
-    "scripts/validate-live-coverage-publication.js": "a78df79f2d9429e472180e9f1f2dffe67598ec819c0eb066d91fc57324e1bf3e",
+    "scripts/validate-live-coverage-publication.js": "af6bb7784925e05891721e9891364f487b2d68d17c16bad586655824cdb9f8e5",
     "scripts/validate-live-coverage-scoped-refresh.js": "d4c9cc8c02533fbc2bef7994bda094e91bce14fb92523072dd9f00c80b014603",
     "scripts/validate-live-editorial-render-coverage.js": "973a0f48e7af3c070271dac73cd2c586030a76fc07d52e2657595627e8348fbe",
     "scripts/validate-live-fixture-api.js": "416df18eb4ba502d68442b66165abb8ee7e99e627e25dae91cd5a5c0713418e3",
@@ -1977,6 +1980,7 @@
     "scripts/validate-refresh-resilience.js": "a9cd0890049c95ca99a8d2f95fc5776cde5ea07f8ef8b43b90a05b68da76a23b",
     "scripts/validate-refresh-resume.js": "b0f0feab80da4eaf1b573a44aec24e34fedf2c2f3ea9817c8be1456b2ddbb450",
     "scripts/validate-refresh-rollback-diagnostics.js": "417e7a3c75fbfdd980917a87eef07dc2aa45c5e9197301eecba5b9bd213d474c",
+    "scripts/validate-refresh-rollback-write-scope.js": "b9374c708b60e433306cef6bfc7e77a205c3129cc979a040654f40edeca51ee9",
     "scripts/validate-release-maintenance.js": "85c86b17f54e06eb02c74d78b05377f1ce962f033c1bc728b57188bdbe50f840",
     "scripts/validate-reminder-dispatch-capacity.js": "ac10c7f908419dcf134dc828575f91e95a0c48fb073ae70860b50062f9f1c059",
     "scripts/validate-reminder-fixture-scope.js": "13210498924d2cb0dec56202ac201148667c28e12209540329844cdf5daf8d70",
@@ -2015,6 +2019,7 @@
     "scripts/validate-rugby-identity-browser.js": "cbcb6c9746f3d2da321f4b4485f0ec71ddfaa91e28dbec480eac55cf26d6bd18",
     "scripts/validate-rugby-identity-database.js": "9533bf239c0de7db788c93c812ca0c3b3efb6e6136c300bdd7930a6f864f3a2f",
     "scripts/validate-rugby-reviewed-identity.js": "f5048f8df7121574873414ced3cbc1e80cddf13d99e996686d9ee4073882d286",
+    "scripts/validate-rugby-reviewed-start.js": "9d18c633f37f7109605f110616300761007fa7ce0dad1e1790f8af0a73d36e75",
     "scripts/validate-rugby-schedule.js": "46831faba2ee778bef929a6747ab3ae02c372e08974018a1823e583d18d4cc0a",
     "scripts/validate-rugby-scoped-publication.js": "2c2f7612564a0f027693aa1245d93b7534ed0fcee10aa724a6503e716a35e3de",
     "scripts/validate-rugby-seed-note-browser.js": "e77b46a27e41a4e6eca7db000e3ddb41157a69b3749e12472f28ce0344eff583",

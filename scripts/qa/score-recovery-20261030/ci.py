@@ -2,8 +2,8 @@
 import argparse,datetime,hashlib,importlib.util,json,math,os,pathlib,platform,re,secrets,shutil,subprocess,sys
 sys.dont_write_bytecode=True
 HERE=pathlib.Path(__file__).resolve().parent
-SOURCE_SHA='3d3ec1af93cb261598e9f22db1d67b0ae402fd08'
-CARRIER_BASE_SHA='1a1b3b1646f9ef98259ed03deb7d78a4d958a91c'
+SOURCE_SHA='1b9e50029d744a74b05566f23bb1253204a35dbb'
+CARRIER_BASE_SHA='f890cb4be560134d0c9ff5185c25e1f2f1e8c560'
 BRANCH='refs/heads/codex/score-recovery-live-coverage-20261030'
 QA_PATH='scripts/qa/score-recovery-20261030'
 WORKFLOW='.github/workflows/score-recovery-oneoff.yml'

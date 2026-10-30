@@ -16,7 +16,7 @@ jobs:
     if: >-
       github.repository == 'hartican/sportscal' &&
       github.ref == 'refs/heads/codex/score-recovery-live-coverage-20261030' &&
-      github.event.before == '1a1b3b1646f9ef98259ed03deb7d78a4d958a91c' &&
+      github.event.before == 'f890cb4be560134d0c9ff5185c25e1f2f1e8c560' &&
       github.event.created == false && github.event.deleted == false &&
       github.event.forced == false && github.run_attempt == '1' &&
       github.event.after == github.sha && github.workflow_sha == github.sha
@@ -35,7 +35,7 @@ jobs:
       - name: Check out frozen actual source
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
-          ref: 3d3ec1af93cb261598e9f22db1d67b0ae402fd08
+          ref: 1b9e50029d744a74b05566f23bb1253204a35dbb
           path: source
           fetch-depth: 1
           persist-credentials: false
