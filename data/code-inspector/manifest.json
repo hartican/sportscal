@@ -161,13 +161,13 @@
       "id": "sport:rugby-union",
       "slug": "rugby-union",
       "label": "Rugby Union",
-      "fixtureCount": 849,
+      "fixtureCount": 969,
       "calendarNoteCount": 1,
-      "scheduledFixtureCount": 848,
+      "scheduledFixtureCount": 968,
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-22T18:01:55.820Z",
+      "freshAt": "2026-10-30T06:33:10.815Z",
       "chunkPath": "data/code-inspector/rugby-union.json"
     },
     {
