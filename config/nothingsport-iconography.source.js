@@ -67,7 +67,7 @@
     'ui:zap':'<path d="m13 2-9 12h7l-1 8L21 9h-8Z" fill="currentColor"/>',
     'ui:shockwave':'<circle cx="12" cy="12" r="2" fill="currentColor"/><path d="M7 7a7 7 0 0 0 0 10m10-10a7 7 0 0 1 0 10M3 3a13 13 0 0 0 0 18M21 3a13 13 0 0 1 0 18"/>',
     'ui:steak':'<path d="M3 8c3-5 7-6 11-4s9 5 7 11-6 6-12 5S0 14 3 8Z"/><path d="M6 9c2-3 5-4 8-2s5 3 4 6-5 4-8 3-6-3-4-7Z"/><circle cx="14" cy="10" r="2"/>',
-    'ui:spotlight':'<path d="M4 3h12v8H4Zm2 8L2 22h20l-8-11M16 5h5v4h-5"/>',
+    'ui:spotlight':'<path d="M3 5h8v7H3zM11 6l10-3v12l-10-4M7 12v6m-4 3 4-3 4 3" stroke-width="2"/>',
     'sport:football':'<circle cx="12" cy="12" r="10"/><path d="m12 7 5 4-2 6H9l-2-6Zm0 0V2m5 9 5-2m-7 8 3 4m-9-4-3 4m1-10-5-2"/>',
     'sport:rugby':'<path d="M3 21C-1 8 8-1 21 3c4 13-5 22-18 18Z"/><path d="M3 21 21 3m-11 8 3 3m-6 0 3 3m3-9 3 3"/>',
     'sport:american-football':'<path d="M2 20C1 7 7 1 22 2c1 15-5 21-20 18Z"/><path d="m3 19 5 2m11-18 2 5M7 17 17 7m-9 6 3 3m0-6 3 3m0-6 3 3"/>',

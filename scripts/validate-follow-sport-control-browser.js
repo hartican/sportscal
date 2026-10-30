@@ -135,6 +135,56 @@ if (process.argv.includes('--preflight')) {
               if (process.env.FOLLOW_CONTROL_EVIDENCE_DIR) await page.screenshot({ path: path.join(process.env.FOLLOW_CONTROL_EVIDENCE_DIR, `${engine}-${width}-${theme}.png`) });
               const receipt = { engine, width, theme, scope, initialChecked, directoryReads, delayedDirectory: width === 320, initialOpenCollapseRedraw: true, realTapAndKeyboard: true, realSaveRefusal: true, globalOffAndSiblingScope: true, wheelOrigin, wheelGesture, errors: [] };
               evidence.push(receipt); console.log(JSON.stringify(receipt));
+            } catch (originalError) {
+              const captureStarted = performance.now(), deadline = captureStarted + 5000;
+              const remaining = () => Math.max(1, Math.ceil(deadline - performance.now()));
+              const bounded = async work => { let timer; try { return await Promise.race([work, new Promise((_, reject) => { timer = setTimeout(() => reject(new Error('Failure capture deadline')), remaining()); })]); } finally { clearTimeout(timer); } };
+              const capture = { phase: 'follow-control-failure', engine, width, theme, scope, initialChecked,
+                acceptance: false,
+                completedCases: evidence, captureBudgetMs: 5000,
+                error: { name: originalError.name, message: String(originalError.message).slice(0, 16000), stack: String(originalError.stack).slice(0, 24000) },
+                state: null, screenshot: null, captureErrors: [] };
+              try {
+                capture.state = await bounded(page.evaluate(() => {
+                  const selectors = ['html', 'body', '#mainContent', '#listView', 'header.top', '.tabs', '.follow-home-tabs', '.follow-navigation', '.follow-navigation-toggle', '#follow-navigation-controls', '.follow-section-panel', '.follow-schedule-panel', '#settingsModal', '#tuneSheet', '#startupLaunch'];
+                  const describe = element => {
+                    if (!element || element.nodeType !== 1) return null;
+                    const r = element.getBoundingClientRect(), style = getComputedStyle(element);
+                    return { tag: element.tagName, alias: selectors.find(selector => element.matches(selector)) || null,
+                      connected: element.isConnected, hidden: Boolean(element.hidden), inert: Boolean(element.inert),
+                      rect: Object.fromEntries(['x', 'y', 'width', 'height', 'top', 'right', 'bottom', 'left'].map(key => [key, r[key]])),
+                      scrollTop: element.scrollTop, scrollHeight: element.scrollHeight, clientHeight: element.clientHeight,
+                      maxScrollTop: Math.max(0, element.scrollHeight - element.clientHeight),
+                      style: Object.fromEntries(['display', 'visibility', 'overflow-x', 'overflow-y', 'overscroll-behavior-y', 'touch-action', 'scroll-padding-top', 'scroll-padding-bottom', 'position', 'z-index', 'pointer-events', 'transform'].map(key => [key, style.getPropertyValue(key)])) };
+                  };
+                  const wheel = globalThis.qaFollowDocumentWheel ?? null, viewport = globalThis.visualViewport;
+                  return { shellVersion: document.querySelector('meta[name="app-shell-version"]')?.content ?? null,
+                    hasFocus: document.hasFocus(), visibilityState: document.visibilityState,
+                    activeElement: document.activeElement ? { tag: document.activeElement.tagName, alias: selectors.find(selector => document.activeElement.matches(selector)) || null } : null,
+                    wheelRecorderPresent: Object.hasOwn(globalThis, 'qaFollowDocumentWheel'), wheel,
+                    scrollY, scrollX, innerWidth, innerHeight, scrollingElement: describe(document.scrollingElement),
+                    visualViewport: viewport ? Object.fromEntries(['width', 'height', 'offsetTop', 'offsetLeft', 'pageTop', 'pageLeft', 'scale'].map(key => [key, viewport[key]])) : null,
+                    navigationExpanded: document.querySelector('.follow-navigation-toggle')?.getAttribute('aria-expanded') ?? null,
+                    modalFlags: { modal: document.body.classList.contains('modal-open'), settings: document.body.classList.contains('settings-open'), score: document.body.classList.contains('nsc-open') },
+                    nodes: selectors.map(selector => ({ selector, element: describe(document.querySelector(selector)) })),
+                    postFailureHitStackAtRecordedWheel: wheel && Number.isFinite(wheel.clientX) && Number.isFinite(wheel.clientY) ? document.elementsFromPoint(wheel.clientX, wheel.clientY).slice(0, 8).map(describe) : null,
+                    limits: 'Current failure state; a null receipt does not prove no event, and current hit stack is not historical target proof. No new pre-input observation.' };
+                }));
+              } catch (_) { capture.captureErrors.push('state'); }
+              const output = process.env.FOLLOW_CONTROL_EVIDENCE_DIR;
+              if (output) {
+                const basename = `${engine}-${width}-${theme}-failure`;
+                const save = () => fs.writeFileSync(path.join(output, basename + '.json'), JSON.stringify(capture, null, 2) + '\n');
+                try { save(); } catch (_) { capture.captureErrors.push('initial-write'); }
+                if (performance.now() < deadline) {
+                  try { await bounded(page.screenshot({ path: path.join(output, basename + '.png'), timeout: remaining() })); capture.screenshot = basename + '.png'; }
+                  catch (_) { capture.captureErrors.push('screenshot'); }
+                } else { capture.captureErrors.push('capture-deadline'); }
+                capture.elapsedMs = performance.now() - captureStarted;
+                try { save(); } catch (_) { capture.captureErrors.push('final-write'); }
+              } else { capture.captureErrors.push('missing-output-directory'); }
+              console.error(JSON.stringify(capture));
+              throw originalError;
             } finally { release(); await page.unrouteAll({ behavior: 'ignoreErrors' }); await context.close(); }
           }
         } finally { await browser.close(); }

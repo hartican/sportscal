@@ -7,6 +7,7 @@ const output=process.env.PEACH_QA_OUTPUT;
 const engines=process.env.PEACH_QA_ENGINE?[process.env.PEACH_QA_ENGINE]:['chromium','webkit'];
 const modalHistoryOnly=process.env.PEACH_QA_CASE==='modal-history';
 const timelineOnly=process.env.PEACH_QA_CASE==='timeline-modal';
+const timelineControlsOnly=process.env.PEACH_QA_CASE==='timeline-controls';
 const records=[],errors=[],blocked=new Set();let server,browser,activePage,requests=0,timedOut=false;
 const fixture=require('../data/events.json').events.find(event=>event.key==='cricket');assert(fixture,'retained source fixture for renderer checks');
 const receipt={mode:'Disposable local browser, API unavailable; no installed/hosted/physical acceptance',engines,records,errors,blocked:[],cleanup:{}};
@@ -71,6 +72,61 @@ async function timelineModal(page,engine){
  assert(after.every(control=>!control.inert&&control.focused),'closing the last modal restores all timeline controls');
  records.push({label:`${engine}: existing Feed timeline controls isolate and restore with Settings`,passed:true});
 }
+async function timelineControls(page,engine){
+ const choices=()=>page.evaluate(()=>JSON.stringify({sports:userPreferences.followedSports,selected:userPreferences.selectedSelectorEntityIds,
+  entities:userPreferences.preferenceGraph?.entityFollows,competitions:userPreferences.preferenceGraph?.competitionPreferences,
+  excluded:userPreferences.followFirst?.excludedMajorEventIds,results:userPreferences.showSpoilers,filters:feedViewFilters}));
+ const original=await choices();
+ async function geometry(label){
+  const state=await page.evaluate(()=>{
+   const nav=document.querySelector('nav.tabs'),tools=document.getElementById('timelineTools'),box=nav.getBoundingClientRect();
+   return {width:innerWidth,height:innerHeight,navSpace:getComputedStyle(document.documentElement).getPropertyValue('--ns-nav-space'),
+    nav:{...box.toJSON(),position:getComputedStyle(nav).position,z:getComputedStyle(nav).zIndex},
+    tools:{...tools.getBoundingClientRect().toJSON(),hidden:tools.hidden,inert:tools.inert,cssBottom:getComputedStyle(tools).bottom,z:getComputedStyle(tools).zIndex},
+    controls:['feedViewFilterBtn','timelineExpandBtn','jumpTodayBtn'].map(id=>{const button=document.getElementById(id),r=button.getBoundingClientRect(),s=getComputedStyle(button),x=r.x+r.width/2,y=r.y+r.height/2;
+     return {id,...r.toJSON(),hidden:button.hidden,label:button.getAttribute('aria-label'),text:button.textContent.trim(),visibility:s.visibility,opacity:Number(s.opacity),hit:button.contains(document.elementFromPoint(x,y)),
+      stack:document.elementsFromPoint(x,y).slice(0,5).map(node=>({tag:node.tagName,id:node.id,className:node.getAttribute('class')}))};})};
+  });
+  (receipt.timelineGeometry||=[]).push({engine,label,...state});
+  if(output)await page.screenshot({path:path.join(output,`${engine}-timeline-${label}.png`)});
+  assert.equal(state.nav.position,'fixed','the actual fixed-footer stylesheet must be loaded before qualifying this case');
+  assert(state.nav.height>=70&&state.navSpace.trim(),'the actual peach navigation space must be resolved');
+  assert.equal(state.tools.hidden,false);assert.equal(state.tools.inert,false);
+  assert(state.tools.bottom<=state.nav.top-8,'Feed controls must clear the fixed bottom navigation');
+  assert(state.controls.every(button=>!button.hidden&&button.width>=44&&button.height>=44&&button.label&&button.hit),
+   'all three Feed controls must have unobstructed native pointer targets');
+  if(label==='390-after-native-controls'){
+   assert(state.controls.every(button=>button.visibility==='visible'&&button.opacity===1),'all three controls must be visibly painted after startup');
+   assert.match(state.controls.find(button=>button.id==='jumpTodayBtn').text,/^Jump to (?:Now|Today)$/,'the contextual jump has visible text, not only an accessible label');
+  }
+  records.push({label:`${engine}: timeline ${label} clears footer and all three hit targets`,passed:true});
+ }
+ for(const width of [390,320,768,1280])for(const theme of ['night','day']){
+  await page.setViewportSize({width,height:844});await page.evaluate(theme=>{applyThemePreference(theme);window.scrollTo(0,0);},theme);
+  await geometry(`${width}-${theme}`);
+ }
+ await page.setViewportSize({width:390,height:844});
+ await page.evaluate(()=>{applyThemePreference('night');document.documentElement.style.setProperty('--ns-nav-space','112px');});
+ try{await geometry('390-increased-footer-space');}finally{await page.evaluate(()=>document.documentElement.style.removeProperty('--ns-nav-space'));}
+ await page.locator('#feedViewFilterBtn').click();
+ const dialog=page.getByRole('dialog',{name:'Filter Feed',exact:true});await dialog.waitFor();
+ await dialog.getByRole('button',{name:'Close',exact:true}).click();await dialog.waitFor({state:'detached'});
+ assert.equal(await page.evaluate(()=>document.activeElement.id),'feedViewFilterBtn');
+ const initialCompact=await page.evaluate(()=>Boolean(userPreferences.feedCompact));
+ for(const target of [!initialCompact,initialCompact]){
+  await page.locator('#timelineExpandBtn').click();await page.waitForFunction(value=>Boolean(userPreferences.feedCompact)===value,target);
+  assert.equal(await page.locator('#timelineExpandBtn').getAttribute('aria-label'),target?'Expand all cards':'Collapse all cards');
+ }
+ await page.evaluate(()=>{document.activeElement?.blur();window.scrollTo(0,0);});
+ await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+ const destination=await page.locator('#jumpTodayBtn').getAttribute('data-jump-destination');
+ assert(['today','now'].includes(destination));await page.locator('#jumpTodayBtn').click();
+ await page.waitForFunction(destination=>{const marker=document.getElementById(destination==='today'?activeTodayAnchorId():'calendarNowAnchor');
+  if(!marker)return false;const r=marker.getBoundingClientRect();return r.top>=-1&&r.top<innerHeight;},destination);
+ await geometry('390-after-native-controls');
+ assert.equal(await choices(),original,'floating controls preserve Follow, Results and filter choices');
+ records.push({label:`${engine}: native Filter open/close, compact toggle/restore and contextual jump`,passed:true});
+}
 (async()=>{
  const deadline=setTimeout(()=>{timedOut=true;void browser?.close();server?.closeAllConnections();},180000);
  try{
@@ -100,9 +156,10 @@ async function timelineModal(page,engine){
    await page.goto(base,{waitUntil:'domcontentloaded'});
    await page.waitForFunction(()=>typeof userPreferences!=='undefined'&&startupFunnelFinished&&!startupCoordinator.isHydrating(),null,{timeout:45000});
    await page.evaluate(()=>{setTunePromptOpen(false);suppressSessionRatingPrompt();acknowledgeSelectorRelease();if(document.getElementById('selectorOptInModal').classList.contains('show'))closeSelectorOptInPrompt();});
-   if(!timelineOnly)await modalHistory(page,engine);
-   if(!modalHistoryOnly)await timelineModal(page,engine);
-   if(modalHistoryOnly||timelineOnly){assert.deepEqual(errors,[]);await context.close();await browser.close();browser=null;continue;}
+   if(!timelineOnly&&!timelineControlsOnly)await modalHistory(page,engine);
+   if(!modalHistoryOnly&&!timelineControlsOnly)await timelineModal(page,engine);
+   if(!modalHistoryOnly&&!timelineOnly)await timelineControls(page,engine);
+   if(modalHistoryOnly||timelineOnly||timelineControlsOnly){assert.deepEqual(errors,[]);await context.close();await browser.close();browser=null;continue;}
    await page.evaluate(fixture=>{
     const host=document.createElement('section');host.id='peach-rendered-card';setCardState(fixture,'opened');host.append(buildEventCard(fixture));document.getElementById('mainContent').append(host);
    },fixture);

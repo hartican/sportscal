@@ -1400,3 +1400,20 @@ A compiled597 source reproduction shows that the existing normalizer can fill a 
 
 The approved redesign uses exactly three persistent main destinations: Feed, Match Centre and Follow. Legacy `#events` routes and restored Events navigation resolve to Match Centre without changing any saved Follow, event-family decision, rating, pin or reminder. The existing nsDEPLOY Events-distribution work owns functional retirement of tournament overview and ticket interfaces; this visual candidate must not introduce a competing redistribution or data migration. Its agreed target is fixtures-only presentation. Existing eligibility and exclusions remain authoritative. Regression: `node scripts/validate-peach-redesign.js`, plus the existing Follow policy and fixture routing checks.
 
+## Current-source Follow qualification — 30 October 2026
+
+Reconcile the approved All Sports/Follow source onto accepted 602 while preserving
+the restored Feed controls. Retain the reviewed native mouse origin and original
+once/passive wheel collector for the first current-source check. Add failure-only
+reporting with the original error and cleanup preserved, without a pre-input
+observer or product overscroll change. Historical failures remain unresolved;
+DEPLOY owns forward version/baseline assembly and current runtime qualification.
+[Source checks, preserved boundaries and handover](quality/all-sports-ui-602-source-reconciliation-2026-10-30.md).
+
+After the original megaphones were accepted in 603, reconcile the same complete
+reviewed scope onto accepted main59b250 without copying the old All Sports
+runtime. Preserve the canonical icon and rating guards, Feed controls and
+original current-source A fixture. Keep source identity603; ROOT owns fresh603
+baseline and forward604 assembly. The prior602 source/diagnostic records remain
+historical. [Current603 source boundary](quality/all-sports-ui-603-source-reconciliation-2026-10-30.md).
+

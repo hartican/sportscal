@@ -92,3 +92,4 @@ for (const id of ['sport:tennis', 'sport:tennis-women', 'sport:football', 'sport
   }
 }
 console.log(JSON.stringify({ passed: true, cases: proofs, limits: 'Real render block, sport writer and navigation owner with disposable DOM; controlled persistence acceptance/refusal. Browser geometry, actual persistence/API, touch and installed-device behaviour require separate checks.' }));
+require('./validate-follow-failure-report');
