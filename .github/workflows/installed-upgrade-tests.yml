@@ -276,10 +276,6 @@ jobs:
       ALL_SPORTS_ENGINES: ${{ matrix.browser }}
       CRICKET_RANGE_ENGINES: ${{ matrix.browser }}
       QA_BROWSER_CHANNEL: chromium
-      PLAYWRIGHT_MODULE: ${{ runner.temp }}/ns-playwright/node_modules/playwright
-      INTERACTION_PROOF_DIR: ${{ runner.temp }}/ns-all-sports-proof
-      ALL_SPORTS_DIAGNOSTIC_DIR: ${{ runner.temp }}/ns-all-sports-proof/screens
-      CRICKET_RANGE_DIAGNOSTIC_DIR: ${{ runner.temp }}/ns-all-sports-proof/screens
     steps:
       - uses: actions/checkout@v5
         with:
@@ -293,7 +289,14 @@ jobs:
           PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
+          export INTERACTION_PROOF_DIR="$RUNNER_TEMP/ns-all-sports-proof"
           mkdir -p "$INTERACTION_PROOF_DIR/screens"
+          {
+            echo "PLAYWRIGHT_MODULE=$RUNNER_TEMP/ns-playwright/node_modules/playwright"
+            echo "INTERACTION_PROOF_DIR=$INTERACTION_PROOF_DIR"
+            echo "ALL_SPORTS_DIAGNOSTIC_DIR=$INTERACTION_PROOF_DIR/screens"
+            echo "CRICKET_RANGE_DIAGNOSTIC_DIR=$INTERACTION_PROOF_DIR/screens"
+          } >> "$GITHUB_ENV"
           node <<'JS' > "$INTERACTION_PROOF_DIR/context.json"
           const cp=require('node:child_process');const git=(...a)=>cp.execFileSync('git',a,{encoding:'utf8'}).trim();
           console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,node:process.version,playwright:'1.64.1',platform:process.platform,arch:process.arch,scope:'Full All Sports/Cricket local real-renderer/handler controls; no customer, provider, production credentials or publication'},null,2));
