@@ -1,5 +1,57 @@
 /* Follow owns its browsing filters; they never mutate sporting follows or Feed filters. */
 (()=>{
+ // Temporary diagnostic: inert unless explicitly armed in active Follow.
+ const sequenceActors=new Set(['nav-scroll','nav-block','nav-before','nav-write-before','nav-write-after','nav-no-panel','nav-close-menu','lease-acquire','lease-release','lease-restored','lease-stop','anchor-scroll','anchor-write-before','anchor-write-after','viewport-write-before','viewport-write-after','input']);
+ const sequenceOrigins=new Set(['mount','manual-toggle','scroll-auto','api-collapse','directory-close','anchor','viewport','preserved-render','wheel','pointerdown','touchstart','keydown','scroll','other']);
+ const sequenceOwners=new WeakMap();let nextSequenceOwner=0;
+ const sequenceActive=()=>{try{return typeof activeTab!=='undefined'&&activeTab==='follow';}catch{return false;}};
+ const sequenceFault=state=>{
+  try{if(state)state.observerFailures=Math.min(1000000,Math.max(0,Number.isSafeInteger(state.observerFailures)?state.observerFailures:0)+1);}catch{}
+  try{globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE_FAULT=true;}catch{}
+ };
+ const sequenceScalar=value=>typeof value==='boolean'?value:typeof value==='number'&&Number.isFinite(value)?value:null;
+ const sequenceAnchor=value=>value===''?0:value==='none'?1:value==='auto'?2:3;
+ function appendFollowScrollSequence(actor,origin,owner,a,b,c,d,anchors){
+  if(!sequenceActive())return;
+  let state;
+  try{
+   state=globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE;
+   if(state?.flag!=='follow-scroll-sequence-v1'||state.armed!==true)return;
+   if(!sequenceActors.has(actor)){sequenceFault(state);return;}
+   if(!Array.isArray(state.records)){sequenceFault(state);return;}
+   if(state.records.length>=64){state.overflow=Math.min(1000000,(Number.isSafeInteger(state.overflow)?state.overflow:0)+1);return;}
+   const eventOrigin=typeof origin==='string'?origin:origin?.type;
+   const safeOrigin=sequenceOrigins.has(eventOrigin)?eventOrigin:'other';
+   let ownerId=0;
+   if(owner&&(typeof owner==='object'||typeof owner==='function')){if(!sequenceOwners.has(owner))sequenceOwners.set(owner,++nextSequenceOwner);ownerId=sequenceOwners.get(owner);}
+   const seq=(Number.isSafeInteger(state.sequence)?state.sequence:0)+1;
+   const row={seq,time:sequenceScalar(performance.now()),actor,origin:safeOrigin,owner:ownerId,y:sequenceScalar(scrollY),a:sequenceScalar(a),b:sequenceScalar(b),c:sequenceScalar(c),d:sequenceScalar(d),rootAnchor:anchors?sequenceAnchor(anchors.root):null,bodyAnchor:anchors?sequenceAnchor(anchors.body):null};
+   state.records.push(row);state.sequence=seq;
+  }catch{sequenceFault(state);}
+ }
+ function snapshotFollowScrollSequence(){
+  const empty={available:true,armed:false,activeFollow:sequenceActive(),records:[],overflow:0,observerFailures:0,complete:false};
+  if(!empty.activeFollow)return empty;
+  let state;
+  try{
+   state=globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE;
+   if(state?.flag!=='follow-scroll-sequence-v1'||state.armed!==true)return globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE_FAULT===true?{...empty,available:false,observerFailures:1}:empty;
+   if(!Array.isArray(state.records))throw new Error('Unreadable diagnostic buffer');
+   const records=[];
+   for(const row of state.records.slice(0,64)){
+    if(!sequenceActors.has(row.actor)||!sequenceOrigins.has(row.origin)){sequenceFault(state);continue;}
+    records.push({seq:sequenceScalar(row.seq),time:sequenceScalar(row.time),actor:row.actor,origin:row.origin,owner:sequenceScalar(row.owner),y:sequenceScalar(row.y),a:sequenceScalar(row.a),b:sequenceScalar(row.b),c:sequenceScalar(row.c),d:sequenceScalar(row.d),rootAnchor:sequenceScalar(row.rootAnchor),bodyAnchor:sequenceScalar(row.bodyAnchor)});
+   }
+   const overflow=Math.max(Number.isSafeInteger(state.overflow)&&state.overflow>=0?state.overflow:0,state.records.length>64?state.records.length-64:0);
+   const observerFailures=Math.max(Number.isSafeInteger(state.observerFailures)?state.observerFailures:0,globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE_FAULT===true?1:0);
+   const depth=typeof scrollContinuityAnchorLockDepth==='number'?sequenceScalar(scrollContinuityAnchorLockDepth):null;
+   return {...empty,armed:true,records,overflow,observerFailures,leaseDepth:depth,complete:overflow===0&&observerFailures===0,
+    limits:'Fixed source aliases/scalars only; no event delivery/trust/target/prevention proof. Initial actors may predate arm.'};
+  }catch{
+   sequenceFault(state);return {...empty,available:false,armed:true,observerFailures:1};
+  }
+ }
+ try{globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE_APPEND=appendFollowScrollSequence;globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE_SNAPSHOT=snapshotFollowScrollSequence;}catch{if(sequenceActive()){try{const state=globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE;if(state?.flag==='follow-scroll-sequence-v1'&&state.armed===true)sequenceFault(state);}catch{}}}
  const savedKey='ns_follow_filters_v1';let filters={};try{filters=JSON.parse(localStorage.getItem(savedKey)||'{}');}catch{}
  const windows=new Map();let collapsed=true,floating=false,lastY=scrollY,lockedUntil=0,sizeObserver=null;
  const persist=()=>{try{localStorage.setItem(savedKey,JSON.stringify(filters));}catch{}};
@@ -57,11 +109,19 @@
   while(container.firstChild)controls.append(container.firstChild);
   const raceControls=entity.id==='sport:horse-racing'?controls.querySelector('.follow-common-controls'):null;
   const followControl=controls.querySelector('.follow-sport-control');
-  const set=value=>{if(value&&controls.querySelector('dialog[open]'))return;const panel=container.querySelector('.follow-schedule-panel,.follow-section-panel');const before=panel?.getBoundingClientRect().top;collapsed=value;controls.hidden=value;spacer.hidden=!floating;nav.classList.toggle('is-floating',floating);nav.classList.toggle('is-collapsed',value);toggle.textContent=value?'Choose sport ⌄':'Close Sports ⌃';toggle.setAttribute('aria-label',value?'Expand Sports menu':'Collapse Sports menu');toggle.setAttribute('aria-expanded',String(!value));if(before!=null){lockedUntil=performance.now()+150;scrollBy(0,panel.getBoundingClientRect().top-before);}};
-  toggle.onclick=()=>set(!collapsed);compact.append(label);
+  const set=(value,origin='api-collapse')=>{
+   const openDialog=value&&controls.querySelector('dialog[open]');
+   if(openDialog){appendFollowScrollSequence('nav-block',origin,nav,value);return;}
+   const panel=container.querySelector('.follow-schedule-panel,.follow-section-panel');const before=panel?.getBoundingClientRect().top;
+   appendFollowScrollSequence('nav-before',origin,nav,before,value,collapsed);
+   collapsed=value;controls.hidden=value;spacer.hidden=!floating;nav.classList.toggle('is-floating',floating);nav.classList.toggle('is-collapsed',value);toggle.textContent=value?'Choose sport ⌄':'Close Sports ⌃';toggle.setAttribute('aria-label',value?'Expand Sports menu':'Collapse Sports menu');toggle.setAttribute('aria-expanded',String(!value));
+   if(before!=null){lockedUntil=performance.now()+150;const after=panel.getBoundingClientRect().top;appendFollowScrollSequence('nav-write-before',origin,nav,before,after,after-before,value);scrollBy(0,after-before);appendFollowScrollSequence('nav-write-after',origin,nav,before,after,after-before,value);}
+   else appendFollowScrollSequence('nav-no-panel',origin,nav,value);
+  };
+  toggle.onclick=()=>set(!collapsed,'manual-toggle');compact.append(label);
   if(['schedule','results'].includes(state.section)){const b=document.createElement('button');b.type='button';b.className='btn ghost';b.textContent='Filter';b.onclick=()=>{const code=followInspectorCode(entity);if(codeInspectorChunk?.code?.id===code?.id)openFilters(code.id,(codeInspectorChunk.fixtures||[]).filter(inspectorFixtureMatchesTab).filter(followScheduleScopeMatches));};compact.append(b);}
-  compact.append(toggle);nav.append(compact);if(followControl)nav.append(followControl);if(raceControls)nav.append(raceControls);if(gender)nav.append(gender);nav.append(controls);if(sections)nav.append(sections);container.prepend(nav,spacer);set(collapsed);
-  nav.collapse=()=>set(true);
+  compact.append(toggle);nav.append(compact);if(followControl)nav.append(followControl);if(raceControls)nav.append(raceControls);if(gender)nav.append(gender);nav.append(controls);if(sections)nav.append(sections);container.prepend(nav,spacer);set(collapsed,'mount');
+  nav.collapse=(origin='api-collapse')=>set(true,origin);
   // Native scrolling must leave room for the complete pinned Follow stack.
   sizeObserver?.disconnect();
   const measure=()=>{if(nav.isConnected)document.documentElement.style.setProperty('--follow-navigation-height',`${Math.ceil(nav.getBoundingClientRect().height)}px`);};
@@ -69,6 +129,6 @@
   if(globalThis.ResizeObserver){const observer=new ResizeObserver(()=>{if(sizeObserver!==observer)return;if(!nav.isConnected){observer.disconnect();return;}measure();});sizeObserver=observer;observer.observe(nav);}
   if(cardImageLoadingUnlocked)observeDeferredCardImages();
  }
- addEventListener('scroll',()=>{const y=scrollY;if(performance.now()>lockedUntil&&y>lastY+6&&y>100&&!document.activeElement?.matches('.follow-navigation input:not([type=checkbox]),.follow-navigation select,.follow-navigation textarea'))document.querySelector('.follow-navigation:not(.is-collapsed)')?.collapse();lastY=y;},{passive:true});
- globalThis.NOTHINGSPORTS_FOLLOW_NAV={closeMenu:()=>{collapsed=true;},mount,matches,selected,setFilter,openFilters,windows};
+ addEventListener('scroll',()=>{const y=scrollY;const shouldCollapse=performance.now()>lockedUntil&&y>lastY+6&&y>100&&!document.activeElement?.matches('.follow-navigation input:not([type=checkbox]),.follow-navigation select,.follow-navigation textarea');const target=shouldCollapse?document.querySelector('.follow-navigation:not(.is-collapsed)'):null;appendFollowScrollSequence('nav-scroll','scroll',target,y,lastY,lockedUntil,shouldCollapse);if(shouldCollapse)target?.collapse('scroll-auto');lastY=y;},{passive:true});
+ globalThis.NOTHINGSPORTS_FOLLOW_NAV={closeMenu:()=>{appendFollowScrollSequence('nav-close-menu','directory-close',null,collapsed,true);collapsed=true;},mount,matches,selected,setFilter,openFilters,windows};
 })();

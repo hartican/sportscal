@@ -241,10 +241,10 @@ jobs:
           collector_options=re.findall(r'\}, (\{ passive: [^\n]+\})\);', harness.read_text());assert len(collector_options)==1
           # This one observation is deliberately ineligible for qualification.
           diagnostic=os.environ['FOLLOW_CONTROL_ENGINES']=='webkit'
-          command=[str(node),'scripts/validate-follow-sport-control-browser.js']+(['--diagnose-root-scroll-css']if diagnostic else[])
+          command=[str(node),'scripts/validate-follow-sport-control-browser.js']+(['--diagnose-follow-scroll-sequence']if diagnostic else[])
           started=time.monotonic();deadline=started+110
           report={'head':head,'tree':git('rev-parse','HEAD^{tree}'),'engine':os.environ['FOLLOW_CONTROL_ENGINES'],'runtime':runtime,'harnessSha256':source_hash,'collectorOptionsLiteral':collector_options[0],'attempts':1,'retries':0,'nativeLimitSeconds':90,'wholeLimitSeconds':110,'releaseAcceptance':False,'passed':False}
-          report.update(diagnosticOnly=diagnostic,qualificationEligible=not diagnostic,collectorRequested=not diagnostic,standardCasesExpected=0 if diagnostic else 4,diagnosticCellsExpected=4 if diagnostic else 0,observationMode='no-test-wheel-observer-root-css-matrix'if diagnostic else 'standard-four-cases')
+          report.update(diagnosticOnly=diagnostic,qualificationEligible=not diagnostic,collectorRequested=not diagnostic,standardCasesExpected=0 if diagnostic else 4,diagnosticCellsExpected=1 if diagnostic else 0,observationMode='no-test-wheel-observer-follow-writer-sequence'if diagnostic else 'standard-four-cases')
           report_file.write_text(json.dumps(report,indent=2)+'\n');proc=None
           try:
               proc=subprocess.Popen(command,start_new_session=True)

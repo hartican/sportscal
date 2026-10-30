@@ -7344,11 +7344,22 @@ return candidates.find(candidate => candidate.getBoundingClientRect().top >= dow
 || target
 || null;
 }
+function recordFollowScrollSequence(actor,origin,owner,a,b,c,d,anchors){
+  try{
+    if(typeof activeTab==='undefined'||activeTab!=='follow')return;
+    const state=globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE;
+    if(state?.flag!=='follow-scroll-sequence-v1'||state.armed!==true)return;
+    const append=globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE_APPEND;
+    if(typeof append==='function')append(actor,origin,owner,a,b,c,d,anchors);
+    else globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE_FAULT=true;
+  }catch{try{globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE_FAULT=true;}catch{}}
+}
 let scrollContinuityAnchorLockDepth = 0;
 let scrollContinuityPreviousAnchorStyles = null;
 function lockNativeScrollAnchoring(){
 const root = document.documentElement;
 const body = document.body;
+const sequenceDepthBefore = scrollContinuityAnchorLockDepth;
 if (scrollContinuityAnchorLockDepth++ === 0){
 scrollContinuityPreviousAnchorStyles = {
 root:root.style.overflowAnchor,
@@ -7357,14 +7368,18 @@ body:body?.style.overflowAnchor || "",
 root.style.overflowAnchor = "none";
 if (body) body.style.overflowAnchor = "none";
   }
+recordFollowScrollSequence('lease-acquire','anchor',null,sequenceDepthBefore,scrollContinuityAnchorLockDepth,null,null,scrollContinuityPreviousAnchorStyles);
 let released = false;
 return () => {
 if (released) return;
 released = true;
+const sequenceDepthBefore = scrollContinuityAnchorLockDepth;
 scrollContinuityAnchorLockDepth = Math.max(0, scrollContinuityAnchorLockDepth - 1);
+recordFollowScrollSequence('lease-release','anchor',null,sequenceDepthBefore,scrollContinuityAnchorLockDepth,null,null,scrollContinuityPreviousAnchorStyles);
 if (scrollContinuityAnchorLockDepth || !scrollContinuityPreviousAnchorStyles) return;
 root.style.overflowAnchor = scrollContinuityPreviousAnchorStyles.root;
 if (body) body.style.overflowAnchor = scrollContinuityPreviousAnchorStyles.body;
+recordFollowScrollSequence('lease-restored','anchor',null,scrollContinuityAnchorLockDepth,null,null,null,scrollContinuityPreviousAnchorStyles);
 scrollContinuityPreviousAnchorStyles = null;
   };
 }
@@ -7389,11 +7404,14 @@ if (currentAnchor && Number.isFinite(anchorTop)){
 const measuredAt = globalThis.performance?.now?.() || Date.now();
 if (measuredAt - lastCorrectionAt < 40) return;
 const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-const correction = scrollCorrectionForAnchor(anchorTop, currentAnchor.getBoundingClientRect().top, window.scrollY, maxScrollY);
+const sequenceAnchorTop = currentAnchor.getBoundingClientRect().top;
+const correction = scrollCorrectionForAnchor(anchorTop, sequenceAnchorTop, window.scrollY, maxScrollY);
 if (Math.abs(correction) >= 0.5){
 lastCorrectionAt = measuredAt;
 expectedCorrectionScrollY = window.scrollY + correction;
+recordFollowScrollSequence('anchor-write-before',interactionName,currentAnchor,correction,expectedCorrectionScrollY,anchorTop,sequenceAnchorTop);
 window.scrollTo({ top:expectedCorrectionScrollY, behavior:"instant" });
+recordFollowScrollSequence('anchor-write-after',interactionName,currentAnchor,correction,expectedCorrectionScrollY,anchorTop,sequenceAnchorTop);
       }
 recordInteractionDisplacement(interactionName, anchorTop, currentAnchor.getBoundingClientRect().top);
     }
@@ -7409,7 +7427,8 @@ restoreFrame = null;
 if (stabilizing) restoreAnchor();
     });
   };
-const stopStabilizing = () => {
+const stopStabilizing = sequenceIntent => {
+recordFollowScrollSequence('lease-stop',sequenceIntent,null,scrollContinuityAnchorLockDepth,stabilizing);
 stabilizing = false;
 resizeObserver?.disconnect?.();
 if (lateRestoreTimer !== null) window.clearInterval(lateRestoreTimer);
@@ -7421,11 +7440,12 @@ releaseNativeAnchor();
 const intentEvents = ["pointerdown", "touchstart", "wheel", "keydown"];
 const cleanupIntentListeners = () => intentEvents.forEach(type => window.removeEventListener(type, stopStabilizing, true));
 const stopForExternalScroll = () => {
+recordFollowScrollSequence('anchor-scroll','scroll',null,expectedCorrectionScrollY,stabilizing,scrollContinuityAnchorLockDepth);
 if (expectedCorrectionScrollY !== null && Math.abs(window.scrollY - expectedCorrectionScrollY) <= 1){
 expectedCorrectionScrollY = null;
 return;
     }
-stopStabilizing();
+stopStabilizing('scroll');
   };
 intentEvents.forEach(type => window.addEventListener(type, stopStabilizing, { capture:true, once:true, passive:true }));
 window.addEventListener("scroll", stopForExternalScroll, { passive:true });
@@ -7516,12 +7536,20 @@ const anchorCard = anchor.card?.isConnected
 .find(card => scrollKeyForElement(card) === anchor.scrollKey)
 : null;
 if (anchorCard && Number.isFinite(anchor.top)){
-const offset = scrollOffsetToPreserveAnchor(anchor.top, anchorCard.getBoundingClientRect().top);
-if (Math.abs(offset) >= 0.5) window.scrollBy(0, offset);
+const sequenceAnchorTop = anchorCard.getBoundingClientRect().top;
+const offset = scrollOffsetToPreserveAnchor(anchor.top, sequenceAnchorTop);
+if (Math.abs(offset) >= 0.5){
+recordFollowScrollSequence('viewport-write-before','viewport',anchorCard,offset,anchor.top,sequenceAnchorTop);
+window.scrollBy(0, offset);
+recordFollowScrollSequence('viewport-write-after','viewport',anchorCard,offset,anchor.top,sequenceAnchorTop);
+}
 return;
   }
 const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-window.scrollTo({ top: Math.min(anchor.scrollY, maxScrollY), behavior: "auto" });
+const sequenceDesiredY = Math.min(anchor.scrollY, maxScrollY);
+recordFollowScrollSequence('viewport-write-before','viewport',null,sequenceDesiredY,anchor.scrollY,maxScrollY);
+window.scrollTo({ top: sequenceDesiredY, behavior: "auto" });
+recordFollowScrollSequence('viewport-write-after','viewport',null,sequenceDesiredY,anchor.scrollY,maxScrollY);
 }
 function setTunePromptOpen(open, dislikeCount = pendingTunePromptDislikeCount){
 const modal = document.getElementById("tunePromptModal");
@@ -15271,6 +15299,7 @@ for (const eventName of ["pointerdown", "touchstart", "wheel", "keydown"]){
     startupFeedNavigationTouched = true;
     feedNavigationInteractionVersion += 1;
     unlockDeferredCardImageLoading();
+    recordFollowScrollSequence('input',eventName,null,feedNavigationInteractionVersion,startupFeedNavigationTouched,cardImageLoadingUnlocked);
   }, { passive: true });
 }
 runStartupFeedBarrier();

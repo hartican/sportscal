@@ -5,9 +5,11 @@ const http = require('node:http');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const modulePath = process.env.PLAYWRIGHT_MODULE || 'playwright';
+const diagnoseFollowScrollSequence = process.argv.includes('--diagnose-follow-scroll-sequence');
 const diagnoseRootScrollCSS = process.argv.includes('--diagnose-root-scroll-css');
+assert(!(diagnoseFollowScrollSequence && (diagnoseRootScrollCSS || process.argv.includes('--diagnose-default-scroll'))), 'Choose one explicit diagnostic mode');
 assert(!(diagnoseRootScrollCSS && process.argv.includes('--diagnose-default-scroll')), 'Choose one explicit diagnostic mode');
-const diagnoseDefaultScroll = process.argv.includes('--diagnose-default-scroll') || diagnoseRootScrollCSS;
+const diagnoseDefaultScroll = process.argv.includes('--diagnose-default-scroll') || diagnoseRootScrollCSS || diagnoseFollowScrollSequence;
 const requestedEngines = (process.env.FOLLOW_CONTROL_ENGINES || 'chromium,webkit').split(',');
 assert(requestedEngines.length && new Set(requestedEngines).size === requestedEngines.length && requestedEngines.every(engine => ['chromium', 'webkit'].includes(engine)), 'Choose each supported Follow browser at most once');
 if (diagnoseDefaultScroll) assert.deepEqual(requestedEngines, ['webkit'], 'Default-scroll diagnostic requires only WebKit');
@@ -26,6 +28,8 @@ if (process.argv.includes('--preflight')) {
     response.end(fs.readFileSync(file));
   });
   function prepareFollowDocumentWheel(observeWheel = true) {
+    const armSequence = observeWheel === 'follow-scroll-sequence';
+    if (armSequence) observeWheel = false;
     const main = document.getElementById('mainContent'), list = document.getElementById('listView'), root = document.scrollingElement;
     if (!main?.isConnected || !list?.isConnected || !root || root === main) throw new Error('Document wheel needs mounted MAIN and a separate document scroll owner');
     const m = main.getBoundingClientRect(), l = list.getBoundingClientRect();
@@ -35,6 +39,10 @@ if (process.argv.includes('--preflight')) {
     const style = getComputedStyle(main), rootStyle = getComputedStyle(root), bodyStyle = getComputedStyle(document.body);
     if (document.elementFromPoint(point.x, point.y) !== main || main.closest('[inert]') || style.display === 'none' || style.visibility !== 'visible' || style.pointerEvents === 'none' || ['fixed', 'sticky'].includes(style.position)) throw new Error('Document wheel point must hit the visible non-overlay MAIN itself');
     if (root.scrollHeight - root.clientHeight <= 100 || [rootStyle, bodyStyle].some(style => ['hidden', 'clip'].includes(style.overflowY)) || (['auto', 'scroll'].includes(style.overflowY) && main.scrollHeight > main.clientHeight + 1)) throw new Error('Document wheel needs an unlocked scrollable document, not a nested MAIN scroller');
+    if (armSequence) {
+      globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE = { flag: 'follow-scroll-sequence-v1', armed: true, records: [], sequence: 0, overflow: 0, observerFailures: 0 };
+      globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE_FAULT = false;
+    }
     if (observeWheel) {
       globalThis.qaFollowDocumentWheel = null;
       document.addEventListener('wheel', event => {
@@ -240,6 +248,7 @@ if (process.argv.includes('--preflight')) {
             let directoryReads = 0;
             const diagnostic = diagnoseDefaultScroll ? newDefaultScrollDiagnostic(engine, width, theme) : null;
             if (rootScrollMatrix) { diagnostic.cssVariant = cssVariant; diagnostic.phases.cssIntervention = 'notReached'; rootScrollMatrix.cells.find(cell => cell.variant.id === cssVariant.id).diagnostic = diagnostic; }
+            if (diagnoseFollowScrollSequence) diagnostic.sequenceProbe = true;
             let diagnosticBeforeBrowse;
             try {
               if (diagnostic) Object.assign(diagnostic, defaultScrollIdentity());
@@ -280,8 +289,13 @@ if (process.argv.includes('--preflight')) {
                 assert.equal(diagnostic.cssIntervention.baselineMatches, true, 'Every fresh cell must start at computed html/body none/none');
                 assert.deepEqual({ html: diagnostic.cssIntervention.after.html.computed, body: diagnostic.cssIntervention.after.body.computed }, { html: cssVariant.html || 'none', body: cssVariant.body || 'none' }, 'Only the named root/body overscroll change is allowed');
               }
+              if (diagnoseFollowScrollSequence) {
+                diagnostic.cssIntervention = await page.evaluate(rootScrollCSSIntervention, ROOT_SCROLL_CSS_CELLS.find(cell => cell.id === 'html-auto'));
+                assert.equal(diagnostic.cssIntervention.baselineMatches, true, 'Sequence cell must start at computed none/none');
+                assert.deepEqual({ html: diagnostic.cssIntervention.after.html.computed, body: diagnostic.cssIntervention.after.body.computed }, { html: 'auto', body: 'none' }, 'Sequence cell matches G html-auto/body-none');
+              }
               const wheelOrigin = diagnoseDefaultScroll
-                ? await page.evaluate(prepareFollowDocumentWheel, false)
+                ? await page.evaluate(prepareFollowDocumentWheel, diagnoseFollowScrollSequence ? 'follow-scroll-sequence' : false)
                 : await page.evaluate(prepareFollowDocumentWheel);
               if (diagnostic) {
                 defaultScrollPhase(diagnostic, 'pointMatch'); diagnostic.wheelOrigin = wheelOrigin;
@@ -297,7 +311,7 @@ if (process.argv.includes('--preflight')) {
               await page.waitForFunction(() => document.querySelector('.follow-navigation-toggle')?.getAttribute('aria-expanded') === 'false');
               if (diagnostic) {
                 defaultScrollPhase(diagnostic, 'postScrollChecks');
-                diagnostic.finalState = await page.evaluate(() => ({ scrollY, rootMaxScroll: Math.max(0, document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight), navigationExpanded: document.querySelector('.follow-navigation-toggle')?.getAttribute('aria-expanded') ?? null }));
+                diagnostic.finalState = await page.evaluate(sequenceProbe => ({ scrollY, rootMaxScroll: Math.max(0, document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight), navigationExpanded: document.querySelector('.follow-navigation-toggle')?.getAttribute('aria-expanded') ?? null, ...(sequenceProbe ? { followScrollSequence: (() => { try { const read = globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE_SNAPSHOT; return typeof read === 'function' ? read() : { available: false, observerFailures: 1, complete: false, records: [] }; } catch (_) { return { available: false, observerFailures: 1, complete: false, records: [] }; } })() } : {}) }), Boolean(diagnostic.sequenceProbe));
               }
               let wheelGesture;
               if (!diagnoseDefaultScroll) {
@@ -355,7 +369,7 @@ if (process.argv.includes('--preflight')) {
                 error: { name: originalError.name, message: String(originalError.message).slice(0, 16000), stack: String(originalError.stack).slice(0, 24000) },
                 state: null, screenshot: null, captureErrors: [] };
               try {
-                capture.state = await bounded(page.evaluate(() => {
+                capture.state = await bounded(page.evaluate(sequenceProbe => {
                   const selectors = ['html', 'body', '#mainContent', '#listView', 'header.top', '.tabs', '.follow-home-tabs', '.follow-navigation', '.follow-navigation-toggle', '.follow-sport-control', '.follow-sport-control input', '#follow-navigation-controls', '.follow-section-panel', '.follow-schedule-panel', '#settingsModal', '#tuneSheet', '#startupLaunch'];
                   const describe = element => {
                     if (!element || element.nodeType !== 1) return null;
@@ -373,6 +387,7 @@ if (process.argv.includes('--preflight')) {
                     activeElement: document.activeElement ? { tag: document.activeElement.tagName, alias: selectors.find(selector => document.activeElement.matches(selector)) || null } : null,
                     wheelRecorderPresent: Object.hasOwn(globalThis, 'qaFollowDocumentWheel'), wheel,
                     failedLabelMeasurement: globalThis.qaFollowLabelFailure ?? null,
+                    ...(sequenceProbe ? { followScrollSequence: (() => { try { const read = globalThis.NOTHINGSPORTS_FOLLOW_SCROLL_SEQUENCE_SNAPSHOT; return typeof read === 'function' ? read() : { available: false, observerFailures: 1, complete: false, records: [] }; } catch (_) { return { available: false, observerFailures: 1, complete: false, records: [] }; } })() } : {}),
                     scrollY, scrollX, innerWidth, innerHeight, scrollingElement: describe(document.scrollingElement),
                     visualViewport: viewport ? Object.fromEntries(['width', 'height', 'offsetTop', 'offsetLeft', 'pageTop', 'pageLeft', 'scale'].map(key => [key, viewport[key]])) : null,
                     navigationExpanded: document.querySelector('.follow-navigation-toggle')?.getAttribute('aria-expanded') ?? null,
@@ -380,7 +395,7 @@ if (process.argv.includes('--preflight')) {
                     nodes: selectors.map(selector => ({ selector, element: describe(document.querySelector(selector)) })),
                     postFailureHitStackAtRecordedWheel: wheel && Number.isFinite(wheel.clientX) && Number.isFinite(wheel.clientY) ? document.elementsFromPoint(wheel.clientX, wheel.clientY).slice(0, 8).map(describe) : null,
                     limits: 'Current failure state; a null receipt does not prove no event, and current hit stack is not historical target proof. No new pre-input observation.' };
-                }));
+                }, Boolean(diagnostic?.sequenceProbe)));
               } catch (_) { capture.captureErrors.push('state'); }
               if (diagnostic) {
                 if (capture.state) diagnostic.finalState = { scrollY: capture.state.scrollY, rootMaxScroll: capture.state.scrollingElement?.maxScrollTop ?? null, navigationExpanded: capture.state.navigationExpanded };
@@ -395,7 +410,7 @@ if (process.argv.includes('--preflight')) {
               }
               const output = process.env.FOLLOW_CONTROL_EVIDENCE_DIR;
               if (output) {
-                const basename = `${diagnostic?.cssVariant ? 'root-scroll-css-' + diagnostic.cssVariant.id + '-' : diagnoseDefaultScroll ? 'default-scroll-control-' : ''}${engine}-${width}-${theme}-failure`;
+                const basename = `${diagnostic?.sequenceProbe ? 'follow-scroll-sequence-' : diagnostic?.cssVariant ? 'root-scroll-css-' + diagnostic.cssVariant.id + '-' : diagnoseDefaultScroll ? 'default-scroll-control-' : ''}${engine}-${width}-${theme}-failure`;
                 const save = () => fs.writeFileSync(path.join(output, basename + '.json'), JSON.stringify(capture, null, 2) + '\n');
                 try { save(); } catch (_) { capture.captureErrors.push('initial-write'); }
                 if (performance.now() < deadline) {
@@ -432,7 +447,7 @@ if (process.argv.includes('--preflight')) {
       if (rootScrollMatrix.firstError) throw rootScrollMatrix.firstError;
       return;
     }
-    if (diagnoseDefaultScroll) fs.writeFileSync(path.join(process.env.FOLLOW_CONTROL_EVIDENCE_DIR, 'default-scroll-control.json'), JSON.stringify({ diagnosticOnly: true, releaseAcceptance: false, cases: defaultScrollEvidence, cleanupOwnerReceipt: 'supervisor.json' }, null, 2) + '\n');
+    if (diagnoseDefaultScroll) fs.writeFileSync(path.join(process.env.FOLLOW_CONTROL_EVIDENCE_DIR, diagnoseFollowScrollSequence ? 'follow-scroll-sequence.json' : 'default-scroll-control.json'), JSON.stringify({ diagnosticOnly: true, releaseAcceptance: false, cases: defaultScrollEvidence, cleanupOwnerReceipt: 'supervisor.json' }, null, 2) + '\n');
     else if (process.env.FOLLOW_CONTROL_EVIDENCE_DIR) fs.writeFileSync(path.join(process.env.FOLLOW_CONTROL_EVIDENCE_DIR, 'browser-receipts.json'), JSON.stringify({ cases: evidence, limits: 'Actual local app with disposable preferences and controlled network; service workers blocked. No hosted account, real delivery or physical-device claim.' }, null, 2) + '\n');
   })().catch(error => { console.error(error); process.exitCode = 1; });
 }
