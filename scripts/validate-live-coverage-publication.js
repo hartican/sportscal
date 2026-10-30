@@ -55,5 +55,12 @@ const prior={events:[base],sources:[{id:'discovery-rugby-mru',checkedAt:base.sou
   const proof=project(JSON.parse(fs.readFileSync(path.join(__dirname,'../data/follow-sources/coverage.v1.json'))),live);
   console.log(JSON.stringify({mode:'read-only-live-validation',...proof.report}));
  }
+ if(!process.argv.includes('--live-read')){
+  for(const script of ['validate-live-coverage-scoped-refresh.js','validate-rugby-scoped-publication.js']){
+   const result=require('node:child_process').spawnSync(process.execPath,[path.join(__dirname,script)],{encoding:'utf8'});
+   assert.equal(result.status,0,result.stderr||result.error?.message||'Scoped shared coverage regression failed');
+   console.log(result.stdout.trim());
+  }
+ }
  console.log('Live coverage publication: result vs stale near-source, original provenance, viewing preservation, no-op bytes, older/future rejection, pagination ceiling, failure retention and quick projection scope passed.');
 })().catch(e=>{console.error(e);process.exitCode=1});
