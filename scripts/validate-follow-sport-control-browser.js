@@ -5,7 +5,9 @@ const http = require('node:http');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const modulePath = process.env.PLAYWRIGHT_MODULE || 'playwright';
-const diagnoseDefaultScroll = process.argv.includes('--diagnose-default-scroll');
+const diagnoseRootScrollCSS = process.argv.includes('--diagnose-root-scroll-css');
+assert(!(diagnoseRootScrollCSS && process.argv.includes('--diagnose-default-scroll')), 'Choose one explicit diagnostic mode');
+const diagnoseDefaultScroll = process.argv.includes('--diagnose-default-scroll') || diagnoseRootScrollCSS;
 const requestedEngines = (process.env.FOLLOW_CONTROL_ENGINES || 'chromium,webkit').split(',');
 assert(requestedEngines.length && new Set(requestedEngines).size === requestedEngines.length && requestedEngines.every(engine => ['chromium', 'webkit'].includes(engine)), 'Choose each supported Follow browser at most once');
 if (diagnoseDefaultScroll) assert.deepEqual(requestedEngines, ['webkit'], 'Default-scroll diagnostic requires only WebKit');
@@ -13,7 +15,7 @@ if (process.argv.includes('--preflight')) {
   assert(fs.readFileSync(path.join(root, 'assets/js/follow-navigation.js'), 'utf8').includes("const followControl=controls.querySelector('.follow-sport-control')"));
   assert(fs.readFileSync(path.join(root, 'assets/js/follow-presentation-ui.js'), 'utf8').includes('follow.checked=followed'));
   require('./validate-follow-sport-control');
-  console.log(JSON.stringify({ preflight: true, diagnosticOnly: diagnoseDefaultScroll, releaseAcceptance: false, cases: diagnoseDefaultScroll ? 1 : requestedEngines.length * 4, browsersStarted: 0, externalRequests: 0 }));
+  console.log(JSON.stringify({ preflight: true, diagnosticOnly: diagnoseDefaultScroll, releaseAcceptance: false, cases: diagnoseRootScrollCSS ? 4 : diagnoseDefaultScroll ? 1 : requestedEngines.length * 4, browsersStarted: 0, externalRequests: 0 }));
 } else {
   const engines = require(modulePath);
   const server = http.createServer((request, response) => {
@@ -83,6 +85,94 @@ if (process.argv.includes('--preflight')) {
       gestureCommandAwaited: diagnostic.gestureCommand.awaited, originMatched: diagnostic.originMatched,
       limits: 'An unexecuted assertion is not a failed wheel or navigation assertion.' };
   }
+  const ROOT_SCROLL_CSS_CELLS = Object.freeze([
+    Object.freeze({ id: 'baseline', html: null, body: null }),
+    Object.freeze({ id: 'both-auto', html: 'auto', body: 'auto' }),
+    Object.freeze({ id: 'html-auto', html: 'auto', body: null }),
+    Object.freeze({ id: 'body-auto', html: null, body: 'auto' }),
+  ]);
+  function rootScrollCSSIntervention(variant) {
+    const html = document.documentElement, body = document.body;
+    const describe = element => ({ computed: getComputedStyle(element).getPropertyValue('overscroll-behavior-y'),
+      inline: element.style.getPropertyValue('overscroll-behavior-y'), priority: element.style.getPropertyPriority('overscroll-behavior-y') });
+    const before = { html: describe(html), body: describe(body) }, writes = [];
+    const baselineMatches = before.html.computed === 'none' && before.body.computed === 'none';
+    if (baselineMatches) for (const [name, element] of [['html', html], ['body', body]]) {
+      if (variant[name] === 'auto') { element.style.setProperty('overscroll-behavior-y', 'auto'); writes.push(name); }
+    }
+    return { variant: variant.id, baselineMatches, before, after: { html: describe(html), body: describe(body) }, writes };
+  }
+  function newRootScrollMatrix() {
+    return { diagnosticOnly: true, releaseAcceptance: false, firstError: null, stopReason: null,
+      internalStopUptimeMs: 85000, admissionReserveMs: 40000,
+      cells: ROOT_SCROLL_CSS_CELLS.map(variant => ({ variant, status: 'NOT_RUN', reason: 'not-started', diagnostic: null, cleanup: null })) };
+  }
+  function rootScrollMatrixRemaining(matrix) { return matrix.internalStopUptimeMs - process.uptime() * 1000; }
+  function rootScrollMatrixSnapshot(matrix) {
+    const cells = matrix.cells.map(({ errorObject, ...cell }) => cell);
+    const baseline = cells[0], reproducedBaseline = baseline?.diagnostic?.verdict?.scroll === 'failed' && baseline.diagnostic.finalState?.scrollY === 0 && baseline.diagnostic.finalState?.navigationExpanded === 'true';
+    const localComparability = !matrix.stopReason && reproducedBaseline && cells.length === 4 && cells.every(cell => {
+      const d = cell.diagnostic;
+      return ['PASS', 'FAIL'].includes(cell.status) && cell.cleanup?.natural === true && !cell.cleanupError &&
+        (cell.status === 'PASS' || ['scroll', 'navigation'].includes(d?.phase)) &&
+        d?.cssIntervention?.baselineMatches && d.originMatched && d.gestureCommand.awaited &&
+        ['passed', 'failed'].includes(d.verdict?.scroll) &&
+        (['passed', 'failed'].includes(d.verdict?.navigation) || (d.verdict.scroll === 'failed' && d.verdict.navigation === 'notReached')) &&
+        d.choicesUnchanged === true && d.notificationsOff === true && d.siblingAbsent === true && !d.captureErrors.length && !cell.captureErrors?.length;
+    });
+    return { diagnosticOnly: true, releaseAcceptance: false, mode: 'no-test-wheel-observer-root-body-overscroll-factorial',
+      expectedCells: 4, cells, stopReason: matrix.stopReason, overall: matrix.firstError ? 'FAILED' : cells.every(cell => cell.status === 'PASS') ? 'PASSED' : 'INCOMPLETE',
+      internalStopUptimeMs: matrix.internalStopUptimeMs, admissionReserveMs: matrix.admissionReserveMs,
+      baselineReproduced: reproducedBaseline, localComparability, attributionEligible: false,
+      ownerProofRequired: 'Unforced owned process cleanup, unchanged app/source/runtime, complete matching baseline and all four cells; ROOT interprets only then',
+      eventReceipt: null, eventProperties: 'unobserved', cleanupOwnerReceipt: 'supervisor.json' };
+  }
+  function saveRootScrollMatrix(matrix) {
+    try {
+      const output = process.env.FOLLOW_CONTROL_EVIDENCE_DIR;
+      assert(output, 'Root-scroll matrix requires the existing owned evidence directory');
+      fs.writeFileSync(path.join(output, 'root-scroll-css-matrix.json'), JSON.stringify(rootScrollMatrixSnapshot(matrix), null, 2) + '\n');
+    } catch (error) { matrix.firstError ||= error; matrix.stopReason ||= 'artifact-write'; }
+  }
+  function rootScrollMatrixBudgetError(matrix) {
+    const error = new Error('Insufficient unchanged native budget for both 15s waits, 5s capture and 5s context cleanup');
+    error.name = 'MatrixBudgetStop'; matrix.firstError ||= error; matrix.stopReason ||= 'time-budget'; return error;
+  }
+  function admitRootScrollCell(matrix, variant) {
+    const cell = matrix.cells.find(cell => cell.variant.id === variant.id);
+    if (matrix.stopReason || rootScrollMatrixRemaining(matrix) < matrix.admissionReserveMs) {
+      if (!matrix.stopReason) rootScrollMatrixBudgetError(matrix);
+      cell.reason = matrix.stopReason; saveRootScrollMatrix(matrix); return false;
+    }
+    cell.status = 'RUNNING'; cell.reason = null; cell.remainingAtStartMs = rootScrollMatrixRemaining(matrix);
+    saveRootScrollMatrix(matrix);
+    if (matrix.stopReason) { cell.status = 'NOT_RUN'; cell.reason = matrix.stopReason; return false; }
+    return true;
+  }
+  function ensureRootScrollCellBudget(matrix) {
+    if (rootScrollMatrixRemaining(matrix) < matrix.admissionReserveMs) throw rootScrollMatrixBudgetError(matrix);
+  }
+  function recordRootScrollCellError(matrix, variant, error, original) {
+    const cell = matrix.cells.find(cell => cell.variant.id === variant.id);
+    matrix.firstError ||= error;
+    const summary = { name: error.name, message: String(error.message).slice(0, 16000), stack: String(error.stack).slice(0, 24000) };
+    const cleanupFailure = !original && ((cell.errorObject && error !== cell.errorObject) || (!cell.errorObject && cell.diagnostic?.phase === 'complete'));
+    if (cleanupFailure) { cell.cleanupError = summary; matrix.stopReason ||= 'context-cleanup'; }
+    if (original || !cell.errorObject) { cell.errorObject = error; cell.error = summary; }
+    if (error.name === 'MatrixBudgetStop') { cell.status = 'NOT_RUN'; cell.reason = 'time-budget-before-gesture'; }
+  }
+  function finishRootScrollCell(matrix, variant, context, page) {
+    const cell = matrix.cells.find(cell => cell.variant.id === variant.id);
+    let pageClosed = false, pagesEmpty = false;
+    try { pageClosed = Boolean(page?.isClosed()); pagesEmpty = Boolean(context && context.pages().length === 0); }
+    catch (error) { cell.cleanupError = { name: error.name, message: String(error.message).slice(0, 16000) }; matrix.firstError ||= error; }
+    cell.cleanup = { pageClosed, pagesEmpty, natural: pageClosed && pagesEmpty && !cell.cleanupError };
+    if (!cell.cleanup.natural) { matrix.stopReason ||= 'context-cleanup'; matrix.firstError ||= new Error('Matrix context cleanup was not naturally verified'); }
+    if (cell.status !== 'NOT_RUN') cell.status = cell.errorObject ? 'FAIL' : 'PASS';
+    cell.remainingAfterCloseMs = rootScrollMatrixRemaining(matrix);
+    if (cell.remainingAfterCloseMs < 0) { matrix.stopReason ||= 'time-budget'; matrix.firstError ||= new Error('Matrix exceeded its conservative native budget'); }
+    saveRootScrollMatrix(matrix);
+  }
   const choiceSnapshot = page => page.evaluate(() => JSON.stringify({
     selected: userPreferences.selectedSelectorEntityIds,
     sports: userPreferences.followedSports,
@@ -128,19 +218,28 @@ if (process.argv.includes('--preflight')) {
     await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
     const url = 'http://127.0.0.1:' + server.address().port;
     const evidence = [], defaultScrollEvidence = [];
+    const rootScrollMatrix = diagnoseRootScrollCSS ? newRootScrollMatrix() : null;
     try {
+      if (rootScrollMatrix) saveRootScrollMatrix(rootScrollMatrix);
       for (const engine of requestedEngines) {
         const browser = await engines[engine].launch({ headless: true });
         try {
           for (const width of (diagnoseDefaultScroll ? [320] : [320, 390])) for (const theme of (diagnoseDefaultScroll ? ['day'] : ['day', 'night'])) {
+            for (const cssVariant of (rootScrollMatrix ? ROOT_SCROLL_CSS_CELLS : [null])) {
+            if (rootScrollMatrix && !admitRootScrollCell(rootScrollMatrix, cssVariant)) continue;
+            let matrixContext = null, matrixPage = null;
+            try {
             const scope = theme === 'night' ? 'sport:tennis-women' : 'sport:tennis';
             const directory = scope.slice(6), initialChecked = width === 390;
             const context = await browser.newContext({ viewport: { width, height: width === 320 ? 568 : 844 }, hasTouch: true, serviceWorkers: 'block' });
+            if (rootScrollMatrix) matrixContext = context;
             const page = await context.newPage(), errors = [];
+            if (rootScrollMatrix) matrixPage = page;
             page.setDefaultTimeout(15000); page.on('pageerror', error => errors.push(error.message));
             let release; const directoryGate = new Promise(resolve => { release = resolve; });
             let directoryReads = 0;
             const diagnostic = diagnoseDefaultScroll ? newDefaultScrollDiagnostic(engine, width, theme) : null;
+            if (rootScrollMatrix) { diagnostic.cssVariant = cssVariant; diagnostic.phases.cssIntervention = 'notReached'; rootScrollMatrix.cells.find(cell => cell.variant.id === cssVariant.id).diagnostic = diagnostic; }
             let diagnosticBeforeBrowse;
             try {
               if (diagnostic) Object.assign(diagnostic, defaultScrollIdentity());
@@ -174,6 +273,13 @@ if (process.argv.includes('--preflight')) {
               await assertAvailable(page);
               await page.evaluate(() => scrollTo(0, 0));
               await page.waitForTimeout(180); // Beyond the existing navigation owner's150ms scroll lock.
+              if (diagnostic?.cssVariant) {
+                ensureRootScrollCellBudget(rootScrollMatrix);
+                defaultScrollPhase(diagnostic, 'cssIntervention');
+                diagnostic.cssIntervention = await page.evaluate(rootScrollCSSIntervention, cssVariant);
+                assert.equal(diagnostic.cssIntervention.baselineMatches, true, 'Every fresh cell must start at computed html/body none/none');
+                assert.deepEqual({ html: diagnostic.cssIntervention.after.html.computed, body: diagnostic.cssIntervention.after.body.computed }, { html: cssVariant.html || 'none', body: cssVariant.body || 'none' }, 'Only the named root/body overscroll change is allowed');
+              }
               const wheelOrigin = diagnoseDefaultScroll
                 ? await page.evaluate(prepareFollowDocumentWheel, false)
                 : await page.evaluate(prepareFollowDocumentWheel);
@@ -182,6 +288,7 @@ if (process.argv.includes('--preflight')) {
                 assert.deepEqual(wheelOrigin, { x: 6, y: 284, rootMaxScroll: 4386, target: 'MAIN#mainContent' }, 'Default-scroll control must match D/E origin and range');
                 diagnostic.originMatched = true; defaultScrollPhase(diagnostic, 'wheelCommand');
               }
+              if (diagnostic?.cssVariant) ensureRootScrollCellBudget(rootScrollMatrix);
               await page.mouse.move(wheelOrigin.x, wheelOrigin.y);
               await page.mouse.wheel(0, 350);
               if (diagnostic) { diagnostic.gestureCommand.awaited = true; defaultScrollPhase(diagnostic, 'scroll'); }
@@ -237,6 +344,7 @@ if (process.argv.includes('--preflight')) {
               evidence.push(receipt); console.log(JSON.stringify(receipt));
             } catch (originalError) {
               if (diagnostic) { defaultScrollFailure(diagnostic); diagnostic.verdict = defaultScrollVerdict(diagnostic); }
+              if (diagnostic?.cssVariant) recordRootScrollCellError(rootScrollMatrix, cssVariant, originalError, true);
               const captureStarted = performance.now(), deadline = captureStarted + 5000;
               const remaining = () => Math.max(1, Math.ceil(deadline - performance.now()));
               const bounded = async work => { let timer; try { return await Promise.race([work, new Promise((_, reject) => { timer = setTimeout(() => reject(new Error('Failure capture deadline')), remaining()); })]); } finally { clearTimeout(timer); } };
@@ -287,7 +395,7 @@ if (process.argv.includes('--preflight')) {
               }
               const output = process.env.FOLLOW_CONTROL_EVIDENCE_DIR;
               if (output) {
-                const basename = `${diagnoseDefaultScroll ? 'default-scroll-control-' : ''}${engine}-${width}-${theme}-failure`;
+                const basename = `${diagnostic?.cssVariant ? 'root-scroll-css-' + diagnostic.cssVariant.id + '-' : diagnoseDefaultScroll ? 'default-scroll-control-' : ''}${engine}-${width}-${theme}-failure`;
                 const save = () => fs.writeFileSync(path.join(output, basename + '.json'), JSON.stringify(capture, null, 2) + '\n');
                 try { save(); } catch (_) { capture.captureErrors.push('initial-write'); }
                 if (performance.now() < deadline) {
@@ -297,15 +405,33 @@ if (process.argv.includes('--preflight')) {
                 capture.elapsedMs = performance.now() - captureStarted;
                 try { save(); } catch (_) { capture.captureErrors.push('final-write'); }
               } else { capture.captureErrors.push('missing-output-directory'); }
+              if (diagnostic?.cssVariant) rootScrollMatrix.cells.find(cell => cell.variant.id === cssVariant.id).captureErrors = [...capture.captureErrors, ...diagnostic.captureErrors];
               console.error(JSON.stringify(capture));
               throw originalError;
             } finally { release(); await page.unrouteAll({ behavior: 'ignoreErrors' }); await context.close(); }
+            } catch (cellError) {
+              if (!rootScrollMatrix) throw cellError;
+              recordRootScrollCellError(rootScrollMatrix, cssVariant, cellError, false);
+            } finally { if (rootScrollMatrix) finishRootScrollCell(rootScrollMatrix, cssVariant, matrixContext, matrixPage); }
+            }
           }
-        } finally { await browser.close(); }
+        } finally {
+          if (!rootScrollMatrix) await browser.close();
+          else try { await browser.close(); } catch (error) { rootScrollMatrix.firstError ||= error; rootScrollMatrix.stopReason ||= 'browser-cleanup'; saveRootScrollMatrix(rootScrollMatrix); }
+        }
       }
-      if (diagnoseDefaultScroll) assert.equal(defaultScrollEvidence.length, 1, 'Exactly one nonacceptance default-scroll control');
+      if (rootScrollMatrix) saveRootScrollMatrix(rootScrollMatrix);
+      else if (diagnoseDefaultScroll) assert.equal(defaultScrollEvidence.length, 1, 'Exactly one nonacceptance default-scroll control');
       else assert.equal(evidence.length, requestedEngines.length * 4, 'Every requested browser must finish all four original Follow cases');
-    } finally { await new Promise(resolve => server.close(resolve)); }
+    } finally {
+      if (!rootScrollMatrix) await new Promise(resolve => server.close(resolve));
+      else try { await new Promise(resolve => server.close(resolve)); } catch (error) { rootScrollMatrix.firstError ||= error; rootScrollMatrix.stopReason ||= 'server-cleanup'; }
+    }
+    if (rootScrollMatrix) {
+      saveRootScrollMatrix(rootScrollMatrix);
+      if (rootScrollMatrix.firstError) throw rootScrollMatrix.firstError;
+      return;
+    }
     if (diagnoseDefaultScroll) fs.writeFileSync(path.join(process.env.FOLLOW_CONTROL_EVIDENCE_DIR, 'default-scroll-control.json'), JSON.stringify({ diagnosticOnly: true, releaseAcceptance: false, cases: defaultScrollEvidence, cleanupOwnerReceipt: 'supervisor.json' }, null, 2) + '\n');
     else if (process.env.FOLLOW_CONTROL_EVIDENCE_DIR) fs.writeFileSync(path.join(process.env.FOLLOW_CONTROL_EVIDENCE_DIR, 'browser-receipts.json'), JSON.stringify({ cases: evidence, limits: 'Actual local app with disposable preferences and controlled network; service workers blocked. No hosted account, real delivery or physical-device claim.' }, null, 2) + '\n');
   })().catch(error => { console.error(error); process.exitCode = 1; });
