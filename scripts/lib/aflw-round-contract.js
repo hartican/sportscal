@@ -8,7 +8,7 @@ function utc(value){
  if(typeof value!=='string'||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?(?:Z|\+0000|\+00:00)$/.test(value))return null;
  const time=Date.parse(value);if(!Number.isFinite(time)||new Date(time).toISOString().slice(0,19)!==value.slice(0,19))return null;return new Date(time).toISOString();
 }
-function roundRows(payload,round){
+function roundRows(payload,round,{preflight}={}){
  const expected=scope.records.filter(row=>row.roundNumber===round),page=payload?.meta?.pagination;
  if(![11,12].includes(round)||expected.length!==9)fail('unreviewed round');
  if(!Array.isArray(payload?.matches))roundFail('complete single nine-match page required');
@@ -18,9 +18,14 @@ function roundRows(payload,round){
   if(!row||row.roundNumber!==round||seen.has(row.id)||match.id!==row.numericMatchId)fail('missing, duplicate, new or mismatched fixture');seen.add(row.id);
   if(season?.id!==96||season.providerId!==scope.season.providerId||season.name!==scope.season.name||match.round?.roundNumber!==round||match.round.providerId!==`CD_R2026264${round}`)fail('season or round changed');
   for(const side of ['home','away']){const team=match[side]?.team;if(team?.providerId!==row[side+'ProviderId']||team.id!==row[side+'NumericId']||team.teamType!=='WOMEN')fail('ordered retained team binding changed');}
+  const suppliedStart=utc(match.utcStartTime);if(suppliedStart&&suppliedStart!==row.startTimeUtc)fail('supplied sporting start contradicts retained calendar');
  }
+ const rows=payload.matches.map(match=>({match,binding:records.get(match.providerId)}));
+ // Independently evaluable contradictions must survive a partial envelope.
+ // Preflight admits nothing: the complete page is still mandatory below.
+ if(preflight)for(const {match,binding}of rows)preflight(match,binding);
  if(payload?.meta?.code!==200||!page||page.page!==0||page.numPages!==1||page.pageSize!==50||page.numEntries!==9||payload.matches.length!==9)roundFail('complete single nine-match page required');
- return payload.matches.map(match=>({match,binding:records.get(match.providerId)}));
+ return rows;
 }
 function finalFacts(match,binding,{observedAt,now=new Date()}={}){
  const start=utc(match.utcStartTime),observed=utc(observedAt);

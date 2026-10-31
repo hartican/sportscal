@@ -41,7 +41,11 @@ function validateRetained(bundle,documents,now){
   const pairs=settled.map(retainedScores);
   if(pairs.some(pair=>!same(pair,pairs[0])))throw Error('Conflicting retained AFLW finals');
   for(const row of settled)validateFinal(row,fixture);
-  for(const row of settled){const at=row.result?.source?.checkedAt||row.scoreCheckedAt||row.resultSourceCheckedAt||(row.result?.status==='completed'?row.source?.checkedAt:null);const stamp=contract.utc(at);if(!stamp||Date.parse(stamp)<Date.parse(fixture.startTimeUtc)||Date.parse(stamp)>+now)throw Error('Retained AFLW final lacks its genuine result clock');}
+  for(const row of settled){
+   const at=row.result?.source?.checkedAt||row.scoreCheckedAt||row.resultSourceCheckedAt||(row.result?.status==='completed'?row.source?.checkedAt:null);
+   const stamps=[at,row.result?.source?.checkedAt,row.scoreCheckedAt,row.resultSourceCheckedAt].filter(value=>value!=null);
+   if(!at||stamps.some(value=>!contract.utc(value)||Date.parse(value)<Date.parse(fixture.startTimeUtc)||Date.parse(value)>+now))throw Error('Retained AFLW final lacks its genuine post-start result clock');
+  }
  }
  return targets;
 }
@@ -73,13 +77,17 @@ async function refresh({now=new Date(),deadline}={}){
    try{const staged=await budget.read(url,payload=>{
     const staged={updates:[],accepted:[],deferrals:[]};
     const receipt=budget.summary().observations.find(row=>row.url===url);
-    for(const {match,binding}of contract.roundRows(payload,round)){
+    const checked=new Map(),rows=contract.roundRows(payload,round,{preflight:(match,binding)=>{
      const held=targets.get(binding.id);
      if(held&&[held.fixture,...held.cards.map(value=>value.card)].some(row=>row.status==='completed')&&['SCHEDULED','PRE_MATCH','LIVE','IN_PROGRESS'].includes(String(match.status||'').toUpperCase()))throw Error('Official source cannot reopen retained AFLW final');
      const facts=contract.finalFacts(match,binding,{observedAt:receipt.observedAt,now:new Date()});
+     if(!facts.deferred&&[held.fixture,...held.cards.map(value=>value.card)].some(row=>row.status==='completed'&&!same(retainedScores(row),[facts.homeScore,facts.awayScore])))throw Error('Official source conflicts with retained AFLW final');
+     checked.set(binding.id,facts);
+    }});
+    for(const {match,binding}of rows){
+     const held=targets.get(binding.id),facts=checked.get(binding.id);
      if(facts.deferred){staged.deferrals.push({id:binding.id,reason:facts.deferred,nextAction:binding.targetedResult?'Review missing official result evidence in a separately allocated source attempt':'Retain unchanged; outside this ten-result allocation'});continue;}
      const pair=[facts.homeScore,facts.awayScore];
-     if([held.fixture,...held.cards.map(value=>value.card)].some(row=>row.status==='completed'&&!same(retainedScores(row),pair)))throw Error('Official source conflicts with retained AFLW final');
      const next=held.fixture.status==='completed'?held.fixture:canonicalFinal(held.fixture,match,facts,participants);
      staged.updates.push([binding.id,{fixture:next,pair}]);staged.accepted.push({id:binding.id,providerId:binding.providerId,numericMatchId:match.id,roundNumber:round,seasonId:match.compSeason.id,sourceUrl:url,observedAt:receipt.observedAt,bodySha256:receipt.decodedSha256,homeTeamProviderId:match.home.team.providerId,awayTeamProviderId:match.away.team.providerId,startTimeUtc:contract.utc(match.utcStartTime),homeScore:pair[0],awayScore:pair[1],homeGoals:match.home.score.goals,homeBehinds:match.home.score.behinds,awayGoals:match.away.score.goals,awayBehinds:match.away.score.behinds});
     }
@@ -87,7 +95,7 @@ async function refresh({now=new Date(),deadline}={}){
    });for(const [id,update]of staged.updates)updates.set(id,update);report.accepted.push(...staged.accepted);report.deferrals.push(...staged.deferrals);
    }catch(error){
     if(!error.aflwRoundLocal&&!error.aflwStopAcquisition){report.sourceFailures.push({roundNumber:round,sourceUrl:url,status:error.status??null,reason:require('./refresh-report').sanitise(error.message),receipt:error.sourceReceipt||null,nextAction:'Shared integrity or invocation failure; retain the complete last-good candidate and return for review'});throw error;}
-    const refused=error.aflwStopAcquisition===true,reason=refused?`Official round HTTP${error.status} refused; source acquisition stopped; separate resource approval required`:error.status>=500?'Official round HTTP5xx unavailable; no retry':'Incomplete or invalid official round response; preserve last-good facts';
+    const refused=error.aflwStopAcquisition===true,reason=refused?`Official round HTTP${error.status} refused; source acquisition stopped; separate resource approval required`:error.status>=500?'Official round HTTP5xx unavailable; no retry':[404,410].includes(error.status)?`Official round HTTP${error.status} unavailable; no retry`:'Incomplete or invalid official round response; preserve last-good facts';
     report.sourceFailures.push({roundNumber:round,sourceUrl:url,status:error.status??null,reason,receipt:error.sourceReceipt||null,nextAction:refused?'Return separate reviewed token/resource proposal; no fallback or new acquisition':'Review the refused round response before a separately allocated source attempt'});
     for(const row of contract.scope.records.filter(value=>(refused?value.roundNumber>=round:value.roundNumber===round)&&value.targetedResult))report.deferrals.push({id:row.id,reason,nextAction:refused?'Return separately reviewed resource proposal; no new acquisition':'Review the refused round response before another allocated attempt'});
     if(refused){if(!updates.size)throw error;break;}

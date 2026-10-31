@@ -40,7 +40,7 @@ function createBudget({clock=()=>performance.now(),deadline}={}){
    try{
     const dispatch=()=>{try{within();lastStarted=clock();attempts.push(url);req=https.get(url,{headers:HEADERS},response=>{
      res=response;if(done){res.destroy?.();return;}
-     if(res.statusCode!==200){fail(Object.assign(Error('AFLW HTTP response refused'),{aflwRoundLocal:res.statusCode>=500&&res.statusCode<=599,aflwStopAcquisition:res.statusCode===401||res.statusCode===403,status:res.statusCode}));return;}
+     if(res.statusCode!==200){fail(Object.assign(Error('AFLW HTTP response refused'),{aflwRoundLocal:res.statusCode===404||res.statusCode===410||res.statusCode>=500&&res.statusCode<=599,aflwStopAcquisition:res.statusCode===401||res.statusCode===403,status:res.statusCode}));return;}
      const encoding=String(res.headers?.['content-encoding']||'identity').toLowerCase();
      if(!['identity','gzip','deflate','br'].includes(encoding)){fail(roundError('AFLW content encoding refused'));return;}
      try{decoder=encoding==='gzip'?zlib.createGunzip():encoding==='deflate'?zlib.createInflate():encoding==='br'?zlib.createBrotliDecompress():null;}catch(error){fail(error);return;}

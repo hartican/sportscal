@@ -42,8 +42,10 @@ page0/numPages1/pageSize50 envelope before admitting results. Missing/invalid
 single-round responses defer that entire round. Wrong competition/season,
 ambiguous or unknown IDs, changed ordered sides, calendar contradictions,
 reopened finals and conflicting accepted results reject the whole candidate.
-Check supplied identities before page completeness; incomplete bytes cannot
-conceal a shared identity conflict. Consumer expiry discards all staged rows
+Check supplied identities, valid changed starts, reopening claims and evaluable
+accepted-final conflicts before page completeness, including non-target future
+fixtures. An incomplete envelope cannot conceal those shared contradictions;
+no partial collection is admitted. Consumer expiry discards all staged rows
 from that resource before independent peers can proceed.
 
 Only nine Round11 fixtures and the first Round12 fixture may receive results.
@@ -57,13 +59,17 @@ HTTP401/403 stops further acquisitions, with no fallback or token borrowing.
 Already independently complete verified results may continue through all shared
 gates. Report refused resources/cards and a separate later resource proposal;
 no supported observations is failure with last-good retained, never a fresh
-unchanged success. Transport/resource-local faults cannot waive aggregate,
+unchanged success. HTTP404/410 and5xx defer only their missing/unavailable round,
+without retry. Transport/resource-local faults cannot waive aggregate,
 whole-invocation or shared identity/result integrity failures.
 
 ## Preservation and qualification
 
 Retain the eight future fixtures and all other sports, IDs, source aliases,
 order, starts, viewing, reviewed writing and original observation clocks.
+Every supplied result-specific observation must independently be valid,
+post-start and nonfuture; one valid result clock cannot mask a contradictory
+other result clock. General historical source/status clocks remain distinct.
 Unchanged verified finals keep their own facts, result clocks and copy; do not
 call a new check a new result observation. Canonical retained historical previews
 stay dated; completed on-card projection clears old preview claims and uses the

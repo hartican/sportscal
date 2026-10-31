@@ -13,8 +13,13 @@ refused resource and affected cards, retain their last-good facts and return any
 token/resource proposal separately. With no supported observations, fail rather
 than claiming fresh unchanged success. A partial page defers that entire round;
 wrong season, ordered identities, ambiguous IDs or conflicting accepted finals
-still reject the whole candidate. Validate the supplied identities before page
-completeness so an incomplete envelope cannot hide a shared identity conflict.
+still reject the whole candidate. Check supplied identities, calendar, reopening
+and evaluable accepted-final conflicts before page completeness, including
+future non-target fixtures. An incomplete envelope cannot conceal those
+contradictions or admit partial rows. Each supplied result-specific clock
+independently needs genuine post-start, nonfuture evidence; a valid score clock
+cannot mask another invalid result clock. HTTP404/410 and5xx defer only the
+refused round without retry.
 
 Preserve the eight future fixtures, all other sports and both surfaces' IDs,
 viewing, reviewed writing and genuine clocks. Keep the older AfterRound10 ladder
