@@ -141,6 +141,8 @@ function apply({root=path.resolve(__dirname,'../..'),captureFolder}={}){
  // Validate the complete factual snapshot before staging. No clock is re-dated.
  const result=project(loadCapture(captureFolder)),read=file=>JSON.parse(fs.readFileSync(path.join(root,file),'utf8'));
  const previous=read('data/canonical/football-directory.v1.json'),oldIndex=read('data/canonical/football-follow-index.v1.json');
+ const existingFile=path.join(root,'data/football/fixtures/'+KEY+'.json');
+ if(fs.existsSync(existingFile)){const old=read('data/football/fixtures/'+KEY+'.json');const guard=require('./championship-score-contract');if(guard.needsResultGuard(old))result.document=guard.preserveAccepted(result.document,old);}
  const next={...previous,sources:[...previous.sources.filter(s=>!s.id.startsWith(sourceId(''))),...result.sources],leagues:[...previous.leagues.filter(l=>l.id!==COMPETITION),result.league],teams:[...previous.teams.filter(t=>t.leagueId!==COMPETITION),...result.clubs]};
  const index={...oldIndex,teams:[...oldIndex.teams.filter(t=>t.leagueId!==COMPETITION),...result.clubs.map(t=>({...oldIndex.teams.find(old=>old.id===t.id),id:t.id,leagueId:COMPETITION}))]};
  const bodies=[JSON.stringify(result.document,null,2)+'\n','globalThis.NOTHINGSPORTS_FOOTBALL_FIXTURES = globalThis.NOTHINGSPORTS_FOOTBALL_FIXTURES || {}; globalThis.NOTHINGSPORTS_FOOTBALL_FIXTURES['+JSON.stringify(KEY)+'] = '+JSON.stringify(result.document)+';\n',JSON.stringify(next,null,2)+'\n','globalThis.NOTHINGSPORTS_FOOTBALL_DIRECTORY_DATA = '+JSON.stringify(next)+';\n',JSON.stringify(index,null,2)+'\n','globalThis.NOTHINGSPORTS_FOOTBALL_FOLLOW_INDEX = '+JSON.stringify(index)+';\n'];

@@ -341,6 +341,7 @@ function normalizeFixture(event, codeId, extra = {}){
     ...(event.footballMatchContext ? {footballMatchContext:event.footballMatchContext} : {}),
     ...(event.editorialNarrative ? { editorialNarrative:event.editorialNarrative } : {}),
     ...(event.storyline ? { storyline:event.storyline } : {}),
+    ...(event.competitionId==='competition:australian-championship'&&event.resultSourceEvidence?Object.fromEntries(require('./lib/championship-score-contract').RESULT_FIELDS.filter(k=>Object.hasOwn(event,k)).map(k=>[k,event[k]])):{}),
     sourceCoverage: extra.sourceCoverage || "published-feed",
   };
 }
@@ -604,13 +605,15 @@ function preflightRetainedFootballOnly(outputDir=OUTPUT_DIR){
   }
   return manifest;
 }
-function build({codeSlugs=null,outputDir=OUTPUT_DIR,retainedFootballOnly=false,retainedCodeSlugs=null,aLeagueResultIds=null}={}){
-  if(aLeagueResultIds){
+function build({codeSlugs=null,outputDir=OUTPUT_DIR,retainedFootballOnly=false,retainedCodeSlugs=null,aLeagueResultIds=null,championshipResultIds=null}={}){
+  if(aLeagueResultIds||championshipResultIds){
+    if(aLeagueResultIds&&championshipResultIds)throw Error('Cannot combine result selectors');
+    const resultIds=aLeagueResultIds||championshipResultIds;
     if(JSON.stringify(codeSlugs)!=='["football"]'||retainedFootballOnly||retainedCodeSlugs||path.resolve(outputDir)!==path.resolve(OUTPUT_DIR))throw Error('A-League result projection requires its exact Football owner');
-    const scope=require('./lib/a-league-score-contract');scope.selectedIds(aLeagueResultIds);
+    const scope=require(championshipResultIds?'./lib/championship-score-contract':'./lib/a-league-score-contract');scope.selectedIds(resultIds);
     const manifest=preflightRetainedFootballOnly(),document=JSON.parse(fs.readFileSync(path.join(ROOT,scope.FILE),'utf8'));
     for(const file of [path.join(outputDir,'football.json'),path.join(ROOT,followSchedulePath('football'))]){
-      const before=JSON.parse(fs.readFileSync(file,'utf8')),next={...before,fixtures:scope.projectRows(before.fixtures,document,aLeagueResultIds)};
+      const before=JSON.parse(fs.readFileSync(file,'utf8')),next={...before,fixtures:scope.projectRows(before.fixtures,document,resultIds)};
       const body=JSON.stringify(next)+'\n';if(fs.readFileSync(file,'utf8')!==body)fs.writeFileSync(file,body);
     }
     return manifest;
@@ -705,6 +708,11 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR,retainedFootballOnly=false,r
 }
 
 if (require.main === module){
+  const championshipArgs=process.argv.slice(2).filter(arg=>arg.startsWith('--championship-results'));
+  if(championshipArgs.length){
+    if(championshipArgs.length!==1||!championshipArgs[0].startsWith('--championship-results-ids=')||process.argv.slice(2).length!==2||!process.argv.includes('--codes=football'))throw Error('Championship results require exactly Football and one selector');
+    build({codeSlugs:['football'],championshipResultIds:JSON.parse(championshipArgs[0].slice('--championship-results-ids='.length))});
+  }else{
   const aLeagueArgs=process.argv.slice(2).filter(arg=>arg.startsWith('--a-league-results'));
   if(aLeagueArgs.length){
     if(aLeagueArgs.length!==1||!aLeagueArgs[0].startsWith('--a-league-results-ids=')||process.argv.slice(2).length!==2||!process.argv.includes('--codes=football'))throw Error('A-League results require exactly Football and one result selector');
@@ -720,4 +728,5 @@ if (require.main === module){
   }
 }
 
+}
 module.exports = { preflightRetainedCoverage:preflightRetainedFootballOnly,preflightRetainedFootballOnly,obsoleteProgramme, build, codeFixtures, codeStandings, eventMatchesCode, fixtureEvidenceScore, mergeFixtureRecords, normalizeFixture, semanticFixtureKey };
