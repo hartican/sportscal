@@ -23,7 +23,7 @@ function writeQuickFailureReport(report){
  try{
   fs.mkdirSync(require('node:path').dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});
   write(process.env.QUICK_RESULTS_REPORT,report);
- }catch(error){console.warn(`::warning::Quick failure report unavailable: ${require('./lib/refresh-report').sanitise(error.message)}`);}
+ }catch(error){try{console.warn(`::warning::Quick failure report unavailable: ${require('./lib/refresh-report').sanitise(error.message)}`);}catch{}}
 }
 const {storylineFor,spoilerSafeRootCopy,spoilerContractIssues}=require('./lib/storyline-card-rules');
 const {KEYS,semantic,patchKnown}=require('./lib/known-fixture-patch');
@@ -379,7 +379,7 @@ async function refresh({now=new Date(),offline=false,source=null,coverageSport,r
  if(failures.length&&!changes.length&&!offline)throw new Error('Quick sources failed; preserved last-known-good data.');
  return {changes,failures};
 }
-async function refreshF1Results({began=require('node:perf_hooks').performance.now()}={}){
+async function refreshF1Results({began=require('node:perf_hooks').performance.now(),emitReport}={}){
  const deadline=began+110000;
  const saveCandidate=report=>{if(process.env.QUICK_RESULTS_REPORT){fs.mkdirSync(require('node:path').dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});write(process.env.QUICK_RESULTS_REPORT,report);}};
  return atomicRefresh({},{deadline:began+120000,refreshOperation:async()=>{
@@ -387,9 +387,10 @@ async function refreshF1Results({began=require('node:perf_hooks').performance.no
   try{report=await require('./lib/f1-scoped-refresh').refresh({deadline});}
   catch(error){if(error.f1Report)writeQuickFailureReport(error.f1Report);throw error;}
   saveCandidate(report);
-  runProjectionSteps(retainedFeedProjectionSteps(report.changed,{f1UpdatedIds:report.updatedFixtureIdsBySurface}),{deadline});
+  if(report.changed.length)runProjectionSteps(retainedFeedProjectionSteps(report.changed,{f1UpdatedIds:report.updatedFixtureIdsBySurface}),{deadline});
+  else for(const step of [['scripts/validate-feed.js','feeds/incoming/events.json'],['scripts/validate-feed.js','data/events.json'],['scripts/qa-storyline-spoilers.js','feeds/incoming/events.json'],['scripts/qa-storyline-spoilers.js','data/events.json'],['scripts/build-app-shell-runtime.js','--check']])runBefore(deadline,...step);
   if(require('node:perf_hooks').performance.now()>=deadline)throw Error('F1 canonical work deadline exceeded');
-  report.publicationState=report.changed.length?'validated-local-candidate':report.deferrals.length?'unchanged-with-deferrals':'unchanged';saveCandidate(report);require('./lib/refresh-report').update({mode:'f1-results',publicationState:report.publicationState,stage:'validated'});if(require('node:perf_hooks').performance.now()>=deadline)throw Error('F1 canonical work deadline exceeded after diagnostics');return report;
+  report.publicationState=report.changed.length?'validated-local-candidate':report.deferrals.length?'unchanged-with-deferrals':'unchanged';saveCandidate(report);require('./lib/refresh-report').update({mode:'f1-results',publicationState:report.publicationState,stage:'validated'});if(emitReport)emitReport(report);if(require('node:perf_hooks').performance.now()>=deadline)throw Error('F1 canonical work deadline exceeded after diagnostics');return report;
  }});
 }
 async function atomicRefresh(options,{refreshOperation=refresh,deadline,clock=()=>require('node:perf_hooks').performance.now()}={}){
@@ -410,7 +411,7 @@ async function atomicRefresh(options,{refreshOperation=refresh,deadline,clock=()
   if(deadline!=null&&clock()>=deadline)rollbackErrors.push('Canonical refresh cleanup deadline exceeded');
   error.refreshRollback={status:rollbackErrors.length?'failed':'restored',failures:rollbackErrors};
   try{require('./lib/refresh-report').failure(error.message,error.refreshFailure);}
-  catch(diagnosticError){console.warn(`::warning::Canonical failure report unavailable: ${require('./lib/refresh-report').sanitise(diagnosticError.message)}`);}
+  catch(diagnosticError){try{console.warn(`::warning::Canonical failure report unavailable: ${require('./lib/refresh-report').sanitise(diagnosticError.message)}`);}catch{}}
   if(process.env.QUICK_RESULTS_REPORT){
    let report={mode:'quick',aiCalls:0};try{report=read(process.env.QUICK_RESULTS_REPORT);}catch{}
    writeQuickFailureReport({...report,publicationState:rollbackErrors.length?'blocked-rollback-failed':'blocked-rolled-back',blockingError:error.message,rollback:error.refreshRollback});

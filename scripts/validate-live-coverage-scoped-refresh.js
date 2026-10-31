@@ -280,7 +280,7 @@ async function run(){
  });
  await check('the actual canonical dispatcher forwards exactly the selected Rugby scope',async()=>{
   const vm=require('node:vm'),{createRequire}=require('node:module'),file=path.join(__dirname,'update-cards.js'),source=original.readFileSync(file,'utf8');
-  const start=source.indexOf('async function runMain()'),end=source.indexOf('async function main()',start),args=['--quick','--source=live-coverage','--coverage-sport=rugby-union','--local-only'],steps=[];
+  const start=source.indexOf('async function runMain('),end=source.indexOf('async function main()',start),args=['--quick','--source=live-coverage','--coverage-sport=rugby-union','--local-only'],steps=[];
   assert(start>=0&&end>start);const context={require:createRequire(file),process:{argv:['node',file,...args],env:{}},parseOptions:()=>require('./update-cards').parseOptions(args,{}),runStep:args=>steps.push(args),console:{log(){}}};
   vm.runInNewContext(source.slice(start,end)+';globalThis.invoke=runMain',context);await context.invoke();assert.deepEqual(JSON.parse(JSON.stringify(steps)),[['scripts/quick-results.js','--source=live-coverage','--coverage-sport=rugby-union']]);assert.equal(calls.length,0);
  });

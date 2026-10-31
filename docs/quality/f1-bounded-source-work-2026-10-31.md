@@ -88,3 +88,5 @@ native source execution. Independent Standards and Spec review and ROOT's
 separate bounded real-resource trial remain required before adoption/release.
 
 The four review defects at `6c96943e` have pinned RED controls: unchanged recap replacement, stale child allowance, late diagnostic deadline and lost qualifying timing cells. Their fixes require a fresh independent review; previous transport-only clearance is not full-source clearance.
+
+The residual `a706f28d` review cases are also guarded: matching result rows cannot retain contradictory participant IDs, result status or podium score; truthful no-op refreshes still run both complete Feed/spoiler checks and the runtime check. Required console success emission is inside the same atomic deadline, and a broken failure sink cannot replace the original error. The shared EPL/Rugby dispatcher tests now locate the parameterized `runMain(` declaration, retaining every routing assertion; non-F1 source and release behavior remain unchanged.

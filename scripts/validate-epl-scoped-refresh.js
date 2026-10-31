@@ -281,7 +281,7 @@ async function run(){
   await quick.refresh({source:'epl',now:new Date(AT)});const snapshot=document('data/canonical/afl-nrl-2026.json').ladderSnapshots.find(e=>e.competitionId===table.COMPETITION_ID);assert(snapshot.entries.every(e=>e.rankPending===true&&e.sharedRank===true));assert(!snapshot.entries.some(e=>e.qualified||e.champion||e.relegated));assert.match(snapshot.metadata.tableNote,/no title, relegation or qualification is inferred/);
  });
  await check('actual canonical dispatcher forwards only the EPL selector and preserves Rugby dispatch',async()=>{
-  const vm=require('node:vm'),{createRequire}=require('node:module'),file=path.join(__dirname,'update-cards.js'),text=original.readFileSync(file,'utf8'),start=text.indexOf('async function runMain()'),end=text.indexOf('async function main()',start);assert(start>=0&&end>start);
+  const vm=require('node:vm'),{createRequire}=require('node:module'),file=path.join(__dirname,'update-cards.js'),text=original.readFileSync(file,'utf8'),start=text.indexOf('async function runMain('),end=text.indexOf('async function main()',start);assert(start>=0&&end>start);
   for(const selected of [['--source=epl'],['--source=live-coverage','--coverage-sport=rugby-union']]){const args=['--quick',...selected,'--local-only'],steps=[],context={require:createRequire(file),process:{argv:['node',file,...args],env:{}},parseOptions:()=>require('./update-cards').parseOptions(args,{}),runStep:args=>steps.push(args),console:{log(){}}};vm.runInNewContext(text.slice(start,end)+';globalThis.invoke=runMain',context);await context.invoke();assert.deepEqual(JSON.parse(JSON.stringify(steps)),[['scripts/quick-results.js',...selected]]);}assert.equal(calls.length,0);
  });
  await check('invalid direct EPL child/options refuse before an atomic filesystem snapshot',async()=>{
@@ -296,7 +296,7 @@ async function run(){
  const retainedArg=require('./lib/epl-publication-scope').argument(retainedIds);
  const retainedOptions=()=>({source:'epl',rebuild:true,localOnly:true,eplUpdatedIds:structuredClone(retainedIds),now:new Date(AT)});
  await check('actual canonical retained EPL dispatcher accepts only the bounded local rebuild',async()=>{
-  const vm=require('node:vm'),{createRequire}=require('node:module'),file=path.join(__dirname,'update-cards.js'),text=original.readFileSync(file,'utf8'),start=text.indexOf('async function runMain()'),end=text.indexOf('async function main()',start);
+  const vm=require('node:vm'),{createRequire}=require('node:module'),file=path.join(__dirname,'update-cards.js'),text=original.readFileSync(file,'utf8'),start=text.indexOf('async function runMain('),end=text.indexOf('async function main()',start);
   for(const local of ['--local-only','-p']){
    const args=['--quick','--source=epl','--rebuild',local,retainedArg],steps=[];
    assert.equal(require('./update-cards').parseOptions(args,{}).localOnly,true);

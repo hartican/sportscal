@@ -94,7 +94,12 @@ async function updatesFor(events,now=new Date(),fetchPage,context=require('../da
   const sameFinal=ev.status==='completed'&&ev.fixtureResults?.sourceUrl===url
    &&JSON.stringify(ev.fixtureResults.columns)===JSON.stringify(session.columns)
    &&JSON.stringify(ev.fixtureResults.rows)===JSON.stringify(rows);
-  if(bounded&&sameFinal){retainedFinals.add(ev);updates.push(ev);return;}
+  if(bounded&&sameFinal){
+   const expectedIds=participantsForResults(rows,context),matches=list=>Array.isArray(list)&&list.length===expectedIds.length&&new Set(list).size===list.length&&expectedIds.every(id=>list.includes(id));
+   const expectedScore=rows.slice(0,3).map(row=>`${row[0]}. ${row[2]}`).join(' · ');
+   if(ev.resultStatus!=='official'||ev.participantsConfirmed!==true||!matches(ev.participantIds)||!matches(ev.participants?.map(row=>row.id))||ev.score!==expectedScore||ev.resultSourceUrl!==url)throw Error('Retained F1 final contradicts verified result participant/status/score facts');
+   retainedFinals.add(ev);updates.push(ev);return;
+  }
   const observed=sameFinal&&[ev.scoreCheckedAt,ev.fixtureResults.checkedAt].find(validObservation)||fetchedAt;
   updates.push({...ev,participantIds:participantsForResults(rows,context),participants:participantsForResults(rows,context).map(id=>{const p=context.participants.find(p=>p.id===id);return {id,name:p.displayName,displayName:p.displayName,countryCode:p.countryCode};}),participantsConfirmed:true,...(url.includes('/italy/')?{venueCountryCode:'IT'}:{}),status:'completed',resultStatus:'official',resultSourceUrl:url,resultSourceCheckedAt:observed,scoreCheckedAt:observed,fixtureResults:{schemaVersion:'fixture-results.v1',columns:session.columns,rows,sourceUrl:url,checkedAt:observed},score:rows.slice(0,3).map(r=>`${r[0]}. ${r[2]}`).join(' · '),outcomeText:outcome,recapText:`${outcome} ${rows.slice(0,3).map(r=>`${r[0]}. ${r[2]} (${r[3]})`).join('; ')}.`,resultPublishedAt:ev.resultPublishedAt||observed,sourceName:'Formula 1 official session results',sourceUrl:url,sourceCheckedAt:observed});
   });}catch(error){if(!error.f1CardLocal||!report)throw error;report.deferrals.push({...reviewed.deferral(ev),reason:'Official session HTTP response unavailable; no retry'});}
@@ -110,6 +115,6 @@ async function updatesFor(events,now=new Date(),fetchPage,context=require('../da
  budget?.check();return projected;
  }finally{if(!suppliedBudget)budget?.close();}
 }
-async function main(){const report=await require('./quick-results').atomicRefresh({},{refreshOperation:()=>require('./lib/f1-scoped-refresh').refresh()});console.log(JSON.stringify(report));}
+async function main(){return require('./quick-results').atomicRefresh({},{refreshOperation:async()=>{const report=await require('./lib/f1-scoped-refresh').refresh();console.log(JSON.stringify(report));return report;}});}
 if(require.main===module)main().catch(e=>{console.error(e.message);process.exitCode=1});
 module.exports={sessionFor,resultRows,updatesFor,participantsForResults,applyPublishedSchedule,eligibleSessions,resourcePlan};

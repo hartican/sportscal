@@ -899,8 +899,7 @@ async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()
     return;
   }
   if(process.argv.includes('--f1-results')){
-    const report=await require('./quick-results').refreshF1Results({began:f1StartedAt});
-    console.log(JSON.stringify(report));
+    await require('./quick-results').refreshF1Results({began:f1StartedAt,emitReport:report=>console.log(JSON.stringify(report))});
     if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
     return;
   }
@@ -1147,7 +1146,7 @@ async function main(){
     // bookkeeping. Its own atomic boundary includes final diagnostic IO.
     process.env.REFRESH_REPORT ||= path.join(os.tmpdir(),'ns-refresh-report-'+crypto.randomUUID()+'.json');
     require('./lib/refresh-report').update({mode:'f1-results',publicationState:'refreshing',stage:'starting',sourceFailures:[],missingResults:[],blockingError:null,failedStep:null,failureChain:[]});
-    try{return await runMain({f1StartedAt});}catch(error){console.error(`Refresh diagnostics: ${process.env.REFRESH_REPORT}`);throw error;}
+    try{return await runMain({f1StartedAt});}catch(error){try{console.error(`Refresh diagnostics: ${process.env.REFRESH_REPORT}`);}catch{}throw error;}
   }
   // Validate mode before creating diagnostic state or starting any source step.
   const initialOptions=parseOptions();
