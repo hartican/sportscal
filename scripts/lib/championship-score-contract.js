@@ -25,17 +25,29 @@ function route(argv){
  const output=outputs[0].slice(prefix.length);if(!path.isAbsolute(output)||path.resolve(output)!==output)fail('invalid-evidence-path');return {output};
 }
 function scoreText(row,home,away,shootout){return `${row.participants[0].name} ${home}–${away} ${row.participants[1].name}${shootout.sourcePeriod==='ShootOut'?` · Penalties ${shootout.home}–${shootout.away}`:''}`;}
+// Each contradiction needs only its own known fields, never a complete result.
+function assertResultConsistency(info,homeId,awayId,code){
+ if(!info||typeof info!=='object')return;
+ const h=info.home_team||{},a=info.away_team||{},regulation=integer(h.score)&&integer(a.score),penalties=integer(h.shootout_score)&&integer(a.shootout_score);
+ let expected=null;
+ if(info.period==='SecondHalf'){
+  if([h.shootout_score,a.shootout_score].some(v=>integer(v)&&v!==0))fail(code);
+  if(regulation)expected=h.score===a.score?0:h.score>a.score?homeId:awayId;
+ }else if(info.period==='ShootOut'){
+  if(regulation&&h.score!==a.score||penalties&&h.shootout_score===a.shootout_score)fail(code);
+  if(penalties)expected=h.shootout_score>a.shootout_score?homeId:awayId;
+ }
+ if(expected!==null&&Number.isSafeInteger(info.winner_id)&&info.winner_id!==0&&info.winner_id!==expected)fail(code);
+}
 function validateRetainedFinal(row,now){
  if(!exactKeys(row.shootout,['home','away','sourcePeriod'])||!integer(row.homeScore)||!integer(row.awayScore)||!row.shootout||!integer(row.shootout.home)||!integer(row.shootout.away)||!['SecondHalf','ShootOut'].includes(row.shootout.sourcePeriod))fail('retained-final-score');
  const evidence=row.resultSourceEvidence,start=epoch(row.startTimeUtc),at=clock(row.scoreCheckedAt,start,+now,'retained-final-clock');
  if(!exactKeys(evidence,['sourceUrl','bodySha256','observedAt','providerUpdatedAt','responseTimestamp'])||row.statusCheckedAt!==row.scoreCheckedAt||row.resultSourceCheckedAt!==row.scoreCheckedAt||row.resultStatus!=='official'||row.resultSourceUrl!==BASE+'/r'+row.roundNumber+'/fixture'||!evidence||evidence.observedAt!==row.scoreCheckedAt||evidence.sourceUrl!==row.resultSourceUrl||!/^[a-f0-9]{64}$/.test(evidence.bodySha256||''))fail('retained-final-evidence');
  clock(evidence.providerUpdatedAt,start,at,'retained-provider-clock');clock(evidence.responseTimestamp,epoch(evidence.providerUpdatedAt),at,'retained-response-clock');
- if(row.shootout.sourcePeriod==='ShootOut'&&(row.homeScore!==row.awayScore||row.shootout.home===row.shootout.away)||row.shootout.sourcePeriod==='SecondHalf'&&(row.shootout.home!==0||row.shootout.away!==0))fail('retained-shootout-phase');
- const expectedWinner=row.shootout.sourcePeriod==='ShootOut'?(row.shootout.home>row.shootout.away?row.homeParticipantId:row.awayParticipantId):row.homeScore===row.awayScore?null:row.homeScore>row.awayScore?row.homeParticipantId:row.awayParticipantId;
- if(row.sourceWinnerId!==0&&(!expectedWinner||'team:football:australian-championship:'+row.sourceWinnerId!==expectedWinner))fail('retained-winner-conflict');
  const text=scoreText(row,row.homeScore,row.awayScore,row.shootout);
  if(['score','scoreDisplay','result','canonicalResultScoreline'].some(k=>row[k]!==text)||sha(row.resultLabels)!==sha(row.shootout.sourcePeriod==='ShootOut'?[`Penalties ${row.shootout.home}–${row.shootout.away}`]:[]))fail('retained-final-text');
  const info=row.sourceMatchInfo;if(!exactKeys(info,['period','winner_id','home_team','away_team'])||!exactKeys(info.home_team,['score','shootout_score'])||!exactKeys(info.away_team,['score','shootout_score'])||info?.period!==row.shootout.sourcePeriod||info.winner_id!==row.sourceWinnerId||info.home_team?.score!==row.homeScore||info.away_team?.score!==row.awayScore||info.home_team?.shootout_score!==row.shootout.home||info.away_team?.shootout_score!==row.shootout.away)fail('retained-final-channels');
+ assertResultConsistency(info,Number(row.homeParticipantId.split(':').at(-1)),Number(row.awayParticipantId.split(':').at(-1)),'retained-result-contradiction');
  if(![0,Number(row.homeParticipantId.split(':').at(-1)),Number(row.awayParticipantId.split(':').at(-1))].includes(row.sourceWinnerId))fail('retained-final-winner');
  if(row.sourceWinnerId===0?Object.hasOwn(row,'winnerParticipantId'):row.winnerParticipantId!=='team:football:australian-championship:'+row.sourceWinnerId)fail('retained-winner-inference');
 }
@@ -62,8 +74,10 @@ function preflight(root,now=new Date()){
  return document;
 }
 function evaluate({round,payload},previous,{observedAt,bodySha256,now=new Date(),check=()=>{}}){
- if(![2,3].includes(round)||payload?.competition?.id!==1143||payload.competition.uuid!=='b07c475b-bbf8-4872-8530-109b90f09dea'||payload.competition.active_season!==2026||payload.season?.id!==2026||payload.season.uuid!=='833e16c2-ede7-4c51-9f2c-769c2a2fb373'||payload.round_info?.num_rounds!==9||!Array.isArray(payload.rounds))fail('source-envelope');
+ if(![2,3].includes(round)||payload?.competition?.id!==1143||payload.competition.uuid!=='b07c475b-bbf8-4872-8530-109b90f09dea'||payload.competition.active_season!==2026||payload.season?.id!==2026||payload.season.uuid!=='833e16c2-ede7-4c51-9f2c-769c2a2fb373'||payload.round_info?.num_rounds!==9)fail('source-envelope');
  const observation=clock(observedAt,-Infinity,+now,'body-observation');if(!/^[a-f0-9]{64}$/.test(bodySha256))fail('body-hash');clock(payload.timestamp,-Infinity,observation,'response-clock');
+ const deferRound=reason=>({document:previous,changed:[],supported:0,deferrals:scope.records.filter(r=>r.target&&r.roundNumber===round).map(r=>({id:r.id,reason,nextAction:'Review complete official round in a separately allocated source window'}))});
+ if(!Array.isArray(payload.rounds))return deferRound('incomplete-round');
  const seen=new Set(),rows=[];
  for(const m of payload.rounds){
   check();const r=bound.get(m?.id);if(!r||r.roundNumber!==round||seen.has(m.id))fail('unknown-duplicate-round-identity');seen.add(m.id);
@@ -86,11 +100,7 @@ function evaluate({round,payload},previous,{observedAt,bodySha256,now=new Date()
    if(info?.period!=null&&info.period!==old.shootout.sourcePeriod||old.sourceWinnerId!==0&&info?.winner_id!=null&&info.winner_id!==old.sourceWinnerId)fail('accepted-result-conflict');
   }
   const good=explicit&&info&&['SecondHalf','ShootOut'].includes(info.period)&&['home_team','away_team'].every(k=>integer(info[k]?.score)&&integer(info[k]?.shootout_score))&&[0,m.home_team.id,m.away_team.id].includes(info.winner_id);
-  if(good){const h=info.home_team,a=info.away_team,w=info.winner_id;
-   if(info.period==='ShootOut'&&(h.score!==a.score||h.shootout_score===a.shootout_score)||info.period==='SecondHalf'&&(h.shootout_score!==0||a.shootout_score!==0))fail('contradictory-shootout-phase');
-   const winner=info.period==='ShootOut'?(h.shootout_score>a.shootout_score?m.home_team.id:m.away_team.id):h.score===a.score?0:h.score>a.score?m.home_team.id:m.away_team.id;
-   if(w!==0&&w!==winner)fail('contradictory-winner');
-  }
+  if(explicit)assertResultConsistency(info,m.home_team.id,m.away_team.id,'independent-result-contradiction');
   rows.push({r,m,old,info,good});
  }
  const expected=scope.records.filter(r=>r.roundNumber===round);
@@ -113,7 +123,7 @@ function selectedIds(ids){if(!Array.isArray(ids)||!ids.length||ids.length>11||ne
 function projectRows(rows,document,ids){const selected=selectedIds(ids),found=new Set(),source=new Map(document.events.map(e=>[e.canonicalEventId,e]));const next=rows.map(r=>{if(!selected.has(r.canonicalEventId))return r;const e=source.get(r.canonicalEventId),b=canonical.get(r.canonicalEventId);if(found.has(r.canonicalEventId)||r.id!==b.canonicalEventId||r.competitionId!==COMPETITION||r.homeParticipantId!==b.homeParticipantId||r.awayParticipantId!==b.awayParticipantId||r.startTimeUtc!==b.projectionStartTimeUtc||e?.status!=='completed')fail('projection-binding');found.add(r.canonicalEventId);return {...r,...Object.fromEntries(RESULT_FIELDS.filter(k=>Object.hasOwn(e,k)).map(k=>[k,e[k]]))};});if(found.size!==selected.size)fail('missing-projection-target');return next;}
 function assertLegacyRebuildSafe(root){
  const file=path.join(root,FILE);if(!fs.existsSync(file))return;const d=JSON.parse(fs.readFileSync(file,'utf8'));
- if(d.events?.some(e=>e.status==='completed'&&bound.get(e.officialMatchId)?.target)){validateDocument(d);fail('legacy-rebuild-with-adopted-finals-held');}
+ if(d.events?.some(e=>bound.get(e.officialMatchId)?.target&&sha(e)!==bound.get(e.officialMatchId).recordSha256)){validateDocument(d);fail('legacy-rebuild-with-adopted-finals-held');}
 }
 function preserveAccepted(document,previous,now=new Date()){
  // Old complete facts can rebuild calendars but never erase adopted result facts.

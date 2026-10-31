@@ -13,6 +13,7 @@ async function run(){try{
  await test('round2 unavailable holds8 but complete round3 adopts3',async()=>{statuses[2]=503;const r=await read();assert.equal(r.value.changed.length,3);assert.equal(r.value.deferrals.length,8);});
  await test('incomplete native round body cannot partially admit8',async()=>{finish[2]=false;const r=await read();assert.equal(r.value.changed.length,3);assert.equal(r.value.deferrals.length,8);assert.equal(r.captures[0].receipt.complete,false);});
  await test('partial JSON round holds all8 while independent3 proceed',async()=>{payloads[2].rounds.pop();const r=await read();assert.equal(r.value.changed.length,3);assert.equal(r.value.deferrals.length,8);});
+ for(const value of [null,{},'invalid'])await test('bound but nonarray first round defers8 and preserves3',async()=>{payloads[2].rounds=value;const r=await read();assert.equal(r.value.changed.length,3);assert.equal(r.value.deferrals.length,8);});
  await test('wrong identity rejects full collection before further acquisition',async()=>{payloads[2].rounds[0].uuid='wrong';await assert.rejects(read(),/source-ordered-identity/);assert.equal(calls.length,1);});
  await test('second domain conflict rejects already validated first round',async()=>{payloads[3].rounds[0].uuid='wrong';await assert.rejects(read(),e=>e.championshipCode==='source-ordered-identity'&&e.sourceCaptures.length===2);});
  await test('consumer time remains inside complete15second resource window',async()=>{consumerTime=15001;await assert.rejects(read());});
