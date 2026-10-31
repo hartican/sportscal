@@ -129,6 +129,7 @@ function parseOptions(argv = process.argv.slice(2), env = process.env) {
       throw new Error("Only the quick refresh supports --offline. Use --quick --offline without a scoped, resumed or other route. No source steps ran.");
     }
   }
+  if(argv.includes('--f1-results')){const allowed=new Set(['--f1-results','--local-only','-p']);if(new Set(argv).size!==argv.length||argv.filter(arg=>arg==='--local-only'||arg==='-p').length>1||argv.some(arg=>!allowed.has(arg)))throw Error('F1 results cannot be combined with offline or other routes; use only the existing F1 route and optional local-only flag. No source steps ran.');}
   return {
     localOnly: argv.includes("--local-only") || argv.includes("-p") || env.SKIP_RELEASE === "1",
   };
@@ -898,13 +899,8 @@ async function runMain() {
     return;
   }
   if(process.argv.includes('--f1-results')){
-    for(const args of [
-      ['scripts/validate-f1-session-results.js'],
-      ['scripts/refresh-f1-results.js'],
-      ['scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
-      ['scripts/build-paged-feed.js'],
-      ['scripts/build-code-inspector.js','--codes=f1,motorsport'],
-    ])runStep(args);
+    const report=await require('./quick-results').refreshF1Results();
+    console.log(JSON.stringify(report));
     if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
     return;
   }

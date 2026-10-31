@@ -54,42 +54,48 @@ function explicitlyUnavailableRace(html,event,url){
 function participantsForResults(rows, context){
  const key=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
  const participants=rows.map(row=>{
-  const driver=context.participants.find(p=>p.type==='competitor' && [p.displayName,p.canonicalName,...(p.metadata?.titleAliases||[])].some(name=>key(name)===key(row[2])));
-  const team=context.participants.find(p=>p.type==='team' && [p.displayName,p.canonicalName,p.shortName].some(name=>name && (key(name)===key(row[3]) || key(row[3]).includes(key(name)))));
-  if(!driver || !team)throw new Error('Unresolved official F1 result participant '+row[2]);
-  return [driver.id,team.id];
+  const drivers=context.participants.filter(p=>p.type==='competitor' && [p.displayName,p.canonicalName,...(p.metadata?.titleAliases||[])].some(name=>key(name)===key(row[2])));
+  const teams=context.participants.filter(p=>p.type==='team' && [p.displayName,p.canonicalName,p.shortName].some(name=>name && (key(name)===key(row[3]) || key(row[3]).includes(key(name)))));
+  if(drivers.length!==1||teams.length!==1)throw new Error('Unresolved or ambiguous official F1 result participant '+row[2]);
+  return [drivers[0].id,teams[0].id];
  });
  return [...new Set(participants.flat())];
 }
-async function updatesFor(events,now=new Date(),fetchPage,context=require('../data/canonical/f1-context-2026.json')){
- const known=eligibleSessions(events,now);if(!known.length)return [];
- const budget=fetchPage?null:require('./lib/f1-source-budget').createBudget({sessions:resourcePlan(events,now)});
+async function updatesFor(events,now=new Date(),fetchPage,context=require('../data/canonical/f1-context-2026.json'),{budget:suppliedBudget,report}={}){
+ const reviewed=require('./lib/f1-reviewed-classifications');
+ const bounded=Boolean(suppliedBudget||!fetchPage);
+ const known=eligibleSessions(events,now).filter(event=>{if(!bounded||reviewed.forEvent(event))return true;if(report)report.deferrals.push(reviewed.deferral(event));return false;});if(!known.length)return [];
+ const budget=suppliedBudget||(fetchPage?null:require('./lib/f1-source-budget').createBudget({sessions:resourcePlan(known,now)}));
  const readPage=(url,consume)=>budget?budget.read(url,consume):Promise.resolve(fetchPage(url)).then(consume);
  try{
  const links=await readPage(`https://www.formula1.com/en/results/${now.getUTCFullYear()}/races`,index=>[...new Set([...index.matchAll(/href="(\/en\/results\/\d{4}\/races\/\d+\/[^/"?]+\/race-result)"/g)].map(m=>m[1]))]),updates=[];
  for(const ev of known){
   const name=ev.name.toLowerCase().replace('italian','italy').replace('spanish','spain').replace('australian','australia').replace('british','great britain').replace('canadian','canada').replace('dutch','netherlands').replace('japanese','japan').replace('chinese','china').replace('belgian','belgium').replace('hungarian','hungary').replace('austrian','austria').replace('brazilian','brazil');
-  const link=links.find(l=>budget?l.split('/').at(-2)===ev.canonicalEventId.split(':')[3]:name.includes(l.split('/').at(-2).replaceAll('-',' ')));if(!link)continue;
+  const link=links.find(l=>budget?l.split('/').at(-2)===ev.canonicalEventId.split(':')[3]:name.includes(l.split('/').at(-2).replaceAll('-',' ')));if(!link){if(report)report.deferrals.push({...reviewed.deferral(ev),reason:'Reviewed GP is absent from the official index'});continue;}
   const session=sessionFor(ev.name);if(!session||['cancelled','postponed','abandoned'].includes(ev.status))continue;
   // Practice result tables can populate during the session. Allow a conservative publication delay.
   if(session.path.startsWith('practice/') && +now < +fixtureStart(ev)+90*60000)continue;
   const url='https://www.formula1.com'+link.replace('race-result',session.path);
-  await readPage(url,html=>{const rows=resultRows(html,session.columns.length);
+  const witness=bounded?reviewed.forEvent(ev):null;if(report?.deferrals.some(row=>row.canonicalEventId===ev.canonicalEventId&&row.reason==='Official session HTTP response unavailable; no retry'))continue;if(witness&&url!==witness.url)throw Error('F1 index-derived GP/session URL disagrees with reviewed identity');
+  try{await readPage(url,html=>{const rows=resultRows(html,session.columns.length),fetchedAt=budget?.summary().observations.find(row=>row.url===url)?.observedAt||now.toISOString();
   if(rows.length===0&&session.path==='race-result'&&explicitlyUnavailableRace(html,ev,url)){
-   updates.push({...ev,resultStatus:'pending',resultSourceUrl:url,resultSourceCheckedAt:now.toISOString()});return;
+   updates.push({...ev,resultStatus:'pending',resultSourceUrl:url,resultSourceCheckedAt:fetchedAt});return;
+  }
+  if(witness){const reason=reviewed.check(witness,url,html,rows,session.columns.length);if(reason){if(report)report.deferrals.push({...reviewed.deferral(ev),reason});return;}
+   try{participantsForResults(rows,context);}catch(error){if(report)report.deferrals.push({...reviewed.deferral(ev),reason:'Unbound or ambiguous official result participant'});return;}
   }
   if(rows.length<10||rows[0][0]!=='1'||new Set(rows.map(row=>row[1])).size!==rows.length||new Set(rows.map(row=>row[2])).size!==rows.length)return;
   const [position,number,driver,team]=rows[0],outcome=`${driver} ${session.verb} ${ev.name}.`;
   // The fetch clock is not a new final observation when the complete official
   // table is unchanged. Repair legacy pre-session clocks only from this table's
   // own retained observation, never a schedule announcement or collection date.
-  const validObservation=value=>Number.isFinite(Date.parse(value))&&Date.parse(value)>=+fixtureStart(ev)&&Date.parse(value)<=+now;
+  const validObservation=value=>Number.isFinite(Date.parse(value))&&Date.parse(value)>=+fixtureStart(ev)&&Date.parse(value)<=Date.parse(fetchedAt);
   const sameFinal=ev.status==='completed'&&ev.fixtureResults?.sourceUrl===url
    &&JSON.stringify(ev.fixtureResults.columns)===JSON.stringify(session.columns)
    &&JSON.stringify(ev.fixtureResults.rows)===JSON.stringify(rows);
-  const observed=sameFinal&&[ev.scoreCheckedAt,ev.fixtureResults.checkedAt].find(validObservation)||now.toISOString();
-  updates.push({...ev,participantIds:participantsForResults(rows,context),participants:participantsForResults(rows,context).map(id=>{const p=context.participants.find(p=>p.id===id);return {id,name:p.displayName,displayName:p.displayName,countryCode:p.countryCode};}),participantsConfirmed:true,...(url.includes('/italy/')?{venueCountryCode:'IT'}:{}),status:'completed',resultStatus:'official',resultSourceUrl:url,resultSourceCheckedAt:observed,scoreCheckedAt:observed,fixtureResults:{schemaVersion:'fixture-results.v1',columns:session.columns,rows,sourceUrl:url,checkedAt:observed},score:rows.slice(0,3).map(r=>`${r[0]}. ${r[2]}`).join(' · '),outcomeText:outcome,recapText:`${outcome} ${rows.slice(0,3).map(r=>`${r[0]}. ${r[2]} (${r[3]})`).join('; ')}.`,resultPublishedAt:ev.resultPublishedAt||now.toISOString(),sourceName:'Formula 1 official session results',sourceUrl:url,sourceCheckedAt:observed});
-  });
+  const observed=sameFinal&&[ev.scoreCheckedAt,ev.fixtureResults.checkedAt].find(validObservation)||fetchedAt;
+  updates.push({...ev,participantIds:participantsForResults(rows,context),participants:participantsForResults(rows,context).map(id=>{const p=context.participants.find(p=>p.id===id);return {id,name:p.displayName,displayName:p.displayName,countryCode:p.countryCode};}),participantsConfirmed:true,...(url.includes('/italy/')?{venueCountryCode:'IT'}:{}),status:'completed',resultStatus:'official',resultSourceUrl:url,resultSourceCheckedAt:observed,scoreCheckedAt:observed,fixtureResults:{schemaVersion:'fixture-results.v1',columns:session.columns,rows,sourceUrl:url,checkedAt:observed},score:rows.slice(0,3).map(r=>`${r[0]}. ${r[2]}`).join(' · '),outcomeText:outcome,recapText:`${outcome} ${rows.slice(0,3).map(r=>`${r[0]}. ${r[2]} (${r[3]})`).join('; ')}.`,resultPublishedAt:ev.resultPublishedAt||observed,sourceName:'Formula 1 official session results',sourceUrl:url,sourceCheckedAt:observed});
+  });}catch(error){if(!error.f1CardLocal||!report)throw error;report.deferrals.push({...reviewed.deferral(ev),reason:'Official session HTTP response unavailable; no retry'});}
  }
  const projected=updates.map(event=>{
   if(!event.storyline||event.resultStatus==='pending')return event;
@@ -100,8 +106,8 @@ async function updatesFor(events,now=new Date(),fetchPage,context=require('../da
   return next;
  });
  budget?.check();return projected;
- }finally{budget?.close();}
+ }finally{if(!suppliedBudget)budget?.close();}
 }
-async function main(){const path='feeds/incoming/events.json',doc=JSON.parse(fs.readFileSync(path,'utf8'));doc.events=applyPublishedSchedule(doc.events);const updates=await updatesFor(doc.events),patched=require('./lib/known-fixture-patch').patchKnown(doc.events,updates);doc.events=patched.events;fs.writeFileSync(path,JSON.stringify(doc,null,2)+'\n');console.log(`Official F1 results: ${patched.count} known sessions updated; unchanged observations retain original dates.`);}
+async function main(){const report=await require('./quick-results').atomicRefresh({},{refreshOperation:()=>require('./lib/f1-scoped-refresh').refresh()});console.log(JSON.stringify(report));}
 if(require.main===module)main().catch(e=>{console.error(e.message);process.exitCode=1});
 module.exports={sessionFor,resultRows,updatesFor,participantsForResults,applyPublishedSchedule,eligibleSessions,resourcePlan};

@@ -1,0 +1,10 @@
+'use strict';
+// Private receipt from the two retained F1 surfaces. No fixture admission.
+const records=require('./f1-reviewed-classifications').records;
+const ids=new Set(records.map(row=>row.id)),PREFIX='--f1-updated-ids=';
+function validate(list){if(!Array.isArray(list)||list.length>records.length||new Set(list).size!==list.length||list.some(id=>!ids.has(id)))throw Error('Invalid F1 publication identity scope');return new Set(list);}
+function scopes(value){if(!value||typeof value!=='object'||Array.isArray(value)||Object.keys(value).sort().join(',')!=='data/events.json,feeds/incoming/events.json')throw Error('Invalid F1 per-surface publication scope');return {incomingIds:validate(value['feeds/incoming/events.json']),ids:validate(value['data/events.json'])};}
+function parse(argv){const args=argv.filter(arg=>arg==='--f1-updated-ids'||arg.startsWith(PREFIX));if(!args.length)return null;if(args.length!==1||!args[0].startsWith(PREFIX)||args[0].length>8192)throw Error('Invalid F1 publication selector');let value;try{value=JSON.parse(args[0].slice(PREFIX.length));}catch{throw Error('Invalid F1 publication selector');}return {arg:args[0],...scopes(value)};}
+function selected(event,selectedIds){if(!selectedIds.has(event.id))return false;if(!require('./f1-reviewed-classifications').forEvent(event))throw Error('F1 publication cannot replace an unbound fixture');return true;}
+function retain(before,after,selectedIds){const originals=new Set(before.filter(event=>selected(event,selectedIds)).map(event=>event.id)),next=new Map();for(const event of after){if(!selected(event,selectedIds)||!originals.has(event.id)||next.has(event.id))throw Error('F1 publication cannot admit or duplicate a fixture');next.set(event.id,event);}return before.map(event=>{if(!selected(event,selectedIds))return event;if(!next.has(event.id))throw Error('F1 publication cannot drop a retained fixture');return next.get(event.id);});}
+module.exports={parse,selected,retain,argument:value=>{scopes(value);return PREFIX+JSON.stringify(value);}};

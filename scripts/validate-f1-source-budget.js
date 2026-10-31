@@ -26,7 +26,7 @@ async function run(){
   const huge=link+' '.repeat(LIMITS.resourceBytes);
   reply={chunks:[Buffer.from(huge)]};
   global.fetch=async()=>({ok:true,text:async()=>huge});
-  await assert.rejects(loader.updatesFor([{id:'owned-existing-practice',key:'f1',canonicalEventId:'event:f1:2026:united-states:practice-3',name:'United States GP · Practice 3',startTimeUtc:'2026-10-30T17:30:00.000Z',status:'upcoming'}],new Date('2026-10-31T00:10:46.203Z')),/byte limit/);
+  await assert.rejects(loader.updatesFor([{id:'evt_f1_2026_united_states_practice_3',key:'f1',canonicalEventId:'event:f1:2026:united-states:practice-3',name:'United States GP · Practice 3',startTimeUtc:'2026-10-24T17:30:00.000Z',status:'upcoming'}],new Date('2026-10-31T00:10:46.203Z')),/byte limit/);
   assert.equal(calls,1,'actual default loader uses the bounded HTTPS owner once');global.fetch=originalFetch;
  });
  await check('index first, exact derived paths, memoized resource reuse',async()=>{const b=createBudget();await assert.rejects(b.read(url),/scope/);await b.read(INDEX);reply={chunks:[Buffer.from('classification stand-in')]};assert.equal(await b.read(url),'classification stand-in');assert.equal(await b.read(url),'classification stand-in');assert.equal(calls,2);b.close();assert.equal(b.summary().active,0);});
