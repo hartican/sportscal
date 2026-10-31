@@ -16199,7 +16199,7 @@
         "team:aflw:cd_t8097"
       ],
       "displayName": "Port Adelaide v Collingwood",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -16230,12 +16230,24 @@
         "time-confirmed"
       ],
       "createdAt": "2026-09-04T14:23:00.839Z",
-      "updatedAt": "2026-10-22T16:36:41.117Z",
+      "updatedAt": "2026-10-31T02:31:58.926Z",
       "source": {
         "provider": "AFLW",
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8970",
         "sourceType": "official",
         "checkedAt": "2026-10-22T16:36:41.117Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t9409",
+        "scorelineText": "Port Adelaide v Collingwood — 52-4",
+        "spoilerLevel": "sensitive",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8970",
+          "sourceType": "official",
+          "checkedAt": "2026-10-31T02:31:58.926Z"
+        }
       }
     },
     {
@@ -16261,7 +16273,7 @@
         "team:aflw:cd_t7887"
       ],
       "displayName": "St Kilda v Brisbane Lions",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -16292,12 +16304,24 @@
         "time-confirmed"
       ],
       "createdAt": "2026-09-04T14:23:00.839Z",
-      "updatedAt": "2026-10-22T16:36:41.117Z",
+      "updatedAt": "2026-10-31T02:31:58.926Z",
       "source": {
         "provider": "AFLW",
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8971",
         "sourceType": "official",
         "checkedAt": "2026-10-22T16:36:41.117Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t7887",
+        "scorelineText": "St Kilda v Brisbane Lions — 23-75",
+        "spoilerLevel": "sensitive",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8971",
+          "sourceType": "official",
+          "checkedAt": "2026-10-31T02:31:58.926Z"
+        }
       }
     },
     {
@@ -16323,7 +16347,7 @@
         "team:aflw:cd_t7886"
       ],
       "displayName": "Geelong Cats v Fremantle",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -16354,12 +16378,24 @@
         "time-confirmed"
       ],
       "createdAt": "2026-09-04T14:23:00.839Z",
-      "updatedAt": "2026-10-22T16:36:41.117Z",
+      "updatedAt": "2026-10-31T02:31:58.926Z",
       "source": {
         "provider": "AFLW",
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8974",
         "sourceType": "official",
         "checkedAt": "2026-10-22T16:36:41.117Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t8467",
+        "scorelineText": "Geelong Cats v Fremantle — 64-34",
+        "spoilerLevel": "sensitive",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8974",
+          "sourceType": "official",
+          "checkedAt": "2026-10-31T02:31:58.926Z"
+        }
       }
     },
     {
@@ -16385,7 +16421,7 @@
         "team:aflw:cd_t8788"
       ],
       "displayName": "Gold Coast SUNS v Richmond",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -16416,12 +16452,24 @@
         "time-confirmed"
       ],
       "createdAt": "2026-09-04T14:23:00.839Z",
-      "updatedAt": "2026-10-22T16:36:41.117Z",
+      "updatedAt": "2026-10-31T02:31:58.926Z",
       "source": {
         "provider": "AFLW",
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8972",
         "sourceType": "official",
         "checkedAt": "2026-10-22T16:36:41.117Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t8786",
+        "scorelineText": "Gold Coast SUNS v Richmond — 54-50",
+        "spoilerLevel": "sensitive",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8972",
+          "sourceType": "official",
+          "checkedAt": "2026-10-31T02:31:58.926Z"
+        }
       }
     },
     {
@@ -16447,7 +16495,7 @@
         "team:aflw:cd_t7386"
       ],
       "displayName": "Western Bulldogs v Melbourne",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -16478,12 +16526,24 @@
         "time-confirmed"
       ],
       "createdAt": "2026-09-04T14:23:00.839Z",
-      "updatedAt": "2026-10-22T16:36:41.117Z",
+      "updatedAt": "2026-10-31T02:31:58.926Z",
       "source": {
         "provider": "AFLW",
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8973",
         "sourceType": "official",
         "checkedAt": "2026-10-22T16:36:41.117Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t7386",
+        "scorelineText": "Western Bulldogs v Melbourne — 20-37",
+        "spoilerLevel": "sensitive",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8973",
+          "sourceType": "official",
+          "checkedAt": "2026-10-31T02:31:58.926Z"
+        }
       }
     },
     {
@@ -16509,7 +16569,7 @@
         "team:aflw:cd_t8787"
       ],
       "displayName": "Sydney Swans v West Coast Eagles",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -16540,12 +16600,24 @@
         "time-confirmed"
       ],
       "createdAt": "2026-09-04T14:23:00.839Z",
-      "updatedAt": "2026-10-22T16:36:41.117Z",
+      "updatedAt": "2026-10-31T02:31:58.926Z",
       "source": {
         "provider": "AFLW",
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8977",
         "sourceType": "official",
         "checkedAt": "2026-10-22T16:36:41.117Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t9408",
+        "scorelineText": "Sydney Swans v West Coast Eagles — 78-56",
+        "spoilerLevel": "sensitive",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8977",
+          "sourceType": "official",
+          "checkedAt": "2026-10-31T02:31:58.926Z"
+        }
       }
     },
     {
@@ -16571,7 +16643,7 @@
         "team:aflw:cd_t8098"
       ],
       "displayName": "North Melbourne v Adelaide Crows",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -16602,12 +16674,24 @@
         "time-confirmed"
       ],
       "createdAt": "2026-09-04T14:23:00.839Z",
-      "updatedAt": "2026-10-22T16:36:41.117Z",
+      "updatedAt": "2026-10-31T02:31:58.926Z",
       "source": {
         "provider": "AFLW",
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8979",
         "sourceType": "official",
         "checkedAt": "2026-10-22T16:36:41.117Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t8466",
+        "scorelineText": "North Melbourne v Adelaide Crows — 38-29",
+        "spoilerLevel": "sensitive",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8979",
+          "sourceType": "official",
+          "checkedAt": "2026-10-31T02:31:58.926Z"
+        }
       }
     },
     {
@@ -16633,7 +16717,7 @@
         "team:aflw:cd_t9406"
       ],
       "displayName": "Hawthorn v Essendon",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -16664,12 +16748,24 @@
         "time-confirmed"
       ],
       "createdAt": "2026-09-04T14:23:00.839Z",
-      "updatedAt": "2026-10-22T16:36:41.117Z",
+      "updatedAt": "2026-10-31T02:31:58.926Z",
       "source": {
         "provider": "AFLW",
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8976",
         "sourceType": "official",
         "checkedAt": "2026-10-22T16:36:41.117Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t9407",
+        "scorelineText": "Hawthorn v Essendon — 25-20",
+        "spoilerLevel": "sensitive",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8976",
+          "sourceType": "official",
+          "checkedAt": "2026-10-31T02:31:58.926Z"
+        }
       }
     },
     {
@@ -16695,7 +16791,7 @@
         "team:aflw:cd_t7889"
       ],
       "displayName": "Carlton v GWS GIANTS",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -16726,7 +16822,7 @@
         "time-confirmed"
       ],
       "createdAt": "2026-09-04T14:23:00.839Z",
-      "updatedAt": "2026-10-22T16:36:41.117Z",
+      "updatedAt": "2026-10-31T02:31:58.926Z",
       "source": {
         "provider": "AFLW",
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8975",
@@ -16765,7 +16861,19 @@
         "needsPreviewRefresh": false
       },
       "selectedSentence": "Carlton v GWS GIANTS: IKON Park is GWS's final away match of the published 2026 home-and-away fixture.",
-      "fullSpiel": "IKON Park is GWS's final away match of the published 2026 home-and-away fixture. The official fixture lists Round 11 at IKON Park, Melbourne. At this refresh, GWS sit 15th and Carlton sit 6th on the official AFLW ladder. That combination of opponent history, venue or player connection gives this Round 11 match its own stakes within the published 12-round season."
+      "fullSpiel": "IKON Park is GWS's final away match of the published 2026 home-and-away fixture. The official fixture lists Round 11 at IKON Park, Melbourne. At this refresh, GWS sit 15th and Carlton sit 6th on the official AFLW ladder. That combination of opponent history, venue or player connection gives this Round 11 match its own stakes within the published 12-round season.",
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t8096",
+        "scorelineText": "Carlton v GWS GIANTS — 38-23",
+        "spoilerLevel": "sensitive",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8975",
+          "sourceType": "official",
+          "checkedAt": "2026-10-31T02:31:58.926Z"
+        }
+      }
     },
     {
       "id": "event:afl:cd_m20260141201",
@@ -17280,7 +17388,7 @@
         "team:aflw:cd_t7387"
       ],
       "displayName": "Geelong Cats v Western Bulldogs",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -17311,12 +17419,24 @@
         "time-confirmed"
       ],
       "createdAt": "2026-09-04T14:23:00.839Z",
-      "updatedAt": "2026-10-22T16:36:41.117Z",
+      "updatedAt": "2026-10-31T02:31:59.493Z",
       "source": {
         "provider": "AFLW",
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8978",
         "sourceType": "official",
         "checkedAt": "2026-10-22T16:36:41.117Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t8467",
+        "scorelineText": "Geelong Cats v Western Bulldogs — 88-20",
+        "spoilerLevel": "sensitive",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8978",
+          "sourceType": "official",
+          "checkedAt": "2026-10-31T02:31:59.493Z"
+        }
       }
     },
     {

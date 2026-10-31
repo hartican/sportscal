@@ -171203,7 +171203,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "status": "upcoming",
+    "status": "completed",
     "participants": [
       {
         "id": "team:aflw:cd_t9409",
@@ -171216,11 +171216,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Port Adelaide enter 12th and Collingwood 16th; a late-season test of where both clubs finish.",
-    "fullSpiel": "Port Adelaide are 12th with 16 points, while Collingwood are 16th with 4. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "AFLW current AFLW table",
-    "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-    "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+    "selectedSentence": "Port Adelaide v Collingwood is complete. Reveal results for the outcome.",
+    "fullSpiel": "Port Adelaide v Collingwood is complete. Results stay hidden until you choose to reveal them.",
+    "sourceName": "AFLW",
+    "sourceUrl": "https://www.afl.com.au/aflw/matches/8970",
+    "sourceCheckedAt": "2026-10-31T02:31:58.926Z",
     "sourceType": "official",
     "lastReviewedAt": "2026-10-11T12:40:11.243Z",
     "replayEligible": true,
@@ -171284,30 +171284,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Port Adelaide — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Port Adelaide enter 12th and Collingwood 16th; a late-season test of where both clubs finish.",
-      "hookSpoilerOn": "Port Adelaide enter 12th and Collingwood 16th; a late-season test of where both clubs finish.",
-      "synopsisSpoilerOff": "Port Adelaide are 12th with 16 points, while Collingwood are 16th with 4. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Port Adelaide are 12th with 16 points, while Collingwood are 16th with 4. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "Port Adelaide v Collingwood is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Port Adelaide defeated Collingwood 52-4.",
+      "synopsisSpoilerOff": "Port Adelaide v Collingwood is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Port Adelaide v Collingwood finished 52-4 in Round 11, with Port Adelaide winning by 48 points.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
-      "stakes": 1
+      "stakes": 1,
+      "intensity": 2,
+      "expectedSpectacle": 4,
+      "intensitySource": "computed"
     },
-    "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+    "statusCheckedAt": "2026-10-31T02:31:58.926Z",
     "timePrecision": "exact",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -171319,7 +171309,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "homeScore": 52,
+    "awayScore": 4,
+    "score": "Port Adelaide v Collingwood — 52-4",
+    "outcomeText": "Port Adelaide defeated Collingwood 52-4.",
+    "recapText": "Port Adelaide v Collingwood finished 52-4 in Round 11, with Port Adelaide winning by 48 points.",
+    "resultLabels": [
+      "Round 11",
+      "Port Adelaide by 48",
+      "Verified result"
+    ],
+    "consensusResult": {
+      "winner": "Port Adelaide",
+      "loser": "Collingwood",
+      "summary": "Port Adelaide defeated Collingwood 52-4.",
+      "marginText": "Port Adelaide by 48"
+    },
+    "scoreCheckedAt": "2026-10-31T02:31:58.926Z",
+    "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8970",
+    "resultSourceCheckedAt": "2026-10-31T02:31:58.926Z",
+    "canonicalResultScoreline": "Port Adelaide v Collingwood — 52-4",
+    "resultStatus": "official"
   },
   {
     "id": "evt_nbl_2026_27_371130fd_58ad_11f1_aac7_754512109772",
@@ -171968,7 +171979,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "status": "upcoming",
+    "status": "completed",
     "participants": [
       {
         "id": "team:aflw:cd_t8796",
@@ -171981,11 +171992,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "St Kilda enter 18th and Brisbane Lions 14th; a late-season test of where both clubs finish.",
-    "fullSpiel": "St Kilda are 18th with 4 points, while Brisbane Lions are 14th with 8. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "AFLW current AFLW table",
-    "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-    "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+    "selectedSentence": "St Kilda v Brisbane Lions is complete. Reveal results for the outcome.",
+    "fullSpiel": "St Kilda v Brisbane Lions is complete. Results stay hidden until you choose to reveal them.",
+    "sourceName": "AFLW",
+    "sourceUrl": "https://www.afl.com.au/aflw/matches/8971",
+    "sourceCheckedAt": "2026-10-31T02:31:58.926Z",
     "sourceType": "official",
     "lastReviewedAt": "2026-10-11T12:40:11.243Z",
     "replayEligible": true,
@@ -172049,30 +172060,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "St Kilda — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "St Kilda enter 18th and Brisbane Lions 14th; a late-season test of where both clubs finish.",
-      "hookSpoilerOn": "St Kilda enter 18th and Brisbane Lions 14th; a late-season test of where both clubs finish.",
-      "synopsisSpoilerOff": "St Kilda are 18th with 4 points, while Brisbane Lions are 14th with 8. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "St Kilda are 18th with 4 points, while Brisbane Lions are 14th with 8. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "St Kilda v Brisbane Lions is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Brisbane Lions defeated St Kilda 75-23.",
+      "synopsisSpoilerOff": "St Kilda v Brisbane Lions is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "St Kilda v Brisbane Lions finished 23-75 in Round 11, with Brisbane Lions winning by 52 points.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
-      "stakes": 1
+      "stakes": 1,
+      "intensity": 2,
+      "expectedSpectacle": 4,
+      "intensitySource": "computed"
     },
-    "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+    "statusCheckedAt": "2026-10-31T02:31:58.926Z",
     "timePrecision": "exact",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -172084,7 +172085,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "homeScore": 23,
+    "awayScore": 75,
+    "score": "St Kilda v Brisbane Lions — 23-75",
+    "outcomeText": "Brisbane Lions defeated St Kilda 75-23.",
+    "recapText": "St Kilda v Brisbane Lions finished 23-75 in Round 11, with Brisbane Lions winning by 52 points.",
+    "resultLabels": [
+      "Round 11",
+      "Brisbane Lions by 52",
+      "Verified result"
+    ],
+    "consensusResult": {
+      "winner": "Brisbane Lions",
+      "loser": "St Kilda",
+      "summary": "Brisbane Lions defeated St Kilda 75-23.",
+      "marginText": "Brisbane Lions by 52"
+    },
+    "scoreCheckedAt": "2026-10-31T02:31:58.926Z",
+    "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8971",
+    "resultSourceCheckedAt": "2026-10-31T02:31:58.926Z",
+    "canonicalResultScoreline": "St Kilda v Brisbane Lions — 23-75",
+    "resultStatus": "official"
   },
   {
     "id": "event-aflw-cd_m20262641103",
@@ -172106,7 +172128,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "status": "upcoming",
+    "status": "completed",
     "participants": [
       {
         "id": "team:aflw:cd_t8467",
@@ -172119,11 +172141,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Geelong Cats enter 2nd and Fremantle 9th; a late-season contest carrying finals-position pressure.",
-    "fullSpiel": "Geelong Cats are 2nd with 32 points, while Fremantle are 9th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "AFLW current AFLW table",
-    "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-    "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+    "selectedSentence": "Geelong Cats v Fremantle is complete. Reveal results for the outcome.",
+    "fullSpiel": "Geelong Cats v Fremantle is complete. Results stay hidden until you choose to reveal them.",
+    "sourceName": "AFLW",
+    "sourceUrl": "https://www.afl.com.au/aflw/matches/8974",
+    "sourceCheckedAt": "2026-10-31T02:31:58.926Z",
     "sourceType": "official",
     "lastReviewedAt": "2026-10-11T12:40:11.243Z",
     "replayEligible": true,
@@ -172187,30 +172209,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Geelong Cats — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Geelong Cats enter 2nd and Fremantle 9th; a late-season contest carrying finals-position pressure.",
-      "hookSpoilerOn": "Geelong Cats enter 2nd and Fremantle 9th; a late-season contest carrying finals-position pressure.",
-      "synopsisSpoilerOff": "Geelong Cats are 2nd with 32 points, while Fremantle are 9th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Geelong Cats are 2nd with 32 points, while Fremantle are 9th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "Geelong Cats v Fremantle is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Geelong Cats defeated Fremantle 64-34.",
+      "synopsisSpoilerOff": "Geelong Cats v Fremantle is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Geelong Cats v Fremantle finished 64-34 in Round 11, with Geelong Cats winning by 30 points.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
-      "stakes": 1
+      "stakes": 1,
+      "intensity": 2,
+      "expectedSpectacle": 4,
+      "intensitySource": "computed"
     },
-    "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+    "statusCheckedAt": "2026-10-31T02:31:58.926Z",
     "timePrecision": "exact",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -172222,7 +172234,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "homeScore": 64,
+    "awayScore": 34,
+    "score": "Geelong Cats v Fremantle — 64-34",
+    "outcomeText": "Geelong Cats defeated Fremantle 64-34.",
+    "recapText": "Geelong Cats v Fremantle finished 64-34 in Round 11, with Geelong Cats winning by 30 points.",
+    "resultLabels": [
+      "Round 11",
+      "Geelong Cats by 30",
+      "Verified result"
+    ],
+    "consensusResult": {
+      "winner": "Geelong Cats",
+      "loser": "Fremantle",
+      "summary": "Geelong Cats defeated Fremantle 64-34.",
+      "marginText": "Geelong Cats by 30"
+    },
+    "scoreCheckedAt": "2026-10-31T02:31:58.926Z",
+    "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8974",
+    "resultSourceCheckedAt": "2026-10-31T02:31:58.926Z",
+    "canonicalResultScoreline": "Geelong Cats v Fremantle — 64-34",
+    "resultStatus": "official"
   },
   {
     "id": "event-aflw-cd_m20262641104",
@@ -172244,7 +172277,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "status": "upcoming",
+    "status": "completed",
     "participants": [
       {
         "id": "team:aflw:cd_t8786",
@@ -172257,11 +172290,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Gold Coast SUNS enter 4th and Richmond 13th; a late-season contest carrying finals-position pressure.",
-    "fullSpiel": "Gold Coast SUNS are 4th with 28 points, while Richmond are 13th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "AFLW current AFLW table",
-    "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-    "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+    "selectedSentence": "Gold Coast SUNS v Richmond is complete. Reveal results for the outcome.",
+    "fullSpiel": "Gold Coast SUNS v Richmond is complete. Results stay hidden until you choose to reveal them.",
+    "sourceName": "AFLW",
+    "sourceUrl": "https://www.afl.com.au/aflw/matches/8972",
+    "sourceCheckedAt": "2026-10-31T02:31:58.926Z",
     "sourceType": "official",
     "lastReviewedAt": "2026-10-11T12:40:11.243Z",
     "replayEligible": true,
@@ -172325,30 +172358,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Gold Coast SUNS — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Gold Coast SUNS enter 4th and Richmond 13th; a late-season contest carrying finals-position pressure.",
-      "hookSpoilerOn": "Gold Coast SUNS enter 4th and Richmond 13th; a late-season contest carrying finals-position pressure.",
-      "synopsisSpoilerOff": "Gold Coast SUNS are 4th with 28 points, while Richmond are 13th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Gold Coast SUNS are 4th with 28 points, while Richmond are 13th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "Gold Coast SUNS v Richmond is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Gold Coast SUNS defeated Richmond 54-50.",
+      "synopsisSpoilerOff": "Gold Coast SUNS v Richmond is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Gold Coast SUNS v Richmond finished 54-50 in Round 11, with Gold Coast SUNS winning by 4 points.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
-      "stakes": 1
+      "stakes": 1,
+      "intensity": 2,
+      "expectedSpectacle": 4,
+      "intensitySource": "computed"
     },
-    "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+    "statusCheckedAt": "2026-10-31T02:31:58.926Z",
     "timePrecision": "exact",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -172360,7 +172383,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "homeScore": 54,
+    "awayScore": 50,
+    "score": "Gold Coast SUNS v Richmond — 54-50",
+    "outcomeText": "Gold Coast SUNS defeated Richmond 54-50.",
+    "recapText": "Gold Coast SUNS v Richmond finished 54-50 in Round 11, with Gold Coast SUNS winning by 4 points.",
+    "resultLabels": [
+      "Round 11",
+      "Gold Coast SUNS by 4",
+      "Verified result"
+    ],
+    "consensusResult": {
+      "winner": "Gold Coast SUNS",
+      "loser": "Richmond",
+      "summary": "Gold Coast SUNS defeated Richmond 54-50.",
+      "marginText": "Gold Coast SUNS by 4"
+    },
+    "scoreCheckedAt": "2026-10-31T02:31:58.926Z",
+    "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8972",
+    "resultSourceCheckedAt": "2026-10-31T02:31:58.926Z",
+    "canonicalResultScoreline": "Gold Coast SUNS v Richmond — 54-50",
+    "resultStatus": "official"
   },
   {
     "id": "evt_nbl_2026_27_37106a00_58ad_11f1_a7e9_87e414b8c2d5",
@@ -172593,7 +172637,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "status": "upcoming",
+    "status": "completed",
     "participants": [
       {
         "id": "team:aflw:cd_t7387",
@@ -172606,11 +172650,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Western Bulldogs enter 6th and Melbourne 3rd; a late-season contest carrying finals-position pressure.",
-    "fullSpiel": "Western Bulldogs are 6th with 28 points, while Melbourne are 3rd with 28. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "AFLW current AFLW table",
-    "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-    "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+    "selectedSentence": "Western Bulldogs v Melbourne is complete. Reveal results for the outcome.",
+    "fullSpiel": "Western Bulldogs v Melbourne is complete. Results stay hidden until you choose to reveal them.",
+    "sourceName": "AFLW",
+    "sourceUrl": "https://www.afl.com.au/aflw/matches/8973",
+    "sourceCheckedAt": "2026-10-31T02:31:58.926Z",
     "sourceType": "official",
     "lastReviewedAt": "2026-10-11T12:40:11.243Z",
     "replayEligible": true,
@@ -172674,30 +172718,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Western Bulldogs — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Western Bulldogs enter 6th and Melbourne 3rd; a late-season contest carrying finals-position pressure.",
-      "hookSpoilerOn": "Western Bulldogs enter 6th and Melbourne 3rd; a late-season contest carrying finals-position pressure.",
-      "synopsisSpoilerOff": "Western Bulldogs are 6th with 28 points, while Melbourne are 3rd with 28. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Western Bulldogs are 6th with 28 points, while Melbourne are 3rd with 28. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "Western Bulldogs v Melbourne is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Melbourne defeated Western Bulldogs 37-20.",
+      "synopsisSpoilerOff": "Western Bulldogs v Melbourne is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Western Bulldogs v Melbourne finished 20-37 in Round 11, with Melbourne winning by 17 points.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
-      "stakes": 1
+      "stakes": 1,
+      "intensity": 2,
+      "expectedSpectacle": 4,
+      "intensitySource": "computed"
     },
-    "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+    "statusCheckedAt": "2026-10-31T02:31:58.926Z",
     "timePrecision": "exact",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -172709,7 +172743,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "homeScore": 20,
+    "awayScore": 37,
+    "score": "Western Bulldogs v Melbourne — 20-37",
+    "outcomeText": "Melbourne defeated Western Bulldogs 37-20.",
+    "recapText": "Western Bulldogs v Melbourne finished 20-37 in Round 11, with Melbourne winning by 17 points.",
+    "resultLabels": [
+      "Round 11",
+      "Melbourne by 17",
+      "Verified result"
+    ],
+    "consensusResult": {
+      "winner": "Melbourne",
+      "loser": "Western Bulldogs",
+      "summary": "Melbourne defeated Western Bulldogs 37-20.",
+      "marginText": "Melbourne by 17"
+    },
+    "scoreCheckedAt": "2026-10-31T02:31:58.926Z",
+    "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8973",
+    "resultSourceCheckedAt": "2026-10-31T02:31:58.926Z",
+    "canonicalResultScoreline": "Western Bulldogs v Melbourne — 20-37",
+    "resultStatus": "official"
   },
   {
     "id": "evt_nbl_2026_27_3711a017_58ad_11f1_b649_93b9302663c0",
@@ -174744,7 +174799,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "status": "upcoming",
+    "status": "completed",
     "participants": [
       {
         "id": "team:aflw:cd_t9408",
@@ -174757,11 +174812,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Sydney Swans enter 7th and West Coast Eagles 11th; a late-season contest carrying finals-position pressure.",
-    "fullSpiel": "Sydney Swans are 7th with 24 points, while West Coast Eagles are 11th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "AFLW current AFLW table",
-    "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-    "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+    "selectedSentence": "Sydney Swans v West Coast Eagles is complete. Reveal results for the outcome.",
+    "fullSpiel": "Sydney Swans v West Coast Eagles is complete. Results stay hidden until you choose to reveal them.",
+    "sourceName": "AFLW",
+    "sourceUrl": "https://www.afl.com.au/aflw/matches/8977",
+    "sourceCheckedAt": "2026-10-31T02:31:58.926Z",
     "sourceType": "official",
     "lastReviewedAt": "2026-10-11T12:40:11.243Z",
     "replayEligible": true,
@@ -174825,30 +174880,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Sydney Swans — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Sydney Swans enter 7th and West Coast Eagles 11th; a late-season contest carrying finals-position pressure.",
-      "hookSpoilerOn": "Sydney Swans enter 7th and West Coast Eagles 11th; a late-season contest carrying finals-position pressure.",
-      "synopsisSpoilerOff": "Sydney Swans are 7th with 24 points, while West Coast Eagles are 11th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Sydney Swans are 7th with 24 points, while West Coast Eagles are 11th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "Sydney Swans v West Coast Eagles is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Sydney Swans defeated West Coast Eagles 78-56.",
+      "synopsisSpoilerOff": "Sydney Swans v West Coast Eagles is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Sydney Swans v West Coast Eagles finished 78-56 in Round 11, with Sydney Swans winning by 22 points.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
-      "stakes": 1
+      "stakes": 1,
+      "intensity": 2,
+      "expectedSpectacle": 4,
+      "intensitySource": "computed"
     },
-    "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+    "statusCheckedAt": "2026-10-31T02:31:58.926Z",
     "timePrecision": "exact",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -174860,7 +174905,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "homeScore": 78,
+    "awayScore": 56,
+    "score": "Sydney Swans v West Coast Eagles — 78-56",
+    "outcomeText": "Sydney Swans defeated West Coast Eagles 78-56.",
+    "recapText": "Sydney Swans v West Coast Eagles finished 78-56 in Round 11, with Sydney Swans winning by 22 points.",
+    "resultLabels": [
+      "Round 11",
+      "Sydney Swans by 22",
+      "Verified result"
+    ],
+    "consensusResult": {
+      "winner": "Sydney Swans",
+      "loser": "West Coast Eagles",
+      "summary": "Sydney Swans defeated West Coast Eagles 78-56.",
+      "marginText": "Sydney Swans by 22"
+    },
+    "scoreCheckedAt": "2026-10-31T02:31:58.926Z",
+    "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8977",
+    "resultSourceCheckedAt": "2026-10-31T02:31:58.926Z",
+    "canonicalResultScoreline": "Sydney Swans v West Coast Eagles — 78-56",
+    "resultStatus": "official"
   },
   {
     "id": "event-aflw-cd_m20262641107",
@@ -174882,7 +174948,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "status": "upcoming",
+    "status": "completed",
     "participants": [
       {
         "id": "team:aflw:cd_t8466",
@@ -174895,11 +174961,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "North Melbourne enter 1st and Adelaide Crows 10th; a late-season contest carrying finals-position pressure.",
-    "fullSpiel": "North Melbourne are 1st with 32 points, while Adelaide Crows are 10th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "AFLW current AFLW table",
-    "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-    "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+    "selectedSentence": "North Melbourne v Adelaide Crows is complete. Reveal results for the outcome.",
+    "fullSpiel": "North Melbourne v Adelaide Crows is complete. Results stay hidden until you choose to reveal them.",
+    "sourceName": "AFLW",
+    "sourceUrl": "https://www.afl.com.au/aflw/matches/8979",
+    "sourceCheckedAt": "2026-10-31T02:31:58.926Z",
     "sourceType": "official",
     "lastReviewedAt": "2026-10-11T12:40:11.243Z",
     "replayEligible": true,
@@ -174963,30 +175029,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "North Melbourne — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "North Melbourne enter 1st and Adelaide Crows 10th; a late-season contest carrying finals-position pressure.",
-      "hookSpoilerOn": "North Melbourne enter 1st and Adelaide Crows 10th; a late-season contest carrying finals-position pressure.",
-      "synopsisSpoilerOff": "North Melbourne are 1st with 32 points, while Adelaide Crows are 10th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "North Melbourne are 1st with 32 points, while Adelaide Crows are 10th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "North Melbourne v Adelaide Crows is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "North Melbourne defeated Adelaide Crows 38-29.",
+      "synopsisSpoilerOff": "North Melbourne v Adelaide Crows is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "North Melbourne v Adelaide Crows finished 38-29 in Round 11, with North Melbourne winning by 9 points.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
-      "stakes": 1
+      "stakes": 1,
+      "intensity": 2,
+      "expectedSpectacle": 4,
+      "intensitySource": "computed"
     },
-    "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+    "statusCheckedAt": "2026-10-31T02:31:58.926Z",
     "timePrecision": "exact",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -174998,7 +175054,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "homeScore": 38,
+    "awayScore": 29,
+    "score": "North Melbourne v Adelaide Crows — 38-29",
+    "outcomeText": "North Melbourne defeated Adelaide Crows 38-29.",
+    "recapText": "North Melbourne v Adelaide Crows finished 38-29 in Round 11, with North Melbourne winning by 9 points.",
+    "resultLabels": [
+      "Round 11",
+      "North Melbourne by 9",
+      "Verified result"
+    ],
+    "consensusResult": {
+      "winner": "North Melbourne",
+      "loser": "Adelaide Crows",
+      "summary": "North Melbourne defeated Adelaide Crows 38-29.",
+      "marginText": "North Melbourne by 9"
+    },
+    "scoreCheckedAt": "2026-10-31T02:31:58.926Z",
+    "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8979",
+    "resultSourceCheckedAt": "2026-10-31T02:31:58.926Z",
+    "canonicalResultScoreline": "North Melbourne v Adelaide Crows — 38-29",
+    "resultStatus": "official"
   },
   {
     "id": "evt_nbl_2026_27_3714bc12_58ad_11f1_bdd2_69207a436dad",
@@ -175224,7 +175301,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "status": "upcoming",
+    "status": "completed",
     "participants": [
       {
         "id": "team:aflw:cd_t9407",
@@ -175237,11 +175314,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Hawthorn enter 8th and Essendon 17th; a late-season contest carrying finals-position pressure.",
-    "fullSpiel": "Hawthorn are 8th with 20 points, while Essendon are 17th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "AFLW current AFLW table",
-    "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-    "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+    "selectedSentence": "Hawthorn v Essendon is complete. Reveal results for the outcome.",
+    "fullSpiel": "Hawthorn v Essendon is complete. Results stay hidden until you choose to reveal them.",
+    "sourceName": "AFLW",
+    "sourceUrl": "https://www.afl.com.au/aflw/matches/8976",
+    "sourceCheckedAt": "2026-10-31T02:31:58.926Z",
     "sourceType": "official",
     "lastReviewedAt": "2026-10-11T12:40:11.243Z",
     "replayEligible": true,
@@ -175305,30 +175382,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Hawthorn — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Hawthorn enter 8th and Essendon 17th; a late-season contest carrying finals-position pressure.",
-      "hookSpoilerOn": "Hawthorn enter 8th and Essendon 17th; a late-season contest carrying finals-position pressure.",
-      "synopsisSpoilerOff": "Hawthorn are 8th with 20 points, while Essendon are 17th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Hawthorn are 8th with 20 points, while Essendon are 17th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "Hawthorn v Essendon is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Hawthorn defeated Essendon 25-20.",
+      "synopsisSpoilerOff": "Hawthorn v Essendon is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Hawthorn v Essendon finished 25-20 in Round 11, with Hawthorn winning by 5 points.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
-      "stakes": 1
+      "stakes": 1,
+      "intensity": 2,
+      "expectedSpectacle": 4,
+      "intensitySource": "computed"
     },
-    "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+    "statusCheckedAt": "2026-10-31T02:31:58.926Z",
     "timePrecision": "exact",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -175340,7 +175407,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "homeScore": 25,
+    "awayScore": 20,
+    "score": "Hawthorn v Essendon — 25-20",
+    "outcomeText": "Hawthorn defeated Essendon 25-20.",
+    "recapText": "Hawthorn v Essendon finished 25-20 in Round 11, with Hawthorn winning by 5 points.",
+    "resultLabels": [
+      "Round 11",
+      "Hawthorn by 5",
+      "Verified result"
+    ],
+    "consensusResult": {
+      "winner": "Hawthorn",
+      "loser": "Essendon",
+      "summary": "Hawthorn defeated Essendon 25-20.",
+      "marginText": "Hawthorn by 5"
+    },
+    "scoreCheckedAt": "2026-10-31T02:31:58.926Z",
+    "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8976",
+    "resultSourceCheckedAt": "2026-10-31T02:31:58.926Z",
+    "canonicalResultScoreline": "Hawthorn v Essendon — 25-20",
+    "resultStatus": "official"
   },
   {
     "id": "evt_nbl_2026_27_3716743f_58ad_11f1_8c04_1fa229f84a5e",
@@ -175565,7 +175653,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "status": "upcoming",
+    "status": "completed",
     "participants": [
       {
         "id": "team:aflw:cd_t8096",
@@ -175578,24 +175666,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Carlton enter 5th and GWS GIANTS 15th; a late-season contest carrying finals-position pressure.",
-    "fullSpiel": "Carlton are 5th with 28 points, while GWS GIANTS are 15th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Carlton — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
-      "needsPreviewRefresh": false
-    },
-    "sourceName": "AFLW current AFLW table",
-    "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-    "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+    "selectedSentence": "Carlton v GWS GIANTS is complete. Reveal results for the outcome.",
+    "fullSpiel": "Carlton v GWS GIANTS is complete. Results stay hidden until you choose to reveal them.",
+    "sourceName": "AFLW",
+    "sourceUrl": "https://www.afl.com.au/aflw/matches/8975",
+    "sourceCheckedAt": "2026-10-31T02:31:58.926Z",
     "sourceType": "official",
     "lastReviewedAt": "2026-10-11T12:40:11.243Z",
     "replayEligible": true,
@@ -175661,15 +175736,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Carlton enter 5th and GWS GIANTS 15th; a late-season contest carrying finals-position pressure.",
-      "hookSpoilerOn": "Carlton enter 5th and GWS GIANTS 15th; a late-season contest carrying finals-position pressure.",
-      "synopsisSpoilerOff": "Carlton are 5th with 28 points, while GWS GIANTS are 15th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Carlton are 5th with 28 points, while GWS GIANTS are 15th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "Carlton v GWS GIANTS is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Carlton defeated GWS GIANTS 38-23.",
+      "synopsisSpoilerOff": "Carlton v GWS GIANTS is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Carlton v GWS GIANTS finished 38-23 in Round 11, with Carlton winning by 15 points.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
-      "stakes": 1
+      "stakes": 1,
+      "intensity": 2,
+      "expectedSpectacle": 4,
+      "intensitySource": "computed"
     },
-    "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+    "statusCheckedAt": "2026-10-31T02:31:58.926Z",
     "timePrecision": "exact",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -175681,7 +175759,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "homeScore": 38,
+    "awayScore": 23,
+    "score": "Carlton v GWS GIANTS — 38-23",
+    "outcomeText": "Carlton defeated GWS GIANTS 38-23.",
+    "recapText": "Carlton v GWS GIANTS finished 38-23 in Round 11, with Carlton winning by 15 points.",
+    "resultLabels": [
+      "Round 11",
+      "Carlton by 15",
+      "Verified result"
+    ],
+    "consensusResult": {
+      "winner": "Carlton",
+      "loser": "GWS GIANTS",
+      "summary": "Carlton defeated GWS GIANTS 38-23.",
+      "marginText": "Carlton by 15"
+    },
+    "scoreCheckedAt": "2026-10-31T02:31:58.926Z",
+    "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8975",
+    "resultSourceCheckedAt": "2026-10-31T02:31:58.926Z",
+    "canonicalResultScoreline": "Carlton v GWS GIANTS — 38-23",
+    "resultStatus": "official"
   },
   {
     "id": "rlwc-australia-fiji-2026",
@@ -178000,7 +178099,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "status": "upcoming",
+    "status": "completed",
     "participants": [
       {
         "id": "team:aflw:cd_t8467",
@@ -178013,11 +178112,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Geelong Cats enter 2nd and Western Bulldogs 6th; a late-season contest carrying finals-position pressure.",
-    "fullSpiel": "Geelong Cats are 2nd with 32 points, while Western Bulldogs are 6th with 28. That makes this more than a date in Round 12: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "AFLW current AFLW table",
-    "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-    "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+    "selectedSentence": "Geelong Cats v Western Bulldogs is complete. Reveal results for the outcome.",
+    "fullSpiel": "Geelong Cats v Western Bulldogs is complete. Results stay hidden until you choose to reveal them.",
+    "sourceName": "AFLW",
+    "sourceUrl": "https://www.afl.com.au/aflw/matches/8978",
+    "sourceCheckedAt": "2026-10-31T02:31:59.493Z",
     "sourceType": "official",
     "lastReviewedAt": "2026-10-11T12:40:11.243Z",
     "replayEligible": true,
@@ -178081,30 +178180,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Geelong Cats — current AFLW path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceName": "AFLW current AFLW table",
-      "sourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Geelong Cats enter 2nd and Western Bulldogs 6th; a late-season contest carrying finals-position pressure.",
-      "hookSpoilerOn": "Geelong Cats enter 2nd and Western Bulldogs 6th; a late-season contest carrying finals-position pressure.",
-      "synopsisSpoilerOff": "Geelong Cats are 2nd with 32 points, while Western Bulldogs are 6th with 28. That makes this more than a date in Round 12: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Geelong Cats are 2nd with 32 points, while Western Bulldogs are 6th with 28. That makes this more than a date in Round 12: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "Geelong Cats v Western Bulldogs is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Geelong Cats defeated Western Bulldogs 88-20.",
+      "synopsisSpoilerOff": "Geelong Cats v Western Bulldogs is complete. Results stay hidden until you choose to reveal them.",
+      "synopsisSpoilerOn": "Geelong Cats v Western Bulldogs finished 88-20 in Round 12, with Geelong Cats winning by 68 points.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
-      "stakes": 1
+      "stakes": 1,
+      "intensity": 2,
+      "expectedSpectacle": 4,
+      "intensitySource": "computed"
     },
-    "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+    "statusCheckedAt": "2026-10-31T02:31:59.493Z",
     "timePrecision": "exact",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -178116,7 +178205,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "timeTbc": false,
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "homeScore": 88,
+    "awayScore": 20,
+    "score": "Geelong Cats v Western Bulldogs — 88-20",
+    "outcomeText": "Geelong Cats defeated Western Bulldogs 88-20.",
+    "recapText": "Geelong Cats v Western Bulldogs finished 88-20 in Round 12, with Geelong Cats winning by 68 points.",
+    "resultLabels": [
+      "Round 12",
+      "Geelong Cats by 68",
+      "Verified result"
+    ],
+    "consensusResult": {
+      "winner": "Geelong Cats",
+      "loser": "Western Bulldogs",
+      "summary": "Geelong Cats defeated Western Bulldogs 88-20.",
+      "marginText": "Geelong Cats by 68"
+    },
+    "scoreCheckedAt": "2026-10-31T02:31:59.493Z",
+    "resultSourceUrl": "https://www.afl.com.au/aflw/matches/8978",
+    "resultSourceCheckedAt": "2026-10-31T02:31:59.493Z",
+    "canonicalResultScoreline": "Geelong Cats v Western Bulldogs — 88-20",
+    "resultStatus": "official"
   },
   {
     "id": "evt_nbl_2026_27_3718733a_58ad_11f1_b000_3ffa71afcf53",
