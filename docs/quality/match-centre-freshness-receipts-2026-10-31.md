@@ -103,3 +103,28 @@ gzip778→1,427bytes on deliberately repetitive synthetic rows; these are not
 production compression or latency guarantees. Ordinary polling never receives
 those added fields. Earlier commits/reports remain dated history, and the
 current-day horizon RED is unchanged, separately retained, and not waived.
+
+## Follow-up: installed cache coherence, source preparation only
+
+ROOT found that the changed browser-shared model still used595. Advance the
+Match Centre model URL to605 in the index, worker, idle warm-up, score details
+and Feed live-score loader. Advance changed score-details and Feed-loader
+URLs to605 in every caller/worker; changed tournament-card UI also advances to605
+through its bundled venue-panel owner and worker. The changed idle warm-up
+module advances to605 at its index caller. Regenerate the app-shell runtime
+from those venue-panel sources using the existing builder; unchanged generated
+bundles and unrelated asset versions retain their bytes/keys.
+
+Index shell metadata, app-version.json, worker cache/version and runtime URLs
+advance604→605 together. The existing dynamic recovery UI uses the605 worker
+key as required by the established shell convention. No worker lifecycle code,
+cache strategy, timing, source/data refresh, admission or notification behaviour
+changes. Optional startup-view-cache retains its existing after-use ownership;
+no new required install asset is added.
+
+Source cache/version/build/view-cache/offline-module/startup/affected-handler
+checks are preparation only. ROOT must run the full normal release and installed
+604→605 upgrade/offline checks on its exact combined tree in both engines.
+No browser, CI, live, managed SQL, push or deployment is performed by this worker.
+The old one-release PWA exceptions are not reused. Original held AFLW
+acceptance and separate unchanged horizon RED remain untouched.
