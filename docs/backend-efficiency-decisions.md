@@ -1,5 +1,28 @@
 # Backend efficiency decisions
 
+## AFLW independent round-result preparation — 31 October 2026
+
+Source-only preparation is limited to the existing canonical quick owner and the
+ten retained due results in AFLW rounds 11 and 12. The proposed transport has two
+exact public season96 match resources, no token, retry, redirect, ladder request
+or participant admission. This record grants no actual source or release window.
+
+An HTTP401/403 stops all further acquisition. It does not discard independently
+complete, validated results already observed from the other round. Report the
+refused resource and affected cards, retain their last-good facts and return any
+token/resource proposal separately. With no supported observations, fail rather
+than claiming fresh unchanged success. A partial page defers that entire round;
+wrong season, ordered identities, ambiguous IDs or conflicting accepted finals
+still reject the whole candidate. Validate the supplied identities before page
+completeness so an incomplete envelope cannot hide a shared identity conflict.
+
+Preserve the eight future fixtures, all other sports and both surfaces' IDs,
+viewing, reviewed writing and genuine clocks. Keep the older AfterRound10 ladder
+explicitly retained, with no derived rankings or qualification claims. Full Feed,
+spoiler, generated-file and atomic rollback gates remain required. Owned-input
+checks are not current result observations, SourceReady or live acceptance;
+ROOT/nsDEPLOY retains all allocation, integration and publication authority.
+
 ## Retained EPL rebuild stays with the canonical owner — 31 October 2026
 
 The explicit local-only `update-cards.js --quick --source=epl --rebuild` route
