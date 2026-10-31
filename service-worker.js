@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v604";
-const SHELL_VERSION = "604";
+const CACHE_NAME = "nothingsport-shell-v605";
+const SHELL_VERSION = "605";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -64,16 +64,16 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=604",
+  "/assets/js/app-shell-runtime.js?v=605",
   "/assets/js/account-awareness-runtime.js?v=599",
   "/assets/js/follow-schedule-panel.js?v=576",
   "/assets/js/fixture-navigation.js?v=535",
   "/assets/js/notification-navigation.js?v=534",
   "/config/cricket-innings.js?v=582",
-  "/config/score-details.js?v=595",
+  "/config/score-details.js?v=605",
   "/assets/styles/score-details.css?v=582",
   "/config/tournament-card-details.js?v=486",
-  "/assets/js/tournament-card-ui.js?v=595",
+  "/assets/js/tournament-card-ui.js?v=605",
   "/config/tournament-schedule.js?v=452",
   "/assets/js/tennis-schedule-ui.js?v=467",
   "/config/tennis-journeys.js?v=467",
@@ -95,7 +95,7 @@ const APP_SHELL = [
   "/config/tennis-coverage.js",
   "/config/sport-hubs.js",
   "/config/optimistic-mutation.js",
-  "/config/preference-reset-ui.js?v=604",
+  "/config/preference-reset-ui.js?v=605",
   "/config/marquee-campaigns.js",
   // Account sync is already in the required runtime; the owner console caches
   // its separate source after first use.
@@ -103,13 +103,13 @@ const APP_SHELL = [
   "/config/event-overviews-ui.js?v=595",
   "/config/surface-category-ui.js?v=403",
   "/assets/styles/match-centre.css?v=595",
-  "/config/match-centre.js?v=595",
+  "/config/match-centre.js?v=605",
   // An upgrading page can receive this deferred module from its old worker.
   // Own it in the new cache before activation removes that old cache.
   "/assets/js/match-centre-ui.js?v=595",
   "/assets/js/milestone-alerts-ui.js?v=535",
   "/config/feed-live-scores.js?v=576",
-  "/config/feed-live-score-loader.js?v=595",
+  "/config/feed-live-score-loader.js?v=605",
   "/config/athletes.js?v=471",
   "/assets/js/athletes-ui.js?v=581",
   // Profile UI caches after first use; optional detail stays out of shell budget.
