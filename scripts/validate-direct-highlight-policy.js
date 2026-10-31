@@ -41,15 +41,15 @@ async function main(){
     let calls=0;
     const res=await route({...fixture,highlights:record},async event=>{calls++;assert.equal(event.canonicalEventId,fixture.canonicalEventId);throw Error('highlights_unavailable');});
     assert.equal(calls,1,label+' direct metadata must reach the current-policy resolver instead of bypassing it');
-    assert.equal(res.code,503,label+' cannot redirect without a suitable result');assert(!res.headers.Location);
-    const action=contract.viewing({...fixture,highlights:record},now);assert(action,'recent completed fixture retains resolver action');assert.match(action.webUrl,/^\/api\/fixtures\?mode=highlight&ids=/,label+' client action is resolver-owned');
+    assert.equal(res.code,302,label+' offers results without certifying a video');assert.equal(res.headers.Location,contract.searchResultsUrl(fixture,now));
+    const action=contract.viewing({...fixture,highlights:record},now);assert(action,'recent completed fixture retains resolver action');assert.equal(action.webUrl,contract.valid(record,now)?'/api/fixtures?mode=highlight&ids='+encodeURIComponent(fixture.canonicalEventId):contract.searchResultsUrl(fixture,now),label+' only a valid envelope uses verification');
     const cached=media.applyCached([fixture],[{id:fixture.id,highlightsOnly:true,highlights:record}],now)[0];
-    assert.match(contract.viewing(cached,now).webUrl,/^\/api\/fixtures\?mode=highlight&ids=/,label+' cached enrichment cannot recreate a direct shortcut');
+    assert.equal(contract.viewing(cached,now).webUrl,contract.valid(cached.highlights,now)?'/api/fixtures?mode=highlight&ids='+encodeURIComponent(fixture.canonicalEventId):contract.searchResultsUrl(fixture,now),label+' cached enrichment cannot recreate a direct shortcut');
   }
   const f1source=published.find(e=>e.key==='f1'&&/Practice 1/.test(e.stage));assert(f1source);
   const f1=controlled(f1source,'f1'),wrongSession={...base,channelId:'UCB_qr75-ydFVKSF9Dmo6izg',matchTitle:'Singapore GP Practice 2 2026 Highlights'};
   assert.equal(selection.select([metadata(wrongSession)],f1,now),null);
-  let sessionChecks=0;const sessionRes=await route({...f1,highlights:wrongSession},async()=>{sessionChecks++;throw Error('highlights_unavailable');});assert.equal(sessionChecks,1,'verified envelope cannot bypass exact race session validation');assert.equal(sessionRes.code,503);assert(!sessionRes.headers.Location);
+  let sessionChecks=0;const sessionRes=await route({...f1,highlights:wrongSession},async()=>{sessionChecks++;throw Error('highlights_unavailable');});assert.equal(sessionChecks,1,'verified envelope cannot bypass exact race session validation');assert.equal(sessionRes.code,302);assert.equal(sessionRes.headers.Location,contract.searchResultsUrl(f1,now));
   assert(selection.select([metadata(base)],fixture,now),'matching recent strict metadata remains eligible');
   const cache={video_id:'SAFEVIDEO01',selected_at:now.toISOString(),published_at:base.publishedAt,duration_seconds:300};
   let reads=0,resolverCalls=0;

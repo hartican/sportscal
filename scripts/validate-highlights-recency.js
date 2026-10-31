@@ -60,7 +60,7 @@ async function main() {
   const cutoff=new Date(+now-contract.MAX_UPLOAD_AGE_MS).toISOString();assert(contract.recentUpload(cutoff,now));assert(!contract.recentUpload(new Date(Date.parse(cutoff)-1).toISOString(),now));
   const retainedOfficial=require('./fixtures/shanghai-highlights-184950.json').highlights;assert(retainedOfficial);
   const official={...retainedOfficial,publishedAt:'2022-10-14T15:00:00Z',verifiedAt:now.toISOString(),checkedAt:now.toISOString(),sourceCheckedAt:now.toISOString()};
-  assert(!contract.valid(official,now));assert(contract.viewing({...match,highlights:official},now).webUrl.startsWith('/api/fixtures?'),'old direct official records fall back to fresh discovery');
+  assert(!contract.valid(official,now));assert.equal(contract.viewing({...match,highlights:official},now).webUrl,contract.searchResultsUrl(match,now),'old direct official records fall back to YouTube results');
   assert.equal(media.applyCached([{...match,highlights:official}],[],now)[0].highlights,null);
   const archived={...match,date:'2026-09-01',startTimeUtc:null,actualStartTimeUtc:null,completedAt:null,firstConfirmedCompleteAt:null,highlights:official};
   assert.equal(contract.viewing(archived,now),null,'archived direct links have no exemption from the actual-upload seven-day limit');

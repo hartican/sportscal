@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## 1 November 2026 — quota-free fixture search fallback
+
+Construct missing-video YouTube results URLs in the existing shared browser highlights contract, with no discovery, database or provider request. Keep the existing resolver/cache authority for existing direct links; if it fails after a known completed fixture is bound, redirect to the same locally constructed results URL. Do not expose diagnostics, accept caller-supplied redirect targets or relax direct-video selection. Existing lookup leases, quota reservations, deadlines, retries, source owner and scheduling remain unchanged.
+
+Qualified Cricket `matchDay` participates in search wording/date and the existing selection hash, including explicit unknown/withdrawal. Other sports' existing cache hashes stay unchanged. No SQL/schema, cache TTL, client key, service privilege, source refresh, account data or new scheduler is added. `validate-highlight-search-fallback.js` tests the historical-direct day-cache fence without service access. nsDEPLOY owns runtime/cache/version assembly and all production acceptance.
+
 ## Australian Championship bounded result preparation — 31 October 2026
 
 The existing canonical `update-cards.js --australian-championship` owner has an

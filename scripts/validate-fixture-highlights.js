@@ -116,6 +116,7 @@ async function run(){
   await require('./validate-youtube-top-result').main();
   await require('./validate-missing-fixture-metadata').main();
   await require('./validate-highlight-navigation').run();
+  await require('./validate-highlight-search-fallback').main();
   await require('./validate-highlights-recency').main();
   await require('./validate-direct-highlight-policy').main();
   await require('./validate-highlight-fixture-fallback').main();

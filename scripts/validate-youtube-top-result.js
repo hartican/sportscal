@@ -8,8 +8,8 @@ async function main(){
   const original=JSON.stringify(fixture),query=contract.searchQuery(fixture,now);
   for(const event of [fixture,{...fixture,key:'f1',codeId:'sport:f1',name:'Singapore GP · Race',stage:'Race',participants:[],matchupSides:null}]){
     const action=contract.viewing(event,now),url=new URL(action.webUrl,'https://nothingsport.local');
-    assert.equal(url.pathname,'/api/fixtures');assert.equal(url.searchParams.get('mode'),'highlight');assert.equal(url.searchParams.get('ids'),event.canonicalEventId);
-    assert(action.highlightsTopResult);assert.equal(action.highlightsLabel,'Watch highlights');
+    assert.equal(url.origin,'https://www.youtube.com');assert.equal(url.pathname,'/results');assert(url.searchParams.get('search_query'));
+    assert(!action.highlightsTopResult);assert.equal(action.highlightsLabel,'Search YouTube');
   }
   const direct={schemaVersion:contract.SCHEMA_VERSION,provider:'youtube',videoId:'RPmOiRHHgX8',url:'https://www.youtube.com/watch?v=RPmOiRHHgX8',channelId:require('../lib/fixture-highlights').channels[0].id,availability:'public',regionStatus:'allowed',standalone:true,publishedAt:'2026-10-13T07:16:25Z',verifiedAt:'2026-10-14T07:59:00Z'};
   assert(contract.valid(direct,now),'the controlled direct receipt must be valid at this scenario clock, independently of the changing catalogue');
@@ -64,7 +64,7 @@ async function main(){
     const res=response();await rejected(req,res);assert.equal(res.code,302);assert.equal(res.headers['X-Highlights-Selection'],'youtube-top-result');assert.equal(checked,1);
   }
   const broken=require('../lib/live-fixture-handler').createLiveFixtureHandler({publishedFixtures:()=>[fixture],read:async()=>({sources:[],revision:'controlled',stale:false}),clock:()=>now,resolveHighlights:async()=>{throw Error('private credentials');}});
-  const unavailable=response();await broken(req,unavailable);assert.equal(unavailable.code,503);assert.match(unavailable.body,/Highlights unavailable/);assert(!unavailable.body.includes('private credentials'));assert(!unavailable.headers.Location);
+  const unavailable=response();await broken(req,unavailable);assert.equal(unavailable.code,302);assert.equal(unavailable.headers.Location,contract.searchResultsUrl(fixture,now));assert.equal(unavailable.headers['X-Highlights-Selection'],'youtube-search');assert.equal(unavailable.body,undefined);
   assert.equal(JSON.stringify(fixture),original,'resolution cannot mutate sporting facts or personal state');
   // The real source passes its existing lease token to the same quota authority.
   let called=0;
