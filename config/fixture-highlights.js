@@ -29,14 +29,36 @@
   function valid(record,now=Date.now()){
     return Boolean(record&&record.schemaVersion===SCHEMA_VERSION&&record.provider==='youtube'&&/^[\w-]{11}$/.test(record.videoId||'')&&record.url==='https://www.youtube.com/watch?v='+record.videoId&&/^UC[\w-]{22}$/.test(record.channelId||'')&&record.availability==='public'&&record.regionStatus!=='blocked'&&(record.standalone===true||record.standalone===false&&record.videoScope==='tournament-day')&&recentUpload(record.publishedAt,now)&&Number.isFinite(Date.parse(record.verifiedAt))&&fresh(record.checkedAt||record.verifiedAt,now)&&fresh(record.sourceCheckedAt||record.verifiedAt,now));
   }
-  function searchCandidate(event,now=Date.now()){
-    if(!completed(event)||!recent(event,now))return null;
+  function fixtureSearch(event){
     const names=playerNames(event),format=[event.eventType,event.matchType,event.tennisDrawType,event.drawType].join(' ');
     const place=event.tournamentName||event.eventName||event.competitionName||String(event.tournamentId||'').replace(/^(?:tournament:)?tennis:/,'').replace(/[:-]/g,' ');
     const namedTennis=tennisEligible(event)&&names.length===(/double/i.test(format)?4:2)&&Boolean(place);
     const title=namedTennis?names.join(' vs '):String(event.name||'').trim();
     if(!title||/^(?:TBD|TBC|unknown)(?:\s+v(?:s)?\.?\s+(?:TBD|TBC|unknown))?$/i.test(title))return null;
     return {title,namedTennis,place,format};
+  }
+  function searchCandidate(event,now=Date.now()){return completed(event)&&recent(event,now)?fixtureSearch(event):null;}
+  function cricketDay(event){
+    return /^cricket/.test(event.key||event.sportKey||String(event.codeId||'').replace('sport:',''))&&Number.isSafeInteger(event.matchDay)&&event.matchDay>0&&(!event.numberOfDays||event.matchDay<=event.numberOfDays)&&/^https:\/\//.test(event.matchDaySourceUrl||'')?event.matchDay:null;
+  }
+  function searchDate(event,now=Date.now()){
+    const policy=epic(),day=cricketDay(event);
+    if(day&&policy.validDay(event.date)){
+      const candidate=new Date(Date.parse(event.date+'T12:00:00Z')+(day-1)*86400000);
+      const date=Number.isFinite(+candidate)?candidate.toISOString().slice(0,10):null;
+      if(policy.validDay(date)&&(!policy.validDay(event.endDate)||date<=event.endDate))return date;
+    }
+    return policy.validDay(event.date)?event.date:policy.finalDay({...event,status:'completed'},new Date(now));
+  }
+  // A results page is a best-guess query, never a claim about any video.
+  // Keep this formatter available in the browser: constructing it needs no API.
+  function searchResultsUrl(event,now=Date.now()){
+    const selection=completed(event)&&fixtureSearch(event);if(!selection)return null;
+    const date=searchDate(event,now),day=cricketDay(event);
+    const dateLabel=date?new Intl.DateTimeFormat('en-GB',{timeZone:'UTC',day:'numeric',month:'long',year:'numeric'}).format(new Date(date+'T12:00:00Z')):null;
+    const query=[selection.title,selection.place,event.stage,event.roundLabel||event.round,day?'Day '+day:null,dateLabel,'highlights'].filter(Boolean).join(' ').replace(/\s+/g,' ').trim();
+    if(query.length>1500)return null;
+    return 'https://www.youtube.com/results?'+new URLSearchParams({search_query:query});
   }
   function searchQuery(event,now=Date.now()){return typeof require==='function'?require('../lib/fixture-highlight-query').searchQuery(event,now):null;}
   function publisherMatches(record,event,now=Date.now()){
@@ -62,7 +84,8 @@
     // The shared route also checks direct records against current metadata.
     if(completed(event)&&valid(event.highlights,now))return {...youtube,webUrl};
     const selection=searchCandidate(event,now);if(!selection)return null;
-    return {...youtube,webUrl,highlightsSearch:true,highlightsTopResult:true,highlightsFeedOnly:!selection.namedTennis};
+    const fallback=searchResultsUrl(event,now);if(!fallback)return null;
+    return {...youtube,webUrl:fallback,highlightsLabel:'Search YouTube',highlightsSearch:true,highlightsFeedOnly:!selection.namedTennis};
   }
-  return Object.freeze({SCHEMA_VERSION,MAX_CACHE_AGE_MS,MAX_UPLOAD_AGE_MS,fresh,recentUpload,completed,recent,playerNames,tennisEligible,valid,searchCandidate,searchQuery,publisherMatches,reviewedPublisher,viewing});
+  return Object.freeze({SCHEMA_VERSION,MAX_CACHE_AGE_MS,MAX_UPLOAD_AGE_MS,fresh,recentUpload,completed,recent,playerNames,tennisEligible,valid,searchCandidate,cricketDay,searchDate,searchResultsUrl,searchQuery,publisherMatches,reviewedPublisher,viewing});
 });

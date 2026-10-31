@@ -15,7 +15,7 @@ async function main(){
   assert.equal(contract.reviewedPublisher(fixture,new Date('2026-10-15T20:00:00Z')),null,'A clip cannot be used before its actual publication');
   assert.equal(contract.viewing(fixture,new Date('2026-10-23T23:03:49.044Z')),null,'An expired upload cannot revive the retired fixture');
   const ordinary={...fixture,id:'fixture:test:other',eventId:'fixture:test:other',canonicalEventId:'fixture:test:other'};
-  assert.match(contract.viewing(ordinary,now).webUrl,/^\/api\/fixtures\?mode=highlight&ids=/,'Other fixtures retain their generic route');
+  assert.equal(contract.viewing(ordinary,now).webUrl,contract.searchResultsUrl(ordinary,now),'Other fixtures retain their generic results fallback');
   const browser={};vm.runInNewContext(fs.readFileSync('config/epic-classics.js','utf8'),browser);vm.runInNewContext(fs.readFileSync('config/fixture-highlights.js','utf8'),browser);
   assert.deepEqual(JSON.parse(JSON.stringify(browser.NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.viewing(fixture,now))),action,'Node and browser use the same exact destination/guards');
   assert.equal(JSON.stringify(fixture),original,'Publisher routing cannot modify sporting facts or saved choices');

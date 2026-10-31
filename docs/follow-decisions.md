@@ -1,5 +1,13 @@
 # Follow and Feed decisions
 
+## 1 November 2026 Sydney — YouTube search when a fixture has no video
+
+Jack supersedes the automatic top-video fallback: keep an existing suitable direct highlights destination and its current validation safeguards. Otherwise label the shared action **Search YouTube** and open a normal URL-encoded `https://www.youtube.com/results?search_query=…` page. YouTube results need no official/verified match; the user chooses. Build this URL locally without a provider request or verification wait. Include fixture participants/title, competition/event, date, known round/session and qualified Cricket match day. A sourced Test Day 5 beginning 27 October searches 31 October, without changing the fixture's original date or receipts.
+
+Existing resolver links still preserve successful direct/cached selections; a failed lookup, quota refusal or unsuitable/missing result redirects to the same search page once the completed fixture is known. Unknown IDs and unconfirmed completion retain their existing refusal. Keep generic fallback on the recent Feed, named Tennis/direct Events eligibility, Results OFF, seven-day fixture retention, no viewing-affinity write and all Follow/admission/notification rules unchanged. A results link certifies no video, upload age, runtime or availability.
+
+Regressions: `validate-highlight-search-fallback.js` joins the existing highlights gate; existing shared-action, direct-policy, Tennis lifecycle and handler checks follow the changed destination/label. `validate-highlight-search-fallback-browser.js` uses the actual action owner in Chromium and WebKit with controlled external destinations. Local Safari/standalone emulation is separate from physical iPhone Home Screen acceptance. nsDEPLOY remains sole integrator and publisher.
+
 ## Explicit device-local saved-preference recovery — 29 October 2026
 
 The user accepts losing unsynced follows and wants the quickest supported local recovery. A clearly explained, deliberately confirmed Account action may use a fresh verified copy of saved account preferences on this device and discard only its exact matching pending preference receipt. This is an explicit device-local replacement, not an automatic merge, server reset or receipt ACK. Preserve authentication, server state, unrelated local actions/ratings/archive/pin commands, other profiles and every normal sync/owner/CAS safeguard. Unknown storage completion stays explicit and fail-closed. No actual customer recovery is authorised by source preparation or deployment; the originating chat owns the eventual user step. See [scope and source proof](quality/local-preference-recovery-2026-10-29.md).

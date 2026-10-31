@@ -8,8 +8,8 @@ const feed=c=>'<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015"><author>
 async function run(){
   for(const eventType of ['mens-singles','womens-singles'])for(const roundLabel of ['Round of 128','Round of 64','Round of 32','Round 1','Round unconfirmed']){
     const event={...fixture,eventType,roundLabel,key:eventType.startsWith('womens')?'tennis-women':'tennis'};
-    const action=contract.viewing(event,now);assert.equal(action.highlightsLabel,'Watch highlights');
-    const url=new URL(action.webUrl,'https://nothingsport.local');assert.equal(url.pathname,'/api/fixtures');assert.equal(url.searchParams.get('mode'),'highlight');assert.equal(action.highlightsTopResult,true);
+    const action=contract.viewing(event,now);assert.equal(action.highlightsLabel,'Search YouTube');
+    const url=new URL(action.webUrl,'https://nothingsport.local');assert.equal(url.origin,'https://www.youtube.com');assert.equal(url.pathname,'/results');assert(url.searchParams.get('search_query'));assert(!action.highlightsTopResult);
     const query=contract.searchQuery(event,now);for(const name of media.names(event))assert(query.toLowerCase().includes(name));assert(query.includes('2026'));
     assert(query.includes(eventType.startsWith('womens')?'WTA':'ATP'));
   }
@@ -22,7 +22,7 @@ async function run(){
   const unknownCalendar={...fixture,date:null,startDate:null,startTimeUtc:null,endDate:null,endTimeUtc:null,actualEndTimeUtc:null,completedAt:null,firstConfirmedCompleteAt:null};
   for(const alias of [{startDate:'2026-10-13'},{firstConfirmedCompleteAt:'2026-10-13T04:00:00Z'}]){
     const action=contract.viewing({...unknownCalendar,...alias,tournamentName:'Shanghai'},now);
-    assert.equal(action?.highlightsLabel,'Watch highlights');assert(contract.searchQuery({...unknownCalendar,...alias,tournamentName:'Shanghai'},now).includes('2026'),'Every accepted shared-calendar alias preserves its match year');
+    assert.equal(action?.highlightsLabel,'Search YouTube');assert(contract.searchQuery({...unknownCalendar,...alias,tournamentName:'Shanghai'},now).includes('2026'),'Every accepted shared-calendar alias preserves its match year');
   }
   const yearBoundary={...unknownCalendar,date:'2025-12-31',completedAt:'2026-01-01T04:00:00Z'};
   assert(contract.searchQuery(yearBoundary,new Date('2026-01-02T08:00:00Z')).includes('2025'),'A later confirmation preserves the original published match year');
@@ -36,11 +36,11 @@ async function run(){
     const event={...fixture,date,endDate:null,startTimeUtc:null,actualEndTimeUtc:null,completedAt,firstConfirmedCompleteAt:null};
     const epic=require('../config/epic-classics');
     assert(!epic.retired(event,new Date(lastRetained)));assert(epic.retired(event,new Date(firstRetired)));
-    assert.equal(contract.viewing(event,new Date(lastRetained))?.highlightsLabel,'Watch highlights','Retained cards keep search through the final Sydney day, including both DST changes');
+    assert.equal(contract.viewing(event,new Date(lastRetained))?.highlightsLabel,'Search YouTube','Retained cards keep search through the final Sydney day, including both DST changes');
     assert.equal(contract.viewing(event,new Date(firstRetired)),null,'The search window ends with ordinary card retirement');
   }
   const rollover={...fixture,date:'2026-10-06',startTimeUtc:'2026-10-06T23:00:00Z',endTimeUtc:'2026-10-07T01:00:00Z'};
-  assert(!require('../config/epic-classics').retired(rollover,now));assert.equal(contract.viewing(rollover,now)?.highlightsLabel,'Watch highlights','The existing endTime fallback keeps retained rollover cards actionable');
+  assert(!require('../config/epic-classics').retired(rollover,now));assert.equal(contract.viewing(rollover,now)?.highlightsLabel,'Search YouTube','The existing endTime fallback keeps retained rollover cards actionable');
   assert(contract.recent({...fixture,actualEndTimeUtc:'2026-02-30T02:03:04Z',completedAt:'2026-10-13T07:00:00Z'},now),'invalid first receipt yields to a later valid one');
   assert(!contract.recent({...fixture,date:'2026-10-01',startTimeUtc:null,actualEndTimeUtc:'2026-10-15T00:00:00Z'},now),'future receipt cannot promote an old fixture');
   assert(!contract.recent({...fixture,date:'2026-10-01',startTimeUtc:'2026-10-15T00:00:00Z',actualEndTimeUtc:'2026-10-13T07:00:00Z'},now),'before-start receipt cannot promote an old fixture');
@@ -48,8 +48,8 @@ async function run(){
   const direct=require('./fixtures/shanghai-highlights-184950.json').highlights;
   assert(direct,'The retained match receipt exercises verified-link precedence even after current links expire');
   assert.equal(contract.viewing({...fixture,highlights:direct},now).highlightsLabel,'Watch highlights');
-  assert.equal(contract.viewing({...fixture,highlights:null},now).highlightsLabel,'Watch highlights');
-  assert.equal(contract.viewing({...fixture,highlights:{...direct,regionStatus:'blocked'}},now).highlightsLabel,'Watch highlights');
+  assert.equal(contract.viewing({...fixture,highlights:null},now).highlightsLabel,'Search YouTube');
+  assert.equal(contract.viewing({...fixture,highlights:{...direct,regionStatus:'blocked'}},now).highlightsLabel,'Search YouTube');
   const low={...fixture,id:'low',participantIds:['competitor:tennis:wta:low'],participants:[]};
   const high={...fixture,id:'high',participantIds:['competitor:tennis:atp:high'],participants:[]};
   const unknown={...fixture,id:'unknown',participantIds:['competitor:tennis:atp:unknown'],participants:[]};

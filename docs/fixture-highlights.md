@@ -1,5 +1,13 @@
 # Fixture highlights
 
+## 1 November 2026 — Search YouTube fallback
+
+When a recent completed card has no usable direct-video receipt, show **Search YouTube** and open a URL-encoded normal YouTube results page immediately. The shared browser formatter uses the fixture title/participants, competition/event, date and known session/round; qualified Cricket `matchDay` supplies `Day N` and the corresponding calendar day. This is a best guess, with no claim that any result is official or verified. It costs no YouTube API quota and waits for no lookup.
+
+Existing direct receipts and reviewed publisher destinations retain their current checks and presentation. Existing resolver links still preserve successful selections; no-key, quota denial, lookup/provider failure and invalid/missing targets fall back to the same safe search URL for the known completed fixture. Inputs cannot supply arbitrary redirect destinations. All other video-selection, privacy, Feed/Events eligibility and retention rules below remain in force. This replaces the older automatic single-video fallback described below; it does not replace certified-video checks.
+
+Offline regression: `node scripts/validate-highlight-search-fallback.js`. Browser component regression: `node scripts/validate-highlight-search-fallback-browser.js` with the existing Playwright installation. Runtime assembly, full release gates, hosted validation and physical iPhone proof belong to nsDEPLOY.
+
 Approved 13–15 October 2026 (Australia/Sydney). Tennis is the first ingestion adapter; fixture metadata and the Watch highlights action are sport-neutral.
 
 ## Product rules
