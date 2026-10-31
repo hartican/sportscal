@@ -1006,7 +1006,7 @@
       "endTimeBasis": "source-published-window",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 2,
       "roundLabel": "Round 2",
@@ -1039,7 +1039,44 @@
       "replayEligible": false,
       "catchupEligible": false,
       "selectedSentence": "Lions FC v Preston Lions · Group D · Round 2.",
-      "fullSpiel": "Published Australian Championship group fixture."
+      "fullSpiel": "Published Australian Championship group fixture.",
+      "homeScore": 2,
+      "awayScore": 1,
+      "shootout": {
+        "home": 0,
+        "away": 0,
+        "sourcePeriod": "SecondHalf"
+      },
+      "sourceMatchInfo": {
+        "period": "SecondHalf",
+        "winner_id": 0,
+        "home_team": {
+          "score": 2,
+          "shootout_score": 0
+        },
+        "away_team": {
+          "score": 1,
+          "shootout_score": 0
+        }
+      },
+      "sourceWinnerId": 0,
+      "score": "Lions FC 2–1 Preston Lions",
+      "scoreDisplay": "Lions FC 2–1 Preston Lions",
+      "result": "Lions FC 2–1 Preston Lions",
+      "canonicalResultScoreline": "Lions FC 2–1 Preston Lions",
+      "resultLabels": [],
+      "scoreCheckedAt": "2026-10-31T07:36:43.683Z",
+      "statusCheckedAt": "2026-10-31T07:36:43.683Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://api.ffa.football/c1143/s2026/r2/fixture",
+      "resultSourceCheckedAt": "2026-10-31T07:36:43.683Z",
+      "resultSourceEvidence": {
+        "sourceUrl": "https://api.ffa.football/c1143/s2026/r2/fixture",
+        "bodySha256": "0d0d3c74be1b123d8bef8d49c77647bce1b088f365de3cb0b9ec9e4f7f2ae12e",
+        "observedAt": "2026-10-31T07:36:43.683Z",
+        "providerUpdatedAt": "2026-10-22T10:29:05+00:00",
+        "responseTimestamp": "2026-10-31T07:36:43+00:00"
+      }
     },
     {
       "id": "football-australian-championship-2026-22278874",
@@ -1085,7 +1122,7 @@
       "scheduledEndStatus": "unavailable-source-end-equals-start",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 2,
       "roundLabel": "Round 2",
@@ -1118,7 +1155,46 @@
       "replayEligible": false,
       "catchupEligible": false,
       "selectedSentence": "South Melbourne v Sydney United 58 · Group A · Round 2.",
-      "fullSpiel": "Published Australian Championship group fixture."
+      "fullSpiel": "Published Australian Championship group fixture.",
+      "homeScore": 1,
+      "awayScore": 1,
+      "shootout": {
+        "home": 5,
+        "away": 4,
+        "sourcePeriod": "ShootOut"
+      },
+      "sourceMatchInfo": {
+        "period": "ShootOut",
+        "winner_id": 0,
+        "home_team": {
+          "score": 1,
+          "shootout_score": 5
+        },
+        "away_team": {
+          "score": 1,
+          "shootout_score": 4
+        }
+      },
+      "sourceWinnerId": 0,
+      "score": "South Melbourne 1–1 Sydney United 58 · Penalties 5–4",
+      "scoreDisplay": "South Melbourne 1–1 Sydney United 58 · Penalties 5–4",
+      "result": "South Melbourne 1–1 Sydney United 58 · Penalties 5–4",
+      "canonicalResultScoreline": "South Melbourne 1–1 Sydney United 58 · Penalties 5–4",
+      "resultLabels": [
+        "Penalties 5–4"
+      ],
+      "scoreCheckedAt": "2026-10-31T07:36:43.683Z",
+      "statusCheckedAt": "2026-10-31T07:36:43.683Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://api.ffa.football/c1143/s2026/r2/fixture",
+      "resultSourceCheckedAt": "2026-10-31T07:36:43.683Z",
+      "resultSourceEvidence": {
+        "sourceUrl": "https://api.ffa.football/c1143/s2026/r2/fixture",
+        "bodySha256": "0d0d3c74be1b123d8bef8d49c77647bce1b088f365de3cb0b9ec9e4f7f2ae12e",
+        "observedAt": "2026-10-31T07:36:43.683Z",
+        "providerUpdatedAt": "2026-10-23T10:40:44+00:00",
+        "responseTimestamp": "2026-10-31T07:36:43+00:00"
+      }
     },
     {
       "id": "football-australian-championship-2026-22278875",
@@ -1164,7 +1240,7 @@
       "scheduledEndStatus": "unavailable-source-end-equals-start",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 2,
       "roundLabel": "Round 2",
@@ -1197,7 +1273,44 @@
       "replayEligible": false,
       "catchupEligible": false,
       "selectedSentence": "Adelaide City v Wests Apia · Group B · Round 2.",
-      "fullSpiel": "Published Australian Championship group fixture."
+      "fullSpiel": "Published Australian Championship group fixture.",
+      "homeScore": 1,
+      "awayScore": 3,
+      "shootout": {
+        "home": 0,
+        "away": 0,
+        "sourcePeriod": "SecondHalf"
+      },
+      "sourceMatchInfo": {
+        "period": "SecondHalf",
+        "winner_id": 0,
+        "home_team": {
+          "score": 1,
+          "shootout_score": 0
+        },
+        "away_team": {
+          "score": 3,
+          "shootout_score": 0
+        }
+      },
+      "sourceWinnerId": 0,
+      "score": "Adelaide City 1–3 Wests Apia",
+      "scoreDisplay": "Adelaide City 1–3 Wests Apia",
+      "result": "Adelaide City 1–3 Wests Apia",
+      "canonicalResultScoreline": "Adelaide City 1–3 Wests Apia",
+      "resultLabels": [],
+      "scoreCheckedAt": "2026-10-31T07:36:43.683Z",
+      "statusCheckedAt": "2026-10-31T07:36:43.683Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://api.ffa.football/c1143/s2026/r2/fixture",
+      "resultSourceCheckedAt": "2026-10-31T07:36:43.683Z",
+      "resultSourceEvidence": {
+        "sourceUrl": "https://api.ffa.football/c1143/s2026/r2/fixture",
+        "bodySha256": "0d0d3c74be1b123d8bef8d49c77647bce1b088f365de3cb0b9ec9e4f7f2ae12e",
+        "observedAt": "2026-10-31T07:36:43.683Z",
+        "providerUpdatedAt": "2026-10-23T10:28:19+00:00",
+        "responseTimestamp": "2026-10-31T07:36:43+00:00"
+      }
     },
     {
       "id": "football-australian-championship-2026-22278876",
@@ -1244,7 +1357,7 @@
       "endTimeBasis": "source-published-window",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 2,
       "roundLabel": "Round 2",
@@ -1277,7 +1390,44 @@
       "replayEligible": false,
       "catchupEligible": false,
       "selectedSentence": "Avondale FC v Broadmeadow Magic · Group B · Round 2.",
-      "fullSpiel": "Published Australian Championship group fixture."
+      "fullSpiel": "Published Australian Championship group fixture.",
+      "homeScore": 1,
+      "awayScore": 2,
+      "shootout": {
+        "home": 0,
+        "away": 0,
+        "sourcePeriod": "SecondHalf"
+      },
+      "sourceMatchInfo": {
+        "period": "SecondHalf",
+        "winner_id": 0,
+        "home_team": {
+          "score": 1,
+          "shootout_score": 0
+        },
+        "away_team": {
+          "score": 2,
+          "shootout_score": 0
+        }
+      },
+      "sourceWinnerId": 0,
+      "score": "Avondale FC 1–2 Broadmeadow Magic",
+      "scoreDisplay": "Avondale FC 1–2 Broadmeadow Magic",
+      "result": "Avondale FC 1–2 Broadmeadow Magic",
+      "canonicalResultScoreline": "Avondale FC 1–2 Broadmeadow Magic",
+      "resultLabels": [],
+      "scoreCheckedAt": "2026-10-31T07:36:43.683Z",
+      "statusCheckedAt": "2026-10-31T07:36:43.683Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://api.ffa.football/c1143/s2026/r2/fixture",
+      "resultSourceCheckedAt": "2026-10-31T07:36:43.683Z",
+      "resultSourceEvidence": {
+        "sourceUrl": "https://api.ffa.football/c1143/s2026/r2/fixture",
+        "bodySha256": "0d0d3c74be1b123d8bef8d49c77647bce1b088f365de3cb0b9ec9e4f7f2ae12e",
+        "observedAt": "2026-10-31T07:36:43.683Z",
+        "providerUpdatedAt": "2026-10-24T06:02:46+00:00",
+        "responseTimestamp": "2026-10-31T07:36:43+00:00"
+      }
     },
     {
       "id": "football-australian-championship-2026-22278877",
@@ -1324,7 +1474,7 @@
       "endTimeBasis": "source-published-window",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 2,
       "roundLabel": "Round 2",
@@ -1357,7 +1507,46 @@
       "replayEligible": false,
       "catchupEligible": false,
       "selectedSentence": "Marconi Stallions v Oakleigh Cannons · Group C · Round 2.",
-      "fullSpiel": "Published Australian Championship group fixture."
+      "fullSpiel": "Published Australian Championship group fixture.",
+      "homeScore": 0,
+      "awayScore": 0,
+      "shootout": {
+        "home": 8,
+        "away": 7,
+        "sourcePeriod": "ShootOut"
+      },
+      "sourceMatchInfo": {
+        "period": "ShootOut",
+        "winner_id": 0,
+        "home_team": {
+          "score": 0,
+          "shootout_score": 8
+        },
+        "away_team": {
+          "score": 0,
+          "shootout_score": 7
+        }
+      },
+      "sourceWinnerId": 0,
+      "score": "Marconi Stallions 0–0 Oakleigh Cannons · Penalties 8–7",
+      "scoreDisplay": "Marconi Stallions 0–0 Oakleigh Cannons · Penalties 8–7",
+      "result": "Marconi Stallions 0–0 Oakleigh Cannons · Penalties 8–7",
+      "canonicalResultScoreline": "Marconi Stallions 0–0 Oakleigh Cannons · Penalties 8–7",
+      "resultLabels": [
+        "Penalties 8–7"
+      ],
+      "scoreCheckedAt": "2026-10-31T07:36:43.683Z",
+      "statusCheckedAt": "2026-10-31T07:36:43.683Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://api.ffa.football/c1143/s2026/r2/fixture",
+      "resultSourceCheckedAt": "2026-10-31T07:36:43.683Z",
+      "resultSourceEvidence": {
+        "sourceUrl": "https://api.ffa.football/c1143/s2026/r2/fixture",
+        "bodySha256": "0d0d3c74be1b123d8bef8d49c77647bce1b088f365de3cb0b9ec9e4f7f2ae12e",
+        "observedAt": "2026-10-31T07:36:43.683Z",
+        "providerUpdatedAt": "2026-10-24T06:25:20+00:00",
+        "responseTimestamp": "2026-10-31T07:36:43+00:00"
+      }
     },
     {
       "id": "football-australian-championship-2026-22278878",
@@ -1404,7 +1593,7 @@
       "endTimeBasis": "source-published-window",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 2,
       "roundLabel": "Round 2",
@@ -1437,7 +1626,44 @@
       "replayEligible": false,
       "catchupEligible": false,
       "selectedSentence": "Canberra Croatia v Sutherland Sharks · Group A · Round 2.",
-      "fullSpiel": "Published Australian Championship group fixture."
+      "fullSpiel": "Published Australian Championship group fixture.",
+      "homeScore": 0,
+      "awayScore": 2,
+      "shootout": {
+        "home": 0,
+        "away": 0,
+        "sourcePeriod": "SecondHalf"
+      },
+      "sourceMatchInfo": {
+        "period": "SecondHalf",
+        "winner_id": 0,
+        "home_team": {
+          "score": 0,
+          "shootout_score": 0
+        },
+        "away_team": {
+          "score": 2,
+          "shootout_score": 0
+        }
+      },
+      "sourceWinnerId": 0,
+      "score": "Canberra Croatia 0–2 Sutherland Sharks",
+      "scoreDisplay": "Canberra Croatia 0–2 Sutherland Sharks",
+      "result": "Canberra Croatia 0–2 Sutherland Sharks",
+      "canonicalResultScoreline": "Canberra Croatia 0–2 Sutherland Sharks",
+      "resultLabels": [],
+      "scoreCheckedAt": "2026-10-31T07:36:43.683Z",
+      "statusCheckedAt": "2026-10-31T07:36:43.683Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://api.ffa.football/c1143/s2026/r2/fixture",
+      "resultSourceCheckedAt": "2026-10-31T07:36:43.683Z",
+      "resultSourceEvidence": {
+        "sourceUrl": "https://api.ffa.football/c1143/s2026/r2/fixture",
+        "bodySha256": "0d0d3c74be1b123d8bef8d49c77647bce1b088f365de3cb0b9ec9e4f7f2ae12e",
+        "observedAt": "2026-10-31T07:36:43.683Z",
+        "providerUpdatedAt": "2026-10-24T07:57:07+00:00",
+        "responseTimestamp": "2026-10-31T07:36:43+00:00"
+      }
     },
     {
       "id": "football-australian-championship-2026-22278879",
@@ -1484,7 +1710,7 @@
       "endTimeBasis": "source-published-window",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 2,
       "roundLabel": "Round 2",
@@ -1517,7 +1743,44 @@
       "replayEligible": false,
       "catchupEligible": false,
       "selectedSentence": "Wollongong Wolves v South Hobart · Group D · Round 2.",
-      "fullSpiel": "Published Australian Championship group fixture."
+      "fullSpiel": "Published Australian Championship group fixture.",
+      "homeScore": 2,
+      "awayScore": 0,
+      "shootout": {
+        "home": 0,
+        "away": 0,
+        "sourcePeriod": "SecondHalf"
+      },
+      "sourceMatchInfo": {
+        "period": "SecondHalf",
+        "winner_id": 0,
+        "home_team": {
+          "score": 2,
+          "shootout_score": 0
+        },
+        "away_team": {
+          "score": 0,
+          "shootout_score": 0
+        }
+      },
+      "sourceWinnerId": 0,
+      "score": "Wollongong Wolves 2–0 South Hobart",
+      "scoreDisplay": "Wollongong Wolves 2–0 South Hobart",
+      "result": "Wollongong Wolves 2–0 South Hobart",
+      "canonicalResultScoreline": "Wollongong Wolves 2–0 South Hobart",
+      "resultLabels": [],
+      "scoreCheckedAt": "2026-10-31T07:36:43.683Z",
+      "statusCheckedAt": "2026-10-31T07:36:43.683Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://api.ffa.football/c1143/s2026/r2/fixture",
+      "resultSourceCheckedAt": "2026-10-31T07:36:43.683Z",
+      "resultSourceEvidence": {
+        "sourceUrl": "https://api.ffa.football/c1143/s2026/r2/fixture",
+        "bodySha256": "0d0d3c74be1b123d8bef8d49c77647bce1b088f365de3cb0b9ec9e4f7f2ae12e",
+        "observedAt": "2026-10-31T07:36:43.683Z",
+        "providerUpdatedAt": "2026-10-25T06:01:30+00:00",
+        "responseTimestamp": "2026-10-31T07:36:43+00:00"
+      }
     },
     {
       "id": "football-australian-championship-2026-22278880",
@@ -1564,7 +1827,7 @@
       "endTimeBasis": "source-published-window",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 2,
       "roundLabel": "Round 2",
@@ -1597,7 +1860,44 @@
       "replayEligible": false,
       "catchupEligible": false,
       "selectedSentence": "Sydney Olympic v Bayswater City · Group C · Round 2.",
-      "fullSpiel": "Published Australian Championship group fixture."
+      "fullSpiel": "Published Australian Championship group fixture.",
+      "homeScore": 1,
+      "awayScore": 2,
+      "shootout": {
+        "home": 0,
+        "away": 0,
+        "sourcePeriod": "SecondHalf"
+      },
+      "sourceMatchInfo": {
+        "period": "SecondHalf",
+        "winner_id": 0,
+        "home_team": {
+          "score": 1,
+          "shootout_score": 0
+        },
+        "away_team": {
+          "score": 2,
+          "shootout_score": 0
+        }
+      },
+      "sourceWinnerId": 0,
+      "score": "Sydney Olympic 1–2 Bayswater City",
+      "scoreDisplay": "Sydney Olympic 1–2 Bayswater City",
+      "result": "Sydney Olympic 1–2 Bayswater City",
+      "canonicalResultScoreline": "Sydney Olympic 1–2 Bayswater City",
+      "resultLabels": [],
+      "scoreCheckedAt": "2026-10-31T07:36:43.683Z",
+      "statusCheckedAt": "2026-10-31T07:36:43.683Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://api.ffa.football/c1143/s2026/r2/fixture",
+      "resultSourceCheckedAt": "2026-10-31T07:36:43.683Z",
+      "resultSourceEvidence": {
+        "sourceUrl": "https://api.ffa.football/c1143/s2026/r2/fixture",
+        "bodySha256": "0d0d3c74be1b123d8bef8d49c77647bce1b088f365de3cb0b9ec9e4f7f2ae12e",
+        "observedAt": "2026-10-31T07:36:43.683Z",
+        "providerUpdatedAt": "2026-10-25T06:02:18+00:00",
+        "responseTimestamp": "2026-10-31T07:36:43+00:00"
+      }
     },
     {
       "id": "football-australian-championship-2026-22278881",
@@ -1644,7 +1944,7 @@
       "endTimeBasis": "source-published-window",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 3,
       "roundLabel": "Round 3",
@@ -1677,7 +1977,44 @@
       "replayEligible": false,
       "catchupEligible": false,
       "selectedSentence": "Canberra Croatia v South Melbourne · Group A · Round 3.",
-      "fullSpiel": "Published Australian Championship group fixture."
+      "fullSpiel": "Published Australian Championship group fixture.",
+      "homeScore": 0,
+      "awayScore": 2,
+      "shootout": {
+        "home": 0,
+        "away": 0,
+        "sourcePeriod": "SecondHalf"
+      },
+      "sourceMatchInfo": {
+        "period": "SecondHalf",
+        "winner_id": 0,
+        "home_team": {
+          "score": 0,
+          "shootout_score": 0
+        },
+        "away_team": {
+          "score": 2,
+          "shootout_score": 0
+        }
+      },
+      "sourceWinnerId": 0,
+      "score": "Canberra Croatia 0–2 South Melbourne",
+      "scoreDisplay": "Canberra Croatia 0–2 South Melbourne",
+      "result": "Canberra Croatia 0–2 South Melbourne",
+      "canonicalResultScoreline": "Canberra Croatia 0–2 South Melbourne",
+      "resultLabels": [],
+      "scoreCheckedAt": "2026-10-31T07:36:43.852Z",
+      "statusCheckedAt": "2026-10-31T07:36:43.852Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://api.ffa.football/c1143/s2026/r3/fixture",
+      "resultSourceCheckedAt": "2026-10-31T07:36:43.852Z",
+      "resultSourceEvidence": {
+        "sourceUrl": "https://api.ffa.football/c1143/s2026/r3/fixture",
+        "bodySha256": "95a73544eb0e11310d7a2c9faccc8fc660b6c0b1053795c04f89e4a8ad76a9dc",
+        "observedAt": "2026-10-31T07:36:43.852Z",
+        "providerUpdatedAt": "2026-10-29T10:26:01+00:00",
+        "responseTimestamp": "2026-10-31T07:36:43+00:00"
+      }
     },
     {
       "id": "football-australian-championship-2026-22278882",
@@ -1724,7 +2061,7 @@
       "endTimeBasis": "source-published-window",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 3,
       "roundLabel": "Round 3",
@@ -1757,7 +2094,44 @@
       "replayEligible": false,
       "catchupEligible": false,
       "selectedSentence": "Sydney Olympic v Marconi Stallions · Group C · Round 3.",
-      "fullSpiel": "Published Australian Championship group fixture."
+      "fullSpiel": "Published Australian Championship group fixture.",
+      "homeScore": 3,
+      "awayScore": 2,
+      "shootout": {
+        "home": 0,
+        "away": 0,
+        "sourcePeriod": "SecondHalf"
+      },
+      "sourceMatchInfo": {
+        "period": "SecondHalf",
+        "winner_id": 0,
+        "home_team": {
+          "score": 3,
+          "shootout_score": 0
+        },
+        "away_team": {
+          "score": 2,
+          "shootout_score": 0
+        }
+      },
+      "sourceWinnerId": 0,
+      "score": "Sydney Olympic 3–2 Marconi Stallions",
+      "scoreDisplay": "Sydney Olympic 3–2 Marconi Stallions",
+      "result": "Sydney Olympic 3–2 Marconi Stallions",
+      "canonicalResultScoreline": "Sydney Olympic 3–2 Marconi Stallions",
+      "resultLabels": [],
+      "scoreCheckedAt": "2026-10-31T07:36:43.852Z",
+      "statusCheckedAt": "2026-10-31T07:36:43.852Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://api.ffa.football/c1143/s2026/r3/fixture",
+      "resultSourceCheckedAt": "2026-10-31T07:36:43.852Z",
+      "resultSourceEvidence": {
+        "sourceUrl": "https://api.ffa.football/c1143/s2026/r3/fixture",
+        "bodySha256": "95a73544eb0e11310d7a2c9faccc8fc660b6c0b1053795c04f89e4a8ad76a9dc",
+        "observedAt": "2026-10-31T07:36:43.852Z",
+        "providerUpdatedAt": "2026-10-30T10:27:26+00:00",
+        "responseTimestamp": "2026-10-31T07:36:43+00:00"
+      }
     },
     {
       "id": "football-australian-championship-2026-22278883",
@@ -1804,7 +2178,7 @@
       "endTimeBasis": "source-published-window",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 3,
       "roundLabel": "Round 3",
@@ -1837,7 +2211,44 @@
       "replayEligible": false,
       "catchupEligible": false,
       "selectedSentence": "Broadmeadow Magic v Adelaide City · Group B · Round 3.",
-      "fullSpiel": "Published Australian Championship group fixture."
+      "fullSpiel": "Published Australian Championship group fixture.",
+      "homeScore": 3,
+      "awayScore": 2,
+      "shootout": {
+        "home": 0,
+        "away": 0,
+        "sourcePeriod": "SecondHalf"
+      },
+      "sourceMatchInfo": {
+        "period": "SecondHalf",
+        "winner_id": 0,
+        "home_team": {
+          "score": 3,
+          "shootout_score": 0
+        },
+        "away_team": {
+          "score": 2,
+          "shootout_score": 0
+        }
+      },
+      "sourceWinnerId": 0,
+      "score": "Broadmeadow Magic 3–2 Adelaide City",
+      "scoreDisplay": "Broadmeadow Magic 3–2 Adelaide City",
+      "result": "Broadmeadow Magic 3–2 Adelaide City",
+      "canonicalResultScoreline": "Broadmeadow Magic 3–2 Adelaide City",
+      "resultLabels": [],
+      "scoreCheckedAt": "2026-10-31T07:36:43.852Z",
+      "statusCheckedAt": "2026-10-31T07:36:43.852Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://api.ffa.football/c1143/s2026/r3/fixture",
+      "resultSourceCheckedAt": "2026-10-31T07:36:43.852Z",
+      "resultSourceEvidence": {
+        "sourceUrl": "https://api.ffa.football/c1143/s2026/r3/fixture",
+        "bodySha256": "95a73544eb0e11310d7a2c9faccc8fc660b6c0b1053795c04f89e4a8ad76a9dc",
+        "observedAt": "2026-10-31T07:36:43.852Z",
+        "providerUpdatedAt": "2026-10-30T10:25:39+00:00",
+        "responseTimestamp": "2026-10-31T07:36:43+00:00"
+      }
     },
     {
       "id": "football-australian-championship-2026-22278884",
