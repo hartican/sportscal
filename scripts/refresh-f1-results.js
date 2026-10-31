@@ -66,6 +66,7 @@ async function updatesFor(events,now=new Date(),fetchPage,context=require('../da
  const bounded=Boolean(suppliedBudget||!fetchPage);
  const known=eligibleSessions(events,now).filter(event=>{if(!bounded||reviewed.forEvent(event))return true;if(report)report.deferrals.push(reviewed.deferral(event));return false;});if(!known.length)return [];
  const budget=suppliedBudget||(fetchPage?null:require('./lib/f1-source-budget').createBudget({sessions:resourcePlan(known,now)}));
+ const retainedFinals=new WeakSet();
  const readPage=(url,consume)=>budget?budget.read(url,consume):Promise.resolve(fetchPage(url)).then(consume);
  try{
  const links=await readPage(`https://www.formula1.com/en/results/${now.getUTCFullYear()}/races`,index=>[...new Set([...index.matchAll(/href="(\/en\/results\/\d{4}\/races\/\d+\/[^/"?]+\/race-result)"/g)].map(m=>m[1]))]),updates=[];
@@ -93,12 +94,13 @@ async function updatesFor(events,now=new Date(),fetchPage,context=require('../da
   const sameFinal=ev.status==='completed'&&ev.fixtureResults?.sourceUrl===url
    &&JSON.stringify(ev.fixtureResults.columns)===JSON.stringify(session.columns)
    &&JSON.stringify(ev.fixtureResults.rows)===JSON.stringify(rows);
+  if(bounded&&sameFinal){retainedFinals.add(ev);updates.push(ev);return;}
   const observed=sameFinal&&[ev.scoreCheckedAt,ev.fixtureResults.checkedAt].find(validObservation)||fetchedAt;
   updates.push({...ev,participantIds:participantsForResults(rows,context),participants:participantsForResults(rows,context).map(id=>{const p=context.participants.find(p=>p.id===id);return {id,name:p.displayName,displayName:p.displayName,countryCode:p.countryCode};}),participantsConfirmed:true,...(url.includes('/italy/')?{venueCountryCode:'IT'}:{}),status:'completed',resultStatus:'official',resultSourceUrl:url,resultSourceCheckedAt:observed,scoreCheckedAt:observed,fixtureResults:{schemaVersion:'fixture-results.v1',columns:session.columns,rows,sourceUrl:url,checkedAt:observed},score:rows.slice(0,3).map(r=>`${r[0]}. ${r[2]}`).join(' · '),outcomeText:outcome,recapText:`${outcome} ${rows.slice(0,3).map(r=>`${r[0]}. ${r[2]} (${r[3]})`).join('; ')}.`,resultPublishedAt:ev.resultPublishedAt||observed,sourceName:'Formula 1 official session results',sourceUrl:url,sourceCheckedAt:observed});
   });}catch(error){if(!error.f1CardLocal||!report)throw error;report.deferrals.push({...reviewed.deferral(ev),reason:'Official session HTTP response unavailable; no retry'});}
  }
  const projected=updates.map(event=>{
-  if(!event.storyline||event.resultStatus==='pending')return event;
+  if(retainedFinals.has(event)||!event.storyline||event.resultStatus==='pending')return event;
   const {storylineFor,spoilerSafeRootCopy}=require('./lib/storyline-card-rules');
   const storyline=storylineFor(event),safe=spoilerSafeRootCopy(event,storyline);
   const next={...event,storyline,selectedSentence:safe.hook,fullSpiel:safe.synopsis};

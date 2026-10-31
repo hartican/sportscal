@@ -70,7 +70,10 @@ function runBefore(deadline,file,...args){
   if(JSON.stringify(events)!==JSON.stringify(d.events))write(p,{...d,events});
  }
  const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(file))for(const key of ['FOOTBALL_DATA_API_TOKEN','FOOTBALL_DATA_RUN_DIR','FOOTBALL_DATA_REPORT','GOLF_SOURCE_REPORT','GOLF_SOURCE_RUN_ID'])delete env[key];if(/^scripts\/validate-/.test(file))delete env.REFRESH_REPORT;
- const result=require('./lib/refresh-child').run(process.execPath,[file,...args],{env,...(remaining==null?{}:{timeout:remaining,killSignal:'SIGKILL'})});
+ // The retained publisher prehook can do meaningful work. Its elapsed time
+ // cannot become extra child time or consume the reserved rollback allowance.
+ const childRemaining=deadline==null?null:Math.floor(deadline-require('node:perf_hooks').performance.now());if(childRemaining!=null&&childRemaining<=0)throw Error('F1 canonical work deadline exceeded before child dispatch');
+ const result=require('./lib/refresh-child').run(process.execPath,[file,...args],{env,...(childRemaining==null?{}:{timeout:childRemaining,killSignal:'SIGKILL'})});
  if(result.stderr?.length)process.stderr.write(result.stderr);
  if(result.status!==0){
   const message=`${file} failed`;
@@ -376,16 +379,17 @@ async function refresh({now=new Date(),offline=false,source=null,coverageSport,r
  if(failures.length&&!changes.length&&!offline)throw new Error('Quick sources failed; preserved last-known-good data.');
  return {changes,failures};
 }
-async function refreshF1Results(){
- const began=require('node:perf_hooks').performance.now(),deadline=began+110000;
+async function refreshF1Results({began=require('node:perf_hooks').performance.now()}={}){
+ const deadline=began+110000;
+ const saveCandidate=report=>{if(process.env.QUICK_RESULTS_REPORT){fs.mkdirSync(require('node:path').dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});write(process.env.QUICK_RESULTS_REPORT,report);}};
  return atomicRefresh({},{deadline:began+120000,refreshOperation:async()=>{
   let report;
   try{report=await require('./lib/f1-scoped-refresh').refresh({deadline});}
   catch(error){if(error.f1Report)writeQuickFailureReport(error.f1Report);throw error;}
-  writeQuickFailureReport(report);
+  saveCandidate(report);
   runProjectionSteps(retainedFeedProjectionSteps(report.changed,{f1UpdatedIds:report.updatedFixtureIdsBySurface}),{deadline});
   if(require('node:perf_hooks').performance.now()>=deadline)throw Error('F1 canonical work deadline exceeded');
-  report.publicationState=report.changed.length?'validated-local-candidate':report.deferrals.length?'unchanged-with-deferrals':'unchanged';writeQuickFailureReport(report);return report;
+  report.publicationState=report.changed.length?'validated-local-candidate':report.deferrals.length?'unchanged-with-deferrals':'unchanged';saveCandidate(report);require('./lib/refresh-report').update({mode:'f1-results',publicationState:report.publicationState,stage:'validated'});if(require('node:perf_hooks').performance.now()>=deadline)throw Error('F1 canonical work deadline exceeded after diagnostics');return report;
  }});
 }
 async function atomicRefresh(options,{refreshOperation=refresh,deadline,clock=()=>require('node:perf_hooks').performance.now()}={}){
@@ -410,6 +414,12 @@ async function atomicRefresh(options,{refreshOperation=refresh,deadline,clock=()
   if(process.env.QUICK_RESULTS_REPORT){
    let report={mode:'quick',aiCalls:0};try{report=read(process.env.QUICK_RESULTS_REPORT);}catch{}
    writeQuickFailureReport({...report,publicationState:rollbackErrors.length?'blocked-rollback-failed':'blocked-rolled-back',blockingError:error.message,rollback:error.refreshRollback});
+  }
+  // Diagnostic IO belongs to the invocation too. If it consumed the cleanup
+  // allowance, retain the original error and capture an explicit late failure.
+  if(deadline!=null&&clock()>=deadline&&!rollbackErrors.includes('Canonical refresh cleanup deadline exceeded')){
+   rollbackErrors.push('Canonical refresh cleanup deadline exceeded');error.refreshRollback.status='failed';
+   if(process.env.QUICK_RESULTS_REPORT){let report={mode:'quick',aiCalls:0};try{report=read(process.env.QUICK_RESULTS_REPORT);}catch{}writeQuickFailureReport({...report,publicationState:'blocked-rollback-failed',blockingError:error.message,rollback:error.refreshRollback});}
   }
   throw error;
  }

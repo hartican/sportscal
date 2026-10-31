@@ -22,7 +22,7 @@ function check(row,url,html,rows,columns){
   if(!/^\d+$/.test(value.at(-1))&&!row.canonicalEventId.endsWith(':race'))return 'Official session lap count is incomplete';
   if(expected.finish){if(!/^\d+$/.test(value[4])||!/^\d+(?:\.\d+)?$/.test(value[6])||(expected.finish==='DNF'?value[5]!=='DNF':!/^(?:\d+:)?\d+:\d{2}\.\d{3}$|^\+\d+(?:\.\d+)?s$|^\+\d+ laps?$/.test(value[5])))return 'Official race timing/classification status is incomplete';}
   else if(columns===6&&!/^\d+:\d{2}\.\d{3}$|^\+\d+(?:\.\d+)?s$/.test(value[4]))return 'Official practice timing is incomplete';
-  else if(columns===8&&(!/^\d+:\d{2}\.\d{3}$/.test(value[4])||value.slice(5,7).some(time=>time!==''&&!/^\d+:\d{2}\.\d{3}$/.test(time))))return 'Official qualifying timing is incomplete';
+  else if(columns===8&&((expected.timingPresence&&JSON.stringify(value.slice(4,7).map(Boolean))!==JSON.stringify(expected.timingPresence))||!/^\d+:\d{2}\.\d{3}$/.test(value[4])||value.slice(5,7).some(time=>time!==''&&!/^\d+:\d{2}\.\d{3}$/.test(time))))return 'Official qualifying timing is incomplete';
  }
  return null;
 }

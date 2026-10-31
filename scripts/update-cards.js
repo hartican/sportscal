@@ -551,7 +551,7 @@ function buildSteps({ localOnly = false } = {}) {
   return steps;
 }
 
-async function runMain() {
+async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()}={}) {
   const options = parseOptions();
   if (options.reviewedEditorial) {
     const {ids, file} = options.reviewedEditorial;
@@ -899,7 +899,7 @@ async function runMain() {
     return;
   }
   if(process.argv.includes('--f1-results')){
-    const report=await require('./quick-results').refreshF1Results();
+    const report=await require('./quick-results').refreshF1Results({began:f1StartedAt});
     console.log(JSON.stringify(report));
     if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
     return;
@@ -1141,6 +1141,14 @@ async function runMain() {
 }
 
 async function main(){
+  if(process.argv.includes('--f1-results')){
+    const f1StartedAt=require('node:perf_hooks').performance.now();parseOptions();
+    // The scoped public F1 owner needs no Football/Golf invocation or backup
+    // bookkeeping. Its own atomic boundary includes final diagnostic IO.
+    process.env.REFRESH_REPORT ||= path.join(os.tmpdir(),'ns-refresh-report-'+crypto.randomUUID()+'.json');
+    require('./lib/refresh-report').update({mode:'f1-results',publicationState:'refreshing',stage:'starting',sourceFailures:[],missingResults:[],blockingError:null,failedStep:null,failureChain:[]});
+    try{return await runMain({f1StartedAt});}catch(error){console.error(`Refresh diagnostics: ${process.env.REFRESH_REPORT}`);throw error;}
+  }
   // Validate mode before creating diagnostic state or starting any source step.
   const initialOptions=parseOptions();
   if(initialOptions.australianChampionship||initialOptions.retainedCoverage||initialOptions.reviewedEditorial)return runMain();
@@ -1161,7 +1169,7 @@ async function main(){
   }catch(error){
     try{
       require('./lib/refresh-report').failure(error.message,error.refreshFailure);
-      require('./lib/refresh-report').update({publicationState:error.publicationStarted?'blocked-after-publication':'blocked-rolled-back',stage:'failed'});
+      require('./lib/refresh-report').update({publicationState:error.publicationStarted?'blocked-after-publication':error.refreshRollback?.status==='failed'?'blocked-rollback-failed':'blocked-rolled-back',stage:'failed'});
     }catch(diagnosticError){console.warn(`::warning::Canonical failure report unavailable: ${require('./lib/refresh-report').sanitise(diagnosticError.message)}`);}
     console.error(`Refresh diagnostics: ${process.env.REFRESH_REPORT}`);
     throw error;

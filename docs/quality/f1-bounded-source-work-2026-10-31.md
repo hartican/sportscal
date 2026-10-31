@@ -13,7 +13,7 @@ Use the exact individually reviewed United States Practice 3, Qualifying and
 Race classifications, and Mexico Practice 2 classification. Their checked-in
 source witnesses bind retained ID, canonical identity, original sporting start,
 exact official URL and heading, and the entire ordered driver/number/team/
-position/classification set. This is a limited current-source contract, not a
+position/classification set, including the reviewed presence of Q1/Q2/Q3 cells. This is a limited current-source contract, not a
 universal twenty-two-driver assumption or independent FIA entry-list proof.
 The twenty-three-name retained season catalogue is not an entry list.
 
@@ -55,16 +55,16 @@ failures retain cancellation ownership until request/response/decoder disposal.
 
 The canonical owner gives source/projection work at most 110 seconds, reserving
 ten seconds inside the 120-second invocation allowance for rollback. Every
-projection child receives the remaining work timeout. Expiry rejects the
+projection child receives the remaining work timeout, recalculated after any in-process publisher prehook. Expiry rejects the
 candidate. Cleanup still attempts every restoration; a cleanup beyond the
 outer deadline is explicitly failed, never accepted as a timely rollback.
-Controlled clocks prove those branches, not native filesystem latency.
+Final diagnostic IO is included; a late failure report marks rollback failed while preserving the original exception. Ordinary candidate report failure remains strict. The scoped F1 main route uses its own diagnostic owner without unrelated Football/Golf bookkeeping. Controlled clocks prove these branches, not native filesystem latency.
 
 Read all candidate facts before writing. Independently patch incoming and
 published records from their own current facts, viewing, writing and genuine
 clocks. The private exact-ID receipt selects only changed cards on each surface
 for normalization/editorial reconciliation; stitch every other record back in
-its original order and fields. An unchanged counterpart has an empty selector.
+its original order and fields. An unchanged counterpart has an empty selector. An identical complete final returns its own original record before regenerating outcome/recap or reviewed writing.
 Existing full Feed and spoiler validation still inspect the stitched result.
 Scoped F1/motorsport and shared dependent outputs rebuild through existing
 builders. Any mandatory failure restores data/Feed and all eight runtime files,
@@ -86,3 +86,5 @@ candidate and later projection failure; the repaired canonical caller restores
 it. The source child is mocked in that old-dispatch control, not represented as
 native source execution. Independent Standards and Spec review and ROOT's
 separate bounded real-resource trial remain required before adoption/release.
+
+The four review defects at `6c96943e` have pinned RED controls: unchanged recap replacement, stale child allowance, late diagnostic deadline and lost qualifying timing cells. Their fixes require a fresh independent review; previous transport-only clearance is not full-source clearance.

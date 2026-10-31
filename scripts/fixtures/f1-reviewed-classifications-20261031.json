@@ -158,133 +158,243 @@
           "position": "1",
           "number": "12",
           "driver": "Kimi Antonelli",
-          "team": "Mercedes"
+          "team": "Mercedes",
+          "timingPresence": [
+            true,
+            true,
+            true
+          ]
         },
         {
           "position": "2",
           "number": "3",
           "driver": "Max Verstappen",
-          "team": "Red Bull Racing"
+          "team": "Red Bull Racing",
+          "timingPresence": [
+            true,
+            true,
+            true
+          ]
         },
         {
           "position": "3",
           "number": "6",
           "driver": "Isack Hadjar",
-          "team": "Red Bull Racing"
+          "team": "Red Bull Racing",
+          "timingPresence": [
+            true,
+            true,
+            true
+          ]
         },
         {
           "position": "4",
           "number": "16",
           "driver": "Charles Leclerc",
-          "team": "Ferrari"
+          "team": "Ferrari",
+          "timingPresence": [
+            true,
+            true,
+            true
+          ]
         },
         {
           "position": "5",
           "number": "44",
           "driver": "Lewis Hamilton",
-          "team": "Ferrari"
+          "team": "Ferrari",
+          "timingPresence": [
+            true,
+            true,
+            true
+          ]
         },
         {
           "position": "6",
           "number": "63",
           "driver": "George Russell",
-          "team": "Mercedes"
+          "team": "Mercedes",
+          "timingPresence": [
+            true,
+            true,
+            true
+          ]
         },
         {
           "position": "7",
           "number": "81",
           "driver": "Oscar Piastri",
-          "team": "McLaren"
+          "team": "McLaren",
+          "timingPresence": [
+            true,
+            true,
+            true
+          ]
         },
         {
           "position": "8",
           "number": "1",
           "driver": "Lando Norris",
-          "team": "McLaren"
+          "team": "McLaren",
+          "timingPresence": [
+            true,
+            true,
+            true
+          ]
         },
         {
           "position": "9",
           "number": "41",
           "driver": "Arvid Lindblad",
-          "team": "Racing Bulls"
+          "team": "Racing Bulls",
+          "timingPresence": [
+            true,
+            true,
+            true
+          ]
         },
         {
           "position": "10",
           "number": "30",
           "driver": "Liam Lawson",
-          "team": "Racing Bulls"
+          "team": "Racing Bulls",
+          "timingPresence": [
+            true,
+            true,
+            false
+          ]
         },
         {
           "position": "11",
           "number": "10",
           "driver": "Pierre Gasly",
-          "team": "Alpine"
+          "team": "Alpine",
+          "timingPresence": [
+            true,
+            true,
+            false
+          ]
         },
         {
           "position": "12",
           "number": "27",
           "driver": "Nico Hulkenberg",
-          "team": "Audi"
+          "team": "Audi",
+          "timingPresence": [
+            true,
+            true,
+            false
+          ]
         },
         {
           "position": "13",
           "number": "5",
           "driver": "Gabriel Bortoleto",
-          "team": "Audi"
+          "team": "Audi",
+          "timingPresence": [
+            true,
+            true,
+            false
+          ]
         },
         {
           "position": "14",
           "number": "43",
           "driver": "Franco Colapinto",
-          "team": "Alpine"
+          "team": "Alpine",
+          "timingPresence": [
+            true,
+            true,
+            false
+          ]
         },
         {
           "position": "15",
           "number": "14",
           "driver": "Fernando Alonso",
-          "team": "Aston Martin"
+          "team": "Aston Martin",
+          "timingPresence": [
+            true,
+            true,
+            false
+          ]
         },
         {
           "position": "16",
           "number": "87",
           "driver": "Oliver Bearman",
-          "team": "Haas F1 Team"
+          "team": "Haas F1 Team",
+          "timingPresence": [
+            true,
+            true,
+            false
+          ]
         },
         {
           "position": "17",
           "number": "31",
           "driver": "Esteban Ocon",
-          "team": "Haas F1 Team"
+          "team": "Haas F1 Team",
+          "timingPresence": [
+            true,
+            false,
+            false
+          ]
         },
         {
           "position": "18",
           "number": "18",
           "driver": "Lance Stroll",
-          "team": "Aston Martin"
+          "team": "Aston Martin",
+          "timingPresence": [
+            true,
+            false,
+            false
+          ]
         },
         {
           "position": "19",
           "number": "55",
           "driver": "Carlos Sainz",
-          "team": "Williams"
+          "team": "Williams",
+          "timingPresence": [
+            true,
+            false,
+            false
+          ]
         },
         {
           "position": "20",
           "number": "23",
           "driver": "Alexander Albon",
-          "team": "Williams"
+          "team": "Williams",
+          "timingPresence": [
+            true,
+            false,
+            false
+          ]
         },
         {
           "position": "21",
           "number": "11",
           "driver": "Sergio Perez",
-          "team": "Cadillac"
+          "team": "Cadillac",
+          "timingPresence": [
+            true,
+            false,
+            false
+          ]
         },
         {
           "position": "22",
           "number": "77",
           "driver": "Valtteri Bottas",
-          "team": "Cadillac"
+          "team": "Cadillac",
+          "timingPresence": [
+            true,
+            false,
+            false
+          ]
         }
       ],
       "id": "evt_34",
