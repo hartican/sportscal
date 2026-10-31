@@ -26,7 +26,23 @@ function sessionFor(name){
  if(/race|grand prix/i.test(name))return {path:'race-result',columns:['Pos','No','Driver','Car','Laps','Time / retired','Points'],verb:'won'};
  return null;
 }
-async function fetchText(url){const r=await fetch(url,{signal:AbortSignal.timeout(15000)});if(!r.ok)throw new Error(`F1 source ${r.status}`);return r.text();}
+function fixtureStart(event){return feedControls.eventStart(event)||new Date(`${event.date}T${event.time||'00:00'}:00+10:00`);}
+function eligibleSessions(events,now){
+ return events.filter(event=>event.key==='f1'&&Number.isFinite(+fixtureStart(event))&&+fixtureStart(event)<=+now&&+now-fixtureStart(event)<7*86400000&&!['cancelled','postponed','abandoned'].includes(event.status)&&sessionFor(event.name)&&(!sessionFor(event.name).path.startsWith('practice/')||+now>=+fixtureStart(event)+90*60000));
+}
+function resourcePlan(events,now){
+ if(now.getUTCFullYear()!==2026)throw Error('F1 bounded source year has not been reviewed');
+ const sessions=new Map();
+ for(const event of eligibleSessions(events,now)){
+  const identity=String(event.canonicalEventId||'').match(/^event:f1:2026:([a-z]+(?:-[a-z]+)*):(race|qualifying|sprint|sprint-qualifying|practice-[123])$/);
+  const kind=sessionFor(event.name).path;
+  const expected=identity?.[2]==='race'?'race-result':identity?.[2]==='sprint'?'sprint-results':identity?.[2]?.replace(/^practice-([123])$/,'practice/$1');
+  if(!identity||kind!==expected)throw Error('F1 existing session identity disagrees with its source route');
+  sessions.set(identity[1]+':'+kind,{slug:identity[1],kind});
+ }
+ if(sessions.size>5)throw Error('F1 existing-session resource plan exceeds five sessions');
+ return [...sessions.values()];
+}
 function explicitlyUnavailableRace(html,event,url){
  const identity=String(event.canonicalEventId||'').match(/^event:f1:(\d{4}):([a-z-]+):race$/);
  const path=url.match(/^https:\/\/www\.formula1\.com\/en\/results\/(\d{4})\/races\/\d+\/([a-z-]+)\/race-result$/);
@@ -45,21 +61,24 @@ function participantsForResults(rows, context){
  });
  return [...new Set(participants.flat())];
 }
-async function updatesFor(events,now=new Date(),fetchPage=fetchText,context=require('../data/canonical/f1-context-2026.json')){
- const fixtureStart=e=>feedControls.eventStart(e)||new Date(`${e.date}T${e.time||'00:00'}:00+10:00`);
- const known=events.filter(e=>e.key==='f1'&&Number.isFinite(+fixtureStart(e))&&Math.abs(fixtureStart(e)-now)<7*86400000&&fixtureStart(e)<=now);if(!known.length)return [];
- const index=await fetchPage(`https://www.formula1.com/en/results/${now.getUTCFullYear()}/races`),links=[...new Set([...index.matchAll(/href="(\/en\/results\/\d{4}\/races\/\d+\/[^/"?]+\/race-result)"/g)].map(m=>m[1]))],updates=[];
+async function updatesFor(events,now=new Date(),fetchPage,context=require('../data/canonical/f1-context-2026.json')){
+ const known=eligibleSessions(events,now);if(!known.length)return [];
+ const budget=fetchPage?null:require('./lib/f1-source-budget').createBudget({sessions:resourcePlan(events,now)});
+ const readPage=(url,consume)=>budget?budget.read(url,consume):Promise.resolve(fetchPage(url)).then(consume);
+ try{
+ const links=await readPage(`https://www.formula1.com/en/results/${now.getUTCFullYear()}/races`,index=>[...new Set([...index.matchAll(/href="(\/en\/results\/\d{4}\/races\/\d+\/[^/"?]+\/race-result)"/g)].map(m=>m[1]))]),updates=[];
  for(const ev of known){
   const name=ev.name.toLowerCase().replace('italian','italy').replace('spanish','spain').replace('australian','australia').replace('british','great britain').replace('canadian','canada').replace('dutch','netherlands').replace('japanese','japan').replace('chinese','china').replace('belgian','belgium').replace('hungarian','hungary').replace('austrian','austria').replace('brazilian','brazil');
-  const link=links.find(l=>name.includes(l.split('/').at(-2).replaceAll('-',' ')));if(!link)continue;
+  const link=links.find(l=>budget?l.split('/').at(-2)===ev.canonicalEventId.split(':')[3]:name.includes(l.split('/').at(-2).replaceAll('-',' ')));if(!link)continue;
   const session=sessionFor(ev.name);if(!session||['cancelled','postponed','abandoned'].includes(ev.status))continue;
   // Practice result tables can populate during the session. Allow a conservative publication delay.
   if(session.path.startsWith('practice/') && +now < +fixtureStart(ev)+90*60000)continue;
-  const url='https://www.formula1.com'+link.replace('race-result',session.path),html=await fetchPage(url),rows=resultRows(html,session.columns.length);
+  const url='https://www.formula1.com'+link.replace('race-result',session.path);
+  await readPage(url,html=>{const rows=resultRows(html,session.columns.length);
   if(rows.length===0&&session.path==='race-result'&&explicitlyUnavailableRace(html,ev,url)){
-   updates.push({...ev,resultStatus:'pending',resultSourceUrl:url,resultSourceCheckedAt:now.toISOString()});continue;
+   updates.push({...ev,resultStatus:'pending',resultSourceUrl:url,resultSourceCheckedAt:now.toISOString()});return;
   }
-  if(rows.length<10||rows[0][0]!=='1'||new Set(rows.map(row=>row[1])).size!==rows.length||new Set(rows.map(row=>row[2])).size!==rows.length)continue;
+  if(rows.length<10||rows[0][0]!=='1'||new Set(rows.map(row=>row[1])).size!==rows.length||new Set(rows.map(row=>row[2])).size!==rows.length)return;
   const [position,number,driver,team]=rows[0],outcome=`${driver} ${session.verb} ${ev.name}.`;
   // The fetch clock is not a new final observation when the complete official
   // table is unchanged. Repair legacy pre-session clocks only from this table's
@@ -70,8 +89,9 @@ async function updatesFor(events,now=new Date(),fetchPage=fetchText,context=requ
    &&JSON.stringify(ev.fixtureResults.rows)===JSON.stringify(rows);
   const observed=sameFinal&&[ev.scoreCheckedAt,ev.fixtureResults.checkedAt].find(validObservation)||now.toISOString();
   updates.push({...ev,participantIds:participantsForResults(rows,context),participants:participantsForResults(rows,context).map(id=>{const p=context.participants.find(p=>p.id===id);return {id,name:p.displayName,displayName:p.displayName,countryCode:p.countryCode};}),participantsConfirmed:true,...(url.includes('/italy/')?{venueCountryCode:'IT'}:{}),status:'completed',resultStatus:'official',resultSourceUrl:url,resultSourceCheckedAt:observed,scoreCheckedAt:observed,fixtureResults:{schemaVersion:'fixture-results.v1',columns:session.columns,rows,sourceUrl:url,checkedAt:observed},score:rows.slice(0,3).map(r=>`${r[0]}. ${r[2]}`).join(' · '),outcomeText:outcome,recapText:`${outcome} ${rows.slice(0,3).map(r=>`${r[0]}. ${r[2]} (${r[3]})`).join('; ')}.`,resultPublishedAt:ev.resultPublishedAt||now.toISOString(),sourceName:'Formula 1 official session results',sourceUrl:url,sourceCheckedAt:observed});
+  });
  }
- return updates.map(event=>{
+ const projected=updates.map(event=>{
   if(!event.storyline||event.resultStatus==='pending')return event;
   const {storylineFor,spoilerSafeRootCopy}=require('./lib/storyline-card-rules');
   const storyline=storylineFor(event),safe=spoilerSafeRootCopy(event,storyline);
@@ -79,7 +99,9 @@ async function updatesFor(events,now=new Date(),fetchPage=fetchText,context=requ
   delete next.editorialPreview;
   return next;
  });
+ budget?.check();return projected;
+ }finally{budget?.close();}
 }
 async function main(){const path='feeds/incoming/events.json',doc=JSON.parse(fs.readFileSync(path,'utf8'));doc.events=applyPublishedSchedule(doc.events);const updates=await updatesFor(doc.events),patched=require('./lib/known-fixture-patch').patchKnown(doc.events,updates);doc.events=patched.events;fs.writeFileSync(path,JSON.stringify(doc,null,2)+'\n');console.log(`Official F1 results: ${patched.count} known sessions updated; unchanged observations retain original dates.`);}
 if(require.main===module)main().catch(e=>{console.error(e.message);process.exitCode=1});
-module.exports={sessionFor,resultRows,updatesFor,participantsForResults,applyPublishedSchedule};
+module.exports={sessionFor,resultRows,updatesFor,participantsForResults,applyPublishedSchedule,eligibleSessions,resourcePlan};

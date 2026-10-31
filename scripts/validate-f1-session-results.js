@@ -84,4 +84,4 @@ async function verify(){
 }
 // Exercise routing independently from source parsing.
 for(const [name,path] of [['Practice 1','practice/1'],['Practice 2','practice/2'],['Practice 3','practice/3'],['Sprint Qualifying','sprint-qualifying'],['Sprint Shootout','sprint-qualifying'],['Qualifying','qualifying'],['Sprint','sprint-results'],['Grand Prix Race','race-result']])assert.equal(sessionFor(name).path,path);
-verify().catch(error=>{console.error(error);process.exitCode=1;});
+verify().then(()=>require('node:child_process').execFileSync(process.execPath,[require('node:path').join(__dirname,'validate-f1-source-budget.js')],{stdio:'inherit'})).catch(error=>{console.error(error);process.exitCode=1;});
