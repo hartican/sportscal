@@ -604,7 +604,17 @@ function preflightRetainedFootballOnly(outputDir=OUTPUT_DIR){
   }
   return manifest;
 }
-function build({codeSlugs=null,outputDir=OUTPUT_DIR,retainedFootballOnly=false,retainedCodeSlugs=null}={}){
+function build({codeSlugs=null,outputDir=OUTPUT_DIR,retainedFootballOnly=false,retainedCodeSlugs=null,aLeagueResultIds=null}={}){
+  if(aLeagueResultIds){
+    if(JSON.stringify(codeSlugs)!=='["football"]'||retainedFootballOnly||retainedCodeSlugs||path.resolve(outputDir)!==path.resolve(OUTPUT_DIR))throw Error('A-League result projection requires its exact Football owner');
+    const scope=require('./lib/a-league-score-contract');scope.selectedIds(aLeagueResultIds);
+    const manifest=preflightRetainedFootballOnly(),document=JSON.parse(fs.readFileSync(path.join(ROOT,scope.FILE),'utf8'));
+    for(const file of [path.join(outputDir,'football.json'),path.join(ROOT,followSchedulePath('football'))]){
+      const before=JSON.parse(fs.readFileSync(file,'utf8')),next={...before,fixtures:scope.projectRows(before.fixtures,document,aLeagueResultIds)};
+      const body=JSON.stringify(next)+'\n';if(fs.readFileSync(file,'utf8')!==body)fs.writeFileSync(file,body);
+    }
+    return manifest;
+  }
   let retainedManifest=null;
   const retainedScopes=retainedFootballOnly?['football']:retainedCodeSlugs;
   if(retainedScopes){
@@ -695,12 +705,19 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR,retainedFootballOnly=false,r
 }
 
 if (require.main === module){
+  const aLeagueArgs=process.argv.slice(2).filter(arg=>arg.startsWith('--a-league-results'));
+  if(aLeagueArgs.length){
+    if(aLeagueArgs.length!==1||!aLeagueArgs[0].startsWith('--a-league-results-ids=')||process.argv.slice(2).length!==2||!process.argv.includes('--codes=football'))throw Error('A-League results require exactly Football and one result selector');
+    const ids=JSON.parse(aLeagueArgs[0].slice('--a-league-results-ids='.length));
+    build({codeSlugs:['football'],aLeagueResultIds:ids});console.log('Retained A-League result projections updated without other fixtures or manifests.');
+  }else{
   const retainedFootballOnly=process.argv.includes('--retained-football-only');
   if(retainedFootballOnly&&(process.argv.slice(2).length!==2||!process.argv.includes('--codes=football')))throw Error('Retained Football permits only --retained-football-only --codes=football before any writes');
   const scope=process.argv.find(arg=>arg.startsWith('--codes=')),retainedArgs=process.argv.slice(2).filter(arg=>arg.startsWith('--retained-codes='));
   if(retainedArgs.length&&(retainedArgs.length!==1||process.argv.slice(2).length!==2||!scope||retainedFootballOnly))throw Error('Retained codes require only matching --codes and --retained-codes before writes');
   const manifest = build({codeSlugs:scope?scope.slice(8).split(',').filter(Boolean):null,retainedFootballOnly,retainedCodeSlugs:retainedArgs.length?retainedArgs[0].slice(17).split(','):null});
   console.log(`Code Inspector built: ${manifest.codes.length} codes, ${manifest.codes.reduce((total, code) => total + code.fixtureCount, 0)} fixtures.`);
+  }
 }
 
 module.exports = { preflightRetainedCoverage:preflightRetainedFootballOnly,preflightRetainedFootballOnly,obsoleteProgramme, build, codeFixtures, codeStandings, eventMatchesCode, fixtureEvidenceScore, mergeFixtureRecords, normalizeFixture, semanticFixtureKey };

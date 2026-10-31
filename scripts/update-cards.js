@@ -71,6 +71,7 @@ function runStep(args) {
 }
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
+  const aLeagueResults=require('./lib/a-league-score-contract').route(argv);if(aLeagueResults)return {localOnly:true,aLeagueResults};
   require('./lib/live-coverage-scope').parseArgs(argv);
   require('./lib/aflw-publication-scope').route(argv);
   if(argv.includes('--source=epl')||argv.some(arg=>arg==='--epl-updated-ids'||arg.startsWith('--epl-updated-ids=')))require('./lib/epl-publication-scope').rebuildOptions(argv);
@@ -552,7 +553,7 @@ function buildSteps({ localOnly = false } = {}) {
   return steps;
 }
 
-async function runMain({f1StartedAt=require('node:perf_hooks').performance.now(),aflwStartedAt=f1StartedAt}={}) {
+async function runMain({f1StartedAt=require('node:perf_hooks').performance.now(),aflwStartedAt=f1StartedAt,aLeagueStartedAt=f1StartedAt}={}) {
   const options = parseOptions();
   if (options.reviewedEditorial) {
     const {ids, file} = options.reviewedEditorial;
@@ -570,6 +571,7 @@ async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()
     if(codeSlugs.includes('netball'))runStep(['scripts/validate-diamonds-retained-schedule.js']);
     console.log('Declared retained coverage projected locally; no source, shell, account, database or publication operation.');return;
   }
+  if(options.aLeagueResults){await require('./lib/a-league-score-owner').run({...options.aLeagueResults,began:aLeagueStartedAt,emit:report=>console.log(JSON.stringify(report))});return;}
   if(process.argv.includes('--a-league')){
     const result=await require('./lib/a-league-schedule').refresh();console.log(JSON.stringify(result));
     if(result.state==='deferred-retained')throw Error(result.error+'; retained last-good A-League schedule.');
@@ -1142,6 +1144,7 @@ async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()
 }
 
 async function main(){
+  if(process.argv.some(arg=>arg.startsWith('--a-league-results'))){const aLeagueStartedAt=require('node:perf_hooks').performance.now();parseOptions();return await runMain({aLeagueStartedAt});}
   if(process.argv.includes('--source=aflw-results')){
     const aflwStartedAt=require('node:perf_hooks').performance.now();parseOptions();process.env.REFRESH_REPORT ||= path.join(os.tmpdir(),'ns-refresh-report-'+crypto.randomUUID()+'.json');
     require('./lib/refresh-report').update({mode:'aflw-results',publicationState:'refreshing',stage:'starting',sourceFailures:[],missingResults:[],blockingError:null,failedStep:null,failureChain:[]});
@@ -1190,7 +1193,7 @@ async function main(){
 
 if (require.main === module) {
   main().catch(error => {
-    console.error(error.message);
+    if(!process.argv.some(arg=>arg.startsWith('--a-league-results')))console.error(error.message);
     process.exitCode = error.exitCode || 1;
   });
 }
