@@ -1,5 +1,22 @@
 # Backend efficiency decisions
 
+## A-League retained scores-only preparation — 31 October 2026
+
+The existing canonical `update-cards.js --a-league` owner may be source-qualified
+with an explicit local-only scores modifier and a new private external evidence
+directory. Freeze12clubs/all156identities and only the11known17–30October unknowns;
+keep the newly started31October fixture, other competitions, appointments,
+viewing/editorial/review/source clocks and user state exact. No global Feed
+admission or table synthesis. One exact existing official complete-body GET,
+zero token/retry/redirect/ESPN fallback,15seconds through body/decode/JSON/domain,
+1MiB encoded and decoded. Proposed owner90seconds plus10cleanup is not an actual
+allocation. Validate the whole season and conflicts; defer unsupported card facts
+locally, never infer completion or freshly stamp unchanged facts. Use existing
+CI/Follow projections and full data/generated/eight-runtime rollback before
+fallible diagnostics. Source controls and both reviews precede ROOT's separate
+actual resource/release window. Existing full/quick paths and one-owner scheduler
+remain unchanged; jobs stay parked. See [exact contract](quality/a-league-scores-only-2026-10-31.md).
+
 ## AFLW independent round-result preparation — 31 October 2026
 
 Source-only preparation is limited to the existing canonical quick owner and the

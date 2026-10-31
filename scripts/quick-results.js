@@ -406,10 +406,10 @@ async function refreshAflwResults({began=require('node:perf_hooks').performance.
   report.publicationState=report.changed.length?'validated-local-candidate':report.deferrals.length?'unchanged-with-deferrals':'unchanged';save(report);require('./lib/refresh-report').update({mode:'aflw-results',publicationState:report.publicationState,stage:'validated',sourceFailures:report.sourceFailures,missingResults:report.deferrals.filter(row=>report.scope.targetedResultIds.includes(row.id)).map(row=>({id:row.id,missing:['verified final result'],reason:row.reason,nextAction:row.nextAction}))});if(emitReport)emitReport(report);if(require('node:perf_hooks').performance.now()>=deadline)throw Error('AFLW canonical work deadline exceeded');return report;
  }});
 }
-async function atomicRefresh(options,{refreshOperation=refresh,deadline,clock=()=>require('node:perf_hooks').performance.now()}={}){
+async function atomicRefresh(options,{refreshOperation=refresh,deadline,clock=()=>require('node:perf_hooks').performance.now(),additionalFiles=[],includeAllFiles=false}={}){
  validateQuickOptions(options);
- const files=new Map();function collect(dir){for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const name=dir+'/'+entry.name;if(entry.isDirectory())collect(name);else if(/\.(json|js)$/.test(name))files.set(name,fs.readFileSync(name));}}
- const runtimeBefore=new Map(require('./build-app-shell-runtime').generatedFiles().map(file=>[file,fs.existsSync(file)?fs.readFileSync(file):null]));
+ const files=new Map();function collect(dir){for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const name=dir+'/'+entry.name;if(entry.isDirectory())collect(name);else if(includeAllFiles||/\.(json|js)$/.test(name))files.set(name,fs.readFileSync(name));}}
+ const runtimeBefore=new Map([...require('./build-app-shell-runtime').generatedFiles(),...additionalFiles].map(file=>[file,fs.existsSync(file)?fs.readFileSync(file):null]));
  collect('data');collect('feeds');
  try{const result=await refreshOperation(options);if(deadline!=null&&clock()>=deadline)throw Error('Canonical refresh deadline exceeded');return result;}catch(error){
   // Restore the entire candidate before any fallible diagnostic IO. A broken

@@ -134,7 +134,7 @@
       "startTimeUtc": "2026-10-17T04:00:00.000Z",
       "venue": "Go Media Stadium",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 1,
       "roundLabel": "Matchweek 1",
@@ -167,7 +167,29 @@
       "replayEligible": false,
       "highlightEligible": false,
       "catchupEligible": false,
-      "briefingEligible": false
+      "briefingEligible": false,
+      "homeScore": 3,
+      "awayScore": 1,
+      "score": "Auckland FC 3-1 Melbourne City FC",
+      "canonicalResultScoreline": "Auckland FC 3-1 Melbourne City FC",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+      "resultSourceCheckedAt": "2026-10-31T04:39:18.225Z",
+      "scoreCheckedAt": "2026-10-31T04:39:18.225Z",
+      "statusCheckedAt": "2026-10-31T04:39:18.225Z",
+      "result": {
+        "status": "completed",
+        "scorelineText": "Auckland FC 3-1 Melbourne City FC",
+        "source": {
+          "sourceType": "official",
+          "sourceName": "A-Leagues official results",
+          "sourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+          "checkedAt": "2026-10-31T04:39:18.225Z",
+          "bodySha256": "e2e87a246191d3bfe7aad7e611c07af8fd7dd856e32f71615d0fae639a49ca68",
+          "providerUpdatedAt": "2026-10-20T07:00:35.116Z"
+        }
+      },
+      "winnerParticipantId": "team:football:club:auckland-fc"
     },
     {
       "id": "football-a-league-men-2026-27-401892160",
@@ -208,7 +230,7 @@
       "startTimeUtc": "2026-10-17T06:00:00.000Z",
       "venue": "Campbelltown Sports Stadium",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 1,
       "roundLabel": "Matchweek 1",
@@ -241,7 +263,29 @@
       "replayEligible": false,
       "highlightEligible": false,
       "catchupEligible": false,
-      "briefingEligible": false
+      "briefingEligible": false,
+      "homeScore": 2,
+      "awayScore": 1,
+      "score": "Macarthur FC 2-1 Perth Glory",
+      "canonicalResultScoreline": "Macarthur FC 2-1 Perth Glory",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+      "resultSourceCheckedAt": "2026-10-31T04:39:18.225Z",
+      "scoreCheckedAt": "2026-10-31T04:39:18.225Z",
+      "statusCheckedAt": "2026-10-31T04:39:18.225Z",
+      "result": {
+        "status": "completed",
+        "scorelineText": "Macarthur FC 2-1 Perth Glory",
+        "source": {
+          "sourceType": "official",
+          "sourceName": "A-Leagues official results",
+          "sourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+          "checkedAt": "2026-10-31T04:39:18.225Z",
+          "bodySha256": "e2e87a246191d3bfe7aad7e611c07af8fd7dd856e32f71615d0fae639a49ca68",
+          "providerUpdatedAt": "2026-10-20T07:00:35.116Z"
+        }
+      },
+      "winnerParticipantId": "team:football:club:macarthur-fc"
     },
     {
       "id": "football-a-league-men-2026-27-401892159",
@@ -282,7 +326,7 @@
       "startTimeUtc": "2026-10-17T08:40:00.000Z",
       "venue": "polytec Stadium",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 1,
       "roundLabel": "Matchweek 1",
@@ -315,7 +359,28 @@
       "replayEligible": false,
       "highlightEligible": false,
       "catchupEligible": false,
-      "briefingEligible": false
+      "briefingEligible": false,
+      "homeScore": 2,
+      "awayScore": 2,
+      "score": "Central Coast Mariners 2-2 Newcastle Jets",
+      "canonicalResultScoreline": "Central Coast Mariners 2-2 Newcastle Jets",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+      "resultSourceCheckedAt": "2026-10-31T04:39:18.225Z",
+      "scoreCheckedAt": "2026-10-31T04:39:18.225Z",
+      "statusCheckedAt": "2026-10-31T04:39:18.225Z",
+      "result": {
+        "status": "completed",
+        "scorelineText": "Central Coast Mariners 2-2 Newcastle Jets",
+        "source": {
+          "sourceType": "official",
+          "sourceName": "A-Leagues official results",
+          "sourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+          "checkedAt": "2026-10-31T04:39:18.225Z",
+          "bodySha256": "e2e87a246191d3bfe7aad7e611c07af8fd7dd856e32f71615d0fae639a49ca68",
+          "providerUpdatedAt": "2026-10-20T07:00:35.116Z"
+        }
+      }
     },
     {
       "id": "football-a-league-men-2026-27-401892158",
@@ -356,7 +421,7 @@
       "startTimeUtc": "2026-10-18T02:00:00.000Z",
       "venue": "Hnry Stadium",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 1,
       "roundLabel": "Matchweek 1",
@@ -389,7 +454,29 @@
       "replayEligible": false,
       "highlightEligible": false,
       "catchupEligible": false,
-      "briefingEligible": false
+      "briefingEligible": false,
+      "homeScore": 2,
+      "awayScore": 1,
+      "score": "Wellington Phoenix FC 2-1 Melbourne Victory",
+      "canonicalResultScoreline": "Wellington Phoenix FC 2-1 Melbourne Victory",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+      "resultSourceCheckedAt": "2026-10-31T04:39:18.225Z",
+      "scoreCheckedAt": "2026-10-31T04:39:18.225Z",
+      "statusCheckedAt": "2026-10-31T04:39:18.225Z",
+      "result": {
+        "status": "completed",
+        "scorelineText": "Wellington Phoenix FC 2-1 Melbourne Victory",
+        "source": {
+          "sourceType": "official",
+          "sourceName": "A-Leagues official results",
+          "sourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+          "checkedAt": "2026-10-31T04:39:18.225Z",
+          "bodySha256": "e2e87a246191d3bfe7aad7e611c07af8fd7dd856e32f71615d0fae639a49ca68",
+          "providerUpdatedAt": "2026-10-20T07:00:35.116Z"
+        }
+      },
+      "winnerParticipantId": "team:football:club:wellington-phoenix-fc"
     },
     {
       "id": "football-a-league-men-2026-27-401892156",
@@ -430,7 +517,7 @@
       "startTimeUtc": "2026-10-23T09:00:00.000Z",
       "venue": "Suncorp Stadium",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 2,
       "roundLabel": "Matchweek 2",
@@ -463,7 +550,29 @@
       "replayEligible": false,
       "highlightEligible": false,
       "catchupEligible": false,
-      "briefingEligible": false
+      "briefingEligible": false,
+      "homeScore": 2,
+      "awayScore": 1,
+      "score": "Brisbane Roar 2-1 Perth Glory",
+      "canonicalResultScoreline": "Brisbane Roar 2-1 Perth Glory",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+      "resultSourceCheckedAt": "2026-10-31T04:39:18.225Z",
+      "scoreCheckedAt": "2026-10-31T04:39:18.225Z",
+      "statusCheckedAt": "2026-10-31T04:39:18.225Z",
+      "result": {
+        "status": "completed",
+        "scorelineText": "Brisbane Roar 2-1 Perth Glory",
+        "source": {
+          "sourceType": "official",
+          "sourceName": "A-Leagues official results",
+          "sourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+          "checkedAt": "2026-10-31T04:39:18.225Z",
+          "bodySha256": "e2e87a246191d3bfe7aad7e611c07af8fd7dd856e32f71615d0fae639a49ca68",
+          "providerUpdatedAt": "2026-10-23T11:45:35.116Z"
+        }
+      },
+      "winnerParticipantId": "team:football:brisbane-roar"
     },
     {
       "id": "football-a-league-men-2026-27-401892155",
@@ -504,7 +613,7 @@
       "startTimeUtc": "2026-10-24T04:00:00.000Z",
       "venue": "McDonald Jones Stadium",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 2,
       "roundLabel": "Matchweek 2",
@@ -537,7 +646,28 @@
       "replayEligible": false,
       "highlightEligible": false,
       "catchupEligible": false,
-      "briefingEligible": false
+      "briefingEligible": false,
+      "homeScore": 1,
+      "awayScore": 1,
+      "score": "Newcastle Jets 1-1 Macarthur FC",
+      "canonicalResultScoreline": "Newcastle Jets 1-1 Macarthur FC",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+      "resultSourceCheckedAt": "2026-10-31T04:39:18.225Z",
+      "scoreCheckedAt": "2026-10-31T04:39:18.225Z",
+      "statusCheckedAt": "2026-10-31T04:39:18.225Z",
+      "result": {
+        "status": "completed",
+        "scorelineText": "Newcastle Jets 1-1 Macarthur FC",
+        "source": {
+          "sourceType": "official",
+          "sourceName": "A-Leagues official results",
+          "sourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+          "checkedAt": "2026-10-31T04:39:18.225Z",
+          "bodySha256": "e2e87a246191d3bfe7aad7e611c07af8fd7dd856e32f71615d0fae639a49ca68",
+          "providerUpdatedAt": "2026-10-24T06:00:35.116Z"
+        }
+      }
     },
     {
       "id": "football-a-league-men-2026-27-401892154",
@@ -578,7 +708,7 @@
       "startTimeUtc": "2026-10-24T06:00:00.000Z",
       "venue": "CommBank Stadium",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 2,
       "roundLabel": "Matchweek 2",
@@ -611,7 +741,29 @@
       "replayEligible": false,
       "highlightEligible": false,
       "catchupEligible": false,
-      "briefingEligible": false
+      "briefingEligible": false,
+      "homeScore": 5,
+      "awayScore": 2,
+      "score": "Western Sydney Wanderers 5-2 Auckland FC",
+      "canonicalResultScoreline": "Western Sydney Wanderers 5-2 Auckland FC",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+      "resultSourceCheckedAt": "2026-10-31T04:39:18.225Z",
+      "scoreCheckedAt": "2026-10-31T04:39:18.225Z",
+      "statusCheckedAt": "2026-10-31T04:39:18.225Z",
+      "result": {
+        "status": "completed",
+        "scorelineText": "Western Sydney Wanderers 5-2 Auckland FC",
+        "source": {
+          "sourceType": "official",
+          "sourceName": "A-Leagues official results",
+          "sourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+          "checkedAt": "2026-10-31T04:39:18.225Z",
+          "bodySha256": "e2e87a246191d3bfe7aad7e611c07af8fd7dd856e32f71615d0fae639a49ca68",
+          "providerUpdatedAt": "2026-10-24T07:50:35.540Z"
+        }
+      },
+      "winnerParticipantId": "team:football:western-sydney-wanderers"
     },
     {
       "id": "football-a-league-men-2026-27-401892153",
@@ -652,7 +804,7 @@
       "startTimeUtc": "2026-10-24T08:40:00.000Z",
       "venue": "AAMI Park",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 2,
       "roundLabel": "Matchweek 2",
@@ -696,7 +848,28 @@
       "replayEligible": false,
       "highlightEligible": false,
       "catchupEligible": false,
-      "briefingEligible": false
+      "briefingEligible": false,
+      "homeScore": 1,
+      "awayScore": 1,
+      "score": "Melbourne Victory 1-1 Melbourne City FC",
+      "canonicalResultScoreline": "Melbourne Victory 1-1 Melbourne City FC",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+      "resultSourceCheckedAt": "2026-10-31T04:39:18.225Z",
+      "scoreCheckedAt": "2026-10-31T04:39:18.225Z",
+      "statusCheckedAt": "2026-10-31T04:39:18.225Z",
+      "result": {
+        "status": "completed",
+        "scorelineText": "Melbourne Victory 1-1 Melbourne City FC",
+        "source": {
+          "sourceType": "official",
+          "sourceName": "A-Leagues official results",
+          "sourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+          "checkedAt": "2026-10-31T04:39:18.225Z",
+          "bodySha256": "e2e87a246191d3bfe7aad7e611c07af8fd7dd856e32f71615d0fae639a49ca68",
+          "providerUpdatedAt": "2026-10-24T10:45:35.116Z"
+        }
+      }
     },
     {
       "id": "football-a-league-men-2026-27-401892152",
@@ -737,7 +910,7 @@
       "startTimeUtc": "2026-10-25T02:00:00.000Z",
       "venue": "Hnry Stadium",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 2,
       "roundLabel": "Matchweek 2",
@@ -770,7 +943,29 @@
       "replayEligible": false,
       "highlightEligible": false,
       "catchupEligible": false,
-      "briefingEligible": false
+      "briefingEligible": false,
+      "homeScore": 2,
+      "awayScore": 0,
+      "score": "Wellington Phoenix FC 2-0 Central Coast Mariners",
+      "canonicalResultScoreline": "Wellington Phoenix FC 2-0 Central Coast Mariners",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+      "resultSourceCheckedAt": "2026-10-31T04:39:18.225Z",
+      "scoreCheckedAt": "2026-10-31T04:39:18.225Z",
+      "statusCheckedAt": "2026-10-31T04:39:18.225Z",
+      "result": {
+        "status": "completed",
+        "scorelineText": "Wellington Phoenix FC 2-0 Central Coast Mariners",
+        "source": {
+          "sourceType": "official",
+          "sourceName": "A-Leagues official results",
+          "sourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+          "checkedAt": "2026-10-31T04:39:18.225Z",
+          "bodySha256": "e2e87a246191d3bfe7aad7e611c07af8fd7dd856e32f71615d0fae639a49ca68",
+          "providerUpdatedAt": "2026-10-25T03:52:27.866Z"
+        }
+      },
+      "winnerParticipantId": "team:football:club:wellington-phoenix-fc"
     },
     {
       "id": "football-a-league-men-2026-27-401892151",
@@ -811,7 +1006,7 @@
       "startTimeUtc": "2026-10-25T04:00:00.000Z",
       "venue": "Allianz Stadium",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 2,
       "roundLabel": "Matchweek 2",
@@ -844,7 +1039,29 @@
       "replayEligible": false,
       "highlightEligible": false,
       "catchupEligible": false,
-      "briefingEligible": false
+      "briefingEligible": false,
+      "homeScore": 2,
+      "awayScore": 1,
+      "score": "Sydney FC 2-1 Adelaide United",
+      "canonicalResultScoreline": "Sydney FC 2-1 Adelaide United",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+      "resultSourceCheckedAt": "2026-10-31T04:39:18.225Z",
+      "scoreCheckedAt": "2026-10-31T04:39:18.225Z",
+      "statusCheckedAt": "2026-10-31T04:39:18.225Z",
+      "result": {
+        "status": "completed",
+        "scorelineText": "Sydney FC 2-1 Adelaide United",
+        "source": {
+          "sourceType": "official",
+          "sourceName": "A-Leagues official results",
+          "sourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+          "checkedAt": "2026-10-31T04:39:18.225Z",
+          "bodySha256": "e2e87a246191d3bfe7aad7e611c07af8fd7dd856e32f71615d0fae639a49ca68",
+          "providerUpdatedAt": "2026-10-25T05:54:33.466Z"
+        }
+      },
+      "winnerParticipantId": "team:football:sydney-fc"
     },
     {
       "id": "football-a-league-men-2026-27-401892150",
@@ -885,7 +1102,7 @@
       "startTimeUtc": "2026-10-30T09:00:00.000Z",
       "venue": "Suncorp Stadium",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "round": "all",
       "roundNumber": 3,
       "roundLabel": "Matchweek 3",
@@ -918,7 +1135,28 @@
       "replayEligible": false,
       "highlightEligible": false,
       "catchupEligible": false,
-      "briefingEligible": false
+      "briefingEligible": false,
+      "homeScore": 1,
+      "awayScore": 1,
+      "score": "Brisbane Roar 1-1 Auckland FC",
+      "canonicalResultScoreline": "Brisbane Roar 1-1 Auckland FC",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+      "resultSourceCheckedAt": "2026-10-31T04:39:18.225Z",
+      "scoreCheckedAt": "2026-10-31T04:39:18.225Z",
+      "statusCheckedAt": "2026-10-31T04:39:18.225Z",
+      "result": {
+        "status": "completed",
+        "scorelineText": "Brisbane Roar 1-1 Auckland FC",
+        "source": {
+          "sourceType": "official",
+          "sourceName": "A-Leagues official results",
+          "sourceUrl": "https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true",
+          "checkedAt": "2026-10-31T04:39:18.225Z",
+          "bodySha256": "e2e87a246191d3bfe7aad7e611c07af8fd7dd856e32f71615d0fae639a49ca68",
+          "providerUpdatedAt": "2026-10-30T11:00:35.116Z"
+        }
+      }
     },
     {
       "id": "football-a-league-men-2026-27-401892149",
