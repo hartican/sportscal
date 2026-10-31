@@ -76,7 +76,17 @@ assert(!html.includes("pruneUnavailableFootballFollows"), "directory membership 
 assert.match(html, /--fixture-card-collapsed-height:248px[\s\S]{0,500}\.cards-grid > \.event-card\[data-card-state="compact"\][\s\S]{0,500}height:var\(--fixture-card-collapsed-height\)/, "all collapsed fixture variants must share one outer height");
 assert(fs.existsSync("data/football/fixtures/a-league-men.json") && fs.existsSync("data/football/fixtures/a-league-men.js"), "A-League fixture bundles must be published");
 const football = JSON.parse(fs.readFileSync("data/canonical/football-directory.v1.json", "utf8"));
-assert.equal(football.leagues.length, 6);
-assert(football.leagues.some(league => league.id === "competition:a-leagues" && league.key === "a-league-men"));
+const approvedFootballLeagues = [
+  ["competition:premier-league", "premier-league"],
+  ["competition:bundesliga", "bundesliga"],
+  ["competition:la-liga", "la-liga"],
+  ["competition:serie-a", "serie-a"],
+  ["competition:ligue-1", "ligue-1"],
+  ["competition:a-leagues", "a-league-men"],
+  ["competition:australian-championship", "australian-championship"],
+];
+assert.equal(new Set(football.leagues.map(league=>league.id)).size, football.leagues.length, "Football catalogue IDs must be unique");
+assert.equal(new Set(football.leagues.map(league=>league.key)).size, football.leagues.length, "Football catalogue keys must be unique");
+assert.deepEqual(football.leagues.map(({id,key})=>[id,key]).sort(), [...approvedFootballLeagues].sort(), "Football catalogue must retain exactly the seven approved ID/key pairs");
 
-console.log("Fixtures contract valid: canonical chronology, equal L0 geometry, invisible seen-state lifecycle, Events links and six-league catalogue passed.");
+console.log("Fixtures contract valid: canonical chronology, equal L0 geometry, invisible seen-state lifecycle, Events links and seven-league catalogue passed.");

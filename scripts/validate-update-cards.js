@@ -12,7 +12,7 @@ require('./validate-editorial-projection-repair');
 require('./validate-cricket-live-scope').run();
 // Owned AFLW doubles run in isolated processes; their IO guards must never
 // replace the ordinary canonical owner's filesystem, clock or transport.
-for(const name of ['validate-aflw-round-contract.js','validate-aflw-source-json.js','validate-aflw-scoped-results.js','validate-a-league-source-json.js','validate-a-league-scoped-results.js']){
+for(const name of ['validate-aflw-round-contract.js','validate-aflw-source-json.js','validate-aflw-scoped-results.js','validate-a-league-source-json.js','validate-a-league-scoped-results.js','validate-fixtures-catalogue-contract.js']){
  const result=spawnSync(process.execPath,[path.join(__dirname,name)],{cwd:path.resolve(__dirname,'..'),encoding:'utf8'});
  assert.equal(result.status,0,`${name}: ${result.stderr||result.stdout}`);
 }

@@ -120,3 +120,17 @@ a frozen SourceReady handoff. ROOT separately allocates any actual one-resource
 trial, accepted-current-main integration, draft PR/publication and exact production
 SHA/READY/alias/served/hosted acceptance. Local doubles are none of those proofs.
 No database or configuration schema changes are included.
+
+## Explicit baseline catalogue gate repair
+
+ROOT separately approved replacing the stale six-league cardinality assertion in
+`validate-fixtures-contract.js` after one exact7e reproduction and required-input
+hash comparison. The existing directory already contains Australian Championship
+as its seventh approved competition; no catalogue data is changed. Require exactly
+the seven literal approved `(id,key)` pairs with unique IDs and keys. All other
+fixture/UI assertions and bundle-existence checks remain. Owned mutations through
+the real validator reject missing Championship, duplicate ID, duplicate key and
+unexpected pair. The actual canonical scores-only owned path executes this repaired
+real gate before candidate success. Keep both original7!=6 and missing-Championship
+negative REDs, documenting that the production workflow does not directly execute
+this standalone owner gate; no release check is waived or declared irrelevant.
