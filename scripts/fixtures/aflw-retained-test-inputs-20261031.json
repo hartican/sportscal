@@ -1,0 +1,3837 @@
+{
+  "schemaVersion": "aflw-retained-test-inputs.v1",
+  "baseCommit": "85b3a8672199e851a2dc60585f8edbb889439485",
+  "modelClock": "2026-10-31T01:30:00.000Z",
+  "captureType": "Original retained18canonical rows and10Feed targets per surface; historical clocks/copy unchanged, no new result observations",
+  "sources": {
+    "data/canonical/afl-nrl-2026.json": {
+      "sha256": "f443e982dc6864c10d8c9afedeb821a55ebb65ef979f372a592f993650dfad84"
+    },
+    "feeds/incoming/events.json": {
+      "sha256": "917b940a758e638fbe5acc0e7d4f823650158ac1f8780d7ee88eda81414711e9"
+    },
+    "data/events.json": {
+      "sha256": "e7b4b5a637b56f05bc49a86337d91b97068312d56fa0b603ece670606873ed43"
+    }
+  },
+  "surfaces": {
+    "data/canonical/afl-nrl-2026.json": [
+      {
+        "id": "event:aflw:cd_m20262641101",
+        "sourceId": "CD_M20262641101",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 11",
+        "roundNumber": 11,
+        "eventType": "match",
+        "startTimeUtc": "2026-10-23T08:15:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Adelaide",
+        "venueName": "Alberton Oval",
+        "venueCity": "Adelaide",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t9409",
+        "awayParticipantId": "team:aflw:cd_t8097",
+        "participantIds": [
+          "team:aflw:cd_t9409",
+          "team:aflw:cd_t8097"
+        ],
+        "displayName": "Port Adelaide v Collingwood",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8970",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        }
+      },
+      {
+        "id": "event:aflw:cd_m20262641102",
+        "sourceId": "CD_M20262641102",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 11",
+        "roundNumber": 11,
+        "eventType": "match",
+        "startTimeUtc": "2026-10-24T02:05:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Melbourne",
+        "venueName": "RSEA Park",
+        "venueCity": "Melbourne",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t8796",
+        "awayParticipantId": "team:aflw:cd_t7887",
+        "participantIds": [
+          "team:aflw:cd_t8796",
+          "team:aflw:cd_t7887"
+        ],
+        "displayName": "St Kilda v Brisbane Lions",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8971",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        }
+      },
+      {
+        "id": "event:aflw:cd_m20262641103",
+        "sourceId": "CD_M20262641103",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 11",
+        "roundNumber": 11,
+        "eventType": "match",
+        "startTimeUtc": "2026-10-24T04:05:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Melbourne",
+        "venueName": "GMHBA Stadium",
+        "venueCity": "Geelong",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t8467",
+        "awayParticipantId": "team:aflw:cd_t7886",
+        "participantIds": [
+          "team:aflw:cd_t8467",
+          "team:aflw:cd_t7886"
+        ],
+        "displayName": "Geelong Cats v Fremantle",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8974",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        }
+      },
+      {
+        "id": "event:aflw:cd_m20262641104",
+        "sourceId": "CD_M20262641104",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 11",
+        "roundNumber": 11,
+        "eventType": "match",
+        "startTimeUtc": "2026-10-24T06:05:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Brisbane",
+        "venueName": "People First Stadium",
+        "venueCity": "Gold Coast",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t8786",
+        "awayParticipantId": "team:aflw:cd_t8788",
+        "participantIds": [
+          "team:aflw:cd_t8786",
+          "team:aflw:cd_t8788"
+        ],
+        "displayName": "Gold Coast SUNS v Richmond",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8972",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        }
+      },
+      {
+        "id": "event:aflw:cd_m20262641105",
+        "sourceId": "CD_M20262641105",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 11",
+        "roundNumber": 11,
+        "eventType": "match",
+        "startTimeUtc": "2026-10-24T08:15:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Melbourne",
+        "venueName": "Mission Whitten Oval",
+        "venueCity": "Melbourne",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t7387",
+        "awayParticipantId": "team:aflw:cd_t7386",
+        "participantIds": [
+          "team:aflw:cd_t7387",
+          "team:aflw:cd_t7386"
+        ],
+        "displayName": "Western Bulldogs v Melbourne",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8973",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        }
+      },
+      {
+        "id": "event:aflw:cd_m20262641106",
+        "sourceId": "CD_M20262641106",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 11",
+        "roundNumber": 11,
+        "eventType": "match",
+        "startTimeUtc": "2026-10-25T01:35:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Sydney",
+        "venueName": "Henson Park",
+        "venueCity": "Sydney",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t9408",
+        "awayParticipantId": "team:aflw:cd_t8787",
+        "participantIds": [
+          "team:aflw:cd_t9408",
+          "team:aflw:cd_t8787"
+        ],
+        "displayName": "Sydney Swans v West Coast Eagles",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8977",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        }
+      },
+      {
+        "id": "event:aflw:cd_m20262641107",
+        "sourceId": "CD_M20262641107",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 11",
+        "roundNumber": 11,
+        "eventType": "match",
+        "startTimeUtc": "2026-10-25T02:05:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Hobart",
+        "venueName": "North Hobart Oval",
+        "venueCity": "Hobart",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t8466",
+        "awayParticipantId": "team:aflw:cd_t8098",
+        "participantIds": [
+          "team:aflw:cd_t8466",
+          "team:aflw:cd_t8098"
+        ],
+        "displayName": "North Melbourne v Adelaide Crows",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8979",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        }
+      },
+      {
+        "id": "event:aflw:cd_m20262641108",
+        "sourceId": "CD_M20262641108",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 11",
+        "roundNumber": 11,
+        "eventType": "match",
+        "startTimeUtc": "2026-10-25T04:05:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Melbourne",
+        "venueName": "Kennedy Community Centre",
+        "venueCity": "Dingley Village",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t9407",
+        "awayParticipantId": "team:aflw:cd_t9406",
+        "participantIds": [
+          "team:aflw:cd_t9407",
+          "team:aflw:cd_t9406"
+        ],
+        "displayName": "Hawthorn v Essendon",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8976",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        }
+      },
+      {
+        "id": "event:aflw:cd_m20262641109",
+        "sourceId": "CD_M20262641109",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 11",
+        "roundNumber": 11,
+        "eventType": "match",
+        "startTimeUtc": "2026-10-25T06:05:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Melbourne",
+        "venueName": "IKON Park",
+        "venueCity": "Melbourne",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t8096",
+        "awayParticipantId": "team:aflw:cd_t7889",
+        "participantIds": [
+          "team:aflw:cd_t8096",
+          "team:aflw:cd_t7889"
+        ],
+        "displayName": "Carlton v GWS GIANTS",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8975",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "IKON Park is GWS's final away match of the published 2026 home-and-away fixture.",
+          "contextSignals": [
+            "fixture-specific",
+            "gws-aflw",
+            "official-schedule",
+            "current-ladder"
+          ],
+          "evidenceReferences": [
+            {
+              "title": "AFLW Round 11 fixture",
+              "url": "https://www.afl.com.au/aflw/matches/8975",
+              "sourceType": "official"
+            },
+            {
+              "title": "GWS Round 11 editorial source",
+              "url": "https://www.gwsgiants.com.au/news/2027671/a-giant-double-header-to-kick-start-to-aflw-in-2026",
+              "sourceType": "official"
+            },
+            {
+              "title": "Official 2026 AFLW ladder",
+              "url": "https://www.afl.com.au/aflw/ladder",
+              "sourceType": "official"
+            }
+          ],
+          "sourceName": "AFLW official fixture and ladder",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8975",
+          "sourceCheckedAt": "2026-10-22T16:36:41.117Z",
+          "needsPreviewRefresh": false
+        },
+        "selectedSentence": "Carlton v GWS GIANTS: IKON Park is GWS's final away match of the published 2026 home-and-away fixture.",
+        "fullSpiel": "IKON Park is GWS's final away match of the published 2026 home-and-away fixture. The official fixture lists Round 11 at IKON Park, Melbourne. At this refresh, GWS sit 15th and Carlton sit 6th on the official AFLW ladder. That combination of opponent history, venue or player connection gives this Round 11 match its own stakes within the published 12-round season."
+      },
+      {
+        "id": "event:aflw:cd_m20262641201",
+        "sourceId": "CD_M20262641201",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 12",
+        "roundNumber": 12,
+        "eventType": "match",
+        "startTimeUtc": "2026-10-30T08:15:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Melbourne",
+        "venueName": "GMHBA Stadium",
+        "venueCity": "Geelong",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t8467",
+        "awayParticipantId": "team:aflw:cd_t7387",
+        "participantIds": [
+          "team:aflw:cd_t8467",
+          "team:aflw:cd_t7387"
+        ],
+        "displayName": "Geelong Cats v Western Bulldogs",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8978",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        }
+      },
+      {
+        "id": "event:aflw:cd_m20262641202",
+        "sourceId": "CD_M20262641202",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 12",
+        "roundNumber": 12,
+        "eventType": "match",
+        "startTimeUtc": "2026-10-31T02:05:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Melbourne",
+        "venueName": "RSEA Park",
+        "venueCity": "Melbourne",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t8796",
+        "awayParticipantId": "team:aflw:cd_t9409",
+        "participantIds": [
+          "team:aflw:cd_t8796",
+          "team:aflw:cd_t9409"
+        ],
+        "displayName": "St Kilda v Port Adelaide",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8984",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        }
+      },
+      {
+        "id": "event:aflw:cd_m20262641203",
+        "sourceId": "CD_M20262641203",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 12",
+        "roundNumber": 12,
+        "eventType": "match",
+        "startTimeUtc": "2026-10-31T04:05:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Melbourne",
+        "venueName": "Windy Hill",
+        "venueCity": "Melbourne",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t8788",
+        "awayParticipantId": "team:aflw:cd_t8466",
+        "participantIds": [
+          "team:aflw:cd_t8788",
+          "team:aflw:cd_t8466"
+        ],
+        "displayName": "Richmond v North Melbourne",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8980",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        }
+      },
+      {
+        "id": "event:aflw:cd_m20262641204",
+        "sourceId": "CD_M20262641204",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 12",
+        "roundNumber": 12,
+        "eventType": "match",
+        "startTimeUtc": "2026-10-31T06:05:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Brisbane",
+        "venueName": "Brighton Homes Arena",
+        "venueCity": "Ipswich",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t7887",
+        "awayParticipantId": "team:aflw:cd_t8096",
+        "participantIds": [
+          "team:aflw:cd_t7887",
+          "team:aflw:cd_t8096"
+        ],
+        "displayName": "Brisbane Lions v Carlton",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8981",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        }
+      },
+      {
+        "id": "event:aflw:cd_m20262641205",
+        "sourceId": "CD_M20262641205",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 12",
+        "roundNumber": 12,
+        "eventType": "match",
+        "startTimeUtc": "2026-10-31T08:15:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Perth",
+        "venueName": "Sullivan Logistics Stadium",
+        "venueCity": "Perth",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t8787",
+        "awayParticipantId": "team:aflw:cd_t9407",
+        "participantIds": [
+          "team:aflw:cd_t8787",
+          "team:aflw:cd_t9407"
+        ],
+        "displayName": "West Coast Eagles v Hawthorn",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8982",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        }
+      },
+      {
+        "id": "event:aflw:cd_m20262641206",
+        "sourceId": "CD_M20262641206",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 12",
+        "roundNumber": 12,
+        "eventType": "match",
+        "startTimeUtc": "2026-11-01T01:35:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Sydney",
+        "venueName": "Henson Park",
+        "venueCity": "Sydney",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t7889",
+        "awayParticipantId": "team:aflw:cd_t8786",
+        "participantIds": [
+          "team:aflw:cd_t7889",
+          "team:aflw:cd_t8786"
+        ],
+        "displayName": "GWS GIANTS v Gold Coast SUNS",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8983",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "GWS closes the published home-and-away fixture with the Expansion Cup against Gold Coast at Henson Park.",
+          "contextSignals": [
+            "fixture-specific",
+            "gws-aflw",
+            "official-schedule",
+            "current-ladder"
+          ],
+          "evidenceReferences": [
+            {
+              "title": "AFLW Round 12 fixture",
+              "url": "https://www.afl.com.au/aflw/matches/8983",
+              "sourceType": "official"
+            },
+            {
+              "title": "GWS Round 12 editorial source",
+              "url": "https://www.gwsgiants.com.au/news/2027671/a-giant-double-header-to-kick-start-to-aflw-in-2026",
+              "sourceType": "official"
+            },
+            {
+              "title": "Official 2026 AFLW ladder",
+              "url": "https://www.afl.com.au/aflw/ladder",
+              "sourceType": "official"
+            }
+          ],
+          "sourceName": "AFLW official fixture and ladder",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8983",
+          "sourceCheckedAt": "2026-10-22T16:36:41.117Z",
+          "needsPreviewRefresh": false
+        },
+        "selectedSentence": "GWS GIANTS v Gold Coast SUNS: GWS closes the published home-and-away fixture with the Expansion Cup against Gold Coast at Henson Park.",
+        "fullSpiel": "GWS closes the published home-and-away fixture with the Expansion Cup against Gold Coast at Henson Park. The official fixture lists Round 12 at Henson Park, Sydney. At this refresh, GWS sit 15th and Gold Coast SUNS sit 5th on the official AFLW ladder. That combination of opponent history, venue or player connection gives this Round 12 match its own stakes within the published 12-round season."
+      },
+      {
+        "id": "event:aflw:cd_m20262641207",
+        "sourceId": "CD_M20262641207",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 12",
+        "roundNumber": 12,
+        "eventType": "match",
+        "startTimeUtc": "2026-11-01T02:05:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Melbourne",
+        "venueName": "Windy Hill",
+        "venueCity": "Melbourne",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t9406",
+        "awayParticipantId": "team:aflw:cd_t8097",
+        "participantIds": [
+          "team:aflw:cd_t9406",
+          "team:aflw:cd_t8097"
+        ],
+        "displayName": "Essendon v Collingwood",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8986",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        }
+      },
+      {
+        "id": "event:aflw:cd_m20262641208",
+        "sourceId": "CD_M20262641208",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 12",
+        "roundNumber": 12,
+        "eventType": "match",
+        "startTimeUtc": "2026-11-01T04:05:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Adelaide",
+        "venueName": "Unley Oval",
+        "venueCity": "Adelaide",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t8098",
+        "awayParticipantId": "team:aflw:cd_t7386",
+        "participantIds": [
+          "team:aflw:cd_t8098",
+          "team:aflw:cd_t7386"
+        ],
+        "displayName": "Adelaide Crows v Melbourne",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8985",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        }
+      },
+      {
+        "id": "event:aflw:cd_m20262641209",
+        "sourceId": "CD_M20262641209",
+        "sportDomainId": "sport:afl",
+        "discoverySportId": "sport:aflw",
+        "competitionId": "competition:aflw-2026",
+        "seasonLabel": "2026",
+        "roundLabel": "Round 12",
+        "roundNumber": 12,
+        "eventType": "match",
+        "startTimeUtc": "2026-11-01T06:05:00.000Z",
+        "scheduleStatus": "confirmed",
+        "localTimezone": "Australia/Perth",
+        "venueName": "Cockburn ARC Oval",
+        "venueCity": "Perth",
+        "venueCountryCode": "AU",
+        "homeParticipantId": "team:aflw:cd_t7886",
+        "awayParticipantId": "team:aflw:cd_t9408",
+        "participantIds": [
+          "team:aflw:cd_t7886",
+          "team:aflw:cd_t9408"
+        ],
+        "displayName": "Fremantle v Sydney Swans",
+        "status": "scheduled",
+        "broadcasters": [
+          {
+            "broadcasterId": "broadcaster:kayo",
+            "broadcasterName": "Kayo Sports",
+            "platformType": "streaming",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://kayosports.com.au/"
+          },
+          {
+            "broadcasterId": "broadcaster:foxtel",
+            "broadcasterName": "Foxtel",
+            "platformType": "subscription",
+            "regionCode": "AU",
+            "live": true,
+            "replay": true,
+            "highlights": true,
+            "deeplinkUrl": "https://www.foxtel.com.au/"
+          }
+        ],
+        "hasLadderImplications": true,
+        "hasFinalsImplications": true,
+        "tags": [
+          "aflw",
+          "all-fixtures",
+          "time-confirmed"
+        ],
+        "createdAt": "2026-09-04T14:23:00.839Z",
+        "updatedAt": "2026-10-22T16:36:41.117Z",
+        "source": {
+          "provider": "AFLW",
+          "sourceUrl": "https://www.afl.com.au/aflw/matches/8987",
+          "sourceType": "official",
+          "checkedAt": "2026-10-22T16:36:41.117Z"
+        }
+      }
+    ],
+    "feeds/incoming/events.json": [
+      {
+        "id": "event-aflw-cd_m20262641101",
+        "eventId": "event-aflw-cd_m20262641101",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "Port Adelaide v Collingwood",
+        "displayTitleCompact": "Port Adelaide v Collingwood",
+        "date": "2026-10-23",
+        "time": "19:15",
+        "startTimeUtc": "2026-10-23T08:15:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "Alberton Oval, Adelaide",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t9409",
+            "name": "Port Adelaide",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t8097",
+            "name": "Collingwood",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "Port Adelaide enter 12th and Collingwood 16th; a late-season test of where both clubs finish.",
+        "fullSpiel": "Port Adelaide are 12th with 16 points, while Collingwood are 16th with 4. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641101",
+        "canonicalSourceId": "CD_M20262641101",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8970",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t9409",
+          "team:aflw:cd_t8097"
+        ],
+        "homeParticipantId": "team:aflw:cd_t9409",
+        "awayParticipantId": "team:aflw:cd_t8097",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641101",
+          "researchTier": "standard",
+          "hook": "Port Adelaide enter 12th and Collingwood 16th; a late-season test of where both clubs finish.",
+          "synopsis": "Port Adelaide are 12th with 16 points, while Collingwood are 16th with 4. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t9409",
+            "thread:rolling:team-aflw-cd-t8097"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t9409:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8097:standing",
+            "fact:rolling:event-aflw-cd-m20262641101:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641101:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Port Adelaide — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "Port Adelaide enter 12th and Collingwood 16th; a late-season test of where both clubs finish.",
+          "hookSpoilerOn": "Port Adelaide enter 12th and Collingwood 16th; a late-season test of where both clubs finish.",
+          "synopsisSpoilerOff": "Port Adelaide are 12th with 16 points, while Collingwood are 16th with 4. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "Port Adelaide are 12th with 16 points, while Collingwood are 16th with 4. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        }
+      },
+      {
+        "id": "event-aflw-cd_m20262641102",
+        "eventId": "event-aflw-cd_m20262641102",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "St Kilda v Brisbane Lions",
+        "displayTitleCompact": "St Kilda v Brisbane Lions",
+        "date": "2026-10-24",
+        "time": "13:05",
+        "startTimeUtc": "2026-10-24T02:05:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "RSEA Park, Melbourne",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t8796",
+            "name": "St Kilda",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t7887",
+            "name": "Brisbane Lions",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "St Kilda enter 18th and Brisbane Lions 14th; a late-season test of where both clubs finish.",
+        "fullSpiel": "St Kilda are 18th with 4 points, while Brisbane Lions are 14th with 8. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641102",
+        "canonicalSourceId": "CD_M20262641102",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8971",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t8796",
+          "team:aflw:cd_t7887"
+        ],
+        "homeParticipantId": "team:aflw:cd_t8796",
+        "awayParticipantId": "team:aflw:cd_t7887",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641102",
+          "researchTier": "standard",
+          "hook": "St Kilda enter 18th and Brisbane Lions 14th; a late-season test of where both clubs finish.",
+          "synopsis": "St Kilda are 18th with 4 points, while Brisbane Lions are 14th with 8. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t8796",
+            "thread:rolling:team-aflw-cd-t7887"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8796:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t7887:standing",
+            "fact:rolling:event-aflw-cd-m20262641102:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641102:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "St Kilda — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "St Kilda enter 18th and Brisbane Lions 14th; a late-season test of where both clubs finish.",
+          "hookSpoilerOn": "St Kilda enter 18th and Brisbane Lions 14th; a late-season test of where both clubs finish.",
+          "synopsisSpoilerOff": "St Kilda are 18th with 4 points, while Brisbane Lions are 14th with 8. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "St Kilda are 18th with 4 points, while Brisbane Lions are 14th with 8. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        }
+      },
+      {
+        "id": "event-aflw-cd_m20262641103",
+        "eventId": "event-aflw-cd_m20262641103",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "Geelong Cats v Fremantle",
+        "displayTitleCompact": "Geelong Cats v Fremantle",
+        "date": "2026-10-24",
+        "time": "15:05",
+        "startTimeUtc": "2026-10-24T04:05:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "GMHBA Stadium, Geelong",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t8467",
+            "name": "Geelong Cats",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t7886",
+            "name": "Fremantle",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "Geelong Cats enter 2nd and Fremantle 9th; a late-season contest carrying finals-position pressure.",
+        "fullSpiel": "Geelong Cats are 2nd with 32 points, while Fremantle are 9th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641103",
+        "canonicalSourceId": "CD_M20262641103",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8974",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t8467",
+          "team:aflw:cd_t7886"
+        ],
+        "homeParticipantId": "team:aflw:cd_t8467",
+        "awayParticipantId": "team:aflw:cd_t7886",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641103",
+          "researchTier": "standard",
+          "hook": "Geelong Cats enter 2nd and Fremantle 9th; a late-season contest carrying finals-position pressure.",
+          "synopsis": "Geelong Cats are 2nd with 32 points, while Fremantle are 9th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t8467",
+            "thread:rolling:team-aflw-cd-t7886"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8467:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t7886:standing",
+            "fact:rolling:event-aflw-cd-m20262641103:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641103:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Geelong Cats — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "Geelong Cats enter 2nd and Fremantle 9th; a late-season contest carrying finals-position pressure.",
+          "hookSpoilerOn": "Geelong Cats enter 2nd and Fremantle 9th; a late-season contest carrying finals-position pressure.",
+          "synopsisSpoilerOff": "Geelong Cats are 2nd with 32 points, while Fremantle are 9th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "Geelong Cats are 2nd with 32 points, while Fremantle are 9th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        }
+      },
+      {
+        "id": "event-aflw-cd_m20262641104",
+        "eventId": "event-aflw-cd_m20262641104",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "Gold Coast SUNS v Richmond",
+        "displayTitleCompact": "Gold Coast SUNS v Richmond",
+        "date": "2026-10-24",
+        "time": "17:05",
+        "startTimeUtc": "2026-10-24T06:05:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "People First Stadium, Gold Coast",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t8786",
+            "name": "Gold Coast SUNS",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t8788",
+            "name": "Richmond",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "Gold Coast SUNS enter 4th and Richmond 13th; a late-season contest carrying finals-position pressure.",
+        "fullSpiel": "Gold Coast SUNS are 4th with 28 points, while Richmond are 13th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641104",
+        "canonicalSourceId": "CD_M20262641104",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8972",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t8786",
+          "team:aflw:cd_t8788"
+        ],
+        "homeParticipantId": "team:aflw:cd_t8786",
+        "awayParticipantId": "team:aflw:cd_t8788",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641104",
+          "researchTier": "standard",
+          "hook": "Gold Coast SUNS enter 4th and Richmond 13th; a late-season contest carrying finals-position pressure.",
+          "synopsis": "Gold Coast SUNS are 4th with 28 points, while Richmond are 13th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t8786",
+            "thread:rolling:team-aflw-cd-t8788"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8786:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8788:standing",
+            "fact:rolling:event-aflw-cd-m20262641104:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641104:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Gold Coast SUNS — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "Gold Coast SUNS enter 4th and Richmond 13th; a late-season contest carrying finals-position pressure.",
+          "hookSpoilerOn": "Gold Coast SUNS enter 4th and Richmond 13th; a late-season contest carrying finals-position pressure.",
+          "synopsisSpoilerOff": "Gold Coast SUNS are 4th with 28 points, while Richmond are 13th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "Gold Coast SUNS are 4th with 28 points, while Richmond are 13th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        }
+      },
+      {
+        "id": "event-aflw-cd_m20262641105",
+        "eventId": "event-aflw-cd_m20262641105",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "Western Bulldogs v Melbourne",
+        "displayTitleCompact": "Western Bulldogs v Melbourne",
+        "date": "2026-10-24",
+        "time": "19:15",
+        "startTimeUtc": "2026-10-24T08:15:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "Mission Whitten Oval, Melbourne",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t7387",
+            "name": "Western Bulldogs",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t7386",
+            "name": "Melbourne",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "Western Bulldogs enter 6th and Melbourne 3rd; a late-season contest carrying finals-position pressure.",
+        "fullSpiel": "Western Bulldogs are 6th with 28 points, while Melbourne are 3rd with 28. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641105",
+        "canonicalSourceId": "CD_M20262641105",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8973",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t7387",
+          "team:aflw:cd_t7386"
+        ],
+        "homeParticipantId": "team:aflw:cd_t7387",
+        "awayParticipantId": "team:aflw:cd_t7386",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641105",
+          "researchTier": "standard",
+          "hook": "Western Bulldogs enter 6th and Melbourne 3rd; a late-season contest carrying finals-position pressure.",
+          "synopsis": "Western Bulldogs are 6th with 28 points, while Melbourne are 3rd with 28. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t7387",
+            "thread:rolling:team-aflw-cd-t7386"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t7387:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t7386:standing",
+            "fact:rolling:event-aflw-cd-m20262641105:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641105:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Western Bulldogs — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "Western Bulldogs enter 6th and Melbourne 3rd; a late-season contest carrying finals-position pressure.",
+          "hookSpoilerOn": "Western Bulldogs enter 6th and Melbourne 3rd; a late-season contest carrying finals-position pressure.",
+          "synopsisSpoilerOff": "Western Bulldogs are 6th with 28 points, while Melbourne are 3rd with 28. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "Western Bulldogs are 6th with 28 points, while Melbourne are 3rd with 28. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        }
+      },
+      {
+        "id": "event-aflw-cd_m20262641106",
+        "eventId": "event-aflw-cd_m20262641106",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "Sydney Swans v West Coast Eagles",
+        "displayTitleCompact": "Sydney Swans v West Coast Eagles",
+        "date": "2026-10-25",
+        "time": "12:35",
+        "startTimeUtc": "2026-10-25T01:35:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "Henson Park, Sydney",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t9408",
+            "name": "Sydney Swans",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t8787",
+            "name": "West Coast Eagles",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "Sydney Swans enter 7th and West Coast Eagles 11th; a late-season contest carrying finals-position pressure.",
+        "fullSpiel": "Sydney Swans are 7th with 24 points, while West Coast Eagles are 11th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641106",
+        "canonicalSourceId": "CD_M20262641106",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8977",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t9408",
+          "team:aflw:cd_t8787"
+        ],
+        "homeParticipantId": "team:aflw:cd_t9408",
+        "awayParticipantId": "team:aflw:cd_t8787",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641106",
+          "researchTier": "standard",
+          "hook": "Sydney Swans enter 7th and West Coast Eagles 11th; a late-season contest carrying finals-position pressure.",
+          "synopsis": "Sydney Swans are 7th with 24 points, while West Coast Eagles are 11th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t9408",
+            "thread:rolling:team-aflw-cd-t8787"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t9408:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8787:standing",
+            "fact:rolling:event-aflw-cd-m20262641106:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641106:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Sydney Swans — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "Sydney Swans enter 7th and West Coast Eagles 11th; a late-season contest carrying finals-position pressure.",
+          "hookSpoilerOn": "Sydney Swans enter 7th and West Coast Eagles 11th; a late-season contest carrying finals-position pressure.",
+          "synopsisSpoilerOff": "Sydney Swans are 7th with 24 points, while West Coast Eagles are 11th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "Sydney Swans are 7th with 24 points, while West Coast Eagles are 11th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        }
+      },
+      {
+        "id": "event-aflw-cd_m20262641107",
+        "eventId": "event-aflw-cd_m20262641107",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "North Melbourne v Adelaide Crows",
+        "displayTitleCompact": "North Melbourne v Adelaide Crows",
+        "date": "2026-10-25",
+        "time": "13:05",
+        "startTimeUtc": "2026-10-25T02:05:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "North Hobart Oval, Hobart",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t8466",
+            "name": "North Melbourne",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t8098",
+            "name": "Adelaide Crows",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "North Melbourne enter 1st and Adelaide Crows 10th; a late-season contest carrying finals-position pressure.",
+        "fullSpiel": "North Melbourne are 1st with 32 points, while Adelaide Crows are 10th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641107",
+        "canonicalSourceId": "CD_M20262641107",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8979",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t8466",
+          "team:aflw:cd_t8098"
+        ],
+        "homeParticipantId": "team:aflw:cd_t8466",
+        "awayParticipantId": "team:aflw:cd_t8098",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641107",
+          "researchTier": "standard",
+          "hook": "North Melbourne enter 1st and Adelaide Crows 10th; a late-season contest carrying finals-position pressure.",
+          "synopsis": "North Melbourne are 1st with 32 points, while Adelaide Crows are 10th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t8466",
+            "thread:rolling:team-aflw-cd-t8098"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8466:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8098:standing",
+            "fact:rolling:event-aflw-cd-m20262641107:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641107:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "North Melbourne — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "North Melbourne enter 1st and Adelaide Crows 10th; a late-season contest carrying finals-position pressure.",
+          "hookSpoilerOn": "North Melbourne enter 1st and Adelaide Crows 10th; a late-season contest carrying finals-position pressure.",
+          "synopsisSpoilerOff": "North Melbourne are 1st with 32 points, while Adelaide Crows are 10th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "North Melbourne are 1st with 32 points, while Adelaide Crows are 10th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        }
+      },
+      {
+        "id": "event-aflw-cd_m20262641108",
+        "eventId": "event-aflw-cd_m20262641108",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "Hawthorn v Essendon",
+        "displayTitleCompact": "Hawthorn v Essendon",
+        "date": "2026-10-25",
+        "time": "15:05",
+        "startTimeUtc": "2026-10-25T04:05:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "Kennedy Community Centre, Dingley Village",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t9407",
+            "name": "Hawthorn",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t9406",
+            "name": "Essendon",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "Hawthorn enter 8th and Essendon 17th; a late-season contest carrying finals-position pressure.",
+        "fullSpiel": "Hawthorn are 8th with 20 points, while Essendon are 17th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641108",
+        "canonicalSourceId": "CD_M20262641108",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8976",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t9407",
+          "team:aflw:cd_t9406"
+        ],
+        "homeParticipantId": "team:aflw:cd_t9407",
+        "awayParticipantId": "team:aflw:cd_t9406",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641108",
+          "researchTier": "standard",
+          "hook": "Hawthorn enter 8th and Essendon 17th; a late-season contest carrying finals-position pressure.",
+          "synopsis": "Hawthorn are 8th with 20 points, while Essendon are 17th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t9407",
+            "thread:rolling:team-aflw-cd-t9406"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t9407:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t9406:standing",
+            "fact:rolling:event-aflw-cd-m20262641108:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641108:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Hawthorn — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "Hawthorn enter 8th and Essendon 17th; a late-season contest carrying finals-position pressure.",
+          "hookSpoilerOn": "Hawthorn enter 8th and Essendon 17th; a late-season contest carrying finals-position pressure.",
+          "synopsisSpoilerOff": "Hawthorn are 8th with 20 points, while Essendon are 17th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "Hawthorn are 8th with 20 points, while Essendon are 17th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        }
+      },
+      {
+        "id": "event-aflw-cd_m20262641109",
+        "eventId": "event-aflw-cd_m20262641109",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "Carlton v GWS GIANTS",
+        "displayTitleCompact": "Carlton v GWS GIANTS",
+        "date": "2026-10-25",
+        "time": "17:05",
+        "startTimeUtc": "2026-10-25T06:05:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "IKON Park, Melbourne",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t8096",
+            "name": "Carlton",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t7889",
+            "name": "GWS GIANTS",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "Carlton enter 5th and GWS GIANTS 15th; a late-season contest carrying finals-position pressure.",
+        "fullSpiel": "Carlton are 5th with 28 points, while GWS GIANTS are 15th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Carlton — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641109",
+        "canonicalSourceId": "CD_M20262641109",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8975",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t8096",
+          "team:aflw:cd_t7889"
+        ],
+        "homeParticipantId": "team:aflw:cd_t8096",
+        "awayParticipantId": "team:aflw:cd_t7889",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641109",
+          "researchTier": "standard",
+          "hook": "Carlton enter 5th and GWS GIANTS 15th; a late-season contest carrying finals-position pressure.",
+          "synopsis": "Carlton are 5th with 28 points, while GWS GIANTS are 15th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t8096",
+            "thread:rolling:team-aflw-cd-t7889"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8096:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t7889:standing",
+            "fact:rolling:event-aflw-cd-m20262641109:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641109:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "Carlton enter 5th and GWS GIANTS 15th; a late-season contest carrying finals-position pressure.",
+          "hookSpoilerOn": "Carlton enter 5th and GWS GIANTS 15th; a late-season contest carrying finals-position pressure.",
+          "synopsisSpoilerOff": "Carlton are 5th with 28 points, while GWS GIANTS are 15th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "Carlton are 5th with 28 points, while GWS GIANTS are 15th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        }
+      },
+      {
+        "id": "event-aflw-cd_m20262641201",
+        "eventId": "event-aflw-cd_m20262641201",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "Geelong Cats v Western Bulldogs",
+        "displayTitleCompact": "Geelong Cats v Western Bulldogs",
+        "date": "2026-10-30",
+        "time": "19:15",
+        "startTimeUtc": "2026-10-30T08:15:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "GMHBA Stadium, Geelong",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t8467",
+            "name": "Geelong Cats",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t7387",
+            "name": "Western Bulldogs",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "Geelong Cats enter 2nd and Western Bulldogs 6th; a late-season contest carrying finals-position pressure.",
+        "fullSpiel": "Geelong Cats are 2nd with 32 points, while Western Bulldogs are 6th with 28. That makes this more than a date in Round 12: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641201",
+        "canonicalSourceId": "CD_M20262641201",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8978",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t8467",
+          "team:aflw:cd_t7387"
+        ],
+        "homeParticipantId": "team:aflw:cd_t8467",
+        "awayParticipantId": "team:aflw:cd_t7387",
+        "roundLabel": "Round 12",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641201",
+          "researchTier": "standard",
+          "hook": "Geelong Cats enter 2nd and Western Bulldogs 6th; a late-season contest carrying finals-position pressure.",
+          "synopsis": "Geelong Cats are 2nd with 32 points, while Western Bulldogs are 6th with 28. That makes this more than a date in Round 12: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t8467",
+            "thread:rolling:team-aflw-cd-t7387"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8467:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t7387:standing",
+            "fact:rolling:event-aflw-cd-m20262641201:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641201:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Geelong Cats — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "Geelong Cats enter 2nd and Western Bulldogs 6th; a late-season contest carrying finals-position pressure.",
+          "hookSpoilerOn": "Geelong Cats enter 2nd and Western Bulldogs 6th; a late-season contest carrying finals-position pressure.",
+          "synopsisSpoilerOff": "Geelong Cats are 2nd with 32 points, while Western Bulldogs are 6th with 28. That makes this more than a date in Round 12: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "Geelong Cats are 2nd with 32 points, while Western Bulldogs are 6th with 28. That makes this more than a date in Round 12: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        }
+      }
+    ],
+    "data/events.json": [
+      {
+        "id": "event-aflw-cd_m20262641101",
+        "eventId": "event-aflw-cd_m20262641101",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "Port Adelaide v Collingwood",
+        "displayTitleCompact": "Port Adelaide v Collingwood",
+        "date": "2026-10-23",
+        "time": "19:15",
+        "startTimeUtc": "2026-10-23T08:15:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "Alberton Oval, Adelaide",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t9409",
+            "name": "Port Adelaide",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t8097",
+            "name": "Collingwood",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "Port Adelaide enter 12th and Collingwood 16th; a late-season test of where both clubs finish.",
+        "fullSpiel": "Port Adelaide are 12th with 16 points, while Collingwood are 16th with 4. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641101",
+        "canonicalSourceId": "CD_M20262641101",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8970",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t9409",
+          "team:aflw:cd_t8097"
+        ],
+        "homeParticipantId": "team:aflw:cd_t9409",
+        "awayParticipantId": "team:aflw:cd_t8097",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641101",
+          "researchTier": "standard",
+          "hook": "Port Adelaide enter 12th and Collingwood 16th; a late-season test of where both clubs finish.",
+          "synopsis": "Port Adelaide are 12th with 16 points, while Collingwood are 16th with 4. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t9409",
+            "thread:rolling:team-aflw-cd-t8097"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t9409:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8097:standing",
+            "fact:rolling:event-aflw-cd-m20262641101:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641101:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Port Adelaide — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "Port Adelaide enter 12th and Collingwood 16th; a late-season test of where both clubs finish.",
+          "hookSpoilerOn": "Port Adelaide enter 12th and Collingwood 16th; a late-season test of where both clubs finish.",
+          "synopsisSpoilerOff": "Port Adelaide are 12th with 16 points, while Collingwood are 16th with 4. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "Port Adelaide are 12th with 16 points, while Collingwood are 16th with 4. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        },
+        "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+        "timePrecision": "exact",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "event-aflw-cd_m20262641101"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false
+      },
+      {
+        "id": "event-aflw-cd_m20262641102",
+        "eventId": "event-aflw-cd_m20262641102",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "St Kilda v Brisbane Lions",
+        "displayTitleCompact": "St Kilda v Brisbane Lions",
+        "date": "2026-10-24",
+        "time": "13:05",
+        "startTimeUtc": "2026-10-24T02:05:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "RSEA Park, Melbourne",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t8796",
+            "name": "St Kilda",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t7887",
+            "name": "Brisbane Lions",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "St Kilda enter 18th and Brisbane Lions 14th; a late-season test of where both clubs finish.",
+        "fullSpiel": "St Kilda are 18th with 4 points, while Brisbane Lions are 14th with 8. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641102",
+        "canonicalSourceId": "CD_M20262641102",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8971",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t8796",
+          "team:aflw:cd_t7887"
+        ],
+        "homeParticipantId": "team:aflw:cd_t8796",
+        "awayParticipantId": "team:aflw:cd_t7887",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641102",
+          "researchTier": "standard",
+          "hook": "St Kilda enter 18th and Brisbane Lions 14th; a late-season test of where both clubs finish.",
+          "synopsis": "St Kilda are 18th with 4 points, while Brisbane Lions are 14th with 8. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t8796",
+            "thread:rolling:team-aflw-cd-t7887"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8796:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t7887:standing",
+            "fact:rolling:event-aflw-cd-m20262641102:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641102:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "St Kilda — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "St Kilda enter 18th and Brisbane Lions 14th; a late-season test of where both clubs finish.",
+          "hookSpoilerOn": "St Kilda enter 18th and Brisbane Lions 14th; a late-season test of where both clubs finish.",
+          "synopsisSpoilerOff": "St Kilda are 18th with 4 points, while Brisbane Lions are 14th with 8. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "St Kilda are 18th with 4 points, while Brisbane Lions are 14th with 8. That makes this more than a date in Round 11: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        },
+        "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+        "timePrecision": "exact",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "event-aflw-cd_m20262641102"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false
+      },
+      {
+        "id": "event-aflw-cd_m20262641103",
+        "eventId": "event-aflw-cd_m20262641103",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "Geelong Cats v Fremantle",
+        "displayTitleCompact": "Geelong Cats v Fremantle",
+        "date": "2026-10-24",
+        "time": "15:05",
+        "startTimeUtc": "2026-10-24T04:05:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "GMHBA Stadium, Geelong",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t8467",
+            "name": "Geelong Cats",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t7886",
+            "name": "Fremantle",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "Geelong Cats enter 2nd and Fremantle 9th; a late-season contest carrying finals-position pressure.",
+        "fullSpiel": "Geelong Cats are 2nd with 32 points, while Fremantle are 9th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641103",
+        "canonicalSourceId": "CD_M20262641103",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8974",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t8467",
+          "team:aflw:cd_t7886"
+        ],
+        "homeParticipantId": "team:aflw:cd_t8467",
+        "awayParticipantId": "team:aflw:cd_t7886",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641103",
+          "researchTier": "standard",
+          "hook": "Geelong Cats enter 2nd and Fremantle 9th; a late-season contest carrying finals-position pressure.",
+          "synopsis": "Geelong Cats are 2nd with 32 points, while Fremantle are 9th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t8467",
+            "thread:rolling:team-aflw-cd-t7886"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8467:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t7886:standing",
+            "fact:rolling:event-aflw-cd-m20262641103:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641103:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Geelong Cats — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "Geelong Cats enter 2nd and Fremantle 9th; a late-season contest carrying finals-position pressure.",
+          "hookSpoilerOn": "Geelong Cats enter 2nd and Fremantle 9th; a late-season contest carrying finals-position pressure.",
+          "synopsisSpoilerOff": "Geelong Cats are 2nd with 32 points, while Fremantle are 9th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "Geelong Cats are 2nd with 32 points, while Fremantle are 9th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        },
+        "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+        "timePrecision": "exact",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "event-aflw-cd_m20262641103"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false
+      },
+      {
+        "id": "event-aflw-cd_m20262641104",
+        "eventId": "event-aflw-cd_m20262641104",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "Gold Coast SUNS v Richmond",
+        "displayTitleCompact": "Gold Coast SUNS v Richmond",
+        "date": "2026-10-24",
+        "time": "17:05",
+        "startTimeUtc": "2026-10-24T06:05:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "People First Stadium, Gold Coast",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t8786",
+            "name": "Gold Coast SUNS",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t8788",
+            "name": "Richmond",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "Gold Coast SUNS enter 4th and Richmond 13th; a late-season contest carrying finals-position pressure.",
+        "fullSpiel": "Gold Coast SUNS are 4th with 28 points, while Richmond are 13th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641104",
+        "canonicalSourceId": "CD_M20262641104",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8972",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t8786",
+          "team:aflw:cd_t8788"
+        ],
+        "homeParticipantId": "team:aflw:cd_t8786",
+        "awayParticipantId": "team:aflw:cd_t8788",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641104",
+          "researchTier": "standard",
+          "hook": "Gold Coast SUNS enter 4th and Richmond 13th; a late-season contest carrying finals-position pressure.",
+          "synopsis": "Gold Coast SUNS are 4th with 28 points, while Richmond are 13th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t8786",
+            "thread:rolling:team-aflw-cd-t8788"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8786:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8788:standing",
+            "fact:rolling:event-aflw-cd-m20262641104:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641104:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Gold Coast SUNS — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "Gold Coast SUNS enter 4th and Richmond 13th; a late-season contest carrying finals-position pressure.",
+          "hookSpoilerOn": "Gold Coast SUNS enter 4th and Richmond 13th; a late-season contest carrying finals-position pressure.",
+          "synopsisSpoilerOff": "Gold Coast SUNS are 4th with 28 points, while Richmond are 13th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "Gold Coast SUNS are 4th with 28 points, while Richmond are 13th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        },
+        "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+        "timePrecision": "exact",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "event-aflw-cd_m20262641104"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false
+      },
+      {
+        "id": "event-aflw-cd_m20262641105",
+        "eventId": "event-aflw-cd_m20262641105",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "Western Bulldogs v Melbourne",
+        "displayTitleCompact": "Western Bulldogs v Melbourne",
+        "date": "2026-10-24",
+        "time": "19:15",
+        "startTimeUtc": "2026-10-24T08:15:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "Mission Whitten Oval, Melbourne",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t7387",
+            "name": "Western Bulldogs",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t7386",
+            "name": "Melbourne",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "Western Bulldogs enter 6th and Melbourne 3rd; a late-season contest carrying finals-position pressure.",
+        "fullSpiel": "Western Bulldogs are 6th with 28 points, while Melbourne are 3rd with 28. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641105",
+        "canonicalSourceId": "CD_M20262641105",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8973",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t7387",
+          "team:aflw:cd_t7386"
+        ],
+        "homeParticipantId": "team:aflw:cd_t7387",
+        "awayParticipantId": "team:aflw:cd_t7386",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641105",
+          "researchTier": "standard",
+          "hook": "Western Bulldogs enter 6th and Melbourne 3rd; a late-season contest carrying finals-position pressure.",
+          "synopsis": "Western Bulldogs are 6th with 28 points, while Melbourne are 3rd with 28. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t7387",
+            "thread:rolling:team-aflw-cd-t7386"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t7387:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t7386:standing",
+            "fact:rolling:event-aflw-cd-m20262641105:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641105:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Western Bulldogs — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "Western Bulldogs enter 6th and Melbourne 3rd; a late-season contest carrying finals-position pressure.",
+          "hookSpoilerOn": "Western Bulldogs enter 6th and Melbourne 3rd; a late-season contest carrying finals-position pressure.",
+          "synopsisSpoilerOff": "Western Bulldogs are 6th with 28 points, while Melbourne are 3rd with 28. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "Western Bulldogs are 6th with 28 points, while Melbourne are 3rd with 28. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        },
+        "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+        "timePrecision": "exact",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "event-aflw-cd_m20262641105"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false
+      },
+      {
+        "id": "event-aflw-cd_m20262641106",
+        "eventId": "event-aflw-cd_m20262641106",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "Sydney Swans v West Coast Eagles",
+        "displayTitleCompact": "Sydney Swans v West Coast Eagles",
+        "date": "2026-10-25",
+        "time": "12:35",
+        "startTimeUtc": "2026-10-25T01:35:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "Henson Park, Sydney",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t9408",
+            "name": "Sydney Swans",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t8787",
+            "name": "West Coast Eagles",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "Sydney Swans enter 7th and West Coast Eagles 11th; a late-season contest carrying finals-position pressure.",
+        "fullSpiel": "Sydney Swans are 7th with 24 points, while West Coast Eagles are 11th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641106",
+        "canonicalSourceId": "CD_M20262641106",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8977",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t9408",
+          "team:aflw:cd_t8787"
+        ],
+        "homeParticipantId": "team:aflw:cd_t9408",
+        "awayParticipantId": "team:aflw:cd_t8787",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641106",
+          "researchTier": "standard",
+          "hook": "Sydney Swans enter 7th and West Coast Eagles 11th; a late-season contest carrying finals-position pressure.",
+          "synopsis": "Sydney Swans are 7th with 24 points, while West Coast Eagles are 11th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t9408",
+            "thread:rolling:team-aflw-cd-t8787"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t9408:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8787:standing",
+            "fact:rolling:event-aflw-cd-m20262641106:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641106:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Sydney Swans — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "Sydney Swans enter 7th and West Coast Eagles 11th; a late-season contest carrying finals-position pressure.",
+          "hookSpoilerOn": "Sydney Swans enter 7th and West Coast Eagles 11th; a late-season contest carrying finals-position pressure.",
+          "synopsisSpoilerOff": "Sydney Swans are 7th with 24 points, while West Coast Eagles are 11th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "Sydney Swans are 7th with 24 points, while West Coast Eagles are 11th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        },
+        "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+        "timePrecision": "exact",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "event-aflw-cd_m20262641106"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false
+      },
+      {
+        "id": "event-aflw-cd_m20262641107",
+        "eventId": "event-aflw-cd_m20262641107",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "North Melbourne v Adelaide Crows",
+        "displayTitleCompact": "North Melbourne v Adelaide Crows",
+        "date": "2026-10-25",
+        "time": "13:05",
+        "startTimeUtc": "2026-10-25T02:05:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "North Hobart Oval, Hobart",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t8466",
+            "name": "North Melbourne",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t8098",
+            "name": "Adelaide Crows",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "North Melbourne enter 1st and Adelaide Crows 10th; a late-season contest carrying finals-position pressure.",
+        "fullSpiel": "North Melbourne are 1st with 32 points, while Adelaide Crows are 10th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641107",
+        "canonicalSourceId": "CD_M20262641107",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8979",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t8466",
+          "team:aflw:cd_t8098"
+        ],
+        "homeParticipantId": "team:aflw:cd_t8466",
+        "awayParticipantId": "team:aflw:cd_t8098",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641107",
+          "researchTier": "standard",
+          "hook": "North Melbourne enter 1st and Adelaide Crows 10th; a late-season contest carrying finals-position pressure.",
+          "synopsis": "North Melbourne are 1st with 32 points, while Adelaide Crows are 10th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t8466",
+            "thread:rolling:team-aflw-cd-t8098"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8466:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8098:standing",
+            "fact:rolling:event-aflw-cd-m20262641107:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641107:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "North Melbourne — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "North Melbourne enter 1st and Adelaide Crows 10th; a late-season contest carrying finals-position pressure.",
+          "hookSpoilerOn": "North Melbourne enter 1st and Adelaide Crows 10th; a late-season contest carrying finals-position pressure.",
+          "synopsisSpoilerOff": "North Melbourne are 1st with 32 points, while Adelaide Crows are 10th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "North Melbourne are 1st with 32 points, while Adelaide Crows are 10th with 16. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        },
+        "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+        "timePrecision": "exact",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "event-aflw-cd_m20262641107"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false
+      },
+      {
+        "id": "event-aflw-cd_m20262641108",
+        "eventId": "event-aflw-cd_m20262641108",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "Hawthorn v Essendon",
+        "displayTitleCompact": "Hawthorn v Essendon",
+        "date": "2026-10-25",
+        "time": "15:05",
+        "startTimeUtc": "2026-10-25T04:05:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "Kennedy Community Centre, Dingley Village",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t9407",
+            "name": "Hawthorn",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t9406",
+            "name": "Essendon",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "Hawthorn enter 8th and Essendon 17th; a late-season contest carrying finals-position pressure.",
+        "fullSpiel": "Hawthorn are 8th with 20 points, while Essendon are 17th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641108",
+        "canonicalSourceId": "CD_M20262641108",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8976",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t9407",
+          "team:aflw:cd_t9406"
+        ],
+        "homeParticipantId": "team:aflw:cd_t9407",
+        "awayParticipantId": "team:aflw:cd_t9406",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641108",
+          "researchTier": "standard",
+          "hook": "Hawthorn enter 8th and Essendon 17th; a late-season contest carrying finals-position pressure.",
+          "synopsis": "Hawthorn are 8th with 20 points, while Essendon are 17th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t9407",
+            "thread:rolling:team-aflw-cd-t9406"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t9407:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t9406:standing",
+            "fact:rolling:event-aflw-cd-m20262641108:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641108:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Hawthorn — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "Hawthorn enter 8th and Essendon 17th; a late-season contest carrying finals-position pressure.",
+          "hookSpoilerOn": "Hawthorn enter 8th and Essendon 17th; a late-season contest carrying finals-position pressure.",
+          "synopsisSpoilerOff": "Hawthorn are 8th with 20 points, while Essendon are 17th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "Hawthorn are 8th with 20 points, while Essendon are 17th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        },
+        "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+        "timePrecision": "exact",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "event-aflw-cd_m20262641108"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false
+      },
+      {
+        "id": "event-aflw-cd_m20262641109",
+        "eventId": "event-aflw-cd_m20262641109",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "Carlton v GWS GIANTS",
+        "displayTitleCompact": "Carlton v GWS GIANTS",
+        "date": "2026-10-25",
+        "time": "17:05",
+        "startTimeUtc": "2026-10-25T06:05:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "IKON Park, Melbourne",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t8096",
+            "name": "Carlton",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t7889",
+            "name": "GWS GIANTS",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "Carlton enter 5th and GWS GIANTS 15th; a late-season contest carrying finals-position pressure.",
+        "fullSpiel": "Carlton are 5th with 28 points, while GWS GIANTS are 15th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Carlton — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641109",
+        "canonicalSourceId": "CD_M20262641109",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8975",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t8096",
+          "team:aflw:cd_t7889"
+        ],
+        "homeParticipantId": "team:aflw:cd_t8096",
+        "awayParticipantId": "team:aflw:cd_t7889",
+        "roundLabel": "Round 11",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641109",
+          "researchTier": "standard",
+          "hook": "Carlton enter 5th and GWS GIANTS 15th; a late-season contest carrying finals-position pressure.",
+          "synopsis": "Carlton are 5th with 28 points, while GWS GIANTS are 15th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t8096",
+            "thread:rolling:team-aflw-cd-t7889"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8096:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t7889:standing",
+            "fact:rolling:event-aflw-cd-m20262641109:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641109:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "Carlton enter 5th and GWS GIANTS 15th; a late-season contest carrying finals-position pressure.",
+          "hookSpoilerOn": "Carlton enter 5th and GWS GIANTS 15th; a late-season contest carrying finals-position pressure.",
+          "synopsisSpoilerOff": "Carlton are 5th with 28 points, while GWS GIANTS are 15th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "Carlton are 5th with 28 points, while GWS GIANTS are 15th with 4. That makes this more than a date in Round 11: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        },
+        "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+        "timePrecision": "exact",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "event-aflw-cd_m20262641109"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false
+      },
+      {
+        "id": "event-aflw-cd_m20262641201",
+        "eventId": "event-aflw-cd_m20262641201",
+        "sport": "AFLW",
+        "key": "aflw",
+        "name": "Geelong Cats v Western Bulldogs",
+        "displayTitleCompact": "Geelong Cats v Western Bulldogs",
+        "date": "2026-10-30",
+        "time": "19:15",
+        "startTimeUtc": "2026-10-30T08:15:00.000Z",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "expected": 4,
+        "venue": "GMHBA Stadium, Geelong",
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "status": "upcoming",
+        "participants": [
+          {
+            "id": "team:aflw:cd_t8467",
+            "name": "Geelong Cats",
+            "role": "home"
+          },
+          {
+            "id": "team:aflw:cd_t7387",
+            "name": "Western Bulldogs",
+            "role": "away"
+          }
+        ],
+        "selectedSentence": "Geelong Cats enter 2nd and Western Bulldogs 6th; a late-season contest carrying finals-position pressure.",
+        "fullSpiel": "Geelong Cats are 2nd with 32 points, while Western Bulldogs are 6th with 28. That makes this more than a date in Round 12: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+        "sourceName": "AFLW current AFLW table",
+        "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+        "sourceCheckedAt": "2026-10-01T11:50:40.000Z",
+        "sourceType": "official",
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "canonicalEventId": "event:aflw:cd_m20262641201",
+        "canonicalSourceId": "CD_M20262641201",
+        "canonicalSourceName": "AFLW",
+        "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8978",
+        "canonicalSourceCheckedAt": "2026-10-22T16:36:41.117Z",
+        "canonicalSourceType": "official",
+        "sportDomainId": "sport:afl",
+        "competitionId": "competition:aflw-2026",
+        "participantIds": [
+          "team:aflw:cd_t8467",
+          "team:aflw:cd_t7387"
+        ],
+        "homeParticipantId": "team:aflw:cd_t8467",
+        "awayParticipantId": "team:aflw:cd_t7387",
+        "roundLabel": "Round 12",
+        "stage": null,
+        "competitionPhase": "regular-season",
+        "isFinalRegularSeasonRound": false,
+        "stakesFloor": 1,
+        "isInternational": false,
+        "competitionScope": "domestic",
+        "representativeCountryCodes": [],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "scheduleStatus": "confirmed",
+        "stakesScore": 1,
+        "sourceTrust": "verified",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:event-aflw-cd-m20262641201",
+          "researchTier": "standard",
+          "hook": "Geelong Cats enter 2nd and Western Bulldogs 6th; a late-season contest carrying finals-position pressure.",
+          "synopsis": "Geelong Cats are 2nd with 32 points, while Western Bulldogs are 6th with 28. That makes this more than a date in Round 12: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "threadIds": [
+            "thread:rolling:team-aflw-cd-t8467",
+            "thread:rolling:team-aflw-cd-t7387"
+          ],
+          "factIds": [
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t8467:standing",
+            "fact:rolling:competition-aflw-2026:team-aflw-cd-t7387:standing",
+            "fact:rolling:event-aflw-cd-m20262641201:consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:competition-aflw-2026:ladder",
+            "source:rolling:event-aflw-cd-m20262641201:fixture"
+          ],
+          "dimensions": [
+            "form",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Geelong Cats — current AFLW path",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:consequence"
+          ],
+          "sourceName": "AFLW current AFLW table",
+          "sourceUrl": "https://www.afl.com.au/aflw/ladder",
+          "sourceCheckedAt": "2026-10-11T06:43:24.000Z",
+          "needsPreviewRefresh": false
+        },
+        "storyline": {
+          "researchDepth": 2,
+          "arcStage": "preview",
+          "hookSpoilerOff": "Geelong Cats enter 2nd and Western Bulldogs 6th; a late-season contest carrying finals-position pressure.",
+          "hookSpoilerOn": "Geelong Cats enter 2nd and Western Bulldogs 6th; a late-season contest carrying finals-position pressure.",
+          "synopsisSpoilerOff": "Geelong Cats are 2nd with 32 points, while Western Bulldogs are 6th with 28. That makes this more than a date in Round 12: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "synopsisSpoilerOn": "Geelong Cats are 2nd with 32 points, while Western Bulldogs are 6th with 28. That makes this more than a date in Round 12: it is a late-season contest carrying finals-position pressure, with the next chapter shaped by the separation they create or erase.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "stakes": 1
+        },
+        "statusCheckedAt": "2026-09-27T09:10:54.000Z",
+        "timePrecision": "exact",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "event-aflw-cd_m20262641201"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false
+      }
+    ]
+  }
+}

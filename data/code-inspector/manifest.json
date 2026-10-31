@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-31T01:06:23.251Z",
+  "generatedAt": "2026-10-31T02:32:00.036Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/horse-racing.json",
@@ -59,7 +59,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-22T18:01:55.820Z",
+      "freshAt": "2026-10-31T02:32:00.036Z",
       "parentSportId": "sport:afl",
       "chunkPath": "data/code-inspector/aflw.json"
     },

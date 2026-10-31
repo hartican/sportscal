@@ -18,8 +18,9 @@ if(coverageArgs.length&&(coverageArgs.length!==1||coverageArgs[0]!=='--coverage-
 const coverageSport=coverageArgs.length?'rugby-union':null,coverageScope=require('./lib/live-coverage-scope');
 const eplScope=require('./lib/epl-publication-scope'),epl=eplScope.parse(process.argv.slice(2));
 const f1Scope=require('./lib/f1-publication-scope'),f1=f1Scope.parse(process.argv.slice(2));
-if([epl,f1,coverageSport].filter(Boolean).length>1)throw Error('Mixed scoped Feed publication');
-const selection=epl||f1,selectedScope=epl?eplScope:f1Scope;
+const aflwScope=require('./lib/aflw-publication-scope'),aflw=aflwScope.parse(process.argv.slice(2));
+if([epl,f1,aflw,coverageSport].filter(Boolean).length>1)throw Error('Mixed scoped Feed publication');
+const selection=epl||f1||aflw,selectedScope=epl?eplScope:f1?f1Scope:aflwScope;
 const scoped=Boolean(coverageSport||selection);
 const args = process.argv.slice(2).filter(arg => !["--replace","--preserve-known",...coverageArgs,...(selection?[selection.arg]:[])].includes(arg));
 const replaceExisting = process.argv.includes("--replace");

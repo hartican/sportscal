@@ -72,6 +72,7 @@ function runStep(args) {
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
   require('./lib/live-coverage-scope').parseArgs(argv);
+  require('./lib/aflw-publication-scope').route(argv);
   if(argv.includes('--source=epl')||argv.some(arg=>arg==='--epl-updated-ids'||arg.startsWith('--epl-updated-ids=')))require('./lib/epl-publication-scope').rebuildOptions(argv);
   const reviewedEditorial = argv.filter(arg => arg.startsWith('--reviewed-editorial='));
   if (reviewedEditorial.length) {
@@ -551,7 +552,7 @@ function buildSteps({ localOnly = false } = {}) {
   return steps;
 }
 
-async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()}={}) {
+async function runMain({f1StartedAt=require('node:perf_hooks').performance.now(),aflwStartedAt=f1StartedAt}={}) {
   const options = parseOptions();
   if (options.reviewedEditorial) {
     const {ids, file} = options.reviewedEditorial;
@@ -683,6 +684,7 @@ async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()
     if(result.failures.length)process.exitCode=1;
     return;
   }
+  if(process.argv.includes('--source=aflw-results')){await require('./quick-results').refreshAflwResults({began:aflwStartedAt,emitReport:report=>console.log(JSON.stringify(report))});return;}
   if(process.argv.some(arg=>arg.startsWith('--source='))){
     const sources=process.argv.filter(arg=>arg.startsWith('--source='));
     if(sources.length!==1||!['--source=live-coverage','--source=mlb','--source=nbl','--source=football','--source=epl','--source=nfl-standings','--source=nfl','--source=chl','--source=nhl','--source=known-finals'].includes(sources[0])||!process.argv.includes('--quick')||process.argv.includes('--offline'))throw new Error('Scoped refresh requires --quick with a reviewed shared coverage/NBL/EPL/Football/NFL/CHL/NHL/known-finals source and live source access');
@@ -1140,6 +1142,11 @@ async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()
 }
 
 async function main(){
+  if(process.argv.includes('--source=aflw-results')){
+    const aflwStartedAt=require('node:perf_hooks').performance.now();parseOptions();process.env.REFRESH_REPORT ||= path.join(os.tmpdir(),'ns-refresh-report-'+crypto.randomUUID()+'.json');
+    require('./lib/refresh-report').update({mode:'aflw-results',publicationState:'refreshing',stage:'starting',sourceFailures:[],missingResults:[],blockingError:null,failedStep:null,failureChain:[]});
+    try{return await runMain({aflwStartedAt});}catch(error){try{console.error(`Refresh diagnostics: ${process.env.REFRESH_REPORT}`);}catch{}throw error;}
+  }
   if(process.argv.includes('--f1-results')){
     const f1StartedAt=require('node:perf_hooks').performance.now();parseOptions();
     // The scoped public F1 owner needs no Football/Golf invocation or backup
