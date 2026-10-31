@@ -168729,14 +168729,14 @@
       "roundLabel": "Practice 3",
       "stage": "Practice 3",
       "narrativeType": "all",
-      "selectedSentence": "United States GP · Practice 3: Kimi Antonelli arrives 89 points clear of George Russell.",
-      "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
-      "sourceName": "Formula 1 official race hub",
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
-      "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+      "selectedSentence": "United States GP · Practice 3 is complete. Reveal results for the outcome.",
+      "fullSpiel": "United States GP · Practice 3 is complete. Results stay hidden until you choose to reveal them.",
+      "sourceName": "Formula 1 official session results",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/races/1297/united-states/practice/3",
+      "sourceCheckedAt": "2026-10-31T01:06:19.703Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:f1",
       "discoverySportId": "sport:f1",
       "competitionId": "competition:formula-one",
@@ -168752,29 +168752,15 @@
       "storyline": {
         "stakes": 2,
         "intensity": 2,
-        "intensitySource": "manual",
-        "arcStage": "preview",
+        "intensitySource": "computed",
+        "arcStage": "recap",
         "expectedSpectacle": 4,
-        "hookSpoilerOff": "United States GP · Practice 3: Kimi Antonelli arrives 89 points clear of George Russell.",
-        "hookSpoilerOn": "United States GP · Practice 3: Kimi Antonelli arrives 89 points clear of George Russell.",
-        "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
-        "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "hookSpoilerOff": "United States GP · Practice 3 is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Lewis Hamilton was fastest in United States GP · Practice 3.",
+        "synopsisSpoilerOff": "United States GP · Practice 3 is complete. Results stay hidden until you choose to reveal them.",
+        "synopsisSpoilerOn": "Lewis Hamilton was fastest in United States GP · Practice 3. 1. Lewis Hamilton (Ferrari); 2. Max Verstappen (Red Bull Racing); 3. Charles Leclerc (Ferrari).",
         "lastReviewedAt": "2026-10-11T12:40:11.243Z",
         "researchDepth": 2
-      },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 Formula 1 title pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:form",
-          "narrative:schedule",
-          "narrative:consequence"
-        ],
-        "sourceName": "Formula 1 current driver standings",
-        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
-        "needsPreviewRefresh": false
       },
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
       "editorialNarrative": {
@@ -168806,7 +168792,442 @@
         "refreshAfter": null,
         "generationMode": "researched",
         "phase": "preview"
-      }
+      },
+      "score": "1. Lewis Hamilton · 2. Max Verstappen · 3. Charles Leclerc",
+      "outcomeText": "Lewis Hamilton was fastest in United States GP · Practice 3.",
+      "recapText": "Lewis Hamilton was fastest in United States GP · Practice 3. 1. Lewis Hamilton (Ferrari); 2. Max Verstappen (Red Bull Racing); 3. Charles Leclerc (Ferrari).",
+      "resultStatus": "official",
+      "resultPublishedAt": "2026-10-31T01:06:19.703Z",
+      "resultSourceUrl": "https://www.formula1.com/en/results/2026/races/1297/united-states/practice/3",
+      "resultSourceCheckedAt": "2026-10-31T01:06:19.703Z",
+      "scoreCheckedAt": "2026-10-31T01:06:19.703Z",
+      "fixtureResults": {
+        "schemaVersion": "fixture-results.v1",
+        "columns": [
+          "Pos",
+          "No",
+          "Driver",
+          "Car",
+          "Time / Gap",
+          "Laps"
+        ],
+        "rows": [
+          [
+            "1",
+            "44",
+            "Lewis Hamilton",
+            "Ferrari",
+            "1:34.893",
+            "21"
+          ],
+          [
+            "2",
+            "3",
+            "Max Verstappen",
+            "Red Bull Racing",
+            "+0.168s",
+            "16"
+          ],
+          [
+            "3",
+            "16",
+            "Charles Leclerc",
+            "Ferrari",
+            "+0.234s",
+            "20"
+          ],
+          [
+            "4",
+            "12",
+            "Kimi Antonelli",
+            "Mercedes",
+            "+0.303s",
+            "16"
+          ],
+          [
+            "5",
+            "63",
+            "George Russell",
+            "Mercedes",
+            "+0.488s",
+            "18"
+          ],
+          [
+            "6",
+            "81",
+            "Oscar Piastri",
+            "McLaren",
+            "+0.638s",
+            "16"
+          ],
+          [
+            "7",
+            "27",
+            "Nico Hulkenberg",
+            "Audi",
+            "+0.698s",
+            "19"
+          ],
+          [
+            "8",
+            "1",
+            "Lando Norris",
+            "McLaren",
+            "+0.813s",
+            "17"
+          ],
+          [
+            "9",
+            "10",
+            "Pierre Gasly",
+            "Alpine",
+            "+1.011s",
+            "24"
+          ],
+          [
+            "10",
+            "6",
+            "Isack Hadjar",
+            "Red Bull Racing",
+            "+1.037s",
+            "20"
+          ],
+          [
+            "11",
+            "30",
+            "Liam Lawson",
+            "Racing Bulls",
+            "+1.038s",
+            "17"
+          ],
+          [
+            "12",
+            "41",
+            "Arvid Lindblad",
+            "Racing Bulls",
+            "+1.188s",
+            "18"
+          ],
+          [
+            "13",
+            "5",
+            "Gabriel Bortoleto",
+            "Audi",
+            "+1.283s",
+            "23"
+          ],
+          [
+            "14",
+            "87",
+            "Oliver Bearman",
+            "Haas F1 Team",
+            "+1.342s",
+            "17"
+          ],
+          [
+            "15",
+            "43",
+            "Franco Colapinto",
+            "Alpine",
+            "+1.358s",
+            "22"
+          ],
+          [
+            "16",
+            "14",
+            "Fernando Alonso",
+            "Aston Martin",
+            "+1.562s",
+            "19"
+          ],
+          [
+            "17",
+            "31",
+            "Esteban Ocon",
+            "Haas F1 Team",
+            "+1.849s",
+            "18"
+          ],
+          [
+            "18",
+            "18",
+            "Lance Stroll",
+            "Aston Martin",
+            "+2.238s",
+            "12"
+          ],
+          [
+            "19",
+            "23",
+            "Alexander Albon",
+            "Williams",
+            "+2.775s",
+            "22"
+          ],
+          [
+            "20",
+            "55",
+            "Carlos Sainz",
+            "Williams",
+            "+2.818s",
+            "21"
+          ],
+          [
+            "21",
+            "11",
+            "Sergio Perez",
+            "Cadillac",
+            "+2.991s",
+            "25"
+          ],
+          [
+            "22",
+            "77",
+            "Valtteri Bottas",
+            "Cadillac",
+            "+3.872s",
+            "22"
+          ]
+        ],
+        "sourceUrl": "https://www.formula1.com/en/results/2026/races/1297/united-states/practice/3",
+        "checkedAt": "2026-10-31T01:06:19.703Z"
+      },
+      "participantIds": [
+        "competitor:f1:lewis-hamilton",
+        "team:f1:ferrari",
+        "competitor:f1:max-verstappen",
+        "team:f1:red-bull-racing",
+        "competitor:f1:charles-leclerc",
+        "competitor:f1:kimi-antonelli",
+        "team:f1:mercedes",
+        "competitor:f1:george-russell",
+        "competitor:f1:oscar-piastri",
+        "team:f1:mclaren",
+        "competitor:f1:nico-hulkenberg",
+        "team:f1:audi",
+        "competitor:f1:lando-norris",
+        "competitor:f1:pierre-gasly",
+        "team:f1:alpine",
+        "competitor:f1:isack-hadjar",
+        "competitor:f1:liam-lawson",
+        "team:f1:racing-bulls",
+        "competitor:f1:arvid-lindblad",
+        "competitor:f1:gabriel-bortoleto",
+        "competitor:f1:oliver-bearman",
+        "team:f1:haas",
+        "competitor:f1:franco-colapinto",
+        "competitor:f1:fernando-alonso",
+        "team:f1:aston-martin",
+        "competitor:f1:esteban-ocon",
+        "competitor:f1:lance-stroll",
+        "competitor:f1:alexander-albon",
+        "team:f1:williams",
+        "competitor:f1:carlos-sainz",
+        "competitor:f1:sergio-perez",
+        "team:f1:cadillac",
+        "competitor:f1:valtteri-bottas"
+      ],
+      "participants": [
+        {
+          "id": "competitor:f1:lewis-hamilton",
+          "name": "Lewis Hamilton",
+          "displayName": "Lewis Hamilton",
+          "countryCode": "GB"
+        },
+        {
+          "id": "team:f1:ferrari",
+          "name": "Ferrari",
+          "displayName": "Ferrari",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:max-verstappen",
+          "name": "Max Verstappen",
+          "displayName": "Max Verstappen",
+          "countryCode": "NL"
+        },
+        {
+          "id": "team:f1:red-bull-racing",
+          "name": "Red Bull Racing",
+          "displayName": "Red Bull Racing",
+          "countryCode": "AT"
+        },
+        {
+          "id": "competitor:f1:charles-leclerc",
+          "name": "Charles Leclerc",
+          "displayName": "Charles Leclerc",
+          "countryCode": "MC"
+        },
+        {
+          "id": "competitor:f1:kimi-antonelli",
+          "name": "Kimi Antonelli",
+          "displayName": "Kimi Antonelli",
+          "countryCode": "IT"
+        },
+        {
+          "id": "team:f1:mercedes",
+          "name": "Mercedes",
+          "displayName": "Mercedes",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:george-russell",
+          "name": "George Russell",
+          "displayName": "George Russell",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:oscar-piastri",
+          "name": "Oscar Piastri",
+          "displayName": "Oscar Piastri",
+          "countryCode": "AU"
+        },
+        {
+          "id": "team:f1:mclaren",
+          "name": "McLaren",
+          "displayName": "McLaren",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:nico-hulkenberg",
+          "name": "Nico Hulkenberg",
+          "displayName": "Nico Hulkenberg",
+          "countryCode": "DE"
+        },
+        {
+          "id": "team:f1:audi",
+          "name": "Audi",
+          "displayName": "Audi",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:lando-norris",
+          "name": "Lando Norris",
+          "displayName": "Lando Norris",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:pierre-gasly",
+          "name": "Pierre Gasly",
+          "displayName": "Pierre Gasly",
+          "countryCode": "FR"
+        },
+        {
+          "id": "team:f1:alpine",
+          "name": "Alpine",
+          "displayName": "Alpine",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:isack-hadjar",
+          "name": "Isack Hadjar",
+          "displayName": "Isack Hadjar",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:liam-lawson",
+          "name": "Liam Lawson",
+          "displayName": "Liam Lawson",
+          "countryCode": "NZ"
+        },
+        {
+          "id": "team:f1:racing-bulls",
+          "name": "Racing Bulls",
+          "displayName": "Racing Bulls",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:arvid-lindblad",
+          "name": "Arvid Lindblad",
+          "displayName": "Arvid Lindblad",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:gabriel-bortoleto",
+          "name": "Gabriel Bortoleto",
+          "displayName": "Gabriel Bortoleto",
+          "countryCode": "BR"
+        },
+        {
+          "id": "competitor:f1:oliver-bearman",
+          "name": "Oliver Bearman",
+          "displayName": "Oliver Bearman",
+          "countryCode": "GB"
+        },
+        {
+          "id": "team:f1:haas",
+          "name": "Haas F1 Team",
+          "displayName": "Haas F1 Team",
+          "countryCode": "US"
+        },
+        {
+          "id": "competitor:f1:franco-colapinto",
+          "name": "Franco Colapinto",
+          "displayName": "Franco Colapinto",
+          "countryCode": "AR"
+        },
+        {
+          "id": "competitor:f1:fernando-alonso",
+          "name": "Fernando Alonso",
+          "displayName": "Fernando Alonso",
+          "countryCode": "ES"
+        },
+        {
+          "id": "team:f1:aston-martin",
+          "name": "Aston Martin",
+          "displayName": "Aston Martin",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:esteban-ocon",
+          "name": "Esteban Ocon",
+          "displayName": "Esteban Ocon",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:lance-stroll",
+          "name": "Lance Stroll",
+          "displayName": "Lance Stroll",
+          "countryCode": "CA"
+        },
+        {
+          "id": "competitor:f1:alexander-albon",
+          "name": "Alexander Albon",
+          "displayName": "Alexander Albon",
+          "countryCode": "TH"
+        },
+        {
+          "id": "team:f1:williams",
+          "name": "Williams",
+          "displayName": "Williams",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:carlos-sainz",
+          "name": "Carlos Sainz",
+          "displayName": "Carlos Sainz",
+          "countryCode": "ES"
+        },
+        {
+          "id": "competitor:f1:sergio-perez",
+          "name": "Sergio Perez",
+          "displayName": "Sergio Perez",
+          "countryCode": "MX"
+        },
+        {
+          "id": "team:f1:cadillac",
+          "name": "Cadillac",
+          "displayName": "Cadillac",
+          "countryCode": "US"
+        },
+        {
+          "id": "competitor:f1:valtteri-bottas",
+          "name": "Valtteri Bottas",
+          "displayName": "Valtteri Bottas",
+          "countryCode": "FI"
+        }
+      ],
+      "participantsConfirmed": true
     },
     {
       "id": "evt_34",
@@ -168847,14 +169268,14 @@
       "roundLabel": "Qualifying",
       "stage": "Qualifying",
       "narrativeType": "all",
-      "selectedSentence": "United States GP · Qualifying: Kimi Antonelli arrives 89 points clear of George Russell.",
-      "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
-      "sourceName": "Formula 1 official race hub",
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
-      "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+      "selectedSentence": "United States GP · Qualifying is complete. Reveal results for the outcome.",
+      "fullSpiel": "United States GP · Qualifying is complete. Results stay hidden until you choose to reveal them.",
+      "sourceName": "Formula 1 official session results",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/races/1297/united-states/qualifying",
+      "sourceCheckedAt": "2026-10-31T01:06:20.609Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:f1",
       "discoverySportId": "sport:f1",
       "competitionId": "competition:formula-one",
@@ -168871,28 +169292,14 @@
         "stakes": 4,
         "intensity": 4,
         "intensitySource": "computed",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "United States GP · Qualifying: Kimi Antonelli arrives 89 points clear of George Russell.",
-        "hookSpoilerOn": "United States GP · Qualifying: Kimi Antonelli arrives 89 points clear of George Russell.",
-        "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
-        "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "hookSpoilerOff": "United States GP · Qualifying is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Kimi Antonelli took pole for United States GP · Qualifying.",
+        "synopsisSpoilerOff": "United States GP · Qualifying is complete. Results stay hidden until you choose to reveal them.",
+        "synopsisSpoilerOn": "Kimi Antonelli took pole for United States GP · Qualifying. 1. Kimi Antonelli (Mercedes); 2. Max Verstappen (Red Bull Racing); 3. Isack Hadjar (Red Bull Racing).",
         "lastReviewedAt": "2026-10-11T12:40:11.243Z",
         "researchDepth": 5
-      },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 Formula 1 title pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:form",
-          "narrative:schedule",
-          "narrative:consequence"
-        ],
-        "sourceName": "Formula 1 current driver standings",
-        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
-        "needsPreviewRefresh": false
       },
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
       "editorialNarrative": {
@@ -168924,7 +169331,488 @@
         "refreshAfter": null,
         "generationMode": "researched",
         "phase": "preview"
-      }
+      },
+      "score": "1. Kimi Antonelli · 2. Max Verstappen · 3. Isack Hadjar",
+      "outcomeText": "Kimi Antonelli took pole for United States GP · Qualifying.",
+      "recapText": "Kimi Antonelli took pole for United States GP · Qualifying. 1. Kimi Antonelli (Mercedes); 2. Max Verstappen (Red Bull Racing); 3. Isack Hadjar (Red Bull Racing).",
+      "resultStatus": "official",
+      "resultPublishedAt": "2026-10-31T01:06:20.609Z",
+      "resultSourceUrl": "https://www.formula1.com/en/results/2026/races/1297/united-states/qualifying",
+      "resultSourceCheckedAt": "2026-10-31T01:06:20.609Z",
+      "scoreCheckedAt": "2026-10-31T01:06:20.609Z",
+      "fixtureResults": {
+        "schemaVersion": "fixture-results.v1",
+        "columns": [
+          "Pos",
+          "No",
+          "Driver",
+          "Car",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Laps"
+        ],
+        "rows": [
+          [
+            "1",
+            "12",
+            "Kimi Antonelli",
+            "Mercedes",
+            "1:35.390",
+            "1:34.278",
+            "1:34.035",
+            "18"
+          ],
+          [
+            "2",
+            "3",
+            "Max Verstappen",
+            "Red Bull Racing",
+            "1:35.215",
+            "1:34.471",
+            "1:34.214",
+            "12"
+          ],
+          [
+            "3",
+            "6",
+            "Isack Hadjar",
+            "Red Bull Racing",
+            "1:35.286",
+            "1:34.887",
+            "1:34.250",
+            "12"
+          ],
+          [
+            "4",
+            "16",
+            "Charles Leclerc",
+            "Ferrari",
+            "1:35.200",
+            "1:34.198",
+            "1:34.267",
+            "15"
+          ],
+          [
+            "5",
+            "44",
+            "Lewis Hamilton",
+            "Ferrari",
+            "1:35.355",
+            "1:34.833",
+            "1:34.311",
+            "14"
+          ],
+          [
+            "6",
+            "63",
+            "George Russell",
+            "Mercedes",
+            "1:35.730",
+            "1:34.305",
+            "1:34.476",
+            "18"
+          ],
+          [
+            "7",
+            "81",
+            "Oscar Piastri",
+            "McLaren",
+            "1:35.842",
+            "1:34.818",
+            "1:34.803",
+            "20"
+          ],
+          [
+            "8",
+            "1",
+            "Lando Norris",
+            "McLaren",
+            "1:35.029",
+            "1:34.539",
+            "1:35.049",
+            "15"
+          ],
+          [
+            "9",
+            "41",
+            "Arvid Lindblad",
+            "Racing Bulls",
+            "1:35.755",
+            "1:34.950",
+            "1:36.049",
+            "15"
+          ],
+          [
+            "10",
+            "30",
+            "Liam Lawson",
+            "Racing Bulls",
+            "1:35.662",
+            "1:35.058",
+            "",
+            "9"
+          ],
+          [
+            "11",
+            "10",
+            "Pierre Gasly",
+            "Alpine",
+            "1:35.969",
+            "1:35.080",
+            "",
+            "12"
+          ],
+          [
+            "12",
+            "27",
+            "Nico Hulkenberg",
+            "Audi",
+            "1:35.704",
+            "1:35.158",
+            "",
+            "12"
+          ],
+          [
+            "13",
+            "5",
+            "Gabriel Bortoleto",
+            "Audi",
+            "1:35.632",
+            "1:35.691",
+            "",
+            "12"
+          ],
+          [
+            "14",
+            "43",
+            "Franco Colapinto",
+            "Alpine",
+            "1:35.898",
+            "1:35.722",
+            "",
+            "12"
+          ],
+          [
+            "15",
+            "14",
+            "Fernando Alonso",
+            "Aston Martin",
+            "1:36.240",
+            "1:35.818",
+            "",
+            "15"
+          ],
+          [
+            "16",
+            "87",
+            "Oliver Bearman",
+            "Haas F1 Team",
+            "1:36.175",
+            "1:36.031",
+            "",
+            "15"
+          ],
+          [
+            "17",
+            "31",
+            "Esteban Ocon",
+            "Haas F1 Team",
+            "1:36.531",
+            "",
+            "",
+            "9"
+          ],
+          [
+            "18",
+            "18",
+            "Lance Stroll",
+            "Aston Martin",
+            "1:36.677",
+            "",
+            "",
+            "9"
+          ],
+          [
+            "19",
+            "55",
+            "Carlos Sainz",
+            "Williams",
+            "1:36.770",
+            "",
+            "",
+            "9"
+          ],
+          [
+            "20",
+            "23",
+            "Alexander Albon",
+            "Williams",
+            "1:36.967",
+            "",
+            "",
+            "9"
+          ],
+          [
+            "21",
+            "11",
+            "Sergio Perez",
+            "Cadillac",
+            "1:37.433",
+            "",
+            "",
+            "9"
+          ],
+          [
+            "22",
+            "77",
+            "Valtteri Bottas",
+            "Cadillac",
+            "1:37.523",
+            "",
+            "",
+            "9"
+          ]
+        ],
+        "sourceUrl": "https://www.formula1.com/en/results/2026/races/1297/united-states/qualifying",
+        "checkedAt": "2026-10-31T01:06:20.609Z"
+      },
+      "participantIds": [
+        "competitor:f1:kimi-antonelli",
+        "team:f1:mercedes",
+        "competitor:f1:max-verstappen",
+        "team:f1:red-bull-racing",
+        "competitor:f1:isack-hadjar",
+        "competitor:f1:charles-leclerc",
+        "team:f1:ferrari",
+        "competitor:f1:lewis-hamilton",
+        "competitor:f1:george-russell",
+        "competitor:f1:oscar-piastri",
+        "team:f1:mclaren",
+        "competitor:f1:lando-norris",
+        "competitor:f1:arvid-lindblad",
+        "team:f1:racing-bulls",
+        "competitor:f1:liam-lawson",
+        "competitor:f1:pierre-gasly",
+        "team:f1:alpine",
+        "competitor:f1:nico-hulkenberg",
+        "team:f1:audi",
+        "competitor:f1:gabriel-bortoleto",
+        "competitor:f1:franco-colapinto",
+        "competitor:f1:fernando-alonso",
+        "team:f1:aston-martin",
+        "competitor:f1:oliver-bearman",
+        "team:f1:haas",
+        "competitor:f1:esteban-ocon",
+        "competitor:f1:lance-stroll",
+        "competitor:f1:carlos-sainz",
+        "team:f1:williams",
+        "competitor:f1:alexander-albon",
+        "competitor:f1:sergio-perez",
+        "team:f1:cadillac",
+        "competitor:f1:valtteri-bottas"
+      ],
+      "participants": [
+        {
+          "id": "competitor:f1:kimi-antonelli",
+          "name": "Kimi Antonelli",
+          "displayName": "Kimi Antonelli",
+          "countryCode": "IT"
+        },
+        {
+          "id": "team:f1:mercedes",
+          "name": "Mercedes",
+          "displayName": "Mercedes",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:max-verstappen",
+          "name": "Max Verstappen",
+          "displayName": "Max Verstappen",
+          "countryCode": "NL"
+        },
+        {
+          "id": "team:f1:red-bull-racing",
+          "name": "Red Bull Racing",
+          "displayName": "Red Bull Racing",
+          "countryCode": "AT"
+        },
+        {
+          "id": "competitor:f1:isack-hadjar",
+          "name": "Isack Hadjar",
+          "displayName": "Isack Hadjar",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:charles-leclerc",
+          "name": "Charles Leclerc",
+          "displayName": "Charles Leclerc",
+          "countryCode": "MC"
+        },
+        {
+          "id": "team:f1:ferrari",
+          "name": "Ferrari",
+          "displayName": "Ferrari",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:lewis-hamilton",
+          "name": "Lewis Hamilton",
+          "displayName": "Lewis Hamilton",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:george-russell",
+          "name": "George Russell",
+          "displayName": "George Russell",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:oscar-piastri",
+          "name": "Oscar Piastri",
+          "displayName": "Oscar Piastri",
+          "countryCode": "AU"
+        },
+        {
+          "id": "team:f1:mclaren",
+          "name": "McLaren",
+          "displayName": "McLaren",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:lando-norris",
+          "name": "Lando Norris",
+          "displayName": "Lando Norris",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:arvid-lindblad",
+          "name": "Arvid Lindblad",
+          "displayName": "Arvid Lindblad",
+          "countryCode": "GB"
+        },
+        {
+          "id": "team:f1:racing-bulls",
+          "name": "Racing Bulls",
+          "displayName": "Racing Bulls",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:liam-lawson",
+          "name": "Liam Lawson",
+          "displayName": "Liam Lawson",
+          "countryCode": "NZ"
+        },
+        {
+          "id": "competitor:f1:pierre-gasly",
+          "name": "Pierre Gasly",
+          "displayName": "Pierre Gasly",
+          "countryCode": "FR"
+        },
+        {
+          "id": "team:f1:alpine",
+          "name": "Alpine",
+          "displayName": "Alpine",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:nico-hulkenberg",
+          "name": "Nico Hulkenberg",
+          "displayName": "Nico Hulkenberg",
+          "countryCode": "DE"
+        },
+        {
+          "id": "team:f1:audi",
+          "name": "Audi",
+          "displayName": "Audi",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:gabriel-bortoleto",
+          "name": "Gabriel Bortoleto",
+          "displayName": "Gabriel Bortoleto",
+          "countryCode": "BR"
+        },
+        {
+          "id": "competitor:f1:franco-colapinto",
+          "name": "Franco Colapinto",
+          "displayName": "Franco Colapinto",
+          "countryCode": "AR"
+        },
+        {
+          "id": "competitor:f1:fernando-alonso",
+          "name": "Fernando Alonso",
+          "displayName": "Fernando Alonso",
+          "countryCode": "ES"
+        },
+        {
+          "id": "team:f1:aston-martin",
+          "name": "Aston Martin",
+          "displayName": "Aston Martin",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:oliver-bearman",
+          "name": "Oliver Bearman",
+          "displayName": "Oliver Bearman",
+          "countryCode": "GB"
+        },
+        {
+          "id": "team:f1:haas",
+          "name": "Haas F1 Team",
+          "displayName": "Haas F1 Team",
+          "countryCode": "US"
+        },
+        {
+          "id": "competitor:f1:esteban-ocon",
+          "name": "Esteban Ocon",
+          "displayName": "Esteban Ocon",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:lance-stroll",
+          "name": "Lance Stroll",
+          "displayName": "Lance Stroll",
+          "countryCode": "CA"
+        },
+        {
+          "id": "competitor:f1:carlos-sainz",
+          "name": "Carlos Sainz",
+          "displayName": "Carlos Sainz",
+          "countryCode": "ES"
+        },
+        {
+          "id": "team:f1:williams",
+          "name": "Williams",
+          "displayName": "Williams",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:alexander-albon",
+          "name": "Alexander Albon",
+          "displayName": "Alexander Albon",
+          "countryCode": "TH"
+        },
+        {
+          "id": "competitor:f1:sergio-perez",
+          "name": "Sergio Perez",
+          "displayName": "Sergio Perez",
+          "countryCode": "MX"
+        },
+        {
+          "id": "team:f1:cadillac",
+          "name": "Cadillac",
+          "displayName": "Cadillac",
+          "countryCode": "US"
+        },
+        {
+          "id": "competitor:f1:valtteri-bottas",
+          "name": "Valtteri Bottas",
+          "displayName": "Valtteri Bottas",
+          "countryCode": "FI"
+        }
+      ],
+      "participantsConfirmed": true
     },
     {
       "id": "evt_motogp_2026_australia_warmup",
@@ -171074,14 +171962,14 @@
       "roundLabel": "Race",
       "stage": "Race",
       "narrativeType": "all",
-      "selectedSentence": "United States GP · Race: Kimi Antonelli arrives 89 points clear of George Russell.",
-      "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
-      "sourceName": "Formula 1 official race hub",
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
-      "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+      "selectedSentence": "United States GP · Race is complete. Reveal results for the outcome.",
+      "fullSpiel": "United States GP · Race is complete. Results stay hidden until you choose to reveal them.",
+      "sourceName": "Formula 1 official session results",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/races/1297/united-states/race-result",
+      "sourceCheckedAt": "2026-10-31T01:06:21.295Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:f1",
       "discoverySportId": "sport:f1",
       "competitionId": "competition:formula-one",
@@ -171097,29 +171985,15 @@
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "United States GP · Race: Kimi Antonelli arrives 89 points clear of George Russell.",
-        "hookSpoilerOn": "United States GP · Race: Kimi Antonelli arrives 89 points clear of George Russell.",
-        "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
-        "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "hookSpoilerOff": "United States GP · Race is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Kimi Antonelli won United States GP · Race.",
+        "synopsisSpoilerOff": "United States GP · Race is complete. Results stay hidden until you choose to reveal them.",
+        "synopsisSpoilerOn": "Kimi Antonelli won United States GP · Race. 1. Kimi Antonelli (Mercedes); 2. Charles Leclerc (Ferrari); 3. Max Verstappen (Red Bull Racing).",
         "intensitySource": "computed",
         "researchDepth": 5,
         "lastReviewedAt": "2026-10-11T12:40:11.243Z"
-      },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 Formula 1 title pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:form",
-          "narrative:schedule",
-          "narrative:consequence"
-        ],
-        "sourceName": "Formula 1 current driver standings",
-        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
-        "needsPreviewRefresh": false
       },
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
       "editorialNarrative": {
@@ -171151,7 +172025,465 @@
         "refreshAfter": null,
         "generationMode": "researched",
         "phase": "preview"
-      }
+      },
+      "score": "1. Kimi Antonelli · 2. Charles Leclerc · 3. Max Verstappen",
+      "outcomeText": "Kimi Antonelli won United States GP · Race.",
+      "recapText": "Kimi Antonelli won United States GP · Race. 1. Kimi Antonelli (Mercedes); 2. Charles Leclerc (Ferrari); 3. Max Verstappen (Red Bull Racing).",
+      "resultStatus": "official",
+      "resultPublishedAt": "2026-10-31T01:06:21.295Z",
+      "resultSourceUrl": "https://www.formula1.com/en/results/2026/races/1297/united-states/race-result",
+      "resultSourceCheckedAt": "2026-10-31T01:06:21.295Z",
+      "scoreCheckedAt": "2026-10-31T01:06:21.295Z",
+      "fixtureResults": {
+        "schemaVersion": "fixture-results.v1",
+        "columns": [
+          "Pos",
+          "No",
+          "Driver",
+          "Car",
+          "Laps",
+          "Time / retired",
+          "Points"
+        ],
+        "rows": [
+          [
+            "1",
+            "12",
+            "Kimi Antonelli",
+            "Mercedes",
+            "56",
+            "1:35:16.650",
+            "25"
+          ],
+          [
+            "2",
+            "16",
+            "Charles Leclerc",
+            "Ferrari",
+            "56",
+            "+13.078s",
+            "18"
+          ],
+          [
+            "3",
+            "3",
+            "Max Verstappen",
+            "Red Bull Racing",
+            "56",
+            "+17.485s",
+            "15"
+          ],
+          [
+            "4",
+            "44",
+            "Lewis Hamilton",
+            "Ferrari",
+            "56",
+            "+18.515s",
+            "12"
+          ],
+          [
+            "5",
+            "1",
+            "Lando Norris",
+            "McLaren",
+            "56",
+            "+30.521s",
+            "10"
+          ],
+          [
+            "6",
+            "6",
+            "Isack Hadjar",
+            "Red Bull Racing",
+            "56",
+            "+34.373s",
+            "8"
+          ],
+          [
+            "7",
+            "81",
+            "Oscar Piastri",
+            "McLaren",
+            "56",
+            "+52.674s",
+            "6"
+          ],
+          [
+            "8",
+            "63",
+            "George Russell",
+            "Mercedes",
+            "56",
+            "+54.303s",
+            "4"
+          ],
+          [
+            "9",
+            "30",
+            "Liam Lawson",
+            "Racing Bulls",
+            "56",
+            "+79.183s",
+            "2"
+          ],
+          [
+            "10",
+            "10",
+            "Pierre Gasly",
+            "Alpine",
+            "56",
+            "+87.516s",
+            "1"
+          ],
+          [
+            "11",
+            "27",
+            "Nico Hulkenberg",
+            "Audi",
+            "56",
+            "+94.945s",
+            "0"
+          ],
+          [
+            "12",
+            "41",
+            "Arvid Lindblad",
+            "Racing Bulls",
+            "55",
+            "+1 lap",
+            "0"
+          ],
+          [
+            "13",
+            "5",
+            "Gabriel Bortoleto",
+            "Audi",
+            "55",
+            "+1 lap",
+            "0"
+          ],
+          [
+            "14",
+            "31",
+            "Esteban Ocon",
+            "Haas F1 Team",
+            "55",
+            "+1 lap",
+            "0"
+          ],
+          [
+            "15",
+            "18",
+            "Lance Stroll",
+            "Aston Martin",
+            "55",
+            "+1 lap",
+            "0"
+          ],
+          [
+            "16",
+            "14",
+            "Fernando Alonso",
+            "Aston Martin",
+            "55",
+            "+1 lap",
+            "0"
+          ],
+          [
+            "17",
+            "23",
+            "Alexander Albon",
+            "Williams",
+            "55",
+            "+1 lap",
+            "0"
+          ],
+          [
+            "18",
+            "55",
+            "Carlos Sainz",
+            "Williams",
+            "55",
+            "+1 lap",
+            "0"
+          ],
+          [
+            "19",
+            "11",
+            "Sergio Perez",
+            "Cadillac",
+            "55",
+            "+1 lap",
+            "0"
+          ],
+          [
+            "NC",
+            "77",
+            "Valtteri Bottas",
+            "Cadillac",
+            "48",
+            "DNF",
+            "0"
+          ],
+          [
+            "NC",
+            "43",
+            "Franco Colapinto",
+            "Alpine",
+            "35",
+            "DNF",
+            "0"
+          ],
+          [
+            "NC",
+            "87",
+            "Oliver Bearman",
+            "Haas F1 Team",
+            "24",
+            "DNF",
+            "0"
+          ]
+        ],
+        "sourceUrl": "https://www.formula1.com/en/results/2026/races/1297/united-states/race-result",
+        "checkedAt": "2026-10-31T01:06:21.295Z"
+      },
+      "participantIds": [
+        "competitor:f1:kimi-antonelli",
+        "team:f1:mercedes",
+        "competitor:f1:charles-leclerc",
+        "team:f1:ferrari",
+        "competitor:f1:max-verstappen",
+        "team:f1:red-bull-racing",
+        "competitor:f1:lewis-hamilton",
+        "competitor:f1:lando-norris",
+        "team:f1:mclaren",
+        "competitor:f1:isack-hadjar",
+        "competitor:f1:oscar-piastri",
+        "competitor:f1:george-russell",
+        "competitor:f1:liam-lawson",
+        "team:f1:racing-bulls",
+        "competitor:f1:pierre-gasly",
+        "team:f1:alpine",
+        "competitor:f1:nico-hulkenberg",
+        "team:f1:audi",
+        "competitor:f1:arvid-lindblad",
+        "competitor:f1:gabriel-bortoleto",
+        "competitor:f1:esteban-ocon",
+        "team:f1:haas",
+        "competitor:f1:lance-stroll",
+        "team:f1:aston-martin",
+        "competitor:f1:fernando-alonso",
+        "competitor:f1:alexander-albon",
+        "team:f1:williams",
+        "competitor:f1:carlos-sainz",
+        "competitor:f1:sergio-perez",
+        "team:f1:cadillac",
+        "competitor:f1:valtteri-bottas",
+        "competitor:f1:franco-colapinto",
+        "competitor:f1:oliver-bearman"
+      ],
+      "participants": [
+        {
+          "id": "competitor:f1:kimi-antonelli",
+          "name": "Kimi Antonelli",
+          "displayName": "Kimi Antonelli",
+          "countryCode": "IT"
+        },
+        {
+          "id": "team:f1:mercedes",
+          "name": "Mercedes",
+          "displayName": "Mercedes",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:charles-leclerc",
+          "name": "Charles Leclerc",
+          "displayName": "Charles Leclerc",
+          "countryCode": "MC"
+        },
+        {
+          "id": "team:f1:ferrari",
+          "name": "Ferrari",
+          "displayName": "Ferrari",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:max-verstappen",
+          "name": "Max Verstappen",
+          "displayName": "Max Verstappen",
+          "countryCode": "NL"
+        },
+        {
+          "id": "team:f1:red-bull-racing",
+          "name": "Red Bull Racing",
+          "displayName": "Red Bull Racing",
+          "countryCode": "AT"
+        },
+        {
+          "id": "competitor:f1:lewis-hamilton",
+          "name": "Lewis Hamilton",
+          "displayName": "Lewis Hamilton",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:lando-norris",
+          "name": "Lando Norris",
+          "displayName": "Lando Norris",
+          "countryCode": "GB"
+        },
+        {
+          "id": "team:f1:mclaren",
+          "name": "McLaren",
+          "displayName": "McLaren",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:isack-hadjar",
+          "name": "Isack Hadjar",
+          "displayName": "Isack Hadjar",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:oscar-piastri",
+          "name": "Oscar Piastri",
+          "displayName": "Oscar Piastri",
+          "countryCode": "AU"
+        },
+        {
+          "id": "competitor:f1:george-russell",
+          "name": "George Russell",
+          "displayName": "George Russell",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:liam-lawson",
+          "name": "Liam Lawson",
+          "displayName": "Liam Lawson",
+          "countryCode": "NZ"
+        },
+        {
+          "id": "team:f1:racing-bulls",
+          "name": "Racing Bulls",
+          "displayName": "Racing Bulls",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:pierre-gasly",
+          "name": "Pierre Gasly",
+          "displayName": "Pierre Gasly",
+          "countryCode": "FR"
+        },
+        {
+          "id": "team:f1:alpine",
+          "name": "Alpine",
+          "displayName": "Alpine",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:nico-hulkenberg",
+          "name": "Nico Hulkenberg",
+          "displayName": "Nico Hulkenberg",
+          "countryCode": "DE"
+        },
+        {
+          "id": "team:f1:audi",
+          "name": "Audi",
+          "displayName": "Audi",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:arvid-lindblad",
+          "name": "Arvid Lindblad",
+          "displayName": "Arvid Lindblad",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:gabriel-bortoleto",
+          "name": "Gabriel Bortoleto",
+          "displayName": "Gabriel Bortoleto",
+          "countryCode": "BR"
+        },
+        {
+          "id": "competitor:f1:esteban-ocon",
+          "name": "Esteban Ocon",
+          "displayName": "Esteban Ocon",
+          "countryCode": "FR"
+        },
+        {
+          "id": "team:f1:haas",
+          "name": "Haas F1 Team",
+          "displayName": "Haas F1 Team",
+          "countryCode": "US"
+        },
+        {
+          "id": "competitor:f1:lance-stroll",
+          "name": "Lance Stroll",
+          "displayName": "Lance Stroll",
+          "countryCode": "CA"
+        },
+        {
+          "id": "team:f1:aston-martin",
+          "name": "Aston Martin",
+          "displayName": "Aston Martin",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:fernando-alonso",
+          "name": "Fernando Alonso",
+          "displayName": "Fernando Alonso",
+          "countryCode": "ES"
+        },
+        {
+          "id": "competitor:f1:alexander-albon",
+          "name": "Alexander Albon",
+          "displayName": "Alexander Albon",
+          "countryCode": "TH"
+        },
+        {
+          "id": "team:f1:williams",
+          "name": "Williams",
+          "displayName": "Williams",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:carlos-sainz",
+          "name": "Carlos Sainz",
+          "displayName": "Carlos Sainz",
+          "countryCode": "ES"
+        },
+        {
+          "id": "competitor:f1:sergio-perez",
+          "name": "Sergio Perez",
+          "displayName": "Sergio Perez",
+          "countryCode": "MX"
+        },
+        {
+          "id": "team:f1:cadillac",
+          "name": "Cadillac",
+          "displayName": "Cadillac",
+          "countryCode": "US"
+        },
+        {
+          "id": "competitor:f1:valtteri-bottas",
+          "name": "Valtteri Bottas",
+          "displayName": "Valtteri Bottas",
+          "countryCode": "FI"
+        },
+        {
+          "id": "competitor:f1:franco-colapinto",
+          "name": "Franco Colapinto",
+          "displayName": "Franco Colapinto",
+          "countryCode": "AR"
+        },
+        {
+          "id": "competitor:f1:oliver-bearman",
+          "name": "Oliver Bearman",
+          "displayName": "Oliver Bearman",
+          "countryCode": "GB"
+        }
+      ],
+      "participantsConfirmed": true
     },
     {
       "id": "fixture:mlb:849804",
@@ -172951,14 +174283,14 @@
       "roundLabel": "Practice 2",
       "stage": "Practice 2",
       "narrativeType": "all",
-      "selectedSentence": "Mexico City GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
-      "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
-      "sourceName": "Formula 1 official race hub",
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
-      "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+      "selectedSentence": "Mexico City GP · Practice 2 is complete. Reveal results for the outcome.",
+      "fullSpiel": "Mexico City GP · Practice 2 is complete. Results stay hidden until you choose to reveal them.",
+      "sourceName": "Formula 1 official session results",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/races/1298/mexico/practice/2",
+      "sourceCheckedAt": "2026-10-31T01:06:22.875Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:f1",
       "discoverySportId": "sport:f1",
       "competitionId": "competition:formula-one",
@@ -172974,29 +174306,15 @@
       "storyline": {
         "stakes": 2,
         "intensity": 2,
-        "intensitySource": "manual",
-        "arcStage": "preview",
+        "intensitySource": "computed",
+        "arcStage": "recap",
         "expectedSpectacle": 4,
-        "hookSpoilerOff": "Mexico City GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
-        "hookSpoilerOn": "Mexico City GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
-        "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
-        "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "hookSpoilerOff": "Mexico City GP · Practice 2 is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Charles Leclerc was fastest in Mexico City GP · Practice 2.",
+        "synopsisSpoilerOff": "Mexico City GP · Practice 2 is complete. Results stay hidden until you choose to reveal them.",
+        "synopsisSpoilerOn": "Charles Leclerc was fastest in Mexico City GP · Practice 2. 1. Charles Leclerc (Ferrari); 2. Lando Norris (McLaren); 3. George Russell (Mercedes).",
         "lastReviewedAt": "2026-10-11T12:40:11.243Z",
         "researchDepth": 2
-      },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 Formula 1 title pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:form",
-          "narrative:schedule",
-          "narrative:consequence"
-        ],
-        "sourceName": "Formula 1 current driver standings",
-        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
-        "needsPreviewRefresh": false
       },
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
       "editorialNarrative": {
@@ -173028,7 +174346,442 @@
         "refreshAfter": null,
         "generationMode": "researched",
         "phase": "preview"
-      }
+      },
+      "score": "1. Charles Leclerc · 2. Lando Norris · 3. George Russell",
+      "outcomeText": "Charles Leclerc was fastest in Mexico City GP · Practice 2.",
+      "recapText": "Charles Leclerc was fastest in Mexico City GP · Practice 2. 1. Charles Leclerc (Ferrari); 2. Lando Norris (McLaren); 3. George Russell (Mercedes).",
+      "resultStatus": "official",
+      "resultPublishedAt": "2026-10-31T01:06:22.875Z",
+      "resultSourceUrl": "https://www.formula1.com/en/results/2026/races/1298/mexico/practice/2",
+      "resultSourceCheckedAt": "2026-10-31T01:06:22.875Z",
+      "scoreCheckedAt": "2026-10-31T01:06:22.875Z",
+      "fixtureResults": {
+        "schemaVersion": "fixture-results.v1",
+        "columns": [
+          "Pos",
+          "No",
+          "Driver",
+          "Car",
+          "Time / Gap",
+          "Laps"
+        ],
+        "rows": [
+          [
+            "1",
+            "16",
+            "Charles Leclerc",
+            "Ferrari",
+            "1:17.827",
+            "35"
+          ],
+          [
+            "2",
+            "1",
+            "Lando Norris",
+            "McLaren",
+            "+0.103s",
+            "33"
+          ],
+          [
+            "3",
+            "63",
+            "George Russell",
+            "Mercedes",
+            "+0.106s",
+            "31"
+          ],
+          [
+            "4",
+            "12",
+            "Kimi Antonelli",
+            "Mercedes",
+            "+0.217s",
+            "33"
+          ],
+          [
+            "5",
+            "3",
+            "Max Verstappen",
+            "Red Bull Racing",
+            "+0.311s",
+            "26"
+          ],
+          [
+            "6",
+            "6",
+            "Isack Hadjar",
+            "Red Bull Racing",
+            "+0.410s",
+            "31"
+          ],
+          [
+            "7",
+            "41",
+            "Arvid Lindblad",
+            "Racing Bulls",
+            "+0.562s",
+            "34"
+          ],
+          [
+            "8",
+            "10",
+            "Pierre Gasly",
+            "Alpine",
+            "+0.580s",
+            "33"
+          ],
+          [
+            "9",
+            "30",
+            "Liam Lawson",
+            "Racing Bulls",
+            "+0.628s",
+            "32"
+          ],
+          [
+            "10",
+            "81",
+            "Oscar Piastri",
+            "McLaren",
+            "+0.642s",
+            "31"
+          ],
+          [
+            "11",
+            "44",
+            "Lewis Hamilton",
+            "Ferrari",
+            "+0.685s",
+            "13"
+          ],
+          [
+            "12",
+            "14",
+            "Fernando Alonso",
+            "Aston Martin",
+            "+0.769s",
+            "30"
+          ],
+          [
+            "13",
+            "31",
+            "Esteban Ocon",
+            "Haas F1 Team",
+            "+0.947s",
+            "32"
+          ],
+          [
+            "14",
+            "87",
+            "Oliver Bearman",
+            "Haas F1 Team",
+            "+1.022s",
+            "32"
+          ],
+          [
+            "15",
+            "27",
+            "Nico Hulkenberg",
+            "Audi",
+            "+1.196s",
+            "35"
+          ],
+          [
+            "16",
+            "43",
+            "Franco Colapinto",
+            "Alpine",
+            "+1.305s",
+            "34"
+          ],
+          [
+            "17",
+            "55",
+            "Carlos Sainz",
+            "Williams",
+            "+1.421s",
+            "28"
+          ],
+          [
+            "18",
+            "11",
+            "Sergio Perez",
+            "Cadillac",
+            "+1.579s",
+            "33"
+          ],
+          [
+            "19",
+            "23",
+            "Alexander Albon",
+            "Williams",
+            "+1.751s",
+            "31"
+          ],
+          [
+            "20",
+            "18",
+            "Lance Stroll",
+            "Aston Martin",
+            "+1.804s",
+            "24"
+          ],
+          [
+            "21",
+            "77",
+            "Valtteri Bottas",
+            "Cadillac",
+            "+2.338s",
+            "33"
+          ],
+          [
+            "22",
+            "5",
+            "Gabriel Bortoleto",
+            "Audi",
+            "+2.347s",
+            "12"
+          ]
+        ],
+        "sourceUrl": "https://www.formula1.com/en/results/2026/races/1298/mexico/practice/2",
+        "checkedAt": "2026-10-31T01:06:22.875Z"
+      },
+      "participantIds": [
+        "competitor:f1:charles-leclerc",
+        "team:f1:ferrari",
+        "competitor:f1:lando-norris",
+        "team:f1:mclaren",
+        "competitor:f1:george-russell",
+        "team:f1:mercedes",
+        "competitor:f1:kimi-antonelli",
+        "competitor:f1:max-verstappen",
+        "team:f1:red-bull-racing",
+        "competitor:f1:isack-hadjar",
+        "competitor:f1:arvid-lindblad",
+        "team:f1:racing-bulls",
+        "competitor:f1:pierre-gasly",
+        "team:f1:alpine",
+        "competitor:f1:liam-lawson",
+        "competitor:f1:oscar-piastri",
+        "competitor:f1:lewis-hamilton",
+        "competitor:f1:fernando-alonso",
+        "team:f1:aston-martin",
+        "competitor:f1:esteban-ocon",
+        "team:f1:haas",
+        "competitor:f1:oliver-bearman",
+        "competitor:f1:nico-hulkenberg",
+        "team:f1:audi",
+        "competitor:f1:franco-colapinto",
+        "competitor:f1:carlos-sainz",
+        "team:f1:williams",
+        "competitor:f1:sergio-perez",
+        "team:f1:cadillac",
+        "competitor:f1:alexander-albon",
+        "competitor:f1:lance-stroll",
+        "competitor:f1:valtteri-bottas",
+        "competitor:f1:gabriel-bortoleto"
+      ],
+      "participants": [
+        {
+          "id": "competitor:f1:charles-leclerc",
+          "name": "Charles Leclerc",
+          "displayName": "Charles Leclerc",
+          "countryCode": "MC"
+        },
+        {
+          "id": "team:f1:ferrari",
+          "name": "Ferrari",
+          "displayName": "Ferrari",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:lando-norris",
+          "name": "Lando Norris",
+          "displayName": "Lando Norris",
+          "countryCode": "GB"
+        },
+        {
+          "id": "team:f1:mclaren",
+          "name": "McLaren",
+          "displayName": "McLaren",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:george-russell",
+          "name": "George Russell",
+          "displayName": "George Russell",
+          "countryCode": "GB"
+        },
+        {
+          "id": "team:f1:mercedes",
+          "name": "Mercedes",
+          "displayName": "Mercedes",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:kimi-antonelli",
+          "name": "Kimi Antonelli",
+          "displayName": "Kimi Antonelli",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:max-verstappen",
+          "name": "Max Verstappen",
+          "displayName": "Max Verstappen",
+          "countryCode": "NL"
+        },
+        {
+          "id": "team:f1:red-bull-racing",
+          "name": "Red Bull Racing",
+          "displayName": "Red Bull Racing",
+          "countryCode": "AT"
+        },
+        {
+          "id": "competitor:f1:isack-hadjar",
+          "name": "Isack Hadjar",
+          "displayName": "Isack Hadjar",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:arvid-lindblad",
+          "name": "Arvid Lindblad",
+          "displayName": "Arvid Lindblad",
+          "countryCode": "GB"
+        },
+        {
+          "id": "team:f1:racing-bulls",
+          "name": "Racing Bulls",
+          "displayName": "Racing Bulls",
+          "countryCode": "IT"
+        },
+        {
+          "id": "competitor:f1:pierre-gasly",
+          "name": "Pierre Gasly",
+          "displayName": "Pierre Gasly",
+          "countryCode": "FR"
+        },
+        {
+          "id": "team:f1:alpine",
+          "name": "Alpine",
+          "displayName": "Alpine",
+          "countryCode": "FR"
+        },
+        {
+          "id": "competitor:f1:liam-lawson",
+          "name": "Liam Lawson",
+          "displayName": "Liam Lawson",
+          "countryCode": "NZ"
+        },
+        {
+          "id": "competitor:f1:oscar-piastri",
+          "name": "Oscar Piastri",
+          "displayName": "Oscar Piastri",
+          "countryCode": "AU"
+        },
+        {
+          "id": "competitor:f1:lewis-hamilton",
+          "name": "Lewis Hamilton",
+          "displayName": "Lewis Hamilton",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:fernando-alonso",
+          "name": "Fernando Alonso",
+          "displayName": "Fernando Alonso",
+          "countryCode": "ES"
+        },
+        {
+          "id": "team:f1:aston-martin",
+          "name": "Aston Martin",
+          "displayName": "Aston Martin",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:esteban-ocon",
+          "name": "Esteban Ocon",
+          "displayName": "Esteban Ocon",
+          "countryCode": "FR"
+        },
+        {
+          "id": "team:f1:haas",
+          "name": "Haas F1 Team",
+          "displayName": "Haas F1 Team",
+          "countryCode": "US"
+        },
+        {
+          "id": "competitor:f1:oliver-bearman",
+          "name": "Oliver Bearman",
+          "displayName": "Oliver Bearman",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:nico-hulkenberg",
+          "name": "Nico Hulkenberg",
+          "displayName": "Nico Hulkenberg",
+          "countryCode": "DE"
+        },
+        {
+          "id": "team:f1:audi",
+          "name": "Audi",
+          "displayName": "Audi",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:f1:franco-colapinto",
+          "name": "Franco Colapinto",
+          "displayName": "Franco Colapinto",
+          "countryCode": "AR"
+        },
+        {
+          "id": "competitor:f1:carlos-sainz",
+          "name": "Carlos Sainz",
+          "displayName": "Carlos Sainz",
+          "countryCode": "ES"
+        },
+        {
+          "id": "team:f1:williams",
+          "name": "Williams",
+          "displayName": "Williams",
+          "countryCode": "GB"
+        },
+        {
+          "id": "competitor:f1:sergio-perez",
+          "name": "Sergio Perez",
+          "displayName": "Sergio Perez",
+          "countryCode": "MX"
+        },
+        {
+          "id": "team:f1:cadillac",
+          "name": "Cadillac",
+          "displayName": "Cadillac",
+          "countryCode": "US"
+        },
+        {
+          "id": "competitor:f1:alexander-albon",
+          "name": "Alexander Albon",
+          "displayName": "Alexander Albon",
+          "countryCode": "TH"
+        },
+        {
+          "id": "competitor:f1:lance-stroll",
+          "name": "Lance Stroll",
+          "displayName": "Lance Stroll",
+          "countryCode": "CA"
+        },
+        {
+          "id": "competitor:f1:valtteri-bottas",
+          "name": "Valtteri Bottas",
+          "displayName": "Valtteri Bottas",
+          "countryCode": "FI"
+        },
+        {
+          "id": "competitor:f1:gabriel-bortoleto",
+          "name": "Gabriel Bortoleto",
+          "displayName": "Gabriel Bortoleto",
+          "countryCode": "BR"
+        }
+      ],
+      "participantsConfirmed": true
     },
     {
       "id": "event-aflw-cd_m20262641202",

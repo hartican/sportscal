@@ -129,6 +129,7 @@ function parseOptions(argv = process.argv.slice(2), env = process.env) {
       throw new Error("Only the quick refresh supports --offline. Use --quick --offline without a scoped, resumed or other route. No source steps ran.");
     }
   }
+  if(argv.includes('--f1-results')){const allowed=new Set(['--f1-results','--local-only','-p']);if(new Set(argv).size!==argv.length||argv.filter(arg=>arg==='--local-only'||arg==='-p').length>1||argv.some(arg=>!allowed.has(arg)))throw Error('F1 results cannot be combined with offline or other routes; use only the existing F1 route and optional local-only flag. No source steps ran.');}
   return {
     localOnly: argv.includes("--local-only") || argv.includes("-p") || env.SKIP_RELEASE === "1",
   };
@@ -550,7 +551,7 @@ function buildSteps({ localOnly = false } = {}) {
   return steps;
 }
 
-async function runMain() {
+async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()}={}) {
   const options = parseOptions();
   if (options.reviewedEditorial) {
     const {ids, file} = options.reviewedEditorial;
@@ -898,13 +899,7 @@ async function runMain() {
     return;
   }
   if(process.argv.includes('--f1-results')){
-    for(const args of [
-      ['scripts/validate-f1-session-results.js'],
-      ['scripts/refresh-f1-results.js'],
-      ['scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
-      ['scripts/build-paged-feed.js'],
-      ['scripts/build-code-inspector.js','--codes=f1,motorsport'],
-    ])runStep(args);
+    await require('./quick-results').refreshF1Results({began:f1StartedAt,emitReport:report=>console.log(JSON.stringify(report))});
     if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
     return;
   }
@@ -1145,6 +1140,14 @@ async function runMain() {
 }
 
 async function main(){
+  if(process.argv.includes('--f1-results')){
+    const f1StartedAt=require('node:perf_hooks').performance.now();parseOptions();
+    // The scoped public F1 owner needs no Football/Golf invocation or backup
+    // bookkeeping. Its own atomic boundary includes final diagnostic IO.
+    process.env.REFRESH_REPORT ||= path.join(os.tmpdir(),'ns-refresh-report-'+crypto.randomUUID()+'.json');
+    require('./lib/refresh-report').update({mode:'f1-results',publicationState:'refreshing',stage:'starting',sourceFailures:[],missingResults:[],blockingError:null,failedStep:null,failureChain:[]});
+    try{return await runMain({f1StartedAt});}catch(error){try{console.error(`Refresh diagnostics: ${process.env.REFRESH_REPORT}`);}catch{}throw error;}
+  }
   // Validate mode before creating diagnostic state or starting any source step.
   const initialOptions=parseOptions();
   if(initialOptions.australianChampionship||initialOptions.retainedCoverage||initialOptions.reviewedEditorial)return runMain();
@@ -1165,7 +1168,7 @@ async function main(){
   }catch(error){
     try{
       require('./lib/refresh-report').failure(error.message,error.refreshFailure);
-      require('./lib/refresh-report').update({publicationState:error.publicationStarted?'blocked-after-publication':'blocked-rolled-back',stage:'failed'});
+      require('./lib/refresh-report').update({publicationState:error.publicationStarted?'blocked-after-publication':error.refreshRollback?.status==='failed'?'blocked-rollback-failed':'blocked-rolled-back',stage:'failed'});
     }catch(diagnosticError){console.warn(`::warning::Canonical failure report unavailable: ${require('./lib/refresh-report').sanitise(diagnosticError.message)}`);}
     console.error(`Refresh diagnostics: ${process.env.REFRESH_REPORT}`);
     throw error;

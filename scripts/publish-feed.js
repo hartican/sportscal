@@ -17,9 +17,11 @@ const coverageArgs=process.argv.slice(2).filter(arg=>arg==='--coverage-sport'||a
 if(coverageArgs.length&&(coverageArgs.length!==1||coverageArgs[0]!=='--coverage-sport=rugby-union'))throw Error('Unsupported scoped Feed publication');
 const coverageSport=coverageArgs.length?'rugby-union':null,coverageScope=require('./lib/live-coverage-scope');
 const eplScope=require('./lib/epl-publication-scope'),epl=eplScope.parse(process.argv.slice(2));
-if(epl&&coverageSport)throw Error('Mixed scoped Feed publication');
-const scoped=Boolean(coverageSport||epl);
-const args = process.argv.slice(2).filter(arg => !["--replace","--preserve-known",...coverageArgs,...(epl?[epl.arg]:[])].includes(arg));
+const f1Scope=require('./lib/f1-publication-scope'),f1=f1Scope.parse(process.argv.slice(2));
+if([epl,f1,coverageSport].filter(Boolean).length>1)throw Error('Mixed scoped Feed publication');
+const selection=epl||f1,selectedScope=epl?eplScope:f1Scope;
+const scoped=Boolean(coverageSport||selection);
+const args = process.argv.slice(2).filter(arg => !["--replace","--preserve-known",...coverageArgs,...(selection?[selection.arg]:[])].includes(arg));
 const replaceExisting = process.argv.includes("--replace");
 const preserveKnown = process.argv.includes("--preserve-known");
 const inputPath = args[0] || "feeds/incoming/events.json";
@@ -30,13 +32,13 @@ const bundleOutPath = args[3] || "data/events.js";
 if(scoped&&(!preserveKnown||replaceExisting||args.length!==4||path.resolve(inputPath)!==path.resolve(eventsOutPath)))throw Error('Scoped Feed publication requires the retained published surface');
 const identityForScope=require('../config/fixture-identity'),codeForScope=e=>identityForScope.sportKey(e)==='rugby'?'rugby-union':identityForScope.sportKey(e);
 const originalInput=readJson(inputPath);
-const normalizeInput=value=>normalizeFeed(scoped?{...value,events:value.events.filter(e=>epl?eplScope.selected(e,epl.ids):codeForScope(e)===coverageSport)}:value);
+const normalizeInput=value=>normalizeFeed(scoped?{...value,events:value.events.filter(e=>selection?selectedScope.selected(e,selection.ids):codeForScope(e)===coverageSport)}:value);
 const feed = normalizeInput(originalInput);
 const eplIdentities=require('../lib/epl-provider-identities');
 feed.events=eplIdentities.reconcile(feed.events);
 // One surface may already be current while its counterpart changed. An empty
 // selected subset is legal; the stitched complete Feed is still mandatory.
-const validateInput=value=>epl&&value.events.length===0?[]:validateFeed(value);
+const validateInput=value=>selection&&value.events.length===0?[]:validateFeed(value);
 const errors = validateInput(feed);
 
 if (errors.length) {
@@ -95,7 +97,7 @@ function finishEditorial(events){
  return require('./lib/editorial-publication').reconcileFullPreviews(paused,readJson('data/editorial-knowledge.v1.json'));
 }
 if(coverageSport)publishedFeed.events=coverageScope.retainOutsideScope(originalInput.events,finishEditorial(publishedFeed.events),coverageSport,codeForScope);
-if(epl)publishedFeed.events=eplScope.retain(originalInput.events,finishEditorial(publishedFeed.events),epl.ids);
+if(selection)publishedFeed.events=selectedScope.retain(originalInput.events,finishEditorial(publishedFeed.events),selection.ids);
 publishedFeed = {
   ...publishedFeed,
   version: `${versionBase}-${publicationStamp.replace(/[^0-9]/g, "")}`,

@@ -1,0 +1,3662 @@
+{
+  "schemaVersion": "f1-retained-test-inputs.v1",
+  "baseCommit": "006983a670bb706f2534f43b0b240ee02f378eaf",
+  "modelClock": "2026-10-31T00:10:46.203Z",
+  "captureType": "Twelve retained pending F1 card records per surface from immutable accepted base; source observations and reviewed copy are not advanced",
+  "sources": {
+    "feeds/incoming/events.json": {
+      "sha256": "f33a0d5070c918257c0254eab005286861232fd22a2793406ddc56b1191f267e"
+    },
+    "data/events.json": {
+      "sha256": "2c0cd536e3d0906d4843a49d1241dd9847b56d4acd86ffb869456f00fb3e213e"
+    }
+  },
+  "surfaces": {
+    "feeds/incoming/events.json": [
+      {
+        "id": "evt_f1_2026_spain_practice_1",
+        "eventId": "evt_f1_2026_spain_practice_1",
+        "canonicalEventId": "event:f1:2026:spain:practice-1",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "Spanish GP · Practice 1",
+        "cardKind": "fixture",
+        "displayTitleCompact": "Spanish GP · Practice 1",
+        "date": "2026-09-11",
+        "time": "21:30",
+        "startTimeUtc": "2026-09-11T11:30:00.000Z",
+        "endTimeUtc": "2026-09-11T12:30:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Madring",
+        "circuitId": "circuit:f1:spain",
+        "venueOfficialName": "Madring",
+        "venueCity": "Madrid",
+        "venueCountryCode": "ES",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+        "sessionType": "Practice 1",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 1",
+        "stage": "Practice 1",
+        "narrativeType": "all",
+        "selectedSentence": "Practice 1 at the Spanish GP.",
+        "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "Practice 1 at the Spanish GP.",
+          "hookSpoilerOn": "Practice 1 at the Spanish GP.",
+          "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+          "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+          "lastReviewedAt": "2026-09-25T01:04:02.174Z"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Practice 1",
+          "contextSignals": [
+            "official-schedule",
+            "Practice 1"
+          ],
+          "sourceName": "Formula 1 official race hub",
+          "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+          "sourceCheckedAt": "2026-09-25T01:04:02.174Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:37:25.437Z"
+      },
+      {
+        "id": "evt_f1_2026_spain_practice_2",
+        "eventId": "evt_f1_2026_spain_practice_2",
+        "canonicalEventId": "event:f1:2026:spain:practice-2",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "Spanish GP · Practice 2",
+        "cardKind": "fixture",
+        "displayTitleCompact": "Spanish GP · Practice 2",
+        "date": "2026-09-12",
+        "time": "01:00",
+        "startTimeUtc": "2026-09-11T15:00:00.000Z",
+        "endTimeUtc": "2026-09-11T16:00:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Madring",
+        "circuitId": "circuit:f1:spain",
+        "venueOfficialName": "Madring",
+        "venueCity": "Madrid",
+        "venueCountryCode": "ES",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+        "sessionType": "Practice 2",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 2",
+        "stage": "Practice 2",
+        "narrativeType": "all",
+        "selectedSentence": "Practice 2 at the Spanish GP.",
+        "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "Practice 2 at the Spanish GP.",
+          "hookSpoilerOn": "Practice 2 at the Spanish GP.",
+          "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+          "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+          "lastReviewedAt": "2026-09-25T01:04:02.174Z"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Practice 2",
+          "contextSignals": [
+            "official-schedule",
+            "Practice 2"
+          ],
+          "sourceName": "Formula 1 official race hub",
+          "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+          "sourceCheckedAt": "2026-09-25T01:04:02.174Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:37:25.437Z"
+      },
+      {
+        "id": "evt_f1_2026_spain_practice_3",
+        "eventId": "evt_f1_2026_spain_practice_3",
+        "canonicalEventId": "event:f1:2026:spain:practice-3",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "Spanish GP · Practice 3",
+        "cardKind": "fixture",
+        "displayTitleCompact": "Spanish GP · Practice 3",
+        "date": "2026-09-12",
+        "time": "20:30",
+        "startTimeUtc": "2026-09-12T10:30:00.000Z",
+        "endTimeUtc": "2026-09-12T11:30:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Madring",
+        "circuitId": "circuit:f1:spain",
+        "venueOfficialName": "Madring",
+        "venueCity": "Madrid",
+        "venueCountryCode": "ES",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+        "sessionType": "Practice 3",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 3",
+        "stage": "Practice 3",
+        "narrativeType": "all",
+        "selectedSentence": "Practice 3 at the Spanish GP.",
+        "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "Practice 3 at the Spanish GP.",
+          "hookSpoilerOn": "Practice 3 at the Spanish GP.",
+          "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+          "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+          "lastReviewedAt": "2026-09-25T01:04:02.174Z"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Practice 3",
+          "contextSignals": [
+            "official-schedule",
+            "Practice 3"
+          ],
+          "sourceName": "Formula 1 official race hub",
+          "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+          "sourceCheckedAt": "2026-09-25T01:04:02.174Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:37:25.437Z"
+      },
+      {
+        "id": "evt_f1_2026_azerbaijan_practice_1",
+        "eventId": "evt_f1_2026_azerbaijan_practice_1",
+        "canonicalEventId": "event:f1:2026:azerbaijan:practice-1",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "Azerbaijan GP · Practice 1",
+        "cardKind": "fixture",
+        "displayTitleCompact": "Azerbaijan GP · Practice 1",
+        "date": "2026-09-24",
+        "time": "18:30",
+        "startTimeUtc": "2026-09-24T08:30:00.000Z",
+        "endTimeUtc": "2026-09-24T09:30:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Baku City Circuit",
+        "circuitId": "circuit:f1:azerbaijan",
+        "venueOfficialName": "Baku City Circuit",
+        "venueCity": "Baku",
+        "venueCountryCode": "AZ",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+        "sessionType": "Practice 1",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 1",
+        "stage": "Practice 1",
+        "narrativeType": "all",
+        "selectedSentence": "Azerbaijan GP · Practice 1: Kimi Antonelli arrives 66 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "Azerbaijan GP · Practice 1: Kimi Antonelli arrives 66 points clear of George Russell.",
+          "hookSpoilerOn": "Azerbaijan GP · Practice 1: Kimi Antonelli arrives 66 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+          "lastReviewedAt": "2026-09-30T22:51:40.486Z",
+          "researchDepth": 2
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-09-30T22:51:40.486Z",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-f1-2026-azerbaijan-practice-1",
+          "researchTier": "standard",
+          "hook": "Azerbaijan GP · Practice 1: Kimi Antonelli arrives 66 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-f1-2026-azerbaijan-practice-1",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:race-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-f1-2026-azerbaijan-practice-1"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-09-30T22:51:40.486Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        }
+      },
+      {
+        "id": "evt_f1_2026_azerbaijan_practice_2",
+        "eventId": "evt_f1_2026_azerbaijan_practice_2",
+        "canonicalEventId": "event:f1:2026:azerbaijan:practice-2",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "Azerbaijan GP · Practice 2",
+        "cardKind": "fixture",
+        "displayTitleCompact": "Azerbaijan GP · Practice 2",
+        "date": "2026-09-24",
+        "time": "22:00",
+        "startTimeUtc": "2026-09-24T12:00:00.000Z",
+        "endTimeUtc": "2026-09-24T13:00:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Baku City Circuit",
+        "circuitId": "circuit:f1:azerbaijan",
+        "venueOfficialName": "Baku City Circuit",
+        "venueCity": "Baku",
+        "venueCountryCode": "AZ",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+        "sessionType": "Practice 2",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 2",
+        "stage": "Practice 2",
+        "narrativeType": "all",
+        "selectedSentence": "Azerbaijan GP · Practice 2: Kimi Antonelli arrives 66 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "Azerbaijan GP · Practice 2: Kimi Antonelli arrives 66 points clear of George Russell.",
+          "hookSpoilerOn": "Azerbaijan GP · Practice 2: Kimi Antonelli arrives 66 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+          "lastReviewedAt": "2026-09-30T22:51:40.486Z",
+          "researchDepth": 2
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-09-30T22:51:40.486Z",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-f1-2026-azerbaijan-practice-2",
+          "researchTier": "standard",
+          "hook": "Azerbaijan GP · Practice 2: Kimi Antonelli arrives 66 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-f1-2026-azerbaijan-practice-2",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:race-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-f1-2026-azerbaijan-practice-2"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-09-30T22:51:40.486Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        }
+      },
+      {
+        "id": "evt_f1_2026_united_states_practice_1",
+        "eventId": "evt_f1_2026_united_states_practice_1",
+        "canonicalEventId": "event:f1:2026:united-states:practice-1",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "United States GP · Practice 1",
+        "cardKind": "fixture",
+        "displayTitleCompact": "United States GP · Practice 1",
+        "date": "2026-10-24",
+        "time": "04:30",
+        "startTimeUtc": "2026-10-23T17:30:00.000Z",
+        "endTimeUtc": "2026-10-23T18:30:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Circuit of The Americas",
+        "circuitId": "circuit:f1:united-states",
+        "venueOfficialName": "Circuit of The Americas",
+        "venueCity": "Austin",
+        "venueCountryCode": "US",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "sessionType": "Practice 1",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 1",
+        "stage": "Practice 1",
+        "narrativeType": "all",
+        "selectedSentence": "United States GP · Practice 1: Kimi Antonelli arrives 89 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "United States GP · Practice 1: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "hookSpoilerOn": "United States GP · Practice 1: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "researchDepth": 2
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-f1-2026-united-states-practice-1",
+          "researchTier": "standard",
+          "hook": "United States GP · Practice 1: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-f1-2026-united-states-practice-1",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:race-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-f1-2026-united-states-practice-1"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        }
+      },
+      {
+        "id": "evt_f1_2026_united_states_practice_2",
+        "eventId": "evt_f1_2026_united_states_practice_2",
+        "canonicalEventId": "event:f1:2026:united-states:practice-2",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "United States GP · Practice 2",
+        "cardKind": "fixture",
+        "displayTitleCompact": "United States GP · Practice 2",
+        "date": "2026-10-24",
+        "time": "08:00",
+        "startTimeUtc": "2026-10-23T21:00:00.000Z",
+        "endTimeUtc": "2026-10-23T22:00:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Circuit of The Americas",
+        "circuitId": "circuit:f1:united-states",
+        "venueOfficialName": "Circuit of The Americas",
+        "venueCity": "Austin",
+        "venueCountryCode": "US",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "sessionType": "Practice 2",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 2",
+        "stage": "Practice 2",
+        "narrativeType": "all",
+        "selectedSentence": "United States GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "United States GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "hookSpoilerOn": "United States GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "researchDepth": 2
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-f1-2026-united-states-practice-2",
+          "researchTier": "standard",
+          "hook": "United States GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-f1-2026-united-states-practice-2",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:race-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-f1-2026-united-states-practice-2"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        }
+      },
+      {
+        "id": "evt_f1_2026_united_states_practice_3",
+        "eventId": "evt_f1_2026_united_states_practice_3",
+        "canonicalEventId": "event:f1:2026:united-states:practice-3",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "United States GP · Practice 3",
+        "cardKind": "fixture",
+        "displayTitleCompact": "United States GP · Practice 3",
+        "date": "2026-10-25",
+        "time": "04:30",
+        "startTimeUtc": "2026-10-24T17:30:00.000Z",
+        "endTimeUtc": "2026-10-24T18:30:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Circuit of The Americas",
+        "circuitId": "circuit:f1:united-states",
+        "venueOfficialName": "Circuit of The Americas",
+        "venueCity": "Austin",
+        "venueCountryCode": "US",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "sessionType": "Practice 3",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 3",
+        "stage": "Practice 3",
+        "narrativeType": "all",
+        "selectedSentence": "United States GP · Practice 3: Kimi Antonelli arrives 89 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "United States GP · Practice 3: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "hookSpoilerOn": "United States GP · Practice 3: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "researchDepth": 2
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-f1-2026-united-states-practice-3",
+          "researchTier": "standard",
+          "hook": "United States GP · Practice 3: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-f1-2026-united-states-practice-3",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:race-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-f1-2026-united-states-practice-3"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        }
+      },
+      {
+        "id": "evt_34",
+        "eventId": "evt_34",
+        "canonicalEventId": "event:f1:2026:united-states:qualifying",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "United States GP · Qualifying",
+        "cardKind": "fixture",
+        "displayTitleCompact": "United States GP · Qualifying",
+        "date": "2026-10-25",
+        "time": "08:00",
+        "startTimeUtc": "2026-10-24T21:00:00.000Z",
+        "endTimeUtc": "2026-10-24T22:00:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 8,
+        "stakesScore": 4,
+        "venue": "Circuit of The Americas",
+        "circuitId": "circuit:f1:united-states",
+        "venueOfficialName": "Circuit of The Americas",
+        "venueCity": "Austin",
+        "venueCountryCode": "US",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "sessionType": "Qualifying",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Qualifying",
+        "stage": "Qualifying",
+        "narrativeType": "all",
+        "selectedSentence": "United States GP · Qualifying: Kimi Antonelli arrives 89 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": true,
+        "catchupEligible": true,
+        "storyline": {
+          "stakes": 4,
+          "intensity": 4,
+          "intensitySource": "computed",
+          "arcStage": "preview",
+          "expectedSpectacle": 8,
+          "hookSpoilerOff": "United States GP · Qualifying: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "hookSpoilerOn": "United States GP · Qualifying: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "researchDepth": 5
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-34",
+          "researchTier": "marquee",
+          "hook": "United States GP · Qualifying: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-34",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:qualifying-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-34"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        }
+      },
+      {
+        "id": "evt_35",
+        "eventId": "evt_35",
+        "canonicalEventId": "event:f1:2026:united-states:race",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "United States GP · Race",
+        "cardKind": "fixture",
+        "displayTitleCompact": "United States GP · Race",
+        "date": "2026-10-26",
+        "time": "07:00",
+        "startTimeUtc": "2026-10-25T20:00:00.000Z",
+        "endTimeUtc": "2026-10-25T22:00:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 9,
+        "stakesScore": 5,
+        "venue": "Circuit of The Americas",
+        "circuitId": "circuit:f1:united-states",
+        "venueOfficialName": "Circuit of The Americas",
+        "venueCity": "Austin",
+        "venueCountryCode": "US",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "sessionType": "Race",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Race",
+        "stage": "Race",
+        "narrativeType": "all",
+        "selectedSentence": "United States GP · Race: Kimi Antonelli arrives 89 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": true,
+        "catchupEligible": true,
+        "storyline": {
+          "stakes": 4,
+          "intensity": 4,
+          "arcStage": "preview",
+          "expectedSpectacle": 9,
+          "hookSpoilerOff": "United States GP · Race: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "hookSpoilerOn": "United States GP · Race: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "intensitySource": "computed",
+          "researchDepth": 5,
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-35",
+          "researchTier": "marquee",
+          "hook": "United States GP · Race: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-35",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:race-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-35"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        }
+      },
+      {
+        "id": "evt_f1_2026_mexico_practice_1",
+        "eventId": "evt_f1_2026_mexico_practice_1",
+        "canonicalEventId": "event:f1:2026:mexico:practice-1",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "Mexico City GP · Practice 1",
+        "cardKind": "fixture",
+        "displayTitleCompact": "Mexico City GP · Practice 1",
+        "date": "2026-10-31",
+        "time": "05:30",
+        "startTimeUtc": "2026-10-30T18:30:00.000Z",
+        "endTimeUtc": "2026-10-30T19:30:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Autódromo Hermanos Rodríguez",
+        "circuitId": "circuit:f1:mexico",
+        "venueOfficialName": "Autódromo Hermanos Rodríguez",
+        "venueCity": "Mexico City",
+        "venueCountryCode": "MX",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+        "sessionType": "Practice 1",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 1",
+        "stage": "Practice 1",
+        "narrativeType": "all",
+        "selectedSentence": "Mexico City GP · Practice 1: Kimi Antonelli arrives 89 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "Mexico City GP · Practice 1: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "hookSpoilerOn": "Mexico City GP · Practice 1: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "researchDepth": 2
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-f1-2026-mexico-practice-1",
+          "researchTier": "standard",
+          "hook": "Mexico City GP · Practice 1: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-f1-2026-mexico-practice-1",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:race-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-f1-2026-mexico-practice-1"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        }
+      },
+      {
+        "id": "evt_f1_2026_mexico_practice_2",
+        "eventId": "evt_f1_2026_mexico_practice_2",
+        "canonicalEventId": "event:f1:2026:mexico:practice-2",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "Mexico City GP · Practice 2",
+        "cardKind": "fixture",
+        "displayTitleCompact": "Mexico City GP · Practice 2",
+        "date": "2026-10-31",
+        "time": "09:00",
+        "startTimeUtc": "2026-10-30T22:00:00.000Z",
+        "endTimeUtc": "2026-10-30T23:00:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Autódromo Hermanos Rodríguez",
+        "circuitId": "circuit:f1:mexico",
+        "venueOfficialName": "Autódromo Hermanos Rodríguez",
+        "venueCity": "Mexico City",
+        "venueCountryCode": "MX",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+        "sessionType": "Practice 2",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 2",
+        "stage": "Practice 2",
+        "narrativeType": "all",
+        "selectedSentence": "Mexico City GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "Mexico City GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "hookSpoilerOn": "Mexico City GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "researchDepth": 2
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-f1-2026-mexico-practice-2",
+          "researchTier": "standard",
+          "hook": "Mexico City GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-f1-2026-mexico-practice-2",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:race-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-f1-2026-mexico-practice-2"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        }
+      }
+    ],
+    "data/events.json": [
+      {
+        "id": "evt_f1_2026_spain_practice_1",
+        "eventId": "evt_f1_2026_spain_practice_1",
+        "canonicalEventId": "event:f1:2026:spain:practice-1",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "Spanish GP · Practice 1",
+        "cardKind": "fixture",
+        "displayTitleCompact": "Spanish GP · Practice 1",
+        "date": "2026-09-11",
+        "time": "21:30",
+        "startTimeUtc": "2026-09-11T11:30:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Madring",
+        "circuitId": "circuit:f1:spain",
+        "venueOfficialName": "Madring",
+        "venueCity": "Madrid",
+        "venueCountryCode": "ES",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 1",
+        "stage": "Practice 1",
+        "narrativeType": "all",
+        "selectedSentence": "Practice 1 at the Spanish GP.",
+        "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "Practice 1 at the Spanish GP.",
+          "hookSpoilerOn": "Practice 1 at the Spanish GP.",
+          "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+          "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+          "lastReviewedAt": "2026-09-25T01:04:02.174Z"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Practice 1",
+          "contextSignals": [
+            "official-schedule",
+            "Practice 1"
+          ],
+          "sourceName": "Formula 1 official race hub",
+          "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+          "sourceCheckedAt": "2026-09-25T01:04:02.174Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:37:25.437Z",
+        "statusCheckedAt": "2026-09-30T12:09:04.338Z",
+        "participantIds": [],
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "evt_f1_2026_spain_practice_1"
+        ],
+        "consensusTags": [],
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "endTimeUtc": "2026-09-11T12:30:00.000Z",
+        "sessionType": "Practice 1"
+      },
+      {
+        "id": "evt_f1_2026_spain_practice_2",
+        "eventId": "evt_f1_2026_spain_practice_2",
+        "canonicalEventId": "event:f1:2026:spain:practice-2",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "Spanish GP · Practice 2",
+        "cardKind": "fixture",
+        "displayTitleCompact": "Spanish GP · Practice 2",
+        "date": "2026-09-12",
+        "time": "01:00",
+        "startTimeUtc": "2026-09-11T15:00:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Madring",
+        "circuitId": "circuit:f1:spain",
+        "venueOfficialName": "Madring",
+        "venueCity": "Madrid",
+        "venueCountryCode": "ES",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 2",
+        "stage": "Practice 2",
+        "narrativeType": "all",
+        "selectedSentence": "Practice 2 at the Spanish GP.",
+        "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "Practice 2 at the Spanish GP.",
+          "hookSpoilerOn": "Practice 2 at the Spanish GP.",
+          "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+          "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+          "lastReviewedAt": "2026-09-25T01:04:02.174Z"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Practice 2",
+          "contextSignals": [
+            "official-schedule",
+            "Practice 2"
+          ],
+          "sourceName": "Formula 1 official race hub",
+          "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+          "sourceCheckedAt": "2026-09-25T01:04:02.174Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:37:25.437Z",
+        "statusCheckedAt": "2026-09-30T12:09:04.338Z",
+        "participantIds": [],
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "evt_f1_2026_spain_practice_2"
+        ],
+        "consensusTags": [],
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "endTimeUtc": "2026-09-11T16:00:00.000Z",
+        "sessionType": "Practice 2"
+      },
+      {
+        "id": "evt_f1_2026_spain_practice_3",
+        "eventId": "evt_f1_2026_spain_practice_3",
+        "canonicalEventId": "event:f1:2026:spain:practice-3",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "Spanish GP · Practice 3",
+        "cardKind": "fixture",
+        "displayTitleCompact": "Spanish GP · Practice 3",
+        "date": "2026-09-12",
+        "time": "20:30",
+        "startTimeUtc": "2026-09-12T10:30:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Madring",
+        "circuitId": "circuit:f1:spain",
+        "venueOfficialName": "Madring",
+        "venueCity": "Madrid",
+        "venueCountryCode": "ES",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 3",
+        "stage": "Practice 3",
+        "narrativeType": "all",
+        "selectedSentence": "Practice 3 at the Spanish GP.",
+        "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "Practice 3 at the Spanish GP.",
+          "hookSpoilerOn": "Practice 3 at the Spanish GP.",
+          "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+          "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+          "lastReviewedAt": "2026-09-25T01:04:02.174Z"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Practice 3",
+          "contextSignals": [
+            "official-schedule",
+            "Practice 3"
+          ],
+          "sourceName": "Formula 1 official race hub",
+          "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+          "sourceCheckedAt": "2026-09-25T01:04:02.174Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:37:25.437Z",
+        "statusCheckedAt": "2026-09-30T12:09:04.338Z",
+        "participantIds": [],
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "evt_f1_2026_spain_practice_3"
+        ],
+        "consensusTags": [],
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "endTimeUtc": "2026-09-12T11:30:00.000Z",
+        "sessionType": "Practice 3"
+      },
+      {
+        "id": "evt_f1_2026_azerbaijan_practice_1",
+        "eventId": "evt_f1_2026_azerbaijan_practice_1",
+        "canonicalEventId": "event:f1:2026:azerbaijan:practice-1",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "Azerbaijan GP · Practice 1",
+        "cardKind": "fixture",
+        "displayTitleCompact": "Azerbaijan GP · Practice 1",
+        "date": "2026-09-24",
+        "time": "18:30",
+        "startTimeUtc": "2026-09-24T08:30:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Baku City Circuit",
+        "circuitId": "circuit:f1:azerbaijan",
+        "venueOfficialName": "Baku City Circuit",
+        "venueCity": "Baku",
+        "venueCountryCode": "AZ",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 1",
+        "stage": "Practice 1",
+        "narrativeType": "all",
+        "selectedSentence": "Azerbaijan GP · Practice 1: Kimi Antonelli arrives 66 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "Azerbaijan GP · Practice 1: Kimi Antonelli arrives 66 points clear of George Russell.",
+          "hookSpoilerOn": "Azerbaijan GP · Practice 1: Kimi Antonelli arrives 66 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+          "lastReviewedAt": "2026-09-30T22:51:40.486Z",
+          "researchDepth": 2
+        },
+        "lastReviewedAt": "2026-09-30T22:51:40.486Z",
+        "participantIds": [
+          "competitor:f1:george-russell",
+          "team:f1:mercedes",
+          "competitor:f1:max-verstappen",
+          "team:f1:red-bull-racing",
+          "competitor:f1:charles-leclerc",
+          "team:f1:ferrari",
+          "competitor:f1:lewis-hamilton",
+          "competitor:f1:kimi-antonelli",
+          "competitor:f1:oscar-piastri",
+          "team:f1:mclaren",
+          "competitor:f1:liam-lawson",
+          "team:f1:racing-bulls",
+          "competitor:f1:arvid-lindblad",
+          "competitor:f1:esteban-ocon",
+          "team:f1:haas",
+          "competitor:f1:gabriel-bortoleto",
+          "team:f1:audi",
+          "competitor:f1:nico-hulkenberg",
+          "competitor:f1:carlos-sainz",
+          "team:f1:williams",
+          "competitor:f1:alexander-albon",
+          "competitor:f1:lando-norris",
+          "competitor:f1:oliver-bearman",
+          "competitor:f1:pierre-gasly",
+          "team:f1:alpine",
+          "competitor:f1:sergio-perez",
+          "team:f1:cadillac",
+          "competitor:f1:franco-colapinto",
+          "competitor:f1:fernando-alonso",
+          "team:f1:aston-martin",
+          "competitor:f1:isack-hadjar",
+          "competitor:f1:lance-stroll",
+          "competitor:f1:valtteri-bottas"
+        ],
+        "participants": [
+          {
+            "id": "competitor:f1:george-russell",
+            "name": "George Russell",
+            "displayName": "George Russell",
+            "countryCode": "GB"
+          },
+          {
+            "id": "team:f1:mercedes",
+            "name": "Mercedes",
+            "displayName": "Mercedes",
+            "countryCode": "DE"
+          },
+          {
+            "id": "competitor:f1:max-verstappen",
+            "name": "Max Verstappen",
+            "displayName": "Max Verstappen",
+            "countryCode": "NL"
+          },
+          {
+            "id": "team:f1:red-bull-racing",
+            "name": "Red Bull Racing",
+            "displayName": "Red Bull Racing",
+            "countryCode": "AT"
+          },
+          {
+            "id": "competitor:f1:charles-leclerc",
+            "name": "Charles Leclerc",
+            "displayName": "Charles Leclerc",
+            "countryCode": "MC"
+          },
+          {
+            "id": "team:f1:ferrari",
+            "name": "Ferrari",
+            "displayName": "Ferrari",
+            "countryCode": "IT"
+          },
+          {
+            "id": "competitor:f1:lewis-hamilton",
+            "name": "Lewis Hamilton",
+            "displayName": "Lewis Hamilton",
+            "countryCode": "GB"
+          },
+          {
+            "id": "competitor:f1:kimi-antonelli",
+            "name": "Kimi Antonelli",
+            "displayName": "Kimi Antonelli",
+            "countryCode": "IT"
+          },
+          {
+            "id": "competitor:f1:oscar-piastri",
+            "name": "Oscar Piastri",
+            "displayName": "Oscar Piastri",
+            "countryCode": "AU"
+          },
+          {
+            "id": "team:f1:mclaren",
+            "name": "McLaren",
+            "displayName": "McLaren",
+            "countryCode": "GB"
+          },
+          {
+            "id": "competitor:f1:liam-lawson",
+            "name": "Liam Lawson",
+            "displayName": "Liam Lawson",
+            "countryCode": "NZ"
+          },
+          {
+            "id": "team:f1:racing-bulls",
+            "name": "Racing Bulls",
+            "displayName": "Racing Bulls",
+            "countryCode": "IT"
+          },
+          {
+            "id": "competitor:f1:arvid-lindblad",
+            "name": "Arvid Lindblad",
+            "displayName": "Arvid Lindblad",
+            "countryCode": "GB"
+          },
+          {
+            "id": "competitor:f1:esteban-ocon",
+            "name": "Esteban Ocon",
+            "displayName": "Esteban Ocon",
+            "countryCode": "FR"
+          },
+          {
+            "id": "team:f1:haas",
+            "name": "Haas F1 Team",
+            "displayName": "Haas F1 Team",
+            "countryCode": "US"
+          },
+          {
+            "id": "competitor:f1:gabriel-bortoleto",
+            "name": "Gabriel Bortoleto",
+            "displayName": "Gabriel Bortoleto",
+            "countryCode": "BR"
+          },
+          {
+            "id": "team:f1:audi",
+            "name": "Audi",
+            "displayName": "Audi",
+            "countryCode": "DE"
+          },
+          {
+            "id": "competitor:f1:nico-hulkenberg",
+            "name": "Nico Hulkenberg",
+            "displayName": "Nico Hulkenberg",
+            "countryCode": "DE"
+          },
+          {
+            "id": "competitor:f1:carlos-sainz",
+            "name": "Carlos Sainz",
+            "displayName": "Carlos Sainz",
+            "countryCode": "ES"
+          },
+          {
+            "id": "team:f1:williams",
+            "name": "Williams",
+            "displayName": "Williams",
+            "countryCode": "GB"
+          },
+          {
+            "id": "competitor:f1:alexander-albon",
+            "name": "Alexander Albon",
+            "displayName": "Alexander Albon",
+            "countryCode": "TH"
+          },
+          {
+            "id": "competitor:f1:lando-norris",
+            "name": "Lando Norris",
+            "displayName": "Lando Norris",
+            "countryCode": "GB"
+          },
+          {
+            "id": "competitor:f1:oliver-bearman",
+            "name": "Oliver Bearman",
+            "displayName": "Oliver Bearman",
+            "countryCode": "GB"
+          },
+          {
+            "id": "competitor:f1:pierre-gasly",
+            "name": "Pierre Gasly",
+            "displayName": "Pierre Gasly",
+            "countryCode": "FR"
+          },
+          {
+            "id": "team:f1:alpine",
+            "name": "Alpine",
+            "displayName": "Alpine",
+            "countryCode": "FR"
+          },
+          {
+            "id": "competitor:f1:sergio-perez",
+            "name": "Sergio Perez",
+            "displayName": "Sergio Perez",
+            "countryCode": "MX"
+          },
+          {
+            "id": "team:f1:cadillac",
+            "name": "Cadillac",
+            "displayName": "Cadillac",
+            "countryCode": "US"
+          },
+          {
+            "id": "competitor:f1:franco-colapinto",
+            "name": "Franco Colapinto",
+            "displayName": "Franco Colapinto",
+            "countryCode": "AR"
+          },
+          {
+            "id": "competitor:f1:fernando-alonso",
+            "name": "Fernando Alonso",
+            "displayName": "Fernando Alonso",
+            "countryCode": "ES"
+          },
+          {
+            "id": "team:f1:aston-martin",
+            "name": "Aston Martin",
+            "displayName": "Aston Martin",
+            "countryCode": "GB"
+          },
+          {
+            "id": "competitor:f1:isack-hadjar",
+            "name": "Isack Hadjar",
+            "displayName": "Isack Hadjar",
+            "countryCode": "FR"
+          },
+          {
+            "id": "competitor:f1:lance-stroll",
+            "name": "Lance Stroll",
+            "displayName": "Lance Stroll",
+            "countryCode": "CA"
+          },
+          {
+            "id": "competitor:f1:valtteri-bottas",
+            "name": "Valtteri Bottas",
+            "displayName": "Valtteri Bottas",
+            "countryCode": "FI"
+          }
+        ],
+        "participantsConfirmed": true,
+        "fixtureResults": {
+          "schemaVersion": "fixture-results.v1",
+          "columns": [
+            "Pos",
+            "No",
+            "Driver",
+            "Car",
+            "Time / Gap",
+            "Laps"
+          ],
+          "rows": [
+            [
+              "1",
+              "63",
+              "George Russell",
+              "Mercedes",
+              "1:45.387",
+              "24"
+            ],
+            [
+              "2",
+              "3",
+              "Max Verstappen",
+              "Red Bull Racing",
+              "+0.400s",
+              "22"
+            ],
+            [
+              "3",
+              "16",
+              "Charles Leclerc",
+              "Ferrari",
+              "+0.404s",
+              "25"
+            ],
+            [
+              "4",
+              "44",
+              "Lewis Hamilton",
+              "Ferrari",
+              "+0.437s",
+              "25"
+            ],
+            [
+              "5",
+              "12",
+              "Kimi Antonelli",
+              "Mercedes",
+              "+0.878s",
+              "9"
+            ],
+            [
+              "6",
+              "81",
+              "Oscar Piastri",
+              "McLaren",
+              "+1.011s",
+              "17"
+            ],
+            [
+              "7",
+              "30",
+              "Liam Lawson",
+              "Racing Bulls",
+              "+1.053s",
+              "26"
+            ],
+            [
+              "8",
+              "41",
+              "Arvid Lindblad",
+              "Racing Bulls",
+              "+1.214s",
+              "23"
+            ],
+            [
+              "9",
+              "31",
+              "Esteban Ocon",
+              "Haas F1 Team",
+              "+1.237s",
+              "19"
+            ],
+            [
+              "10",
+              "5",
+              "Gabriel Bortoleto",
+              "Audi",
+              "+1.301s",
+              "21"
+            ],
+            [
+              "11",
+              "27",
+              "Nico Hulkenberg",
+              "Audi",
+              "+1.484s",
+              "22"
+            ],
+            [
+              "12",
+              "55",
+              "Carlos Sainz",
+              "Williams",
+              "+1.506s",
+              "22"
+            ],
+            [
+              "13",
+              "23",
+              "Alexander Albon",
+              "Williams",
+              "+1.552s",
+              "29"
+            ],
+            [
+              "14",
+              "1",
+              "Lando Norris",
+              "McLaren",
+              "+1.594s",
+              "14"
+            ],
+            [
+              "15",
+              "87",
+              "Oliver Bearman",
+              "Haas F1 Team",
+              "+1.607s",
+              "22"
+            ],
+            [
+              "16",
+              "10",
+              "Pierre Gasly",
+              "Alpine",
+              "+1.656s",
+              "22"
+            ],
+            [
+              "17",
+              "11",
+              "Sergio Perez",
+              "Cadillac",
+              "+1.866s",
+              "24"
+            ],
+            [
+              "18",
+              "43",
+              "Franco Colapinto",
+              "Alpine",
+              "+2.136s",
+              "23"
+            ],
+            [
+              "19",
+              "14",
+              "Fernando Alonso",
+              "Aston Martin",
+              "+2.448s",
+              "24"
+            ],
+            [
+              "20",
+              "6",
+              "Isack Hadjar",
+              "Red Bull Racing",
+              "+2.486s",
+              "8"
+            ],
+            [
+              "21",
+              "18",
+              "Lance Stroll",
+              "Aston Martin",
+              "+3.160s",
+              "22"
+            ],
+            [
+              "22",
+              "77",
+              "Valtteri Bottas",
+              "Cadillac",
+              "+3.928s",
+              "22"
+            ]
+          ],
+          "sourceUrl": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/1",
+          "checkedAt": "2026-09-30T21:12:21.075Z"
+        },
+        "score": "1. George Russell · 2. Max Verstappen · 3. Charles Leclerc",
+        "outcomeText": "George Russell was fastest in Azerbaijan GP · Practice 1.",
+        "recapText": "George Russell was fastest in Azerbaijan GP · Practice 1. 1. George Russell (Mercedes); 2. Max Verstappen (Red Bull Racing); 3. Charles Leclerc (Ferrari).",
+        "resultPublishedAt": "2026-09-30T12:54:15.700Z",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-f1-2026-azerbaijan-practice-1",
+          "researchTier": "standard",
+          "hook": "Azerbaijan GP · Practice 1: Kimi Antonelli arrives 66 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-f1-2026-azerbaijan-practice-1",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:race-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-f1-2026-azerbaijan-practice-1"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-09-30T22:51:40.486Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "endTimeUtc": "2026-09-24T09:30:00.000Z",
+        "endTimeBasis": "scheduled-live-window",
+        "scoreCheckedAt": "2026-09-30T21:12:21.075Z",
+        "statusCheckedAt": "2026-09-30T21:12:21.075Z",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "evt_f1_2026_azerbaijan_practice_1"
+        ],
+        "consensusTags": [],
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "sessionType": "Practice 1"
+      },
+      {
+        "id": "evt_f1_2026_azerbaijan_practice_2",
+        "eventId": "evt_f1_2026_azerbaijan_practice_2",
+        "canonicalEventId": "event:f1:2026:azerbaijan:practice-2",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "Azerbaijan GP · Practice 2",
+        "cardKind": "fixture",
+        "displayTitleCompact": "Azerbaijan GP · Practice 2",
+        "date": "2026-09-24",
+        "time": "22:00",
+        "startTimeUtc": "2026-09-24T12:00:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Baku City Circuit",
+        "circuitId": "circuit:f1:azerbaijan",
+        "venueOfficialName": "Baku City Circuit",
+        "venueCity": "Baku",
+        "venueCountryCode": "AZ",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 2",
+        "stage": "Practice 2",
+        "narrativeType": "all",
+        "selectedSentence": "Azerbaijan GP · Practice 2: Kimi Antonelli arrives 66 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "Azerbaijan GP · Practice 2: Kimi Antonelli arrives 66 points clear of George Russell.",
+          "hookSpoilerOn": "Azerbaijan GP · Practice 2: Kimi Antonelli arrives 66 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+          "lastReviewedAt": "2026-09-30T22:51:40.486Z",
+          "researchDepth": 2
+        },
+        "lastReviewedAt": "2026-09-30T22:51:40.486Z",
+        "participantIds": [
+          "competitor:f1:george-russell",
+          "team:f1:mercedes",
+          "competitor:f1:kimi-antonelli",
+          "competitor:f1:max-verstappen",
+          "team:f1:red-bull-racing",
+          "competitor:f1:charles-leclerc",
+          "team:f1:ferrari",
+          "competitor:f1:lewis-hamilton",
+          "competitor:f1:lando-norris",
+          "team:f1:mclaren",
+          "competitor:f1:pierre-gasly",
+          "team:f1:alpine",
+          "competitor:f1:oscar-piastri",
+          "competitor:f1:isack-hadjar",
+          "competitor:f1:esteban-ocon",
+          "team:f1:haas",
+          "competitor:f1:franco-colapinto",
+          "competitor:f1:liam-lawson",
+          "team:f1:racing-bulls",
+          "competitor:f1:sergio-perez",
+          "team:f1:cadillac",
+          "competitor:f1:gabriel-bortoleto",
+          "team:f1:audi",
+          "competitor:f1:nico-hulkenberg",
+          "competitor:f1:alexander-albon",
+          "team:f1:williams",
+          "competitor:f1:carlos-sainz",
+          "competitor:f1:arvid-lindblad",
+          "competitor:f1:valtteri-bottas",
+          "competitor:f1:oliver-bearman",
+          "competitor:f1:lance-stroll",
+          "team:f1:aston-martin",
+          "competitor:f1:fernando-alonso"
+        ],
+        "participants": [
+          {
+            "id": "competitor:f1:george-russell",
+            "name": "George Russell",
+            "displayName": "George Russell",
+            "countryCode": "GB"
+          },
+          {
+            "id": "team:f1:mercedes",
+            "name": "Mercedes",
+            "displayName": "Mercedes",
+            "countryCode": "DE"
+          },
+          {
+            "id": "competitor:f1:kimi-antonelli",
+            "name": "Kimi Antonelli",
+            "displayName": "Kimi Antonelli",
+            "countryCode": "IT"
+          },
+          {
+            "id": "competitor:f1:max-verstappen",
+            "name": "Max Verstappen",
+            "displayName": "Max Verstappen",
+            "countryCode": "NL"
+          },
+          {
+            "id": "team:f1:red-bull-racing",
+            "name": "Red Bull Racing",
+            "displayName": "Red Bull Racing",
+            "countryCode": "AT"
+          },
+          {
+            "id": "competitor:f1:charles-leclerc",
+            "name": "Charles Leclerc",
+            "displayName": "Charles Leclerc",
+            "countryCode": "MC"
+          },
+          {
+            "id": "team:f1:ferrari",
+            "name": "Ferrari",
+            "displayName": "Ferrari",
+            "countryCode": "IT"
+          },
+          {
+            "id": "competitor:f1:lewis-hamilton",
+            "name": "Lewis Hamilton",
+            "displayName": "Lewis Hamilton",
+            "countryCode": "GB"
+          },
+          {
+            "id": "competitor:f1:lando-norris",
+            "name": "Lando Norris",
+            "displayName": "Lando Norris",
+            "countryCode": "GB"
+          },
+          {
+            "id": "team:f1:mclaren",
+            "name": "McLaren",
+            "displayName": "McLaren",
+            "countryCode": "GB"
+          },
+          {
+            "id": "competitor:f1:pierre-gasly",
+            "name": "Pierre Gasly",
+            "displayName": "Pierre Gasly",
+            "countryCode": "FR"
+          },
+          {
+            "id": "team:f1:alpine",
+            "name": "Alpine",
+            "displayName": "Alpine",
+            "countryCode": "FR"
+          },
+          {
+            "id": "competitor:f1:oscar-piastri",
+            "name": "Oscar Piastri",
+            "displayName": "Oscar Piastri",
+            "countryCode": "AU"
+          },
+          {
+            "id": "competitor:f1:isack-hadjar",
+            "name": "Isack Hadjar",
+            "displayName": "Isack Hadjar",
+            "countryCode": "FR"
+          },
+          {
+            "id": "competitor:f1:esteban-ocon",
+            "name": "Esteban Ocon",
+            "displayName": "Esteban Ocon",
+            "countryCode": "FR"
+          },
+          {
+            "id": "team:f1:haas",
+            "name": "Haas F1 Team",
+            "displayName": "Haas F1 Team",
+            "countryCode": "US"
+          },
+          {
+            "id": "competitor:f1:franco-colapinto",
+            "name": "Franco Colapinto",
+            "displayName": "Franco Colapinto",
+            "countryCode": "AR"
+          },
+          {
+            "id": "competitor:f1:liam-lawson",
+            "name": "Liam Lawson",
+            "displayName": "Liam Lawson",
+            "countryCode": "NZ"
+          },
+          {
+            "id": "team:f1:racing-bulls",
+            "name": "Racing Bulls",
+            "displayName": "Racing Bulls",
+            "countryCode": "IT"
+          },
+          {
+            "id": "competitor:f1:sergio-perez",
+            "name": "Sergio Perez",
+            "displayName": "Sergio Perez",
+            "countryCode": "MX"
+          },
+          {
+            "id": "team:f1:cadillac",
+            "name": "Cadillac",
+            "displayName": "Cadillac",
+            "countryCode": "US"
+          },
+          {
+            "id": "competitor:f1:gabriel-bortoleto",
+            "name": "Gabriel Bortoleto",
+            "displayName": "Gabriel Bortoleto",
+            "countryCode": "BR"
+          },
+          {
+            "id": "team:f1:audi",
+            "name": "Audi",
+            "displayName": "Audi",
+            "countryCode": "DE"
+          },
+          {
+            "id": "competitor:f1:nico-hulkenberg",
+            "name": "Nico Hulkenberg",
+            "displayName": "Nico Hulkenberg",
+            "countryCode": "DE"
+          },
+          {
+            "id": "competitor:f1:alexander-albon",
+            "name": "Alexander Albon",
+            "displayName": "Alexander Albon",
+            "countryCode": "TH"
+          },
+          {
+            "id": "team:f1:williams",
+            "name": "Williams",
+            "displayName": "Williams",
+            "countryCode": "GB"
+          },
+          {
+            "id": "competitor:f1:carlos-sainz",
+            "name": "Carlos Sainz",
+            "displayName": "Carlos Sainz",
+            "countryCode": "ES"
+          },
+          {
+            "id": "competitor:f1:arvid-lindblad",
+            "name": "Arvid Lindblad",
+            "displayName": "Arvid Lindblad",
+            "countryCode": "GB"
+          },
+          {
+            "id": "competitor:f1:valtteri-bottas",
+            "name": "Valtteri Bottas",
+            "displayName": "Valtteri Bottas",
+            "countryCode": "FI"
+          },
+          {
+            "id": "competitor:f1:oliver-bearman",
+            "name": "Oliver Bearman",
+            "displayName": "Oliver Bearman",
+            "countryCode": "GB"
+          },
+          {
+            "id": "competitor:f1:lance-stroll",
+            "name": "Lance Stroll",
+            "displayName": "Lance Stroll",
+            "countryCode": "CA"
+          },
+          {
+            "id": "team:f1:aston-martin",
+            "name": "Aston Martin",
+            "displayName": "Aston Martin",
+            "countryCode": "GB"
+          },
+          {
+            "id": "competitor:f1:fernando-alonso",
+            "name": "Fernando Alonso",
+            "displayName": "Fernando Alonso",
+            "countryCode": "ES"
+          }
+        ],
+        "participantsConfirmed": true,
+        "fixtureResults": {
+          "schemaVersion": "fixture-results.v1",
+          "columns": [
+            "Pos",
+            "No",
+            "Driver",
+            "Car",
+            "Time / Gap",
+            "Laps"
+          ],
+          "rows": [
+            [
+              "1",
+              "63",
+              "George Russell",
+              "Mercedes",
+              "1:43.347",
+              "24"
+            ],
+            [
+              "2",
+              "12",
+              "Kimi Antonelli",
+              "Mercedes",
+              "+0.552s",
+              "16"
+            ],
+            [
+              "3",
+              "3",
+              "Max Verstappen",
+              "Red Bull Racing",
+              "+0.827s",
+              "23"
+            ],
+            [
+              "4",
+              "16",
+              "Charles Leclerc",
+              "Ferrari",
+              "+1.126s",
+              "24"
+            ],
+            [
+              "5",
+              "44",
+              "Lewis Hamilton",
+              "Ferrari",
+              "+1.318s",
+              "23"
+            ],
+            [
+              "6",
+              "1",
+              "Lando Norris",
+              "McLaren",
+              "+1.484s",
+              "22"
+            ],
+            [
+              "7",
+              "10",
+              "Pierre Gasly",
+              "Alpine",
+              "+1.496s",
+              "23"
+            ],
+            [
+              "8",
+              "81",
+              "Oscar Piastri",
+              "McLaren",
+              "+1.510s",
+              "22"
+            ],
+            [
+              "9",
+              "6",
+              "Isack Hadjar",
+              "Red Bull Racing",
+              "+1.521s",
+              "21"
+            ],
+            [
+              "10",
+              "31",
+              "Esteban Ocon",
+              "Haas F1 Team",
+              "+1.943s",
+              "25"
+            ],
+            [
+              "11",
+              "43",
+              "Franco Colapinto",
+              "Alpine",
+              "+2.132s",
+              "23"
+            ],
+            [
+              "12",
+              "30",
+              "Liam Lawson",
+              "Racing Bulls",
+              "+2.334s",
+              "25"
+            ],
+            [
+              "13",
+              "11",
+              "Sergio Perez",
+              "Cadillac",
+              "+2.413s",
+              "23"
+            ],
+            [
+              "14",
+              "5",
+              "Gabriel Bortoleto",
+              "Audi",
+              "+2.447s",
+              "24"
+            ],
+            [
+              "15",
+              "27",
+              "Nico Hulkenberg",
+              "Audi",
+              "+2.507s",
+              "20"
+            ],
+            [
+              "16",
+              "23",
+              "Alexander Albon",
+              "Williams",
+              "+2.776s",
+              "24"
+            ],
+            [
+              "17",
+              "55",
+              "Carlos Sainz",
+              "Williams",
+              "+2.874s",
+              "22"
+            ],
+            [
+              "18",
+              "41",
+              "Arvid Lindblad",
+              "Racing Bulls",
+              "+3.044s",
+              "4"
+            ],
+            [
+              "19",
+              "77",
+              "Valtteri Bottas",
+              "Cadillac",
+              "+3.390s",
+              "26"
+            ],
+            [
+              "20",
+              "87",
+              "Oliver Bearman",
+              "Haas F1 Team",
+              "+3.454s",
+              "10"
+            ],
+            [
+              "21",
+              "18",
+              "Lance Stroll",
+              "Aston Martin",
+              "+4.056s",
+              "24"
+            ],
+            [
+              "22",
+              "14",
+              "Fernando Alonso",
+              "Aston Martin",
+              "+4.542s",
+              "9"
+            ]
+          ],
+          "sourceUrl": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/2",
+          "checkedAt": "2026-09-30T21:12:21.075Z"
+        },
+        "score": "1. George Russell · 2. Kimi Antonelli · 3. Max Verstappen",
+        "outcomeText": "George Russell was fastest in Azerbaijan GP · Practice 2.",
+        "recapText": "George Russell was fastest in Azerbaijan GP · Practice 2. 1. George Russell (Mercedes); 2. Kimi Antonelli (Mercedes); 3. Max Verstappen (Red Bull Racing).",
+        "resultPublishedAt": "2026-09-30T12:54:15.700Z",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-f1-2026-azerbaijan-practice-2",
+          "researchTier": "standard",
+          "hook": "Azerbaijan GP · Practice 2: Kimi Antonelli arrives 66 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 302 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-f1-2026-azerbaijan-practice-2",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:race-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-f1-2026-azerbaijan-practice-2"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-09-30T22:51:40.486Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "endTimeUtc": "2026-09-24T13:00:00.000Z",
+        "endTimeBasis": "scheduled-live-window",
+        "scoreCheckedAt": "2026-09-30T21:12:21.075Z",
+        "statusCheckedAt": "2026-09-30T21:12:21.075Z",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "evt_f1_2026_azerbaijan_practice_2"
+        ],
+        "consensusTags": [],
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "sessionType": "Practice 2"
+      },
+      {
+        "id": "evt_f1_2026_united_states_practice_1",
+        "eventId": "evt_f1_2026_united_states_practice_1",
+        "canonicalEventId": "event:f1:2026:united-states:practice-1",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "United States GP · Practice 1",
+        "cardKind": "fixture",
+        "displayTitleCompact": "United States GP · Practice 1",
+        "date": "2026-10-24",
+        "time": "04:30",
+        "startTimeUtc": "2026-10-23T17:30:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Circuit of The Americas",
+        "circuitId": "circuit:f1:united-states",
+        "venueOfficialName": "Circuit of The Americas",
+        "venueCity": "Austin",
+        "venueCountryCode": "US",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 1",
+        "stage": "Practice 1",
+        "narrativeType": "all",
+        "selectedSentence": "United States GP · Practice 1: Kimi Antonelli arrives 89 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "United States GP · Practice 1: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "hookSpoilerOn": "United States GP · Practice 1: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "researchDepth": 2
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-f1-2026-united-states-practice-1",
+          "researchTier": "standard",
+          "hook": "United States GP · Practice 1: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-f1-2026-united-states-practice-1",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:race-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-f1-2026-united-states-practice-1"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "statusCheckedAt": "2026-09-30T12:09:04.274Z",
+        "participantIds": [],
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "evt_f1_2026_united_states_practice_1"
+        ],
+        "consensusTags": [],
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "endTimeUtc": "2026-10-23T18:30:00.000Z",
+        "sessionType": "Practice 1"
+      },
+      {
+        "id": "evt_f1_2026_united_states_practice_2",
+        "eventId": "evt_f1_2026_united_states_practice_2",
+        "canonicalEventId": "event:f1:2026:united-states:practice-2",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "United States GP · Practice 2",
+        "cardKind": "fixture",
+        "displayTitleCompact": "United States GP · Practice 2",
+        "date": "2026-10-24",
+        "time": "08:00",
+        "startTimeUtc": "2026-10-23T21:00:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Circuit of The Americas",
+        "circuitId": "circuit:f1:united-states",
+        "venueOfficialName": "Circuit of The Americas",
+        "venueCity": "Austin",
+        "venueCountryCode": "US",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 2",
+        "stage": "Practice 2",
+        "narrativeType": "all",
+        "selectedSentence": "United States GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "United States GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "hookSpoilerOn": "United States GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "researchDepth": 2
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-f1-2026-united-states-practice-2",
+          "researchTier": "standard",
+          "hook": "United States GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-f1-2026-united-states-practice-2",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:race-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-f1-2026-united-states-practice-2"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "statusCheckedAt": "2026-09-30T12:09:04.274Z",
+        "participantIds": [],
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "evt_f1_2026_united_states_practice_2"
+        ],
+        "consensusTags": [],
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "endTimeUtc": "2026-10-23T22:00:00.000Z",
+        "sessionType": "Practice 2"
+      },
+      {
+        "id": "evt_f1_2026_united_states_practice_3",
+        "eventId": "evt_f1_2026_united_states_practice_3",
+        "canonicalEventId": "event:f1:2026:united-states:practice-3",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "United States GP · Practice 3",
+        "cardKind": "fixture",
+        "displayTitleCompact": "United States GP · Practice 3",
+        "date": "2026-10-25",
+        "time": "04:30",
+        "startTimeUtc": "2026-10-24T17:30:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Circuit of The Americas",
+        "circuitId": "circuit:f1:united-states",
+        "venueOfficialName": "Circuit of The Americas",
+        "venueCity": "Austin",
+        "venueCountryCode": "US",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 3",
+        "stage": "Practice 3",
+        "narrativeType": "all",
+        "selectedSentence": "United States GP · Practice 3: Kimi Antonelli arrives 89 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "United States GP · Practice 3: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "hookSpoilerOn": "United States GP · Practice 3: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "researchDepth": 2
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-f1-2026-united-states-practice-3",
+          "researchTier": "standard",
+          "hook": "United States GP · Practice 3: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-f1-2026-united-states-practice-3",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:race-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-f1-2026-united-states-practice-3"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "statusCheckedAt": "2026-09-30T12:09:04.274Z",
+        "participantIds": [],
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "evt_f1_2026_united_states_practice_3"
+        ],
+        "consensusTags": [],
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "endTimeUtc": "2026-10-24T18:30:00.000Z",
+        "sessionType": "Practice 3"
+      },
+      {
+        "id": "evt_34",
+        "eventId": "evt_34",
+        "canonicalEventId": "event:f1:2026:united-states:qualifying",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "United States GP · Qualifying",
+        "cardKind": "fixture",
+        "displayTitleCompact": "United States GP · Qualifying",
+        "date": "2026-10-25",
+        "time": "08:00",
+        "startTimeUtc": "2026-10-24T21:00:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 8,
+        "stakesScore": 4,
+        "venue": "Circuit of The Americas",
+        "circuitId": "circuit:f1:united-states",
+        "venueOfficialName": "Circuit of The Americas",
+        "venueCity": "Austin",
+        "venueCountryCode": "US",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Qualifying",
+        "stage": "Qualifying",
+        "narrativeType": "all",
+        "selectedSentence": "United States GP · Qualifying: Kimi Antonelli arrives 89 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": true,
+        "catchupEligible": true,
+        "storyline": {
+          "stakes": 4,
+          "intensity": 4,
+          "intensitySource": "computed",
+          "arcStage": "preview",
+          "expectedSpectacle": 8,
+          "hookSpoilerOff": "United States GP · Qualifying: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "hookSpoilerOn": "United States GP · Qualifying: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "researchDepth": 5
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-34",
+          "researchTier": "marquee",
+          "hook": "United States GP · Qualifying: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-34",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:qualifying-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-34"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "statusCheckedAt": "2026-09-30T12:09:04.274Z",
+        "participantIds": [],
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "evt_34"
+        ],
+        "consensusTags": [],
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "endTimeUtc": "2026-10-24T22:00:00.000Z",
+        "sessionType": "Qualifying"
+      },
+      {
+        "id": "evt_35",
+        "eventId": "evt_35",
+        "canonicalEventId": "event:f1:2026:united-states:race",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "United States GP · Race",
+        "cardKind": "fixture",
+        "displayTitleCompact": "United States GP · Race",
+        "date": "2026-10-26",
+        "time": "07:00",
+        "startTimeUtc": "2026-10-25T20:00:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 9,
+        "stakesScore": 5,
+        "venue": "Circuit of The Americas",
+        "circuitId": "circuit:f1:united-states",
+        "venueOfficialName": "Circuit of The Americas",
+        "venueCity": "Austin",
+        "venueCountryCode": "US",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Race",
+        "stage": "Race",
+        "narrativeType": "all",
+        "selectedSentence": "United States GP · Race: Kimi Antonelli arrives 89 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": true,
+        "catchupEligible": true,
+        "storyline": {
+          "stakes": 4,
+          "intensity": 4,
+          "arcStage": "preview",
+          "expectedSpectacle": 9,
+          "hookSpoilerOff": "United States GP · Race: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "hookSpoilerOn": "United States GP · Race: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "intensitySource": "computed",
+          "researchDepth": 5,
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z"
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-35",
+          "researchTier": "marquee",
+          "hook": "United States GP · Race: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-35",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:race-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-35"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "statusCheckedAt": "2026-09-30T12:09:04.274Z",
+        "participantIds": [],
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "evt_35"
+        ],
+        "consensusTags": [],
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "endTimeUtc": "2026-10-25T22:00:00.000Z",
+        "sessionType": "Race"
+      },
+      {
+        "id": "evt_f1_2026_mexico_practice_1",
+        "eventId": "evt_f1_2026_mexico_practice_1",
+        "canonicalEventId": "event:f1:2026:mexico:practice-1",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "Mexico City GP · Practice 1",
+        "cardKind": "fixture",
+        "displayTitleCompact": "Mexico City GP · Practice 1",
+        "date": "2026-10-31",
+        "time": "05:30",
+        "startTimeUtc": "2026-10-30T18:30:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Autódromo Hermanos Rodríguez",
+        "circuitId": "circuit:f1:mexico",
+        "venueOfficialName": "Autódromo Hermanos Rodríguez",
+        "venueCity": "Mexico City",
+        "venueCountryCode": "MX",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 1",
+        "stage": "Practice 1",
+        "narrativeType": "all",
+        "selectedSentence": "Mexico City GP · Practice 1: Kimi Antonelli arrives 89 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "Mexico City GP · Practice 1: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "hookSpoilerOn": "Mexico City GP · Practice 1: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "researchDepth": 2
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "statusCheckedAt": "2026-09-30T12:09:04.338Z",
+        "participantIds": [],
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "evt_f1_2026_mexico_practice_1"
+        ],
+        "consensusTags": [],
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-f1-2026-mexico-practice-1",
+          "researchTier": "standard",
+          "hook": "Mexico City GP · Practice 1: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-f1-2026-mexico-practice-1",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:race-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-f1-2026-mexico-practice-1"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "endTimeUtc": "2026-10-30T19:30:00.000Z",
+        "sessionType": "Practice 1"
+      },
+      {
+        "id": "evt_f1_2026_mexico_practice_2",
+        "eventId": "evt_f1_2026_mexico_practice_2",
+        "canonicalEventId": "event:f1:2026:mexico:practice-2",
+        "sport": "Formula 1",
+        "key": "f1",
+        "name": "Mexico City GP · Practice 2",
+        "cardKind": "fixture",
+        "displayTitleCompact": "Mexico City GP · Practice 2",
+        "date": "2026-10-31",
+        "time": "09:00",
+        "startTimeUtc": "2026-10-30T22:00:00.000Z",
+        "timeTbc": false,
+        "timePrecision": "exact",
+        "scheduleStatus": "confirmed",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "broadcastOptions": [
+          "Kayo Sports",
+          "Foxtel"
+        ],
+        "broadcasterIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "expected": 4,
+        "stakesScore": 2,
+        "venue": "Autódromo Hermanos Rodríguez",
+        "circuitId": "circuit:f1:mexico",
+        "venueOfficialName": "Autódromo Hermanos Rodríguez",
+        "venueCity": "Mexico City",
+        "venueCountryCode": "MX",
+        "venueSourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Practice 2",
+        "stage": "Practice 2",
+        "narrativeType": "all",
+        "selectedSentence": "Mexico City GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
+        "fullSpiel": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+        "sourceName": "Formula 1 official race hub",
+        "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+        "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "status": "upcoming",
+        "sportDomainId": "sport:f1",
+        "discoverySportId": "sport:f1",
+        "competitionId": "competition:formula-one",
+        "taxonomyNodeId": "sport:f1",
+        "codeId": "sport:f1",
+        "competitionScope": "international",
+        "isInternational": true,
+        "representativeCountryCodes": [],
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "storyline": {
+          "stakes": 2,
+          "intensity": 2,
+          "intensitySource": "manual",
+          "arcStage": "preview",
+          "expectedSpectacle": 4,
+          "hookSpoilerOff": "Mexico City GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "hookSpoilerOn": "Mexico City GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsisSpoilerOff": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "synopsisSpoilerOn": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+          "researchDepth": 2
+        },
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "2026 Formula 1 title pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:schedule",
+            "narrative:consequence"
+          ],
+          "sourceName": "Formula 1 current driver standings",
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
+          "needsPreviewRefresh": false
+        },
+        "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+        "statusCheckedAt": "2026-09-30T12:09:04.338Z",
+        "participantIds": [],
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "broadcasts": [],
+        "viewingOptions": [],
+        "sourceEventIds": [
+          "evt_f1_2026_mexico_practice_2"
+        ],
+        "consensusTags": [],
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:evt-f1-2026-mexico-practice-2",
+          "researchTier": "standard",
+          "hook": "Mexico City GP · Practice 2: Kimi Antonelli arrives 89 points clear of George Russell.",
+          "synopsis": "Kimi Antonelli holds 325 points to George Russell's 236 in the official driver standings.",
+          "threadIds": [
+            "thread:rolling:f1-title"
+          ],
+          "factIds": [
+            "fact:rolling:f1:constructors",
+            "fact:rolling:f1:session:evt-f1-2026-mexico-practice-2",
+            "fact:rolling:f1:leader",
+            "fact:rolling:f1:race-consequence"
+          ],
+          "sourceIds": [
+            "source:rolling:f1:driver-standings",
+            "source:rolling:f1:constructors",
+            "source:rolling:f1:session:evt-f1-2026-mexico-practice-2"
+          ],
+          "dimensions": [
+            "form",
+            "schedule",
+            "consequence"
+          ],
+          "researchedAt": "2026-10-11T12:40:11.243Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "phase": "preview"
+        },
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "endTimeUtc": "2026-10-30T23:00:00.000Z",
+        "sessionType": "Practice 2"
+      }
+    ]
+  }
+}
