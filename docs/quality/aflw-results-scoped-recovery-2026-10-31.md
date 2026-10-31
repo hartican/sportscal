@@ -69,7 +69,9 @@ Retain the eight future fixtures and all other sports, IDs, source aliases,
 order, starts, viewing, reviewed writing and original observation clocks.
 Every supplied result-specific observation must independently be valid,
 post-start and nonfuture; one valid result clock cannot mask a contradictory
-other result clock. General historical source/status clocks remain distinct.
+other result clock. An absent optional clock differs from a supplied null or
+invalid clock: explicitly supplied unknown result clocks are refused. General
+historical source/status clocks remain distinct.
 Unchanged verified finals keep their own facts, result clocks and copy; do not
 call a new check a new result observation. Canonical retained historical previews
 stay dated; completed on-card projection clears old preview claims and uses the

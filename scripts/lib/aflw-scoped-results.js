@@ -43,7 +43,8 @@ function validateRetained(bundle,documents,now){
   for(const row of settled)validateFinal(row,fixture);
   for(const row of settled){
    const at=row.result?.source?.checkedAt||row.scoreCheckedAt||row.resultSourceCheckedAt||(row.result?.status==='completed'?row.source?.checkedAt:null);
-   const stamps=[at,row.result?.source?.checkedAt,row.scoreCheckedAt,row.resultSourceCheckedAt].filter(value=>value!=null);
+   const supplied=[[row.result?.source,'checkedAt'],[row,'scoreCheckedAt'],[row,'resultSourceCheckedAt']].filter(([owner,key])=>owner&&Object.hasOwn(owner,key)).map(([owner,key])=>owner[key]);
+   const stamps=[at,...supplied];
    if(!at||stamps.some(value=>!contract.utc(value)||Date.parse(value)<Date.parse(fixture.startTimeUtc)||Date.parse(value)>+now))throw Error('Retained AFLW final lacks its genuine post-start result clock');
   }
  }
