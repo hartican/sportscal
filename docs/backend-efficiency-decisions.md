@@ -2237,3 +2237,14 @@ The source-only forward and inverse require exact27 function definitions/attribu
 ROOT allocated source-only response diagnostics to make the held freshness failure decidable. Add closed response-level score-read outcome and actual batch counts plus one freshness receipt for each unique returned fixture. Record the same age/interval decision clock and actual compact/retained-prior branches, with final returned clocks; do not renew source observations, add grace, alter any fixture/event/model output, Follow/Results choice, request/cap/deadline or scheduler. Pending batches at first rejection stay pending in the serialized response receipt. Keep diagnostics out of fixture JSON so existing mounted-card lifecycle/cache identity remains intact.
 
 The existing required Match Centre check gains actual-handler/differential/retention/batch/evidence/privacy controls; all262 existing workflow occurrences and gates remain. The public verifier retains whitelisted chosen/list/selected receipts before assertions through its existing private artifact directory, without a new read or relaxed assertion. Missing diagnostics remain unknown. Original AFLW RED and its unknown cause stay held; no innings/source/reader/merge repair is implied. ROOT alone integrates/publishes and owns combined/hosted qualification. See [exact scope and acceptance boundary](quality/match-centre-freshness-receipts-2026-10-31.md).
+
+
+### 31 October follow-up — opt-in diagnostic transport
+
+Freshness/read receipts require exactly one `readEvidence=1` query parameter.
+Default app polls retain the entire original response body byte-for-byte with
+zero added transport bytes. Missing/invalid/duplicate values leave diagnostics
+off. The release verifier requests them on its same two existing reads; no
+client UI, request, cache, deadline, source, credential or scheduler path changes.
+Prior source commits remain history. Held freshness acceptance and the separate
+current-day horizon failure are not waived.

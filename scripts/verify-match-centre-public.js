@@ -7,7 +7,7 @@ async function main({fetchImpl=globalThis.fetch,timer=()=>performance.now(),log=
  const sha=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();assert(/^[a-f0-9]{40}$/.test(sha));
  const origin='https://nothingsport.vercel.app';
  const reads=[],phases=['catalogue','prepare','snapshot','merge','selection','scores','projection','total'];
- const read=async(query,kind)=>{const requestStartedAt=new Date(clock()).toISOString(),started=timer(),response=await fetchImpl(origin+'/api/match-centre?'+query+'&releaseSmoke='+sha,{signal:AbortSignal.timeout(15000)});const body=await response.json(),elapsedMs=Math.max(0,timer()-started),serverMs={};
+ const read=async(query,kind)=>{const requestStartedAt=new Date(clock()).toISOString(),started=timer(),response=await fetchImpl(origin+'/api/match-centre?'+query+'&readEvidence=1&releaseSmoke='+sha,{signal:AbortSignal.timeout(15000)});const body=await response.json(),elapsedMs=Math.max(0,timer()-started),serverMs={};
   for(const field of (response.headers.get('Server-Timing')||'').split(',')){const value=/^\s*([a-z]+);dur=(\d+(?:\.\d+)?)\s*$/.exec(field);if(value&&phases.includes(value[1])&&Number.isFinite(Number(value[2])))serverMs[value[1]]=Number(value[2]);}
   const read={kind,status:response.status,requestStartedAt,responseEndedAt:new Date(clock()).toISOString(),elapsedMs:Number(elapsedMs.toFixed(2)),serverMs};reads.push({kind,elapsedMs:read.elapsedMs,serverMs});await onRead({kind,sha,body,read});
   assert.equal(response.status,200,'Public Match Centre response');

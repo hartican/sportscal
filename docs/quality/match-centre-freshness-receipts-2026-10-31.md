@@ -82,3 +82,24 @@ RPC, main push, CI dispatch or deployment belongs to this source preparation.
 ROOT owns standard PR integration, generated assembly through update-cards.js,
 required combined/browser/installed/hosted gates and exact-main publication.
 Rollback is reverting this source commit; no data restoration or SQL is needed.
+
+## Follow-up: diagnostic transport is opt-in
+
+ROOT requested the follow-up against frozen6194e55a. Only a single
+`readEvidence=1` query value opts into response-level receipts. Missing, empty,
+other or duplicate values retain the original entire response body, including
+its original field order, with zero added transport bytes. No app client/UI
+opts in. The existing public release verifier opts in on its same membership
+and selected requests; selection, assertions and evidence-before-failure remain.
+Absent/malformed metadata remains unknown. No request, credential, cache,
+deadline, source or scheduling path is added.
+
+The actual-handler suite compares complete default bodies to7e across expiry,
+advancing time, failures, membership degradation, source flags, missing clocks,
+zero scores and60 rows. Existing opt-in retention, alias, mixed-batch and
+malformed-evidence controls remain. The60-row default response is45,833bytes,
+exactly the original (zero added bytes). Opt-in is82,694bytes (+36,861 raw),
+gzip778→1,427bytes on deliberately repetitive synthetic rows; these are not
+production compression or latency guarantees. Ordinary polling never receives
+those added fields. Earlier commits/reports remain dated history, and the
+current-day horizon RED is unchanged, separately retained, and not waived.
