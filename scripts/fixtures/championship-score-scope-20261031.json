@@ -1,0 +1,1620 @@
+{
+  "schemaVersion": "championship-score-scope.v1",
+  "base": "07a7bb11d04b6509d13cee14e9dddc725a9f5975",
+  "tree": "5e1bea354d40f892ec10c38652fe1c4e5edef931",
+  "resultFields": [
+    "status",
+    "homeScore",
+    "awayScore",
+    "shootout",
+    "sourceMatchInfo",
+    "sourceWinnerId",
+    "score",
+    "scoreDisplay",
+    "result",
+    "canonicalResultScoreline",
+    "resultLabels",
+    "scoreCheckedAt",
+    "statusCheckedAt",
+    "resultStatus",
+    "resultSourceUrl",
+    "resultSourceCheckedAt",
+    "resultSourceEvidence",
+    "winnerParticipantId"
+  ],
+  "clubs": [
+    {
+      "id": "team:football:australian-championship:9927",
+      "displayName": "Adelaide City",
+      "shortName": "Adelaide City",
+      "aliases": [],
+      "abbreviation": "ADC",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "9927",
+        "ffaUuid": "6b378713-8919-3420-9694-bb7fce21db70"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": "assets/identities/football/australian-championship/9927.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2026-09/adelaide-city-logo-1.png?itok=VpmlxbV8",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "7fe1681be219d31fd8e49b2c6b88a7c99547ebf24b468783068adf704a3cbd88"
+      },
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:14521",
+      "displayName": "Avondale FC",
+      "shortName": "Avondale FC",
+      "aliases": [],
+      "abbreviation": "AVO",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "14521",
+        "ffaUuid": "41ec433e-9f9f-3428-bdec-94801834ebed"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": "assets/identities/football/australian-championship/14521.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-01/Avondale-FC-Logo.png?itok=VvEo4RZU",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "17e1739ac807bcf27becc21e82c779b6538343b4270f50c50f62e241dd269e66"
+      },
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:9944",
+      "displayName": "Bayswater City",
+      "shortName": "Bayswater City",
+      "aliases": [],
+      "abbreviation": "BAY",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "9944",
+        "ffaUuid": "2dada3e2-fb53-3da8-9f53-43f3452d12d5"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": "assets/identities/football/australian-championship/9944.jpg",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-09/bayswater.png?itok=AhP9zRFl",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "0141dd638e4d24d29f3ee3f9f8dc58e57a540bb05915a9a9411db09ba162763d"
+      },
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:9946",
+      "displayName": "Broadmeadow Magic",
+      "shortName": "Broadmeadow Magic",
+      "aliases": [],
+      "abbreviation": "MAG",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "9946",
+        "ffaUuid": "3cc5c5fe-f2e7-3906-b29d-67411f11145e"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": "assets/identities/football/australian-championship/9946.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-09/9946.png?itok=-SRXTHXo",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "35987ec698b433a5107309885ccc24db4c0c13e38f3b25506a32714445cf94f7"
+      },
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:11255",
+      "displayName": "Canberra Croatia",
+      "shortName": "Canberra Croatia",
+      "aliases": [],
+      "abbreviation": "CRO",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "11255",
+        "ffaUuid": "f40d5205-22a0-386c-9530-b06c8428bd87"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": "assets/identities/football/australian-championship/11255.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-09/11255_0.png?itok=fDzwq-T1",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "ca9862e1479da1ae44dc7a7d8fd1b27d4db627cc4bf9b6aed16372132edce200"
+      },
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:11022",
+      "displayName": "Lions FC",
+      "shortName": "Lions FC",
+      "aliases": [],
+      "abbreviation": "LIO",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "11022",
+        "ffaUuid": "39203e7a-a67f-34b4-a7fe-4e1775c05dd2"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": "assets/identities/football/australian-championship/11022.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2026-09/153910404_lions_fc_-_logo_suite-type_2.png?itok=WDZ_DWLJ",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "08e4b697bd181dfcef8f61ebd2ffeb7c4c2c3d6d3b356a9883a376229885e9a0"
+      },
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:3502",
+      "displayName": "Marconi Stallions",
+      "shortName": "Marconi Stallions",
+      "aliases": [],
+      "abbreviation": "MAR",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "3502",
+        "ffaUuid": "60f0c16a-ae3e-30fb-8161-10dd396bfad9"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": "assets/identities/football/australian-championship/3502.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-09/3502.png?itok=8-USNegn",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "4b2c9dcf944e2297c3e00a3796e59299e150e2d73d2a3f9c0efdf3defc3bc2b2"
+      },
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:11021",
+      "displayName": "Oakleigh Cannons",
+      "shortName": "Oakleigh Cannons",
+      "aliases": [],
+      "abbreviation": "OAK",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "11021",
+        "ffaUuid": "ec763427-341e-3a70-b5f6-bfd148a6c9f9"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": "assets/identities/football/australian-championship/11021.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2026-09/oakleigh-cannons_1.png?itok=XaGin7Nz",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "a4363fba1beb4f0708b1ff22fef9c79abda6687a10486ea436534c8c35c7b14f"
+      },
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:20436",
+      "displayName": "Preston Lions",
+      "shortName": "Preston Lions",
+      "aliases": [],
+      "abbreviation": "PRL",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "20436",
+        "ffaUuid": "a42163b8-5945-4f67-a94c-87b42a4cca15"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": "assets/identities/football/australian-championship/20436.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-01/Preston_Lions_FC_%28logo%29.svg.png?itok=OtCco-KW",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "dd9243184263fa2161edd20b928f34dba5d8067f017900622af2426fba44b880"
+      },
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:9928",
+      "displayName": "South Hobart",
+      "shortName": "South Hobart",
+      "aliases": [],
+      "abbreviation": "SHO",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "9928",
+        "ffaUuid": "67362601-bc79-3ab6-85d9-73d81c4461f1"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": "assets/identities/football/australian-championship/9928.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-09/9928.png?itok=vs--guK6",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "117232204c034aeb6f64d426b585c9edeae8ab63b07df6c82498655b42e6ab63"
+      },
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:10470",
+      "displayName": "South Melbourne",
+      "shortName": "South Melbourne",
+      "aliases": [],
+      "abbreviation": "SMB",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "10470",
+        "ffaUuid": "caa748c4-faa6-3a74-82aa-ea94dc7dadc4"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": "assets/identities/football/australian-championship/10470.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-01/South_Melbourne_FC_logo.svg.png?itok=eTlkSEVj",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "47d3d819447e340471d19acade3c06420b83ef07586cf5b9f7d6ddb740dd3a5e"
+      },
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:15433",
+      "displayName": "Sutherland Sharks",
+      "shortName": "Sutherland Sharks",
+      "aliases": [],
+      "abbreviation": "SSS",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "15433",
+        "ffaUuid": "12175720-35fc-3278-9cf1-1ec943fd2877"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": "assets/identities/football/australian-championship/15433.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2026-09/sharksfc_logo_2026_screen_primary_ocean_rgb.png?itok=D5ZcRxc3",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "104e340b3cbe7174aa8c948676ddefbb9e5ca1f1e01874339e1133e9559275cd"
+      },
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:9938",
+      "displayName": "Sydney Olympic",
+      "shortName": "Sydney Olympic",
+      "aliases": [],
+      "abbreviation": "OLY",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "9938",
+        "ffaUuid": "1e24de88-c8e4-3c8f-bc33-2b75db1b988d"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": "assets/identities/football/australian-championship/9938.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2026-09/9938.png?itok=rZBQM69R",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "a4fc0b677dd582e9197c8622b0fd4a9fde6f69db833e8f7d36ddbe51c319f598"
+      },
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:9939",
+      "displayName": "Sydney United 58",
+      "shortName": "Sydney United 58",
+      "aliases": [],
+      "abbreviation": "SUD",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "9939",
+        "ffaUuid": "0e4fe633-6261-3501-86a5-ad0077e2344a"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": "assets/identities/football/australian-championship/9939.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-01/Sydney_United_FC.png?itok=YFh3f0BZ",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "badfb680376c44e108221e69b0565af222f2fe69fb93d3496acbbfe5a8152b88"
+      },
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:20439",
+      "displayName": "Wests Apia",
+      "shortName": "Wests Apia",
+      "aliases": [],
+      "abbreviation": "WAFC",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "20439",
+        "ffaUuid": "aba11d2d-4e39-4f6a-bccc-0294a7ca44ad"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": "assets/identities/football/australian-championship/20439.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-10/20439.png?itok=rZmeAnbi",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "349085ed964413637187c76b730b355e58b050d4eaaf77b61f9fc09a18701e32"
+      },
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:879",
+      "displayName": "Wollongong Wolves",
+      "shortName": "Wollongong Wolves",
+      "aliases": [],
+      "abbreviation": "WOL",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "879",
+        "ffaUuid": "3e3417fe-b876-3bea-af3c-965e1995afb4"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": "assets/identities/football/australian-championship/879.png",
+      "crestSourceUrl": "https://australianchampionship.com.au/",
+      "crestStatus": "official-reference",
+      "crestProvenance": {
+        "sourceUrl": "https://australianchampionship.com.au/",
+        "assetUrl": "https://australianchampionship.com.au/sites/default/files/styles/image_600x/public/2025-08/wolves.png?itok=XNhW_KSn",
+        "verifiedAt": "2026-10-20T02:28:00.820522Z",
+        "sha256": "c4e423f94071da1873ad666238694ad96aaf76d0fcacfa434ebdabfed2a46248"
+      },
+      "playerCoverage": "unavailable"
+    }
+  ],
+  "records": [
+    {
+      "id": "football-australian-championship-2026-22278865",
+      "canonicalEventId": "event:football:australian-championship:2026:22278865",
+      "officialMatchId": 22278865,
+      "officialMatchUuid": "e9084873-614c-4566-85d1-f12c114747f7",
+      "homeParticipantId": "team:football:australian-championship:20436",
+      "awayParticipantId": "team:football:australian-championship:879",
+      "startTimeUtc": "2026-10-15T08:30:00+00:00",
+      "roundNumber": 1,
+      "groupId": "D",
+      "target": false,
+      "recordSha256": "5ebf900d2ed9bc140e35d8c7f1dc151c771a8d537bf0be34366f27560675db78",
+      "nonResultSha256": "bd4304c3f0c01da4d9b9d04f779055917535b7509194548ea4d31222d360bb2f",
+      "projectionStartTimeUtc": "2026-10-15T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278866",
+      "canonicalEventId": "event:football:australian-championship:2026:22278866",
+      "officialMatchId": 22278866,
+      "officialMatchUuid": "3a05ed86-89a7-48cf-9169-ed8d32456745",
+      "homeParticipantId": "team:football:australian-championship:9927",
+      "awayParticipantId": "team:football:australian-championship:14521",
+      "startTimeUtc": "2026-10-16T08:30:00+00:00",
+      "roundNumber": 1,
+      "groupId": "B",
+      "target": false,
+      "recordSha256": "7ad8222516a7ea32c85abc4349bbb8b24b4616081817ddca7c1191ea38c02fe6",
+      "nonResultSha256": "f5b72a16b997ef5c25d32c6002cbd0e48664704cd899866628758f9993620931",
+      "projectionStartTimeUtc": "2026-10-16T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278867",
+      "canonicalEventId": "event:football:australian-championship:2026:22278867",
+      "officialMatchId": 22278867,
+      "officialMatchUuid": "35caea3d-4a38-492b-8fcb-b31844108160",
+      "homeParticipantId": "team:football:australian-championship:11021",
+      "awayParticipantId": "team:football:australian-championship:9938",
+      "startTimeUtc": "2026-10-16T08:30:00+00:00",
+      "roundNumber": 1,
+      "groupId": "C",
+      "target": false,
+      "recordSha256": "b0b3b186f98bb1b956f92384c35edb2c18b4e9332a6ed5cd57917d042ba973b3",
+      "nonResultSha256": "0d6570c6de2249ec7cf157845729a60c64e968cb30a606401ada72bd32e840d8",
+      "projectionStartTimeUtc": "2026-10-16T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278868",
+      "canonicalEventId": "event:football:australian-championship:2026:22278868",
+      "officialMatchId": 22278868,
+      "officialMatchUuid": "05f29ee0-6c5a-448e-ae78-1de4277f05d3",
+      "homeParticipantId": "team:football:australian-championship:15433",
+      "awayParticipantId": "team:football:australian-championship:10470",
+      "startTimeUtc": "2026-10-17T04:00:00+00:00",
+      "roundNumber": 1,
+      "groupId": "A",
+      "target": false,
+      "recordSha256": "1f1a6f2968d5c4e2b09380e5c93c99f3de1a476ae37b7e2f0bf4b8cf0659715f",
+      "nonResultSha256": "c236915691f0831ae0310d15e7e0afa0c64d38b9f8eff4ac31aff811a0b6d6da",
+      "projectionStartTimeUtc": "2026-10-17T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278869",
+      "canonicalEventId": "event:football:australian-championship:2026:22278869",
+      "officialMatchId": 22278869,
+      "officialMatchUuid": "1ff827b0-78ca-4fb2-b25a-7ebc5b505d98",
+      "homeParticipantId": "team:football:australian-championship:9946",
+      "awayParticipantId": "team:football:australian-championship:20439",
+      "startTimeUtc": "2026-10-17T04:00:00+00:00",
+      "roundNumber": 1,
+      "groupId": "B",
+      "target": false,
+      "recordSha256": "7c182862c4daa88e259e78bbc389f2b315e7174eca63bfbfabf26d0b6903bb27",
+      "nonResultSha256": "7575e8d687e36cea4aba123bc42ca008bdc40c1d7afea5d07a0df00211db6700",
+      "projectionStartTimeUtc": "2026-10-17T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278870",
+      "canonicalEventId": "event:football:australian-championship:2026:22278870",
+      "officialMatchId": 22278870,
+      "officialMatchUuid": "bf4d983e-c302-43a5-8d4a-2ad70e9f10ee",
+      "homeParticipantId": "team:football:australian-championship:9944",
+      "awayParticipantId": "team:football:australian-championship:3502",
+      "startTimeUtc": "2026-10-17T08:30:00+00:00",
+      "roundNumber": 1,
+      "groupId": "C",
+      "target": false,
+      "recordSha256": "f5aa38c4b1de28592cf92b2fa96932aa8b45b6de2a565897a12c56b4e54760b3",
+      "nonResultSha256": "498485401368103bfb642d1822a065f9bb7f9eb8bc7d4b5e21c0ecbf44a8dc27",
+      "projectionStartTimeUtc": "2026-10-17T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278871",
+      "canonicalEventId": "event:football:australian-championship:2026:22278871",
+      "officialMatchId": 22278871,
+      "officialMatchUuid": "0b036be1-423b-4f2b-a532-2f280d0333ac",
+      "homeParticipantId": "team:football:australian-championship:9939",
+      "awayParticipantId": "team:football:australian-championship:11255",
+      "startTimeUtc": "2026-10-18T04:00:00+00:00",
+      "roundNumber": 1,
+      "groupId": "A",
+      "target": false,
+      "recordSha256": "41b4f1b778f41cc7e3ddaeb449d520508cd5ceb29ee43ba47d430718dc7b1521",
+      "nonResultSha256": "237103a22658186a3ecb87071073f02da181fdb2931b770719bf423e60e30687",
+      "projectionStartTimeUtc": "2026-10-18T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278872",
+      "canonicalEventId": "event:football:australian-championship:2026:22278872",
+      "officialMatchId": 22278872,
+      "officialMatchUuid": "36d08da5-b386-464b-9c15-03e1c3448a06",
+      "homeParticipantId": "team:football:australian-championship:11022",
+      "awayParticipantId": "team:football:australian-championship:9928",
+      "startTimeUtc": "2026-10-18T07:00:00+00:00",
+      "roundNumber": 1,
+      "groupId": "D",
+      "target": false,
+      "recordSha256": "577724db63d084dcbb947cedecd7b19de6ce5d13fea854327ec81b3a9ff5fdd9",
+      "nonResultSha256": "60af14e8cc23d68edfaef96c4aab441eb23128ef77d7b22c0218224734d4ed39",
+      "projectionStartTimeUtc": "2026-10-18T07:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278873",
+      "canonicalEventId": "event:football:australian-championship:2026:22278873",
+      "officialMatchId": 22278873,
+      "officialMatchUuid": "696aab20-ee3b-40ea-83a7-c46f84106dc4",
+      "homeParticipantId": "team:football:australian-championship:11022",
+      "awayParticipantId": "team:football:australian-championship:20436",
+      "startTimeUtc": "2026-10-22T08:30:00+00:00",
+      "roundNumber": 2,
+      "groupId": "D",
+      "target": true,
+      "recordSha256": "de674d033dd5c1d0f47734ffbb2ef0521cdc5eea997f5f42347ca0cd050f0815",
+      "nonResultSha256": "c856ef0507e74d5ba66bf10d9206798d2d87fa8a7290f09893179eaac949dfaf",
+      "projectionStartTimeUtc": "2026-10-22T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278874",
+      "canonicalEventId": "event:football:australian-championship:2026:22278874",
+      "officialMatchId": 22278874,
+      "officialMatchUuid": "36bd93f4-4546-436e-8bb2-3fa9745e822a",
+      "homeParticipantId": "team:football:australian-championship:10470",
+      "awayParticipantId": "team:football:australian-championship:9939",
+      "startTimeUtc": "2026-10-23T08:30:00+00:00",
+      "roundNumber": 2,
+      "groupId": "A",
+      "target": true,
+      "recordSha256": "db529874b01eaa8218936805fbb3b4cb2a920df7f556de9c9fdca11ee809d36b",
+      "nonResultSha256": "3866398f9ab45614932794958581ebf0c6c029943763a0f4e8313cde72fdd3f3",
+      "projectionStartTimeUtc": "2026-10-23T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278875",
+      "canonicalEventId": "event:football:australian-championship:2026:22278875",
+      "officialMatchId": 22278875,
+      "officialMatchUuid": "8f688291-6796-4f84-807d-70057d1a5996",
+      "homeParticipantId": "team:football:australian-championship:9927",
+      "awayParticipantId": "team:football:australian-championship:20439",
+      "startTimeUtc": "2026-10-23T08:30:00+00:00",
+      "roundNumber": 2,
+      "groupId": "B",
+      "target": true,
+      "recordSha256": "f651bd45ece542af7893bd2be870e1fdd0e49de00877c5951e8144c529e49ab9",
+      "nonResultSha256": "574e399876362a5f34cbb6d74b0fcb032b7c1ec8266673c1d4de91b9298f8ec6",
+      "projectionStartTimeUtc": "2026-10-23T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278876",
+      "canonicalEventId": "event:football:australian-championship:2026:22278876",
+      "officialMatchId": 22278876,
+      "officialMatchUuid": "dcc4b7ca-3d63-487b-954b-dffa93870937",
+      "homeParticipantId": "team:football:australian-championship:14521",
+      "awayParticipantId": "team:football:australian-championship:9946",
+      "startTimeUtc": "2026-10-24T04:00:00+00:00",
+      "roundNumber": 2,
+      "groupId": "B",
+      "target": true,
+      "recordSha256": "f931c3be73d42254521c15cc26cf1cfd954e315ed9cdc215cfbad97a7b3e0dfb",
+      "nonResultSha256": "19c99a7614ec2102de1a0f5d275dcdcc9d6875b38acab072fff26b57e6d04eeb",
+      "projectionStartTimeUtc": "2026-10-24T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278877",
+      "canonicalEventId": "event:football:australian-championship:2026:22278877",
+      "officialMatchId": 22278877,
+      "officialMatchUuid": "f6ed9471-c839-4905-ad7a-f012fd22f95b",
+      "homeParticipantId": "team:football:australian-championship:3502",
+      "awayParticipantId": "team:football:australian-championship:11021",
+      "startTimeUtc": "2026-10-24T04:00:00+00:00",
+      "roundNumber": 2,
+      "groupId": "C",
+      "target": true,
+      "recordSha256": "707e518ee96f76da054238dd5eb949cbc57d5e550329004c9f2e3a93a7f7e360",
+      "nonResultSha256": "6b59f592e3c2aa5c8d3a89f8011f861fb2bd6a4647852967478512663a5b9721",
+      "projectionStartTimeUtc": "2026-10-24T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278878",
+      "canonicalEventId": "event:football:australian-championship:2026:22278878",
+      "officialMatchId": 22278878,
+      "officialMatchUuid": "a7338d4c-c3a5-450c-964b-35eb031cfa55",
+      "homeParticipantId": "team:football:australian-championship:11255",
+      "awayParticipantId": "team:football:australian-championship:15433",
+      "startTimeUtc": "2026-10-24T06:00:00+00:00",
+      "roundNumber": 2,
+      "groupId": "A",
+      "target": true,
+      "recordSha256": "54b5b0ebb03f7095a479b33c9b3a8703a97b482badb855d832754ef5589ef227",
+      "nonResultSha256": "9aeceabc2605724b5eedd30766edabe43a30981d9f274822003b97ced98c262f",
+      "projectionStartTimeUtc": "2026-10-24T06:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278879",
+      "canonicalEventId": "event:football:australian-championship:2026:22278879",
+      "officialMatchId": 22278879,
+      "officialMatchUuid": "6acd0472-2c22-47a6-b42a-247a2840bf18",
+      "homeParticipantId": "team:football:australian-championship:879",
+      "awayParticipantId": "team:football:australian-championship:9928",
+      "startTimeUtc": "2026-10-25T04:00:00+00:00",
+      "roundNumber": 2,
+      "groupId": "D",
+      "target": true,
+      "recordSha256": "834d1ca6bfe704e22ead87b437b01ef0432a7af7297614331a309eaa1d14d08f",
+      "nonResultSha256": "e230c3f6402407987be4ebdc33460fc7ed5b99e306b6fbcaf07bb576c79c4cac",
+      "projectionStartTimeUtc": "2026-10-25T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278880",
+      "canonicalEventId": "event:football:australian-championship:2026:22278880",
+      "officialMatchId": 22278880,
+      "officialMatchUuid": "1c194431-44b9-4d33-92eb-66cc380b4c6c",
+      "homeParticipantId": "team:football:australian-championship:9938",
+      "awayParticipantId": "team:football:australian-championship:9944",
+      "startTimeUtc": "2026-10-25T04:00:00+00:00",
+      "roundNumber": 2,
+      "groupId": "C",
+      "target": true,
+      "recordSha256": "3031d07d02da6505316187ddf3949692c55e617ed59010e76a8b9f53253a8b4d",
+      "nonResultSha256": "3dd360fb0c3e54345b28796c722142421a023bbbbb3f619861061e01ebd19109",
+      "projectionStartTimeUtc": "2026-10-25T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278881",
+      "canonicalEventId": "event:football:australian-championship:2026:22278881",
+      "officialMatchId": 22278881,
+      "officialMatchUuid": "a8e5e6d8-2416-4917-8d80-ffce7e12e429",
+      "homeParticipantId": "team:football:australian-championship:11255",
+      "awayParticipantId": "team:football:australian-championship:10470",
+      "startTimeUtc": "2026-10-29T08:30:00+00:00",
+      "roundNumber": 3,
+      "groupId": "A",
+      "target": true,
+      "recordSha256": "123c5f9d4b723cb9121c2462dd23b94e300995097fb58cd82825d481b380244e",
+      "nonResultSha256": "159320a522ffd5b2a319f2778f3179c154a14881c2285a57a14e42504027473d",
+      "projectionStartTimeUtc": "2026-10-29T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278882",
+      "canonicalEventId": "event:football:australian-championship:2026:22278882",
+      "officialMatchId": 22278882,
+      "officialMatchUuid": "971e6099-dfa2-463e-801c-fa9301b96cfa",
+      "homeParticipantId": "team:football:australian-championship:9938",
+      "awayParticipantId": "team:football:australian-championship:3502",
+      "startTimeUtc": "2026-10-30T08:30:00+00:00",
+      "roundNumber": 3,
+      "groupId": "C",
+      "target": true,
+      "recordSha256": "cec1e5975df93d7101cdedb871b901a0a0a7c1d1ff7dce30f4482e9b0cda2fe6",
+      "nonResultSha256": "eecea7362d832a8b58cc1c2fe049636ba7379acaca0210b23f915a6d0f493b1b",
+      "projectionStartTimeUtc": "2026-10-30T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278883",
+      "canonicalEventId": "event:football:australian-championship:2026:22278883",
+      "officialMatchId": 22278883,
+      "officialMatchUuid": "770b0fdb-ea69-48cb-964a-07f7494cfdf5",
+      "homeParticipantId": "team:football:australian-championship:9946",
+      "awayParticipantId": "team:football:australian-championship:9927",
+      "startTimeUtc": "2026-10-30T08:30:00+00:00",
+      "roundNumber": 3,
+      "groupId": "B",
+      "target": true,
+      "recordSha256": "c95104481a355de20f73d8bd80edf55a0677b1451e31c771d4d9d2bc0f18f633",
+      "nonResultSha256": "f0e1fa0e6a4dcce26c1508249840bce82c05307a985e05cdc04dff63b6138350",
+      "projectionStartTimeUtc": "2026-10-30T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278884",
+      "canonicalEventId": "event:football:australian-championship:2026:22278884",
+      "officialMatchId": 22278884,
+      "officialMatchUuid": "159b10bb-c651-419c-8794-2b6d9aa3ecfa",
+      "homeParticipantId": "team:football:australian-championship:15433",
+      "awayParticipantId": "team:football:australian-championship:9939",
+      "startTimeUtc": "2026-10-31T04:00:00+00:00",
+      "roundNumber": 3,
+      "groupId": "A",
+      "target": false,
+      "recordSha256": "a2357cc1985e7e8e3a26e56b0f789c39ebb1caa884e72e96182f953e04510407",
+      "nonResultSha256": "5b99f265e667cba785ee744f14652b93672dc4328284a99670306d5dbdf5586b",
+      "projectionStartTimeUtc": "2026-10-31T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278885",
+      "canonicalEventId": "event:football:australian-championship:2026:22278885",
+      "officialMatchId": 22278885,
+      "officialMatchUuid": "68ad226d-07f8-4532-b489-16609e42ff27",
+      "homeParticipantId": "team:football:australian-championship:879",
+      "awayParticipantId": "team:football:australian-championship:11022",
+      "startTimeUtc": "2026-10-31T04:00:00+00:00",
+      "roundNumber": 3,
+      "groupId": "D",
+      "target": false,
+      "recordSha256": "905181d2040629fd22c0419f3c26ebbac611c0d7595e2e0736f0d7f73b6b59ce",
+      "nonResultSha256": "c29e3539cdf409580c50b94728ba3d1b17d4e218d2bb30c396923de242ee2b3d",
+      "projectionStartTimeUtc": "2026-10-31T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278886",
+      "canonicalEventId": "event:football:australian-championship:2026:22278886",
+      "officialMatchId": 22278886,
+      "officialMatchUuid": "b75ae6ab-cc83-40c1-8932-284b3be53e19",
+      "homeParticipantId": "team:football:australian-championship:9928",
+      "awayParticipantId": "team:football:australian-championship:20436",
+      "startTimeUtc": "2026-10-31T04:00:00+00:00",
+      "roundNumber": 3,
+      "groupId": "D",
+      "target": false,
+      "recordSha256": "4dcc904218f1ca8ae406bebeab258e11b874894e4b44be9bb261672911cac3c8",
+      "nonResultSha256": "6f218f27f7cc63eee1b9b7ca3db6586e566f59e5aeadc4192a3adde67442a0e7",
+      "projectionStartTimeUtc": "2026-10-31T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278887",
+      "canonicalEventId": "event:football:australian-championship:2026:22278887",
+      "officialMatchId": 22278887,
+      "officialMatchUuid": "0ddef398-ebe8-4ecb-b564-996d198178a3",
+      "homeParticipantId": "team:football:australian-championship:20439",
+      "awayParticipantId": "team:football:australian-championship:14521",
+      "startTimeUtc": "2026-11-01T04:00:00+00:00",
+      "roundNumber": 3,
+      "groupId": "B",
+      "target": false,
+      "recordSha256": "c6c2d38dce18eaf932075303ac29fad2127be596d94f2dd25bbad1dec923e7bc",
+      "nonResultSha256": "8fbfe32185d86a0f57fa4937c7f49302b08327421edca2b6f8713d8bf0582ee2",
+      "projectionStartTimeUtc": "2026-11-01T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278888",
+      "canonicalEventId": "event:football:australian-championship:2026:22278888",
+      "officialMatchId": 22278888,
+      "officialMatchUuid": "66988eaf-fd5d-4d6d-ab00-a87b1c8b78a8",
+      "homeParticipantId": "team:football:australian-championship:9944",
+      "awayParticipantId": "team:football:australian-championship:11021",
+      "startTimeUtc": "2026-11-01T07:00:00+00:00",
+      "roundNumber": 3,
+      "groupId": "C",
+      "target": false,
+      "recordSha256": "80c2b66490364df348a5b2d79c40e56b2a14862e3c0ecb7f65f31fbc812f7f40",
+      "nonResultSha256": "d95dbec37bf583113efdb74656ae273496721c0d1199fab8dbd8a21e574b8345",
+      "projectionStartTimeUtc": "2026-11-01T07:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278889",
+      "canonicalEventId": "event:football:australian-championship:2026:22278889",
+      "officialMatchId": 22278889,
+      "officialMatchUuid": "ec082636-f6b7-4105-892a-c0014b95109d",
+      "homeParticipantId": "team:football:australian-championship:9938",
+      "awayParticipantId": "team:football:australian-championship:11021",
+      "startTimeUtc": "2026-11-05T08:30:00+00:00",
+      "roundNumber": 4,
+      "groupId": "C",
+      "target": false,
+      "recordSha256": "da721795e571dbb7fee4d283b67788a84560f3703c360ea33689fa6527f2ae73",
+      "nonResultSha256": "eee630998fdeb7bcbccdc4027a39e5c6d2379245fc9b9ef43cb578da9ee53b33",
+      "projectionStartTimeUtc": "2026-11-05T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278890",
+      "canonicalEventId": "event:football:australian-championship:2026:22278890",
+      "officialMatchId": 22278890,
+      "officialMatchUuid": "93c9d237-f9f4-4536-afd5-0ecc6fcdc452",
+      "homeParticipantId": "team:football:australian-championship:11255",
+      "awayParticipantId": "team:football:australian-championship:9939",
+      "startTimeUtc": "2026-11-06T08:30:00+00:00",
+      "roundNumber": 4,
+      "groupId": "A",
+      "target": false,
+      "recordSha256": "0d3223333964002ee325e8637d431303a2b47eea142a42a70c15e2ceed5bfec0",
+      "nonResultSha256": "aee173e6e613d5e831d425c4a99a73919f2cbf5d8853fb8eab41bdaab30cccbb",
+      "projectionStartTimeUtc": "2026-11-06T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278891",
+      "canonicalEventId": "event:football:australian-championship:2026:22278891",
+      "officialMatchId": 22278891,
+      "officialMatchUuid": "5e134b9e-4038-4a34-a830-faa9c828f18f",
+      "homeParticipantId": "team:football:australian-championship:3502",
+      "awayParticipantId": "team:football:australian-championship:9944",
+      "startTimeUtc": "2026-11-07T04:00:00+00:00",
+      "roundNumber": 4,
+      "groupId": "C",
+      "target": false,
+      "recordSha256": "50561435d164f76985004a023479ac201956708b25db2e50b146c4c24765dbcf",
+      "nonResultSha256": "ea29d9e7998279a2d2a2bf8422bef1748b59b9ecb3f1a692d88c97a8a29514b5",
+      "projectionStartTimeUtc": "2026-11-07T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278892",
+      "canonicalEventId": "event:football:australian-championship:2026:22278892",
+      "officialMatchId": 22278892,
+      "officialMatchUuid": "cef849a5-730e-406d-bf36-c264c2687131",
+      "homeParticipantId": "team:football:australian-championship:20439",
+      "awayParticipantId": "team:football:australian-championship:9946",
+      "startTimeUtc": "2026-11-07T04:00:00+00:00",
+      "roundNumber": 4,
+      "groupId": "B",
+      "target": false,
+      "recordSha256": "3434bf1e4d2149018300b413587a2b0be2daca4d9fe050f75bc651d4a4632981",
+      "nonResultSha256": "9fe90c33da726187be276354dcba5dcf160784c280c98ca8038763e2389c9d51",
+      "projectionStartTimeUtc": "2026-11-07T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278893",
+      "canonicalEventId": "event:football:australian-championship:2026:22278893",
+      "officialMatchId": 22278893,
+      "officialMatchUuid": "40f4b1c1-7cef-41f3-9cce-876e9161f7d1",
+      "homeParticipantId": "team:football:australian-championship:879",
+      "awayParticipantId": "team:football:australian-championship:20436",
+      "startTimeUtc": "2026-11-07T06:00:00+00:00",
+      "roundNumber": 4,
+      "groupId": "D",
+      "target": false,
+      "recordSha256": "325c693f307299f22a67cdd557c14fd04c5eafd2e22028a10accca6186940f7d",
+      "nonResultSha256": "62d76981122416dfbd330714c06de5369b9e0043a9efd4b568cdb2e697e8536f",
+      "projectionStartTimeUtc": "2026-11-07T06:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278894",
+      "canonicalEventId": "event:football:australian-championship:2026:22278894",
+      "officialMatchId": 22278894,
+      "officialMatchUuid": "48c9f6fa-7553-41c2-93a0-123527aff1fc",
+      "homeParticipantId": "team:football:australian-championship:10470",
+      "awayParticipantId": "team:football:australian-championship:15433",
+      "startTimeUtc": "2026-11-07T08:30:00+00:00",
+      "roundNumber": 4,
+      "groupId": "A",
+      "target": false,
+      "recordSha256": "f9429260b2ceab0edd369713162eec6a5bdb20b5f3ff94fc4a8f4a4eca753f55",
+      "nonResultSha256": "9b1f57d1306c088209b367695fbfe800323f13ab1c34159fbc4da646c35f67d9",
+      "projectionStartTimeUtc": "2026-11-07T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278895",
+      "canonicalEventId": "event:football:australian-championship:2026:22278895",
+      "officialMatchId": 22278895,
+      "officialMatchUuid": "c40571ba-adce-4ad7-a565-1d137945b6fd",
+      "homeParticipantId": "team:football:australian-championship:14521",
+      "awayParticipantId": "team:football:australian-championship:9927",
+      "startTimeUtc": "2026-11-08T04:00:00+00:00",
+      "roundNumber": 4,
+      "groupId": "B",
+      "target": false,
+      "recordSha256": "9eb6b8501b27fe8419767ecf4fa6d91a9263e9a6d385ad980a9789103e4539b0",
+      "nonResultSha256": "b9095baa8a9c8573df763aeda5b9b7fef6d26534e8c840037539c2a47d749f75",
+      "projectionStartTimeUtc": "2026-11-08T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278896",
+      "canonicalEventId": "event:football:australian-championship:2026:22278896",
+      "officialMatchId": 22278896,
+      "officialMatchUuid": "0674f55e-957e-4f8a-8933-aa71dd656ad2",
+      "homeParticipantId": "team:football:australian-championship:9928",
+      "awayParticipantId": "team:football:australian-championship:11022",
+      "startTimeUtc": "2026-11-08T04:00:00+00:00",
+      "roundNumber": 4,
+      "groupId": "D",
+      "target": false,
+      "recordSha256": "04dd4b3bb3e451f8c3b5c74057b2cf31685d3d25f9de285f19c9235b4c52aee2",
+      "nonResultSha256": "39ae88f3d069bfe44ca0de90e980bf75d3ed9a178c439ecb515235e4ab30e302",
+      "projectionStartTimeUtc": "2026-11-08T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278897",
+      "canonicalEventId": "event:football:australian-championship:2026:22278897",
+      "officialMatchId": 22278897,
+      "officialMatchUuid": "fbe55bd7-5bba-4096-a839-894cedc554cb",
+      "homeParticipantId": "team:football:australian-championship:20439",
+      "awayParticipantId": "team:football:australian-championship:9927",
+      "startTimeUtc": "2026-11-12T08:30:00+00:00",
+      "roundNumber": 5,
+      "groupId": "B",
+      "target": false,
+      "recordSha256": "372aa13f2ff5b052b141d9d983b26f5f7d10ec5ce451bc77d45da89f36655a07",
+      "nonResultSha256": "f53834a22df5f4cb26440afd67ffe8628200dad0a8852e437a826455fca4ccde",
+      "projectionStartTimeUtc": "2026-11-12T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278898",
+      "canonicalEventId": "event:football:australian-championship:2026:22278898",
+      "officialMatchId": 22278898,
+      "officialMatchUuid": "dcc26fcd-8d9a-4f17-9aa9-0fbf4cc4956a",
+      "homeParticipantId": "team:football:australian-championship:11021",
+      "awayParticipantId": "team:football:australian-championship:3502",
+      "startTimeUtc": "2026-11-13T08:30:00+00:00",
+      "roundNumber": 5,
+      "groupId": "C",
+      "target": false,
+      "recordSha256": "1a467259a854ca6a78981345f6517f8d9c704f92ecf2d00c5f34d1089dff804a",
+      "nonResultSha256": "3c841dd45c084c33aedb387b029ac4bcd899ca7276b2b5362b5a397a08903acb",
+      "projectionStartTimeUtc": "2026-11-13T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278899",
+      "canonicalEventId": "event:football:australian-championship:2026:22278899",
+      "officialMatchId": 22278899,
+      "officialMatchUuid": "917b540b-c75e-4f6f-b0b2-4cfe829b1214",
+      "homeParticipantId": "team:football:australian-championship:20436",
+      "awayParticipantId": "team:football:australian-championship:11022",
+      "startTimeUtc": "2026-11-13T08:30:00+00:00",
+      "roundNumber": 5,
+      "groupId": "D",
+      "target": false,
+      "recordSha256": "f14d5506963ef9190c3aebc41325216cc555083b7f4aba658171b611a7afd0fc",
+      "nonResultSha256": "5e366ccce812c358abffca39e5198d485b7dc2ab37bf15d1e0a6ca257023c53d",
+      "projectionStartTimeUtc": "2026-11-13T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278900",
+      "canonicalEventId": "event:football:australian-championship:2026:22278900",
+      "officialMatchId": 22278900,
+      "officialMatchUuid": "0f416706-e3da-40d9-8d61-bb483d974683",
+      "homeParticipantId": "team:football:australian-championship:9939",
+      "awayParticipantId": "team:football:australian-championship:10470",
+      "startTimeUtc": "2026-11-14T04:00:00+00:00",
+      "roundNumber": 5,
+      "groupId": "A",
+      "target": false,
+      "recordSha256": "04a9d5cae700287bd60a74cd85a0dd305e2ea6fac4ef93aeb5d13027471de4b8",
+      "nonResultSha256": "2bce5f6319e39f9a7048e465cee93818b56756a050c4fc0d1650d053ac512011",
+      "projectionStartTimeUtc": "2026-11-14T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278901",
+      "canonicalEventId": "event:football:australian-championship:2026:22278901",
+      "officialMatchId": 22278901,
+      "officialMatchUuid": "6bc6f4ab-a12a-4911-87b6-de88221c9628",
+      "homeParticipantId": "team:football:australian-championship:9928",
+      "awayParticipantId": "team:football:australian-championship:879",
+      "startTimeUtc": "2026-11-14T04:00:00+00:00",
+      "roundNumber": 5,
+      "groupId": "D",
+      "target": false,
+      "recordSha256": "e9ae58fbc47f3243a661f62058bded369c0db1d1f2f4d2ecd596bc8f456e77e2",
+      "nonResultSha256": "2e68761417fc2dfbcd2ad3769f6dbfde617c7beb24764536647389965f0e151a",
+      "projectionStartTimeUtc": "2026-11-14T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278902",
+      "canonicalEventId": "event:football:australian-championship:2026:22278902",
+      "officialMatchId": 22278902,
+      "officialMatchUuid": "26a709b0-c7a8-4dee-8284-209b9deee83b",
+      "homeParticipantId": "team:football:australian-championship:9944",
+      "awayParticipantId": "team:football:australian-championship:9938",
+      "startTimeUtc": "2026-11-14T08:30:00+00:00",
+      "roundNumber": 5,
+      "groupId": "C",
+      "target": false,
+      "recordSha256": "995e843df44b149e07831f8a9f4060293cf97866c3d81aec09305dce87084f30",
+      "nonResultSha256": "ce57afae2ed847b9bac1c77190628bee67b14d09a8ac18cff03b9d6af6750d74",
+      "projectionStartTimeUtc": "2026-11-14T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278903",
+      "canonicalEventId": "event:football:australian-championship:2026:22278903",
+      "officialMatchId": 22278903,
+      "officialMatchUuid": "7154d1fc-1a8b-4a25-9b58-715d62a6ce71",
+      "homeParticipantId": "team:football:australian-championship:9946",
+      "awayParticipantId": "team:football:australian-championship:14521",
+      "startTimeUtc": "2026-11-15T04:00:00+00:00",
+      "roundNumber": 5,
+      "groupId": "B",
+      "target": false,
+      "recordSha256": "2dbfa8679cedc28868ab4597c0c8cde348b617e5563d37e3649f50c6830d774c",
+      "nonResultSha256": "150ad4a60bf41110089f4d933bb52b3cd55067f65bf84060f01ba0dfef28b1af",
+      "projectionStartTimeUtc": "2026-11-15T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278904",
+      "canonicalEventId": "event:football:australian-championship:2026:22278904",
+      "officialMatchId": 22278904,
+      "officialMatchUuid": "2973807f-5960-4746-99b6-5a55555309fc",
+      "homeParticipantId": "team:football:australian-championship:15433",
+      "awayParticipantId": "team:football:australian-championship:11255",
+      "startTimeUtc": "2026-11-15T04:00:00+00:00",
+      "roundNumber": 5,
+      "groupId": "A",
+      "target": false,
+      "recordSha256": "38ab02cd6766e7be8c4da4c5352100aaecfa0a4287dccbb7ad61ffff622bf447",
+      "nonResultSha256": "fb11c3c7e6b904d837b621e46aefb5835007e307c50c9c9fd69c1794f66752a5",
+      "projectionStartTimeUtc": "2026-11-15T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278905",
+      "canonicalEventId": "event:football:australian-championship:2026:22278905",
+      "officialMatchId": 22278905,
+      "officialMatchUuid": "1ad3e3bf-ff71-4400-bb47-71a18cbe0148",
+      "homeParticipantId": "team:football:australian-championship:11022",
+      "awayParticipantId": "team:football:australian-championship:879",
+      "startTimeUtc": "2026-11-19T08:30:00+00:00",
+      "roundNumber": 6,
+      "groupId": "D",
+      "target": false,
+      "recordSha256": "e70aa9ada8d2a1b2e8e777dbeb7134a38fe438ddb816a8c9c56eb003efb44f97",
+      "nonResultSha256": "ab6df83e1f0144183620c72bb0bbbebedaec4d54bb2ba356167179e3d77e20a4",
+      "projectionStartTimeUtc": "2026-11-19T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278906",
+      "canonicalEventId": "event:football:australian-championship:2026:22278906",
+      "officialMatchId": 22278906,
+      "officialMatchUuid": "c9dfedb8-5cdc-4f7d-9c4a-633c0277da00",
+      "homeParticipantId": "team:football:australian-championship:20436",
+      "awayParticipantId": "team:football:australian-championship:9928",
+      "startTimeUtc": "2026-11-19T08:30:00+00:00",
+      "roundNumber": 6,
+      "groupId": "D",
+      "target": false,
+      "recordSha256": "76b9bb9dd746992b47a794d48d1dfa7525a85c1e9478cb360d7d8eadd2a3b531",
+      "nonResultSha256": "dd84e1742925b3eca35bd317f962985d4b4977f4bc697c1c7434986c83a05602",
+      "projectionStartTimeUtc": "2026-11-19T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278907",
+      "canonicalEventId": "event:football:australian-championship:2026:22278907",
+      "officialMatchId": 22278907,
+      "officialMatchUuid": "9c42ebce-afea-41a3-900e-75b8b6b9dd74",
+      "homeParticipantId": "team:football:australian-championship:10470",
+      "awayParticipantId": "team:football:australian-championship:11255",
+      "startTimeUtc": "2026-11-20T08:30:00+00:00",
+      "roundNumber": 6,
+      "groupId": "A",
+      "target": false,
+      "recordSha256": "98fb2525725176d13c03d704c97ec62734b71cf11eab9f5edd89172b9748891a",
+      "nonResultSha256": "44bc2d7465232ff722dc553b247023bd2ea9d0253ab4056bd55aa217480fef26",
+      "projectionStartTimeUtc": "2026-11-20T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278908",
+      "canonicalEventId": "event:football:australian-championship:2026:22278908",
+      "officialMatchId": 22278908,
+      "officialMatchUuid": "98e00d1f-fcfa-408f-8ab1-48bf087eacdf",
+      "homeParticipantId": "team:football:australian-championship:9939",
+      "awayParticipantId": "team:football:australian-championship:15433",
+      "startTimeUtc": "2026-11-20T08:30:00+00:00",
+      "roundNumber": 6,
+      "groupId": "A",
+      "target": false,
+      "recordSha256": "0591c907c38c57bb9f374f4d96ccfa9c4acdf075e0f90321ace9dc02ec5b15e6",
+      "nonResultSha256": "2aedc9ebdc0e3fb2b39ba227f258e9cfb5faf01d6e4e47a55c6c27f364fe977a",
+      "projectionStartTimeUtc": "2026-11-20T08:30:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278909",
+      "canonicalEventId": "event:football:australian-championship:2026:22278909",
+      "officialMatchId": 22278909,
+      "officialMatchUuid": "153d2901-9070-4e9d-9df5-7bda9857f34f",
+      "homeParticipantId": "team:football:australian-championship:11021",
+      "awayParticipantId": "team:football:australian-championship:9944",
+      "startTimeUtc": "2026-11-21T04:00:00+00:00",
+      "roundNumber": 6,
+      "groupId": "C",
+      "target": false,
+      "recordSha256": "4263a5f1589ff223b757c104907ce10c44a21ca4312fbd8387cdaec4a8a100ac",
+      "nonResultSha256": "35e52e80dc3d225d6cb8e1c5678bfb4460c9fc5615d2dfc9ef6dc3b771d8c630",
+      "projectionStartTimeUtc": "2026-11-21T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278910",
+      "canonicalEventId": "event:football:australian-championship:2026:22278910",
+      "officialMatchId": 22278910,
+      "officialMatchUuid": "ed5042d4-2c21-4ee3-809f-a6db98a6bae5",
+      "homeParticipantId": "team:football:australian-championship:3502",
+      "awayParticipantId": "team:football:australian-championship:9938",
+      "startTimeUtc": "2026-11-21T04:00:00+00:00",
+      "roundNumber": 6,
+      "groupId": "C",
+      "target": false,
+      "recordSha256": "af7de0153899fe22b6ebceb967d3a8ad2123e26388b0a17145533ea05ae33d89",
+      "nonResultSha256": "06dd9b28c694211aa7fd430e3cc6ec22359a18118e21700fa4c1c1c0b918ca4e",
+      "projectionStartTimeUtc": "2026-11-21T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278911",
+      "canonicalEventId": "event:football:australian-championship:2026:22278911",
+      "officialMatchId": 22278911,
+      "officialMatchUuid": "871e1208-4665-4633-96fd-120709738f94",
+      "homeParticipantId": "team:football:australian-championship:9927",
+      "awayParticipantId": "team:football:australian-championship:9946",
+      "startTimeUtc": "2026-11-22T04:00:00+00:00",
+      "roundNumber": 6,
+      "groupId": "B",
+      "target": false,
+      "recordSha256": "ed50a3128e30d50c82215ebbfe5c368d9c0e564838c5c989124f8e2df6ca6e44",
+      "nonResultSha256": "94069d661a4f8ab008a8f43fba83b50cb74d8228c7c65c04bbc38cf9c46d7afe",
+      "projectionStartTimeUtc": "2026-11-22T04:00:00.000Z"
+    },
+    {
+      "id": "football-australian-championship-2026-22278912",
+      "canonicalEventId": "event:football:australian-championship:2026:22278912",
+      "officialMatchId": 22278912,
+      "officialMatchUuid": "eb9c77b8-9eb3-4d20-b073-b326c452c1d0",
+      "homeParticipantId": "team:football:australian-championship:14521",
+      "awayParticipantId": "team:football:australian-championship:20439",
+      "startTimeUtc": "2026-11-22T04:00:00+00:00",
+      "roundNumber": 6,
+      "groupId": "B",
+      "target": false,
+      "recordSha256": "dd92aa22806e42b4d5aa8a4086b7fbe004eda3161404f652c795568370c77c72",
+      "nonResultSha256": "af6a8979f39c09484a87896cb39c9c0b722c0368c1ccd5c80863a3294cb686b9",
+      "projectionStartTimeUtc": "2026-11-22T04:00:00.000Z"
+    }
+  ],
+  "headerSha256": "e80db5b7a80542c827fa841c0825d297a2dc55c8817e6a455ee8ffdc3475d6a8",
+  "projections": {
+    "data/code-inspector/football.json": {
+      "event:football:australian-championship:2026:22278865": {
+        "recordSha256": "f4dd0f422820e96465e684c94a85f97e88cdf9950604e6a12ac27c59d86a1f2f",
+        "nonResultSha256": "ba3f6f1e8280b641fca1ae23eb38ec736fb37d0ad2d48f2ba96dbe78f5d9c73f"
+      },
+      "event:football:australian-championship:2026:22278866": {
+        "recordSha256": "168d07dd3763dd47b4cc75dcf0ed77dd6aaea010572bbef15f5cea64a2096448",
+        "nonResultSha256": "df7c5f1fd8676d57b3d98ba279a5bc2072371c624cdba515c012ff9a0e15b4d5"
+      },
+      "event:football:australian-championship:2026:22278867": {
+        "recordSha256": "8cd7a54ba68dae48dff8260f413be5cf807b04cb9df27d52b6aa88c6feccb037",
+        "nonResultSha256": "31959e737115767d1ada728444b0f393313b47ae446d48ed3ce9049f8e7c722d"
+      },
+      "event:football:australian-championship:2026:22278868": {
+        "recordSha256": "75254017afa60572392fb1128ada348405c831b3b42c276f0054304863855736",
+        "nonResultSha256": "aa317f7aa17a50fc03d2d52ae83257e64cd087cdc5fc7883c6a773f3d41e775a"
+      },
+      "event:football:australian-championship:2026:22278869": {
+        "recordSha256": "d272cb84c72a7ce690ecd8d433f285cadbad73187321fa11a62d1969dfc62efb",
+        "nonResultSha256": "489f87270ae79c1f4283c6b13bc3c418749cb2ad58b2d45c17adbc62df6ec26e"
+      },
+      "event:football:australian-championship:2026:22278870": {
+        "recordSha256": "fe3f154deca9d82b33b84551669d2000f81f4b06162701463fe0e05930de23dc",
+        "nonResultSha256": "5ed308db52f2649aeefb10b62895d61a1ccc075575056cef34c16d6df8070bcf"
+      },
+      "event:football:australian-championship:2026:22278871": {
+        "recordSha256": "4532859a932db3f925a675c59da8f7c0ec212c46b03d87a203bc2b0df9dd685f",
+        "nonResultSha256": "8754c59e5a2f9683514afc8ef59bf9f4a608b0c5292d1835e5c06d5196d3860a"
+      },
+      "event:football:australian-championship:2026:22278872": {
+        "recordSha256": "3633e9c29a247bd236eda48bc15f3fd0dcb285dc2f8745a20b87ae12fc92dcb5",
+        "nonResultSha256": "2a1e36f0869d31fd548e3d15351acbadedafee8674591de16b41660f61946714"
+      },
+      "event:football:australian-championship:2026:22278873": {
+        "recordSha256": "ffcb02c607dadd01c5d3372064390dbe200664aba43b3563bc1edf5bc24e4bdc",
+        "nonResultSha256": "3a49016fcf593fb44a608e5b3684d03a84a70fc30c20a6b329f4d02b1c5e4443"
+      },
+      "event:football:australian-championship:2026:22278874": {
+        "recordSha256": "cc2b4d81c039f37aa564ff8a8616db453a26f78cd1cef7140c54ad33993d5acc",
+        "nonResultSha256": "99dcdd3ef46c13f12306c40ebd1a7843423ccff165a4e94fe0ae83df6d093634"
+      },
+      "event:football:australian-championship:2026:22278875": {
+        "recordSha256": "5ba7eb6f8cfc07422dbcdbf3bdb3f2f24c934ac1ee2a9f67c46b68b492727715",
+        "nonResultSha256": "c259756c11960c783e2a48ac62b328a1d4f10f588bb7de5dd5cace1e210c74af"
+      },
+      "event:football:australian-championship:2026:22278876": {
+        "recordSha256": "c447f02b23c67eaaa86c66a5c774ad2db16af463bfde5373cf0656ef7f93a0cf",
+        "nonResultSha256": "b0840450ef3ee2d1a096ad27aef61c5ac1ef3e39e5448ef8eac12cfe5f80a53f"
+      },
+      "event:football:australian-championship:2026:22278877": {
+        "recordSha256": "a169cb3089a857707ff8bb635f7181c385f2757c50992011bd0e75eedbef120e",
+        "nonResultSha256": "7a7104064cabed0a0493b76bde2656a71efd55769cd5a2713a2da67942493bef"
+      },
+      "event:football:australian-championship:2026:22278878": {
+        "recordSha256": "73f0de052c0e15a6935b6e3a2fb50cdfd37e5a5271a14c605c99a0c4f7db33ed",
+        "nonResultSha256": "14f40c2315edc7b7ffd8024ce6e384c1c8c6280aaf8848d6fae1f32772c26eb3"
+      },
+      "event:football:australian-championship:2026:22278879": {
+        "recordSha256": "8521e745077025da31bdd7b9e71532815fd7177c7284abe7dc13e9c34b5da442",
+        "nonResultSha256": "b8134f5209d863823f57f26a8e1ed3fbe801207cc1629428e733580856ce42c6"
+      },
+      "event:football:australian-championship:2026:22278880": {
+        "recordSha256": "4878fed99efcab7c13994b2106c45d9dcb7b7f319d0a0e65d0dacfd364c7f4eb",
+        "nonResultSha256": "4c90944a2ed95614363bf853244f4e708123a549b21cf0a5a33f9d508e02d6c0"
+      },
+      "event:football:australian-championship:2026:22278881": {
+        "recordSha256": "373a298e138a8e54bc12d80a2d59111e07033eba26117d3da22c556821808e54",
+        "nonResultSha256": "fe1aea95813ed858d3bc403304b17b3c788487512d8a6b2a147b39c30952247d"
+      },
+      "event:football:australian-championship:2026:22278882": {
+        "recordSha256": "ef4956ce6cff8d2136aad6fa7d6e18fa8c46c4ef5f290c454ea6acb4a020f106",
+        "nonResultSha256": "64f817ffb41625383b58960baced13e17b39787dfa39221a77be05f9af64dab4"
+      },
+      "event:football:australian-championship:2026:22278883": {
+        "recordSha256": "0d64637d8206257ea87fafc3afd421fbf3b6a9be7c75392ecb370574862ceb75",
+        "nonResultSha256": "327a4f733c14a49b6048d150683870d3ff9741cdbe05d1b9ef11e3b26976f583"
+      },
+      "event:football:australian-championship:2026:22278884": {
+        "recordSha256": "7fa3415e93e1752ca955d875f7ae64f175a2c376be0501dfec89d1ede62b82b6",
+        "nonResultSha256": "5a14249b58779f10eb97cb73b4182cfe4ea24c4bdfe1b1765c5b1d4d16aaf593"
+      },
+      "event:football:australian-championship:2026:22278885": {
+        "recordSha256": "0a4abeecf67c697aaf82607abdb12939f5087ef1926c0fc5a76053ecdf37451e",
+        "nonResultSha256": "3a2c7c31864909568b3cf4b0185a2655fa690068d377c7a5630258e55391b301"
+      },
+      "event:football:australian-championship:2026:22278886": {
+        "recordSha256": "978854c2891b0790e1ae1ad18d892fe6a86b57a34f920ea4768e4e8fc6b5514f",
+        "nonResultSha256": "fe6f891a54ad85fd335f7d9c7401bf366a290babab41fce36e038f9f82f99ad9"
+      },
+      "event:football:australian-championship:2026:22278887": {
+        "recordSha256": "8dc8438d464f682c4c312afbc4ccdd0ba7f7423b801c1806f89abd4bce9df3d0",
+        "nonResultSha256": "ef68b3688b81106f93b4b6dc28f4add1c2356f304eb0af084ae28ee5fd80ddc3"
+      },
+      "event:football:australian-championship:2026:22278888": {
+        "recordSha256": "1e4de2e65f1bb4dca8ba5ce96c8289b838a96b3489228497762dc77b5df26708",
+        "nonResultSha256": "7e84fb9cd129238d035ebc31cbe360f24995244d4c308ef9b0bee487384a6074"
+      },
+      "event:football:australian-championship:2026:22278889": {
+        "recordSha256": "a5acde447343ba733c2df0143bd9ee82ff7faeb706e9eebbbc6b5da25b0fb256",
+        "nonResultSha256": "83016b39a76938281cd9980ff69b6e4ea423b1bcb80fe317f929bbff5c4496c8"
+      },
+      "event:football:australian-championship:2026:22278890": {
+        "recordSha256": "d985b77cf6b1f490791d6cf16b64febb26fe362ad41be9a06b36c6a49e1c2602",
+        "nonResultSha256": "2716e33a2b8fe4967adf799f41bad304e6181617db1eec7c3f4a5789ffedc1e8"
+      },
+      "event:football:australian-championship:2026:22278891": {
+        "recordSha256": "a19dc45f01d0ecff19a238a2dc68d33c5787ba55626e8477560025178a41169b",
+        "nonResultSha256": "5737f7010996ec7a8b1f83d0a1b309d3e759b2b18632048ea464bb3fe9dd4235"
+      },
+      "event:football:australian-championship:2026:22278892": {
+        "recordSha256": "a158ade06cd71b945b7c31214dd776dc85991219292f18eb6866556da8085c45",
+        "nonResultSha256": "4e81c3407d629bbef8d57b4348fd873221bcf979addd873869b90eea6674d84d"
+      },
+      "event:football:australian-championship:2026:22278893": {
+        "recordSha256": "36f8b336894e72d9280254f07a58dc21bc019156314dc56f9d607a8b923961a7",
+        "nonResultSha256": "6a9be1920eba6811e852d2f89b1f620552a6a88d343264eb56ec7509368b0337"
+      },
+      "event:football:australian-championship:2026:22278894": {
+        "recordSha256": "8fdb5253856b676f2c2c5057a03dde975889d8962e3c973c94d35c2e74ba45d6",
+        "nonResultSha256": "389b0559d6d818564d3eec80fe4280a92e943594d5506c0a658c688b1af99dd6"
+      },
+      "event:football:australian-championship:2026:22278895": {
+        "recordSha256": "5ccf11170ab64f3c36531fc73e30b00f3218e287195057c7697bbbc8e13c2a51",
+        "nonResultSha256": "fc7dd514d8056f27d862c3a29d18cfdceaf79742fccc7d9769ea769fb4273f05"
+      },
+      "event:football:australian-championship:2026:22278896": {
+        "recordSha256": "e57707cd87c3eb8c19e759787eb6574a1ed16dc0faf621a26893e6e646dfdce3",
+        "nonResultSha256": "d2d3129a9db9065fb3377da3655576efeca14cf1760188fdb4057ef881866904"
+      },
+      "event:football:australian-championship:2026:22278897": {
+        "recordSha256": "eb800de02501089347bc91ee139aaf830ed7a1d8a4a2c1a8a9e3399db4fd22b6",
+        "nonResultSha256": "ff9f3dd675480133d3db2df9d3edefb36c4e123e55317a6deb4ba376945f21d7"
+      },
+      "event:football:australian-championship:2026:22278898": {
+        "recordSha256": "5ca3a86c90ed5b554a80e6d64f6a018d8073e2549784d2dd673e7df72076fbaf",
+        "nonResultSha256": "e3380391d8afbfe631bc853c606d9e9ef4ae632eef163645fcb0b75c99b26bd4"
+      },
+      "event:football:australian-championship:2026:22278899": {
+        "recordSha256": "4c6cb790f3d14ffd3a7c3fde7da3f021e702ccbf2dea82c0bea552ca17634090",
+        "nonResultSha256": "d60ffcd5e8ccd757d90489002b17b7ac3dbf6104e78904127ceb6386c69145a7"
+      },
+      "event:football:australian-championship:2026:22278900": {
+        "recordSha256": "1db35844fe66de8db55fe19b59c18669b5cfcac39df00ea3684b8da81e628126",
+        "nonResultSha256": "aec2a8b683b9908068b4dc9797d58bcc9d7f973646811cb610be601935e67eeb"
+      },
+      "event:football:australian-championship:2026:22278901": {
+        "recordSha256": "5e6dba0bb8586db9746033cdc4be56770794c018598e2e349a72f29a743c1d52",
+        "nonResultSha256": "48d3d7b04a8a6f14aed152f0c896d42770aa53ec605c3bce69faac44d6569295"
+      },
+      "event:football:australian-championship:2026:22278902": {
+        "recordSha256": "966b01701d2b2ade63b3ff6abc2ca8cd48e308d781c0cb1576559cdd1235904e",
+        "nonResultSha256": "13e2003f0dac90c6c90e35a58d8c40e6575b63d3049fb24bfe3e69932024bbf5"
+      },
+      "event:football:australian-championship:2026:22278903": {
+        "recordSha256": "fca3a38be81c1ecdc2b8c8e73167aa68ed25465cdea1dcbf7b7f9112f6c6d27d",
+        "nonResultSha256": "af1e43742ecaf750b3e32500079699a484dfd43fd96f7063e400b2175b410fde"
+      },
+      "event:football:australian-championship:2026:22278904": {
+        "recordSha256": "e123ad65b9d9f52878ff8de31ecd3dcda6860e9b97aded4a2c264b184ca0505c",
+        "nonResultSha256": "95f87c3a0e73f5b895b1c116dd3c00e4f3f4ea86dc9be1037711f2891954578c"
+      },
+      "event:football:australian-championship:2026:22278905": {
+        "recordSha256": "0daf7322ef0e52ec49d2dcef8f75b841c995180224427d1b0ed91935b4c41975",
+        "nonResultSha256": "f5578782aae78dd14d7cbaa95cfac4bfceb2875e9a119a2e0d1dc9ff12e19ab3"
+      },
+      "event:football:australian-championship:2026:22278906": {
+        "recordSha256": "56bd9a16ec7021936d217e566b929d624b7eb6be217ca298556ad7da60802939",
+        "nonResultSha256": "c7cbe84248dab0aed0f01ec38f7c071eb4ec37b855b672993bf3255e4c4ad65d"
+      },
+      "event:football:australian-championship:2026:22278907": {
+        "recordSha256": "b8303ca07e22139f6462a6f083e6f1f6403c9c2b16ed1f4cb9d7c3f8a3bbc319",
+        "nonResultSha256": "0ed41530d0ee62c7ed05812be724cdc81fa57cf66846b9f0e59b69e74cf679c2"
+      },
+      "event:football:australian-championship:2026:22278908": {
+        "recordSha256": "682ad47768b3bf4fc99aeca677f98e103faedd9a27467572b4cb9c28f3853ea4",
+        "nonResultSha256": "793ed4c7de1ac16c79eb28a1318b80d76a85d37a628b672d06ebb53d6559917a"
+      },
+      "event:football:australian-championship:2026:22278909": {
+        "recordSha256": "77aa223ced99862fdcb270894d0ba6f0fab8da75a884b09db41127d7bc91d495",
+        "nonResultSha256": "133a1b6a86bd15f9601075ef366a1ad926751264936ef5195566f82525bd4c0c"
+      },
+      "event:football:australian-championship:2026:22278910": {
+        "recordSha256": "f564effca4fa9e08303b92d096a89c352c102a9cd8481284921ce2d8977cbabd",
+        "nonResultSha256": "df04e6d240ba5bb5e99ac86cdbb303bd9710255ab231d56e0e573ca25849720a"
+      },
+      "event:football:australian-championship:2026:22278911": {
+        "recordSha256": "1bf5575a0c4c424ef7291f0dfeee25c513f22d78a9565c2db459bf559a1c6131",
+        "nonResultSha256": "e26508702d4edde7eea9ca9d068911a6ddf1762d3432921da80bc0d775f207e1"
+      },
+      "event:football:australian-championship:2026:22278912": {
+        "recordSha256": "28a69019a13929e43d06d00506cab16cd881fcce82798abdc7def04e54095b69",
+        "nonResultSha256": "e687fe4fb9cea826f123bd2226f50466348ea512bc719c9f2e73c00db9cd1449"
+      }
+    },
+    "data/follow-schedule/football.json": {
+      "event:football:australian-championship:2026:22278865": {
+        "recordSha256": "f4dd0f422820e96465e684c94a85f97e88cdf9950604e6a12ac27c59d86a1f2f",
+        "nonResultSha256": "ba3f6f1e8280b641fca1ae23eb38ec736fb37d0ad2d48f2ba96dbe78f5d9c73f"
+      },
+      "event:football:australian-championship:2026:22278866": {
+        "recordSha256": "168d07dd3763dd47b4cc75dcf0ed77dd6aaea010572bbef15f5cea64a2096448",
+        "nonResultSha256": "df7c5f1fd8676d57b3d98ba279a5bc2072371c624cdba515c012ff9a0e15b4d5"
+      },
+      "event:football:australian-championship:2026:22278867": {
+        "recordSha256": "8cd7a54ba68dae48dff8260f413be5cf807b04cb9df27d52b6aa88c6feccb037",
+        "nonResultSha256": "31959e737115767d1ada728444b0f393313b47ae446d48ed3ce9049f8e7c722d"
+      },
+      "event:football:australian-championship:2026:22278868": {
+        "recordSha256": "75254017afa60572392fb1128ada348405c831b3b42c276f0054304863855736",
+        "nonResultSha256": "aa317f7aa17a50fc03d2d52ae83257e64cd087cdc5fc7883c6a773f3d41e775a"
+      },
+      "event:football:australian-championship:2026:22278869": {
+        "recordSha256": "d272cb84c72a7ce690ecd8d433f285cadbad73187321fa11a62d1969dfc62efb",
+        "nonResultSha256": "489f87270ae79c1f4283c6b13bc3c418749cb2ad58b2d45c17adbc62df6ec26e"
+      },
+      "event:football:australian-championship:2026:22278870": {
+        "recordSha256": "fe3f154deca9d82b33b84551669d2000f81f4b06162701463fe0e05930de23dc",
+        "nonResultSha256": "5ed308db52f2649aeefb10b62895d61a1ccc075575056cef34c16d6df8070bcf"
+      },
+      "event:football:australian-championship:2026:22278871": {
+        "recordSha256": "4532859a932db3f925a675c59da8f7c0ec212c46b03d87a203bc2b0df9dd685f",
+        "nonResultSha256": "8754c59e5a2f9683514afc8ef59bf9f4a608b0c5292d1835e5c06d5196d3860a"
+      },
+      "event:football:australian-championship:2026:22278872": {
+        "recordSha256": "3633e9c29a247bd236eda48bc15f3fd0dcb285dc2f8745a20b87ae12fc92dcb5",
+        "nonResultSha256": "2a1e36f0869d31fd548e3d15351acbadedafee8674591de16b41660f61946714"
+      },
+      "event:football:australian-championship:2026:22278873": {
+        "recordSha256": "ffcb02c607dadd01c5d3372064390dbe200664aba43b3563bc1edf5bc24e4bdc",
+        "nonResultSha256": "3a49016fcf593fb44a608e5b3684d03a84a70fc30c20a6b329f4d02b1c5e4443"
+      },
+      "event:football:australian-championship:2026:22278874": {
+        "recordSha256": "cc2b4d81c039f37aa564ff8a8616db453a26f78cd1cef7140c54ad33993d5acc",
+        "nonResultSha256": "99dcdd3ef46c13f12306c40ebd1a7843423ccff165a4e94fe0ae83df6d093634"
+      },
+      "event:football:australian-championship:2026:22278875": {
+        "recordSha256": "5ba7eb6f8cfc07422dbcdbf3bdb3f2f24c934ac1ee2a9f67c46b68b492727715",
+        "nonResultSha256": "c259756c11960c783e2a48ac62b328a1d4f10f588bb7de5dd5cace1e210c74af"
+      },
+      "event:football:australian-championship:2026:22278876": {
+        "recordSha256": "c447f02b23c67eaaa86c66a5c774ad2db16af463bfde5373cf0656ef7f93a0cf",
+        "nonResultSha256": "b0840450ef3ee2d1a096ad27aef61c5ac1ef3e39e5448ef8eac12cfe5f80a53f"
+      },
+      "event:football:australian-championship:2026:22278877": {
+        "recordSha256": "a169cb3089a857707ff8bb635f7181c385f2757c50992011bd0e75eedbef120e",
+        "nonResultSha256": "7a7104064cabed0a0493b76bde2656a71efd55769cd5a2713a2da67942493bef"
+      },
+      "event:football:australian-championship:2026:22278878": {
+        "recordSha256": "73f0de052c0e15a6935b6e3a2fb50cdfd37e5a5271a14c605c99a0c4f7db33ed",
+        "nonResultSha256": "14f40c2315edc7b7ffd8024ce6e384c1c8c6280aaf8848d6fae1f32772c26eb3"
+      },
+      "event:football:australian-championship:2026:22278879": {
+        "recordSha256": "8521e745077025da31bdd7b9e71532815fd7177c7284abe7dc13e9c34b5da442",
+        "nonResultSha256": "b8134f5209d863823f57f26a8e1ed3fbe801207cc1629428e733580856ce42c6"
+      },
+      "event:football:australian-championship:2026:22278880": {
+        "recordSha256": "4878fed99efcab7c13994b2106c45d9dcb7b7f319d0a0e65d0dacfd364c7f4eb",
+        "nonResultSha256": "4c90944a2ed95614363bf853244f4e708123a549b21cf0a5a33f9d508e02d6c0"
+      },
+      "event:football:australian-championship:2026:22278881": {
+        "recordSha256": "373a298e138a8e54bc12d80a2d59111e07033eba26117d3da22c556821808e54",
+        "nonResultSha256": "fe1aea95813ed858d3bc403304b17b3c788487512d8a6b2a147b39c30952247d"
+      },
+      "event:football:australian-championship:2026:22278882": {
+        "recordSha256": "ef4956ce6cff8d2136aad6fa7d6e18fa8c46c4ef5f290c454ea6acb4a020f106",
+        "nonResultSha256": "64f817ffb41625383b58960baced13e17b39787dfa39221a77be05f9af64dab4"
+      },
+      "event:football:australian-championship:2026:22278883": {
+        "recordSha256": "0d64637d8206257ea87fafc3afd421fbf3b6a9be7c75392ecb370574862ceb75",
+        "nonResultSha256": "327a4f733c14a49b6048d150683870d3ff9741cdbe05d1b9ef11e3b26976f583"
+      },
+      "event:football:australian-championship:2026:22278884": {
+        "recordSha256": "7fa3415e93e1752ca955d875f7ae64f175a2c376be0501dfec89d1ede62b82b6",
+        "nonResultSha256": "5a14249b58779f10eb97cb73b4182cfe4ea24c4bdfe1b1765c5b1d4d16aaf593"
+      },
+      "event:football:australian-championship:2026:22278885": {
+        "recordSha256": "0a4abeecf67c697aaf82607abdb12939f5087ef1926c0fc5a76053ecdf37451e",
+        "nonResultSha256": "3a2c7c31864909568b3cf4b0185a2655fa690068d377c7a5630258e55391b301"
+      },
+      "event:football:australian-championship:2026:22278886": {
+        "recordSha256": "978854c2891b0790e1ae1ad18d892fe6a86b57a34f920ea4768e4e8fc6b5514f",
+        "nonResultSha256": "fe6f891a54ad85fd335f7d9c7401bf366a290babab41fce36e038f9f82f99ad9"
+      },
+      "event:football:australian-championship:2026:22278887": {
+        "recordSha256": "8dc8438d464f682c4c312afbc4ccdd0ba7f7423b801c1806f89abd4bce9df3d0",
+        "nonResultSha256": "ef68b3688b81106f93b4b6dc28f4add1c2356f304eb0af084ae28ee5fd80ddc3"
+      },
+      "event:football:australian-championship:2026:22278888": {
+        "recordSha256": "1e4de2e65f1bb4dca8ba5ce96c8289b838a96b3489228497762dc77b5df26708",
+        "nonResultSha256": "7e84fb9cd129238d035ebc31cbe360f24995244d4c308ef9b0bee487384a6074"
+      },
+      "event:football:australian-championship:2026:22278889": {
+        "recordSha256": "a5acde447343ba733c2df0143bd9ee82ff7faeb706e9eebbbc6b5da25b0fb256",
+        "nonResultSha256": "83016b39a76938281cd9980ff69b6e4ea423b1bcb80fe317f929bbff5c4496c8"
+      },
+      "event:football:australian-championship:2026:22278890": {
+        "recordSha256": "d985b77cf6b1f490791d6cf16b64febb26fe362ad41be9a06b36c6a49e1c2602",
+        "nonResultSha256": "2716e33a2b8fe4967adf799f41bad304e6181617db1eec7c3f4a5789ffedc1e8"
+      },
+      "event:football:australian-championship:2026:22278891": {
+        "recordSha256": "a19dc45f01d0ecff19a238a2dc68d33c5787ba55626e8477560025178a41169b",
+        "nonResultSha256": "5737f7010996ec7a8b1f83d0a1b309d3e759b2b18632048ea464bb3fe9dd4235"
+      },
+      "event:football:australian-championship:2026:22278892": {
+        "recordSha256": "a158ade06cd71b945b7c31214dd776dc85991219292f18eb6866556da8085c45",
+        "nonResultSha256": "4e81c3407d629bbef8d57b4348fd873221bcf979addd873869b90eea6674d84d"
+      },
+      "event:football:australian-championship:2026:22278893": {
+        "recordSha256": "36f8b336894e72d9280254f07a58dc21bc019156314dc56f9d607a8b923961a7",
+        "nonResultSha256": "6a9be1920eba6811e852d2f89b1f620552a6a88d343264eb56ec7509368b0337"
+      },
+      "event:football:australian-championship:2026:22278894": {
+        "recordSha256": "8fdb5253856b676f2c2c5057a03dde975889d8962e3c973c94d35c2e74ba45d6",
+        "nonResultSha256": "389b0559d6d818564d3eec80fe4280a92e943594d5506c0a658c688b1af99dd6"
+      },
+      "event:football:australian-championship:2026:22278895": {
+        "recordSha256": "5ccf11170ab64f3c36531fc73e30b00f3218e287195057c7697bbbc8e13c2a51",
+        "nonResultSha256": "fc7dd514d8056f27d862c3a29d18cfdceaf79742fccc7d9769ea769fb4273f05"
+      },
+      "event:football:australian-championship:2026:22278896": {
+        "recordSha256": "e57707cd87c3eb8c19e759787eb6574a1ed16dc0faf621a26893e6e646dfdce3",
+        "nonResultSha256": "d2d3129a9db9065fb3377da3655576efeca14cf1760188fdb4057ef881866904"
+      },
+      "event:football:australian-championship:2026:22278897": {
+        "recordSha256": "eb800de02501089347bc91ee139aaf830ed7a1d8a4a2c1a8a9e3399db4fd22b6",
+        "nonResultSha256": "ff9f3dd675480133d3db2df9d3edefb36c4e123e55317a6deb4ba376945f21d7"
+      },
+      "event:football:australian-championship:2026:22278898": {
+        "recordSha256": "5ca3a86c90ed5b554a80e6d64f6a018d8073e2549784d2dd673e7df72076fbaf",
+        "nonResultSha256": "e3380391d8afbfe631bc853c606d9e9ef4ae632eef163645fcb0b75c99b26bd4"
+      },
+      "event:football:australian-championship:2026:22278899": {
+        "recordSha256": "4c6cb790f3d14ffd3a7c3fde7da3f021e702ccbf2dea82c0bea552ca17634090",
+        "nonResultSha256": "d60ffcd5e8ccd757d90489002b17b7ac3dbf6104e78904127ceb6386c69145a7"
+      },
+      "event:football:australian-championship:2026:22278900": {
+        "recordSha256": "1db35844fe66de8db55fe19b59c18669b5cfcac39df00ea3684b8da81e628126",
+        "nonResultSha256": "aec2a8b683b9908068b4dc9797d58bcc9d7f973646811cb610be601935e67eeb"
+      },
+      "event:football:australian-championship:2026:22278901": {
+        "recordSha256": "5e6dba0bb8586db9746033cdc4be56770794c018598e2e349a72f29a743c1d52",
+        "nonResultSha256": "48d3d7b04a8a6f14aed152f0c896d42770aa53ec605c3bce69faac44d6569295"
+      },
+      "event:football:australian-championship:2026:22278902": {
+        "recordSha256": "966b01701d2b2ade63b3ff6abc2ca8cd48e308d781c0cb1576559cdd1235904e",
+        "nonResultSha256": "13e2003f0dac90c6c90e35a58d8c40e6575b63d3049fb24bfe3e69932024bbf5"
+      },
+      "event:football:australian-championship:2026:22278903": {
+        "recordSha256": "fca3a38be81c1ecdc2b8c8e73167aa68ed25465cdea1dcbf7b7f9112f6c6d27d",
+        "nonResultSha256": "af1e43742ecaf750b3e32500079699a484dfd43fd96f7063e400b2175b410fde"
+      },
+      "event:football:australian-championship:2026:22278904": {
+        "recordSha256": "e123ad65b9d9f52878ff8de31ecd3dcda6860e9b97aded4a2c264b184ca0505c",
+        "nonResultSha256": "95f87c3a0e73f5b895b1c116dd3c00e4f3f4ea86dc9be1037711f2891954578c"
+      },
+      "event:football:australian-championship:2026:22278905": {
+        "recordSha256": "0daf7322ef0e52ec49d2dcef8f75b841c995180224427d1b0ed91935b4c41975",
+        "nonResultSha256": "f5578782aae78dd14d7cbaa95cfac4bfceb2875e9a119a2e0d1dc9ff12e19ab3"
+      },
+      "event:football:australian-championship:2026:22278906": {
+        "recordSha256": "56bd9a16ec7021936d217e566b929d624b7eb6be217ca298556ad7da60802939",
+        "nonResultSha256": "c7cbe84248dab0aed0f01ec38f7c071eb4ec37b855b672993bf3255e4c4ad65d"
+      },
+      "event:football:australian-championship:2026:22278907": {
+        "recordSha256": "b8303ca07e22139f6462a6f083e6f1f6403c9c2b16ed1f4cb9d7c3f8a3bbc319",
+        "nonResultSha256": "0ed41530d0ee62c7ed05812be724cdc81fa57cf66846b9f0e59b69e74cf679c2"
+      },
+      "event:football:australian-championship:2026:22278908": {
+        "recordSha256": "682ad47768b3bf4fc99aeca677f98e103faedd9a27467572b4cb9c28f3853ea4",
+        "nonResultSha256": "793ed4c7de1ac16c79eb28a1318b80d76a85d37a628b672d06ebb53d6559917a"
+      },
+      "event:football:australian-championship:2026:22278909": {
+        "recordSha256": "77aa223ced99862fdcb270894d0ba6f0fab8da75a884b09db41127d7bc91d495",
+        "nonResultSha256": "133a1b6a86bd15f9601075ef366a1ad926751264936ef5195566f82525bd4c0c"
+      },
+      "event:football:australian-championship:2026:22278910": {
+        "recordSha256": "f564effca4fa9e08303b92d096a89c352c102a9cd8481284921ce2d8977cbabd",
+        "nonResultSha256": "df04e6d240ba5bb5e99ac86cdbb303bd9710255ab231d56e0e573ca25849720a"
+      },
+      "event:football:australian-championship:2026:22278911": {
+        "recordSha256": "1bf5575a0c4c424ef7291f0dfeee25c513f22d78a9565c2db459bf559a1c6131",
+        "nonResultSha256": "e26508702d4edde7eea9ca9d068911a6ddf1762d3432921da80bc0d775f207e1"
+      },
+      "event:football:australian-championship:2026:22278912": {
+        "recordSha256": "28a69019a13929e43d06d00506cab16cd881fcce82798abdc7def04e54095b69",
+        "nonResultSha256": "e687fe4fb9cea826f123bd2226f50466348ea512bc719c9f2e73c00db9cd1449"
+      }
+    }
+  }
+}

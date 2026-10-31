@@ -1,5 +1,39 @@
 # Backend efficiency decisions
 
+## Australian Championship bounded result preparation — 31 October 2026
+
+The existing canonical `update-cards.js --australian-championship` owner has an
+explicit `--championship-results-only --local-only` modifier and one new private
+absolute `--championship-results-evidence=` namespace. Freeze the eleven reviewed
+round2/3 targets,16clubs/48identities and all other37records. No extra elapsed
+appointment, Feed admission, table recomputation, viewing/editorial clock,
+account operation or scheduler is included. Preparation grants no actual source
+or publication window. ROOT/nsDEPLOY remains sole publisher.
+
+Reuse the A-League-qualified private complete-body consumer and atomic owner.
+Only existing exact round2 and round3 official endpoints are compiled; two
+sequential GETs at least1second apart, no token/retry/redirect/fallback,1MiB wire
+and decoded each/2MiB each aggregate,15seconds per complete resource through
+JSON/domain validation,45seconds collection,90seconds owner plus10cleanup.
+401/403 stops further acquisition. Resource refusal/partial round holds its whole
+round; supported independent complete rounds can proceed. Unknown card result
+fields hold only that card. No supported target observations is failure. Shared
+identity/calendar/future/clock/accepted-final conflicts reject all candidates,
+even when the page is incomplete or another field is unsupported.
+
+Keep string finals, regulation/penalties separate and source winner0 unknown.
+Use strict calendar-aware zoned RFC3339 result/provider/response clocks, preserving
+literal offsets/fractions and original observations on unchanged facts. New result
+evidence does not renew the old general source/fixture/viewing/table receipts or
+pretend two bodies refreshed the old eleven-resource capture. Existing projection
+selectors retain every other surface row/order and all runtime/manifest bytes.
+Older complete saved-capture replay preserves validated adopted result overlays
+or rejects, never restores the older eight-final state. Full data/nonJSON/Feed/
+all-eight-runtime rollback precedes fallible diagnostics. Owned frozen pre/post
+fixtures and native doubles prove local behavior only; acquisition, combined
+release and hosted score/spoiler proof need ROOT's separate allocation.
+[Exact preparation contract](quality/championship-scores-only-2026-10-31.md).
+
 ## A-League retained scores-only preparation — 31 October 2026
 
 The existing canonical `update-cards.js --a-league` owner may be source-qualified

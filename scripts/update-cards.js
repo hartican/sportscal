@@ -71,6 +71,7 @@ function runStep(args) {
 }
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
+  const championshipResults=require('./lib/championship-score-contract').route(argv);if(championshipResults)return {localOnly:true,championshipResults};
   const aLeagueResults=require('./lib/a-league-score-contract').route(argv);if(aLeagueResults)return {localOnly:true,aLeagueResults};
   require('./lib/live-coverage-scope').parseArgs(argv);
   require('./lib/aflw-publication-scope').route(argv);
@@ -91,7 +92,7 @@ function parseOptions(argv = process.argv.slice(2), env = process.env) {
     const football=codeSlugs.includes('football');
     if(football?(captures.length!==1||!captures[0].slice(10)):captures.length!==0)throw Error('Retained Football requires one capture; Netball-only accepts no capture');
     const captureFolder=football?path.resolve(captures[0].slice(10)):null;
-    if(football){const adapter=require('./lib/australian-championship');adapter.validate(adapter.loadCapture(captureFolder));}
+    if(football){require('./lib/championship-score-contract').assertLegacyRebuildSafe(path.resolve(__dirname,'..'));const adapter=require('./lib/australian-championship');adapter.validate(adapter.loadCapture(captureFolder));}
     require('./build-code-inspector').preflightRetainedCoverage();
     if(codeSlugs.includes('netball'))require('./validate-diamonds-retained-schedule').validate();
     return {localOnly:true,retainedCoverage:{codeSlugs,captureFolder}};
@@ -102,6 +103,7 @@ function parseOptions(argv = process.argv.slice(2), env = process.env) {
     if(!argv.includes('--local-only')||captures.length!==1||!captures[0].slice(10)||new Set(argv).size!==argv.length||argv.some(arg=>!allowed.has(arg)&&!arg.startsWith('--capture=')))throw Error('Australian Championship requires only --australian-championship --capture=<retained-directory> --local-only with optional -p. No writes or source steps ran.');
     if(env.REFRESH_REPORT)throw Error('Australian Championship retained route cannot inherit REFRESH_REPORT. No diagnostic or source writes ran.');
     const captureFolder=path.resolve(captures[0].slice(10));
+    require('./lib/championship-score-contract').assertLegacyRebuildSafe(path.resolve(__dirname,'..'));
     const championship=require('./lib/australian-championship');championship.validate(championship.loadCapture(captureFolder));
     require('./build-code-inspector').preflightRetainedFootballOnly();
     return {localOnly:true,australianChampionship:{captureFolder}};
@@ -553,7 +555,7 @@ function buildSteps({ localOnly = false } = {}) {
   return steps;
 }
 
-async function runMain({f1StartedAt=require('node:perf_hooks').performance.now(),aflwStartedAt=f1StartedAt,aLeagueStartedAt=f1StartedAt}={}) {
+async function runMain({f1StartedAt=require('node:perf_hooks').performance.now(),aflwStartedAt=f1StartedAt,aLeagueStartedAt=f1StartedAt,championshipStartedAt=f1StartedAt}={}) {
   const options = parseOptions();
   if (options.reviewedEditorial) {
     const {ids, file} = options.reviewedEditorial;
@@ -571,6 +573,7 @@ async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()
     if(codeSlugs.includes('netball'))runStep(['scripts/validate-diamonds-retained-schedule.js']);
     console.log('Declared retained coverage projected locally; no source, shell, account, database or publication operation.');return;
   }
+  if(options.championshipResults){await require('./lib/championship-score-owner').run({...options.championshipResults,began:championshipStartedAt,emit:report=>console.log(JSON.stringify(report))});return;}
   if(options.aLeagueResults){await require('./lib/a-league-score-owner').run({...options.aLeagueResults,began:aLeagueStartedAt,emit:report=>console.log(JSON.stringify(report))});return;}
   if(process.argv.includes('--a-league')){
     const result=await require('./lib/a-league-schedule').refresh();console.log(JSON.stringify(result));
@@ -1144,6 +1147,7 @@ async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()
 }
 
 async function main(){
+  if(process.argv.some(arg=>arg.startsWith('--championship-results'))){const championshipStartedAt=require('node:perf_hooks').performance.now();parseOptions();return await runMain({championshipStartedAt});}
   if(process.argv.some(arg=>arg.startsWith('--a-league-results'))){const aLeagueStartedAt=require('node:perf_hooks').performance.now();parseOptions();return await runMain({aLeagueStartedAt});}
   if(process.argv.includes('--source=aflw-results')){
     const aflwStartedAt=require('node:perf_hooks').performance.now();parseOptions();process.env.REFRESH_REPORT ||= path.join(os.tmpdir(),'ns-refresh-report-'+crypto.randomUUID()+'.json');
@@ -1193,7 +1197,7 @@ async function main(){
 
 if (require.main === module) {
   main().catch(error => {
-    if(!process.argv.some(arg=>arg.startsWith('--a-league-results')))console.error(error.message);
+    if(!process.argv.some(arg=>arg.startsWith('--a-league-results')||arg.startsWith('--championship-results')))console.error(error.message);
     process.exitCode = error.exitCode || 1;
   });
 }
