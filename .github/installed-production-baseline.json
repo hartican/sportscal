@@ -1,36 +1,36 @@
 {
   "schemaVersion": "installed-production-baseline.v1",
-  "preparedForBaseSha": "19e6b6308cbfc111057fab588a191113215b48f2",
-  "baselineSha": "19e6b6308cbfc111057fab588a191113215b48f2",
-  "baselineVersion": "603",
+  "preparedForBaseSha": "7e6327e17defc4a2161f746d2f5814f2daf955b8",
+  "baselineSha": "7e6327e17defc4a2161f746d2f5814f2daf955b8",
+  "baselineVersion": "604",
   "deployment": {
-    "id": "dpl_EcEzzFNDhiKouSK9ZTN3a6wjWqtZ",
+    "id": "dpl_Hb8FcHEWeKS1xsFpuQRyXYqT4RkN",
     "state": "READY",
-    "releaseGitSha": "19e6b6308cbfc111057fab588a191113215b48f2",
+    "releaseGitSha": "7e6327e17defc4a2161f746d2f5814f2daf955b8",
     "origin": "https://nothingsport.app",
-    "checkedAt": "2026-10-30T19:42:40.850Z"
+    "checkedAt": "2026-10-31T04:37:04.973Z"
   },
   "files": {
-    "app-version.json": {
-      "gitSha256": "c47ef5957bf1cf61f342f6c1b1659da3a67c68b0565afd89c419a560b380bdcc",
-      "servedSha256": "c47ef5957bf1cf61f342f6c1b1659da3a67c68b0565afd89c419a560b380bdcc",
-      "servedBytes": 18,
-      "status": 200,
-      "checkedAt": "2026-10-30T19:42:41.013Z"
-    },
-    "service-worker.js": {
-      "gitSha256": "523c0c8c420b1f72b48fcdb04de7d069cdbf641d86ead542cedc311e54a6e303",
-      "servedSha256": "523c0c8c420b1f72b48fcdb04de7d069cdbf641d86ead542cedc311e54a6e303",
-      "servedBytes": 28733,
-      "status": 200,
-      "checkedAt": "2026-10-30T19:42:41.163Z"
-    },
     "index.html": {
-      "gitSha256": "8d2fccd4111fcb4f787c23f3d5d15f35c3331ded2aec32b6d21bd8c0baddcab3",
-      "servedSha256": "8d2fccd4111fcb4f787c23f3d5d15f35c3331ded2aec32b6d21bd8c0baddcab3",
+      "gitSha256": "cc82ad021de89afffba1b75b766b9833d566c205f355cc84e457805f83c683e5",
+      "servedSha256": "cc82ad021de89afffba1b75b766b9833d566c205f355cc84e457805f83c683e5",
       "servedBytes": 940403,
       "status": 200,
-      "checkedAt": "2026-10-30T19:42:43.281Z"
+      "checkedAt": "2026-10-31T04:37:06.448Z"
+    },
+    "service-worker.js": {
+      "gitSha256": "bb574675ce31fa135db012ab02e9958d90e54c16d8fed3cca370d1aca3c0d46f",
+      "servedSha256": "bb574675ce31fa135db012ab02e9958d90e54c16d8fed3cca370d1aca3c0d46f",
+      "servedBytes": 28733,
+      "status": 200,
+      "checkedAt": "2026-10-31T04:37:06.596Z"
+    },
+    "app-version.json": {
+      "gitSha256": "11718ea226cd39c65aae2e6a811a7b98f7590e9bd42af009f95752cf8ac3cf4b",
+      "servedSha256": "11718ea226cd39c65aae2e6a811a7b98f7590e9bd42af009f95752cf8ac3cf4b",
+      "servedBytes": 18,
+      "status": 200,
+      "checkedAt": "2026-10-31T04:37:06.649Z"
     }
   }
 }

@@ -2248,3 +2248,20 @@ Recognise only an absent historical tennis root whose exact existing default is 
 After ROOT's disposable native PG17/18 run41041100314 passed, prepare only the existing reader's receipt join before its unchanged parameterised payload lookup. Keep both composite identity keys, the left join, `OFFSET 0`, all fixture/alias closure, ordered5001 sentinels, caps, raw fallback, permissions, original observations and clocks. Native full985-row equality and fixed ABBA medians improve64.055%/54.468%; this is body-only native proof, not managed, HTTP/app loading, release or phone acceptance. Earlier failed attempts remain dated history; do not repeat qualified native or real-service experiments.
 
 The source-only forward and inverse require exact27 function definitions/attributes and private near-table contracts before and after the reversible reader replacement. No table/data DML, privilege, writer, lookup, Follow/Results, source/provider, cache, retry, scheduler or deadline change. Exact inverse preserves facts written later by the normal owner. Keep every existing260 release command occurrence, add both permanent local SQL-engine checks in the existing near-selection batch (262 total), and retain all publisher/worker caps and live gates. ROOT/nsDEPLOY alone owns managed SQL, exact-main integration/generated assembly, full checks, publication and hosted acceptance. See [scope, retained measurements and rollback](quality/near-receipt-join-2026-10-30.md).
+
+## 31 October 2026 — bounded Match Centre freshness receipts
+
+ROOT allocated source-only response diagnostics to make the held freshness failure decidable. Add closed response-level score-read outcome and actual batch counts plus one freshness receipt for each unique returned fixture. Record the same age/interval decision clock and actual compact/retained-prior branches, with final returned clocks; do not renew source observations, add grace, alter any fixture/event/model output, Follow/Results choice, request/cap/deadline or scheduler. Pending batches at first rejection stay pending in the serialized response receipt. Keep diagnostics out of fixture JSON so existing mounted-card lifecycle/cache identity remains intact.
+
+The existing required Match Centre check gains actual-handler/differential/retention/batch/evidence/privacy controls; all262 existing workflow occurrences and gates remain. The public verifier retains whitelisted chosen/list/selected receipts before assertions through its existing private artifact directory, without a new read or relaxed assertion. Missing diagnostics remain unknown. Original AFLW RED and its unknown cause stay held; no innings/source/reader/merge repair is implied. ROOT alone integrates/publishes and owns combined/hosted qualification. See [exact scope and acceptance boundary](quality/match-centre-freshness-receipts-2026-10-31.md).
+
+
+### 31 October follow-up — opt-in diagnostic transport
+
+Freshness/read receipts require exactly one `readEvidence=1` query parameter.
+Default app polls retain the entire original response body byte-for-byte with
+zero added transport bytes. Missing/invalid/duplicate values leave diagnostics
+off. The release verifier requests them on its same two existing reads; no
+client UI, request, cache, deadline, source, credential or scheduler path changes.
+Prior source commits remain history. Held freshness acceptance and the separate
+current-day horizon failure are not waived.
