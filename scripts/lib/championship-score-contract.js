@@ -121,9 +121,14 @@ function combine(results,previous,sourceFailures=[]){
 }
 function selectedIds(ids){if(!Array.isArray(ids)||!ids.length||ids.length>11||new Set(ids).size!==ids.length||ids.some(id=>!canonical.get(id)?.target))fail('invalid-projection-selector');return new Set(ids);}
 function projectRows(rows,document,ids){const selected=selectedIds(ids),found=new Set(),source=new Map(document.events.map(e=>[e.canonicalEventId,e]));const next=rows.map(r=>{if(!selected.has(r.canonicalEventId))return r;const e=source.get(r.canonicalEventId),b=canonical.get(r.canonicalEventId);if(found.has(r.canonicalEventId)||r.id!==b.canonicalEventId||r.competitionId!==COMPETITION||r.homeParticipantId!==b.homeParticipantId||r.awayParticipantId!==b.awayParticipantId||r.startTimeUtc!==b.projectionStartTimeUtc||e?.status!=='completed')fail('projection-binding');found.add(r.canonicalEventId);return {...r,...Object.fromEntries(RESULT_FIELDS.filter(k=>Object.hasOwn(e,k)).map(k=>[k,e[k]]))};});if(found.size!==selected.size)fail('missing-projection-target');return next;}
+function needsResultGuard(document){
+ // Compare the entire retained baseline before trusting any mutable identity or
+ // status to choose an overlay branch. Missing/reordered records also differ.
+ return !document||!Array.isArray(document.events)||document.events.length!==scope.records.length||sha({...document,events:[]})!==scope.headerSha256||document.events.some((e,i)=>sha(e)!==scope.records[i].recordSha256);
+}
 function assertLegacyRebuildSafe(root){
  const file=path.join(root,FILE);if(!fs.existsSync(file))return;const d=JSON.parse(fs.readFileSync(file,'utf8'));
- if(d.events?.some(e=>bound.get(e.officialMatchId)?.target&&sha(e)!==bound.get(e.officialMatchId).recordSha256)){validateDocument(d);fail('legacy-rebuild-with-adopted-finals-held');}
+ if(needsResultGuard(d)){validateDocument(d);fail('legacy-rebuild-with-adopted-finals-held');}
 }
 function preserveAccepted(document,previous,now=new Date()){
  // Old complete facts can rebuild calendars but never erase adopted result facts.
@@ -131,4 +136,4 @@ function preserveAccepted(document,previous,now=new Date()){
  if(document.events.length!==48)fail('legacy-inventory');
  const next={...document,events:document.events.map((e,i)=>{const old=previous.events[i],r=scope.records[i];if(sha(e)!==r.recordSha256)fail('legacy-baseline-changed');return r.target&&old.status==='completed'?old:e;})};return validateDocument(next,now);
 }
-module.exports={scope,FILE,COMPETITION,BASE,RESULT_FIELDS,sha,epoch,clock,route,strip,preflight,validateDocument,evaluate,combine,selectedIds,projectRows,preserveAccepted,assertLegacyRebuildSafe};
+module.exports={scope,FILE,COMPETITION,BASE,RESULT_FIELDS,sha,epoch,clock,route,strip,preflight,validateDocument,evaluate,combine,selectedIds,projectRows,preserveAccepted,assertLegacyRebuildSafe,needsResultGuard};
