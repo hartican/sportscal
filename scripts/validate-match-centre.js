@@ -92,6 +92,7 @@ r=response();await partial({url:'/api/match-centre?membership=everything'},r);as
 await require('./validate-cricket-score-address')();
 require('./validate-fixture-alias-reuse')();
 await require('./validate-match-centre-timing')();
+await require('./validate-match-centre-receipts')();
 await require('./validate-all-sports-view')();
 await require('./validate-all-sports-review-regressions')();
 console.log('Match Centre model and bounded API passed.');})().catch(e=>{console.error(e);process.exitCode=1;});
