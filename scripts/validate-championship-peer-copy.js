@@ -20,6 +20,8 @@ for(const key of ['chunk','schedule']){
  assert.deepEqual(written.fixtures.filter(row=>row.competitionId!==competition),prior[key].fixtures.filter(row=>row.competitionId!==competition),'Actual retained writer preserves every prior peer field, including unknown metadata');
  assert.equal(written.fixtures.filter(row=>row.competitionId===competition).length,48);
  if(key==='chunk')assert.deepEqual(written.standings.filter(row=>row.competitionId!==competition),prior.chunk.standings.filter(row=>row.competitionId!==competition));
+ const contract=require('./lib/championship-score-contract'),canonical=require('../data/football/fixtures/australian-championship.json');
+ for(const original of canonical.events.filter(row=>row.resultSourceEvidence)){const row=written.fixtures.find(r=>r.canonicalEventId===original.canonicalEventId);assert(row,'Adopted result stays in real writer output');for(const field of contract.RESULT_FIELDS.filter(k=>Object.hasOwn(original,k)))assert.deepEqual(row[field],original[field],'Actual writer must preserve adopted result '+field);if(original.sourceWinnerId===0)assert(!row.winnerParticipantId,'Unknown source winner remains unknown');}
 }
 if(combined)for(const key of ['netball','netballSchedule']){const rows=JSON.parse(writes.get(files[key])).fixtures.filter(row=>row.competitionId==='competition:constellation-cup-2026');assert.equal(rows.length,4);assert(rows.every(row=>row.timeTbc===true&&row.time===null),'Retained midnight placeholders cannot become confirmed Netball kickoffs');}
 for(const [key,file] of Object.entries(files))assert(fs.readFileSync(file).equals(originals[key]),'Writer interception must leave all real files unchanged');
