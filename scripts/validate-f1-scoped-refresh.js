@@ -7,7 +7,10 @@ const {EventEmitter}=require('node:events');
 const ROOT=path.resolve(__dirname,'..'),AT='2026-10-31T00:10:46.203Z';
 const original={...Object.fromEntries(['readFileSync','writeFileSync','existsSync','readdirSync','mkdirSync','mkdtempSync','renameSync','rmSync','openSync','closeSync','fstatSync','readSync'].map(k=>[k,fs[k]])),spawnSync:cp.spawnSync,Date:global.Date};
 global.fetch=()=>assert.fail('Unexpected fetch');for(const name of['http','net','tls'])for(const key of['get','request','connect','createConnection'])if(require('node:'+name)[key])require('node:'+name)[key]=()=>assert.fail('Unexpected network');
-const captured=Object.fromEntries(['feeds/incoming/events.json','data/events.json'].map(file=>[file,JSON.parse(original.readFileSync(ROOT+'/'+file))]));
+const frozen=require('./fixtures/f1-retained-test-inputs-20261031.json');assert.equal(frozen.modelClock,AT);
+// Current unrelated cards remain preservation inputs. F1 facts/clocks are a
+// captured twelve-card model, so later real refreshes cannot invalidate it.
+const captured=Object.fromEntries(['feeds/incoming/events.json','data/events.json'].map(file=>{const doc=JSON.parse(original.readFileSync(ROOT+'/'+file));return [file,{...doc,events:[...doc.events.filter(event=>event.key!=='f1'),...structuredClone(frozen.surfaces[file])]}];}));
 const runtimeFiles=require('./build-app-shell-runtime').generatedFiles();
 const witnesses=require('./lib/f1-reviewed-classifications').records;
 let hidden,files,fds,nextFd,sequence,calls,children,failedChild,actualPublisher,childHook,runtimeWrites;
