@@ -9,14 +9,14 @@ const createBudget=options=>sourceBudget({sessions:plan,...options});
 const original=https.get,originalFetch=global.fetch,realSet=global.setTimeout,realClear=global.clearTimeout;
 const link='<a href="/en/results/2026/races/1234/united-states/race-result">Race</a>';
 const url=INDEX+'/1234/united-states/race-result';
-let calls=0,reply,expired;
+let calls=0,reply,expired,destroyed;
 https.get=(_url,_options,callback)=>{
- calls++;const request=new EventEmitter();request.destroy=()=>{};
- queueMicrotask(()=>{const response=new EventEmitter();response.destroy=()=>{};response.statusCode=reply?.status||200;response.headers=reply?.headers||{};callback(response);if(reply?.hang)return;for(const body of reply?.chunks||[Buffer.from(link)])response.emit('data',body);response.emit('end');});
+ calls++;const request=new EventEmitter();request.destroy=()=>{destroyed.request++;};
+ queueMicrotask(()=>{const response=new EventEmitter();response.destroy=()=>{destroyed.response++;};response.statusCode=reply?.status||200;response.headers=reply?.headers||{};callback(response);if(reply?.hang)return;for(const body of reply?.chunks||[Buffer.from(link)])response.emit('data',body);response.emit('end');});
  return request;
 };
 const records=[];
-async function check(name,operation){calls=0;reply=null;await operation();records.push(name);}
+async function check(name,operation){calls=0;reply=null;destroyed={request:0,response:0};await operation();records.push(name);}
 async function run(){
  await check('actual existing loader refuses an oversized resource before admitting results',async()=>{
   let loader=require('./refresh-f1-results');
@@ -36,6 +36,7 @@ async function run(){
  await check('invalid or excessive selected plans refuse before transport',async()=>{assert.throws(()=>sourceBudget({sessions:[...plan,plan[0]]}),/plan/);assert.throws(()=>sourceBudget({sessions:[{slug:'../other',kind:'race-result'}]}),/plan/);assert.equal(calls,0);});
  await check('consumer parse and whole invocation clocks remain strict',async()=>{let time=0;const b=createBudget({clock:()=>time});await assert.rejects(b.read(INDEX,text=>{time=15000;return text;}),/parse deadline/);b.close();const c=createBudget({clock:()=>time});time+=120000;await assert.rejects(c.read(INDEX),/invocation deadline/);c.close();});
  await check('asynchronous consumers cannot escape the parse deadline',async()=>{const b=createBudget();await assert.rejects(b.read(INDEX,async text=>text),/synchronously/);b.close();});
+ await check('parse failure destroys its owned completed response and request',async()=>{const b=createBudget();await assert.rejects(b.read(INDEX,()=>{throw Error('owned parse failure');}),/owned parse failure/);assert(destroyed.request>0);assert(destroyed.response>0);assert.equal(b.summary().active,0);b.close();});
  await check('body stall deadline cancels and closes owned reader',async()=>{global.setTimeout=fn=>{expired=fn;return{unref(){}};};global.clearTimeout=()=>{};reply={hang:true};const b=createBudget();const read=b.read(INDEX);await Promise.resolve();expired();await assert.rejects(read,/deadline/);assert.equal(b.summary().active,0);b.close();global.setTimeout=realSet;global.clearTimeout=realClear;});
  console.log(JSON.stringify({status:'PASS',controls:records.length,externalRequests:0,admissionQualified:false,records},null,2));
 }

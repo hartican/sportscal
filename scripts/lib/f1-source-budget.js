@@ -32,19 +32,22 @@ function createBudget({clock=()=>performance.now(),sessions=[]}={}){
    if(memo.size>=LIMITS.requests)return Promise.reject(Error('F1 invocation request limit exceeded'));
    memo.set(url,request(url));
   }
-  return memo.get(url).then(({text,started})=>{
-   check();const parseStarted=reused?clock():started,value=consume(text);if(value&&typeof value.then==='function')throw Error('F1 resource consumer must finish synchronously');if(clock()-parseStarted>=LIMITS.resourceMs)throw Error('F1 resource parse deadline exceeded');check();return value;
+  return memo.get(url).then(({text,started,dispose})=>{
+   try{check();const parseStarted=reused?clock():started,value=consume(text);if(value&&typeof value.then==='function')throw Error('F1 resource consumer must finish synchronously');if(clock()-parseStarted>=LIMITS.resourceMs)throw Error('F1 resource parse deadline exceeded');check();return value;}
+   catch(error){dispose(true);throw error;}
+   finally{dispose(false);}
   }).catch(error=>{failed=true;for(const cancel of active)cancel(error);throw error;});
  }
  function request(url){
   return new Promise((resolve,reject)=>{
    const started=clock();let req,res,decoder,timer,done=false,ended=false,wire=0,decoded=0;const chunks=[];
    const within=()=>{check();if(clock()-started>=LIMITS.resourceMs)throw Error('F1 whole-resource deadline exceeded');};
-   function cleanup(destroy){clearTimeout(timer);active.delete(fail);if(destroy)for(const resource of [decoder,res,req])try{resource?.destroy?.();}catch{}}
+   const cancel=error=>{if(done)cleanup(true);else fail(error);};
+   function cleanup(destroy){clearTimeout(timer);active.delete(cancel);if(destroy)for(const resource of [decoder,res,req])try{resource?.destroy?.();}catch{}}
    function fail(error){if(done)return;done=true;cleanup(true);reject(error instanceof Error?error:Error('F1 resource failed'));}
    function decodedChunk(chunk){if(done)return;try{within();const bytes=Buffer.from(chunk);decoded+=bytes.length;decodedTotal+=bytes.length;if(decoded>LIMITS.resourceBytes||decodedTotal>LIMITS.totalBytes)throw Error('F1 decoded byte limit exceeded');chunks.push(bytes);}catch(error){fail(error);}}
-   function complete(){if(done)return;try{within();const text=new TextDecoder('utf-8',{fatal:true}).decode(Buffer.concat(chunks));if(url===INDEX)bindIndex(text);within();done=true;cleanup(false);resolve({text,started});}catch(error){fail(error);}}
-   active.add(fail);timer=setTimeout(()=>fail(Error('F1 whole-resource deadline exceeded')),Math.min(LIMITS.resourceMs,LIMITS.wholeMs-(clock()-began)));timer.unref?.();
+   function complete(){if(done)return;try{within();const text=new TextDecoder('utf-8',{fatal:true}).decode(Buffer.concat(chunks));if(url===INDEX)bindIndex(text);within();done=true;clearTimeout(timer);resolve({text,started,dispose:cleanup});}catch(error){fail(error);}}
+   active.add(cancel);timer=setTimeout(()=>fail(Error('F1 whole-resource deadline exceeded')),Math.min(LIMITS.resourceMs,LIMITS.wholeMs-(clock()-began)));timer.unref?.();
    try{
     req=https.get(url,{headers:{Accept:'text/html','User-Agent':'nothingsport-f1-results/1.0'}},response=>{
      res=response;if(done){res.destroy?.();return;}
