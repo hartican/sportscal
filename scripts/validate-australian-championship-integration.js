@@ -10,16 +10,19 @@ async function validateRetainedPeerGuard(){
  // Mutators are tripwires, so a failed guard cannot write through peer symlinks.
  const readOnlyFs=Object.create(fs);
  for(const method of ['writeFileSync','mkdirSync','renameSync','rmSync','unlinkSync','appendFileSync','copyFileSync'])readOnlyFs[method]=(...args)=>{writes.push({method,path:String(args[0])});throw Error('Peer guard attempted a write');};
- const load=(name,overrides={})=>{
+ const load=(name,overrides={},argv=['--australian-championship','--capture='+folder,'--local-only','-p'])=>{
   const filename=path.join(__dirname,name),realRequire=createRequire(filename),mod={exports:{}};
   const localRequire=id=>id==='node:fs'?readOnlyFs:Object.hasOwn(overrides,id)?overrides[id]:realRequire(id);
   const script=fs.readFileSync(filename,'utf8').replace(/^#![^\n]*\n/,'')+(name==='update-cards.js'?'\nmodule.exports.guardTestMain=main;':'');
-  vm.runInThisContext('(function(require,module,exports,__dirname,__filename,process){'+script+'\n})',{filename})(localRequire,mod,mod.exports,path.join(temp,'scripts'),filename,{...process,argv:[process.execPath,filename,'--australian-championship','--capture='+folder,'--local-only','-p'],env:{...process.env,REFRESH_REPORT:''}});
+  vm.runInThisContext('(function(require,module,exports,__dirname,__filename,process){'+script+'\n})',{filename})(localRequire,mod,mod.exports,path.join(temp,'scripts'),filename,{...process,argv:[process.execPath,filename,...argv],env:{...process.env,REFRESH_REPORT:''}});
   return mod.exports;
  };
  try{
   fs.mkdirSync(inspector,{recursive:true});fs.mkdirSync(path.join(temp,'data/follow-schedule'),{recursive:true});
   for(const code of manifest.codes){fs.symlinkSync(path.join(root,'data/code-inspector',code.slug+'.json'),path.join(inspector,code.slug+'.json'));fs.symlinkSync(path.join(root,code.followSchedulePath),path.join(temp,code.followSchedulePath));}
+  // The successful old route is tested against an actual complete frozen
+  // pre-adoption canonical fixture, not a missing-file shortcut.
+  const owned=require('./lib/championship-validation-fixture');owned.writeState(temp,'pre');
   const builder=load('build-code-inspector.js'),owner=load('update-cards.js',{'./build-code-inspector':builder,'./lib/australian-championship':{...adapter,apply:()=>{applies.push('apply');throw Error('Canonical apply reached before peer guard');}}});
   const save=value=>fs.writeFileSync(path.join(inspector,'manifest.json'),JSON.stringify(value));
   save(manifest);assert.equal(builder.preflightRetainedFootballOnly().codes.length,manifest.codes.length);assert(owner.parseOptions(['--australian-championship','--capture='+folder,'--local-only']).australianChampionship);
@@ -49,7 +52,12 @@ async function validateRetainedPeerGuard(){
   const football=manifest.codes.find(code=>code.slug==='football'),footballSchedule=path.join(temp,football.followSchedulePath);
   fs.unlinkSync(footballSchedule);await rejectSchedule(manifest,/ENOENT/,'Football peer-copy requires its genuine Schedule before apply');fs.symlinkSync(path.join(root,football.followSchedulePath),footballSchedule);
   save(manifest);assert.equal(builder.preflightRetainedFootballOnly().codes.length,manifest.codes.length);assert(owner.parseOptions(['--australian-championship','--capture='+folder,'--local-only']).australianChampionship);
-  console.log('Retained peer guard: valid canonical inventory/paths accepted; omitted/duplicate/unknown/mismatched entries, redirected same-code Inspector and missing genuine Schedule rejected by preflight, builder and canonical owner; zero apply calls/writes.');
+  owned.writeState(temp,'adopted');const adoptedBefore=fs.readFileSync(path.join(temp,owned.FILE));
+  for(const argv of [['--australian-championship','--capture='+folder,'--local-only'],['--retained-coverage','--codes=football,netball','--capture='+folder,'--local-only']]){
+   const guarded=load('update-cards.js',{'./build-code-inspector':builder,'./lib/australian-championship':{...adapter,apply:()=>{applies.push('apply');throw Error('Adopted guard reached apply');}},'./lib/refresh-child':{run:()=>{writes.push('child');throw Error('Adopted guard reached child');}}},argv);
+   assert.throws(()=>owned.withClock(()=>guarded.parseOptions(argv,{})),/legacy-rebuild-with-adopted-finals-held/);await assert.rejects(owned.withClock(()=>guarded.guardTestMain()),/legacy-rebuild-with-adopted-finals-held/);assert(fs.readFileSync(path.join(temp,owned.FILE)).equals(adoptedBefore));assert.equal(writes.length,0);assert.equal(applies.length,0);
+  }
+  console.log('Retained peer guard: valid canonical inventory/paths accepted; omitted/duplicate/unknown/mismatched entries, redirected same-code Inspector and missing genuine Schedule rejected by preflight, builder and canonical owner; zero apply calls/writes; frozen pre-adoption positives and complete-canonical adopted rejection passed.');
  }finally{fs.rmSync(temp,{recursive:true,force:true});}
 }
 async function main({pure=process.argv.includes('--pure')}={}){
