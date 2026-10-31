@@ -90,9 +90,12 @@ publication, new fixtures, viewing claim, editorial refresh or app version bump.
 Require fixture, Follow policy, backend efficiency, runtime and performance gates.
 
 The canonical quick owner's existing transaction snapshots all data/Feed files,
-eight runtime outputs and the scoped candidate/config guards. Restore changed or
+eight runtime outputs and the scoped candidate/config guards. This owner opts
+into all-file data/Feed rollback, including HTML/text/binary artifacts; ordinary
+full/quick snapshot behavior is unchanged. Restore changed or
 missing files, remove new outputs and temporary candidates before fallible failure
-diagnostics. Preserve the first exception if diagnostics fail. External source
+diagnostics. Preserve the first exception if diagnostics fail, including evidence-save failure
+after HTTP/domain refusal; record the secondary evidence failure separately. External source
 receipts/partial bytes/terminal errors remain, but cannot turn a failed candidate
 into success. An unchanged full data/generated/runtime fingerprint is required
 outside the four result-bearing JSON/JS/CI/Follow artifacts; these four also have
@@ -103,7 +106,8 @@ per-record/metadata exactness checks. No failed or late candidate is deployable.
 The181,148-byte saved16October official payload with SHA256
 `457663547c103c0a9379bff1148ec1fdc1c36f43024e9e2f699ebef39605c891`
 is structure only:155Fixture/1Playing rows, not new final evidence. All new final
-scores in tests are constructed and labelled. The actual old canonical owner RED
+scores in tests are constructed and labelled. Compare every independently supplied safe top-level and nested score channel
+against accepted finals before incomplete-score deferral. The actual old canonical owner RED
 shows a one-result update changing unrelated verification clocks; it is separate
 from the safe pre-work refusal of the then-unimplemented new modifier.
 

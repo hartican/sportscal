@@ -26,7 +26,7 @@ async function run({output,root=ROOT,began=performance.now(),clock=()=>performan
  const save=(name,value,terminal=false)=>{if(!terminal)check();if(!owns())throw Error('A-League evidence ownership changed');fs.writeFileSync(path.join(output,name),Buffer.isBuffer(value)?value:JSON.stringify(value,null,2)+'\n',{flag:'wx',mode:0o600});if(!terminal)check();};
  const capture=record=>{save('encoded-body.bin',record.encodedBody);save('decoded-body.bin',record.decodedBody);save('source-receipt.json',record.receipt);};
  try{
-  return await require('../quick-results').atomicRefresh({},{deadline:began+LIMITS.ownerMs+LIMITS.cleanupMs,clock,additionalFiles:[...candidates,'config/card-identities.js'],refreshOperation:async()=>{
+  return await require('../quick-results').atomicRefresh({},{deadline:began+LIMITS.ownerMs+LIMITS.cleanupMs,clock,additionalFiles:[...candidates,'config/card-identities.js'],includeAllFiles:true,refreshOperation:async()=>{
    check();for(const file of candidates)if(fs.existsSync(file))throw Error('A-League existing candidate must be reviewed');
    const previous=contract.preflight(root,now||new Date()),projectionBefore=new Map(['data/code-inspector/football.json','data/follow-schedule/football.json'].map(file=>[file,JSON.parse(fs.readFileSync(path.join(root,file),'utf8'))]));
    inventory('data');inventory('feeds');for(const file of [...require('../build-app-shell-runtime').generatedFiles(),'config/card-identities.js'])snapshots.set(file,contract.sha(fs.readFileSync(path.join(root,file))));
@@ -35,7 +35,7 @@ async function run({output,root=ROOT,began=performance.now(),clock=()=>performan
    const consume=(payload,receipt)=>contract.evaluate(payload,previous,{...receipt,now:now||new Date()});
    let obtained;
    try{reader=acquire?null:createReader({clock,began});obtained=await(acquire?acquire(consume):reader.read(consume));}
-   catch(error){if(error.sourceCapture){capture(error.sourceCapture);report.sourceFailures=[{reason:'official-resource-or-domain-refused',receipt:error.sourceCapture.receipt}];}throw error;}
+   catch(error){if(error.sourceCapture){report.sourceFailures=[{reason:'official-resource-or-domain-refused',receipt:error.sourceCapture.receipt}];try{capture(error.sourceCapture);}catch{report.evidenceFailure='capture-evidence-write-failed';}}throw error;}
    finally{reader?.close();}
    capture(obtained);check();const result=obtained.value;
    report={...report,changed:result.changed,deferrals:result.deferrals,supported:result.supported,receipt:obtained.receipt,resources:reader?.summary()||{requests:1,closed:true,active:0,ownedDouble:true}};
@@ -60,7 +60,7 @@ async function run({output,root=ROOT,began=performance.now(),clock=()=>performan
   report={...report,publicationState:!error.refreshRollback?'blocked-before-candidate':error.refreshRollback.status==='failed'?'blocked-rollback-failed':'blocked-rolled-back',failureCode:error.aLeagueCode||'source-or-owner-failure',rollback:error.refreshRollback||null};
   try{save('terminal-error.json',report,true);}catch{}
   try{emit({mode:'a-league-results-only',publicationState:report.publicationState,failureCode:report.failureCode,changed:[],deferrals:report.deferrals});}catch{}
-  if(clock()>=deadline)try{save('terminal-deadline.json',{publicationState:'failed',deadlineExceeded:true,originalErrorPreserved:true},true);}catch{}
+  try{if(clock()>=deadline)save('terminal-deadline.json',{publicationState:'failed',deadlineExceeded:true,originalErrorPreserved:true},true);}catch{}
   throw error;
  }
 }

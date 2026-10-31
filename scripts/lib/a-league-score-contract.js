@@ -57,7 +57,7 @@ function evaluate(matches,previous,{observedAt,bodySha256,now=new Date(),check=(
   if((explicit||['Playing','InProgress','HalfTime'].includes(status))&&match.startDate>Date.parse(observedAt))fail('future-playing-or-final');
   if(Object.hasOwn(match,'lastUpdated')&&(!Number.isSafeInteger(match.lastUpdated)||match.lastUpdated<0||match.lastUpdated>Date.parse(observedAt)||(explicit&&match.lastUpdated<match.startDate)))fail('provider-fact-clock');
   if((explicit||old.status==='completed')&&['home','away'].some(side=>Number.isSafeInteger(numeric?.[side])&&numeric[side]>=0&&match[side+'Score']!=null&&match[side+'Score']!==numeric[side]))fail('contradictory-score-channels');
-  if(old.status==='completed'&&(!explicit||['home','away'].some(side=>Number.isSafeInteger(numeric?.[side])&&numeric[side]>=0&&numeric[side]!==old[side+'Score'])))fail('accepted-final-conflict');
+  if(old.status==='completed'&&(!explicit||['home','away'].some(side=>[numeric?.[side],match[side+'Score']].some(value=>Number.isSafeInteger(value)&&value>=0&&value!==old[side+'Score']))))fail('accepted-final-conflict');
   rows.push({match,bound,old,explicit,numeric,good});
  }
  if(matches.length!==156||seen.size!==156)fail('incomplete-competition');
