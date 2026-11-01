@@ -9,6 +9,7 @@ const http = require('node:http');
 const { execFileSync, spawnSync } = require('node:child_process');
 const { chromium, webkit } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const sync = require('../config/user-state-sync');
+const installSignInActionTrace = require('./lib/account-sign-in-action-trace');
 const root = path.resolve(__dirname, '..');
 const testedHtml=process.env.ACCOUNT_RECOVERY_BASELINE?execFileSync('git',['show',process.env.ACCOUNT_RECOVERY_BASELINE+':index.html'],{cwd:root,encoding:'utf8',maxBuffer:10*1024*1024}):fs.readFileSync(path.join(root,'index.html'),'utf8');
 const testedShellVersion=testedHtml.match(/<meta name="app-shell-version" content="(\d+)">/)?.[1];
@@ -550,6 +551,7 @@ const server = http.createServer((req, res) => {
     if(traceApiStale)resourcePhase='setup-after-controlled-reload';
     await page.waitForFunction(() => !startupCoordinator.isHydrating());
     await page.locator('#startupLaunch').waitFor({ state: 'hidden' });
+    await page.evaluate(installSignInActionTrace);
     await page.evaluate(() => {
       globalThis.qaSignInTrace=[];
       const forms=new WeakMap();let nextForm=0;
@@ -589,18 +591,22 @@ const server = http.createServer((req, res) => {
       assert.deepEqual(retained,{sameForm:true,passwordFocused:true,emailValid:true,passwordValid:true},'helper mount must retain the actual filled form and focus');
     }
     manifestPhase='native-sign-in';
+    await page.evaluate(()=>qaSignInActionTrace.mark('before-native-click'));
     await page.locator('#accountSignInForm button[type="submit"]').click();
+    await page.evaluate(()=>qaSignInActionTrace.mark('after-native-click'));
     if(helperRaceProbe){
       const trace=await page.evaluate(()=>qaSignInTrace);
       console.log(JSON.stringify({phase:'held-helper-sign-in-probe',scenario,engine:engineName,trace}));
       assert.equal(trace.filter(event=>event.event==='submit:accountSignInForm').length,1,'a filled form must submit even when its deferred helper finishes before the click');
     }
     await page.waitForFunction(() => serverPersistence.state === 'signedIn').catch(async error=>{
-      console.error(JSON.stringify({phase:'initial-sign-in',scenario,engine:engineName,reads,writes,refreshes,errors,
+      console.error(JSON.stringify({phase:'initial-sign-in',scenario,engine:engineName,reads,writes,refreshes,authSignIns,errors,
         state:await page.evaluate(()=>({state:serverPersistence.state,message:serverPersistence.message,
-          hasSession:serverSyncClient.accountSnapshot().hasSession,pending:Boolean(pendingPreferenceIntent(serverPersistence.user?.id)),trace:qaSignInTrace}))}));
+          hasSession:serverSyncClient.accountSnapshot().hasSession,pending:Boolean(pendingPreferenceIntent(serverPersistence.user?.id)),trace:qaSignInTrace,
+          actionTrace:qaSignInActionTrace.snapshot()}))}));
       throw error;
     });
+    await page.evaluate(()=>qaSignInActionTrace.stop());
     await page.waitForFunction(() => Boolean(accountIndicatorController));
     await page.waitForFunction(() => nothingscoreViewerScope?.owner === serverPersistence.user?.id);
     await page.waitForTimeout(1200); // Drain optional sign-in/profile/Follow effects before isolating resume.
