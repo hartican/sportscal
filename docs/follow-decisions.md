@@ -1,5 +1,19 @@
 # Follow and Feed decisions
 
+## Recording another Follow with retained intent — 1 November 2026 source repair
+
+A new deliberate local Follow may extend its same-owner pending intent using
+that receipt's exact original base, even if a newer account baseline is held.
+Keep current account/session/baseline-generation eligibility; advanced-base
+writes require current choices to match the retained intent apart from typed
+device-local views and known bookkeeping. Do not drop pending removals, replay
+unseen remote choices, clear/rebase receipts, or relax the recorder's immutable
+base guard. Snapshot receipt revision/absence must still match at commit.
+Unknown current drift, invalid views, unavailable baseline or changed owner/
+revision stays held. Existing owned ACK/R2 and ordinary same-base behavior remain.
+Source is separately traceable from PR123; release/device acceptance remains
+outstanding. See [source proof and limits](quality/held-receipt-follow-write-2026-11-01.md).
+
 ## Explicit device-local saved-preference recovery — 29 October 2026
 
 The user accepts losing unsynced follows and wants the quickest supported local recovery. A clearly explained, deliberately confirmed Account action may use a fresh verified copy of saved account preferences on this device and discard only its exact matching pending preference receipt. This is an explicit device-local replacement, not an automatic merge, server reset or receipt ACK. Preserve authentication, server state, unrelated local actions/ratings/archive/pin commands, other profiles and every normal sync/owner/CAS safeguard. Unknown storage completion stays explicit and fail-closed. No actual customer recovery is authorised by source preparation or deployment; the originating chat owns the eventual user step. See [scope and source proof](quality/local-preference-recovery-2026-10-29.md).

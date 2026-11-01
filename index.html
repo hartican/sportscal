@@ -2468,9 +2468,17 @@ try{
 const life=preferenceIntentOwner();
 if(!life||life.accountId!==serverPersistence.user.id||serverStateBaseline?.accountId!==life.accountId
 ||serverStateBaseline.generation!==life.generation)throw new Error("Wait for this account's saved choices before changing follows.");
+const acceptedPreferences=serverStateBaseline?.state?.preferences;
+if(!acceptedPreferences||typeof acceptedPreferences!=="object"||Array.isArray(acceptedPreferences))throw new Error("The saved account starting point is unavailable.");
+const previousReceipt=pendingPreferenceIntent(life.accountId);
+if(previousReceipt&&(previousReceipt.baseUpdatedAt!==serverStateBaseline.updatedAt
+||!PROFILE_STORAGE.preferenceBaseMatches(previousReceipt,acceptedPreferences))
+&&(!Number.isFinite(Date.parse(serverStateBaseline.updatedAt||""))
+||!PROFILE_STORAGE.preferenceIntentCurrentMatches(previousReceipt,userPreferences)))throw new Error("Pending choices need their original current intent.");
 activeProfileBundle=PROFILE_STORAGE.recordPreferenceIntent(localStorage,activeProfileBundle,{
-ownerId:life.accountId,generation:life.generation,baseUpdatedAt:serverStateBaseline.updatedAt,
-basePreferences:serverStateBaseline.state.preferences,preferences:clean,sections,
+ownerId:life.accountId,generation:life.generation,
+baseUpdatedAt:previousReceipt?previousReceipt.baseUpdatedAt:serverStateBaseline.updatedAt,
+basePreferences:previousReceipt?previousReceipt.basePreferences:acceptedPreferences,preferences:clean,sections,expectedReceipt:previousReceipt,
 });
 profileSaved=true;
 setServerPersistence({state:"syncing",message:"Saved on this device; waiting to sync."});
