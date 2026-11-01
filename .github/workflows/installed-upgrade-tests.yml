@@ -13,6 +13,8 @@ on:
       - scripts/validate-installed-pwa-upgrade-browser.js
       - scripts/validate-peach-redesign-browser.js
       - scripts/validate-account-sync-recovery-browser.js
+      - scripts/lib/account-sign-in-action-trace.js
+      - scripts/validate-account-sign-in-action-trace.js
       - scripts/lib/installed-test-network.js
       - scripts/validate-installed-test-network.js
       - .github/installed-production-baseline.json
@@ -152,6 +154,7 @@ jobs:
         run: |
           export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
           set -o pipefail
+          node scripts/validate-account-sign-in-action-trace.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/account-sign-in-observer-unit.log"
           node scripts/validate-account-sync-recovery-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/account-recovery.log"
       - name: Observe original readiness barrier with a pending manifest
         if: matrix.browser == 'webkit'
