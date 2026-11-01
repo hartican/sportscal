@@ -9,7 +9,7 @@ const { AsyncLocalStorage } = require('node:async_hooks');
 const store = require('../../lib/supabase-server');
 const clone = value => value == null ? value : JSON.parse(JSON.stringify(value));
 
-module.exports = function localUserStateApi(owner, { traceRequests = false } = {}) {
+module.exports = function localUserStateApi(owner, { traceRequests = false, calendarHandler = null } = {}) {
   let row = null, race = null;
   const calls = [];
   const metrics={stateLoads:0,recoveryRpcs:0,rowWrites:0};
@@ -58,7 +58,8 @@ module.exports = function localUserStateApi(owner, { traceRequests = false } = {
   const file = path.resolve(__dirname, '../../api/user-state.js');
   const localRequire = createRequire(file), module = { exports: {} };
   vm.runInNewContext(fs.readFileSync(file, 'utf8'), { module, exports: module.exports, Buffer, Date, URL, console,
-    require: name => name === '../lib/supabase-server' ? dependencies : localRequire(name) }, { filename: file });
+    require: name => name === '../lib/supabase-server' ? dependencies
+      : name === '../lib/calendar-handler' && calendarHandler ? calendarHandler : localRequire(name) }, { filename: file });
   async function execute(request){
     emit('request-start');
     try{

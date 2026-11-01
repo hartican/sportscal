@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="605">
+<meta name="app-shell-version" content="606">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=605" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=606" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -487,7 +487,7 @@ to{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 14%,transparent);}
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=605"></script>
+<script src="assets/js/app-shell-runtime.js?v=606"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -2468,9 +2468,17 @@ try{
 const life=preferenceIntentOwner();
 if(!life||life.accountId!==serverPersistence.user.id||serverStateBaseline?.accountId!==life.accountId
 ||serverStateBaseline.generation!==life.generation)throw new Error("Wait for this account's saved choices before changing follows.");
+const acceptedPreferences=serverStateBaseline?.state?.preferences;
+if(!acceptedPreferences||typeof acceptedPreferences!=="object"||Array.isArray(acceptedPreferences))throw new Error("The saved account starting point is unavailable.");
+const previousReceipt=pendingPreferenceIntent(life.accountId);
+if(previousReceipt&&(previousReceipt.baseUpdatedAt!==serverStateBaseline.updatedAt
+||!PROFILE_STORAGE.preferenceBaseMatches(previousReceipt,acceptedPreferences))
+&&(!Number.isFinite(Date.parse(serverStateBaseline.updatedAt||""))
+||!PROFILE_STORAGE.preferenceIntentCurrentMatches(previousReceipt,userPreferences)))throw new Error("Pending choices need their original current intent.");
 activeProfileBundle=PROFILE_STORAGE.recordPreferenceIntent(localStorage,activeProfileBundle,{
-ownerId:life.accountId,generation:life.generation,baseUpdatedAt:serverStateBaseline.updatedAt,
-basePreferences:serverStateBaseline.state.preferences,preferences:clean,sections,
+ownerId:life.accountId,generation:life.generation,
+baseUpdatedAt:previousReceipt?previousReceipt.baseUpdatedAt:serverStateBaseline.updatedAt,
+basePreferences:previousReceipt?previousReceipt.basePreferences:acceptedPreferences,preferences:clean,sections,expectedReceipt:previousReceipt,
 });
 profileSaved=true;
 setServerPersistence({state:"syncing",message:"Saved on this device; waiting to sync."});

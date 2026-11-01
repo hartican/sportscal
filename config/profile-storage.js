@@ -361,12 +361,13 @@
     return clone(next);
   }
 
-  function recordPreferenceIntent(storage,bundle,{ownerId,generation,baseUpdatedAt,basePreferences,preferences,sections={}}){
+  function recordPreferenceIntent(storage,bundle,{ownerId,generation,baseUpdatedAt,basePreferences,preferences,sections={},expectedReceipt}){
     if(typeof ownerId!=='string'||!ownerId||!Number.isSafeInteger(generation)||generation<0
       || !(baseUpdatedAt===null||typeof baseUpdatedAt==='string')||!basePreferences||typeof basePreferences!=='object'||Array.isArray(basePreferences)
       ||!preferences||typeof preferences!=='object'||Array.isArray(preferences))throw new Error("A verified preference baseline is required.");
     const latest=preferenceSyncBundle(storage,bundle),entries=clone(latest.preferenceSync?.entries||[]);
     const prior=entries.find(entry=>entry.ownerId===ownerId);
+    if(expectedReceipt!==undefined&&!samePreferenceValues(prior||null,expectedReceipt))throw new Error("Pending choices changed; retry your follow change.");
     if(prior&&(prior.baseUpdatedAt!==baseUpdatedAt||JSON.stringify(canonicalValue(prior.basePreferences))!==JSON.stringify(canonicalValue(basePreferences))))throw new Error("Pending choices need their original server baseline.");
     const receipt={ownerId,generation,receiptId:makeId("preference-edit"),baseUpdatedAt,basePreferences:clone(basePreferences),preferences:clone(preferences)};
     const index=entries.findIndex(entry=>entry.ownerId===ownerId);
@@ -423,6 +424,25 @@
     return JSON.stringify(canonicalValue(first))===JSON.stringify(canonicalValue(second));
   }
 
+  // A cold deliberate writer can extend retained intent without loading the
+  // Account helper. Only its two already-defined, typed device-local views may
+  // differ; every other projected choice remains part of the comparison.
+  function preferenceIntentCurrentMatches(receipt,preferences){
+    const object=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
+    const text=value=>typeof value==='string';
+    const valid=value=>{
+      if(!object(value)||(value.feedCompact!==undefined&&typeof value.feedCompact!=='boolean'))return false;
+      if(value.followBrowse===undefined)return true;
+      const fields={sportId:text,categoryId:text,section:v=>['teams-players','schedule'].includes(v),
+        page:v=>Number.isSafeInteger(v)&&v>=0,
+        scheduleScope:v=>v===null||(object(v)&&Object.keys(v).length===4&&['codeId','tournamentId','competitionId','label'].every(k=>text(v[k])))};
+      return object(value.followBrowse)&&Object.keys(value.followBrowse).every(k=>Object.hasOwn(fields,k)&&fields[k](value.followBrowse[k]));
+    };
+    if(!valid(receipt?.preferences)||!valid(preferences))return false;
+    const comparable=value=>{const result=preferenceDecisions(value);delete result.followBrowse;delete result.feedCompact;return result;};
+    return samePreferenceValues(comparable(receipt.preferences),comparable(preferences));
+  }
+
   function preferenceBaseMatches(receipt,preferences){
     return Boolean(receipt&&samePreferenceValues(preferenceDecisions(receipt.basePreferences),preferenceDecisions(preferences)));
   }
@@ -471,6 +491,7 @@
     acknowledgePreferenceIntent,
     preferenceIntentMatches,
     preferenceBaseMatches,
+    preferenceIntentCurrentMatches,
     advancePreferenceIntentBase,
     saveSection,
     setUsernameLabel,
