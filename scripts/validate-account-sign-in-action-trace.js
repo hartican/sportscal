@@ -25,7 +25,7 @@ function fixture(){
     removeEventListener(type,handler,capture){const i=listeners.findIndex(x=>x.type===type&&x.handler===handler&&x.capture===capture);assert(i>=0);listeners.splice(i,1);},
     elementFromPoint(x,y){const b=button.box;return hitOverride||(x>=b.x&&x<=b.x+b.width&&y>=b.y&&y<=b.y+b.height?button:form);},
   };
-  class Observer{constructor(callback){this.callback=callback;this.disconnected=false;observers.push(this);}observe(){}disconnect(){this.disconnected=true;}}
+  class Observer{constructor(callback){this.callback=callback;this.disconnected=false;this.elements=[];observers.push(this);}observe(element){this.elements.push(element);}disconnect(){this.disconnected=true;}}
   const context={document:doc,MutationObserver:Observer,ResizeObserver:Observer,TextEncoder,
     performance:{now:()=>++tick,timeOrigin:1793538499305},innerWidth:390,innerHeight:844,scrollX:0,scrollY:0,
     visualViewport:{height:844,offsetTop:0},accountIndicatorController:null,
@@ -80,6 +80,8 @@ test('no-values-text-html-account-read-or-ui-action-and-unknown-ids-redacted',()
 });
 test('event-and-byte-caps-snapshot-isolation-and-stop-detach',()=>{
   const f=fixture();for(let i=0;i<250;i++)f.emit('pointerdown');const s=f.snapshot();assert(s.overflow&&s.dropped>0);assert(s.events.length<=96);assert(s.eventBytes<=98304);assert(Buffer.byteLength(JSON.stringify(s))<100000);
+  for(let i=0;i<500;i++){f.replaceButton();f.observers[1].callback([{target:f.form}]);}
+  assert.equal(f.snapshot().maxObservedElements,384);assert.equal(f.observers[0].elements.length,384);assert.equal(f.snapshot().observedElementCount,384);
   const copy=f.api.snapshot();copy.events[0].kind='changed';assert.notEqual(f.snapshot().events[0].kind,'changed');
   f.api.stop();const count=f.snapshot().events.length;assert.equal(f.listeners.length,0);assert(f.observers.every(x=>x.disconnected));f.emit('click');f.api.mark('before-native-click');assert.equal(f.snapshot().events.length,count);
 });

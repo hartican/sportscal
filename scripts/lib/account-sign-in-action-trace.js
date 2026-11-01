@@ -2,13 +2,13 @@
 // Browser-test evidence only. Serialized by Playwright into the disposable page.
 // No values, text, HTML, account snapshots, requests, timers or UI actions.
 module.exports = function installAccountSignInActionTrace() {
-  const maxEvents=96,maxBytes=98304,events=[],identities=new WeakMap(),observed=new WeakSet();
+  const maxEvents=96,maxBytes=98304,maxObservedElements=384,events=[],identities=new WeakMap(),observed=new WeakSet();
   const ids=new Set(['accountSignInForm','accountEmail','accountPassword','keepAccountSignedIn',
     'accountSyncHelp','accountSyncDetail','accountSyncControls','settingsBody','settingsModal']);
   const tags=new Set(['FORM','BUTTON','INPUT','LABEL','DIV','SPAN','P']);
   const markers=new Set(['before-native-click','after-native-click']);
   const body=document.getElementById('settingsBody'),listeners=[];
-  let nextIdentity=0,eventBytes=0,dropped=0,stopped=false,resize=null,mutation=null;
+  let nextIdentity=0,eventBytes=0,dropped=0,observedElementCount=0,stopped=false,resize=null,mutation=null;
   const number=value=>Number.isFinite(value)&&Math.abs(value)<=1000000?Math.round(value*100)/100:null;
   const form=()=>document.getElementById('accountSignInForm');
   const submit=()=>form()?.querySelector('button[type="submit"]')||null;
@@ -50,9 +50,11 @@ module.exports = function installAccountSignInActionTrace() {
     eventBytes+=size;events.push(entry);
   }
   function watch(){
-    if(!resize)return;
+    if(!resize||stopped)return;
     for(const element of [form(),submit(),document.getElementById('accountSyncHelp'),document.getElementById('accountSyncDetail')]){
-      if(element&&!observed.has(element)){observed.add(element);resize.observe(element);}
+      if(element&&!observed.has(element)&&observedElementCount<maxObservedElements){
+        observed.add(element);observedElementCount++;resize.observe(element);
+      }
     }
   }
   for(const type of ['pointerdown','mousedown','pointerup','mouseup','click','submit','invalid','focusin','focusout']){
@@ -82,7 +84,7 @@ module.exports = function installAccountSignInActionTrace() {
     mark(label){if(markers.has(label))record(label);},
     snapshot(){return JSON.parse(JSON.stringify({format:'account-sign-in-action-trace.v1',
       timeOrigin:Number.isFinite(performance.timeOrigin)&&performance.timeOrigin>=0?performance.timeOrigin:null,
-      maxEvents,maxBytes,eventBytes,overflow:dropped>0,dropped,
+      maxEvents,maxBytes,eventBytes,maxObservedElements,observedElementCount,overflow:dropped>0,dropped,
       timingMayBePerturbed:true,events}));},
     stop(){
       if(stopped)return;record('stopped');stopped=true;mutation?.disconnect();resize?.disconnect();
