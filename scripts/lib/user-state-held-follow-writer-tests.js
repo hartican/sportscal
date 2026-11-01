@@ -66,7 +66,7 @@ async function run(){const results=[],test=async(name,body)=>{await body();resul
    f.remote={...clone(f.base),preferences:clone(f.original.preferences),updatedAt:'2026-11-01T00:01:00.000Z'};
    c.applyServerState(f.remote);c.setServerStateBaseline(f.remote);
   }
-  const api=require(path.join(root,'scripts/lib/local-user-state-api'))('A');api.seed(f.remote);
+  const api=require(path.join(root,'scripts/lib/local-user-state-api'))('A',{calendarHandler(){throw Error('Unexpected calendar route in owned user-state-only fixture');}});api.seed(f.remote);
   // API/database/auth are disposable local doubles. No provider connection exists.
   const pendingTimers=new Map();let timerId=0;
   c.setTimeout=(fn)=>{const id=++timerId;pendingTimers.set(id,fn);return id;};c.clearTimeout=id=>pendingTimers.delete(id);c.window=c;
