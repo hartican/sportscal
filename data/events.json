@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "nothingsport-official-results-2026-09-15-v1-20261022180155820-20261022221048141-20261024211614556-20261029023535843-20261029172213484-20261030063310815-20261030230640076-20261030233059042-20261030233417333-20261030233813154-20261031010623251-20261031023200036",
-  "publishedAt": "2026-10-31T02:32:00.036Z",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261022180155820-20261022221048141-20261024211614556-20261029023535843-20261029172213484-20261030063310815-20261030230640076-20261030233059042-20261030233417333-20261030233813154-20261031010623251-20261031023200036-20261102014241208",
+  "publishedAt": "2026-11-02T01:42:41.208Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
   "events": [
     {
@@ -295841,6 +295841,105 @@
       ],
       "consensusTags": [],
       "statusFactObservedAt": "2026-10-22T17:03:49.824Z"
+    },
+    {
+      "id": "major-match-rlwc-2026-tonga-samoa",
+      "eventId": "major-match-rlwc-2026-tonga-samoa",
+      "canonicalEventId": "major-match:rlwc-2026:tonga-samoa",
+      "actionKey": "major-match:rlwc-2026:tonga-samoa",
+      "cardKind": "fixture",
+      "key": "nrl",
+      "sport": "Rugby league",
+      "competitionId": "competition:rugby-league-world-cup:2026",
+      "parentEventId": "major-event:rlwc-2026",
+      "eventFamilyId": "rugby-league-world-cup",
+      "identityRef": "event:rlwc",
+      "stableMatchId": null,
+      "legacyEventIds": [],
+      "roundLabel": "Pool B & C",
+      "stage": "Pool B & C",
+      "matchType": null,
+      "eventType": null,
+      "eventCode": null,
+      "bestOf": null,
+      "court": null,
+      "majorEventId": "major-event:rlwc-2026",
+      "majorEventParentId": "major-event:rlwc-2026",
+      "name": "Tonga v Samoa",
+      "displayTitleCompact": "Tonga v Samoa",
+      "date": "2026-11-01",
+      "time": "20:05",
+      "startTimeUtc": "2026-11-01T09:05:00.000Z",
+      "timelineSortTimeUtc": "2026-11-01T09:05:00.000Z",
+      "sessionStartTimeUtc": null,
+      "sequenceInSession": 0,
+      "timePrecision": "exact",
+      "estimatedStartTimeUtc": null,
+      "timingProvenance": null,
+      "timingSource": null,
+      "venue": "CommBank Stadium, Sydney",
+      "status": "scheduled",
+      "scheduleStatus": "confirmed",
+      "result": null,
+      "expected": null,
+      "matchupSides": [],
+      "participants": [
+        {
+          "id": "team:nrl:national:tonga",
+          "name": "Tonga",
+          "role": "home"
+        },
+        {
+          "id": "team:nrl:national:samoa",
+          "name": "Samoa",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:nrl:national:tonga",
+        "team:nrl:national:samoa"
+      ],
+      "broadcaster": "",
+      "broadcasterIds": [],
+      "broadcastOptions": [],
+      "viewingOptions": [],
+      "isInternational": true,
+      "competitionScope": "international",
+      "representativeCountryCodes": [
+        "TO",
+        "WS"
+      ],
+      "ticketing": {
+        "provider": "Ticketmaster",
+        "status": "on_sale",
+        "url": "https://www.ticketmaster.com.au/rlwc2026",
+        "verifiedAt": "2026-08-23T06:00:00.000Z",
+        "saleStartAt": null,
+        "saleEndAt": "2026-11-15T08:00:00.000Z"
+      },
+      "sourceName": "International Rugby League",
+      "sourceUrl": "https://www.intrl.sport/match-details/2578",
+      "sourceCheckedAt": "2026-11-01T06:51:21.342326Z",
+      "sourceType": "official",
+      "participantsConfirmed": true,
+      "sportDomainId": "sport:nrl",
+      "sourceEventIds": [
+        "major-match:rlwc-2026:tonga-samoa",
+        "major-match-rlwc-2026-tonga-samoa"
+      ],
+      "sourceTrust": "verified",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "all",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "statusCheckedAt": "2026-11-01T06:51:21.342326Z",
+      "participantSlots": [],
+      "participantCountryCodes": [],
+      "broadcasts": [],
+      "consensusTags": []
     }
   ]
 }

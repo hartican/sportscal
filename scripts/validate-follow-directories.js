@@ -174,4 +174,10 @@ for(const bad of ['invalid','2026-02-30T05:10:00Z','2026-10-11T13:40:00.001Z'])a
 assert.equal(participantObservation({sourceIds:['a','b']},{a:{checkedAt:observed},b:{checkedAt:'2026-10-11T05:11:00Z'}},reference),null,'Distinct source receipts cannot invent one participant observation');
 assert.equal(participantObservation({sourceIds:['a','b']},{a:{checkedAt:observed}},reference),null,'A missing source receipt stays unknown');
 }
+const {searchPublicationAnchor}=require('./build-follow-directories');
+assert.equal(searchPublicationAnchor('2026-10-13T20:59:25.934Z','2026-10-22T16:43:52.871Z',true),'2026-10-22T16:43:52.871Z','scoped search must retain the latest recorded anchor');
+assert.equal(searchPublicationAnchor('2026-10-23T00:00:00Z','2026-10-22T00:00:00Z',true),'2026-10-23T00:00:00Z');
+assert.equal(searchPublicationAnchor('2026-10-13T00:00:00Z','2026-02-30T00:00:00Z',true),'2026-10-13T00:00:00Z');
+assert.equal(searchPublicationAnchor('2026-10-13T00:00:00Z','2026-10-22T00:00:00Z',false),'2026-10-13T00:00:00Z','unscoped behavior remains unchanged');
+require('./validate-rlwc-tonga-samoa');
 console.log(`Follow directory manifest valid: ${manifest.sports.length} chunks, tolerant search, current-only records and genuine source observations.`);

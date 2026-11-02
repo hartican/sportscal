@@ -9,6 +9,8 @@ const { buildBroadcasterReviewSteps, buildVenueReviewSteps, buildQuickSteps, bui
 const { projectionSteps: quickProjectionSteps } = require("./quick-results");
 require('./validate-reviewed-fixture-projections');
 require('./validate-editorial-projection-repair');
+require('./validate-major-event-feed-admission').focused();
+require('./validate-rlwc-tonga-samoa');
 require('./validate-cricket-live-scope').run();
 // Owned AFLW doubles run in isolated processes; their IO guards must never
 // replace the ordinary canonical owner's filesystem, clock or transport.

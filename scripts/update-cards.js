@@ -83,6 +83,12 @@ function parseOptions(argv = process.argv.slice(2), env = process.env) {
     if (reviewedEditorial.length !== 1 || !reviewedEditorial[0].slice(21) || ids.length !== 1 || !ids[0].slice(6) || !argv.includes('--local-only') || !argv.includes('--reviewed-fixtures') || !argv.includes('--editorial-projections') || new Set(argv).size !== argv.length || argv.some(arg => !allowed.has(arg) && !arg.startsWith('--ids=') && !arg.startsWith('--reviewed-editorial='))) throw Error('Reviewed editorial research requires exact IDs, one reviewed input and the local-only reviewed-fixtures/editorial-projections route. No source steps ran.');
     return {localOnly:true, reviewedEditorial:{ids:ids[0].slice(6).split(','), file:reviewedEditorial[0].slice(21)}};
   }
+  if(argv.includes('--admit-major-subevents')){
+    const allowed=new Set(['--reviewed-fixtures','--admit-major-subevents','--local-only','-p']);
+    const selections=argv.filter(arg=>arg.startsWith('--ids='));
+    if(!argv.includes('--reviewed-fixtures')||!argv.includes('--local-only')||selections.length!==1||!selections[0].slice(6)||new Set(argv).size!==argv.length||argv.some(arg=>!allowed.has(arg)&&!arg.startsWith('--ids=')))throw Error('Major subevent admission requires only --reviewed-fixtures --admit-major-subevents --ids=<reviewed ID> --local-only. No writes or source steps ran.');
+    return {localOnly:true};
+  }
   if(argv.includes('--retained-coverage')){
     const codeArgs=argv.filter(arg=>arg.startsWith('--codes=')),captures=argv.filter(arg=>arg.startsWith('--capture=')),allowed=new Set(['--retained-coverage','--local-only','-p']);
     if(!argv.includes('--local-only')||codeArgs.length!==1||new Set(argv).size!==argv.length||argv.some(arg=>!allowed.has(arg)&&!arg.startsWith('--codes=')&&!arg.startsWith('--capture=')))throw Error('Retained coverage requires only declared codes, optional Football capture and local-only; no source steps ran');
@@ -337,6 +343,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/refresh-fixture-highlights.js"],
   ["scripts/epic-editorial.js", "--apply"],
   ["scripts/reconcile-fixture-results.js"],
+  ["scripts/validate-major-event-feed-admission.js"],
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"],
   ["scripts/apply-representative-metadata.js", "data/events.json", "data/events.js"],
   ["scripts/apply-national-team-identities.js", "data/events.json", "data/events.js"],
@@ -555,7 +562,7 @@ function buildSteps({ localOnly = false } = {}) {
   return steps;
 }
 
-async function runMain({f1StartedAt=require('node:perf_hooks').performance.now(),aflwStartedAt=f1StartedAt,aLeagueStartedAt=f1StartedAt,championshipStartedAt=f1StartedAt}={}) {
+async function runMain({f1StartedAt=require('node:perf_hooks').performance.now(),aflwStartedAt=f1StartedAt,aLeagueStartedAt=f1StartedAt,championshipStartedAt=f1StartedAt,preparedMajorAdmission=null}={}) {
   const options = parseOptions();
   if (options.reviewedEditorial) {
     const {ids, file} = options.reviewedEditorial;
@@ -917,12 +924,30 @@ async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()
     const scoped=Boolean(ids);
     const resultObservations=process.argv.includes('--result-observations');
     const editorialProjections=process.argv.includes('--editorial-projections');
+    const admitMajor=process.argv.includes('--admit-major-subevents');
+    let admission=null;
+    if(admitMajor){
+      admission=preparedMajorAdmission||require('./lib/major-event-feed-admission').prepare({
+        canonical:JSON.parse(fs.readFileSync('data/major-events.v1.json')),
+        incoming:JSON.parse(fs.readFileSync('feeds/incoming/events.json')),
+        published:JSON.parse(fs.readFileSync('data/events.json')),
+        ids:ids.slice(6).split(','),
+      });
+      if(!admission.changed){console.log('Reviewed major subevent already present on both Feed surfaces; no publication or rebuild needed.');return;}
+    }
     if(resultObservations && (!ids || baseline))throw new Error('Result observations require retained --ids= without editorial restoration');
     let codes=[];
     if(scoped){
+      if(admission?.projectionCodes)codes=admission.projectionCodes;
+      else{
       const manifest=JSON.parse(fs.readFileSync('data/code-inspector/manifest.json'));
-      const events=JSON.parse(fs.readFileSync('data/events.json')).events;
+      const events=admission?admission.published.events:JSON.parse(fs.readFileSync('data/events.json')).events;
       codes=require('./lib/reviewed-fixture-projection-codes').codesForReviewedFixtures(events,ids.slice(6).split(','),manifest,file=>JSON.parse(fs.readFileSync(file)));
+      }
+    }
+    if(admission){
+      require('./lib/major-event-feed-admission').writePrepared(admission);
+      console.log(JSON.stringify({majorSubeventAdmission:admission.added}));
     }
     if(editorialProjections){
       const repaired=require('./apply-editorial-narratives').applyScopedFeed(ids.slice(6).split(','));
@@ -935,12 +960,18 @@ async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()
       if(!repaired.changed){console.log('Retained result observations already agree; no publication or rebuild needed.');return;}
     }
     for(const args of [
-      ...(!resultObservations&&!editorialProjections?[['scripts/apply-current-card-evidence.js',...(baseline?[baseline,ids]:scoped?[ids]:[])]]:[]),
+      ...(!resultObservations&&!editorialProjections&&!admitMajor?[['scripts/apply-current-card-evidence.js',...(baseline?[baseline,ids]:scoped?[ids]:[])]]:[]),
       ...(!scoped?[['scripts/apply-national-team-identities.js','feeds/incoming/events.json']]:[]),
+      ...(admitMajor?[['scripts/validate-major-event-feed-admission.js']]:[]),
       ['scripts/publish-feed.js',scoped?'data/events.json':'feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
       ...(scoped?[['scripts/build-follow-fixtures.js']]:[]),
       ['scripts/build-paged-feed.js'],
       ['scripts/build-code-inspector.js',...(scoped?[`--codes=${codes.join(',')}`]:[])],
+      ...(admitMajor?[
+        ['scripts/build-follow-directories.js','--codes=nrl'],
+        ['scripts/build-follow-directories.js','--codes=nrl','--check'],
+        ['scripts/validate-rlwc-tonga-samoa.js'],
+      ]:[]),
       ...(scoped&&codes.includes('tennis')?['build-tennis-feed-parents','build-tournament-horizon','build-tennis-journeys'].map(script=>[`scripts/${script}.js`]):[]),
       ['scripts/build-app-shell-runtime.js'],
       ['scripts/version-generated-shell.js'],
@@ -1165,6 +1196,28 @@ async function main(){
   // Validate mode before creating diagnostic state or starting any source step.
   const initialOptions=parseOptions();
   if(initialOptions.australianChampionship||initialOptions.retainedCoverage||initialOptions.reviewedEditorial)return runMain();
+  if(process.argv.includes('--admit-major-subevents')){
+    // Pure canonical/identity/scope rejection must not enter rollback: that
+    // owner restores data/feeds by writing even when admission never mutated.
+    const ids=process.argv.find(argument=>argument.startsWith('--ids=')).slice(6).split(',');
+    const admission=require('./lib/major-event-feed-admission').prepare({
+      canonical:JSON.parse(fs.readFileSync('data/major-events.v1.json')),
+      incoming:JSON.parse(fs.readFileSync('feeds/incoming/events.json')),
+      published:JSON.parse(fs.readFileSync('data/events.json')),ids,
+    },{referenceTime:new Date()});
+    if(!admission.changed){console.log('Reviewed major subevent already present on both Feed surfaces; no publication or rebuild needed.');return;}
+    const manifest=JSON.parse(fs.readFileSync('data/code-inspector/manifest.json'));
+    const projectionCodes=require('./lib/reviewed-fixture-projection-codes').codesForReviewedFixtures(admission.published.events,ids,manifest,file=>JSON.parse(fs.readFileSync(file)));
+    // Same candidate recovery owner as a normal full refresh. It restores
+    // data/feeds and the main runtime, not every shell-version side effect;
+    // a failure remains a HOLD until those outputs are checked by the owner.
+    try{return await require('./quick-results').atomicRefresh({},{refreshOperation:()=>runMain({preparedMajorAdmission:{...admission,projectionCodes}})});}
+    catch(error){
+      console.error('Major subevent admission HOLD: existing candidate recovery was attempted; verify shell/version/optional outputs before any further publication. No release is confirmed.');
+      try{require('./lib/refresh-report').update({publicationState:'blocked',stage:'major-subevent-recovery-hold',recoveryScope:'existing data/feeds and main runtime only; shell/version/optional outputs unqualified'});}catch{}
+      throw error;
+    }
+  }
   process.env.REFRESH_REPORT ||= path.join(os.tmpdir(),'ns-refresh-report-'+crypto.randomUUID()+'.json');
   require('./lib/refresh-report').update({mode:process.argv.includes('--quick')?'quick':'full',publicationState:'refreshing',stage:'starting',sourceFailures:[],missingResults:[],blockingError:null,failedStep:null,failureChain:[]});
   const prior=process.env.FOOTBALL_DATA_RUN_DIR;

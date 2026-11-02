@@ -367,7 +367,7 @@
       if (/round\s*4|fourth round/i.test(round)) return `${subject} play for a ${pathLabel} quarterfinal place.`;
     }
 
-    if (parentId === "major-event:rlwc-2026") return `${subject} open the month-long, 53-match programme by pairing the men's defending champions with the Pacific Cup holders.`;
+    if (parentId === "major-event:rlwc-2026" && subEvent?.id === "major-match:rlwc-2026:australia-new-zealand") return `${subject} open the month-long, 53-match programme by pairing the men's defending champions with the Pacific Cup holders.`;
 
     if (parentId.includes("afl-finals-series") || parentId.includes("nrl-finals-series")){
       if (/qualifying/i.test(round) && !/elimination/i.test(round)) return `${subject} play for the finals system's biggest first-week advantage: a week off and the shorter route onward.`;
