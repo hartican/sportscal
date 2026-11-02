@@ -249,8 +249,10 @@ const server = http.createServer((req, res) => {
         } catch {}
         try { return Reflect.apply(originalFetch, this, args); }
         catch (error) {
-          if(observedUrl)report('fetch-sync-throw',{url:observedUrl,name:String(error?.name||''),
-            message:String(error?.message||'').slice(0,600),stack:String(error?.stack||'').slice(0,2400)});
+          try {
+            if(observedUrl)report('fetch-sync-throw',{url:observedUrl,name:String(error?.name||''),
+              message:String(error?.message||'').slice(0,600),stack:String(error?.stack||'').slice(0,2400)});
+          } catch {}
           throw error;
         }
       };

@@ -64,10 +64,10 @@ request, automatic retry, timeout, navigation readiness or account mutation.
 
 The same regression exercises the actual passive diagnostic fetch wrapper:
 receiver, arguments, identical returned promise, rejection and synchronous error
-identity survive with one underlying call. The bounded observer gains a
+identity survive with one underlying call, even if observation itself fails. The bounded observer gains a
 fetch-sync-throw marker and rethrows the original error; no promise handler or
 error suppression is added. Actual native lifecycle timing remains a separate
-evidence layer. All10idle/timer warm controls,3observer controls and4existing
+evidence layer. All10idle/timer warm controls,5observer controls and4existing
 pagination/concurrency cases pass locally after the source correction. Required
 current-candidate browser/normal/served checks remain separate; never filter this
 error out of the strict browser assertion or treat an earlier green as acceptance.

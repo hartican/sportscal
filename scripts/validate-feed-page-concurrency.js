@@ -26,18 +26,22 @@ const observerStart=recovery.indexOf('const originalFetch = window.fetch;');
 const observer=recovery.slice(observerStart,recovery.indexOf("addEventListener('error'",observerStart));
 assert(observer.includes('Reflect.apply(originalFetch, this, args)'),'actual passive diagnostic fetch wrapper');
 async function checkObserver(){
- for(const mode of ['success','rejected','synchronous']){
+ for(const mode of ['success','rejected','synchronous','report-failure','metadata-failure']){
   const failure=new TypeError('Disposable native fetch boundary'),response={ok:true},options={cache:'force-cache'};
+  if(mode==='metadata-failure')Object.defineProperty(failure,'name',{get(){throw Error('Disposable observer metadata failure');}});
   let calls=0,returned;const reports=[];
   const context={URL,document:{baseURI:'http://127.0.0.1:1234/'},location:{origin:'http://127.0.0.1:1234'},
-   observedStaticPath:path=>path==='/data/feed/page-002.json',report:(...args)=>reports.push(args)};
+   observedStaticPath:path=>path==='/data/feed/page-002.json',report:(...args)=>{
+    if(mode==='report-failure'&&args[0]==='fetch-sync-throw')throw Error('Disposable observer reporter failure');
+    reports.push(args);
+   }};
   context.window={fetch:function(url,actualOptions){
    calls++;assert.equal(this,context.window);assert.equal(url,'data/feed/page-002.json');assert.equal(actualOptions,options);
-   if(mode==='synchronous')throw failure;
+   if(!['success','rejected'].includes(mode))throw failure;
    returned=mode==='rejected'?Promise.reject(failure):Promise.resolve(response);return returned;
   }};
   vm.createContext(context);vm.runInContext(observer,context);
-  if(mode==='synchronous')assert.throws(()=>context.window.fetch('data/feed/page-002.json',options),error=>error===failure);
+  if(!['success','rejected'].includes(mode))assert.throws(()=>context.window.fetch('data/feed/page-002.json',options),error=>error===failure);
   else{
    const actual=context.window.fetch('data/feed/page-002.json',options);
    assert.equal(actual,returned,'observer must return the identical native promise');
@@ -46,7 +50,7 @@ async function checkObserver(){
   assert.equal(calls,1,'observer must not duplicate a request');
   assert.equal(reports.filter(row=>row[0]==='fetch-sync-throw').length,mode==='synchronous'?1:0);
  }
- console.log('Passive fetch observer: identical receiver/arguments/promise/rejection/synchronous error; one underlying call.');
+ console.log('Passive fetch observer: 5 controls retain receiver/arguments/promise/rejection/error identity, including failing observation; one underlying call.');
 }
 async function checkWarm(mode,timerFallback=false){
  const path='data/feed/page-002.json',failure=new TypeError('Disposable fetch start/body failure');
