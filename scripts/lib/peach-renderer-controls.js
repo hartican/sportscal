@@ -90,4 +90,41 @@ function identityRecovery(){
   assert(pending.slice(0,4).every(node=>node.src),'first-view identities retain their bounded source budget');
   assert.equal(pending[4].src,undefined);assert.equal(context.deferredCardImages.size,1);assert.equal(pending[4].dataset.deferredCardImage,'/local-4.svg');
 }
-module.exports={fivePointRatings,lazyIdentities,identityRecovery};
+function rlwcTextFallback(event){
+  const identities=require('../../config/card-identities'),labels=require('../../config/fixture-labels');
+  const policy=require('./rlwc-text-fallback'),opened=[],before=JSON.stringify(event);
+  const context={document,CARD_IDENTITIES:identities,cardIdentityParticipants:()=>[],
+    NOTHINGSPORTS_FIXTURE_LABELS:labels,themeUsesDarkAssets:()=>false,activeTab:'feed',
+    COUNTRY_FLAGS:{flagMarkup:code=>{assert(!code,'Absent crest must not become a country flag');return ''; }},
+    openFeedParticipantProfile:(id,label,key)=>opened.push({id,label,key}),
+    applyTeamLogoAsset(){assert.fail('Text-only fixture must not request a crest');}};
+  vm.createContext(context);
+  for(const name of ['matchupIdentityMatches','participantProfileLink'])vm.runInContext(readInlineOwner(name),context);
+  for(const name of ['appendTeamIdentityFallback','buildMatchupIdentity','buildMinimisedParticipant'])vm.runInContext(readCardFunction(name),context);
+  const sides=identities.matchupSidesForEvent(event,[],event.name);
+  policy.assertEligible(event,sides);
+  const node=context.buildMatchupIdentity(event,event.name),links=node.querySelectorAll('.fixture-profile-link');
+  assert.deepEqual(links.map(link=>link.textContent),['Tonga','Samoa'],'Actual first render retains both sourced names');
+  assert.equal(node.querySelectorAll('img').length,0,'No required or broken image reference exists');
+  assert.equal(node.querySelectorAll('.matchup-team-logo-slot').length,2,'Two ordered placeholder slots remain');
+  for(const link of links){assert.match(link.getAttribute('aria-label'),/profile in Follow/);link.onclick({stopPropagation(){}});}
+  assert.deepEqual(opened,[{id:'team:nrl:national:tonga',label:'Tonga',key:'nrl'},{id:'team:nrl:national:samoa',label:'Samoa',key:'nrl'}],'Actual profile/Follow handlers keep league-specific identities');
+  for(const side of sides){
+    assert.equal(context.buildMinimisedParticipant(side,event).querySelectorAll('img').length,0,'Actual compact first render has no missing crest request');
+    assert.equal(identities.participantMarks[side.participant.id],undefined,'UI placeholder is not registered national artwork');
+  }
+  assert(identities.nationalTeamIdentities.policy.prohibited.includes('monogram'),'Global national artwork prohibition remains intact');
+  for(const broken of [
+    {...event,participantIds:['team:rugby:tonga',event.participantIds[1]]},
+    {...event,participantIds:[event.participantIds[0]]},
+    {...event,participants:event.participants.map((p,i)=>({...p,role:i?'home':'away'}))},
+    {...event,sourceUrl:'https://example.com/unverified'},
+    {...event,id:'unrelated-fixture'},
+    {...event,participants:event.participants.map((p,i)=>i?p:{...p,logoUrl:'assets/identities/missing-required-crest.svg'})},
+  ])assert.throws(()=>policy.assertEligible(broken,sides),'Wrong/missing identity, roles, unrelated scope, source and referenced-image controls stay hard');
+  assert.throws(()=>policy.assertEligible(event,sides.map((s,i)=>i?s:{...s,mark:{url:'assets/identities/missing-required-crest.svg'}})),/referenced\/broken image/,'A broken referenced image is not absent optional artwork');
+  assert(!policy.applies({...event,id:'unrelated-fixture'}),'Other fixture logo requirements are unchanged');
+  assert.equal(JSON.stringify(event),before,'Renderer and controls cannot mutate fixture facts/source clock');
+  console.log('Reviewed RLWC text fallback: actual resolver/first-render expanded+compact components, named profile/Follow handlers, ordered league IDs, zero image requests and strict identity/source/role/referenced-image negatives passed; no registered artwork or licence claim.');
+}
+module.exports={fivePointRatings,lazyIdentities,identityRecovery,rlwcTextFallback};
