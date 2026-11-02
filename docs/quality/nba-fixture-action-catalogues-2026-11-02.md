@@ -22,6 +22,15 @@ normalisers remain responsible for source clocks, identities, precision and
 status. No new source observation, provider, sport permission, inferred start or
 result, scoring policy, account writer, schema or scheduler is introduced.
 
+The first correction resolved both lookups and all 1,266 NBA identities but left
+NBA reminder acknowledgement explicitly unrun: the raw official row omitted
+`timePrecision`, and the existing overlay leaves base rows unnormalised. The
+shared adapter now uses the existing Feed normaliser for the published UTC start,
+without changing its value or source-observation clock. Explicit TBC/date-only/
+unverified flags remain unknown. The regression requires actual supported timing
+and all three final acknowledgement/rollback results; a skipped NBA save cannot
+pass as complete.
+
 The focused regression is registered in the existing
 `validate-nothingscore-submissions.js` gate. It executes actual cold lookups,
 API fixture resolution, rating-call metadata and the browser's optimistic/reminder

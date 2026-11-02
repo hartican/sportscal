@@ -80,7 +80,7 @@ async function run(){
     assert.equal(vm.runInNewContext("("+browserId+")(fixture)",{fixture:nba}),nbaId,"NBA target uses the exact ID sent by the browser");
     const reminders=require("../../lib/reminder-fixtures"),policy=require("../../config/fixture-reminder-policy");
     const reminderCatalogue=await reminders.catalogue({snapshots:[],now});
-    const lookup={nbaId,ausId,rating:Boolean(server.eventFor(nbaId)),reminder:Boolean(reminderCatalogue.resolve(nbaId)),ausRating:Boolean(server.eventFor(ausId)),ausReminder:Boolean(policy.manualTiming(reminderCatalogue.resolve(ausId),+now))};
+    const lookup={nbaId,ausId,rating:Boolean(server.eventFor(nbaId)),reminder:Boolean(reminderCatalogue.resolve(nbaId)),nbaReminderTiming:Boolean(policy.manualTiming(reminderCatalogue.resolve(nbaId),+now)),ausRating:Boolean(server.eventFor(ausId)),ausReminder:Boolean(policy.manualTiming(reminderCatalogue.resolve(ausId),+now))};
     console.log("Fixture lookup comparison: "+JSON.stringify(lookup));
     const handler=require("../../lib/nothingscore-handler"),crowd=require("../../lib/nsc-crowd");
     for(const id of [nbaId,ausId]){
@@ -107,6 +107,9 @@ async function run(){
     assert(lookup.ausRating,"working Australian Championship control must resolve through the complete lookup");
     assert(lookup.ausReminder,"working Aus reminder control must resolve with supported future timing");
     assert(lookup.rating&&lookup.reminder,"NBA fixture already supported by Follow/Feed must resolve for both ratings and reminders");
+    assert(lookup.nbaReminderTiming,"the known NBA UTC start must carry supported precision before a reminder can be acknowledged");
+    assert.equal(reminderResults.length,3,"NBA/Aus acknowledgements and NBA service-failure rollback are mandatory");
+    assert.deepEqual(reminderResults.map(result=>[result.eventId,result.finalOn,result.persistedIntents,result.persistedSchedules]),[[nbaId,true,1,1],[ausId,true,1,1],[nbaId,false,0,0]]);
     assert.deepEqual(server.eventFor(ausId).participantIds,ausFixture.participantIds,"existing Aus participants remain exact");
     assert.equal(Date.parse(server.eventFor(ausId).startTimeUtc),Date.parse(ausFixture.startTimeUtc),"existing Aus kickoff remains exact");
     assert.equal(calls.length,2,"one disposable RPC per deliberate rating, no ancillary calls");
@@ -125,6 +128,11 @@ async function run(){
     assert.equal(policy.manualTiming({...reminderCatalogue.resolve(nbaId),timePrecision:"unknown"},+now),null,"unknown precision stays blocked");
     assert.equal(policy.manualTiming({...reminderCatalogue.resolve(nbaId),timingVerified:false},+now),null,"unverified timing stays blocked");
     assert.equal(policy.manualTiming({...reminderCatalogue.resolve(nbaId),status:"completed"},+now),null,"completed play cannot acquire a future reminder");
+    const projection=require("../../lib/official-follow-fixtures");
+    for(const held of [{timePrecision:"unknown"},{timePrecision:"tbc"},{timeTbc:true},{startTimeTbc:true},{dateOnly:true},{timingVerified:false},{startTimeUtc:null}]){
+      assert.equal(policy.manualTiming(projection.project({...nba,...held}),+now),null,"source uncertainty must survive official fixture projection: "+JSON.stringify(held));
+    }
+    assert.equal(projection.project(nba).sourceCheckedAt,nba.sourceCheckedAt,"projection cannot refresh a source observation");
     return {scope:"actual full NSC/reminder lookup, rating-call metadata and browser final acknowledgement; disposable transport/storage only, no physical phone/database/delivery proof",nbaFixtures:nbaFixtures.length,controls:[nbaId,ausId],rpcCalls:calls.length,reminderResults};
   }finally{
     require.cache[supabasePath].exports=originalSupabase;
