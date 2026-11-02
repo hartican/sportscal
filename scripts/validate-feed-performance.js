@@ -19,6 +19,9 @@ function readAtRef(ref,file){
   try { return execFileSync("git",["show",ref+":"+file],{cwd:ROOT,maxBuffer:10*1024*1024,stdio:["ignore","pipe","ignore"]}); }
   catch { return null; }
 }
+function measurementCandidate(ref="HEAD"){
+  return execFileSync("git",["rev-parse","--verify",ref+"^{commit}"],{cwd:ROOT,encoding:"utf8",stdio:["ignore","pipe","pipe"]}).trim();
+}
 function criticalAssetMetrics({ref=null}={}){
   const read=file=>ref?readAtRef(ref,file):fs.readFileSync(path.join(ROOT,file));
   const html=read("index.html").toString("utf8");
@@ -33,9 +36,15 @@ function criticalAssetMetrics({ref=null}={}){
   const styles=Array.from(html.matchAll(/<link[^>]+href="([^"]+\.css(?:\?[^"]*)?)"/g),m=>m[1])
     .filter(source=>!/^https?:/i.test(source)).map(source=>source.split(/[?#]/,1)[0].replace(/^\//,""));
   const files=[...new Set(["index.html",...scripts,...styles])].map(file=>({file,buffer:read(file)})).filter(item=>item.buffer);
-  return {requestCount:files.length,rawBytes:files.reduce((n,x)=>n+x.buffer.length,0),
+  const metrics={requestCount:files.length,rawBytes:files.reduce((n,x)=>n+x.buffer.length,0),
     gzipBytes:files.reduce((n,x)=>n+zlib.gzipSync(x.buffer).length,0),files:files.map(x=>x.file),
     assetHashes:files.map(x=>({file:x.file,sha256:crypto.createHash("sha256").update(x.buffer).digest("hex")}))};
+  metrics.measurementBinding={schemaVersion:"critical-asset-measurement.v1",sourceRef:ref||"WORKTREE",
+    candidate:measurementCandidate(ref||"HEAD"),shellVersion:html.match(/name="app-shell-version" content="(\d+)"/)?.[1]||null,
+    requestCount:metrics.requestCount,rawBytes:metrics.rawBytes,gzipBytes:metrics.gzipBytes,
+    payloadFingerprint:require("./lib/feed-performance-size-budget").payloadFingerprint(metrics.assetHashes),
+    toolchain:{node:process.version,zlib:process.versions.zlib}};
+  return metrics;
 }
 function median(values){
   const sorted=[...values].sort((a,b)=>a-b),middle=Math.floor(sorted.length/2);
@@ -65,17 +74,19 @@ function validateRuntimeAudit(file){
 }
 function main(){
   require('./validate-feed-performance-size-exception').main();
+  require('./validate-feed-performance-size-buffer').main();
   const runtimeBuilder=require('./build-app-shell-runtime'),context={};
   require('node:vm').runInNewContext(runtimeBuilder.standingsSource(),context);
   assert.deepEqual(JSON.parse(JSON.stringify(context.NOTHINGSPORTS_FEED_CARD_STANDINGS)),runtimeBuilder.cardStandings(),"packed standings must preserve every canonical field and rank");
   assert.equal(fs.readFileSync(path.join(ROOT,"assets/js/app-shell-runtime.js"),"utf8"),require("./build-app-shell-runtime").build(),"runtime must match its source modules");
-  const current=criticalAssetMetrics(),baseline=criticalAssetMetrics({ref:BASELINE});
+  const candidate=measurementCandidate(),current=criticalAssetMetrics(),baseline=criticalAssetMetrics({ref:BASELINE});
   const growth=(current.gzipBytes/baseline.gzipBytes-1)*100;
   const sizeDecision=require('./lib/feed-performance-size-budget').validateCriticalSize({
     current,baseline,baselineRef:BASELINE,maximumGrowthPercent:MAX_CRITICAL_GZIP_GROWTH_PERCENT,
     version:JSON.parse(fs.readFileSync(path.join(ROOT,"app-version.json"),"utf8")).version,
-    toolchain:{node:process.version,zlib:process.versions.zlib},
+    toolchain:{node:process.version,zlib:process.versions.zlib},candidate,
   });
+  if(sizeDecision.notice)console.warn(sizeDecision.notice);
   assert(current.requestCount<=45,"critical asset requests must remain bounded");
   const html=fs.readFileSync(path.join(ROOT,"index.html"),"utf8");
   const manifest=JSON.parse(fs.readFileSync(path.join(ROOT,"data/feed/manifest.json"),"utf8"));
@@ -90,13 +101,13 @@ function main(){
   const firstLoad=html.match(/async function refreshFeedOnFirstLoad\(\)\{([\s\S]*?)\n\}/)?.[1]||"";
   assert(firstLoad.includes("Promise.allSettled")&&firstLoad.includes("return initialFeed"));
   assert(!firstLoad.includes("nationalTeamIdentityReady")&&!firstLoad.includes("cardIdentitiesReady"));
-  console.log("Current static budget: "+baseline.requestCount+" → "+current.requestCount+" critical requests; gzip "+growth.toFixed(2)+"%.");
+  console.log("Startup size: baseline "+baseline.gzipBytes+"; current "+current.gzipBytes
+    +"; delta "+sizeDecision.deltaBytes+"; "+MAX_CRITICAL_GZIP_GROWTH_PERCENT+"% advisory buffer "
+    +sizeDecision.normalCeilingBytes+"; excess "+sizeDecision.excessBytes+" bytes. "
+    +baseline.requestCount+" → "+current.requestCount+" critical requests; gzip "+growth.toFixed(2)+"%.");
   const runtimeIndex=process.argv.indexOf("--runtime-audit");
   if(runtimeIndex>=0) validateRuntimeAudit(path.resolve(process.argv[runtimeIndex+1]));
   else console.log("Browser timings are not inferred from archived reports. Pass --runtime-audit for exact-source measured evidence.");
-  if(sizeDecision.status==="PASS_WITH_REVIEWED_SIZE_EXCEPTION")console.log(sizeDecision.status
-    +": "+sizeDecision.exceptionId+"; gzip "+current.gzipBytes+" bytes; normal ceiling "
-    +sizeDecision.normalCeilingBytes+" bytes; excess "+sizeDecision.excessBytes+" bytes. The normal 1.25% size rule did not pass.");
 }
 if(require.main===module) main();
-module.exports={criticalAssetMetrics,localScriptPaths,median,sourceFingerprint,validateRuntimeAudit};
+module.exports={criticalAssetMetrics,measurementCandidate,localScriptPaths,median,sourceFingerprint,validateRuntimeAudit};
