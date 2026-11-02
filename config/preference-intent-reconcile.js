@@ -22,6 +22,7 @@
   const entityFields={profileId:text,participantId:text,followLevel:value=>['follow','priority','unfollow','mute'].includes(value),
     cricketFormats:value=>strings(value)&&value.every(format=>['Tests','ODIs','T20Is','BBL'].includes(format))};
   const eventDecisionFields=['followedMajorEventIds','excludedMajorEventIds','eventFamilyDecisions','eventEditionDecisions'];
+  const sportSelectionFields=['selectedSelectorEntityIds','followedSports','taxonomySelection'];
 
   function emit(observe,site,reason,side=null,family=null,decision='held',scope={}){
     try{const fact=root.NOTHINGSPORTS_SYNC_DIAGNOSTIC?.guardFact({site,reason,side,family,decision,...scope});if(fact)observe?.(fact);}catch(_error){}
@@ -82,6 +83,27 @@
       for(const value of outside)delete value.followFirst[key];
     }
     return fields;
+  }
+
+  function reconcileSportSelection(values,outside){
+    const fields=sportSelectionFields;
+    const ownsSame=(first,second,key)=>Object.hasOwn(first,key)===Object.hasOwn(second,key)&&same(first[key],second[key]);
+    if(!values.slice(1).some(value=>fields.some(key=>!ownsSame(values[0],value,key))))return null;
+    // These are one existing sport writer's choice. Its derivations validate
+    // each complete snapshot; their output never replaces a saved value.
+    if(typeof normalizeSelectorEntityIds!=='function'||typeof canonicalSportKeysForSelectorIds!=='function'
+      ||typeof taxonomySelectionForSelectorIds!=='function')return null;
+    if(!values.every(value=>fields.every(key=>Object.hasOwn(value,key))
+      &&strings(value.selectedSelectorEntityIds)&&strings(value.followedSports)&&object(value.taxonomySelection)
+      &&same(value.selectedSelectorEntityIds,normalizeSelectorEntityIds(value.selectedSelectorEntityIds))
+      &&same(value.followedSports,canonicalSportKeysForSelectorIds(value.selectedSelectorEntityIds))
+      &&same(value.taxonomySelection,taxonomySelectionForSelectorIds(value.selectedSelectorEntityIds))))return null;
+    const [base,intent,remote]=values.map(value=>Object.fromEntries(fields.map(key=>[key,value[key]])));
+    // Preserve a whole unchanged-side or already-agreed choice. Conflicting
+    // selections, including an empty choice against a new remote choice, hold.
+    if(!same(base,intent)&&!same(base,remote)&&!same(intent,remote))return null;
+    for(const value of outside)for(const key of fields)delete value[key];
+    return clone(same(base,intent)?remote:intent);
   }
 
   function knownDecisionsAgree(intent,remote){
@@ -174,20 +196,23 @@
       const agreedEvents=excludeAgreedEventDecisions(values,outside,follow);
       const agreedScope=excludeAgreedEventsScope(values,outside);
       const agreedTennis=excludeAgreedTennisDefault(values,outside);
+      const sportSelection=reconcileSportSelection(values,outside);
       if(!profile.preferenceBaseMatches({basePreferences:outside[0]},outside[1]))return refuse(21/*outside_supported_scope_changed*/,'intent',5);
       if(!profile.preferenceBaseMatches({basePreferences:outside[0]},outside[2]))return refuse(21/*outside_supported_scope_changed*/,'remote',5);
       const preferences=clone(state.preferences),graphs=values.map(value=>value.preferenceGraph);
       preferences.preferenceGraph.entityFollows=mergeRecords(...graphs.map(graph=>graph.entityFollows),'participantId',entityFields,follow.participantFollowIdentityKey,observe);
       preferences.preferenceGraph.domainPreferences=mergeRecords(...graphs.map(graph=>graph.domainPreferences),'sportDomainId',domainFields,value=>value,observe);
+      if(sportSelection)for(const key of sportSelectionFields)preferences[key]=clone(sportSelection[key]);
       // Remote view values stay on the server; applyServerState retains this device's views.
       const witness={...clone(receipt),baseUpdatedAt:state.updatedAt,basePreferences:clone(state.preferences),preferences};
-      if(agreedEvents||agreedScope||agreedTennis)witness.acceptsAcknowledgement=value=>object(value)
+      if(agreedEvents||agreedScope||agreedTennis||sportSelection)witness.acceptsAcknowledgement=value=>object(value)
         &&(!agreedEvents||(object(value.followFirst)&&agreedEvents.every(key=>
           Object.hasOwn(witness.basePreferences.followFirst,key)===Object.hasOwn(value.followFirst,key)
           &&same(witness.basePreferences.followFirst[key],value.followFirst[key]))))
         &&(!agreedScope||(Object.hasOwn(value,'eventsScope')===Object.hasOwn(witness.basePreferences,'eventsScope')
           &&same(value.eventsScope,witness.basePreferences.eventsScope)))
-        &&(!agreedTennis||(Object.hasOwn(value,'tennis')&&same(value.tennis,witness.basePreferences.tennis)));
+        &&(!agreedTennis||(Object.hasOwn(value,'tennis')&&same(value.tennis,witness.basePreferences.tennis)))
+        &&(!sportSelection||sportSelectionFields.every(key=>Object.hasOwn(value,key)&&same(value[key],sportSelection[key])));
       // An older ACK can carry R2 forward only from the exact recorded R1
       // intent, using this same conflict policy against the acknowledged state.
       witness.originalReceipt=clone(receipt);

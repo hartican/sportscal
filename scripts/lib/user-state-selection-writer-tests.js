@@ -130,5 +130,19 @@ function diagnosticCase(sportId='sport:nrl'){
  for(const id of ['team:nrl:national:tonga','team:football:epl:2'])assert(plan.receipt.preferences.preferenceGraph.entityFollows.some(row=>row.participantId===id&&row.followLevel==='follow'));
  assert.equal(plan.receipt.preferences.feedCompact,true);assert.equal(plan.receipt.baseUpdatedAt,f.remote.updatedAt);return {f,plan,differences};
 }
-module.exports={setup,runCase,runSuite,declaration,prepared,observe,diagnosticCase};
-if(require.main===module){diagnosticCase();if(!process.argv.includes('--diagnostic-only')){runCase();console.log(JSON.stringify(runSuite()));}}
+function currentCoalescerSuite(){
+ const passed=[];
+ for(const writer of ['follow','upgrade','remove']){
+  const f=prepared({writer,phone:true,...(writer==='remove'?{baseSelected:['sport:football']}:{} )}),before=clone(f.receipt);
+  assert.notEqual(f.c.setDirectoryEntityFollow('team:football:epl:4','follow'),false,'current writer accepts new Follow after accepted baseline advanced');
+  f.receipt=f.c.pendingPreferenceIntent('A');assert.notEqual(f.receipt.receiptId,before.receiptId);
+  assert.equal(f.receipt.baseUpdatedAt,before.baseUpdatedAt);assert.deepEqual(clone(f.receipt.basePreferences),before.basePreferences,'original base never replaced by accepted remote');
+  const {plan}=observe(f);assert(plan,'current original-base coalescer and linked selection reconcile together');
+  for(const key of selectionFields)assert.deepEqual(clone(plan.receipt.preferences[key]),clone(f.receipt.preferences[key]));
+  assert(plan.receipt.preferences.preferenceGraph.entityFollows.some(row=>row.participantId==='team:football:epl:4'&&row.followLevel==='follow'));
+  passed.push(writer+'-advanced-baseline-original-receipt-coalescing');
+ }
+ return {cases:passed.length,passed,scope:'current607 immutable original base/expectedReceipt coalescer with linked selection; constructed local state only'};
+}
+module.exports={setup,runCase,runSuite,declaration,prepared,observe,diagnosticCase,currentCoalescerSuite};
+if(require.main===module){diagnosticCase();if(!process.argv.includes('--diagnostic-only')){runCase();console.log(JSON.stringify(runSuite()));console.log(JSON.stringify(currentCoalescerSuite()));}}
