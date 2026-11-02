@@ -422,6 +422,10 @@ let quickResult;
 try{
   for(const directory of ['scripts','config','lib','api','data','feeds','schemas','assets','supabase/migrations'])fs.cpSync(path.join(projectRoot,directory),path.join(quickFixtureRoot,directory),{recursive:true});
   for(const file of ['package.json','index.html','service-worker.js','app-version.json','vercel.json'])fs.copyFileSync(path.join(projectRoot,file),path.join(quickFixtureRoot,file));
+  const requiredWorkflow='.github/workflows/sportscal-production.yml';
+  fs.mkdirSync(path.join(quickFixtureRoot,path.dirname(requiredWorkflow)),{recursive:true});
+  fs.copyFileSync(path.join(projectRoot,requiredWorkflow),path.join(quickFixtureRoot,requiredWorkflow));
+  assert(fs.readFileSync(path.join(quickFixtureRoot,requiredWorkflow)).equals(fs.readFileSync(path.join(projectRoot,requiredWorkflow))),'isolated quick QA must retain the exact required production workflow contract');
   fs.symlinkSync(path.join(projectRoot,'node_modules'),path.join(quickFixtureRoot,'node_modules'),'dir');
   quickResult = spawnSync(process.execPath, ["scripts/update-cards.js", "--quick", "--offline", "--local-only"], {
     cwd:quickFixtureRoot,
