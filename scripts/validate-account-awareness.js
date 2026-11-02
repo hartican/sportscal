@@ -85,6 +85,27 @@ for(const helperFirst of [true,false]){
  context.serverPersistence.state='checking';assert.equal(current().initials,'');assert.equal(current().avatarUrl,'');context.serverPersistence.state='signedIn';cases++;
  context.syncNothingscoreSessionState('account-a',null);assert.equal(context.nothingscoreViewerScope,null);assert.equal(context.nothingscoreViewer.profile,null);cases++;
 }
+// Lazy helper completion must leave the whole active sign-in surface stable,
+// including copy above the form that can move a button during a native press.
+for(const formPresent of [true,false]){
+ let copyWrites=0,renders=0;
+ const copy={set textContent(_value){copyWrites++;}};
+ const form=formPresent?{}:null;
+ const host={contains:()=>false,replaceChildren:()=>{},classList:{contains:()=>true}};
+ const context={console,Date,accountIndicatorController:null,settingsSection:'account',
+  serverPersistence:{state:'signedOut',user:null},serverSyncClient:{accountSnapshot:()=>({hasSession:false,generation:0})},
+  navigator:{onLine:true},accountIndicatorGeneration:0,nothingscoreViewerScope:null,nothingscoreViewer:{profile:null},
+  NOTHINGSPORTS_ACCOUNT_AWARENESS_UI:{create:()=>({})},addEventListener:()=>{},
+  renderSettingsScreen:()=>{renders++;},
+  document:{activeElement:null,addEventListener:()=>{},getElementById:id=>
+   id==='accountSignInForm'?form:['accountSyncHelp','accountSyncDetail'].includes(id)?copy:host}};
+ context.globalThis=context;vm.createContext(context);
+ vm.runInContext(diagnosticSource,context);vm.runInContext(appSource,context);
+ context.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.mount();
+ assert.equal(copyWrites,0,'mount must not rewrite copy above an existing sign-in form');
+ assert.equal(renders,formPresent?0:1,'other Account states still use the normal renderer');
+ cases+=2;
+}
 async function viewerRequestLifetimes(){
  const refreshSource=html.slice(html.indexOf('async function refreshNothingscoreViewer('),html.indexOf('let nscReturnPosition'));
  const life={accountId:'account-a',generation:3,hasSession:true};const reads=[];let renders=0;
