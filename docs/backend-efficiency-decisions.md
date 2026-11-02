@@ -3,7 +3,7 @@
 ## 2 November 2026 — private dashboard source candidate
 
 Jack approved the existing-project hosted dashboard with selected sanitized
-operational summaries and Jack-only access, after urgent607. Source-only
+operational summaries and Jack-only access, after the existing urgent release. Source-only
 implementation and synthetic qualification may proceed while exact owner binding
 and resource/spend facts remain unresolved. No actual bucket write or access
 enablement precedes those prerequisites and normal sole-publisher review.

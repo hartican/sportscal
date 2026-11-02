@@ -1,6 +1,6 @@
 # Hosted dashboard source candidate
 
-This is the approved hosted implementation lane, stacked on the reviewed local dashboard at 155188c. It is not deployed or enabled. Existing localhost files/process/tabs are untouched. The sole publisher schedules integration after urgent release607; this branch does not publish itself.
+This is the approved hosted implementation lane, stacked on the reviewed local dashboard at 155188c. It is not deployed or enabled. Existing localhost files/process/tabs are untouched. The sole publisher schedules integration after the existing urgent release; this branch does not publish itself.
 
 ## Destination and activation prerequisites
 
@@ -14,7 +14,7 @@ Default is disabled. Only after the two outstanding prerequisites and normal rev
 - NS_DASHBOARD_READINESS_SHA256: hash of the owner-private identity/quota/access readiness receipt.
 - NS_DASHBOARD_ENABLED=1: final access enablement, after schema/storage/denial verification.
 
-The current private admin candidate has not been established as Jack's intended account. COORD has asked once for the sign-in email; do not repeat the question or enumerate accounts. Both provider organisations report Pro, but remaining resource/credit balances and general budget/pause/spend-cap state remain unsupported by the installed readers. These prerequisites block bucket writes and access enablement. Approval for this implementation is already granted; no repeat generic permission request is needed. Additional cost/access outside that scope returns its concrete decision.
+Identity and quota prerequisites are evaluated from owner-private evidence. Never infer the intended subject from a lone admin, display name, email match or another provider's account, and do not enumerate unrelated accounts. A provider plan alone does not establish remaining resource/credit balances or general budget/pause/spend-cap controls. Unresolved prerequisites block bucket writes and access enablement. Approval for this implementation is already granted; no repeat generic permission request is needed. Additional cost/access outside that scope returns its concrete decision. Current account identities, plan/settings evidence and private correspondence remain outside this public source.
 
 ## Authorization and cookie bridge
 
