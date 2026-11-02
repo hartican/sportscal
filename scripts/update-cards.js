@@ -934,7 +934,12 @@ async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()
     const admitMajor=process.argv.includes('--admit-major-subevents');
     const admitReviewed=process.argv.includes('--admit-reviewed-fixtures');
     let admission=admitReviewed?require('./lib/reviewed-fixture-admission').load(ids.slice(6).split(','),{repairIdentities:process.argv.includes('--repair-reviewed-identities')}):null;
-    if(admitReviewed&&!admission.changed){console.log('Reviewed fixtures already present on both Feed surfaces; no rebuild needed.');return;}
+    if(admitReviewed&&!admission.changed){
+      runStep(['scripts/build-follow-directories.js','--search-only']);
+      runStep(['scripts/build-follow-directories.js','--search-only','--check']);
+      console.log('Reviewed fixtures already present on both Feed surfaces; participant search closure checked without rebuilding sporting data.');
+      return;
+    }
     if(admitMajor){
       admission=preparedMajorAdmission||require('./lib/major-event-feed-admission').prepare({
         canonical:JSON.parse(fs.readFileSync('data/major-events.v1.json')),
@@ -976,6 +981,10 @@ async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()
       ...(scoped?[['scripts/build-follow-fixtures.js']]:[]),
       ['scripts/build-paged-feed.js'],
       ['scripts/build-code-inspector.js',...(scoped?[`--codes=${codes.join(',')}`]:[])],
+      ...(!admitMajor?[
+        ['scripts/build-follow-directories.js','--search-only'],
+        ['scripts/build-follow-directories.js','--search-only','--check'],
+      ]:[]),
       ...(admitMajor?[
         ['scripts/build-follow-directories.js','--codes=nrl'],
         ['scripts/build-follow-directories.js','--codes=nrl','--check'],
