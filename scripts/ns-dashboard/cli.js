@@ -1,21 +1,22 @@
 #!/usr/bin/env node
 "use strict";
 
-const path = require("node:path");
+const path = require("node:path"), fs = require("node:fs");
 const { collect, replayCapture } = require("./github");
 const local = require("./local");
 const core = require("./core");
-const { renderOverview } = require("./overview");
+const { writeBundle } = require("./bundle");
+const { projectBriefing } = require("./briefing");
 function argumentsOf(args) {
   const command = args.shift(), options = {};
-  if (!["collect", "project", "replay", "overview"].includes(command)) core.fail("use_collect_project_replay_or_overview");
+  if (!["collect", "project", "replay", "overview", "dashboard"].includes(command)) core.fail("use_collect_project_replay_overview_or_dashboard");
   while (args.length) {
     const key = args.shift(), value = args.shift();
     if (!["--output", "--records", "--input", "--cutoffs", "--as-of", "--max-requests", "--max-ms", "--max-bytes"].includes(key) || !value || options[key]) core.fail("invalid_cli_option");
     options[key] = value;
   }
   if (!options["--output"]) core.fail("output_required");
-  const allowed = { collect: ["--output", "--max-requests", "--max-ms", "--max-bytes"], replay: ["--output", "--input"], project: ["--output", "--records", "--cutoffs", "--as-of"], overview: ["--output", "--records", "--cutoffs", "--as-of"] };
+  const allowed = { collect: ["--output", "--max-requests", "--max-ms", "--max-bytes"], replay: ["--output", "--input"], project: ["--output", "--records", "--cutoffs", "--as-of"], overview: ["--output", "--records", "--cutoffs", "--as-of"], dashboard: ["--input", "--output", "--records", "--cutoffs", "--as-of"] };
   if (Object.keys(options).some(key => !allowed[command].includes(key))) core.fail("option_not_supported_for_command");
   return { command, options };
 }
@@ -41,15 +42,18 @@ async function main(args = process.argv.slice(2)) {
     return;
   }
   const asOf = o["--as-of"] || new Date().toISOString();
-  const view = local.readView(directory, asOf);
+  if (command === "dashboard" && !o["--input"]) core.fail("dashboard_input_required");
+  const view = local.readView(command === "dashboard" ? o["--input"] : directory, asOf);
   if (!view.data) {
-    if (command !== "overview") core.fail("no_last_good_export");
-    local.atomicText(directory, "overview.html", renderOverview({ schemaVersion: core.VERSION, freshness: view.freshness }, { asOf }));
-    console.log(JSON.stringify({ status: view.freshness.state, output: "overview.html", sourceAvailable: false }));
+    if (!["overview", "dashboard"].includes(command)) core.fail("no_last_good_export");
+    const empty = { schemaVersion: core.VERSION, generatedAt: asOf, freshness: view.freshness };
+    const bundle = writeBundle(directory, empty, { asOf });
+    if (command === "overview") local.atomicText(directory, "overview.html", fs.readFileSync(bundle.entry, "utf8"));
+    console.log(JSON.stringify({ status: view.freshness.state, ...bundle, sourceAvailable: false }));
     return;
   }
   const records = o["--records"] ? local.readJson(path.resolve(o["--records"]), 1_000_000) : null;
-  if (records && (typeof records !== "object" || Array.isArray(records) || Object.keys(records).some(key => !["queue", "release"].includes(key)))) core.fail("unknown_operator_field");
+  if (records && (typeof records !== "object" || Array.isArray(records) || Object.keys(records).some(key => !["queue", "release", "briefing"].includes(key)))) core.fail("unknown_operator_field");
   const cutoffs = o["--cutoffs"] ? o["--cutoffs"].split(",").map(date => core.sydneyInstant(date)) : [];
   const historical = cutoffs.map(at => core.snapshot(view.data, at));
   const windows = core.completeWindows(view.data.asOf).map(window => ({
@@ -65,9 +69,13 @@ async function main(args = process.argv.slice(2)) {
     release: core.releaseProjection(records?.release, asOf),
     dora: { status: "not_measured", reason: "Complete application deployment/commit mapping and incident observation are not ingested in this slice." },
   };
-  local.atomic(directory, command === "overview" ? "overview-projection.json" : "projection.json", result);
-  if (command === "overview") local.atomicText(directory, "overview.html", renderOverview(result, { asOf }));
-  console.log(JSON.stringify({ status: view.freshness.state, output: command === "overview" ? "overview.html" : "projection.json",
+  result.briefing = projectBriefing(records?.briefing, result.release, asOf);
+  const isDashboard = command === "overview" || command === "dashboard";
+  let bundle;
+  if (isDashboard) bundle = writeBundle(directory, result, { asOf });
+  if (command !== "dashboard") local.atomic(directory, command === "overview" ? "overview-projection.json" : "projection.json", result);
+  if (command === "overview") local.atomicText(directory, "overview.html", fs.readFileSync(bundle.entry, "utf8"));
+  console.log(JSON.stringify({ status: view.freshness.state, output: isDashboard ? "index.html" : "projection.json", ...bundle,
     openPrsAtCollection: result.currentBacklogAtCollection.open, historicalSnapshots: historical.map(s => ({ cutoff: s.cutoff, open: s.open, drafts: s.drafts })),
     groupedDeliverables: result.queue?.length ?? null }));
 }

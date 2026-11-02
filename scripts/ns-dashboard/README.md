@@ -1,8 +1,8 @@
 # Local NS dashboard collector — first implementation draft
 
-This is the local Phase 2 draft: a bounded read-only GitHub collector, historical replay, explicit deliverable grouping, release-evidence projection and inspectable offline Overview. It has no web server, customer-app route or page-load collection.
+This is the local Phase 2 draft: a bounded read-only GitHub collector, historical replay, explicit deliverable grouping, release-evidence projection and four-page offline dashboard. It has no web server, customer-app route or page-load collection.
 
-Phase contract: use existing GitHub authorisation; keep actual exports outside every Git checkout in an owner-only directory; test pagination/lifecycle/time boundaries, failure preservation and release separation. Stop at this draft review boundary. The hosted Overview, Engineering Detail, Jack-only identity binding, private hosted storage and access tests are deferred. No new credentials, scopes, packages, schema, permissions, costs or schedules are configured.
+Phase contract: use existing GitHub authorisation; keep actual exports outside every Git checkout in an owner-only directory; test pagination/lifecycle/time boundaries, failure preservation and release separation. Stop at this draft review boundary. Hosted page access, Jack-only identity binding, private hosted storage and hosted access tests are deferred. No new credentials, scopes, packages, schema, permissions, costs or schedules are configured.
 
 The definition contract remains [Phase 1 PR133](https://github.com/hartican/sportscal/pull/133), including [metric dictionary v1](https://github.com/hartican/sportscal/blob/859f37452623429340e678f5778e7c2318d1610d/docs/metrics/ns-dashboard-v1.md). This draft does not amend that PR or claim the entire Phase 2 is complete.
 
@@ -18,10 +18,23 @@ Set an absolute private output directory outside all Git checkouts. Existing dir
     node scripts/ns-dashboard/cli.js overview --output "$NS_DASHBOARD_OUTPUT" \
       --records /absolute/private/owner-records.json
 
-Open the resulting owner-private overview.html directly as a local file. The overview command recomputes the projection from the retained export and supplied owner records, without capture, provider polling or network calls. It preserves the source cutoff and recalculates source/proof age at render time. No retained export produces an explicit empty view; failed refresh retains dated facts and an error state. Rendering is a snapshot operation, with no automatic refresh.
-The view's derived JSON is overview-projection.json; the standalone project command's projection.json is left alone. Preserve source captures and dated receipts separately from these mutable derived views.
+The recommended export keeps the retained collector separate from the private page bundle:
 
-The self-contained view uses system fonts, static inline CSS, native disclosures and same-document links. Its CSP denies scripts, network connections, images, frames and other external resources. Dynamic source text is escaped; raw captures are not embedded. Actual-data HTML, screenshots and exports must remain outside Git in the private output directory. Only renderer code and synthetic fixtures belong in this public PR. Local file ownership is not hosted Jack-only authentication; that separate binding remains deferred.
+    node scripts/ns-dashboard/cli.js dashboard --input "$NS_DASHBOARD_OUTPUT" \
+      --output /absolute/private/founder-dashboard \
+      --records /absolute/private/owner-records.json
+
+Bookmark founder-dashboard/index.html. Overview, Delivery, Queue and Evidence are four real HTML files with normal navigation, browser back/forward and direct URLs. Overview answers four founder decisions; unmeasured engineering metrics, lineage, limits and the access proposal live in Evidence. A decision receipt supersedes an older observation with the same scoped ID; approved items are excluded from the pending list.
+
+The dashboard command reuses the retained source without any network call or source write. It validates all inputs before publication, writes a complete immutable snapshot directory, then atomically replaces the stable index.html. Links stay inside one snapshot, including when a later update is published. Earlier snapshots are retained. There is one exclusive dashboard writer; interrupted locks require owner inspection before removal. The original overview command also writes the bundle and keeps overview.html as a compatibility entry, plus overview-projection.json; project/projection.json remains separate.
+
+These are static exports. A page load or reload never collects data, changes its timestamp or detects a later error. Source/proof age and supplied refreshing/error states are calculated when generated. Collector failure retains the last good source; invalid projection input retains the previous page entry. The visible bar keeps the GitHub refresh time and owner-briefing observation time distinct, in Sydney time; Evidence retains UTC. A later briefing cannot freshen an older GitHub capture.
+
+For Library delivery, provide the whole frozen four-page bundle as a private ZIP. Download and extract it before opening index.html. Relative links in the Library viewer have not been verified and are not promised. The stable local bookmark remains the owner-local entry above; an extracted ZIP is a dated copy, not an automatic update channel.
+
+The self-contained pages use system fonts, inline CSS, native disclosures and relative file navigation. CSP denies scripts, network connections, images, frames and other external resources. All dynamic source text is escaped; raw captures are not embedded. Actual-data pages, screenshots, records and archives remain outside Git in private directories. Only code and synthetic fixtures belong in the public PR. Local ownership is not hosted authentication.
+
+The recommended hosted follow-up uses the existing Vercel project and NS login, server checks for Jack's verified account ID plus admin role on every page/data response, and one dedicated private snapshot store on existing Supabase. Existing admin APIs accept bearer tokens; normal bookmarked HTML navigation needs a secure server session bridge. Deployment-URL Vercel protection excludes custom domains and does not establish Jack-only access. Begin with owner-requested bounded refreshes, last-good publication and explicit stale/error status; page loads do no collection. Storage/session configuration, account binding, credential source, service quotas and any reconciled future cadence need a separately approved hosted phase. This PR creates none of them and promises no free usage or hard spending cap.
 
 For noon historical comparisons, supply Sydney calendar dates explicitly:
 
@@ -57,7 +70,7 @@ The CLI replay starts from an initial enumeration; incremental capture replay re
 
 ## Optional owner records
 
-Use --records /absolute/private/owner-records.json when projecting. Keep that file owner-only and outside Git. Its top-level sections are queue and release. Do not paste transcripts, credentials or customer rows. Classification keys are explicit dashboard grouping keys from an existing owner record, not a competing queue. Priorities and accountable owners are read from that source.
+Use --records /absolute/private/owner-records.json when projecting. Keep that file owner-only and outside Git. Its optional top-level sections are queue, release and briefing. Do not paste transcripts, credentials or customer rows. Classification keys are explicit dashboard grouping keys from an existing owner record, not a competing queue. Priorities and accountable owners are read from that source.
 
 queue requires source (a source URL or private receipt pointer), observedAt, complete and deliverables. Each deliverable has id, owner, stage, nextAction, prNumbers; optional type, priority, dependencies, stageEnteredAt, membershipComplete, candidate and proof. The projection preserves input priority/order. Stage age is computed only through the owner record's observation time and is null without an explicit transition. PR state is bounded by the collection cutoff. Coverage stays partial unless the source explicitly supplies a complete queue/membership.
 deliverables must be an explicitly observed array and complete must be a boolean. A missing/null/malformed payload is rejected before writing a projection; it cannot become a complete zero count. An explicit empty array is a measured empty observation, with complete:false retaining partial coverage. An absent queue section remains not measured.
@@ -74,6 +87,16 @@ release supports:
 Verification observations are deduplicated by identity and evaluated per exact scope. A later failed observation supersedes an earlier pass for that scope; expiry never revives an older pass. verificationScopes retains each scope's latest evidence, failed/stale/ambiguous states and source identities. An unrelated scope's failure preserves a distinct valid proof while the aggregate state becomes partial. Contradictory same-time pass/fail evidence is ambiguous and cannot supply a verified proof. Rollback/alias/SHA and future-time exclusions still apply.
 
 No automatic Vercel polling or new deployment is performed. Missing SHA is null, never inferred from main. A stale proof remains stale. The local JSON projection has no release controls.
+
+## Founder briefing contract
+
+briefing requires source, observedAt, complete (boolean), published, work and decisions (explicit arrays). Its coverage and observation time remain separate from GitHub. This is a small owner summary from existing receipts, not a second release queue. Unknown fields, missing arrays, future observations, duplicate work/publication identities and ambiguous decisions fail closed.
+
+- published: [{id, title, summary, deploymentId, verificationId}]. Each entry must bind to the projected production activation and its matching latest passed verification scope. A merge or green CI alone is rejected. Version, SHA, verification date, scope and source are derived from that proof. This is dated publication history, not certification of a delivered user outcome. Expired proof cannot support current-live status. Historical publication remains dated; this slice does not yet ingest a complete multi-release history.
+- work: [{id, title, state, reason, owner, nextAction, prNumbers}]. state is waiting, blocked or in_progress. These source-owned summaries may cover PRs newer than the retained GitHub cutoff; no current PR state or stage age is inferred from them.
+- decisions: [{id, title, action, status, observedAt, source}]. status is pending, approved, declined or resolved. Use a decision ID scoped to the exact candidate/action; retain history. The latest dated observation wins regardless of input order; conflicting equal-time observations reject. Approved, declined and resolved decisions remain in Queue/Evidence and are never rendered as requests for renewed approval.
+
+There is no manual productivity score or unsupported comparison input. An improvement claim requires a future validated, comparable delivered-outcome series. Current PR activity stays separately labelled in Delivery.
 
 ## Capacity and attribution source contract
 

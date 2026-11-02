@@ -4,8 +4,10 @@ const test = require("node:test"), assert = require("node:assert/strict");
 const fs = require("node:fs"), os = require("node:os"), path = require("node:path");
 const c = require("./core"), { collect, replayCapture } = require("./github"), local = require("./local");
 const { main: projectMain } = require("./cli");
-const { renderOverview, esc, liveState, sourceState } = require("./overview");
-const { overviewFixture, AS_OF } = require("./overview-fixture");
+const { renderOverview, renderPages, esc, liveState, sourceState } = require("./overview");
+const { overviewFixture, briefingFixture, AS_OF } = require("./overview-fixture");
+const { projectBriefing } = require("./briefing");
+const { writeBundle } = require("./bundle");
 const ASOF = "2026-11-02T04:00:00Z", clock = () => Date.parse(ASOF);
 const at = day => "2026-10-" + String(day).padStart(2, "0") + "T01:00:00Z";
 function event(type, day, order) { return { id: type + ":" + order, type, at: at(day), order }; }
@@ -266,71 +268,143 @@ test("queue observations require explicit array and completeness; invalid input 
   assert.deepEqual(local.readJson(path.join(dir, "projection.json")), { sentinel: "last-good" });
 });
 
-test("offline Overview escapes source text and cannot load external resources", () => {
-  const p = overviewFixture(), attack = '"><script>alert(1)</script><img src="https://example.test/leak">';
-  p.queue[0].owner = attack; p.queue[0].source = attack; p.release.merged.sourceUrl = attack;
-  const html = renderOverview(p, { asOf: AS_OF });
-  assert.equal(html.includes("<script"), false); assert.equal(html.includes("<img "), false);
-  assert.equal(html.includes(esc(attack)), true);
-  assert.match(html, /Content-Security-Policy/); assert.match(html, /connect-src &#39;none&#39;/);
-  assert.equal(/<(script|img|iframe|link)\b/i.test(html), false);
-  assert.equal(/(?:href|src)\s*=\s*["'](?:https?:|javascript:|data:)/i.test(html), false);
-  assert.equal(/@import|url\s*\(/i.test(html), false);
-  assert.match(html, /href="#queue"/); assert.match(html, /<details>/);
+test("four offline pages escape source text and cannot load external resources", () => {
+  const p = overviewFixture(), attack = '\"><script>alert(1)</script><img src="https://example.test/leak">';
+  p.briefing.work[0].owner = attack; p.briefing.source = attack; p.release.merged.sourceUrl = attack;
+  const pages = renderPages(p, { asOf: AS_OF });
+  assert.deepEqual(Object.keys(pages), ["index.html", "delivery.html", "queue.html", "evidence.html"]);
+  for (const html of Object.values(pages)) {
+    assert.equal(/<(script|img|iframe|link)\b/i.test(html), false);
+    assert.equal(/(?:href|src)\s*=\s*["'](?:https?:|javascript:|data:)/i.test(html), false);
+    assert.equal(/@import|url\s*\(/i.test(html), false);
+    assert.match(html, /connect-src &#39;none&#39;/);
+    for (const name of Object.keys(pages)) assert.ok(html.includes('href="' + name + '"'));
+    assert.equal((html.match(/aria-current="page"/g) || []).length, 1);
+    assert.match(html, /href="#main"/);
+  }
+  assert.match(pages["index.html"], new RegExp(esc(attack).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  assert.ok(pages["evidence.html"].includes(esc(attack)));
+  assert.equal(pages["index.html"].includes('<h1>Delivery</h1>'), false);
+  assert.equal(pages["index.html"].includes('href="#delivery"'), false);
 });
-test("Overview distinguishes missing, explicit empty, partial and refresh-error data", () => {
+test("Overview answers four decisions and excludes unmeasured metrics and stale approval requests", () => {
+  const pages = renderPages(overviewFixture(), { asOf: AS_OF }), html = pages["index.html"];
+  for (const label of ["What shipped", "What is stuck and why", "Is delivery improving?", "What you need to do"]) assert.ok(html.includes(label));
+  assert.equal((html.match(/class="answer"/g) || []).length, 4);
+  assert.equal(html.includes("Review the reminder change"), false);
+  assert.equal(html.includes("Reminder update approval"), false);
+  assert.equal(html.includes("Choose dashboard access"), true);
+  assert.equal(/Not measured|DORA measures|Model tokens|PR activity|Scoped pass/.test(html), false);
+  assert.match(html, /not enough comparable delivery history/);
+  assert.match(pages["queue.html"], /Decisions already made/);
+  assert.match(pages["queue.html"], /Approval already received/);
+  assert.match(pages["evidence.html"], /Synthetic old observation/);
+});
+test("missing, explicit empty, partial, refreshing and error observations remain distinct", () => {
   assert.match(renderOverview(null, { asOf: AS_OF }), /No retained snapshot/);
-  const missing = overviewFixture(); missing.queue = null;
-  assert.match(renderOverview(missing, { asOf: AS_OF }), /Queue classification is not measured/);
-  const empty = overviewFixture(); empty.queue = []; empty.queueCoverage.complete = true;
-  assert.match(renderOverview(empty, { asOf: AS_OF }), /empty queue was explicitly observed/);
-  assert.match(renderOverview(empty, { asOf: AS_OF }), /Observed · 0 grouped deliverables/);
-  const partial = overviewFixture();
-  assert.match(renderOverview(partial, { asOf: AS_OF }), /Partial · 1 grouped deliverables/);
-  partial.freshness.state = "error"; partial.freshness.error = { code: "fixture_error" };
-  const failed = renderOverview(partial, { asOf: AS_OF });
-  assert.match(failed, /Refresh failed/); assert.match(failed, /fixture_error/);
-  assert.match(failed, /<strong>2<\/strong><span>open PRs at collection/);
-  const noDataError = renderOverview({ schemaVersion: c.VERSION, freshness: { state: "error" } }, { asOf: AS_OF });
-  assert.match(noDataError, /Refresh failed. No retained snapshot/);
+  const p = overviewFixture(); p.queue = null;
+  assert.match(renderPages(p, { asOf: AS_OF })["queue.html"], /Queue classification is not measured/);
+  p.queue = []; p.queueCoverage.complete = true;
+  assert.match(renderPages(p, { asOf: AS_OF })["queue.html"], /empty queue was explicitly observed/);
+  p.freshness.state = "loading";
+  assert.match(renderOverview(p, { asOf: AS_OF }), /Refreshing; previous snapshot retained/);
+  p.freshness.state = "error"; p.freshness.error = { code: "fixture_error" };
+  const pages = renderPages(p, { asOf: AS_OF });
+  assert.match(pages["index.html"], /Refresh failed; last good snapshot retained/);
+  assert.match(pages["index.html"], /2 Nov 2026.*AEDT/);
+  assert.match(pages["delivery.html"], /<strong>2<\/strong><span>open PRs at collection/);
+  assert.match(pages["evidence.html"], /fixture_error/);
+  assert.match(pages["evidence.html"], /no background polling/);
+  assert.match(renderOverview({ schemaVersion: c.VERSION, freshness: { state: "error" } }, { asOf: AS_OF }), /Refresh failed. No retained snapshot/);
 });
-test("Overview recalculates source/proof staleness and preserves scoped failures", () => {
-  const p = overviewFixture();
+test("stale current proof never becomes current live truth; dated publication stays historical", () => {
+  const p = overviewFixture(), later = "2026-11-04T04:00:00Z";
   assert.equal(liveState(p.release, AS_OF).proof.version, "Synthetic");
-  const later = "2026-11-04T04:00:00Z";
-  assert.equal(sourceState(p, later).state, "stale");
-  assert.equal(liveState(p.release, later).proof, null);
-  const html = renderOverview(p, { asOf: later });
-  assert.match(html, /source snapshot is stale/);
-  assert.equal(html.includes('<strong class="value">Synthetic</strong>'), false);
+  assert.equal(sourceState(p, later).state, "stale"); assert.equal(liveState(p.release, later).proof, null);
+  const pages = renderPages(p, { asOf: later });
+  assert.match(pages["index.html"], /Stale snapshot/);
+  assert.match(pages["delivery.html"], /publication verified/);
+  assert.equal(pages["evidence.html"].includes('<strong class="value">Synthetic</strong>'), false);
   const failed = verification("synthetic-activation", "a".repeat(40), { id: "other", scope: "Different synthetic journey", result: "failed", verifiedAt: "2026-11-02T03:00:00Z" });
   p.release.verificationScopes.push({ scope: failed.scope, state: "failed", latestObservation: failed });
   assert.equal(liveState(p.release, AS_OF).state, "partial");
-  assert.match(renderOverview(p, { asOf: AS_OF }), /Scoped pass · partial/);
+  assert.match(renderPages(p, { asOf: AS_OF })["evidence.html"], /Scoped pass · partial/);
 });
-test("Overview never promotes missing measures or an incomplete backlog to zero", () => {
+test("activity and missing data never manufacture delivery improvement or zero outcomes", () => {
   const p = overviewFixture(); p.windows = []; p.currentBacklogAtCollection.complete = false;
-  const html = renderOverview(p, { asOf: AS_OF });
-  assert.match(html, /No source window/); assert.match(html, /Not measured<\/strong><span>open PRs/);
-  assert.match(html, /Deliverable acceptance/); assert.match(html, /DORA measures/);
-  assert.match(html, /Model tokens \/ billed minutes/); assert.match(html, /No complete incident/);
-  assert.equal(html.includes("<strong>0</strong><span>open PRs"), false);
+  const pages = renderPages(p, { asOf: AS_OF });
+  assert.match(pages["delivery.html"], /No source window/);
+  assert.match(pages["delivery.html"], /Not measured<\/strong><span>open PRs/);
+  assert.match(pages["evidence.html"], /Model tokens \/ billed minutes/);
+  assert.match(pages["evidence.html"], /No complete incident/);
+  assert.equal(pages["delivery.html"].includes("<strong>0</strong><span>open PRs"), false);
+  p.briefing = null;
+  assert.match(renderOverview(p, { asOf: AS_OF }), /No verified shipment/);
+  assert.match(renderOverview(p, { asOf: AS_OF }), /No current decision summary/);
 });
-test("overview CLI writes owner-private offline HTML and rejects unsafe text export paths", async t => {
+test("publication requires an exact deployment and scoped pass rather than a merge", () => {
+  const p = overviewFixture();
+  const invalid = change => { const b = briefingFixture(); change(b); return b; };
+  assert.throws(() => projectBriefing(briefingFixture(), { merged: p.release.merged }, AS_OF), /publication_binding_required/);
+  assert.throws(() => projectBriefing(invalid(b => b.published[0].deploymentId = "other"), p.release, AS_OF), /publication_binding_required/);
+  assert.throws(() => projectBriefing(invalid(b => b.published[0].verificationId = "other"), p.release, AS_OF), /publication_binding_required/);
+  const failed = structuredClone(p.release); failed.verificationScopes[0].latestObservation.result = "failed";
+  assert.throws(() => projectBriefing(briefingFixture(), failed, AS_OF), /publication_binding_required/);
+  assert.throws(() => projectBriefing(invalid(b => b.complete = "true"), p.release, AS_OF), /briefing_completeness_required/);
+  assert.throws(() => projectBriefing(invalid(b => b.work = null), p.release, AS_OF), /briefing_array_required/);
+  assert.throws(() => projectBriefing(invalid(b => b.observedAt = "2026-11-03T04:00:00Z"), p.release, AS_OF), /briefing_from_future/);
+});
+test("decision resolution follows dated evidence independent of input order and rejects conflicting ties", () => {
+  const p = overviewFixture(), b = briefingFixture(); b.decisions.reverse();
+  const r = projectBriefing(b, p.release, AS_OF);
+  assert.equal(r.decisions.find(d => d.id === "synthetic-reminder-approval").status, "approved");
+  b.decisions.push({ ...b.decisions.find(d => d.status === "approved"), status: "pending" });
+  assert.throws(() => projectBriefing(b, p.release, AS_OF), /conflicting_decision_observation/);
+});
+test("bundle publishes a stable entry after complete private generation and retains it on failure", t => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "ns-dashboard-test-"));
   t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
-  await projectMain(["overview", "--output", dir, "--as-of", ASOF]);
-  assert.match(fs.readFileSync(path.join(dir, "overview.html"), "utf8"), /No retained snapshot/);
-  await local.refresh(dir, async () => data([pull(1)]));
-  local.atomic(dir, "projection.json", { sentinel: "prior-projection" });
-  await projectMain(["overview", "--output", dir, "--as-of", ASOF]);
-  const html = fs.readFileSync(path.join(dir, "overview.html"), "utf8");
-  assert.match(html, /<strong>1<\/strong><span>open PRs at collection/);
-  assert.equal(fs.statSync(path.join(dir, "overview.html")).mode & 0o777, 0o600);
+  const p = overviewFixture(), first = writeBundle(dir, p, { asOf: AS_OF });
+  const before = fs.readFileSync(first.entry, "utf8"), snapshot = path.join(dir, first.generation);
+  assert.ok(before.includes('href="' + first.generation + '/delivery.html"'));
   assert.equal(fs.statSync(dir).mode & 0o777, 0o700);
-  assert.deepEqual(local.readJson(path.join(dir, "projection.json")), { sentinel: "prior-projection" });
-  assert.equal(local.readJson(path.join(dir, "overview-projection.json")).currentBacklogAtCollection.open, 1);
+  for (const file of fs.readdirSync(snapshot)) assert.equal(fs.statSync(path.join(snapshot, file)).mode & 0o777, 0o600);
+  assert.equal(fs.statSync(snapshot).mode & 0o777, 0o700);
+  const manifest = local.readJson(path.join(snapshot, "manifest.json"));
+  for (const row of manifest.pages) {
+    const bytes = fs.readFileSync(path.join(snapshot, row.name));
+    assert.equal(row.sha256, require("node:crypto").createHash("sha256").update(bytes).digest("hex"));
+    assert.equal(row.bytes, bytes.length);
+  }
+  assert.throws(() => writeBundle(dir, { schemaVersion: "invalid" }, { asOf: AS_OF }), /invalid_overview_projection/);
+  assert.equal(fs.readFileSync(first.entry, "utf8"), before);
+  fs.writeFileSync(path.join(dir, ".dashboard.lock"), "busy", { mode: 0o600 });
+  assert.throws(() => writeBundle(dir, p, { asOf: AS_OF }), /dashboard_busy/);
+  fs.unlinkSync(path.join(dir, ".dashboard.lock"));
+  const oldDelivery = fs.readFileSync(path.join(snapshot, "delivery.html"), "utf8");
+  p.generatedAt = "2026-11-02T04:10:00Z";
+  const next = writeBundle(dir, p, { asOf: p.generatedAt });
+  assert.notEqual(first.generation, next.generation);
+  assert.equal(fs.readFileSync(path.join(snapshot, "delivery.html"), "utf8"), oldDelivery);
+  assert.equal(fs.existsSync(path.join(dir, ".dashboard.lock")), false);
   assert.throws(() => local.atomicText(dir, "../outside.html", "unsafe"), /invalid_export_name/);
-  const link = path.join(dir, "linked.html"); fs.symlinkSync(path.join(dir, "overview.html"), link);
+  fs.symlinkSync(first.entry, path.join(dir, "linked.html"));
   assert.throws(() => local.atomicText(dir, "linked.html", "unsafe"), /symlink_output_denied/);
+});
+test("dashboard CLI reuses retained captures without changing source or last good output on bad records", async t => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "ns-dashboard-test-"));
+  t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
+  const source = local.privateDirectory(path.join(dir, "source")), output = path.join(dir, "dashboard");
+  await projectMain(["dashboard", "--input", source, "--output", output, "--as-of", ASOF]);
+  assert.match(fs.readFileSync(path.join(output, "index.html"), "utf8"), /No retained snapshot/);
+  await local.refresh(source, async () => data([pull(1)]));
+  local.atomic(source, "projection.json", { sentinel: "prior-projection" });
+  const raw = fs.readFileSync(path.join(source, "latest.json"), "utf8");
+  await projectMain(["dashboard", "--input", source, "--output", output, "--as-of", ASOF]);
+  const before = fs.readFileSync(path.join(output, "index.html"), "utf8");
+  local.atomic(dir, "records.json", { briefing: {} });
+  await assert.rejects(projectMain(["dashboard", "--input", source, "--output", output, "--as-of", ASOF, "--records", path.join(dir, "records.json")]), /briefing_text_required/);
+  assert.equal(fs.readFileSync(path.join(output, "index.html"), "utf8"), before);
+  assert.equal(fs.readFileSync(path.join(source, "latest.json"), "utf8"), raw);
+  assert.deepEqual(local.readJson(path.join(source, "projection.json")), { sentinel: "prior-projection" });
 });
