@@ -83,6 +83,12 @@ function parseOptions(argv = process.argv.slice(2), env = process.env) {
     if (reviewedEditorial.length !== 1 || !reviewedEditorial[0].slice(21) || ids.length !== 1 || !ids[0].slice(6) || !argv.includes('--local-only') || !argv.includes('--reviewed-fixtures') || !argv.includes('--editorial-projections') || new Set(argv).size !== argv.length || argv.some(arg => !allowed.has(arg) && !arg.startsWith('--ids=') && !arg.startsWith('--reviewed-editorial='))) throw Error('Reviewed editorial research requires exact IDs, one reviewed input and the local-only reviewed-fixtures/editorial-projections route. No source steps ran.');
     return {localOnly:true, reviewedEditorial:{ids:ids[0].slice(6).split(','), file:reviewedEditorial[0].slice(21)}};
   }
+  if(argv.includes('--admit-reviewed-fixtures')){
+    const allowed=new Set(['--reviewed-fixtures','--admit-reviewed-fixtures','--local-only','-p']);
+    const selections=argv.filter(arg=>arg.startsWith('--ids='));
+    if(!argv.includes('--reviewed-fixtures')||!argv.includes('--local-only')||selections.length!==1||!selections[0].slice(6)||new Set(argv).size!==argv.length||argv.some(arg=>!allowed.has(arg)&&!arg.startsWith('--ids=')))throw Error('Reviewed fixture admission requires only --reviewed-fixtures --admit-reviewed-fixtures --ids=<reviewed IDs> --local-only. No writes or source steps ran.');
+    return {localOnly:true};
+  }
   if(argv.includes('--admit-major-subevents')){
     const allowed=new Set(['--reviewed-fixtures','--admit-major-subevents','--local-only','-p']);
     const selections=argv.filter(arg=>arg.startsWith('--ids='));
@@ -925,7 +931,9 @@ async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()
     const resultObservations=process.argv.includes('--result-observations');
     const editorialProjections=process.argv.includes('--editorial-projections');
     const admitMajor=process.argv.includes('--admit-major-subevents');
-    let admission=null;
+    const admitReviewed=process.argv.includes('--admit-reviewed-fixtures');
+    let admission=admitReviewed?require('./lib/reviewed-fixture-admission').load(ids.slice(6).split(',')):null;
+    if(admitReviewed&&!admission.changed){console.log('Reviewed fixtures already present on both Feed surfaces; no rebuild needed.');return;}
     if(admitMajor){
       admission=preparedMajorAdmission||require('./lib/major-event-feed-admission').prepare({
         canonical:JSON.parse(fs.readFileSync('data/major-events.v1.json')),
@@ -946,8 +954,8 @@ async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()
       }
     }
     if(admission){
-      require('./lib/major-event-feed-admission').writePrepared(admission);
-      console.log(JSON.stringify({majorSubeventAdmission:admission.added}));
+      require(admitReviewed?'./lib/reviewed-fixture-admission':'./lib/major-event-feed-admission').writePrepared(admission);
+      console.log(JSON.stringify({reviewedAdmission:admission.added}));
     }
     if(editorialProjections){
       const repaired=require('./apply-editorial-narratives').applyScopedFeed(ids.slice(6).split(','));
@@ -960,7 +968,7 @@ async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()
       if(!repaired.changed){console.log('Retained result observations already agree; no publication or rebuild needed.');return;}
     }
     for(const args of [
-      ...(!resultObservations&&!editorialProjections&&!admitMajor?[['scripts/apply-current-card-evidence.js',...(baseline?[baseline,ids]:scoped?[ids]:[])]]:[]),
+      ...(!resultObservations&&!editorialProjections&&!admitMajor&&!admitReviewed?[['scripts/apply-current-card-evidence.js',...(baseline?[baseline,ids]:scoped?[ids]:[])]]:[]),
       ...(!scoped?[['scripts/apply-national-team-identities.js','feeds/incoming/events.json']]:[]),
       ...(admitMajor?[['scripts/validate-major-event-feed-admission.js']]:[]),
       ['scripts/publish-feed.js',scoped?'data/events.json':'feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
@@ -1196,6 +1204,16 @@ async function main(){
   // Validate mode before creating diagnostic state or starting any source step.
   const initialOptions=parseOptions();
   if(initialOptions.australianChampionship||initialOptions.retainedCoverage||initialOptions.reviewedEditorial)return runMain();
+  if(process.argv.includes('--admit-reviewed-fixtures')){
+    // Reject scope/source/collisions before the existing recovery owner writes.
+    const ids=process.argv.find(argument=>argument.startsWith('--ids=')).slice(6).split(',');
+    const admission=require('./lib/reviewed-fixture-admission').load(ids);
+    if(!admission.changed){console.log('Reviewed fixtures already present on both Feed surfaces; no rebuild needed.');return;}
+    const manifest=JSON.parse(fs.readFileSync('data/code-inspector/manifest.json'));
+    require('./lib/reviewed-fixture-projection-codes').codesForReviewedFixtures(admission.published.events,ids,manifest,file=>JSON.parse(fs.readFileSync(file)));
+    try{return await require('./quick-results').atomicRefresh({},{refreshOperation:()=>runMain()});}
+    catch(error){console.error('Reviewed fixture admission HOLD: candidate recovery attempted; shell/version/optional outputs still require owner qualification. No release confirmed.');throw error;}
+  }
   if(process.argv.includes('--admit-major-subevents')){
     // Pure canonical/identity/scope rejection must not enter rollback: that
     // owner restores data/feeds by writing even when admission never mutated.

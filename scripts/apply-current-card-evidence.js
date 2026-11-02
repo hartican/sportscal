@@ -41,7 +41,7 @@ function mergeRecord(record, override, checkedAt){
     sourceRefs,
     scheduleStatus:override.startTimeUtc ? "confirmed" : record.scheduleStatus,
     timePrecision:override.startTimeUtc ? "exact" : override.timePrecision || record.timePrecision,
-    stakesScore:record.stakesScore || 5,
+    ...(record.stakesScore != null ? {stakesScore:record.stakesScore} : {}),
   };
   // A calendar/venue note supports timing, not the later official session
   // classification. Keep both references without relabelling result facts.
