@@ -1167,7 +1167,8 @@
       "broadcastSourceUrl": "https://socceroos.com.au/fixtures",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "sourceCheckedAt": "2026-11-02T05:42:14.000Z"
+      "sourceCheckedAt": "2026-11-02T05:42:14.000Z",
+      "reviewedScheduleOnly": true
     },
     {
       "id": "football-jordan-australia-2026-11-18",
@@ -1254,7 +1255,8 @@
       "broadcastSourceUrl": "https://socceroos.com.au/fixtures",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "sourceCheckedAt": "2026-11-02T05:42:14.000Z"
+      "sourceCheckedAt": "2026-11-02T05:42:14.000Z",
+      "reviewedScheduleOnly": true
     }
   ],
   "resultOverrides": [

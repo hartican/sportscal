@@ -19,7 +19,7 @@ const matches = (record, override) => recordAliases(record).some(id => aliases(o
 
 function publicFields(override){
   const next = { ...override };
-  for(const key of ["canonicalId", "ids", "broadcastSourceUrl", "scheduleSourceUrl"]) delete next[key];
+  for(const key of ["canonicalId", "ids", "broadcastSourceUrl", "scheduleSourceUrl", "reviewedScheduleOnly"]) delete next[key];
   return next;
 }
 function mergeRecord(record, override, checkedAt){
@@ -74,9 +74,11 @@ function fixtureSeed(override, checkedAt){
     status:"scheduled",
     cardKind:"fixture",
     liveWindow:3,
-    expected:8,
-    stakesScore:5,
-    storyline:{ stakes:5, intensity:5, arcStage:"preview" },
+    ...(override.reviewedScheduleOnly === true ? {expected:null} : {
+      expected:8,
+      stakesScore:5,
+      storyline:{ stakes:5, intensity:5, arcStage:"preview" },
+    }),
   }, override, checkedAt);
 }
 function normalizeCompletedTiming(record, {child=false} = {}){
@@ -281,4 +283,4 @@ if(require.main === module){
   else if(process.argv.includes('--timing-only'))applySelectedTimings();
   else if(scope)applySelectedResults(scope.slice(6).split(','));else applyEvidence({ check:process.argv.includes("--check") });
 }
-module.exports = { restorePublishedEditorial, applySelectedResults, applySelectedTimings, applyEvidence, normalizeCompletedTiming, observedCompletionBoundary, hasCompletionBoundary, mergeRecord, retainNewerReviewedEditorial };
+module.exports = { restorePublishedEditorial, applySelectedResults, applySelectedTimings, applyEvidence, applyFixtureAndResultEvidence, normalizeCompletedTiming, observedCompletionBoundary, hasCompletionBoundary, mergeRecord, retainNewerReviewedEditorial };

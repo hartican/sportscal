@@ -20,7 +20,7 @@ function validate(row,referenceTime){
   const approved=APPROVED[row.id];
   if(!approved)fail('unsupported reviewed identity '+row.id);
   const participants=['team:football:'+approved.opponent,'team:football:socceroos'];
-  if(row.canonicalId!==row.id||row.eventId!==row.id||row.key!=='football'||row.cardKind!=='fixture'||row.status!=='scheduled'||row.competitionId!=='competition:football:international-friendlies'||row.competitionScope!=='international'||row.isInternational!==true||row.isSenior!==true||row.gender!=='men')fail('canonical competition binding differs');
+  if(row.reviewedScheduleOnly!==true||row.canonicalId!==row.id||row.eventId!==row.id||row.key!=='football'||row.cardKind!=='fixture'||row.status!=='scheduled'||row.competitionId!=='competition:football:international-friendlies'||row.competitionScope!=='international'||row.isInternational!==true||row.isSenior!==true||row.gender!=='men')fail('canonical competition binding differs');
   if(JSON.stringify(row.participantIds)!==JSON.stringify(participants)||row.participantsConfirmed!==true||JSON.stringify((row.participants||[]).map(p=>p.id))!==JSON.stringify(participants)||row.homeParticipantId!==participants[0]||row.awayParticipantId!==participants[1])fail('participant binding differs');
   if(row.date!==approved.date||row.time!==approved.time||row.startTimeUtc!==approved.start||row.localTimezone!=='Australia/Sydney'||row.venue!==approved.venue)fail('reviewed schedule binding differs');
   if(row.sourceType!=='official'||row.sourceTrust!=='verified'||row.sourceUrl!==SOURCE||row.sourceCheckedAt!=='2026-11-02T05:42:14.000Z'||!Number.isFinite(referenceTime.getTime())||Date.parse(row.sourceCheckedAt)>referenceTime.getTime())fail('official observation binding differs');

@@ -5,7 +5,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const {APPROVED,prepare,writePrepared}=require('./lib/reviewed-fixture-admission');
 const {parseOptions}=require('./update-cards');
-const {mergeRecord}=require('./apply-current-card-evidence');
+const {mergeRecord,applyFixtureAndResultEvidence}=require('./apply-current-card-evidence');
 const clone=value=>structuredClone(value);
 const referenceTime=new Date('2026-11-02T05:42:15.000Z');
 function focused(){
@@ -17,6 +17,21 @@ function focused(){
   const before=JSON.stringify(input),result=prepare(input,{referenceTime});
   assert.equal(JSON.stringify(input),before,'preparation never mutates source inputs');
   assert.equal(result.added.length,4);assert(result.changed);
+  const ordinaryEvidence={checkedAt:evidence.checkedAt,fixtureOverrides:evidence.fixtureOverrides.filter(row=>ids.includes(row.id)),resultOverrides:[]};
+  const ordinary=applyFixtureAndResultEvidence([clone(peer)],ordinaryEvidence,{upsert:true});
+  assert.deepEqual(ordinary[0],peer,'ordinary upsert preserves unrelated fixture');
+  for(const id of ids){
+    const row=ordinary.find(event=>event.id===id);
+    assert(row,'ordinary upsert admits '+id);assert.equal(row.expected,null);
+    assert.equal(row.stakesScore,undefined);assert.equal(row.storyline,undefined);
+    assert.equal(row.reviewedScheduleOnly,undefined,'internal seed control is not published copy');
+    assert.equal(row.sourceCheckedAt,'2026-11-02T05:42:14.000Z');
+  }
+  const rated=clone(ordinary);Object.assign(rated[1],{expected:6,stakesScore:3,storyline:{stakes:3,intensity:3,arcStage:'preview'}});
+  const ratedNext=applyFixtureAndResultEvidence(rated,ordinaryEvidence,{upsert:true});
+  assert.equal(ratedNext[1].expected,6);assert.equal(ratedNext[1].stakesScore,3);assert.deepEqual(ratedNext[1].storyline,rated[1].storyline,'schedule-only seed policy never overwrites an existing rating');
+  const legacy=applyFixtureAndResultEvidence([],{checkedAt:evidence.checkedAt,fixtureOverrides:[{id:'reference:legacy',name:'Unrelated existing admission contract'}],resultOverrides:[]},{upsert:true})[0];
+  assert.equal(legacy.expected,8);assert.equal(legacy.stakesScore,5,'unrelated legacy seed behaviour remains out of this repair scope');
   for(const key of ['incoming','published']){
     assert.deepEqual(result[key].events[0],peer);
     assert.equal(result[key].version,feed.version);assert.equal(result[key].publishedAt,feed.publishedAt);
@@ -45,6 +60,7 @@ function focused(){
     value=>{value.evidence.fixtureOverrides.push(clone(value.evidence.fixtureOverrides.find(row=>row.id===ids[0])));},
     ...['sourceUrl','sourceCheckedAt','startTimeUtc','venue','participantIds','broadcasterIds'].map(field=>value=>{value.evidence.fixtureOverrides.find(row=>row.id===ids[0])[field]='unreviewed';}),
     value=>{value.evidence.fixtureOverrides.find(row=>row.id===ids[0]).expected=8;},
+    value=>{value.evidence.fixtureOverrides.find(row=>row.id===ids[0]).reviewedScheduleOnly=false;},
     value=>{value.evidence.resultOverrides=[{id:ids[0]}];},
     value=>{value.published.events.push(clone(result.published.events[1]),clone(result.published.events[1]));},
     value=>{const row=clone(result.published.events[1]);row.participantIds=['different'];value.published.events.push(row);},
