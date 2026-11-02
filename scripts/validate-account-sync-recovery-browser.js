@@ -238,13 +238,23 @@ const server = http.createServer((req, res) => {
       const observedStaticPath=pathname=>pathname==='/data/code-inspector/manifest.json'||pathname==='/data/feed/manifest.json'||/^\/data\/feed\/page-\d+\.json$/.test(pathname);
       const originalFetch = window.fetch;
       window.fetch = function(...args) {
+        let observedUrl = null;
         try {
           const input = args[0];
           const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url, document.baseURI);
-          if (url.origin === location.origin && observedStaticPath(url.pathname))
+          if (url.origin === location.origin && observedStaticPath(url.pathname)) {
+            observedUrl=url.origin+url.pathname;
             report('fetch-entry', {url:url.origin+url.pathname, stack:String(new Error().stack||'').slice(0,2400)});
+          }
         } catch {}
-        return Reflect.apply(originalFetch, this, args);
+        try { return Reflect.apply(originalFetch, this, args); }
+        catch (error) {
+          try {
+            if(observedUrl)report('fetch-sync-throw',{url:observedUrl,name:String(error?.name||''),
+              message:String(error?.message||'').slice(0,600),stack:String(error?.stack||'').slice(0,2400)});
+          } catch {}
+          throw error;
+        }
       };
       addEventListener('error', event => report('window-error', {name:String(event.error?.name||''),
         message:String(event.message||'').slice(0,600), stack:String(event.error?.stack||'').slice(0,2400),

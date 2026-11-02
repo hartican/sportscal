@@ -4616,18 +4616,19 @@ const publicPage = publicFeedManifest?.pages?.[publicFeedNextPageIndex];
 const path = String(publicPage?.path || "");
 if (!path || warmedPublicFeedPages.has(path) || serverPersistence.user) return false;
 warmedPublicFeedPages.add(path);
-const warm = () => {
+const warm = async () => {
 publicFeedWarmHandle = null;
-fetch(path, { cache:"force-cache", credentials:"same-origin", signal:AbortSignal.timeout(8000) }).then(async response => {
+try {
+const response = await fetch(path, { cache:"force-cache", credentials:"same-origin", signal:AbortSignal.timeout(8000) });
 if (!response.ok){
 await response.body?.cancel();
 throw new Error(`Feed warm-up returned ${response.status}`);
       }
 await response.arrayBuffer();
-    }).catch(error => {
+    } catch(error) {
 warmedPublicFeedPages.delete(path);
 console.warn("Feed page warm-up unavailable", error);
-    });
+    }
   };
 publicFeedWarmHandle = typeof window.requestIdleCallback === "function"
 ? window.requestIdleCallback(warm, { timeout:1800 })

@@ -90,4 +90,48 @@ function identityRecovery(){
   assert(pending.slice(0,4).every(node=>node.src),'first-view identities retain their bounded source budget');
   assert.equal(pending[4].src,undefined);assert.equal(context.deferredCardImages.size,1);assert.equal(pending[4].dataset.deferredCardImage,'/local-4.svg');
 }
-module.exports={fivePointRatings,lazyIdentities,identityRecovery};
+function reviewedNationalTextFallback(event){
+  const identities=require('../../config/card-identities'),labels=require('../../config/fixture-labels');
+  const policy=require('./reviewed-national-text-fallback'),opened=[],before=JSON.stringify(event),rule=policy.ruleFor(event);
+  assert(rule,'Only the three reviewed fixture contracts are supported');
+  const displayLabels=rule.displayIds.map(id=>rule.labels[rule.ids.indexOf(id)]),required=rule.displayIds.filter(id=>!rule.optionalIds.includes(id));
+  const context={document,CARD_IDENTITIES:identities,cardIdentityParticipants:()=>[],
+    NOTHINGSPORTS_FIXTURE_LABELS:labels,themeUsesDarkAssets:()=>false,activeTab:'feed',
+    COUNTRY_FLAGS:{flagMarkup:code=>{assert(!code,'Absent crest must not become a country flag');return ''; }},
+    openFeedParticipantProfile:(id,label,key)=>opened.push({id,label,key}),
+    installIdentityImageRecovery(){},assignCardImageSource:(image,source)=>{image.src=source;}};
+  vm.createContext(context);
+  for(const name of ['matchupIdentityMatches','participantProfileLink','applyTeamLogoAsset'])vm.runInContext(readInlineOwner(name),context);
+  for(const name of ['appendTeamIdentityFallback','buildMatchupIdentity','buildMinimisedParticipant'])vm.runInContext(readCardFunction(name),context);
+  const sides=identities.matchupSidesForEvent(event,[],event.name);
+  policy.assertEligible(event,sides);
+  const node=context.buildMatchupIdentity(event,event.name),links=node.querySelectorAll('.fixture-profile-link');
+  assert.deepEqual(links.map(link=>link.textContent),displayLabels,'Actual first render retains sourced names and existing Australian-first display order');
+  assert.equal(node.querySelectorAll('img').length,required.length,'Only the existing required artwork creates an image');
+  for(const image of node.querySelectorAll('img'))assert.equal(image.src,'assets/identities/national/football/socceroos-symbol.svg','Actual production image owner keeps the required reviewed Socceroos source');
+  assert.equal(node.querySelectorAll('.matchup-team-logo-slot').length,2,'Two ordered placeholder slots remain');
+  for(const link of links){assert.match(link.getAttribute('aria-label'),/profile in Follow/);link.onclick({stopPropagation(){}});}
+  assert.deepEqual(opened,rule.displayIds.map((id,i)=>({id,label:displayLabels[i],key:rule.key})),'Actual profile/Follow handlers keep sport-specific identities');
+  const search=require('../../data/follow-directory/search.v1.json'),idColumn=search.fields.indexOf('id');
+  for(const id of rule.ids)assert(search.records.some(row=>row[idColumn]===id),'Existing Follow search retains the exact handler identity');
+  for(const side of sides){
+    assert.equal(context.buildMinimisedParticipant(side,event).querySelectorAll('img').length,required.includes(side.participant.id)?1:0,'Actual compact first render requests no absent opponent crest');
+    if(rule.optionalIds.includes(side.participant.id))assert.equal(identities.participantMarks[side.participant.id],undefined,'UI placeholder is not registered national artwork');
+  }
+  assert(identities.nationalTeamIdentities.policy.prohibited.includes('monogram'),'Global national artwork prohibition remains intact');
+  for(const broken of [
+    {...event,participantIds:['team:wrong-code:opponent',event.participantIds[1]]},
+    {...event,participantIds:[event.participantIds[0]]},
+    {...event,participants:event.participants.map((p,i)=>({...p,role:i?'home':'away'}))},
+    {...event,sourceUrl:'https://example.com/unverified'},
+    {...event,id:'unrelated-fixture'},
+    {...event,participants:event.participants.map((p,i)=>i?p:{...p,logoUrl:'assets/identities/missing-required-crest.svg'})},
+  ])assert.throws(()=>policy.assertEligible(broken,sides),'Wrong/missing identity, roles, unrelated scope, source and referenced-image controls stay hard');
+  assert.throws(()=>policy.assertEligible(event,[...sides].reverse()),'Wrong rendered order must not qualify');
+  assert.throws(()=>policy.assertEligible(event,sides.map(s=>rule.optionalIds.includes(s.participant.id)?{...s,mark:{url:'assets/identities/missing-required-crest.svg'}}:s)),/referenced\/broken image/,'A broken referenced opponent image is not absent optional artwork');
+  if(required.length)assert.throws(()=>policy.assertEligible(event,sides.map(s=>required.includes(s.participant.id)?{...s,mark:{...s.mark,url:'assets/identities/missing-socceroos.svg'}}:s)),/Socceroos image reference/,'Required Socceroos artwork stays hard');
+  assert(!policy.applies({...event,id:'unrelated-fixture'}),'Other fixture logo requirements are unchanged');
+  assert.equal(JSON.stringify(event),before,'Renderer and controls cannot mutate fixture facts/source clock');
+  console.log(event.id+': reviewed optional-opponent artwork: actual resolver/expanded+compact components, named profile/Follow handlers, searchable IDs, source roles and existing display order, required-artwork and strict identity/source/referenced-image negatives passed; no invented artwork or licence claim.');
+}
+module.exports={fivePointRatings,lazyIdentities,identityRecovery,reviewedNationalTextFallback,rlwcTextFallback:reviewedNationalTextFallback};

@@ -4,6 +4,7 @@ const assert = require("node:assert/strict");
 const crypto = require("node:crypto");
 const fs = require("node:fs");
 const identities = require("../config/card-identities.js");
+const reviewedTextFallback = require('./lib/reviewed-national-text-fallback');
 require('./validate-canonical-fixture-names').validate({published:true});
 const html = require("./app-shell-test-utils").readCardApplicationSource();
 
@@ -253,6 +254,11 @@ assert.equal(identities.matchupSidesForEvent({ key:"tennis" }, [], "Player A v P
 (eventPayload.events || eventPayload).filter(event => identities.isTeamSportMatchup(event, event.name)).forEach(event => {
   const sides = identities.matchupSidesForEvent(event, [...activeNrlTeams, ...activeAflTeams, ...footballParticipants], event.name);
   assert.equal(sides.length, 2, `${event.id || event.name} must render exactly two ordered matchup slots`);
+  if(reviewedTextFallback.applies(event)){
+    reviewedTextFallback.assertEligible(event,sides);
+    require('./lib/peach-renderer-controls').reviewedNationalTextFallback(event);
+    return;
+  }
   sides.filter(side => !/\b(?:winner|loser|tbc|tbd)\b/i.test(side.label)).forEach(side => {
     if(event.key === 'nrlw'){
       // This directory has no verified artwork yet. Require the sourced identity
