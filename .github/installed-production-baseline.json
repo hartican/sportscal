@@ -1,36 +1,36 @@
 {
   "schemaVersion": "installed-production-baseline.v1",
-  "preparedForBaseSha": "0d4ca141e0dd79e64e1c8b32490ec2c107e4b6ac",
-  "baselineSha": "0d4ca141e0dd79e64e1c8b32490ec2c107e4b6ac",
-  "baselineVersion": "605",
+  "preparedForBaseSha": "eef1b36e81a64c47c21e7e0bbeeb82b96b8a76b3",
+  "baselineSha": "eef1b36e81a64c47c21e7e0bbeeb82b96b8a76b3",
+  "baselineVersion": "606",
   "deployment": {
-    "id": "dpl_Cc6xob9xdFqcCKrbFCxgVRRW2Apn",
+    "id": "dpl_5Tpw3uCai9KkLQXVTexeUeZpmYeQ",
     "state": "READY",
-    "releaseGitSha": "0d4ca141e0dd79e64e1c8b32490ec2c107e4b6ac",
+    "releaseGitSha": "eef1b36e81a64c47c21e7e0bbeeb82b96b8a76b3",
     "origin": "https://nothingsport.app",
-    "checkedAt": "2026-11-01T12:45:15.150Z"
+    "checkedAt": "2026-11-02T08:35:13.424Z"
   },
   "files": {
     "index.html": {
-      "gitSha256": "1a418f787ea99e984fc4fab0eeaa1274cc5e90b512eff46286d1f5922f4a8c02",
-      "servedSha256": "1a418f787ea99e984fc4fab0eeaa1274cc5e90b512eff46286d1f5922f4a8c02",
-      "servedBytes": 940403,
+      "gitSha256": "b377dcc40afec83afd7b2f56d49ec1fec464fa1c7f86263963c580d8b5ef70c4",
+      "servedSha256": "b377dcc40afec83afd7b2f56d49ec1fec464fa1c7f86263963c580d8b5ef70c4",
+      "servedBytes": 941195,
       "status": 200,
-      "checkedAt": "2026-11-01T12:45:37.606Z"
+      "checkedAt": "2026-11-02T08:35:16.245Z"
     },
     "service-worker.js": {
-      "gitSha256": "9b00670ec85a6b7178dd94e3745f806aab391668d4de6a7d63d4d9ba976b2e29",
-      "servedSha256": "9b00670ec85a6b7178dd94e3745f806aab391668d4de6a7d63d4d9ba976b2e29",
+      "gitSha256": "a6c8ac8a21f8bfa81fc84f89ad49c6e7494061e6017df673b1444c553c5b63cf",
+      "servedSha256": "a6c8ac8a21f8bfa81fc84f89ad49c6e7494061e6017df673b1444c553c5b63cf",
       "servedBytes": 28733,
       "status": 200,
-      "checkedAt": "2026-11-01T12:45:37.753Z"
+      "checkedAt": "2026-11-02T08:35:16.692Z"
     },
     "app-version.json": {
-      "gitSha256": "0782bf33961abaa64f2ed91debf3a01933702cc9c348b2ab97d9b3141f3839f4",
-      "servedSha256": "0782bf33961abaa64f2ed91debf3a01933702cc9c348b2ab97d9b3141f3839f4",
+      "gitSha256": "d30eb28440d2b688f73f6e9417267f2a07621ec354ba0d40133e094a14923404",
+      "servedSha256": "d30eb28440d2b688f73f6e9417267f2a07621ec354ba0d40133e094a14923404",
       "servedBytes": 18,
       "status": 200,
-      "checkedAt": "2026-11-01T12:45:37.971Z"
+      "checkedAt": "2026-11-02T08:35:17.371Z"
     }
   }
 }
