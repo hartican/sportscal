@@ -40,3 +40,31 @@ The permanent `helper-mount` case holds the actual helper response until after i
 Original failing traces, including a first fixed probe's failed test counter, are retained. That first fixed probe already retained the form and submitted; its attempted wrapper counter was ineffective because the real SDK object is frozen. The corrected regression observes native submit and the existing routed auth request directly, without SDK mutation.
 
 DEPLOY must qualify the combined588/5714 runtime, complete34-case matrix, both installed upgrades and all250 release commands. The original phone diagnostic and physical two-device/Feed gates remain open. This addition repairs a proven helper-arrival UI race while preserving the diagnostic's original privacy and sync boundaries.
+
+## Preserve the complete active sign-in surface — 2 November 2026
+
+The retained607 WebKit failure showed a second lazy-helper defect. The actual
+form and submit button survived, but help/status copy above the form expanded
+between native pointer down and up, moving the button83.74px away from the press
+point. WebKit clicked the containing form; no submit or auth request followed.
+The controlled `helper-pointer` regression reproduced zero native submissions in
+both Chromium and WebKit on test-onlyb16 in installed run41434886090. Each engine
+passed its other23 account scenarios. This does not establish the cause of the
+separate earlier second-context failure or actual iPhone sync failures.
+
+Helper mount now preserves both the active form and its preceding copy. The next
+normal Account render supplies the full helper copy. No credential copying,
+automatic submission, input replacement, session/access change or new request is
+introduced. The existing helper-mount case remains; helper-pointer adds actual
+native down, delayed helper completion, then native up with the same one-submit,
+one-auth and15-second acceptance. Second-context acceptance remains30seconds and
+gains the existing bounded passive failure trace. The separate actual-mount VM
+contract is registered in the existing account-awareness gate; installed CI does
+not execute that VM validator.
+
+Regenerate the deferred helper and advance its loader/worker cache URL together
+from599 to607, within the unmerged607 candidate. Record exact new measurements and
+hash/cache bindings. Current general sizeADVISORY policy applies; valid size
+excesses are notices, while invalid measurements/manifests and all other required
+gates remain hard failures. Final source, normal CI, both installed-browser
+engines and physical-device evidence retain their separate acceptance scopes.

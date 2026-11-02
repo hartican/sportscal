@@ -1866,7 +1866,7 @@ button.setAttribute('aria-label',button.textContent+'. Open Account.');
 }
 function ensureAccountIndicator(){
 if(accountIndicatorController)return Promise.resolve(accountIndicatorController);
-accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=599')
+accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=607')
 .then(()=>NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.mount())
 .catch(()=>{accountIndicatorLoading=null;renderAccountIndicator();return null;});
 return accountIndicatorLoading;
