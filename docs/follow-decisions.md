@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Canonical sport selection and pending account sync — 3 November 2026
+
+The existing sport Follow writer changes selectedSelectorEntityIds, followedSports and taxonomySelection together. Reconcile that complete choice with independent entity/domain edits only when all three snapshots exactly match the current writer's derivations and one side is unchanged or both sides already agree. Keep the selected whole value, including an explicit empty choice; never union choices, coerce unknown forms or split the derived fields. Differing concurrent selections remain held.
+
+The owned matching ACK must confirm the exact selected triple. Preserve the original pending receipt/base, current607 expectedReceipt revision/absence fences, typed device views, unknown/conflict/removal/OFF protections, account/generation checks, conditional save/retry and newer-receipt carry. No preference reset, private-account restoration, new sync owner or automatic retry is added. Source/generated/local-API qualification and actual iPhone acceptance remain separate. See [the repair record](quality/account-sport-selection-sync-2026-11-03.md).
+
 ## Recording another Follow with retained intent — 1 November 2026 source repair
 
 A new deliberate local Follow may extend its same-owner pending intent using
