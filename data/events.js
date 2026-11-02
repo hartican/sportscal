@@ -295970,14 +295970,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "eventType": "match",
     "participants": [
       {
+        "id": "team:football:qatar",
+        "name": "Qatar",
+        "displayName": "Qatar",
+        "countryCode": "QA",
+        "role": "home"
+      },
+      {
         "id": "team:football:socceroos",
         "name": "Socceroos",
         "displayName": "Socceroos",
         "countryCode": "AU",
-        "role": "home"
+        "role": "away"
       }
     ],
     "participantIds": [
+      "team:football:qatar",
       "team:football:socceroos"
     ],
     "homeParticipantId": "team:football:qatar",
@@ -296066,14 +296074,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "eventType": "match",
     "participants": [
       {
+        "id": "team:football:jordan",
+        "name": "Jordan",
+        "displayName": "Jordan",
+        "countryCode": "JO",
+        "role": "home"
+      },
+      {
         "id": "team:football:socceroos",
         "name": "Socceroos",
         "displayName": "Socceroos",
         "countryCode": "AU",
-        "role": "home"
+        "role": "away"
       }
     ],
     "participantIds": [
+      "team:football:jordan",
       "team:football:socceroos"
     ],
     "homeParticipantId": "team:football:jordan",

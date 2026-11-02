@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "nothingsport-official-results-2026-09-15-v1-20261022180155820-20261022221048141-20261024211614556-20261029023535843-20261029172213484-20261030063310815-20261030230640076-20261030233059042-20261030233417333-20261030233813154-20261031010623251-20261031023200036-20261102014241208-20261102071131955",
-  "publishedAt": "2026-11-02T07:11:31.955Z",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261022180155820-20261022221048141-20261024211614556-20261029023535843-20261029172213484-20261030063310815-20261030230640076-20261030233059042-20261030233417333-20261030233813154-20261031010623251-20261031023200036-20261102014241208-20261102071131955-20261102101212855",
+  "publishedAt": "2026-11-02T10:12:12.855Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
   "events": [
     {
@@ -295974,14 +295974,22 @@
       "eventType": "match",
       "participants": [
         {
+          "id": "team:football:qatar",
+          "name": "Qatar",
+          "displayName": "Qatar",
+          "countryCode": "QA",
+          "role": "home"
+        },
+        {
           "id": "team:football:socceroos",
           "name": "Socceroos",
           "displayName": "Socceroos",
           "countryCode": "AU",
-          "role": "home"
+          "role": "away"
         }
       ],
       "participantIds": [
+        "team:football:qatar",
         "team:football:socceroos"
       ],
       "homeParticipantId": "team:football:qatar",
@@ -296070,14 +296078,22 @@
       "eventType": "match",
       "participants": [
         {
+          "id": "team:football:jordan",
+          "name": "Jordan",
+          "displayName": "Jordan",
+          "countryCode": "JO",
+          "role": "home"
+        },
+        {
           "id": "team:football:socceroos",
           "name": "Socceroos",
           "displayName": "Socceroos",
           "countryCode": "AU",
-          "role": "home"
+          "role": "away"
         }
       ],
       "participantIds": [
+        "team:football:jordan",
         "team:football:socceroos"
       ],
       "homeParticipantId": "team:football:jordan",
