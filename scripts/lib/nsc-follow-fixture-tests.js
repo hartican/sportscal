@@ -107,6 +107,8 @@ async function run(){
     assert(lookup.ausRating,"working Australian Championship control must resolve through the complete lookup");
     assert(lookup.ausReminder,"working Aus reminder control must resolve with supported future timing");
     assert(lookup.rating&&lookup.reminder,"NBA fixture already supported by Follow/Feed must resolve for both ratings and reminders");
+    assert.deepEqual(server.eventFor(ausId).participantIds,ausFixture.participantIds,"existing Aus participants remain exact");
+    assert.equal(Date.parse(server.eventFor(ausId).startTimeUtc),Date.parse(ausFixture.startTimeUtc),"existing Aus kickoff remains exact");
     assert.equal(calls.length,2,"one disposable RPC per deliberate rating, no ancillary calls");
     const nbaFixtures=official.events.filter(event=>event.key==="nba");
     assert(nbaFixtures.length>1000,"the existing official NBA schedule remains the source");
@@ -119,8 +121,10 @@ async function run(){
     const event=server.eventFor(nbaId);
     assert.equal(crowd.phaseFor({...server.eventTiming(event),status:"postponed"},now),null);
     assert.equal(crowd.phaseFor(server.eventTiming(event),new Date("2026-11-04T00:00:00Z")),null,"elapsed clock cannot invent live or finished play");
-    assert.equal(map.has("fixture:nba:unregistered"),false,"unknown fixture identity stays unknown");
+    assert.equal(server.eventFor("fixture:nba:unregistered"),null,"unknown fixture identity stays unknown");
     assert.equal(policy.manualTiming({...reminderCatalogue.resolve(nbaId),timePrecision:"unknown"},+now),null,"unknown precision stays blocked");
+    assert.equal(policy.manualTiming({...reminderCatalogue.resolve(nbaId),timingVerified:false},+now),null,"unverified timing stays blocked");
+    assert.equal(policy.manualTiming({...reminderCatalogue.resolve(nbaId),status:"completed"},+now),null,"completed play cannot acquire a future reminder");
     return {scope:"actual full NSC/reminder lookup, rating-call metadata and browser final acknowledgement; disposable transport/storage only, no physical phone/database/delivery proof",nbaFixtures:nbaFixtures.length,controls:[nbaId,ausId],rpcCalls:calls.length,reminderResults};
   }finally{
     require.cache[supabasePath].exports=originalSupabase;
