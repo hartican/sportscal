@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-11-02T01:42:41.208Z",
+  "generatedAt": "2026-11-02T07:11:31.955Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/horse-racing.json",
@@ -187,11 +187,11 @@
       "id": "sport:football",
       "slug": "football",
       "label": "Football",
-      "fixtureCount": 893,
+      "fixtureCount": 895,
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-30T23:06:40.076Z",
+      "freshAt": "2026-11-02T07:11:31.955Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {
