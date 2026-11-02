@@ -167,13 +167,10 @@ function mount(){
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)foregroundAccount();});
   if(serverPersistence.state==='error')void recoverAccount();
   if(settingsSection==='account' && document.getElementById('settingsModal')?.classList.contains('show')){
-    // The helper may finish while a person types. Keep the actual form, input
-    // listeners and focus; refreshing explanatory copy must not erase a draft.
-    if(document.getElementById('accountSignInForm')){
-      const help=document.getElementById('accountSyncHelp'),detail=document.getElementById('accountSyncDetail');
-      if(help)help.textContent=syncHelp;
-      if(detail)detail.textContent=accountSyncDetail();
-    }else renderSettingsScreen();
+    // The helper can finish between native press and release. Preserve the
+    // entire active sign-in surface: even copy above it can move the button.
+    // The next normal Account render supplies the fully loaded helper copy.
+    if(!document.getElementById('accountSignInForm'))renderSettingsScreen();
   }
   return accountIndicatorController;
 }

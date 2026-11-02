@@ -497,5 +497,12 @@ function buildParticipantSearchIndex(manifest,checkOnly,scoped){
   const payload={schemaVersion:'participant-search.v1',generatedAt:searchPublicationAnchor(manifest.generatedAt,previousAt,scoped),fields,records:[...records.values()].sort((a,b)=>a.id.localeCompare(b.id)).map(record=>fields.map(field=>record[field]??null))};
   writeIfChanged(path.join(OUTPUT_DIR,'search.v1.json'),JSON.stringify(payload)+'\n',checkOnly);
 }
-if(require.main===module)main();
+if(require.main===module){
+  if(process.argv.includes('--search-only')){
+    if(process.argv.some(arg=>arg.startsWith('--codes=')))throw new Error('Participant search-only projection cannot be combined with directory --codes=');
+    const checkOnly=process.argv.includes('--check');
+    buildParticipantSearchIndex(readJson('data/follow-directory/manifest.v1.json'),checkOnly,true);
+    console.log('Participant search projection '+(checkOnly?'checked':'rebuilt from retained directories and Code fixtures')+'.');
+  }else main();
+}
 module.exports={normalizeRecord,DirectoryRecords,searchPublicationAnchor};

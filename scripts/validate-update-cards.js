@@ -14,6 +14,7 @@ require('./validate-rlwc-tonga-samoa');
 require('./validate-reviewed-fixture-admission').focused();
 require('./validate-code-projection-score-alias').focused();
 require('./validate-socceroos-participant-identity').focused();
+require('./validate-reviewed-fixture-search').focused();
 require('./validate-cricket-live-scope').run();
 // Owned AFLW doubles run in isolated processes; their IO guards must never
 // replace the ordinary canonical owner's filesystem, clock or transport.

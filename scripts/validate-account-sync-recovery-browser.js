@@ -19,7 +19,8 @@ const scenario = process.env.ACCOUNT_RECOVERY_CASE || 'retry-error';
 const localRecoveryScenario=scenario==='local-preference-recovery';
 const eventsScopeScenario=scenario==='receipt-base-events-scope';
 const eventAgreementScenario=scenario==='receipt-base-event-agreement'||eventsScopeScenario;
-const helperRaceProbe=process.env.ACCOUNT_RECOVERY_HELPER_RACE==='1'||scenario==='helper-mount';
+const helperPressProbe=scenario==='helper-pointer';
+const helperRaceProbe=process.env.ACCOUNT_RECOVERY_HELPER_RACE==='1'||scenario==='helper-mount'||helperPressProbe;
 const cancelControl=process.env.ACCOUNT_RECOVERY_CANCEL_CONTROL==='1';
 const fixtureControl=process.env.ACCOUNT_RECOVERY_LIVE_FIXTURE_CONTROL||null;
 assert(fixtureControl===null||(['original','settled'].includes(fixtureControl)&&scenario==='api-stale'),'Live fixture control requires explicit api-stale original/settled mode');
@@ -27,7 +28,7 @@ assert(!cancelControl||scenario==='receipt-base-disjoint','Cancellation control 
 if (scenario === 'all') {
   let failed = false;
   for (const engine of (process.env.ACCOUNT_RECOVERY_BROWSER ? [engineName] : ['chromium', 'webkit'])) {
-    for (const testCase of ['helper-mount', 'diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed', 'receipt-base-disjoint', 'receipt-base-overlap', 'receipt-base-cricket', 'receipt-base-event-agreement', 'receipt-base-events-scope', 'local-preference-recovery']) {
+    for (const testCase of ['helper-mount', 'helper-pointer', 'diagnostic', 'retry-error', 'pending-receipt', 'resume', 'cold-retry', 'offline', 'terminal', 'refresh-failure', 'follow-roundtrip', 'origin-isolation', 'timeout', 'overlap', 'api-stale', 'api-timestamp', 'api-race', 'api-changed', 'receipt-base-disjoint', 'receipt-base-overlap', 'receipt-base-cricket', 'receipt-base-event-agreement', 'receipt-base-events-scope', 'local-preference-recovery']) {
       const result = spawnSync(process.execPath, [__filename], { stdio: 'inherit', env: {
         ...process.env, ACCOUNT_RECOVERY_BROWSER: engine, ACCOUNT_RECOVERY_CASE: testCase } });
       failed ||= result.status !== 0;
@@ -572,18 +573,21 @@ const server = http.createServer((req, res) => {
     });
     await page.locator('#accountEmail').fill('disposable@example.invalid');
     await page.locator('#accountPassword').fill('test-only-password');
+    const completeHelperMount=async()=>{
+      holdHelper=false;
+      for(const route of heldHelpers.splice(0))await route.continue();
+      await page.evaluate(()=>ensureAccountIndicator());
+      await page.evaluate(()=>qaReleaseStartupSetup());
+      await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+    };
     if(helperRaceProbe){
       await page.evaluate(()=>{globalThis.qaSignInForm=document.getElementById('accountSignInForm');openFirstRunSettingsAfterFeedAlignment();void ensureAccountIndicator();});
       let helperTimer;
       try{await Promise.race([helperRequest,new Promise((_,reject)=>{helperTimer=setTimeout(()=>reject(new Error('Deferred Account helper request was not observed')),8000);})]);}
       finally{clearTimeout(helperTimer);}
-      holdHelper=false;
-      for(const route of heldHelpers)await route.continue();
-      await page.evaluate(()=>ensureAccountIndicator());
+      if(!helperPressProbe)await completeHelperMount();
       // The exact filled form used by the following native submit must survive
       // both deferred owners, including an already-completed setup callback.
-      await page.evaluate(()=>qaReleaseStartupSetup());
-      await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
       const retained=await page.evaluate(()=>({sameForm:qaSignInForm===document.getElementById('accountSignInForm'),
         passwordFocused:document.activeElement===document.getElementById('accountPassword'),
         emailValid:document.getElementById('accountEmail').validity.valid,passwordValid:document.getElementById('accountPassword').validity.valid}));
@@ -592,12 +596,21 @@ const server = http.createServer((req, res) => {
     }
     manifestPhase='native-sign-in';
     await page.evaluate(()=>qaSignInActionTrace.mark('before-native-click'));
-    await page.locator('#accountSignInForm button[type="submit"]').click();
+    if(helperPressProbe){
+      // Reproduce the retained WebKit boundary: the same native press starts
+      // before the optional helper mounts and ends after its layout work.
+      const bounds=await page.locator('#accountSignInForm button[type="submit"]').boundingBox();
+      assert(bounds,'the real submit button must be visible before the native press');
+      await page.mouse.move(bounds.x+bounds.width/2,bounds.y+bounds.height/2);
+      await page.mouse.down();
+      try{await completeHelperMount();}finally{await page.mouse.up();}
+    }else await page.locator('#accountSignInForm button[type="submit"]').click();
     await page.evaluate(()=>qaSignInActionTrace.mark('after-native-click'));
     if(helperRaceProbe){
       const trace=await page.evaluate(()=>qaSignInTrace);
       console.log(JSON.stringify({phase:'held-helper-sign-in-probe',scenario,engine:engineName,trace}));
-      assert.equal(trace.filter(event=>event.event==='submit:accountSignInForm').length,1,'a filled form must submit even when its deferred helper finishes before the click');
+      if(helperPressProbe)console.log(JSON.stringify({phase:'held-helper-pointer-boundary',scenario,engine:engineName,actionTrace:await page.evaluate(()=>qaSignInActionTrace.snapshot())}));
+      assert.equal(trace.filter(event=>event.event==='submit:accountSignInForm').length,1,'a filled form must submit even when its deferred helper finishes before or during the native click');
     }
     await page.waitForFunction(() => serverPersistence.state === 'signedIn').catch(async error=>{
       console.error(JSON.stringify({phase:'initial-sign-in',scenario,engine:engineName,reads,writes,refreshes,authSignIns,errors,
@@ -1149,11 +1162,18 @@ const server = http.createServer((req, res) => {
         await second.goto(url, { waitUntil: 'domcontentloaded' });
         await second.waitForFunction(() => typeof userPreferences !== 'undefined' && !startupCoordinator.isHydrating());
         await second.locator('#startupLaunch').waitFor({ state: 'hidden' });
+        await second.evaluate(installSignInActionTrace);
         await second.evaluate(() => { closeSettings(); openSettings({ section: 'account' }); });
         await second.locator('#accountEmail').fill('disposable@example.invalid');
         await second.locator('#accountPassword').fill('test-only-password');
         await second.locator('#accountSignInForm button[type="submit"]').click();
-        await second.waitForFunction(() => serverPersistence.state === 'signedIn' && Boolean(accountIndicatorController));
+        await second.waitForFunction(() => serverPersistence.state === 'signedIn' && Boolean(accountIndicatorController)).catch(async error=>{
+          console.error(JSON.stringify({phase:'secondary-sign-in',scenario,engine:engineName,
+            state:await second.evaluate(()=>({state:serverPersistence.state,hasSession:serverSyncClient.accountSnapshot().hasSession,
+              actionTrace:qaSignInActionTrace.snapshot()}))}));
+          throw error;
+        });
+        await second.evaluate(()=>qaSignInActionTrace.stop());
         await second.waitForTimeout(1500);
         await second.evaluate(() => serverSyncSequence);
         const changedByB = sync.createPatch(beforeB, actualApi.state()).changes.map(change => change.path.join('.'));
@@ -1196,7 +1216,7 @@ const server = http.createServer((req, res) => {
         await other.close();
         if(traceApiStale){traceResource('secondary-context-close-complete');traceApiBoundary('legacy-before-final-gate');}
       }
-    } else if (scenario === 'helper-mount') {
+    } else if (scenario === 'helper-mount'||helperPressProbe) {
       assert.equal(authSignIns,1,'exactly one native password-sign-in request follows the original form submit');
     } else if (scenario === 'diagnostic') {
       manifestPhase='diagnostic-setup';
