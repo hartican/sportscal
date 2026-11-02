@@ -606,6 +606,18 @@ function preflightRetainedFootballOnly(outputDir=OUTPUT_DIR){
   }
   return manifest;
 }
+function preserveUnchangedScoreAliasShape(previous,next){
+  if(!previous||!next)return next;
+  const had=Object.hasOwn(previous,'canonicalResultScoreline'),has=Object.hasOwn(next,'canonicalResultScoreline');
+  if(had===has&&(!had||previous.canonicalResultScoreline===next.canonicalResultScoreline))return next;
+  const {canonicalResultScoreline:priorAlias,...before}=previous;
+  const {canonicalResultScoreline:nextAlias,...after}=next;
+  if(!require('node:util').isDeepStrictEqual(before,after))return next;
+  // An unchanged retained observation does not acquire or lose a public score
+  // field merely because another fixture caused this Code to be rebuilt.
+  // Explicit retained-result projection remains the owner of field repairs.
+  return had?{...after,canonicalResultScoreline:priorAlias}:after;
+}
 function build({codeSlugs=null,outputDir=OUTPUT_DIR,retainedFootballOnly=false,retainedCodeSlugs=null,aLeagueResultIds=null,championshipResultIds=null}={}){
   if(aLeagueResultIds||championshipResultIds){
     if(aLeagueResultIds&&championshipResultIds)throw Error('Cannot combine result selectors');
@@ -641,7 +653,9 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR,retainedFootballOnly=false,r
       && fs.existsSync(path.join(outputDir,`${code.slug}.json`)))return retained.get(code.slug);
     const fileName = `${code.slug}.json`;
     const retainedChunk=retainedScopes&&code.slug==='football'?JSON.parse(fs.readFileSync(path.join(outputDir,fileName),'utf8')):null;
-    const projectedFixtures=codeFixtures(code),projectedStandings=codeStandings(code);
+    const aliasBaseline=code.id==='sport:football'&&fs.existsSync(path.join(outputDir,fileName))?JSON.parse(fs.readFileSync(path.join(outputDir,fileName),'utf8')):null;
+    const aliasRows=new Map((aliasBaseline?.fixtures||[]).map(row=>[row.id,row]));
+    const projectedFixtures=codeFixtures(code).map(row=>code.id==='sport:football'?preserveUnchangedScoreAliasShape(aliasRows.get(row.id),row):row),projectedStandings=codeStandings(code);
     const championship=row=>row.competitionId==='competition:australian-championship';
     const fixtures=retainedChunk?[...retainedChunk.fixtures.filter(row=>!championship(row)),...projectedFixtures.filter(championship)]:projectedFixtures;
     const eventEditions=code.id==='sport:cricket'?require('../lib/event-overviews').build(fixtures).filter(e=>['cricket','cricket-women'].includes(e.sportKey)).map(e=>({id:e.id,key:e.sportKey,gender:e.gender,competitionId:e.competitionId,date:e.date,endDate:e.endDate,fixtureIds:e.fixtureIds})):null;
@@ -730,4 +744,4 @@ if (require.main === module){
 }
 
 }
-module.exports = { preflightRetainedCoverage:preflightRetainedFootballOnly,preflightRetainedFootballOnly,obsoleteProgramme, build, codeFixtures, codeStandings, eventMatchesCode, fixtureEvidenceScore, mergeFixtureRecords, normalizeFixture, semanticFixtureKey };
+module.exports = { preserveUnchangedScoreAliasShape,preflightRetainedCoverage:preflightRetainedFootballOnly,preflightRetainedFootballOnly,obsoleteProgramme, build, codeFixtures, codeStandings, eventMatchesCode, fixtureEvidenceScore, mergeFixtureRecords, normalizeFixture, semanticFixtureKey };
