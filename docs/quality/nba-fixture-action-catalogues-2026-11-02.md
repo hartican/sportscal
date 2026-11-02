@@ -15,8 +15,9 @@ and completes an acknowledged reminder with local intent and schedule records.
 The NBA acknowledgement is explicitly unrun when its fixture is missing.
 
 The correction includes the existing `data/follow-sources/official.v1.json` in
-both action catalogues. Calendar deduplication still favours its earlier published
-records. Reminder merging still favours the existing published/inspector records,
+both action catalogues. Calendar appends the official fallback after every existing
+population, preserving published, inspector and major-event precedence. Reminder
+merging still favours the existing published/inspector records,
 which follow the newly admitted official rows. Existing selected overlays and
 normalisers remain responsible for source clocks, identities, precision and
 status. No new source observation, provider, sport permission, inferred start or
@@ -41,6 +42,14 @@ official NBA rating identity/participant/start, existing Australian participants
 and kickoff, unknown identities, postponed/elapsed status and blocked reminder
 precision/verification. RPC/storage are disposable local doubles, not hosted
 database or physical-device proof.
+
+Independent review caught an initial ordering error: adding official rows before
+the inspector could replace richer existing records. A test-only candidate
+reproduced this on the first Constellation Cup fixture after the NBA checks passed;
+the remaining three collision assertions were not reached in that failing run.
+The correction moves only the fallback append. The regression requires all four
+retained Netball collisions to preserve participant slots, IDs/logos, TBC timing,
+schedule status and the source-observation clock.
 
 Earlier test-control failures used an old Australian fixture alias, while the
 browser submits `canonicalEventId`. A subsequent incomplete test package stopped
