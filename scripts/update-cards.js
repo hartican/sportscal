@@ -1218,7 +1218,7 @@ async function main(){
     // Reject scope/source/collisions before the existing recovery owner writes.
     const ids=process.argv.find(argument=>argument.startsWith('--ids=')).slice(6).split(',');
     const admission=require('./lib/reviewed-fixture-admission').load(ids,{repairIdentities:process.argv.includes('--repair-reviewed-identities')});
-    if(!admission.changed){console.log('Reviewed fixtures already present on both Feed surfaces; no rebuild needed.');return;}
+    if(!admission.changed)return runMain();
     const manifest=JSON.parse(fs.readFileSync('data/code-inspector/manifest.json'));
     require('./lib/reviewed-fixture-projection-codes').codesForReviewedFixtures(admission.published.events,ids,manifest,file=>JSON.parse(fs.readFileSync(file)));
     try{return await require('./quick-results').atomicRefresh({},{refreshOperation:()=>runMain()});}
