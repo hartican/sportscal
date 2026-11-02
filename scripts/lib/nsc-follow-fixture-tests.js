@@ -76,25 +76,15 @@ async function run(){
     const server=require("../../lib/nothingscore-server"),map=server.eventMap(),now=new Date("2026-11-02T00:00:00.000Z");
     const browserId=htmlSource().match(/function nothingscoreEventId\(ev\)\{[\s\S]*?\n\}/)?.[0];assert(browserId);
     assert.equal(vm.runInNewContext("("+browserId+")(fixture)",{fixture:ausFixture}),ausId,"Aus control uses the exact ID sent by the browser");
-    assert(server.eventFor(ausId),"working Australian Championship control must resolve through the complete lookup");
     const nba=official.events.find(event=>event.id===nbaId);assert(nba,"retained NBA positive fixture exists");
     assert.equal(vm.runInNewContext("("+browserId+")(fixture)",{fixture:nba}),nbaId,"NBA target uses the exact ID sent by the browser");
     const reminders=require("../../lib/reminder-fixtures"),policy=require("../../config/fixture-reminder-policy");
     const reminderCatalogue=await reminders.catalogue({snapshots:[],now});
-    assert(policy.manualTiming(reminderCatalogue.resolve(ausId),+now),"working Aus reminder control must resolve with supported future timing");
-    const lookup={nbaId,rating:Boolean(server.eventFor(nbaId)),reminder:Boolean(reminderCatalogue.resolve(nbaId)),ausRating:true,ausReminder:true};
+    const lookup={nbaId,ausId,rating:Boolean(server.eventFor(nbaId)),reminder:Boolean(reminderCatalogue.resolve(nbaId)),ausRating:Boolean(server.eventFor(ausId)),ausReminder:Boolean(policy.manualTiming(reminderCatalogue.resolve(ausId),+now))};
     console.log("Fixture lookup comparison: "+JSON.stringify(lookup));
-    assert(lookup.rating&&lookup.reminder,"NBA fixture already supported by Follow/Feed must resolve for both ratings and reminders");
-    const nbaFixtures=official.events.filter(event=>event.key==="nba");
-    assert(nbaFixtures.length>1000,"the existing official NBA schedule remains the source");
-    for(const fixture of nbaFixtures){
-      const event=map.get(fixture.canonicalEventId||fixture.eventId||fixture.id);
-      assert(event,"every supported official NBA fixture has a rating identity: "+fixture.id);
-      assert.deepEqual(event.participantIds,fixture.participantIds,"rating lookup cannot infer or change teams");
-      assert.equal(event.startTimeUtc,fixture.startTimeUtc,"rating lookup cannot invent kickoff");
-    }
     const handler=require("../../lib/nothingscore-handler"),crowd=require("../../lib/nsc-crowd");
     for(const id of [nbaId,ausId]){
+      if(!server.eventFor(id))continue;
       const resolved=handler._test.requireEvent(id);
       assert.equal(resolved.id,server.canonicalEventId(id));
       assert.equal(resolved.event,server.eventFor(id),"the actual API lookup uses the registered record");
@@ -106,14 +96,30 @@ async function run(){
       assert.equal(body.target_phase,"heat");assert.equal(body.fixture_start,resolved.event.startTimeUtc);
       assert.equal(body.fixture_status,resolved.event.status);
     }
+    const reminderResults=[];
+    for(const id of [nbaId,ausId]){
+      const fixture=reminderCatalogue.resolve(id);
+      if(fixture&&policy.manualTiming(fixture,+now))reminderResults.push(await reminderAcknowledgement(fixture,reminderCatalogue,now));
+      else reminderResults.push({eventId:id,status:"UNRUN_MISSING_SUPPORTED_FIXTURE_TIMING"});
+    }
+    if(reminderCatalogue.resolve(nbaId)&&policy.manualTiming(reminderCatalogue.resolve(nbaId),+now))reminderResults.push(await reminderAcknowledgement(reminderCatalogue.resolve(nbaId),reminderCatalogue,now,{fail:true}));
+    console.log("Fixture action final states: "+JSON.stringify({lookup,ratingRpcCalls:calls.length,reminderResults}));
+    assert(lookup.ausRating,"working Australian Championship control must resolve through the complete lookup");
+    assert(lookup.ausReminder,"working Aus reminder control must resolve with supported future timing");
+    assert(lookup.rating&&lookup.reminder,"NBA fixture already supported by Follow/Feed must resolve for both ratings and reminders");
     assert.equal(calls.length,2,"one disposable RPC per deliberate rating, no ancillary calls");
+    const nbaFixtures=official.events.filter(event=>event.key==="nba");
+    assert(nbaFixtures.length>1000,"the existing official NBA schedule remains the source");
+    for(const fixture of nbaFixtures){
+      const resolved=server.eventFor(fixture.canonicalEventId||fixture.eventId||fixture.id);
+      assert(resolved,"every supported official NBA fixture has a rating identity: "+fixture.id);
+      assert.deepEqual(resolved.participantIds,fixture.participantIds,"rating lookup cannot infer or change teams");
+      assert.equal(resolved.startTimeUtc,fixture.startTimeUtc,"rating lookup cannot invent kickoff");
+    }
     const event=server.eventFor(nbaId);
     assert.equal(crowd.phaseFor({...server.eventTiming(event),status:"postponed"},now),null);
     assert.equal(crowd.phaseFor(server.eventTiming(event),new Date("2026-11-04T00:00:00Z")),null,"elapsed clock cannot invent live or finished play");
     assert.equal(map.has("fixture:nba:unregistered"),false,"unknown fixture identity stays unknown");
-    const reminderResults=[];
-    for(const id of [nbaId,ausId])reminderResults.push(await reminderAcknowledgement(reminderCatalogue.resolve(id),reminderCatalogue,now));
-    reminderResults.push(await reminderAcknowledgement(reminderCatalogue.resolve(nbaId),reminderCatalogue,now,{fail:true}));
     assert.equal(policy.manualTiming({...reminderCatalogue.resolve(nbaId),timePrecision:"unknown"},+now),null,"unknown precision stays blocked");
     return {scope:"actual full NSC/reminder lookup, rating-call metadata and browser final acknowledgement; disposable transport/storage only, no physical phone/database/delivery proof",nbaFixtures:nbaFixtures.length,controls:[nbaId,ausId],rpcCalls:calls.length,reminderResults};
   }finally{
