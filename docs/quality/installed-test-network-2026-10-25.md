@@ -43,3 +43,37 @@ After same-pair exact source review, ROOT integrates only this normal-harness de
 Separate LOADING owns the production predeploy app-adapter gate and existing secret; no production workflow or file in that lane is changed here. No provider refresh, customer-state restoration, Follow/receipt/OFF/unfollow rule, SQL, credentials, scheduler, automation or publisher change.
 
 Rollback is a code-only revert of this QA helper/hooks/guard/path change through ROOT, restoring the prior unisolated test dependency. No product/data undo is needed. Deliver tested draft and standard handover; stop Ready HOLD. Original failure and physical-iPhone acceptance remain open.
+
+## Optional Feed warm-up during reload — 3 November 2026
+
+Installed run41447198943 on24434ae2 failed WebKit's unchanged no-uncaught-errors
+assertion in helper-mount. The old document's beforeunload and optional page002
+warm fetch entry share browser time1204ms; pageerror follows at the native fetch
+call boundary before the next navigation. No matching old-document request,
+route or HTTP response exists in the bounded retained trace. The new document
+loads that same local URL with200 responses. This does not establish production
+CORS failure or the browser's internal reason for refusing the old call.
+
+The actual warm callback's promise-chain catch handles asynchronous fetch/body
+failures but lets an immediate fetch invocation throw escape. The registered
+Feed page-concurrency test reproduces that gap with a synchronous source-bound
+fetch failure. Successful reads and asynchronous fetch/body/HTTP failure controls
+pass first. The correction places fetch invocation and body consumption inside
+one async try/catch. Existing warning and retryable-page cleanup remain; no new
+request, automatic retry, timeout, navigation readiness or account mutation.
+
+The same regression exercises the actual passive diagnostic fetch wrapper:
+receiver, arguments, identical returned promise, rejection and synchronous error
+identity survive with one underlying call. The bounded observer gains a
+fetch-sync-throw marker and rethrows the original error; no promise handler or
+error suppression is added. Actual native lifecycle timing remains a separate
+evidence layer. All10idle/timer warm controls,3observer controls and4existing
+pagination/concurrency cases pass locally after the source correction. Required
+current-candidate browser/normal/served checks remain separate; never filter this
+error out of the strict browser assertion or treat an earlier green as acceptance.
+
+The unreleased607 shell/helper/worker URLs remain coherent. This source change
+only alters inline HTML plus its tests/observer and this record; generated app
+modules, auth/session/receipt logic, sporting data, provider clocks and the current
+sizeADVISORY policy are untouched. Bind refreshed critical-asset measurements to
+the exact candidate/toolchain; valid size notices cannot replace other gates.
