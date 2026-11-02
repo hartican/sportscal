@@ -154,7 +154,10 @@ test("partial/error and invalid complete attempts preserve last good bytes with 
 test("private local export rejects public permissions, symlinks and Git directories", t => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "ns-dashboard-test-"));
   t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
+  assert.equal(fs.statSync(dir).mode & 0o777, 0o700);
   const loose = path.join(dir, "loose"); fs.mkdirSync(loose, { mode: 0o755 });
+  fs.chmodSync(loose, 0o755);
+  assert.equal(fs.statSync(loose).mode & 0o777, 0o755);
   assert.throws(() => local.privateDirectory(loose), /owner_only_directory/);
   const repo = path.join(dir, "repo"); fs.mkdirSync(repo); fs.mkdirSync(path.join(repo, ".git"));
   assert.throws(() => local.privateDirectory(path.join(repo, "output")), /output_inside_git/);
