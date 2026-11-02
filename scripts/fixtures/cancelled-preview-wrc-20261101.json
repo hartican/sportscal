@@ -1,0 +1,637 @@
+{
+  "sourceSha256": "023fb6c838ab9b2e91c4489524dae2e8c3da5a35ec55151545bfad946580ee38",
+  "reference": "2026-11-01T01:00:00.000Z",
+  "event": {
+    "id": "event-wrc-2026-round-14",
+    "eventId": "event-wrc-2026-round-14",
+    "canonicalEventId": "event:wrc:2026:round-14",
+    "cardKind": "fixture",
+    "sport": "WRC",
+    "key": "wrc",
+    "sportDomainId": "sport:wrc",
+    "canonicalSportDomainId": "sport:motorsport",
+    "competitionId": "competition:wrc-2026",
+    "name": "WRC Rally Saudi Arabia",
+    "displayTitleCompact": "WRC Rally Saudi Arabia",
+    "date": "2026-11-11",
+    "endDate": "2026-11-14",
+    "time": "00:00",
+    "dateOnly": true,
+    "timePrecision": "date-only",
+    "scheduleStatus": "date-only",
+    "displayTime": "Multiple live stages",
+    "broadcaster": "Stan Sport",
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "broadcasterIds": [
+      "stan"
+    ],
+    "watchUrl": "https://www.stan.com.au/watch/sport/motorsport/wrc",
+    "replayUrl": "https://www.stan.com.au/watch/sport/motorsport/wrc",
+    "expected": 7,
+    "stakesScore": 4,
+    "venue": "Saudi Arabia",
+    "venueCountryCode": "SA",
+    "scheduleNote": "The 2026 WRC element was withdrawn. The separate regional MERC rally is outside this competition.",
+    "statusSourceUrl": "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+    "statusCheckedAt": "2026-10-10T20:27:38.375Z",
+    "season": "2026",
+    "countryCode": "SA",
+    "region": "Middle East",
+    "liveWindow": 24,
+    "round": "all",
+    "roundNumber": 14,
+    "roundLabel": "Round 14",
+    "narrativeType": "championship-round",
+    "status": "cancelled",
+    "selectedSentence": "The WRC element of Rally Saudi Arabia will not take place in 2026.",
+    "fullSpiel": "The 2026 WRC element was withdrawn. The separate regional MERC rally is outside this competition.",
+    "sourceName": "WRC",
+    "sourceUrl": "https://www.wrc.com/en/calendar",
+    "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "lastReviewedAt": "2026-10-11T12:38:58.048Z",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "hookSpoilerOff": "The WRC element of Rally Saudi Arabia will not take place in 2026.",
+      "hookSpoilerOn": "The WRC element of Rally Saudi Arabia will not take place in 2026.",
+      "synopsisSpoilerOff": "The 2026 WRC element was withdrawn. The separate regional MERC rally is outside this competition.",
+      "synopsisSpoilerOn": "The 2026 WRC element was withdrawn. The separate regional MERC rally is outside this competition.",
+      "expectedSpectacle": 7,
+      "intensitySource": "computed"
+    },
+    "participantIds": [
+      "competitor:wrc:driver:elfyn-evans",
+      "competitor:wrc:driver:sami-pajari",
+      "competitor:wrc:driver:oliver-solberg",
+      "competitor:wrc:driver:sebastien-ogier",
+      "competitor:wrc:driver:adrien-fourmaux",
+      "competitor:wrc:driver:takamoto-katsuta",
+      "competitor:wrc:driver:thierry-neuville",
+      "competitor:wrc:driver:hayden-paddon",
+      "competitor:wrc:driver:joshua-mcerlean",
+      "competitor:wrc:driver:esapekka-lappi",
+      "competitor:wrc:driver:yohan-rossel",
+      "competitor:wrc:driver:leo-rossel",
+      "competitor:wrc:driver:robert-virves",
+      "competitor:wrc:driver:jon-armstrong",
+      "competitor:wrc:driver:gus-greensmith",
+      "competitor:wrc:driver:martins-sesks",
+      "competitor:wrc:driver:nikolay-gryazin",
+      "competitor:wrc:driver:daniel-sordo",
+      "competitor:wrc:driver:diego-dominguez",
+      "competitor:wrc:driver:alejandro-cachon",
+      "competitor:wrc:driver:fabrizio-zaldivar",
+      "competitor:wrc:driver:roberto-dapra",
+      "competitor:wrc:driver:roope-korhonen",
+      "competitor:wrc:driver:andreas-mikkelsen",
+      "competitor:wrc:driver:jari-matti-latvala",
+      "competitor:wrc:driver:alejandro-galanti",
+      "competitor:wrc:driver:arthur-pelamourgues",
+      "competitor:wrc:driver:teemu-suninen",
+      "competitor:wrc:driver:matteo-fontana",
+      "competitor:wrc:driver:eric-camilli",
+      "competitor:wrc:driver:emil-lindholm",
+      "competitor:wrc:driver:taylor-gill",
+      "competitor:wrc:driver:gregoire-munster",
+      "competitor:wrc:driver:jourdan-serderidis",
+      "competitor:wrc:driver:romet-jurgenson",
+      "competitor:wrc:driver:lorenzo-bertelli",
+      "competitor:wrc:co-driver:scott-martin",
+      "competitor:wrc:co-driver:marko-salminen",
+      "competitor:wrc:co-driver:elliott-edmondson",
+      "competitor:wrc:co-driver:vincent-landais",
+      "competitor:wrc:co-driver:alexandre-coria",
+      "competitor:wrc:co-driver:aaron-johnston",
+      "competitor:wrc:co-driver:martijn-wydaeghe",
+      "competitor:wrc:co-driver:john-kennard",
+      "competitor:wrc:co-driver:eoin-treacy",
+      "competitor:wrc:co-driver:enni-malkonen",
+      "competitor:wrc:co-driver:arnaud-dunand",
+      "competitor:wrc:co-driver:guillaume-mercoiret",
+      "competitor:wrc:co-driver:jakko-viilo",
+      "competitor:wrc:co-driver:shane-byrne",
+      "competitor:wrc:co-driver:jonas-andersson",
+      "competitor:wrc:co-driver:renars-francis",
+      "competitor:wrc:co-driver:konstantin-aleksandrov",
+      "competitor:wrc:co-driver:candido-carrera",
+      "competitor:wrc:co-driver:rogelio-penate",
+      "competitor:wrc:co-driver:borja-rozada",
+      "competitor:wrc:co-driver:marcelo-der-ohannesian",
+      "competitor:wrc:co-driver:luca-guglielmetti",
+      "competitor:wrc:co-driver:anssi-viinikka",
+      "competitor:wrc:co-driver:j-rn-listerud",
+      "competitor:wrc:co-driver:juho-hanninen",
+      "competitor:wrc:co-driver:james-fulton",
+      "competitor:wrc:co-driver:marcelo-toyotoshi",
+      "competitor:wrc:co-driver:bastien-pouget",
+      "competitor:wrc:co-driver:janni-hussi",
+      "competitor:wrc:co-driver:alessandro-arnaboldi",
+      "competitor:wrc:co-driver:thibault-de-la-haye",
+      "competitor:wrc:co-driver:gabriel-morales",
+      "competitor:wrc:co-driver:daniel-brkic",
+      "competitor:wrc:co-driver:frederic-miclotte",
+      "competitor:wrc:co-driver:julien-ingrassia",
+      "competitor:wrc:co-driver:simone-scattolin",
+      "competitor:wrc:co-driver:louis-louka",
+      "competitor:wrc:co-driver:siim-oja",
+      "team:wrc:toyota-gazoo-racing-wrt",
+      "team:wrc:hyundai-shell-mobis-world-rally-team",
+      "team:wrc:toyota-gazoo-racing-wrt2",
+      "team:wrc:m-sport-ford-world-rally-team"
+    ],
+    "participants": [
+      {
+        "id": "competitor:wrc:driver:elfyn-evans",
+        "name": "Elfyn Evans",
+        "displayName": "Elfyn Evans",
+        "countryCode": "GB"
+      },
+      {
+        "id": "competitor:wrc:driver:sami-pajari",
+        "name": "Sami Pajari",
+        "displayName": "Sami Pajari",
+        "countryCode": "FI"
+      },
+      {
+        "id": "competitor:wrc:driver:oliver-solberg",
+        "name": "Oliver Solberg",
+        "displayName": "Oliver Solberg",
+        "countryCode": "SE"
+      },
+      {
+        "id": "competitor:wrc:driver:sebastien-ogier",
+        "name": "Sébastien Ogier",
+        "displayName": "Sébastien Ogier",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:wrc:driver:adrien-fourmaux",
+        "name": "Adrien Fourmaux",
+        "displayName": "Adrien Fourmaux",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:wrc:driver:takamoto-katsuta",
+        "name": "Takamoto Katsuta",
+        "displayName": "Takamoto Katsuta",
+        "countryCode": "JP"
+      },
+      {
+        "id": "competitor:wrc:driver:thierry-neuville",
+        "name": "Thierry Neuville",
+        "displayName": "Thierry Neuville",
+        "countryCode": "BE"
+      },
+      {
+        "id": "competitor:wrc:driver:hayden-paddon",
+        "name": "Hayden Paddon",
+        "displayName": "Hayden Paddon",
+        "countryCode": "NZ"
+      },
+      {
+        "id": "competitor:wrc:driver:joshua-mcerlean",
+        "name": "Joshua Mcerlean",
+        "displayName": "Joshua Mcerlean",
+        "countryCode": "IE"
+      },
+      {
+        "id": "competitor:wrc:driver:esapekka-lappi",
+        "name": "Esapekka Lappi",
+        "displayName": "Esapekka Lappi",
+        "countryCode": "FI"
+      },
+      {
+        "id": "competitor:wrc:driver:yohan-rossel",
+        "name": "Yohan Rossel",
+        "displayName": "Yohan Rossel",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:wrc:driver:leo-rossel",
+        "name": "Léo Rossel",
+        "displayName": "Léo Rossel",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:wrc:driver:robert-virves",
+        "name": "Robert Virves",
+        "displayName": "Robert Virves",
+        "countryCode": "EE"
+      },
+      {
+        "id": "competitor:wrc:driver:jon-armstrong",
+        "name": "Jon Armstrong",
+        "displayName": "Jon Armstrong",
+        "countryCode": "IE"
+      },
+      {
+        "id": "competitor:wrc:driver:gus-greensmith",
+        "name": "Gus Greensmith",
+        "displayName": "Gus Greensmith",
+        "countryCode": "GB"
+      },
+      {
+        "id": "competitor:wrc:driver:martins-sesks",
+        "name": "Mārtinš Sesks",
+        "displayName": "Mārtinš Sesks",
+        "countryCode": "LV"
+      },
+      {
+        "id": "competitor:wrc:driver:nikolay-gryazin",
+        "name": "Nikolay Gryazin",
+        "displayName": "Nikolay Gryazin",
+        "countryCode": "BG"
+      },
+      {
+        "id": "competitor:wrc:driver:daniel-sordo",
+        "name": "Daniel Sordo",
+        "displayName": "Daniel Sordo",
+        "countryCode": "ES"
+      },
+      {
+        "id": "competitor:wrc:driver:diego-dominguez",
+        "name": "Diego Domínguez",
+        "displayName": "Diego Domínguez",
+        "countryCode": "PY"
+      },
+      {
+        "id": "competitor:wrc:driver:alejandro-cachon",
+        "name": "Alejandro Cachón",
+        "displayName": "Alejandro Cachón",
+        "countryCode": "ES"
+      },
+      {
+        "id": "competitor:wrc:driver:fabrizio-zaldivar",
+        "name": "Fabrizio Zaldivar",
+        "displayName": "Fabrizio Zaldivar",
+        "countryCode": "PY"
+      },
+      {
+        "id": "competitor:wrc:driver:roberto-dapra",
+        "name": "Roberto Daprà",
+        "displayName": "Roberto Daprà",
+        "countryCode": "IT"
+      },
+      {
+        "id": "competitor:wrc:driver:roope-korhonen",
+        "name": "Roope Korhonen",
+        "displayName": "Roope Korhonen",
+        "countryCode": "FI"
+      },
+      {
+        "id": "competitor:wrc:driver:andreas-mikkelsen",
+        "name": "Andreas Mikkelsen",
+        "displayName": "Andreas Mikkelsen",
+        "countryCode": "NO"
+      },
+      {
+        "id": "competitor:wrc:driver:jari-matti-latvala",
+        "name": "Jari-Matti Latvala",
+        "displayName": "Jari-Matti Latvala",
+        "countryCode": "FI"
+      },
+      {
+        "id": "competitor:wrc:driver:alejandro-galanti",
+        "name": "Alejandro Galanti",
+        "displayName": "Alejandro Galanti",
+        "countryCode": "PY"
+      },
+      {
+        "id": "competitor:wrc:driver:arthur-pelamourgues",
+        "name": "Arthur Pelamourgues",
+        "displayName": "Arthur Pelamourgues",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:wrc:driver:teemu-suninen",
+        "name": "Teemu Suninen",
+        "displayName": "Teemu Suninen",
+        "countryCode": "FI"
+      },
+      {
+        "id": "competitor:wrc:driver:matteo-fontana",
+        "name": "Matteo Fontana",
+        "displayName": "Matteo Fontana",
+        "countryCode": "IT"
+      },
+      {
+        "id": "competitor:wrc:driver:eric-camilli",
+        "name": "Eric Camilli",
+        "displayName": "Eric Camilli",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:wrc:driver:emil-lindholm",
+        "name": "Emil Lindholm",
+        "displayName": "Emil Lindholm",
+        "countryCode": "FI"
+      },
+      {
+        "id": "competitor:wrc:driver:taylor-gill",
+        "name": "Taylor Gill",
+        "displayName": "Taylor Gill",
+        "countryCode": "AU"
+      },
+      {
+        "id": "competitor:wrc:driver:gregoire-munster",
+        "name": "Grégoire Munster",
+        "displayName": "Grégoire Munster",
+        "countryCode": "LU"
+      },
+      {
+        "id": "competitor:wrc:driver:jourdan-serderidis",
+        "name": "Jourdan Serderidis",
+        "displayName": "Jourdan Serderidis",
+        "countryCode": "GR"
+      },
+      {
+        "id": "competitor:wrc:driver:romet-jurgenson",
+        "name": "Romet Jürgenson",
+        "displayName": "Romet Jürgenson",
+        "countryCode": "EE"
+      },
+      {
+        "id": "competitor:wrc:driver:lorenzo-bertelli",
+        "name": "Lorenzo Bertelli",
+        "displayName": "Lorenzo Bertelli",
+        "countryCode": "IT"
+      },
+      {
+        "id": "competitor:wrc:co-driver:scott-martin",
+        "name": "Scott Martin",
+        "displayName": "Scott Martin",
+        "countryCode": "GB"
+      },
+      {
+        "id": "competitor:wrc:co-driver:marko-salminen",
+        "name": "Marko Salminen",
+        "displayName": "Marko Salminen",
+        "countryCode": "FI"
+      },
+      {
+        "id": "competitor:wrc:co-driver:elliott-edmondson",
+        "name": "Elliott Edmondson",
+        "displayName": "Elliott Edmondson",
+        "countryCode": "GB"
+      },
+      {
+        "id": "competitor:wrc:co-driver:vincent-landais",
+        "name": "Vincent Landais",
+        "displayName": "Vincent Landais",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:wrc:co-driver:alexandre-coria",
+        "name": "Alexandre Coria",
+        "displayName": "Alexandre Coria",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:wrc:co-driver:aaron-johnston",
+        "name": "Aaron Johnston",
+        "displayName": "Aaron Johnston",
+        "countryCode": "IE"
+      },
+      {
+        "id": "competitor:wrc:co-driver:martijn-wydaeghe",
+        "name": "Martijn Wydaeghe",
+        "displayName": "Martijn Wydaeghe",
+        "countryCode": "BE"
+      },
+      {
+        "id": "competitor:wrc:co-driver:john-kennard",
+        "name": "John Kennard",
+        "displayName": "John Kennard",
+        "countryCode": "NZ"
+      },
+      {
+        "id": "competitor:wrc:co-driver:eoin-treacy",
+        "name": "Eoin Treacy",
+        "displayName": "Eoin Treacy",
+        "countryCode": "IE"
+      },
+      {
+        "id": "competitor:wrc:co-driver:enni-malkonen",
+        "name": "Enni Mälkönen",
+        "displayName": "Enni Mälkönen",
+        "countryCode": "FI"
+      },
+      {
+        "id": "competitor:wrc:co-driver:arnaud-dunand",
+        "name": "Arnaud Dunand",
+        "displayName": "Arnaud Dunand",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:wrc:co-driver:guillaume-mercoiret",
+        "name": "Guillaume Mercoiret",
+        "displayName": "Guillaume Mercoiret",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:wrc:co-driver:jakko-viilo",
+        "name": "Jakko Viilo",
+        "displayName": "Jakko Viilo",
+        "countryCode": "EE"
+      },
+      {
+        "id": "competitor:wrc:co-driver:shane-byrne",
+        "name": "Shane Byrne",
+        "displayName": "Shane Byrne",
+        "countryCode": "IE"
+      },
+      {
+        "id": "competitor:wrc:co-driver:jonas-andersson",
+        "name": "Jonas Andersson",
+        "displayName": "Jonas Andersson",
+        "countryCode": "SE"
+      },
+      {
+        "id": "competitor:wrc:co-driver:renars-francis",
+        "name": "Renārs Francis",
+        "displayName": "Renārs Francis",
+        "countryCode": "LV"
+      },
+      {
+        "id": "competitor:wrc:co-driver:konstantin-aleksandrov",
+        "name": "Konstantin Aleksandrov",
+        "displayName": "Konstantin Aleksandrov",
+        "countryCode": "KG"
+      },
+      {
+        "id": "competitor:wrc:co-driver:candido-carrera",
+        "name": "Cándido Carrera",
+        "displayName": "Cándido Carrera",
+        "countryCode": "ES"
+      },
+      {
+        "id": "competitor:wrc:co-driver:rogelio-penate",
+        "name": "Rogelio Peñate",
+        "displayName": "Rogelio Peñate",
+        "countryCode": "ES"
+      },
+      {
+        "id": "competitor:wrc:co-driver:borja-rozada",
+        "name": "Borja Rozada",
+        "displayName": "Borja Rozada",
+        "countryCode": "ES"
+      },
+      {
+        "id": "competitor:wrc:co-driver:marcelo-der-ohannesian",
+        "name": "Marcelo Der Ohannesian",
+        "displayName": "Marcelo Der Ohannesian",
+        "countryCode": "IT"
+      },
+      {
+        "id": "competitor:wrc:co-driver:luca-guglielmetti",
+        "name": "Luca Guglielmetti",
+        "displayName": "Luca Guglielmetti",
+        "countryCode": "IT"
+      },
+      {
+        "id": "competitor:wrc:co-driver:anssi-viinikka",
+        "name": "Anssi Viinikka",
+        "displayName": "Anssi Viinikka",
+        "countryCode": "FI"
+      },
+      {
+        "id": "competitor:wrc:co-driver:j-rn-listerud",
+        "name": "Jørn Listerud",
+        "displayName": "Jørn Listerud",
+        "countryCode": "NO"
+      },
+      {
+        "id": "competitor:wrc:co-driver:juho-hanninen",
+        "name": "Juho Hänninen",
+        "displayName": "Juho Hänninen",
+        "countryCode": "FI"
+      },
+      {
+        "id": "competitor:wrc:co-driver:james-fulton",
+        "name": "James Fulton",
+        "displayName": "James Fulton",
+        "countryCode": "IE"
+      },
+      {
+        "id": "competitor:wrc:co-driver:marcelo-toyotoshi",
+        "name": "Marcelo Toyotoshi",
+        "displayName": "Marcelo Toyotoshi",
+        "countryCode": "AR"
+      },
+      {
+        "id": "competitor:wrc:co-driver:bastien-pouget",
+        "name": "Bastien Pouget",
+        "displayName": "Bastien Pouget",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:wrc:co-driver:janni-hussi",
+        "name": "Janni Hussi",
+        "displayName": "Janni Hussi",
+        "countryCode": "FI"
+      },
+      {
+        "id": "competitor:wrc:co-driver:alessandro-arnaboldi",
+        "name": "Alessandro Arnaboldi",
+        "displayName": "Alessandro Arnaboldi",
+        "countryCode": "IT"
+      },
+      {
+        "id": "competitor:wrc:co-driver:thibault-de-la-haye",
+        "name": "Thibault De La Haye",
+        "displayName": "Thibault De La Haye",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:wrc:co-driver:gabriel-morales",
+        "name": "Gabriel Morales",
+        "displayName": "Gabriel Morales",
+        "countryCode": "BR"
+      },
+      {
+        "id": "competitor:wrc:co-driver:daniel-brkic",
+        "name": "Daniel Brkic",
+        "displayName": "Daniel Brkic",
+        "countryCode": "AU"
+      },
+      {
+        "id": "competitor:wrc:co-driver:frederic-miclotte",
+        "name": "Frédéric Miclotte",
+        "displayName": "Frédéric Miclotte",
+        "countryCode": "BE"
+      },
+      {
+        "id": "competitor:wrc:co-driver:julien-ingrassia",
+        "name": "Julien Ingrassia",
+        "displayName": "Julien Ingrassia",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:wrc:co-driver:simone-scattolin",
+        "name": "Simone Scattolin",
+        "displayName": "Simone Scattolin",
+        "countryCode": "IT"
+      },
+      {
+        "id": "competitor:wrc:co-driver:louis-louka",
+        "name": "Louis Louka",
+        "displayName": "Louis Louka",
+        "countryCode": "BE"
+      },
+      {
+        "id": "competitor:wrc:co-driver:siim-oja",
+        "name": "Siim Oja",
+        "displayName": "Siim Oja",
+        "countryCode": "EE"
+      },
+      {
+        "id": "team:wrc:toyota-gazoo-racing-wrt",
+        "name": "TOYOTA GAZOO RACING WRT",
+        "displayName": "TOYOTA GAZOO RACING WRT",
+        "countryCode": "JP"
+      },
+      {
+        "id": "team:wrc:hyundai-shell-mobis-world-rally-team",
+        "name": "HYUNDAI SHELL MOBIS WORLD RALLY TEAM",
+        "displayName": "HYUNDAI SHELL MOBIS WORLD RALLY TEAM",
+        "countryCode": "KR"
+      },
+      {
+        "id": "team:wrc:toyota-gazoo-racing-wrt2",
+        "name": "TOYOTA GAZOO RACING WRT2",
+        "displayName": "TOYOTA GAZOO RACING WRT2",
+        "countryCode": "JP"
+      },
+      {
+        "id": "team:wrc:m-sport-ford-world-rally-team",
+        "name": "M-SPORT FORD WORLD RALLY TEAM",
+        "displayName": "M-SPORT FORD WORLD RALLY TEAM",
+        "countryCode": "GB"
+      }
+    ],
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "event-wrc-2026-round-14"
+    ],
+    "consensusTags": [],
+    "editorialPreview": {
+      "status": "research-required",
+      "needsPreviewRefresh": true,
+      "editorialWindowDays": 10,
+      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+    }
+  }
+}

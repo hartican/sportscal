@@ -354,28 +354,105 @@ function repairMissing({reference=new Date(),root=process.cwd()}={}){
   return {changed:true,repaired:[...missing]};
 }
 
+function mlbContextInput(event,rules){
+  if (event.key !== 'baseball' || event.competitionId !== 'competition:mlb'
+    || Number(event.season) !== rules.season || event.status === 'completed'
+    || !['upcoming', 'scheduled', 'live', 'cancelled', 'postponed', 'suspended'].includes(event.status)
+    || researchDepthFor(event) !== 2 || require('../config/editorial-locks').activeFor(event)) return null;
+  const identity = String(event.canonicalEventId || event.eventId || event.id);
+  const gameId = /^fixture:mlb:(\d+)$/.exec(identity)?.[1];
+  const stage = /^(?:(AL|NL)(DS|CS)(?: '[AB]')?|World Series) Game (\d+)$/.exec(event.roundLabel || '');
+  const formatKey = stage && (stage[2] || 'WS');
+  const format = stage && rules.formats[formatKey];
+  if (!gameId || !format || Number(stage[3]) < 1 || Number(stage[3]) > format.maxGames
+    || event.sourceName !== 'MLB' || event.sourceType !== 'official'
+    || event.sourceUrl !== `https://www.mlb.com/gameday/${gameId}`
+    || !['confirmed', 'conditional', 'tbc'].includes(event.scheduleStatus)) return null;
+  const participants = event.participants || [];
+  if (participants.length !== 2 || new Set(participants.map(p => p.id)).size !== 2
+    || participants.some(p => !/^team:mlb:\d+$/.test(p.id) || !p.name)
+    || event.homeParticipantId !== participants[0].id || event.awayParticipantId !== participants[1].id) return null;
+  return {gameId,stage,formatKey,format,participants};
+}
+
+function repairMlbMissing({reference=new Date(),root=process.cwd()}={}){
+  if (!Number.isFinite(+reference)) throw Error('MLB preview repair needs a valid reference');
+  const path=require('node:path'),api=require('./lib/editorial-narrative');
+  const {reconcileFeedEvent}=require('./apply-editorial-narratives');
+  const {sameEditorialFacts}=require('./lib/editorial-publication');
+  const {editorialPreviewDue}=require('./lib/editorial-preview-quality');
+  const {stakesFor,spoilerContractIssues}=require('./lib/storyline-card-rules');
+  const documents=[FEED_PATH,PUBLISHED_FEED_PATH].map(file=>{
+    const name=path.join(root,file);return {file:name,document:readJson(name)};
+  });
+  let knowledge=readJson(path.join(root,KNOWLEDGE_PATH)),generated=0;
+  const rules=require('../config/mlb-editorial-rules-2026.json'),groups=new Map(),repaired=[],deferred=[];
+  const missing=event=>!event.editorialNarrative?.hook || !event.editorialNarrative?.synopsis || event.editorialPreview?.status!=='journalistic';
+  for(const {document} of documents)for(const event of document.events){
+    if(event.key!=='baseball'||event.competitionId!=='competition:mlb')continue;
+    const id=String(event.canonicalEventId||event.eventId||event.id);
+    if(!groups.has(id))groups.set(id,[]);
+    groups.get(id).push(event);
+  }
+  for(const [id,events] of groups){
+    if(!events.some(event=>missing(event)&&editorialPreviewDue(event,stakesFor(event),reference)))continue;
+    // Do not turn an unknown lineup, conflicting retained facts or a lock into
+    // apparent research. Private holds remain the release owner's authority gate.
+    if(events.some(event=>event.participantsConfirmed!==true||!mlbContextInput(event,rules)))continue;
+    const event=events.reduce((latest,item)=>Date.parse(item.sourceCheckedAt)>Date.parse(latest.sourceCheckedAt)?item:latest);
+    if(events.some(item=>!sameEditorialFacts({...item,id},{...event,id}))){
+      deferred.push({id,reason:'Conflicting incoming/published MLB facts',nextAction:'Reconcile through the existing source owner before editorial repair.'});continue;
+    }
+    let projection=api.projectionForTarget(knowledge,'feed-event',event),nextKnowledge=knowledge;
+    if(!projection){
+      if(events.some(item=>item.editorialNarrative?.hook&&item.editorialNarrative?.synopsis)){
+        deferred.push({id,reason:'Retained researched copy has no declared projection',nextAction:'Recover its original research through the editorial owner; do not replace it with format context.'});continue;
+      }
+      nextKnowledge=structuredClone(knowledge);
+      try{
+        if(!buildMlb(nextKnowledge,[event],reference))continue;
+      }catch(error){
+        deferred.push({id,reason:error.message,nextAction:'Repair the retained official observation before retrying this card.'});continue;
+      }
+      projection=api.projectionForTarget(nextKnowledge,'feed-event',event);
+    }
+    const indexes=api.indexesFor(nextKnowledge),updates=new Map();
+    for(const item of events.filter(missing)){
+      const next=reconcileFeedEvent(item,projection,indexes,reference);
+      const permitted=new Set(['selectedSentence','fullSpiel','editorialNarrative','editorialPreview','lastReviewedAt','storyline']);
+      for(const key of new Set([...Object.keys(item),...Object.keys(next)])){
+        if(!permitted.has(key)&&JSON.stringify(item[key])!==JSON.stringify(next[key]))throw Error('MLB editorial changed sporting/source metadata: '+key);
+      }
+      const issues=spoilerContractIssues(next);
+      if(issues.length)throw Error('MLB editorial spoiler conflict: '+issues.join('; '));
+      updates.set(item,next);
+    }
+    if(!updates.size)continue;
+    if(nextKnowledge!==knowledge){knowledge=nextKnowledge;generated++;}
+    for(const record of documents)record.document.events=record.document.events.map(item=>updates.get(item)||item);
+    repaired.push(id);
+  }
+  if(!repaired.length)return {changed:false,repaired,generated,deferred,sourceRequests:0};
+  if(generated)knowledge.updatedAt=reference.toISOString();
+  const issues=validateKnowledge(knowledge);
+  if(issues.length)throw Error('MLB missing preview repair failed: '+issues.join('; '));
+  const outputs=documents.map(({file,document})=>[file,document]);
+  if(generated)outputs.push([path.join(root,KNOWLEDGE_PATH),knowledge]);
+  const changed=outputs.filter(([file,document])=>fs.readFileSync(file,'utf8')!==JSON.stringify(document,null,2)+'\n');
+  const previous=changed.map(([file])=>[file,fs.readFileSync(file)]);
+  try{for(const [file,document] of changed)writeJson(file,document);}
+  catch(error){for(const [file,body] of previous)fs.writeFileSync(file,body);throw error;}
+  return {changed:changed.length>0,repaired,generated,deferred,sourceRequests:0};
+}
+
 function buildMlb(knowledge, events, reference){
   CHECKED_AT = reference.toISOString();
   const rules = require('../config/mlb-editorial-rules-2026.json');
   let generated = 0;
   for (const event of events){
-    if (event.key !== 'baseball' || event.competitionId !== 'competition:mlb'
-      || Number(event.season) !== rules.season || event.status === 'completed'
-      || !['upcoming', 'scheduled', 'live', 'cancelled', 'postponed', 'suspended'].includes(event.status)
-      || researchDepthFor(event) !== 2 || require('../config/editorial-locks').activeFor(event)) continue;
-    const identity = String(event.canonicalEventId || event.eventId || event.id);
-    const gameId = /^fixture:mlb:(\d+)$/.exec(identity)?.[1];
-    const stage = /^(?:(AL|NL)(DS|CS)(?: '[AB]')?|World Series) Game (\d+)$/.exec(event.roundLabel || '');
-    const formatKey = stage && (stage[2] || 'WS');
-    const format = stage && rules.formats[formatKey];
-    if (!gameId || !format || Number(stage[3]) < 1 || Number(stage[3]) > format.maxGames
-      || event.sourceName !== 'MLB' || event.sourceType !== 'official'
-      || event.sourceUrl !== `https://www.mlb.com/gameday/${gameId}`
-      || !['confirmed', 'conditional', 'tbc'].includes(event.scheduleStatus)) continue;
-    const participants = event.participants || [];
-    if (participants.length !== 2 || new Set(participants.map(p => p.id)).size !== 2
-      || participants.some(p => !/^team:mlb:\d+$/.test(p.id) || !p.name)
-      || event.homeParticipantId !== participants[0].id || event.awayParticipantId !== participants[1].id) continue;
+    const context=mlbContextInput(event,rules);
+    if(!context)continue;
+    const {gameId,stage,formatKey,format,participants}=context;
     const projectionId = `projection:mlb-context:${gameId}`;
     const prior = require('./lib/editorial-narrative').projectionForTarget(knowledge, 'feed-event', event);
     // Preserve deeper independently researched copy and explicit owner choices.
@@ -453,4 +530,4 @@ function main(){
 
 if (require.main === module){ try { main(); } catch (error){ console.error(error.message); process.exitCode = 1; } }
 
-module.exports = { AFL_STORIES, CRICKET_CORRECTIONS, CRICKET_STORIES, EPL_PROFILES, reconcileCricket, addSource, addFact, replaceProjection, repairMissing, buildMlb };
+module.exports = { AFL_STORIES, CRICKET_CORRECTIONS, CRICKET_STORIES, EPL_PROFILES, reconcileCricket, addSource, addFact, replaceProjection, repairMissing, repairMlbMissing, buildMlb };
