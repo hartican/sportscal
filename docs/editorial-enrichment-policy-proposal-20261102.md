@@ -37,9 +37,10 @@ No fixture is dropped and no researched copy, observation or vote is invented.
 ## Acceptance and authority
 
 Focused positive/negative tests accompany the draft and are registered beneath
-the existing editorial validator. They are UNRUN locally. Existing cloud
-aggregate proof remains limited to its original source/input closure; affected
-policy evidence must be newly qualified through an assigned existing lane.
+the existing editorial validator. The execution receipt is recorded separately
+in the draft handoff; it is not whole-source or release acceptance. Existing
+cloud aggregate proof remains limited to its original source/input closure;
+affected policy evidence must be newly qualified through the existing lane.
 
 Publishing this policy would materially extend606 gate approval even though no
 runtime asset changes. Parent approval of the exact policy scope and normal
