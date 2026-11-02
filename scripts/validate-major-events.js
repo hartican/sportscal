@@ -244,7 +244,18 @@ catalogue.events.forEach(parent => (parent.subEvents || []).forEach(subEvent => 
 }));
 
 const rlwc = catalogue.events.find(record => record.id === "major-event:rlwc-2026");
-const drawnMatch = rlwc.subEvents[0];
+// These date/editorial/bootstrap checks describe the reviewed opener, not
+// whichever newly published World Cup fixture happens to be first in the list.
+const rlwcOpenerId = "major-match:rlwc-2026:australia-new-zealand";
+function selectRlwcOpener(parent){
+  const matches=(parent.subEvents||[]).filter(record=>record.id===rlwcOpenerId);
+  assert.equal(matches.length,1,"exactly one reviewed RLWC opener must exist");
+  return matches[0];
+}
+const drawnMatch = selectRlwcOpener(rlwc);
+assert.equal(selectRlwcOpener({...rlwc,subEvents:[...rlwc.subEvents].reverse()}),drawnMatch,"opener assertions must not depend on child ordering");
+assert.throws(()=>selectRlwcOpener({...rlwc,subEvents:rlwc.subEvents.filter(record=>record.id!==rlwcOpenerId)}),/exactly one reviewed RLWC opener/);
+assert.throws(()=>selectRlwcOpener({...rlwc,subEvents:[...rlwc.subEvents,drawnMatch]}),/exactly one reviewed RLWC opener/);
 const fixture = majorEvents.fixtureFromSubEvent(drawnMatch, rlwc);
 const curatedOpener = feed.events.find(event => event.id === "rlwc-australia-new-zealand-2026");
 assert.equal(typeof majorEvents.editorialRecordForSubEvent, "function", "every rendered Events child card needs a shared editorial resolver");
