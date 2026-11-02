@@ -27,7 +27,8 @@ function readJson(file, maxBytes = 75_000_000) {
   if (stat.isSymbolicLink() || !stat.isFile() || !process.getuid || stat.uid !== process.getuid() || (stat.mode & 0o077) || stat.size > maxBytes) fail("unsafe_private_file");
   return JSON.parse(fs.readFileSync(file, "utf8"));
 }
-function atomic(directory, name, value) {
+function atomicText(directory, name, serialized) {
+  if (typeof serialized !== "string") fail("invalid_export_text");
   directory = privateDirectory(directory);
   if (!/^[a-z][a-z0-9.-]*$/.test(name)) fail("invalid_export_name");
   const target = path.join(directory, name);
@@ -36,7 +37,6 @@ function atomic(directory, name, value) {
   let fd;
   try {
     fd = fs.openSync(temp, "wx", 0o600);
-    const serialized = JSON.stringify(value) + "\n";
     if (Buffer.byteLength(serialized) > 75_000_000) fail("export_size_limit");
     fs.writeFileSync(fd, serialized);
     fs.fsyncSync(fd); fs.closeSync(fd); fd = undefined;
@@ -45,6 +45,9 @@ function atomic(directory, name, value) {
     if (fd !== undefined) fs.closeSync(fd);
     if (fs.existsSync(temp)) fs.unlinkSync(temp);
   }
+}
+function atomic(directory, name, value) {
+  return atomicText(directory, name, JSON.stringify(value) + "\n");
 }
 function latest(directory) {
   const file = path.join(directory, "latest.json");
@@ -101,4 +104,4 @@ function readView(directory, asOf = new Date().toISOString()) {
     coverage: data?.coverage || null,
   } };
 }
-module.exports = { privateDirectory, readJson, atomic, latest, refresh, readView };
+module.exports = { privateDirectory, readJson, atomic, atomicText, latest, refresh, readView };

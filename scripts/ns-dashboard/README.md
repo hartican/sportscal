@@ -1,6 +1,6 @@
 # Local NS dashboard collector — first implementation draft
 
-This is Phase 2 slices 1–2: a bounded read-only GitHub collector, historical replay, explicit deliverable grouping and a release-evidence projection. It is a local command, with no web server, customer-app route or page-load work.
+This is the local Phase 2 draft: a bounded read-only GitHub collector, historical replay, explicit deliverable grouping, release-evidence projection and inspectable offline Overview. It has no web server, customer-app route or page-load collection.
 
 Phase contract: use existing GitHub authorisation; keep actual exports outside every Git checkout in an owner-only directory; test pagination/lifecycle/time boundaries, failure preservation and release separation. Stop at this draft review boundary. The hosted Overview, Engineering Detail, Jack-only identity binding, private hosted storage and access tests are deferred. No new credentials, scopes, packages, schema, permissions, costs or schedules are configured.
 
@@ -15,6 +15,13 @@ Set an absolute private output directory outside all Git checkouts. Existing dir
     NS_DASHBOARD_OUTPUT="/absolute/private/ns-dashboard"
     node scripts/ns-dashboard/cli.js collect --output "$NS_DASHBOARD_OUTPUT"
     node scripts/ns-dashboard/cli.js project --output "$NS_DASHBOARD_OUTPUT"
+    node scripts/ns-dashboard/cli.js overview --output "$NS_DASHBOARD_OUTPUT" \
+      --records /absolute/private/owner-records.json
+
+Open the resulting owner-private overview.html directly as a local file. The overview command recomputes the projection from the retained export and supplied owner records, without capture, provider polling or network calls. It preserves the source cutoff and recalculates source/proof age at render time. No retained export produces an explicit empty view; failed refresh retains dated facts and an error state. Rendering is a snapshot operation, with no automatic refresh.
+The view's derived JSON is overview-projection.json; the standalone project command's projection.json is left alone. Preserve source captures and dated receipts separately from these mutable derived views.
+
+The self-contained view uses system fonts, static inline CSS, native disclosures and same-document links. Its CSP denies scripts, network connections, images, frames and other external resources. Dynamic source text is escaped; raw captures are not embedded. Actual-data HTML, screenshots and exports must remain outside Git in the private output directory. Only renderer code and synthetic fixtures belong in this public PR. Local file ownership is not hosted Jack-only authentication; that separate binding remains deferred.
 
 For noon historical comparisons, supply Sydney calendar dates explicitly:
 

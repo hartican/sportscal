@@ -4,6 +4,8 @@ const test = require("node:test"), assert = require("node:assert/strict");
 const fs = require("node:fs"), os = require("node:os"), path = require("node:path");
 const c = require("./core"), { collect, replayCapture } = require("./github"), local = require("./local");
 const { main: projectMain } = require("./cli");
+const { renderOverview, esc, liveState, sourceState } = require("./overview");
+const { overviewFixture, AS_OF } = require("./overview-fixture");
 const ASOF = "2026-11-02T04:00:00Z", clock = () => Date.parse(ASOF);
 const at = day => "2026-10-" + String(day).padStart(2, "0") + "T01:00:00Z";
 function event(type, day, order) { return { id: type + ":" + order, type, at: at(day), order }; }
@@ -262,4 +264,73 @@ test("queue observations require explicit array and completeness; invalid input 
   local.atomic(dir, "records.json", { queue: source });
   await assert.rejects(projectMain(["project", "--output", dir, "--records", path.join(dir, "records.json"), "--as-of", ASOF]), /queue_observation_required/);
   assert.deepEqual(local.readJson(path.join(dir, "projection.json")), { sentinel: "last-good" });
+});
+
+test("offline Overview escapes source text and cannot load external resources", () => {
+  const p = overviewFixture(), attack = '"><script>alert(1)</script><img src="https://example.test/leak">';
+  p.queue[0].owner = attack; p.queue[0].source = attack; p.release.merged.sourceUrl = attack;
+  const html = renderOverview(p, { asOf: AS_OF });
+  assert.equal(html.includes("<script"), false); assert.equal(html.includes("<img "), false);
+  assert.equal(html.includes(esc(attack)), true);
+  assert.match(html, /Content-Security-Policy/); assert.match(html, /connect-src &#39;none&#39;/);
+  assert.equal(/<(script|img|iframe|link)\b/i.test(html), false);
+  assert.equal(/(?:href|src)\s*=\s*["'](?:https?:|javascript:|data:)/i.test(html), false);
+  assert.equal(/@import|url\s*\(/i.test(html), false);
+  assert.match(html, /href="#queue"/); assert.match(html, /<details>/);
+});
+test("Overview distinguishes missing, explicit empty, partial and refresh-error data", () => {
+  assert.match(renderOverview(null, { asOf: AS_OF }), /No retained snapshot/);
+  const missing = overviewFixture(); missing.queue = null;
+  assert.match(renderOverview(missing, { asOf: AS_OF }), /Queue classification is not measured/);
+  const empty = overviewFixture(); empty.queue = []; empty.queueCoverage.complete = true;
+  assert.match(renderOverview(empty, { asOf: AS_OF }), /empty queue was explicitly observed/);
+  assert.match(renderOverview(empty, { asOf: AS_OF }), /Observed · 0 grouped deliverables/);
+  const partial = overviewFixture();
+  assert.match(renderOverview(partial, { asOf: AS_OF }), /Partial · 1 grouped deliverables/);
+  partial.freshness.state = "error"; partial.freshness.error = { code: "fixture_error" };
+  const failed = renderOverview(partial, { asOf: AS_OF });
+  assert.match(failed, /Refresh failed/); assert.match(failed, /fixture_error/);
+  assert.match(failed, /<strong>2<\/strong><span>open PRs at collection/);
+  const noDataError = renderOverview({ schemaVersion: c.VERSION, freshness: { state: "error" } }, { asOf: AS_OF });
+  assert.match(noDataError, /Refresh failed. No retained snapshot/);
+});
+test("Overview recalculates source/proof staleness and preserves scoped failures", () => {
+  const p = overviewFixture();
+  assert.equal(liveState(p.release, AS_OF).proof.version, "Synthetic");
+  const later = "2026-11-04T04:00:00Z";
+  assert.equal(sourceState(p, later).state, "stale");
+  assert.equal(liveState(p.release, later).proof, null);
+  const html = renderOverview(p, { asOf: later });
+  assert.match(html, /source snapshot is stale/);
+  assert.equal(html.includes('<strong class="value">Synthetic</strong>'), false);
+  const failed = verification("synthetic-activation", "a".repeat(40), { id: "other", scope: "Different synthetic journey", result: "failed", verifiedAt: "2026-11-02T03:00:00Z" });
+  p.release.verificationScopes.push({ scope: failed.scope, state: "failed", latestObservation: failed });
+  assert.equal(liveState(p.release, AS_OF).state, "partial");
+  assert.match(renderOverview(p, { asOf: AS_OF }), /Scoped pass · partial/);
+});
+test("Overview never promotes missing measures or an incomplete backlog to zero", () => {
+  const p = overviewFixture(); p.windows = []; p.currentBacklogAtCollection.complete = false;
+  const html = renderOverview(p, { asOf: AS_OF });
+  assert.match(html, /No source window/); assert.match(html, /Not measured<\/strong><span>open PRs/);
+  assert.match(html, /Deliverable acceptance/); assert.match(html, /DORA measures/);
+  assert.match(html, /Model tokens \/ billed minutes/); assert.match(html, /No complete incident/);
+  assert.equal(html.includes("<strong>0</strong><span>open PRs"), false);
+});
+test("overview CLI writes owner-private offline HTML and rejects unsafe text export paths", async t => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "ns-dashboard-test-"));
+  t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
+  await projectMain(["overview", "--output", dir, "--as-of", ASOF]);
+  assert.match(fs.readFileSync(path.join(dir, "overview.html"), "utf8"), /No retained snapshot/);
+  await local.refresh(dir, async () => data([pull(1)]));
+  local.atomic(dir, "projection.json", { sentinel: "prior-projection" });
+  await projectMain(["overview", "--output", dir, "--as-of", ASOF]);
+  const html = fs.readFileSync(path.join(dir, "overview.html"), "utf8");
+  assert.match(html, /<strong>1<\/strong><span>open PRs at collection/);
+  assert.equal(fs.statSync(path.join(dir, "overview.html")).mode & 0o777, 0o600);
+  assert.equal(fs.statSync(dir).mode & 0o777, 0o700);
+  assert.deepEqual(local.readJson(path.join(dir, "projection.json")), { sentinel: "prior-projection" });
+  assert.equal(local.readJson(path.join(dir, "overview-projection.json")).currentBacklogAtCollection.open, 1);
+  assert.throws(() => local.atomicText(dir, "../outside.html", "unsafe"), /invalid_export_name/);
+  const link = path.join(dir, "linked.html"); fs.symlinkSync(path.join(dir, "overview.html"), link);
+  assert.throws(() => local.atomicText(dir, "linked.html", "unsafe"), /symlink_output_denied/);
 });
