@@ -78,6 +78,52 @@ after connection availability changes. Do not request tokens or repeatedly offer
 installation of an already available connection. If no authorised tool or service
 environment is actually callable, retain work and report the precise blocker.
 
+## Trusted cancellation and required offline editorial checks - 1 November 2026
+
+A card's official/verified flags or HTTPS hostname do not confirm cancellation.
+The exemption must match an independent retained withdrawal from the existing
+canonical source registry: identity, competition/season, event dates, cancelled
+state, notice text, exact notice URL and original evidence date. Its complete
+calendar-review ledger and official source observation must agree. Unknown,
+missing or contradictory authority fails closed; do not create a fixture-ID
+exception, invent a notice or change sporting state to silence editorial QA.
+This consumes existing reviewed provenance, not a renewed fetch or claimed raw
+notice capture.
+
+The required editorial sport-depth owner retains its historical postseason
+check, then invokes the cancellation and actual-quick-MLB regressions exactly
+once through its offline closure. The production workflow still calls only
+the existing owner; no duplicate direct checks or SQL/workflow changes. The
+closure whitelists child environment and rejects unknown startup options.
+Only a single absolute-path preload with an explicitly approved code hash can
+be inherited. The owned guard and authenticated inherited bytes are copied to
+private, read-only preload files; raw options are never forwarded. No path or
+self-declared environment flag approves arbitrary code. The closure preserves
+the admitted guard, blocks network access, caps each child at 25 seconds and verifies the exact
+committed Terser pin. Cancellation regression also enforces the exact closure
+order/multiset and existing production scaffold/SQL command contracts, with
+missing, duplicate, reordered, changed and extra-command negatives.
+
+## Missing MLB context in quick refreshes - 1 November 2026
+
+Both the existing quick MLB source route and general quick maintenance invoke
+the canonical MLB writer's scoped missing-copy repair before Feed publication,
+even when ingestion reports unchanged facts. It reuses the retained reviewed
+format/path sources and original fixture observations; it performs no fetch.
+Only due, source-confirmed, named MLB fixtures without visible journalistic
+copy are eligible. Existing deeper copy/projections, explicit locks, unknown
+lineups, sporting facts and source clocks are preserved. Conflicting retained
+facts or invalid observations defer that card, not independent repairs.
+Private holds remain a mandatory upstream authority/release gate; public
+fixture data must never be treated as evidence that a private hold is absent.
+
+The focused offline actual-owner regression is
+`node scripts/validate-mlb-quick-editorial.js` with the admitted dependency and
+network-tripwire environment. It exercises the real quick boundary, writer,
+projection and publisher. Its inert unrelated adapters/child gates do not
+replace the full release checks or prove hosted publication. Preserve the
+current default-clock complete-catalogue audit separately.
+
 ## Autonomous release recovery - 6 October 2026
 
 The Owner authorises diagnosing and repairing known recoverable deployment blockers without another prompt. Before publication, and after integrating advancing main, rebuild the existing editorial maintenance sources and run canonical `node scripts/update-cards.js --adaptive-editorial --list` with a fresh private check report and matching authorised control snapshot. It now identifies missing required display copy on existing 4+/5 public fixtures independently of rating selection. Research and apply original, participant-focused, spoiler-safe full copy through canonical `--adaptive-editorial --research`; preserve all sporting fields and unrelated copy. Never insert generic filler just to silence QA. Retain prior staged valid work and record any individual research failures with evidence and next action.

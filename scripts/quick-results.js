@@ -210,9 +210,11 @@ async function refresh({now=new Date(),offline=false,source=null,coverageSport,r
   }
   if(source==='mlb'&&!offline){
    const mlb=await require('../lib/mlb-postseason').refresh({now});
-   runProjectionSteps(retainedFeedProjectionSteps(mlb.changed?['MLB postseason source check']:[]));
+   const previewMaintenance=require('./update-sport-editorial-depth').repairMlbMissing({reference:now});
+   const changes=[...(mlb.changed?['MLB postseason source check']:[]),...(previewMaintenance.changed?['MLB editorial preview maintenance']:[])];
+   runProjectionSteps(retainedFeedProjectionSteps(changes));
    run('scripts/validate-mlb-postseason.js');
-   return {mode:'quick',source,checkedAt:mlb.checkedAt,changed:mlb.changed?['MLB postseason source check']:[],failures:[],mlb,aiCalls:0};
+   return {mode:'quick',source,checkedAt:mlb.checkedAt,changed:changes,failures:previewMaintenance.deferred.map(row=>`MLB ${row.id}: ${row.reason}`),mlb,previewMaintenance,aiCalls:0};
   }
   if(source==='known-finals'&&!offline){
    const owner=require('./lib/known-final-results'),finalResults=await owner.refresh({now});
@@ -360,6 +362,9 @@ async function refresh({now=new Date(),offline=false,source=null,coverageSport,r
  if(highlights.stanFailed)failures.push('Stan Football programme metadata unavailable; retained dated source receipts');
  const previewMaintenance=require('./update-sport-editorial-depth').repairMissing({reference:now});
  if(previewMaintenance.changed)changes.push('Editorial preview maintenance');
+ const mlbPreviewMaintenance=require('./update-sport-editorial-depth').repairMlbMissing({reference:now});
+ if(mlbPreviewMaintenance.changed)changes.push('MLB editorial preview maintenance');
+ failures.push(...mlbPreviewMaintenance.deferred.map(row=>`MLB ${row.id}: ${row.reason}`));
  require('./lib/refresh-report').update({stage:'result-reconciliation',sourceFailures:failures});
  const reconciliation=require('./lib/reconcile-fixture-results').reconcileFiles({now});
  if(reconciliation.changed.length)changes.push('Reconciled fixture results');
@@ -369,7 +374,7 @@ async function refresh({now=new Date(),offline=false,source=null,coverageSport,r
  run('scripts/validate-editorial-sport-depth.js');
  run('scripts/build-tennis-feed-parents.js');
  run('scripts/build-tournament-horizon.js');
- const report={mode:'quick',checkedAt:now.toISOString(),changed:changes,failures,footballDirectory,aLeague,previewMaintenance,liveCoverage,nflStandings,chl,nhl,finalResults,tennisCurrent,aiCalls:0,publicationState:'candidate'};
+ const report={mode:'quick',checkedAt:now.toISOString(),changed:changes,failures,footballDirectory,aLeague,previewMaintenance,mlbPreviewMaintenance,liveCoverage,nflStandings,chl,nhl,finalResults,tennisCurrent,aiCalls:0,publicationState:'candidate'};
  // Keep exception evidence outside the rolled-back data surfaces even when
  // result completeness blocks this candidate before publication.
  if(process.env.QUICK_RESULTS_REPORT){const path=require('node:path');fs.mkdirSync(path.dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});write(process.env.QUICK_RESULTS_REPORT,report);}

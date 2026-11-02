@@ -40,7 +40,7 @@ try{
   write('data/code-inspector/manifest.json',{codes:[{slug,chunkPath:'data/code-inspector/selected.json'},{slug:'regression-child',chunkPath:'data/code-inspector/child.json'}]});
   write('data/code-inspector/selected.json',{fixtures:[selected]});write('data/code-inspector/child.json',{fixtures:[{id:selected.canonicalEventId}]});
   const hook=path.join(temporary,'trace.cjs');fs.writeFileSync(hook,"const cp=require('node:child_process'),seen=[];cp.spawnSync=(command,args)=>{seen.push(args);return {status:0,stdout:'',stderr:''};};globalThis.fetch=()=>{throw Error('No source reads in editorial repair regression');};process.on('exit',()=>console.log('EDITORIAL_REPAIR_STEPS '+JSON.stringify(seen)));\n");
-  const run=extra=>spawnSync(process.execPath,['--require',hook,path.join(root,'scripts/update-cards.js'),'-p','--local-only','--reviewed-fixtures','--editorial-projections','--ids='+selected.id,...extra],{cwd:temporary,encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,FOOTBALL_DATA_RUN_DIR:path.join(temporary,'diagnostics')}});
+  const run=extra=>spawnSync(process.execPath,['--require',hook,path.join(root,'scripts/update-cards.js'),'-p','--local-only','--reviewed-fixtures','--editorial-projections','--ids='+selected.id,...extra],{cwd:temporary,encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,TMPDIR:temporary,FOOTBALL_DATA_RUN_DIR:path.join(temporary,'diagnostics')}});
   const result=run([]);assert.equal(result.status,0,result.stderr||result.stdout);
   const steps=JSON.parse(result.stdout.match(/EDITORIAL_REPAIR_STEPS (\[[^\n]+\])/)[1]);
   assert(steps.some(step=>step[0]==='scripts/publish-feed.js'));

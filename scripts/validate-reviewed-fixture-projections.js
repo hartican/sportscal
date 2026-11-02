@@ -35,7 +35,7 @@ try{
   const preload=path.join(temporary,'preload.cjs');
   const documents={'data/events.json':{events:[selected]},'data/code-inspector/manifest.json':manifest,...chunks};
   fs.writeFileSync(preload,"const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),read=fs.readFileSync,documents="+JSON.stringify(documents)+",seen=[];fs.readFileSync=function(file,...args){const name=typeof file==='string'?path.relative(process.cwd(),path.resolve(file)):'';if(Object.hasOwn(documents,name))return JSON.stringify(documents[name]);return read.call(this,file,...args);};cp.spawnSync=(command,args)=>{seen.push(args);return {status:0,stdout:'',stderr:''};};globalThis.fetch=()=>{throw Error('No provider reads in projection regression');};process.on('exit',()=>console.log('REVIEWED_CHILD_STEPS '+JSON.stringify(seen)));\n");
-  const result=spawnSync(process.execPath,['--require',preload,path.join(root,'scripts/update-cards.js'),'-p','--local-only','--reviewed-fixtures','--ids='+selected.id],{cwd:root,encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,FOOTBALL_DATA_RUN_DIR:path.join(temporary,'diagnostics')}});
+  const result=spawnSync(process.execPath,['--require',preload,path.join(root,'scripts/update-cards.js'),'-p','--local-only','--reviewed-fixtures','--ids='+selected.id],{cwd:root,encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,TMPDIR:temporary,FOOTBALL_DATA_RUN_DIR:path.join(temporary,'diagnostics')}});
   assert.equal(result.status,0,result.stderr||result.stdout);
   const trace=result.stdout.match(/REVIEWED_CHILD_STEPS (\[[^\n]+\])/);assert(trace,'canonical dispatch trace required');
   const steps=JSON.parse(trace[1]);
@@ -45,7 +45,7 @@ try{
 
   const overlapDocuments={'data/events.json':{events:[footballSelected]},'data/code-inspector/manifest.json':overlapManifest,...overlapChunks};
   fs.writeFileSync(preload,fs.readFileSync(preload,'utf8').replace(JSON.stringify(documents),JSON.stringify(overlapDocuments)));
-  const overlapResult=spawnSync(process.execPath,['--require',preload,path.join(root,'scripts/update-cards.js'),'-p','--local-only','--reviewed-fixtures','--ids='+footballSelected.id],{cwd:root,encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,FOOTBALL_DATA_RUN_DIR:path.join(temporary,'overlap-diagnostics')}});
+  const overlapResult=spawnSync(process.execPath,['--require',preload,path.join(root,'scripts/update-cards.js'),'-p','--local-only','--reviewed-fixtures','--ids='+footballSelected.id],{cwd:root,encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,TMPDIR:temporary,FOOTBALL_DATA_RUN_DIR:path.join(temporary,'overlap-diagnostics')}});
   assert.equal(overlapResult.status,0,overlapResult.stderr||overlapResult.stdout);
   const overlapSteps=JSON.parse(overlapResult.stdout.match(/REVIEWED_CHILD_STEPS (\[[^\n]+\])/)[1]);
   assert.deepEqual(overlapSteps.find(step=>step[0]==='scripts/build-code-inspector.js'),['scripts/build-code-inspector.js','--codes='+overlapCodes.join(',')],'actual canonical dispatch binds all overlapping projections');

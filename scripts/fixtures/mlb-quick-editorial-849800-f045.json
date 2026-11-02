@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "sportscal.mlb-quick-editorial-regression.v1",
+  "source": {
+    "commit": "f045371efacbad82c39893b1e0a6e48bc992228c",
+    "tree": "c88d29ed135e43011450f9cea5fd1dbfc92b2215",
+    "path": "data/events.json",
+    "blob": "63447420d624653b1600fa52633f9f939e3c2960",
+    "sha256": "023fb6c838ab9b2e91c4489524dae2e8c3da5a35ec55151545bfad946580ee38",
+    "canonicalEventId": "fixture:mlb:849800",
+    "observationBasis": "Exact retained published fixture from the pinned Git blob; sporting observations remain unchanged."
+  },
+  "testReference": "2026-10-31T23:22:29.803Z",
+  "testReferenceBasis": "Actual v5 focused GREEN now value recorded in green.log; a focused regression clock only, not a new sporting/research observation or current-audit clock.",
+  "fixture": {
+    "awayParticipantId": "team:mlb:139",
+    "briefingEligible": false,
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "canonicalEventId": "fixture:mlb:849800",
+    "cardKind": "fixture",
+    "catchupEligible": false,
+    "competitionId": "competition:mlb",
+    "competitionName": "MLB postseason",
+    "consensusTags": [],
+    "date": "2026-11-01",
+    "displayTitleCompact": "Milwaukee Brewers v Tampa Bay Rays",
+    "eventId": "fixture-mlb-849800",
+    "expected": null,
+    "fullSpiel": "World Series Game 7 at American Family Field. Check the official game page for updates.",
+    "gender": "men",
+    "highlightEligible": false,
+    "homeParticipantId": "team:mlb:158",
+    "id": "fixture-mlb-849800",
+    "key": "baseball",
+    "kind": "fixture",
+    "lastReviewedAt": "2026-10-22T18:01:54.632Z",
+    "liveWindow": 6,
+    "name": "Milwaukee Brewers v Tampa Bay Rays",
+    "narrativeType": "all",
+    "participantCountryCodes": [],
+    "participantIds": [
+      "team:mlb:158",
+      "team:mlb:139"
+    ],
+    "participantSlots": [
+      {
+        "homeAway": "home",
+        "label": "Milwaukee Brewers",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+        "participantId": "team:mlb:158"
+      },
+      {
+        "homeAway": "away",
+        "label": "Tampa Bay Rays",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+        "participantId": "team:mlb:139"
+      }
+    ],
+    "participants": [
+      {
+        "competitionId": "competition:mlb",
+        "countryCode": "US",
+        "displayName": "Milwaukee Brewers",
+        "entityType": "team",
+        "id": "team:mlb:158",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+        "name": "Milwaukee Brewers",
+        "sportDomainId": "sport:baseball",
+        "type": "team"
+      },
+      {
+        "competitionId": "competition:mlb",
+        "countryCode": "US",
+        "displayName": "Tampa Bay Rays",
+        "entityType": "team",
+        "id": "team:mlb:139",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+        "name": "Tampa Bay Rays",
+        "sportDomainId": "sport:baseball",
+        "type": "team"
+      }
+    ],
+    "participantsConfirmed": true,
+    "replayEligible": false,
+    "representativeCountryCodes": [],
+    "round": "all",
+    "roundLabel": "World Series Game 7",
+    "scheduleStatus": "conditional",
+    "season": 2026,
+    "selectedSentence": "World Series Game 7 at American Family Field. Check the official game page for updates.",
+    "sourceCheckedAt": "2026-10-22T17:03:49.824Z",
+    "sourceEventIds": [
+      "fixture-mlb-849800"
+    ],
+    "sourceName": "MLB",
+    "sourceRefs": [
+      "https://www.mlb.com/gameday/849800",
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-11-05&hydrate=team"
+    ],
+    "sourceTrust": "verified",
+    "sourceType": "official",
+    "sourceUrl": "https://www.mlb.com/gameday/849800",
+    "sportDomainId": "sport:baseball",
+    "stage": "World Series Game 7",
+    "stakesScore": 4,
+    "startTimeUtc": null,
+    "status": "upcoming",
+    "statusCheckedAt": "2026-10-22T17:03:49.824Z",
+    "statusFactObservedAt": "2026-10-22T17:03:49.824Z",
+    "storyline": {
+      "arcStage": "preview",
+      "expectedSpectacle": 1,
+      "hookSpoilerOff": "World Series Game 7 at American Family Field. Check the official game page for updates.",
+      "hookSpoilerOn": "World Series Game 7 at American Family Field. Check the official game page for updates.",
+      "intensity": 4,
+      "intensitySource": "computed",
+      "stakes": 4,
+      "synopsisSpoilerOff": "World Series Game 7 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "World Series Game 7 at American Family Field. Check the official game page for updates."
+    },
+    "time": null,
+    "timePrecision": "tbc",
+    "venue": "American Family Field",
+    "viewingOptions": []
+  }
+}

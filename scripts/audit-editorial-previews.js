@@ -3,15 +3,15 @@
 const path = require("path");
 const { readJson, writeJson } = require("./lib/feed-utils");
 const { lifecycleFor, stakesFor } = require("./lib/storyline-card-rules");
-const { EDITORIAL_WINDOW_DAYS, editorialPreviewDue, editorialPreviewIssues } = require("./lib/editorial-preview-quality");
+const { EDITORIAL_WINDOW_DAYS, editorialPreviewDue, editorialPreviewIssues, confirmedCancellation } = require("./lib/editorial-preview-quality");
 
 const inputPath = process.argv[2] || "data/events.json";
 const outputPath = process.argv[3] || "data/editorial-preview-audit.json";
 const feed = readJson(path.resolve(inputPath));
 const now = new Date();
 const due = feed.events
-  .map(event => ({ ...event, status: lifecycleFor(event, now) }))
-  .filter(event => editorialPreviewDue(event, stakesFor(event), now));
+  .map(event => ({ ...event, unconfirmedCancellation:event.status==='cancelled'&&!confirmedCancellation(event,now), status:confirmedCancellation(event,now)?'cancelled':lifecycleFor(event, now) }))
+  .filter(event => event.unconfirmedCancellation || editorialPreviewDue(event, stakesFor(event), now));
 
 const duplicateHooks = new Map();
 due.forEach(event => {
@@ -22,6 +22,7 @@ due.forEach(event => {
 
 const cards = due.map(event => {
   const issues = editorialPreviewIssues(event, stakesFor(event), now);
+  if(event.unconfirmedCancellation)issues.push('unconfirmed-cancellation');
   const duplicates = duplicateHooks.get(String(event.selectedSentence || "").trim().toLowerCase()) || [];
   if (duplicates.length > 1) issues.push(`duplicate-hook:${duplicates.join(",")}`);
   return {
