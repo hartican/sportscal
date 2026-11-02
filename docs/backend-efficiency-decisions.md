@@ -18,6 +18,14 @@ caps are4KiB pointer/8KiB status/256KiB snapshot, two snapshots maximum; the524K
 logical bound is not a spending hard cap or free-usage claim. An error retains
 the last good pointer/counts; unknown observations do not become zero or fresh.
 
+Canonical entries are nonsensitive non-2xx bootstraps in a separate function;
+private view HTML/data use the existing API-only worker bypass. This prevents
+old606/607 success-navigation caches from writing private HTML as public index.
+The public entry has zero provider reads; foreground/history reauthorization
+clears private DOM and does no collection/polling. A future protected-path worker
+guard is defense in depth. Rebase on accepted live source and assign forward
+epochs only through normal RELEASE/PUBLISH; no current607 or version reservation.
+
 [Source contract and unrun acceptance](../scripts/ns-dashboard/HOSTED.md).
 
 ## Australian Championship bounded result preparation — 31 October 2026

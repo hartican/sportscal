@@ -32,6 +32,7 @@
       "regions": ["syd1"],
       "includeFiles": "data/{code-inspector/*.json,discovery/enrichment.v1.json,events.json,follow-fixtures.v1.json,major-events.v1.json,editorial-knowledge.v1.json,editorial-fixture-research.v1.json}"
     },
+    "api/dashboard-entry.js": { "maxDuration": 5, "regions": ["syd1"] },
     "api/dashboard.js": {
       "maxDuration": 10,
       "regions": ["syd1"]
@@ -73,21 +74,25 @@
     }
   ],
   "rewrites": [
+    { "source": "/api/admin/dashboard/view/overview", "destination": "/api/dashboard?route=overview" },
+    { "source": "/api/admin/dashboard/view/delivery", "destination": "/api/dashboard?route=delivery" },
+    { "source": "/api/admin/dashboard/view/queue", "destination": "/api/dashboard?route=queue" },
+    { "source": "/api/admin/dashboard/view/evidence", "destination": "/api/dashboard?route=evidence" },
     {
       "source": "/admin/dashboard",
-      "destination": "/api/dashboard?route=overview"
+      "destination": "/api/dashboard-entry?route=overview"
     },
     {
       "source": "/admin/dashboard/delivery",
-      "destination": "/api/dashboard?route=delivery"
+      "destination": "/api/dashboard-entry?route=delivery"
     },
     {
       "source": "/admin/dashboard/queue",
-      "destination": "/api/dashboard?route=queue"
+      "destination": "/api/dashboard-entry?route=queue"
     },
     {
       "source": "/admin/dashboard/evidence",
-      "destination": "/api/dashboard?route=evidence"
+      "destination": "/api/dashboard-entry?route=evidence"
     },
     {
       "source": "/api/admin/dashboard",

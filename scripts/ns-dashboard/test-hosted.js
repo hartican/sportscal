@@ -4,32 +4,12 @@ const test = require("node:test"), assert = require("node:assert/strict");
 const fs = require("node:fs"), path = require("node:path"), os = require("node:os");
 const { overviewFixture, AS_OF } = require("./overview-fixture");
 const { normalizeProjection, serialize, validateEnvelope } = require("./hosted-contract");
-const { createHandler, BRIDGE } = require("../../lib/ns-dashboard/handler");
+const { createHandler } = require("../../lib/ns-dashboard/handler");
 const { DashboardError, PROJECT_URL, COOKIE, bytesHash } = require("../../lib/ns-dashboard/access");
 const { createTransport } = require("../../lib/ns-dashboard/transport");
 const { prepare } = require("./prepare-hosted");
-const OWNER = "11111111-1111-4111-8111-111111111111", SESSION = "22222222-2222-4222-8222-222222222222", OTHER = "33333333-3333-4333-8333-333333333333";
-const NOW = Date.parse(AS_OF), ENV = { NS_DASHBOARD_ENABLED: "1", NS_DASHBOARD_OWNER_SUBJECT: OWNER, NS_DASHBOARD_READINESS_SHA256: "a".repeat(64), SUPABASE_URL: PROJECT_URL, SUPABASE_PUBLISHABLE_KEY: "synthetic-public", SUPABASE_SECRET_KEY: "sb_secret_SYNTHETIC" };
-function token(changes = {}, meta = {}) {
-  return [Buffer.from(JSON.stringify({ alg: "HS256", ...meta })).toString("base64url"), Buffer.from(JSON.stringify({ sub: OWNER, session_id: SESSION, role: "authenticated", iss: PROJECT_URL + "/auth/v1", exp: NOW / 1000 + 3600, ...changes })).toString("base64url"), "syntheticSignature"].join(".");
-}
-function response() {
-  return { headers: {}, statusCode: null, body: undefined,
-    setHeader(k, v) { this.headers[k.toLowerCase()] = v; }, status(s) { this.statusCode = s; return this; },
-    json(v) { this.body = v; this.headers["content-type"] = "application/json"; return this; }, send(v) { this.body = v; return this; }, end() { return this; },
-  };
-}
-function harness(options = {}) {
-  const s = serialize(overviewFixture(), AS_OF), objects = new Map();
-  const set = (key, value) => objects.set(key, Buffer.isBuffer(value) ? value : Buffer.from(JSON.stringify(value)));
-  set("latest.json", { schemaVersion: "ns-dashboard-latest.v1", sha256: s.sha256, publishedAt: AS_OF, previous: null });
-  set("snapshots/" + s.sha256 + ".json", s.bytes);
-  set("refresh/status.json", { schemaVersion: "ns-dashboard-refresh.v1", state: "idle", attemptedAt: AS_OF, errorCode: null });
-  const calls = [], auth = [];
-  const factory = () => ({ async authorize(t, owner) { auth.push({ token: t, owner }); if (options.authError) throw options.authError; if (options.denied) throw new DashboardError("forbidden", 403); }, async object(name) { calls.push(name); const bytes = objects.get(name); if (!bytes) throw new DashboardError("dashboard_source_unavailable"); return { bytes, json: () => JSON.parse(bytes) }; }, close() {} });
-  const handler = createHandler({ environment: { ...ENV, ...options.environment }, now: () => options.now || NOW, transportFactory: factory });
-  return { s, set, calls, auth, handler, async run(route = "overview", changes = {}) { const res = response(); await handler({ method: "GET", url: "/api/dashboard", query: { route }, headers: { host: "www.nothingsport.app", cookie: COOKIE + "=" + token(), ...changes.headers }, ...Object.fromEntries(Object.entries(changes).filter(([k]) => k !== "headers")) }, res); return res; } };
-}
+const { OWNER, SESSION, OTHER, NOW, ENV, token, response, harness } = require("./hosted-test-fixture");
+const { entryScript, createEntryHandler } = require("../../lib/ns-dashboard/entry");
 test("hosted sanitizer excludes raw records and paths; canonical envelope rejects unknown payload", () => {
   const p = overviewFixture(); p.privateRawExport = { secret: "must not travel" }; p.briefing.source = "/Users/synthetic/private/receipt.json";
   const s = serialize(p, AS_OF); validateEnvelope(s.value);
@@ -82,11 +62,11 @@ test("disabled, missing identity/readiness or wrong project config never reaches
     const h = harness({ environment }), r = await h.run(); assert.equal(r.statusCode, 503); assert.equal(h.calls.length, 0); assert.equal(h.auth.length, 0);
   }
 });
-test("anonymous pages show a nonsensitive sign-in bridge; data and HEAD deny without reads", async () => {
+test("anonymous private API views, data and HEAD deny without reads", async () => {
   for (const route of ["overview", "delivery", "queue", "evidence", "data"]) {
     const h = harness(), r = await h.run(route, { headers: { cookie: "" } }); assert.equal(r.statusCode, 401); assert.equal(h.calls.length, 0); assert.equal(h.auth.length, 0);
     assert.equal(JSON.stringify(r.body).includes("Selection-saving update"), false);
-    if (route !== "data") { assert.match(r.body, /Use my Nothing Sport sign-in/); assert.match(r.headers["content-security-policy"], /sha256-/); }
+    assert.deepEqual(r.body, { code: "sign_in_required" });
     const head = await h.run(route, { method: "HEAD", headers: { cookie: "" } }); assert.equal(head.statusCode, 401); assert.equal(h.calls.length, 0);
   }
 });
@@ -129,7 +109,7 @@ test("session exchange requires same-origin verified bearer and sets only bounde
   assert.match(r.headers["set-cookie"], /^__Host-ns-dashboard=/); assert.match(r.headers["set-cookie"], /Path=\/; Secure; HttpOnly; SameSite=Lax; Max-Age=900$/); assert.equal(r.body, undefined);
   const body = await h.run("session", { method: "POST", headers: { origin: "https://www.nothingsport.app", authorization: "Bearer " + token(), "content-length": "2" } }); assert.equal(body.statusCode, 400);
   const end = await h.run("session", { method: "DELETE", headers: { origin: "https://www.nothingsport.app" } }); assert.equal(end.statusCode, 204); assert.match(end.headers["set-cookie"], /Max-Age=0/);
-  assert.equal(/refresh_token|password|localStorage|sessionStorage/.test(BRIDGE), false);
+  assert.equal(/refresh_token|password|localStorage|sessionStorage/.test(entryScript("overview")), false);
 });
 test("refreshing/error/stale facts retain last-good counts and separate source clock", async () => {
   for (const state of ["refreshing", "error"]) { const h = harness(); h.set("refresh/status.json", { schemaVersion: "ns-dashboard-refresh.v1", state, attemptedAt: AS_OF, errorCode: state === "error" ? "refresh_failed" : null }); const r = await h.run("data"); assert.equal(r.statusCode, 200); assert.equal(r.body.projection.currentBacklogAtCollection.open, 2); assert.equal(r.body.projection.freshness.state, state === "error" ? "error" : "loading"); assert.equal(r.body.projection.currentBacklogAtCollection.cutoff, AS_OF); }
