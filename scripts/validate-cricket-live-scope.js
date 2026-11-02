@@ -60,7 +60,7 @@ function run(){
   let cases=0;
   function invoke(args,scenario='success',status=0){
    const report=path.join(directory,`${cases++}.json`);
-   const child=spawnSync(process.execPath,['--require',__filename,path.join(__dirname,'update-cards.js'),...args],{cwd:root,encoding:'utf8',timeout:30000,env:{PATH:process.env.PATH,LANG:process.env.LANG,NS_CRICKET_SCOPE_TEST:'1',NS_CRICKET_SCOPE_CASE:scenario,SUPABASE_URL:'https://scope-test.invalid',SUPABASE_SECRET_KEY:'sb_secret_constructed_only',MATCH_CENTRE_SCORE_WRITES:scenario==='full-source'?'false':'true',MILESTONE_ALERTS_MODE:'off',REFRESH_REPORT:report}});
+   const child=spawnSync(process.execPath,['--require',__filename,path.join(__dirname,'update-cards.js'),...args],{cwd:root,encoding:'utf8',timeout:30000,env:{PATH:process.env.PATH,LANG:process.env.LANG,TMPDIR:directory,NS_CRICKET_SCOPE_TEST:'1',NS_CRICKET_SCOPE_CASE:scenario,SUPABASE_URL:'https://scope-test.invalid',SUPABASE_SECRET_KEY:'sb_secret_constructed_only',MATCH_CENTRE_SCORE_WRITES:scenario==='full-source'?'false':'true',MILESTONE_ALERTS_MODE:'off',REFRESH_REPORT:report}});
    assert.equal(child.status,status,`${scenario}: ${child.stderr||child.stdout}`);
    const trace=JSON.parse(child.stdout.match(/CRICKET_SCOPE (\{[^\n]+\})/)[1]);
    assert.deepEqual(trace.unexpected,[],'No unallocated provider, database or subprocess');

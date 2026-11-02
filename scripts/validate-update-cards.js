@@ -22,7 +22,7 @@ const tennisProjectionRoot=fs.mkdtempSync(path.join(os.tmpdir(),'ns-tennis-proje
 try{
  const hook=path.join(tennisProjectionRoot,'preload.cjs');
  fs.writeFileSync(hook,"const cp=require('node:child_process'),seen=[];cp.spawnSync=(command,args)=>{seen.push(args);return {status:0,stdout:'',stderr:''};};process.on('exit',()=>process.stdout.write('TENNIS_PROJECTION '+JSON.stringify(seen)+'\\n'));\n");
- const result=spawnSync(process.execPath,['--require',hook,path.join(__dirname,'update-cards.js'),'--tennis-feed','--local-only','-p'],{cwd:path.resolve(__dirname,'..'),encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,FOOTBALL_DATA_RUN_DIR:path.join(tennisProjectionRoot,'diagnostics')}});
+ const result=spawnSync(process.execPath,['--require',hook,path.join(__dirname,'update-cards.js'),'--tennis-feed','--local-only','-p'],{cwd:path.resolve(__dirname,'..'),encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,TMPDIR:tennisProjectionRoot,FOOTBALL_DATA_RUN_DIR:path.join(tennisProjectionRoot,'diagnostics')}});
  assert.equal(result.status,0,result.stderr);
  const trace=result.stdout.match(/TENNIS_PROJECTION (\[[^\n]+\])/);assert(trace);
  const steps=JSON.parse(trace[1]),directories=steps.filter(a=>a[0]==='scripts/build-follow-directories.js');
@@ -60,7 +60,7 @@ try{
   const gates=['scripts/validate-card-dismissal-learning.js','scripts/validate-editorial-projection-identity.js'];
   for(const failedGate of [...gates,'provider-probe']){
     fs.writeFileSync(hook,"const cp=require('node:child_process'),seen=[],gates="+JSON.stringify(gates)+",failed="+JSON.stringify(failedGate)+";cp.spawnSync=(command,args,options)=>{seen.push(args[0]);if(gates.includes(args[0])){if(options.env.WRC_SOURCE_FAILURE_REPORT)throw Error('VALIDATOR_REPORT_LEAK');return {status:args[0]===failed?1:0};}if(failed==='provider-probe'){if(options.env.WRC_SOURCE_FAILURE_REPORT!=='public-diagnostic-fixture')throw Error('PROVIDER_REPORT_MISSING');return {status:1};}throw Error('Provider work after failed contract: '+args[0]);};process.on('exit',()=>process.stdout.write('EARLY_GATE '+JSON.stringify(seen)+'\\n'));\n");
-    const result=spawnSync(process.execPath,['--require',hook,path.join(__dirname,'update-cards.js'),'-p','--local-only'],{cwd:path.resolve(__dirname,'..'),encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,FOOTBALL_DATA_RUN_DIR:path.join(earlyGateRoot,'diagnostics'),GOLF_SOURCE_REPORT:path.join(earlyGateRoot,'golf.json'),WRC_SOURCE_FAILURE_REPORT:'public-diagnostic-fixture'}});
+    const result=spawnSync(process.execPath,['--require',hook,path.join(__dirname,'update-cards.js'),'-p','--local-only'],{cwd:path.resolve(__dirname,'..'),encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,TMPDIR:earlyGateRoot,FOOTBALL_DATA_RUN_DIR:path.join(earlyGateRoot,'diagnostics'),GOLF_SOURCE_REPORT:path.join(earlyGateRoot,'golf.json'),WRC_SOURCE_FAILURE_REPORT:'public-diagnostic-fixture'}});
     assert.equal(result.status,1,'a failing early contract must stop the real entrypoint');
     const trace=result.stdout.match(/EARLY_GATE (\[[^\n]+\])/);assert(trace);
     assert.doesNotMatch(result.stderr,/VALIDATOR_REPORT_LEAK|PROVIDER_REPORT_MISSING/,'validation fixtures cannot overwrite genuine source failure receipts; provider work retains its configured receipt');
@@ -91,7 +91,7 @@ try {
   const hook = path.join(quickGateRoot, "preload.cjs");
   for (const guardFails of [true, false]) {
     fs.writeFileSync(hook, "const cp=require('node:child_process'),seen=[],guardFails=" + JSON.stringify(guardFails) + ";cp.spawnSync=(command,args)=>{seen.push(args);if(args[0]==='scripts/validate-fixture-history-retention.js')return {status:guardFails?1:0};if(args[0]==='scripts/quick-results.js'&&!guardFails)return {status:0};throw Error('Unexpected quick subprocess: '+args[0]);};process.on('exit',()=>process.stdout.write('QUICK_HISTORY_GUARD '+JSON.stringify(seen)+'\\n'));\n");
-    const result = spawnSync(process.execPath, ['--require', hook, path.join(__dirname, 'update-cards.js'), '--quick', '--offline', '--local-only', '-p'], {cwd: path.resolve(__dirname, '..'), encoding: 'utf8', env: {PATH: process.env.PATH, LANG: process.env.LANG, FOOTBALL_DATA_RUN_DIR: path.join(quickGateRoot, 'diagnostics'), GOLF_SOURCE_REPORT: path.join(quickGateRoot, 'golf.json')}});
+    const result = spawnSync(process.execPath, ['--require', hook, path.join(__dirname, 'update-cards.js'), '--quick', '--offline', '--local-only', '-p'], {cwd: path.resolve(__dirname, '..'), encoding: 'utf8', env: {PATH: process.env.PATH, LANG: process.env.LANG, TMPDIR:quickGateRoot, FOOTBALL_DATA_RUN_DIR: path.join(quickGateRoot, 'diagnostics'), GOLF_SOURCE_REPORT: path.join(quickGateRoot, 'golf.json')}});
     assert.equal(result.status, guardFails ? 1 : 0, result.stderr);
     const trace = result.stdout.match(/QUICK_HISTORY_GUARD (\[[^\n]+\])/);
     assert(trace, 'the real quick entrypoint must emit its subprocess trace');
