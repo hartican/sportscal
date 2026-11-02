@@ -6,8 +6,18 @@ const { projectBriefing } = require("./briefing");
 const { DashboardError, bytesHash } = require("../../lib/ns-dashboard/access");
 const MAX_SNAPSHOT = 256 * 1024;
 const privateText = /(?:\/Users\/|\/private\/|\/tmp\/|file:\/\/|[A-Z]:\\|Bearer\s|sb_secret_|sbp_[A-Za-z0-9]|eyJ[A-Za-z0-9_-]{12,}\.|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})/i;
+const absoluteLocalPath = /(?:^|[\s\p{P}\p{S}\p{C}])(?:\/(?=\S)|~[^/\s]*\/(?=\S)|[A-Z]:[\\/]|\\\\(?=\S))/iu;
+function publicReference(value) {
+  try { const u = new URL(value); if (u.protocol === "https:" && u.hostname === "github.com" && /^\/hartican\/sportscal\/(pull\/\d+|actions\/runs\/\d+|commit\/[a-f0-9]{40})$/.test(u.pathname) && !u.username && !u.password && !u.search && !u.hash) return u.href; } catch {}
+  return null;
+}
+function hasLocalPath(value) {
+  // A web reference is not a filesystem path. Exempt only the same public URL allowlist used by ref().
+  const prose = value.replace(/https:\/\/[^\s<>"'`]+/g, raw => publicReference(raw.replace(/[),.;!\]}]+$/, "")) ? "" : raw);
+  return absoluteLocalPath.test(prose);
+}
 function bad() { throw new DashboardError("dashboard_payload_invalid"); }
-function text(value, max = 2000) { if (typeof value !== "string" || !value.trim() || value.length > max || /[\u0000-\u001f]/.test(value) || privateText.test(value)) bad(); return value; }
+function text(value, max = 2000) { if (typeof value !== "string" || !value.trim() || value.length > max || /[\u0000-\u001f]/.test(value) || privateText.test(value) || hasLocalPath(value)) bad(); return value; }
 function timestamp(value) { try { instant(value); return value; } catch { bad(); } }
 function count(value) { if (!Number.isSafeInteger(value) || value < 0) bad(); return value; }
 function nullable(value, check) { return value == null ? null : check(value); }
@@ -18,8 +28,7 @@ function sha(value, length) { if (typeof value !== "string" || !new RegExp("^[a-
 function ref(value) {
   if (typeof value !== "string" || !value || value.length > 4000) bad();
   if (/^receipt:[a-f0-9]{64}$/.test(value)) return value;
-  try { const u = new URL(value); if (u.protocol === "https:" && u.hostname === "github.com" && /^\/hartican\/sportscal\/(pull\/\d+|actions\/runs\/\d+|commit\/[a-f0-9]{40})$/.test(u.pathname) && !u.username && !u.password && !u.search && !u.hash) return u.href; } catch {}
-  return "receipt:" + hash(value);
+  return publicReference(value) || "receipt:" + hash(value);
 }
 function verification(v) {
   return { id: text(v.id, 120), deploymentId: text(v.deploymentId, 120), sha: sha(v.sha, 40), version: nullable(v.version, x => text(x, 80)), alias: text(v.alias, 200), verifiedAt: timestamp(v.verifiedAt), expiresAt: timestamp(v.expiresAt), result: choice(v.result, ["passed", "failed"]), scope: text(v.scope), sourceUrl: ref(v.sourceUrl) };

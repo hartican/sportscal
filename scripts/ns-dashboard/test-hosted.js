@@ -38,6 +38,40 @@ test("hosted sanitizer excludes raw records and paths; canonical envelope reject
   const bad = structuredClone(s.value); bad.projection.customerRows = []; assert.throws(() => validateEnvelope(bad), /dashboard_payload_invalid/);
   for (const value of ["owner@example.test", "/private/fixture", "sb_secret_SYNTHETIC", OWNER]) { const bad = overviewFixture(); bad.briefing.work[0].nextAction = value; assert.throws(() => serialize(bad, AS_OF), /dashboard_payload_invalid/); }
 });
+test("absolute local paths are rejected in standalone and inline display text, with references preserved", () => {
+  const paths = [
+    "/home/runner/work/sportscal/raw-capture.json", "Inspect /home/runner/work/sportscal/raw-capture.json before release",
+    "receipt=/opt/dashboard/raw.json", "Evidence: `/var/lib/dashboard/source.json`", "Read(/mnt/private/capture.json)",
+    "/etc/dashboard.conf", "/run/dashboard/capture.json", "/root/dashboard.json", "/Volumes/private/capture.json", "/capture.json",
+    "Review ~/dashboard/raw.json", "Review ~runner/.config/dashboard.json", "Review C:/private/capture.json", "Review C:\\private\\capture.json", "Review \\\\server\\private\\capture.json",
+  ];
+  const valid = serialize(overviewFixture(), AS_OF).value;
+  for (const value of paths) {
+    const p = overviewFixture(); p.briefing.work[0].nextAction = value;
+    assert.throws(() => serialize(p, AS_OF), /dashboard_payload_invalid/, value);
+    const stored = structuredClone(valid); stored.projection.briefing.work[0].nextAction = value;
+    assert.throws(() => validateEnvelope(stored), /dashboard_payload_invalid/, value);
+  }
+  const p = overviewFixture(), url = "https://github.com/hartican/sportscal/pull/42";
+  p.briefing.work[0].nextAction = "Compare CI/CD and 7/28-day summaries; owner / reviewer. See " + url;
+  p.briefing.source = "/home/runner/work/sportscal/raw-capture.json";
+  p.release.merged.sourceUrl = url;
+  const s = serialize(p, AS_OF); validateEnvelope(s.value);
+  assert.equal(s.value.projection.briefing.work[0].nextAction, p.briefing.work[0].nextAction);
+  assert.equal(s.value.projection.release.merged.sourceUrl, url);
+  assert.equal(s.value.projection.briefing.source, "receipt:" + require("./core").hash(p.briefing.source));
+  assert.equal(s.bytes.includes(Buffer.from("/home/runner")), false);
+});
+test("a hash-matched stored absolute path is refused before hosted page rendering", async () => {
+  const h = harness(), value = structuredClone(h.s.value);
+  value.projection.briefing.work[0].nextAction = "Inspect /home/runner/work/sportscal/raw-capture.json before release";
+  const bytes = Buffer.from(JSON.stringify(value)), digest = bytesHash(bytes);
+  h.set("latest.json", { schemaVersion: "ns-dashboard-latest.v1", sha256: digest, publishedAt: AS_OF, previous: null });
+  h.set("snapshots/" + digest + ".json", bytes);
+  const r = await h.run("overview");
+  assert.equal(r.statusCode, 503);
+  assert.equal(JSON.stringify(r.body).includes("/home/runner"), false);
+});
 test("publication and approval semantics survive normalization without invented trend", () => {
   const p = normalizeProjection(overviewFixture()); assert.equal(p.briefing.published.length, 1); assert.equal(p.briefing.decisions.find(d => d.id === "synthetic-reminder-approval").status, "approved");
   const bad = overviewFixture(); bad.release.verifiedLive.sha = "b".repeat(40); assert.throws(() => normalizeProjection(bad), /dashboard_payload_invalid/);
