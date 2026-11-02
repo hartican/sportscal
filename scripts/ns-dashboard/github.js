@@ -30,9 +30,10 @@ function ghRequest({ query, variables, timeout, maxBytes }) {
 async function collect({ previous = null, request = ghRequest, clock = Date.now, maxRequests, maxMs, maxBytes = 25_000_000 } = {}) {
   if (previous) validateDataset(previous);
   const incremental = Boolean(previous);
-  maxRequests ??= incremental ? 25 : 300;
-  maxMs ??= incremental ? 60_000 : 300_000;
-  if (![maxRequests, maxMs, maxBytes].every(n => Number.isSafeInteger(n) && n > 0) || maxRequests > 300 || maxMs > 300_000 || maxBytes > 25_000_000) fail("invalid_budget");
+  const requestCeiling = incremental ? 25 : 300, timeCeiling = incremental ? 60_000 : 300_000;
+  maxRequests ??= requestCeiling;
+  maxMs ??= timeCeiling;
+  if (![maxRequests, maxMs, maxBytes].every(n => Number.isSafeInteger(n) && n > 0) || maxRequests > requestCeiling || maxMs > timeCeiling || maxBytes > 25_000_000) fail("invalid_budget");
   const started = clock(), asOf = new Date(started).toISOString();
   const pages = [], pulls = new Map((previous?.pulls || []).map(p => [p.number, p]));
   const seenPulls = new Set(), seenNodes = new Map(), seenListCursors = new Set();

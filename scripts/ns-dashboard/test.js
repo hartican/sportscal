@@ -3,6 +3,7 @@
 const test = require("node:test"), assert = require("node:assert/strict");
 const fs = require("node:fs"), os = require("node:os"), path = require("node:path");
 const c = require("./core"), { collect, replayCapture } = require("./github"), local = require("./local");
+const { main: projectMain } = require("./cli");
 const ASOF = "2026-11-02T04:00:00Z", clock = () => Date.parse(ASOF);
 const at = day => "2026-10-" + String(day).padStart(2, "0") + "T01:00:00Z";
 function event(type, day, order) { return { id: type + ":" + order, type, at: at(day), order }; }
@@ -122,6 +123,18 @@ test("overlapping identical PR pages deduplicate; changed duplicates remain part
   const bad = await collect({ clock, request: request(true) });
   assert.equal(bad.complete, false); assert.equal(bad.error.code, "moving_page_duplicate");
 });
+test("incremental overrides only reduce the selected mode's request and time ceilings", async () => {
+  const previous = data([]);
+  let calls = 0;
+  const request = async () => { calls++; return response({ pullRequests: conn([], null, 0) }); };
+  for (const options of [{ maxRequests: 26 }, { maxMs: 60001 }, { maxRequests: 300, maxMs: 300000 }]) {
+    await assert.rejects(collect({ previous, clock, request, ...options }), /invalid_budget/);
+  }
+  assert.equal(calls, 0);
+  assert.equal((await collect({ previous, clock, request, maxRequests: 25, maxMs: 60000 })).complete, true);
+  assert.equal((await collect({ previous, clock, request, maxRequests: 1, maxMs: 1 })).complete, true);
+  assert.equal((await collect({ clock, request, maxRequests: 300, maxMs: 300000 })).complete, true);
+});
 test("incremental collection retains older PRs and refreshes changed lifecycle with overlap", async () => {
   const old = { ...data([pull(1, { observedAt: "2026-11-01T04:00:00Z", updatedAt: "2026-11-01T04:00:00Z" })]), asOf: "2026-11-01T04:00:00Z" };
   const updated = node(1, { state: "CLOSED", timelineItems: conn([{ __typename: "ClosedEvent", id: "late", createdAt: "2026-11-02T03:00:00Z" }]) });
@@ -212,4 +225,41 @@ test("deliverable grouping preserves owner priority, missing stage age and inval
   assert.throws(() => c.releaseProjection({ credential: "must not be accepted" }, ASOF), /unknown_operator_field/);
   assert.equal(c.evidenceValidity(null, BINDING, ASOF).state, "unknown");
   assert.deepEqual(c.evidenceValidity({ binding: BINDING, expiresAt: "2026-11-01T00:00:00Z" }, BINDING, ASOF).reasons, ["expired"]);
+});
+test("newer failures supersede passes per scope while distinct valid proof stays visible", () => {
+  const sha = "a".repeat(40), when = "2026-11-02T01:00:00Z";
+  const pass = verification("good", sha, { id: "pass" });
+  const failure = verification("good", sha, { id: "failure", verifiedAt: "2026-11-02T03:00:00Z", result: "failed" });
+  const base = { alias: "private.example.test", deployments: [activation("good", sha, when)] };
+  const failed = c.releaseProjection({ ...base, verifications: [failure, pass, pass] }, ASOF);
+  assert.equal(failed.verifiedLive, null); assert.equal(failed.liveEvidenceState, "failed");
+  assert.equal(failed.verificationScopes[0].latestObservation.id, "failure");
+  const unrelated = c.releaseProjection({ ...base, verifications: [pass, { ...failure, scope: "different journey" }] }, ASOF);
+  assert.equal(unrelated.verifiedLive.id, "pass"); assert.equal(unrelated.liveEvidenceState, "partial");
+  assert.equal(unrelated.verificationScopes.find(s => s.scope === "different journey").state, "failed");
+  const expiredFailure = c.releaseProjection({ ...base, verifications: [pass, { ...failure, expiresAt: "2026-11-02T03:30:00Z" }] }, ASOF);
+  assert.equal(expiredFailure.verifiedLive, null); assert.equal(expiredFailure.verificationScopes[0].freshness, "stale");
+  const renewed = verification("good", sha, { id: "renewed", verifiedAt: "2026-11-02T03:30:00Z" });
+  assert.equal(c.releaseProjection({ ...base, verifications: [pass, failure, renewed] }, ASOF).verifiedLive.id, "renewed");
+  const tie = c.releaseProjection({ ...base, verifications: [pass, { ...failure, verifiedAt: pass.verifiedAt }] }, ASOF);
+  assert.equal(tie.verifiedLive, null); assert.equal(tie.liveEvidenceState, "ambiguous");
+  assert.throws(() => c.releaseProjection({ ...base, verifications: [pass, { ...failure, id: pass.id }] }, ASOF), /conflicting_verification_identity/);
+});
+test("queue observations require explicit array and completeness; invalid input preserves projection", async t => {
+  const d = data([]), source = { source: "owner receipt", observedAt: ASOF, complete: true };
+  for (const deliverables of [undefined, null, {}, "missing"]) {
+    assert.throws(() => c.groupQueue(d, { ...source, deliverables }, ASOF), /queue_observation_required/);
+  }
+  for (const complete of [undefined, null, "true", 1]) {
+    assert.throws(() => c.groupQueue(d, { ...source, complete, deliverables: [] }, ASOF), /queue_completeness_required/);
+  }
+  assert.deepEqual(c.groupQueue(d, { ...source, deliverables: [] }, ASOF), []);
+  assert.deepEqual(c.groupQueue(d, { ...source, complete: false, deliverables: [] }, ASOF), []);
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "ns-dashboard-test-"));
+  t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
+  await local.refresh(dir, async () => d);
+  local.atomic(dir, "projection.json", { sentinel: "last-good" });
+  local.atomic(dir, "records.json", { queue: source });
+  await assert.rejects(projectMain(["project", "--output", dir, "--records", path.join(dir, "records.json"), "--as-of", ASOF]), /queue_observation_required/);
+  assert.deepEqual(local.readJson(path.join(dir, "projection.json")), { sentinel: "last-good" });
 });

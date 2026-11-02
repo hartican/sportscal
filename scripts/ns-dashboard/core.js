@@ -173,7 +173,8 @@ function releaseProjection(records = {}, asOf) {
   const activations = [...attempts.values()].filter(d => d.state === "READY" && d.environment === "production" && d.alias === records.alias && d.activatedAt && instant(d.activatedAt) <= instant(asOf)).sort((a, b) => instant(a.activatedAt) - instant(b.activatedAt));
   const deployed = activations.at(-1) || null;
   if (deployed && activations.some(d => d.id !== deployed.id && d.activatedAt === deployed.activatedAt)) fail("ambiguous_activation_order");
-  const matched = verifications.filter(v => {
+  const observations = new Map();
+  for (const v of verifications) {
     onlyKeys(v, ["id", "deploymentId", "sha", "version", "alias", "verifiedAt", "expiresAt", "result", "scope", "sourceUrl"]);
     boundedText(v.id); boundedText(v.scope); boundedText(v.sourceUrl); shaOrUnknown(v.sha);
     boundedText(v.alias); boundedText(v.deploymentId);
@@ -181,13 +182,37 @@ function releaseProjection(records = {}, asOf) {
     if (!["passed", "failed"].includes(v.result)) fail("invalid_verification_result");
     instant(v.verifiedAt); instant(v.expiresAt);
     if (instant(v.expiresAt) <= instant(v.verifiedAt)) fail("invalid_verification_expiry");
-    return deployed && deployed.sha && v.sha && v.deploymentId === deployed.id && v.sha === deployed.sha && v.result === "passed" && v.alias === records.alias && instant(v.verifiedAt) >= instant(deployed.activatedAt) && instant(v.verifiedAt) <= instant(asOf);
-  }).sort((a, b) => instant(a.verifiedAt) - instant(b.verifiedAt)).at(-1);
+    if (observations.has(v.id) && hash(observations.get(v.id)) !== hash(v)) fail("conflicting_verification_identity");
+    observations.set(v.id, v);
+  }
+  const byScope = new Map();
+  const evidenceOrder = (a, b) => instant(a.verifiedAt) - instant(b.verifiedAt) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+  const ordered = [...observations.values()].filter(v => deployed && deployed.sha && v.sha && v.deploymentId === deployed.id && v.sha === deployed.sha && v.alias === records.alias && instant(v.verifiedAt) >= instant(deployed.activatedAt) && instant(v.verifiedAt) <= instant(asOf))
+    .sort(evidenceOrder);
+  for (const v of ordered) {
+    const current = byScope.get(v.scope);
+    if (!current || instant(v.verifiedAt) > instant(current[0].verifiedAt)) byScope.set(v.scope, [v]);
+    else current.push(v);
+  }
+  const verificationScopes = [...byScope].map(([scope, latest]) => {
+    const ambiguous = new Set(latest.map(v => v.result)).size > 1;
+    const fresh = latest.every(v => instant(v.expiresAt) > instant(asOf));
+    const observation = latest.at(-1);
+    return { scope, state: ambiguous ? "ambiguous" : observation.result === "failed" ? "failed" : fresh ? "fresh" : "stale",
+      freshness: ambiguous ? "unknown" : fresh ? "fresh" : "stale", latestObservation: observation,
+      observationIds: latest.map(v => v.id) };
+  });
+  const valid = verificationScopes.filter(s => s.state === "fresh");
+  const matched = valid.map(s => s.latestObservation).sort(evidenceOrder).at(-1);
+  const liveEvidenceState = matched ? (valid.length === verificationScopes.length ? "fresh" : "partial")
+    : verificationScopes.some(s => s.state === "failed") ? "failed"
+      : verificationScopes.some(s => s.state === "ambiguous") ? "ambiguous" : verificationScopes.length ? "stale" : "unknown";
   return {
     merged: records.merged || null,
     deployed,
-    verifiedLive: matched && instant(matched.expiresAt) > instant(asOf) ? matched : null,
-    liveEvidenceState: matched ? (instant(matched.expiresAt) > instant(asOf) ? "fresh" : "stale") : "unknown",
+    verifiedLive: matched || null,
+    liveEvidenceState,
+    verificationScopes,
     observedRecordCount: attempts.size,
     attemptCount: [...attempts.values()].filter(d => d.state !== "SKIPPED").length,
     successfulActivations: activations.length,
@@ -202,8 +227,10 @@ function groupQueue(data, records = {}, asOf) {
   boundedText(records.source, 1000);
   instant(records.observedAt);
   if (instant(records.observedAt) > instant(asOf)) fail("queue_from_future");
+  if (!Array.isArray(records.deliverables)) fail("queue_observation_required");
+  if (typeof records.complete !== "boolean") fail("queue_completeness_required");
   const seen = new Set(), membership = new Set(), known = new Map(data.pulls.map(p => [p.number, p]));
-  return (records.deliverables || []).map(d => {
+  return records.deliverables.map(d => {
     onlyKeys(d, ["id", "owner", "stage", "nextAction", "type", "priority", "prNumbers", "stageEnteredAt", "dependencies", "membershipComplete", "proof", "candidate"]);
     boundedText(d.id); boundedText(d.owner); boundedText(d.stage); boundedText(d.nextAction);
     if (seen.has(d.id) || !Array.isArray(d.prNumbers) || !d.prNumbers.length || new Set(d.prNumbers).size !== d.prNumbers.length) fail("duplicate_deliverable_or_member");
