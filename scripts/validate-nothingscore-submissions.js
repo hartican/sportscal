@@ -351,5 +351,6 @@ Promise.resolve()
   .then(serverContract)
   .then(snapshotContract)
   .then(handlerContracts)
+  .then(()=>require('./lib/nsc-follow-fixture-tests').run())
   .then(()=>console.log("Nothingscore submission validation passed (global profile, atomic immutable receipts, exact points and snapshot hooks)."))
   .catch(error=>{console.error(error);process.exitCode=1;});
