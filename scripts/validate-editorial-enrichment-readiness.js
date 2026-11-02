@@ -20,6 +20,13 @@ assert.equal(assess(fixture).status,'deferred');controls++;
 const day15={...fixture,date:'2026-11-17',startTimeUtc:'2026-11-16T13:00:00.000Z'};
 assert.equal(assess(day15).status,'deferred','First day outside the chosen Sydney-calendar preview horizon');controls++;
 const hard=(record,options={},pattern=/needs a researched/)=>{assert.throws(()=>assess(record,options),pattern);controls++;};
+assert.equal(assess({...fixture,storyline:{stakes:3,lastReviewedAt:fixture.canonicalSourceCheckedAt}}).status,'deferred','Metadata-only storyline preserves the factual display fallback');controls++;
+for(const field of ['hookSpoilerOff','hookSpoilerOn','synopsisSpoilerOff','synopsisSpoilerOn']){
+  hard({...fixture,storyline:{[field]:'Different unsupported preview'}});
+  hard({...fixture,storyline:{[field]:field.startsWith('hook')?fixture.selectedSentence:fixture.fullSpiel}}); // even exact copy overrides stay outside this narrow policy
+}
+for(const storyline of [null,'not metadata',[]])hard({...fixture,storyline});
+hard({...fixture,storyline:Object.create({synopsisSpoilerOff:'Inherited unsupported preview'})});
 hard({...fixture,date:'2026-11-16',startTimeUtc:'2026-11-16T12:00:00.000Z'}); // day14, despite >14 elapsed24-hour periods
 hard(fixture,{stakes:4});hard(fixture,{stakes:5});
 for(const status of ['live','completed','postponed','suspended','cancelled','unknown'])hard({...fixture,status});
@@ -33,7 +40,9 @@ for(const patch of [
   {editorialPreview:{status:'journalistic'}},{editorialPreview:null},{editorialNarrative:{}},
   {date:'2026-12-03'},{startTimeUtc:null},
 ])hard({...fixture,...patch});
-hard(fixture,{reference:NaN});hard(fixture,{start:reference+31*86400000});
+hard(fixture,{reference:NaN});
+hard(fixture,{start:reference+31*86400000}); // literal/options start mismatch, not the horizon test
+hard({...fixture,date:'2026-12-03',startTimeUtc:'2026-12-02T20:00:00.000Z'}); // consistent date/start beyond the30-day limit
 hard(fixture,{hasRetainedProjection:()=>true});hard(fixture,{hasRetainedProjection:()=>undefined});
 hard(fixture,{hasRetainedProjection:undefined});
 assert.throws(()=>assess(fixture,{hasRetainedProjection:()=>{throw Error('Projection authority unavailable');}}),/Projection authority unavailable/);controls++;

@@ -20,6 +20,9 @@ function optionalEarlyPreview(record,{stakes,reference,start,hasRetainedProjecti
     ||start>reference+30*DAY_MS||sydneyDay(start)<=sydneyDay(reference)+14*DAY_MS)return null;
   if(record.date!==new Date(sydneyDay(start)).toISOString().slice(0,10))return null;
   if(Object.hasOwn(record,'editorialNarrative')||Object.hasOwn(record,'editorialPreview'))return null;
+  const storyline=record.storyline;
+  if(storyline!==undefined&&(!storyline||typeof storyline!=='object'||Array.isArray(storyline)
+    ||['hookSpoilerOff','hookSpoilerOn','synopsisSpoilerOff','synopsisSpoilerOn'].some(field=>field in storyline)))return null;
   const identity=/^epl-2026-27-([1-9]\d*)$/.exec(record.id||'');
   if(!identity||record.eventId!==record.id||record.canonicalEventId!=='event:premier-league:'+identity[1]
     ||record.competitionId!=='competition:premier-league-2026-27'||record.season!=='2026/27')return null;

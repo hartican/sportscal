@@ -22,6 +22,9 @@ official provisional schedule template, exact fixture identity shape, usable
 participant/source fields and genuine non-future observation dates. Any claimed
 or partial narrative/preview, or retained projection that failed to publish,
 retains the existing hard failure. Failed/unknown projection lookup fails closed.
+Storyline may contain metadata only. Any of the four display hook/synopsis
+override fields, including an exact fallback override, remains a hard case;
+checking only the raw text is not proof of the effective display fallback.
 
 The14-day threshold is an explicit policy choice aligned with the existing
 preview horizon, not a measured UX cliff. Four-plus stakes, nearer fixtures,
