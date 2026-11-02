@@ -31,6 +31,10 @@
       "maxDuration": 60,
       "regions": ["syd1"],
       "includeFiles": "data/{code-inspector/*.json,discovery/enrichment.v1.json,events.json,follow-fixtures.v1.json,major-events.v1.json,editorial-knowledge.v1.json,editorial-fixture-research.v1.json}"
+    },
+    "api/dashboard.js": {
+      "maxDuration": 10,
+      "regions": ["syd1"]
     }
   },
   "redirects": [
@@ -69,6 +73,30 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/admin/dashboard",
+      "destination": "/api/dashboard?route=overview"
+    },
+    {
+      "source": "/admin/dashboard/delivery",
+      "destination": "/api/dashboard?route=delivery"
+    },
+    {
+      "source": "/admin/dashboard/queue",
+      "destination": "/api/dashboard?route=queue"
+    },
+    {
+      "source": "/admin/dashboard/evidence",
+      "destination": "/api/dashboard?route=evidence"
+    },
+    {
+      "source": "/api/admin/dashboard",
+      "destination": "/api/dashboard?route=data"
+    },
+    {
+      "source": "/api/admin/dashboard/session",
+      "destination": "/api/dashboard?route=session"
+    },
     { "source": "/api/classics", "destination": "/api/user-state?route=classics" },
     { "source": "/admin/editorial", "destination": "/admin.html" },
     {

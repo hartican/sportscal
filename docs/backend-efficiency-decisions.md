@@ -1,5 +1,25 @@
 # Backend efficiency decisions
 
+## 2 November 2026 — private dashboard source candidate
+
+Jack approved the existing-project hosted dashboard with selected sanitized
+operational summaries and Jack-only access, after urgent607. Source-only
+implementation and synthetic qualification may proceed while exact owner binding
+and resource/spend facts remain unresolved. No actual bucket write or access
+enablement precedes those prerequisites and normal sole-publisher review.
+
+The manual nsDASHBOARD owner reuses retained sources and the existing collector;
+there is no new schedule, page-load collection, customer-data reader or worker.
+Each protected page/data response rechecks the verified immutable owner, current
+admin role and live session. The one request budget is at most5backend calls
+within5seconds through complete bodies (one auth RPC, pointer/snapshot/status,
+only one explicit previous-snapshot fallback), no retries or redirects. Fixed
+caps are4KiB pointer/8KiB status/256KiB snapshot, two snapshots maximum; the524KiB
+logical bound is not a spending hard cap or free-usage claim. An error retains
+the last good pointer/counts; unknown observations do not become zero or fresh.
+
+[Source contract and unrun acceptance](../scripts/ns-dashboard/HOSTED.md).
+
 ## Australian Championship bounded result preparation — 31 October 2026
 
 The existing canonical `update-cards.js --australian-championship` owner has an
