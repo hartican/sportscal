@@ -21,6 +21,33 @@ async function check(signedIn,failed=false){
 }
 const warmSource=html.slice(html.indexOf('function warmNextFeedPageDuringIdle('),html.indexOf('async function loadNextFeedPage('));
 assert(warmSource.startsWith('function warmNextFeedPageDuringIdle('),'actual optional Feed warm-up boundary');
+const recovery=fs.readFileSync('scripts/validate-account-sync-recovery-browser.js','utf8');
+const observerStart=recovery.indexOf('const originalFetch = window.fetch;');
+const observer=recovery.slice(observerStart,recovery.indexOf("addEventListener('error'",observerStart));
+assert(observer.includes('Reflect.apply(originalFetch, this, args)'),'actual passive diagnostic fetch wrapper');
+async function checkObserver(){
+ for(const mode of ['success','rejected','synchronous']){
+  const failure=new TypeError('Disposable native fetch boundary'),response={ok:true},options={cache:'force-cache'};
+  let calls=0,returned;const reports=[];
+  const context={URL,document:{baseURI:'http://127.0.0.1:1234/'},location:{origin:'http://127.0.0.1:1234'},
+   observedStaticPath:path=>path==='/data/feed/page-002.json',report:(...args)=>reports.push(args)};
+  context.window={fetch:function(url,actualOptions){
+   calls++;assert.equal(this,context.window);assert.equal(url,'data/feed/page-002.json');assert.equal(actualOptions,options);
+   if(mode==='synchronous')throw failure;
+   returned=mode==='rejected'?Promise.reject(failure):Promise.resolve(response);return returned;
+  }};
+  vm.createContext(context);vm.runInContext(observer,context);
+  if(mode==='synchronous')assert.throws(()=>context.window.fetch('data/feed/page-002.json',options),error=>error===failure);
+  else{
+   const actual=context.window.fetch('data/feed/page-002.json',options);
+   assert.equal(actual,returned,'observer must return the identical native promise');
+   if(mode==='rejected')await assert.rejects(actual,error=>error===failure);else assert.equal(await actual,response);
+  }
+  assert.equal(calls,1,'observer must not duplicate a request');
+  assert.equal(reports.filter(row=>row[0]==='fetch-sync-throw').length,mode==='synchronous'?1:0);
+ }
+ console.log('Passive fetch observer: identical receiver/arguments/promise/rejection/synchronous error; one underlying call.');
+}
 async function checkWarm(mode,timerFallback=false){
  const path='data/feed/page-002.json',failure=new TypeError('Disposable fetch start/body failure');
  let callback,calls=0,consumed=0,cancelled=0;const warnings=[],signal={};
@@ -57,6 +84,7 @@ async function checkWarm(mode,timerFallback=false){
 (async()=>{
  for(const signedIn of [false,true])for(const failed of [false,true])await check(signedIn,failed);
  console.log('Feed filtering joins in-flight public/signed-in pagination; real failures clear for retry.');
+ await checkObserver();
  for(const timerFallback of [false,true])for(const mode of ['success','async-fetch','http','body','sync-start'])await checkWarm(mode,timerFallback);
  console.log('Optional Feed warm-up: 10 actual-callback controls pass for idle/timer, synchronous start, asynchronous fetch/body and HTTP failure; no automatic retry or account mutation.');
 })().catch(e=>{console.error(e);process.exitCode=1;});
