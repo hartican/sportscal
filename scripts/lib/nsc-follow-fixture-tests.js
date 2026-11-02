@@ -133,7 +133,23 @@ async function run(){
       assert.equal(policy.manualTiming(projection.project({...nba,...held}),+now),null,"source uncertainty must survive official fixture projection: "+JSON.stringify(held));
     }
     assert.equal(projection.project(nba).sourceCheckedAt,nba.sourceCheckedAt,"projection cannot refresh a source observation");
-    return {scope:"actual full NSC/reminder lookup, rating-call metadata and browser final acknowledgement; disposable transport/storage only, no physical phone/database/delivery proof",nbaFixtures:nbaFixtures.length,controls:[nbaId,ausId],rpcCalls:calls.length,reminderResults};
+    const root=path.join(__dirname,"../.."),manifest=require("../../data/code-inspector/manifest.json");
+    const netballCode=manifest.codes.find(code=>code.chunkPath==="data/code-inspector/netball.json");assert(netballCode);
+    const inspector=JSON.parse(fs.readFileSync(path.join(root,netballCode.chunkPath),"utf8"));
+    const calendar=require("../../lib/calendar-catalogue").catalogue(),identity=require("../../config/fixture-identity");
+    let inspectorCollisions=0;
+    for(let match=1;match<=4;match++){
+      const id="fixture:netball:constellation-cup-2026-"+match;
+      assert(official.events.some(event=>event.id===id),"the official fallback actually collides with this inspector record");
+      const saved=inspector.fixtures.find(fixture=>fixture.id===id);assert(saved);
+      const expected=identity.fromSchedule(saved,netballCode),actual=calendar.find(event=>(event.canonicalEventId||event.eventId||event.id)===id);assert(actual);
+      for(const field of ["participantSlots","participantIds","timePrecision","time","scheduleStatus","sourceCheckedAt"]){
+        assert.deepEqual(actual[field],expected[field],"existing inspector-only record must win over fallback: "+id+" "+field);
+      }
+      inspectorCollisions++;
+    }
+    console.log("Existing inspector collision controls: "+inspectorCollisions+" preserved.");
+    return {scope:"actual full NSC/reminder lookup, rating-call metadata and browser final acknowledgement; disposable transport/storage only, no physical phone/database/delivery proof",nbaFixtures:nbaFixtures.length,inspectorCollisions,controls:[nbaId,ausId],rpcCalls:calls.length,reminderResults};
   }finally{
     require.cache[supabasePath].exports=originalSupabase;
     for(const file of paths){delete require.cache[file];if(previous.get(file))require.cache[file]=previous.get(file);}
