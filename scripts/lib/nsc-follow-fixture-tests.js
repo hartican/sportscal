@@ -3,8 +3,12 @@ const assert=require("node:assert/strict");
 const fs=require("node:fs"),path=require("node:path"),vm=require("node:vm"),acorn=require("acorn");
 const official=require("../../data/follow-sources/official.v1.json");
 const nbaId="fixture:nba:0022600163";
-const ausId="football-australian-championship-2026-22278890";
+const ausFixture=require("../../data/football/fixtures/australian-championship.json").events.find(event=>event.id==="football-australian-championship-2026-22278890");
+const ausId=ausFixture?.canonicalEventId;
+assert.equal(ausId,"event:football:australian-championship:2026:22278890");
 let browserReminderSource;
+let actualHtml;
+const htmlSource=()=>actualHtml||=(fs.readFileSync(path.join(__dirname,"../../index.html"),"utf8"));
 
 async function reminderAcknowledgement(event,catalogue,now,{fail=false}={}){
   const identity=require("../../config/event-action-identity"),policy=require("../../config/fixture-reminder-policy");
@@ -22,7 +26,7 @@ async function reminderAcknowledgement(event,catalogue,now,{fail=false}={}){
     throw Error("Unexpected disposable reminder route: "+route);
   };
   if(!browserReminderSource){
-    const html=fs.readFileSync(path.join(__dirname,"../../index.html"),"utf8");
+    const html=htmlSource();
     const code=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].map(m=>m[1]).find(s=>s.includes("function savePreferences("));
     const tree=acorn.parse(code,{ecmaVersion:"latest"}),names=["optimisticLostResponse","runOptimisticMutation","toggleQuickReminder"];
     browserReminderSource=names.map(name=>{const nodes=tree.body.filter(n=>n.type==="FunctionDeclaration"&&n.id.name===name);assert.equal(nodes.length,1);return code.slice(nodes[0].start,nodes[0].end);}).join("\n");
@@ -70,8 +74,11 @@ async function run(){
   paths.forEach(file=>delete require.cache[file]);
   try{
     const server=require("../../lib/nothingscore-server"),map=server.eventMap(),now=new Date("2026-11-02T00:00:00.000Z");
+    const browserId=htmlSource().match(/function nothingscoreEventId\(ev\)\{[\s\S]*?\n\}/)?.[0];assert(browserId);
+    assert.equal(vm.runInNewContext("("+browserId+")(fixture)",{fixture:ausFixture}),ausId,"Aus control uses the exact ID sent by the browser");
     assert(server.eventFor(ausId),"working Australian Championship control must resolve through the complete lookup");
     const nba=official.events.find(event=>event.id===nbaId);assert(nba,"retained NBA positive fixture exists");
+    assert.equal(vm.runInNewContext("("+browserId+")(fixture)",{fixture:nba}),nbaId,"NBA target uses the exact ID sent by the browser");
     const reminders=require("../../lib/reminder-fixtures"),policy=require("../../config/fixture-reminder-policy");
     const reminderCatalogue=await reminders.catalogue({snapshots:[],now});
     assert(policy.manualTiming(reminderCatalogue.resolve(ausId),+now),"working Aus reminder control must resolve with supported future timing");
