@@ -251840,6 +251840,291 @@
         "hookSpoilerOn": "Nikola Bartunkova won. 6–4, 6–3",
         "synopsisSpoilerOn": "ESPN reports Nikola Bartunkova as the winner of this round of 32 match. 6–4, 6–3"
       }
+    },
+    {
+      "id": "major-match-rlwc-2026-tonga-samoa",
+      "eventId": "major-match-rlwc-2026-tonga-samoa",
+      "canonicalEventId": "major-match:rlwc-2026:tonga-samoa",
+      "actionKey": "major-match:rlwc-2026:tonga-samoa",
+      "cardKind": "fixture",
+      "key": "nrl",
+      "sport": "Rugby league",
+      "competitionId": "competition:rugby-league-world-cup:2026",
+      "parentEventId": "major-event:rlwc-2026",
+      "eventFamilyId": "rugby-league-world-cup",
+      "identityRef": "event:rlwc",
+      "stableMatchId": null,
+      "legacyEventIds": [],
+      "roundLabel": "Pool B & C",
+      "stage": "Pool B & C",
+      "matchType": null,
+      "eventType": null,
+      "eventCode": null,
+      "bestOf": null,
+      "court": null,
+      "majorEventId": "major-event:rlwc-2026",
+      "majorEventParentId": "major-event:rlwc-2026",
+      "name": "Tonga v Samoa",
+      "displayTitleCompact": "Tonga v Samoa",
+      "date": "2026-11-01",
+      "time": "20:05",
+      "startTimeUtc": "2026-11-01T09:05:00.000Z",
+      "timelineSortTimeUtc": "2026-11-01T09:05:00.000Z",
+      "sessionStartTimeUtc": null,
+      "sequenceInSession": 0,
+      "timePrecision": "exact",
+      "estimatedStartTimeUtc": null,
+      "timingProvenance": null,
+      "timingSource": null,
+      "venue": "CommBank Stadium, Sydney",
+      "status": "scheduled",
+      "scheduleStatus": "confirmed",
+      "result": null,
+      "expected": null,
+      "matchupSides": [],
+      "participants": [
+        {
+          "id": "team:nrl:national:tonga",
+          "name": "Tonga",
+          "role": "home"
+        },
+        {
+          "id": "team:nrl:national:samoa",
+          "name": "Samoa",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:nrl:national:tonga",
+        "team:nrl:national:samoa"
+      ],
+      "broadcaster": null,
+      "broadcasterIds": [],
+      "broadcastOptions": [],
+      "viewingOptions": [],
+      "isInternational": true,
+      "competitionScope": "international",
+      "representativeCountryCodes": [
+        "TO",
+        "WS"
+      ],
+      "ticketing": {
+        "provider": "Ticketmaster",
+        "status": "on_sale",
+        "url": "https://www.ticketmaster.com.au/rlwc2026",
+        "verifiedAt": "2026-08-23T06:00:00.000Z",
+        "saleStartAt": null,
+        "saleEndAt": "2026-11-15T08:00:00.000Z"
+      },
+      "sourceName": "International Rugby League",
+      "sourceUrl": "https://www.intrl.sport/match-details/2578",
+      "sourceCheckedAt": "2026-11-01T06:51:21.342326Z",
+      "sourceType": "official",
+      "participantsConfirmed": true,
+      "sportDomainId": "sport:nrl",
+      "sourceEventIds": [
+        "major-match:rlwc-2026:tonga-samoa"
+      ],
+      "sourceTrust": "verified",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "all",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false
+    },
+    {
+      "id": "football-qatar-australia-2026-11-14",
+      "eventId": "football-qatar-australia-2026-11-14",
+      "canonicalEventId": "football-qatar-australia-2026-11-14",
+      "status": "scheduled",
+      "cardKind": "fixture",
+      "expected": null,
+      "liveWindow": 2.5,
+      "name": "Qatar v Socceroos",
+      "displayTitleCompact": "Qatar v Socceroos",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:football:international-friendlies",
+      "competitionName": "Men's International Friendlies",
+      "competitionScope": "international",
+      "isInternational": true,
+      "isSenior": true,
+      "gender": "men",
+      "date": "2026-11-14",
+      "time": "01:45",
+      "startTimeUtc": "2026-11-13T14:45:00.000Z",
+      "localTimezone": "Australia/Sydney",
+      "venue": "Abdullah bin Khalifa Stadium",
+      "venueName": "Abdullah bin Khalifa Stadium",
+      "venueCity": "Doha",
+      "venueCountryCode": "QA",
+      "round": "all",
+      "roundLabel": "International friendly",
+      "stage": "International friendly",
+      "eventType": "match",
+      "participants": [
+        {
+          "id": "team:football:qatar",
+          "name": "Qatar",
+          "displayName": "Qatar",
+          "countryCode": "QA",
+          "role": "home"
+        },
+        {
+          "id": "team:football:socceroos",
+          "name": "Socceroos",
+          "displayName": "Socceroos",
+          "countryCode": "AU",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:qatar",
+        "team:football:socceroos"
+      ],
+      "homeParticipantId": "team:football:qatar",
+      "awayParticipantId": "team:football:socceroos",
+      "participantsConfirmed": true,
+      "participantCountryCodes": [
+        "QA",
+        "AU"
+      ],
+      "representativeCountryCodes": [
+        "QAT",
+        "AUS"
+      ],
+      "representativeSportKey": "football",
+      "broadcaster": "Paramount+",
+      "broadcastOptions": "Paramount+",
+      "broadcasterIds": [
+        "paramount"
+      ],
+      "viewingOptions": [
+        {
+          "providerId": "paramount",
+          "territory": "AU",
+          "accessType": "subscription",
+          "liveOrReplay": "live",
+          "rightsScope": "fixture",
+          "webUrl": "https://www.paramountplus.com/au/",
+          "sourceUrl": "https://socceroos.com.au/fixtures",
+          "verifiedAt": "2026-11-02T05:42:14.000Z"
+        }
+      ],
+      "sourceName": "Football Australia / Socceroos",
+      "sourceUrl": "https://socceroos.com.au/fixtures",
+      "sourceType": "official",
+      "sourceTrust": "verified",
+      "sourceCheckedAt": "2026-11-02T05:42:14.000Z",
+      "sourceRefs": [
+        "https://socceroos.com.au/fixtures"
+      ],
+      "scheduleStatus": "confirmed",
+      "timePrecision": "exact",
+      "narrativeType": "all",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false
+    },
+    {
+      "id": "football-jordan-australia-2026-11-18",
+      "eventId": "football-jordan-australia-2026-11-18",
+      "canonicalEventId": "football-jordan-australia-2026-11-18",
+      "status": "scheduled",
+      "cardKind": "fixture",
+      "expected": null,
+      "liveWindow": 2.5,
+      "name": "Jordan v Socceroos",
+      "displayTitleCompact": "Jordan v Socceroos",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:football:international-friendlies",
+      "competitionName": "Men's International Friendlies",
+      "competitionScope": "international",
+      "isInternational": true,
+      "isSenior": true,
+      "gender": "men",
+      "date": "2026-11-18",
+      "time": "03:00",
+      "startTimeUtc": "2026-11-17T16:00:00.000Z",
+      "localTimezone": "Australia/Sydney",
+      "venue": "Amman International Stadium",
+      "venueName": "Amman International Stadium",
+      "venueCity": "Amman",
+      "venueCountryCode": "JO",
+      "round": "all",
+      "roundLabel": "International friendly",
+      "stage": "International friendly",
+      "eventType": "match",
+      "participants": [
+        {
+          "id": "team:football:jordan",
+          "name": "Jordan",
+          "displayName": "Jordan",
+          "countryCode": "JO",
+          "role": "home"
+        },
+        {
+          "id": "team:football:socceroos",
+          "name": "Socceroos",
+          "displayName": "Socceroos",
+          "countryCode": "AU",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:jordan",
+        "team:football:socceroos"
+      ],
+      "homeParticipantId": "team:football:jordan",
+      "awayParticipantId": "team:football:socceroos",
+      "participantsConfirmed": true,
+      "participantCountryCodes": [
+        "JO",
+        "AU"
+      ],
+      "representativeCountryCodes": [
+        "JOR",
+        "AUS"
+      ],
+      "representativeSportKey": "football",
+      "broadcaster": "Paramount+",
+      "broadcastOptions": "Paramount+",
+      "broadcasterIds": [
+        "paramount"
+      ],
+      "viewingOptions": [
+        {
+          "providerId": "paramount",
+          "territory": "AU",
+          "accessType": "subscription",
+          "liveOrReplay": "live",
+          "rightsScope": "fixture",
+          "webUrl": "https://www.paramountplus.com/au/",
+          "sourceUrl": "https://socceroos.com.au/fixtures",
+          "verifiedAt": "2026-11-02T05:42:14.000Z"
+        }
+      ],
+      "sourceName": "Football Australia / Socceroos",
+      "sourceUrl": "https://socceroos.com.au/fixtures",
+      "sourceType": "official",
+      "sourceTrust": "verified",
+      "sourceCheckedAt": "2026-11-02T05:42:14.000Z",
+      "sourceRefs": [
+        "https://socceroos.com.au/fixtures"
+      ],
+      "scheduleStatus": "confirmed",
+      "timePrecision": "exact",
+      "narrativeType": "all",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false
     }
   ]
 }

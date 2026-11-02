@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-31T02:32:00.036Z",
+  "generatedAt": "2026-11-02T10:12:12.855Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/horse-racing.json",
@@ -68,11 +68,11 @@
       "id": "sport:nrl",
       "slug": "nrl",
       "label": "NRL",
-      "fixtureCount": 217,
+      "fixtureCount": 218,
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-22T18:01:55.820Z",
+      "freshAt": "2026-11-02T01:42:41.208Z",
       "chunkPath": "data/code-inspector/nrl.json"
     },
     {
@@ -187,11 +187,11 @@
       "id": "sport:football",
       "slug": "football",
       "label": "Football",
-      "fixtureCount": 893,
+      "fixtureCount": 895,
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-30T23:06:40.076Z",
+      "freshAt": "2026-11-02T10:12:12.855Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {

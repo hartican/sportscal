@@ -2,6 +2,7 @@
   "schemaVersion": "follow-directory-supplement.v1",
   "generatedAt": "2026-08-25T14:00:00.000Z",
   "sources": {
+    "irl-rlwc-tonga-samoa-20261101": "https://www.intrl.sport/match-details/2578",
     "nfl-teams-2026": "https://www.nfl.com/teams/",
     "x-games-sacramento-2026": "https://www.xgames.com/events/sacramento-2026/",
     "x-games-athletes-2026": "https://www.xgames.com/athletes/",
@@ -15,6 +16,13 @@
     "dovizioso-yamaha-role": "https://www.motogp.com/en/news/2025/06/19/dovizioso-and-yamaha-pen-three-year-test-rider-and-advisory-role-deal/752259"
   },
   "sports": {
+    "nrl": {
+      "sourceIds": ["irl-rlwc-tonga-samoa-20261101"],
+      "records": [
+        {"id":"team:nrl:national:tonga","displayName":"Tonga","type":"team","teamKind":"national","countryCode":"TO","genderCategory":"male","leagueId":"competition:rugby-league-world-cup:2026","sourceCheckedAt":"2026-11-01T06:51:21.342326Z"},
+        {"id":"team:nrl:national:samoa","displayName":"Samoa","type":"team","teamKind":"national","countryCode":"WS","genderCategory":"male","leagueId":"competition:rugby-league-world-cup:2026","sourceCheckedAt":"2026-11-01T06:51:21.342326Z"}
+      ]
+    },
     "american-football": {
       "sourceIds": [
         "nfl-teams-2026"

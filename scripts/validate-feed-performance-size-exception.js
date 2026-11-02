@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 "use strict";
 const assert=require("node:assert/strict");
-const {payloadFingerprint,validateCriticalSize}=require("./lib/feed-performance-size-budget");
+// Historical 606 authority/refusal evidence stays strict; it is not the active
+// ordinary advisory policy introduced by the Owner on 2 November 2026.
+const {payloadFingerprint,validateHistoricalCriticalSize606:validateCriticalSize}=require("./lib/feed-performance-size-budget");
 const reviewed=require("./fixtures/reviewed-feed-size-exception-606.json");
 
 function main(){

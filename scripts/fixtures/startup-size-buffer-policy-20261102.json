@@ -1,0 +1,15 @@
+{
+  "id": "startup-size-advisory-buffer-2026-11-02",
+  "baselineRef": "e70de9a53543b0894ceaf6dbdff60569d47a9c87",
+  "baselineGzipBytes": 426115,
+  "bufferPercent": 1.25,
+  "maximumCriticalRequests": 45,
+  "approval": {
+    "date": "2026-11-02",
+    "question": "Sentinel_8032b3273f788191adeaa82c90a09c3f",
+    "answer": "Sentinel_dd18922936108191a0ef119e46337c1b",
+    "ownerWords": "Of course. And change the rule from limit to buffer that produces a notice but not a halt"
+  },
+  "scope": "Valid static compressed-size exceedances produce a visible NOTICE, not a release halt. No further per-version small-size exception is required. Measurement integrity, candidate/content binding, request counts and all other performance, functional, security and data gates remain hard.",
+  "history": "The exact 606 exception and its refusal tests remain historical evidence, not the active ordinary size policy."
+}

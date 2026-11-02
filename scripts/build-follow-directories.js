@@ -24,6 +24,17 @@ function readJson(relativePath){
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
 }
 
+function searchPublicationAnchor(manifestAt, previousAt, scoped){
+  if(!scoped)return manifestAt;
+  const valid=value=>{
+    if(typeof value!=='string'||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?Z$/.test(value))return false;
+    const parsed=Date.parse(value);
+    return Number.isFinite(parsed)&&new Date(parsed).toISOString()===value.replace(/(?:\.(\d{1,3}))?Z$/,(_,fraction)=>'.'+(fraction||'').padEnd(3,'0')+'Z');
+  };
+  if(!valid(previousAt))return manifestAt;
+  return !valid(manifestAt)||Date.parse(previousAt)>Date.parse(manifestAt)?previousAt:manifestAt;
+}
+
 function writeIfChanged(filePath, content, checkOnly){
   const current = fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : null;
   if (current === content) return false;
@@ -456,11 +467,11 @@ function main(){
     changed = writeIfChanged(path.join(OUTPUT_DIR, `${sport.key}.v1.js`), `globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS = globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS || {};\nglobalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS[${JSON.stringify(sport.key)}] = ${JSON.stringify(payload)};\n`, checkOnly) || changed;
   });
   const supportCount = directorySports.length - manifest.sports.length;
-  buildParticipantSearchIndex(manifest,checkOnly);
+  buildParticipantSearchIndex(manifest,checkOnly,selectedCodes.size>0);
   console.log(`${checkOnly ? "Checked" : changed ? "Built" : "Unchanged"} ${manifest.sports.length} lazy Follow directory chunks plus ${supportCount} national-identity support chunks (${directorySports.reduce((sum, sport) => sum + chunks.get(sport.key).size, 0)} records).`);
 }
 
-function buildParticipantSearchIndex(manifest,checkOnly){
+function buildParticipantSearchIndex(manifest,checkOnly,scoped){
   const identity=require('../config/follow-first').participantFollowIdentityKey;
   const fields=['id','displayName','aliases','sportKey','entityType','genderCategory','leagueId','leagueName','ranking','ladderPosition','countryCode','currentTeamId','currentTeamRank','tour','competitionId','standingGroup','rankingCheckedOn','rankingSourceUrl'];
   const records=new Map();
@@ -481,8 +492,10 @@ function buildParticipantSearchIndex(manifest,checkOnly){
       records.set(identity(record.id),{...record,displayName:record.displayName||record.name,sportKey:filename.replace('.json',''),entityType:record.id.startsWith('team:')?'team':'athlete',leagueId:record.competitionId||fixture.competitionId,leagueName:fixture.competitionName});
     }
   }
-  const payload={schemaVersion:'participant-search.v1',generatedAt:manifest.generatedAt,fields,records:[...records.values()].sort((a,b)=>a.id.localeCompare(b.id)).map(record=>fields.map(field=>record[field]??null))};
+  const searchPath=path.join(OUTPUT_DIR,'search.v1.json');
+  const previousAt=scoped&&fs.existsSync(searchPath)?JSON.parse(fs.readFileSync(searchPath,'utf8')).generatedAt:null;
+  const payload={schemaVersion:'participant-search.v1',generatedAt:searchPublicationAnchor(manifest.generatedAt,previousAt,scoped),fields,records:[...records.values()].sort((a,b)=>a.id.localeCompare(b.id)).map(record=>fields.map(field=>record[field]??null))};
   writeIfChanged(path.join(OUTPUT_DIR,'search.v1.json'),JSON.stringify(payload)+'\n',checkOnly);
 }
 if(require.main===module)main();
-module.exports={normalizeRecord,DirectoryRecords};
+module.exports={normalizeRecord,DirectoryRecords,searchPublicationAnchor};

@@ -1,0 +1,58 @@
+{
+  "description": "Captured 2026-11-01 reviewed source facts for deterministic API regression; not a new provider observation",
+  "approvedSource": {
+    "fixtureId": "major-match:rlwc-2026:tonga-samoa",
+    "sourceUrl": "https://www.intrl.sport/match-details/2578",
+    "sourceName": "International Rugby League",
+    "extractedFactsSha256": "46736403c358183e6bbeec1e0dfb15e471050e8290cfeb82c10ce9aa70694050"
+  },
+  "parent": {
+    "id": "major-event:rlwc-2026",
+    "name": "Rugby League World Cup 2026",
+    "sportKey": "nrl",
+    "sportLabel": "Rugby league",
+    "competitionId": "competition:rugby-league-world-cup:2026",
+    "competitionScope": "international",
+    "isInternational": true,
+    "startDate": "2026-10-15",
+    "endDate": "2026-11-15",
+    "timezone": "Australia/Sydney"
+  },
+  "match": {
+    "id": "major-match:rlwc-2026:tonga-samoa",
+    "name": "Tonga v Samoa",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "TO",
+      "WS"
+    ],
+    "participantIds": [
+      "team:nrl:national:tonga",
+      "team:nrl:national:samoa"
+    ],
+    "participants": [
+      {
+        "id": "team:nrl:national:tonga",
+        "name": "Tonga",
+        "role": "home"
+      },
+      {
+        "id": "team:nrl:national:samoa",
+        "name": "Samoa",
+        "role": "away"
+      }
+    ],
+    "participantsConfirmed": true,
+    "startTimeUtc": "2026-11-01T09:05:00.000Z",
+    "timePrecision": "exact",
+    "roundLabel": "Pool B & C",
+    "stage": "Pool B & C",
+    "venue": "CommBank Stadium, Sydney",
+    "sourceName": "International Rugby League",
+    "sourceUrl": "https://www.intrl.sport/match-details/2578",
+    "sourceCheckedAt": "2026-11-01T06:51:21.342326Z",
+    "summary": "Tonga meet Samoa in the men's Rugby League World Cup."
+  },
+  "referenceTime": "2026-11-01T07:00:00.000Z"
+}

@@ -114,13 +114,22 @@
     const national = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
       || (typeof require === 'function' ? require('./national-team-identities') : null);
     if(normalized.key === 'football' && national){
-      const canonicalIds = national.participantIdsForEvent(normalized);
+      const suppliedIds = normalized.participantIds.length ? normalized.participantIds
+        : normalized.participants.map(participant=>participant.id).filter(Boolean);
+      const canonicalIds = suppliedIds.length ? suppliedIds.map(national.canonicalId) : national.participantIdsForEvent(normalized);
       if(canonicalIds.includes('team:football:socceroos')){
         normalized.name = normalized.name.replace(/\bAustralia\b/g, 'Socceroos');
         normalized.displayTitleCompact = normalized.displayTitleCompact.replace(/\bAustralia\b/g, 'Socceroos');
         normalized.participantIds = canonicalIds;
-        normalized.participants = canonicalIds.map((id,index) => ({...(normalized.participants[index] || {}),
-          id, ...(id === 'team:football:socceroos' ? {name:'Socceroos',displayName:'Socceroos',countryCode:'AU'} : {})}));
+        const originals=normalized.participants;
+        normalized.participants = canonicalIds.map(id => {
+          const team=national.teamForId(id);
+          const participant=originals.find(item=>item.id&&national.canonicalId(item.id)===id)
+            || originals.find(item=>!item.id&&team?.aliases.some(alias=>alias.toLowerCase()===String(item.name||item.displayName||'').toLowerCase()));
+          return {...(participant||{}),id,
+            ...(id === 'team:football:socceroos' ? {name:'Socceroos',displayName:'Socceroos',countryCode:'AU'} : {})};
+        });
+        for(const field of ['homeParticipantId','awayParticipantId'])if(normalized[field])normalized[field]=national.canonicalId(normalized[field]);
         normalized.representativeCountryCodes = [...new Set([...normalized.representativeCountryCodes,'AU'])];
         normalized.isInternational = true;
         normalized.competitionScope = 'international';
