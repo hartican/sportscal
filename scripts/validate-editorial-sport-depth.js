@@ -4,6 +4,8 @@
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
+const {assessNarrative}=require('./lib/editorial-enrichment-readiness');
+require('./validate-editorial-enrichment-readiness');
 
 const DAY_MS = 86400000;
 const REFERENCE = Date.parse(process.env.NS_EDITORIAL_REFERENCE || new Date().toISOString());
@@ -42,14 +44,21 @@ const genericPatterns = [
 ];
 
 assert(targets.length > 0, "the rolling catalogue must contain editorial targets; every current target is checked below and each sport must be represented");
+const deferredEditorial=[];
+let retainedKnowledge;
+function hasRetainedProjection(record){
+  retainedKnowledge ||= JSON.parse(fs.readFileSync('data/editorial-knowledge.v1.json','utf8'));
+  return Boolean(require('./lib/editorial-narrative').projectionForTarget(retainedKnowledge,'feed-event',record));
+}
 function validateNarrative(record){
   const narrative = record.editorialNarrative;
   const cricket=require('../config/cricket-editorial-policy');
   if(cricket.isCricket(record)&&cricket.hasPolicy(narrative)){assert(cricket.complete(narrative),'Cricket requires an explicit reviewed evidence outcome.');return;}
-  assert(narrative?.hook, `${idFor(record)} (${record.name}) needs a researched L0 hook`);
-  assert(narrative?.synopsis, `${idFor(record)} (${record.name}) needs a researched L1/L2 narrative`);
-  assert(!genericPatterns.some(pattern => pattern.test(narrative.hook)), `${idFor(record)} (${record.name}) still has a generic L0 hook: ${narrative.hook}`);
-  assert(!genericPatterns.some(pattern => pattern.test(narrative.synopsis)), `${idFor(record)} (${record.name}) still has generic L1/L2 copy: ${narrative.synopsis}`);
+  const result=assessNarrative(record,{reference:REFERENCE,start:eventTime(record),stakes:stakesFor(record),genericPatterns,hasRetainedProjection});
+  if(result.status==='deferred'){
+    deferredEditorial.push(result);
+    console.warn(JSON.stringify({type:'deferred-optional-editorial',...result}));
+  }
 }
 
 for (const record of targets) validateNarrative(record);
@@ -71,6 +80,6 @@ for (const sport of ["football", "cricket", "afl"]){
   retainedSamples.push(idFor(sample));
 }
 
-console.log(`Editorial sport depth valid: ${targets.length} current targets and ${retainedSamples.length} retained off-season samples have non-generic L0 and L1/L2 narratives.`);
+console.log(`Editorial sport depth checked: ${targets.length} current targets, ${deferredEditorial.length} optional early previews deferred, ${retainedSamples.length} retained off-season samples checked.`);
 require('./validate-postseason-editorial');
 require('./lib/editorial-offline-checks').run();
