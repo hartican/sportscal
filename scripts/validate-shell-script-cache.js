@@ -6,6 +6,11 @@ const shell=worker.match(/const APP_SHELL = \[([\s\S]*?)\];/)?.[1];assert(shell,
 const cached=new Set([...shell.matchAll(/"([^"\n]+)"/g)].map(m=>m[1]));
 const shellVersion=index.match(/name="app-shell-version" content="(\d+)"/)?.[1];
 assert(shellVersion,'Page shell version exists');
+assert.equal(JSON.parse(fs.readFileSync('app-version.json','utf8')).version,shellVersion,'Public update metadata matches the page shell epoch');
+assert(worker.includes('const SHELL_VERSION = "'+shellVersion+'";'),'Worker shell epoch matches the page');
+assert(worker.includes('const CACHE_NAME = "nothingsport-shell-v'+shellVersion+'";'),'Worker cache epoch matches the page');
+const majorLoader=index.match(/moduleScriptUrl:\s*"(config\/major-events\.js\?v=\d+)"/)?.[1];
+assert(majorLoader&&cached.has('/'+majorLoader),'First Events open must use the exact pre-cached major-events module query');
 assert(index.includes('loadDeferredScript("config/preference-reset-ui.js?v="+document.querySelector'), 'Recovery UI follows the page shell version');
 assert(cached.has('/config/preference-reset-ui.js?v='+shellVersion),'Recovery UI must be pre-cached at the current page shell version');
 const scripts=[...index.matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)].map(m=>m[1]).filter(s=>!/^https?:/.test(s));
