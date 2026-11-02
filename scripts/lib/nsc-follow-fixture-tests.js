@@ -17,9 +17,9 @@ async function run(){
   paths.forEach(file=>delete require.cache[file]);
   try{
     const server=require("../../lib/nothingscore-server"),map=server.eventMap();
-    assert(map.has(ausId),"working Australian Championship control must remain registered");
+    assert(server.eventFor(ausId),"working Australian Championship control must resolve through the complete lookup");
     const nba=official.events.find(event=>event.id===nbaId);assert(nba,"retained NBA positive fixture exists");
-    assert(map.has(nbaId),"NBA fixture already supported by Follow/Feed must be registered for rating lookup");
+    assert(server.eventFor(nbaId),"NBA fixture already supported by Follow/Feed must resolve for rating lookup");
     const nbaFixtures=official.events.filter(event=>event.key==="nba");
     assert(nbaFixtures.length>1000,"the existing official NBA schedule remains the source");
     for(const fixture of nbaFixtures){
