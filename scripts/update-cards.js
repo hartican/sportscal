@@ -83,8 +83,9 @@ function parseOptions(argv = process.argv.slice(2), env = process.env) {
     if (reviewedEditorial.length !== 1 || !reviewedEditorial[0].slice(21) || ids.length !== 1 || !ids[0].slice(6) || !argv.includes('--local-only') || !argv.includes('--reviewed-fixtures') || !argv.includes('--editorial-projections') || new Set(argv).size !== argv.length || argv.some(arg => !allowed.has(arg) && !arg.startsWith('--ids=') && !arg.startsWith('--reviewed-editorial='))) throw Error('Reviewed editorial research requires exact IDs, one reviewed input and the local-only reviewed-fixtures/editorial-projections route. No source steps ran.');
     return {localOnly:true, reviewedEditorial:{ids:ids[0].slice(6).split(','), file:reviewedEditorial[0].slice(21)}};
   }
+  if(argv.includes('--repair-reviewed-identities')&&!argv.includes('--admit-reviewed-fixtures'))throw Error('Reviewed identity repair requires the reviewed fixture admission owner');
   if(argv.includes('--admit-reviewed-fixtures')){
-    const allowed=new Set(['--reviewed-fixtures','--admit-reviewed-fixtures','--local-only','-p']);
+    const allowed=new Set(['--reviewed-fixtures','--admit-reviewed-fixtures','--repair-reviewed-identities','--local-only','-p']);
     const selections=argv.filter(arg=>arg.startsWith('--ids='));
     if(!argv.includes('--reviewed-fixtures')||!argv.includes('--local-only')||selections.length!==1||!selections[0].slice(6)||new Set(argv).size!==argv.length||argv.some(arg=>!allowed.has(arg)&&!arg.startsWith('--ids=')))throw Error('Reviewed fixture admission requires only --reviewed-fixtures --admit-reviewed-fixtures --ids=<reviewed IDs> --local-only. No writes or source steps ran.');
     return {localOnly:true};
@@ -932,7 +933,7 @@ async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()
     const editorialProjections=process.argv.includes('--editorial-projections');
     const admitMajor=process.argv.includes('--admit-major-subevents');
     const admitReviewed=process.argv.includes('--admit-reviewed-fixtures');
-    let admission=admitReviewed?require('./lib/reviewed-fixture-admission').load(ids.slice(6).split(',')):null;
+    let admission=admitReviewed?require('./lib/reviewed-fixture-admission').load(ids.slice(6).split(','),{repairIdentities:process.argv.includes('--repair-reviewed-identities')}):null;
     if(admitReviewed&&!admission.changed){console.log('Reviewed fixtures already present on both Feed surfaces; no rebuild needed.');return;}
     if(admitMajor){
       admission=preparedMajorAdmission||require('./lib/major-event-feed-admission').prepare({
@@ -955,7 +956,7 @@ async function runMain({f1StartedAt=require('node:perf_hooks').performance.now()
     }
     if(admission){
       require(admitReviewed?'./lib/reviewed-fixture-admission':'./lib/major-event-feed-admission').writePrepared(admission);
-      console.log(JSON.stringify({reviewedAdmission:admission.added}));
+      console.log(JSON.stringify({reviewedAdmission:admission.added,repairedIdentities:admission.repaired||[]}));
     }
     if(editorialProjections){
       const repaired=require('./apply-editorial-narratives').applyScopedFeed(ids.slice(6).split(','));
@@ -1207,7 +1208,7 @@ async function main(){
   if(process.argv.includes('--admit-reviewed-fixtures')){
     // Reject scope/source/collisions before the existing recovery owner writes.
     const ids=process.argv.find(argument=>argument.startsWith('--ids=')).slice(6).split(',');
-    const admission=require('./lib/reviewed-fixture-admission').load(ids);
+    const admission=require('./lib/reviewed-fixture-admission').load(ids,{repairIdentities:process.argv.includes('--repair-reviewed-identities')});
     if(!admission.changed){console.log('Reviewed fixtures already present on both Feed surfaces; no rebuild needed.');return;}
     const manifest=JSON.parse(fs.readFileSync('data/code-inspector/manifest.json'));
     require('./lib/reviewed-fixture-projection-codes').codesForReviewedFixtures(admission.published.events,ids,manifest,file=>JSON.parse(fs.readFileSync(file)));
