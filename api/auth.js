@@ -259,7 +259,8 @@ module.exports = async function authHandler(request, response){
         body:{ email, password },
       });
       let metadataDeferred = false;
-      if (signup?.user?.id){
+      // A confirmation-only reply does not establish ownership of a returned ID.
+      if (signup?.access_token && signup?.user?.id){
         try{
           await supabaseServiceRequest("/rest/v1/nothingsports_user_meta?on_conflict=user_id", {
             method:"POST",
@@ -288,7 +289,7 @@ module.exports = async function authHandler(request, response){
         }
       }
       response.status(200).json({
-        user:signup?.user ? publicUser(signup.user) : null,
+        user:signup?.access_token && signup?.user ? publicUser(signup.user) : null,
         session:signup?.access_token ? signup : null,
         confirmationRequired:!signup?.access_token,
         metadataDeferred,

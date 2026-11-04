@@ -1,5 +1,13 @@
 #!/usr/bin/env node
 
+// Narrow changed-boundary mode avoids rerunning the existing persistence suite.
+if (process.argv[2] === "--signup-setup-only") {
+  require("./lib/signup-setup-tests")().catch(error => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+} else {
+
 const assert = require("node:assert/strict");
 const crypto = require("node:crypto");
 const fs = require("node:fs");
@@ -822,6 +830,8 @@ async function run(){
   assert.equal(browserMergedSettings.viewing.startHourLocal, 9, "browser hydration must prefer the incoming server value");
   assert.deepEqual(browserMergedSettings.selectedBroadcasters, [], "explicit empty selections must remain explicit");
 
+  await require("./lib/signup-setup-tests")();
+
   console.log("Server persistence valid: password auth and recovery, privacy-safe reset requests, RLS ownership, conditional patches and isolated browser recovery state passed.");
 }
 
@@ -829,3 +839,4 @@ run().catch(error => {
   console.error(error);
   process.exitCode = 1;
 });
+}

@@ -251,7 +251,7 @@ function renderStartupMetadataSettings(body){
     <section class="filter-panel"><h3>Major events</h3><p class="preference-help">Optional. Pick the big event families you actively want.</p><div class="setup-choice-grid" id="startupEventsGrid"></div></section>
     <section class="filter-panel"><h3>Set location</h3><p class="preference-help">City, postcode or area only. Coordinates are rounded and the default radius is 20 km.</p><div class="setup-location-grid"><label class="field-label">City, postcode or area<input id="startupLocationQuery" type="search" value="${meta.location.label.replace(/"/g, "&quot;")}" maxlength="120" autocomplete="postal-code" placeholder="e.g. Sydney or 2000"></label><label class="field-label">Radius<select id="startupRadius">${[1,5,10,20,50,100,200,300].map(km => `<option value="${km}" ${meta.location.radiusKm === km ? "selected" : ""}>${km} km</option>`).join("")}</select></label></div><div class="account-sync-actions"><button class="btn ghost" type="button" id="findStartupLocationBtn">Find location</button><button class="btn ghost" type="button" id="useCurrentLocationBtn">Use current location</button></div><p class="preference-help" id="startupLocationStatus">${meta.location.label ? `${meta.location.label}${meta.location.region ? `, ${meta.location.region}` : ""} · ${meta.location.radiusKm} km` : "No location set yet."}</p></section>
     <section class="filter-panel"><h3>Offers you might actually use</h3><p class="preference-help">Optional, lightweight ad relevance metadata. It does not change Feed eligibility.</p><div class="setup-choice-grid" id="startupOffersGrid"></div><label class="pilot-disclosure setup-consent"><input id="personalisedOffersConsent" type="checkbox" ${meta.personalisedOffersConsent ? "checked" : ""}><span><strong>Allow personalised offers later</strong>This is separate, optional consent. A Supabase admin can edit your seed preferences but cannot grant this consent for you.</span></label></section>
-    <section class="filter-panel"><h3>Create an account</h3><p class="preference-help">Optional for now. A verified account keeps this setup and future follows connected across devices.</p><div class="setup-location-grid"><label class="field-label">Email<input id="startupAccountEmail" type="email" autocomplete="username" maxlength="254" placeholder="you@example.com"></label><label class="field-label">Password<input id="startupAccountPassword" type="password" autocomplete="new-password" minlength="8" maxlength="1024" placeholder="8+ characters"></label></div><button class="btn ghost" id="startupCreateAccountBtn" type="button">Create verified account</button><p class="preference-help" id="startupAccountStatus" role="status" aria-live="polite">Or continue with a local profile.</p></section>
+    <section class="filter-panel"><h3>Create an account</h3><p class="preference-help">An account lets you sync across devices. You can also use Nothing Sport on this device without one.</p><div class="setup-location-grid"><label class="field-label">Email<input id="startupAccountEmail" type="email" autocomplete="username" maxlength="254" placeholder="you@example.com"></label><label class="field-label">Password<input id="startupAccountPassword" type="password" autocomplete="new-password" minlength="8" maxlength="1024" placeholder="8+ characters"></label></div><button class="btn ghost" id="startupCreateAccountBtn" type="button">Create account</button><p class="preference-help" id="startupAccountStatus" role="status" aria-live="polite">Saving Feed setup does not create an account.</p><button class="btn ghost" id="startupSaveSetupSignInBtn" type="button" style="display:none">Save setup and return to sign in</button></section>
   </div>`;
   document.getElementById('startupFantasyDeadlines').addEventListener('change',event=>{
     draftPreferences.fantasyDeadlines=globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.onboardingChoice(event.target.checked);
@@ -299,15 +299,46 @@ function renderStartupMetadataSettings(body){
     try{ await useCurrentSetupLocation(); }
     catch(error){ status.textContent = error.message || "Location permission was not granted."; }
   });
+  const signupSettingsContext = settingsViewportAnchor;
+  let confirmationLifetime = null;
+  const saveSetupSignIn = document.getElementById("startupSaveSetupSignInBtn");
+  saveSetupSignIn.addEventListener("click", () => {
+    const status = document.getElementById("startupAccountStatus");
+    if (!status?.isConnected || settingsSection !== "startup" || settingsViewportAnchor !== signupSettingsContext) return;
+    const life = serverSyncClient.accountSnapshot();
+    if (!confirmationLifetime || confirmationLifetime.hasSession || life.hasSession
+        || life.generation !== confirmationLifetime.generation || life.accountId !== confirmationLifetime.accountId
+        || serverPersistence.user){
+      status.textContent = "Your sign-in changed. Reopen setup before saving these choices.";
+      return;
+    }
+    if (!saveSettingsPreferences()){
+      status.textContent = "Setup save could not be confirmed. Your choices are still in this window.";
+      return;
+    }
+    openSettings({ section:"account" });
+  });
   document.getElementById("startupCreateAccountBtn").addEventListener("click", async () => {
     const status = document.getElementById("startupAccountStatus");
     const email = document.getElementById("startupAccountEmail").value.trim();
     const password = document.getElementById("startupAccountPassword").value;
     status.textContent = "Creating your account…";
+    confirmationLifetime = null;
+    saveSetupSignIn.style.display = "none";
     try{
       const result = await serverSyncClient.signUp(email, password, startupMetaDraft());
-      if (result.session){ await bootstrapServerPersistence(); status.textContent = "Account created and connected."; }
-      else status.textContent = "Check your email to verify the account, then sign in from Settings.";
+      if (result.session){
+        const connection = await bootstrapServerPersistence();
+        status.textContent = connection?.state === "signedIn" && Boolean(result.user?.id)
+          && connection.user?.id === result.user.id
+          ? "Account created and connected."
+          : "Account created. Profile sync is not yet confirmed. Open Account to check.";
+      }
+      else {
+        status.textContent = "Check your email to verify the account, then sign in from Settings.";
+        confirmationLifetime = serverSyncClient.accountSnapshot();
+        saveSetupSignIn.style.display = "";
+      }
     }catch(error){ status.textContent = error.message || "The account could not be created."; }
   });
 }
