@@ -39,6 +39,19 @@ on:
       - scripts/validate-all-sports-card-fallback.js
       - scripts/validate-card-dismissal-learning.js
       - scripts/validate-shared-chat-ui.js
+      - api/feed.js
+      - lib/live-fixtures.js
+      - lib/live-fixture-handler.js
+      - lib/fixture-source-groups.js
+      - lib/fixture-source-groups-v2.js
+      - lib/calendar-handler.js
+      - scripts/lib/global-app-adapter-qualification.js
+      - scripts/verify-global-app-adapter.js
+      - scripts/validate-hobby-feed-cache.js
+      - scripts/validate-calendar-api.js
+      - scripts/validate-production-sql-batches.js
+      - package.json
+      - package-lock.json
 
 permissions:
   contents: read
@@ -48,7 +61,43 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  fixture-activation:
+    name: Fixture activation / remaining three checks
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24.21.0
+      - name: Record exact source and runtime in job log
+        env:
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          node <<'JS'
+          const cp=require('node:child_process');
+          const git=(...args)=>cp.execFileSync('git',args,{encoding:'utf8'}).trim();
+          console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,eventSha:process.env.GITHUB_SHA,node:process.version,platform:process.platform,arch:process.arch,limits:'Three remaining source/mock activation checks. Not production SQL, hosted wire or physical iPhone acceptance.'},null,2));
+          JS
+      - name: Install existing locked dependencies
+        run: npm ci
+      - name: Verify actual exported Feed activation
+        timeout-minutes: 2
+        run: node scripts/validate-hobby-feed-cache.js
+      - name: Verify subscription calendar activation
+        timeout-minutes: 2
+        run: node scripts/validate-calendar-api.js
+      - name: Verify guarded production workflow contract
+        timeout-minutes: 2
+        run: node scripts/validate-production-sql-batches.js
   installed-upgrade:
+    needs: fixture-activation
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-24.04
     timeout-minutes: 15
