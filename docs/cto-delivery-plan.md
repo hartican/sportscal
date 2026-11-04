@@ -1,7 +1,9 @@
-# CTO delivery programme — authoritative current queue
+# CTO delivery programme — scope and dated history
+
+Current implementation, priority and release status are now maintained only in GitHub PRs and the pinned [Release Queue](https://github.com/hartican/sportscal/issues/28). This document retains approved programme scope and dated history; its earlier “current” banners are not live queue instructions. Cricket584/d567ac0f is accepted in issue28. Later account repairs, full Public Feed/All Sports authorisation and exact release acceptance are recorded there; historical deferred/order banners below are superseded and must not drive current work.
 
 <!-- CURRENT-QUEUE-20261023-START -->
-## Current queue — 23 October 2026
+## Historical pre-acceptance checkpoint — 23 October 2026
 
 **Live deployment:** app584, commit `b8c9186c97acf6f8a9f954197a1ce0f60a1046c5`, is READY and serves its exact published files, but required workflow39876835774 FAILED public fixture acceptance. This is not an accepted release. Its Match Centre check and seven security routes passed; the global fixture route returned HTTP503. App583 remains the previous normally accepted workflow snapshot, with repeated loading reliability still unresolved.
 
@@ -19,7 +21,7 @@ Current receipts: `/Users/jackhartican/Documents/AI/Codex/nothingsport-cricket-g
 
 ## Dated evidence and queue history
 
-The checkpoints below retain their original dates, failures and instructions. Earlier “current”, “active”, unpublished or last-live statements describe those historical checkpoints; use the current summary above for present release state. Explicit product decisions and later queued scopes remain authoritative unless subsequently superseded.
+The checkpoints below retain their original dates and failures. Earlier “current”, “active”, unpublished or last-live statements describe those historical checkpoints. Use GitHub PRs and Release Queue issue28 for present priority/status. Explicit product decisions and approved scope remain authoritative unless subsequently superseded.
 <!-- CURRENT-QUEUE-20261023-END -->
 
 

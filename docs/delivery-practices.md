@@ -1,6 +1,6 @@
 # Delivery practices for the invited-cohort MVP
 
-The implementation backlog is `docs/cto-delivery-plan.md`. Sports-demand capture stays in the authoritative ignored local register; recording demand does not create an implementation commitment. Follow and backend decisions remain in their existing decision records. Do not create parallel priority lists.
+GitHub PRs are the implementation source of truth. The single pinned [Release Queue](https://github.com/hartican/sportscal/issues/28) records live priority, owner, dependencies and status; [release procedure](release-queue.md). `docs/cto-delivery-plan.md` retains programme scope and dated history. Sports-demand capture stays in the authoritative ignored local register; recording demand does not create an implementation commitment. Follow and backend decisions remain in their existing decision records. Do not create parallel priority lists.
 
 Owner communication — 5 October: explain work in lay terms by default. Lead with what changed, how it affects the user and what remains. Keep code, test logs, identifiers and detailed reasoning in the saved evidence unless the owner asks for technical detail. Give one recommended next action and keep progress updates brief.
 
