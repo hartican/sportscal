@@ -365,6 +365,12 @@ self.addEventListener("fetch", event => {
     event.respondWith(fetch(event.request, { cache:"no-store" }));
     return;
   }
+  // Private dashboard entries must never use shell cache or navigation fallback.
+  // The entry/API transport also remains safe under older controlling workers.
+  if (/^\/admin\/dashboard(?:\/|$)/.test(decodedPath)){
+    event.respondWith(fetch(event.request, { cache:"no-store", redirect:"error" }).catch(() => new Response("Private dashboard unavailable offline", {status:503,headers:{"Cache-Control":"private, no-store, max-age=0","Content-Type":"text/plain"}})));
+    return;
+  }
   if (event.clientId && event.request.mode !== "navigate"){
     event.waitUntil(self.clients.get(event.clientId).then(recoverInstalledClient).catch(() => {}));
   }

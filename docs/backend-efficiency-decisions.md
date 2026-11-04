@@ -1,5 +1,37 @@
 # Backend efficiency decisions
 
+## 4 November 2026 — hosted dashboard automatic updates
+
+Jack requested finishing the hosted dashboard and automatic refresh without delaying RLWC/Follow. This supersedes manual-only refresh as the dashboard product requirement; it does not record an activated schedule. Reuse one scheduler owner and existing services. Target 15-minute incremental queue checks plus an exact verified-release completion hook. Preserve source clocks, atomic last-good publication, bounded requests and private sanitized data. Page loads still perform no source collection. Owner binding, service usage/spend facts, scheduler authentication, durable writer lease/CAS and managed/native acceptance remain prerequisites for activation. No new credential, paid tier, heavy test lane or access grant has been introduced. See the concrete implementation gaps in [HOSTED.md](../scripts/ns-dashboard/HOSTED.md#4-november-2026-automatic-refresh-requirement).
+
+## 2 November 2026 — private dashboard source candidate
+
+Jack approved the existing-project hosted dashboard with selected sanitized
+operational summaries and Jack-only access, after the existing urgent release. Source-only
+implementation and synthetic qualification may proceed while exact owner binding
+and resource/spend facts remain unresolved. No actual bucket write or access
+enablement precedes those prerequisites and normal sole-publisher review.
+
+The manual nsDASHBOARD owner reuses retained sources and the existing collector;
+there is no new schedule, page-load collection, customer-data reader or worker.
+Each protected page/data response rechecks the verified immutable owner, current
+admin role and live session. The one request budget is at most5backend calls
+within5seconds through complete bodies (one auth RPC, pointer/snapshot/status,
+only one explicit previous-snapshot fallback), no retries or redirects. Fixed
+caps are4KiB pointer/8KiB status/256KiB snapshot, two snapshots maximum; the524KiB
+logical bound is not a spending hard cap or free-usage claim. An error retains
+the last good pointer/counts; unknown observations do not become zero or fresh.
+
+Canonical entries are nonsensitive non-2xx bootstraps in a separate function;
+private view HTML/data use the existing API-only worker bypass. This prevents
+old606/607 success-navigation caches from writing private HTML as public index.
+The public entry has zero provider reads; foreground/history reauthorization
+clears private DOM and does no collection/polling. A future protected-path worker
+guard is defense in depth. Rebase on accepted live source and assign forward
+epochs only through normal RELEASE/PUBLISH; no current607 or version reservation.
+
+[Source contract and unrun acceptance](../scripts/ns-dashboard/HOSTED.md).
+
 ## Australian Championship bounded result preparation — 31 October 2026
 
 The existing canonical `update-cards.js --australian-championship` owner has an
