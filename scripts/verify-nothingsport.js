@@ -13,6 +13,7 @@ const sportHubs = require("../config/sport-hubs.js");
 const { createCanonicalSportsIndex } = require("./lib/canonical-sports");
 
 const settingsSource = fs.readFileSync("config/fantasy-deadline-ui.js", "utf8");
+const followPresentationSource = fs.readFileSync("assets/js/follow-presentation-ui.js", "utf8");
 const html = require("./app-shell-test-utils").readCardApplicationSource() + "\n" + settingsSource;
 const notFoundHtml = fs.readFileSync("404.html", "utf8");
 const privacyHtml = fs.readFileSync("privacy.html", "utf8");
@@ -83,8 +84,23 @@ assert(scriptMatch, "index.html must contain an inline app script");
 assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app script must parse");
 
 const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab="([^"]+)"/g), match => match[1]);
-assert.deepEqual(tabOrder, ["feed", "events", "follow"], "Feed, Events and Follow must remain the ordered routed destinations");
-assert(!html.includes('id="tuneNavBtn"') && html.includes("follow-more-trigger"), "Follow must own the sport directory without a duplicate primary destination");
+assert.deepEqual(tabOrder, ["feed", "match-centre", "follow"], "Feed, Match Centre and Follow must remain the ordered routed destinations");
+const followPresentationLoaderSource = html.match(/function loadFollowPresentation\(\)\{([\s\S]*?)\n\}/)?.[1] || "";
+const followPresentationOwnerSource = html.match(/function renderFollowView\(\)\{([\s\S]*?)\n\}/)?.[1] || "";
+assert(
+  !html.includes('id="tuneNavBtn"')
+    && followPresentationSource.includes("const more=document.createElement('button');more.type='button';more.className=`follow-sport-icon follow-more-trigger")
+    && followPresentationSource.includes("more.setAttribute('aria-haspopup','dialog')")
+    && followPresentationSource.includes("more.setAttribute('aria-label','More sports')")
+    && followPresentationSource.includes("const dialog=document.createElement('dialog');dialog.className='follow-more-dialog';dialog.setAttribute('aria-label','More sports')")
+    && /const url='assets\/js\/follow-presentation-ui\.js\?v=\d+';/.test(followPresentationLoaderSource)
+    && followPresentationLoaderSource.includes("loadDeferredScript(url)")
+    && followPresentationLoaderSource.includes("typeof globalThis.renderFollowViewLoaded!=='function'")
+    && followPresentationOwnerSource.includes("if(activeTab!=='follow')return;")
+    && followPresentationOwnerSource.includes("if(typeof globalThis.renderFollowViewLoaded==='function')return globalThis.renderFollowViewLoaded();")
+    && followPresentationOwnerSource.includes("showFollowPresentationLoading(container,renderFollowView,()=>activeTab==='follow'&&followHomeView==='browse')"),
+  "Follow must own the sport directory without a duplicate primary destination",
+);
 assert(!html.includes("Code Inspector"), "the retired Code Inspector label must not remain user-facing");
 const requiredSlogan = "Live sport, nothing missed.";
 assert.equal(brand.descriptor, requiredSlogan, "the canonical descriptor must match the supplied slogan exactly");
@@ -555,9 +571,9 @@ assert(spoilerControlSource.includes('setGlobalSpoilerPreference(false,{notify:t
 assert(spoilerControlSource.includes('Show results?')&&spoilerControlSource.includes('Keep results OFF')&&spoilerControlSource.includes('setGlobalSpoilerPreference(true,{notify:true})'), "the active Results toggle must retain its explicit reveal confirmation and cancel choice");
 assert(!/Protect event details|Reveal event details/.test(html), "obsolete event-detail protection copy must be removed everywhere");
 assert(html.includes("applyFeedEvents(events, {") && html.includes("publicFeedManifest.sourceVersion"), "paged-feed Refresh must run each public page through the canonical lifecycle rebuild");
-assert(html.includes('id="feedbackForm"'), "Feedback must use a structured SMS form");
+assert(html.includes('id="feedbackForm"'), "Feedback must use a structured email form");
 assert(html.includes("Add a competition") && html.includes("Feature request"), "Feedback must expose the standard categories");
-assert(html.includes("0437 041 326"), "Feedback UI must identify the configured SMS recipient");
+assert(html.includes("hello@nothingsport.com"), "Feedback UI must identify the configured email recipient");
 assert(!html.includes("b.textContent = \"Coming Up\"") && !html.includes("b.textContent = \"PAST\""), "generic future and past status tags must remain removed");
 assert(html.includes('chip.className = `event-timing-state ${timing.key}`') && html.includes('timing.label'), "cards must render the shared Starts Soon, Live Now and Just Finished resolver beside time");
 assert(spoilerControlSource, "the active global Results control must exist");
@@ -1021,7 +1037,7 @@ globalThis.__test = {
   retrospectiveSignificanceForEvent,
   formatFeedbackTimestamp,
   buildFeedbackMessage,
-  buildFeedbackSmsUrl,
+  buildFeedbackEmailUrl,
   sortUpcomingFirst,
   calendarTimelineEvents,
   eventDateLabel,
@@ -2142,6 +2158,10 @@ const feedbackMessage = app.buildFeedbackMessage("Bug report", "Calendar card ov
 assert.match(feedbackMessage, /^Nothing Sport feedback/);
 assert.match(feedbackMessage, /Category: Bug report/);
 assert.match(feedbackMessage, /Sent from Nothing Sport$/);
-assert.match(app.buildFeedbackSmsUrl("Bug report", "Calendar card overlaps", new Date("2026-07-16T10:00:00Z")), /^sms:0437041326\?&body=/);
+const feedbackEmailUrl = new URL(app.buildFeedbackEmailUrl("Bug report", "Calendar card overlaps & details?", new Date("2026-07-16T10:00:00Z")));
+assert.equal(feedbackEmailUrl.protocol, "mailto:");
+assert.equal(feedbackEmailUrl.pathname, "hello@nothingsport.com");
+assert.equal(feedbackEmailUrl.searchParams.get("subject"), "Nothing Sport feedback: Bug report");
+assert.equal(feedbackEmailUrl.searchParams.get("body"), app.buildFeedbackMessage("Bug report", "Calendar card overlaps & details?", new Date("2026-07-16T10:00:00Z")));
 
 console.log("nothingsport phase rules verified");
