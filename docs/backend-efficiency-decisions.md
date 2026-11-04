@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## 4 November 2026 — hosted dashboard automatic updates
+
+Jack requested finishing the hosted dashboard and automatic refresh without delaying RLWC/Follow. This supersedes manual-only refresh as the dashboard product requirement; it does not record an activated schedule. Reuse one scheduler owner and existing services. Target 15-minute incremental queue checks plus an exact verified-release completion hook. Preserve source clocks, atomic last-good publication, bounded requests and private sanitized data. Page loads still perform no source collection. Owner binding, service usage/spend facts, scheduler authentication, durable writer lease/CAS and managed/native acceptance remain prerequisites for activation. No new credential, paid tier, heavy test lane or access grant has been introduced. See the concrete implementation gaps in [HOSTED.md](../scripts/ns-dashboard/HOSTED.md#4-november-2026-automatic-refresh-requirement).
+
 ## 2 November 2026 — private dashboard source candidate
 
 Jack approved the existing-project hosted dashboard with selected sanitized

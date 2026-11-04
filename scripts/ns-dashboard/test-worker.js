@@ -79,14 +79,14 @@ for (const old of legacy) {
     const w = worker(old.source);
     for (const [url, view] of [['/admin/dashboard','overview'],['/admin/dashboard/delivery','delivery'],['/admin/dashboard/queue','queue'],['/admin/dashboard/evidence','evidence']]) {
       const entry = await w.request(url, { mode: 'navigate' }); assert.equal(entry.status, 401); assert.equal((await entry.text()).includes('Selection-saving update'), false);
-      const data = await w.request('/api/admin/dashboard/view/' + view, { headers: { 'X-NS-Dashboard-Transport': 'fetch-v1' } }); assert.equal(data.status, 200);
+      const data = await w.request('/api/admin/dashboard/view/' + view, { headers: { Authorization: 'Bearer ' + token(), 'X-NS-Dashboard-Transport': 'fetch-v1' } }); assert.equal(data.status, 200);
       if (view === 'overview') assert.match(await data.text(), /Selection-saving update/);
       assert.equal(await w.index(), PUBLIC); assert.equal(w.writes.length, 0);
     }
     assert.equal((await w.request('/api/admin/dashboard/session', { method: 'DELETE' })).status, 204);
-    const denied = await w.request('/api/admin/dashboard/view/overview', { headers: { 'X-NS-Dashboard-Transport': 'fetch-v1' } }); assert.equal(denied.status, 401); assert.equal((await denied.text()).includes('Selection-saving update'), false);
+    const denied = await w.request('/api/admin/dashboard/view/overview', { headers: { Authorization: 'Bearer ' + token(), 'X-NS-Dashboard-Transport': 'fetch-v1' } }); assert.equal(denied.status, 401); assert.equal((await denied.text()).includes('Selection-saving update'), false);
     w.state.offline = true;
-    await assert.rejects(w.request('/api/admin/dashboard/view/overview', { headers: { 'X-NS-Dashboard-Transport': 'fetch-v1' } }), /offline/);
+    await assert.rejects(w.request('/api/admin/dashboard/view/overview', { headers: { Authorization: 'Bearer ' + token(), 'X-NS-Dashboard-Transport': 'fetch-v1' } }), /offline/);
     const entry = await w.request('/admin/dashboard', { mode: 'navigate' }); assert.equal(await entry.text(), PUBLIC); assert.equal(await w.index(), PUBLIC); assert.equal(w.writes.length, 0);
   });
 }
@@ -133,7 +133,10 @@ function browser(w, serialized = false) {
     fetch: (url, options = {}) => w.request(url, options), NOTHINGSPORTS_SERVER_SYNC: { PERSISTENT_SESSION_STORAGE_KEY: 'synthetic-persistent', SESSION_STORAGE_KEY: 'synthetic-session' },
   };
   const api = serialized ? vm.runInNewContext(entryScript('overview'), { window: root }, { timeout: 1000 }) : bootDashboard(root, '/api/admin/dashboard/view/overview');
-  return { root, doc, api, element, async emit(type, event = {}) { for (const fn of callbacks.get(type) || []) fn(event); await new Promise(setImmediate); }, content() { return element('dashboard-view').nodes.join(''); } };
+  const storage = new Map([['synthetic-persistent', JSON.stringify({ accessToken: token() })]]);
+  root.localStorage = { getItem: key => storage.get(key) || null };
+  root.sessionStorage = { getItem: () => null };
+  return { root, doc, api, element, storage, async emit(type, event = {}) { for (const fn of callbacks.get(type) || []) fn(event); await new Promise(setImmediate); }, content() { return element('dashboard-view').nodes.join(''); } };
 }
 test("serialized CSP-bound entry client mounts only through API and clears/rechecks visibility", async () => {
   const w = worker(legacy[0].source), b = browser(w, true); await b.api.load(); assert.match(b.content(), /Selection-saving update/);
@@ -159,4 +162,33 @@ test("offline/logout clear private view and late in-flight success cannot restor
 test("unacknowledged logout clears view without claiming server session closed", async () => {
   const b = browser(worker(legacy[0].source)); await b.api.load(); b.root.fetch = async () => { throw new Error('offline'); };
   await b.api.closeSession(); assert.equal(b.content(), ''); assert.match(b.element('dashboard-status').textContent, /reconnect to close/);
+});
+
+test("NS account switch/logout never remounts with retained valid owner cookie", async () => {
+  for (const event of ['storage', 'pageshow', 'visibilitychange', 'ns-account-change']) {
+    for (const value of [null, token({ sub: require('./hosted-test-fixture').OTHER })]) {
+      const w = worker(legacy[0].source), b = browser(w);
+      await b.api.load(); assert.match(b.content(), /Selection-saving update/);
+      if (value) b.storage.set('synthetic-persistent', JSON.stringify({ accessToken: value }));
+      else b.storage.delete('synthetic-persistent');
+      const reads = w.state.api.calls.length;
+      await b.emit(event, { key: 'synthetic-persistent' });
+      assert.equal(b.content(), ''); assert.equal(w.state.api.calls.length, reads);
+      assert.ok(w.state.cookie); // The old cookie/session remains valid throughout this case.
+    }
+  }
+});
+
+test("account changes during a successful private response cannot mount old bytes", async () => {
+  const w = worker(legacy[0].source), b = browser(w);
+  const original = b.root.fetch; let release, requested;
+  const ready = new Promise(resolve => { requested = resolve; });
+  b.root.fetch = async (url, options) => {
+    if (url.includes('/view/')) { requested(); return new Promise(resolve => { release = resolve; }); }
+    return original(url, options);
+  };
+  const pending = b.api.load(); await ready;
+  b.storage.delete('synthetic-persistent');
+  release(new Response('<main>' + CANARY + '</main>', { headers: { 'Content-Type': 'text/html' } }));
+  await pending; assert.equal(b.content(), '');
 });

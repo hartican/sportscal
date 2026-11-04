@@ -109,11 +109,11 @@ test("session exchange requires same-origin verified bearer and sets only bounde
   assert.match(r.headers["set-cookie"], /^__Host-ns-dashboard=/); assert.match(r.headers["set-cookie"], /Path=\/; Secure; HttpOnly; SameSite=Lax; Max-Age=900$/); assert.equal(r.body, undefined);
   const body = await h.run("session", { method: "POST", headers: { origin: "https://www.nothingsport.app", authorization: "Bearer " + token(), "content-length": "2" } }); assert.equal(body.statusCode, 400);
   const end = await h.run("session", { method: "DELETE", headers: { origin: "https://www.nothingsport.app" } }); assert.equal(end.statusCode, 204); assert.match(end.headers["set-cookie"], /Max-Age=0/);
-  assert.equal(/refresh_token|password|localStorage|sessionStorage/.test(entryScript("overview")), false);
+  assert.equal(/refresh_token|password|setItem|removeItem/.test(entryScript("overview")), false);
 });
 test("refreshing/error/stale facts retain last-good counts and separate source clock", async () => {
   for (const state of ["refreshing", "error"]) { const h = harness(); h.set("refresh/status.json", { schemaVersion: "ns-dashboard-refresh.v1", state, attemptedAt: AS_OF, errorCode: state === "error" ? "refresh_failed" : null }); const r = await h.run("data"); assert.equal(r.statusCode, 200); assert.equal(r.body.projection.currentBacklogAtCollection.open, 2); assert.equal(r.body.projection.freshness.state, state === "error" ? "error" : "loading"); assert.equal(r.body.projection.currentBacklogAtCollection.cutoff, AS_OF); }
-  const h = harness({ now: NOW + 2 * 86400000 }); const r = await h.run("overview", { headers: { cookie: COOKIE + "=" + token({ exp: NOW / 1000 + 2 * 86400 + 3600 }) } }); assert.equal(r.statusCode, 200); assert.match(r.body, /Stale snapshot/);
+  const h = harness({ now: NOW + 2 * 86400000 }); const r = await h.run("overview", { headers: { cookie: COOKIE + "=" + token({ exp: NOW / 1000 + 2 * 86400 + 3600 }), authorization: "Bearer " + token({ exp: NOW / 1000 + 2 * 86400 + 3600 }) } }); assert.equal(r.statusCode, 200); assert.match(r.body, /Stale snapshot/);
 });
 test("bad current hash falls back only to explicit previous valid snapshot; missing data is not zero", async () => {
   const h = harness(); h.set("latest.json", { schemaVersion: "ns-dashboard-latest.v1", sha256: "b".repeat(64), publishedAt: AS_OF, previous: { sha256: h.s.sha256, publishedAt: AS_OF } }); h.set("snapshots/" + "b".repeat(64) + ".json", Buffer.from('not the recorded hash'));
