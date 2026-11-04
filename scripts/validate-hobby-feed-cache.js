@@ -255,6 +255,20 @@ async function main(){
   const event=Object.freeze({id:'frozen',key:'afl',date:'2026-09-15',startTimeUtc:'2026-09-15T04:00:00Z',participantIds:Object.freeze([]),storyline:Object.freeze({stakes:3})});
   pipeline.buildServerFeed({events:[event],userId:'a',userState:{},now:new Date('2026-09-15T03:00:00Z'),copyEvents:false});
   assert.equal(event.status,undefined);
+
+  const dictionary=require('../lib/fixture-source-groups-v2'),transportOptions=[];
+  assert.throws(()=>createFeedHandler({globalSnapshotTransport:{...dictionary.CANDIDATE}}));
+  const transportData={...data,canonicalSportContext:{participants:[{id:'team:nrl:qa',key:'nrl',sport:'rugby-league'}]},authenticatedUser:async()=>({id:'dictionary-account'}),readLiveSnapshots:async options=>{transportOptions.push(options);return {revision:'dictionary-feed',sources:[],stale:false};},buildServerFeed:({now})=>({events:[],generatedAt:now.toISOString()})};
+  const privateFeed=createFeedHandler({globalSnapshotTransport:dictionary.CANDIDATE,load:()=>transportData,authenticate:()=>transportData,clock:()=>new Date('2026-09-15T03:00:00Z')});
+  let transportResponse=response();await privateFeed({method:'GET',url:'/api/feed',headers:{}},transportResponse);assert.equal(transportResponse.statusCode,200);assert.equal(transportOptions[0].globalTransport,dictionary.CANDIDATE);
+  transportResponse=response();await privateFeed({method:'GET',url:'/api/feed?scope=match-centre',headers:{}},transportResponse);assert.equal(transportResponse.statusCode,200);assert.equal(transportOptions[1].scope,'match-centre');assert(!Object.hasOwn(transportOptions[1],'globalTransport'));
+  transportResponse=response();await privateFeed({method:'GET',url:'/api/feed?scope=athletes&participantId=team%3Anrl%3Aqa',headers:{}},transportResponse);assert.equal(transportResponse.statusCode,200);assert.equal(transportOptions[2].scope,'participants');assert(!Object.hasOwn(transportOptions[2],'globalTransport'));
+  let overridden=0;
+  const customLive=createFeedHandler({globalSnapshotTransport:dictionary.CANDIDATE,live:()=>async(req,res)=>{overridden++;res.status(200).json({custom:true});}});
+  transportResponse=response();await customLive({method:'GET',url:'/api/feed?route=fixtures',headers:{}},transportResponse);assert.equal(overridden,1);assert.equal(transportResponse.body.custom,true);assert.equal(transportOptions.length,3);
+  const defaultOptions=[],ordinaryFeed=createFeedHandler({load:()=>({...transportData,readLiveSnapshots:async options=>{defaultOptions.push(options);return {revision:'default-feed',sources:[],stale:false};}}),authenticate:()=>transportData,clock:()=>new Date('2026-09-15T03:00:00Z')});
+  transportResponse=response();await ordinaryFeed({method:'GET',url:'/api/feed?globalSnapshotTransport=v2',headers:{'x-ns-fixture-source-groups':'v2'}},transportResponse);assert.equal(transportResponse.statusCode,200);assert.equal(defaultOptions[0],undefined);
+
   require('./validate-feed-initialization-boundary');
   console.log('Feed cache: private auth/state/revision isolation, TTL, midnight/start expiry, LRU/bytes, lazy routing and immutable inputs passed');
 }

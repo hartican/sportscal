@@ -40,11 +40,14 @@ function expiry(events,now,pipeline){
   }
   return deadline;
 }
-function createFeedHandler({load=feedDependencies,authenticate=()=>require('../lib/supabase-server'),clock=()=>new Date(),cache=new FeedResponseCache(),scopeCache=new FeedResponseCache({maxEntries:100,maxBytes:1024*1024}),live=()=>liveHandler||(liveHandler=require('../lib/live-fixture-handler').createLiveFixtureHandler())}={}){
+function createFeedHandler({globalSnapshotTransport,load=feedDependencies,authenticate=()=>require('../lib/supabase-server'),clock=()=>new Date(),cache=new FeedResponseCache(),scopeCache=new FeedResponseCache({maxEntries:100,maxBytes:1024*1024}),live}={}){
+  if(globalSnapshotTransport!==undefined&&globalSnapshotTransport!==require('../lib/fixture-source-groups-v2').CANDIDATE)throw Error('Invalid trusted global snapshot transport');
+  let scopedLiveHandler;
+  const liveOwner=live||(()=>globalSnapshotTransport?(scopedLiveHandler||=require('../lib/live-fixture-handler').createLiveFixtureHandler({globalSnapshotTransport})):(liveHandler||=require('../lib/live-fixture-handler').createLiveFixtureHandler()));
   return async function feedHandler(request,response){
     const route=new URL(request.url||'/api/feed','https://nothingsport.local');
     if(route.searchParams.get('route')==='match-centre'||request.query?.route==='match-centre')return require('../lib/match-centre-handler').createMatchCentreHandler()(request,response);
-    if(['/api/fixtures','/api/fixture-refresh'].includes(route.pathname)||['fixtures','fixture-refresh'].includes(route.searchParams.get('route')||request.query?.route))return live()(request,response);
+    if(['/api/fixtures','/api/fixture-refresh'].includes(route.pathname)||['fixtures','fixture-refresh'].includes(route.searchParams.get('route')||request.query?.route))return liveOwner()(request,response);
     response.setHeader("Cache-Control", "private, max-age=0, must-revalidate");
     response.setHeader('Pragma','no-cache');response.setHeader('Vary','Authorization');
     const matchCentreOnly=route.searchParams.get('scope')==='match-centre';
@@ -101,7 +104,7 @@ function createFeedHandler({load=feedDependencies,authenticate=()=>require('../l
           scopeCache.set(scopeKey,{body:JSON.stringify(profileScope),etag:'',expiresAt:Infinity});
         }
       }
-      t=performance.now();const snapshot=await d.readLiveSnapshots(matchCentreOnly?{scope:'match-centre',preserveIds,interactive:true}:profileScope?{...profileScope,interactive:true}:undefined).catch(()=>null);mark('live',performance.now()-t);
+      t=performance.now();const snapshot=await d.readLiveSnapshots(matchCentreOnly?{scope:'match-centre',preserveIds,interactive:true}:profileScope?{...profileScope,interactive:true}:globalSnapshotTransport?{globalTransport:globalSnapshotTransport}:undefined).catch(()=>null);mark('live',performance.now()-t);
       const now=clock();
       const {SERVER_FEED_BUILD_VERSION,SERVER_FEED_SCHEMA_VERSION,eventFeed}=d;
       const key=digest({matchCentreOnly,athletesOnly,participantId,userId:user.id,userState,cursor,limit,fixtureRevision:snapshot?.revision||null,fixtureStale:snapshot?.stale||!snapshot,sourceVersion:d.eventFeed.version,sourcePublishedAt: eventFeed.publishedAt,followFixtureVersion:d.FOLLOW_FIXTURE_VERSION,buildVersion: SERVER_FEED_BUILD_VERSION,schemaVersion:SERVER_FEED_SCHEMA_VERSION,deployment:process.env.VERCEL_DEPLOYMENT_ID||process.env.VERCEL_GIT_COMMIT_SHA||'local',cacheVersion:'hobby-feed.v2'});
@@ -141,6 +144,6 @@ function createFeedHandler({load=feedDependencies,authenticate=()=>require('../l
     }
   };
 }
-module.exports=createFeedHandler();
+module.exports=createFeedHandler({globalSnapshotTransport:require('../lib/fixture-source-groups-v2').CANDIDATE});
 module.exports.createFeedHandler=createFeedHandler;
 module.exports.expiry=expiry;

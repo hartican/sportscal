@@ -60,6 +60,16 @@ async function main(){
   res=response();await observedHandler({url:'/api/fixtures?ids=observed',headers:{}},res);const original=res.body.revision;
   collection='2026-09-24T13:00:00Z';res=response();await observedHandler({url:'/api/fixtures?ids=observed&revision='+original,headers:{}},res);assert.equal(res.statusCode,304,'collection-only check does not manufacture a new fixture observation');
   verified='2026-09-24T13:00:00Z';res=response();await observedHandler({url:'/api/fixtures?ids=observed&revision='+original,headers:{}},res);assert.equal(res.statusCode,200,'new genuine verification must reach clients despite unchanged fact revision');assert.notEqual(res.body.revision,original);
+
+  const dictionary=require('../lib/fixture-source-groups-v2'),transportReads=[];let transportRefreshes=0;
+  assert.throws(()=>createLiveFixtureHandler({globalSnapshotTransport:{...dictionary.CANDIDATE}}));
+  const explicitTransport=createLiveFixtureHandler({globalSnapshotTransport:dictionary.CANDIDATE,environment:{FIXTURE_REFRESH_SECRET:secret},publishedFixtures:()=>[],sources:()=>[],refresh:async()=>{transportRefreshes++;return {refreshed:[],failed:[],skipped:[]};},read:async options=>{transportReads.push(options);return {revision:'dictionary-constructor',sources:[],stale:false};}});
+  res=response();await explicitTransport({url:'/api/fixtures',headers:{}},res);assert.equal(res.statusCode,200);assert.equal(transportReads[0].globalTransport,dictionary.CANDIDATE);
+  res=response();await explicitTransport({url:'/api/fixtures?ids=selected',headers:{}},res);assert.equal(res.statusCode,200);assert(!Object.hasOwn(transportReads[1],'globalTransport'));assert(transportReads[1].ids.includes('selected'));
+  res=response();await explicitTransport({url:'/api/fixture-refresh',method:'POST',headers:{authorization:`Bearer ${secret}`}},res);assert.equal(res.statusCode,200);assert.equal(transportRefreshes,1);assert.equal(transportReads.length,2);
+  const defaultReads=[],defaultTransport=createLiveFixtureHandler({publishedFixtures:()=>[],read:async options=>{defaultReads.push(options);return {revision:'default-constructor',sources:[],stale:false};}});
+  res=response();await defaultTransport({url:'/api/fixtures?globalSnapshotTransport=v2',headers:{'x-ns-fixture-source-groups':'v2'}},res);assert.equal(res.statusCode,200);assert(!Object.hasOwn(defaultReads[0],'globalTransport'),'public input cannot activate private transport');
+
   console.log("Live fixture API: public read, revision validator, protected POST and safe failure passed.");
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

@@ -1,6 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict');
 const groups=require('../lib/fixture-source-groups');
+const dictionary=require('../lib/fixture-source-groups-v2');
 const {createSnapshotStore,readLiveSnapshots,overlaySnapshots,contentHash,GLOBAL_BUNDLE_PATH}=require('../lib/live-fixtures');
 const {supabaseServiceRequest}=require('../lib/supabase-server');
 const {groupWire,sampleRows}=require('./lib/grouped-fixture-test-wire');
@@ -8,7 +9,7 @@ const {createLiveFixtureHandler}=require('../lib/live-fixture-handler');
 let checks=0;
 const verify=fn=>{fn();checks++;};
 const manifestFor=rows=>[...new Set(rows.map(row=>row.source_id)),'empty-source'].map(source_id=>({source_id,revision:1,checked_at:'2026-10-26T00:00:02Z',discovery_report:{status:'verified'}}));
-function fixtureStore(state,{candidate=true,timer=()=>0}={}){
+function fixtureStore(state,{candidate=true,transport=groups.CANDIDATE,timer=()=>0}={}){
  const calls=[];
  const request=(path,options={})=>{
   calls.push({path,options});
@@ -19,7 +20,7 @@ function fixtureStore(state,{candidate=true,timer=()=>0}={}){
    return {ok:true,status:200,text:async()=>health&&state.healthText!==undefined?state.healthText:JSON.stringify(payload)};
   }});
  };
- const store=createSnapshotStore({request,timer,...(candidate?{transport:groups.CANDIDATE}:{})});
+ const store=createSnapshotStore({request,timer,...(candidate?{transport}:{})});
  return {store,calls};
 }
 function referenceSources(manifest,rows){return manifest.map(source=>({...source,scoreRevision:contentHash(rows.filter(r=>r.source_id===source.source_id).map(r=>r.fixture)),fixtures:rows.filter(r=>r.source_id===source.source_id).map(r=>r.fixture)}));}
@@ -129,5 +130,46 @@ async function response(handler,url){const res={headers:{},setHeader(k,v){this.h
  for(const url of ['/api/fixtures','/api/fixtures?fantasy=1','/api/fixtures?fantasy=1&ids='+encodeURIComponent(sample.events[0].canonicalEventId),'/api/fixtures?athlete=team%3Afootball%3Aepl%3A1']){
   const a=await response(make(candidateMode),url),b=await response(make(legacyMode),url);delete a.body.generatedAt;delete b.body.generatedAt;verify(()=>assert.deepEqual({code:a.code,headers:a.headers,body:a.body},{code:b.code,headers:b.headers,body:b.body}));
  }
+
+ // Explicit v2 is private constructor opt-in; all original v1 assertions above remain.
+ const dictionaryWire=dictionary.encode(wire);
+ const dictionaryBytes=Buffer.byteLength(JSON.stringify([{bundle:dictionaryWire}]));
+ verify(()=>assert.deepEqual(dictionary.decodeRows(dictionaryWire,{textBytes:dictionaryBytes}),groups.decode(wire)));
+ const dictionaryStore=fixtureStore({wire:dictionaryWire,manifest},{transport:dictionary.CANDIDATE});
+ const dictionaryValue=await dictionaryStore.store.read();
+ verify(()=>{assert.equal(dictionaryStore.calls.length,2);assert.deepEqual(dictionaryStore.calls[1].options.headers,dictionary.HEADERS);assert(dictionaryStore.calls.every(c=>c.options.timeoutMs<=6000));assert.deepEqual(dictionaryValue,sources);});
+
+ const opaqueRows=[{source_id:'opaque',fixture_id:'opaque-id',identity_keys:['opaque-id','alias',null],fixture:JSON.parse('{"id":"opaque-id","missingSibling":null,"zero":0,"flag":false,"unknown":{"list":[null,false,0,0]},"__proto__":{"safe":true},"constructor":"opaque"}')}];
+ const opaqueWire=dictionary.encode(groupWire(opaqueRows));
+ verify(()=>assert.deepEqual(dictionary.decodeRows(opaqueWire,{textBytes:Buffer.byteLength(JSON.stringify(opaqueWire))}).rows,opaqueRows));
+ for(const textBytes of [undefined,0,-1,1.1,NaN,Infinity,dictionary.LIMITS.bytes+1])verify(()=>assert.throws(()=>dictionary.decodeRows(opaqueWire,{textBytes})));
+ for(const invalid of [wire,{...opaqueWire,complete:false},{...opaqueWire,edgeCount:2},{...opaqueWire,fixtureKeys:[...opaqueWire.fixtureKeys,opaqueWire.fixtureKeys[0]]},{...opaqueWire,fixtureKeys:[...opaqueWire.fixtureKeys,'unused']}])verify(()=>assert.throws(()=>dictionary.decodeRows(invalid,{textBytes:4096})));
+ for(const invalidWire of [wire,{...opaqueWire,complete:false}]){
+  const rejected=fixtureStore({wire:invalidWire,manifest:manifestFor(opaqueRows)},{transport:dictionary.CANDIDATE});
+  await assert.rejects(rejected.store.read());verify(()=>assert.equal(rejected.calls.length,2));
+ }
+ verify(()=>assert.throws(()=>createSnapshotStore({request:async()=>[],transport:{...dictionary.CANDIDATE}})));
+ verify(()=>assert.throws(()=>createSnapshotStore({request:async()=>[],transport:dictionary.CANDIDATE,policy:{deadlineMs:3000}}))); 
+ const missingReceipt=createSnapshotStore({transport:dictionary.CANDIDATE,request:async path=>path===GLOBAL_BUNDLE_PATH?[{bundle:opaqueWire}]:manifestFor(opaqueRows)});
+ await assert.rejects(missingReceipt.read());checks++;
+ // Repeated escaped dictionary keys must not expand beyond the unchanged cap.
+ const longKey='\\"'.repeat(160000),expandedRows=Array.from({length:30},(_,i)=>({source_id:'weighted',fixture_id:'weighted-'+i,identity_keys:[],fixture:{id:'weighted-'+i,[longKey]:0}}));
+ const weightedWire=dictionary.encode(groupWire(expandedRows));
+ verify(()=>assert.throws(()=>dictionary.decodeRows(weightedWire,{textBytes:Buffer.byteLength(JSON.stringify(weightedWire))})));
+ // Both legs share the existing cap, including the trusted decoded-text receipt.
+ const capWire=dictionary.encode(groupWire(small)),capManifest=manifestFor(small),capBundleBytes=Buffer.byteLength(JSON.stringify([{bundle:capWire}])),healthJson=JSON.stringify(capManifest);
+ for(const extra of [0,1]){
+  const capped=fixtureStore({wire:capWire,manifest:capManifest,healthText:healthJson+' '.repeat(groups.LIMITS.bytes-capBundleBytes-Buffer.byteLength(healthJson)+extra)},{transport:dictionary.CANDIDATE});
+  if(extra)await assert.rejects(capped.store.read());else await capped.store.read();
+  verify(()=>assert.equal(capped.calls.length,2));
+ }
+ // Concurrent v1/v2 requests cannot share in-flight work or last-good/cache entries.
+ const v2State={wire:capWire,manifest:capManifest},v2Cache=fixtureStore(v2State,{transport:dictionary.CANDIDATE}),v1Cache=fixtureStore({wire:groupWire(small),manifest:capManifest});
+ const [v2Good,v1Good]=await Promise.all([readLiveSnapshots({store:v2Cache.store,now:150002,maxAgeMs:0,timer:()=>0}),readLiveSnapshots({store:v1Cache.store,now:150002,maxAgeMs:0,timer:()=>0})]);
+ verify(()=>{assert.deepEqual(v2Good,v1Good);assert.equal(v2Cache.calls.length,2);assert.equal(v1Cache.calls.length,2);});
+ await readLiveSnapshots({store:v2Cache.store,now:150003,timer:()=>0});verify(()=>assert.equal(v2Cache.calls.length,2));
+ v2State.wire={...capWire,complete:false};const v2Stale=await readLiveSnapshots({store:v2Cache.store,now:180003,timer:()=>0});
+ verify(()=>{assert.equal(v2Stale.stale,true);assert.equal(v2Stale.readAt,v2Good.readAt);assert.equal(v2Stale.revision,v2Good.revision);assert.deepEqual(v2Stale.sources,v2Good.sources);assert.equal(v2Cache.calls.length,4);assert.equal(v1Cache.calls.length,2);});
+
  console.log(JSON.stringify({schemaVersion:'grouped-fixture-source-prototype-tests.v1',checks,constructedEdges:5145,constructedKeys:2586,legacyGuardUnchanged:true,sourceOverlayAndHashesEqual:true,fantasyModesEqual:true,completeByteLimit:groups.LIMITS.bytes,productionCalls:0,productionWrites:0,latencyImprovement:'UNMEASURED'}));
 })().catch(e=>{console.error(e.stack);process.exitCode=1;});
