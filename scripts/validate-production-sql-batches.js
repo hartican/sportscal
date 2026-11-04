@@ -25,6 +25,9 @@ const receiptBatches=[
 const allBatches=[...batches.slice(0,4),...receiptBatches,...batches.slice(4)];
 const safety='      - name: Verify feed and deployment safety contracts\n        run: |\n';
 const shared='      - name: Verify shared fixture publication input\n';
+// The only reviewed scaffold delta is the explicit dictionary format flag.
+const legacyGlobalGate='          node scripts/verify-global-app-adapter.js --live-read\n';
+const dictionaryGlobalGate='          node scripts/verify-global-app-adapter.js --live-read --dictionary-v2\n';
 const preflight='      - name: Verify production SQL batch contract\n        run: node scripts/validate-production-sql-batches.js\n';
 const workerPrefix=`  sql-safety:
     name: SQL safety / \${{ matrix.batch }}
@@ -86,7 +89,10 @@ function validate(text){
  assert.deepEqual(commands,expectedPublisher,'All original 251 publisher commands retain their exact order and environment, with both required recovery checks immediately after preference bookkeeping');
  const receiptCommands=receiptBatches.map(row=>row[2]);
  assert.deepEqual([...commands,...moved,...receiptCommands].sort(),[...original.commands,...recoveryCommands,...receiptCommands].sort(),'All original occurrences, both required recovery additions and both receipt-join engines are preserved');
- assert.equal(hash(normalized.slice(0,at+safety.length)+'\0'+normalized.slice(end)),original.publisherScaffoldSha256,'Publisher SHA, credentials, deadlines, live gates, deploy and public checks unchanged');
+ assert.equal(publisher.split(dictionaryGlobalGate).length-1,1,'Exactly one required dictionary global live qualifier');
+ assert.equal(publisher.split(legacyGlobalGate).length-1,0,'Legacy-only global live qualifier cannot replace dictionary qualification');
+ const scaffold=normalized.slice(0,at+safety.length)+'\0'+normalized.slice(end);
+ assert.equal(hash(scaffold.replace(dictionaryGlobalGate,legacyGlobalGate)),original.publisherScaffoldSha256,'Publisher scaffold is unchanged except the exact reviewed dictionary qualifier flag; original SHA, credentials, deadlines, live gate, deploy and public checks remain pinned');
  assert(!/continue-on-error|\beval\b/.test(text),'No soft failure or dynamic command evaluation');
  return {originalOccurrences:258,addedRecoveryOccurrences:recoveryCommands.length,addedReceiptOccurrences:receiptCommands.length,publisherOccurrences:commands.length,movedOccurrences:moved.length,requiredOccurrences:commands.length+moved.length+receiptCommands.length,batches:4};
 }
@@ -106,7 +112,11 @@ function regressions(text){
   ['worker credential exposure',s=>s.replace('    name: SQL safety /','    env:\n      SUPABASE_SECRET_KEY: \${{ secrets.SUPABASE_SECRET_KEY }}\n    name: SQL safety /')],
   ['raised job cap',s=>s.replace('    timeout-minutes: 30','    timeout-minutes: 31')],
   ['overlapping publication',s=>s.replace('  cancel-in-progress: false','  cancel-in-progress: true')],
-  ['live gate removed',s=>s.replace('          node scripts/verify-global-app-adapter.js --live-read\n','')],
+  ['live gate removed',s=>s.replace(dictionaryGlobalGate,'')],
+  ['dictionary flag removed',s=>s.replace(dictionaryGlobalGate,legacyGlobalGate)],
+  ['dictionary qualifier duplicated',s=>s.replace(dictionaryGlobalGate,dictionaryGlobalGate+dictionaryGlobalGate)],
+  ['dictionary arguments reordered',s=>s.replace(dictionaryGlobalGate,'          node scripts/verify-global-app-adapter.js --dictionary-v2 --live-read\n')],
+  ['dictionary unreviewed argument',s=>s.replace(dictionaryGlobalGate,'          node scripts/verify-global-app-adapter.js --live-read --dictionary-v2 --skip\n')],
   ['arrangement check bypassed',s=>s.replace(preflight,'')],
   ['missing recovery check',s=>s.replace('          '+recoveryCommands[0]+'\n','')],
   ['missing recovery UI check',s=>s.replace('          '+recoveryCommands[1]+'\n','')],

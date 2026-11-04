@@ -256,6 +256,39 @@ async function main(){
   pipeline.buildServerFeed({events:[event],userId:'a',userState:{},now:new Date('2026-09-15T03:00:00Z'),copyEvents:false});
   assert.equal(event.status,undefined);
 
+
+  // Load the actual exported application instance from disk, not another factory.
+  // Only its existing I/O dependencies are synthetic; the constructor and routes
+  // execute the real activated source. Restore the module loader/cache afterwards.
+  const Module=require('node:module'),feedFile=require.resolve('../api/feed'),savedFeedModule=require.cache[feedFile],originalLoad=Module._load;
+  const exportedReads=[],exportedDictionary=require('../lib/fixture-source-groups-v2');
+  const exportedData={...data,canonicalSportContext:{participants:[{id:'team:nrl:qa',key:'nrl',sport:'rugby-league'}]},authenticatedUser:async()=>({id:'activated-export-account'}),readLiveSnapshots:async options=>{exportedReads.push(options);return {revision:'activated-export-fixtures',sources:[],stale:false};},buildServerFeed:({now})=>({events:[],generatedAt:now.toISOString(),actualExport:true})};
+  Module._load=function(name,parent,...rest){
+    if(parent?.filename===feedFile){
+      if(name==='../lib/supabase-server'||name==='../lib/server-feed-pipeline')return exportedData;
+      if(name==='../lib/live-fixtures')return {readLiveSnapshots:exportedData.readLiveSnapshots};
+      if(name==='../lib/follow-fixture-resolver')return {resolveUserFollowFixtures:exportedData.resolveUserFollowFixtures};
+      if(name==='../data/events.json')return exportedData.eventFeed;
+      if(name==='../config/sport-context')return {mergeCanonicalBundles:()=>exportedData.canonicalSportContext,applyContextToEvents:()=>[]};
+      if(name==='../lib/calendar-catalogue')return {catalogue:()=>[]};
+      if(name.startsWith('../data/canonical/'))return {};
+    }
+    return originalLoad.call(this,name,parent,...rest);
+  };
+  delete require.cache[feedFile];
+  try{
+    const actualExport=require('../api/feed');
+    let actualResponse=response();await actualExport({method:'GET',url:'/api/feed?globalSnapshotTransport=v1',headers:{'x-ns-fixture-source-groups':'v1'}},actualResponse);
+    assert.equal(actualResponse.statusCode,200);assert.equal(actualResponse.body.actualExport,true);assert.equal(exportedReads[0].globalTransport,exportedDictionary.CANDIDATE,'actual deployed export must use private v2 opt-in despite public input');
+    actualResponse=response();await actualExport({method:'GET',url:'/api/feed?scope=match-centre',headers:{}},actualResponse);
+    assert.equal(actualResponse.statusCode,200);assert.equal(exportedReads[1].scope,'match-centre');assert(!Object.hasOwn(exportedReads[1],'globalTransport'));
+    actualResponse=response();await actualExport({method:'GET',url:'/api/feed?scope=athletes&participantId=team%3Anrl%3Aqa',headers:{}},actualResponse);
+    assert.equal(actualResponse.statusCode,200);assert.equal(exportedReads[2].scope,'participants');assert(!Object.hasOwn(exportedReads[2],'globalTransport'));assert.equal(exportedReads.length,3);
+  }finally{
+    Module._load=originalLoad;
+    if(savedFeedModule)require.cache[feedFile]=savedFeedModule;else delete require.cache[feedFile];
+  }
+
   const dictionary=require('../lib/fixture-source-groups-v2'),transportOptions=[];
   assert.throws(()=>createFeedHandler({globalSnapshotTransport:{...dictionary.CANDIDATE}}));
   const transportData={...data,canonicalSportContext:{participants:[{id:'team:nrl:qa',key:'nrl',sport:'rugby-league'}]},authenticatedUser:async()=>({id:'dictionary-account'}),readLiveSnapshots:async options=>{transportOptions.push(options);return {revision:'dictionary-feed',sources:[],stale:false};},buildServerFeed:({now})=>({events:[],generatedAt:now.toISOString()})};
