@@ -5,13 +5,10 @@ const SHELL_VERSION = "609";
 // Unassigned circuit candidates are optional assets, not install dependencies.
 const APP_SHELL = [
   "/assets/brand/web/nothingsport-logomark.svg",
-  "/icons/nothingsport-favicon.svg",
+  // Compact PNG inventory; larger and legacy favicon formats remain deployed
+  // and cache on use through the unchanged same-origin handler.
   "/icons/nothingsport-favicon-065421ae47-16.png",
   "/icons/nothingsport-favicon-065421ae47-32.png",
-  "/icons/nothingsport-favicon-065421ae47-64.png",
-  "/icons/nothingsport-favicon-065421ae47.ico",
-  "/favicon.ico",
-  "/icons/nothingsport-app-32.png",
   "/assets/styles/racing-details.css?v=527",
   "/config/racing-details.js?v=539",
   "/config/participant-directory.js?v=512",
