@@ -15,6 +15,8 @@ on:
       - scripts/validate-account-sync-recovery-browser.js
       - scripts/lib/account-sign-in-action-trace.js
       - scripts/validate-account-sign-in-action-trace.js
+      - scripts/validate-sync608-reported-hold.js
+      - scripts/fixtures/sync608-reported-hold-20261103.json
       - scripts/lib/installed-test-network.js
       - scripts/validate-installed-test-network.js
       - .github/installed-production-baseline.json
@@ -83,10 +85,12 @@ jobs:
           node <<'JS'
           const cp=require('node:child_process');
           const git=(...args)=>cp.execFileSync('git',args,{encoding:'utf8'}).trim();
-          console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,eventSha:process.env.GITHUB_SHA,node:process.version,platform:process.platform,arch:process.arch,limits:'Three remaining source/mock activation checks. Not production SQL, hosted wire or physical iPhone acceptance.'},null,2));
+          console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,eventSha:process.env.GITHUB_SHA,node:process.version,platform:process.platform,arch:process.arch,limits:'Three existing source/mock activation checks plus one bounded priority SYNC source-only diagnostic. Not production SQL, hosted wire or physical iPhone acceptance.'},null,2));
           JS
       - name: Install existing locked dependencies
         run: npm ci
+      - name: Observe priority SYNC source-only controls
+        run: timeout --signal=TERM --kill-after=5s 120s node scripts/validate-sync608-reported-hold.js --priority-source-only
       - name: Verify actual exported Feed activation
         timeout-minutes: 2
         run: node scripts/validate-hobby-feed-cache.js
