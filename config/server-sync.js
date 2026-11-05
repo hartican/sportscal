@@ -109,6 +109,33 @@
     }
   }
 
+  // A signup return is a handoff, never permission to replace the saved account.
+  function captureSignupConfirmationFromLocation({ location=globalThis.location, history=globalThis.history }={}){
+    const search=new URLSearchParams(location?.search||""),fragment=new URLSearchParams(String(location?.hash||"").replace(/^#/,""));
+    const authValues=[...search.getAll('auth'),...fragment.getAll('auth')],typeValues=[...search.getAll('type'),...fragment.getAll('type')];
+    const emailChange=authValues.includes('email-change')||typeValues.includes('email_change');
+    if(!emailChange&&(fragment.get("type")==="recovery"||search.get("auth")==="recovery"))return null;
+    if(search.get("auth")!=="confirmed"&&fragment.get("type")!=="signup"&&!emailChange)return null;
+    const token=fragment.get("access_token")||"",failed=search.has("error")||search.has("error_code")||fragment.has("error")||fragment.has("error_code");
+    const ambiguous=search.getAll("auth").length>1||fragment.getAll("type").length>1||fragment.getAll("access_token").length>1
+      ||(emailChange&&(authValues.length>1||typeValues.length>1||authValues.some(value=>value!=='email-change')||typeValues.some(value=>value!=='email_change')));
+    const candidate=!emailChange&&!failed&&!ambiguous&&fragment.get("type")==="signup"&&token.length>0&&token.length<=8192;
+    const sensitive=["access_token","refresh_token","token_type","expires_in","expires_at","token_hash","code","error","error_code","error_description"];
+    const cleanHash=emailChange||sensitive.some(key=>fragment.has(key))||['signup','email_change'].includes(fragment.get("type"));
+    search.delete("auth");
+    if(emailChange)fragment.delete('auth');
+    for(const key of sensitive){search.delete(key);if(cleanHash)fragment.delete(key);}
+    if(emailChange||['signup','email_change'].includes(search.get("type")))search.delete("type");
+    if(cleanHash)fragment.delete("type");
+    const query=search.toString(),hash=cleanHash?(fragment.toString()?"#"+fragment.toString():""):String(location?.hash||"");
+    try{
+      if(typeof history?.replaceState!=="function")throw new Error("URL cleanup unavailable");
+      history.replaceState(history.state??null,"",`${location?.pathname||"/"}${query?"?"+query:""}${hash}`);
+    }catch(_error){return {status:"url_cleanup_failed"};}
+    if(emailChange)return {kind:'email-change',status:failed||ambiguous?'invalid':'email_change_opened'};
+    return candidate?{status:"check_required",accessToken:token}:{status:failed||ambiguous?"invalid":"sign_in_required"};
+  }
+
   function parseRecoveryFragment(hash, now = Date.now()){
     const source = String(hash || "").replace(/^#/, "");
     if (!source) return null;
@@ -226,6 +253,7 @@
     let persistSession = true;
     let refreshInFlight = null;
     let sessionGeneration = 0;
+    let emailChangeInFlight = false;
     let feedEpoch = 0;
     const feedRequests = new Map(), feedResponses = new Map();
     function invalidateFeed(){feedEpoch += 1;feedResponses.clear();feedRequests.clear();}
@@ -497,6 +525,27 @@
       return session;
     }
 
+    async function accountEmailRequest(email,{accountId}={},change=false){
+      const life=accountSnapshot(),active=session||restoreStoredSession();
+      if(!accountId||!life.hasSession||life.accountId!==accountId||sessionSubject(active)!==accountId)throw accountScopeError();
+      if(!active?.accessToken||active.expiresAt<=now())throw Object.assign(new Error('Sign in again before checking or changing your email.'),{status:401,code:'reauthentication_required'});
+      if(change&&emailChangeInFlight)throw Object.assign(new Error('An email-change request is already in progress.'),{status:409,code:'email_change_pending'});
+      const current=()=>{const nowLife=accountSnapshot();return nowLife.accountId===life.accountId&&nowLife.generation===life.generation;};
+      let sent=false;
+      if(change)emailChangeInFlight=true;
+      try{
+        if(!current())throw accountScopeError();
+        sent=true;
+        const payload=await jsonRequest('/api/auth',{...(change?{method:'POST',body:JSON.stringify({action:'change-email',email,accountId})}:{}),headers:{Authorization:'Bearer '+active.accessToken}});
+        if(!current())throw accountScopeError();
+        if(payload?.user?.id!==accountId)throw Object.assign(new Error('The account email response could not be checked. Reopen Account.'),{status:409,code:'account_scope_changed'});
+        return payload;
+      }catch(error){
+        if(change&&sent&&!current())throw Object.assign(new Error('Your sign-in changed after the email-change request was sent. It may have reached the previous account; open that account to check.'),{status:409,code:'account_scope_changed',requestMayHaveBeenSent:true});
+        throw error;
+      }finally{if(change)emailChangeInFlight=false;}
+    }
+
     async function authenticatedRequest(path, { accountId = "", ...options } = {}){
       const guardAccount = active => {
         if (!accountId) return;
@@ -610,6 +659,7 @@
     }
 
     return Object.freeze({
+      supportsAccountAuthCapture:true,
       classicsRequest(query={},command=null){const search=new URLSearchParams(query),accountId=sessionSubject(session||restoreStoredSession());return authenticatedRequest('/api/classics'+(search.size?'?'+search:''),{accountId,...(command?{method:'POST',body:JSON.stringify(command)}:{})});},
       calendarRequest(options = {}){ return authenticatedRequest("/api/calendar", options); },
       async status(){
@@ -618,16 +668,21 @@
       async restoreSession(){
         return currentSession();
       },
-      async signIn(email, password, { persist = true } = {}){
+      async signIn(email, password, { persist = true, isCurrent = () => true } = {}){
         const generation = sessionGeneration;
+        const captureCurrent=()=>{try{return isCurrent()===true;}catch{return false;}};
+        const captureEnded=()=>Object.assign(new Error('The device handoff was cancelled or changed. The account request may have been accepted; sign in deliberately to continue. Your device choices are kept.'),{code:'account_transition_changed'});
+        if(!captureCurrent())throw captureEnded();
         const payload = await jsonRequest("/api/auth", {
           method: "POST",
           body: JSON.stringify({ action: "password-sign-in", email, password }),
         }).catch(error => {
           if (generation !== sessionGeneration) throw accountScopeError();
+          if(!captureCurrent())throw captureEnded();
           throw error;
         });
         if (generation !== sessionGeneration) throw accountScopeError();
+        if(!captureCurrent())throw captureEnded();
         persistSession = persist !== false;
         savePersistencePreference(persistSession);
         sessionGeneration += 1;
@@ -639,16 +694,21 @@
         }
         return { ...saved };
       },
-      async signUp(email, password, meta, { persist = true } = {}){
+      async signUp(email, password, meta, { persist = true, isCurrent = () => true } = {}){
         const generation = sessionGeneration;
+        const captureCurrent=()=>{try{return isCurrent()===true;}catch{return false;}};
+        const captureEnded=()=>Object.assign(new Error('The device handoff was cancelled or changed. The account request may have been accepted; sign in deliberately to continue. Your device choices are kept.'),{code:'account_transition_changed'});
+        if(!captureCurrent())throw captureEnded();
         const payload = await jsonRequest("/api/auth", {
           method:"POST",
           body:JSON.stringify({ action:"sign-up", email, password, meta }),
         }).catch(error => {
           if (generation !== sessionGeneration) throw accountScopeError();
+          if(!captureCurrent())throw captureEnded();
           throw error;
         });
         if (generation !== sessionGeneration) throw accountScopeError();
+        if(!captureCurrent())throw captureEnded();
         if (!payload.session) return payload;
         persistSession = persist !== false;
         savePersistencePreference(persistSession);
@@ -659,8 +719,13 @@
           error.code = "invalid_auth_session";
           throw error;
         }
-        return { ...payload, session:{ ...saved } };
+        return { ...payload, session:{ ...saved }, accountSnapshot:accountSnapshot() };
       },
+      async requestEmailConfirmation(email){
+        return jsonRequest('/api/auth',{method:'POST',body:JSON.stringify({action:'confirmation-resend',email})});
+      },
+      async changeAccountEmail(email,options){return accountEmailRequest(email,options,true);},
+      async checkAccountEmail(options){return accountEmailRequest(null,options,false);},
       async requestPasswordRecovery(email){
         return jsonRequest("/api/auth", {
           method:"POST",
@@ -673,6 +738,20 @@
           headers:{ Authorization:`Bearer ${String(accessToken || "")}` },
           body:JSON.stringify({ action:"password-update", password }),
         });
+      },
+      async inspectSignupConfirmation(accessToken){
+        const generation=sessionGeneration;
+        if(typeof accessToken!=="string"||!accessToken||accessToken.length>8192)throw Object.assign(new Error("This email link is invalid or expired."),{code:"confirmation_link_invalid"});
+        // Deliberately bypass authenticatedRequest: use only the link bearer,
+        // never saved A, refresh, saveSession, or any user-state endpoint.
+        const payload=await jsonRequest("/api/auth",{headers:{Authorization:`Bearer ${accessToken}`}}).catch(error=>{
+          if(generation!==sessionGeneration)throw accountScopeError();
+          throw Object.assign(new Error([400,401,403].includes(error?.status)?"This email link is invalid or expired.":"The email link could not be checked. Sign in normally to continue."),{code:[400,401,403].includes(error?.status)?"confirmation_link_invalid":"confirmation_check_unavailable"});
+        });
+        if(generation!==sessionGeneration)throw accountScopeError();
+        if(typeof payload?.user?.id!=="string"||!payload.user.id||payload.user.isAnonymous===true)throw Object.assign(new Error("This email link is invalid or expired."),{code:"confirmation_link_invalid"});
+        const emailVerified=typeof payload.user.emailVerified==="boolean"?payload.user.emailVerified:null;
+        return Object.freeze({status:emailVerified===true?"confirmed":emailVerified===false?"not_confirmed":"identity_checked",user:{id:payload.user.id,email:String(payload.user.email||"").slice(0,254)},emailVerified});
       },
       async user(){
         const payload = await authenticatedRequest("/api/auth");
@@ -977,6 +1056,7 @@
     settingsForServer,
     parseSession,
     parseRecoveryFragment,
+    captureSignupConfirmationFromLocation,
     captureRecoveryFromLocation,
     readRecoverySession,
     storeRecoverySession,

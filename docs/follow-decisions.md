@@ -1,5 +1,147 @@
 # Follow and Feed decisions
 
+## Untouched remote prompt history and repeat-sync view preservation — 6 November 2026 Sydney
+
+When an owned pending edit leaves local rating-prompt history exactly unchanged from its original base, the existing conservative planner may retain a fresh remote change only if all three operands have the exact known rating-prompts.v1 producer shape. The existing normalizer is an equality check only: do not adopt defaults, coercion, reordered/deduplicated records or normalized output. Keep the raw fresh remote history; do not merge prompt histories or upload old local history. The two existing session bookkeeping fields, sessionCount and lastSessionId, remain the only non-decision prompt fields; the matching acknowledgement for this retained-history plan must still match the full remote prompt state, including those counters. Changed local history, unknown/malformed shapes and conflicting choices remain held with original local preferences and receipt intact.
+
+The two existing typed device-local views, followBrowse and feedCompact, must remain local through a second sync after R1 acknowledgement carries R2 onto a compatible base. Project only those validated view roots out of the ordinary same-base patch and later recorded-intent continuation; preserve every other ordinary same-base preference and non-preference patch entry. Keep raw remote view presence/value at acknowledgement, with only the existing optional undefined-as-absence rule. A transient plan binds the exact original receipt and fresh conditional-save base. Initial and post409 reconciliation must not advance the durable receipt while such a plan exists; only the matching owned acknowledgement clears R1 or carries R2/R3. Ordinary no-plan/bootstrap behavior and owner/current/generation/CAS safeguards remain.
+
+Regression evidence: independent G9 draft PR155/run42031825891 passed14 scoped source arms, including the previous second-sync view failure, exact pre-ACK receipt/timestamp preservation, retained remote history and four protective holds. The original4 CI registration negatives,6 draft guards and19 typed decision cases also completed; the typed model is not Actions expression proof. Full51 plus paired source/generated checks, the newly composed NEWUSER lineage, canonical generated/runtime/cache/performance/browser/hosted and physical iPhone acceptance remain separate and unrun for that combined candidate. Source PASS is not proof of the private phone cause or deployment. No timeout/retry/session reset/preference discard, new storage/schema/provider request, scheduler or speed change is authorised by this record.
+
+## Guest value before account setup — 5 November 2026
+
+The local handoff keeps one bounded `ns_account_transition_v1` record: an inert
+raw source copy, its preference snapshot, and at most four named account-profile
+mappings using the existing profile store. It never reads Auth storage into the
+archive or treats archived data as a server baseline/receipt. A pending capture
+cannot be replaced by a different capture; resolution keeps the original profile
+and last capture, until a later explicit handoff replaces the resolved record.
+Limits are 2 MiB characters of raw profile, 512 KiB of preferences and 3 MiB for
+the complete local record. Capacity, readback, raw-source, active-profile and
+account-lifetime failures hold the account transition while keeping guest value.
+Native Web Locks serialize only these cooperating transition operations; ordinary
+legacy writers still require raw/revision checks. Missing lock support prevents
+account switching rather than browsing. No universal cross-browser mutex is
+claimed. An empty or failed account read alone cannot seed/import device preferences.
+Reviewed selections create fresh owned intent, and matching owned ACK is required
+before claiming those selections synced. First-row creation requires an explicit
+reviewed save/retry, a RAM absence witness bound to this handoff/account/lifetime/
+profile and original owned receipt, a fresh null reconcile read, and normal
+absence CAS plus matching ACK. An appeared row is held by the existing guards.
+Saved account intent can be retried after rerender/reload without requiring a new
+selection or recreating/rebasing its receipt; retry copies no additional device
+choices. A same-account rerender must not swallow status or a successful return
+to Feed. A session-producing signup whose own session is then cancelled reports
+the accepted account request separately from the app now being signed out; it
+keeps useful Account/Feed routes instead of a permanent Creating status. Generic
+account/lifetime replacement receives only a current-view sign-in-changed notice,
+never success for the replacement account. Final setup completion is included in
+the owned pending receipt before success is shown. Each existing account receipt remains
+with its owner, with its original base/generation/CAS/ACK/R2 guards intact.
+Returning to the original device copy explicitly signs out and keeps account
+copies and pending account work separate. Other settings/unsupported decisions
+stay in that device copy; they are never silently copied or normalised away.
+For a confirmation-only signup, “Use a different email” starts a deliberate new
+signup request; it does not claim to change an existing account's email.
+A confirmation-only signup snapshot is marked `awaiting`: no session or cloud
+save is inferred, and a restored account cannot import it. The guest remains free
+to change follows while waiting indefinitely. The next deliberate Auth capture
+replaces that inert snapshot with the latest device choices, rather than forcing
+the person to cancel an old unchanged draft. Local acknowledgement failure is
+reported separately from an already accepted signup request. The state transition
+is lifetime/profile-bound even if the person has left the signup screen; its late
+completion cannot repaint that newer view. Paint fences include the originating
+form instance, since the settings host/anchor/section can stay the same while its
+children are replaced. A late old form cannot target a replacement form's buttons.
+Mixed old runtime/profile helpers fail
+before Auth starts when they lack the capture fence/awaiting support.
+Association uses the existing canonical entity writer. Legacy participant `mute`
+keeps its user-approved opt-out meaning as `unfollow` (22 September decision),
+while the original raw device copy remains unchanged. The connected regression
+uses that actual writer, rather than asserting a stub's raw legacy spelling.
+When a deliberate Auth request succeeds but its initial account-state read fails,
+an in-memory claim can offer “Finish loading this account” for that same accepted
+attempt. It binds the handoff, original device profile/raw copy and post-Auth
+owner/generation; the existing fresh account-state response must still verify the
+UID before activation. One explicit load is in flight, with current-view fences.
+It creates no import, metadata or server intent. Reload, a new account/lifetime,
+source-copy drift or a restored/link/admin session without the RAM claim cannot
+claim that guest capture. Such a user signs in deliberately again. Activation
+clears only the matching claim. A cancelled capture remains a durable no-import
+hold until a new deliberate Auth capture replaces it. Same-tab cancellation and
+device switching wait for the in-flight Auth request; an explicit SDK capture
+fence rejects late sign-in/signup responses before session adoption after a
+cross-tab cancellation or source-copy change. A cancelled explicit attempt cannot
+fall into normal bootstrap/import: only its exact current owner/generation may be
+locally discarded, while an ordinary restored administrator session remains
+selected and held separately. No remote logout or token revocation is claimed by
+a local discard. Choosing separate copies cannot resolve a review while its
+owned association save is in flight. This is recovery in the new handoff, not a claimed
+cause or repair of the separately owned intermittent sync incident.
+For a signed-in email account, contextual change-email freshly authenticates the
+bearer through the existing user helper (including erasure guards), compares the
+expected current UID, and issues only native user-scoped PUT `/auth/v1/user` with
+clean email and an allowlisted email-change return URL. Client/admin target and
+confirmation fields are rejected. Native secure-email-change policy stays in
+force; no service/admin account targeting or manually confirmed timestamp.
+Current authenticated email/proof and requested new email are separate. Accepted
+request does not prove delivery, change completion or requested-address control.
+A deliberate current-email check reads fresh Auth for this same account. The
+SDK performs no implicit refresh/session writes for these actions and fences
+one in-flight mutation, owner and lifetime; a request already sent before a
+switch may have reached the prior account and is never described as cancelled.
+Email-change callbacks scrub and discard returned credentials (including native
+partial-confirmation returns), reject conflicting/duplicate auth/type markers
+before either current or older helpers can route into recovery, preserve the
+existing recovery bytes/sign-in on an invalid mixed link, and never label the old
+email's proof as a completed new-email change. Account and device choices and
+owned receipts remain intact. Contextual status/return controls stay bound to
+the originating view. Original signup resend is clearly labelled and hidden in
+email-change context and after an accepted change request; it is never called an
+email-change resend. Rate/reauth/provider failures remain recoverable without
+account enumeration or marketing consent. This follows the native logged-in
+[updateUser contract](https://supabase.com/docs/reference/javascript/auth-updateuser);
+provider configuration and actual hosted email completion remain separate proof.
+
+Jack directs the new-user journey to keep sports selection, lead immediately
+into corresponding supported teams, then show useful Feed fixtures and schedules.
+Guests can browse indefinitely. Account creation belongs to an explicit action
+that needs identity or account persistence, such as cross-device sync, rating or
+chat participation. Public sporting-data reads do not require an account.
+Notifications belong to a requested notification action; full public-profile
+setup waits until after value or until public identity is needed. Photo is
+optional, the chosen display name is 2–80 characters, and the existing unique
+handle rules remain. An acknowledged Save Profile returns to Feed while its
+initiating view is still current. Metadata success and photo failure are reported
+separately, with a same-account photo retry. Late completion cannot close a newer
+view or change the current account.
+
+Incremental setup saves apply only the actual baseline-to-draft delta onto the
+latest current choices. Preserve concurrent untouched choices, unknown fields,
+explicit OFF/mutes/formats, original receipts, owner/session scope, conditional
+save and exact ACK/R2 fences. Guest choices must remain recoverable through
+signup and account changes; they are never labelled cloud-saved without an
+owned acknowledgement. Retaining a device copy is separate from associating
+selected decisions with a freshly authenticated account. No silent union,
+overwrite, default seeding or guest-to-account receipt relabelling is authorised.
+
+Ratings and chat participation require fresh server-authoritative confirmation
+of the current account email. This proves inbox control, not humanity. Preserve
+moderation, phase/replay, rate, membership, capability and privacy controls.
+Feed/Schedule, guest chat preview and permitted read-only membership stay usable;
+leaving, declining, disabling shares and authorised removal of one's own content
+remain available. Native provider confirmation stays enabled; no autoconfirm
+shortcut or confirmation deadline is introduced. Marketing requires separate
+consent. Email resend is deliberate, preserves provider limits, and reports a
+request rather than delivery or verification. Changing an account's email is a
+separate identity/recovery operation and is not implemented by editing the
+resend address.
+
+Regression source: `scripts/validate-new-user-journey.js`, alongside the existing
+Follow, account, server-persistence, installed-upgrade and release gates. Source,
+automated, hosted and physical-iPhone acceptance must be recorded separately;
+this decision entry does not claim those checks have passed.
+
 ## Canonical sport selection and pending account sync — 3 November 2026
 
 The existing sport Follow writer changes selectedSelectorEntityIds, followedSports and taxonomySelection together. Reconcile that complete choice with independent entity/domain edits only when all three snapshots exactly match the current writer's derivations and one side is unchanged or both sides already agree. Keep the selected whole value, including an explicit empty choice; never union choices, coerce unknown forms or split the derived fields. Differing concurrent selections remain held.

@@ -15,6 +15,13 @@ on:
       - scripts/validate-account-sync-recovery-browser.js
       - scripts/lib/account-sign-in-action-trace.js
       - scripts/validate-account-sign-in-action-trace.js
+      - scripts/validate-new-user-journey.js
+      - scripts/validate-server-persistence.js
+      - scripts/lib/signup-setup-tests.js
+      - scripts/lib/user-state-account-scope-tests.js
+      - scripts/lib/user-state-optional-view-tests.js
+      - scripts/validate-cross-device-sync.js
+      - scripts/validate-empty-startup-meta.js
       - scripts/lib/installed-test-network.js
       - scripts/validate-installed-test-network.js
       - .github/installed-production-baseline.json
@@ -63,7 +70,7 @@ concurrency:
 jobs:
   fixture-activation:
     name: Fixture activation / remaining three checks
-    if: github.event.pull_request.draft == false
+    if: github.event.pull_request.draft == false || (github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/source-qualification-') && (github.event.pull_request.body == 'NS_CI_SOURCE_PHASE=source-qualification-v1' || github.event.pull_request.body == 'NS_CI_SOURCE_PHASE=canonical-producer-v1'))
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
@@ -83,10 +90,14 @@ jobs:
           node <<'JS'
           const cp=require('node:child_process');
           const git=(...args)=>cp.execFileSync('git',args,{encoding:'utf8'}).trim();
-          console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,eventSha:process.env.GITHUB_SHA,node:process.version,platform:process.platform,arch:process.arch,limits:'Three remaining source/mock activation checks. Not production SQL, hosted wire or physical iPhone acceptance.'},null,2));
+          console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,eventSha:process.env.GITHUB_SHA,node:process.version,platform:process.platform,arch:process.arch,limits:'Three existing source/mock activation checks, one bounded new-user journey unit and one bounded signup/setup compatibility check. Temporary bounded canonical artifact production requires a separate explicit same-repository draft producer phase after those checks; source-only and ready-for-review paths do not build. Not production SQL, hosted wire or physical iPhone acceptance.'},null,2));
           JS
+      - name: Verify new-user journey source controls
+        run: timeout --signal=TERM --kill-after=5s 120s node scripts/validate-new-user-journey.js
       - name: Install existing locked dependencies
         run: npm ci
+      - name: Verify signup/setup compatibility
+        run: timeout --signal=TERM --kill-after=5s 120s node scripts/validate-server-persistence.js
       - name: Verify actual exported Feed activation
         timeout-minutes: 2
         run: node scripts/validate-hobby-feed-cache.js
@@ -96,6 +107,311 @@ jobs:
       - name: Verify guarded production workflow contract
         timeout-minutes: 2
         run: node scripts/validate-production-sql-batches.js
+      # Temporary packaging overlay: source qualification and artifacts are not release acceptance.
+      - name: Produce bounded canonical afterimages
+        id: canonical_producer
+        if: github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/source-qualification-') && github.event.pull_request.body == 'NS_CI_SOURCE_PHASE=canonical-producer-v1'
+        timeout-minutes: 6
+        env:
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_DRAFT: ${{ github.event.pull_request.draft }}
+          PR_HEAD_REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          PR_PHASE_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          set -Eeuo pipefail
+          umask 077
+          export NS_CANONICAL_WORK="$RUNNER_TEMP/ns-canonical-producer-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          mkdir "$NS_CANONICAL_WORK"
+          mkdir "$NS_CANONICAL_WORK/private" "$NS_CANONICAL_WORK/public"
+          stage='preflight'; started=''
+          restore_on_exit() {
+            status=$?
+            trap - EXIT TERM INT
+            set +e
+            NS_EXIT_STATUS="$status" NS_FAILED_STAGE="$stage" timeout --signal=TERM --kill-after=5s 30s node <<'RESTORE'
+          const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict'),cp=require('node:child_process');
+          const root=fs.realpathSync(process.cwd()),work=process.env.NS_CANONICAL_WORK,privateDir=path.join(work,'private'),publicDir=path.join(work,'public');
+          const outputs=["assets/js/app-shell-runtime.js","assets/js/calendar-sync-ui.js","assets/js/account-awareness-runtime.js","assets/js/match-centre-ui.js","assets/js/all-sports-ui.js","assets/js/milestone-alerts-ui.js","assets/js/app-update.js","assets/js/notifications-inbox.js","assets/js/settings-optional-ui.js"];
+          const digest=(value,kind='sha256')=>crypto.createHash(kind).update(value).digest('hex');
+          const git=(...args)=>cp.execFileSync('git',args,{cwd:root,encoding:'utf8',maxBuffer:4*1024*1024,stdio:['ignore','pipe','pipe']});
+          const safe=relative=>{assert.equal(typeof relative,'string');assert(relative&&!path.isAbsolute(relative)&&!relative.includes('\\')&&!relative.split('/').some(part=>!part||part==='.'||part==='..'),'Unsafe relative path');return path.join(root,relative);};
+          const inside=(base,file)=>file===base||file.startsWith(base+path.sep);
+          let readBytes=0;
+          function identity(file,relative){
+           const st=fs.lstatSync(file),permissions=(st.mode&0o7777).toString(8).padStart(4,'0');
+           assert(st.isFile()||st.isSymbolicLink(),'Unsupported file kind: '+relative);
+           assert(st.size<=256*1024*1024,'Per-file read bound exceeded');
+           const size=st.isSymbolicLink()?Buffer.byteLength(fs.readlinkSync(file)):st.size;
+           readBytes+=size;assert(readBytes<=2*1024*1024*1024,'Metadata phase read bound exceeded');
+           const sha=crypto.createHash('sha256'),blob=crypto.createHash('sha1').update('blob '+size+'\0');
+           if(st.isSymbolicLink()){
+            const target=fs.readlinkSync(file);assert(!path.isAbsolute(target)&&inside(root,path.resolve(path.dirname(file),target)),'Escaping symlink');
+            sha.update(target);blob.update(target);
+           }else{
+            const fd=fs.openSync(file,'r'),chunk=Buffer.alloc(1024*1024);
+            try{let count;while((count=fs.readSync(fd,chunk,0,chunk.length,null))>0){sha.update(chunk.subarray(0,count));blob.update(chunk.subarray(0,count));}}finally{fs.closeSync(fd);}
+           }
+           return {path:relative,bytes:size,permissions,mode:st.isSymbolicLink()?'120000':st.mode&0o111?'100755':'100644',sha256:sha.digest('hex'),gitBlob:blob.digest('hex'),...(st.isSymbolicLink()?{link:fs.readlinkSync(file)}:{})};
+          }
+          function sourceInventory(allowGenerated=false){
+           const records=git('ls-tree','-r','-z','HEAD').split('\0').filter(Boolean);
+           assert(records.length>0&&records.length<=10000,'Tracked source count bound');
+           return records.map(record=>{
+            const match=/^(100644|100755|120000) blob ([0-9a-f]{40})\t([\s\S]+)$/.exec(record);assert(match,'Unexpected source tree entry');
+            const current=identity(safe(match[3]),match[3]);assert.equal(current.mode,match[1],'Source mode: '+match[3]);
+            if(!allowGenerated||!outputs.includes(match[3]))assert.equal(current.gitBlob,match[2],'Committed source bytes: '+match[3]);
+            return {...current,committedGitBlob:match[2]};
+           });
+          }
+          function dependencyInventory(){
+           const folder=path.join(root,'node_modules');assert(fs.lstatSync(folder).isDirectory()&&!fs.lstatSync(folder).isSymbolicLink(),'Local locked dependency folder required');
+           const entries=[];
+           function visit(dir){for(const name of fs.readdirSync(dir).sort()){
+            const file=path.join(dir,name),st=fs.lstatSync(file),relative=path.relative(root,file).split(path.sep).join('/');
+            if(st.isDirectory())visit(file);else{assert(entries.length<40000,'Installed file count bound');const entry=identity(file,relative);if(st.isSymbolicLink())assert(inside(folder,fs.realpathSync(file)),'Dependency link outside local install');entries.push(entry);}
+           }}
+           visit(folder);return entries;
+          }
+          function writeJson(folder,name,value){
+           const text=JSON.stringify(value,null,2)+'\n';assert(Buffer.byteLength(text)<=16*1024*1024,'Receipt size bound');fs.writeFileSync(path.join(folder,name),text,{mode:0o600});
+          }
+          function noUntrackedOrIndexChanges(){
+           assert.equal(git('ls-files','--others','--exclude-standard','-z'),'','Unexpected untracked source');
+           cp.execFileSync('git',['diff','--cached','--exit-code','--quiet'],{cwd:root,stdio:'pipe',timeout:10000});
+          }
+          
+          let failure=null,before=null,originals=null,transform=null;const restored=[],errors=[];
+          const originalStatus=Number(process.env.NS_EXIT_STATUS),failedStage=process.env.NS_FAILED_STAGE;
+          try{originals=JSON.parse(fs.readFileSync(path.join(privateDir,'preimages.json'),'utf8'));}catch(error){errors.push('Preimage receipt missing: '+error.message);}
+          if(originals)for(const entry of originals.files||[]){try{
+           assert(outputs.includes(entry.path),'Undeclared restore target');
+           const backup=path.join(privateDir,'preimages',entry.path),target=safe(entry.path);
+           assert.equal(digest(fs.readFileSync(backup)),entry.sha256,'Saved preimage changed');
+           for(let parent=path.dirname(target);parent!==root;parent=path.dirname(parent)){const st=fs.lstatSync(parent);assert(st.isDirectory()&&!st.isSymbolicLink(),'Changed output parent');}
+           if(fs.existsSync(target)||fs.lstatSync(path.dirname(target)).isDirectory()){let st;try{st=fs.lstatSync(target);}catch(error){if(error.code!=='ENOENT')throw error;}if(st){assert(st.isFile()||st.isSymbolicLink(),'Output target became a directory');if(st.isSymbolicLink())fs.unlinkSync(target);}}
+           fs.copyFileSync(backup,target);fs.chmodSync(target,parseInt(entry.permissions,8));const {committedGitBlob,...expected}=entry;assert.deepEqual(identity(target,entry.path),expected,'Restored bytes/mode');
+           restored.push(entry.path);
+          }catch(error){errors.push(entry.path+': '+error.message);}}
+          try{
+           assert(originals?.complete&&originals.files.length===9,'Complete nine-file preimage snapshot required');assert.deepEqual(restored,outputs,'Every original output must be restored');
+           before=JSON.parse(fs.readFileSync(path.join(privateDir,'before.json'),'utf8'));
+           assert.equal(git('rev-parse','HEAD').trim(),before.context.testedSha);assert.equal(git('rev-parse','HEAD^{tree}').trim(),before.context.testedTree);
+           assert.deepEqual(sourceInventory(),before.context.source,'Restored source envelope changed');assert.equal(git('status','--porcelain=v1','--untracked-files=all'),'','Checkout is not restored clean');
+           assert.deepEqual(dependencyInventory(),before.dependencyProof.files,'Locked installed dependency envelope changed');
+           assert.deepEqual(identity(fs.realpathSync(process.execPath),'[runtime-node-binary]'),before.context.runtime.nodeBinary,'Runtime binary changed');
+           const canonical=fs.readdirSync(safe('data/canonical')).filter(name=>name.endsWith('.json')).sort().map(name=>'data/canonical/'+name);assert.deepEqual(canonical,before.context.inputGroups.canonicalDirectory);
+          }catch(error){errors.push(error.message);}
+          const restorePassed=errors.length===0;writeJson(publicDir,'restore.json',{schemaVersion:'canonical-ci-restoration.v1',originalStatus,failedStage,restorePassed,restored,errors,recordedAt:new Date().toISOString(),hardKillRecoveryGuaranteed:false});
+          try{
+           assert.equal(originalStatus,0,'Canonical phase did not complete');assert(restorePassed,'Restoration failed');
+           transform=JSON.parse(fs.readFileSync(path.join(publicDir,'transform.json'),'utf8'));assert.equal(transform.outputCount,9);assert.deepEqual(transform.files.map(entry=>entry.path),outputs);
+           for(const entry of transform.files)assert.equal(digest(fs.readFileSync(path.join(publicDir,'files',entry.path))),entry.sha256,'Returned output hash changed');
+          }catch(error){failure=error.message;}
+          const logFiles=[];
+          for(let ordinal=1;ordinal<=4;ordinal++){
+           const name=String(ordinal).padStart(2,'0')+'.log',raw=path.join(privateDir,name);
+           if(!fs.existsSync(raw))continue;const st=fs.statSync(raw);const fd=fs.openSync(raw,'r'),chunk=Buffer.alloc(Math.min(st.size,65536));try{fs.readSync(fd,chunk,0,chunk.length,0);}finally{fs.closeSync(fd);}
+           fs.writeFileSync(path.join(publicDir,name),chunk,{mode:0o600});logFiles.push({path:name,returnedBytes:chunk.length,originalBytes:st.size,truncated:st.size>chunk.length});
+          }
+          const complete=!failure&&restorePassed&&originalStatus===0;
+          writeJson(publicDir,'receipt.json',{schemaVersion:'canonical-ci-return.v1',complete,adoptable:complete,releaseAcceptance:false,sourceQualificationOnly:before?.context.sourceQualificationOnly??null,sourceSha:before?.context.testedSha??null,sourceTree:before?.context.testedTree??null,runId:process.env.GITHUB_RUN_ID,runAttempt:process.env.GITHUB_RUN_ATTEMPT,originalStatus,failedStage:originalStatus===0?null:failedStage,restorePassed,failure,requiredEvidence:['source.json','dependencies.json','transform.json','restore.json','receipt.json'],requiredOutputs:outputs,logFiles,artifactIdentityRequiresExternalUploadRunAndDigestJoin:true,versionCacheBaselineAndReleaseChecks:'separate and still mandatory',recordedAt:new Date().toISOString()});
+          if(!restorePassed||!complete)process.exitCode=1;
+          RESTORE
+            restore_status=$?
+            if [ "$status" -eq 0 ] && [ "$restore_status" -ne 0 ]; then status=1; fi
+            exit "$status"
+          }
+          trap restore_on_exit EXIT
+          trap 'exit 143' TERM
+          trap 'exit 130' INT
+          timeout --signal=TERM --kill-after=5s 30s node <<'PREFLIGHT'
+          const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict'),cp=require('node:child_process');
+          const root=fs.realpathSync(process.cwd()),work=process.env.NS_CANONICAL_WORK,privateDir=path.join(work,'private'),publicDir=path.join(work,'public');
+          const outputs=["assets/js/app-shell-runtime.js","assets/js/calendar-sync-ui.js","assets/js/account-awareness-runtime.js","assets/js/match-centre-ui.js","assets/js/all-sports-ui.js","assets/js/milestone-alerts-ui.js","assets/js/app-update.js","assets/js/notifications-inbox.js","assets/js/settings-optional-ui.js"];
+          const digest=(value,kind='sha256')=>crypto.createHash(kind).update(value).digest('hex');
+          const git=(...args)=>cp.execFileSync('git',args,{cwd:root,encoding:'utf8',maxBuffer:4*1024*1024,stdio:['ignore','pipe','pipe']});
+          const safe=relative=>{assert.equal(typeof relative,'string');assert(relative&&!path.isAbsolute(relative)&&!relative.includes('\\')&&!relative.split('/').some(part=>!part||part==='.'||part==='..'),'Unsafe relative path');return path.join(root,relative);};
+          const inside=(base,file)=>file===base||file.startsWith(base+path.sep);
+          let readBytes=0;
+          function identity(file,relative){
+           const st=fs.lstatSync(file),permissions=(st.mode&0o7777).toString(8).padStart(4,'0');
+           assert(st.isFile()||st.isSymbolicLink(),'Unsupported file kind: '+relative);
+           assert(st.size<=256*1024*1024,'Per-file read bound exceeded');
+           const size=st.isSymbolicLink()?Buffer.byteLength(fs.readlinkSync(file)):st.size;
+           readBytes+=size;assert(readBytes<=2*1024*1024*1024,'Metadata phase read bound exceeded');
+           const sha=crypto.createHash('sha256'),blob=crypto.createHash('sha1').update('blob '+size+'\0');
+           if(st.isSymbolicLink()){
+            const target=fs.readlinkSync(file);assert(!path.isAbsolute(target)&&inside(root,path.resolve(path.dirname(file),target)),'Escaping symlink');
+            sha.update(target);blob.update(target);
+           }else{
+            const fd=fs.openSync(file,'r'),chunk=Buffer.alloc(1024*1024);
+            try{let count;while((count=fs.readSync(fd,chunk,0,chunk.length,null))>0){sha.update(chunk.subarray(0,count));blob.update(chunk.subarray(0,count));}}finally{fs.closeSync(fd);}
+           }
+           return {path:relative,bytes:size,permissions,mode:st.isSymbolicLink()?'120000':st.mode&0o111?'100755':'100644',sha256:sha.digest('hex'),gitBlob:blob.digest('hex'),...(st.isSymbolicLink()?{link:fs.readlinkSync(file)}:{})};
+          }
+          function sourceInventory(allowGenerated=false){
+           const records=git('ls-tree','-r','-z','HEAD').split('\0').filter(Boolean);
+           assert(records.length>0&&records.length<=10000,'Tracked source count bound');
+           return records.map(record=>{
+            const match=/^(100644|100755|120000) blob ([0-9a-f]{40})\t([\s\S]+)$/.exec(record);assert(match,'Unexpected source tree entry');
+            const current=identity(safe(match[3]),match[3]);assert.equal(current.mode,match[1],'Source mode: '+match[3]);
+            if(!allowGenerated||!outputs.includes(match[3]))assert.equal(current.gitBlob,match[2],'Committed source bytes: '+match[3]);
+            return {...current,committedGitBlob:match[2]};
+           });
+          }
+          function dependencyInventory(){
+           const folder=path.join(root,'node_modules');assert(fs.lstatSync(folder).isDirectory()&&!fs.lstatSync(folder).isSymbolicLink(),'Local locked dependency folder required');
+           const entries=[];
+           function visit(dir){for(const name of fs.readdirSync(dir).sort()){
+            const file=path.join(dir,name),st=fs.lstatSync(file),relative=path.relative(root,file).split(path.sep).join('/');
+            if(st.isDirectory())visit(file);else{assert(entries.length<40000,'Installed file count bound');const entry=identity(file,relative);if(st.isSymbolicLink())assert(inside(folder,fs.realpathSync(file)),'Dependency link outside local install');entries.push(entry);}
+           }}
+           visit(folder);return entries;
+          }
+          function writeJson(folder,name,value){
+           const text=JSON.stringify(value,null,2)+'\n';assert(Buffer.byteLength(text)<=16*1024*1024,'Receipt size bound');fs.writeFileSync(path.join(folder,name),text,{mode:0o600});
+          }
+          function noUntrackedOrIndexChanges(){
+           assert.equal(git('ls-files','--others','--exclude-standard','-z'),'','Unexpected untracked source');
+           cp.execFileSync('git',['diff','--cached','--exit-code','--quiet'],{cwd:root,stdio:'pipe',timeout:10000});
+          }
+          
+          const phaseStringKey=value=>typeof value==='string'?value.toLowerCase():null;
+          assert.equal(process.env.PR_DRAFT,'true','Producer requires a draft');assert.equal(phaseStringKey(process.env.PR_PHASE_BODY),'ns_ci_source_phase=canonical-producer-v1','Separate producer phase required; case-insensitive whole marker with no trimming');assert.equal(phaseStringKey(process.env.PR_HEAD_REPOSITORY),phaseStringKey(process.env.GITHUB_REPOSITORY),'Producer requires the same repository, ignoring case');assert((phaseStringKey(process.env.PR_HEAD_REF)||'').startsWith('codex/source-qualification-'),'Producer branch convention required, ignoring case');
+          assert.equal(process.version,'v24.21.0','Runtime must match existing Node pin');assert.equal(process.platform,'linux');assert.equal(process.arch,'x64');
+          assert(work&&inside(fs.realpathSync(process.env.RUNNER_TEMP),work)&&!inside(root,work),'Private staging must be outside checkout');
+          assert.equal(git('status','--porcelain=v1','--untracked-files=all'),'','Producer requires an unchanged source checkout');
+          const testedSha=git('rev-parse','HEAD').trim(),testedTree=git('rev-parse','HEAD^{tree}').trim();
+          for(const key of ['GITHUB_SHA','PR_HEAD_SHA','PR_BASE_SHA'])assert(/^[0-9a-f]{40}$/.test(process.env[key]||''),'Missing candidate identity: '+key);
+          assert.equal(testedSha,process.env.GITHUB_SHA,'Checkout/event identity mismatch');
+          const source=sourceInventory(),byPath=new Map(source.map(entry=>[entry.path,entry]));
+          const builders={"scripts/build-app-shell-runtime.js":"4035a97ed3cb7ccee1faf676aeebe69e8c4e84498618a0281250116c8d2e77a0","scripts/build-deferred-sports-ui.js":"d3258ceddb81c8a9d5e8481d6403a7096877d82fa47f4888afbc8b52467064c5","scripts/build-fantasy-ui.js":"b2ad46e4ac778f1624d776b6ad97b0163008497088003527fd4d1b2fcc546a0d"};
+          for(const [file,sha256]of Object.entries(builders))assert.equal(byPath.get(file)?.sha256,sha256,'Reviewed canonical builder changed; rebind before running');
+          assert.equal(byPath.get('package-lock.json')?.sha256,'89cf5f60178d8d6abe31bf7e9d308fae7d1f52a7889f1aade19510112b92c572','Reviewed lockfile changed');
+          const regular=file=>{const entry=byPath.get(file);assert(entry&&entry.mode!=='120000','Input must be a committed regular file: '+file);return file;};
+          const orderedModules=JSON.parse(fs.readFileSync(safe('config/app-shell-modules.json'),'utf8'));assert(Array.isArray(orderedModules)&&orderedModules.length>0&&orderedModules.length<=1000,'Finite ordered shell manifest required');orderedModules.forEach(regular);
+          const canonical=fs.readdirSync(safe('data/canonical')).filter(name=>name.endsWith('.json')).sort().map(name=>regular('data/canonical/'+name));
+          const inputGroups={builders:Object.keys(builders),orderedShellManifest:regular('config/app-shell-modules.json'),orderedShellModules:orderedModules,canonicalDirectory:canonical,editorial:['data/events.json','data/major-events.v1.json','data/editorial-knowledge.v1.json','scripts/lib/editorial-narrative.js','config/major-events.js','config/feed-fixture-reconciliation.js'],calendar:['config/calendar-ics.js','assets/js/calendar-sync-ui.source.js'],deferred:{"assets/js/account-awareness-runtime.js":["config/account-awareness.js","config/account-sync-diagnostic.js","config/preference-intent-reconcile.js","assets/js/account-awareness-ui.js","assets/js/account-indicator-app.js"],"assets/js/match-centre-ui.js":["assets/js/match-centre-ui.source.js"],"assets/js/all-sports-ui.js":["config/all-sports-view.js","assets/js/all-sports-ui.source.js"],"assets/js/milestone-alerts-ui.js":["config/milestone-preferences.js","config/milestone-test-fixture.js","assets/js/milestone-alerts-ui.source.js"],"assets/js/app-update.js":["assets/js/app-update.source.js"],"assets/js/notifications-inbox.js":["assets/js/notifications-inbox.source.js"]},optional:['config/brand-copy.js','config/fantasy-deadlines.js','config/fantasy-deadline-ui.js','config/archive-settings-ui.js']};
+          [...inputGroups.editorial,...inputGroups.calendar,...Object.values(inputGroups.deferred).flat(),...inputGroups.optional].forEach(regular);
+          const lock=JSON.parse(fs.readFileSync(safe('package-lock.json'),'utf8')),installedLock=JSON.parse(fs.readFileSync(path.join(root,'node_modules/.package-lock.json'),'utf8'));
+          assert(lock.packages&&installedLock.packages,'Complete npm lock metadata required');assert(Object.keys(installedLock.packages).length<=4096,'Installed package count bound');
+          for(const [location,installed]of Object.entries(installedLock.packages)){
+           assert(location.startsWith('node_modules/'),'Unexpected installed package path');
+           const declared=lock.packages[location];assert(declared,'Undeclared installed package: '+location);
+           for(const field of ['version','resolved','integrity'])assert.equal(installed[field],declared[field],'Locked '+field+': '+location);
+          }
+          const terserMain=require.resolve('terser');assert(inside(path.join(root,'node_modules'),fs.realpathSync(terserMain)),'No global or cache Terser fallback');
+          let terserRoot=path.dirname(terserMain);while(!fs.existsSync(path.join(terserRoot,'package.json'))){assert(inside(path.join(root,'node_modules'),terserRoot),'Missing Terser package');terserRoot=path.dirname(terserRoot);}
+          const terserPackage=JSON.parse(fs.readFileSync(path.join(terserRoot,'package.json'),'utf8')),terserLocation=path.relative(root,terserRoot).split(path.sep).join('/');
+          assert.equal(terserPackage.name,'terser');assert.equal(terserPackage.version,lock.packages[terserLocation]?.version,'Resolved Terser version');
+          const dependencies=dependencyInventory(),nodeBinary=identity(fs.realpathSync(process.execPath),'[runtime-node-binary]');
+          const context={schemaVersion:'canonical-ci-source.v1',testedSha,testedTree,eventSha:process.env.GITHUB_SHA,headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,repository:process.env.GITHUB_REPOSITORY,runId:process.env.GITHUB_RUN_ID,runAttempt:process.env.GITHUB_RUN_ATTEMPT,job:process.env.GITHUB_JOB,ref:process.env.GITHUB_REF,draft:process.env.PR_DRAFT==='true',sourceQualificationOnly:process.env.PR_DRAFT==='true',producerPhase:'canonical-producer-v1',recordedAt:new Date().toISOString(),runtime:{node:process.version,platform:process.platform,arch:process.arch,nodeBinary,npm:cp.execFileSync('npm',['--version'],{encoding:'utf8',timeout:10000}).trim()},inputGroups,sourceMapSha256:digest(JSON.stringify(source)),source,releaseAcceptance:false};
+          const dependencyProof={schemaVersion:'canonical-ci-dependencies.v1',installCommand:'npm ci',lockSha256:byPath.get('package-lock.json').sha256,installedLockSha256:digest(fs.readFileSync(path.join(root,'node_modules/.package-lock.json'))),terser:{main:path.relative(root,terserMain).split(path.sep).join('/'),package:terserLocation,version:terserPackage.version},fileMapSha256:digest(JSON.stringify(dependencies)),files:dependencies,auditRemediation:false};
+          writeJson(publicDir,'source.json',context);writeJson(publicDir,'dependencies.json',dependencyProof);
+          const originals=[];
+          for(const file of outputs){
+           const entry=byPath.get(file);assert(entry&&entry.mode!=='120000','Nine existing regular preimages required');
+           const backup=path.join(privateDir,'preimages',file);fs.mkdirSync(path.dirname(backup),{recursive:true,mode:0o700});fs.copyFileSync(safe(file),backup,fs.constants.COPYFILE_EXCL);
+           assert.equal(digest(fs.readFileSync(backup)),entry.sha256,'Preimage snapshot mismatch');originals.push(entry);
+          }
+          writeJson(privateDir,'preimages.json',{complete:true,files:originals});
+          writeJson(privateDir,'before.json',{context,dependencyProof});
+          console.log('Bound committed source, runtime, locked install and exactly nine preimages; no build has run.');
+          PREFLIGHT
+          stage='1: node scripts/build-app-shell-runtime.js'
+          started="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          timeout --signal=TERM --kill-after=5s 45s node scripts/build-app-shell-runtime.js > "$NS_CANONICAL_WORK/private/01.log" 2>&1
+          printf '1\t0\t%s\t%s\n' "$started" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$NS_CANONICAL_WORK/private/commands.tsv"
+          stage='2: node scripts/build-app-shell-runtime.js --check'
+          started="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          timeout --signal=TERM --kill-after=5s 45s node scripts/build-app-shell-runtime.js --check > "$NS_CANONICAL_WORK/private/02.log" 2>&1
+          printf '2\t0\t%s\t%s\n' "$started" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$NS_CANONICAL_WORK/private/commands.tsv"
+          stage='3: node scripts/build-fantasy-ui.js'
+          started="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          timeout --signal=TERM --kill-after=5s 45s node scripts/build-fantasy-ui.js > "$NS_CANONICAL_WORK/private/03.log" 2>&1
+          printf '3\t0\t%s\t%s\n' "$started" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$NS_CANONICAL_WORK/private/commands.tsv"
+          stage='4: node scripts/build-fantasy-ui.js --check'
+          started="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          timeout --signal=TERM --kill-after=5s 45s node scripts/build-fantasy-ui.js --check > "$NS_CANONICAL_WORK/private/04.log" 2>&1
+          printf '4\t0\t%s\t%s\n' "$started" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$NS_CANONICAL_WORK/private/commands.tsv"
+          stage='post-transform proof'
+          timeout --signal=TERM --kill-after=5s 30s node <<'TRANSFORM'
+          const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict'),cp=require('node:child_process');
+          const root=fs.realpathSync(process.cwd()),work=process.env.NS_CANONICAL_WORK,privateDir=path.join(work,'private'),publicDir=path.join(work,'public');
+          const outputs=["assets/js/app-shell-runtime.js","assets/js/calendar-sync-ui.js","assets/js/account-awareness-runtime.js","assets/js/match-centre-ui.js","assets/js/all-sports-ui.js","assets/js/milestone-alerts-ui.js","assets/js/app-update.js","assets/js/notifications-inbox.js","assets/js/settings-optional-ui.js"];
+          const digest=(value,kind='sha256')=>crypto.createHash(kind).update(value).digest('hex');
+          const git=(...args)=>cp.execFileSync('git',args,{cwd:root,encoding:'utf8',maxBuffer:4*1024*1024,stdio:['ignore','pipe','pipe']});
+          const safe=relative=>{assert.equal(typeof relative,'string');assert(relative&&!path.isAbsolute(relative)&&!relative.includes('\\')&&!relative.split('/').some(part=>!part||part==='.'||part==='..'),'Unsafe relative path');return path.join(root,relative);};
+          const inside=(base,file)=>file===base||file.startsWith(base+path.sep);
+          let readBytes=0;
+          function identity(file,relative){
+           const st=fs.lstatSync(file),permissions=(st.mode&0o7777).toString(8).padStart(4,'0');
+           assert(st.isFile()||st.isSymbolicLink(),'Unsupported file kind: '+relative);
+           assert(st.size<=256*1024*1024,'Per-file read bound exceeded');
+           const size=st.isSymbolicLink()?Buffer.byteLength(fs.readlinkSync(file)):st.size;
+           readBytes+=size;assert(readBytes<=2*1024*1024*1024,'Metadata phase read bound exceeded');
+           const sha=crypto.createHash('sha256'),blob=crypto.createHash('sha1').update('blob '+size+'\0');
+           if(st.isSymbolicLink()){
+            const target=fs.readlinkSync(file);assert(!path.isAbsolute(target)&&inside(root,path.resolve(path.dirname(file),target)),'Escaping symlink');
+            sha.update(target);blob.update(target);
+           }else{
+            const fd=fs.openSync(file,'r'),chunk=Buffer.alloc(1024*1024);
+            try{let count;while((count=fs.readSync(fd,chunk,0,chunk.length,null))>0){sha.update(chunk.subarray(0,count));blob.update(chunk.subarray(0,count));}}finally{fs.closeSync(fd);}
+           }
+           return {path:relative,bytes:size,permissions,mode:st.isSymbolicLink()?'120000':st.mode&0o111?'100755':'100644',sha256:sha.digest('hex'),gitBlob:blob.digest('hex'),...(st.isSymbolicLink()?{link:fs.readlinkSync(file)}:{})};
+          }
+          function sourceInventory(allowGenerated=false){
+           const records=git('ls-tree','-r','-z','HEAD').split('\0').filter(Boolean);
+           assert(records.length>0&&records.length<=10000,'Tracked source count bound');
+           return records.map(record=>{
+            const match=/^(100644|100755|120000) blob ([0-9a-f]{40})\t([\s\S]+)$/.exec(record);assert(match,'Unexpected source tree entry');
+            const current=identity(safe(match[3]),match[3]);assert.equal(current.mode,match[1],'Source mode: '+match[3]);
+            if(!allowGenerated||!outputs.includes(match[3]))assert.equal(current.gitBlob,match[2],'Committed source bytes: '+match[3]);
+            return {...current,committedGitBlob:match[2]};
+           });
+          }
+          function dependencyInventory(){
+           const folder=path.join(root,'node_modules');assert(fs.lstatSync(folder).isDirectory()&&!fs.lstatSync(folder).isSymbolicLink(),'Local locked dependency folder required');
+           const entries=[];
+           function visit(dir){for(const name of fs.readdirSync(dir).sort()){
+            const file=path.join(dir,name),st=fs.lstatSync(file),relative=path.relative(root,file).split(path.sep).join('/');
+            if(st.isDirectory())visit(file);else{assert(entries.length<40000,'Installed file count bound');const entry=identity(file,relative);if(st.isSymbolicLink())assert(inside(folder,fs.realpathSync(file)),'Dependency link outside local install');entries.push(entry);}
+           }}
+           visit(folder);return entries;
+          }
+          function writeJson(folder,name,value){
+           const text=JSON.stringify(value,null,2)+'\n';assert(Buffer.byteLength(text)<=16*1024*1024,'Receipt size bound');fs.writeFileSync(path.join(folder,name),text,{mode:0o600});
+          }
+          function noUntrackedOrIndexChanges(){
+           assert.equal(git('ls-files','--others','--exclude-standard','-z'),'','Unexpected untracked source');
+           cp.execFileSync('git',['diff','--cached','--exit-code','--quiet'],{cwd:root,stdio:'pipe',timeout:10000});
+          }
+          
+          const before=JSON.parse(fs.readFileSync(path.join(privateDir,'before.json'),'utf8'));
+          assert.equal(git('rev-parse','HEAD').trim(),before.context.testedSha,'Source revision changed during transform');assert.equal(git('rev-parse','HEAD^{tree}').trim(),before.context.testedTree);
+          noUntrackedOrIndexChanges();
+          const source=sourceInventory(true);
+          assert.deepEqual(source.filter(entry=>!outputs.includes(entry.path)),before.context.source.filter(entry=>!outputs.includes(entry.path)),'Canonical producer may write only nine generated outputs');
+          const canonical=fs.readdirSync(safe('data/canonical')).filter(name=>name.endsWith('.json')).sort().map(name=>'data/canonical/'+name);assert.deepEqual(canonical,before.context.inputGroups.canonicalDirectory,'Canonical directory membership changed');
+          const ledger=fs.readFileSync(path.join(privateDir,'commands.tsv'),'utf8').trim().split('\n').map(line=>{const [ordinal,status,started,finished]=line.split('\t');return {ordinal:Number(ordinal),status:Number(status),startedAt:started,finishedAt:finished};});
+          assert.deepEqual(ledger.map(entry=>[entry.ordinal,entry.status]),[[1,0],[2,0],[3,0],[4,0]],'All four canonical commands must pass sequentially');
+          const files=[];
+          for(const file of outputs){const entry=identity(safe(file),file);assert(entry.mode!=='120000','Generated output is not a regular file');const target=path.join(publicDir,'files',file);fs.mkdirSync(path.dirname(target),{recursive:true,mode:0o700});fs.copyFileSync(safe(file),target,fs.constants.COPYFILE_EXCL);assert.equal(digest(fs.readFileSync(target)),entry.sha256);files.push(entry);}
+          writeJson(publicDir,'transform.json',{schemaVersion:'canonical-ci-transform.v1',testedSha:before.context.testedSha,testedTree:before.context.testedTree,commands:["node scripts/build-app-shell-runtime.js","node scripts/build-app-shell-runtime.js --check","node scripts/build-fantasy-ui.js","node scripts/build-fantasy-ui.js --check"].map((command,index)=>({command,...ledger[index],timeoutSeconds:45,killAfterSeconds:5})),files,outputCount:files.length,sourceAndMetadataMutationAllowed:false,versionAllocation:false,providerRequests:'not-instrumented; reviewed builders require none',releaseAcceptance:false});
+          console.log('Four canonical transforms/checks passed; nine copied afterimages still require successful restoration proof.');
+          TRANSFORM
+          stage='completed; restoring committed checkout'
+      - name: Return canonical afterimages and restoration evidence
+        id: canonical_artifact
+        if: always() && (steps.canonical_producer.outcome == 'success' || steps.canonical_producer.outcome == 'failure' || steps.canonical_producer.outcome == 'cancelled')
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: canonical-afterimages-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ns-canonical-producer-${{ github.run_id }}-${{ github.run_attempt }}/public
+          if-no-files-found: error
+          retention-days: 1
   installed-upgrade:
     needs: fixture-activation
     if: github.event.pull_request.draft == false
