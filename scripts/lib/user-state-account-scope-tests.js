@@ -15,6 +15,9 @@ function context(src,accountStates=null){
  serverSyncClient:{sessionSubject:()=>subject,status:async()=>({configured:true}),restoreSession:async()=>({accessToken:'synthetic'}),loadState:async opts=>{calls.reads++;assert.equal(opts.accountId,'A');return{user:{id:'A'},state:clone(baseline)};},savePatch:async(p,opts)=>{calls.writes++;assert.equal(opts.accountId,'A');return{user:{id:'A'},state:{...sync.applyPatch(baseline,p),updatedAt:'2026-10-04T00:01:00Z'}};},loadMeta:async opts=>{calls.metaReads++;assert.equal(opts.accountId,'A');return{meta:{sports:['football']}};},saveMeta:async(m,opts)=>{calls.metaWrites++;assert.equal(opts.accountId,'A');return{meta:m};},signOut:async opts=>{calls.logout=(calls.logout||0)+1;assert.equal(opts.accountId,'A');subject='';}},
  switchAccount(){subject='B';if(accountStates)device=clone(accountStates.B);c.serverPersistence={state:'signedIn',user:{id:'B'},message:'B active'};c.serverStateBaseline={state:accountStates?clone(device):{preferences:{theme:'B'}},updatedAt:'B baseline'};},endSession(){subject='';},currentDevice:()=>clone(device),calls,
  };
+ // These original account-scope cases have no device handoff. The connected
+ // guest capture/activation/retry path is exercised by the new-user validator.
+ c.accountTransitionBlocksSync=()=>false;c.pendingDeviceAccountTransition=()=>null;
  vm.createContext(c);vm.runInContext([src.scope,src.preserve,src.reconcile,src.queue,src.bootstrap,'async function qaLogout(){\n'+src.logout+'\n}'].join('\n'),c);return c;
 }
 async function orchestration(){
@@ -272,13 +275,13 @@ async function deliberateAuthFailures(){
   }});
   await client.restoreSession();
   const ui={patches:0,toasts:0,finishes:0,bootstraps:0},oldJourney={};
-  const app={serverPersistence:{state:'signedIn',user:{id:'A'},message:'original A'},accountIndicatorJourney:oldJourney,
+   const app={serverPersistence:{state:'signedIn',user:{id:'A'},message:'original A'},accountIndicatorJourney:oldJourney,settingsSection:'account',settingsViewportAnchor:{},preserveDeviceChoicesBeforeAuth:async({currentView})=>{assert(currentView());return{id:'isolated-auth-capture'};},accountAuthCaptureCurrent:()=>true,beginAccountAuthRequest:()=>({}),endAccountAuthRequest(){},rememberAccountAuthTransition:()=>null,
    document:{getElementById:id=>({value:id==='accountEmail'?'disposable@example.invalid':'test-only',checked:true})},
    setServerPersistence:patch=>{ui.patches++;Object.assign(app.serverPersistence,patch);},showToast:()=>ui.toasts++,bootstrapServerPersistence:async()=>ui.bootstraps++,
    NOTHINGSPORTS_ACCOUNT_INDICATOR_APP:{finish:()=>ui.finishes++,complete:()=>{throw Error('Rejected Auth must not complete Account');}},
    serverSyncClient:{signIn:(...args)=>client.signIn(...args).catch(error=>{caught=error;throw error;}),accountSnapshot:()=>client.accountSnapshot()}};
   vm.createContext(app);vm.runInContext(handler,app);
-  const operation=method==='signIn'?app.qaSignInSubmit({preventDefault(){}}):client.signUp('disposable@example.invalid','test-only',{}).catch(error=>{caught=error;});
+   const operation=method==='signIn'?app.qaSignInSubmit({preventDefault(){},currentTarget:{isConnected:true,querySelector:()=>({disabled:false})}}):client.signUp('disposable@example.invalid','test-only',{}).catch(error=>{caught=error;});
   for(let i=0;i<100&&!release;i++)await new Promise(r=>setTimeout(r,1));assert(release);
   if(replacement!=='current'){
    await client.signIn('new@example.invalid','test-only');
