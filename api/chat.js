@@ -73,7 +73,8 @@ async function lifetimeNscPoints(userId){
 }
 
 async function chatCapabilities(user){
-  return chatPolicy.gifCapability(isAnonymousUser(user) ? 0 : await lifetimeNscPoints(user.id));
+  const capability = chatPolicy.gifCapability(isAnonymousUser(user) ? 0 : await lifetimeNscPoints(user.id));
+  return {...capability,canUseGifs:emailVerified(user)&&capability.canUseGifs,emailVerificationRequired:!emailVerified(user)};
 }
 
 async function requireGifCapability(user){
@@ -147,6 +148,15 @@ function isAdmin(user, environment = process.env){
   const email = String(user?.email || "").trim().toLowerCase();
   const allowlist = adminEmails(environment);
   return Boolean(email && allowlist.size && allowlist.has(email));
+}
+
+function emailVerified(user){
+  const confirmed = typeof user?.email_confirmed_at === 'string' ? Date.parse(user.email_confirmed_at) : NaN;
+  return Boolean(user?.id && user.is_anonymous !== true && String(user.email || '').trim() && Number.isFinite(confirmed) && confirmed <= Date.now());
+}
+function requireVerifiedParticipation(body,user){
+  const actions = ['send-message','toggle-reaction','attachment-upload-url','attachment-complete','gif-reference','gif-import','create-room','add-members','enable-share','rotate-share'];
+  if ((actions.includes(body?.action) || (body?.action === 'resolve-invitation' && body.resolution === 'accept')) && !emailVerified(user)) throw new ChatRequestError('Confirm your email before participating in chat. You can keep browsing.',403,'email_confirmation_required');
 }
 
 function requireAdmin(admin){
@@ -417,7 +427,8 @@ async function handleActive(user, admin, profile){
       displayName:profile?.display_name || null,
       avatarUrl:profile?.avatar_url || null,
       publicProfile:Boolean(profile?.public_profile),
-      canPost:Boolean(profile?.public_profile),
+      canPost:Boolean(emailVerified(user) && profile?.public_profile),
+      emailVerificationRequired:!emailVerified(user),
     },
     capabilities,
     rooms:ownRooms.filter(room=>!archivedIds.has(room.room_id||room.id)).map(publicRoom),
@@ -571,7 +582,7 @@ async function handleRoomGet(request, user, admin, profile){
     ? member.guest_display_name || "Guest"
     : profile?.display_name || null;
   const canPost = Boolean(
-    room.status === "open"
+    emailVerified(user) && room.status === "open"
     && member
     && (member.member_kind === "guest" ? member.guest_display_name : profile?.public_profile)
   );
@@ -614,6 +625,7 @@ async function handleRoomGet(request, user, admin, profile){
         displayName:viewerName,
         avatarUrl:member?.member_kind === "guest" ? null : profile?.avatar_url || null,
         canPost,
+        emailVerificationRequired:!emailVerified(user),
         publicProfileRequired:Boolean(member && member.member_kind !== "guest" && !profile?.public_profile),
       },
       members:memberRows.map(item => ({
@@ -1058,7 +1070,8 @@ async function joinSharedRoom(body, user, profile){
     viewer:{
       kind:anonymous ? "guest" : "account",
       displayName:anonymous ? guestDisplayName : profile?.display_name || null,
-      canPost:Boolean(anonymous ? guestDisplayName : profile?.public_profile),
+      canPost:Boolean(emailVerified(user) && profile?.public_profile),
+      emailVerificationRequired:!emailVerified(user),
       publicProfileRequired:Boolean(!anonymous && !profile?.public_profile),
     },
   };
@@ -1555,6 +1568,7 @@ async function deleteRoom(body, user, admin){
 
 async function handlePost(request, user, admin, profile){
   const body = requestBody(request);
+  requireVerifiedParticipation(body,user);
   switch (body.action){
     case "set-display-name": return setDisplayName(body, user, profile);
     case "join-shared-room": return joinSharedRoom(body, user, profile);
@@ -1598,6 +1612,7 @@ async function chatHandler(request, response){
       return;
     }
     const user = await authenticatedUser(bearerToken(request));
+    if (body) requireVerifiedParticipation(body,user);
     const admin = isAdmin(user);
     const profile = await profileForUser(user);
     let payload;
@@ -1640,6 +1655,8 @@ chatHandler._test = Object.freeze({
   gifConfig,
   normalizedGiphyReference,
   isAdmin,
+  emailVerified,
+  requireVerifiedParticipation,
   isAnonymousUser,
   loadFixtureMap,
   parsedShareCapability,
