@@ -72,6 +72,7 @@ function publicUser(user){
     id: user.id,
     email: user.email || "",
     isAnonymous:user.is_anonymous === true,
+    emailVerified:Boolean(user.is_anonymous !== true && String(user.email || '').trim() && typeof user.email_confirmed_at === 'string' && Number.isFinite(Date.parse(user.email_confirmed_at)) && Date.parse(user.email_confirmed_at) <= Date.now()),
     createdAt: user.created_at || null,
   };
 }
@@ -237,7 +238,7 @@ module.exports = async function authHandler(request, response){
       response.status(200).json({
         session:cleanSession,user:cleanSession.user,joined:true,existing:joined.outcome==="existing",
         room:{roomId:capability.roomId,memberCount:Number(joined.member_count)||0},
-        viewer:{kind:"guest",displayName:guestDisplayName,canPost:true},
+        viewer:{kind:"guest",displayName:guestDisplayName,canPost:false,emailVerificationRequired:true},
       });
       return;
     }
@@ -294,6 +295,16 @@ module.exports = async function authHandler(request, response){
         confirmationRequired:!signup?.access_token,
         metadataDeferred,
       });
+      return;
+    }
+
+    if (body.action === 'confirmation-resend'){
+      const email = validEmail(body.email);
+      if (!email){ response.status(400).json({error:'Enter a valid email address.',code:'invalid_email'}); return; }
+      try{
+        await supabaseRequest(`/auth/v1/resend?redirect_to=${encodeURIComponent(signupCallback(request))}`,{method:'POST',body:{type:'signup',email}});
+      }catch(error){ if (![400,404,422].includes(error?.status)) throw error; }
+      response.status(200).json({requested:true,message:'If this address has a pending signup, a confirmation link has been requested.'});
       return;
     }
 

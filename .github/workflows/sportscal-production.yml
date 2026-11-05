@@ -225,6 +225,7 @@ jobs:
           node scripts/validate-local-preference-recovery.js
           node scripts/validate-local-recovery-ui-lifecycle.js
           node scripts/validate-account-awareness.js
+          timeout --signal=TERM --kill-after=5s 120s node scripts/validate-new-user-journey.js
           node scripts/validate-horse-flagship-migration.js
           node scripts/validate-tennis-journey-migration.js
           node scripts/validate-tennis-journeys.js
