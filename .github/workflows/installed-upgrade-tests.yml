@@ -15,6 +15,13 @@ on:
       - scripts/validate-account-sync-recovery-browser.js
       - scripts/lib/account-sign-in-action-trace.js
       - scripts/validate-account-sign-in-action-trace.js
+      - scripts/validate-new-user-journey.js
+      - scripts/validate-server-persistence.js
+      - scripts/lib/signup-setup-tests.js
+      - scripts/lib/user-state-account-scope-tests.js
+      - scripts/lib/user-state-optional-view-tests.js
+      - scripts/validate-cross-device-sync.js
+      - scripts/validate-empty-startup-meta.js
       - scripts/lib/installed-test-network.js
       - scripts/validate-installed-test-network.js
       - .github/installed-production-baseline.json
@@ -83,10 +90,14 @@ jobs:
           node <<'JS'
           const cp=require('node:child_process');
           const git=(...args)=>cp.execFileSync('git',args,{encoding:'utf8'}).trim();
-          console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,eventSha:process.env.GITHUB_SHA,node:process.version,platform:process.platform,arch:process.arch,limits:'Three remaining source/mock activation checks. Not production SQL, hosted wire or physical iPhone acceptance.'},null,2));
+          console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,eventSha:process.env.GITHUB_SHA,node:process.version,platform:process.platform,arch:process.arch,limits:'Three existing source/mock activation checks, one bounded new-user journey unit and one bounded signup/setup compatibility check. Not production SQL, hosted wire or physical iPhone acceptance.'},null,2));
           JS
+      - name: Verify new-user journey source controls
+        run: timeout --signal=TERM --kill-after=5s 120s node scripts/validate-new-user-journey.js
       - name: Install existing locked dependencies
         run: npm ci
+      - name: Verify signup/setup compatibility
+        run: timeout --signal=TERM --kill-after=5s 120s node scripts/validate-server-persistence.js
       - name: Verify actual exported Feed activation
         timeout-minutes: 2
         run: node scripts/validate-hobby-feed-cache.js

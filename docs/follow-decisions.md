@@ -1,5 +1,76 @@
 # Follow and Feed decisions
 
+## Guest value before account setup — 5 November 2026
+
+The local handoff keeps one bounded `ns_account_transition_v1` record: an inert
+raw source copy, its preference snapshot, and at most four named account-profile
+mappings using the existing profile store. It never reads Auth storage into the
+archive or treats archived data as a server baseline/receipt. A pending capture
+cannot be replaced by a different capture; resolution keeps the original profile
+and last capture, until a later explicit handoff replaces the resolved record.
+Limits are 2 MiB characters of raw profile, 512 KiB of preferences and 3 MiB for
+the complete local record. Capacity, readback, raw-source, active-profile and
+account-lifetime failures hold the account transition while keeping guest value.
+Native Web Locks serialize only these cooperating transition operations; ordinary
+legacy writers still require raw/revision checks. Missing lock support prevents
+account switching rather than browsing. No universal cross-browser mutex is
+claimed. An empty or failed account read alone cannot seed/import device preferences.
+Reviewed selections create fresh owned intent, and matching owned ACK is required
+before claiming those selections synced. First-row creation requires an explicit
+reviewed save/retry, a RAM absence witness bound to this handoff/account/lifetime/
+profile and original owned receipt, a fresh null reconcile read, and normal
+absence CAS plus matching ACK. An appeared row is held by the existing guards.
+Saved account intent can be retried after rerender/reload without requiring a new
+selection or recreating/rebasing its receipt; retry copies no additional device
+choices. A same-account rerender must not swallow status or a successful return
+to Feed. Final setup completion is included in the owned pending receipt before
+success is shown. Each existing account receipt remains
+with its owner, with its original base/generation/CAS/ACK/R2 guards intact.
+Returning to the original device copy explicitly signs out and keeps account
+copies and pending account work separate. Other settings/unsupported decisions
+stay in that device copy; they are never silently copied or normalised away.
+For a confirmation-only signup, “Use a different email” starts a deliberate new
+signup request; it does not claim to change an existing account's email.
+
+Jack directs the new-user journey to keep sports selection, lead immediately
+into corresponding supported teams, then show useful Feed fixtures and schedules.
+Guests can browse indefinitely. Account creation belongs to an explicit action
+that needs identity or account persistence, such as cross-device sync, rating or
+chat participation. Public sporting-data reads do not require an account.
+Notifications belong to a requested notification action; full public-profile
+setup waits until after value or until public identity is needed. Photo is
+optional, the chosen display name is 2–80 characters, and the existing unique
+handle rules remain. An acknowledged Save Profile returns to Feed while its
+initiating view is still current. Metadata success and photo failure are reported
+separately, with a same-account photo retry. Late completion cannot close a newer
+view or change the current account.
+
+Incremental setup saves apply only the actual baseline-to-draft delta onto the
+latest current choices. Preserve concurrent untouched choices, unknown fields,
+explicit OFF/mutes/formats, original receipts, owner/session scope, conditional
+save and exact ACK/R2 fences. Guest choices must remain recoverable through
+signup and account changes; they are never labelled cloud-saved without an
+owned acknowledgement. Retaining a device copy is separate from associating
+selected decisions with a freshly authenticated account. No silent union,
+overwrite, default seeding or guest-to-account receipt relabelling is authorised.
+
+Ratings and chat participation require fresh server-authoritative confirmation
+of the current account email. This proves inbox control, not humanity. Preserve
+moderation, phase/replay, rate, membership, capability and privacy controls.
+Feed/Schedule, guest chat preview and permitted read-only membership stay usable;
+leaving, declining, disabling shares and authorised removal of one's own content
+remain available. Native provider confirmation stays enabled; no autoconfirm
+shortcut or confirmation deadline is introduced. Marketing requires separate
+consent. Email resend is deliberate, preserves provider limits, and reports a
+request rather than delivery or verification. Changing an account's email is a
+separate identity/recovery operation and is not implemented by editing the
+resend address.
+
+Regression source: `scripts/validate-new-user-journey.js`, alongside the existing
+Follow, account, server-persistence, installed-upgrade and release gates. Source,
+automated, hosted and physical-iPhone acceptance must be recorded separately;
+this decision entry does not claim those checks have passed.
+
 ## Canonical sport selection and pending account sync — 3 November 2026
 
 The existing sport Follow writer changes selectedSelectorEntityIds, followedSports and taxonomySelection together. Reconcile that complete choice with independent entity/domain edits only when all three snapshots exactly match the current writer's derivations and one side is unchanged or both sides already agree. Keep the selected whole value, including an explicit empty choice; never union choices, coerce unknown forms or split the derived fields. Differing concurrent selections remain held.
