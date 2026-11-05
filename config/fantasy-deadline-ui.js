@@ -245,102 +245,161 @@ function renderAboutSettings(body){
 
 function renderStartupMetadataSettings(body){
   const meta = startupMetaDraft();
-  body.innerHTML = `${wizardProgressMarkup()}<div class="preference-stack">
-    <section class="filter-panel"><h3>What are you into?</h3><p class="preference-help">Choose at least one. These seed your sport follows and Aussies Only; you can refine clubs and players later.</p><div class="setup-choice-grid" id="startupSportsGrid"></div></section>
-    <section class="filter-panel"><h3>Fantasy deadlines</h3><label class="setup-consent"><input id="startupFantasyDeadlines" type="checkbox" ${draftPreferences.fantasyDeadlines.enabled ? "checked" : ""}> Show FPL deadline countdowns on Premier League cards</label><p class="preference-help">Shows verified Fantasy Premier League deadlines. You can turn this off in Settings.</p></section>
-    <section class="filter-panel"><h3>Major events</h3><p class="preference-help">Optional. Pick the big event families you actively want.</p><div class="setup-choice-grid" id="startupEventsGrid"></div></section>
-    <section class="filter-panel"><h3>Set location</h3><p class="preference-help">City, postcode or area only. Coordinates are rounded and the default radius is 20 km.</p><div class="setup-location-grid"><label class="field-label">City, postcode or area<input id="startupLocationQuery" type="search" value="${meta.location.label.replace(/"/g, "&quot;")}" maxlength="120" autocomplete="postal-code" placeholder="e.g. Sydney or 2000"></label><label class="field-label">Radius<select id="startupRadius">${[1,5,10,20,50,100,200,300].map(km => `<option value="${km}" ${meta.location.radiusKm === km ? "selected" : ""}>${km} km</option>`).join("")}</select></label></div><div class="account-sync-actions"><button class="btn ghost" type="button" id="findStartupLocationBtn">Find location</button><button class="btn ghost" type="button" id="useCurrentLocationBtn">Use current location</button></div><p class="preference-help" id="startupLocationStatus">${meta.location.label ? `${meta.location.label}${meta.location.region ? `, ${meta.location.region}` : ""} · ${meta.location.radiusKm} km` : "No location set yet."}</p></section>
-    <section class="filter-panel"><h3>Offers you might actually use</h3><p class="preference-help">Optional, lightweight ad relevance metadata. It does not change Feed eligibility.</p><div class="setup-choice-grid" id="startupOffersGrid"></div><label class="pilot-disclosure setup-consent"><input id="personalisedOffersConsent" type="checkbox" ${meta.personalisedOffersConsent ? "checked" : ""}><span><strong>Allow personalised offers later</strong>This is separate, optional consent. A Supabase admin can edit your seed preferences but cannot grant this consent for you.</span></label></section>
-    <section class="filter-panel"><h3>Create an account</h3><p class="preference-help">An account lets you sync across devices. You can also use Nothing Sport on this device without one.</p><div class="setup-location-grid"><label class="field-label">Email<input id="startupAccountEmail" type="email" autocomplete="username" maxlength="254" placeholder="you@example.com"></label><label class="field-label">Password<input id="startupAccountPassword" type="password" autocomplete="new-password" minlength="8" maxlength="1024" placeholder="8+ characters"></label></div><button class="btn ghost" id="startupCreateAccountBtn" type="button">Create account</button><p class="preference-help" id="startupAccountStatus" role="status" aria-live="polite">Saving Feed setup does not create an account.</p><button class="btn ghost" id="startupSaveSetupSignInBtn" type="button" style="display:none">Save setup and return to sign in</button></section>
-  </div>`;
-  document.getElementById('startupFantasyDeadlines').addEventListener('change',event=>{
-    draftPreferences.fantasyDeadlines=globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.onboardingChoice(event.target.checked);
-  });
-  const renderChoices = (targetId, records, selectedIds, onChange) => {
-    const grid = document.getElementById(targetId);
-    records.forEach(record => {
-      const label = document.createElement("label");
-      label.className = "setup-choice";
-      const input = document.createElement("input");
-      input.type = "checkbox";
-      input.checked = selectedIds.includes(record.id);
-      input.addEventListener("change", () => onChange(record.id, input.checked));
-      label.append(input, document.createTextNode(record.label));
-      grid.appendChild(label);
-    });
+  body.innerHTML = `${wizardProgressMarkup()}<section class="filter-panel"><h3>What are you into?</h3><p class="preference-help">Choose your sports, then your teams. No account needed.</p><div class="setup-choice-grid" id="startupSportsGrid"></div><p class="preference-help" role="status">Your choices stay on this device. Account sync is separate.</p></section>`;
+  const grid = body.querySelector('#startupSportsGrid');
+  for (const record of FOLLOW_FIRST.STARTUP_SPORTS){
+    const label = document.createElement('label'); label.className = 'setup-choice';
+    const input = document.createElement('input'); input.type = 'checkbox'; input.checked = meta.sports.includes(record.id);
+    input.onchange = () => {
+      const sports = new Set(startupMetaDraft().sports);
+      if (input.checked) sports.add(record.id); else sports.delete(record.id);
+      if (!sports.size){ input.checked = true; showToast('Choose at least one sport.'); return; }
+      applyStartupMetaDraft({sports:[...sports]});
+      if (settingsFirstRun) persistOnboardingDraft();
+    };
+    label.append(input, document.createTextNode(record.label)); grid.append(label);
+  }
+}
+
+function renderCreateAccountSettings(body){
+  const anchor = settingsViewportAnchor, life = serverSyncClient.accountSnapshot();
+  const current = () => body.isConnected && form.isConnected && settingsSection === 'create-account' && settingsViewportAnchor === anchor
+    && serverSyncClient.accountSnapshot().generation === life.generation
+    && serverSyncClient.accountSnapshot().accountId === life.accountId;
+  body.innerHTML = `<form class="account-sync-form" id="createAccountForm"><label class="field-label">Email<input name="email" type="email" autocomplete="username" inputmode="email" autocapitalize="none" spellcheck="false" maxlength="254" required></label><label class="field-label">Password<input name="password" type="password" autocomplete="new-password" minlength="8" maxlength="1024" required></label><p class="preference-help">Your Feed and choices remain available on this device while you confirm your email. Confirmation protects actions such as rating and chat. Creating an account does not subscribe you to marketing.</p><button class="btn primary" type="submit">Create account</button><p class="preference-help" role="status" aria-live="polite"></p><button class="btn ghost" type="button" id="continueGuestFeed">Continue to Feed</button><button class="btn ghost" type="button" id="returnAccountSignIn">Back to sign in</button></form>`;
+  const form = body.querySelector('form'), submit = form.querySelector('[type=submit]'), status = form.querySelector('[role=status]');
+  const feed = () => { closeSettings({restoreViewport:false}); activateTopLevelTab('feed'); };
+  body.querySelector('#continueGuestFeed').onclick = feed;
+  body.querySelector('#returnAccountSignIn').onclick = () => { settingsSection = 'account'; renderSettingsScreen(); };
+  const differentEmail=document.createElement('button');differentEmail.type='button';differentEmail.className='btn ghost';differentEmail.textContent='Use a different email';differentEmail.hidden=true;
+  differentEmail.onclick=()=>{
+    if(!current())return;
+    form.elements.email.value='';form.elements.password.value='';submit.disabled=false;differentEmail.hidden=true;
+    status.textContent='Enter the email you want to use, then create an account with that address. This does not change the earlier signup request. Your device choices are kept.';
+    form.elements.email.focus();
   };
-  renderChoices("startupSportsGrid", FOLLOW_FIRST.STARTUP_SPORTS, meta.sports, (id, checked) => {
-    const sports = new Set(startupMetaDraft().sports);
-    if (checked) sports.add(id); else sports.delete(id);
-    if (!sports.size){ showToast("Choose at least one sport."); renderSettingsScreen(); return; }
-    applyStartupMetaDraft({ sports:Array.from(sports) });
-  });
-  renderChoices("startupEventsGrid", FOLLOW_FIRST.MAJOR_EVENT_FAMILIES, meta.majorEvents, (id, checked) => {
-    const events = new Set(startupMetaDraft().majorEvents);
-    if (checked) events.add(id); else events.delete(id);
-    applyStartupMetaDraft({ majorEvents:Array.from(events) });
-  });
-  renderChoices("startupOffersGrid", FOLLOW_FIRST.OFFER_INTERESTS, meta.offerInterests, (id, checked) => {
-    const offers = new Set(startupMetaDraft().offerInterests);
-    if (checked) offers.add(id); else offers.delete(id);
-    applyStartupMetaDraft({ offerInterests:Array.from(offers) });
-  });
-  document.getElementById("startupRadius").addEventListener("change", event => applyStartupMetaDraft({ location:{ ...startupMetaDraft().location, radiusKm:Number(event.target.value) } }));
-  document.getElementById("personalisedOffersConsent").addEventListener("change", event => applyStartupMetaDraft({ personalisedOffersConsent:event.target.checked, consentUpdatedAt:event.target.checked ? new Date().toISOString() : null }));
-  document.getElementById("findStartupLocationBtn").addEventListener("click", async () => {
-    const status = document.getElementById("startupLocationStatus");
-    status.textContent = "Finding that area…";
-    try{ await resolveSetupLocation(document.getElementById("startupLocationQuery").value.trim()); }
-    catch(error){ status.textContent = error.message; }
-  });
-  document.getElementById("useCurrentLocationBtn").addEventListener("click", async () => {
-    const status = document.getElementById("startupLocationStatus");
-    status.textContent = "Requesting your current area…";
-    try{ await useCurrentSetupLocation(); }
-    catch(error){ status.textContent = error.message || "Location permission was not granted."; }
-  });
-  const signupSettingsContext = settingsViewportAnchor;
-  let confirmationLifetime = null;
-  const saveSetupSignIn = document.getElementById("startupSaveSetupSignInBtn");
-  saveSetupSignIn.addEventListener("click", () => {
-    const status = document.getElementById("startupAccountStatus");
-    if (!status?.isConnected || settingsSection !== "startup" || settingsViewportAnchor !== signupSettingsContext) return;
-    const life = serverSyncClient.accountSnapshot();
-    if (!confirmationLifetime || confirmationLifetime.hasSession || life.hasSession
-        || life.generation !== confirmationLifetime.generation || life.accountId !== confirmationLifetime.accountId
-        || serverPersistence.user){
-      status.textContent = "Your sign-in changed. Reopen setup before saving these choices.";
+  form.append(differentEmail);
+  form.onsubmit = async event => {
+    event.preventDefault();
+    if (!current()){
+      if(body.isConnected&&form.isConnected&&settingsSection==='create-account'&&settingsViewportAnchor===anchor)status.textContent='Your sign-in changed. Open Account before continuing. Your device choices are kept.';
       return;
     }
-    if (!saveSettingsPreferences()){
-      status.textContent = "Setup save could not be confirmed. Your choices are still in this window.";
-      return;
-    }
-    openSettings({ section:"account" });
-  });
-  document.getElementById("startupCreateAccountBtn").addEventListener("click", async () => {
-    const status = document.getElementById("startupAccountStatus");
-    const email = document.getElementById("startupAccountEmail").value.trim();
-    const password = document.getElementById("startupAccountPassword").value;
-    status.textContent = "Creating your account…";
-    confirmationLifetime = null;
-    saveSetupSignIn.style.display = "none";
+    if(submit.disabled)return;
+    submit.disabled = true;
+    let authTransition;
+    try{authTransition=await preserveDeviceChoicesBeforeAuth({currentView:current});}catch(error){status.textContent=error.message||'Your device choices could not be preserved. Account creation has not started.';submit.disabled=false;return;}
+    if(!current())return;
+    let authRequest;try{authRequest=beginAccountAuthRequest(authTransition);}catch(error){status.textContent=error.message;submit.disabled=false;return;}
+    status.textContent = 'Creating your account…';
     try{
-      const result = await serverSyncClient.signUp(email, password, startupMetaDraft());
+      const result = await serverSyncClient.signUp(form.elements.email.value.trim(),form.elements.password.value,startupMetaDraft(),{isCurrent:()=>accountAuthCaptureCurrent(authTransition),isCurrentWithoutSession:()=>accountSignupWithoutSessionCaptureCurrent(authTransition)});
+      form.elements.password.value = '';
+      let noSessionLocalNote='';
+      if(!result.session){
+        try{await retainConfirmationOnlySignup(authTransition);}
+        catch(error){noSessionLocalNote=' '+(error.message||'The local handoff still needs review in Account; your device choices are kept.');}
+      }
+      // A session transition has its own owner/generation; do not reuse the
+      // pre-signup guest lifetime to write account preferences.
+      if (!body.isConnected || !form.isConnected || settingsSection !== 'create-account' || settingsViewportAnchor !== anchor) return;
       if (result.session){
-        const connection = await bootstrapServerPersistence();
-        status.textContent = connection?.state === "signedIn" && Boolean(result.user?.id)
-          && connection.user?.id === result.user.id
-          ? "Account created and connected."
-          : "Account created. Profile sync is not yet confirmed. Open Account to check.";
+        const signedUp = result.accountSnapshot, active = serverSyncClient.accountSnapshot();
+        if (!result.user?.id || !signedUp || signedUp.accountId !== result.user.id
+            || active.accountId !== signedUp.accountId || active.generation !== signedUp.generation){
+          status.textContent = 'Your sign-in changed. Open Account to check the current account. Your device choices are kept.';
+          return;
+        }
+        rememberAccountAuthTransition(authTransition,{currentView:()=>body.isConnected&&form.isConnected&&settingsSection==='create-account'&&settingsViewportAnchor===anchor});
+        await bootstrapServerPersistence({authTransitionId:authTransition.id});
+        if (!body.isConnected || !form.isConnected || settingsSection !== 'create-account' || settingsViewportAnchor !== anchor) return;
+        const afterLoad=serverSyncClient.accountSnapshot();
+        if(afterLoad.accountId!==signedUp.accountId||afterLoad.generation!==signedUp.generation){
+          status.textContent=afterLoad.hasSession
+            ?'The account request was accepted, but your sign-in changed. Open Account to check the current account. Your device choices are kept.'
+            :'The account request was accepted, but this app is now signed out. Your device choices are kept. Sign in from Account or continue to Feed.';
+          submit.textContent='Account request accepted';
+          body.querySelector('#returnAccountSignIn').textContent=afterLoad.hasSession?'Open Account':'Sign in from Account';
+          return;
+        }
+        status.textContent = 'Account created. Open Account & sync to check whether your choices have reached your account.';
+        body.querySelector('#returnAccountSignIn').textContent='Review choices in Account';
+      }else{
+        if(!current())return;
+        status.textContent = 'Signup request accepted. Check your inbox, then sign in. You can keep browsing indefinitely and changing your choices on this device.'+noSessionLocalNote;
+        differentEmail.hidden=false;
       }
-      else {
-        status.textContent = "Check your email to verify the account, then sign in from Settings.";
-        confirmationLifetime = serverSyncClient.accountSnapshot();
-        saveSetupSignIn.style.display = "";
+    }catch(error){
+      if (!current()) return;
+      status.textContent = error.message || 'Account creation could not be confirmed. Your choices are kept. Try again.'; submit.disabled = false;
+    }finally{endAccountAuthRequest(authRequest);}
+  };
+}
+
+async function renderOnboardingTeams(body){
+  const draft = draftPreferences, anchor = settingsViewportAnchor, life = serverSyncClient.accountSnapshot();
+  const current = () => body.isConnected && settingsFirstRun && settingsSection === 'teams'
+    && draftPreferences === draft && settingsViewportAnchor === anchor
+    && serverSyncClient.accountSnapshot().generation === life.generation
+    && serverSyncClient.accountSnapshot().accountId === life.accountId;
+  const sports = FOLLOW_FIRST.STARTUP_SPORTS.filter(sport => startupMetaDraft().sports.includes(sport.id));
+  body.innerHTML = `${wizardProgressMarkup()}<section class="filter-panel"><h3>Choose your teams</h3><p class="preference-help">Follow teams to bring their fixtures into Feed. You can continue without choosing a team and explore schedules in Follow.</p><div class="setup-choice-grid" id="onboardingSportChoices"></div><div id="onboardingTeamChoices" aria-live="polite"></div></section>`;
+  const sportChoices = body.querySelector('#onboardingSportChoices'), choices = body.querySelector('#onboardingTeamChoices');
+  let request = 0;
+  async function chooseSport(sport){
+    const turn = ++request;
+    sportChoices.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.sport === sport.id)));
+    choices.textContent = `Loading ${sport.label} teams…`; choices.setAttribute('aria-busy','true');
+    try{
+      const chunk = await loadFollowDirectoryChunk(sport.id);
+      if (!current() || request !== turn) return;
+      choices.replaceChildren(); choices.setAttribute('aria-busy','false');
+      const gender = directoryFilters(sport.id).genderCategory;
+      const recognisedTeam = record => (record.entityType === 'team' || record.type === 'team' || record.type === 'nationalSide' || record.id?.startsWith('team:')) && !NOTHINGSPORTS_PARTICIPANT_DIRECTORY.isUnresolvedTeam(record);
+      const records = (chunk.records || []).filter(record => [gender,'unknown','mixed'].includes(record.genderCategory || 'unknown'));
+      const teams = records.filter(recognisedTeam);
+      const teamless = chunk.status === 'available' && !(chunk.records || []).some(recognisedTeam);
+      const available = teams.length ? teams : teamless && !sport.id.startsWith('cricket') ? records.filter(record => record.entityType === 'athlete') : [];
+      const note = document.createElement('p'); note.className = 'preference-help';
+      note.textContent = teams.length ? sport.label : available.length ? `${sport.label} has individual competitors. Choose the people you follow, or continue to Feed.` : 'No supported teams are available here yet. Continue to Feed and use Follow to explore the published schedule.';
+      choices.append(note);
+      const searchLabel = document.createElement('label'); searchLabel.className = 'field-label'; searchLabel.textContent = 'Search';
+      const search = document.createElement('input'); search.type = 'search'; search.placeholder = teams.length ? 'Team name' : 'Competitor name'; searchLabel.append(search);
+      const list = document.createElement('div'); list.className = 'setup-choice-grid'; choices.append(searchLabel,list);
+      let limit = 40;
+      const more = document.createElement('button'); more.type = 'button'; more.className = 'btn ghost'; more.textContent = 'Show more'; choices.append(more);
+      function render(){
+        list.replaceChildren();
+        const filtered = available.filter(record => String(record.displayName || record.canonicalName || record.name || '').toLocaleLowerCase().includes(search.value.trim().toLocaleLowerCase()));
+        for (const record of filtered.slice(0,limit)){
+          const label = document.createElement('label'); label.className = 'setup-choice';
+          const input = document.createElement('input'); input.type = 'checkbox';
+          input.checked = ['follow','priority'].includes(draft.preferenceGraph?.entityFollows?.find(follow => follow.participantId === record.id)?.followLevel);
+          input.onchange = () => {
+            if (!current()){ input.checked = !input.checked; return; }
+            const previous = clonePreferences(draft.preferenceGraph);
+            draft.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(draft.preferenceGraph,record.id,input.checked ? 'follow' : 'unfollow');
+            if (!persistOnboardingDraft()){ draft.preferenceGraph = previous; input.checked = !input.checked; }
+          };
+          label.append(input,document.createTextNode(record.displayName || record.canonicalName || record.name)); list.append(label);
+        }
+        more.hidden = filtered.length <= limit;
+        if (!filtered.length){ const empty = document.createElement('p'); empty.textContent = 'No matches. Try another search or continue.'; list.append(empty); }
       }
-    }catch(error){ status.textContent = error.message || "The account could not be created."; }
-  });
+      search.oninput = () => { limit = 40; render(); };
+      more.onclick = () => { limit += 40; render(); };
+      render();
+    }catch(error){
+      if (!current() || request !== turn) return;
+      choices.textContent = 'Teams could not load. Your choices are kept; retry or continue to Feed.'; choices.setAttribute('aria-busy','false');
+      const retry = document.createElement('button'); retry.type = 'button'; retry.className = 'btn ghost'; retry.textContent = 'Retry'; retry.onclick = () => void chooseSport(sport); choices.append(retry);
+    }
+  }
+  for (const sport of sports){
+    const button = document.createElement('button'); button.type = 'button'; button.className = 'btn ghost'; button.textContent = sport.label; button.dataset.sport = sport.id;
+    button.onclick = () => void chooseSport(sport); sportChoices.append(button);
+  }
+  if (sports[0]) await chooseSport(sports[0]);
 }
 
 globalThis.notificationDiagnosticsCommand = async function(action, extra = {}){
@@ -442,7 +501,7 @@ function renderNotificationSettings(body){
   void refreshNotificationDiagnosticsStatus();
 }
 
-globalThis.NOTHINGSPORTS_FANTASY_UI={renderNotificationSettings,createController,renderStartupSettings:renderStartupMetadataSettings,renderAboutSettings,renderAppearanceSettings,renderSubscriptionSettings,renderLocationSettings,renderSettings:renderFantasySettings,install:installFantasyCard,clearSpace:clearFantasyPlaceholderSpace,save:saveFantasySetting};
+globalThis.NOTHINGSPORTS_FANTASY_UI={renderCreateAccountSettings,renderOnboardingTeams,renderNotificationSettings,createController,renderStartupSettings:renderStartupMetadataSettings,renderAboutSettings,renderAppearanceSettings,renderSubscriptionSettings,renderLocationSettings,renderSettings:renderFantasySettings,install:installFantasyCard,clearSpace:clearFantasyPlaceholderSpace,save:saveFantasySetting};
 for(const card of document.querySelectorAll('.feed-card-slot .event-card')){const ev=profileFixtureEvents.get(card.dataset.eventId);if(ev)installFantasyCard(card,ev,{});}
 globalThis.fantasyDeadlineController.sync();
 })();

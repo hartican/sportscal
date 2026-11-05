@@ -16,6 +16,14 @@ const testedShellVersion=testedHtml.match(/<meta name="app-shell-version" conten
 assert(testedShellVersion,'exact served source declares its shell version');
 const engineName = process.env.ACCOUNT_RECOVERY_BROWSER || 'chromium';
 const scenario = process.env.ACCOUNT_RECOVERY_CASE || 'retry-error';
+const newUserScenario=scenario==='new-user'; // Opt-in; original all-case inventory stays unchanged.
+assert(!newUserScenario||!process.env.ACCOUNT_RECOVERY_BASELINE,'NEWUSER requires the coherent current candidate, not an old-source control');
+const newUserSourceBinding=newUserScenario?Object.fromEntries(['assets/js/account-awareness-ui.js','assets/styles/nothingsport-foundation.css','scripts/build-deferred-sports-ui.js'].map(file=>{
+  const source=fs.readFileSync(path.join(root,file),'utf8');
+  if(file.endsWith('account-awareness-ui.js'))assert.match(source,/button\.dataset\.accountStatus\s*=\s*view\.status/,'bind the actual account chip marker producer');
+  if(file.endsWith('build-deferred-sports-ui.js'))assert(source.includes('assets/js/account-awareness-ui.js')&&source.includes('assets/js/account-awareness-runtime.js'),'owning UI is an actual deferred runtime input');
+  return [file,require('node:crypto').createHash('sha256').update(source).digest('hex')];
+})):null;
 const localRecoveryScenario=scenario==='local-preference-recovery';
 const eventsScopeScenario=scenario==='receipt-base-events-scope';
 const eventAgreementScenario=scenario==='receipt-base-event-agreement'||eventsScopeScenario;
@@ -175,6 +183,49 @@ const server = http.createServer((req, res) => {
   });
 });
 
+function installNewUserHeaderSampler(){
+  const eps=1,failures=new Map();let stopped=false,frameId,first=null,firstExposed=null,transition=null,last=null,phase='cold-navigation';
+  function rect(element){
+    if(!element?.isConnected)return null;
+    for(let node=element;node;node=node.parentElement){const style=getComputedStyle(node);if(node.hidden||node.inert||style.display==='none'||['hidden','collapse'].includes(style.visibility)||Number(style.opacity)===0)return null;if(node.hasAttribute('popover')){try{if(!node.matches(':popover-open'))return null;}catch{}}}
+    const r=element.getBoundingClientRect();if(!element.getClientRects().length||r.width<=0||r.height<=0)return null;
+    return Object.fromEntries(['left','right','top','bottom','width','height'].map(key=>[key,r[key]]));
+  }
+  const overlap=(a,b)=>Math.min(a.right,b.right)-Math.max(a.left,b.left)>eps&&Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)>eps;
+  const contained=(a,b)=>a.left>=b.left-eps&&a.right<=b.right+eps&&a.top>=b.top-eps&&a.bottom<=b.bottom+eps;
+  function sample(){
+    const top=rect(document.querySelector('.top')),inner=rect(document.querySelector('.header-inner'));if(!top||!inner)return null;
+    const launch=rect(document.querySelector('#startupLaunch')),startupOverlay=Boolean(launch&&overlap(launch,top)),coveringOverlay=[...document.querySelectorAll('.modal-backdrop.show,.chat-backdrop.show,.nsc-backdrop.show')].map(rect).filter(Boolean).some(r=>overlap(r,top));
+    const inViewport=top.bottom>0&&top.top<innerHeight&&top.right>0&&top.left<innerWidth,exposed=inViewport&&!startupOverlay&&!coveringOverlay;
+    const bad=[],blocks=[];const check=(okay,code)=>{if(!okay)bad.push(code);};
+    check([...Object.values(top),...Object.values(inner)].every(Number.isFinite),'finite-header');
+    check(document.documentElement.scrollWidth<=document.documentElement.clientWidth+eps,'document-overflow');
+    for(const selector of ['.brand','.header-utilities','.header-actions']){const node=document.querySelector('.header-inner > '+selector),r=rect(node);if(r){blocks.push({selector,rect:r});check(r.left>=inner.left-eps&&r.right<=inner.right+eps&&r.top>=top.top-eps&&r.bottom<=top.bottom+eps,'header-child-containment');}}
+    for(let i=0;i<blocks.length;i++)for(let j=i+1;j<blocks.length;j++)check(!overlap(blocks[i].rect,blocks[j].rect),'header-sibling-overlap');
+    const tabs=rect(document.querySelector('nav.tabs'));if(scrollY<eps&&tabs)check(tabs.top>=top.bottom-eps,'tabs-above-header-bottom');
+    if(document.querySelector('#headerMoreBtn')?.getAttribute('aria-expanded')!=='true')for(const selector of ['#headerUtilityActions','.header-status-actions','.header-utilities']){
+      const row=document.querySelector(selector);const buttons=[...(row?.children||[])].filter(node=>node.tagName==='BUTTON').map(rect).filter(Boolean);
+      for(let i=0;i<buttons.length;i++)for(let j=i+1;j<buttons.length;j++)check(!overlap(buttons[i],buttons[j]),'action-button-overlap');
+    }
+    const slot=rect(document.querySelector('#headerHydrationSlot')),ring=rect(document.querySelector('#headerProgressRing')),date=rect(document.querySelector('#calendarDateBadge'));
+    if(slot){check(Object.values(slot).every(Number.isFinite)&&slot.width>0&&slot.height>0,'hydration-slot-dimensions');for(const r of [ring,date].filter(Boolean))check(contained(r,slot),'hydration-child-containment');
+      for(const node of document.querySelectorAll('#headerHydrationSlot [hidden]'))check([...node.getClientRects()].every(r=>r.width===0||r.height===0),'hidden-hydration-layout');}
+    const image=document.querySelector('#headerBrandLogo'),logo=rect(image),brand=rect(image?.closest('.brand'));
+    if(logo&&brand){check(Object.values(logo).every(Number.isFinite)&&contained(logo,brand),'logo-containment');if(image.naturalWidth>0&&image.naturalHeight>0&&getComputedStyle(image).objectFit==='fill')check(Math.abs((logo.width/logo.height)/(image.naturalWidth/image.naturalHeight)-1)<=.02,'logo-ratio');}
+    const status=document.querySelector('#accountIndicator .account-awareness-control[data-account-status]')?.getAttribute('data-account-status')||'UNOBSERVED';
+    const state={loader:Boolean(ring),account:['signedOut','checking','offline','reconnect','signedIn'].includes(status)?status:'UNOBSERVED'};
+    const stylesReady=[...document.querySelectorAll('link[rel=stylesheet]')].filter(link=>!link.disabled&&(!link.media||matchMedia(link.media).matches)).every(link=>Boolean(link.sheet));
+    const readiness={startupOverlay,coveringOverlay,inViewport,exposed,logoComplete:Boolean(image?.complete),logoHasNaturalDimensions:Boolean(image?.naturalWidth&&image?.naturalHeight),fonts:document.fonts?.status||'UNOBSERVED',stylesReady};
+    const value={phase,atMs:Math.round(performance.now()),top,inner,blocks,slot,logo,readiness,state,violations:bad};
+    if(!first)first=value;if(exposed&&!firstExposed)firstExposed=value;else if(exposed&&firstExposed&&!transition&&(state.loader!==firstExposed.state.loader||state.account!==firstExposed.state.account))transition={...value,reasons:[...(state.loader!==firstExposed.state.loader?['loader-visibility']:[]),...(state.account!==firstExposed.state.account?[firstExposed.state.account==='UNOBSERVED'?'account-marker-observed':'account-state']:[])]};
+    if(exposed)for(const code of bad)if(!failures.has(code))failures.set(code,value);last=value;return value;
+  }
+  function tick(){if(stopped)return;sample();frameId=requestAnimationFrame(tick);}
+  const installedEarly=document.readyState==='loading'&&!document.querySelector('.top');
+  frameId=requestAnimationFrame(tick);
+  globalThis.qaNewUserHeader={phase:value=>{phase=value;},finish:()=>{const prior=last,current=sample();stopped=true;cancelAnimationFrame(frameId);const image=document.querySelector('#headerBrandLogo');if(current?.readiness.exposed&&image?.complete&&!image.naturalWidth)failures.set('settled-logo-broken',current);const settled=current?.phase==='settled-feed'&&current.readiness.exposed&&current.readiness.logoComplete&&current.readiness.logoHasNaturalDimensions&&current.readiness.fonts==='loaded'&&current.readiness.stylesReady&&current.state.account!=='UNOBSERVED';return {installedEarly,initial:first?'earliest-measurable-layout':'UNOBSERVED',exposed:firstExposed?'OBSERVED':'UNOBSERVED',transition:transition?'OBSERVED':'UNOBSERVED',settled:settled?'OBSERVED':'UNOBSERVED',accountAtFinish:current?.state.account||'UNOBSERVED',first,firstExposed,transitionSample:transition,last:current,priorLast:prior,failures:[...failures].map(([code,sample])=>({code,sample})),physicalFirstPaint:false};},stop:()=>{stopped=true;cancelAnimationFrame(frameId);}};
+}
+
 (async () => {
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   const url = `http://127.0.0.1:${server.address().port}`;
@@ -186,7 +237,8 @@ const server = http.createServer((req, res) => {
   let beforeAck = null, page, controlBrowserRequest=null;
   let recoverySnapshotGets=0,recoveryReopenCapture=false;
   const recoveryReopenPuts=[];
-  const actualApi = (scenario.startsWith('api-')||scenario.startsWith('receipt-base-')||localRecoveryScenario) ? require('./lib/local-user-state-api')(owner,{traceRequests:localRecoveryScenario}) : null;
+  const actualApi = (newUserScenario||scenario.startsWith('api-')||scenario.startsWith('receipt-base-')||localRecoveryScenario) ? require('./lib/local-user-state-api')(owner,{traceRequests:localRecoveryScenario}) : null;
+  const newUser={signedIn:false,verified:false,signups:0,resends:0,profile:null,profileSaves:0,ratingWrites:0,metadataWrites:0};
   const recoveryClickMarker='[qa-recovery-browser-order]';
   const recoveryNativeClickCounts={open:0,confirm:0};let recoveryObserverInvalid=false;
   const chronology = [];
@@ -199,6 +251,13 @@ const server = http.createServer((req, res) => {
     archived_events: row.archivedEvents, ratings: row.ratings, updated_at: row.updatedAt } });
   const errors = [], blocked = [], statuses = [];
   try {
+    if(newUserScenario){
+      await context.addInitScript(installNewUserHeaderSampler);
+      await context.addInitScript(()=>{
+        globalThis.qaNewUserPermissionRequests=0;
+        if(typeof Notification!=='undefined')Object.defineProperty(Notification,'requestPermission',{configurable:true,value:()=>{globalThis.qaNewUserPermissionRequests++;throw Error('Unexpected notification permission request in guest journey');}});
+      });
+    }
     if(localRecoveryScenario)await context.addInitScript(marker=>{
       let sequence=0;
       const report=(event,fields={})=>{
@@ -302,6 +361,21 @@ const server = http.createServer((req, res) => {
         return route.continue();
       }
       const body = request.postDataJSON() || {}, method = request.method();
+      if(newUserScenario&&u.pathname==='/api/auth'){
+        if(method==='GET')return route.fulfill({json:{configured:true,...(request.headers().authorization?{user:{id:owner,email:'disposable@example.invalid',emailVerified:newUser.verified}}:{})}});
+        if(body.action==='sign-up'){assert.notEqual(body.meta?.personalisedOffersConsent,true,'account creation cannot opt into marketing');newUser.signups++;return route.fulfill({json:{user:null,session:null,confirmationRequired:true,metadataDeferred:false}});}
+        if(body.action==='confirmation-resend'){newUser.resends++;return route.fulfill({json:{requested:true}});}
+        if(body.action==='password-sign-in'){authSignIns++;newUser.signedIn=true;return route.fulfill({json:{session:{access_token:token(owner),refresh_token:'disposable-new-user',expires_in:3600}}});}
+        if(body.action==='logout'){newUser.signedIn=false;return route.fulfill({json:{signedOut:true}});}
+        throw Error('Unallocated NEWUSER mock Auth action');
+      }
+      if(newUserScenario&&u.pathname==='/api/user-meta'){if(method!=='GET')newUser.metadataWrites++;return route.fulfill({json:{meta:null}});}
+      if(newUserScenario&&u.pathname==='/api/feed')return route.fulfill({status:503,json:{error:'Disposable optional Feed service unavailable; use candidate published fallback'}});
+      if(newUserScenario&&u.pathname==='/api/nothingscore'){
+        if(method==='GET')return route.fulfill({json:{viewer:{signedIn:newUser.signedIn,emailVerified:newUser.verified,ratingEligible:newUser.signedIn&&newUser.verified,profile:newUser.profile,submissions:{}}}});
+        if(body.action==='profile'){if(body.handle==='journey_taken')return route.fulfill({status:409,json:{code:'handle_unavailable',error:'That handle is unavailable. Choose another.'}});newUser.profileSaves++;newUser.profile={handle:body.handle,displayName:body.displayName,visibility:'visible',avatarUrl:null};return route.fulfill({json:{profile:newUser.profile}});}
+        if(['submit','pulse'].includes(body.action)){newUser.ratingWrites++;return route.fulfill(newUser.verified?{json:{receipt:{eventId:body.eventId,phase:body.phase,value:body.value}}}:{status:403,json:{code:'email_confirmation_required',error:'Confirm your email before rating.'}});}
+      }
       if (u.pathname === '/api/auth') {
         if (method === 'GET') return route.fulfill({ json: { configured: true } });
         if(body.action==='password-sign-in')authSignIns++;
@@ -483,6 +557,72 @@ const server = http.createServer((req, res) => {
     manifestPhase='initial-goto';
     await page.goto(url, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => typeof userPreferences !== 'undefined' && !startupCoordinator.isHydrating());
+    if(newUserScenario){
+      const phase=async label=>page.evaluate(label=>qaNewUserHeader.phase(label),label);
+      await page.locator('#startupLaunch').waitFor({state:'hidden'});
+      await page.locator('#startupSportsGrid').waitFor({state:'visible'});
+      assert.equal(await page.locator('#settingsBody input[type=email],#settingsBody input[type=password],#settingsBody .nsc-profile-form').count(),0,'sports selection must not request an account or full profile');
+      const resultsBefore=await page.locator('#homeSpoilerToggle').getAttribute('aria-checked');
+      const football=page.locator('#startupSportsGrid').getByLabel('Football',{exact:true});await football.check();
+      const sportInputs=page.locator('#startupSportsGrid input');
+      for(let i=0;i<await sportInputs.count();i++){const item=sportInputs.nth(i);if(await item.isChecked()&&!await item.evaluate(node=>node.closest('label').textContent.trim()==='Football'))await item.uncheck();}
+      await page.locator('#saveSettingsBtn').click();await page.locator('#onboardingTeamChoices input[type=search]').fill('Arsenal');
+      await page.locator('#onboardingTeamChoices').getByLabel('Arsenal',{exact:true}).check();
+      const selected=await page.evaluate(()=>({sports:startupMetaDraft().sports,teams:userPreferences.preferenceGraph.entityFollows.filter(item=>['follow','priority'].includes(item.followLevel)).map(item=>item.participantId)}));
+      assert.deepEqual(selected.sports,['football']);assert(selected.teams.length>0);
+      await page.locator('#closeSettingsBtn').click();await page.evaluate(()=>openSettings({firstRun:true}));await page.locator('#startupSportsGrid').waitFor({state:'visible'});
+      assert.equal(await page.locator('#startupSportsGrid').getByLabel('Football',{exact:true}).isChecked(),true,'interrupted setup retains sports');
+      await page.locator('#saveSettingsBtn').click();await page.locator('#onboardingTeamChoices input[type=search]').fill('Arsenal');
+      assert.equal(await page.locator('#onboardingTeamChoices').getByLabel('Arsenal',{exact:true}).isChecked(),true,'interrupted setup retains teams');
+      await page.locator('#saveSettingsBtn').click();await page.locator('#settingsModal').waitFor({state:'hidden'});await phase('guest-feed');
+      await page.waitForFunction(()=>activeTab==='feed'&&document.querySelectorAll('.event-card').length>0);
+      const guest=await page.evaluate(()=>({complete:userPreferences.onboardingComplete,hasSession:serverSyncClient.accountSnapshot().hasSession,permissionRequests:qaNewUserPermissionRequests,profileForm:Boolean(document.querySelector('#settingsModal.show .nsc-profile-form')),cards:document.querySelectorAll('.event-card').length}));
+      assert.deepEqual({complete:guest.complete,hasSession:guest.hasSession,permissionRequests:guest.permissionRequests,profileForm:guest.profileForm},{complete:true,hasSession:false,permissionRequests:0,profileForm:false});assert(guest.cards>0,'the actual candidate published Feed fallback must provide guest value');
+      assert.equal(newUser.signups,0);assert.equal(reads,0);assert.equal(writes,0);assert.equal(newUser.metadataWrites,0);
+      await page.evaluate(()=>openSettings({section:'account'}));await page.locator('#createAccountBtn').click();
+      await page.locator('#createAccountForm input[name=email]').fill('disposable@example.invalid');await page.locator('#createAccountForm input[name=password]').fill('disposable-test-only-password');
+      await page.locator('#createAccountForm button[type=submit]').click();await page.locator('#createAccountForm [role=status]').filter({hasText:'Signup request accepted'}).waitFor();
+      assert.equal(newUser.signups,1);assert.equal(await page.evaluate(()=>serverSyncClient.accountSnapshot().hasSession),false);assert.equal(reads,0);assert.equal(writes,0);assert.equal(newUser.metadataWrites,0);
+      await page.locator('#continueGuestFeed').click();assert.equal(await page.evaluate(()=>activeTab),'feed');
+      await page.evaluate(()=>openSettings({section:'account'}));await page.locator('#accountEmail').fill('disposable@example.invalid');await page.locator('#accountPassword').fill('disposable-test-only-password');
+      await page.evaluate(()=>{globalThis.qaNewUserDeviceKey=PROFILE_STORAGE.KEYS.profilePrefix+activeProfileBundle.profile.id;globalThis.qaNewUserDeviceRaw=localStorage.getItem(qaNewUserDeviceKey);});
+      await phase('explicit-account-signin');await page.locator('#accountSignInForm button[type=submit]').click();
+      await page.waitForFunction(()=>serverPersistence.state==='signedIn'&&Boolean(pendingDeviceAccountTransition()?.targetAccountId));
+      assert.equal(writes,0,'authenticated absence does not automatically import guest choices');assert.equal(newUser.metadataWrites,0);
+      const isolated=await page.evaluate(()=>({sourceKept:localStorage.getItem(qaNewUserDeviceKey)===qaNewUserDeviceRaw,separate:PROFILE_STORAGE.KEYS.profilePrefix+activeProfileBundle.profile.id!==qaNewUserDeviceKey,cloudClaim:serverPersistence.message.includes('separately')}));
+      assert.deepEqual(isolated,{sourceKept:true,separate:true,cloudClaim:true});
+      await page.getByRole('button',{name:'Save selected choices to this account',exact:true}).click();
+      await page.waitForFunction(()=>serverPersistence.state==='signedIn'&&!pendingDeviceAccountTransition()&&activeTab==='feed'&&!document.getElementById('settingsModal').classList.contains('show'));
+      assert(actualApi.state().preferences.preferenceGraph.entityFollows.some(item=>selected.teams.includes(item.participantId)&&['follow','priority'].includes(item.followLevel)),'actual local API/CAS/ACK stores the selected team');
+      assert.equal(await page.evaluate(teams=>teams.every(id=>userPreferences.preferenceGraph.entityFollows.some(item=>item.participantId===id&&['follow','priority'].includes(item.followLevel))),selected.teams),true);
+      await phase('unverified-value');await page.evaluate(async()=>{
+        await refreshNothingscoreViewer();const host=document.createElement('section');host.id='qaNewUserRating';document.getElementById('mainContent').append(host);
+        await submitNothingscoreAction({action:'pulse',eventId:'disposable-journey-rating',value:3},host);
+      });
+      assert.equal(newUser.ratingWrites,0,'unverified client must explain the gate before a participation write');
+      const confirmation=page.locator('#qaNewUserRating [data-email-confirmation]');await confirmation.waitFor({state:'visible'});
+      await confirmation.getByRole('button',{name:/Resend.*confirmation/i}).click();assert.equal(newUser.resends,1);
+      await confirmation.getByRole('button',{name:'Return to what I was doing',exact:true}).click();
+      assert.equal(await page.evaluate(()=>activeTab),'feed');
+      // Mock Auth proof changes here; this does not click/send a real provider
+      // email or assert that native Confirm Email permits unverified sign-in.
+      newUser.verified=true;await page.evaluate(()=>refreshNothingscoreViewer());
+      assert.equal(await page.evaluate(()=>nothingscoreViewer.emailVerified),true);
+      await phase('profile-save');await page.evaluate(()=>openSettings({section:'account'}));
+      const profile=page.locator('#settingsModal .nsc-profile-form');await profile.waitFor({state:'visible'});await profile.locator('[name=displayName]').fill('Journey Guest');await profile.locator('[name=handle]').fill('journey_taken');
+      await profile.getByRole('button',{name:'Save Profile',exact:true}).click();await profile.locator('[role=status]').filter({hasText:'That handle is unavailable'}).waitFor();assert.equal(newUser.profileSaves,0);assert.equal(await page.locator('#settingsModal').isVisible(),true);
+      await profile.locator('[name=handle]').fill('journey_guest');
+      await profile.getByRole('button',{name:'Save Profile',exact:true}).click();await page.waitForFunction(()=>activeTab==='feed'&&!document.getElementById('settingsModal').classList.contains('show'));
+      assert.equal(newUser.profileSaves,1);assert.equal(newUser.profile.handle,'journey_guest');
+      assert.equal(await page.evaluate(()=>localStorage.getItem(qaNewUserDeviceKey)===qaNewUserDeviceRaw),true,'profile save must preserve original device copy');
+      assert.equal(await page.evaluate(()=>qaNewUserPermissionRequests),0);assert.equal(await page.locator('#homeSpoilerToggle').getAttribute('aria-checked'),resultsBefore);
+      await phase('settled-feed');await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+      const header=await page.evaluate(()=>qaNewUserHeader.finish());assert.equal(header.installedEarly,true,'cold header sampler must precede initial header parsing');assert.notEqual(header.initial,'UNOBSERVED','earliest measurable header layout was unobserved');assert.notEqual(header.exposed,'UNOBSERVED','exposed header layout was unobserved');assert.notEqual(header.transition,'UNOBSERVED','natural loader/account transition was unobserved');assert.notEqual(header.settled,'UNOBSERVED','fresh exposed and asset-ready finish layout was unobserved');assert.equal(header.accountAtFinish,'signedIn','the actual mounted account chip must expose the already established final signed-in state');assert.equal(header.failures.length,0,JSON.stringify(header.failures));
+      if(process.env.ACCOUNT_RECOVERY_NEWUSER_CAPTURE){fs.mkdirSync(process.env.ACCOUNT_RECOVERY_NEWUSER_CAPTURE,{recursive:true});await page.screenshot({path:path.join(process.env.ACCOUNT_RECOVERY_NEWUSER_CAPTURE,engineName+'-new-user-feed.png')});}
+      assert.deepEqual(errors,[],'no uncaught application errors');
+      console.log(JSON.stringify({scenario,engine:engineName,candidate:process.env.GITHUB_SHA||null,shellVersion:testedShellVersion,sourceBinding:newUserSourceBinding,passed:true,guestCards:guest.cards,guestSportsThenTeams:true,interruptedSetupRetained:true,confirmationOnlySignup:newUser.signups,ownedAssociationAck:true,unverifiedBrowsing:true,verificationControls:true,profileFailureRecoverable:true,optionalProfileSaveReturnsFeed:true,notificationPermissionRequests:0,resultsUnchanged:true,header,limits:'One cold loopback navigation. Actual mounted candidate/SDK/local API; mocked Auth/proof/public profile, optional Feed API503 with actual published fallback. Earliest measurable/exposed layout is not physical first paint. No hosted/native email/chat/real-device acceptance.'}));
+      return;
+    }
     if(helperRaceProbe)await page.waitForFunction(()=>typeof qaReleaseStartupSetup==='function');
     row = await page.evaluate(actualApi => {
       const p = clonePreferences(userPreferences); p.onboardingComplete = true;
@@ -1477,6 +1617,7 @@ const server = http.createServer((req, res) => {
     console.log(JSON.stringify({ scenario, engine: engineName, passed: true, reads, writes, refreshes, authSignIns, statuses,
       blockedOrigins: [...new Set(blocked)], limits: 'Loopback mocked transport; no hosted or physical iPhone proof' }));
   } finally {
+    if(newUserScenario&&page&&!page.isClosed())await page.evaluate(()=>globalThis.qaNewUserHeader?.stop()).catch(()=>{});
     if (diagnosticTrace) console.log(JSON.stringify({phase:'diagnostic-manifest-before-cleanup',scenario,engine:engineName,
       manifestControl,shellVersion:testedShellVersion,truncated:manifestDropped>0||manifestDocumentTruncated,dropped:manifestDropped,documentTruncated:manifestDocumentTruncated,trace:manifestTrace,
       limits:'Passive instrumentation can perturb timing; HTTP terminal is not application promise settlement; identical browser/HTTP requests may have ambiguous joins'}));
