@@ -1,0 +1,485 @@
+{
+  "format": "sync608-reported-hold-inputs.v1",
+  "sourceCommit": "96b3f2abad022ca0971ed2e728b6d7f20cc7efa0",
+  "sourceTree": "9ca341e4700ae200505d150ab30af7ca9124452c",
+  "reportedDifferences": {
+    "baseToRemote": [
+      "localView",
+      "entities"
+    ],
+    "localEdits": [
+      "selection",
+      "localView",
+      "entities",
+      "domains"
+    ],
+    "localToRemote": [
+      "selection",
+      "entities",
+      "domains"
+    ],
+    "receiptBaseMatchesAccepted": false
+  },
+  "reportedBoundary": {
+    "shellVersion": "608",
+    "workerVersion": "608",
+    "stage": "verify",
+    "code": "preference_base_changed",
+    "category": "guarded_hold",
+    "pendingReceipt": true,
+    "baseCompatible": false,
+    "ownerMatches": true,
+    "generationMatches": true,
+    "preferenceGuard": {
+      "site": "plan_scope",
+      "decision": "held",
+      "reason": "outside_supported_scope_changed",
+      "side": "intent"
+    },
+    "stateLoadCallsStarted": 1,
+    "stateSaveCallsStarted": 0,
+    "elapsedMs": 2719
+  },
+  "sourceFiles": {
+    "index.html": null,
+    "config/preference-intent-reconcile.js": "81795bd8410eec4a85c89cfd0a588ab438f92b8fd9961bd55fc5467d5ce5921a",
+    "config/profile-storage.js": "738cbbb919268ddc77e5e24eb5d10fec5856f47584811742205541706f975717",
+    "config/server-sync.js": "db405f737e238395f677b53ef74692f56f300464b6f2e05daa00a5275a9eeca2",
+    "config/discovery-catalogue.js": "a51d1c71f00427dd8359b386d31312b4e251eaa5843db88543366cf05bffabf2",
+    "config/account-sync-diagnostic.js": "3bf9d2657b16752260fb53f6cd29517f67ad1a5e88d7817bd71652e1d0ff68df",
+    "assets/js/account-awareness-runtime.js": null,
+    "assets/js/app-shell-runtime.js": null,
+    "scripts/lib/user-state-selection-writer-tests.js": "50ee77985890d68ba83bffac88f58691dd585de99a2e8a06719af95aa96482db",
+    "scripts/lib/user-state-selection-sdk-tests.cjs": "5e6e0394a5454cadf137fb5e8de1cf67e878e542d4859c54b2e5ce6ca9dcec8e",
+    "scripts/lib/user-state-optional-view-tests.js": "eb1f4602af3bb2c596e8fca9729db328ec4921ba65a9f8567d05bd27a2712c39",
+    "config/rating-system.js": "1c55664fd383ff07e599e8ad31e1b87587aae86b52e909cc50fa1471611d00da"
+  },
+  "cases": [
+    "canonical",
+    "raw-afl-marker-absent",
+    "raw-taxonomy-null",
+    "raw-taxonomy-null-same-selection",
+    "raw-taxonomy-null-remote-conflict",
+    "raw-taxonomy-null-unknown-outside",
+    "raw-taxonomy-missing",
+    "raw-afl-marker-pending",
+    "selection-conflict",
+    "unknown-outside",
+    "derivation-unavailable",
+    "ACK-mismatch",
+    "raw-afl-marker-ACK-mismatch",
+    "raw-taxonomy-null-ACK-mismatch",
+    "raw-taxonomy-null-R2"
+  ],
+  "modes": [
+    "source planner + actual shipped inline writers",
+    "generated account helper + same actual shipped inline writers"
+  ],
+  "limits": [
+    "test source only; no runtime before allocated existing lane",
+    "raw shape variants constructed, not Jack private data",
+    "no cache/session/receipt reset",
+    "no legacy alias work",
+    "no product or guard broadening",
+    "same family arrays cannot prove same underlying state"
+  ],
+  "repairContract": "Prepared against accepted609 base. Historical608 report and 2a pins remain historical. Strict future packaging pins/shell allocation required before execution; no standalone historical built helper adoption.",
+  "candidateSourceOverrides": [
+    "config/preference-intent-reconcile.js"
+  ],
+  "historical2aSourceFiles": {
+    "index.html": "f4ee5967392a1b3d2b0c031b511e5a89d626c13856cdd907fbb00b0160632641",
+    "config/preference-intent-reconcile.js": "81795bd8410eec4a85c89cfd0a588ab438f92b8fd9961bd55fc5467d5ce5921a",
+    "config/profile-storage.js": "738cbbb919268ddc77e5e24eb5d10fec5856f47584811742205541706f975717",
+    "config/server-sync.js": "db405f737e238395f677b53ef74692f56f300464b6f2e05daa00a5275a9eeca2",
+    "config/discovery-catalogue.js": "a51d1c71f00427dd8359b386d31312b4e251eaa5843db88543366cf05bffabf2",
+    "config/account-sync-diagnostic.js": "3bf9d2657b16752260fb53f6cd29517f67ad1a5e88d7817bd71652e1d0ff68df",
+    "assets/js/account-awareness-runtime.js": "015b542f8c4b3b56a8756a5a49eb54de1783d6425a98dbc2c2f150097b2d3a80",
+    "assets/js/app-shell-runtime.js": "d7669048a2a191743d1c6320847f5fd60261d115ab878b1ad3ddfd962f7d4d0c",
+    "scripts/lib/user-state-selection-writer-tests.js": "50ee77985890d68ba83bffac88f58691dd585de99a2e8a06719af95aa96482db",
+    "scripts/lib/user-state-selection-sdk-tests.cjs": "5e6e0394a5454cadf137fb5e8de1cf67e878e542d4859c54b2e5ce6ca9dcec8e",
+    "scripts/lib/user-state-optional-view-tests.js": "eb1f4602af3bb2c596e8fca9729db328ec4921ba65a9f8567d05bd27a2712c39"
+  },
+  "acceptedBaseCommit": "037a6214c1a573b57298d3ea504de0b89e31d473",
+  "acceptedBaseTree": "280373883f9f42d52042e92ae7f51befe4e3e554",
+  "executionBinding": {
+    "state": "UNASSIGNED_PENDING_UPDATE_PACKAGING",
+    "shellVersion": null
+  },
+  "plannedPairedControl": "Implemented once in validator as runPairedOrdinaryHydration, source+exact-generated modes each with retained-pending and independent fresh-no-receipt arms. UNRUN; existing30 cases preserved.",
+  "pairedOrdinaryHydration": {
+    "controlCount": 1,
+    "state": "SOURCE_PREPARED_UNRUN",
+    "historicalForm": "explicit raw null taxonomy with validated canonical linked selection",
+    "receiptPreservation": "actual writer records old-lifetime intent; actual profile load/ordinary bootstrap preserve it in a separate current client lifetime",
+    "negativeScopes": [
+      "actual current-lifetime mismatch",
+      "receipt owner mismatch",
+      "modified originalReceipt generation witness",
+      "wrong-generation R2 acknowledgement"
+    ],
+    "successRequires": "retained pending arm recovers only through actual owned conditional plan/ACK then R2; fresh arm independently starts without receipt; no reset/rewrite to manufacture absence"
+  },
+  "priorityCases": [
+    "new-grey-remote-prompt",
+    "raw-taxonomy-null-new-grey-remote-prompt",
+    "raw-taxonomy-null-new-grey-prompt-R2",
+    "raw-taxonomy-null-new-grey-prompt-ACK-mismatch",
+    "new-grey-prompt-local-change",
+    "new-grey-prompt-unknown-remote",
+    "new-grey-prompt-selection-conflict"
+  ],
+  "reportedGreyDifferences": {
+    "baseToRemote": [
+      "ratingPrompt",
+      "localView",
+      "entities"
+    ],
+    "localEdits": [
+      "selection",
+      "localView",
+      "entities",
+      "domains"
+    ],
+    "localToRemote": [
+      "selection",
+      "ratingPrompt",
+      "localView",
+      "entities",
+      "domains"
+    ],
+    "receiptBaseMatchesAccepted": false
+  },
+  "reportedGreyBoundary": {
+    "format": "sync-diagnostic.v1",
+    "stage": "verify",
+    "code": "preference_base_changed",
+    "category": "guarded_hold",
+    "status": null,
+    "completed": false,
+    "saveResponseReceived": false,
+    "shellVersion": "609",
+    "workerVersion": "609",
+    "pendingReceipt": true,
+    "baseCompatible": false,
+    "ownerMatches": true,
+    "generationMatches": true,
+    "preferenceDifferences": {
+      "baseToRemote": [
+        "ratingPrompt",
+        "localView",
+        "entities"
+      ],
+      "localEdits": [
+        "selection",
+        "localView",
+        "entities",
+        "domains"
+      ],
+      "localToRemote": [
+        "selection",
+        "ratingPrompt",
+        "localView",
+        "entities",
+        "domains"
+      ],
+      "receiptBaseMatchesAccepted": false
+    },
+    "preferenceGuard": {
+      "format": "preference-guard.v1",
+      "site": "plan_scope",
+      "decision": "held",
+      "reason": "outside_supported_scope_changed",
+      "side": "intent",
+      "family": null,
+      "receiptOwnerMatches": true,
+      "receiptGenerationMatches": true,
+      "currentToReceipt": null,
+      "verifyPass": "initial"
+    },
+    "stateLoadCallsStarted": 1,
+    "stateSaveCallsStarted": 0,
+    "elapsedMs": 2346
+  },
+  "acceptedPlannerWitness": {
+    "acceptedCommit": "037a6214c1a573b57298d3ea504de0b89e31d473",
+    "acceptedTree": "280373883f9f42d52042e92ae7f51befe4e3e554",
+    "path": "config/preference-intent-reconcile.js",
+    "bytes": 21948,
+    "sha256": "8c826f82cd65795165c47a7fe418ecfccaa828acbc058d26ea458351880f8b3b",
+    "sourceText": "(function(root){\n  'use strict';\n  const clone=value=>JSON.parse(JSON.stringify(value));\n  const object=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);\n  const same=(a,b)=>{\n    if(a===b)return true;\n    if(Array.isArray(a)&&Array.isArray(b))return a.length===b.length&&a.every((value,i)=>same(value,b[i]));\n    if(!object(a)||!object(b))return false;\n    const keys=Object.keys(a);\n    return keys.length===Object.keys(b).length&&keys.every(key=>Object.hasOwn(b,key)&&same(a[key],b[key]));\n  };\n  const text=value=>typeof value==='string';\n  const strings=value=>Array.isArray(value)&&value.every(text)&&new Set(value).size===value.length;\n  const boolean=value=>typeof value==='boolean';\n  const domainFields={profileId:text,sportDomainId:text,taxonomyNodeId:value=>value===null||text(value),\n    enabled:boolean,templateId:value=>['template:casual','template:like','template:froth','template:custom'].includes(value),\n    includeAllFixtures:boolean,includeMajorEvents:boolean,includeFollowedTeams:boolean,\n    narrativeVisibility:value=>['allEligible','importantOnly','off'].includes(value),\n    narrativeIntensity:value=>Number.isFinite(value)&&value>=0&&value<=5,\n    editorialSensitivity:value=>['low','medium','high'].includes(value),reminderDefault:value=>['allFollowed','importantOnly','off'].includes(value),\n    scopedCompetitionIds:strings,scopedTaxonomyNodeIds:strings};\n  const entityFields={profileId:text,participantId:text,followLevel:value=>['follow','priority','unfollow','mute'].includes(value),\n    cricketFormats:value=>strings(value)&&value.every(format=>['Tests','ODIs','T20Is','BBL'].includes(format))};\n  const eventDecisionFields=['followedMajorEventIds','excludedMajorEventIds','eventFamilyDecisions','eventEditionDecisions'];\n  const sportSelectionFields=['selectedSelectorEntityIds','followedSports','taxonomySelection'];\n\n  function emit(observe,site,reason,side=null,family=null,decision='held',scope={}){\n    try{const fact=root.NOTHINGSPORTS_SYNC_DIAGNOSTIC?.guardFact({site,reason,side,family,decision,...scope});if(fact)observe?.(fact);}catch(_error){}\n  }\n  function localView(preferences,observe,side,site=4){\n    const invalid=reason=>{emit(observe,site,reason,side,'localView');return false;};\n    if(preferences.feedCompact!==undefined&&!boolean(preferences.feedCompact))return invalid(20/*view_field_invalid*/);\n    if(preferences.followBrowse===undefined)return true;\n    const browse=preferences.followBrowse;\n    const fields={sportId:text,categoryId:text,section:value=>['teams-players','schedule'].includes(value),\n      page:value=>Number.isSafeInteger(value)&&value>=0,\n      scheduleScope:value=>value===null||(object(value)&&Object.keys(value).length===4\n        &&['codeId','tournamentId','competitionId','label'].every(key=>text(value[key])))};\n    if(!object(browse))return invalid(18/*view_shape_invalid*/);\n    return Object.keys(browse).every(key=>!Object.hasOwn(fields,key)?invalid(19/*view_unknown_field*/)\n      :fields[key](browse[key])||invalid(20/*view_field_invalid*/));\n  }\n\n  function withoutViews(preferences){\n    const result=clone(preferences);delete result.followBrowse;delete result.feedCompact;return result;\n  }\n\n  function excludeAgreedEventsScope(values,outside){\n    const key='eventsScope',owns=value=>Object.hasOwn(value,key),valid=value=>['all','followed'].includes(value[key]);\n    if(!values.slice(1).every(value=>owns(value)&&valid(value))||!same(values[1][key],values[2][key]))return false;\n    if(owns(values[0])&&(!valid(values[0])||same(values[0][key],values[1][key])))return false;\n    // Only the existing view writer's exact, already-agreed enum is accommodated.\n    // The original receipt and fresh remote value remain untouched.\n    for(const value of outside)delete value[key];\n    return true;\n  }\n\n  function excludeAgreedTennisDefault(values,outside){\n    // Historical absence only: recognize the existing normalizer's exact default,\n    // never an arbitrary agreed object or permission to create a remote value.\n    const defaults={enthusiasm:'froth',gender:'both',eventType:'both',round:'all'};\n    if(Object.hasOwn(values[0],'tennis')||!values.slice(1).every(value=>\n      Object.hasOwn(value,'tennis')&&same(value.tennis,defaults)))return false;\n    for(const value of outside)delete value.tennis;\n    return true;\n  }\n\n  function excludeAgreedEventDecisions(values,outside,follow){\n    const fields=eventDecisionFields;\n    const first=values.map(value=>value.followFirst);\n    if(!first.every(object))return;\n    if(!fields.some(key=>!same(first[0][key],first[1][key])||!same(first[0][key],first[2][key])))return;\n    let canonical;\n    try{canonical=values.map(value=>follow.migratePreferences(clone(value)).followFirst);}catch{return;}\n    // Reuse the current canonical event rules as a read-only check. Never use\n    // their coerced/defaulted output as a decision or write it into a receipt.\n    if(!first.every((value,index)=>fields.every(key=>Object.hasOwn(value,key)===Object.hasOwn(canonical[index],key)\n      &&same(value[key],canonical[index][key]))))return;\n    for(const key of fields){\n      if(!Object.hasOwn(first[1],key)||!Object.hasOwn(first[2],key)||!same(first[1][key],first[2][key]))continue;\n      // These exact decisions already agree with the fresh server read. Keep\n      // them there; only the existing entity/domain plan may produce writes.\n      for(const value of outside)delete value.followFirst[key];\n    }\n    return fields;\n  }\n\n  function reconcileSportSelection(values,outside){\n    const fields=sportSelectionFields;\n    const ownsSame=(first,second,key)=>Object.hasOwn(first,key)===Object.hasOwn(second,key)&&same(first[key],second[key]);\n    if(!values.slice(1).some(value=>fields.some(key=>!ownsSame(values[0],value,key))))return null;\n    // These are one existing sport writer's choice. Its derivations validate\n    // each complete snapshot; their output never replaces a saved value.\n    if(typeof normalizeSelectorEntityIds!=='function'||typeof canonicalSportKeysForSelectorIds!=='function'\n      ||typeof taxonomySelectionForSelectorIds!=='function')return null;\n    if(!values.every(value=>fields.every(key=>Object.hasOwn(value,key))\n      &&strings(value.selectedSelectorEntityIds)&&strings(value.followedSports)&&object(value.taxonomySelection)\n      &&same(value.selectedSelectorEntityIds,normalizeSelectorEntityIds(value.selectedSelectorEntityIds))\n      &&same(value.followedSports,canonicalSportKeysForSelectorIds(value.selectedSelectorEntityIds))\n      &&same(value.taxonomySelection,taxonomySelectionForSelectorIds(value.selectedSelectorEntityIds))))return null;\n    const [base,intent,remote]=values.map(value=>Object.fromEntries(fields.map(key=>[key,value[key]])));\n    // Preserve a whole unchanged-side or already-agreed choice. Conflicting\n    // selections, including an empty choice against a new remote choice, hold.\n    if(!same(base,intent)&&!same(base,remote)&&!same(intent,remote))return null;\n    for(const value of outside)for(const key of fields)delete value[key];\n    return clone(same(base,intent)?remote:intent);\n  }\n\n  function knownDecisionsAgree(intent,remote){\n    const equalField=(first,second,key)=>Object.hasOwn(first,key)===Object.hasOwn(second,key)&&same(first[key],second[key]);\n    if(!object(intent)||!object(remote)||!equalField(intent,remote,'eventsScope'))return false;\n    const first=intent.followFirst,second=remote.followFirst;\n    return same(first,second)||(object(first)&&object(second)&&eventDecisionFields.every(key=>equalField(first,second,key)));\n  }\n\n  function records(list,key,fields,identity,observe,side){\n    const family=key==='participantId'?'entities':'domains';\n    const invalid=(reason,message)=>{emit(observe,6,reason,side,family);throw Error(message);};\n    if(!Array.isArray(list))return invalid(22/*list_shape_invalid*/,'Unknown preference list');\n    const result=new Map();\n    for(const record of list){\n      if(!object(record))return invalid(23/*record_shape_invalid*/,'Unknown preference record');\n      if(!text(record[key])||!record[key])return invalid(24/*record_identity_invalid*/,'Unknown preference record');\n      for(const name of Object.keys(record)){\n        if(!Object.hasOwn(fields,name))return invalid(25/*record_unknown_field*/,'Unknown preference record');\n        if(!fields[name](record[name]))return invalid(26/*record_field_invalid*/,'Unknown preference record');\n      }\n      if(key==='participantId'&&!entityFields.followLevel(record.followLevel))return invalid(27/*entity_level_invalid*/,'Unknown Follow level');\n      if(key==='sportDomainId'&&(!/^sport:[a-z0-9-]+$/.test(record[key])||record[key]==='sport:rally'))return invalid(28/*domain_identity_invalid*/,'Unknown domain identity');\n      let id;\n      try{id=identity(record[key]);}catch(error){emit(observe,6/*record_validation*/,54/*identity_exception*/,side,family,'exception');throw error;}\n      if(!text(id)||!id)return invalid(29/*identity_unavailable*/,'Ambiguous preference identity');\n      if(result.has(id))return invalid(30/*identity_collision*/,'Ambiguous preference identity');\n      result.set(id,record);\n    }\n    return result;\n  }\n\n  function decision(record){\n    if(!record)return record;\n    const result={...record};delete result.profileId;return result;\n  }\n\n  function mergeRecords(base,intent,remote,key,fields,identity,observe){\n    const before=records(base,key,fields,identity,observe,'base'),desired=records(intent,key,fields,identity,observe,'intent'),latest=records(remote,key,fields,identity,observe,'remote');\n    const conflict=(reason,message)=>{emit(observe,7,reason,'remote',key==='participantId'?'entities':'domains');throw Error(message);};\n    const result=new Map(latest);\n    // Empty is a reset, not permission to discard unseen remote additions.\n    if(!intent.length&&base.length&&[...latest.keys()].some(id=>!before.has(id)))conflict(31,'Concurrent reset');\n    for(const id of new Set([...before.keys(),...desired.keys()])){\n      const b=before.get(id),l=desired.get(id),r=latest.get(id);\n      if(same(decision(b),decision(l)))continue;\n      if(!b||!l||!r){\n        if(same(decision(r),decision(l)))continue;\n        if(!same(decision(r),decision(b)))conflict(!b?32:!l?33:34,'Concurrent record change');\n        if(l)result.set(id,clone(l));else result.delete(id);\n        continue;\n      }\n      // Stable aliases establish identity, never permission to rewrite it.\n      const next={...r};\n      for(const name of new Set([...Object.keys(b),...Object.keys(l)])){\n        if(name==='profileId'||name===key)continue;\n        if(same(b[name],l[name])&&Object.hasOwn(b,name)===Object.hasOwn(l,name))continue;\n        const equal=value=>same(value[name],l[name])&&Object.hasOwn(value,name)===Object.hasOwn(l,name);\n        const unchanged=same(r[name],b[name])&&Object.hasOwn(r,name)===Object.hasOwn(b,name);\n        if(!equal(r)&&!unchanged)conflict(35,'Concurrent field change');\n        if(Object.hasOwn(l,name))next[name]=clone(l[name]);else delete next[name];\n      }\n      result.set(id,next);\n    }\n    return [...result.values()];\n  }\n\n  function plan(receipt,state,profile,follow,patches,observe){\n    try{\n      const refuse=(reason,side=null,site=3)=>{emit(observe,site,reason,side);return null;};\n      if(!object(receipt)||Object.keys(receipt).length!==6)return refuse(8/*receipt_shape_invalid*/);\n      if(!text(receipt.receiptId)||!receipt.receiptId.startsWith('preference-edit:'))return refuse(9/*receipt_id_invalid*/);\n      if(!text(receipt.ownerId)||!receipt.ownerId)return refuse(10/*receipt_owner_invalid*/);\n      if(!Number.isSafeInteger(receipt.generation)||receipt.generation<0)return refuse(11/*receipt_generation_invalid*/);\n      if(!text(receipt.baseUpdatedAt))return refuse(12/*base_time_unavailable*/,'base');\n      if(!Number.isFinite(Date.parse(receipt.baseUpdatedAt)))return refuse(13/*base_time_invalid*/,'base');\n      if(!text(state?.updatedAt))return refuse(14/*remote_time_unavailable*/,'remote');\n      if(!Number.isFinite(Date.parse(state.updatedAt)))return refuse(15/*remote_time_invalid*/,'remote');\n      const values=[receipt.basePreferences,receipt.preferences,state.preferences];\n      for(const [index,value] of values.entries()){\n        const side=['base','intent','remote'][index];\n        if(!object(value))return refuse(16/*preferences_shape_invalid*/,side,4);\n        if(!object(value.preferenceGraph))return refuse(17/*graph_shape_invalid*/,side,4);\n        if(!localView(value,observe,side))return null;\n      }\n      const outside=values.map(value=>{\n        const result=clone(value);delete result.followBrowse;delete result.feedCompact;\n        delete result.preferenceGraph.entityFollows;delete result.preferenceGraph.domainPreferences;return result;\n      });\n      const agreedEvents=excludeAgreedEventDecisions(values,outside,follow);\n      const agreedScope=excludeAgreedEventsScope(values,outside);\n      const agreedTennis=excludeAgreedTennisDefault(values,outside);\n      const sportSelection=reconcileSportSelection(values,outside);\n      if(!profile.preferenceBaseMatches({basePreferences:outside[0]},outside[1]))return refuse(21/*outside_supported_scope_changed*/,'intent',5);\n      if(!profile.preferenceBaseMatches({basePreferences:outside[0]},outside[2]))return refuse(21/*outside_supported_scope_changed*/,'remote',5);\n      const preferences=clone(state.preferences),graphs=values.map(value=>value.preferenceGraph);\n      preferences.preferenceGraph.entityFollows=mergeRecords(...graphs.map(graph=>graph.entityFollows),'participantId',entityFields,follow.participantFollowIdentityKey,observe);\n      preferences.preferenceGraph.domainPreferences=mergeRecords(...graphs.map(graph=>graph.domainPreferences),'sportDomainId',domainFields,value=>value,observe);\n      if(sportSelection)for(const key of sportSelectionFields)preferences[key]=clone(sportSelection[key]);\n      // Remote view values stay on the server; applyServerState retains this device's views.\n      const witness={...clone(receipt),baseUpdatedAt:state.updatedAt,basePreferences:clone(state.preferences),preferences};\n      if(agreedEvents||agreedScope||agreedTennis||sportSelection)witness.acceptsAcknowledgement=value=>object(value)\n        &&(!agreedEvents||(object(value.followFirst)&&agreedEvents.every(key=>\n          Object.hasOwn(witness.basePreferences.followFirst,key)===Object.hasOwn(value.followFirst,key)\n          &&same(witness.basePreferences.followFirst[key],value.followFirst[key]))))\n        &&(!agreedScope||(Object.hasOwn(value,'eventsScope')===Object.hasOwn(witness.basePreferences,'eventsScope')\n          &&same(value.eventsScope,witness.basePreferences.eventsScope)))\n        &&(!agreedTennis||(Object.hasOwn(value,'tennis')&&same(value.tennis,witness.basePreferences.tennis)))\n        &&(!sportSelection||sportSelectionFields.every(key=>Object.hasOwn(value,key)&&same(value[key],sportSelection[key])));\n      // An older ACK can carry R2 forward only from the exact recorded R1\n      // intent, using this same conflict policy against the acknowledged state.\n      witness.originalReceipt=clone(receipt);\n      let continuedPreferences,continuedIntent;\n      witness.continue=(pending,ack)=>{\n        continuedIntent=clone(pending.preferences);\n        continuedPreferences=plan({...pending,basePreferences:receipt.preferences},ack,profile,follow,patches,fact=>emit(observe,12,fact.reason,fact.side,fact.family,fact.decision))?.receipt.preferences;\n        return continuedPreferences;\n      };\n      const changes=patches.createPatch({preferences:state.preferences},{preferences}).changes;\n      function preserve(state,currentPreferences){\n        const preserveObserve=fact=>emit(observe,13,fact.reason,fact.side,fact.family,'retained');\n        if(!continuedPreferences)return state;\n        try{\n          // Preserve ordinary writes made after the R2 snapshot as the existing\n          // in-flight apply owner does. They are not added to the owned receipt;\n          // the next explicit sync holds any unaccounted projected choices.\n          const remaining=patches.createPatch({preferences:continuedIntent},{preferences:currentPreferences});\n          const preferences=patches.applyPatch({preferences:continuedPreferences},remaining).preferences;\n          const graphs=[continuedIntent,currentPreferences,continuedPreferences].map(value=>value.preferenceGraph);\n          preferences.preferenceGraph.entityFollows=mergeRecords(...graphs.map(graph=>graph.entityFollows),'participantId',entityFields,follow.participantFollowIdentityKey,preserveObserve);\n          preferences.preferenceGraph.domainPreferences=mergeRecords(...graphs.map(graph=>graph.domainPreferences),'sportDomainId',domainFields,value=>value,preserveObserve);\n          return {...state,preferences};\n        }catch{emit(observe,13/*inflight_preserve*/,51/*inflight_preserve_failed*/,null,null,'retained');return state;}\n      }\n      emit(observe,5/*plan_scope*/,40/*independent_plan*/,null,null,'planned');\n      return {receipt:witness,preserve,patch:patch=>({...patch,changes:[...patch.changes.filter(change=>change.path[0]!=='preferences'),...changes]})};\n    }catch{emit(observe,14/*unexpected*/,56/*unexpected_exception*/,null,null,'exception');return null;}\n  }\n  function ownedPlan(receipt,state,life,currentPreferences,observe){\n    if(!receipt){emit(observe,1/*owned_current*/,1/*no_receipt*/,null,null,'compatible');return null;}\n    const owner=preferenceIntentOwner();\n    try{emit(observe,1/*owned_current*/,4/*scope_observed*/,null,null,'compatible',{\n      receiptOwnerMatches:owner?.accountId===receipt.ownerId,receiptGenerationMatches:receipt.generation===life?.generation});}catch(_error){}\n    if(owner?.accountId!==receipt.ownerId||owner.accountId!==life?.accountId){emit(observe,1/*owned_current*/,2/*owner_scope_rejected*/,null,null,'unavailable');return null;}\n    if(owner.generation!==life.generation){emit(observe,1/*owned_current*/,3/*generation_scope_rejected*/,null,null,'unavailable');return null;}\n    const hold=(reason,detail={})=>{emit(observe,1,reason,'current',null,'held',detail);throw Object.assign(new Error('Your choices are saved on this device. Sync is paused because the saved account changed.'),{code:'preference_base_changed'});};\n    if(!object(currentPreferences))return hold(5/*current_shape_invalid*/);\n    if(!localView(currentPreferences,observe,'current',1))return hold(6/*current_view_invalid*/);\n    try{\n      const recorded=withoutViews(receipt.preferences),current=withoutViews(currentPreferences);\n      if(!PROFILE_STORAGE.preferenceBaseMatches({basePreferences:recorded},current)){\n        let currentToReceipt=null;\n        try{currentToReceipt=root.NOTHINGSPORTS_SYNC_DIAGNOSTIC?.currentPreferenceDifferences(recorded,current,\n          (first,second)=>PROFILE_STORAGE.preferenceBaseMatches({basePreferences:first},second));}catch(_error){}\n        return hold(7/*current_differs_from_receipt*/,{currentToReceipt});\n      }\n    }catch(error){emit(observe,2/*compatibility*/,52/*comparison_exception*/,'current',null,'exception');throw error;}\n    let compatibleIntent=false,knownAgreement=false;\n    try{\n      if(state&&PROFILE_STORAGE.preferenceBaseMatches(receipt,state.preferences)){emit(observe,2/*compatibility*/,38/*compatible_base*/,null,null,'compatible');return null;}\n      compatibleIntent=Boolean(state&&PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC));\n      if(compatibleIntent)knownAgreement=knownDecisionsAgree(receipt.preferences,state.preferences)\n        &&(Object.hasOwn(receipt.basePreferences,'tennis')\n          ||(Object.hasOwn(receipt.preferences,'tennis')===Object.hasOwn(state.preferences,'tennis')\n            &&same(receipt.preferences.tennis,state.preferences.tennis)));\n    }catch(error){emit(observe,2/*compatibility*/,52/*comparison_exception*/,null,null,'exception');throw error;}\n    if(compatibleIntent){\n      if(!knownAgreement){\n        // A newer choice can return to its original base while an older ACK has\n        // changed the account. An empty original delta is not an agreement.\n        emit(observe,5/*plan_scope*/,21/*outside_supported_scope_changed*/,'remote');\n        throw Object.assign(new Error('Your choices are saved on this device. Sync is paused because the saved account changed.'),{code:'preference_base_changed'});\n      }\n      emit(observe,2/*compatibility*/,39/*compatible_intent*/,null,null,'compatible');return null;\n    }\n    return plan(receipt,state,PROFILE_STORAGE,FOLLOW_FIRST,USER_STATE_SYNC,observe);\n  }\n\n  function verify(receipt,state,life,currentPreferences,observe){\n  const report=fact=>emit(observe,fact.site,fact.reason,fact.side,fact.family,fact.decision,fact);\n  const helper={ownedPlan};\n  if(!helper?.ownedPlan)report({site:0/*helper*/,reason:0/*helper_unavailable*/,decision:'unavailable'});\n  let plan;\n  try{plan=helper?.ownedPlan(receipt,state,life,currentPreferences,report);}\n  catch(error){report({site:14/*unexpected*/,reason:56/*unexpected_exception*/,decision:'exception'});throw error;}\n  if(plan)return plan;\n  try{\n    if(receipt&&(!state||(!PROFILE_STORAGE.preferenceBaseMatches(receipt,state.preferences)\n      &&!PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC)))){\n      report({site:8/*verify_fallback*/,reason:state?37:36,decision:'held'});\n      throw Object.assign(new Error(\"Your choices are saved on this device. Sync is paused because the saved account changed.\"),{code:\"preference_base_changed\"});\n    }\n  }catch(error){report({site:8/*verify_fallback*/,reason:52/*comparison_exception*/,decision:'exception'});throw error;}\n}\n\n  root.NOTHINGSPORTS_PREFERENCE_INTENT_RECONCILE=Object.freeze({plan,ownedPlan,verify});\n  if(typeof module==='object'&&module.exports)module.exports=root.NOTHINGSPORTS_PREFERENCE_INTENT_RECONCILE;\n})(typeof globalThis!=='undefined'?globalThis:window);\n",
+    "scope": "Exact accepted planner only, loaded in a separate actual writer/SDK/API fixture context. This is not a full accepted-M4 app or physical-phone replay."
+  },
+  "priorityDiscriminator": {
+    "state": "SOURCE_PREPARED_UNPARSED_UNRUN",
+    "caseCount": 7,
+    "modes": [
+      "exact accepted planner only",
+      "representation-only source planner",
+      "exact representation-only generated helper"
+    ],
+    "invocation": "Existing validate-sync608-reported-hold.js after exact future packaging/admission; no new runner, mode flag or independent process.",
+    "expectedCurrentResult": "Desired new merges remain RED under representation-only v3; strict baseline/negative holds are controls. Actual first refusal and outcomes UNOBSERVED until authorised execution.",
+    "policyHunk": "NONE. No ratingPrompt allowance, comparison change or product fix added.",
+    "originalCasesUnchanged": [
+      "canonical",
+      "raw-afl-marker-absent",
+      "raw-taxonomy-null",
+      "raw-taxonomy-null-same-selection",
+      "raw-taxonomy-null-remote-conflict",
+      "raw-taxonomy-null-unknown-outside",
+      "raw-taxonomy-missing",
+      "raw-afl-marker-pending",
+      "selection-conflict",
+      "unknown-outside",
+      "derivation-unavailable",
+      "ACK-mismatch",
+      "raw-afl-marker-ACK-mismatch",
+      "raw-taxonomy-null-ACK-mismatch",
+      "raw-taxonomy-null-R2"
+    ],
+    "pairedControlUnchanged": true,
+    "strictBindings": "forward epoch and exact future index/main/helper pins still NULL; no execution before UPDATE packaging. Rebind combined SDK/source/dependency hashes if NEWUSER changes are included, never substitute old or stale bodies."
+  },
+  "sourceOnlyBinding": {
+    "format": "grey-source-only-binding.v1",
+    "baseCommit": "037a6214c1a573b57298d3ea504de0b89e31d473",
+    "baseTree": "280373883f9f42d52042e92ae7f51befe4e3e554",
+    "sourcePlannerSha256": "81795bd8410eec4a85c89cfd0a588ab438f92b8fd9961bd55fc5467d5ce5921a",
+    "acceptedPlannerSha256": "8c826f82cd65795165c47a7fe418ecfccaa828acbc058d26ea458351880f8b3b",
+    "files": {
+      ".github/workflows/installed-upgrade-tests.yml": {
+        "bytes": 11921,
+        "sha256": "e2afebbf49c5f989a2ed58c0874cb7d8b3d35f2e44cd282815281ce73eb87c4d"
+      },
+      "api/user-state.js": {
+        "bytes": 9937,
+        "sha256": "cb8c2a05f24db367054c968d91332e7e627fc521630c3dff647c933d0ca56184"
+      },
+      "config/account-sync-diagnostic.js": {
+        "bytes": 12709,
+        "sha256": "3bf9d2657b16752260fb53f6cd29517f67ad1a5e88d7817bd71652e1d0ff68df"
+      },
+      "config/competition-classification.js": {
+        "bytes": 5008,
+        "sha256": "2e0fd8ee374712192d56f31a895567ecade881694c4bb2f3782097fcf7f6acc7"
+      },
+      "config/coverage-pauses.js": {
+        "bytes": 2576,
+        "sha256": "5ec710154210f3ed7411ad42cc681013c58ceed4bfb58e56a3fa6a509128026b"
+      },
+      "config/cricket-coverage.js": {
+        "bytes": 11147,
+        "sha256": "2f127909e0dd16574fe42ce581eab3afd1810d46953f5096d6e168155a4e6d9d"
+      },
+      "config/discovery-catalogue.js": {
+        "bytes": 26964,
+        "sha256": "a51d1c71f00427dd8359b386d31312b4e251eaa5843db88543366cf05bffabf2"
+      },
+      "config/event-action-identity.js": {
+        "bytes": 7022,
+        "sha256": "2ad26714b4afb35d0838b3626f2db55d0240410900f717d27b3ea84b8ee03258"
+      },
+      "config/event-taxonomy-compat.js": {
+        "bytes": 12829,
+        "sha256": "79320806e5dc755f325f9c4b7629f9e0836e3ed8decbe70063019d01bc8498bb"
+      },
+      "config/fantasy-deadlines.js": {
+        "bytes": 4018,
+        "sha256": "0b149d375836ddf8b8d8a1612166d90b1fdb49d1168d40a3b50dcbd1ff956c79"
+      },
+      "config/fantasy-preferences.js": {
+        "bytes": 1566,
+        "sha256": "8d585cc4fb8895e2a12a3369eb8535fce670dbb14f1d023a73e175de9c0e2c77"
+      },
+      "config/feed-controls.js": {
+        "bytes": 17243,
+        "sha256": "f3cad31aed1c3502f11bc1d6648ae9c4bf77f638e5dbb20bfe43544a07f5bfb7"
+      },
+      "config/fixture-identity.js": {
+        "bytes": 43278,
+        "sha256": "127e72bd20eb4a71deb6596625b5f329483a43e9a960695629707a92756e8c97"
+      },
+      "config/fixture-labels.js": {
+        "bytes": 6204,
+        "sha256": "fc67671852eb5b57ff621db4e7b525155101d65e095e3686a8625967562848d5"
+      },
+      "config/follow-feed-policy.js": {
+        "bytes": 22714,
+        "sha256": "b4bebaf81c7c310be8ca7aea759820e8a258a9bc51cff780a365f6407173bc6a"
+      },
+      "config/follow-first.js": {
+        "bytes": 73598,
+        "sha256": "e0f88352af459638e0a51d954bdc98efe723de5c5400478016dc9a16233dd543"
+      },
+      "config/national-team-identities.js": {
+        "bytes": 33006,
+        "sha256": "12112721588e05cf7b46bfa786e116cb5fa31df4b02858259aebc742f865a86e"
+      },
+      "config/odi-display.js": {
+        "bytes": 1448,
+        "sha256": "38ae5a244da07b3e657bd032d86de743d96196a0cd8207adfbd91d037954436c"
+      },
+      "config/preference-intent-reconcile.js": {
+        "bytes": 24508,
+        "sha256": "81795bd8410eec4a85c89cfd0a588ab438f92b8fd9961bd55fc5467d5ce5921a"
+      },
+      "config/preference-system.js": {
+        "bytes": 31526,
+        "sha256": "26ea4c86e57c101e4a577a27ff69a4150374ea63b47d1c8eab47b59adea04ae9"
+      },
+      "config/preference-taxonomy.js": {
+        "bytes": 3213,
+        "sha256": "6e652f67d53895044e4b768a67ad627aed5325d76ff96aa520718e8af821a0ca"
+      },
+      "config/profile-storage.js": {
+        "bytes": 25689,
+        "sha256": "738cbbb919268ddc77e5e24eb5d10fec5856f47584811742205541706f975717"
+      },
+      "config/racing-details.js": {
+        "bytes": 11924,
+        "sha256": "39bbcc24a16f1f188d627764c7b7ba52049af8fbd0b714a3d8ecbcaae60f8e51"
+      },
+      "config/rating-system.js": {
+        "bytes": 5813,
+        "sha256": "1c55664fd383ff07e599e8ad31e1b87587aae86b52e909cc50fa1471611d00da"
+      },
+      "config/reviewed-fixture-repairs.js": {
+        "bytes": 6616,
+        "sha256": "aba721facce925d255b8308a77de6a1c8230c37e13bc15e7cb215523ae24f446"
+      },
+      "config/selector-taxonomy.js": {
+        "bytes": 14953,
+        "sha256": "ffa82d52930c1cbb8b7f0ef899668631190ee700f28cdf0675d8c3a710f0ea49"
+      },
+      "config/server-sync.js": {
+        "bytes": 43847,
+        "sha256": "db405f737e238395f677b53ef74692f56f300464b6f2e05daa00a5275a9eeca2"
+      },
+      "config/sport-domain-registry.js": {
+        "bytes": 28452,
+        "sha256": "bc490d3cef3baa650a654b04896b18fb7c41378e268a3476673512e6c15e830e"
+      },
+      "config/sport-hierarchy.js": {
+        "bytes": 22611,
+        "sha256": "aaefa7c306fa05415dab3b087b6d9e1695d77c619dda559418699762469c4db4"
+      },
+      "config/tennis-feed.js": {
+        "bytes": 12768,
+        "sha256": "0d6aa3276ac9dc496c78c900c7bcac2bf773409f1285e309236c8fb7a4bce102"
+      },
+      "config/tournament-schedule.js": {
+        "bytes": 4542,
+        "sha256": "4f658a15f42db66a2178237a43c1030779ec5e422759ec1fc2409015dbcea27d"
+      },
+      "config/user-state-sync.js": {
+        "bytes": 13352,
+        "sha256": "74cf255a546dcf3d5ab9797281991c8ec742ae07f5f5c69dbca08e4cfa72a7d1"
+      },
+      "index.html": {
+        "bytes": 942025,
+        "sha256": "168e9febe4ccb809ec554f956137d913d4a9ac0b4908288778c4458d20520e79"
+      },
+      "lib/horse-follow-rollout.js": {
+        "bytes": 1892,
+        "sha256": "2e285f38aee6746609d58911bac40f2583d1f144659247932a425ed5187f04fe"
+      },
+      "lib/supabase-server.js": {
+        "bytes": 16580,
+        "sha256": "1b427ca748743569b0c9c7a1e9d471503734a12950801e8510b43dd5541b8889"
+      },
+      "package-lock.json": {
+        "bytes": 54990,
+        "sha256": "89cf5f60178d8d6abe31bf7e9d308fae7d1f52a7889f1aade19510112b92c572"
+      },
+      "package.json": {
+        "bytes": 500,
+        "sha256": "bf394b90ebce5d11e76ba6c82e4e7d267c4f50abc01fd3bd3e343c41c8634ce0"
+      },
+      "scripts/lib/local-user-state-api.js": {
+        "bytes": 5687,
+        "sha256": "1b4c9cfaef9f281f1af00ab83a99d6ce683bda317e2f7a337f1afc96ccd5abf1"
+      },
+      "scripts/lib/user-state-optional-view-tests.js": {
+        "bytes": 8295,
+        "sha256": "eb1f4602af3bb2c596e8fca9729db328ec4921ba65a9f8567d05bd27a2712c39"
+      },
+      "scripts/lib/user-state-selection-writer-tests.js": {
+        "bytes": 19746,
+        "sha256": "50ee77985890d68ba83bffac88f58691dd585de99a2e8a06719af95aa96482db"
+      },
+      "scripts/validate-sync608-reported-hold.js": {
+        "bytes": 47129,
+        "sha256": "29a6998df7b10019d6b2e38706c6feb987a942f9b8d71abc1145a5ebb8251fc9"
+      }
+    },
+    "runtime": {
+      "node": "v24.21.0",
+      "platform": "linux",
+      "arch": "x64",
+      "route": "Existing admitted fixture-activation pull_request job after existing locked npm ci; actual PUBLISH head/tree binding required before runtime."
+    },
+    "acorn": {
+      "version": "8.18.0",
+      "integrity": "sha512-lGq+9yr1/GuAWaVYIHRjvvySG5/4VfKIvC8EWxStPdcDh/Ka7FG3twP6v4d5BkravUilhIAsG4Qj83t02LWUPQ=="
+    },
+    "sourceArms": {
+      "planned": 14,
+      "modes": [
+        "accepted-planner",
+        "source"
+      ],
+      "patterns": [
+        "new-grey-remote-prompt",
+        "raw-taxonomy-null-new-grey-remote-prompt",
+        "raw-taxonomy-null-new-grey-prompt-R2",
+        "raw-taxonomy-null-new-grey-prompt-ACK-mismatch",
+        "new-grey-prompt-local-change",
+        "new-grey-prompt-unknown-remote",
+        "new-grey-prompt-selection-conflict"
+      ],
+      "firstFailureStops": true
+    },
+    "fixtureIdentity": "Fixture actual SHA is emitted and must match the separately frozen packet/PUBLISH tested-source receipt; no circular self-hash field or guessed immutable tree in this fixture.",
+    "excludedRoutes": [
+      {
+        "file": "api/user-state.js",
+        "require": "../config/local-preference-recovery"
+      },
+      {
+        "file": "api/user-state.js",
+        "require": "../lib/calendar-handler"
+      },
+      {
+        "file": "api/user-state.js",
+        "require": "../lib/classics-api"
+      },
+      {
+        "file": "config/fixture-identity.js",
+        "require": "./fixture-highlights"
+      }
+    ],
+    "dynamicRequireClosure": "tennis-feed computed dictionary includes existing follow-feed-policy, follow-first and tournament-schedule source; explicitly bound. Unused snapshot/classics and highlightsOnly enrichment routes are outside the fixed normal-state controls, calendar handler is the existing throwing fixture stub.",
+    "generatedProof": false,
+    "defaultFullProof": false,
+    "releaseAcceptance": false,
+    "ciRegistration": {
+      "sourceCommit": "037a6214c1a573b57298d3ea504de0b89e31d473",
+      "workflowPath": ".github/workflows/installed-upgrade-tests.yml",
+      "baseWorkflowSha256": "969fa62b36eb121517db14c5c686d39da2de8700164135a678d9e67d9612858d",
+      "workflowSha256": "e2afebbf49c5f989a2ed58c0874cb7d8b3d35f2e44cd282815281ce73eb87c4d"
+    },
+    "ciFragment": {
+      "sourceOwner": "UPDATE",
+      "sha256": "1e7289f84ae73886c711bb8c960fbea5978c16776fb3345290cc24f43157ca76",
+      "integratedEntry": "validateGreyOnlyCiContract(workflowText,binding)",
+      "repositoryHelperAdded": false,
+      "negativeControlNames": [
+        "missing priority step",
+        "duplicate priority step",
+        "altered priority step",
+        "moved priority step"
+      ]
+    }
+  }
+}
