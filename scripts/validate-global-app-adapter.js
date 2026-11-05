@@ -113,8 +113,8 @@ function prerequisites(){
  const env={PATH:process.env.PATH,GIT_CONFIG_NOSYSTEM:'1',GIT_CONFIG_GLOBAL:os.devNull},git=args=>cp.execFileSync('git',args,{cwd:repo,env,encoding:'utf8',stdio:['ignore','pipe','pipe'],timeout:5000});
  const files=['scripts/verify-global-app-adapter.js','scripts/lib/global-app-adapter-qualification.js','scripts/lib/near-app-adapter-qualification.js','lib/supabase-server.js','config/event-action-identity.js'];let head,count=0;
  const probe=path.join(repo,'PRIVATE_PROBE_NAME.txt');
- function invoke(name,change={}){
-  const dir=path.join(root,name),result=cp.spawnSync(process.execPath,['--require',path.join(root,'deny.cjs'),path.join(repo,files[0]),'--live-read'],{cwd:repo,env:{...env,GITHUB_ACTIONS:'true',GITHUB_EVENT_NAME:'workflow_dispatch',GITHUB_REF:'refs/heads/main',GITHUB_REPOSITORY:'hartican/sportscal',GITHUB_WORKFLOW:'Sportscal production',GITHUB_JOB:'deploy',GITHUB_RUN_ID:'123',GITHUB_SHA:head,NS_NEAR_APP_RELEASE_SHA:head,NS_DEPLOY_REPORT_DIR:dir,...change},encoding:'utf8',timeout:10000});
+ function invoke(name,change={},argv=['--live-read']){
+  const dir=path.join(root,name),result=cp.spawnSync(process.execPath,['--require',path.join(root,'deny.cjs'),path.join(repo,files[0]),...argv],{cwd:repo,env:{...env,GITHUB_ACTIONS:'true',GITHUB_EVENT_NAME:'workflow_dispatch',GITHUB_REF:'refs/heads/main',GITHUB_REPOSITORY:'hartican/sportscal',GITHUB_WORKFLOW:'Sportscal production',GITHUB_JOB:'deploy',GITHUB_RUN_ID:'123',GITHUB_SHA:head,NS_NEAR_APP_RELEASE_SHA:head,NS_DEPLOY_REPORT_DIR:dir,...change},encoding:'utf8',timeout:10000});
   assert(!result.error);assert.equal(result.status,1);assert.equal(result.stderr,'');const lines=result.stdout.trim().split('\n').map(s=>JSON.parse(s)),summary=lines.find(x=>x.state);assert.equal(lines.find(x=>Object.hasOwn(x,'networkCalls')).networkCalls,0);assert.equal(summary.reads,0);
   const file=path.join(dir,'global-app-adapter.json'),receipt=fs.existsSync(file)?JSON.parse(fs.readFileSync(file,'utf8')):null;
   assert(!JSON.stringify([summary,receipt]).includes('PRIVATE_PROBE_NAME'));assert(!result.stdout.includes(root));count++;return{summary,receipt};
@@ -126,6 +126,8 @@ function prerequisites(){
   fs.writeFileSync(probe,'accepted\n');fs.writeFileSync(path.join(root,'deny.cjs'),"let n=0;const deny=()=>{n++;throw Error('NETWORK_FORBIDDEN');};global.fetch=deny;for(const name of ['http','https','net','tls']){const m=require('node:'+name);for(const k of ['request','get','connect','createConnection'])if(typeof m[k]==='function')m[k]=deny;}process.on('exit',()=>console.log(JSON.stringify({networkCalls:n})));\n");
   git(['init','--quiet']);git(['config','user.name','Local test']);git(['config','user.email','test@example.invalid']);git(['config','core.filemode','true']);git(['add','.']);git(['commit','--quiet','-m','Disposable global gate fixture']);head=git(['rev-parse','HEAD']).trim();git(['update-ref','refs/remotes/origin/main',head]);
   let r=invoke('clean');assert.equal(r.summary.sha,head);assert.equal(r.summary.prerequisite.stage,'service_configuration');assert(r.receipt);
+   assert.equal(r.receipt.capacityContract,'fixture-source-groups.v1');
+   const dictPrerequisite=invoke('dictionary-clean',{},['--live-read','--dictionary-v2']);assert.equal(dictPrerequisite.summary.sha,head);assert.equal(dictPrerequisite.summary.prerequisite.stage,'service_configuration');assert.equal(dictPrerequisite.receipt.capacityContract,'fixture-source-groups.v2');
   const bytes=fs.readFileSync(probe),stat=fs.statSync(probe);fs.writeFileSync(probe,bytes);fs.utimesSync(probe,stat.atime,new Date(stat.mtimeMs+2000));r=invoke('stat-only');assert.equal(r.summary.sha,head);
   reset();fs.writeFileSync(probe,'changed');rejected(invoke('changed'),'git_worktree');
   reset();fs.writeFileSync(probe,'staged');git(['add',path.basename(probe)]);fs.writeFileSync(probe,bytes);rejected(invoke('staged-restored'),'git_index');
@@ -143,4 +145,36 @@ function prerequisites(){
  return count;
 }
 test('actual CLI prerequisite failures stay read-free and preserve exclusive evidence',()=>{assert(prerequisites()>=15);});
+
+const dictionary=require('../lib/fixture-source-groups-v2');
+test('explicit dictionary retains actual SDK bytes, complete projection and two-resource policy',async()=>{
+ const f=fixture({wire:dictionary.encode(groupWire([row]))}),result=await f.run({dictionary:true});
+ assert.equal(result.projectedEdges,1);assert.equal(result.projectedSources,2);assert.equal(f.calls.length,2);
+ assert.deepEqual(f.calls[1].opts.headers,dictionary.HEADERS);assert(f.calls.every(c=>c.opts.timeoutMs<=6000));
+});
+test('dictionary qualification makes only two sequential complete reads',async()=>{
+ const f=fixture({wire:dictionary.encode(groupWire([row]))}),records=[];
+ await gate.qualify({dictionary:true,request:f.request,environment,record:r=>records.push(r)});
+ assert.equal(f.calls.length,4);assert.equal(records.length,2);assert(records.every(r=>r.projectedEdges===1));
+});
+test('dictionary rejects v1, partial, missing timing and malformed text without fallback',async()=>{
+ const good=dictionary.encode(groupWire([row]));
+ for(const change of [{wire:groupWire([row])},{wire:{...good,complete:false}},{wire:good,dropTiming:'text-ready'},{wire:good,bundleText:'{'},{wire:good,failBundle:true}]){
+  const f=fixture(change),records=[];
+  await assert.rejects(gate.qualify({dictionary:true,request:f.request,environment,record:r=>records.push(r)}));
+  assert.equal(f.calls.length,2);assert.equal(records.length,0);
+ }
+});
+test('default v1 cannot silently accept v2 and private format must be boolean',async()=>{
+ const f=fixture({wire:dictionary.encode(groupWire([row]))});await assert.rejects(f.run());assert.equal(f.calls.length,2);
+ const bad=fixture();await assert.rejects(bad.run({dictionary:'true'}));assert.equal(bad.calls.length,0);
+});
+test('dictionary failed second read preserves exactly one safe first receipt',async()=>{
+ const f=fixture({wire:dictionary.encode(groupWire([row])),onFetch:n=>{if(n>2)f.state.failBundle=true;}}),records=[];
+ await assert.rejects(gate.qualify({dictionary:true,request:f.request,environment,record:r=>records.push(r)}));assert.equal(records.length,1);assert.equal(f.calls.length,4);assert(!JSON.stringify(records).includes('sb_secret'));
+});
+test('dictionary flag alone, extra flags and reordered flags are rejected before environment access',async()=>{
+ for(const argv of [['--dictionary-v2'],['--live-read','--dictionary-v2','extra'],['--dictionary-v2','--live-read']])await assert.rejects(cli.main({argv,environment:new Proxy({},{get(){throw Error('Environment touched');}}),log:()=>assert.fail('No receipt before argument validation')}));
+});
+
 (async()=>{for(const item of tests)await item.run();console.log(JSON.stringify({schemaVersion:'global-app-adapter-source-tests.v1',checks:tests.length,passed:true,networkCalls:0,serviceCalls:0,scope:'Actual SDK/parser/CANDIDATE with fake HTTP, allocation and disposable Git/receipt controls'}));})().catch(error=>{console.error(error.stack);process.exitCode=1;});

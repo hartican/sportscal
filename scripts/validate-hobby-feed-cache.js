@@ -255,6 +255,53 @@ async function main(){
   const event=Object.freeze({id:'frozen',key:'afl',date:'2026-09-15',startTimeUtc:'2026-09-15T04:00:00Z',participantIds:Object.freeze([]),storyline:Object.freeze({stakes:3})});
   pipeline.buildServerFeed({events:[event],userId:'a',userState:{},now:new Date('2026-09-15T03:00:00Z'),copyEvents:false});
   assert.equal(event.status,undefined);
+
+
+  // Load the actual exported application instance from disk, not another factory.
+  // Only its existing I/O dependencies are synthetic; the constructor and routes
+  // execute the real activated source. Restore the module loader/cache afterwards.
+  const Module=require('node:module'),feedFile=require.resolve('../api/feed'),savedFeedModule=require.cache[feedFile],originalLoad=Module._load;
+  const exportedReads=[],exportedDictionary=require('../lib/fixture-source-groups-v2');
+  const exportedData={...data,canonicalSportContext:{participants:[{id:'team:nrl:qa',key:'nrl',sport:'rugby-league'}]},authenticatedUser:async()=>({id:'activated-export-account'}),readLiveSnapshots:async options=>{exportedReads.push(options);return {revision:'activated-export-fixtures',sources:[],stale:false};},buildServerFeed:({now})=>({events:[],generatedAt:now.toISOString(),actualExport:true})};
+  Module._load=function(name,parent,...rest){
+    if(parent?.filename===feedFile){
+      if(name==='../lib/supabase-server'||name==='../lib/server-feed-pipeline')return exportedData;
+      if(name==='../lib/live-fixtures')return {readLiveSnapshots:exportedData.readLiveSnapshots};
+      if(name==='../lib/follow-fixture-resolver')return {resolveUserFollowFixtures:exportedData.resolveUserFollowFixtures};
+      if(name==='../data/events.json')return exportedData.eventFeed;
+      if(name==='../config/sport-context')return {mergeCanonicalBundles:()=>exportedData.canonicalSportContext,applyContextToEvents:()=>[]};
+      if(name==='../lib/calendar-catalogue')return {catalogue:()=>[]};
+      if(name.startsWith('../data/canonical/'))return {};
+    }
+    return originalLoad.call(this,name,parent,...rest);
+  };
+  delete require.cache[feedFile];
+  try{
+    const actualExport=require('../api/feed');
+    let actualResponse=response();await actualExport({method:'GET',url:'/api/feed?globalSnapshotTransport=v1',headers:{'x-ns-fixture-source-groups':'v1'}},actualResponse);
+    assert.equal(actualResponse.statusCode,200);assert.equal(actualResponse.body.actualExport,true);assert.equal(exportedReads[0].globalTransport,exportedDictionary.CANDIDATE,'actual deployed export must use private v2 opt-in despite public input');
+    actualResponse=response();await actualExport({method:'GET',url:'/api/feed?scope=match-centre',headers:{}},actualResponse);
+    assert.equal(actualResponse.statusCode,200);assert.equal(exportedReads[1].scope,'match-centre');assert(!Object.hasOwn(exportedReads[1],'globalTransport'));
+    actualResponse=response();await actualExport({method:'GET',url:'/api/feed?scope=athletes&participantId=team%3Anrl%3Aqa',headers:{}},actualResponse);
+    assert.equal(actualResponse.statusCode,200);assert.equal(exportedReads[2].scope,'participants');assert(!Object.hasOwn(exportedReads[2],'globalTransport'));assert.equal(exportedReads.length,3);
+  }finally{
+    Module._load=originalLoad;
+    if(savedFeedModule)require.cache[feedFile]=savedFeedModule;else delete require.cache[feedFile];
+  }
+
+  const dictionary=require('../lib/fixture-source-groups-v2'),transportOptions=[];
+  assert.throws(()=>createFeedHandler({globalSnapshotTransport:{...dictionary.CANDIDATE}}));
+  const transportData={...data,canonicalSportContext:{participants:[{id:'team:nrl:qa',key:'nrl',sport:'rugby-league'}]},authenticatedUser:async()=>({id:'dictionary-account'}),readLiveSnapshots:async options=>{transportOptions.push(options);return {revision:'dictionary-feed',sources:[],stale:false};},buildServerFeed:({now})=>({events:[],generatedAt:now.toISOString()})};
+  const privateFeed=createFeedHandler({globalSnapshotTransport:dictionary.CANDIDATE,load:()=>transportData,authenticate:()=>transportData,clock:()=>new Date('2026-09-15T03:00:00Z')});
+  let transportResponse=response();await privateFeed({method:'GET',url:'/api/feed',headers:{}},transportResponse);assert.equal(transportResponse.statusCode,200);assert.equal(transportOptions[0].globalTransport,dictionary.CANDIDATE);
+  transportResponse=response();await privateFeed({method:'GET',url:'/api/feed?scope=match-centre',headers:{}},transportResponse);assert.equal(transportResponse.statusCode,200);assert.equal(transportOptions[1].scope,'match-centre');assert(!Object.hasOwn(transportOptions[1],'globalTransport'));
+  transportResponse=response();await privateFeed({method:'GET',url:'/api/feed?scope=athletes&participantId=team%3Anrl%3Aqa',headers:{}},transportResponse);assert.equal(transportResponse.statusCode,200);assert.equal(transportOptions[2].scope,'participants');assert(!Object.hasOwn(transportOptions[2],'globalTransport'));
+  let overridden=0;
+  const customLive=createFeedHandler({globalSnapshotTransport:dictionary.CANDIDATE,live:()=>async(req,res)=>{overridden++;res.status(200).json({custom:true});}});
+  transportResponse=response();await customLive({method:'GET',url:'/api/feed?route=fixtures',headers:{}},transportResponse);assert.equal(overridden,1);assert.equal(transportResponse.body.custom,true);assert.equal(transportOptions.length,3);
+  const defaultOptions=[],ordinaryFeed=createFeedHandler({load:()=>({...transportData,readLiveSnapshots:async options=>{defaultOptions.push(options);return {revision:'default-feed',sources:[],stale:false};}}),authenticate:()=>transportData,clock:()=>new Date('2026-09-15T03:00:00Z')});
+  transportResponse=response();await ordinaryFeed({method:'GET',url:'/api/feed?globalSnapshotTransport=v2',headers:{'x-ns-fixture-source-groups':'v2'}},transportResponse);assert.equal(transportResponse.statusCode,200);assert.equal(defaultOptions[0],undefined);
+
   require('./validate-feed-initialization-boundary');
   console.log('Feed cache: private auth/state/revision isolation, TTL, midnight/start expiry, LRU/bytes, lazy routing and immutable inputs passed');
 }

@@ -22,13 +22,14 @@ function claimReceipt(directory,report){
 }
 async function main({argv=process.argv.slice(2),environment=process.env,log=console.log}={}){
  if(!argv.length){log(JSON.stringify({state:'INERT_NO_LIVE_READ',serviceCalls:0,releaseAcceptance:false}));return;}
- assert.deepEqual(argv,['--live-read']);
- const report={schemaVersion:'global-app-adapter-release.v1',state:'STOP_BEFORE_READ',prerequisite:{stage:'runtime'},reads:[],readOnly:true,releaseAcceptance:false,capacityContract:'fixture-source-groups.v1',allocationStartedAt:new Date().toISOString(),allocationLimitMs:gate.ALLOCATION_MS};
+ const dictionary=argv.length===2&&argv[1]==='--dictionary-v2';
+ assert.deepEqual(argv,dictionary?['--live-read','--dictionary-v2']:['--live-read']);
+ const report={schemaVersion:'global-app-adapter-release.v1',state:'STOP_BEFORE_READ',prerequisite:{stage:'runtime'},reads:[],readOnly:true,releaseAcceptance:false,capacityContract:dictionary?'fixture-source-groups.v2':'fixture-source-groups.v1',allocationStartedAt:new Date().toISOString(),allocationLimitMs:gate.ALLOCATION_MS};
  let owner,finished=false;
  const save=()=>owner?.save(report);
  const at=(stage,operation,git=false)=>{report.prerequisite={stage};try{return operation();}catch(error){if(git&&Number.isInteger(error?.status)&&error.status>=0&&error.status<=255)report.prerequisite.gitExitStatus=error.status;throw error;}};
  try{
-  await gate.qualify({
+  await gate.qualify({dictionary,
    prepare:()=>{
     assert.equal(process.versions.node.split('.')[0],'24');
     const cp=require('node:child_process'),options={cwd:path.join(__dirname,'..'),encoding:'utf8',stdio:['ignore','pipe','pipe'],timeout:2000,maxBuffer:4096};

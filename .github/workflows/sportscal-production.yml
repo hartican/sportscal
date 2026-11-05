@@ -414,7 +414,7 @@ jobs:
           node scripts/validate-live-coverage-publication.js --live-read
           node scripts/validate-account-erasure-preflight.js --live-read
           node scripts/verify-near-app-adapter.js --live-read
-          node scripts/verify-global-app-adapter.js --live-read
+          node scripts/verify-global-app-adapter.js --live-read --dictionary-v2
       - name: Bind project and preserve current production
         run: node scripts/prepare-production-release.js
       - name: Deploy or reuse exact release

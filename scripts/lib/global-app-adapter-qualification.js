@@ -7,7 +7,7 @@ const HEALTH='/rest/v1/rpc/nothingsports_read_fixture_source_health';
 const BUNDLE='/rest/v1/nothingsports_current_global_fixture_bundle?select=bundle';
 const READ_MS=6000,ALLOCATION_MS=30000,MAX_BYTES=16*1024*1024;
 const ownedFailures=new WeakMap();
-const application=()=>({fixtures:require('../../lib/live-fixtures'),groups:require('../../lib/fixture-source-groups')});
+const application=(dictionary=false)=>({fixtures:require('../../lib/live-fixtures'),groups:dictionary?require('../../lib/fixture-source-groups-v2'):require('../../lib/fixture-source-groups')});
 const sha=value=>crypto.createHash('sha256').update(value).digest('hex');
 const finite=value=>typeof value==='number'&&Number.isFinite(value)&&value>=0;
 const phases=['fetch-start','headers','text-start','text-ready','parse-start','parse-ready','complete','timeout','caller-abort','error'];
@@ -43,9 +43,10 @@ function closure(manifest,snapshot,rows,contentHash){
  }
  assert.equal(count,rows.length,'Projection omitted source edges');return{manifestSources:ids.length,projectedSources:snapshot.sources.length,projectedEdges:count};
 }
-async function measure({request,environment,signal,onReceipt=()=>{},timer=()=>performance.now(),now=Date.now,allocationCheck=()=>{}}){
+async function measure({dictionary=false,request,environment,signal,onReceipt=()=>{},timer=()=>performance.now(),now=Date.now,allocationCheck=()=>{}}){
  assert.equal(typeof request,'function','Existing service transport required');
- const {fixtures:{createSnapshotStore,readLiveSnapshots,contentHash},groups}=application();
+ assert.equal(typeof dictionary,'boolean','Explicit trusted format selection required');
+ const {fixtures:{createSnapshotStore,readLiveSnapshots,contentHash},groups}=application(dictionary);
  const calls=[],receipt={calls};let manifest,wire,rows,settled=false,invalidTiming=false;
  const began=timer(),check=()=>{allocationCheck();assert(!signal?.aborted,'Qualification cancelled');assert(finite(timer()-began)&&timer()-began<READ_MS,'Global app read exceeded6000ms');};
  const observed=async(route,options={})=>{
@@ -64,7 +65,7 @@ async function measure({request,environment,signal,onReceipt=()=>{},timer=()=>pe
   if(kind==='health')manifest=value;
   else{
    assert(Array.isArray(value)&&value.length===1&&value[0]?.bundle?.schemaVersion===groups.SCHEMA,'Required grouped global wire absent');
-   wire=value[0].bundle;rows=groups.decode(wire).rows;check();
+   wire=value[0].bundle;rows=(dictionary?groups.decodeRows(wire,{textBytes:call.bytes}):groups.decode(wire)).rows;check();
    call.groups=wire.groupCount;call.edges=wire.edgeCount;call.parsedValueSha256=sha(JSON.stringify(value));check();
   }
   return value;
@@ -91,18 +92,18 @@ async function measure({request,environment,signal,onReceipt=()=>{},timer=()=>pe
  }finally{settled=true;}
 }
 function expired(){return Object.assign(Error('Qualification allocation expired'),{gateCode:'allocation_expired'});}
-async function qualify({prepare,record=()=>{},complete=()=>{},request,environment,timer=()=>performance.now(),now=Date.now,limitMs=ALLOCATION_MS,schedule=setTimeout,cancel=clearTimeout,onReceipt}){
+async function qualify({dictionary=false,prepare,record=()=>{},complete=()=>{},request,environment,timer=()=>performance.now(),now=Date.now,limitMs=ALLOCATION_MS,schedule=setTimeout,cancel=clearTimeout,onReceipt}){
  assert(Number.isSafeInteger(limitMs)&&limitMs>0&&limitMs<=ALLOCATION_MS);
  const began=timer(),controller=new AbortController();let handle,active=true;
  const check=()=>{if(!active||controller.signal.aborted||timer()-began>=limitMs)throw expired();};
  const deadline=new Promise((_,reject)=>{handle=schedule(()=>{controller.abort(expired());reject(expired());},limitMs);});
  const work=(async()=>{
   const config=prepare?await prepare(controller.signal):{request,environment};check();
-  application();check(); // Cold module setup belongs to the whole allocation.
+  application(dictionary);check(); // Cold module setup belongs to the whole allocation.
   const results=[];
   for(const label of ['first forced-fresh global app-adapter read; prior SQL touched buffers','second forced-fresh global app-adapter read; backend reuse unknown']){
    check();assert(limitMs-(timer()-began)>=READ_MS,'Insufficient remaining allocation for unchanged global read');
-   const result=await measure({...config,signal:controller.signal,timer,now,onReceipt,allocationCheck:check});check();
+   const result=await measure({...config,dictionary,signal:controller.signal,timer,now,onReceipt,allocationCheck:check});check();
    await record({label,...result});check();results.push(result);
   }
   await complete(results,{allocationLimitMs:limitMs,elapsedBeforeReceiptMs:timer()-began});check();return results;
