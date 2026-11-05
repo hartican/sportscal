@@ -3281,7 +3281,7 @@ let latest = await serverSyncClient.loadState({ accountId:scope.accountId });
 diagnostic?.step("verify",latest,preferenceReceipt);
 if (!scope.verify(latest)) return null;
 let preferencePlan=verifyPreferenceIntentBase(preferenceReceipt,latest.state,preferenceLife,currentState.preferences,diagnostic?.guard);
-advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
+if(!preferencePlan)advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
 setPreferenceRecovery(latest.preferenceRecovery);
 currentState = serverAuthoritativeFixturePins(latest.state, currentState);
 localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
@@ -3334,7 +3334,7 @@ latest = await serverSyncClient.loadState({ accountId:scope.accountId });
 diagnostic?.step("verify",latest,preferenceReceipt);
 if (!scope.verify(latest)) return null;
 preferencePlan=verifyPreferenceIntentBase(preferenceReceipt,latest.state,preferenceLife,currentState.preferences,diagnostic?.guard);
-advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
+if(!preferencePlan)advancePreferenceReceiptBase(preferenceReceipt,latest.state,preferenceLife);
 setPreferenceRecovery(latest.preferenceRecovery);
 currentState = serverAuthoritativeFixturePins(latest.state, currentState);
 localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
