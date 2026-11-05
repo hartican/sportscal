@@ -15,6 +15,7 @@ on:
       - scripts/validate-account-sync-recovery-browser.js
       - scripts/lib/account-sign-in-action-trace.js
       - scripts/validate-account-sign-in-action-trace.js
+      - scripts/validate-new-user-journey.js
       - scripts/lib/installed-test-network.js
       - scripts/validate-installed-test-network.js
       - .github/installed-production-baseline.json
@@ -83,8 +84,10 @@ jobs:
           node <<'JS'
           const cp=require('node:child_process');
           const git=(...args)=>cp.execFileSync('git',args,{encoding:'utf8'}).trim();
-          console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,eventSha:process.env.GITHUB_SHA,node:process.version,platform:process.platform,arch:process.arch,limits:'Three remaining source/mock activation checks. Not production SQL, hosted wire or physical iPhone acceptance.'},null,2));
+          console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,eventSha:process.env.GITHUB_SHA,node:process.version,platform:process.platform,arch:process.arch,limits:'Three existing source/mock activation checks plus one bounded new-user journey unit. Not production SQL, hosted wire or physical iPhone acceptance.'},null,2));
           JS
+      - name: Verify new-user journey source controls
+        run: timeout --signal=TERM --kill-after=5s 120s node scripts/validate-new-user-journey.js
       - name: Install existing locked dependencies
         run: npm ci
       - name: Verify actual exported Feed activation

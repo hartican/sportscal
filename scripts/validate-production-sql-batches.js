@@ -18,6 +18,7 @@ const recoveryCommands=Object.freeze([
  'node scripts/validate-local-preference-recovery.js',
  'node scripts/validate-local-recovery-ui-lifecycle.js'
 ]);
+const journeyCommand='timeout --signal=TERM --kill-after=5s 120s node scripts/validate-new-user-journey.js';
 const receiptBatches=[
  ['near-selection','near-receipt-join-pg18','NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg18/receipt-join" node scripts/validate-near-receipt-join.js'],
  ['near-selection','near-receipt-join-pg17','NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg17/receipt-join" PGLITE_MODULE=pglite-pg17 node scripts/validate-near-receipt-join.js']
@@ -85,16 +86,20 @@ function validate(text){
  const originalPublisher=original.commands.filter(command=>!moved.includes(command));
  assert.equal(originalPublisher.length,251);
  const recoveryAt=originalPublisher.indexOf('node scripts/validate-preference-bookkeeping.js');assert(recoveryAt>=0);
- const expectedPublisher=[...originalPublisher.slice(0,recoveryAt+1),...recoveryCommands,...originalPublisher.slice(recoveryAt+1)];
- assert.deepEqual(commands,expectedPublisher,'All original 251 publisher commands retain their exact order and environment, with both required recovery checks immediately after preference bookkeeping');
+ const withRecovery=[...originalPublisher.slice(0,recoveryAt+1),...recoveryCommands,...originalPublisher.slice(recoveryAt+1)];
+ const journeyAt=withRecovery.indexOf('node scripts/validate-account-awareness.js');assert(journeyAt>=0);
+ const expectedPublisher=[...withRecovery.slice(0,journeyAt+1),journeyCommand,...withRecovery.slice(journeyAt+1)];
+ assert.equal(commands.length,254,'Exactly 254 required publisher command occurrences');
+ assert.deepEqual(commands,expectedPublisher,'All original 251 publisher commands retain exact order and environment, both recovery checks follow preference bookkeeping, and one bounded journey check follows account awareness');
  const receiptCommands=receiptBatches.map(row=>row[2]);
- assert.deepEqual([...commands,...moved,...receiptCommands].sort(),[...original.commands,...recoveryCommands,...receiptCommands].sort(),'All original occurrences, both required recovery additions and both receipt-join engines are preserved');
+ assert.deepEqual([...commands,...moved,...receiptCommands].sort(),[...original.commands,...recoveryCommands,journeyCommand,...receiptCommands].sort(),'All original occurrences, both recovery additions, both receipt-join engines and exactly one bounded journey check are preserved');
+ assert.equal(commands.length+moved.length+receiptCommands.length,263,'Exactly 263 required command occurrences across publisher and prerequisite engines');
  assert.equal(publisher.split(dictionaryGlobalGate).length-1,1,'Exactly one required dictionary global live qualifier');
  assert.equal(publisher.split(legacyGlobalGate).length-1,0,'Legacy-only global live qualifier cannot replace dictionary qualification');
  const scaffold=normalized.slice(0,at+safety.length)+'\0'+normalized.slice(end);
  assert.equal(hash(scaffold.replace(dictionaryGlobalGate,legacyGlobalGate)),original.publisherScaffoldSha256,'Publisher scaffold is unchanged except the exact reviewed dictionary qualifier flag; original SHA, credentials, deadlines, live gate, deploy and public checks remain pinned');
  assert(!/continue-on-error|\beval\b/.test(text),'No soft failure or dynamic command evaluation');
- return {originalOccurrences:258,addedRecoveryOccurrences:recoveryCommands.length,addedReceiptOccurrences:receiptCommands.length,publisherOccurrences:commands.length,movedOccurrences:moved.length,requiredOccurrences:commands.length+moved.length+receiptCommands.length,batches:4};
+ return {originalOccurrences:258,addedRecoveryOccurrences:recoveryCommands.length,addedReceiptOccurrences:receiptCommands.length,addedJourneyOccurrences:1,publisherOccurrences:commands.length,movedOccurrences:moved.length,requiredOccurrences:commands.length+moved.length+receiptCommands.length,batches:4};
 }
 function regressions(text){
  const controls=[
@@ -118,6 +123,10 @@ function regressions(text){
   ['dictionary arguments reordered',s=>s.replace(dictionaryGlobalGate,'          node scripts/verify-global-app-adapter.js --dictionary-v2 --live-read\n')],
   ['dictionary unreviewed argument',s=>s.replace(dictionaryGlobalGate,'          node scripts/verify-global-app-adapter.js --live-read --dictionary-v2 --skip\n')],
   ['arrangement check bypassed',s=>s.replace(preflight,'')],
+  ['missing new-user journey check',s=>s.replace('          '+journeyCommand+'\n','')],
+  ['duplicate new-user journey check',s=>s.replace('          '+journeyCommand+'\n','          '+journeyCommand+'\n          '+journeyCommand+'\n')],
+  ['altered new-user journey check',s=>s.replace('          '+journeyCommand+'\n','          '+journeyCommand+' --skip\n')],
+  ['moved new-user journey check',s=>s.replace('          node scripts/validate-account-awareness.js\n          '+journeyCommand+'\n','          '+journeyCommand+'\n          node scripts/validate-account-awareness.js\n')],
   ['missing recovery check',s=>s.replace('          '+recoveryCommands[0]+'\n','')],
   ['missing recovery UI check',s=>s.replace('          '+recoveryCommands[1]+'\n','')],
   ['duplicate recovery check',s=>s.replace('          '+recoveryCommands[0]+'\n','          '+recoveryCommands[0]+'\n          '+recoveryCommands[0]+'\n')],
