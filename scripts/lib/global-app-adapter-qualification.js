@@ -49,6 +49,7 @@ async function measure({dictionary=false,request,environment,signal,onReceipt=()
  const {fixtures:{createSnapshotStore,readLiveSnapshots,contentHash},groups}=application(dictionary);
  const calls=[],receipt={calls};let manifest,wire,rows,settled=false,invalidTiming=false;
  const began=timer(),check=()=>{allocationCheck();assert(!signal?.aborted,'Qualification cancelled');assert(finite(timer()-began)&&timer()-began<READ_MS,'Global app read exceeded6000ms');};
+ const mark=stage=>{if(settled)return;const elapsedMs=timer()-began;receipt.lastCompletedStage={stage,elapsedMs:finite(elapsedMs)?elapsedMs:null};};
  const observed=async(route,options={})=>{
   check();assert([HEALTH,BUNDLE].includes(route)&&calls.length<2,'Unexpected/repeated service request');
   const kind=route===HEALTH?'health':'bundle';assert(!calls.some(call=>call.kind===kind),'Repeated service resource');
@@ -62,27 +63,28 @@ async function measure({dictionary=false,request,environment,signal,onReceipt=()
    originalTiming?.(event); // The actual grouped store requires its own byte receipts.
   }});
   check();assert(!invalidTiming,'Malformed/excess transport timing');call.bytes=transportBytes(call);
-  if(kind==='health')manifest=value;
+  if(kind==='health'){manifest=value;mark('health-transport-validated');}
   else{
    assert(Array.isArray(value)&&value.length===1&&value[0]?.bundle?.schemaVersion===groups.SCHEMA,'Required grouped global wire absent');
-   wire=value[0].bundle;rows=(dictionary?groups.decodeRows(wire,{textBytes:call.bytes}):groups.decode(wire)).rows;check();
-   call.groups=wire.groupCount;call.edges=wire.edgeCount;call.parsedValueSha256=sha(JSON.stringify(value));check();
+   mark('bundle-envelope-validated');
+   wire=value[0].bundle;rows=(dictionary?groups.decodeRows(wire,{textBytes:call.bytes}):groups.decode(wire)).rows;mark('wire-decoded');check();
+   call.groups=wire.groupCount;call.edges=wire.edgeCount;call.parsedValueSha256=sha(JSON.stringify(value));mark('wire-hashed');check();
   }
   return value;
  };
  try{
-  onReceipt(receipt);check();
+  onReceipt(receipt);mark('started');check();
   const store=createSnapshotStore({request:observed,transport:groups.CANDIDATE,timer});
-  const snapshot=await readLiveSnapshots({store,scope:'global',ids:[],maxAgeMs:0,now:now(),timer});check();
+  const snapshot=await readLiveSnapshots({store,scope:'global',ids:[],maxAgeMs:0,now:now(),timer});mark('app-snapshot-read');check();
   assert.equal(snapshot.stale,false,'Stale/last-good is not fresh qualification');
   assert(!snapshot.readFailure&&wire&&rows,'Missing complete owned wire');
   assert.equal(calls.length,2);assert.deepEqual(calls.map(c=>c.kind).sort(),['bundle','health']);
   assert(calls.every(c=>Number.isSafeInteger(c.bytes))&&calls.reduce((n,c)=>n+c.bytes,0)<=MAX_BYTES,'Combined transport exceeds16MiB');
-  const counts=closure(manifest,snapshot,rows,contentHash);check();
-  const consumerParsedValueSha256=sha(JSON.stringify(snapshot.sources));check();
+  const counts=closure(manifest,snapshot,rows,contentHash);mark('source-closure');check();
+  const consumerParsedValueSha256=sha(JSON.stringify(snapshot.sources));mark('consumer-hashed');check();
   assert(/^[0-9a-f]{64}$/.test(snapshot.revision),'Invalid actual snapshot revision');
   const evidence={calls,...counts,groups:wire.groupCount,edges:wire.edgeCount,consumerParsedValueSha256,snapshotRevision:snapshot.revision};
-  const evidenceSha256=sha(JSON.stringify(evidence));check();
+  const evidenceSha256=sha(JSON.stringify(evidence));mark('evidence-hashed');check();
   const elapsedMs=timer()-began;assert(finite(elapsedMs)&&elapsedMs<READ_MS,'Late global app read');
   return{...evidence,evidenceSha256,elapsedMs,readLimitMs:READ_MS,limitations:'Actual complete text lengths and parsed-value hashes; no literal raw-wire hash, same backend, cold server, UI/phone or full release acceptance.'};
  }catch(error){
