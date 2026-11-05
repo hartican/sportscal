@@ -1489,7 +1489,22 @@ const remainder = fragment.toString();
 history.replaceState(null, "", `${window.location.pathname}${window.location.search}${remainder ? `#${remainder}` : ""}`);
 return capability;
 }
-let activeRecoverySession = typeof window !== "undefined" && SERVER_SYNC
+function captureSignupReturnWithCurrentHelper(){
+if (typeof window === 'undefined') return null;
+if (SERVER_SYNC?.captureSignupConfirmationFromLocation) return SERVER_SYNC.captureSignupConfirmationFromLocation();
+// An older optional/runtime asset must not route a signup link through a stored
+// recovery session. Scrub the link and leave all saved account state alone.
+const query = new URLSearchParams(window.location.search || ''), fragment = new URLSearchParams(String(window.location.hash || '').replace(/^#/,''));
+if (query.get('auth') === 'recovery' || fragment.get('type') === 'recovery') return null;
+if (query.get('auth') !== 'confirmed' && fragment.get('type') !== 'signup') return null;
+for (const key of ['auth','type','access_token','refresh_token','token_type','expires_in','expires_at','token_hash','code','error','error_code','error_description']){ query.delete(key); fragment.delete(key); }
+try{ const search=query.toString(),hash=fragment.toString();window.history.replaceState(window.history.state??null,'',window.location.pathname+(search?'?'+search:'')+(hash?'#'+hash:'')); }
+catch(_error){ return {status:'url_cleanup_failed'}; }
+return {status:'unavailable'};
+}
+let activeSignupConfirmation = captureSignupReturnWithCurrentHelper();
+let signupConfirmationOutcome = activeSignupConfirmation ? {status:activeSignupConfirmation.status} : null;
+let activeRecoverySession = !activeSignupConfirmation && typeof window !== "undefined" && SERVER_SYNC
 ? SERVER_SYNC.captureRecoveryFromLocation()
 : null;
 if (activeRecoverySession) serverSyncClient?.clearSession?.();
@@ -8221,6 +8236,10 @@ return false;
 }
 async function submitNothingscoreAction(command, panel, { success = "Your Nothinger Leaderboard is in.", preparedAudio = null, event = null } = {}){
 if (!serverSyncClient?.nothingscoreRequest) return null;
+if (['submit','pulse'].includes(command.action) && nothingscoreViewer.signedIn && nothingscoreViewer.emailVerified === false){
+  if (!panel.querySelector('[data-email-confirmation]')) appendEmailConfirmationControls(panel,{email:serverPersistence.user?.email,returnTo:()=>void refreshNothingscoreViewer().then(()=>nothingscoreQueueRender()).catch(()=>{})});
+  return null;
+}
 const submittedPhase = command.action === "submit" && ["heat", "impact"].includes(String(command.phase || ""))
 ? String(command.phase)
 : null;
@@ -11283,7 +11302,29 @@ function toggleSelectorEntityInDraft(entityId){
   syncDraftSelectorSports();
 }
 
-const ONBOARDING_SECTIONS = ["startup"];
+const ONBOARDING_SECTIONS = ["startup", "teams"];
+let onboardingAccountScope = null;
+
+function persistOnboardingDraft(){
+  if (!settingsFirstRun || !draftPreferences || !onboardingAccountScope) return false;
+  const life = serverSyncClient.accountSnapshot();
+  if (life.accountId !== onboardingAccountScope.accountId || life.generation !== onboardingAccountScope.generation){
+    showToast('Your account changed. Reopen setup to keep choices with the right account.');
+    return false;
+  }
+  syncDraftSelectorSports();
+  const patch = USER_STATE_SYNC.createPatch({preferences:settingsDraftBaseline || userPreferences},{preferences:draftPreferences});
+  const next = USER_STATE_SYNC.applyPatch({preferences:userPreferences},patch).preferences;
+  if (!savePreferences(next,{deliberate:true})){
+    showToast('Your choices could not be saved on this device. Keep setup open and try again.');
+    return false;
+  }
+  const accepted = clonePreferences(userPreferences);
+  Object.keys(draftPreferences).forEach(key => delete draftPreferences[key]);
+  Object.assign(draftPreferences,accepted);
+  settingsDraftBaseline = clonePreferences(userPreferences);
+  return true;
+}
 
 function tuningInteractionDelta(){
   const current = userPreferences.preferenceGraph?.learning?.tuningInteractionCount || 0;
@@ -11480,6 +11521,7 @@ function openSettings({ firstRun = false, section = "main" } = {}){
   if(!document.getElementById('settingsModal').classList.contains('show'))settingsReturnFocus=document.activeElement;
   settingsViewportAnchor = captureViewportRenderAnchor();
   settingsFirstRun = firstRun;
+  onboardingAccountScope = firstRun ? serverSyncClient.accountSnapshot() : null;
   settingsWizardStep = firstRun ? 0 : settingsWizardStep;
   settingsFocusedDomainId = null;
   sportsFollowedTab = "sports";
@@ -11520,6 +11562,7 @@ function closeSettings({ restoreTheme = true, restoreViewport = true, preserveAc
   settingsNavigationStack = [];
   legalDocumentRenderToken += 1;
   settingsFirstRun = false;
+  onboardingAccountScope = null;
   settingsWizardStep = 0;
   settingsFocusedDomainId = null;
   sportsFollowedTab = "sports";
@@ -11695,6 +11738,28 @@ function bindPasswordRecoveryFlow(){
   });
 }
 
+function appendEmailConfirmationControls(host,{email='',returnTo=null}={}){
+  const life = serverSyncClient.accountSnapshot();
+  const current = () => { const now = serverSyncClient.accountSnapshot(); return host.isConnected && now.accountId === life.accountId && now.generation === life.generation; };
+  const section = document.createElement('section'); section.dataset.emailConfirmation = ''; section.className = 'filter-panel';
+  const copy = document.createElement('p'); copy.className = 'preference-help'; copy.textContent = 'Confirm your email to rate or participate in chat. This checks that the inbox is yours. Feed and schedules remain available without a deadline.';
+  const label = document.createElement('label'); label.className = 'field-label'; label.textContent = 'Email used to create your account';
+  const input = document.createElement('input'); input.type = 'email'; input.autocomplete = 'email'; input.maxLength = 254; input.value = email || ''; label.append(input);
+  const resend = document.createElement('button'); resend.type = 'button'; resend.className = 'btn ghost'; resend.textContent = 'Resend confirmation';
+  const status = document.createElement('p'); status.className = 'preference-help'; status.setAttribute('role','status'); status.setAttribute('aria-live','polite');
+  resend.onclick = async () => {
+    if (!current() || resend.disabled || !input.reportValidity()) return;
+    resend.disabled = true; status.textContent = 'Requesting a confirmation link…';
+    try{ await serverSyncClient.requestEmailConfirmation(input.value.trim()); if (current()) status.textContent = 'If this address has a pending signup, a new link has been requested. Check your inbox; your choices are kept here.'; }
+    catch(error){ if (current()) status.textContent = error.message || 'A link could not be requested. Try again shortly.'; }
+    finally{ if (current()) resend.disabled = false; }
+  };
+  const back = document.createElement('button'); back.type = 'button'; back.className = 'btn ghost'; back.textContent = 'Return to what I was doing';
+  back.onclick = () => { if (current()){ section.remove(); void returnTo?.(); } };
+  section.append(copy,label,resend,status,back); host.append(section);
+  return section;
+}
+
 function appendPublicProfileAccountSettings(body){
   const section = document.createElement("section");
   section.className = "filter-panel";
@@ -11724,6 +11789,17 @@ function appendPublicProfileAccountSettings(body){
     return;
   }
   section.appendChild(nothingscoreProfileForm());
+  if (pendingProfilePhoto && pendingProfilePhoto.current()){
+    const retry = document.createElement('button'); retry.type = 'button'; retry.className = 'btn ghost'; retry.textContent = 'Retry profile photo';
+    const status = document.createElement('p'); status.setAttribute('role','status');
+    retry.onclick = async () => {
+      const pending = pendingProfilePhoto; if (!pending?.current()) return;
+      retry.disabled = true; status.textContent = 'Saving your photo…';
+      try{ await pending.editor.upload(); if (!pending.current()) return; pendingProfilePhoto = null; void refreshNothingscoreViewer().catch(()=>{}); status.textContent = 'Photo saved.'; }
+      catch(error){ if (pending.current()){ status.textContent = error.message || 'Photo could not be saved. Try again.'; retry.disabled = false; } }
+    };
+    section.append(retry,status);
+  }
   const profile = nothingscoreViewer.profile;
   if (profile && profile.visibility !== "deleted"){
     const visibility = document.createElement("p");
@@ -11906,6 +11982,27 @@ function appendPreferenceRecoverySettings(body){
   }).catch(error => { placeholder.querySelector("p").textContent = error.message || "Recovery controls could not load."; });
 }
 
+async function inspectSignupConfirmationReturn(){
+  const captured=activeSignupConfirmation;
+  activeSignupConfirmation=null;
+  if(!captured||captured.status!=="check_required")return;
+  signupConfirmationOutcome={status:"checking"};
+  try{signupConfirmationOutcome=await serverSyncClient.inspectSignupConfirmation(captured.accessToken);}
+  catch(error){signupConfirmationOutcome={status:error?.code==="account_scope_changed"?"account_changed":error?.code==="confirmation_link_invalid"?"invalid":"unavailable"};}
+  if(settingsSection==="account"&&document.getElementById("settingsModal")?.classList.contains("show"))renderSettingsScreen();
+}
+function appendSignupConfirmationNotice(body){
+  const result=signupConfirmationOutcome;if(!result)return;
+  const panel=document.createElement("div"),title=document.createElement("strong"),copy=document.createElement("p");
+  panel.className="filter-panel";panel.setAttribute("role","status");copy.className="preference-help";
+  title.textContent=result.status==="confirmed"?"Email confirmation recorded":result.status==="invalid"?"Email link invalid or expired":result.status==="checking"||result.status==="check_required"?"Checking email link":"Email link opened";
+  const linkedEmail=result.user?.email||"the linked account";
+  const active=serverPersistence.user&&serverSyncClient?.sessionSubject?.()===serverPersistence.user.id?serverPersistence.user:null;
+  const detail=result.status==="confirmed"?`The account service records email confirmation for ${linkedEmail}.`:result.status==="identity_checked"?`The link account was checked for ${linkedEmail}, but email confirmation could not be checked.`:result.status==="not_confirmed"?`Email confirmation is not recorded for ${linkedEmail}. Sign in normally or use a fresh confirmation link.`:result.status==="invalid"?"This email link is invalid or expired. Sign in normally or use a fresh confirmation link.":result.status==="checking"||result.status==="check_required"?"Checking the link without changing your sign-in…":result.status==="url_cleanup_failed"?"This link could not be safely finished. Close this page and open the app normally to sign in.":result.status==="unavailable"?"The link could not be checked. Sign in normally to continue.":result.status==="account_changed"?"Your sign-in changed while the link was being checked. No account was selected from the link.":"Opening this link alone does not confirm an email address. Sign in normally to continue.";
+  copy.textContent=detail+" "+(active?`You are still signed in as ${active.email||"your existing account"}.`:"This link has not signed you in or changed your saved sign-in.")+" Your saved choices have not been imported into another account.";
+  panel.append(title,copy);body.prepend(panel);
+}
+
 function renderAccountSettings(body){
   if (serverPersistence.state === "checking" && !serverSyncClient?.getSession?.()) void ensureServerSyncStatus();
   const state = serverPersistence.state;
@@ -11932,6 +12029,7 @@ function renderAccountSettings(body){
   </div>`;
   document.getElementById("accountSyncDetail").textContent = detail;
   const controls = document.getElementById("accountSyncControls");
+  appendSignupConfirmationNotice(body);
   if (globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.appendRetry?.(controls)) return;
 
   if (signedIn){
@@ -12050,7 +12148,7 @@ function renderAccountSettings(body){
   </form>`;
   document.getElementById("createAccountBtn").addEventListener("click", () => {
     closeSettings({ restoreViewport:false, preserveAccountJourney:true });
-    openSettings({ firstRun:true });
+    openSettings({ section:'create-account' });
   });
   document.getElementById("forgotPasswordBtn").addEventListener("click", () => {
     accountRecoveryRequestOpen = true;
@@ -12080,6 +12178,7 @@ function renderAccountSettings(body){
         message: error.message || "Email or password not recognised.",
       });
       showToast(serverPersistence.message);
+      if (error?.code === 'email_not_confirmed') appendEmailConfirmationControls(document.getElementById('settingsBody'),{email,returnTo:()=>{closeSettings({restoreViewport:false});activateTopLevelTab('feed');}});
     }
   });
   appendPreferenceRecoverySettings(body);
@@ -12489,17 +12588,19 @@ function renderSettingsScreen(){
   back.hidden = settingsFirstRun ? settingsWizardStep === 0 : settingsSection === "main";
   back.setAttribute("aria-label", settingsNavigationStack.length ? "Back to previous Settings screen" : "Back to Settings");
   brandIcon.hidden = settingsFirstRun ? settingsWizardStep > 0 : settingsSection !== "main";
-  document.getElementById("saveSettingsBtn").textContent = !settingsFirstRun && ["all-followed", "archive", "hidden", "classics", "about", "privacy", "terms"].includes(settingsSection)
+  document.getElementById("saveSettingsBtn").textContent = !settingsFirstRun && ["account", "create-account", "all-followed", "archive", "hidden", "classics", "about", "privacy", "terms"].includes(settingsSection)
     ? "Close"
     : settingsFirstRun && settingsWizardStep < ONBOARDING_SECTIONS.length - 1
-    ? "Next"
+    ? "Choose teams"
     : settingsFirstRun && settingsSection === "calibration" && !calibrationComplete
       ? "Skip & start"
-      : settingsFirstRun ? "Save Feed setup" : "Save & close";
+      : settingsFirstRun ? "Show my Feed" : "Save & close";
 
   const screens = {
     main: ["Settings", "Choose an area. Every submenu can return here or close at any time."],
     account: ["Account & sync", "Sign in with an approved email and password to keep durable choices connected across devices."],
+    'create-account': ['Create account', 'Keep your choices across devices. You can keep browsing without an account.'],
+    teams: ['Choose your teams', 'Choose the teams or competitors you follow, then explore your Feed.'],
     "all-followed": ["All Followed", "Your current follows, including selections inherited from collections."],
     about: ["About", "Nothing Sport, how it is made, and the terms that govern it."],
     privacy: ["Privacy Policy", "How Nothing Sport handles information and the choices available to you."],
@@ -12509,15 +12610,22 @@ function renderSettingsScreen(){
     subscriptions: ["Subscriptions", "Choose services to prioritise in View links."],
     notifications: ["Notifications", "System reminders for the sporting start, defaulting to 15 minutes before."],
     location: ["Set location", "Choose a home area or temporary travel location and radius."],
-    startup: ["Set up your Feed", "Three lightweight groups: what you follow, coarse location and optional offer interests."],
+    startup: ["Set up your Feed", "Choose your sports. Teams and schedules are available in Follow."],
     hidden: ["Hidden events", "Restore dismissed editions or empty the bin permanently."],
     classics: ["EPIC Hall of Fame", "Keep your memorable fixtures. Review and share your year of NS."],
     feedback: ["Feedback", "Send feedback to Nothing Sport."],
     pilot: ["Trust pulse", "Five fixed choices about how well the feed is earning your trust."],
   };
   [title.textContent, copy.textContent] = screens[settingsSection] || screens.main;
-  if (settingsFirstRun) copy.textContent = BRAND_COPY.onboardingDescription;
+  if (settingsFirstRun) copy.textContent = settingsSection === 'teams' ? screens.teams[1] : 'Choose sports, then teams. No account or notifications needed.';
   if (settingsSection === "startup") renderStartupMetadataSettings(body);
+  else if (settingsSection === 'teams' || settingsSection === 'create-account'){
+    const section = settingsSection, anchor = settingsViewportAnchor;
+    body.textContent = section === 'teams' ? 'Loading team choices…' : 'Loading account setup…';
+    void ensureFantasyUi().then(ui => {
+      if (settingsSection === section && settingsViewportAnchor === anchor) return section === 'teams' ? ui.renderOnboardingTeams(body) : ui.renderCreateAccountSettings(body);
+    }).catch(() => { if (settingsSection === section && settingsViewportAnchor === anchor) body.textContent = 'Setup could not load. Go back and try again; your saved choices are kept.'; });
+  }
   else if (settingsSection === "account") renderAccountSettings(body);
   else if (settingsSection === "all-followed") renderAllFollowedSettings(body);
   else if (settingsSection === "about") renderAboutSettings(body);
@@ -12602,6 +12710,8 @@ function recordSavedPreferenceChanges(previous, next){
 
 function saveSettingsPreferences(){
   const viewportAnchor = settingsViewportAnchor;
+  const completingOnboarding = settingsFirstRun;
+  if (completingOnboarding && !persistOnboardingDraft()) return false;
   const savedMessage = settingsFirstRun ? "Feed setup saved." : "Settings saved.";
   if(settingsFirstRun)draftPreferences.fantasyDeadlines=globalThis.NOTHINGSPORTS_FANTASY_DEADLINES.onboardingChoice(draftPreferences.fantasyDeadlines.enabled);
   draftPreferences.onboardingComplete = true;
@@ -12632,13 +12742,14 @@ function saveSettingsPreferences(){
   applyThemePreference(userPreferences.theme);
   closeSettings({ restoreTheme: false, restoreViewport: false });
   renderAll({ viewportAnchor });
+  if (completingOnboarding) activateTopLevelTab('feed');
   showToast(savedMessage);
   return true;
 }
 
 function advanceOnboardingOrSave(){
   if (!settingsFirstRun){
-    if (settingsSection === "account"){
+    if (settingsSection === "account" || settingsSection === 'create-account'){
       closeSettings();
       return;
     }
@@ -12650,6 +12761,7 @@ function advanceOnboardingOrSave(){
     return;
   }
   if (settingsWizardStep < ONBOARDING_SECTIONS.length - 1){
+    if (!persistOnboardingDraft()) return;
     settingsWizardStep += 1;
     settingsSection = ONBOARDING_SECTIONS[settingsWizardStep];
     renderSettingsScreen();
@@ -12663,6 +12775,7 @@ function advanceOnboardingOrSave(){
 
 document.getElementById('accountIndicatorFallback').addEventListener('click',()=>{openSettings({section:'account'});void ensureAccountIndicator();});
 addEventListener('ns-account-change',()=>{
+  if(pendingProfilePhoto && !pendingProfilePhoto.current())pendingProfilePhoto=null;
   const life=serverSyncClient.accountSnapshot();
   if(accountIndicatorGeneration>=0 && (life.generation!==accountIndicatorGeneration || life.accountId!==(serverPersistence.user?.id||''))){
     if(serverPersistence.state!=='requesting' || life.hasSession)invalidateServerStateSyncScope();
@@ -13950,6 +14063,8 @@ function chatMessageElement(message,{groupStart=true}={}){
 }
 
 function renderChatPublicProfileForm(host, { onSaved } = {}){
+  const life = serverSyncClient.accountSnapshot();
+  const current = () => { const now = serverSyncClient.accountSnapshot(); return now.accountId === life.accountId && now.generation === life.generation; };
   const form = document.createElement("form");
   form.className = "chat-form";
   const heading = document.createElement("h3");
@@ -13982,18 +14097,15 @@ function renderChatPublicProfileForm(host, { onSaved } = {}){
   const save = document.createElement("button");
   save.type = "submit";
   save.className = "btn primary";
-  save.textContent = "Save Public Profile";
+  save.textContent = "Save Profile";
   const avatarEditor=buildPublicProfileAvatarEditor({avatarUrl:nothingscoreViewer.profile?.avatarUrl,displayName:nothingscoreViewer.profile?.displayName||"Member"});
   form.append(heading, displayLabel, handleLabel, avatarEditor.element, help, save);
   form.addEventListener("submit", async submitEvent => {
     submitEvent.preventDefault();
+    const viewCurrent = captureProfileSaveView(form);
     save.disabled = true;
     try{
-      await serverSyncClient.nothingscoreRequest({}, { action:"profile", displayName:display.value, handle:handle.value });
-      await avatarEditor.upload();
-      await refreshNothingscoreViewer();
-      await refreshChatActive();
-      await onSaved?.();
+      await savePublicProfileAndReturnToFeed({displayName:display.value,handle:handle.value,editor:avatarEditor,current,viewCurrent});
     }catch(error){
       help.textContent = error.message || "The Public Profile could not be saved.";
       save.disabled = false;
@@ -14595,7 +14707,13 @@ function renderOpenChatRoom({ autoScroll = true, showNew = false, focusComposer 
   const alertPrompt = buildChatAlertPrompt();
   if (alertPrompt) body.appendChild(alertPrompt);
   body.appendChild(buildChatMessageList());
-  if (room.viewer?.publicProfileRequired && !room.readOnly){
+  if (room.viewer?.emailVerificationRequired && !room.readOnly){
+    appendEmailConfirmationControls(body,{email:serverPersistence.user?.email,returnTo:()=>void openChatRoom(room.roomId)});
+    if (!serverPersistence.user){
+      const signIn = document.createElement('button'); signIn.type = 'button'; signIn.className = 'btn primary'; signIn.textContent = 'Sign in to participate';
+      signIn.onclick = () => { setChatDrawerOpen(false); openSettings({section:'account'}); }; body.append(signIn);
+    }
+  } else if (room.viewer?.publicProfileRequired && !room.readOnly){
     const required = document.createElement("p");
     required.className = "chat-disclosure";
     required.textContent = "Create your global Public Profile before posting. It will be inherited by every signed-in room and by Nothinger Leaderboard.";
@@ -15025,7 +15143,38 @@ function nscPageBack(){
   setNothingscoreDrawerOpen(false);
 }
 
+let pendingProfilePhoto = null;
+function captureProfileSaveView(form){
+  const surface = form.closest('#settingsModal,#chatBackdrop,#nothingscoreBackdrop');
+  const anchor = settingsViewportAnchor, section = settingsSection, tab = activeTab;
+  return () => form.isConnected && Boolean(surface?.classList.contains('show'))
+    && settingsViewportAnchor === anchor && settingsSection === section && activeTab === tab;
+}
+async function savePublicProfileAndReturnToFeed({displayName,handle,editor,current,viewCurrent=current}){
+  if (!current()) throw new Error('Your account changed. Reopen your profile before saving.');
+  await serverSyncClient.nothingscoreRequest({}, {action:'profile',displayName,handle});
+  if (!current()) return;
+  let notice = 'Profile saved.';
+  try{ await editor.upload(); if (current()) pendingProfilePhoto = null; }
+  catch(_error){
+    if (!current()) return;
+    pendingProfilePhoto = {editor,current};
+    notice = 'Profile saved. Your photo could not be saved; retry it in Account.';
+  }
+  if (!current()) return;
+  void refreshNothingscoreViewer().catch(()=>{});
+  void refreshChatActive().catch(()=>{});
+  if (!viewCurrent()){ showToast(notice); return; }
+  if (document.getElementById('settingsModal')?.classList.contains('show')) closeSettings({restoreViewport:false});
+  if (document.getElementById('chatBackdrop')?.classList.contains('show')) setChatDrawerOpen(false);
+  if (document.getElementById('nothingscoreBackdrop')?.classList.contains('show')) setNothingscoreDrawerOpen(false);
+  activateTopLevelTab('feed');
+  showToast(notice);
+}
+
 function nothingscoreProfileForm(){
+  const life = serverSyncClient.accountSnapshot();
+  const current = () => { const now = serverSyncClient.accountSnapshot(); return now.accountId === life.accountId && now.generation === life.generation; };
   const form = document.createElement("form");
   form.className = "nsc-profile-form";
   const heading = document.createElement("strong");
@@ -15066,23 +15215,18 @@ function nothingscoreProfileForm(){
   const save = document.createElement("button");
   save.type = "submit";
   save.className = "btn primary";
-  save.textContent = "Save Public Profile";
+  save.textContent = "Save Profile";
   const status = document.createElement("p");
   status.className = "nsc-status";
   status.setAttribute("role", "status");
   form.append(heading, disclosure, displayLabel, handleLabel, avatarEditor.element, save, status);
   form.addEventListener("submit", async event => {
     event.preventDefault();
+    const viewCurrent = captureProfileSaveView(form);
     save.disabled = true;
     status.textContent = "Saving…";
     try{
-      await serverSyncClient.nothingscoreRequest({}, { action:"profile", displayName:display.value, handle:handle.value });
-      await avatarEditor.upload();
-      await refreshNothingscoreViewer();
-      void refreshChatActive();
-      if (document.getElementById("settingsModal")?.classList.contains("show") && settingsSection === "account") renderSettingsScreen();
-      else renderNothingscoreDrawer();
-      nothingscoreQueueRender();
+      await savePublicProfileAndReturnToFeed({displayName:display.value,handle:handle.value,editor:avatarEditor,current,viewCurrent});
     }catch(error){
       status.textContent = error.message || "That profile could not be saved.";
       save.disabled = false;
@@ -15162,7 +15306,7 @@ function buildMyNscAccountSection(){
     if (nothingscoreViewer.ratingEligible === false){
       const copy = document.createElement("p");
       copy.className = "nsc-note";
-      copy.textContent = "This account is currently paused from contributing.";
+      copy.textContent = nothingscoreViewer.emailVerified === false ? 'Confirm your email before rating. You can keep browsing.' : 'This account is currently paused from contributing.';
       profileSection.appendChild(copy);
     }
   }
@@ -15499,6 +15643,7 @@ let startupPostLoadHandled = false;
 function runStartupPostLoadActions(){
   if (startupPostLoadHandled || activeRecoverySession || !startupFunnelFinished) return;
   startupPostLoadHandled = true;
+  if (signupConfirmationOutcome){openSettings({section:"account"});return;}
   if (!userPreferences.onboardingComplete){
     openFirstRunSettingsAfterFeedAlignment();
   } else {
@@ -15602,6 +15747,7 @@ renderAll();
 scheduleFirstCardViewportFit();
 void syncAppRouteFromLocation();
 bindPasswordRecoveryFlow();
+void inspectSignupConfirmationReturn();
 window.requestAnimationFrame(() => {
   void openPendingSharedChat().then(async opened => {
     if (!opened) await openRequestedChatRoomFromLocation();

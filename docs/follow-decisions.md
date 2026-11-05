@@ -1,5 +1,46 @@
 # Follow and Feed decisions
 
+## Guest value before account setup — 5 November 2026
+
+Jack directs the new-user journey to keep sports selection, lead immediately
+into corresponding supported teams, then show useful Feed fixtures and schedules.
+Guests can browse indefinitely. Account creation belongs to an explicit action
+that needs identity or account persistence, such as cross-device sync, rating or
+chat participation. Public sporting-data reads do not require an account.
+Notifications belong to a requested notification action; full public-profile
+setup waits until after value or until public identity is needed. Photo is
+optional, the chosen display name is 2–80 characters, and the existing unique
+handle rules remain. An acknowledged Save Profile returns to Feed while its
+initiating view is still current. Metadata success and photo failure are reported
+separately, with a same-account photo retry. Late completion cannot close a newer
+view or change the current account.
+
+Incremental setup saves apply only the actual baseline-to-draft delta onto the
+latest current choices. Preserve concurrent untouched choices, unknown fields,
+explicit OFF/mutes/formats, original receipts, owner/session scope, conditional
+save and exact ACK/R2 fences. Guest choices must remain recoverable through
+signup and account changes; they are never labelled cloud-saved without an
+owned acknowledgement. Retaining a device copy is separate from associating
+selected decisions with a freshly authenticated account. No silent union,
+overwrite, default seeding or guest-to-account receipt relabelling is authorised.
+
+Ratings and chat participation require fresh server-authoritative confirmation
+of the current account email. This proves inbox control, not humanity. Preserve
+moderation, phase/replay, rate, membership, capability and privacy controls.
+Feed/Schedule, guest chat preview and permitted read-only membership stay usable;
+leaving, declining, disabling shares and authorised removal of one's own content
+remain available. Native provider confirmation stays enabled; no autoconfirm
+shortcut or confirmation deadline is introduced. Marketing requires separate
+consent. Email resend is deliberate, preserves provider limits, and reports a
+request rather than delivery or verification. Changing an account's email is a
+separate identity/recovery operation and is not implemented by editing the
+resend address.
+
+Regression source: `scripts/validate-new-user-journey.js`, alongside the existing
+Follow, account, server-persistence, installed-upgrade and release gates. Source,
+automated, hosted and physical-iPhone acceptance must be recorded separately;
+this decision entry does not claim those checks have passed.
+
 ## Canonical sport selection and pending account sync — 3 November 2026
 
 The existing sport Follow writer changes selectedSelectorEntityIds, followedSports and taxonomySelection together. Reconcile that complete choice with independent entity/domain edits only when all three snapshots exactly match the current writer's derivations and one side is unchanged or both sides already agree. Keep the selected whole value, including an explicit empty choice; never union choices, coerce unknown forms or split the derived fields. Differing concurrent selections remain held.

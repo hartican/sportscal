@@ -109,6 +109,28 @@
     }
   }
 
+  // A signup return is a handoff, never permission to replace the saved account.
+  function captureSignupConfirmationFromLocation({ location=globalThis.location, history=globalThis.history }={}){
+    const search=new URLSearchParams(location?.search||""),fragment=new URLSearchParams(String(location?.hash||"").replace(/^#/,""));
+    if(fragment.get("type")==="recovery"||search.get("auth")==="recovery")return null;
+    if(search.get("auth")!=="confirmed"&&fragment.get("type")!=="signup")return null;
+    const token=fragment.get("access_token")||"",failed=search.has("error")||search.has("error_code")||fragment.has("error")||fragment.has("error_code");
+    const ambiguous=search.getAll("auth").length>1||fragment.getAll("type").length>1||fragment.getAll("access_token").length>1;
+    const candidate=!failed&&!ambiguous&&fragment.get("type")==="signup"&&token.length>0&&token.length<=8192;
+    const sensitive=["access_token","refresh_token","token_type","expires_in","expires_at","token_hash","code","error","error_code","error_description"];
+    const cleanHash=sensitive.some(key=>fragment.has(key))||fragment.get("type")==="signup";
+    search.delete("auth");
+    for(const key of sensitive){search.delete(key);if(cleanHash)fragment.delete(key);}
+    if(search.get("type")==="signup")search.delete("type");
+    if(cleanHash)fragment.delete("type");
+    const query=search.toString(),hash=cleanHash?(fragment.toString()?"#"+fragment.toString():""):String(location?.hash||"");
+    try{
+      if(typeof history?.replaceState!=="function")throw new Error("URL cleanup unavailable");
+      history.replaceState(history.state??null,"",`${location?.pathname||"/"}${query?"?"+query:""}${hash}`);
+    }catch(_error){return {status:"url_cleanup_failed"};}
+    return candidate?{status:"check_required",accessToken:token}:{status:failed||ambiguous?"invalid":"sign_in_required"};
+  }
+
   function parseRecoveryFragment(hash, now = Date.now()){
     const source = String(hash || "").replace(/^#/, "");
     if (!source) return null;
@@ -659,7 +681,10 @@
           error.code = "invalid_auth_session";
           throw error;
         }
-        return { ...payload, session:{ ...saved } };
+        return { ...payload, session:{ ...saved }, accountSnapshot:accountSnapshot() };
+      },
+      async requestEmailConfirmation(email){
+        return jsonRequest('/api/auth',{method:'POST',body:JSON.stringify({action:'confirmation-resend',email})});
       },
       async requestPasswordRecovery(email){
         return jsonRequest("/api/auth", {
@@ -673,6 +698,20 @@
           headers:{ Authorization:`Bearer ${String(accessToken || "")}` },
           body:JSON.stringify({ action:"password-update", password }),
         });
+      },
+      async inspectSignupConfirmation(accessToken){
+        const generation=sessionGeneration;
+        if(typeof accessToken!=="string"||!accessToken||accessToken.length>8192)throw Object.assign(new Error("This email link is invalid or expired."),{code:"confirmation_link_invalid"});
+        // Deliberately bypass authenticatedRequest: use only the link bearer,
+        // never saved A, refresh, saveSession, or any user-state endpoint.
+        const payload=await jsonRequest("/api/auth",{headers:{Authorization:`Bearer ${accessToken}`}}).catch(error=>{
+          if(generation!==sessionGeneration)throw accountScopeError();
+          throw Object.assign(new Error([400,401,403].includes(error?.status)?"This email link is invalid or expired.":"The email link could not be checked. Sign in normally to continue."),{code:[400,401,403].includes(error?.status)?"confirmation_link_invalid":"confirmation_check_unavailable"});
+        });
+        if(generation!==sessionGeneration)throw accountScopeError();
+        if(typeof payload?.user?.id!=="string"||!payload.user.id||payload.user.isAnonymous===true)throw Object.assign(new Error("This email link is invalid or expired."),{code:"confirmation_link_invalid"});
+        const emailVerified=typeof payload.user.emailVerified==="boolean"?payload.user.emailVerified:null;
+        return Object.freeze({status:emailVerified===true?"confirmed":emailVerified===false?"not_confirmed":"identity_checked",user:{id:payload.user.id,email:String(payload.user.email||"").slice(0,254)},emailVerified});
       },
       async user(){
         const payload = await authenticatedRequest("/api/auth");
@@ -977,6 +1016,7 @@
     settingsForServer,
     parseSession,
     parseRecoveryFragment,
+    captureSignupConfirmationFromLocation,
     captureRecoveryFromLocation,
     readRecoverySession,
     storeRecoverySession,
