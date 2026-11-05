@@ -24,7 +24,8 @@ function actualContext(helperFile){
  };
  for(const name of ['clearFantasyPlaceholderSpace','rebuildDerivedCardCache','renderAll','syncLegacyArchiveReferences','applyThemePreference','maybeInviteClassicReview','queueDirectoryFollowEffects','queueServerStateSync'])c[name]=()=>{};
  vm.createContext(c);
- vm.runInContext(slice('const DEFAULT_PREFERENCES = {','\nconst FEEDBACK_RECIPIENT =')+'\n'
+ vm.runInContext(slice('function pendingDeviceAccountTransition(){','\nasync function preserveDeviceChoicesBeforeAuth(')+'\n'
+  +slice('const DEFAULT_PREFERENCES = {','\nconst FEEDBACK_RECIPIENT =')+'\n'
   +slice('function mergePreferences(','\nfunction saveActivePreferenceGraph(')+'\n'
   +slice('function saveActiveProfileSections(','\nlet activeFilter =')+'\n'
   +slice('function savePreferences(','\nfunction applyThemePreference(')+'\n'
