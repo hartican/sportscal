@@ -171,5 +171,71 @@ async function response(handler,url){const res={headers:{},setHeader(k,v){this.h
  v2State.wire={...capWire,complete:false};const v2Stale=await readLiveSnapshots({store:v2Cache.store,now:180003,timer:()=>0});
  verify(()=>{assert.equal(v2Stale.stale,true);assert.equal(v2Stale.readAt,v2Good.readAt);assert.equal(v2Stale.revision,v2Good.revision);assert.deepEqual(v2Stale.sources,v2Good.sources);assert.equal(v2Cache.calls.length,4);assert.equal(v1Cache.calls.length,2);});
 
+
+ // Reconstructed values must retain ordinary own properties and exact key order.
+ const propertyFixture=JSON.parse('{"10":"ten","2":"two","01":"leading","":"empty","é":"accent","𝒜":"astral","__proto__":{"safe":true},"constructor":"retained","nil":null,"flag":false,"zero":0,"negZero":-0,"opaque":{"list":[null,false,0,0]}}');
+ const propertyRows=[{source_id:'property-source',fixture_id:'property-a',identity_keys:['property-a','alias','alias',null],fixture:propertyFixture},{source_id:'property-source',fixture_id:'property-b',identity_keys:[],fixture:{}},{source_id:'other-source',fixture_id:'property-a',identity_keys:null,fixture:{id:'third',missingSibling:null}}];
+ const propertyV1=groupWire(propertyRows),propertyWire=dictionary.encode(propertyV1),propertyBytes=Buffer.byteLength(JSON.stringify([{bundle:propertyWire}])),propertyBefore=JSON.stringify(propertyWire);
+ for(const restored of [dictionary.decode(propertyWire,{textBytes:propertyBytes}),dictionary.decodeRows(propertyWire,{textBytes:propertyBytes})]){
+  const decodedRows=restored.rows||groups.decode(restored).rows;verify(()=>assert.deepEqual(decodedRows,groups.decode(propertyV1).rows));
+  const fixture=decodedRows[0].fixture;
+  verify(()=>{assert.equal(Object.getPrototypeOf(fixture),Object.prototype);assert.deepEqual(Object.keys(fixture),Object.keys(propertyFixture));assert.equal(Object.hasOwn(fixture,'missing'),false);assert.equal(Object.hasOwn(fixture,'__proto__'),true);assert.equal(fixture.constructor,'retained');assert(Object.is(fixture.negZero,-0));assert.equal({}.safe,undefined);});
+  for(const key of Object.keys(propertyFixture))verify(()=>{const d=Object.getOwnPropertyDescriptor(fixture,key);assert.equal(d.enumerable,true);assert.equal(d.writable,true);assert.equal(d.configurable,true);assert.deepEqual(d.value,propertyFixture[key]);});
+ }
+ verify(()=>assert.equal(JSON.stringify(propertyWire),propertyBefore));
+
+ // Preserve the low-level API's direct references and sparse/undefined/-0
+ // semantics too. Real trusted SDK JSON has no undefined values or accessors.
+ const referenceRows=[{source_id:'reference',fixture_id:'reference',identity_keys:['reference',null],fixture:{id:'reference',presentUndefined:undefined,negativeZero:-0,nested:{list:[null,false,0]}}}];
+ const referenceWire=dictionary.encode(groupWire(referenceRows)),referenceBytes=Buffer.byteLength(JSON.stringify([{bundle:referenceWire}]));
+ const referenceEdge=referenceWire.groups[0].edges[0],undefinedSlot=referenceEdge.fixture[0].findIndex(i=>referenceWire.fixtureKeys[i]==='presentUndefined');delete referenceEdge.fixture[1][undefinedSlot];
+ for(const restore of [dictionary.decode,dictionary.decodeRows]){
+  const restored=restore(referenceWire,{textBytes:referenceBytes}),value=(restored.rows||groups.decode(restored).rows)[0];
+  verify(()=>{assert.equal(value.identity_keys,referenceEdge.identity_keys);assert.equal(Object.hasOwn(value.fixture,'presentUndefined'),true);assert.equal(value.fixture.presentUndefined,undefined);assert(Object.is(value.fixture.negativeZero,-0));assert.equal(value.fixture.nested,referenceRows[0].fixture.nested);assert.equal(value.fixture.nested.list,referenceRows[0].fixture.nested.list);});
+ }
+
+ const reversed=structuredClone(propertyWire);reversed.groups.reverse();for(const group of reversed.groups)group.edges.reverse();
+ verify(()=>assert.deepEqual(dictionary.decodeRows(reversed,{textBytes:propertyBytes}).rows,propertyRows));
+ const emptyWire=dictionary.encode(groupWire([])),emptyBytes=Buffer.byteLength(JSON.stringify([{bundle:emptyWire}]));verify(()=>assert.deepEqual(dictionary.decodeRows(emptyWire,{textBytes:emptyBytes}),{schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[]}));
+ // No actual fixture value may be accessed before every edge/index guard passes.
+ for(const decode of [dictionary.decode,dictionary.decodeRows]){
+  const late=structuredClone(propertyWire);let valueReads=0;Object.defineProperty(late.groups[0].edges[0].fixture[1],0,{get(){valueReads++;return 'canary';},enumerable:true,configurable:true});
+  const last=late.groups.at(-1).edges.at(-1);last.fixture[0][0]=late.fixtureKeys.length;
+  verify(()=>{assert.throws(()=>decode(late,{textBytes:propertyBytes}));assert.equal(valueReads,0);});
+ }
+ if(process.argv.length>2){assert.deepEqual(process.argv.slice(2),['--codec-prototype']);await compareCodecPrototype();}
+
  console.log(JSON.stringify({schemaVersion:'grouped-fixture-source-prototype-tests.v1',checks,constructedEdges:5145,constructedKeys:2586,legacyGuardUnchanged:true,sourceOverlayAndHashesEqual:true,fantasyModesEqual:true,completeByteLimit:groups.LIMITS.bytes,productionCalls:0,productionWrites:0,latencyImprovement:'UNMEASURED'}));
-})().catch(e=>{console.error(e.stack);process.exitCode=1;});
+})().catch(e=>{if(process.argv.includes('--codec-prototype'))console.error(JSON.stringify({state:'STOP_FIRST_FAILURE',code:'CODEC_ASSERTION_OR_RUNTIME_FAILURE',rawDataPrinted:false}));else console.error(e.stack);process.exitCode=1;});
+
+// Optional private paired benchmark in the existing validator. Normal runs do
+// not read an external baseline or execute this comparison.
+async function compareCodecPrototype(){
+ const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),Module=require('node:module'),{performance}=require('node:perf_hooks');
+ const baselineFile=process.env.NS_CODEC_BASELINE_FILE;assert(baselineFile&&path.isAbsolute(baselineFile));
+ const baselineSource=fs.readFileSync(baselineFile,'utf8');assert.equal(crypto.createHash('sha256').update(baselineSource).digest('hex'),'60798a84a74596be95b6d4b8e6c17917be55dabf47b669feecf8f926f44daae2','Exact actualM3 control codec only');
+ const filename=require.resolve('../lib/fixture-source-groups-v2'),control=new Module(filename,module);control.filename=filename;control.paths=Module._nodeModulePaths(path.dirname(filename));control._compile(baselineSource,filename);const baseline=control.exports;
+ const regular=sampleRows(),payload='v'.repeat(15500),longKey='unknown-'+('k'.repeat(2000));
+ const wide=Array.from({length:1000},(_,i)=>({source_id:'budget-source',fixture_id:'budget:'+i,identity_keys:['budget:'+i,'alias:'+i],fixture:{id:'budget:'+i,key:'nrl',status:'live',payload,[longKey]:0}}));
+ // Public aggregate shape only. These values are synthetic, not reconstructed
+ // production fixtures, follows, source observations or sporting results.
+ const dense=sampleRows({keys:2718,edges:6555});
+ dense.forEach((row,i)=>{row.source_id='modeled-source:'+i%45;for(let k=0;k<64;k++)row.fixture['dense-key-'+k]=k%6===0?null:k%6===1?false:k%6===2?0:k%6===3?'2026-10-26T00:00:00.123456+00:00':k%6===4?i%7:{nested:[null,false,0,0]};});
+ const measurements=[];
+ function fullRead(decoder,text,textBytes){
+  const began=performance.now(),bundle=JSON.parse(text)[0].bundle,parsed=performance.now(),decoded=decoder.decodeRows(bundle,{textBytes}),decodedAt=performance.now(),hash=contentHash(decoded.rows),ended=performance.now();
+  return {elapsedMs:ended-began,parseMs:parsed-began,decodeMs:decodedAt-parsed,hashMs:ended-decodedAt,hash,serialized:JSON.stringify(decoded),rows:decoded.rows.length};
+ }
+ for(const [name,rows]of [['regular-5145',regular],['dense-6555-modeled',dense],['wide-1000-retained',wide]]){
+  const wire=baseline.encode(groupWire(rows)),text=JSON.stringify([{bundle:wire}]),textBytes=Buffer.byteLength(text);assert(textBytes<=groups.LIMITS.bytes);
+  const a=fullRead(baseline,text,textBytes),b=fullRead(dictionary,text,textBytes),c=fullRead(dictionary,text,textBytes),d=fullRead(baseline,text,textBytes);
+  for(const value of [b,c,d]){assert.equal(value.serialized,a.serialized);assert.equal(value.hash,a.hash);assert.equal(value.rows,rows.length);}
+  const sample=value=>({elapsedMs:value.elapsedMs,parseMs:value.parseMs,decodeMs:value.decodeMs,hashMs:value.hashMs});
+  measurements.push({case:name,edges:rows.length,bytes:textBytes,orderedHash:a.hash,baselineFirst:sample(a),candidateFirst:sample(b),candidateRepeat:sample(c),baselineRepeat:sample(d),completeDecodedRowsEqual:true});
+ }
+ const regularResult=measurements[0],denseResult=measurements[1],wideResult=measurements[2],sum=(r,key)=>r[key+'First'].elapsedMs+r[key+'Repeat'].elapsedMs;
+ const performanceAdmission=denseResult.candidateFirst.elapsedMs<denseResult.baselineFirst.elapsedMs&&denseResult.candidateRepeat.elapsedMs<denseResult.baselineRepeat.elapsedMs&&sum(denseResult,'candidate')<=.85*sum(denseResult,'baseline')&&[regularResult,wideResult].every(r=>sum(r,'candidate')<=1.05*sum(r,'baseline'));
+ const report={state:performanceAdmission?'PASS_CODEC_EQUIVALENCE_AND_LOCAL_MATERIAL_ADVANTAGE':'COMPLETE_EQUIVALENCE_BUT_NO_REQUIRED_CODEC_ADVANTAGE',baselineSha256:'60798a84a74596be95b6d4b8e6c17917be55dabf47b669feecf8f926f44daae2',measurements,performanceAdmission,rule:'Dense first/repeat both faster and paired>=15%gain; regular+wide paired<=5%regression. Complete JSONparse+decodeRows+orderedhash, no forcedGC/warmup. Single localmodel only.',allDecodedRowsEqual:true,productionCalls:0,hostedProof:false};
+ const output=process.env.NS_CODEC_PROTOTYPE_REPORT;assert(output&&path.isAbsolute(output));fs.writeFileSync(output,JSON.stringify(report,null,2)+'\n',{mode:0o600});
+ console.log(JSON.stringify(report));assert(performanceAdmission,'Insufficient model benefit; stop without promotion');
+}

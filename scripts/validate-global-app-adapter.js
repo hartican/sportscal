@@ -177,4 +177,14 @@ test('dictionary flag alone, extra flags and reordered flags are rejected before
  for(const argv of [['--dictionary-v2'],['--live-read','--dictionary-v2','extra'],['--dictionary-v2','--live-read']])await assert.rejects(cli.main({argv,environment:new Proxy({},{get(){throw Error('Environment touched');}}),log:()=>assert.fail('No receipt before argument validation')}));
 });
 
+
+test('closed qualification stage markers retain success, failure, admission and cancellation',async()=>{
+ const allowed=new Set(['started','health-transport-validated','bundle-envelope-validated','wire-decoded','wire-hashed','app-snapshot-read','source-closure','consumer-hashed','evidence-hashed']);
+ const validate=stage=>{assert(stage&&allowed.has(stage.stage));assert.deepEqual(Object.keys(stage).sort(),['elapsedMs','stage']);assert(stage.elapsedMs===null||typeof stage.elapsedMs==='number'&&Number.isFinite(stage.elapsedMs)&&stage.elapsedMs>=0);assert(!JSON.stringify(stage).includes('qa-source'));};
+ let receipt;const good=fixture({wire:dictionary.encode(groupWire([row]))});await good.run({dictionary:true,onReceipt:r=>{receipt=r;}});validate(receipt.lastCompletedStage);assert.equal(receipt.lastCompletedStage.stage,'evidence-hashed');assert.equal(good.calls.length,2);
+ const broken=fixture({wire:{...dictionary.encode(groupWire([row])),complete:false}});await assert.rejects(broken.run({dictionary:true}),error=>{const r=gate.receiptFor(error);validate(r.lastCompletedStage);assert.equal(r.lastCompletedStage.stage,'app-snapshot-read');assert.match(error.message,/Stale\/last-good is not fresh qualification/);return true;});assert.equal(broken.calls.length,2);
+ const cancelled=fixture(),controller=new AbortController();controller.abort();await assert.rejects(cancelled.run({signal:controller.signal}),error=>{validate(gate.receiptFor(error).lastCompletedStage);assert.equal(gate.receiptFor(error).lastCompletedStage.stage,'started');return true;});assert.equal(cancelled.calls.length,0);
+ const denied=fixture();await assert.rejects(denied.run({allocationCheck:()=>{throw Error('Synthetic admission denied');}}),error=>{validate(gate.receiptFor(error).lastCompletedStage);assert.equal(gate.receiptFor(error).lastCompletedStage.stage,'started');return true;});assert.equal(denied.calls.length,0);
+});
+
 (async()=>{for(const item of tests)await item.run();console.log(JSON.stringify({schemaVersion:'global-app-adapter-source-tests.v1',checks:tests.length,passed:true,networkCalls:0,serviceCalls:0,scope:'Actual SDK/parser/CANDIDATE with fake HTTP, allocation and disposable Git/receipt controls'}));})().catch(error=>{console.error(error.stack);process.exitCode=1;});
