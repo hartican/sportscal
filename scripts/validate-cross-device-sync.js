@@ -250,6 +250,8 @@ async function validateActualConflictRetry(){
         },
       },
     };
+    // Original merge/CAS cases do not contain a device-account transition.
+    context.accountTransitionBlocksSync=()=>false;
     vm.createContext(context);
     const preferenceHooks=html.slice(html.indexOf("function preferenceIntentOwner(){"),html.indexOf("async function bootstrapServerPersistence("));
     vm.runInContext(preferenceHooks + "\n" + pins + "\n" + preserve + "\n" + accountScope + "\n" + orchestration, context);
@@ -395,6 +397,7 @@ async function validateAcceptedBootstrapBaseline(){
     const storage=()=>{const values=new Map();return {getItem:key=>values.get(key)||null,setItem:(key,value)=>values.set(key,String(value)),removeItem:key=>values.delete(key)};};
     const requests=[],listeners=new Map();
     const app={module:{exports:{}},AbortController,Event,Response,URLSearchParams,Buffer,structuredClone,setTimeout,clearTimeout,
+      accountTransitionBlocksSync:()=>false,pendingDeviceAccountTransition:()=>null,settingsSection:'account',settingsViewportAnchor:{},preserveDeviceChoicesBeforeAuth:async({currentView})=>{assert(currentView());return{id:'isolated-auth-capture'};},
       USER_STATE_SYNC:userStateSync,accountIndicatorJourney:null,serverSyncTimer:null,localPreferenceRecoveryBusy:false,localPreferenceRecoveryHold:null,serverStateSyncGeneration:0,serverSyncSequence:Promise.resolve(),serverPersistence:{state:'signedOut',user:null},serverStateBaseline:null,startupSessionStateBaseline:clone(device),
       userPreferences:device.preferences,currentServerStatePayload:()=>clone(device),emptyServerStatePayload:()=>({}),
       setServerPersistence:patch=>Object.assign(app.serverPersistence,patch),setPreferenceRecovery(){},setServerStateBaseline:value=>{app.serverStateBaseline={state:clone(value),updatedAt:value.updatedAt};},serverAuthoritativeFixturePins:(_state,local)=>local,clearAcknowledgedFixturePinCommands(){},
@@ -425,7 +428,7 @@ async function validateAcceptedBootstrapBaseline(){
     }});
     vm.runInContext(source+'\n'+signIn,app);
     if(scenario==='deliberate-local'){device.preferences.theme='night';original.A.preferences.theme='night';original.A.updatedAt='2026-10-20T08:01:00Z';}
-    const signInAs=async owner=>{target=owner;await app.submitSignIn({preventDefault(){}});};
+    const signInAs=async owner=>{target=owner;await app.submitSignIn({preventDefault(){},currentTarget:{isConnected:true,querySelector:()=>({disabled:false})}});};
     const first=signInAs('A');
     if(['held-meta','empty-graph','absent-preferences'].includes(scenario)){
       for(let i=0;i<100&&!release;i++)await new Promise(resolve=>setTimeout(resolve,1));

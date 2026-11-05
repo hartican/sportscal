@@ -18,6 +18,7 @@ const recoveryCommands=Object.freeze([
  'node scripts/validate-local-preference-recovery.js',
  'node scripts/validate-local-recovery-ui-lifecycle.js'
 ]);
+const journeyCommand='timeout --signal=TERM --kill-after=5s 120s node scripts/validate-new-user-journey.js';
 const receiptBatches=[
  ['near-selection','near-receipt-join-pg18','NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg18/receipt-join" node scripts/validate-near-receipt-join.js'],
  ['near-selection','near-receipt-join-pg17','NEAR_EVIDENCE_DIR="$RUNNER_TEMP/near-selection-pg17/receipt-join" PGLITE_MODULE=pglite-pg17 node scripts/validate-near-receipt-join.js']
@@ -85,16 +86,20 @@ function validate(text){
  const originalPublisher=original.commands.filter(command=>!moved.includes(command));
  assert.equal(originalPublisher.length,251);
  const recoveryAt=originalPublisher.indexOf('node scripts/validate-preference-bookkeeping.js');assert(recoveryAt>=0);
- const expectedPublisher=[...originalPublisher.slice(0,recoveryAt+1),...recoveryCommands,...originalPublisher.slice(recoveryAt+1)];
- assert.deepEqual(commands,expectedPublisher,'All original 251 publisher commands retain their exact order and environment, with both required recovery checks immediately after preference bookkeeping');
+ const withRecovery=[...originalPublisher.slice(0,recoveryAt+1),...recoveryCommands,...originalPublisher.slice(recoveryAt+1)];
+ const journeyAt=withRecovery.indexOf('node scripts/validate-account-awareness.js');assert(journeyAt>=0);
+ const expectedPublisher=[...withRecovery.slice(0,journeyAt+1),journeyCommand,...withRecovery.slice(journeyAt+1)];
+ assert.equal(commands.length,254,'Exactly 254 required publisher command occurrences');
+ assert.deepEqual(commands,expectedPublisher,'All original 251 publisher commands retain exact order and environment, both recovery checks follow preference bookkeeping, and one bounded journey check follows account awareness');
  const receiptCommands=receiptBatches.map(row=>row[2]);
- assert.deepEqual([...commands,...moved,...receiptCommands].sort(),[...original.commands,...recoveryCommands,...receiptCommands].sort(),'All original occurrences, both required recovery additions and both receipt-join engines are preserved');
+ assert.deepEqual([...commands,...moved,...receiptCommands].sort(),[...original.commands,...recoveryCommands,journeyCommand,...receiptCommands].sort(),'All original occurrences, both recovery additions, both receipt-join engines and exactly one bounded journey check are preserved');
+ assert.equal(commands.length+moved.length+receiptCommands.length,263,'Exactly 263 required command occurrences across publisher and prerequisite engines');
  assert.equal(publisher.split(dictionaryGlobalGate).length-1,1,'Exactly one required dictionary global live qualifier');
  assert.equal(publisher.split(legacyGlobalGate).length-1,0,'Legacy-only global live qualifier cannot replace dictionary qualification');
  const scaffold=normalized.slice(0,at+safety.length)+'\0'+normalized.slice(end);
  assert.equal(hash(scaffold.replace(dictionaryGlobalGate,legacyGlobalGate)),original.publisherScaffoldSha256,'Publisher scaffold is unchanged except the exact reviewed dictionary qualifier flag; original SHA, credentials, deadlines, live gate, deploy and public checks remain pinned');
  assert(!/continue-on-error|\beval\b/.test(text),'No soft failure or dynamic command evaluation');
- return {originalOccurrences:258,addedRecoveryOccurrences:recoveryCommands.length,addedReceiptOccurrences:receiptCommands.length,publisherOccurrences:commands.length,movedOccurrences:moved.length,requiredOccurrences:commands.length+moved.length+receiptCommands.length,batches:4};
+ return {originalOccurrences:258,addedRecoveryOccurrences:recoveryCommands.length,addedReceiptOccurrences:receiptCommands.length,addedJourneyOccurrences:1,publisherOccurrences:commands.length,movedOccurrences:moved.length,requiredOccurrences:commands.length+moved.length+receiptCommands.length,batches:4};
 }
 function regressions(text){
  const controls=[
@@ -118,6 +123,10 @@ function regressions(text){
   ['dictionary arguments reordered',s=>s.replace(dictionaryGlobalGate,'          node scripts/verify-global-app-adapter.js --dictionary-v2 --live-read\n')],
   ['dictionary unreviewed argument',s=>s.replace(dictionaryGlobalGate,'          node scripts/verify-global-app-adapter.js --live-read --dictionary-v2 --skip\n')],
   ['arrangement check bypassed',s=>s.replace(preflight,'')],
+  ['missing new-user journey check',s=>s.replace('          '+journeyCommand+'\n','')],
+  ['duplicate new-user journey check',s=>s.replace('          '+journeyCommand+'\n','          '+journeyCommand+'\n          '+journeyCommand+'\n')],
+  ['altered new-user journey check',s=>s.replace('          '+journeyCommand+'\n','          '+journeyCommand+' --skip\n')],
+  ['moved new-user journey check',s=>s.replace('          node scripts/validate-account-awareness.js\n          '+journeyCommand+'\n','          '+journeyCommand+'\n          node scripts/validate-account-awareness.js\n')],
   ['missing recovery check',s=>s.replace('          '+recoveryCommands[0]+'\n','')],
   ['missing recovery UI check',s=>s.replace('          '+recoveryCommands[1]+'\n','')],
   ['duplicate recovery check',s=>s.replace('          '+recoveryCommands[0]+'\n','          '+recoveryCommands[0]+'\n          '+recoveryCommands[0]+'\n')],
@@ -133,8 +142,37 @@ function regressions(text){
  for(const[name,mutate]of controls){const broken=mutate(text);assert.notEqual(broken,text,name+' mutation must apply');assert.throws(()=>validate(broken),undefined,name+' must refuse');}
  return controls.length;
 }
+// B-only installed workflow contract; production command inventory is unchanged.
+const signupCompatibilityStep="      - name: Verify signup/setup compatibility\n        run: timeout --signal=TERM --kill-after=5s 120s node scripts/validate-server-persistence.js\n";
+const signupCompatibilityPaths="      - scripts/validate-server-persistence.js\n      - scripts/lib/signup-setup-tests.js\n      - scripts/lib/user-state-account-scope-tests.js\n      - scripts/lib/user-state-optional-view-tests.js\n      - scripts/validate-cross-device-sync.js\n      - scripts/validate-empty-startup-meta.js\n";
+const signupCompatibilityNpm="      - name: Install existing locked dependencies\n        run: npm ci\n";
+const signupCompatibilityOldDescription="Three existing source/mock activation checks plus one bounded new-user journey unit.";
+const signupCompatibilityDescription="Three existing source/mock activation checks, one bounded new-user journey unit and one bounded signup/setup compatibility check.";
+function validateSignupCompatibilityWorkflow(text){
+ assert.equal(typeof text,'string','Installed workflow source required');
+ assert.equal(text.split(signupCompatibilityStep).length-1,1,'Exactly one bounded signup/setup compatibility step');
+ assert.equal(text.split(signupCompatibilityPaths).length-1,1,'Exactly one narrow compatibility trigger block');
+ assert(text.includes('      - scripts/validate-new-user-journey.js\n'+signupCompatibilityPaths),'Compatibility paths follow the existing journey trigger');
+ assert(text.includes(signupCompatibilityNpm+signupCompatibilityStep+'      - name: Verify actual exported Feed activation\n'),'Compatibility follows locked npm and precedes original activation checks');
+ assert.equal(text.split(signupCompatibilityDescription).length-1,1,'Identity log includes the additional compatibility check');
+ const original=text.replace(signupCompatibilityStep,'').replace(signupCompatibilityPaths,'').replace(signupCompatibilityDescription,signupCompatibilityOldDescription);
+ assert.equal(hash(original),'2ca4c7b2c05f7e16d119a16100311bbc8b08fb5616d09b7551ec85b8a6fe8586','All frozen v6 installed workflow bytes, early unit, jobs, guards, dependencies and engines remain unchanged');
+}
+function signupCompatibilityRegressions(text){
+ validateSignupCompatibilityWorkflow(text);
+ const controls=[
+  ['missing signup compatibility step',value=>value.replace(signupCompatibilityStep,'')],
+  ['duplicate signup compatibility step',value=>value.replace(signupCompatibilityStep,signupCompatibilityStep+signupCompatibilityStep)],
+  ['altered signup compatibility step',value=>value.replace(signupCompatibilityStep,signupCompatibilityStep.replace('validate-server-persistence.js','validate-server-persistence.js --skip'))],
+  ['moved signup compatibility step',value=>value.replace(signupCompatibilityNpm+signupCompatibilityStep,signupCompatibilityStep+signupCompatibilityNpm)]
+ ];
+ for(const[name,mutate]of controls){const broken=mutate(text);assert.notEqual(broken,text,name+' mutation must apply');assert.throws(()=>validateSignupCompatibilityWorkflow(broken),undefined,name+' must refuse');}
+ return controls.length;
+}
 if(require.main===module){
  const text=fs.readFileSync('.github/workflows/sportscal-production.yml','utf8'),report=validate(text);
- console.log(JSON.stringify({schemaVersion:'production-sql-batches.v1',...report,negativeControls:regressions(text),engineRuns:0,serviceRequests:0,releaseAcceptance:false}));
+ const installed=fs.readFileSync('.github/workflows/installed-upgrade-tests.yml','utf8');
+ const signupCompatibilityNegativeControls=signupCompatibilityRegressions(installed);
+ console.log(JSON.stringify({schemaVersion:'production-sql-batches.v1',...report,negativeControls:regressions(text),signupCompatibilityNegativeControls,engineRuns:0,serviceRequests:0,releaseAcceptance:false}));
 }
-module.exports={validate,regressions};
+module.exports={validate,regressions,validateSignupCompatibilityWorkflow,signupCompatibilityRegressions};
