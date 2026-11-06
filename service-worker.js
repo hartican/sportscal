@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v609";
-const SHELL_VERSION = "609";
+const CACHE_NAME = "nothingsport-shell-v610";
+const SHELL_VERSION = "610";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -26,7 +26,7 @@ const APP_SHELL = [
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=552",
   "/assets/js/impact-feedback-ui.js?v=552",
-  "/assets/js/settings-optional-ui.js?v=609",
+  "/assets/js/settings-optional-ui.js?v=610",
   "/assets/js/follow-navigation.js?v=522",
   "/assets/js/tournament-fixture-ui.js?v=533",
   "/assets/styles/notifications-inbox.css?v=280",
@@ -67,8 +67,8 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=609",
-  "/assets/js/account-awareness-runtime.js?v=609",
+  "/assets/js/app-shell-runtime.js?v=610",
+  "/assets/js/account-awareness-runtime.js?v=610",
   "/assets/js/follow-schedule-panel.js?v=576",
   "/assets/js/fixture-navigation.js?v=535",
   "/assets/js/notification-navigation.js?v=534",
