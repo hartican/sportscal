@@ -8,7 +8,10 @@ const recoveryScope=html.slice(html.indexOf('function localPreferenceRecoveryBlo
 async function run({preferences,remote=null,loadError=null}={}){
  const calls={load:0,save:[],preferences:[]};
  const context={userPreferences:preferences,localPreferenceRecoveryBusy:false,localPreferenceRecoveryHold:null,serverStateSyncGeneration:0,serverPersistence:{state:'signedIn',user:{id:'isolated-user'}},FOLLOW_FIRST:follow,serverSyncClient:{sessionSubject:()=> 'isolated-user',async loadMeta(){calls.load++;if(loadError)throw loadError;return{meta:remote};},async saveMeta(meta){calls.save.push(meta);return{meta};}},savePreferences(p){calls.preferences.push(p);}};
- vm.createContext(context);vm.runInContext(scope+'\n'+recoveryScope+'\n'+source+'\nthis.run=hydrateUserMetaSeed;',context);
+  // This metadata-only fixture has no device/account handoff. The real handoff
+  // path is covered by validate-new-user-journey's connected controls.
+  context.accountTransitionBlocksSync=()=>false;
+  vm.createContext(context);vm.runInContext(scope+'\n'+recoveryScope+'\n'+source+'\nthis.run=hydrateUserMetaSeed;',context);
  return {result:await context.run(),calls};
 }
 (async()=>{
