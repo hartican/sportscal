@@ -72,6 +72,7 @@ function publicUser(user){
     id: user.id,
     email: user.email || "",
     isAnonymous:user.is_anonymous === true,
+    emailVerified:Boolean(user.is_anonymous !== true && String(user.email || '').trim() && typeof user.email_confirmed_at === 'string' && Number.isFinite(Date.parse(user.email_confirmed_at)) && Date.parse(user.email_confirmed_at) <= Date.now()),
     createdAt: user.created_at || null,
   };
 }
@@ -237,7 +238,7 @@ module.exports = async function authHandler(request, response){
       response.status(200).json({
         session:cleanSession,user:cleanSession.user,joined:true,existing:joined.outcome==="existing",
         room:{roomId:capability.roomId,memberCount:Number(joined.member_count)||0},
-        viewer:{kind:"guest",displayName:guestDisplayName,canPost:true},
+        viewer:{kind:"guest",displayName:guestDisplayName,canPost:false,emailVerificationRequired:true},
       });
       return;
     }
@@ -294,6 +295,43 @@ module.exports = async function authHandler(request, response){
         confirmationRequired:!signup?.access_token,
         metadataDeferred,
       });
+      return;
+    }
+
+    if (body.action === 'confirmation-resend'){
+      const email = validEmail(body.email);
+      if (!email){ response.status(400).json({error:'Enter a valid email address.',code:'invalid_email'}); return; }
+      try{
+        await supabaseRequest(`/auth/v1/resend?redirect_to=${encodeURIComponent(signupCallback(request))}`,{method:'POST',body:{type:'signup',email}});
+      }catch(error){ if (![400,404,422].includes(error?.status)) throw error; }
+      response.status(200).json({requested:true,message:'If this address has a pending signup, a confirmation link has been requested.'});
+      return;
+    }
+
+    if(body.action==='change-email'){
+      const email=validEmail(body.email),expected=String(body.accountId||'');
+      if(!email||!expected||Object.keys(body).some(key=>!['action','email','accountId'].includes(key))){response.status(400).json({error:'Enter a valid email address for the current account.',code:'invalid_email_change'});return;}
+      const accessToken=bearerToken(request);
+      // The client UID is only a fence. Native /user selects the account from
+      // its bearer and enforces account erasure before any user-scoped update.
+      const current=await authenticatedUser(accessToken);
+      if(current.id!==expected){response.status(409).json({error:'Your sign-in changed. Reopen Account before changing email.',code:'account_scope_changed'});return;}
+      if(current.is_anonymous===true){response.status(403).json({error:'Sign in to an email account before changing its address.',code:'email_account_required'});return;}
+      if(validEmail(current.email)===email){response.status(200).json({requested:false,user:publicUser(current),requestedEmail:email});return;}
+      let updated;
+      try{
+        const result=await supabaseRequest(`/auth/v1/user?redirect_to=${encodeURIComponent(signupCallback(request).replace('?auth=confirmed','?auth=email-change'))}`,{method:'PUT',accessToken,body:{email}});
+        updated=result?.user||result;
+      }catch(error){
+        if([400,409,422].includes(error?.status)){response.status(400).json({error:'The email change could not be requested. Try another address or sign in again.',code:'email_change_unavailable'});return;}
+        if(error?.status===429){response.status(429).json({error:'Too many email requests. Wait before trying again.',code:error.payload?.code||'rate_limited'});return;}
+        if([401,403].includes(error?.status)){response.status(error.status).json({error:'Sign in again before requesting an email change.',code:error.payload?.code||'reauthentication_required'});return;}
+        throw error;
+      }
+      if(updated?.id!==current.id){response.status(502).json({error:'The email-change request could not be checked. Check the current account before trying again.',code:'email_change_outcome_unknown'});return;}
+      // emailVerified describes updated.email only. new_email, request
+      // acceptance and the old address's proof never verify the requested one.
+      response.status(200).json({requested:true,user:publicUser(updated),requestedEmail:email});
       return;
     }
 
