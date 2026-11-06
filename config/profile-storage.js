@@ -8,10 +8,12 @@
   const PROFILE_SCHEMA_VERSION = 6;
   const INSTALL_SCHEMA_VERSION = 1;
   const CACHE_SCHEMA_VERSION = 2;
+  const freshLocalProfileIds = new Set();
   const KEYS = Object.freeze({
     install: "ns_install_v1",
     activeProfileId: "ns_active_profile_id_v1",
     profilePrefix: "ns_profile_v1:",
+    accountTransition: "ns_account_transition_v1",
   });
 
   const LEGACY_KEYS = Object.freeze({
@@ -230,6 +232,7 @@
     const bundle = stored
       ? migrateBundle(stored, install.activeProfileId, now)
       : migrateLegacyBundle(storage, install.activeProfileId, now);
+    if(!stored&&freshLocalProfileIds.size<32&&!Object.values(LEGACY_KEYS).flat().some(legacyKey=>storage.getItem(legacyKey)!==null))freshLocalProfileIds.add(install.activeProfileId);
     writeStored(storage, key, bundle);
     const verified = parseStored(storage, key, null);
     if (verified?.schemaVersion === PROFILE_SCHEMA_VERSION){
@@ -477,6 +480,153 @@
     }, options);
   }
 
+  // One pending device handoff, at most four account profiles, and the original
+  // device profile. Captures are inert history, never server intent or Auth.
+  function readAccountTransition(storage){
+    const raw=storage.getItem(KEYS.accountTransition);
+    if(!raw)return null;
+    if(raw.length>3*1024*1024)throw new Error('The saved device handoff is too large to safely read.');
+    let value;
+    try{value=JSON.parse(raw);}catch(_error){throw new Error('The saved device handoff needs recovery. Your device copies have not been replaced.');}
+    if(value?.schemaVersion!==1||!Array.isArray(value.accounts)||value.accounts.length>4
+      ||typeof value.deviceProfileId!=='string'||!value.deviceProfileId
+      ||value.accounts.some(item=>!item||typeof item.accountId!=='string'||!item.accountId||item.accountId.length>128||typeof item.profileId!=='string'||!item.profileId||Object.keys(item).some(key=>!['accountId','profileId'].includes(key)))
+      ||new Set(value.accounts.map(item=>item.accountId)).size!==value.accounts.length
+      ||new Set(value.accounts.map(item=>item.profileId)).size!==value.accounts.length
+      ||Object.keys(value).some(key=>!['schemaVersion','deviceProfileId','accounts','pending'].includes(key)))throw new Error('The saved device handoff needs recovery.');
+    if(value.pending&&(!['pending','resolved','cancelled','awaiting'].includes(value.pending.status)||typeof value.pending.id!=='string'
+      ||typeof value.pending.sourceRaw!=='string'||typeof value.pending.preferencesRaw!=='string'
+      ||typeof value.pending.sourceProfileId!=='string'
+      ||Object.keys(value.pending).some(key=>!['id','status','sourceProfileId','sourceOwnerId','generation','sourceRaw','preferencesRaw','capturedAt','targetAccountId','targetProfileId','freshGuest','associationRequired','remoteStateWasPresent','resolvedAt'].includes(key))))throw new Error('The saved device handoff is incomplete.');
+    if(value.pending){
+      const pending=value.pending;
+      try{
+        const source=JSON.parse(pending.sourceRaw),preferences=JSON.parse(pending.preferencesRaw);
+        if(pending.sourceRaw.length>2*1024*1024||pending.preferencesRaw.length>512*1024
+          ||source?.profile?.id!==pending.sourceProfileId||!preferences||typeof preferences!=='object'||Array.isArray(preferences)
+          ||!pending.id||!Number.isSafeInteger(pending.generation)||!Number.isFinite(Date.parse(pending.capturedAt))
+          ||(pending.sourceOwnerId!==null&&(typeof pending.sourceOwnerId!=='string'||!pending.sourceOwnerId))
+          ||(pending.targetAccountId!==null&&(typeof pending.targetAccountId!=='string'||!pending.targetAccountId))
+          ||(pending.targetProfileId!==null&&(typeof pending.targetProfileId!=='string'||!pending.targetProfileId))
+          ||Boolean(pending.targetAccountId)!==Boolean(pending.targetProfileId)||typeof pending.freshGuest!=='boolean')throw new Error('invalid');
+      }catch(_error){throw new Error('The preserved device choices need recovery. Your current copy has not been replaced.');}
+    }
+    return value;
+  }
+  function writeAccountTransition(storage,value){
+    const raw=JSON.stringify(value);
+    if(raw.length>3*1024*1024)throw new Error('There is not enough space to keep these device choices safely.');
+    storage.setItem(KEYS.accountTransition,raw);
+    if(storage.getItem(KEYS.accountTransition)!==raw)throw new Error('The device handoff save could not be confirmed.');
+    return clone(value);
+  }
+  function captureAccountTransition(storage,bundle,{preferences,ownerId=null,generation,current}){
+    if(typeof current!=='function'||!current()||!Number.isSafeInteger(generation))throw new Error('Your sign-in changed. Reopen Account before continuing.');
+    const sourceProfileId=bundle?.profile?.id;
+    if(typeof sourceProfileId!=='string'||parseStored(storage,KEYS.activeProfileId)!==sourceProfileId)throw new Error('Your local profile changed. Reopen Account.');
+    const sourceRaw=storage.getItem(profileKey(sourceProfileId)),preferencesRaw=JSON.stringify(preferences);
+    if(typeof sourceRaw!=='string'||JSON.parse(sourceRaw)?.profile?.id!==sourceProfileId||sourceRaw.length>2*1024*1024
+      ||typeof preferencesRaw!=='string'||preferencesRaw.length>512*1024)throw new Error('Your device choices could not be safely preserved.');
+    const record=readAccountTransition(storage)||{schemaVersion:1,deviceProfileId:sourceProfileId,accounts:[],pending:null};
+    if(record.pending?.status==='pending'){
+      const old=record.pending;
+      if(old.sourceProfileId===sourceProfileId&&old.sourceRaw===sourceRaw&&old.preferencesRaw===preferencesRaw&&old.sourceOwnerId===ownerId&&current())return clone(old);
+      throw new Error('Review the previous device handoff in Account before starting another sign-in. Your copies are kept.');
+    }
+    record.pending={id:makeId('account-handoff'),status:'pending',sourceProfileId,sourceOwnerId:ownerId,generation,
+      sourceRaw,preferencesRaw,capturedAt:nowIso(),targetAccountId:null,targetProfileId:null,
+      freshGuest:freshLocalProfileIds.has(sourceProfileId)&&!ownerId&&!record.accounts.some(item=>item.profileId===sourceProfileId)};
+    writeAccountTransition(storage,record);
+    if(!current()||storage.getItem(profileKey(sourceProfileId))!==sourceRaw||parseStored(storage,KEYS.activeProfileId)!==sourceProfileId)throw new Error('Your device choices changed while being preserved. Sign-in has not started.');
+    return clone(record.pending);
+  }
+  function activateAccountProfile(storage,capture,{accountId,preferenceVersion,hasRemoteState,current}){
+    if(typeof accountId!=='string'||!accountId||accountId.length>128||typeof current!=='function'||!current())throw new Error('The target account is not verified.');
+    const record=readAccountTransition(storage),pending=record?.pending;
+    if(!pending||pending.status!=='pending'||pending.id!==capture?.id)throw new Error('The saved device handoff changed.');
+    let owned=record.accounts.find(item=>item.accountId===accountId);
+    if(!owned&&record.accounts.length>=4)throw new Error('Four accounts are already kept on this device. Your existing copies remain available.');
+    const sourceOwned=record.accounts.find(item=>item.profileId===pending.sourceProfileId);
+    if(!owned&&pending.sourceOwnerId===accountId)owned={accountId,profileId:pending.sourceProfileId};
+    const activeId=parseStored(storage,KEYS.activeProfileId);
+    if(pending.targetAccountId&&pending.targetAccountId!==accountId)throw new Error('This handoff belongs to another account.');
+    if(activeId!==pending.sourceProfileId&&activeId!==pending.targetProfileId)throw new Error('Your local profile changed during sign-in.');
+    if(storage.getItem(profileKey(pending.sourceProfileId))!==pending.sourceRaw)throw new Error('The preserved source changed. Your copies need review before account loading.');
+    if(!owned){
+      if(record.accounts.length>=4)throw new Error('Four accounts are already kept on this device. Your existing copies remain available.');
+      owned={accountId,profileId:'profile:account:'+accountId};
+      const target=emptyBundle(owned.profileId,new Date(pending.capturedAt));
+      if(!Number.isSafeInteger(preferenceVersion)||preferenceVersion<1)throw new Error('The current preference schema is unavailable.');
+      target.preferences={version:preferenceVersion,onboardingComplete:true,selectedSelectorEntityIds:[],followedSports:[]};
+      const receipt=readPreferenceIntent(storage,{profile:{id:pending.sourceProfileId}},accountId);
+      if(receipt){
+        // Carry this owner's original receipt unchanged, never another owner's
+        // current displayed choices or a newly manufactured guest receipt.
+        target.preferenceSync={writer:'owned-preference-intent.v1',entries:[clone(receipt)]};
+        target.preferences=clone(receipt.preferences);
+        const graph=receipt.preferences?.preferenceGraph||{};
+        for(const [section,key] of [['domainPreferences','domainPreferences'],['competitionPreferences','competitionPreferences'],['entityFollows','entityFollows'],['viewingPreference','viewing'],['learningPreference','learning']])if(Object.hasOwn(graph,key))target[section]=clone(graph[key]);
+      }
+      const raw=JSON.stringify(target),key=profileKey(owned.profileId),existing=storage.getItem(key);
+      if(existing!==null&&existing!==raw)throw new Error('An existing account copy needs recovery; it has not been replaced.');
+      if(existing===null)storage.setItem(key,raw);
+      if(storage.getItem(key)!==raw||!current())throw new Error('The separate account copy could not be confirmed.');
+    }
+    if(!record.accounts.some(item=>item.accountId===accountId))record.accounts.push(owned);
+    const associationRequired=!sourceOwned&&!pending.sourceOwnerId&&owned.profileId!==pending.sourceProfileId;
+    pending.targetAccountId=accountId;pending.targetProfileId=owned.profileId;pending.associationRequired=associationRequired;pending.remoteStateWasPresent=hasRemoteState===true;
+    writeAccountTransition(storage,record);
+    if(!current()||storage.getItem(profileKey(pending.sourceProfileId))!==pending.sourceRaw)throw new Error('Your device copy changed in another window. It is kept separately; review it before account loading.');
+    storage.setItem(KEYS.activeProfileId,JSON.stringify(owned.profileId));
+    if(parseStored(storage,KEYS.activeProfileId)!==owned.profileId||!current())throw new Error('The account copy could not be activated safely.');
+    const target=loadActiveProfile(storage);
+    return {bundle:target,pending:clone(pending),associationRequired};
+  }
+  function completeAccountTransition(storage,capture,{accountId,current}){
+    const record=readAccountTransition(storage),pending=record?.pending;
+    if(!pending||pending.id!==capture?.id||pending.targetAccountId!==accountId||!current()
+      ||parseStored(storage,KEYS.activeProfileId)!==pending.targetProfileId)throw new Error('The account handoff changed; your copies are kept.');
+    // Resolve only after explicit keep-separate or owned association ACK. The
+    // original source profile remains; the last raw capture stays until a later
+    // explicit handoff replaces this resolved record. Never clear any receipt.
+    pending.status='resolved';pending.resolvedAt=nowIso();
+    return writeAccountTransition(storage,record);
+  }
+  function cancelAccountTransition(storage,capture,{current}){
+    const record=readAccountTransition(storage),pending=record?.pending;
+    if(!pending||pending.id!==capture?.id||pending.targetAccountId||!current()
+      ||parseStored(storage,KEYS.activeProfileId)!==pending.sourceProfileId)throw new Error('The handoff changed; your device copies are kept.');
+    // Keep a durable no-import fence: another tab may still have an Auth/read
+    // response in flight. Only another explicit Auth capture replaces this hold.
+    pending.status='cancelled';pending.resolvedAt=nowIso();
+    return writeAccountTransition(storage,record);
+  }
+  function awaitSignupConfirmation(storage,capture,{current}){
+    const record=readAccountTransition(storage),pending=record?.pending;
+    if(!pending||pending.status!=='pending'||pending.id!==capture?.id||pending.targetAccountId||!current()
+      ||parseStored(storage,KEYS.activeProfileId)!==pending.sourceProfileId)throw new Error('Signup was accepted, but the local handoff could not be updated. Your device copies are kept.');
+    // Retain an inert snapshot; the next deliberate Auth capture takes the
+    // latest guest choices rather than locking the guest to this old snapshot.
+    pending.status='awaiting';return writeAccountTransition(storage,record);
+  }
+  function activateDeviceProfile(storage,{current,allowPending=false}){
+    const record=readAccountTransition(storage);
+    if(!record?.deviceProfileId||(record.pending?.status==='pending'&&!allowPending)||!current())throw new Error('Finish the device handoff before returning to your device copy.');
+    const raw=storage.getItem(profileKey(record.deviceProfileId));
+    if(!raw||JSON.parse(raw)?.profile?.id!==record.deviceProfileId)throw new Error('The original device copy is unavailable; no current copy has been replaced.');
+    storage.setItem(KEYS.activeProfileId,JSON.stringify(record.deviceProfileId));
+    if(parseStored(storage,KEYS.activeProfileId)!==record.deviceProfileId||!current())throw new Error('The device copy could not be activated.');
+    return loadActiveProfile(storage);
+  }
+  function withAccountTransitionLock(operation){
+    const locks=globalThis.navigator?.locks;
+    if(!locks?.request)return Promise.reject(Object.assign(new Error('This browser cannot safely keep separate account copies. Continue as a guest or update your browser before signing in.'),{code:'account_transition_blocked'}));
+    return locks.request('ns-account-transition-v1',{mode:'exclusive',ifAvailable:true},lock=>{
+      if(!lock)throw new Error('Another tab is keeping device choices safe. Wait a moment, then try again.');
+      return operation();
+    }).catch(error=>{error.code='account_transition_blocked';throw error;});
+  }
+
   return Object.freeze({
     PROFILE_SCHEMA_VERSION,
     INSTALL_SCHEMA_VERSION,
@@ -495,5 +645,12 @@
     advancePreferenceIntentBase,
     saveSection,
     setUsernameLabel,
+    readAccountTransition,
+    captureAccountTransition:(...args)=>withAccountTransitionLock(()=>captureAccountTransition(...args)),
+    activateAccountProfile:(...args)=>withAccountTransitionLock(()=>activateAccountProfile(...args)),
+    completeAccountTransition:(...args)=>withAccountTransitionLock(()=>completeAccountTransition(...args)),
+    cancelAccountTransition:(...args)=>withAccountTransitionLock(()=>cancelAccountTransition(...args)),
+    awaitSignupConfirmation:(...args)=>withAccountTransitionLock(()=>awaitSignupConfirmation(...args)),
+    activateDeviceProfile:(...args)=>withAccountTransitionLock(()=>activateDeviceProfile(...args)),
   });
 });

@@ -15,6 +15,13 @@ on:
       - scripts/validate-account-sync-recovery-browser.js
       - scripts/lib/account-sign-in-action-trace.js
       - scripts/validate-account-sign-in-action-trace.js
+      - scripts/validate-new-user-journey.js
+      - scripts/validate-server-persistence.js
+      - scripts/lib/signup-setup-tests.js
+      - scripts/lib/user-state-account-scope-tests.js
+      - scripts/lib/user-state-optional-view-tests.js
+      - scripts/validate-cross-device-sync.js
+      - scripts/validate-empty-startup-meta.js
       - scripts/lib/installed-test-network.js
       - scripts/validate-installed-test-network.js
       - .github/installed-production-baseline.json
@@ -63,7 +70,7 @@ concurrency:
 jobs:
   fixture-activation:
     name: Fixture activation / remaining three checks
-    if: github.event.pull_request.draft == false
+    if: github.event.pull_request.draft == false || (github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/baseline-capture-'))
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
@@ -83,19 +90,654 @@ jobs:
           node <<'JS'
           const cp=require('node:child_process');
           const git=(...args)=>cp.execFileSync('git',args,{encoding:'utf8'}).trim();
-          console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,eventSha:process.env.GITHUB_SHA,node:process.version,platform:process.platform,arch:process.arch,limits:'Three remaining source/mock activation checks. Not production SQL, hosted wire or physical iPhone acceptance.'},null,2));
+          console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,eventSha:process.env.GITHUB_SHA,node:process.version,platform:process.platform,arch:process.arch,limits:'Three existing source/mock activation checks, one bounded new-user journey unit and one bounded signup/setup compatibility check. Not production SQL, hosted wire or physical iPhone acceptance. Permanent dedicated DRAFT baseline capture runs only source/input checks and three primary bodies: ordinary application/full qualification/browser checks are skipped, never passed. Normal Ready retains full qualification, thirteen premerge affected gates and both installed-browser engines.'},null,2));
           JS
+      - name: Verify permanent baseline capture source controls
+        if: github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/baseline-capture-')
+        timeout-minutes: 2
+        run: timeout --signal=TERM --kill-after=5s 120s node scripts/validate-production-sql-batches.js
+      - name: Bind permanent primary baseline capture input
+        id: primary_baseline_input
+        if: github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/baseline-capture-')
+        timeout-minutes: 2
+        run: |
+          timeout --signal=TERM --kill-after=5s 30s node <<'NS_PRIMARY_CAPTURE_INPUT'
+          'use strict';
+          const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process'),{TextDecoder}=require('node:util');
+          const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
+          // NS_PRIMARY_CAPTURE_PURE_BEGIN
+          const E610_LIMITS=Object.freeze({source:10000,file:256*1024*1024,read:2*1024*1024*1024,event:4*1024*1024,body:65536,binding:16384,manifest:16*1024*1024,gitOutput:4*1024*1024,processMs:5000});
+          function exactKeys(value,keys,label){
+           assert(value&&typeof value==='object'&&!Array.isArray(value),label+' object required');
+           assert.deepEqual(Object.keys(value).sort(),keys.slice().sort(),label+' closed keys');
+          }
+          function textValue(value,label){assert.equal(typeof value,'string',label+' string');assert(value.length>0&&!/[\u0000\r\n]/.test(value),label+' nonempty single line');return value;}
+          function digestHex(value,length,label){assert.equal(typeof value,'string',label);assert(new RegExp('^[0-9a-f]{'+length+'}$').test(value),label+' lowercase hex');return value;}
+          function positiveInteger(value,label){assert(Number.isSafeInteger(value)&&value>0,label+' positive integer');return value;}
+          function canonicalDecimal(value,label){assert.equal(typeof value,'string',label);assert(/^[1-9][0-9]*$/.test(value),label+' canonical decimal');return value;}
+          function unicodeSafe(value){
+           if(typeof value==='string'){for(let i=0;i<value.length;i++){const c=value.charCodeAt(i);if(c>=0xd800&&c<=0xdbff){assert(i+1<value.length&&value.charCodeAt(i+1)>=0xdc00&&value.charCodeAt(i+1)<=0xdfff,'Unpaired high surrogate');i++;}else assert(c<0xdc00||c>0xdfff,'Unpaired low surrogate');}}
+           else if(Array.isArray(value))value.forEach(unicodeSafe);
+           else if(value&&typeof value==='object')for(const [key,item]of Object.entries(value)){unicodeSafe(key);unicodeSafe(item);}
+          }
+          function utf8Text(bytes){assert(Buffer.isBuffer(bytes),'Raw bytes required');const value=new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(bytes);assert(Buffer.from(value,'utf8').equals(bytes),'Exact UTF8 bytes required');unicodeSafe(value);return value;}
+          function relativePath(value){
+           textValue(value,'Relative path');assert(!value.includes('\\')&&!value.includes('\t')&&!path.posix.isAbsolute(value),'Unsafe relative path');
+           assert(!value.split('/').some(part=>!part||part==='.'||part==='..'),'Unsafe relative component');
+           unicodeSafe(value);return value;
+          }
+          function inside(base,file){return file===base||file.startsWith(base+path.sep);}
+          function ownedPath(base,file){
+           assert(path.isAbsolute(base)&&path.isAbsolute(file),'Absolute owned paths required');textValue(base,'Owned root');textValue(file,'Owned file');
+           assert.equal(path.resolve(base),base,'Normalized root');assert.equal(path.resolve(file),file,'Normalized file');assert(file!==base&&inside(base,file),'Owned path escape');return file;
+          }
+          function regularInputStat(st){assert(st&&typeof st.isFile==='function'&&typeof st.isSymbolicLink==='function','File stat');assert(st.isFile()&&!st.isSymbolicLink(),'Regular no-follow input required');assert(Number.isSafeInteger(st.size)&&st.size>=0&&st.size<=E610_LIMITS.file,'Regular input size bound');}
+          function linkWithin(base,file,target){textValue(target,'Link target');assert(!path.isAbsolute(target)&&inside(base,path.resolve(path.dirname(file),target)),'Escaping link target');}
+          function validateRuntimePlatform(node,platform,arch){assert.equal(node,'v24.21.0');assert.equal(platform,'linux');assert.equal(arch,'x64');}
+          function validateInventory(actual,expected){exactKeys(actual,['revision','bytes','files'],'Deployment inventory');assert.deepEqual(actual,expected,'Complete reviewed deployment policy/closure/transform inventory');}
+          function stableStats(before,after,label){
+           for(const key of ['dev','ino','size','mode','mtimeMs','ctimeMs'])assert.equal(after[key],before[key],label+' stable '+key);
+          }
+          
+          const PRIMARY_CAPTURE_BODY_KEYS=['schemaVersion','publisherHeadSha','publisherTreeSha','preparedForBaseSha','namedAllocationId','publisherBindingRecordSha256','captureFacts'];
+          function captureRouteDecision(pr,repository){
+           const ready=pr?.draft===false,key=value=>typeof value==='string'?value.toLowerCase():null;
+           const repo=key(repository),capture=pr?.draft===true&&repo!==null&&repo.length>0&&key(pr?.head?.repo?.full_name)===repo&&(key(pr?.head?.ref)||'').startsWith('codex/baseline-capture-');
+           return {runJob:ready||capture,runNormal:ready,runCapture:capture,runInstalledBrowser:ready,releaseAcceptance:false};
+          }
+          function primaryCaptureRequest(raw,event,env,observed,wall,validate){
+           assert(Buffer.isBuffer(raw)&&raw.length>0&&raw.length<=E610_LIMITS.body,'Capture body byte bound');
+           const text=utf8Text(raw),body=JSON.parse(text);unicodeSafe(body);assert.equal(JSON.stringify(body),text,'Capture body canonical compact JSON, NO LF');
+           exactKeys(body,PRIMARY_CAPTURE_BODY_KEYS,'Capture request');assert.equal(body.schemaVersion,'primary-baseline-capture-request.v1');
+           for(const key of ['publisherHeadSha','publisherTreeSha','preparedForBaseSha'])digestHex(body[key],40,key);
+           digestHex(body.publisherBindingRecordSha256,64,'Independent publisher record');
+           assert.equal(typeof body.namedAllocationId,'string');assert(body.namedAllocationId.length>0&&body.namedAllocationId.length<=256&&body.namedAllocationId.trim().length>0&&!body.namedAllocationId.includes('SOURCE_TEMPLATE'),'Real bounded allocation reference');
+           exactKeys(body.captureFacts,['baselineSha','baselineVersion','deployment','alias','publisherWindow'],'Capture facts');
+           assert.equal(env.GITHUB_ACTIONS,'true');assert.equal(env.GITHUB_EVENT_NAME,'pull_request');assert.equal(env.GITHUB_JOB,'fixture-activation');
+           assert.equal(env.GITHUB_REPOSITORY.toLowerCase(),'hartican/sportscal');assert.equal(event.repository.full_name.toLowerCase(),env.GITHUB_REPOSITORY.toLowerCase());
+           assert.equal(event.pull_request.draft,true,'Capture is DRAFT only');assert(captureRouteDecision(event.pull_request,env.GITHUB_REPOSITORY).runCapture,'Dedicated same-repository capture branch');
+           assert(['opened','synchronize','reopened'].includes(event.action),'Existing capture PR event only');assert.equal(env.GITHUB_RUN_ATTEMPT,'1','No capture rerun');
+           canonicalDecimal(env.GITHUB_RUN_ID,'Run');positiveInteger(event.number,'PR number');assert.equal(event.pull_request.number,event.number);
+           assert.equal(env.GITHUB_REF,'refs/pull/'+event.number+'/merge');
+           const H=digestHex(event.pull_request.head.sha,40,'Actual H'),B=digestHex(event.pull_request.base.sha,40,'Actual base'),T=digestHex(env.GITHUB_SHA,40,'Actual T');
+           assert.equal(body.publisherHeadSha,H);assert.equal(body.preparedForBaseSha,B);assert.equal(observed.checkoutSha,T);assert.deepEqual(observed.parents,[B,H],'Exact capture merge parents');
+           assert.equal(observed.headTree,body.publisherTreeSha);assert.equal(observed.testedTree,body.publisherTreeSha,'Capture H/T trees equal');
+           const binding={schemaVersion:'primary-baseline-capture-binding.v1',baselineSha:body.captureFacts.baselineSha,baselineVersion:body.captureFacts.baselineVersion,preparedForBaseSha:B,collectorSha:T,collectorTree:observed.testedTree,deployment:body.captureFacts.deployment,alias:body.captureFacts.alias,publisherWindow:body.captureFacts.publisherWindow};
+           assert.equal(typeof validate,'function','Exact collector binding validator');validate(binding,wall);
+           return {body,binding,H,B,T,bodySha256:hash(raw)};
+          }
+          // NS_PRIMARY_CAPTURE_PURE_END
+          
+          const root=fs.realpathSync(process.cwd());let readBytes=0;
+          function charge(size){assert(Number.isSafeInteger(size)&&size>=0&&size<=E610_LIMITS.file,'Per-file read bound');readBytes+=size;assert(readBytes<=E610_LIMITS.read,'Metadata read bound');}
+          function parentDirectories(file,stop){
+           for(let d=path.dirname(file);;d=path.dirname(d)){
+            const st=fs.lstatSync(d);assert(st.isDirectory()&&!st.isSymbolicLink(),'Symlink/non-directory parent');
+            if(d===stop)break;assert(d!==path.dirname(d)&&inside(stop,d),'Parent escaped selected root');
+           }
+          }
+          function stableBytes(file,maximum=E610_LIMITS.file,base=root){
+           assert(path.isAbsolute(file)&&inside(base,file),'Read outside selected root');parentDirectories(file,base);
+           const before=fs.lstatSync(file);regularInputStat(before);assert(before.size<=maximum,'Input byte bound');charge(before.size);
+           const fd=fs.openSync(file,fs.constants.O_RDONLY|fs.constants.O_NOFOLLOW);
+           let value;
+           try{const opened=fs.fstatSync(fd);stableStats(before,opened,'Opened input');value=fs.readFileSync(fd);stableStats(opened,fs.fstatSync(fd),'Read input');}
+           finally{fs.closeSync(fd);}
+           stableStats(before,fs.lstatSync(file),'Path input');assert.equal(value.length,before.size,'Stable read length');return value;
+          }
+          function rawIdentity(file,relative,base=root){
+           parentDirectories(file,base);const st=fs.lstatSync(file),permissions=(st.mode&0o7777).toString(8).padStart(4,'0');
+           assert(st.isFile()||st.isSymbolicLink(),'Unsupported identity kind');let bytes,link;
+           if(st.isSymbolicLink()){
+            bytes=fs.readlinkSync(file,{encoding:'buffer'});charge(bytes.length);link=utf8Text(bytes);
+            linkWithin(base,file,link);
+            assert(inside(base,fs.realpathSync(file)),'Resolved link outside selected root');stableStats(st,fs.lstatSync(file),'Link identity');
+           }else bytes=stableBytes(file,E610_LIMITS.file,base);
+           const gitBlob=crypto.createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex');
+           return {path:relative,bytes:bytes.length,permissions,mode:st.isSymbolicLink()?'120000':st.mode&0o111?'100755':'100644',sha256:hash(bytes),gitBlob,...(st.isSymbolicLink()?{link}:{})};
+          }
+          function processOutput(command,args,maximum=E610_LIMITS.gitOutput,timeout=E610_LIMITS.processMs){
+           return cp.execFileSync(command,args,{cwd:root,encoding:null,maxBuffer:maximum,timeout,stdio:['ignore','pipe','pipe']});
+          }
+          const git=(...args)=>utf8Text(processOutput('git',args)).trim();
+          function sourceBytes(entry){
+           const file=path.join(root,...entry.path.split('/'));parentDirectories(file,root);
+           let bytes;if(entry.mode==='120000'){
+            const st=fs.lstatSync(file);assert(st.isSymbolicLink(),'Source link mode');bytes=fs.readlinkSync(file,{encoding:'buffer'});charge(bytes.length);
+            const target=utf8Text(bytes);linkWithin(root,file,target);assert(inside(root,fs.realpathSync(file)),'Source link confinement');stableStats(st,fs.lstatSync(file),'Source link');
+           }else{
+            const st=fs.lstatSync(file);assert.equal(st.mode&0o111?'100755':'100644',entry.mode,'Source executable mode');bytes=stableBytes(file);
+           }
+           assert.equal(crypto.createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex'),entry.gitBlob,'Working bytes versus actual raw Git blob');return bytes;
+          }
+          function sourceInventory(entries){return entries.map(e=>{const bytes=sourceBytes(e);return {...e,bytes:bytes.length,sha256:hash(bytes)};});}
+          function cleanCheckout(){
+           assert.equal(git('status','--porcelain=v1','--untracked-files=all'),'','Clean tracked/untracked checkout required');
+           assert.equal(git('ls-files','--others','--exclude-standard','-z'),'','Unexpected untracked source');
+          }
+          
+          assert.equal(process.version,'v24.21.0');assert.equal(process.platform,'linux');assert.equal(process.arch,'x64');
+          assert(process.env.NODE_TLS_REJECT_UNAUTHORIZED!=='0'&&!process.env.NODE_EXTRA_CA_CERTS&&!process.env.SSL_CERT_FILE&&!process.env.SSL_CERT_DIR&&!process.env.NODE_OPTIONS,'Original collector TLS configuration boundary');
+          const eventFile=fs.realpathSync(process.env.GITHUB_EVENT_PATH),event=JSON.parse(utf8Text(stableBytes(eventFile,E610_LIMITS.event,path.dirname(eventFile))));
+          assert.equal(typeof event.pull_request.body,'string');unicodeSafe(event.pull_request.body);
+          const requestBytes=Buffer.from(event.pull_request.body,'utf8');
+          assert(requestBytes.length<=E610_LIMITS.body,'Capture request bound');
+          const H=digestHex(event.pull_request.head.sha,40,'Actual H'),T=digestHex(process.env.GITHUB_SHA,40,'Actual T');
+          const observed={checkoutSha:git('rev-parse','HEAD'),parents:git('show','-s','--format=%P',T).split(' '),headTree:git('rev-parse',H+'^{tree}'),testedTree:git('rev-parse',T+'^{tree}')};
+          const collectorPath=path.join(root,'scripts/verify-production-release.js'),collectorBytes=stableBytes(collectorPath,256*1024);
+          assert.equal(hash(collectorBytes),'6123d29c05e0c34d74bedac7a1e6af7d9b44c7708d779f7ae16107b85cf95fc3','Unchanged reviewed collector only');
+          const collector=require(collectorPath);
+          const selected=primaryCaptureRequest(requestBytes,event,process.env,observed,Date.now(),collector.validateCaptureBinding);
+          cleanCheckout();
+          const entries=parseCaptureEntries(processOutput('git',['ls-tree','-rz','--full-tree',T]));
+          const rows=sourceInventory(entries);
+          assert.equal(git('rev-parse','HEAD'),T);assert.equal(git('rev-parse',H+'^{tree}'),selected.body.publisherTreeSha);cleanCheckout();
+          const temporary=fs.realpathSync(process.env.RUNNER_TEMP),work=path.join(temporary,'ns-primary-baseline-capture');
+          assert(path.isAbsolute(temporary)&&!inside(root,work),'Capture work outside checkout');
+          fs.mkdirSync(work,{mode:0o700});const workStat=fs.lstatSync(work);assert(workStat.isDirectory()&&!workStat.isSymbolicLink()&&workStat.uid===process.getuid()&&(workStat.mode&0o077)===0);
+          function save(name,bytes){
+           const file=ownedPath(work,path.join(work,name));assert(bytes.length>0&&bytes.length<=E610_LIMITS.binding);fs.writeFileSync(file,bytes,{mode:0o600,flag:'wx'});
+           const st=fs.lstatSync(file);assert(st.isFile()&&!st.isSymbolicLink()&&st.nlink===1&&st.uid===process.getuid()&&(st.mode&0o077)===0);
+           const got=stableBytes(file,E610_LIMITS.binding,work);assert(got.equals(bytes));return {path:file,bytes:got.length,sha256:hash(got)};
+          }
+          const binding=save('binding.json',Buffer.from(JSON.stringify(selected.binding,null,2)+'\n'));
+          collector.readCaptureBinding(binding.path);
+          // Procedural boundary selected by RELEASE 9f0baff2f51d730d58922cb7105d638fde68915cd0a0f98f91bb18b83e96155c.
+          // publisherBindingRecordSha256 is the independently owned INTENT digest, not the ACK or a self-referential body digest.
+          // INTENT excludes final-body SHA; independent RELEASE ACK binds actual INTENT SHA plus the exact final no-LF body SHA.
+          // Sole PUBLISH must stop BEFORE any trigger without actual fresh allocation/window/ACK/body/H/tree/base/branch/not-submitted facts.
+          // Permit one opened event only; unknown or uncertain submission consumes the allocation, with no reopen/sync/rerun/blind retry.
+          // This external procedure does not supply a trusted cloud ACK lookup, cryptographic authority or runtime replay prevention.
+          // Pre-submission T/run are NULL until observed; later outer joins cannot retrospectively authorise a GET.
+          const context={schemaVersion:'primary-baseline-capture-context.v1',headRole:'pull_request.head.sha',publisherHeadSha:selected.H,testedMergeSha:selected.T,preparedForBaseSha:selected.B,headTree:observed.headTree,testedTree:observed.testedTree,parents:observed.parents,sourceEntries:rows.length,sourceMapSha256:hash(Buffer.from(JSON.stringify(rows))),collectorImplementationSha256:hash(collectorBytes),eventBodySha256:selected.bodySha256,publisherBindingRecordSha256:selected.body.publisherBindingRecordSha256,namedAllocationId:selected.body.namedAllocationId,runId:process.env.GITHUB_RUN_ID,runAttempt:1,jobKey:process.env.GITHUB_JOB,ref:process.env.GITHUB_REF,bindingSha256:binding.sha256,sourceChecksPassed:true,primaryReadsStarted:false,normalChecks:'SKIPPED_NOT_PASSED',releaseAcceptance:false,publisherBindingReferenceMeaning:'SHA256 of sole-PUBLISH INTENT; INTENT excludes final-body SHA; independent RELEASE ACK binds INTENT SHA and exact final raw no-LF body SHA',authorityBoundary:'PERMITTED_SOLE_PUBLISH_PROCEDURE_ONLY',preSubmissionAckVerifiedByThisJob:false,trustedCloudAckLookup:false,cryptographicReplayProtection:false,permittedSubmissionRule:'External sole-PUBLISH protocol: one opened event only; stop before any trigger unless actual finite allocation, held fresh window, independent matching ACK, exact body/INTENT/H/tree/base, unique branch and not-submitted witness are known; uncertain submission consumes allocation without retry',contextTrust:'Mutable body reference is not authority. Independent PREsubmission INTENT/body ACK is an externally enforced procedural boundary for permitted sole-PUBLISH submissions only; this job cannot authenticate that ACK or prevent unauthorised actor/event replay. Future T/run remain unknown in the external PREsubmission record until observed; actual outer body/H/T/run/attempt/job joins are acceptance evidence, never retroactive GET authority.'};
+          save('capture-context.json',Buffer.from(JSON.stringify(context,null,2)+'\n'));
+          const outputs=fs.realpathSync(process.env.GITHUB_OUTPUT);assert(!inside(root,outputs));textValue(binding.path,'Binding output');
+          fs.appendFileSync(outputs,'bindingPath='+binding.path+'\nworkPath='+work+'\n',{encoding:'utf8'});
+          console.log(JSON.stringify(context));
+          function parseCaptureEntries(bytes){
+           const value=utf8Text(bytes);assert(value.endsWith('\0'));const records=value.slice(0,-1).split('\0');assert(records.length>0&&records.length<=E610_LIMITS.source);
+           const names=new Set();return records.map(record=>{const m=/^(100644|100755|120000) blob ([0-9a-f]{40})\t([\s\S]+)$/.exec(record);assert(m,'Supported complete source entry');relativePath(m[3]);assert(!names.has(m[3]));names.add(m[3]);return {path:m[3],mode:m[1],type:'blob',gitBlob:m[2]};});
+          }
+          NS_PRIMARY_CAPTURE_INPUT
+      - name: Capture exactly three installed primary bodies
+        id: primary_baseline_capture
+        if: github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/baseline-capture-')
+        timeout-minutes: 2
+        env:
+          NS_PRIMARY_BASELINE_BINDING: ${{ steps.primary_baseline_input.outputs.bindingPath }}
+          NS_PRIMARY_CAPTURE_WORK: ${{ steps.primary_baseline_input.outputs.workPath }}
+        run: |
+          set -Eeuo pipefail
+          umask 077
+          capture_status=0
+          timeout --signal=TERM --kill-after=5s 65s node scripts/verify-production-release.js --capture-installed-primary-baseline > "$NS_PRIMARY_CAPTURE_WORK/capture-report.raw.json" 2> "$NS_PRIMARY_CAPTURE_WORK/capture.stderr" || capture_status=$?
+          head -c 65536 "$NS_PRIMARY_CAPTURE_WORK/capture.stderr" > "$NS_PRIMARY_CAPTURE_WORK/capture.stderr.prefix.txt"
+          if test "$(wc -c < "$NS_PRIMARY_CAPTURE_WORK/capture-report.raw.json")" -gt 16384; then
+            head -c 16384 "$NS_PRIMARY_CAPTURE_WORK/capture-report.raw.json" > "$NS_PRIMARY_CAPTURE_WORK/capture-report.failed.prefix.txt"
+            printf '%s\n' '{"schemaVersion":"primary-baseline-capture-failure.v1","status":"FAILED_OVERSIZED_REPORT","captureProofAccepted":false,"prefixIsDiagnosticOnly":true}' > "$NS_PRIMARY_CAPTURE_WORK/capture-failure.json"
+            echo 'Capture report exceeds reviewed bound; retained prefix is failure-only diagnostic, not capture proof.' >&2
+            exit 1
+          fi
+          mv "$NS_PRIMARY_CAPTURE_WORK/capture-report.raw.json" "$NS_PRIMARY_CAPTURE_WORK/capture-report.json"
+          cat "$NS_PRIMARY_CAPTURE_WORK/capture-report.json"
+          exit "$capture_status"
+      - name: Preserve bounded primary capture evidence
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, already pinned in repository
+        if: always() && (steps.primary_baseline_capture.outcome == 'success' || steps.primary_baseline_capture.outcome == 'failure' || steps.primary_baseline_capture.outcome == 'cancelled')
+        with:
+          name: primary-baseline-capture-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/ns-primary-baseline-capture/capture-report.json
+            ${{ runner.temp }}/ns-primary-baseline-capture/capture-failure.json
+            ${{ runner.temp }}/ns-primary-baseline-capture/capture-report.failed.prefix.txt
+            ${{ runner.temp }}/ns-primary-baseline-capture/capture.stderr.prefix.txt
+            ${{ runner.temp }}/ns-primary-baseline-capture/capture-context.json
+          if-no-files-found: error
+          retention-days: 1
+      - name: Verify new-user journey source controls
+        if: github.event.pull_request.draft == false
+        run: timeout --signal=TERM --kill-after=5s 120s node scripts/validate-new-user-journey.js
       - name: Install existing locked dependencies
+        if: github.event.pull_request.draft == false
         run: npm ci
+      - name: Verify signup/setup compatibility
+        if: github.event.pull_request.draft == false
+        run: timeout --signal=TERM --kill-after=5s 120s node scripts/validate-server-persistence.js
       - name: Verify actual exported Feed activation
+        if: github.event.pull_request.draft == false
         timeout-minutes: 2
         run: node scripts/validate-hobby-feed-cache.js
       - name: Verify subscription calendar activation
+        if: github.event.pull_request.draft == false
         timeout-minutes: 2
         run: node scripts/validate-calendar-api.js
       - name: Verify guarded production workflow contract
+        if: github.event.pull_request.draft == false
         timeout-minutes: 2
         run: node scripts/validate-production-sql-batches.js
+      - name: Bind reviewed E610 source qualification receipt
+        if: github.event.pull_request.draft == false
+        id: e610_source_admission
+        timeout-minutes: 2
+        run: |
+          timeout --signal=TERM --kill-after=5s 30s node <<'NS_E610_ADMISSION'
+          'use strict';
+          const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process'),{TextDecoder}=require('node:util');
+          const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
+          // NS_E610_PURE_BEGIN
+          const E610_BODY_KEYS=['schemaVersion','commit','scope','testsAndResults','databaseAndConfigChanges','dependencies','knownRisks','rollback','sourceQualificationBinding'];
+          const E610_BINDING_KEYS=['schemaVersion','repository','publisherHeadSha','expectedPublisherTreeSha','reviewedFinalMapSha256','expectedAssembledManifestSha256','expectedAssembledEntryCount','expectedM4RelativePathCount','qualifierSha256','fixtureSha256','namedAllocationId','reservationReceiptSha256','freshMainAndReservationBindingSha256','reservationReceiptBase64','freshMainAndReservationBindingBase64'];
+          const E610_FRESH_KEYS=['schemaVersion','candidateHeadSha','candidateTreeSha','currentActionAuthority','expectedAssembledManifestSha256','globalReservationAvailability','knownConflictingReservation','mainObservedAt','mainRefEvidenceSha256','namedAllocationId','observedMainSha','publisherThreadId','repository','reservationConflictCheckedAt','reservationId','reservationReceiptSha256','reservationVersion','reviewedFinalMapSha256','validUntil'];
+          const E610_LIMITS=Object.freeze({source:10000,installed:40000,file:256*1024*1024,read:2*1024*1024*1024,manifest:16*1024*1024,receipt:16384,body:65536,event:4*1024*1024,gitOutput:4*1024*1024,processMs:10000,materializerMs:20000});
+          function exactKeys(value,keys,label){
+           assert(value&&typeof value==='object'&&!Array.isArray(value),label+' object required');
+           assert.deepEqual(Object.keys(value).sort(),keys.slice().sort(),label+' closed keys');
+          }
+          function textValue(value,label){assert.equal(typeof value,'string',label+' string');assert(value.length>0&&!/[\u0000\r\n]/.test(value),label+' nonempty single line');return value;}
+          function digestHex(value,length,label){assert.equal(typeof value,'string',label);assert(new RegExp('^[0-9a-f]{'+length+'}$').test(value),label+' lowercase hex');return value;}
+          function positiveInteger(value,label){assert(Number.isSafeInteger(value)&&value>0,label+' positive integer');return value;}
+          function canonicalDecimal(value,label){assert.equal(typeof value,'string',label);assert(/^[1-9][0-9]*$/.test(value),label+' canonical decimal');return value;}
+          function unicodeSafe(value){
+           if(typeof value==='string'){for(let i=0;i<value.length;i++){const c=value.charCodeAt(i);if(c>=0xd800&&c<=0xdbff){assert(i+1<value.length&&value.charCodeAt(i+1)>=0xdc00&&value.charCodeAt(i+1)<=0xdfff,'Unpaired high surrogate');i++;}else assert(c<0xdc00||c>0xdfff,'Unpaired low surrogate');}}
+           else if(Array.isArray(value))value.forEach(unicodeSafe);
+           else if(value&&typeof value==='object')for(const [key,item]of Object.entries(value)){unicodeSafe(key);unicodeSafe(item);}
+          }
+          function utf8Text(bytes){assert(Buffer.isBuffer(bytes),'Raw bytes required');const value=new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(bytes);assert(Buffer.from(value,'utf8').equals(bytes),'Exact UTF8 bytes required');unicodeSafe(value);return value;}
+          function relativePath(value){
+           textValue(value,'Relative path');assert(!value.includes('\\')&&!value.includes('\t')&&!path.posix.isAbsolute(value),'Unsafe relative path');
+           assert(!value.split('/').some(part=>!part||part==='.'||part==='..'),'Unsafe relative component');
+           unicodeSafe(value);return value;
+          }
+          function inside(base,file){return file===base||file.startsWith(base+path.sep);}
+          function ownedPath(base,file){
+           assert(path.isAbsolute(base)&&path.isAbsolute(file),'Absolute owned paths required');textValue(base,'Owned root');textValue(file,'Owned file');
+           assert.equal(path.resolve(base),base,'Normalized root');assert.equal(path.resolve(file),file,'Normalized file');assert(file!==base&&inside(base,file),'Owned path escape');return file;
+          }
+          function regularInputStat(st){assert(st&&typeof st.isFile==='function'&&typeof st.isSymbolicLink==='function','File stat');assert(st.isFile()&&!st.isSymbolicLink(),'Regular no-follow input required');assert(Number.isSafeInteger(st.size)&&st.size>=0&&st.size<=E610_LIMITS.file,'Regular input size bound');}
+          function linkWithin(base,file,target){textValue(target,'Link target');assert(!path.isAbsolute(target)&&inside(base,path.resolve(path.dirname(file),target)),'Escaping link target');}
+          function validateRuntimePlatform(node,platform,arch){assert.equal(node,'v24.21.0');assert.equal(platform,'linux');assert.equal(arch,'x64');}
+          function validateInventory(actual,expected){exactKeys(actual,['revision','bytes','files'],'Deployment inventory');assert.deepEqual(actual,expected,'Complete reviewed deployment policy/closure/transform inventory');}
+          function stableStats(before,after,label){
+           for(const key of ['dev','ino','size','mode','mtimeMs','ctimeMs'])assert.equal(after[key],before[key],label+' stable '+key);
+          }
+          function parseHandover(bytes){
+           assert(bytes.length>0&&bytes.length<=E610_LIMITS.body,'PR body bound');const text=utf8Text(bytes),body=JSON.parse(text);
+           assert.equal(JSON.stringify(body),text,'PR body must be exact compact JSON with NO LF or whitespace');unicodeSafe(body);
+           exactKeys(body,E610_BODY_KEYS,'Handover');assert.equal(body.schemaVersion,'ns-release-handover.v1');digestHex(body.commit,40,'Handover commit');
+           for(const name of ['scope','testsAndResults','databaseAndConfigChanges','dependencies','knownRisks','rollback']){const value=body[name],maximum=name==='testsAndResults'?8192:4096;assert.equal(typeof value,'string','Scalar handover text '+name);assert(value.length>=1&&value.length<=maximum&&value.trim().length>0,'Bounded nonblank handover text '+name);}
+           const binding=body.sourceQualificationBinding;exactKeys(binding,E610_BINDING_KEYS,'Source binding');assert.equal(binding.schemaVersion,'sync-source-binding.v1');assert.equal(binding.repository,'hartican/sportscal');
+           for(const key of ['publisherHeadSha','expectedPublisherTreeSha'])digestHex(binding[key],40,key);
+           for(const key of ['reviewedFinalMapSha256','expectedAssembledManifestSha256','qualifierSha256','fixtureSha256','reservationReceiptSha256','freshMainAndReservationBindingSha256'])digestHex(binding[key],64,key);
+           positiveInteger(binding.expectedAssembledEntryCount,'Source count');assert(binding.expectedAssembledEntryCount<=E610_LIMITS.source,'Source count bound');
+           positiveInteger(binding.expectedM4RelativePathCount,'Changed path count');assert.equal(typeof binding.namedAllocationId,'string');assert(binding.namedAllocationId.length>=1&&binding.namedAllocationId.length<=256&&binding.namedAllocationId.trim().length>0,'Bounded nonblank allocation');
+           assert.equal(body.commit,binding.publisherHeadSha,'Handover head binding');
+           return {body,binding,bodySha256:hash(bytes)};
+          }
+          function decodeBoundBase64(value,expectedSha){
+           textValue(value,'Base64 receipt');assert(value.length<=Math.ceil(E610_LIMITS.receipt/3)*4,'Base64 bound');
+           const bytes=Buffer.from(value,'base64');assert(bytes.length>0&&bytes.length<=E610_LIMITS.receipt,'Decoded receipt bound');
+           assert.equal(bytes.toString('base64'),value,'Canonical base64 required');assert.equal(hash(bytes),expectedSha,'Transported receipt SHA');
+           return bytes;
+          }
+          function utcTime(value,label){assert.equal(typeof value,'string',label);const time=Date.parse(value);assert(Number.isFinite(time)&&new Date(time).toISOString()===value,label+' strict UTC');return time;}
+          function validateFresh(fresh,binding,baseSha,reservation,now){
+           exactKeys(fresh,E610_FRESH_KEYS,'Fresh publisher binding');assert.equal(fresh.schemaVersion,'publisher-fresh-main-reservation-binding.v1');
+           assert.equal(fresh.repository,'hartican/sportscal');assert.equal(fresh.publisherThreadId,'01a0d5ba-943d-74e0-af7f-dab4fb2bdda4');
+           for(const [key,wanted]of Object.entries({candidateHeadSha:binding.publisherHeadSha,candidateTreeSha:binding.expectedPublisherTreeSha,expectedAssembledManifestSha256:binding.expectedAssembledManifestSha256,reviewedFinalMapSha256:binding.reviewedFinalMapSha256,namedAllocationId:binding.namedAllocationId,observedMainSha:baseSha,reservationReceiptSha256:binding.reservationReceiptSha256,reservationId:reservation.id,reservationVersion:'610'}))assert.equal(fresh[key],wanted,'Fresh binding '+key);
+           assert.equal(fresh.knownConflictingReservation,false,'Reservation conflict');assert.equal(fresh.globalReservationAvailability,'UNKNOWN; no global availability claim');
+           textValue(fresh.currentActionAuthority,'Action authority');assert(!fresh.currentActionAuthority.includes('SOURCE_TEMPLATE'),'Template is not action authority');digestHex(fresh.mainRefEvidenceSha256,64,'Main-ref evidence');
+           const mainAt=utcTime(fresh.mainObservedAt,'Main observation'),conflictAt=utcTime(fresh.reservationConflictCheckedAt,'Conflict observation'),until=utcTime(fresh.validUntil,'Binding validity');
+           assert(mainAt<=now&&conflictAt<=now,'Future observation');assert(until>=mainAt&&until>=conflictAt&&now<until,'Expired/inconsistent binding');
+          }
+          function validateEventJoin(event,env,observed,binding){
+           assert.equal(env.GITHUB_ACTIONS,'true');assert.equal(env.GITHUB_EVENT_NAME,'pull_request');assert.equal(env.GITHUB_REPOSITORY,'hartican/sportscal');assert.equal(env.GITHUB_JOB,'fixture-activation');assert.equal(typeof env.GITHUB_WORKFLOW_REF,'string');assert(env.GITHUB_WORKFLOW_REF.startsWith('hartican/sportscal/.github/workflows/installed-upgrade-tests.yml@'),'Observed workflow path');
+           assert.equal(event.repository.full_name,'hartican/sportscal');assert.equal(event.action,'ready_for_review','Selected source admission requires the existing Ready event');
+           const pr=event.pull_request;assert.equal(pr.number,event.number,'PR number event join');assert.equal(pr.draft,false);assert.equal(pr.head.repo.full_name,'hartican/sportscal','Same repository required');
+           const H=digestHex(pr.head.sha,40,'Event head'),B=digestHex(pr.base.sha,40,'Event base'),T=digestHex(env.GITHUB_SHA,40,'Tested merge');
+           assert.equal(H,binding.publisherHeadSha,'Reviewed event head');assert.equal(observed.headSha,H);assert.equal(observed.baseSha,B);assert.equal(observed.testedMergeSha,T);
+           assert.equal(observed.checkoutSha,T,'Actual checkout');assert.deepEqual(observed.parents,[B,H],'Exact PR merge parent order');
+           assert.equal(observed.headTree,binding.expectedPublisherTreeSha);assert.equal(observed.testedTree,binding.expectedPublisherTreeSha,'H/T complete trees must agree');
+           canonicalDecimal(env.GITHUB_RUN_ID,'Run ID');assert(/^[1-9][0-9]*$/.test(env.GITHUB_RUN_ATTEMPT),'Run attempt');positiveInteger(Number(env.GITHUB_RUN_ATTEMPT),'Run attempt');
+           positiveInteger(event.number,'PR number');canonicalDecimal(String(event.number),'PR number');assert.equal(env.GITHUB_REF,'refs/pull/'+event.number+'/merge');
+           return {H,B,T};
+          }
+          function parseGitEntries(bytes){
+           const raw=utf8Text(bytes);assert(raw.endsWith('\0'),'NUL-terminated tree required');const records=raw.slice(0,-1).split('\0');assert(records.length>0&&records.length<=E610_LIMITS.source,'Tracked source count');
+           const seen=new Set();return records.map(record=>{const m=/^(100644|100755|120000) blob ([0-9a-f]{40})\t([\s\S]+)$/.exec(record);assert(m,'Unsupported Git entry/type');relativePath(m[3]);assert(!seen.has(m[3]),'Duplicate Git path');seen.add(m[3]);return {path:m[3],mode:m[1],type:'blob',gitBlob:m[2]};});
+          }
+          function assembledBytes(H,tree,reviewedMapSha256,rows){
+           const files=rows.slice().sort((a,b)=>Buffer.compare(Buffer.from(a.path,'utf8'),Buffer.from(b.path,'utf8'))).map(r=>({path:r.path,mode:r.mode,type:'blob',gitBlob:r.gitBlob,bytes:r.bytes,sha256:r.sha256}));
+           return Buffer.from(JSON.stringify({schemaVersion:'assembled-git-source-manifest.v1',revision:H,tree,entryCount:files.length,reviewedMapSha256,files})+'\n','utf8');
+          }
+          function sourceInventoryWithProjection(entries,readSource,policy){
+           assert(Array.isArray(entries)&&entries.length>0&&entries.length<=E610_LIMITS.source,'Initial full source count bound');
+           const byName=new Map(entries.map(entry=>[entry.path,entry])),observed=new Map();
+           assert.equal(byName.size,entries.length,'Initial full source paths must be unique');
+           const readInitial=entry=>{
+            assert(entry&&byName.get(entry.path)===entry,'Initial read must use exact tracked entry');
+            assert(!observed.has(entry.path),'Initial source file must be physically read once');
+            const bytes=readSource(entry);
+            assert(Buffer.isBuffer(bytes)&&bytes.length<=E610_LIMITS.file,'Verified initial raw bytes required');
+            observed.set(entry.path,{...entry,bytes:bytes.length,sha256:hash(bytes)});
+            return bytes;
+           };
+           // Projection consumes actual Git-verified initial bytes; keep row metadata, not a second raw-source cache.
+           const projected=projection(entries,readInitial,policy);
+           // Unselected files remain mandatory members of the complete initial source proof.
+           for(const entry of entries)if(!observed.has(entry.path))readInitial(entry);
+           assert.equal(observed.size,entries.length,'Complete initial source coverage');
+           return {rows:entries.map(entry=>observed.get(entry.path)),projected};
+          }
+          function projection(entries,readSource,policy){
+           exactKeys(policy,['schemaVersion','includeDirectories','includeFiles','rootExtensions','excludeDirectories','excludeFiles','preserveBytes','compactJson','acceptedBytes'],'Deployment policy');
+           assert.equal(policy.schemaVersion,'deployment-manifest.v1');assert.equal(policy.compactJson,true);
+           for(const key of ['includeDirectories','includeFiles','rootExtensions','excludeDirectories','excludeFiles','preserveBytes'])assert(Array.isArray(policy[key])&&policy[key].every(x=>typeof x==='string'),'Policy array '+key);
+           const secret=name=>name.includes('supabase_keys.txt')||name.split('/').some(part=>part.startsWith('.env'));
+           const retained=name=>!secret(name)&&!policy.excludeDirectories.some(prefix=>name.startsWith(prefix))&&!policy.excludeFiles.includes(name)&&(policy.includeDirectories.some(prefix=>name.startsWith(prefix))||policy.includeFiles.includes(name)||(!name.includes('/')&&policy.rootExtensions.includes(path.extname(name))));
+           const byName=new Map(entries.map(e=>[e.path,e])),selected=new Set(entries.filter(e=>retained(e.path)).map(e=>e.path)),verifiedJavaScript=new Map();
+           // Reuse only this projection's already Git-verified JavaScript bytes, not a source/dependency stability inventory.
+           for(const name of selected){
+            if(!name.endsWith('.js'))continue;const verified=readSource(byName.get(name));verifiedJavaScript.set(name,verified);const source=utf8Text(verified);
+            for(const match of source.matchAll(/require\(\s*['"](\.[^'"]+)['"]\s*\)/g)){
+             const base=path.posix.normalize(path.posix.join(path.posix.dirname(name),match[1])),dependency=[base,base+'.js',base+'.json',base+'/index.js'].find(p=>byName.has(p));
+             if(dependency){assert(!secret(dependency),'Runtime dependency refers to excluded secret');selected.add(dependency);}
+            }
+           }
+           const projected=entries.filter(e=>selected.has(e.path)).map(e=>{
+            let source;if(e.path.endsWith('.js')){assert(verifiedJavaScript.has(e.path),'Missing verified projection JavaScript');source=verifiedJavaScript.get(e.path);verifiedJavaScript.delete(e.path);}else source=readSource(e);
+            const compact=policy.compactJson&&e.path.endsWith('.json')&&!policy.preserveBytes.includes(e.path);
+            const bytes=compact?Buffer.from(JSON.stringify(JSON.parse(utf8Text(source)))+'\n'):source;
+            return {row:{path:e.path,gitBlob:e.gitBlob,sourceBytes:source.length,bytes:bytes.length,transform:compact?'json-compact':'identity',sha256:hash(bytes)},bytes,mode:e.mode};
+           });
+           assert.equal(verifiedJavaScript.size,0,'Unconsumed verified projection JavaScript');return projected;
+          }
+          // NS_E610_PURE_END
+          
+          function resolveLockedTerserPackage({checkoutRoot,entryFile,lockedPackages,readManifest}){
+           const assert=require('node:assert/strict'),path=require('node:path');
+           assert.equal(typeof checkoutRoot,'string');assert(path.isAbsolute(checkoutRoot),'Absolute candidate root required');
+           assert.equal(typeof entryFile,'string');assert(path.isAbsolute(entryFile),'Absolute resolved Terser entry required');
+           assert(lockedPackages&&typeof lockedPackages==='object'&&!Array.isArray(lockedPackages),'Committed package lock map required');
+           assert.equal(typeof readManifest,'function','Owning package manifest reader required');
+           const root=path.resolve(checkoutRoot),location='node_modules/terser',packageRoot=path.join(root,'node_modules','terser'),entry=path.resolve(entryFile);
+           const declared=lockedPackages[location];
+           assert(declared&&typeof declared==='object'&&typeof declared.version==='string'&&declared.version.length>0,'Exact candidate-local Terser lock entry required');
+           assert(entry.startsWith(packageRoot+path.sep),'Resolved Terser entry must remain inside exact locked candidate package');
+           const manifestPath=path.join(packageRoot,'package.json'),manifest=readManifest(manifestPath);
+           assert(manifest&&typeof manifest==='object'&&!Array.isArray(manifest),'Owning Terser manifest required');
+           assert.equal(manifest.name,'terser','Owning package must be Terser, not nested dist metadata');
+           assert.equal(manifest.version,declared.version,'Owning Terser version must match committed lock');
+           return {root:packageRoot,location,manifestPath,manifest,entryRelativePath:path.relative(packageRoot,entry).split(path.sep).join('/')};
+          }
+          
+          const E610_READ_PHASES=Object.freeze(['event-input','source-initial','locked-inputs','dependencies-initial','node-initial','terser-provenance','metadata-writeback','projection-policy','projection-source','child-reservation','projection-output','source-final','dependencies-final','node-final','receipt-writeback']);
+          const root=fs.realpathSync(process.cwd());let readBytes=0,readPhase='event-input',readLimitReported=false;
+          const readPhaseBytes=Object.fromEntries(E610_READ_PHASES.map(name=>[name,0]));
+          function setReadPhase(name){assert(E610_READ_PHASES.includes(name),'Closed metadata read phase');readPhase=name;}
+          function safeReadBudgetPath(file){
+           const hidden={role:'redacted-input',path:null,pathSha256:typeof file==='string'?hash(file):null};
+           if(typeof file!=='string'||!path.isAbsolute(file)||path.resolve(file)!==file||!inside(root,file)||file===root)return hidden;
+           const relative=path.relative(root,file).split(path.sep).join('/');
+           if(!relative||relative.split('/').some(part=>!part||part==='.'||part==='..'))return hidden;
+           const digest=hash(relative),secret=/(?:^|\/)(?:\.env[^/]*|supabase_keys\.txt|(?:credentials?|secrets?|tokens?)(?:[._-][^/]*)?)(?:\/|$)/i.test(relative);
+           const visible=relative.length<=256&&/^[A-Za-z0-9@._/-]+$/.test(relative)&&!secret;
+           return {role:'repository-input',path:visible?relative:null,pathSha256:digest};
+          }
+          function reportReadLimit(before,size,next,file,reservation){
+           if(readLimitReported)return;readLimitReported=true;
+           const kind=reservation?'conservative-child-reservation':'direct-input',limit=E610_LIMITS.read;
+           const fallback='E610_METADATA_READ_BOUND {"schemaVersion":"E610-metadata-read-limit.v1","phase":"'+readPhase+'","kind":"'+kind+'","attemptedBytes":'+size+',"cumulativeBefore":'+before+',"wouldBeTotal":'+next+',"limit":'+limit+',"diagnosticFallback":true}';
+           let line=fallback;
+           try{
+            const location=reservation?{role:'conservative-child-reservation',path:null,pathSha256:null}:safeReadBudgetPath(file);
+            const phaseBytes=Object.fromEntries(E610_READ_PHASES.map(name=>[name,readPhaseBytes[name]]));
+            const candidate='E610_METADATA_READ_BOUND '+JSON.stringify({schemaVersion:'E610-metadata-read-limit.v1',phase:readPhase,kind,...location,attemptedBytes:size,cumulativeBefore:before,wouldBeTotal:next,limit,perFileLimit:E610_LIMITS.file,phaseBytes});
+            if(Buffer.byteLength(candidate,'utf8')<=4096)line=candidate;
+           }catch{}
+           try{console.error(line);}catch{}
+          }
+          function charge(size,file=null,reservation=false){
+           assert(!readLimitReported,'Metadata read bound');
+           assert.equal(typeof reservation,'boolean','Read charge kind');
+           assert(Number.isSafeInteger(size)&&size>=0&&(reservation||size<=E610_LIMITS.file),reservation?'Conservative child source-read reservation':'Per-file read bound');
+           assert(Number.isSafeInteger(readBytes)&&readBytes>=0&&readBytes<=E610_LIMITS.read,'Metadata read bound');
+           const before=readBytes,next=before+size;assert(Number.isSafeInteger(next),'Metadata read bound');
+           if(next>E610_LIMITS.read){reportReadLimit(before,size,next,file,reservation);assert(false,reservation?'Conservative child source-read reservation':'Metadata read bound');}
+           readBytes=next;readPhaseBytes[readPhase]+=size;
+          }
+          function parentDirectories(file,stop){
+           for(let d=path.dirname(file);;d=path.dirname(d)){
+            const st=fs.lstatSync(d);assert(st.isDirectory()&&!st.isSymbolicLink(),'Symlink/non-directory parent');
+            if(d===stop)break;assert(d!==path.dirname(d)&&inside(stop,d),'Parent escaped selected root');
+           }
+          }
+          function stableBytes(file,maximum=E610_LIMITS.file,base=root){
+           assert(path.isAbsolute(file)&&inside(base,file),'Read outside selected root');parentDirectories(file,base);
+           const before=fs.lstatSync(file);regularInputStat(before);assert(before.size<=maximum,'Input byte bound');charge(before.size,file);
+           const fd=fs.openSync(file,fs.constants.O_RDONLY|fs.constants.O_NOFOLLOW);
+           let value;
+           try{const opened=fs.fstatSync(fd);stableStats(before,opened,'Opened input');value=fs.readFileSync(fd);stableStats(opened,fs.fstatSync(fd),'Read input');}
+           finally{fs.closeSync(fd);}
+           stableStats(before,fs.lstatSync(file),'Path input');assert.equal(value.length,before.size,'Stable read length');return value;
+          }
+          function rawIdentity(file,relative,base=root){
+           parentDirectories(file,base);const st=fs.lstatSync(file),permissions=(st.mode&0o7777).toString(8).padStart(4,'0');
+           assert(st.isFile()||st.isSymbolicLink(),'Unsupported identity kind');let bytes,link;
+           if(st.isSymbolicLink()){
+            charge(st.size,file);bytes=fs.readlinkSync(file,{encoding:'buffer'});assert.equal(bytes.length,st.size,'Link input byte length');link=utf8Text(bytes);
+            linkWithin(base,file,link);
+            assert(inside(base,fs.realpathSync(file)),'Resolved link outside selected root');stableStats(st,fs.lstatSync(file),'Link identity');
+           }else bytes=stableBytes(file,E610_LIMITS.file,base);
+           const gitBlob=crypto.createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex');
+           return {path:relative,bytes:bytes.length,permissions,mode:st.isSymbolicLink()?'120000':st.mode&0o111?'100755':'100644',sha256:hash(bytes),gitBlob,...(st.isSymbolicLink()?{link}:{})};
+          }
+          function processOutput(command,args,maximum=E610_LIMITS.gitOutput,timeout=E610_LIMITS.processMs){
+           return cp.execFileSync(command,args,{cwd:root,encoding:null,maxBuffer:maximum,timeout,stdio:['ignore','pipe','pipe']});
+          }
+          const git=(...args)=>utf8Text(processOutput('git',args)).trim();
+          function sourceBytes(entry){
+           const file=path.join(root,...entry.path.split('/'));parentDirectories(file,root);
+           let bytes;if(entry.mode==='120000'){
+            const st=fs.lstatSync(file);assert(st.isSymbolicLink(),'Source link mode');charge(st.size,file);bytes=fs.readlinkSync(file,{encoding:'buffer'});assert.equal(bytes.length,st.size,'Source link byte length');
+            const target=utf8Text(bytes);linkWithin(root,file,target);assert(inside(root,fs.realpathSync(file)),'Source link confinement');stableStats(st,fs.lstatSync(file),'Source link');
+           }else{
+            const st=fs.lstatSync(file);assert.equal(st.mode&0o111?'100755':'100644',entry.mode,'Source executable mode');bytes=stableBytes(file);
+           }
+           assert.equal(crypto.createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex'),entry.gitBlob,'Working bytes versus actual raw Git blob');return bytes;
+          }
+          function sourceInventory(entries){return entries.map(e=>{const bytes=sourceBytes(e);return {...e,bytes:bytes.length,sha256:hash(bytes)};});}
+          function dependencies(){
+           const folder=path.join(root,'node_modules'),st=fs.lstatSync(folder);assert(st.isDirectory()&&!st.isSymbolicLink(),'Local locked dependency folder');
+           const entries=[];function visit(dir,depth=0){assert(depth<64,'Dependency directory depth bound');for(const name of fs.readdirSync(dir).sort()){
+            const file=path.join(dir,name),stat=fs.lstatSync(file),relative=path.relative(root,file).split(path.sep).join('/');
+            if(stat.isDirectory()){assert(!stat.isSymbolicLink(),'Dependency directory link');visit(file,depth+1);}else{
+             assert(entries.length<E610_LIMITS.installed,'Installed file count bound');const row=rawIdentity(file,relative,folder);
+             if(stat.isSymbolicLink())assert(inside(folder,fs.realpathSync(file)),'Dependency link outside local install');entries.push(row);
+            }
+           }}visit(folder);return entries;
+          }
+          function cleanCheckout(){
+           assert.equal(git('status','--porcelain=v1','--untracked-files=all'),'','Clean tracked/untracked checkout required');
+           assert.equal(git('ls-files','--others','--exclude-standard','-z'),'','Unexpected untracked source');
+          }
+          function jsonBytes(value){const bytes=Buffer.from(JSON.stringify(value,null,2)+'\n');assert(bytes.length<=E610_LIMITS.manifest,'Metadata JSON bound');return bytes;}
+          const eventFile=fs.realpathSync(process.env.GITHUB_EVENT_PATH),event=JSON.parse(utf8Text(stableBytes(eventFile,E610_LIMITS.event,path.dirname(eventFile))));
+          assert.equal(typeof event.pull_request.body,'string','Event PR body required');unicodeSafe(event.pull_request.body);
+          const {binding,bodySha256}=parseHandover(Buffer.from(event.pull_request.body,'utf8'));
+          const H=digestHex(event.pull_request.head.sha,40,'Event H'),B=digestHex(event.pull_request.base.sha,40,'Event B'),T=digestHex(process.env.GITHUB_SHA,40,'Event T');
+          const observed={headSha:H,baseSha:B,testedMergeSha:T,checkoutSha:git('rev-parse','HEAD'),parents:git('show','-s','--format=%P',T).split(' '),headTree:git('rev-parse',H+'^{tree}'),testedTree:git('rev-parse',T+'^{tree}')};
+          validateEventJoin(event,process.env,observed,binding);cleanCheckout();
+          const entryBytes=processOutput('git',['ls-tree','-rz','--full-tree',H]),entries=parseGitEntries(entryBytes);
+          assert.equal(entries.length,binding.expectedAssembledEntryCount,'Reviewed full source count');
+          setReadPhase('projection-policy');
+          const policyEntry=entries.find(entry=>entry.path==='config/deployment-manifest.json');
+          assert(policyEntry&&policyEntry.mode==='100644','Reviewed regular deployment policy');
+          const policyBytes=sourceBytes(policyEntry);
+          assert.equal(hash(policyBytes),'78f7a1c46accaf56fb83ec1f4d8f5ecf98621a620807658c805870191297b103','Reviewed deployment policy before initial projection');
+          const policy=JSON.parse(utf8Text(policyBytes));
+          setReadPhase('source-initial');
+          const initialSource=sourceInventoryWithProjection(entries,sourceBytes,policy);
+          const rows=initialSource.rows,expectedProjection=initialSource.projected,byPath=new Map(rows.map(r=>[r.path,r]));
+          const assembled=assembledBytes(H,observed.headTree,binding.reviewedFinalMapSha256,rows);assert(assembled.length<=E610_LIMITS.manifest,'Assembled byte bound');
+          assert.equal(hash(assembled),binding.expectedAssembledManifestSha256,'Publisher expected complete raw source manifest');
+          const changed=utf8Text(processOutput('git',['diff','--no-renames','--name-only','-z','037a6214c1a573b57298d3ea504de0b89e31d473',H])).split('\0').filter(Boolean);
+          assert.equal(changed.length,binding.expectedM4RelativePathCount,'Reviewed M4-relative path count');
+          const qualifier=byPath.get('scripts/validate-sync608-reported-hold.js'),fixture=byPath.get('scripts/fixtures/sync608-reported-hold-20261103.json');
+          assert(qualifier&&fixture&&qualifier.mode==='100644'&&fixture.mode==='100644','Reviewed regular qualifier and fixture');
+          assert.equal(qualifier.sha256,binding.qualifierSha256);assert.equal(fixture.sha256,binding.fixtureSha256);
+          const reservationBytes=decodeBoundBase64(binding.reservationReceiptBase64,binding.reservationReceiptSha256);
+          assert.equal(binding.reservationReceiptSha256,'4b164a34459bdce86f754fee7affc7b69e3d32da7091cfc39a715d4229853feb','Selected immutable reservation');
+          const reservation=JSON.parse(utf8Text(reservationBytes));unicodeSafe(reservation);
+          assert.equal(reservation.version,'610');assert.equal(reservation.id,'NS-C13-FORWARD-610-20261106');
+          assert.equal(reservation.sourceHead,'4ba2f361ec037f7d2f0af5d9214bbd13e7897d92','Historical reservation source identity');
+          const freshBytes=decodeBoundBase64(binding.freshMainAndReservationBindingBase64,binding.freshMainAndReservationBindingSha256);
+          const fresh=JSON.parse(utf8Text(freshBytes));unicodeSafe(fresh);validateFresh(fresh,binding,B,reservation,Date.now());
+          validateRuntimePlatform(process.version,process.platform,process.arch);
+          setReadPhase('locked-inputs');
+          const lock=JSON.parse(utf8Text(sourceBytes(byPath.get('package-lock.json'))));
+          const installedLockBytes=stableBytes(path.join(root,'node_modules/.package-lock.json')),installedLock=JSON.parse(utf8Text(installedLockBytes));
+          assert(lock.packages&&installedLock.packages,'Declared and installed lock packages');
+          for(const [name,metadata]of Object.entries(installedLock.packages)){
+           const wanted=lock.packages[name];assert(wanted,'Undeclared installed package');
+           for(const key of ['version','resolved','integrity'])if(wanted[key]!==undefined)assert.equal(metadata[key],wanted[key],'Installed lock '+name+' '+key);
+          }
+          const terserMain=require.resolve('terser'),terserOwner=resolveLockedTerserPackage({checkoutRoot:root,entryFile:terserMain,lockedPackages:lock.packages,readManifest:file=>JSON.parse(utf8Text(stableBytes(file)))});
+          assert.equal(terserOwner.manifest.version,'5.44.0');
+          const npmVersion=utf8Text(processOutput('npm',['--version'],65536)).trim();assert(/^\d+\.\d+\.\d+$/.test(npmVersion),'Observed npm version string');
+          setReadPhase('dependencies-initial');
+          const installed=dependencies(),nodePath=fs.realpathSync(process.execPath);
+          setReadPhase('node-initial');
+          const nodeBinary=rawIdentity(nodePath,nodePath,path.dirname(nodePath));
+          assert.equal(nodeBinary.mode,'100755','Executable actual Node binary');
+          setReadPhase('terser-provenance');
+          const entryIdentity=rawIdentity(terserMain,path.relative(root,terserMain).split(path.sep).join('/'));
+          const manifestIdentity=rawIdentity(terserOwner.manifestPath,path.relative(root,terserOwner.manifestPath).split(path.sep).join('/'));
+          const proof={schemaVersion:'canonical-ci-dependencies.v1',installCommand:'npm ci',lockSha256:byPath.get('package-lock.json').sha256,installedLockSha256:hash(installedLockBytes),terser:{main:path.relative(root,terserMain).split(path.sep).join('/'),package:terserOwner.location,version:terserOwner.manifest.version,entryIdentity,manifestIdentity},fileMapSha256:hash(Buffer.from(JSON.stringify(installed))),files:installed,auditRemediation:false};
+          const temporary=fs.realpathSync(process.env.RUNNER_TEMP),admission=path.join(temporary,'ns-e610-admission');assert(path.isAbsolute(temporary)&&!inside(root,admission),'Admission must be outside checkout');parentDirectories(path.join(temporary,'unused'),temporary);
+          fs.mkdirSync(admission,{mode:0o700});const admissionStat=fs.lstatSync(admission);assert(admissionStat.isDirectory()&&!admissionStat.isSymbolicLink()&&admissionStat.uid===process.getuid()&&(admissionStat.mode&0o077)===0,'Private owned admission root');
+          function save(name,bytes,maximum=E610_LIMITS.manifest){
+           const file=ownedPath(admission,path.join(admission,name));assert(bytes.length<=maximum,'Owned output bound');parentDirectories(file,admission);
+           fs.writeFileSync(file,bytes,{mode:0o600,flag:'wx'});const owned=fs.lstatSync(file);assert(owned.uid===process.getuid()&&(owned.mode&0o077)===0,'Private owned metadata file');const actual=stableBytes(file,maximum,admission);assert(actual.equals(bytes),'Written metadata bytes');
+           return {path:file,bytes:actual.length,sha256:hash(actual)};
+          }
+          setReadPhase('metadata-writeback');
+          const assembledFile=save('assembled-source-manifest.json',assembled),proofFile=save('dependencies.json',jsonBytes(proof));
+          const reservationFile=save('reservation-receipt.json',reservationBytes,E610_LIMITS.receipt),freshFile=save('fresh-main-reservation-binding.json',freshBytes,E610_LIMITS.receipt);
+          assert.equal(byPath.get('scripts/materialize-git-tree.js').sha256,'f7b3a8d7867dc9af5df217a02d80b3135b542ef498937c67044cc7f7d0001373');
+          assert.equal(byPath.get('config/deployment-manifest.json').sha256,'78f7a1c46accaf56fb83ec1f4d8f5ecf98621a620807658c805870191297b103');
+          setReadPhase('projection-source');
+          // Expected bytes were prepared during the complete initial source proof; no second parent source pass.
+          const snapshot=path.join(admission,'deployment-snapshot');
+          setReadPhase('child-reservation');
+          const childReadReservation=2*expectedProjection.reduce((n,e)=>n+e.row.sourceBytes*(e.row.path.endsWith('.js')?2:1),0);
+          charge(childReadReservation,null,true);
+          processOutput(process.execPath,['scripts/materialize-git-tree.js',H,snapshot,'--deployment'],65536,E610_LIMITS.materializerMs);
+          setReadPhase('projection-output');
+          const deploymentPath=ownedPath(admission,path.join(snapshot,'deployment-files.json')),deploymentBytes=stableBytes(deploymentPath,E610_LIMITS.manifest,admission),deployment=JSON.parse(utf8Text(deploymentBytes));
+          assert.equal(fs.lstatSync(deploymentPath).uid,process.getuid(),'Owned deployment inventory');
+          const expectedInventory={revision:H,bytes:expectedProjection.reduce((n,e)=>n+e.row.bytes,0),files:expectedProjection.map(e=>e.row)};
+          validateInventory(deployment,expectedInventory);
+          const expectedPaths=new Set(['deployment-files.json','.vercelignore',...expectedProjection.map(e=>e.row.path)]);
+          function deploymentFiles(dir){
+           for(const name of fs.readdirSync(dir)){const file=path.join(dir,name),st=fs.lstatSync(file);
+            if(st.isDirectory()){assert(!st.isSymbolicLink(),'Deployment directory link');deploymentFiles(file);}
+            else{const relative=path.relative(snapshot,file).split(path.sep).join('/');assert(expectedPaths.delete(relative),'Unlisted/duplicate deployment output');}
+           }
+          }
+          for(const item of expectedProjection){
+           const file=ownedPath(snapshot,path.join(snapshot,...item.row.path.split('/')));parentDirectories(file,snapshot);
+           let bytes;const st=fs.lstatSync(file);
+           if(item.mode==='120000'){
+            assert(st.isSymbolicLink(),'Projected link mode');charge(st.size,file);bytes=fs.readlinkSync(file,{encoding:'buffer'});assert.equal(bytes.length,st.size,'Projected link byte length');
+            const target=utf8Text(bytes);linkWithin(snapshot,file,target);stableStats(st,fs.lstatSync(file),'Projected link');
+           }else{assert.equal(st.mode&0o111?'100755':'100644',item.mode,'Projected mode');bytes=stableBytes(file,E610_LIMITS.file,snapshot);}
+           assert(bytes.equals(item.bytes),'Exact projected output bytes');
+          }
+          assert.equal(utf8Text(stableBytes(path.join(snapshot,'.vercelignore'),1024,snapshot)),'deployment-files.json\n');
+          deploymentFiles(snapshot);assert.equal(expectedPaths.size,0,'Incomplete projected file set');
+          setReadPhase('source-final');
+          assert.deepEqual(sourceInventory(entries),rows,'Tracked source changed during metadata preparation');
+          setReadPhase('dependencies-final');
+          assert.equal(hash(Buffer.from(JSON.stringify(dependencies()))),proof.fileMapSha256,'Installed dependencies changed during metadata preparation');
+          setReadPhase('node-final');
+          assert.deepEqual(rawIdentity(nodePath,nodePath,path.dirname(nodePath)),nodeBinary,'Node binary changed');
+          cleanCheckout();assert.equal(git('rev-parse','HEAD'),T);assert.equal(git('rev-parse',H+'^{tree}'),observed.headTree);validateFresh(fresh,binding,B,reservation,Date.now());
+          const sourceDescriptor=row=>({path:row.path,bytes:row.bytes,sha256:row.sha256,gitBlob:row.gitBlob,mode:row.mode});
+          const receipt={schemaVersion:'sync-qualification-execution-receipt.v1',publisherHeadSha:H,publisherTreeSha:observed.headTree,releaseGitSha:H,actualTestedMergeSha:T,actualAssembledSourceManifestPath:assembledFile.path,actualAssembledSourceManifestSha256:assembledFile.sha256,actualDeploymentSourceManifestPath:deploymentPath,actualDeploymentSourceManifestSha256:hash(deploymentBytes),actualNodeBinarySha256:nodeBinary.sha256,actualDependencyProofSha256:proofFile.sha256,freshMainAndReservationBindingSha256:freshFile.sha256,namedAllocationId:binding.namedAllocationId,actualCloudRunId:process.env.GITHUB_RUN_ID,actualCloudRunAttempt:Number(process.env.GITHUB_RUN_ATTEMPT),actualCloudJobId:'github-job-key:fixture-activation',actualCloudJobKey:'fixture-activation',actualCloudNumericJobId:null,actualWorkflowPath:process.env.GITHUB_WORKFLOW_REF.slice('hartican/sportscal/'.length).split('@')[0],headRole:'pull_request.head.sha',testedCommitRole:'pull_request-merge-checkout',releaseRole:'source-qualification-candidate',jobIdKind:'github-job-key',observedAt:new Date().toISOString(),eventBodySha256:bodySha256,approvedFinalMap:{reviewedMapSha256:binding.reviewedFinalMapSha256,expectedTree:binding.expectedPublisherTreeSha,entryCount:rows.length,m4RelativePathCount:changed.length,assembledManifestSha256:assembledFile.sha256},cloudContext:{repository:process.env.GITHUB_REPOSITORY,eventName:process.env.GITHUB_EVENT_NAME,runId:process.env.GITHUB_RUN_ID,runAttempt:Number(process.env.GITHUB_RUN_ATTEMPT),jobKey:process.env.GITHUB_JOB,ref:process.env.GITHUB_REF,pullRequestNumber:String(event.number)},qualifier:sourceDescriptor(qualifier),fixture:sourceDescriptor(fixture),git:{headSha:H,headTree:observed.headTree,baseSha:B,testedMergeSha:T,testedTree:observed.testedTree,testedMergeParents:observed.parents,trackedSourceUnchanged:true},runtime:{node:process.version,platform:process.platform,arch:process.arch,npm:npmVersion,nodeBinary,dependencyProof:{...proofFile,schemaVersion:'canonical-ci-dependencies.v1'}},reservation:{id:reservation.id,version:reservation.version,receipt:reservationFile},freshMainAndReservationBinding:{receipt:freshFile},admissionGranted:true};
+          setReadPhase('receipt-writeback');
+          const receiptFile=save('execution-receipt.json',jsonBytes(receipt),E610_LIMITS.receipt);
+          const output=fs.realpathSync(process.env.GITHUB_OUTPUT);assert(!inside(root,output),'Outputs file outside checkout');textValue(receiptFile.path,'Receipt output path');
+          fs.appendFileSync(output,'executionReceiptPath='+receiptFile.path+'\nexecutionReceiptSha256='+receiptFile.sha256+'\n',{encoding:'utf8'});
+          console.log(JSON.stringify({schemaVersion:'E610-source-admission-readout.v1',head:H,testedMerge:T,tree:observed.headTree,sourceCount:rows.length,dependencyCount:installed.length,assembledSha256:assembledFile.sha256,deploymentSha256:hash(deploymentBytes),executionReceiptSha256:receiptFile.sha256,releaseAcceptance:false,numericJobJoin:'PENDING_OUTER_PUBLISHER'}));
+          NS_E610_ADMISSION
+      - name: Verify full SYNC source and generated qualification
+        if: github.event.pull_request.draft == false
+        timeout-minutes: 3
+        env:
+          NS_SYNC_EXECUTION_RECEIPT: ${{ steps.e610_source_admission.outputs.executionReceiptPath }}
+          NS_SYNC_EXECUTION_RECEIPT_SHA256: ${{ steps.e610_source_admission.outputs.executionReceiptSha256 }}
+        run: timeout --signal=TERM --kill-after=5s 120s node scripts/validate-sync608-reported-hold.js --full --execution-receipt "$NS_SYNC_EXECUTION_RECEIPT" --execution-receipt-sha256 "$NS_SYNC_EXECUTION_RECEIPT_SHA256"
+      - name: Verify exact thirteen premerge affected gates
+        if: github.event.pull_request.draft == false
+        timeout-minutes: 6
+        run: |
+          timeout --signal=TERM --kill-after=5s 300s bash <<'NS_PREMERGE_13_GATES'
+          set -Eeuo pipefail
+          gate='not-started'; began=$SECONDS
+          trap 'status=$?; printf "PREMERGE_13_FINAL stage=%s exit=%s elapsed_seconds=%s\n" "$gate" "$status" "$((SECONDS-began))"; exit "$status"' EXIT
+          gate='1: node scripts/validate-preference-bookkeeping.js'
+          printf 'PREMERGE_13_BEGIN %s\n' "$gate"
+          timeout --signal=TERM --kill-after=5s 45s node scripts/validate-preference-bookkeeping.js
+          printf 'PREMERGE_13_PASS %s\n' "$gate"
+          gate='2: node scripts/lib/user-state-selection-generated-tests.cjs'
+          printf 'PREMERGE_13_BEGIN %s\n' "$gate"
+          timeout --signal=TERM --kill-after=5s 120s node scripts/lib/user-state-selection-generated-tests.cjs
+          printf 'PREMERGE_13_PASS %s\n' "$gate"
+          gate='3: node scripts/lib/user-state-selection-sdk-tests.cjs'
+          printf 'PREMERGE_13_BEGIN %s\n' "$gate"
+          timeout --signal=TERM --kill-after=5s 120s node scripts/lib/user-state-selection-sdk-tests.cjs
+          printf 'PREMERGE_13_PASS %s\n' "$gate"
+          gate='4: node scripts/validate-account-awareness.js'
+          printf 'PREMERGE_13_BEGIN %s\n' "$gate"
+          timeout --signal=TERM --kill-after=5s 45s node scripts/validate-account-awareness.js
+          printf 'PREMERGE_13_PASS %s\n' "$gate"
+          gate='5: node scripts/validate-shell-script-cache.js'
+          printf 'PREMERGE_13_BEGIN %s\n' "$gate"
+          timeout --signal=TERM --kill-after=5s 45s node scripts/validate-shell-script-cache.js
+          printf 'PREMERGE_13_PASS %s\n' "$gate"
+          gate='6: node scripts/validate-app-update-version.js'
+          printf 'PREMERGE_13_BEGIN %s\n' "$gate"
+          timeout --signal=TERM --kill-after=5s 45s node scripts/validate-app-update-version.js
+          printf 'PREMERGE_13_PASS %s\n' "$gate"
+          gate='7: node scripts/validate-feed-performance.js'
+          printf 'PREMERGE_13_BEGIN %s\n' "$gate"
+          timeout --signal=TERM --kill-after=5s 45s node scripts/validate-feed-performance.js
+          printf 'PREMERGE_13_PASS %s\n' "$gate"
+          gate='8: node scripts/build-app-shell-runtime.js --check'
+          printf 'PREMERGE_13_BEGIN %s\n' "$gate"
+          timeout --signal=TERM --kill-after=5s 45s node scripts/build-app-shell-runtime.js --check
+          printf 'PREMERGE_13_PASS %s\n' "$gate"
+          gate='9: node scripts/build-fantasy-ui.js --check'
+          printf 'PREMERGE_13_BEGIN %s\n' "$gate"
+          timeout --signal=TERM --kill-after=5s 45s node scripts/build-fantasy-ui.js --check
+          printf 'PREMERGE_13_PASS %s\n' "$gate"
+          gate='10: node scripts/validate-generated-shell-version.js'
+          printf 'PREMERGE_13_BEGIN %s\n' "$gate"
+          timeout --signal=TERM --kill-after=5s 45s node scripts/validate-generated-shell-version.js
+          printf 'PREMERGE_13_PASS %s\n' "$gate"
+          gate='11: node scripts/validate-startup-budget.js'
+          printf 'PREMERGE_13_BEGIN %s\n' "$gate"
+          timeout --signal=TERM --kill-after=5s 45s node scripts/validate-startup-budget.js
+          printf 'PREMERGE_13_PASS %s\n' "$gate"
+          gate='12: node scripts/validate-startup-late-recovery.js'
+          printf 'PREMERGE_13_BEGIN %s\n' "$gate"
+          timeout --signal=TERM --kill-after=5s 45s node scripts/validate-startup-late-recovery.js
+          printf 'PREMERGE_13_PASS %s\n' "$gate"
+          gate='13: node scripts/validate-empty-startup-meta.js'
+          printf 'PREMERGE_13_BEGIN %s\n' "$gate"
+          timeout --signal=TERM --kill-after=5s 45s node scripts/validate-empty-startup-meta.js
+          printf 'PREMERGE_13_PASS %s\n' "$gate"
+          NS_PREMERGE_13_GATES
   installed-upgrade:
     needs: fixture-activation
     if: github.event.pull_request.draft == false
