@@ -13,6 +13,19 @@ on:
         description: Intentionally rebuild unchanged code after environment changes
         type: boolean
         default: false
+      release_exception:
+        description: Owner-authorised one-release test waiver; default retains all tests
+        type: choice
+        required: false
+        default: none
+        options:
+          - none
+          - NS610_PUBLISH_NOW_20261107
+      exception_source_sha:
+        description: Exact reviewed source SHA for the NS610 exception only
+        type: string
+        required: false
+        default: ''
       selected_feed_proof_sha:
         description: Optional one-use selected Feed proof allocation for this exact SHA
         required: false
@@ -24,6 +37,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   sql-safety:
+    if: ${{ inputs.release_exception != 'NS610_PUBLISH_NOW_20261107' }}
     name: SQL safety / ${{ matrix.batch }}
     runs-on: ubuntu-24.04
     timeout-minutes: 30
@@ -121,6 +135,7 @@ jobs:
           retention-days: 14
   deploy:
     needs: [sql-safety]
+    if: ${{ always() && !cancelled() && ((inputs.release_exception == 'NS610_PUBLISH_NOW_20261107' && needs.sql-safety.result == 'skipped') || (inputs.release_exception != 'NS610_PUBLISH_NOW_20261107' && needs.sql-safety.result == 'success')) }}
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
@@ -147,10 +162,67 @@ jobs:
           test "$RELEASE_SHA" = "$(git rev-parse origin/main)"
           test -z "$NS_SELECTED_FEED_PROOF_SHA" || test "$NS_SELECTED_FEED_PROOF_SHA" = "$RELEASE_SHA"
           git checkout --detach "$RELEASE_SHA"
+      - name: Bind explicit release-only test exception
+        id: release_exception
+        env:
+          NS_RELEASE_EXCEPTION: ${{ inputs.release_exception }}
+          NS_EXCEPTION_SOURCE_SHA: ${{ inputs.exception_source_sha }}
+          RELEASE_SHA: ${{ inputs.sha }}
+          RELEASE_REQUEST_ID: ${{ inputs.request_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$NS_RELEASE_EXCEPTION" || "$NS_RELEASE_EXCEPTION" == "none" ]]; then
+            printf 'tests_waived=false\n' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          test "$NS_RELEASE_EXCEPTION" = "NS610_PUBLISH_NOW_20261107"
+          node <<'NS610_PUBLISH_EXCEPTION'
+          'use strict';
+          const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process');
+          const exception='NS610_PUBLISH_NOW_20261107',base='cdf73d229aaa56b43ece514a2e046db14ae845f0',baseTree='b89a6e5a976c95343180b45663d8beb0a01675af',workflow='.github/workflows/sportscal-production.yml';
+          const git=(args,maximum=4*1024*1024)=>cp.execFileSync('git',args,{encoding:'utf8',maxBuffer:maximum,timeout:10000,stdio:['ignore','pipe','pipe']});
+          const sha=(value,label)=>{assert.equal(typeof value,'string',label);assert(/^[0-9a-f]{40}$/.test(value),label);return value;};
+          assert.equal(process.env.NS_RELEASE_EXCEPTION,exception);
+          assert.equal(process.env.GITHUB_ACTIONS,'true');
+          assert.equal(process.env.GITHUB_EVENT_NAME,'workflow_dispatch');
+          assert.equal(process.env.GITHUB_REPOSITORY,'hartican/sportscal');
+          assert.equal(process.env.GITHUB_REF,'refs/heads/main');
+          assert.equal(process.env.GITHUB_JOB,'deploy');
+          assert.equal(process.env.GITHUB_RUN_ATTEMPT,'1','Release-only exception cannot be rerun');
+          assert(/^[1-9][0-9]*$/.test(process.env.GITHUB_RUN_ID),'Actual run ID required');
+          assert.equal(process.env.GITHUB_WORKFLOW_REF,'hartican/sportscal/'+workflow+'@refs/heads/main');
+          const release=sha(process.env.RELEASE_SHA,'Requested main SHA'),reviewed=sha(process.env.NS_EXCEPTION_SOURCE_SHA,'Reviewed exception source SHA');
+          assert.equal(git(['rev-parse','HEAD']).trim(),release,'Actual final main checkout');
+          assert.equal(git(['rev-parse','origin/main']).trim(),release,'Requested SHA must still match fetched main');
+          assert.equal(process.env.GITHUB_SHA,release,'Dispatch workflow and actual main release must agree');
+          assert.equal(git(['rev-parse',base+'^{tree}']).trim(),baseTree,'Exact selected product base');
+          const tree=git(['rev-parse',release+'^{tree}']).trim(),reviewedTree=git(['rev-parse',reviewed+'^{tree}']).trim();
+          assert.equal(tree,reviewedTree,'Actual final main tree must equal reviewed exception source tree');
+          const rawChanged=git(['diff','--no-ext-diff','--no-renames','--name-only','-z',base,reviewed,'--']);
+          assert(rawChanged.endsWith('\0'),'Complete changed-path result');
+          assert.deepEqual(rawChanged.slice(0,-1).split('\0'),[workflow],'Exception source may change ONLY the production workflow from selected610');
+          assert(/^100644 blob [0-9a-f]{40}\t\.github\/workflows\/sportscal-production\.yml\0$/.test(git(['ls-tree','-z',release,'--',workflow])),'Regular tracked workflow required');
+          assert.equal(git(['status','--porcelain=v1','--untracked-files=all']),'','Clean source required before release tooling');
+          const versionText=git(['show',release+':app-version.json'],1024),version=JSON.parse(versionText);
+          assert.equal(String(version.version),'610','This exception is not available to another release version');
+          const request=process.env.RELEASE_REQUEST_ID;
+          assert.equal(typeof request,'string');assert(/^[A-Za-z0-9][A-Za-z0-9._:-]{0,255}$/.test(request),'Bounded request correlation ID required');
+          const reportRoot=path.resolve(process.env.NS_DEPLOY_REPORT_DIR),checkout=fs.realpathSync(process.cwd());
+          assert(path.isAbsolute(process.env.NS_DEPLOY_REPORT_DIR)&&reportRoot!==checkout&&!reportRoot.startsWith(checkout+path.sep),'Private release report must be outside checkout');
+          const receipt={schemaVersion:'NS610-release-only-test-exception.v1',exception,requestId:request,reviewedSourceSha:reviewed,actualFinalMainSha:release,actualFinalMainTree:tree,selectedProductSourceSha:base,selectedProductTree:baseTree,version:'610',onlyChangedSourcePaths:[workflow],runId:process.env.GITHUB_RUN_ID,runAttempt:1,waivedPredeploymentSteps:['sql-safety four-batch matrix','Verify production SQL batch contract','Verify feed and deployment safety contracts','Verify shared fixture publication input'],historicalQualification:{pr:162,runId:'42221357820',head:base,testedMerge:'b5296fa8da7cf983657c576fbcfc9cc9dd738c2e',tree:baseTree,status:'FAILURE; paired RED, final stability incomplete; thirteen gates and browsers SKIPPED, not passed'},requiredUnwaived:'Existing project/rollback binding, deployment decision, immutable allowlist materializer, package validation, exact staged files, production environment check, cloud build, output sealing, deployment and all ordinary public release/security verifiers',publicationVerified:false,usage:'One release-specific Owner-authorised dispatch; not durable global one-time enforcement or a future waiver'};
+          fs.mkdirSync(reportRoot,{recursive:true,mode:0o700});
+          fs.writeFileSync(path.join(reportRoot,'ns610-test-exception.json'),JSON.stringify(receipt,null,2)+'\n',{flag:'wx',mode:0o600});
+          fs.appendFileSync(process.env.GITHUB_OUTPUT,'tests_waived=true\n');
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,'## NS610 release-only test waiver\n\nPredeployment suites listed in the release artifact are WAIVED, not passed. Existing build/package/deploy/public-verification safeguards remain required.\n\n- Request: '+request+'\n- Reviewed source: '+reviewed+'\n- Actual main: '+release+'\n- Actual tree: '+tree+'\n');
+          console.log(JSON.stringify({schemaVersion:receipt.schemaVersion,exception,requestId:request,reviewedSourceSha:reviewed,actualFinalMainSha:release,actualFinalMainTree:tree,version:'610',predeploymentTests:'WAIVED_NOT_PASSED',publicationVerified:false}));
+          NS610_PUBLISH_EXCEPTION
       - run: npm ci && npm install --global vercel@59.1.4
       - name: Verify production SQL batch contract
+        if: steps.release_exception.outputs.tests_waived != 'true'
         run: node scripts/validate-production-sql-batches.js
       - name: Verify feed and deployment safety contracts
+        if: steps.release_exception.outputs.tests_waived != 'true'
         run: |
           node scripts/build-fantasy-ui.js --check
           node scripts/validate-fantasy-deadlines.js
@@ -409,6 +481,7 @@ jobs:
           node scripts/validate-global-app-adapter.js
           node scripts/validate-laver-cup.js
       - name: Verify shared fixture publication input
+        if: steps.release_exception.outputs.tests_waived != 'true'
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
