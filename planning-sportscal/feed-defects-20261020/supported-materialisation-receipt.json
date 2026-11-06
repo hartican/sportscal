@@ -1,0 +1,26 @@
+{
+  "atUtc": "2026-10-20T00:26:03.741016+00:00",
+  "status": "STOPPED",
+  "attempts": "One supported fresh batch, sequential once per file, fail closed; no retries",
+  "helperSha256": "5e1557817be17db06e2375f8c34ed83e948d520242e5ee4cb50a30c7a4c83378",
+  "tls": {
+    "caFile": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/certifi/cacert.pem",
+    "processOnly": true,
+    "checkHostname": true,
+    "certificateRequired": true,
+    "securitySettingsChanged": false
+  },
+  "rows": [
+    {
+      "libraryFileId": "libfile_a340dd1421488191957e2c28d9c33c69",
+      "name": "IMG_5806.png",
+      "atUtc": "2026-10-20T00:26:03.634232+00:00",
+      "helperExitCode": 1,
+      "exists": false,
+      "failureClass": "HelperFailed",
+      "stderrBytes": 46
+    }
+  ],
+  "privateSourceImages": true,
+  "sourceOrProductionCalls": 0
+}

@@ -1,0 +1,11 @@
+{
+  "parentAvailabilityEvidence": "Parent read current same materialisation resource23:31:25",
+  "lookupAttemptsUnderNewEvidence": 1,
+  "cloudCatalogueInConsumer": "No Library entry returned",
+  "requestedResource": "skill://plugin_connector_1p_1b8ff8edfc1481918b252c8277e23125/library/scripts/library_file_transfer.py",
+  "result": "skill package is not available",
+  "newMaterialisationOrNetworkAttempts": 0,
+  "processLocalCertifiAttemptStillUnused": true,
+  "noFallbackOrTLSBypass": true,
+  "observedAtUtc": "2026-10-19T23:33:13.998266+00:00"
+}

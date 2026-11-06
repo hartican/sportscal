@@ -9,3 +9,6 @@ planning/Archive/Storyline — Narrative Sports Card System/HTML Mockup/
 planning/Archive/
 planning-sportscal/Archive/supabase_keys.txt
 .env*
+
+# Local sports coverage request register
+/planning-sportscal/requested-sports.local.md

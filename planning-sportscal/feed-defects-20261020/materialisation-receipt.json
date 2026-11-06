@@ -1,0 +1,15 @@
+{
+  "files": [],
+  "errors": [
+    {
+      "file": "IMG_5806.png",
+      "type": "URLError",
+      "reasonType": "SSLCertVerificationError"
+    }
+  ],
+  "source": "Exact supported Library signed transfers; no derived URL",
+  "retry": true,
+  "maxRetries": 1,
+  "initialFailure": "Sandboxed DNS resolution failed before body transfer",
+  "completedAtUtc": "2026-10-19T22:59:24.308824+00:00"
+}

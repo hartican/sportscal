@@ -1,0 +1,14 @@
+{
+  "state": "NOT_STARTED_REQUIRED_HELPER_UNAVAILABLE",
+  "authority": "Parent23:24 permits ONE process-only certifi transfer with normal hostname/certificate verification",
+  "networkAttemptsUnderThisAuthority": 0,
+  "maxSupportedTransferAttempts": 1,
+  "helperResource": "skill://plugin_connector_1p_1b8ff8edfc1481918b252c8277e23125/library/scripts/library_file_transfer.py",
+  "readError": "skill package is not available",
+  "currentSkillRequires": "If helper unavailable stop rather than produce file without Library metadata",
+  "oldFailuresPreserved": "materialisation-receipt.json",
+  "filesDownloaded": 0,
+  "pixelsInspected": false,
+  "securityChanges": false,
+  "observedAtUtc": "2026-10-19T23:28:50.679832+00:00"
+}

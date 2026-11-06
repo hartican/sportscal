@@ -37,6 +37,15 @@ Notes
 - For one-shot automation prefer print mode (-p) to avoid interactive dialogs.
 - If you prefer a single-click resume, use the provided scripts/claude_resume_tmux.sh (executable).
 
+Sports coverage request register
+-------------------------------
+- Record every new request to add, deepen, complete or repair sports feed coverage in the local, Git-ignored register `planning-sportscal/requested-sports.local.md`. Read its rules before updating it. Exclude unrelated UI and infrastructure requests.
+- The authoritative local copy is `/Users/jackhartican/Documents/AI/Perplexity/Sportscal/planning-sportscal/requested-sports.local.md`. From another worktree, update that copy; do not create competing registers. If unavailable, report that capture is pending rather than pretending the request was saved.
+- Deduplicate by competition and requested coverage outcome. Preserve request history, count only demonstrably distinct requesters using anonymous tokens, and never invent demand from existing implementation.
+- Append future requests as `Pending ranking`. Recalculate scores/order only when explicitly requested. The register defines the agreed 60% user-demand / 40% public-popularity audience score and readiness multiplier.
+- Keep completed/declined entries. `Shipped` requires dated evidence of production deployment and live rendering; repository implementation alone is `Implemented`.
+- Never force-add or publish the register. An ignored file is local and does not travel with Git clones or worktrees. Recording a request does not authorize implementing its feed.
+
 Follow decision record — mandatory reading
 ------------------------------------------
 Before changing Follow, Feed admission, discovery opt-ins, fixture routing, retention or related notifications, read [docs/follow-decisions.md](docs/follow-decisions.md). It records the user-approved rules and supersedes conflicting older plans. Consult it before asking the user to repeat a settled decision. Update the record and its regression tests together when the user changes a rule.
@@ -44,3 +53,8 @@ Before changing Follow, Feed admission, discovery opt-ins, fixture routing, rete
 Backend efficiency record — mandatory reading
 ---------------------------------------------
 Before changing live fixture refresh, Supabase persistence, chat polling, notifications, presence or scheduled refreshes, read [docs/backend-efficiency-decisions.md](docs/backend-efficiency-decisions.md). Preserve its MVP budgets and one-owner scheduler rules unless a later dated decision explicitly supersedes them.
+
+Update and deployment convention
+--------------------------------
+- A request to "update" cards includes applying the change, publishing it to GitHub main, and deploying the exact published snapshot to Vercel production. Do not ask for separate deployment confirmation unless the user explicitly requests local-only work.
+- Keep normal release safeguards. If a required gate fails, report the blocker rather than claiming deployment or bypassing it. Distinguish local changes, GitHub publication, and production deployment in the final status.
