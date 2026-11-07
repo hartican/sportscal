@@ -5,7 +5,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const vm = require("node:vm");
 const root = path.resolve(__dirname, "..");
-const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 function source(name){
   const start = html.indexOf(`function ${name}(`);
   assert(start >= 0, `${name} exists`);

@@ -13,7 +13,16 @@ const {
   writeJson,
 } = require("./lib/feed-utils");
 
-const args = process.argv.slice(2).filter(arg => !["--replace","--preserve-known"].includes(arg));
+const coverageArgs=process.argv.slice(2).filter(arg=>arg==='--coverage-sport'||arg.startsWith('--coverage-sport='));
+if(coverageArgs.length&&(coverageArgs.length!==1||coverageArgs[0]!=='--coverage-sport=rugby-union'))throw Error('Unsupported scoped Feed publication');
+const coverageSport=coverageArgs.length?'rugby-union':null,coverageScope=require('./lib/live-coverage-scope');
+const eplScope=require('./lib/epl-publication-scope'),epl=eplScope.parse(process.argv.slice(2));
+const f1Scope=require('./lib/f1-publication-scope'),f1=f1Scope.parse(process.argv.slice(2));
+const aflwScope=require('./lib/aflw-publication-scope'),aflw=aflwScope.parse(process.argv.slice(2));
+if([epl,f1,aflw,coverageSport].filter(Boolean).length>1)throw Error('Mixed scoped Feed publication');
+const selection=epl||f1||aflw,selectedScope=epl?eplScope:f1?f1Scope:aflwScope;
+const scoped=Boolean(coverageSport||selection);
+const args = process.argv.slice(2).filter(arg => !["--replace","--preserve-known",...coverageArgs,...(selection?[selection.arg]:[])].includes(arg));
 const replaceExisting = process.argv.includes("--replace");
 const preserveKnown = process.argv.includes("--preserve-known");
 const inputPath = args[0] || "feeds/incoming/events.json";
@@ -21,8 +30,17 @@ const eventsOutPath = args[1] || "data/events.json";
 const metaOutPath = args[2] || "data/feed-meta.json";
 const bundleOutPath = args[3] || "data/events.js";
 
-const feed = normalizeFeed(readJson(inputPath));
-const errors = validateFeed(feed);
+if(scoped&&(!preserveKnown||replaceExisting||args.length!==4||path.resolve(inputPath)!==path.resolve(eventsOutPath)))throw Error('Scoped Feed publication requires the retained published surface');
+const identityForScope=require('../config/fixture-identity'),codeForScope=e=>identityForScope.sportKey(e)==='rugby'?'rugby-union':identityForScope.sportKey(e);
+const originalInput=readJson(inputPath);
+const normalizeInput=value=>normalizeFeed(scoped?{...value,events:value.events.filter(e=>selection?selectedScope.selected(e,selection.ids):codeForScope(e)===coverageSport)}:value);
+const feed = normalizeInput(originalInput);
+const eplIdentities=require('../lib/epl-provider-identities');
+feed.events=eplIdentities.reconcile(feed.events);
+// One surface may already be current while its counterpart changed. An empty
+// selected subset is legal; the stitched complete Feed is still mandatory.
+const validateInput=value=>selection&&value.events.length===0?[]:validateFeed(value);
+const errors = validateInput(feed);
 
 if (errors.length) {
   console.error(`Refusing to publish invalid feed from ${inputPath}:`);
@@ -34,8 +52,9 @@ let publishedFeed = feed;
 let mergeSummary = null;
 if (replaceExisting) {
   try {
-    const existing = normalizeFeed(readJson(eventsOutPath));
-    const existingErrors = validateFeed(existing);
+    const existing = normalizeInput(readJson(eventsOutPath));
+    existing.events=eplIdentities.reconcile(existing.events);
+    const existingErrors = validateInput(existing);
     if (existingErrors.length) throw new Error(existingErrors.join("; "));
     publishedFeed = { ...feed, events: protectVerifiedEventFacts(feed.events, existing.events) };
   } catch (error) {
@@ -43,8 +62,9 @@ if (replaceExisting) {
   }
 } else {
   try {
-    const existing = normalizeFeed(readJson(eventsOutPath));
-    const existingErrors = validateFeed(existing);
+    const existing = normalizeInput(readJson(eventsOutPath));
+    existing.events=eplIdentities.reconcile(existing.events);
+    const existingErrors = validateInput(existing);
     if (existingErrors.length) {
       throw new Error(existingErrors.join("; "));
     }
@@ -58,6 +78,33 @@ if (replaceExisting) {
   }
 }
 
+const identity=require('../config/fixture-identity'),scope=require('../config/cricket-coverage'),protectedIds=new Set(require('../data/canonical/cricket-retention.v1.json').fixtureIds);
+publishedFeed.events=identity.mergeOverlays([],publishedFeed.events).map(e=>{if(Array.isArray(e.participants)&&!e.participants.length){const {participants,...withoutEmptyParticipants}=e;return withoutEmptyParticipants;}return e;}).filter(e=>scope.allowed(e)||[e.id,...(e.sourceEventIds||[])].some(id=>protectedIds.has(id)));
+publishedFeed.events=publishedFeed.events.map(require('./lib/fixture-competition-context').createResolver());
+if(!scoped)publishedFeed.events=publishedFeed.events.map(require('./lib/cricket-reviewed-context').createResolver());
+const publicationStamp = new Date().toISOString();
+publishedFeed.events=publishedFeed.events.map(require('../lib/reviewed-au-viewing').reviewedAuViewing);
+// A reviewed official correction keeps the original calendar import provenance
+// separately. Merging the retained seed must not restore its obsolete source kind.
+publishedFeed.events=publishedFeed.events.map(event=>{
+  if(event.sourceType!=='personal-calendar' && event.importedCalendarClassification && JSON.stringify(event.customClassification)===JSON.stringify(event.importedCalendarClassification)){
+    const {customClassification,...corrected}=event;return corrected;
+  }
+  return event;
+});
+const versionBase = String(publishedFeed.version || "feed").toLowerCase().replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "") || "feed";
+function finishEditorial(events){
+ const paused=events.map(require('../config/coverage-pauses').apply);
+ return require('./lib/editorial-publication').reconcileFullPreviews(paused,readJson('data/editorial-knowledge.v1.json'));
+}
+if(coverageSport)publishedFeed.events=coverageScope.retainOutsideScope(originalInput.events,finishEditorial(publishedFeed.events),coverageSport,codeForScope);
+if(selection)publishedFeed.events=selectedScope.retain(originalInput.events,finishEditorial(publishedFeed.events),selection.ids);
+publishedFeed = {
+  ...publishedFeed,
+  version: `${versionBase}-${publicationStamp.replace(/[^0-9]/g, "")}`,
+  publishedAt: publicationStamp,
+};
+
 const publishedErrors = validateFeed(publishedFeed);
 if (publishedErrors.length) {
   console.error("Refusing to publish an invalid merged feed:");
@@ -68,7 +115,7 @@ if (publishedErrors.length) {
 let meta = {
   version: "unpublished",
   schemaVersion: "events.v1",
-  publishedAt: new Date().toISOString(),
+  publishedAt: publicationStamp,
   eventsPath: "/data/events.json",
   activeSports: [],
   briefingWeekKey: "manual",
@@ -91,6 +138,9 @@ const nextMeta = {
   usesBundledEvents: false,
 };
 
+// Canonical fixture/evidence assemblers cannot downgrade a researched full
+// preview to a retained two-section seed. Keep scores and source clocks intact.
+if(!scoped)publishedFeed.events=finishEditorial(publishedFeed.events);
 writeJson(eventsOutPath, publishedFeed);
 writeJson(metaOutPath, nextMeta);
 fs.mkdirSync(path.dirname(bundleOutPath), { recursive: true });
@@ -104,4 +154,4 @@ if (mergeSummary) console.log(`Preservation merge: ${mergeSummary.preserved} ret
 console.log(`Updated ${eventsOutPath}`);
 console.log(`Updated ${metaOutPath}`);
 console.log(`Updated ${bundleOutPath}`);
-console.log(`Feed version: ${feed.version}`);
+console.log(`Feed version: ${publishedFeed.version}`);

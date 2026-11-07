@@ -211,6 +211,9 @@ function fixtureFromMatch(match, court, day, sourceUrl, capturedAt){
   const startTimeUtc=publishedStartTimeUtc || broadcastTiming?.startTimeUtc || null;
   const status = statusForMatch(match);
   const score = scoreDisplay(match, sideLabels);
+  const winnerSide=[match?.team1,match?.team2].findIndex(team=>Array.isArray(team)&&team.some(player=>player.won===true));
+  const eliminatedParticipantIds=status==='completed' && winnerSide>=0 && !/round.?robin|group/i.test(match?.roundName||'')
+    ? matchupSides[1-winnerSide].players.map(player=>player.id) : [];
   const courtName = compactWhitespace(match?.courtName || court?.courtName || "USTA Billie Jean King National Tennis Center");
   const roundLabel = compactWhitespace(match?.roundName || match?.roundNameShort || "Round TBC");
   const date = sourceDate(day);
@@ -223,6 +226,7 @@ function fixtureFromMatch(match, court, day, sourceUrl, capturedAt){
     parentEventId:US_OPEN_ID,
     identityRef:"event:us-open",
     participantIds:matchupSides.flatMap(side => side.players.map(player => player.id)),
+    ...(eliminatedParticipantIds.length?{eliminatedParticipantIds}:{}),
     name:sideLabels.join(" v "),
     stage:eventLabel.stage,
     roundLabel,
@@ -250,6 +254,7 @@ function fixtureFromMatch(match, court, day, sourceUrl, capturedAt){
     statusUpdatedAt:capturedAt,
     ...(status === "completed" ? { resultPublishedAt:capturedAt } : {}),
     ...(score ? { scoreDisplay:score } : {}),
+    sets:(match?.scores?.sets||[]).filter(s=>Array.isArray(s)&&s.length===2).map(s=>({home:Number(s[0]?.score),away:Number(s[1]?.score)})).filter(s=>Number.isFinite(s.home)&&Number.isFinite(s.away)),
     ...(status === "completed" && score ? { result:score } : {}),
     matchupSides,
     venue:courtName,

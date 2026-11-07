@@ -5,7 +5,9 @@ const fs = require("node:fs");
 const zlib = require("node:zlib");
 const cardLifecycle = require("../config/card-lifecycle");
 const feedPipeline = require("../lib/server-feed-pipeline");
-const { createFeedHandler } = require("../api/feed");
+// Replay the dated World Cup alias/editorial case within its ordinary Feed
+// window. The real wall clock must not age this historical example out.
+const feedHandler = require("../api/feed").createFeedHandler({clock:()=>new Date("2026-10-22T00:00:00.000Z")});
 const sportContext = require("../config/sport-context");
 const { catalogue } = require("../lib/calendar-catalogue");
 
@@ -70,15 +72,13 @@ function fetchResponse(payload, status = 200){
 }
 
 async function run(){
-  // The API's real clock advances past this historical fixture's Feed window.
-  // Pin its integration scenario while separately proving expiry below.
-  let requestNow = new Date("2026-09-16T00:00:00.000Z");
-  const feedHandler = createFeedHandler({ clock:() => requestNow });
+  require('./validate-tennis-parent-prefilter');
+  require('./validate-server-source-status');
   const schema = JSON.parse(fs.readFileSync("schemas/server-feed-response.schema.json", "utf8"));
   assert.equal(schema.properties.schemaVersion.const, "server-feed.v3");
   assert.equal(schema.properties.derivedCardCache.properties.buildOrigin.const, "server");
   assert(schema.required.includes("sourcePublishedAt"), "server feeds must distinguish canonical publication time from per-user generation time");
-  assert.equal(feedPipeline.SERVER_FEED_BUILD_VERSION, "follow-policy.v11");
+  assert.match(feedPipeline.SERVER_FEED_BUILD_VERSION, /^follow-policy\.v15:[a-f0-9]{12}$/, "tennis projection changes must invalidate personalised feed caches");
   assert.match(
     fs.readFileSync("api/feed.js", "utf8"),
     /buildVersion:\s*SERVER_FEED_BUILD_VERSION/,
@@ -221,6 +221,7 @@ async function run(){
     "an explicit parent-sport unfollow must suppress its internal event tags"
   );
   const legacyEventFollowFeed = feedPipeline.buildServerFeed({
+    tennisProjection: {parents:[], contests:[]},
     events: [goodwood],
     userId: "22222222-2222-4222-8222-222222222222",
     userState: {
@@ -332,6 +333,7 @@ async function run(){
     }],
   };
   const feed = feedPipeline.buildServerFeed({
+    tennisProjection: {parents:[], contests:[]},
     events: canonicalEvents,
     userId: "11111111-1111-4111-8111-111111111111",
     userState,
@@ -350,18 +352,18 @@ async function run(){
   assert.equal(feed.sourcePublishedAt, "2026-07-27T08:00:00.000Z", "server feeds must retain the canonical publication time separately from per-user generation");
   assert.equal(feed.derivedCardCache.buildOrigin, "server");
   assert.equal(feed.retention.archiveDays, 7);
-  assert.equal(feed.retention.retentionDays, 14);
+  assert.equal(feed.retention.retentionDays, 7);
   assert.deepEqual(feed.retention, {
     archiveDays: 7,
-    retentionDays: 14,
+    retentionDays: 7,
     inputEvents: 6,
-    retainedEvents: 5,
+    retainedEvents: 2,
     enrichedEvents: 1,
     derivedCards: 1,
     active: 2,
-    archived: 1,
-    saved: 2,
-    expired: 1,
+    archived: 0,
+    saved: 0,
+    expired: 4,
   });
   assert(!feed.events.some(item => item.eventId === "expired"), "expired unsaved facts must not return to the client");
   assert(!feed.events.some(item => item.eventId === "archived"), "older source facts must not leak into the seven-day Feed");
@@ -418,7 +420,14 @@ async function run(){
     assert.equal(response.body.derivedCardCache.buildOrigin, "server");
     const rlwcOpener = response.body.events.find(item => item.id === "rlwc-australia-new-zealand-2026");
     assert(rlwcOpener, "a selected Major Events child must resolve to the curated event in the authenticated Feed");
-    assert.equal(rlwcOpener.editorialNarrative?.projectionId, "projection:feed:rlwc-australia-new-zealand-2026", "the resolved World Cup opener must carry its validated L0 projection before pagination");
+    const knowledge=require('../data/editorial-knowledge.v1.json');
+    const narrative=require('./lib/editorial-narrative');
+    assert.deepEqual(narrative.validateKnowledge(knowledge),[],"the published editorial evidence must validate");
+    const openerProjection=knowledge.eventProjections.findLast(projection=>projection.targetType==='feed-event'&&projection.targetIds.includes(rlwcOpener.id));
+    assert(openerProjection,"the World Cup opener must have a source-backed projection");
+    assert.equal(rlwcOpener.editorialNarrative?.projectionId,openerProjection.id,"the resolved World Cup opener must carry its current validated L0 projection before pagination");
+    assert.equal(rlwcOpener.editorialNarrative.hook,openerProjection.hook,"the current researched copy must reach the authenticated Feed");
+    assert.equal(rlwcOpener.editorialNarrative.researchedAt,openerProjection.researchedAt,"publication must preserve the original research observation");
     assert(!response.body.events.some(item => item.id === "major-match:rlwc-2026:australia-new-zealand"), "the selected alias must not compete with its curated event in the authenticated Feed");
     assert(zlib.gzipSync(JSON.stringify(response.body)).length <= 250 * 1024, "the first authenticated feed page must remain below 250 KiB compressed");
     assert.equal(response.headers["Cache-Control"], "private, max-age=0, must-revalidate");
@@ -438,7 +447,8 @@ async function run(){
     assert(f1Session, "the authenticated feed must retain an F1 session card");
     assert.equal(f1Session.sportDomainId, "sport:f1", "central F1 cards must use the F1 preference domain");
     assert(f1Session.participantIds.length >= 22, "central F1 cards must retain the actual session field");
-    if(f1Session.participantsConfirmed) assert.equal(f1Session.participantIds.length, f1Session.fixtureResults.rows.length, "completed sessions use the classified field, not the current grid");
+    if(f1Session.participantsConfirmed) assert.equal(f1Session.participantIds.filter(id=>id.startsWith('competitor:f1:')).length, f1Session.score.racing.entryCount, "completed sessions use the classified driver field, with constructor follow identities counted separately");
+    assert.equal(f1Session.fixtureResults,undefined,'Membership omits duplicate full classification rows');assert.equal(f1Session.score.racing.entries,undefined,'Full classification requires selected details=racing read');
     const f1Watch = response.body.events.find(item => item.key === "f1" && /watch/i.test(item.name));
     assert(!f1Watch || !f1Watch.participantIds?.length, "central ticket/date watches must not inherit sporting follow context");
     const tennisFinal = contextualCatalogueById.get("wimbledon-final-sinner-zverev-2026");
@@ -486,14 +496,15 @@ async function run(){
     assert(cwgBoxingFinals, "the authenticated feed must retain the saved Commonwealth Games boxing finals");
     assert(!cwgBoxingFinals.participantIds?.length, "unsupported CWG disciplines must not inherit competitor context");
 
+    const retiredResponse = responseStub();
+    const retiredHandler = require("../api/feed").createFeedHandler({clock:()=>new Date("2026-10-23T00:00:00.000Z")});
+    await retiredHandler({method:"GET",headers:{authorization:"Bearer access-token"}},retiredResponse);
+    assert.equal(retiredResponse.statusCode,200);
+    assert(!retiredResponse.body.events.some(item=>["rlwc-australia-new-zealand-2026","major-match:rlwc-2026:australia-new-zealand"].includes(item.id)),"a selected Major Events child and its alias must still retire after seven Sydney calendar days");
+
     const methodResponse = responseStub();
     await feedHandler({ method: "POST", headers: {} }, methodResponse);
     assert.equal(methodResponse.statusCode, 405);
-    requestNow = new Date("2026-11-07T00:00:00.000Z");
-    const expiredResponse = responseStub();
-    await feedHandler({ method:"GET", headers:{authorization:"Bearer access-token"} }, expiredResponse);
-    assert.equal(expiredResponse.statusCode, 200);
-    assert(!expiredResponse.body.events.some(item => item.id === "rlwc-australia-new-zealand-2026"), "a selected historical opener must leave Feed after the normal retention window");
   }finally{
     if (originalUrl === undefined) delete process.env.SUPABASE_URL;
     else process.env.SUPABASE_URL = originalUrl;
@@ -502,7 +513,7 @@ async function run(){
     global.fetch = originalFetch;
   }
 
-  console.log("Server feed valid: authenticated central rebuild, selective enrichment, explicit archive exemptions, and 7/14-day retention passed.");
+  console.log("Server feed valid: authenticated central rebuild, selective enrichment, permanent shared source records and seven-calendar-day ordinary-card retirement passed.");
 }
 
 run().catch(error => {

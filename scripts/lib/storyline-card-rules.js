@@ -1,4 +1,6 @@
-const RESULT_LEAK = /\b(?:won|lost\s+(?:to|against|by)|beat|defeated|(?:was|were|is|are)\s+(?:the\s+)?(?:winner|loser)|winner\s*(?::|(?:of\s+[^.!?]{1,80}\s+)?(?:was|is)\b)|score|margin|advanced|reached|eliminated|victory|(?:became|crowned)\s+champions?|hat[- ]trick|finished\s+(?:first|second|third)|took\s+pole|claimed\s+(?:the\s+)?(?:title|lead))\b|(?<![\d–-])\b\d{1,3}\s*[-–]\s*\d{1,3}\b(?!\s*[-–]\s*\d)/i;
+// Qualified valid day ranges such as 2–4 October are calendar context;
+// scorelines and result words retain the ordinary spoiler protection.
+const RESULT_LEAK = /\b(?:won|lost\s+(?:to|against|by)|beat|defeated|(?:was|were|is|are)\s+(?:the\s+)?(?:winner|loser)|winner\s*(?::|(?:of\s+[^.!?]{1,80}\s+)?(?:was|is)\b)|score|margin|advanced|reached|eliminated|victory|(?:became|crowned)\s+champions?|hat[- ]trick|finished\s+(?:first|second|third)|took\s+pole|claimed\s+(?:the\s+)?(?:title|lead))\b|(?<![\d–-])\b(?!(?:0?[1-9]|[12]\d|3[01])\s*[-–]\s*(?:0?[1-9]|[12]\d|3[01])\s+(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\b)\d{1,3}\s*[-–]\s*\d{1,3}\b(?!\s*[-–]\s*\d)/i;
 const PREVIEW_LEAK = /\b(?:won|beat|defeated|completed|final score)\b|\blost\b(?!\s+time)/i;
 const PREVIEW_TENSE = /\b(?:[Ww]ill(?!\s+[A-Z][a-z])|[Aa]waits|[Hh]ost|[Uu]pcoming)\b/;
 const STORYLINE_OVERRIDES = require("../../config/storyline-overrides.js");
@@ -21,6 +23,9 @@ function startTime(event) {
 
 function lifecycleFor(event, now = new Date()) {
   if (event.status === "completed" || event.status === "upcoming") return event.status;
+  // A scheduled or unresolved fixture cannot become a recap from the clock.
+  // Result completeness independently rejects overdue fixtures without results.
+  if (["scheduled", "live", "postponed", "cancelled", "abandoned"].includes(event.status)) return "upcoming";
   const end = startTime(event).getTime() + Number(event.liveWindow || 3) * 60 * 60 * 1000;
   return end < now.getTime() ? "completed" : "upcoming";
 }
@@ -73,8 +78,8 @@ function participantsFor(event) {
 function safeCompletedCopy(event) {
   const title = event.displayTitleCompact || event.name || "This event";
   return {
-    hook: `${title} is complete; the key moments are protected until you choose to reveal them.`,
-    synopsis: `${title} is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.`,
+    hook: `${title} is complete. Reveal results for the outcome.`,
+    synopsis: `${title} is complete. Results stay hidden until you choose to reveal them.`,
   };
 }
 
@@ -151,6 +156,11 @@ function spoilerSafeRootCopy(event, storyline = event.storyline, now = new Date(
 }
 
 function spoilerContractIssues(event, now = new Date()) {
+  const cricket=require('../../config/cricket-editorial-policy');
+  if(cricket.isCricket(event)&&cricket.hasPolicy(event.editorialNarrative)){
+    const phase=cricket.phase(event,now),root=[event.selectedSentence,event.fullSpiel,event.storyline?.hookSpoilerOff,event.storyline?.synopsisSpoilerOff].filter(Boolean);
+    return phase!=='preview'&&root.length?['current cricket reporting must be absent from default Results OFF copy']:[];
+  }
   const issues = [];
   const status = lifecycleFor(event, now);
   const completed = status === "completed";

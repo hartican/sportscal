@@ -150,7 +150,8 @@ const semanticWorldCupOpener = resolveUserFollowFixtures({ events:[publishedWorl
 const worldCupOpeners = semanticWorldCupOpener.events.filter(event => event.startTimeUtc && Date.parse(event.startTimeUtc) === Date.parse(publishedWorldCupOpener.startTimeUtc) && eventParticipantIds(event).includes("team:nrl:kangaroos") && eventParticipantIds(event).includes("team:nrl:kiwis"));
 assert.equal(worldCupOpeners.length, 1, "Major Events and Feed aliases of the World Cup opener must collapse to one fixture across competition ids and equivalent ISO timestamps");
 assert.equal(worldCupOpeners[0].id, publishedWorldCupOpener.id, "semantic deduplication must retain the curated World Cup identity");
-assert.equal(worldCupOpeners[0].editorialNarrative?.projectionId, "projection:feed:rlwc-australia-new-zealand-2026", "the central World Cup card must retain its researched L0 editorial projection");
+assert(publishedWorldCupOpener.editorialNarrative?.projectionId && publishedWorldCupOpener.editorialNarrative?.sourceIds?.length, "published World Cup research must have identity and sources");
+assert.deepEqual(worldCupOpeners[0].editorialNarrative, publishedWorldCupOpener.editorialNarrative, "the central World Cup card must retain its current complete researched L0 projection");
 
 const nbaGame = {
   gameId:"0022600088",
@@ -246,8 +247,8 @@ assert.match(snapshotSource, /FOLLOW_SNAPSHOT_PRELOADED_PATH[^]*readSnapshot[^]*
 const artifactBuilderSource = fs.readFileSync(path.resolve(__dirname, "build-follow-fixtures.js"), "utf8");
 assert(artifactBuilderSource.includes("includeCompactArtifact:false"), "the compact artifact must be regenerated from source bundles rather than its previous saved state");
 
-const html = fs.readFileSync(path.resolve(__dirname, "../index.html"), "utf8");
-assert(html.includes('PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v10"'), "pre-F1-deduplication personalised pages must be invalidated");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
+assert(html.includes('PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v12"'), "pre-unfollow-policy personalised pages must be invalidated");
 assert(html.includes('payload?.schemaVersion !== "server-feed.v3"'), "the client must reject stale personalised schemas");
 assert(html.includes("requestFeedRebuildAfterFollowChange"), "follow changes must request an immediate server rebuild");
 assert.match(html, /await syncCurrentServerState\(\);[^]*await clearCachedPersonalisedFeed[^]*await refreshRemoteFeed/, "the follow rebuild must complete server sync before fetching the new page");

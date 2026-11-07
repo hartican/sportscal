@@ -1,0 +1,232 @@
+{
+  "kind": "actual-retained-MLB-final-clock-preimage",
+  "sourceCommit": "ad2a6d5f",
+  "sourceFile": "data/canonical/mlb-postseason.v1.json",
+  "sourceFileSha256": "e1df9fb7c4adaabb392741cc919fdfa7b6699f17bf425a75a2c83fe09d416c94",
+  "fixtures": [
+    {
+      "id": "fixture:mlb:849810",
+      "eventId": "fixture:mlb:849810",
+      "canonicalEventId": "fixture:mlb:849810",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Los Angeles Dodgers v Milwaukee Brewers",
+      "roundLabel": "NLCS Game 4",
+      "stage": "NLCS Game 4",
+      "date": "2026-10-16",
+      "time": "11:00",
+      "startTimeUtc": "2026-10-16T00:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
+      "venue": "UNIQLO Field at Dodger Stadium",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:119",
+          "name": "Los Angeles Dodgers",
+          "displayName": "Los Angeles Dodgers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg"
+        },
+        {
+          "id": "team:mlb:158",
+          "name": "Milwaukee Brewers",
+          "displayName": "Milwaukee Brewers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:119",
+        "team:mlb:158"
+      ],
+      "homeParticipantId": "team:mlb:119",
+      "awayParticipantId": "team:mlb:158",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:119",
+          "label": "Los Angeles Dodgers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:158",
+          "label": "Milwaukee Brewers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849810",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849810",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-16T07:27:29.485Z",
+      "statusCheckedAt": "2026-10-16T07:27:29.485Z",
+      "selectedSentence": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "fullSpiel": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-09T06:52:22.809Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "hookSpoilerOff": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "synopsisSpoilerOff": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "hookSpoilerOn": "Los Angeles Dodgers 4\u20136 Milwaukee Brewers",
+        "synopsisSpoilerOn": "NLCS Game 4: Los Angeles Dodgers 4\u20136 Milwaukee Brewers. MLB reports this game as final."
+      },
+      "score": "Los Angeles Dodgers 4\u20136 Milwaukee Brewers",
+      "resultStatus": "official",
+      "outcomeText": "Los Angeles Dodgers 4\u20136 Milwaukee Brewers",
+      "recapText": "NLCS Game 4: Los Angeles Dodgers 4\u20136 Milwaukee Brewers. MLB reports this game as final.",
+      "resultLabels": [
+        "Completed"
+      ],
+      "homeScore": 4,
+      "awayScore": 6,
+      "winnerParticipantId": "team:mlb:158",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849810",
+      "resultSourceCheckedAt": "2026-10-16T07:27:29.485Z",
+      "statusSourceUrl": "https://www.mlb.com/gameday/849810",
+      "statusSourceName": "MLB",
+      "statusSourceType": "official",
+      "scoreCheckedAt": "2026-10-16T07:27:29.485Z",
+      "scoreFactObservedAt": "2026-10-16T07:27:29.485Z",
+      "statusFactObservedAt": "2026-10-16T07:27:29.485Z",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "sourceTrust": "verified",
+      "endTimeUtc": null
+    },
+    {
+      "id": "fixture:mlb:849818",
+      "eventId": "fixture:mlb:849818",
+      "canonicalEventId": "fixture:mlb:849818",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Cleveland Guardians v Tampa Bay Rays",
+      "roundLabel": "ALCS Game 3",
+      "stage": "ALCS Game 3",
+      "date": "2026-10-16",
+      "time": "04:00",
+      "startTimeUtc": "2026-10-15T17:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
+      "venue": "Progressive Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:114",
+          "name": "Cleveland Guardians",
+          "displayName": "Cleveland Guardians",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg"
+        },
+        {
+          "id": "team:mlb:139",
+          "name": "Tampa Bay Rays",
+          "displayName": "Tampa Bay Rays",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:114",
+        "team:mlb:139"
+      ],
+      "homeParticipantId": "team:mlb:114",
+      "awayParticipantId": "team:mlb:139",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:114",
+          "label": "Cleveland Guardians",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:139",
+          "label": "Tampa Bay Rays",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849818",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849818",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-16T06:48:20.213Z",
+      "statusCheckedAt": "2026-10-16T06:48:20.213Z",
+      "selectedSentence": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+      "fullSpiel": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "hookSpoilerOff": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+        "hookSpoilerOn": "Cleveland Guardians 3\u20132 Tampa Bay Rays",
+        "synopsisSpoilerOn": "ALCS Game 3: Cleveland Guardians 3\u20132 Tampa Bay Rays. MLB reports this game as final."
+      },
+      "score": "Cleveland Guardians 3\u20132 Tampa Bay Rays",
+      "resultStatus": "official",
+      "outcomeText": "Cleveland Guardians 3\u20132 Tampa Bay Rays",
+      "recapText": "ALCS Game 3: Cleveland Guardians 3\u20132 Tampa Bay Rays. MLB reports this game as final.",
+      "resultLabels": [
+        "Completed"
+      ],
+      "homeScore": 3,
+      "awayScore": 2,
+      "winnerParticipantId": "team:mlb:114",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849818",
+      "resultSourceCheckedAt": "2026-10-16T06:48:20.213Z",
+      "statusSourceUrl": "https://www.mlb.com/gameday/849818",
+      "statusSourceName": "MLB",
+      "statusSourceType": "official",
+      "scoreCheckedAt": "2026-10-16T06:48:20.213Z",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "sourceTrust": "verified",
+      "endTimeUtc": null
+    }
+  ]
+}

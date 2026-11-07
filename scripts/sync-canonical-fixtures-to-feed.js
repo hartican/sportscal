@@ -13,6 +13,7 @@ const {
 const canonicalSportsTaxonomy = require("../config/canonical-sports-taxonomy.js");
 const competitionStakes = require("../config/enrichment-engine.js");
 const { publicFixtureTitle } = require('../lib/finals-presentation');
+const canonicalStatus = require('../lib/canonical-status-observations');
 
 const DEFAULT_LIVE_WINDOW_MS = 3 * 60 * 60 * 1000;
 const COMPLETED_RETENTION_MS = 7 * 24 * 60 * 60 * 1000;
@@ -298,6 +299,38 @@ function applyCanonicalStakes(card, fixture){
   };
 }
 
+function resultObservationFields(card, fixture, { changed = false } = {}){
+  const source = fixture.result?.source || fixture.source;
+  const checkedAt = source?.checkedAt;
+  const start = Date.parse(fixture.startTimeUtc || "");
+  const calendarValid = stamp => {
+    const date = typeof stamp === "string" && stamp.match(/^(\d{4})-(\d{2})-(\d{2})T/);
+    return Boolean(date && new Date(Date.UTC(Number(date[1]), Number(date[2])-1, Number(date[3]))).toISOString().startsWith(stamp.slice(0,10)+"T"));
+  };
+  const valid = stamp => typeof stamp === "string"
+    && /^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$/.test(stamp)
+    && Number.isFinite(Date.parse(stamp)) && calendarValid(stamp) && Date.parse(stamp) <= Date.now()
+    && (!Number.isFinite(start) || Date.parse(stamp) >= start);
+  let url;
+  try { url = new URL(source?.sourceUrl); } catch { return {}; }
+  // A schedule/editorial date or assembly timestamp cannot date a final.
+  if (!valid(checkedAt) || url.protocol !== "https:" || url.username || url.password) return {};
+  if (!changed){
+    const scores = fixture.result?.scorelineText?.match(/—\s*(\d+)-(\d+)$/);
+    if (card?.status !== "completed" || !scores || card.homeScore !== Number(scores[1]) || card.awayScore !== Number(scores[2])) return {};
+  }
+  const prior = kind => card?.[kind + "CheckedAt"]
+    || (card?.fixtureObservationSchema ? null : card?.resultSourceCheckedAt || card?.sourceCheckedAt);
+  const score = prior("score"), status = prior("status");
+  if (!changed && valid(score) && valid(status)) return {};
+  return {
+    scoreCheckedAt: !changed && valid(score) ? score : checkedAt,
+    statusCheckedAt: !changed && valid(status) ? status : checkedAt,
+    resultSourceUrl: source.sourceUrl,
+    resultSourceCheckedAt: checkedAt,
+  };
+}
+
 function completedCanonicalResult(fixture, participantsById){
   if (fixture.status !== "completed" || !fixture.result?.scorelineText) return null;
   const scoreMatch = fixture.result.scorelineText.match(/—\s*(\d+)-(\d+)$/);
@@ -344,6 +377,7 @@ function completedCanonicalResult(fixture, participantsById){
     sourceCheckedAt,
     sourceType: source.sourceType === "reputable" ? "reputable" : "official",
     lastReviewedAt: sourceCheckedAt,
+    ...resultObservationFields(null, fixture, { changed:true }),
   };
 }
 
@@ -372,7 +406,7 @@ function applyCompletedCanonicalResult(card, fixture, participantsById){
   const canonicalResultChanged = card.canonicalResultScoreline
     && card.canonicalResultScoreline !== fixture.result.scorelineText;
   if (cardHasResult && !canonicalResultChanged){
-    return normalizeCompletedStoryline({ ...card, ...canonicalMetadata(fixture) });
+    return normalizeCompletedStoryline({ ...card, ...canonicalMetadata(fixture), ...resultObservationFields(card, fixture) });
   }
   const next = {
     ...card,
@@ -385,6 +419,36 @@ function applyCompletedCanonicalResult(card, fixture, participantsById){
     next.editorialPreview = fixture.editorialPreview;
   } else delete next.editorialPreview;
   return normalizeCompletedStoryline(next);
+}
+
+function applyRetainedResultObservations(ids, { root = require("node:path").resolve(__dirname, "..") } = {}){
+  const assert = require("node:assert/strict"), fs = require("node:fs"), path = require("node:path");
+  assert(ids.length && new Set(ids).size === ids.length, "Unique retained fixture IDs are required");
+  const canonical = readJson(path.join(root, "data/canonical/afl-nrl-2026.json"));
+  const files = ["feeds/incoming/events.json", "data/events.json"];
+  // Validate both retained surfaces before either write. This repair cannot
+  // admit fixtures, overwrite scores or reinterpret a source observation.
+  const prepared = files.map(file => {
+    const filename = path.join(root, file), original = fs.readFileSync(filename, "utf8"), document = JSON.parse(original);
+    for (const id of ids){
+      const cards = document.events.filter(card => [card.id, card.eventId, card.canonicalEventId].includes(id));
+      assert.equal(cards.length, 1, `${id}: exactly one retained card is required in ${file}`);
+      const card = cards[0], fixtures = canonical.events.filter(fixture => fixture.id === card.canonicalEventId);
+      assert.equal(fixtures.length, 1, `${id}: exactly one canonical fixture is required`);
+      const fixture = fixtures[0], scores = fixture.result?.scorelineText?.match(/—\s*(\d+)-(\d+)$/);
+      assert(card.status === "completed" && fixture.status === "completed" && scores, `${id}: matching completed facts are required`);
+      assert.equal(card.homeScore, Number(scores[1]), `${id}: home score disagrees`);
+      assert.equal(card.awayScore, Number(scores[2]), `${id}: away score disagrees`);
+      assert.deepEqual(card.participantIds, fixture.participantIds, `${id}: participant identities disagree`);
+      assert.equal(Date.parse(card.startTimeUtc), Date.parse(fixture.startTimeUtc), `${id}: sporting starts disagree`);
+      const observation = resultObservationFields(null, fixture, { changed:true });
+      assert(observation.scoreCheckedAt, `${id}: valid post-start result observation is required`);
+      Object.assign(card, resultObservationFields(card, fixture));
+    }
+    return { filename, original, next:JSON.stringify(document, null, 2) + "\n" };
+  });
+  for (const file of prepared) if (file.original !== file.next) fs.writeFileSync(file.filename, file.next);
+  return { selected:ids.length, changed:prepared.filter(file => file.original !== file.next).length };
 }
 
 function fixtureToCard(fixture, participantsById, sportDetailsByDomainId){
@@ -429,6 +493,7 @@ function fixtureToCard(fixture, participantsById, sportDetailsByDomainId){
     briefingEligible: false,
     catchupEligible: fixture.broadcasters.some(item => item.replay),
     ...canonicalMetadata(fixture),
+    ...canonicalStatus.observation(fixture),
   }, fixture);
 }
 
@@ -440,7 +505,7 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
   const canonicalById = new Map(canonicalBundle.events.map(event => [event.id, event]));
   const fixtures = canonicalBundle.events.filter(event =>
     sportDetailsByDomainId.has(event.sportDomainId)
-    && event.status === "scheduled"
+    && (event.status === "scheduled" || (event.status === "live" && canonicalStatus.observation(event)))
     && event.startTimeUtc
     && Date.parse(event.startTimeUtc) + DEFAULT_LIVE_WINDOW_MS >= basisTime
   );
@@ -468,6 +533,10 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
       const next = applyCompletedCanonicalResult(card, exactFixture, participantsById);
       if (next.status === "completed" && card.status !== "completed") completedResultsUpdated += 1;
       return next;
+    }
+    if (exactFixture && canonicalStatus.observation(exactFixture)){
+      matchedCanonicalIds.add(exactFixture.id);
+      return canonicalStatus.apply(card, exactFixture);
     }
     const fixture = fixtures.find(candidate => {
       if (matchedCanonicalIds.has(candidate.id)) return false;
@@ -525,6 +594,12 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
     sourceNote: options.sourceNote || feed.sourceNote || "Curated event cards plus official confirmed 2026 routine fixtures. Curated cards supersede routine imports for the same event.",
     events,
   });
+  // Normalisation may fill display defaults, but existing provider identities
+  // belong to their fixture and activity. It cannot rename retained cards.
+  output.events.forEach((event,index)=>{
+    event.id=events[index].id;
+    event.eventId=events[index].eventId || events[index].id;
+  });
 
   return {
     output,
@@ -576,6 +651,8 @@ function main(){
 if (require.main === module) main();
 
 module.exports = {
+  resultObservationFields,
+  applyRetainedResultObservations,
   applyCompletedCanonicalResult,
   completedCanonicalResult,
   fixtureToCard,

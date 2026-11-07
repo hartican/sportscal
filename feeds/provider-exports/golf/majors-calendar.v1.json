@@ -1,0 +1,201 @@
+{
+  "schemaVersion": "golf-majors-reviewed-calendar.v1",
+  "checkedAt": "2026-10-02T21:57:46.955701+00:00",
+  "editions": [
+    {
+      "slug": "masters",
+      "year": 2026,
+      "providerTournamentId": "R2026014",
+      "name": "Masters Tournament",
+      "date": "2026-04-09",
+      "endDate": "2026-04-12",
+      "roundDates": [
+        "2026-04-09",
+        "2026-04-10",
+        "2026-04-11",
+        "2026-04-12"
+      ],
+      "status": "completed",
+      "venue": "Augusta National Golf Club",
+      "city": "Augusta",
+      "countryCode": "US",
+      "venueConfigurationId": "golf:augusta-national:2026",
+      "sourceUrl": "https://www.pgatour.com/schedule/2026",
+      "supportingSourceUrls": [
+        "https://www.pgatour.com/schedule/2026"
+      ],
+      "courseGeometryVerified": false
+    },
+    {
+      "slug": "pga-championship",
+      "year": 2026,
+      "providerTournamentId": "R2026033",
+      "name": "PGA Championship",
+      "date": "2026-05-14",
+      "endDate": "2026-05-17",
+      "roundDates": [
+        "2026-05-14",
+        "2026-05-15",
+        "2026-05-16",
+        "2026-05-17"
+      ],
+      "status": "completed",
+      "venue": "Aronimink Golf Club",
+      "city": "Newtown Square",
+      "countryCode": "US",
+      "venueConfigurationId": "golf:aronimink:2026",
+      "sourceUrl": "https://www.pgachampionship.com/2026/spectator-guide",
+      "supportingSourceUrls": [
+        "https://www.pgatour.com/schedule/2026"
+      ],
+      "courseGeometryVerified": true,
+      "courseArtworkId": "aronimink-2026",
+      "courseGeometrySourceUrl": "https://pgachampionship.brightspotcdn.com/14/91/0989bdc24837a8cc1c33c7b1fe29/26-ch-course-map-spectator-guide-1.pdf"
+    },
+    {
+      "slug": "us-open",
+      "year": 2026,
+      "providerTournamentId": "R2026026",
+      "name": "U.S. Open",
+      "date": "2026-06-18",
+      "endDate": "2026-06-21",
+      "roundDates": [
+        "2026-06-18",
+        "2026-06-19",
+        "2026-06-20",
+        "2026-06-21"
+      ],
+      "status": "completed",
+      "venue": "Shinnecock Hills Golf Club",
+      "city": "Southampton",
+      "countryCode": "US",
+      "venueConfigurationId": "golf:shinnecock-hills:2026",
+      "sourceUrl": "https://mediacenter.usga.org/press-releases-2026-us-open-parking-transportation-information-shinnecock-hills",
+      "supportingSourceUrls": [
+        "https://www.pgatour.com/schedule/2026"
+      ],
+      "courseGeometryVerified": false
+    },
+    {
+      "slug": "the-open",
+      "year": 2026,
+      "providerTournamentId": "R2026100",
+      "name": "The Open Championship",
+      "date": "2026-07-16",
+      "endDate": "2026-07-19",
+      "roundDates": [
+        "2026-07-16",
+        "2026-07-17",
+        "2026-07-18",
+        "2026-07-19"
+      ],
+      "status": "completed",
+      "venue": "Royal Birkdale Golf Club",
+      "city": "Southport",
+      "countryCode": "GB",
+      "venueConfigurationId": "golf:royal-birkdale:2026",
+      "sourceUrl": "https://www.theopen.com/royal-birkdale-154th-open",
+      "supportingSourceUrls": [
+        "https://www.pgatour.com/schedule/2026",
+        "https://www.europeantour.com/dpworld-tour/the-154th-open-2026/tickets-packages/"
+      ],
+      "courseGeometryVerified": false
+    },
+    {
+      "slug": "masters",
+      "year": 2027,
+      "providerTournamentId": "R2027014",
+      "name": "Masters Tournament",
+      "date": "2027-04-08",
+      "endDate": "2027-04-11",
+      "roundDates": [
+        "2027-04-08",
+        "2027-04-09",
+        "2027-04-10",
+        "2027-04-11"
+      ],
+      "status": "upcoming",
+      "venue": "Augusta National Golf Club",
+      "city": "Augusta",
+      "countryCode": "US",
+      "venueConfigurationId": "golf:augusta-national:2027",
+      "sourceUrl": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
+      "supportingSourceUrls": [
+        "https://www.pgatour.com/schedule/2027"
+      ],
+      "courseGeometryVerified": false
+    },
+    {
+      "slug": "pga-championship",
+      "year": 2027,
+      "providerTournamentId": "R2027033",
+      "name": "PGA Championship",
+      "date": "2027-05-20",
+      "endDate": "2027-05-23",
+      "roundDates": [
+        "2027-05-20",
+        "2027-05-21",
+        "2027-05-22",
+        "2027-05-23"
+      ],
+      "status": "upcoming",
+      "venue": "Fields Ranch East at PGA Frisco",
+      "city": "Frisco",
+      "countryCode": "US",
+      "venueConfigurationId": "golf:fields-ranch-east:2027",
+      "sourceUrl": "https://www.pgachampionship.com/tickets",
+      "supportingSourceUrls": [
+        "https://www.pgatour.com/schedule/2027"
+      ],
+      "courseGeometryVerified": false
+    },
+    {
+      "slug": "us-open",
+      "year": 2027,
+      "providerTournamentId": "R2027026",
+      "name": "U.S. Open",
+      "date": "2027-06-17",
+      "endDate": "2027-06-20",
+      "roundDates": [
+        "2027-06-17",
+        "2027-06-18",
+        "2027-06-19",
+        "2027-06-20"
+      ],
+      "status": "upcoming",
+      "venue": "Pebble Beach Golf Links",
+      "city": "Pebble Beach",
+      "countryCode": "US",
+      "venueConfigurationId": "golf:pebble-beach:2027",
+      "sourceUrl": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
+      "supportingSourceUrls": [
+        "https://www.pgatour.com/schedule/2027"
+      ],
+      "courseGeometryVerified": false
+    },
+    {
+      "slug": "the-open",
+      "year": 2027,
+      "providerTournamentId": "R2027100",
+      "name": "The Open Championship",
+      "date": "2027-07-15",
+      "endDate": "2027-07-18",
+      "roundDates": [
+        "2027-07-15",
+        "2027-07-16",
+        "2027-07-17",
+        "2027-07-18"
+      ],
+      "status": "upcoming",
+      "venue": "St Andrews \u2014 Old Course",
+      "city": "St Andrews, Scotland",
+      "countryCode": "GB",
+      "venueConfigurationId": "golf:st-andrews-old-course:2027",
+      "sourceUrl": "https://www.theopen.com/st-andrews-2027",
+      "supportingSourceUrls": [
+        "https://www.pgatour.com/schedule/2027"
+      ],
+      "courseGeometryVerified": false
+    }
+  ]
+}

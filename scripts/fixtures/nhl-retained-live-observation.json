@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "retained-nhl-observation.v1",
+  "provenance": {
+    "sourceGitSha": "3930ddb638e066095b46408f57897ebb680c56c1",
+    "sourcePath": "data/code-inspector/ice-hockey.json",
+    "use": "Read-only historical source observation; never ingested as a current live game"
+  },
+  "fixture": {
+    "id": "fixture:nhl:2026020035",
+    "sourceEventIds": [
+      "fixture:nhl:2026020035"
+    ],
+    "codeId": "sport:ice-hockey",
+    "key": "ice-hockey",
+    "statusCheckedAt": "2026-10-04T17:44:22.161Z",
+    "scoreCheckedAt": "2026-10-04T17:44:22.161Z",
+    "sportDomainId": "sport:ice-hockey",
+    "competitionId": "competition:nhl",
+    "name": "Winnipeg Jets v Detroit Red Wings",
+    "date": "2026-10-05",
+    "time": "04:00",
+    "timePrecision": "exact",
+    "startTimeUtc": "2026-10-04T17:00:00.000Z",
+    "statusSourceUrl": "https://www.nhl.com/gamecenter/wpg-vs-det/2026/10/04/2026020035",
+    "canonicalEventId": "fixture:nhl:2026020035",
+    "resultSourceUrl": "https://www.nhl.com/gamecenter/wpg-vs-det/2026/10/04/2026020035",
+    "resultSourceCheckedAt": "2026-10-04T17:44:22.161Z",
+    "sourceName": "NHL",
+    "sourceType": "official-schedule",
+    "sourceCheckedAt": "2026-10-04T16:57:01.279Z",
+    "consensusTags": [],
+    "scoreDisplay": "Winnipeg Jets 2-0 Detroit Red Wings",
+    "score": "Winnipeg Jets 2-0 Detroit Red Wings",
+    "venue": "Little Caesars Arena",
+    "status": "live",
+    "scheduleStatus": "confirmed",
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nhl:wpg",
+        "label": "Winnipeg Jets",
+        "logoUrl": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg",
+        "homeAway": "away",
+        "score": "2"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nhl:det",
+        "label": "Detroit Red Wings",
+        "logoUrl": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+        "homeAway": "home",
+        "score": "0"
+      }
+    ],
+    "participantIds": [],
+    "participants": [],
+    "participantCountryCodes": [],
+    "detailsExpectedAt": null,
+    "schedulingWindow": null,
+    "roundNumber": null,
+    "roundLabel": "Regular season",
+    "stage": null,
+    "groupOrder": 5000,
+    "competitionScope": null,
+    "isInternational": false,
+    "representativeCountryCodes": [],
+    "expected": 0,
+    "broadcaster": "Disney+",
+    "viewingOptions": [
+      {
+        "providerId": "disney",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.disneyplus.com/en-au/welcome/espn-sports",
+        "sourceUrl": "https://www.nhl.com/info/how-to-watch-by-country",
+        "verifiedAt": "2026-10-04T14:47:13.000Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
+    "sourceUrl": "https://www.nhl.com/gamecenter/wpg-vs-det/2026/10/04/2026020035",
+    "ticketUrl": "https://www.ticketmaster.com/event/080064EED7AA7FAA?brand=redwings&artistid=805938&wt.mc_id=NHL_TEAM_DET_SCHEDULE_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_TEAM_DET&utm_content=SCHEDULE_GM2",
+    "sourceCoverage": "official-canonical",
+    "broadcastOptions": [],
+    "broadcasterIds": []
+  }
+}

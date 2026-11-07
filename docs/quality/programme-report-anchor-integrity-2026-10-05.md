@@ -1,0 +1,25 @@
+# Current report anchor integrity — 5 October 2026
+
+The actual HTML section opened by the owner, `report.html#section-1`, still reported F1 release 15aa2d3c/shell438 after the queue and Markdown had advanced to live Surfing release 0237a79c/shell439. The earlier browser check only searched the whole document for the latest SHA, so the current banner elsewhere hid this stale executive paragraph. That was a false pass for the specifically requested entry point.
+
+## Correction and evidence
+
+The report projection now takes the authoritative Markdown section-1 decision, checks its app SHA against the current queue, and updates both the current banner and anchored executive paragraph. Original numbered chapter and image tags must remain exact. A repeat invocation reports zero changed paragraphs and does not rewrite the report. The saved updater is under the dated `programme-anchor-integrity-20261005` output folder; it is a documentary helper, not a sports refresh or scheduler.
+
+The strengthened existing browser check first fails on the actual stale section. After the repair, all thirty report checks pass: Chromium/WebKit and three widths across the audit/current brief/Surfing delivery (eighteen cases) plus the new consistency and source reports (twelve cases). Both current-decision paragraphs must agree with the authoritative executive, in addition to language, landmarks, keyboard access, layout, table scopes, all 51 original numbered chapters and three decoded diagram images. This is scoped browser structure and consistency evidence, not complete screen-reader certification.
+
+The prepared iPhone session now names current live 0237a79c/shell439 and its real cached 438→439 evidence. It removes the parked Passwords/iCloud retry from that session. Existing-access viewing is optional; no purchase, app uninstall or reminder replay is requested. A single readiness question was sent; no physical check, notification delivery, playback or recovery is inferred from preparation or silence.
+
+## Business value and operating decision
+
+| Recommendation | Value and evidence | Effort and dependencies | Cash and owner impact | Acceptance / why act |
+|---|---|---|---|---|
+| Keep current reports derived from the authoritative decision, with entry-point checks | Prevent stale next actions and version claims reaching the owner; red browser evidence reproduces the error | One bounded documentary correction; existing renderer, queue, frozen app proof and browser helper | A$0 new cash/subscriptions; no new routine owner task; runtime/model cost unpriced | Anchored section and current banner match; 51 chapters/three images survive; unchanged regeneration preserves report bytes |
+| Use one current prepared phone session | Turn an external proof gap into a small concrete owner task; earlier brief named obsolete shell386 | Existing installed iPhone/account; one 15–20 minute session when owner is available | No new service or purchase. Passwords/iCloud remains parked; Results/Remind OFF retained | Record actual outcomes; no synthetic or prepared-session credit. Keep playback and scheduled sports-reminder proof separate |
+| Continue a coherent correction of existing manual listings | Source review establishes a wrong carried Goodwood date and an unmatched MTB seed without adding coverage | Existing canonical note qualification, exact identities and normal release/cache gates; source observations separate from import dates | A$0 new services; no provider ingestion owner, new scheduler, outreach or recurring owner choice | Preserve saved actions and later verified facts; show organiser calendar windows without an invented Sydney clock or Australian broadcaster; never certify a family from these repairs |
+
+Production app remains **0237a79c3750039d71cf3f77c1947881e7e278dd**, independently READY at the current project/production target. This closeout changes documentation only; no app deployment is needed. Latest ordinary canonical job remains pre-fix failure 37226546768; no later scheduled run is observed and none is dispatched to manufacture proof. The initial incorrect workflow filename produced a 404; the correct canonical-card-refresh workflow was then inspected. A broad decision-record read was truncated; relevant rules were retrieved by their specific sections. Both observation errors changed no system state.
+
+Full acceptance remains **0/16 carried families and 0/3 Football pilots**, target **at least 13/16**. Whole-sport accuracy/polish, ordinary operation, applicable permissions, actual device/recovery and repeat use remain open. The previous goal turn was progress: Surfing was deployed and independently proved, then reports were published; the newly discovered anchor gap limits the previous report-consistency claim.
+
+Evidence: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/programme-anchor-integrity-20261005`; source assessment: `manual-seed-assessment-20261005` beside it. Preserve the source bodies/receipts, failing anchor check, exact before report, passing report cases and unchanged-rerun proof. Counters are not attributable bills or verified token savings.

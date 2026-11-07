@@ -1,0 +1,26 @@
+{
+  "reviewedAt": "2026-10-02T18:24:00.000Z",
+  "formatSourceUrl": "https://www.ussailgpteam.com/articles/92400abb-b0ad-4d0b-ad47-07842412e406/how-does-the-sailgp-season-work-how-do-teams-win-sailgp",
+  "venues": {
+    "Perth": {"slug":"perth","countryCode":"AU","city":"Fremantle, Perth","name":"Bathers Bay","sourceUrl":"https://sailgp.com/news/26/perth-back-dates-confirmed-2027-australia-sail-grand-prix/","seasons":[2026,2027]},
+    "Auckland": {"slug":"auckland","countryCode":"NZ","city":"Auckland"},
+    "Sydney": {"slug":"sydney","countryCode":"AU","city":"Sydney"},
+    "Rio": {"slug":"rio","countryCode":"BR","city":"Rio de Janeiro"},
+    "Bermuda": {"slug":"bermuda","countryCode":"BM","city":"Bermuda"},
+    "New York": {"slug":"new-york","countryCode":"US","city":"New York"},
+    "Halifax": {"slug":"halifax","countryCode":"CA","city":"Halifax"},
+    "Portsmouth": {"slug":"portsmouth","countryCode":"GB","city":"Portsmouth"},
+    "Sassnitz": {"slug":"sassnitz","countryCode":"DE","city":"Sassnitz"},
+    "Valencia": {"slug":"valencia","countryCode":"ES","city":"Valencia"},
+    "Geneva": {"slug":"geneva","countryCode":"CH","city":"Geneva"},
+    "Dubai": {"slug":"dubai","countryCode":"AE","city":"Dubai","name":"Port Rashid","sourceUrl":"https://tickets.sailgp.com/dubai/","seasons":[2026]},
+    "Abu Dhabi": {"slug":"abu-dhabi","countryCode":"AE","city":"Abu Dhabi","name":"Emirates Palace Marina","sourceUrl":"https://tickets.sailgp.com/abu-dhabi/","seasons":[2026]},
+    "Hong Kong": {"slug":"hong-kong","countryCode":"HK","city":"Hong Kong","name":"Victoria Harbour","sourceUrl":"https://mediahub.sailgp.com/news/26/rolex-sailgp-championship-2027-season-kicks-off-hong-kong/","seasons":[2027]},
+    "San Francisco": {"slug":"san-francisco","countryCode":"US","city":"San Francisco"},
+    "Rome": {"slug":"rome","countryCode":"IT","city":"Rome","name":"Porto Turistico di Roma","sourceUrl":"https://mediahub.sailgp.com/news/26/rolex-sailgp-championship-2027-season-rome-debut/","seasons":[2027]}
+  },
+  "extraPublishedDays": {
+    "2026:new-york": {"date":"2026-05-30","day":1,"sourceUrl":"https://mediahub.sailgp.com/news/26/havoc-hudson-new-york-delivers-wild-opening-day/","note":"Reduced fleet completed day one; event-specific entries are unconfirmed in this calendar coverage."}
+  },
+  "geometryNote": "No day-specific course or venue geometry has been verified. Country outlines are not race courses. Use the existing first-party sailing glyph."
+}

@@ -247,10 +247,10 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142501",
-            "researchTier": "featured",
+            "researchTier": "marquee",
             "hook": "Carlton's recovery from a one-and-eight start met Melbourne's surprise finals season; the advancing side remains concealed here.",
             "synopsis": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
-            "hookSpoilerOn": "Carlton defeated Melbourne 74-55. Carlton's recovery from a one-and-eight start met Melbourne's surprise finals season.",
+            "hookSpoilerOn": "Carlton defeated Melbourne 74-55.",
             "synopsisSpoilerOn": "Carlton defeated Melbourne 74-55. Melbourne v Carlton finished 55-74 in Wildcard Finals, with Carlton winning by 19 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
             "threadIds": [
               "thread:depth:afl:finals"
@@ -258,22 +258,27 @@
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142501:1",
               "fact:depth:afl:event-afl-cd-m20260142501:2",
-              "fact:depth:afl:event-afl-cd-m20260142501:3"
+              "fact:depth:afl:event-afl-cd-m20260142501:3",
+              "fact:depth:afl:event-afl-cd-m20260142502:1"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
               "source:depth:afl:finals-fixture",
               "source:depth:afl:final-ten-rules",
-              "source:depth:afl:match:event-afl-cd-m20260142501"
+              "source:depth:afl:match:event-afl-cd-m20260142501",
+              "source:depth:afl:match:event-afl-cd-m20260142502"
             ],
             "dimensions": [
               "form",
               "history",
               "consequence"
             ],
-            "researchedAt": "2026-09-04T07:51:40.028Z",
+            "researchedAt": "2026-09-30T22:50:31.966Z",
             "refreshAfter": null,
-            "generationMode": "researched"
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Carlton defeated Melbourne 74-55.\",\"Melbourne v Carlton — 55-74\",\"Melbourne v Carlton finished 55-74 in Wildcard Finals, with Carlton winning by 19 points.\"]"
           },
           "storyline": {
             "stakes": 5,
@@ -281,13 +286,26 @@
             "hookSpoilerOn": "Carlton's recovery from a one-and-eight start met Melbourne's surprise finals season; the advancing side remains concealed here.",
             "synopsisSpoilerOff": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
             "synopsisSpoilerOn": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
-            "arcStage": "preview"
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-30T22:50:31.966Z"
           },
           "competitionPhase": "wildcard-final",
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 4,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "displayName": "Melbourne v Carlton",
+          "endTimeUtc": "2026-08-29T12:35:00.000Z",
+          "venueName": "MCG",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t90",
+          "awayParticipantId": "team:afl:cd_t30",
+          "participantSlots": [],
+          "liveWindow": 3,
+          "venueCity": "Melbourne",
+          "schedulePrecision": "exact",
+          "timePrecision": "exact"
         },
         {
           "id": "event:afl:cd_m20260142502",
@@ -361,10 +379,10 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142502",
-            "researchTier": "featured",
+            "researchTier": "marquee",
             "hook": "The first AFL wildcard final came down to one kick after the siren; the survivor is hidden until spoilers are enabled.",
             "synopsis": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
-            "hookSpoilerOn": "Western Bulldogs defeated Collingwood 96-93. The first AFL wildcard final came down to one kick after the siren.",
+            "hookSpoilerOn": "Western Bulldogs defeated Collingwood 96-93.",
             "synopsisSpoilerOn": "Western Bulldogs defeated Collingwood 96-93. Western Bulldogs v Collingwood finished 96-93 in Wildcard Finals, with Western Bulldogs winning by 3 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
             "threadIds": [
               "thread:depth:afl:finals"
@@ -372,22 +390,27 @@
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142502:1",
               "fact:depth:afl:event-afl-cd-m20260142502:2",
-              "fact:depth:afl:event-afl-cd-m20260142502:3"
+              "fact:depth:afl:event-afl-cd-m20260142502:3",
+              "fact:depth:afl:event-afl-cd-m20260142501:1"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
               "source:depth:afl:finals-fixture",
               "source:depth:afl:final-ten-rules",
-              "source:depth:afl:match:event-afl-cd-m20260142502"
+              "source:depth:afl:match:event-afl-cd-m20260142502",
+              "source:depth:afl:match:event-afl-cd-m20260142501"
             ],
             "dimensions": [
               "form",
               "history",
               "consequence"
             ],
-            "researchedAt": "2026-09-04T07:51:40.028Z",
+            "researchedAt": "2026-09-30T22:50:31.966Z",
             "refreshAfter": null,
-            "generationMode": "researched"
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Western Bulldogs defeated Collingwood 96-93.\",\"Western Bulldogs v Collingwood — 96-93\",\"Western Bulldogs v Collingwood finished 96-93 in Wildcard Finals, with Western Bulldogs winning by 3 points.\"]"
           },
           "storyline": {
             "stakes": 5,
@@ -395,13 +418,26 @@
             "hookSpoilerOn": "The first AFL wildcard final came down to one kick after the siren; the survivor is hidden until spoilers are enabled.",
             "synopsisSpoilerOff": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
             "synopsisSpoilerOn": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
-            "arcStage": "preview"
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-30T22:50:31.966Z"
           },
           "competitionPhase": "wildcard-final",
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 4,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "displayName": "Western Bulldogs v Collingwood",
+          "endTimeUtc": "2026-08-28T12:40:00.000Z",
+          "venueName": "MCG",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t140",
+          "awayParticipantId": "team:afl:cd_t40",
+          "participantSlots": [],
+          "liveWindow": 3,
+          "venueCity": "Melbourne",
+          "schedulePrecision": "exact",
+          "timePrecision": "exact"
         },
         {
           "id": "event:afl:cd_m20260142601",
@@ -475,10 +511,10 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142601",
-            "researchTier": "featured",
+            "researchTier": "marquee",
             "hook": "Minor premier Fremantle meets the Hawthorn side that seized fourth on the final day; the reward is a week off, not elimination.",
             "synopsis": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrived after its final-round performance delivered the last top-four place, so this became a contest between season-long control and a late seeding surge, with a direct home preliminary-final place at stake.",
-            "hookSpoilerOn": "Hawthorn defeated Fremantle 72-40. Minor premier Fremantle meets the Hawthorn side that seized fourth on the final day.",
+            "hookSpoilerOn": "Hawthorn defeated Fremantle 72-40.",
             "synopsisSpoilerOn": "Hawthorn defeated Fremantle 72-40. Fremantle v Hawthorn finished 40-72 in Qualifying & Elimination Finals, with Hawthorn winning by 32 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
             "threadIds": [
               "thread:depth:afl:finals"
@@ -486,22 +522,27 @@
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142601:1",
               "fact:depth:afl:event-afl-cd-m20260142601:2",
-              "fact:depth:afl:event-afl-cd-m20260142601:3"
+              "fact:depth:afl:event-afl-cd-m20260142601:3",
+              "fact:depth:afl:event-afl-cd-m20260142502:1"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
               "source:depth:afl:finals-fixture",
               "source:depth:afl:final-ten-rules",
-              "source:depth:afl:match:event-afl-cd-m20260142601"
+              "source:depth:afl:match:event-afl-cd-m20260142601",
+              "source:depth:afl:match:event-afl-cd-m20260142502"
             ],
             "dimensions": [
               "form",
               "path",
               "consequence"
             ],
-            "researchedAt": "2026-09-04T07:51:40.028Z",
+            "researchedAt": "2026-09-30T22:50:31.966Z",
             "refreshAfter": null,
-            "generationMode": "researched"
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Hawthorn defeated Fremantle 72-40.\",\"Fremantle v Hawthorn — 40-72\",\"Fremantle v Hawthorn finished 40-72 in Qualifying & Elimination Finals, with Hawthorn winning by 32 points.\"]"
           },
           "storyline": {
             "stakes": 5,
@@ -509,13 +550,26 @@
             "hookSpoilerOn": "Minor premier Fremantle meets the Hawthorn side that seized fourth on the final day; the reward is a week off, not elimination.",
             "synopsisSpoilerOff": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrived after its final-round performance delivered the last top-four place, so this became a contest between season-long control and a late seeding surge, with a direct home preliminary-final place at stake.",
             "synopsisSpoilerOn": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrived after its final-round performance delivered the last top-four place, so this became a contest between season-long control and a late seeding surge, with a direct home preliminary-final place at stake.",
-            "arcStage": "preview"
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-30T22:50:31.966Z"
           },
           "competitionPhase": "finals-week-1",
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 4,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "displayName": "Fremantle v Hawthorn",
+          "endTimeUtc": "2026-09-03T13:10:00.000Z",
+          "venueName": "Optus Stadium",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t60",
+          "awayParticipantId": "team:afl:cd_t80",
+          "participantSlots": [],
+          "liveWindow": 3,
+          "schedulePrecision": "exact",
+          "timePrecision": "exact",
+          "venueCity": "Perth"
         },
         {
           "id": "event:afl:cd_m20260142602",
@@ -589,45 +643,65 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142602",
-            "researchTier": "featured",
+            "researchTier": "marquee",
             "hook": "Sydney's five straight wins meet Brisbane's three in a qualifying final that turns current form into a week-off prize.",
-            "synopsis": "Sydney finished second after five consecutive wins; Brisbane closed third with three of its own. The SCG qualifying final therefore matches the two strongest finishing streaks on this side of the bracket, with the winner bypassing the semi-finals and the loser retaining one life.",
+            "synopsis": "Sydney entered September second after five consecutive wins; Brisbane entered third with three of its own. The SCG qualifying final matches the two strongest finishing streaks on this side of the bracket, with a week off and a home preliminary final on offer and a second chance for the other side.",
+            "hookSpoilerOn": "Sydney Swans defeated Brisbane Lions 141-88.",
+            "synopsisSpoilerOn": "Sydney Swans defeated Brisbane Lions 141-88. Sydney Swans v Brisbane Lions finished 141-88 in Qualifying & Elimination Finals, with Sydney Swans winning by 53 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
             "threadIds": [
               "thread:depth:afl:finals"
             ],
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142602:1",
               "fact:depth:afl:event-afl-cd-m20260142602:2",
-              "fact:depth:afl:event-afl-cd-m20260142602:3"
+              "fact:depth:afl:event-afl-cd-m20260142602:3",
+              "fact:depth:afl:event-afl-cd-m20260142502:1"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
               "source:depth:afl:finals-fixture",
               "source:depth:afl:final-ten-rules",
-              "source:depth:afl:match:event-afl-cd-m20260142602"
+              "source:depth:afl:match:event-afl-cd-m20260142602",
+              "source:depth:afl:match:event-afl-cd-m20260142502"
             ],
             "dimensions": [
               "form",
               "path",
               "consequence"
             ],
-            "researchedAt": "2026-09-04T07:51:40.028Z",
-            "refreshAfter": "2026-09-05T05:15:00.000Z",
-            "generationMode": "researched"
+            "researchedAt": "2026-09-30T22:50:31.966Z",
+            "refreshAfter": null,
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Sydney Swans defeated Brisbane Lions 141-88.\",\"Sydney Swans v Brisbane Lions — 141-88\",\"Sydney Swans v Brisbane Lions finished 141-88 in Qualifying & Elimination Finals, with Sydney Swans winning by 53 points.\"]"
           },
           "storyline": {
             "stakes": 5,
             "hookSpoilerOff": "Sydney's five straight wins meet Brisbane's three in a qualifying final that turns current form into a week-off prize.",
             "hookSpoilerOn": "Sydney's five straight wins meet Brisbane's three in a qualifying final that turns current form into a week-off prize.",
-            "synopsisSpoilerOff": "Sydney finished second after five consecutive wins; Brisbane closed third with three of its own. The SCG qualifying final therefore matches the two strongest finishing streaks on this side of the bracket, with the winner bypassing the semi-finals and the loser retaining one life.",
-            "synopsisSpoilerOn": "Sydney finished second after five consecutive wins; Brisbane closed third with three of its own. The SCG qualifying final therefore matches the two strongest finishing streaks on this side of the bracket, with the winner bypassing the semi-finals and the loser retaining one life.",
-            "arcStage": "preview"
+            "synopsisSpoilerOff": "Sydney entered September second after five consecutive wins; Brisbane entered third with three of its own. The SCG qualifying final matches the two strongest finishing streaks on this side of the bracket, with a week off and a home preliminary final on offer and a second chance for the other side.",
+            "synopsisSpoilerOn": "Sydney entered September second after five consecutive wins; Brisbane entered third with three of its own. The SCG qualifying final matches the two strongest finishing streaks on this side of the bracket, with a week off and a home preliminary final on offer and a second chance for the other side.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-30T22:50:31.966Z"
           },
           "competitionPhase": "finals-week-1",
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 4,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "displayName": "Sydney Swans v Brisbane Lions",
+          "endTimeUtc": "2026-09-05T08:15:00.000Z",
+          "venueName": "SCG",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t160",
+          "awayParticipantId": "team:afl:cd_t20",
+          "participantSlots": [],
+          "liveWindow": 3,
+          "venueCity": "Sydney",
+          "schedulePrecision": "exact",
+          "timePrecision": "exact"
         },
         {
           "id": "event:afl:cd_m20260142603",
@@ -701,31 +775,38 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142603",
-            "researchTier": "featured",
+            "researchTier": "marquee",
             "hook": "Carlton's rescue from a one-win, eight-loss start has one life left against a Geelong side that closed the season with six straight wins.",
             "synopsis": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
+            "hookSpoilerOn": "Geelong Cats defeated Carlton 107-74.",
+            "synopsisSpoilerOn": "Geelong Cats defeated Carlton 107-74. Geelong Cats v Carlton finished 107-74 in Qualifying & Elimination Finals, with Geelong Cats winning by 33 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
             "threadIds": [
               "thread:depth:afl:finals"
             ],
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142603:1",
               "fact:depth:afl:event-afl-cd-m20260142603:2",
-              "fact:depth:afl:event-afl-cd-m20260142603:3"
+              "fact:depth:afl:event-afl-cd-m20260142603:3",
+              "fact:depth:afl:event-afl-cd-m20260142502:1"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
               "source:depth:afl:finals-fixture",
               "source:depth:afl:final-ten-rules",
-              "source:depth:afl:match:event-afl-cd-m20260142603"
+              "source:depth:afl:match:event-afl-cd-m20260142603",
+              "source:depth:afl:match:event-afl-cd-m20260142502"
             ],
             "dimensions": [
               "form",
               "path",
               "consequence"
             ],
-            "researchedAt": "2026-09-04T07:51:40.028Z",
-            "refreshAfter": "2026-09-04T09:40:00.000Z",
-            "generationMode": "researched"
+            "researchedAt": "2026-09-30T22:50:31.966Z",
+            "refreshAfter": null,
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Geelong Cats defeated Carlton 107-74.\",\"Geelong Cats v Carlton — 107-74\",\"Geelong Cats v Carlton finished 107-74 in Qualifying & Elimination Finals, with Geelong Cats winning by 33 points.\"]"
           },
           "storyline": {
             "stakes": 5,
@@ -733,13 +814,26 @@
             "hookSpoilerOn": "Carlton's rescue from a one-win, eight-loss start has one life left against a Geelong side that closed the season with six straight wins.",
             "synopsisSpoilerOff": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
             "synopsisSpoilerOn": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
-            "arcStage": "preview"
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-30T22:50:31.966Z"
           },
           "competitionPhase": "finals-week-1",
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 4,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "displayName": "Geelong Cats v Carlton",
+          "endTimeUtc": "2026-09-04T12:40:00.000Z",
+          "venueName": "MCG",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t70",
+          "awayParticipantId": "team:afl:cd_t30",
+          "participantSlots": [],
+          "liveWindow": 3,
+          "venueCity": "Melbourne",
+          "schedulePrecision": "exact",
+          "timePrecision": "exact"
         },
         {
           "id": "event:afl:cd_m20260142604",
@@ -813,58 +907,78 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142604",
-            "researchTier": "featured",
+            "researchTier": "marquee",
             "hook": "The Bulldogs survived the first wildcard by one kick; Adelaide now asks them to win sudden-death football away from home.",
-            "synopsis": "Western Bulldogs reached Adelaide only after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
+            "synopsis": "Western Bulldogs arrived in Adelaide after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
+            "hookSpoilerOn": "Adelaide Crows defeated Western Bulldogs 90-68.",
+            "synopsisSpoilerOn": "Adelaide Crows defeated Western Bulldogs 90-68. Adelaide Crows v Western Bulldogs finished 90-68 in Qualifying & Elimination Finals, with Adelaide Crows winning by 22 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
             "threadIds": [
               "thread:depth:afl:finals"
             ],
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142604:1",
               "fact:depth:afl:event-afl-cd-m20260142604:2",
-              "fact:depth:afl:event-afl-cd-m20260142604:3"
+              "fact:depth:afl:event-afl-cd-m20260142604:3",
+              "fact:depth:afl:event-afl-cd-m20260142502:1"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
               "source:depth:afl:finals-fixture",
               "source:depth:afl:final-ten-rules",
-              "source:depth:afl:match:event-afl-cd-m20260142604"
+              "source:depth:afl:match:event-afl-cd-m20260142604",
+              "source:depth:afl:match:event-afl-cd-m20260142502"
             ],
             "dimensions": [
               "form",
               "path",
               "consequence"
             ],
-            "researchedAt": "2026-09-04T07:51:40.028Z",
-            "refreshAfter": "2026-09-05T09:35:00.000Z",
-            "generationMode": "researched"
+            "researchedAt": "2026-09-30T22:50:31.966Z",
+            "refreshAfter": null,
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Adelaide Crows defeated Western Bulldogs 90-68.\",\"Adelaide Crows v Western Bulldogs — 90-68\",\"Adelaide Crows v Western Bulldogs finished 90-68 in Qualifying & Elimination Finals, with Adelaide Crows winning by 22 points.\"]"
           },
           "storyline": {
             "stakes": 5,
             "hookSpoilerOff": "The Bulldogs survived the first wildcard by one kick; Adelaide now asks them to win sudden-death football away from home.",
             "hookSpoilerOn": "The Bulldogs survived the first wildcard by one kick; Adelaide now asks them to win sudden-death football away from home.",
-            "synopsisSpoilerOff": "Western Bulldogs reached Adelaide only after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
-            "synopsisSpoilerOn": "Western Bulldogs reached Adelaide only after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
-            "arcStage": "preview"
+            "synopsisSpoilerOff": "Western Bulldogs arrived in Adelaide after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
+            "synopsisSpoilerOn": "Western Bulldogs arrived in Adelaide after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-30T22:50:31.966Z"
           },
           "competitionPhase": "finals-week-1",
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 4,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "displayName": "Adelaide Crows v Western Bulldogs",
+          "endTimeUtc": "2026-09-05T12:35:00.000Z",
+          "venueName": "Adelaide Oval",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t10",
+          "awayParticipantId": "team:afl:cd_t140",
+          "participantSlots": [],
+          "liveWindow": 3,
+          "schedulePrecision": "exact",
+          "timePrecision": "exact",
+          "venueCity": "Adelaide"
         },
         {
           "id": "event:afl:cd_m20260142701",
           "name": "Semi Final 1 - loser of QF1 v winner of EF1",
           "roundLabel": "Semi Finals",
           "stage": "Semi Finals",
-          "startTimeUtc": null,
+          "startTimeUtc": "2026-09-11T10:10:00.000Z",
           "venue": "Venue TBC",
           "stakesScore": 5,
           "summary": "First Semi Final. Teams, venue and time are pending first-week results.",
           "participantIds": [
             "team:afl:cd_t60",
-            "team:afl:cd_t3016"
+            "team:afl:cd_t70"
           ],
           "participants": [
             {
@@ -924,70 +1038,80 @@
           ],
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
-            "projectionId": "projection:major:afl-finals-2026:child:event:afl:cd_m20260142701",
+            "projectionId": "projection:rolling:event-afl-cd-m20260142701",
             "researchTier": "marquee",
-            "hook": "Loser of QF1 and Winner of EF1 are in sudden death for a preliminary-final place.",
-            "synopsis": "Loser of QF1 and Winner of EF1 are in sudden death for a preliminary-final place. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
+            "hook": "Fremantle's minor premiership now offers no safety net: Geelong brings its September run west for a single remaining path to a preliminary final.",
+            "synopsis": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
+            "hookSpoilerOn": "Fremantle defeated Geelong Cats 120-106.",
+            "synopsisSpoilerOn": "Fremantle defeated Geelong Cats 120-106. Fremantle v Geelong Cats finished 120-106 in Semi Finals, with Fremantle winning by 14 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
             "threadIds": [
-              "thread:afl:finals-2026:first-wildcard-road"
+              "thread:depth:afl:finals"
             ],
             "factIds": [
-              "fact:afl-finals-2026:new-format",
-              "fact:afl-finals-2026:wildcard-results",
-              "fact:afl-finals-2026:week-two-path",
-              "fact:afl-finals-2026:carlton-revival",
-              "fact:afl-finals-2026:bulldogs-jones",
-              "fact:afl-finals-2026:destination"
+              "fact:depth:afl:event-afl-cd-m20260142701:1",
+              "fact:depth:afl:event-afl-cd-m20260142701:2",
+              "fact:depth:afl:event-afl-cd-m20260142701:3",
+              "fact:depth:afl:event-afl-cd-m20260142502:1"
             ],
             "sourceIds": [
-              "source:afl:2026-wildcard-format",
-              "source:afl:2026-bulldogs-wildcard",
-              "source:afl:2026-arty-jones",
-              "source:afl:2026-carlton-wildcard",
-              "source:afl:2026-week-two",
-              "source:afl:2026-grand-final-time"
+              "source:depth:afl:ladder",
+              "source:depth:afl:finals-fixture",
+              "source:depth:afl:final-ten-rules",
+              "source:depth:afl:match:event-afl-cd-m20260142701",
+              "source:depth:afl:match:event-afl-cd-m20260142502"
             ],
             "dimensions": [
-              "format",
               "form",
               "path",
-              "history",
-              "schedule"
+              "consequence"
             ],
-            "researchedAt": "2026-08-29T19:30:00.000Z",
-            "refreshAfter": "2026-09-03T10:00:00.000Z",
-            "generationMode": "verified-parent-child-projection"
+            "researchedAt": "2026-09-30T22:50:31.966Z",
+            "refreshAfter": null,
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Fremantle defeated Geelong Cats 120-106.\",\"Fremantle v Geelong Cats — 120-106\",\"Fremantle v Geelong Cats finished 120-106 in Semi Finals, with Fremantle winning by 14 points.\"]"
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "Loser of QF1 and Winner of EF1 are in sudden death for a preliminary-final place.",
-            "hookSpoilerOn": "Loser of QF1 and Winner of EF1 are in sudden death for a preliminary-final place.",
-            "synopsisSpoilerOff": "Loser of QF1 and Winner of EF1 are in sudden death for a preliminary-final place. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-            "synopsisSpoilerOn": "Loser of QF1 and Winner of EF1 are in sudden death for a preliminary-final place. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "Fremantle's minor premiership now offers no safety net: Geelong brings its September run west for a single remaining path to a preliminary final.",
+            "hookSpoilerOn": "Fremantle's minor premiership now offers no safety net: Geelong brings its September run west for a single remaining path to a preliminary final.",
+            "synopsisSpoilerOff": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
+            "synopsisSpoilerOn": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-30T22:50:31.966Z"
           },
           "competitionPhase": "semi-final",
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 4,
           "codeId": "sport:afl",
           "surfaceClassification": "code",
-          "schedulePrecision": "week",
-          "weekAnchorDate": "2026-09-07",
-          "displayDateLabel": "Week of Monday, 7 Sep",
-          "date": "2026-09-07"
+          "schedulePrecision": "exact",
+          "date": "2026-09-07",
+          "displayName": "Fremantle v Geelong Cats",
+          "endTimeUtc": "2026-09-11T13:10:00.000Z",
+          "venueName": "Optus Stadium",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t60",
+          "awayParticipantId": "team:afl:cd_t70",
+          "participantSlots": [],
+          "liveWindow": 3,
+          "timePrecision": "exact",
+          "venueCity": "Perth"
         },
         {
           "id": "event:afl:cd_m20260142702",
           "name": "Semi Final 2 - loser of QF2 v winner of EF2",
           "roundLabel": "Semi Finals",
           "stage": "Semi Finals",
-          "startTimeUtc": null,
+          "startTimeUtc": "2026-09-12T09:35:00.000Z",
           "venue": "Venue TBC",
           "stakesScore": 5,
           "summary": "Second Semi Final. Teams, venue and time are pending first-week results.",
           "participantIds": [
-            "team:afl:cd_t3015",
-            "team:afl:cd_t3017"
+            "team:afl:cd_t20",
+            "team:afl:cd_t10"
           ],
           "participants": [
             {
@@ -1047,88 +1171,99 @@
           ],
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
-            "projectionId": "projection:major:afl-finals-2026:child:event:afl:cd_m20260142702",
+            "projectionId": "projection:rolling:event-afl-cd-m20260142702",
             "researchTier": "marquee",
-            "hook": "Loser of QF2 and Winner of EF2 are in sudden death for a preliminary-final place.",
-            "synopsis": "Loser of QF2 and Winner of EF2 are in sudden death for a preliminary-final place. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
+            "hook": "Brisbane's top-three season earns one more home opportunity; Adelaide must turn its sixth-place route into an away semi-final breakthrough.",
+            "synopsis": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
+            "hookSpoilerOn": "Brisbane Lions defeated Adelaide Crows 144-91.",
+            "synopsisSpoilerOn": "Brisbane Lions defeated Adelaide Crows 144-91. Brisbane Lions v Adelaide Crows finished 144-91 in Semi Finals, with Brisbane Lions winning by 53 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
             "threadIds": [
-              "thread:afl:finals-2026:first-wildcard-road"
+              "thread:depth:afl:finals"
             ],
             "factIds": [
-              "fact:afl-finals-2026:new-format",
-              "fact:afl-finals-2026:wildcard-results",
-              "fact:afl-finals-2026:week-two-path",
-              "fact:afl-finals-2026:carlton-revival",
-              "fact:afl-finals-2026:bulldogs-jones",
-              "fact:afl-finals-2026:destination"
+              "fact:depth:afl:event-afl-cd-m20260142702:1",
+              "fact:depth:afl:event-afl-cd-m20260142702:2",
+              "fact:depth:afl:event-afl-cd-m20260142702:3",
+              "fact:depth:afl:event-afl-cd-m20260142502:1"
             ],
             "sourceIds": [
-              "source:afl:2026-wildcard-format",
-              "source:afl:2026-bulldogs-wildcard",
-              "source:afl:2026-arty-jones",
-              "source:afl:2026-carlton-wildcard",
-              "source:afl:2026-week-two",
-              "source:afl:2026-grand-final-time"
+              "source:depth:afl:ladder",
+              "source:depth:afl:finals-fixture",
+              "source:depth:afl:final-ten-rules",
+              "source:depth:afl:match:event-afl-cd-m20260142702",
+              "source:depth:afl:match:event-afl-cd-m20260142502"
             ],
             "dimensions": [
-              "format",
-              "form",
               "path",
-              "history",
-              "schedule"
+              "venue",
+              "consequence",
+              "form"
             ],
-            "researchedAt": "2026-08-29T19:30:00.000Z",
-            "refreshAfter": "2026-09-03T10:00:00.000Z",
-            "generationMode": "verified-parent-child-projection"
+            "researchedAt": "2026-09-30T22:50:31.966Z",
+            "refreshAfter": null,
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Brisbane Lions defeated Adelaide Crows 144-91.\",\"Brisbane Lions v Adelaide Crows — 144-91\",\"Brisbane Lions v Adelaide Crows finished 144-91 in Semi Finals, with Brisbane Lions winning by 53 points.\"]"
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "Loser of QF2 and Winner of EF2 are in sudden death for a preliminary-final place.",
-            "hookSpoilerOn": "Loser of QF2 and Winner of EF2 are in sudden death for a preliminary-final place.",
-            "synopsisSpoilerOff": "Loser of QF2 and Winner of EF2 are in sudden death for a preliminary-final place. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-            "synopsisSpoilerOn": "Loser of QF2 and Winner of EF2 are in sudden death for a preliminary-final place. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "Brisbane's top-three season earns one more home opportunity; Adelaide must turn its sixth-place route into an away semi-final breakthrough.",
+            "hookSpoilerOn": "Brisbane's top-three season earns one more home opportunity; Adelaide must turn its sixth-place route into an away semi-final breakthrough.",
+            "synopsisSpoilerOff": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
+            "synopsisSpoilerOn": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-30T22:50:31.966Z"
           },
           "competitionPhase": "semi-final",
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 4,
           "codeId": "sport:afl",
           "surfaceClassification": "code",
-          "schedulePrecision": "week",
-          "weekAnchorDate": "2026-09-07",
-          "displayDateLabel": "Week of Monday, 7 Sep",
-          "date": "2026-09-07"
+          "schedulePrecision": "exact",
+          "date": "2026-09-07",
+          "displayName": "Brisbane Lions v Adelaide Crows",
+          "endTimeUtc": "2026-09-12T12:35:00.000Z",
+          "venueName": "Gabba",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t20",
+          "awayParticipantId": "team:afl:cd_t10",
+          "participantSlots": [],
+          "liveWindow": 3,
+          "timePrecision": "exact",
+          "venueCity": "Brisbane"
         },
         {
           "id": "event:afl:cd_m20260142801",
-          "name": "Preliminary Final 1 - winner of QF1 v winner of SF2",
+          "name": "Hawthorn v Brisbane Lions",
           "roundLabel": "Preliminary Finals",
           "stage": "Preliminary Finals",
-          "startTimeUtc": null,
-          "venue": "Venue TBC",
+          "startTimeUtc": "2026-09-19T07:15:00.000Z",
+          "venue": "MCG",
           "stakesScore": 5,
-          "summary": "First Preliminary Final. Teams, venue and time are pending the Semi Finals.",
+          "summary": "Hawthorn v Brisbane Lions at MCG, 2026-09-19 17:15.",
           "participantIds": [
             "team:afl:cd_t80",
-            "team:afl:cd_t3019"
+            "team:afl:cd_t20"
           ],
           "participants": [
             {
               "id": "team:afl:cd_t80",
-              "participantId": "team:afl:cd_t80",
-              "name": "Hawthorn"
+              "name": "Hawthorn",
+              "role": "home"
             },
             {
-              "id": "team:afl:cd_t3019",
-              "participantId": "team:afl:cd_t3019",
-              "name": "Winner of SF2"
+              "id": "team:afl:cd_t20",
+              "name": "Brisbane Lions",
+              "role": "away"
             }
           ],
-          "broadcaster": "Kayo Sports",
+          "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports / Binge",
           "broadcasterIds": [
-            "kayo",
+            "seven",
             "foxtel",
-            "seven"
+            "kayo"
           ],
           "broadcastOptions": [
             "Kayo Sports",
@@ -1170,88 +1305,106 @@
           ],
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
-            "projectionId": "projection:major:afl-finals-2026:child:event:afl:cd_m20260142801",
+            "projectionId": "projection:fixture-research:event-afl-cd_m20260142801",
             "researchTier": "marquee",
-            "hook": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final.",
-            "synopsis": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
+            "hook": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
+            "synopsis": "Hawthorn have the week off behind them and the MCG in front of them; Brisbane arrive with back-to-back premiership experience and a strong recent record at the ground. The matchup is Hawthorn's preparation and pressure against Brisbane's finals know-how. The winner advances to the Grand Final, while the loser is finished.",
             "threadIds": [
-              "thread:afl:finals-2026:first-wildcard-road"
+              "thread:fixture-research:event-afl-cd_m20260142801:revision-099e7a698f754ce1f3a9606ba797de5d34906fbca8cc7864fd7f8f8c8b077873"
             ],
             "factIds": [
-              "fact:afl-finals-2026:new-format",
-              "fact:afl-finals-2026:wildcard-results",
-              "fact:afl-finals-2026:week-two-path",
-              "fact:afl-finals-2026:carlton-revival",
-              "fact:afl-finals-2026:bulldogs-jones",
-              "fact:afl-finals-2026:destination"
+              "fact:fixture-research:event-afl-cd_m20260142801:revision-099e7a698f754ce1f3a9606ba797de5d34906fbca8cc7864fd7f8f8c8b077873:0",
+              "fact:fixture-research:event-afl-cd_m20260142801:revision-099e7a698f754ce1f3a9606ba797de5d34906fbca8cc7864fd7f8f8c8b077873:1",
+              "fact:fixture-research:event-afl-cd_m20260142801:revision-099e7a698f754ce1f3a9606ba797de5d34906fbca8cc7864fd7f8f8c8b077873:2",
+              "fact:fixture-research:event-afl-cd_m20260142801:revision-099e7a698f754ce1f3a9606ba797de5d34906fbca8cc7864fd7f8f8c8b077873:3"
             ],
             "sourceIds": [
-              "source:afl:2026-wildcard-format",
-              "source:afl:2026-bulldogs-wildcard",
-              "source:afl:2026-arty-jones",
-              "source:afl:2026-carlton-wildcard",
-              "source:afl:2026-week-two",
-              "source:afl:2026-grand-final-time"
+              "source:fixture-research:event-afl-cd_m20260142801:revision-099e7a698f754ce1f3a9606ba797de5d34906fbca8cc7864fd7f8f8c8b077873:0",
+              "source:fixture-research:event-afl-cd_m20260142801:revision-099e7a698f754ce1f3a9606ba797de5d34906fbca8cc7864fd7f8f8c8b077873:1",
+              "source:fixture-research:event-afl-cd_m20260142801:revision-099e7a698f754ce1f3a9606ba797de5d34906fbca8cc7864fd7f8f8c8b077873:2"
             ],
             "dimensions": [
-              "format",
+              "matchup",
               "form",
               "path",
-              "history",
               "schedule"
             ],
-            "researchedAt": "2026-08-29T19:30:00.000Z",
-            "refreshAfter": "2026-09-03T10:00:00.000Z",
-            "generationMode": "verified-parent-child-projection"
+            "researchedAt": "2026-09-17T23:22:14.102Z",
+            "refreshAfter": "2026-09-19T07:15:00.000Z",
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "preview",
+            "resultSignature": "[\"completed\",\"Brisbane Lions defeated Hawthorn 131-122.\",\"Hawthorn v Brisbane Lions — 122-131\",\"Hawthorn v Brisbane Lions finished 122-131 in Preliminary Finals, with Brisbane Lions winning by 9 points.\"]",
+            "hookSpoilerOn": "Brisbane Lions defeated Hawthorn 131-122.",
+            "synopsisSpoilerOn": "Hawthorn v Brisbane Lions finished 122-131 in Preliminary Finals, with Brisbane Lions winning by 9 points."
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final.",
-            "hookSpoilerOn": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final.",
-            "synopsisSpoilerOff": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-            "synopsisSpoilerOn": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
+            "hookSpoilerOn": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
+            "synopsisSpoilerOff": "Hawthorn have the week off behind them and the MCG in front of them; Brisbane arrive with back-to-back premiership experience and a strong recent record at the ground. The matchup is Hawthorn's preparation and pressure against Brisbane's finals know-how. The winner advances to the Grand Final, while the loser is finished.",
+            "synopsisSpoilerOn": "Hawthorn have the week off behind them and the MCG in front of them; Brisbane arrive with back-to-back premiership experience and a strong recent record at the ground. The matchup is Hawthorn's preparation and pressure against Brisbane's finals know-how. The winner advances to the Grand Final, while the loser is finished.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-17T23:22:14.102Z"
           },
           "competitionPhase": "preliminary-final",
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 5,
           "codeId": "sport:afl",
           "surfaceClassification": "code",
-          "schedulePrecision": "week",
-          "weekAnchorDate": "2026-09-14",
-          "displayDateLabel": "Week of Monday, 14 Sep",
-          "date": "2026-09-14"
+          "schedulePrecision": "exact",
+          "date": "2026-09-19",
+          "displayName": "Hawthorn v Brisbane Lions",
+          "time": "17:15",
+          "timePrecision": "exact",
+          "venueName": "MCG",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t80",
+          "awayParticipantId": "team:afl:cd_t20",
+          "sourceUrl": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
+          "sourceName": "AFL",
+          "sourceType": "official",
+          "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+          "sourceRefs": [
+            "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
+            "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
+          ],
+          "participantSlots": [],
+          "liveWindow": 3,
+          "venueCity": "Melbourne",
+          "endTimeUtc": "2026-09-19T10:15:00.000Z"
         },
         {
           "id": "event:afl:cd_m20260142802",
-          "name": "Preliminary Final 2 - winner of QF2 v winner of SF1",
+          "name": "Sydney Swans v Fremantle",
           "roundLabel": "Preliminary Finals",
           "stage": "Preliminary Finals",
-          "startTimeUtc": null,
-          "venue": "Venue TBC",
+          "startTimeUtc": "2026-09-18T09:40:00.000Z",
+          "venue": "SCG",
           "stakesScore": 5,
-          "summary": "Second Preliminary Final. Teams, venue and time are pending the Semi Finals.",
+          "summary": "Sydney Swans v Fremantle at SCG, 2026-09-18 19:40.",
           "participantIds": [
-            "team:afl:cd_t3013",
-            "team:afl:cd_t3018"
+            "team:afl:cd_t160",
+            "team:afl:cd_t60"
           ],
           "participants": [
             {
-              "id": "team:afl:cd_t3013",
-              "participantId": "team:afl:cd_t3013",
-              "name": "Winner of QF2"
+              "id": "team:afl:cd_t160",
+              "name": "Sydney Swans",
+              "role": "home"
             },
             {
-              "id": "team:afl:cd_t3018",
-              "participantId": "team:afl:cd_t3018",
-              "name": "Winner of SF1"
+              "id": "team:afl:cd_t60",
+              "name": "Fremantle",
+              "role": "away"
             }
           ],
-          "broadcaster": "Kayo Sports",
+          "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports / Binge",
           "broadcasterIds": [
-            "kayo",
+            "seven",
             "foxtel",
-            "seven"
+            "kayo"
           ],
           "broadcastOptions": [
             "Kayo Sports",
@@ -1293,109 +1446,129 @@
           ],
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
-            "projectionId": "projection:major:afl-finals-2026:child:event:afl:cd_m20260142802",
+            "projectionId": "projection:fixture-research:event-afl-cd_m20260142802",
             "researchTier": "marquee",
-            "hook": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final.",
-            "synopsis": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
+            "hook": "Sydney face Fremantle at the SCG with a Grand Final place on the line.",
+            "synopsis": "Sydney bring the SCG and a week to prepare; Fremantle bring minor-premier form and the momentum of a semi-final win. This is a direct test of Sydney's pressure against Fremantle's ability to turn the home-and-away season into a finals win. The winner advances to the Grand Final, while the loser is finished.",
             "threadIds": [
-              "thread:afl:finals-2026:first-wildcard-road"
+              "thread:fixture-research:event-afl-cd_m20260142802:revision-68f1447014b59f8b78dc59cc2e3d15f26fd2892014dbc8e971d86ebaad69b884"
             ],
             "factIds": [
-              "fact:afl-finals-2026:new-format",
-              "fact:afl-finals-2026:wildcard-results",
-              "fact:afl-finals-2026:week-two-path",
-              "fact:afl-finals-2026:carlton-revival",
-              "fact:afl-finals-2026:bulldogs-jones",
-              "fact:afl-finals-2026:destination"
+              "fact:fixture-research:event-afl-cd_m20260142802:revision-68f1447014b59f8b78dc59cc2e3d15f26fd2892014dbc8e971d86ebaad69b884:0",
+              "fact:fixture-research:event-afl-cd_m20260142802:revision-68f1447014b59f8b78dc59cc2e3d15f26fd2892014dbc8e971d86ebaad69b884:1",
+              "fact:fixture-research:event-afl-cd_m20260142802:revision-68f1447014b59f8b78dc59cc2e3d15f26fd2892014dbc8e971d86ebaad69b884:2",
+              "fact:fixture-research:event-afl-cd_m20260142802:revision-68f1447014b59f8b78dc59cc2e3d15f26fd2892014dbc8e971d86ebaad69b884:3"
             ],
             "sourceIds": [
-              "source:afl:2026-wildcard-format",
-              "source:afl:2026-bulldogs-wildcard",
-              "source:afl:2026-arty-jones",
-              "source:afl:2026-carlton-wildcard",
-              "source:afl:2026-week-two",
-              "source:afl:2026-grand-final-time"
+              "source:fixture-research:event-afl-cd_m20260142802:revision-68f1447014b59f8b78dc59cc2e3d15f26fd2892014dbc8e971d86ebaad69b884:0",
+              "source:fixture-research:event-afl-cd_m20260142802:revision-68f1447014b59f8b78dc59cc2e3d15f26fd2892014dbc8e971d86ebaad69b884:1",
+              "source:fixture-research:event-afl-cd_m20260142802:revision-68f1447014b59f8b78dc59cc2e3d15f26fd2892014dbc8e971d86ebaad69b884:2"
             ],
             "dimensions": [
-              "format",
+              "matchup",
               "form",
               "path",
-              "history",
               "schedule"
             ],
-            "researchedAt": "2026-08-29T19:30:00.000Z",
-            "refreshAfter": "2026-09-03T10:00:00.000Z",
-            "generationMode": "verified-parent-child-projection"
+            "researchedAt": "2026-09-17T23:22:14.102Z",
+            "refreshAfter": "2026-09-18T09:40:00.000Z",
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "preview",
+            "resultSignature": "[\"completed\",\"Fremantle defeated Sydney Swans 83-71.\",\"Sydney Swans v Fremantle — 71-83\",\"Sydney Swans v Fremantle finished 71-83 in Preliminary Finals, with Fremantle winning by 12 points.\"]",
+            "hookSpoilerOn": "Fremantle defeated Sydney Swans 83-71.",
+            "synopsisSpoilerOn": "Sydney Swans v Fremantle finished 71-83 in Preliminary Finals, with Fremantle winning by 12 points."
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final.",
-            "hookSpoilerOn": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final.",
-            "synopsisSpoilerOff": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-            "synopsisSpoilerOn": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "Sydney face Fremantle at the SCG with a Grand Final place on the line.",
+            "hookSpoilerOn": "Sydney face Fremantle at the SCG with a Grand Final place on the line.",
+            "synopsisSpoilerOff": "Sydney bring the SCG and a week to prepare; Fremantle bring minor-premier form and the momentum of a semi-final win. This is a direct test of Sydney's pressure against Fremantle's ability to turn the home-and-away season into a finals win. The winner advances to the Grand Final, while the loser is finished.",
+            "synopsisSpoilerOn": "Sydney bring the SCG and a week to prepare; Fremantle bring minor-premier form and the momentum of a semi-final win. This is a direct test of Sydney's pressure against Fremantle's ability to turn the home-and-away season into a finals win. The winner advances to the Grand Final, while the loser is finished.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-17T23:22:14.102Z"
           },
           "competitionPhase": "preliminary-final",
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 5,
           "codeId": "sport:afl",
           "surfaceClassification": "code",
-          "schedulePrecision": "week",
-          "weekAnchorDate": "2026-09-14",
-          "displayDateLabel": "Week of Monday, 14 Sep",
-          "date": "2026-09-14"
+          "schedulePrecision": "exact",
+          "date": "2026-09-18",
+          "displayName": "Sydney Swans v Fremantle",
+          "time": "19:40",
+          "timePrecision": "exact",
+          "venueName": "SCG",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t160",
+          "awayParticipantId": "team:afl:cd_t60",
+          "sourceUrl": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
+          "sourceName": "AFL",
+          "sourceType": "official",
+          "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+          "sourceRefs": [
+            "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
+            "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
+          ],
+          "participantSlots": [],
+          "liveWindow": 3,
+          "venueCity": "Sydney",
+          "endTimeUtc": "2026-09-18T12:40:00.000Z"
         },
         {
           "id": "event:afl:cd_m20260142901",
-          "name": "AFL Grand Final",
+          "name": "Fremantle v Brisbane Lions",
           "roundLabel": "Grand Final",
           "stage": "Grand Final",
           "startTimeUtc": "2026-09-26T04:30:00.000Z",
           "venue": "MCG",
           "stakesScore": 5,
-          "summary": "Official AFL schedule: Winner of PF1 v Winner of PF2 at MCG.",
+          "summary": "Fremantle v Brisbane Lions at MCG, 2026-09-26 14:30.",
           "participantIds": [
-            "team:afl:cd_t3020",
-            "team:afl:cd_t3021"
+            "team:afl:cd_t60",
+            "team:afl:cd_t20"
           ],
           "participants": [
             {
-              "id": "team:afl:cd_t3020",
-              "participantId": "team:afl:cd_t3020",
-              "name": "Winner of PF1"
+              "id": "team:afl:cd_t60",
+              "name": "Fremantle",
+              "role": "home"
             },
             {
-              "id": "team:afl:cd_t3021",
-              "participantId": "team:afl:cd_t3021",
-              "name": "Winner of PF2"
+              "id": "team:afl:cd_t20",
+              "name": "Brisbane Lions",
+              "role": "away"
             }
           ],
-          "broadcaster": "7plus",
+          "broadcaster": "Seven / 7plus",
           "broadcasterIds": [
             "seven"
           ],
           "broadcastOptions": [
-            "7plus",
-            "Watch AFL"
+            "Seven",
+            "7plus"
           ],
           "viewingOptions": [
             {
               "providerId": "seven",
-              "serviceId": "seven",
               "territory": "AU",
               "accessType": "free",
               "liveOrReplay": "live",
-              "rightsScope": "competition",
-              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
-              "verifiedAt": "2026-08-25T00:00:00.000Z"
+              "rightsScope": "fixture",
+              "webUrl": "https://7plus.com.au/afl",
+              "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
+              "verifiedAt": "2026-09-21T12:20:05.571Z"
             }
           ],
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142901",
             "researchTier": "marquee",
-            "hook": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
-            "synopsis": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
+            "hook": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
+            "synopsis": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
+            "hookSpoilerOn": "Brisbane Lions defeated Fremantle 96-89.",
+            "synopsisSpoilerOn": "Brisbane Lions defeated Fremantle 96-89. Fremantle v Brisbane Lions finished 89-96 in Grand Final, with Brisbane Lions winning by 7 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
             "threadIds": [
               "thread:depth:afl:finals"
             ],
@@ -1417,17 +1590,23 @@
               "consequence",
               "venue"
             ],
-            "researchedAt": "2026-09-04T07:51:40.028Z",
-            "refreshAfter": "2026-09-26T04:30:00.000Z",
-            "generationMode": "researched"
+            "researchedAt": "2026-09-30T22:50:31.966Z",
+            "refreshAfter": null,
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Brisbane Lions defeated Fremantle 96-89.\",\"Fremantle v Brisbane Lions — 89-96\",\"Fremantle v Brisbane Lions finished 89-96 in Grand Final, with Brisbane Lions winning by 7 points.\"]"
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
-            "hookSpoilerOn": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
-            "synopsisSpoilerOff": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
-            "synopsisSpoilerOn": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
-            "arcStage": "preview"
+            "intensity": 5,
+            "arcStage": "preview",
+            "expectedSpectacle": 10,
+            "hookSpoilerOff": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
+            "hookSpoilerOn": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
+            "synopsisSpoilerOff": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
+            "synopsisSpoilerOn": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
+            "lastReviewedAt": "2026-09-30T22:50:31.966Z"
           },
           "competitionPhase": "grand-final",
           "isFinalRegularSeasonRound": false,
@@ -1435,10 +1614,76 @@
           "codeId": "sport:afl",
           "surfaceClassification": "code",
           "publicStageLabel": "AFL Grand Final",
-          "displayName": "AFL Grand Final",
-          "displayTitleCompact": "AFL Grand Final",
+          "displayName": "Fremantle v Brisbane Lions",
+          "displayTitleCompact": "Fremantle v Brisbane Lions",
           "presentationTier": "championship",
-          "editorialRefreshOnParticipants": true
+          "editorialRefreshOnParticipants": true,
+          "venueName": "MCG",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t60",
+          "awayParticipantId": "team:afl:cd_t20",
+          "participantSlots": [],
+          "liveWindow": 3,
+          "venueCity": "Melbourne",
+          "sport": "AFL",
+          "key": "afl",
+          "competitionId": "competition:afl-premiership-2026",
+          "date": "2026-09-26",
+          "time": "14:30",
+          "broadcasters": [
+            {
+              "broadcasterId": "broadcaster:seven",
+              "broadcasterName": "Seven / 7plus",
+              "platformType": "free-to-air",
+              "regionCode": "AU",
+              "live": true,
+              "deeplinkUrl": "https://7plus.com.au/afl"
+            }
+          ],
+          "selectedSentence": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
+          "fullSpiel": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
+          "lastReviewedAt": "2026-09-21T12:34:24.741Z",
+          "sourceName": "AFL",
+          "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
+          "editorialPreview": {
+            "status": "journalistic",
+            "angle": "Fremantle v Brisbane: the premiership decider",
+            "sourceName": "AFL",
+            "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
+            "sourceCheckedAt": "2026-09-21T12:20:05.571Z",
+            "needsPreviewRefresh": false,
+            "contextSignals": [
+              "event-specific",
+              "narrative:history",
+              "narrative:matchup",
+              "narrative:consequence"
+            ]
+          },
+          "resultEditorialBranches": {
+            "home": {
+              "sourceIds": [
+                "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start"
+              ],
+              "spoilerSafe": "Fremantle v Brisbane Lions: reveal the Grand Final result.",
+              "revealed": "Fremantle defeated Brisbane Lions in the Grand Final."
+            },
+            "away": {
+              "sourceIds": [
+                "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start"
+              ],
+              "spoilerSafe": "Fremantle v Brisbane Lions: reveal the Grand Final result.",
+              "revealed": "Brisbane Lions defeated Fremantle in the Grand Final."
+            }
+          },
+          "timePrecision": "exact",
+          "sourceType": "official",
+          "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+          "sourceRefs": [
+            "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start"
+          ],
+          "schedulePrecision": "exact",
+          "endTimeUtc": "2026-09-26T07:30:00.000Z"
         }
       ],
       "competitionId": "competition:afl-premiership-2026"
@@ -1652,235 +1897,360 @@
       "fixtures": [
         {
           "id": "major-match:nrl-finals-2026:qualifying-final-1",
-          "name": "Qualifying Final 1 - 1st v 4th",
+          "name": "Panthers v Roosters",
           "roundLabel": "Qualifying Final",
           "stage": "Qualifying Final",
-          "startTimeUtc": null,
-          "venue": "Venue TBC",
+          "startTimeUtc": "2026-09-13T06:05:00.000Z",
+          "venue": "CommBank Stadium",
           "stakesScore": 5,
-          "summary": "Teams, venue and time are pending the final ladder.",
+          "summary": "Panthers v Roosters at CommBank Stadium, 2026-09-13 16:05.",
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
-            "projectionId": "projection:major:nrl-finals-2026:child:major-match:nrl-finals-2026:qualifying-final-1",
+            "projectionId": "projection:fixture-research:major-match:nrl-finals-2026:qualifying-final-1",
             "researchTier": "marquee",
-            "hook": "1st and 4th play for the finals system's biggest first-week advantage: a week off and the shorter route onward.",
-            "synopsis": "1st and 4th play for the finals system's biggest first-week advantage: a week off and the shorter route onward. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
+            "hook": "The minor premiers meet fourth-placed Sydney with a week off within reach.",
+            "synopsis": "Penrith secured top spot in the final round. Nathan Cleary faces Daly Cherry-Evans in a qualifying final that rewards the winner with direct passage to a preliminary final. The loser gets another chance, but must play next week.",
             "threadIds": [
-              "thread:nrl:finals-2026:locked-eight-open-order"
+              "thread:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:revision-de2de8e34268148dc56892b6e6c0bbf19ee9a5d7ef654ea6d6cf7ff1eb91b53d"
             ],
             "factIds": [
-              "fact:nrl-finals-2026:locked-eight",
-              "fact:nrl-finals-2026:top-four-race",
-              "fact:nrl-finals-2026:rabbitohs-return",
-              "fact:nrl-finals-2026:newcomer-new-champion",
-              "fact:nrl-finals-2026:warriors-chase",
-              "fact:nrl-finals-2026:destination"
+              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:revision-de2de8e34268148dc56892b6e6c0bbf19ee9a5d7ef654ea6d6cf7ff1eb91b53d:0",
+              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:revision-de2de8e34268148dc56892b6e6c0bbf19ee9a5d7ef654ea6d6cf7ff1eb91b53d:1",
+              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:revision-de2de8e34268148dc56892b6e6c0bbf19ee9a5d7ef654ea6d6cf7ff1eb91b53d:2",
+              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:revision-de2de8e34268148dc56892b6e6c0bbf19ee9a5d7ef654ea6d6cf7ff1eb91b53d:3"
             ],
             "sourceIds": [
-              "source:nrl:2026-locked-eight",
-              "source:nrl:2026-warriors",
-              "source:nrl:2026-grand-final",
-              "source:nrl:2026-season"
+              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:revision-de2de8e34268148dc56892b6e6c0bbf19ee9a5d7ef654ea6d6cf7ff1eb91b53d:0",
+              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:revision-de2de8e34268148dc56892b6e6c0bbf19ee9a5d7ef654ea6d6cf7ff1eb91b53d:1",
+              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:revision-de2de8e34268148dc56892b6e6c0bbf19ee9a5d7ef654ea6d6cf7ff1eb91b53d:2"
             ],
             "dimensions": [
               "matchup",
-              "path",
               "form",
-              "history",
-              "schedule"
+              "path"
             ],
-            "researchedAt": "2026-08-29T19:30:00.000Z",
-            "refreshAfter": "2026-09-01T12:00:00.000Z",
-            "generationMode": "verified-parent-child-projection"
+            "researchedAt": "2026-09-08T13:00:00.000Z",
+            "refreshAfter": "2026-09-13T06:05:00.000Z",
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "preview",
+            "resultSignature": "[\"completed\",\"Panthers defeated Roosters 19-12.\",\"Panthers 19-12 Roosters\",\"Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final.\"]",
+            "hookSpoilerOn": "Panthers defeated Roosters 19-12.",
+            "synopsisSpoilerOn": "Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final."
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "1st and 4th play for the finals system's biggest first-week advantage: a week off and the shorter route onward.",
-            "hookSpoilerOn": "1st and 4th play for the finals system's biggest first-week advantage: a week off and the shorter route onward.",
-            "synopsisSpoilerOff": "1st and 4th play for the finals system's biggest first-week advantage: a week off and the shorter route onward. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-            "synopsisSpoilerOn": "1st and 4th play for the finals system's biggest first-week advantage: a week off and the shorter route onward. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "The minor premiers meet fourth-placed Sydney with a week off within reach.",
+            "hookSpoilerOn": "The minor premiers meet fourth-placed Sydney with a week off within reach.",
+            "synopsisSpoilerOff": "Penrith secured top spot in the final round. Nathan Cleary faces Daly Cherry-Evans in a qualifying final that rewards the winner with direct passage to a preliminary final. The loser gets another chance, but must play next week.",
+            "synopsisSpoilerOn": "Penrith secured top spot in the final round. Nathan Cleary faces Daly Cherry-Evans in a qualifying final that rewards the winner with direct passage to a preliminary final. The loser gets another chance, but must play next week.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-08T13:00:00.000Z"
           },
           "codeId": "sport:nrl",
           "surfaceClassification": "code",
-          "schedulePrecision": "week",
-          "weekAnchorDate": "2026-09-07",
-          "displayDateLabel": "Week of Monday, 7 Sep",
-          "date": "2026-09-07"
+          "schedulePrecision": "exact",
+          "date": "2026-09-13",
+          "time": "16:05",
+          "participantIds": [
+            "team:nrl:329",
+            "team:nrl:331"
+          ],
+          "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
+          "broadcasterIds": [
+            "nine",
+            "foxtel",
+            "kayo"
+          ],
+          "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+          "sourceName": "NRL official finals announcement",
+          "sourceType": "official",
+          "sourceCheckedAt": "2026-09-08T12:00:00Z",
+          "participants": [
+            {
+              "id": "team:nrl:329",
+              "name": "Panthers",
+              "role": "home"
+            },
+            {
+              "id": "team:nrl:331",
+              "name": "Roosters",
+              "role": "away"
+            }
+          ],
+          "participantSlots": [],
+          "homeParticipantId": "team:nrl:329",
+          "awayParticipantId": "team:nrl:331",
+          "liveWindow": 3,
+          "timePrecision": "exact"
         },
         {
           "id": "major-match:nrl-finals-2026:qualifying-final-2",
-          "name": "Qualifying Final 2 - 2nd v 3rd",
+          "name": "Warriors v Dolphins",
           "roundLabel": "Qualifying Final",
           "stage": "Qualifying Final",
-          "startTimeUtc": null,
-          "venue": "Venue TBC",
+          "startTimeUtc": "2026-09-12T06:05:00.000Z",
+          "venue": "Go Media Stadium",
           "stakesScore": 5,
-          "summary": "Teams, venue and time are pending the final ladder.",
+          "summary": "Warriors v Dolphins at Go Media Stadium, 2026-09-12 16:05.",
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
-            "projectionId": "projection:major:nrl-finals-2026:child:major-match:nrl-finals-2026:qualifying-final-2",
+            "projectionId": "projection:fixture-research:major-match:nrl-finals-2026:qualifying-final-2",
             "researchTier": "marquee",
-            "hook": "2nd and 3rd play for the finals system's biggest first-week advantage: a week off and the shorter route onward.",
-            "synopsis": "2nd and 3rd play for the finals system's biggest first-week advantage: a week off and the shorter route onward. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
+            "hook": "The Dolphins begin their first finals campaign against second-placed New Zealand.",
+            "synopsis": "The Dolphins arrive with Cobbo, Finefeuiaki and Nikorima returning. The Warriors regain Ford and Halasima for a qualifying final offering the winner a week off. A defeat preserves one life but adds a sudden-death semi-final to the route.",
             "threadIds": [
-              "thread:nrl:finals-2026:locked-eight-open-order"
+              "thread:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:revision-0d4c4b4ed1fd922cb3428e63a6c5335f6ce4c9dbc9ff743cba75794a8b2269c2"
             ],
             "factIds": [
-              "fact:nrl-finals-2026:locked-eight",
-              "fact:nrl-finals-2026:top-four-race",
-              "fact:nrl-finals-2026:rabbitohs-return",
-              "fact:nrl-finals-2026:newcomer-new-champion",
-              "fact:nrl-finals-2026:warriors-chase",
-              "fact:nrl-finals-2026:destination"
+              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:revision-0d4c4b4ed1fd922cb3428e63a6c5335f6ce4c9dbc9ff743cba75794a8b2269c2:0",
+              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:revision-0d4c4b4ed1fd922cb3428e63a6c5335f6ce4c9dbc9ff743cba75794a8b2269c2:1",
+              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:revision-0d4c4b4ed1fd922cb3428e63a6c5335f6ce4c9dbc9ff743cba75794a8b2269c2:2",
+              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:revision-0d4c4b4ed1fd922cb3428e63a6c5335f6ce4c9dbc9ff743cba75794a8b2269c2:3"
             ],
             "sourceIds": [
-              "source:nrl:2026-locked-eight",
-              "source:nrl:2026-warriors",
-              "source:nrl:2026-grand-final",
-              "source:nrl:2026-season"
+              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:revision-0d4c4b4ed1fd922cb3428e63a6c5335f6ce4c9dbc9ff743cba75794a8b2269c2:0",
+              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:revision-0d4c4b4ed1fd922cb3428e63a6c5335f6ce4c9dbc9ff743cba75794a8b2269c2:1",
+              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:revision-0d4c4b4ed1fd922cb3428e63a6c5335f6ce4c9dbc9ff743cba75794a8b2269c2:2"
             ],
             "dimensions": [
-              "matchup",
-              "path",
-              "form",
               "history",
-              "schedule"
+              "matchup",
+              "form",
+              "path"
             ],
-            "researchedAt": "2026-08-29T19:30:00.000Z",
-            "refreshAfter": "2026-09-01T12:00:00.000Z",
-            "generationMode": "verified-parent-child-projection"
+            "researchedAt": "2026-09-08T13:00:00.000Z",
+            "refreshAfter": "2026-09-12T06:05:00.000Z",
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "preview",
+            "resultSignature": "[\"completed\",\"Dolphins defeated Warriors 26-16.\",\"Warriors 16-26 Dolphins\",\"The Dolphins came from behind to win 26-16 and advance to a preliminary final.\"]",
+            "hookSpoilerOn": "Dolphins defeated Warriors 26-16.",
+            "synopsisSpoilerOn": "The Dolphins came from behind to win 26-16 and advance to a preliminary final."
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "2nd and 3rd play for the finals system's biggest first-week advantage: a week off and the shorter route onward.",
-            "hookSpoilerOn": "2nd and 3rd play for the finals system's biggest first-week advantage: a week off and the shorter route onward.",
-            "synopsisSpoilerOff": "2nd and 3rd play for the finals system's biggest first-week advantage: a week off and the shorter route onward. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-            "synopsisSpoilerOn": "2nd and 3rd play for the finals system's biggest first-week advantage: a week off and the shorter route onward. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "The Dolphins begin their first finals campaign against second-placed New Zealand.",
+            "hookSpoilerOn": "The Dolphins begin their first finals campaign against second-placed New Zealand.",
+            "synopsisSpoilerOff": "The Dolphins arrive with Cobbo, Finefeuiaki and Nikorima returning. The Warriors regain Ford and Halasima for a qualifying final offering the winner a week off. A defeat preserves one life but adds a sudden-death semi-final to the route.",
+            "synopsisSpoilerOn": "The Dolphins arrive with Cobbo, Finefeuiaki and Nikorima returning. The Warriors regain Ford and Halasima for a qualifying final offering the winner a week off. A defeat preserves one life but adds a sudden-death semi-final to the route.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-08T13:00:00.000Z"
           },
           "codeId": "sport:nrl",
           "surfaceClassification": "code",
-          "schedulePrecision": "week",
-          "weekAnchorDate": "2026-09-07",
-          "displayDateLabel": "Week of Monday, 7 Sep",
-          "date": "2026-09-07"
+          "schedulePrecision": "exact",
+          "date": "2026-09-12",
+          "time": "16:05",
+          "participantIds": [
+            "team:nrl:321",
+            "team:nrl:9538"
+          ],
+          "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
+          "broadcasterIds": [
+            "nine",
+            "foxtel",
+            "kayo"
+          ],
+          "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+          "sourceName": "NRL official finals announcement",
+          "sourceType": "official",
+          "sourceCheckedAt": "2026-09-08T12:00:00Z",
+          "participants": [
+            {
+              "id": "team:nrl:321",
+              "name": "Warriors",
+              "role": "home"
+            },
+            {
+              "id": "team:nrl:9538",
+              "name": "Dolphins",
+              "role": "away"
+            }
+          ],
+          "participantSlots": [],
+          "homeParticipantId": "team:nrl:321",
+          "awayParticipantId": "team:nrl:9538",
+          "liveWindow": 3,
+          "timePrecision": "exact"
         },
         {
           "id": "major-match:nrl-finals-2026:elimination-final-1",
-          "name": "Elimination Final 1 - 5th v 8th",
+          "name": "Sharks v Cowboys",
           "roundLabel": "Elimination Final",
           "stage": "Elimination Final",
-          "startTimeUtc": null,
-          "venue": "Venue TBC",
+          "startTimeUtc": "2026-09-12T09:50:00.000Z",
+          "venue": "Allianz Stadium",
           "stakesScore": 5,
-          "summary": "Teams, venue and time are pending the final ladder.",
+          "summary": "Sharks v Cowboys at Allianz Stadium, 2026-09-12 19:50.",
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
-            "projectionId": "projection:major:nrl-finals-2026:child:major-match:nrl-finals-2026:elimination-final-1",
+            "projectionId": "projection:fixture-research:major-match:nrl-finals-2026:elimination-final-1",
             "researchTier": "marquee",
-            "hook": "5th and 8th are in sudden death; one side keeps its season alive and the other is finished.",
-            "synopsis": "5th and 8th are in sudden death; one side keeps its season alive and the other is finished. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
+            "hook": "Trindall returns for Cronulla as fifth meets eighth with no second chance.",
+            "synopsis": "Trindall rejoins Hynes after a shoulder injury. The Cowboys regain Neame, Nanai and Laybutt, but their eighth-place finish leaves them on the elimination path. The winner must then get past a qualifying-final loser to reach the preliminary finals.",
             "threadIds": [
-              "thread:nrl:finals-2026:locked-eight-open-order"
+              "thread:fixture-research:major-match:nrl-finals-2026:elimination-final-1:revision-cdeb43b8b7c8cf5c43472eb2a07b8d2269bc5c754009f6d27f0bd1c3d5961dc6"
             ],
             "factIds": [
-              "fact:nrl-finals-2026:locked-eight",
-              "fact:nrl-finals-2026:top-four-race",
-              "fact:nrl-finals-2026:rabbitohs-return",
-              "fact:nrl-finals-2026:newcomer-new-champion",
-              "fact:nrl-finals-2026:warriors-chase",
-              "fact:nrl-finals-2026:destination"
+              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-1:revision-cdeb43b8b7c8cf5c43472eb2a07b8d2269bc5c754009f6d27f0bd1c3d5961dc6:0",
+              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-1:revision-cdeb43b8b7c8cf5c43472eb2a07b8d2269bc5c754009f6d27f0bd1c3d5961dc6:1",
+              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-1:revision-cdeb43b8b7c8cf5c43472eb2a07b8d2269bc5c754009f6d27f0bd1c3d5961dc6:2",
+              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-1:revision-cdeb43b8b7c8cf5c43472eb2a07b8d2269bc5c754009f6d27f0bd1c3d5961dc6:3"
             ],
             "sourceIds": [
-              "source:nrl:2026-locked-eight",
-              "source:nrl:2026-warriors",
-              "source:nrl:2026-grand-final",
-              "source:nrl:2026-season"
+              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-1:revision-cdeb43b8b7c8cf5c43472eb2a07b8d2269bc5c754009f6d27f0bd1c3d5961dc6:0",
+              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-1:revision-cdeb43b8b7c8cf5c43472eb2a07b8d2269bc5c754009f6d27f0bd1c3d5961dc6:1",
+              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-1:revision-cdeb43b8b7c8cf5c43472eb2a07b8d2269bc5c754009f6d27f0bd1c3d5961dc6:2"
             ],
             "dimensions": [
               "matchup",
-              "path",
               "form",
-              "history",
-              "schedule"
+              "path"
             ],
-            "researchedAt": "2026-08-29T19:30:00.000Z",
-            "refreshAfter": "2026-09-01T12:00:00.000Z",
-            "generationMode": "verified-parent-child-projection"
+            "researchedAt": "2026-09-08T13:00:00.000Z",
+            "refreshAfter": "2026-09-12T09:50:00.000Z",
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "preview",
+            "resultSignature": "[\"completed\",\"Sharks defeated Cowboys 26-16.\",\"Sharks 26-16 Cowboys\",\"Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win.\"]",
+            "hookSpoilerOn": "Sharks defeated Cowboys 26-16.",
+            "synopsisSpoilerOn": "Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win."
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "5th and 8th are in sudden death; one side keeps its season alive and the other is finished.",
-            "hookSpoilerOn": "5th and 8th are in sudden death; one side keeps its season alive and the other is finished.",
-            "synopsisSpoilerOff": "5th and 8th are in sudden death; one side keeps its season alive and the other is finished. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-            "synopsisSpoilerOn": "5th and 8th are in sudden death; one side keeps its season alive and the other is finished. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "Trindall returns for Cronulla as fifth meets eighth with no second chance.",
+            "hookSpoilerOn": "Trindall returns for Cronulla as fifth meets eighth with no second chance.",
+            "synopsisSpoilerOff": "Trindall rejoins Hynes after a shoulder injury. The Cowboys regain Neame, Nanai and Laybutt, but their eighth-place finish leaves them on the elimination path. The winner must then get past a qualifying-final loser to reach the preliminary finals.",
+            "synopsisSpoilerOn": "Trindall rejoins Hynes after a shoulder injury. The Cowboys regain Neame, Nanai and Laybutt, but their eighth-place finish leaves them on the elimination path. The winner must then get past a qualifying-final loser to reach the preliminary finals.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-08T13:00:00.000Z"
           },
           "codeId": "sport:nrl",
           "surfaceClassification": "code",
-          "schedulePrecision": "week",
-          "weekAnchorDate": "2026-09-07",
-          "displayDateLabel": "Week of Monday, 7 Sep",
-          "date": "2026-09-07"
+          "schedulePrecision": "exact",
+          "date": "2026-09-12",
+          "time": "19:50",
+          "participantIds": [
+            "team:nrl:333",
+            "team:nrl:326"
+          ],
+          "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
+          "broadcasterIds": [
+            "nine",
+            "foxtel",
+            "kayo"
+          ],
+          "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+          "sourceName": "NRL official finals announcement",
+          "sourceType": "official",
+          "sourceCheckedAt": "2026-09-08T12:00:00Z",
+          "participants": [
+            {
+              "id": "team:nrl:333",
+              "name": "Sharks",
+              "role": "home"
+            },
+            {
+              "id": "team:nrl:326",
+              "name": "Cowboys",
+              "role": "away"
+            }
+          ],
+          "participantSlots": [],
+          "homeParticipantId": "team:nrl:333",
+          "awayParticipantId": "team:nrl:326",
+          "liveWindow": 3,
+          "timePrecision": "exact"
         },
         {
           "id": "major-match:nrl-finals-2026:elimination-final-2",
-          "name": "Elimination Final 2 - 6th v 7th",
+          "name": "Rabbitohs v Knights",
           "roundLabel": "Elimination Final",
           "stage": "Elimination Final",
-          "startTimeUtc": null,
-          "venue": "Venue TBC",
+          "startTimeUtc": "2026-09-11T09:50:00.000Z",
+          "venue": "Allianz Stadium",
           "stakesScore": 5,
-          "summary": "Teams, venue and time are pending the final ladder.",
+          "summary": "Rabbitohs v Knights at Allianz Stadium, 2026-09-11 19:50.",
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
-            "projectionId": "projection:major:nrl-finals-2026:child:major-match:nrl-finals-2026:elimination-final-2",
+            "projectionId": "projection:fixture-research:major-match:nrl-finals-2026:elimination-final-2",
             "researchTier": "marquee",
-            "hook": "6th and 7th are in sudden death; one side keeps its season alive and the other is finished.",
-            "synopsis": "6th and 7th are in sudden death; one side keeps its season alive and the other is finished. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
+            "hook": "Sixth meets seventh to open the finals, with one season ending on Friday.",
+            "synopsis": "South Sydney and Newcastle begin on the sudden-death side of the draw. Ponga is named at fullback for the Knights, opposite Dufty. Winning this elimination final earns another game against a top-four opponent; losing ends the premiership campaign.",
             "threadIds": [
-              "thread:nrl:finals-2026:locked-eight-open-order"
+              "thread:fixture-research:major-match:nrl-finals-2026:elimination-final-2:revision-1ca62f371bd3b91552c5a0178b46a223022d167c13f3f4117742aadfc1b02dca"
             ],
             "factIds": [
-              "fact:nrl-finals-2026:locked-eight",
-              "fact:nrl-finals-2026:top-four-race",
-              "fact:nrl-finals-2026:rabbitohs-return",
-              "fact:nrl-finals-2026:newcomer-new-champion",
-              "fact:nrl-finals-2026:warriors-chase",
-              "fact:nrl-finals-2026:destination"
+              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-2:revision-1ca62f371bd3b91552c5a0178b46a223022d167c13f3f4117742aadfc1b02dca:0",
+              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-2:revision-1ca62f371bd3b91552c5a0178b46a223022d167c13f3f4117742aadfc1b02dca:1",
+              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-2:revision-1ca62f371bd3b91552c5a0178b46a223022d167c13f3f4117742aadfc1b02dca:2",
+              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-2:revision-1ca62f371bd3b91552c5a0178b46a223022d167c13f3f4117742aadfc1b02dca:3"
             ],
             "sourceIds": [
-              "source:nrl:2026-locked-eight",
-              "source:nrl:2026-warriors",
-              "source:nrl:2026-grand-final",
-              "source:nrl:2026-season"
+              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-2:revision-1ca62f371bd3b91552c5a0178b46a223022d167c13f3f4117742aadfc1b02dca:0",
+              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-2:revision-1ca62f371bd3b91552c5a0178b46a223022d167c13f3f4117742aadfc1b02dca:1",
+              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-2:revision-1ca62f371bd3b91552c5a0178b46a223022d167c13f3f4117742aadfc1b02dca:2"
             ],
             "dimensions": [
               "matchup",
-              "path",
-              "form",
-              "history",
-              "schedule"
+              "schedule",
+              "path"
             ],
-            "researchedAt": "2026-08-29T19:30:00.000Z",
-            "refreshAfter": "2026-09-01T12:00:00.000Z",
-            "generationMode": "verified-parent-child-projection"
+            "researchedAt": "2026-09-08T13:00:00.000Z",
+            "refreshAfter": "2026-09-11T09:50:00.000Z",
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "preview",
+            "resultSignature": "[\"completed\",\"Knights defeated Rabbitohs 20-10.\",\"Rabbitohs 10-20 Knights\",\"Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win.\"]",
+            "hookSpoilerOn": "Knights defeated Rabbitohs 20-10.",
+            "synopsisSpoilerOn": "Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win."
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "6th and 7th are in sudden death; one side keeps its season alive and the other is finished.",
-            "hookSpoilerOn": "6th and 7th are in sudden death; one side keeps its season alive and the other is finished.",
-            "synopsisSpoilerOff": "6th and 7th are in sudden death; one side keeps its season alive and the other is finished. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-            "synopsisSpoilerOn": "6th and 7th are in sudden death; one side keeps its season alive and the other is finished. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "Sixth meets seventh to open the finals, with one season ending on Friday.",
+            "hookSpoilerOn": "Sixth meets seventh to open the finals, with one season ending on Friday.",
+            "synopsisSpoilerOff": "South Sydney and Newcastle begin on the sudden-death side of the draw. Ponga is named at fullback for the Knights, opposite Dufty. Winning this elimination final earns another game against a top-four opponent; losing ends the premiership campaign.",
+            "synopsisSpoilerOn": "South Sydney and Newcastle begin on the sudden-death side of the draw. Ponga is named at fullback for the Knights, opposite Dufty. Winning this elimination final earns another game against a top-four opponent; losing ends the premiership campaign.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-08T13:00:00.000Z"
           },
           "codeId": "sport:nrl",
           "surfaceClassification": "code",
-          "schedulePrecision": "week",
-          "weekAnchorDate": "2026-09-07",
-          "displayDateLabel": "Week of Monday, 7 Sep",
-          "date": "2026-09-07"
+          "schedulePrecision": "exact",
+          "date": "2026-09-11",
+          "time": "19:50",
+          "participantIds": [
+            "team:nrl:335",
+            "team:nrl:325"
+          ],
+          "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
+          "broadcasterIds": [
+            "nine",
+            "foxtel",
+            "kayo"
+          ],
+          "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+          "sourceName": "NRL official finals announcement",
+          "sourceType": "official",
+          "sourceCheckedAt": "2026-09-08T12:00:00Z",
+          "participants": [
+            {
+              "id": "team:nrl:335",
+              "name": "Rabbitohs",
+              "role": "home"
+            },
+            {
+              "id": "team:nrl:325",
+              "name": "Knights",
+              "role": "away"
+            }
+          ],
+          "participantSlots": [],
+          "homeParticipantId": "team:nrl:335",
+          "awayParticipantId": "team:nrl:325",
+          "liveWindow": 3,
+          "timePrecision": "exact"
         },
         {
           "id": "major-match:nrl-finals-2026:semi-final-1",
@@ -2000,180 +2370,329 @@
         },
         {
           "id": "major-match:nrl-finals-2026:preliminary-final-1",
-          "name": "Preliminary Final 1 - winner of QF1 v winner of SF2",
+          "name": "Panthers v Knights",
           "roundLabel": "Preliminary Final",
           "stage": "Preliminary Final",
-          "startTimeUtc": null,
-          "venue": "Venue TBC",
+          "startTimeUtc": "2026-09-27T06:00:00.000Z",
+          "venue": "Accor Stadium",
           "stakesScore": 5,
-          "summary": "Teams, venue and time are pending the Semi Finals.",
+          "summary": "Panthers v Knights at Accor Stadium, 2026-09-27 16:00.",
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
-            "projectionId": "projection:major:nrl-finals-2026:child:major-match:nrl-finals-2026:preliminary-final-1",
+            "projectionId": "projection:fixture-research:major-match:nrl-finals-2026:preliminary-final-1",
             "researchTier": "marquee",
-            "hook": "winner of QF1 and winner of SF2 play for a place in the Grand Final.",
-            "synopsis": "winner of QF1 and winner of SF2 play for a place in the Grand Final. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
+            "hook": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
+            "synopsis": "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
             "threadIds": [
-              "thread:nrl:finals-2026:locked-eight-open-order"
+              "thread:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:revision-804aea587421d1fb42ec6532cf0570eadc367949d64b864a09fc97a9dfa5ef3e"
             ],
             "factIds": [
-              "fact:nrl-finals-2026:locked-eight",
-              "fact:nrl-finals-2026:top-four-race",
-              "fact:nrl-finals-2026:rabbitohs-return",
-              "fact:nrl-finals-2026:newcomer-new-champion",
-              "fact:nrl-finals-2026:warriors-chase",
-              "fact:nrl-finals-2026:destination"
+              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:revision-804aea587421d1fb42ec6532cf0570eadc367949d64b864a09fc97a9dfa5ef3e:0",
+              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:revision-804aea587421d1fb42ec6532cf0570eadc367949d64b864a09fc97a9dfa5ef3e:1",
+              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:revision-804aea587421d1fb42ec6532cf0570eadc367949d64b864a09fc97a9dfa5ef3e:2",
+              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:revision-804aea587421d1fb42ec6532cf0570eadc367949d64b864a09fc97a9dfa5ef3e:3"
             ],
             "sourceIds": [
-              "source:nrl:2026-locked-eight",
-              "source:nrl:2026-warriors",
-              "source:nrl:2026-grand-final",
-              "source:nrl:2026-season"
+              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:revision-804aea587421d1fb42ec6532cf0570eadc367949d64b864a09fc97a9dfa5ef3e:0",
+              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:revision-804aea587421d1fb42ec6532cf0570eadc367949d64b864a09fc97a9dfa5ef3e:1",
+              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:revision-804aea587421d1fb42ec6532cf0570eadc367949d64b864a09fc97a9dfa5ef3e:2"
             ],
             "dimensions": [
               "matchup",
-              "path",
               "form",
-              "history",
+              "path",
               "schedule"
             ],
-            "researchedAt": "2026-08-29T19:30:00.000Z",
-            "refreshAfter": "2026-09-01T12:00:00.000Z",
-            "generationMode": "verified-parent-child-projection"
+            "researchedAt": "2026-09-22T08:30:00.000Z",
+            "refreshAfter": "2026-09-27T06:00:00.000Z",
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "preview",
+            "resultSignature": "[\"completed\",\"Knights defeated Panthers 22-14.\",\"Panthers 14-22 Knights\",\"Newcastle Knights defeated Penrith Panthers 22-14 in the preliminary final at Accor Stadium.\"]",
+            "hookSpoilerOn": "Knights defeated Panthers 22-14.",
+            "synopsisSpoilerOn": "Newcastle Knights defeated Penrith Panthers 22-14 in the preliminary final at Accor Stadium."
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "winner of QF1 and winner of SF2 play for a place in the Grand Final.",
-            "hookSpoilerOn": "winner of QF1 and winner of SF2 play for a place in the Grand Final.",
-            "synopsisSpoilerOff": "winner of QF1 and winner of SF2 play for a place in the Grand Final. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-            "synopsisSpoilerOn": "winner of QF1 and winner of SF2 play for a place in the Grand Final. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
+            "hookSpoilerOn": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
+            "synopsisSpoilerOff": "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
+            "synopsisSpoilerOn": "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-22T08:30:00.000Z"
           },
           "codeId": "sport:nrl",
           "surfaceClassification": "code",
-          "schedulePrecision": "week",
-          "weekAnchorDate": "2026-09-21",
-          "displayDateLabel": "Week of Monday, 21 Sep",
-          "date": "2026-09-21"
+          "schedulePrecision": "exact",
+          "date": "2026-09-27",
+          "time": "16:00",
+          "timePrecision": "exact",
+          "venueName": "Accor Stadium",
+          "scheduleStatus": "confirmed",
+          "participantIds": [
+            "team:nrl:329",
+            "team:nrl:325"
+          ],
+          "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
+          "broadcasterIds": [
+            "nine",
+            "foxtel",
+            "kayo"
+          ],
+          "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+          "sourceName": "NRL official preliminary-final team lists",
+          "sourceType": "official",
+          "sourceCheckedAt": "2026-09-22T08:30:00.000Z",
+          "sourceRefs": [
+            "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+            "https://www.nrl.com/tickets/"
+          ],
+          "participants": [
+            {
+              "id": "team:nrl:329",
+              "name": "Panthers",
+              "role": "home"
+            },
+            {
+              "id": "team:nrl:325",
+              "name": "Knights",
+              "role": "away"
+            }
+          ],
+          "participantSlots": [],
+          "homeParticipantId": "team:nrl:329",
+          "awayParticipantId": "team:nrl:325",
+          "liveWindow": 3,
+          "venueCity": "Sydney"
         },
         {
           "id": "major-match:nrl-finals-2026:preliminary-final-2",
-          "name": "Preliminary Final 2 - winner of QF2 v winner of SF1",
+          "name": "Dolphins v Roosters",
           "roundLabel": "Preliminary Final",
           "stage": "Preliminary Final",
-          "startTimeUtc": null,
-          "venue": "Venue TBC",
+          "startTimeUtc": "2026-09-25T09:50:00.000Z",
+          "venue": "Suncorp Stadium",
           "stakesScore": 5,
-          "summary": "Teams, venue and time are pending the Semi Finals.",
+          "summary": "Dolphins v Roosters at Suncorp Stadium, 2026-09-25 19:50.",
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
-            "projectionId": "projection:major:nrl-finals-2026:child:major-match:nrl-finals-2026:preliminary-final-2",
+            "projectionId": "projection:fixture-research:major-match:nrl-finals-2026:preliminary-final-2",
             "researchTier": "marquee",
-            "hook": "winner of QF2 and winner of SF1 play for a place in the Grand Final.",
-            "synopsis": "winner of QF2 and winner of SF1 play for a place in the Grand Final. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
+            "hook": "Suncorp's preliminary final put the Dolphins' first finals campaign against the Roosters' established September experience.",
+            "synopsis": "The key matchups centred on Isaiya Katoa and Kodi Nikorima against Sam Walker and Daly Cherry-Evans, with Hamiso Tabuai-Fidow and James Tedesco directing the backlines. This review examines the contest without revealing which side progressed.",
+            "hookSpoilerOn": "Roosters defeated Dolphins 36-20 to reach the Grand Final.",
+            "synopsisSpoilerOn": "Sam Walker returned from injury as the Roosters booked their first decider since 2019. Mark Nawaqanitawase scored twice and ran for 329 metres; the Dolphins finished their first finals campaign at the preliminary-final stage.",
             "threadIds": [
-              "thread:nrl:finals-2026:locked-eight-open-order"
+              "thread:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5"
             ],
             "factIds": [
-              "fact:nrl-finals-2026:locked-eight",
-              "fact:nrl-finals-2026:top-four-race",
-              "fact:nrl-finals-2026:rabbitohs-return",
-              "fact:nrl-finals-2026:newcomer-new-champion",
-              "fact:nrl-finals-2026:warriors-chase",
-              "fact:nrl-finals-2026:destination"
+              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5:0",
+              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5:1",
+              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5:2",
+              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5:3"
             ],
             "sourceIds": [
-              "source:nrl:2026-locked-eight",
-              "source:nrl:2026-warriors",
-              "source:nrl:2026-grand-final",
-              "source:nrl:2026-season"
+              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5:0",
+              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5:1",
+              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5:2"
             ],
             "dimensions": [
               "matchup",
-              "path",
               "form",
               "history",
-              "schedule"
+              "venue"
             ],
-            "researchedAt": "2026-08-29T19:30:00.000Z",
-            "refreshAfter": "2026-09-01T12:00:00.000Z",
-            "generationMode": "verified-parent-child-projection"
+            "researchedAt": "2026-09-27T06:46:37.622Z",
+            "refreshAfter": null,
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Roosters defeated Dolphins 36-20 to reach the Grand Final.\",\"Dolphins 20-36 Roosters\",\"Sam Walker returned from injury as the Roosters booked their first decider since 2019. Mark Nawaqanitawase scored twice and ran for 329 metres; the Dolphins finished their first finals campaign at the preliminary-final stage.\"]"
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "winner of QF2 and winner of SF1 play for a place in the Grand Final.",
-            "hookSpoilerOn": "winner of QF2 and winner of SF1 play for a place in the Grand Final.",
-            "synopsisSpoilerOff": "winner of QF2 and winner of SF1 play for a place in the Grand Final. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-            "synopsisSpoilerOn": "winner of QF2 and winner of SF1 play for a place in the Grand Final. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "Suncorp's preliminary final put the Dolphins' first finals campaign against the Roosters' established September experience.",
+            "hookSpoilerOn": "Suncorp's preliminary final put the Dolphins' first finals campaign against the Roosters' established September experience.",
+            "synopsisSpoilerOff": "The key matchups centred on Isaiya Katoa and Kodi Nikorima against Sam Walker and Daly Cherry-Evans, with Hamiso Tabuai-Fidow and James Tedesco directing the backlines. This review examines the contest without revealing which side progressed.",
+            "synopsisSpoilerOn": "The key matchups centred on Isaiya Katoa and Kodi Nikorima against Sam Walker and Daly Cherry-Evans, with Hamiso Tabuai-Fidow and James Tedesco directing the backlines. This review examines the contest without revealing which side progressed.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-27T06:46:37.622Z"
           },
           "codeId": "sport:nrl",
           "surfaceClassification": "code",
-          "schedulePrecision": "week",
-          "weekAnchorDate": "2026-09-21",
-          "displayDateLabel": "Week of Monday, 21 Sep",
-          "date": "2026-09-21"
+          "schedulePrecision": "exact",
+          "date": "2026-09-25",
+          "time": "19:50",
+          "timePrecision": "exact",
+          "venueName": "Suncorp Stadium",
+          "scheduleStatus": "confirmed",
+          "participantIds": [
+            "team:nrl:9538",
+            "team:nrl:331"
+          ],
+          "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
+          "broadcasterIds": [
+            "nine",
+            "foxtel",
+            "kayo"
+          ],
+          "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+          "sourceName": "NRL official preliminary-final team lists",
+          "sourceType": "official",
+          "sourceCheckedAt": "2026-09-22T08:30:00.000Z",
+          "sourceRefs": [
+            "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+            "https://www.nrl.com/tickets/"
+          ],
+          "participants": [
+            {
+              "id": "team:nrl:9538",
+              "name": "Dolphins",
+              "role": "home"
+            },
+            {
+              "id": "team:nrl:331",
+              "name": "Roosters",
+              "role": "away"
+            }
+          ],
+          "participantSlots": [],
+          "homeParticipantId": "team:nrl:9538",
+          "awayParticipantId": "team:nrl:331",
+          "liveWindow": 3,
+          "venueCity": "Brisbane"
         },
         {
           "id": "major-match:nrl-finals-2026:grand-final",
-          "name": "NRL Grand Final",
+          "name": "Roosters v Knights",
           "roundLabel": "Grand Final",
           "stage": "Grand Final",
-          "startTimeUtc": null,
+          "startTimeUtc": "2026-10-04T08:30:00.000Z",
           "venue": "Accor Stadium",
           "stakesScore": 5,
-          "summary": "The NRL and NRLW Grand Final day at Accor Stadium on Sunday 4 October. Exact match time is not published in the official ticket listing.",
+          "summary": "Roosters v Knights at Accor Stadium, 2026-10-04 19:30.",
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
-            "projectionId": "projection:major:nrl-finals-2026:child:major-match:nrl-finals-2026:grand-final",
+            "projectionId": "projection:fixture-research:evt_84",
             "researchTier": "marquee",
-            "hook": "winner of PF1 and winner of PF2 are the final two sides left in the premiership race.",
-            "synopsis": "winner of PF1 and winner of PF2 are the final two sides left in the premiership race. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
+            "hook": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
+            "synopsis": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
+            "formCopy": "Sydney arrived through a 36–20 win over the Dolphins. Newcastle earned their place by beating Penrith 22–14 with 12 men, keeping the Panthers scoreless after half-time. The Roosters bring attacking momentum; the Knights bring evidence that they can absorb severe pressure and still find a way through.",
+            "closingCopy": "Sandon Smith now has the chance to win a premiership against the Roosters, the club he left after they signed Daly Cherry-Evans. Cherry-Evans is preparing for his final NRL match, while Mark Nawaqanitawase is heading back to rugby union. Newcastle’s revival meets a Sydney side with farewells riding on the same result.",
             "threadIds": [
-              "thread:nrl:finals-2026:locked-eight-open-order"
+              "thread:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505"
             ],
             "factIds": [
-              "fact:nrl-finals-2026:locked-eight",
-              "fact:nrl-finals-2026:top-four-race",
-              "fact:nrl-finals-2026:rabbitohs-return",
-              "fact:nrl-finals-2026:newcomer-new-champion",
-              "fact:nrl-finals-2026:warriors-chase",
-              "fact:nrl-finals-2026:destination"
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:0",
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:1",
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:2",
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:3",
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:4",
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:5",
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:6",
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:7",
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:8"
             ],
             "sourceIds": [
-              "source:nrl:2026-locked-eight",
-              "source:nrl:2026-warriors",
-              "source:nrl:2026-grand-final",
-              "source:nrl:2026-season"
+              "source:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:0",
+              "source:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:1",
+              "source:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:2",
+              "source:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:3",
+              "source:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:4",
+              "source:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:5",
+              "source:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:6"
             ],
             "dimensions": [
               "matchup",
-              "path",
-              "form",
+              "consequence",
+              "schedule",
               "history",
-              "schedule"
+              "form",
+              "path"
             ],
-            "researchedAt": "2026-08-29T19:30:00.000Z",
-            "refreshAfter": "2026-09-01T12:00:00.000Z",
-            "generationMode": "verified-parent-child-projection"
+            "researchedAt": "2026-10-01T23:58:25.032Z",
+            "refreshAfter": "2026-10-04T08:30:00.000Z",
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "preview",
+            "resultSignature": "[\"completed\",\"Sydney Roosters 19, Newcastle Knights 18.\",\"Roosters 19-18 Knights\",\"The official NRL match centre reports a 19-18 Grand Final result.\"]",
+            "hookSpoilerOn": "Roosters defeated Knights in Grand Final.",
+            "synopsisSpoilerOn": "Roosters defeated Knights in Grand Final. The official NRL match centre reports a 19-18 Grand Final result."
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "winner of PF1 and winner of PF2 are the final two sides left in the premiership race.",
-            "hookSpoilerOn": "winner of PF1 and winner of PF2 are the final two sides left in the premiership race.",
-            "synopsisSpoilerOff": "winner of PF1 and winner of PF2 are the final two sides left in the premiership race. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-            "synopsisSpoilerOn": "winner of PF1 and winner of PF2 are the final two sides left in the premiership race. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
+            "hookSpoilerOn": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
+            "synopsisSpoilerOff": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
+            "synopsisSpoilerOn": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-10-01T23:58:25.032Z"
           },
           "codeId": "sport:nrl",
           "surfaceClassification": "code",
-          "schedulePrecision": "date-only",
+          "schedulePrecision": "exact",
           "date": "2026-10-04",
           "publicStageLabel": "NRL Grand Final",
-          "displayName": "NRL Grand Final",
+          "displayName": "Roosters v Knights",
           "displayTitleCompact": "NRL Grand Final",
           "presentationTier": "championship",
-          "editorialRefreshOnParticipants": true
+          "editorialRefreshOnParticipants": true,
+          "time": "19:30",
+          "timePrecision": "exact",
+          "venueName": "Accor Stadium",
+          "scheduleStatus": "confirmed",
+          "participantIds": [
+            "team:nrl:331",
+            "team:nrl:325"
+          ],
+          "broadcaster": "Nine, 9Now",
+          "broadcasterIds": [
+            "nine-tv",
+            "nine"
+          ],
+          "viewingOptions": [
+            {
+              "providerId": "nine-tv",
+              "rightsScope": "fixture",
+              "sourceUrl": "https://www.nineforbrands.com.au/media-release/nine-kicks-off-blockbuster-2026-nrl-footy-finals-series/",
+              "verifiedAt": "2026-09-27T13:39:49.102Z",
+              "linkScope": "sport",
+              "replayVerified": false
+            },
+            {
+              "providerId": "nine",
+              "rightsScope": "fixture",
+              "sourceUrl": "https://www.nineforbrands.com.au/media-release/nine-kicks-off-blockbuster-2026-nrl-footy-finals-series/",
+              "verifiedAt": "2026-09-27T13:39:49.102Z",
+              "linkScope": "sport",
+              "replayVerified": false
+            }
+          ],
+          "sourceUrl": "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+          "sourceName": "Accor Stadium official Grand Final programme",
+          "sourceType": "official",
+          "sourceCheckedAt": "2026-09-30T22:37:31.000Z",
+          "sourceRefs": [
+            "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+            "https://www.nineforbrands.com.au/media-release/nine-kicks-off-blockbuster-2026-nrl-footy-finals-series/"
+          ],
+          "participants": [
+            {
+              "id": "team:nrl:331",
+              "name": "Roosters",
+              "role": "home"
+            },
+            {
+              "id": "team:nrl:325",
+              "name": "Knights",
+              "role": "away"
+            }
+          ],
+          "participantSlots": [],
+          "homeParticipantId": "team:nrl:331",
+          "awayParticipantId": "team:nrl:325",
+          "liveWindow": 3,
+          "venueCity": "Sydney"
         }
       ],
       "competitionId": "competition:nrl:premiership:2026"

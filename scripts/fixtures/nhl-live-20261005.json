@@ -1,0 +1,262 @@
+{
+  "sourceUrl": "https://api-web.nhle.com/v1/schedule/2026-09-28",
+  "capturedAt": "2026-10-04T17:31:00.692Z",
+  "game": {
+    "id": 2026020035,
+    "season": 20262027,
+    "gameType": 2,
+    "venue": {
+      "default": "Little Caesars Arena"
+    },
+    "neutralSite": false,
+    "startTimeUTC": "2026-10-04T17:00:00Z",
+    "easternUTCOffset": "-04:00",
+    "venueUTCOffset": "-04:00",
+    "venueTimezone": "America/Detroit",
+    "gameState": "LIVE",
+    "gameScheduleState": "OK",
+    "tvBroadcasts": [
+      {
+        "id": 645,
+        "market": "H",
+        "countryCode": "US",
+        "network": "DSN",
+        "sequenceNumber": 1
+      },
+      {
+        "id": 324,
+        "market": "N",
+        "countryCode": "US",
+        "network": "NHLN",
+        "sequenceNumber": 35
+      },
+      {
+        "id": 292,
+        "market": "A",
+        "countryCode": "CA",
+        "network": "TSN3",
+        "sequenceNumber": 134
+      }
+    ],
+    "awayTeam": {
+      "id": 52,
+      "commonName": {
+        "default": "Jets"
+      },
+      "placeName": {
+        "default": "Winnipeg"
+      },
+      "placeNameWithPreposition": {
+        "default": "Winnipeg",
+        "fr": "de Winnipeg"
+      },
+      "abbrev": "WPG",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg",
+      "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WPG_dark.svg",
+      "awaySplitSquad": false,
+      "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/WPG/20262027/WPG-radio.m3u8",
+      "score": 0
+    },
+    "homeTeam": {
+      "id": 17,
+      "commonName": {
+        "default": "Red Wings"
+      },
+      "placeName": {
+        "default": "Detroit"
+      },
+      "placeNameWithPreposition": {
+        "default": "Detroit",
+        "fr": "de Detroit"
+      },
+      "abbrev": "DET",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+      "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DET_dark.svg",
+      "homeSplitSquad": false,
+      "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/DET/20262027/DET-radio.m3u8",
+      "score": 0
+    },
+    "periodDescriptor": {
+      "number": 1,
+      "periodType": "REG",
+      "maxRegulationPeriods": 3
+    },
+    "gameCenterLink": "/gamecenter/wpg-vs-det/2026/10/04/2026020035"
+  },
+  "clubObservations": [
+    {
+      "url": "https://api-web.nhle.com/v1/club-schedule-season/WPG/20262027",
+      "checkedAt": "2026-10-04T17:34:37.968Z",
+      "game": {
+        "id": 2026020035,
+        "season": 20262027,
+        "gameType": 2,
+        "gameDate": "2026-10-04",
+        "venue": {
+          "default": "Little Caesars Arena"
+        },
+        "neutralSite": false,
+        "startTimeUTC": "2026-10-04T17:00:00Z",
+        "easternUTCOffset": "-04:00",
+        "venueUTCOffset": "-04:00",
+        "venueTimezone": "America/Detroit",
+        "gameState": "LIVE",
+        "gameScheduleState": "OK",
+        "tvBroadcasts": [
+          {
+            "id": 324,
+            "market": "N",
+            "countryCode": "US",
+            "network": "NHLN",
+            "sequenceNumber": 35
+          },
+          {
+            "id": 292,
+            "market": "A",
+            "countryCode": "CA",
+            "network": "TSN3",
+            "sequenceNumber": 134
+          },
+          {
+            "id": 645,
+            "market": "H",
+            "countryCode": "US",
+            "network": "DSN",
+            "sequenceNumber": 1
+          }
+        ],
+        "awayTeam": {
+          "id": 52,
+          "commonName": {
+            "default": "Jets"
+          },
+          "placeName": {
+            "default": "Winnipeg"
+          },
+          "placeNameWithPreposition": {
+            "default": "Winnipeg",
+            "fr": "de Winnipeg"
+          },
+          "abbrev": "WPG",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg",
+          "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WPG_dark.svg",
+          "awaySplitSquad": false,
+          "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/WPG/20262027/WPG-radio.m3u8",
+          "score": 1
+        },
+        "homeTeam": {
+          "id": 17,
+          "commonName": {
+            "default": "Red Wings"
+          },
+          "placeName": {
+            "default": "Detroit"
+          },
+          "placeNameWithPreposition": {
+            "default": "Detroit",
+            "fr": "de Detroit"
+          },
+          "abbrev": "DET",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+          "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DET_dark.svg",
+          "homeSplitSquad": false,
+          "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/DET/20262027/DET-radio.m3u8",
+          "score": 0
+        },
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
+        },
+        "gameCenterLink": "/gamecenter/wpg-vs-det/2026/10/04/2026020035"
+      }
+    },
+    {
+      "url": "https://api-web.nhle.com/v1/club-schedule-season/DET/20262027",
+      "checkedAt": "2026-10-04T17:34:37.965Z",
+      "game": {
+        "id": 2026020035,
+        "season": 20262027,
+        "gameType": 2,
+        "gameDate": "2026-10-04",
+        "venue": {
+          "default": "Little Caesars Arena"
+        },
+        "neutralSite": false,
+        "startTimeUTC": "2026-10-04T17:00:00Z",
+        "easternUTCOffset": "-04:00",
+        "venueUTCOffset": "-04:00",
+        "venueTimezone": "America/Detroit",
+        "gameState": "LIVE",
+        "gameScheduleState": "OK",
+        "tvBroadcasts": [
+          {
+            "id": 324,
+            "market": "N",
+            "countryCode": "US",
+            "network": "NHLN",
+            "sequenceNumber": 35
+          },
+          {
+            "id": 645,
+            "market": "H",
+            "countryCode": "US",
+            "network": "DSN",
+            "sequenceNumber": 1
+          },
+          {
+            "id": 292,
+            "market": "A",
+            "countryCode": "CA",
+            "network": "TSN3",
+            "sequenceNumber": 134
+          }
+        ],
+        "awayTeam": {
+          "id": 52,
+          "commonName": {
+            "default": "Jets"
+          },
+          "placeName": {
+            "default": "Winnipeg"
+          },
+          "placeNameWithPreposition": {
+            "default": "Winnipeg",
+            "fr": "de Winnipeg"
+          },
+          "abbrev": "WPG",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg",
+          "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WPG_dark.svg",
+          "awaySplitSquad": false,
+          "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/WPG/20262027/WPG-radio.m3u8",
+          "score": 1
+        },
+        "homeTeam": {
+          "id": 17,
+          "commonName": {
+            "default": "Red Wings"
+          },
+          "placeName": {
+            "default": "Detroit"
+          },
+          "placeNameWithPreposition": {
+            "default": "Detroit",
+            "fr": "de Detroit"
+          },
+          "abbrev": "DET",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+          "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DET_dark.svg",
+          "homeSplitSquad": false,
+          "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/DET/20262027/DET-radio.m3u8",
+          "score": 0
+        },
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
+        },
+        "gameCenterLink": "/gamecenter/wpg-vs-det/2026/10/04/2026020035"
+      }
+    }
+  ]
+}

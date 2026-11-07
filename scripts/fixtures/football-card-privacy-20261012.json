@@ -1,0 +1,879 @@
+{
+  "schemaVersion": "football-card-privacy.v1",
+  "observedAt": "2026-10-11T15:03:47.238Z",
+  "releaseSha": "becd970c2db156991a2db42e99da383f2f8c7bfc",
+  "sourceUrl": "https://nothingsport.vercel.app/data/code-inspector/football.json",
+  "fixtures": [
+    {
+      "id": "event:premier-league:128923",
+      "sourceEventIds": [
+        "epl-2026-27-128923",
+        "event:premier-league:128923"
+      ],
+      "codeId": "sport:football",
+      "key": "premier-league",
+      "statusCheckedAt": "2026-09-30T12:54:10.417Z",
+      "scoreCheckedAt": "2026-10-11T12:38:51.272Z",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:premier-league-2026-27",
+      "name": "Arsenal v Coventry City",
+      "date": "2026-08-22",
+      "time": "05:00",
+      "timePrecision": "exact",
+      "startTimeUtc": "2026-08-21T19:00:00.000Z",
+      "roundNumber": 1,
+      "canonicalEventId": "event:premier-league:128923",
+      "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+      "resultSourceCheckedAt": "2026-10-11T12:38:51.272Z",
+      "narrativeType": "regular-season-fixture",
+      "season": "2026/27",
+      "competitionName": "Premier League",
+      "sourceName": "Premier League official fixture schedule",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+      "homeParticipantId": "team:football:epl:1",
+      "awayParticipantId": "team:football:epl:5",
+      "homeScore": 3,
+      "awayScore": 0,
+      "score": "Arsenal 3-0 Coventry City",
+      "outcomeText": "Arsenal defeated Coventry City 3-0.",
+      "recapText": "Arsenal completed a 3-goal win in Premier League Matchweek 1.",
+      "resultLabels": [
+        "Premier League Matchweek 1",
+        "Arsenal defeated Coventry City 3-0."
+      ],
+      "consensusTags": [],
+      "endTimeUtc": "2026-08-21T21:00:00.000Z",
+      "venue": "Emirates Stadium",
+      "status": "completed",
+      "scheduleStatus": "confirmed",
+      "participantSlots": [
+        {
+          "slot": 1,
+          "participantId": "team:football:epl:1",
+          "label": "Arsenal",
+          "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png"
+        },
+        {
+          "slot": 2,
+          "participantId": "team:football:epl:5",
+          "label": "Coventry City",
+          "logoUrl": null
+        }
+      ],
+      "participantIds": [
+        "team:football:epl:1",
+        "team:football:epl:5"
+      ],
+      "participants": [
+        {
+          "name": "Arsenal",
+          "role": "home",
+          "id": ""
+        },
+        {
+          "name": "Coventry City",
+          "role": "away",
+          "id": ""
+        }
+      ],
+      "participantCountryCodes": [],
+      "detailsExpectedAt": null,
+      "schedulingWindow": null,
+      "roundLabel": "Premier League Matchweek 1",
+      "stage": null,
+      "groupOrder": 5000,
+      "competitionScope": null,
+      "isInternational": false,
+      "representativeCountryCodes": [],
+      "expected": 6,
+      "broadcaster": "Stan Sport",
+      "viewingOptions": [
+        {
+          "providerId": "stan",
+          "serviceId": "stan",
+          "serviceLabel": "Stan Sport",
+          "territory": "AU",
+          "accessType": "subscription",
+          "liveOrReplay": "live",
+          "replayVerified": false,
+          "linkScope": "sport",
+          "rightsScope": "competition",
+          "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+          "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+          "verifiedAt": "2026-08-25T00:00:00.000Z"
+        }
+      ],
+      "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+      "ticketUrl": null,
+      "storyline": {
+        "stakes": 3,
+        "intensity": 3,
+        "arcStage": "recap",
+        "expectedSpectacle": 6,
+        "intensitySource": "computed",
+        "hookSpoilerOff": "Arsenal v Coventry City is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Arsenal v Coventry City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Arsenal defeated Coventry City 3-0.",
+        "synopsisSpoilerOn": "Arsenal completed a 3-goal win in Premier League Matchweek 1."
+      },
+      "sourceCoverage": "published-feed"
+    },
+    {
+      "id": "fixture:football:openligadb:uefa-champions-league:87388",
+      "sourceEventIds": [
+        "fixture:football:openligadb:uefa-champions-league:87388"
+      ],
+      "codeId": "sport:football",
+      "key": "football",
+      "scoreCheckedAt": "2026-10-04T08:37:57.816Z",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:uefa-champions-league",
+      "name": "Club Brugge v Aston Villa",
+      "date": "2026-09-09",
+      "time": "02:45",
+      "timePrecision": "exact",
+      "startTimeUtc": "2026-09-08T16:45:00.000Z",
+      "scorecardUrl": "https://api.openligadb.de/getmatchdata/87388",
+      "goalDetailsCheckedAt": "2026-10-10T23:39:26.246Z",
+      "goalDetailsStale": false,
+      "goalScorers": [
+        {
+          "id": "147151",
+          "name": "John McGinn",
+          "minute": 11,
+          "ownGoal": false,
+          "penalty": false,
+          "type": "Goal",
+          "teamProviderId": "438",
+          "teamName": "Aston Villa",
+          "teamParticipantId": "team:football:epl:2"
+        },
+        {
+          "id": "147152",
+          "name": "Hugo Vetlesen",
+          "minute": 19,
+          "ownGoal": false,
+          "penalty": false,
+          "type": "Goal",
+          "teamProviderId": "1210",
+          "teamName": "Club Brugge",
+          "teamParticipantId": "team:football:club:club-brugge"
+        },
+        {
+          "id": "147154",
+          "name": "Emiliano Buend\u00eda",
+          "minute": 22,
+          "ownGoal": false,
+          "penalty": false,
+          "type": "Goal",
+          "teamProviderId": "438",
+          "teamName": "Aston Villa",
+          "teamParticipantId": "team:football:epl:2"
+        },
+        {
+          "id": "147155",
+          "name": "Nicolas Jackson",
+          "minute": 44,
+          "ownGoal": false,
+          "penalty": false,
+          "type": "Goal",
+          "teamProviderId": "438",
+          "teamName": "Aston Villa",
+          "teamParticipantId": "team:football:epl:2"
+        },
+        {
+          "id": "147156",
+          "name": "N. Tresoldi",
+          "minute": 61,
+          "ownGoal": false,
+          "penalty": false,
+          "type": "Goal",
+          "teamProviderId": "1210",
+          "teamName": "Club Brugge",
+          "teamParticipantId": "team:football:club:club-brugge"
+        }
+      ],
+      "roundNumber": 1,
+      "canonicalEventId": "fixture:football:openligadb:uefa-champions-league:87388",
+      "resultSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
+      "season": "2026/27",
+      "competitionName": "UEFA Champions League",
+      "isSenior": true,
+      "gender": "men",
+      "sourceName": "OpenLigaDB community database",
+      "sourceType": "community",
+      "sourceCheckedAt": "2026-10-10T23:39:26.246Z",
+      "homeParticipantId": "team:football:club:club-brugge",
+      "awayParticipantId": "team:football:epl:2",
+      "homeScore": 2,
+      "awayScore": 3,
+      "score": "Club Brugge 2-3 Aston Villa",
+      "consensusTags": [],
+      "sourceAttribution": {
+        "provider": "OpenLigaDB",
+        "licence": "ODbL",
+        "datasetUrl": "/data/providers/openligadb/football-2026-27.json"
+      },
+      "venue": null,
+      "status": "completed",
+      "scheduleStatus": "confirmed",
+      "participantSlots": [
+        {
+          "slot": 1,
+          "participantId": "team:football:club:club-brugge",
+          "label": "Club Brugge",
+          "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/570.png"
+        },
+        {
+          "slot": 2,
+          "participantId": "team:football:epl:2",
+          "label": "Aston Villa",
+          "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:club-brugge",
+        "team:football:epl:2"
+      ],
+      "participants": [
+        {
+          "id": "team:football:club:club-brugge",
+          "participantId": "team:football:club:club-brugge",
+          "name": "Club Brugge",
+          "role": "home",
+          "type": "team",
+          "teamKind": "club",
+          "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/570.png",
+          "crestSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams?limit=100"
+        },
+        {
+          "id": "team:football:epl:2",
+          "participantId": "team:football:epl:2",
+          "name": "Aston Villa",
+          "role": "away",
+          "type": "team",
+          "teamKind": "club",
+          "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png",
+          "crestSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams?limit=100"
+        }
+      ],
+      "participantCountryCodes": [],
+      "detailsExpectedAt": null,
+      "schedulingWindow": null,
+      "roundLabel": "Champions League Matchday 1",
+      "stage": "League phase",
+      "groupOrder": 5000,
+      "competitionScope": "international",
+      "isInternational": true,
+      "representativeCountryCodes": [],
+      "expected": 0,
+      "broadcaster": null,
+      "viewingOptions": [],
+      "sourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
+      "ticketUrl": null,
+      "footballMatchContext": {
+        "schemaVersion": "football-match-context.v1",
+        "competitionId": "competition:uefa-champions-league",
+        "season": "2026/27",
+        "checkedAt": "2026-10-11T12:36:04.980Z",
+        "beforeKickoff": "2026-09-08T16:45:00.000Z",
+        "teams": [
+          {
+            "participantId": "team:football:club:club-brugge",
+            "name": "Club Brugge",
+            "played": 0,
+            "won": 0,
+            "drawn": 0,
+            "lost": 0
+          },
+          {
+            "participantId": "team:football:epl:2",
+            "name": "Aston Villa",
+            "played": 0,
+            "won": 0,
+            "drawn": 0,
+            "lost": 0
+          }
+        ]
+      },
+      "sourceCoverage": "community-canonical"
+    },
+    {
+      "id": "fixture:football:openligadb:uefa-europa-league:87761",
+      "sourceEventIds": [
+        "fixture:football:openligadb:uefa-europa-league:87761"
+      ],
+      "codeId": "sport:football",
+      "key": "football",
+      "scoreCheckedAt": "2026-10-04T08:37:57.816Z",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:uefa-europa-league",
+      "name": "Ararat-Armenia v Sparta Praha",
+      "date": "2026-09-17",
+      "time": "02:45",
+      "timePrecision": "exact",
+      "startTimeUtc": "2026-09-16T16:45:00.000Z",
+      "scorecardUrl": "https://api.openligadb.de/getmatchdata/87761",
+      "goalDetailsCheckedAt": "2026-10-10T23:39:26.246Z",
+      "goalDetailsStale": false,
+      "goalScorers": [
+        {
+          "id": "147728",
+          "name": "T. Guddal",
+          "minute": 20,
+          "ownGoal": false,
+          "penalty": false,
+          "type": "Goal",
+          "teamProviderId": "4199",
+          "teamName": "Sparta Praha",
+          "teamParticipantId": "team:football:club:sparta-praha"
+        },
+        {
+          "id": "147729",
+          "name": "T. Guddal",
+          "minute": 22,
+          "ownGoal": false,
+          "penalty": false,
+          "type": "Goal",
+          "teamProviderId": "4199",
+          "teamName": "Sparta Praha",
+          "teamParticipantId": "team:football:club:sparta-praha"
+        },
+        {
+          "id": "147730",
+          "name": "J. Mercado",
+          "minute": 53,
+          "ownGoal": false,
+          "penalty": false,
+          "type": "Goal",
+          "teamProviderId": "4199",
+          "teamName": "Sparta Praha",
+          "teamParticipantId": "team:football:club:sparta-praha"
+        },
+        {
+          "id": "147731",
+          "name": "Bruno Valdez",
+          "minute": 55,
+          "ownGoal": false,
+          "penalty": false,
+          "type": "Goal",
+          "teamProviderId": "8876",
+          "teamName": "Ararat-Armenia",
+          "teamParticipantId": "team:football:club:ararat-armenia"
+        },
+        {
+          "id": "147739",
+          "name": "P. Vydra",
+          "minute": 72,
+          "ownGoal": false,
+          "penalty": false,
+          "type": "Goal",
+          "teamProviderId": "4199",
+          "teamName": "Sparta Praha",
+          "teamParticipantId": "team:football:club:sparta-praha"
+        }
+      ],
+      "roundNumber": 1,
+      "canonicalEventId": "fixture:football:openligadb:uefa-europa-league:87761",
+      "resultSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
+      "season": "2026/27",
+      "competitionName": "UEFA Europa League",
+      "isSenior": true,
+      "gender": "men",
+      "sourceName": "OpenLigaDB community database",
+      "sourceType": "community",
+      "sourceCheckedAt": "2026-10-10T23:39:26.246Z",
+      "homeParticipantId": "team:football:club:ararat-armenia",
+      "awayParticipantId": "team:football:club:sparta-praha",
+      "homeScore": 1,
+      "awayScore": 4,
+      "score": "Ararat-Armenia 1-4 Sparta Praha",
+      "consensusTags": [],
+      "sourceAttribution": {
+        "provider": "OpenLigaDB",
+        "licence": "ODbL",
+        "datasetUrl": "/data/providers/openligadb/football-2026-27.json"
+      },
+      "venue": null,
+      "status": "completed",
+      "scheduleStatus": "confirmed",
+      "participantSlots": [
+        {
+          "slot": 1,
+          "participantId": "team:football:club:ararat-armenia",
+          "label": "Ararat-Armenia",
+          "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/FC_Ararat-Armenia_logo.svg"
+        },
+        {
+          "slot": 2,
+          "participantId": "team:football:club:sparta-praha",
+          "label": "Sparta Praha",
+          "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/433.png"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:ararat-armenia",
+        "team:football:club:sparta-praha"
+      ],
+      "participants": [
+        {
+          "id": "team:football:club:ararat-armenia",
+          "participantId": "team:football:club:ararat-armenia",
+          "name": "Ararat-Armenia",
+          "role": "home",
+          "type": "team",
+          "teamKind": "club",
+          "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/FC_Ararat-Armenia_logo.svg",
+          "crestSourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026"
+        },
+        {
+          "id": "team:football:club:sparta-praha",
+          "participantId": "team:football:club:sparta-praha",
+          "name": "Sparta Praha",
+          "role": "away",
+          "type": "team",
+          "teamKind": "club",
+          "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/433.png",
+          "crestSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/teams/433"
+        }
+      ],
+      "participantCountryCodes": [],
+      "detailsExpectedAt": null,
+      "schedulingWindow": null,
+      "roundLabel": "Europa League Matchday 1",
+      "stage": "League phase",
+      "groupOrder": 5000,
+      "competitionScope": "international",
+      "isInternational": true,
+      "representativeCountryCodes": [],
+      "expected": 0,
+      "broadcaster": null,
+      "viewingOptions": [],
+      "sourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
+      "ticketUrl": null,
+      "footballMatchContext": {
+        "schemaVersion": "football-match-context.v1",
+        "competitionId": "competition:uefa-europa-league",
+        "season": "2026/27",
+        "checkedAt": "2026-10-11T12:36:04.980Z",
+        "beforeKickoff": "2026-09-16T16:45:00.000Z",
+        "teams": [
+          {
+            "participantId": "team:football:club:ararat-armenia",
+            "name": "Ararat-Armenia",
+            "played": 0,
+            "won": 0,
+            "drawn": 0,
+            "lost": 0
+          },
+          {
+            "participantId": "team:football:club:sparta-praha",
+            "name": "Sparta Praha",
+            "played": 0,
+            "won": 0,
+            "drawn": 0,
+            "lost": 0
+          }
+        ]
+      },
+      "sourceCoverage": "community-canonical"
+    }
+  ],
+  "standings": [
+    {
+      "participantId": "team:football:epl:1",
+      "rank": 2,
+      "played": 6,
+      "won": 5,
+      "drawn": 0,
+      "lost": 1,
+      "pointsFor": 10,
+      "pointsAgainst": 5,
+      "pointsDifference": 5,
+      "ladderPoints": 15,
+      "competitionId": "competition:premier-league-2026-27",
+      "competitionName": "2026/27 Premier League",
+      "asOf": "2026-10-11T12:36:41.401Z",
+      "roundLabel": "After Matchweek 6",
+      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "displayName": "Arsenal"
+    },
+    {
+      "participantId": "team:football:epl:5",
+      "rank": 19,
+      "played": 5,
+      "won": 1,
+      "drawn": 0,
+      "lost": 4,
+      "pointsFor": 1,
+      "pointsAgainst": 10,
+      "pointsDifference": -9,
+      "ladderPoints": 3,
+      "competitionId": "competition:premier-league-2026-27",
+      "competitionName": "2026/27 Premier League",
+      "asOf": "2026-10-11T12:36:41.401Z",
+      "roundLabel": "After Matchweek 6",
+      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "displayName": "Coventry City"
+    },
+    {
+      "participantId": "team:football:epl:2",
+      "displayName": "Aston Villa",
+      "played": 1,
+      "won": 1,
+      "drawn": 0,
+      "lost": 0,
+      "pointsFor": 3,
+      "pointsAgainst": 2,
+      "pointsDifference": 1,
+      "ladderPoints": 3,
+      "awayGoals": 3,
+      "awayWins": 1,
+      "opponentPoints": 10,
+      "opponentGoalDifference": 4,
+      "opponentGoals": 21,
+      "rank": 9,
+      "sharedRank": true,
+      "sortOrder": 9,
+      "rankPending": false,
+      "competitionId": "competition:uefa-champions-league",
+      "competitionName": "UEFA Champions League",
+      "season": "2026/27",
+      "asOf": "2026-10-11T12:36:04.980Z",
+      "sourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
+      "derived": true,
+      "provisional": true,
+      "sourceAttribution": {
+        "provider": "OpenLigaDB",
+        "licence": "ODbL",
+        "datasetUrl": "/data/providers/openligadb/football-2026-27.json"
+      },
+      "tableNote": "Provisional table derived from community results. Equal ranks remain tied; alphabetical display uses NS club names. No qualification is confirmed."
+    },
+    {
+      "participantId": "team:football:club:club-brugge",
+      "displayName": "Club Brugge",
+      "played": 1,
+      "won": 0,
+      "drawn": 0,
+      "lost": 1,
+      "pointsFor": 2,
+      "pointsAgainst": 3,
+      "pointsDifference": -1,
+      "ladderPoints": 0,
+      "awayGoals": 0,
+      "awayWins": 0,
+      "opponentPoints": 13,
+      "opponentGoalDifference": -2,
+      "opponentGoals": 13,
+      "rank": 22,
+      "sharedRank": true,
+      "sortOrder": 22,
+      "rankPending": false,
+      "competitionId": "competition:uefa-champions-league",
+      "competitionName": "UEFA Champions League",
+      "season": "2026/27",
+      "asOf": "2026-10-11T12:36:04.980Z",
+      "sourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
+      "derived": true,
+      "provisional": true,
+      "sourceAttribution": {
+        "provider": "OpenLigaDB",
+        "licence": "ODbL",
+        "datasetUrl": "/data/providers/openligadb/football-2026-27.json"
+      },
+      "tableNote": "Provisional table derived from community results. Equal ranks remain tied; alphabetical display uses NS club names. No qualification is confirmed."
+    },
+    {
+      "participantId": "team:football:club:sparta-praha",
+      "displayName": "Sparta Praha",
+      "played": 1,
+      "won": 1,
+      "drawn": 0,
+      "lost": 0,
+      "pointsFor": 4,
+      "pointsAgainst": 1,
+      "pointsDifference": 3,
+      "ladderPoints": 3,
+      "awayGoals": 4,
+      "awayWins": 1,
+      "opponentPoints": 13,
+      "opponentGoalDifference": 2,
+      "opponentGoals": 11,
+      "rank": 3,
+      "sharedRank": false,
+      "sortOrder": 3,
+      "rankPending": false,
+      "competitionId": "competition:uefa-europa-league",
+      "competitionName": "UEFA Europa League",
+      "season": "2026/27",
+      "asOf": "2026-10-11T12:36:04.980Z",
+      "sourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
+      "derived": true,
+      "provisional": true,
+      "sourceAttribution": {
+        "provider": "OpenLigaDB",
+        "licence": "ODbL",
+        "datasetUrl": "/data/providers/openligadb/football-2026-27.json"
+      },
+      "tableNote": "Provisional table derived from community results. Equal ranks remain tied; alphabetical display uses NS club names. No qualification is confirmed."
+    },
+    {
+      "participantId": "team:football:club:ararat-armenia",
+      "displayName": "Ararat-Armenia",
+      "played": 1,
+      "won": 0,
+      "drawn": 0,
+      "lost": 1,
+      "pointsFor": 1,
+      "pointsAgainst": 4,
+      "pointsDifference": -3,
+      "ladderPoints": 0,
+      "awayGoals": 0,
+      "awayWins": 0,
+      "opponentPoints": 9,
+      "opponentGoalDifference": -6,
+      "opponentGoals": 8,
+      "rank": 33,
+      "sharedRank": false,
+      "sortOrder": 33,
+      "rankPending": false,
+      "competitionId": "competition:uefa-europa-league",
+      "competitionName": "UEFA Europa League",
+      "season": "2026/27",
+      "asOf": "2026-10-11T12:36:04.980Z",
+      "sourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
+      "derived": true,
+      "provisional": true,
+      "sourceAttribution": {
+        "provider": "OpenLigaDB",
+        "licence": "ODbL",
+        "datasetUrl": "/data/providers/openligadb/football-2026-27.json"
+      },
+      "tableNote": "Provisional table derived from community results. Equal ranks remain tied; alphabetical display uses NS club names. No qualification is confirmed."
+    }
+  ],
+  "sharedNblContextFixture": {
+    "id": "event:nbl:2026-27:36dbeb55-58ad-11f1-a69b-43a6b5595d3e",
+    "sourceEventIds": [
+      "evt_nbl_2026_27_36dbeb55_58ad_11f1_a69b_43a6b5595d3e",
+      "event:nbl:2026-27:36dbeb55-58ad-11f1-a69b-43a6b5595d3e"
+    ],
+    "codeId": "sport:nbl",
+    "key": "nba",
+    "statusCheckedAt": "2026-10-11T12:37:53.829Z",
+    "scoreCheckedAt": "2026-09-30T12:09:08.398Z",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "cardKind": "fixture",
+    "competitionId": "competition:nbl",
+    "name": "Melbourne United v Adelaide 36ers",
+    "date": "2026-09-19",
+    "time": "19:30",
+    "timePrecision": "exact",
+    "startTimeUtc": "2026-09-19T09:30:00.000Z",
+    "roundNumber": 1,
+    "canonicalEventId": "event:nbl:2026-27:36dbeb55-58ad-11f1-a69b-43a6b5595d3e",
+    "resultSourceUrl": "https://schedule.nbl.com.au/nbl",
+    "resultSourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "narrativeType": "all",
+    "season": "2026-27",
+    "sourceName": "NBL official schedule",
+    "sourceType": "official",
+    "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
+    "homeParticipantId": "team:nbl:melbourne-united",
+    "awayParticipantId": "team:nbl:adelaide-36ers",
+    "homeScore": 95,
+    "awayScore": 97,
+    "score": "95-97",
+    "outcomeText": "Melbourne United 95, Adelaide 36ers 97",
+    "recapText": "Official NBL result.",
+    "consensusResult": {
+      "winner": "Adelaide 36ers",
+      "summary": "Melbourne United 95, Adelaide 36ers 97"
+    },
+    "resultLabels": [
+      "Round 1",
+      "95-97",
+      "Official result"
+    ],
+    "consensusTags": [],
+    "endTimeUtc": "2026-09-19T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window",
+    "venue": "John Cain Arena",
+    "status": "completed",
+    "scheduleStatus": "confirmed",
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United",
+        "logoUrl": null
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers",
+        "logoUrl": null
+      }
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantCountryCodes": [],
+    "detailsExpectedAt": null,
+    "schedulingWindow": null,
+    "resultStatus": "official",
+    "roundLabel": "Round 1",
+    "stage": "regular season",
+    "groupOrder": 1,
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "expected": 5,
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "viewingOptions": [
+      {
+        "providerId": "nine",
+        "rightsScope": "fixture",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "sourceUrl": "https://schedule.nbl.com.au/nbl",
+        "verifiedAt": "2026-10-11T12:37:53.829Z"
+      },
+      {
+        "providerId": "disney",
+        "rightsScope": "fixture",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "sourceUrl": "https://schedule.nbl.com.au/nbl",
+        "verifiedAt": "2026-10-11T12:37:53.829Z",
+        "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
+        "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
+      },
+      {
+        "providerId": "kayo",
+        "rightsScope": "fixture",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "sourceUrl": "https://schedule.nbl.com.au/nbl",
+        "verifiedAt": "2026-10-11T12:37:53.829Z",
+        "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
+        "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "fixture",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "sourceUrl": "https://schedule.nbl.com.au/nbl",
+        "verifiedAt": "2026-10-11T12:37:53.829Z",
+        "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
+        "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
+      }
+    ],
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "ticketUrl": null,
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-10-11T12:37:53.829Z",
+      "beforeKickoff": "2026-09-19T09:30:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:melbourne-united",
+          "name": "Melbourne United",
+          "played": 0,
+          "won": 0,
+          "lost": 0
+        },
+        {
+          "participantId": "team:nbl:adelaide-36ers",
+          "name": "Adelaide 36ers",
+          "played": 0,
+          "won": 0,
+          "lost": 0
+        }
+      ]
+    },
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:evt-nbl-2026-27-36dbeb55-58ad-11f1-a69b-43a6b5595d3e",
+      "researchTier": "standard",
+      "hook": "Melbourne United v Adelaide 36ers is complete; the key moments are protected until you choose to reveal them.",
+      "synopsis": "Melbourne United v Adelaide 36ers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Melbourne United 95, Adelaide 36ers 97",
+      "synopsisSpoilerOn": "Official NBL result.",
+      "threadIds": [
+        "thread:rolling:nbl:2026"
+      ],
+      "factIds": [
+        "fact:rolling:event-nbl-2026-27-36dbeb55-58ad-11f1-a69b-43a6b5595d3e:schedule",
+        "fact:rolling:event-nbl-2026-27-36dbeb55-58ad-11f1-a69b-43a6b5595d3e:field",
+        "fact:rolling:event-nbl-2026-27-36dbeb55-58ad-11f1-a69b-43a6b5595d3e:viewing",
+        "fact:rolling:event-nbl-2026-27-36dbeb55-58ad-11f1-a69b-43a6b5595d3e:consequence",
+        "fact:rolling:event-nbl-2026-27-36dbeb55-58ad-11f1-a69b-43a6b5595d3e:result"
+      ],
+      "sourceIds": [
+        "source:rolling:nbl:nbl27-schedule"
+      ],
+      "dimensions": [
+        "schedule",
+        "format",
+        "consequence"
+      ],
+      "researchedAt": "2026-09-25T03:38:48.485Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "resultResearchRequired": false,
+      "phase": "recap",
+      "resultSignature": "[\"completed\",\"Melbourne United 95, Adelaide 36ers 97\",\"95-97\",\"Official NBL result.\"]"
+    },
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "computed",
+      "arcStage": "recap",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United v Adelaide 36ers is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Melbourne United 95, Adelaide 36ers 97",
+      "synopsisSpoilerOff": "Melbourne United v Adelaide 36ers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Official NBL result.",
+      "lastReviewedAt": "2026-09-25T03:38:48.485Z",
+      "researchDepth": 2
+    },
+    "sourceCoverage": "published-feed",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "2026\u201327 NBL season \u2014 current path",
+      "contextSignals": [
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
+      "needsPreviewRefresh": false
+    }
+  },
+  "sharedNblContextSource": "Published data/code-inspector/nbl.json in the same retained snapshot"
+}

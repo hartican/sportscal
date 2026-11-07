@@ -12,8 +12,14 @@ const {
 
 const ROOT = path.resolve(__dirname, "..");
 const SCHEDULE_PATHS = [
+  path.join(ROOT, "data/canonical/horse-features.v1.json"),
+  path.join(ROOT, "data/canonical/lemans-calendar.v1.json"),
+  path.join(ROOT, "data/canonical/dakar-calendar.v1.json"),
+  path.join(ROOT, "data/canonical/grand-tours-calendar.v1.json"),
+  path.join(ROOT, "data/canonical/wsl-calendar.v1.json"),
   path.join(ROOT, "data/canonical/fiba-women-sailgp-motogp-2026.json"),
   path.join(ROOT, "data/canonical/golf-majors-2027.json"),
+  path.join(ROOT, "data/canonical/golf-major-rounds.v1.json"),
   path.join(ROOT, "data/canonical/nbl-2026-27.json"),
   path.join(ROOT, "data/canonical/f1-sessions-2026.json"),
 ];
@@ -43,28 +49,87 @@ function broadcasterFor(sportKey){
   }
   if (sportKey === "fiba-women") return { label:"ESPN via Kayo / Foxtel", options:["Kayo Sports", "Foxtel"], ids:["kayo", "foxtel"] };
   if (sportKey === "nbl") return { label:"ESPN via Disney+ / Kayo / Foxtel", options:["Disney+", "Kayo Sports", "Foxtel"], ids:["kayo", "foxtel"] };
-  if (sportKey === "golf") return { label:"Broadcast TBC", options:[], ids:[] };
+  if (["horse-racing","golf","wsl","tdf","giro","vuelta","dakar","lemans"].includes(sportKey)) return { label:"Broadcast TBC", options:[], ids:[] };
   return { label:"Fox Sports via Kayo / Foxtel", options:["Kayo Sports", "Foxtel"], ids:["kayo", "foxtel"] };
 }
 
 function sportLabel(sportKey){
   return ({
+    "horse-racing":"Horse Racing",
     nrlw:"NRLW",
     "fiba-women":"FIBA Women",
     sailgp:"SailGP",
+    wsl:"Surfing",
     motogp:"MotoGP",
     f1:"Formula 1",
     nbl:"NBL",
-    golf:"Golf",
+    golf:"Golf", dakar:"Dakar", lemans:"24 Hours of Le Mans",
+    tdf:"Cycling", giro:"Cycling", vuelta:"Cycling",
   })[sportKey] || sportKey;
 }
 
+function validateNrlwFinals(schedule){
+  const review=schedule?.nrlwFinalsReview;
+  if(!review || !Array.isArray(review.fixtureIds) || ![4,5].includes(review.fixtureIds.length) || new Set(review.fixtureIds).size!==review.fixtureIds.length)throw new Error('NRLW reviewed finals: incomplete identity collection');
+  const participants=new Map(schedule.participants.map(p=>[p.id,p]));
+  const finals=schedule.events.filter(e=>e.nrlwFinalsReviewed);
+  if(finals.length!==review.fixtureIds.length || finals.some(e=>!review.fixtureIds.includes(e.id)))throw new Error('NRLW reviewed finals: collection does not match its declared scope');
+  const grandFinal=schedule.events.find(e=>e.id==='event:nrlw:2026:grand-final');
+  if(grandFinal?.status==='completed'&&!grandFinal.nrlwFinalsReviewed)throw new Error('NRLW reviewed finals: undeclared Grand Final result');
+  const roundCounts={12:0,13:0,14:0};
+  for(const event of finals){
+    const source=schedule.sources[event.sourceId],result=event.result;
+    const validDate=value=>typeof value==='string'&&Number.isFinite(Date.parse(value))&&Date.parse(value)<=Date.now();
+    if(event.sportKey!=='nrlw'||event.competitionId!=='competition:nrlw-premiership-2026'||event.providerStatus!=='FullTime'||event.status!=='completed'||!Object.hasOwn(roundCounts,event.roundNumber))throw new Error('NRLW reviewed finals: unsupported competition, phase or status');
+    roundCounts[event.roundNumber]++;
+    if(source?.type!=='official'||!validDate(source.checkedAt)||!validDate(event.sourceCheckedAt)||!validDate(result?.checkedAt))throw new Error('NRLW reviewed finals: invalid source observation');
+    if(event.sourceCheckedAt!==source.checkedAt||event.timeTbc||event.timePrecision!=='exact'||!validDate(event.startTimeUtc))throw new Error('NRLW reviewed finals: inconsistent timing');
+    if(event.roundNumber===14){
+      // The reviewed rendered league report supplies the final only. Keep the
+      // independent programme observation; do not invent API/update/end clocks.
+      const evidence=schedule.sources[result.sourceId];
+      const validUtc=value=>validDate(value)&&/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/.test(value)&&new Date(value).toISOString()===value.replace(/Z$/,value.includes('.')?'Z':'.000Z');
+      if (
+        event.id!=='event:nrlw:2026:grand-final' ||
+        event.startTimeUtc!=='2026-10-04T05:00:00.000Z' ||
+        event.venue!=='Accor Stadium' ||
+        JSON.stringify(event.participantIds)!==JSON.stringify(['team:nrlw:roosters','team:nrlw:broncos']) ||
+        result.evidenceKind!=='reviewed-official-report' ||
+        evidence?.type!=='official' ||
+        evidence.evidenceKind!=='reviewed-official-report' ||
+        evidence.observationMethod!=='manual-rendered-official-page' ||
+        evidence.url!=='https://www.nrl.com/news/2026/10/04/nrlw-decider-roosters-v-broncos/' ||
+        evidence.fixtureId!==event.id ||
+        evidence.competitionId!==event.competitionId ||
+        JSON.stringify(evidence.participantIds)!==JSON.stringify(event.participantIds) ||
+        evidence.finalStatus!=='FullTime' ||
+        evidence.homeScore!==event.homeScore ||
+        evidence.awayScore!==event.awayScore ||
+        !validUtc(evidence.checkedAt) ||
+        result.checkedAt!==evidence.checkedAt ||
+        Date.parse(evidence.checkedAt)<Date.parse(event.startTimeUtc) ||
+        result.sourceId===event.sourceId ||
+        event.providerMatchId!=null ||
+        evidence.providerMatchId!=null ||
+        evidence.providerUpdatedAt!=null
+      ) throw new Error('NRLW reviewed finals: invalid reviewed Grand Final report');
+    }else if(source.providerMatchId!==event.providerMatchId||!/^https:\/\/www\.nrl\.com\/draw\/womens-premiership\/2026\/finals-week-[12]\/[a-z-]+\/$/.test(source.url)||!validDate(source.providerUpdatedAt)||result.checkedAt!==source.checkedAt||Date.parse(source.providerUpdatedAt)>Date.parse(source.checkedAt)||result.sourceId!==event.sourceId||!event.startTimeUtc.startsWith('2026-09-'))throw new Error('NRLW reviewed finals: invalid provider final observation');
+    const instant=new Date(event.startTimeUtc),date=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'}).format(instant),time=new Intl.DateTimeFormat('en-GB',{timeZone:'Australia/Sydney',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(instant);
+    if(event.date!==date||event.time!==time||!event.venue)throw new Error('NRLW reviewed finals: invalid Sydney date, clock or venue');
+    if(!Array.isArray(event.participantIds)||event.participantIds.length!==2||new Set(event.participantIds).size!==2||event.participantIds.some(id=>!id.startsWith('team:nrlw:')||!participants.has(id))||![event.homeScore,event.awayScore].every(score=>Number.isInteger(score)&&score>=0)||event.homeScore===event.awayScore)throw new Error('NRLW reviewed finals: invalid participants or final scores');
+    const [home,away]=event.participantIds,score=`${participants.get(home).displayName} ${event.homeScore}-${event.awayScore} ${participants.get(away).displayName}`;
+    if(result.status!=='official'||result.score!==score||result.winnerParticipantId!==(event.homeScore>event.awayScore?home:away))throw new Error('NRLW reviewed finals: inconsistent result');
+  }
+  if(roundCounts[12]!==2||roundCounts[13]!==2||roundCounts[14]!==review.fixtureIds.length-4)throw new Error('NRLW reviewed finals: missing finals phase');
+}
+
 function cardForEvent(event, schedule, participantsById){
+  if(event.horseFeature)event={...event,...require('../lib/horse-racing').preview(event)};
   const source = schedule.sources[event.sourceId];
   const result = event.result || null;
   const resultSource = result ? schedule.sources[result.sourceId] : null;
   if (result && !resultSource) throw new Error(`${event.id}: unknown result source ${result.sourceId}`);
-  const broadcaster = broadcasterFor(event.sportKey);
+  const broadcaster = event.sportKey==='sailgp'&&event.season==='2027'?{label:'Broadcast TBC',options:[],ids:[]}:broadcasterFor(event.sportKey);
   const fieldEvent = ["motogp", "sailgp", "golf"].includes(event.sportKey);
   const aggregateSchedule = event.cardKind === "event" || (
     event.sportKey === "fiba-women"
@@ -87,36 +152,46 @@ function cardForEvent(event, schedule, participantsById){
   const representativeCountryCodes = eventParticipantIds
     .map(participantId => participantsById.get(participantId)?.countryCode)
     .filter(Boolean);
-  const id = stableCardId(event.id);
+  const id = event.legacyCardId || stableCardId(event.id);
   const stakes = event.round === "final" ? 5 : event.round === "semifinal" || event.round === "quarterfinal" ? 4 : Math.max(2, Math.ceil(Number(event.expected) / 2));
   const completed = Boolean(result) || event.status === "completed";
   const sourceCheckedAt = event.sourceCheckedAt || source.checkedAt || schedule.generatedAt || SOURCE_CHECKED_AT;
-  const spoilerSafeHook = `${event.name} is complete; the key moments are protected until you choose to reveal them.`;
-  const spoilerSafeSynopsis = `${event.name} is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.`;
-  const revealedHook = result?.status === "official" ? result.outcomeText : `${event.name} is complete; the official outcome is still pending.`;
-  const revealedSynopsis = result?.status === "official" ? result.recapText : `${event.name} is complete, but the official results page had not published a verified outcome at the latest check.`;
+  const spoilerSafeHook = event.resultCoverage==='calendar-only'?`${event.name} is complete. A verified result is unavailable.`:`${event.name} is complete; the key moments are protected until you choose to reveal them.`;
+  const spoilerSafeSynopsis = event.resultCoverage==='calendar-only'?spoilerSafeHook:`${event.name} is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.`;
+  const revealedHook = event.resultCoverage==='calendar-only'?'Result coverage is unavailable for this session.':result?.status === "official" ? result.outcomeText : `${event.name} is complete; the official outcome is still pending.`;
+  const revealedSynopsis = event.resultCoverage==='calendar-only'?spoilerSafeHook:result?.status === "official" ? result.recapText : `${event.name} is complete, but the official results page had not published a verified outcome at the latest check.`;
   return {
     id,
     eventId:id,
     canonicalEventId:event.id,
+    ...(event.horseFeature?Object.fromEntries(['horseFeature','slug','meeting','state','racePattern','timeZone','carnival','officialTimingUrl','score','scoreCheckedAt','distanceMetres'].filter(k=>event[k]!=null).map(k=>[k,event[k]])):{}),
     sport:sportLabel(event.sportKey),
     key:event.sportKey === "nbl" ? "basketball" : event.sportKey,
     name:event.name,
     cardKind:aggregateSchedule ? "event" : "fixture",
-    displayTitleCompact:event.name,
+    displayTitleCompact:event.displayTitleCompact || event.name,
     date:event.date,
     ...(event.endDate ? {endDate:event.endDate} : {}),
     time:event.time,
+    ...(event.dateOnly?{dateOnly:true}:{}),
+    ...(event.gender?{gender:event.gender}:{}),
     ...(event.startTimeUtc ? { startTimeUtc:event.startTimeUtc } : {}),
-    ...(event.timeTbc ? { timeTbc:true } : {}),
-    timePrecision:event.timeTbc ? "tbc" : (event.timePrecision || "exact"),
+    ...(event.estimatedStartTimeUtc ? {estimatedStartTimeUtc:event.estimatedStartTimeUtc} : {}),
+    ...(event.endTimeUtc ? { endTimeUtc:event.endTimeUtc } : {}),
+    ...(event.endTimeBasis ? {endTimeBasis:event.endTimeBasis} : {}),
+    ...(event.timingProvenance ? {timingProvenance:event.timingProvenance} : {}),
+    timeTbc:Boolean(event.timeTbc),
+    timePrecision:event.timePrecision || (event.timeTbc ? "tbc" : "exact"),
     scheduleStatus:event.timeTbc ? "tbc" : "confirmed",
+    ...(Array.isArray(event.viewingOptions) ? {viewingOptions:event.viewingOptions} : {}),
+    ...(event.teamMatchContext ? {teamMatchContext:event.teamMatchContext,season:event.season} : {}),
     broadcaster:broadcaster.label,
     broadcastOptions:broadcaster.options,
     broadcasterIds:broadcaster.ids,
     expected:Number(event.expected),
     stakesScore:stakes,
     venue:event.venue || null,
+    ...Object.fromEntries(["circuitId","venueOfficialName","venueId","venueVerified","venueCity","venueCountryCode","venueSourceUrl","venueCaption","courseGeometryVerified","courseArtworkId","courseGeometrySourceUrl","editionArtworkId","editionGeometryVerified","editionEndDate","lemansCalendar","identityRef","sessionOrder","dakarCalendar","itineraryScope","totalDistanceKm","specialDistanceKm","golfMajorCalendar","golfMajorOverview","majorSlug","eventFamilyId","isMajor","tournamentParent","tournamentId","cardType","grandTourCalendar","finishCountryCode","calendarProvenance","venueConfigurationId","venueConfigurationVerified","venueArtworkId","venueGeometrySourceUrl","circuitLengthMetres","circuitTurns","sessionType","weekendId","tournamentName","season","scheduleNote","sourceSessionIds","participantsConfirmed","resultCoverage"].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     liveWindow:Number(event.liveWindow || 3),
     round:event.round || "all",
     roundLabel:event.roundLabel || null,
@@ -128,6 +203,7 @@ function cardForEvent(event, schedule, participantsById){
     sourceName:source.name,
     sourceUrl:source.url,
     sourceCheckedAt,
+    ...(event.sportKey === 'nbl' ? {statusCheckedAt:sourceCheckedAt} : {}),
     sourceType:source.type,
     sourceTrust:"verified",
     status:event.status || (completed ? "completed" : "upcoming"),
@@ -135,6 +211,11 @@ function cardForEvent(event, schedule, participantsById){
       resultStatus:result.status,
       resultSourceUrl:resultSource.url,
       resultSourceCheckedAt:result.checkedAt,
+      ...(event.sportKey === 'nbl' && result.status === 'official' ? {
+        scoreCheckedAt:result.checkedAt,
+        homeScore:result.homeScore,awayScore:result.awayScore,
+        homeParticipantId:event.participantIds[0],awayParticipantId:event.participantIds[1],
+      } : {}),
       ...(result.status === "official" ? {
         score:result.score,
         outcomeText:result.outcomeText,
@@ -143,7 +224,8 @@ function cardForEvent(event, schedule, participantsById){
         consensusResult:{ winner:participantsById.get(result.winnerParticipantId)?.displayName || null, summary:result.outcomeText },
       } : {}),
     } : {}),
-    sportDomainId:event.sportKey === "golf" ? "sport:golf"
+    sportDomainId:event.sportKey==='horse-racing'?'sport:horse-racing':['tdf','giro','vuelta'].includes(event.sportKey)?"sport:cycling":event.sportKey === "wsl" ? "sport:surf"
+      : event.sportKey === "golf" ? "sport:golf"
       : event.sportKey === "sailgp" ? "sport:sailing"
       : event.sportKey === "fiba-women" ? "sport:basketball"
         : event.sportKey === "nbl" ? "sport:basketball"
@@ -199,22 +281,61 @@ function main(){
   const outputPath = path.resolve(process.argv[3] || inputPath);
   const feed = readJson(inputPath);
   const schedules=SCHEDULE_PATHS.map(readJson);
+  validateNrlwFinals(schedules.find(schedule=>schedule.nrlwFinalsReview));
+  const nrlwReview=readJson(path.join(ROOT,'data/canonical/nrlw-season-review.v1.json'));
+  require('./lib/nrlw-season-review').validateSeasonBackfill(nrlwReview,schedules.find(schedule=>schedule.nrlwFinalsReview));
   const cards=schedules.flatMap(schedule=>{
     const participantsById = new Map((schedule.participants || []).map(participant => [participant.id, participant]));
-    return (schedule.events || []).map(event => cardForEvent(event, schedule, participantsById));
+    return (schedule.events || []).filter(event=>(!process.argv.includes('--horse-racing-only')||event.horseFeature===true)&&(!process.argv.includes('--motogp-only')||event.sportKey==='motogp')&&(!process.argv.includes('--sailgp-only')||event.sportKey==='sailgp')&&(!process.argv.includes('--wsl-only')||event.sportKey==='wsl')&&(!process.argv.includes('--grand-tours-only')||['tdf','giro','vuelta'].includes(event.sportKey))&&(!process.argv.includes('--lemans-only')||event.lemansCalendar===true)&&(!process.argv.includes('--dakar-only')||event.dakarCalendar===true)&&(!process.argv.includes('--golf-majors-only')||event.golfMajorCalendar===true)).map(event => cardForEvent(event, schedule, participantsById));
   });
+  if(process.argv.includes('--nrlw-finals-only'))cards.splice(0,cards.length,...cards.filter(card=>card.key==='nrlw'&&card.resultStatus==='official'&&card.canonicalEventId?.includes(':2026:')&&schedules.some(schedule=>schedule.nrlwFinalsReview?.fixtureIds.includes(card.canonicalEventId))));
+  if(process.argv.includes('--nrlw-season-only'))cards.splice(0,cards.length,...cards.filter(card=>nrlwReview.addedFixtureIds.includes(card.canonicalEventId)));
   const canonicalIds = new Set(cards.map(card => card.canonicalEventId));
   const sessionType=value=>/sprint qualifying/i.test(value)?"sprint-qualifying":/sprint/i.test(value)?"sprint":/practice\s*1|fp1/i.test(value)?"practice-1":/practice\s*2|fp2/i.test(value)?"practice-2":/practice\s*3|fp3/i.test(value)?"practice-3":/qualifying/i.test(value)?"qualifying":/race/i.test(value)?"race":"";
-  const f1Identity=event=>event.key==="f1"?`${String(event.sourceUrl||"").match(/\/racing\/2026\/([^/?#]+)/)?.[1]||""}:${sessionType([event.sessionType,event.stage,event.roundLabel,event.name].join(" "))}`:"";
+  const f1Identity=event=>{
+    if(event.key!=="f1")return "";
+    const canonical=String(event.canonicalEventId||event.id||"").match(/^event:f1:2026:([a-z-]+):([a-z0-9-]+)$/);
+    const race=canonical?.[1]||String(event.sourceUrl||"").match(/\/racing\/2026\/([^/?#]+)/)?.[1];
+    const type=sessionType([event.sessionType,event.stage,event.roundLabel,event.name].join(" "));
+    return race&&type?`${race}:${type}`:"";
+  };
   const incomingF1=new Set(cards.map(f1Identity).filter(Boolean));
-  const legacyF1Ids=new Set(Object.values(F1_LEGACY_STABLE_IDS));
+  const legacyF1Ids=new Set(incomingF1.size ? Object.values(F1_LEGACY_STABLE_IDS) : []);
   const existingByF1=new Map((feed.events||[]).map(event=>[f1Identity(event),event]).filter(([key])=>key));
   const existingById=new Map((feed.events||[]).map(event=>[event.id,event]));
-  cards.forEach((card,index)=>{const identity=f1Identity(card),legacyId=F1_LEGACY_STABLE_IDS[identity],existing=existingByF1.get(identity)||existingById.get(legacyId);if(identity)cards[index]={...card,...(legacyId?{id:legacyId,eventId:legacyId}:{}),...Object.fromEntries(["storyline","editorialNarrative","editorialPreview","selectedSentence","fullSpiel"].filter(key=>existing?.[key]).map(key=>[key,existing[key]]))};});
+  cards.forEach((card,index)=>{
+    if(card.horseFeature&&existingById.has(card.id)){const old=existingById.get(card.id);cards[index]={...old,...card,...(Date.parse(old.score?.racing?.checkedAt)>Date.parse(card.score?.racing?.checkedAt||0)?{score:old.score,status:old.status,scoreCheckedAt:old.scoreCheckedAt}:{})};return;}
+    if(card.key==='nrlw'&&card.resultStatus==='official'&&existingById.has(card.id)){cards[index]=mergeNrlwFinalCard(card,existingById.get(card.id));return;}
+    if(card.lemansCalendar&&existingById.has(card.id)){cards[index]=mergeLemansCard(card,existingById.get(card.id));return;}
+    if((card.golfMajorCalendar||['sailgp','wsl','tdf','giro','vuelta','dakar','dakar'].includes(card.key))&&existingById.has(card.id))cards[index]=mergeSailgpCard(card,existingById.get(card.id));
+  });
+  // Published MotoGP race IDs retain ratings, chat, reminders and results.
+  cards.forEach((card,index)=>{
+    if(card.horseFeature&&existingById.has(card.id)){const old=existingById.get(card.id);cards[index]={...old,...card,...(Date.parse(old.score?.racing?.checkedAt)>Date.parse(card.score?.racing?.checkedAt||0)?{score:old.score,status:old.status,scoreCheckedAt:old.scoreCheckedAt}:{})};return;}
+    if(card.key!=='motogp')return;
+    const existing=existingById.get(card.id);
+    if(existing?.fixtureResults?.sourceUrl||existing?.resultPublishedAt)cards[index]={...card,...Object.fromEntries(['status','endTimeUtc','endTimeBasis','fixtureResults','resultPublishedAt','resultStatus','resultSourceUrl','resultSourceCheckedAt','scoreCheckedAt','statusCheckedAt','outcomeText','recapText','score','resultLabels','storyline','editorialNarrative','selectedSentence','fullSpiel'].filter(key=>existing[key]!=null).map(key=>[key,existing[key]]))};
+  });
+  cards.forEach((card,index)=>{
+    if(card.horseFeature&&existingById.has(card.id)){const old=existingById.get(card.id);cards[index]={...old,...card,...(Date.parse(old.score?.racing?.checkedAt)>Date.parse(card.score?.racing?.checkedAt||0)?{score:old.score,status:old.status,scoreCheckedAt:old.scoreCheckedAt}:{})};return;}
+    const identity=f1Identity(card),legacyId=F1_LEGACY_STABLE_IDS[identity],existing=existingByF1.get(identity)||existingById.get(legacyId)||existingById.get(card.id);
+    if(!identity)return;
+    // A published schedule cannot revoke a sourced result. Conversely, an old
+    // elapsed-time completion must not drag recap copy into an upcoming card.
+    const confirmed=existing?.status==='completed'&&Boolean(existing.fixtureResults?.sourceUrl||existing.resultPublishedAt);
+    const facts=confirmed?Object.fromEntries(['status','participantIds','participants','participantsConfirmed','fixtureResults','resultPublishedAt','resultStatus','resultSourceUrl','resultSourceCheckedAt','scoreCheckedAt','statusCheckedAt','outcomeText','recapText','score','resultLabels','sourceName','sourceUrl','sourceType','sourceCheckedAt'].filter(key=>existing[key]!=null).map(key=>[key,existing[key]])):{};
+    const compatible=confirmed||existing?.storyline?.arcStage===(card.status==='completed'?'recap':'preview');
+    cards[index]={...card,...facts,...(legacyId?{id:legacyId,eventId:legacyId}:{}),...(compatible?Object.fromEntries(['storyline','editorialNarrative','editorialPreview','selectedSentence','fullSpiel'].filter(key=>existing?.[key]!=null).map(key=>[key,existing[key]])):{})};
+  });
+  const retained = (feed.events || []).filter(event => !canonicalIds.has(event.canonicalEventId) && !(cards.some(c=>(c.lemansCalendar||c.golfMajorCalendar||['wsl','tdf','giro','vuelta','dakar'].includes(c.key))&&c.id===event.id)) && !incomingF1.has(f1Identity(event)) && !legacyF1Ids.has(event.id));
+  // A scoped refresh owns its cards only. Normalising retained raw
+  // provider IDs here can silently change unrelated tennis source identities.
+  const preserveRetained = process.argv.includes('--motogp-only') || process.argv.includes('--nrlw-finals-only') || process.argv.includes('--nrlw-season-only');
   const next = normalizeFeed({
     ...feed,
-    events:[...(feed.events || []).filter(event => !canonicalIds.has(event.canonicalEventId) && !incomingF1.has(f1Identity(event)) && !legacyF1Ids.has(event.id)), ...cards],
+    events:preserveRetained ? cards : [...retained, ...cards],
   });
+  if (preserveRetained) next.events = [...retained, ...next.events];
   const errors = validateFeed(next);
   if (errors.length) throw new Error(`Requested sports feed is invalid:\n- ${errors.join("\n- ")}`);
   writeJson(outputPath, next);
@@ -230,4 +351,26 @@ if (require.main === module){
   }
 }
 
-module.exports = { cardForEvent, stableCardId };
+function mergeSailgpCard(card,existing){
+  // Calendar/venue presentation cannot overwrite a newer result, observation,
+  // researched editorial or saved identity. Unknown future entries stay empty.
+  const fields=[...(card.key==='wsl'?['canonicalEventId']:[]),...(['wsl','tdf','giro','vuelta','dakar'].includes(card.key)?['codeId','taxonomyNodeId','competitionId','discoverySportId']:[]),...(card.key==='wsl'?['sportDomainId']:[]),'venue','venueOfficialName','venueVerified','venueCity','venueCountryCode','venueSourceUrl','venueCaption','courseGeometryVerified','calendarProvenance','season','weekendId','tournamentName','roundNumber','sessionType','editionEndDate','dakarCalendar','itineraryScope','totalDistanceKm','specialDistanceKm','golfMajorCalendar','golfMajorOverview','majorSlug','eventFamilyId','isMajor','tournamentParent','tournamentId','cardType','venueConfigurationId','grandTourCalendar','finishCountryCode','courseArtworkId','courseGeometrySourceUrl','editionArtworkId','editionGeometryVerified'];
+  const pending=existing.resultCoverage==='calendar-only'&&existing.status==='completed'&&!existing.resultStatus&&!existing.score&&card.resultStatus==='pending'
+    ?Object.fromEntries(['resultStatus','resultSourceName','resultSourceUrl','resultSourceCheckedAt'].map(key=>[key,card[key]])):{};
+  return {...existing,...Object.fromEntries(fields.filter(key=>card[key]!=null).map(key=>[key,card[key]])),...pending};
+}
+function mergeLemansCard(card,existing){
+  // Narrow reviewed timing/venue overlay keeps every existing result, source
+  // observation, editorial fact and saved action identity intact.
+  const keys=['canonicalEventId','lemansCalendar','identityRef','sessionOrder','eventFamilyId','weekendId','tournamentName','season','sessionType','codeId','taxonomyNodeId','date','time','dateOnly','timeTbc','timePrecision','startTimeUtc','estimatedStartTimeUtc','timingProvenance','scheduleStatus','calendarProvenance','venue','venueOfficialName','venueId','venueVerified','venueCountryCode','venueCity','venueSourceUrl','venueCaption','venueConfigurationId','venueConfigurationVerified','venueArtworkId','venueGeometrySourceUrl','circuitLengthMetres','circuitTurns','scheduleNote'];
+  return {...existing,...Object.fromEntries(keys.map(k=>[k,card[k]??null]))};
+}
+function mergeNrlwFinalCard(card,existing){
+  const next=Date.parse(card.resultSourceCheckedAt),prior=Date.parse(existing.resultSourceCheckedAt);
+  if(existing.status==='completed'&&existing.score&&Number.isFinite(prior)&&prior>next)return existing;
+  if(existing.score&&prior===next&&existing.score!==card.score)throw new Error('NRLW reviewed finals: conflicting result at the same observation');
+  const facts=['canonicalEventId','competitionId','name','date','time','timePrecision','timeTbc','startTimeUtc','venue','round','roundLabel','roundNumber','stage','participantIds','status','resultStatus','score','resultSourceUrl','resultSourceCheckedAt','sourceUrl','sourceCheckedAt','broadcasterIds','broadcaster','broadcastOptions',...(card.viewingOptions?['viewingOptions']:[])];
+  if(facts.every(key=>JSON.stringify(existing[key])===JSON.stringify(card[key])))return existing;
+  return {...existing,...card,scoreCheckedAt:card.resultSourceCheckedAt,statusCheckedAt:card.resultSourceCheckedAt};
+}
+module.exports = { cardForEvent, stableCardId, mergeSailgpCard, mergeLemansCard, validateNrlwFinals, mergeNrlwFinalCard };

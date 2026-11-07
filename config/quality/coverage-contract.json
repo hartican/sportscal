@@ -1,0 +1,553 @@
+{
+  "version": "2026-09-27",
+  "evidenceUpdatedAt": "2026-10-20",
+  "frozenAt": "2026-09-27",
+  "minimumCarriedFamilyPassRate": 0.8,
+  "window": {
+    "from": "2026-09-20",
+    "through": "2027-09-27",
+    "meaning": "Seven-day retained history and twelve-month discovery horizon; certification also reconciles each declared competition season."
+  },
+  "requiredGates": [
+    "fixtureTruth",
+    "timingResults",
+    "australianViewing",
+    "contextEditorial",
+    "presentationBehaviour",
+    "operationsRights"
+  ],
+  "families": [
+    {
+      "id": "australian-rules",
+      "codes": [
+        "afl",
+        "aflw"
+      ],
+      "carried": true
+    },
+    {
+      "id": "rugby-league",
+      "codes": [
+        "nrl",
+        "nrlw"
+      ],
+      "carried": true
+    },
+    {
+      "id": "motorsport",
+      "codes": [
+        "motorsport",
+        "supercars",
+        "wrc",
+        "f1",
+        "motogp",
+        "dakar",
+        "lemans"
+      ],
+      "carried": true
+    },
+    {
+      "id": "extreme",
+      "codes": [
+        "extreme"
+      ],
+      "carried": false
+    },
+    {
+      "id": "surfing",
+      "codes": [
+        "surf",
+        "wsl"
+      ],
+      "carried": true,
+      "note": "Reviewed WSL child belongs to the existing Surfing family; calendar coverage does not certify heats, results, viewing or rights."
+    },
+    {
+      "id": "rugby-union",
+      "codes": [
+        "rugby-union"
+      ],
+      "carried": true
+    },
+    {
+      "id": "tennis",
+      "codes": [
+        "tennis"
+      ],
+      "carried": true
+    },
+    {
+      "id": "football",
+      "codes": [
+        "football",
+        "champions-league"
+      ],
+      "carried": true
+    },
+    {
+      "id": "cycling",
+      "codes": [
+        "cycling",
+        "tour-de-france",
+        "giro-ditalia",
+        "vuelta-a-espana"
+      ],
+      "carried": true
+    },
+    {
+      "id": "cricket",
+      "codes": [
+        "cricket"
+      ],
+      "carried": true
+    },
+    {
+      "id": "basketball",
+      "codes": [
+        "basketball",
+        "nbl",
+        "fiba-women"
+      ],
+      "carried": true
+    },
+    {
+      "id": "golf",
+      "codes": [
+        "golf"
+      ],
+      "carried": true
+    },
+    {
+      "id": "american-football",
+      "codes": [
+        "american-football"
+      ],
+      "carried": true
+    },
+    {
+      "id": "ice-hockey",
+      "codes": [
+        "ice-hockey"
+      ],
+      "carried": true
+    },
+    {
+      "id": "skiing",
+      "codes": [
+        "skiing"
+      ],
+      "carried": true,
+      "note": "Four selected reviewed calendar appointments now reach Inspector/Schedule in two FIS scopes; keep in denominator. Calendar integrity alone does not certify winter coverage, results, viewing, presentation or rights."
+    },
+    {
+      "id": "athletics",
+      "codes": [
+        "athletics"
+      ],
+      "carried": false
+    },
+    {
+      "id": "swimming",
+      "codes": [
+        "swimming"
+      ],
+      "carried": false
+    },
+    {
+      "id": "netball",
+      "codes": [
+        "netball"
+      ],
+      "carried": true,
+      "note": "20 October 2026 retained-projection repair: four already-collected Constellation Cup fixtures now reach Inspector/Schedule and ordinary Diamonds Feed. Count Netball in the denominator; original 11 October observations and unknown kickoffs remain. This limited retained calendar does not certify Netball, results, viewing, rights or freshness."
+    },
+    {
+      "id": "boxing",
+      "codes": [
+        "boxing"
+      ],
+      "carried": false
+    },
+    {
+      "id": "multi-sport",
+      "codes": [
+        "multi-sport"
+      ],
+      "carried": true
+    },
+    {
+      "id": "sailing",
+      "codes": [
+        "sailgp"
+      ],
+      "carried": true
+    },
+    {
+      "id": "baseball",
+      "codes": [
+        "baseball"
+      ],
+      "carried": true
+    },
+    {
+      "id": "horse-racing",
+      "codes": [
+        "horse-racing"
+      ],
+      "carried": true,
+      "note": "Approved 11 October 2026: twelve marquee thoroughbred races only. Partial calendar/staged entry tables; no certification of clocks, final fields, outcomes or Australian viewing."
+    }
+  ],
+  "reviewedCalendarContexts": [
+    {
+      "competitionId": "competition:uefa-champions-league",
+      "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+      "evidence": [
+        "docs/quality/ucl-stage-calendar-integrity-2026-10-03.md"
+      ],
+      "recordIds": [
+        "major-stage:uefa-champions-league-2026-27:knockout-play-offs",
+        "major-stage:uefa-champions-league-2026-27:round-of-16",
+        "major-stage:uefa-champions-league-2026-27:quarter-finals",
+        "major-stage:uefa-champions-league-2026-27:semi-finals",
+        "major-stage:uefa-champions-league-2026-27:final"
+      ],
+      "meaning": "Reviewed competition-stage planning calendars, not actual match fixtures. Retain all records and raw missing-date/identity diagnostics; validate their own source window. No exemption for unreviewed records, no fixture-count credit and no quality certification."
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/94df75e7ae102284b2b95695/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:94df75e7ae102284b2b95695"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2026-11-10",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2026-11-10 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/284f142724ad0f43d269e363/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:284f142724ad0f43d269e363"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2026-11-11",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2026-11-11 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/c58e8f2d5e89800d5042ccb9/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:c58e8f2d5e89800d5042ccb9"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2026-11-17",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2026-11-17 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/112eccead43b23e1d20d4053/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:112eccead43b23e1d20d4053"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2026-11-18",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2026-11-18 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/81c5d3154ec314503c7d72c7/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:81c5d3154ec314503c7d72c7"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2026-12-01",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2026-12-01 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/9a629dc9157bba8087dbfa40/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:9a629dc9157bba8087dbfa40"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2026-12-02",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2026-12-02 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/56b19b00847200a7f6dcfbff/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:56b19b00847200a7f6dcfbff"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2026-12-15",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2026-12-15 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/8bbc1194c380cbf089f32a94/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:8bbc1194c380cbf089f32a94"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2027-01-12",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2027-01-12 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/2e4c58c98cf285542aa51969/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:2e4c58c98cf285542aa51969"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2027-01-13",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2027-01-13 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/38199720f3500fd9e53111cb/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:38199720f3500fd9e53111cb"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2027-01-19",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2027-01-19 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/fec278bcc7a0fb9f70be26ba/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:fec278bcc7a0fb9f70be26ba"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2027-01-20",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2027-01-20 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/ca82ffc10d24686e46779890/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:ca82ffc10d24686e46779890"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2027-02-23",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2027-02-23 (CHL programme date)"
+    }
+  ],
+  "pilotCompetitions": [
+    {
+      "id": "competition:premier-league-2026-27",
+      "family": "football",
+      "season": "2026/27",
+      "expectedSeasonFixtures": 380,
+      "state": "partial",
+      "evidence": [
+        "docs/quality/epl-result-clock-snapshot-integrity-2026-10-03.md",
+        "docs/quality/football-status-display-2026-10-02.md",
+        "docs/quality/fixture-identity-layout-2026-10-02.md",
+        "docs/quality/football-artwork-rights-2026-10-02.md",
+        "docs/quality/football-freshness-2026-10-02.md",
+        "docs/quality/epl-shared-places-2026-10-02.md",
+        "docs/quality/football-position-semantics-2026-10-02.md",
+        "docs/quality/football-commercial-readiness-2026-10-01.md",
+        "docs/quality/football-ranking-acceptance-2026-10-02.md",
+        "scripts/validate-football-schedule.js",
+        "scripts/validate-football-schedule-browser.js",
+        "docs/quality/football-reference-reconciliation-2026-09-28.md",
+        "docs/quality/epl-results-reconciliation-2026-09-28.md",
+        "docs/quality/football-viewing-acceptance-2026-09-30.md",
+        "docs/quality/football-closeout-2026-10-17.md"
+      ],
+      "remaining": [
+        "Actual decisive final-tie adjudication requires explicit official evidence; shared-place and pending source-to-screen contracts are shipped, not real final-season certification",
+        "Fixture-specific viewing/replay evidence beyond competition rights",
+        "Full presentation and physical installed-device acceptance",
+        "Routine source freshness, recovery and commercial permission"
+      ],
+      "verifiedSnapshotProgress": [
+        "17 October: live static Football bytes match accepted b86db269/app557. All 690 retained fixtures and 92 table rows, plus four projection records/fact clocks, retain the previously accepted a13f44a2 packet; only one collection freshAt differs. This reuses the dated 15 October source reconciliation and does not renew source truth, permissions, playback, phone or full sport approval. See football-closeout-2026-10-17.md; 0/3 pilots remain certified.",
+        "3 October: first ordinary unchanged post-transition check at 19:02 UTC retains revision 7364, zero later snapshots, all 380 fixtures/receipts and zero failures. Sampled final verification advances to 19:02:03 while original score/status fact clocks remain 17:58:01; no compact fact observation changes after the transition. One production cycle verified, not long-term storage saving, an actual corrected-match observation or full acceptance. No forced source call, scheduler, retention change, deletion or certification.",
+        "3 October: app 8fa3e907/shell 386, normal release 37046120485, READY/three aliases/metadata/22 served hashes and both actual 384\u2192386 cached upgrades verified. Captured EPL-final and actual SQL tests prevent check-clock history/compact-row churn while retaining genuine verification and corrections. First ordinary 18:30 UTC check retained all 380 IDs and sporting facts, zero failures, 380 receipts and expected transition revision 7364. Later unchanged ordinary check, sustained storage outcome, rights, independent recovery and physical-device acceptance remain unverified; no certification, new scheduler or spend.",
+        "2 October: shared mobile identity repair shipped at a40388fa4d691e273dea74e20a4c8e7c7cc2eab3/shell 353 with normal cloud, READY/alias/14-file, both-engine layout/upgrade and 468 live missing-club observations. Compact fallbacks match the 48px frame; Schedule identities fit narrow cards. No fixture/source/crest changes, new spend or certification; rights, physical/independent recovery and final sporting inputs remain open.",
+        "2 October read-only artwork inventory: 20 club crests resolve and 0 do not; exact participant identities retained. Source/official-reference labels are not NS commercial permission. Artwork/branding scope remains open; no runtime change, extra source request or certification.",
+        "2 October: natural refresh 36929379034 published 336031a/shell 350; its successful child and failed pre-release-hash comparison remain distinct. Final repair shipped at 6e2e382/shell 351 with normal cloud/READY/alias/13-file and live/cache proof. Reviewed recaps survive ordinary publication on unchanged facts; 44 EPL recaps restored, 668 pilot core facts/viewing and 92 table facts exact. The repaired wrapper next unattended invocation, rights, decisive final inputs and physical/independent recovery remain open; initial Chromium intermittent timeout retained.",
+        "2 October: EPL C.7 shared/pending source-to-screen module and mobile table layout shipped at 7ff25fe with normal cloud gates, exact READY/alias/13-file proof and twelve live profile plus four-width Schedule journeys. Six controlled tie/boundary cases pass real temporary persistence and browser projection; current facts/dates are preserved. Actual decisive final adjudication remains unverified.",
+        "2 October: shared/pending formatter shipped at 129116f with normal READY/alias/13-file and live profile/Schedule proof; UEFA shared flags render Joint. Pending ranks use a bounded intercepted-table rehearsal. No actual EPL exact-tie/final adjudication or missing UEFA input is claimed.",
+        "2 October: official 2026/27 handbook C.1-C.7/C.17 reviewed; current table coherent with no exact primary-statistic ties. Reproduced whole-league validation gap repaired at e3d5d0a with real temporary-writer retention, normal cloud gates and exact READY/alias/served proof at 18:43 UTC. No shared-place or final-outcome inference added.",
+        "30 September: 10 forthcoming fixture-specific Stan live listings reconciled; correct Australian provider destinations and cautious replay labels pass published and live browser checks. Playback remains unverified.",
+        "380 fixture pair/date/kickoff comparisons against separate league publication; shared ownership",
+        "380 matchweeks and 50 completed results checked with official Fantasy API",
+        "160 basic table values recomputed for 20 clubs; no arithmetic differences",
+        "30 September: current official ranks and eight statistics agree for all 20 clubs (180 values); points/GD/goals ordering and row arithmetic validated, exact ties retain provider order"
+      ],
+      "progressMeaning": "Dated snapshot evidence, not certification or ongoing source truth; recheck after material source changes."
+    },
+    {
+      "id": "competition:uefa-champions-league",
+      "family": "football",
+      "season": "2026/27",
+      "state": "partial",
+      "evidence": [
+        "docs/quality/football-status-display-2026-10-02.md",
+        "docs/quality/fixture-identity-layout-2026-10-02.md",
+        "docs/quality/football-artwork-rights-2026-10-02.md",
+        "docs/quality/football-freshness-2026-10-02.md",
+        "docs/quality/football-position-semantics-2026-10-02.md",
+        "scripts/validate-european-football-continuity.js",
+        "docs/quality/football-commercial-readiness-2026-10-01.md",
+        "docs/quality/football-ranking-acceptance-2026-10-02.md",
+        "scripts/validate-openligadb-football.js",
+        "scripts/validate-european-football-browser.js",
+        "docs/quality/football-source-feasibility.md",
+        "docs/quality/football-reference-reconciliation-2026-09-28.md",
+        "docs/quality/uefa-standings-reconciliation-2026-09-28.md",
+        "docs/quality/uefa-utc-reconciliation-2026-09-30.md",
+        "docs/quality/football-viewing-acceptance-2026-09-30.md",
+        "docs/quality/football-closeout-2026-10-17.md"
+      ],
+      "remaining": [
+        "Final-round disciplinary/coefficient inputs and source-to-screen acceptance; supported ordering has synthetic regression evidence; ingest knockouts when published",
+        "Fixture-specific viewing/replay evidence beyond competition rights",
+        "Full presentation and physical installed-device acceptance",
+        "Routine source freshness, recovery and commercial source permission"
+      ],
+      "expectedLeaguePhaseFixtures": 144,
+      "verifiedSnapshotProgress": [
+        "17 October: live static Football bytes match accepted b86db269/app557. All 690 retained fixtures and 92 table rows, plus four projection records/fact clocks, retain the previously accepted a13f44a2 packet; only one collection freshAt differs. This reuses the dated 15 October source reconciliation and does not renew source truth, permissions, playback, phone or full sport approval. See football-closeout-2026-10-17.md; 0/3 pilots remain certified.",
+        "2 October: shared mobile identity repair shipped at a40388fa4d691e273dea74e20a4c8e7c7cc2eab3/shell 353 with normal cloud, READY/alias/14-file, both-engine layout/upgrade and 468 live missing-club observations. Compact fallbacks match the 48px frame; Schedule identities fit narrow cards. No fixture/source/crest changes, new spend or certification; rights, physical/independent recovery and final sporting inputs remain open.",
+        "2 October read-only artwork inventory: 21 club crests resolve and 15 do not; exact participant identities retained. Source/official-reference labels are not NS commercial permission. Artwork/branding scope remains open; no runtime change, extra source request or certification.",
+        "2 October: natural refresh 36929379034 published 336031a/shell 350; its successful child and failed pre-release-hash comparison remain distinct. Final repair shipped at 6e2e382/shell 351 with normal cloud/READY/alias/13-file and live/cache proof. Reviewed recaps survive ordinary publication on unchanged facts; 44 EPL recaps restored, 668 pilot core facts/viewing and 92 table facts exact. The repaired wrapper next unattended invocation, rights, decisive final inputs and physical/independent recovery remain open; initial Chromium intermittent timeout retained.",
+        "2 October: shared/pending formatter shipped at 129116f with normal READY/alias/13-file and live profile/Schedule proof; UEFA shared flags render Joint. Pending ranks use a bounded intercepted-table rehearsal. No actual EPL exact-tie/final adjudication or missing UEFA input is claimed.",
+        "2 October: nine controlled final-season ordering cases plus 143-final boundary, opponent totals and unresolved final ranks pass for UCL; synthetic regression evidence only, not real final reconciliation or missing disciplinary/coefficient inputs.",
+        "1 October: current canonical checks retain all 144 fixtures and 18 completed results per European competition; no sporting fact change. Continuity guard and actual-persistence recovery/identity/correction regressions shipped as afe93f2b, with READY/alias/artifact and live browser proof. Both current UEFA Article 18 pages reviewed; discipline/coefficient inputs and full rights gates remain open.",
+        "30 September: 36 forthcoming fixture-specific Stan live listings reconciled; correct Australian provider destinations and cautious replay labels pass published and live browser checks. Playback remains unverified.",
+        "144 league-phase fixture pairs, dates and matchdays reconciled with organiser publication",
+        "30 September: all 144 explicit UTC kickoffs and Sydney dates/times agree with organiser match data, including all 18 completed matches; production dataset matches",
+        "18 completed outcomes agree; 126 upcoming local times agree",
+        "Source-derived earlier-match records and Results privacy deployed with browser proof",
+        "All 36 current ranks and eight basic match statistics match the rendered official UEFA table: 324 values, zero differences; live projection also matches"
+      ],
+      "progressMeaning": "Dated snapshot evidence, not certification or ongoing source truth; recheck after material source changes."
+    },
+    {
+      "id": "competition:uefa-europa-league",
+      "family": "football",
+      "season": "2026/27",
+      "state": "partial",
+      "evidence": [
+        "docs/quality/football-status-display-2026-10-02.md",
+        "docs/quality/fixture-identity-layout-2026-10-02.md",
+        "docs/quality/football-artwork-rights-2026-10-02.md",
+        "docs/quality/football-freshness-2026-10-02.md",
+        "docs/quality/football-position-semantics-2026-10-02.md",
+        "scripts/validate-european-football-continuity.js",
+        "docs/quality/football-commercial-readiness-2026-10-01.md",
+        "docs/quality/football-ranking-acceptance-2026-10-02.md",
+        "scripts/validate-openligadb-football.js",
+        "scripts/validate-european-football-browser.js",
+        "docs/quality/football-source-feasibility.md",
+        "docs/quality/football-reference-reconciliation-2026-09-28.md",
+        "docs/quality/uefa-standings-reconciliation-2026-09-28.md",
+        "docs/quality/uefa-utc-reconciliation-2026-09-30.md",
+        "docs/quality/football-viewing-acceptance-2026-09-30.md",
+        "docs/quality/football-closeout-2026-10-17.md"
+      ],
+      "remaining": [
+        "Final-round disciplinary/coefficient inputs and source-to-screen acceptance; supported ordering has synthetic regression evidence; ingest knockouts when published",
+        "Fixture-specific viewing/replay evidence beyond competition rights",
+        "Full presentation and physical installed-device acceptance",
+        "Routine source freshness, recovery and commercial source permission"
+      ],
+      "expectedLeaguePhaseFixtures": 144,
+      "verifiedSnapshotProgress": [
+        "17 October: live static Football bytes match accepted b86db269/app557. All 690 retained fixtures and 92 table rows, plus four projection records/fact clocks, retain the previously accepted a13f44a2 packet; only one collection freshAt differs. This reuses the dated 15 October source reconciliation and does not renew source truth, permissions, playback, phone or full sport approval. See football-closeout-2026-10-17.md; 0/3 pilots remain certified.",
+        "2 October: shared mobile identity repair shipped at a40388fa4d691e273dea74e20a4c8e7c7cc2eab3/shell 353 with normal cloud, READY/alias/14-file, both-engine layout/upgrade and 468 live missing-club observations. Compact fallbacks match the 48px frame; Schedule identities fit narrow cards. No fixture/source/crest changes, new spend or certification; rights, physical/independent recovery and final sporting inputs remain open.",
+        "2 October read-only artwork inventory: 12 club crests resolve and 24 do not; exact participant identities retained. Source/official-reference labels are not NS commercial permission. Artwork/branding scope remains open; no runtime change, extra source request or certification.",
+        "2 October: natural refresh 36929379034 published 336031a/shell 350; its successful child and failed pre-release-hash comparison remain distinct. Final repair shipped at 6e2e382/shell 351 with normal cloud/READY/alias/13-file and live/cache proof. Reviewed recaps survive ordinary publication on unchanged facts; 44 EPL recaps restored, 668 pilot core facts/viewing and 92 table facts exact. The repaired wrapper next unattended invocation, rights, decisive final inputs and physical/independent recovery remain open; initial Chromium intermittent timeout retained.",
+        "2 October: shared/pending formatter shipped at 129116f with normal READY/alias/13-file and live profile/Schedule proof; UEFA shared flags render Joint. Pending ranks use a bounded intercepted-table rehearsal. No actual EPL exact-tie/final adjudication or missing UEFA input is claimed.",
+        "2 October: nine controlled final-season ordering cases plus 143-final boundary, opponent totals and unresolved final ranks pass for Europa; synthetic regression evidence only, not real final reconciliation or missing disciplinary/coefficient inputs.",
+        "1 October: current canonical checks retain all 144 fixtures and 18 completed results per European competition; no sporting fact change. Continuity guard and actual-persistence recovery/identity/correction regressions shipped as afe93f2b, with READY/alias/artifact and live browser proof. Both current UEFA Article 18 pages reviewed; discipline/coefficient inputs and full rights gates remain open.",
+        "30 September: 36 forthcoming fixture-specific Stan live listings reconciled; correct Australian provider destinations and cautious replay labels pass published and live browser checks. Playback remains unverified.",
+        "144 league-phase fixture pairs, dates and matchdays reconciled with organiser publication",
+        "30 September: all 144 explicit UTC kickoffs and Sydney dates/times agree with organiser match data, including all 18 completed matches; production dataset matches",
+        "18 completed outcomes agree; 126 upcoming local times agree",
+        "Source-derived earlier-match records and Results privacy deployed with browser proof",
+        "All 36 current ranks and eight basic match statistics match the rendered official UEFA table: 324 values, zero differences; live projection also matches"
+      ],
+      "progressMeaning": "Dated snapshot evidence, not certification or ongoing source truth; recheck after material source changes."
+    }
+  ],
+  "certifications": [],
+  "reviewedCalendarCompetitions": [
+    {
+      "id": "competition:chl",
+      "family": "ice-hockey",
+      "minimumMatchFixtures": 72,
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "meaning": "Existing six-round 24-club regular season requires 72 actual matches. Twelve separately reviewed knockout programme dates cannot replace them or certify the competition."
+    }
+  ]
+}

@@ -58,18 +58,26 @@ const expired = updateAudienceMemories(clone(qualified), { capturedAt:"2027-01-0
 assert.equal(expired.audienceMemories.length, 0, "expired memory must be removed rather than becoming a history list");
 assert(!expired.eventProjections.some(projection => projection.audienceMemoryId), "expired projection references must be removed");
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const enrichment = fs.readFileSync("config/enrichment-engine.js", "utf8");
 const internalNothingscore = fs.readFileSync("config/nothingscore.js", "utf8");
 assert(!html.includes("Pilot contributors"));
 assert(!/name:\s*"Heat"|Heat can help/.test(html));
 assert(!/Heat blended/.test(enrichment));
-assert.match(html, /name:"How do you think it'll go\?"/);
+assert.match(html, /function nothingscorePhaseCopy\(phase\)\{\s*return globalThis\.NOTHINGSPORTS_EPIC\.phaseCopy\(phase\);/, "cards must use the canonical EPIC phase wording");
+assert.equal(require("../config/epic-classics").phaseCopy("heat").name, "Anticipation");
+assert.equal(require("../config/epic-classics").phaseCopy("heat").detail, "Stakes");
 assert.match(internalNothingscore, /PHASES = Object\.freeze\(\["heat",\s*"pulse",\s*"impact"\]\)/, "internal nothingscore.v1 phase must remain heat");
 assert.doesNotMatch(html, /label\.textContent = "Sentiment"/, "privacy-safe Sentiment memory must remain stored but invisible while the crowd-results structure is being refined");
 assert.doesNotMatch(html, /if \(state !== "compact"\)[\s\S]{0,240}buildEditorialSentiment\(ev\)/, "NSC aggregate Sentiment must not appear on event cards");
 assert.doesNotMatch(html, /buildEditorialSentiment\(record\)[\s\S]{0,120}identity\.appendChild\(sentiment\)/, "NSC aggregate Sentiment must not appear on major-event cards");
-assert.match(html, /Editorial standards/);
+// About is an existing deferred settings module; test its actual source and
+// published bundle rather than expecting removed inline copy in index.html.
+const settingsSource = fs.readFileSync("config/fantasy-deadline-ui.js", "utf8");
+const settingsBundle = fs.readFileSync("assets/js/settings-optional-ui.js", "utf8");
+assert.match(settingsSource, /<summary>Editorial standards<\/summary>/);
+assert.match(settingsBundle, /<summary>Editorial standards<\/summary>/);
+assert.match(html, /assets\/js\/settings-optional-ui\.js\?v=\d+/);
 assert(!html.includes("Official sources"), "research citations must stay out of cards");
 assert(!html.includes('script src="scripts/snapshot-editorial-nothingscore.js"'), "server aggregate work must add no startup request");
 

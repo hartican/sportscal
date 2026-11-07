@@ -7,6 +7,7 @@ const fs = require("node:fs");
 const webpush = require("web-push");
 const chatContract = require("../config/chat-contract");
 const chatHandler = require("../api/chat");
+const chatPolicy = require("../config/chat-policy");
 const { dispatchChatMessageNotifications, _test:chatNotificationTest } = require("../lib/chat-notifications");
 
 function responseStub(){
@@ -45,14 +46,27 @@ async function invoke(request){
   return response;
 }
 
+function upcomingCanonicalFixtureId(events, fixtures, now){
+  // Match the actual API registry, with headroom so wall-clock progression
+  // cannot expire the positive authorisation fixture during the test.
+  for(const event of events){
+    const id=event.canonicalEventId || event.eventId || event.id;
+    const canonical=fixtures.get(id);
+    if(canonical && chatHandler._test.fixtureIsUpcomingOrLive(canonical,now)
+      && Date.parse(canonical.startTimeUtc)>now.getTime()+3600000)return id;
+  }
+  return null;
+}
+
 function firstEligibleFixtureId(){
+  const now=new Date(), fixtures=chatHandler._test.loadFixtureMap();
   const manifest = JSON.parse(fs.readFileSync("data/feed/manifest.json", "utf8"));
   for (const page of manifest.pages){
     const document = JSON.parse(fs.readFileSync(page.path, "utf8"));
-    const event = document.events.find(item => chatHandler._test.fixtureIsUpcomingOrLive(item));
-    if (event) return event.canonicalEventId || event.eventId || event.id;
+    const id=upcomingCanonicalFixtureId(document.events,fixtures,now);
+    if(id)return id;
   }
-  throw new Error("The published feed needs at least one upcoming or live canonical fixture for chat validation.");
+  throw new Error("The published feed needs a canonical upcoming fixture with clock headroom for chat validation.");
 }
 
 async function run(){
@@ -176,10 +190,39 @@ async function run(){
   assert.equal(chatFixtureRegistry.fixtureCount, chatFixtureRegistry.fixtures.length);
   assert(chatFixtureRegistry.fixtureCount > feedManifest.eventCount, "chat eligibility must cover canonical Follow schedules beyond the personalised Feed projection");
   assert.match(codeInspectorBuilder, /build-chat-fixture-registry[^\n]+writeRegistry/, "every Code Inspector schedule rebuild must refresh the compact chat registry");
+  const selectionNow=new Date("2026-10-01T23:40:00Z");
+  const rawLive={id:"test-live",status:"upcoming",startTimeUtc:"2026-10-01T20:00:00Z",liveWindow:5};
+  const upcoming={id:"test-upcoming",status:"upcoming",startTimeUtc:"2026-10-03T20:00:00Z"};
+  const selectionFixtures=new Map([[rawLive.id,{...rawLive,liveWindow:3}],[upcoming.id,upcoming]]);
+  assert(chatHandler._test.fixtureIsUpcomingOrLive(rawLive,selectionNow),"Feed-only window reproduces the mismatched test input");
+  assert(!chatHandler._test.fixtureIsUpcomingOrLive(selectionFixtures.get(rawLive.id),selectionNow),"canonical chat cutoff remains enforced");
+  assert.equal(upcomingCanonicalFixtureId([rawLive,upcoming],selectionFixtures,selectionNow),upcoming.id,"positive account tests must choose the actual API's eligible canonical fixture");
+  assert.equal(upcomingCanonicalFixtureId([rawLive],selectionFixtures,selectionNow),null,"a Feed-only live record cannot bypass canonical chat eligibility");
+  const boundary={...upcoming,startTimeUtc:"2026-10-02T00:00:00Z"};
+  assert.equal(upcomingCanonicalFixtureId([boundary],new Map([[boundary.id,boundary]]),selectionNow),null,"positive fixture needs clock headroom");
   const eligibilityNow = new Date("2026-09-16T00:00:00.000Z");
   assert.equal(chatHandler._test.fixtureIsUpcomingOrLive({ status:"confirmed", startTimeUtc:"2026-09-18T07:30:00.000Z" }, eligibilityNow), true, "future confirmed fixtures must remain eligible");
   assert.equal(chatHandler._test.fixtureIsUpcomingOrLive({ status:"completed", startTimeUtc:"2026-09-18T07:30:00.000Z" }, eligibilityNow), false, "completed fixtures must remain ineligible even when their scheduled time is in the future");
   const fixtureMap = chatHandler._test.loadFixtureMap();
+  const unknownClockNow=new Date('2026-10-22T00:00:00Z');
+  for(const id of ['fixture:netball:constellation-cup-2026-3','fixture:netball:constellation-cup-2026-4']){
+    const fixture=fixtureMap.get(id);assert(fixture,'Published Diamonds fixture must resolve through the actual API registry');
+    assert.equal(fixture.timePrecision,'tbc');
+    assert.throws(()=>chatHandler._test.canonicalFixtureSnapshot(id,unknownClockNow),error=>error?.status===409&&error?.code==='fixture_not_chat_eligible','Actual canonical chat admission must reject placeholder times');
+  }
+  const browserEligibility=require('node:vm').runInNewContext('('+html.match(/function chatFixtureEligible\(event\)\{[\s\S]*?\n\}/)[0]+')',{Date:{parse:Date.parse,now:()=>+unknownClockNow}});
+  for(const precision of ['tbc','unknown',' TBC ']){
+    const untimed={id:'qa:untimed',status:'confirmed',timePrecision:precision,time:null,startTimeUtc:'2026-10-25T00:00:00Z'};
+    assert.equal(chatPolicy.fixtureTiming(untimed).startTimeUtc,null,'An explicitly unknown time must not adopt a date placeholder');
+    assert.equal(chatPolicy.fixtureEligibility(untimed,unknownClockNow).eligible,false);
+    assert.equal(browserEligibility(untimed),false,'The real browser predicate must reject the same unknown clock');
+  }
+  const confirmed={status:'confirmed',startTimeUtc:'2026-10-25T15:30:00Z'};
+  const follows={status:'confirmed',timePrecision:'follows',sessionStartTimeUtc:'2026-10-25T15:30:00Z'};
+  for(const fixture of [confirmed,follows]){
+    assert(chatPolicy.fixtureEligibility(fixture,unknownClockNow).eligible,'Confirmed starts and published follows sessions retain their windows');
+    assert(browserEligibility(fixture),'Browser retains confirmed and follows-session eligibility');
+  }
   const firstOdi = fixtureMap.get("fixture:cricket:espn:1530203");
   assert(firstOdi, "the first Zimbabwe–Australia ODI must exist in the chat registry");
   assert.equal(fixtureMap.get("fixture:cricket:CA:40288"), firstOdi, "provider aliases must resolve to one canonical fixture");
@@ -191,12 +234,16 @@ async function run(){
     error => error?.status === 409 && error?.code === "fixture_not_chat_eligible",
     "an elapsed fixture must remain unavailable for new room creation",
   );
-  const aliasedSnapshot = chatHandler._test.canonicalFixtureSnapshot("fixture:cricket:CA:40288", new Date("2026-09-15T06:00:00.000Z"));
-  assert.equal(aliasedSnapshot.canonicalFixtureId, "fixture:cricket:espn:1530203");
-  const fridayOdi = chatHandler._test.canonicalFixtureSnapshot("fixture:cricket:espn:1530204", eligibilityNow);
-  assert.equal(fridayOdi.startTimeUtc, "2026-09-18T07:30:00.000Z");
-  assert.equal(fridayOdi.name, "Zimbabwe v Australia");
-  assert.equal(chatHandler._test.canonicalFixtureSnapshot("fixture:cricket:espn:1530205", eligibilityNow).canonicalFixtureId, "fixture:cricket:espn:1530205");
+  // Canonical sources advance to completed; a historical clock must not reopen a finished fixture.
+  for (const [id, now] of [["fixture:cricket:CA:40288", new Date("2026-09-15T06:00:00.000Z")],
+    ["fixture:cricket:espn:1530204", eligibilityNow], ["fixture:cricket:espn:1530205", eligibilityNow]]){
+    const fixture = fixtureMap.get(id);
+    if (chatHandler._test.fixtureIsUpcomingOrLive(fixture, now)){
+      const snapshot = chatHandler._test.canonicalFixtureSnapshot(id, now);
+      assert.equal(snapshot.canonicalFixtureId, fixture.canonicalEventId);
+      assert.equal(snapshot.startTimeUtc, fixture.startTimeUtc);
+    } else assert.throws(() => chatHandler._test.canonicalFixtureSnapshot(id, now), error => error.code === "fixture_not_chat_eligible");
+  }
   assert.throws(
     () => chatHandler._test.canonicalFixtureSnapshot("fixture:cricket:unknown", eligibilityNow),
     error => error?.status === 404 && error?.code === "fixture_not_found",
@@ -243,7 +290,7 @@ async function run(){
   assert.match(html, /document\.visibilityState !== "visible" \|\| !navigator\.onLine/);
   assert.match(html, /document\.visibilityState !== "visible" \|\| !navigator\.onLine\)\{[\s\S]+Background — polling paused[\s\S]+return;/);
   assert.match(html, /event\.key === "Escape"/);
-  assert.match(html, /\.chat-composer\[hidden\]\{ display:none; \}/, "the message composer must stay hidden during room setup");
+  assert.match(html, /\.chat-composer\[hidden\]\{\s*display:\s*none;\s*\}/, "the message composer must stay hidden during room setup");
   assert.match(html, /copy\.className = "chat-user-copy"/);
   assert.match(html, /name\.className = "chat-user-name"/);
   assert.match(html, /renderChatUserSearch/);
@@ -411,6 +458,11 @@ async function run(){
       }
       return fetchResponse([{room_id:invitation.room_id,status:invitation.status}]);
     }
+    if(url.pathname.endsWith('/nothingsports_chat_leave_room')){
+      const index=members.findIndex(item=>item.room_id===body.target_room&&item.user_id===body.target_user);
+      if(index>=0)members.splice(index,1);
+      return fetchResponse(index>=0);
+    }
     if(url.pathname.endsWith('/nothingsports_chat_acknowledge')){
       members.filter(item=>item.room_id===body.target_room&&item.user_id===body.target_user).forEach(item=>{item.last_delivered_at=body.acknowledged_at;if(body.mark_read)item.last_read_at=body.acknowledged_at;});
       return fetchResponse(null);
@@ -496,6 +548,7 @@ async function run(){
     if (table === "nothingsports_chat_members"){
       const roomId = eq(url.searchParams.get("room_id"));
       const userId = eq(url.searchParams.get("user_id"));
+      const matchesRoom = member => !roomId || (roomId.startsWith('in.(') ? roomId.slice(4,-1).split(',').includes(member.room_id) : member.room_id === roomId);
       if (options.method === "DELETE"){
         for (let index = members.length - 1; index >= 0; index -= 1){
           if (members[index].room_id === roomId && members[index].user_id === userId) members.splice(index, 1);
@@ -503,7 +556,7 @@ async function run(){
         return fetchResponse(null);
       }
       if (options.method === "PATCH"){
-        members.filter(member => member.room_id === roomId && member.user_id === userId).forEach(member => Object.assign(member, body));
+        members.filter(member => matchesRoom(member) && member.user_id === userId).forEach(member => Object.assign(member, body));
         return fetchResponse(null);
       }
       if (options.method === "POST"){
@@ -517,7 +570,7 @@ async function run(){
         }
         return fetchResponse([]);
       }
-      return fetchResponse(members.filter(member => (!roomId || member.room_id === roomId) && (!userId || member.user_id === userId) && (!url.searchParams.has("archived_at") || member.archived_at)));
+      return fetchResponse(members.filter(member => matchesRoom(member) && (!userId || member.user_id === userId) && (!url.searchParams.has("archived_at") || member.archived_at)));
     }
     if (table === "nothingsports_chat_messages"){
       const messageId = eq(url.searchParams.get("id"));
@@ -664,7 +717,32 @@ async function run(){
     const activeMember = await invoke(tokenRequest(`token-${ids.userB}`, { query:{ mode:"active" } }));
     assert.equal(activeMember.body.rooms.length, 3, "membership, not follows, must drive Active chats up to the three-room ceiling");
     const activeAdmin = await invoke(tokenRequest(`token-${ids.adminB}`, { query:{ mode:"active" } }));
-    assert.equal(activeAdmin.body.rooms.length, 3, "every allowlisted admin may inspect open rooms");
+    assert.equal(activeAdmin.body.rooms.length, 0, "admin inspection rooms must not masquerade as joined chats");
+    assert.equal(activeAdmin.body.adminRooms.length, 3, "admins retain a separate inspection list");
+    const hiddenMembership = members.find(member => member.user_id === ids.userB);
+    const archivedSelection = await invoke(tokenRequest(`token-${ids.userB}`, {method:'POST',body:{action:'archive-rooms',roomIds:[hiddenMembership.room_id,'ffffffff-ffff-4fff-8fff-ffffffffffff']}}));
+    assert.equal(archivedSelection.statusCode,200,'a vanished selection must not block archiving an existing membership');
+    assert.equal(archivedSelection.body.archived,1);
+    const hiddenActive = await invoke(tokenRequest(`token-${ids.userB}`, { query:{ mode:"active" } }));
+    assert.equal(hiddenActive.body.rooms.length, 2);
+    assert.equal(hiddenActive.body.archivedRooms.length, 1, "hidden memberships must remain reachable to leave and free a slot");
+    assert.equal(hiddenActive.body.openRoomCount, 3, "the displayed count must include hidden open memberships");
+    const leavingProfile=publicProfiles.get(ids.userB);
+    publicProfiles.delete(ids.userB);
+    const hiddenLeft = await invoke(tokenRequest(`token-${ids.userB}`, { method:'POST', body:{action:'leave-room',roomId:hiddenMembership.room_id} }));
+    assert.equal(hiddenLeft.statusCode,200,'a member without a public posting profile must still be able to leave');
+    publicProfiles.set(ids.userB,leavingProfile);
+    const slotFreed = await invoke(tokenRequest(`token-${ids.userB}`, { query:{mode:'active'} }));
+    assert.equal(slotFreed.body.openRoomCount,2);
+    const replacementRoom = await invoke(tokenRequest(`token-${ids.userB}`, {method:'POST',body:{action:'create-room',canonicalFixtureId:fixtureId,roomName:'Freed slot',memberIds:[]}}));
+    assert.equal(replacementRoom.statusCode,200,'leaving a hidden chat must allow creating a replacement');
+    await invoke(tokenRequest(`token-${ids.userB}`,{method:'POST',body:{action:'delete-room',roomId:replacementRoom.body.room.roomId}}));
+    delete hiddenMembership.archived_at;
+    members.push(hiddenMembership);
+    const staleArchive = await invoke(tokenRequest(`token-${ids.adminB}`, {method:'POST',body:{action:'archive-rooms',roomIds:[hiddenMembership.room_id]}}));
+    assert.equal(staleArchive.statusCode,200,'a stale non-member selection is an idempotent no-op');
+    assert.equal(staleArchive.body.archived,0);
+    assert(!hiddenMembership.archived_at,'archiving must never change another account membership');
 
     const invitationLimitRoom = await invoke(tokenRequest(`token-${ids.adminA}`, {
       method:"POST",
@@ -682,6 +760,31 @@ async function run(){
     const roomId = firstRoom.body.room.roomId;
     const isolated = await invoke(tokenRequest(`token-${ids.outsider}`, { query:{ roomId } }));
     assert.equal(isolated.statusCode, 403, "non-members must not read a room");
+
+    // An allowlisted string alone is not a confirmed account identity. Exercise
+    // the real handler after its trusted Auth read, not only the role helper.
+    for (const [name, identity] of [
+      ["missing-confirmation", {}],
+      ["null-confirmation", {email_confirmed_at:null}],
+      ["invalid-confirmation", {email_confirmed_at:"not-a-timestamp"}],
+      ["future-confirmation", {email_confirmed_at:"2099-01-01T00:00:00Z"}],
+      ["phone-only-confirmation", {confirmed_at:"2026-08-01T00:00:00Z",phone_confirmed_at:"2026-08-01T00:00:00Z"}],
+      ["anonymous-confirmation", {is_anonymous:true,email_confirmed_at:"2026-08-01T00:00:00Z",app_metadata:{chat_guest_attested:true}}],
+    ]){
+      const token=`isolated-${name}`;
+      tokenUsers.set(token,{id:ids.outsider,email:"admin.one@example.com",...identity});
+      const rejected=await invoke(tokenRequest(token,{query:{roomId}}));
+      assert.equal(rejected.statusCode,403,`${name}: unconfirmed/anonymous allowlisted email must not grant foreign room access`);
+      assert.equal(rejected.body.code,"chat_membership_required");
+      assert(!rejected.body.messages&&!rejected.body.members,"denied room response contains no private content");
+      const search=await invoke(tokenRequest(token,{query:{mode:"users",q:"member"}}));
+      if(identity.is_anonymous)assert.equal(search.statusCode,401);
+      else {assert.equal(search.statusCode,200);assert(search.body.users.every(account=>!Object.hasOwn(account,"email")),"ordinary search cannot acquire the admin email picker");}
+      const forbidden=await invoke(tokenRequest(token,{method:"POST",body:{action:"enable-share",roomId}}));
+      assert.equal(forbidden.statusCode,403);assert.equal(forbidden.body.code,"chat_admin_required");
+      assert.equal(rooms.find(room=>room.id===roomId).guest_share_enabled,false,"rejected management cannot change sharing");
+      tokenUsers.delete(token);
+    }
 
     const enabledShare = await invoke(tokenRequest(`token-${ids.adminA}`, {
       method:"POST",
@@ -934,6 +1037,12 @@ async function run(){
     assert.equal(memberLimit.statusCode, 409);
     assert.equal(memberLimit.body.code, "chat_member_limit");
 
+    // Departed creator attribution cannot grant delete rights to a remaining member.
+    secondRoomRow.created_by = null;
+    members.filter(item => item.room_id === secondRoomId).forEach(item => { item.added_by = null; });
+    const departedCreatorRead = await invoke(tokenRequest(`token-${ids.userB}`, { query:{ roomId:secondRoomId } }));
+    assert.equal(departedCreatorRead.statusCode, 200, "remaining member keeps access after creator departure");
+    assert.equal(departedCreatorRead.body.room.canDeleteRoom, false, "null attribution grants no room ownership");
     const deniedRoomDelete = await invoke(tokenRequest(`token-${ids.userB}`, {
       method:"POST", body:{ action:"delete-room", roomId:secondRoomId },
     }));
@@ -974,6 +1083,8 @@ async function run(){
   global.fetch = async (input, options = {}) => {
     const url = new URL(input);
     pushRequests.push({ url, options });
+    if(url.pathname.endsWith('/rpc/nothingsports_begin_notification_send'))return fetchResponse({leaseId:'99999999-9999-4999-8999-000000000001',subscription:{endpoint:'https://push.example.test/subscription',keys:{p256dh:'p256dh',auth:'auth'}}});
+    if(url.pathname.endsWith('/nothingsports_notification_send_leases'))return fetchResponse([]);
     if (url.pathname.endsWith("/nothingsports_chat_members")) return fetchResponse([{ user_id:ids.userB }]);
     if (url.pathname.endsWith("/nothingsports_push_installations")) return fetchResponse([{
       installation_id:"99999999-9999-4999-8999-999999999999",

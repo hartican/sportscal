@@ -1,0 +1,224 @@
+{
+  "id": "espn-wta-185347-20261016",
+  "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261016",
+  "checkedAt": "2026-10-16T11:58:17.547Z",
+  "priorDate": "2026-10-14",
+  "sourceSha256": "3d69537f50ca58634494d8fb69d9992d8c2a61ab711ffee06d8110e33d305095",
+  "payload": {
+    "leagues": [
+      {
+        "slug": "wta"
+      }
+    ],
+    "events": [
+      {
+        "id": "381-2026",
+        "name": "Dongfeng Voyah Wuhan Open",
+        "season": {
+          "year": 2026
+        },
+        "groupings": [
+          {
+            "grouping": {
+              "slug": "womens-singles"
+            },
+            "competitions": [
+              {
+                "id": "185347",
+                "uid": "s:850~l:900~e:381-2026~c:185347",
+                "date": "2026-10-14T14:10Z",
+                "startDate": "2026-10-14T14:10Z",
+                "timeValid": true,
+                "recent": false,
+                "status": {
+                  "period": 2,
+                  "type": {
+                    "id": "3",
+                    "name": "STATUS_FINAL",
+                    "state": "post",
+                    "completed": true,
+                    "description": "Final",
+                    "detail": "Final",
+                    "shortDetail": "Final"
+                  }
+                },
+                "venue": {
+                  "fullName": "Wuhan, China PR",
+                  "court": "Dongfeng Voyah Center Court"
+                },
+                "format": {
+                  "regulation": {
+                    "periods": 3
+                  }
+                },
+                "notes": [
+                  {
+                    "text": "Leylah Fernandez (CAN) bt Han Shi (CHN) 6-3 6-4",
+                    "type": "event"
+                  }
+                ],
+                "geoBroadcasts": [],
+                "broadcasts": [],
+                "broadcast": "",
+                "competitors": [
+                  {
+                    "id": "3641",
+                    "uid": "s:850~l:900~a:3641",
+                    "type": "athlete",
+                    "order": 2,
+                    "homeAway": "away",
+                    "winner": true,
+                    "linescores": [
+                      {
+                        "value": 6,
+                        "winner": true
+                      },
+                      {
+                        "value": 6,
+                        "winner": true
+                      }
+                    ],
+                    "athlete": {
+                      "guid": "4c9a7ff1-2feb-b4ab-fb3f-9fc7d9fd3f9f",
+                      "displayName": "Leylah Fernandez",
+                      "shortName": "L. Fernandez",
+                      "fullName": "Leylah Fernandez",
+                      "flag": {
+                        "href": "https://a.espncdn.com/i/teamlogos/countries/500/can.png",
+                        "alt": "Canada",
+                        "rel": [
+                          "country-flag"
+                        ]
+                      },
+                      "links": [
+                        {
+                          "language": "en-US",
+                          "rel": [
+                            "playercard",
+                            "desktop",
+                            "athlete"
+                          ],
+                          "href": "https://www.espn.com/tennis/player/_/id/3641/leylah-fernandez",
+                          "text": "Player Card",
+                          "shortText": "Player Card",
+                          "isExternal": false,
+                          "isPremium": false,
+                          "isHidden": false
+                        }
+                      ]
+                    },
+                    "statistics": []
+                  },
+                  {
+                    "id": "15426",
+                    "uid": "s:850~l:900~a:15426",
+                    "type": "athlete",
+                    "order": 1,
+                    "homeAway": "home",
+                    "winner": false,
+                    "linescores": [
+                      {
+                        "value": 3,
+                        "winner": false
+                      },
+                      {
+                        "value": 4,
+                        "winner": false
+                      }
+                    ],
+                    "athlete": {
+                      "guid": "545727d4-0403-3a3f-921e-6a40551563d6",
+                      "displayName": "Shi Han",
+                      "shortName": "H. Shi",
+                      "fullName": "Shi Han",
+                      "flag": {
+                        "href": "https://a.espncdn.com/i/teamlogos/countries/500/chn.png",
+                        "alt": "China",
+                        "rel": [
+                          "country-flag"
+                        ]
+                      },
+                      "links": [
+                        {
+                          "language": "en-US",
+                          "rel": [
+                            "playercard",
+                            "desktop",
+                            "athlete"
+                          ],
+                          "href": "https://www.espn.com/tennis/player/_/id/15426/shi-han",
+                          "text": "Player Card",
+                          "shortText": "Player Card",
+                          "isExternal": false,
+                          "isPremium": false,
+                          "isHidden": false
+                        }
+                      ]
+                    },
+                    "statistics": []
+                  }
+                ],
+                "tournamentId": 381,
+                "type": {
+                  "id": "2",
+                  "text": "Women's Singles",
+                  "slug": "womens-singles"
+                },
+                "round": {
+                  "id": "2",
+                  "displayName": "Round 2"
+                },
+                "wasSuspended": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "catalogue": {
+    "tournaments": [
+      {
+        "providerId": "wta-wuhan-2026",
+        "name": "Wuhan Open",
+        "tour": "WTA",
+        "representedTours": [
+          "WTA"
+        ],
+        "level": "wta_1000",
+        "startDate": "2026-10-12",
+        "endDate": "2026-10-18",
+        "city": "Wuhan",
+        "countryCode": "CHN",
+        "surface": "hard",
+        "sourceUrl": "https://wtafiles.wtatennis.com/pdf/calendar/calendar.pdf",
+        "season": 2026,
+        "tournamentId": "tournament:tennis:wta-wuhan-2026",
+        "providerAlias": "wta:tournament:wta-wuhan-2026",
+        "competitionId": "competition:wta-tour",
+        "taxonomySportId": "sport:tennis",
+        "disciplineId": "discipline:tennis:professional",
+        "baselineEligible": true
+      }
+    ],
+    "athletes": [
+      {
+        "athleteId": "competitor:tennis:wta:leylah-fernandez",
+        "providerAlias": "wta:player:326735",
+        "displayName": "Leylah Fernandez",
+        "tour": "WTA",
+        "rankingSingles": 26,
+        "rankingPoints": 1894,
+        "rankingSnapshotDate": "2026-09-28",
+        "rankingSourceTrust": "verified",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
+        "nationalityCode": "CAN",
+        "isAustralian": false,
+        "active": true,
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    ]
+  }
+}

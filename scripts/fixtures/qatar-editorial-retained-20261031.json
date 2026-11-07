@@ -1,0 +1,603 @@
+{
+  "schemaVersion": "sportscal.reviewed-editorial-research.v1",
+  "evidenceMode": "retained-dated",
+  "reviewedAt": "2026-10-30T23:29:54.351Z",
+  "reviewNote": "Corrected after focused review: unsupported race-points fact rejected. One allocated official public hub read verifies2025Qatar history. Copy assembly/review date is not a new observation of the retained11October tables; no second page or provider ingestion.",
+  "targets": [
+    {
+      "id": "evt_43",
+      "canonicalEventId": "event:f1:2026:qatar:race",
+      "fixtureHashes": {
+        "feeds/incoming/events.json": "ddd847ab8581d4a12261d904a5345a2ccb7ed6dad9c34973092a2e72652e066c",
+        "data/events.json": "dfdc0956549f8358c7a80a30846e81a999bda8b7c65b425e8c9e49ab7ce00f9a"
+      }
+    }
+  ],
+  "sourceBindings": [
+    {
+      "path": "data/canonical/f1-context-2026.json",
+      "collection": "ladderSnapshots",
+      "identityField": "competitionId",
+      "id": "competition:f1-drivers-2026",
+      "sha256": "e620d75618d873beed78eb15946e2b168c4f7a876d6c7e65272617bec41660c6",
+      "url": "https://www.formula1.com/en/results/2026/drivers",
+      "checkedAt": "2026-10-11T12:37:25.402Z"
+    },
+    {
+      "path": "data/canonical/f1-context-2026.json",
+      "collection": "ladderSnapshots",
+      "identityField": "competitionId",
+      "id": "competition:f1-constructors-2026",
+      "sha256": "471083385f73e432421035986bdf858078a5cb479665bd91195b0b1d22cdbd5c",
+      "url": "https://www.formula1.com/en/results/2026/team",
+      "checkedAt": "2026-10-11T12:37:25.402Z"
+    },
+    {
+      "path": "data/events.json",
+      "collection": "events",
+      "identityField": "canonicalEventId",
+      "id": "event:f1:2026:qatar:race",
+      "sha256": "dfdc0956549f8358c7a80a30846e81a999bda8b7c65b425e8c9e49ab7ce00f9a",
+      "url": "https://www.formula1.com/en/racing/2026/qatar",
+      "checkedAt": "2026-10-11T12:37:25.437Z"
+    },
+    {
+      "path": "scripts/fixtures/f1-qatar-2025-official-evidence.json",
+      "collection": "sourceRecords",
+      "identityField": "id",
+      "id": "official:f1:2025:qatar:race-result",
+      "sha256": "d898f69fe4259e78032072cd4dfaad332361ee9cf71ffa667af59b9afb9003b9",
+      "url": "https://www.formula1.com/en/racing/2025/qatar",
+      "checkedAt": "2026-10-30T23:28:25.790Z"
+    }
+  ],
+  "entries": [
+    {
+      "id": "evt_43",
+      "title": "Qatar Grand Prix: retained official context",
+      "researchDepth": 5,
+      "hook": "Piastri's second place behind Verstappen in 2025 supplies a concrete Qatar benchmark.",
+      "synopsis": "The retained 11 October 2026 tables had Antonelli on 325 points to Russell's 236, with Mercedes ahead of Ferrari by 561 to 418 in the constructors' standings. That is dated context, not the order entering the 29 November Lusail race. Qatar's previous result supplies circuit-specific history; the intervening rounds may change the championship context.",
+      "sources": [
+        "https://www.formula1.com/en/results/2026/drivers",
+        "https://www.formula1.com/en/results/2026/team",
+        "https://www.formula1.com/en/racing/2026/qatar",
+        "https://www.formula1.com/en/racing/2025/qatar"
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "name": "Formula 1 drivers standings - retained 11 October snapshot",
+          "sourceType": "official",
+          "checkedAt": "2026-10-11T12:37:25.402Z"
+        },
+        {
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "name": "Formula 1 constructors standings - retained 11 October snapshot",
+          "sourceType": "official",
+          "checkedAt": "2026-10-11T12:37:25.402Z"
+        },
+        {
+          "url": "https://www.formula1.com/en/racing/2026/qatar",
+          "name": "Formula 1 official Qatar race hub - retained schedule",
+          "sourceType": "official",
+          "checkedAt": "2026-10-11T12:37:25.437Z"
+        },
+        {
+          "url": "https://www.formula1.com/en/racing/2025/qatar",
+          "name": "Formula 1 official 2025 Qatar hub - dated race classification",
+          "sourceType": "official",
+          "checkedAt": "2026-10-30T23:28:25.790Z"
+        }
+      ],
+      "facts": [
+        {
+          "statement": "In the official 11 October snapshot, Kimi Antonelli had 325 points and George Russell had 236 points, an 89-point difference.",
+          "dimension": "form",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "In the official 11 October constructors snapshot, Mercedes had 561 points and Ferrari had 418 points.",
+          "dimension": "form",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "statement": "The retained official fixture identifies Qatar GP Race at Lusail International Circuit with startTimeUtc 2026-11-29T16:00:00.000Z.",
+          "dimension": "schedule",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "statement": "Formula 1 records Max Verstappen as winner of the 30 November 2025 Qatar Grand Prix, with Oscar Piastri classified second.",
+          "dimension": "history",
+          "sourceIndexes": [
+            3
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-30T23:29:54.351Z"
+    }
+  ],
+  "retainedInputs": {
+    "feeds/incoming/events.json": {
+      "events": [
+        {
+          "id": "evt_43",
+          "eventId": "evt_43",
+          "canonicalEventId": "event:f1:2026:qatar:race",
+          "sport": "Formula 1",
+          "key": "f1",
+          "name": "Qatar GP \u00b7 Race",
+          "cardKind": "fixture",
+          "displayTitleCompact": "Qatar GP \u00b7 Race",
+          "date": "2026-11-30",
+          "time": "03:00",
+          "startTimeUtc": "2026-11-29T16:00:00.000Z",
+          "endTimeUtc": "2026-11-29T18:00:00.000Z",
+          "timeTbc": false,
+          "timePrecision": "exact",
+          "scheduleStatus": "confirmed",
+          "broadcaster": "Fox Sports via Kayo / Foxtel",
+          "broadcastOptions": [
+            "Kayo Sports",
+            "Foxtel"
+          ],
+          "broadcasterIds": [
+            "kayo",
+            "foxtel"
+          ],
+          "expected": 9,
+          "stakesScore": 5,
+          "venue": "Lusail International Circuit",
+          "circuitId": "circuit:f1:qatar",
+          "venueOfficialName": "Lusail International Circuit",
+          "venueCity": "Lusail",
+          "venueCountryCode": "QA",
+          "venueSourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+          "sessionType": "Race",
+          "liveWindow": 3,
+          "round": "all",
+          "roundLabel": "Race",
+          "stage": "Race",
+          "narrativeType": "all",
+          "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
+          "fullSpiel": "R21 Qatar GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+          "sourceName": "Formula 1 official race hub",
+          "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+          "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+          "sourceType": "official",
+          "sourceTrust": "verified",
+          "status": "upcoming",
+          "sportDomainId": "sport:f1",
+          "discoverySportId": "sport:f1",
+          "competitionId": "competition:formula-one",
+          "taxonomyNodeId": "sport:f1",
+          "codeId": "sport:f1",
+          "competitionScope": "international",
+          "isInternational": true,
+          "representativeCountryCodes": [],
+          "replayEligible": true,
+          "highlightEligible": true,
+          "briefingEligible": true,
+          "catchupEligible": true,
+          "storyline": {
+            "stakes": 5,
+            "intensity": 5,
+            "intensitySource": "computed",
+            "arcStage": "preview",
+            "expectedSpectacle": 9,
+            "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+            "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+            "synopsisSpoilerOff": "R21 Qatar GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+            "synopsisSpoilerOn": "R21 Qatar GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+            "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+          },
+          "editorialPreview": {
+            "status": "journalistic",
+            "angle": "Race",
+            "contextSignals": [
+              "official-schedule",
+              "Race"
+            ],
+            "sourceName": "Formula 1 official race hub",
+            "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+            "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+            "needsPreviewRefresh": false
+          },
+          "lastReviewedAt": "2026-10-11T12:37:25.437Z"
+        }
+      ]
+    },
+    "data/events.json": {
+      "events": [
+        {
+          "id": "evt_43",
+          "eventId": "evt_43",
+          "canonicalEventId": "event:f1:2026:qatar:race",
+          "sport": "Formula 1",
+          "key": "f1",
+          "name": "Qatar GP \u00b7 Race",
+          "cardKind": "fixture",
+          "displayTitleCompact": "Qatar GP \u00b7 Race",
+          "date": "2026-11-30",
+          "time": "03:00",
+          "startTimeUtc": "2026-11-29T16:00:00.000Z",
+          "timeTbc": false,
+          "timePrecision": "exact",
+          "scheduleStatus": "confirmed",
+          "broadcaster": "Fox Sports via Kayo / Foxtel",
+          "broadcastOptions": [
+            "Kayo Sports",
+            "Foxtel"
+          ],
+          "broadcasterIds": [
+            "kayo",
+            "foxtel"
+          ],
+          "expected": 9,
+          "stakesScore": 5,
+          "venue": "Lusail International Circuit",
+          "circuitId": "circuit:f1:qatar",
+          "venueOfficialName": "Lusail International Circuit",
+          "venueCity": "Lusail",
+          "venueCountryCode": "QA",
+          "venueSourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+          "liveWindow": 3,
+          "round": "all",
+          "roundLabel": "Race",
+          "stage": "Race",
+          "narrativeType": "all",
+          "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
+          "fullSpiel": "R21 Qatar GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+          "sourceName": "Formula 1 official race hub",
+          "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+          "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+          "sourceType": "official",
+          "sourceTrust": "verified",
+          "status": "upcoming",
+          "sportDomainId": "sport:f1",
+          "discoverySportId": "sport:f1",
+          "competitionId": "competition:formula-one",
+          "taxonomyNodeId": "sport:f1",
+          "codeId": "sport:f1",
+          "competitionScope": "international",
+          "isInternational": true,
+          "representativeCountryCodes": [],
+          "replayEligible": true,
+          "highlightEligible": true,
+          "briefingEligible": true,
+          "catchupEligible": true,
+          "storyline": {
+            "stakes": 5,
+            "intensity": 5,
+            "intensitySource": "computed",
+            "arcStage": "preview",
+            "expectedSpectacle": 9,
+            "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+            "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+            "synopsisSpoilerOff": "R21 Qatar GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+            "synopsisSpoilerOn": "R21 Qatar GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+            "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+          },
+          "editorialPreview": {
+            "status": "journalistic",
+            "angle": "Race",
+            "contextSignals": [
+              "official-schedule",
+              "Race"
+            ],
+            "sourceName": "Formula 1 official race hub",
+            "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+            "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+            "needsPreviewRefresh": false
+          },
+          "lastReviewedAt": "2026-10-11T12:37:25.437Z",
+          "statusCheckedAt": "2026-09-30T12:09:04.338Z",
+          "participantIds": [],
+          "participantSlots": [],
+          "participantCountryCodes": [],
+          "broadcasts": [],
+          "viewingOptions": [],
+          "sourceEventIds": [
+            "evt_43"
+          ],
+          "consensusTags": [],
+          "startTimeTbc": false,
+          "dateOnly": false,
+          "endTimeUtc": "2026-11-29T18:00:00.000Z",
+          "sessionType": "Race"
+        }
+      ]
+    },
+    "data/canonical/f1-context-2026.json": {
+      "ladderSnapshots": [
+        {
+          "id": "standings:f1-drivers-2026:current",
+          "competitionId": "competition:f1-drivers-2026",
+          "seasonLabel": "2026",
+          "roundLabel": "Current championship standings",
+          "snapshotTimeUtc": "2026-10-11T12:37:25.402Z",
+          "entries": [
+            {
+              "participantId": "competitor:f1:kimi-antonelli",
+              "rank": 1,
+              "points": 325,
+              "teamName": "Mercedes",
+              "teamParticipantId": "team:f1:mercedes"
+            },
+            {
+              "participantId": "competitor:f1:george-russell",
+              "rank": 2,
+              "points": 236,
+              "teamName": "Mercedes",
+              "teamParticipantId": "team:f1:mercedes"
+            },
+            {
+              "participantId": "competitor:f1:lewis-hamilton",
+              "rank": 3,
+              "points": 221,
+              "teamName": "Ferrari",
+              "teamParticipantId": "team:f1:ferrari"
+            },
+            {
+              "participantId": "competitor:f1:charles-leclerc",
+              "rank": 4,
+              "points": 197,
+              "teamName": "Ferrari",
+              "teamParticipantId": "team:f1:ferrari"
+            },
+            {
+              "participantId": "competitor:f1:max-verstappen",
+              "rank": 5,
+              "points": 196,
+              "teamName": "Red Bull Racing",
+              "teamParticipantId": "team:f1:red-bull-racing"
+            },
+            {
+              "participantId": "competitor:f1:lando-norris",
+              "rank": 6,
+              "points": 189,
+              "teamName": "McLaren",
+              "teamParticipantId": "team:f1:mclaren"
+            },
+            {
+              "participantId": "competitor:f1:oscar-piastri",
+              "rank": 7,
+              "points": 128,
+              "teamName": "McLaren",
+              "teamParticipantId": "team:f1:mclaren"
+            },
+            {
+              "participantId": "competitor:f1:isack-hadjar",
+              "rank": 8,
+              "points": 96,
+              "teamName": "Red Bull Racing",
+              "teamParticipantId": "team:f1:red-bull-racing"
+            },
+            {
+              "participantId": "competitor:f1:liam-lawson",
+              "rank": 9,
+              "points": 69,
+              "teamName": "Racing Bulls",
+              "teamParticipantId": "team:f1:racing-bulls"
+            },
+            {
+              "participantId": "competitor:f1:pierre-gasly",
+              "rank": 10,
+              "points": 41,
+              "teamName": "Alpine",
+              "teamParticipantId": "team:f1:alpine"
+            },
+            {
+              "participantId": "competitor:f1:arvid-lindblad",
+              "rank": 11,
+              "points": 38,
+              "teamName": "Racing Bulls",
+              "teamParticipantId": "team:f1:racing-bulls"
+            },
+            {
+              "participantId": "competitor:f1:franco-colapinto",
+              "rank": 12,
+              "points": 27,
+              "teamName": "Alpine",
+              "teamParticipantId": "team:f1:alpine"
+            },
+            {
+              "participantId": "competitor:f1:oliver-bearman",
+              "rank": 13,
+              "points": 23,
+              "teamName": "Haas F1 Team",
+              "teamParticipantId": "team:f1:haas"
+            },
+            {
+              "participantId": "competitor:f1:gabriel-bortoleto",
+              "rank": 14,
+              "points": 10,
+              "teamName": "Audi",
+              "teamParticipantId": "team:f1:audi"
+            },
+            {
+              "participantId": "competitor:f1:nico-hulkenberg",
+              "rank": 15,
+              "points": 9,
+              "teamName": "Audi",
+              "teamParticipantId": "team:f1:audi"
+            },
+            {
+              "participantId": "competitor:f1:esteban-ocon",
+              "rank": 16,
+              "points": 7,
+              "teamName": "Haas F1 Team",
+              "teamParticipantId": "team:f1:haas"
+            },
+            {
+              "participantId": "competitor:f1:fernando-alonso",
+              "rank": 17,
+              "points": 7,
+              "teamName": "Aston Martin",
+              "teamParticipantId": "team:f1:aston-martin"
+            },
+            {
+              "participantId": "competitor:f1:carlos-sainz",
+              "rank": 18,
+              "points": 7,
+              "teamName": "Williams",
+              "teamParticipantId": "team:f1:williams"
+            },
+            {
+              "participantId": "competitor:f1:alexander-albon",
+              "rank": 19,
+              "points": 5,
+              "teamName": "Williams",
+              "teamParticipantId": "team:f1:williams"
+            },
+            {
+              "participantId": "competitor:f1:yuki-tsunoda",
+              "rank": 20,
+              "points": 1,
+              "teamName": "Racing Bulls",
+              "teamParticipantId": "team:f1:racing-bulls"
+            },
+            {
+              "participantId": "competitor:f1:lance-stroll",
+              "rank": 21,
+              "points": 0,
+              "teamName": "Aston Martin",
+              "teamParticipantId": "team:f1:aston-martin"
+            },
+            {
+              "participantId": "competitor:f1:valtteri-bottas",
+              "rank": 22,
+              "points": 0,
+              "teamName": "Cadillac",
+              "teamParticipantId": "team:f1:cadillac"
+            },
+            {
+              "participantId": "competitor:f1:sergio-perez",
+              "rank": 23,
+              "points": 0,
+              "teamName": "Cadillac",
+              "teamParticipantId": "team:f1:cadillac"
+            }
+          ],
+          "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+          "source": {
+            "provider": "Formula 1",
+            "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+            "sourceType": "official",
+            "checkedAt": "2026-10-11T12:37:25.402Z"
+          },
+          "metadata": {
+            "standingsType": "drivers"
+          }
+        },
+        {
+          "id": "standings:f1-constructors-2026:current",
+          "competitionId": "competition:f1-constructors-2026",
+          "seasonLabel": "2026",
+          "roundLabel": "Current championship standings",
+          "snapshotTimeUtc": "2026-10-11T12:37:25.402Z",
+          "entries": [
+            {
+              "participantId": "team:f1:mercedes",
+              "rank": 1,
+              "points": 561
+            },
+            {
+              "participantId": "team:f1:ferrari",
+              "rank": 2,
+              "points": 418
+            },
+            {
+              "participantId": "team:f1:mclaren",
+              "rank": 3,
+              "points": 317
+            },
+            {
+              "participantId": "team:f1:red-bull-racing",
+              "rank": 4,
+              "points": 306
+            },
+            {
+              "participantId": "team:f1:racing-bulls",
+              "rank": 5,
+              "points": 94
+            },
+            {
+              "participantId": "team:f1:alpine",
+              "rank": 6,
+              "points": 68
+            },
+            {
+              "participantId": "team:f1:haas",
+              "rank": 7,
+              "points": 30
+            },
+            {
+              "participantId": "team:f1:audi",
+              "rank": 8,
+              "points": 19
+            },
+            {
+              "participantId": "team:f1:williams",
+              "rank": 9,
+              "points": 12
+            },
+            {
+              "participantId": "team:f1:aston-martin",
+              "rank": 10,
+              "points": 7
+            },
+            {
+              "participantId": "team:f1:cadillac",
+              "rank": 11,
+              "points": 0
+            }
+          ],
+          "sourceUrl": "https://www.formula1.com/en/results/2026/team",
+          "source": {
+            "provider": "Formula 1",
+            "sourceUrl": "https://www.formula1.com/en/results/2026/team",
+            "sourceType": "official",
+            "checkedAt": "2026-10-11T12:37:25.402Z"
+          },
+          "metadata": {
+            "standingsType": "constructors"
+          }
+        }
+      ]
+    },
+    "scripts/fixtures/f1-qatar-2025-official-evidence.json": {
+      "schemaVersion": "sportscal.official-editorial-evidence.v1",
+      "sourceRecords": [
+        {
+          "id": "official:f1:2025:qatar:race-result",
+          "sourceUrl": "https://www.formula1.com/en/racing/2025/qatar",
+          "sourceType": "official",
+          "sourceCheckedAt": "2026-10-30T23:28:25.790Z",
+          "captureType": "web-tool-extracted-document-and-metadata",
+          "captureSha256": "cad4ccba2a2998160e71d46d329193b65c325d9fc4db6e59985971f98357fd2c",
+          "observationBasis": "Actual tool retrieval; not raw HTTP bytes or publisher last-modified time.",
+          "raceDate": "2025-11-30",
+          "classification": [
+            {
+              "position": 1,
+              "driver": "Max Verstappen"
+            },
+            {
+              "position": 2,
+              "driver": "Oscar Piastri"
+            }
+          ],
+          "support": "Official 2025 Qatar hub: Race 30 Nov and Race Result rows1-2 (extracted lines21,25-32)."
+        }
+      ]
+    }
+  },
+  "reviewStatus": "approved"
+}

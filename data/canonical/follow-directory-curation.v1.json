@@ -12,30 +12,20 @@
       "groups": [
         {
           "id": "internationals",
-          "label": "Major internationals",
+          "label": "International teams",
           "memberIds": [
             "team:cricket:australia",
+            "team:cricket:england",
             "team:cricket:india",
             "team:cricket:new-zealand",
             "team:cricket:south-africa",
             "team:cricket:pakistan",
             "team:cricket:sri-lanka",
-            "team:cricket:afghanistan",
-            "team:cricket:england",
+            "team:cricket:west-indies",
             "team:cricket:bangladesh",
-            "team:cricket:west-indies"
-          ]
-        },
-        {
-          "id": "domestic",
-          "label": "Australian domestic",
-          "memberIds": [
-            "team:cricket:espn-387",
-            "team:cricket:espn-459",
-            "team:cricket:espn-520",
-            "team:cricket:espn-560",
-            "team:cricket:espn-584",
-            "team:cricket:espn-602"
+            "team:cricket:afghanistan",
+            "team:cricket:ireland",
+            "team:cricket:zimbabwe"
           ]
         },
         {
@@ -101,6 +91,17 @@
             "team:rugby:hurricanes",
             "team:rugby:fijian-drua",
             "team:rugby:moana-pasifika"
+          ]
+        }
+      ]
+    },
+    "cricket-women": {
+      "groups": [
+        {
+          "id": "australia",
+          "label": "Australia",
+          "memberIds": [
+            "team:cricket:australia-women"
           ]
         }
       ]

@@ -1,0 +1,65 @@
+(function(root,factory){const api=factory(typeof module==='object'?require('./follow-first'):root.NOTHINGSPORTS_FOLLOW_FIRST);if(typeof module==='object')module.exports=api;else root.NOTHINGSPORTS_ATHLETES=api;})(globalThis,function(follow){
+ 'use strict';
+ const identity=id=>follow.participantFollowIdentityKey(id);
+ const individual=record=>/^(athlete|competitor|player):/.test(String(record?.id||record))||['athlete','competitor','player'].includes(record?.type||record?.entityType);
+ const sport=record=>record.sportKey||String(record.sportDomainId||record.id||'').split(':')[1]||'';
+ function role(key){key=String(key||'').replace(/-women$/,'');return ['tennis','wimbledon','football','soccer','afl','aflw','nrl','nrlw','rugby','rugby-union','nba','nbl','nfl','nhl','ice-hockey','cricket','basketball','netball','hockey','fiba'].includes(key)?'Player':['f1','wrc','motorsport','supercars'].includes(key)?'Driver':key==='motogp'?'Rider':key==='golf'?'Golfer':'Athlete';}
+ function participantIds(event){return [...new Set([...(event.participantIds||[]),...(event.participants||[]).map(p=>p.id),...(event.participantSlots||[]).map(p=>p.participantId),...(event.matchupSides||[]).flatMap(s=>(s.players||[]).map(p=>p.id)),event.homeParticipantId,event.awayParticipantId].filter(Boolean))];}
+ const involves=(event,id)=>participantIds(event).some(p=>identity(p)===identity(id));
+ const SYDNEY_DATE=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'});
+ function list(records,activeIds,includeTeams=false){
+  const keys=new Set([...activeIds].filter(id=>individual(id)||includeTeams&&String(id).startsWith('team:')).map(identity)),seen=new Set();
+  return records.filter(p=>individual(p)||includeTeams&&String(p.id).startsWith('team:')).filter(p=>{const key=identity(p.id);if(!keys.has(key)||seen.has(key))return false;seen.add(key);return true;}).map(p=>({...p,sportKey:sport(p),displayName:p.displayName||p.canonicalName||p.name||'Followed athlete'})).sort((a,b)=>a.displayName.localeCompare(b.displayName));
+ }
+ function next(events,id,now=Date.now()){
+  const day=SYDNEY_DATE.format(new Date(now));
+  const tees=events.filter(e=>e.cardType==='golf_appearance'&&involves(e,id)&&Date.parse(e.startTimeUtc)>=now&&!/^(completed|cancelled|postponed|suspended)$/.test(e.status||''));
+  return events.filter(e=>globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY?.activeEligible(e)!==false).filter(e=>!(e.cardType==='golf_tournament'&&(e.dateOnly===true||String(e.timePrecision).replace('_','-')==='date-only')&&calendarDate(e.endDate)&&e.endDate<day)&&(e.cardType!=='golf_appearance'||Date.parse(e.startTimeUtc)>=now)&&!tees.some(t=>t.parentEventId===e.id)&&involves(e,id)&&!(/^(completed|finished|final|cancelled|canceled|abandoned|withdrawn)$/.test(e.status||''))).filter(e=>Date.parse(e.startTimeUtc||'')>=now||e.date>=day||e.participantsConfirmed===true&&!e.date&&!e.startTimeUtc&&e.schedulingWindow?.endsOn>=day||/^(live|in-progress|stumps|suspended|interrupted)$/.test(e.status||''))
+   .sort((a,b)=>{const fresh=e=>/^(live|in-progress)$/.test(e.status||'')&&Date.parse(e.statusCheckedAt||e.livePlayObservedAt||'')<=now&&now-Date.parse(e.statusCheckedAt||e.livePlayObservedAt||'')<=1800000;return Number(fresh(b))-Number(fresh(a))||(Date.parse(a.startTimeUtc||a.date)||Infinity)-(Date.parse(b.startTimeUtc||b.date)||Infinity);})[0]||null;
+ }
+ // Partition once so sorting a large Follow list never rescans the catalogue.
+ function indexNext(events,now=Date.now()){
+  const buckets=new Map();
+  for(const event of events)for(const id of new Set(participantIds(event).map(identity))){const bucket=buckets.get(id)||[];bucket.push(event);buckets.set(id,bucket);}
+  return new Map([...buckets].map(([id,bucket])=>[id,next(bucket,id,now)]));
+ }
+ function currentContext(document,id,day,preferences){
+  const player=document?.players?.find(p=>identity(p.id)===identity(id));if(!player)return null;
+  const policy=typeof require==='function'?require('./follow-feed-policy'):globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY;
+  for(const edition of document.editions||[]){
+   const participation=edition.participation.find(p=>identity(p.playerId)===identity(id)&&p.status==='confirmed');
+   const window=edition.tourWindows.find(w=>w.tour===player.tour&&w.startDate<=day&&w.endDate>=day);
+   if(!participation||!window||!policy.activeEligible({key:'tennis',tournamentLevel:window.level||edition.category})||policy.explicitlyExcluded({id:edition.id,key:'tennis',cardKind:'event',eventFamilyId:edition.eventFamilyId,tournamentId:window.tournamentId,competitionId:window.tournamentId},preferences))continue;
+   const review=document.coverageReviews?.find(r=>r.editionId===edition.id&&r.tour===player.tour);
+   return {edition,participation,window,review};
+  }
+  return null;
+ }
+ const terminalCalendar=event=>/^(completed|finished|final|cancelled|canceled|abandoned|withdrawn)$/.test(event.status||'');
+ const calendarDate=value=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(value)&&Number.isFinite(Date.parse(value+'T12:00:00Z'))&&new Date(value+'T12:00:00Z').toISOString().slice(0,10)===value;
+ function spansCurrentCalendarDay(event,from,through){
+  return calendarDate(event.date)&&calendarDate(event.endDate)&&event.date<from&&event.date<=through&&event.endDate>=from&&!terminalCalendar(event);
+ }
+ function calendarTiming(event,now=Date.now()){
+  if(event.cardType!=='golf_tournament'||!(event.dateOnly===true||String(event.timePrecision).replace('_','-')==='date-only')||!calendarDate(event.date)||!calendarDate(event.endDate)||event.endDate<event.date)return null;
+  const format=value=>new Intl.DateTimeFormat('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(value+'T12:00:00Z'));
+  const range=event.date===event.endDate?format(event.date):event.date.slice(0,7)===event.endDate.slice(0,7)?Number(event.date.slice(8))+'–'+format(event.endDate):format(event.date)+' – '+format(event.endDate);
+  const checked=Date.parse(event.statusCheckedAt||event.livePlayObservedAt||''),attested=/^(live|in-progress)$/.test(event.status||'')&&Number.isFinite(checked)&&checked<=now&&/^https:\/\//.test(event.sourceUrl||event.scheduleSourceUrl||'');
+  const phase=attested?(event.sourceStale===true||now-checked>1800000?'Last reported in progress · ':'In progress · '):'';
+  return phase+'Tournament dates: '+range+(terminalCalendar(event)?'':' · Next tee time not verified');
+ }
+ function participantCalendar(event,now=Date.now()){
+  const checked=Date.parse(event.sourceCheckedAt||event.canonicalSourceCheckedAt||'');
+  return calendarTiming(event,now)!==null&&event.participantsConfirmed===true&&Number.isFinite(checked)&&checked<=now&&/^https:\/\//.test(event.sourceUrl||event.scheduleSourceUrl||'');
+ }
+ function timingState(event,now=Date.now()){
+  if(event.timingVerified===false||event.sourceStale===true)return 'stale';
+  const pendingChecked=Date.parse(event.publicationPendingVerifiedAt||event.sourceCheckedAt||'');
+  if(event.organiserPublicationPending===true&&event.publicationPendingVerified===true&&Number.isFinite(pendingChecked)&&pendingChecked<=+now&&/^https:\/\//.test(event.publicationSourceUrl||''))return 'publication-pending';
+  const precision=String(event.timePrecision||'').replace('_','-');
+  if(!['exact','not-before'].includes(precision)||!Number.isFinite(Date.parse(event.startTimeUtc)))return 'unresolved';
+  const checked=Date.parse(event.sourceCheckedAt||event.canonicalSourceCheckedAt||event.lastVerifiedAt||'');
+  return Number.isFinite(checked)&&checked<=+now&&/^https:\/\//.test(event.sourceUrl||event.scheduleSourceUrl||'')?'published':'unverified';
+ }
+ return {identity,individual,sport,role,participantIds,involves,list,next,indexNext,currentContext,timingState,spansCurrentCalendarDay,calendarTiming,participantCalendar};
+});

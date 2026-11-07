@@ -1,46 +1,127 @@
-const CACHE_NAME = "nothingsport-shell-v272";
-const SHELL_VERSION = "272";
+const CACHE_NAME = "nothingsport-shell-v611";
+const SHELL_VERSION = "611";
+// Cycling artwork and championship projections cache after use through the
+// asset/data handlers below. Card identities already ship in the runtime.
+// Unassigned circuit candidates are optional assets, not install dependencies.
 const APP_SHELL = [
-  "/assets/js/app-update.js?v=254",
+  "/assets/brand/web/nothingsport-logomark.svg",
+  // Compact PNG inventory; larger and legacy favicon formats remain deployed
+  // and cache on use through the unchanged same-origin handler.
+  "/icons/nothingsport-favicon-065421ae47-16.png",
+  "/icons/nothingsport-favicon-065421ae47-32.png",
+  "/assets/styles/racing-details.css?v=527",
+  "/config/racing-details.js?v=539",
+  "/config/participant-directory.js?v=512",
+  "/assets/js/football-card-context.js?v=511",
+  "/assets/js/tennis-parent-ui.js?v=548",
+  "/assets/js/calendar-sync-ui.js?v=513",
+
+  "/assets/identities/wsl/wave-white.svg",
+  "/assets/identities/wsl/brand.png",
+  "/assets/js/follow-presentation-ui.js?v=597",
+  "/assets/identities/wrc/routes/sardegna-lerno-2026.svg",
+  "/assets/identities/wrc/helmet-white.svg",
+  "/assets/identities/sailgp/sailing-white.svg",
+  "/assets/providers/7plus-transparent.svg",
+  "/assets/identities/events/us-open-wordmark.svg",
+  "/assets/js/notifications-inbox.js?v=552",
+  "/assets/js/impact-feedback-ui.js?v=552",
+  "/assets/js/settings-optional-ui.js?v=611",
+  "/assets/js/follow-navigation.js?v=522",
+  "/assets/js/tournament-fixture-ui.js?v=533",
+  "/assets/styles/notifications-inbox.css?v=280",
+  "/assets/js/app-update.js?v=533",
   // Navigations already share /index.html below; do not download/cache its
   // million-byte HTML a second time under the root alias during installation.
   "/index.html",
   "/404.html",
   "/participate.html",
-  "/admin.html",
-  "/admin-comms.html",
+  // The optional owner console is cached after use, keeping cold installs lean.
   "/privacy.html",
   "/terms.html",
-  "/assets/styles/nothingsport-foundation.css?v=272",
+  "/assets/styles/nothingsport-foundation.css?v=463",
   // Bundled modules are cached once; separate files remain cacheable on demand.
-  "/assets/js/app-shell-runtime.js?v=272",
-  "/assets/js/nsc-rankings-ui.js?v=272",
-  "/assets/styles/nsc-ladder.css?v=272",
-  "/assets/styles/card-clarity.css?v=272",
-  "/config/follow-directory-worker.js?v=272",
-  "/config/native-shell.js?v=272",
+  "/assets/identities/motogp/circuits/chang.svg",
+  "/assets/identities/motogp/circuits/cota.svg",
+  "/assets/identities/motogp/circuits/balaton-park.svg",
+  "/assets/identities/motogp/circuits/assen.svg",
+  "/assets/identities/motogp/circuits/motegi.svg",
+  "/assets/identities/motogp/circuits/mandalika.svg",
+  "/assets/identities/motogp/circuits/portimao.svg",
+  "/assets/identities/motogp/circuits/goiania.svg",
+  "/assets/identities/motogp/circuits/spielberg-motogp.svg",
+  "/assets/identities/motogp/badge.svg",
+  "/assets/identities/motogp/circuits/aragon.svg",
+  "/assets/identities/motogp/circuits/brno.svg",
+  "/assets/identities/motogp/circuits/bugatti.svg",
+  "/assets/identities/motogp/circuits/catalunya.svg",
+  "/assets/identities/motogp/circuits/indianapolis.svg",
+  "/assets/identities/motogp/circuits/jerez.svg",
+  "/assets/identities/motogp/circuits/lusail.svg",
+  "/assets/identities/motogp/circuits/misano.svg",
+  "/assets/identities/motogp/circuits/mugello.svg",
+  "/assets/identities/motogp/circuits/phillip-island.svg",
+  "/assets/identities/motogp/circuits/sachsenring.svg",
+  "/assets/identities/motogp/circuits/sepang.svg",
+  "/assets/identities/motogp/circuits/silverstone.svg",
+  "/assets/identities/motogp/circuits/valencia.svg",
+  "/assets/identities/motogp/motorcycle-white.svg",
+  "/assets/identities/motogp/motorcycle.svg",
+  "/assets/js/app-shell-runtime.js?v=611",
+  "/assets/js/account-awareness-runtime.js?v=611",
+  "/assets/js/follow-schedule-panel.js?v=576",
+  "/assets/js/fixture-navigation.js?v=535",
+  "/assets/js/notification-navigation.js?v=534",
+  "/config/cricket-innings.js?v=582",
+  "/config/score-details.js?v=605",
+  "/assets/styles/score-details.css?v=582",
+  "/config/tournament-card-details.js?v=486",
+  "/assets/js/tournament-card-ui.js?v=605",
+  "/config/tournament-schedule.js?v=452",
+  "/assets/js/tennis-schedule-ui.js?v=467",
+  "/config/tennis-journeys.js?v=467",
+  "/assets/js/nsc-rankings-ui.js?v=536",
+  "/assets/styles/nsc-ladder.css?v=293",
+  "/assets/styles/card-clarity.css?v=536",
+  "/config/follow-directory-worker.js?v=512",
   "/config/calendar-selection.js",
-  "/config/sport-hierarchy.js",
-  "/config/event-taxonomy-compat.js",
-  "/config/preference-taxonomy.js",
-  "/config/follow-summary.js",
+  // Hierarchy and both taxonomy adapters already execute in the required
+  // app-shell runtime. Do not install second standalone copies of them.
+  "/config/follow-summary.js?v=397",
   "/assets/identities/events/le-mans-24-hours.png",
-  "/styles/follow-feed-rework.css?v=272",
-  "/config/admin-comms-workspace.js?v=218",
-  "/config/marquee-live-renderer.js?v=218",
+  "/assets/identities/competitions/supercars.png",
+  "/styles/follow-feed-rework.css?v=604",
+  "/config/marquee-live-renderer.js?v=358",
+  "/styles/comms-live.css?v=358",
+  "/styles/owner-content.css?v=358",
+  "/owner.webmanifest",
   "/config/tennis-coverage.js",
   "/config/sport-hubs.js",
   "/config/optimistic-mutation.js",
-  "/config/preference-reset-ui.js?v=218",
+  "/config/preference-reset-ui.js?v=611",
   "/config/marquee-campaigns.js",
-  "/config/server-sync.js",
-  "/config/major-events.js?v=254",
+  // Account sync is already in the required runtime; the owner console caches
+  // its separate source after first use.
+  "/config/major-events.js?v=607",
+  "/config/event-overviews-ui.js?v=595",
+  "/config/surface-category-ui.js?v=403",
+  "/assets/styles/match-centre.css?v=595",
+  "/config/match-centre.js?v=605",
+  // An upgrading page can receive this deferred module from its old worker.
+  // Own it in the new cache before activation removes that old cache.
+  "/assets/js/match-centre-ui.js?v=595",
+  "/assets/js/milestone-alerts-ui.js?v=535",
+  "/config/feed-live-scores.js?v=576",
+  "/config/feed-live-score-loader.js?v=605",
+  "/config/athletes.js?v=471",
+  "/assets/js/athletes-ui.js?v=581",
+  // Profile UI caches after first use; optional detail stays out of shell budget.
   "/config/football-directory.js",
   "/config/joint-tennis-tournament.js",
   "/data/feed/manifest.json",
   "/data/feed/page-001.json",
   "/data/feed-meta.json",
-  "/data/marquee-candidates.v1.json",
+  // Owner source artifacts are server inputs, never public cache entries.
   "/data/follow-directory/manifest.v1.json",
   "/data/follow-directory/manifest.v1.js",
   // The generated script is retained only for no-network/direct-file recovery.
@@ -80,13 +161,18 @@ const APP_SHELL = [
   "/assets/icons/sporticon/american_football.svg",
   "/assets/icons/sporticon/australian_football.svg",
   "/assets/icons/sporticon/basketball.svg",
+  "/assets/fonts/dm-sans-latin.woff2",
+  "/assets/fonts/dm-sans-latin-ext.woff2",
+  "/assets/licenses/DM-SANS-OFL.txt",
   "/assets/licenses/FLAG-ICONS-MIT.txt"
 ];
 
 // National marks remain offline-capable without making the first install pay
 // their full multi-megabyte cost. Each mark is cached on first display.
 const DEFERRED_IDENTITY_ASSETS = new Set([
-  "/assets/identities/national/football/socceroos.png",
+  "/assets/identities/national/football/socceroos-symbol.svg",
+  "/assets/identities/events/billie-jean-king-cup.svg",
+  "/assets/identities/events/billie-jean-king-cup-day.png",
   "/assets/identities/national/football/matildas.png",
   "/assets/identities/national/football/turkiye.png",
   "/assets/identities/national/football/usa.png",
@@ -116,11 +202,11 @@ const DEFERRED_IDENTITY_ASSETS = new Set([
   "/assets/identities/national/rugby/england.png",
   "/assets/identities/national/rugby/scotland.png",
   "/assets/identities/national/rugby/wales.png",
-  "/assets/identities/national/cricket/australia.jpg",
+  "/assets/identities/national/cricket/australia-transparent.png",
   "/assets/identities/national/cricket/bangladesh.jpg",
   "/assets/identities/national/cricket/england.jpg",
   "/assets/identities/national/cricket/new-zealand.jpg",
-  "/assets/identities/national/cricket/south-africa.jpg",
+  "/assets/identities/national/cricket/south-africa-proteas.svg",
   "/assets/identities/national/cricket/india.jpg",
   "/assets/identities/national/cricket/pakistan.jpg",
   "/assets/identities/national/cricket/sri-lanka.jpg",
@@ -148,7 +234,7 @@ const DEFERRED_IDENTITY_ASSETS = new Set([
 
 // Optional logos, data and utility screens cache on use. A failed optional
 // download must not hold an installed app on an obsolete shell indefinitely.
-const REQUIRED_SHELL = APP_SHELL.filter(url => ["/index.html", "/privacy.html", "/terms.html", "/manifest.webmanifest"].includes(url) || /\.(?:js|css)(?:\?|$)/.test(url));
+const REQUIRED_SHELL = APP_SHELL.filter(url => ["/index.html", "/privacy.html", "/terms.html", "/manifest.webmanifest"].includes(url) || /\.(?:js|css|woff2)(?:\?|$)/.test(url));
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(REQUIRED_SHELL)).then(() => self.skipWaiting()));
 });
@@ -203,11 +289,21 @@ async function recoverInstalledClient(client){
 
 self.addEventListener("activate", event => {
   event.waitUntil((async () => {
+    const keys = await caches.keys();
+    // The current document may already hold this index in memory after the old
+    // worker fetched it. Retain that used public index before deleting its cache.
+    // It remains network-first; no optional download can hold an update back.
+    try{
+      const cache=await caches.open(CACHE_NAME),index='/data/code-inspector/manifest.json';
+      if(!await cache.match(index)){
+        const previous=keys.filter(key=>/^nothingsport-shell-v\d+$/.test(key)&&Number(key.slice('nothingsport-shell-v'.length))<Number(SHELL_VERSION)).sort((a,b)=>Number(b.slice('nothingsport-shell-v'.length))-Number(a.slice('nothingsport-shell-v'.length)));
+        for(const key of previous){const saved=await(await caches.open(key)).match(index);if(saved?.ok){await cache.put(index,saved);break;}}
+      }
+    }catch(_error){ /* Optional cached data must not prevent shell activation. */ }
     await self.clients.claim();
     const clients = await self.clients.matchAll({ type:"window", includeUncontrolled:true });
     await Promise.allSettled(clients.map(recoverInstalledClient));
     // Cache deletion never touches preferences, login, calendar URLs or drafts.
-    const keys = await caches.keys();
     await Promise.all(keys.filter(key => key.startsWith("nothingsport-shell-") && key !== CACHE_NAME).map(key => caches.delete(key)));
   })());
 });
@@ -215,14 +311,21 @@ self.addEventListener("activate", event => {
 async function staleWhileRevalidate(request, event, cacheKey = request){
   const cache = await caches.open(CACHE_NAME);
   const cached = await cache.match(cacheKey);
-  const network = fetch(request).then(async response => {
-    if (response.ok) await cache.put(cacheKey, response.clone());
-    return response;
-  }).catch(() => null);
+  const controller = new AbortController();
+  // Include cache.put's body read in the deadline. Receiving headers alone
+  // must not keep this worker alive and its successor waiting indefinitely.
+  const timeout = setTimeout(() => controller.abort(), 8000);
+  const network = fetch(request, { signal:controller.signal }).then(async response => {
+    if (response.ok) await cache.put(cacheKey, cached ? response : response.clone());
+    else if (cached) controller.abort();
+    // A cached response already served the page. Consume the network response
+    // directly above rather than leaving an unused tee branch behind.
+    return cached ? null : response;
+  }).catch(() => null).finally(() => clearTimeout(timeout));
   // Register the lifetime before returning a cached response. Registering it
   // only after fetch resolves can leave an installed app stuck on its old shell.
   event.waitUntil(network.then(() => undefined));
-  return cached || await network || caches.match("/index.html");
+  return cached || await network || new Response('Temporarily unavailable',{status:503});
 }
 
 async function cacheFirst(request, cacheKey = request){
@@ -234,15 +337,20 @@ async function cacheFirst(request, cacheKey = request){
   return response;
 }
 
-async function networkFirst(request, event, cacheKey = request){
+async function networkFirst(request, event, cacheKey = request, { fresh = false } = {}){
   const cache = await caches.open(CACHE_NAME);
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),8000);
   try{
-    const response = await fetch(request);
-    if (response.ok) event.waitUntil(cache.put(cacheKey, response.clone()));
-    return response;
-  }catch(_error){
-    return cache.match(cacheKey).then(cached => cached || caches.match("/index.html"));
-  }
+    const response = await fetch(fresh ? new Request(request, { cache:"no-store" }) : request,{signal:controller.signal});
+    if(response.ok){event.waitUntil(cache.put(cacheKey,response.clone()));return response;}
+    if(response.status<500)return response;
+  }catch(_error){ /* A stalled/offline connection must not hold the app indefinitely. */ }
+  finally{clearTimeout(timeout);}
+  const cached=await cache.match(cacheKey);
+  if(cached)return cached;
+  if(request.mode==='navigate'){const shell=await caches.match('/index.html');if(shell)return shell;}
+  return new Response('Temporarily unavailable',{status:503,headers:{'Content-Type':'text/plain'}});
 }
 
 self.addEventListener("fetch", event => {
@@ -250,6 +358,12 @@ self.addEventListener("fetch", event => {
   const requestUrl = new URL(event.request.url);
   const cacheKey = new Request(event.request.url, { method: "GET" });
   if (requestUrl.origin !== self.location.origin) return;
+  let decodedPath=requestUrl.pathname;
+  try{decodedPath=decodeURIComponent(decodedPath);}catch(_error){ /* Invalid encodings remain a server error, never a source fallback. */ }
+  if (["/data/marquee-candidates.v1.json", "/data/comms-sources.v1.json", "/data/editorial-maintenance-sources.v1.json", "/data/editorial-post-match.v1.json"].includes(decodedPath)){
+    event.respondWith(new Response('This source file is not a public resource.', {status:404,headers:{'Cache-Control':'private, no-store, max-age=0','Content-Type':'text/plain'}}));
+    return;
+  }
   if (requestUrl.pathname === "/app-version.json"){
     event.respondWith(fetch(event.request, { cache:"no-store" }));
     return;
@@ -260,6 +374,12 @@ self.addEventListener("fetch", event => {
   // Safari requests HTML media in byte ranges. Partial responses cannot be
   // stored in Cache Storage and must retain the original Range header.
   if (event.request.headers.has("range") || requestUrl.pathname.startsWith("/assets/audio/")){
+    event.respondWith(fetch(event.request));
+    return;
+  }
+  // Highlights are API navigations too. Keep their redirects and error pages
+  // out of shell recovery, and never cache their HTML as /index.html.
+  if (requestUrl.pathname.startsWith("/api/")){
     event.respondWith(fetch(event.request));
     return;
   }
@@ -279,12 +399,12 @@ self.addEventListener("fetch", event => {
     event.respondWith(networkFirst(event.request, event, new Request("/index.html")));
     return;
   }
-  if (requestUrl.origin === self.location.origin && requestUrl.pathname.startsWith("/api/")){
-    event.respondWith(fetch(event.request));
+  if (requestUrl.pathname === "/data/feed-meta.json" || /^\/data\/feed\//.test(requestUrl.pathname)){
+    event.respondWith(networkFirst(event.request, event, cacheKey, { fresh:true }));
     return;
   }
-  if (/^\/data\/code-inspector\//.test(requestUrl.pathname)){
-    event.respondWith(networkFirst(event.request, event, cacheKey));
+  if (/^\/data\/(?:code-inspector|follow-schedule)\//.test(requestUrl.pathname)){
+    event.respondWith(networkFirst(event.request, event, cacheKey, { fresh:true }));
     return;
   }
   if (/^\/data\/(?:feed|canonical|football|follow-directory)\//.test(requestUrl.pathname)){
@@ -302,7 +422,57 @@ self.addEventListener("fetch", event => {
   event.respondWith(staleWhileRevalidate(event.request, event, cacheKey));
 });
 
-self.addEventListener("notificationclick", event => {
+// A Home Screen launch may revive a root window before navigation is available.
+// Keep only this clicked window's destination until its application acknowledges it.
+const NOTIFICATION_NAVIGATION_CACHE = 'nothingsport-notification-navigation-v1';
+const NOTIFICATION_NAVIGATION_TTL = 120000;
+let notificationNavigationOperation=Promise.resolve();
+function notificationNavigationTask(run){
+  const operation=notificationNavigationOperation.then(run);
+  notificationNavigationOperation=operation.catch(()=>{});
+  return operation;
+}
+function milestoneNotificationTarget(value){
+  try{
+    const url=new URL(value,self.location.origin),id=url.searchParams.get('event');
+    if(url.origin!==self.location.origin||!['/','/index.html'].includes(url.pathname)||url.searchParams.get('surface')!=='match-centre'||!id||id.length>180)return null;
+    const target=new URL('/',self.location.origin);target.searchParams.set('event',id);target.searchParams.set('surface','match-centre');
+    const moment=url.searchParams.get('moment');if(moment&&moment.length<=200)target.searchParams.set('moment',moment);
+    return target;
+  }catch{return null;}
+}
+function notificationNavigationKey(clientId){return new Request(self.location.origin+'/__notification_navigation__/'+encodeURIComponent(clientId));}
+async function readNotificationNavigation(cache,key){
+  const response=await cache.match(key);if(!response)return null;
+  let data;try{data=await response.json();}catch{}
+  if(!data||typeof data.token!=='string'||data.token.length>80||!Number.isFinite(data.expiresAt)||data.expiresAt<=Date.now()||data.expiresAt>Date.now()+NOTIFICATION_NAVIGATION_TTL||!milestoneNotificationTarget(data.url)){await cache.delete(key);return null;}
+  return data;
+}
+function handoffNotificationNavigation(client,target){
+  if(!client?.id)return;
+  return notificationNavigationTask(async()=>{
+  const data={type:'nothingsport-notification-navigation',url:target.href,token:crypto.randomUUID(),expiresAt:Date.now()+NOTIFICATION_NAVIGATION_TTL};
+  try{
+    const cache=await caches.open(NOTIFICATION_NAVIGATION_CACHE);
+    await Promise.all((await cache.keys()).map(key=>readNotificationNavigation(cache,key)));
+    await cache.put(notificationNavigationKey(client.id),new Response(JSON.stringify(data)));
+  }catch{ /* A ready application can still receive the direct handoff. */ }
+  try{client.postMessage(data);}catch{ /* Cold startup reads its saved destination. */ }
+  });
+}
+self.addEventListener('message',event=>{
+  const type=event.data?.type;
+  if(!['nothingsport-notification-navigation-request','nothingsport-notification-navigation-accepted'].includes(type)||event.source?.type!=='window'||!event.source.id)return;
+  event.waitUntil(notificationNavigationTask(async()=>{
+    try{
+      const cache=await caches.open(NOTIFICATION_NAVIGATION_CACHE),key=notificationNavigationKey(event.source.id),data=await readNotificationNavigation(cache,key);
+      if(type==='nothingsport-notification-navigation-request')event.ports?.[0]?.postMessage(data);
+      else if(data&&data.token===event.data.token)await cache.delete(key);
+    }catch{event.ports?.[0]?.postMessage(null);}
+  }));
+});
+self.addEventListener("notificationclick", function notificationClick(event) {
+  const click={};notificationClick.current=click;const current=()=>notificationClick.current===click;
   event.notification.close();
   const targetUrl = event.notification.data?.url || "/";
   let target;
@@ -312,22 +482,51 @@ self.addEventListener("notificationclick", event => {
   }catch(_error){
     target = new URL("/", self.location.origin);
   }
+  const milestoneTarget=event.notification.data?.kind==='milestone'?milestoneNotificationTarget(target.href):null;
   event.waitUntil(
-    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(clients => {
+    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(async clients => {
+      if(!current())return;
       const existing = clients.find(client => "focus" in client);
       if (existing){
-        const navigation = existing.navigate ? existing.navigate(target.href) : Promise.resolve(existing);
-        return Promise.resolve(navigation).then(client => (client || existing).focus());
+        if(!milestoneTarget){
+          const navigation=existing.navigate?existing.navigate(target.href):Promise.resolve(existing);
+          return Promise.resolve(navigation).then(client=>current()?(client||existing).focus():undefined);
+        }
+        let client=existing;
+        try{client=existing.navigate?await existing.navigate(target.href)||existing:existing;}catch{}
+        if(!current())return;
+        try{await client.focus();}catch{}
+        if(milestoneTarget&&current())await handoffNotificationNavigation(client,milestoneTarget);
+        return client;
       }
-      return self.clients.openWindow ? self.clients.openWindow(target.href) : undefined;
-    })
+      let client=self.clients.openWindow?await self.clients.openWindow(target.href):null;
+      if(milestoneTarget&&current()&&!client?.id){
+        // A platform may open the requested document without returning its
+        // handle. Recover only a uniquely proven exact destination, never root.
+        try{
+          const candidates=(await self.clients.matchAll({type:"window",includeUncontrolled:true})).filter(candidate=>candidate.id&&candidate.type==='window'&&milestoneNotificationTarget(candidate.url)?.href===milestoneTarget.href);
+          if(current()&&candidates.length===1)client=candidates[0];
+        }catch{ /* No proven window: leave the destination unclaimed. */ }
+      }
+      if(milestoneTarget&&current())await handoffNotificationNavigation(client,milestoneTarget);
+      return client;
+    }).finally(()=>{if(current())notificationClick.current=null;})
   );
 });
 
+async function milestoneVisible(payload){
+ const clients=await self.clients.matchAll({type:'window',includeUncontrolled:true});
+ const answers=await Promise.all(clients.filter(client=>client.visibilityState==='visible').map(client=>new Promise(resolve=>{
+  const channel=new MessageChannel();let finished=false,timer;const done=value=>{if(finished)return;finished=true;clearTimeout(timer);channel.port1.close();resolve(value);};
+  channel.port1.onmessage=event=>done(event.data?.visible===true);timer=setTimeout(()=>done(false),400);
+  try{client.postMessage({type:'nothingsport-milestone-visible',eventId:payload.eventId,body:payload.body},[channel.port2]);}catch{done(false);}
+ })));
+ return answers.some(Boolean);
+}
 self.addEventListener("push", event => {
   let payload = {};
   try{ payload = event.data?.json?.() || {}; }catch(_error){ payload = { body:event.data?.text?.() || "" }; }
-  const show = self.registration.showNotification(payload.title || "Nothing Sport reminder", {
+  const display = () => self.registration.showNotification(payload.title || "Nothing Sport reminder", {
     body:payload.body || "Open Nothing Sport for the latest update.",
     icon:"/icons/nothingsport-app-192.png",
     badge:"/icons/nothingsport-app-192.png",
@@ -335,6 +534,9 @@ self.addEventListener("push", event => {
     renotify:true,
     data:{ url:payload.url || "/", kind:payload.kind || "sport" },
   });
+  const show=payload.kind==='milestone'
+    ? (async()=>{const end=Date.parse(payload.expiresAt||'');if(!Number.isFinite(end)||end<=Date.now()||await milestoneVisible(payload)||end<=Date.now())return;return display();})()
+    : display();
   const badge = payload.kind === "chat" && Number(payload.unreadCount) > 0
     ? self.navigator?.setAppBadge?.(Number(payload.unreadCount))
     : null;

@@ -2,25 +2,36 @@
   "schemaVersion": "sport-context.v1",
   "taxonomyVersion": "sports-taxonomy.v1",
   "season": 2026,
-  "generatedAt": "2026-09-08T12:28:24.214Z",
+  "generatedAt": "2026-10-10T20:27:38.375Z",
   "sources": [
     {
       "provider": "WRC",
-      "sourceUrl": "https://www.wrc.com/en/calendar",
+      "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
       "sourceType": "official",
-      "checkedAt": "2026-09-08T12:28:24.214Z"
+      "checkedAt": "2026-10-10T20:27:38.375Z"
     },
     {
       "provider": "FIA",
       "sourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
       "sourceType": "official",
-      "checkedAt": "2026-09-08T12:28:24.214Z"
+      "checkedAt": "2026-10-04T05:49:31.163Z"
     },
     {
       "provider": "Stan Sport",
       "sourceUrl": "https://www.stan.com.au/watch/sport/motorsport/wrc",
       "sourceType": "broadcaster",
-      "checkedAt": "2026-09-08T12:28:24.214Z"
+      "checkedAt": "2026-10-04T05:49:31.163Z"
+    },
+    {
+      "provider": "FIA",
+      "sourceUrl": "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T20:27:38.375Z"
+    },
+    {
+      "provider": "Automobile Club de Monaco",
+      "sourceUrl": "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/",
+      "checkedAt": "2026-10-10T20:22:47.185Z"
     }
   ],
   "sportDomains": [
@@ -130,6 +141,25 @@
       "standingsOnly": true,
       "standingsType": "manufacturers",
       "defaultStandingsVisibility": "summary"
+    },
+    {
+      "id": "competition:wrc-2027",
+      "sportDomainId": "sport:motorsport",
+      "preferenceDomainId": "sport:wrc",
+      "competitionFamilyId": "family:world-rally-championship",
+      "slug": "wrc-2027",
+      "name": "2027 FIA World Rally Championship",
+      "competitionType": "seasonChampionship",
+      "seasonLabel": "2027",
+      "region": "global",
+      "gender": "open",
+      "supportsLadder": false,
+      "supportsTeams": true,
+      "supportsCompetitors": true,
+      "isSpecialEvent": false,
+      "standingsOnly": false,
+      "standingsType": "none",
+      "defaultStandingsVisibility": "summary"
     }
   ],
   "participants": [
@@ -176,13 +206,13 @@
       }
     },
     {
-      "id": "competitor:wrc:driver:takamoto-katsuta",
+      "id": "competitor:wrc:driver:sebastien-ogier",
       "type": "competitor",
       "sportDomainId": "sport:motorsport",
-      "displayName": "Takamoto Katsuta",
-      "shortName": "Takamoto Katsuta",
-      "canonicalName": "Takamoto Katsuta",
-      "countryCode": "JP",
+      "displayName": "Sébastien Ogier",
+      "shortName": "Sébastien Ogier",
+      "canonicalName": "Sébastien Ogier",
+      "countryCode": "FR",
       "metadata": {
         "active": true,
         "championshipRole": "driver",
@@ -204,13 +234,13 @@
       }
     },
     {
-      "id": "competitor:wrc:driver:sebastien-ogier",
+      "id": "competitor:wrc:driver:takamoto-katsuta",
       "type": "competitor",
       "sportDomainId": "sport:motorsport",
-      "displayName": "Sébastien Ogier",
-      "shortName": "Sébastien Ogier",
-      "canonicalName": "Sébastien Ogier",
-      "countryCode": "FR",
+      "displayName": "Takamoto Katsuta",
+      "shortName": "Takamoto Katsuta",
+      "canonicalName": "Takamoto Katsuta",
+      "countryCode": "JP",
       "metadata": {
         "active": true,
         "championshipRole": "driver",
@@ -302,20 +332,6 @@
       }
     },
     {
-      "id": "competitor:wrc:driver:jon-armstrong",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Jon Armstrong",
-      "shortName": "Jon Armstrong",
-      "canonicalName": "Jon Armstrong",
-      "countryCode": "IE",
-      "metadata": {
-        "active": true,
-        "championshipRole": "driver",
-        "preferenceDomainId": "sport:wrc"
-      }
-    },
-    {
       "id": "competitor:wrc:driver:robert-virves",
       "type": "competitor",
       "sportDomainId": "sport:motorsport",
@@ -323,6 +339,20 @@
       "shortName": "Robert Virves",
       "canonicalName": "Robert Virves",
       "countryCode": "EE",
+      "metadata": {
+        "active": true,
+        "championshipRole": "driver",
+        "preferenceDomainId": "sport:wrc"
+      }
+    },
+    {
+      "id": "competitor:wrc:driver:jon-armstrong",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Jon Armstrong",
+      "shortName": "Jon Armstrong",
+      "canonicalName": "Jon Armstrong",
+      "countryCode": "IE",
       "metadata": {
         "active": true,
         "championshipRole": "driver",
@@ -484,20 +514,6 @@
       }
     },
     {
-      "id": "competitor:wrc:driver:arthur-pelamourgues",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Arthur Pelamourgues",
-      "shortName": "Arthur Pelamourgues",
-      "canonicalName": "Arthur Pelamourgues",
-      "countryCode": "FR",
-      "metadata": {
-        "active": true,
-        "championshipRole": "driver",
-        "preferenceDomainId": "sport:wrc"
-      }
-    },
-    {
       "id": "competitor:wrc:driver:alejandro-galanti",
       "type": "competitor",
       "sportDomainId": "sport:motorsport",
@@ -505,6 +521,20 @@
       "shortName": "Alejandro Galanti",
       "canonicalName": "Alejandro Galanti",
       "countryCode": "PY",
+      "metadata": {
+        "active": true,
+        "championshipRole": "driver",
+        "preferenceDomainId": "sport:wrc"
+      }
+    },
+    {
+      "id": "competitor:wrc:driver:arthur-pelamourgues",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Arthur Pelamourgues",
+      "shortName": "Arthur Pelamourgues",
+      "canonicalName": "Arthur Pelamourgues",
+      "countryCode": "FR",
       "metadata": {
         "active": true,
         "championshipRole": "driver",
@@ -540,20 +570,6 @@
       }
     },
     {
-      "id": "competitor:wrc:driver:taylor-gill",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Taylor Gill",
-      "shortName": "Taylor Gill",
-      "canonicalName": "Taylor Gill",
-      "countryCode": "AU",
-      "metadata": {
-        "active": true,
-        "championshipRole": "driver",
-        "preferenceDomainId": "sport:wrc"
-      }
-    },
-    {
       "id": "competitor:wrc:driver:eric-camilli",
       "type": "competitor",
       "sportDomainId": "sport:motorsport",
@@ -582,6 +598,34 @@
       }
     },
     {
+      "id": "competitor:wrc:driver:taylor-gill",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Taylor Gill",
+      "shortName": "Taylor Gill",
+      "canonicalName": "Taylor Gill",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "championshipRole": "driver",
+        "preferenceDomainId": "sport:wrc"
+      }
+    },
+    {
+      "id": "competitor:wrc:driver:gregoire-munster",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Grégoire Munster",
+      "shortName": "Grégoire Munster",
+      "canonicalName": "Grégoire Munster",
+      "countryCode": "LU",
+      "metadata": {
+        "active": true,
+        "championshipRole": "driver",
+        "preferenceDomainId": "sport:wrc"
+      }
+    },
+    {
       "id": "competitor:wrc:driver:jourdan-serderidis",
       "type": "competitor",
       "sportDomainId": "sport:motorsport",
@@ -603,20 +647,6 @@
       "shortName": "Romet Jürgenson",
       "canonicalName": "Romet Jürgenson",
       "countryCode": "EE",
-      "metadata": {
-        "active": true,
-        "championshipRole": "driver",
-        "preferenceDomainId": "sport:wrc"
-      }
-    },
-    {
-      "id": "competitor:wrc:driver:gregoire-munster",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Grégoire Munster",
-      "shortName": "Grégoire Munster",
-      "canonicalName": "Grégoire Munster",
-      "countryCode": "LU",
       "metadata": {
         "active": true,
         "championshipRole": "driver",
@@ -680,13 +710,13 @@
       }
     },
     {
-      "id": "competitor:wrc:co-driver:aaron-johnston",
+      "id": "competitor:wrc:co-driver:vincent-landais",
       "type": "competitor",
       "sportDomainId": "sport:motorsport",
-      "displayName": "Aaron Johnston",
-      "shortName": "Aaron Johnston",
-      "canonicalName": "Aaron Johnston",
-      "countryCode": "IE",
+      "displayName": "Vincent Landais",
+      "shortName": "Vincent Landais",
+      "canonicalName": "Vincent Landais",
+      "countryCode": "FR",
       "metadata": {
         "active": true,
         "championshipRole": "co-driver",
@@ -708,13 +738,13 @@
       }
     },
     {
-      "id": "competitor:wrc:co-driver:vincent-landais",
+      "id": "competitor:wrc:co-driver:aaron-johnston",
       "type": "competitor",
       "sportDomainId": "sport:motorsport",
-      "displayName": "Vincent Landais",
-      "shortName": "Vincent Landais",
-      "canonicalName": "Vincent Landais",
-      "countryCode": "FR",
+      "displayName": "Aaron Johnston",
+      "shortName": "Aaron Johnston",
+      "canonicalName": "Aaron Johnston",
+      "countryCode": "IE",
       "metadata": {
         "active": true,
         "championshipRole": "co-driver",
@@ -806,20 +836,6 @@
       }
     },
     {
-      "id": "competitor:wrc:co-driver:shane-byrne",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Shane Byrne",
-      "shortName": "Shane Byrne",
-      "canonicalName": "Shane Byrne",
-      "countryCode": "IE",
-      "metadata": {
-        "active": true,
-        "championshipRole": "co-driver",
-        "preferenceDomainId": "sport:wrc"
-      }
-    },
-    {
       "id": "competitor:wrc:co-driver:jakko-viilo",
       "type": "competitor",
       "sportDomainId": "sport:motorsport",
@@ -827,6 +843,20 @@
       "shortName": "Jakko Viilo",
       "canonicalName": "Jakko Viilo",
       "countryCode": "EE",
+      "metadata": {
+        "active": true,
+        "championshipRole": "co-driver",
+        "preferenceDomainId": "sport:wrc"
+      }
+    },
+    {
+      "id": "competitor:wrc:co-driver:shane-byrne",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Shane Byrne",
+      "shortName": "Shane Byrne",
+      "canonicalName": "Shane Byrne",
+      "countryCode": "IE",
       "metadata": {
         "active": true,
         "championshipRole": "co-driver",
@@ -988,13 +1018,13 @@
       }
     },
     {
-      "id": "competitor:wrc:co-driver:bastien-pouget",
+      "id": "competitor:wrc:co-driver:james-fulton",
       "type": "competitor",
       "sportDomainId": "sport:motorsport",
-      "displayName": "Bastien Pouget",
-      "shortName": "Bastien Pouget",
-      "canonicalName": "Bastien Pouget",
-      "countryCode": "FR",
+      "displayName": "James Fulton",
+      "shortName": "James Fulton",
+      "canonicalName": "James Fulton",
+      "countryCode": "IE",
       "metadata": {
         "active": true,
         "championshipRole": "co-driver",
@@ -1009,6 +1039,20 @@
       "shortName": "Marcelo Toyotoshi",
       "canonicalName": "Marcelo Toyotoshi",
       "countryCode": "AR",
+      "metadata": {
+        "active": true,
+        "championshipRole": "co-driver",
+        "preferenceDomainId": "sport:wrc"
+      }
+    },
+    {
+      "id": "competitor:wrc:co-driver:bastien-pouget",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Bastien Pouget",
+      "shortName": "Bastien Pouget",
+      "canonicalName": "Bastien Pouget",
+      "countryCode": "FR",
       "metadata": {
         "active": true,
         "championshipRole": "co-driver",
@@ -1044,20 +1088,6 @@
       }
     },
     {
-      "id": "competitor:wrc:co-driver:daniel-brkic",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Daniel Brkic",
-      "shortName": "Daniel Brkic",
-      "canonicalName": "Daniel Brkic",
-      "countryCode": "AU",
-      "metadata": {
-        "active": true,
-        "championshipRole": "co-driver",
-        "preferenceDomainId": "sport:wrc"
-      }
-    },
-    {
       "id": "competitor:wrc:co-driver:thibault-de-la-haye",
       "type": "competitor",
       "sportDomainId": "sport:motorsport",
@@ -1079,6 +1109,20 @@
       "shortName": "Gabriel Morales",
       "canonicalName": "Gabriel Morales",
       "countryCode": "BR",
+      "metadata": {
+        "active": true,
+        "championshipRole": "co-driver",
+        "preferenceDomainId": "sport:wrc"
+      }
+    },
+    {
+      "id": "competitor:wrc:co-driver:daniel-brkic",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Daniel Brkic",
+      "shortName": "Daniel Brkic",
+      "canonicalName": "Daniel Brkic",
+      "countryCode": "AU",
       "metadata": {
         "active": true,
         "championshipRole": "co-driver",
@@ -1114,13 +1158,13 @@
       }
     },
     {
-      "id": "competitor:wrc:co-driver:siim-oja",
+      "id": "competitor:wrc:co-driver:simone-scattolin",
       "type": "competitor",
       "sportDomainId": "sport:motorsport",
-      "displayName": "Siim Oja",
-      "shortName": "Siim Oja",
-      "canonicalName": "Siim Oja",
-      "countryCode": "EE",
+      "displayName": "Simone Scattolin",
+      "shortName": "Simone Scattolin",
+      "canonicalName": "Simone Scattolin",
+      "countryCode": "IT",
       "metadata": {
         "active": true,
         "championshipRole": "co-driver",
@@ -1142,13 +1186,13 @@
       }
     },
     {
-      "id": "competitor:wrc:co-driver:simone-scattolin",
+      "id": "competitor:wrc:co-driver:siim-oja",
       "type": "competitor",
       "sportDomainId": "sport:motorsport",
-      "displayName": "Simone Scattolin",
-      "shortName": "Simone Scattolin",
-      "canonicalName": "Simone Scattolin",
-      "countryCode": "IT",
+      "displayName": "Siim Oja",
+      "shortName": "Siim Oja",
+      "canonicalName": "Siim Oja",
+      "countryCode": "EE",
       "metadata": {
         "active": true,
         "championshipRole": "co-driver",
@@ -1230,7 +1274,7 @@
       "countryCode": "MC",
       "country": "Monaco",
       "region": "Europe",
-      "venueName": "Monaco",
+      "venueName": "Gap / Monaco",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1242,8 +1286,8 @@
       ],
       "source": {
         "provider": "WRC",
-        "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
+        "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1253,8 +1297,12 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "4:24:59.0",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/94e-rallye-monte-carlo/classifications",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
-      }
+        "checkedAt": "2026-10-04T05:49:31.163Z"
+      },
+      "season": "2026",
+      "venueCountryCode": "MC",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rallye-monte-carlo-2026/"
     },
     {
       "id": "event:wrc:2026:round-02",
@@ -1273,7 +1321,7 @@
       "countryCode": "SE",
       "country": "Sweden",
       "region": "Europe",
-      "venueName": "Sweden",
+      "venueName": "Umeå",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1285,8 +1333,8 @@
       ],
       "source": {
         "provider": "WRC",
-        "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
+        "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1296,8 +1344,12 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "2:35:53.1",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-sweden/classifications",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
-      }
+        "checkedAt": "2026-10-04T05:49:31.163Z"
+      },
+      "season": "2026",
+      "venueCountryCode": "SE",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rally-sweden-2026/"
     },
     {
       "id": "event:wrc:2026:round-03",
@@ -1316,7 +1368,7 @@
       "countryCode": "KE",
       "country": "Kenya",
       "region": "Africa",
-      "venueName": "Kenya",
+      "venueName": "Naivasha",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1328,8 +1380,8 @@
       ],
       "source": {
         "provider": "WRC",
-        "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
+        "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1339,8 +1391,12 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "3:16:05.6",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/safari-rally-kenya/classifications",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
-      }
+        "checkedAt": "2026-10-04T05:49:31.163Z"
+      },
+      "season": "2026",
+      "venueCountryCode": "KE",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-safari-rally-kenya-2026/"
     },
     {
       "id": "event:wrc:2026:round-04",
@@ -1359,7 +1415,7 @@
       "countryCode": "HR",
       "country": "Croatia",
       "region": "Europe",
-      "venueName": "Croatia",
+      "venueName": "Grobnik Circuit service park",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1371,8 +1427,8 @@
       ],
       "source": {
         "provider": "WRC",
-        "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
+        "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1382,8 +1438,13 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "2:35:53.1",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/wrc-croatia-rally-2026/classifications",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
-      }
+        "checkedAt": "2026-10-04T05:49:31.163Z"
+      },
+      "season": "2026",
+      "venueCountryCode": "HR",
+      "venueCity": "Rijeka",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-croatia-rally-2026/"
     },
     {
       "id": "event:wrc:2026:round-05",
@@ -1402,7 +1463,7 @@
       "countryCode": "ES",
       "country": "Spain",
       "region": "Europe",
-      "venueName": "Spain",
+      "venueName": "Gran Canaria Stadium service park",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1414,8 +1475,8 @@
       ],
       "source": {
         "provider": "WRC",
-        "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
+        "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1425,8 +1486,12 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "2:43:18.9",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/50-rally-islas-canarias-rally-de-espana/classifications",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
-      }
+        "checkedAt": "2026-10-04T05:49:31.163Z"
+      },
+      "season": "2026",
+      "venueCountryCode": "ES",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rally-islas-canarias-2026/"
     },
     {
       "id": "event:wrc:2026:round-06",
@@ -1445,7 +1510,7 @@
       "countryCode": "PT",
       "country": "Portugal",
       "region": "Europe",
-      "venueName": "Portugal",
+      "venueName": "Exponor service park",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1457,8 +1522,8 @@
       ],
       "source": {
         "provider": "WRC",
-        "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
+        "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1468,8 +1533,13 @@
         "vehicle": "Hyundai i20 N Rally1",
         "totalTime": "3:53:01.7",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/vodafone-rally-portugal/classifications",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
-      }
+        "checkedAt": "2026-10-04T05:49:31.163Z"
+      },
+      "season": "2026",
+      "venueCountryCode": "PT",
+      "venueCity": "Matosinhos",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-vodafone-rally-de-portugal-2026/"
     },
     {
       "id": "event:wrc:2026:round-07",
@@ -1488,7 +1558,7 @@
       "countryCode": "JP",
       "country": "Japan",
       "region": "Asia",
-      "venueName": "Japan",
+      "venueName": "Toyota Stadium service park",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1500,8 +1570,8 @@
       ],
       "source": {
         "provider": "WRC",
-        "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
+        "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1511,8 +1581,13 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "3:17:08.0",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-japan-2026/classifications",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
-      }
+        "checkedAt": "2026-10-04T05:49:31.163Z"
+      },
+      "season": "2026",
+      "venueCountryCode": "JP",
+      "venueCity": "Toyota City",
+      "venueVerified": true,
+      "venueSourceUrl": "https://rally-japan.jp/en/area/toyota-stadium-service-park-admission-ticket-set/"
     },
     {
       "id": "event:wrc:2026:round-08",
@@ -1531,7 +1606,7 @@
       "countryCode": "GR",
       "country": "Greece",
       "region": "Europe",
-      "venueName": "Greece",
+      "venueName": "Loutraki",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1543,8 +1618,8 @@
       ],
       "source": {
         "provider": "WRC",
-        "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
+        "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1554,8 +1629,12 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "3:36:40.7",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/eko-acropolis-rally-2026/classifications",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
-      }
+        "checkedAt": "2026-10-04T05:49:31.163Z"
+      },
+      "season": "2026",
+      "venueCountryCode": "GR",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-eko-acropolis-rally-greece-2026/"
     },
     {
       "id": "event:wrc:2026:round-09",
@@ -1574,7 +1653,7 @@
       "countryCode": "EE",
       "country": "Estonia",
       "region": "Europe",
-      "venueName": "Estonia",
+      "venueName": "Tartu",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1586,8 +1665,8 @@
       ],
       "source": {
         "provider": "WRC",
-        "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
+        "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1597,8 +1676,12 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "2:31:16.5",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-estonia/classifications",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
-      }
+        "checkedAt": "2026-10-04T05:49:31.163Z"
+      },
+      "season": "2026",
+      "venueCountryCode": "EE",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-delfi-rally-estonia-2026/"
     },
     {
       "id": "event:wrc:2026:round-10",
@@ -1617,7 +1700,7 @@
       "countryCode": "FI",
       "country": "Finland",
       "region": "Europe",
-      "venueName": "Finland",
+      "venueName": "Jyväskylä",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1629,8 +1712,8 @@
       ],
       "source": {
         "provider": "WRC",
-        "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
+        "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1640,8 +1723,12 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "2:27:58.0",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/secto-rally-finland/classifications",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
-      }
+        "checkedAt": "2026-10-04T05:49:31.163Z"
+      },
+      "season": "2026",
+      "venueCountryCode": "FI",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-secto-rally-finland-2026/"
     },
     {
       "id": "event:wrc:2026:round-11",
@@ -1660,7 +1747,7 @@
       "countryCode": "PY",
       "country": "Paraguay",
       "region": "South America",
-      "venueName": "Paraguay",
+      "venueName": "Encarnación",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1672,8 +1759,8 @@
       ],
       "source": {
         "provider": "WRC",
-        "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
+        "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1683,8 +1770,12 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "3:13:28.5",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/wrc-rally-del-paraguay/classifications",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
-      }
+        "checkedAt": "2026-10-04T05:49:31.163Z"
+      },
+      "season": "2026",
+      "venueCountryCode": "PY",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rally-del-paraguay-2026/"
     },
     {
       "id": "event:wrc:2026:round-12",
@@ -1699,11 +1790,11 @@
       "dateOnly": true,
       "timePrecision": "date-only",
       "scheduleStatus": "date-only",
-      "status": "scheduled",
+      "status": "completed",
       "countryCode": "CL",
       "country": "Chile",
       "region": "South America",
-      "venueName": "Chile",
+      "venueName": "Concepción",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1715,9 +1806,23 @@
       ],
       "source": {
         "provider": "WRC",
-        "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
-      }
+        "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+        "checkedAt": "2026-10-10T20:27:38.375Z"
+      },
+      "result": {
+        "status": "official",
+        "driverParticipantId": "competitor:wrc:driver:oliver-solberg",
+        "coDriverParticipantId": "competitor:wrc:co-driver:elliott-edmondson",
+        "winningCrew": "Oliver Solberg / Elliott Edmondson",
+        "vehicle": "Toyota GR Yaris Rally1",
+        "totalTime": "2:57:08.2",
+        "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-chile-biobio/classifications",
+        "checkedAt": "2026-10-04T05:49:31.163Z"
+      },
+      "season": "2026",
+      "venueCountryCode": "CL",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rally-chile-bio-bio-2026/"
     },
     {
       "id": "event:wrc:2026:round-13",
@@ -1732,11 +1837,11 @@
       "dateOnly": true,
       "timePrecision": "date-only",
       "scheduleStatus": "date-only",
-      "status": "scheduled",
+      "status": "completed",
       "countryCode": "IT",
       "country": "Italy",
       "region": "Europe",
-      "venueName": "Italy",
+      "venueName": "Lungomare Barcellona service park",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:stan-sport",
@@ -1748,8 +1853,27 @@
       ],
       "source": {
         "provider": "WRC",
-        "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
+        "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+        "checkedAt": "2026-10-10T20:27:38.375Z"
+      },
+      "season": "2026",
+      "venueCountryCode": "IT",
+      "venueCity": "Alghero, Sardinia",
+      "venueVerified": true,
+      "venueSourceUrl": "https://www.wrc.com/en/events/wrc-rally-italia-sardegna-2026/",
+      "courseArtworkId": "sardegna-lerno-2026",
+      "courseGeometryVerified": true,
+      "courseGeometrySourceUrl": "https://rallyitaliasardegna.com/wp-content/uploads/2026/09/SS8-11.pdf",
+      "venueCaption": "Stage highlight: Lerno–Sa Conchedda–Monti di Alà • SS8/11 • 24.14 km • 2026",
+      "result": {
+        "status": "official",
+        "driverParticipantId": "competitor:wrc:driver:oliver-solberg",
+        "coDriverParticipantId": "competitor:wrc:co-driver:elliott-edmondson",
+        "winningCrew": "Oliver Solberg / Elliott Edmondson",
+        "vehicle": "Toyota GR Yaris Rally1",
+        "totalTime": "3:24:57.0",
+        "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-ditalia/classifications",
+        "checkedAt": "2026-10-04T20:41:03.188Z"
       }
     },
     {
@@ -1765,7 +1889,7 @@
       "dateOnly": true,
       "timePrecision": "date-only",
       "scheduleStatus": "date-only",
-      "status": "scheduled",
+      "status": "cancelled",
       "countryCode": "SA",
       "country": "Saudi Arabia",
       "region": "Middle East",
@@ -1782,7 +1906,44 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
+        "checkedAt": "2026-10-04T05:49:31.163Z"
+      },
+      "statusSourceUrl": "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+      "statusCheckedAt": "2026-10-10T20:27:38.375Z",
+      "scheduleNote": "The 2026 WRC element was withdrawn. The separate regional MERC rally is outside this competition.",
+      "season": "2026",
+      "venueCountryCode": "SA"
+    },
+    {
+      "id": "event:wrc:2027:monte-carlo",
+      "sportDomainId": "sport:motorsport",
+      "preferenceDomainId": "sport:wrc",
+      "competitionId": "competition:wrc-2027",
+      "displayName": "WRC Rallye Monte-Carlo",
+      "season": "2027",
+      "roundLabel": "2027 edition",
+      "date": "2027-01-21",
+      "endDate": "2027-01-24",
+      "dateOnly": true,
+      "timePrecision": "date-only",
+      "scheduleStatus": "date-only",
+      "status": "scheduled",
+      "countryCode": "MC",
+      "country": "Monaco",
+      "region": "Europe",
+      "venueName": "Monaco / French Alps",
+      "venueCountryCode": "MC",
+      "venueCaption": "Monaco start and finish • stages in France • 2027 edition",
+      "venueSourceUrl": "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/",
+      "venueVerified": true,
+      "participantsConfirmed": false,
+      "participantIds": [],
+      "broadcasters": [],
+      "scheduleNote": "Organiser-published event window; stage timetable is indicative. Shakedown is 20 January in Gap and stays in Schedule information.",
+      "source": {
+        "provider": "Automobile Club de Monaco",
+        "sourceUrl": "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/",
+        "checkedAt": "2026-10-10T20:22:47.185Z"
       }
     }
   ],
@@ -1791,44 +1952,44 @@
       "id": "ladder:wrc-drivers-2026",
       "competitionId": "competition:wrc-drivers-2026",
       "seasonLabel": "2026",
-      "roundLabel": "After Round 11",
-      "snapshotTimeUtc": "2026-09-08T12:28:24.214Z",
+      "roundLabel": "After Round 12",
+      "snapshotTimeUtc": "2026-10-04T05:49:31.163Z",
       "source": {
         "provider": "FIA",
         "sourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "sourceType": "official",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
+        "checkedAt": "2026-10-04T05:49:31.163Z"
       },
       "entries": [
         {
           "rank": 1,
           "participantId": "competitor:wrc:driver:elfyn-evans",
-          "points": 216
+          "points": 230
         },
         {
           "rank": 2,
           "participantId": "competitor:wrc:driver:sami-pajari",
-          "points": 196
+          "points": 213
         },
         {
           "rank": 3,
           "participantId": "competitor:wrc:driver:oliver-solberg",
-          "points": 175
+          "points": 209
         },
         {
           "rank": 4,
-          "participantId": "competitor:wrc:driver:takamoto-katsuta",
-          "points": 160
+          "participantId": "competitor:wrc:driver:sebastien-ogier",
+          "points": 171
         },
         {
           "rank": 5,
           "participantId": "competitor:wrc:driver:adrien-fourmaux",
-          "points": 149
+          "points": 167
         },
         {
           "rank": 6,
-          "participantId": "competitor:wrc:driver:sebastien-ogier",
-          "points": 148
+          "participantId": "competitor:wrc:driver:takamoto-katsuta",
+          "points": 163
         },
         {
           "rank": 7,
@@ -1843,17 +2004,17 @@
         {
           "rank": 9,
           "participantId": "competitor:wrc:driver:joshua-mcerlean",
-          "points": 29
+          "points": 35
         },
         {
           "rank": 10,
           "participantId": "competitor:wrc:driver:esapekka-lappi",
-          "points": 25
+          "points": 33
         },
         {
           "rank": 11,
           "participantId": "competitor:wrc:driver:yohan-rossel",
-          "points": 20
+          "points": 24
         },
         {
           "rank": 12,
@@ -1862,18 +2023,18 @@
         },
         {
           "rank": 13,
+          "participantId": "competitor:wrc:driver:robert-virves",
+          "points": 17
+        },
+        {
+          "rank": 14,
           "participantId": "competitor:wrc:driver:jon-armstrong",
           "points": 16
         },
         {
-          "rank": 14,
-          "participantId": "competitor:wrc:driver:robert-virves",
-          "points": 15
-        },
-        {
           "rank": 15,
           "participantId": "competitor:wrc:driver:gus-greensmith",
-          "points": 12
+          "points": 13
         },
         {
           "rank": 16,
@@ -1927,12 +2088,12 @@
         },
         {
           "rank": 26,
-          "participantId": "competitor:wrc:driver:arthur-pelamourgues",
+          "participantId": "competitor:wrc:driver:alejandro-galanti",
           "points": 2
         },
         {
           "rank": 27,
-          "participantId": "competitor:wrc:driver:alejandro-galanti",
+          "participantId": "competitor:wrc:driver:arthur-pelamourgues",
           "points": 2
         },
         {
@@ -1947,32 +2108,32 @@
         },
         {
           "rank": 30,
-          "participantId": "competitor:wrc:driver:taylor-gill",
-          "points": 1
-        },
-        {
-          "rank": 31,
           "participantId": "competitor:wrc:driver:eric-camilli",
           "points": 1
         },
         {
-          "rank": 32,
+          "rank": 31,
           "participantId": "competitor:wrc:driver:emil-lindholm",
           "points": 1
         },
         {
+          "rank": 32,
+          "participantId": "competitor:wrc:driver:taylor-gill",
+          "points": 1
+        },
+        {
           "rank": 33,
-          "participantId": "competitor:wrc:driver:jourdan-serderidis",
+          "participantId": "competitor:wrc:driver:gregoire-munster",
           "points": 0
         },
         {
           "rank": 34,
-          "participantId": "competitor:wrc:driver:romet-jurgenson",
+          "participantId": "competitor:wrc:driver:jourdan-serderidis",
           "points": 0
         },
         {
           "rank": 35,
-          "participantId": "competitor:wrc:driver:gregoire-munster",
+          "participantId": "competitor:wrc:driver:romet-jurgenson",
           "points": 0
         },
         {
@@ -1980,50 +2141,54 @@
           "participantId": "competitor:wrc:driver:lorenzo-bertelli",
           "points": 0
         }
-      ]
+      ],
+      "stale": true,
+      "metadata": {
+        "staleNote": "Standings have not been rechecked after the retained Round 13 final."
+      }
     },
     {
       "id": "ladder:wrc-co-drivers-2026",
       "competitionId": "competition:wrc-co-drivers-2026",
       "seasonLabel": "2026",
-      "roundLabel": "After Round 11",
-      "snapshotTimeUtc": "2026-09-08T12:28:24.214Z",
+      "roundLabel": "After Round 12",
+      "snapshotTimeUtc": "2026-10-04T05:49:31.163Z",
       "source": {
         "provider": "FIA",
         "sourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "sourceType": "official",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
+        "checkedAt": "2026-10-04T05:49:31.163Z"
       },
       "entries": [
         {
           "rank": 1,
           "participantId": "competitor:wrc:co-driver:scott-martin",
-          "points": 216
+          "points": 230
         },
         {
           "rank": 2,
           "participantId": "competitor:wrc:co-driver:marko-salminen",
-          "points": 196
+          "points": 213
         },
         {
           "rank": 3,
           "participantId": "competitor:wrc:co-driver:elliott-edmondson",
-          "points": 175
+          "points": 209
         },
         {
           "rank": 4,
-          "participantId": "competitor:wrc:co-driver:aaron-johnston",
-          "points": 160
+          "participantId": "competitor:wrc:co-driver:vincent-landais",
+          "points": 171
         },
         {
           "rank": 5,
           "participantId": "competitor:wrc:co-driver:alexandre-coria",
-          "points": 149
+          "points": 167
         },
         {
           "rank": 6,
-          "participantId": "competitor:wrc:co-driver:vincent-landais",
-          "points": 148
+          "participantId": "competitor:wrc:co-driver:aaron-johnston",
+          "points": 160
         },
         {
           "rank": 7,
@@ -2038,17 +2203,17 @@
         {
           "rank": 9,
           "participantId": "competitor:wrc:co-driver:eoin-treacy",
-          "points": 29
+          "points": 35
         },
         {
           "rank": 10,
           "participantId": "competitor:wrc:co-driver:enni-malkonen",
-          "points": 25
+          "points": 33
         },
         {
           "rank": 11,
           "participantId": "competitor:wrc:co-driver:arnaud-dunand",
-          "points": 20
+          "points": 24
         },
         {
           "rank": 12,
@@ -2057,18 +2222,18 @@
         },
         {
           "rank": 13,
+          "participantId": "competitor:wrc:co-driver:jakko-viilo",
+          "points": 17
+        },
+        {
+          "rank": 14,
           "participantId": "competitor:wrc:co-driver:shane-byrne",
           "points": 16
         },
         {
-          "rank": 14,
-          "participantId": "competitor:wrc:co-driver:jakko-viilo",
-          "points": 15
-        },
-        {
           "rank": 15,
           "participantId": "competitor:wrc:co-driver:jonas-andersson",
-          "points": 12
+          "points": 13
         },
         {
           "rank": 16,
@@ -2122,8 +2287,8 @@
         },
         {
           "rank": 26,
-          "participantId": "competitor:wrc:co-driver:bastien-pouget",
-          "points": 2
+          "participantId": "competitor:wrc:co-driver:james-fulton",
+          "points": 3
         },
         {
           "rank": 27,
@@ -2132,18 +2297,18 @@
         },
         {
           "rank": 28,
-          "participantId": "competitor:wrc:co-driver:janni-hussi",
+          "participantId": "competitor:wrc:co-driver:bastien-pouget",
           "points": 2
         },
         {
           "rank": 29,
-          "participantId": "competitor:wrc:co-driver:alessandro-arnaboldi",
+          "participantId": "competitor:wrc:co-driver:janni-hussi",
           "points": 2
         },
         {
           "rank": 30,
-          "participantId": "competitor:wrc:co-driver:daniel-brkic",
-          "points": 1
+          "participantId": "competitor:wrc:co-driver:alessandro-arnaboldi",
+          "points": 2
         },
         {
           "rank": 31,
@@ -2157,65 +2322,78 @@
         },
         {
           "rank": 33,
+          "participantId": "competitor:wrc:co-driver:daniel-brkic",
+          "points": 1
+        },
+        {
+          "rank": 34,
           "participantId": "competitor:wrc:co-driver:frederic-miclotte",
           "points": 0
         },
         {
-          "rank": 34,
+          "rank": 35,
           "participantId": "competitor:wrc:co-driver:julien-ingrassia",
           "points": 0
         },
         {
-          "rank": 35,
-          "participantId": "competitor:wrc:co-driver:siim-oja",
-          "points": 0
-        },
-        {
           "rank": 36,
-          "participantId": "competitor:wrc:co-driver:louis-louka",
+          "participantId": "competitor:wrc:co-driver:simone-scattolin",
           "points": 0
         },
         {
           "rank": 37,
-          "participantId": "competitor:wrc:co-driver:simone-scattolin",
+          "participantId": "competitor:wrc:co-driver:louis-louka",
+          "points": 0
+        },
+        {
+          "rank": 38,
+          "participantId": "competitor:wrc:co-driver:siim-oja",
           "points": 0
         }
-      ]
+      ],
+      "stale": true,
+      "metadata": {
+        "staleNote": "Standings have not been rechecked after the retained Round 13 final."
+      }
     },
     {
       "id": "ladder:wrc-manufacturers-2026",
       "competitionId": "competition:wrc-manufacturers-2026",
       "seasonLabel": "2026",
-      "roundLabel": "After Round 11",
-      "snapshotTimeUtc": "2026-09-08T12:28:24.214Z",
+      "roundLabel": "After Round 12",
+      "snapshotTimeUtc": "2026-10-04T05:49:31.163Z",
       "source": {
         "provider": "FIA",
         "sourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "sourceType": "official",
-        "checkedAt": "2026-09-08T12:28:24.214Z"
+        "checkedAt": "2026-10-04T05:49:31.163Z"
       },
       "entries": [
         {
           "rank": 1,
           "participantId": "team:wrc:toyota-gazoo-racing-wrt",
-          "points": 554
+          "points": 614
         },
         {
           "rank": 2,
           "participantId": "team:wrc:hyundai-shell-mobis-world-rally-team",
-          "points": 381
+          "points": 410
         },
         {
           "rank": 3,
           "participantId": "team:wrc:toyota-gazoo-racing-wrt2",
-          "points": 210
+          "points": 227
         },
         {
           "rank": 4,
           "participantId": "team:wrc:m-sport-ford-world-rally-team",
-          "points": 138
+          "points": 152
         }
-      ]
+      ],
+      "stale": true,
+      "metadata": {
+        "staleNote": "Standings have not been rechecked after the retained Round 13 final."
+      }
     }
   ],
   "eventParticipantScopes": [
@@ -2229,17 +2407,17 @@
         "competitor:wrc:driver:elfyn-evans",
         "competitor:wrc:driver:sami-pajari",
         "competitor:wrc:driver:oliver-solberg",
-        "competitor:wrc:driver:takamoto-katsuta",
-        "competitor:wrc:driver:adrien-fourmaux",
         "competitor:wrc:driver:sebastien-ogier",
+        "competitor:wrc:driver:adrien-fourmaux",
+        "competitor:wrc:driver:takamoto-katsuta",
         "competitor:wrc:driver:thierry-neuville",
         "competitor:wrc:driver:hayden-paddon",
         "competitor:wrc:driver:joshua-mcerlean",
         "competitor:wrc:driver:esapekka-lappi",
         "competitor:wrc:driver:yohan-rossel",
         "competitor:wrc:driver:leo-rossel",
-        "competitor:wrc:driver:jon-armstrong",
         "competitor:wrc:driver:robert-virves",
+        "competitor:wrc:driver:jon-armstrong",
         "competitor:wrc:driver:gus-greensmith",
         "competitor:wrc:driver:martins-sesks",
         "competitor:wrc:driver:nikolay-gryazin",
@@ -2251,31 +2429,31 @@
         "competitor:wrc:driver:roope-korhonen",
         "competitor:wrc:driver:andreas-mikkelsen",
         "competitor:wrc:driver:jari-matti-latvala",
-        "competitor:wrc:driver:arthur-pelamourgues",
         "competitor:wrc:driver:alejandro-galanti",
+        "competitor:wrc:driver:arthur-pelamourgues",
         "competitor:wrc:driver:teemu-suninen",
         "competitor:wrc:driver:matteo-fontana",
-        "competitor:wrc:driver:taylor-gill",
         "competitor:wrc:driver:eric-camilli",
         "competitor:wrc:driver:emil-lindholm",
+        "competitor:wrc:driver:taylor-gill",
+        "competitor:wrc:driver:gregoire-munster",
         "competitor:wrc:driver:jourdan-serderidis",
         "competitor:wrc:driver:romet-jurgenson",
-        "competitor:wrc:driver:gregoire-munster",
         "competitor:wrc:driver:lorenzo-bertelli",
         "competitor:wrc:co-driver:scott-martin",
         "competitor:wrc:co-driver:marko-salminen",
         "competitor:wrc:co-driver:elliott-edmondson",
-        "competitor:wrc:co-driver:aaron-johnston",
-        "competitor:wrc:co-driver:alexandre-coria",
         "competitor:wrc:co-driver:vincent-landais",
+        "competitor:wrc:co-driver:alexandre-coria",
+        "competitor:wrc:co-driver:aaron-johnston",
         "competitor:wrc:co-driver:martijn-wydaeghe",
         "competitor:wrc:co-driver:john-kennard",
         "competitor:wrc:co-driver:eoin-treacy",
         "competitor:wrc:co-driver:enni-malkonen",
         "competitor:wrc:co-driver:arnaud-dunand",
         "competitor:wrc:co-driver:guillaume-mercoiret",
-        "competitor:wrc:co-driver:shane-byrne",
         "competitor:wrc:co-driver:jakko-viilo",
+        "competitor:wrc:co-driver:shane-byrne",
         "competitor:wrc:co-driver:jonas-andersson",
         "competitor:wrc:co-driver:renars-francis",
         "competitor:wrc:co-driver:konstantin-aleksandrov",
@@ -2287,23 +2465,37 @@
         "competitor:wrc:co-driver:anssi-viinikka",
         "competitor:wrc:co-driver:j-rn-listerud",
         "competitor:wrc:co-driver:juho-hanninen",
-        "competitor:wrc:co-driver:bastien-pouget",
+        "competitor:wrc:co-driver:james-fulton",
         "competitor:wrc:co-driver:marcelo-toyotoshi",
+        "competitor:wrc:co-driver:bastien-pouget",
         "competitor:wrc:co-driver:janni-hussi",
         "competitor:wrc:co-driver:alessandro-arnaboldi",
-        "competitor:wrc:co-driver:daniel-brkic",
         "competitor:wrc:co-driver:thibault-de-la-haye",
         "competitor:wrc:co-driver:gabriel-morales",
+        "competitor:wrc:co-driver:daniel-brkic",
         "competitor:wrc:co-driver:frederic-miclotte",
         "competitor:wrc:co-driver:julien-ingrassia",
-        "competitor:wrc:co-driver:siim-oja",
-        "competitor:wrc:co-driver:louis-louka",
         "competitor:wrc:co-driver:simone-scattolin",
+        "competitor:wrc:co-driver:louis-louka",
+        "competitor:wrc:co-driver:siim-oja",
         "team:wrc:toyota-gazoo-racing-wrt",
         "team:wrc:hyundai-shell-mobis-world-rally-team",
         "team:wrc:toyota-gazoo-racing-wrt2",
         "team:wrc:m-sport-ford-world-rally-team"
-      ]
+      ],
+      "season": "2026"
     }
-  ]
+  ],
+  "calendarCoverage": {
+    "season": 2026,
+    "publishedRounds": 13,
+    "retainedWithdrawals": [
+      "event:wrc:2026:round-14"
+    ],
+    "complete": true,
+    "checkedAt": "2026-10-10T20:27:38.375Z",
+    "revisionSourceUrl": "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
+    "futureCalendarComplete": false,
+    "futureNote": "Future coverage includes only the individually listed rallies."
+  }
 }

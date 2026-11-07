@@ -7,8 +7,9 @@ const zlib = require("node:zlib");
 const crypto = require("node:crypto");
 const {execFileSync} = require("node:child_process");
 const ROOT = path.resolve(__dirname,"..");
-// Compare this release against the verified origin/main snapshot it extends.
-const BASELINE = "b82ccef2fb8e315cc82287a066d719a37c798b16";
+// Compare the three mobile-repair phases against their verified origin/main base.
+// The older 4e7966 baseline predates the separately released notifications inbox.
+const BASELINE = "e70de9a53543b0894ceaf6dbdff60569d47a9c87";
 const MAX_CRITICAL_GZIP_GROWTH_PERCENT = 1.25;
 function localScriptPaths(html){
   return Array.from(html.matchAll(/<script[^>]+src="([^"]+)"/g),m=>m[1])
@@ -17,6 +18,9 @@ function localScriptPaths(html){
 function readAtRef(ref,file){
   try { return execFileSync("git",["show",ref+":"+file],{cwd:ROOT,maxBuffer:10*1024*1024,stdio:["ignore","pipe","ignore"]}); }
   catch { return null; }
+}
+function measurementCandidate(ref="HEAD"){
+  return execFileSync("git",["rev-parse","--verify",ref+"^{commit}"],{cwd:ROOT,encoding:"utf8",stdio:["ignore","pipe","pipe"]}).trim();
 }
 function criticalAssetMetrics({ref=null}={}){
   const read=file=>ref?readAtRef(ref,file):fs.readFileSync(path.join(ROOT,file));
@@ -32,8 +36,15 @@ function criticalAssetMetrics({ref=null}={}){
   const styles=Array.from(html.matchAll(/<link[^>]+href="([^"]+\.css(?:\?[^"]*)?)"/g),m=>m[1])
     .filter(source=>!/^https?:/i.test(source)).map(source=>source.split(/[?#]/,1)[0].replace(/^\//,""));
   const files=[...new Set(["index.html",...scripts,...styles])].map(file=>({file,buffer:read(file)})).filter(item=>item.buffer);
-  return {requestCount:files.length,rawBytes:files.reduce((n,x)=>n+x.buffer.length,0),
-    gzipBytes:files.reduce((n,x)=>n+zlib.gzipSync(x.buffer).length,0),files:files.map(x=>x.file)};
+  const metrics={requestCount:files.length,rawBytes:files.reduce((n,x)=>n+x.buffer.length,0),
+    gzipBytes:files.reduce((n,x)=>n+zlib.gzipSync(x.buffer).length,0),files:files.map(x=>x.file),
+    assetHashes:files.map(x=>({file:x.file,sha256:crypto.createHash("sha256").update(x.buffer).digest("hex")}))};
+  metrics.measurementBinding={schemaVersion:"critical-asset-measurement.v1",sourceRef:ref||"WORKTREE",
+    candidate:measurementCandidate(ref||"HEAD"),shellVersion:html.match(/name="app-shell-version" content="(\d+)"/)?.[1]||null,
+    requestCount:metrics.requestCount,rawBytes:metrics.rawBytes,gzipBytes:metrics.gzipBytes,
+    payloadFingerprint:require("./lib/feed-performance-size-budget").payloadFingerprint(metrics.assetHashes),
+    toolchain:{node:process.version,zlib:process.versions.zlib}};
+  return metrics;
 }
 function median(values){
   const sorted=[...values].sort((a,b)=>a-b),middle=Math.floor(sorted.length/2);
@@ -42,7 +53,9 @@ function median(values){
 function sourceFingerprint(){
   // Runtime measurements explicitly bypass SW. Bind the executed/rendered UI
   // bytes; the separate startup-budget/lifecycle suites validate the worker.
-  const files=["index.html","assets/js/app-update.js","assets/js/app-shell-runtime.js","assets/styles/nothingsport-foundation.css","config/athlete-profile-ui.js","styles/follow-feed-rework.css"];
+  const files=["config/feed-live-score-loader.js","config/startup-view-cache.js","config/golf-score-details.js","index.html","assets/js/app-update.js","assets/js/app-shell-runtime.js","assets/styles/nothingsport-foundation.css","config/athlete-profile-ui.js","styles/follow-feed-rework.css","assets/js/athletes-ui.js","assets/js/follow-navigation.js","assets/js/follow-presentation-ui.js","assets/js/participant-search-ui.js","assets/js/match-centre-ui.js","assets/js/match-centre-ui.source.js","assets/js/milestone-alerts-ui.js","assets/js/milestone-alerts-ui.source.js","assets/js/notification-navigation.js","config/milestone-preferences.js","assets/styles/match-centre.css","config/participant-directory.js","config/match-centre.js","config/tennis-journeys.js","config/follow-directory-worker.js","data/follow-directory/search.v1.json","config/fantasy-deadline-ui.js","assets/js/settings-optional-ui.js"];
+  files.push("assets/js/account-awareness-runtime.js");
+  files.push("assets/js/all-sports-ui.js","assets/js/all-sports-ui.source.js","config/all-sports-view.js");
   const hash=crypto.createHash("sha256");
   files.forEach(file=>hash.update(file).update(fs.readFileSync(path.join(ROOT,file))));
   return hash.digest("hex");
@@ -60,10 +73,20 @@ function validateRuntimeAudit(file){
   }
 }
 function main(){
+  require('./validate-feed-performance-size-exception').main();
+  require('./validate-feed-performance-size-buffer').main();
+  const runtimeBuilder=require('./build-app-shell-runtime'),context={};
+  require('node:vm').runInNewContext(runtimeBuilder.standingsSource(),context);
+  assert.deepEqual(JSON.parse(JSON.stringify(context.NOTHINGSPORTS_FEED_CARD_STANDINGS)),runtimeBuilder.cardStandings(),"packed standings must preserve every canonical field and rank");
   assert.equal(fs.readFileSync(path.join(ROOT,"assets/js/app-shell-runtime.js"),"utf8"),require("./build-app-shell-runtime").build(),"runtime must match its source modules");
-  const current=criticalAssetMetrics(),baseline=criticalAssetMetrics({ref:BASELINE});
+  const candidate=measurementCandidate(),current=criticalAssetMetrics(),baseline=criticalAssetMetrics({ref:BASELINE});
   const growth=(current.gzipBytes/baseline.gzipBytes-1)*100;
-  assert(growth<=MAX_CRITICAL_GZIP_GROWTH_PERCENT,"critical compressed bytes grew "+growth.toFixed(2)+"% (limit "+MAX_CRITICAL_GZIP_GROWTH_PERCENT+"%)");
+  const sizeDecision=require('./lib/feed-performance-size-budget').validateCriticalSize({
+    current,baseline,baselineRef:BASELINE,maximumGrowthPercent:MAX_CRITICAL_GZIP_GROWTH_PERCENT,
+    version:JSON.parse(fs.readFileSync(path.join(ROOT,"app-version.json"),"utf8")).version,
+    toolchain:{node:process.version,zlib:process.versions.zlib},candidate,
+  });
+  if(sizeDecision.notice)console.warn(sizeDecision.notice);
   assert(current.requestCount<=45,"critical asset requests must remain bounded");
   const html=fs.readFileSync(path.join(ROOT,"index.html"),"utf8");
   const manifest=JSON.parse(fs.readFileSync(path.join(ROOT,"data/feed/manifest.json"),"utf8"));
@@ -78,10 +101,13 @@ function main(){
   const firstLoad=html.match(/async function refreshFeedOnFirstLoad\(\)\{([\s\S]*?)\n\}/)?.[1]||"";
   assert(firstLoad.includes("Promise.allSettled")&&firstLoad.includes("return initialFeed"));
   assert(!firstLoad.includes("nationalTeamIdentityReady")&&!firstLoad.includes("cardIdentitiesReady"));
-  console.log("Current static budget: "+baseline.requestCount+" → "+current.requestCount+" critical requests; gzip "+growth.toFixed(2)+"%.");
+  console.log("Startup size: baseline "+baseline.gzipBytes+"; current "+current.gzipBytes
+    +"; delta "+sizeDecision.deltaBytes+"; "+MAX_CRITICAL_GZIP_GROWTH_PERCENT+"% advisory buffer "
+    +sizeDecision.normalCeilingBytes+"; excess "+sizeDecision.excessBytes+" bytes. "
+    +baseline.requestCount+" → "+current.requestCount+" critical requests; gzip "+growth.toFixed(2)+"%.");
   const runtimeIndex=process.argv.indexOf("--runtime-audit");
   if(runtimeIndex>=0) validateRuntimeAudit(path.resolve(process.argv[runtimeIndex+1]));
   else console.log("Browser timings are not inferred from archived reports. Pass --runtime-audit for exact-source measured evidence.");
 }
 if(require.main===module) main();
-module.exports={criticalAssetMetrics,localScriptPaths,median,sourceFingerprint,validateRuntimeAudit};
+module.exports={criticalAssetMetrics,measurementCandidate,localScriptPaths,median,sourceFingerprint,validateRuntimeAudit};

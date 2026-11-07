@@ -4,6 +4,7 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
+const crypto = require("node:crypto");
 const {
   CALENDAR_URL,
   CLASSIFICATION_URLS,
@@ -19,6 +20,7 @@ const {
 
 const ROOT = path.resolve(__dirname, "..");
 const OUTPUT = path.join(ROOT, "data/canonical/wrc-context-2026.json");
+const coverage = require("./lib/wrc-venue-coverage");
 
 class SourceError extends Error {
   constructor(message, { transient = false } = {}){
@@ -52,14 +54,42 @@ function preservedContextAfterCoreFailure(error, existing){
 async function fetchText(url){
   let response;
   try {
-    response = await fetch(url, { headers: { "user-agent": "Nothingsport-WRC-Context/1.0" }, redirect: "follow" });
+    response = await fetch(url, { headers: { "user-agent": "Nothingsport-WRC-Context/1.0" }, redirect: "follow", signal: AbortSignal.timeout(20000) });
+    if (!response.ok){
+      throw new SourceError(`Source returned HTTP ${response.status} for ${url}`, { transient: isTransientSourceStatus(response.status) });
+    }
+    // Fetch resolves at headers; the same deadline may expire while reading.
+    // Both transport phases must reach the existing last-good boundary.
+    return await response.text();
   } catch (error){
-    throw new SourceError(`Network error fetching ${url}: ${error.message}`, { transient: true });
+    if (error instanceof SourceError) throw error;
+    throw new SourceError(`Network error ${response ? "reading the response body from" : "fetching"} ${url}: ${error.message}`, { transient: true });
   }
-  if (!response.ok){
-    throw new SourceError(`Source returned HTTP ${response.status} for ${url}`, { transient: isTransientSourceStatus(response.status) });
+}
+
+function calendarResponseDiagnostic(html){
+  const text=String(html || "");
+  return {bytes:Buffer.byteLength(text),sha256:crypto.createHash("sha256").update(text).digest("hex"),prerenderPresent:/<script[^>]+id="rb3-prerender-data-cache"[^>]*>/i.test(text)};
+}
+
+// Only the already-read competition calendar enters this optional failure
+// receipt. It contains no headers, environment, customer files or error text.
+function saveRejectedCalendarResponse(html,{file=process.env.WRC_SOURCE_FAILURE_REPORT,sourceKind='public-response',checkedAt=new Date().toISOString()}={}){
+  if(!file)return {state:'disabled'};
+  const body=Buffer.from(String(html||'')),captured=body.subarray(0,128*1024);
+  const report={schemaVersion:'wrc-source-failure.v1',checkedAt,sourceKind,sourceUrl:sourceKind==='public-response'?CALENDAR_URL:null,...calendarResponseDiagnostic(html),capturedBytes:captured.length,truncated:captured.length<body.length,bodyBase64:captured.toString('base64')};
+  const temporary=file+'.'+process.pid+'.tmp';
+  let created=false;
+  try{
+    fs.mkdirSync(path.dirname(file),{recursive:true});
+    fs.writeFileSync(temporary,JSON.stringify(report)+'\n',{mode:0o600,flag:'wx'});
+    created=true;
+    fs.renameSync(temporary,file);
+    return {state:'saved',bytes:captured.length,truncated:report.truncated};
+  }catch(_error){
+    if(created)try{fs.unlinkSync(temporary);}catch(_cleanup){}
+    return {state:'unavailable'};
   }
-  return response.text();
 }
 
 function classificationFile(directory, roundNumber){
@@ -72,7 +102,7 @@ function classificationFile(directory, roundNumber){
 }
 
 async function loadClassification(round, { directory, checkedDate }){
-  if (round.endDate >= checkedDate) return null;
+  if (round.startDate > checkedDate) return null;
   const local = classificationFile(directory, round.roundNumber);
   if (directory && !local) return null;
   try {
@@ -81,7 +111,8 @@ async function loadClassification(round, { directory, checkedDate }){
       console.warn(`WRC round ${round.roundNumber} result remains pending: FIA returned a classification page for a different rally.`);
       return null;
     }
-    return parseFiaClassification(html);
+    const classification=parseFiaClassification(html,{round:round.roundNumber===13?round:undefined});
+    return classification&&!directory?{...classification,checkedAt:new Date().toISOString()}:classification;
   } catch (error){
     if (error instanceof SourceError){
       console.warn(`WRC round ${round.roundNumber} result remains pending: ${error.message}`);
@@ -107,18 +138,43 @@ async function main(){
   const checkedAt = optionValue(args, "--checked-at") || new Date().toISOString();
   try {
     const calendarHtml = calendarFile ? fs.readFileSync(calendarFile, "utf8") : await fetchText(CALENDAR_URL);
-    const standingsHtml = standingsFile ? fs.readFileSync(standingsFile, "utf8") : await fetchText(STANDINGS_URL);
-    const rounds = parseWrcCalendar(calendarHtml);
-    const standings = parseFiaStandings(standingsHtml);
-    const classifications = {};
-    for (const round of rounds){
-      const result = await loadClassification(round, { directory: classificationDirectory, checkedDate: checkedAt.slice(0, 10) });
-      if (result) classifications[round.roundNumber] = result;
+    // One competition calendar and one published organiser itinerary; no per-card map requests.
+    const revisionFile=optionValue(args,'--revision-file');
+    const revisionHtml=revisionFile?fs.readFileSync(revisionFile,'utf8'):await fetchText(coverage.REVISION_URL);
+    const withdrawalVerified=coverage.verifiedWithdrawal(revisionHtml);
+    const diagnostic=calendarResponseDiagnostic(calendarHtml);
+    if(!diagnostic.prerenderPresent)console.warn(`WRC calendar response diagnostic: ${JSON.stringify(diagnostic)}`);
+    let rounds;
+    try{rounds=parseWrcCalendar(calendarHtml,{withdrawalVerified});}
+    catch(error){
+      const capture=saveRejectedCalendarResponse(calendarHtml,{sourceKind:calendarFile?'local-fixture':'public-response'});
+      if(capture.state!=='disabled')console.warn(`WRC rejected calendar capture: ${capture.state}`);
+      throw error;
     }
-    const context = buildWrcContext({ rounds, standings, classifications, checkedAt });
+    let future;
+    try{
+      const futureFile=optionValue(args,'--future-file');
+      future=coverage.futureMonteCarlo(futureFile?fs.readFileSync(futureFile,'utf8'):await fetchText(coverage.FUTURE_URL),checkedAt);
+    }catch(error){console.warn(`Future WRC source unavailable: ${error.message}; preserving existing verified future events.`);}
+    let base=existing;
+    if(!args.includes('--calendar-only')){
+      const standingsHtml = standingsFile ? fs.readFileSync(standingsFile, "utf8") : await fetchText(STANDINGS_URL);
+      const standings = parseFiaStandings(standingsHtml);
+      const classifications = {};
+      for (const round of rounds){
+        const result = await loadClassification(round, { directory: classificationDirectory, checkedDate: checkedAt.slice(0, 10) });
+        if (result) classifications[round.roundNumber] = result;
+      }
+      const retainedWithdrawal=rounds.length===13&&withdrawalVerified&&existing?.events.find(e=>e.roundNumber===14);
+      const completeRecords=retainedWithdrawal?[...rounds,{roundNumber:14,name:retainedWithdrawal.displayName,startDate:retainedWithdrawal.date,endDate:retainedWithdrawal.endDate,countryCode:'SA',country:'Saudi Arabia',region:'Middle East',status:'cancelled'}]:rounds;
+      base=buildWrcContext({rounds:completeRecords,standings,classifications,checkedAt});
+      for(const event of base.events){const prior=existing?.events.find(e=>e.id===event.id);if((event.result?.status==='pending'&&prior?.result?.status==='official')||(event.result?.status==='official'&&prior?.result?.status==='official'&&require('./lib/known-final-results').sameFacts(event.result,prior.result)))event.result=prior.result;}
+    }
+    if(!base)throw Error('Calendar-only WRC refresh requires the existing validated championship context');
+    const context=coverage.applyCoverage(base,{rounds,withdrawalVerified,future,checkedAt});
     assertValid(context, "Refreshed WRC context");
     fs.writeFileSync(OUTPUT, `${JSON.stringify(context, null, 2)}\n`);
-    console.log(`Wrote ${path.relative(ROOT, OUTPUT)} with 14 rounds, ${standings.drivers.length} drivers, ${standings.coDrivers.length} co-drivers, and ${standings.manufacturers.length} manufacturers.`);
+    console.log(`Wrote ${path.relative(ROOT, OUTPUT)}: ${rounds.length} published rounds, retained withdrawals, ${context.events.length-rounds.length-1} future event windows; ${args.includes("--calendar-only") ? "existing results and standings preserved" : "senior tables refreshed"}.`);
   } catch (error){
     try {
       preservedContextAfterCoreFailure(error, existing);
@@ -141,6 +197,8 @@ module.exports = {
   SourceError,
   assertValid,
   classificationFile,
+  calendarResponseDiagnostic,
+  saveRejectedCalendarResponse,
   fetchText,
   main,
   preservedContextAfterCoreFailure,

@@ -34,6 +34,9 @@ async function main(){
       await page.waitForFunction(() => typeof renderOpenChatRoom === "function" && typeof startupFeedState !== "undefined" && startupFeedState.phase !== "loading");
       await page.evaluate(async () => {
         await document.fonts.ready;
+        // This suite starts from a browsing guest, after the separate first-run flow.
+        userPreferences.onboardingComplete = true;
+        if (document.getElementById("settingsModal").classList.contains("show")) closeSettings();
         document.getElementById("mainContent").style.minHeight = "2400px";
         syncFeedFilterDockOffset();
         window.scrollTo(0, 0);
@@ -45,6 +48,7 @@ async function main(){
       assert.equal(before.y, 0);
       assert.equal(after.y, 0);
       assert.equal(after.height, before.height, "Feed chrome must keep its height while scrolling");
+      assert.equal(await page.locator("#topBarSpacer").evaluate(node => node.getBoundingClientRect().height), Math.ceil(before.height), "scrolling must retain the fixed header's space in the Feed");
       const savedScroll = await page.evaluate(() => {
         document.getElementById("homeSpoilerToggle").focus({ preventScroll:true });
         const scroll = window.scrollY;
@@ -108,6 +112,9 @@ async function main(){
       await page.evaluate(() => window.chatQaResponse.resolve({message:{messageId:"qa-button-send",body:"Explicit Send",sentAt:new Date().toISOString(),senderName:"Tester",own:true,attachments:[],reactions:[]}}));
       await page.waitForFunction(() => !document.querySelector('#chatRoomComposer [type="submit"]').disabled);
       assert.equal(await page.evaluate(() => document.activeElement?.id), "chatMessageInput");
+      await page.locator("#closeChatBtn").click();
+      assert.equal(await page.evaluate(() => chatState.currentRoom), null, "room Back must return to the existing chat inbox");
+      assert.equal(await page.locator("#chatBackdrop").getAttribute("aria-hidden"), "false");
       await page.locator("#closeChatBtn").click();
       assert.equal(await page.evaluate(() => window.scrollY), savedScroll, "closing Chat must restore Feed scroll");
       assert.equal(await page.evaluate(() => document.activeElement?.id), "homeSpoilerToggle");

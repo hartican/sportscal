@@ -1,0 +1,1302 @@
+{
+  "purpose": "Seven actual retained primary/secondary source cases: five changed-clock Arsenal groups and two durable-activity fixtures. Original facts and dates retained.",
+  "fixtures": [
+    {
+      "secondary": {
+        "id": "football-premier-league-2026-27-401879273",
+        "eventId": "football-premier-league-2026-27-401879273",
+        "canonicalEventId": "event:football:premier-league:401879273",
+        "canonicalSourceId": "401879273",
+        "canonicalSourceName": "ESPN public football schedule snapshot",
+        "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+        "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+        "canonicalSourceType": "reputable",
+        "sport": "Football",
+        "key": "premier-league",
+        "sportDomainId": "sport:football",
+        "competitionId": "competition:premier-league-2026-27",
+        "name": "Leeds United v Crystal Palace",
+        "displayTitleCompact": "Leeds United v Crystal Palace",
+        "participants": [
+          {
+            "name": "Leeds United",
+            "role": "home"
+          },
+          {
+            "name": "Crystal Palace",
+            "role": "away"
+          }
+        ],
+        "participantIds": [
+          "team:football:epl:9",
+          "team:football:epl:6"
+        ],
+        "homeParticipantId": "team:football:epl:9",
+        "awayParticipantId": "team:football:epl:6",
+        "date": "2026-09-20",
+        "time": "00:00",
+        "startTimeUtc": "2026-09-19T14:00:00.000Z",
+        "endTimeUtc": "2026-09-19T16:00:00.000Z",
+        "broadcaster": "Broadcast details TBC",
+        "broadcastOptions": [],
+        "venue": "Elland Road",
+        "scheduleStatus": "confirmed",
+        "status": "upcoming",
+        "expected": 4,
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "selectedSentence": "Premier League fixture sourced from the current 2026/27 schedule.",
+        "fullSpiel": "Leeds United v Crystal Palace is listed in the current Premier League schedule. Kick-off details refresh when the source publishes changes.",
+        "sourceName": "ESPN public football schedule snapshot",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+        "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+        "sourceType": "reputable",
+        "sourceTrust": "unverified",
+        "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+        "replayEligible": false,
+        "highlightEligible": false,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "resultLabels": [
+          "Scheduled"
+        ]
+      },
+      "primary": {
+        "id": "epl-2026-27-128968",
+        "eventId": "epl-2026-27-128968",
+        "canonicalEventId": "event:premier-league:128968",
+        "canonicalSourceId": "128968",
+        "canonicalSourceName": "Premier League official fixture service",
+        "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "canonicalSourceCheckedAt": "2026-10-11T12:38:51.272Z",
+        "canonicalSourceType": "official",
+        "sport": "Football",
+        "key": "premier-league",
+        "sportDomainId": "sport:football",
+        "competitionId": "competition:premier-league-2026-27",
+        "name": "Leeds United v Crystal Palace",
+        "displayTitleCompact": "Leeds United v Crystal Palace",
+        "participants": [
+          {
+            "name": "Leeds United",
+            "role": "home",
+            "id": ""
+          },
+          {
+            "name": "Crystal Palace",
+            "role": "away",
+            "id": ""
+          }
+        ],
+        "participantIds": [
+          "team:football:epl:9",
+          "team:football:epl:6"
+        ],
+        "homeParticipantId": "team:football:epl:9",
+        "awayParticipantId": "team:football:epl:6",
+        "date": "2026-09-20",
+        "time": "23:00",
+        "startTimeUtc": "2026-09-20T13:00:00.000Z",
+        "endTimeUtc": "2026-09-20T15:00:00.000Z",
+        "broadcaster": "Stan Sport",
+        "broadcasterIds": [
+          "stan"
+        ],
+        "broadcastOptions": [
+          "Stan Sport"
+        ],
+        "viewingOptions": [
+          {
+            "providerId": "stan",
+            "serviceId": "stan",
+            "serviceLabel": "Stan Sport",
+            "territory": "AU",
+            "accessType": "subscription",
+            "liveOrReplay": "live",
+            "replayVerified": false,
+            "linkScope": "sport",
+            "rightsScope": "competition",
+            "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "verifiedAt": "2026-08-25T00:00:00.000Z"
+          }
+        ],
+        "venue": "Elland Road",
+        "scheduleStatus": "confirmed",
+        "status": "completed",
+        "expected": 6,
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Premier League Matchweek 5",
+        "roundNumber": 5,
+        "competitionName": "Premier League",
+        "season": "2026/27",
+        "narrativeType": "regular-season-fixture",
+        "selectedSentence": "Leeds' carry-over momentum met Crystal Palace's Pierre Sage transition; both season questions were tested, with the details under spoiler control.",
+        "fullSpiel": "Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a new build-from-the-back version of their established shape. The match is complete, with the result protected until spoilers are enabled.",
+        "sourceName": "Premier League official fixture schedule",
+        "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "lastReviewedAt": "2026-09-27T06:53:44.966Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "resultLabels": [
+          "Premier League Matchweek 5",
+          "Leeds United drew Crystal Palace 0-0."
+        ],
+        "homeScore": 0,
+        "awayScore": 0,
+        "score": "Leeds United 0-0 Crystal Palace",
+        "outcomeText": "Leeds United drew Crystal Palace 0-0.",
+        "recapText": "Leeds United and Crystal Palace shared the points after a 0-0 draw.",
+        "canonicalResultScoreline": "Leeds United 0-0 Crystal Palace",
+        "storyline": {
+          "stakes": 3,
+          "intensity": 3,
+          "arcStage": "recap",
+          "expectedSpectacle": 6,
+          "intensitySource": "computed",
+          "hookSpoilerOff": "Leeds' carry-over momentum met Crystal Palace's Pierre Sage transition; both season questions were tested, with the details under spoiler control.",
+          "synopsisSpoilerOff": "Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a new build-from-the-back version of their established shape. The match is complete, with the result protected until spoilers are enabled.",
+          "hookSpoilerOn": "Leeds United drew Crystal Palace 0-0.",
+          "synopsisSpoilerOn": "Leeds United drew Crystal Palace 0-0. Leeds United and Crystal Palace shared the points after a 0-0 draw. The result now updates Leeds United's the physical 3-4-2-1 that lost only three of its final 14 last season thread and Crystal Palace's a new build-from-the-back version of their established shape thread rather than ending the story at full-time.",
+          "researchDepth": 2,
+          "lastReviewedAt": "2026-09-27T06:53:44.966Z"
+        },
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:epl-2026-27-128968",
+          "researchTier": "standard",
+          "hook": "Leeds' carry-over momentum met Crystal Palace's Pierre Sage transition; both season questions were tested, with the details under spoiler control.",
+          "synopsis": "Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a new build-from-the-back version of their established shape. The match is complete, with the result protected until spoilers are enabled.",
+          "hookSpoilerOn": "Leeds United drew Crystal Palace 0-0.",
+          "synopsisSpoilerOn": "Leeds United drew Crystal Palace 0-0. Leeds United and Crystal Palace shared the points after a 0-0 draw. The result now updates Leeds United's the physical 3-4-2-1 that lost only three of its final 14 last season thread and Crystal Palace's a new build-from-the-back version of their established shape thread rather than ending the story at full-time.",
+          "threadIds": [
+            "thread:depth:epl:team-football-epl-9:2026-27",
+            "thread:depth:epl:team-football-epl-6:2026-27"
+          ],
+          "factIds": [
+            "fact:depth:epl:team-football-epl-9:season-arc",
+            "fact:depth:epl:team-football-epl-6:season-arc",
+            "fact:depth:epl:epl-2026-27-128968:team-football-epl-9:entry-form",
+            "fact:depth:epl:epl-2026-27-128968:team-football-epl-6:entry-form",
+            "fact:depth:epl:epl-2026-27-128968:matchup"
+          ],
+          "sourceIds": [
+            "source:depth:epl:table",
+            "source:depth:epl:season-guide",
+            "source:depth:epl:fixtures",
+            "source:depth:epl:match:epl-2026-27-128968"
+          ],
+          "dimensions": [
+            "form",
+            "matchup"
+          ],
+          "researchedAt": "2026-09-27T06:53:44.966Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "resultResearchRequired": false,
+          "phase": "recap",
+          "resultSignature": "[\"completed\",\"Leeds United drew Crystal Palace 0-0.\",\"Leeds United 0-0 Crystal Palace\",\"Leeds United and Crystal Palace shared the points after a 0-0 draw.\"]"
+        },
+        "scoreCheckedAt": "2026-10-11T12:38:51.272Z",
+        "statusCheckedAt": "2026-09-30T13:17:48.846Z",
+        "timePrecision": "exact",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "representativeCountryCodes": [],
+        "broadcasts": [],
+        "sourceEventIds": [
+          "epl-2026-27-128968"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "resultSourceCheckedAt": "2026-10-11T12:38:51.272Z",
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Leeds United — 2026/27 identity under pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:matchup"
+          ],
+          "sourceName": "Premier League current 2026/27 table",
+          "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+          "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
+          "needsPreviewRefresh": false
+        }
+      }
+    },
+    {
+      "secondary": {
+        "id": "football-premier-league-2026-27-401879272",
+        "eventId": "football-premier-league-2026-27-401879272",
+        "canonicalEventId": "event:football:premier-league:401879272",
+        "canonicalSourceId": "401879272",
+        "canonicalSourceName": "ESPN public football schedule snapshot",
+        "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+        "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+        "canonicalSourceType": "reputable",
+        "sport": "Football",
+        "key": "premier-league",
+        "sportDomainId": "sport:football",
+        "competitionId": "competition:premier-league-2026-27",
+        "name": "Manchester City v Sunderland",
+        "displayTitleCompact": "Manchester City v Sunderland",
+        "participants": [
+          {
+            "name": "Manchester City",
+            "role": "home"
+          },
+          {
+            "name": "Sunderland",
+            "role": "away"
+          }
+        ],
+        "participantIds": [
+          "team:football:epl:11",
+          "team:football:epl:29"
+        ],
+        "homeParticipantId": "team:football:epl:11",
+        "awayParticipantId": "team:football:epl:29",
+        "date": "2026-09-20",
+        "time": "00:00",
+        "startTimeUtc": "2026-09-19T14:00:00.000Z",
+        "endTimeUtc": "2026-09-19T16:00:00.000Z",
+        "broadcaster": "Broadcast details TBC",
+        "broadcastOptions": [],
+        "venue": "Etihad Stadium",
+        "scheduleStatus": "confirmed",
+        "status": "upcoming",
+        "expected": 4,
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "selectedSentence": "Premier League fixture sourced from the current 2026/27 schedule.",
+        "fullSpiel": "Manchester City v Sunderland is listed in the current Premier League schedule. Kick-off details refresh when the source publishes changes.",
+        "sourceName": "ESPN public football schedule snapshot",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+        "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+        "sourceType": "reputable",
+        "sourceTrust": "unverified",
+        "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+        "replayEligible": false,
+        "highlightEligible": false,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "resultLabels": [
+          "Scheduled"
+        ]
+      },
+      "primary": {
+        "id": "epl-2026-27-128969",
+        "eventId": "epl-2026-27-128969",
+        "canonicalEventId": "event:premier-league:128969",
+        "canonicalSourceId": "128969",
+        "canonicalSourceName": "Premier League official fixture service",
+        "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "canonicalSourceCheckedAt": "2026-10-11T12:38:51.272Z",
+        "canonicalSourceType": "official",
+        "sport": "Football",
+        "key": "premier-league",
+        "sportDomainId": "sport:football",
+        "competitionId": "competition:premier-league-2026-27",
+        "name": "Manchester City v Sunderland",
+        "displayTitleCompact": "Manchester City v Sunderland",
+        "participants": [
+          {
+            "name": "Manchester City",
+            "role": "home",
+            "id": ""
+          },
+          {
+            "name": "Sunderland",
+            "role": "away",
+            "id": ""
+          }
+        ],
+        "participantIds": [
+          "team:football:epl:11",
+          "team:football:epl:29"
+        ],
+        "homeParticipantId": "team:football:epl:11",
+        "awayParticipantId": "team:football:epl:29",
+        "date": "2026-09-20",
+        "time": "23:00",
+        "startTimeUtc": "2026-09-20T13:00:00.000Z",
+        "endTimeUtc": "2026-09-20T15:00:00.000Z",
+        "broadcaster": "Stan Sport",
+        "broadcasterIds": [
+          "stan"
+        ],
+        "broadcastOptions": [
+          "Stan Sport"
+        ],
+        "viewingOptions": [
+          {
+            "providerId": "stan",
+            "serviceId": "stan",
+            "serviceLabel": "Stan Sport",
+            "territory": "AU",
+            "accessType": "subscription",
+            "liveOrReplay": "live",
+            "replayVerified": false,
+            "linkScope": "sport",
+            "rightsScope": "competition",
+            "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "verifiedAt": "2026-08-25T00:00:00.000Z"
+          }
+        ],
+        "venue": "Etihad Stadium",
+        "scheduleStatus": "confirmed",
+        "status": "completed",
+        "expected": 6,
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Premier League Matchweek 5",
+        "roundNumber": 5,
+        "competitionName": "Premier League",
+        "season": "2026/27",
+        "narrativeType": "regular-season-fixture",
+        "selectedSentence": "Manchester City's first post-Guardiola campaign met Sunderland's Europe-and-league balancing act; both season questions were tested, with the details under spoiler control.",
+        "fullSpiel": "Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the defensive base behind last season's seventh place. The match is complete, with the result protected until spoilers are enabled.",
+        "sourceName": "Premier League official fixture schedule",
+        "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "lastReviewedAt": "2026-09-27T06:53:44.966Z",
+        "replayEligible": true,
+        "highlightEligible": true,
+        "briefingEligible": false,
+        "catchupEligible": true,
+        "resultLabels": [
+          "Premier League Matchweek 5",
+          "Manchester City defeated Sunderland 5-3."
+        ],
+        "homeScore": 5,
+        "awayScore": 3,
+        "score": "Manchester City 5-3 Sunderland",
+        "outcomeText": "Manchester City defeated Sunderland 5-3.",
+        "recapText": "Manchester City completed a 2-goal win in Premier League Matchweek 5.",
+        "canonicalResultScoreline": "Manchester City 5-3 Sunderland",
+        "storyline": {
+          "stakes": 3,
+          "intensity": 3,
+          "arcStage": "recap",
+          "expectedSpectacle": 6,
+          "intensitySource": "computed",
+          "hookSpoilerOff": "Manchester City's first post-Guardiola campaign met Sunderland's Europe-and-league balancing act; both season questions were tested, with the details under spoiler control.",
+          "synopsisSpoilerOff": "Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the defensive base behind last season's seventh place. The match is complete, with the result protected until spoilers are enabled.",
+          "hookSpoilerOn": "Manchester City defeated Sunderland 5-3.",
+          "synopsisSpoilerOn": "Manchester City defeated Sunderland 5-3. Manchester City completed a 2-goal win in Premier League Matchweek 5. The result now updates Manchester City's Enzo Maresca's continuity-versus-change problem thread and Sunderland's the defensive base behind last season's seventh place thread rather than ending the story at full-time.",
+          "researchDepth": 2,
+          "lastReviewedAt": "2026-09-27T06:53:44.966Z"
+        },
+        "editorialNarrative": {
+          "schemaVersion": "editorial-narrative.v2",
+          "projectionId": "projection:rolling:epl-2026-27-128969",
+          "researchTier": "standard",
+          "hook": "Manchester City's first post-Guardiola campaign met Sunderland's Europe-and-league balancing act; both season questions were tested, with the details under spoiler control.",
+          "synopsis": "Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the defensive base behind last season's seventh place. The match is complete, with the result protected until spoilers are enabled.",
+          "hookSpoilerOn": "Manchester City defeated Sunderland 5-3.",
+          "synopsisSpoilerOn": "Manchester City defeated Sunderland 5-3. Manchester City completed a 2-goal win in Premier League Matchweek 5. The result now updates Manchester City's Enzo Maresca's continuity-versus-change problem thread and Sunderland's the defensive base behind last season's seventh place thread rather than ending the story at full-time.",
+          "threadIds": [
+            "thread:depth:epl:team-football-epl-11:2026-27",
+            "thread:depth:epl:team-football-epl-29:2026-27"
+          ],
+          "factIds": [
+            "fact:depth:epl:team-football-epl-11:season-arc",
+            "fact:depth:epl:team-football-epl-29:season-arc",
+            "fact:depth:epl:epl-2026-27-128969:team-football-epl-11:entry-form",
+            "fact:depth:epl:epl-2026-27-128969:team-football-epl-29:entry-form",
+            "fact:depth:epl:epl-2026-27-128969:matchup"
+          ],
+          "sourceIds": [
+            "source:depth:epl:table",
+            "source:depth:epl:season-guide",
+            "source:depth:epl:fixtures",
+            "source:depth:epl:match:epl-2026-27-128969"
+          ],
+          "dimensions": [
+            "history",
+            "form",
+            "matchup"
+          ],
+          "researchedAt": "2026-09-27T06:53:44.966Z",
+          "refreshAfter": null,
+          "generationMode": "researched",
+          "resultResearchRequired": false,
+          "phase": "recap",
+          "resultSignature": "[\"completed\",\"Manchester City defeated Sunderland 5-3.\",\"Manchester City 5-3 Sunderland\",\"Manchester City completed a 2-goal win in Premier League Matchweek 5.\"]"
+        },
+        "scoreCheckedAt": "2026-10-11T12:38:51.272Z",
+        "statusCheckedAt": "2026-09-30T13:17:48.846Z",
+        "timePrecision": "exact",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "representativeCountryCodes": [],
+        "broadcasts": [],
+        "sourceEventIds": [
+          "epl-2026-27-128969"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "resultSourceCheckedAt": "2026-10-11T12:38:51.272Z",
+        "editorialPreview": {
+          "status": "journalistic",
+          "angle": "Manchester City — 2026/27 identity under pressure",
+          "contextSignals": [
+            "event-specific",
+            "narrative:history",
+            "narrative:form",
+            "narrative:matchup"
+          ],
+          "sourceName": "Premier League current 2026/27 table",
+          "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+          "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
+          "needsPreviewRefresh": false
+        }
+      }
+    },
+    {
+      "secondary": {
+        "id": "football-premier-league-2026-27-401879232",
+        "eventId": "football-premier-league-2026-27-401879232",
+        "canonicalEventId": "event:football:premier-league:401879232",
+        "canonicalSourceId": "401879232",
+        "canonicalSourceName": "ESPN public football schedule snapshot",
+        "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+        "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+        "canonicalSourceType": "reputable",
+        "sport": "Football",
+        "key": "premier-league",
+        "sportDomainId": "sport:football",
+        "competitionId": "competition:premier-league-2026-27",
+        "name": "Newcastle United v Arsenal",
+        "displayTitleCompact": "Newcastle United v Arsenal",
+        "participants": [
+          {
+            "name": "Newcastle United",
+            "role": "home"
+          },
+          {
+            "name": "Arsenal",
+            "role": "away"
+          }
+        ],
+        "participantIds": [
+          "team:football:epl:23",
+          "team:football:epl:1"
+        ],
+        "homeParticipantId": "team:football:epl:23",
+        "awayParticipantId": "team:football:epl:1",
+        "date": "2026-11-22",
+        "time": "02:00",
+        "startTimeUtc": "2026-11-21T15:00:00.000Z",
+        "endTimeUtc": "2026-11-21T17:00:00.000Z",
+        "broadcaster": "Broadcast details TBC",
+        "broadcastOptions": [],
+        "venue": "St. James' Park",
+        "scheduleStatus": "confirmed",
+        "status": "upcoming",
+        "expected": 4,
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "selectedSentence": "Premier League fixture sourced from the current 2026/27 schedule.",
+        "fullSpiel": "Newcastle United v Arsenal is listed in the current Premier League schedule. Kick-off details refresh when the source publishes changes.",
+        "sourceName": "ESPN public football schedule snapshot",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+        "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+        "sourceType": "reputable",
+        "sourceTrust": "unverified",
+        "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+        "replayEligible": false,
+        "highlightEligible": false,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "resultLabels": [
+          "Scheduled"
+        ]
+      },
+      "primary": {
+        "id": "epl-2026-27-129031",
+        "eventId": "epl-2026-27-129031",
+        "canonicalEventId": "event:premier-league:129031",
+        "canonicalSourceId": "129031",
+        "canonicalSourceName": "Premier League official fixture service",
+        "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "canonicalSourceCheckedAt": "2026-10-11T12:38:51.272Z",
+        "canonicalSourceType": "official",
+        "sport": "Football",
+        "key": "premier-league",
+        "sportDomainId": "sport:football",
+        "competitionId": "competition:premier-league-2026-27",
+        "name": "Newcastle United v Arsenal",
+        "displayTitleCompact": "Newcastle United v Arsenal",
+        "participants": [
+          {
+            "name": "Newcastle United",
+            "role": "home",
+            "id": ""
+          },
+          {
+            "name": "Arsenal",
+            "role": "away",
+            "id": ""
+          }
+        ],
+        "participantIds": [
+          "team:football:epl:23",
+          "team:football:epl:1"
+        ],
+        "homeParticipantId": "team:football:epl:23",
+        "awayParticipantId": "team:football:epl:1",
+        "date": "2026-11-22",
+        "time": "04:30",
+        "startTimeUtc": "2026-11-21T17:30:00.000Z",
+        "endTimeUtc": "2026-11-21T19:30:00.000Z",
+        "broadcaster": "Stan Sport",
+        "broadcasterIds": [
+          "stan"
+        ],
+        "broadcastOptions": [
+          "Stan Sport"
+        ],
+        "viewingOptions": [
+          {
+            "providerId": "stan",
+            "serviceId": "stan",
+            "serviceLabel": "Stan Sport",
+            "territory": "AU",
+            "accessType": "subscription",
+            "liveOrReplay": "live",
+            "replayVerified": false,
+            "linkScope": "sport",
+            "rightsScope": "competition",
+            "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "verifiedAt": "2026-08-25T00:00:00.000Z"
+          }
+        ],
+        "venue": "St. James' Park",
+        "scheduleStatus": "confirmed",
+        "status": "upcoming",
+        "expected": 6,
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Premier League Matchweek 11",
+        "roundNumber": 11,
+        "competitionName": "Premier League",
+        "season": "2026/27",
+        "narrativeType": "regular-season-fixture",
+        "selectedSentence": "Premier League Matchweek 11 fixture, with the scheduled kickoff sourced from the league.",
+        "fullSpiel": "Newcastle United v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+        "sourceName": "Premier League official fixture schedule",
+        "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+        "replayEligible": false,
+        "highlightEligible": false,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "resultLabels": [
+          "Premier League Matchweek 11"
+        ],
+        "statusCheckedAt": "2026-09-30T12:54:10.417Z",
+        "timePrecision": "exact",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "representativeCountryCodes": [],
+        "broadcasts": [],
+        "sourceEventIds": [
+          "epl-2026-27-129031"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "timingProvenance": {
+          "sourceName": "Premier League fixture amendment notice",
+          "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+          "checkedAt": "2026-10-03T20:55:46.267Z",
+          "precision": "exact",
+          "sourcePublishedAt": "2026-09-21"
+        }
+      }
+    },
+    {
+      "secondary": {
+        "id": "football-premier-league-2026-27-401878753",
+        "eventId": "football-premier-league-2026-27-401878753",
+        "canonicalEventId": "event:football:premier-league:401878753",
+        "canonicalSourceId": "401878753",
+        "canonicalSourceName": "ESPN public football schedule snapshot",
+        "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+        "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+        "canonicalSourceType": "reputable",
+        "sport": "Football",
+        "key": "premier-league",
+        "sportDomainId": "sport:football",
+        "competitionId": "competition:premier-league-2026-27",
+        "name": "Arsenal v Manchester City",
+        "displayTitleCompact": "Arsenal v Manchester City",
+        "participants": [
+          {
+            "name": "Arsenal",
+            "role": "home"
+          },
+          {
+            "name": "Manchester City",
+            "role": "away"
+          }
+        ],
+        "participantIds": [
+          "team:football:epl:1",
+          "team:football:epl:11"
+        ],
+        "homeParticipantId": "team:football:epl:1",
+        "awayParticipantId": "team:football:epl:11",
+        "date": "2026-11-29",
+        "time": "02:00",
+        "startTimeUtc": "2026-11-28T15:00:00.000Z",
+        "endTimeUtc": "2026-11-28T17:00:00.000Z",
+        "broadcaster": "Broadcast details TBC",
+        "broadcastOptions": [],
+        "venue": "Emirates Stadium",
+        "scheduleStatus": "confirmed",
+        "status": "upcoming",
+        "expected": 8,
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "selectedSentence": "Premier League fixture sourced from the current 2026/27 schedule.",
+        "fullSpiel": "Arsenal v Manchester City is listed in the current Premier League schedule. Kick-off details refresh when the source publishes changes.",
+        "sourceName": "ESPN public football schedule snapshot",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+        "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+        "sourceType": "reputable",
+        "sourceTrust": "unverified",
+        "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+        "replayEligible": false,
+        "highlightEligible": false,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "resultLabels": [
+          "Scheduled"
+        ]
+      },
+      "primary": {
+        "id": "epl-2026-27-129033",
+        "eventId": "epl-2026-27-129033",
+        "canonicalEventId": "event:premier-league:129033",
+        "canonicalSourceId": "129033",
+        "canonicalSourceName": "Premier League official fixture service",
+        "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "canonicalSourceCheckedAt": "2026-10-11T12:38:51.272Z",
+        "canonicalSourceType": "official",
+        "sport": "Football",
+        "key": "premier-league",
+        "sportDomainId": "sport:football",
+        "competitionId": "competition:premier-league-2026-27",
+        "name": "Arsenal v Manchester City",
+        "displayTitleCompact": "Arsenal v Manchester City",
+        "participants": [
+          {
+            "name": "Arsenal",
+            "role": "home",
+            "id": ""
+          },
+          {
+            "name": "Manchester City",
+            "role": "away",
+            "id": ""
+          }
+        ],
+        "participantIds": [
+          "team:football:epl:1",
+          "team:football:epl:11"
+        ],
+        "homeParticipantId": "team:football:epl:1",
+        "awayParticipantId": "team:football:epl:11",
+        "date": "2026-11-30",
+        "time": "03:30",
+        "startTimeUtc": "2026-11-29T16:30:00.000Z",
+        "endTimeUtc": "2026-11-29T18:30:00.000Z",
+        "broadcaster": "Stan Sport",
+        "broadcasterIds": [
+          "stan"
+        ],
+        "broadcastOptions": [
+          "Stan Sport"
+        ],
+        "viewingOptions": [
+          {
+            "providerId": "stan",
+            "serviceId": "stan",
+            "serviceLabel": "Stan Sport",
+            "territory": "AU",
+            "accessType": "subscription",
+            "liveOrReplay": "live",
+            "replayVerified": false,
+            "linkScope": "sport",
+            "rightsScope": "competition",
+            "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "verifiedAt": "2026-08-25T00:00:00.000Z"
+          }
+        ],
+        "venue": "Emirates Stadium",
+        "scheduleStatus": "confirmed",
+        "status": "upcoming",
+        "expected": 6,
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Premier League Matchweek 12",
+        "roundNumber": 12,
+        "competitionName": "Premier League",
+        "season": "2026/27",
+        "narrativeType": "regular-season-fixture",
+        "selectedSentence": "Premier League Matchweek 12 fixture, with the scheduled kickoff sourced from the league.",
+        "fullSpiel": "Arsenal v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+        "sourceName": "Premier League official fixture schedule",
+        "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+        "replayEligible": false,
+        "highlightEligible": false,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "resultLabels": [
+          "Premier League Matchweek 12"
+        ],
+        "statusCheckedAt": "2026-09-30T12:54:10.417Z",
+        "timePrecision": "exact",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "representativeCountryCodes": [],
+        "broadcasts": [],
+        "sourceEventIds": [
+          "epl-2026-27-129033"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "timingProvenance": {
+          "sourceName": "Premier League fixture amendment notice",
+          "sourceUrl": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+          "checkedAt": "2026-10-03T20:55:46.267Z",
+          "precision": "exact",
+          "sourcePublishedAt": "2026-09-21"
+        }
+      }
+    },
+    {
+      "secondary": {
+        "id": "football-premier-league-2026-27-401878735",
+        "eventId": "football-premier-league-2026-27-401878735",
+        "canonicalEventId": "event:football:premier-league:401878735",
+        "canonicalSourceId": "401878735",
+        "canonicalSourceName": "ESPN public football schedule snapshot",
+        "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+        "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+        "canonicalSourceType": "reputable",
+        "sport": "Football",
+        "key": "premier-league",
+        "sportDomainId": "sport:football",
+        "competitionId": "competition:premier-league-2026-27",
+        "name": "Crystal Palace v Arsenal",
+        "displayTitleCompact": "Crystal Palace v Arsenal",
+        "participants": [
+          {
+            "name": "Crystal Palace",
+            "role": "home"
+          },
+          {
+            "name": "Arsenal",
+            "role": "away"
+          }
+        ],
+        "participantIds": [
+          "team:football:epl:6",
+          "team:football:epl:1"
+        ],
+        "homeParticipantId": "team:football:epl:6",
+        "awayParticipantId": "team:football:epl:1",
+        "date": "2026-12-27",
+        "time": "02:00",
+        "startTimeUtc": "2026-12-26T15:00:00.000Z",
+        "endTimeUtc": "2026-12-26T17:00:00.000Z",
+        "broadcaster": "Broadcast details TBC",
+        "broadcastOptions": [],
+        "venue": "Selhurst Park",
+        "scheduleStatus": "confirmed",
+        "status": "upcoming",
+        "expected": 4,
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "selectedSentence": "Premier League fixture sourced from the current 2026/27 schedule.",
+        "fullSpiel": "Crystal Palace v Arsenal is listed in the current Premier League schedule. Kick-off details refresh when the source publishes changes.",
+        "sourceName": "ESPN public football schedule snapshot",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+        "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+        "sourceType": "reputable",
+        "sourceTrust": "unverified",
+        "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+        "replayEligible": false,
+        "highlightEligible": false,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "resultLabels": [
+          "Scheduled"
+        ]
+      },
+      "primary": {
+        "id": "epl-2026-27-129085",
+        "eventId": "epl-2026-27-129085",
+        "canonicalEventId": "event:premier-league:129085",
+        "canonicalSourceId": "129085",
+        "canonicalSourceName": "Premier League official fixture service",
+        "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "canonicalSourceCheckedAt": "2026-10-11T12:38:51.272Z",
+        "canonicalSourceType": "official",
+        "sport": "Football",
+        "key": "premier-league",
+        "sportDomainId": "sport:football",
+        "competitionId": "competition:premier-league-2026-27",
+        "name": "Crystal Palace v Arsenal",
+        "displayTitleCompact": "Crystal Palace v Arsenal",
+        "participants": [
+          {
+            "name": "Crystal Palace",
+            "role": "home",
+            "id": ""
+          },
+          {
+            "name": "Arsenal",
+            "role": "away",
+            "id": ""
+          }
+        ],
+        "participantIds": [
+          "team:football:epl:6",
+          "team:football:epl:1"
+        ],
+        "homeParticipantId": "team:football:epl:6",
+        "awayParticipantId": "team:football:epl:1",
+        "date": "2026-12-28",
+        "time": "06:00",
+        "startTimeUtc": "2026-12-27T19:00:00.000Z",
+        "endTimeUtc": "2026-12-27T21:00:00.000Z",
+        "broadcaster": "Stan Sport",
+        "broadcasterIds": [
+          "stan"
+        ],
+        "broadcastOptions": [
+          "Stan Sport"
+        ],
+        "viewingOptions": [
+          {
+            "providerId": "stan",
+            "serviceId": "stan",
+            "serviceLabel": "Stan Sport",
+            "territory": "AU",
+            "accessType": "subscription",
+            "liveOrReplay": "live",
+            "replayVerified": false,
+            "linkScope": "sport",
+            "rightsScope": "competition",
+            "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "verifiedAt": "2026-08-25T00:00:00.000Z"
+          }
+        ],
+        "venue": "Selhurst Park",
+        "scheduleStatus": "provisional",
+        "status": "upcoming",
+        "expected": 6,
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Premier League Matchweek 17",
+        "roundNumber": 17,
+        "competitionName": "Premier League",
+        "season": "2026/27",
+        "narrativeType": "regular-season-fixture",
+        "selectedSentence": "Premier League Matchweek 17 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
+        "fullSpiel": "Crystal Palace v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+        "sourceName": "Premier League official fixture schedule",
+        "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+        "replayEligible": false,
+        "highlightEligible": false,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "resultLabels": [
+          "Premier League Matchweek 17"
+        ],
+        "statusCheckedAt": "2026-09-30T12:54:10.417Z",
+        "timePrecision": "estimated",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "representativeCountryCodes": [],
+        "broadcasts": [],
+        "sourceEventIds": [
+          "epl-2026-27-129085"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
+      }
+    },
+    {
+      "secondary": {
+        "id": "football-premier-league-2026-27-401879191",
+        "eventId": "football-premier-league-2026-27-401879191",
+        "canonicalEventId": "event:football:premier-league:401879191",
+        "canonicalSourceId": "401879191",
+        "canonicalSourceName": "ESPN public football schedule snapshot",
+        "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+        "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+        "canonicalSourceType": "reputable",
+        "sport": "Football",
+        "key": "premier-league",
+        "sportDomainId": "sport:football",
+        "competitionId": "competition:premier-league-2026-27",
+        "name": "Fulham v Arsenal",
+        "displayTitleCompact": "Fulham v Arsenal",
+        "participants": [
+          {
+            "name": "Fulham",
+            "role": "home"
+          },
+          {
+            "name": "Arsenal",
+            "role": "away"
+          }
+        ],
+        "participantIds": [
+          "team:football:epl:34",
+          "team:football:epl:1"
+        ],
+        "homeParticipantId": "team:football:epl:34",
+        "awayParticipantId": "team:football:epl:1",
+        "date": "2026-12-31",
+        "time": "07:00",
+        "startTimeUtc": "2026-12-30T20:00:00.000Z",
+        "endTimeUtc": "2026-12-30T22:00:00.000Z",
+        "broadcaster": "Broadcast details TBC",
+        "broadcastOptions": [],
+        "venue": "Craven Cottage",
+        "scheduleStatus": "confirmed",
+        "status": "upcoming",
+        "expected": 4,
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "selectedSentence": "Premier League fixture sourced from the current 2026/27 schedule.",
+        "fullSpiel": "Fulham v Arsenal is listed in the current Premier League schedule. Kick-off details refresh when the source publishes changes.",
+        "sourceName": "ESPN public football schedule snapshot",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+        "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+        "sourceType": "reputable",
+        "sourceTrust": "unverified",
+        "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+        "replayEligible": false,
+        "highlightEligible": false,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "resultLabels": [
+          "Scheduled"
+        ]
+      },
+      "primary": {
+        "id": "epl-2026-27-129097",
+        "eventId": "epl-2026-27-129097",
+        "canonicalEventId": "event:premier-league:129097",
+        "canonicalSourceId": "129097",
+        "canonicalSourceName": "Premier League official fixture service",
+        "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "canonicalSourceCheckedAt": "2026-10-11T12:38:51.272Z",
+        "canonicalSourceType": "official",
+        "sport": "Football",
+        "key": "premier-league",
+        "sportDomainId": "sport:football",
+        "competitionId": "competition:premier-league-2026-27",
+        "name": "Fulham v Arsenal",
+        "displayTitleCompact": "Fulham v Arsenal",
+        "participants": [
+          {
+            "name": "Fulham",
+            "role": "home",
+            "id": ""
+          },
+          {
+            "name": "Arsenal",
+            "role": "away",
+            "id": ""
+          }
+        ],
+        "participantIds": [
+          "team:football:epl:34",
+          "team:football:epl:1"
+        ],
+        "homeParticipantId": "team:football:epl:34",
+        "awayParticipantId": "team:football:epl:1",
+        "date": "2026-12-31",
+        "time": "06:30",
+        "startTimeUtc": "2026-12-30T19:30:00.000Z",
+        "endTimeUtc": "2026-12-30T21:30:00.000Z",
+        "broadcaster": "Stan Sport",
+        "broadcasterIds": [
+          "stan"
+        ],
+        "broadcastOptions": [
+          "Stan Sport"
+        ],
+        "viewingOptions": [
+          {
+            "providerId": "stan",
+            "serviceId": "stan",
+            "serviceLabel": "Stan Sport",
+            "territory": "AU",
+            "accessType": "subscription",
+            "liveOrReplay": "live",
+            "replayVerified": false,
+            "linkScope": "sport",
+            "rightsScope": "competition",
+            "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "verifiedAt": "2026-08-25T00:00:00.000Z"
+          }
+        ],
+        "venue": "Craven Cottage",
+        "scheduleStatus": "provisional",
+        "status": "upcoming",
+        "expected": 6,
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Premier League Matchweek 18",
+        "roundNumber": 18,
+        "competitionName": "Premier League",
+        "season": "2026/27",
+        "narrativeType": "regular-season-fixture",
+        "selectedSentence": "Premier League Matchweek 18 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
+        "fullSpiel": "Fulham v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+        "sourceName": "Premier League official fixture schedule",
+        "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+        "replayEligible": false,
+        "highlightEligible": false,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "resultLabels": [
+          "Premier League Matchweek 18"
+        ],
+        "statusCheckedAt": "2026-09-30T12:54:10.417Z",
+        "timePrecision": "estimated",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "representativeCountryCodes": [],
+        "broadcasts": [],
+        "sourceEventIds": [
+          "epl-2026-27-129097"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
+      }
+    },
+    {
+      "secondary": {
+        "id": "football-premier-league-2026-27-401879177",
+        "eventId": "football-premier-league-2026-27-401879177",
+        "canonicalEventId": "event:football:premier-league:401879177",
+        "canonicalSourceId": "401879177",
+        "canonicalSourceName": "ESPN public football schedule snapshot",
+        "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+        "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+        "canonicalSourceType": "reputable",
+        "sport": "Football",
+        "key": "premier-league",
+        "sportDomainId": "sport:football",
+        "competitionId": "competition:premier-league-2026-27",
+        "name": "Arsenal v Brentford",
+        "displayTitleCompact": "Arsenal v Brentford",
+        "participants": [
+          {
+            "name": "Arsenal",
+            "role": "home"
+          },
+          {
+            "name": "Brentford",
+            "role": "away"
+          }
+        ],
+        "participantIds": [
+          "team:football:epl:1",
+          "team:football:epl:130"
+        ],
+        "homeParticipantId": "team:football:epl:1",
+        "awayParticipantId": "team:football:epl:130",
+        "date": "2027-01-07",
+        "time": "07:00",
+        "startTimeUtc": "2027-01-06T20:00:00.000Z",
+        "endTimeUtc": "2027-01-06T22:00:00.000Z",
+        "broadcaster": "Broadcast details TBC",
+        "broadcastOptions": [],
+        "venue": "Emirates Stadium",
+        "scheduleStatus": "confirmed",
+        "status": "upcoming",
+        "expected": 4,
+        "liveWindow": 3,
+        "round": "all",
+        "narrativeType": "regular-season-fixture",
+        "selectedSentence": "Premier League fixture sourced from the current 2026/27 schedule.",
+        "fullSpiel": "Arsenal v Brentford is listed in the current Premier League schedule. Kick-off details refresh when the source publishes changes.",
+        "sourceName": "ESPN public football schedule snapshot",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+        "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+        "sourceType": "reputable",
+        "sourceTrust": "unverified",
+        "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+        "replayEligible": false,
+        "highlightEligible": false,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "resultLabels": [
+          "Scheduled"
+        ]
+      },
+      "primary": {
+        "id": "epl-2026-27-129113",
+        "eventId": "epl-2026-27-129113",
+        "canonicalEventId": "event:premier-league:129113",
+        "canonicalSourceId": "129113",
+        "canonicalSourceName": "Premier League official fixture service",
+        "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "canonicalSourceCheckedAt": "2026-10-11T12:38:51.272Z",
+        "canonicalSourceType": "official",
+        "sport": "Football",
+        "key": "premier-league",
+        "sportDomainId": "sport:football",
+        "competitionId": "competition:premier-league-2026-27",
+        "name": "Arsenal v Brentford",
+        "displayTitleCompact": "Arsenal v Brentford",
+        "participants": [
+          {
+            "name": "Arsenal",
+            "role": "home",
+            "id": ""
+          },
+          {
+            "name": "Brentford",
+            "role": "away",
+            "id": ""
+          }
+        ],
+        "participantIds": [
+          "team:football:epl:1",
+          "team:football:epl:130"
+        ],
+        "homeParticipantId": "team:football:epl:1",
+        "awayParticipantId": "team:football:epl:130",
+        "date": "2027-01-06",
+        "time": "06:30",
+        "startTimeUtc": "2027-01-05T19:30:00.000Z",
+        "endTimeUtc": "2027-01-05T21:30:00.000Z",
+        "broadcaster": "Stan Sport",
+        "broadcasterIds": [
+          "stan"
+        ],
+        "broadcastOptions": [
+          "Stan Sport"
+        ],
+        "viewingOptions": [
+          {
+            "providerId": "stan",
+            "serviceId": "stan",
+            "serviceLabel": "Stan Sport",
+            "territory": "AU",
+            "accessType": "subscription",
+            "liveOrReplay": "live",
+            "replayVerified": false,
+            "linkScope": "sport",
+            "rightsScope": "competition",
+            "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+            "verifiedAt": "2026-08-25T00:00:00.000Z"
+          }
+        ],
+        "venue": "Emirates Stadium",
+        "scheduleStatus": "provisional",
+        "status": "upcoming",
+        "expected": 6,
+        "liveWindow": 3,
+        "round": "all",
+        "roundLabel": "Premier League Matchweek 20",
+        "roundNumber": 20,
+        "competitionName": "Premier League",
+        "season": "2026/27",
+        "narrativeType": "regular-season-fixture",
+        "selectedSentence": "Premier League Matchweek 20 fixture, with a provisional kickoff subject to broadcast and competition amendments.",
+        "fullSpiel": "Arsenal v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+        "sourceName": "Premier League official fixture schedule",
+        "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+        "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+        "sourceType": "official",
+        "sourceTrust": "verified",
+        "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+        "replayEligible": false,
+        "highlightEligible": false,
+        "briefingEligible": false,
+        "catchupEligible": false,
+        "resultLabels": [
+          "Premier League Matchweek 20"
+        ],
+        "statusCheckedAt": "2026-09-30T12:54:10.417Z",
+        "timePrecision": "estimated",
+        "participantSlots": [],
+        "participantCountryCodes": [],
+        "representativeCountryCodes": [],
+        "broadcasts": [],
+        "sourceEventIds": [
+          "epl-2026-27-129113"
+        ],
+        "consensusTags": [],
+        "timeTbc": false,
+        "startTimeTbc": false,
+        "dateOnly": false,
+        "scheduleNote": "Provisional scheduled kickoff; subject to broadcast and competition amendments."
+      }
+    }
+  ]
+}

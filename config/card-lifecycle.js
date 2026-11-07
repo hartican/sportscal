@@ -1,13 +1,14 @@
 (function attachNothingSportsCardLifecycle(root, factory){
-  const api = factory(root);
+  const api = factory(typeof module !== "undefined" && module.exports ? require("./calendar-export.js") : root.NOTHINGSPORTS_CALENDAR);
   root.NOTHINGSPORTS_CARD_LIFECYCLE = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
-})(typeof globalThis !== "undefined" ? globalThis : window, function buildCardLifecycle(root){
+})(typeof globalThis !== "undefined" ? globalThis : window, function buildCardLifecycle(calendar){
   "use strict";
+  const epic=typeof module!=='undefined'&&module.exports?require('./epic-classics'):globalThis.NOTHINGSPORTS_EPIC;
 
-  const SCHEMA_VERSION = "derived-card-cache.v1";
+  const SCHEMA_VERSION = "derived-card-cache.v2";
   const ARCHIVE_DAYS = 7;
-  const RETENTION_DAYS = 14;
+  const RETENTION_DAYS = 7;
   const ARCHIVE_MS = ARCHIVE_DAYS * 24 * 60 * 60 * 1000;
   const RETENTION_MS = RETENTION_DAYS * 24 * 60 * 60 * 1000;
   const SURFACES = new Set(["homeMustWatch", "topStorylines", "sportFeed", "teamFeed", "saved", "recent"]);
@@ -21,60 +22,41 @@
     return String(event?.canonicalEventId || event?.eventId || event?.id || "");
   }
 
-  function eventStart(event){
-    if(event?.timePrecision && !["exact","session-start"].includes(event.timePrecision))return null;
-    const parsed = new Date(event?.startTimeUtc || "");
-    return Number.isNaN(parsed.getTime()) ? null : parsed;
-  }
-
-  function inferredDurationHours(event){
-    const explicit=Number(event?.publishedDurationHours || event?.liveWindow || event?.calendarTemplate?.durationHours);
-    if(Number.isFinite(explicit)&&explicit>0)return explicit;
-    const identity=`${event?.competitionId || ""} ${event?.key || ""} ${event?.sportId || ""} ${event?.name || ""}`.toLowerCase();
-    if(/le mans|endurance|fia wec/.test(identity))return 24;
-    if(/tennis|us open|wimbledon|roland garros|australian open/.test(identity))return 5;
-    if(/formula 1|\bf1\b|motorsport/.test(identity))return 4;
-    return 3;
-  }
-
-  function eventEnd(event){
-    if (event?.endTimeUtc){
-      const parsed = new Date(event.endTimeUtc);
-      if (!Number.isNaN(parsed.getTime())) return parsed;
-    }
-    const start = eventStart(event);
-    if (!start) return null;
-    return new Date(start.getTime() + inferredDurationHours(event) * 60 * 60 * 1000);
-  }
+  const validDay = value => calendar.knownDate({date:value});
 
   function sydneyEndOfDay(dateKey){
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(dateKey || ""))) return null;
+    if (!validDay(dateKey)) return null;
     const nextDay = new Date(`${dateKey}T12:00:00Z`);
     nextDay.setUTCDate(nextDay.getUTCDate() + 1);
-    const start = (root.NOTHINGSPORTS_CALENDAR || require("./calendar-export.js")).eventStart({ date:nextDay.toISOString().slice(0, 10), time:"00:00" });
-    return start ? new Date(start.getTime() - 1) : null;
+    const start = calendar.eventStart({ date:nextDay.toISOString().slice(0, 10), time:"00:00" });
+    return start ? new Date(+start - 1) : null;
   }
 
-  function retentionEnd(event){
-    const exactEnd = eventEnd(event);
-    if (exactEnd) return exactEnd;
-    if ((event?.dateOnly === true || event?.timePrecision === "date-only") && /^\d{4}-\d{2}-\d{2}$/.test(String(event?.endDate || ""))){
-      return new Date(`${event.endDate}T23:59:59.999Z`);
-    }
-    const timeline = new Date(event?.timelineSortTimeUtc || event?.sessionStartTimeUtc || "");
-    if (!Number.isNaN(timeline.getTime())) return new Date(timeline.getTime() + inferredDurationHours(event) * 60 * 60 * 1000);
-    if (/^\d{4}-\d{2}-\d{2}$/.test(String(event?.date || ""))) return sydneyEndOfDay(event.date);
-    return null;
+  // This independent source receipt is a bounded ongoing-play exception for
+  // Feed only. It never changes the saved/history lifecycle or sporting dates.
+  function currentPlayUntil(event,reference=new Date()){
+    const now=+reference,observed=Date.parse(event.statusCheckedAt||event.statusSource?.checkedAt||'');
+    const sourced=/^https:\/\//.test(event.statusSourceUrl||event.statusSource?.sourceUrl||event.sourceUrl||'');
+    return /^(live|in-progress|in_progress|ongoing|stumps|rain-delay|break|suspended|interrupted)$/.test(event.status||'')&&sourced&&Number.isFinite(observed)&&observed<=now&&now-observed<1800000&&event.stale!==true&&event.sourceStale!==true?observed+1800000:null;
   }
 
-  function expiresAtForEvent(event){
-    const end = retentionEnd(event);
-    return end ? new Date(end.getTime() + RETENTION_MS) : null;
+  // Feed visibility is independent of saved/history retention.
+  function withinFeedWindow(event, reference = new Date()){
+    return !epic.retired(event,reference);
   }
 
-  function archivesAtForEvent(event){
-    const end = retentionEnd(event);
-    return end ? new Date(end.getTime() + ARCHIVE_MS) : null;
+  function expiresAtForEvent(event,reference=new Date()){
+    if (/^(suspended|postponed)$/.test(event?.status||'')) return null;
+    const ongoing=currentPlayUntil(event,reference);
+    const final = epic.finalDay(event,reference);
+    if (!final) return null;
+    const day = new Date(final+'T12:00:00Z');day.setUTCDate(day.getUTCDate()+7);
+    const end = sydneyEndOfDay(day.toISOString().slice(0,10));
+    return end ? new Date(Math.max(+end+1,ongoing||0)) : null;
+  }
+
+  function archivesAtForEvent(event,reference=new Date()){
+    const expiry=expiresAtForEvent(event,reference);return expiry?new Date(+expiry-1):null;
   }
 
   function isSavedAction(action = {}){
@@ -88,31 +70,17 @@
   function lifecycleState(event, {
     action = {},
     saved = isRetentionExemptAction(action),
+    feed = false,
     now = new Date(),
   } = {}){
-    const end = retentionEnd(event);
     const reference = now instanceof Date ? now : new Date(now);
-    if (!end || Number.isNaN(reference.getTime())){
-      return {
-        state: "active",
-        saved: Boolean(saved),
-        archivesAt: archivesAtForEvent(event)?.toISOString() || null,
-        expiresAt: expiresAtForEvent(event)?.toISOString() || null,
-      };
-    }
-    const ageMs = reference.getTime() - end.getTime();
-    const state = saved
-      ? "saved"
-      : ageMs > RETENTION_MS
-        ? "expired"
-        : ageMs > ARCHIVE_MS
-          ? "archived"
-          : "active";
+    const state = action.isPurged || epic.retired(event,reference) ? "expired" : saved ? "saved" : "active";
+    const expiresAt = expiresAtForEvent(event,reference);
     return {
       state,
       saved: Boolean(saved),
-      archivesAt: new Date(end.getTime() + ARCHIVE_MS).toISOString(),
-      expiresAt: new Date(end.getTime() + RETENTION_MS).toISOString(),
+      archivesAt: expiresAt?new Date(+expiresAt-1).toISOString():null,
+      expiresAt: expiresAt?.toISOString() || null,
     };
   }
 
@@ -184,13 +152,14 @@
     rank = 0,
     generatedAt = new Date(),
     retentionExempt = false,
+    expiresAt = null,
   } = {}){
     const canonicalEventId = eventId(event);
     if (!canonicalEventId) throw new Error("Derived cards require a canonical event id");
     if (!profileId) throw new Error("Derived cards require a stable profile id");
     if (!SURFACES.has(surface)) throw new Error(`Unknown derived-card surface: ${surface}`);
     const generated = generatedAt instanceof Date ? generatedAt : new Date(generatedAt);
-    const expiry = expiresAtForEvent(event) || new Date(generated.getTime() + RETENTION_MS);
+    const expiry = expiresAt?new Date(expiresAt):expiresAtForEvent(event,generated);
     return {
       id: `card:${profileId}:${surface}:${canonicalEventId}`,
       canonicalEventId,
@@ -217,8 +186,8 @@
           : { scoreReasons: [] },
       },
       generatedAt: generated.toISOString(),
-      expiresAt: expiry.toISOString(),
-      retentionExempt: Boolean(retentionExempt),
+      expiresAt: expiry?.toISOString() || null,
+      retentionExempt: false,
       isArchived: false,
     };
   }
@@ -239,6 +208,7 @@
     actionFor = () => ({}),
     now = new Date(),
     buildOrigin = "local",
+    feed = false,
     sourceVersion,
   } = {}){
     if (typeof enrich !== "function") throw new Error("materialize requires an enrichment function");
@@ -249,7 +219,7 @@
         return {
           event,
           action,
-          retention: lifecycleState(event, { action, now: reference }),
+          retention: lifecycleState(event, { action, now: reference, feed }),
         };
       })
       .filter(item => item.retention.state === "active" || item.retention.state === "saved")
@@ -263,12 +233,13 @@
       generatedAt: reference.toISOString(),
       buildOrigin: buildOrigin === "server" ? "server" : "local",
       ...(typeof sourceVersion === "string" && sourceVersion ? { sourceVersion } : {}),
-      derivedCards: ranked.map(({ event, enrichment, action }, index) => createDerivedCard(event, enrichment, {
+      derivedCards: ranked.map(({ event, enrichment, action, retention }, index) => createDerivedCard(event, enrichment, {
         profileId,
         surface: surfaceFor(event, enrichment, action),
         rank: index + 1,
         generatedAt: reference,
         retentionExempt: isRetentionExemptAction(action),
+        expiresAt:retention.expiresAt,
       })),
     };
   }
@@ -277,7 +248,7 @@
     const reference = now instanceof Date ? now : new Date(now);
     const normalized = normalizeCache(cache, reference);
     const derivedCards = normalized.derivedCards.filter(card => {
-      if (card.retentionExempt) return true;
+      if (card.expiresAt === null) return true;
       const expires = new Date(card.expiresAt);
       return !Number.isNaN(expires.getTime()) && expires > reference;
     });
@@ -337,6 +308,8 @@
     isRetentionExemptAction,
     lifecycleState,
     isWithinRetention,
+    withinFeedWindow,
+    currentPlayUntil,
     shouldAutoArchive,
     sydneyEndOfDay,
     createDerivedCard,

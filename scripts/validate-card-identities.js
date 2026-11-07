@@ -4,7 +4,9 @@ const assert = require("node:assert/strict");
 const crypto = require("node:crypto");
 const fs = require("node:fs");
 const identities = require("../config/card-identities.js");
-const html = fs.readFileSync("index.html", "utf8");
+const reviewedTextFallback = require('./lib/reviewed-national-text-fallback');
+require('./validate-canonical-fixture-names').validate({published:true});
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 
 const canonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 const f1Context = JSON.parse(fs.readFileSync("data/canonical/f1-context-2026.json", "utf8"));
@@ -25,7 +27,7 @@ const activeAflTeams = canonical.participants.filter(participant => (
   && participant.metadata?.competitionCode === "afl"
   && participant.teamCode !== "TBD"
 ));
-const activeAflwTeams = canonical.participants.filter(participant => participant.type === "team" && participant.metadata?.competitionCode === "aflw");
+const activeAflwTeams = canonical.participants.filter(participant => participant.type === "team" && participant.metadata?.competitionCode === "aflw" && participant.teamCode !== "TBD");
 
 function pngMetadata(path){
   const source = fs.readFileSync(path);
@@ -123,14 +125,19 @@ assert.match(identities.markForEvent({ key: "cricket", name: "ICC Men's T20 Worl
 assert.match(identities.markForEvent({ key: "cricket", name: "Australia v Bangladesh — First Test", sourceUrl: "https://www.cricket.com.au/" })?.url || "", /^https:\/\/resources\.cricket-australia\.pulselive\.com\/.*\/CricketAustraliaLogoWhiteWide\.svg$/, "Australian bilateral cards must use Cricket Australia's official SVG mark");
 for (const [key, competitionId, label, host] of [
   ["sailgp", "competition:sailgp", "SailGP", "images.ctfassets.net"],
-  ["motogp", "competition:motogp", "MotoGP", "static.dorna.com"],
   ["nfl", "competition:nfl", "NFL", "upload.wikimedia.org"],
 ]){
   const mark = identities.markForEvent({ key, competitionId, name: `${label} coverage` });
   assert.equal(mark?.label, label, `${label} cards must use their competition logo`);
-  assert.match(mark?.url || "", new RegExp(`^https://${host.replaceAll(".", "\\.")}/`), `${label} must expose an image mark instead of a generic sport glyph`);
+  if(key==='sailgp')assert.equal(mark?.url,'assets/identities/sailgp/brand-light.png','SailGP keeps its complete official image locally');
+  else assert.match(mark?.url || "", new RegExp(`^https://${host.replaceAll(".", "\\.")}/`), `${label} must expose an image mark instead of a generic sport glyph`);
   assert.equal(mark?.provenance === "official-site" || mark?.provenance === "reference-library", true, `${label} must retain vetted logo provenance`);
 }
+const motoMark=identities.markForEvent({key:"motogp",competitionId:"competition:motogp"});
+assert.equal(motoMark.url,"assets/identities/motogp/badge.svg");
+assert.equal(motoMark.author,"Roundicons Premium");
+assert.equal(motoMark.assetClass,"licensed");
+assert.match(motoMark.sourceUrl,/flaticon.com/);
 const premierLeagueMarks = Object.values(identities.participantMarks).filter(mark => mark.id.startsWith("team:football:epl:"));
 assert.equal(premierLeagueMarks.length, 20, "the Premier League registry must cover all current clubs");
 premierLeagueMarks.forEach(mark => {
@@ -147,13 +154,35 @@ const footballParticipants = footballDirectory.teams.map(team => ({
   shortName:team.shortName || team.displayName,
   metadata:{ titleAliases:team.aliases || [team.displayName] },
 }));
-assert.equal(footballParticipants.length, 96, "all five active football leagues must remain available to the identity resolver");
-footballParticipants.forEach(team => {
+const championshipParticipants=footballParticipants.filter(team=>team.leagueId==='competition:australian-championship');
+const existingFootballParticipants=footballParticipants.filter(team=>team.leagueId!=='competition:australian-championship');
+assert.equal(existingFootballParticipants.length,108,"all six existing football leagues remain available to the identity resolver");
+assert.equal(championshipParticipants.length,16,"the retained Championship contributes exactly its sixteen sourced clubs");
+assert.equal(footballParticipants.length,124);
+existingFootballParticipants.forEach(team => {
   const resolved = identities.participantMarksForEvent({ key:footballDirectory.leagues.find(league => league.id === team.leagueId)?.key, participantIds:[team.id] }, footballParticipants, team.displayName);
   assert.equal(resolved.length, 1, `missing directory crest for ${team.displayName}`);
   const expectedCrest = identities.participantMarks[team.id]?.url || team.crestUrl;
   assert.equal(resolved[0].mark.url, expectedCrest, `${team.displayName} must prefer its first-party local crest, then preserve its directory crest URL`);
 });
+const championshipMarks=require('../data/football/australian-championship-marks.v1.json');
+assert.equal(championshipMarks.clubs.length,16);
+for(const team of championshipParticipants){
+  const source=championshipMarks.clubs.find(mark=>mark.participantId===team.id);
+  assert(source,`${team.id} must have its own reviewed official mark`);
+  assert.equal(team.crestUrl,source.assetPath);
+  const resolved=identities.participantMarksForEvent({key:'football',participantIds:[team.id]},footballParticipants,team.displayName);
+  assert.equal(resolved.length,1);
+  assert.equal(resolved[0].mark.url,source.assetPath,'A retained club must use its own reviewed crest');
+  for(const useDark of [false,true])assert.equal(identities.logoForTheme(resolved[0].mark,{useDark}),source.assetPath,'Both themes retain the original official artwork');
+}
+const championshipFixtures=JSON.parse(fs.readFileSync('data/code-inspector/football.json','utf8')).fixtures.filter(f=>f.competitionId==='competition:australian-championship');
+assert.equal(championshipFixtures.length,48);
+const championshipIds=new Set(championshipParticipants.map(team=>team.id));
+for(const event of championshipFixtures){
+  const sides=identities.matchupSidesForEvent(event,footballParticipants,event.name);assert.equal(sides.length,2);
+  assert(sides.every(side=>championshipIds.has(side.participant?.id)&&side.label&&side.mark?.url===championshipMarks.clubs.find(mark=>mark.participantId===side.participant.id)?.assetPath),'All retained matchups keep known sourced names and the correct club crest');
+}
 const footballFixtureEvents = ["bundesliga", "la-liga", "serie-a", "ligue-1"]
   .flatMap(leagueKey => JSON.parse(fs.readFileSync(`data/football/fixtures/${leagueKey}.json`, "utf8")).events || []);
 footballFixtureEvents.forEach(event => {
@@ -203,7 +232,7 @@ assert.equal(identities.markForEvent({ key:"football", competitionId:"competitio
 activeEventKeys.forEach(key => {
   const mark = identities.markForEvent({ key, name: "Coverage check" });
   assert(mark, `missing a card identity for active ${key} coverage`);
-  assert(["official-reference", "open-use"].includes(mark.assetClass), `${key} must use a vetted official or open-use competition mark`);
+  assert(["official-reference", "open-use", "licensed"].includes(mark.assetClass), `${key} must use a vetted official or open-use competition mark`);
   assert(mark.url || mark.glyph || mark.wordmark, `${key} must provide a high-quality image, vector or editorial wordmark`);
 });
 
@@ -225,8 +254,19 @@ assert.equal(identities.matchupSidesForEvent({ key:"tennis" }, [], "Player A v P
 (eventPayload.events || eventPayload).filter(event => identities.isTeamSportMatchup(event, event.name)).forEach(event => {
   const sides = identities.matchupSidesForEvent(event, [...activeNrlTeams, ...activeAflTeams, ...footballParticipants], event.name);
   assert.equal(sides.length, 2, `${event.id || event.name} must render exactly two ordered matchup slots`);
+  if(reviewedTextFallback.applies(event)){
+    reviewedTextFallback.assertEligible(event,sides);
+    require('./lib/peach-renderer-controls').reviewedNationalTextFallback(event);
+    return;
+  }
   sides.filter(side => !/\b(?:winner|loser|tbc|tbd)\b/i.test(side.label)).forEach(side => {
+    if(event.key === 'nrlw'){
+      // This directory has no verified artwork yet. Require the sourced identity
+      // used by the visible monogram and profile link, never a fabricated crest.
+      assert(side.participant?.id?.startsWith('team:nrlw:'), `${event.id}: missing NRLW profile identity`);
+    }else{
     assert(side.mark?.url || side.mark?.logo?.primary, `${event.id || event.name}: missing published team logo for ${side.label}`);
+    }
   });
 });
 
@@ -234,7 +274,7 @@ const cricketResolved = identities.participantMarksForEvent({ key: "cricket" }, 
 assert.deepEqual(cricketResolved.map(item => identities.aliasRange("Australia v Bangladesh — First Test", item.participant)?.text), ["Australia", "Bangladesh"]);
 assert.equal(cricketResolved[0].mark.label, "Australia cricket");
 assert.equal(cricketResolved[1].mark.label, "Bangladesh cricket");
-assert.equal(cricketResolved[0].mark.url, "assets/identities/national/cricket/australia.jpg", "Australia must use its locally stored official cricket identity");
+assert.equal(cricketResolved[0].mark.url, "assets/identities/national/cricket/australia-transparent.png", "Australia must use its locally stored official cricket identity");
 assert.equal(cricketResolved[1].mark.url, "assets/identities/national/cricket/bangladesh.jpg", "Bangladesh must use its locally stored official cricket identity");
 assert.notEqual(cricketResolved[0].mark.url, cricketResolved[1].mark.url, "Australia and Bangladesh must retain clearly distinct team identities");
 
@@ -304,6 +344,45 @@ assert(html.includes('appendTeamIdentityFallback(slot, mark, label') && html.inc
 assert(html.includes('function finalizeLoadedIdentityImage(image)') && html.includes('frame.querySelectorAll(IDENTITY_FALLBACK_SELECTOR).forEach(fallback => fallback.remove())') && html.includes('image.hidden = false'), "a successful crest must remove its own placeholder through the shared loaded-image lifecycle");
 assert(/logo\.addEventListener\("error", \(\) => \{\s*logo\.remove\(\);/.test(html), "a failed crest must leave the other side and its own placeholder intact");
 assert(!html.includes('mark?.label || "?"'), "recognised teams must never display a generic question-mark placeholder");
-assert(html.includes('mark?.label || "TBC"'), "unresolved finals participants need a semantic seed/monogram fallback");
+assert(html.includes('mark?.label || "TBD"'), "unresolved finals participants need a semantic seed/monogram fallback");
 
-console.log(`Card identities valid: ${activeNrlTeams.length} NRL, ${activeAflTeams.length} AFL, ${nflParticipants.length} NFL, ${nbaTeams.length} NBA and ${footballParticipants.length} football team marks across ${footballFixtureEvents.length} fixtures, local national-team identities, ${activeEventKeys.length} active sport/event identities, and two-slot matchup fallbacks.`);
+console.log(`Card identities valid: ${activeNrlTeams.length} NRL, ${activeAflTeams.length} AFL, ${nflParticipants.length} NFL, ${nbaTeams.length} NBA and ${existingFootballParticipants.length} Football crests plus ${championshipParticipants.length} retained clubs with official crests across ${footballFixtureEvents.length} legacy and ${championshipFixtures.length} Championship fixtures, local national-team identities, ${activeEventKeys.length} active sport/event identities, and two-slot matchup fallbacks.`);
+
+// Resolved NRLW finalists must have profile identities even without artwork.
+{
+  const api = require('../config/card-identities');
+  const event = {key:'nrlw',name:'Roosters v Broncos',participantIds:['team:nrlw:roosters','team:nrlw:broncos']};
+  const sides = api.matchupSidesForEvent(event, [], event.name);
+  require('node:assert/strict').deepEqual(sides.map(side=>side.participant.id),event.participantIds);
+}
+
+const fixtureIdentity=require("../config/fixture-identity");
+const scheduleCodes=require("../data/code-inspector/manifest.json").codes;
+assert.equal(fixtureIdentity.scheduleCode({id:"sport:fiba-women"},scheduleCodes)?.id,"competition:fiba-womens-world-cup","the exact FIBA Women alias must win over generic gender-suffix routing");
+for(const id of ["sport:tennis-women","sport:golf-women"]){assert.equal(fixtureIdentity.scheduleCode({id},scheduleCodes)?.id,id.replace(/-women$/, ""),"existing gender-scoped schedule fallback survives");}
+
+// An asset-only review must repair a carried ID without creating title aliases.
+const reviewedClubCrests=require('../config/football-club-crests.json').clubs.filter(club=>club.logoReview);
+const retainedFootballFixtures=require('../data/code-inspector/football.json').fixtures;
+for(const club of reviewedClubCrests){
+  const fixture=retainedFootballFixtures.find(event=>event.participantIds.includes(club.participantId));
+  assert(fixture,'reviewed artwork requires an existing carried fixture');
+  const sides=identities.matchupSidesForEvent(fixture,fixture.participants,fixture.name);
+  const side=sides.find(side=>side.participant?.id===club.participantId);
+  assert.equal(side?.mark.url,club.logoUrl,'the actual resolver must honour the reviewed source over retained artwork');
+  assert.equal(side.mark.sourceUrl,club.logoReview.sourceUrl,'image provenance follows its actual reviewed source');
+}
+for(const club of reviewedClubCrests){
+  const reviewedParticipant=retainedFootballFixtures.flatMap(event=>event.participants||[]).find(participant=>participant.id===club.participantId);
+  assert(reviewedParticipant,'the constructor context must include the carried reviewed club');
+  const constructorContext=[...footballDirectory.teams,reviewedParticipant];
+  const ambiguousClub={key:'football',name:`${club.displayName} v Unknown`,participantIds:[club.participantId+'-different-club','team:football:club:unresolved-opponent'],participants:[]};
+  const ambiguousSides=identities.matchupSidesForEvent(ambiguousClub,constructorContext,ambiguousClub.name);
+  assert.deepEqual(ambiguousSides.map(side=>side.participant?.id),ambiguousClub.participantIds,'the populated constructor context must preserve different explicit club IDs');
+  assert(!ambiguousSides.some(side=>side.mark?.url===club.logoUrl),'a different club must not inherit reviewed artwork by name');
+  const unknownClub={key:'football',name:ambiguousClub.name};
+  assert(!identities.matchupSidesForEvent(unknownClub,constructorContext,unknownClub.name).some(side=>side.participant?.id===club.participantId),'a title-only club must not inherit the reviewed identity from global context');
+  const swappedLabels={...ambiguousClub,participantIds:['team:football:club:unresolved-opponent',club.participantId]};
+  const swappedSides=identities.matchupSidesForEvent(swappedLabels,constructorContext,swappedLabels.name);
+  assert.deepEqual(swappedSides.map(side=>side.participant?.id),swappedLabels.participantIds,'a reviewed badge must belong to its explicitly identified fixture side');
+}

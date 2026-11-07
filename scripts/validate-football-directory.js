@@ -7,6 +7,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const flags = require("../config/country-flags.js");
 const directoryApi = require("../config/football-directory.js");
+const { readFollowApplicationSource } = require("./app-shell-test-utils");
 
 const ROOT = path.resolve(__dirname, "..");
 const DIRECTORY_PATH = path.join(ROOT, "data/canonical/football-directory.v1.json");
@@ -22,28 +23,48 @@ function validate(){
   const directory = JSON.parse(fs.readFileSync(DIRECTORY_PATH, "utf8"));
   const index = JSON.parse(fs.readFileSync(INDEX_PATH, "utf8"));
   const coreEvents = JSON.parse(fs.readFileSync(CORE_EVENTS_PATH, "utf8"));
-  const appSource = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  const appSource = readFollowApplicationSource();
   const serverSource = fs.readFileSync(path.join(ROOT, "lib/server-feed-pipeline.js"), "utf8");
   const workerSource = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
   const hierarchySource = fs.readFileSync(path.join(ROOT, "config/sport-hierarchy.js"), "utf8");
   assert.equal(directory.schemaVersion, "football-directory.v1");
-  assert.equal(directory.leagues.length, 5, "exactly the five approved leagues must be published");
-  assert(!directory.leagues.some(league => league.id === "competition:a-leagues" || league.key === "a-league-men"), "A-League Men must not remain in the active directory");
+  assert.equal(directory.leagues.length, 7, "six existing leagues and the retained Australian Championship must be published");
+  assert(directory.leagues.some(league=>league.id==='competition:australian-championship'&&league.refreshPolicy==='retained-capture-only'));
+  assert(directory.leagues.some(league => league.id === "competition:a-leagues" && league.key === "a-league-men"), "A-League Men must be available under Football leagues");
   uniqueIds(directory.leagues, "league");
   uniqueIds(directory.teams, "team");
   uniqueIds(directory.players, "player");
   const generatedAgeDays = (Date.now() - Date.parse(directory.generatedAt)) / 86400000;
   assert(generatedAgeDays >= 0 && generatedAgeDays <= 45, "football directory evidence must be checked within 45 days");
+  if(directory.refreshEvidence){
+    assert.equal(directory.refreshEvidence.kind,'complete-club-check-with-independent-rosters');
+    for(const league of directory.leagues){
+      if(league.id==='competition:australian-championship'){
+        const adapter=require('./lib/australian-championship'),expected=adapter.project(adapter.loadCapture()).sources,source=directory.sources.find(s=>league.sourceRefs.includes(s.id));assert.deepEqual(directory.sources.filter(s=>s.id.startsWith(adapter.sourceId(''))),expected,'retained Championship preserves the exact allowlisted original source clocks and routes');assert(source&&source.checkedAt===league.sourceCheckedAt&&league.refreshPolicy==='retained-capture-only','retained Championship source readiness remains separate from approved network sources');continue;
+      }
+      const source=directory.sources.find(s=>s.id===`source:football:${league.key}:clubs-current`);
+      assert(source && Date.parse(source.checkedAt)<=Date.now() && Date.now()-Date.parse(source.checkedAt)<=45*86400000,`${league.displayName} requires an actual current club observation`);
+      assert(directory.refreshEvidence.receipts.some(r=>r.url===source.url&&r.checkedAt===source.checkedAt&&/^[a-f0-9]{64}$/.test(r.sha256)),'club source requires a retained response receipt');
+    }
+    for(const player of directory.players.filter(p=>p.rosterStatus==='unconfirmed'))assert.equal(player.currentTeamStatus,'last-known','missing roster membership retains explicitly last-known context');
+  }
   const sourceIds = new Set(directory.sources.map(source => source.id));
   const leagueIds = new Set(directory.leagues.map(league => league.id));
   const teamIds = new Set(directory.teams.map(team => team.id));
+  const championshipMarks = require('../data/football/australian-championship-marks.v1.json');
   directory.leagues.forEach(league => {
     assert.equal(directory.teams.filter(team => team.leagueId === league.id).length, league.teamCount, `${league.displayName} team count must match its source snapshot`);
     league.sourceRefs.forEach(id => assert(sourceIds.has(id), `${league.displayName} has unknown source ${id}`));
   });
   directory.teams.forEach(team => {
     assert(leagueIds.has(team.leagueId), `${team.displayName} has unknown league`);
-    assert(/^https:\/\//.test(team.crestUrl), `${team.displayName} requires an HTTPS crest`);
+    if(team.leagueId==='competition:australian-championship'){
+      const mark=championshipMarks.clubs.find(row=>row.participantId===team.id);
+      assert(mark&&team.crestUrl===mark.assetPath&&team.crestSourceUrl===mark.sourceUrl&&team.crestStatus==='official-reference','Championship clubs require their own reviewed official artwork');
+      assert.deepEqual(team.crestProvenance,{sourceUrl:mark.sourceUrl,assetUrl:mark.assetUrl,verifiedAt:championshipMarks.checkedAt,sha256:mark.sha256},'Artwork keeps its independent provenance rather than renewing sporting observations');
+      assert.equal(team.playerCoverage,'unavailable','Artwork does not establish player coverage');
+    }
+    else assert(/^https:\/\//.test(team.crestUrl), `${team.displayName} requires an HTTPS crest`);
     team.sourceRefs.forEach(id => assert(sourceIds.has(id), `${team.displayName} has unknown source ${id}`));
   });
   const legacyFootballTeamIds = new Set(require("../config/team-follow-catalogue.js").teamsForDomain("sport:football")
@@ -143,7 +164,7 @@ function validate(){
   const malformed = directoryApi.parseSessionState("{bad");
   assert.equal(malformed.activeView, "tables");
   assert.equal(Object.hasOwn(malformed, "selectedSportKeys"), false, "durable selected sports must never leak into the transient session contract");
-  console.log(`Football directory valid: ${directory.teams.length} clubs and ${directory.players.length} priority players across five leagues.`);
+  console.log(`Football directory valid: ${directory.teams.length} clubs and ${directory.players.length} retained priority players across seven leagues; Championship players/artwork remain unavailable.`);
   return directory;
 }
 

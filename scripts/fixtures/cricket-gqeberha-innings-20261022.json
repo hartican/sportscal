@@ -1,0 +1,566 @@
+{
+  "_evidence": {
+    "kind": "Reconstructed regression input, not an archived Cricket Australia API response",
+    "date": "2026-10-22",
+    "snapshot": "Gqeberha second Test, day-four stumps, Australia 156/4 following on",
+    "sourceUrls": [
+      "https://mlb.cricbuzz.com/live-cricket-scorecard/147931/rsa-vs-aus-2nd-test-australia-tour-of-south-africa-2026",
+      "https://www.cricket.com.au/news/4596863/day-four-report-australia-south-africa-second-test-gqeberha-port-elizabeth-jansen-labuschagne-smith-neck-injury-head-13-wickets"
+    ],
+    "notes": "Historical totals, runs, reported order and second-innings batting figures are source-backed. Player IDs and provider envelope are test controls; missing dismissal/bowling/wicket details remain omitted or generic controls."
+  },
+  "dataSupport": {
+    "isReliableData": true
+  },
+  "responseError": null,
+  "fixture": {
+    "id": 39991,
+    "name": "2nd Test",
+    "startDateTime": "2026-10-18T08:00:00Z",
+    "endDateTime": "2026-10-22T11:00:00Z",
+    "gameType": "Test",
+    "isLive": false,
+    "isInProgress": true,
+    "isCompleted": false,
+    "gameStatus": "Stumps",
+    "matchDay": 4,
+    "numberOfDays": 5,
+    "resultText": "Stumps: Australia trail South Africa by 170 runs",
+    "homeTeam": {
+      "id": 21,
+      "name": "South Africa Men",
+      "shortName": "SA"
+    },
+    "awayTeam": {
+      "id": 23,
+      "name": "Australia Men",
+      "shortName": "AUS"
+    },
+    "competition": {
+      "id": 4568,
+      "name": "South Africa v Australia Tests 2026 - Men"
+    },
+    "venue": {
+      "name": "St George\u2019s Park",
+      "city": "Gqeberha",
+      "countryName": "South Africa"
+    },
+    "innings": [
+      {
+        "fixtureId": 39991,
+        "inningNumber": 1,
+        "battingTeamId": 21,
+        "bowlingTeamId": 23,
+        "runsScored": 425,
+        "numberOfWicketsFallen": 9,
+        "oversBowled": "127.1",
+        "totalExtras": 14,
+        "batsmen": [
+          {
+            "playerId": "test:aiden-markram",
+            "battingOrder": 1,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 11
+          },
+          {
+            "playerId": "test:marques-ackerman",
+            "battingOrder": 2,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 6
+          },
+          {
+            "playerId": "test:david-bedingham",
+            "battingOrder": 3,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 0
+          },
+          {
+            "playerId": "test:temba-bavuma",
+            "battingOrder": 4,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 179
+          },
+          {
+            "playerId": "test:matthew-breetzke",
+            "battingOrder": 5,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 4
+          },
+          {
+            "playerId": "test:ryan-rickelton",
+            "battingOrder": 6,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 31
+          },
+          {
+            "playerId": "test:wiaan-mulder",
+            "battingOrder": 7,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 13
+          },
+          {
+            "playerId": "test:marco-jansen",
+            "battingOrder": 8,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 85
+          },
+          {
+            "playerId": "test:simon-harmer",
+            "battingOrder": 9,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 82
+          },
+          {
+            "playerId": "test:kagiso-rabada",
+            "battingOrder": 10,
+            "dismissalTypeId": "not out",
+            "dismissalText": "not out",
+            "isOut": false,
+            "isBatting": false,
+            "runsScored": 0
+          },
+          {
+            "playerId": "test:anrich-nortje",
+            "battingOrder": 11,
+            "dismissalTypeId": "yet to bat",
+            "dismissalText": "yet to bat",
+            "isOut": false,
+            "isBatting": false
+          }
+        ],
+        "bowlers": [],
+        "wickets": [],
+        "isDeclared": true
+      },
+      {
+        "fixtureId": 39991,
+        "inningNumber": 2,
+        "battingTeamId": 23,
+        "bowlingTeamId": 21,
+        "runsScored": 99,
+        "numberOfWicketsFallen": 10,
+        "oversBowled": "42.3",
+        "totalExtras": 6,
+        "batsmen": [
+          {
+            "playerId": "test:nic-maddinson",
+            "battingOrder": 1,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 0,
+            "ballsFaced": 4
+          },
+          {
+            "playerId": "test:travis-head",
+            "battingOrder": 2,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 14,
+            "ballsFaced": 24
+          },
+          {
+            "playerId": "test:scott-boland",
+            "battingOrder": 3,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 2,
+            "ballsFaced": 14
+          },
+          {
+            "playerId": "test:marnus-labuschagne",
+            "battingOrder": 4,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 14,
+            "ballsFaced": 25
+          },
+          {
+            "playerId": "test:steve-smith",
+            "battingOrder": 5,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 28,
+            "ballsFaced": 88
+          },
+          {
+            "playerId": "test:matt-renshaw",
+            "battingOrder": 6,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 12,
+            "ballsFaced": 48
+          },
+          {
+            "playerId": "test:alex-carey",
+            "battingOrder": 7,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 0,
+            "ballsFaced": 2
+          },
+          {
+            "playerId": "test:beau-webster",
+            "battingOrder": 8,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 13,
+            "ballsFaced": 28
+          },
+          {
+            "playerId": "test:pat-cummins",
+            "battingOrder": 9,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 7,
+            "ballsFaced": 16
+          },
+          {
+            "playerId": "test:mitchell-starc",
+            "battingOrder": 10,
+            "isOut": true,
+            "isBatting": false,
+            "runsScored": 1,
+            "ballsFaced": 4
+          },
+          {
+            "playerId": "test:josh-hazlewood",
+            "battingOrder": 11,
+            "dismissalTypeId": "not out",
+            "dismissalText": "not out",
+            "isOut": false,
+            "isBatting": false,
+            "runsScored": 2,
+            "ballsFaced": 3
+          }
+        ],
+        "bowlers": [],
+        "wickets": []
+      },
+      {
+        "fixtureId": 39991,
+        "inningNumber": 3,
+        "battingTeamId": 23,
+        "bowlingTeamId": 21,
+        "runsScored": 156,
+        "numberOfWicketsFallen": 4,
+        "oversBowled": "54",
+        "totalExtras": 1,
+        "batsmen": [
+          {
+            "playerId": "test:nic-maddinson",
+            "battingOrder": 1,
+            "dismissalTypeId": "c Ryan Rickelton b Kagiso Rabada",
+            "dismissalText": "c Ryan Rickelton b Kagiso Rabada",
+            "isOut": true,
+            "isBatting": false,
+            "foursScored": 2,
+            "sixesScored": 0,
+            "strikeRate": 80,
+            "runsScored": 8,
+            "ballsFaced": 10
+          },
+          {
+            "playerId": "test:travis-head",
+            "battingOrder": 2,
+            "dismissalTypeId": "not out",
+            "dismissalText": "not out",
+            "isOut": false,
+            "isBatting": true,
+            "foursScored": 9,
+            "sixesScored": 0,
+            "strikeRate": 63.04,
+            "runsScored": 87,
+            "ballsFaced": 138
+          },
+          {
+            "playerId": "test:marnus-labuschagne",
+            "battingOrder": 3,
+            "dismissalTypeId": "c Marco Jansen b Simon Harmer",
+            "dismissalText": "c Marco Jansen b Simon Harmer",
+            "isOut": true,
+            "isBatting": false,
+            "foursScored": 4,
+            "sixesScored": 0,
+            "strikeRate": 39.8,
+            "runsScored": 39,
+            "ballsFaced": 98
+          },
+          {
+            "playerId": "test:matt-renshaw",
+            "battingOrder": 4,
+            "dismissalTypeId": "b Kagiso Rabada",
+            "dismissalText": "b Kagiso Rabada",
+            "isOut": true,
+            "isBatting": false,
+            "foursScored": 2,
+            "sixesScored": 0,
+            "strikeRate": 47.83,
+            "runsScored": 11,
+            "ballsFaced": 23
+          },
+          {
+            "playerId": "test:beau-webster",
+            "battingOrder": 5,
+            "dismissalTypeId": "lbw b Simon Harmer",
+            "dismissalText": "lbw b Simon Harmer",
+            "isOut": true,
+            "isBatting": false,
+            "foursScored": 0,
+            "sixesScored": 0,
+            "strikeRate": 24.24,
+            "runsScored": 8,
+            "ballsFaced": 33
+          },
+          {
+            "playerId": "test:scott-boland",
+            "battingOrder": 6,
+            "dismissalTypeId": "not out",
+            "dismissalText": "not out",
+            "isOut": false,
+            "isBatting": true,
+            "foursScored": 0,
+            "sixesScored": 0,
+            "strikeRate": 8.7,
+            "runsScored": 2,
+            "ballsFaced": 23
+          },
+          {
+            "playerId": "test:steve-smith",
+            "battingOrder": 7,
+            "dismissalTypeId": "yet to bat",
+            "dismissalText": "yet to bat",
+            "isOut": false,
+            "isBatting": false
+          },
+          {
+            "playerId": "test:alex-carey",
+            "battingOrder": 8,
+            "dismissalTypeId": "yet to bat",
+            "dismissalText": "yet to bat",
+            "isOut": false,
+            "isBatting": false
+          },
+          {
+            "playerId": "test:pat-cummins",
+            "battingOrder": 9,
+            "dismissalTypeId": "yet to bat",
+            "dismissalText": "yet to bat",
+            "isOut": false,
+            "isBatting": false
+          },
+          {
+            "playerId": "test:mitchell-starc",
+            "battingOrder": 10,
+            "dismissalTypeId": "yet to bat",
+            "dismissalText": "yet to bat",
+            "isOut": false,
+            "isBatting": false
+          },
+          {
+            "playerId": "test:josh-hazlewood",
+            "battingOrder": 11,
+            "dismissalTypeId": "yet to bat",
+            "dismissalText": "yet to bat",
+            "isOut": false,
+            "isBatting": false
+          }
+        ],
+        "bowlers": [],
+        "wickets": [],
+        "isFollowOn": true,
+        "noBalls": 1,
+        "byesRuns": 0,
+        "legByesRuns": 0,
+        "wideBalls": 0,
+        "penalties": 0
+      }
+    ]
+  },
+  "players": [
+    {
+      "id": "test:nic-maddinson",
+      "teamId": 23,
+      "name": "Nic Maddinson",
+      "displayName": "Nic Maddinson",
+      "order": 1,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:travis-head",
+      "teamId": 23,
+      "name": "Travis Head",
+      "displayName": "Travis Head",
+      "order": 2,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:scott-boland",
+      "teamId": 23,
+      "name": "Scott Boland",
+      "displayName": "Scott Boland",
+      "order": 3,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:marnus-labuschagne",
+      "teamId": 23,
+      "name": "Marnus Labuschagne",
+      "displayName": "Marnus Labuschagne",
+      "order": 4,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:steve-smith",
+      "teamId": 23,
+      "name": "Steve Smith",
+      "displayName": "Steve Smith",
+      "order": 5,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:matt-renshaw",
+      "teamId": 23,
+      "name": "Matt Renshaw",
+      "displayName": "Matt Renshaw",
+      "order": 6,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:alex-carey",
+      "teamId": 23,
+      "name": "Alex Carey",
+      "displayName": "Alex Carey",
+      "order": 7,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:beau-webster",
+      "teamId": 23,
+      "name": "Beau Webster",
+      "displayName": "Beau Webster",
+      "order": 8,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:pat-cummins",
+      "teamId": 23,
+      "name": "Pat Cummins",
+      "displayName": "Pat Cummins",
+      "order": 9,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:mitchell-starc",
+      "teamId": 23,
+      "name": "Mitchell Starc",
+      "displayName": "Mitchell Starc",
+      "order": 10,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:josh-hazlewood",
+      "teamId": 23,
+      "name": "Josh Hazlewood",
+      "displayName": "Josh Hazlewood",
+      "order": 11,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:aiden-markram",
+      "teamId": 21,
+      "name": "Aiden Markram",
+      "displayName": "Aiden Markram",
+      "order": 1,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:marques-ackerman",
+      "teamId": 21,
+      "name": "Marques Ackerman",
+      "displayName": "Marques Ackerman",
+      "order": 2,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:david-bedingham",
+      "teamId": 21,
+      "name": "David Bedingham",
+      "displayName": "David Bedingham",
+      "order": 3,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:temba-bavuma",
+      "teamId": 21,
+      "name": "Temba Bavuma",
+      "displayName": "Temba Bavuma",
+      "order": 4,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:matthew-breetzke",
+      "teamId": 21,
+      "name": "Matthew Breetzke",
+      "displayName": "Matthew Breetzke",
+      "order": 5,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:ryan-rickelton",
+      "teamId": 21,
+      "name": "Ryan Rickelton",
+      "displayName": "Ryan Rickelton",
+      "order": 6,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:wiaan-mulder",
+      "teamId": 21,
+      "name": "Wiaan Mulder",
+      "displayName": "Wiaan Mulder",
+      "order": 7,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:marco-jansen",
+      "teamId": 21,
+      "name": "Marco Jansen",
+      "displayName": "Marco Jansen",
+      "order": 8,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:simon-harmer",
+      "teamId": 21,
+      "name": "Simon Harmer",
+      "displayName": "Simon Harmer",
+      "order": 9,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:kagiso-rabada",
+      "teamId": 21,
+      "name": "Kagiso Rabada",
+      "displayName": "Kagiso Rabada",
+      "order": 10,
+      "isTwelthMan": false
+    },
+    {
+      "id": "test:anrich-nortje",
+      "teamId": 21,
+      "name": "Anrich Nortje",
+      "displayName": "Anrich Nortje",
+      "order": 11,
+      "isTwelthMan": false
+    }
+  ]
+}

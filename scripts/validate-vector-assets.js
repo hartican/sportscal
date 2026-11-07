@@ -35,15 +35,36 @@ sportRegistry.domains.filter(domain => domain.domainId.startsWith("sport:")).for
 sportRegistry.domains.filter(domain => domain.domainId.startsWith("special:")).forEach(domain => {
   assert(canonicalSpecialEventIds.has(domain.domainId), `${domain.key} must map to a canonical special-event domain`);
 });
-sportRegistry.domains.forEach(domain => {
-  assert(domain.narrativeProfile?.id, `${domain.key} must select a sport-specific narrative profile`);
-  assert(domain.narrativeProfile.signals.length > 0, `${domain.key} must configure at least one narrative signal`);
-  domain.narrativeProfile.signals.forEach(signal => assert.doesNotThrow(() => new RegExp(signal.match, "i"), `${domain.key} narrative signals must compile`));
-});
+function validateNarrativeProfile(domain){
+  const profile = domain.narrativeProfile;
+  if (profile === undefined){
+    assert.equal(domain.supportsNarrative, false, `${domain.key} must explicitly disable narrative support when no profile is declared`);
+    return;
+  }
+  assert(typeof profile?.id === "string" && profile.id.trim(), `${domain.key} must select a sport-specific narrative profile`);
+  assert(Array.isArray(profile.signals) && profile.signals.length > 0, `${domain.key} must configure at least one narrative signal`);
+  profile.signals.forEach(signal => {
+    assert(typeof signal?.match === "string" && signal.match.trim(), `${domain.key} narrative signals must declare a pattern`);
+    assert.doesNotThrow(() => new RegExp(signal.match, "i"), `${domain.key} narrative signals must compile`);
+  });
+}
+sportRegistry.domains.forEach(validateNarrativeProfile);
+
+// Explicitly unsupported domains need no fabricated editorial profile. Every
+// declared profile remains strict, including profiles retained on legacy codes.
+assert.doesNotThrow(() => validateNarrativeProfile({ key:"qa-unsupported", supportsNarrative:false }));
+for (const supportsNarrative of [true, undefined]){
+  assert.throws(() => validateNarrativeProfile({ key:"qa-missing", supportsNarrative }), /explicitly disable narrative support/);
+}
+for (const supportsNarrative of [false, true, undefined]){
+  assert.doesNotThrow(() => validateNarrativeProfile({ key:"qa-valid", supportsNarrative, narrativeProfile:{ id:"narrative:qa", signals:[{match:"rival|final"}] } }));
+  for (const narrativeProfile of [null, {}, {id:"",signals:[{match:"final"}]}, {id:"narrative:qa",signals:[]}, {id:"narrative:qa",signals:null}, {id:"narrative:qa",signals:[{}]}, {id:"narrative:qa",signals:[{match:""}]}, {id:"narrative:qa",signals:[{match:"["}]}]){
+    assert.throws(() => validateNarrativeProfile({ key:"qa-malformed", supportsNarrative, narrativeProfile }), /narrative|profile|pattern/);
+  }
+}
 
 Object.values(vectorAssets.openUse).filter(entry => entry.render === "mask").forEach(entry => {
-  assert.equal(entry.library, "Sporticon");
-  assert.equal(entry.license, "Apache-2.0");
+  if(entry.key === "sport:motorcycle"){assert.equal(entry.author,"Magnific");assert.match(entry.license,/Flaticon/);}else{assert.equal(entry.library, "Sporticon");assert.equal(entry.license, "Apache-2.0");}
   assert(fs.existsSync(entry.path), `Sporticon file must exist: ${entry.path}`);
   assert.match(fs.readFileSync(entry.path, "utf8"), /<svg\b/i, `${entry.path} must be an SVG`);
   assert(serviceWorker.includes(`/${entry.path}`), `${entry.path} must be available offline`);
@@ -77,7 +98,7 @@ editorialLabels.forEach(label => assert.match(vectorAssets.editorialMarkup(label
 ["off", "on", "synced", "missed"].forEach(state => assert.match(vectorAssets.reminderMarkup(state), /<svg\b/, `${state} reminder state must render`));
 const stableCardSportIcon = vectorAssets.glyphMarkup("sport:rugby", { label: "Rugby", preferImage: true });
 assert.match(stableCardSportIcon, /<img\b/, "card sport icons must avoid Safari's scroll-sensitive CSS mask rendering path");
-assert.match(stableCardSportIcon, /assets\/icons\/sporticon\/rugby\.svg/, "stable card sport icons must retain the licensed local Sporticon asset");
+assert.match(stableCardSportIcon, /data:image\/svg\+xml/, "board-inspired sport icons retain the stable local image-backed rendering path");
 assert.doesNotMatch(stableCardSportIcon, /vector-mask/, "stable card sport icons must not use CSS masks");
 const stableCardClockIcon = vectorAssets.glyphMarkup("ui:clock", { label: "Start time", preferImage: true });
 assert.match(stableCardClockIcon, /<img\b/, "small card controls must use an image-backed glyph on Safari");
@@ -96,14 +117,14 @@ assert.match(stableCardIntensityIcon, /<img\b/, "small stakes card glyphs must u
 
 assert(!html.includes('src="data/events.js"'), "the generated direct-file event bundle must not block the initial parser");
 assert(html.includes('function loadLatestBundledEvents()') && html.includes('return reloadBundledEventsScript();'), "the generated direct-file event bundle must remain available as an on-demand fallback");
-const uiSource = html;
+const uiSource = require("./app-shell-test-utils").readCardApplicationSource();
 const cardUiSource = uiSource.slice(uiSource.indexOf("function buildEventCard(ev"),uiSource.indexOf("function jointTournamentIsActive"))
-  + uiSource.slice(uiSource.indexOf("function buildMajorEventCard"),uiSource.indexOf("function buildTicketSaleCard"));
+  + require("./app-shell-test-utils").readCardFunction("buildDetailedMajorEventCard");
 assert.doesNotMatch(cardUiSource, /\p{Extended_Pictographic}|\p{Regional_Indicator}{2}/u, "sporting card graphics must not use emoji; native chat reactions and copyright text are separate");
 assert.match(uiSource, /function stripDecorativeGlyphs/, "legacy editorial glyphs must be removed before rendering or export");
 assert.match(uiSource, /class="skip-link"/, "keyboard users must receive a skip link");
 assert.match(uiSource, /prefers-reduced-motion/, "reduced-motion preferences must be honoured");
 assert.doesNotMatch(uiSource, /\bcard\.setAttribute\("role", "button"\)/, "event cards must not create nested interactive button roles");
-assert.match(uiSource, /button\.className = `event-card-control traffic-\$\{name\}`/, "event disclosure must use the shared native keyboard-operable traffic control");
+assert.match(uiSource, /button=document\.createElement\('button'\);button\.type='button';button\.className='event-card-disclosure'/, "event disclosure must use the shared native keyboard-operable control");
 
 console.log(`Vector asset validation passed (${Object.keys(vectorAssets.openUse).length} open-use entries, ${sportRegistry.domains.length} configured sport keys).`);

@@ -1,0 +1,153 @@
+{
+  "schemaVersion": "sailgp-reviewed-calendar.v1",
+  "year": 2027,
+  "collectionId": "2Zz90QAkUc0Vdhi3TR3M4Y",
+  "sourceUrl": "https://sailgp.com/general/2027/calendar/",
+  "checkedAt": "2026-10-02T18:24:00.000Z",
+  "sourceSnapshotSha256": "61a342ffdc30929bce1180640a6b5c9fadcbbf9bd9ec97e8328b872a6b5e897c",
+  "races": [
+    {
+      "contentfulId": "IgQ23q8LBbVltWstFtpDY",
+      "name": "Hong Kong Sail Grand Prix",
+      "locationName": "Hong Kong",
+      "startDateTime": "2027-01-23T13:00:00.000+08:00",
+      "endDateTime": "2027-01-24T14:30:00.000+08:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 1",
+      "ctaLink": "https://sailgp.com/races/2027/hong-kong-sail-grand-prix/overview/",
+      "raceDays": []
+    },
+    {
+      "contentfulId": "2r4DE3N7mvWlWOGcU9RJJ2",
+      "name": "Australia Sail Grand Prix | Perth",
+      "locationName": "Perth",
+      "startDateTime": "2027-02-20T14:00:00.000+08:00",
+      "endDateTime": "2027-02-21T15:30:00.000+08:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 2",
+      "ctaLink": "https://sailgp.com/races/2027/perth-sail-grand-prix/overview/",
+      "raceDays": []
+    },
+    {
+      "contentfulId": "327YRQ4pUdjea68UfOsuoS",
+      "name": "San Francisco Sail Grand Prix",
+      "locationName": "San Francisco",
+      "startDateTime": "2027-04-03T13:00:00.000-07:00",
+      "endDateTime": "2027-04-04T14:30:00.000-07:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 3",
+      "ctaLink": "https://sailgp.com/races/2027/san-francisco-sail-grand-prix/overview/",
+      "raceDays": []
+    },
+    {
+      "contentfulId": "7qJyxcgDJfwlKk8TATQq8f",
+      "name": "Apex Bermuda Sail Grand Prix",
+      "locationName": "Bermuda",
+      "startDateTime": "2027-05-01T13:00:00.000-03:00",
+      "endDateTime": "2027-05-02T14:30:00.000-03:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 4",
+      "ctaLink": "https://sailgp.com/races/2027/bermuda-sail-grand-prix/overview/",
+      "raceDays": []
+    },
+    {
+      "contentfulId": "6j4IhFWJfRY59JOkFjiwv0",
+      "name": "Canada Sail Grand Prix | Halifax",
+      "locationName": "Halifax",
+      "startDateTime": "2027-05-15T13:00:00.000-03:00",
+      "endDateTime": "2027-05-16T14:30:00.000-03:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 5",
+      "ctaLink": "https://sailgp.com/races/2027/canada-sail-grand-prix-halifax/overview/",
+      "raceDays": []
+    },
+    {
+      "contentfulId": "4X43d3gK3p4JUrCuh2Rlqp",
+      "name": "New York Sail Grand Prix",
+      "locationName": "New York",
+      "startDateTime": "2027-06-05T13:00:00.000-04:00",
+      "endDateTime": "2027-06-06T14:30:00.000-04:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 6",
+      "ctaLink": "https://sailgp.com/races/2027/new-york-sail-grand-prix/overview/",
+      "raceDays": []
+    },
+    {
+      "contentfulId": "2bfD2a6efAqN6puLlfQphj",
+      "name": "Emirates Great Britain Sail Grand Prix | Portsmouth",
+      "locationName": "Portsmouth",
+      "startDateTime": "2027-07-24T13:00:00.000+01:00",
+      "endDateTime": "2027-07-25T14:30:00.000+01:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 7",
+      "ctaLink": "https://sailgp.com/races/2027/great-britain-sail-grand-prix/overview/",
+      "raceDays": []
+    },
+    {
+      "contentfulId": "6E5cnnObgiyQQX0bcVknHj",
+      "name": "Germany Sail Grand Prix | Sassnitz",
+      "locationName": "Sassnitz",
+      "startDateTime": "2027-08-14T13:00:00.000+02:00",
+      "endDateTime": "2027-08-15T14:30:00.000+02:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 8",
+      "ctaLink": "https://sailgp.com/races/2027/germany-sail-grand-prix-sassnitz/overview/",
+      "raceDays": []
+    },
+    {
+      "contentfulId": "7TXUi56ouygchkBU7QfiI",
+      "name": "Spain Sail Grand Prix | Valencia",
+      "locationName": "Valencia",
+      "startDateTime": "2027-09-04T13:00:00.000+02:00",
+      "endDateTime": "2027-09-05T14:30:00.000+02:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 9",
+      "ctaLink": "https://sailgp.com/races/2027/spain-sail-grand-prix-valencia/overview/",
+      "raceDays": []
+    },
+    {
+      "contentfulId": "5ElodgJmWgNcRELXPgrgOo",
+      "name": "Italy Sail Grand Prix | Rome",
+      "locationName": "Rome",
+      "startDateTime": "2027-09-11T13:00:00.000+02:00",
+      "endDateTime": "2027-09-12T14:30:00.000+02:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 10",
+      "ctaLink": "https://sailgp.com/races/2027/italy-sail-grand-prix-rome/overview/",
+      "raceDays": []
+    },
+    {
+      "contentfulId": "1VzIzvXDU8GYfGHQZGTlXP",
+      "name": "Enel Rio Sail Grand Prix",
+      "locationName": "Rio",
+      "startDateTime": "2027-10-09T13:00:00.000-03:00",
+      "endDateTime": "2027-10-10T14:30:00.000-03:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 11",
+      "ctaLink": "https://sailgp.com/races/2027/rio-sail-grand-prix/overview/",
+      "raceDays": []
+    },
+    {
+      "contentfulId": "51ZDkGLtH63XW3uwY7o4nQ",
+      "name": "Emirates Dubai Sail Grand Prix,  Presented by DP World",
+      "locationName": "Dubai",
+      "startDateTime": "2027-11-20T13:00:00.000+04:00",
+      "endDateTime": "2027-11-21T14:30:00.000+04:00",
+      "tbcDatesTextOverride": null,
+      "eventLabel": "Event 12",
+      "ctaLink": "https://sailgp.com/races/2027/dubai-sail-grand-prix/overview/",
+      "raceDays": []
+    },
+    {
+      "contentfulId": "bXlwDhALwhrTTIYllqyhX",
+      "name": "Rolex SailGP Championship 2027 Season Grand Final",
+      "locationName": "Grand Final",
+      "startDateTime": "2027-11-27T13:00:00.000+04:00",
+      "endDateTime": "2027-11-28T14:30:00.000+04:00",
+      "tbcDatesTextOverride": "NOV/DEC 2027",
+      "eventLabel": "Event 13",
+      "ctaLink": "https://sailgp.com/races/2027/rolex-sailgp-championship-grand-final/overview/",
+      "raceDays": []
+    }
+  ]
+}

@@ -15,7 +15,13 @@ const { fixtureIdentityKey } = require(path.join(ROOT, "scripts/lib/major-event-
 const usOpen = JSON.parse(fs.readFileSync(path.join(ROOT, "data/major-events.v1.json"), "utf8"))
   .events.find(record => record.id === "major-event:us-open-2026");
 const usOpenSnapshot = JSON.parse(fs.readFileSync(path.join(ROOT, "feeds/provider-exports/tennis/us-open-2026-official-schedule.json"), "utf8"));
-const reference = new Date(usOpenSnapshot.capturedAt);
+// Exercise an in-tournament timeline independently of the latest archival fetch time.
+const reference = new Date("2026-09-01T05:30:00.000Z");
+usOpen.lifecycleStatus="active";
+usOpen.subEvents=usOpen.subEvents.map(event=>{
+ const start=Date.parse(event.startTimeUtc||event.sessionStartTimeUtc||`${event.date}T23:59:59Z`);
+ return start>+reference?{...event,status:"scheduled"}:event;
+});
 const neutralPlayerFixture = usOpenRefresh.fixtureFromMatch({
   order:1,
   match_id:"neutral-country-regression",
@@ -144,17 +150,35 @@ assert(!Number.isNaN(Date.parse(watchPool.sourceReviewAfter)), "watch-pool evide
 assert(watchPool.collections.every(collection => collection.parentId === "sport:tennis" && (collection.memberIds.length || collection.includeTour)), "static and tour-expanded collections require an explicit membership basis");
 
 const tennisDirectory = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/tennis.v1.json"), "utf8"));
-assert.equal(tennisDirectory.collections.length, 8, "the lazy Tennis directory must publish the original groups plus ATP/WTA watch lists");
+const womensDirectory=require("../data/follow-directory/tennis-women.v1.json");
+assert.equal(new Set([...tennisDirectory.collections,...womensDirectory.collections].map(c=>c.id)).size, 8, "the lazy Tennis directory must publish the original groups plus ATP/WTA watch lists");
 assert.equal(tennisDirectory.collections.find(item => item.id === "collection:tennis:mens-top-10").memberIds.length, 10);
-assert.equal(tennisDirectory.collections.find(item => item.id === "collection:tennis:womens-top-10").memberIds.length, 10);
+assert.equal(womensDirectory.collections.find(item => item.id === "collection:tennis:womens-top-10").memberIds.length, 10);
 
-const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+const html = require("./app-shell-test-utils").readFollowApplicationSource()+'\n'+require('./app-shell-test-utils').readCardApplicationSource({includeHtml:false});
 const worker = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
 require("./app-shell-test-utils").assertShellModule(html,"config/follow-first.js");
 assert(/ensureFollowCollectionDirectories\(userPreferences\)\.then\(\(\) => \{[\s\S]{0,500}renderAll\(\{ preserveViewport:true \}\)/.test(html), "saved collection follows must automatically re-render Feed and Events when their lazy directory becomes available");
 assert(html.includes("activeMajorEventNowId") && html.includes("events-now-marker"), "Events must keep one active card-local Now marker");
-assert(html.includes("Follow Event") && html.includes("Unfollow Event"), "Event cards must expose family follow controls");
-assert(html.includes("renderTennisFollowCollections"), "Sports & Australia must expose expandable Tennis collections");
+assert(html.includes('navigationRow.appendChild(buildEventEditionToggle('), 'Events cards mount the current edition follow control');
+// Exercise the mounted control rather than expecting retired label capitalisation.
+const toggleSource=html.match(/function eventEditionFollowed\(event\)\{[\s\S]*?\n\}/)?.[0]+'\n'+html.match(/function buildEventEditionToggle\(event\)\{[\s\S]*?\n\}/)?.[0];
+assert(toggleSource.includes('return button;'),'actual edition follow builder');
+const buttons=[],ctx={FOLLOW_FEED_POLICY:require('../config/follow-feed-policy'),NOTHINGSPORTS_TENNIS_FEED:require('../config/tennis-feed'),userPreferences:followFirst.migratePreferences({showSpoilers:false,reminderChoice:'off'}),followCollectionsById:()=>({}),nowAEST:()=>reference,tennisFeedParentDocument:null,clonePreferences:structuredClone,activeTab:'events',document:{createElement:()=>{const attrs={},button={dataset:{},setAttribute:(key,value)=>attrs[key]=value,getAttribute:key=>attrs[key]};buttons.push(button);return button;},querySelectorAll:()=>buttons}};
+ctx.savePreferences=next=>{ctx.userPreferences=next;return true;};
+require('node:vm').createContext(ctx);require('node:vm').runInContext(toggleSource,ctx);
+const edition={id:'controlled-overview',key:'tennis',cardType:'tennis_parent',tournamentParent:true,tournamentId:'controlled-edition',tournamentLevel:'500',date:reference.toISOString().slice(0,10),endDate:reference.toISOString().slice(0,10),participantIds:[]},facts=JSON.stringify(edition);
+const button=ctx.buildEventEditionToggle(edition),same=ctx.buildEventEditionToggle(edition),other=ctx.buildEventEditionToggle({...edition,tournamentId:'other-edition'});
+assert.equal(button.type,'button');assert.equal(button.textContent,'Follow event');assert.equal(button.getAttribute('aria-pressed'),'false');
+let stopped=0;button.onclick({stopPropagation:()=>stopped++});
+assert.equal(ctx.userPreferences.followFirst.eventEditionDecisions.states['controlled-edition'],'followed');assert.equal(button.textContent,'Unfollow event');assert.equal(same.getAttribute('aria-pressed'),'true');assert.equal(other.getAttribute('aria-pressed'),'false','another edition stays unchanged');
+assert.equal(ctx.eventEditionFollowed(edition),true,'the saved edition choice remains followed even when its marker is ineligible');
+assert.equal(ctx.NOTHINGSPORTS_TENNIS_FEED.reason(edition,ctx.userPreferences,{now:reference}),null,'following an unknown ongoing field must not admit a marker or invent participants');
+button.onclick({stopPropagation:()=>stopped++});assert.equal(stopped,2);assert.equal(ctx.userPreferences.followFirst.eventEditionDecisions.states['controlled-edition'],'excluded');assert.equal(button.textContent,'Follow event');assert.equal(same.getAttribute('aria-pressed'),'false');assert.equal(ctx.userPreferences.showSpoilers,false);assert.equal(ctx.userPreferences.reminderChoice,'off');assert.equal(JSON.stringify(edition),facts,'clicks do not rewrite source fixture facts');
+const rejectedPreferences=JSON.stringify(ctx.userPreferences),rejectedLabel=button.textContent,rejectedPressed=same.getAttribute('aria-pressed');ctx.savePreferences=()=>false;button.onclick({stopPropagation:()=>stopped++});assert.equal(JSON.stringify(ctx.userPreferences),rejectedPreferences,'a rejected durable save cannot change admission');assert.equal(button.textContent,rejectedLabel,'a rejected durable save cannot repaint the initiating control');assert.equal(same.getAttribute('aria-pressed'),rejectedPressed,'a rejected durable save cannot repaint its paired control');assert.equal(other.getAttribute('aria-pressed'),'false');assert.equal(ctx.userPreferences.showSpoilers,false);assert.equal(ctx.userPreferences.reminderChoice,'off');assert.equal(JSON.stringify(edition),facts);
+
+assert.equal(ctx.eventEditionFollowed(edition),false,'saved OFF remains authoritative regardless of marker eligibility');
+assert(html.includes('buildDirectorySelect("List", filters.collectionId, listOptions, collectionId =>') && html.includes('updateDirectoryFilters(sportKey, { collectionId }); renderStandingsContext();') && html.includes('.filter(record => !filters.collectionId || selectedCollectionMemberIds.has(record.id))'), 'current Tennis lists filter directory records without subscribing to a group');
 assert(html.includes("follow-more-trigger") && html.includes("followBrowse"), "Follow must preserve sport navigation state in the fixed icon directory");
 
 console.log("Event Now, hierarchical Tennis follows and personalised Standings contracts passed.");

@@ -73,8 +73,11 @@
 
   function resolveAction(event, actions){
     const source = actions && typeof actions === "object" && !Array.isArray(actions) ? actions : {};
+    return resolveMatchedAction(event,source,matchingKeys(event,source));
+  }
+
+  function resolveMatchedAction(event,source,matchedKeys){
     const key = stableKey(event);
-    const matchedKeys = matchingKeys(event, source);
     const selectedKey = matchedKeys
       .map((matchedKey, index) => ({
         key: matchedKey,
@@ -92,20 +95,40 @@
       key,
       matchedKey: selectedKey,
       matchedKeys,
-      action: selectedKey ? source[selectedKey] : null,
+      action: selectedKey ? (()=>{const selected=source[selectedKey],purged=matchedKeys.map(k=>source[k]).find(a=>a.isPurged);return purged?{...selected,isPurged:true,purgedAt:purged.purgedAt}:selected;})() : null,
+    };
+  }
+
+  // One immutable request snapshot. Mutable browser callers keep resolveAction.
+  function createActionResolver(actions){
+    const source=actions&&typeof actions==='object'&&!Array.isArray(actions)?actions:{};
+    const aliases=new Map(),order=new Map();
+    for(const [key,action] of Object.entries(source)){
+      if(!action||typeof action!=='object'||Array.isArray(action))continue;
+      order.set(key,order.size);
+      for(const alias of aliasesForStoredAction(key,action)){
+        if(!aliases.has(alias))aliases.set(alias,[]);
+        aliases.get(alias).push(key);
+      }
+    }
+    return event=>{
+      const keys=new Set();
+      for(const alias of aliasesForEvent(event))for(const key of aliases.get(alias)||[])keys.add(key);
+      return resolveMatchedAction(event,source,[...keys].sort((a,b)=>order.get(a)-order.get(b)));
     };
   }
 
   function migrateActions(actions){
     const source = actions && typeof actions === "object" && !Array.isArray(actions) ? actions : {};
     const migrated = {};
-    const selected = new Map();
+    const selected = new Map(), purges = new Map();
     Object.entries(source).forEach(([key, action], index) => {
       if (!action || typeof action !== "object" || Array.isArray(action)){
         migrated[key] = action;
         return;
       }
       const targetKey = inferredStoredKey(key, action) || key;
+      if(action.isPurged)purges.set(targetKey,action);
       const candidate = {
         key,
         action,
@@ -122,7 +145,9 @@
       }
     });
     selected.forEach((candidate, targetKey) => {
-      migrated[targetKey] = candidate.action;
+      const purge=purges.get(targetKey);
+      migrated[targetKey] = purge ? {...candidate.action,...purge,isPurged:true,saved:false,watchLater:false,archived:false,addedToFixtures:false} : candidate.action;
+      if(purge){delete migrated[targetKey].addedFixture;delete migrated[targetKey].snapshot;}
     });
     return migrated;
   }
@@ -140,10 +165,12 @@
     ]);
     next[key] = {
       ...action,
+      ...(resolveAction(event,source).action?.isPurged?{isPurged:true,purgedAt:resolveAction(event,source).action.purgedAt,saved:false,watchLater:false,archived:false,addedToFixtures:false}:{}),
       actionKey: key,
       ...(canonicalEventId ? { canonicalEventId } : {}),
       ...(sourceEventIds.length ? { sourceEventIds } : {}),
     };
+    if(next[key]?.isPurged){delete next[key].addedFixture;delete next[key].snapshot;}
     return next;
   }
 
@@ -152,6 +179,7 @@
       return resolveAction(event, actions).action || {};
     },
     aliasesForEvent,
+    createActionResolver,
     matchingKeys,
     migrateActions,
     resolveAction,

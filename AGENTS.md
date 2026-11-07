@@ -37,15 +37,6 @@ Notes
 - For one-shot automation prefer print mode (-p) to avoid interactive dialogs.
 - If you prefer a single-click resume, use the provided scripts/claude_resume_tmux.sh (executable).
 
-Sports coverage request register
--------------------------------
-- Record every new request to add, deepen, complete or repair sports feed coverage in the local, Git-ignored register `planning-sportscal/requested-sports.local.md`. Read its rules before updating it. Exclude unrelated UI and infrastructure requests.
-- The authoritative local copy is `/Users/jackhartican/Documents/AI/Perplexity/Sportscal/planning-sportscal/requested-sports.local.md`. From another worktree, update that copy; do not create competing registers. If unavailable, report that capture is pending rather than pretending the request was saved.
-- Deduplicate by competition and requested coverage outcome. Preserve request history, count only demonstrably distinct requesters using anonymous tokens, and never invent demand from existing implementation.
-- Append future requests as `Pending ranking`. Recalculate scores/order only when explicitly requested. The register defines the agreed 60% user-demand / 40% public-popularity audience score and readiness multiplier.
-- Keep completed/declined entries. `Shipped` requires dated evidence of production deployment and live rendering; repository implementation alone is `Implemented`.
-- Never force-add or publish the register. An ignored file is local and does not travel with Git clones or worktrees. Recording a request does not authorize implementing its feed.
-
 Follow decision record — mandatory reading
 ------------------------------------------
 Before changing Follow, Feed admission, discovery opt-ins, fixture routing, retention or related notifications, read [docs/follow-decisions.md](docs/follow-decisions.md). It records the user-approved rules and supersedes conflicting older plans. Consult it before asking the user to repeat a settled decision. Update the record and its regression tests together when the user changes a rule.
@@ -56,5 +47,88 @@ Before changing live fixture refresh, Supabase persistence, chat polling, notifi
 
 Update and deployment convention
 --------------------------------
+- Adaptive preview research uses `node scripts/update-cards.js --adaptive-editorial --list` and `--research <dated-json>`. Follow docs/adaptive-editorial.md. Real user ratings qualify the 14-day window; do not read account preferences or manufacture rating signals. Keep the men's NRL Grand Final approved editorial untouched. Use the existing daily editorial automation, not another scheduler.
+- Card-local source, research or validation failures must not block independent valid card updates. Preserve and report failed cards with evidence and a next repair action; defer directly dependent cards only. Shared integrity, spoiler, build and release gates remain mandatory. Weekend editorial records deferrals in its dated research/report files.
 - A request to "update" cards includes applying the change, publishing it to GitHub main, and deploying the exact published snapshot to Vercel production. Do not ask for separate deployment confirmation unless the user explicitly requests local-only work.
 - Keep normal release safeguards. If a required gate fails, report the blocker rather than claiming deployment or bypassing it. Distinguish local changes, GitHub publication, and production deployment in the final status.
+
+Rolling tournament hydration — 22 September 2026
+------------------------------------------------
+- Keep tournament fixture structures hydrated for the next 28 Australia/Sydney calendar days, starting today, plus every ongoing tournament. Include the entire tournament when it starts on or before day 28, even if its finish falls later.
+- Start from Follow > Schedule across all sports. The canonical `node scripts/update-cards.js` pipeline builds `data/tournament-horizon.v1.json` and its Schedule-to-Feed audit. Do not add another refresh scheduler.
+- Review newly entering tournaments' official format, qualifying/draw slots and sources in `data/canonical/tournament-formats.v1.json`. Unknown players, dates and times must stay explicitly unconfirmed. Never assign players to draw slots by arbitrary source ordering.
+- Reconcile confirmed fixtures by stable slot/source identity, retaining existing fixture IDs and saved user state. Preserve historical records and later published calendars. Run `scripts/validate-feed-follow-repairs.js` with refresh checks.
+
+One-release performance exception — 22 September 2026
+-----------------------------------------------------
+- The owner explicitly authorised deploying the Dockers–Lions preview protection and Feed stage-label cleanup despite `validate-feed-performance.js` failing. This exception applies only to this release; do not disable the validator or increase its budget for subsequent releases.
+- Fix the startup compressed-byte budget during the week of 28 September–4 October 2026. The gate baseline is 425,600 bytes with a 1.25% allowance; the released feature snapshot measures 434,297 bytes (2.04%). Its unchanged parent `7a2b793` already measured 433,031 bytes (1.75%). Investigate the accumulated startup payload, reduce it to the agreed budget, and verify the exact runtime bundle and mobile startup behaviour. Any proposed rebaseline needs an explicit, evidence-backed decision.
+- All other release gates remain required. This note is the follow-up record; it does not create a new scheduler.
+- The owner extended the same one-release performance exception to the 22 September 2026 missing-red-7plus-logo fix. The 28 September–4 October remediation and all other release gates remain unchanged.
+- The owner also extended this exception to the 22 September 2026 Feed Filter pagination repair. Keep the same next-week remediation date and all remaining release checks.
+
+NRL finals completeness — 22 September 2026
+-------------------------------------------
+- The Champion Data regular-season NRL fixture source stops at Round 27. It does not hydrate finals. Keep `data/canonical/nrl-finals-published-2026.json` current from official NRL announcements as each finals week is confirmed, preserving the existing bracket-slot identities.
+- `sync-finals-code-phase.js` must consume those reviewed schedules as well as the regular canonical source. Run `validate-nrl-preliminary-finals.js --published`: current-week unresolved NRL week placeholders are a refresh failure requiring official-source review, not a successful empty Feed.
+- The preliminary-finals data repair retains the byte-identical app shell already released under the recorded performance exception. The outstanding compressed-byte remediation remains due 28 September–4 October; this data repair does not raise or disable that gate.
+
+Feed redesign performance remediation — 24 September 2026
+---------------------------------------------------------
+- The Feed redesign restores the existing compressed startup budget without changing the threshold: 425,081 bytes versus the 425,600-byte baseline, with the same eight critical requests. Deterministic runtime minification uses pinned Terser, no compression transforms or property mangling, and retains function names.
+- The earlier next-week compressed-byte remediation is resolved by this change. Continue running `validate-feed-performance.js`; do not revive the previous release exceptions for new changes.
+- The runtime now includes a compact canonical standings projection for card ranks. Both full and quick canonical refreshes must rebuild it through the existing runtime builder. Offline module validation verifies the entire generated bundle against source, including these snapshots.
+
+One-release PWA upgrade exception — 25 September 2026
+---------------------------------------------------
+- The owner explicitly authorised “Fix PWA failure or bypass and deploy anyway” for the Feed logo clipping, ODI viewing-provider and rating-recovery repair. This release may proceed despite the installed-PWA upgrade timeouts; all other gates, including performance, remain required.
+- Reproduction: `PWA_BASELINE_SHA=0c1d7f6 node scripts/validate-installed-pwa-upgrade-browser.js` with Chromium (set `PLAYWRIGHT_MODULE` and `PWA_EXECUTABLE_PATH` for the local installation). The document reaches shell 308, but worker 307 remains active with 308 waiting. WebKit passed the complete suite previously; the final run against refreshed main `645f0e3` passed initial upgrade, preferences and offline recovery but timed out with simulated worker 309 waiting during resumed upgrade. Do not report this suite as uniformly passing.
+- The failure remains unresolved. Do not claim it fixed or disable/weaken the validator. Investigate the full-page Chromium resource lifecycle; `window.stop()` releases activation diagnostically, but is not an approved production workaround. Speculative worker changes were reverted.
+- This exception is limited to this repair release, creates no scheduler and does not authorise later bypasses. Verify production rendering and release metadata separately.
+
+Compact Feed polish PWA exception — 25 September 2026
+----------------------------------------------------
+- The owner explicitly authorised “Bypass and deploy” for the compact Feed polish implementation `fd6c34f`. This release may proceed despite the installed-PWA upgrade gate; all other release gates, including performance, remain required.
+- Final reproduction: `PWA_BASELINE_SHA=1337c48 node scripts/validate-installed-pwa-upgrade-browser.js` on Chromium/system Chrome loads document 310 while worker 309 remains active and worker 310 is installed/waiting beyond the 45-second gate. No pending page requests were reported. The underlying activation-lifecycle cause remains unproven; do not call this a confirmed network or cache-corruption issue.
+- The same final candidate passes the complete WebKit upgrade suite, including saved preferences, optional/required asset failure, offline recovery and resumed upgrade. This does not prove all installed devices upgrade successfully.
+- Keep the validator and timeouts unchanged. This exception applies only to this compact-polish release and does not authorise future bypasses. No production service-worker lifecycle workaround was added. Verify the published SHA, production alias, assets and public rendering separately; retain the activation defect as unresolved follow-up work.
+
+Card identity and coverage release exception — 25 September 2026
+---------------------------------------------------------------
+- The owner explicitly authorised “use bypass, as per usual” after the recorded blockers for this release were reported. Release the tested card identity, tournament-parent, Presidents Cup and F1 venue snapshot despite those blockers; this is not permission for future releases.
+- Outstanding PWA failures: Chrome loads shell 311 while worker 310 remains active and worker 311 waits; WebKit's offline reload does not expose the expected shell-version meta. The underlying upgrade/offline issues remain unresolved. Keep validators and timeouts intact.
+- The canonical refresh was completed locally with recorded exceptions for existing Supercars directory coverage, unresolved-finals/legacy markup and taxonomy assertions, BJK research metadata, Socceroos–Brazil and Bathurst editorial coverage, and refresh-step ordering. These checks were not green and are not represented as passed.
+- Performance passed for the final UI snapshot (1.19% compressed growth against the unchanged 1.25% cap). Preserve all normal safeguards, immutable snapshot packaging, secret exclusion and independent production metadata/rendering verification.
+- Detailed evidence is in the local card-coverage-2026-09-25 implementation report. Repair the recorded failures in follow-up work; no gate or service-worker lifecycle workaround is introduced by this exception.
+
+Feed label alignment PWA exception — 25 September 2026
+------------------------------------------------------
+- For the focused Feed team-label centring release, the owner requested quick deployment and has repeatedly authorised bypass for the known installed-PWA upgrade failure (“use bypass, as per usual”). This exception applies only to the 311 → 312 upgrade check for this release.
+- The exact 311 → 312 installed-Chromium check timed out after worker 312 installed and stayed waiting while worker 311 remained active. Keep the validator and timeout unchanged; this is an unresolved app-upgrade defect.
+- Browser geometry checks passed for full and compact opponent labels at 320, 390, 768 and 1280px in both themes. Card identity, presentation, timing, Follow policy, app-version, startup and static performance checks passed; compressed growth remains 1.19% within the 1.25% cap.
+- Verify GitHub main, immutable deployment SHA, production files and public rendered label alignment separately. This note does not authorise a future bypass.
+
+
+Sport experience and reliability release exception — 25 September 2026
+----------------------------------------------------------------------
+- The owner explicitly approved the implementation plan and "Bypass PWA and deploy" for this release. Only the installed-PWA gate may be excepted; other release checks remain required.
+- Exact baseline 0a95e54 (shell 312) to candidate shell 313: desktop WebKit passed preferences, optional/core failures, offline recovery and resume upgrade. Chromium reproduced document 313 with worker 312 active and 313 installed/waiting after 45 seconds, with no pending page requests. Underlying activation cause is not established; do not claim it fixed or substitute desktop WebKit for iOS Home Screen verification.
+- Keep the validator and its timeouts unchanged. This is not authority for future bypasses. Verify main SHA, READY deployment, alias and live rendering separately.
+
+- The same implementation release includes shell 314 to deliver the final auto-collapse focus repair after shell 313 reached READY. The PWA exception remains limited to this task; final 313 → 314 evidence: desktop WebKit passed the full suite; Chromium again timed out after 45 seconds with 313 active and 314 waiting. No iOS Home Screen claim.
+- Shell 315 completes current-tournament/current-race grouping discovered by the live route check. This remains the same authorised implementation release and PWA-only exception.
+
+Standing approval for Flot-assigned work — 20 October 2026
+------------------------------------------------------
+- The user has given standing approval for future Flot-assigned tasks in this project. Proceed within the assigned scope without routine confirmation requests, including coordination with the assigned existing Codex chats, reversible implementation, proportionate tests and the existing single-publisher release process.
+- This approval does not resume explicitly paused work or override platform-required approvals, task scope, privacy boundaries or required release gates. It does not authorise unrelated messages to people or create a second publisher.
+
+
+Overnight task access and question workflow — 7 November 2026
+------------------------------------------------------------
+- This is the user-authorized rule for the current Nothing Sport overnight task. You may READ task information from `/Users/jackhartican/Documents/AI/Codex`, but task file WRITES must remain inside `/Users/jackhartican/Documents/AI/Perplexity/Sportscal`. Do not modify the source directory or any other project. Copy only task files actually needed into the repository, preferably the locally ignored `overnight-task-inputs/` folder. Do not copy credentials or unrelated private data and do not publish private task material.
+- Work on `overnight/nothing-sport`. Preserve existing commits, staged work and unrelated dirty files. Continue through routine failures and independent tasks; normal release safeguards and required approvals still apply. Do not change the configured model or fall back without asking.
+- If you need information from outside your allowed access, append the question to `overnight-questions.md` in this repository. Include a stable question ID, UTC timestamp, exact question and blocked task. Never include credentials, secret values, or customer records. Check for an existing equivalent unanswered question rather than duplicating it.
+- After recording a question, move to another task and keep working. Do not stop and wait when independent work is available. The assistant checks and relays new questions every 45 minutes.
+- Read `overnight-answers.md` before starting each task and when revisiting a blocked task. The assistant appends Jack's exact answers with matching question IDs. Apply an answer only to its corresponding question and preserve the file's previous content.
+- Keep `overnight-questions.md`, `overnight-answers.md`, `overnight-task-inputs/` and `.overnight-done` local. Never force-add or publish them. Create `.overnight-done` only after all authorized work, required verification and actual publication are complete, not merely after writing a report.

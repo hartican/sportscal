@@ -7,13 +7,13 @@ const fs = require("node:fs");
 const brand = require("../config/brand-copy.js");
 const vectors = require("../config/vector-assets.js");
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = fs.readFileSync("index.html", "utf8") + "\n" + fs.readFileSync("config/fantasy-deadline-ui.js", "utf8");
 const notFound = fs.readFileSync("404.html", "utf8");
 const worker = fs.readFileSync("service-worker.js", "utf8");
 const notificationDispatch = fs.readFileSync("api/notification-dispatch.js", "utf8");
 const manifest = JSON.parse(fs.readFileSync("manifest.webmanifest", "utf8"));
 
-assert.equal(brand.version, "nothingsport-brand.v11");
+assert.equal(brand.version, "nothingsport-brand.v13");
 assert.equal(brand.officialName, "Nothing Sport");
 assert.equal(brand.stylisedName, "nothing SPORT");
 assert.equal(brand.title, "Nothing Sport — Smart sports feed");

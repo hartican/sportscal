@@ -7,6 +7,7 @@
 
   const KEY_ALIASES = Object.freeze({"rugby-union":"rugby",basketball:"nba","multi-sport":"cwg",rally:"wrc","fiba-womens-world-cup":"fiba-women"});
   const SYDNEY_PARTS=new Intl.DateTimeFormat("en-CA",{timeZone:"Australia/Sydney",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"});
+  let SYDNEY_DATE;
   function sportKey(event, fallback = ""){
     const competition = String(event?.competitionId || "").toLowerCase();
     if (/^competition:wrc(?:[-:]|$)/.test(competition) || event?.competitionFamilyId === "family:world-rally-championship") return "wrc";
@@ -21,34 +22,71 @@
 
   function scheduleCode(entity, codes = []){
     if (!entity) return null;
-    const aliases = {"sport:afl-premiership":"sport:afl","sport:nrl-premiership":"sport:nrl","sport:rugby":"sport:rugby-union","sport:nba":"sport:basketball","sport:motogp":"competition:motogp","sport:sailgp":"competition:sailgp","sport:fiba-women":"competition:fiba-womens-world-cup"};
-    const own = codes.find(code => code.id === (aliases[entity.id] || entity.id));
+    const aliases = {"special:le-mans-24-hours":"competition:le-mans","special:commonwealth-games":"sport:multi-sport","sport:afl-premiership":"sport:afl","sport:nrl-premiership":"sport:nrl","sport:rugby":"sport:rugby-union","sport:nba":"sport:basketball","sport:champions-league":"competition:uefa-champions-league","sport:motogp":"competition:motogp","sport:sailgp":"competition:sailgp","sport:fiba-women":"competition:fiba-womens-world-cup","sport:tdf":"competition:tour-de-france","sport:giro":"competition:giro-ditalia","sport:vuelta":"competition:vuelta-a-espana","sport:wsl":"competition:wsl-championship-tour","sport:dakar":"competition:dakar"};
+    const exactId=String(entity.id||'');
+    const selectedId=aliases[exactId] ? exactId : exactId.replace(/-women$/,'');
+    const own = codes.find(code => code.id === (aliases[selectedId] || selectedId));
     if (own) return own;
     // A child championship must not advertise its parent's different schedule.
-    if (entity.parentId === "sport:motorsport") return null;
+    if (entity.parentId === "sport:motorsport" || exactId==='sport:champions-league') return null;
     return codes.find(code => code.id === (aliases[entity.parentId] || entity.parentId)) || null;
   }
 
+  // Reviewed exact provider identities; no name-based inference. Evidence and
+  // durable-reference preflight: docs/quality/cricket-provider-identities.md.
+  const PARTICIPANT_ALIASES=Object.freeze({'team:cricket:espn-1116':'team:cricket:ca-50','team:cricket:espn-924':'team:cricket:ca-40','team:cricket:ca-1466':'team:cricket:espn-1075499','team:rugby:wr-2342':'team:rugby:brumbies','team:rugby:wr-2343':'team:rugby:reds','team:rugby:wr-2587':'team:rugby:force','team:rugby:wr-1143':'team:rugby:waratahs'});
+  const FIXTURE_ALIASES={'event:lemans:2026:start':'evt_79','event:lemans:2026:finish':'evt_80','evt_87':'fixture:cricket:espn:1525659','evt_88':'fixture:cricket:espn:1525660','evt_89':'fixture:cricket:espn:1525661','fixture:cricket:espn:1513451':'fixture:cricket:CA:39484','fixture:cricket:CA:40593':'fixture:cricket:espn:1525658','fixture:rugby:wr:ac4f516c-300d-4f4b-85ea-514f0be5ddf6':'rugby-new-zealand-australia-2026-10-10','fixture:rugby:wr:e826488f-b2e2-42f0-8649-1bafd6567945':'rugby-australia-south-africa-2026-09-27','fixture-rugby-wr-e826488f-b2e2-42f0-8649-1bafd6567945':'rugby-australia-south-africa-2026-09-27','fixture:rugby:ra:949625':'rugby-australia-south-africa-2026-09-27','fixture-rugby-ra-949625':'rugby-australia-south-africa-2026-09-27','fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8':'rugby-australia-new-zealand-2026-10-17','fixture-rugby-wr-e3cbae12-66b3-4835-b1ce-4014b63055c8':'rugby-australia-new-zealand-2026-10-17','fixture:rugby:ra:949627':'rugby-australia-new-zealand-2026-10-17','fixture-rugby-ra-949627':'rugby-australia-new-zealand-2026-10-17'};
+  // Reuse only this fixed reviewed mapping; sporting facts remain per record.
+  const FIXTURE_TARGETS=new Map();
+  for(const [alias,target] of Object.entries(FIXTURE_ALIASES)){
+    FIXTURE_ALIASES[target.replace(/:/g,'-')] ||= target;
+    FIXTURE_TARGETS.set(target,[...(FIXTURE_TARGETS.get(target)||[]),alias]);
+  }
+  Object.freeze(FIXTURE_ALIASES);
+  function canonicalParticipantId(id){const key=PARTICIPANT_ALIASES[String(id||'')]||String(id||'');const cricket=globalThis.NOTHINGSPORTS_CRICKET_COVERAGE||(typeof require==='function'?require('./cricket-coverage'):null);return cricket?.canonical(key)||key;}
+  function canonicalFixtureId(id){const key=String(id||'');return FIXTURE_ALIASES[key]||key;}
+  function fixtureAliases(id){const key=canonicalFixtureId(id);return [key,...(FIXTURE_TARGETS.get(key)?[key.replace(/:/g,'-')]:[]),...(FIXTURE_TARGETS.get(key)||[])];}
+
   function normalizeCore(event){
-    const value = event && typeof event === "object" && !Array.isArray(event) ? event : {};
+    let value = event && typeof event === "object" && !Array.isArray(event) ? event : {};
     const text = input => typeof input === "string" ? input : "";
     const normalized = {...value, key:sportKey(value)};
+    if(typeof module==='object'&&normalized.score?.racing?.kind==='horse')normalized.score={racing:require('./racing-details').sanitizeHorseDetail(normalized.score.racing)};
+    const reviewed=globalThis.NOTHINGSPORTS_REVIEWED_FIXTURE_REPAIRS || (typeof require==='function'?require('./reviewed-fixture-repairs'):null);
+    const reviewedFacts=reviewed?.facts(canonicalFixtureId(value.id||value.eventId),value)||{};
+    // A reviewed computed window never replaces a confirmed end. An explicit
+    // null still clears the obsolete window of a reviewed multi-day fixture.
+    Object.assign(normalized,reviewedFacts);
+    if(reviewedFacts.endTimeUtc&&value.endTimeBasis!=='scheduled-live-window')normalized.endTimeUtc=value.endTimeUtc;
+    value=normalized;
     if ([value.status,value.scheduleStatus].some(status => String(status || "").toLowerCase() === "unpublished")) normalized.published = false;
     normalized.id = String(value.id || value.eventId || value.canonicalEventId || "");
     normalized.eventId = String(value.eventId || value.canonicalEventId || normalized.id);
-    normalized.name = text(value.name) || text(value.displayTitleCompact) || text(value.competitionName) || "Fixture details unconfirmed";
+    normalized.name = text(value.name) || text(value.displayTitleCompact) || text(value.displayName) || text(value.competitionName) || "Fixture details unconfirmed";
     normalized.displayTitleCompact = text(value.displayTitleCompact) || normalized.name;
     normalized.date = text(value.date) || text(value.startDate);
     if (!/^\d{4}-\d{2}-\d{2}$/.test(normalized.date)){
       const instant = new Date(value.startTimeUtc || value.timelineSortTimeUtc || value.sessionStartTimeUtc || "");
-      normalized.date = Number.isFinite(+instant) ? new Intl.DateTimeFormat("en-CA",{timeZone:"Australia/Sydney",year:"numeric",month:"2-digit",day:"2-digit"}).format(instant) : "";
+      normalized.date = Number.isFinite(+instant) ? (SYDNEY_DATE ||= new Intl.DateTimeFormat("en-CA",{timeZone:"Australia/Sydney",year:"numeric",month:"2-digit",day:"2-digit"})).format(instant) : "";
     }
     normalized.time = text(value.time) || null;
     const exact = new Date(value.startTimeUtc || "");
     // Source UTC is authoritative over stale venue-local or Sydney display fields.
     if(Number.isFinite(+exact) && !["follows","estimated","date-only","tbc","unknown"].includes(value.timePrecision)){
       const parts=Object.fromEntries(SYDNEY_PARTS.formatToParts(exact).map(part=>[part.type,part.value]));
-      normalized.startTimeUtc=exact.toISOString();normalized.date=`${parts.year}-${parts.month}-${parts.day}`;normalized.time=`${parts.hour}:${parts.minute}`;normalized.timePrecision="exact";
+      normalized.startTimeUtc=exact.toISOString();normalized.date=`${parts.year}-${parts.month}-${parts.day}`;normalized.time=`${parts.hour}:${parts.minute}`;normalized.timePrecision=value.timePrecision==="not-before"?"not-before":"exact";
+    }
+    // A reviewed venue-calendar label is a planning aid while kickoff is
+    // unknown. An explicitly confirmed exact start owns the Sydney date.
+    if(['competition-stage-calendar','venue-calendar'].includes(value.timingProvenance?.precision) && normalized.timePrecision==='exact' && Number.isFinite(+exact) && value.scheduleStatus==='confirmed' && value.timeTbc!==true && value.startTimeTbc!==true){
+      delete normalized.displayDateLabel;
+      if(value.timingProvenance.precision==='venue-calendar' && value.timingProvenance.sourceLocalDate===value.timingProvenance.sourceLocalEndDate && value.endDate===value.timingProvenance.sourceLocalEndDate)delete normalized.endDate;
+    }
+    // Persisted live snapshots can retain date-only metadata after the provider
+    // has explicitly confirmed an exact sporting start. Reconcile that group
+    // together; an explicit uncertain flag or provisional schedule still wins.
+    if((value.dateOnly===true || value.schedulePrecision==='date-only') && Number.isFinite(+exact) && value.timePrecision==='exact' && value.scheduleStatus==='confirmed' && value.timeTbc===false && value.startTimeTbc===false){
+      normalized.dateOnly=false;normalized.schedulePrecision='exact';
     }
     normalized.venue = text(value.venue) || text(value.venueName) || null;
     normalized.broadcaster = text(value.broadcaster);
@@ -58,8 +96,47 @@
     for (const key of ["storyline", "calendarTemplate"]){
       if (value[key] && (typeof value[key] !== "object" || Array.isArray(value[key]))) normalized[key] = null;
     }
+    const originalId=normalized.id;
+    normalized.id=canonicalFixtureId(originalId);
+    // Only the reviewed fixture pair is consolidated here. Team Follow aliases
+    // do not implicitly merge every historic fixture or its durable actions.
+    if(normalized.key==='cricket'&&normalized.id==='fixture:cricket:CA:39484'){
+      if(Array.isArray(normalized.innings))normalized.innings=normalized.innings.map(i=>({...i,...(i.participantId?{participantId:canonicalParticipantId(i.participantId)}:{})}));
+    }
+    if(originalId!==normalized.id||FIXTURE_TARGETS.get(normalized.id)){normalized.eventId=normalized.id;normalized.canonicalEventId=normalized.id;}
+    else normalized.canonicalEventId=value.canonicalEventId||normalized.eventId;
+    normalized.sourceEventIds=[...new Set([...(value.sourceEventIds||[]),originalId,normalized.id,...(FIXTURE_TARGETS.get(normalized.id)||[])])];
+    normalized.participantIds=normalized.participantIds.map(canonicalParticipantId);
+    normalized.participants=normalized.participants.map((p,index)=>({...p,id:canonicalParticipantId(p.id||reviewedFacts.participantIds?.[index])}));
+    normalized.participantSlots=normalized.participantSlots.map(p=>({...p,participantId:canonicalParticipantId(p.participantId)}));
+    for(const key of ['homeParticipantId','awayParticipantId','winnerParticipantId'])if(normalized[key])normalized[key]=canonicalParticipantId(normalized[key]);
     normalized.consensusTags=consensusTagsForEvent(normalized);
-    return normalized;
+    const national = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
+      || (typeof require === 'function' ? require('./national-team-identities') : null);
+    if(normalized.key === 'football' && national){
+      const suppliedIds = normalized.participantIds.length ? normalized.participantIds
+        : normalized.participants.map(participant=>participant.id).filter(Boolean);
+      const canonicalIds = suppliedIds.length ? suppliedIds.map(national.canonicalId) : national.participantIdsForEvent(normalized);
+      if(canonicalIds.includes('team:football:socceroos')){
+        normalized.name = normalized.name.replace(/\bAustralia\b/g, 'Socceroos');
+        normalized.displayTitleCompact = normalized.displayTitleCompact.replace(/\bAustralia\b/g, 'Socceroos');
+        normalized.participantIds = canonicalIds;
+        const originals=normalized.participants;
+        normalized.participants = canonicalIds.map(id => {
+          const team=national.teamForId(id);
+          const participant=originals.find(item=>item.id&&national.canonicalId(item.id)===id)
+            || originals.find(item=>!item.id&&team?.aliases.some(alias=>alias.toLowerCase()===String(item.name||item.displayName||'').toLowerCase()));
+          return {...(participant||{}),id,
+            ...(id === 'team:football:socceroos' ? {name:'Socceroos',displayName:'Socceroos',countryCode:'AU'} : {})};
+        });
+        for(const field of ['homeParticipantId','awayParticipantId'])if(normalized[field])normalized[field]=national.canonicalId(normalized[field]);
+        normalized.representativeCountryCodes = [...new Set([...normalized.representativeCountryCodes,'AU'])];
+        normalized.isInternational = true;
+        normalized.competitionScope = 'international';
+      }
+    }
+    const pauses=globalThis.NOTHINGSPORTS_COVERAGE_PAUSES || (typeof require==="function"?require("./coverage-pauses"):null);
+    return pauses ? pauses.apply(normalized) : normalized;
   }
 
   function fromSchedule(fixture, code = {}){
@@ -71,20 +148,176 @@
     });
   }
 
+  // Exact published Cricket child membership is shared by online and cached readers.
+  const cricketEditionResolvers=new WeakMap();
+  function cricketEditionResolver(overviews){
+   if(!Array.isArray(overviews))return f=>f;
+   if(cricketEditionResolvers.has(overviews))return cricketEditionResolvers.get(overviews);
+   const policy=globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY || (typeof require==='function'?require('./follow-feed-policy'):null);
+   if(typeof policy?.sportKey!=='function')return f=>f;
+   const membership=new Map();
+   for(const overview of overviews){
+    const key=policy.sportKey(overview);
+    if(!['cricket','cricket-women'].includes(key) || !/^overview:cricket(?:-women)?:/.test(overview.id || '') || !Array.isArray(overview.fixtureIds) || !overview.date || !overview.competitionId)continue;
+    const metadata={id:overview.id,key,competitionId:overview.competitionId,date:overview.date,endDate:overview.endDate};
+    for(const id of overview.fixtureIds){
+     if(membership.has(id) && membership.get(id)!==metadata)throw Error('Ambiguous Cricket edition membership');
+     membership.set(id,metadata);
+    }
+   }
+   const resolve=f=>{
+    const overview=membership.get(f.id);
+    if(f.editionId || !overview || policy.sportKey(f)!==overview.key || f.competitionId!==overview.competitionId
+      || !f.date || f.date<overview.date || (f.endDate || f.date)>(overview.endDate || overview.date))return f;
+    return {...f,editionId:overview.id};
+   };
+   cricketEditionResolvers.set(overviews,resolve);return resolve;
+  }
+
   function followedScheduleCodes(preferences, codes){
     const keys = new Set(preferences?.followedSports || []);
+    for(const id of preferences?.selectedSelectorEntityIds||[]){
+      if(id.startsWith('sport:'))keys.add(id.slice(6));
+    }
+    // Bathurst is the explicitly approved inherited Motorsport coverage.
+    // Loading the schedule does not override the admission policy's opt-outs.
+    if(keys.has('motorsport'))keys.add('supercars');
+    const competitions=new Set((preferences?.preferenceGraph?.competitionPreferences||[]).filter(choice=>choice.enabled===true).map(choice=>choice.competitionId));
+    if(preferences?.followFirst?.followedMajorEventIds?.some(id=>['presidents-cup','masters-tournament','pga-championship','us-open-golf','the-open'].includes(id))||competitions.has('competition:presidents-cup'))keys.add('golf');
+    if(competitions.has('competition:australian-championship'))keys.add('football');
     for (const follow of preferences?.preferenceGraph?.entityFollows || []){
       if (["follow", "priority"].includes(follow?.followLevel)) keys.add(String(follow.participantId || "").split(":")[1]);
     }
     const aliases = {rugby:"rugby-union",nba:"basketball",nfl:"american-football",nhl:"ice-hockey",cwg:"multi-sport",rally:"wrc",fifa:"football","premier-league":"football"};
-    const ids = new Set([...keys].map(key => `sport:${aliases[key] || key}`));
+    if(preferences?.followFirst?.followedMajorEventIds?.includes('le-mans-24-hours'))keys.add('lemans');
+    const ids = new Set([...keys].map(key => {const base=key.replace(/-women$/,'');return `sport:${aliases[base] || base}`;}));
+    const competitionCodes={lemans:'competition:le-mans',tdf:'competition:tour-de-france',giro:'competition:giro-ditalia',vuelta:'competition:vuelta-a-espana',wsl:'competition:wsl-championship-tour',dakar:'competition:dakar'};
+    for(const [key,id] of Object.entries(competitionCodes))if(keys.has(key)||competitions.has(id))ids.add(id);
     if((preferences?.preferenceGraph?.entityFollows || []).some(follow=>/^competitor:f1:/.test(follow.participantId)&&['follow','priority'].includes(follow.followLevel)))ids.add('sport:motorsport');
     // A taxonomy parent does not imply data containment (e.g. AFL and AFLW).
-    return codes.filter(code => ids.has(code.id) || keys.has(code.slug));
+    const editions=preferences?.followFirst?.eventEditionDecisions?.states || {};
+    // Only editions listed by this published Cricket code can request its
+    // schedule. Reading it grants neither a sport follow nor sibling admission.
+    return codes.filter(code => ids.has(code.id) || keys.has(code.slug)
+      || code.id==='sport:cricket' && Array.isArray(code.eventEditionIds) && code.eventEditionIds.some(id=>editions[id]==='followed'));
+  }
+
+  const SCORE_OBSERVATION_FIELDS=['homeScore','awayScore','scoreDisplay','score','sets','games','innings','rubbers','canonicalResultScoreline'];
+  const observationTime=e=>e?.sourceCheckedAt||e?.canonicalSourceCheckedAt||null;
+  const factTime=(e,kind)=>e?.[kind+'CheckedAt']||(e?.fixtureObservationSchema?null:observationTime(e));
+  const populated=value=>value!=null&&value!==''&&(typeof value!=='object'||(Array.isArray(value)?value:Object.keys(value)).length>0);
+  const hasScore=e=>SCORE_OBSERVATION_FIELDS.some(k=>populated(e?.[k]));
+  const hasScoreFields=e=>e!=null&&SCORE_OBSERVATION_FIELDS.some(k=>Object.hasOwn(e,k));
+  const settled=status=>/^(completed|finished|final|abandoned)$/i.test(status||'');
+  function retainStatusObservation(base,event){
+    event.status=base.status;event.statusCheckedAt=factTime(base,'status');
+    event.statusFactObservedAt=base.statusFactObservedAt??null;
+  }
+  function inningsAdvanced(base,event){
+    if(sportKey(event)!=='cricket'||!Array.isArray(base?.innings)||!Array.isArray(event.innings))return false;
+    const value=(i,key)=>(key==='wickets'&&typeof i[key]!=='number'?i.wicketsCount:i[key])??i[{runs:'runsScored',wickets:'numberOfWicketsFallen',overs:'oversBowled'}[key]];
+    return event.innings.some((next,index)=>{
+      const prior=next.inningNumber!=null?base.innings.find(i=>i.inningNumber===next.inningNumber):base.innings[index];if(!prior)return false;
+      // A new representation, team label or score string is not evidence of play.
+      if(prior.participantId&&next.participantId&&prior.participantId!==next.participantId)return false;
+      if(!prior.participantId&&!next.participantId&&prior.team!==next.team)return false;
+      const values=['runs','wickets','overs'].filter(key=>value(prior,key)!=null&&value(next,key)!=null&&value(prior,key)!==''&&value(next,key)!==''&&Number.isFinite(Number(value(prior,key)))&&Number.isFinite(Number(value(next,key))));
+      return values.length>0&&values.every(key=>Number(value(next,key))>=Number(value(prior,key)))&&values.some(key=>Number(value(next,key))>Number(value(prior,key)));
+    });
+  }
+  function reconcileObservation(base,event){
+    if(event.enrichmentOnly)return;
+    // Snapshot retrieval time cannot reopen a confirmed result. Preserve final
+    // scores and provenance too; otherwise a stale live score could replace them.
+    if(settled(base?.status)&&!settled(event.status)){
+      for(const key of [...SCORE_OBSERVATION_FIELDS,'scoreFactObservedAt','homeParticipantId','awayParticipantId','winnerParticipantId','winner','result','outcome','actualEndTimeUtc','completedAt','firstConfirmedCompleteAt','resultPublishedAt']){
+        if(base[key]!==undefined)event[key]=base[key];else delete event[key];
+      }
+      retainStatusObservation(base,event);
+      // A missing round or this source's literal matchup title is planning
+      // context. A different populated round must remain a contradiction.
+      const label=String(event.roundLabel||'').trim();
+      const matchup=String(base.name||'').split(/\s+[—–]\s+/)[0];
+      if(Number.isInteger(base.roundNumber)&&base.roundNumber>0&&event.roundNumber==null
+        &&(!label||label===base.roundLabel||label===matchup&&/\s+vs?\.?\s+/i.test(matchup))){
+        event.roundNumber=base.roundNumber;
+        if(base.roundLabel)event.roundLabel=base.roundLabel;
+      }
+      // Keep unchanged primary facts and provenance together. Contrary new
+      // context keeps its own receipt and cannot inherit the old provider.
+      // Compare effective identity, unit and venue/scheduling fields, including evidence
+      // aliases. Derived timeline sorting and collection/result clocks are separate.
+      const context=Object.keys({...base,...event}).filter(k=>/^(?:source(?:Url|Name|Type)|venue|court|city|location|date|endDate|displayDate|time(?!line)|startTime|endTime|actualStart|estimated|sessionStart|schedul|timing|round|competition|stage|season|gender|eventType|matchType|draw|sport|key|codeId)/.test(k));
+      const compatible=!context.some(k=>populated(event[k])&&(!populated(base[k])||JSON.stringify(event[k])!==JSON.stringify(base[k])));
+      if(compatible)for(const key of [...context,'sourceCheckedAt']){
+        if(base[key]===undefined)delete event[key];else event[key]=base[key];
+      }
+      else for(const key of ['sourceUrl','sourceName','sourceType','sourceCheckedAt'])event[key]??=null;
+      event.scoreCheckedAt=factTime(base,'score');
+      event.livePlayObservedAt=null;
+      return;
+    }
+    // A broad collection-level in-progress flag cannot reopen an explicitly
+    // paused Test. A verified detailed phase or newly advanced innings can.
+    if(sportKey(event)==='cricket'&&/^(stumps|rain-delay|break|suspended|interrupted)$/.test(base?.status||'')&&/^(live|in_progress|in-progress)$/.test(event.status||'')&&!event.cricketPhaseConfirmed){
+      if(inningsAdvanced(base,event)){
+        for(const key of ['statusText','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt','cricketBalance','cricketPhaseConfirmed','cricketPhaseCheckedAt'])if(event[key]===undefined)event[key]=null;
+      }else{
+        retainStatusObservation(base,event);
+        for(const key of ['statusText','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt','cricketPhaseConfirmed','cricketPhaseCheckedAt','matchDay','matchDaySourceUrl'])if(base[key]!==undefined)event[key]=base[key];
+      }
+    }
+    // Only a changed score observed from a live source establishes continuing play.
+    // A source check timestamp alone cannot extend the ODI display window.
+    const nextTime=Date.parse(event.scoreFactObservedAt||factTime(event,'score')||'');
+    const priorTime=Date.parse(base?.scoreFactObservedAt||factTime(base,'score')||'');
+    if(base&&/^(live|in_progress|in-progress|ongoing)$/.test(event.status||'')&&Number.isFinite(nextTime)&&Number.isFinite(priorTime)&&nextTime>priorTime&&inningsAdvanced(base,event))event.livePlayObservedAt=new Date(nextTime).toISOString();
+    else if(base?.livePlayObservedAt)event.livePlayObservedAt=base.livePlayObservedAt;
+    const scoreTime=factTime(event,'score'),statusTime=factTime(event,'status');
+    const older=(next,prior)=>Number.isFinite(Date.parse(prior))&&(!Number.isFinite(Date.parse(next))&&Boolean(event.fixtureObservationSchema)||Date.parse(next)<Date.parse(prior));
+    if(hasScore(event)&&!older(scoreTime,factTime(base,'score'))){event.scoreCheckedAt=scoreTime;}
+    else if(hasScore(base)){
+      for(const key of SCORE_OBSERVATION_FIELDS)delete event[key];
+      event.scoreCheckedAt=factTime(base,'score');
+      event.scoreFactObservedAt=base.scoreFactObservedAt??null;
+      // Retained home/away scores must retain their participant association.
+      for(const key of ['homeParticipantId','awayParticipantId'])if(base[key])event[key]=base[key];
+    }
+    if(sportKey(event)==='cricket'&&Array.isArray(event.innings)&&base?.innings?.some(i=>i.detailCheckedAt)){
+      event.innings=event.innings.map(next=>{
+        const prior=base.innings.find(i=>i.inningNumber===next.inningNumber&&i.participantId===next.participantId);
+        if(!prior?.detailCheckedAt||Date.parse(next.detailCheckedAt)>=Date.parse(prior.detailCheckedAt))return next;
+        const retained={...next};
+        for(const key of ['batting','bowling','extras','detailCheckedAt','detailSourceUrl'])if(prior[key]!=null)retained[key]=prior[key];
+        retained.fallOfWickets=prior.fallOfWickets||(Array.isArray(prior.wickets)?prior.wickets:[]);
+        const total=(i,key)=>key==='wickets'?typeof i.wickets==='number'?i.wickets:i.wicketsCount??i.numberOfWicketsFallen:i[key]??i[{runs:'runsScored',overs:'oversBowled'}[key]];
+        retained.detailStale=prior.detailStale===true||event.sourceStale===true||['runs','wickets','overs'].some(key=>total(prior,key)!=null&&total(next,key)!=null&&String(total(prior,key))!==String(total(next,key)));return retained;
+      });
+      for(const prior of base.innings)if(prior.detailCheckedAt&&!event.innings.some(i=>i.inningNumber===prior.inningNumber&&i.participantId===prior.participantId))event.innings.push(prior);
+      event.innings.sort((a,b)=>a.inningNumber-b.inningNumber);
+    }
+    const passive=status=>!status||/^(scheduled|upcoming|not.started|pending)$/i.test(status);
+    if(base&&((!passive(base.status)&&passive(event.status))||older(statusTime,factTime(base,'status')))){
+      retainStatusObservation(base,event);
+      for(const key of ['actualEndTimeUtc','completedAt','firstConfirmedCompleteAt','resultPublishedAt'])if(base[key])event[key]=base[key];
+    }else if(event.status)event.statusCheckedAt=statusTime;
+  }
+
+  function reconcileReviewedFixtureAliases(events){
+    let result=events;
+    for(const target of FIXTURE_TARGETS.keys()){
+      const matches=result.filter(e=>canonicalFixtureId(e?.id||e?.eventId)===target);
+      if(!matches.length)continue;
+      const [merged]=mergeOverlays([],matches);
+      const fixture=normalizeCore({...merged,id:target,eventId:target,canonicalEventId:target});
+      let inserted=false;
+      result=result.flatMap(e=>{if(!matches.includes(e))return [e];if(inserted)return [];inserted=true;return [fixture];});
+    }
+    return result;
   }
 
   function mergeOverlays(events,updates){
-    const result=events.slice(),indexes=new Map(),semanticIndexes=new Map();
+    const result=reconcileReviewedFixtureAliases(events).slice(),indexes=new Map(),semanticIndexes=new Map();
     const aliases=event=>[event?.canonicalEventId,event?.eventId,event?.id,...(event?.sourceEventIds||[])].filter(Boolean);
     const semanticKey=event=>{
       const ids=[...new Set([event.homeParticipantId,event.awayParticipantId].filter(Boolean))];
@@ -95,10 +328,61 @@
     result.forEach((event,index)=>{aliases(event).forEach(id=>indexes.set(id,index));const key=semanticKey(event);if(key)semanticIndexes.set(key,index);});
     // Enrichment is an additive overlay, never a replacement score/status feed.
     const ordered=[...(updates||[]).filter(event=>!event.enrichmentOnly),...(updates||[]).filter(event=>event.enrichmentOnly)];
-    for(const event of ordered){
+    for(const update of ordered){
+      const reviewedId=canonicalFixtureId(update?.id||update?.eventId);
+      const event = {...(FIXTURE_TARGETS.get(reviewedId)||(globalThis.NOTHINGSPORTS_REVIEWED_FIXTURE_REPAIRS||(typeof require==='function'?require('./reviewed-fixture-repairs'):null))?.facts(reviewedId)?normalizeCore(update):update)};
       const ids=aliases(event);if(!ids.length)continue;
       const key=semanticKey(event),match=ids.map(id=>indexes.get(id)).find(index=>index!==undefined)??(key?semanticIndexes.get(key):undefined),index=match??result.length;
       const base=result[index];
+      if((event.fantasyOnly||event.highlightsOnly) && !base)continue;
+      // A confirmed sporting start supersedes an older date-only placeholder.
+      // Missing optional flags must not inherit TBC from the retained record.
+      // Explicitly uncertain new observations keep their uncertainty.
+      if(base && (base.timeTbc || base.startTimeTbc || base.dateOnly) && event.timePrecision==='exact' && event.scheduleStatus==='confirmed' && Number.isFinite(Date.parse(event.startTimeUtc)) && !event.timeTbc && !event.startTimeTbc && !event.dateOnly){
+        event.timeTbc=false;event.startTimeTbc=false;event.dateOnly=false;
+      }
+      reconcileObservation(base,event);
+      if(base && !event.enrichmentOnly){
+        const reviewedAt = record => Date.parse(record?.editorialNarrative?.researchedAt || record?.lastReviewedAt || '') || 0;
+        // A score snapshot's fetch timestamp is not an editorial review.
+        if(reviewedAt(base) > reviewedAt(event)){
+          for(const field of ['postMatchEditorial','editorialPhases','editorialNarrative','editorialPreview','selectedSentence','fullSpiel','summary','storyline','lastReviewedAt','resultEditorialBranches']){
+            if(base[field] !== undefined) event[field] = base[field];
+          }
+        }
+        const resolved = record => (record?.participants || []).length >= 2 &&
+          record.participants.every(p => !/winner of|loser of|\btbc\b|\btbd\b|to be confirmed/i.test(p.name || p.displayName || '') && Boolean(p.name || p.displayName));
+        if(resolved(base) && !resolved(event)){
+          for(const field of ['name','displayName','displayTitleCompact','participants','participantIds','homeParticipantId','awayParticipantId','participantSlots']){
+            if(base[field] !== undefined) event[field] = base[field];
+          }
+        }
+        const missing=value=>value==null || value==='' || (Array.isArray(value)&&!value.length) || (typeof value==='string'&&/^(?:tbc|tbd|unknown|venue tbc)$/i.test(value));
+        // Score providers commonly omit venue and broadcast rights. Absence is
+        // not a retraction of separately verified fixture details.
+        for(const field of ['venue','venueName','venueCity','broadcaster','broadcasterIds','broadcastOptions','broadcasts','viewingOptions']){
+          if(missing(event[field])&&!missing(base[field]))event[field]=base[field];
+        }
+        if(!event.startTimeUtc && base.startTimeUtc && !['postponed','cancelled','abandoned'].includes(event.status)){
+          for(const field of ['date','time','startTimeUtc','timePrecision','scheduleStatus','timeTbc']){
+            if(base[field]!==undefined)event[field]=base[field];
+          }
+        }
+        // An unresolved score-provider planning row cannot retract an independently
+        // reviewed organiser schedule. Keep its provenance with the retained clock;
+        // genuine status/score observations still reconcile independently above.
+        if(update.fixtureObservationSchema&&update.sourceType!=='official'&&!update.scheduleEvidence&&!update.startTimeUtc&&base.scheduleEvidence?.kind==='official-order-of-play'&&aliases(base).includes(base.scheduleEvidence.fixtureId)&&!['postponed','cancelled','abandoned'].includes(event.status)){
+          for(const field of ['date','time','startTimeUtc','timePrecision','schedulePrecision','scheduleStatus','timeTbc','startTimeTbc','dateOnly','scheduleNote','scheduleSourceUrl','sourceUrl','sourceName','sourceType','sourceCheckedAt','court'])if(base[field]!==undefined)event[field]=base[field];
+          // A publisher's unresolved planning flags cannot retract the bound organiser clock.
+          for(const field of ['scheduleEvidence','timingEvidence'])if(base[field]!==undefined)event[field]=base[field];
+          if(update.timingVerified!==false){
+            if(base.timingVerified!==undefined)event.timingVerified=base.timingVerified;
+            for(const field of ['timeTbc','startTimeTbc','dateOnly'])event[field]=base[field]===true;
+          }
+        }
+        if(base.scheduleEvidence&&!update.scheduleEvidence&&update.startTimeUtc&&update.startTimeUtc!==base.startTimeUtc){event.scheduleEvidence=null;event.timingEvidence=null;}
+        if(/^won by\b/i.test(event.scoreDisplay||'') && String(base.scoreDisplay||'').endsWith(event.scoreDisplay))event.scoreDisplay=base.scoreDisplay;
+      }
       // A cached draw placeholder cannot erase a subsequently published fixture.
       // Real postponements, cancellations and live results still use the normal path.
       if(base?.date && (base.time || base.startTimeUtc) && event.scheduleStatus==='provisional' && !event.date && !event.startTimeUtc && !event.time && !['postponed','cancelled','abandoned','live','finished'].includes(event.status))continue;
@@ -110,6 +394,15 @@
 
   function applyEnrichment(existing,overlay){
     const base=existing||overlay.fixtureFallback||{id:overlay.id};
+    if(overlay.highlightsOnly){
+      const h=overlay.highlights;
+      const valid=h===null||(typeof require==='function'?require('./fixture-highlights').valid(h):h?.availability==='public'&&h.url==='https://www.youtube.com/watch?v='+h.videoId);
+      return existing&&valid ? {...existing,highlights:h} : base;
+    }
+    if(overlay.fantasyOnly){
+      const games=new Set((overlay.fantasyDeadlines||[]).map(record=>record.gameId));
+      return {...base,fantasyDeadlines:[...(base.fantasyDeadlines||[]).filter(record=>!games.has(record.gameId)),...(overlay.fantasyDeadlines||[])]};
+    }
     const entries=new Map();
     for(const entry of [...(base.participationEvidence||[]),...(overlay.participationEvidence||[])]){
       if(!entry?.participantId)continue;
@@ -160,15 +453,44 @@
     return (events || []).map(event=>output.get(event)||event);
   }
 
+  // Reviewed men's Sydney derby only; never infer rivalries from city names.
+  function isSydneyDerby(event){
+    if(event.competitionId!=='competition:a-leagues')return false;
+    const pair=['team:football:sydney-fc','team:football:western-sydney-wanderers'];
+    const matches=ids=>ids.length===2&&new Set(ids).size===2&&ids.every(id=>pair.includes(id));
+    const supplied=id=>id!==undefined&&id!==null&&id!=='';
+    const groups=[];
+    if(Array.isArray(event.participantIds)&&event.participantIds.length)groups.push(event.participantIds);
+    const sides=[event.homeParticipantId,event.awayParticipantId];
+    if(sides.some(supplied))groups.push(sides);
+    const participants=Array.isArray(event.participants)?event.participants:[];
+    const slots=Array.isArray(event.participantSlots)?event.participantSlots:[];
+    for(const [rows,keys] of [[participants,['id','participantId']],[slots,['participantId']]]){
+      if(!rows.some(row=>keys.some(key=>supplied(row?.[key]))))continue;
+      groups.push(rows.map(row=>{
+        const ids=keys.map(key=>row?.[key]).filter(supplied);
+        return ids.length&&ids.every(id=>id===ids[0])?ids[0]:null;
+      }));
+    }
+    if(groups.length)return groups.every(matches);
+    // Exact aliases retained in the current canonical club directory.
+    const aliases={'sydney fc':pair[0],'western sydney wanderers':pair[1],'western sydney':pair[1]};
+    return matches(participants.map(p=>aliases[String(p.name||p.displayName||'').trim().toLowerCase()]));
+  }
+
   function consensusTagsForEvent(event){
     const array=value=>Array.isArray(value)?value:[];
     const allowed=new Set(['Rivalry','Derby','Round-Robin','Knockout','Final','Record Chase']);
     const urls=[event.sourceUrl,...array(event.sourceUrls),...array(event.sources).map(source=>source?.url)].filter(url=>typeof url==='string'&&/^https:\/\//.test(url));
-    const tags=[...array(event.consensusTags),...array(event.editorialPreview?.consensusTags)].filter(tag=>tag&&allowed.has(tag.label)&&Number(tag.confidence)>=.6&&(!tag.expiresAt||Date.parse(tag.expiresAt)>Date.now())&&array(tag.sourceUrls).some(url=>/^https:\/\//.test(url)));
+    const sydneyDerby=isSydneyDerby(event);
+    const tags=[...array(event.consensusTags),...array(event.editorialPreview?.consensusTags)].filter(tag=>tag&&(tag.method!=='reviewed-participant-pair.v1'||sydneyDerby)&&allowed.has(tag.label)&&Number(tag.confidence)>=.6&&(!tag.expiresAt||Date.parse(tag.expiresAt)>Date.now())&&array(tag.sourceUrls).some(url=>/^https:\/\//.test(url)));
+    if(urls.length&&sydneyDerby&&!tags.some(tag=>tag.label==='Derby'))tags.push({label:'Derby',confidence:.9,sourceUrls:[...new Set([...urls,'https://aleagues.com.au/news/aleague-men-2026-2027-fixture-list-revealed-key-dates-fixture-information/'])],method:'reviewed-participant-pair.v1'});
     // Structural schedule facts can be classified without inventing narrative.
     const round=String(event.round||event.roundLabel||event.stage||'').toLowerCase();
     const label=/^(?:grand |grand-)?final$/.test(round)?'Final':/quarter.?final|semi.?final|knockout|round of (?:16|32)/.test(round)?'Knockout':/round.?robin|group stage/.test(round)?'Round-Robin':null;
-    if(label&&urls.length)tags.push({label,confidence:.9,sourceUrls:[...new Set(urls)],method:'published-schedule.v1'});
+    // A later result source does not replace the original evidence for an
+    // unchanged schedule category. Expired/invalid tags were removed above.
+    if(label&&urls.length&&!tags.some(tag=>tag.label===label&&tag.method==='published-schedule.v1'))tags.push({label,confidence:.9,sourceUrls:[...new Set(urls)],method:'published-schedule.v1'});
     return [...new Map(tags.map(tag=>[tag.label,tag])).values()];
   }
   function retainedInActiveTimeline(event, now = new Date(), days = 7){
@@ -182,5 +504,5 @@
     const horizon=new Date(Date.UTC(futureYear,month,Math.min(Number(parts.day),lastDay))).toISOString().slice(0,10);
     return (!/^\d{4}-\d{2}-\d{2}$/.test(end || "") || end >= cutoff) && (!/^\d{4}-\d{2}-\d{2}$/.test(start || "") || start<=horizon);
   }
-  return Object.freeze({sportKey, scheduleCode, normalizeCore, fromSchedule, followedScheduleCodes,mergeOverlays,estimateTimeline,retainedInActiveTimeline,consensusTagsForEvent});
+  return Object.freeze({canonicalParticipantId,canonicalFixtureId,fixtureAliases,sportKey, scheduleCode, normalizeCore, fromSchedule, cricketEditionResolver, followedScheduleCodes,mergeOverlays,hasScore,hasScoreFields,estimateTimeline,retainedInActiveTimeline,consensusTagsForEvent});
 });

@@ -5,14 +5,57 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "..");
+const participants = require('../config/participant-directory');
+const {normalizeRecord,DirectoryRecords}=require('./build-follow-directories');
+const builtRecords=new DirectoryRecords();
+for(const [id,flags] of [['canonical',{canonicalName:'TBD'}],['placeholder',{placeholder:true}],['metadata',{metadata:{isPlaceholder:true}}]]){
+  const raw={id:'provider:'+id,type:'team',displayName:'Unknown opponent',...flags};
+  assert.equal(normalizeRecord(raw),null,'The real normalizer must reject raw '+id+' before its evidence is discarded');
+  builtRecords.set(raw.id,normalizeRecord(raw));
+}
+for(const [id,displayName] of [['named','Carlton'],['numbered','1. FC Köln'],['empty-roster','A real team with no current players']]){
+  const raw={id:'team:example:'+id,type:'team',displayName,currentPlayerCount:0};
+  builtRecords.set(raw.id,normalizeRecord(raw));
+}
+assert.equal(builtRecords.size,3,'The actual builder collection keeps genuine teams and omits raw placeholders');
+assert.deepEqual([...builtRecords.values()].map(r=>r.displayName),['Carlton','1. FC Köln','A real team with no current players']);
+assert.equal(normalizeRecord({id:'competitor:example:person',type:'competitor',displayName:'1st',metadata:{isPlaceholder:true}}).entityType,'athlete','Only the resolved team type receives the team-placeholder rule');
+for (const displayName of ['1st','8th','16th place','Loser of QF1','Winner of EF2','Winner of Semi Final 1','TBD','TBA','To be confirmed']) {
+  assert.equal(participants.isUnresolvedTeam({id:'team:example:slot',entityType:'team',displayName}),true,displayName+' is a bracket slot, not a team');
+}
+for (const displayName of ['1. FC Köln','1860 Munich','76ers','Australia','Ireland AFLW representative','Winner United']) {
+  assert.equal(participants.isUnresolvedTeam({id:'team:example:real',entityType:'team',displayName,shortName:'TBD'}),false,displayName+' is not an unresolved bracket identity');
+}
+assert.equal(participants.isUnresolvedTeam({id:'athlete:example:1st',entityType:'athlete',displayName:'1st'}),false,'Team filtering cannot remove individual competitors');
+assert.equal(participants.isUnresolvedTeam({id:'slot:example:qf1',displayName:'Unknown'}),true);
 const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/manifest.v1.json"), "utf8"));
 assert.equal(manifest.schemaVersion, "follow-directory-manifest.v1");
-assert.equal(manifest.sports.length, 27, "all exposed sports plus NBL and the published child codes require lazy chunks");
+const identityIndex=require('./lib/follow-identity-index').footballIdentityIndex;
+const footballIndex=JSON.parse(fs.readFileSync(path.join(ROOT,'data/canonical/football-follow-index.v1.json'),'utf8'));
+const footballChunk=JSON.parse(fs.readFileSync(path.join(ROOT,'data/follow-directory/football.v1.json'),'utf8'));
+assert.deepEqual(footballIndex,identityIndex(footballIndex,footballChunk),'The existing lightweight index must carry every retained basic Football identity, without new facts/dates');
+assert.throws(()=>identityIndex(footballIndex,{...footballChunk,records:[footballChunk.records[0],footballChunk.records[0]]}),/ambiguous/,'A partial conflicting identity list cannot replace last-good names');
+assert.throws(()=>identityIndex(footballIndex,{...footballChunk,records:[]}),/Invalid/);
+assert.throws(()=>identityIndex(footballIndex,{...footballChunk,records:[{id:'slot:football:winner',displayName:'Winner'}]}),/ambiguous/,'Unknown future opponents are not followed identities');
+const expectedDirectoryKeys="afl,aflw,nrl,nrlw,motorsport,f1,motogp,wrc,dakar,supercars,extreme,surf,skiing,rugby,tennis,football,cycling,cricket,surf-women,skiing-women,extreme-women,hockey-women,gymnastics-women,nba-women,cricket-women,rugby-women,football-women,tennis-women,golf-women,cycling-women,athletics-women,swimming-women,boxing-women,ice-hockey-women,nba,nbl,fiba-women,sailgp,golf,baseball,american-football,athletics,swimming,netball,ice-hockey,boxing".split(",");
+assert.deepEqual(manifest.sports.map(sport=>sport.key).sort(),expectedDirectoryKeys.sort(),"every published choice, including the existing Dakar child, needs exactly one lazy chunk; hidden supports remain separate");
 for (const supportKey of ["hockey", "multi-sport"]){
   const supportChunk = JSON.parse(fs.readFileSync(path.join(ROOT, `data/follow-directory/${supportKey}.v1.json`), "utf8"));
   assert(supportChunk.records.some(record => record.teamKind === "national"), `${supportKey}: hidden national-team support data must remain current without becoming a top-level Follow category`);
 }
 manifest.sports.forEach(sport => {
+  if(sport.key==='dakar'){
+    assert.equal(sport.status,'unavailable','Calendar-only Dakar must not imply a sourced participant directory');
+    assert.equal(sport.recordCount,0,'do not invent Dakar entries');
+    assert.equal(JSON.parse(fs.readFileSync(path.join(ROOT,sport.jsonUrl),'utf8')).records.length,0);
+    assert(fs.existsSync(path.join(ROOT,sport.jsonUrl.replace(/\.json$/,'.js'))),'Dakar retains its honest empty direct-file fallback');return;
+  }
+  if(sport.key==='supercars'){
+    assert.equal(sport.status,'schedule-only','Bathurst-only scope must not imply a sourced driver directory');
+    assert.equal(sport.recordCount,0,'do not invent Supercars participants');
+    assert(fs.existsSync(path.join(ROOT,sport.jsonUrl)),'schedule-only categories retain a lazy empty chunk');return;
+  }
+  if(sport.key.endsWith('-women')&&sport.recordCount===0){assert.equal(sport.status,'unavailable');assert.equal(require('../'+sport.jsonUrl).records.length,0);return;}
   assert.equal(sport.status, "available", `${sport.key}: every active sport must expose a populated lazy directory`);
   assert.ok(sport.recordCount > 0, `${sport.key}: populated directory cannot be empty`);
   const chunkPath = path.join(ROOT, sport.jsonUrl);
@@ -22,9 +65,10 @@ manifest.sports.forEach(sport => {
   assert.equal(chunk.sportKey, sport.key);
   assert.equal(chunk.records.length, sport.recordCount);
   chunk.records.forEach(record => {
+    assert.equal(participants.isUnresolvedTeam(record),false,`${record.id}: unresolved team must not be selectable`);
     assert.ok(record.id && record.displayName, `${sport.key}: identity fields required`);
     assert.ok(["male", "female", "mixed", "unknown"].includes(record.genderCategory));
-    if (sport.key !== "tennis" || !record.watchPoolMember){
+    if (!sport.key.startsWith("tennis") || !record.watchPoolMember){
       assert.equal(record.current, true, `${record.id}: historical or inactive records are forbidden outside the explicit Tennis watch pool`);
     }
   });
@@ -36,7 +80,8 @@ for (const sportKey of ["extreme", "surf", "skiing", "golf", "boxing"]){
   assert.ok(chunk.records.every(record => record.countryCode && record.countryBasis), `${sportKey}: supplemented records require country flags and an evidence basis`);
   assert.ok(chunk.records.every(record => record.sourceRefs.some(ref => /^https:\/\//.test(ref))), `${sportKey}: supplemented records require an official source URL`);
   assert.ok(chunk.records.some(record => record.genderCategory === "male"), `${sportKey}: men's choices missing`);
-  if (sportKey !== "american-football") assert.ok(chunk.records.some(record => record.genderCategory === "female"), `${sportKey}: women's choices missing`);
+  assert(!chunk.records.some(record=>record.genderCategory==='female'), `${sportKey}: women's records are separate`);
+  assert(require(`../data/follow-directory/${sportKey}-women.v1.json`).records.every(record=>record.genderCategory==='female'));
 }
 for (const sportKey of ["american-football", "ice-hockey"]){
   const chunk = JSON.parse(fs.readFileSync(path.join(ROOT, `data/follow-directory/${sportKey}.v1.json`), "utf8"));
@@ -46,14 +91,21 @@ for (const sportKey of ["american-football", "ice-hockey"]){
   assert.ok(teams.every(record => record.sourceRefs.some(ref => /^https:\/\//.test(ref))), `${sportKey}: teams require a current source URL`);
 }
 const runtime = require(path.join(ROOT, "config/football-directory.js"));
+const rawSearch = JSON.parse(fs.readFileSync(path.join(ROOT,'data/follow-directory/search.v1.json'),'utf8'));
+const search = rawSearch.records.map(row=>Object.fromEntries(rawSearch.fields.map((field,i)=>[field,row[i]])));
+assert(search.every(record=>!participants.isUnresolvedTeam(record)),'Global search cannot reintroduce fixture bracket slots');
+assert.equal(participants.unpack({schemaVersion:'participant-search.v1',fields:['id','displayName','entityType'],records:[['team:aflw:cd_t3000','1st','team'],['team:afl:real','Carlton','team']]}).length,1,'Retained old search indexes must be filtered at decode');
 const football = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/football.v1.json"), "utf8"));
 const lucas = football.records.find(record => record.displayName === "Lucas Herrington");
 assert.ok(lucas, "Lucas Herrington must remain in the current Football directory");
 assert.ok(Number.isFinite(runtime.searchMatchScore(lucas, "Harrington")), "one-character Football search variants must match");
-const tennis = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/tennis.v1.json"), "utf8"));
+const mensTennis = require("../data/follow-directory/tennis.v1.json"),womensTennis=require("../data/follow-directory/tennis-women.v1.json");
+assert(mensTennis.records.every(r=>r.genderCategory!=="female"));assert(womensTennis.records.every(r=>r.genderCategory==="female"));
+const tennis={records:[...mensTennis.records,...womensTennis.records],collections:[...mensTennis.collections,...womensTennis.collections].reduce((rows,c)=>{const prior=rows.find(p=>p.id===c.id);if(prior)prior.memberIds.push(...c.memberIds);else rows.push({...c,memberIds:c.memberIds.slice()});return rows;},[])};
 assert.equal(tennis.records.filter(record => record.watchPoolMember).length, 51, "Tennis must expose the expanded watch-pool players");
 assert.equal(tennis.collections.length, 8, "Tennis must expose the original groups plus ATP/WTA watch lists");
-assert.equal(new Set(tennis.records.map(record => record.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase())).size, tennis.records.length, "Tennis player rows must be deduplicated by name");
+const tennisPlayers=tennis.records.filter(record=>record.entityType!=="team");
+assert.equal(new Set(tennisPlayers.map(record => record.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase())).size, tennisPlayers.length, "Tennis player rows must be deduplicated by name");
 for (const collectionId of ["collection:tennis:mens-top-10", "collection:tennis:womens-top-10"]){
   assert.equal(tennis.collections.find(collection => collection.id === collectionId)?.memberIds.length, 10, `${collectionId}: current top ten must contain ten players`);
 }
@@ -72,7 +124,7 @@ for (const name of ["Stefanos Tsitsipas", "Rafael Nadal", "Roger Federer"]){
 const serena = tennis.records.find(record => record.displayName === "Serena Williams");
 assert(serena && womensWatch.memberIds.includes(serena.id), "Serena Williams must remain in the WTA/womens watch list without requiring a rank");
 assert(["Rafael Nadal", "Roger Federer", "Serena Williams"].every(name => tennis.records.find(record => record.displayName === name)?.ranking === null), "watch-list membership must not require an ATP or WTA ranking");
-const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+const html = require("./app-shell-test-utils").readFollowApplicationSource();
 assert(html.includes('buildDirectorySelect("List", filters.collectionId') && html.includes("selectedCollectionMemberIds.has(record.id)"), "the Tennis directory must expose collection membership as a working List filter");
 for (const sportKey of ["afl", "aflw", "f1"]){
   const chunk = JSON.parse(fs.readFileSync(path.join(ROOT, `data/follow-directory/${sportKey}.v1.json`), "utf8"));
@@ -83,16 +135,16 @@ for (const sportKey of ["afl", "aflw", "f1"]){
   else assert.ok(athletes.every(record => record.competitionNumberKind === "guernsey"), `${sportKey}: guernsey metadata is required even while a source number is TBC`);
 }
 const wrc = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/wrc.v1.json"), "utf8"));
-assert.equal(wrc.records.length, 77, "WRC must expose the complete senior FIA standings field");
-assert.equal(wrc.records.filter(record => record.position === "driver").length, 36, "WRC drivers directory is incomplete");
-assert.equal(wrc.records.filter(record => record.position === "co-driver").length, 37, "WRC co-drivers directory is incomplete");
-assert.equal(wrc.records.filter(record => record.position === "manufacturer").length, 4, "WRC manufacturers directory is incomplete");
+const wrcContext=require('../data/canonical/wrc-context-2026.json');
+assert.deepEqual(new Set(wrc.records.map(r=>r.id)),new Set(wrcContext.participants.map(p=>p.id)),"WRC directory must expose every sourced senior participant exactly once");
+assert.equal(wrc.records.length,wrcContext.participants.length);
+for(const role of ['driver','co-driver','manufacturer'])assert.equal(wrc.records.filter(r=>r.position===role).length,wrcContext.participants.filter(p=>p.metadata.championshipRole===role).length,role+' directory incomplete');
 assert.ok(wrc.records.every(record => record.sourceRefs.some(ref => /^https:\/\/(?:www\.)?(?:wrc\.com|fia\.com|api\.fia\.com)/.test(ref))), "WRC follows require official source provenance");
 const motorsport = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/motorsport.v1.json"), "utf8"));
 assert.ok(motorsport.records.some(record => String(record.id).startsWith("competitor:f1:")), "general Motorsport must retain F1 discovery");
 assert.ok(motorsport.records.some(record => String(record.id).startsWith("competitor:wrc:")), "general Motorsport must include WRC discovery");
 const nrlw = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/nrlw.v1.json"), "utf8"));
-assert.equal(nrlw.records.filter(record => record.entityType === "team").length, 12, "NRLW must expose all twelve current clubs");
+assert.equal(nrlw.records.filter(record => record.entityType === "team" && record.id.startsWith("team:nrlw:")).length, 12, "NRLW must expose all twelve current clubs");
 const nbl = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/nbl.v1.json"), "utf8"));
 assert.equal(nbl.records.filter(record => record.entityType === "team").length, 10, "NBL must expose all ten current clubs");
 assert.ok(nbl.records.filter(record => record.entityType === "athlete").every(record => record.currentTeamId), "NBL player follows require a current official roster mapping");
@@ -102,8 +154,30 @@ const fibaWomen = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-direct
 assert.equal(fibaWomen.records.filter(record => record.entityType === "team").length, 16, "FIBA Women must expose all sixteen World Cup teams");
 assert.ok(fibaWomen.records.some(record => record.id === "team:basketball:opals"), "the Opals must be followable inside FIBA Women");
 const motogp = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/motogp.v1.json"), "utf8"));
-assert.equal(motogp.records.filter(record => record.entityType === "athlete").length, 22, "MotoGP must expose the current twenty-two rider field");
-assert.ok(motogp.records.every(record => Number(record.competitionNumber) > 0 && record.competitionNumberKind === "racing"), "MotoGP riders need current racing numbers");
+assert.equal(motogp.records.filter(record => record.entityType === "athlete" && !record.profileOnly).length, 22, "MotoGP must expose the current twenty-two rider field");
+assert.ok(motogp.records.filter(record=>!record.profileOnly).every(record => Number(record.competitionNumber) > 0 && record.competitionNumberKind === "racing"), "MotoGP riders need current racing numbers");
 const sailgp = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/sailgp.v1.json"), "utf8"));
 assert.equal(sailgp.records.filter(record => record.entityType === "team").length, 13, "SailGP must expose all thirteen 2026 teams");
-console.log(`Follow directory manifest valid: ${manifest.sports.length} chunks, tolerant search and current-only records.`);
+{
+const {participantObservation}=require('./lib/participant-source-observation');
+const requested=JSON.parse(fs.readFileSync(path.join(ROOT,'data/canonical/fiba-women-sailgp-motogp-2026.json'),'utf8'));
+const nrlw=JSON.parse(fs.readFileSync(path.join(ROOT,'data/follow-directory/nrlw.v1.json'),'utf8'));
+for(const record of requested.participants.filter(e=>e.sportKey==='nrlw')){
+ assert.equal(participantObservation(record,requested.sources),null,'No NRLW source receipt can be inferred from a MotoGP document rebuild');
+ assert.equal(nrlw.records.find(e=>e.id===record.id).sourceCheckedAt,null,'The real persisted NRLW directory must preserve unknown source observation');
+}
+const observed='2026-10-11T05:10:00+00:00',reference=Date.parse('2026-10-11T13:40:00Z');
+assert.equal(participantObservation({sourceCheckedAt:observed},{},reference),observed,'Explicit original participant observation remains verbatim');
+assert.equal(participantObservation({sourceIds:['own']},{own:{checkedAt:observed}},reference),observed,'Only the participant matching source can supply its receipt');
+assert.equal(participantObservation({sourceIds:['own']},{other:{checkedAt:observed}},reference),null,'An unrelated source cannot supply freshness');
+for(const bad of ['invalid','2026-02-30T05:10:00Z','2026-10-11T13:40:00.001Z'])assert.equal(participantObservation({sourceCheckedAt:bad},{},reference),null,'Invalid or future observations stay unknown');
+assert.equal(participantObservation({sourceIds:['a','b']},{a:{checkedAt:observed},b:{checkedAt:'2026-10-11T05:11:00Z'}},reference),null,'Distinct source receipts cannot invent one participant observation');
+assert.equal(participantObservation({sourceIds:['a','b']},{a:{checkedAt:observed}},reference),null,'A missing source receipt stays unknown');
+}
+const {searchPublicationAnchor}=require('./build-follow-directories');
+assert.equal(searchPublicationAnchor('2026-10-13T20:59:25.934Z','2026-10-22T16:43:52.871Z',true),'2026-10-22T16:43:52.871Z','scoped search must retain the latest recorded anchor');
+assert.equal(searchPublicationAnchor('2026-10-23T00:00:00Z','2026-10-22T00:00:00Z',true),'2026-10-23T00:00:00Z');
+assert.equal(searchPublicationAnchor('2026-10-13T00:00:00Z','2026-02-30T00:00:00Z',true),'2026-10-13T00:00:00Z');
+assert.equal(searchPublicationAnchor('2026-10-13T00:00:00Z','2026-10-22T00:00:00Z',false),'2026-10-13T00:00:00Z','unscoped behavior remains unchanged');
+require('./validate-rlwc-tonga-samoa');
+console.log(`Follow directory manifest valid: ${manifest.sports.length} chunks, tolerant search, current-only records and genuine source observations.`);

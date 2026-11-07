@@ -18,9 +18,10 @@
   const STORYLINE_OVERRIDES = root.NOTHINGSPORTS_STORYLINE_OVERRIDES
     || (typeof require === "function" ? require("./storyline-overrides.js") : null);
   const browserNothingscore = Object.freeze({
-    HEAT_LABELS:Object.freeze(["Routine","Interesting","Notable","Major","Essential"]),
-    PULSE_LABELS:Object.freeze(["Flat","Solid","Strong","Exceptional","Unforgettable"]),
-    IMPACT_LABELS:Object.freeze(["Flat","Solid","Strong","Exceptional","Unforgettable"]),
+    HEAT_PROMPT:"How good a spectacle do you expect?",
+    HEAT_LABELS:Object.freeze(["Routine","Promising","Compelling","Must-watch","EPIC spectacle"]),
+    PULSE_LABELS:Object.freeze(["Flat","A spark","Buzzing","Electric","EPIC electricity"]),
+    IMPACT_LABELS:Object.freeze(["A ripple","A tremor","A shock","An aftershock","EPIC magnitude"]),
     HEAT_TAGS:Object.freeze(["Box office","Big stakes","Rivalry","Star power","National interest","Great storyline"]),
     IMPACT_TAGS:Object.freeze(["Thrilling","Eye-popping","Mind-blowing","Emotional","Electric atmosphere","Pure chaos"]),
     HEAT_LOW_TAGS:Object.freeze(["Rising storyline","Emerging talent","Low expectations","Bog standard","Too one-sided","Hard to care"]),
@@ -113,6 +114,8 @@
   function editorialNarrativeReadyForCard(narrative){
     if (!narrative || !/^editorial-narrative\.v(?:1|2|3)$/.test(String(narrative.schemaVersion || ""))) return false;
     if (!String(narrative.hook || "").trim() || !String(narrative.synopsis || "").trim()) return false;
+    // Unresearched structural fallback is withheld; fixture admission is independent.
+    if(narrative.generationMode === "source-derived-fallback")return false;
     if (narrative.generationMode !== "researched") return true;
     return Array.isArray(narrative.factIds)
       && narrative.factIds.length > 0
@@ -354,7 +357,6 @@
   function followBoost(event, graph){
     const participantIds = participantIdsFor(event);
     const follows = (graph?.entityFollows || []).filter(follow => participantIds.includes(follow.participantId));
-    if (follows.some(follow => follow.followLevel === "mute")) return 0;
     if (follows.some(follow => follow.followLevel === "priority")) return 5;
     return follows.some(follow => follow.followLevel === "follow") ? 3 : 0;
   }

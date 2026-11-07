@@ -1,0 +1,15 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {buildPagedFeed,retainedEvents,PAGE_SIZE}=require('./build-paged-feed');
+const maximumBytes=100*1024;
+const source={version:'bounded-first-page',publishedAt:'2026-10-16T00:00:00Z',events:Array.from({length:47},(_,index)=>({id:'page-budget-'+String(index).padStart(2,'0'),date:'2026-10-16',time:'12:00',recapText:'é'.repeat(4000)}))};
+const original=JSON.stringify(source),document=buildPagedFeed(source);
+assert(Buffer.byteLength(JSON.stringify(document.pages[0].payload)+'\n')<=maximumBytes,'The actual first-page payload must fit its UTF-8 byte limit');
+assert(document.pages[0].eventCount<PAGE_SIZE,'Heavy records move whole to the next page');
+assert(document.pages.every(page=>page.eventCount>0&&page.eventCount<=PAGE_SIZE));
+assert.deepEqual(document.pages.flatMap(page=>page.payload.events),retainedEvents(source),'Paging must preserve all facts, identities and order exactly');
+assert.equal(JSON.stringify(source),original,'The builder must not mutate its source');
+assert.throws(()=>buildPagedFeed({...source,events:[{...source.events[0],recapText:'é'.repeat(maximumBytes)}]}),/First feed fixture exceeds/,'An indivisible oversized fixture fails before publication instead of being truncated');
+assert.deepEqual(buildPagedFeed({...source,events:[]}).pages,[]);
+assert.throws(()=>buildPagedFeed(null),/Published events.json is invalid/);
+console.log('First-page byte budget: whole UTF-8 records, complete ordered continuation, invalid/empty input and oversized-fixture rejection passed.');

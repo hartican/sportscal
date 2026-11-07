@@ -73,6 +73,7 @@
   // derive from these records instead of requiring a bespoke UI branch.
   const domains = [
     { key: "f1", domainId: "sport:motorsport", label: "F1", selectorLabel: "F1", detail: "Qualifying, races, driver and constructor standings.", color: "var(--c-f1)", glyph: "sport:motorsport", sortOrder: 10, selector: true, supportsLadders: true, supportsNarrative: true },
+    { key: "supercars", domainId: "sport:motorsport", preferenceDomainId: "sport:supercars", label: "V8 Supercars", selectorLabel: "V8 Supercars", detail: "Bathurst 1000 only; further fixtures will be added later.", color: "#c62828", glyph: "sport:motorsport", sortOrder: 14, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "motogp", domainId: "sport:motorsport", label: "MotoGP", selectorLabel: "MotoGP", detail: "Every remaining 2026 Grand Prix and the current rider field.", color: "#e10600", glyph: "sport:motorsport", sortOrder: 11, selector: false, supportsLadders: false, supportsNarrative: true },
     { key: "sailgp", domainId: "sport:sailing", label: "SailGP", selectorLabel: "SailGP", detail: "The 2026 fleet, race weekends and championship run-in.", color: "#009fd9", glyph: "sport:sailing", sortOrder: 12, selector: false, supportsLadders: false, supportsNarrative: true },
     { key: "motorsport", domainId: "sport:motorsport", label: "Motorsport", selectorLabel: "Motorsport", detail: "Cross-discipline motorsport coverage spanning rally, endurance and performance events.", color: "var(--c-motorsport)", glyph: "sport:motorsport", sortOrder: 15, selector: true, supportsLadders: true, supportsNarrative: true },
@@ -111,6 +112,7 @@
     { key: "football", domainId: "sport:football", label: "Football", selectorLabel: "Football", detail: "Major football fixtures, tournaments and supported league tables.", color: "var(--c-football)", glyph: "sport:football", sortOrder: 141, selector: false, supportsLadders: true, supportsNarrative: false },
     { key: "basketball", domainId: "sport:basketball", label: "Basketball", selectorLabel: "Basketball", detail: "Major basketball fixtures and finals.", color: "var(--c-nba)", glyph: "sport:basketball", sortOrder: 142, selector: false, supportsLadders: false, supportsNarrative: false },
     { key: "golf", domainId: "sport:golf", label: "Golf", selectorLabel: "Golf", detail: "Major golf rounds and title events.", color: "var(--c-golf)", glyph: "sport:golf", sortOrder: 143, selector: false, supportsLadders: false, supportsNarrative: false },
+    { key:"baseball",domainId:"sport:baseball",label:"Baseball",selectorLabel:"Baseball",detail:"Source-backed MLB postseason fixtures and followed clubs.",color:"#d42636",glyph:"sport:baseball",sortOrder:144.5,selector:false,supportsLadders:false,supportsNarrative:false },
     { key: "american-football", domainId: "sport:american-football", label: "American Football", selectorLabel: "American Football", detail: "Major American football fixtures and finals.", color: "var(--c-nfl)", glyph: "sport:american-football", sortOrder: 144, selector: false, supportsLadders: false, supportsNarrative: false },
     { key: "ice-hockey", domainId: "sport:ice-hockey", label: "Ice Hockey", selectorLabel: "Ice Hockey", detail: "NHL and Champions Hockey League teams, fixtures, tables and knockout rounds.", color: "#1687d9", glyph: "sport:ice-hockey", sortOrder: 145, selector: false, supportsLadders: true, supportsNarrative: true },
     { key: "athletics", domainId: "sport:athletics", label: "Athletics", selectorLabel: "Athletics", detail: "Track and field finals and major sessions.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 150, selector: false, supportsLadders: false, supportsNarrative: false },
@@ -121,13 +123,17 @@
     { key: "boxing", domainId: "sport:boxing", label: "Boxing", selectorLabel: "Boxing", detail: "Major boxing bouts and medal sessions.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 155, selector: false, supportsLadders: false, supportsNarrative: false },
     { key: "multi-sport", domainId: "sport:multi-sport", label: "Commonwealth Games compatibility", selectorLabel: "Commonwealth Games compatibility", detail: "Historical multi-sport event compatibility only.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 156, selector: false, supportsLadders: false, supportsNarrative: false },
     { key: "cwg", domainId: "special:commonwealth-games", label: "Commonwealth Games", selectorLabel: "Commonwealth Games", detail: "Curated Glasgow 2026 sessions, top-competitor follows, and a spoiler-protected medal table.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 140, selector: false, supportsLadders: true, supportsNarrative: true },
+    { key: "horse-racing", domainId: "sport:horse-racing", label: "Horse Racing", selectorLabel: "Horse Racing", detail: "Published feature races and carnival schedules.", color: "#946126", glyph: "sport:horse-racing", sortOrder: 143.5, selector: true, supportsLadders: false, supportsNarrative: false },
   ].map(domain => Object.freeze({
     ...domain,
     narrativeProfile: narrativeProfiles[domain.key] || narrativeProfiles[narrativeProfileKeyByDomainId[domain.domainId]],
   }));
 
   const canonicalByKey = Object.fromEntries(domains.map(domain => [domain.key, domain]));
+  // Existing gender-specific selector choices share their sport's neutral glyph.
+  const womenAliases=Object.fromEntries(Object.entries({surf:'surf',skiing:'ski',extreme:'extreme',hockey:'ice-hockey',gymnastics:'gymnastics',nba:'nba',cricket:'cricket',rugby:'rugby',football:'fifa',tennis:'tennis',golf:'masters',cycling:'cycling',athletics:'multi-sport',swimming:'multi-sport',boxing:'boxing','ice-hockey':'ice-hockey'}).map(([key,base])=>[key+'-women',Object.freeze({...canonicalByKey[base],key:key+'-women'})]));
   const byKey = Object.freeze({
+    ...womenAliases,
     ...canonicalByKey,
     rally: canonicalByKey.wrc,
     snow: canonicalByKey.ski,
@@ -144,6 +150,7 @@
       domainId: domain.domainId,
     })]));
     entries.rally = entries.wrc;
+    Object.entries(womenAliases).forEach(([key,domain])=>{entries[key]={label:domain.label,color:domain.color,glyph:domain.glyph,domainId:domain.domainId};});
     entries.snow = entries.ski;
     entries.skiing = entries.ski;
     entries["winter-sport"] = entries.ski;

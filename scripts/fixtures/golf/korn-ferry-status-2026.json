@@ -1,0 +1,66 @@
+{
+  "sourceUrl": "https://www.pgatour.com/korn-ferry-tour/tournaments/2026/compliance-solutions-championship/H2026166/tee-times",
+  "checkedAt": "2026-10-02T15:02:58.863Z",
+  "queries": [
+    {
+      "queryKey": [
+        "tournament",
+        {
+          "id": "R2026554"
+        }
+      ],
+      "state": {
+        "data": {
+          "id": "R2026554",
+          "seasonYear": "2026",
+          "tournamentStatus": "IN_PROGRESS"
+        }
+      }
+    },
+    {
+      "queryKey": [
+        "tournament",
+        {
+          "id": "S2026061"
+        }
+      ],
+      "state": {
+        "data": {
+          "id": "S2026061",
+          "seasonYear": "2026",
+          "tournamentStatus": "IN_PROGRESS"
+        }
+      }
+    },
+    {
+      "queryKey": [
+        "tournament",
+        {
+          "id": "H2026166"
+        }
+      ],
+      "state": {
+        "data": {
+          "id": "H2026166",
+          "seasonYear": "2026",
+          "tournamentStatus": "IN_PROGRESS"
+        }
+      }
+    },
+    {
+      "queryKey": [
+        "tournament",
+        {
+          "id": "Y2026008"
+        }
+      ],
+      "state": {
+        "data": {
+          "id": "Y2026008",
+          "seasonYear": "2026",
+          "tournamentStatus": "COMPLETED"
+        }
+      }
+    }
+  ]
+}

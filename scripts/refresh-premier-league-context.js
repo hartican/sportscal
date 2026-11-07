@@ -3,7 +3,6 @@
 "use strict";
 
 const fs = require("node:fs");
-const https = require("node:https");
 const path = require("node:path");
 const taxonomy = require("../config/canonical-sports-taxonomy.js");
 
@@ -17,26 +16,8 @@ const EXPECTED_TEAM_COUNT = 20;
 const SOURCE_URL = "https://www.premierleague.com/en/tables/premier-league/2026-27";
 const STANDINGS_URL = `https://footballapi.pulselive.com/football/standings?compSeasons=${PULSE_SEASON_ID}&comps=${PULSE_COMPETITION_ID}&comp=${PULSE_COMPETITION_ID}&altIds=true&page=0&pageSize=100`;
 
-function fetchJson(url){
-  return new Promise((resolve, reject) => {
-    const request = https.get(url, {
-      headers: {
-        Accept: "application/json",
-        Origin: "https://www.premierleague.com",
-        "User-Agent": "nothingsport-premier-league-standings/1.0",
-      },
-    }, response => {
-      let body = "";
-      response.setEncoding("utf8");
-      response.on("data", chunk => { body += chunk; });
-      response.on("end", () => {
-        if (response.statusCode !== 200) return reject(new Error(`Premier League standings service returned ${response.statusCode}.`));
-        try { resolve(JSON.parse(body)); } catch (error) { reject(new Error(`Premier League standings service returned invalid JSON: ${error.message}`)); }
-      });
-    });
-    request.setTimeout(20_000, () => request.destroy(new Error("Premier League standings service timed out.")));
-    request.on("error", reject);
-  });
+function fetchJson(url,options){
+  return require('./lib/epl-source-json').readJson(url,options);
 }
 
 function officialSource(checkedAt){
@@ -46,6 +27,50 @@ function officialSource(checkedAt){
     sourceType: "official",
     checkedAt,
   };
+}
+
+// Provider row order is separate from sporting place (Handbook C.4-C.7).
+// C.17 adjudication is never inferred from ordinal rows or elapsed time.
+function sharedPlaces(entries){
+  const rows=[...entries].sort((a,b)=>a.rank-b.rank);
+  const equal=(a,b)=>a&&b&&a.ladderPoints===b.ladderPoints&&a.pointsDifference===b.pointsDifference&&a.pointsFor===b.pointsFor;
+  const atSeasonBoundary=rows.every(row=>row.played===2*(EXPECTED_TEAM_COUNT-1));
+  let place=1;
+  return rows.map((entry,index)=>{
+    if(!index||!equal(entry,rows[index-1]))place=index+1;
+    const {sharedRank,rankPending,sortOrder,...facts}=entry;
+    return equal(entry,rows[index-1])||equal(entry,rows[index+1])
+      ? {...facts,rank:place,sortOrder:index+1,sharedRank:true,...(atSeasonBoundary?{rankPending:true}:{})}
+      : facts;
+  });
+}
+
+function validateTableFacts(entries){
+  const counts = ["played", "won", "drawn", "lost", "pointsFor", "pointsAgainst"];
+  for (const entry of entries){
+    if (counts.some(field => !Number.isSafeInteger(entry[field]) || entry[field] < 0)
+      || !Number.isSafeInteger(entry.pointsDifference) || !Number.isSafeInteger(entry.ladderPoints)
+      || entry.played > 2 * (EXPECTED_TEAM_COUNT - 1)
+      || entry.played !== entry.won + entry.drawn + entry.lost
+      || entry.pointsDifference !== entry.pointsFor - entry.pointsAgainst){
+      throw new Error(`Premier League standings contain inconsistent statistics for ${entry.participantId}.`);
+    }
+    // Points may include an official disciplinary adjustment, including a negative total.
+  }
+  const ranked = [...entries].sort((a, b) => (a.sortOrder??a.rank) - (b.sortOrder??b.rank));
+  for (let index = 1; index < ranked.length; index++){
+    const higher = ranked[index - 1], lower = ranked[index];
+    const difference = higher.ladderPoints - lower.ladderPoints
+      || higher.pointsDifference - lower.pointsDifference || higher.pointsFor - lower.pointsFor;
+    if (difference < 0) throw new Error("Premier League standings rank contradicts points, goal difference or goals scored.");
+  }
+  // A coherent row is insufficient: both sides of every league match must be
+  // represented in the same complete 20-club observation (Handbook C.1-C.3).
+  const total = field => entries.reduce((sum, entry) => sum + entry[field], 0);
+  if (total("won") !== total("lost") || total("drawn") % 2 !== 0
+    || total("pointsFor") !== total("pointsAgainst")){
+    throw new Error("Premier League standings contain inconsistent league-wide match or goal totals.");
+  }
 }
 
 function standingsEntries(payload){
@@ -61,7 +86,7 @@ function standingsEntries(payload){
       throw new Error("Premier League standings refresh failed closed: a club identity or position is unresolved.");
     }
     const numericFields = ["played", "won", "drawn", "lost", "goalsFor", "goalsAgainst", "goalsDifference", "points"];
-    if (numericFields.some(field => !Number.isFinite(Number(overall[field])))){
+    if (numericFields.some(field => !Number.isSafeInteger(overall[field]))){
       throw new Error(`Premier League standings refresh failed closed: club ${clubId} has incomplete statistics.`);
     }
     return {
@@ -80,10 +105,16 @@ function standingsEntries(payload){
   const expectedRanks = Array.from({ length: EXPECTED_TEAM_COUNT }, (_, index) => index + 1);
   const ranks = normalized.map(entry => entry.rank).sort((a, b) => a - b);
   const participantIds = new Set(normalized.map(entry => entry.participantId));
-  if (normalized.length !== EXPECTED_TEAM_COUNT || participantIds.size !== EXPECTED_TEAM_COUNT || ranks.some((rank, index) => rank !== expectedRanks[index])){
-    throw new Error(`Premier League standings refresh failed closed: expected ${EXPECTED_TEAM_COUNT} unique clubs ranked 1-${EXPECTED_TEAM_COUNT}.`);
+  if (normalized.length !== EXPECTED_TEAM_COUNT || participantIds.size !== EXPECTED_TEAM_COUNT || ranks.some(rank=>rank<1||rank>EXPECTED_TEAM_COUNT)){
+    throw new Error(`Premier League standings refresh failed closed: expected ${EXPECTED_TEAM_COUNT} unique clubs with valid table positions.`);
   }
-  return normalized.sort((first, second) => first.rank - second.rank);
+  validateTableFacts(normalized);
+  const places=sharedPlaces(normalized);
+  const ordered=[...normalized].sort((a,b)=>a.rank-b.rank);
+  if(ranks.some((rank,index)=>rank!==expectedRanks[index])&&ordered.some((row,index)=>row.rank!==places[index].rank)){
+    throw new Error("Premier League standings contain inconsistent ordinal or shared-place positions.");
+  }
+  return places;
 }
 
 function canonicalParticipants(entries, directory){
@@ -123,6 +154,9 @@ function buildSnapshot(payload, directory, checkedAt){
         clubCount: EXPECTED_TEAM_COUNT,
         dynamicallyGenerated: payload.dynamicallyGenerated === true,
         roundStatus: payload.live === true ? "in-progress" : "complete",
+        ...(entries.some(entry=>entry.sharedRank)?{tableNote:entries.some(entry=>entry.rankPending)
+          ? "Equal records at the 38-match boundary require official sporting-decision verification under Premier League C.17. Their positions are pending; no title, relegation or qualification is inferred."
+          : "Equal points, goal difference and goals scored share a place under Premier League C.7. Row order follows the official table; no qualification is inferred."}:{}),
       },
     },
   };
@@ -169,12 +203,22 @@ function validatePublishedContext(bundle){
     throw new Error("Premier League canonical standings must contain exactly 20 unique clubs.");
   }
   const expectedRanks = Array.from({ length: EXPECTED_TEAM_COUNT }, (_, index) => index + 1);
-  const ranks = entries.map(entry => entry.rank).sort((first, second) => first - second);
+  const ranks = entries.map(entry => entry.sortOrder??entry.rank).sort((first, second) => first - second);
   const requiredNumericFields = ["played", "won", "drawn", "lost", "pointsFor", "pointsAgainst", "pointsDifference", "ladderPoints"];
   if (ranks.some((rank, index) => rank !== expectedRanks[index])
     || entries.some(entry => requiredNumericFields.some(field => !Number.isFinite(entry[field])))){
     throw new Error("Premier League canonical standings contain invalid ranks or league-table statistics.");
   }
+  validateTableFacts(entries);
+  const expected=sharedPlaces(entries.map(entry=>({...entry,rank:entry.sortOrder??entry.rank})));
+  const byId=new Map(expected.map(entry=>[entry.participantId,entry]));
+  if(entries.some(entry=>{
+    const wanted=byId.get(entry.participantId);
+    return entry.rank!==wanted.rank||(entry.sharedRank===true)!==(wanted.sharedRank===true)
+      ||(entry.rankPending===true)!==(wanted.rankPending===true)
+      ||['sharedRank','rankPending'].some(field=>entry[field]!==undefined&&typeof entry[field]!=='boolean')
+      ||(wanted.sharedRank&&entry.sortOrder!==wanted.sortOrder);
+  }))throw new Error("Premier League canonical shared-place metadata contradicts its table facts or official row order.");
   const participants = new Set((bundle.participants || []).map(item => item.id));
   if (entries.some(entry => !participants.has(entry.participantId))){
     throw new Error("Premier League canonical standings contain an unresolved participant.");
@@ -186,13 +230,20 @@ function isTransientSourceFailure(error){
   return /fetch failed|timed?\s*out|abort|network|socket|econn|enotfound|eai_again/i.test(String(error?.message || error));
 }
 
-async function refresh({ fetcher = fetchJson, bundlePath = BUNDLE_PATH, directoryPath = DIRECTORY_PATH, now = () => new Date() } = {}){
+async function refresh({ fetcher = fetchJson, bundlePath = BUNDLE_PATH, directoryPath = DIRECTORY_PATH, now = () => new Date(), backupOptions={} } = {}){
+  if(path.resolve(bundlePath)!==BUNDLE_PATH&&!Object.keys(backupOptions).length)backupOptions={directory:path.dirname(bundlePath),coordinator:async()=>{throw Error('Backup disabled for disposable primary-table validation');}};
   const checkedAt = now().toISOString();
   const bundle = JSON.parse(fs.readFileSync(bundlePath, "utf8"));
   const directory = JSON.parse(fs.readFileSync(directoryPath, "utf8"));
-  const payload = await fetcher(STANDINGS_URL);
+  let payload;
+  try{payload=await fetcher(STANDINGS_URL);}catch(error){
+    const snapshot=validatePublishedContext(bundle);
+    await require("./lib/football-data-backup").compareTable({code:"PL",entries:snapshot.entries,primaryError:error,now:now(),...backupOptions});
+    throw error;
+  }
   const context = buildSnapshot(payload, directory, checkedAt);
   const next = updateBundle(bundle, context, checkedAt);
+  if(require("./lib/football-data-backup").readOverlay().results.some(r=>r.competitionId===COMPETITION_ID))context.snapshot.metadata.stale=true;
   validatePublishedContext(next);
   const temporaryPath = `${bundlePath}.premier-league.tmp`;
   fs.writeFileSync(temporaryPath, `${JSON.stringify(next, null, 2)}\n`);
@@ -230,6 +281,8 @@ if (require.main === module){
 module.exports = {
   COMPETITION_ID,
   EXPECTED_TEAM_COUNT,
+  STANDINGS_URL,
+  fetchJson,
   buildSnapshot,
   refresh,
   standingsEntries,

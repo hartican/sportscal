@@ -51,6 +51,14 @@ function sameOrigin(request){
   try{ return new URL(origin).origin === requestOrigin(request); }catch(_error){ return false; }
 }
 function artifact(){ return JSON.parse(fs.readFileSync(ARTIFACT, "utf8")); }
+function campaignForPublicRead(eventId, nowMs, source = artifact()){
+  const id = clean(eventId, 180);
+  // Keep the former public page's source order and direct-event lookup. The
+  // existing campaign lookup below still enforces cancellation and readiness.
+  const candidate = source.candidates.find(item => id ? item.eventId === id : Date.parse(item.timing?.endTimeUtc) > nowMs && item.participation?.enabled !== false);
+  if (!candidate?.campaignId) throw new ParticipationError("That fixture is not available for marquee participation.", 404, "fixture_not_participating");
+  return clean(candidate.campaignId, 80);
+}
 function candidateFor(eventId, campaignId = ""){
   const id = clean(eventId, 180), campaign = clean(campaignId, 80);
   const candidate = artifact().candidates.find(item => campaign ? item.campaignId === campaign : item.eventId === id);
@@ -80,17 +88,21 @@ async function takeRateLimit(hash, action, now){
 async function publishedPresentation(candidate){
   const current = (await rows(CAMPAIGNS, { campaign_id:`eq.${candidate.campaignId}`, select:"live_published_snapshot,live_published_revision,live_published_at", limit:"1" }))[0] || null;
   const published = current?.live_published_snapshot;
-  return published?.presentation ? { ...published.presentation, publishedRevision:current.live_published_revision, publishedAt:current.live_published_at } : candidate.live || candidate.drafts?.live || {};
+  if(published?.presentation)return{...published.presentation,publishedRevision:current.live_published_revision,publishedAt:current.live_published_at};
+  const editorial=candidate.material?.rating?.editorialValue;
+  // Private Heat aggregates do not escape via an unpublished generated fallback.
+  return{...(candidate.live||candidate.drafts?.live||{}),kicker:`${editorial?editorial.toFixed(1)+'/5 editorial stakes · ':''}${candidate.material?.sport||'Sport'}`,animationPreset:'subtle'};
 }
 function publicFixture(candidate, nowMs, presentation = {}){
-  const opensAt = Date.parse(candidate.participation.ratingWindow.opensAt), closesAt = Date.parse(candidate.participation.ratingWindow.closesAt);
+  const opensAt = Date.parse(candidate.participation.ratingWindow?.opensAt), closesAt = Date.parse(candidate.participation.ratingWindow?.closesAt);
   return {
     eventId:candidate.eventId, campaignId:candidate.campaignId, title:candidate.material.title,
     sport:candidate.material.sport, startTimeUtc:candidate.timing.startTimeUtc, endTimeUtc:candidate.timing.endTimeUtc,
     sydneyStart:candidate.timing.sydneyStart, sydneyFinish:candidate.timing.sydneyFinish,
-    broadcaster:candidate.material.broadcaster, hook:candidate.drafts.hook, material:candidate.material,
+    broadcaster:candidate.material.broadcaster, hook:candidate.drafts.hook, material:{...candidate.material,rating:undefined,stakes:candidate.material?.rating?.editorialValue??candidate.material?.stakes},
     assets:candidate.assets, identities:candidate.identities, presentation,
-    rating:{ opensAt:candidate.participation.ratingWindow.opensAt, closesAt:candidate.participation.ratingWindow.closesAt, open:nowMs >= opensAt && nowMs <= closesAt },
+    eventUrl:candidate.participation.eventUrl||candidate.participation.fixtureUrl,participationEnabled:candidate.participation.enabled!==false,
+    rating:{ opensAt:candidate.participation.ratingWindow?.opensAt, closesAt:candidate.participation.ratingWindow?.closesAt, open:nowMs >= opensAt && nowMs <= closesAt },
   };
 }
 
@@ -103,10 +115,17 @@ module.exports = async function participationHandler(request, response){
   try{
     if (!["GET", "POST"].includes(request.method || "GET")){ response.setHeader("Allow", "GET, POST"); response.status(405).json({ error:"Participation supports GET and POST only.", code:"method_not_allowed" }); return; }
     const body = (request.method || "GET") === "POST" ? bodyOf(request) : {};
-    const campaignId = clean(body.campaignId || queryValue(request, "campaign"), 80);
+    let campaignId = clean(body.campaignId || queryValue(request, "campaign"), 80);
     const requestedEventId = clean(body.eventId || queryValue(request, "eventId"), 180);
-    const candidate = candidateFor(requestedEventId, campaignId), eventId = candidate.eventId;
     const now = new Date().toISOString(), nowMs = Date.parse(now);
+    if ((request.method || "GET") === "GET" && !campaignId) campaignId = campaignForPublicRead(requestedEventId, nowMs);
+    const stored=campaignId?(await rows(CAMPAIGNS,{campaign_id:'eq.'+campaignId,select:'candidate,state',limit:'1'}))[0]:null;
+    const candidate=stored?.candidate||candidateFor(requestedEventId,campaignId),eventId=candidate.eventId;
+    if(stored?.state==='cancelled')throw new ParticipationError('This campaign is unavailable.',404,'fixture_not_participating');
+    if(candidate.participation?.enabled===false){
+      if(request.method==='POST')throw new ParticipationError('Participation needs a confirmed start time.',409,'fixture_time_unconfirmed');
+      response.status(200).json({schemaVersion:'marquee-participation.v1',fixture:publicFixture(candidate,nowMs,await publishedPresentation(candidate)),aggregate:{joinedCount:0,ratingCount:0,averageRating:null,currentDevice:{joined:false,rating:null}}});return;
+    }
     const device = deviceIdentity(request, response);
     await rememberDevice(device.hash, now);
     if ((request.method || "GET") === "POST"){
@@ -134,4 +153,4 @@ module.exports = async function participationHandler(request, response){
   }
 };
 
-module.exports._test = Object.freeze({ COOKIE_NAME, ParticipationError, candidateFor, deviceIdentity, parseCookies, publicFixture, sameOrigin });
+module.exports._test = Object.freeze({ COOKIE_NAME, ParticipationError, campaignForPublicRead, candidateFor, deviceIdentity, parseCookies, publicFixture, sameOrigin });

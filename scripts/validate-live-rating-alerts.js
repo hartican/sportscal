@@ -21,6 +21,7 @@ async function dispatchCase({prefs, phase='live', votes=[vote('jim')], friends=[
   const deliveries=[];let complete=false,sends=0;
   const api={TABLES:{contributions:'votes'},refreshEventSnapshots:async()=>{},eventFor:()=>phase==='missing'?null:event,eventWithTiming:e=>e,identityMaps:async()=>({profiles:new Map([['jim',{visibility,display_name:'Jim'}]]),personas:new Map([['jim',{moderation_flag:moderation}]])}),rows:async(table)=>{
     if(table==='nothingsports_live_rating_alerts')return complete?[]:[alert];
+    if(table==='nothingsports_account_erasure_blocks')return [];
     if(table==='nothingsports_user_state')return [{preferences:prefs||{preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}}}];
     if(table==='nothingsports_user_follows')return friends.map(followed_user_id=>({followed_user_id}));
     if(table==='votes')return votes;
@@ -30,6 +31,8 @@ async function dispatchCase({prefs, phase='live', votes=[vote('jim')], friends=[
     throw new Error('Unexpected table '+table);
   }};
   const request=async(path,{body})=>{
+    if(path.includes('nothingsports_begin_notification_send'))return {leaseId:'lease',subscription:{endpoint:'https://push.test',keys:{p256dh:'key',auth:'auth'}}};
+    if(path.includes('nothingsports_notification_send_leases'))return [];
     if(path.includes('/rpc/')){
       if(concurrent){if(!deliveries.length)deliveries.push({installation_id:'device',status:'sending'});return [];}
       let d=deliveries[0];if(!d){d={installation_id:'device',status:'pending',attempts:0};deliveries.push(d);}
@@ -45,6 +48,21 @@ async function dispatchCase({prefs, phase='live', votes=[vote('jim')], friends=[
   return {sends,complete,deliveries};
 }
 (async()=>{
+  const queued=Array.from({length:5},(_,i)=>({id:`queued-${i}`,event_id:`fixture-${i}`}));
+  const hydrated=[],completed=[];
+  const backlogApi={
+    rows:async(_table,query)=>queued.filter(a=>!completed.includes(a.id)).slice(0,Number(query.limit)),
+    refreshEventSnapshots:async(ids)=>hydrated.push(ids),eventFor:()=>null,
+  };
+  const finish=async(url)=>completed.push(url.split('id=eq.')[1]);
+  assert.equal((await dispatch({now,api:backlogApi,request:finish})).checked,2,'backlog is bounded per invocation');
+  assert.equal(completed.length,2,'unprocessed alerts remain pending');
+  assert.deepEqual(hydrated[0],['fixture-0','fixture-1'],'hydrate only the due batch');
+  await dispatch({now,api:backlogApi,request:finish});
+  await dispatch({now,api:backlogApi,request:finish});
+  assert.equal(new Set(completed).size,5,'successive runs drain without losing or reprocessing alerts');
+  await dispatch({now,api:backlogApi,request:finish});
+  assert.equal(hydrated.length,3,'empty outbox does not hydrate snapshots');
   assert.equal((await dispatchCase()).sends,1,'idempotent across dispatch retries');
   assert.equal((await dispatchCase({fail:[{statusCode:503}]})).sends,2,'confirmed rejection retries');
   assert.equal((await dispatchCase({fail:[{statusCode:503},{statusCode:503},{statusCode:503},{statusCode:503}]})).sends,3,'retry cap');

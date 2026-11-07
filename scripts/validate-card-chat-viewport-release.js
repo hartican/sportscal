@@ -7,7 +7,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const root = path.resolve(__dirname, "..");
-const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const chatApi = fs.readFileSync(path.join(root, "api", "chat.js"), "utf8");
 const authApi = fs.readFileSync(path.join(root, "api", "auth.js"), "utf8");
 const serverSync = fs.readFileSync(path.join(root, "config", "server-sync.js"), "utf8");
@@ -72,7 +72,8 @@ assert(html.includes('recordEventFeedAction(ev, "open", { surface:"card-content"
 assert.doesNotMatch(html, /Read more/);
 assert.doesNotMatch(html, /Show less/);
 assert.doesNotMatch(html, /Less of this|More of this/);
-assert.match(html, /if \(!eventIsHighStakesSuggestion\(ev\)\) return \[\]/);
+// The disabled suggestion builder was retired. The current shared Dismiss
+// control is executed (including exact-card targeting) by its release check.
 assert.match(html, /interactionName:"card-dismiss-undo"/);
 assert.match(mediaCss, /chat-gif-picker[^\n]*position:\s*fixed/s);
 assert.match(mediaUi, /Preparing…/);
@@ -88,7 +89,7 @@ assert.doesNotMatch(html, /body\.style\.position = "fixed"/);
 assert.match(html, /window\.setTimeout\(stopStabilizing, 1250\)/);
 assert.match(html, /if \(observedMutationElement\) resizeObserver\?\.observe/);
 assert.match(html, /lateRestoreTimer = window\.setInterval/);
-assert.match(html, /padding-bottom: calc\(124px \+ env\(safe-area-inset-bottom\)\)/);
+assert.match(html, /padding-bottom:\s*calc\(124px \+ env\(safe-area-inset-bottom\)\)/);
 assert.match(html, /function serverErrorEndsSession\(error\)/);
 assert.doesNotMatch(html, /const signedOut = error\?\.status === 401/);
 assert.match(serverSync, /navigator\.locks/);

@@ -1,0 +1,11 @@
+{
+  "weekend": {
+    "from": "2026-10-06",
+    "to": "2026-10-20"
+  },
+  "acceptedIds": [
+    "fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
+    "fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur"
+  ],
+  "deferred": []
+}

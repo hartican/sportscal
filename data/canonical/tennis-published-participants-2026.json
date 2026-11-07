@@ -286,6 +286,23 @@
           "Krueger"
         ]
       }
+    },
+    {
+      "id": "competitor:tennis:wta:zheng-qinwen",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Zheng Qinwen",
+      "shortName": "Zheng",
+      "canonicalName": "Zheng Qinwen",
+      "countryCode": "CN",
+      "sourceUrl": "https://www.itftennis.com/en/players/qinwen-zheng/800436017/chn/wt/S/overview/",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Qinwen Zheng"
+        ],
+        "countrySourceUrl": "https://www.itftennis.com/en/players/qinwen-zheng/800436017/chn/wt/S/overview/"
+      }
     }
   ]
 }

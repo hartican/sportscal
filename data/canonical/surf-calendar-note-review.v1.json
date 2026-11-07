@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "surf-calendar-note-review.v1",
+  "reviewId": "surf-seeds-2026-10-05",
+  "events": [
+    {
+      "id": "calendar-nothingsport-manual-seed-big-wave-nazare-2026",
+      "originalName": "Nazare Big Wave Surfing Event",
+      "originalDate": "2027-01-22",
+      "originalTime": "19:00",
+      "originalStart": "2027-01-22T08:00:00.000Z",
+      "name": "Nazaré Big Wave — unconfirmed listing",
+      "hook": "The coming edition, dates and Australian viewing are unconfirmed.",
+      "detail": "Upcoming dates, start time and Australian viewing have not been verified. This is a saved event note, not a confirmed fixture. Check the organiser for announcements.",
+      "sourceUrl": "https://www.worldsurfleague.com/events/2027/bwt?all=1",
+      "observedAt": "2026-10-04T22:15:00.261Z",
+      "observationBasis": "response-received"
+    },
+    {
+      "id": "calendar-nothingsport-manual-seed-big-wave-pipe-masters-2026",
+      "originalName": "Pipe Masters Big Wave Championship",
+      "originalDate": "2027-02-07",
+      "originalTime": "02:00",
+      "originalStart": "2027-02-06T15:00:00.000Z",
+      "name": "Pipe Masters — unconfirmed saved listing",
+      "hook": "This saved Big Wave listing is unconfirmed; the verified Pipe Masters calendar is under WSL.",
+      "detail": "The organiser lists Lexus Pipe Masters under WSL for 8–20 December 2026. This saved Big Wave listing has no verified date or Australian viewing; WSL needs a separate follow.",
+      "sourceUrl": "https://www.worldsurfleague.com/events/2026/ct?all=1",
+      "observedAt": "2026-10-04T21:57:40.197Z",
+      "observationBasis": "request-start",
+      "relatedEventId": "event:wsl:2026:pipe-masters"
+    }
+  ]
+}

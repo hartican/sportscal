@@ -17,3 +17,16 @@ assert.equal(choose([{state:'BUILDING',target:'production',meta:{releaseGitSha:'
 assert.equal(choose([{state:'READY',target:'production',meta:{releaseGitSha:'def'}}],'def',live).action,'reuse');
 assert.equal(choose([],'def',live).action,'create');
 console.log('Deployment reuse, wait and intentional-rebuild decisions passed');
+const {ensureProductionAliases,REQUIRED_ALIASES}=require('./lib/production-aliases');
+const ready={id:'dpl_verified',readyState:'READY',url:'sportscal-verified-harticans-projects.vercel.app'};
+let linked=REQUIRED_ALIASES.slice(0,2).map(alias=>({alias})),assignments=[];
+const list=id=>{assert.equal(id,ready.id);return linked;};
+const assign=(url,domain)=>{assert.equal(url,ready.url);assignments.push(domain);linked.push({alias:domain});};
+assert.equal(ensureProductionAliases(ready,{list,assign}).length,3);
+assert.deepEqual(assignments,[REQUIRED_ALIASES[2]],'The inherited protected hostname must follow the accepted release');
+assignments=[];ensureProductionAliases(ready,{list,assign});assert.deepEqual(assignments,[],'Correct bindings need no mutation');
+assert.throws(()=>ensureProductionAliases({...ready,readyState:'BUILDING'},{list,assign}),/READY/);
+assert.throws(()=>ensureProductionAliases({...ready,url:'another-project.vercel.app'},{list,assign}),/READY/);
+assert.throws(()=>ensureProductionAliases(ready,{list:()=>[],assign:()=>{}}),/binding missing/,'Failed alignment closes the release gate');
+assert.throws(()=>ensureProductionAliases(ready,{list:()=>[],assign:()=>{throw Error('denied');}}),/denied/);
+console.log('All three production alias bindings, unchanged reuse and failed-alignment release gates passed');

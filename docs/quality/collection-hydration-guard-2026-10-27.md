@@ -1,0 +1,9 @@
+# Collection hydration guard — 27 October 2026
+
+An older collection-directory request can finish after newer preferences are applied. Its existing completion freezes the newer choices using incomplete directories, then persists missing inherited members. The original sync owner reproduced this with actual apply/merge/save/profile/freeze functions and disposable transport.
+
+Reuse the reviewed source b0792f76 product/test slice: copy the original collection plan and capture existing preference/account/session/app/profile owners before awaiting. A mismatching completion returns its existing load results and cannot write preferences or receipts. Matching guests, mutes and OFF choices retain current behavior. No customer record is edited or historical intent inferred.
+
+DEPLOY applies this slice to the independent current-main candidate without its worker’s parent pending-receipt planner or policy. The actual source/compiled helper regression joins the existing bookkeeping chain. Original receipt, owner/generation, conditional-save, explicit-removal and unknown/conflict safeguards remain required. A genuine optional standings-presentation extraction supplies critical download headroom without raising budgets.
+
+Remaining acceptance: independent source reviews, combined fixed budgets/build/cache checks, applicable mounted and installed upgrade tests, every normal release gate including complete fresh GLOBAL loading, exact-main publication and hosted/physical evidence where needed. Source tests do not establish the phone incident cause, production recovery or complete account accuracy. Background jobs remain paused; no provider, database/configuration, scheduler or purchase is included. Roll back source through the sole publisher and a newly versioned shell; no database/data inverse.

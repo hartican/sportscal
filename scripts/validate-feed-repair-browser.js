@@ -6,7 +6,7 @@ const {sourceFingerprint}=require('./validate-feed-performance');
 const origin=process.env.REPAIR_QA_URL||'http://127.0.0.1:33958';
 const output=process.env.REPAIR_QA_OUTPUT||'/private/tmp/sportscal-feed-repair-browser.json';
 (async()=>{
- const browser=await chromium.launch({headless:true});const audit={schemaVersion:'ui-performance-audit.v1',sourceFingerprint:sourceFingerprint(),runs:[],checks:[]};
+ const browser=await chromium.launch({headless:true,channel:process.env.QA_BROWSER_CHANNEL||'chrome'});const audit={schemaVersion:'ui-performance-audit.v1',sourceFingerprint:sourceFingerprint(),runs:[],checks:[]};
  try{
   for(const width of (process.env.REPAIR_QA_WIDTHS||"320,390,768,1280").split(",").map(Number)){
    const context=await browser.newContext({viewport:{width,height:844},serviceWorkers:'block'}),page=await context.newPage();
@@ -27,6 +27,7 @@ const output=process.env.REPAIR_QA_OUTPUT||'/private/tmp/sportscal-feed-repair-b
     sample.cacheMode=cacheMode;assert(sample.mounted<=60,`${width}: mounted cards ${sample.mounted}`);samples.push(sample);
    }
    for(const mode of ["cold-network","warm-network"])audit.runs.push({name:`${width}px saved follows ${mode}`,samples:samples.filter(s=>s.cacheMode===mode)});
+   if(process.env.REPAIR_QA_TIMINGS_ONLY==='1'){assert.deepEqual(errors,[]);await context.close();continue;}
    const logo=await page.locator('.matchup-team-logo-slot').first().boundingBox();assert(logo&&logo.width>=99&&logo.height>=99,`${width}: restored logo scale`);
    const actions=await page.evaluate(()=>[...document.querySelectorAll('.event-card-primary-actions .event-quick-actions')].map(row=>{const controls=[...row.children].filter(e=>e.getBoundingClientRect().width);return controls.map(e=>Math.round(e.getBoundingClientRect().top));}).filter(r=>r.length>1));
    assert(actions.every(tops=>Math.max(...tops)-Math.min(...tops)<8),`${width}: provider and reminder share a line`);

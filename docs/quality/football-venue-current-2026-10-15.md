@@ -1,0 +1,11 @@
+# Football venue visibility — 15 October 2026
+
+Completed matches with no viewing action hid the whole viewing section, including a known ground. Retain that section when the shared venue formatter supplies a known venue or city. Unknown and deliberately empty venues keep the previous layout. Facts, dates, viewing destinations, results choices and saved activity are unchanged.
+
+The actual published OpenLigaDB fixture reproduces the bug in Feed and Schedule. The repaired shared renderer passed 96 controlled cases across Chromium/WebKit, 320/390/1280 widths, both themes, selected/opened cards and known/unknown venues; repeated More/Less and saved-choice checks also pass. No provider or customer write was made. Shell 545 includes the new runtime and stylesheet binding; fixed startup, compression and cache limits pass. Both installed 544-to-545 upgrade/offline rehearsals pass; the first concurrent Chromium rehearsal stalled on worker activation, while its sequential repeat passed. Physical-device behaviour is separate.
+
+The wider European browser suite now passes in Chromium and WebKit, including native Follow entry, exact competition routing, profile/Back, visible source/delay information and four responsive widths. The test waits for and captures the same settled screen atomically, avoiding a released Inspector chunk. The venue fix and those browser checks do not certify Football.
+
+Detailed local evidence is under `/Users/jackhartican/Documents/AI/Codex/football-quality-current-2026-10-15`. Exact GitHub, production and hosted-rendering proof must be added after the normal release succeeds.
+
+Production proof: app `477959788f4637233631003923df3b8c0341a67e`, shell 545, passed [normal run 38710566792](https://github.com/hartican/sportscal/actions/runs/38710566792). Vercel reports READY `dpl_4BQ9EPSnTGK8KEKWyD5AxXxic8h1`, exact release SHA and all three existing production aliases. Five public core files and four actual traced server sources match the published snapshot. All 96 venue cases passed against hosted assets, plus eight hosted highlights cases with no resolver/provider calls. Physical-phone and independent European result/ranking checks remain open. The held match-reader and later provider-query changes are not included in this release.

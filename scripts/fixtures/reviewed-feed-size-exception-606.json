@@ -1,0 +1,56 @@
+{
+  "id": "reviewed-feed-size-606-2026-11-02",
+  "approval": {
+    "date": "2026-11-02",
+    "scope": "Only the exact reviewed critical payload; local code and tests authorised. No production action is authorised by this record.",
+    "question": "Sentinel_6d0c48aae510819181edc37e5c2a7065",
+    "answer": "Sentinel_4d0b7f52e1e48191b51b6740d619f9a8",
+    "proposalSha256": "cb0b3df113713ee7ec00ea2755aba9ece46ab47ee9db7f2a98adc4018d8b90ca"
+  },
+  "sourceCandidate": "a3a0f031e644c3b0a71d70fbe75f6f4ac081eacf",
+  "originalFailedRun": "41362936666",
+  "normalGrowthLimitPercent": 1.25,
+  "baselineRef": "e70de9a53543b0894ceaf6dbdff60569d47a9c87",
+  "baselineGzipBytes": 426115,
+  "appVersion": "606",
+  "toolchain": {
+    "node": "v24.22.1",
+    "zlib": "1.3.2.1-motley-285e94b"
+  },
+  "requestCount": 7,
+  "rawBytes": 1689171,
+  "maximumGzipBytes": 431733,
+  "payloadFingerprint": "7ef97b9cf4973683d703025f3099422b3eb255d1a21a7013cb99a2dff255a91c",
+  "criticalFiles": [
+    {
+      "file": "assets/js/app-shell-runtime.js",
+      "sha256": "7ab9a61754fa27d148750ff7ab00a69f38c5cb662c315d105cd500c02b4663d1"
+    },
+    {
+      "file": "assets/js/app-update.js",
+      "sha256": "7a1ee5e98c155d4e5082a7c6827ce04c9cf807e2ccf4b8bbe440430bff72e06a"
+    },
+    {
+      "file": "assets/styles/card-clarity.css",
+      "sha256": "178338fa22b495dee1ae64b2c6cd7c6125b8ec352bde353dcd0585e6e9b9b024"
+    },
+    {
+      "file": "assets/styles/nothingsport-foundation.css",
+      "sha256": "4255045d86a3ff85a6a0372a6273c01d5962ffc547039833e5e60a9e2c9ff446"
+    },
+    {
+      "file": "assets/styles/notifications-inbox.css",
+      "sha256": "58529d41722224be3121de55cd64488c0ea9e42865477ccde2a879248458e33b"
+    },
+    {
+      "file": "index.html",
+      "sha256": "b377dcc40afec83afd7b2f56d49ec1fec464fa1c7f86263963c580d8b5ef70c4"
+    },
+    {
+      "file": "styles/follow-feed-rework.css",
+      "sha256": "9a4bbb6972b87594783f2174e3c4835a2ef02fa4aafde8e8ae2d2f87cb64bd27"
+    }
+  ],
+  "reason": "292 compressed bytes above the original ceiling; same seven requests, 467 compressed bytes above live 605. No measured slowdown attributed to that increment. This is not a pass of the normal 1.25 percent rule.",
+  "futureProtection": "Any changed critical path/hash, request count, version, baseline or toolchain cannot use this exception. No rolling allowance or new headroom. All other assertions remain required."
+}

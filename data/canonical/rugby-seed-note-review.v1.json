@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "reviewed-rugby-seed-note.v1",
+  "reviewId": "rugby-seed-2026-10-12",
+  "id": "evt_100",
+  "originalName": "Australia v Ireland (Nov tour)",
+  "originalDate": "2026-11-28",
+  "originalTime": "00:00",
+  "originalSourceUrl": "https://github.com/hartican/sportscal",
+  "originalSourceCheckedAt": "2026-07-10T08:30:00+10:00",
+  "sourceUrl": "https://www.rugby.com.au/news/2026-nations-rugby-championship-fixtures-schedule-how-to-watch-international-rugby-wallabies-fixtures-2026-2026630",
+  "observedAt": "2026-10-11T20:45:56.555Z",
+  "sourceSha256": "9db9d76eb8e062db229d7194da35edb03e8760b7d04e862b375903030bd1d345",
+  "observationBasis": "response-received",
+  "name": "Australia–Ireland — unconfirmed listing",
+  "hook": "This saved November listing is unconfirmed; the Nations finals do not yet name their teams.",
+  "detail": "The official 2026 schedule lists England, Scotland and Wales as Australia’s November opponents, followed by ranked Nations Championship final slots. It does not confirm this saved Australia–Ireland appointment. This is not a cancellation or a confirmed final pairing. Match date, start time, venue and Australian viewing for this listing remain unconfirmed."
+}

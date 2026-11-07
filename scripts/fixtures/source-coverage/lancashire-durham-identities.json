@@ -1,0 +1,219 @@
+[
+  {
+    "id": "fixture:cricket:espn:1513451",
+    "eventId": "fixture:cricket:espn:1513451",
+    "canonicalEventId": "fixture:cricket:espn:1513451",
+    "key": "cricket",
+    "sport": "Cricket",
+    "sportDomainId": "sport:cricket",
+    "name": "Lancashire v Durham",
+    "competitionId": "competition:cricket:espn:8204",
+    "competitionName": "County Championship Division Two",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "isSenior": true,
+    "gender": "men",
+    "startTimeUtc": "2026-09-24T09:30:00.000Z",
+    "date": "2026-09-24",
+    "dateOnly": false,
+    "timePrecision": "exact",
+    "status": "completed",
+    "format": "Test",
+    "roundLabel": "56th Match",
+    "venue": "Old Trafford, Manchester",
+    "participants": [
+      {
+        "id": "team:cricket:espn-1116",
+        "name": "Lancashire",
+        "role": "home",
+        "aliases": [
+          "LAN"
+        ],
+        "teamKind": "club",
+        "sourceIds": {
+          "espn": "1116"
+        },
+        "countryCode": "GB",
+        "displayName": "Lancashire",
+        "genderCategory": "male"
+      },
+      {
+        "id": "team:cricket:espn-924",
+        "name": "Durham",
+        "role": "away",
+        "aliases": [
+          "DUR"
+        ],
+        "teamKind": "club",
+        "sourceIds": {
+          "espn": "924"
+        },
+        "countryCode": "GB",
+        "displayName": "Durham",
+        "genderCategory": "male"
+      }
+    ],
+    "participantIds": [
+      "team:cricket:espn-1116",
+      "team:cricket:espn-924"
+    ],
+    "participantCountryCodes": [
+      "GB",
+      "GB"
+    ],
+    "homeParticipantId": "team:cricket:espn-1116",
+    "awayParticipantId": "team:cricket:espn-924",
+    "scoreDisplay": "Match drawn",
+    "sourceFixtureId": "1513451",
+    "sourceName": "ESPNcricinfo",
+    "sourceType": "trusted-reporting",
+    "sourceUrl": "https://www.espn.in/cricket/series/8204/scorecard/1513451/lancashire-vs-durham-56th-match-county-championship-division-two-2026",
+    "sourceCheckedAt": "2026-09-30T00:52:01.968Z",
+    "timingProvenance": {
+      "kind": "published-schedule",
+      "checkedAt": "2026-09-30T00:52:01.968Z",
+      "sourceUrl": "https://www.espn.in/cricket/series/8204/scorecard/1513451/lancashire-vs-durham-56th-match-county-championship-division-two-2026"
+    },
+    "discoverySourceId": "cricket-espn",
+    "displayTitleCompact": "Lancashire v Durham",
+    "time": "19:30",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [],
+    "numberOfDays": 4,
+    "endDate": "2026-09-27",
+    "firstConfirmedCompleteAt": "2026-09-28T00:18:09.126729+00:00",
+    "scoreCheckedAt": "2026-09-30T00:52:01.968Z",
+    "statusCheckedAt": "2026-09-30T00:52:01.968Z"
+  },
+  {
+    "id": "fixture:cricket:CA:39484",
+    "eventId": "fixture:cricket:CA:39484",
+    "canonicalEventId": "fixture:cricket:CA:39484",
+    "sourceFixtureId": "CA:39484",
+    "key": "cricket",
+    "sport": "Cricket",
+    "sportDomainId": "sport:cricket",
+    "competitionId": "competition:cricket:4503",
+    "competitionName": "County Championship 2026",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "isSenior": true,
+    "gender": "men",
+    "name": "Lancashire Men v Durham Men",
+    "roundLabel": "Division 2",
+    "startTimeUtc": "2026-09-24T09:30:00.000Z",
+    "endTimeUtc": "2026-09-27T00:00:00Z",
+    "timePrecision": "exact",
+    "venue": "Old Trafford, Manchester",
+    "participantIds": [
+      "team:cricket:ca-50",
+      "team:cricket:ca-40"
+    ],
+    "participants": [
+      {
+        "id": "team:cricket:ca-50",
+        "name": "Lancashire Men",
+        "countryCode": null,
+        "teamKind": "club",
+        "genderCategory": "male"
+      },
+      {
+        "id": "team:cricket:ca-40",
+        "name": "Durham Men",
+        "countryCode": null,
+        "teamKind": "club",
+        "genderCategory": "male"
+      }
+    ],
+    "participantCountryCodes": [],
+    "homeParticipantId": "team:cricket:ca-50",
+    "awayParticipantId": "team:cricket:ca-40",
+    "status": "live",
+    "scoreDisplay": null,
+    "innings": [
+      {
+        "id": 76622,
+        "fixtureId": 39484,
+        "inningNumber": 1,
+        "battingTeamId": 40,
+        "bowlingTeamId": 50,
+        "isDeclared": false,
+        "isFollowOn": false,
+        "isForfeited": false,
+        "overnightRuns": 0,
+        "overnightWickets": 0,
+        "byesRuns": 0,
+        "legByesRuns": 20,
+        "noBalls": 16,
+        "penalties": 0,
+        "totalExtras": 37,
+        "wideBalls": 1,
+        "oversBowled": "145.3",
+        "balls": 873,
+        "runsScored": 493,
+        "currentRunRate": 3.38,
+        "numberOfWicketsFallen": 10,
+        "day": 1,
+        "duckworthLewisOvers": "",
+        "participantId": "team:cricket:ca-40",
+        "team": "Durham Men"
+      },
+      {
+        "id": 76653,
+        "fixtureId": 39484,
+        "inningNumber": 2,
+        "battingTeamId": 50,
+        "bowlingTeamId": 40,
+        "isDeclared": false,
+        "isFollowOn": false,
+        "isForfeited": false,
+        "overnightRuns": 0,
+        "overnightWickets": 0,
+        "byesRuns": 5,
+        "legByesRuns": 4,
+        "noBalls": 4,
+        "penalties": 0,
+        "totalExtras": 13,
+        "wideBalls": 0,
+        "oversBowled": "113.0",
+        "balls": 678,
+        "runsScored": 267,
+        "requiredRunRate": 0,
+        "currentRunRate": 2.36,
+        "numberOfWicketsFallen": 5,
+        "day": 1,
+        "duckworthLewisOvers": "",
+        "participantId": "team:cricket:ca-50",
+        "team": "Lancashire Men"
+      }
+    ],
+    "format": "First Class Domestic",
+    "numberOfDays": 4,
+    "sourceName": "Cricket Australia",
+    "sourceType": "official",
+    "sourceUrl": "https://www.cricket.com.au/matches/",
+    "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+    "timingProvenance": {
+      "kind": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "checkedAt": "2026-09-27T06:40:38.678Z"
+    },
+    "displayTitleCompact": "Lancashire Men v Durham Men",
+    "date": "2026-09-24",
+    "time": "19:30",
+    "broadcaster": "",
+    "participantSlots": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": []
+  }
+]

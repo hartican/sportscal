@@ -1,0 +1,43 @@
+# Clean Feed and Australian viewing — 15 October 2026 Sydney
+
+**Live and verified:** Cleaner cards and improved Australian viewing are deployed as0c8ccc6f, version539. The normal release and phone/desktop browser checks pass. Match facts, source dates and saved choices are preserved. No new subscription or owner routine. Full sport certification, real-phone delivery and authenticated viewing remain separate.
+
+Jack approved the complete Clean Feed cards and accurate viewing options contract. Rating explanations live in one collapsed About section; general Feed help/caveats and unavailable rows are omitted. Preserve concise facts, accessibility, phase identifiers, scoring/rewards, original editorial, highlights and error recovery. Shared viewing order is subscribed paid, verified free, other paid, with Stan preference within equivalent paid choices. Only dated Australian evidence confers access; completed cards need confirmed replay evidence.
+
+The existing register audits all 140 published competition/sport groups (126 competition IDs and 14 sport-key fallbacks) across public Feed, Events overviews, Inspector and Schedule. Fifteen new dated windows cover WTA, ATP Beijing/Tokyo, domestic cricket, BBL/home cricket, Nations/Currie, exact spring races and senior Davis/BJK/Laver editions. Each remaining gap has internal evidence/reason/next action; there is no claim that every fixture has a stream or that a landing page proves authenticated playback. Original evidence clocks remain intact. Compact coverageWindow metadata prevents stale context or date changes restoring a reviewed option.
+
+## Local evidence
+
+The canonical retained-source viewing-reconciliation route passes, including every-code projection, Sydney horizon rollover, parents, viewing/API/Cricket/identity/coverage contracts. Deterministic clean-viewing, existing Follow and EPIC contracts pass. Browser evidence covers the actual app shell and controlled transport where stated: 208 initial viewing/About/subscription/theme/width/fallback cases; twelve EPIC archive cases; eight complete Horse-field cases; Chromium/WebKit rating recovery with timed budget, coalescing, offline/hidden/route fences, account changes and saved-vote read recovery. Final provider matrix additionally exercises two actual published domestic Cricket cases. Frozen evidence and source manifest are under /Users/jackhartican/Documents/AI/Codex/clean-feed-viewing-20261014.
+
+One recovery attempt hit an online transport timing race; the next exposed a stale Heat label after the previously released Ongoing phase. The selector now targets the actual phase; both engines pass without a production timer/budget change. Earlier provisional scope and horizon checks failed before the fixes and remain part of the work history. No failed check is counted as passed.
+
+## Original source-only handoff boundary
+
+This historical handoff status is superseded by the published delivery below.
+
+This source-only handoff excludes generated projections, runtime, optional bundle and provisional shell539 edits. Audit Sportscal architecture owns final leaf cache bindings (Settings536, racing527, shared card CSS534 are the prior URLs), generated outputs, mandatory installed/offline checks, scoped main publication and exact-SHA deployment. Physical iPhone, real push receipt and authenticated provider playback are unverified. Production is pending until the owner supplies READY/SHA/served and hosted evidence.
+
+Bookkeeping clarification: grouping records are not counts of distinct verified competitions or working coverage. FIBA’s own ESPN-rights announcement controls the retained 2026 tournament carriage; TechRadar is supplementary. The official page returns403 to the fetcher; the official indexed rights announcement confirms the Australian deal. No authenticated playback or every-game guarantee is inferred.
+
+## Root integration checks
+
+The source-only commits a4d22366 and b896ecc9 were adapted to the sole release checkout. Final shell539 runs the existing generators and canonical viewing reconciliation. All1845 published fixture IDs,1843 retained-source IDs and6354 chat projection IDs remain; only viewingOptions, broadcaster and broadcastOptions change. Sporting facts and original observation dates are unchanged. The final native browser matrix passes256 cases; Chromium and WebKit both pass the538→539 installed-app update and offline rehearsal. The unchanged limits pass: eight critical requests,1.22% compressed growth against1.25%, and the existing3MiB precache limit.
+
+The bounded Standards review found no documented violation and raised malformed cached coverage as a robustness concern. The root now validates all12 tuple positions and rejects invalid patterns or arrays without breaking a card; targeted rejection tests pass. Two installed-app assertions still expected an unconfirmed NHL replay row. They now require that row to remain absent, while normal selected final details reappear after tapping a minimised card. Initial failed attempts are retained separately from the passing final rehearsals. The new clean-viewing check is also wired into the normal production workflow.
+
+These are local integration checks. Exact main publication, normal deployment and hosted rendering are pending in this record until the release receipt is appended.
+
+The separate bounded Spec review found two P2 issues, both corrected before release: competition windows now preserve independent fixture access for all sports, using the established exact-fixture precedence; cached reviewed options bind season and all sporting identity fields through one shared helper. Targeted changed-context, malformed-cache, exact-link/source-date and idempotence regressions pass. Unknown-priced carriage is ranked after confirmed free/paid choices and retains Check cost. The exact final browser/PWA pass is recorded separately from earlier intermediate passes.
+
+The first normal run38582688071 for776d8e6c stopped before deployment on validate-view-cache: the idle Match Centre loader still referenced535 while the interactive loader referenced539. The loader and its deferred URL now align at539; the unchanged one-instance assertion passes. Both installed/offline rehearsals and256 native browser cases were repeated on the corrected exact source. The initial failed run is not counted as delivery.
+
+The second normal run38583987928 for4133f029 stopped before deployment on the old inline rating-call assertion in validate-major-events. It now checks the actual visible rating control mount. Every remaining ordinary release command then passed locally after updating two further legacy expectations: subscribed Foxtel now correctly precedes free NRL options; archived Bledisloe options without a coverage binding remain hidden until the existing post-identity review, retaining original source dates. These are test-contract updates; the final app/browser/cache bytes are unchanged. Both failed cloud attempts remain separate from the eventual passing release.
+
+## Published delivery — 15 October 2026 Sydney
+
+Exact app 0c8ccc6fc6c4bc91d0934dd053c682ad20b3b90c, version539, normal workflow38586712548SUCCESS and READYdpl_JANYJ9KM4k4UGsrkoDVmZyjdSmgJ. Current production aliases,35served files and18sealed server sources match. Actual job logs bind all212 ordered safety commands, both mandatory live-read preflights and78/78 live account guards. All256 final native local browser cases and both538→539 upgrade/offline rehearsals pass. Four unmocked actual Feed/About captures pass in Chromium/WebKit at390/1280pixels, with explicitly controlled guest choices, no created customer account, customer writes or provider playback claim. Final cached/provider normalization preserves all316 reviewed published fixtures. No migration, provider refresh, reminder send/replay or scheduler change occurred.
+
+Business value: less card clutter and fewer misleading viewing choices. Incremental service cash cost A$0; no new owner routine. Acceptance for this scoped card/viewing module is complete; full-family, commercial, current-input and physical-phone gates remain open. Source exception statuses remain explicit. Evidence folder: /Users/jackhartican/Documents/AI/Codex/clean-feed-viewing-20261014/root-integration.
+
+Independent closure separately matched six public resources and four hosted About/visible-public-record cases. These are hosted renderer checks, distinct from the root's natural Feed journey. Evidence: /Users/jackhartican/Documents/AI/Codex/clean-feed-viewing-20261014/independent-served.json and independent-hosted.json. Process corrections are saved in root-integration/release-process-lessons.md.

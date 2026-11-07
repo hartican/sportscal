@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "reviewed-nations-finals.v1",
+  "reviewId": "nations-finals-2026-10-12",
+  "parentId": "major-event:nations-championship-finals-2026",
+  "competitionId": "competition:nations-championship:2026",
+  "sourceName": "RugbyPass (World Rugby) / RFU",
+  "sourceUrl": "https://www.rugbypass.com/nations-championship/fixtures-results/",
+  "observedAt": "2026-10-11T19:48:06.159Z",
+  "sourceSha256": "8c5465652cfc26bc71b786b149f70573218d3a48af9f3dc6786b809442f731f2",
+  "corroboratingSources": [
+    {
+      "name": "RFU finals timetable",
+      "url": "https://help.englandrugby.com/support/solutions/articles/103000376805-what-tickets-will-debenture-members-get-for-the-2026-nations-championship-",
+      "observedAt": "2026-10-11T19:37:49.868Z",
+      "sourceSha256": "a09b052f91acaf43c524dcd60eab84a482f13773ee8326dcd96588157fc371a6"
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "major-match:nations-championship-2026:sixth-place",
+      "northRank": 6,
+      "southRank": 6,
+      "publisherFixtureId": 949600,
+      "publishedEpochSeconds": 1795797600,
+      "startTimeUtc": "2026-11-27T16:40:00Z",
+      "sydneyDate": "2026-11-28",
+      "sydneyTime": "03:40",
+      "rfuLocalDate": "2026-11-27",
+      "rfuLocalTime": "16:40",
+      "worldRugbyMatchUrl": "https://www.world.rugby/beta/en/match/e7d020c9-fe59-405e-ab5e-39696c8ce9b7",
+      "venue": "Allianz Stadium, Twickenham"
+    },
+    {
+      "id": "major-match:nations-championship-2026:third-place",
+      "northRank": 3,
+      "southRank": 3,
+      "publisherFixtureId": 949601,
+      "publishedEpochSeconds": 1795810200,
+      "startTimeUtc": "2026-11-27T20:10:00Z",
+      "sydneyDate": "2026-11-28",
+      "sydneyTime": "07:10",
+      "rfuLocalDate": "2026-11-27",
+      "rfuLocalTime": "20:10",
+      "worldRugbyMatchUrl": "https://www.world.rugby/beta/en/match/b1d07ba6-de16-4c54-99c1-fbc145c18c75",
+      "venue": "Allianz Stadium, Twickenham"
+    },
+    {
+      "id": "major-match:nations-championship-2026:fifth-place",
+      "northRank": 5,
+      "southRank": 5,
+      "publisherFixtureId": 949602,
+      "publishedEpochSeconds": 1795871400,
+      "startTimeUtc": "2026-11-28T13:10:00Z",
+      "sydneyDate": "2026-11-29",
+      "sydneyTime": "00:10",
+      "rfuLocalDate": "2026-11-28",
+      "rfuLocalTime": "13:10",
+      "worldRugbyMatchUrl": "https://www.world.rugby/beta/en/match/2920bb4c-fd91-4204-a5e1-4b02dad492eb",
+      "venue": "Allianz Stadium, Twickenham"
+    },
+    {
+      "id": "major-match:nations-championship-2026:second-place",
+      "northRank": 2,
+      "southRank": 2,
+      "publisherFixtureId": 949603,
+      "publishedEpochSeconds": 1795884000,
+      "startTimeUtc": "2026-11-28T16:40:00Z",
+      "sydneyDate": "2026-11-29",
+      "sydneyTime": "03:40",
+      "rfuLocalDate": "2026-11-28",
+      "rfuLocalTime": "16:40",
+      "worldRugbyMatchUrl": "https://www.world.rugby/beta/en/match/92fc4306-b5bf-44b6-a061-6cc412c9f0bc",
+      "venue": "Allianz Stadium, Twickenham"
+    },
+    {
+      "id": "major-match:nations-championship-2026:fourth-place",
+      "northRank": 4,
+      "southRank": 4,
+      "publisherFixtureId": 949604,
+      "publishedEpochSeconds": 1795957800,
+      "startTimeUtc": "2026-11-29T13:10:00Z",
+      "sydneyDate": "2026-11-30",
+      "sydneyTime": "00:10",
+      "rfuLocalDate": "2026-11-29",
+      "rfuLocalTime": "13:10",
+      "worldRugbyMatchUrl": "https://www.world.rugby/beta/en/match/01dcdaf6-4559-45e7-a55c-b50390bafe2a",
+      "venue": "Allianz Stadium, Twickenham"
+    },
+    {
+      "id": "major-match:nations-championship-2026:championship",
+      "northRank": 1,
+      "southRank": 1,
+      "publisherFixtureId": 949605,
+      "publishedEpochSeconds": 1795970400,
+      "startTimeUtc": "2026-11-29T16:40:00Z",
+      "sydneyDate": "2026-11-30",
+      "sydneyTime": "03:40",
+      "rfuLocalDate": "2026-11-29",
+      "rfuLocalTime": "16:40",
+      "worldRugbyMatchUrl": "https://www.world.rugby/beta/en/match/bbe9b401-9955-4147-a612-d6d9d2ea469e",
+      "venue": "Allianz Stadium, Twickenham"
+    }
+  ]
+}

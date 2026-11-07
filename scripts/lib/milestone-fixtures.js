@@ -1,0 +1,7 @@
+'use strict';
+const raw=require('../fixtures/cricket-ca39990-scorecard-20261011.json');
+const detail=require('../../lib/cricket-scorecard'),parse=require('../../lib/source-coverage').parseCricketFixtures;
+function source({id=39990,runs=84}={}){const r=structuredClone(raw);r.fixture.id=id;r.fixture.gameStatus='In Progress';r.fixture.isLive=r.fixture.isInProgress=true;r.fixture.isCompleted=false;r.fixture.homeTeam.fixtureId=r.fixture.awayTeam.fixtureId=id;for(const i of r.fixture.innings)i.fixtureId=id;const i=r.fixture.innings.at(-1),p=i.batsmen.find(p=>p.isBatting);i.runsScored+=runs-p.runsScored;p.runsScored=runs;return r;}
+function fixture(now=Date.now(),options={}){const r=source(options),stamp=new Date(+now).toISOString(),card=detail.normalize(r,{fixtureId:r.fixture.id,checkedAt:stamp});const e=parse([{...card.fixture,innings:card.innings}],{sourceUrl:detail.url(r.fixture.id),checkedAt:stamp})[0];return {...e,status:'live',sourceStale:false,cricketPhaseConfirmed:true,scoreCheckedAt:stamp,statusCheckedAt:stamp};}
+function account(e){return {user_id:'11111111-1111-4111-8111-111111111111',updated_at:new Date().toISOString(),preferences:{version:26,onboardingComplete:true,selectedSelectorEntityIds:[],followedSports:[],showSpoilers:false,followFirst:{notifications:{enabled:true,milestones:{enabled:true,sports:{cricket:{coverage:'medium'}}}}}},actions:{[e.id]:{addedToFixtures:true,reminderChoice:'off'}},spoilers:{}};}
+module.exports={source,fixture,account};

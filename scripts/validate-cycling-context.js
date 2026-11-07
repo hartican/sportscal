@@ -54,7 +54,7 @@ const finalSnapshot = context.jerseySnapshots.at(-1);
 assert.equal(finalSnapshot.close.yellowParticipantId, "competitor:cycling:tdf:tadej-pogacar");
 assert.equal(finalSnapshot.close.polkadotParticipantId, "competitor:cycling:tdf:richard-carapaz");
 
-const tourEvents = feed.events.filter(event => event.key === "tdf");
+const tourEvents = feed.events.filter(event => event.key === "tdf" && /^evt_(?:4[6-9]|[56][0-9]|66)$/.test(event.id));
 const contextualEvents = sportContext.applyContextToEvents(tourEvents, context);
 assert.equal(contextualEvents.length, 21);
 assert(contextualEvents.every(event => event.sportDomainId === "special:tour-de-france"));

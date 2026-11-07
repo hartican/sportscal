@@ -1,0 +1,35 @@
+# Superseded programme brief — 13 October 2026
+
+This is dated history, not an active task list. Use docs/cto-delivery-plan.md for current priorities. Earlier imperative wording below is superseded by that queue. Detailed source/release evidence remains at its linked dates and scopes.
+
+# CTO delivery programme — authoritative current queue
+
+**Current decision — 13 October 2026:** Clearer cards, ordinary storage cleanup and the Match Centre repair are live. Match Centre now does less work behind the scenes; the complete current list passed checks on the live site in both browsers. Continue Football and wider launch checks. Real-phone use, permissions, return visits and the next normal overnight update still need separate proof. Passwords/iCloud stays parked.
+
+**What users get:** Consistent cards, compact Cricket scores, clearer Tennis rounds and viewing buttons, shorter schedules and ratings that stop looking stuck. Hidden scores stay hidden and reminders stay off when chosen. These improvements are live; full launch readiness and real-phone use still need proof.
+
+**Full approval:** 0/18 carried families and 0/3 Football pilots, targeting at least 15/18 families. This counts complete launch checks, not whether any useful work has shipped. Limited Horse Racing covers nine retained cards, not all racing. Earlier audit chapters keep their dated counts.
+
+**Next five actions, in order:**
+
+- Continue Football pilot quality and demonstrated carried-sport gaps. Reuse passing work and fix evidenced problems against the NRL/AFL reference. Keep unknown facts honest and the current coverage boundary; a catalogue entry or quick partial list does not count as complete.
+- Let existing updates gradually clear expired copies. Current results and latest copies stay protected. Measure remaining space; physical compaction waits for independent recovery and its own verified maintenance window. Keep the free plan.
+- Let the same quiet follow-up verify the next normal overnight publication and deployment. Keep one update owner and no manual rescue.
+- Complete the prepared brief real-phone check and genuine return-use proof when available. Existing owner questions remain pending; Passwords/iCloud stays parked.
+- Keep the small sponsor experiment ready. Launch waits for quality, permission and audience evidence. No outreach or purchase now.
+
+**Operating default:** One ordered queue; small changes; checks suited to the risk; proof that the exact change is live. Updates use short, everyday English: what improves, what remains and what happens next. Technical detail stays in the evidence unless requested. Reuse unchanged evidence, keep briefs and reviews focused on changed files, limit investigations and replace brittle checks with meaningful ones. Ask Jack only about material product trade-offs, spending or irreversible choices. No new subscription or recurring owner task; existing assistant, runner and hosting costs remain unpriced. A reliable whole-programme finish date is still unsupported.
+
+The comprehensive audit retains 51 chapters and three architecture diagrams. This repair does not complete Football MVP readiness or approve a whole sport. Detailed evidence: [current coverage](https://github.com/hartican/sportscal/blob/main/docs/quality/current-programme-review-2026-10-12.md), [Football comparison](https://github.com/hartican/sportscal/blob/main/docs/quality/epl-current-season-comparison-2026-10-11.md), [Rugby final times](https://github.com/hartican/sportscal/blob/main/docs/quality/nations-finals-timing-2026-10-12.md), [paused-match update](https://github.com/hartican/sportscal/blob/main/docs/quality/paused-match-status-2026-10-12.md), [pause wording](https://github.com/hartican/sportscal/blob/main/docs/quality/pause-labels-2026-10-12.md), [request timeout](https://github.com/hartican/sportscal/blob/main/docs/quality/response-deadline-2026-10-12.md), [Follow freeze repair](https://github.com/hartican/sportscal/blob/main/docs/quality/follow-picker-freeze-2026-10-12.md), [recognised teams](https://github.com/hartican/sportscal/blob/main/docs/quality/recognised-follow-teams-2026-10-12.md), [current Football screens](https://github.com/hartican/sportscal/blob/main/docs/quality/football-current-screens-2026-10-12.md) and [unconfirmed Rugby listing](https://github.com/hartican/sportscal/blob/main/docs/quality/rugby-seed-note-2026-10-12.md).
+
+Latest evidence: [clearer cards and exact release](https://github.com/hartican/sportscal/blob/main/docs/quality/clearer-card-context-2026-10-12.md), [distinct Football choices](https://github.com/hartican/sportscal/blob/main/docs/quality/football-round-labels-2026-10-12.md), [confirmed Rugby Schedule gap](https://github.com/hartican/sportscal/blob/main/docs/quality/rugby-schedule-discovery-2026-10-12.md).
+
+Latest delivery: [Rugby Schedule repair and exact live proof](https://github.com/hartican/sportscal/blob/main/docs/quality/rugby-schedule-repair-2026-10-12.md). Its meaningful calendar regression now runs before every normal app deployment.
+
+Latest delivery: [Settled ratings and qualified event calendars](https://github.com/hartican/sportscal/blob/main/docs/quality/rugby-context-repair-2026-10-12.md). Accepted rating responses, hidden community results, final calendar-day visibility and shared cached interface ownership have meaningful regressions in the normal release checks.
+
+Latest delivery: [Storage cleanup and the next reliability gap](https://github.com/hartican/sportscal/blob/main/docs/quality/fixture-history-retention-2026-10-12.md). The checked repair is live and normal updates have cleared two expired copies without changing current facts. Twenty checks and independent reviews pass. Physical space savings remain unverified. Match Centre failed its public health check twice; logs show the same timeout before this repair. Fix its excessive read work before continuing Football polish.
+
+Latest delivery: [Clearer cards and a focused Tennis Feed](https://github.com/hartican/sportscal/blob/main/docs/quality/consistent-cards-and-tennis-feed-2026-10-12.md). The exact passing snapshot is live; both Tennis directory projections and their existing checks now stay together.
+
+Latest delivery: [Match Centre loading repair](https://github.com/hartican/sportscal/blob/main/docs/quality/match-centre-read-efficiency-2026-10-12.md). The exact published database change is live, with 24 checks and both independent reviews passing. The complete live list, score hiding and reminders OFF pass in both browsers. About 92% less database-to-server data was needed in the frozen comparison; phone speed and future failure rates remain unmeasured. No new subscription, scheduler or app deployment.

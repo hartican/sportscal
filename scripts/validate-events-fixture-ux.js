@@ -5,15 +5,15 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const cardCss=fs.readFileSync("styles/follow-feed-rework.css","utf8");
 const inlineScript = html.match(/<script>([\s\S]*?)<\/script>/)?.[1] || "";
 assert.doesNotThrow(() => new Function(inlineScript), "the Events and Fixtures browser script must parse");
 
-assert(html.includes('let eventsViewTab = "major-events"'), "fresh visits must default Events to Major Events");
-assert(html.includes('[["major-events", "Major Events"], ["ticket-alerts", "Tickets"]]'), "Events tabs must place Major Events before Ticket alerts");
+assert(html.includes('let eventsViewTab = "overviews"'), "fresh visits default to followed tournament and series overviews");
+assert(html.includes('[["overviews", "Events"], ["major-events", "Major Events"], ["ticket-alerts", "Tickets"]]'), "Events tabs must place Major Events before Ticket alerts");
 assert(html.includes('tabs.setAttribute("role", "tablist")') && html.includes('tab.setAttribute("role", "tab")') && html.includes('panel.setAttribute("role", "tabpanel")'), "Events tabs must expose the accessible tab pattern");
-assert(html.includes('eventsDeepLinkHash("major"') && html.includes('eventsDeepLinkHash("alert"') && html.includes('/^#events\\/(major|alert)\\/(.+)$/'), "Major Events and Ticket alerts must support deterministic deep links");
+assert(html.includes('eventsDeepLinkHash(tournament ? "tournament" : "major"') && html.includes('eventsDeepLinkHash("alert"') && html.includes('/^#events\\/(major|alert|tournament)\\/(.+)$/'), "Major Events, tournaments and Ticket alerts must support deterministic deep links");
 assert(html.includes("pendingMajorEventFocusId") && html.includes("pendingTicketAlertFocusId") && html.includes("focusTicketAlertCard"), "deep links must select and focus either card collection");
 assert(/function focusMajorEventCard[\s\S]{0,900}requestAnimationFrame\(restoreTargetFocus\)[\s\S]{0,500}setTimeout/.test(html), "major-event deep links must restore focus after late Events rerenders");
 
@@ -34,8 +34,9 @@ assert(html.includes('primaryActions.className = "event-card-primary-actions"') 
 assert(html.includes('navigationRow.className = "major-event-navigation-row"') && html.includes('major-event-timetable'), "major cards must group Follow Event, viewing and Timetable");
 
 assert(cardCss.includes("width:120px") && cardCss.includes("width:100px"), "Feed and Events share restored responsive identity frames");
-assert(html.includes('.event-card.is-logo-led-matchup{ min-height:0;') && html.includes('.event-card.is-logo-led-matchup .event-meta-row{ gap:5px; margin-top:4px;'), "compact fixtures must remove oversized minimum heights and tighten metadata spacing");
-const eventCardSource = html.slice(html.indexOf("function buildEventCard(ev"), html.indexOf("function jointTournamentIsActive"));
+assert(/\.event-card\.is-logo-led-matchup\s*\{[^}]*\bmin-height:\s*0(?:;|\})/.test(html) && /\.event-card\.is-logo-led-matchup \.event-date-line\s*\{\s*margin:\s*3px 0 0;/.test(html), "compact fixtures must remove oversized minimum heights and retain the compact date-line spacing; the obsolete metadata rail stays excluded below");
+const renderer=fs.readFileSync("config/venue-panel-ui.js","utf8");
+const eventCardSource = renderer.slice(renderer.indexOf("function buildDetailedEventCard("), renderer.indexOf("function appendFixtureCardArtwork("));
 assert(eventCardSource.includes('displayLabel:displayTitle'), "regular fixture traffic controls must receive the renderer's spoiler-safe display title");
 assert(eventCardSource.includes("buildNothingscoreSummary") && !eventCardSource.includes("buildNothingscorePanel"), "Feed cards show peer summaries; detailed results belong in the drawer");
 assert(!eventCardSource.includes("follow-reason-tag") && !eventCardSource.includes("new-tag") && !eventCardSource.includes("event-meta-row") && !eventCardSource.includes("Independent context"), "Feed cards must omit meta labels and duplicate metadata rails");
@@ -43,7 +44,7 @@ assert(html.includes("buildInlineCrowdRating(ev,snapshot)"), "standard Feed card
 assert(!eventCardSource.includes("buildPostEventRatingPrompt"), "Feed cards must keep the separate impact rating prompt hidden behind the contribution action");
 assert(!/Less of this|More of this/.test(html) && html.includes("eventIsHighStakesSuggestion"), "Feed must remove duplicate feedback controls and gate Like to suggestions");
 assert(html.includes("buildInlineCrowdRating"), "cards retain the real crowd rating control");
-const majorCardSource = html.slice(html.indexOf("function buildMajorEventCard"), html.indexOf("function buildTicketSaleCard"));
+const majorCardSource = require("./app-shell-test-utils").readCardFunction("buildDetailedMajorEventCard");
 assert(!majorCardSource.includes('expand.className = "major-event-expand-control"'), "major cards must not duplicate Timetable with a chevron control");
 assert(!majorCardSource.includes("buildEventFeedbackButtons"), "Events cards must not show thumbs controls");
 assert(!majorCardSource.includes("buildEventNothingscoreAction")&&!html.includes("row.appendChild(buildNothingscoreSummary(crowdEvent))"), "Events excludes all rating inputs");

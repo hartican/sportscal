@@ -13,7 +13,7 @@ const catalogue = require("../config/team-follow-catalogue");
 const ROOT = path.resolve(__dirname, "..");
 const assetsOnly = process.argv.includes("--assets-only");
 const serviceWorkerSource = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
-const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 
 assert.equal(registry.schemaVersion, "national-team-identities.v1");
 assert.equal(registry.baselineCount, 58);
@@ -35,8 +35,8 @@ registry.allTeams.forEach(team => {
   const hash = crypto.createHash("sha256").update(source).digest("hex");
   assert.equal(hash, team.sha256, `${team.id} asset hash does not match its provenance record`);
   assert.match(team.sourceUrl, /^https:\/\//, `${team.id} needs an official source URL`);
-  assert.match(team.assetSourceUrl, /^https:\/\//, `${team.id} needs an artwork retrieval URL`);
-  assert.equal(team.retrievedAt, "2026-08-28");
+  assert.match(team.assetSourceUrl, team.provenance === "user-supplied-transparent-national-crest" ? /^user-supplied:[A-F0-9-]+\.PNG$/ : /^https:\/\//, `${team.id} needs an artwork retrieval reference`);
+  assert.equal(team.retrievedAt, ["assets/identities/national/cricket/australia-transparent.png","assets/identities/national/cricket/south-africa-proteas.svg","assets/identities/national/football/socceroos-symbol.svg"].includes(team.assetPath) ? "2026-09-25" : "2026-08-28");
   assert(["recorded", "permission-review-required"].includes(team.permissionReviewStatus), `${team.id} needs a permission review status`);
   if (team.assetKind === "coat-of-arms") assert.equal(team.permissionReviewStatus, "permission-review-required", `${team.id} government artwork must remain permission-review-required`);
   const mark = cardIdentities.participantMarks[team.id];
@@ -59,10 +59,12 @@ require("./app-shell-test-utils").assertShellModule(html,"config/national-team-i
 assert.doesNotMatch(html, /Promise\.all\(\[nationalTeamIdentityReady, cardIdentitiesReady, remoteFeedTask\]\)/, "national-team identity registries must not block the first usable Feed");
 assert.match(html, /scheduleIdentityImageRecovery/, "national-team marks must patch into reserved card slots after first render");
 assert.match(html, /if \(mark\?\.isNationalTeam \|\| mark\?\.teamKind === "national"\)/, "national-team broken images need an explicit no-flag fallback branch");
-assert.match(html, /const showNationalityFlag = athlete/, "athlete nationality flags must remain separate");
-assert.doesNotMatch(html, /if \(showNationalityFlag \|\| nationalTeam\)/, "Follow must not share the athlete flag branch with national teams");
+const followSource=require("./app-shell-test-utils").readFollowApplicationSource();
+assert.match(followSource, /const showNationalityFlag = athlete/, "athlete nationality flags must remain separate");
+assert.doesNotMatch(followSource, /if \(showNationalityFlag \|\| nationalTeam\)/, "Follow must not share the athlete flag branch with national teams");
 assert(serviceWorkerSource.includes(`nothingsport-shell-v${shellVersion}`), "the application-shell cache must be bumped for the identity library");
-assert(serviceWorkerSource.includes(`"/assets/js/app-shell-runtime.js?v=${shellVersion}"`), "the offline shell must cache the exact runtime carrying national identities");
+const runtimeAsset=html.match(/<script src="(assets\/js\/app-shell-runtime\.js\?v=\d+)">/)?.[1];
+assert(runtimeAsset&&serviceWorkerSource.includes(`"/${runtimeAsset}"`), "the offline shell must cache the exact runtime carrying national identities");
 
 const regressionCases = [
   [{key:"cricket", name:"India Women v Pakistan Women"}, ["team:cricket:india-women", "team:cricket:pakistan-women"]],
@@ -91,6 +93,7 @@ assert.equal(registry.canonicalId("team:nrl:national:new-zealand"), "team:nrl:ki
 assert.equal(registry.canonicalId("team:netball:national:australia"), "team:netball:diamonds");
 
 if (!assetsOnly){
+  require('./validate-representative-competition-grouping');
   const feed = JSON.parse(fs.readFileSync(path.join(ROOT, "data/events.json"), "utf8"));
   const majorEvents = JSON.parse(fs.readFileSync(path.join(ROOT, "data/major-events.v1.json"), "utf8"));
   const audited = [];
@@ -132,7 +135,8 @@ if (!assetsOnly){
   const followRecords = fs.readdirSync(path.join(ROOT, "data/follow-directory")).filter(name => name.endsWith(".v1.json") && name !== "manifest.v1.json")
     .flatMap(name => JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory", name), "utf8")).records || [])
     .filter(record => record.teamKind === "national" && registry.teamForId(record.id));
-  assert.equal(followRecords.length, 67, "generated Follow data must retain all national teams as teamKind national");
+  const expected=registry.participants.filter(r=>require("../config/cricket-coverage").followable(r.id));
+  assert.deepEqual(new Set(followRecords.map(r=>r.id)),new Set(expected.map(r=>r.id)),"Follow retains covered national teams while retiring out-of-scope cricket teams");
   followRecords.forEach(record => {
     assert(registry.teamForId(record.id), `Follow contains unknown national team ${record.id}`);
     assert.match(record.logoUrl || "", /^assets\/identities\/national\//, `${record.id} Follow logo must be local`);

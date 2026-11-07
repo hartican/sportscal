@@ -32,7 +32,7 @@ assert(response.events.some(event => event.id === monza.id), "the personalised F
 assert(response.derivedCardCache.derivedCards.some(card => card.canonicalEventId === monza.id),
   "the returned Italian GP must have a renderable card");
 
-const damaged = {...monza, id:"monza-incomplete", eventId:"monza-incomplete", stakesScore:1,
+const damaged = {...monza, id:"monza-incomplete", eventId:"monza-incomplete", canonicalEventId:"monza-incomplete", stakesScore:1,
   storyline:null, participantIds:[], participants:[], broadcaster:null, viewingOptions:[],
   startTimeUtc:null, endTimeUtc:null, time:null, timePrecision:"tbc", status:"postponed"};
 assert(policy.followedFixtureDecision(damaged, {followed:true,now}).include,

@@ -3,7 +3,7 @@ const fs=require('fs');
 const assert=require('assert');
 const read=path=>fs.readFileSync(path,'utf8');
 
-const html=read('index.html');
+const html=require("./app-shell-test-utils").readCardApplicationSource();
 const chat=read('api/chat.js');
 const migration=read('supabase/migrations/20260909143000_chat_fullscreen_receipts_invitations.sql');
 const finals=JSON.parse(read('data/canonical/afl-nrl-finals-2026.json'));
@@ -15,7 +15,9 @@ assert(!policy.eligibleForFollow(practice,{}),'published F1 sessions never creat
 const {syncCanonicalFixtures}=require('./sync-canonical-fixtures-to-feed');
 const canonical=JSON.parse(read('data/canonical/afl-nrl-2026.json'));
 const grandFinalId='event:afl:cd_m20260142901';
-const rebuilt=syncCanonicalFixtures({events:[]},canonical,{publishedAt:'2026-09-09T00:00:00Z'}).output;
+const unresolvedCanonical=structuredClone(canonical);
+unresolvedCanonical.events.find(event=>event.id===grandFinalId).displayName='Winner Preliminary Final 1 v Winner Preliminary Final 2';
+const rebuilt=syncCanonicalFixtures({events:[]},unresolvedCanonical,{publishedAt:'2026-09-09T00:00:00Z'}).output;
 assert.equal(rebuilt.events.find(event=>event.canonicalEventId===grandFinalId)?.name,'AFL Grand Final','canonical refresh must not reintroduce bracket title');
 const resolved=structuredClone(canonical);
 const resolvedFinal=resolved.events.find(event=>event.id===grandFinalId);
@@ -24,8 +26,9 @@ const resolvedFeed=syncCanonicalFixtures({events:[]},resolved,{publishedAt:'2026
 assert.equal(resolvedFeed.events.find(event=>event.canonicalEventId===grandFinalId)?.name,'Sydney Swans v Hawthorn','resolved clubs replace placeholder title');
 assert.equal(resolvedFeed.events.find(event=>event.canonicalEventId===grandFinalId)?.stage,'Grand Final','resolved clubs retain stage');
 
-assert.match(html,/fixture-participant-pager/,'F1 followed participants need a one-line pager');
-assert.match(html,/time\.textContent=`\$\{timing\} • \$\{sportLabel\}`/,'compact cards need an explicit sport label');
+assert.match(html,/row\.tabIndex=0/,'followed participants need a keyboard-scrollable single row');
+// Approved 13 October minimised-card contract: separate format/progress/time, qualified clocks and accessible full context.
+require('./validate-minimised-cards');
 assert.match(html,/Chat sound on/,'chat sound activation needs acknowledgement');
 assert.match(html,/chatIncomingBanner/,'incoming chat needs an exact-room banner');
 assert.match(html,/Remove from list/,'bulk personal archiving must remain distinct from destructive chat deletion');
@@ -42,7 +45,9 @@ assert.match(migration,/last_delivered_at/);
 
 const fixtures=(finals.phases||[]).flatMap(phase=>phase.fixtures||[]);
 const unresolved=fixtures.filter(item=>item.schedulePrecision==='week');
-assert(unresolved.length>=8,'unresolved finals need week anchors');
+assert(fixtures.length>=8,'published finals schedule must retain its contests');
+assert(fixtures.every(item=>item.schedulePrecision==='week'||item.schedulePrecision==='exact'&&item.startTimeUtc||item.schedulePrecision==='date-only'&&item.date),'finals must have exact starts, published dates or explicit week anchors');
+assert(finals.sources.every(source=>/^https:\/\//.test(source.url)), 'finals source register remains auditable');
 assert(unresolved.every(item=>item.weekAnchorDate&&/^Week of Monday, /.test(item.displayDateLabel||'')),'week anchors need public labels');
 for(const code of ['afl','nrl']){
   const grandFinal=fixtures.find(item=>String(item.id||'').includes(code)&&/grand final/i.test(item.publicStageLabel||item.stageLabel||item.name||''));

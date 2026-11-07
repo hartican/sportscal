@@ -1,0 +1,650 @@
+<table class="components-match-scoreboard" match-id="{{{match_data.match_id}}}" match-status="{{{match_data.match_status}}}" match-format="{{{match_data.match_format}}}" match-set="{{{match_data.match_set}}}" match-day-pts-per-match="{{{match_data.match_points}}}" match-day="{{{match_data.match_day}}}" match-date="{{{match_data.match_date}}}" match-date-friendly="{{{match_data.match_datetime_friendly}}}" match-date-gmt="{{{match_data.match_datetime_gmt}}}" match-year="{{{match_data.match_year}}}" match-winner="{{{match_data.match_winner}}}">
+                        <thead>
+                            <tr>
+                                <td colspan="6">
+                                    <p>Match {{{match_data.match_order_seq}}}<br>
+                                        <small>{{{match_data.match_format}}}</small>
+                                    </p>
+                                </td>
+                                <td colspan="5">
+                                    <span class="skew-shape"></span>
+                                    {{#if match_data.match_is_finished}}
+                                    <small class="match-points">{{{match_data.match_winner}}} won - {{{match_data.match_points}}} pt{{#if_compare match_data.match_points '>' '1'}}s{{/if_compare}}</small>
+                                    {{else}}
+                                    <small class="match-status">{{{match_data.match_status}}}</small>
+                                    {{/if}}
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr server="" winner="{{#if_eq match_data.match_winner 'europe' }}1{{/if_eq}}">
+                                <td><a href="#" title="View Team Europe"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-europe-blue-v2.svg" alt="Team Europe logo" class="cup"></a></td>
+                                <td class="name team-europe" colspan="6" player-ids="{{#if match_data.europe_player_1 }}{{{@key}}}{{/if}}{{#if match_data.europe_player_2 }},{{{@key}}}{{/if}}">
+                                {{#if match_data.europe_player_1 }}
+                                    <a player-id="{{{@key}}}" href="{{{match_data.europe_player_1.link}}}" title="View '{{{match_data.europe_player_1.f_name}}} {{{match_data.europe_player_1.l_name}}}' profile">{{{match_data.europe_player_1.s_name}}}</a>
+                                {{/if}}
+                                {{#if match_data.europe_player_2 }}
+                                    <br />
+                                    <a player-id="{{{@key}}}" href="{{{match_data.europe_player_2.link}}}" title="View '{{{match_data.europe_player_2.f_name}}} {{{match_data.europe_player_2.l_name}}}' profile">{{{match_data.europe_player_2.s_name}}}</a>
+                                {{/if}}
+                                </td>
+
+                                <td class="score" hidden></td>
+                                {{#if match_data.match_is_finished}}
+                                    <td class="value" set_won="{{{match_data.match_data.0.set_1_winner}}}">
+                                        {{{match_data.match_data.0.set_1_score}}}
+                                        {{#if match_data.match_data.0.set_1_tiebreak }}<sup>{{{match_data.match_data.0.set_1_tiebreak}}}</sup>{{/if}}
+                                    </td>
+                                    <td class="value" set_won="{{{match_data.match_data.0.set_2_winner}}}">
+                                        {{{match_data.match_data.0.set_2_score}}}
+                                        {{#if match_data.match_data.0.set_2_tiebreak }}<sup>{{{match_data.match_data.0.set_2_tiebreak}}}</sup>{{/if}}
+                                    </td>
+
+                                    {{#if match_data.match_data.0.set_3_tiebreak}}
+                                    <td class="value" set_won="{{{match_data.match_data.0.set_3_winner}}}">
+                                        {{{match_data.match_data.0.set_3_tiebreak}}}
+                                    </td>
+                                    {{/if}}
+                                    
+                                {{else}}
+                                    <td class="value"></td>
+                                    <td class="value"></td>
+                                    <td class="value"></td>
+                                {{/if}}
+                                
+                            </tr>
+                            <tr server="" winner="{{#if_eq match_data.match_winner 'world' }}1{{/if_eq}}">
+                                <td><a href="#" title="View Team World"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-world-red-v2.svg" alt="Team World logo" class="cup"></a></td>
+                                <td class="name team-world" colspan="6"  player-ids="{{#if match_data.world_player_1 }}{{{@key}}}{{/if}}{{#if match_data.world_player_2 }},{{{@key}}}{{/if}}">
+                                    {{#if match_data.world_player_1 }}
+                                        <a player-id="{{{@key}}}" href="{{{match_data.world_player_1.link}}}" title="View '{{{match_data.world_player_1.f_name}}} {{{match_data.world_player_1.l_name}}}' profile">{{{match_data.world_player_1.s_name}}}</a>
+                                    {{/if}}
+                                    {{#if match_data.world_player_2 }}
+                                        <br />
+                                        <a player-id="{{{@key}}}" href="{{{match_data.world_player_2.link}}}" title="View '{{{match_data.world_player_2.f_name}}} {{{match_data.world_player_2.l_name}}}' profile">{{{match_data.world_player_2.s_name}}}</a>
+                                    {{/if}}
+                                </td>
+
+
+                                <td class="score" hidden></td>
+                                {{#if match_data.match_is_finished}}
+                                    <td class="value" set_won="{{{match_data.match_data.1.set_1_winner}}}">
+                                        {{{match_data.match_data.1.set_1_score}}}
+                                        {{#if match_data.match_data.1.set_1_tiebreak }}<sup>{{{match_data.match_data.1.set_1_tiebreak}}}</sup>{{/if}}
+                                    </td>
+                                    <td class="value" set_won="{{{match_data.match_data.1.set_2_winner}}}">
+                                        {{{match_data.match_data.1.set_2_score}}}
+                                        {{#if match_data.match_data.1.set_2_tiebreak }}<sup>{{{match_data.match_data.1.set_2_tiebreak}}}</sup>{{/if}}
+                                    </td>
+
+                                    {{#if match_data.match_data.1.set_3_tiebreak}}
+                                    <td class="value" set_won="{{{match_data.match_data.1.set_3_winner}}}">
+                                        {{{match_data.match_data.1.set_3_tiebreak}}}
+                                    </td>
+                                    {{/if}}
+                                {{else}}
+                                    <td class="value"></td>
+                                    <td class="value"></td>
+                                    <td class="value"></td>
+                                {{/if}}
+
+                            </tr>
+                        </tbody>
+
+                        <tfoot>
+
+                            {{#if_compare match_data.match_status '!=' 'cancelled'}}
+                            <tr class="time">
+
+                                <td colspan="6">
+
+                                    <span class="time-type {{#if_eq match_data.match_status 'live'}}{{else}}hidden{{/if_eq}}">
+
+                                        <time datetime="{{{match_data.match_duration}}}"></time>
+
+                                    </span>
+
+                                </td>
+
+                                
+                                <td colspan="5">
+                                    <a href="https://lavercup.com/match/{{{post_name}}}" title="{{{post_title}}}" class="alignright {{#if_compare match_data.match_status '==' 'upcoming'}}hidden{{/if_compare}}{{#if_compare match_data.match_status '==' 'cancelled'}}hidden{{/if_compare}}">View Match Summary</a>
+                                </td>
+
+                            </tr>
+                            {{/if_compare}}
+
+                        </tfoot>
+                    </table>
+<table class="components-match-scoreboard" match-id="MS201"  match-order="1" match-status="completed" match-format="singles" match-sets="3"  match-year="2026" match-day='2' match-day-pts-per-match="2"  match-date="20260926" match-date-friendly="Sat, 26 Sep 2026 13:00:00 BST+0100 (Europe/London)" match-date-gmt="2026-09-26T13:00:00+01:00" match-winner="world">
+    <thead >
+        <tr>
+            <td colspan="6">
+                <p>Match 5<br />
+                    <small>Singles</small>
+                </p>
+                <button class="go-previous hidden" aria-label="button"></button>
+            </td>
+            <td colspan="5">
+                <span class="skew-shape"></span>
+                                    <small class="match-points">
+                    World won - 2pts                    </small>
+                                <button class="go-next hidden" aria-label="button"></button>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr server="" winner="0">
+            <td><a href="#" title="View Team Europe"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-europe-blue-v2.svg" alt="Team Europe logo" class="cup" /></a></td>
+
+            
+            <td class="name team-europe" colspan="6" player-ids="ATPC0E9">
+                                        <a player-id="ATPC0E9" href="https://lavercup.com/player/flavio-cobolli" title="View 'Flavio Cobolli' profile" class="name">
+                            F.Cobolli                        </a>
+                                    </td>
+            <td class="score" hidden></td>
+                        <td class="value">3</td>
+                        <td class="value" set_won="1">6</td>    
+                            <td class="value">7</td>
+                                </tr>
+        <tr server="" winner="1">
+            <td><a href="#" title="View Team World"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-world-red-v2.svg" alt="Team World logo" class="cup" /></td>
+                        
+            <td class="name team-world" colspan="6" player-ids="ATPT0HA">
+                                        <a player-id="ATPT0HA" href="https://lavercup.com/player/learner-tien" title="View 'Learner Tien' profile" class="name">
+                            L.Tien                        </a>
+                                </td>
+            <td class="score" hidden></td>
+                        <td class="value" set_won="1">6</td>
+                        <td class="value">2</td>    
+                            <td class="value" set_won="1">10</td>
+                                </tr>
+    </tbody>
+
+    <tfoot>
+        <tr class="time">
+
+                        <td colspan="6">
+
+                <span class="time-type ">
+                    
+                    <time datetime="01:35">01:35</time>
+                    
+                </span>
+
+            </td>
+            
+            <td colspan="5">
+                                <a href="https://lavercup.com/match/london-2026-match-5" title="Cobolli v Tien &#8211; London 2026 &#8211; Match 5" class="alignright ">View Match Summary</a>
+                            </td>
+
+            
+
+        </tr>
+    </tfoot>
+</table>
+<table class="components-match-scoreboard" match-id="MS202"  match-order="2" match-status="completed" match-format="singles" match-sets="3"  match-year="2026" match-day='2' match-day-pts-per-match="2"  match-date="20260926" match-date-friendly="Sat, 26 Sep 2026 13:00:00 BST+0100 (Europe/London)" match-date-gmt="2026-09-26T13:00:00+01:00" match-winner="world">
+    <thead >
+        <tr>
+            <td colspan="6">
+                <p>Match 6<br />
+                    <small>Singles</small>
+                </p>
+                <button class="go-previous hidden" aria-label="button"></button>
+            </td>
+            <td colspan="5">
+                <span class="skew-shape"></span>
+                                    <small class="match-points">
+                    World won - 2pts                    </small>
+                                <button class="go-next hidden" aria-label="button"></button>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr server="" winner="0">
+            <td><a href="#" title="View Team Europe"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-europe-blue-v2.svg" alt="Team Europe logo" class="cup" /></a></td>
+
+            
+            <td class="name team-europe" colspan="6" player-ids="ATPZ355">
+                                        <a player-id="ATPZ355" href="https://lavercup.com/player/alexander-zverev" title="View 'Alexander Zverev' profile" class="name">
+                            A.Zverev                        </a>
+                                    </td>
+            <td class="score" hidden></td>
+                        <td class="value" set_won="1">6</td>
+                        <td class="value">6 <sup>5</sup></td>    
+                            <td class="value">9</td>
+                                </tr>
+        <tr server="" winner="1">
+            <td><a href="#" title="View Team World"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-world-red-v2.svg" alt="Team World logo" class="cup" /></td>
+                        
+            <td class="name team-world" colspan="6" player-ids="ATPDH58">
+                                        <a player-id="ATPDH58" href="https://lavercup.com/player/alex-de-minaur" title="View 'Alex de Minaur' profile" class="name">
+                            A.de Minaur                        </a>
+                                </td>
+            <td class="score" hidden></td>
+                        <td class="value">2</td>
+                        <td class="value" set_won="1">7 <sup>7</sup></td>    
+                            <td class="value" set_won="1">11</td>
+                                </tr>
+    </tbody>
+
+    <tfoot>
+        <tr class="time">
+
+                        <td colspan="6">
+
+                <span class="time-type ">
+                    
+                    <time datetime="02:00">02:00</time>
+                    
+                </span>
+
+            </td>
+            
+            <td colspan="5">
+                                <a href="https://lavercup.com/match/london-2026-match-6" title="Zverev V De Minaur &#8211; London 2026 &#8211; Match 6" class="alignright ">View Match Summary</a>
+                            </td>
+
+            
+
+        </tr>
+    </tfoot>
+</table>
+<table class="components-match-scoreboard" match-id="MS203"  match-order="3" match-status="completed" match-format="singles" match-sets="3"  match-year="2026" match-day='2' match-day-pts-per-match="2"  match-date="20260926" match-date-friendly="Sat, 26 Sep 2026 19:00:00 BST+0100 (Europe/London)" match-date-gmt="2026-09-26T19:00:00+01:00" match-winner="europe">
+    <thead >
+        <tr>
+            <td colspan="6">
+                <p>Match 7<br />
+                    <small>Singles</small>
+                </p>
+                <button class="go-previous hidden" aria-label="button"></button>
+            </td>
+            <td colspan="5">
+                <span class="skew-shape"></span>
+                                    <small class="match-points">
+                    Europe won - 2pts                    </small>
+                                <button class="go-next hidden" aria-label="button"></button>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr server="" winner="1">
+            <td><a href="#" title="View Team Europe"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-europe-blue-v2.svg" alt="Team Europe logo" class="cup" /></a></td>
+
+            
+            <td class="name team-europe" colspan="6" player-ids="ATPA0E2">
+                                        <a player-id="ATPA0E2" href="https://lavercup.com/player/carlos-alcaraz" title="View 'Carlos Alcaraz' profile" class="name">
+                            C.Alcaraz                        </a>
+                                    </td>
+            <td class="score" hidden></td>
+                        <td class="value" set_won="1">6</td>
+                        <td class="value">4</td>    
+                            <td class="value" set_won="1">13</td>
+                                </tr>
+        <tr server="" winner="0">
+            <td><a href="#" title="View Team World"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-world-red-v2.svg" alt="Team World logo" class="cup" /></td>
+                        
+            <td class="name team-world" colspan="6" player-ids="ATPFB98">
+                                        <a player-id="ATPFB98" href="https://lavercup.com/player/taylor-fritz" title="View 'Taylor Fritz' profile" class="name">
+                            T.Fritz                        </a>
+                                </td>
+            <td class="score" hidden></td>
+                        <td class="value">3</td>
+                        <td class="value" set_won="1">6</td>    
+                            <td class="value">11</td>
+                                </tr>
+    </tbody>
+
+    <tfoot>
+        <tr class="time">
+
+                        <td colspan="6">
+
+                <span class="time-type ">
+                    
+                    <time datetime="01:50">01:50</time>
+                    
+                </span>
+
+            </td>
+            
+            <td colspan="5">
+                                <a href="https://lavercup.com/match/london-2026-match-7" title="Alcaraz V Fritz &#8211; London 2026 &#8211; Match 7" class="alignright ">View Match Summary</a>
+                            </td>
+
+            
+
+        </tr>
+    </tfoot>
+</table>
+<table class="components-match-scoreboard" match-id="MD201"  match-order="4" match-status="completed" match-format="doubles" match-sets="2"  match-year="2026" match-day='2' match-day-pts-per-match="2"  match-date="20260926" match-date-friendly="Sat, 26 Sep 2026 19:00:00 BST+0100 (Europe/London)" match-date-gmt="2026-09-26T19:00:00+01:00" match-winner="europe">
+    <thead >
+        <tr>
+            <td colspan="6">
+                <p>Match 8<br />
+                    <small>Doubles</small>
+                </p>
+                <button class="go-previous hidden" aria-label="button"></button>
+            </td>
+            <td colspan="5">
+                <span class="skew-shape"></span>
+                                    <small class="match-points">
+                    Europe won - 2pts                    </small>
+                                <button class="go-next hidden" aria-label="button"></button>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr server="" winner="1">
+            <td><a href="#" title="View Team Europe"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-europe-blue-v2.svg" alt="Team Europe logo" class="cup" /></a></td>
+
+            
+            <td class="name team-europe" colspan="6" player-ids="ATPRH16,ATPZ355">
+                                        <a player-id="ATPRH16" href="https://lavercup.com/player/casper-ruud" title="View 'Casper Ruud' profile" class="name">
+                            C.Ruud                        </a>
+                                                <a player-id="ATPZ355" href="https://lavercup.com/player/alexander-zverev" title="View 'Alexander Zverev' profile" class="name">
+                            A.Zverev                        </a>
+                                    </td>
+            <td class="score" hidden></td>
+                        <td class="value" set_won="1">6</td>
+                        <td class="value" set_won="1">7 <sup>9</sup></td>        </tr>
+        <tr server="" winner="0">
+            <td><a href="#" title="View Team World"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-world-red-v2.svg" alt="Team World logo" class="cup" /></td>
+                        
+            <td class="name team-world" colspan="6" player-ids="ATPBK92,ATPN0AE">
+                                        <a player-id="ATPBK92" href="https://lavercup.com/player/alexander-bublik" title="View 'Alexander Bublik' profile" class="name">
+                            A.Bublik                        </a>
+                                            <a player-id="ATPN0AE" href="https://lavercup.com/player/brandon-nakashima" title="View 'Brandon Nakashima' profile" class="name">
+                            B.Nakashima                        </a>
+                                </td>
+            <td class="score" hidden></td>
+                        <td class="value">4</td>
+                        <td class="value">6 <sup>7</sup></td>        </tr>
+    </tbody>
+
+    <tfoot>
+        <tr class="time">
+
+                        <td colspan="6">
+
+                <span class="time-type ">
+                    
+                    <time datetime="01:35">01:35</time>
+                    
+                </span>
+
+            </td>
+            
+            <td colspan="5">
+                                <a href="https://lavercup.com/match/london-2026-match-8" title="Ruud/Zverev V Bublik/Nakashima &#8211; London 2026 &#8211; Match 8" class="alignright ">View Match Summary</a>
+                            </td>
+
+            
+
+        </tr>
+    </tfoot>
+</table>
+<table class="components-match-scoreboard" match-id="MD101"  match-order="4" match-status="completed" match-format="doubles" match-sets="2"  match-year="2026" match-day='1' match-day-pts-per-match="1"  match-date="20260925" match-date-friendly="Fri, 25 Sep 2026 19:00:00 BST+0100 (Europe/London)" match-date-gmt="2026-09-25T19:00:00+01:00" match-winner="europe">
+    <thead >
+        <tr>
+            <td colspan="6">
+                <p>Match 4<br />
+                    <small>Doubles</small>
+                </p>
+                <button class="go-previous hidden" aria-label="button"></button>
+            </td>
+            <td colspan="5">
+                <span class="skew-shape"></span>
+                                    <small class="match-points">
+                    Europe won - 1pt                    </small>
+                                <button class="go-next hidden" aria-label="button"></button>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr server="" winner="1">
+            <td><a href="#" title="View Team Europe"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-europe-blue-v2.svg" alt="Team Europe logo" class="cup" /></a></td>
+
+            
+            <td class="name team-europe" colspan="6" player-ids="ATPA0E2,ATPM0NI">
+                                        <a player-id="ATPA0E2" href="https://lavercup.com/player/carlos-alcaraz" title="View 'Carlos Alcaraz' profile" class="name">
+                            C.Alcaraz                        </a>
+                                                <a player-id="ATPM0NI" href="https://lavercup.com/player/jakub-mensik" title="View 'Jakub Mensik' profile" class="name">
+                            J.Mensik                        </a>
+                                    </td>
+            <td class="score" hidden></td>
+                        <td class="value" set_won="1">6</td>
+                        <td class="value" set_won="1">6</td>        </tr>
+        <tr server="" winner="0">
+            <td><a href="#" title="View Team World"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-world-red-v2.svg" alt="Team World logo" class="cup" /></td>
+                        
+            <td class="name team-world" colspan="6" player-ids="ATPBK92,ATPFB98">
+                                        <a player-id="ATPBK92" href="https://lavercup.com/player/alexander-bublik" title="View 'Alexander Bublik' profile" class="name">
+                            A.Bublik                        </a>
+                                            <a player-id="ATPFB98" href="https://lavercup.com/player/taylor-fritz" title="View 'Taylor Fritz' profile" class="name">
+                            T.Fritz                        </a>
+                                </td>
+            <td class="score" hidden></td>
+                        <td class="value">4</td>
+                        <td class="value">4</td>        </tr>
+    </tbody>
+
+    <tfoot>
+        <tr class="time">
+
+                        <td colspan="6">
+
+                <span class="time-type ">
+                    
+                    <time datetime="01:27">01:27</time>
+                    
+                </span>
+
+            </td>
+            
+            <td colspan="5">
+                                <a href="https://lavercup.com/match/london-2026-match-4" title="Alcaraz/Mensik V Bublik/Fritz &#8211; London 2026 &#8211; Match 4" class="alignright ">View Match Summary</a>
+                            </td>
+
+            
+
+        </tr>
+    </tfoot>
+</table>
+<table class="components-match-scoreboard" match-id="MS103"  match-order="3" match-status="completed" match-format="singles" match-sets="2"  match-year="2026" match-day='1' match-day-pts-per-match="1"  match-date="20260925" match-date-friendly="Fri, 25 Sep 2026 19:00:00 BST+0100 (Europe/London)" match-date-gmt="2026-09-25T19:00:00+01:00" match-winner="europe">
+    <thead >
+        <tr>
+            <td colspan="6">
+                <p>Match 3<br />
+                    <small>Singles</small>
+                </p>
+                <button class="go-previous hidden" aria-label="button"></button>
+            </td>
+            <td colspan="5">
+                <span class="skew-shape"></span>
+                                    <small class="match-points">
+                    Europe won - 1pt                    </small>
+                                <button class="go-next hidden" aria-label="button"></button>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr server="" winner="1">
+            <td><a href="#" title="View Team Europe"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-europe-blue-v2.svg" alt="Team Europe logo" class="cup" /></a></td>
+
+            
+            <td class="name team-europe" colspan="6" player-ids="ATPJ0DZ">
+                                        <a player-id="ATPJ0DZ" href="https://lavercup.com/player/rafael-jodar" title="View 'Rafael Jodar' profile" class="name">
+                            R.Jodar                        </a>
+                                    </td>
+            <td class="score" hidden></td>
+                        <td class="value" set_won="1">6</td>
+                        <td class="value" set_won="1">6</td>        </tr>
+        <tr server="" winner="0">
+            <td><a href="#" title="View Team World"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-world-red-v2.svg" alt="Team World logo" class="cup" /></td>
+                        
+            <td class="name team-world" colspan="6" player-ids="ATPBK92">
+                                        <a player-id="ATPBK92" href="https://lavercup.com/player/alexander-bublik" title="View 'Alexander Bublik' profile" class="name">
+                            A.Bublik                        </a>
+                                </td>
+            <td class="score" hidden></td>
+                        <td class="value">2</td>
+                        <td class="value">3</td>        </tr>
+    </tbody>
+
+    <tfoot>
+        <tr class="time">
+
+                        <td colspan="6">
+
+                <span class="time-type ">
+                    
+                    <time datetime="01:24">01:24</time>
+                    
+                </span>
+
+            </td>
+            
+            <td colspan="5">
+                                <a href="https://lavercup.com/match/london-2026-match-3" title="Jodar V Bublik &#8211; London 2026 &#8211; Match 3" class="alignright ">View Match Summary</a>
+                            </td>
+
+            
+
+        </tr>
+    </tfoot>
+</table>
+<table class="components-match-scoreboard" match-id="MS102"  match-order="2" match-status="completed" match-format="singles" match-sets="3"  match-year="2026" match-day='1' match-day-pts-per-match="1"  match-date="20260925" match-date-friendly="Fri, 25 Sep 2026 13:00:00 BST+0100 (Europe/London)" match-date-gmt="2026-09-25T13:00:00+01:00" match-winner="world">
+    <thead >
+        <tr>
+            <td colspan="6">
+                <p>Match 2<br />
+                    <small>Singles</small>
+                </p>
+                <button class="go-previous hidden" aria-label="button"></button>
+            </td>
+            <td colspan="5">
+                <span class="skew-shape"></span>
+                                    <small class="match-points">
+                    World won - 1pt                    </small>
+                                <button class="go-next hidden" aria-label="button"></button>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr server="" winner="0">
+            <td><a href="#" title="View Team Europe"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-europe-blue-v2.svg" alt="Team Europe logo" class="cup" /></a></td>
+
+            
+            <td class="name team-europe" colspan="6" player-ids="ATPM0NI">
+                                        <a player-id="ATPM0NI" href="https://lavercup.com/player/jakub-mensik" title="View 'Jakub Mensik' profile" class="name">
+                            J.Mensik                        </a>
+                                    </td>
+            <td class="score" hidden></td>
+                        <td class="value">1</td>
+                        <td class="value" set_won="1">6</td>    
+                            <td class="value">7</td>
+                                </tr>
+        <tr server="" winner="1">
+            <td><a href="#" title="View Team World"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-world-red-v2.svg" alt="Team World logo" class="cup" /></td>
+                        
+            <td class="name team-world" colspan="6" player-ids="ATPN0AE">
+                                        <a player-id="ATPN0AE" href="https://lavercup.com/player/brandon-nakashima" title="View 'Brandon Nakashima' profile" class="name">
+                            B.Nakashima                        </a>
+                                </td>
+            <td class="score" hidden></td>
+                        <td class="value" set_won="1">6</td>
+                        <td class="value">3</td>    
+                            <td class="value" set_won="1">10</td>
+                                </tr>
+    </tbody>
+
+    <tfoot>
+        <tr class="time">
+
+                        <td colspan="6">
+
+                <span class="time-type ">
+                    
+                    <time datetime="01:21">01:21</time>
+                    
+                </span>
+
+            </td>
+            
+            <td colspan="5">
+                                <a href="https://lavercup.com/match/london-2026-match-2" title="Mensik V Nakashima &#8211; London 2026 &#8211; Match 2" class="alignright ">View Match Summary</a>
+                            </td>
+
+            
+
+        </tr>
+    </tfoot>
+</table>
+<table class="components-match-scoreboard" match-id="MS101"  match-order="1" match-status="completed" match-format="singles" match-sets="3"  match-year="2026" match-day='1' match-day-pts-per-match="1"  match-date="20260925" match-date-friendly="Fri, 25 Sep 2026 13:00:00 BST+0100 (Europe/London)" match-date-gmt="2026-09-25T13:00:00+01:00" match-winner="europe">
+    <thead >
+        <tr>
+            <td colspan="6">
+                <p>Match 1<br />
+                    <small>Singles</small>
+                </p>
+                <button class="go-previous hidden" aria-label="button"></button>
+            </td>
+            <td colspan="5">
+                <span class="skew-shape"></span>
+                                    <small class="match-points">
+                    Europe won - 1pt                    </small>
+                                <button class="go-next hidden" aria-label="button"></button>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr server="" winner="1">
+            <td><a href="#" title="View Team Europe"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-europe-blue-v2.svg" alt="Team Europe logo" class="cup" /></a></td>
+
+            
+            <td class="name team-europe" colspan="6" player-ids="ATPRH16">
+                                        <a player-id="ATPRH16" href="https://lavercup.com/player/casper-ruud" title="View 'Casper Ruud' profile" class="name">
+                            C.Ruud                        </a>
+                                    </td>
+            <td class="score" hidden></td>
+                        <td class="value">6 <sup>4</sup></td>
+                        <td class="value" set_won="1">6</td>    
+                            <td class="value" set_won="1">10</td>
+                                </tr>
+        <tr server="" winner="0">
+            <td><a href="#" title="View Team World"><img loading="lazy" src="https://lavercup.com/wp-content/themes/lavercup_spark/assets/graphics/trophy-world-red-v2.svg" alt="Team World logo" class="cup" /></td>
+                        
+            <td class="name team-world" colspan="6" player-ids="ATPC0AU">
+                                        <a player-id="ATPC0AU" href="https://lavercup.com/player/francisco-cerundolo" title="View 'Francisco Cerundolo' profile" class="name">
+                            F.Cerundolo                        </a>
+                                </td>
+            <td class="score" hidden></td>
+                        <td class="value" set_won="1">7 <sup>7</sup></td>
+                        <td class="value">4</td>    
+                            <td class="value">8</td>
+                                </tr>
+    </tbody>
+
+    <tfoot>
+        <tr class="time">
+
+                        <td colspan="6">
+
+                <span class="time-type ">
+                    
+                    <time datetime="02:06">02:06</time>
+                    
+                </span>
+
+            </td>
+            
+            <td colspan="5">
+                                <a href="https://lavercup.com/match/london-2026-match-1" title="Ruud V Cerundolo &#8211; London 2026 &#8211; Match 1" class="alignright ">View Match Summary</a>
+                            </td>
+
+            
+
+        </tr>
+    </tfoot>
+</table>

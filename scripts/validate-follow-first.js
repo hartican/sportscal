@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 "use strict";
+require('./validate-follow-preparation-reuse');
+require('./validate-card-classification-work');
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
@@ -23,7 +25,7 @@ assert.equal(meta.personalisedOffersConsent, false);
 
 const seeded = followFirst.applyMetaSeed({}, meta);
 assert.equal(seeded.changed, true);
-assert.deepEqual(seeded.preferences.selectedSelectorEntityIds, ["sport:afl", "sport:football"]);
+assert.deepEqual(seeded.preferences.selectedSelectorEntityIds, ["sport:afl-premiership", "sport:football"]);
 assert.equal(seeded.preferences.followFirst.australiaInternationalsEnabled, true, "Australia in internationals is one default-on global preference");
 assert.equal(followFirst.applyMetaSeed(seeded.preferences, meta).changed, false);
 
@@ -53,7 +55,7 @@ assert.equal(australiaReason, null, "Rugby international fixtures require explic
 assert.equal(followFirst.reasonForEvent({ key:"football", majorEventId:"fifa-world-cup", venue:"Leeds" }, { ...followed, followedSports:["football"] }, { locationMatches:true }), null, "sport, event and location metadata must not independently make a Feed card eligible");
 const fiveOfFive = { key:"rugby", eventId:"fixture:five", date:"2026-09-01", time:"19:30", stakesScore:5, cardKind:"fixture" };
 assert.equal(followFirst.reasonForEvent(fiveOfFive, followed),null,"legacy stakes must not confer eligibility");
-assert.equal(followFirst.reasonForEvent({...fiveOfFive,round:"Grand Final"}, followed),null,"a Rugby domestic final still requires a team or competition follow");
+assert(followFirst.reasonForEvent({...fiveOfFive,round:"Grand Final"}, followed),"a source-labelled Rugby final is admitted within a followed sport");
 assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, tournamentParent:true }, followed), null, "tournament parents must never qualify through a sport follow");
 assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, competitionScope:"international", representativeCountryCodes:["AUS"] }, { ...followed, followFirst:{ ...followed.followFirst, australiaInternationalsEnabled:false } }), null, "a senior Rugby international is not admitted by a broad sport follow");
 assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, competitionScope:"international", representativeCountryCodes:["AUS"], participantIds:["team:direct"] }, { ...followed, followFirst:{ ...followed.followFirst, australiaInternationalsEnabled:false }, preferenceGraph:{ entityFollows:[{ participantId:"team:direct", followLevel:"follow" }] } })?.entityKind, "team", "direct follows override the global Australia switch");
@@ -65,11 +67,13 @@ assert.equal(followFirst.stageLabel({ stage:"Grand Final" }), "Grand Final");
 assert.deepEqual(["Round 27", "Wildcard Final", "Qualifying Final", "Elimination Final", "Semi Final", "Preliminary Final", "Grand Final"].sort(followFirst.compareFixtureGroupLabels), ["Round 27", "Wildcard Final", "Elimination Final", "Qualifying Final", "Semi Final", "Preliminary Final", "Grand Final"]);
 assert.equal(followFirst.normalizedFixtureGroupLabel("Australia v New Zealand"), "Other fixtures");
 
-const paidViewing = followFirst.viewingLink({ broadcaster:"Nine / Kayo Sports" }, ["nine"]);
-assert.equal(paidViewing.providerId, "kayo", "an actual paid stream must be preferred over a free-to-air simulcast");
-assert.equal(paidViewing.actionLabel, "Kayo");
-assert.equal(followFirst.viewingLink({ broadcaster:"Stan Sport / 9Now" }, ["nine"]).providerId, "stan", "Stan Sport must win over a free-to-air option");
-assert.equal(followFirst.viewingLink({ broadcaster:"Provider TBC" }), null, "a viewing action must not invent an unrelated provider");
+const verifiedOptions=ids=>ids.map(providerId=>({providerId,rightsScope:'fixture',sourceUrl:'https://example.test/official-au-carriage',verifiedAt:'2026-10-14T00:00:00.000Z'}));
+const paidViewing=followFirst.viewingLink({viewingOptions:verifiedOptions(['nine','kayo'])},['kayo']);
+assert.equal(paidViewing.providerId,'kayo','Subscribed paid coverage precedes free coverage');
+assert.equal(paidViewing.actionLabel,'Kayo');
+assert.equal(followFirst.viewingLink({viewingOptions:verifiedOptions(['stan','nine'])}).providerId,'nine','Without paid subscriptions verified free coverage comes first');
+assert.equal(followFirst.viewingLink({broadcaster:'Stan Sport / 9Now'}),null,'Unstructured provider guesses cannot create viewing actions');
+assert.equal(followFirst.viewingLink({ broadcaster:'Provider TBC' }),null);
 
 const feedDocument = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 const explicitAustralianEvents = (feedDocument.events || []).filter(event => representativeEvents.metadataForEventId(event.eventId || event.id));
@@ -110,7 +114,7 @@ let opened = followed;
 for (const id of ["one", "two", "three"]) opened = followFirst.registerOpen(opened, id);
 assert.equal(followFirst.shouldPromptRefinement(opened), true);
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readFollowApplicationSource()+require("./app-shell-test-utils").readCardApplicationSource({includeHtml:false});
 const eventCardSource = html.match(/function buildEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
 const worker = fs.readFileSync("service-worker.js", "utf8");
 const notificationApi = fs.readFileSync("api/notifications.js", "utf8");
@@ -128,16 +132,15 @@ assert(scriptMatch);
 assert.doesNotThrow(() => new Function(scriptMatch[1]), "the browser application must parse");
 assert.match(html, />Feed</);
 assert.match(html, />Follow</);
-assert.match(html, /Back to Follow/);
+assert.match(html, /Back to Feed/);
 assert.doesNotMatch(html, /<span class="tab-label">Inspector<\/span>/);
-const navLabels = Array.from(html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g), match => match[1]);
-assert.deepEqual(navLabels, ["Feed", "Events", "Follow"]);
+require('./app-shell-test-utils').assertPrimaryNavigation(html);
 assert(html.includes('window.scrollTo({ top: 0, behavior: "auto" })'), "tab and inspector navigation must reset the viewport");
 
-const settingsMenu = html.match(/function renderSettingsMenu\(body\)\{[\s\S]*?\n\}/)?.[0] || "";
+const settingsMenu = fs.readFileSync("config/archive-settings-ui.js","utf8").match(/function renderSettingsMenu\(body\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert.deepEqual(
   Array.from(settingsMenu.matchAll(/settingsMenuItem\("[^"]+",\s*"[^"]+",\s*"([^"]+)"/g), match => match[1]),
-  ["Account", "All Followed", "About", "Appearance", "Subscriptions", "Notifications", "Set location", "Hidden events", "Feedback"],
+  ["Account", "EPIC Hall of Fame", "All Followed", "About", "Fantasy deadlines", "Appearance", "Subscriptions", "Notifications", "Set location", "Hidden events", "Feedback"],
 );
 assert(!settingsMenu.includes("Froth") && !settingsMenu.includes("Tune") && !settingsMenu.includes("Local venues"));
 assert(html.includes('id="calendarSyncBtn"') && html.includes("function showCalendarDialog"));
@@ -158,22 +161,44 @@ assert(
     && html.includes('const label = active ? "Reminder ON" : "Remind"')
     && html.includes('chat.textContent = "Chat"')
     && html.includes("buildViewingProviderMark")
-    && html.includes('const verb = viewingLink.liveOrReplay === "replay" ? "Replay" : "Watch"')
-    && html.includes('prefix.textContent = `${verb} on`;')
+    && html.includes("link.setAttribute('aria-label',link.title)")
     && html.includes("mark.replaceChildren(fallback)")
     && !html.includes("mark.append(fallback, image)"),
   "quick actions must use the approved labels and show either a provider logo or its text fallback"
 );
+// Execute the real shared renderer to preserve approved action meaning, instead
+// of requiring one exact source spelling of an accessible label. Layout and
+// decoded provider artwork remain covered by the browser checks.
+const actionNode = tag => ({tag,children:[],attributes:{},append(...nodes){this.children.push(...nodes);},appendChild(node){this.children.push(node);return node;},setAttribute(name,value){this.attributes[name]=String(value);},addEventListener(){}});
+let controlledViewing;
+const actionContext={document:{createElement:actionNode},userPreferences:{followFirst:{subscriptions:[]}},FOLLOW_FIRST:{viewingOptions:()=>controlledViewing},buildViewingProviderMark:()=>actionNode('provider-mark')};
+require('node:vm').runInNewContext(['configureProviderLaunch','viewingAccessLabel','appendEventQuickActions'].map(require('./app-shell-test-utils').readCardFunction).join('\n'),actionContext);
+for(const [accessType,cost] of [['free','Free'],['subscription','Subscription'],['ppv','Pay-per-view'],['included','Included in plan'],['unknown','Check cost'],['__proto__','Check cost']]){
+ for(const [liveOrReplay,replayVerified,verb] of [['live',false,'Watch'],['replay',false,null],['replay',true,'Replay']]){
+  const provider={...followFirst.VIEWING_PROVIDERS.stan,accessType,liveOrReplay,replayVerified};controlledViewing=[provider];const saved=JSON.stringify(provider),host=actionNode('host');
+  actionContext.appendEventQuickActions(host,{key:'football'},{reminder:false,chat:false});
+  if(!verb){assert.equal(host.children[0].children.length,0,'Unconfirmed replay mounts no provider row');continue;}
+  const link=host.children[0].children[0].children[0],caption=link.children.find(n=>n.className==='provider-access');
+  assert.equal(link.attributes['aria-label'],verb+' on Stan Sport · '+cost,'Actual accessible viewing action preserves approved purpose and explicit cost');
+  assert.equal(caption?.textContent,cost,'Actual visible caption agrees with the accessible cost');
+  assert.equal(link.href,provider.webUrl);assert.equal(link.target,'_blank');assert.equal(link.rel,'noopener noreferrer external');
+  assert.equal(JSON.stringify(provider),saved,'Presentation must not mutate viewing evidence');
+ }
+}
+controlledViewing=[];const unknownViewing=actionNode('host');actionContext.appendEventQuickActions(unknownViewing,{key:'football'},{reminder:false,chat:false});
+assert.equal(unknownViewing.children[0].children.length,0,'No options mount no viewing row or placeholder');
 assert(!html.includes("Swipe to like") && !html.includes("Swipe to dislike"), "startup and cards must not teach Tinder-style gestures");
 assert(html.includes('data-tab="follow"') && html.includes("renderFollowView"));
-assert(html.includes('["all-fixtures", "Schedule"]') && !html.includes('["matches", "Matches"]') && !html.includes('["players", "Players"]') && html.includes("followStandingsLabel"));
+assert(html.includes("['schedule','Schedule']") && !html.includes('["matches", "Matches"]') && !html.includes('["players", "Players"]') && html.includes("followStandingsLabel"));
 assert(html.includes("codeInspectorPlayersExpanded") && html.includes('"Top 3 + followed"'));
 
-assert(html.includes("startupSportsGrid") && html.includes("startupEventsGrid") && html.includes("startupOffersGrid"));
-assert(html.includes("personalisedOffersConsent") && html.includes("startupLocationQuery"));
+const onboardingSource=fs.readFileSync("config/fantasy-deadline-ui.js","utf8");
+assert(onboardingSource.includes("startupSportsGrid") && onboardingSource.includes("startupEventsGrid") && onboardingSource.includes("startupOffersGrid"));
+assert(onboardingSource.includes("personalisedOffersConsent") && onboardingSource.includes("startupLocationQuery"));
 assert(!/startup[^\n]{0,80}(gender|age bracket)/i.test(html), "signup must not ask for gender or age bracket");
 assert(html.includes("shouldPromptRefinement") && html.includes("firstSwipeAt"));
-assert(serverSync.includes("async loadMeta()") && serverSync.includes("async saveMeta(meta)"));
+assert.match(serverSync, /async loadMeta\s*\(/, "onboarding metadata read remains available");
+assert.match(serverSync, /async saveMeta\s*\(meta[,)]/, "onboarding metadata write remains available");
 assert(userMetaApi.includes("nothingsports_user_meta") && userMetaApi.includes("seed_hash"));
 assert(migration.includes("force row level security") && migration.includes("protect_nothingsports_offer_consent"));
 assert(migration.includes("Gender and full age brackets are intentionally not collected"));
@@ -184,9 +209,14 @@ assert(packageDocument.dependencies["web-push"]);
 const quickReminderSource = html.match(/async function toggleQuickReminder[\s\S]*?\n\}/)?.[0] || "";
 assert(quickReminderSource.includes("ensureWebPushReminder") && quickReminderSource.includes("removeWebPushReminder"), "reminders must be confirmed through Web Push before local state changes");
 assert(!html.includes("scheduleBrowserReminders()") && !html.includes("deliverBrowserReminder"), "the active-app timer path must stay retired");
-assert(html.includes("Background notifications") && html.includes("even when Nothing Sport is closed"));
-assert(notificationApi.includes("remind_at") && notificationApi.includes('deliveryMode === "session-start" ? 0 : 15') && notificationApi.includes("leadMinutes * 60 * 1000"), "follow-only session reminders must fire at session start while exact and broadcast starts retain the 15-minute lead");
-assert(dispatchApi.includes("CRON_SECRET") && dispatchApi.includes("webpush.sendNotification") && dispatchApi.includes("claimed_at"));
+const notificationUi=fs.readFileSync("config/fantasy-deadline-ui.js","utf8");
+assert((html+notificationUi).includes("Background notifications") && (html+notificationUi).includes("even when Nothing Sport is closed"));
+const reminderPolicy=require("../config/fixture-reminder-policy");
+assert(notificationApi.includes("remind_at"));
+const reminderClock=Date.parse('2026-10-02T00:00:00Z'),reminderFixture={status:'scheduled',scheduleStatus:'confirmed',timePrecision:'exact',startTimeUtc:'2026-10-02T01:00:00Z',sourceCheckedAt:'2026-10-02T00:00:00Z',sourceUrl:'https://example.org/official'};
+assert.equal(Date.parse(reminderPolicy.timing(reminderFixture,reminderClock).startsAt)-Date.parse(reminderPolicy.timing(reminderFixture,reminderClock).remindAt),15*60*1000);
+assert.equal(reminderPolicy.timing({...reminderFixture,timePrecision:'session-only'},reminderClock),null,'session starts cannot create fixture reminders');
+assert(dispatchApi.includes("CRON_SECRET") && dispatchApi.includes("guardedSend") && dispatchApi.includes("claimed_at"));
 assert(worker.includes('addEventListener("push"') && worker.includes('addEventListener("notificationclick"'));
 assert(!Array.isArray(vercel.crons) || !vercel.crons.some(cron => cron.path === "/api/notification-dispatch"), "cron-job.org must be the sole reminder dispatcher");
 assert.equal(manifest.id, "/");

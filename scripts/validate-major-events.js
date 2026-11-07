@@ -4,6 +4,7 @@
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
+require('./validate-event-calendar-labels');
 const majorEvents = require("../config/major-events.js");
 const competitionClassification = require("../config/competition-classification.js");
 const countryFlags = require("../config/country-flags.js");
@@ -15,12 +16,14 @@ const finalsCodePhases = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-fina
 const championsLeague = JSON.parse(fs.readFileSync("data/canonical/uefa-champions-league-2026-27.json", "utf8"));
 const usOpenScheduleSnapshot = JSON.parse(fs.readFileSync("feeds/provider-exports/tennis/us-open-2026-official-schedule.json", "utf8"));
 
-const REFERENCE = new Date(usOpenScheduleSnapshot.capturedAt);
+// Validate today's whole catalogue against today; the retained US Open source
+// is a fixture input, not the observation ceiling for newer sports evidence.
+const REFERENCE = new Date();
 const FUTURE_REFERENCE = new Date(REFERENCE.getTime() + 24 * 60 * 60 * 1000).toISOString();
 const catalogue = JSON.parse(fs.readFileSync("data/major-events.v1.json", "utf8"));
 const feed = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 const schema = JSON.parse(fs.readFileSync("schemas/major-events.schema.json", "utf8"));
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const worker = fs.readFileSync("service-worker.js", "utf8");
 
 assert.equal(schema.properties.schemaVersion.const, majorEvents.SCHEMA_VERSION);
@@ -69,13 +72,13 @@ const forbiddenEventIds = [
 ];
 assert(forbiddenEventIds.every(id => !catalogue.events.some(record => record.id === id)), "single-code competitions and domestic finals must never be stored under Events");
 assert(catalogue.events.every(record => competitionClassification.belongsInEvents(record)), "the Events catalogue must contain Event-classified records only");
-const canonicalAflFinals = aflNrlCanonical.events.filter(event => event.sportDomainId === "sport:afl" && /final/i.test(event.roundLabel || ""));
+const canonicalAflFinals = aflNrlCanonical.events.filter(event => event.competitionId === "competition:afl-premiership-2026" && /final/i.test(event.roundLabel || ""));
 assert.equal(canonicalAflFinals.length, 11, "AFL must retain both Wildcard Finals, four first-week finals, two Semis, two Prelims and the Grand Final under its Code");
 const aflPhase = finalsCodePhases.phases.find(phase => phase.codeId === "sport:afl");
 const nrlPhase = finalsCodePhases.phases.find(phase => phase.codeId === "sport:nrl");
 assert.deepEqual(aflPhase.fixtures.map(event => event.id).sort(), canonicalAflFinals.map(event => event.id).sort(), "AFL Code phase data must preserve every canonical finals fixture");
 assert.equal(nrlPhase.fixtures.length, 9, "NRL Code phase data must retain four first-week finals, two Semis, two Prelims and the Grand Final");
-assert(nrlPhase.fixtures.every(event => event.startTimeUtc === null), "unpublished NRL slots must not receive invented start times");
+assert(nrlPhase.fixtures.every(event => event.startTimeUtc === null || event.timePrecision === "exact" && (/^https:\/\/www\.nrl\.com\//.test(event.sourceUrl || "") || event.id === "major-match:nrl-finals-2026:grand-final" && event.sourceUrl === "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals") && Number.isFinite(Date.parse(event.sourceCheckedAt))), "NRL slots may gain exact start times only with dated official source evidence");
 assert.equal(nrlPhase.bracketProgression?.schemaVersion, "bracket-progression.v1", "NRL Code progression must remain structured instead of parsed from slot labels");
 const nrlFinalIds = new Set(nrlPhase.fixtures.map(event => event.id));
 assert.deepEqual(new Set(nrlPhase.bracketProgression.matches.map(match => match.matchId)), nrlFinalIds, "every NRL finals slot must publish winner and loser progression");
@@ -91,7 +94,8 @@ const rugbyFinals = catalogue.events.find(record => record.id === "major-event:n
 assert(rugbyFinals && rugbyFinals.subEvents.length === 6, "Rugby must retain all six Nations Championship Finals Weekend placements");
 assert.equal(rugbyFinals.competitionScope, "international");
 assert(rugbyFinals.representativeCountryCodes.includes("AU"), "Australian national representation must be explicit metadata, not a title heuristic");
-assert(rugbyFinals.subEvents.every(event => event.dateLabel && event.startTimeUtc === null), "Rugby placement sessions require a published label but no invented drawn fixture");
+assert(rugbyFinals.subEvents.every(event => event.dateLabel && event.sourceCheckedAt), "Rugby placements retain dated source evidence; the Nations regression validates original and later primary facts");
+require('./validate-nations-finals');
 
 assert.equal(championsLeague.id, "competition:uefa-champions-league");
 assert.deepEqual(championsLeague.phases.map(record => record.phaseIdentity), ["qualification", "league", "knockout"], "Champions League Code coverage must retain chronological phases");
@@ -100,14 +104,17 @@ assert.equal(championsLeague.phases.at(-1).endDate, "2027-06-05");
 assert(championsLeague.phases[0].fixtures.every(event => event.startTimeUtc && event.participantSlots?.length === 2), "published Champions League qualification deciders must expose concrete times and clubs");
 assert(championsLeague.phases.slice(1).flatMap(record => record.fixtures).every(event => event.dateLabel && event.startTimeUtc === null), "future undrawn Champions League stages require source-published phase dates without fictional fixtures");
 
-const markerIds = majorEvents.markerEvents(["afl", "nrl", "rugby", "football"], REFERENCE).map(event => event.id);
+// Visibility regressions exercise the tournament's active window, independent of fetch date.
+const visibilityCatalogue={...catalogue,events:catalogue.events.map(e=>e.id==='major-event:us-open-2026'?{...e,lifecycleStatus:'active'}:e)};
+const visibilityReference=new Date('2026-09-10T00:00:00Z');
+const markerIds = majorEvents.markerEvents(["afl", "nrl", "rugby", "football"], visibilityReference).map(event => event.id);
 assert(markerIds.includes(rugbyFinals.id), "genuine special Events may retain compact Fixtures markers");
 assert(forbiddenEventIds.every(id => !markerIds.includes(id)), "Code competitions and domestic finals must not create Event markers");
 assert.deepEqual(majorEvents.markerReplacementFixtureIds(), [], "ordinary AFL/NRL finals cards must never be replaced by Event parents");
 assert(catalogue.events.some(record => record.id === "ticket-sale:australian-open-2027-general-sale"));
 assert(catalogue.events.some(record => record.id === "ticket-sale:australian-grand-prix-2027-waitlist"));
 
-const tennis = majorEvents.visibleRecords(catalogue, ["tennis"], REFERENCE);
+const tennis = majorEvents.visibleRecords(visibilityCatalogue, ["tennis"], visibilityReference);
 assert(tennis.events.some(record => record.id === "major-event:us-open-2026"));
 assert(tennis.events.some(record => record.id === "major-event:australian-open-2027"));
 assert(tennis.alerts.some(record => record.id === "major-event:australian-open-2027"));
@@ -128,18 +135,18 @@ followedSportVisibilityCases.forEach(([sportKey, eventId]) => {
   ];
   equivalentPreferenceShapes.forEach(({ label, value }) => {
     assert(
-      majorEvents.visibleRecords(catalogue, value, REFERENCE).events.some(record => record.id === eventId),
+      majorEvents.visibleRecords(visibilityCatalogue, value, visibilityReference).events.some(record => record.id === eventId),
       `${eventId} must surface from its ${sportKey} ${label}`,
     );
   });
 });
 assert.equal(
-  majorEvents.visibleRecords(catalogue, { preferenceGraph:{ domainPreferences:[{ sportDomainId:"sport:tennis", enabled:false }] } }, REFERENCE).events.length,
+  majorEvents.visibleRecords(visibilityCatalogue, { preferenceGraph:{ domainPreferences:[{ sportDomainId:"sport:tennis", enabled:false }] } }, visibilityReference).events.length,
   0,
   "a disabled domain preference must not surface its major events",
 );
 assert(
-  followedSportVisibilityCases.every(([, eventId]) => majorEvents.visibleRecords(catalogue, { selectedSelectorEntityIds:["category:sports"] }, REFERENCE).events.some(record => record.id === eventId)),
+  followedSportVisibilityCases.every(([, eventId]) => majorEvents.visibleRecords(visibilityCatalogue, { selectedSelectorEntityIds:["category:sports"] }, visibilityReference).events.some(record => record.id === eventId)),
   "the explicit all-sports selector must surface every in-window major-event family",
 );
 assert.match(
@@ -165,7 +172,7 @@ everyInWindowEdition.forEach(record => {
     `${record.id} must surface from every equivalent ${sportKey} follow representation`,
   ));
 });
-assert(everyInWindowEdition.length >= 5, "the sport-follow visibility audit must cover every current major-event edition");
+assert(everyInWindowEdition.length > 0, "the current-edition visibility audit must not be empty; dated retirement can reduce the count");
 
 const usOpen = catalogue.events.find(record => record.id === "major-event:us-open-2026");
 const expectedOfficialUsOpenFixtures = fixturesFromSnapshot(usOpenScheduleSnapshot);
@@ -237,7 +244,18 @@ catalogue.events.forEach(parent => (parent.subEvents || []).forEach(subEvent => 
 }));
 
 const rlwc = catalogue.events.find(record => record.id === "major-event:rlwc-2026");
-const drawnMatch = rlwc.subEvents[0];
+// These date/editorial/bootstrap checks describe the reviewed opener, not
+// whichever newly published World Cup fixture happens to be first in the list.
+const rlwcOpenerId = "major-match:rlwc-2026:australia-new-zealand";
+function selectRlwcOpener(parent){
+  const matches=(parent.subEvents||[]).filter(record=>record.id===rlwcOpenerId);
+  assert.equal(matches.length,1,"exactly one reviewed RLWC opener must exist");
+  return matches[0];
+}
+const drawnMatch = selectRlwcOpener(rlwc);
+assert.equal(selectRlwcOpener({...rlwc,subEvents:[...rlwc.subEvents].reverse()}),drawnMatch,"opener assertions must not depend on child ordering");
+assert.throws(()=>selectRlwcOpener({...rlwc,subEvents:rlwc.subEvents.filter(record=>record.id!==rlwcOpenerId)}),/exactly one reviewed RLWC opener/);
+assert.throws(()=>selectRlwcOpener({...rlwc,subEvents:[...rlwc.subEvents,drawnMatch]}),/exactly one reviewed RLWC opener/);
 const fixture = majorEvents.fixtureFromSubEvent(drawnMatch, rlwc);
 const curatedOpener = feed.events.find(event => event.id === "rlwc-australia-new-zealand-2026");
 assert.equal(typeof majorEvents.editorialRecordForSubEvent, "function", "every rendered Events child card needs a shared editorial resolver");
@@ -261,7 +279,45 @@ const resolvedRlwcEditorialChild = majorEvents.editorialRecordForSubEvent(drawnM
 assert.equal(resolvedRlwcEditorialChild.editorialNarrative.hook, curatedOpener.editorialNarrative.hook, "an Events-only World Cup child must retain the latest researched fixture stakes even before its matching Feed card is loaded");
 assert.equal(majorEvents.fixtureSemanticKey(fixture), majorEvents.fixtureSemanticKey(curatedOpener), "the pinned child and curated opener must share one semantic fixture identity despite different IDs and ISO precision");
 assert(html.includes("const canonicalFixtures = majorEventFeedCandidates()") && html.includes("repairSavedFixture?.(event, canonicalFixtures)") && html.includes("const current = repaired?.fixture || event"), "a pinned Events child must adopt the canonical fixture and its curated projection on the first Feed render without waiting for the lazy Events runtime");
-assert(html.includes(`"${fixture.id}":Object.freeze({`) && html.includes(`projectionId:"${curatedOpener.editorialNarrative.projectionId}"`) && html.includes(`hook:"${curatedOpener.editorialNarrative.hook}"`), "the one pre-canonical device-local pin must retain the exact validated projection without another startup request");
+const canonicalSteps=require("./update-cards").buildSteps({localOnly:true});
+const publishedEditorialStep=canonicalSteps.findIndex(args=>args[0]==="scripts/prepare-result-editorial.js");
+const firstMajorGate=canonicalSteps.findIndex(args=>args[0]==="scripts/validate-major-events.js");
+assert(canonicalSteps.slice(publishedEditorialStep+1,firstMajorGate).some(args=>args[0]==="scripts/build-app-shell-runtime.js"),"canonical owner must regenerate the source-backed cold pin before its first offline gate");
+const bootstrap = require("./build-app-shell-runtime").pinnedFixtureEditorial();
+assert.deepEqual(bootstrap[fixture.id].editorialNarrative, curatedOpener.editorialNarrative, "generated bootstrap retains the exact validated published projection");
+const vm = require("node:vm");
+const pinContext = vm.createContext({NOTHINGSPORTS_PINNED_FIXTURE_EDITORIAL:bootstrap});
+vm.runInContext(html.slice(html.indexOf("function fxAliases("), html.indexOf("const COMPETITION_CLASSIFICATION")) + ";globalThis.repair=FEED_FIXTURE_RECONCILIATION.repairSavedFixture;", pinContext);
+const legacyStatusPin = {...fixture,manualPin:true,editorialNarrative:drawnMatch.editorialNarrative};
+if (legacyStatusPin.status !== curatedOpener.status){
+  assert.equal(pinContext.repair(legacyStatusPin,[]).fixture,legacyStatusPin,"an editorial-only bootstrap must not invent a completed status for a retained scheduled pin");
+}
+// This is a controlled compatible-status copy test, not a rewrite of the
+// retained pin's source status. The real scheduled/completed mismatch is above.
+const oldPin = {...legacyStatusPin,status:curatedOpener.status};
+const oldPinBefore = JSON.stringify(oldPin);
+const coldPin = pinContext.repair(oldPin,[]).fixture;
+assert.deepEqual(JSON.parse(JSON.stringify(coldPin.editorialNarrative)),curatedOpener.editorialNarrative,"actual first-render consumer adopts current reviewed copy before canonical hydration");
+assert.equal(JSON.stringify(oldPin),oldPinBefore,"first render must not mutate saved actions");
+assert.equal(coldPin.id,oldPin.id,"copy repair preserves the saved pin identity");
+assert.deepEqual(coldPin.participantIds,oldPin.participantIds,"copy repair preserves source participants");
+assert.equal(coldPin.startTimeUtc,oldPin.startTimeUtc,"copy repair preserves the source clock");
+assert.equal(pinContext.repair(coldPin,[]).fixture,coldPin,"unchanged cold reruns retain the original object");
+assert.equal(pinContext.repair(oldPin,[curatedOpener]).fixture,curatedOpener,"loaded canonical data remains authoritative");
+const bootstrapResearchTime=Date.parse(curatedOpener.editorialNarrative.researchedAt);
+assert(Number.isFinite(bootstrapResearchTime),'published bootstrap requires a valid research time');
+const newerSavedResearchTime=new Date(bootstrapResearchTime+60*60*1000).toISOString();
+// Both reviews are synthetic past observations for this ordering regression.
+// A future-dated saved review is intentionally not authoritative at runtime.
+vm.runInContext('Date.now=()=>'+JSON.stringify(bootstrapResearchTime+2*60*60*1000),pinContext);
+for(const changed of [{...oldPin,startTimeUtc:"2026-10-16T09:05:00Z"},{...oldPin,participantIds:["team:nrl:kangaroos","team:nrl:other"]},{...oldPin,key:"rugby-union"},{...oldPin,status:oldPin.status==='completed'?'scheduled':'completed'},{...oldPin,editorialNarrative:{...oldPin.editorialNarrative,researchedAt:newerSavedResearchTime,hook:"A newer reviewed saved preview remains authoritative."}}]){
+  assert.equal(pinContext.repair(changed,[]).fixture,changed,"changed fixture facts/status and newer reviewed copy reject the older bootstrap");
+}
+const shared = require("../config/feed-fixture-reconciliation");
+const originalBootstrap=globalThis.NOTHINGSPORTS_PINNED_FIXTURE_EDITORIAL;
+try{globalThis.NOTHINGSPORTS_PINNED_FIXTURE_EDITORIAL=bootstrap;assert.deepEqual(shared.repairSavedFixture(oldPin,[]).fixture.editorialNarrative,curatedOpener.editorialNarrative,"shared and inline consumers agree");}
+finally{if(originalBootstrap===undefined)delete globalThis.NOTHINGSPORTS_PINNED_FIXTURE_EDITORIAL;else globalThis.NOTHINGSPORTS_PINNED_FIXTURE_EDITORIAL=originalBootstrap;}
+assert(!html.includes("const PINNED_FIXTURE_EDITORIAL_NARRATIVES"),"the unused duplicate cannot drift again");
 assert.equal(majorEvents.fixtureFromSubEvent({ ...drawnMatch, startTimeUtc: null }, rlwc), null, "unknown times must not materialise in Fixtures");
 assert.equal(new Set([fixture.eventId, fixture.eventId]).size, 1, "the stable child ID is the deduplication boundary");
 
@@ -269,7 +325,7 @@ const invalidCopies = [
   [{ ...catalogue, events: [...catalogue.events, catalogue.events[0]] }, /duplicate/],
   [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, sources: [] }) }, /evidence/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:us-open-2026" ? { ...record, ticketing: { ...record.ticketing, url: "https://www.usopen.org/" } } : record) }, /ticket URL/],
-  [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:us-open-2026" ? { ...record, startDate: "2028-01-01", endDate: "2028-01-14" } : record) }, /retention horizon/],
+  [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:us-open-2026" ? { ...record, lifecycleStatus:"active", startDate: "2028-01-01", endDate: "2028-01-14" } : record) }, /retention horizon/],
   [{ ...catalogue, publishedAt: FUTURE_REFERENCE }, /non-future/],
   [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, sources: record.sources.map(source => ({ ...source, checkedAt: FUTURE_REFERENCE })) }) }, /future-dated source/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:australian-grand-prix-2027" ? { ...record, season: 2028 } : record) }, /TBC records/],
@@ -278,17 +334,19 @@ invalidCopies.forEach(([document, message]) => {
   assert.match(majorEvents.validateDocument(document, { reference: REFERENCE, verifiedTicketUrl: ticketing.verifiedSellerUrl }).join("\n"), message);
 });
 
-assert(html.includes('data-tab="feed"') && html.indexOf('data-tab="feed"') < html.indexOf('data-tab="events"') && html.indexOf('data-tab="events"') < html.indexOf('data-tab="follow"'), "Events must sit directly after Feed");
+require('./app-shell-test-utils').assertPrimaryNavigation(html);
+require('./app-shell-test-utils').assertLegacyEventsNavigation(html);
 assert(html.includes('url: "data/major-events.v1.json"') && html.includes("function loadMajorEventsData(options={})"), "Events data must load on demand");
 const shellVersion = html.match(/name="app-shell-version" content="(\d+)"/)[1];
-assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes(`moduleScriptUrl: "config/major-events.js?v=${shellVersion}"`), "the Events runtime must stay off the critical startup path and load with its catalogue");
+const lazyModule=html.match(/moduleScriptUrl: "(config\/major-events\.js\?v=\d+)"/)?.[1];
+assert(!html.includes('<script src="config/major-events.js"></script>') && lazyModule && worker.includes(`"/${lazyModule}"`), "the Events runtime must load lazily with the same version available offline");
 assert(html.indexOf("const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url)") < html.indexOf("renderAll({ preserveViewport: true })", html.indexOf("async function fetchMajorEventsData")), "Events starts its lazy request before rendering");
 assert(html.includes("if (shouldLoadEvents) void loadMajorEventsData();"), "opening Events must not serialise a separate render before its lazy request");
 assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not be fetched by the startup app shell");
 assert(require("./offline-shell-module")("config/major-events.js") && require("./offline-shell-module")("config/follow-feed-policy.js") && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
 assert.match(html, /const date = ev\.date \|\| ev\.startDate;/, "major-event editorial display must resolve startDate records without crashing Events rendering");
 assert(html.includes('const row=buildEventCard({...fixture,eventName:record.name'), 'Events schedule shares the Feed card, editorial and ratings');
-assert(html.includes('watch.appendChild(buildInlineCrowdRating(ev,snapshot))'), 'shared cards include user-generated flame ratings');
+assert.match(html, /const rating=buildInlineCrowdRating\(ev,snapshot\);if\(!rating\.hidden\)watch\.appendChild\(rating\)/, 'shared cards mount the actual rating controls when visible, without an empty row');
 assert.match(html, /function majorEventFixtureSnapshot\(subEvent, parent\)\{\s+return MAJOR_EVENTS\?\.editorialFixtureFromSubEvent\?\.\(subEvent, parent, majorEventFeedCandidates\(\)\) \|\| null;/, "Events fixtures added to Feed must be persisted with resolved editorial rather than structural copy");
 assert(html.includes('majorEventsCatalogue: "ns_major_events_catalogue_v1"'), "the validated Events catalogue needs a first-visit offline fallback");
 assert(html.includes("payload = readStorage(STORAGE_KEYS.majorEventsCatalogue, null)") && html.includes("if (!loadedFromStorage && !quarantinedIds.length) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload)"), "Events offline replay must reuse only a previously validated lazy-loaded catalogue");
@@ -297,7 +355,7 @@ assert(html.includes('activeFilter === "all" || feedFilterMatchesEvent(activeFil
 const feedMerger = html.match(/function mergeMainFeedSpecialEvents\(events\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(feedMerger.includes("selectedMajorEventFixtures()"), "Feed must include independently pinned Event children");
 assert(!feedMerger.includes("markerEvents") && !feedMerger.includes("mainFeedMajorEventMarkers") && feedMerger.includes('event?.majorEventMarker !== true'), "parent Event and tournament markers must never enter Feed");
-assert(html.includes("visibleMajorEventSubEvents") && html.includes("eventFollowReason({...subEvent,key:record.sportKey"), "every Event timetable applies the shared follow policy");
+assert(html.includes("visibleMajorEventSubEvents") && html.includes("FOLLOW_FEED_POLICY.scheduleVisible({...subEvent,key:record.sportKey"), "every Event timetable applies the shared Schedule policy");
 assert(html.includes('setMajorEventFixtureAdded(options.sourceSubEvent') && html.includes("'Remove from Feed':'Add to Feed'"), "shared Event cards retain explicit Feed pin controls");
 
 console.log(`Major events valid: ${publishedParents.length} rich event cards, ${catalogue.events.length - publishedParents.length} active ticket alerts, exact seller endpoints, horizons, evidence and stable child IDs passed.`);

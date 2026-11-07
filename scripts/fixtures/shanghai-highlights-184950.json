@@ -1,0 +1,231 @@
+{
+  "id": "fixture-tennis-espn-atp-184950",
+  "eventId": "fixture-tennis-espn-atp-184950",
+  "canonicalEventId": "fixture:tennis:espn:atp:184950",
+  "sourceEventIds": [
+    "fixture:tennis:espn:atp:184950",
+    "fixture-tennis-espn-atp-184950"
+  ],
+  "key": "tennis",
+  "sport": "Tennis",
+  "sportDomainId": "sport:tennis",
+  "competitionId": "competition:atp-tour",
+  "competitionName": "Rolex Shanghai Masters",
+  "tournamentId": "tournament:tennis:atp-shanghai-2026",
+  "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+  "tournamentName": "Rolex Shanghai Masters",
+  "eventFamilyId": "shanghai-masters",
+  "tour": "ATP",
+  "gender": "men",
+  "discipline": "singles",
+  "eventType": "mens-singles",
+  "season": 2026,
+  "tennisProviderMatchId": "184950",
+  "tennisProviderEventId": "315-2026",
+  "tennisProviderTour": "atp",
+  "tournamentLevel": "1000",
+  "round": "knockout",
+  "roundLabel": "Round of 16",
+  "stage": "Round of 16",
+  "name": "Alex De Minaur v Karen Khachanov",
+  "date": "2026-10-13",
+  "time": "15:00",
+  "startTimeUtc": "2026-10-13T04:00:00.000Z",
+  "estimatedStartTimeUtc": null,
+  "timePrecision": "exact",
+  "scheduleStatus": "confirmed",
+  "timeTbc": false,
+  "scheduleNote": "Starts at 12:00 Shanghai (15:00 Sydney), 13 October; directly attached to de Minaur–Khachanov, the first Stadium Court match in the official order of play.",
+  "status": "completed",
+  "cardKind": "fixture",
+  "kind": "fixture",
+  "contestUnit": "match",
+  "participantsConfirmed": true,
+  "participantIds": [
+    "competitor:tennis:atp:alex-de-minaur",
+    "competitor:tennis:atp:karen-khachanov"
+  ],
+  "participants": [
+    {
+      "id": "competitor:tennis:atp:alex-de-minaur",
+      "name": "Alex De Minaur",
+      "displayName": "Alex De Minaur",
+      "type": "athlete",
+      "entityType": "athlete",
+      "sportDomainId": "sport:tennis",
+      "countryCode": "AU"
+    },
+    {
+      "id": "competitor:tennis:atp:karen-khachanov",
+      "name": "Karen Khachanov",
+      "displayName": "Karen Khachanov",
+      "type": "athlete",
+      "entityType": "athlete",
+      "sportDomainId": "sport:tennis",
+      "countryCode": "RU"
+    }
+  ],
+  "homeParticipantId": "competitor:tennis:atp:alex-de-minaur",
+  "awayParticipantId": "competitor:tennis:atp:karen-khachanov",
+  "venue": "Stadium Court",
+  "venueCity": "Shanghai",
+  "sourceName": "ATP Shanghai official order of play",
+  "sourceType": "official",
+  "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+  "sourceCheckedAt": "2026-10-12T13:26:58.180994+00:00",
+  "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+  "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184950",
+  "statusSourceName": "ESPN",
+  "sourceRefs": [
+    "https://www.espn.com/tennis/matchstats?gameId=184950",
+    "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+  ],
+  "broadcaster": "beIN SPORTS",
+  "viewingOptions": [
+    {
+      "providerId": "bein",
+      "rightsScope": "competition",
+      "linkScope": "sport",
+      "webUrl": "https://connect-au.beinsports.com/en",
+      "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+      "verifiedAt": "2026-10-11T05:19:19.930Z",
+      "territory": "AU",
+      "liveOrReplay": "live",
+      "reviewId": "au-viewing-20261002"
+    }
+  ],
+  "expected": null,
+  "liveWindow": 5,
+  "court": "Stadium Court",
+  "statusSourceType": "reputable",
+  "sourceTrust": "unverified",
+  "displayTitleCompact": "Alex De Minaur v Karen Khachanov",
+  "broadcastOptions": [],
+  "narrativeType": "knockout",
+  "replayEligible": false,
+  "highlightEligible": false,
+  "briefingEligible": false,
+  "catchupEligible": false,
+  "participantSlots": [],
+  "participantCountryCodes": [],
+  "representativeCountryCodes": [],
+  "broadcasterIds": [],
+  "broadcasts": [],
+  "consensusTags": [
+    {
+      "label": "Knockout",
+      "confidence": 0.9,
+      "sourceUrls": [
+        "https://www.protennislive.com/posting/2026/5014/op.pdf"
+      ],
+      "method": "published-schedule.v1"
+    }
+  ],
+  "schedulePrecision": "exact",
+  "dateOnly": false,
+  "startTimeTbc": false,
+  "timingVerified": true,
+  "timingEvidence": {
+    "matchRow": "13 October, Stadium Court, first named match: Alex DE MINAUR v Karen KHACHANOV; Starts At 12:00",
+    "clockAssociation": "The Starts At12:00 band is immediately attached to this first named Stadium Court row. It is not copied to any Followed By row.",
+    "sourceSha256": "6f2c3f25cfdedcdaf42ba7a90952aefde3e7f6f5082b9878f982ee46ebc083d9"
+  },
+  "scheduleEvidence": {
+    "kind": "official-order-of-play",
+    "fixtureId": "fixture:tennis:espn:atp:184950",
+    "participantIds": [
+      "competitor:tennis:atp:alex-de-minaur",
+      "competitor:tennis:atp:karen-khachanov"
+    ],
+    "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+    "checkedAt": "2026-10-12T13:26:58.180994+00:00",
+    "sourceSha256": "6f2c3f25cfdedcdaf42ba7a90952aefde3e7f6f5082b9878f982ee46ebc083d9",
+    "sourcePublishedAtLocal": "2026-10-12T17:28:31+08:00",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "roundLabel": "Round of 16",
+    "matchDateLocal": "2026-10-13",
+    "timeZone": "Asia/Shanghai",
+    "court": "Stadium Court",
+    "playOrder": 1,
+    "timePrecision": "exact",
+    "localTime": "12:00",
+    "startsAt": "2026-10-13T04:00:00.000Z",
+    "matchRow": "13 October, Stadium Court, first named match: Alex DE MINAUR v Karen KHACHANOV; Starts At 12:00",
+    "clockAssociation": "The Starts At12:00 band is immediately attached to this first named Stadium Court row. It is not copied to any Followed By row."
+  },
+  "editorialNarrative": {
+    "schemaVersion": "editorial-narrative.v2",
+    "projectionId": "projection:fixture-research:fixture-tennis-espn-atp-184950",
+    "researchTier": "marquee",
+    "hook": "De Minaur's Turin chase meets Khachanov's big-stage pedigree, with recovery and rally depth both under examination.",
+    "synopsis": "A Shanghai quarterfinal place is at stake on the hard courts. Tennis Australia's current preview says a De Minaur victory would move him to ninth in the race to Turin; that is a route towards qualification, not a guaranteed Finals berth. Keeping Khachanov from dictating the rally will matter as much as retrieving another ball. Recovery progress is the player's account, not a medical declaration of full fitness. Neither this match's outcome nor scores from earlier rounds are revealed.",
+    "formCopy": "De Minaur says the extra recovery time in Shanghai has helped and that his body is improving. His recent emphasis has been on serving accurately and keeping the ball deep rather than being pushed around the baseline. Khachanov brings the experience of a Paris Masters title and Olympic singles silver. Their meeting asks whether the Australian can sustain his movement and depth against an opponent with proven credentials at this level.",
+    "closingCopy": "For De Minaur, this is more than another stop on the Asian swing: the ATP Finals remain within reach, and each round carries weight in that chase. Australian supporters have travelled with him through Shanghai, adding a familiar voice far from home. Khachanov has his own claim to the big stage; a former Masters champion is not merely an obstacle in someone else's qualification story. The tension is between opportunity and the physical demands of taking it.",
+    "threadIds": [
+      "thread:fixture-research:fixture-tennis-espn-atp-184950:revision-447d347b0f7c96edc231c12dcca8a869610a1219f585fd297f64ea6dca85f380"
+    ],
+    "factIds": [
+      "fact:fixture-research:fixture-tennis-espn-atp-184950:revision-447d347b0f7c96edc231c12dcca8a869610a1219f585fd297f64ea6dca85f380:0",
+      "fact:fixture-research:fixture-tennis-espn-atp-184950:revision-447d347b0f7c96edc231c12dcca8a869610a1219f585fd297f64ea6dca85f380:1",
+      "fact:fixture-research:fixture-tennis-espn-atp-184950:revision-447d347b0f7c96edc231c12dcca8a869610a1219f585fd297f64ea6dca85f380:2",
+      "fact:fixture-research:fixture-tennis-espn-atp-184950:revision-447d347b0f7c96edc231c12dcca8a869610a1219f585fd297f64ea6dca85f380:3"
+    ],
+    "sourceIds": [
+      "source:fixture-research:fixture-tennis-espn-atp-184950:revision-447d347b0f7c96edc231c12dcca8a869610a1219f585fd297f64ea6dca85f380:0",
+      "source:fixture-research:fixture-tennis-espn-atp-184950:revision-447d347b0f7c96edc231c12dcca8a869610a1219f585fd297f64ea6dca85f380:1",
+      "source:fixture-research:fixture-tennis-espn-atp-184950:revision-447d347b0f7c96edc231c12dcca8a869610a1219f585fd297f64ea6dca85f380:2"
+    ],
+    "dimensions": [
+      "form",
+      "path",
+      "history",
+      "consequence"
+    ],
+    "researchedAt": "2026-10-12T22:50:31.088Z",
+    "refreshAfter": null,
+    "generationMode": "researched",
+    "phase": "preview"
+  },
+  "lastReviewedAt": "2026-10-12T22:50:31.088Z",
+  "sets": [
+    {
+      "home": 6,
+      "away": 3
+    },
+    {
+      "home": 6,
+      "away": 4
+    }
+  ],
+  "score": "6–3, 6–4",
+  "scoreDisplay": "6–3, 6–4",
+  "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+  "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184950",
+  "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+  "winnerParticipantId": "competitor:tennis:atp:alex-de-minaur",
+  "loserParticipantId": "competitor:tennis:atp:karen-khachanov",
+  "eliminatedParticipantIds": [
+    "competitor:tennis:atp:karen-khachanov"
+  ],
+  "resultStatus": "published",
+  "result": "6–3, 6–4",
+  "resultLabels": [
+    "Completed"
+  ],
+  "outcomeText": "Alex De Minaur won. 6–3, 6–4",
+  "recapText": "ESPN reports Alex De Minaur as the winner of this round of 16 match. 6–3, 6–4",
+  "highlights": {
+    "schemaVersion": "fixture-highlights.v1",
+    "provider": "youtube",
+    "videoId": "9RPLO_6TzZA",
+    "url": "https://www.youtube.com/watch?v=9RPLO_6TzZA",
+    "channelId": "UCbcxFkd6B9xUU54InHv4Tig",
+    "publishedAt": "2026-10-13T06:15:04+00:00",
+    "verifiedAt": "2026-10-13T15:29:50.527Z",
+    "availability": "public",
+    "regionStatus": "unknown",
+    "standalone": true,
+    "matchTitle": "Alex de Minaur vs Karen Khachanov High-Quality Entertainment 💥 | Shanghai 2026 Highlights",
+    "verificationMethod": "official-channel-feed-and-oembed"
+  }
+}

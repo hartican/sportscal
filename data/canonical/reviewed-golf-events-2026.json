@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "reviewed-golf-events.v1",
+  "checkedAt": "2026-09-30T09:00:00.000Z",
+  "tournaments": [
+    {
+      "id": "H2026166",
+      "name": "Compliance Solutions Championship",
+      "season": 2026,
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-04",
+      "status": "upcoming",
+      "venue": "The Patriot Golf Club",
+      "city": "Owasso, Oklahoma",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "competitionId": "competition:korn-ferry-tour",
+      "competitionName": "Korn Ferry Tour",
+      "sourceUrl": "https://pgatourmedia.pgatourhq.com/tours/2026/kornferrytour/compliancesolutionschampionship"
+    },
+    {
+      "id": "australian-pga-2026",
+      "name": "BMW Australian PGA Championship",
+      "season": 2026,
+      "startDate": "2026-11-26",
+      "endDate": "2026-11-29",
+      "status": "upcoming",
+      "venue": "The Lakes Golf Club",
+      "city": "Sydney",
+      "countryCode": "AU",
+      "major": false,
+      "winners": [],
+      "competitionId": "competition:pga-tour-australasia",
+      "competitionName": "PGA Tour of Australasia",
+      "sourceUrl": "https://golf.com.au/pga-tour-schedule"
+    }
+  ]
+}

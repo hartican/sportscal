@@ -6,7 +6,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const vm = require("node:vm");
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 
 function sourceOf(name){
   const start = html.indexOf(`function ${name}(`);
@@ -90,6 +90,15 @@ async function runLifecycleRegression(){
   const reintroducedFallback = loaded.addFallback();
   context.finalizeAll({ querySelectorAll(){ return [loaded.image]; } });
   assert.equal(reintroducedFallback.removed, true, "keyed patching must remove a freshly reintroduced fallback beside a retained decoded logo");
+
+  const detached = imageHarness({ complete:true });
+  detached.image.isConnected = false;
+  const detachedFallback = detached.addFallback();
+  context.install(detached.image);
+  await Promise.resolve();
+  await Promise.resolve();
+  assert.equal(detachedFallback.removed, true, "a cached logo decoded off-DOM must be ready before the card is mounted again");
+  assert.equal(detached.image.hidden, false);
 
   const cached = imageHarness({ complete:true });
   const cachedFallback = cached.addFallback();

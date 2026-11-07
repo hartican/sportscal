@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "venue-assets.v1",
+  "assets": [
+    {
+      "id": "sarthe-white",
+      "path": "assets/identities/lemans/sarthe-white.svg",
+      "sourceUrl": "https://www.fiawec.com/uploads/2024-tracks-rvb-lemans-b-976827-697a1dbfdd5da760499701.png",
+      "author": "FIA WEC / ACO",
+      "license": "Original rights retained; editorial venue identification",
+      "licenseUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027",
+      "modifications": "Only circuit centreline traced to native white paths; colour band, legend and background removed; cropped and thickened for actual-size visibility. Exterior and enclosed space transparent.",
+      "mappingStatus": "verified-venue",
+      "sha256": "29231c1a129745ea8467bda4404b35236a07b279bc60ff9301b3af802e1827db",
+      "venueConfigurationId": "le-mans:circuit-de-la-sarthe:full",
+      "venueSourceUrl": "https://www.fiawec.com/en/race/24-hours-of-le-mans-2027",
+      "circuitLengthMetres": 13626,
+      "circuitTurns": 38
+    },
+    {
+      "id": "le-mans-brand",
+      "path": "assets/identities/events/le-mans-24-hours.png",
+      "sourceUrl": "https://www.24h-lemans.com/en/news/the-24-hours-of-le-mans-reveals-a-new-brand-identity-60525",
+      "author": "ACO / 24 Hours of Le Mans",
+      "license": "Original rights and trademarks retained; editorial identification",
+      "licenseUrl": "https://www.24h-lemans.com/",
+      "modifications": "Existing complete official mark retained without modification",
+      "mappingStatus": "brand",
+      "sha256": "5b6221d6d260e78cccc7b6eee5e08cc5862c7f15d7594bb6c1e2ec3390aa01a8"
+    },
+    {
+      "id": "motorsport-fallback",
+      "path": "assets/identities/wrc/helmet-white.svg",
+      "sourceUrl": "https://github.com/ookamiinc/sporticon",
+      "author": "ookami / Sporticon contributors",
+      "license": "Apache License 2.0",
+      "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+      "modifications": "Existing transparent motorsport helmet paths recoloured white; visor remains transparent",
+      "mappingStatus": "sport-fallback",
+      "sha256": "c7767c0aa8a4d8746e07da6871970adc5b0c506228a7a1368969ba3059202e58"
+    }
+  ]
+}

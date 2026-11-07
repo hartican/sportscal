@@ -5,7 +5,7 @@ create extension if not exists pgcrypto;
 
 create table if not exists public.nothingsports_marquee_campaigns (
   campaign_id text primary key check (campaign_id ~ '^marquee_[a-f0-9]{16}$'),
-  event_id text not null unique,
+  event_id text not null,
   source_revision text not null,
   campaign_revision integer not null default 1 check (campaign_revision > 0),
   content_hash text not null check (content_hash ~ '^[a-f0-9]{64}$'),
@@ -247,6 +247,7 @@ create table if not exists public.nothingsports_fixture_write_limits (
 create index if not exists nothingsports_marquee_campaign_state_idx on public.nothingsports_marquee_campaigns(state, proposed_send_at);
 create index if not exists nothingsports_marquee_live_publisher_idx on public.nothingsports_marquee_campaigns(live_published_by);
 create index if not exists nothingsports_marquee_versions_campaign_idx on public.nothingsports_marquee_campaign_versions(campaign_id, campaign_revision desc);
+create index if not exists nothingsports_marquee_campaigns_event_idx on public.nothingsports_marquee_campaigns(event_id);
 create index if not exists nothingsports_marquee_versions_creator_idx on public.nothingsports_marquee_campaign_versions(created_by);
 create index if not exists nothingsports_comms_assets_campaign_idx on public.nothingsports_comms_assets(campaign_id, status, created_at desc);
 create index if not exists nothingsports_comms_assets_creator_idx on public.nothingsports_comms_assets(created_by);

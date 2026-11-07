@@ -14,8 +14,12 @@ inputs.forEach(input => {
   const feed = readJson(path.resolve(input));
   let updated = 0;
   feed.events = feed.events.map(event => {
+    // A reviewed note is context, not a match to score or reinterpret.
+    if (require('./lib/reviewed-calendar-notes').isReviewedNote(event)) return event;
     const major = isMajorCard(event);
-    const status = lifecycleFor(event);
+    // Editorial preview/recap classification is not the provider's sporting
+    // status. In particular a withdrawn round must remain cancelled.
+    const status = event.status || lifecycleFor(event);
     const participants = major ? participantsFor(event) : undefined;
     const storyline = major || status === "completed" ? storylineFor(event) : event.storyline;
     const safeRoot = spoilerSafeRootCopy(event, storyline);

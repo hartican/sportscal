@@ -12,7 +12,9 @@ const sportContext = require("../config/sport-context.js");
 const sportHubs = require("../config/sport-hubs.js");
 const { createCanonicalSportsIndex } = require("./lib/canonical-sports");
 
-const html = fs.readFileSync("index.html", "utf8");
+const settingsSource = fs.readFileSync("config/fantasy-deadline-ui.js", "utf8");
+const followPresentationSource = fs.readFileSync("assets/js/follow-presentation-ui.js", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource() + "\n" + settingsSource;
 const notFoundHtml = fs.readFileSync("404.html", "utf8");
 const privacyHtml = fs.readFileSync("privacy.html", "utf8");
 const termsHtml = fs.readFileSync("terms.html", "utf8");
@@ -82,26 +84,41 @@ assert(scriptMatch, "index.html must contain an inline app script");
 assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app script must parse");
 
 const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab="([^"]+)"/g), match => match[1]);
-assert.deepEqual(tabOrder, ["feed", "events", "follow"], "Feed, Events and Follow must remain the ordered routed destinations");
-assert(!html.includes('id="tuneNavBtn"') && html.includes("follow-more-trigger"), "Follow must own the sport directory without a duplicate primary destination");
+assert.deepEqual(tabOrder, ["feed", "match-centre", "follow"], "Feed, Match Centre and Follow must remain the ordered routed destinations");
+const followPresentationLoaderSource = html.match(/function loadFollowPresentation\(\)\{([\s\S]*?)\n\}/)?.[1] || "";
+const followPresentationOwnerSource = html.match(/function renderFollowView\(\)\{([\s\S]*?)\n\}/)?.[1] || "";
+assert(
+  !html.includes('id="tuneNavBtn"')
+    && followPresentationSource.includes("const more=document.createElement('button');more.type='button';more.className=`follow-sport-icon follow-more-trigger")
+    && followPresentationSource.includes("more.setAttribute('aria-haspopup','dialog')")
+    && followPresentationSource.includes("more.setAttribute('aria-label','More sports')")
+    && followPresentationSource.includes("const dialog=document.createElement('dialog');dialog.className='follow-more-dialog';dialog.setAttribute('aria-label','More sports')")
+    && /const url='assets\/js\/follow-presentation-ui\.js\?v=\d+';/.test(followPresentationLoaderSource)
+    && followPresentationLoaderSource.includes("loadDeferredScript(url)")
+    && followPresentationLoaderSource.includes("typeof globalThis.renderFollowViewLoaded!=='function'")
+    && followPresentationOwnerSource.includes("if(activeTab!=='follow')return;")
+    && followPresentationOwnerSource.includes("if(typeof globalThis.renderFollowViewLoaded==='function')return globalThis.renderFollowViewLoaded();")
+    && followPresentationOwnerSource.includes("showFollowPresentationLoading(container,renderFollowView,()=>activeTab==='follow'&&followHomeView==='browse')"),
+  "Follow must own the sport directory without a duplicate primary destination",
+);
 assert(!html.includes("Code Inspector"), "the retired Code Inspector label must not remain user-facing");
 const requiredSlogan = "Live sport, nothing missed.";
 assert.equal(brand.descriptor, requiredSlogan, "the canonical descriptor must match the supplied slogan exactly");
 assert.equal(brand.metadataDescription, requiredSlogan, "metadata must use the supplied slogan exactly");
 assert(html.includes(`<title data-brand-copy="title">${brand.title}</title>`), "the document title must use the canonical nothingsport title");
 assert(html.includes(brand.hero), "the canonical nothingsport hero line must be present");
-assert(html.includes(brand.about), "the canonical nothingsport About paragraph must be present verbatim");
+assert(settingsSource.includes('brand.about.split("\\n\\n")'), "About paragraphs must render from canonical brand copy");
 assert.equal(manifest.name, brand.title, "the install manifest must use the canonical nothingsport title");
 assert.equal(manifest.short_name, brand.name, "the installed app label must use the lowercase nothingsport name");
 assert.equal(manifest.description, brand.metadataDescription, "manifest copy must follow the brand source of truth");
 assert(html.includes(`content="${brand.metadataDescription}"`), "page metadata must follow the brand source of truth");
 assert(html.includes(`class="slogan" data-brand-copy="descriptor">${requiredSlogan}</div>`), "the compact header must show the exact slogan");
 assert(html.includes(`class="footer-slogan" data-brand-copy="descriptor">${requiredSlogan}</div>`), "the footer must show the exact slogan as live text");
-assert(html.includes('data-brand-copy-content="metadataDescription"') && html.includes('data-brand-copy="about"'), "rendered and metadata copy must hydrate from the shared brand-copy config");
+assert(html.includes('data-brand-copy-content="metadataDescription"') && settingsSource.includes('data-brand-section="about"'), "rendered and metadata copy must use the shared brand-copy config");
 assert(html.includes(`property="og:title" content="${brand.title}"`) && html.includes(`name="twitter:title" content="${brand.title}"`), "share-card titles must use the canonical smart-feed title");
 assert(!brand.about.includes(requiredSlogan), "About must expand the positioning without repeating the exact slogan");
-["live sports curator, tailored to your tastes", "sports, teams and players you follow", "Australian representatives in international competition", "Dismiss removes that exact card", "Follow for each sport’s Schedule"].forEach(phrase => {
-  assert(brand.about.includes(phrase), `About must explain the refreshed product behavior: ${phrase}`);
+["live sports curator, tailored to your tastes", "free from betting content and gambling promotion", "You can love sport without supporting sports gambling", "sports, teams and players you care about", "schedules, ladders and standings in Follow"].forEach(phrase => {
+  assert(brand.about.includes(phrase), `About must explain the approved product vision: ${phrase}`);
 });
 assert(notFoundHtml.includes(requiredSlogan), "the not-found route must use the exact current slogan");
 assert(!notFoundHtml.includes("nothingsport-logo-slogan.png"), "the not-found route must not render the stale slogan raster");
@@ -164,7 +181,7 @@ assertShellModule(html, "config/au-broadcast-weights.js");
 assertShellModule(html, "config/selector-taxonomy.js");
 assertShellModule(html, "config/canonical-sports-taxonomy.js");
 assertShellModule(html, "config/sport-context.js");
-assert(html.includes('loadDeferredScript("config/sport-hubs.js?v=218")'), "the complete NRL/AFL hub adapter must load on first hub entry without delaying the initial Feed");
+assert(html.includes('loadDeferredScript("config/sport-hubs.js?v=219")'), "the complete NRL/AFL hub adapter must load on first hub entry without delaying the initial Feed");
 assertShellModule(html, "config/brand-copy.js");
 assertShellModule(html, "config/vector-assets.js");
 assertShellModule(html, "config/sport-domain-registry.js");
@@ -411,7 +428,7 @@ assert(html.includes(`<meta name="app-shell-version" content="${shellVersion}">`
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/privacy.html"') && serviceWorkerSource.includes('"/terms.html"'), "legal documents must be available in the installed offline shell");
 assertShellModule(html, "config/team-follow-catalogue.js");
-assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
+for (const file of ["config/sport-hierarchy.js", "config/event-taxonomy-compat.js", "config/preference-taxonomy.js"]) assert(!serviceWorkerSource.includes(`"/${file}"`), "Bundled taxonomy must not add duplicate standalone install requests: " + file);
 assertShellModule(html, "config/sport-hierarchy.js");
 assertShellModule(html, "config/event-taxonomy-compat.js");
 assertShellModule(html, "config/preference-taxonomy.js");
@@ -524,7 +541,7 @@ assert(html.includes('function syncThemeTeamAssets(useDark)') && html.includes('
 assert(cardIdentitiesSource.includes('primary,') && cardIdentitiesSource.includes('iconLight') && cardIdentitiesSource.includes('logoForTheme'), "every team identity must expose primary, theme, and compact-logo asset slots");
 assert(!html.includes('localGame.textContent = "LOCAL GAME"'), "cards must keep local-game classification behind the scenes");
 assert(html.includes('glyphMarkup("ui:ticket", { preferImage: true })'), "local games must expose a stable vector-labelled Tickets link");
-const eventCardSource = html.match(/function buildEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
+const eventCardSource = html.match(/function buildDetailedEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
 assert(eventCardSource.includes('const matchupIdentity = isTeamMatchup && mode !== "premium-rail" ? buildMatchupIdentity(ev, displayTitle) : null;') && eventCardSource.includes('matchupIdentity ? "is-logo-led-matchup" : ""'), "full match cards must promote two large team identities while compact rails retain icon-specific treatment");
 assert(!eventCardSource.includes('competitionTag.replaceChildren(competitionIcon, competitionLabel);'), "logo-led matchup cards must not repeat a competition metadata label");
 assert(html.includes('.matchup-competition-icon.has-brand-logo{') && html.includes('background:#f8fafc;'), "dark official organisation marks must receive a contrast-safe supporting surface instead of a CSS colour filter");
@@ -551,18 +568,18 @@ const actionPanelSource = html.match(/function buildEventActionPanel\(ev, option
 assert(!actionPanelSource.includes('setMustWatch') && !html.includes('Add to Must Watch'), "the removed Must Watch action must not remain on cards");
 assert(!/makeActionButton\("Archive"|makeActionButton\("Save"|Mark watched/.test(actionPanelSource), "Archive, Save and Mark watched must be removed from card actions");
 assert(html.includes("function buildEventFeedbackButtons") && html.includes("suggestion-like"), "eligible suggestion feedback must use a compact intrinsic action");
-const spoilerControlSource = html.match(/function buildSpoilerOverrideControl\(ev\)\{[\s\S]*?\n\}/)?.[0] || "";
-assert(spoilerControlSource.includes('visible ? "Hide results" : "Show results"'), "per-event result controls must use Show results and Hide results");
-assert(spoilerControlSource.includes('window.confirm("Show results for this event?")'), "the per-event confirmation must use result language");
+const spoilerControlSource = html.slice(html.indexOf('document.getElementById("homeSpoilerToggle").addEventListener("click", () => {'),html.indexOf('document.getElementById("cancelStandingsRevealBtn").addEventListener'));
+assert(spoilerControlSource.includes('setGlobalSpoilerPreference(false,{notify:true})'), "the active Results toggle must hide results immediately");
+assert(spoilerControlSource.includes('Show results?')&&spoilerControlSource.includes('Keep results OFF')&&spoilerControlSource.includes('setGlobalSpoilerPreference(true,{notify:true})'), "the active Results toggle must retain its explicit reveal confirmation and cancel choice");
 assert(!/Protect event details|Reveal event details/.test(html), "obsolete event-detail protection copy must be removed everywhere");
 assert(html.includes("applyFeedEvents(events, {") && html.includes("publicFeedManifest.sourceVersion"), "paged-feed Refresh must run each public page through the canonical lifecycle rebuild");
-assert(html.includes('id="feedbackForm"'), "Feedback must use a structured SMS form");
+assert(html.includes('id="feedbackForm"'), "Feedback must use a structured email form");
 assert(html.includes("Add a competition") && html.includes("Feature request"), "Feedback must expose the standard categories");
-assert(html.includes("0437 041 326"), "Feedback UI must identify the configured SMS recipient");
+assert(html.includes("hello@nothingsport.com"), "Feedback UI must identify the configured email recipient");
 assert(!html.includes("b.textContent = \"Coming Up\"") && !html.includes("b.textContent = \"PAST\""), "generic future and past status tags must remain removed");
 assert(html.includes('chip.className = `event-timing-state ${timing.key}`') && html.includes('timing.label'), "cards must render the shared Starts Soon, Live Now and Just Finished resolver beside time");
-assert(spoilerControlSource, "an individual spoiler control must exist");
-assert(!/getEventStatus\(ev\)\s*!==\s*["']past["']/.test(spoilerControlSource), "individual spoiler controls must not be limited to past events");
+assert(spoilerControlSource, "the active global Results control must exist");
+assert(!/getEventStatus\(ev\)\s*!==\s*["']past["']/.test(spoilerControlSource), "the active Results control must not be limited to past events");
 
 const publishedFeed = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 const incomingFeed = JSON.parse(fs.readFileSync("feeds/incoming/events.json", "utf8"));
@@ -1022,7 +1039,7 @@ globalThis.__test = {
   retrospectiveSignificanceForEvent,
   formatFeedbackTimestamp,
   buildFeedbackMessage,
-  buildFeedbackSmsUrl,
+  buildFeedbackEmailUrl,
   sortUpcomingFirst,
   calendarTimelineEvents,
   eventDateLabel,
@@ -2054,8 +2071,8 @@ assert.equal(app.isSpoilerVisible(nextRound), true, "per-event reveal must work 
 app.hideSpoilersForEvent(nextRound);
 assert.equal(app.isSpoilerVisible(nextRound), false, "per-event protection must work before an event starts");
 
-assert.equal(app.eventDateLabel({ date: "2027-03-07", displayDateLabel: "Date TBC - 2027" }), "Date TBC - 2027");
-assert.equal(app.eventTimeLabel({ time: "15:00", timeTbc: true }), "Time TBC");
+assert.equal(app.eventDateLabel({ date: "2027-03-07", displayDateLabel: "Date TBD - 2027" }), "Date TBD - 2027");
+assert.equal(app.eventTimeLabel({ time: "15:00", timeTbc: true }), "Time TBD");
 assert.equal(app.eventTimeLabel({ time: "20:00", displayTimeLabel: "Order of play; session from 8:00pm AEST" }), "Order of play; session from 8:00pm AEST");
 assert.equal(app.eventLocationLabel({ venue: "Optus Stadium, Perth" }), "Perth");
 assert.equal(app.eventLocationLabel({ venue: "Melbourne Cricket Ground" }), "Melbourne");
@@ -2143,6 +2160,10 @@ const feedbackMessage = app.buildFeedbackMessage("Bug report", "Calendar card ov
 assert.match(feedbackMessage, /^Nothing Sport feedback/);
 assert.match(feedbackMessage, /Category: Bug report/);
 assert.match(feedbackMessage, /Sent from Nothing Sport$/);
-assert.match(app.buildFeedbackSmsUrl("Bug report", "Calendar card overlaps", new Date("2026-07-16T10:00:00Z")), /^sms:0437041326\?&body=/);
+const feedbackEmailUrl = new URL(app.buildFeedbackEmailUrl("Bug report", "Calendar card overlaps & details?", new Date("2026-07-16T10:00:00Z")));
+assert.equal(feedbackEmailUrl.protocol, "mailto:");
+assert.equal(feedbackEmailUrl.pathname, "hello@nothingsport.com");
+assert.equal(feedbackEmailUrl.searchParams.get("subject"), "Nothing Sport feedback: Bug report");
+assert.equal(feedbackEmailUrl.searchParams.get("body"), app.buildFeedbackMessage("Bug report", "Calendar card overlaps & details?", new Date("2026-07-16T10:00:00Z")));
 
 console.log("nothingsport phase rules verified");

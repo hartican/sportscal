@@ -40,7 +40,8 @@ function row(entry){
  const r=node('div',undefined,'nsc-ladder-row'+(entry.isViewer?' is-viewer':''));r.setAttribute('role','row');r.dataset.ladderProfile=entry.profileId;
  const cell=(text,cls,label)=>{const c=node('div',text,cls);c.setAttribute('role','cell');if(label)c.dataset.label=label;r.append(c);return c;};
  cell(String(entry.rank),'nsc-ladder-rank','Rank');const identity=cell(undefined,'nsc-ladder-identity','Nothinger');
- if(entry.avatarUrl){const img=node('img');img.src=entry.avatarUrl;img.alt='';img.className='nsc-ladder-avatar';img.loading='lazy';identity.append(img);}
+ if(entry.avatarUrl){const img=node('img');img.src=entry.avatarUrl;img.alt='';img.className='nsc-ladder-avatar';img.loading='lazy';identity.append(img);if(typeof registerExpandableAvatar==='function')registerExpandableAvatar(img,entry.avatarUrl,entry.name||'Member');}
+ if(!entry.avatarUrl){const fallback=node('span',String(entry.name||'?').split(/\s+/).map(x=>x[0]).slice(0,2).join(''),'nsc-ladder-avatar nsc-avatar-initials');fallback.setAttribute('aria-hidden','true');identity.append(fallback);}
  identity.append(node('strong',entry.name),node('small','@'+entry.handle+(entry.isViewer?' · You':'')));
  const actions=node('div',undefined,'nsc-ladder-actions');
  if(entry.canFollow){const b=button(entry.following?'Following':'Follow',async()=>{b.disabled=true;try{const p=await serverSyncClient.nothingscoreRequest({},{action:'follow-user',targetProfileId:entry.profileId,following:!entry.following});entry.following=p.following;pageCache.clear();b.textContent=p.following?'Following':'Follow';b.setAttribute('aria-pressed',String(p.following));}catch(e){showToast(e.message);}finally{b.disabled=false;}});b.setAttribute('aria-pressed',String(entry.following));actions.append(b);}
@@ -52,12 +53,21 @@ function row(entry){
  const stat=entry.sports?.[sports[sportPage]],c=cell(undefined,'nsc-sport-cell',sportNames[sports[sportPage]]);c.append(node('strong',`${Number(stat?.points||0)} pts`),node('span',efficiency(stat)),node('small',stat?.rank?`Sport rank ${stat.rank}`:'No sport rank yet'));
  }else{
  const top=Object.entries(entry.sports||{}).filter(([,v])=>v.efficiency!=null).sort((a,b)=>b[1].efficiency-a[1].efficiency||b[1].eligible-a[1].eligible||a[0].localeCompare(b[0])).slice(0,3),c=cell(undefined,'nsc-top-sports','Top sports');for(const [sport,value]of top)c.append(node('div',`${sportNames[sport]||sport}: ${efficiency(value)}`));if(!top.length)c.append(node('span','No resolved predictions yet'));
- }return r;
+ }
+ const details=node('details',undefined,'nsc-mobile-statistics');details.append(node('summary','Statistics'));
+ const stats=node('dl');
+ const stat=(label,value)=>stats.append(node('dt',label),node('dd',String(value)));
+ stat('Fixtures',entry.fixtures||0);stat('Efficiency',efficiency(entry));stat('Resolved predictions',entry.eligible||0);
+ for(const [sport,value] of Object.entries(entry.sports||{})){
+   stat(sportNames[sport]||sport,`${value.points||0} pts · ${efficiency(value)}${value.rank?' · Rank '+value.rank:''}`);
+ }
+ details.append(stats);r.append(details);
+ return r;
 }
 async function activity(parent,current){
  const box=node('section',undefined,'nsc-friends-activity');box.append(node('h3','Friends’ 5/5 picks'));parent.append(box);let cursor=0;
  async function load(){const status=node('p','Loading recommendations…');box.append(status);try{const p=await serverSyncClient.nothingscoreRequest({activity:{cursor}});if(!current())return;status.remove();
- for(const x of p.entries){const article=node('article');const link=node('a',x.fixture);link.href=`/?event=${encodeURIComponent(x.eventId)}&liveRatings=1`;link.onclick=e=>{e.preventDefault();void openFriendFixture(x.eventId).catch(error=>showToast(error.message));};article.append(node('p',`${x.name} · @${x.handle} · ${x.phase==='pulse'?'Live':x.phase==='heat'?'Heat':'Impact'} 5/5`),link);
+ for(const x of p.entries){const article=node('article');const link=node('a',x.fixture);link.href=`/?event=${encodeURIComponent(x.eventId)}&liveRatings=1`;link.onclick=e=>{e.preventDefault();void openFriendFixture(x.eventId).catch(error=>showToast(error.message));};article.append(node('p',`${x.name} · @${x.handle} · ${x.phase==='pulse'?'Ongoing':x.phase==='heat'?'Anticipation':'Impact'} 5/5`),link);
  article.append(button('Add to Feed',async()=>{if(!x.event){showToast('Fixture details unavailable. Please retry later.');return;}if(FOLLOW_FEED_POLICY.explicitlyExcluded(x.event,userPreferences)){showToast('Refollow the excluded competition or tournament before adding this fixture.');return;}updateEventAction(x.event,{addedToFixtures:true,addedToFixturesAt:new Date().toISOString(),addedFixture:{...x.event,manualPin:true},manualPin:true,dismissed:false});await syncCurrentServerState();requestFeedRebuildAfterFollowChange();showToast('Fixture added to Feed.');}));box.append(article);}
  if(!p.entries.length&&cursor===0)box.append(node('p','Friends’ new 5/5 ratings will appear here, across all sports.'));
  if(p.nextCursor!=null){const more=button('More activity',()=>{more.remove();cursor=p.nextCursor;void load();});box.append(more);}
@@ -102,5 +112,5 @@ async function render(){
  await load();if(!current())return;body.append(node('p','Efficiency = successful Heat predictions ÷ resolved predictions with another real rater. The number in brackets is the sample size. Pending and unrated fixtures are excluded.','nsc-ladder-explanation'));
  if(audience==='friends')await activity(body,current);
 }
-window.NOTHINGSPORTS_CROWD_RANKINGS={clear,render};
+window.NOTHINGSPORTS_CROWD_RANKINGS={clear,render,openProfile:picks};
 })();

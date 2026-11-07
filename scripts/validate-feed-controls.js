@@ -117,20 +117,23 @@ assert(
     && html.includes('addedFixture:snapshot'),
   "Standings & Fixtures may pin a concrete one-off fixture while Follow remains the only automatic eligibility control"
 );
-assert(html.includes("function renderFeedControls()") && html.includes("function eventRecommendationProfile(ev)"));
+assert(html.includes("function renderFeedControls()") && html.includes("function eventRecommendationClassification()"));
+require('./validate-card-classification-work');
 assert(!html.includes('b.textContent = "Coming Up"') && !html.includes('b.textContent = "PAST"'), "generic Coming Up and Past badges must stay removed");
-assert.match(html, /dateLine\.appendChild\(dateChip\);[\s\S]+buildEventTimingStateChip\(ev, timingState\)[\s\S]+dateLine\.appendChild\(timingChip\)/, "timing state must sit immediately beside the start-time rail, including matchup cards");
+const timingRail=fs.readFileSync('config/venue-panel-ui.js','utf8'),timingPresentation=fs.readFileSync('config/card-timing.js','utf8');
+assert.match(timingRail,/badge\.append\(day\);if\(clock\.textContent\)badge\.append\(clock\);[\s\S]+if\(timing\.status&&!pause\)[\s\S]+badge\.append\(status\)/,'Current native timing badge must keep source status beside its clock, including matchup cards');
+assert.match(timingPresentation,/controls\?\.timingState\(event,reference\)[\s\S]+observed\?\.key==='awaiting-update'/,'The actual shared badge consumes the existing source-qualified timing state');
 assert.match(html, /\.event-timing-state\.starts-soon[\s\S]+\.event-timing-state\.live-now[\s\S]+\.event-timing-state\.just-finished/, "all three semantic timing states need distinct visible treatments");
 assert.match(html, /\.event-timing-state\.live-now::before[\s\S]+background:#ff3b4d/, "Live Now needs a restrained red dot");
-assert.match(html, /@media \(prefers-reduced-motion:reduce\)[\s\S]+\.event-timing-state\.live-now\{ animation:none/, "reduced-motion users must keep the static red state without pulse animation");
+assert.match(html, /@media \(prefers-reduced-motion:reduce\)[\s\S]+\.event-timing-state\.live-now\{\s*animation:none/, "reduced-motion users must keep the static red state without pulse animation");
 assert(html.includes("FOLLOW_FIRST?.toggleFeedback") && html.includes("targetType:target.targetType"), "curated swipes must retain weighted target metadata with reversible likes");
 assert(!html.includes('className = "badge discovery"') && !html.includes('className = "badge availability"'), "discovery and availability classifications must both stay behind the scenes");
 assert(html.includes('sessionOpenedEventIds.add(') && !html.includes('label.className = "new-tag"'), "open signals must remain session-local without exposing a New metadata label");
-assert(html.includes('rect.top <= window.innerHeight'), "the contextual jump must count Today as visible anywhere in the viewport");
+assert(html.includes("nowAnchor.getBoundingClientRect().top-edge"), "The jump destination follows the marker at the sticky viewport edge");
 assert(!/buildJointTournamentMustWatchAction|jointTournamentIsMustWatch|action\.mustWatch \? 12/.test(html), "the removed Must Watch feature must not affect tournament actions or recommendation scoring");
 const shellVersion = html.match(/name="app-shell-version" content="(\d+)"/)?.[1];
 assert(shellVersion && serviceWorker.includes(`const CACHE_NAME = "nothingsport-shell-v${shellVersion}"`));
-assert(html.includes("button.setAttribute('aria-label','Jump to Now')") && html.includes("scrollActiveFeedToInitialAnchor"), "the shared timeline control must jump to Now");
+assert(html.includes("label=atNow?'Jump to Today':'Jump to Now'") && html.includes("button.setAttribute('aria-label',label)") && html.includes("dataset.jumpDestination==='today'") && html.includes("scrollActiveFeedToToday"), "The label, accessible name and click destination must toggle together between Today and Now");
 assert(!html.includes('scrollActiveFeedToMustWatch'), "the removed queue must have no jump target");
 assert(require("./offline-shell-module")("config/feed-controls.js") && require("./offline-shell-module")("config/personalised-feed.js") && serviceWorker.includes('"/schemas/feed-controls.schema.json"'));
 

@@ -73,44 +73,20 @@ function nflRosterItems(payload){
   return (payload?.athletes || []).flatMap(group => group?.items || []);
 }
 
-function nflFixture(event){
-  const competition = event?.competitions?.[0] || {};
-  const sides = (competition.competitors || []).map(side => ({
-    participantId:`team:nfl:${String(side?.team?.abbreviation || side?.team?.id || "").toLowerCase()}`,
-    label:side?.team?.displayName || side?.team?.shortDisplayName || "TBC",
-    homeAway:side?.homeAway || null,
-    score:side?.score?.displayValue || side?.score || null,
-    logoUrl:side?.team?.logos?.find(logo => logo.rel?.includes("default"))?.href || side?.team?.logo || null,
-  }));
-  const local = isoParts(event?.date);
-  const completed = event?.status?.type?.completed === true;
-  return {
-    id:`fixture:nfl:${event.id}`,
-    sportDomainId:"sport:american-football",
-    competitionId:"competition:nfl",
-    name:event?.name || event?.shortName || "NFL fixture",
-    date:local.date,
-    time:local.time,
-    startTimeUtc:event?.date || null,
-    venue:competition?.venue?.fullName || null,
-    status:completed ? "completed" : "upcoming",
-    scheduleStatus:event?.timeValid === false || competition?.timeValid === false ? "provisional" : "confirmed",
-    roundLabel:event?.week?.text || (event?.week?.number ? `Week ${event.week.number}` : event?.seasonType?.name || null),
-    roundNumber:Number.isFinite(Number(event?.week?.number)) ? Number(event.week.number) : null,
-    participantSlots:sides,
-    sourceUrl:event?.links?.find(link => link.rel?.includes("summary"))?.href || null,
-  };
-}
-
-async function buildNfl(){
-  const [teamsPayload, leagueSchedule] = await Promise.all([
-    fetchJson("https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams"),
-    fetchJson(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${NFL_SEASON}&limit=1000`),
+async function buildNfl({fetchSource=fetchJson,clock=()=>new Date(),previous=fs.existsSync(NFL_PATH)?JSON.parse(fs.readFileSync(NFL_PATH,'utf8')):null}={}){
+  const facts=require('./lib/nfl-results'),responses=[];
+  const [teamsPayload] = await Promise.all([
+    fetchSource("https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams"),
+    (async()=>{for(const route of facts.resources()){const payload=await fetchSource(route.url);responses.push({payload,observedAt:clock().toISOString()});}})(),
   ]);
   const sourceTeams = teamsPayload?.sports?.[0]?.leagues?.[0]?.teams?.map(entry => entry.team).filter(team => team?.isActive !== false) || [];
+  const teams=sourceTeams.map(t=>({id:'team:nfl:'+String(t.abbreviation||'').toLowerCase(),displayName:t.displayName}));
+  const parsed=facts.parse(responses,{teams,now:clock()}),recent=facts.recentResource(clock()),payload=await fetchSource(recent.url);
+  const fixtures=facts.applyRecent(parsed,{...recent,payload,observedAt:clock().toISOString()},{teams,now:clock(),previousFixtures:previous?.fixtures||[]});
+  const retained=facts.merge(previous||{fixtures:[]},fixtures);
   const teamResults = await mapLimit(sourceTeams, 6, async team => {
     const abbreviation = String(team.abbreviation || "").toLowerCase();
-    const roster = await fetchJson(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${abbreviation}/roster`);
+    const roster = await fetchSource(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${abbreviation}/roster`);
     const teamId = `team:nfl:${abbreviation}`;
     const logoUrl = team.logos?.find(logo => logo.rel?.includes("default") && !logo.rel?.includes("dark"))?.href || null;
     const logoDarkUrl = team.logos?.find(logo => logo.rel?.includes("dark"))?.href || logoUrl;
@@ -134,21 +110,18 @@ async function buildNfl(){
         sourceRefs:(player.links || []).filter(link => link.rel?.includes("athlete") && link.rel?.includes("desktop")).map(link => link.href).slice(0, 1),
       })),
       fixtures:[],
-      freshAt:[roster.timestamp, teamsPayload.timestamp, leagueSchedule.timestamp].filter(Boolean).sort().at(-1) || null,
+      freshAt:[roster.timestamp, teamsPayload.timestamp, responses.at(-1)?.observedAt].filter(Boolean).sort().at(-1) || null,
     };
   });
-  const fixtureMap = new Map((leagueSchedule.events || []).map(nflFixture).map(fixture => [fixture.id, fixture]));
-  let standings = [];
+  let standings = previous?.standings || [];
   try{
-    const payload = await fetchJson(`https://site.api.espn.com/apis/v2/sports/football/nfl/standings?season=${NFL_SEASON}`);
-    standings = (payload?.children || []).flatMap(conference => (conference.children || []).flatMap(division => (division.standings?.entries || []).map(entry => ({
-      participantId:`team:nfl:${String(entry.team?.abbreviation || entry.team?.slug || entry.team?.id || "").toLowerCase()}`,
-      conference:conference.name || null, division:division.name || null,
-      stats:Object.fromEntries((entry.stats || []).map(stat => [stat.name || stat.abbreviation, stat.value ?? stat.displayValue])),
-    }))));
+    const nflStandings=require('./lib/nfl-standings');
+    const payload=await fetchSource(nflStandings.SOURCE_URL),now=clock();
+    standings=nflStandings.retainDates(standings,nflStandings.withResultCoverage(nflStandings.parse(payload,{teamIds:teamResults.map(t=>t.team.id),checkedAt:now.toISOString(),now}),retained.fixtures));
   }catch(error){
     console.warn(`NFL standings unavailable; preserving teams, rosters and fixtures: ${error.message}`);
   }
+  standings=require('./lib/nfl-standings').withResultCoverage(standings,retained.fixtures);
   const freshAt = teamResults.map(result => result.freshAt).filter(Boolean).sort().at(-1) || new Date().toISOString();
   return {
     schemaVersion:"team-sport-directory.v1", sportKey:"american-football", generatedAt:freshAt,
@@ -159,7 +132,7 @@ async function buildNfl(){
     ],
     teams:teamResults.map(result => result.team),
     players:teamResults.flatMap(result => result.players).filter(player => player.active),
-    fixtures:[...fixtureMap.values()].sort((a, b) => String(a.startTimeUtc || "").localeCompare(String(b.startTimeUtc || "")) || a.id.localeCompare(b.id)),
+    fixtures:retained.fixtures.sort((a, b) => String(a.startTimeUtc || "").localeCompare(String(b.startTimeUtc || "")) || a.id.localeCompare(b.id)),
     standings,
   };
 }
@@ -173,26 +146,7 @@ function nhlTeamName(team){
 }
 
 function nhlFixture(game){
-  const local = isoParts(game?.startTimeUTC);
-  const state = String(game?.gameState || "").toUpperCase();
-  const completed = ["FINAL", "OFF"].includes(state);
-  const slots = [game?.awayTeam, game?.homeTeam].filter(Boolean).map((team, index) => ({
-    participantId:`team:nhl:${String(team.abbrev || team.id || "").toLowerCase()}`,
-    label:nhlTeamName(team), homeAway:index === 0 ? "away" : "home",
-    score:Number.isFinite(Number(team.score)) ? Number(team.score) : null,
-    logoUrl:team.logo || null,
-  }));
-  return {
-    id:`fixture:nhl:${game.id}`, sportDomainId:"sport:ice-hockey", competitionId:"competition:nhl",
-    name:`${slots[0]?.label || "TBC"} v ${slots[1]?.label || "TBC"}`,
-    date:local.date || game?.gameDate || null, time:local.time, startTimeUtc:game?.startTimeUTC || null,
-    venue:nhlName(game?.venue) || null, status:completed ? "completed" : "upcoming",
-    scheduleStatus:game?.gameScheduleState === "OK" && game?.startTimeUTC ? "confirmed" : "provisional",
-    roundLabel:Number(game?.gameType) === 3 ? "Playoffs" : Number(game?.gameType) === 1 ? "Preseason" : "Regular season",
-    participantSlots:slots,
-    sourceUrl:game?.gameCenterLink ? `https://www.nhl.com${game.gameCenterLink}` : null,
-    ticketUrl:game?.ticketsLink || null,
-  };
+  return require('./lib/nhl-results').fixture(game);
 }
 
 const CHL_COUNTRY_CODES = Object.freeze({
@@ -203,49 +157,21 @@ function chlTeamId(team){
   return `team:chl:${team?._entityId || team?.externalId || String(team?.shortName || "tbc").toLowerCase()}`;
 }
 
-function chlFixture(match){
-  const local = isoParts(match?.startDate);
-  const home = match?.teams?.home || {};
-  const away = match?.teams?.away || {};
-  const completed = ["finished", "final", "completed"].includes(String(match?.status || "").toLowerCase());
-  return {
-    id:`fixture:chl:${match?._entityId || match?.externalId}`,
-    sportDomainId:"sport:ice-hockey", competitionId:"competition:chl",
-    name:`${away.name || "TBC"} v ${home.name || "TBC"}`,
-    date:local.date, time:local.time, startTimeUtc:match?.startDate || null,
-    venue:match?.venue?.name || null, status:completed ? "completed" : "upcoming",
-    scheduleStatus:match?.startDateNotConfirmed === true ? "provisional" : "confirmed",
-    stage:match?.stage?.group?.name || null, roundLabel:match?.stage?.round?.name || null,
-    participantSlots:[
-      { participantId:chlTeamId(away), label:away.name || "TBC", homeAway:"away", logoUrl:away.externalId ? `https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/${away.externalId}` : null },
-      { participantId:chlTeamId(home), label:home.name || "TBC", homeAway:"home", logoUrl:home.externalId ? `https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/${home.externalId}` : null },
-    ],
-    sourceUrl:match?.link?.url ? `https://www.chl.hockey/en${match.link.url}` : "https://www.chl.hockey/en/schedule",
-    viewingOptions:[{ providerId:"iihf-tv", webUrl:"https://iihf.tv/", sportUrl:"https://iihf.tv/", linkScope:"sport", sourceUrl:"https://www.chl.hockey/en/fans/where-to-watch", verifiedAt:"2026-08-26T00:00:00.000Z", permalinkVerifiedAt:null }],
-  };
+function chlFixture(match,options={}){
+  const directory=JSON.parse(fs.readFileSync(ICE_HOCKEY_PATH,'utf8'));
+  return require('./lib/chl-results').parseFixture(match,{teamIds:new Set(directory.teams.filter(t=>t.leagueId==='competition:chl').map(t=>t.id)),checkedAt:new Date().toISOString(),...options});
 }
 
-async function buildChl(){
-  const schedulePageUrl = "https://www.chl.hockey/en/schedule";
-  const html = await fetchText(schedulePageUrl);
-  const seasonId = html.match(/"currentSeason":\{"_entityId":"([a-f0-9]+)"/)?.[1];
-  if (!seasonId) throw new Error("CHL current season ID was not published");
-  const scheduleUrls = Array.from(new Set([...html.matchAll(/https:\/\/www\.chl\.hockey\/api\/s3\?q=(schedule-[^'"\\]+\.json)/g)]
-    .map(match => `https://www.chl.hockey/api/s3?q=${match[1]}`)
-    .filter(url => url.includes(seasonId))));
-  if (!scheduleUrls.length) throw new Error("CHL current schedule feeds were not published");
-  const fileName = new URL(scheduleUrls[0]).searchParams.get("q");
-  const prefix = fileName.slice("schedule-".length, -`.json`.length - seasonId.length - 1);
-  const teamsUrl = `https://www.chl.hockey/api/s3?q=teams-${prefix}-${seasonId}.json`;
-  const standingsUrl = `https://www.chl.hockey/api/s3?q=teams-stats-${prefix}-${seasonId}.json`;
-  const [teamsPayload, standingsPayload, ...schedulePayloads] = await Promise.all([
-    fetchJson(teamsUrl), fetchJson(standingsUrl), ...scheduleUrls.map(fetchJson),
-  ]);
+async function buildChl({fetchSource=fetchJson,fetchPage=fetchText,clock=()=>new Date(),previous=JSON.parse(fs.readFileSync(ICE_HOCKEY_PATH,'utf8'))}={}){
+  const facts=require('./lib/chl-results'),resources=facts.discover(await fetchPage(facts.PAGE_URL));
+  const {seasonId,seasonName,teamsUrl,recordsUrl:standingsUrl,scheduleUrl}=resources;
+  const prefix=new URL(teamsUrl).searchParams.get('q').slice(6,-`.json`.length-seasonId.length-1);
+  const [teamsPayload,standingsPayload,schedulePayload]=await Promise.all([fetchSource(teamsUrl),fetchSource(standingsUrl),fetchSource(scheduleUrl)]);
   const sourceTeams = teamsPayload.data || [];
-  if (sourceTeams.length < 20) throw new Error(`CHL current field is incomplete: ${sourceTeams.length} teams`);
+  if (sourceTeams.length !== 24 || !Array.isArray(teamsPayload.errors) || teamsPayload.errors.length) throw new Error(`CHL current field is incomplete: ${sourceTeams.length} teams`);
   const rosterResults = await mapLimit(sourceTeams, 6, async team => {
     const url = `https://www.chl.hockey/api/s3?q=team-players-info-${prefix}-${seasonId}-${team._entityId}.json`;
-    const payload = await fetchJson(url);
+    const payload = await fetchSource(url);
     return { team, athletes:payload?.data?.athletes || [], url };
   });
   const teams = sourceTeams.map(team => {
@@ -270,32 +196,33 @@ async function buildChl(){
     headshotUrl:player.externalId ? `https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/${player.externalId}` : null,
     sourceRefs:[url],
   })).filter(player => player.id && player.displayName));
-  const fixtureMap = new Map(schedulePayloads.flatMap(payload => payload.data || []).map(chlFixture).map(fixture => [fixture.id, fixture]));
-  const standings = (standingsPayload.data || []).map((entry, index) => ({
-    participantId:chlTeamId(entry), rank:index + 1,
-    gamesPlayed:entry?.stats?.matches?.played?.total ?? 0,
-    wins:entry?.stats?.matches?.won?.total ?? 0, losses:entry?.stats?.matches?.lost?.total ?? 0,
-    goalsFor:entry?.stats?.goals?.scored?.total ?? 0, goalsAgainst:entry?.stats?.goals?.conceded?.total ?? 0,
-  }));
+  const now=clock(),checkedAt=now.toISOString();
+  const fixtures=facts.parseSchedule(schedulePayload,{teams,previousFixtures:previous.fixtures.filter(f=>f.competitionId==='competition:chl'),checkedAt,now});
+  const standings=facts.parseRecords(standingsPayload,{teams,fixtures,sourceUrl:standingsUrl,checkedAt,now});
+  const retained=facts.merge(previous,{fixtures,standings});
   return {
-    seasonId, seasonName:html.match(/"currentSeason":\{[^}]*"name":"([^"]+)"/)?.[1] || "2026/27",
-    teams, players, fixtures:[...fixtureMap.values()].sort((a, b) => String(a.startTimeUtc || "").localeCompare(String(b.startTimeUtc || ""))), standings,
-    sourceStatus:{ rosters:players.length ? "published" : "not-yet-published", sourceTeamCount:sourceTeams.length, scheduleFeedCount:scheduleUrls.length },
-    sources:[teamsUrl, standingsUrl, ...scheduleUrls],
+    seasonId,seasonName,teams,players,
+    fixtures:retained.fixtures.filter(f=>f.competitionId==='competition:chl'),
+    standings:retained.standings.filter(r=>r.competitionId==='competition:chl'),
+    sourceStatus:{...retained.sourceStatus.chl,rosters:players.length?'published':'not-yet-published',sourceTeamCount:sourceTeams.length},
+    sources:[teamsUrl,standingsUrl,scheduleUrl],
   };
 }
 
-async function buildNhl(){
+async function buildNhl({fetchSource=fetchJson,fetchChl=buildChl,clock=()=>new Date(),previous=fs.existsSync(ICE_HOCKEY_PATH)?JSON.parse(fs.readFileSync(ICE_HOCKEY_PATH,'utf8')):null}={}){
+  const facts=require('./lib/nhl-results');
+  let tableCheckedAt;
   const [standingsPayload, chl] = await Promise.all([
-    fetchJson("https://api-web.nhle.com/v1/standings/now"),
-    buildChl(),
+    (async()=>{const payload=await fetchSource(facts.TABLE_URL);tableCheckedAt=clock().toISOString();return payload;})(),
+    fetchChl(),
   ]);
   const currentStandings = standingsPayload?.standings || [];
   const abbreviations = Array.from(new Set(currentStandings.map(entry => nhlName(entry.teamAbbrev)).filter(Boolean))).sort();
   const clubResults = await mapLimit(abbreviations, 6, async abbreviation => {
+    let scheduleCheckedAt;
     const [roster, schedule] = await Promise.all([
-      fetchJson(`https://api-web.nhle.com/v1/roster/${abbreviation}/current`),
-      fetchJson(`https://api-web.nhle.com/v1/club-schedule-season/${abbreviation}/${NHL_SEASON}`),
+      fetchSource(`https://api-web.nhle.com/v1/roster/${abbreviation}/current`),
+      (async()=>{const payload=await fetchSource(`https://api-web.nhle.com/v1/club-schedule-season/${abbreviation}/${NHL_SEASON}`);scheduleCheckedAt=clock().toISOString();return payload;})(),
     ]);
     const standing = currentStandings.find(entry => nhlName(entry.teamAbbrev) === abbreviation) || {};
     const teamId = `team:nhl:${abbreviation.toLowerCase()}`;
@@ -318,18 +245,14 @@ async function buildNhl(){
         sourceRefs:["https://www.nhl.com/info/teams/", `https://www.nhl.com/${abbreviation.toLowerCase()}/roster`],
       },
       players,
-      fixtures:(schedule.games || []).map(nhlFixture),
+      abbreviation,schedule,observedAt:scheduleCheckedAt,
     };
   });
-  const fixtureMap = new Map(clubResults.flatMap(result => result.fixtures).map(fixture => [fixture.id, fixture]));
-  const publishedStandingsSeason = String(currentStandings[0]?.seasonId || "");
-  const currentSeasonStandingsPublished = publishedStandingsSeason === NHL_SEASON;
-  const standings = (currentSeasonStandingsPublished ? currentStandings : []).map(entry => ({
-    participantId:`team:nhl:${nhlName(entry.teamAbbrev).toLowerCase()}`,
-    conference:entry.conferenceName || null, division:entry.divisionName || null,
-    gamesPlayed:entry.gamesPlayed ?? null, wins:entry.wins ?? null, losses:entry.losses ?? null,
-    otLosses:entry.otLosses ?? null, points:entry.points ?? null, goalDifferential:entry.goalDifferential ?? null,
-  }));
+  const teams=clubResults.map(result=>result.team),base=previous||{fixtures:[],standings:[],sourceStatus:{}};
+  const fixtures=facts.parseClubSchedules(clubResults.map(({abbreviation,schedule,observedAt})=>({abbreviation,payload:schedule,observedAt})),{teams,now:clock(),previousFixtures:base.fixtures.filter(f=>f.competitionId==='competition:nhl')});
+  const standings=facts.parseStandings(standingsPayload,{teams,fixtures:facts.mergeFixtures(base,fixtures),checkedAt:tableCheckedAt,now:clock()});
+  const retained=facts.merge(base,{fixtures,standings}),currentSeasonStandingsPublished=true;
+  const publishedStandingsSeason=NHL_SEASON;
   return {
     schemaVersion:"team-sport-directory.v1", sportKey:"ice-hockey",
     generatedAt:standingsPayload.standingsDateTimeUtc || new Date().toISOString(), season:NHL_SEASON,
@@ -344,9 +267,9 @@ async function buildNhl(){
     ],
     teams:[...clubResults.map(result => result.team), ...chl.teams],
     players:[...clubResults.flatMap(result => result.players), ...chl.players],
-    fixtures:[...fixtureMap.values(), ...chl.fixtures].sort((a, b) => String(a.startTimeUtc || "").localeCompare(String(b.startTimeUtc || "")) || a.id.localeCompare(b.id)),
-    standings:[...standings, ...chl.standings],
-    sourceStatus:{ nhl:{ rosterEndpoint:"current", rosterSeason:null, standingsStatus:currentSeasonStandingsPublished ? "published" : "not-started", latestPublishedStandingsSeason:publishedStandingsSeason || null }, chl:chl.sourceStatus },
+    fixtures:[...retained.fixtures.filter(f=>f.competitionId==='competition:nhl'), ...chl.fixtures].sort((a, b) => String(a.startTimeUtc || "").localeCompare(String(b.startTimeUtc || "")) || a.id.localeCompare(b.id)),
+    standings:[...retained.standings.filter(r=>r.competitionId==='competition:nhl'), ...chl.standings],
+    sourceStatus:{ nhl:{ ...retained.sourceStatus.nhl,rosterEndpoint:"current", rosterSeason:null }, chl:chl.sourceStatus },
   };
 }
 
@@ -383,7 +306,7 @@ async function main(){
   console.log(`Refreshed NFL and Ice Hockey: ${nfl.teams.length + iceHockey.teams.length} teams, ${nfl.players.length + iceHockey.players.length} players, ${nfl.fixtures.length + iceHockey.fixtures.length} fixtures.`);
 }
 
-main().catch(error => {
+if(require.main===module)main().catch(error => {
   const failureText = String(error?.stack || error?.message || error);
   const transient = /fetch failed|abort|timed?\s*out|econn|enotfound|5\d\d\b/i.test(failureText);
   const retiredEspnRosterEndpoint = /404\s+Not Found:\s+https:\/\/site\.api\.espn\.com\/apis\/site\/v2\/sports\/football\/nfl\/teams\/[^/]+\/roster/i.test(failureText);
@@ -404,3 +327,4 @@ main().catch(error => {
   console.error(error.stack || error.message);
   process.exitCode = 1;
 });
+module.exports={buildNfl,buildNhl,buildChl,chlFixture,nhlFixture,validate};

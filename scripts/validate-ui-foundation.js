@@ -6,8 +6,8 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 
 const pages = ["index.html", "admin.html", "admin-comms.html", "participate.html", "privacy.html", "terms.html", "404.html"];
-const stylesheet = "/assets/styles/nothingsport-foundation.css?v="+fs.readFileSync("index.html","utf8").match(/name="app-shell-version" content="(\d+)"/)[1];
-const html = fs.readFileSync("index.html", "utf8");
+const stylesheet = fs.readFileSync("index.html","utf8").match(/href="(\/assets\/styles\/nothingsport-foundation\.css\?v=\d+)"/)[1];
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const foundation = fs.readFileSync("assets/styles/nothingsport-foundation.css", "utf8");
 
 pages.forEach(page => {
@@ -15,7 +15,7 @@ pages.forEach(page => {
   assert(source.includes(`href="${stylesheet}"`), `${page} must use the shared Nothing Sport UI foundation`);
 });
 
-["--ns-accent:#ff4778", "--ns-touch-target:44px", "--ns-radius-control:12px", "--ns-radius-card:18px"].forEach(token => {
+["--ns-accent:#FB3D6C", "--ns-touch-target:44px", "--ns-radius-control:12px", "--ns-radius-card:18px"].forEach(token => {
   assert(foundation.includes(token), `shared UI token ${token} must remain explicit`);
 });
 assert(foundation.includes("prefers-reduced-motion:reduce"), "the shared foundation must respect reduced-motion preferences");
@@ -23,14 +23,15 @@ const controls=html.slice(html.indexOf("function buildEventCardControls"),html.i
 assert(controls.includes("card-dismiss")&&controls.includes("aria-label")&&!controls.includes("traffic-light"),'cards use a labelled overlay dismiss control');
 assert(html.includes('bindCardCycle')&&html.includes('nextCardState'),'cards retain keyboard and tap expansion');
 
-const card = html.slice(html.indexOf("function buildEventCard(ev"), html.indexOf("function jointTournamentIsActive"));
+const card = require("./app-shell-test-utils").readCardFunction("buildDetailedEventCard");
+const information = require("./app-shell-test-utils").readCardFunction("appendFixtureCardInformation");
 assert(!card.includes("card-expand-control") && !card.includes('textContent = state === "opened" ? "Show less'), "content cycling must not introduce a duplicate disclosure button");
-assert(card.includes('state === "opened"') && card.includes('secondaryActions.className = "event-card-secondary-actions"'), "secondary actions must appear only in the expanded card state");
-assert(card.includes("buildEventWhyItMatters(ev)") && foundation.includes(".event-card:not(.is-opened) .editorial-l0-hook-copy"), "the compact card must retain its line-limited Why it matters hook");
+assert(card.includes('appendFixtureCardInformation(mainDiv,ev,') && /if \(!isMinimised && state === "opened"\)\{[\s\S]*secondaryActions\.className = "event-card-secondary-actions"/.test(information), "secondary actions must appear only in the expanded card state through the actual mounted information renderer");
+assert(information.includes("buildEventWhyItMatters(ev)") && foundation.includes(".event-card:not(.is-opened) .editorial-l0-hook-copy"), "the compact card must retain its line-limited Why it matters hook");
 assert(html.includes('const label = active ? "Reminder ON" : "Remind"') && html.includes("is-reminder-on"), "Reminder must change to Reminder ON with its filled-bell state");
 
 assert(html.includes('heading.id = "calendarTodayAnchor"') && html.includes("if (todayEvents.length) appendDateGroups(todayEvents,{today:true})"), "a populated Today group must use one combined date heading and anchor");
-assert(html.includes('PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v10"'), "the redesigned personalised card cache must remain on the current invalidated generation");
+assert(html.includes('PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v12"'), "the redesigned personalised card cache must remain on the current invalidated generation");
 
 const worker = fs.readFileSync("service-worker.js", "utf8");
 assert(worker.includes(`nothingsport-shell-v${html.match(/name="app-shell-version" content="(\d+)"/)[1]}`) && worker.includes(`"${stylesheet}"`), "the new foundation and shell must be available after installed-app cache replacement");

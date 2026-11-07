@@ -18,6 +18,24 @@
       "expectedCount": 5,
       "missingCount": 0,
       "ratePercent": 0
+    },
+    {
+      "observedAt": "2026-09-21T20:20:19.813Z",
+      "expectedCount": 5,
+      "missingCount": 0,
+      "ratePercent": 0
+    },
+    {
+      "observedAt": "2026-09-30T22:37:31.000Z",
+      "expectedCount": 5,
+      "missingCount": 0,
+      "ratePercent": 0
+    },
+    {
+      "observedAt": "2026-10-10T23:30:09.000Z",
+      "expectedCount": 5,
+      "missingCount": 0,
+      "ratePercent": 0
     }
   ]
 }

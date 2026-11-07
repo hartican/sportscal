@@ -6,7 +6,8 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 
-const ROOT = path.resolve(__dirname, "..");
+function validateCurrentCardCoverage({root=path.resolve(__dirname,"..")}={}){
+const ROOT = root;
 const read = relative => JSON.parse(fs.readFileSync(path.join(ROOT, relative), "utf8"));
 const evidence = read("data/canonical/current-card-evidence-2026.json");
 const published = read("data/events.json").events || [];
@@ -15,6 +16,18 @@ const tennis = read("data/follow-schedule/tennis.json").fixtures || [];
 const identity = record => record?.id || record?.eventId || record?.canonicalEventId;
 const matches = (record, expected) => [record?.id, record?.eventId, record?.canonicalEventId, ...(record?.sourceEventIds || [])]
   .filter(Boolean).some(id => [expected.id, expected.canonicalId].includes(id));
+// Reapplying reviewed pre-race copy must not leak its standings into completed
+// session defaults or erase valid participant identities supplied later.
+const {mergeRecord,normalizeCompletedTiming,hasCompletionBoundary}=require('./apply-current-card-evidence');
+const acceptedResults=require('./lib/accepted-result-projection');
+const {spoilerContractIssues}=require('./lib/storyline-card-rules');
+for(const override of evidence.fixtureOverrides.filter(row=>row.id?.startsWith('evt_f1_2026_bahrain_'))){
+  const completed={...published.find(row=>row.id===override.id),status:'completed',score:'Verified classification',outcomeText:'Verified final classification',participantIds:['competitor:f1:retained-identity']};
+  const retained=normalizeCompletedTiming(mergeRecord(completed,override,evidence.checkedAt));
+  assert.equal(retained.status,'completed');assert.equal(retained.score,completed.score);
+  assert.deepEqual(retained.participantIds,completed.participantIds);
+  assert.deepEqual(spoilerContractIssues(retained),[],`${override.id}: completed defaults must remain spoiler-safe after reviewed preview replay`);
+}
 
 for(const expected of evidence.fixtureOverrides){
   const record = published.find(item => matches(item, expected));
@@ -22,19 +35,21 @@ for(const expected of evidence.fixtureOverrides){
   assert.equal(record.startTimeUtc, expected.startTimeUtc, `${expected.name} start time drifted`);
   assert.equal(record.venue, expected.venue, `${expected.name} venue drifted`);
   assert.equal(record.broadcaster, expected.broadcaster, `${expected.name} broadcaster drifted`);
-  assert.deepEqual(record.participantIds, expected.participantIds, `${expected.name} participants drifted`);
+  if(Array.isArray(expected.participantIds))assert.deepEqual(record.participantIds || [], expected.participantIds, `${expected.name} participants drifted`);
 }
 for(const expected of evidence.resultOverrides){
-  const record = published.find(item => matches(item, expected)) || tennis.find(item => matches(item, expected));
+  const record = published.find(item => matches(item, expected)) || tennis.find(item => matches(item, expected)) || cricket.find(item => matches(item, expected));
   assert(record, `${expected.id} is missing from published or followed fixtures`);
   assert.equal(record.status, "completed", `${expected.id} must be completed`);
   if(expected.canonicalId?.startsWith("fixture:us-open")){
     const names = expected.outcomeText.match(/(?:Alexander Zverev|Ben Shelton|Elena Rybakina|Aryna Sabalenka)/g) || [];
     assert(names.length >= 2 && names.every(name => String(record.score).includes(name.split(" ").at(-1))), `${expected.id} must retain both finalists in its official score`);
   }else{
-    assert.equal(record.score, expected.score, `${expected.id} result drifted`);
+    // Reviewed tennis sets may use commas; compare the same named score facts.
+    const scoreText=value=>record.key==='tennis'?String(value).replace(/,\s*(?=\d)/g,' '):value;
+    assert.equal(scoreText(record.score), scoreText(expected.score), `${expected.id} result drifted`);
   }
-  if(record.startTimeUtc) assert(Number.isFinite(Date.parse(record.endTimeUtc)), `${expected.id} completion boundary is missing`);
+  if(record.startTimeUtc) assert(acceptedResults.isAcceptedResult(expected) ? acceptedResults.validateAcceptedProjection(record,expected) : hasCompletionBoundary(record), `${expected.id} completion boundary is missing`);
 }
 for(const group of evidence.broadcastOverrides){
   const seriesRecords = cricket.filter(item => group.ids.some(id => matches(item, { id, canonicalId:id })));
@@ -56,3 +71,6 @@ assert.match(shell, /score:\s*\["score",\s*"scoreDisplay"/, "scoreDisplay must r
 const quick = fs.readFileSync(path.join(ROOT, "scripts/quick-results.js"), "utf8");
 assert.match(quick, /run\('scripts\/refresh-canonical-sports\.js'\)/, "quick updates must refresh complete official fixture inventory");
 console.log("Current finals, results, broadcaster and projection coverage valid.");
+}
+if(require.main===module)validateCurrentCardCoverage();
+module.exports={validateCurrentCardCoverage};

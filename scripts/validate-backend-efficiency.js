@@ -3,6 +3,7 @@
 
 const assert=require("node:assert/strict");
 const fs=require("node:fs");
+const vm=require("node:vm");
 const {createSnapshotStore}=require("../lib/live-fixtures");
 
 const read=path=>fs.readFileSync(path,"utf8");
@@ -11,7 +12,7 @@ async function main(){
   const calls=[];
   const store=createSnapshotStore({request:async(path,options={})=>{
     calls.push({path,options});
-    if(path.includes("select=source_id,revision,checked_at"))return [{source_id:"f1",revision:9,checked_at:"2026-09-14T00:00:00Z"}];
+    if(path.endsWith("/rpc/nothingsports_read_fixture_source_health"))return [{source_id:"f1",revision:9,checked_at:"2026-09-14T00:00:00Z"}];
     if(path.endsWith("/rpc/nothingsports_read_current_fixtures"))return [
       {source_id:"f1",fixture_id:"race",identity_keys:["race"],fixture:{id:"race",status:"live"}},
     ];
@@ -20,11 +21,15 @@ async function main(){
   const rows=await store.read({ids:["race"]});
   assert.deepEqual(rows[0].fixtures,[{id:"race",status:"live"}]);
   assert(calls.some(call=>call.path.endsWith("/rpc/nothingsports_read_current_fixtures")&&call.options.timeoutMs===3000));
+  assert.equal(calls.length,2,"visible-card reads retain exactly two bounded database requests");
   assert(!calls.some(call=>call.path.includes("revision,fixtures")),"normal visible-card reads must not fetch full source JSON");
+
+  const legacyStore=createSnapshotStore({request:async path=>{if(path.includes('/rpc/'))throw Object.assign(new Error('not migrated'),{status:404});return [{source_id:'test',fixtures:[{id:'race'}],discovery_report:{status:'partial',_fixtureObservations:{race:{s:'private'}}}}];}});
+  const legacyRows=await legacyStore.read({ids:['race']});assert.equal(legacyRows[0].discovery_report.status,'partial');assert(!JSON.stringify(legacyRows).includes('_fixtureObservations'),'compatibility fallback also hides verification receipts');
 
   const source=read("lib/live-fixtures.js");
   const handler=read("lib/live-fixture-handler.js");
-  const html=read("index.html");
+  const html=require('./app-shell-test-utils').readCardApplicationSource();
   const chat=read("config/chat-contract.js");
   const score=read("config/nothingscore.js");
   const alerts=read("lib/live-rating-alerts.js");
@@ -36,12 +41,12 @@ async function main(){
   assert.match(handler,/s-maxage=30, stale-while-revalidate=300/);
   assert.match(handler,/snapshot=\{sources:\[\],revision:'published-fallback'/,"the static library must remain available without Supabase");
   assert.match(html,/setInterval\(\(\)=>void refreshLiveFixtureSnapshot\(\),120000\)/);
-  assert.match(html,/Date\.now\(\)-liveFixtureLastRequestedAt<30_000/);
+  assert.match(read("config/feed-live-score-loader.js"),/Date\.now\(\)-liveFixtureLastRequestedAt<30_000/,"the deferred Feed reader retains request coalescing");
   assert.deepEqual(require("../config/chat-contract").POLLING,{roomMs:1000,quietMs:30000,quietAfterMs:60000,activeMs:30000,failureMs:30000});
   assert.equal(require("../config/nothingscore").PRESENCE_TTL_MS,10*60*1000);
   assert.match(html,/scheduleNothingscoreHeartbeat\(60_000\)/,"the first confirmation must remain one minute after entry");
   assert.match(html,/5\*60_000/,"confirmed watching must settle to five-minute heartbeats");
-  assert(alerts.indexOf("if(!alerts.length)")<alerts.indexOf("await api.refreshEventSnapshots()"),"an empty EPIC outbox must not rebuild event snapshots");
+  assert(alerts.indexOf("if(!alerts.length)")<alerts.indexOf("await api.refreshEventSnapshots("),"an empty EPIC outbox must not rebuild event snapshots");
   assert.match(migration,/nothingsports_fixture_current/);
   assert.match(migration,/current_row\.content_hash is not distinct from p_hash/);
   assert.match(migration,/nothingsports_claim_due_reminders/);
@@ -49,11 +54,24 @@ async function main(){
   assert.match(cron,/nothingsport-live-fixtures','\*\/2 \* \* \* \*'/);
   assert.match(cron,/nothingsport-prune-cron-history/);
   assert.match(workflow,/QUICK_RESULTS: \$\{\{ steps\.cadence\.outputs\.quick \}\}/);
+  const avatarSteps=workflow.split(/^      - name: /m).slice(1).filter(step=>step.startsWith('Clean temporary and replaced profile pictures\n'));
+  assert.equal(avatarSteps.length,1,'the existing avatar maintenance step stays uniquely owned');
+  const avatarCondition=avatarSteps[0].match(/^        if: (.+)$/m)?.[1];
+  assert(avatarCondition,'avatar maintenance requires an explicit scope condition');
+  assert.match(avatarSteps[0],/^        run: node scripts\/maintain-profile-avatars\.js$/m);
+  for(const event of ['workflow_dispatch','schedule','other'])for(const run of ['true','false'])for(const refreshPassed of [true,false]){
+    const enabled=vm.runInNewContext(avatarCondition,{
+      github:{event_name:event},steps:{cadence:{outputs:{run}}},
+      always:()=>true,success:()=>refreshPassed,failure:()=>!refreshPassed,cancelled:()=>false,
+    },{timeout:100});
+    assert.equal(enabled,event==='schedule'&&run==='true',`Avatar maintenance scope: ${event}, cadence ${run}, refresh passed ${refreshPassed}`);
+  }
   assert.equal(fs.existsSync(".github/workflows/quick-results-refresh.yml"),false);
   assert.match(read("AGENTS.md"),/docs\/backend-efficiency-decisions\.md/);
   assert.match(read("lib/supabase-server.js"),/SUPABASE_MAINTENANCE_MODE/);
   assert.match(read("supabase/recover-disk-pressure.sql"),/limit 100/);
 
+  let milestoneReads=0;await require('../lib/milestone-alerts').dispatch({environment:{MILESTONE_ALERTS_MODE:'off'},request:async()=>{milestoneReads++;}});assert.equal(milestoneReads,0,'Disabled milestone delivery adds no persistence or dispatch reads');
   console.log("Backend efficiency: bounded fixture reads, fail-soft delivery, adaptive clients, batched jobs and single scheduler passed.");
 }
 

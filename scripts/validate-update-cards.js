@@ -5,16 +5,143 @@ const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
 const { spawnSync } = require("node:child_process");
-const { buildQuickSteps, buildSteps, parseOptions } = require("./update-cards");
+const { buildBroadcasterReviewSteps, buildVenueReviewSteps, buildQuickSteps, buildSteps, parseOptions } = require("./update-cards");
 const { projectionSteps: quickProjectionSteps } = require("./quick-results");
+require('./validate-reviewed-fixture-projections');
+require('./validate-editorial-projection-repair');
+require('./validate-major-event-feed-admission').focused();
+require('./validate-rlwc-tonga-samoa');
+require('./validate-reviewed-fixture-admission').focused();
+require('./validate-code-projection-score-alias').focused();
+require('./validate-socceroos-participant-identity').focused();
+require('./validate-reviewed-fixture-search').focused();
+require('./validate-cricket-live-scope').run();
+// Owned AFLW doubles run in isolated processes; their IO guards must never
+// replace the ordinary canonical owner's filesystem, clock or transport.
+for(const name of ['validate-aflw-round-contract.js','validate-aflw-source-json.js','validate-aflw-scoped-results.js','validate-a-league-source-json.js','validate-a-league-scoped-results.js','validate-championship-score-contract.js','validate-championship-source-json.js','validate-championship-scoped-results.js','validate-fixtures-catalogue-contract.js']){
+ const result=spawnSync(process.execPath,[path.join(__dirname,name)],{cwd:path.resolve(__dirname,'..'),encoding:'utf8'});
+ assert.equal(result.status,0,`${name}: ${result.stderr||result.stdout}`);
+}
+
+// The actual retained-tennis projection must refresh both gender directories.
+const tennisProjectionRoot=fs.mkdtempSync(path.join(os.tmpdir(),'ns-tennis-projection-route-'));
+try{
+ const hook=path.join(tennisProjectionRoot,'preload.cjs');
+ fs.writeFileSync(hook,"const cp=require('node:child_process'),seen=[];cp.spawnSync=(command,args)=>{seen.push(args);return {status:0,stdout:'',stderr:''};};process.on('exit',()=>process.stdout.write('TENNIS_PROJECTION '+JSON.stringify(seen)+'\\n'));\n");
+ const result=spawnSync(process.execPath,['--require',hook,path.join(__dirname,'update-cards.js'),'--tennis-feed','--local-only','-p'],{cwd:path.resolve(__dirname,'..'),encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,TMPDIR:tennisProjectionRoot,FOOTBALL_DATA_RUN_DIR:path.join(tennisProjectionRoot,'diagnostics')}});
+ assert.equal(result.status,0,result.stderr);
+ const trace=result.stdout.match(/TENNIS_PROJECTION (\[[^\n]+\])/);assert(trace);
+ const steps=JSON.parse(trace[1]),directories=steps.filter(a=>a[0]==='scripts/build-follow-directories.js');
+ assert.deepEqual(directories,[['scripts/build-follow-directories.js','--codes=tennis,tennis-women'],['scripts/build-follow-directories.js','--codes=tennis,tennis-women','--check']],'both genders and their exact generated outputs must be checked');
+ assert(steps.findIndex(a=>a[0]==='scripts/build-code-inspector.js')<steps.findIndex(a=>a[0]==='scripts/build-follow-directories.js'));
+ assert(steps.findIndex(a=>a[0]==='scripts/build-follow-directories.js')<steps.findIndex(a=>a[0]==='scripts/build-tennis-feed-parents.js'));
+ assert(!steps.some(a=>/refresh-|redeploy/.test(a[0])),'retained projection cannot add source reads or a release');
+}finally{fs.rmSync(tennisProjectionRoot,{recursive:true,force:true});}
 
 const releaseStep = "scripts/redeploy-and-release.sh";
 const defaultSteps = buildSteps(parseOptions([], {}));
 const localSteps = buildSteps(parseOptions(["-p", "--local-only"], {}));
-const credentialledLocalSteps = buildSteps(parseOptions(["--local-only"], { SUPABASE_SERVICE_ROLE_KEY:"test" }));
 const environmentLocalSteps = buildSteps(parseOptions([], { SKIP_RELEASE: "1" }));
+assert.equal(parseOptions(['--canonical-readiness','--local-only'],{}).localOnly,true);
+assert.throws(()=>parseOptions(['--canonical-readiness','--quick'],{}),/cannot be combined/,'Canonical readiness cannot broaden into another refresh');
+assert.throws(()=>parseOptions(['--canonical-readiness','--offline'],{}),/cannot be combined/,'A retained snapshot cannot impersonate a new source check');
+const readinessRoot=fs.mkdtempSync(path.join(os.tmpdir(),'ns-canonical-readiness-route-'));
+try{
+ const hook=path.join(readinessRoot,'preload.cjs');
+ fs.writeFileSync(hook,"const cp=require('node:child_process'),seen=[];cp.spawnSync=(command,args)=>{seen.push(args[0]);return {status:0};};process.on('exit',()=>process.stdout.write('READINESS_ROUTE '+JSON.stringify(seen)+'\\n'));\n");
+ const result=spawnSync(process.execPath,['--require',hook,path.join(__dirname,'update-cards.js'),'--canonical-readiness','--local-only'],{cwd:path.resolve(__dirname,'..'),encoding:'utf8'});
+ assert.equal(result.status,0,result.stderr);
+ assert.deepEqual(JSON.parse(result.stdout.match(/READINESS_ROUTE (\[[^\n]+\])/)[1]),['scripts/refresh-canonical-sports.js','scripts/build-app-shell-runtime.js','scripts/version-generated-shell.js','scripts/validate-canonical-sports.js','scripts/verify-pilot-readiness.js'],'Readiness uses the existing combined fixture/standings owner once, with no other source or deployment');
+}finally{fs.rmSync(readinessRoot,{recursive:true,force:true});}
+const dismissalChecks = localSteps.map((step,index)=>step[0]==='scripts/validate-card-dismissal-learning.js'?index:-1).filter(index=>index>=0);
+assert.equal(dismissalChecks.length,2,'the inexpensive contract precheck must retain the post-refresh dismissal check');
+assert(dismissalChecks[0]<localSteps.findIndex(step=>step[0]==='scripts/refresh-pga-schedule.js'),'broken controls must stop before provider work');
+assert(dismissalChecks[1]>localSteps.findIndex(step=>step[0]==='scripts/refresh-source-coverage.js'),'generated output still receives the existing check');
+const editorialChecks=localSteps.map((step,index)=>step[0]==='scripts/validate-editorial-projection-identity.js'?index:-1).filter(index=>index>=0);
+assert.equal(editorialChecks.length,1,'the early identity contract runs once before provider work; actual projection application validates the refreshed inputs');
+assert(editorialChecks[0]<localSteps.findIndex(step=>step[0]==='scripts/refresh-pga-schedule.js'),'editorial identity regressions stop before provider work');
+const earlyGateRoot=fs.mkdtempSync(path.join(os.tmpdir(),'nothingsport-early-contract-'));
+try{
+  const hook=path.join(earlyGateRoot,'preload.cjs');
+  const gates=['scripts/validate-card-dismissal-learning.js','scripts/validate-editorial-projection-identity.js'];
+  for(const failedGate of [...gates,'provider-probe']){
+    fs.writeFileSync(hook,"const cp=require('node:child_process'),seen=[],gates="+JSON.stringify(gates)+",failed="+JSON.stringify(failedGate)+";cp.spawnSync=(command,args,options)=>{seen.push(args[0]);if(gates.includes(args[0])){if(options.env.WRC_SOURCE_FAILURE_REPORT)throw Error('VALIDATOR_REPORT_LEAK');return {status:args[0]===failed?1:0};}if(failed==='provider-probe'){if(options.env.WRC_SOURCE_FAILURE_REPORT!=='public-diagnostic-fixture')throw Error('PROVIDER_REPORT_MISSING');return {status:1};}throw Error('Provider work after failed contract: '+args[0]);};process.on('exit',()=>process.stdout.write('EARLY_GATE '+JSON.stringify(seen)+'\\n'));\n");
+    const result=spawnSync(process.execPath,['--require',hook,path.join(__dirname,'update-cards.js'),'-p','--local-only'],{cwd:path.resolve(__dirname,'..'),encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,TMPDIR:earlyGateRoot,FOOTBALL_DATA_RUN_DIR:path.join(earlyGateRoot,'diagnostics'),GOLF_SOURCE_REPORT:path.join(earlyGateRoot,'golf.json'),WRC_SOURCE_FAILURE_REPORT:'public-diagnostic-fixture'}});
+    assert.equal(result.status,1,'a failing early contract must stop the real entrypoint');
+    const trace=result.stdout.match(/EARLY_GATE (\[[^\n]+\])/);assert(trace);
+    assert.doesNotMatch(result.stderr,/VALIDATOR_REPORT_LEAK|PROVIDER_REPORT_MISSING/,'validation fixtures cannot overwrite genuine source failure receipts; provider work retains its configured receipt');
+    assert.deepEqual(JSON.parse(trace[1]),failedGate==='provider-probe'?[...gates,'scripts/refresh-pga-schedule.js']:gates.slice(0,gates.indexOf(failedGate)+1),'no provider subprocess can run after either contract fails');
+  }
+}finally{fs.rmSync(earlyGateRoot,{recursive:true,force:true});}
+for (const step of buildBroadcasterReviewSteps()) {
+  assert(localSteps.some(existing => JSON.stringify(existing) === JSON.stringify(step)), 'viewing review must reuse the exact checks in the full canonical owner');
+}
+assert.equal(buildBroadcasterReviewSteps().length, 6, 'viewing review must rebuild and check its dependent local dashboard without provider requests or fixture publication');
+for (const script of ['scripts/validate-source-and-venues.js', 'scripts/validate-feed-performance.js']) {
+  assert(buildVenueReviewSteps().some(step => step[0] === script) && localSteps.some(step => step[0] === script), 'venue review reuses the full owner checks');
+}
+assert.deepEqual(buildVenueReviewSteps().slice(0, 3), [['scripts/build-app-shell-runtime.js'], ['scripts/version-generated-shell.js'], ['scripts/build-app-shell-runtime.js', '--check']], 'venue review must build and version before validating the cached bundle');
+assert.equal(parseOptions(['--venue-review', '-p'], {}).localOnly, true);
+assert.throws(() => parseOptions(['--venue-review', '--broadcaster-review'], {}), /cannot be combined/);
+assert.equal(parseOptions(['--broadcaster-review', '-p'], {}).localOnly, true);
+assert.equal(parseOptions(['--broadcaster-review'], {}).localOnly, false);
+for (const route of ['--quick', '--f1-results', '--resume-from', '--source=football']) {
+  assert.throws(() => parseOptions(['--broadcaster-review', route], {}), /cannot be combined/, 'viewing review must reject mixed routes before dispatch');
+}
+assert(localSteps.findIndex(step=>step[0]==="scripts/refresh-source-coverage.js") < localSteps.findIndex(step=>step[0]==="scripts/apply-reviewed-fixture-timing.js"), "reviewed host clocks must follow the canonical source observation");
+assert(localSteps.findIndex(step=>step[0]==="scripts/apply-reviewed-fixture-timing.js") < localSteps.findIndex(step=>step[0]==="scripts/build-code-inspector.js"), "reviewed timing must persist before shared projections");
 const quickSteps = buildQuickSteps(["--quick", "--offline"]);
-assert.deepEqual(quickSteps, [["scripts/quick-results.js", "--offline"]], "quick score updates must run without active-follow snapshot access");
+assert.deepEqual(quickSteps, [["scripts/validate-fixture-history-retention.js"], ["scripts/quick-results.js", "--offline"]], "quick score updates must retain the isolated history guard without active-follow snapshot access");
+const quickGateRoot = fs.mkdtempSync(path.join(os.tmpdir(), "nothingsport-quick-history-guard-"));
+try {
+  const hook = path.join(quickGateRoot, "preload.cjs");
+  for (const guardFails of [true, false]) {
+    fs.writeFileSync(hook, "const cp=require('node:child_process'),seen=[],guardFails=" + JSON.stringify(guardFails) + ";cp.spawnSync=(command,args)=>{seen.push(args);if(args[0]==='scripts/validate-fixture-history-retention.js')return {status:guardFails?1:0};if(args[0]==='scripts/quick-results.js'&&!guardFails)return {status:0};throw Error('Unexpected quick subprocess: '+args[0]);};process.on('exit',()=>process.stdout.write('QUICK_HISTORY_GUARD '+JSON.stringify(seen)+'\\n'));\n");
+    const result = spawnSync(process.execPath, ['--require', hook, path.join(__dirname, 'update-cards.js'), '--quick', '--offline', '--local-only', '-p'], {cwd: path.resolve(__dirname, '..'), encoding: 'utf8', env: {PATH: process.env.PATH, LANG: process.env.LANG, TMPDIR:quickGateRoot, FOOTBALL_DATA_RUN_DIR: path.join(quickGateRoot, 'diagnostics'), GOLF_SOURCE_REPORT: path.join(quickGateRoot, 'golf.json')}});
+    assert.equal(result.status, guardFails ? 1 : 0, result.stderr);
+    const trace = result.stdout.match(/QUICK_HISTORY_GUARD (\[[^\n]+\])/);
+    assert(trace, 'the real quick entrypoint must emit its subprocess trace');
+    assert.deepEqual(JSON.parse(trace[1]), guardFails ? [quickSteps[0]] : quickSteps, 'a failed history guard stops before quick results; a passing guard continues exactly once');
+  }
+} finally {fs.rmSync(quickGateRoot, {recursive: true, force: true});}
+// Exercise the real entrypoint. Unsupported offline routes must reject before
+// diagnostics, temporary files or subprocess dispatch can perform any work.
+const offlineBoundaryRoot=fs.mkdtempSync(path.join(os.tmpdir(),'nothingsport-offline-boundary-'));
+try{
+  const hook=path.join(offlineBoundaryRoot,'preload.cjs');
+  fs.writeFileSync(hook,`const fs=require('node:fs'),cp=require('node:child_process');const calls={mkdir:0,mkdtemp:0,write:0,spawn:0};for(const [method,key] of [['mkdirSync','mkdir'],['mkdtempSync','mkdtemp'],['writeFileSync','write']])fs[method]=()=>{calls[key]++;throw Error('Unexpected offline side effect: '+key);};cp.spawnSync=()=>{calls.spawn++;throw Error('Unexpected offline subprocess');};process.on('exit',()=>process.stdout.write('OFFLINE_BOUNDARY '+JSON.stringify(calls)+'\\n'));\n`);
+  for(const args of [
+    ['--offline'],['--offline','-p'],['--offline','--european-football'],
+    ['--offline','--quick','--source=football'],['--offline','--quick','--coverage-live'],
+    ['--offline','--quick','--source=nfl-standings'],['--offline','--quick','--source=nfl'],['--offline','--quick','--source=chl'],['--offline','--quick','--source=nhl'],
+    ['--offline','--quick','--code-projections','--codes=football'],
+    ['--offline','--quick','--resume-from','scripts/refresh-pga-schedule.js'],
+    ['--offline','--quick','--canonical-family-repair'],
+  ]){
+    const result=spawnSync(process.execPath,['--require',hook,path.join(__dirname,'update-cards.js'),...args],{cwd:path.resolve(__dirname,'..'),encoding:'utf8',env:{...process.env,FOOTBALL_DATA_RUN_DIR:path.join(offlineBoundaryRoot,'not-created'),GOLF_SOURCE_REPORT:path.join(offlineBoundaryRoot,'not-written.json')}});
+    assert.equal(result.status,1,'unsupported offline invocation must reject');
+    assert.match(result.stderr,/Only the quick refresh supports --offline/,'caller receives an actionable mode diagnostic');
+    const trace=result.stdout.match(/OFFLINE_BOUNDARY (\{[^\n]+\})/);assert(trace,'actual entrypoint must emit the isolated trace');
+    assert.deepEqual(JSON.parse(trace[1]),{mkdir:0,mkdtemp:0,write:0,spawn:0},'offline rejection precedes every diagnostic write and source step');
+  }
+  for (const route of ['--quick', '--f1-results', '--resume-from']) {
+    const result = spawnSync(process.execPath, ['--require', hook, path.join(__dirname, 'update-cards.js'), '--broadcaster-review', route], { cwd: path.resolve(__dirname, '..'), encoding: 'utf8' });
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /Broadcaster review cannot be combined/);
+    const trace = result.stdout.match(/OFFLINE_BOUNDARY (\{[^\n]+\})/);
+    assert(trace, 'rejected mixed viewing routes must emit the actual entrypoint trace');
+    assert.deepEqual(JSON.parse(trace[1]), { mkdir: 0, mkdtemp: 0, write: 0, spawn: 0 }, 'mixed viewing routes reject before diagnostic writes or subprocesses');
+  }
+  for (const route of ['--quick', '--broadcaster-review']) {
+    const result = spawnSync(process.execPath, ['--require', hook, path.join(__dirname, 'update-cards.js'), '--venue-review', route], { cwd: path.resolve(__dirname, '..'), encoding: 'utf8' });
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /review cannot be combined/);
+    const trace = result.stdout.match(/OFFLINE_BOUNDARY (\{[^\n]+\})/);
+    assert(trace);
+    assert.deepEqual(JSON.parse(trace[1]), { mkdir: 0, mkdtemp: 0, write: 0, spawn: 0 }, 'mixed venue routes reject before writes or subprocesses');
+  }
+  for(const args of [['--quick','--offline'],['--offline','--quick','--rebuild','--local-only'],['-p','--offline','--quick']])assert.doesNotThrow(()=>parseOptions(args,{}),'existing quick offline modes remain supported');
+}finally{fs.rmSync(offlineBoundaryRoot,{recursive:true,force:true});}
 const quickResultProjection = quickProjectionSteps(["AFL/NRL 1"]);
 assert(!quickResultProjection.some(step => step[0] === "scripts/build-follow-fixtures.js"), "quick score updates must leave personalised follow-fixture selection to the full refresh");
 for (const file of ["feeds/incoming/events.json", "data/events.json"]) {
@@ -24,7 +151,8 @@ assert(quickResultProjection.some(step => step[0] === "scripts/enrich-storyline-
 assert(quickResultProjection.some(step => step[0] === "scripts/select-result-editorial.js"), "quick score updates must choose the verified spoiler-safe result branch before publication");
 assert(quickResultProjection.some(step => step[0] === "scripts/verify-result-completeness.js") === false, "quick completeness is enforced after projection rather than being conditional on changed sources");
 assert(localSteps.some(step => step[0] === "scripts/sync-official-card-results.js"), "full updates must project the reviewed official-result snapshot before publication");
-assert.equal(require("../data/canonical/official-card-results-2026.json").feedVersion, "nothingsport-official-results-2026-09-15-v1", "an official-result batch must advance the public feed revision so cached pages are replaced");
+// The required reviewed-projection regression runs the actual result CLI and
+// proves revision advancement/idempotence without pinning a past batch name.
 assert(localSteps.find(step=>step[0] === "scripts/publish-feed.js").includes("--preserve-known"),"canonical publication must preserve omitted known fixtures");
 for (const script of ["validate-fixture-snapshot","validate-fixture-visibility","validate-all-sport-visibility"]){
   assert(localSteps.some(step=>step[0] === `scripts/${script}.js`),`${script} must guard every canonical refresh`);
@@ -33,8 +161,11 @@ for (const script of ["validate-fixture-snapshot","validate-fixture-visibility",
 assert(defaultSteps.some(step => step[0] === releaseStep), "the scheduled canonical flow must retain its reviewed release step");
 assert(!localSteps.some(step => step[0] === releaseStep), "local-only updates must never commit, push, or deploy");
 assert(!environmentLocalSteps.some(step => step[0] === releaseStep), "SKIP_RELEASE=1 must suppress the nested release even if a caller omits --local-only");
-assert.notEqual(localSteps[0][0], "scripts/snapshot-active-follows.js", "a local refresh without a server credential must not pretend it captured active follows");
-assert.equal(credentialledLocalSteps[0][0], "scripts/snapshot-active-follows.js", "credentialled runs must start from a fresh server-only follow snapshot");
+const previousSnapshot=process.env.FOLLOW_SNAPSHOT_PRELOADED_JSON_PATH;
+process.env.FOLLOW_SNAPSHOT_PRELOADED_JSON_PATH='/tmp/follow-contract-test.json';
+assert.equal(buildSteps({localOnly:true})[0][0], "scripts/snapshot-active-follows.js", "configured follow snapshots must be read before refresh");
+if(previousSnapshot===undefined)delete process.env.FOLLOW_SNAPSHOT_PRELOADED_JSON_PATH;else process.env.FOLLOW_SNAPSHOT_PRELOADED_JSON_PATH=previousSnapshot;
+assert(localSteps.some(step=>step[0]==='scripts/refresh-pga-schedule.js'));
 assert(localSteps.some(step => step[0] === "scripts/refresh-official-follow-fixtures.js" && step.length === 1), "every update must refresh the official NBA, Hockey Australia and Diamonds source bundles");
 assert(localSteps.some(step => step[0] === "scripts/refresh-official-follow-fixtures.js" && step.includes("--check")), "every update must reject an invalid official follow-source artifact");
 assert(localSteps.some(step => step[0] === "scripts/build-follow-fixtures.js" && step.length === 1), "every update must regenerate the compact fixture-only follow artifact");
@@ -89,6 +220,9 @@ assert(localSteps.some(step => step[0] === "scripts/update-rolling-editorial-pro
 assert(localSteps.some(step => step[0] === "scripts/update-sport-editorial-depth.js" && step.includes("--write")), "every canonical update must replace generic football, cricket and AFL templates with researched event-specific editorial");
 assert(localSteps.some(step => step[0] === "scripts/enrich-editorial-consequences.js" && step.includes("--write")), "every canonical update must restore immutable consequence snapshots after generated sport-depth editorial");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-narratives.js"), "every canonical update must validate persistent editorial depth, provenance and L0 rendering");
+const publishedCardsIndex = localSteps.findIndex(step => step[0] === 'scripts/publish-feed.js');
+const narrativeGateIndex = localSteps.findIndex(step => step[0] === 'scripts/validate-editorial-narratives.js');
+assert(localSteps.slice(publishedCardsIndex + 1, narrativeGateIndex).some(step => step[0] === 'scripts/build-app-shell-runtime.js' && !step.includes('--check')), 'newly published cards must rebuild the cold-pin runtime before the narrative rendering gate reads it');
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-consequences.js"), "every canonical update must validate pre-kickoff consequence snapshots, result-aware copy and structured brackets");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-render-coverage.js"), "every canonical update must prove every validated editorial projection passes the exact browser display gate");
 assert(localSteps.some(step => step[0] === "scripts/validate-fixture-editorial-resolution.js"), "every canonical update must keep manual pins and Events children bound to canonical fixture editorial or the research queue");
@@ -177,8 +311,8 @@ assert(localSteps.some(step => step[0] === "scripts/refresh-tennis-catalogue.js"
 assert(localSteps.some(step => step[0] === "scripts/build-tennis-context.js" && step.length === 1), "every canonical update must rebuild ATP/WTA athlete follows and standings from the provider-neutral catalogue");
 assert(localSteps.some(step => step[0] === "scripts/build-tennis-context.js" && step.includes("--check")), "every canonical update must reject a stale generated tennis context");
 assert(localSteps.some(step => step[0] === "scripts/validate-tennis-catalogue.js"), "every canonical update must enforce independent ATP/WTA publication freshness, Australian coverage, froth rules, and Toronto regression coverage");
-assert(localSteps.some(step => step[0] === "scripts/refresh-football-directory.js" && step.includes("--prune-removed")), "every canonical update must prune removed competitions through the football directory pipeline");
-assert(localSteps.some(step => step[0] === "scripts/refresh-football-directory.js" && step.includes("--check")), "every canonical update must fail closed when the five-league football snapshot is incomplete");
+assert(localSteps.some(step => step[0] === "scripts/refresh-football-directory.js" && step.includes("--prune-removed")), "retained Follow rebuilds must keep the source-free Football compatibility route");
+assert(localSteps.some(step => step[0] === "scripts/refresh-football-directory.js" && step.includes("--check")), "every canonical update must fail closed when the six-league football snapshot is incomplete");
 assert(localSteps.some(step => step[0] === "scripts/validate-football-directory.js"), "every canonical update must validate football clubs, players, follows, flags, session state, and lazy fixtures");
 assert(localSteps.some(step => step[0] === "scripts/build-team-player-directories.js" && step.includes("--check")), "every canonical update must reject stale NRL and AFL directory snapshots");
 assert(localSteps.some(step => step[0] === "scripts/validate-team-player-directories.js"), "every canonical update must validate NRL and AFL club coverage, player follow expansion, source URLs and lazy loading");
@@ -198,7 +332,7 @@ assert(localSteps.some(step => step[0] === "scripts/validate-preference-taxonomy
 assert(localSteps.some(step => step[0] === "scripts/validate-preference-system.js"), "every canonical update must validate legacy Must Watch preference removal");
 assert(localSteps.some(step => step[0] === "scripts/validate-feed-controls.js"), "every canonical update must enforce feed intent, discovery mix, availability and negative suppression");
 assert(localSteps.some(step => step[0] === "scripts/validate-loading-progress.js"), "every canonical update must validate dynamic startup and in-session progress timing");
-assert(localSteps.some(step => step[0] === "scripts/validate-fixtures-contract.js"), "every canonical update must validate chronology, equal cards, Events links and the five-league catalogue");
+assert(localSteps.some(step => step[0] === "scripts/validate-fixtures-contract.js"), "every canonical update must validate chronology, equal cards, Events links and the six-league catalogue");
 assert(localSteps.some(step => step[0] === "scripts/validate-code-inspector-ui.js"), "every canonical update must cover every canonical code through the read-only Inspector contract");
 assert(localSteps.some(step => step[0] === "scripts/validate-events-fixture-ux.js"), "every canonical update must validate Events tabs, compact fixture density, viewport stability and retained-card button learning");
 assert(localSteps.some(step => step[0] === "scripts/validate-card-chat-viewport-release.js"), "every canonical update must enforce fixture reconciliation, stable disclosure, media compression, GIF import and durable sessions");
@@ -219,6 +353,13 @@ assert(
   localSteps.findIndex(step => step[0] === "scripts/scan-broadcaster-coverage.js" && !step.includes("--check"))
     > localSteps.findIndex(step => step[0] === "scripts/publish-feed.js"),
   "the next editorial report must compare broadcaster inputs against the fully published catalogue"
+);
+assert(
+  localSteps.findIndex(step => step[0] === "scripts/sync-finals-code-phase.js" && !step.includes("--check"))
+    > localSteps.findIndex(step => step[0] === "scripts/publish-feed.js")
+    && localSteps.findIndex(step => step[0] === "scripts/sync-finals-code-phase.js" && step.includes("--check"))
+      < localSteps.findIndex(step => step[0] === "scripts/build-code-inspector.js"),
+  "AFL/NRL finals Code-phase fixtures must inherit published schedule and editorial before Inspector rebuild"
 );
 assert(localSteps.some(step => step[0] === "scripts/build-canonical-context-bundle.js" && step.length === 1), "every canonical update must rebuild the direct-file context transport from authoritative JSON");
 assert(localSteps.some(step => step[0] === "scripts/build-canonical-context-bundle.js" && step[1] === "--check"), "every canonical update must reject a stale direct-file context transport");
@@ -259,7 +400,19 @@ const releaseScript = fs.readFileSync(path.join(projectRoot, "scripts/redeploy-a
 const snapshotScript = fs.readFileSync(path.join(projectRoot, "scripts/deploy-current-commit.sh"), "utf8");
 const vercelConfig = JSON.parse(fs.readFileSync(path.join(projectRoot, "vercel.json"), "utf8"));
 const updaterSource = fs.readFileSync(path.join(projectRoot, "scripts/update-cards.js"), "utf8");
-const quickEnvironment = { ...process.env };
+// Exercise the actual release allowlist against every generated quick-refresh
+// surface, including runtime standings and secondary projection manifests.
+const releaseOutputs = [...releaseScript.match(/CARD_OUTPUT_FILES=\(([\s\S]*?)\n\)/)[1].matchAll(/"([^"]+)"/g)].map(match=>match[1]);
+for(const file of ['assets/js/app-shell-runtime.js','data/chat-fixtures.v1.json','data/coverage/schedule-feed-audit.json','data/providers/openligadb/football-2026-27.json']){
+  assert(releaseOutputs.some(output=>file===output||file.startsWith(output+'/')),`${file} must travel with refreshed canonical data`);
+}
+assert(releaseScript.indexOf('node scripts/build-app-shell-runtime.js --check') < releaseScript.indexOf('git commit --only -m "$RELEASE_COMMIT_MESSAGE" -- "${CARD_OUTPUT_FILES[@]}"',releaseScript.indexOf('INITIAL_HEAD=')),'stale generated runtime must fail before the release commit');
+// This is an offline pipeline/privacy regression, not a current-results refresh.
+// Editorial publication can advance publishedAt without refreshing sporting facts.
+// Freeze elapsed-time demand here; confirmed completions still require all result
+// fields and provenance regardless of the clock. Exercise real elapsed-time
+// rejection separately below. Production verification keeps its real clock.
+const quickEnvironment = { ...process.env, RESULT_CHECK_NOW:"1970-01-01T00:00:00Z" };
 for (const name of [
   "SUPABASE_URL",
   "SUPABASE_SECRET_KEY",
@@ -268,44 +421,56 @@ for (const name of [
   "FOLLOW_SNAPSHOT_PRELOADED_PATH",
   "FOLLOW_SNAPSHOT_PRELOADED_KEY",
 ]) delete quickEnvironment[name];
-// Run the real entrypoint against an isolated working snapshot. The release gate
-// must always check data/events.json; test fixtures cannot redirect that gate.
-fs.mkdirSync(path.join(projectRoot, "tmp"), { recursive:true });
-const quickFixtureDirectory = fs.mkdtempSync(path.join(projectRoot, "tmp/nothingsport-quick-results-"));
-try {
-  for (const directory of ["scripts", "config", "lib", "data", "feeds"]){
-    fs.cpSync(path.join(projectRoot, directory), path.join(quickFixtureDirectory, directory), { recursive:true, mode:fs.constants.COPYFILE_FICLONE });
-  }
-  const writeFixture = (file, value) => fs.writeFileSync(path.join(quickFixtureDirectory, file), `${JSON.stringify(value)}\n`);
-  const checkedAt = "2026-09-01T00:00:00.000Z";
-  writeFixture("data/canonical/current-card-evidence-2026.json", {checkedAt, fixtureOverrides:[], resultOverrides:[], broadcastOverrides:[]});
-  writeFixture("data/canonical/official-card-results-2026.json", {checkedAt, feedVersion:"quick-results-test", results:[]});
-  writeFixture("data/canonical/afl-nrl-2026.json", {events:[]});
-  writeFixture("data/follow-sources/coverage.v1.json", {events:[]});
-  writeFixture("feeds/incoming/events.json", {version:"quick-results-test", publishedAt:checkedAt, events:[]});
-  writeFixture("data/major-events.v1.json", {events:[]});
-  const quickFixturePath = path.join(quickFixtureDirectory, "data/events.json");
-  fs.writeFileSync(quickFixturePath, `${JSON.stringify({ events:[{
-    id:"fixture:quick-results:self-test", name:"Quick results self-test", status:"upcoming", startTimeUtc:"2099-01-01T00:00:00.000Z",
-  }] })}\n`);
-  const runQuick = () => spawnSync(process.execPath, ["scripts/update-cards.js", "--quick", "--offline", "--local-only"], {
-    cwd:quickFixtureDirectory,
+// Exercise the real quick pipeline in isolation: its offline result projection writes
+// generated feeds and must never overwrite the full-refresh artifacts being validated.
+const quickFixtureRoot=fs.mkdtempSync(path.join(os.tmpdir(),'nothingsport-quick-qa-'));
+let quickResult;
+try{
+  for(const directory of ['scripts','config','lib','api','data','feeds','schemas','assets','supabase/migrations'])fs.cpSync(path.join(projectRoot,directory),path.join(quickFixtureRoot,directory),{recursive:true});
+  for(const file of ['package.json','index.html','service-worker.js','app-version.json','vercel.json'])fs.copyFileSync(path.join(projectRoot,file),path.join(quickFixtureRoot,file));
+  const requiredWorkflow='.github/workflows/sportscal-production.yml';
+  fs.mkdirSync(path.join(quickFixtureRoot,path.dirname(requiredWorkflow)),{recursive:true});
+  fs.copyFileSync(path.join(projectRoot,requiredWorkflow),path.join(quickFixtureRoot,requiredWorkflow));
+  assert(fs.readFileSync(path.join(quickFixtureRoot,requiredWorkflow)).equals(fs.readFileSync(path.join(projectRoot,requiredWorkflow))),'isolated quick QA must retain the exact required production workflow contract');
+  fs.symlinkSync(path.join(projectRoot,'node_modules'),path.join(quickFixtureRoot,'node_modules'),'dir');
+  quickResult = spawnSync(process.execPath, ["scripts/update-cards.js", "--quick", "--offline", "--local-only"], {
+    cwd:quickFixtureRoot,
     env:quickEnvironment,
     encoding:"utf8",
   });
-  const quickResult = runQuick();
-  assert.equal(quickResult.status, 0, `quick score updates must not require Supabase or active-follow data:\n${quickResult.stderr}`);
-  assert.doesNotMatch(quickResult.stdout, /snapshot-active-follows/, "quick score updates must not access active-follow preferences");
-  assert.match(quickResult.stdout, /Result completeness passed/);
-  const incomplete = `${JSON.stringify({ events:[{id:"fixture:missing-result", status:"completed", name:"Missing result"}] })}\n`;
-  fs.writeFileSync(quickFixturePath, incomplete);
-  const rejected = runQuick();
-  assert.notEqual(rejected.status, 0, "quick updates must reject a due card without a result");
-  assert.match(rejected.stderr, /Result completeness failed for 1 due card/);
-  assert.equal(fs.readFileSync(quickFixturePath, "utf8"), incomplete, "a rejected quick update must preserve the original feed");
-} finally {
-  fs.rmSync(quickFixtureDirectory, { recursive:true, force:true });
-}
+  assert.equal(quickResult.status, 0, `isolated quick pipeline must retain the real history guard and its schema dependencies:\n${quickResult.stderr}`);
+  // Keep the actual verifier intact: a fixture without a result passes before
+  // its deadline, fails at the deadline, and fails as confirmed completed even
+  // with the isolated clock. Only this disposable fixture is synthetic.
+  const deadlinePath=path.join(quickFixtureRoot,'offline-deadline-regression.json');
+  const deadlineEvent={id:'quick-offline-overdue',key:'nbl',name:'Home v Away',status:'upcoming',date:'2000-01-01',time:'12:00',startTimeUtc:'2000-01-01T01:00:00Z',liveWindow:3};
+  const checkDeadline=(event,now)=>{
+    fs.writeFileSync(deadlinePath,JSON.stringify({events:[event]}));
+    return spawnSync(process.execPath,['scripts/verify-result-completeness.js',deadlinePath],{cwd:quickFixtureRoot,env:{...quickEnvironment,RESULT_CHECK_NOW:now},encoding:'utf8'});
+  };
+  assert.equal(checkDeadline(deadlineEvent,'2000-01-01T03:59:59Z').status,0,'offline regression retains the before-deadline boundary');
+  const overdue=checkDeadline(deadlineEvent,'2000-01-01T04:00:00Z');
+  assert.equal(overdue.status,1,'the real verifier rejects missing overdue results');
+  assert.match(overdue.stdout,/quick-offline-overdue/,'the rejected fixture is identified');
+  assert.equal(checkDeadline({...deadlineEvent,status:'completed'},quickEnvironment.RESULT_CHECK_NOW).status,1,'confirmed completion cannot evade completeness using the isolated clock');
+  // Fail after runtime generation. Neither the new standings runtime nor its
+  // source data may escape a rejected atomic refresh.
+  const runtimePath=path.join(quickFixtureRoot,'assets/js/app-shell-runtime.js');
+  fs.appendFileSync(runtimePath,'\n// Prior published runtime bytes for rollback regression.\n');
+  const oldRuntime=fs.readFileSync(runtimePath);
+  const canonicalPath=path.join(quickFixtureRoot,'data/canonical/afl-nrl-2026.json');
+  const oldCanonical=fs.readFileSync(canonicalPath);
+  fs.writeFileSync(path.join(quickFixtureRoot,'scripts/verify-result-completeness.js'),"console.error('Injected final completeness failure');process.exit(1);\n");
+  const rejected=spawnSync(process.execPath,['scripts/update-cards.js','--quick','--offline','--rebuild','--local-only'],{cwd:quickFixtureRoot,env:quickEnvironment,encoding:'utf8'});
+  assert.notEqual(rejected.status,0);
+  assert.match(rejected.stdout,/App shell runtime:/,'test must reach runtime generation before failure: '+rejected.stderr);
+  assert.match(rejected.stderr,/Injected final completeness failure/);
+  assert(fs.readFileSync(runtimePath).equals(oldRuntime),'failed refresh must restore the runtime');
+  assert(fs.readFileSync(canonicalPath).equals(oldCanonical),'failed refresh must restore canonical data');
+}finally{fs.rmSync(quickFixtureRoot,{recursive:true,force:true});}
+assert.equal(quickResult.status, 0, `quick score updates must not require Supabase or active-follow data:\n${quickResult.stderr}`);
+assert.doesNotMatch(quickResult.stdout, /snapshot-active-follows/, "quick score updates must not access active-follow preferences");
+assert.match(quickResult.stdout, /Result completeness passed/, "quick score updates must fail closed when any due card still lacks a result");
 assert.match(updaterSource, /crypto\.randomBytes\(32\)\.toString\("base64"\)/, "follow snapshots must use an ephemeral 256-bit encryption key");
 assert.match(updaterSource, /fs\.chmodSync\(snapshotDirectory, 0o700\)/, "the temporary snapshot directory must be owner-only");
 assert.match(updaterSource, /finally[^]*fs\.rmSync\(snapshotDirectory, \{ recursive:true, force:true \}\)/, "the snapshot must be deleted even after a failed update step");
@@ -323,11 +488,11 @@ assert.match(wrapperScript, /REMOTE_META_HASH.*LOCAL_META_HASH_AFTER/s, "the rel
 assert.match(wrapperScript, /REMOTE_SERVICE_WORKER_HASH.*LOCAL_SERVICE_WORKER_HASH_AFTER/s, "the release wrapper must compare the live service worker with the immutable local snapshot");
 assert.match(wrapperScript, /RELEASE_CONTENT_MATCH="NO"/, "a live-content mismatch must fail closed");
 assert.match(tournamentCheckScript, /NODE_BIN="\$\{NODE_BIN:-node\}"/, "the separate tournament job must honour the approved Node runtime override");
-assert.match(tournamentCheckScript, /PROBE_JSON="\$\("\$NODE_BIN" scripts\/refresh-cincinnati-tournament\.js --probe\)"/, "the tournament probe must run through NODE_BIN");
-assert.match(tournamentCheckScript, /refresh-cincinnati-tournament\.js --probe/, "the separate tournament job must probe the official source without mutating output");
+assert.match(tournamentCheckScript, /PROBE_JSON="\$\("\$NODE_BIN" scripts\/refresh-tournament-hydration\.js --probe\)"/, "the tournament probe must run through NODE_BIN");
+assert.match(tournamentCheckScript, /refresh-tournament-hydration\.js --probe/, "the separate tournament job must probe the official source without mutating output");
 assert.match(tournamentCheckScript, /scripts\/update-sportscal-cards-and-release\.sh/, "a changed active tournament must enter the canonical update and immutable release path");
 assert.match(tournamentCheckScript, /No supported tournament is active/, "an inactive tournament check must be an explicit no-op");
-assert.match(tournamentCheckScript, /output is unchanged/, "an unchanged tournament check must be an explicit no-op");
+assert.match(wrapperScript, /no content changes.*no deployment required/i, "an unchanged tournament refresh must be an explicit no-op in its canonical wrapper");
 assert.match(wrapperScript, /local_head.*origin_head/s, "the scheduled wrapper must require an exact origin\/main starting commit");
 assert.doesNotMatch(releaseScript, /rsync -a/, "the release must never stage the mutable working tree");
 assert.match(releaseScript, /git config --local --get http\.https:\/\/github\.com\/\.extraheader[^]*git --git-dir="\$push_git_dir" config http\.https:\/\/github\.com\/\.extraheader/, "the isolated release push must inherit the checkout-scoped GitHub Actions credential without logging or persisting it");
@@ -399,12 +564,12 @@ const inactiveTournamentGate = runTournamentGate('{"status":"inactive","changed"
 assert.equal(inactiveTournamentGate.result.status, 0, inactiveTournamentGate.result.stderr);
 assert.match(inactiveTournamentGate.result.stdout, /No supported tournament is active/);
 assert.equal(inactiveTournamentGate.releaseMessage, null, "inactive tournament checks must not call the release wrapper");
-assert.equal(inactiveTournamentGate.nodeArgs, "scripts/refresh-cincinnati-tournament.js --probe", "the gate must use NODE_BIN for only the read-only probe");
+assert.equal(inactiveTournamentGate.nodeArgs, "scripts/refresh-tournament-hydration.js --probe", "the gate must use NODE_BIN for only the read-only probe");
 
 const unchangedTournamentGate = runTournamentGate('{"status":"success","changed":false}');
 assert.equal(unchangedTournamentGate.result.status, 0, unchangedTournamentGate.result.stderr);
-assert.match(unchangedTournamentGate.result.stdout, /output is unchanged/);
-assert.equal(unchangedTournamentGate.releaseMessage, null, "unchanged tournament checks must not call the release wrapper");
+assert.equal(unchangedTournamentGate.releaseMessage, "Refresh active tournament schedule");
+assert(unchangedTournamentGate.releaseMessage, "active tournament probes delegate change detection to the canonical wrapper");
 
 const changedTournamentGate = runTournamentGate('{"status":"success","changed":true}');
 assert.equal(changedTournamentGate.result.status, 0, changedTournamentGate.result.stderr);

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "venue-assets.v1",
+  "assets": [
+    {
+      "id": "wsl-wave",
+      "path": "assets/identities/wsl/wave-white.svg",
+      "sourceUrl": "https://www.flaticon.com/free-icon/wave_12863984",
+      "author": "manshagraphics",
+      "license": "Flaticon License (attribution required)",
+      "licenseUrl": "https://www.flaticon.com/media/license/license.pdf",
+      "sourceSha256": "eb0c5e2cb73c2b6ba96916f22cacd7c07923cbead6106ec2c9f66a9038a7a806",
+      "modifications": "Alpha silhouette traced as three SVG paths using VTracer 0.6.12; cropped transparent viewBox; white monochrome; preserved holes and proportions.",
+      "mappingStatus": "sport-fallback",
+      "sha256": "792fc43c05e38b54e05861cf28919b4873e7624c90e4a2c31fe1d66abf29c640"
+    },
+    {
+      "id": "wsl-brand",
+      "path": "assets/identities/wsl/brand.png",
+      "sourceUrl": "https://d3qf8nvav5av0u.cloudfront.net/cache/img/wsl-logo-wordmark_1790364319.png",
+      "author": "World Surf League",
+      "license": "Original rights retained; editorial identification; no open licence asserted",
+      "sourceSha256": "5a1751d4a78929e829b34249a5b5bd9af8a096e7de0b40a1587c7e70c7be6891",
+      "modifications": "Only fully transparent outer margins cropped; complete wave circle and WSL lettering retained without recolouring.",
+      "mappingStatus": "brand",
+      "sha256": "84376096ee0cd73d4eb289861061e050eed4ce92aab4c601d1de0b3410258e61"
+    }
+  ]
+}

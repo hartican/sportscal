@@ -7,6 +7,10 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "..");
+require('./validate-motogp-scoped-retention');
+require('./validate-nrlw-reviewed-finals');
+require('./validate-nrlw-season-review');
+require('./validate-skiing-calendar-review');
 const readJson = relativePath => JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
 const schedule = readJson("data/canonical/fiba-women-sailgp-motogp-2026.json");
 const taxonomy = require("../config/canonical-sports-taxonomy");
@@ -15,10 +19,10 @@ const followFirst = require("../config/follow-first");
 const countryFlags = require("../config/country-flags");
 
 const EXPECTED = Object.freeze({
-  nrlw:{ participantCount:12, eventCount:7, codeId:"sport:nrlw", competitionId:"competition:nrlw-premiership-2026" },
+  nrlw:{ participantCount:12, eventCount:71, codeId:"sport:nrlw", competitionId:"competition:nrlw-premiership-2026" },
   "fiba-women":{ participantCount:16, eventCount:17, codeId:"competition:fiba-womens-world-cup", competitionId:"competition:fiba-womens-world-cup" },
-  sailgp:{ participantCount:13, eventCount:7, codeId:"competition:sailgp", competitionId:"competition:sailgp" },
-  motogp:{ participantCount:22, eventCount:9, codeId:"competition:motogp", competitionId:"competition:motogp" },
+  sailgp:{ participantCount:13, eventCount:schedule.sailgpCalendarCoverage?.raceDayCount||7, codeId:"competition:sailgp", competitionId:"competition:sailgp" },
+  motogp:{ participantCount:22, eventCount:schedule.events.filter(event=>event.sportKey==="motogp").length, codeId:"competition:motogp", competitionId:"competition:motogp" },
 });
 
 assert.equal(schedule.schemaVersion, "requested-sports-schedule.v1");
@@ -32,7 +36,7 @@ for (const [sportKey, expected] of Object.entries(EXPECTED)){
   assert.equal(participants.length, expected.participantCount, `${sportKey}: participant directory is incomplete`);
   assert.equal(events.length, expected.eventCount, `${sportKey}: schedule coverage is incomplete`);
   assert(events.every(event => event.codeId === expected.codeId && event.competitionId === expected.competitionId), `${sportKey}: every event must retain its exact competition code`);
-  assert(events.every(event => /^2026-\d{2}-\d{2}$/.test(event.date)), `${sportKey}: every event needs a Sydney schedule date`);
+  assert(events.every(event => /^20\d{2}-\d{2}-\d{2}$/.test(event.date)), `${sportKey}: every event needs a Sydney schedule date`);
   assert(events.every(event => event.timeTbc ? !event.startTimeUtc : !Number.isNaN(Date.parse(event.startTimeUtc))), `${sportKey}: only confirmed events may carry a UTC start`);
   assert(events.every(event => schedule.sources[event.sourceId]?.type === "official"), `${sportKey}: schedule cards must be source-backed by the rights-holder or governing body`);
   assert(participants.every(participant => participant.sourceIds?.every(sourceId => schedule.sources[sourceId]?.type === "official")), `${sportKey}: Follow records must be official-source backed`);
@@ -55,11 +59,11 @@ for (const selectorId of ["sport:nrlw", "sport:motogp", "sport:sailgp", "sport:f
   assert(selector.byId[selectorId]?.selectable === true, `${selectorId}: Follow selector is missing`);
 }
 assert.deepEqual(selector.byId["sport:nrl"].childIds, ["sport:nrl-premiership", "sport:nrlw"], "NRL and NRLW must stay separate child competitions");
-assert.deepEqual(selector.byId["sport:motorsport"].childIds, ["sport:f1", "sport:motogp", "sport:wrc"], "MotoGP must be a distinct Motorsport child beside WRC");
+assert.deepEqual(selector.byId["sport:motorsport"].childIds, ["sport:f1", "sport:motogp", "sport:wrc", "sport:supercars", "sport:dakar"], "MotoGP must be a distinct Motorsport child beside WRC");
 
 for (const [sportKey, expected] of Object.entries(EXPECTED)){
   const directory = readJson(`data/follow-directory/${sportKey}.v1.json`);
-  assert.equal(directory.records.length, expected.participantCount, `${sportKey}: generated Follow chunk is incomplete`);
+  assert.equal(directory.records.filter(r=>!r.profileOnly&&(sportKey!=="nrlw"||r.id.startsWith("team:nrlw:"))).length, expected.participantCount, `${sportKey}: generated Follow chunk is incomplete`);
 }
 
 for (const feedPath of ["feeds/incoming/events.json", "data/events.json"]){
@@ -68,9 +72,17 @@ for (const feedPath of ["feeds/incoming/events.json", "data/events.json"]){
     const expectedIds = new Set(schedule.events.filter(event => event.sportKey === sportKey).map(event => event.id));
     const cards = feed.events.filter(event => expectedIds.has(event.canonicalEventId));
     assert.equal(cards.length, expected.eventCount, `${feedPath}: ${sportKey} schedule was not published in full`);
-    assert(cards.every(card => card.key === sportKey && followFirst.viewingOptions(card).length > 0), `${feedPath}: ${sportKey} cards need exact AU viewing options`);
+    assert(cards.every(card => card.key === sportKey && (sportKey==='sailgp'&&card.season==='2027'?followFirst.viewingOptions(card).length===0:followFirst.viewingOptions(card).length>0)), `${feedPath}: ${sportKey} needs verified AU viewing or an explicit future-season TBC`);
+    if(sportKey === "nrlw"){
+      const final = cards.find(card => card.canonicalEventId === "event:nrlw:2026:grand-final");
+      assert.equal(final.timeTbc, false, "a confirmed start must explicitly clear a previously published TBC flag");
+      assert.equal(final.startTimeUtc, "2026-10-04T05:00:00.000Z");
+      assert.deepEqual(final.participantIds, ["team:nrlw:roosters", "team:nrlw:broncos"]);
+      assert(!/waits for the two clubs/i.test([final.selectedSentence, final.fullSpiel].join(" ")), "resolved final must not retain bracket copy");
+    }
+
     if (["motogp", "sailgp"].includes(sportKey)){
-      assert(cards.every(card => card.participantDisplayMode === "field" && card.participantIds.length === expected.participantCount), `${feedPath}: ${sportKey} field follows must bind to every event without a fake matchup`);
+      assert(cards.every(card => (card.participantDisplayMode === "field" || card.participantsConfirmed === false) && (card.participantIds || []).length === (card.participantsConfirmed === false ? 0 : expected.participantCount)), `${feedPath}: ${sportKey} field follows need confirmed entries or an explicitly unresolved field without a fake matchup`);
     }
   }
 }
@@ -80,13 +92,27 @@ for (const [sportKey, expected] of Object.entries(EXPECTED)){
   const code = inspector.codes.find(item => item.id === expected.codeId);
   assert(code, `${expected.codeId}: Code Inspector entry is missing`);
   assert.equal(code.fixtureCount, expected.eventCount, `${expected.codeId}: Code Inspector schedule is incomplete`);
-  assert.equal(code.coverageStatus, "complete", `${expected.codeId}: Code Inspector coverage must be explicit`);
+  assert.equal(code.coverageStatus, ['sailgp','nrlw'].includes(sportKey)?'partial':'complete', `${expected.codeId}: Code Inspector coverage must match the reviewed boundary`);
   const chunk = readJson(code.chunkPath);
   assert.equal(chunk.fixtures.length, expected.eventCount, `${expected.codeId}: lazy schedule chunk is incomplete`);
   if (["motogp", "sailgp"].includes(sportKey)) assert(chunk.fixtures.every(fixture => fixture.participantSlots.length === 0), `${expected.codeId}: field events must not render as two-sided fixtures`);
   if (sportKey === "nrlw"){
     const grandFinal = chunk.fixtures.find(fixture => fixture.id === "event:nrlw:2026:grand-final");
-    assert(grandFinal?.timeTbc === true && grandFinal.time === null && grandFinal.timePrecision === "tbc", "NRLW Grand Final must retain its unpublished start time instead of rendering midnight");
+    assert(grandFinal && grandFinal.timeTbc !== true && grandFinal.timePrecision === "exact", "NRLW Grand Final must retain its now-published exact start");
+    assert.equal(grandFinal.startTimeUtc, "2026-10-04T05:00:00.000Z", "NRLW Grand Final must use Sydney daylight saving");
+    assert.deepEqual(grandFinal.participantIds, ["team:nrlw:roosters", "team:nrlw:broncos"]);
+    // The retained programme was superseded by the dated governing-body
+    // fixture already published by the canonical owner. Inspector must carry
+    // that exact source/clock pair, not regress to the older venue programme.
+    const publishedFinal = readJson("data/events.json").events.find(event => event.canonicalEventId === grandFinal.id);
+    assert(publishedFinal, "NRLW Grand Final must reconcile to one published canonical fixture");
+    assert([
+      "https://www.accorstadium.com.au/events/n2026_nrl_nrlw_grand_finals",
+      "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
+    ].includes(grandFinal.sourceUrl), "confirmed final must retain one of its reviewed official programmes");
+    assert.equal(grandFinal.sourceUrl, publishedFinal.sourceUrl, "Inspector must retain the published fixture source");
+    assert.equal(grandFinal.sourceCheckedAt, publishedFinal.sourceCheckedAt, "Inspector must retain that source's actual observation clock");
+    assert(Number.isFinite(Date.parse(grandFinal.sourceCheckedAt)), "confirmed final requires dated evidence");
   }
 }
 

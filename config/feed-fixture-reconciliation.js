@@ -104,8 +104,19 @@
     return semantic ? indexes.bySemantic.get(semantic) || null : null;
   }
 
+  function repairPinnedEditorial(saved){
+    const records=globalThis.NOTHINGSPORTS_PINNED_FIXTURE_EDITORIAL || {};
+    const entry=identityAliases(saved).map(id=>Object.hasOwn(records,id)?records[id]:null).find(Boolean);
+    if(!entry || !entry.fixtureKey || entry.fixtureKey!==semanticFixtureKey(saved) || (["scheduled","upcoming"].includes(entry.status)?"scheduled":entry.status)!==(["scheduled","upcoming"].includes(saved.status)?"scheduled":saved.status))return saved;
+    const current=entry.editorialNarrative,previous=saved.editorialNarrative;
+    const reviewed=Date.parse(current?.researchedAt||""),prior=Date.parse(previous?.researchedAt||"");
+    if(!Number.isFinite(reviewed) || reviewed>Date.now() || Number.isFinite(prior)&&prior<=Date.now()&&prior>reviewed)return saved;
+    if(JSON.stringify(previous)===JSON.stringify(current))return saved;
+    return {...saved,editorialNarrative:current};
+  }
+
   function repairSavedFixture(savedFixture, canonicalFixtures){
-    const fixture = canonicalFixtureFor(savedFixture, canonicalFixtures) || savedFixture;
+    const fixture = canonicalFixtureFor(savedFixture, canonicalFixtures) || repairPinnedEditorial(savedFixture);
     return {
       fixture,
       aliases:Array.from(new Set(identityAliases(savedFixture).filter(alias => !identityAliases(fixture).includes(alias)))),

@@ -53,7 +53,13 @@ const aflFixtures = index.getFixtures({ competitionId: aflCompetitionId });
 const aflwFixtures = index.getFixtures({ competitionId: aflwCompetitionId });
 const nrlFixtures = index.getFixtures({ competitionId: nrlCompetitionId });
 assert(aflFixtures.length >= 207, "the full AFL home-and-away fixture plus any published finals must ingest");
-assert.equal(aflwFixtures.length, 108, "all currently published 12 rounds and 108 AFLW fixtures must ingest");
+const aflwRegular = aflwFixtures.filter(event => /^Round \d+$/.test(event.roundLabel));
+assert.equal(aflwRegular.length,108,"all 12 regular-season AFLW rounds must ingest");
+for(let round=1;round<=12;round++)assert.equal(aflwRegular.filter(event=>event.roundLabel===`Round ${round}`).length,9,`AFLW Round ${round} must contain nine fixtures`);
+const finalsCapacity={'Qualifying & Elimination Finals':4,'Semi Finals':2,'Preliminary Finals':2,'Grand Final':1};
+const aflwFinals=aflwFixtures.filter(event=>!aflwRegular.includes(event));
+for(const event of aflwFinals)assert(finalsCapacity[event.roundLabel] && event.source?.provider==='AFLW',"additional AFLW fixtures must be official finals");
+for(const [label,maximum]of Object.entries(finalsCapacity))assert(aflwFinals.filter(event=>event.roundLabel===label).length<=maximum,`AFLW ${label} must not duplicate finals`);
 assert(nrlFixtures.length >= 204, "the full NRL premiership fixture plus any published finals must ingest");
 assert(bundle.participants.filter(item => item.sportDomainId === "sport:afl").length >= 18, "all 18 AFL ladder teams plus any additional published participants must ingest");
 assert(bundle.participants.filter(item => item.sportDomainId === "sport:nrl").length >= 17, "all 17 NRL ladder teams plus any additional published participants must ingest");
@@ -141,16 +147,10 @@ const supplementalPayload = {
     ] }],
   }],
 };
-const correctedMatches = applyOfficialNrlResultCorrections([{
-  matchId: 129991007,
-  roundNumber: 10,
-  matchStatus: "complete",
-  utcStartTime: "2026-05-10T04:00:00Z",
-  homeSquadNickname: "Storm",
-  awaySquadNickname: "Wests Tigers",
-  homeSquadScore: 44,
-  awaySquadScore: 18,
-}], "2026-08-02T08:00:00.000Z");
+const correctionFixture = require('./fixtures/retained-nrl-correction-clock-20261022.json');
+const correctedMatches = applyOfficialNrlResultCorrections([correctionFixture.match], correctionFixture.observedSourceOperation, {previousEvents:[correctionFixture.prior]});
+require('./validate-retained-nrl-correction-clock')();
+require('./validate-retained-canonical-metadata')(require('./fixtures/retained-canonical-metadata-20261023.json'));
 assert.equal(correctedMatches.matches[0].homeSquadScore, 44);
 assert.equal(correctedMatches.matches[0].awaySquadScore, 16);
 assert.equal(correctedMatches.matches[0].resultSource.provider, "NRL");
@@ -206,5 +206,6 @@ assert.strictEqual(
   "a genuinely newer completed round must be accepted even when the provider timestamp is unusual"
 );
 
+require('./validate-aflw-final-date');
 console.log(`Canonical sports valid: ${aflFixtures.length} AFL fixtures, ${aflwFixtures.length} AFLW fixtures, ${nrlFixtures.length} NRL fixtures.`);
 console.log(`Queryable ladders: AFL ${aflLadder.entries.length} teams; AFLW ${aflwLadder.entries.length} teams; NRL ${nrlLadder.entries.length} teams.`);

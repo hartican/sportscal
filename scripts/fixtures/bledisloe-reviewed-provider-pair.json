@@ -1,0 +1,341 @@
+{
+  "curated": {
+    "id": "rugby-australia-new-zealand-2026-10-17",
+    "eventId": "rugby-australia-new-zealand-2026-10-17",
+    "sport": "Rugby Union",
+    "key": "rugby",
+    "name": "Australia v New Zealand",
+    "displayTitleCompact": "Australia v New Zealand",
+    "date": "2026-10-17",
+    "time": "15:45",
+    "startTimeUtc": "2026-10-17T04:45:00.000Z",
+    "broadcaster": "Nine / 9Now / Stan Sport",
+    "broadcastOptions": [],
+    "expected": 10,
+    "venue": "Accor Stadium, Sydney",
+    "liveWindow": 3,
+    "round": "all",
+    "narrativeType": "test",
+    "selectedSentence": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
+    "fullSpiel": "The second Bledisloe Test follows Eden Park by seven days, so its immediate cup stakes cannot be named in advance. New Zealand's long hold and the same-ground 2027 World Cup meeting give Sydney a persistent rivalry chapter beyond a provisional decider label.",
+    "sourceName": "Rugby Australia — 2026 Wallabies Test schedule",
+    "sourceUrl": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
+    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "status": "upcoming",
+    "participants": [
+      {
+        "name": "Wallabies",
+        "role": "home",
+        "id": ""
+      },
+      {
+        "name": "New Zealand",
+        "role": "away",
+        "id": ""
+      }
+    ],
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "arcStage": "preview",
+      "expectedSpectacle": 10,
+      "hookSpoilerOff": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
+      "hookSpoilerOn": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
+      "synopsisSpoilerOff": "The second Bledisloe Test follows Eden Park by seven days, so its immediate cup stakes cannot be named in advance. New Zealand's long hold and the same-ground 2027 World Cup meeting give Sydney a persistent rivalry chapter beyond a provisional decider label.",
+      "synopsisSpoilerOn": "The second Bledisloe Test follows Eden Park by seven days, so its immediate cup stakes cannot be named in advance. New Zealand's long hold and the same-ground 2027 World Cup meeting give Sydney a persistent rivalry chapter beyond a provisional decider label.",
+      "intensitySource": "computed",
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z",
+      "researchDepth": 5
+    },
+    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Sydney depends on Auckland",
+      "contextSignals": [
+        "event-specific",
+        "narrative:path",
+        "narrative:consequence",
+        "narrative:history"
+      ],
+      "sourceName": "Rugby Australia — 2026 Wallabies Test schedule",
+      "sourceUrl": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+      "needsPreviewRefresh": false
+    },
+    "sourceTrust": "unverified",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "AUS"
+    ],
+    "representativeSportKey": "rugby",
+    "participantIds": [
+      "team:rugby:wallabies",
+      "team:rugby:all-blacks"
+    ],
+    "sourceType": "official",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:feed:bledisloe-sydney-2026",
+      "researchTier": "marquee",
+      "hook": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
+      "synopsis": "The second Bledisloe Test follows Eden Park by seven days, so its immediate cup stakes cannot be named in advance. New Zealand's long hold and the same-ground 2027 World Cup meeting give Sydney a persistent rivalry chapter beyond a provisional decider label.",
+      "threadIds": [
+        "thread:rugby:bledisloe:2026-two-test-series"
+      ],
+      "factIds": [
+        "fact:bledisloe-sydney:second-test",
+        "fact:bledisloe-sydney:stakes-depend-on-auckland",
+        "fact:bledisloe-sydney:nz-long-hold",
+        "fact:bledisloe-sydney:same-ground-2027"
+      ],
+      "sourceIds": [
+        "source:rugbyau:2026-wallabies-schedule",
+        "source:rugbyau:2025-bledisloe-auckland",
+        "source:rugbyau:2025-bledisloe-perth",
+        "source:rugbyau:2027-world-cup-pools"
+      ],
+      "dimensions": [
+        "path",
+        "consequence",
+        "history"
+      ],
+      "researchedAt": "2026-08-29T23:56:41.761Z",
+      "refreshAfter": "2026-10-10T12:00:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "statusCheckedAt": "2026-08-29T23:56:41.761Z",
+    "timePrecision": "exact",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [
+      {
+        "providerId": "nine-tv",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://www.9now.com.au/live",
+        "sourceUrl": "https://www.rugby.com.au/watch",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "nine",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://www.9now.com.au/live",
+        "sourceUrl": "https://www.rugby.com.au/watch",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "stan",
+        "rightsScope": "fixture",
+        "linkScope": "event",
+        "webUrl": "https://www.stan.com.au/watch/sport/rugby/bledisloe-cup",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/rugby/bledisloe-cup",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
+    "canonicalEventId": "rugby-australia-new-zealand-2026-10-17",
+    "sourceEventIds": [
+      "rugby-australia-new-zealand-2026-10-17"
+    ],
+    "consensusTags": []
+  },
+  "worldRugby": {
+    "id": "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8",
+    "sourceEventIds": [
+      "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8"
+    ],
+    "codeId": "sport:rugby-union",
+    "key": "rugby",
+    "statusCheckedAt": "2026-10-01T18:30:00.656Z",
+    "sportDomainId": "sport:rugby-union",
+    "competitionId": "competition:rugby:wr:11c5aced-2f8c-4987-8f53-85d943466447",
+    "name": "Australia v New Zealand",
+    "date": "2026-10-17",
+    "time": "16:45",
+    "timePrecision": "exact",
+    "startTimeUtc": "2026-10-17T05:45:00.000Z",
+    "competitionName": "Bledisloe Cup 2026",
+    "isSenior": true,
+    "gender": "men",
+    "discipline": "rugby-union",
+    "sourceName": "World Rugby",
+    "sourceType": "official",
+    "sourceCheckedAt": "2026-10-01T18:30:00.656Z",
+    "homeParticipantId": "team:rugby:wallabies",
+    "awayParticipantId": "team:rugby:all-blacks",
+    "consensusTags": [],
+    "venue": "Stadium Australia, Sydney | Wangal",
+    "status": "scheduled",
+    "scheduleStatus": "confirmed",
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:rugby:wallabies",
+        "label": "Wallabies",
+        "logoUrl": "assets/identities/national/rugby/wallabies.png"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:rugby:all-blacks",
+        "label": "All Blacks",
+        "logoUrl": "assets/identities/national/rugby/all-blacks.png"
+      }
+    ],
+    "participantIds": [
+      "team:rugby:wallabies",
+      "team:rugby:all-blacks"
+    ],
+    "participants": [
+      {
+        "id": "team:rugby:wallabies",
+        "name": "Australia",
+        "role": "home",
+        "teamKind": "national",
+        "sourceIds": {
+          "worldRugby": "38"
+        },
+        "countryCode": "AU",
+        "displayName": "Australia",
+        "genderCategory": "male"
+      },
+      {
+        "id": "team:rugby:all-blacks",
+        "name": "New Zealand",
+        "role": "away",
+        "teamKind": "national",
+        "sourceIds": {
+          "worldRugby": "37"
+        },
+        "countryCode": "NZ",
+        "displayName": "New Zealand",
+        "genderCategory": "male"
+      }
+    ],
+    "participantCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "detailsExpectedAt": null,
+    "schedulingWindow": null,
+    "roundNumber": null,
+    "roundLabel": null,
+    "stage": null,
+    "groupOrder": 9000,
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "expected": 0,
+    "broadcaster": "Nine / 9Now / Stan Sport",
+    "viewingOptions": [
+      {
+        "providerId": "nine-tv",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://www.9now.com.au/live",
+        "sourceUrl": "https://www.rugby.com.au/watch",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "nine",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://www.9now.com.au/live",
+        "sourceUrl": "https://www.rugby.com.au/watch",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "stan",
+        "rightsScope": "fixture",
+        "linkScope": "event",
+        "webUrl": "https://www.stan.com.au/watch/sport/rugby/bledisloe-cup",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/rugby/bledisloe-cup",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
+    "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-24&endDate=2026-12-30&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=1",
+    "ticketUrl": null,
+    "sourceCoverage": "official-canonical",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:feed:bledisloe-sydney-2026",
+      "researchTier": "marquee",
+      "hook": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
+      "synopsis": "The second Bledisloe Test follows Eden Park by seven days, so its immediate cup stakes cannot be named in advance. New Zealand's long hold and the same-ground 2027 World Cup meeting give Sydney a persistent rivalry chapter beyond a provisional decider label.",
+      "threadIds": [
+        "thread:rugby:bledisloe:2026-two-test-series"
+      ],
+      "factIds": [
+        "fact:bledisloe-sydney:second-test",
+        "fact:bledisloe-sydney:stakes-depend-on-auckland",
+        "fact:bledisloe-sydney:nz-long-hold",
+        "fact:bledisloe-sydney:same-ground-2027"
+      ],
+      "sourceIds": [
+        "source:rugbyau:2026-wallabies-schedule",
+        "source:rugbyau:2025-bledisloe-auckland",
+        "source:rugbyau:2025-bledisloe-perth",
+        "source:rugbyau:2027-world-cup-pools"
+      ],
+      "dimensions": [
+        "path",
+        "consequence",
+        "history"
+      ],
+      "researchedAt": "2026-08-29T23:56:41.761Z",
+      "refreshAfter": "2026-10-10T12:00:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Sydney depends on Auckland",
+      "contextSignals": [
+        "event-specific",
+        "narrative:path",
+        "narrative:consequence",
+        "narrative:history"
+      ],
+      "sourceName": "Rugby Australia — 2026 Wallabies Test schedule",
+      "sourceUrl": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "researchDepth": 5,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
+      "hookSpoilerOn": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
+      "synopsisSpoilerOff": "The second Bledisloe Test follows Eden Park by seven days, so its immediate cup stakes cannot be named in advance. New Zealand's long hold and the same-ground 2027 World Cup meeting give Sydney a persistent rivalry chapter beyond a provisional decider label.",
+      "synopsisSpoilerOn": "The second Bledisloe Test follows Eden Park by seven days, so its immediate cup stakes cannot be named in advance. New Zealand's long hold and the same-ground 2027 World Cup meeting give Sydney a persistent rivalry chapter beyond a provisional decider label.",
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z"
+    },
+    "broadcastOptions": [],
+    "broadcasterIds": []
+  }
+}

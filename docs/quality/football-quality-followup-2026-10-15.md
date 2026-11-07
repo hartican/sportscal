@@ -1,0 +1,11 @@
+# Football quality follow-up — 15–16 October 2026
+
+The recovered Football packet and shared phone/web speed work are live as a13f44a2 / shell 547 through [normal run 38752431962](https://github.com/hartican/sportscal/actions/runs/38752431962). Exact immutable READY, all three alias bindings and nine served artifact hashes agree. The plural domain retains its canonical redirect; the default project domain retains login protection. Both complete hosted European browser suites and both 545-to-547 installed upgrade/offline rehearsals pass. See [Football facts and limits](football-results-current-2026-10-15.md) and [performance evidence](iphone-interaction-performance-2026-10-16.md).
+
+All 288 European pairings, rounds and European dates, all 36 UCL and 18 UEL finals, and 648 current UEFA table facts agree with the independent organiser evidence. The 180 EPL facts also agree. Nine finals were recovered through the existing canonical Football owner; existing IDs, participants, kickoffs, earlier results and original observations remain. Fifteen reviewed Stan programme projections preserve their source binding without a paid-playback claim. Future full UEFA tie-break inputs, qualification, physical-phone viewing and commercial/artwork permissions remain open. Full certification stays 0/3 Football pilots and 0/18 families.
+
+Dated highlights evidence remains 40 working links among 56 saved completed fixtures. Earlier positives were not all repeated together, and the saved membership was stale. The bounded later Mandalika open still failed; no new search, replay or coverage gain was manufactured during this delivery.
+
+The narrow Match Centre loading repair remains live and passes the normal public list/selected-score acceptance. The larger personal/history reader stays off after fresh cloud speed failures. Its latest rejected two-part rehearsal was restored to the exact prior database definition; no larger deadline, narrowed fact set or retry was introduced. Further work requires a measured improvement.
+
+Receipts: `/Users/jackhartican/Documents/AI/Codex/football-quality-current-2026-10-15`, `/Users/jackhartican/Documents/AI/Codex/iphone-tap-performance-20261016`, and `/Users/jackhartican/Documents/AI/Codex/participant-reader-recovery-20261015`. No new subscription, scheduler, customer-state repair, reminder replay or owner routine.

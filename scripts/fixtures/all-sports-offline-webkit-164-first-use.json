@@ -1,0 +1,70 @@
+{
+  "source": {
+    "run": 40434629862,
+    "job": 121960276151,
+    "head": "2fba9acdbc86a8efde92dc5cea69663c120d7a8e",
+    "playwright": "1.64.1",
+    "scope": "Only raw errors/requests copied from failed CI; admission booleans are supplied separately by constructed controls, not historical measured proof"
+  },
+  "origin": "http://127.0.0.1:36305",
+  "errors": [
+    {
+      "name": "FetchEvent.respondWith received an error",
+      "message": "TypeError: Load failed",
+      "stack": "",
+      "stage": "first-use:feature",
+      "unreachable": true
+    },
+    {
+      "name": "Cannot load http",
+      "message": "/127.0.0.1:36305/assets/js/all-sports-ui.js?v=595.",
+      "stack": "",
+      "stage": "first-use:feature",
+      "unreachable": true
+    },
+    {
+      "name": "FetchEvent.respondWith received an error",
+      "message": "TypeError: Load failed",
+      "stack": "",
+      "stage": "first-use:feature",
+      "unreachable": true
+    },
+    {
+      "name": "Cannot load http",
+      "message": "/127.0.0.1:36305/assets/js/all-sports-ui.js?v=595.",
+      "stack": "",
+      "stage": "first-use:feature",
+      "unreachable": true
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/config/startup-view-cache.js?v=595",
+      "error": "Load request cancelled",
+      "stage": "first-use:installed-shell",
+      "unreachable": false
+    },
+    {
+      "method": "GET",
+      "path": "/data/code-inspector/manifest.json",
+      "error": "Load request cancelled",
+      "stage": "first-use:installed-shell",
+      "unreachable": false
+    },
+    {
+      "method": "GET",
+      "path": "/assets/js/all-sports-ui.js?v=595",
+      "error": "FetchEvent.respondWith received an error: TypeError: Load failed",
+      "stage": "first-use:feature",
+      "unreachable": true
+    },
+    {
+      "method": "GET",
+      "path": "/assets/js/all-sports-ui.js?v=595",
+      "error": "FetchEvent.respondWith received an error: TypeError: Load failed",
+      "stage": "first-use:feature",
+      "unreachable": true
+    }
+  ]
+}

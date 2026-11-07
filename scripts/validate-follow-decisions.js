@@ -6,7 +6,7 @@ const follow=require('../config/follow-first');
 const policy=require('../config/follow-feed-policy');
 const {buildServerFeed}=require('../lib/server-feed-pipeline');
 const now=new Date('2026-09-08T00:00:00Z');
-const fixture=(extra={})=>({id:'decision-fixture',eventId:'decision-fixture',key:'tennis',date:'2026-09-09',time:'19:00',name:'One v Two',participantIds:['athlete:one','athlete:two'],...extra});
+const fixture=(extra={})=>({id:'decision-fixture',eventId:'decision-fixture',key:'tennis',tournamentOpeningDate:'2026-09-08',tournamentOpeningSourceUrl:'https://example.org/opening',tournamentLevel:'Grand Slam',date:'2026-09-09',time:'19:00',name:'One v Two',participantIds:['athlete:one','athlete:two'],...extra});
 function check(event,prefs,expected,label){
  assert.equal(Boolean(follow.reasonForEvent(event,prefs)),expected,'client: '+label);
  assert.equal(buildServerFeed({events:[event],userId:'decisions',userState:{preferences:prefs},now}).events.some(e=>e.id===event.id),expected,'server: '+label);
@@ -14,26 +14,29 @@ function check(event,prefs,expected,label){
 const tennis={followedSports:['tennis']};
 check(fixture({round:'Round 1',marqueeClassification:{isMarquee:true,sourceUrls:['https://example.org']}}),tennis,false,'early marquee needs a player');
 check(fixture({round:'Round 1',participantCountryCodes:['AUS']}),{...tennis,followFirst:{australiansOnlySportIds:['sport:tennis']}},false,'Australian tennis does not bypass player follows');
-for(const round of ['Quarterfinal','QF','Semi-final','SF','Final'])check(fixture({round}),tennis,false,round);
+for(const round of ['Quarterfinal','QF','Semi-final','SF','Final'])check(fixture({round}),tennis,false,'non-followed knockout stays out of Feed: '+round);
 for(const round of ['Quarterfinal','Semi-final'])check(fixture({round,eventType:'doubles'}),tennis,false,'doubles '+round);
 check(fixture({round:'Final',eventType:'doubles'}),tennis,false,'doubles final');
-check(fixture({round:'Round 1'}),{preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}},true,'one followed player is sufficient');
+const playerFollow={preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}};
+check(fixture({round:'Round of 128'}),playerFollow,true,'one followed player admits an in-scope knockout');
+for(const [tournamentLevel,expected] of [['250',false],['500',true],[undefined,false]])check(fixture({round:'Round of 16',tournamentLevel}),playerFollow,expected,'500+ followed player Feed scope is independent of reminders');
 check(fixture({round:'Final'}),{},false,'no follows');
 for(const key of ['aflw','nrlw']){
  const parent=key.slice(0,-1),e=fixture({key,round:'Grand Final'});
  check(e,{selectedSelectorEntityIds:['sport:'+parent],followedSports:[parent,key]},false,'inherited '+key);
  check(e,{selectedSelectorEntityIds:['sport:'+key]},true,'explicit '+key);
 }
-const women=fixture({key:'cricket',gender:'women',competitionId:'competition:cricket-women-test',competitionScope:'international'});
+const women=fixture({key:'cricket',gender:'women',format:'Test',participantIds:['team:cricket:australia-women','team:cricket:england-women'],competitionId:'competition:cricket-women-test',competitionScope:'international'});
 check(women,{followedSports:['cricket']},false,'women cricket parent');
 check(women,{preferenceGraph:{competitionPreferences:[{competitionId:women.competitionId,enabled:true}]}},true,'explicit women competition');
-check(women,{preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}},true,'explicit women player');
+check(women,{preferenceGraph:{entityFollows:[{participantId:'team:cricket:australia-women',followLevel:'follow'}]}},true,'explicit women team');
 check(fixture({key:'nrl',round:'Final'}),{followedSports:['nrl']},true,'NRL final');
 check(fixture({key:'afl',round:'Final'}),{followedSports:['afl']},true,'AFL final');
-check(fixture({round:'Final'}),{...tennis,preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'mute'}]}},false,'mute');
+check(fixture({round:'Final'}),{...tennis,preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'mute'}]}},false,'broad tennis does not admit non-followed finals');
 check(fixture({round:'Final',competitionId:'competition:test'}),{...tennis,preferenceGraph:{competitionPreferences:[{competitionId:'competition:test',enabled:false}],entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}},false,'competition exclusion wins');
 const pages=fs.readdirSync('data/feed').filter(f=>/^page-.*json$/.test(f));
-const summary=pages.flatMap(f=>JSON.parse(fs.readFileSync('data/feed/'+f)).events||[]).find(e=>e.id==='evt_81');
+const summary=pages.flatMap(f=>JSON.parse(fs.readFileSync('data/feed/'+f)).events||[]).find(e=>e.id==='evt_81')
+ || JSON.parse(fs.readFileSync('data/events.json')).events.find(e=>e.id==='evt_81');
 assert(summary,'published finals-week regression fixture');
 assert.equal(policy.eligibleForFollow(summary,{competitionFollow:true}),false,'NRL Finals Week 1 summary');
 check({...summary,date:'2026-09-09'},{followedSports:['nrl']},false,'NRL summary end to end');
@@ -52,3 +55,14 @@ for(const [date,expected] of [['2026-09-01',true],['2026-08-31',false],['2027-09
 }
 assert(timeline.retainedInActiveTimeline(fixture({date:'2026-08-20',endDate:'2026-09-10'}),now),'ongoing multi-day fixture');
 assert(timeline.retainedInActiveTimeline(fixture({date:'2026-09-28'}),new Date('2026-10-04T14:00:00Z')),'seven local days across daylight saving');
+require('./validate-horse-follow');
+require('./validate-cricket-follow-admission');
+
+// The new independent choices must survive the real state sanitizer and CAS patch.
+const milestonePrefs={followFirst:{notifications:{milestones:{enabled:false,sports:{cricket:{coverage:'off',families:{centuries:false}}}}}}};
+const milestoneState=require('../lib/supabase-server').normalizeUserState({preferences:milestonePrefs,eventUserState:{'fixture:cricket:CA:39990':{milestoneAlertsMuted:true,reminderChoice:'off'}}},'11111111-1111-4111-8111-111111111111');
+assert.equal(milestoneState.preferences.followFirst.notifications.milestones.enabled,false);
+assert.equal(milestoneState.event_user_state['fixture:cricket:CA:39990'].milestoneAlertsMuted,true);
+assert.equal(milestoneState.event_user_state['fixture:cricket:CA:39990'].reminderChoice,'off');
+const milestoneSync=require('../config/user-state-sync'),before={preferences:milestonePrefs},after={preferences:{followFirst:{notifications:{milestones:{...milestonePrefs.followFirst.notifications.milestones,sports:{cricket:{coverage:'high'}}}}}}};
+assert.equal(milestoneSync.applyPatch(before,milestoneSync.createPatch(before,after)).preferences.followFirst.notifications.milestones.enabled,false,'Changing advanced coverage cannot turn the category back on');

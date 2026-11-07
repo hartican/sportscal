@@ -1,0 +1,257 @@
+{
+  "sourceSha": "3d8911fd44f31272f624d67d3f0e996bf8c3af96",
+  "sourceFile": "data/events.json",
+  "sourceFeedSha256": "53e22ad83730cabdcc25a7ec083bd95f297fecc8124641e3c11950611a326081",
+  "fixture": {
+    "id": "fixture-tennis-espn-atp-184948",
+    "eventId": "fixture-tennis-espn-atp-184948",
+    "canonicalEventId": "fixture:tennis:espn:atp:184948",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184948",
+      "fixture-tennis-espn-atp-184948"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184948",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 16",
+    "stage": "Round of 16",
+    "name": "Casper Ruud v Felix Auger Aliassime",
+    "date": "2026-10-14",
+    "time": "16:40",
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T05:40:00.000Z",
+    "timePrecision": "estimated",
+    "scheduleStatus": "provisional",
+    "timeTbc": false,
+    "scheduleNote": "Approximate start from official court order; assumes 90-minute singles matches with a 30-minute allowance and 10-minute changeovers. Manual reminders use 15 minutes before the earliest time. Adjusts with verified preceding-match progress.",
+    "status": "completed",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:casper-ruud",
+      "competitor:tennis:atp:felix-auger-aliassime"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:casper-ruud",
+        "name": "Casper Ruud",
+        "displayName": "Casper Ruud",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "NO"
+      },
+      {
+        "id": "competitor:tennis:atp:felix-auger-aliassime",
+        "name": "Felix Auger Aliassime",
+        "displayName": "Felix Auger Aliassime",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "CA"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:casper-ruud",
+    "awayParticipantId": "competitor:tennis:atp:felix-auger-aliassime",
+    "venue": "Stadium Court",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184948",
+    "sourceCheckedAt": "2026-10-15T11:32:02.000Z",
+    "statusCheckedAt": "2026-10-15T23:12:01+00:00",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184948",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184948",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013",
+      "https://www.protennislive.com/posting/2026/5014/op.pdf"
+    ],
+    "broadcaster": "beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+        "verifiedAt": "2026-10-11T05:19:19.930Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184948",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Casper Ruud v Felix Auger Aliassime",
+    "broadcastOptions": [],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.protennislive.com/posting/2026/5014/op.pdf"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "schedulePrecision": "followed-by",
+    "startTimeTbc": false,
+    "dateOnly": false,
+    "timingVerified": false,
+    "timingEvidence": {
+      "matchRow": "14 October Stadium Court row 2: Casper Ruud v Felix Auger Aliassime; Followed By",
+      "clockAssociation": "Official Followed By row; no individual clock is published.",
+      "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6"
+    },
+    "planningTimeEvidence": null,
+    "scheduleEvidence": {
+      "kind": "official-order-of-play",
+      "fixtureId": "fixture:tennis:espn:atp:184948",
+      "participantIds": [
+        "competitor:tennis:atp:casper-ruud",
+        "competitor:tennis:atp:felix-auger-aliassime"
+      ],
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "checkedAt": "2026-10-13T13:29:55.629283+00:00",
+      "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6",
+      "sourcePublishedAtLocal": "2026-10-13T13:17:30+08:00",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "roundLabel": "Round of 16",
+      "matchDateLocal": "2026-10-14",
+      "timeZone": "Asia/Shanghai",
+      "court": "Stadium Court",
+      "playOrder": 2,
+      "timePrecision": "followed-by",
+      "localTime": null,
+      "startsAt": null,
+      "matchRow": "14 October Stadium Court row 2: Casper Ruud v Felix Auger Aliassime; Followed By",
+      "clockAssociation": "Official Followed By row; no individual clock is published."
+    },
+    "sessionOrderEvidence": {
+      "kind": "official-session-order",
+      "sessionId": "shanghai-20261014-stadium-morning",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "court": "Stadium Court",
+      "startsAt": "2026-10-14T04:00:00.000Z",
+      "fixtureIds": [
+        "fixture:tennis:espn:atp:184953",
+        "fixture:tennis:espn:atp:184948"
+      ],
+      "participantIdsByFixture": {
+        "fixture:tennis:espn:atp:184953": [
+          "competitor:tennis:atp:botic-van-de-zandschulp",
+          "competitor:tennis:atp:rafael-jodar"
+        ],
+        "fixture:tennis:espn:atp:184948": [
+          "competitor:tennis:atp:casper-ruud",
+          "competitor:tennis:atp:felix-auger-aliassime"
+        ]
+      },
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "checkedAt": "2026-10-13T13:29:55.629283+00:00",
+      "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6"
+    },
+    "manualStartEstimate": {
+      "kind": "official-session-order-estimate",
+      "verified": true,
+      "fixtureId": "fixture:tennis:espn:atp:184948",
+      "startsAt": "2026-10-14T05:40:00.000Z",
+      "earliestStartTimeUtc": "2026-10-14T05:10:00.000Z",
+      "latestStartTimeUtc": "2026-10-14T06:10:00.000Z",
+      "durationAllowanceMinutes": 30,
+      "calculatedAt": "2026-10-13T15:06:24.652Z",
+      "sourceCheckedAt": "2026-10-13T13:29:55.629283+00:00",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6",
+      "sessionId": "shanghai-20261014-stadium-morning",
+      "assumedDurationMinutes": 90,
+      "changeoverMinutes": 10
+    },
+    "manualEstimateHeld": false,
+    "estimatedEarliestStartTimeUtc": "2026-10-14T05:10:00.000Z",
+    "estimatedLatestStartTimeUtc": "2026-10-14T06:10:00.000Z",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "score": "5–2",
+    "scoreDisplay": "5–2",
+    "result": "5–2",
+    "resultStatus": "published",
+    "outcomeText": "Casper Ruud won. 5–2",
+    "recapText": "ESPN reports Casper Ruud as the winner of this round of 16 match. 5–2",
+    "sets": [
+      {
+        "away": 2,
+        "home": 5
+      }
+    ],
+    "resultLabels": [
+      "Retirement"
+    ],
+    "winnerParticipantId": "competitor:tennis:atp:casper-ruud",
+    "loserParticipantId": "competitor:tennis:atp:felix-auger-aliassime",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:felix-auger-aliassime"
+    ],
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184948",
+    "resultSourceCheckedAt": "2026-10-15T11:32:02.000Z",
+    "scoreCheckedAt": "2026-10-15T23:12:01+00:00",
+    "scoreFactObservedAt": "2026-10-14T07:38:12+00:00",
+    "statusFactObservedAt": "2026-10-14T07:42:03+00:00",
+    "firstConfirmedCompleteAt": "2026-10-14T07:42:04.44723+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "endTimeUtc": null
+  }
+}

@@ -17,6 +17,12 @@ const standingsAwareOverrides = Object.entries(overrides.events)
 const inputs = ["feeds/incoming/events.json", "data/events.json"];
 let checked = 0;
 
+for (const copy of ["The event runs 2–4 October 2026.", "A published 25-27 September weekend.", "The timetable spans 02–04 Oct 2026."]){
+  assert.equal(RESULT_LEAK.test(copy),false,"a qualified valid calendar-day range is not a hidden score");
+}
+for (const copy of ["Kimi won on 2–4 October.","A 2–4 score was published in October.","Leeds 3–4 Brentford.","The winner was Penrith.","The 35–40 October score is invalid."]){
+  assert.equal(RESULT_LEAK.test(copy),true,"result words, scores and invalid day ranges must remain protected");
+}
 assert.equal(RESULT_LEAK.test("Leeds lost only three of their final 14 matches last season before returning to the Champions League."), false, "historical form and competition names must not be mistaken for this fixture's hidden result");
 assert.equal(RESULT_LEAK.test("Leeds retained a physical 3-4-2-1 structure."), false, "a tactical formation must not be mistaken for a scoreline");
 assert.equal(RESULT_LEAK.test("Leeds lost to Brentford."), true, "a direct completed-result statement must remain blocked from spoiler-off copy");

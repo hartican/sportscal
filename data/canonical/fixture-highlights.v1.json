@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "fixture-highlights-source.v1",
+  "events": [
+    {
+      "id": "fixture:tennis:espn:atp:184950",
+      "sourceEventIds": [
+        "fixture:tennis:espn:atp:184950",
+        "fixture:tennis:espn:atp:184950",
+        "fixture:tennis:espn:atp:184950",
+        "fixture:tennis:espn:atp:184950",
+        "fixture-tennis-espn-atp-184950"
+      ],
+      "date": "2026-10-13",
+      "enrichmentOnly": true,
+      "highlightsOnly": true,
+      "highlights": null
+    },
+    {
+      "id": "fixture:tennis:espn:atp:184951",
+      "sourceEventIds": [
+        "fixture:tennis:espn:atp:184951",
+        "fixture:tennis:espn:atp:184951",
+        "fixture:tennis:espn:atp:184951",
+        "fixture:tennis:espn:atp:184951",
+        "fixture-tennis-espn-atp-184951"
+      ],
+      "date": "2026-10-13",
+      "enrichmentOnly": true,
+      "highlightsOnly": true,
+      "highlights": null
+    },
+    {
+      "id": "fixture:tennis:espn:atp:184959",
+      "sourceEventIds": [
+        "fixture:tennis:espn:atp:184959",
+        "fixture:tennis:espn:atp:184959",
+        "fixture:tennis:espn:atp:184959",
+        "fixture:tennis:espn:atp:184959",
+        "fixture-tennis-espn-atp-184959"
+      ],
+      "date": "2026-10-13",
+      "enrichmentOnly": true,
+      "highlightsOnly": true,
+      "highlights": null
+    },
+    {
+      "id": "fixture:tennis:espn:atp:184952",
+      "sourceEventIds": [
+        "fixture:tennis:espn:atp:184952",
+        "fixture:tennis:espn:atp:184952",
+        "fixture:tennis:espn:atp:184952",
+        "fixture:tennis:espn:atp:184952",
+        "fixture-tennis-espn-atp-184952"
+      ],
+      "date": "2026-10-14",
+      "enrichmentOnly": true,
+      "highlightsOnly": true,
+      "highlights": null
+    }
+  ]
+}

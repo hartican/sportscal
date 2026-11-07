@@ -1,0 +1,246 @@
+{
+  "schemaVersion": "retained-schedule-capture.v1",
+  "capturedAt": "2026-10-16T12:26:03.007Z",
+  "scope": "Public fixture metadata captured at the actual published-calendar merge and Schedule selection. No account preferences or storage payload.",
+  "source": {
+    "id": "rlwc-australia-new-zealand-2026",
+    "sourceEventIds": [
+      "rlwc-australia-new-zealand-2026",
+      "major-match:rlwc-2026:australia-new-zealand"
+    ],
+    "codeId": "sport:nrl",
+    "key": "nrl",
+    "statusCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+    "scoreCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+    "competitionId": "competition:rugby-league-world-cup:2026",
+    "name": "Australia v New Zealand — Rugby League World Cup",
+    "date": "2026-10-15",
+    "time": "20:05",
+    "timePrecision": "exact",
+    "startTimeUtc": "2026-10-15T09:05:00.000Z",
+    "roundNumber": 1,
+    "canonicalEventId": "rlwc-australia-new-zealand-2026",
+    "firstConfirmedCompleteAt": "2026-10-15T14:24:33.442807+00:00",
+    "resultSourceUrl": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/",
+    "resultSourceCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+    "narrativeType": "match",
+    "competitionName": "Rugby League World Cup",
+    "sourceName": "NRL official match centre",
+    "sourceType": "official",
+    "sourceCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+    "homeScore": 24,
+    "awayScore": 22,
+    "score": "Australia 24–22 New Zealand",
+    "outcomeText": "Australia defeated New Zealand 24–22.",
+    "recapText": "The official NRL match centre records a 24–22 full-time result at Allianz Stadium in the World Cup opener.",
+    "consensusTags": [],
+    "venue": "Allianz Stadium, Sydney",
+    "status": "completed",
+    "scheduleStatus": "confirmed",
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nrl:kangaroos",
+        "label": "Australian Kangaroos",
+        "logoUrl": "assets/identities/national/rugby-league/kangaroos.svg"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nrl:kiwis",
+        "label": "New Zealand Kiwis",
+        "logoUrl": "assets/identities/national/rugby-league/kiwis.svg"
+      }
+    ],
+    "participantIds": [
+      "team:nrl:kangaroos",
+      "team:nrl:kiwis"
+    ],
+    "participants": [
+      {
+        "name": "Australia",
+        "role": "home",
+        "id": ""
+      },
+      {
+        "name": "New Zealand",
+        "role": "away",
+        "id": ""
+      }
+    ],
+    "participantCountryCodes": [],
+    "detailsExpectedAt": null,
+    "schedulingWindow": {
+      "startsOn": "2026-10-15",
+      "endsOn": "2026-11-15",
+      "timeZone": "Australia/Sydney"
+    },
+    "resultStatus": "official",
+    "roundLabel": "Rugby League World Cup Round 1",
+    "stage": "finals",
+    "groupOrder": 5000,
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "AUS"
+    ],
+    "expected": 10,
+    "broadcaster": "Seven / 7plus Sport",
+    "viewingOptions": [],
+    "sourceUrl": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/",
+    "ticketUrl": null,
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:feed:rlwc-australia-new-zealand-2026",
+      "researchTier": "marquee",
+      "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
+      "synopsis": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
+      "formCopy": "Australia have named Moses and Munster in the halves, Walsh at fullback and Yeo as captain. Bostock and Preston are named for their Kangaroos debuts. Walters says Tedesco and Walker are being rested after heavy recent workloads, while the longer-term fullback choice remains open. This is a first opportunity, not a settled hierarchy for the tournament. New Zealand have paired Hughes with Nikorima, with Ponga at fullback and Gagai at centre for their first Kiwis appearances. Fisher-Harris leads a forward group featuring Leota and Tapine. These are announced match-day roles, not simply squad selections; the new combinations still have to work under pressure.",
+      "closingCopy": "Hughes says his World Cup ambition reaches beyond the dressing room: he remembers what New Zealand's 2008 title meant to him as a child and wants today's young supporters to feel that connection. Yeo's decision carries a different cost, postponing surgery with his club's support. Munster faces a teammate whose decisions he knows from training, but familiarity works both ways. For both countries, belonging is now a responsibility to build something together, not just a jersey to wear.",
+      "threadIds": [
+        "thread:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d"
+      ],
+      "factIds": [
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:0",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:1",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:2",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:3",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:4",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:5",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:6"
+      ],
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:0",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:1",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:2",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:3",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:4",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:5",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:6",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:7"
+      ],
+      "dimensions": [
+        "form",
+        "matchup",
+        "consequence",
+        "history",
+        "path"
+      ],
+      "researchedAt": "2026-10-14T22:39:08.467Z",
+      "refreshAfter": "2026-10-15T09:05:00.000Z",
+      "generationMode": "researched",
+      "resultResearchRequired": false,
+      "phase": "preview",
+      "resultSignature": "[\"completed\",\"Australia defeated New Zealand 24–22.\",\"Australia 24–22 New Zealand\",\"The official NRL match centre records a 24–22 full-time result at Allianz Stadium in the World Cup opener.\"]",
+      "hookSpoilerOn": "Australia defeated New Zealand 24–22.",
+      "synopsisSpoilerOn": "The official NRL match centre records a 24–22 full-time result at Allianz Stadium in the World Cup opener."
+    },
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "arcStage": "recap",
+      "expectedSpectacle": 10,
+      "hookSpoilerOff": "Australia v New Zealand — Rugby League World Cup is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Australia defeated New Zealand 24–22.",
+      "synopsisSpoilerOff": "Australia v New Zealand — Rugby League World Cup is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOn": "The official NRL match centre records a 24–22 full-time result at Allianz Stadium in the World Cup opener.",
+      "intensitySource": "computed",
+      "lastReviewedAt": "2026-10-14T22:39:08.467Z",
+      "researchDepth": 5
+    },
+    "sourceCoverage": "published-feed",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Australia v New Zealand",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:matchup",
+        "narrative:consequence",
+        "narrative:history",
+        "narrative:path"
+      ],
+      "sourceName": "Australia v New Zealand research source 1",
+      "sourceUrl": "https://www.nrl.com/news/2026/10/13/kangaroos-team-to-face-new-zealand-in-rlwc-2026-opener/",
+      "sourceCheckedAt": "2026-10-13T23:57:53.941Z",
+      "needsPreviewRefresh": false
+    }
+  },
+  "overlays": [
+    {
+      "id": "rlwc-australia-new-zealand-2026",
+      "key": "nrl",
+      "date": "2026-10-15",
+      "status": "upcoming",
+      "eventId": "rlwc-australia-new-zealand-2026",
+      "startTimeUtc": "2026-10-15T09:05:00.000Z",
+      "participantIds": [
+        "team:nrl:kangaroos",
+        "team:nrl:kiwis"
+      ],
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+      "participantSlots": [],
+      "canonicalEventId": "rlwc-australia-new-zealand-2026",
+      "sourceEventIds": [
+        "rlwc-australia-new-zealand-2026"
+      ],
+      "statusCheckedAt": "2026-08-29T23:56:41.761+00:00",
+      "statusFactObservedAt": "2026-08-29T23:56:41.761+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1"
+    },
+    {
+      "id": "major-match:rlwc-2026:australia-new-zealand",
+      "key": "nrl",
+      "date": "2026-10-15",
+      "stage": "finals",
+      "status": "upcoming",
+      "eventId": "major-match:rlwc-2026:australia-new-zealand",
+      "roundLabel": "Australia v New Zealand",
+      "roundNumber": null,
+      "startTimeUtc": "2026-10-15T09:05:00.000Z",
+      "competitionId": "competition:rugby-league-world-cup:2026",
+      "participantIds": [
+        "team:nrl:kangaroos",
+        "team:nrl:kiwis"
+      ],
+      "participantSlots": [
+        {
+          "slot": 1,
+          "participantId": "team:nrl:kangaroos"
+        },
+        {
+          "slot": 2,
+          "participantId": "team:nrl:kiwis"
+        }
+      ],
+      "canonicalEventId": "major-match:rlwc-2026:australia-new-zealand",
+      "sourceEventIds": [
+        "major-match:rlwc-2026:australia-new-zealand"
+      ],
+      "statusCheckedAt": null
+    }
+  ],
+  "candidate": {
+    "id": "rlwc-australia-new-zealand-2026",
+    "key": "nrl",
+    "date": "2026-10-15",
+    "status": "past",
+    "eventId": "rlwc-australia-new-zealand-2026",
+    "startTimeUtc": "2026-10-15T09:05:00.000Z",
+    "participantIds": [
+      "team:nrl:kangaroos",
+      "team:nrl:kiwis"
+    ],
+    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+    "participantSlots": [],
+    "canonicalEventId": "rlwc-australia-new-zealand-2026",
+    "sourceEventIds": [
+      "rlwc-australia-new-zealand-2026"
+    ],
+    "statusCheckedAt": "2026-08-29T23:56:41.761+00:00",
+    "statusFactObservedAt": "2026-08-29T23:56:41.761+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "competitionId": "competition:rugby-league-world-cup",
+    "scoreCheckedAt": null,
+    "scoreFactObservedAt": null
+  }
+}

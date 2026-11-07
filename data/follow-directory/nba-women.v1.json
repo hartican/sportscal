@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "follow-directory-chunk.v1",
+  "sportKey": "nba-women",
+  "label": "Basketball Women",
+  "generatedAt": "2026-09-30T08:35:08.448Z",
+  "status": "available",
+  "sortBasis": "alphabetical-fallback",
+  "records": [
+    {
+      "id": "team:basketball:opals",
+      "displayName": "Australian Opals",
+      "shortName": null,
+      "aliases": [
+        "Australian Opals",
+        "Australia Women",
+        "Opals"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "AU",
+      "countryBasis": "official-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": "national",
+      "position": null,
+      "identityId": "team:basketball:opals",
+      "logoUrl": "assets/identities/national/basketball/opals.png",
+      "logoDarkUrl": "assets/identities/national/basketball/opals.png",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.australia.basketball/national-teams/opals/",
+        "catalogue:nba"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    }
+  ]
+}

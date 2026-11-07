@@ -1,0 +1,384 @@
+{
+  "schemaVersion": "dakar-reviewed-calendar.v1",
+  "checkedAt": "2026-10-02T22:32:44.220901+00:00",
+  "editions": [
+    {
+      "year": 2026,
+      "name": "Dakar Rally 2026",
+      "date": "2026-01-03",
+      "endDate": "2026-01-17",
+      "status": "completed",
+      "completeStageCalendar": true,
+      "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf",
+      "stages": [
+        {
+          "number": 0,
+          "date": "2026-01-03",
+          "start": "Yanbu",
+          "finish": "Yanbu",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "itineraryScope": "Published motorcycle itinerary; class routes may differ",
+          "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 1,
+          "date": "2026-01-04",
+          "start": "Yanbu",
+          "finish": "Yanbu",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "itineraryScope": "Published motorcycle itinerary; class routes may differ",
+          "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 2,
+          "date": "2026-01-05",
+          "start": "Yanbu",
+          "finish": "AlUla",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "itineraryScope": "Published motorcycle itinerary; class routes may differ",
+          "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 3,
+          "date": "2026-01-06",
+          "start": "AlUla",
+          "finish": "AlUla",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "itineraryScope": "Published motorcycle itinerary; class routes may differ",
+          "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 4,
+          "date": "2026-01-07",
+          "start": "AlUla",
+          "finish": "Marathon Refuge",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "itineraryScope": "Published motorcycle itinerary; class routes may differ",
+          "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 5,
+          "date": "2026-01-08",
+          "start": "Marathon Refuge",
+          "finish": "Hail",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "itineraryScope": "Published motorcycle itinerary; class routes may differ",
+          "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 6,
+          "date": "2026-01-09",
+          "start": "Hail",
+          "finish": "Riyadh",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "itineraryScope": "Published motorcycle itinerary; class routes may differ",
+          "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 7,
+          "date": "2026-01-11",
+          "start": "Riyadh",
+          "finish": "Wadi Ad-Dawasir",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "itineraryScope": "Published motorcycle itinerary; class routes may differ",
+          "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 8,
+          "date": "2026-01-12",
+          "start": "Wadi Ad-Dawasir",
+          "finish": "Wadi Ad-Dawasir",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "itineraryScope": "Published motorcycle itinerary; class routes may differ",
+          "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 9,
+          "date": "2026-01-13",
+          "start": "Wadi Ad-Dawasir",
+          "finish": "Marathon Refuge",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "itineraryScope": "Published motorcycle itinerary; class routes may differ",
+          "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 10,
+          "date": "2026-01-14",
+          "start": "Marathon Refuge",
+          "finish": "Bisha",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "itineraryScope": "Published motorcycle itinerary; class routes may differ",
+          "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 11,
+          "date": "2026-01-15",
+          "start": "Bisha",
+          "finish": "Al Henakiyah",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "itineraryScope": "Published motorcycle itinerary; class routes may differ",
+          "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 12,
+          "date": "2026-01-16",
+          "start": "Al Henakiyah",
+          "finish": "Yanbu",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "itineraryScope": "Published motorcycle itinerary; class routes may differ",
+          "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 13,
+          "date": "2026-01-17",
+          "start": "Yanbu",
+          "finish": "Yanbu",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "itineraryScope": "Published motorcycle itinerary; class routes may differ",
+          "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf",
+          "courseGeometryVerified": false
+        }
+      ],
+      "restDays": [
+        {
+          "date": "2026-01-10",
+          "venue": "Riyadh",
+          "sourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_ccr/sr-fim-dakar26.pdf"
+        }
+      ],
+      "editionGeometryVerified": true,
+      "editionArtworkId": "dakar-2026",
+      "editionGeometrySourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_dak/dak26-parcours-vd.pdf"
+    },
+    {
+      "year": 2027,
+      "name": "Dakar Rally 2027",
+      "date": "2027-01-01",
+      "endDate": "2027-01-15",
+      "status": "upcoming",
+      "completeStageCalendar": true,
+      "sourceUrl": "https://www.dakar.com/en/overall-route?iframe=true",
+      "stages": [
+        {
+          "number": 0,
+          "date": "2027-01-01",
+          "start": "King Abdullah Economic City",
+          "finish": "King Abdullah Economic City",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "totalDistanceKm": 265,
+          "specialDistanceKm": 30,
+          "distanceScope": "published edition overview",
+          "sourceUrl": "https://www.dakar.com/en/overall-route?iframe=true",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 1,
+          "date": "2027-01-02",
+          "start": "King Abdullah Economic City",
+          "finish": "Yanbu",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "totalDistanceKm": 500,
+          "specialDistanceKm": 350,
+          "distanceScope": "published edition overview",
+          "sourceUrl": "https://www.dakar.com/en/overall-route?iframe=true",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 2,
+          "date": "2027-01-03",
+          "start": "Yanbu",
+          "finish": "AlUla",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "totalDistanceKm": 535,
+          "specialDistanceKm": 310,
+          "distanceScope": "published edition overview",
+          "sourceUrl": "https://www.dakar.com/en/overall-route?iframe=true",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 3,
+          "date": "2027-01-04",
+          "start": "AlUla",
+          "finish": "Hail",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "totalDistanceKm": 745,
+          "specialDistanceKm": 480,
+          "distanceScope": "published edition overview",
+          "sourceUrl": "https://www.dakar.com/en/overall-route?iframe=true",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 4,
+          "date": "2027-01-05",
+          "start": "Hail",
+          "finish": "Hail",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "totalDistanceKm": 735,
+          "specialDistanceKm": 380,
+          "distanceScope": "published edition overview",
+          "sourceUrl": "https://www.dakar.com/en/overall-route?iframe=true",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 5,
+          "date": "2027-01-06",
+          "start": "Hail",
+          "finish": "Al Duwadimi",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "totalDistanceKm": 720,
+          "specialDistanceKm": 480,
+          "distanceScope": "published edition overview",
+          "sourceUrl": "https://www.dakar.com/en/overall-route?iframe=true",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 6,
+          "date": "2027-01-07",
+          "start": "Al Duwadimi",
+          "finish": "Marathon Refuge",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "totalDistanceKm": 565,
+          "specialDistanceKm": 440,
+          "distanceScope": "published edition overview",
+          "sourceUrl": "https://www.dakar.com/en/overall-route?iframe=true",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 7,
+          "date": "2027-01-08",
+          "start": "Marathon Refuge",
+          "finish": "Bisha",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "totalDistanceKm": 480,
+          "specialDistanceKm": 430,
+          "distanceScope": "published edition overview",
+          "sourceUrl": "https://www.dakar.com/en/overall-route?iframe=true",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 8,
+          "date": "2027-01-10",
+          "start": "Bisha",
+          "finish": "Bisha",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "totalDistanceKm": 680,
+          "specialDistanceKm": 460,
+          "distanceScope": "published edition overview",
+          "sourceUrl": "https://www.dakar.com/en/overall-route?iframe=true",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 9,
+          "date": "2027-01-11",
+          "start": "Bisha",
+          "finish": "Wadi Ad-Dawasir",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "totalDistanceKm": 730,
+          "specialDistanceKm": 460,
+          "distanceScope": "published edition overview",
+          "sourceUrl": "https://www.dakar.com/en/overall-route?iframe=true",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 10,
+          "date": "2027-01-12",
+          "start": "Wadi Ad-Dawasir",
+          "finish": "Bisha",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "totalDistanceKm": 650,
+          "specialDistanceKm": 515,
+          "distanceScope": "published edition overview",
+          "sourceUrl": "https://www.dakar.com/en/overall-route?iframe=true",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 11,
+          "date": "2027-01-13",
+          "start": "Bisha",
+          "finish": "Al Bahah Marathon",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "totalDistanceKm": 630,
+          "specialDistanceKm": 480,
+          "distanceScope": "published edition overview",
+          "sourceUrl": "https://www.dakar.com/en/overall-route?iframe=true",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 12,
+          "date": "2027-01-14",
+          "start": "Al Bahah Marathon",
+          "finish": "King Abdullah Economic City",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "totalDistanceKm": 905,
+          "specialDistanceKm": 455,
+          "distanceScope": "published edition overview",
+          "sourceUrl": "https://www.dakar.com/en/overall-route?iframe=true",
+          "courseGeometryVerified": false
+        },
+        {
+          "number": 13,
+          "date": "2027-01-15",
+          "start": "King Abdullah Economic City",
+          "finish": "King Abdullah Economic City",
+          "startCountryCode": "SA",
+          "finishCountryCode": "SA",
+          "totalDistanceKm": 250,
+          "specialDistanceKm": 50,
+          "distanceScope": "published edition overview",
+          "sourceUrl": "https://www.dakar.com/en/overall-route?iframe=true",
+          "courseGeometryVerified": false
+        }
+      ],
+      "restDays": [
+        {
+          "date": "2027-01-09",
+          "venue": "Bisha",
+          "sourceUrl": "https://www.dakar.com/en/overall-route?iframe=true"
+        }
+      ],
+      "editionGeometryVerified": true,
+      "editionArtworkId": "dakar-2027",
+      "editionGeometrySourceUrl": "https://storage-aso.lequipe.fr/ASO/motorSports_dak/dak2027-parcours.pdf"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Shallow golf repair — 6 October 2026
+
+Owner-approved cohort: OWGR men's top ten, Rolex women's top five, explicit follows. No ranking creates follow/reminder consent. Current explicit extra retention includes Adam Scott, Min Woo Lee, Hannah Green and Minjee Lee; the encrypted private Follow snapshot supplies further explicit IDs when available. My athletes & teams has no unsolicited featured list. Basic search identities remain available outside the default ranked Browse list.
+
+OWGR's latest official top-ten API was checked 6 October; it supplies no effective publication date, so the UI labels the check date. Rolex publishes 5 October. Existing full PGA ownership adds only two bounded, no-retry ranking requests at most weekly; partial failure retains both cohorts. Persisted data excludes birthdays, statistics and full rankings.
+
+The official Baycurrent `R2026527` tee-times payload was observed at `2026-10-06T04:38:46.858Z`. Adam Scott, Wyndham Clark and Justin Thomas share round-one group 10 at `2026-10-08T01:24:00.000Z`, Thursday 12:24 pm Sydney. Profiles choose this canonical child ahead of the date-only parent. Partner names and sources remain; elapsed clocks do not establish live/final status. The original coloured PGA-hosted tournament logo is used for editorial identification, with a compact CSS presentation preserving its bytes.
+
+Before removal, eight active source/derived detail files (22,444,721 original bytes) were gzip-archived outside Git, SHA-256 inventoried and every decompression checked byte-for-byte. Restore manifest: `/Users/jackhartican/Documents/AI/Codex/nothingsport-repair-programme-20261006/deep-data-archive-pre-pruning/manifest.json`. Active participation now contains selected entrants and at most their next two published groups, with the next group shown to the user. Preserved calendars, IDs, compact results and sporting source observations remain. No private account state is archived or published.
+
+Date-only tournament and Rally banners now state their calendar role; unverified tee/stage clocks remain explicitly qualified. Confirmed completed overviews have no pending clock banner. This adds no invented sporting instant, source refresh, result, automatic admission or reminder.
+
+Validation: cohort/source/date/budget/partial-failure and actual Adam Scott identity tests; actual Chromium/WebKit phone/desktop profile, partner, logo and ranked Browse checks; broad source/API/security/Feed gates. One old Rally-label assertion was updated to the approved display and rechecked. Cache upgrades and exact production evidence are recorded separately in the programme evidence folder. No physical phone or app-closed notification delivery is inferred.

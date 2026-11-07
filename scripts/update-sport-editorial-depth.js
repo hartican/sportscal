@@ -28,13 +28,35 @@ function upsert(collection, record){
   if (index >= 0) collection[index] = record;
   else collection.push(record);
 }
-function addSource(knowledge, id, name, url){
-  upsert(knowledge.sources, { id, name, url, sourceType:"official", checkedAt:CHECKED_AT });
+function observationTime(values, label){
+  const isValid = value => typeof value === "string"
+    && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(value)
+    && Number.isFinite(Date.parse(value))
+    && new Date(value).toISOString().slice(0, 19) === value.slice(0, 19)
+    && Date.parse(value) <= Date.parse(CHECKED_AT);
+  if (!values.length || !values.every(isValid)) {
+    throw new Error(`${label} requires a dated source observation, not a generation time`);
+  }
+  return new Date(Math.max(...values.map(value => Date.parse(value)))).toISOString();
+}
+function addSource(knowledge, id, name, url, checkedAt){
+  const existing = knowledge.sources.find(source => source.id === id && source.url === url)
+    || knowledge.sources.find(source => source.url === url);
+  // This assembler does not fetch a page. Only an actual retained observation
+  // supplied by the source owner may advance its check time.
+  const observed = observationTime([checkedAt ?? existing?.checkedAt], id);
+  upsert(knowledge.sources, { id, name, url, sourceType:"official", checkedAt:observed });
   return id;
 }
 function addSubject(knowledge, id, kind, name){ upsert(knowledge.subjects, { id, kind, name }); return id; }
 function addFact(knowledge, { id, subjectIds, statement, dimension, sourceIds, expiresAt = null }){
-  upsert(knowledge.narrativeFacts, { id, subjectIds, statement:fit(statement, 320), dimension, sourceIds, observedAt:CHECKED_AT, expiresAt });
+  const fact = { id, subjectIds, statement:fit(statement, 320), dimension, sourceIds, expiresAt };
+  const previous = knowledge.narrativeFacts.find(record => record.id === id);
+  const same = previous && Object.entries(fact).every(([key, value]) =>
+    JSON.stringify(previous[key] ?? null) === JSON.stringify(value));
+  const observedAt = same ? previous.observedAt : observationTime(
+    sourceIds.map(sourceId => knowledge.sources.find(source => source.id === sourceId)?.checkedAt), id);
+  upsert(knowledge.narrativeFacts, { ...fact, observedAt });
   return id;
 }
 function addThread(knowledge, { id, subjectIds, title, summary, factIds, status = "active" }){
@@ -42,24 +64,19 @@ function addThread(knowledge, { id, subjectIds, title, summary, factIds, status 
   return id;
 }
 function replaceProjection(knowledge, projection){
-  const targets = new Set(projection.targetIds);
-  knowledge.eventProjections = knowledge.eventProjections.filter(item => item.targetType !== projection.targetType || !item.targetIds.some(id => targets.has(id)));
+  const targets = new Set(projection.targetIds.flatMap(id=>require("../config/fixture-identity").fixtureAliases(id)));
+  const previous = knowledge.eventProjections.find(item => item.id === projection.id);
+  const fields = ['targetType', 'targetIds', 'hook', 'synopsis', 'hookSpoilerOn', 'synopsisSpoilerOn', 'threadIds', 'factIds', 'sourceIds', 'generationMode'];
+  const same = previous && fields.every(key =>
+    JSON.stringify(previous[key] ?? null) === JSON.stringify(projection[key] ?? null));
+  projection.researchedAt = same ? previous.researchedAt : observationTime(
+    projection.factIds.map(id => knowledge.narrativeFacts.find(fact => fact.id === id)?.observedAt), projection.id);
+  projection.originalityReview = previous?.originalityReview
+    || { ...projection.originalityReview, reviewedAt:projection.researchedAt };
+  knowledge.eventProjections = knowledge.eventProjections.filter(item => item.id !== projection.id && (item.targetType !== projection.targetType || !item.targetIds.some(id => targets.has(id))));
   knowledge.eventProjections.push(projection);
 }
 
-function clampFutureProvenance(knowledge, reference){
-  const checkedAt = reference.toISOString();
-  const clamp = (record, field) => {
-    if (new Date(record?.[field] || 0).getTime() > reference.getTime()) record[field] = checkedAt;
-  };
-  knowledge.sources.forEach(record => clamp(record, "checkedAt"));
-  knowledge.narrativeFacts.forEach(record => clamp(record, "observedAt"));
-  knowledge.narrativeThreads.forEach(record => clamp(record, "updatedAt"));
-  knowledge.eventProjections.forEach(record => {
-    clamp(record, "researchedAt");
-    if (record.originalityReview) clamp(record.originalityReview, "reviewedAt");
-  });
-}
 function resultForTeam(event, participantId){
   if (event.status !== "completed" || !event.outcomeText) return null;
   if (/\bdrew\b|shared the points/i.test(event.outcomeText)) return "D";
@@ -120,14 +137,14 @@ function eplHook(event, home, away, homeRecord, awayRecord){
   return fit(completed ? completedBase : base, 180);
 }
 
-function buildEpl(knowledge, events, context, reference){
+function buildEpl(knowledge, events, context, reference, {onlyIds=null,horizonDays=30}={}){
   const ladder = context.ladderSnapshots.find(item => item.competitionId === "competition:premier-league-2026-27");
   const entries = new Map((ladder?.entries || []).map(entry => [entry.participantId, entry]));
   const participants = new Map(context.participants.map(item => [item.id, item.displayName || item.canonicalName]));
-  const sourceTable = addSource(knowledge, "source:depth:epl:table", "Premier League current 2026/27 table", "https://www.premierleague.com/en/tables/premier-league/2026-27");
+  const sourceTable = addSource(knowledge, "source:depth:epl:table", "Premier League current 2026/27 table", "https://www.premierleague.com/en/tables/premier-league/2026-27",ladder?.source?.checkedAt||ladder?.snapshotTimeUtc);
   const sourceGuide = addSource(knowledge, "source:depth:epl:season-guide", "Premier League 2026/27 club guide", "https://www.premierleague.com/en/news/4688364/how-every-premier-league-club-could-line-up-in-202627");
   const sourceFixtures = addSource(knowledge, "source:depth:epl:fixtures", "Premier League 2026/27 fixture list", "https://www.premierleague.com/en/news/4675097");
-  const targetEvents = events.filter(event => event.key === "premier-league" && eventTime(event) >= reference.getTime() - 7 * DAY_MS && eventTime(event) <= reference.getTime() + 30 * DAY_MS);
+  const targetEvents = events.filter(event => event.key === "premier-league" && (!onlyIds || onlyIds.has(idFor(event))) && eventTime(event) >= reference.getTime() - 7 * DAY_MS && eventTime(event) <= reference.getTime() + horizonDays * DAY_MS);
   const allLeagueEvents = events.filter(event => event.key === "premier-league");
   for (const event of targetEvents){
     const homeId = event.homeParticipantId;
@@ -135,7 +152,7 @@ function buildEpl(knowledge, events, context, reference){
     const home = { id:homeId, name:participants.get(homeId), ...EPL_PROFILES[homeId] };
     const away = { id:awayId, name:participants.get(awayId), ...EPL_PROFILES[awayId] };
     if (!home.lead || !away.lead) throw new Error(`Missing researched Premier League profile for ${event.name}`);
-    const eventSource = addSource(knowledge, `source:depth:epl:match:${slug(idFor(event))}`, `Premier League match record for ${event.name}`, event.sourceUrl || "https://www.premierleague.com/en/matches/premier-league/2026-27");
+    const eventSource = addSource(knowledge, `source:depth:epl:match:${slug(idFor(event))}`, `Premier League match record for ${event.name}`, event.canonicalSourceUrl || "https://www.premierleague.com/en/matches/premier-league/2026-27",event.canonicalSourceCheckedAt);
     const homeSubject = addSubject(knowledge, `subject:depth:epl:${slug(homeId)}`, "team", home.name);
     const awaySubject = addSubject(knowledge, `subject:depth:epl:${slug(awayId)}`, "team", away.name);
     const before = eventTime(event);
@@ -174,7 +191,7 @@ const AFL_STORIES = Object.freeze({
   "event-afl-cd_m20260142603": { hook:"Carlton's rescue from a one-win, eight-loss start has one life left against a Geelong side that closed the season with six straight wins.", synopsis:"Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.", facts:["Geelong ended the home-and-away season with six consecutive wins and finished fifth.", "Carlton advanced from 10th through the wildcard round after recovering from a 1-8 start.", "The elimination final has no second chance: its winner reaches the semi-finals and its loser is eliminated."], dims:["form","path","consequence"], thread:"finals" },
   "event-afl-cd_m20260142602": { hook:"Sydney's five straight wins meet Brisbane's three in a qualifying final that turns current form into a week-off prize.", synopsis:"Sydney entered September second after five consecutive wins; Brisbane entered third with three of its own. The SCG qualifying final matches the two strongest finishing streaks on this side of the bracket, with a week off and a home preliminary final on offer and a second chance for the other side.", facts:["Sydney enters the finals on a five-match winning streak after finishing second.", "Brisbane enters on three consecutive wins after finishing third.", "The qualifying-final winner advances directly to a home preliminary final, while the loser retains a second chance in a semi-final."], dims:["form","path","consequence"], thread:"finals" },
   "event-afl-cd_m20260142604": { hook:"The Bulldogs survived the first wildcard by one kick; Adelaide now asks them to win sudden-death football away from home.", synopsis:"Western Bulldogs arrived in Adelaide after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.", facts:["Western Bulldogs advanced from the first wildcard final by three points after Collingwood missed after the siren.", "Adelaide finished sixth and earned the right to host the elimination final at Adelaide Oval.", "The elimination final has no second chance: its winner reaches the semi-finals and its loser is eliminated."], dims:["form","path","consequence"], thread:"finals" },
-  "event-afl-cd_m20260142901": { hook:"The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.", synopsis:"The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.", facts:["The 2026 season is the first AFL campaign to use a Final Ten and wildcard round.", "The two preliminary-final winners advance to a single Grand Final at the MCG.", "The Grand Final is the premiership decider, so its winner becomes the 2026 AFL premier and there is no second chance.", "The 2026 AFL Grand Final is scheduled at the Melbourne Cricket Ground."], dims:["history","path","consequence","venue"], thread:"finals" },
+  "event-afl-cd_m20260142901": { hook:require("../config/editorial-locks").records[0].hook, synopsis:require("../config/editorial-locks").records[0].synopsis, facts:["The 2026 season is the first AFL campaign to use a Final Ten and wildcard round.", "The two preliminary-final winners advance to a single Grand Final at the MCG.", "The Grand Final is the premiership decider, so its winner becomes the 2026 AFL premier and there is no second chance.", "The 2026 AFL Grand Final is scheduled at the Melbourne Cricket Ground."], dims:["history","path","consequence","venue"], thread:"finals" },
 });
 
 function buildAfl(knowledge, events, reference){
@@ -190,7 +207,8 @@ function buildAfl(knowledge, events, reference){
     && (projection.targetIds || []).some(targetId => AFL_STORIES[targetId] && !activeTargetIds.has(targetId))
   ));
   for (const event of targetEvents){
-    const story = AFL_STORIES[idFor(event)];
+    const approved=require("../config/editorial-locks").recordFor(event);
+    const story = {...AFL_STORIES[idFor(event)],...(approved ? {hook:approved.hook,synopsis:approved.synopsis} : {})};
     const eventSource = addSource(knowledge, `source:depth:afl:match:${slug(idFor(event))}`, `AFL match record for ${event.name}`, event.sourceUrl || sourceFinals);
     const factIds = story.facts.map((statement, index) => addFact(knowledge, { id:`fact:depth:afl:${slug(idFor(event))}:${index + 1}`, subjectIds:[seriesSubject], statement, dimension:story.dims[index], sourceIds:index === 0 ? [sourceLadder, eventSource] : [sourceFinals, sourceRules] }));
     threadFacts[story.thread].push(...factIds);
@@ -223,16 +241,17 @@ const CRICKET_CORRECTIONS = Object.freeze({
 
 function reconcileCricket(document){
   document.events = document.events.map(event => {
-    const correction = CRICKET_CORRECTIONS[idFor(event)];
+    const legacyId=require("../config/fixture-identity").fixtureAliases(event.canonicalEventId||idFor(event)).find(id=>CRICKET_CORRECTIONS[id]);
+    const correction = CRICKET_CORRECTIONS[legacyId];
     if (!correction) return event;
-    const opponent = idFor(event).startsWith("evt_8") ? "South Africa" : idFor(event).startsWith("evt_9") ? "New Zealand" : null;
+    const opponent = legacyId.startsWith("evt_8") ? "South Africa" : legacyId.startsWith("evt_9") ? "New Zealand" : null;
     return {
-      ...event, ...correction,
+      ...event, ...correction,...require("../config/reviewed-fixture-repairs").facts(require("../config/fixture-identity").canonicalFixtureId(idFor(event))),
       sourceName:"Cricket Australia 2026/27 official series schedule",
       sourceUrl:opponent === "South Africa" ? "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg" : event.sourceUrl,
-      sourceCheckedAt:CHECKED_AT,
+      sourceCheckedAt:observationTime([event.sourceCheckedAt], idFor(event)),
       sourceType:"official", sourceTrust:"verified", competitionScope:"international", isInternational:true,
-      ...(opponent ? { participants:[{ name:opponent === "South Africa" ? "South Africa" : "Australia", role:"home" }, { name:opponent === "South Africa" ? "Australia" : "New Zealand", role:"away" }], participantIds:[opponent === "South Africa" ? "team:cricket:south-africa" : "team:cricket:australia", opponent === "South Africa" ? "team:cricket:australia" : "team:cricket:new-zealand"], representativeCountryCodes:["AUS"], representativeSportKey:"cricket" } : {}),
+      ...(opponent ? { participants:[{ id:opponent === "South Africa" ? "team:cricket:south-africa" : "team:cricket:australia", name:opponent === "South Africa" ? "South Africa" : "Australia", role:"home" }, { id:opponent === "South Africa" ? "team:cricket:australia" : "team:cricket:new-zealand", name:opponent === "South Africa" ? "Australia" : "New Zealand", role:"away" }], participantIds:[opponent === "South Africa" ? "team:cricket:south-africa" : "team:cricket:australia", opponent === "South Africa" ? "team:cricket:australia" : "team:cricket:new-zealand"], representativeCountryCodes:["AUS"], representativeSportKey:"cricket" } : {}),
     };
   });
 }
@@ -276,9 +295,9 @@ function buildCricket(knowledge, events, reference){
     "new-zealand":addSubject(knowledge, "subject:depth:cricket:new-zealand-tests-2026-27", "series", "Australia v New Zealand Tests 2026/27"),
   };
   const threadFacts = { bangladesh:[], "south-africa":[], england:[], "new-zealand":[] };
-  const targetEvents = events.filter(event => CRICKET_STORIES[idFor(event)] && researchDepthFor(event) >= 3);
+  const targetEvents = events.filter(event => require("../config/fixture-identity").fixtureAliases(event.canonicalEventId||idFor(event)).some(id=>CRICKET_STORIES[id]) && researchDepthFor(event) >= 3);
   for (const event of targetEvents){
-    const story = CRICKET_STORIES[idFor(event)];
+    const story = CRICKET_STORIES[require("../config/fixture-identity").fixtureAliases(event.canonicalEventId||idFor(event)).find(id=>CRICKET_STORIES[id])];
     const subjectId = subjects[story.thread];
     const sourceIds = story.sources.map(key => sourceMap[key]);
     const factIds = story.facts.map((statement, index) => addFact(knowledge, { id:`fact:depth:cricket:${slug(idFor(event))}:${index + 1}`, subjectIds:[subjectId], statement, dimension:story.dims[index], sourceIds:[sourceIds[index % sourceIds.length]] }));
@@ -300,13 +319,181 @@ function buildCricket(knowledge, events, reference){
   return targetEvents.length;
 }
 
+function repairMissing({reference=new Date(),root=process.cwd()}={}){
+  const path=require('node:path');
+  const load=file=>readJson(path.join(root,file));
+  const documents=[FEED_PATH,PUBLISHED_FEED_PATH].map(file=>({file:path.join(root,file),document:load(file)}));
+  const candidates=new Map();
+  for(const {document} of documents)for(const event of document.events){
+    const previous=candidates.get(idFor(event));
+    if(!previous || Date.parse(event.canonicalSourceCheckedAt||event.sourceCheckedAt||'')>=Date.parse(previous.canonicalSourceCheckedAt||previous.sourceCheckedAt||''))candidates.set(idFor(event),event);
+  }
+  const events=[...candidates.values()];
+  // A day's lead prevents a fixture crossing the release window after a daily check.
+  const missing=new Set(documents.flatMap(({document})=>document.events).filter(event=>
+    event.key==='premier-league' && eventTime(event)>=+reference-7*DAY_MS && eventTime(event)<=+reference+31*DAY_MS &&
+    (!event.editorialNarrative?.hook || !event.editorialNarrative?.synopsis)).map(idFor));
+  if(!missing.size)return {changed:false,repaired:[]};
+  CHECKED_AT=reference.toISOString();
+  const knowledge=load(KNOWLEDGE_PATH);
+  buildEpl(knowledge,events,load(CONTEXT_PATH),reference,{onlyIds:missing,horizonDays:31});
+  const issues=validateKnowledge(knowledge);
+  if(issues.length)throw Error('Missing preview repair failed: '+issues.join('; '));
+  const api=require('./lib/editorial-narrative'),indexes=api.indexesFor(knowledge),locks=require('../config/editorial-locks');
+  for(const {document} of documents)document.events=document.events.map(event=>{
+    if(!missing.has(idFor(event)) || (event.editorialNarrative?.hook && event.editorialNarrative?.synopsis))return event;
+    const projection=api.projectionForTarget(knowledge,'feed-event',event);
+    if(!projection)throw Error('No researched projection for '+idFor(event));
+    return api.applyToFeedEvent(event,locks.projection(event,projection),indexes);
+  });
+  knowledge.updatedAt=reference.toISOString();
+  const outputs=[...documents.map(({file,document})=>[file,document]),[path.join(root,KNOWLEDGE_PATH),knowledge]];
+  const previous=outputs.map(([file])=>[file,fs.readFileSync(file)]);
+  try{for(const [file,document] of outputs)writeJson(file,document);}
+  catch(error){for(const [file,body] of previous)fs.writeFileSync(file,body);throw error;}
+  return {changed:true,repaired:[...missing]};
+}
+
+function mlbContextInput(event,rules){
+  if (event.key !== 'baseball' || event.competitionId !== 'competition:mlb'
+    || Number(event.season) !== rules.season || event.status === 'completed'
+    || !['upcoming', 'scheduled', 'live', 'cancelled', 'postponed', 'suspended'].includes(event.status)
+    || researchDepthFor(event) !== 2 || require('../config/editorial-locks').activeFor(event)) return null;
+  const identity = String(event.canonicalEventId || event.eventId || event.id);
+  const gameId = /^fixture:mlb:(\d+)$/.exec(identity)?.[1];
+  const stage = /^(?:(AL|NL)(DS|CS)(?: '[AB]')?|World Series) Game (\d+)$/.exec(event.roundLabel || '');
+  const formatKey = stage && (stage[2] || 'WS');
+  const format = stage && rules.formats[formatKey];
+  if (!gameId || !format || Number(stage[3]) < 1 || Number(stage[3]) > format.maxGames
+    || event.sourceName !== 'MLB' || event.sourceType !== 'official'
+    || event.sourceUrl !== `https://www.mlb.com/gameday/${gameId}`
+    || !['confirmed', 'conditional', 'tbc'].includes(event.scheduleStatus)) return null;
+  const participants = event.participants || [];
+  if (participants.length !== 2 || new Set(participants.map(p => p.id)).size !== 2
+    || participants.some(p => !/^team:mlb:\d+$/.test(p.id) || !p.name)
+    || event.homeParticipantId !== participants[0].id || event.awayParticipantId !== participants[1].id) return null;
+  return {gameId,stage,formatKey,format,participants};
+}
+
+function repairMlbMissing({reference=new Date(),root=process.cwd()}={}){
+  if (!Number.isFinite(+reference)) throw Error('MLB preview repair needs a valid reference');
+  const path=require('node:path'),api=require('./lib/editorial-narrative');
+  const {reconcileFeedEvent}=require('./apply-editorial-narratives');
+  const {sameEditorialFacts}=require('./lib/editorial-publication');
+  const {editorialPreviewDue}=require('./lib/editorial-preview-quality');
+  const {stakesFor,spoilerContractIssues}=require('./lib/storyline-card-rules');
+  const documents=[FEED_PATH,PUBLISHED_FEED_PATH].map(file=>{
+    const name=path.join(root,file);return {file:name,document:readJson(name)};
+  });
+  let knowledge=readJson(path.join(root,KNOWLEDGE_PATH)),generated=0;
+  const rules=require('../config/mlb-editorial-rules-2026.json'),groups=new Map(),repaired=[],deferred=[];
+  const missing=event=>!event.editorialNarrative?.hook || !event.editorialNarrative?.synopsis || event.editorialPreview?.status!=='journalistic';
+  for(const {document} of documents)for(const event of document.events){
+    if(event.key!=='baseball'||event.competitionId!=='competition:mlb')continue;
+    const id=String(event.canonicalEventId||event.eventId||event.id);
+    if(!groups.has(id))groups.set(id,[]);
+    groups.get(id).push(event);
+  }
+  for(const [id,events] of groups){
+    if(!events.some(event=>missing(event)&&editorialPreviewDue(event,stakesFor(event),reference)))continue;
+    // Do not turn an unknown lineup, conflicting retained facts or a lock into
+    // apparent research. Private holds remain the release owner's authority gate.
+    if(events.some(event=>event.participantsConfirmed!==true||!mlbContextInput(event,rules)))continue;
+    const event=events.reduce((latest,item)=>Date.parse(item.sourceCheckedAt)>Date.parse(latest.sourceCheckedAt)?item:latest);
+    if(events.some(item=>!sameEditorialFacts({...item,id},{...event,id}))){
+      deferred.push({id,reason:'Conflicting incoming/published MLB facts',nextAction:'Reconcile through the existing source owner before editorial repair.'});continue;
+    }
+    let projection=api.projectionForTarget(knowledge,'feed-event',event),nextKnowledge=knowledge;
+    if(!projection){
+      if(events.some(item=>item.editorialNarrative?.hook&&item.editorialNarrative?.synopsis)){
+        deferred.push({id,reason:'Retained researched copy has no declared projection',nextAction:'Recover its original research through the editorial owner; do not replace it with format context.'});continue;
+      }
+      nextKnowledge=structuredClone(knowledge);
+      try{
+        if(!buildMlb(nextKnowledge,[event],reference))continue;
+      }catch(error){
+        deferred.push({id,reason:error.message,nextAction:'Repair the retained official observation before retrying this card.'});continue;
+      }
+      projection=api.projectionForTarget(nextKnowledge,'feed-event',event);
+    }
+    const indexes=api.indexesFor(nextKnowledge),updates=new Map();
+    for(const item of events.filter(missing)){
+      const next=reconcileFeedEvent(item,projection,indexes,reference);
+      const permitted=new Set(['selectedSentence','fullSpiel','editorialNarrative','editorialPreview','lastReviewedAt','storyline']);
+      for(const key of new Set([...Object.keys(item),...Object.keys(next)])){
+        if(!permitted.has(key)&&JSON.stringify(item[key])!==JSON.stringify(next[key]))throw Error('MLB editorial changed sporting/source metadata: '+key);
+      }
+      const issues=spoilerContractIssues(next);
+      if(issues.length)throw Error('MLB editorial spoiler conflict: '+issues.join('; '));
+      updates.set(item,next);
+    }
+    if(!updates.size)continue;
+    if(nextKnowledge!==knowledge){knowledge=nextKnowledge;generated++;}
+    for(const record of documents)record.document.events=record.document.events.map(item=>updates.get(item)||item);
+    repaired.push(id);
+  }
+  if(!repaired.length)return {changed:false,repaired,generated,deferred,sourceRequests:0};
+  if(generated)knowledge.updatedAt=reference.toISOString();
+  const issues=validateKnowledge(knowledge);
+  if(issues.length)throw Error('MLB missing preview repair failed: '+issues.join('; '));
+  const outputs=documents.map(({file,document})=>[file,document]);
+  if(generated)outputs.push([path.join(root,KNOWLEDGE_PATH),knowledge]);
+  const changed=outputs.filter(([file,document])=>fs.readFileSync(file,'utf8')!==JSON.stringify(document,null,2)+'\n');
+  const previous=changed.map(([file])=>[file,fs.readFileSync(file)]);
+  try{for(const [file,document] of changed)writeJson(file,document);}
+  catch(error){for(const [file,body] of previous)fs.writeFileSync(file,body);throw error;}
+  return {changed:changed.length>0,repaired,generated,deferred,sourceRequests:0};
+}
+
+function buildMlb(knowledge, events, reference){
+  CHECKED_AT = reference.toISOString();
+  const rules = require('../config/mlb-editorial-rules-2026.json');
+  let generated = 0;
+  for (const event of events){
+    const context=mlbContextInput(event,rules);
+    if(!context)continue;
+    const {gameId,stage,formatKey,format,participants}=context;
+    const projectionId = `projection:mlb-context:${gameId}`;
+    const prior = require('./lib/editorial-narrative').projectionForTarget(knowledge, 'feed-event', event);
+    // Preserve deeper independently researched copy and explicit owner choices.
+    if (prior && prior.id !== projectionId) continue;
+    const fixtureSource = addSource(knowledge, `source:mlb-fixture:${gameId}`, 'MLB official game', event.sourceUrl, event.sourceCheckedAt);
+    const championship = formatKey === 'WS';
+    const formatReview = championship ? rules.worldSeriesSources.format : rules.formatSource;
+    const pathReview = championship ? rules.worldSeriesSources.path : rules.pathSource;
+    const formatSource = addSource(knowledge, championship ? 'source:mlb-world-series-rules:2026' : 'source:mlb-postseason-rules:2026', formatReview.name, formatReview.url, formatReview.checkedAt);
+    const pathSource = addSource(knowledge, championship ? 'source:mlb-world-series-path:2026' : 'source:mlb-postseason-path:2026', pathReview.name, pathReview.url, pathReview.checkedAt);
+    const subjectId = addSubject(knowledge, `subject:mlb-context:${gameId}`, 'event', event.name);
+    const league = stage[1] === 'AL' ? 'American League' : 'National League';
+    const next = championship ? 'World Series title' : formatKey === 'DS' ? `${league} Championship Series` : 'World Series';
+    const seriesLabel = championship ? format.label : `${league} ${format.label}`;
+    const consequence = championship ? 'takes the World Series title' : `advances to the ${next}`;
+    const match = `${participants[0].name} v ${participants[1].name}`;
+    const conditional = event.scheduleStatus === 'conditional';
+    const interrupted = ['cancelled', 'postponed', 'suspended'].includes(event.status);
+    const game = Number(stage[3]);
+    const hook = fit(interrupted ? `${match}: ${event.roundLabel} is ${event.status}.` : `${match}: ${event.roundLabel}${conditional ? ', if needed' : ''}, in the race for the ${next}.`, 180);
+    const synopsis = `${interrupted ? `MLB lists ${event.roundLabel} as ${event.status}. ` : ''}${seriesLabel} Game ${game} is part of a best-of-${format.maxGames === 5 ? 'five' : 'seven'} series. The first team to ${format.winsRequired} wins ${consequence}.${event.venue && !interrupted ? ` MLB lists ${event.venue} as the venue.` : ''}${!interrupted && conditional ? ' This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.' : !interrupted && event.timePrecision === 'tbc' ? ' Its start time remains unconfirmed.' : ''}`;
+    const factIds = [
+      addFact(knowledge, {id:`fact:mlb-context:${gameId}:format`, subjectIds:[subjectId], statement:`The ${format.label} is a best-of-${format.maxGames === 5 ? 'five' : 'seven'} series.`, dimension:'format', sourceIds:[formatSource]}),
+      addFact(knowledge, {id:`fact:mlb-context:${gameId}:path`, subjectIds:[subjectId], statement:championship ? 'The first team to four wins takes the World Series title.' : `The ${league} ${format.label} series winner advances to the ${next}.`, dimension:'path', sourceIds:[pathSource]}),
+      addFact(knowledge, {id:`fact:mlb-context:${gameId}:fixture`, subjectIds:[subjectId], statement:interrupted ? `MLB lists ${match}, ${event.roundLabel}, as ${event.status}.` : `MLB identifies ${match} for ${event.roundLabel}${conditional ? ', if necessary' : ''}${event.venue ? ` at ${event.venue}` : ''}.`, dimension:'matchup', sourceIds:[fixtureSource]}),
+    ];
+    const threadId = `thread:mlb-context:${gameId}`;
+    addThread(knowledge, {id:threadId, subjectIds:[subjectId], title:`${event.roundLabel}: the path to the ${next}`, summary:synopsis, factIds});
+    replaceProjection(knowledge, {id:projectionId, targetType:'feed-event', targetIds:[idFor(event)], researchDepth:2, hook, synopsis, threadIds:[threadId], factIds, sourceIds:[fixtureSource, formatSource, pathSource], refreshAfter:null, generationMode:'researched', originalityReview:{method:'independent-summary-no-source-prose-retained', reviewedAt:reference.toISOString()}});
+    generated += 1;
+  }
+  return generated;
+}
+
 function main(){
+  if(process.argv.includes('--repair-missing'))return console.log(JSON.stringify(repairMissing()));
   const write = process.argv.includes("--write");
   const reference = new Date(process.env.NS_EDITORIAL_REFERENCE || Date.now());
   if (Number.isNaN(reference.getTime())) throw new Error("NS_EDITORIAL_REFERENCE must be valid");
   CHECKED_AT = reference.toISOString();
   const knowledge = readJson(KNOWLEDGE_PATH);
-  clampFutureProvenance(knowledge, reference);
   const feed = readJson(FEED_PATH);
   const published = readJson(PUBLISHED_FEED_PATH);
   const publishedFeedIds = new Set(feed.events.flatMap(event => [event?.id, event?.eventId, event?.canonicalEventId]).filter(Boolean).map(String));
@@ -321,6 +508,7 @@ function main(){
   const football = buildEpl(knowledge, feed.events, context, reference);
   const afl = buildAfl(knowledge, feed.events, reference);
   const cricket = buildCricket(knowledge, feed.events, reference);
+  const baseball = buildMlb(knowledge, feed.events, reference);
   // Carry source-backed series context into the deeper fixture research record.
   // Never invent a fourth fact or cite a source that supports none of its facts.
   const factsById=new Map(knowledge.narrativeFacts.map(fact=>[fact.id,fact]));
@@ -337,9 +525,9 @@ function main(){
   const issues = validateKnowledge(knowledge);
   if (issues.length) throw new Error(`Sport editorial depth invalid:\n- ${issues.join("\n- ")}`);
   if (write){ writeJson(KNOWLEDGE_PATH, knowledge); writeJson(FEED_PATH, feed); writeJson(PUBLISHED_FEED_PATH, published); }
-  console.log(`${write ? "Updated" : "Validated"} sport editorial depth: ${football} football, ${afl} AFL and ${cricket} cricket projections.`);
+  console.log(`${write ? "Updated" : "Validated"} sport editorial depth: ${football} football, ${afl} AFL, ${cricket} cricket and ${baseball} baseball projections.`);
 }
 
 if (require.main === module){ try { main(); } catch (error){ console.error(error.message); process.exitCode = 1; } }
 
-module.exports = { AFL_STORIES, CRICKET_CORRECTIONS, CRICKET_STORIES, EPL_PROFILES, reconcileCricket };
+module.exports = { AFL_STORIES, CRICKET_CORRECTIONS, CRICKET_STORIES, EPL_PROFILES, reconcileCricket, addSource, addFact, replaceProjection, repairMissing, repairMlbMissing, buildMlb };

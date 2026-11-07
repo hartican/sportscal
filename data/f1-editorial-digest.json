@@ -1,206 +1,134 @@
 {
   "schemaVersion": "nothingsport.f1-editorial-digest.v1",
-  "generatedAt": "2026-09-08T14:50:02.097Z",
+  "generatedAt": "2026-10-11T12:38:56.615Z",
   "promptVersion": "f1-editorial.v1",
-  "fingerprint": "b9eeb2ff91ee7c853022cef22007b9d784fdb30f2b143d15046bb4e835bf4da1",
+  "fingerprint": "d9d030f4b6e23c14a19fc3cf496ecf7cf253a25fc6253b70dfe066f75de5bb21",
   "entries": [
     {
-      "eventId": "evt_28",
-      "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R14 Spanish GP Qualifying.",
-      "fullSpiel": "R14 Spanish GP Qualifying is scheduled for 2026-09-13 at 00:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
-      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
-      "contextSignals": [
-        "fixture-specific",
-        "current-championship-standings",
-        "grid-setting"
-      ],
-      "evidenceReferences": [
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/drivers",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/team",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/races",
-          "sourceType": "official"
-        }
-      ],
-      "sourceName": "Formula 1 official source",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceType": "official",
-      "sourceCheckedAt": "2026-09-08T14:50:02.097Z",
-      "generationMode": "factual-fallback"
-    },
-    {
-      "eventId": "evt_29",
-      "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R14 Spanish GP Race.",
-      "fullSpiel": "R14 Spanish GP Race is scheduled for 2026-09-13 at 23:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
-      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
-      "contextSignals": [
-        "fixture-specific",
-        "current-championship-standings",
-        "points-paying-session"
-      ],
-      "evidenceReferences": [
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/drivers",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/team",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/races",
-          "sourceType": "official"
-        }
-      ],
-      "sourceName": "Formula 1 official source",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceType": "official",
-      "sourceCheckedAt": "2026-09-08T14:50:02.097Z",
-      "generationMode": "factual-fallback"
-    },
-    {
-      "eventId": "evt_30",
-      "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R15 Azerbaijan GP Qualifying.",
-      "fullSpiel": "R15 Azerbaijan GP Qualifying is scheduled for 2026-09-25 at 22:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
-      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
-      "contextSignals": [
-        "fixture-specific",
-        "current-championship-standings",
-        "grid-setting"
-      ],
-      "evidenceReferences": [
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/drivers",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/team",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/races",
-          "sourceType": "official"
-        }
-      ],
-      "sourceName": "Formula 1 official source",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceType": "official",
-      "sourceCheckedAt": "2026-09-08T14:50:02.097Z",
-      "generationMode": "factual-fallback"
-    },
-    {
-      "eventId": "evt_31",
-      "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R15 Azerbaijan GP Race.",
-      "fullSpiel": "R15 Azerbaijan GP Race is scheduled for 2026-09-26 at 21:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
-      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
-      "contextSignals": [
-        "fixture-specific",
-        "current-championship-standings",
-        "points-paying-session"
-      ],
-      "evidenceReferences": [
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/drivers",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/team",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/races",
-          "sourceType": "official"
-        }
-      ],
-      "sourceName": "Formula 1 official source",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceType": "official",
-      "sourceCheckedAt": "2026-09-08T14:50:02.097Z",
-      "generationMode": "factual-fallback"
-    },
-    {
-      "eventId": "evt_32",
-      "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R16 Singapore GP Qualifying.",
-      "fullSpiel": "R16 Singapore GP Qualifying is scheduled for 2026-10-11 at 01:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
-      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
-      "contextSignals": [
-        "fixture-specific",
-        "current-championship-standings",
-        "grid-setting"
-      ],
-      "evidenceReferences": [
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/drivers",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/team",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/races",
-          "sourceType": "official"
-        }
-      ],
-      "sourceName": "Formula 1 official source",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceType": "official",
-      "sourceCheckedAt": "2026-09-08T14:50:02.097Z",
-      "generationMode": "factual-fallback"
-    },
-    {
       "eventId": "evt_33",
-      "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R16 Singapore GP Race.",
-      "fullSpiel": "R16 Singapore GP Race is scheduled for 2026-10-12 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
-      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "selectedSentence": "Singapore’s first Sprint weekend culminates in Sunday’s Grand Prix after competitive running on all three days.",
+      "fullSpiel": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
+      "angle": "Researched event-specific context",
       "contextSignals": [
         "fixture-specific",
-        "current-championship-standings",
-        "points-paying-session"
+        "researched"
       ],
       "evidenceReferences": [
         {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/drivers",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/team",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/races",
+          "title": "Official fixture context",
+          "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
           "sourceType": "official"
         }
       ],
-      "sourceName": "Formula 1 official source",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceName": "Official fixture context",
+      "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-08T14:50:02.097Z",
-      "generationMode": "factual-fallback"
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+      "generationMode": "researched"
+    },
+    {
+      "eventId": "evt_34",
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "angle": "",
+      "contextSignals": [],
+      "evidenceReferences": [],
+      "sourceName": "",
+      "sourceUrl": "",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+      "generationMode": "withheld"
+    },
+    {
+      "eventId": "evt_35",
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "angle": "",
+      "contextSignals": [],
+      "evidenceReferences": [],
+      "sourceName": "",
+      "sourceUrl": "",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+      "generationMode": "withheld"
+    },
+    {
+      "eventId": "evt_36",
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "angle": "",
+      "contextSignals": [],
+      "evidenceReferences": [],
+      "sourceName": "",
+      "sourceUrl": "",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+      "generationMode": "withheld"
+    },
+    {
+      "eventId": "evt_37",
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "angle": "",
+      "contextSignals": [],
+      "evidenceReferences": [],
+      "sourceName": "",
+      "sourceUrl": "",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+      "generationMode": "withheld"
+    },
+    {
+      "eventId": "evt_38",
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "angle": "",
+      "contextSignals": [],
+      "evidenceReferences": [],
+      "sourceName": "",
+      "sourceUrl": "",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+      "generationMode": "withheld"
+    },
+    {
+      "eventId": "evt_39",
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "angle": "",
+      "contextSignals": [],
+      "evidenceReferences": [],
+      "sourceName": "",
+      "sourceUrl": "",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+      "generationMode": "withheld"
+    },
+    {
+      "eventId": "evt_40",
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "angle": "",
+      "contextSignals": [],
+      "evidenceReferences": [],
+      "sourceName": "",
+      "sourceUrl": "",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+      "generationMode": "withheld"
+    },
+    {
+      "eventId": "evt_41",
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "angle": "",
+      "contextSignals": [],
+      "evidenceReferences": [],
+      "sourceName": "",
+      "sourceUrl": "",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+      "generationMode": "withheld"
     }
   ]
 }

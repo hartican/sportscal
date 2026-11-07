@@ -5,6 +5,7 @@
 const assert = require("node:assert/strict");
 const crypto = require("node:crypto");
 const fs = require("node:fs");
+const { SupabaseRequestError } = require("../lib/supabase-server");
 
 const ROOT = require("node:path").resolve(__dirname, "..");
 const notificationsPath = require.resolve("../api/notifications.js");
@@ -12,6 +13,7 @@ const dispatchPath = require.resolve("../api/notification-dispatch.js");
 const socialAlertsPath = require.resolve("../lib/social-reward-alerts.js");
 const liveAlertsPath = require.resolve("../lib/live-rating-alerts.js");
 const serverPath = require.resolve("../lib/supabase-server.js");
+const sendGuardPath=require.resolve("../lib/notification-send.js");
 const webPushPath = require.resolve("web-push");
 
 function responseHarness(){
@@ -48,6 +50,10 @@ async function notificationsHarness({ user = null, serviceRequest }){
     publicError,
     supabaseServiceRequest:serviceRequest,
   });
+  const fixture={id:'event:fanout',name:'Verified final',status:'upcoming',scheduleStatus:'confirmed',timePrecision:'exact',startTimeUtc:new Date(Date.now()+7200000).toISOString(),sourceUrl:'https://organiser.example/fixture',sourceCheckedAt:new Date().toISOString()};
+  const restoreFixtures=withMockedModule(require.resolve('../lib/reminder-fixtures'),{catalogue:async()=>({resolve:id=>id==='event:fanout'?fixture:null}),published:()=>[fixture],index:()=>({resolve:id=>id==='event:fanout'?fixture:null})});
+  const restoreAutomatic=withMockedModule(require.resolve('../lib/automatic-reminders'),{choose:args=>serviceRequest('/rest/v1/rpc/nothingsports_set_reminder_choice',{method:'POST',body:{target_user:args.userId,fixture_key:args.fixture.id,enabled:args.enabled}})});
+  delete require.cache[sendGuardPath];
   delete require.cache[notificationsPath];
   const handler = require(notificationsPath);
   return {
@@ -60,31 +66,37 @@ async function notificationsHarness({ user = null, serviceRequest }){
       }, response);
       return response;
     },
-    close(){ delete require.cache[notificationsPath]; restoreServer(); },
+    close(){ delete require.cache[notificationsPath]; restoreAutomatic();restoreFixtures();restoreServer(); },
   };
 }
 
-async function dispatchHarness({ serviceRequest, sendNotification }){
-  const restoreServer = withMockedModule(serverPath, { publicError, supabaseMaintenanceMode:()=>false, supabaseServiceRequest:serviceRequest });
+async function dispatchHarness({ serviceRequest, sendNotification, scheduleError=false }){
+  const restoreServer = withMockedModule(serverPath, { publicError, SupabaseRequestError, supabaseMaintenanceMode:()=>false, supabaseServiceRequest:(path,options)=>path.endsWith("/nothingsports_activate_fixture_reminders")?Promise.resolve(null):path.endsWith('/nothingsports_reminder_schedule_candidates')?(scheduleError?Promise.reject(Error('Private database detail')):Promise.resolve([])):serviceRequest(path,options) });
   const restoreWebPush = withMockedModule(webPushPath, {
     setVapidDetails(){},
     sendNotification,
   });
+  const restoreAutomatic=withMockedModule(require.resolve('../lib/automatic-reminders'),{reconcile:async()=>({accounts:0,fixtures:0})});
+  const restoreImpact=withMockedModule(require.resolve('../lib/impact-feedback'),{dispatch:async()=>({checked:0,sent:0,failed:0})});
   const restoreLiveAlerts = withMockedModule(liveAlertsPath, { dispatch:async()=>({ checked:0, sent:0, failed:0, skipped:0 }) });
   const restoreSocialAlerts = withMockedModule(socialAlertsPath, { dispatch:async()=>({ checked:0, sent:0, failed:0, skipped:0 }) });
+  delete require.cache[sendGuardPath];
+  delete require.cache[require.resolve('../lib/reminder-schedules')];
+  delete require.cache[require.resolve('../lib/comms-refresh')];
+  delete require.cache[require.resolve('../lib/comms-post-alerts')];
   delete require.cache[dispatchPath];
   const handler = require(dispatchPath);
   return {
-    async run(){
+    async run({env={},authorization="Bearer cron-secret"}={}){
       const response = responseHarness();
       const previousEnvironment = {
         CRON_SECRET:process.env.CRON_SECRET,
         VAPID_PUBLIC_KEY:process.env.VAPID_PUBLIC_KEY,
         VAPID_PRIVATE_KEY:process.env.VAPID_PRIVATE_KEY,
       };
-      Object.assign(process.env, { CRON_SECRET:"cron-secret", VAPID_PUBLIC_KEY:"public", VAPID_PRIVATE_KEY:"private" });
+      Object.assign(process.env, { CRON_SECRET:"cron-secret", VAPID_PUBLIC_KEY:"public", VAPID_PRIVATE_KEY:"private",...env });
       try{
-        await handler({ method:"GET", headers:{ authorization:"Bearer cron-secret" } }, response);
+        await handler({ method:"GET", headers:{ authorization } }, response);
       }finally{
         Object.entries(previousEnvironment).forEach(([key, value]) => {
           if (value === undefined) delete process.env[key];
@@ -93,17 +105,19 @@ async function dispatchHarness({ serviceRequest, sendNotification }){
       }
       return response;
     },
-    close(){ delete require.cache[dispatchPath]; restoreSocialAlerts(); restoreLiveAlerts(); restoreWebPush(); restoreServer(); },
+    close(){ delete require.cache[require.resolve('../lib/reminder-schedules')]; delete require.cache[dispatchPath]; restoreSocialAlerts(); restoreImpact();restoreLiveAlerts(); restoreAutomatic();restoreWebPush(); restoreServer(); },
   };
 }
 
 async function main(){
-  const html = fs.readFileSync(`${ROOT}/index.html`, "utf8");
+  const html = fs.readFileSync(`${ROOT}/index.html`, "utf8")+fs.readFileSync(`${ROOT}/config/fantasy-deadline-ui.js`,"utf8");
   const worker = fs.readFileSync(`${ROOT}/service-worker.js`, "utf8");
   const migration = fs.readFileSync(`${ROOT}/supabase/reliable-web-push-reminders.sql`, "utf8");
   const installationMigration = fs.readFileSync(`${ROOT}/supabase/follow-first-user-meta-and-notifications.sql`, "utf8");
   const socialMigration = fs.readFileSync(`${ROOT}/supabase/migrations/20260915231544_social_reward_notifications.sql`, "utf8");
   const vercel = JSON.parse(fs.readFileSync(`${ROOT}/vercel.json`, "utf8"));
+  assert.equal(vercel.functions?.["api/notifications.js"]?.maxDuration, 30, "notification requests must retain the configured 30-second hosting limit");
+  assert.equal(vercel.functions["api/notifications.js"].includeFiles, "data/code-inspector/*.json", "notification requests must retain their fixture data bundle");
   const quickReminder = html.match(/async function toggleQuickReminder[\s\S]*?\n\}/)?.[0] || "";
   assert(quickReminder.includes("return ensureWebPushReminder(ev, timing)") && quickReminder.includes("rollback:prior"), "optimistic Remind must await server confirmation and roll back failure");
   assert(quickReminder.includes("return removeWebPushReminder(ev)"), "turning a reminder off must confirm server cancellation");
@@ -121,8 +135,8 @@ async function main(){
   assert.match(migration, /create table if not exists public\.nothingsports_notification_dispatch_health/i, "dispatcher health must be queryable from one server-only row");
   assert.match(migration, /create table if not exists public\.nothingsports_notification_tests/i, "test notifications must retain sent and received diagnostics");
   assert.match(worker, /nothingsport-notification-received[\s\S]{0,500}testId/, "the service worker must acknowledge a displayed test to an open client when possible");
-  assert.match(html, /action:"status"[\s\S]{0,800}action:"test"/, "Settings must expose live reminder status and a real system-notification test");
-  assert.match(html, /timePrecision === "follows"[\s\S]{0,400}deliveryMode:"session-start"/, "follows-only fixtures must schedule against the official session start without inventing match time");
+  assert.match(html, /\["status","test","milestone-test"\]\.includes\(action\)/, "Settings must retain reminder diagnostics and expose the labelled milestone test");
+  assert.match(html,/function eventReminderTiming[\s\S]{0,120}NOTHINGSPORTS_REMINDER_POLICY.manualTiming/,"Both manual surfaces use the shared verified or provisional fixture timing contract");
   [migration, installationMigration].forEach(source => {
     assert.match(source, /chat_alerts_enabled boolean not null default true/i, "chat alerts must default on per installation");
     assert.match(source, /badges_enabled boolean not null default true/i, "unread app badges must default on per installation");
@@ -142,7 +156,7 @@ async function main(){
       identityMaps:async()=>({profiles:new Map([['actor',{display_name:'Amy',visibility:'visible'}]]),personas:new Map()}),
       rows:async(table,params)=>{socialRows.push({table,params});return table==='nothingsports_push_installations'?[{installation_id:'install-1',endpoint:'https://push.test/social',p256dh:'key',auth_key:'auth'}]:[{notification_id:'social-1',installation_id:'install-1',status:'pending',attempts:0}];},
     },
-    request:async(path,options={})=>{socialCalls.push({path,options});return path.includes('nothingsports_claim_social_notifications')?[socialNotification]:null;},
+    request:async(path,options={})=>{socialCalls.push({path,options});return path.includes('nothingsports_begin_notification_send')?{leaseId:'lease',subscription:{endpoint:'https://push.test/social',keys:{p256dh:'key',auth:'auth'}}}:path.includes('nothingsports_claim_social_notifications')?[socialNotification]:null;},
     send:async(_subscription,body)=>socialPushes.push(JSON.parse(body)),
   });
   assert.deepEqual(socialDispatch,{checked:1,sent:1,failed:0,skipped:0});
@@ -228,13 +242,9 @@ async function main(){
       viewingUrl:"https://nothingsport.vercel.app/?event=event%3Afanout",
     });
     assert.equal(response.statusCode, 200, JSON.stringify(response.payload));
-    const writes = serviceCalls.filter(call => call.path.startsWith("/rest/v1/nothingsports_reminders?on_conflict="));
-    assert.equal(writes.length, 2, "signed-in reminder must fan out to every enabled account installation");
-    const unchanged = writes.find(call => call.options.body.installation_id === installationId).options.body;
-    const newDevice = writes.find(call => call.options.body.installation_id === secondInstallationId).options.body;
-    assert(!Object.prototype.hasOwnProperty.call(unchanged, "dispatched_at"), "unchanged sporting starts must preserve delivery state");
-    assert.equal(newDevice.dispatched_at, null, "a newly scheduled installation must start undispatched");
-    assert.equal(newDevice.delivery_mode, "match-15");
+    const choice=serviceCalls.find(c=>c.path.endsWith('/nothingsports_set_reminder_choice'));
+    assert.deepEqual(choice.options.body,{target_user:'user-1',fixture_key:'event:fanout',enabled:true},'Account intent is persisted independently of installation fan-out');
+    assert.notEqual(response.payload.startsAt,startsAt,'Submitted timing is ignored in favour of verified catalogue timing');
 
     serviceCalls.length = 0;
     const sessionResponse = await notificationApi.run({
@@ -246,19 +256,36 @@ async function main(){
       startsAt,
       deliveryMode:"session-start",
     });
-    assert.equal(sessionResponse.statusCode, 200);
-    assert.equal(sessionResponse.payload.leadMinutes, 0);
-    const sessionWrite = serviceCalls.find(call => call.path.startsWith("/rest/v1/nothingsports_reminders?on_conflict=")).options.body;
-    assert.equal(sessionWrite.remind_at, startsAt, "a follows-only reminder must fire at the exact official session start");
-    assert.equal(sessionWrite.delivery_mode, "session-start");
+    assert.equal(sessionResponse.statusCode,409,'A follows-only unpublished fixture cannot borrow a parent session start');
+    assert.equal(sessionResponse.payload.code,'unverified_fixture_start');
 
     serviceCalls.length = 0;
     const cancelled = await notificationApi.run({ action:"cancel", installationId, secret, eventId:"event:fanout" });
     assert.equal(cancelled.statusCode, 200);
-    assert(serviceCalls.some(call => call.options.method === "DELETE" && call.path.includes("user_id=eq.user-1")), "signed-in cancellation must be account-wide");
+    assert(serviceCalls.some(call => call.path.endsWith("/nothingsports_set_reminder_choice") && call.options.body.target_user === "user-1" && call.options.body.enabled === false), "signed-in cancellation must persist account-wide OFF");
   }finally{
     notificationApi.close();
   }
+
+  const healthCalls=[];
+  const brokenDispatcher=await dispatchHarness({
+    serviceRequest:async(path,options={})=>{healthCalls.push({path,body:options.body});if(path.includes('notification_dispatch_health')||path.endsWith('/nothingsports_inbox_maintenance'))return [];throw new Error('private upstream detail must not leak');},
+    sendNotification:async()=>{throw new Error('preflight must not send');},
+  });
+  try{
+    const missing=await brokenDispatcher.run({env:{VAPID_PRIVATE_KEY:""}});
+    assert.equal(missing.statusCode,503);
+    assert(healthCalls[0].body.last_started_at,"authorised invocation is recorded before VAPID preflight");
+    assert.equal(healthCalls.at(-1).body.last_error,"push_not_configured");
+    assert(!healthCalls.some(call=>call.body?.last_success_at));
+    healthCalls.length=0;
+    await brokenDispatcher.run();
+    assert.equal(healthCalls.at(-1).body.last_error,"notification_dispatch_failed","stored health must not expose raw upstream errors");
+    healthCalls.length=0;
+    const denied=await brokenDispatcher.run({authorization:"Bearer wrong"});
+    assert.equal(denied.statusCode,401);
+    assert.equal(healthCalls.length,0,"unauthorised callers must not alter dispatcher health");
+  }finally{brokenDispatcher.close();}
 
   const reminder = {
     id:"reminder-1",
@@ -281,9 +308,14 @@ async function main(){
   let sends = 0;
   const dispatchedPayloads = [];
   let claimAllowed = true;
+  let suppressSend = false;
   const dispatchCalls = [];
   const dispatchService = async (path, options = {}) => {
     dispatchCalls.push({ path, options });
+    if(path==='/rest/v1/rpc/nothingsports_comms_claim_refresh')return null;
+    if(path==='/rest/v1/rpc/nothingsports_comms_claim_posts')return [];
+    if(path.includes("nothingsports_begin_fixture_reminder"))return true;
+    if(path.includes("nothingsports_begin_notification_send"))return suppressSend ? null : {leaseId:"lease",subscription:{endpoint:installation.endpoint,keys:{p256dh:installation.p256dh,auth:installation.auth_key}}};
     if (path === "/rest/v1/rpc/nothingsports_claim_due_reminders") return claimAllowed ? [{ ...reminder, claimed_at:options.body.claim_at }] : [];
     if (options.method === "PATCH" && options.headers?.Prefer === "return=representation") return claimAllowed ? [{ ...reminder, claimed_at:options.body.claimed_at }] : [];
     if (path.includes("nothingsports_reminders?dispatched_at=is.null")) return [reminder];
@@ -306,14 +338,26 @@ async function main(){
     assert.equal(response.statusCode, 200);
     assert.equal(sends, 0, "a dispatcher that loses the claim race must not send");
     assert.equal(response.payload.claimed, 0);
+    claimAllowed=true;suppressSend=true;dispatchCalls.length=0;
+    response=await dispatcher.run();
+    assert.equal(sends,0,"a suppressed admission never contacts the provider");
+    assert(dispatchCalls.some(call=>call.options.body?.delivery_started_at===null&&call.options.body?.last_error==='Notification suppressed before provider contact.'),"pre-provider suppression releases the claim without a delivery receipt");
   }finally{
     dispatcher.close();
   }
 
+  const blockedHealth=[];
+  const blockedDispatch=await dispatchHarness({scheduleError:true,serviceRequest:async(p,o)=>{blockedHealth.push(o.body);return [];},sendNotification:async()=>{throw Error('Provider must not be called');}});
+  try{const result=await blockedDispatch.run();assert.equal(result.statusCode,503);assert.equal(result.payload.code,'reminder_schedule_reconciliation_failed');assert(blockedHealth.some(b=>b.last_error==='reminder_schedule_reconciliation_failed'));}finally{blockedDispatch.close();}
   console.log("Reliable Web Push validation passed: UI confirmation, account fan-out, cancellation, and atomic dispatch claims are enforced.");
 }
 
-main().catch(error => {
+main().then(()=>{
+  // Isolated processes keep each API test's dependency doubles independent.
+  for(const gate of ['validate-impact-feedback.js','validate-impact-dispatch.js','validate-impact-inbox.js']){
+    require('node:child_process').execFileSync(process.execPath,[require('node:path').join(__dirname,gate)],{cwd:ROOT,env:process.env,stdio:'inherit'});
+  }
+}).catch(error => {
   console.error(error);
   process.exitCode = 1;
 });

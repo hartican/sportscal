@@ -91,9 +91,9 @@ function validateProfileStorage(){
   assert.equal(migrated.schemaVersion, 6);
   assert.equal(migrated.preferences.feedIntent, "focused");
   assert.equal(migrated.ratings.fixture, 9);
-  assert(!migrated.preferences.selectedSelectorEntityIds.includes("competition:a-leagues"));
-  assert.deepEqual(migrated.preferences.preferenceGraph.competitionPreferences.map(item => item.competitionId), ["competition:premier-league"]);
-  assert.deepEqual(migrated.preferences.preferenceGraph.entityFollows.map(item => item.participantId), ["team:football:epl:1"]);
+  assert(migrated.preferences.selectedSelectorEntityIds.includes("competition:a-leagues"), "migration preserves an explicit retained competition choice");
+  assert.deepEqual(migrated.preferences.preferenceGraph.competitionPreferences.map(item => item.competitionId), ["competition:a-leagues", "competition:premier-league"]);
+  assert.deepEqual(migrated.preferences.preferenceGraph.entityFollows.map(item => item.participantId), ["team:football:sydney-fc", "team:football:epl:1"]);
   assert.equal(Object.hasOwn(migrated.preferences.preferenceGraph.domainPreferences[0], "mustWatchSensitivity"), false, "legacy preference-level Must Watch fields must be discarded");
   assert.equal(Object.hasOwn(migrated.eventUserState.fixture, "mustWatch"), false, "legacy Must Watch fields must be accepted then discarded");
   assert.equal(migrated.eventUserState.fixture.reminderRequested, true, "unrelated legacy actions must survive migration");

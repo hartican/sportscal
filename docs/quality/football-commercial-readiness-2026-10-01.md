@@ -1,0 +1,62 @@
+# Football source operations and commercial readiness — 1 October 2026
+
+Recommendation: continue the existing three-competition trial without a paid provider. Retain the shipped continuity/backup protection and existing daily source owner. Hold commercial launch until source permission, branding/content rights and the remaining quality evidence are complete. This review adds no vendor, purchase, outreach or account.
+
+## Verified provider and publication evidence
+
+OpenLigaDB describes an unauthenticated, free community API and identifies ODbL as its data licence. Its current official API schema states a limit of 60 requests per minute per IP and recommends checking last-change metadata before full retrieval. NS currently makes two bounded season requests per canonical invocation, with 15-second deadlines, rather than continuous polling. There is no documented SLA in the inspected material. [Provider](https://www.openligadb.de/), [API schema](https://api.openligadb.de/swagger/v1/swagger.json).
+
+The licence explicitly permits commercial database use subject to its conditions. Attribution/notices, share-alike for publicly used derived databases and a freely accessible machine-readable database or alteration file are relevant. It does not grant separate trademark or content rights, or warrant completeness/accuracy. These are licence requirements, not a blanket conclusion that every NS asset or combined dataset is cleared. [ODbL full text](https://opendatacommons.org/licenses/odbl/1-0/).
+
+A current public read returned HTTP 200 for `/data/providers/openligadb/football-2026-27.json`: 288 fixtures, 72 standings rows and 72 explicit identity mappings, with licence URI and attribution. Its JSON matched the retained released dataset before this phase's new source observation. Cards and calendar exports link the provider/dataset/licence. The export contains provider facts and reviewed transformations, not account preferences or editorial. Provider logo URLs are excluded by the adapter. This verifies those implementation pieces; the combined-data legal boundary and every separately sourced image remain unverified.
+
+The rendered provider pages were subsequently reviewed in the browser: terms dated 28 August and licence dated 31 August 2026. They request central caching, last-change checks, low-frequency inactive reads, staggered calls, failure backoff and identifiable app/contact details. They disclaim availability and data accuracy. Commercial ODbL use remains conditional; logos/images stay separate. NS uses two central daily season requests with no immediate retries. App/contact identification is now added; last-change optimisation remains unimplemented. [API terms](https://www.openligadb.de/nutzungsbedingungen), [provider data licence](https://www.openligadb.de/lizenz).
+
+## EPL permission remains open
+
+Current Premier League website terms restrict commercial reuse/redistribution and database creation without written approval; trademarks have separate permission requirements. These website terms are not a commercial licence for the configured Pulse fixtures/table endpoints. No NS-specific API permission or contract was found. [Current terms](https://www.premierleague.com/en/terms-and-conditions).
+
+Football DataCo's current FAQ says fixture lists need no reproduction licence under UK/EU law, directs other match-data enquiries to it, and separates logo rights. This does not clear NS's endpoint terms or Australian commercial scope. Its current contact form is verified; the single [prepared enquiry](epl-permission-enquiry-draft.md) remains unsent pending messaging authorisation. No licence price or offer is inferred. [Current FAQ](https://www.football-dataco.com/faqs), [contact form](https://www.football-dataco.com/contact).
+
+## Table rules and quality limits
+
+Both current 2026/27 UEFA Article 18 pages were readable today, including Europa's previously inaccessible detail. They agree on the final criteria: goal difference, goals, away goals, wins, away wins, three collective opponent-performance fields, disciplinary points and club coefficient. NS represents the first eight tie-break criteria after points; the final two inputs remain unavailable. Unresolved final ties deliberately have no asserted final rank. Current tables remain provisional; no qualification claim is introduced. [Champions League regulations](https://documents.uefa.com/r/Regulations-of-the-UEFA-Champions-League-2026/27/Article-18-Equality-of-points-league-phase-Online), [Europa League regulations](https://documents.uefa.com/r/Regulations-of-the-UEFA-Europa-League-2026/27/Article-18-Equality-of-points-league-phase-Online).
+
+The current season refresh has 144 fixtures and 18 completed results in each European competition. Counts and HTTP success do not certify match truth, future knockout coverage or playback. Final disciplinary/coefficient evidence, released knockout ingestion, full presentation/device acceptance, recovery and EPL permission remain in the existing backlog. Certification stays 0/3 Football pilots and 0/16 carried families.
+
+## One next path
+
+The continuity and free delayed backup modules are shipped. Finish the remaining source-to-screen Football and independent recovery/device checks. Obtain the single prepared physical-device session when ready. Keep rights enquiries and sponsor preparation bounded; no sale or invitation precedes the existing gates. Estimated remaining Football engineering: 2–5 focused days plus external permission wait, with A$0 new service spend. Owner administration remains one exception-based review; no separate rights tracker, provider dashboard routine or new league pipeline.
+
+## Maintenance release proof
+
+Request-identification maintenance is published and deployed at `d536927de6c0fd5a276cc98521450224ba62b606`, shell 344: [successful workflow](https://github.com/hartican/sportscal/actions/runs/36866954818) (168 seconds), READY `dpl_GZ8Er8mcMVvnApAS1RJyqr7Q13CR`. The production alias/release metadata and eleven served artifacts match the immutable package at 2026-10-01T13:19:53.867Z; mounted Football Feed/Schedule, attribution, degraded labels and Results privacy pass at 320/390/768/1280. Backend APIs and service workers were isolated in that browser test; physical-device proof remains open. No cached-shell bytes changed, so no new upgrade rehearsal was required. The preceding 343→344 dual-engine evidence is retained. Six affected local checks and all normal production gates passed; no bypass. Header identification takes effect on the existing canonical owner's next invocation, not per browser request.
+
+
+## 2 October source-operation checkpoint
+
+The latest completed canonical artifact is [36777788726](https://github.com/hartican/sportscal/actions/runs/36777788726), checked 30 September at 21:12 UTC, 16.9 hours old at this review. It records one LPGA 404, whose later scoped repair has separate evidence, and eight unrelated hydration gaps. It predates the Football backup release and has no backup report; absence is not a healthy zero-use observation. Ordinary scheduled operation of the new backup remains pending the existing owner's next run. No extra source invocation or scheduler was added.
+
+The official OpenLigaDB schema defines last-change polling for a **single matchday**. A current-round timestamp cannot prove that the other seven rounds, their kickoffs or prior results are unchanged. Checking all eight rounds for two competitions would require 16 metadata calls plus up to two season calls, compared with the existing two daily season reads. Defer that optimisation until documented season-wide semantics or measured savings justify its larger request and failure surface. Do not fabricate an all-season sentinel or reduce correction coverage. This bounded review changes no source behaviour or quality certification. [Official API schema](https://api.openligadb.de/swagger/v1/swagger.json). Evidence: `football-source-operations-20261002.json` in the delivery folder.
+
+## Later presentation release — 2 October
+
+At that historical presentation checkpoint, the app release was `9e28434e251ebc34925a13fcf59a51da43411d70`, shell 345. [Normal workflow 36881109790](https://github.com/hartican/sportscal/actions/runs/36881109790), READY state, release metadata, all three aliases and twelve served artifact hashes pass. The [Football profile repair](football-profile-journey.md) keeps focus during standings/results reveals and supplies accessible status/table semantics. Twelve affected live mobile journeys and dual-engine cache upgrades pass within their stated limits. This adds no source refresh or provider request, and does not resolve commercial permission, physical-device acceptance or full sport certification. The earlier source-operation observations remain dated evidence rather than proof of the next scheduled refresh.
+
+## Free backup permission clarification — 2 October 2026
+
+Current [football-data.org pricing](https://www.football-data.org/pricing) offers free delayed scores/schedules with ten calls per minute; pricing is not commercial-use clearance. Its [published terms](https://www.football-data.org/about), last updated 1 June 2018, cover one application/domain, visible attribution, no accuracy/availability warranty, restrictions on continued use of obtained data after cancellation and separate logo/photo rights. A [23 April 2015 provider post](https://www.football-data.org/blog) describes free non-commercial use and asks commercial users to contact it. That historic post does not prove a current prohibition, and current free pricing/terms do not clearly resolve sponsorship scope. Commercial permission, alias scope and cached/history/export retention therefore remain unverified.
+
+The [backup-provider enquiry](football-data-permission-enquiry-draft.md) is now concrete and unsent, alongside the existing EPL enquiry. It asks about the invited Australian trial, later labelled sponsorship, three aliases for one application and retained facts/provenance after cancellation; it authorises no payment. Sending requires the owner's explicit messaging authorisation and reply email. No outreach or subscription has occurred. Do not disable the released continuity path or claim a rights clearance from this ambiguity; keep invitation/commercial gates open pending scoped evidence. Owner administration remains one bounded reply review in the existing delivery queue, with no separate tracker.
+
+
+## Later natural-operation and permission checkpoint — 2 October
+
+The earlier 16.9-hour source observation is historical. A later natural scheduled run 36929379034 published 336031a/shell 350 with zero reported source failures, backup calls or AI calls, followed by a successful child deployment. Its parent failed an obsolete pre-release-hash comparison. That checker and unchanged reviewed-recap retention are repaired at 6e2e382/shell 351 with normal cloud, READY/alias/13-file and live proof. The repaired wrapper's next ordinary invocation remains unobserved in the bounded check; no manual run or scheduler was added to fill this gap. See [freshness evidence](football-freshness-2026-10-02.md).
+
+Three bounded searches of connected Gmail returned no matching provider/domain correspondence. Other accounts/private agreements remain unverified. Both permission enquiries remain concrete and unsent pending existing messaging authorisation and a reply email. Free pricing, attribution and dated agreement counts remain separate from commercial permission and certification. The [single acceptance checkpoint](football-acceptance-checkpoint-2026-10-02.md) reconciles current evidence without adding a tracker or owner routine.
+
+
+## Artwork scope — 2 October
+
+The [exact Football artwork inventory](football-artwork-rights-2026-10-02.md) covers all 668 pilot fixtures and 84 unique clubs. Twenty Premier League and 25 ESPN-sourced crests resolve; 39 clubs have no resolved crest (15 UCL, 24 Europa). The EPL event image's specific Wikimedia file page labels it non-free; hosting does not establish an NS licence. UCL uses a protected UEFA mark; Europa uses the separately licensed generic sport glyph. The `official-reference` registry label is provenance/intended identification, not commercial clearance. Scope-specific data and artwork permissions remain separate. The existing enquiry now asks for the right club-mark licensing route; it remains unsent. No imagery, provider, subscription or release changed.

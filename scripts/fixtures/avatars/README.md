@@ -1,0 +1,1 @@
+`libheif-example.heic` is the upstream decoder's interoperability sample from https://github.com/strukturag/libheif/blob/master/examples/example.heic, retrieved 21 September 2026. Used only for HEIC decoding regression; it is not an application asset. Other test formats are generated at runtime.

@@ -1,0 +1,319 @@
+{
+  "recordedAt": "2026-10-12 20:22:43 UTC",
+  "kind": "Read-only actual trigger dependency definitions; no customer data",
+  "columns": [
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_account_erasure_blocks",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_account_erasure_blocks",
+      "column_name": "started_at",
+      "default_value": "clock_timestamp()"
+    },
+    {
+      "type": "boolean",
+      "not_null": true,
+      "table_name": "nothingsports_consensus_settings",
+      "column_name": "id",
+      "default_value": "true"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_consensus_settings",
+      "column_name": "activated_at",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_personas",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_personas",
+      "column_name": "persona",
+      "default_value": "'general'::text"
+    },
+    {
+      "type": "boolean",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_personas",
+      "column_name": "moderation_flag",
+      "default_value": "false"
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_personas",
+      "column_name": "assigned_by",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_personas",
+      "column_name": "assigned_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_profiles",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_profiles",
+      "column_name": "profile_id",
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_profiles",
+      "column_name": "handle",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_profiles",
+      "column_name": "display_name",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_profiles",
+      "column_name": "visibility",
+      "default_value": "'visible'::text"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_profiles",
+      "column_name": "created_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_profiles",
+      "column_name": "updated_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_nsc_profiles",
+      "column_name": "avatar_url",
+      "default_value": null
+    },
+    {
+      "type": "bigint",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_rating_history",
+      "column_name": "id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_rating_history",
+      "column_name": "user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_rating_history",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_rating_history",
+      "column_name": "phase",
+      "default_value": null
+    },
+    {
+      "type": "smallint",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_rating_history",
+      "column_name": "rating",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_nsc_rating_history",
+      "column_name": "recorded_at",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_score_epoch",
+      "column_name": "id",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_score_epoch",
+      "column_name": "started_at",
+      "default_value": "clock_timestamp()"
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_user_follows",
+      "column_name": "follower_user_id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_user_follows",
+      "column_name": "followed_user_id",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_user_follows",
+      "column_name": "created_at",
+      "default_value": "now()"
+    }
+  ],
+  "constraints": [
+    {
+      "conname": "nothingsports_account_erasure_blocks_pkey",
+      "definition": "PRIMARY KEY (user_id)",
+      "table_name": "nothingsports_account_erasure_blocks"
+    },
+    {
+      "conname": "nothingsports_consensus_settings_id_check",
+      "definition": "CHECK (id)",
+      "table_name": "nothingsports_consensus_settings"
+    },
+    {
+      "conname": "nothingsports_consensus_settings_pkey",
+      "definition": "PRIMARY KEY (id)",
+      "table_name": "nothingsports_consensus_settings"
+    },
+    {
+      "conname": "nothingsports_nsc_personas_assigned_by_fkey",
+      "definition": "FOREIGN KEY (assigned_by) REFERENCES auth.users(id) ON DELETE SET NULL",
+      "table_name": "nothingsports_nsc_personas"
+    },
+    {
+      "conname": "nothingsports_nsc_personas_persona_check",
+      "definition": "CHECK ((persona = ANY (ARRAY['general'::text, 'pundit'::text, 'rising'::text, 'influencer'::text, 'curator'::text, 'editorial'::text, 'admin'::text])))",
+      "table_name": "nothingsports_nsc_personas"
+    },
+    {
+      "conname": "nothingsports_nsc_personas_pkey",
+      "definition": "PRIMARY KEY (user_id)",
+      "table_name": "nothingsports_nsc_personas"
+    },
+    {
+      "conname": "nothingsports_nsc_personas_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_nsc_personas"
+    },
+    {
+      "conname": "nothingsports_nsc_profiles_avatar_url_check",
+      "definition": "CHECK (((avatar_url IS NULL) OR (avatar_url ~ '^https://'::text)))",
+      "table_name": "nothingsports_nsc_profiles"
+    },
+    {
+      "conname": "nothingsports_nsc_profiles_display_name_check",
+      "definition": "CHECK (((char_length(display_name) >= 2) AND (char_length(display_name) <= 80)))",
+      "table_name": "nothingsports_nsc_profiles"
+    },
+    {
+      "conname": "nothingsports_nsc_profiles_handle_check",
+      "definition": "CHECK ((handle ~ '^[a-z0-9_]{3,24}$'::text))",
+      "table_name": "nothingsports_nsc_profiles"
+    },
+    {
+      "conname": "nothingsports_nsc_profiles_handle_key",
+      "definition": "UNIQUE (handle)",
+      "table_name": "nothingsports_nsc_profiles"
+    },
+    {
+      "conname": "nothingsports_nsc_profiles_pkey",
+      "definition": "PRIMARY KEY (user_id)",
+      "table_name": "nothingsports_nsc_profiles"
+    },
+    {
+      "conname": "nothingsports_nsc_profiles_profile_id_key",
+      "definition": "UNIQUE (profile_id)",
+      "table_name": "nothingsports_nsc_profiles"
+    },
+    {
+      "conname": "nothingsports_nsc_profiles_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_nsc_profiles"
+    },
+    {
+      "conname": "nothingsports_nsc_profiles_visibility_check",
+      "definition": "CHECK ((visibility = ANY (ARRAY['visible'::text, 'hidden'::text, 'deleted'::text])))",
+      "table_name": "nothingsports_nsc_profiles"
+    },
+    {
+      "conname": "nothingsports_nsc_rating_history_pkey",
+      "definition": "PRIMARY KEY (id)",
+      "table_name": "nothingsports_nsc_rating_history"
+    },
+    {
+      "conname": "nothingsports_nsc_rating_history_rating_check",
+      "definition": "CHECK (((rating >= 1) AND (rating <= 5)))",
+      "table_name": "nothingsports_nsc_rating_history"
+    },
+    {
+      "conname": "nothingsports_nsc_rating_history_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_nsc_rating_history"
+    },
+    {
+      "conname": "nothingsports_score_epoch_pkey",
+      "definition": "PRIMARY KEY (id)",
+      "table_name": "nothingsports_score_epoch"
+    },
+    {
+      "conname": "nothingsports_user_follows_check",
+      "definition": "CHECK ((follower_user_id <> followed_user_id))",
+      "table_name": "nothingsports_user_follows"
+    },
+    {
+      "conname": "nothingsports_user_follows_followed_user_id_fkey",
+      "definition": "FOREIGN KEY (followed_user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_user_follows"
+    },
+    {
+      "conname": "nothingsports_user_follows_follower_user_id_fkey",
+      "definition": "FOREIGN KEY (follower_user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_user_follows"
+    },
+    {
+      "conname": "nothingsports_user_follows_pkey",
+      "definition": "PRIMARY KEY (follower_user_id, followed_user_id)",
+      "table_name": "nothingsports_user_follows"
+    }
+  ]
+}

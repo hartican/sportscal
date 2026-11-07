@@ -1,0 +1,13 @@
+{
+  "schemaVersion":"highlight-channels.v1",
+  "reviewedAt":"2026-10-14",
+  "channels":[
+    {"id":"UCY_5h5zaSwN7Or4kIJDYNXA","handle":"ATPTour","label":"ATP Tour","tour":"ATP","officialUrl":"https://www.atptour.com/"},
+    {"id":"UCaBIVVpHjq6j3tSyxwTE-8Q","handle":"WTA","label":"WTA","tour":"WTA","officialUrl":"https://www.wtatennis.com/"},
+    {"id":"UCbcxFkd6B9xUU54InHv4Tig","handle":"tennistv","label":"Tennis TV","tour":"ATP","officialUrl":"https://www.tennistv.com/"},
+    {"id":"UCeTKJSW1NTAkf27nNmjWt5A","handle":"AustralianOpen","label":"Australian Open","tournamentPattern":"australian.?open","officialUrl":"https://ausopen.com/"},
+    {"id":"UCF3K1Jf8hjFW8qliei8fQ3A","handle":"rolandgarros","label":"Roland-Garros","tournamentPattern":"roland.?garros|french.?open","officialUrl":"https://www.rolandgarros.com/"},
+    {"id":"UCNa8NxMgSm7m4Ii9d4QGk1Q","handle":"Wimbledon","label":"Wimbledon","tournamentPattern":"wimbledon","officialUrl":"https://www.wimbledon.com/"},
+    {"id":"UCXbboag48Qlr78zzz6SkzkQ","handle":"usopen","label":"US Open","tournamentPattern":"us.?open","officialUrl":"https://www.usopen.org/"}
+  ]
+}

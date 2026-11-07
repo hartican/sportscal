@@ -5,11 +5,17 @@
   "description": "Follow-first smart sports feed",
   "dependencies": {
     "@vercel/functions": "^3.9.5",
+    "heic-decode": "2.1.0",
     "sharp": "^0.35.4",
     "svix": "^1.99.1",
     "web-push": "^3.6.7"
   },
   "devDependencies": {
-    "supabase": "^2.117.0"
+    "@electric-sql/pglite": "0.5.8",
+    "ajv": "8.17.1",
+    "ajv-formats": "3.0.1",
+    "pglite-pg17": "npm:@electric-sql/pglite@0.3.14",
+    "supabase": "^2.117.0",
+    "terser": "5.44.0"
   }
 }

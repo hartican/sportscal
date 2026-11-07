@@ -838,6 +838,3866 @@
         }
       ],
       "researchedAt": "2026-09-08T14:15:34.766Z"
+    },
+    {
+      "id": "event-afl-cd_m20260142802",
+      "title": "Sydney Swans v Fremantle",
+      "hook": "Sydney face Fremantle at the SCG with a Grand Final place on the line.",
+      "synopsis": "Sydney bring the SCG and a week to prepare; Fremantle bring minor-premier form and the momentum of a semi-final win. This is a direct test of Sydney's pressure against Fremantle's ability to turn the home-and-away season into a finals win. The winner advances to the Grand Final, while the loser is finished.",
+      "sources": [
+        "https://www.afl.com.au/news/1612494/the-flag-race-is-wide-open-heres-who-our-experts-are-tipping-from-here-between-fremantle-hawthorn-brisbane-and-sydney",
+        "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed",
+        "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Sydney host Fremantle at the SCG with a Grand Final place on the line.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Sydney have a week to prepare, while Fremantle arrive from a semi-final win.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The winner advances to the Grand Final and the loser is eliminated.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Sydney hosts Fremantle at the SCG on Friday 18 September at 7.40pm AEST.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event-afl-cd_m20260142801",
+      "title": "Hawthorn v Brisbane Lions",
+      "hook": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
+      "synopsis": "Hawthorn have the week off behind them and the MCG in front of them; Brisbane arrive with back-to-back premiership experience and a strong recent record at the ground. The matchup is Hawthorn's preparation and pressure against Brisbane's finals know-how. The winner advances to the Grand Final, while the loser is finished.",
+      "sources": [
+        "https://www.afl.com.au/news/1612494/the-flag-race-is-wide-open-heres-who-our-experts-are-tipping-from-here-between-fremantle-hawthorn-brisbane-and-sydney",
+        "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed",
+        "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Hawthorn have a week to prepare before hosting Brisbane at the MCG.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Brisbane bring back-to-back premiership experience, while Hawthorn must convert preparation into pressure.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Hawthorn hosts Brisbane at the MCG on Saturday 19 September at 5.15pm AEST.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evt_82",
+      "title": "NRL Finals Week 2",
+      "hook": "Two semi-finals, two remaining preliminary-final places, and no second chances.",
+      "synopsis": "Roosters-Sharks at Allianz on Saturday and Warriors-Knights at Eden Park on Sunday complete the next step of the bracket. The Roosters have a chance to reverse last season's finals loss to Cronulla. Auckland then gets a home knockout with Kalyn Ponga directing Newcastle's challenge. Both winners advance; both losers are finished.",
+      "sources": [
+        "https://www.nrl.com/news/2026/09/17/finals-week-2-everything-you-need-to-know/",
+        "https://www.nrl.com/news/2026/09/17/nrl-late-mail-finals-week-2---lucas-in-the-mix/",
+        "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Two semi-finals, two remaining preliminary-final places, and no second chances.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Roosters-Sharks at Allianz on Saturday and Warriors-Knights at Eden Park on Sunday complete the next step of the bracket.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The Roosters have a chance to reverse last season's finals loss to Cronulla. Auckland then gets a home knockout with Kalyn Ponga directing Newcastle's challenge. Both winners advance; both losers are finished.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "NRL Week 2 comprises Roosters v Sharks at Allianz Stadium on Saturday and Warriors v Knights at Eden Park on Sunday.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "major-match-nrl-finals-2026-semi-final-1",
+      "title": "Sydney Roosters v Cronulla-Sutherland Sharks",
+      "hook": "Cronulla bring continuity; the Roosters face another sudden-death meeting with Walker still sidelined.",
+      "synopsis": "Sam Walker remains unavailable with an ankle injury. Angus Crichton is expected back from his foot problem, while Egan Butcher is out with concussion and Salesi Foketi is named to start in the back row. Cronulla expect no late changes. That contrast puts the focus on combinations under pressure, with a preliminary-final place on the line.",
+      "sources": [
+        "https://www.nrl.com/news/2026/09/17/nrl-late-mail-finals-week-2---lucas-in-the-mix/",
+        "https://www.nrl.com/news/2026/09/17/finals-week-2-everything-you-need-to-know/",
+        "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Cronulla bring continuity; the Roosters face another sudden-death meeting with Walker still sidelined.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Sam Walker remains unavailable with an ankle injury.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Angus Crichton is expected back from his foot problem, while Egan Butcher is out with concussion and Salesi Foketi is named to start in the back row. Cronulla expect no late changes. That contrast puts the focus on combinations under pressure, with a preliminary-final place on the line.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "NRL Week 2 comprises Roosters v Sharks at Allianz Stadium on Saturday and Warriors v Knights at Eden Park on Sunday.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "major-match-nrl-finals-2026-semi-final-2",
+      "title": "New Zealand Warriors v Newcastle Knights",
+      "hook": "Eden Park’s knockout afternoon tested Newcastle against the Warriors in front of a record New Zealand rugby league crowd.",
+      "synopsis": "The match is complete. The result and key passages are available when you reveal results; the outcome remains protected here.",
+      "sources": [
+        "https://www.nrl.com/news/2026/09/17/nrl-late-mail-finals-week-2---lucas-in-the-mix/",
+        "https://www.nrl.com/news/2026/09/17/finals-week-2-everything-you-need-to-know/",
+        "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/",
+        "https://www.nrl.com/news/2026/09/20/nrl-sunday-blockbuster-warriors-v-knights/"
+      ],
+      "researchedAt": "2026-09-22T01:40:00.000Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Eden Park gives the Warriors the home stage; Ponga gives Newcastle a route to disrupt it.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "The named halves are Te Maire Martin and Chanel Harris-Tavita for the Warriors, against Sandon Smith and Fletcher Sharpe for Newcastle.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Kalyn Ponga starts at fullback for the Knights. The question is which spine can control a knockout afternoon when one mistake can end the season. Kick-off is Sunday at 4.05pm AEST.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "NRL Week 2 comprises Roosters v Sharks at Allianz Stadium on Saturday and Warriors v Knights at Eden Park on Sunday.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "statement": "Newcastle Knights defeated New Zealand Warriors 12–10. Dom Young’s early second-half try put Newcastle ahead at Eden Park. The Knights then resisted sustained late pressure, earning a preliminary final against Penrith and ending the Warriors’ season.",
+          "dimension": "consequence",
+          "sourceIndexes": [
+            3
+          ]
+        }
+      ],
+      "hookSpoilerOn": "Newcastle Knights defeated New Zealand Warriors 12–10.",
+      "synopsisSpoilerOn": "Dom Young’s early second-half try put Newcastle ahead at Eden Park. The Knights then resisted sustained late pressure, earning a preliminary final against Penrith and ending the Warriors’ season.",
+      "editorialPhase": "recap",
+      "refreshAfter": null
+    },
+    {
+      "id": "evt_motogp_2026_austria",
+      "title": "MotoGP Austrian Grand Prix",
+      "hook": "Marquez and Martin arrive level on points; Austria could separate them before the flyaways.",
+      "synopsis": "Marc Marquez returns to the Red Bull Ring as last year's winner, tied with Jorge Martin at the top of the championship. Martin says the weekend will test whether his arm-pump problem needs surgery. Pedro Acosta adds a home-manufacturer challenge for KTM. Watch how sustained braking pressure affects that title duel over the race.",
+      "sources": [
+        "https://www.motogp.com/en/news/2026/09/17/media-day-dispatch-spirits-not-dampened-as-title-race-roars-into-the-ring/1090413",
+        "https://www.motogp.com/fr/news/2026/09/14/hot-headlines-all-level-as-motogp-readies-for-spielberg-thriller-in-austria/1090065",
+        "https://www.motogp.com/fr/news/2026/09/16/time-schedule-qatar-airways-grand-prix-of-austria/1090066"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Marquez and Martin arrive level on points; Austria could separate them before the flyaways.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Marc Marquez returns to the Red Bull Ring as last year's winner, tied with Jorge Martin at the top of the championship.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Martin says the weekend will test whether his arm-pump problem needs surgery. Pedro Acosta adds a home-manufacturer challenge for KTM. Watch how sustained braking pressure affects that title duel over the race.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Austria is the final stop before the flyaway races begin.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evt_sailgp_2026_geneva_day_1",
+      "title": "Geneva Sail Grand Prix - race day 1",
+      "hook": "Geneva opens the final three-event run with fresh crew combinations to settle quickly.",
+      "synopsis": "The eleventh stop of the championship puts the fleet back on Lake Geneva. Kahena Kunze returns to Brazil for the remaining three events, making communication and coordination an immediate storyline. Saturday establishes the event position from which teams must attack Sunday; clean early races matter when the season has so little room left.",
+      "sources": [
+        "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
+        "https://sailgp.com/news/26/kahena-kunze-returns-mubadala-brazil-line-up-final-three-events/",
+        "https://tickets.sailgp.com/geneve/en/"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Geneva opens the final three-event run with fresh crew combinations to settle quickly.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "The eleventh stop of the championship puts the fleet back on Lake Geneva.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Kahena Kunze returns to Brazil for the remaining three events, making communication and coordination an immediate storyline. Saturday establishes the event position from which teams must attack Sunday; clean early races matter when the season has so little room left.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The Geneva Sail Grand Prix runs on 19 and 20 September 2026.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evt_sailgp_2026_geneva_day_2",
+      "title": "Geneva Sail Grand Prix - race day 2",
+      "hook": "Geneva's deciding day puts the new combinations under pressure with two season stops left.",
+      "synopsis": "Sunday closes the Switzerland event before the championship's final two rounds. Brazil's returning double Olympic champion Kahena Kunze is one crew change to watch as the fleet converts Saturday's work into an event finish. The sporting question is who leaves Geneva with momentum for the final stretch, rather than merely one fast race.",
+      "sources": [
+        "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
+        "https://sailgp.com/news/26/kahena-kunze-returns-mubadala-brazil-line-up-final-three-events/",
+        "https://tickets.sailgp.com/geneve/en/"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Geneva's deciding day puts the new combinations under pressure with two season stops left.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Sunday closes the Switzerland event before the championship's final two rounds.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Brazil's returning double Olympic champion Kahena Kunze is one crew change to watch as the fleet converts Saturday's work into an event finish. The sporting question is who leaves Geneva with momentum for the final stretch, rather than merely one fast race.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The Geneva Sail Grand Prix runs on 19 and 20 September 2026.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1530204",
+      "title": "Zimbabwe v Australia - 2nd ODI",
+      "hook": "Australia’s second Harare ODI tested the new batting combinations again, with the series at stake.",
+      "synopsis": "The match is complete. The result and key passages are available when you reveal results; the outcome remains protected here.",
+      "sources": [
+        "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
+        "https://www.icc-cricket.com/news/zimbabwe-name-squad-for-odi-series-against-australia",
+        "https://www.cricket.com.au/matches/series/CA%3A4621/zimbabwe-v-australia-odi-series-2026",
+        "https://www.cricket.com.au/news/4578209/match-report-second-odi-zimbabwe-australia-harare-sports-club-hazlewood-stanlake-return-head-century-ollie-peake"
+      ],
+      "researchedAt": "2026-09-22T01:40:00.000Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "path",
+          "statement": "Zimbabwe will co-host the 2027 ODI World Cup.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Raza captains with Ngarava injured; Taylor and Cremer return.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Australia are rebuilding their middle order after senior retirements.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The second and third ODIs are on 18 and 20 September in Harare.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "statement": "Australia defeated Zimbabwe by 84 runs. Travis Head made 112 from 84 balls as Australia posted 6/356. That batting platform secured an unassailable 2–0 series lead, although Billy Stanlake’s injury interrupted his return.",
+          "dimension": "consequence",
+          "sourceIndexes": [
+            3
+          ]
+        }
+      ],
+      "hookSpoilerOn": "Australia defeated Zimbabwe by 84 runs.",
+      "synopsisSpoilerOn": "Travis Head made 112 from 84 balls as Australia posted 6/356. That batting platform secured an unassailable 2–0 series lead, although Billy Stanlake’s injury interrupted his return.",
+      "editorialPhase": "recap",
+      "refreshAfter": null
+    },
+    {
+      "id": "fixture:cricket:espn:1530205",
+      "title": "Zimbabwe v Australia - 3rd ODI",
+      "hook": "The final Harare ODI brought Australia’s Zimbabwe leg to a close before the tour moved to South Africa.",
+      "synopsis": "The match is complete. The result and key passages are available when you reveal results; the outcome remains protected here.",
+      "sources": [
+        "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
+        "https://www.icc-cricket.com/news/zimbabwe-name-squad-for-odi-series-against-australia",
+        "https://www.cricket.com.au/matches/series/CA%3A4621/zimbabwe-v-australia-odi-series-2026",
+        "https://www.cricket.com.au/news/4579018/third-odi-zimbabwe-australia-harare-reports-scores-video-highlights-raza-ellis-kaia-injury-bartlett"
+      ],
+      "researchedAt": "2026-09-22T01:40:00.000Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "path",
+          "statement": "Zimbabwe will co-host the 2027 ODI World Cup.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Raza captains with Ngarava injured; Taylor and Cremer return.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Australia are rebuilding their middle order after senior retirements.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The second and third ODIs are on 18 and 20 September in Harare.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "statement": "Australia defeated Zimbabwe by one wicket. Nathan Ellis and Spencer Johnson added an unbeaten 27 for the last wicket, completing the chase with one ball remaining. Josh Inglis had made a century before the tail finished the job, sealing a 3–0 series sweep.",
+          "dimension": "consequence",
+          "sourceIndexes": [
+            3
+          ]
+        }
+      ],
+      "hookSpoilerOn": "Australia defeated Zimbabwe by one wicket.",
+      "synopsisSpoilerOn": "Nathan Ellis and Spencer Johnson added an unbeaten 27 for the last wicket, completing the chase with one ball remaining. Josh Inglis had made a century before the tail finished the job, sealing a 3–0 series sweep.",
+      "editorialPhase": "recap",
+      "refreshAfter": null
+    },
+    {
+      "id": "fixture:cricket:espn:1525655",
+      "title": "Australia v South Africa — First ODI",
+      "hook": "Durban opens a new test of Australia’s ODI combinations, with Cummins and Starc joining the squad for the South African leg.",
+      "synopsis": "Australia’s rebuilding batting order now faces South Africa after the Zimbabwe leg. Cummins and Starc are in the squad, though selection and workloads remain match-by-match decisions. The opener starts a three-game contest that doubles as preparation for the 2027 World Cup and October’s Tests.",
+      "sources": [
+        "https://www.cricket.com.au/news/4573063/australia-test-squad-south-africa-tour-2026-selection-labuschagne-renshaw-cummins-starc-cooper-kuhnemann-neser",
+        "https://www.cricket.com.au/news/4569440/australia-odi-squad-zimbabwe-south-africa-tour-2026-labuschagne-marsh-cummins-starc-inglis-peake-stanlake-connolly-davies"
+      ],
+      "researchDepth": 4,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "Durban hosts the first of three ODIs on 24 September.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Cummins and Starc join the ODI squad for South Africa.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The six African ODIs form part of Australia’s preparation for the 2027 World Cup.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1525656",
+      "title": "Australia v South Africa — Second ODI",
+      "hook": "Pink Day at the Wanderers puts Australia’s first response under scrutiny, with only one ODI left after Johannesburg.",
+      "synopsis": "After Durban, this is the chance to turn an opening advantage into a series win or recover lost ground. The scoreline must decide which story applies. Pink Day gives the middle match its own occasion, while Australia still have to balance ODI combinations against the coming Test workload.",
+      "sources": [
+        "https://cricket.co.za/csa-announces-unmissable-2026-27-home-season-for-the-proteas-men/",
+        "https://www.cricket.com.au/news/4573063/australia-test-squad-south-africa-tour-2026-selection-labuschagne-renshaw-cummins-starc-cooper-kuhnemann-neser",
+        "https://www.cricket.com.au/news/4569440/australia-odi-squad-zimbabwe-south-africa-tour-2026-labuschagne-marsh-cummins-starc-inglis-peake-stanlake-connolly-davies"
+      ],
+      "researchDepth": 4,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "facts": [
+        {
+          "dimension": "venue",
+          "statement": "The Wanderers hosts the annual Pink Day ODI on 27 September.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Johannesburg is the middle match of the three-ODI series.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Australia’s leading fast bowlers are using the white-ball tour to prepare for the Tests.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1525657",
+      "title": "Australia v South Africa — Third ODI",
+      "hook": "Potchefstroom closes Australia’s six-match ODI tour before attention turns to red-ball preparation.",
+      "synopsis": "The final ODI is the last chance to settle this series and leave a selection impression in the format. Whether it is a decider depends on Durban and Johannesburg. The tour then changes emphasis: a two-day warm-up precedes the three Tests.",
+      "sources": [
+        "https://www.cricket.com.au/news/4573063/australia-test-squad-south-africa-tour-2026-selection-labuschagne-renshaw-cummins-starc-cooper-kuhnemann-neser",
+        "https://www.cricket.com.au/news/4569440/australia-odi-squad-zimbabwe-south-africa-tour-2026-labuschagne-marsh-cummins-starc-inglis-peake-stanlake-connolly-davies"
+      ],
+      "researchDepth": 4,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "The third ODI is scheduled for 30 September at JB Marks Oval.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "A warm-up on 3–4 October follows the ODI series.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Australia’s touring ODI squad combines established players with Peake and Davies.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1528716",
+      "title": "Australia Women v Bangladesh Women — ODI 1",
+      "hook": "Brisbane opens Australia’s home ODI season against Bangladesh, with World Championship points at stake.",
+      "synopsis": "Bangladesh begin their first bilateral visit to Australia at Allan Border Field. This is more than an early-season warm-up: the ODIs sit within the qualification cycle for the next World Cup.",
+      "sources": [
+        "https://www.cricket.com.au/news/4517610",
+        "https://www.cricket.com.au/news/4473637"
+      ],
+      "researchDepth": 4,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "ODI 1 is scheduled at Allan Border Field on 9 October.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The Bangladesh ODIs are part of the Women’s World Championship cycle.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "This is Bangladesh’s first bilateral series on Australian soil.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1528717",
+      "title": "Australia Women v Bangladesh Women — ODI 2",
+      "hook": "The second Brisbane ODI tests how quickly Australia and Bangladesh can act on the opener’s lessons.",
+      "synopsis": "There is little time to reset between the opening two matches. A series-clinching chance is possible, but depends on game one; the World Championship gives each ODI an independent purpose.",
+      "sources": [
+        "https://www.cricket.com.au/news/4517610",
+        "https://www.cricket.com.au/news/4473637"
+      ],
+      "researchDepth": 4,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "ODI 2 is scheduled at Allan Border Field on 11 October.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The Bangladesh ODIs are part of the Women’s World Championship cycle.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "This is Bangladesh’s first bilateral series on Australian soil.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1528718",
+      "title": "Australia Women v Bangladesh Women — ODI 3",
+      "hook": "The third Brisbane ODI closes Bangladesh’s visit, with championship value beyond the bilateral result.",
+      "synopsis": "This is the final opportunity to change the series score. Australia then move into T20 cricket against New Zealand, following the revised summer programme.",
+      "sources": [
+        "https://www.cricket.com.au/news/4517610",
+        "https://www.cricket.com.au/news/4473637"
+      ],
+      "researchDepth": 4,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "ODI 3 is scheduled at Allan Border Field on 14 October.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The Bangladesh ODIs are part of the Women’s World Championship cycle.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "This is Bangladesh’s first bilateral series on Australian soil.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1530203",
+      "title": "Australia v Zimbabwe — First ODI",
+      "hook": "Harare’s opening ODI put Australia’s changing batting order through its first examination of the tour.",
+      "synopsis": "The match is complete. The result and key passages are available when you reveal results; the outcome remains protected here.",
+      "sources": [
+        "https://www.cricket.com.au/news/4569440/australia-odi-squad-zimbabwe-south-africa-tour-2026-labuschagne-marsh-cummins-starc-inglis-peake-stanlake-connolly-davies",
+        "https://www.icc-cricket.com/news/zimbabwe-to-host-australia-for-odi-series-in-september",
+        "https://www.cricket.com.au/news/4576624/australia-zimbabwe-match-report-scores-highlights-first-odi-harare-mitch-marsh-100-games-sikandar-raza-connolly-peake-renshaw-zampa"
+      ],
+      "researchDepth": 4,
+      "researchedAt": "2026-09-22T01:40:00.000Z",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "The first Zimbabwe ODI was scheduled for 15 September at Harare Sports Club.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Zimbabwe hosted three ODIs before Australia’s South African leg.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Peake and Davies were retained in Australia’s African-tour squad.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "Australia defeated Zimbabwe by 59 runs. Matt Renshaw’s century anchored the opening innings, and Nathan Ellis helped finish the defence in Harare. The opener gave Australia a winning start to their African ODI tour.",
+          "dimension": "consequence",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "hookSpoilerOn": "Australia defeated Zimbabwe by 59 runs.",
+      "synopsisSpoilerOn": "Matt Renshaw’s century anchored the opening innings, and Nathan Ellis helped finish the defence in Harare. The opener gave Australia a winning start to their African ODI tour.",
+      "editorialPhase": "recap",
+      "refreshAfter": null
+    },
+    {
+      "id": "fixture:cricket:espn:1528712",
+      "title": "Australia v New Zealand — Second Test",
+      "hook": "Adelaide gives Australia and New Zealand their first chance to reshape a four-Test contest after Perth.",
+      "synopsis": "The second Test is the bridge between Perth and Boxing Day. One result cannot settle a four-match series, but Adelaide can change the pressure on the final two games. The compressed summer makes recovery and adjustment part of the contest.",
+      "sources": [
+        "https://www.cricket.com.au/news/4473637",
+        "https://www.cricket.com.au/news/4473693"
+      ],
+      "researchDepth": 4,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "Adelaide hosts the second Test in December.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "The summer contains the first four-Test trans-Tasman series.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Australia face a compressed Test programme across the 2026–27 summer.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tennis-tournament-bjk-cup-finals-2026-2026-09-22",
+      "title": "Billie Jean King Cup Finals 2026",
+      "hook": "Eight nations arrive in Shenzhen with three ties separating them from the title; Italy carry the weight of two consecutive championships.",
+      "synopsis": "The knockout draw leaves no recovery round. Two singles matches and a possible doubles decider make selection and pairings central to each tie, with the first team to two wins progressing. Italy enter as champions of the previous two editions, while hosts China and seven qualifying winners share one venue across six days.",
+      "researchDepth": 5,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "refreshAfter": "2026-09-27T23:59:00.000Z",
+      "sources": [
+        "https://www.billiejeankingcup.com/en/more/format",
+        "https://www.billiejeankingcup.com/en/tickets",
+        "https://assets.ctfassets.net/gd35ic6j47k5/5Ak8rNpk1Qcl8J4JPwpr3o/379f3397ea19150af7ddea6b7361b000/190126_Release_-_Draw_announced_for_2026_Billie_Jean_King_Cup_by_Gainbridge_Qualifiers.pdf"
+      ],
+      "facts": [
+        {
+          "statement": "The eight-team Finals progress through quarter-finals, semi-finals and a final.",
+          "dimension": "path",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "A tie has two singles matches followed by doubles; the first nation to two match wins advances.",
+          "dimension": "format",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "The Finals are scheduled for 22–27 September at Shenzhen Bay Sports Centre Arena.",
+          "dimension": "venue",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "statement": "Italy won their second consecutive championship in Shenzhen in 2025.",
+          "dimension": "history",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "major-match:nrl-finals-2026:preliminary-final-2",
+      "title": "Dolphins v Roosters",
+      "hook": "Suncorp's preliminary final put the Dolphins' first finals campaign against the Roosters' established September experience.",
+      "synopsis": "The key matchups centred on Isaiya Katoa and Kodi Nikorima against Sam Walker and Daly Cherry-Evans, with Hamiso Tabuai-Fidow and James Tedesco directing the backlines. This review examines the contest without revealing which side progressed.",
+      "sources": [
+        "https://www.nrl.com/news/2026/09/25/grand-final-awaits-dolphins-v-roosters/",
+        "https://www.nrl.com/draw",
+        "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/"
+      ],
+      "researchedAt": "2026-09-27T06:46:37.622Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Roosters defeated Dolphins 36-20 in the preliminary final.",
+          "sourceIndexes": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Mark Nawaqanitawase scored twice and ran for 329 metres.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "The Roosters reached their first Grand Final since 2019.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The preliminary final was played at Suncorp Stadium in Brisbane.",
+          "sourceIndexes": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "hookSpoilerOn": "Roosters defeated Dolphins 36-20 to reach the Grand Final.",
+      "synopsisSpoilerOn": "Sam Walker returned from injury as the Roosters booked their first decider since 2019. Mark Nawaqanitawase scored twice and ran for 329 metres; the Dolphins finished their first finals campaign at the preliminary-final stage.",
+      "editorialPhase": "recap",
+      "refreshAfter": null
+    },
+    {
+      "id": "major-match:nrl-finals-2026:preliminary-final-1",
+      "title": "Panthers v Knights",
+      "hook": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
+      "synopsis": "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
+      "sources": [
+        "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+        "https://www.nrl.com/news/2026/09/22/all-systems-go-panthers-back-cleary-for-newcastle-showdown/",
+        "https://www.nrl.com/tickets/"
+      ],
+      "researchedAt": "2026-09-22T08:30:00.000Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Penrith face Newcastle in a preliminary final.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Cleary and Cole are named in the Panthers halves; Sharpe and Smith are named for Newcastle.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The winner advances to the NRL Grand Final.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The match starts at 4:00pm AEST on 27 September at Accor Stadium.",
+          "sourceIndexes": [
+            0,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "football-australia-brazil-2026-09-25",
+      "title": "Socceroos v Brazil — Townsville",
+      "hook": "Irankunda's attacking role and Australia's response to Brazil's technical quality frame the Townsville review.",
+      "synopsis": "The opening match of the Queensland series put Tony Popovic's side against Brazil before their Brisbane meeting. This review focuses on Australia's attacking intent, the midfield changes and Marcus Younis's international debut; the decisive moments remain in the revealed recap.",
+      "sources": [
+        "https://socceroos.com.au/match/australia-v-brazil-friendlies-25-09-2026/22278825",
+        "https://www.cbf.com.br/selecao-brasileira/noticias/noticias/selecao-masculina/brasil-empata-com-a-australia-em-townsville",
+        "https://www.abc.net.au/news/2026-09-25/socceroos-vs-brazil-live-updates-townsville/107197542"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Australia and Brazil drew 1-1 in Townsville on 25 September 2026.",
+          "sourceIndexes": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Irankunda scored a 68th-minute free kick; Rayan equalised in stoppage time.",
+          "sourceIndexes": [
+            0,
+            2
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Marcus Younis made his Australia debut as a second-half substitute.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The first Queensland friendly preceded a second meeting on Tuesday.",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-27T06:35:07.891Z",
+      "researchDepth": 5,
+      "editorialPhase": "recap",
+      "refreshAfter": null,
+      "hookSpoilerOn": "Socceroos and Brazil drew 1-1 in Townsville.",
+      "synopsisSpoilerOn": "Nestory Irankunda's 68th-minute free kick put Australia ahead, but Rayan headed in Brazil's equaliser in stoppage time. Australia's front-foot approach created chances throughout, while Marcus Younis made his international debut off the bench."
+    },
+    {
+      "id": "football-australia-brazil-2026-09-29",
+      "title": "Socceroos v Brazil — Brisbane",
+      "hook": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
+      "synopsis": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
+      "sources": [
+        "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+        "https://stadiums.qld.gov.au/about/news-and-media/news/queensland-secures-brazil-blockbuster-series-for-socceroos-homec",
+        "https://www.cbf.com.br/selecao-brasileira/noticias/selecao-masculina/a/credenciamento-para-amistosos-da-selecao-brasileira-contra-a-australia-esta-aberto"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Australia face five-time world champions Brazil in two Queensland friendlies.",
+          "sourceIndexes": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The matches prepare Australia for the January 2027 Asian Cup.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Before this series, Brazil led the nine-match international record with seven wins; Australia had one victory and one draw.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Suncorp Stadium hosts Australia v Brazil on 2026-09-29 at 8pm Queensland time.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-25T03:32:39.426090Z",
+      "researchDepth": 5,
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-09-29T10:00:00.000Z"
+    },
+    {
+      "id": "rugby-australia-south-africa-2026-09-27",
+      "title": "Australia v South Africa — Perth Test",
+      "hook": "Australia and South Africa contested the Perth Test at Optus Stadium.",
+      "synopsis": "The Wallabies and Springboks met at Optus Stadium on 27 September, bringing international rugby to Perth. The result remains hidden until you choose to reveal it.",
+      "hookSpoilerOn": "Australia defeated South Africa 42–38 in Perth.",
+      "synopsisSpoilerOn": "The Wallabies finished four points ahead of South Africa at Optus Stadium on 27 September. The official match centre confirms the final score.",
+      "sources": [
+        "https://www.rugby.com.au/match-centre/3/2026/949625"
+      ],
+      "researchedAt": "2026-09-27T13:41:55.158384Z",
+      "researchDepth": 3,
+      "editorialPhase": "recap",
+      "refreshAfter": null,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Australia defeated South Africa 42–38.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Test was played at Optus Stadium on 27 September 2026.",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tennis-tournament-wta-beijing-2026-2026-10-02",
+      "title": "China Open - WTA 1000",
+      "hook": "Beijing puts Rybakina, Sabalenka, Gauff and Andreeva on four separate paths through a deep draw.",
+      "synopsis": "The early rounds are about earning the marquee meetings, not assuming them. Gauff and Swiatek share a quarter, while Andreeva could run into Noskova and Sabalenka has Osaka in her section. Those are possible later matchups, not booked fixtures. With a 96-player singles field, the first weekend tests who can turn a favourable seed into a sustained run.",
+      "sources": [
+        "https://www.wtatennis.com/tournaments/china-open",
+        "https://www.wtatennis.com/news/4582857/beijing-draw-past-champions-iga-swiatek-coco-gauff-could-meet-in-china-open-quarters",
+        "https://www.chinaopen.com/en/contents/353/669.html"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "The singles draw contains 96 players.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "The draw places Gauff and Swiatek in the same quarter.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Andreeva and Noskova are potential quarterfinal opponents, not a confirmed match.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Main-draw play began September 30 at the National Tennis Center in Beijing.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evt_f1_2026_bahrain_qualifying",
+      "title": "Bahrain GP (Malaysia) - Qualifying",
+      "hook": "Sepang qualifying gives Antonelli a chance to interrupt Russell's momentum before Sunday.",
+      "synopsis": "Antonelli has acknowledged the challenge from his Mercedes team-mate. Saturday is the first direct contest for starting position at the Malaysian venue hosting this Bahrain round. Watch which driver finds a repeatable qualifying rhythm: a strong grid slot is valuable, but it is only the opening move before the 56-lap race.",
+      "sources": [
+        "https://corp.formula1.com/formula-1-and-fia-confirm-that-malaysia-will-join-the-2026-calendar-as-host-venue-for-the-bahrain-grand-prix/",
+        "https://www.formula1.com/en/latest/article/formula-1-gulf-air-bahrain-grand-prix-in-malaysia-2026.1IHoy7D2dfCIugb5mH78cE",
+        "https://www.formula1.com/en/latest/article/antonelli-believes-russell-has-momentum-after-baku-win-as-he-expects-tough-challenge-at-bahrain-grand-prix.4u2DaWxdBKalvWOoXr5rCw"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "venue",
+          "statement": "The Bahrain round is hosted at Sepang International Circuit in Malaysia.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The event runs October 2-4, with the race on Sunday.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Antonelli says Russell has momentum and expects a tough challenge.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "Sunday is scheduled for 56 laps of the 5.543-kilometre circuit.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evt_motogp_2026_japan",
+      "title": "MotoGP Japanese Grand Prix",
+      "hook": "Martin and Marquez reach Motegi with only 12 points between them entering the weekend.",
+      "synopsis": "The title fight is not confined to the leading pair: Bezzecchi starts the Japan weekend 42 points off the lead, and Acosta is another rider to watch in the closing stretch. Sunday provides the longer test after Saturday's Sprint. With five Grands Prix packed into six weeks, protecting a result matters almost as much as finding outright speed.",
+      "sources": [
+        "https://www.motogp.com/es/news/2026/09/28/vorschau-der-titelkampf-spitzt-sich-zu-wir-fliegen-nach-motegi/1095167",
+        "https://www.motogp.com/en/news/2026/09/28/jadwal-motogp-jepang-2026/1092197",
+        "https://tickets.motogp.com/en/21091-japan/p-1299-information/"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Martin enters Japan 12 points ahead of Marc Marquez.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Bezzecchi is 42 points behind Martin entering the weekend.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The flyaway stretch includes five Grands Prix in six weeks.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Japanese Grand Prix is at Mobility Resort Motegi.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "The Saturday Sprint is scheduled for 12 laps before Sunday's Grand Prix.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evt_nrlw_2026_grand_final",
+      "title": "Roosters v Broncos",
+      "hook": "The unbeaten Roosters face the one opponent who can turn their perfect season into unfinished business.",
+      "synopsis": "Brisbane are chasing consecutive premierships; Sydney are trying to reverse last year's decider against the same side. That gives this rematch a clear contrast: the Roosters' season-long consistency against the Broncos' experience of finishing this job. Belinda Sharpe takes charge of her fifth grand final, with the premiership settled in one match.",
+      "sources": [
+        "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
+        "https://www.nrl.com/news/2026/09/29/nrlw-team-lists-grand-final/",
+        "https://www.nrl.com/news/2026/09/29/gee-sharpe-take-control-of-2026-nrl-and-nrlw-deciders/"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Roosters and Broncos meet in a second consecutive NRLW Grand Final.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "The Roosters enter undefeated.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "The Broncos are pursuing back-to-back premierships.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Belinda Sharpe is appointed to her fifth grand final.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evt_f1_2026_bahrain_race",
+      "title": "Bahrain GP (Malaysia) - Race",
+      "hook": "Sepang turns the Mercedes rivalry into a 56-lap examination of execution.",
+      "synopsis": "Antonelli and Russell arrive with the championship fight running through their own garage. Sunday asks a different question from qualifying: who can sustain their pace through an entire Grand Prix? This is the Bahrain event on Malaysian asphalt, so the venue is Sepang rather than Sakhir. The meaningful comparison is the two team-mates' race management, not a replay of Saturday's fastest lap.",
+      "sources": [
+        "https://corp.formula1.com/formula-1-and-fia-confirm-that-malaysia-will-join-the-2026-calendar-as-host-venue-for-the-bahrain-grand-prix/",
+        "https://www.formula1.com/en/latest/article/formula-1-gulf-air-bahrain-grand-prix-in-malaysia-2026.1IHoy7D2dfCIugb5mH78cE",
+        "https://www.formula1.com/en/latest/article/antonelli-believes-russell-has-momentum-after-baku-win-as-he-expects-tough-challenge-at-bahrain-grand-prix.4u2DaWxdBKalvWOoXr5rCw"
+      ],
+      "researchedAt": "2026-10-01T23:21:33.194Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "venue",
+          "statement": "Malaysia hosts the Bahrain Grand Prix at Sepang.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "The race is scheduled over 56 laps.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The Grand Prix takes place on October 4.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Antonelli identifies Russell as a tough challenge carrying momentum.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evt_84",
+      "title": "Roosters v Knights",
+      "hook": "From wooden spooners to a Grand Final: Newcastle have one more hurdle, a Roosters side chasing its own perfect farewell.",
+      "synopsis": "Tedesco and Ponga lead their sides into the premiership decider at Accor Stadium, Sunday at 7:30pm Sydney time. Newcastle are pursuing their first title since 2001 after finishing last a year ago; Sydney are aiming to end a seven-year premiership wait. Both teams have match winners across the park, but their contrasting routes here make this more than a contest between two star fullbacks.",
+      "sources": [
+        "https://www.nrl.com/news/2026/09/29/nrl-team-lists-grand-final/",
+        "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
+        "https://www.nrl.com/news/2026/09/29/gee-sharpe-take-control-of-2026-nrl-and-nrlw-deciders/",
+        "https://www.nrl.com/news/2026/09/25/grand-final-awaits-dolphins-v-roosters/",
+        "https://www.nrl.com/news/2026/09/27/grand-final-awaits-panthers-v-knights/",
+        "https://www.nrl.com/news/2026/09/28/shut-him-down-smith-desperate-for-last-laugh-in-dce-battle/",
+        "https://www.nrl.com/news/2026/09/26/nawaqanitawase-soaking-in-final-big-moments-after-making-the-decider/"
+      ],
+      "researchedAt": "2026-10-01T23:58:25.032Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "James Tedesco and Kalyn Ponga are named as the respective starting fullbacks.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "The Roosters seek their first premiership in seven years.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Roosters v Knights is scheduled October 4 at 7.30pm AEDT at Accor Stadium.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Adam Gee is appointed to the NRL Grand Final.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Roosters defeated Dolphins 36–20 in their preliminary final; Nawaqanitawase ran for 329 metres and Walker scored on his return from injury.",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Knights beat Penrith 22–14 despite Crossland’s send-off, conceding no second-half points; Sandon Smith scored two breakaway tries.",
+          "sourceIndexes": [
+            4
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Newcastle finished last in 2025 and reached their first Grand Final since 2001; the club seeks its first premiership since 2001.",
+          "sourceIndexes": [
+            4,
+            5
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Smith left the Roosters for Newcastle after Sydney signed Cherry-Evans for 2026. The Grand Final is Cherry-Evans’ final NRL game.",
+          "sourceIndexes": [
+            5
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Nawaqanitawase is returning to rugby union after the Grand Final, his final NRL match for now.",
+          "sourceIndexes": [
+            6
+          ]
+        }
+      ],
+      "formCopy": "Sydney arrived through a 36–20 win over the Dolphins. Newcastle earned their place by beating Penrith 22–14 with 12 men, keeping the Panthers scoreless after half-time. The Roosters bring attacking momentum; the Knights bring evidence that they can absorb severe pressure and still find a way through.",
+      "closingCopy": "Sandon Smith now has the chance to win a premiership against the Roosters, the club he left after they signed Daly Cherry-Evans. Cherry-Evans is preparing for his final NRL match, while Mark Nawaqanitawase is heading back to rugby union. Newcastle’s revival meets a Sydney side with farewells riding on the same result."
+    },
+    {
+      "id": "fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
+      "title": "Carlos Alcaraz v Jiri Lehecka",
+      "hook": "Alcaraz defends his Tokyo crown against an unseeded Lehecka with the form to make the favourite uncomfortable.",
+      "formCopy": "Alcaraz needed a three-set recovery against Jaume Munar in the semi-final; Lehecka's meeting with Valentin Vacherot lasted two sets. The contrast matters without making the Czech's route easy: Alcaraz has already had to recover his rhythm under pressure, while Lehecka carries a more direct finish into the decider. The question is whether the top seed can control the opening exchanges rather than needing another reset.",
+      "closingCopy": "A title defence asks Alcaraz to turn last year's achievement into a standard he can sustain. For Lehecka, an unseeded run puts him opposite the tournament's highest seed with the chance to make this week his own. That is the emotional imbalance: expectation sits with the champion, opportunity with the challenger. Neither reputation nor the smoother semi-final settles how they handle the last match.",
+      "synopsis": "The Japan Open singles final is on Tokyo's Colosseum court on Tuesday 6 October, not before 6pm local time: 8pm in Sydney. The official order places it after the doubles final and a tribute ceremony, so the named not-before time is a lower bound, not a promise of an exact first serve. This hard-court ATP 500 decider offers 500 ranking points to the champion. Alcaraz's ability to regain control and Lehecka's ability to resist it give the final its focus.",
+      "sources": [
+        "https://www.protennislive.com/posting/2026/329/mds.pdf",
+        "https://www.protennislive.com/posting/2026/329/op.pdf",
+        "https://www.atptour.com/en/news/alcaraz-tokyo-2026-entry"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Alcaraz's semi-final against Munar required three sets; Lehecka's semi-final against Vacherot ended in two sets.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Alcaraz is the top seed and Lehecka is unseeded in the official singles draw.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Alcaraz returns as the defending Tokyo champion after his 2025 title.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The named singles final is on Colosseum on 6 October, not before 18:00 JST, equivalent to 20:00 AEDT, after doubles and a ceremony.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "The official singles draw awards 500 ranking points to the champion and 330 to the runner-up.",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchDepth": 5,
+      "changeReason": "Restore missing required public display copy with complete sourced participant-specific preview; preserve all sporting fields.",
+      "researchedAt": "2026-10-06T02:59:54.191Z"
+    },
+    {
+      "id": "fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur",
+      "title": "Novak Djokovic v Alex de Minaur",
+      "hook": "De Minaur faces the champion Beijing has never beaten: Djokovic's return brings a familiar record into a new final.",
+      "formCopy": "Djokovic's route includes a three-set quarter-final against top seed Alexander Zverev and a semi-final cut short by Daniil Medvedev's default. De Minaur's semi-final ended when Hubert Hurkacz retired, after the Australian took the opening set. Neither interruption predicts the final. The useful contrast is Djokovic's recent experience of recovering a set deficit against elite opposition and de Minaur's opportunity to make this decider a contest decided entirely by their tennis.",
+      "closingCopy": "Djokovic returned after eleven years to a tournament where each of his six previous appearances ended with the title. That history makes Beijing more than another stop on the calendar for him. For de Minaur and Australian supporters, the appeal is the chance to challenge that local authority on the biggest match of this week, not simply to share a court with it. History can add pressure and belief; it cannot play the points for either man.",
+      "synopsis": "The China Open men's singles final is scheduled on Capital Group Diamond on Tuesday 6 October, not before 7pm in Beijing: 10pm in Sydney. Its clock belongs to this named final, not the earlier mixed programme or doubles match. The hard-court ATP 500 title carries 500 ranking points. De Minaur needs to turn the final into his own contest; Djokovic has a chance to extend an exceptional relationship with this venue. The announced time remains a not-before start.",
+      "sources": [
+        "https://www.protennislive.com/posting/2026/747/mds.pdf",
+        "https://www.protennislive.com/posting/2026/747/op.pdf",
+        "https://novakdjokovic.com/en/news/tennis/novak-is-returning-to-beijing-after-11-years/"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Djokovic's quarter-final against Zverev required three sets; his Medvedev semi-final ended with a default.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "De Minaur's semi-final against Hurkacz ended with a retirement after de Minaur took the first set.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Djokovic returns after eleven years; each of his six previous China Open appearances ended in a title.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The official named singles final is on Capital Group Diamond on 6 October, not before 19:00 CST, equivalent to 22:00 AEDT.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "The champion receives 500 ranking points and the runner-up 330 according to the official draw.",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchDepth": 5,
+      "changeReason": "Restore missing required public display copy with complete sourced participant-specific preview; preserve all sporting fields.",
+      "researchedAt": "2026-10-06T02:59:54.194Z"
+    },
+    {
+      "id": "fixture:cricket:espn:1525659",
+      "title": "South Africa v Australia - First Test",
+      "hook": "Rabada's absence and two South African spinners make Durban a test of Australia's batting adaptability, not simply its pace attack.",
+      "formCopy": "South Africa have named Maharaj and Harmer together, with Nortje returning alongside Jansen. Rabada remains unavailable for the opener. Australia's batting faces its own scrutiny after the drawn Bangladesh series; Labuschagne retained his place, while the touring squad includes Kuhnemann as a second specialist spin option.",
+      "closingCopy": "This is Australia's first Test tour here since 2018. The legacy belongs to the series, but Durban's immediate argument is cricketing: can the visitors establish authority against a home attack built around more than fast bowling? For the Proteas, depth has to replace a missing spearhead.",
+      "synopsis": "Kingsmead begins a three-Test contest between the last two World Test Championship winners, before Gqeberha and Cape Town. South Africa's announced XI is confirmed; Australia's touring options are not a promised playing XI. Kayo and Fox Cricket carry the series in Australia. No first-Test result has been assumed.",
+      "sources": [
+        "https://www.cricket.com.au/news/4588660/south-africa-xi-team-line-up-side-temba-bavuma-kagiso-rabada-hamstring-injury-anrich-nortje?tags=9037",
+        "https://www.cricket.com.au/news/4573063/australia-test-squad-south-africa-tour-2026-selection-labuschagne-renshaw-cummins-starc-cooper-kuhnemann-neser",
+        "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Rabada is unavailable for the first Test.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Maharaj and Harmer are named alongside returning Nortje and Jansen.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Australia retained Labuschagne after a drawn Bangladesh Test series and selected Kuhnemann.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "This is Australia's first South African Test tour since 2018.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Durban opens a three-Test tour, followed by Gqeberha and Cape Town.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-09T00:20:09.386Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "rugby-new-zealand-australia-2026-10-10",
+      "title": "All Blacks v Wallabies",
+      "hook": "Isaac Henry steps into Australia's midfield as Eden Park tests whether renewed belief can survive New Zealand's returning experience.",
+      "formCopy": "Henry replaces suspended Hunter Paisami beside Len Ikitau, now cleared of his ankle concern. Australia otherwise keep the starting side that beat South Africa in Perth. New Zealand restore Scott Barrett at lock and give Damian McKenzie his first start at flyhalf this season, with Codie Taylor captaining and Beauden Barrett at fullback.",
+      "closingCopy": "For Wallabies supporters, Henry's selection turns a broad hope into a specific contest: a changed midfield has to make familiar attacking combinations work under Auckland pressure. New Zealand's response is experience down the spine. This is progress against expectation, not a promised breakthrough or a debut manufactured from a squad list.",
+      "synopsis": "Eden Park hosts the opening Test before the rivalry moves to Sydney a week later. Australia's last win at this ground was in 1986; New Zealand have retained the Bledisloe since 2003. Those records explain the weight of the occasion, but the named sides give it a present-tense question: can Australia's continuity elsewhere outweigh a forced centre change?",
+      "sources": [
+        "https://www.rugby.com.au/wallabies/news/wallabies-team-confirmed-to-play-new-zealand-in-auckland-bledisloe-cup-2026107",
+        "https://www.allblacks.com/news/all-blacks/all-blacks-team-named-for-first-bledisloe-cup-test",
+        "https://www.rugby.com.au/wallabies/news/wallabies-side-bledisloe-cup-all-blacks-len-ikitau-rugby-union-2026108"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Henry replaces suspended Paisami; the remaining Australian starting XV is unchanged from Perth.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Ikitau has been cleared to partner Henry in midfield.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Taylor captains New Zealand; Scott Barrett returns and McKenzie starts at flyhalf.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Australia last won at Eden Park in 1986; New Zealand have held the Bledisloe since 2003.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-09T00:20:09.386Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "evt_motogp_2026_indonesia_qualifying",
+      "title": "MotoGP Indonesia - Qualifying",
+      "hook": "Mandalika's grid is the first pressure point for Martin and Marquez with just two championship points between them.",
+      "formCopy": "Marquez took both races in Japan; Martin held the championship lead. Bezzecchi remains in contention, arriving at a circuit where he took pole last year.",
+      "closingCopy": "A front-row place cannot win the title, but it can keep a rival within reach from the opening corner. That makes this session more than a lap-time contest.",
+      "synopsis": "Friday Practice sends its top ten straight to Q2. Saturday qualifying follows the final free practice and comes before the Sprint. Separate Sprint qualifying is a 2027 change, not this weekend's format.",
+      "sources": [
+        "https://www.motogp.com/en/news/2026/10/07/time-schedule-pertamina-grand-prix-of-indonesia/1171110",
+        "https://www.motogp.com/en/news/2026/10/04/two-points-in-it-marc-marquez-doubles-up-at-motegi-to-reel-in-on-martin/1145007",
+        "https://www.motogp.com/en/news/2026/10/06/mandalika-misfortunes-marc-marquez-ready-to-turn-the-page/1171112",
+        "https://www.motogp.com/en/news/2026/10/08/media-day-dispatch-motogp-ready-to-rock-on-lombok/1174852",
+        "https://www.motogp.com/en/news/2026/10/07/two-points-the-gap-as-motogps-2026-thriller-lands-in-lombok/1171109"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Martin leads Marquez by two points after Japan.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Friday Practice admits its top ten directly to Q2.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Marquez has not completed a Sunday Grand Prix at Mandalika.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Qualifying precedes Saturday's Sprint, with the Grand Prix on Sunday.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Bezzecchi took Indonesian pole in 2025.",
+          "sourceIndexes": [
+            4
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-09T00:20:09.386Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "evt_motogp_2026_indonesia_sprint",
+      "title": "MotoGP Indonesia - Sprint",
+      "hook": "Saturday offers Martin and Marquez another title swing before Sunday's longer Mandalika test.",
+      "formCopy": "Japan tightened the duel rather than breaking it open: Marquez swept the weekend while Martin retained a narrow lead. Bezzecchi's recent podium run keeps a third challenger in view.",
+      "closingCopy": "For Aprilia and Ducati supporters, the short race is a chance to change the balance before the main event. Aggression still has to leave a Sunday campaign intact.",
+      "synopsis": "The Sprint follows Saturday qualifying at Mandalika. Its result is not Sunday's outcome, and neither has been forecast here. Marquez has previously reached the Indonesian Sprint podium despite his difficult Grand Prix history.",
+      "sources": [
+        "https://www.motogp.com/en/news/2026/10/07/time-schedule-pertamina-grand-prix-of-indonesia/1171110",
+        "https://www.motogp.com/en/news/2026/10/04/two-points-in-it-marc-marquez-doubles-up-at-motegi-to-reel-in-on-martin/1145007",
+        "https://www.motogp.com/en/news/2026/10/06/mandalika-misfortunes-marc-marquez-ready-to-turn-the-page/1171112",
+        "https://www.motogp.com/en/news/2026/10/08/media-day-dispatch-motogp-ready-to-rock-on-lombok/1174852",
+        "https://www.motogp.com/en/news/2026/10/07/two-points-the-gap-as-motogps-2026-thriller-lands-in-lombok/1171109"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Martin leads Marquez by two points after Japan.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Friday Practice admits its top ten directly to Q2.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Marquez has not completed a Sunday Grand Prix at Mandalika.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Qualifying precedes Saturday's Sprint, with the Grand Prix on Sunday.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Marquez finished third in the Indonesian Sprint in 2024.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Bezzecchi has taken four third places in the last five Sunday races.",
+          "sourceIndexes": [
+            4
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-09T00:20:09.386Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "evt_motogp_2026_indonesia",
+      "title": "MotoGP Indonesia Grand Prix",
+      "hook": "Marquez brings winning momentum to the one Sunday finish Mandalika has never given him; Martin brings a two-point lead.",
+      "formCopy": "Japan's double put the reigning champion almost level with Martin. Bezzecchi is 49 points behind his Aprilia teammate, close enough to keep the contest from becoming an exclusive duel.",
+      "closingCopy": "Martin knows he can win here, having done so in 2024. Marquez needs to turn speed into a finish at a venue associated with injuries and mechanical trouble. That contrast gives this championship chapter its own emotional weight.",
+      "synopsis": "The Grand Prix closes the Indonesia weekend after qualifying and the Sprint. Saturday can change the standings before Sunday begins, so the two-point gap describes arrival, not a promised race-day position. The longer race asks whether attacking pace can survive the whole distance.",
+      "sources": [
+        "https://www.motogp.com/en/news/2026/10/07/time-schedule-pertamina-grand-prix-of-indonesia/1171110",
+        "https://www.motogp.com/en/news/2026/10/04/two-points-in-it-marc-marquez-doubles-up-at-motegi-to-reel-in-on-martin/1145007",
+        "https://www.motogp.com/en/news/2026/10/06/mandalika-misfortunes-marc-marquez-ready-to-turn-the-page/1171112",
+        "https://www.motogp.com/en/news/2026/10/08/media-day-dispatch-motogp-ready-to-rock-on-lombok/1174852",
+        "https://www.motogp.com/en/news/2026/10/07/two-points-the-gap-as-motogps-2026-thriller-lands-in-lombok/1171109"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Martin leads Marquez by two points after Japan.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Friday Practice admits its top ten directly to Q2.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Marquez has not completed a Sunday Grand Prix at Mandalika.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Qualifying precedes Saturday's Sprint, with the Grand Prix on Sunday.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Martin won the Indonesian Grand Prix in 2024.",
+          "sourceIndexes": [
+            4
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Bezzecchi trails Martin by 49 points entering the weekend.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-09T00:20:09.386Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "supercars-bathurst-1000-2026",
+      "title": "Bathurst 1000",
+      "hook": "A rookie starts on pole: Zach Bates turns Bathurst's established order into a challenge for the full 1000 kilometres.",
+      "formCopy": "Bates backed up Friday's record Gen3 qualifying lap by beating Brodie Kostecki in Saturday's Shootout. It is the first Bathurst pole for both the rookie and Matt Stone Racing. Kostecki starts alongside him; Anton De Pasquale is third. Broc Feeney, Cam Waters and Chaz Mostert missed the top ten, so several familiar contenders must build their challenge from further back.",
+      "closingCopy": "For Matt Stone Racing, the front row makes an underdog story tangible without making Sunday a fairytale already won. Kostecki remains the immediate benchmark beside Bates. Toyota's Bend 500 breakthrough still offers a reason for its supporters to believe, but Mostert's grid position asks the team to earn that belief over the distance. One exceptional lap and a complete endurance performance are different achievements.",
+      "synopsis": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Ford's approved engine adjustment applies to Bathurst only; Chevrolet's separate ballast revision is a different technical measure. Driver handovers, reliability and race management now matter more than qualifying headlines. The grid is confirmed, not the result: no finishing order or Sunday outcome is assumed.",
+      "sources": [
+        "https://www.supercars.com/news/supercars-news-2026-bathurst-1000-top-10-shootout-report-zach-bates-pole-shock-fairytale-matt-stone-racing-results",
+        "https://www.v8sleuth.com.au/bates-grabs-bathurst-pole-to-deny-kostecki-record/",
+        "https://www.supercars.com/news/supercars-news-2026-bathurst-1000-qualifying-report-zach-bates-provisional-pole-record-breaking-msr-results",
+        "https://www.supercars.com/news/supercars-news-2026-ford-engine-change-bathurst-1000-barometric-pressure-testing-investigation-gen3",
+        "https://www.supercars.com/events/2026-bathurst-1000",
+        "https://www.supercars.com/news/supercars-news-2026-ryan-walkinshaw-toyota-bathurst-1000-reliability-engine-gen3-the-bend-500-enduro",
+        "https://www.supercars.com/news/supercars-news-2026-centre-of-gravity-adjustments-ford-toyota-chevrolet-gen3-parity-bathurst-1000"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Bates secured the Bathurst pole ahead of Kostecki and De Pasquale.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "It is Bates' first Supercars pole and Matt Stone Racing's first Bathurst pole.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Feeney, Waters and Mostert missed the Top Ten Shootout.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Ford's engine adjustment applies to Bathurst only, separately from Chevrolet ballast changes.",
+          "sourceIndexes": [
+            3,
+            6
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The 161-lap race closes the Enduro Cup before the Finals.",
+          "sourceIndexes": [
+            4
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Toyota won The Bend 500 with Mostert and Coulthard.",
+          "sourceIndexes": [
+            5
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-10T09:56:08Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "epl-2026-27-128980",
+      "title": "Liverpool v Manchester City",
+      "hook": "Haaland is fit for Anfield, where Liverpool's rebuild meets City's winning run and a financial dispute that football cannot settle.",
+      "formCopy": "City chase a sixth successive league win; Liverpool are unbeaten in seven matches across all competitions. Maresca has now confirmed Haaland is fit and available after a precautionary withdrawal on international duty. Foden remains suspended. Iraola's Liverpool press meets a City side trying to restore its rhythm after the international break, with attacking availability no longer waiting on Friday's briefing.",
+      "closingCopy": "The Commission found serious financial-reporting and spending-rule breaches, not a salary-cap offence. City have appealed and maintain their innocence; sanctions remain a separate process. Maresca has publicly backed the club's hierarchy and asked his players to focus on football. For Liverpool fans, competitive fairness can sharpen the rivalry; for City fans, loyalty meets disputed findings. Management faces institutional questions while the players must perform in an atmosphere their manager expects to be fiercer. A win would answer the sporting challenge, not resolve the case.",
+      "synopsis": "Anfield hosts the match on Sunday 11 October in Britain, early Monday 12 October in Sydney. Liverpool must turn its unbeaten start into control against an opponent on a sustained league run. The tactical question is whether Iraola's pressure disrupts City's possession before Haaland can exploit space. Confirmed availability is not an announced starting XI, and no deduction, stripped title or match outcome has been presumed.",
+      "sources": [
+        "https://www.mancity.com/news/mens/liverpool-v-city-premier-league-match-preview-october-2026-63926279",
+        "https://www.mancity.com/news/mens/enzo-maresca-liverpool-v-manchester-city-team-news-update-63927129",
+        "https://www.premierleague.com/en/news/4727779/premier-league-statement-manchester-city-fc/",
+        "https://www.mancity.com/news/club/manchester-city-lodge-appeal-63926534",
+        "https://apnews.com/article/24585acc5c33ee96413d2495465b8856"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "City seek six successive league wins; Liverpool are unbeaten in seven matches across all competitions.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Haaland is fit and available; Foden misses Liverpool through suspension.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "The independent Commission found financial-reporting and spending-rule breaches; sanctions are addressed separately.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "City have appealed the findings and maintain their innocence.",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Maresca has backed the hierarchy and said players must focus on the pitch.",
+          "sourceIndexes": [
+            4
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The 11 October 16:30 BST Anfield kickoff falls on 12 October in Sydney.",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-10T09:56:08Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "fixture:tennis:espn:wta:184356",
+      "title": "Qinwen Zheng v Mirra Andreeva — China Open final",
+      "hook": "Zheng's home milestone meets Andreeva's fifth final of 2026 in Beijing.",
+      "synopsis": "The China Open singles final pairs wildcard Qinwen Zheng with fourth seed Mirra Andreeva. Zheng is the first Chinese player to reach this final; Andreeva brings a season already featuring three titles. Capital Group Diamond hosts the final on 11 October, not before 19:30 Beijing / 22:30 Sydney, after the doubles final. The announced time remains a not-before start.",
+      "formCopy": "Both arrive after straight-sets semifinals. Andreeva is in her fifth final of the season, following titles at Roland Garros, Adelaide and Linz and a Madrid final. Their only earlier tour meeting was a three-set Beijing quarter-final in 2024, where Zheng had the advantage. That history gives the match context without deciding this final.",
+      "closingCopy": "Zheng's chance to become the first Chinese singles champion at the China Open gives the home crowd a clear story. Andreeva has the fourth seed and a strong season behind her. The final asks whether Zheng can turn that local milestone into a title, or Andreeva can add another trophy. Those are possibilities, with the result still to be decided.",
+      "sources": [
+        "https://www.wtatennis.com/news/4589836/mirra-andreeva-vs-zheng-qinwen-everything-to-know-about-china-open-beijing-final",
+        "https://www.wtatennis.com/news/4590078/zheng-becomes-first-chinese-finalist-in-beijing-with-straight-sets-win-over-mertens",
+        "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf"
+      ],
+      "sourceObservations": [
+        {
+          "name": "WTA official Beijing final preview",
+          "url": "https://www.wtatennis.com/news/4589836/mirra-andreeva-vs-zheng-qinwen-everything-to-know-about-china-open-beijing-final",
+          "checkedAt": "2026-10-11T03:04:23.039Z",
+          "bytes": 209946,
+          "sha256": "253a3b52d2908b861b466c89bbb7ec9add05cff138f6947d519d680b9a4c5d92"
+        },
+        {
+          "name": "WTA official Zheng semifinal report",
+          "url": "https://www.wtatennis.com/news/4590078/zheng-becomes-first-chinese-finalist-in-beijing-with-straight-sets-win-over-mertens",
+          "checkedAt": "2026-10-11T03:04:24.191Z",
+          "bytes": 187130,
+          "sha256": "4fe19f441e23e87b83f24526504d9ef2520bd187a9a463c79f277a7363fe5af5"
+        },
+        {
+          "name": "China Open official order of play",
+          "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf",
+          "checkedAt": "2026-10-11T03:04:25.854Z",
+          "bytes": 2822919,
+          "sha256": "cd9e86a0ae8f3ecc42b0a2404f8b8699ea74e28ab9ae4e4561ddc5d3b024aa4f"
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "Zheng is the first Chinese player to reach the China Open singles final.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Andreeva reaches her fifth final of 2026, after titles at Roland Garros, Adelaide and Linz and a Madrid final.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Their only earlier tour meeting was the 2024 China Open quarter-final, where Zheng came through in three sets.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "The official singles final pairs wildcard Qinwen Zheng with fourth seed Mirra Andreeva.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The official named singles final is on Capital Group Diamond on 11 October, not before 19:30 Beijing, equivalent to 22:30 AEDT.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "researchDepth": 5,
+      "changeReason": "Replace the missing marquee preview with source-backed participant-specific context through the existing research owner; preserve all sporting facts and source dates.",
+      "researchedAt": "2026-10-11T03:06:32.411Z"
+    },
+    {
+      "id": "fixture-tennis-espn-atp-184950",
+      "title": "Alex de Minaur v Karen Khachanov - Shanghai round of 16",
+      "hook": "De Minaur's Turin chase meets Khachanov's big-stage pedigree, with recovery and rally depth both under examination.",
+      "formCopy": "De Minaur says the extra recovery time in Shanghai has helped and that his body is improving. His recent emphasis has been on serving accurately and keeping the ball deep rather than being pushed around the baseline. Khachanov brings the experience of a Paris Masters title and Olympic singles silver. Their meeting asks whether the Australian can sustain his movement and depth against an opponent with proven credentials at this level.",
+      "closingCopy": "For De Minaur, this is more than another stop on the Asian swing: the ATP Finals remain within reach, and each round carries weight in that chase. Australian supporters have travelled with him through Shanghai, adding a familiar voice far from home. Khachanov has his own claim to the big stage; a former Masters champion is not merely an obstacle in someone else's qualification story. The tension is between opportunity and the physical demands of taking it.",
+      "synopsis": "A Shanghai quarterfinal place is at stake on the hard courts. Tennis Australia's current preview says a De Minaur victory would move him to ninth in the race to Turin; that is a route towards qualification, not a guaranteed Finals berth. Keeping Khachanov from dictating the rally will matter as much as retrieving another ball. Recovery progress is the player's account, not a medical declaration of full fitness. Neither this match's outcome nor scores from earlier rounds are revealed.",
+      "sources": [
+        "https://www.tennis.com.au/fan-zone/news/2026/10/11/de-minaur-wins-again-to-reach-shanghai-masters-fourth-round",
+        "https://www.atptour.com/en/tournaments/shanghai/5014/overview",
+        "https://bnpparibasopen.com/players/detail/karen-khachanov"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "De Minaur reported improved recovery and described depth and neutralising the opponent's serve as recent priorities.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Tennis Australia identifies Khachanov as De Minaur's fourth-round opponent and says victory would move De Minaur to ninth in the ATP Finals race.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Khachanov won the 2018 Paris Masters and Olympic singles silver in Tokyo.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Shanghai is a hard-court Masters 1000 tournament; the round-of-16 winner progresses to the quarterfinals.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ],
+      "researchDepth": 5,
+      "researchedAt": "2026-10-12T22:50:31.088Z"
+    },
+    {
+      "id": "epl-2026-27-128984",
+      "title": "Brentford v Liverpool - selection pressure at the Gtech",
+      "hook": "Gravenberch's ban opens a hole in Liverpool's midfield just as Brentford test how far their own adaptability can take them.",
+      "formCopy": "Brentford's latest analysis highlights Diouf's forward running, Yarmoliuk's midfield work and Hickey's adaptability at centre-back. Andrews is assessing Schade's shoulder and Schuster's ankle. Liverpool must replace suspended Gravenberch, while their latest pre-match report described Isak and Gakpo as day-to-day injury cases and Chiesa back in training. Those fitness reports do not confirm availability at the Gtech, and neither starting XI is assumed.",
+      "closingCopy": "Andrews has a week on the training pitch to turn resourcefulness into a repeatable plan. For Brentford supporters, competing with Liverpool is about seeing their own side's ideas hold up, not simply welcoming a famous visitor. Iraola must find balance without Gravenberch: whoever fills the space has to connect defence and attack rather than just occupy a shirt. A selection problem becomes a test of trust for the manager, opportunity for a replacement and a demand for cohesion from the stands.",
+      "synopsis": "Liverpool travel to the Gtech for a league meeting in which points matter to both clubs, without a title verdict hanging on one October afternoon. Brentford's changing defensive options and Liverpool's attack raise a practical question: can pressure be organised without leaving space behind it? The confirmed match is on Saturday in London and early Sunday in Sydney. Recent fitness assessments remain dated evidence, not a prediction of this week's team sheet; earlier results are kept out of the preview.",
+      "sources": [
+        "https://www.brentfordfc.com/en/news/analysis-aston-villa-2-brentford-2-el-hadji-malick-diouf-aaron-hickey-yehor-yarmoliuk",
+        "https://www.brentfordfc.com/en/news/first-team-keith-andrews-kevin-schade-jannik-schuster-injury-update-brentford",
+        "https://www.liverpoolfc.com/news/lfc-fitness-update-alexander-isak-cody-gakpo-federico-chiesa-and-jeremy-jacquet",
+        "https://www.liverpoolfc.com/tickets/match/brentford-v-liverpool-english-premier-league-20261017",
+        "https://www.liverpoolfc.com/news/ryan-gravenberch-suspended-for-brentford-v-liverpool-premier-league"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Brentford's 12 October analysis highlights Diouf at left-back, Yarmoliuk in midfield and Hickey in an unfamiliar centre-back role, with a training week before Liverpool.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Andrews' 10 October update reports a Schade shoulder injury and Schuster ankle issue, with no declared Liverpool-match availability.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Liverpool's latest available pre-match club report described Isak's thigh and Gakpo's ankle injuries as assessed day to day, and Chiesa back in training; it did not settle the Brentford team.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Liverpool's official ticket page identifies the away league fixture at Gtech Community Stadium on Saturday 17 October, 15:00 British time.",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "This is a Premier League match, not a knockout decider.",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Liverpool confirms Ryan Gravenberch is suspended for the Brentford away match.",
+          "sourceIndexes": [
+            4
+          ]
+        }
+      ],
+      "researchDepth": 5,
+      "researchedAt": "2026-10-12T22:50:31.092Z"
+    },
+    {
+      "id": "event:horse-racing:melbourne-cup:2026",
+      "title": "Melbourne Cup — sporting tradition and why it matters",
+      "hook": "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
+      "synopsis": "At Flemington, 3,200 metres separate a field of horses and jockeys from a place in racing history. Storied, celebrated and sometimes controversial, it is Australia’s defining horse race.",
+      "closingCopy": "The Cup matters because it turns an extraordinary test of endurance and riding skill into a national occasion, bringing generations of stories and rivalries together for a few unforgettable minutes.",
+      "researchDepth": 5,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.vrc.com.au/race-days-and-events/2026-2027/lexus-melbourne-cup-day/",
+        "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/aiui32r2/2026-lexus-melbourne-cup-full-conditions-final.pdf",
+        "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Melbourne Cup — official sporting context",
+          "url": "https://www.vrc.com.au/race-days-and-events/2026-2027/lexus-melbourne-cup-day/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Melbourne Cup — official sporting context",
+          "url": "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/aiui32r2/2026-lexus-melbourne-cup-full-conditions-final.pdf",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Melbourne Cup — official sporting context",
+          "url": "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "The Melbourne Cup is a 3200-metre Group1 race at Flemington.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "VRC describes the Melbourne Cup as the Race That Stops a Nation.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "VRC identifies its2026 Melbourne Cup as the166th of the series.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The2026 VRC spring programme lists3November for Cup Day and explicitly leaves race order unconfirmed.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:caulfield-cup:2026",
+      "title": "Caulfield Cup — sporting tradition and why it matters",
+      "hook": "The Caulfield Cup turns 2,400 metres into one of spring’s great endurance contests.",
+      "synopsis": "Local and international stayers meet in a race where patience, positioning and a powerful finish all matter.",
+      "closingCopy": "Its place in Australian racing comes from that meeting of worlds: visiting challengers, familiar rivals and generations of stories carried into the Caulfield straight.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://mrc.racing.com/racing/racing-information/feature-race-information/caulfield-cup?sc_site=MRC",
+        "https://mrc.racing.com/greatest-caulfield-cup"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Caulfield Cup — official sporting context",
+          "url": "https://mrc.racing.com/racing/racing-information/feature-race-information/caulfield-cup?sc_site=MRC",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Caulfield Cup — official sporting context",
+          "url": "https://mrc.racing.com/greatest-caulfield-cup",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "The Caulfield Cup is a2400-metre handicap.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Caulfield Cup is held at Caulfield.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "MRC describes the Caulfield Cup as drawing elite local and international stayers and celebrates its great winners.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:cox-plate:2026",
+      "title": "Cox Plate — sporting tradition and why it matters",
+      "hook": "The Cox Plate is where racing’s great reputations face a championship test.",
+      "synopsis": "Its tradition brings horses of different ages together in a test of sustained excellence and the skill of horse and rider.",
+      "closingCopy": "The race matters because a few minutes can add a defining chapter to a champion’s story, or introduce a new name to the sport’s biggest stage.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.thevalley.com.au/racing/ws-cox-plate",
+        "https://www.thevalley.com.au/ladbrokes-cox-plate-carnival/guide"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Cox Plate — official sporting context",
+          "url": "https://www.thevalley.com.au/racing/ws-cox-plate",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Cox Plate — official sporting context",
+          "url": "https://www.thevalley.com.au/ladbrokes-cox-plate-carnival/guide",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "The Cox Plate is a weight-for-age contest for horses aged three and older.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "MVRC calls the Cox Plate the Weight-For-Age Championship of Australasia.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The current2026 organiser guide identifies Flemington as the host venue; traditional Valley distance is not an edition2026 fact.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:the-everest:2026",
+      "title": "The Everest — sporting tradition and why it matters",
+      "hook": "The Everest puts sprinting’s explosive speed at the heart of a Sydney sporting occasion.",
+      "synopsis": "Over 1,200 metres at Royal Randwick, the contest leaves little room for hesitation: a clean start, a jockey’s judgement and a decisive burst can shape the race.",
+      "closingCopy": "Its appeal is immediate and visceral, bringing elite sprinters together for a short, fiercely contested show of speed.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.australianturfclub.com.au/races/everest-day/",
+        "https://www.racingnsw.com.au/wp-content/uploads/RNSW-AR18-web.pdf"
+      ],
+      "sourceObservations": [
+        {
+          "name": "The Everest — official sporting context",
+          "url": "https://www.australianturfclub.com.au/races/everest-day/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "The Everest — official sporting context",
+          "url": "https://www.racingnsw.com.au/wp-content/uploads/RNSW-AR18-web.pdf",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "venue",
+          "statement": "The Everest is held at Royal Randwick.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "Racing NSW describes The Everest as a1200-metre race.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Racing NSW records the introduction of The Everest in2017.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:victoria-derby:2026",
+      "title": "Victoria Derby — sporting tradition and why it matters",
+      "hook": "The Victoria Derby asks a new generation to find the strength for a classic test.",
+      "synopsis": "Three-year-old horses tackle 2,500 metres at Flemington, where promise must become endurance.",
+      "closingCopy": "As the carnival’s opening classic, the Derby matters beyond one afternoon: it gives young horses and their riders a chance to write the first major chapter of a lasting sporting story.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.vrc.com.au/latest-news/victoria-derby-tradition-and-triumph/",
+        "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Victoria Derby — official sporting context",
+          "url": "https://www.vrc.com.au/latest-news/victoria-derby-tradition-and-triumph/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Victoria Derby — official sporting context",
+          "url": "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "VRC describes the Victoria Derby as a long-running Flemington classic.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "The current VRC programme specifies2500metres and three-year-olds for the Victoria Derby.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Victoria Derby is part of the Flemington Melbourne Cup Carnival.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:vrc-oaks:2026",
+      "title": "VRC Oaks — sporting tradition and why it matters",
+      "hook": "The VRC Oaks gives young fillies their own place in Flemington’s classic tradition.",
+      "synopsis": "The 2,500-metre journey at Flemington tests stamina, composure and a rider’s sense of pace.",
+      "closingCopy": "Set within the colour and occasion of Oaks Day, the race matters as a stage where emerging talent can become a memorable name, carrying the carnival’s story into a fresh generation.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:26:31.106Z",
+      "sources": [
+        "https://www.vrc.com.au/latest-news/treasurethe-moment-wins-memorable-crown-oaks/",
+        "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf"
+      ],
+      "sourceObservations": [
+        {
+          "name": "VRC Oaks — official sporting context",
+          "url": "https://www.vrc.com.au/latest-news/treasurethe-moment-wins-memorable-crown-oaks/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "VRC Oaks — official sporting context",
+          "url": "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "The VRC Oaks is a2500-metre race for three-year-old fillies.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "VRC records a long Oaks tradition within the Melbourne Cup Carnival.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "VRC places the Oaks at Flemington during the carnival.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:champions-stakes:2026",
+      "title": "Champions Stakes — sporting tradition and why it matters",
+      "hook": "The Champions Stakes brings the Melbourne carnival to a championship finish.",
+      "synopsis": "This 2,000-metre contest at Flemington puts established horses and ambitious challengers on the same stage.",
+      "closingCopy": "It matters because the carnival’s last big chapter belongs to sporting excellence: the ability to settle, respond and finish strongly when the race demands everything.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.vrc.com.au/race-days-and-events/2026-2027/tab-champions-stakes-day/",
+        "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Champions Stakes — official sporting context",
+          "url": "https://www.vrc.com.au/race-days-and-events/2026-2027/tab-champions-stakes-day/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Champions Stakes — official sporting context",
+          "url": "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "The Champions Stakes is a2000-metre weight-for-age race.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "The race originated as the Melbourne Stakes and was repositioned to the carnival final day in2016.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Champions Stakes is held at Flemington on the final carnival day.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:golden-slipper:2027",
+      "title": "Golden Slipper — sporting tradition and why it matters",
+      "hook": "The Golden Slipper is a coming-of-age moment for racing’s youngest stars.",
+      "synopsis": "Two-year-olds meet at Rosehill Gardens in a sprint that tests speed and composure on a major stage.",
+      "closingCopy": "The race matters because so much of its drama is about discovery: young horses, trainers and jockeys stepping into a tradition that has helped shape Australian racing for generations.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.australianturfclub.com.au/history-of-the-golden-slipper/",
+        "https://www.australianturfclub.com.au/nominations-open-for-iconic-2027-group-1-5-million-tab-golden-slipper/"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Golden Slipper — official sporting context",
+          "url": "https://www.australianturfclub.com.au/history-of-the-golden-slipper/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Golden Slipper — official sporting context",
+          "url": "https://www.australianturfclub.com.au/nominations-open-for-iconic-2027-group-1-5-million-tab-golden-slipper/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "The Golden Slipper is restricted to two-year-olds.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "The Golden Slipper first ran at Rosehill in1957.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Golden Slipper is a centrepiece of the Sydney autumn programme at Rosehill Gardens.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:australian-cup:2027",
+      "title": "Australian Cup — sporting tradition and why it matters",
+      "hook": "The Australian Cup carries Flemington’s championship tradition into autumn.",
+      "synopsis": "Over 2,000 metres, accomplished horses must combine endurance with the speed to answer a late challenge.",
+      "closingCopy": "The race’s long history gives that contest a deeper resonance: an autumn afternoon can connect a new champion with generations of horses and riders who have made the Cup a sporting landmark.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.vrc.com.au/latest-news/australian-cup-the-evolution-of-a-flemington-feature/",
+        "https://www.vrc.com.au/latest-news/it-all-began-with-dulcify/"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Australian Cup — official sporting context",
+          "url": "https://www.vrc.com.au/latest-news/australian-cup-the-evolution-of-a-flemington-feature/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Australian Cup — official sporting context",
+          "url": "https://www.vrc.com.au/latest-news/it-all-began-with-dulcify/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "The Australian Cup first ran in1863.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "The Australian Cup developed into a2000-metre weight-for-age feature.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Australian Cup is a Flemington autumn feature.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:doncaster-mile:2027",
+      "title": "Doncaster Mile — sporting tradition and why it matters",
+      "hook": "The Doncaster Mile turns Randwick’s famous mile into a test of timing and resolve.",
+      "synopsis": "Its handicap tradition brings different horses together in a contest where the pace, the passage through the field and the final surge all matter.",
+      "closingCopy": "With a history stretching back to 1866, it links Sydney’s autumn sporting occasion with one of Australian racing’s enduring stories.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.australianturfclub.com.au/history-of-the-doncaster/",
+        "https://www.australianturfclub.com.au/races/championships-day-1/"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Doncaster Mile — official sporting context",
+          "url": "https://www.australianturfclub.com.au/history-of-the-doncaster/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Doncaster Mile — official sporting context",
+          "url": "https://www.australianturfclub.com.au/races/championships-day-1/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "The Doncaster Mile first ran in1866.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "The Doncaster is a handicap over a mile,1600metres.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Doncaster Mile is a feature of Randwick’s autumn programme.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:queen-elizabeth-stakes:2027",
+      "title": "Queen Elizabeth Stakes — sporting tradition and why it matters",
+      "hook": "The Queen Elizabeth Stakes is a centrepiece of Sydney’s autumn championship stage.",
+      "synopsis": "The 2,000-metre contest at Royal Randwick brings the demands of stamina and acceleration together.",
+      "closingCopy": "It matters as a meeting point for established champions and ambitious challengers, where the strength of a sporting reputation has to be shown again on the track.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://racing.australianturfclub.com.au/feature-races/queen-elizabeth-stakes",
+        "https://www.australianturfclub.com.au/races/championships-day-2/"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Queen Elizabeth Stakes — official sporting context",
+          "url": "https://racing.australianturfclub.com.au/feature-races/queen-elizabeth-stakes",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Queen Elizabeth Stakes — official sporting context",
+          "url": "https://www.australianturfclub.com.au/races/championships-day-2/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "ATC lists the Queen Elizabeth Stakes as a2000-metre Group1 race.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "ATC places the Queen Elizabeth Stakes among the major features of The Championships.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Queen Elizabeth Stakes is held at Royal Randwick.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:stradbroke-handicap:2027",
+      "title": "Stradbroke Handicap — sporting tradition and why it matters",
+      "hook": "The Stradbroke Handicap gives Queensland racing its signature sporting occasion.",
+      "synopsis": "Eagle Farm’s 1,400-metre contest combines sustained speed with the judgement to finish strongly.",
+      "closingCopy": "As the winter carnival’s flagship, it matters to the sport’s national rhythm: the spotlight moves north, bringing local pride and visiting challengers into a race with a distinct Queensland identity.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.brc.com.au/ArticleDocuments/3738/20250404_MEDIA%20GUIDE_A4_PRINT.pdf.aspx?Embed=Y",
+        "https://www.racingqueensland.com.au/news/2023/05-may/think-about-it-lands-stradbroke-lead-up"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Stradbroke Handicap — official sporting context",
+          "url": "https://www.brc.com.au/ArticleDocuments/3738/20250404_MEDIA%20GUIDE_A4_PRINT.pdf.aspx?Embed=Y",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Stradbroke Handicap — official sporting context",
+          "url": "https://www.racingqueensland.com.au/news/2023/05-may/think-about-it-lands-stradbroke-lead-up",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "The Stradbroke Handicap is a1400-metre Group1 contest.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Stradbroke Handicap is held at Eagle Farm.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "BRC identifies the Stradbroke as its signature Queensland carnival feature.",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rlwc-australia-new-zealand-2026",
+      "title": "Australia v New Zealand",
+      "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
+      "formCopy": "Australia have named Moses and Munster in the halves, Walsh at fullback and Yeo as captain. Bostock and Preston are named for their Kangaroos debuts. Walters says Tedesco and Walker are being rested after heavy recent workloads, while the longer-term fullback choice remains open. This is a first opportunity, not a settled hierarchy for the tournament. New Zealand have paired Hughes with Nikorima, with Ponga at fullback and Gagai at centre for their first Kiwis appearances. Fisher-Harris leads a forward group featuring Leota and Tapine. These are announced match-day roles, not simply squad selections; the new combinations still have to work under pressure.",
+      "closingCopy": "Hughes says his World Cup ambition reaches beyond the dressing room: he remembers what New Zealand's 2008 title meant to him as a child and wants today's young supporters to feel that connection. Yeo's decision carries a different cost, postponing surgery with his club's support. Munster faces a teammate whose decisions he knows from training, but familiarity works both ways. For both countries, belonging is now a responsibility to build something together, not just a jersey to wear.",
+      "synopsis": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
+      "sources": [
+        "https://www.nrl.com/news/2026/10/13/kangaroos-team-to-face-new-zealand-in-rlwc-2026-opener/",
+        "https://www.nrl.com/news/2026/10/13/ponga-and-gagai-to-debut-in-kiwis-world-cup-opener/",
+        "https://www.nrl.com/news/2026/10/12/green-light-the-bus-ride-that-set-yeo-on-world-cup-path/",
+        "https://www.nrl.com/news/2026/10/12/take-a-lot-of-blame-the-defeat-driving-hughes-world-cup-bid/",
+        "https://nzrl.co.nz/news/kiwis-kiwi-ferns-2026-rugby-league-world-cup-draws-announced",
+        "https://www.nrl.com/news/2026/10/15/moses-munster-chase-hot-start-as-kevvie-plays-it-cool/",
+        "https://www.abc.net.au/news/2026-10-14/james-tedesco-reece-walsh-australia-world-cup-kevin-walters/107266374",
+        "https://www.sen.com.au/news/2026/10/14/rlwc-2026-kevin-walters-explains-decision-behind-his-team-selection-for-new-zealand"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Australia named Moses and Munster in the halves with Walsh at fullback and Yeo captain.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "New Zealand named Hughes and Nikorima in the halves, Ponga at fullback and Gagai at centre.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Yeo is postponing pectoral surgery to captain Australia with his club's support.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Hughes connects his World Cup ambition to the childhood impact of New Zealand's 2008 title.",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Australia and New Zealand share Pool A with Fiji and Cook Islands.",
+          "sourceIndexes": [
+            4
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Walters attributes Tedesco and Walker's opening rest to workload rather than a new injury.",
+          "sourceIndexes": [
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Walters says the longer-term fullback choice remains open, with rotation based on weekly team needs.",
+          "sourceIndexes": [
+            6,
+            7
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-14T22:39:08.467Z",
+      "researchDepth": 5,
+      "sourceObservations": [
+        {
+          "url": "https://www.nrl.com/news/2026/10/13/kangaroos-team-to-face-new-zealand-in-rlwc-2026-opener/",
+          "name": "Australia v New Zealand research source 1",
+          "checkedAt": "2026-10-13T23:57:53.941Z"
+        },
+        {
+          "url": "https://www.nrl.com/news/2026/10/13/ponga-and-gagai-to-debut-in-kiwis-world-cup-opener/",
+          "name": "Australia v New Zealand research source 2",
+          "checkedAt": "2026-10-13T23:57:53.941Z"
+        },
+        {
+          "url": "https://www.nrl.com/news/2026/10/12/green-light-the-bus-ride-that-set-yeo-on-world-cup-path/",
+          "name": "Australia v New Zealand research source 3",
+          "checkedAt": "2026-10-13T23:57:53.941Z"
+        },
+        {
+          "url": "https://www.nrl.com/news/2026/10/12/take-a-lot-of-blame-the-defeat-driving-hughes-world-cup-bid/",
+          "name": "Australia v New Zealand research source 4",
+          "checkedAt": "2026-10-13T23:57:53.941Z"
+        },
+        {
+          "url": "https://nzrl.co.nz/news/kiwis-kiwi-ferns-2026-rugby-league-world-cup-draws-announced",
+          "name": "Australia v New Zealand research source 5",
+          "checkedAt": "2026-10-13T23:57:53.941Z"
+        },
+        {
+          "url": "https://www.nrl.com/news/2026/10/15/moses-munster-chase-hot-start-as-kevvie-plays-it-cool/",
+          "name": "Australia v New Zealand research source 6",
+          "checkedAt": "2026-10-14T22:39:08.467Z"
+        },
+        {
+          "url": "https://www.abc.net.au/news/2026-10-14/james-tedesco-reece-walsh-australia-world-cup-kevin-walters/107266374",
+          "name": "Australia v New Zealand research source 7",
+          "checkedAt": "2026-10-14T22:39:08.467Z"
+        },
+        {
+          "url": "https://www.sen.com.au/news/2026/10/14/rlwc-2026-kevin-walters-explains-decision-behind-his-team-selection-for-new-zealand",
+          "name": "Australia v New Zealand research source 8",
+          "checkedAt": "2026-10-14T22:39:08.467Z"
+        }
+      ]
+    },
+    {
+      "id": "fixture-tennis-espn-atp-184954",
+      "title": "Alexander Zverev v Alex de Minaur",
+      "hook": "Zverev brings the bigger serve; de Minaur brings the harder-earned rallies. Shanghai asks whose way of controlling pressure can survive the other.",
+      "formCopy": "De Minaur says his groin has improved with daily recovery work, adding a clearer fitness picture to his ATP Finals pursuit. That is his assessment, not a medical guarantee. Zverev has reported ankle discomfort, so each man's movement merits attention. The tactical contrast remains: Zverev wants his serve to take time away; de Minaur needs returns deep enough to turn the next ball into a contest rather than another defensive sprint.",
+      "closingCopy": "For Australian supporters, de Minaur's appeal is not that he makes elite tennis look effortless. It is the sense that another return and another sprint can make a more imposing opponent uncomfortable. Zverev faces a different expectation as Shanghai's top seed: authority must become control, especially when his body is demanding attention. The emotional hinge is who keeps choosing his own game under stress, rather than allowing the other man's strengths to dictate every point.",
+      "synopsis": "This Shanghai Masters quarter-final offers a semi-final place rather than the trophy itself. Zverev is a former finalist still seeking his first title here; de Minaur's ATP Finals ambitions give the late-season points another consequence. Shanghai is the season's penultimate Masters 1000, so opportunities at this level are narrowing. In the evening session, the important question is whether the returner can make the server play an extra demanding ball without surrendering control of the rally.",
+      "sources": [
+        "https://en.rolexshanghaimasters.com/en/media/news/day-9-preview-zverev-d-de-minaur",
+        "https://en.rolexshanghaimasters.com/en/media/news/zverev-bublik-shanghai-2026-tuesday",
+        "https://en.rolexshanghaimasters.com/en/media/news/shanghai-2026-scouting-report",
+        "https://www.atptour.com/en/tournaments/shanghai/5014/overview"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "De Minaur reports his groin has been improving with daily recovery work; no independent medical clearance is asserted.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Zverev has reported ankle discomfort.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "The official preview identifies de Minaur neutralising Zverev's serve and extending rallies as a tactical contest.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "De Minaur remains in the ATP Finals qualification contest.",
+          "sourceIndexes": [
+            1,
+            2
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Zverev is a former Shanghai finalist seeking his first title at the event.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Shanghai is the penultimate Masters 1000 and the pairing is a quarter-final in the evening session.",
+          "sourceIndexes": [
+            0,
+            2
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-14T22:33:23.633Z",
+      "researchDepth": 5,
+      "sourceObservations": [
+        {
+          "url": "https://en.rolexshanghaimasters.com/en/media/news/day-9-preview-zverev-d-de-minaur",
+          "name": "Alexander Zverev v Alex de Minaur research source 1",
+          "checkedAt": "2026-10-14T22:33:23.633Z"
+        },
+        {
+          "url": "https://en.rolexshanghaimasters.com/en/media/news/zverev-bublik-shanghai-2026-tuesday",
+          "name": "Alexander Zverev v Alex de Minaur research source 2",
+          "checkedAt": "2026-10-14T00:01:15.885Z"
+        },
+        {
+          "url": "https://en.rolexshanghaimasters.com/en/media/news/shanghai-2026-scouting-report",
+          "name": "Alexander Zverev v Alex de Minaur research source 3",
+          "checkedAt": "2026-10-14T22:33:23.633Z"
+        },
+        {
+          "url": "https://www.atptour.com/en/tournaments/shanghai/5014/overview",
+          "name": "Alexander Zverev v Alex de Minaur research source 4",
+          "checkedAt": "2026-10-14T00:01:15.885Z"
+        }
+      ]
+    },
+    {
+      "id": "evt_wsl_2026_portugal",
+      "title": "MEO Rip Curl Pro Portugal — Men",
+      "hook": "Home wildcards meet a smaller knockout field and shifting sandbanks at Supertubos.",
+      "formCopy": "WSL's 15 October preview names Frederico Morais and Guilherme Ribeiro as the men's wildcards, with Ribeiro receiving his first CT wildcard. They join 22 postseason qualifiers. The published format gives the top eight seeds entry in Round 2; the opening round is head-to-head, not an old non-elimination warm-up. These confirmations do not establish the entire heat draw.",
+      "closingCopy": "A home wildcard is an invitation to compete, not a promised breakthrough. Ribeiro's first chance and Morais' presence give the Portuguese crowd identifiable people to follow within the larger title contest. At a shifting beachbreak, local familiarity still has to become the right wave choice at the right moment. That is the opportunity, not an assumed advantage or an invented expectation.",
+      "synopsis": "The official window is 16-25 October at Supertubos, Peniche. Atlantic swell, moving sandbanks and strong tides make adaptation part of the contest, while the reduced knockout format gives an early heat an immediate consequence. The window does not guarantee surfing on each day. No opening heat time, live state, withdrawal or current result is inferred from a scheduled first call.",
+      "sources": [
+        "https://www.worldsurfleague.com/events/2026/ct/445/meo-rip-curl-pro-portugal/main",
+        "https://www.worldsurfleague.com/posts/561899/pressure-meets-portugal-at-the-meo-rip-curl-pro-portugal-presented-by-corona-cero",
+        "https://www.worldsurfleague.com/posts/546281/2026-championship-tour-schedule-and-formats",
+        "https://www.worldsurfleague.com/posts/557079/world-surf-league-announces-cloud-9-philippines-as-new-stop-on-2026-championship-tour-schedule"
+      ],
+      "facts": [
+        {
+          "dimension": "path",
+          "statement": "WSL confirmsPortugal16-25October2026atSupertubos,Peniche,CTStop10.",
+          "sourceIndexes": [
+            0,
+            3
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "WSLdescribesshifting sandbanks, strong tides and Atlantic swells.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "MoraisandRibeiroaremen'swildcards; this is Ribeiro'sfirstCTwildcard.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "22qualifiers plus2wildcards formthe24-surfer postseasonfield,withthetop8seedsenteringRound2.",
+          "sourceIndexes": [
+            1,
+            2
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Postseasonformat removesnoneliminationrounds and usesheadtoheadheats.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.worldsurfleague.com/events/2026/ct/445/meo-rip-curl-pro-portugal/main",
+          "name": "MEO Rip Curl Pro Portugal — Men — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.worldsurfleague.com/posts/561899/pressure-meets-portugal-at-the-meo-rip-curl-pro-portugal-presented-by-corona-cero",
+          "name": "MEO Rip Curl Pro Portugal — Men — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.worldsurfleague.com/posts/546281/2026-championship-tour-schedule-and-formats",
+          "name": "MEO Rip Curl Pro Portugal — Men — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.worldsurfleague.com/posts/557079/world-surf-league-announces-cloud-9-philippines-as-new-stop-on-2026-championship-tour-schedule",
+          "name": "MEO Rip Curl Pro Portugal — Men — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        }
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "fixture-mlb-849817",
+      "title": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 4",
+      "hook": "Caminero faces the club that traded him: this matchup puts two development stories on the same October stage.",
+      "formCopy": "Tampa Bay's Junior Caminero has a direct connection with Cleveland, the organisation that traded him in 2021. Across the diamond is Jose Ramirez, a friend and player he admires. Cleveland's own story includes first-round selections Gavin Williams, Chase DeLauter and Travis Bazzana. Those histories establish the people involved, not a confirmed Game 4 lineup or pitching assignment.",
+      "closingCopy": "A trade is usually judged in hindsight. Here it becomes something supporters can see in real time: a player Cleveland once held facing the club that helped introduce him to professional baseball. Friendship with Ramirez adds familiarity without making the contest less exacting. Neither connection needs an invented revenge motive to make a plate appearance worth watching.",
+      "synopsis": "Game 4 belongs to an American League Championship Series shaped by connected organisations and contrasting routes into the majors. Watch how each club creates opportunities rather than assuming the same players will decide every game. The official schedule retains a timing contingency tied to the National League series; no definitive revised clock or game-specific starter is asserted in this preview.",
+      "sources": [
+        "https://www.mlb.com/rays/news/junior-caminero-facing-team-that-traded-him-to-rays-in-2026-alcs",
+        "https://www.mlb.com/rays/news/junior-caminero-jose-ramirez-friendship-alcs-2026",
+        "https://www.mlb.com/news/gavin-williams-chase-delauter-travis-bazzana-guardians-2026-success"
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "Caminero was traded by Cleveland to Tampa Bay in November 2021.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Caminero and Ramirez are friends; the Tampa Bay third baseman admires Cleveland's veteran.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "MLB's current-season development feature traces Cleveland's 2026 success through first-round selections Gavin Williams, Chase DeLauter and Travis Bazzana.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "The ALCS places two organisations with connected player-development stories on the route to the World Series.",
+          "sourceIndexes": [
+            0,
+            2
+          ]
+        }
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.mlb.com/rays/news/junior-caminero-facing-team-that-traded-him-to-rays-in-2026-alcs",
+          "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 4 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.mlb.com/rays/news/junior-caminero-jose-ramirez-friendship-alcs-2026",
+          "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 4 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.mlb.com/news/gavin-williams-chase-delauter-travis-bazzana-guardians-2026-success",
+          "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 4 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        }
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "fixture-mlb-849808",
+      "title": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 5",
+      "hook": "If Game 5 is needed, a familiar October pairing asks a fresh question of Milwaukee's hitters and the champion Dodgers.",
+      "formCopy": "Los Angeles and Milwaukee met in the previous year's NLCS. The Dodgers entered 2026 as consecutive World Series champions; Milwaukee's current postseason reporting features Jake Bauers' patient approach and Jackson Chourio's place in the club's October history. These are participant references, not a confirmed Game 5 lineup, pitching assignment or series position.",
+      "closingCopy": "Repeating an opponent does not repeat a game. For supporters, the useful comparison is in the decisions: whether hitters stay disciplined, whether managers find the matchup they want and whether players can create a different contest from familiar names. That is enough narrative without turning last year's meeting into a prediction or assigning feelings to the players.",
+      "synopsis": "This fixture remains conditional. If the series reaches Game 5, its actual stakes, starters and availability must come from the next official announcements rather than being reverse-engineered from the game number. This preview offers result-neutral rematch context only; it does not imply Game 4 has finished or that either club needs one particular result.",
+      "sources": [
+        "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+        "https://www.mlb.com/news/brewers-win-nlcs-game-3-2026",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-10-18&hydrate=team"
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "Los Angeles entered this postseason as two-time defending champions.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Los Angeles and Milwaukee also met in the 2025 NLCS.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "MLB's reporting identifies Jake Bauers' patient plate appearances as part of Milwaukee's offensive approach.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The official schedule lists these clubs in the 2026 NLCS; later games remain conditional.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+          "name": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 5 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.mlb.com/news/brewers-win-nlcs-game-3-2026",
+          "name": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 5 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-10-18&hydrate=team",
+          "name": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 5 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        }
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "fixture-mlb-849816",
+      "title": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 5",
+      "hook": "Ramirez and Caminero turn a friendship across the diamond into a test of attention, not a manufactured grudge.",
+      "formCopy": "MLB's account of Jose Ramirez and Junior Caminero describes friendship and admiration between opposing third basemen. Cleveland also brings a development story involving Williams, DeLauter and Bazzana; Tampa Bay's Caminero once belonged to Cleveland's system. None of that confirms the Game 5 starters, lineup or either club's position when this game arrives.",
+      "closingCopy": "An October opponent does not have to be a stranger. The interest here is the contrast between a respected veteran and a younger player who looks up to him, now wearing different uniforms. Supporters can appreciate that shared history without pretending friendship predicts a pitch, a swing or a moment of restraint. Familiarity makes the people clearer; the contest still has to be played.",
+      "synopsis": "This preview keeps Game 5 separate from the events that precede it. No clinching scenario, bullpen rest advantage or current series tally is assumed. The sporting question is how Cleveland and Tampa Bay turn their developing talent into precise decisions under postseason pressure. Any later stakes or starting-pitcher announcement requires its own confirmed evidence.",
+      "sources": [
+        "https://www.mlb.com/rays/news/junior-caminero-facing-team-that-traded-him-to-rays-in-2026-alcs",
+        "https://www.mlb.com/rays/news/junior-caminero-jose-ramirez-friendship-alcs-2026",
+        "https://www.mlb.com/news/gavin-williams-chase-delauter-travis-bazzana-guardians-2026-success"
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "Caminero was traded by Cleveland to Tampa Bay in November 2021.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Caminero and Ramirez are friends; the Tampa Bay third baseman admires Cleveland's veteran.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "MLB's current-season development feature traces Cleveland's 2026 success through first-round selections Gavin Williams, Chase DeLauter and Travis Bazzana.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "The ALCS places two organisations with connected player-development stories on the route to the World Series.",
+          "sourceIndexes": [
+            0,
+            2
+          ]
+        }
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.mlb.com/rays/news/junior-caminero-facing-team-that-traded-him-to-rays-in-2026-alcs",
+          "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 5 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.mlb.com/rays/news/junior-caminero-jose-ramirez-friendship-alcs-2026",
+          "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 5 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.mlb.com/news/gavin-williams-chase-delauter-travis-bazzana-guardians-2026-success",
+          "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 5 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        }
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "fixture-mlb-849806",
+      "title": "Milwaukee Brewers v Los Angeles Dodgers — NLCS Game 6",
+      "hook": "A possible return to Milwaukee would put home support around a contest between patient at-bats and championship experience.",
+      "formCopy": "MLB's postseason reporting identifies Jake Bauers' patient plate appearances and Jackson Chourio's place in Milwaukee's club history. The Dodgers arrive in this postseason as the two-time defending champions. Neither that experience nor the clubs' 2025 NLCS meeting establishes the lineup, starters or balance of this potential Game 6.",
+      "closingCopy": "A home crowd can give an occasion its sound, but it cannot manufacture the extra pitch a hitter leaves alone or the contact that follows. If this game takes place, those small decisions are a more useful viewing thread than a generic promise of October drama. Milwaukee's named hitters and Los Angeles' established championship core give the meeting recognisable characters.",
+      "synopsis": "Game 6 is listed only if required; a published date is not confirmation that the series will return to Milwaukee. No outcome from an earlier game, elimination scenario or rest advantage is supplied here. A later official continuation decision and game-specific team news must settle those details before the conditional fixture becomes a confirmed occasion.",
+      "sources": [
+        "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+        "https://www.mlb.com/news/brewers-win-nlcs-game-3-2026",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-10-18&hydrate=team"
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "Los Angeles entered this postseason as two-time defending champions.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Los Angeles and Milwaukee also met in the 2025 NLCS.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "MLB's reporting identifies Jake Bauers' patient plate appearances as part of Milwaukee's offensive approach.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The official schedule lists these clubs in the 2026 NLCS; later games remain conditional.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+          "name": "Milwaukee Brewers v Los Angeles Dodgers — NLCS Game 6 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.mlb.com/news/brewers-win-nlcs-game-3-2026",
+          "name": "Milwaukee Brewers v Los Angeles Dodgers — NLCS Game 6 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-10-18&hydrate=team",
+          "name": "Milwaukee Brewers v Los Angeles Dodgers — NLCS Game 6 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        }
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "evt_horse_racing_the_everest_2026",
+      "title": "The Everest",
+      "hook": "Ka Ying Rising's title defence meets a first Everest for Freedman's Ninja: two very different milestones over the same sprint.",
+      "formCopy": "ATC's published runners include defending champion Ka Ying Rising, former winner Giga Kick and Ninja. The draw places them in barriers 11, 12 and 3 respectively, with Tempted in one. Racing NSW's 15 October report names Tommy Berry for Ninja and identifies this as trainer Michael Freedman's first Everest runner. Published entries remain subject to later withdrawals and rider changes.",
+      "closingCopy": "Freedman's account of teaching Ninja to settle provides a specific human thread beside the champion's attempted repeat. Getting a horse to use its speed rather than spend it too early is an act of preparation, not a slogan about courage. The tenth running brings established title history and a trainer's first participation into one field without making either a prediction.",
+      "synopsis": "Royal Randwick's 1,200-metre weight-for-age contest has twelve starting places. The published draw gives viewers a way to follow how the field organises, not a guarantee of who leads or where a rider must go. Watch the balance between settling and acceleration; no race map, track bias, betting assessment or eventual finishing order is assumed.",
+      "sources": [
+        "https://www.australianturfclub.com.au/tab-everest-how-it-works/",
+        "https://www.racingnsw.com.au/news/latest-racing-news/freedman-confident-ninjas-not-making-up-everest-numbers/",
+        "https://www.australianturfclub.com.au/10th-running-of-tab-everest-hits-a-new-peak-on-historic-day-for-sydney-racing/",
+        "https://www.racingnsw.com.au/wp-content/uploads/Everest-Conditions-2026.pdf"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "ATC publishes twelve runners including Ka Ying Rising, Giga Kick and Ninja, with barriers11,12and3; Tempted hasone.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "The 2026 edition is the tenth running and Ka Ying Rising is attempting consecutive victories.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Racing NSW's15October report identifies Tommy Berry as Ninja's rider and discusses Freedman's emphasis on settling.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Ninja is Michael Freedman's first Everest runner.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "The official conditions specify1200metres, weightforage, three-year-oldsandolder and maximum12starters.",
+          "sourceIndexes": [
+            3
+          ]
+        }
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.australianturfclub.com.au/tab-everest-how-it-works/",
+          "name": "The Everest — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.racingnsw.com.au/news/latest-racing-news/freedman-confident-ninjas-not-making-up-everest-numbers/",
+          "name": "The Everest — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.australianturfclub.com.au/10th-running-of-tab-everest-hits-a-new-peak-on-historic-day-for-sydney-racing/",
+          "name": "The Everest — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.racingnsw.com.au/wp-content/uploads/Everest-Conditions-2026.pdf",
+          "name": "The Everest — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        }
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "rugby-australia-new-zealand-2026-10-17",
+      "title": "Australia v New Zealand — Sydney",
+      "hook": "Suaalii is back at centre and Meredith takes the reins: Sydney asks whether Australia's new connections can withstand New Zealand's pressure.",
+      "formCopy": "Australia have named Isaac Henry and Joseph-Aukuso Suaalii in midfield, with Declan Meredith partnering Ryan Lonergan in the halves. Ben Donaldson is unavailable through injury. Harry Potter starts on the left wing; Lukhan Salakaia-Loto reaches his 50th Test. New Zealand have named George Bower, Fabian Holland and Josh Moorby to start, with Damian McKenzie at flyhalf and Beauden Barrett at fullback. These are announced selections, not projected combinations.",
+      "closingCopy": "Meredith's familiar connection with Lonergan gives Australia's reshuffle one established reference point. Outside them, Henry and Suaalii must turn a changed midfield into a shared understanding under pressure. That is the substance behind a home crowd's hope: decisions made together, not an individual rescue act. Salakaia-Loto's milestone gives the occasion another personal thread, while the possibility of a McLaughlin-Phillips debut places a new beginning alongside that experience.",
+      "synopsis": "The aerial contest remains an important tactical question at Accor Stadium, but Suaalii's move inside changes where Australia deploy their threat. Potter, Jorgensen and Wright must connect the catch with the next phase while the midfield organises around them. New Zealand's McKenzie-Barrett combination offers decision-making across the backline. This is Australia's final home Test before the northern tour; announced substitutes include uncapped Harry McLaughlin-Phillips, whose appearance is not guaranteed. Stan Sport carries the match in Australia.",
+      "sources": [
+        "https://www.rugby.com.au/wallabies/news/wallabies-team-confirmed-to-play-new-zealand-in-sydney-20261015",
+        "https://www.allblacks.com/news/all-blacks/all-blacks-team-named-to-play-australia-in-second-bledisloe-cup-test",
+        "https://www.rugby.com.au/news/we-know-wallabies-tweaking-game-plan-for-all-blacks-high-ball-battle-20261013"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Australia named Henry at inside centre, Suaalii outside him and Meredith alongside Lonergan; Donaldson is unavailable with an upper-leg injury.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Salakaia-Loto is named to play his 50th Test; McLaughlin-Phillips is an uncapped replacement.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "New Zealand named Bower, Holland and Moorby to start, with McKenzie at ten and Beauden Barrett at fifteen.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "The Wallabies have been working on the high-ball contest and the connected decisions after reception.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Sydney is Australia's final home Test of 2026 before their November northern fixtures.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The quad-header including the Wallabies is available on Stan Sport in Australia.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-15T22:10:19.416Z",
+      "researchDepth": 5,
+      "sourceObservations": [
+        {
+          "url": "https://www.rugby.com.au/wallabies/news/wallabies-team-confirmed-to-play-new-zealand-in-sydney-20261015",
+          "name": "Rugby Australia team announcement",
+          "checkedAt": "2026-10-15T22:10:19.416Z"
+        },
+        {
+          "url": "https://www.allblacks.com/news/all-blacks/all-blacks-team-named-to-play-australia-in-second-bledisloe-cup-test",
+          "name": "New Zealand Rugby team announcement",
+          "checkedAt": "2026-10-15T22:10:19.416Z"
+        },
+        {
+          "url": "https://www.rugby.com.au/news/we-know-wallabies-tweaking-game-plan-for-all-blacks-high-ball-battle-20261013",
+          "name": "Rugby Australia / AAP tactical reporting",
+          "checkedAt": "2026-10-15T22:10:19.416Z"
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1525660",
+      "title": "South Africa v Australia — Second Test",
+      "hook": "South Africa reset their batting and keeping roles; Australia's question is whether flexibility can coexist with trust in Renshaw's place.",
+      "formCopy": "South Africa have replaced Tristan Stubbs with Matthew Breetzke in their squad and assigned Ryan Rickelton the gloves. Kyle Verreynne remains as wicketkeeping cover; a squad announcement does not settle the entire XI or batting order. Australia coach Andrew McDonald says the surface will guide selection. In his 15 October update, Green had not resumed batting, while Inglis had completed net sessions in his recovery from a broken finger. Neither is a confirmed selection.",
+      "closingCopy": "Renshaw's place is the point at which two reasonable ideas collide. A team can reward a batter's comfort in a role, or keep moving its pieces to meet the next conditions. McDonald remains open-minded; Steve Waugh has publicly argued for continuity. That disagreement gives Australian supporters something more tangible than a selection slogan to watch. South Africa's altered roles put a similar question to their own dressing room: can a change of responsibilities create a more dependable batting unit?",
+      "synopsis": "St George's Park hosts the middle Test. Rickelton taking the gloves changes South Africa's workload, but his batting position is unannounced. Breetzke offers another batting option, not a guaranteed place. Australia must weigh the surface, availability and balance without assuming an unfit all-rounder's overs. Sustained partnerships and disciplined pressure will matter across five days. Earlier results remain protected; Australian viewing is on Kayo and Fox Cricket.",
+      "sources": [
+        "https://supersport.com/cricket/news/4dc5ed81-4b33-42b8-8b64-a67d8bcfe0cb/stubbs-out-breetzke-in-as-proteas-announce-squad-for-second-test",
+        "https://www.thestar.com.my/sport/cricket/2026/10/15/cricket-australia-open-minded-about-batting-order-green-still-to-prove-fitness-for-second-test-coach",
+        "https://www.cricket.com.au/news/4591880/matthew-renshaw-first-test-south-africa-190-82-australia-kingsmead-positional-switch-number-five-opener-maddinson-cummins-green-cricketplus",
+        "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "CSA's 15 October squad replaced Stubbs with Breetzke; Rickelton will keep wicket with Verreynne retained as cover.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "McDonald said on 15 October that Green had not resumed batting and Inglis had completed net sessions following his broken finger.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "McDonald said the opposition and surface inform Australia's open-minded approach to batting order.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Steve Waugh argued for Renshaw to remain at number five rather than returning to the top of the order.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Cummins expressed a preference for Renshaw at five subject to the demands of the conditions.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The second Test is at St George's Park between Durban and Newlands; the series is on Kayo and Fox Cricket in Australia.",
+          "sourceIndexes": [
+            3
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-15T22:10:19.416Z",
+      "researchDepth": 5,
+      "sourceObservations": [
+        {
+          "url": "https://supersport.com/cricket/news/4dc5ed81-4b33-42b8-8b64-a67d8bcfe0cb/stubbs-out-breetzke-in-as-proteas-announce-squad-for-second-test",
+          "name": "Cricket South Africa announcement via SuperSport",
+          "checkedAt": "2026-10-15T22:10:19.416Z"
+        },
+        {
+          "url": "https://www.thestar.com.my/sport/cricket/2026/10/15/cricket-australia-open-minded-about-batting-order-green-still-to-prove-fitness-for-second-test-coach",
+          "name": "Reuters coach reporting",
+          "checkedAt": "2026-10-15T22:10:19.416Z"
+        },
+        {
+          "url": "https://www.cricket.com.au/news/4591880/matthew-renshaw-first-test-south-africa-190-82-australia-kingsmead-positional-switch-number-five-opener-maddinson-cummins-green-cricketplus",
+          "name": "Cricket Australia selection reporting",
+          "checkedAt": "2026-10-15T22:10:19.416Z"
+        },
+        {
+          "url": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
+          "name": "Cricket Australia tour schedule",
+          "checkedAt": "2026-10-15T22:10:19.416Z"
+        }
+      ]
+    },
+    {
+      "id": "epl-2026-27-129030",
+      "title": "Manchester City v Fulham",
+      "researchDepth": 2,
+      "hook": "Last season brought both a nine-goal thriller and a clean-sheet City win against Fulham.",
+      "synopsis": "City won 5-4 at Craven Cottage on 2 December 2025, then beat Fulham 3-0 at the Etihad on 11 February 2026. Fulham's November return revisits a pairing that produced both a late comeback scare and a much more controlled home win last season.",
+      "sources": [
+        "https://live.mancity.com/news/mens/fulham-v-manchester-city-premier-league-match-report-2-63900297",
+        "https://beta.mancity.com/news/mens/manchester-city-v-fulham-premier-league-match-report-february-2026-63906431"
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://live.mancity.com/news/mens/fulham-v-manchester-city-premier-league-match-report-2-63900297",
+          "name": "Manchester City: 5-4 win at Fulham, 2 December 2025",
+          "checkedAt": "2026-10-22T14:20:35Z",
+          "sourceType": "official"
+        },
+        {
+          "url": "https://beta.mancity.com/news/mens/manchester-city-v-fulham-premier-league-match-report-february-2026-63906431",
+          "name": "Manchester City: 3-0 home win over Fulham, 11 February 2026",
+          "checkedAt": "2026-10-22T14:20:35Z",
+          "sourceType": "official"
+        }
+      ],
+      "facts": [
+        {
+          "statement": "Manchester City won 5-4 at Fulham on 2 December 2025, after Fulham recovered from 5-1 to 5-4.",
+          "dimension": "history",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "Manchester City beat Fulham 3-0 at the Etihad on 11 February 2026, with all three goals before half-time.",
+          "dimension": "history",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-21T12:30:00.000Z",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "epl-2026-27-129023",
+      "title": "Aston Villa v Sunderland",
+      "researchDepth": 2,
+      "hook": "April's seven-goal Villa Park meeting gives Sunderland's return a specific recent history.",
+      "synopsis": "Sunderland erased a 3-1 deficit with two late goals at Villa Park on 19 April 2026, only for Tammy Abraham to secure Villa's 4-3 win in added time. The November meeting returns to the same ground after that sharply contested encounter.",
+      "sources": [
+        "https://www.avfc.co.uk/news/2026/april/20/postmatch-Tammy-Abraham-post-Sunderland/"
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.avfc.co.uk/news/2026/april/20/postmatch-Tammy-Abraham-post-Sunderland/",
+          "name": "Aston Villa: Abraham's added-time winner against Sunderland, 20 April 2026",
+          "checkedAt": "2026-10-22T14:20:35Z",
+          "sourceType": "official"
+        }
+      ],
+      "facts": [
+        {
+          "statement": "Aston Villa beat Sunderland 4-3 at Villa Park on 19 April 2026; Sunderland scored twice late to level from 3-1 before Tammy Abraham's added-time winner.",
+          "dimension": "history",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-21T15:00:00.000Z",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "epl-2026-27-129024",
+      "title": "Bournemouth v Nottingham Forest",
+      "researchDepth": 2,
+      "hook": "Forest were Bournemouth's opponents when their historic sixth-place finish became official in May.",
+      "synopsis": "Bournemouth ended the 2025/26 season with a 1-1 draw at Nottingham Forest on 24 May. That result accompanied a club-best sixth-place finish and their first qualification for Europe. This time Forest visit the Vitality Stadium in the season that followed that milestone.",
+      "sources": [
+        "https://www.afcb.co.uk/news/2026/may/24/match-report-v-forest/"
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.afcb.co.uk/news/2026/may/24/match-report-v-forest/",
+          "name": "AFC Bournemouth: 2025/26 season ends at Forest with first European qualification",
+          "checkedAt": "2026-10-22T14:20:35Z",
+          "sourceType": "official"
+        }
+      ],
+      "facts": [
+        {
+          "statement": "Bournemouth drew 1-1 at Nottingham Forest on 24 May 2026 and finished sixth, their highest Premier League placing, qualifying for Europe for the first time.",
+          "dimension": "history",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-21T15:00:00.000Z",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "epl-2026-27-129026",
+      "title": "Chelsea v Leeds United",
+      "researchDepth": 2,
+      "hook": "Chelsea and Leeds bring a cup rivalry with roots in the 1970 final back to Stamford Bridge.",
+      "synopsis": "Chelsea's account of this rivalry traces its defining flashpoint to the 1970 FA Cup final and replay. The clubs also met in last season's FA Cup semi-final, won by Chelsea through Enzo Fernandez's header. Their November league meeting carries that cup history into a different competition.",
+      "sources": [
+        "https://www.chelseafc.com/en/news/article/chelsea-vs-leeds---anatomy-of-a-rivalry0"
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.chelseafc.com/en/news/article/chelsea-vs-leeds---anatomy-of-a-rivalry0",
+          "name": "Chelsea: history of the Leeds rivalry, 8 September 2026",
+          "checkedAt": "2026-10-22T14:20:35Z",
+          "sourceType": "official"
+        }
+      ],
+      "facts": [
+        {
+          "statement": "Chelsea identify the 1970 FA Cup final and replay as central to the rivalry with Leeds.",
+          "dimension": "history",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "Chelsea's September 2026 rivalry review records a Chelsea win over Leeds in the previous season's FA Cup semi-final, decided by Enzo Fernandez's first-half header.",
+          "dimension": "history",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-21T15:00:00.000Z",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "epl-2026-27-129027",
+      "title": "Coventry City v Crystal Palace",
+      "researchDepth": 2,
+      "hook": "Coventry's return after 25 years meets Palace's league-and-Europe November schedule.",
+      "synopsis": "Coventry returned as 2025/26 Championship winners after 25 years outside the Premier League. Palace's published programme places this away match before home games against Real Sociedad in the Europa League and Hull in the league, giving the visitors two competitions to navigate around Coventry's home test.",
+      "sources": [
+        "https://www.premierleague.com/en/news/4625396/all-you-need-to-know-as-coventry-city-make-premier-league-return",
+        "https://www.cpfc.co.uk/matches/all/2026-27/"
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.premierleague.com/en/news/4625396/all-you-need-to-know-as-coventry-city-make-premier-league-return",
+          "name": "Premier League: Coventry's Championship title and return after 25 years",
+          "checkedAt": "2026-10-22T14:20:35Z",
+          "sourceType": "official"
+        },
+        {
+          "url": "https://www.cpfc.co.uk/matches/all/2026-27/",
+          "name": "Crystal Palace: 2026/27 first-team fixtures",
+          "checkedAt": "2026-10-22T14:20:35Z",
+          "sourceType": "official"
+        }
+      ],
+      "facts": [
+        {
+          "statement": "Coventry returned to the Premier League for 2026/27 as Championship winners following a 25-year absence.",
+          "dimension": "history",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "Palace's published 2026/27 fixture sequence places Coventry away before Real Sociedad at home in the Europa League, followed by Hull at home in the Premier League.",
+          "dimension": "path",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-21T15:00:00.000Z",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "epl-2026-27-129032",
+      "title": "Tottenham Hotspur v Ipswich Town",
+      "researchDepth": 2,
+      "hook": "Ipswich return to the ground where their 2024 Premier League comeback finally produced a win.",
+      "synopsis": "Ipswich won 2-1 at Tottenham Hotspur Stadium on 10 November 2024, their first Premier League victory of that season and first in the division since April 2002. In that 2024 match, two first-half goals gave Town enough of a lead to withstand Tottenham's second-half reply.",
+      "sources": [
+        "https://www.tottenhamhotspur.com/news/985947/first-half-double-sees-ipswich-take-the-points"
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.tottenhamhotspur.com/news/985947/first-half-double-sees-ipswich-take-the-points",
+          "name": "Tottenham: Ipswich's 2-1 win at Spurs, 10 November 2024",
+          "checkedAt": "2026-10-22T14:20:35Z",
+          "sourceType": "official"
+        }
+      ],
+      "facts": [
+        {
+          "statement": "Ipswich beat Tottenham 2-1 at Tottenham Hotspur Stadium on 10 November 2024, earning their first Premier League win that season and their first since April 2002.",
+          "dimension": "history",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-21T15:00:00.000Z",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "epl-2026-27-129031",
+      "title": "Newcastle United v Arsenal",
+      "researchDepth": 2,
+      "hook": "Newcastle opens Arsenal's run through Dortmund and Manchester City in eight days.",
+      "synopsis": "Arsenal visit St James' Park on 21 November before hosting Borussia Dortmund in the Champions League on 24 November and Manchester City in the Premier League on 29 November. The Newcastle trip starts that confirmed sequence of three matches across two competitions.",
+      "sources": [
+        "https://www.newcastleunited.com/en/news/two-of-magpies-premier-league-fixtures-rescheduled",
+        "https://help.arsenal.com/support/solutions/articles/101000593887-champions-league-group-phase",
+        "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-season-2026-27"
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.newcastleunited.com/en/news/two-of-magpies-premier-league-fixtures-rescheduled",
+          "name": "Newcastle: confirmed November 2026 fixture changes",
+          "checkedAt": "2026-10-22T14:20:35Z",
+          "sourceType": "official"
+        },
+        {
+          "url": "https://help.arsenal.com/support/solutions/articles/101000593887-champions-league-group-phase",
+          "name": "Arsenal: 2026/27 Champions League league-phase dates",
+          "checkedAt": "2026-10-22T14:20:35Z",
+          "sourceType": "official"
+        },
+        {
+          "url": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-season-2026-27",
+          "name": "Premier League: all 380 fixtures for 2026/27 (updated 19 October)",
+          "checkedAt": "2026-10-22T14:20:35Z",
+          "sourceType": "official"
+        }
+      ],
+      "facts": [
+        {
+          "statement": "Newcastle host Arsenal on 21 November 2026 at 17:30 GMT.",
+          "dimension": "matchup",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "Arsenal host Borussia Dortmund in the Champions League on 24 November 2026.",
+          "dimension": "path",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "statement": "Arsenal host Manchester City on 29 November 2026, eight days after their Newcastle visit.",
+          "dimension": "path",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-21T17:30:00.000Z",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "epl-2026-27-129028",
+      "title": "Hull City v Brighton & Hove Albion",
+      "researchDepth": 2,
+      "hook": "Hull's return season meets Brighton at the start of a week spanning league and European fixtures.",
+      "synopsis": "Hull returned to the Premier League after nine years by beating Middlesbrough 1-0 in the 2026 Championship play-off final. Brighton's visit starts a week that also brings them home games against Universitatea Craiova in the Conference League on 26 November and Newcastle on 29 November.",
+      "sources": [
+        "https://www.premierleague.com/en/news/4664386/all-you-need-to-know-as-hull-city-are-promoted-to-premier-league",
+        "https://www.brightonandhovealbion.com/fixtures-first-team-men"
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.premierleague.com/en/news/4664386/all-you-need-to-know-as-hull-city-are-promoted-to-premier-league",
+          "name": "Premier League: Hull's 2026 play-off promotion",
+          "checkedAt": "2026-10-22T14:20:35Z",
+          "sourceType": "official"
+        },
+        {
+          "url": "https://www.brightonandhovealbion.com/fixtures-first-team-men",
+          "name": "Brighton: first-team fixtures including November 2026 European schedule",
+          "checkedAt": "2026-10-22T14:20:35Z",
+          "sourceType": "official"
+        }
+      ],
+      "facts": [
+        {
+          "statement": "Hull secured their 2026/27 Premier League return after nine years away by beating Middlesbrough 1-0 in the Championship play-off final.",
+          "dimension": "history",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "Brighton's published November schedule lists Hull away on 22 November, Universitatea Craiova at home in the Conference League on 26 November, and Newcastle at home on 29 November.",
+          "dimension": "path",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-22T14:00:00.000Z",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "epl-2026-27-129029",
+      "title": "Liverpool v Manchester United",
+      "researchDepth": 2,
+      "hook": "United at Anfield, Everton a week later: Liverpool's November league calendar pairs two rivalries.",
+      "synopsis": "Liverpool host Manchester United at Anfield on 22 November, then visit Everton on 29 November. Their confirmed November league schedule starts with Crystal Palace away on 8 November, making United's visit the first of two consecutive league matches against long-standing rivals.",
+      "sources": [
+        "https://www.liverpoolfc.com/news/fixture-updates-three-premier-league-changes-liverpool-november?amp=1"
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.liverpoolfc.com/news/fixture-updates-three-premier-league-changes-liverpool-november?amp=1",
+          "name": "Liverpool: November 2026 fixture changes",
+          "checkedAt": "2026-10-22T14:20:35Z",
+          "sourceType": "official"
+        }
+      ],
+      "facts": [
+        {
+          "statement": "Liverpool visit Crystal Palace on 8 November 2026, host Manchester United on 22 November at 16:30 GMT, then visit Everton on 29 November at 12:00 GMT.",
+          "dimension": "path",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-22T14:20:35Z",
+      "refreshAfter": "2026-11-22T16:30:00.000Z",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-22T14:24:58.417Z"
+      }
+    },
+    {
+      "id": "epl-2026-27-129041",
+      "title": "Nottingham Forest v Chelsea",
+      "researchDepth": 2,
+      "hook": "Forest's Bournemouth trip and Chelsea's Leeds meeting lead into a Friday-night opener.",
+      "synopsis": "Forest are scheduled to visit Bournemouth on 21 November, while Chelsea host Leeds that same Saturday. Six days later they meet in the first fixture of the Premier League weekend, on Friday 27 November at 20:00 GMT. For viewers in eastern Australia, that is 07:00 AEDT on Saturday 28 November, with the rest of that weekend's league programme following afterwards.",
+      "sources": [
+        "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november"
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+          "name": "Premier League: confirmed November 2026 fixture amendments",
+          "checkedAt": "2026-10-29T02:30:53.610848Z",
+          "sourceType": "official"
+        }
+      ],
+      "facts": [
+        {
+          "statement": "Nottingham Forest v Chelsea is scheduled for Friday 27 November 2026 at 20:00 GMT.",
+          "dimension": "schedule",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "The preceding published league appointments are Bournemouth v Nottingham Forest and Chelsea v Leeds on Saturday 21 November 2026.",
+          "dimension": "path",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "The revised fixture list opens the 27–29 November league weekend with Nottingham Forest v Chelsea.",
+          "dimension": "schedule",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "20:00 GMT on 27 November 2026 is 07:00 Australia/Sydney (AEDT) on 28 November, derived from the confirmed UTC kickoff.",
+          "dimension": "schedule",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-29T02:30:53.610848Z",
+      "refreshAfter": "2026-11-27T20:00:00.000Z",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-29T02:30:53.610848Z"
+      }
     }
   ]
 }

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "venue-source-context.v1",
+  "source": "Captured complete ESPN WTA response; projected venue-only regression records, not full coverage or physical court verification",
+  "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261011",
+  "sourceSha256": "9c166c7d1ea2ff503a7b4f3c2baa21aedc7e3b8e0a9c9fc1c359d8c60f5b96c0",
+  "checkedAt": "2026-10-11T09:22:06.000Z",
+  "records": [
+    {
+      "id": "fixture-tennis-espn-wta-185314",
+      "canonicalEventId": "fixture:tennis:espn:wta:185314",
+      "key": "tennis",
+      "venue": "Court 1",
+      "tournamentId": "tournament:tennis:wta-wuhan-2026",
+      "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+      "tennisProviderTour": "wta",
+      "tennisProviderEventId": "381-2026",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185314",
+      "sourceCheckedAt": "2026-10-11T09:22:06.000Z"
+    },
+    {
+      "id": "fixture-tennis-espn-wta-185344",
+      "canonicalEventId": "fixture:tennis:espn:wta:185344",
+      "key": "tennis",
+      "venue": "Court 2",
+      "tournamentId": "tournament:tennis:wta-wuhan-2026",
+      "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+      "tennisProviderTour": "wta",
+      "tennisProviderEventId": "381-2026",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185344",
+      "sourceCheckedAt": "2026-10-11T09:22:06.000Z"
+    },
+    {
+      "id": "fixture-tennis-espn-wta-185327",
+      "canonicalEventId": "fixture:tennis:espn:wta:185327",
+      "key": "tennis",
+      "venue": "Dongfeng Voyah Center Court",
+      "tournamentId": "tournament:tennis:wta-wuhan-2026",
+      "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+      "tennisProviderTour": "wta",
+      "tennisProviderEventId": "381-2026",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185327",
+      "sourceCheckedAt": "2026-10-11T09:22:06.000Z"
+    }
+  ]
+}

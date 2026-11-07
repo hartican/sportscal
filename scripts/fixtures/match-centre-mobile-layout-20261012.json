@@ -1,0 +1,228 @@
+{
+  "checkedAt": "2026-10-11T20:39:39.432Z",
+  "sourceUrl": "https://nothingsport.vercel.app/api/match-centre?membership=everything&limit=50&cursor=0",
+  "events": [
+    {
+      "id": "fixture:cricket:CA:39990",
+      "eventId": "fixture:cricket:CA:39990",
+      "canonicalEventId": "fixture:cricket:CA:39990",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:4568",
+      "competitionName": "South Africa v Australia Tests 2026 - Men",
+      "name": "South Africa Men v Australia Men",
+      "displayTitleCompact": "South Africa Men v Australia Men",
+      "date": "2026-10-09",
+      "startTimeUtc": "2026-10-09T07:30:00.000Z",
+      "endTimeUtc": "2026-10-13T11:00:00Z",
+      "timePrecision": "exact",
+      "time": "18:30",
+      "format": "Test",
+      "numberOfDays": 5,
+      "status": "stumps",
+      "statusText": "Stumps",
+      "statusCheckedAt": "2026-10-11T20:38:00.928+00:00",
+      "statusFactObservedAt": "2026-10-11T14:40:01.953+00:00",
+      "scoreCheckedAt": "2026-10-11T20:38:00.928+00:00",
+      "scoreFactObservedAt": "2026-10-11T20:20:00.459+00:00",
+      "sourceCheckedAt": "2026-10-11T20:20:00.459Z",
+      "homeParticipantId": "team:cricket:south-africa",
+      "awayParticipantId": "team:cricket:australia",
+      "participantIds": [
+        "team:cricket:south-africa",
+        "team:cricket:australia"
+      ],
+      "participants": [
+        {
+          "id": "team:cricket:south-africa",
+          "name": "South Africa Men",
+          "teamKind": "national",
+          "countryCode": "ZA",
+          "genderCategory": "male"
+        },
+        {
+          "id": "team:cricket:australia",
+          "name": "Australia Men",
+          "teamKind": "national",
+          "countryCode": "AU",
+          "genderCategory": "male"
+        }
+      ],
+      "participantSlots": [],
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "cricketBalance": "Stumps: Australia lead South Africa by 139 runs with 10 wickets remaining",
+      "restartTimeUtc": "2026-10-12T07:30:00Z",
+      "cricketPhaseConfirmed": true,
+      "matchDay": 3,
+      "innings": [
+        {
+          "participantId": "team:cricket:australia",
+          "team": "Australia Men",
+          "inningNumber": 1,
+          "isDeclared": false,
+          "isFollowOn": false,
+          "isForfeited": false
+        },
+        {
+          "participantId": "team:cricket:south-africa",
+          "team": "South Africa Men",
+          "inningNumber": 2,
+          "isDeclared": false,
+          "isFollowOn": false,
+          "isForfeited": false
+        },
+        {
+          "participantId": "team:cricket:australia",
+          "team": "Australia Men",
+          "inningNumber": 3,
+          "isDeclared": false,
+          "isFollowOn": false,
+          "isForfeited": false
+        }
+      ]
+    },
+    {
+      "id": "fixture:nfl:401872990",
+      "eventId": "fixture:nfl:401872990",
+      "canonicalEventId": "fixture:nfl:401872990",
+      "key": "nfl",
+      "sport": "American Football",
+      "sportDomainId": "sport:american-football",
+      "competitionId": "competition:nfl",
+      "name": "Chicago Bears at Green Bay Packers",
+      "displayTitleCompact": "Chicago Bears at Green Bay Packers",
+      "date": "2026-10-12",
+      "startTimeUtc": "2026-10-11T17:00:00.000Z",
+      "timePrecision": "exact",
+      "time": "04:00",
+      "status": "completed",
+      "statusCheckedAt": "2026-10-11T20:38:00.928+00:00",
+      "statusFactObservedAt": "2026-10-11T20:08:01.715+00:00",
+      "scoreCheckedAt": "2026-10-11T19:55:17.202Z",
+      "scoreFactObservedAt": "2026-10-11T20:38:00.928+00:00",
+      "sourceCheckedAt": "2026-10-11T20:38:00.928Z",
+      "firstConfirmedCompleteAt": "2026-10-11T20:08:07.771126+00:00",
+      "participantIds": [],
+      "participants": [],
+      "participantSlots": [
+        {
+          "label": "Green Bay Packers",
+          "score": 31,
+          "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/gb.png",
+          "homeAway": "home",
+          "participantId": "team:nfl:gb"
+        },
+        {
+          "label": "Chicago Bears",
+          "score": 7,
+          "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/chi.png",
+          "homeAway": "away",
+          "participantId": "team:nfl:chi"
+        }
+      ],
+      "sourceName": "ESPN",
+      "sourceType": "publisher-schedule",
+      "sourceUrl": "https://www.espn.com/nfl/game/_/gameId/401872990"
+    }
+  ],
+  "fixtures": [
+    {
+      "court": null,
+      "tournamentId": null,
+      "statusSourceType": null,
+      "format": "Test",
+      "actualStartTimeUtc": null,
+      "livePlayObservedAt": "2026-10-11T13:12:01.499Z",
+      "id": "fixture:cricket:CA:39990",
+      "sport": "cricket",
+      "status": "stumps",
+      "homeParticipantId": "team:cricket:south-africa",
+      "awayParticipantId": "team:cricket:australia",
+      "startTimeUtc": "2026-10-09T07:30:00.000Z",
+      "restartTimeUtc": "2026-10-12T07:30:00Z",
+      "cricketBalance": "Stumps: Australia lead South Africa by 139 runs with 10 wickets remaining",
+      "completedAt": null,
+      "scoreCheckedAt": "2026-10-11T20:38:00.928+00:00",
+      "statusCheckedAt": "2026-10-11T20:38:00.928+00:00",
+      "checkedAt": "2026-10-11T20:38:00.928+00:00",
+      "stale": false,
+      "score": {
+        "innings": [
+          {
+            "participantId": "team:cricket:australia",
+            "team": "Australia Men",
+            "runs": 390,
+            "wickets": 10,
+            "overs": "137.2",
+            "inningNumber": 1,
+            "isDeclared": false,
+            "isFollowOn": false,
+            "isForfeited": false
+          },
+          {
+            "participantId": "team:cricket:south-africa",
+            "team": "South Africa Men",
+            "runs": 284,
+            "wickets": 10,
+            "overs": "78.0",
+            "inningNumber": 2,
+            "isDeclared": false,
+            "isFollowOn": false,
+            "isForfeited": false
+          },
+          {
+            "participantId": "team:cricket:australia",
+            "team": "Australia Men",
+            "runs": 33,
+            "wickets": 0,
+            "overs": "5.4",
+            "inningNumber": 3,
+            "isDeclared": false,
+            "isFollowOn": false,
+            "isForfeited": false
+          }
+        ]
+      },
+      "officialUrl": "https://www.cricket.com.au/matches/",
+      "scorecardUrl": "https://www.cricket.com.au/matches/CA%3A39990",
+      "scorecardOfficial": true,
+      "statusText": "Stumps",
+      "clock": null,
+      "incidents": []
+    },
+    {
+      "court": null,
+      "tournamentId": null,
+      "statusSourceType": "publisher-schedule",
+      "format": null,
+      "actualStartTimeUtc": null,
+      "livePlayObservedAt": null,
+      "id": "fixture:nfl:401872990",
+      "sport": "nfl",
+      "status": "completed",
+      "homeParticipantId": "team:nfl:gb",
+      "awayParticipantId": "team:nfl:chi",
+      "startTimeUtc": "2026-10-11T17:00:00.000Z",
+      "restartTimeUtc": null,
+      "cricketBalance": null,
+      "completedAt": "2026-10-11T20:08:01.715Z",
+      "scoreCheckedAt": "2026-10-11T19:55:17.202Z",
+      "statusCheckedAt": "2026-10-11T20:38:00.928+00:00",
+      "checkedAt": "2026-10-11T19:55:17.202Z",
+      "stale": true,
+      "score": {
+        "home": 31,
+        "away": 7
+      },
+      "officialUrl": "https://www.espn.com/nfl/game/_/gameId/401872990",
+      "scorecardUrl": null,
+      "scorecardOfficial": false,
+      "statusText": null,
+      "clock": null,
+      "incidents": []
+    }
+  ]
+}

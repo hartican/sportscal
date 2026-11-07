@@ -21,7 +21,17 @@
     ];
     for (const candidate of explicitCandidates){
       const resolved = hierarchy?.canonicalNodeId?.(candidate);
-      if (resolved) return resolved;
+      if (!resolved) continue;
+      const lineage = hierarchy.lineageFor(resolved);
+      // An explicit detailed node stays authoritative. A broad sport may be
+      // refined only by a known descendant, never by a conflicting sport.
+      if (lineage.at(-1)?.level !== "sport") return resolved;
+      for (const detail of [...explicitCandidates, event?.competitionId]){
+        const descendant = hierarchy.canonicalNodeId(detail);
+        const descendantLineage = hierarchy.lineageFor(descendant);
+        if (descendantLineage[0]?.id === resolved && descendantLineage.length > 1) return descendant;
+      }
+      return resolved;
     }
     if (/^competition:tennis:us-open(?::\d{4})?$/.test(event?.competitionId || "")) return "event-series:us-open";
     const title = String(event?.name || event?.displayName || event?.title || "");

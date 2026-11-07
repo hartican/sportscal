@@ -1,0 +1,77 @@
+'use strict';
+// Actual canonical entrypoint and native HTTPS doubles on frozen owned inputs.
+const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path'),Module=require('node:module');
+const contract=require('./lib/championship-score-contract'),{fixed,previous,AT,bodies,adopted}=require('./validate-championship-score-contract');
+const ROOT=path.resolve(__dirname,'..'),target=contract.scope.records.find(r=>r.target),cases=[];let seenSourceError;
+const real={load:Module._load,read:fs.readFileSync,write:fs.writeFileSync,mkdir:fs.mkdirSync};
+function seedOwnedFixtures(root,post){
+ const document=post?adopted():structuredClone(previous);
+ fs.writeFileSync(path.join(root,contract.FILE),JSON.stringify(document,null,2)+'\n');
+ fs.writeFileSync(path.join(root,contract.FILE.replace('.json','.js')),'globalThis.NOTHINGSPORTS_FOOTBALL_FIXTURES = globalThis.NOTHINGSPORTS_FOOTBALL_FIXTURES || {}; globalThis.NOTHINGSPORTS_FOOTBALL_FIXTURES["australian-championship"] = '+JSON.stringify(document)+';\n');
+ for(const file of ['data/code-inspector/football.json','data/follow-schedule/football.json']){
+  const current=JSON.parse(fs.readFileSync(path.join(root,file))),frozen=fixed.documents[file],rows=new Map(frozen.fixtures.map(r=>[r.canonicalEventId,r]));let count=0;
+  let fixtures=current.fixtures.map(row=>{if(row.competitionId!==contract.COMPETITION)return row;assert(rows.has(row.canonicalEventId));count++;return structuredClone(rows.get(row.canonicalEventId));});assert.equal(count,48);assert.equal(fixtures.length,current.fixtures.length);
+  if(post)fixtures=contract.projectRows(fixtures,document,contract.scope.records.filter(r=>r.target).map(r=>r.canonicalEventId));
+  fs.writeFileSync(path.join(root,file),JSON.stringify({...current,fixtures})+'\n');
+ }
+ return document;
+}
+async function check(name,fn){await fn();cases.push(name);}
+async function canonical({failChild=false,failConsole=false,failDiagnostic=false,unrelated=false,extra=[],existingOutput=false,missingClub=false,sourceRefusal=false,denyCapture=false,nonJson=false,postAdoption=false,invalidPostClock=false,preflightOnly=false,legacyReplay=false,forceDeadline=false,failCandidate=false}={}){
+ const temporary=fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(),'ns-champ-score-owned-'))),root=path.join(temporary,'fixture'),output=path.join(temporary,'evidence');
+ const files=['data/football/fixtures/a-league-men.json','data/football/fixtures/a-league-men.js',contract.FILE,contract.FILE.replace('.json','.js'),'data/canonical/football-directory.v1.json','data/canonical/football-directory.v1.js','data/canonical/football-follow-index.v1.json','data/canonical/football-follow-index.v1.js','config/card-identities.js','data/code-inspector/football.json','data/follow-schedule/football.json','feeds/incoming/events.json','data/events.json','index.html','config/venue-panel-ui.js','assets/js/tournament-card-ui.js'];
+ for(const folder of ['data/code-inspector','data/follow-schedule'])for(const name of fs.readdirSync(path.join(ROOT,folder)))if(name.endsWith('.json')&&!files.includes(folder+'/'+name))files.push(folder+'/'+name);
+ for(const file of files){fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.copyFileSync(path.join(ROOT,file),path.join(root,file));}
+ const initial=seedOwnedFixtures(root,postAdoption);let observationAt=invalidPostClock?'2026-10-31T06:29:59.999Z':postAdoption?fixed.postClock:AT;
+ for(const file of require('./build-app-shell-runtime').generatedFiles()){fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.writeFileSync(path.join(root,file),'owned old '+file);files.push(file);}
+ if(existingOutput){fs.mkdirSync(output);fs.writeFileSync(path.join(output,'owned-retained'),'unchanged');}
+ if(missingClub){const file=path.join(root,'data/canonical/football-directory.v1.json'),d=JSON.parse(fs.readFileSync(file));d.teams=d.teams.filter(row=>row.id!==contract.scope.clubs[0].id);fs.writeFileSync(file,JSON.stringify(d));}
+ fs.writeFileSync(path.join(root,'data/owned-existing.html'),'owned original html');files.push('data/owned-existing.html');
+ const originalBytes=new Map(files.map(file=>[file,fs.readFileSync(path.join(root,file))]));
+ const payloads=bodies(),calls=[],children=[];seenSourceError=null;let actualFixtureGateExecuted=false;
+ const https=require('node:https'),{EventEmitter}=require('node:events'),get=https.get,OriginalDate=global.Date;global.Date=class extends OriginalDate{constructor(...args){super(...(args.length?args:[observationAt]));}static now(){return OriginalDate.parse(observationAt);}};
+ https.get=(url,options,callback)=>{calls.push(url);assert([contract.BASE+'/r2/fixture',contract.BASE+'/r3/fixture'].includes(url));assert(!Object.keys(options.headers).some(k=>/token|cookie|authorization/i.test(k)));const req=new EventEmitter();req.destroy=()=>{};queueMicrotask(()=>{const response=new EventEmitter();response.statusCode=sourceRefusal?503:200;const bytes=Buffer.from(JSON.stringify(payloads[url.includes('/r2/')?2:3]));response.headers={'content-type':'application/json','content-length':String(bytes.length)};response.complete=true;response.destroy=()=>{};callback(response);response.emit('data',bytes);response.emit('end');});return req;};
+ let advanced=0;const candidateError=Error('OWNED_CANDIDATE_FAILURE');
+ const argv=process.argv,env={...process.env},cwd=process.cwd(),exit=process.exitCode,log=console.log,warn=console.warn,error=console.error;
+ fs.writeFileSync=(p,...args)=>{if(failCandidate&&path.resolve(String(p))===path.join(root,contract.FILE.replace('.json','.js')+'.candidate'))throw candidateError;if(denyCapture&&path.basename(String(p)).endsWith('encoded-body.bin'))throw Error('OWNED_CAPTURE_DENIED');if(failDiagnostic&&String(p)===path.join(temporary,'refresh.json'))throw Error('OWNED_DIAGNOSTIC_FAILURE');assert(path.resolve(String(p)).startsWith(temporary+'/'),'write escaped owned fixture');return real.write(p,...args);};fs.mkdirSync=(p,...args)=>{assert(path.resolve(String(p))===temporary||path.resolve(String(p)).startsWith(temporary+'/'),'mkdir escaped owned fixture');return real.mkdir(p,...args);};
+ Module._load=function(request,parent,...args){
+  if(parent?.filename===path.join(ROOT,'scripts/lib/championship-score-owner.js')&&request==='./championship-source-json'){const library=real.load.call(this,request,parent,...args);return {...library,createReader:options=>{const reader=library.createReader(options);return {...reader,read:(...a)=>reader.read(...a).catch(error=>{seenSourceError=error;throw error;})};}};}
+  if(request==='./lib/refresh-child'||request==='../lib/refresh-child')return {run:(_runner,args)=>{children.push(args);return {status:0,stdout:'',stderr:''};}};
+  if(parent?.filename===path.join(ROOT,'scripts/update-cards.js')&&request==='./lib/championship-score-owner')return {...real.load.call(this,request,parent,...args),run:options=>real.load.call(this,request,parent,...args).run({...options,root,clock:()=>require('node:perf_hooks').performance.now()+advanced,now:new Date(observationAt),runStep:(_deadline,...step)=>{children.push(step);if(step[0]==='scripts/build-code-inspector.js'){const file=path.join(ROOT,'scripts/build-code-inspector.js'),builder=new Module(file,module);builder.filename=file;builder.paths=Module._nodeModulePaths(path.dirname(file));builder._compile(real.read(file,'utf8').replace('const ROOT = path.resolve(__dirname, "..");','const ROOT = '+JSON.stringify(root)+';'),file);builder.exports.build({codeSlugs:['football'],outputDir:path.join(root,'data/code-inspector'),championshipResultIds:JSON.parse(step[2].slice('--championship-results-ids='.length))});}if(step[0]==='scripts/validate-fixtures-contract.js'){const file=path.join(ROOT,step[0]),gate=new Module(file,module),oldLog=console.log;gate.filename=file;gate.paths=Module._nodeModulePaths(path.dirname(file));try{console.log=()=>{};gate._compile(real.read(file,'utf8'),file);actualFixtureGateExecuted=true;}finally{console.log=oldLog;}}if(legacyReplay&&step[0]==='scripts/validate-fixtures-contract.js'){const before=fs.readFileSync(path.join(root,contract.FILE));require('./lib/australian-championship').apply({root});assert(fs.readFileSync(path.join(root,contract.FILE)).equals(before),'Legacy replay erased or restamped a final');}if(forceDeadline)advanced=90001;if(nonJson){fs.writeFileSync(path.join(root,'data/owned-existing.html'),'owned changed html');fs.writeFileSync(path.join(root,'data/owned-new.txt'),'owned new text');}if(unrelated)fs.writeFileSync(path.join(root,'data/canonical/football-directory.v1.json'),'{}');if(failChild){fs.writeFileSync(path.join(root,'data/owned-new.json'),'{}');fs.writeFileSync(path.join(root,require('./build-app-shell-runtime').generatedFiles()[0]),'owned changed');throw Error('OWNED_CHILD_FAILURE');}}})};
+  return real.load.call(this,request,parent,...args);
+ };
+ try{
+  process.chdir(root);process.argv=[process.execPath,path.join(ROOT,'scripts/update-cards.js'),'--australian-championship','--championship-results-only','--local-only','--championship-results-evidence='+output,...extra];process.env.FOOTBALL_DATA_RUN_DIR=path.join(temporary,'football-diagnostics');process.env.GOLF_SOURCE_REPORT=path.join(temporary,'golf.json');process.env.REFRESH_REPORT=path.join(temporary,'refresh.json');console.log=()=>{if(failConsole)throw Error('OWNED_CONSOLE_FAILURE');};console.warn=()=>{};console.error=()=>{};
+  if(preflightOnly){contract.preflight(root,new Date(observationAt));assert.equal(calls.length,0);return;}
+  const file=path.join(ROOT,'scripts/update-cards.js'),m=new Module(file,module);m.filename=file;m.paths=Module._nodeModulePaths(path.dirname(file));m._compile(real.read(file,'utf8')+'\nmodule.exports.ownedMain=main;',file);
+  let failure;
+  for(let confirmation=0;confirmation<(postAdoption?2:1);confirmation++){
+   if(confirmation){observationAt='2026-10-31T06:32:00.000Z';process.argv=process.argv.map(arg=>arg.startsWith('--championship-results-evidence=')?'--championship-results-evidence='+output+'-repeat':arg);}
+   try{await m.exports.ownedMain();}catch(e){failure=e;break;}
+  }
+  const updated=JSON.parse(fs.readFileSync(path.join(root,contract.FILE)));
+  if(extra.length||existingOutput||missingClub||invalidPostClock){assert(failure);if(invalidPostClock)assert.equal(failure.championshipCode,'retained-final-clock');assert.equal(calls.length,0);assert.equal(children.length,0);for(const [f,b]of originalBytes)assert(fs.readFileSync(path.join(root,f)).equals(b));if(existingOutput){assert.deepEqual(fs.readdirSync(output),['owned-retained']);assert.equal(fs.readFileSync(path.join(output,'owned-retained'),'utf8'),'unchanged');}else assert(!fs.existsSync(output));}
+  else if(failChild||failConsole||unrelated||sourceRefusal||nonJson||forceDeadline||failCandidate){assert(failure);if(forceDeadline)assert.match(failure.message,/deadline/);if(failCandidate)assert.equal(failure,candidateError);if(sourceRefusal){assert.equal(failure.championshipCode,'no-supported-target-finals');assert.equal(failure,seenSourceError,'First native source exception identity changed');}if(nonJson)assert(!fs.existsSync(path.join(root,'data/owned-new.txt')),'new non-JSON artifact survived rollback');if(failChild)assert.equal(failure.message,'OWNED_CHILD_FAILURE');if(failConsole)assert.equal(failure.message,'OWNED_CONSOLE_FAILURE');for(const [f,b]of originalBytes)assert(fs.readFileSync(path.join(root,f)).equals(b),f+' failed full restoration');assert(!fs.existsSync(path.join(root,'data/owned-new.json')));assert(!fs.existsSync(path.join(root,contract.FILE+'.candidate')));}
+  else{if(failure)throw failure;assert(actualFixtureGateExecuted,'Actual canonical route did not execute the required fixture gate');assert.equal(calls.length,postAdoption?4:2);if(postAdoption){assert.deepEqual(updated,initial,'Post-adoption confirmation renewed facts or clocks');for(const [f,b]of originalBytes)assert(fs.readFileSync(path.join(root,f)).equals(b),'Post-adoption idempotence changed '+f);assert(!children.some(step=>step[0]==='scripts/build-code-inspector.js'),'Unchanged confirmations must not rebuild results');}assert.equal(updated.events.find(e=>e.id===target.id).status,'completed');for(const row of updated.events){const old=initial.events.find(e=>e.id===row.id);if(!contract.scope.records.find(r=>r.id===row.id).target)assert.deepEqual(row,old,'Unrelated source record changed');else for(const key of Object.keys(old))if(!contract.RESULT_FIELDS.includes(key))assert.deepEqual(row[key],old[key],'Unchanged non-result fact/clock changed: '+key);}assert.equal(updated.checkedAt,initial.checkedAt);for(const f of ['config/card-identities.js','data/canonical/football-directory.v1.json','feeds/incoming/events.json','data/events.json'])assert(fs.readFileSync(path.join(root,f)).equals(originalBytes.get(f)));}
+  return {calls,children};
+ }finally{global.Date=OriginalDate;https.get=get;process.chdir(cwd);Module._load=real.load;fs.writeFileSync=real.write;fs.mkdirSync=real.mkdir;process.argv=argv;process.exitCode=exit;console.log=log;console.warn=warn;console.error=error;for(const key of Object.keys(process.env))if(!(key in env))delete process.env[key];for(const [k,v]of Object.entries(env))process.env[k]=v;fs.rmSync(temporary,{recursive:true,force:true});}
+}
+async function run(){
+ await check('actual canonical two-resource owner and existing selective builder keep all other facts',()=>canonical());
+ await check('post-adoption two actual unchanged confirmations preserve all facts/clocks',()=>canonical({postAdoption:true}));
+ await check('legacy complete factual replay preserves all11 adopted results',()=>canonical({legacyReplay:true}));
+ await check('old post-adoption clock refuses before GET',()=>canonical({postAdoption:true,invalidPostClock:true}));
+ await check('actual owner deadline after source/candidate writes rolls back completely',()=>canonical({forceDeadline:true}));
+ await check('partial canonical JSON/JS staging failure preserves original error and rolls back',()=>canonical({failCandidate:true}));
+ await check('late child failure restores JSON JS all8runtimes and deletes candidate/new files',()=>canonical({failChild:true}));
+ await check('success diagnostics failure rolls back complete candidate',()=>canonical({failConsole:true}));
+ await check('failed diagnostics never replace first child error or prevent restoration',()=>canonical({failChild:true,failDiagnostic:true}));
+ await check('unrelated generated mutation blocks and fully rolls back',()=>canonical({unrelated:true}));
+ await check('nonJSON changed and new outputs are completely rolled back',()=>canonical({nonJson:true}));
+ await check('source refusal and failed evidence write retain first acquisition error',()=>canonical({sourceRefusal:true,denyCapture:true}));
+ await check('pre-existing evidence namespace is never adopted or overwritten',()=>canonical({existingOutput:true}));
+ await check('missing club blocks before acquisition without any provider fallback',()=>canonical({missingClub:true}));
+ for(const extra of [['--quick'],['--local-only'],['--capture=/tmp/no']])await check('mixed or duplicate CLI refuses before source '+extra[0],()=>canonical({extra}));
+ console.log(JSON.stringify({status:'PASS',controls:cases.length,externalRequests:0,currentFinalsObserved:0,constructedOnly:true,cases},null,2));
+}
+if(require.main===module)run().catch(error=>{console.error(error);process.exitCode=1;});module.exports={run};

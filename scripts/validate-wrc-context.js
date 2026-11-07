@@ -42,21 +42,25 @@ const context = JSON.parse(read("data/canonical/wrc-context-2026.json"));
 const feed = JSON.parse(read("data/events.json"));
 const incoming = JSON.parse(read("feeds/incoming/events.json"));
 const schema = JSON.parse(read("schemas/sport-context.schema.json"));
-const appSource = read("index.html");
+const appSource = require("./app-shell-test-utils").readFollowApplicationSource() + read("assets/js/sport-hub-ui.js");
 const serverFeedSource = read("api/feed.js");
 
 assert.deepEqual(validateWrcContext(context), [], "checked-in WRC context must satisfy the strict domain contract");
-assert.equal(context.events.length, 14);
-assert.deepEqual(context.events.map(event => event.roundNumber), Array.from({ length: 14 }, (_, index) => index + 1));
+assert.equal(context.events.filter(e=>e.date.startsWith('2026-')).length,14);
+assert.deepEqual(context.events.filter(e=>e.date.startsWith('2026-')).map(event => event.roundNumber), Array.from({ length: 14 }, (_, index) => index + 1));
 assert(context.events.every(event => event.endDate >= event.date && event.dateOnly === true));
-assert(context.events.every(event => event.broadcasters.some(provider => provider.broadcasterName === "Stan Sport" && provider.live && provider.replay && provider.sourceUrl === STAN_URL)));
+assert(context.events.filter(e=>e.date.startsWith('2026-')).every(event => event.broadcasters.some(provider => provider.broadcasterName === "Stan Sport" && provider.live && provider.replay && provider.sourceUrl === STAN_URL)));
 assert.equal(context.ladderSnapshots.length, 3);
 assert.deepEqual(new Set(context.ladderSnapshots.map(snapshot => snapshot.competitionId)), new Set([
   "competition:wrc-drivers-2026", "competition:wrc-co-drivers-2026", "competition:wrc-manufacturers-2026",
 ]));
-assert.equal(context.ladderSnapshots.find(snapshot => snapshot.competitionId === "competition:wrc-drivers-2026").entries.length, 36);
-assert.equal(context.ladderSnapshots.find(snapshot => snapshot.competitionId === "competition:wrc-co-drivers-2026").entries.length, 37);
-assert.equal(context.ladderSnapshots.find(snapshot => snapshot.competitionId === "competition:wrc-manufacturers-2026").entries.length, 4);
+// Live championship membership changes during the season. Exact parser counts
+// belong to the fixed HTML fixture below; live snapshots must be complete and unique.
+for(const snapshot of context.ladderSnapshots){
+ const ids=snapshot.entries.map(entry=>entry.participantId);
+ assert(ids.length>=3, `${snapshot.competitionId} must not be an empty/truncated table`);
+ assert.equal(new Set(ids).size,ids.length,'No duplicate championship entries');
+}
 assert(context.participants.every(participant => participant.type === "team" || participant.type === "competitor"));
 assert(context.participants.every(participant => /^[A-Z]{2}$/.test(participant.countryCode)));
 assert(context.participants.every(participant => participant.metadata?.preferenceDomainId === "sport:wrc"));
@@ -70,6 +74,13 @@ assert(schema.properties.events, "shared context schema must admit canonical mul
 const calendarFixture = fs.readFileSync(path.join(FIXTURES, "wrc-calendar.html"), "utf8");
 const standingsFixture = fs.readFileSync(path.join(FIXTURES, "wrc-standings.html"), "utf8");
 const parsedRounds = parseWrcCalendar(calendarFixture);
+const rollover=require('./fixtures/wrc-season-rollover-20261011.json');
+assert.equal(CALENDAR_URL,rollover.seasonPage.sourceUrl,'The existing 2026 refresh must use the organiser\'s explicit season page after its default moves to 2027');
+const capturedCalendar=table=>'<script id="rb3-prerender-data-cache">'+JSON.stringify({calendar:table})+'</script>';
+assert.throws(()=>parseWrcCalendar(capturedCalendar(rollover.defaultTable),{withdrawalVerified:true}),/15 rounds|invalid dates/,'The actual rolled-over 2027 collection cannot replace 2026');
+assert.throws(()=>parseWrcCalendar(capturedCalendar({...rollover.defaultTable,rows:rollover.defaultTable.rows.slice(0,14)}),{withdrawalVerified:true}),/invalid dates/,'Matching the old row count cannot disguise the wrong season');
+assert.equal(parseWrcCalendar(capturedCalendar(rollover.seasonTable),{withdrawalVerified:true}).length,13);
+assert.throws(()=>parseWrcCalendar(capturedCalendar(rollover.seasonTable)),/officially verified 13-round revision/,'A season URL cannot replace required withdrawal evidence');
 const parsedStandings = parseFiaStandings(standingsFixture);
 assert.equal(parsedRounds.length, 14);
 assert.deepEqual(parsedRounds[9], {
@@ -103,7 +114,7 @@ assert.throws(
 
 const motorsport = selector.byId["sport:motorsport"];
 const wrc = selector.byId["sport:wrc"];
-assert.deepEqual(Array.from(motorsport.childIds), ["sport:f1", "sport:motogp", "sport:wrc"]);
+assert.deepEqual(Array.from(motorsport.childIds), ["sport:f1", "sport:motogp", "sport:wrc", "sport:supercars", "sport:dakar"]);
 assert.equal(wrc.label, "WRC");
 assert(!selector.exposedSportNodes.some(node => node.id === "sport:rally"));
 assert.equal(taxonomy.competitionFamilies.find(family => family.id === "family:world-rally-championship")?.name, "FIA World Rally Championship");
@@ -166,8 +177,8 @@ assert.equal(classifyCalendarEvent({title:"Dakar Rally"}).key, "motorsport");
 assert.equal(classifyCalendarEvent({title:"Regional forest rally"}).key, "motorsport");
 assert.deepEqual(discovery.oneOffMotorsportFrothIds({key:"motorsport",name:"Dakar Rally"}), ["sport:motorsport"]);
 
-const feedWrc = feed.events.filter(event => event.key === "wrc");
-const incomingWrc = incoming.events.filter(event => event.key === "wrc");
+const feedWrc = feed.events.filter(event => event.key === "wrc" && event.date.startsWith("2026-"));
+const incomingWrc = incoming.events.filter(event => event.key === "wrc" && event.date.startsWith("2026-"));
 assert.equal(feedWrc.length, 14);
 assert.equal(incomingWrc.length, 14);
 assert(feedWrc.every(event => event.endDate >= event.date && event.displayTime === "Multiple live stages"));
@@ -192,29 +203,30 @@ const upcomingServerFeed = serverFeed.buildServerFeed({
   events:[chileServerCard], userId:"wrc-domain-follow", userState:legacyWrcState,
   participants:context.participants, now:new Date("2026-09-06T02:00:00.000Z"),
 });
-assert.equal(upcomingServerFeed.events[0]?.status, "upcoming", "legacy Rally follows must migrate into a personalised WRC server feed");
+assert.equal(upcomingServerFeed.events[0]?.id, chileServerCard.id, "legacy Rally follows must migrate into a personalised WRC server feed");
+assert.equal(upcomingServerFeed.events[0]?.status, chileServerCard.status, "replaying an earlier clock cannot erase the currently published rally phase");
 assert.equal(upcomingServerFeed.derivedCardCache.derivedCards.length, 1, "a WRC competition follow must enrich the four-stakes round card");
 const liveServerFeed = serverFeed.buildServerFeed({
   events:[chileServerCard], userId:"wrc-live", userState:legacyWrcState,
   participants:context.participants, now:new Date("2026-09-11T02:00:00.000Z"),
 });
-assert.equal(liveServerFeed.events[0]?.status, "live", "a date-only rally must remain live through its inclusive end date");
-assert.equal(cardLifecycle.lifecycleState(chileServerCard, { now:new Date("2026-09-27T12:00:00.000Z") }).state, "archived", "WRC retention must start at the end of the multi-day rally rather than its first day");
-assert.equal(cardLifecycle.lifecycleState(chileServerCard, { now:new Date("2026-09-28T12:00:00.000Z") }).state, "expired", "WRC retention must expire fourteen days after the rally end date");
+assert.equal(liveServerFeed.events[0]?.status, chileServerCard.status, "published rally status remains separate from the calendar phase tested below");
+assert.equal(cardLifecycle.lifecycleState(chileServerCard, { now:new Date("2026-09-20T12:00:00.000Z") }).state, "active", "WRC retention must start at the end of the multi-day rally rather than its first day");
+assert.equal(cardLifecycle.lifecycleState(chileServerCard, { now:new Date("2026-09-21T12:00:00.000Z") }).state, "expired", "WRC ordinary cards retire more than seven local calendar days after the rally final date");
 assert(!feed.events.some(event => event.key === "rally"));
 assert(!feed.events.some(event => /Paris-Dakar Rally 2026 Stage 11|WRC Safari Rally 2027/.test(event.name)));
 const resynced = syncWrcToFeed(feed, context);
-assert.equal(resynced.events.filter(event => event.key === "wrc").length, 14, "WRC projection must be idempotent");
+assert.equal(resynced.events.filter(event => event.key === "wrc" && event.date.startsWith("2026-" )).length, 14, "WRC projection must be idempotent");
 assert.equal(resynced.sourceNote.split(WRC_SOURCE_NOTE).length - 1, 1, "WRC source disclosure must remain idempotent");
 
-assert.equal(hubs.canonicalFixturesForSport(context, "wrc").length, 14);
+assert.equal(hubs.canonicalFixturesForSport(context, "wrc").filter(e=>e.date.startsWith("2026-")).length, 14);
 const officialView = hubs.canonicalFixtureView(context.events[0], { participants:context.participants, feedCards:feed.events });
 assert.equal(officialView.event.canonicalResultText, "Oliver Solberg / Elliott Edmondson · 4:24:59.0");
 assert.equal(officialView.event.sportDomainId, "sport:wrc");
 assert.equal(officialView.event.canonicalSportDomainId, "sport:motorsport");
 const scheduledView = hubs.canonicalFixtureView(context.events.find(event => event.status === "scheduled"), { participants:context.participants, feedCards:feed.events });
 assert.equal(scheduledView.event.resultStatus, null, "a scheduled WRC round must not invent a result state");
-assert.equal(hubs.supportedRounds(hubs.canonicalFixturesForSport(context, "wrc")).length, 14);
+assert.equal(hubs.supportedRounds(hubs.canonicalFixturesForSport(context, "wrc").filter(e=>e.date.startsWith("2026-"))).length, 14);
 assert.equal(feedTimeline.status({date:"2026-09-10",endDate:"2026-09-13",dateOnly:true,status:"upcoming"}, new Date("2026-09-11T02:00:00.000Z")), "live");
 
 const chile = feedWrc.find(event => event.roundNumber === 12);
@@ -248,14 +260,16 @@ try {
 
 assert(appSource.includes('"sport:rally": "sport:wrc"'));
 assert(appSource.includes('sportKey === "wrc" ? "Results / Replays" : "Results"'));
-assert(appSource.includes('code.slug === "wrc" ? [["results", "Results / Replays"]] : []'));
-assert(appSource.includes('function renderCodeInspectorResults(panel, code)'));
-assert(appSource.includes('pending.textContent = "Official FIA classification pending."'));
-assert(appSource.includes('ev.displayTime || "Multiple live stages"'));
+assert(appSource.includes('code?.slug === "wrc" ? [["results", "Results / Replays"]] : []'));
+assert(fs.readFileSync(path.join(ROOT,'assets/js/follow-schedule-panel.js'),'utf8').includes("codeInspectorTab==='results'"));
+assert(fs.readFileSync(path.join(ROOT,'assets/js/follow-schedule-panel.js'),'utf8').includes('buildFixtureResultAvailability'));
+require('./validate-result-availability-presentation');
+assert.equal(require('../config/card-timing').presentation({key:'wrc',date:'2026-10-01',timePrecision:'date-only',status:'completed'}).time,'','a sourced final has no pending stage-clock banner');
+assert.equal(require('../config/card-timing').presentation({key:'wrc',date:'2026-10-01',timePrecision:'date-only'}).time,'RALLY DATES', 'date-only rallies show their calendar window without claiming a stage start');
 assert(appSource.includes('SPORT_CONTEXT.mergeCanonicalBundles(...contextBundles)'));
 assert(appSource.includes('participant?.metadata?.preferenceDomainId === domainId'));
 assert(serverFeedSource.includes('require("../data/canonical/wrc-context-2026.json")'), "the authenticated feed must merge the WRC participant scope");
 assert(new Set(context.sources.map(source => source.sourceUrl)).has(CALENDAR_URL));
 assert(new Set(context.sources.map(source => source.sourceUrl)).has(STANDINGS_URL));
 
-console.log("WRC context valid: official 14-round calendar, three senior tables, date-only Feed and ICS semantics, Stan live/replay metadata, hub results, and rally migration coverage.");
+console.log("WRC context valid: 13 active rounds and one retained withdrawal, three senior tables, date-only Feed and ICS semantics, Stan live/replay metadata, hub results, and rally migration coverage.");

@@ -209,7 +209,7 @@
       time: start.time,
       dateOnly: fixture.dateOnly === true,
       timePrecision: fixture.timePrecision,
-      displayTime: fixture.dateOnly ? "Multiple live stages" : null,
+      displayTime: fixture.dateOnly ? (typeof module==='object'&&module.exports?require('./card-timing'):globalThis.NOTHINGSPORTS_CARD_TIMING).dateOnlyLabel(fixture) : null,
       startTimeUtc: fixture.startTimeUtc,
       status: fixtureIsFinished(fixture) ? "completed" : "upcoming",
       scheduleStatus: fixture.scheduleStatus,
@@ -226,7 +226,7 @@
         participantIndex.get(fixture.result?.driverParticipantId),
         participantIndex.get(fixture.result?.coDriverParticipantId),
       ].filter(Boolean).map((participant, index) => ({ name: participant.displayName, role: index === 0 ? "driver" : "co-driver" })),
-      broadcaster: liveProviders.join(" / ") || "Broadcaster TBC",
+      broadcaster: liveProviders.join(" / ") || "Broadcaster unavailable",
       broadcastOptions: liveProviders,
       broadcasterIds: (fixture.broadcasters || []).map(item => String(item.broadcasterId || "").replace(/^broadcaster:/, "")).filter(Boolean),
       canonicalResultScoreline: fixture.result?.scorelineText

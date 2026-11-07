@@ -1,0 +1,98 @@
+'use strict';
+const assert=require('node:assert/strict'),m=require('../config/match-centre');
+const now=Date.parse('2026-09-24T10:00:00Z'),base={id:'fixture:nrl:one',key:'nrl',status:'scheduled',startTimeUtc:new Date(now+1800000).toISOString()};
+assert(m.eligible(base,now));assert(!m.eligible({...base,startTimeUtc:new Date(now+1800001).toISOString()},now));
+assert(!m.eligible({...base,key:'tennis',cardType:'tennis_parent'},now));
+assert(m.eligible({...base,date:'2026-09-22',endDate:'2026-09-25',startTimeUtc:'2026-09-22T10:00:00Z',status:'ongoing',statusCheckedAt:new Date(now).toISOString()},now),'multi-day breaks remain visible without a live label');
+assert(!m.eligible({...base,status:'scheduled',startTimeUtc:new Date(now-3*86400000).toISOString()},now),'elapsed schedule is removed without claiming completion');
+assert(!m.eligible({...base,key:'tennis',contestUnit:'rubber'},now));
+assert(m.eligible({...base,key:'tennis',contestUnit:'tie'},now));
+assert(m.eligible({...base,gender:'women'},now));assert(m.eligible({...base,key:'tennis',gender:'women'},now));
+assert(m.eligible({...base,status:'stumps',statusCheckedAt:new Date(now).toISOString(),startTimeUtc:'2026-09-20T00:00:00Z'},now));
+const staleTest={...base,id:'fixture:cricket:retained-test',key:'cricket',format:'Test',participantIds:['team:cricket:australia','team:cricket:south-africa'],date:'2026-09-22',endDate:'2026-09-26',startTimeUtc:'2026-09-22T00:00:00Z',status:'live',statusCheckedAt:new Date(now-40*60000).toISOString(),innings:[{team:'Australia',runs:180,wickets:3,overs:'42.1'}]};
+assert.deepEqual(m.select([staleTest],now).map(m.id),[staleTest.id],'An unresolved Test remains in the main stack beyond thirty minutes');
+assert.equal(m.liveState(staleTest,now),'awaiting-update','Old play is retained without claiming current live play');
+assert.equal(m.liveState({...staleTest,statusCheckedAt:new Date(now-3*86400000).toISOString()},now),'awaiting-update','Elapsed time cannot confirm a result or remove unresolved play');
+assert.equal(m.liveState({...staleTest,status:'stumps'},now),'paused','Source-confirmed Stumps retains its own label');
+assert.equal(m.liveState({...staleTest,status:'rain-delay'},now),'paused','Source-confirmed Rain delay retains its own label');
+assert.equal(m.liveState({...staleTest,statusCheckedAt:new Date(now).toISOString(),stale:true},now),'awaiting-update','A failed score read cannot leave a live claim');
+assert.equal(m.liveState({...staleTest,statusCheckedAt:new Date(now+1).toISOString()},now),null,'A future observation cannot establish play');
+assert.equal(m.interval({...base,status:'live'},now),120000,'Visible active team scores share the two-minute freshness target');
+assert.equal(m.compact({...staleTest,stale:true}).stale,true,'Degraded observations preserve their freshness warning');
+assert(!m.eligible({...base,status:'completed',endTimeUtc:new Date(now).toISOString()},now),'scheduled end is not completion');
+assert(m.eligible({...base,status:'completed',completedAt:new Date(now-3600000).toISOString()},now));
+assert(!m.eligible({...base,status:'completed',completedAt:new Date(now-3600001).toISOString()},now));
+assert(!m.eligible({...base,status:'completed',firstConfirmedCompleteAt:new Date(now).toISOString(),statusFactObservedAt:new Date(now-5*86400000).toISOString(),statusCheckedAt:new Date(now).toISOString()},now),'A database import or verification receipt cannot reopen an old final');
+assert(!m.eligible({...base,status:'completed',firstConfirmedCompleteAt:new Date(now).toISOString(),resultPublishedAt:new Date(now-5*86400000).toISOString()},now),'A known old result publication precedes its later import');
+assert(m.eligible({...base,status:'completed',firstConfirmedCompleteAt:new Date(now).toISOString(),statusFactObservedAt:new Date(now-60000).toISOString()},now),'A genuine newly observed result retains its one-hour window');
+assert(m.eligible({...base,status:'completed',completedAt:new Date(now-60000).toISOString(),statusFactObservedAt:new Date(now-5*86400000).toISOString()},now),'An explicit actual completion remains authoritative');
+assert(!m.eligible({...base,status:'completed',date:'2026-09-20',firstConfirmedCompleteAt:new Date(now).toISOString(),statusFactObservedAt:new Date(now).toISOString()},now),'A first source import does not make an old closed calendar window recent');
+assert(m.eligible({...base,key:'cricket',format:'Test',participantIds:['team:cricket:australia','team:cricket:south-africa'],status:'completed',date:'2026-09-20',numberOfDays:5,firstConfirmedCompleteAt:new Date(now).toISOString()},now),'A genuine multi-day result retains its current calendar window');
+assert(m.eligible({...base,status:'completed',date:'TBC',numberOfDays:4,firstConfirmedCompleteAt:new Date(now).toISOString()},now),'An unknown calendar bound remains unknown without throwing');
+const espnShield={...base,id:'fixture:cricket:espn:1544864',key:'cricket',status:'live',statusCheckedAt:new Date(now).toISOString(),homeParticipantId:'team:cricket:espn-584',awayParticipantId:'team:cricket:espn-520',sourceType:'trusted-reporting',roundLabel:'1st Match'},caShield={...espnShield,id:'fixture:cricket:CA:40666',homeParticipantId:'team:cricket:ca-82',awayParticipantId:'team:cricket:ca-1214',sourceType:'official',roundLabel:'Match 1'};
+assert.equal(m.select([espnShield,caShield],now).length,0,'Domestic Shield is outside the approved Follow catalogue even in Everything');
+Object.assign(espnShield,{format:'Test',homeParticipantId:'team:cricket:australia',awayParticipantId:'team:cricket:south-africa'});Object.assign(caShield,{format:'Test',homeParticipantId:'team:cricket:australia',awayParticipantId:'team:cricket:south-africa'});
+assert.deepEqual(m.select([espnShield,caShield],now).map(m.id),[caShield.id],'Same approved teams and exact kickoff produce one official Test card');assert.equal(espnShield.id,'fixture:cricket:espn:1544864','Display grouping does not rewrite provider identity');assert.equal(m.select([espnShield,{...caShield,startTimeUtc:new Date(now+60000).toISOString()}],now).length,2,'A different kickoff cannot merge');
+assert.equal(m.interval({...base,status:'suspended'}),600000);
+assert.deepEqual(m.select([{...base,id:'b'},{...base,id:'a'}],now).map(m.id),['a','b']);
+assert(!JSON.stringify(m.compact({...base,key:'tennis',points:'40-30',games:{home:3,away:2}})).includes('40-30'));
+assert.equal(m.compact({...base,sourceUrl:'javascript:alert(1)'}).officialUrl,'https://www.nrl.com/draw/');
+const {createMatchCentreHandler:makeMatchCentreHandler}=require('../lib/match-centre-handler');
+// Every controlled API case owns both external read boundaries. In a refresh
+// job, real service credentials must not add current fixtures to frozen tests.
+const createMatchCentreHandler=options=>{
+ assert.equal(typeof options.request,'function','Controlled cases supply their compact-score read');
+ return makeMatchCentreHandler({snapshotRead:async()=>({readAt:now,stale:false,sources:[]}),...options});
+};
+(async()=>{let reads=0;const handler=createMatchCentreHandler({enabled:()=>true,published:()=>[base],request:async()=>{reads++;return [];}});const response=()=>({headers:{},setHeader(k,v){this.headers[k]=v;},status(n){this.code=n;return this;},json(v){this.body=v;return this;}});
+let r=response();await handler({url:'/api/match-centre?ids='+Array.from({length:61},(_,i)=>i).join(',')},r);assert.equal(r.code,400);assert.equal(reads,0);
+r=response();await handler({url:'/api/match-centre?ids=fixture:nrl:one'},r);assert.equal(r.body.fixtures.length,1);assert.equal(reads,1);
+const fresh={...base,status:'live',statusCheckedAt:new Date(now).toISOString(),sourceCheckedAt:new Date(now).toISOString(),homeParticipantId:'team:nrl:one',awayParticipantId:'team:nrl:two'};
+const list=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[fresh,{...fresh,id:'alias',eventId:'alias'},...Array.from({length:64},(_,i)=>({...fresh,id:'fixture:nrl:'+i,homeParticipantId:'team:nrl:'+i}))],request:async(_path,options)=>{assert(options.body.p_fixture_ids.length<=60);assert.equal(options.timeoutMs,3000);return [];}});
+r=response();await list({url:'/api/match-centre?membership=everything&limit=50'},r);assert.equal(r.body.events.length,50);assert.equal(r.body.pagination.nextCursor,50);assert(!JSON.stringify(r.body).includes('preferences'));
+r=response();await list({url:'/api/match-centre?membership=everything&limit=50&cursor=50'},r);assert.equal(r.body.events.length,15);assert.equal(r.body.pagination.nextCursor,null);
+r=response();await list({url:'/api/match-centre?membership=everything&limit=61'},r);assert.equal(r.code,400);
+const settled=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[fresh],request:async()=>[{checked_at:new Date(now).toISOString(),fixture:{...fresh,status:'completed',completedAt:new Date(now-3600001).toISOString()}}]});r=response();await settled({url:'/api/match-centre?membership=everything'},r);assert.equal(r.body.events.length,0,'terminal overlay reconciles membership before return');
+const offline=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[fresh],snapshotRead:async()=>{throw Error('offline');},request:async()=>{throw Error('offline');}});r=response();await offline({url:'/api/match-centre?membership=everything'},r);assert.equal(r.body.events.length,1);assert.equal(r.body.fixtures[0].stale,true);assert.equal(r.body.membershipStale,true);assert.equal(r.headers['Cache-Control'],'no-store','A degraded membership response cannot occupy the public cache');
+const liveOnly={...fresh,id:'fixture:cricket:live-only',key:'cricket',format:'Test',homeParticipantId:'team:cricket:australia',awayParticipantId:'team:cricket:south-africa',sourceEventIds:['fixture:cricket:publisher-alias'],innings:[{participantId:fresh.homeParticipantId,runs:71,wickets:2,overs:'10.1'}],scoreCheckedAt:new Date(now).toISOString()},liveReads=[];
+const liveRead=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[],snapshotRead:async()=>({stale:false,sources:[{source_id:'live-cricket',checked_at:new Date(now).toISOString(),fixtures:[liveOnly]}]}),request:async(_path,options)=>{
+ const ids=options.body.p_fixture_ids;assert(ids.length>=1&&ids.length<=60);assert.equal(options.timeoutMs,3000);liveReads.push(ids);
+ return [{checked_at:new Date(now).toISOString(),fixture:{...liveOnly,id:'fixture:cricket:unrequested',sourceEventIds:[]}},...([liveOnly.id,...liveOnly.sourceEventIds].some(id=>ids.includes(id))?[{checked_at:new Date(now).toISOString(),fixture:liveOnly}]:[])];
+}});
+r=response();await liveRead({url:'/api/match-centre?membership=everything'},r);assert.equal(r.body.events.length,1,'A new source fixture appears before the daily catalogue checkpoint');
+r=response();await liveRead({url:'/api/match-centre?ids='+liveOnly.id},r);assert.equal(r.body.fixtures.length,1,'The new fixture remains readable when the browser polls its scores');assert.equal(r.body.fixtures[0].score.innings[0].runs,71);assert.deepEqual(liveReads.at(-1),[liveOnly.id]);
+r=response();await liveRead({url:'/api/match-centre?ids='+liveOnly.sourceEventIds[0]},r);assert.equal(r.body.fixtures[0].id,liveOnly.id,'Source aliases retain the canonical compact fixture identity');
+r=response();await liveRead({url:'/api/match-centre?ids=fixture:cricket:unknown'},r);assert.deepEqual(r.body.fixtures,[],'Unrequested returned rows and unknown IDs cannot create public fixtures');
+const liveOffline=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[],request:async()=>{throw Error('offline');}});r=response();await liveOffline({url:'/api/match-centre?ids='+liveOnly.id},r);assert.deepEqual(r.body.fixtures,[],'A failed read cannot manufacture an unpublished fixture');
+const belowThreshold={...fresh,id:'fixture:tennis:atp250',key:'tennis',tournamentLevel:'ATP250'},belowRead=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[],request:async()=>[{checked_at:new Date(now).toISOString(),fixture:belowThreshold}]});r=response();await belowRead({url:'/api/match-centre?ids='+belowThreshold.id},r);assert.deepEqual(r.body.fixtures,[],'A live-store row cannot bypass the active tennis threshold');
+const sixty=Array.from({length:60},(_,i)=>({...fresh,id:'fixture:nrl:new-'+i,homeParticipantId:'team:nrl:new-'+i,sourceEventIds:[]}));let boundedReads=0;const boundary=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[],request:async(_path,options)=>{boundedReads++;assert.equal(options.body.p_fixture_ids.length,60);return sixty.map(fixture=>({fixture,checked_at:new Date(now).toISOString()}));}});r=response();await boundary({url:'/api/match-centre?ids='+sixty.map(e=>e.id).join(',')},r);assert.equal(r.body.fixtures.length,60);assert.equal(boundedReads,1,'Sixty live-only fixtures use one bounded compact-score read');
+const observed={...liveOnly,fixtureObservationSchema:'fixture-observations.v1',statusCheckedAt:new Date(now).toISOString(),scoreCheckedAt:new Date(now).toISOString()};
+let duplicateReads=0,publishedReady=false;
+const reuse=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>{publishedReady=true;return [];},snapshotRead:async()=>{assert(publishedReady,'Keep synchronous fallback work outside the bounded database response deadline');return {readAt:now,stale:false,sources:[{checked_at:new Date(now).toISOString(),fixtures:[observed]}]};},request:async()=>{duplicateReads++;return [{checked_at:new Date(now).toISOString(),fixture:observed}];}});
+r=response();await reuse({url:'/api/match-centre?membership=everything'},r);assert.equal(duplicateReads,0,'A fresh projected snapshot already owns the displayed score');assert.equal(r.body.fixtures[0].score.innings[0].runs,71);assert.equal(r.body.fixtures[0].stale,false);assert.equal(r.body.fixtures[0].scoreCheckedAt,observed.scoreCheckedAt,'Reusing a read must not renew a fact clock');
+assert.equal(r.headers['Cache-Control'],'public, max-age=0, s-maxage=30, stale-while-revalidate=120','Healthy membership retains the existing cache budget');const firstResponse=r.body;
+r=response();await reuse({url:'/api/match-centre?ids='+observed.id},r);assert.equal(duplicateReads,1,'Selected score polling still makes its direct bounded read');assert.deepEqual(r.body.fixtures,firstResponse.fixtures,'Initial scores and selected polling use the same observation');
+for(const [label,readAt,stale,change] of [['old snapshot',now-30001,false,{}],['future snapshot',now+1,false,{}],['degraded snapshot',now,true,{}],['old score',now,false,{scoreCheckedAt:new Date(now-600001).toISOString()}],['old status',now,false,{statusCheckedAt:new Date(now-600001).toISOString()}],['unknown score clock',now,false,{scoreCheckedAt:null}],['legacy observation',now,false,{fixtureObservationSchema:undefined}]]){
+ let fallbackReads=0;const fallback=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[],snapshotRead:async()=>({readAt,stale,sources:[{checked_at:new Date(now).toISOString(),fixtures:[{...observed,...change}]}]}),request:async(_path,options)=>{fallbackReads++;assert(options.body.p_fixture_ids.includes(observed.id));assert.equal(options.timeoutMs,3000);return [{checked_at:new Date(now).toISOString(),fixture:observed}];}});
+ r=response();await fallback({url:'/api/match-centre?membership=everything'},r);assert.equal(fallbackReads,1,label+' keeps the bounded score fallback');assert.equal(r.body.fixtures[0].score.innings[0].runs,71);
+}
+let partialIds;const absent={...fresh,id:'fixture:nrl:absent',homeParticipantId:'team:nrl:absent',scoreCheckedAt:new Date(now).toISOString()};
+for(const update of [{status:'stumps'}, {status:'completed',completedAt:new Date(now-60000).toISOString()}, {status:'suspended',restartTimeUtc:new Date(now+60000).toISOString()}, {key:'football',innings:[],homeScore:0,awayScore:0}]){
+ const fixture={...observed,...update};let redundant=0;const state=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[],snapshotRead:async()=>({readAt:now,stale:false,sources:[{fixtures:[fixture]}]}),request:async()=>{redundant++;return [];}});r=response();await state({url:'/api/match-centre?membership=everything'},r);assert.equal(redundant,0);assert.equal(r.body.fixtures[0].status,fixture.status,'Paused and final states retain their source meaning');assert.equal(r.body.fixtures[0].statusCheckedAt,fixture.statusCheckedAt);if(update.homeScore===0)assert.deepEqual(r.body.fixtures[0].score,{home:0,away:0},'Both explicit zero scores survive reuse');
+}
+const restarting={...observed,key:'tennis',tournamentLevel:'WTA1000',sets:[{home:6,away:3}],status:'suspended',restartTimeUtc:new Date(now+60000).toISOString()};
+for(const [age,expectedReads] of [[240001,0],[m.interval(restarting,now)*2+1,1]]){
+ let pausedReads=0,readOptions;const current={...restarting,scoreCheckedAt:new Date(now-age).toISOString()};
+ const paused=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[],snapshotRead:async()=>({readAt:now,stale:false,sources:[{fixtures:[current]}]}),request:async(_path,options)=>{pausedReads++;readOptions=options;return [];}});
+ r=response();await paused({url:'/api/match-centre?membership=everything'},r);assert.equal(pausedReads,expectedReads,'An unconfirmed near-restart clock cannot shorten the ten-minute interruption interval');assert.equal(r.body.fixtures[0].stale,expectedReads===1);assert.equal(r.body.fixtures[0].scoreCheckedAt,current.scoreCheckedAt,'Reusing or rejecting a score never renews its fact clock');
+ if(expectedReads){assert.equal(readOptions.timeoutMs,3000);assert(readOptions.body.p_fixture_ids.length<=60,'Stale-score fallback remains bounded');}
+}
+const partial=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[absent],snapshotRead:async()=>({readAt:now,stale:false,sources:[{checked_at:new Date(now).toISOString(),fixtures:[observed]}]}),request:async(_path,options)=>{partialIds=options.body.p_fixture_ids;return [];} });
+r=response();await partial({url:'/api/match-centre?membership=everything'},r);assert.deepEqual(partialIds,[absent.id],'Only the uncovered published fixture needs another read');assert.equal(r.body.events.length,2,'Both sourced and published membership remain visible');
+await require('./validate-cricket-score-address')();
+require('./validate-fixture-alias-reuse')();
+await require('./validate-match-centre-timing')();
+await require('./validate-match-centre-receipts')();
+await require('./validate-all-sports-view')();
+await require('./validate-all-sports-review-regressions')();
+console.log('Match Centre model and bounded API passed.');})().catch(e=>{console.error(e);process.exitCode=1;});

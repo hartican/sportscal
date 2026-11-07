@@ -112,10 +112,12 @@ async function snapshotContract(){
   const supabaseCache = require.cache[supabasePath];
   const userId="11111111-1111-4111-8111-111111111111";
     const eventId="event-afl-cd_m20260142701";
-  let rolloutConfigured=true,publicEnabled=true;
+  let rolloutConfigured=true,publicEnabled=true,unknownSession=false;
   supabaseCache.exports={
     ...actualSupabase,
     async supabaseServiceRequest(path){
+      if(unknownSession&&path.includes("/rpc/"))throw new Error("Unknown status must not freeze or write a session");
+      if(unknownSession&&path.includes("nothingsports_nsc_sessions"))return [{event_id:eventId,status:"active",effective_end_at:"2026-09-09T00:00:00Z"}];
       if(path.includes("nothingsports_nsc_early_panel_state"))return rolloutConfigured?[{id:"public",public_enabled:publicEnabled,retirement_threshold:10,retired_at:publicEnabled?null:"2026-06-12T00:00:00.000Z",updated_at:"2026-06-12T00:00:00.000Z"}]:[];
       if(path.includes("nothingsports_nsc_pilot_members"))return[{user_id:userId,approved:true,suspended:false}];
       if(path.includes("nothingsports_nsc_contributions"))return[{
@@ -138,6 +140,8 @@ async function snapshotContract(){
   try{
     const server=require(serverPath);
     const fixedNow=new Date("2026-09-10T02:00:00.000Z");
+    // Published fixture status changes after play; this contract models a preview.
+    server.eventMap().set(eventId,{...server.eventFor(eventId),status:"upcoming",scheduleStatus:"confirmed",startTimeUtc:"2026-09-11T10:00:00Z"});
     const [snapshot]=await server.snapshots([eventId],{userId,now:fixedNow,demoMode:"public"});
     assert.equal(snapshot.phase,"heat");
     assert.equal(snapshot.aggregate.contributorMix.real,1);
@@ -173,6 +177,15 @@ async function snapshotContract(){
     assert.equal(missing.earlyPanel.includesModelled,false,"missing rollout configuration must degrade to genuine-only results");
     const [killed]=await server.snapshots([eventId],{userId,now:fixedNow,demoMode:"off"});
     assert.equal(killed.earlyPanel.includesModelled,false,"the environment kill switch must take precedence over stored rollout state");
+    unknownSession=true;
+    const unknown={...server.eventFor(eventId),status:'unknown',startTimeUtc:'2026-09-09T00:00:00Z',sourceAttribution:{provider:'OpenLigaDB'}};
+    server.eventMap().set(eventId,unknown);
+    const [waiting]=await server.snapshots([eventId],{userId,now:fixedNow});
+    assert.equal(waiting.phase,null);assert.equal(waiting.aggregate,null);assert.equal(waiting.peerResults,null);
+    assert.deepEqual(waiting.aggregates,{heat:null,pulse:null,impact:null},'unknown phase must not expose sealed Heat or invent a zero Impact');
+    assert.deepEqual(waiting.currentUser.submissions.heat,snapshot.currentUser.submissions.heat,'previous receipt survives unknown phase');
+    assert.equal(require('../lib/nsc-crowd').phaseFor(server.eventTiming({...unknown,status:'live',statusCheckedAt:fixedNow.toISOString()}),fixedNow),'pulse','server projection retains explicit status evidence');
+
   }finally{
     delete require.cache[serverPath];
     supabaseCache.exports=actualSupabase;
@@ -190,29 +203,31 @@ async function handlerContracts(){
   const supabaseCache = require.cache[supabasePath];
   const serverCache = require.cache[serverPath];
   const rewardsCache = require.cache[rewardsPath];
+  let identityReady=true,viewerFailure="",viewerUser={id:"11111111-1111-4111-8111-111111111111"},viewerToken="token",profileReads=0,personaReads=0,snapshotReads=0;
   let pilotCalls=0,profileWrites=0,submitMode="success",profileVisibility="visible",eventPhase="heat",existingSubmission=null;
   const submitCalls=[];
   supabaseCache.exports={
     ...actualSupabase,
-    bearerToken(){return "token";},
-    async authenticatedUser(){return{id:"11111111-1111-4111-8111-111111111111"};},
+    bearerToken(){return viewerToken;},
+    async authenticatedUser(){return viewerUser;},
     async supabaseServiceRequest(){profileWrites+=1;return null;},
   };
   serverCache.exports={
     TABLES:{profiles:"profiles",sessions:"sessions",contributions:"contributions"},
     canonicalEventId(value){return value;},
-    eventFor(){return eventPhase==="heat"
+    eventFor(){if(eventPhase==="unknown")return {status:"unknown",startTimeUtc:"2020-01-01T00:00:00Z",sourceAttribution:{provider:"OpenLigaDB"}};return eventPhase==="heat"
       ?{startTimeUtc:"2099-01-01T00:00:00.000Z",endTimeUtc:"2099-01-01T03:00:00.000Z"}
       :{startTimeUtc:"2020-01-01T00:00:00.000Z",endTimeUtc:"2020-01-01T03:00:00.000Z"};},
     eventTiming(event){return event;},
     async rows(table){return table==="contributions"&&existingSubmission?[existingSubmission]:[];},
     rowsPath(){return"/profiles";},
     async pilotFor(){pilotCalls+=1;return{approved:true,suspended:false};},
-    async profileFor(){return{profile_id:"profile-one",display_name:"Test Person",handle:"test_person",visibility:profileVisibility};},
+    async profileFor(){profileReads++;if(viewerFailure==="profile")throw Error("private profile failure");return{profile_id:"profile-one",user_id:viewerUser.id,display_name:"Test Person",handle:"test_person",visibility:profileVisibility};},
     async snapshots(){return[];},
-    async refreshEventSnapshots(){},
+    async refreshEventSnapshots(){snapshotReads++;if(viewerFailure==="snapshot")throw Error("sporting snapshot unavailable");},
+    async reviewedIdentityReady(){return identityReady;},
     ownerProfile:actualServer.ownerProfile,
-    async personaFor(){return{persona:"general",moderation_flag:false};},
+    async personaFor(){personaReads++;if(viewerFailure==="persona")throw Error("private persona failure");return{persona:"general",moderation_flag:viewerFailure==="moderated"};},
   };
   rewardsCache.exports={
     ...actualRewards,
@@ -226,12 +241,34 @@ async function handlerContracts(){
   delete require.cache[handlerPath];
   try{
     const handler=require(handlerPath);
+    for(const mode of ["snapshot","profile","persona","moderated"]){
+      viewerFailure=mode;profileReads=0;personaReads=0;snapshotReads=0;
+      const result=responseCapture();await handler({method:"GET",query:{viewer:"1"},headers:{authorization:"Bearer token"}},result);
+      assert.equal(result.statusCode,200);assert.equal(result.body.viewer.signedIn,true);
+      assert.equal(result.body.viewer.profileUnavailable,["profile","persona"].includes(mode));
+      assert.equal(result.body.viewer.ratingEligible,mode==="snapshot");
+      assert.equal(profileReads,1);assert.equal(personaReads,1);assert.equal(snapshotReads,0,"viewer read cannot load a sporting snapshot");
+      assert.equal(Object.hasOwn(result.body.viewer.profile||{},"user_id"),false,"owner projection cannot expose storage identity");
+      assert.equal(result.headers["Cache-Control"],"private, no-store, max-age=0");
+    }
+    for(const anonymous of [false,true]){
+      viewerToken=anonymous?"token":"";viewerUser=anonymous?{id:"guest",is_anonymous:true}:null;profileReads=0;personaReads=0;
+      const result=responseCapture();await handler({method:"GET",query:{viewer:"1"}},result);
+      assert.equal(result.statusCode,401);assert.equal(result.body.code,"sign_in_required");assert.equal(profileReads+personaReads,0);
+    }
+    viewerFailure="";viewerToken="token";viewerUser={id:"11111111-1111-4111-8111-111111111111"};
     const profileResponse=responseCapture();
     await handler({method:"POST",headers:{authorization:"Bearer token"},body:{action:"profile",displayName:"Test Person",handle:"test_person"}},profileResponse);
     assert.equal(profileResponse.statusCode,200);
     assert.equal(profileWrites,1);
     assert.equal(pilotCalls,0,"creating a Public Profile must not require NSC pilot access");
 
+    identityReady=false;
+    const heldResponse=responseCapture();
+    await handler({method:"POST",headers:{authorization:"Bearer token"},body:{action:"submit",eventId:"rugby-australia-south-africa-2026-09-27",phase:"heat",rating:4}},heldResponse);
+    assert.equal(heldResponse.statusCode,503);assert.equal(heldResponse.body.code,"rating_temporarily_unavailable");
+    assert.equal(submitCalls.length,0,"unreconciled fixture cannot write or award");
+    identityReady=true;
     const submitResponse=responseCapture();
     await handler({method:"POST",headers:{authorization:"Bearer token"},body:{action:"submit",eventId:"fixture-one",phase:"heat",rating:4,tags:[]}},submitResponse);
     assert.equal(submitResponse.statusCode,200);
@@ -264,14 +301,24 @@ async function handlerContracts(){
     assert.equal(stalePhaseResponse.statusCode,409,"a new draft from an expired phase must not be persisted in the current phase");
     assert.equal(stalePhaseResponse.body.code,"phase_action_mismatch");
     assert.equal(submitCalls.length,callsBeforeStale,"stale new submissions must be rejected before the atomic submission RPC");
-    eventPhase="heat";
+    eventPhase="unknown";
+    const priorWrites=profileWrites,priorSubmissions=submitCalls.length;
+    for(const body of [{action:'submit',phase:'heat',rating:4},{action:'submit',phase:'impact',rating:4},{action:'pulse',rating:4},{action:'like'},{action:'watching'}]){
+      const response=responseCapture();await handler({method:'POST',body:{...body,eventId:'fixture-one'}},response);
+      assert.equal(response.statusCode,409,body.action+' must wait for confirmed phase');
+    }
+    assert.equal(profileWrites,priorWrites);assert.equal(submitCalls.length,priorSubmissions,'unknown phase cannot award points or persist votes');
+    existingSubmission={phase:'heat',rating:4,tags:[],submitted_at:'2026-08-30T01:00:00Z'};
+    const retained=responseCapture();await handler({method:'POST',body:{action:'submit',eventId:'fixture-one',phase:'heat',rating:4}},retained);
+    assert.equal(retained.statusCode,200);assert.equal(retained.body.replayed,true,'uncertain status preserves idempotent receipt recovery');
+    existingSubmission=null;eventPhase="heat";
 
     profileVisibility="hidden";
     const hiddenOwnerResponse=responseCapture();
     await handler({method:"GET",url:"https://nothingsport.vercel.app/api/nothingscore?ids=fixture-one",headers:{authorization:"Bearer token"}},hiddenOwnerResponse);
     assert.equal(hiddenOwnerResponse.statusCode,200);
     assert.deepEqual(hiddenOwnerResponse.body.viewer.profile,{
-      profileId:"profile-one",displayName:"Test Person",handle:"@test_person",visibility:"hidden",hidden:true,deleted:false,
+      profileId:"profile-one",displayName:"Test Person",handle:"@test_person",avatarUrl:null,visibility:"hidden",hidden:true,deleted:false,
     },"viewer.profile GET must serialize the signed-in owner's hidden profile, not the public anonymous form");
 
     profileVisibility="deleted";
@@ -304,5 +351,6 @@ Promise.resolve()
   .then(serverContract)
   .then(snapshotContract)
   .then(handlerContracts)
+  .then(()=>require('./lib/nsc-follow-fixture-tests').run())
   .then(()=>console.log("Nothingscore submission validation passed (global profile, atomic immutable receipts, exact points and snapshot hooks)."))
   .catch(error=>{console.error(error);process.exitCode=1;});

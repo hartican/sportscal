@@ -8,7 +8,7 @@ const identities = require("../config/card-identities.js");
 const vectors = require("../config/vector-assets.js");
 const sportDomains = require("../config/sport-domain-registry.js");
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const worker = fs.readFileSync("service-worker.js", "utf8");
 const incoming = JSON.parse(fs.readFileSync("feeds/incoming/events.json", "utf8"));
 const published = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
@@ -27,7 +27,7 @@ assert.equal(f1Mark.logo.icon, "assets/identities/f1/formula-one-red-256.png", "
 assert.match(vectors.glyphMarkup("ui:tv"), /<svg|<img/, "provider actions must retain a local TV fallback");
 assert.match(vectors.glyphMarkup("semantic:nrl-finals-trophy"), /<svg|<img/, "NRL finals must have a local trophy glyph");
 
-assert(html.includes('const verb = viewingLink.liveOrReplay === "replay" ? "Replay" : "Watch";') && html.includes('prefix.textContent = `${verb} on`;'), "Feed and Events viewing actions must put the provider mark after Watch on or Replay on");
+assert(html.includes("viewingLink.liveOrReplay==='replay'?'Replay':'Watch'") && html.includes("link.setAttribute('aria-label',link.title)"), "Feed and Events viewing actions must put the accessible Watch / Replay labels on provider marks");
 const providerMarkSource = html.match(/function buildViewingProviderMark\(viewing\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(providerMarkSource.includes('className = "provider-action-logo"') && providerMarkSource.includes("mark.appendChild(image)"), "providers with bundled marks must render the logo only");
 assert(providerMarkSource.includes('fallback.textContent = viewing.actionLabel || viewing.label') && providerMarkSource.includes("mark.replaceChildren(fallback)") && !providerMarkSource.includes("mark.append(fallback, image)"), "provider text must appear only when a logo is unavailable or fails");
@@ -36,13 +36,13 @@ assert(html.includes("buildInlineCrowdRating") && html.includes("inlineRatingReq
 assert(fs.existsSync("assets/providers/kayo-sports-negative.svg") && fs.existsSync("assets/providers/stan-sport.jpg"), "Kayo and Stan Sport provider marks must be committed locally");
 assert(worker.includes("/assets/providers/kayo-sports-negative.svg") && worker.includes("/assets/providers/stan-sport.jpg"), "provider marks must be available in the installed offline shell");
 assert(html.includes('function eventMajorEventId('), "all event routing must share one major-event ID resolver");
-assert(html.includes('footer.className = "event-compact-footer"'), "expanded Feed cards must use one compact action footer");
-assert(/buildEventCompactFooter[\s\S]{0,2200}buildSpoilerOverrideButton[\s\S]{0,2200}View in Events/.test(html) && !/buildEventCompactFooter[\s\S]{0,2200}buildEventFeedbackButtons/.test(html), "the compact footer must keep result and Events actions concise while feedback stays beside Feed stakes");
+assert(html.includes('secondaryActions.className = "event-card-secondary-actions"'), "Expanded cards keep optional actions in their shared information area");
+assert(html.includes("function renderHomeSpoilerToggle()") && html.includes('toggle.setAttribute("aria-label", shown ? "Results ON" : "Results OFF")') && html.includes("buildCardDisclosureControl") && !html.includes("function buildEventCompactFooter"), "The active global Results toggle and native card disclosure remain available without the retired duplicate footer");
 
 assert(html.includes('card.dataset.cardLevel = isMinimised ? "L0" : cardLevelForState(state)'), "Events cards must expose L0, L1 and L2 levels while respecting Minimise");
 assert(html.includes('level: cardLevelForState(state)') && html.includes('MAJOR_EVENTS.phaseTimeline({ ...record, subEvents:visibleMajorEventSubEvents(record) }, nowAEST()'), "Events L0/L1/L2 must show the profile-filtered bounded around-Now timeline and complete two-day L2 window");
 assert(/inspect\.addEventListener\("click"[\s\S]{0,500}setCardState\(record, "opened"\)[\s\S]{0,500}focusMajorEventSchedule/.test(html), "Schedule must open the corresponding Event at L2 instead of routing by sport");
-assert(html.includes("status:inspectorFixtureIsResult(fixture)?'finished'") && html.includes('if (ev.timeTbc) return "Time TBC"'), "Schedule retains canonical completion and unknown-time states in shared cards");
+assert(html.includes("status:inspectorFixtureIsResult(fixture)?'finished'") && html.includes('if (ev.timeTbc) return "Time TBD"'), "Schedule retains canonical completion and unknown-time states in shared cards");
 
 assert(/headers\.has\("range"\)[\s\S]{0,450}fetch\(event\.request\)/i.test(worker), "service worker byte-range requests must bypass Cache Storage");
 assert(/pathname\.startsWith\("\/assets\/audio\/"\)[\s\S]{0,450}fetch\(event\.request\)/.test(worker), "audio requests must bypass the whole-file asset cache");

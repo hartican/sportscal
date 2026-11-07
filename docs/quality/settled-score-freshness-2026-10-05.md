@@ -1,0 +1,28 @@
+# Settled Football score dates — delivery on 5 October 2026
+
+**Latest Football presentation delivery — 5 October:** Settled finals no longer say Update needed merely because their genuine score observation is old. Source checks now include the calendar date, year and local timezone; missing dates stay unavailable. Explicit source failures and ongoing-score freshness still show their warnings. All 351 tracked sports-data files and 86 pilot final observations remain exact. App **c0a87537 / shell 437** is independently live after [normal release 37229936073](https://github.com/hartican/sportscal/actions/runs/37229936073): 146 local/cloud gates, READY/project/SHA/three aliases, twenty served hashes, actual Football cards and both cached 436→437 offline/resume rehearsals pass. Startup bytes and eight requests are unchanged. No provider call, polling, subscription or owner routine. Prior NFL, NHL, Cricket and account repairs remain. Full acceptance remains **0/16 families and 0/3 Football pilots**, target at least 13/16. [Evidence and limits](https://github.com/hartican/sportscal/blob/main/docs/quality/settled-score-freshness-2026-10-05.md).
+
+## User benefit and scope
+
+An actual Arsenal–Coventry compact card showed Finished · Update needed · Checked 4:51 pm, although the result had been checked the previous day. The same defect appeared in UCL and Europa compact cards; all 86 existing completed pilot records were classified stale by age alone. A final now retains its historical date without implying another update is due. The explicit source-stale state still warns about an actual problem. Live/interrupted score age, missing/future dates, corrections, zero scores and named participant order retain their safeguards. Existing selected/opened result lines keep precedence.
+
+| Recommendation | Value and evidence | Effort, dependencies and cash | Owner time | Acceptance and decision |
+|---|---|---|---|---|
+| Keep settled and changing score freshness distinct; display actual dates | Removes misleading warnings across the shared renderer. Actual three-pilot compact reproduction and 86 final records | Small shared display repair using existing facts and release pipeline; A$0 additional service cost | No new routine or decision | Actual source dates remain exact; explicit stale/live/missing/future controls and Results privacy pass. Act now because the defect is visible and bounded |
+| Finish Football/weak-window quality before monetisation | Existing fact/presentation repairs are production evidence; full six-gate acceptance remains absent | Reuse dated reports and existing sources; further effort varies with access | One prepared device session later, material trade-offs only | Keep 0/16 and 0/3 explicit; no family pass, permission or subscriber playback is inferred |
+
+## Verification and release proof
+
+- Red Node assertion and real mounted compact cards reproduce the issue before the repair.
+- All 86 published Football finals pass the actual-data Node checks. The existing browser suite checks all finals, privacy, actual compact cards, a cross-year Sydney date, explicit stale finals, future/missing observations and a corrected final in Chromium and WebKit at mobile/desktop widths.
+- Six local and six hosted real-card contexts cover 320, 390 and 1280 px in both engines, preserving the actual machine-readable source date. Existing selected/opened result-line precedence is unchanged.
+- All 351 tracked sports-data files match the prior snapshot. No source refresh or customer operation was performed.
+- All 146 frozen local release gates pass with an unchanged candidate fingerprint; the same normal cloud gates pass. Both kept-open 436→437 upgrade/offline/resume rehearsals preserve choices and Remind OFF.
+- Startup remains eight requests and 430,916 compressed bytes against the unchanged 425,600-byte baseline: 1.24906%, within 1.25%. No budget waiver.
+- Production READY/project/release SHA, three aliases and twenty transformed served hashes agree. Published app snapshot: c0a875374d4927b7ce91cc88b8d2a60c62e1df53. [Normal release](https://github.com/hartican/sportscal/actions/runs/37229936073).
+
+Evidence is saved in the sibling settled-score-freshness-20261005 directory: red-node.log, red-final-age.json, red-browser.json, unchanged-data-proof.json, local/hosted-browser.json, affected-browser-local/hosted.log, release-local-gates.json, pwa-chromium/webkit.json, independent-current-proof.json, served-proof.json and immutable release artifacts. The original browser test had a background refresh race; isolating its queued automatic work while retaining the explicit refresh test removes that race. The separate hosted helper initially inspected a newly mounted card before its deferred component loaded; waiting for the actual component corrects that diagnostic race without changing the product. Follow-up test assertions also allow genuine future observation years and either Sydney daylight-saving state. A mistaken cache-check filename was corrected to the actual existing validator; it was not a product defect or gate waiver.
+
+## Limits and programme forecast
+
+This is a shared presentation repair, not fresh sporting-source reconciliation, permission, authenticated viewing, unattended operation, physical iPhone/Home Screen/push, account recovery or cohort proof. Full certification remains 0/16 families and 0/3 Football pilots, target at least 13/16. Five–six further days is plausible for the next technical milestone with low confidence. The whole goal needs a longer path and elapsed real-user observation; no completion date or percentage is justified by render counts. Passwords/iCloud remains parked.

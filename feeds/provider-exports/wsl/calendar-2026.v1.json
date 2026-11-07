@@ -1,0 +1,167 @@
+{
+  "schemaVersion": "wsl-reviewed-calendar.v1",
+  "year": 2026,
+  "checkedAt": "2026-10-02T18:55:40.000Z",
+  "sourceUrl": "https://www.worldsurfleague.com/events/2026/ct?all=1",
+  "sourceSnapshotSha256": "ea8d9448f3d2727a4ff5b7439574d3eb4eeaea2460792a104c78f91310a34df8",
+  "venueEvidence": [
+    "https://surfingnz.co.nz/latest/19681/",
+    "https://surfingnz.co.nz/latest/new-zealand-pro-secures-place-on-wsl-2027-championship-tour-schedule/"
+  ],
+  "events": [
+    {
+      "id": "436",
+      "slug": "bells-beach",
+      "name": "Rip Curl Pro Bells Beach Presented By Bonsoy",
+      "date": "2026-04-01",
+      "endDate": "2026-04-11",
+      "status": "completed",
+      "venue": "Bells Beach",
+      "city": "Victoria",
+      "countryCode": "AU",
+      "sourceUrl": "https://www.worldsurfleague.com/events/2026/ct/436/rip-curl-pro-bells-beach/main"
+    },
+    {
+      "id": "437",
+      "slug": "margaret-river",
+      "name": "Western Australia Margaret River Pro",
+      "date": "2026-04-16",
+      "endDate": "2026-04-26",
+      "status": "completed",
+      "venue": "Margaret River",
+      "city": "Western Australia",
+      "countryCode": "AU",
+      "sourceUrl": "https://www.worldsurfleague.com/events/2026/ct/437/western-australia-margaret-river-pro/main"
+    },
+    {
+      "id": "438",
+      "slug": "gold-coast",
+      "name": "Bonsoy Gold Coast Pro Presented By GWM",
+      "date": "2026-05-01",
+      "endDate": "2026-05-11",
+      "status": "completed",
+      "venue": "Gold Coast",
+      "city": "Queensland",
+      "countryCode": "AU",
+      "sourceUrl": "https://www.worldsurfleague.com/events/2026/ct/438/bonsoy-gold-coast-pro/main"
+    },
+    {
+      "id": "494",
+      "slug": "raglan",
+      "name": "Corona Cero New Zealand Pro Presented By Bonsoy",
+      "date": "2026-05-15",
+      "endDate": "2026-05-25",
+      "status": "completed",
+      "venue": "Manu Bay",
+      "city": "Raglan",
+      "countryCode": "NZ",
+      "sourceUrl": "https://www.worldsurfleague.com/events/2026/ct/494/corona-cero-new-zealand-pro/main"
+    },
+    {
+      "id": "439",
+      "slug": "el-salvador",
+      "name": "Surf City El Salvador Pro Presented By Corona Cero",
+      "date": "2026-06-05",
+      "endDate": "2026-06-15",
+      "status": "completed",
+      "venue": "Punta Roca",
+      "city": "La Libertad",
+      "countryCode": "SV",
+      "sourceUrl": "https://www.worldsurfleague.com/events/2026/ct/439/surf-city-el-salvador-pro/main"
+    },
+    {
+      "id": "440",
+      "slug": "rio",
+      "name": "VIVO Rio Pro Presented By Corona Cero",
+      "date": "2026-06-19",
+      "endDate": "2026-06-27",
+      "status": "completed",
+      "venue": "Saquarema",
+      "city": "Rio de Janeiro",
+      "countryCode": "BR",
+      "sourceUrl": "https://www.worldsurfleague.com/events/2026/ct/440/vivo-rio-pro/main"
+    },
+    {
+      "id": "441",
+      "slug": "tahiti",
+      "name": "Outerknown Tahiti Pro Presented By I-SEA",
+      "date": "2026-08-08",
+      "endDate": "2026-08-18",
+      "status": "completed",
+      "venue": "Teahupoʻo",
+      "city": "Tahiti",
+      "countryCode": "PF",
+      "sourceUrl": "https://www.worldsurfleague.com/events/2026/ct/441/outerknown-tahiti-pro/main"
+    },
+    {
+      "id": "442",
+      "slug": "fiji",
+      "name": "Fiji Pro Presented By Corona Cero",
+      "date": "2026-08-25",
+      "endDate": "2026-09-04",
+      "status": "completed",
+      "venue": "Cloudbreak",
+      "city": "Fiji",
+      "countryCode": "FJ",
+      "sourceUrl": "https://www.worldsurfleague.com/events/2026/ct/442/fiji-pro/main"
+    },
+    {
+      "id": "443",
+      "slug": "trestles",
+      "name": "Lexus Trestles Pro",
+      "date": "2026-09-11",
+      "endDate": "2026-09-20",
+      "status": "completed",
+      "venue": "Lower Trestles",
+      "city": "San Clemente, California",
+      "countryCode": "US",
+      "sourceUrl": "https://www.worldsurfleague.com/events/2026/ct/443/lexus-trestles-pro/main"
+    },
+    {
+      "id": "445",
+      "slug": "portugal",
+      "name": "MEO Rip Curl Pro Portugal Presented By Corona Cero",
+      "date": "2026-10-16",
+      "endDate": "2026-10-25",
+      "status": "upcoming",
+      "venue": "Supertubos",
+      "city": "Peniche",
+      "countryCode": "PT",
+      "sourceUrl": "https://www.worldsurfleague.com/events/2026/ct/445/meo-rip-curl-pro-portugal/main"
+    },
+    {
+      "id": "543",
+      "slug": "philippines",
+      "name": "Philippines Pro Presented By Philippine Sports Commission",
+      "date": "2026-10-31",
+      "endDate": "2026-11-10",
+      "status": "upcoming",
+      "venue": "Cloud 9",
+      "city": "Siargao Island",
+      "countryCode": "PH",
+      "sourceUrl": "https://www.worldsurfleague.com/events/2026/ct/543/philippines-pro/main"
+    },
+    {
+      "id": "446",
+      "slug": "pipe-masters",
+      "name": "Lexus Pipe Masters",
+      "date": "2026-12-08",
+      "endDate": "2026-12-20",
+      "status": "upcoming",
+      "venue": "Banzai Pipeline",
+      "city": "Oʻahu, Hawaiʻi",
+      "countryCode": "US",
+      "sourceUrl": "https://www.worldsurfleague.com/events/2026/ct/446/lexus-pipe-masters/main"
+    }
+  ],
+  "futureAnnouncements": [
+    {
+      "name": "New Zealand Pro",
+      "year": 2027,
+      "venue": "Manu Bay",
+      "countryCode": "NZ",
+      "datesPublished": false,
+      "sourceUrl": "https://surfingnz.co.nz/latest/new-zealand-pro-secures-place-on-wsl-2027-championship-tour-schedule/"
+    }
+  ]
+}

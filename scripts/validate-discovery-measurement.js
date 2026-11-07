@@ -29,7 +29,7 @@ const baseline = MEASUREMENT.buildReport({
   generatedAt: coverageReport.generatedAt,
 });
 
-assert.equal(MEASUREMENT.SCHEMA_VERSION, "discovery-measurement.v1");
+assert.equal(MEASUREMENT.SCHEMA_VERSION, "discovery-measurement.v2");
 assert.equal(baseline.coverage.missingMarquee.missingCount, 0);
 assert.equal(baseline.coverage.missingMarquee.ratePercent, 0);
 assert.equal(baseline.coverage.missingMarqueeTrend.status, "insufficient_history", "one zero-rate snapshot must not be labelled as a downward trend");
@@ -58,6 +58,7 @@ assert.equal(fallingTrend.changePercentagePoints, -20);
 const positiveBehaviour = MEASUREMENT.behaviouralMetric([{
   cohort: "all",
   instrumentation_status: "active",
+  discovery_contract_version: "discovery-aggregate.v2",
   discovery_exposures: 25,
   discovery_opens: 6,
   discovery_saves: 2,
@@ -73,7 +74,7 @@ assert.equal(positiveBehaviour.status, "measured");
 assert.equal(positiveBehaviour.discovery.positiveActionRatePercent, 44);
 assert.equal(positiveBehaviour.discovery.negativeActionRatePercent, 8);
 assert.equal(positiveBehaviour.satisfactionProxy.ratePercent, 20);
-assert.equal(positiveBehaviour.coldStartDiversity.ratePercent, 40);
+assert.equal(positiveBehaviour.coldStartDiversity.ratePercent, null);
 assert.deepEqual(positiveBehaviour.negativeFeedback.bySport, [{ sport: "golf", negativeActions: 2, ratePercent: 20 }]);
 
 const broadening = MEASUREMENT.tuningState(positiveBehaviour, {
@@ -88,6 +89,7 @@ assert.equal(broadening.autoApplied, false);
 const noisyBehaviour = MEASUREMENT.behaviouralMetric([{
   cohort: "all",
   instrumentation_status: "active",
+  discovery_contract_version: "discovery-aggregate.v2",
   discovery_exposures: 20,
   discovery_opens: 1,
   discovery_saves: 0,
@@ -124,7 +126,7 @@ assert.doesNotMatch(html, /downward trend/i, "the baseline dashboard must not cl
 const sql = fs.readFileSync("supabase/nothingsports-pilot-readout.sql", "utf8");
 assert.match(sql, /'active'::text as instrumentation_status/i);
 assert.match(sql, /event\.event_name = 'feed_action'[\s\S]+event\.properties ->> 'recommendationClass' = 'discovery'/i);
-assert.match(sql, /event\.event_name = 'preference_change'[\s\S]+event\.properties ->> 'action' = 'unfollow'/i);
+assert.doesNotMatch(sql, /properties ->> 'action' = 'unfollow'/i, 'ordinary unfollow is not a discovery negative');
 assert.match(sql, /event\.properties ->> 'coldStart' = 'true'/i);
 assert.match(sql, /negative_feedback_by_sport/i);
 assert.match(sql, /negative_feedback_by_competition/i);
@@ -134,3 +136,20 @@ const productSql = fs.readFileSync("supabase/nothingsports-product-events.sql", 
 assert.match(productSql, /'feed_action'[\s\S]+'preference_change'[\s\S]+'feed_control_change'/i, "the explicitly approved categorical event names must be part of the database constraint");
 
 console.log("Discovery measurement valid: marquee and coverage baselines, approved categorical aggregates, paid sources and evidence-gated tuning are deterministic; an empty live sample remains insufficient data.");
+
+for (const value of [null, undefined, "", false, -1, 1.5, [], {}]) {
+  const input = {...emptyActiveReadout[0], discovery_exposures:25, discovery_negative_actions:value};
+  const result = MEASUREMENT.behaviouralMetric([input]);
+  assert.equal(result.status, "instrumentation_pending");
+  assert.equal(result.discovery.negativeActionRatePercent, null);
+  assert.equal(MEASUREMENT.tuningState(result, {reviewedCount:0}).recommendations[0].decision, "hold");
+}
+const oldExport = {...emptyActiveReadout[0], discovery_exposures:25};
+delete oldExport.discovery_contract_version;
+assert.equal(MEASUREMENT.behaviouralMetric([oldExport]).status, "instrumentation_pending");
+assert.equal(MEASUREMENT.behaviouralMetric([oldExport]).discovery.negativeActions, null);
+assert.equal(MEASUREMENT.overallRow([{...emptyActiveReadout[0],cohort:"curator"}]), null);
+const diversity = MEASUREMENT.behaviouralMetric([{...emptyActiveReadout[0],cold_start_exposures:1719,cold_start_distinct_sports:19}]);
+assert.equal(diversity.coldStartDiversity.ratePercent, null);
+
+assert.equal(diversity.coldStartDiversity.firstTenEvidence, "unverified");

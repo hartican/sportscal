@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "discovery-measurement.v1",
-  "generatedAt": "2026-09-04T07:47:53.734Z",
+  "schemaVersion": "discovery-measurement.v2",
+  "generatedAt": "2026-10-10T23:30:09.000Z",
   "evidenceState": "partial_evidence",
   "coverage": {
     "missingMarquee": {
@@ -15,9 +15,9 @@
       "status": "measured",
       "direction": "flat",
       "changePercentagePoints": 0,
-      "observationCount": 3,
+      "observationCount": 6,
       "firstObservedAt": "2026-08-13T02:05:00.000Z",
-      "latestObservedAt": "2026-09-04T07:47:53.734Z"
+      "latestObservedAt": "2026-10-10T23:30:09.000Z"
     },
     "snapshots": [
       {
@@ -37,11 +37,29 @@
         "expectedCount": 5,
         "missingCount": 0,
         "ratePercent": 0
+      },
+      {
+        "observedAt": "2026-09-21T20:20:19.813Z",
+        "expectedCount": 5,
+        "missingCount": 0,
+        "ratePercent": 0
+      },
+      {
+        "observedAt": "2026-09-30T22:37:31.000Z",
+        "expectedCount": 5,
+        "missingCount": 0,
+        "ratePercent": 0
+      },
+      {
+        "observedAt": "2026-10-10T23:30:09.000Z",
+        "expectedCount": 5,
+        "missingCount": 0,
+        "ratePercent": 0
       }
     ],
     "candidatePublish": {
       "status": "insufficient_reviewed_candidates",
-      "candidateCount": 81,
+      "candidateCount": 8,
       "reviewedCount": 0,
       "publishCount": 0,
       "pendingCount": 5,
@@ -150,6 +168,8 @@
   "behaviour": {
     "status": "insufficient_data",
     "instrumentationStatus": "active",
+    "aggregateVersion": "discovery-aggregate.v2",
+    "expectedAggregateVersion": "discovery-aggregate.v2",
     "missingAggregateFields": [],
     "minimumDiscoveryExposuresForReview": 20,
     "discovery": {
@@ -170,7 +190,7 @@
       "status": "insufficient_data",
       "bySport": [],
       "byCompetition": [],
-      "note": "Discovery negatives combine left swipes with explicit unfollows; rates use discovery opportunity exposures in the same sport or competition as the denominator."
+      "note": "Discovery negatives count only negative swipes explicitly classified as discovery. Ordinary unfollows and archive actions are neutral. Rates use discovery opportunity exposures in the same sport or competition; breakdowns cover all measured accounts."
     },
     "satisfactionProxy": {
       "status": "insufficient_data",
@@ -185,7 +205,8 @@
       "exposureCount": 0,
       "distinctSportCount": 0,
       "ratePercent": null,
-      "definition": "Distinct sports represented within the first ten cold-start opportunities."
+      "firstTenEvidence": "unverified",
+      "definition": "Distinct sports and opportunities across the observation window. Per-user first-ten diversity is not established by these aggregates."
     }
   },
   "tuning": {

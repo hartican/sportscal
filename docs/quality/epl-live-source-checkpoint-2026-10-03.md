@@ -1,0 +1,9 @@
+# EPL primary status/timing checkpoint — 3 October 2026
+
+Read-only review against main `dfc795f6eaee4a38ec316af346c3b3144fa860ec`, observing the official primary through the existing loader at 12:09:20.813–12:09:24.882 UTC. Four bounded requests complete in 6.109 seconds, with the existing 20-second deadlines and no retries. All 380 fixtures validate: 50 C/completed, 330 U/upcoming. Every stored kickoff exactly agrees with the fresh primary; all stored schedules are confirmed, and source kickoff/provisional kickoff entries carry complete agreeing times.
+
+There are no fixtures within twelve hours of the observation. The next source fixture is Arsenal–Leeds on 10 October at 11:30 UTC. The [official return announcement](https://www.premierleague.com/es/news/4726845/when-does-the-premier-league-return) corroborates the international break and that restart. Modern website phase labels and unrelated historical fixture IDs do not establish the old primary's live-status code contract.
+
+No sporting correction is supported by this check. No stored fact/check clock, Feed, database, scheduler, reminder or deployment changed. Keep the live-code proof open until an actual current primary response naturally supplies it; do not guess codes or dispatch extra production refreshes to manufacture operational acceptance. This narrows uncertainty and avoids speculative changes, but does not certify live accuracy, future broadcast slots, replay/entitlement, source permission or sustained unattended refresh.
+
+Receipts and payloads: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/epl-live-status-review-20261003/`. Verified agreement is complete for stored kickoff values at this observation; today's observed statuses cover only C/U. Commercial and full-family certification remain 0/3 Football pilots and 0/16 carried families. New purchase A$0; four source calls, no new owner decision or recurring task.

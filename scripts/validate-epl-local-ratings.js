@@ -1,0 +1,18 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const source=fs.readFileSync(require.resolve('../index.html'),'utf8');
+const fixture=require('../lib/epl-provider-identities').withAliases(require('./fixtures/epl-provider-identity-20261013.json').fixtures[0].primary);
+const legacy=fixture.sourceEventIds.find(id=>id.startsWith('event:football:premier-league:'));
+const functions=['localRatingAliases','getActual','actualStarValue','setEventRating'].map(name=>source.match(new RegExp('function '+name+'\\([^]*?\\n\\}'))?.[0]).filter(Boolean).join('\n');
+const context={ratings:{[legacy]:6,unrelated:10},NOTHINGSPORTS_FIXTURE_IDENTITY:require('../config/fixture-identity'),EVENT_ACTION_IDENTITY:require('../config/event-action-identity'),RATING_SYSTEM:require('../config/rating-system'),saveRatings(){context.saves=(context.saves||0)+1;},markSpoilerRevealed(){throw Error('an explicit rating read/write must retain Results OFF');}};
+vm.createContext(context);vm.runInContext(functions,context);
+assert.equal(context.getActual(fixture),6,'the actual browser reader retains an old stored rating on the official fixture');
+assert.equal(context.actualStarValue(fixture),3,'legacy stored scores retain their star conversion');
+assert.equal(context.getActual(legacy),6,'string callers keep their existing contract');
+context.ratings[fixture.id]=8;assert.equal(context.getActual(fixture),8,'explicit current identity takes precedence without fabricating missing observation dates');
+assert.equal(context.setEventRating(fixture,8,{revealSpoilers:false}),true,'repeating the current explicit rating removes it');
+for(const id of fixture.sourceEventIds)assert.equal(context.ratings[id],undefined,'an alias must not restore a removed rating');
+assert.equal(context.ratings.unrelated,10);
+assert.equal(context.setEventRating(fixture,4,{revealSpoilers:false}),false);assert.equal(context.getActual(fixture),4);assert.equal(context.actualStarValue(fixture),2);assert.equal(context.saves,2);
+assert.equal(context.getActual({id:'unknown'}),null);
+console.log('Actual local rating functions: legacy visibility/stars, primary precedence, alias-safe removal, explicit new rating, unrelated state and Results OFF passed.');

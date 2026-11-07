@@ -11,7 +11,6 @@ const result=buildServerFeed({events:[fixture],userId:'finals-parent-regression'
 assert(result.events.some(e=>e.id===fixture.id),'server Feed includes the actual screenshot final');
 for(const blocked of [
  {...prefs,preferenceGraph:{...prefs.preferenceGraph,competitionPreferences:[{competitionId:fixture.competitionId,enabled:false}]}},
- {...prefs,preferenceGraph:{...prefs.preferenceGraph,entityFollows:[{participantId:fixture.participantIds[0],followLevel:'mute'}]}},
  {...prefs,preferenceGraph:{...prefs.preferenceGraph,domainPreferences:[{sportDomainId:'sport:afl-premiership',enabled:false}]}},
  {...prefs,selectedSelectorEntityIds:[],preferenceGraph:{domainPreferences:[{sportDomainId:'sport:afl',enabled:false}]}}
 ])assert.equal(follow.reasonForEvent(fixture,blocked),null,'real exclusions retain precedence');
@@ -19,3 +18,5 @@ assert.equal(follow.reasonForEvent({...fixture,key:'aflw',sportDomainId:'sport:a
 console.log('AFL finals: explicit premiership survives disabled parent; server parity and real exclusions passed.');
 const nrl=require('../lib/competition-fixtures').fixtures().find(e=>e.key==='nrl'&&e.date==='2026-09-12');
 assert(follow.reasonForEvent(nrl,{selectedSelectorEntityIds:['sport:nrl-premiership'],preferenceGraph:{domainPreferences:[{sportDomainId:'sport:nrl',enabled:false},{sportDomainId:'sport:nrl-premiership',enabled:true}]}}),'equivalent NRL child specificity');
+
+assert(follow.reasonForEvent(fixture,{...prefs,preferenceGraph:{...prefs.preferenceGraph,entityFollows:[{participantId:fixture.participantIds[0],followLevel:'mute'}]}}),'participant unfollow does not veto explicit finals coverage');

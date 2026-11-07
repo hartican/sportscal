@@ -7,19 +7,55 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "..");
-const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+require('./validate-nrlw-ladder');
+require('./validate-nfl-standings');
+require('./validate-nfl-results');
+require('./validate-chl-results');
+require('./validate-nhl-results');
+require('./validate-cricket-innings-presentation');
+require('./validate-fixture-competition-context');
+require('./validate-cricket-reviewed-context');
+require('./validate-rugby-schedule');
+const html = require("./app-shell-test-utils").readFollowApplicationSource();
 const manifestPath = path.join(ROOT, "data/code-inspector/manifest.json");
 const wrcContext = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/wrc-context-2026.json"), "utf8"));
 
-assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Follow']);
-assert(html.includes('Back to Follow')&&html.includes('#follow/')&&html.includes('follow|standings-fixtures|inspect'),'legacy links resolve to Follow with Back restoration');
+require('./app-shell-test-utils').assertPrimaryNavigation(html);
+assert(html.includes('Back to Feed')&&html.includes('#follow/')&&html.includes('follow|standings-fixtures|inspect'),'legacy links resolve to Follow with Back restoration');
 assert(html.includes('inspectorReturnState')&&html.includes('popstate'),'dedicated screens retain navigation state');
 assert(html.includes('follow-more-trigger')&&html.includes('follow-more-dialog')&&html.includes('rankedFollowGridSports')&&html.includes('.slice(0,7)'),'Follow ranks up to seven followed sports and keeps the remainder in More');
 assert(!html.includes('open.textContent = "Inspect"'),'sport icons replace Inspect');
-for(const label of ['Schedule','Teams & players','Major Events','Ladder','Standings'])assert(html.includes(label));
-assert(html.includes('renderCodeInspectorIdentity')&&html.includes('codeInspectorParticipantMark'),'Schedule reuses canonical identities');
-assert(html.includes("return buildEventCard(event,{mode:'schedule',inspectorFixture:fixture})")&&html.includes('cardViewStates'),'Schedule fixtures share independent card expansion state');
-assert(html.includes("pin.textContent=added?'Remove from Feed':'Add to Feed'")&&html.includes('manualPin:true'),'concrete fixture pins remain available');
+for(const label of ['Schedule','My athletes & teams','Major Events','Ladder','Standings'])assert(html.includes(label));
+// Schedule uses the actual shared card renderer. Legacy unused drawing names
+// could satisfy the old assertion without establishing any rendered identity.
+const sharedIdentitySource=require('./app-shell-test-utils').readCardFunction('buildMatchupIdentity');
+assert(sharedIdentitySource.includes('matchupIdentityMatches(ev, displayTitle)'), 'The shared card identity renderer resolves canonical participants');
+// Exercise the actual Schedule adapter rather than require its old argument
+// spelling: qualified presentation fields may now be projected before rendering.
+const scheduleBuilderStart=html.indexOf('function buildCodeInspectorFixture(');
+const scheduleBuilderEnd=html.indexOf('\nfunction appendSchedulePin(',scheduleBuilderStart);
+assert(scheduleBuilderStart>=0&&scheduleBuilderEnd>scheduleBuilderStart,'the actual Schedule card adapter must exist');
+const scheduleBuilder=html.slice(scheduleBuilderStart,scheduleBuilderEnd);
+const scheduleFixture={id:'fixture:cricket:adapter',status:'ongoing',participantSlots:[]};
+const canonicalScheduleEvent={id:scheduleFixture.id,status:'ongoing',participantIds:['home','away']};
+const scheduleBefore=JSON.stringify({scheduleFixture,canonicalScheduleEvent});
+for(const [canonical,fields] of [[canonicalScheduleEvent,null],[canonicalScheduleEvent,{matchDay:2,status:'stumps'}],[null,null]]){
+  const result=require('node:vm').runInNewContext(scheduleBuilder+'\nbuildCodeInspectorFixture(input)',{
+    input:scheduleFixture,canonicalFeedFixtureForInspector:()=>canonical,
+    codeInspectorFixtureSportKey:()=> 'cricket',inspectorFixtureIsResult:()=>false,
+    ...(fields?{inspectorPresentationFields:()=>fields}:{}),
+    buildEventCard:(event,options)=>({event,options})
+  });
+  assert.equal(result.options.mode,'schedule','Schedule delegates to the shared renderer in Schedule mode');
+  assert.equal(result.options.inspectorFixture,scheduleFixture,'the original fixture owns Schedule controls');
+  assert.equal(result.event.id,scheduleFixture.id,'presentation preserves the existing card identity');
+  assert.equal(result.event.status,fields?'stumps':'ongoing','qualified presentation reaches the shared renderer');
+  if(canonical&&!fields)assert.equal(result.event,canonical,'without presentation fields the existing event is retained');
+  if(fields)assert.equal(result.event.matchDay,2,'qualified match day reaches the shared renderer');
+}
+assert.equal(JSON.stringify({scheduleFixture,canonicalScheduleEvent}),scheduleBefore,'Schedule presentation does not mutate either source');
+assert(html.includes('cardViewStates'),'shared cards retain the independent expansion-state owner');
+assert(html.includes("pin.textContent=automatic?'In Feed':added?'Remove from Feed':'Add to Feed'")&&html.includes('manualPin:true'),'concrete fixture pins remain available');
 assert(html.includes('inspectorAlwaysShowsAllFixtures'),'Schedule can browse all fixtures independently of follows');
 assert(html.includes('confirmStandingsReveal'),'standings retain spoiler protection');
 assert(html.includes('syncTopLevelNavigationState'),'navigation has one active state owner');
@@ -68,8 +104,10 @@ const wrcCode = manifest.codes.find(code => code.id === "sport:wrc");
 assert(wrcCode, "WRC must publish a dedicated Follow Schedule code under Motorsport");
 assert.equal(wrcCode.parentSportId, "sport:motorsport");
 const wrcChunk = JSON.parse(fs.readFileSync(path.join(ROOT, wrcCode.chunkPath), "utf8"));
-assert.equal(wrcChunk.fixtures.length, 14, "WRC Schedule must expose exactly fourteen championship rounds");
-assert.equal(wrcChunk.standings.length, 77, "WRC Standings must expose all three senior FIA tables");
+assert.equal(wrcChunk.fixtures.filter(f=>/^event:wrc:2026:round-/.test(f.id)).length, 14, "WRC Schedule must expose exactly fourteen 2026 championship rounds");
+assert.deepEqual(new Set(wrcChunk.fixtures.map(f=>f.id)),new Set(wrcContext.events.map(f=>f.id)),"WRC Schedule must also preserve every separately sourced future fixture");
+assert.equal(wrcContext.ladderSnapshots.length, 3, "WRC retains driver, co-driver and manufacturer tables");
+assert.equal(wrcChunk.standings.length, wrcContext.ladderSnapshots.reduce((sum,table)=>sum+table.entries.length,0), "WRC Standings must expose all three senior FIA tables");
 assert(wrcChunk.fixtures.every(fixture => fixture.dateOnly && fixture.endDate >= fixture.date), "WRC Schedule must preserve inclusive date-only ranges");
 const completedWrcRounds = wrcContext.events.filter(fixture => fixture.status === "completed");
 const officialWrcResults = completedWrcRounds.filter(fixture => fixture.result?.status === "official");
@@ -79,15 +117,20 @@ assert.equal(wrcChunk.fixtures.filter(fixture => fixture.resultStatus === "offic
 for (const pendingRound of completedWrcRounds.filter(fixture => fixture.result?.status !== "official")){
   assert.equal(wrcChunk.fixtures.find(fixture => fixture.roundNumber === pendingRound.roundNumber)?.resultStatus, "pending", "completed WRC rounds without an official FIA classification must fail closed");
 }
-assert(html.includes('code.slug === "wrc" ? [["results", "Results / Replays"]] : []'), "the WRC Follow screen must expose Results / Replays beside Schedule and Standings");
+assert(html.includes('code?.slug === "wrc" ? [["results", "Results / Replays"]] : []'), "the WRC Follow screen must expose Results / Replays beside Schedule and Standings");
 const canonicalCodes = [
+  { id: "sport:multi-sport" },
   ...taxonomy.sportDomains.filter(code => code.isActive !== false),
   { id: "sport:aflw" },
   { id: "sport:wrc" },
   { id: "sport:f1" },
   { id: "sport:nrlw" },
+  { id: "sport:nbl" },
   taxonomy.competitions.find(code => code.id === "competition:uefa-champions-league"),
+  ...["competition:tour-de-france","competition:giro-ditalia","competition:vuelta-a-espana","competition:wsl-championship-tour"].map(id=>taxonomy.competitions.find(code=>code.id===id)),
   taxonomy.competitions.find(code => code.id === "competition:motogp"),
+  taxonomy.competitions.find(code => code.id === "competition:le-mans"),
+  taxonomy.competitions.find(code => code.id === "competition:dakar"),
   taxonomy.competitions.find(code => code.id === "competition:sailgp"),
   taxonomy.competitions.find(code => code.id === "competition:fiba-womens-world-cup"),
 ].filter(Boolean);
@@ -97,7 +140,7 @@ assert.deepEqual(
   "Follow Schedule must cover every active canonical code, including unfollowed codes"
 );
 for (const [codeId, minimumFixtures] of [
-  ["sport:nrlw", 7],
+  ["sport:nrlw", 71],
   ["competition:fiba-womens-world-cup", 17],
   ["competition:sailgp", 7],
   ["competition:motogp", 9],
@@ -105,7 +148,7 @@ for (const [codeId, minimumFixtures] of [
   const code = manifest.codes.find(item => item.id === codeId);
   assert(code, `${codeId}: requested code must be published`);
   assert(code.fixtureCount >= minimumFixtures, `${codeId}: requested schedule is incomplete`);
-  assert.equal(code.coverageStatus, "complete", `${codeId}: requested schedule must not be labelled partial`);
+  assert.equal(code.coverageStatus, ['sport:nrlw','competition:sailgp'].includes(codeId)?'partial':'complete', `${codeId}: coverage must match the reviewed published window`);
   const chunk = JSON.parse(fs.readFileSync(path.join(ROOT, code.chunkPath), "utf8"));
   assert.equal(chunk.fixtures.length, code.fixtureCount, `${codeId}: manifest and chunk fixture counts must agree`);
 }
@@ -196,3 +239,6 @@ for (const fixture of canonicalBundle.events.filter(event => event.status === "s
 }
 
 console.log(`Follow Schedule and Standings UI contract valid across ${manifest.codes.length} canonical codes.`);
+
+require('./validate-canonical-fixture-names').validate({published:true});
+require('./validate-canonical-live-status').validate();

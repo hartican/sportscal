@@ -1,0 +1,564 @@
+{
+  "snapshotSha": "88b1e8841741db84567fcf62889a9929103441e2",
+  "evidence": "Complete nine official finals records from the previously published canonical collection; not a fresh provider response.",
+  "events": [
+    {
+      "id": "event:aflw:cd_m20262641301",
+      "sourceId": "CD_M20262641301",
+      "sportDomainId": "sport:afl",
+      "discoverySportId": "sport:aflw",
+      "competitionId": "competition:aflw-2026",
+      "seasonLabel": "2026",
+      "roundLabel": "Qualifying & Elimination Finals",
+      "roundNumber": 13,
+      "eventType": "match",
+      "startTimeUtc": null,
+      "scheduleStatus": "tbc",
+      "localTimezone": "Australia/Melbourne",
+      "venueName": "To Be Confirmed",
+      "venueCity": "Victoria",
+      "venueCountryCode": "AU",
+      "homeParticipantId": "team:aflw:cd_t3000",
+      "awayParticipantId": "team:aflw:cd_t3003",
+      "participantIds": [
+        "team:aflw:cd_t3000",
+        "team:aflw:cd_t3003"
+      ],
+      "displayName": "1st v 4th",
+      "status": "scheduled",
+      "broadcasters": [
+        {
+          "broadcasterId": "broadcaster:kayo",
+          "broadcasterName": "Kayo Sports",
+          "platformType": "streaming",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://kayosports.com.au/"
+        },
+        {
+          "broadcasterId": "broadcaster:foxtel",
+          "broadcasterName": "Foxtel",
+          "platformType": "subscription",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://www.foxtel.com.au/"
+        }
+      ],
+      "hasLadderImplications": true,
+      "hasFinalsImplications": true,
+      "tags": [
+        "aflw",
+        "all-fixtures",
+        "time-tbc"
+      ],
+      "createdAt": "2026-09-22T02:47:23.900Z",
+      "updatedAt": "2026-10-08T21:01:05.473Z",
+      "source": {
+        "provider": "AFLW",
+        "sourceUrl": "https://www.afl.com.au/aflw/matches/9073",
+        "sourceType": "official",
+        "checkedAt": "2026-10-08T21:01:05.473Z"
+      }
+    },
+    {
+      "id": "event:aflw:cd_m20262641302",
+      "sourceId": "CD_M20262641302",
+      "sportDomainId": "sport:afl",
+      "discoverySportId": "sport:aflw",
+      "competitionId": "competition:aflw-2026",
+      "seasonLabel": "2026",
+      "roundLabel": "Qualifying & Elimination Finals",
+      "roundNumber": 13,
+      "eventType": "match",
+      "startTimeUtc": null,
+      "scheduleStatus": "tbc",
+      "localTimezone": "Australia/Melbourne",
+      "venueName": "To Be Confirmed",
+      "venueCity": "Victoria",
+      "venueCountryCode": "AU",
+      "homeParticipantId": "team:aflw:cd_t3001",
+      "awayParticipantId": "team:aflw:cd_t3002",
+      "participantIds": [
+        "team:aflw:cd_t3001",
+        "team:aflw:cd_t3002"
+      ],
+      "displayName": "2nd v 3rd",
+      "status": "scheduled",
+      "broadcasters": [
+        {
+          "broadcasterId": "broadcaster:kayo",
+          "broadcasterName": "Kayo Sports",
+          "platformType": "streaming",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://kayosports.com.au/"
+        },
+        {
+          "broadcasterId": "broadcaster:foxtel",
+          "broadcasterName": "Foxtel",
+          "platformType": "subscription",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://www.foxtel.com.au/"
+        }
+      ],
+      "hasLadderImplications": true,
+      "hasFinalsImplications": true,
+      "tags": [
+        "aflw",
+        "all-fixtures",
+        "time-tbc"
+      ],
+      "createdAt": "2026-09-22T02:47:23.900Z",
+      "updatedAt": "2026-10-08T21:01:05.473Z",
+      "source": {
+        "provider": "AFLW",
+        "sourceUrl": "https://www.afl.com.au/aflw/matches/9074",
+        "sourceType": "official",
+        "checkedAt": "2026-10-08T21:01:05.473Z"
+      }
+    },
+    {
+      "id": "event:aflw:cd_m20262641303",
+      "sourceId": "CD_M20262641303",
+      "sportDomainId": "sport:afl",
+      "discoverySportId": "sport:aflw",
+      "competitionId": "competition:aflw-2026",
+      "seasonLabel": "2026",
+      "roundLabel": "Qualifying & Elimination Finals",
+      "roundNumber": 13,
+      "eventType": "match",
+      "startTimeUtc": null,
+      "scheduleStatus": "tbc",
+      "localTimezone": "Australia/Melbourne",
+      "venueName": "To Be Confirmed",
+      "venueCity": "Victoria",
+      "venueCountryCode": "AU",
+      "homeParticipantId": "team:aflw:cd_t3004",
+      "awayParticipantId": "team:aflw:cd_t3007",
+      "participantIds": [
+        "team:aflw:cd_t3004",
+        "team:aflw:cd_t3007"
+      ],
+      "displayName": "5th v 8th",
+      "status": "scheduled",
+      "broadcasters": [
+        {
+          "broadcasterId": "broadcaster:kayo",
+          "broadcasterName": "Kayo Sports",
+          "platformType": "streaming",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://kayosports.com.au/"
+        },
+        {
+          "broadcasterId": "broadcaster:foxtel",
+          "broadcasterName": "Foxtel",
+          "platformType": "subscription",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://www.foxtel.com.au/"
+        }
+      ],
+      "hasLadderImplications": true,
+      "hasFinalsImplications": true,
+      "tags": [
+        "aflw",
+        "all-fixtures",
+        "time-tbc"
+      ],
+      "createdAt": "2026-09-22T02:47:23.900Z",
+      "updatedAt": "2026-10-08T21:01:05.473Z",
+      "source": {
+        "provider": "AFLW",
+        "sourceUrl": "https://www.afl.com.au/aflw/matches/9077",
+        "sourceType": "official",
+        "checkedAt": "2026-10-08T21:01:05.473Z"
+      }
+    },
+    {
+      "id": "event:aflw:cd_m20262641304",
+      "sourceId": "CD_M20262641304",
+      "sportDomainId": "sport:afl",
+      "discoverySportId": "sport:aflw",
+      "competitionId": "competition:aflw-2026",
+      "seasonLabel": "2026",
+      "roundLabel": "Qualifying & Elimination Finals",
+      "roundNumber": 13,
+      "eventType": "match",
+      "startTimeUtc": null,
+      "scheduleStatus": "tbc",
+      "localTimezone": "Australia/Melbourne",
+      "venueName": "To Be Confirmed",
+      "venueCity": "Victoria",
+      "venueCountryCode": "AU",
+      "homeParticipantId": "team:aflw:cd_t3005",
+      "awayParticipantId": "team:aflw:cd_t3006",
+      "participantIds": [
+        "team:aflw:cd_t3005",
+        "team:aflw:cd_t3006"
+      ],
+      "displayName": "6th v 7th",
+      "status": "scheduled",
+      "broadcasters": [
+        {
+          "broadcasterId": "broadcaster:kayo",
+          "broadcasterName": "Kayo Sports",
+          "platformType": "streaming",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://kayosports.com.au/"
+        },
+        {
+          "broadcasterId": "broadcaster:foxtel",
+          "broadcasterName": "Foxtel",
+          "platformType": "subscription",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://www.foxtel.com.au/"
+        }
+      ],
+      "hasLadderImplications": true,
+      "hasFinalsImplications": true,
+      "tags": [
+        "aflw",
+        "all-fixtures",
+        "time-tbc"
+      ],
+      "createdAt": "2026-09-22T02:47:23.900Z",
+      "updatedAt": "2026-10-08T21:01:05.473Z",
+      "source": {
+        "provider": "AFLW",
+        "sourceUrl": "https://www.afl.com.au/aflw/matches/9075",
+        "sourceType": "official",
+        "checkedAt": "2026-10-08T21:01:05.473Z"
+      }
+    },
+    {
+      "id": "event:aflw:cd_m20262641401",
+      "sourceId": "CD_M20262641401",
+      "sportDomainId": "sport:afl",
+      "discoverySportId": "sport:aflw",
+      "competitionId": "competition:aflw-2026",
+      "seasonLabel": "2026",
+      "roundLabel": "Semi Finals",
+      "roundNumber": 14,
+      "eventType": "match",
+      "startTimeUtc": null,
+      "scheduleStatus": "tbc",
+      "localTimezone": "Australia/Melbourne",
+      "venueName": "To Be Confirmed",
+      "venueCity": "Victoria",
+      "venueCountryCode": "AU",
+      "homeParticipantId": "team:aflw:cd_t3014",
+      "awayParticipantId": "team:aflw:cd_t3016",
+      "participantIds": [
+        "team:aflw:cd_t3014",
+        "team:aflw:cd_t3016"
+      ],
+      "displayName": "Loser of QF1 v Winner of EF1",
+      "status": "scheduled",
+      "broadcasters": [
+        {
+          "broadcasterId": "broadcaster:kayo",
+          "broadcasterName": "Kayo Sports",
+          "platformType": "streaming",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://kayosports.com.au/"
+        },
+        {
+          "broadcasterId": "broadcaster:foxtel",
+          "broadcasterName": "Foxtel",
+          "platformType": "subscription",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://www.foxtel.com.au/"
+        }
+      ],
+      "hasLadderImplications": true,
+      "hasFinalsImplications": true,
+      "tags": [
+        "aflw",
+        "all-fixtures",
+        "time-tbc"
+      ],
+      "createdAt": "2026-09-22T02:47:23.900Z",
+      "updatedAt": "2026-10-08T21:01:05.473Z",
+      "source": {
+        "provider": "AFLW",
+        "sourceUrl": "https://www.afl.com.au/aflw/matches/9076",
+        "sourceType": "official",
+        "checkedAt": "2026-10-08T21:01:05.473Z"
+      }
+    },
+    {
+      "id": "event:aflw:cd_m20262641402",
+      "sourceId": "CD_M20262641402",
+      "sportDomainId": "sport:afl",
+      "discoverySportId": "sport:aflw",
+      "competitionId": "competition:aflw-2026",
+      "seasonLabel": "2026",
+      "roundLabel": "Semi Finals",
+      "roundNumber": 14,
+      "eventType": "match",
+      "startTimeUtc": null,
+      "scheduleStatus": "tbc",
+      "localTimezone": "Australia/Melbourne",
+      "venueName": "To Be Confirmed",
+      "venueCity": "Victoria",
+      "venueCountryCode": "AU",
+      "homeParticipantId": "team:aflw:cd_t3015",
+      "awayParticipantId": "team:aflw:cd_t3017",
+      "participantIds": [
+        "team:aflw:cd_t3015",
+        "team:aflw:cd_t3017"
+      ],
+      "displayName": "Loser of QF2 v Winner of EF2",
+      "status": "scheduled",
+      "broadcasters": [
+        {
+          "broadcasterId": "broadcaster:kayo",
+          "broadcasterName": "Kayo Sports",
+          "platformType": "streaming",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://kayosports.com.au/"
+        },
+        {
+          "broadcasterId": "broadcaster:foxtel",
+          "broadcasterName": "Foxtel",
+          "platformType": "subscription",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://www.foxtel.com.au/"
+        }
+      ],
+      "hasLadderImplications": true,
+      "hasFinalsImplications": true,
+      "tags": [
+        "aflw",
+        "all-fixtures",
+        "time-tbc"
+      ],
+      "createdAt": "2026-09-22T02:47:23.900Z",
+      "updatedAt": "2026-10-08T21:01:05.473Z",
+      "source": {
+        "provider": "AFLW",
+        "sourceUrl": "https://www.afl.com.au/aflw/matches/9078",
+        "sourceType": "official",
+        "checkedAt": "2026-10-08T21:01:05.473Z"
+      }
+    },
+    {
+      "id": "event:aflw:cd_m20262641501",
+      "sourceId": "CD_M20262641501",
+      "sportDomainId": "sport:afl",
+      "discoverySportId": "sport:aflw",
+      "competitionId": "competition:aflw-2026",
+      "seasonLabel": "2026",
+      "roundLabel": "Preliminary Finals",
+      "roundNumber": 15,
+      "eventType": "match",
+      "startTimeUtc": null,
+      "scheduleStatus": "tbc",
+      "localTimezone": "Australia/Melbourne",
+      "venueName": "To Be Confirmed",
+      "venueCity": "Victoria",
+      "venueCountryCode": "AU",
+      "homeParticipantId": "team:aflw:cd_t3012",
+      "awayParticipantId": "team:aflw:cd_t3019",
+      "participantIds": [
+        "team:aflw:cd_t3012",
+        "team:aflw:cd_t3019"
+      ],
+      "displayName": "Winner of QF1 v Winner of SF2",
+      "status": "scheduled",
+      "broadcasters": [
+        {
+          "broadcasterId": "broadcaster:kayo",
+          "broadcasterName": "Kayo Sports",
+          "platformType": "streaming",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://kayosports.com.au/"
+        },
+        {
+          "broadcasterId": "broadcaster:foxtel",
+          "broadcasterName": "Foxtel",
+          "platformType": "subscription",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://www.foxtel.com.au/"
+        }
+      ],
+      "hasLadderImplications": true,
+      "hasFinalsImplications": true,
+      "tags": [
+        "aflw",
+        "all-fixtures",
+        "time-tbc"
+      ],
+      "createdAt": "2026-09-22T02:47:23.900Z",
+      "updatedAt": "2026-10-08T21:01:05.473Z",
+      "source": {
+        "provider": "AFLW",
+        "sourceUrl": "https://www.afl.com.au/aflw/matches/9080",
+        "sourceType": "official",
+        "checkedAt": "2026-10-08T21:01:05.473Z"
+      }
+    },
+    {
+      "id": "event:aflw:cd_m20262641502",
+      "sourceId": "CD_M20262641502",
+      "sportDomainId": "sport:afl",
+      "discoverySportId": "sport:aflw",
+      "competitionId": "competition:aflw-2026",
+      "seasonLabel": "2026",
+      "roundLabel": "Preliminary Finals",
+      "roundNumber": 15,
+      "eventType": "match",
+      "startTimeUtc": null,
+      "scheduleStatus": "tbc",
+      "localTimezone": "Australia/Melbourne",
+      "venueName": "To Be Confirmed",
+      "venueCity": "Victoria",
+      "venueCountryCode": "AU",
+      "homeParticipantId": "team:aflw:cd_t3013",
+      "awayParticipantId": "team:aflw:cd_t3018",
+      "participantIds": [
+        "team:aflw:cd_t3013",
+        "team:aflw:cd_t3018"
+      ],
+      "displayName": "Winner of QF2 v Winner of SF1",
+      "status": "scheduled",
+      "broadcasters": [
+        {
+          "broadcasterId": "broadcaster:kayo",
+          "broadcasterName": "Kayo Sports",
+          "platformType": "streaming",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://kayosports.com.au/"
+        },
+        {
+          "broadcasterId": "broadcaster:foxtel",
+          "broadcasterName": "Foxtel",
+          "platformType": "subscription",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://www.foxtel.com.au/"
+        }
+      ],
+      "hasLadderImplications": true,
+      "hasFinalsImplications": true,
+      "tags": [
+        "aflw",
+        "all-fixtures",
+        "time-tbc"
+      ],
+      "createdAt": "2026-09-22T02:47:23.900Z",
+      "updatedAt": "2026-10-08T21:01:05.473Z",
+      "source": {
+        "provider": "AFLW",
+        "sourceUrl": "https://www.afl.com.au/aflw/matches/9079",
+        "sourceType": "official",
+        "checkedAt": "2026-10-08T21:01:05.473Z"
+      }
+    },
+    {
+      "id": "event:aflw:cd_m20262641601",
+      "sourceId": "CD_M20262641601",
+      "sportDomainId": "sport:afl",
+      "discoverySportId": "sport:aflw",
+      "competitionId": "competition:aflw-2026",
+      "seasonLabel": "2026",
+      "roundLabel": "Grand Final",
+      "roundNumber": 16,
+      "eventType": "match",
+      "startTimeUtc": null,
+      "scheduleStatus": "tbc",
+      "localTimezone": "Australia/Melbourne",
+      "venueName": "To Be Confirmed",
+      "venueCity": "Victoria",
+      "venueCountryCode": "AU",
+      "homeParticipantId": "team:aflw:cd_t3020",
+      "awayParticipantId": "team:aflw:cd_t3021",
+      "participantIds": [
+        "team:aflw:cd_t3020",
+        "team:aflw:cd_t3021"
+      ],
+      "displayName": "Winner of PF1 v Winner of PF2",
+      "status": "scheduled",
+      "broadcasters": [
+        {
+          "broadcasterId": "broadcaster:kayo",
+          "broadcasterName": "Kayo Sports",
+          "platformType": "streaming",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://kayosports.com.au/"
+        },
+        {
+          "broadcasterId": "broadcaster:foxtel",
+          "broadcasterName": "Foxtel",
+          "platformType": "subscription",
+          "regionCode": "AU",
+          "live": true,
+          "replay": true,
+          "highlights": true,
+          "deeplinkUrl": "https://www.foxtel.com.au/"
+        }
+      ],
+      "hasLadderImplications": true,
+      "hasFinalsImplications": true,
+      "tags": [
+        "aflw",
+        "all-fixtures",
+        "time-tbc"
+      ],
+      "createdAt": "2026-09-22T02:47:23.900Z",
+      "updatedAt": "2026-10-08T21:01:05.473Z",
+      "source": {
+        "provider": "AFLW",
+        "sourceUrl": "https://www.afl.com.au/aflw/matches/9081",
+        "sourceType": "official",
+        "checkedAt": "2026-10-08T21:01:05.473Z"
+      }
+    }
+  ]
+}

@@ -4,9 +4,554 @@ const fs = require('node:fs');
 const path = require('node:path');
 const http = require('node:http');
 const crypto = require('node:crypto');
+const vm = require('node:vm');
 const {execFileSync} = require('node:child_process');
 const {chromium, webkit} = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const {assertFollowPickerJourney}=require('./validate-follow-presentation-browser');
+const {assertDirectoryDefaults}=require('./validate-recognised-follow-teams-browser');
 const root = path.resolve(__dirname,'..');
+const installedNetwork=require('./lib/installed-test-network').create();
+const {create:createNavigationObservation}=require('./lib/installed-navigation-observation');
+const {assertDiamondsFeed}=require('./validate-diamonds-retained-browser');
+async function assertCurrentScheduleAndScoreCaches(page){
+ for(const slug of ['football','netball']){
+  const file='data/follow-schedule/'+slug+'.json',expected=JSON.parse(fs.readFileSync(path.join(root,file),'utf8'));
+  const current=await page.evaluate(async file=>(await fetch('/'+file)).json(),file);
+  assert.deepEqual(current,expected,'Upgrade and offline restart must replace the old '+slug+' schedule exactly');
+ }
+ const scorePaths=['config/match-centre.js','config/feed-live-scores.js'].map(requiredShellScriptUrl);
+ await page.evaluate(async paths=>{await ensureFeedScoreUi();for(const url of paths)await loadDeferredScript(url);},scorePaths);
+ for(const file of ['config/feed-live-score-loader.js','config/match-centre.js','config/feed-live-scores.js','config/score-details.js']){
+  const url=requiredShellScriptUrl(file),text=await page.evaluate(async url=>(await fetch('/'+url)).text(),url);
+  assert.equal(text,fs.readFileSync(path.join(root,file),'utf8'),'The actual consumer/cache key serves exact current '+file+' bytes');
+ }
+ const consumers=await page.evaluate(()=>[...loadDeferredScript.requests.keys()].filter(url=>/config\/(?:match-centre|feed-live-scores)\.js/.test(url)));
+ for(const url of consumers){const file=new URL(url,page.url()).pathname.slice(1);assert.equal(new URL(url,page.url()).pathname+new URL(url,page.url()).search,'/'+requiredShellScriptUrl(file),'The reopened page cannot execute an old differently versioned score owner');}
+ return assertDiamondsFeed(page);
+}
+async function assertCachedBundledTaxonomy(page){
+  const result=await page.evaluate(()=>({nodes:NOTHINGSPORTS_SPORT_HIERARCHY.nodes,
+    version:NOTHINGSPORTS_SPORT_HIERARCHY.schemaVersion,
+    compatibility:typeof NOTHINGSPORTS_EVENT_TAXONOMY_COMPAT.enrichEvent,
+    translation:typeof NOTHINGSPORTS_PREFERENCE_TAXONOMY.translateSelection,
+    translationVersion:NOTHINGSPORTS_PREFERENCE_TAXONOMY.TAXONOMY_VERSION}));
+  assert.deepEqual(result.nodes,JSON.parse(JSON.stringify(require('../config/sport-hierarchy').nodes)),'All taxonomy nodes execute from the exact cached runtime after upgrade and offline restart');
+  assert.equal(result.compatibility,'function');assert.equal(result.translation,'function');
+  assert.equal(result.translationVersion,result.version,'The cached preference translator uses the same complete hierarchy');
+  const url=requiredShellScriptUrl('assets/js/app-shell-runtime.js');
+  const cached=await page.evaluate(async({url,version})=>{const cache=await caches.open('nothingsport-shell-v'+version);return (await cache.match('/'+url))?.text();},{url,version:candidateVersion});
+  assert.equal(cached,fs.readFileSync(path.join(root,'assets/js/app-shell-runtime.js'),'utf8'),'The candidate required cache owns the complete bundled taxonomy bytes');
+}
+async function assertCachedAccountIndicator(page){
+  const url=requiredShellScriptUrl('assets/js/account-awareness-runtime.js');
+  const cached=await page.evaluate(async({url,version})=>{const cache=await caches.open('nothingsport-shell-v'+version);return (await cache.match('/'+url))?.text();},{url,version:candidateVersion});
+  assert.equal(cached,fs.readFileSync(path.join(root,'assets/js/account-awareness-runtime.js'),'utf8'),'The exact account helper survives the upgrade and offline restart in the candidate cache');
+  await page.evaluate(()=>ensureAccountIndicator());
+  const button=page.locator('#accountIndicator .account-awareness-control');
+  await button.waitFor({state:'visible'});
+  assert((await button.locator('.account-awareness-label').innerText()).trim(),'Account status remains visible after upgrade and offline restart');
+  const urls=await page.evaluate(()=>[...loadDeferredScript.requests.keys()].filter(url=>new URL(url,location.href).pathname==='/assets/js/account-awareness-runtime.js'));
+  assert.equal(urls.length,1,'The installed app loads one combined account helper');
+  assert.equal(new URL(urls[0],page.url()).pathname+new URL(urls[0],page.url()).search,'/'+url,'The executed account helper matches the required offline-cache URL');
+}
+function requiredShellScriptUrl(file){
+  const worker=fs.readFileSync(path.join(root,'service-worker.js'),'utf8');
+  const urls=[...worker.matchAll(/"\/([^"?]+\.js\?v=\d+)"/g)].map(match=>match[1]).filter(url=>url.split('?')[0]===file);
+  assert.equal(urls.length,1,'The required shell has one explicit version for '+file);
+  return urls[0];
+}
+async function assertCachedFollowNavigation(page){
+  const url=requiredShellScriptUrl('assets/js/follow-navigation.js');
+  const cached=await page.evaluate(async({url,version})=>{const cache=await caches.open('nothingsport-shell-v'+version);return (await cache.match('/'+url))?.text();},{url,version:candidateVersion});
+  assert.equal(cached,fs.readFileSync(path.join(root,'assets/js/follow-navigation.js'),'utf8'),'The exact candidate shell cache must own the repaired Follow navigation');
+  const loaded=await page.evaluate(async()=>Promise.all([...loadDeferredScript.requests].filter(([url])=>new URL(url,location.href).pathname==='/assets/js/follow-navigation.js').map(async([url,promise])=>{await promise;return url;})));
+  assert(loaded.length,'The native Follow journey must actually execute the navigation module');
+  for(const script of loaded)assert.equal(new URL(script).pathname+new URL(script).search,'/'+url,'Every executed Follow navigation URL must match the exact candidate precache binding');
+  const expected={scrollY:0,localStorage:{getItem:()=>null},addEventListener:()=>{}};
+  vm.runInNewContext(fs.readFileSync(path.join(root,'assets/js/follow-navigation.js'),'utf8'),expected);
+  const mounted=await page.evaluate(()=>NOTHINGSPORTS_FOLLOW_NAV.mount.toString());
+  const digest=value=>crypto.createHash('sha256').update(value).digest('hex');
+  assert.equal(digest(mounted),digest(expected.NOTHINGSPORTS_FOLLOW_NAV.mount.toString()),'The actually executed navigation mount must match the pinned repaired source');
+}
+async function workerUpgradeDiagnostic(page){
+  return page.evaluate(async()=>{
+    const registration=await navigator.serviceWorker.getRegistration();
+    const read=worker=>worker?new Promise(resolve=>{const channel=new MessageChannel(),timer=setTimeout(()=>{channel.port1.close();resolve({url:worker.scriptURL,state:worker.state,version:null});},1000);channel.port1.onmessage=event=>{clearTimeout(timer);channel.port1.close();resolve({url:worker.scriptURL,state:worker.state,version:event.data?.version||null});};worker.postMessage({type:'nothingsport-worker-version'},[channel.port2]);}):null;
+    return {documentVersion:document.querySelector('meta[name="app-shell-version"]')?.content,controller:navigator.serviceWorker.controller?.scriptURL,update:globalThis.NOTHINGSPORTS_APP_UPDATE?.snapshot(),workers:await Promise.all([read(registration?.active),read(registration?.waiting),read(registration?.installing)]),messages:globalThis.qaUpgradeMessages||[],caches:await caches.keys()};
+  });
+}
+const footballStatusFixture=require('../data/code-inspector/football.json').fixtures.find(event=>event.competitionId==='competition:premier-league-2026-27');
+async function assertCachedFonts(page){
+  for(const file of ['assets/fonts/dm-sans-latin.woff2','assets/fonts/dm-sans-latin-ext.woff2']){const digest=await page.evaluate(async file=>{const response=await caches.match('/'+file);if(!response)throw Error('Missing cached font: '+file);const bytes=await response.arrayBuffer();return [...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(b=>b.toString(16).padStart(2,'0')).join('');},file);assert.equal(digest,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex'),'Bundled font survives upgrade/offline exactly');}
+}
+async function assertCachedFixtureHighlights(page){
+  const scheduleUrl=requiredShellScriptUrl('assets/js/follow-schedule-panel.js');
+  const frozen=require('./fixtures/rlwc-schedule-alias-20261016.json');
+  const retained=require('./fixtures/rlwc-retained-live-merge-20261016.json');
+  const actual560=require('./fixtures/rlwc-sport-labels-live-20261017.json');
+  const scheduleProof=await page.evaluate(async({url,version,frozen,retained,actual560})=>{
+    const cache=await caches.open('nothingsport-shell-v'+version),response=await cache.match('/'+url);
+    if(!response)throw Error('Missing exact cached Schedule module');
+    const bytes=await response.arrayBuffer(),sha256=[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(n=>n.toString(16).padStart(2,'0')).join('');
+    await loadDeferredScript(url);
+    const previous=liveFixtureEvents,before=JSON.stringify(retained);
+    try{
+      liveFixtureEvents=retained.overlays;
+      const merged=liveScheduleFixtures([retained.source],{id:'sport:nrl',slug:'nrl'})[0];
+      liveFixtureEvents=retained.overlays.map(event=>event.id.startsWith('major-match:')?{...event,roundNumber:null,roundLabel:'Round 2'}:event);
+      const contrary=liveScheduleFixtures([retained.source],{id:'sport:nrl',slug:'nrl'})[0];
+      liveFixtureEvents=retained.overlays.map(event=>event.id.startsWith('major-match:')?{...event,sourceUrl:'https://example.invalid/controlled-provider',sourceCheckedAt:'2026-10-16T12:00:00Z'}:event);
+      const provenance=liveScheduleFixtures([retained.source],{id:'sport:nrl',slug:'nrl'})[0];
+      liveFixtureEvents=retained.overlays.map(event=>event.id.startsWith('major-match:')?{...event,venueCity:'Controlled contrary city',sourceCheckedAt:'2026-10-16T12:00:00Z'}:event);
+      const venue=liveScheduleFixtures([retained.source],{id:'sport:nrl',slug:'nrl'})[0];
+      return {sha256,sourcePreferred:globalThis.inspectorSourcePreferred(frozen.fixture,frozen.staleCanonical),actualSportLabels:globalThis.inspectorSourcePreferred(actual560.source,actual560.candidate),ordinarySportScope:!globalThis.inspectorSourcePreferred(actual560.source,{...actual560.candidate,status:'upcoming',competitionId:actual560.source.competitionId,gender:'women'}),contrarySportLabels:['Rugby Union','NRLW','Football','Unknown sport'].every(sport=>!globalThis.inspectorSourcePreferred(actual560.source,{...actual560.candidate,sport})),retained:{sourcePreferred:globalThis.inspectorSourcePreferred(merged,retained.candidate),protectsResult:!globalThis.inspectorSourcePreferred(merged,{...retained.candidate,homeScore:0,awayScore:0,scoreFactObservedAt:'2026-10-16T12:00:00Z'}),protectsUnit:[{matchType:'women'},{stageType:'quarterfinals'},{round:'Grand Final'}].every(patch=>!globalThis.inspectorSourcePreferred(merged,{...retained.candidate,...patch})),protectsReceipt:!globalThis.inspectorSourcePreferred(merged,{...retained.candidate,resultSourceCheckedAt:'2026-10-16T12:00:00Z'}),protectsRound:contrary.roundLabel==='Round 2'&&NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.viewing(contrary,Date.parse('2026-10-16T12:26:03Z'))?.providerId!=='rlwc',protectsVenue:venue.venueCity==='Controlled contrary city'&&venue.sourceCheckedAt==='2026-10-16T12:00:00Z',coherentProvenance:provenance.sourceUrl==='https://example.invalid/controlled-provider'&&provenance.sourceCheckedAt==='2026-10-16T12:00:00Z'&&provenance.sourceName===null,roundNumber:merged.roundNumber,roundLabel:merged.roundLabel,sourceCheckedAt:merged.sourceCheckedAt,url:NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.viewing(merged,Date.parse('2026-10-16T12:26:03Z'))?.webUrl,unchanged:JSON.stringify(retained)===before}};
+    }finally{liveFixtureEvents=previous;}
+  },{url:scheduleUrl,version:candidateVersion,frozen,retained,actual560});
+  assert.equal(scheduleProof.sha256,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'assets/js/follow-schedule-panel.js'))).digest('hex'),'Upgrade/offline uses the exact new Schedule fact-selection module');
+  assert(scheduleProof.sourcePreferred,'Cached Schedule logic retains the sourced final over its exact retained planning copy');
+  assert(scheduleProof.actualSportLabels&&scheduleProof.contrarySportLabels&&scheduleProof.ordinarySportScope,'The exact cached module accepts declared NRL/Rugby League labels and rejects contrary or unknown sports');
+  assert(scheduleProof.retained.sourcePreferred&&scheduleProof.retained.unchanged,'Cached actual merge and selection preserve source/input ownership');
+  assert(scheduleProof.retained.protectsResult,'The cached legacy guard cannot discard a newer populated result, including zero scores');
+  assert(scheduleProof.retained.protectsUnit&&scheduleProof.retained.protectsReceipt,'Cached source selection preserves conflicting match types and explicit result receipts');
+  assert(scheduleProof.retained.protectsRound,'Cached reconciliation preserves a contrary round label and rejects its reviewed official clip');
+  assert(scheduleProof.retained.protectsVenue,'Cached reconciliation preserves the actual observation for a changed venue alias');
+  assert(scheduleProof.retained.coherentProvenance,'Cached reconciliation cannot attach an older provider receipt to changed source facts');
+  for(const key of ['roundNumber','roundLabel','sourceCheckedAt'])assert.equal(scheduleProof.retained[key],retained.source[key],'Upgrade/offline preserves the published '+key+' through both saved live aliases');
+  assert.equal(scheduleProof.retained.url,'https://www.rlwc2026.com/videos/australia-v-new-zealand---round-1-2026','Upgraded/offline retained merge reaches the unchanged highlights guard');
+  const golf=require('../data/code-inspector/golf.json').fixtures.find(e=>(e.name||'').startsWith('Minjee Lee /'));
+  const missing=await page.evaluate(golf=>({venue:NOTHINGSPORTS_FEED_CARD_PRESENTATION.venue({venue:'Venue TBD'}),time:NOTHINGSPORTS_CARD_TIMING.dateOnlyLabel({displayTime:'Time TBC'}),highlights:NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.viewing({...golf,status:'past'},Date.parse('2026-10-16T00:00:00Z'))}),golf);
+  assert.equal(missing.venue,'','Cached unknown venue cannot become an organiser decision');assert.equal(missing.time,'Time TBD');assert.equal(missing.highlights,null,'Upgrade/offline cannot restore a highlights promise from a past display label');
+  const labels=await page.evaluate(()=>({player:NOTHINGSPORTS_FEED_CARD_PRESENTATION.displayLabel(null,'Player TBD'),short:NOTHINGSPORTS_FEED_CARD_PRESENTATION.shortLabel(null,'Fallback',{shortName:'Side TBC'}),outcome:NOTHINGSPORTS_FEED_CARD_PRESENTATION.shortLabel('team:afl:cd_t60','Winner of semi-final')}));
+  assert.deepEqual(labels,{player:'Player unavailable',short:'Side unavailable',outcome:'Winner of semi-final'},'Upgraded/offline participant labels distinguish missing app data from actual unresolved outcomes');
+  const fixtures=require('../data/events.json').events.filter(e=>e.highlights?.provider==='youtube');
+  if(!fixtures.length)return;
+  const results=await page.evaluate(fixtures=>{
+    const tab=activeTab,states=cardViewStates,choices=JSON.stringify([userPreferences,eventActions]);
+    try{activeTab='feed';const host=document.getElementById('listView');return fixtures.map(fixture=>{
+      const stored=JSON.parse(JSON.stringify(fixture)),realNow=Date.now;
+      // Retained publisher observations age. Rehearse their original eligible
+      // clock and expiry without renewing metadata or weakening runtime policy.
+      const eligibleAt=Math.max(...['publishedAt','verifiedAt','checkedAt','sourceCheckedAt'].map(key=>Date.parse(stored.highlights[key])).filter(Number.isFinite))+1000;
+      try{
+        Date.now=()=>eligibleAt;setCardState(stored,'selected');host.replaceChildren(buildEventCard(stored));
+        const link=host.querySelector('.fixture-highlights-link'),result={id:stored.id,url:link?.href,label:link?.textContent,external:link?.target==='_blank',noVideoTitle:!host.textContent.includes(stored.highlights.matchTitle)};
+        Date.now=()=>eligibleAt+NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.MAX_CACHE_AGE_MS+1;host.replaceChildren(buildEventCard(stored));
+        return {...result,expiredHidden:!host.querySelector('.fixture-highlights-link'),metadataPreserved:JSON.stringify(stored.highlights)===JSON.stringify(fixture.highlights)};
+      }finally{Date.now=realNow;}
+    });}finally{activeTab=tab;cardViewStates=states;}
+  },fixtures);
+  for(let i=0;i<fixtures.length;i++){
+    const url=new URL(results[i].url);
+    assert.equal(url.pathname,'/api/fixtures','Upgraded and offline cards retain the current-policy highlights resolver');
+    assert.equal(url.searchParams.get('mode'),'highlight');
+    assert.equal(url.searchParams.get('ids'),fixtures[i].canonicalEventId||fixtures[i].eventId||fixtures[i].id,'The resolver stays bound to the original fixture');
+    assert.match(results[i].label,/Watch highlights/);assert(results[i].external&&results[i].noVideoTitle&&results[i].metadataPreserved);assert(results[i].expiredHidden,'Upgraded/offline cards must remove expired highlights without renewing retained metadata');
+  }
+}
+async function assertCachedParticipantCalendar(page){
+  const html=fs.readFileSync(path.join(root,'index.html'),'utf8'),modelPath=html.match(/config\/athletes\.js\?v=\d+/)?.[0],uiPath=html.match(/assets\/js\/athletes-ui\.js\?v=\d+/)?.[0];
+  const fixtureRoutingPath=html.match(/assets\/js\/fixture-navigation\.js\?v=\d+/)?.[0];
+  assert(modelPath&&uiPath&&fixtureRoutingPath,'Current participant and fixture routing cache URLs are explicit');
+  for(const file of [modelPath,uiPath,fixtureRoutingPath])assert.equal(await page.evaluate(file=>caches.match('/'+file).then(r=>r?.text()),file),fs.readFileSync(path.join(root,file.split('?')[0]),'utf8'),'Updated participant calendar bytes remain cached exactly');
+  const publishedParent=require('../lib/calendar-catalogue').catalogue().find(e=>e.tournamentId==='R2026527'&&e.cardType==='golf_tournament');
+  // Match the existing Node overlap replay: today's source may already be final.
+  // This controlled earlier observation cannot rewrite current published facts.
+  const parent={...publishedParent,status:'in-progress',sourceCheckedAt:'2026-10-09T07:45:00.000Z',statusCheckedAt:'2026-10-09T07:45:00.000Z'};
+  const result=await page.evaluate(async({modelPath,parent,publishedParent})=>{await loadDeferredScript(modelPath);const before=JSON.stringify(publishedParent);return {included:NOTHINGSPORTS_ATHLETES.spansCurrentCalendarDay(parent,'2026-10-09','2027-10-09'),terminalIncluded:NOTHINGSPORTS_ATHLETES.spansCurrentCalendarDay({...parent,status:'completed'},'2026-10-09','2027-10-09'),publishedIncluded:NOTHINGSPORTS_ATHLETES.spansCurrentCalendarDay(publishedParent,'2026-10-09','2027-10-09'),publishedStatus:publishedParent.status,publishedUnchanged:JSON.stringify(publishedParent)===before,label:NOTHINGSPORTS_ATHLETES.calendarTiming(parent,Date.parse('2026-10-09T08:45:00Z'))};},{modelPath,parent,publishedParent});
+  assert(result.included);assert.equal(result.terminalIncluded,false);assert(result.publishedUnchanged);if(result.publishedStatus==='completed')assert.equal(result.publishedIncluded,false,'A genuine final stays outside the cached calendar outlook');assert.match(result.label,/Tournament dates: 8–11 Oct 2026/);assert.match(result.label,/Next tee time not verified/);
+}
+async function assertCachedStageCalendarPolicy(page){
+  const notes=['ice-hockey','champions-league'].flatMap(code=>require('../data/code-inspector/'+code+'.json').fixtures.filter(f=>f.timingProvenance?.precision==='competition-stage-calendar'));
+  assert.equal(notes.length,17);
+  assert(await page.evaluate(notes=>NOTHINGSPORTS_FOLLOW_FEED_POLICY.SCHEMA_VERSION==='follow-feed-policy.v13'&&notes.every(f=>!NOTHINGSPORTS_FOLLOW_FEED_POLICY.sportingFixture(f)&&!NOTHINGSPORTS_FOLLOW_FEED_POLICY.eligibleForFollow(f,{sportFollow:true})),notes),'Updated cached policy cannot treat programme dates as followed matches');
+}
+async function assertCachedAflwFinalDate(page){
+  const id='event:aflw:cd_m20262641601',expected=require('../data/code-inspector/aflw.json').fixtures.find(f=>f.id===id);
+  const result=await page.evaluate(async id=>{const fixture=(await(await fetch('/data/code-inspector/aflw.json')).json()).fixtures.find(f=>f.id===id);return {fixture,label:NOTHINGSPORTS_CARD_TIMING.dateOnlyLabel(fixture)};},id);
+  assert.deepEqual(result.fixture,expected,'Updated/offline Schedule keeps the exact reviewed date and original primary facts');assert.equal(result.label,'Time TBD');assert.equal(result.fixture.startTimeUtc,null);assert.equal(result.fixture.time,null);
+}
+async function assertCachedMultidayRetention(page){
+  const raw=require('../data/code-inspector/cricket.json').fixtures.find(f=>f.id==='evt_91');
+  const normalized=require('../lib/server-feed-pipeline').normalizeEvent(raw,new Date('2027-01-14T01:00Z'));
+  const result=await page.evaluate(async ({raw,normalized})=>{
+    const published=(await(await fetch('/data/code-inspector/cricket.json')).json()).fixtures.find(f=>f.id===raw.id);
+    const before=JSON.stringify(userPreferences),actions=JSON.stringify(eventActions),now=new Date('2027-01-14T01:00Z');
+    const states=[raw,normalized].map(f=>NOTHINGSPORTS_CARD_LIFECYCLE.lifecycleState(f,{now}));
+    const cache=NOTHINGSPORTS_CARD_LIFECYCLE.materialize([normalized],{profileId:'cached-multiday-replay',now,enrich:()=>({cardVariant:'plain',intensity:1}),actionFor:()=>({reminderChoice:'off'})});
+    const invalidFinishDays=['actualEndTimeUtc','completedAt','firstConfirmedCompleteAt'].map(field=>NOTHINGSPORTS_EPIC.finalDay({status:'completed',date:'2026-02-25',endDate:'2026-03-01',[field]:'2026-02-30T02:03:04Z'},new Date('2026-03-10T00:00Z')));
+    return {publishedUnchanged:JSON.stringify(published)===JSON.stringify(raw),states,cards:cache.derivedCards.length,expiry:cache.derivedCards[0]?.expiresAt,invalidFinishDays,choicesPreserved:JSON.stringify(userPreferences)===before&&JSON.stringify(eventActions)===actions};
+  },{raw,normalized});
+  assert(result.publishedUnchanged&&result.choicesPreserved,'Cached retention cannot mutate source observations or saved choices');
+  assert(result.states.every(s=>s.state==='active'&&s.archivesAt==='2027-01-15T12:59:59.999Z'&&s.expiresAt==='2027-01-15T13:00:00.000Z'),'Upgraded/offline runtime honours the actual five-day calendar window on raw and server-normalized fixtures');
+  assert.equal(result.cards,1,'The cached materializer retains the actual fourth Test within its end-window week');
+  assert.equal(result.expiry,'2027-01-15T13:00:00.000Z');
+  assert.deepEqual(result.invalidFinishDays,['2026-03-01','2026-03-01','2026-03-01'],'The actual upgraded/offline compiled policy rejects nonexistent finish dates');
+}
+async function assertCachedReviewedCalendarNotes(page){
+  const panel=fs.readFileSync(path.join(root,'assets/js/follow-presentation-ui.js'),'utf8').match(/loadDeferredScript\('([^']*follow-schedule-panel\.js\?v=\d+)'\)/)[1];
+  await page.evaluate(panel=>loadDeferredScript(panel),panel);
+  assert.equal(await page.evaluate(panel=>caches.match('/'+panel).then(r=>r?.text()),panel),fs.readFileSync(path.join(root,panel.split('?')[0]),'utf8'),'First offline Schedule uses the exact current precached module');
+  const api=require('./lib/reviewed-calendar-notes'),legacy=JSON.parse(baselineFile('data/events.json')).events.filter(e=>api.ids.includes(e.id));
+  // MTB has no carried Code. Exercise its retained renderer without inventing one.
+  const mtb=require('../data/events.json').events.find(e=>e.id===api.manualIds[1]);
+  const rugby=require('../data/events.json').events.find(e=>e.id==='evt_100');
+  const result=await page.evaluate(async ({legacy,mtb,rugby})=>{
+    const fixtures=(await Promise.all(['surf','motorsport'].map(async slug=>(await(await fetch('/data/code-inspector/'+slug+'.json')).json()).fixtures.filter(f=>f.calendarNote)))).flat();
+    const before=JSON.stringify(userPreferences),priorTab=activeTab,states=cardViewStates,checks=[];
+    try{activeTab='feed';const host=document.getElementById('listView');for(const [origin,records] of [['current-code',fixtures],['retained-mtb-mount',[mtb]],['retained-rugby-mount',[rugby]],['archived-baseline',legacy]])for(const event of records){const original=JSON.stringify(event);setCardState(event,'selected');host.replaceChildren(buildEventCard(event));checks.push({id:event.id,origin,text:host.innerText,hasWindow:!!event.calendarNote?.localDateWindow,noClock:!eventReminderTiming(NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(event)),unchanged:JSON.stringify(event)===original});}return {checks,preferencesPreserved:JSON.stringify(userPreferences)===before};}finally{activeTab=priorTab;cardViewStates=states;}
+  },{legacy,mtb,rugby});
+  assert.equal(result.checks.length,api.ids.length*2,'Every retained reviewed identity must have current and actual archived/offline evidence');assert(result.preferencesPreserved);
+  for(const id of api.ids){assert.equal(result.checks.filter(c=>c.id===id).length,2);assert(result.checks.some(c=>c.id===id&&c.origin==='archived-baseline'));}
+  for(const check of result.checks){assert(check.noClock&&check.unchanged);assert(check.hasWindow?/15–18 July 2027.*UK dates.*Sydney time unavailable/s.test(check.text):/DATE UNAVAILABLE.*TIME TBD/s.test(check.text));assert(!/22 JAN|7 FEB|7:00 PM|2:00 AM|10 JUL|5 NOV|10:00 AM|8:00 AM|28 NOV|Watch via Stan Sport|Tap to rate|Remind/.test(check.text),'An upgraded/offline cache cannot restore unsupported seed claims');}
+}
+async function assertCachedMinimisedRows(page){
+  const result=await page.evaluate(async()=>{
+    const before=JSON.stringify(userPreferences),tab=activeTab,states=cardViewStates,profiles=new Map(profileFixtureEvents),spoilers=eventSpoilerState;
+    const host=document.createElement('section');host.style.cssText='position:fixed;top:160px;left:0;width:100%;z-index:20';document.body.append(host);
+    const rows=[];
+    try{
+      activeTab='follow';userPreferences.showSpoilers=true;eventSpoilerState={};
+      for(const [slug,id]of [['ice-hockey','fixture:nhl:2026020001'],['cricket','fixture:cricket:CA:41001']]){
+        const fixture=(await(await fetch('/data/code-inspector/'+slug+'.json')).json()).fixtures.find(f=>f.id===id),original=JSON.stringify(fixture);
+        setCardState(fixture,'compact');setCardState(canonicalFeedFixtureForInspector(fixture)||fixture,'compact');
+        host.replaceChildren(buildCodeInspectorFixture(fixture));await new Promise(requestAnimationFrame);
+        const card=host.querySelector('.event-card'),button=card.querySelector('.minimised-card-summary');
+        rows.push({id,height:card.getBoundingClientRect().height,compact:card.classList.contains('is-minimised-row'),buttons:card.querySelectorAll('button').length,summary:Boolean(button),scoreNodes:card.querySelectorAll('.feed-live-score,.card-result-line,.spoiler-facts,.cricket-innings-table').length,providerNodes:card.querySelectorAll('.fixture-providers,.provider-list,.provider-link').length,details:card.querySelectorAll('details,.fixture-more,.fixture-venue,.nsc-summary').length,unchanged:JSON.stringify(fixture)===original});
+        if(slug==='ice-hockey'){button.click();const normal=host.querySelector('.event-card');rows.at(-1).tapSelected=normal.dataset.cardState==='selected'&&!normal.classList.contains('is-minimised-row');rows.at(-1).unconfirmedReplayAbsent=!normal.querySelector('.fixture-providers');rows.at(-1).detailsRestored=normal.querySelectorAll('.card-result-line,.spoiler-facts,.feed-live-score').length>0;}
+      }
+    }finally{host.remove();activeTab=tab;cardViewStates=states;profileFixtureEvents.clear();for(const [id,event]of profiles)profileFixtureEvents.set(id,event);eventSpoilerState=spoilers;userPreferences=JSON.parse(before);}
+    return {rows,preferencesPreserved:JSON.stringify(userPreferences)===before,compactSaved:userPreferences.feedCompact};
+  });
+  assert(result.preferencesPreserved&&result.compactSaved,'Installed minimised probes restore the exact saved compact preference and all user choices');
+  for(const row of result.rows){assert.equal(row.height,56,'Cached minimised card keeps its fixed56px height');assert(row.compact&&row.summary&&row.buttons===1&&row.unchanged,'Cached minimised card uses one native summary button and preserves source facts');assert.equal(row.scoreNodes,0);assert.equal(row.providerNodes,0);assert.equal(row.details,0,'Cached minimised row contains no detail body');}
+  assert(result.rows[0].tapSelected&&result.rows[0].detailsRestored&&result.rows[0].unconfirmedReplayAbsent,'Row tap restores selected final details while unconfirmed replay stays absent');
+}
+async function assertCachedCanonicalResults(page){
+  await page.evaluate(()=>loadDeferredScript('config/cricket-innings.js?v=431'));
+  const cricket=await page.evaluate(async()=>{
+    const f=(await(await fetch('/data/code-inspector/cricket.json')).json()).fixtures.find(f=>f.id==='fixture:cricket:CA:41001'),before=JSON.stringify(f),prior=userPreferences.showSpoilers,priorTab=activeTab,states=cardViewStates;
+    try{activeTab='follow';setCardState(f,'opened');setCardState(canonicalFeedFixtureForInspector(f)||f,'opened');userPreferences.showSpoilers=true;const host=document.getElementById('listView');host.replaceChildren(buildCodeInspectorFixture(f));await Promise.resolve();const visible=host.textContent;userPreferences.showSpoilers=false;const hidden=buildCodeInspectorFixture(f);return {innings:f.innings.length,visible,hiddenTables:hidden.querySelectorAll('.cricket-innings-table').length,unchanged:before===JSON.stringify(f)};}finally{userPreferences.showSpoilers=prior;activeTab=priorTab;cardViewStates=states;}
+  });
+  assert.equal(cricket.innings,2,'upgraded/offline Cricket projection retains actual innings');
+  assert(cricket.visible.includes('165/9')&&cricket.visible.includes('102 all out')&&cricket.visible.includes('17.3'),'cached result renderer shows sourced totals and cricket overs: '+JSON.stringify(cricket));
+  assert.equal(cricket.hiddenTables,0,'cached Results OFF hides innings');assert(cricket.unchanged,'cached innings presentation does not change facts or dates');
+  const observations=await page.evaluate(async()=>{
+    const rows=[],beforePreferences=JSON.stringify(userPreferences),priorTab=activeTab,states=cardViewStates;
+    try{
+      activeTab='follow';
+      for(const [slug,id] of [['nrl','event:nrl:129990101'],['afl','event:afl:cd_m20260140001'],['aflw','event:aflw:cd_m20262640101']]){
+        const code=await(await fetch('/data/code-inspector/'+slug+'.json')).json(),fixture=code.fixtures.find(f=>f.id===id),before=JSON.stringify(fixture);
+        setCardState(fixture,'selected');setCardState(canonicalFeedFixtureForInspector(fixture)||fixture,'selected');
+        userPreferences.showSpoilers=true;
+        const visible=buildCodeInspectorFixture(fixture).textContent;
+        userPreferences.showSpoilers=false;
+        const hidden=buildCodeInspectorFixture(fixture);
+        rows.push({slug,expected:fixture.result.scorelineText.split('—').at(-1).trim(),visible,hidden:hidden.textContent,hiddenResultNodes:hidden.querySelectorAll('.card-result-line,.spoiler-facts').length,nonFinalScore:spoilerFactsForEvent({...fixture,status:'upcoming'}).score,unchanged:JSON.stringify(fixture)===before});
+      }
+    }finally{userPreferences=JSON.parse(beforePreferences);activeTab=priorTab;cardViewStates=states;}
+    return {rows,preferencesPreserved:JSON.stringify(userPreferences)===beforePreferences};
+  });
+  assert(observations.preferencesPreserved,'Cached result checks preserve the saved Results choice');
+  for(const row of observations.rows){
+    assert(row.visible.includes(row.expected),'Upgraded/offline '+row.slug+' shows the supplied canonical final with Results on');
+    assert(!row.hidden.includes(row.expected)&&row.hiddenResultNodes===0,'Upgraded/offline '+row.slug+' keeps Results off private');
+    assert.equal(row.nonFinalScore,null,'Cached upcoming records cannot borrow an old nested final');
+    assert(row.unchanged,'Cached presentation preserves sporting facts and source clocks');
+  }
+}
+async function assertCachedFootballStatus(page){
+  const footballContextPath=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/assets\/js\/football-card-context\.js\?v=\d+/)?.[0];
+  assert(footballContextPath,'Football context uses the current explicit cache URL');
+  const shellManifest=fs.readFileSync(path.join(root,'service-worker.js'),'utf8'),scorePaths=['config/match-centre.js','config/feed-live-scores.js'].map(file=>{const match=shellManifest.match(new RegExp(file.replaceAll('.','\\.')+'\\?v=\\d+'));assert(match,'Current cached score module '+file);return match[0];});
+  const settled=await page.evaluate(async paths=>{
+    for(const file of paths)await loadDeferredScript(file);
+    const code=await(await fetch('/data/code-inspector/football.json')).json(),host=document.createElement('div');document.body.append(host);
+    try{return ['competition:premier-league-2026-27','competition:uefa-champions-league','competition:uefa-europa-league'].map(id=>{const fixture=code.fixtures.find(f=>f.competitionId===id&&f.status==='completed'),before=JSON.stringify(fixture);NOTHINGSPORTS_FEED_LIVE_SCORES.install(host,fixture,{resultsOn:true});const shown={text:host.textContent,date:host.querySelector('time')?.dateTime};NOTHINGSPORTS_FEED_LIVE_SCORES.install(host,fixture,{resultsOn:false});return {id,shown,explicitStale:Boolean(fixture.stale),checkedAt:fixture.scoreCheckedAt,hidden:!host.querySelector('.feed-live-score'),unchanged:before===JSON.stringify(fixture)};});}finally{host.remove();}
+  },scorePaths);
+  for(const final of settled){assert(final.shown.text.includes('Finished')&&final.shown.text.includes('Update needed')===final.explicitStale,'cached settled final does not expire with elapsed age');assert.equal(final.shown.date,final.checkedAt,'cached calendar date retains original final observation');assert(/\b20\d{2}\b/.test(final.shown.text),'cached source check includes its year');assert(final.hidden&&final.unchanged,'cached source-date detail preserves privacy and facts');}
+  const halfReceipt=require('./fixtures/epl-half-time-20261010.json'),halfFixture=require('./refresh-premier-league-cards').cardForFixture(halfReceipt.fixture,halfReceipt.checkedAt);
+  const halfCheck=await page.evaluate(f=>{
+    const now=Date.parse(f.statusCheckedAt),host=document.createElement('div'),before=JSON.stringify(f);
+    NOTHINGSPORTS_FEED_LIVE_SCORES.install(host,f,{resultsOn:true,now});const shown=host.textContent,date=host.querySelector('time')?.dateTime;
+    NOTHINGSPORTS_FEED_LIVE_SCORES.install(host,f,{resultsOn:false,now});
+    return {shown,date,hidden:!host.querySelector('.feed-live-score'),label:NOTHINGSPORTS_CARD_TIMING.presentation(f,now).status,paused:NOTHINGSPORTS_MATCH_CENTRE.liveState(NOTHINGSPORTS_MATCH_CENTRE.compact(f),now),older:NOTHINGSPORTS_CARD_TIMING.presentation(f,now+240001).status,unchanged:before===JSON.stringify(f)};
+  },halfFixture);
+  assert(halfCheck.shown.includes('Manchester United 0')&&halfCheck.shown.includes('Tottenham Hotspur 0')&&halfCheck.shown.includes('Half-time'));assert.equal(halfCheck.date,halfReceipt.checkedAt);assert.equal(halfCheck.label,'HALF-TIME');assert.equal(halfCheck.paused,'paused');assert.equal(halfCheck.older,'Awaiting match update');assert(halfCheck.hidden&&halfCheck.unchanged,'Upgraded/offline half-time preserves zero scores, original clocks and Results OFF');
+  for(const file of scorePaths)assert.equal(await page.evaluate(file=>caches.match('/'+file).then(r=>r?.text()),file),fs.readFileSync(path.join(root,file.split('?')[0]),'utf8'),'Half-time executes the exact current cached score model');
+  const preview=await page.evaluate(async modulePath=>{
+    await loadDeferredScript(modulePath);
+    const code=await(await fetch('/data/code-inspector/football.json')).json(),f=code.fixtures.find(f=>f.competitionId==='competition:uefa-champions-league'&&f.status==='upcoming');
+    const saved=userPreferences.showSpoilers,previousChunk=codeInspectorChunk;
+    try{
+      // Controlled delayed-result metadata verifies the cached disclosure;
+      // it does not replace the published source or establish a real outage.
+      codeInspectorChunk=structuredClone(code);
+      for(const row of codeInspectorChunk.standings.filter(row=>row.competitionId===f.competitionId)){
+        row.stale=true;row.staleNote='Table awaits primary-source confirmation of delayed backup results.';
+      }
+      userPreferences.showSpoilers=false;const hidden=await NOTHINGSPORTS_FOOTBALL_CONTEXT.standings(f);
+      userPreferences.showSpoilers=true;const shown=await NOTHINGSPORTS_FOOTBALL_CONTEXT.standings(f);
+      return {hiddenRows:hidden.querySelectorAll('li').length,hiddenText:hidden.textContent,hiddenWarnings:hidden.querySelectorAll('.standings-stale-note').length,shownRows:shown.querySelectorAll('li').length,shownWarning:shown.querySelector('.standings-stale-note')?.textContent,source:shown.querySelector('a')?.href};
+    }finally{userPreferences.showSpoilers=saved;codeInspectorChunk=previousChunk;}
+  },footballContextPath);
+  assert.equal(preview.hiddenRows,0);assert.match(preview.hiddenText,/Results is off/);assert.equal(preview.shownRows,2);assert(preview.source);
+  assert.equal(preview.hiddenWarnings,0);assert.equal(preview.shownWarning,'Table awaits primary-source confirmation of delayed backup results.','Cached backup-result tables retain their warning without leaking it through Results OFF');
+  assert.equal(await page.evaluate(modulePath=>caches.match('/'+modulePath).then(r=>r?.text()),footballContextPath),fs.readFileSync(path.join(root,'assets/js/football-card-context.js'),'utf8'),'Cached UEFA preview executes the exact current source module');
+  const priorLive=JSON.parse(baselineFile('data/code-inspector/american-football.json')).fixtures.find(f=>f.status==='live')||require('./fixtures/nfl-retained-live-observation.json').fixture;
+  const nfl=await page.evaluate(async ({priorLive,navigationPath,panelPath})=>{
+    await loadFollowPresentation();
+    await loadDeferredScript(navigationPath);await loadDeferredScript(panelPath);
+    const document=await(await fetch('/data/code-inspector/american-football.json')).json();
+    const previous=codeInspectorChunk,saved=JSON.stringify(userPreferences),reveal=standingsRevealApproved;
+    try{
+      codeInspectorChunk=document;userPreferences.showSpoilers=true;
+      const panel=window.document.createElement('div');renderCodeInspectorStandings(panel,{id:'sport:american-football',slug:'american-football'});
+      const visible={tables:panel.querySelectorAll('table').length,rows:panel.querySelectorAll('tbody tr').length,text:panel.textContent};
+      userPreferences.showSpoilers=false;standingsRevealApproved=false;panel.replaceChildren();renderCodeInspectorStandings(panel,{id:'sport:american-football',slug:'american-football'});
+      const fixtures=document.fixtures.filter(f=>f.season===2026&&f.id.startsWith('fixture:nfl:'));
+      const final=fixtures.find(f=>f.status==='completed'),states=cardViewStates,tab=activeTab;
+      let finalVisible,finalHidden;try{activeTab='follow';setCardState(final,'selected');setCardState(canonicalFeedFixtureForInspector(final)||final,'selected');userPreferences.showSpoilers=true;finalVisible=buildCodeInspectorFixture(final).textContent;userPreferences.showSpoilers=false;finalHidden=buildCodeInspectorFixture(final).textContent;}finally{activeTab=tab;cardViewStates=states;}
+      const score=`${final.participantSlots.find(s=>s.homeAway==='away').score}-${final.participantSlots.find(s=>s.homeAway==='home').score}`;
+      // Ordinary source progress may finish every live game between releases.
+      // Keep checking real published final facts and the actual retained prior
+      // live observation's stale transition; never manufacture a current live game.
+      const live=fixtures.find(f=>f.status==='live')||priorLive;
+      if(!live?.statusCheckedAt)throw Error('Cached NFL freshness check requires an actual current or baseline live observation');
+      return {visible,hiddenTables:panel.querySelectorAll('table').length,hidden:panel.textContent,coverage:document.coverageStatus,asOf:[...new Set(document.standings.map(r=>r.asOf))],unchanged:JSON.stringify(document)===JSON.stringify(codeInspectorChunk),fixtureProof:{fixtures:fixtures.length,regular:fixtures.filter(f=>/^Week /.test(f.roundLabel)).length,tbc:fixtures.filter(f=>f.timeTbc).length,noExactTbc:fixtures.filter(f=>f.timeTbc).every(f=>f.startTimeUtc===null&&f.time===null),finalVisible:finalVisible.includes(score),finalHidden:!finalHidden.includes(score),staleStatus:FEED_CONTROLS.timingState(live,new Date(Date.parse(live.statusCheckedAt)+31*60000)).key}};
+    }finally{codeInspectorChunk=previous;userPreferences=JSON.parse(saved);standingsRevealApproved=reveal;}
+  },{priorLive,navigationPath:requiredShellScriptUrl('assets/js/follow-navigation.js'),panelPath:requiredShellScriptUrl('assets/js/follow-schedule-panel.js')});
+  assert.equal(nfl.visible.tables,2);assert.equal(nfl.visible.rows,32);
+  assert(nfl.visible.text.includes('NFL AFC standings')&&nfl.visible.text.includes('NFL NFC standings'));
+  assert(nfl.visible.text.includes('not final playoff qualifications'));
+  assert.equal(nfl.hiddenTables,0);assert(nfl.hidden.includes('Results is off'));
+  assert.equal(nfl.coverage,'partial');
+  assert.deepEqual(nfl.asOf,[require('../data/canonical/american-football-directory.v1.json').standings[0].asOf],'upgrade/offline table keeps the published fact observation');
+  assert(nfl.unchanged,'cached standings rendering cannot mutate source facts');
+  assert.deepEqual(nfl.fixtureProof,{fixtures:321,regular:272,tbc:24,noExactTbc:true,finalVisible:true,finalHidden:true,staleStatus:'awaiting-update'},'upgraded/offline NFL keeps the complete season, provisional clocks, score order and source freshness');
+  const hockey=await page.evaluate(async()=>{
+    const code=await(await fetch('/data/code-inspector/ice-hockey.json')).json(),fixture=code.fixtures.find(f=>f.id==='fixture:chl:0636729f7d82ee17686c2f79');
+    const previous=codeInspectorChunk,saved=JSON.stringify(userPreferences),reveal=standingsRevealApproved,tab=activeTab;
+    const nhl=code.fixtures.filter(f=>f.competitionId==='competition:nhl');
+    const final=nhl.find(f=>f.id==='fixture:nhl:2026020001');
+    const savedStates=cardViewStates;[fixture,final].forEach(event=>{setCardState(event,'selected');setCardState(canonicalFeedFixtureForInspector(event)||event,'selected');});
+    const nhlViewing={unconfirmedReplayRowAbsent:!buildCodeInspectorFixture(final).querySelector('.fixture-providers'),qualified:nhl.filter(f=>FOLLOW_FIRST.viewingOptions(f).some(o=>o.providerId==='disney')).length,
+      excluded:nhl.filter(f=>f.roundLabel==='Preseason'&&FOLLOW_FIRST.viewingOptions(f).length===0).length,
+      final:FOLLOW_FIRST.viewingOptions(final).map(o=>({provider:o.providerId,url:o.url,purpose:o.liveOrReplay,replayVerified:o.replayVerified,rightsScope:o.rightsScope,linkScope:o.linkScope,verifiedAt:o.verifiedAt})),
+      expired:FOLLOW_FIRST.viewingOptions({...final,startTimeUtc:'2027-04-11T14:00:00Z',date:'2027-04-12'}).map(o=>o.providerId)};
+
+    try{
+      codeInspectorChunk=code;activeTab='follow';userPreferences.showSpoilers=true;
+      const panel=document.createElement('div');renderCodeInspectorStandings(panel,{id:'sport:ice-hockey',slug:'ice-hockey'});
+      const table=panel.querySelector('.chl-club-records-table'),visible=buildCodeInspectorFixture(fixture).textContent;
+      const nhlRecords={text:panel.textContent,final:buildCodeInspectorFixture(final).textContent,labels:final.resultLabels,checkedAt:final.scoreCheckedAt,rows:code.standings.filter(r=>r.competitionId==='competition:nhl').length,pastTiming:FEED_CONTROLS.timingState({...final,status:'upcoming'},new Date(Date.parse(final.startTimeUtc)+3600000))?.key};
+      userPreferences.showSpoilers=false;standingsRevealApproved=false;const hidden=buildCodeInspectorFixture(fixture);panel.replaceChildren();renderCodeInspectorStandings(panel,{id:'sport:ice-hockey',slug:'ice-hockey'});
+      return {nhlRecords,nhlViewing,records:table.querySelectorAll('tbody tr').length,headers:[...table.querySelectorAll('thead th')].map(h=>h.textContent),visible,expected:fixture.participantSlots.map(s=>s.score).join('-'),hidden:hidden.textContent,hiddenResults:hidden.querySelectorAll('.card-result-line,.spoiler-facts').length,hiddenTables:panel.querySelectorAll('table').length,calendars:code.fixtures.filter(f=>f.competitionId==='competition:chl'&&!f.participantSlots.length).map(f=>({id:f.id,start:f.startTimeUtc,participants:f.participantIds,time:f.time})),asOf:[...new Set(code.standings.filter(r=>r.competitionId==='competition:chl').map(r=>r.asOf))],clubObservations:Object.fromEntries(code.standings.filter(r=>r.competitionId==='competition:chl').map(r=>[r.participantId,r.asOf])),coverage:code.coverageStatus};
+    }finally{codeInspectorChunk=previous;userPreferences=JSON.parse(saved);standingsRevealApproved=reveal;activeTab=tab;cardViewStates=savedStates;}
+  });
+  assert.deepEqual(hockey.nhlViewing,{unconfirmedReplayRowAbsent:true,qualified:1344,excluded:65,final:[{provider:'disney',url:'https://www.disneyplus.com/en-au/welcome/espn-sports',purpose:'replay',replayVerified:false,rightsScope:'competition',linkScope:'sport',verifiedAt:'2026-10-04T14:47:13.000Z'}],expired:[]},'upgraded/offline NHL cached projections and runtime retain scope, original date and honest replay');
+  assert.equal(hockey.nhlRecords.rows,32);assert(hockey.nhlRecords.text.includes('OT/SO losses'));assert(hockey.nhlRecords.final.includes('After overtime'));assert.deepEqual(hockey.nhlRecords.labels,['After overtime']);assert.equal(hockey.nhlRecords.checkedAt,require('../data/canonical/ice-hockey-directory.v1.json').fixtures.find(f=>f.id==='fixture:nhl:2026020001').scoreCheckedAt);assert.equal(hockey.nhlRecords.pastTiming,'awaiting-update','cached hockey cannot infer live from a scheduled clock');
+  assert.equal(hockey.records,24);assert.deepEqual(hockey.headers,['Team','P','W','L','GF','GA']);assert(hockey.visible.includes(hockey.expected),'cached CHL final shows its supplied zero');assert(!hockey.hidden.includes(hockey.expected)&&hockey.hiddenResults===0&&hockey.hiddenTables===0,'cached CHL Results OFF remains private');assert.equal(hockey.calendars.length,12);assert(hockey.calendars.every(f=>f.start===null&&f.time===null&&!f.participants.length));assert.equal(hockey.coverage,'partial');assert.deepEqual(hockey.asOf,[...new Set(require('../data/canonical/ice-hockey-directory.v1.json').standings.filter(r=>r.competitionId==='competition:chl').map(r=>r.asOf))]);assert.deepEqual(hockey.clubObservations,Object.fromEntries(require('../data/canonical/ice-hockey-directory.v1.json').standings.filter(r=>r.competitionId==='competition:chl').map(r=>[r.participantId,r.asOf])),'cached club records preserve each supplied observation instead of inventing a common collection clock');
+  const priorNhlLive=JSON.parse(baselineFile('data/code-inspector/ice-hockey.json')).fixtures.find(f=>f.id==='fixture:nhl:2026020035'&&f.status==='live')||require('./fixtures/nhl-retained-live-observation.json').fixture;
+  const nhlLive=await page.evaluate(async({priorNhlLive,paths})=>{
+    for(const path of paths)await loadDeferredScript(path);
+    const code=await(await fetch('/data/code-inspector/ice-hockey.json')).json(),fixture=code.fixtures.find(f=>f.id==='fixture:nhl:2026020035'),saved=JSON.stringify(userPreferences),tab=activeTab,states=cardViewStates,profiles=new Map(profileFixtureEvents),spoilers=eventSpoilerState,queue=queueLiveFixtureSnapshot;let queued=0;
+    const host=document.createElement('div');host.className='event-card';document.body.append(host);
+    try{activeTab='follow';setCardState(fixture,'selected');setCardState(canonicalFeedFixtureForInspector(fixture)||fixture,'selected');queueLiveFixtureSnapshot=()=>queued++;eventSpoilerState={};userPreferences.showSpoilers=true;userPreferences.feedControls.spoilers='standard';NOTHINGSPORTS_FEED_SCORE_UI.install(host,{...fixture,key:'ice-hockey'});
+      if(fixture.status==='completed')host.replaceChildren(buildCodeInspectorFixture(fixture));
+      const visible=host.textContent;userPreferences.showSpoilers=false;NOTHINGSPORTS_FEED_SCORE_UI.install(host,{...fixture,key:'ice-hockey'});if(fixture.status==='completed')host.replaceChildren(buildCodeInspectorFixture(fixture));const hidden=host.querySelectorAll('.feed-live-score,.card-result-line,.spoiler-facts').length===0;
+      // This is an isolated historical replay. A normal current card above
+      // registers the same identity, which the loader correctly prefers for
+      // mounted live views; remove that test-created reference temporarily.
+      for(const id of [priorNhlLive.id,priorNhlLive.eventId,priorNhlLive.canonicalEventId,...(priorNhlLive.sourceEventIds||[])])if(id)profileFixtureEvents.delete(String(id));
+      userPreferences.showSpoilers=true;host.replaceChildren();NOTHINGSPORTS_FEED_SCORE_UI.install(host,{...priorNhlLive,key:'ice-hockey'});
+      const retainedVisible=host.textContent,retainedExpected=priorNhlLive.participantSlots.map(s=>`${s.label} ${s.score}`).join(' · ');
+      userPreferences.showSpoilers=false;NOTHINGSPORTS_FEED_SCORE_UI.install(host,{...priorNhlLive,key:'ice-hockey'});
+      const historical={status:priorNhlLive.status,visible:retainedVisible.includes(retainedExpected),hidden:!host.querySelector('.feed-live-score'),stale:NOTHINGSPORTS_CARD_TIMING.presentation(priorNhlLive,new Date(Date.parse(priorNhlLive.statusCheckedAt)+31*60000)).status};
+      return {visible,hidden,queued,historical,status:fixture.status,scoreAt:fixture.scoreCheckedAt,statusAt:fixture.statusCheckedAt,stale:NOTHINGSPORTS_CARD_TIMING.presentation(fixture,new Date(Date.parse(fixture.statusCheckedAt)+31*60000)).status,expected:fixture.status==='completed'?fixture.participantSlots.map(s=>s.score).join('-'):fixture.participantSlots.map(s=>`${s.label} ${s.score}`).join(' · ')};
+    }finally{host.remove();queueLiveFixtureSnapshot=queue;activeTab=tab;cardViewStates=states;profileFixtureEvents.clear();for(const [id,event]of profiles)profileFixtureEvents.set(id,event);eventSpoilerState=spoilers;userPreferences=JSON.parse(saved);}
+  },{priorNhlLive,paths:['config/feed-live-score-loader.js','config/match-centre.js','config/feed-live-scores.js'].map(requiredShellScriptUrl)});
+  assert(nhlLive.visible.includes(nhlLive.expected)&&nhlLive.hidden,'upgraded/offline Schedule presents the sourced paired score and hides it with Results OFF');assert.equal(nhlLive.queued,0,'offline Schedule never queues fixture polling');assert.equal(nhlLive.stale,nhlLive.status==='completed'?'FINISHED':'Awaiting match update','completed and underway observations retain their actual lifecycle');assert.equal(nhlLive.scoreAt,require('../data/canonical/ice-hockey-directory.v1.json').fixtures.find(f=>f.id==='fixture:nhl:2026020035').scoreCheckedAt);
+  assert.deepEqual(nhlLive.historical,{status:'live',visible:true,hidden:true,stale:'Awaiting match update'},'actual archived live observation retains its paired score, privacy and stale transition');
+  const season=await page.evaluate(async()=>{
+    const nrlw=await(await fetch('/data/code-inspector/nrlw.json')).json(),wrc=await(await fetch('/data/code-inspector/wrc.json')).json();
+    return {count:nrlw.fixtures.length,coverage:nrlw.coverageStatus,completed:nrlw.fixtures.filter(f=>f.status==='completed').length,withdrawn:wrc.fixtures.find(f=>f.id==='event:wrc:2026:round-14')?.status};
+  });
+  assert.deepEqual(season,{count:71,coverage:'partial',completed:71,withdrawn:'cancelled'},'upgraded/offline projections retain the dated NRLW collection, separately reviewed Grand Final and actual WRC withdrawal');
+  const nrlwFinal=await page.evaluate(async()=>{
+    const code=await(await fetch('/data/code-inspector/nrlw.json')).json();
+    const fixture=code.fixtures.find(f=>f.id==='event:nrlw:2026:grand-final');
+    const before=JSON.stringify(fixture),saved=JSON.stringify(userPreferences),tab=activeTab,states=cardViewStates;
+    try{
+      activeTab='follow';setCardState(fixture,'selected');setCardState(canonicalFeedFixtureForInspector(fixture)||fixture,'selected');userPreferences.showSpoilers=true;
+      const visible=buildCodeInspectorFixture(fixture).textContent;
+      userPreferences.showSpoilers=false;
+      const hidden=buildCodeInspectorFixture(fixture);
+      return {visible,hidden:hidden.textContent,hiddenResultNodes:hidden.querySelectorAll('.card-result-line,.spoiler-facts').length,sourceCheckedAt:fixture.sourceCheckedAt,resultSourceCheckedAt:fixture.resultSourceCheckedAt,unchanged:before===JSON.stringify(fixture)};
+    }finally{userPreferences=JSON.parse(saved);activeTab=tab;cardViewStates=states;}
+  });
+  assert(/30\s*[-–]\s*6/.test(nrlwFinal.visible),'cached Grand Final renders the separately verified score with Results on');
+  assert(!/30\s*[-–]\s*6/.test(nrlwFinal.hidden)&&nrlwFinal.hiddenResultNodes===0,'cached Grand Final protects Results off');
+  assert.equal(nrlwFinal.sourceCheckedAt,'2026-09-27T13:57:48.000Z');
+  assert.equal(nrlwFinal.resultSourceCheckedAt,'2026-10-04T09:19:16.000Z');
+  assert(nrlwFinal.unchanged,'cached rendering cannot renew programme or result facts');
+  const nrlwLadder=await page.evaluate(async()=>{
+    const code=await(await fetch('/data/code-inspector/nrlw.json')).json();
+    const snapshot=NOTHINGSPORTS_FEED_CARD_STANDINGS.find(s=>s.competitionId==='competition:nrlw-premiership-2026');
+    return {rows:code.standings.length,ids:code.standings.map(r=>r.participantId),ranks:snapshot.entries.map(r=>r.rank),runtimeIds:snapshot.entries.map(r=>r.participantId),checkedAt:snapshot.snapshotTimeUtc,codeClocks:[...new Set(code.standings.map(r=>r.asOf))]};
+  });
+  assert.equal(nrlwLadder.rows,12);assert.deepEqual(nrlwLadder.ids,nrlwLadder.runtimeIds);
+  assert.deepEqual(nrlwLadder.ranks,Array.from({length:12},(_,i)=>i+1));
+  assert.deepEqual(nrlwLadder.codeClocks,[nrlwLadder.checkedAt],'upgraded/offline Code and card ranks retain the actual dated source clock');
+  await page.evaluate(async url=>{await loadDeferredScript(url);},candidateMatchCentrePath);
+  const centreUi=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/loadDeferredScript\('([^']*assets\/js\/match-centre-ui\.js\?v=\d+)'\)/)[1];
+  await page.evaluate(async url=>{await loadDeferredScript(url);},centreUi);
+  assert.equal(await page.evaluate(async({url,version})=>{const cache=await caches.open('nothingsport-shell-v'+version);return (await cache.match('/'+url))?.text();},{url:centreUi,version:candidateVersion}),fs.readFileSync(path.join(root,'assets/js/match-centre-ui.js'),'utf8'),'The candidate cache owns the exact Match Centre module before the old worker cache is removed and after offline restart');
+  const status=await page.evaluate(fixture=>{
+    const event={...fixture,status:'upcoming',scheduleStatus:'upcoming',statusCheckedAt:null,statusSource:null,timingSource:null};
+    return globalThis.NOTHINGSPORTS_CARD_TIMING.presentation(event,new Date(Date.parse(event.startTimeUtc)+30*60000)).status;
+  },footballStatusFixture);
+  assert.equal(status,'Awaiting match update','the upgraded/offline runtime must execute the current Football status rule');
+  const stageCalendar=await page.evaluate(stage=>{
+    const unknown=NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(stage);
+    const confirmed=NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore({...stage,startTimeUtc:'2027-06-05T19:00:00Z',timePrecision:'exact',scheduleStatus:'confirmed',timeTbc:false});
+    const unconfirmed=NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore({...stage,startTimeUtc:'2027-06-05T19:00:00Z',timePrecision:'exact',scheduleStatus:'confirmed',timeTbc:false,startTimeTbc:true});
+    return {unknownLabel:unknown.displayDateLabel,unknownStart:unknown.startTimeUtc,confirmedLabel:confirmed.displayDateLabel||null,confirmedDate:confirmed.date,unconfirmedLabel:unconfirmed.displayDateLabel||null};
+  },require('../data/code-inspector/champions-league.json').fixtures.find(f=>f.id==='major-stage:uefa-champions-league-2026-27:final'));
+  assert.deepEqual(stageCalendar,{unknownLabel:'Saturday 5 June 2027 (Madrid dates)',unknownStart:null,confirmedLabel:null,confirmedDate:'2027-06-06',unconfirmedLabel:'Saturday 5 June 2027 (Madrid dates)'},'upgraded/offline runtime retains actual UCL calendar precision and the controlled confirmed-UTC transition');
+  const viewingActions=await page.evaluate(fixture=>{
+    const api=NOTHINGSPORTS_FOLLOW_FIRST;
+    const live=api.viewingOptions({...fixture,status:'live',scheduleStatus:'live',score:'0 - 0',scoreDisplay:'0 - 0'});
+    const final={...fixture,status:'completed',scheduleStatus:'completed'};
+    const first=api.viewingOptions(final),second=api.viewingOptions({...final,viewingOptions:first,broadcastOptions:[],broadcaster:''});
+    return {livePurpose:live[0].liveOrReplay,firstReplay:first[0].replayVerified,secondReplay:second[0].replayVerified};
+  },footballStatusFixture);
+  assert.deepEqual(viewingActions,{livePurpose:'live',firstReplay:false,secondReplay:false},'upgraded/offline viewing cannot turn partial scores into replays or unknown provider metadata into replay proof');
+  const compactObservation=await page.evaluate(()=>{
+    const marker='fixture-observations.v1',prior={id:'offline-correction',key:'nrl',status:'completed',homeScore:1,awayScore:0,sourceCheckedAt:'2026-09-24T13:00:00Z'};
+    const corrected=NOTHINGSPORTS_FIXTURE_IDENTITY.mergeOverlays([prior],[{...prior,homeScore:2,fixtureObservationSchema:marker,scoreCheckedAt:'2026-09-24T14:00:00Z',statusCheckedAt:'2026-09-24T14:00:00Z'}])[0];
+    const unknown=NOTHINGSPORTS_MATCH_CENTRE.compact({...corrected,status:'live',scoreCheckedAt:null,statusCheckedAt:'2026-09-24T15:00:00Z'});
+    return {home:corrected.homeScore,away:corrected.awayScore,unknownClock:unknown.checkedAt,unknownStale:unknown.stale};
+  });
+  assert.deepEqual(compactObservation,{home:2,away:0,unknownClock:null,unknownStale:true},'upgraded/offline shared and deferred modules preserve corrected finals and unknown score freshness');
+  const nblStatus=await page.evaluate(()=>globalThis.NOTHINGSPORTS_CARD_TIMING.presentation({competitionId:'competition:nbl',status:'live',startTimeUtc:'2026-10-02T09:30:00Z',statusCheckedAt:'2026-10-02T09:00:00Z'},new Date('2026-10-02T10:00:00Z')).status);
+  assert.equal(nblStatus,'Awaiting match update','the upgraded/offline runtime must reject stale NBL live status');
+  const referenceStatus=await page.evaluate(()=>{
+    const event={competitionId:'competition:aflw-2026',status:'live',startTimeUtc:'2026-10-04T04:05:00Z',statusCheckedAt:'2026-10-04T05:49:24.432Z'};
+    return [NOTHINGSPORTS_CARD_TIMING.presentation(event,'2026-10-04T06:00:00Z').status,NOTHINGSPORTS_CARD_TIMING.presentation(event,'2026-10-04T08:00:00Z').status,NOTHINGSPORTS_FEED_CONTROLS.timingState(event,new Date('2026-10-04T08:00:00Z')).key];
+  });
+  assert.deepEqual(referenceStatus,['LIVE','Awaiting match update','awaiting-update'],'cached/offline reference status preserves the genuine observation and cannot advertise stale play');
+  const tournamentPhase=await page.evaluate(()=>{
+    const event={id:'offline-phase-qa',name:'Tournament phase QA',key:'golf',cardType:'golf_tournament',dateOnly:true,date:'2026-10-01',endDate:'2026-10-04',status:'live'};
+    const priorTab=activeTab;
+    try{
+      activeTab='follow';
+      const compact=buildCompactCardSummary(event),chip=buildEventTimingStateChip(event);
+      activeTab='feed';
+      return {compact:compact.querySelector('.minimised-card-time')?.textContent,accessible:compact.getAttribute('aria-label'),chip:chip?.textContent,feed:buildFixtureTimingBadge(event).dataset.timingStatus,clock:NOTHINGSPORTS_FEED_CONTROLS.timingState(event),scheduled:NOTHINGSPORTS_CARD_TIMING.tournamentPhase({...event,status:'scheduled'})};
+    }finally{activeTab=priorTab;}
+  });
+  assert.equal(tournamentPhase.compact,'IN PROGRESS');assert.equal(tournamentPhase.chip,'In progress');assert.match(tournamentPhase.accessible,/IN PROGRESS/);assert.match(tournamentPhase.accessible,/Scheduled THU 1 OCT – SUN 4 OCT/,'The new row retains full accessible source dates');
+  assert.equal(tournamentPhase.feed,'IN PROGRESS');assert.equal(tournamentPhase.clock,null);assert.equal(tournamentPhase.scheduled,null,'cached dates alone never invent tournament progress');
+  const wsl=await page.evaluate(async()=>{
+    const code=await(await fetch('/data/code-inspector/wsl.json')).json();
+    const e=code.fixtures.find(f=>f.id.endsWith('portugal'));
+    const image=new Image();image.src='/assets/identities/wsl/wave-white.svg';await image.decode();
+    const brand=new Image();brand.src='/assets/identities/wsl/brand.png';await brand.decode();
+    return {count:code.fixtures.length,coverage:code.coverageStatus,unfollowed:!NOTHINGSPORTS_FOLLOW_FIRST.reasonForEvent(e,{version:25,selectedSelectorEntityIds:['sport:surf']}),followed:!!NOTHINGSPORTS_FOLLOW_FIRST.reasonForEvent(e,{version:25,selectedSelectorEntityIds:['sport:wsl']}),precision:e.timePrecision,time:e.time,providers:NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(e),glyph:image.naturalWidth,brand:brand.naturalWidth};
+  });
+  assert.equal(wsl.count,12);assert.equal(wsl.coverage,'partial');assert(wsl.unfollowed&&wsl.followed&&wsl.glyph>0&&wsl.brand>0);assert.equal(wsl.precision,'date-only');assert.equal(wsl.time,null);assert.deepEqual(wsl.providers,[],'cached WSL windows never invent Australian viewing');
+  const sailgp=await page.evaluate(async()=>{
+    const code=await(await fetch('/data/code-inspector/sailgp.json')).json();
+    return {coverage:code.coverageStatus,copy:codeInspectorCoverageCopy(code.code?{...code.code,coverageStatus:code.coverageStatus}:code),geneva:code.fixtures.filter(f=>f.id.includes('geneva')).map(f=>({start:f.startTimeUtc,end:f.endTimeUtc,timingCheckedAt:f.timingProvenance?.checkedAt,resultCheckedAt:f.resultSourceCheckedAt})),future:code.fixtures.filter(f=>f.season==='2026'&&/(dubai|abu-dhabi)/.test(f.id)).map(f=>({start:f.startTimeUtc,precision:f.timePrecision})),nextSeason:code.fixtures.filter(f=>f.season==='2027').map(f=>({confirmed:f.participantsConfirmed,entries:f.participantIds||[],providers:NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(f).map(o=>o.providerId),start:f.startTimeUtc,precision:f.timePrecision}))};
+  });
+  assert.equal(sailgp.coverage,'partial');assert.match(sailgp.copy,/Season teams may be listed/);assert.equal(sailgp.geneva.length,2);
+  for(const [i,f]of sailgp.geneva.entries()){assert.equal(f.start,`2026-09-${19+i}T13:30:00.000Z`);assert.equal(f.end,`2026-09-${19+i}T15:00:00.000Z`);assert.equal(f.timingCheckedAt,'2026-10-02T16:06:23.274Z');assert.equal(f.resultCheckedAt,'2026-09-21T20:24:10.712468Z');}
+  assert.equal(sailgp.future.length,4);assert(sailgp.future.every(f=>!f.start&&f.precision==='tbc'),'cached event envelopes never become invented daily sessions');
+  assert.equal(sailgp.nextSeason.length,require('../data/canonical/fiba-women-sailgp-motogp-2026.json').events.filter(e=>e.sportKey==='sailgp'&&e.season==='2027').length);assert(sailgp.nextSeason.every(f=>f.confirmed===false&&!f.entries.length&&!f.providers.length&&!f.start&&f.precision==='tbc'),'upgraded/offline future SailGP keeps unpublished times, entries and rights unresolved');
+  const abandoned=await page.evaluate(()=>{
+    const event={key:'cricket',status:'abandoned',startTimeUtc:'2026-09-28T04:30:00Z',endTimeUtc:'2026-09-28T09:00:00Z'};
+    const now=new Date('2026-09-28T05:00:00Z');
+    const prior={...event,status:'completed',statusCheckedAt:'2026-09-30T00:00:00Z'};
+    const next={...event,statusCheckedAt:'2026-10-02T00:00:00Z'};
+    return {status:NOTHINGSPORTS_CARD_TIMING.presentation(event,now).status,timing:NOTHINGSPORTS_FEED_CONTROLS.timingState(event,now),observation:NOTHINGSPORTS_MATCH_CENTRE.observation(prior,next).status};
+  });
+  assert.equal(abandoned.status,'ABANDONED');assert.equal(abandoned.timing,null,'upgraded/offline runtime never calls an abandoned match live');
+  assert.equal(abandoned.observation,'abandoned','upgraded/offline deferred Match Centre accepts the official abandonment correction');
+  const rugby=await page.evaluate(f=>{const normalized=NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(f);const oldRatings=ratings;try{ratings={[f.id]:5};return {id:normalized.id,start:normalized.startTimeUtc,scoreCheckedAt:normalized.scoreCheckedAt,rating:getActual('rugby-australia-south-africa-2026-09-27')};}finally{ratings=oldRatings;}},require('./fixtures/rugby-reviewed-provider-pair.json').worldRugby);
+  assert.equal(rugby.id,'rugby-australia-south-africa-2026-09-27');assert.equal(rugby.start,'2026-09-27T09:45:00.000Z');assert.equal(rugby.rating,5,'cached runtime reads the old saved Rugby rating');assert.equal(rugby.scoreCheckedAt,require('./fixtures/rugby-reviewed-provider-pair.json').worldRugby.scoreCheckedAt,'cached host timing never refreshes score facts');
+  const futureRugby=await page.evaluate(async()=>{
+    const d=await(await fetch('/data/code-inspector/rugby-union.json')).json();const id='rugby-australia-new-zealand-2026-10-17',old='fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8';
+    const fixtures=d.fixtures.filter(f=>NOTHINGSPORTS_FIXTURE_IDENTITY.canonicalFixtureId(f.id)===id);const f=fixtures[0];
+    return {count:fixtures.length,id:f.id,start:f.startTimeUtc,time:f.time,checkedAt:f.timingProvenance?.checkedAt,legacy:NOTHINGSPORTS_FIXTURE_IDENTITY.canonicalFixtureId(old),providers:NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(f).map(o=>o.providerId)};
+  });
+  assert.deepEqual(futureRugby,{count:1,id:'rugby-australia-new-zealand-2026-10-17',start:'2026-10-17T05:00:00.000Z',time:'16:00',checkedAt:'2026-10-02T08:24:46.814Z',legacy:'rugby-australia-new-zealand-2026-10-17',providers:['nine-tv','nine','stan']},'upgraded/offline cached future Bledisloe uses one reviewed identity and original host observation');
+  const motoAssets=require('../assets/identities/motogp/asset-manifest.json').assets.map(a=>a.path).concat('assets/identities/motogp/motorcycle-white.svg',require('../assets/identities/wrc/asset-manifest.json').assets.map(a=>a.path),'assets/identities/sailgp/sailing-white.svg');
+  const motoOffline=await page.evaluate(async paths=>Promise.all(paths.map(async path=>{const r=await fetch('/'+path);const source=await r.text();return r.ok&&source.includes('<svg')&&!source.includes('<image');})),motoAssets);
+  assert(motoOffline.every(Boolean),'every MotoGP and WRC vector must remain available in the installed/offline shell');
+  const sailgpIdentity=await page.evaluate(async()=>Promise.all(['light','dark'].map(async theme=>{const image=new Image();image.src='/assets/identities/sailgp/brand-'+theme+'.png';await image.decode();return image.naturalWidth===1670&&image.naturalHeight===335;})));
+  assert(sailgpIdentity.every(Boolean),'both complete local SailGP marks decode after upgrade and remain cached offline');
+  const tours=await page.evaluate(async()=>Promise.all(['tour-de-france','giro-ditalia','vuelta-a-espana'].map(async slug=>{
+    const code=await(await fetch('/data/code-inspector/'+slug+'.json')).json();
+    const schedule=await(await fetch('/data/follow-schedule/'+slug+'.json')).json();
+    const event=code.fixtures.find(f=>f.season==='2027')||code.fixtures[0],key=event.key;
+    const prefs={version:26,selectedSelectorEntityIds:['sport:cycling'],followedSports:['cycling',key]};
+    return {slug,count:code.fixtures.length,scheduleCount:schedule.fixtures?.length||schedule.events?.length,coverage:code.coverageStatus,unfollowed:!NOTHINGSPORTS_FOLLOW_FIRST.reasonForEvent(event,prefs),followed:!!NOTHINGSPORTS_FOLLOW_FIRST.reasonForEvent(event,{...prefs,selectedSelectorEntityIds:['sport:'+key]})};
+  })));
+  assert.deepEqual(tours.map(t=>t.count),[24,21,21]);assert(tours.every(t=>t.coverage==='partial'&&t.unfollowed&&t.followed),'cached Grand Tours require explicit competition consent');
+  const tourAssets=require('../assets/identities/cycling/asset-manifest.json').assets;
+  const decodedTours=await page.evaluate(async assets=>Promise.all(assets.map(async a=>{
+    const r=await fetch('/'+a.path);if(!r.ok)return false;
+    if(a.path.endsWith('.svg')){const source=await r.text();if(!source.includes('<svg')||source.includes('<image'))return false;}
+    const image=new Image();image.src='/'+a.path;await image.decode();return image.naturalWidth>0&&image.naturalHeight>0;
+  })),tourAssets);
+  assert(decodedTours.every(Boolean),'all 39 verified routes, bicycle fallback and complete Grand Tour marks decode offline');
+  const majors=await page.evaluate(async()=>{
+    const code=await(await fetch('/data/code-inspector/golf.json')).json(),rounds=code.fixtures.filter(e=>e.golfMajorCalendar&&e.cardType==='golf_session');
+    const future=rounds.filter(e=>e.season==='2027');
+    return {rounds:rounds.length,future:future.length,unconfirmed:future.every(e=>!e.time&&e.dateOnly&&!e.startTimeUtc&&!e.participantIds?.length),unfollowed:future.every(e=>!NOTHINGSPORTS_FOLLOW_FIRST.reasonForEvent(e,{})),followed:future.every(e=>!!NOTHINGSPORTS_FOLLOW_FIRST.reasonForEvent(e,{version:26,selectedSelectorEntityIds:['sport:golf']})),providers:future.flatMap(e=>NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(e))};
+  });
+  assert.equal(majors.rounds,32);assert.equal(majors.future,16);assert(majors.unconfirmed&&majors.unfollowed&&majors.followed);assert.deepEqual(majors.providers,[]);
+  const dakar=await page.evaluate(async()=>{const c=await(await fetch('/data/code-inspector/dakar.json')).json(),e=c.fixtures.find(f=>f.season==='2027');return {count:c.fixtures.length,notes:c.scheduleNotes,precision:e.timePrecision,time:e.time,off:!NOTHINGSPORTS_FOLLOW_FIRST.reasonForEvent(e,{version:27,selectedSelectorEntityIds:['sport:motorsport']}),on:!!NOTHINGSPORTS_FOLLOW_FIRST.reasonForEvent(e,{version:27,selectedSelectorEntityIds:['sport:dakar']}),providers:NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(e)};});
+  assert.equal(dakar.count,28);assert.equal(dakar.notes.length,2);assert(dakar.off&&dakar.on);assert.equal(dakar.precision,'date-only');assert.equal(dakar.time,null);assert.deepEqual(dakar.providers,[]);
+  const decodedDakar=await page.evaluate(async assets=>Promise.all(assets.map(async a=>{const r=await fetch('/'+a.path);if(!r.ok)return false;const image=new Image();image.src='/'+a.path;await image.decode();return image.naturalWidth>0;})),require('../assets/identities/dakar/asset-manifest.json').assets);assert(decodedDakar.every(Boolean),'Dakar assets and projections remain available after upgrade and offline');
+  const lemans=await page.evaluate(async()=>{const c=await(await fetch('/data/code-inspector/lemans.json')).json(),e=c.fixtures.find(f=>f.season==='2027'&&f.sessionType==='qualifying'),finish=c.fixtures.find(f=>f.sourceEventIds?.includes('evt_80'));const image=new Image();image.src='/assets/identities/lemans/sarthe-white.svg';await image.decode();return {count:c.fixtures.length,off:!NOTHINGSPORTS_FOLLOW_FIRST.reasonForEvent(e,{version:27,selectedSelectorEntityIds:['sport:motorsport']}),on:!!NOTHINGSPORTS_FOLLOW_FIRST.reasonForEvent(e,{version:27,followFirst:{followedMajorEventIds:['le-mans-24-hours']}}),tbc:e.time===null&&e.dateOnly,finish:finish.estimatedStartTimeUtc,label:NOTHINGSPORTS_CARD_TIMING.presentation(finish).timeLabel,decoded:image.naturalWidth>0};});
+  assert.equal(lemans.count,26);assert(lemans.off&&lemans.on&&lemans.tbc&&lemans.decoded);assert.equal(lemans.finish,'2026-06-14T14:00:00.000Z');
+  const majorAssets=require('../assets/identities/golf/asset-manifest.json').assets;
+  const decodedMajors=await page.evaluate(async assets=>Promise.all(assets.map(async a=>{const r=await fetch('/'+a.path);if(!r.ok)return false;const image=new Image();image.src='/'+a.path;await image.decode();return image.naturalWidth>0&&image.naturalHeight>0;})),majorAssets);
+  assert(decodedMajors.every(Boolean),'used major artwork and complete identity marks decode after upgrade and offline');
+  const viewing=await page.evaluate(async()=>{
+    const load=async code=>(await(await fetch(`/data/code-inspector/${code}.json`)).json()).fixtures;
+    const rugby=await load('rugby-union'),cricket=await load('cricket'),golf=await load('golf');
+    const providers=f=>NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(f).map(o=>o.providerId);
+    const final=rugby.find(f=>f.id==='fixture:rugby:wr:e492d961-1f1e-4c37-b9d7-e9fd811459be');
+    const lpga=['2026068','2026070'].map(id=>golf.find(f=>f.id==='fixture:golf:lpga:'+id));
+    return {unknown:providers({key:'rugby',broadcaster:'Stan Sport'}),bledisloe:providers(rugby.find(f=>f.id==='rugby-new-zealand-australia-2026-10-10')),test:providers(cricket.find(f=>f.id==='fixture:cricket:espn:1525659')),final:providers(final),venue:NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(final).venue,
+      lpga:lpga.map(f=>({id:f.id,providers:providers(f),options:NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(f).map(o=>({scope:o.rightsScope,replay:o.replayVerified})),participationCheckedAt:f.participationCheckedAt})),
+      unrelatedLpga:providers({key:'golf',competitionId:'competition:lpga-tour',name:'LPGA Tour'})};
+  });
+  const currentLpga=require('../data/canonical/pga-tour-schedule.json').lpga;
+  const expectedLpga=['fixture:golf:lpga:2026068','fixture:golf:lpga:2026070'].map(id=>currentLpga.find(f=>f.id===id)).map(f=>({id:f.id,providers:['kayo','foxtel'],options:[{scope:'competition',replay:false},{scope:'competition',replay:false}],participationCheckedAt:f.participationCheckedAt}));
+  assert.deepEqual(viewing,{unknown:[],bledisloe:['nine-tv','nine','stan'],test:['kayo','foxtel'],final:['youtube','stan'],venue:'Scotch College Playing Fields, Swanbourne, Perth',lpga:expectedLpga,unrelatedLpga:[]},'upgraded/offline runtime and cached projections retain honest AU viewing, LPGA token boundaries and original Golf observations');
+  const finalsDestinations=await page.evaluate(async()=>{
+    const data=await(await fetch('/data/follow-schedule/nrl.json')).json(),final=data.fixtures.find(f=>f.canonicalEventId==='evt_84');
+    const options=NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(final),controls=document.createElement('div');
+    appendEventQuickActions(controls,final,{reminder:false,chat:false});
+    return {options:options.map(o=>({id:o.providerId,url:o.webUrl,scope:o.linkScope,checkedAt:o.verifiedAt,permalink:o.permalinkVerifiedAt})),destinations:[...controls.querySelectorAll('a.provider-link')].map(a=>a.getAttribute('href')),access:[...controls.querySelectorAll('.provider-access')].map(n=>n.textContent),labels:[...controls.querySelectorAll('a.provider-link')].map(a=>a.getAttribute('aria-label'))};
+  });
+  assert.deepEqual(finalsDestinations.options.map(o=>o.id),['nine-tv','nine']);
+  assert(finalsDestinations.options.every(o=>o.url==='https://www.9now.com.au/'&&o.scope==='sport'&&o.checkedAt==='2026-09-27T13:39:49.102Z'&&o.permalink===null),'cached reader preserves general destinations and original rights evidence');
+  assert.deepEqual(finalsDestinations.destinations,[],'Cached controls omit unconfirmed replay after upgrade and offline');
+  assert.deepEqual(finalsDestinations.access,[],'Unconfirmed replay cannot leave cost captions');
+  assert.deepEqual(finalsDestinations.labels,[],'Cached unconfirmed replay leaves no placeholder label');
+  const mixedAccess=await page.evaluate(async()=>{
+    const f=(await(await fetch('/data/code-inspector/aflw.json')).json()).fixtures.find(e=>e.id==='event:aflw:cd_m20262641601'),controls=document.createElement('div');
+    appendEventQuickActions(controls,f,{reminder:false,chat:false});
+    return {access:[...controls.querySelectorAll('.provider-access')].map(n=>n.textContent),urls:[...controls.querySelectorAll('a.provider-link')].map(n=>n.href)};
+  });
+  assert.deepEqual(mixedAccess.access,['Free','Subscription','Subscription'],'Cached upgrade and offline retain mixed provider access labels');
+  assert.deepEqual(mixedAccess.urls,['https://7plus.com.au/aflw','https://kayosports.com.au/en-AU/schedule','https://www.foxtel.com.au/watch/sport.html'],'Cost display preserves actual reviewed AFLW destinations');
+}
+
 const baselineSha = process.env.PWA_BASELINE_SHA || 'eb1b495';
 const keepOpen = process.env.PWA_KEEP_OPEN === '1';
 const candidateVersion = JSON.parse(fs.readFileSync(path.join(root,'app-version.json'))).version;
@@ -16,6 +561,7 @@ const tree = new Map(execFileSync('git',['ls-tree','-rz',baselineSha],{cwd:root,
   const split=line.indexOf('\t'); return [line.slice(split+1),line.slice(0,split).split(' ')[2]];
 }));
 const historical = new Map();
+const candidateHeaders=Object.fromEntries((require('../vercel.json').headers.find(rule=>rule.source==='/(.*)')?.headers||[]).map(h=>[h.key,h.value]));
 function baselineFile(name){
   if (!tree.has(name)) return null;
   if (historical.has(name)) return historical.get(name);
@@ -30,8 +576,19 @@ function baselineFile(name){
   historical.set(name,bytes);return bytes;
 }
 const baselineVersion=baselineFile('index.html').toString().match(/name="app-shell-version" content="(\d+)"/)[1];
+const baselineScorePaths=['config/match-centre.js','config/feed-live-scores.js','config/feed-live-score-loader.js'].flatMap(file=>{
+ const match=baselineFile('service-worker.js').toString().match(new RegExp(file.replaceAll('.','\\.')+'\\?v=\\d+'));
+ if(Number(baselineVersion)>=574)assert(match,'The baseline required cache owns '+file);
+ return match?['/'+match[0]]:[];
+});
+const profilePath=html=>html.match(/loadDeferredScript\(["'](config\/athlete-profile-ui\.js\?v=\d+)["']\)/)?.[1];
+const baselineProfilePath=profilePath(baselineFile('index.html').toString());
+const candidateProfilePath=profilePath(fs.readFileSync(path.join(root,'index.html'),'utf8'));
+const matchCentrePath=html=>html.match(/loadDeferredScript\(["'](config\/match-centre\.js\?v=\d+)["']\)/)?.[1];
+const baselineMatchCentrePath=matchCentrePath(baselineFile('index.html').toString());
+const candidateMatchCentrePath=matchCentrePath(fs.readFileSync(path.join(root,'index.html'),'utf8'));
 const launchOptions=process.env.PWA_EXECUTABLE_PATH?{executablePath:process.env.PWA_EXECUTABLE_PATH}:{};
-let phase='baseline', nextRelease=false, optionalFailure=false, coreFailure=false, networkFailure=false, versionRequests=0;
+let phase='baseline', nextRelease=false, optionalFailure=false, coreFailure=false, networkFailure=false, versionRequests=0,navigationObservation;
 function candidateFile(name){
   const file=path.join(root,name);if(!fs.existsSync(file)||!fs.statSync(file).isFile())return null;
   let bytes=fs.readFileSync(file);
@@ -41,68 +598,152 @@ function candidateFile(name){
   return bytes;
 }
 const server=http.createServer((req,res)=>{
-  if(networkFailure){req.socket.destroy();return;}
+  if(installedNetwork.handleRequest(req))return;
+  if(networkFailure){navigationObservation?.serverCutoff(req);req.socket.destroy();return;}
+  if(installedNetwork.preflightDocument(req,res))return;
   let name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/+/, '')||'index.html';
   if(name==='app-version.json')versionRequests++;
   if(name.includes('..')){res.writeHead(400);res.end();return;}
-  if(phase==='candidate' && ((optionalFailure && name==='assets/identities/events/le-mans-24-hours.png') || (coreFailure && name==='assets/js/app-shell-runtime.js'))){res.writeHead(503);res.end();return;}
+  if(phase==='candidate' && ['data/marquee-candidates.v1.json','data/comms-sources.v1.json','data/editorial-maintenance-sources.v1.json','data/editorial-post-match.v1.json'].includes(name)){res.writeHead(404,{'cache-control':'private, no-store'});res.end('Not a public resource');return;}
+  if(phase==='candidate' && ((optionalFailure && name==='assets/identities/events/le-mans-24-hours.png') || (coreFailure && name===(process.env.PWA_REQUIRED_FAILURE_ASSET||'assets/js/app-shell-runtime.js')))){res.writeHead(503);res.end();return;}
   const bytes=phase==='baseline'?baselineFile(name):candidateFile(name);
   if(!bytes){res.writeHead(404);res.end();return;}
-  const type=({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.webmanifest':'application/manifest+json'})[path.extname(name)]||'application/octet-stream';
-  res.writeHead(200,{'content-type':type,'cache-control':'no-store'});res.end(bytes);
+  const type=({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css','.woff2':'font/woff2','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.webmanifest':'application/manifest+json'})[path.extname(name)]||'application/octet-stream';
+  res.writeHead(200,{...(phase==='candidate'?candidateHeaders:{}),'content-type':type,'cache-control':'no-store'});res.end(bytes);
 });
 (async()=>{
-  let browser;
+  let browser,originalFailure;
   try{
     await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
     const origin='http://127.0.0.1:'+server.address().port;
-    browser=await (process.env.PWA_BROWSER==='webkit'?webkit:chromium).launch({headless:true,...launchOptions});
-    const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'allow'});
+    navigationObservation=createNavigationObservation({origin,expectedVersion:String(candidateVersion),expectedIndexSha256:crypto.createHash('sha256').update(candidateFile('index.html')).digest('hex')});
+    installedNetwork.setOrigin(origin);installedNetwork.attachServer(server);
+    browser=await (process.env.PWA_BROWSER==='webkit'?webkit:chromium).launch({headless:true,...launchOptions,...installedNetwork.launchOptions()});
+    await installedNetwork.preflight(browser,{version:baselineVersion,indexSha256:crypto.createHash('sha256').update(baselineFile('index.html')).digest('hex')});
+    const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,serviceWorkers:'allow'});
+    await installedNetwork.attachContext(context);
+    await context.addInitScript(()=>{globalThis.qaUpgradeMessages=[];navigator.serviceWorker?.addEventListener('message',event=>{if(event.data?.type?.startsWith('nothingsport-'))qaUpgradeMessages.push({type:event.data.type,version:event.data.version||null,at:performance.now()});});});
     const page=await context.newPage();
+    const pending=new Set(); context.on('request',r=>pending.add(r.url()));context.on('requestfinished',r=>pending.delete(r.url()));context.on('requestfailed',r=>pending.delete(r.url()));
     const navigations=[];page.on('framenavigated',frame=>{if(frame===page.mainFrame())navigations.push(frame.url());});
     await page.goto(origin+'/?installed-pwa-upgrade=1',{waitUntil:'domcontentloaded'});
     await page.waitForFunction(()=>Boolean(navigator.serviceWorker?.controller),null,{timeout:90000});
     await page.reload({waitUntil:'domcontentloaded'});
     await page.waitForFunction(()=>typeof userPreferences!=='undefined' && !startupCoordinator.isHydrating(),null,{timeout:60000});
-    const savedSelection=await page.evaluate(()=>{
-      const next=clonePreferences(userPreferences);next.feedCompact=true;next.theme='day';next.selectedSelectorEntityIds=['sport:nrl','sport:tennis','sport:f1'];next.followedSports=canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
-      savePreferences(next);
+    const savedSelection=await page.evaluate(modernBaseline=>{
+      const next=clonePreferences(userPreferences);next.onboardingComplete=true;next.feedCompact=true;next.theme='day';next.selectedSelectorEntityIds=['sport:nrl','sport:tennis','sport:f1'];next.followedSports=canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
+      if(modernBaseline){
+        next.preferenceGraph.entityFollows=[{participantId:'team:football:epl:1',followLevel:'follow'},{participantId:'team:football:epl:2',followLevel:'mute'},{participantId:'team:football:epl:3',followLevel:'unfollow'}];
+        next.followFirst.notifications={...next.followFirst.notifications,userChoice:false,enabled:false,autoRemindersEnabled:false,sportingRemindersEnabled:false};
+      }
+      savePreferences(next);acknowledgeSelectorRelease();closeSelectorOptInPrompt();closeSettings({restoreTheme:false});
       sessionStorage.setItem('ns_chat_draft_v2:upgrade-test',JSON.stringify({body:'Preserve this unsent draft'}));
-      return {sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds};
-    });
+      return {sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds,...(modernBaseline?{entities:userPreferences.preferenceGraph.entityFollows,reminders:userPreferences.followFirst.notifications}:{})};
+    },Number(baselineVersion)>=420);
+    const assertSavedNativeChoices=async page=>{if(savedSelection.entities){assert.deepEqual(await page.evaluate(()=>userPreferences.preferenceGraph.entityFollows),savedSelection.entities,'Actual native follows/mutes/unfollows survive cached upgrade and reload');assert.deepEqual(await page.evaluate(()=>userPreferences.followFirst.notifications),savedSelection.reminders,'Remind OFF survives cached upgrade and reload');}};
     assert(savedSelection.selectors.includes('sport:tennis'),'The baseline must actually save the explicit tennis follow');
+    if(baselineProfilePath)await page.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Baseline profile cache could not be populated');await response.text();},baselineProfilePath);
+    if(baselineMatchCentrePath)await page.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Baseline Match Centre cache could not be populated');await response.text();},baselineMatchCentrePath);
+    const warmedOld=await page.evaluate(async paths=>{const rows={};for(const slug of ['football','netball'])rows[slug]=(await(await fetch('/data/follow-schedule/'+slug+'.json')).json()).fixtures.length;for(const url of paths)await(await fetch(url)).text();rows.scorePaths=paths;return rows;},baselineScorePaths);
+    if(Number(baselineVersion)===573){assert.equal(warmedOld.netball,0);assert.equal(warmedOld.football,846);}
+    if(Number(baselineVersion)===574){assert.equal(warmedOld.netball,4);assert.equal(warmedOld.football,894);}
+    await page.evaluate(async version=>{const cache=await caches.open('nothingsport-shell-v'+version);await cache.put('/data/marquee-candidates.v1.json',new Response('{"qaLegacyDraft":true}'));},baselineVersion);
+    await page.evaluate(async version=>{const cache=await caches.open('nothingsport-shell-v'+version);await cache.put('/data/%6darquee-candidates.v1.json',new Response('{"qaLegacyEncodedDraft":true}'));},baselineVersion);
     if(!keepOpen)await page.close();
     phase='candidate';optionalFailure=true;
     const upgraded=keepOpen?page:await context.newPage();let upgradeNavigations=0;
-    upgraded.on('framenavigated',frame=>{if(frame===upgraded.mainFrame())upgradeNavigations++;});
-    if(keepOpen)await upgraded.evaluate(async()=>{const reg=await navigator.serviceWorker.getRegistration();await reg.update();});
-    else await upgraded.goto(origin+'/?installed-pwa-upgrade=1',{waitUntil:'domcontentloaded'});
+    const upgradeNavigationLog=[];
+    // Count document navigations for the reload-loop gate. Follow's ordinary
+    // hash/history transitions also emit framenavigated; retain them separately.
+    const upgradeDocuments=[];upgraded.on('request',r=>{if(r.isNavigationRequest()&&r.resourceType()==='document'&&r.frame()===upgraded.mainFrame()){upgradeNavigations++;upgradeDocuments.push({url:r.url(),at:Date.now(),nextRelease});}});
+    upgraded.on('framenavigated',frame=>{if(frame===upgraded.mainFrame())upgradeNavigationLog.push({url:frame.url(),at:Date.now(),nextRelease});});
+    if(keepOpen){
+      try{await upgraded.evaluate(async()=>{const reg=await navigator.serviceWorker.getRegistration();await reg.update();});}
+      catch(error){
+        // Activation may replace this document before reg.update() resolves.
+        // Require its recorded navigation; every exact-version/cache assertion below still runs.
+        if(!String(error.message).includes('Execution context was destroyed')
+          || !upgradeDocuments.some(navigation=>{const url=new URL(navigation.url);return url.origin===origin&&url.pathname==='/'&&url.searchParams.get('installed-pwa-upgrade')==='1';}))throw error;
+        console.log(JSON.stringify({updateEvaluationReplacedByRecordedNavigation:true,navigations:upgradeDocuments}));
+      }
+    }else await upgraded.goto(origin+'/?installed-pwa-upgrade=1',{waitUntil:'domcontentloaded'});
     const firstVersion=await upgraded.locator('meta[name="app-shell-version"]').getAttribute('content');
     if(!keepOpen && +baselineVersion>=238)assert.equal(firstVersion,candidateVersion,'network-first baselines must receive the current first document');
     // Legacy cache-first workers cannot be retroactively changed: require an
     // automatic migration to the real candidate without a second user launch.
-    try { await upgraded.waitForFunction(v=>document.querySelector('meta[name="app-shell-version"]')?.content===v,candidateVersion,{timeout:60000}); } catch(error) { console.error('Legacy catch-up diagnostic', await upgraded.evaluate(async()=>({version:document.querySelector('meta[name="app-shell-version"]')?.content,update:globalThis.NOTHINGSPORTS_APP_UPDATE?.snapshot(),workers:(await navigator.serviceWorker.getRegistrations()).map(r=>({active:r.active?.scriptURL,waiting:r.waiting?.state,installing:r.installing?.state})),caches:await caches.keys()}))); throw error; }
+    try { await upgraded.waitForFunction(v=>document.querySelector('meta[name="app-shell-version"]')?.content===v,candidateVersion,{timeout:60000}); } catch(error) { console.error('Pending requests', [...pending]); console.error('Legacy catch-up diagnostic',await workerUpgradeDiagnostic(upgraded));console.error('Version reads',versionRequests);throw error; }
     try { await upgraded.waitForFunction(()=>globalThis.NOTHINGSPORTS_APP_UPDATE?.snapshot().workerVersion===document.querySelector('meta[name="app-shell-version"]').content,null,{timeout:45000}); }
-    catch(error){console.error('Worker upgrade diagnostics',await upgraded.evaluate(async()=>({version:document.querySelector('meta[name="app-shell-version"]')?.content,state:globalThis.NOTHINGSPORTS_APP_UPDATE?.snapshot(),workers:(await navigator.serviceWorker.getRegistrations()).map(r=>({active:r.active?.state,waiting:r.waiting?.state,installing:r.installing?.state})),caches:await caches.keys()})));throw error;}
+    catch(error){console.error('Pending requests', [...pending]);console.error('Worker upgrade diagnostics',await upgraded.evaluate(async()=>({version:document.querySelector('meta[name="app-shell-version"]')?.content,state:globalThis.NOTHINGSPORTS_APP_UPDATE?.snapshot(),workers:(await navigator.serviceWorker.getRegistrations()).map(r=>({active:r.active?.state,waiting:r.waiting?.state,installing:r.installing?.state})),caches:await caches.keys()})));throw error;}
 
     assert.equal(new URL(upgraded.url()).searchParams.get('installed-pwa-upgrade'),'1');
+    const expectedStandings=JSON.parse(JSON.stringify(require('./build-app-shell-runtime').cardStandings().map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))));
+    await upgraded.waitForFunction(()=>Array.isArray(globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS));
+    const calendarUi=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/loadDeferredScript\('([^']*calendar-sync-ui\.js\?v=\d+)'\)/)[1];
+    assert.equal(await upgraded.evaluate(url=>caches.match('/'+url).then(r=>r?.text()),calendarUi),fs.readFileSync(path.join(root,'assets/js/calendar-sync-ui.js'),'utf8'),'Calendar UI is available from the exact upgraded offline cache');
+    const stylesheet=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/href="(styles\/follow-feed-rework\.css\?v=\d+)"/)[1];
+    assert.equal(await upgraded.evaluate(url=>caches.match('/'+url).then(r=>r?.text()),stylesheet),fs.readFileSync(path.join(root,'styles/follow-feed-rework.css'),'utf8'),'Upgraded cache must contain the exact versioned card stylesheet');
+    await assertCachedAccountIndicator(upgraded);await assertCachedBundledTaxonomy(upgraded);
+    await assertCurrentScheduleAndScoreCaches(upgraded);
+    const manifestCache=await upgraded.evaluate(async version=>({controller:navigator.serviceWorker.controller?.scriptURL,caches:await Promise.all((await caches.keys()).filter(k=>k.startsWith('nothingsport-shell-')).map(async key=>({key,manifest:Boolean(await(await caches.open(key)).match('/data/code-inspector/manifest.json'))}))),current:Boolean(await(await caches.open('nothingsport-shell-v'+version)).match('/data/code-inspector/manifest.json'))}),candidateVersion);
+    console.log('Online Schedule manifest cache',JSON.stringify(manifestCache));
+    assert(manifestCache.current,'The online Diamonds journey must retain its Schedule manifest in the current installed cache');
+
+    assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'cached old runtime cannot conceal current source observations and shared/pending ranks');
+    let profileCacheVerified=false;
+    if(candidateProfilePath){
+      const profile=await upgraded.evaluate(async url=>{const response=await fetch('/'+url);if(!response.ok)throw Error('Candidate profile module unavailable');return response.text();},candidateProfilePath);
+    assert.equal(crypto.createHash('sha256').update(profile).digest('hex'),crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'config/athlete-profile-ui.js'))).digest('hex'),'Previously cached profile must not conceal the upgraded module');
+      for(const prefix of ['config/athletes.js','assets/js/athletes-ui.js']){
+        const url=fs.readFileSync(path.join(root,'index.html'),'utf8').match(new RegExp(prefix.replaceAll('.','\\.')+'\\?v=\\d+'))[0];
+        assert.equal(await upgraded.evaluate(url=>caches.match('/'+url).then(r=>r?.text()),url),fs.readFileSync(path.join(root,prefix),'utf8'),'The upgraded offline cache retains the exact current Follow module');
+      }
+      profileCacheVerified=true;
+      await assertCachedFootballStatus(upgraded);
+      await assertCachedCanonicalResults(upgraded);await assertCachedFixtureHighlights(upgraded);
+      await assertCachedMinimisedRows(upgraded);
+      await assertCachedMultidayRetention(upgraded);
+    await assertCachedFonts(upgraded);await assertCachedParticipantCalendar(upgraded);await assertCachedStageCalendarPolicy(upgraded);await assertCachedAflwFinalDate(upgraded);
+      await assertCachedReviewedCalendarNotes(upgraded);
+    }
     await upgraded.waitForFunction(()=>typeof userPreferences!=='undefined');
     assert.equal(await upgraded.evaluate(()=>userPreferences.feedCompact),true,'Saved compact preference must survive legacy migration');
     assert.equal(await upgraded.evaluate(()=>userPreferences.theme),'day','Saved appearance must survive migration');
     const restoredSelection=await upgraded.evaluate(()=>({sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds}));
+    await assertSavedNativeChoices(upgraded);
     assert.deepEqual(restoredSelection.selectors,savedSelection.selectors,'Canonical follow selections survive migration');
     // New taxonomy children (e.g. NRLW under NRL) may expand a followed code,
     // but none of its previously included sports may disappear.
     assert(savedSelection.sports.every(sport=>restoredSelection.sports.includes(sport)),'Existing followed sport coverage survives migration');
     if(keepOpen)assert.equal(await upgraded.evaluate(()=>JSON.parse(sessionStorage.getItem('ns_chat_draft_v2:upgrade-test')).body),'Preserve this unsent draft');
-    await upgraded.waitForTimeout(3500);assert(upgradeNavigations<=2,'Legacy migration must navigate at most once');
+    await upgraded.waitForTimeout(3500);assert(upgradeNavigations<=2,'Legacy migration must navigate at most once: '+JSON.stringify(upgradeNavigationLog));
     // The ongoing release exercises an already-open page, rather than another
     // fresh navigation. The old releases above use authentic historical bytes.
     const currentState=await upgraded.evaluate(async()=>{await NOTHINGSPORTS_APP_UPDATE.check({force:true});return NOTHINGSPORTS_APP_UPDATE.snapshot();});
     assert.equal(currentState.phase,'current');
+    if(candidateHeaders['Content-Security-Policy']){
+      const cachedPolicy=await upgraded.evaluate(async()=>{const shell=await caches.match('/index.html');return shell?.headers.get('content-security-policy');});
+      assert.equal(cachedPolicy,candidateHeaders['Content-Security-Policy'],'installed shell must retain the new response policy offline');
+    }
     const before=versionRequests;
     await upgraded.evaluate(()=>{for(let i=0;i<100;i++)window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));});
     await upgraded.waitForTimeout(200);assert(versionRequests-before<=1,'Resume events must coalesce');
+    const assertOwnerSourcesClosed=async()=>{
+      const values=await upgraded.evaluate(async()=>Promise.all(['/data/marquee-candidates.v1.json','/data/comms-sources.v1.json','/data/editorial-maintenance-sources.v1.json','/data/editorial-post-match.v1.json','/data/%6darquee-candidates.v1.json','/data%2fmarquee-candidates.v1.json'].map(async url=>{const r=await fetch(url);return {status:r.status,cached:Boolean(await caches.match(url))};})));
+      assert.deepEqual(values,Array.from({length:6},()=>({status:404,cached:false})),'upgraded worker must deny plain/encoded source downloads and discard seeded legacy draft caches');
+    };
+    await assertOwnerSourcesClosed();
+    await upgraded.evaluate(async()=>{const r=await fetch('/participate.html');if(!r.ok)throw Error('Public fixture page unavailable');await r.text();});
+    await upgraded.waitForFunction(async()=>Boolean(await caches.match('/participate.html')));
+    const participationCache=await upgraded.evaluate(async()=>await(await caches.match('/participate.html')).text());
+    assert(!participationCache.includes('/data/marquee-candidates.v1.json')&&participationCache.includes('/api/participation'),'cached fixture page must use the public projection');
+    // Use the actual directory before disconnecting so offline acceptance reaches
+    // the same real scroll boundary, rather than an empty short page.
+    await assertFollowPickerJourney(upgraded);await assertDirectoryDefaults(upgraded);await assertCachedFollowNavigation(upgraded);await assertSavedNativeChoices(upgraded);
+    // The later original NFL/table probes intentionally exercise men's fixtures.
+    await upgraded.getByRole('tab',{name:'Men',exact:true}).tap();
+    await upgraded.locator('.tabs [data-tab=feed]').tap();
+    installedNetwork.assertIsolated();
+    navigationObservation.begin(upgraded);
     await context.setOffline(true);
     await upgraded.evaluate(()=>NOTHINGSPORTS_APP_UPDATE.check({force:true}));
     assert.equal(await upgraded.evaluate(()=>NOTHINGSPORTS_APP_UPDATE.snapshot().phase),'offline');
@@ -110,8 +751,35 @@ const server=http.createServer((req,res)=>{
     // browser-level offline emulation can reject navigation before dispatching
     // a service-worker fetch, which is a different scenario.
     await context.setOffline(false);networkFailure=true;
-    await upgraded.reload({waitUntil:'domcontentloaded'});
+    await navigationObservation.beforeReload();
+    await navigationObservation.reload(()=>upgraded.reload({waitUntil:'domcontentloaded'}));
     assert.equal(await upgraded.locator('meta[name="app-shell-version"]').getAttribute('content'),candidateVersion,'Offline navigation uses the validated current shell');
+    await upgraded.waitForFunction(()=>Array.isArray(globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS));
+    assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'offline restart retains the upgraded source observations and all positions');
+    await assertCachedAccountIndicator(upgraded);await assertCachedBundledTaxonomy(upgraded);
+    await assertCurrentScheduleAndScoreCaches(upgraded);
+    await assertOwnerSourcesClosed();
+    await assertCachedFootballStatus(upgraded);
+    await assertCachedCanonicalResults(upgraded);await assertCachedFixtureHighlights(upgraded);
+    await assertCachedMinimisedRows(upgraded);
+    await assertCachedMultidayRetention(upgraded);
+    await assertCachedFonts(upgraded);await assertCachedParticipantCalendar(upgraded);await assertCachedStageCalendarPolicy(upgraded);await assertCachedAflwFinalDate(upgraded);
+    await assertCachedReviewedCalendarNotes(upgraded);
+    await assertSavedNativeChoices(upgraded);
+    if(fs.existsSync(path.join(root,'assets/js/follow-presentation-ui.js'))){
+      const choices=()=>JSON.stringify({sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds,entities:userPreferences.preferenceGraph.entityFollows,spoilers:userPreferences.showSpoilers,theme:userPreferences.theme,notifications:userPreferences.notifications});
+      const before=await upgraded.evaluate(choices);
+      await upgraded.evaluate(()=>{closeSettings();activeTab='follow';followHomeView='favourites';renderAll();});
+      await upgraded.getByRole('button',{name:'Sports',exact:true}).click();
+      await upgraded.locator('.follow-navigation').waitFor();
+      assert.equal(await upgraded.evaluate(choices),before,'first Follow open offline retains follows, spoiler, appearance and notification choices');
+      const url=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/const url='(assets\/js\/follow-presentation-ui\.js\?v=\d+)'/)[1];
+      const cached=await upgraded.evaluate(async url=>{const r=await caches.match('/'+url);return r?await r.text():null;},url);
+      assert.equal(cached,fs.readFileSync(path.join(root,'assets/js/follow-presentation-ui.js'),'utf8'),'offline first open executes the exact precached Follow interface');
+      await assertFollowPickerJourney(upgraded);await assertDirectoryDefaults(upgraded);await assertCachedFollowNavigation(upgraded);await assertSavedNativeChoices(upgraded);
+      await upgraded.getByRole('tab',{name:'Men',exact:true}).tap();
+      await upgraded.evaluate(()=>{activeTab='feed';renderAll();});
+    }
     networkFailure=false;await context.setOffline(false);
     await upgraded.waitForFunction(()=>typeof NOTHINGSPORTS_APP_UPDATE!=='undefined');
     await upgraded.evaluate(()=>sessionStorage.setItem('ns_chat_draft_v2:upgrade-test',JSON.stringify({body:'Preserve this unsent draft'})));
@@ -133,8 +801,14 @@ const server=http.createServer((req,res)=>{
     assert.equal(await upgraded.evaluate(()=>JSON.parse(sessionStorage.getItem('ns_chat_draft_v2:upgrade-test')).body),'Preserve this unsent draft');
     await upgraded.waitForFunction(()=>typeof userPreferences!=='undefined');
     assert.equal(await upgraded.evaluate(()=>userPreferences.feedCompact),true);
+    await assertSavedNativeChoices(upgraded);
     await upgraded.waitForTimeout(3500);
-    assert(upgradeNavigations<=4,'No repeat navigation after resumed update');
-    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,legacyAutomaticCatchup:true,upgradeNavigations,preferencesPreserved:true,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true},null,2));
-  }finally{await browser?.close();await new Promise(resolve=>server.close(resolve));}
+    assert(upgradeNavigations<=4,'No repeat navigation after resumed update: '+JSON.stringify({frames:upgradeNavigationLog,documents:upgradeDocuments}));
+    installedNetwork.assertIsolated();
+    console.log(JSON.stringify({baselineVersion,candidateVersion,firstVersion,keepOpen,oldScheduleAndScoreKeysWarmed:warmedOld,retainedSchedulesAndCurrentScoreOwners:true,legacyAutomaticCatchup:true,upgradeNavigations,upgradeDocuments,frameNavigationEvents:upgradeNavigationLog,preferencesPreserved:true,nativeDispositionAndRemindOffVerified:!!savedSelection.entities,optionalFailureTolerated:true,requiredFailurePreservesShell:true,offlineFallback:true,resumeUpgrade:true,profileCacheVerified,standingsCacheVerified:true,footballStatusCacheVerified:true,canonicalFinalResultsCacheVerified:true,minimisedRowsCacheVerified:true,multidayRetentionCacheVerified:true,cricketStatusCacheVerified:true,nhlViewingCacheVerified:true,matchCentreCacheVerified:true,fontCacheVerified:true},null,2));
+  }catch(error){originalFailure=error;throw error;}
+  finally{
+    try{await installedNetwork.close(browser,server,originalFailure);}
+    finally{console.log('Installed test network',JSON.stringify(installedNetwork.snapshot()));}
+  }
 })().catch(error=>{console.error(error);process.exitCode=1;});

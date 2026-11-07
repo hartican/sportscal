@@ -130,12 +130,28 @@
   }
 
   function timingState(event, now = new Date()){
+    const odi=typeof module==='object'&&module.exports?require('./odi-display'):globalThis.NOTHINGSPORTS_ODI_DISPLAY;
+    if(odi?.awaiting(event,now))return Object.freeze({key:'awaiting-result',label:odi.label,ariaLabel:odi.label});
     const status=String(event?.status || event?.scheduleStatus || "").toLowerCase();
-    if(["cancelled","canceled","postponed"].includes(status))return null;
+    if(["cancelled","canceled","postponed","abandoned","suspended"].includes(status))return null;
+    if(event?.planningTimeEvidence&&['scheduled','upcoming'].includes(status)&&Date.parse(event.estimatedStartTimeUtc)<=+new Date(now))return Object.freeze({key:'awaiting-update',label:'Awaiting match update',ariaLabel:'Match status unconfirmed; awaiting a source update'});
     const start = eventStart(event);
-    if (!start) return null;
     const reference = now instanceof Date ? now : new Date(now);
     if (Number.isNaN(reference.getTime())) return null;
+    if(status==='break'&&event.statusText==='Half-time'){
+      const checked=Date.parse(event.statusCheckedAt||'');
+      const fresh=Number.isFinite(checked)&&checked<=+reference&&+reference-checked<=4*60*1000&&event.sourceStale!==true&&event.stale!==true;
+      return fresh?Object.freeze({key:'half-time',label:'Half-time',ariaLabel:'Half-time'}):Object.freeze({key:'awaiting-update',label:'Awaiting match update',ariaLabel:'Match status unconfirmed; awaiting a source update'});
+    }
+    if(!start){
+      if(event?.tournamentParent||event?.cardKind==='event'||event?.cardType==='tournament_overview'||event?.dateOnly&&event?.endDate)return null;
+      // A dated live observation is independent of a published start clock.
+      // Never invent that clock, or turn an old live observation into upcoming.
+      if(!['live','in_progress','in-progress','ongoing'].includes(status))return null;
+      const checked=Date.parse(event?.statusCheckedAt||event?.statusSource?.checkedAt||event?.livePlayObservedAt||'');
+      const fresh=Number.isFinite(checked)&&checked<=+reference&&+reference-checked<=30*60*1000&&event?.sourceStale!==true&&event?.stale!==true&&/^https:\/\//.test(event?.statusSourceUrl||event?.statusSource?.sourceUrl||event?.sourceUrl||'');
+      return fresh?Object.freeze({key:'live-now',label:'Live Now',ariaLabel:'Live now'}):Object.freeze({key:'awaiting-update',label:'Awaiting match update',ariaLabel:'Match status unconfirmed; awaiting a source update'});
+    }
     const startMs = start.getTime();
     // Result publication is editorial metadata, not event timing. A delayed
     // score update must never make a days-old fixture look "Just Finished".
@@ -144,7 +160,15 @@
     const endMs = Number.isFinite(explicitEnd) && explicitEnd >= startMs ? explicitEnd : derivedEnd;
     const nowMs = reference.getTime();
     const statusCheckedAt=Date.parse(event?.statusCheckedAt || event?.statusSource?.checkedAt || event?.timingSource?.checkedAt || "");
-    const freshExplicitStatus=Number.isFinite(statusCheckedAt)&&Math.abs(nowMs-statusCheckedAt)<=30*60*1000;
+    const freshExplicitStatus=Number.isFinite(statusCheckedAt)&&statusCheckedAt<=nowMs&&nowMs-statusCheckedAt<=30*60*1000;
+    // Published match schedules are not live observations. A fresh explicit
+    // live overlay may supersede them, but elapsed time never does.
+    if(event?.sourceAttribution?.provider==='OpenLigaDB'||/^competition:(n[bfh]l$|chl$|premier-league-|uefa-(champions|europa)-league$|afl(?:w-|-premiership-)|nrl(?:w-|-premiership-))/.test(event?.competitionId||'')){
+      if(nowMs>=startMs && !['completed','finished','final'].includes(status)
+        && !(['live','in_progress','in-progress','ongoing'].includes(status)&&freshExplicitStatus)){
+        return Object.freeze({key:'awaiting-update',label:'Awaiting match update',ariaLabel:'Match status unconfirmed; awaiting a source update'});
+      }
+    }
     if(["live","in_progress","in-progress","ongoing"].includes(status) && nowMs>=startMs && (nowMs<endMs || freshExplicitStatus))return Object.freeze({key:"live-now",label:"Live Now",ariaLabel:"Live now"});
     if (nowMs >= startMs - STARTS_SOON_MS && nowMs < startMs){
       return Object.freeze({ key:"starts-soon", label:"Starts Soon", ariaLabel:"Starts soon" });

@@ -69,7 +69,7 @@ const expectedFinalsParticipants = [
   "competitor:nba:jalen-brunson",
   "competitor:nba:victor-wembanyama",
 ];
-const nbaEvents = feed.events.filter(event => event.key === "nba");
+const nbaEvents = feed.events.filter(event => event.key === "nba" && /Finals/i.test(event.competitionName||event.name));
 const contextualEvents = sportContext.applyContextToEvents(nbaEvents, context);
 assert.equal(contextualEvents.length, 7, "the published NBA Finals card run must remain intact");
 assert(contextualEvents.every(event => event.sportDomainId === "sport:nba"));

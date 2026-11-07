@@ -1,0 +1,106 @@
+{
+  "capturedAt": "2026-10-11T02:02:25.528Z",
+  "sourceUrl": "https://api-web.nhle.com/v1/club-schedule-season/DET/20262027",
+  "game": {
+    "id": 2026020075,
+    "season": 20262027,
+    "gameType": 2,
+    "gameDate": "2026-10-10",
+    "venue": {
+      "default": "Centre Bell"
+    },
+    "neutralSite": false,
+    "startTimeUTC": "2026-10-10T23:00:00Z",
+    "easternUTCOffset": "-04:00",
+    "venueUTCOffset": "-04:00",
+    "venueTimezone": "America/Montreal",
+    "gameState": "CRIT",
+    "gameScheduleState": "OK",
+    "tvBroadcasts": [
+      {
+        "id": 287,
+        "market": "N",
+        "countryCode": "CA",
+        "network": "SNE",
+        "sequenceNumber": 30
+      },
+      {
+        "id": 281,
+        "market": "N",
+        "countryCode": "CA",
+        "network": "TVAS",
+        "sequenceNumber": 120
+      },
+      {
+        "id": 645,
+        "market": "A",
+        "countryCode": "US",
+        "network": "DSN",
+        "sequenceNumber": 1
+      }
+    ],
+    "awayTeam": {
+      "id": 17,
+      "commonName": {
+        "default": "Red Wings"
+      },
+      "placeName": {
+        "default": "Detroit"
+      },
+      "placeNameWithPreposition": {
+        "default": "Detroit",
+        "fr": "de Detroit"
+      },
+      "abbrev": "DET",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+      "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DET_dark.svg",
+      "awaySplitSquad": false,
+      "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/DET/20262027/DET-radio.m3u8",
+      "score": 0
+    },
+    "homeTeam": {
+      "id": 8,
+      "commonName": {
+        "default": "Canadiens"
+      },
+      "placeName": {
+        "default": "Montr\u00e9al"
+      },
+      "placeNameWithPreposition": {
+        "default": "Montr\u00e9al",
+        "fr": "de Montr\u00e9al"
+      },
+      "abbrev": "MTL",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
+      "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MTL_dark.svg",
+      "homeSplitSquad": false,
+      "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/MTL/20262027/MTL-radio.m3u8",
+      "score": 0
+    },
+    "periodDescriptor": {
+      "number": 5,
+      "periodType": "SO",
+      "maxRegulationPeriods": 3
+    },
+    "gameCenterLink": "/gamecenter/det-vs-mtl/2026/10/10/2026020075"
+  },
+  "crossCheck": {
+    "landingCheckedAt": "2026-10-11T02:02:25.253Z",
+    "officialVisiblePage": {
+      "checkedAt": "2026-10-11T02:04:38.550Z",
+      "url": "https://www.nhl.com/gamecenter/det-vs-mtl/2026/10/10/2026020075",
+      "visibleMatchHeading": "Detroit\nRed Wings\nSOG: 29\n0\nSO\n0\nMontr\u00e9al\nCanadiens\nSOG: 29",
+      "verifiedThrough": "Native in-app browser, exact accessible match heading",
+      "limits": [
+        "One actual unresolved shootout; not other game phases, playback or all-league certification."
+      ]
+    },
+    "officialUiBundle": {
+      "url": "https://wsr.nhle.com/static/js/main.bundle.js?rel=4.1.1-fe56584d",
+      "checkedAt": "2026-10-11T02:05:03.461Z",
+      "bytes": 1816197,
+      "sha256": "682af5e7a8d1e1c9632ae65ad2d0c3348f22ae65ff383353846fec71fdc03f7b"
+    },
+    "officialUiSemantics": "The published isGameLive predicate includes LIVE and CRIT; final states use a separate predicate."
+  }
+}

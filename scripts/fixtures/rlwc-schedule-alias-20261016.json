@@ -1,0 +1,311 @@
+{
+  "provenance": {
+    "sourceGitSha": "3d8911fd44f31272f624d67d3f0e996bf8c3af96",
+    "capturedAt": "2026-10-16T09:46:20.370406+00:00",
+    "sourceFiles": [
+      "data/major-events.v1.json",
+      "data/code-inspector/nrl.json"
+    ],
+    "scope": "Dated public-source regression; editorial copy omitted because this tests fact selection, not writing. No source clock or sporting fact changed."
+  },
+  "parent": {
+    "id": "major-event:rlwc-2026",
+    "competitionId": "competition:rugby-league-world-cup:2026",
+    "sportKey": "nrl",
+    "sportLabel": "Rugby league",
+    "venue": "Multiple venues",
+    "sources": [
+      {
+        "name": "RLWC 2026 official draw",
+        "url": "https://www.rlwc2026.com/draws-and-pools",
+        "checkedAt": "2026-08-23T06:00:00.000Z"
+      },
+      {
+        "name": "Ticketmaster RLWC 2026 fixture listing",
+        "url": "https://www.ticketmaster.com.au/rugby-league-world-cup-2026-tickets/artist/1167790",
+        "checkedAt": "2026-08-23T06:00:00.000Z"
+      },
+      {
+        "name": "RLWC 2026 \u2014 fixtures and tournament scale",
+        "url": "https://www.rlwc2026.com/news/2026-rugby-league-world-cup-fixtures-announced",
+        "checkedAt": "2026-08-29T23:56:41.761Z"
+      },
+      {
+        "name": "RLWC 2026 \u2014 competition rules",
+        "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
+        "checkedAt": "2026-08-29T23:56:41.761Z"
+      },
+      {
+        "name": "NRL \u2014 Kiwis' 2026 World Cup opener context",
+        "url": "https://www.nrl.com/news/2026/05/07/kiwis-unveil-plan-to-rewrite-record-books-in-world-cup-opener/",
+        "checkedAt": "2026-08-29T23:56:41.761Z"
+      },
+      {
+        "name": "NRL \u2014 Australia and New Zealand World Cup build",
+        "url": "https://www.nrl.com/news/2026/04/15/six-months-to-go-kiwis-gearing-up-for-kangaroos-showdown/",
+        "checkedAt": "2026-08-29T23:56:41.761Z"
+      }
+    ],
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ]
+  },
+  "child": {
+    "id": "major-match:rlwc-2026:australia-new-zealand",
+    "name": "Australia v New Zealand",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nrl:kangaroos",
+      "team:nrl:kiwis"
+    ],
+    "startTimeUtc": "2026-10-15T09:05:00.000Z",
+    "venue": "Allianz Stadium",
+    "stakesScore": 5,
+    "participants": [
+      {
+        "name": "Australia",
+        "role": "home"
+      },
+      {
+        "name": "New Zealand",
+        "role": "away"
+      }
+    ],
+    "summary": "The opening men's pool match in Sydney."
+  },
+  "fixture": {
+    "id": "rlwc-australia-new-zealand-2026",
+    "sourceEventIds": [
+      "rlwc-australia-new-zealand-2026",
+      "major-match:rlwc-2026:australia-new-zealand"
+    ],
+    "codeId": "sport:nrl",
+    "key": "nrl",
+    "statusCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+    "scoreCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+    "competitionId": "competition:rugby-league-world-cup:2026",
+    "name": "Australia v New Zealand \u2014 Rugby League World Cup",
+    "date": "2026-10-15",
+    "time": "20:05",
+    "timePrecision": "exact",
+    "startTimeUtc": "2026-10-15T09:05:00.000Z",
+    "roundNumber": 1,
+    "canonicalEventId": "rlwc-australia-new-zealand-2026",
+    "firstConfirmedCompleteAt": "2026-10-15T14:24:33.442807+00:00",
+    "resultSourceUrl": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/",
+    "resultSourceCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+    "narrativeType": "match",
+    "competitionName": "Rugby League World Cup",
+    "sourceName": "NRL official match centre",
+    "sourceType": "official",
+    "sourceCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+    "homeScore": 24,
+    "awayScore": 22,
+    "score": "Australia 24\u201322 New Zealand",
+    "outcomeText": "Australia defeated New Zealand 24\u201322.",
+    "recapText": "The official NRL match centre records a 24\u201322 full-time result at Allianz Stadium in the World Cup opener.",
+    "consensusTags": [],
+    "venue": "Allianz Stadium, Sydney",
+    "status": "completed",
+    "scheduleStatus": "confirmed",
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nrl:kangaroos",
+        "label": "Australian Kangaroos",
+        "logoUrl": "assets/identities/national/rugby-league/kangaroos.svg"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nrl:kiwis",
+        "label": "New Zealand Kiwis",
+        "logoUrl": "assets/identities/national/rugby-league/kiwis.svg"
+      }
+    ],
+    "participantIds": [
+      "team:nrl:kangaroos",
+      "team:nrl:kiwis"
+    ],
+    "participants": [
+      {
+        "name": "Australia",
+        "role": "home",
+        "id": ""
+      },
+      {
+        "name": "New Zealand",
+        "role": "away",
+        "id": ""
+      }
+    ],
+    "participantCountryCodes": [],
+    "detailsExpectedAt": null,
+    "schedulingWindow": {
+      "startsOn": "2026-10-15",
+      "endsOn": "2026-11-15",
+      "timeZone": "Australia/Sydney"
+    },
+    "resultStatus": "official",
+    "roundLabel": "Rugby League World Cup Round 1",
+    "stage": "finals",
+    "groupOrder": 5000,
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "AUS"
+    ],
+    "expected": 10,
+    "broadcaster": "Seven / 7plus Sport",
+    "viewingOptions": [],
+    "sourceUrl": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/",
+    "ticketUrl": null,
+    "sourceCoverage": "published-feed"
+  },
+  "staleCanonical": {
+    "id": "rlwc-australia-new-zealand-2026",
+    "key": "nrl",
+    "date": "2026-10-15",
+    "name": "Australia v New Zealand \u2014 Rugby League World Cup",
+    "time": "20:05",
+    "round": "all",
+    "sport": "Rugby League",
+    "venue": "Allianz Stadium, Sydney",
+    "status": "upcoming",
+    "eventId": "rlwc-australia-new-zealand-2026",
+    "expected": 10,
+    "fullSpiel": "Australia and New Zealand start the men's tournament at Allianz Stadium with current championship credentials on both sides. Cook Islands and Fiji share their pool, and a 2008 precedent cautions that opening night can shape the path without settling the trophy.",
+    "sourceUrl": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
+    "storyline": {
+      "stakes": 5,
+      "arcStage": "preview",
+      "intensity": 5,
+      "hookSpoilerOn": "The World Cup opens with the defending champions against the Pacific Cup holders, and only two Pool A sides advance.",
+      "researchDepth": 5,
+      "hookSpoilerOff": "The World Cup opens with the defending champions against the Pacific Cup holders, and only two Pool A sides advance.",
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z",
+      "intensitySource": "computed",
+      "expectedSpectacle": 10,
+      "synopsisSpoilerOn": "Australia and New Zealand start the men's tournament at Allianz Stadium with current championship credentials on both sides. Cook Islands and Fiji share their pool, and a 2008 precedent cautions that opening night can shape the path without settling the trophy.",
+      "synopsisSpoilerOff": "Australia and New Zealand start the men's tournament at Allianz Stadium with current championship credentials on both sides. Cook Islands and Fiji share their pool, and a 2008 precedent cautions that opening night can shape the path without settling the trophy."
+    },
+    "broadcasts": [],
+    "liveWindow": 3,
+    "sourceName": "RLWC 2026 \u2014 competition rules",
+    "sourceType": "official",
+    "broadcaster": "Seven / 7plus Sport",
+    "sourceTrust": "unverified",
+    "participants": [
+      {
+        "id": "",
+        "name": "Australia",
+        "role": "home"
+      },
+      {
+        "id": "",
+        "name": "New Zealand",
+        "role": "away"
+      }
+    ],
+    "startTimeUtc": "2026-10-15T09:05:00.000Z",
+    "consensusTags": [],
+    "narrativeType": "match",
+    "timePrecision": "exact",
+    "broadcasterIds": [],
+    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
+    "participantIds": [
+      "team:nrl:kangaroos",
+      "team:nrl:kiwis"
+    ],
+    "replayEligible": true,
+    "scoreCheckedAt": null,
+    "sourceEventIds": [
+      "rlwc-australia-new-zealand-2026"
+    ],
+    "viewingOptions": [],
+    "catchupEligible": true,
+    "isInternational": true,
+    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+    "statusCheckedAt": "2026-08-29T23:56:41.761+00:00",
+    "briefingEligible": true,
+    "broadcastOptions": [
+      "Seven",
+      "7plus Sport"
+    ],
+    "canonicalEventId": "rlwc-australia-new-zealand-2026",
+    "competitionScope": "international",
+    "editorialPreview": {
+      "angle": "Champions meet on opening night",
+      "status": "journalistic",
+      "sourceUrl": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
+      "sourceName": "RLWC 2026 \u2014 competition rules",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:consequence",
+        "narrative:history"
+      ],
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+      "needsPreviewRefresh": false
+    },
+    "participantSlots": [],
+    "selectedSentence": "The World Cup opens with the defending champions against the Pacific Cup holders, and only two Pool A sides advance.",
+    "highlightEligible": true,
+    "editorialNarrative": {
+      "hook": "The World Cup opens with the defending champions against the Pacific Cup holders, and only two Pool A sides advance.",
+      "factIds": [
+        "fact:rlwc-aus-nz:opening-match",
+        "fact:rlwc-aus-nz:recent-champions",
+        "fact:rlwc-aus-nz:pool-path",
+        "fact:rlwc-aus-nz:2008-precedent"
+      ],
+      "synopsis": "Australia and New Zealand start the men's tournament at Allianz Stadium with current championship credentials on both sides. Cook Islands and Fiji share their pool, and a 2008 precedent cautions that opening night can shape the path without settling the trophy.",
+      "sourceIds": [
+        "source:rlwc2026:competition-rules",
+        "source:rlwc2026:fixtures-announced",
+        "source:nrl:2026-kiwis-record-book-plan",
+        "source:nrl:2026-six-months-to-rlwc"
+      ],
+      "threadIds": [
+        "thread:rlwc:2026:kangaroos-kiwis-opener",
+        "thread:rlwc:2026:three-tournaments-one-world-cup"
+      ],
+      "dimensions": [
+        "matchup",
+        "form",
+        "consequence",
+        "history"
+      ],
+      "projectionId": "projection:feed:rlwc-australia-new-zealand-2026",
+      "refreshAfter": "2026-10-01T12:00:00.000Z",
+      "researchTier": "marquee",
+      "researchedAt": "2026-08-29T23:56:41.761Z",
+      "schemaVersion": "editorial-narrative.v2",
+      "generationMode": "researched"
+    },
+    "displayTitleCompact": "Australia v New Zealand",
+    "scoreFactObservedAt": null,
+    "statusFactObservedAt": "2026-08-29T23:56:41.761+00:00",
+    "representativeSportKey": "nrl",
+    "participantCountryCodes": [],
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "representativeCountryCodes": [
+      "AUS"
+    ],
+    "manualEstimateHeld": false
+  },
+  "staleCanonicalProvenance": {
+    "capturedAt": "2026-10-16T10:56:22Z",
+    "source": "Public selected fixture response on deployed419/shell555",
+    "responseSHA256": "39ed27a3f1c2ec4b1d8939f4c22ab25f504d11d5b7b87bbbc75bd6cfa3b164ad",
+    "scope": "Exact retained upcoming canonical candidate; no competition/round/result fact filled or observation changed."
+  }
+}

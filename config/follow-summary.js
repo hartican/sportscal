@@ -9,11 +9,13 @@
       const item=previous || {id:record.id||id,kind,sport:record.sportKey||sport||"other",competition:record.leagueId||record.competitionId||"",competitionLabel:record.leagueName||record.competitionName||null,label:record.displayName||record.name||record.label||label||id,origins:[]};
       if(origin&&!item.origins.includes(origin))item.origins.push(origin);items.set(key,item);
     };
-    for(const sport of next.followedSports)add(`sport:${sport}`,"sport",sport,STARTUP_SPORTS.find(item=>item.id===sport)?.label||sport);
+    const scoped={wsl:'wsl-championship-tour',tdf:'tour-de-france',giro:'giro-ditalia',vuelta:'vuelta-a-espana'};
+    const explicit=key=>(next.selectedSelectorEntityIds||[]).includes('sport:'+key)||(next.preferenceGraph?.competitionPreferences||[]).some(p=>p.competitionId==='competition:'+scoped[key]&&p.enabled===true);
+    for(const sport of next.followedSports.filter(key=>!scoped[key]||explicit(key)))add(`sport:${sport}`,"sport",sport,STARTUP_SPORTS.find(item=>item.id===sport)?.label||sport);
     for(const id of next.selectedSelectorEntityIds || [])if(id.startsWith("sport:"))add(id,"sport",id.slice(6),byId.get(id)?.label||id.slice(6));
     for(const id of next.followFirst.followedMajorEventIds){const family=MAJOR_EVENT_FAMILIES.find(item=>item.id===id);add(id,"event",family?.sportIds[0]||"multi-sport",family?.label||id);}
     for(const item of next.preferenceGraph?.competitionPreferences || [])if(item.enabled===true)add(item.competitionId,"event",String(item.sportDomainId||"other").replace(/^sport:/,""),item.competitionId);
-    const muted=new Set((next.preferenceGraph?.entityFollows || []).filter(item=>item.followLevel==="mute").map(item=>identity(item.participantId)));
+    const muted=new Set((next.preferenceGraph?.entityFollows || []).filter(item=>["unfollow","mute"].includes(item.followLevel)).map(item=>identity(item.participantId)));
     for(const item of next.preferenceGraph?.entityFollows || [])if(["follow","priority"].includes(item.followLevel)&&!muted.has(identity(item.participantId)))add(item.participantId,item.participantId.startsWith("team:")?"team":"athlete",item.participantId.split(":")[1]);
     for(const id of next.followFirst.collectionFollows){
       const collection=collectionsById[id];

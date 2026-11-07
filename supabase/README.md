@@ -1,5 +1,11 @@
 # nothingsport Supabase setup
 
+## Highlights lookup coordination — 16 October 2026
+
+Include `migrations/20261015235542_coalesce_highlight_lookups.sql` after the existing shared YouTube allowance and upload-metadata migrations in recovery/bootstrap inventories. Production migration history assigned version `20261015235542`; the reviewed source was originally named `20261015232237_coalesce_highlight_lookups.sql`, with identical migration and rollback bodies. Restore the additive cache columns and four service-only invoker functions before deploying the resolver that uses them. The existing allowance function, caps and ledger are unchanged. Regression/bootstrap: `node scripts/validate-highlight-search-reuse.js` (also in the ordinary highlights release gate).
+
+For application rollback, revert the resolver first, then use `rollbacks/20261015235542_coalesce_highlight_lookups.sql`. This removes negative cache rows and additive coordination state while preserving valid selected videos and spent allowance. Do not reapply both historical source filenames.
+
 Canonical events and disposable derived cards stay out of the user-state table. Supabase stores only durable identity-owned state: preferences, follows, saved cards, Catch Up watched state, spoiler choices, archived references, ratings, calendar settings, and signed-in measurement participation state.
 
 Cross-device writes use the versioned `user-state-patch.v1` contract. Each client pulls the latest row, applies only fields changed since its last successful sync, and conditionally updates the row it just read. Unchanged fields therefore inherit the newest server values; a concurrent write returns a retryable conflict instead of overwriting another device.

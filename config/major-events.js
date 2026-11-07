@@ -65,9 +65,15 @@
   }
 
   function followed(record, followedInput){
+    const decision=editionDecision(record,followedInput);if(decision)return decision==='followed';
     const selected = followedSportKeys(followedInput);
     const keys = Array.isArray(record?.sportKeys) && record.sportKeys.length ? record.sportKeys : [record?.sportKey];
     return selected.has("*") || keys.some(key => selected.has(String(key || "").toLowerCase()));
+  }
+
+  function editionDecision(record,input){
+    const policy=globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY||(typeof require==='function'?require('./follow-feed-policy'):null);
+    return (input?.eventEditionDecisions||input?.followFirst?.eventEditionDecisions)?.states?.[policy?.editionKey({...record,key:record.sportKey})||record.id];
   }
 
   function eventFamilyId(record){
@@ -109,6 +115,8 @@
     const parents = records.filter(record => competitionClassification?.belongsInEvents?.(record) !== false
       && record.kind !== "ticket_sale"
       && record.lifecycleStatus !== "retired"
+      && editionDecision(record,followedInput)!=='excluded'
+      && (!followedInput?.excludedEventFamilyIds?.includes(eventFamilyId(record))||editionDecision(record,followedInput)==='followed')
       && (
         followed(record, followedInput)
         || followedEventFamilyIds.has(eventFamilyId(record))
@@ -145,12 +153,22 @@
     if (status === "live") return "live";
     if (["cancelled", "postponed"].includes(status)) return status;
     const time = subEventTimelineTime(subEvent);
+    const referenceTime = new Date(reference).getTime();
+    const endTime = new Date(subEvent?.endTimeUtc || "").getTime();
+    const liveWindowHours = Number(subEvent?.liveWindow);
+    const inferredEndTime = Number.isFinite(endTime)
+      ? endTime
+      : Number.isFinite(time) && Number.isFinite(liveWindowHours) && liveWindowHours > 0
+        ? time + liveWindowHours * 60 * 60 * 1000
+        : NaN;
+    if (Number.isFinite(time) && Number.isFinite(referenceTime)
+      && time <= referenceTime && (!Number.isFinite(inferredEndTime) || referenceTime < inferredEndTime)) return "live";
     return Number.isFinite(time) && time < new Date(reference).getTime() ? "awaiting-result" : "upcoming";
   }
 
   function timelineDisplayDate(time, timeZone){
     const date = new Date(time);
-    if (!Number.isFinite(time) || Number.isNaN(date.getTime())) return "Date TBC";
+    if (!Number.isFinite(time) || Number.isNaN(date.getTime())) return "Date unavailable";
     return new Intl.DateTimeFormat("en-AU", { timeZone, weekday:"short", day:"numeric", month:"short" }).format(date);
   }
 
@@ -172,7 +190,7 @@
     }
     if (["tbc", "unpublished", "date-only"].includes(subEvent?.timePrecision)) return "Time unpublished";
     const direct = new Date(subEvent?.startTimeUtc || "").getTime();
-    if (!Number.isFinite(direct)) return "Time TBC";
+    if (!Number.isFinite(direct)) return "Time unavailable";
     return timelineTimeFormatter(timeZone)
       .format(new Date(direct)).replace(/\s/g, "").toLowerCase();
   }
@@ -349,7 +367,7 @@
       if (/round\s*4|fourth round/i.test(round)) return `${subject} play for a ${pathLabel} quarterfinal place.`;
     }
 
-    if (parentId === "major-event:rlwc-2026") return `${subject} open the month-long, 53-match programme by pairing the men's defending champions with the Pacific Cup holders.`;
+    if (parentId === "major-event:rlwc-2026" && subEvent?.id === "major-match:rlwc-2026:australia-new-zealand") return `${subject} open the month-long, 53-match programme by pairing the men's defending champions with the Pacific Cup holders.`;
 
     if (parentId.includes("afl-finals-series") || parentId.includes("nrl-finals-series")){
       if (/qualifying/i.test(round) && !/elimination/i.test(round)) return `${subject} play for the finals system's biggest first-week advantage: a week off and the shorter route onward.`;
@@ -535,6 +553,7 @@
       matchupSides,
       participants: subEvent.participants || matchupPlayers.map(player => ({ id:player.id, name:player.name, displayName:player.name, nationalityCode:player.nationalityCode, rank:player.rank, seed:player.seed })),
       participantIds: subEvent.participantIds || matchupPlayers.map(player => player.id).filter(Boolean),
+      ...(subEvent.eliminatedParticipantIds?.length?{eliminatedParticipantIds:subEvent.eliminatedParticipantIds}:{}),
       broadcaster: subEvent.broadcaster || parent.broadcaster || null,
       broadcasterIds: subEvent.broadcasterIds || parent.broadcasterIds || [],
       broadcastOptions: subEvent.broadcastOptions || parent.broadcastOptions || [],

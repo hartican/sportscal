@@ -6,23 +6,44 @@
   "use strict";
 
   const VERSION = "card-results.v1";
+  const scalar=value=>typeof value==='string'?value.trim():typeof value==='number'&&Number.isFinite(value)?String(value):null;
 
   function escapePattern(value){
     return String(value || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
 
   function structuredScore(event){
-    if (event?.scoreDisplay) return String(event.scoreDisplay).trim();
+    if (scalar(event?.scoreDisplay)) return scalar(event.scoreDisplay);
     const home = event?.homeScore;
     const away = event?.awayScore;
-    if (home !== undefined && home !== null && away !== undefined && away !== null) return `${home}-${away}`;
+    if (scalar(home)!==null && scalar(away)!==null) return `${home}-${away}`;
     return null;
+  }
+
+  function canonicalScoreline(event){
+    const result = event?.result;
+    if (!/^(completed|finished|past)$/.test(event?.status || "")
+      || !result || Array.isArray(result) || typeof result !== "object"
+      || result.status !== "completed" || typeof result.scorelineText !== "string") return null;
+    return result.scorelineText.trim() || null;
   }
 
   function scoreLine(event, displayTitle, result){
     const structured = structuredScore(event);
-    const original = String(structured || result?.score || result?.outcome || "").trim();
+    const original = structured || scalar(result?.score) || scalar(result?.outcome);
     if (!original) return null;
+    // Multi-driver classifications need each ranked identity, even when participants are shown elsewhere.
+    if(event?.key==='wrc'||event?.key==='f1' && event?.fixtureResults?.rows?.length)return original;
+    // A cricket margin needs its winner; stripping team names makes "by 59 runs" ambiguous.
+    const cricketOutcome=String(event?.outcomeText || result?.outcome || '').trim();
+    if(event?.key==='cricket' && /\b(?:won|defeated|beat)\b/i.test(cricketOutcome) && /\bby\b/i.test(cricketOutcome))return cricketOutcome;
+    const labels=globalThis.NOTHINGSPORTS_FIXTURE_LABELS || (typeof require==='function'?require('./fixture-labels'):null);
+    const sourceTitle=String(event?.displayTitleCompact || event?.name || '');
+    if(labels && labels.matchupTitle(event,sourceTitle)!==sourceTitle){
+      const names=sourceTitle.split(/\s+v\.?\s+/i).map(s=>s.split(/\s+[—–]\s+/)[0]);
+      if(event.homeScore!=null && event.awayScore!=null && names.length===2)return `${names[0]} ${event.homeScore} — ${names[1]} ${event.awayScore}`;
+      return `${sourceTitle}: ${original}`;
+    }
     const titleParticipants = String(displayTitle || "")
       .split(/\s+v\.?\s+/i)
       .map(name => name.split(/\s+[\u2014\u2013-]\s+|\s*\(/)[0].trim())
@@ -53,9 +74,11 @@
   function tennisSets(event, displayTitle, result){
     if(!['tennis','wimbledon'].includes(event?.key))return null;
     const sides=event.matchupSides?.map(s=>s.name||s.players?.map(p=>p.name||p.displayName).join(' / '));
-    const names=sides?.length===2?sides:String(displayTitle||event.name||'').split(/\s+v\.?\s+/i);
+    const names=sides?.length===2?sides:String(event.displayTitleCompact||event.name||displayTitle||'').split(/\s+v\.?\s+/i);
     if(names.length!==2||names.some(n=>!n))return null;
     const original=String(event.scoreDisplay||result?.score||event.result||'');
+    const retirement=(Array.isArray(event.resultLabels)?event.resultLabels:[]).find(label=>/^(?:RET|RETIRED|RETIREMENT)$/i.test(String(label)));
+    const status=(original.match(/\b(?:RET(?:IRED)?|W\/?O|WALKOVER|ABD|ABANDONED)\b/i)||[])[0]||retirement||null;
     const first=original.indexOf(names[0]),second=original.indexOf(names[1]);
     const reverse=second>=0&&(first<0||second<first);
     const sets=[];
@@ -68,8 +91,21 @@
       if(reverse)pair.reverse();sets.push({label:matchTiebreak?'Match TB':`Set ${sets.filter(s=>s.label!=='Match TB').length+1}`,scores:pair});
     }
     if(!sets.length)return null;
-    if(sets.length===1&&sets[0].label!=='Match TB'&&Math.max(...sets[0].scores.map(s=>s.games))<6&&!/\bRET(?:IRED)?\b/i.test(original))return null;
-    return {names,sets,status:(original.match(/\b(?:RET(?:IRED)?|W\/?O|WALKOVER|ABD|ABANDONED)\b/i)||[])[0]||null};
+    if(sets.length===1&&sets[0].label!=='Match TB'&&Math.max(...sets[0].scores.map(s=>s.games))<6&&!/^RET(?:IRED|IREMENT)?$/i.test(status||''))return null;
+    sets.forEach((set,index)=>{
+      const source=event.sets?.[index];
+      if(!source||source.home===source.away)return;
+      const home=set.scores[0].games===source.home&&set.scores[1].games===source.away?0:set.scores[1].games===source.home&&set.scores[0].games===source.away?1:null;
+      if(home===null)return;
+      for(const [side,points] of [[home,source.homeTiebreak],[1-home,source.awayTiebreak]]){
+        if(set.scores[side].tieBreak===null&&Number.isInteger(points)&&points>=0)set.scores[side].tieBreak=points;
+      }
+    });
+    const labels=globalThis.NOTHINGSPORTS_FIXTURE_LABELS || (typeof require==='function'?require('./fixture-labels'):null);
+    const sourceTitle=names.join(' v ');
+    const reverseDisplay=labels && (event.matchupSides?.length===2 ? labels.australianFirst(event.matchupSides,event)[0]!==event.matchupSides[0] : labels.matchupTitle(event,sourceTitle)!==sourceTitle);
+    if(reverseDisplay){names.reverse();sets.forEach(set=>set.scores.reverse());}
+    return {names,sets,status};
   }
-  return Object.freeze({ VERSION, structuredScore, scoreLine, tennisSets });
+  return Object.freeze({ VERSION, structuredScore, canonicalScoreline, scoreLine, tennisSets });
 });

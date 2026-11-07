@@ -1,0 +1,20 @@
+'use strict';
+const fs=require('node:fs'),os=require('node:os'),path=require('node:path'),assert=require('node:assert/strict');
+const source=require('../lib/editorial-maintenance').sources();
+const dir=fs.mkdtempSync(path.join(os.tmpdir(),'ns-control-test-')),file=path.join(dir,'snapshot.json'),report=path.join(dir,'checks.json');
+process.env.NS_EDITORIAL_CONTROL_SNAPSHOT=file;process.env.NS_EDITORIAL_CHECK_REPORT=report;
+const id='test-fixture',groups=[{event_id:id,aliases:[id,'alias']}];
+fs.writeFileSync(file,JSON.stringify({capturedAt:new Date().toISOString(),sourceRevision:source.sourceRevision,complete:true,groups,signals:[{event_id:id,mean:5,count:1}],states:[{event_id:id,revision:2,held:false}]}),{mode:0o600});
+(async()=>{try{
+ const request=require('../lib/editorial-control-snapshot').request;
+ assert.equal((await request('/rest/v1/rpc/nothingsports_editorial_signals',{method:'POST',body:{target_groups:groups}}))[0].mean,5);
+ await assert.rejects(()=>request('/rest/v1/rpc/nothingsports_editorial_signals',{method:'POST',body:{target_groups:[{event_id:id,aliases:[id]}]}}),/Incomplete/);
+ await assert.rejects(()=>request('/rest/v1/preferences'),/Unsupported/);
+ assert.deepEqual(await request('/rest/v1/nothingsports_editorial_maintenance?event_id=eq.test-fixture&revision=eq.1',{method:'PATCH',body:{last_error:null}}),[]);
+ await request('/rest/v1/nothingsports_editorial_maintenance?event_id=eq.test-fixture&revision=eq.2',{method:'PATCH',body:{last_error:null}});
+ assert.equal(fs.statSync(report).mode&0o077,0);
+ const operations=JSON.parse(fs.readFileSync(report));assert.equal(operations.operations.length,1);
+ const {sql}=require('./editorial-control-sql');assert.match(sql(operations),/for update/);
+ assert.throws(()=>sql({...operations,operations:[{eventId:'evt_84',expectedRevision:0,change:{}}]}),/Protected/);
+ console.log('Private control snapshot: bounded aliases, private files, denied preferences, revision checks, protected NRL and atomic write preparation passed.');
+}finally{fs.rmSync(dir,{recursive:true,force:true});}})().catch(e=>{console.error(e);process.exitCode=1;});

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "venue-assets.v1",
+  "assets": [
+    {
+      "id": "sailgp-light",
+      "path": "assets/identities/sailgp/brand-light.png",
+      "sourceUrl": "https://images.ctfassets.net/2lppn7hwgzta/49nSoTH4iRkcIxgzvD2KBi/6895c52f4ee8551a88bb10214fa84ea1/Rolex_SailGP_Landscape_Logo_Primary_RGB.png",
+      "author": "SailGP",
+      "rightsStatus": "official-reference",
+      "license": "Original rights retained; editorial identification, no open licence asserted.",
+      "modifications": "None; complete official landscape logo saved locally.",
+      "sha256": "4d993b7a10242984c42055e69e1d44563e3450f3119049bd9d3ab44db553949c"
+    },
+    {
+      "id": "sailgp-dark",
+      "path": "assets/identities/sailgp/brand-dark.png",
+      "sourceUrl": "https://images.ctfassets.net/2lppn7hwgzta/dUmTzy6WOpc4VIZmCnIVW/5e62c50f3fdeb58a67c6d31dd80bb900/Rolex_SailGP_Landscape_Logo_Reversed_RGB.png",
+      "author": "SailGP",
+      "rightsStatus": "official-reference",
+      "license": "Original rights retained; editorial identification, no open licence asserted.",
+      "modifications": "None; complete official landscape logo saved locally.",
+      "sha256": "832db059fc1761de7be57915966263c7a5bc9c607376af49ac76af3fbf2938c3"
+    },
+    {
+      "id": "sailing-fallback",
+      "path": "assets/identities/sailgp/sailing-white.svg",
+      "author": "Nothing Sport",
+      "rightsStatus": "fallback",
+      "sourceUrl": "config/vector-assets.js#sport:sailing",
+      "modifications": "Existing first-party sailing paths, white stroke and cropped transparent viewBox. Not a course map."
+    }
+  ],
+  "rejectedCandidates": [
+    {
+      "sourceUrl": "https://www.flaticon.com/free-icon/sailing-boat_7922074",
+      "reason": "Individual source/author licence could not be verified; unused."
+    },
+    {
+      "sourceUrl": "https://images.ctfassets.net/2lppn7hwgzta/1Rb0rCthreoKChzrQkTAXG/e4ef44098d697a94ed7593ec1c5bf82a/Season4_Maps_Outlines_DUBAI_Line.png",
+      "reason": "UAE country outline, not venue/course geometry; unused."
+    }
+  ]
+}

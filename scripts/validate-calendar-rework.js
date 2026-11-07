@@ -25,7 +25,7 @@ const events=Array.from({length:125},(_,i)=>({...fixture,eventId:`fixture-${i}`}
 assert.equal(calendar.selectedEvents(events,events.map(calendar.idFor),{excludedIds:['fixture-2']}).length,124);
 assert.equal(calendar.selectedEvents([...events,{...fixture,eventId:'new-followed'}],[...events.map(calendar.idFor),'new-followed'],{excludedIds:['fixture-2']}).length,125);
 assert.equal(calendar.selectedEvents(events,[],{includedIds:['fixture-3'],excludedIds:['fixture-2']})[0].eventId,'fixture-3');
-const overnight={...fixture,eventId:'overnight',date:'2026-09-04',time:'23:30',startTimeUtc:'2026-09-04T13:30:00.000Z',timePrecision:'exact',liveWindow:4};
+const overnight={...fixture,eventId:'overnight',date:'2026-09-04',time:'23:30',startTimeUtc:'2026-09-04T13:30:00.000Z',timePrecision:'exact',liveWindow:4,status:'live',statusCheckedAt:'2026-09-04T15:29:00.000Z'};
 const completed={...fixture,eventId:'done',date:'2026-09-05',time:'00:30',startTimeUtc:'2026-09-04T14:30:00.000Z',timePrecision:'exact',status:'completed'};
 const simultaneous={...fixture,eventId:'simultaneous',date:'2026-09-05',time:'15:15',startTimeUtc:'2026-09-05T05:15:00.000Z',timePrecision:'exact'};
 const exactFixture={...fixture,startTimeUtc:'2026-09-05T05:15:00.000Z',timePrecision:'exact'};
@@ -33,12 +33,15 @@ let groups=timeline.groups([exactFixture,overnight,completed,simultaneous],new D
 assert.deepEqual(groups.today.map(e=>e.eventId),['done','overnight',fixture.eventId,'simultaneous']);
 assert.equal(groups.today[1].date,'2026-09-04');assert.equal(timeline.status(overnight,new Date('2026-09-04T15:30:00Z')),'live');
 assert.equal(timeline.status({...overnight,status:'completed'},new Date('2026-09-04T15:30:00Z')),'past');
-groups=timeline.groups([overnight],new Date('2026-09-04T18:00:00Z'));assert.equal(groups.today.length,0);assert.equal(groups.retainedPast.length,1);
+groups=timeline.groups([overnight],new Date('2026-09-04T18:00:00Z'));assert.equal(groups.today.length,1,'unresolved source-confirmed overnight play remains available while stale');assert.equal(timeline.confirmedLive(overnight,new Date('2026-09-04T18:00:00Z')),false,'stale observation cannot claim current play');
+groups=timeline.groups([{...overnight,status:'completed'}],new Date('2026-09-04T18:00:00Z'));assert.equal(groups.today.length,0);assert.equal(groups.retainedPast.length,1);
+assert.equal(timeline.confirmedLive({...overnight,status:'upcoming',statusCheckedAt:null},new Date('2026-09-04T15:30:00Z')),false,'a passed calendar start cannot establish live play');
 const prefs={followedSports:['tennis'],followFirst:{australiansOnlySportIds:['sport:tennis']},preferenceGraph:{entityFollows:[{participantId:'player:foreign',followLevel:'follow'}]}};
 const tennis={...fixture,key:'tennis',participantIds:[],participantCountryCodes:['FR']};
 assert.equal(follow.reasonForEvent(tennis,prefs),null);
 assert.equal(follow.reasonForEvent({...tennis,participantCountryCodes:['AU']},prefs),null,'nationality does not bypass ordinary tennis player follows');
-assert(follow.reasonForEvent({...tennis,participantIds:['player:foreign']},prefs));
+assert.equal(follow.reasonForEvent({...tennis,participantIds:['player:foreign']},prefs),null,'individual tennis follows require known category/stage scope');
+assert(follow.reasonForEvent({...tennis,participantIds:['player:foreign'],tournamentLevel:'grand-slam',isKnockout:true},prefs),'explicit synthetic knockout metadata exercises the approved individual path');
 assert.equal(follow.reasonForEvent(tennis,{...prefs,followedSports:[]}),null);
 assert.deepEqual(follow.migratePreferences(follow.migratePreferences(prefs)),follow.migratePreferences(prefs));
 const docs=require('../data/major-events.v1.json');const tickets=major.visibleRecords(docs,['tennis','motorsport'],new Date('2026-09-05T00:00:00Z')).alerts;
@@ -51,5 +54,5 @@ assert(fs.readFileSync('assets/providers/bein-sports-connect.svg','utf8').includ
 const all=catalogue();assert(all.length>3000);const chosen=all.find(e=>calendar.knownDate(e));
 assert(subscriptionEvents({preferences:{}},{includedIds:[calendar.idFor(chosen)]}).some(e=>calendar.idFor(e)===calendar.idFor(chosen)));
 const html=fs.readFileSync('index.html','utf8');new vm.Script(html.match(/<script>([\s\S]*?)<\/script>/)[1]);
-assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Follow']);
+assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Match Centre','Follow'],'retain the later approved Match Centre and Follow navigation order');
 console.log('Calendar and timeline rework: identity, DST, midnight, overnight, completion, bulk selection, follow restrictions, Tickets and provider checks passed.');

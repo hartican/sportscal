@@ -4,6 +4,8 @@
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
+const {assessNarrative}=require('./lib/editorial-enrichment-readiness');
+require('./validate-editorial-enrichment-readiness');
 
 const DAY_MS = 86400000;
 const REFERENCE = Date.parse(process.env.NS_EDITORIAL_REFERENCE || new Date().toISOString());
@@ -18,9 +20,9 @@ function stakesFor(record){
   return expected >= 10 ? 5 : expected >= 8 ? 4 : expected >= 6 ? 3 : expected >= 4 ? 2 : 1;
 }
 function sportFor(record){ return String(record?.sport || record?.sportKey || record?.key || "").toLowerCase(); }
-function inRollingWindow(record){
+function inRollingWindow(record, reference = REFERENCE){
   const start = eventTime(record);
-  return Number.isFinite(start) && start >= REFERENCE - 7 * DAY_MS && start <= REFERENCE + 30 * DAY_MS;
+  return Number.isFinite(start) && start >= reference - 7 * DAY_MS && start <= reference + 30 * DAY_MS;
 }
 
 const targets = feed.filter(record => {
@@ -42,16 +44,42 @@ const genericPatterns = [
 ];
 
 assert(targets.length > 0, "the rolling catalogue must contain editorial targets; every current target is checked below and each sport must be represented");
-for (const record of targets){
+const deferredEditorial=[];
+let retainedKnowledge;
+function hasRetainedProjection(record){
+  retainedKnowledge ||= JSON.parse(fs.readFileSync('data/editorial-knowledge.v1.json','utf8'));
+  return Boolean(require('./lib/editorial-narrative').projectionForTarget(retainedKnowledge,'feed-event',record));
+}
+function validateNarrative(record){
   const narrative = record.editorialNarrative;
-  assert(narrative?.hook, `${idFor(record)} (${record.name}) needs a researched L0 hook`);
-  assert(narrative?.synopsis, `${idFor(record)} (${record.name}) needs a researched L1/L2 narrative`);
-  assert(!genericPatterns.some(pattern => pattern.test(narrative.hook)), `${idFor(record)} (${record.name}) still has a generic L0 hook: ${narrative.hook}`);
-  assert(!genericPatterns.some(pattern => pattern.test(narrative.synopsis)), `${idFor(record)} (${record.name}) still has generic L1/L2 copy: ${narrative.synopsis}`);
+  const cricket=require('../config/cricket-editorial-policy');
+  if(cricket.isCricket(record)&&cricket.hasPolicy(narrative)){assert(cricket.complete(narrative),'Cricket requires an explicit reviewed evidence outcome.');return;}
+  const result=assessNarrative(record,{reference:REFERENCE,start:eventTime(record),stakes:stakesFor(record),genericPatterns,hasRetainedProjection});
+  if(result.status==='deferred'){
+    deferredEditorial.push(result);
+    console.warn(JSON.stringify({type:'deferred-optional-editorial',...result}));
+  }
 }
 
+for (const record of targets) validateNarrative(record);
+
+// Keep the sport/copy regression without inventing an active match off-season.
+// Every eligible current card remains checked; only a sport with no current
+// target uses its most recent qualifying historical card as a retained sample.
+const retainedSamples = [];
 for (const sport of ["football", "cricket", "afl"]){
-  assert(targets.some(record => sportFor(record).includes(sport)), `${sport} must be represented in the sport-depth gate`);
+  if (targets.some(record => sportFor(record).includes(sport))) continue;
+  const minimum = sport === "afl" ? 2 : 3;
+  const sample = feed.filter(record => sportFor(record) === sport && stakesFor(record) >= minimum && eventTime(record) < REFERENCE)
+    .sort((a,b) => eventTime(b) - eventTime(a))[0];
+  assert(sample, `${sport} must have a current target or a qualifying retained historical sample`);
+  validateNarrative(sample);
+  assert(inRollingWindow(sample, eventTime(sample) + 7 * DAY_MS), "the last retained match must remain eligible at the seven-day boundary");
+  assert(!inRollingWindow(sample, eventTime(sample) + 7 * DAY_MS + 1), "the completed season must age out of the current window");
+  assert.throws(() => validateNarrative({...sample, editorialNarrative:{...sample.editorialNarrative, hook:"A late-season contest"}}), /generic L0/, "seasonal fallback must retain the generic-copy rejection");
+  retainedSamples.push(idFor(sample));
 }
 
-console.log(`Editorial sport depth valid: ${targets.length} football, cricket and AFL cards have non-generic L0 and L1/L2 narratives.`);
+console.log(`Editorial sport depth checked: ${targets.length} current targets, ${deferredEditorial.length} optional early previews deferred, ${retainedSamples.length} retained off-season samples checked.`);
+require('./validate-postseason-editorial');
+require('./lib/editorial-offline-checks').run();

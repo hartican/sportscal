@@ -24,3 +24,17 @@ node scripts/refresh-football-directory.js --refresh-fixtures
 ```
 
 Never commit or log the token. Candidate data must pass the directory and fixture validators before release.
+
+## A-League Men restoration — 16 October 2026
+
+A-League Men is an active sixth Football league, using `competition:a-leagues` and `a-league-men`. Its official 2026/27 schedule currently publishes 12 clubs, 156 regular-season fixtures and 28 matchweeks, with 26 games per club. The official site uses this public, season-bound source:
+
+https://match.api.aleagues.football/middleware/v2/fixturesAndResultsV2?competitionId=xwnjb1az11zffwty3m6vn8y6&tournamentId=1ztoqmkrzy1d4ejf5jokthiqc&includeTicketAndStreamInfo=true
+
+Fixture facts, matchweeks, venues and match-specific TV flags come from A-Leagues. ESPN supplies club artwork and compatible historic fixture IDs during first ingestion. Retained official match IDs preserve identity on reschedules. The official source wins when kickoff times differ. Existing Football fixtures, rosters and explicit choices are retained. No A-League player rosters are added.
+
+Every match has Paramount+ competition-carriage evidence from the official season announcement. Official per-match Network 10 flags produce a labelled television-guide link; they do not establish a streaming or replay permalink. The opener’s official listing distinguishes primary Channel 10 in eastern states from 10 Drama in Perth.
+
+`node scripts/update-cards.js --a-league --local-only -p` performs the bounded source refresh, Football projections and checks. Both the full canonical pipeline and its existing incremental owner refresh this same source; no new scheduler is installed. Source failures or incomplete schedules retain the last valid snapshot and report the deferral. Unchanged schedules do not rewrite observations or cause a content release.
+
+Regression: `scripts/validate-a-league-schedule.js` and `scripts/validate-a-league-browser.js`. Physical-device playback and reminders require separate evidence.

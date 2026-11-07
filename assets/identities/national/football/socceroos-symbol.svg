@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 97 96" color="#10523c"><defs>
+      <mask
+        id="fa-menu-crest-a"
+        width="27"
+        height="51"
+        x="70"
+        y="4"
+        maskUnits="userSpaceOnUse"
+        style="mask-type:luminance"
+      >
+        <path
+          fill="#fff"
+          d="M70.188 4.471c.658 1.49 6.584 11.047 9.48 22.707 2.371 9.644 2.766 15.737 1.844 19.726 5.882 6.444 12.554 10.74 14.88 4.822.045-.132.089-.307.176-.438 1.23-6.269-.22-15.387-4.214-24.066-7.33-15.78-18.874-21.699-22.166-22.75"
+        ></path>
+      </mask>
+      <mask
+        id="fa-menu-crest-c"
+        width="35"
+        height="48"
+        x="0"
+        y="3"
+        maskUnits="userSpaceOnUse"
+        style="mask-type:luminance"
+      >
+        <path
+          fill="#fff"
+          d="M29.235 3.77q-.066 0 0 0c-.176.044-.308.044-.483.088-6.058 2.06-13.257 7.89-18.743 15.693C0 33.71.57 46.685 1.317 50.016c.966-1.315 6.321-11.221 14.968-19.506 7.155-6.883 12.247-10.258 16.198-11.485 2.502-7.847 2.985-15.343-2.283-15.343-.307 0-.614.044-.965.088"
+        ></path>
+      </mask>
+      <mask
+        id="fa-menu-crest-e"
+        width="56"
+        height="20"
+        x="20"
+        y="75"
+        maskUnits="userSpaceOnUse"
+        style="mask-type:luminance"
+      >
+        <path
+          fill="#fff"
+          d="M21.245 85.83s0 .044 0 0c.087.132.219.263.307.35 4.784 4.21 13.476 7.54 23 8.373 17.295 1.535 28.225-5.435 30.771-7.758-1.624-.176-12.905.175-24.405-3.157-9.57-2.761-15.013-5.48-18.041-8.24-8.56 1.884-15.583 5.479-11.633 10.432"
+        ></path>
+      </mask>
+      <linearGradient
+        id="fa-menu-crest-b"
+        x1="71.288"
+        x2="94.39"
+        y1="3.523"
+        y2="53.721"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#ffb81c"></stop>
+        <stop offset=".308" stop-color="#ffaf16"></stop>
+        <stop offset=".805" stop-color="#ff9707"></stop>
+        <stop offset="1" stop-color="#ff8c00"></stop>
+      </linearGradient>
+      <linearGradient
+        id="fa-menu-crest-d"
+        x1="1.071"
+        x2="32.947"
+        y1="50.349"
+        y2="5.197"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#ffb81c"></stop>
+        <stop offset=".308" stop-color="#ffaf16"></stop>
+        <stop offset=".805" stop-color="#ff9707"></stop>
+        <stop offset="1" stop-color="#ff8c00"></stop>
+      </linearGradient>
+      <linearGradient
+        id="fa-menu-crest-f"
+        x1="75.573"
+        x2="20.476"
+        y1="88.474"
+        y2="83.396"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#ffb81c"></stop>
+        <stop offset=".308" stop-color="#ffaf16"></stop>
+        <stop offset=".805" stop-color="#ff9707"></stop>
+        <stop offset="1" stop-color="#ff8c00"></stop>
+      </linearGradient>
+    </defs>
+      <g
+        mask="url(#fa-menu-crest-a)"
+      >
+        <path
+          fill="url(#fa-menu-crest-b)"
+          d="m92.97-6.005 25.063 54.312-43.017 19.77-25.064-54.313z"
+        ></path>
+      </g>
+      <path
+        fill="currentColor"
+        d="M96.57 51.244a1.3 1.3 0 0 1-.176.438c-2.283 5.918-8.955 1.622-14.88-4.822-3.249-3.55-6.278-7.802-8.209-11.31-8.779-16-9.262-33.577-9.262-33.577C58.776.395 52.543 0 48.11.526c3.073 38.532 18.875 54.137 27.61 58.433 7.638 3.726 18.656 2.718 20.85-7.715"
+      ></path>
+      <g
+        mask="url(#fa-menu-crest-c)"
+      >
+        <path
+          fill="url(#fa-menu-crest-d)"
+          d="m-21.86 34.586 33.668-47.561 45.519 32.131-33.711 47.562z"
+        ></path>
+      </g>
+      <path
+        fill="currentColor"
+        d="M28.75 3.858c.176-.044.308-.044.484-.088 6.277-.965 5.882 6.926 3.248 15.255-1.449 4.602-3.6 9.337-5.706 12.756C17.25 47.386 2.238 56.636 2.238 56.636c1.273 5.304 4.039 10.915 6.716 14.51 31.868-21.919 37.53-43.398 36.872-53.086C45.256 9.556 38.89.482 28.75 3.858"
+      ></path>
+      <g
+        mask="url(#fa-menu-crest-e)"
+      >
+        <path
+          fill="url(#fa-menu-crest-f)"
+          d="m74.84 101.436-59.477-5.48 2.415-25.863 59.433 5.48z"
+        ></path>
+      </g>
+      <path
+        fill="currentColor"
+        d="M21.553 86.225c-.088-.132-.22-.22-.307-.351-3.995-4.953 3.072-8.548 11.632-10.433 4.74-1.052 9.92-1.534 13.914-1.447 18.26.439 33.8 8.768 33.8 8.768 3.994-3.77 7.462-8.987 9.218-13.063-34.94-16.614-56.405-10.74-64.482-5.348-7.111 4.734-11.764 14.772-3.775 21.874"
+      ></path>
+    </svg>

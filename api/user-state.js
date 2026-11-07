@@ -107,6 +107,7 @@ async function preferenceRecoveryCommand(user, body){
 }
 
 module.exports = async function userStateHandler(request, response){
+  if(new URL(request.url||'/api/user-state','https://nothingsport.local').searchParams.get('route')==='classics'||request.query?.route==='classics')return require('../lib/classics-api')(request,response);
   if (isCalendarRequest(request)){
     await calendarHandler(request, response);
     return;
@@ -123,6 +124,19 @@ module.exports = async function userStateHandler(request, response){
     const user = await authenticatedUser(accessToken);
 
     if ((request.method || "GET") === "GET"){
+      const snapshotUrl=new URL(request.url || '/api/user-state','https://nothingsport.local');
+      if(snapshotUrl.searchParams.has('recovery-snapshot')){
+        if(snapshotUrl.searchParams.get('recovery-snapshot')!=='v1'||snapshotUrl.searchParams.getAll('recovery-snapshot').length!==1||Object.keys(requestBody(request)).length!==0||[...snapshotUrl.searchParams.keys()].some(key=>key!=='recovery-snapshot')){
+          throw new SupabaseRequestError('The backup request is invalid.',{status:400,payload:{code:'invalid_recovery_snapshot_request'}});
+        }
+        const state=await loadUserState(user.id,accessToken);
+        if(!state)throw new SupabaseRequestError('Saved account state is unavailable.',{status:404,payload:{code:'recovery_snapshot_unavailable'}});
+        let snapshot;
+        try{snapshot=require('../config/local-preference-recovery').projectOwnRow(state,user.id);}
+        catch{throw new SupabaseRequestError('A complete safe backup could not be verified.',{status:409,payload:{code:'recovery_snapshot_blocked'}});}
+        response.status(200).json(snapshot);
+        return;
+      }
       const [state, preferenceRecovery] = await Promise.all([
         loadUserState(user.id, accessToken),
         activePreferenceRecovery(user.id),
@@ -193,6 +207,18 @@ module.exports = async function userStateHandler(request, response){
       patch,
       userStateSync.applyPatch(priorState, patch),
     );
+    // An older local receipt may carry a pre-hydration marker. Retain the
+    // current marker when the metadata is unchanged; a valid new seed still
+    // records its own completion. This does not merge any preference choice.
+    const priorFollow=priorState.preferences?.followFirst,nextFollow=merged.preferences?.followFirst;
+    const seedHash=priorFollow?.startupMeta?.seedHash;
+    if(typeof seedHash==='string'&&/^ff_[0-9a-f]{8}$/.test(seedHash)
+      &&nextFollow&&Object.hasOwn(priorFollow,'appliedSeedHash')
+      &&seedHash===nextFollow.startupMeta?.seedHash
+      &&nextFollow.appliedSeedHash!==seedHash){
+      nextFollow.appliedSeedHash=priorFollow.appliedSeedHash;
+    }
+    require('../lib/horse-follow-rollout').preserveHorseRollout(priorState,patch,merged);
     if (existing && sameUserState(existing, merged)){
       response.status(200).json({
         user: publicUser(user),

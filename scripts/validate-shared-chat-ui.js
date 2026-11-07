@@ -27,11 +27,14 @@ function assertOrder(source, markers, message){
   });
 }
 
-// The app share action belongs in the brand row and shares only the canonical app URL.
-const brandRow = section(html, '<div class="brand-title-row">', '<div class="slogan"');
-assert.match(brandRow, /id="shareAppBtn"/);
-assert.match(brandRow, /data-vector-glyph="ui:share"/);
-assert.match(brandRow, /class="share-app-label">Share</);
+// The existing Share owner is in the responsive header utilities/More group.
+const utilityActions = section(html, '<div class="header-utility-actions" id="headerUtilityActions">', '</div>');
+const shareButton = utilityActions.match(/<button\b[^>]*id="shareAppBtn"[^>]*>[\s\S]*?<\/button>/)?.[0] || '';
+assert.equal((html.match(/\bid="shareAppBtn"/g)||[]).length,1,'one existing app Share owner must remain');
+assert.match(html, /id="headerMoreBtn"[^>]*aria-controls="headerUtilityActions"/);
+assert.match(shareButton, /data-vector-glyph="ui:share"/);
+assert.match(shareButton, /class="utility-label">Share</);
+assert.match(shareButton, /aria-label="Share Nothing Sport"/);
 const appShare = section(html, "function canonicalAppShareUrl()", 'document.getElementById("homeSpoilerToggle")');
 assert.match(html, /<link rel="canonical" href="https:\/\/nothingsport\.vercel\.app\/">/, "the clean production app URL must be configured independently of preview origins");
 assert.match(appShare, /document\.querySelector\('link\[rel="canonical"\]'\)/);
@@ -75,7 +78,7 @@ assert.match(pendingShare, /chatGuestPreview\(capability\)/);
 assert.match(pendingShare, /serverSyncClient\.getSession\?\.\(\)/, "signed-in recipients must retain their account identity");
 assert.match(pendingShare, /\{ action:"join-shared-room", capability \}/);
 
-// The message scroller and composer are siblings so the keyboard cannot scroll the composer away.
+// Messages scroll independently from the anchored composer.
 const roomRender = section(html, "function renderOpenChatRoom(", "function mergeChatMessages");
 assertOrder(roomRender, [
   "body.replaceChildren()",
@@ -84,6 +87,10 @@ assertOrder(roomRender, [
   "body.appendChild(buildChatMessageList())",
   "renderChatComposerHost(room",
 ], "room body and anchored composer layout");
+assert.match(html, /id="chatComposerHost"/);
+assert.match(html, /\.chat-room-composer\s*\{[^}]*grid-template-areas:[^;]*"tools tools"[^;]*"previews previews"[^;]*"input send"/);
+assert.match(html, /\.chat-room-composer textarea\s*\{[^}]*grid-area:input/);
+assert.match(html, /\.chat-room-composer \[type="submit"\]\s*\{[^}]*grid-area:send/);
 const members = section(html, "function renderChatMembersDisclosure(room)", "function buildChatReplyPreview");
 assert.match(members, /document\.createElement\("details"\)/);
 assert.match(members, /summary\.textContent = `Members \(\$\{count\}\)`/);
@@ -91,11 +98,6 @@ assert.doesNotMatch(members, /details\.open\s*=\s*true/, "members must start col
 assert.match(members, /renderChatAdminControls\(content, room\)/, "admin controls must remain inside the disclosure");
 assert.match(roomRender, /shareHeader\.hidden = !\(chatState\.isAdmin && room\.status === "open"\)/);
 assert.match(roomRender, /shareHeader\.textContent = "Share room"/);
-assert.match(html, /id="chatComposerHost"/);
-assert.match(html, /\.chat-room-composer\{[\s\S]*?grid-template-areas:[^;]*"tools tools"[^;]*"previews previews"[^;]*"input send"/);
-assert.match(html, /\.chat-room-composer textarea\{[\s\S]*?grid-area:input/);
-assert.match(html, /\.chat-room-composer \[type="submit"\]\{[\s\S]*?grid-area:send/);
-
 // Replies remain one level, while grouped reactions use the exact fixed palette and their own cursor.
 const sendMessage = section(html, "async function sendChatMessage(form)", "function buildChatComposer");
 assert.match(sendMessage, /const replyToMessageId = chatState\.replyToMessageId/);
@@ -151,17 +153,19 @@ assert.doesNotMatch(html, /Public pilot profile/i);
 assert.doesNotMatch(html, /action\s*:\s*["']set-display-name["']/, "the UI must not create chat-specific display names");
 const chatProfile = section(html, "function renderChatPublicProfileForm", "function renderChatAdminControls");
 assert.match(chatProfile, /heading\.textContent = "Public Profile"/);
-assert.match(chatProfile, /action:"profile"/);
+assert.match(chatProfile, /savePublicProfileAndReturnToFeed\(/);
 assert.match(chatProfile, /buildPublicProfileAvatarEditor/);
-assert.match(chatProfile, /action:'profile-avatar'/);
-assert.match(chatProfile, /nothingscoreRequest/);
+const saveProfile = section(html, "async function savePublicProfileAndReturnToFeed", "function nothingscoreProfileForm");
+assert.match(saveProfile, /nothingscoreRequest\(\{\}, \{action:'profile'/);
+assert.match(saveProfile, /await editor\.upload\(\)/);
+assert.match(saveProfile, /if \(!current\(\)\) return/);
 const accountProfile = section(html, "function appendPublicProfileAccountSettings", "function renderAccountSettings");
 assert.match(accountProfile, /title\.textContent = "Public Profile"/);
 assert.match(accountProfile, /nothingscoreProfileForm\(\)/);
 const profileForm = section(html, "function nothingscoreProfileForm()", "async function setNothingscoreProfileVisibility");
 assert.match(profileForm, /buildPublicProfileAvatarEditor/);
-assert.match(profileForm, /action:"profile-avatar"/);
-assert.match(html, /\.chat-message-avatar\{ width:1em; height:1em;/, "message avatars must stay within the sender text line");
+assert.match(profileForm, /savePublicProfileAndReturnToFeed\(/);
+assert.match(html, /\.chat-message-avatar\{\s*width:\s*1rem;\s*height:\s*1rem;/, "message avatars must stay square and independent of the smaller initials font");
 const nscDrawer = section(html, "function renderNothingscoreDrawer()", "async function loadNothingscoreLeaderboard");
 assert.doesNotMatch(nscDrawer, /nothingscoreProfileForm\(\)/, "NSC must link to Settings instead of duplicating the editor");
 const accountSummary = section(html, "function buildMyNscAccountSection", "function refreshMyNscAccountSection");

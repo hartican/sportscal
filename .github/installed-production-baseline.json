@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "installed-production-baseline.v1",
+  "preparedForBaseSha": "037a6214c1a573b57298d3ea504de0b89e31d473",
+  "baselineSha": "037a6214c1a573b57298d3ea504de0b89e31d473",
+  "baselineVersion": "609",
+  "deployment": {
+    "id": "dpl_iMQryy8NccQZSzJnUc9i1HLdLYhB",
+    "state": "READY",
+    "releaseGitSha": "037a6214c1a573b57298d3ea504de0b89e31d473",
+    "origin": "https://nothingsport.app",
+    "checkedAt": "2026-11-06T05:05:41.871Z"
+  },
+  "files": {
+    "index.html": {
+      "gitSha256": "168e9febe4ccb809ec554f956137d913d4a9ac0b4908288778c4458d20520e79",
+      "servedSha256": "168e9febe4ccb809ec554f956137d913d4a9ac0b4908288778c4458d20520e79",
+      "servedBytes": 942025,
+      "status": 200,
+      "checkedAt": "2026-11-06T05:21:50.417Z"
+    },
+    "service-worker.js": {
+      "gitSha256": "48a43d5b821fe77b9e06bcfb3639a29b2dd2222876db4e7a35122fb05aadcefb",
+      "servedSha256": "48a43d5b821fe77b9e06bcfb3639a29b2dd2222876db4e7a35122fb05aadcefb",
+      "servedBytes": 28941,
+      "status": 200,
+      "checkedAt": "2026-11-06T05:21:50.541Z"
+    },
+    "app-version.json": {
+      "gitSha256": "cf1eecff5deb028c9bbced17d15d12a0bb6e574fd1cdb01f0fac2c63e3e6c898",
+      "servedSha256": "cf1eecff5deb028c9bbced17d15d12a0bb6e574fd1cdb01f0fac2c63e3e6c898",
+      "servedBytes": 18,
+      "status": 200,
+      "checkedAt": "2026-11-06T05:21:50.673Z"
+    }
+  }
+}

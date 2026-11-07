@@ -1,0 +1,341 @@
+{
+  "schemaVersion": "editorial-post-match.v1",
+  "entries": [
+    {
+      "eventId": "event:afl:cd_m20260142701",
+      "body": "Fremantle defeated Geelong Cats 18.12 (120) to 16.10 (106) at Optus Stadium on 11 September, surviving a semi-final in which an explosive opening did not settle the outcome. Geelong conceded six of the first seven goals, yet remained close enough to turn the contest after half-time.\n\nThe Cats' resistance had substance beyond simply reducing a deficit. Zach Guthrie intercepted attacks and helped send the ball back towards Geelong's forwards. Ollie Henry finished with five goals, giving the visitors a scoring threat throughout their recovery. They moved ahead during the third quarter, only for Jackson's intervention to restore Fremantle's advantage before the final break. The result required both an attacking response and a late finish, rather than protection of an uninterrupted lead.\n\nThe opening advantage began around the ball. Fremantle used proactive handball and won the centre-clearance count 23-13 across the match. Geelong countered by assigning Oisin Mullin and Mark O'Connor to Hayden Young and Caleb Serong. That adjustment mattered because it challenged the midfield supply behind the Dockers' early scoring, rather than merely asking the defence to absorb another wave.\n\nJackson supplied a different problem. He converted after earning a ruck free kick, then won the ball at a forward stoppage and released Voss by hand for a running goal. Another ruck free produced a second Jackson goal after the third-quarter siren. His influence combined strength in the contest, a clean disposal to a teammate and set-shot execution: several ways to change the scoreboard, not just a tally of hitouts.\n\nGeelong still kept the finish open. Tom Stewart's late goal reduced the difference to eight points before Voss kicked the sealer. Jackson had changed the direction of the match, but Fremantle still needed its forward to complete the job.\n\nFremantle entered this match after losing its qualifying final to Hawthorn; Geelong had advanced through an elimination final. There was no further second chance here. The Dockers converted theirs into a first preliminary-final appearance since 2015, while the Cats' season ended.\n\nThe distinction is important to the performance: a strong start alone had not secured survival. Fremantle had to answer Geelong's recovery with a different source of scoring, then withstand another challenge. That sequence, rather than the final margin alone, explains the match's significance.",
+      "hook": "Geelong erased Fremantle's early advantage, but Luke Jackson changed the contest through ruck craft, a handball assist and two goals. Even then, the Dockers needed Patrick Voss to finish a semi-final that stayed alive late.",
+      "tier": 5,
+      "facts": [
+        {
+          "text": "Fremantle beat Geelong 18.12 (120) to 16.10 (106).",
+          "sourceUrl": "https://www.afl.com.au/news/1607322/anchors-away-fremantle-dockers-prevails-in-finals-epic-after-weathering-geelong-cats-storm"
+        },
+        {
+          "text": "The match was the 11 September 2026 semi-final at Optus Stadium.",
+          "sourceUrl": "https://www.fremantlefc.com.au/news/2121403/semi-final-fixture-confirmed"
+        },
+        {
+          "text": "Geelong conceded six of the first seven goals and later led in the third quarter.",
+          "sourceUrl": "https://www.geelongcats.com.au/news/2126153/match-report-geelongs-season-comes-to-a-close"
+        },
+        {
+          "text": "Zach Guthrie's intercept marks helped stop Fremantle attacks and launch Geelong attacks.",
+          "sourceUrl": "https://www.geelongcats.com.au/news/2126153/match-report-geelongs-season-comes-to-a-close"
+        },
+        {
+          "text": "Ollie Henry kicked five goals; Geelong's season ended with this defeat.",
+          "sourceUrl": "https://www.geelongcats.com.au/news/2126153/match-report-geelongs-season-comes-to-a-close"
+        },
+        {
+          "text": "Fremantle used proactive handball; Mullin and O'Connor were assigned to Young and Serong.",
+          "sourceUrl": "https://www.afl.com.au/news/1607322/anchors-away-fremantle-dockers-prevails-in-finals-epic-after-weathering-geelong-cats-storm"
+        },
+        {
+          "text": "Fremantle won centre clearances 23-13.",
+          "sourceUrl": "https://www.afl.com.au/news/1607323/with-the-dockers-on-the-ropes-luke-jackson-produced-some-familiar-finals-heroics"
+        },
+        {
+          "text": "Jackson converted two ruck frees and handballed to Voss for a goal during the third-quarter turnaround.",
+          "sourceUrl": "https://www.afl.com.au/news/1607323/with-the-dockers-on-the-ropes-luke-jackson-produced-some-familiar-finals-heroics"
+        },
+        {
+          "text": "Jackson's second goal came after the third-quarter siren.",
+          "sourceUrl": "https://www.afl.com.au/news/1607323/with-the-dockers-on-the-ropes-luke-jackson-produced-some-familiar-finals-heroics"
+        },
+        {
+          "text": "Stewart reduced the late margin to eight points; Voss then sealed the win.",
+          "sourceUrl": "https://www.afl.com.au/news/1607322/anchors-away-fremantle-dockers-prevails-in-finals-epic-after-weathering-geelong-cats-storm"
+        },
+        {
+          "text": "Fremantle reached its first preliminary final since 2015.",
+          "sourceUrl": "https://www.afl.com.au/news/1607322/anchors-away-fremantle-dockers-prevails-in-finals-epic-after-weathering-geelong-cats-storm"
+        },
+        {
+          "text": "Fremantle lost its qualifying final to Hawthorn; Geelong won an elimination final.",
+          "sourceUrl": "https://www.fremantlefc.com.au/news/2121403/semi-final-fixture-confirmed"
+        }
+      ],
+      "sourceUrls": [
+        "https://www.afl.com.au/news/1607322/anchors-away-fremantle-dockers-prevails-in-finals-epic-after-weathering-geelong-cats-storm",
+        "https://www.afl.com.au/news/1607323/with-the-dockers-on-the-ropes-luke-jackson-produced-some-familiar-finals-heroics",
+        "https://www.geelongcats.com.au/news/2126153/match-report-geelongs-season-comes-to-a-close",
+        "https://www.fremantlefc.com.au/news/2121403/semi-final-fixture-confirmed",
+        "https://www.abc.net.au/news/sport/score-centre/afl/2026-09-11/dockers-cats/129912701"
+      ],
+      "researchedAt": "2026-10-16T09:20:24+11:00",
+      "factsSignature": "[\"completed\",\"Fremantle defeated Geelong Cats 120-106.\",\"Fremantle v Geelong Cats — 120-106\",{\"scorelineText\":\"Fremantle v Geelong Cats — 120-106\",\"spoilerLevel\":\"sensitive\",\"status\":\"completed\",\"winnerParticipantId\":\"team:afl:cd_t60\"},120,106]",
+      "resultSignature": "344e5a1e3ffda64c7a551a2c9dca467466f69a7094e4f449e2ed89d2ab3efb69"
+    },
+    {
+      "eventId": "event:afl:cd_m20260142702",
+      "body": "Brisbane beat Adelaide 21.18 (144) to 13.13 (91) at the Gabba, but the decisive passage was not simply the opening rush of goals. Adelaide found a second-quarter route back through successive Darcy Fogarty goals before Brisbane answered with four majors to take a 38-point lead into half-time. Charlie Cameron finished with five goals. The pattern mattered: the Lions did not merely protect an early advantage; they rebuilt it when the contest briefly became competitive again.\n\nThe opening imbalance had been territorial as well as numerical. Brisbane recorded 10 inside-50 entries before Adelaide reached its own attacking arc. Adelaide's better movement subsequently came from half-back, where speed offered a way through rather than another prolonged spell defending. That contrast explains both the initial separation and the visitors' temporary recovery.\n\nBrisbane also restricted the player who could connect Adelaide's possession to a more dangerous attack. The AFL report identifies Josh Dunkley and Lachie Neale sharing the job on Izak Rankine; Adelaide's revival coincided with him finding room before that influence was contained again. This was not simply a contest between forward lines. Limiting the supply and movement behind the scoring chances helped Brisbane regain control. Adelaide then stationed Cal Ah Chee behind the ball in the third quarter, an adjustment aimed at slowing the scoring rather than continuing to trade attacks.\n\nBrisbane's answer after half-time removed the remaining suspense. Three goals pushed the lead to 57 points, with Dayne Zorko converting from long range. For Adelaide, the problem was no longer finding one productive passage: it needed repeated stops against an attack that had already answered its strongest challenge. Cameron's five-goal contribution gave Brisbane a finishing outlet across the evening, rather than a scoreboard dependent on the opening burst alone.\n\nAdelaide's season ended here, but its September was not a repeat of losing both finals. The club's own history records the preceding elimination-final victory over the Western Bulldogs as its first finals win since 2017. This defeat therefore exposed the distance between earning that breakthrough and sustaining a challenge against Brisbane, without erasing the breakthrough itself.\n\nFor Brisbane, the win secured a preliminary-final meeting with Hawthorn at the MCG. That was the concrete reward, not a guarantee of a premiership. Walker's two final-quarter goals belonged to a different consequence: his last AFL match. They gave the closing stages a farewell significance after the competitive question had already been settled.",
+      "hook": "Brisbane's opening burst was only the first test. When Adelaide threatened a recovery, the Lions answered again, turning a Gabba semi-final into a 144-91 win and the closing match of Taylor Walker's career.",
+      "tier": 5,
+      "facts": [
+        {
+          "text": "Brisbane defeated Adelaide 21.18 (144) to 13.13 (91) in the Gabba semi-final on 12 September 2026.",
+          "sourceUrl": "https://www.afl.com.au/news/1609432/shock-and-roar-brisbane-lions-deadly-onslaught-sends-adelaide-crows-packing"
+        },
+        {
+          "text": "Brisbane had 10 inside-50 entries before Adelaide's first attacking entry.",
+          "sourceUrl": "https://www.afl.com.au/news/1609432/shock-and-roar-brisbane-lions-deadly-onslaught-sends-adelaide-crows-packing"
+        },
+        {
+          "text": "Dunkley and Neale shared the task of restricting Rankine.",
+          "sourceUrl": "https://www.afl.com.au/news/1609432/shock-and-roar-brisbane-lions-deadly-onslaught-sends-adelaide-crows-packing"
+        },
+        {
+          "text": "Adelaide moved Cal Ah Chee behind the ball in the third quarter.",
+          "sourceUrl": "https://www.afl.com.au/news/1609432/shock-and-roar-brisbane-lions-deadly-onslaught-sends-adelaide-crows-packing"
+        },
+        {
+          "text": "Brisbane answered Adelaide's second-quarter surge with four goals and led by 38 points at half-time.",
+          "sourceUrl": "https://www.abc.net.au/news/2026-09-12/afl-semifinal-lions-crows-live-blog/107146854"
+        },
+        {
+          "text": "Charlie Cameron kicked five goals; three Brisbane goals after half-time extended the margin to 57 points.",
+          "sourceUrl": "https://www.abc.net.au/news/2026-09-12/afl-semifinal-lions-crows-live-blog/107146854"
+        },
+        {
+          "text": "Walker kicked two final-quarter goals in his final AFL match.",
+          "sourceUrl": "https://www.abc.net.au/news/2026-09-12/afl-semifinal-lions-crows-live-blog/107146854"
+        },
+        {
+          "text": "The win advanced Brisbane to a preliminary final against Hawthorn at the MCG.",
+          "sourceUrl": "https://www.afl.com.au/news/1609432/shock-and-roar-brisbane-lions-deadly-onslaught-sends-adelaide-crows-packing"
+        },
+        {
+          "text": "Adelaide's preceding elimination-final victory over the Bulldogs was its first finals win since 2017; the Brisbane defeat ended its season.",
+          "sourceUrl": "https://crowshistory.afc.com.au/crows-in-afl-finals"
+        }
+      ],
+      "sourceUrls": [
+        "https://www.afl.com.au/news/1609432/shock-and-roar-brisbane-lions-deadly-onslaught-sends-adelaide-crows-packing",
+        "https://www.abc.net.au/news/2026-09-12/afl-semifinal-lions-crows-live-blog/107146854",
+        "https://crowshistory.afc.com.au/crows-in-afl-finals"
+      ],
+      "researchedAt": "2026-10-16T09:21:11+11:00",
+      "factsSignature": "[\"completed\",\"Brisbane Lions defeated Adelaide Crows 144-91.\",\"Brisbane Lions v Adelaide Crows — 144-91\",{\"scorelineText\":\"Brisbane Lions v Adelaide Crows — 144-91\",\"spoilerLevel\":\"sensitive\",\"status\":\"completed\",\"winnerParticipantId\":\"team:afl:cd_t20\"},144,91]",
+      "resultSignature": "84af25fe3614c729684e1eb6f7529040a1c784925344593866e53ef855586325"
+    },
+    {
+      "eventId": "event:fiba-women:2026:group-belgium-australia",
+      "hook": "Belgium's best answer to Australia's third-quarter recovery was another pass: an 80-68 win bought a direct route to the quarter-finals.",
+      "body": "Belgium beat the Opals 80-68 in Berlin on 7 September, winning the Group C contest that separated a direct quarter-final place from an extra qualification game. This was control regained, not a lead that went unchallenged. Belgium led 23-17 after the opening quarter and 40-33 at half-time, but Australia won the third period 22-20 to reduce the gap to five.\n\nEmma Meesseman supplied 22 points, 10 rebounds and eight assists. That combination is the important part: Belgium's leading scorer was also creating chances for teammates, rather than leaving the attack dependent on her finishing. FIBA's account confirmed a performance two assists short of a triple-double. Belgium then won the final quarter 20-13, turning a contest still within Australia's reach into a twelve-point victory.\n\nBelgium established an inside threat early. BeBasket's match report describes Kyara Linskens attacking beneath the basket and Meesseman combining scoring with passing; Billie Massey's three-pointer at the half-time buzzer preserved a seven-point advantage. The tactical reading is that Belgium offered more than one problem to solve: protecting the paint did not remove the passing options or the outside finish. That is interpretation of the reported attack, not evidence of a particular Australian defensive scheme.\n\nJulie Allemand added seven assists, taking her career World Cup total to 111 and the competition's recorded lead. The record is bounded by FIBA's statistical coverage beginning in 1994, not every edition ever played.\n\nAustralia's own assessment identified the contrast. In post-match remarks reported by the WNBL, Sandy Brondello called for more purposeful ball and player movement, while Steph Talbot highlighted Belgium's offensive chemistry. Those are participants' explanations, not an invented account of what either dressing room felt.\n\nThe immediate consequence was concrete: Belgium completed the group unbeaten and went straight to the last eight; Australia had to win an additional qualification game to join them. Winning this meeting changed the route through the tournament, not merely the order in a table. It did not settle either team's eventual World Cup finish.\n\nFor the Opals, the useful lesson was more specific than needing to shoot better. Their third-quarter recovery showed that the game remained contestable, but Belgium's closing period restored the separation. Read alongside Brondello's comments, the sporting argument is for better connected possessions, not a claim that effort or belief was missing.",
+      "sourceUrls": [
+        "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128132-BEL-AUS",
+        "https://www.australia.basketball/national-teams/opals/news",
+        "https://www.basketballbelgium.be/nl/newscat/homepage/page/2/",
+        "https://www.fiba.basketball/en/news/september-7-xtb-top-performers-who-did-it-best",
+        "https://www.basketballbelgium.be/nl/news/julie-allemand-heeft-wk-record-inzake-assists/",
+        "https://www.bebasket.be/les-cats-soffrent-laustralie-et-la-premiere-place-du-groupe",
+        "https://www.wnbl.com.au/news/we-want-to-be-the-best-defensive-team-in-the-world-steph-talbot",
+        "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/allemand-is-womens-world-cup-all-time-assists-leader"
+      ],
+      "facts": [
+        {
+          "text": "Belgium beat Australia80-68 in GroupC on7September2026 at Berlin Arena.",
+          "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128132-BEL-AUS"
+        },
+        {
+          "text": "Belgium led23-17 after the first quarter and40-33 at half-time.",
+          "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128132-BEL-AUS"
+        },
+        {
+          "text": "Australia won the third22-20, leaving Belgium60-55 ahead; Belgium won the fourth20-13.",
+          "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128132-BEL-AUS"
+        },
+        {
+          "text": "Meesseman had22points,10rebounds,8assists.",
+          "sourceUrl": "https://www.fiba.basketball/en/news/september-7-xtb-top-performers-who-did-it-best"
+        },
+        {
+          "text": "Allemand supplied7assists, reaching111career WorldCupassists and the recorded lead.",
+          "sourceUrl": "https://www.basketballbelgium.be/nl/news/julie-allemand-heeft-wk-record-inzake-assists/"
+        },
+        {
+          "text": "Recorded assist history begins1994.",
+          "sourceUrl": "https://www.bebasket.be/les-cats-soffrent-laustralie-et-la-premiere-place-du-groupe"
+        },
+        {
+          "text": "Linskens provided an inside threat; BillieMassey made a three at the half-timebuzzer.",
+          "sourceUrl": "https://www.bebasket.be/les-cats-soffrent-laustralie-et-la-premiere-place-du-groupe"
+        },
+        {
+          "text": "Belgium won the group unbeaten and advanced directly to the quarterfinals.",
+          "sourceUrl": "https://www.basketballbelgium.be/nl/newscat/homepage/page/2/"
+        },
+        {
+          "text": "Australia required an additional qualification game rather than being eliminated.",
+          "sourceUrl": "https://www.australia.basketball/national-teams/opals/news"
+        },
+        {
+          "text": "Brondello called for purposeful ball/player movement; Talbot highlighted Belgian offensive chemistry.",
+          "sourceUrl": "https://www.wnbl.com.au/news/we-want-to-be-the-best-defensive-team-in-the-world-steph-talbot"
+        }
+      ],
+      "researchedAt": "2026-10-14T23:51:57.989Z",
+      "tier": 5,
+      "resultSignature": "7dc168e979102d4f87c4623ad082e327519cf0b855096f68a5ccf22654b4a905",
+      "factsSignature": "[\"completed\",\"Belgium won 80–68.\",\"Belgium 80–68 Australian Opals\",null,null,null]"
+    },
+    {
+      "eventId": "fixture:us-open-2026:official:ms:1504",
+      "hook": "At 3.33am, Shelton's serve ended the argument. Getting there required much more than serving.",
+      "body": "Ben Shelton ended Carlos Alcaraz's US Open title defence with a 6-7(5), 6-1, 6-3, 1-6, 7-6(7) quarter-final victory in Arthur Ashe Stadium. Four hours and 28 minutes of play finished at 3.33am, the latest conclusion in tournament history. The final-set match tiebreak went 10-7 to the American. Those numbers describe an extraordinary night, but its appeal was the repeated refusal of either player to let a bad passage become the whole match.\n\nAlcaraz took the opening tiebreak after Shelton had led it 5-3. Shelton then changed the balance through his returns and angled groundstrokes as well as his left-handed delivery. Nine consecutive games helped him take charge across the middle sets. Alcaraz answered with a 6-1 fourth set, leaving neither man's earlier superiority sufficient.\n\nThe deciding breaker reduced those changes of momentum to individual points. Shelton moved ahead 3-1; Alcaraz answered to lead 5-3. With the score later level at 6-6, Shelton obtained the separation he needed and finished with a 146mph ace. His serve mattered not simply because it was fast, but because it could remove Alcaraz's opportunity to influence a point when every return carried greater consequence.\n\nThat reading is supported by Alcaraz's own account. He singled out the uncertainty a returner faces against Shelton: a rally might develop, or the serve might give the American the point outright. Alcaraz also said he felt better during the fifth set despite having tired earlier. The ending was therefore not an opponent quietly fading away; Shelton had to withstand a renewed challenge.\n\nFor Shelton, the immediate prize was a semi-final against Frances Tiafoe. Beyond the draw, this was evidence that his attacking game could survive a match in which power did not provide continuous control. He lost the first set, dominated for a time and then had to begin the contest again. The more useful lesson than any claim of inevitability is his ability to recover his attacking purpose after control had gone.\n\nAlcaraz was returning from a lengthy wrist-related absence and described leaving healthy and proud of his resistance. Shelton, meanwhile, credited the family, coaches, friends and remaining New York crowd who supported him into the early morning. Those are the players' accounts, not emotions assigned to them. They give the night its human scale: one man moving on, another finding value in how he competed, and a compelling match that required both.",
+      "sourceUrls": [
+        "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/shelton_ends_alcarazs_us_open_title_defense_in_late-night_five-setter.html",
+        "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/carlos_alcaraz_on_2026_us_open_defeat_to_ben_shelton_he_is_a_beast.html",
+        "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/family_support_helps_shelton_upset_alcaraz_in_epic_match_at_2026_us_open.html"
+      ],
+      "facts": [
+        {
+          "text": "Shelton won the US Open quarter-final 6-7(5),6-1,6-3,1-6,7-6(7).",
+          "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/shelton_ends_alcarazs_us_open_title_defense_in_late-night_five-setter.html"
+        },
+        {
+          "text": "The match lasted four hours28minutes and finished3:33am, the tournament's latest finish.",
+          "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/shelton_ends_alcarazs_us_open_title_defense_in_late-night_five-setter.html"
+        },
+        {
+          "text": "Shelton won nine straight games across the middle sets; Alcaraz won the fourth6-1.",
+          "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/shelton_ends_alcarazs_us_open_title_defense_in_late-night_five-setter.html"
+        },
+        {
+          "text": "Shelton led the final breaker3-1, Alcaraz led5-3, and Shelton finished with a146mph ace.",
+          "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/shelton_ends_alcarazs_us_open_title_defense_in_late-night_five-setter.html"
+        },
+        {
+          "text": "Alcaraz identified Shelton's serve as decisive and said he felt better in the fifth after earlier fatigue.",
+          "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/carlos_alcaraz_on_2026_us_open_defeat_to_ben_shelton_he_is_a_beast.html"
+        },
+        {
+          "text": "Alcaraz was returning from a four-and-a-half-month wrist-injury absence and said he left healthy and proud.",
+          "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/carlos_alcaraz_on_2026_us_open_defeat_to_ben_shelton_he_is_a_beast.html"
+        },
+        {
+          "text": "Shelton credited support from his coaches, family,friends and the New York crowd.",
+          "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/family_support_helps_shelton_upset_alcaraz_in_epic_match_at_2026_us_open.html"
+        }
+      ],
+      "researchedAt": "2026-10-14T23:24:26.204Z",
+      "tier": 5,
+      "resultSignature": "8e75db9ab15ae286c0ebcad52bb6bd722b3566ac65a4bee58ca420d94a73c850",
+      "factsSignature": "[\"completed\",\"Ben Shelton defeated Carlos Alcaraz in five sets.\",\"Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz\",\"Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz\",null,null]"
+    },
+    {
+      "eventId": "major-match:nrl-finals-2026:elimination-final-2",
+      "hook": "Newcastle turned South Sydney's home final into a test of precision, then supplied the sharper answers. A 20-10 win at Allianz Stadium kept the Knights alive and ended the Rabbitohs' campaign.",
+      "body": "The Knights established their advantage through two different kinds of kicking pressure. Sandon Smith's high ball brought Dominic Young into the contest, and the winger's offload released Jermaine McEwen for the opening try. Smith then found the space behind South Sydney with a grubber that Dane Gagai chased down. Newcastle had a 10-0 lead without needing to batter repeatedly at the same defensive doorway.\n\nSouths answered through their own handling quality: Keaon Koloamatangi, David Fifita and Jack Wighton combined to put Campbell Graham over, with Latrell Mitchell converting to make it 10-6 at the break. Cody Walker's calf injury had already removed a central attacking organiser. The tactical reading is that Souths now needed their remaining combinations to create clarity under greater pressure, not simply more possession.\n\nThe second half briefly offered a different direction. Jayden Sullivan reached the line after Alex Johnston lost the ball, but the Bunker ruled a loose carry rather than a strip and disallowed the try. Young's later corner finish was awarded despite debate over the sideline. Those were consequential decisions, not evidence that either side was owed a different result.\n\nBetween those moments, Newcastle produced the cleaner attacking answer. Ponga and Gagai helped release Young, who found McEwen supporting inside for his second try. Ponga finished with 285 running metres; McEwen with 193. The combination mattered as much as the totals: the winger's break had a runner ready to turn territory into points.\n\nGagai's confrontation with Mitchell supplied the night's personal edge. Their contest also made the football compelling: composure and positioning mattered alongside force, particularly against South Sydney's dangerous left side.\n\nNewcastle's progress was more than a fullback carrying a depleted pack. The club had named Tyson Frizell and Cody Hopwood at prop with Jacob Saifiti suspended and Trey Mooney injured. That context makes the contribution across the side important, without pretending every absence creates an underdog victory.\n\nFor Souths, Jye Gray's late try could not repair the gap. The broader sporting lesson is not that experience failed or youth automatically prevailed. Newcastle connected its kicking, support running and edge defence more effectively at the moments that changed the scoreboard. South Sydney retained enough individual skill to threaten, but Walker's exit left a difficult organisational problem. The Knights earned another week; the Rabbitohs were left with a season-ending defeat, not a shortage of hypothetical alternatives.",
+      "sourceUrls": [
+        "https://www.nrl.com/news/2026/09/11/sudden-death-showdown-rabbitohs-v-knights/",
+        "https://www.rabbitohs.com.au/draw/?competition=162",
+        "https://www.newcastleknights.com.au/news/2026/09/08/nrl-team-list--elimination-final/",
+        "https://leagueunlimited.com/news/44694-rabbitohs-v-knights-report/",
+        "https://www.abc.net.au/news/2026-09-11/nrl-finals-live-updates-rabbitohs-vs-knights/107136652",
+        "https://www.abc.net.au/news/2026-09-12/south-sydney-rabbitohs-newcastle-knights-nrl-finals/107145402"
+      ],
+      "facts": [
+        {
+          "text": "The11September2026 eliminationfinal atAllianz ended Knights20-10Rabbitohs.",
+          "sourceUrl": "https://www.nrl.com/news/2026/09/11/sudden-death-showdown-rabbitohs-v-knights/"
+        },
+        {
+          "text": "Newcastle led10-6 at half-time; Smith kicks set upMcEwen andGagai tries.",
+          "sourceUrl": "https://leagueunlimited.com/news/44694-rabbitohs-v-knights-report/"
+        },
+        {
+          "text": "CampbellGraham scored Souths firsttry, converted byMitchell.",
+          "sourceUrl": "https://leagueunlimited.com/news/44694-rabbitohs-v-knights-report/"
+        },
+        {
+          "text": "CodyWalker left with a calf injury beforehalf-time; exactminute is notasserted.",
+          "sourceUrl": "https://www.nrl.com/news/2026/09/11/sudden-death-showdown-rabbitohs-v-knights/"
+        },
+        {
+          "text": "Sullivan apparenttry wasdisallowed after theBunker ruled Johnston loss a loosecarry, not astrip.",
+          "sourceUrl": "https://www.abc.net.au/news/2026-09-11/nrl-finals-live-updates-rabbitohs-vs-knights/107136652"
+        },
+        {
+          "text": "McEwen scoredtwice; Young scored beforeGray late reply.",
+          "sourceUrl": "https://www.nrl.com/news/2026/09/11/sudden-death-showdown-rabbitohs-v-knights/"
+        },
+        {
+          "text": "NRL reported Ponga285runningmetres andMcEwen193.",
+          "sourceUrl": "https://www.nrl.com/news/2026/09/11/sudden-death-showdown-rabbitohs-v-knights/"
+        },
+        {
+          "text": "Frizell andHopwood were named atprop, withSaifiti suspended andMooney injured.",
+          "sourceUrl": "https://www.newcastleknights.com.au/news/2026/09/08/nrl-team-list--elimination-final/"
+        },
+        {
+          "text": "Gagai andMitchell contestedcentre, including afirsthalf confrontation.",
+          "sourceUrl": "https://www.abc.net.au/news/2026-09-12/south-sydney-rabbitohs-newcastle-knights-nrl-finals/107145402"
+        },
+        {
+          "text": "Newcastle advancedto weektwo; Souths wereeliminated.",
+          "sourceUrl": "https://www.nrl.com/news/2026/09/11/sudden-death-showdown-rabbitohs-v-knights/"
+        }
+      ],
+      "researchedAt": "2026-10-14T23:51:57.996Z",
+      "tier": 5,
+      "resultSignature": "1147a25ee4a0722631a7cfff9e3acf60900b632001a47393743d2d79fb733dda",
+      "factsSignature": "[\"completed\",\"Knights defeated Rabbitohs 20-10.\",\"Rabbitohs 10-20 Knights\",null,10,20]"
+    },
+    {
+      "eventId": "major-match:nrl-finals-2026:qualifying-final-2",
+      "body": "The Dolphins beat the Warriors 26-16 at Go Media Stadium in Auckland, overcoming a 12-8 half-time deficit and an eight-point second-half gap. Their four tries to one explain how a match long controlled on the scoreboard by the home side ultimately changed hands.\n\nTaine Tuaupiki supplied every Warriors point: a try, its conversion and five penalty goals. His accuracy kept turning infringements into scoreboard pressure, but the hosts did not add another try. For the Dolphins, Selwyn Cobbo, Herbie Farnworth, Hamiso Tabuai-Fidow and Jack Bostock crossed, with Jamayne Isaako converting all four and adding a penalty goal.\n\nThat contrast gave the comeback its shape: the Warriors kept collecting twos, while the Dolphins eventually found the converted tries needed to overturn the advantage.\n\nThe tactical change came through Katoa's long kicking. NRL's report identifies his ability to turn the Warriors forwards around as the shift that opened the contest for Farnworth and Tabuai-Fidow. Territory, rather than another exchange of penalties, began driving the match.\n\nFarnworth recovered a disrupted left-side movement and cut back infield to bring the Dolphins within two points. Tabuai-Fidow then broke from a kick return and exchanged passes with Farnworth for the lead. The combination mattered: the initial break became a scoring movement because the two runners stayed connected.\n\nWoolf's postmatch explanation emphasised defending the line until his side could use the ball. Katoa described keeping the group focused on playing rather than the confrontations. Those accounts give substance to the recovery: the Dolphins needed both resistance while under pressure and enough control to exploit the opportunities that followed.\n\nThis was second against third, not an outsider ambushing a runaway favourite. The clubs had split their regular-season meetings, both decided by two points. The Dolphins were playing their first finals series in their fourth season; the Warriors had reached the playoffs for the third time in four years under Andrew Webster.\n\nVictory secured the Dolphins a preliminary-final berth; defeat sent the Warriors into a semi-final against Newcastle. The significance lies in the route to that outcome: Katoa's territorial adjustment and the backs' execution overturned a lead built largely through penalty goals, rather than simply matching the Warriors' scoring method.",
+      "hook": "An eight-point Warriors lead unravelled as Isaiya Katoa changed the territory and the Dolphins' runners turned a qualifying final into a 26-16 comeback win.",
+      "tier": 5,
+      "facts": [
+        {
+          "text": "Dolphins defeated Warriors 26-16 in the qualifying final on 12 September 2026.",
+          "sourceUrl": "https://www.nrl.com/news/2026/09/12/finals-fever-warriors-v-dolphins-sharks-v-cowboys/"
+        },
+        {
+          "text": "Warriors led 12-8 at half-time and 16-8 in the second half.",
+          "sourceUrl": "https://www.warriors.kiwi/draw/nrl-premiership/2026/finals-week-1-warriors-v-dolphins/"
+        },
+        {
+          "text": "Tuaupiki scored the Warriors' sole try, one conversion and five penalty goals.",
+          "sourceUrl": "https://www.warriors.kiwi/draw/nrl-premiership/2026/finals-week-1-warriors-v-dolphins/"
+        },
+        {
+          "text": "Cobbo, Farnworth, Tabuai-Fidow and Bostock scored the Dolphins' four tries; Isaako converted all four and kicked a penalty goal.",
+          "sourceUrl": "https://www.warriors.kiwi/draw/nrl-premiership/2026/finals-week-1-warriors-v-dolphins/"
+        },
+        {
+          "text": "NRL's report credits Katoa's long kicking with changing the contest; Farnworth's try preceded Tabuai-Fidow's lead-taking kick-return combination with him.",
+          "sourceUrl": "https://www.nrl.com/news/2026/09/12/finals-fever-warriors-v-dolphins-sharks-v-cowboys/"
+        },
+        {
+          "text": "Woolf credited his side's line defence; Katoa said his message during confrontations was to remain calm and resume playing.",
+          "sourceUrl": "https://www.nrl.com/news/2026/09/12/woolf-hails-dolphins-bravery-to-secure-prelim-final-berth/"
+        },
+        {
+          "text": "Warriors finished second and Dolphins third; their two regular-season meetings were split, each by two points.",
+          "sourceUrl": "https://www.warriors.kiwi/news/2026/09/06/dolphins-confirmed-as-week-one-finals-opponents/"
+        },
+        {
+          "text": "This was the Dolphins' first finals campaign in their fourth season, and the Warriors' third in four years under Webster.",
+          "sourceUrl": "https://www.warriors.kiwi/news/2026/09/06/dolphins-confirmed-as-week-one-finals-opponents/"
+        },
+        {
+          "text": "The result advanced Dolphins to a preliminary final and sent Warriors to a semi-final against Newcastle.",
+          "sourceUrl": "https://www.nrl.com/news/2026/09/12/finals-fever-warriors-v-dolphins-sharks-v-cowboys/"
+        }
+      ],
+      "sourceUrls": [
+        "https://www.nrl.com/news/2026/09/12/finals-fever-warriors-v-dolphins-sharks-v-cowboys/",
+        "https://www.nrl.com/news/2026/09/12/woolf-hails-dolphins-bravery-to-secure-prelim-final-berth/",
+        "https://www.warriors.kiwi/draw/nrl-premiership/2026/finals-week-1-warriors-v-dolphins/",
+        "https://www.warriors.kiwi/news/2026/09/06/dolphins-confirmed-as-week-one-finals-opponents/"
+      ],
+      "researchedAt": "2026-10-16T09:20:42+11:00",
+      "factsSignature": "[\"completed\",\"Dolphins defeated Warriors 26-16.\",\"Warriors 16-26 Dolphins\",null,16,26]",
+      "resultSignature": "38e4d7d85e9cbe5406822b4587cdab6161bfa756a683978968e5194d55515112"
+    }
+  ],
+  "sourceRevision": "caa95e7af18a8ad59e377cc80cafc2b4a96f72714f40a3178a38066cdbaced01"
+}

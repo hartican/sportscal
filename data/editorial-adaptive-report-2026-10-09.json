@@ -1,0 +1,12 @@
+{
+  "weekend": {
+    "from": "2026-10-09",
+    "to": "2026-10-23"
+  },
+  "acceptedIds": [
+    "rugby-new-zealand-australia-2026-10-10",
+    "supercars-bathurst-1000-2026",
+    "fixture:cricket:espn:1525660"
+  ],
+  "deferred": []
+}

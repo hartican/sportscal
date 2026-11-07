@@ -9,7 +9,7 @@ const followFirst = require("../config/follow-first.js");
 const identities = require("../config/card-identities.js");
 const majorEvents = require("../config/major-events.js");
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const worker = fs.readFileSync("service-worker.js", "utf8");
 const updateSource = fs.readFileSync("scripts/refresh-f1-editorial.js", "utf8");
 const majorEventDocument = JSON.parse(fs.readFileSync("data/major-events.v1.json", "utf8"));
@@ -55,11 +55,11 @@ const completedEplViewing = followFirst.viewingLink({
 assert.equal(completedEplViewing?.liveOrReplay, "replay");
 
 const aflViewing = followFirst.viewingOptions({ key:"afl", competitionId:"competition:afl", stage:"Preliminary Final" });
-assert.deepEqual(aflViewing.slice(0, 4).map(option => option.providerId), ["kayo", "foxtel", "seven", "watch-afl"]);
+assert.deepEqual(aflViewing.slice(0, 4).map(option => option.providerId), ["kayo", "foxtel", "watch-afl"],"a generic preliminary-final stage cannot invent selective Seven coverage without fixture/window evidence");
 const aflGrandFinal = followFirst.viewingOptions({ key:"afl", competitionId:"competition:afl", stage:"Grand Final" });
 assert.equal(aflGrandFinal[0]?.providerId, "seven", "AFL Grand Final must apply its event-specific Australian rights exception");
 
-assert(html.includes('const verb = viewingLink.liveOrReplay === "replay" ? "Replay" : "Watch";') && html.includes('prefix.textContent = `${verb} on`;'), "watch actions must put the provider mark after Watch on / Replay on");
+assert(html.includes("viewingLink.liveOrReplay==='replay'?'Replay':'Watch'") && html.includes("link.setAttribute('aria-label',link.title)"), "watch actions must put the accessible Watch / Replay labels on provider marks");
 const providerMarkSource = html.match(/function buildViewingProviderMark\(viewing\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(providerMarkSource.includes("mark.appendChild(image)") && providerMarkSource.includes("mark.replaceChildren(fallback)") && !providerMarkSource.includes("mark.append(fallback, image)"), "provider logos and provider-name fallbacks must be mutually exclusive");
 assert(html.includes('rel = "noopener noreferrer external"'), "web fallbacks must leave the standalone PWA in a separate external window");
@@ -96,7 +96,7 @@ assert.equal(pinnedEpl.majorEventId, "major-event:epl-test");
 assert.equal(followFirst.normalizeDirectoryRank(null), null);
 assert.equal(followFirst.normalizeDirectoryRank(""), null);
 assert.equal(followFirst.normalizeDirectoryRank(1), 1);
-assert.equal(followFirst.directoryEntityLabel({ entityType:"athlete", sectionLabel:"" }), "Player");
+assert.equal(followFirst.directoryEntityLabel({ entityType:"athlete", sectionLabel:"" }), "Athlete");
 assert.equal(followFirst.directoryEntityLabel({ entityType:"team", sectionLabel:"" }), "Team");
 
 const eplEvents = (published.events || []).filter(event => (
@@ -120,7 +120,8 @@ assert(
   "Events L0/L1/L2 must use the profile-filtered chronological card-local Now timeline"
 );
 assert(html.includes('image.alt = `${viewing.label} logo`'), "Watch on provider logos must retain an accessible provider name");
-assert(html.includes("function renderAboutSettings") && html.includes('href="/privacy.html"') && html.includes('href="/terms.html"'), "Settings About and every main tab footer must expose legal links");
+const settingsSource=fs.readFileSync('config/fantasy-deadline-ui.js','utf8');
+assert(/assets\/js\/settings-optional-ui\.js\?v=\d+/.test(html) && settingsSource.includes("function renderAboutSettings") && html.includes("function renderAboutSettings") && html.includes('href="/privacy.html"') && html.includes('href="/terms.html"'), "Settings About must retain its mounted deferred renderer and the shared shell must retain its legal links");
 assert(html.includes("serverAuthoritativeFixturePins"), "server fixture-pin state must override the local backup outside pending offline commands");
 assert(html.includes("pinMutationId"), "fixture pin mutations must be idempotently identifiable");
 assert(html.includes("ticketAlertSeenAt") && html.includes("ticket-sale-countdown"), "ticket alerts must own unseen and countdown states");

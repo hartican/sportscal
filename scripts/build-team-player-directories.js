@@ -132,10 +132,13 @@ async function officialJson(url, headers = {}){
 async function refreshNrlPlayerRows(canonical){
   const teams = canonical.participants.filter(participant => participant.type === "team" && participant.sportDomainId === "sport:nrl");
   const first = await officialJson(`${NRL_PLAYERS_DATA_URL}?competition=111&team=0`, { Referer:"https://www.nrl.com/players/?competition=111" });
-  const filters = (first.filterTeams || []).filter(team => Number(team.value) > 0);
-  if (filters.length !== 17) throw new Error(`Expected 17 NRL club filters, received ${filters.length}`);
   const byNickname = new Map(teams.flatMap(team => [team.displayName, team.canonicalName, team.shortName]
     .filter(Boolean).map(name => [String(name).toLowerCase(), team.id])));
+  // The official directory already includes expansion clubs for later seasons.
+  // Require complete coverage of this canonical season, without admitting them.
+  const filters = (first.filterTeams || []).filter(team => Number(team.value)>0 && byNickname.has(String(team.name).toLowerCase()));
+  const matched = new Set(filters.map(team=>byNickname.get(String(team.name).toLowerCase())));
+  if (filters.length !== teams.length || matched.size !== teams.length) throw new Error(`Official NRL club filters do not cover all ${teams.length} canonical clubs`);
   const clubPayloads = await Promise.all(filters.map(team => officialJson(
     `${NRL_PLAYERS_DATA_URL}?competition=111&team=${encodeURIComponent(team.value)}`,
     { Referer:"https://www.nrl.com/players/?competition=111" }
@@ -266,10 +269,6 @@ function buildAflDirectory(canonical, playerRows = AFL_PLAYERS, checkedAt = CHEC
       ? `https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/${isAflw ? "AFLW" : "AFL"}/${seasonImageKey}/${String(providerId).replace(/^CD_I/, "")}.png?im=Scale,width=0.6,height=0.6`
       : null,
     profileRef: `profile:${code}:${slug}`,
-    dateOfBirth: player.dateOfBirth || null,
-    heightInCm: Number(player.heightInCm || 0) || null,
-    recruitedFrom: player.recruitedFrom || null,
-    debutYear: player.debutYear || null,
     active: true,
   }));
   if (teams.length !== 18 || players.some(player => !teamIds.has(player.currentTeamId)) || players.some(player => !/^https:\/\/www\.afl\.com\.au\/(?:aflw\/)?players\/\d+\//.test(player.sourceUrl))){

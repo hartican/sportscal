@@ -3,6 +3,7 @@
 const assert=require("node:assert/strict"),{createLiveFixtureHandler}=require("../lib/live-fixture-handler");
 const response=()=>({headers:{},setHeader(key,value){this.headers[key]=value;},status(code){this.statusCode=code;return this;},json(body){this.body=body;return this;},end(){this.ended=true;}});
 async function main(){
+  require('./validate-live-fixture-initialization-boundary').run();
   const secret="a-test-only-server-secret-at-least-32-characters";
   const handler=createLiveFixtureHandler({environment:{FIXTURE_REFRESH_SECRET:secret},sources:()=>[],refresh:async()=>({refreshed:[],failed:[],skipped:[]}),read:async()=>({revision:"revision-two",stale:false,sources:[{source_id:"test",fixtures:[{id:"fixture",status:"live"}]}]})});
   let res=response();await handler({url:"/api/fixture-refresh",method:"POST",headers:{}},res);assert.equal(res.statusCode,401);
@@ -10,22 +11,65 @@ async function main(){
   res=response();await handler({url:"/api/fixture-refresh",method:"POST",headers:{authorization:`Bearer ${secret}`}},res);assert.equal(res.statusCode,200);
   res=response();await handler({url:"/api/fixtures",method:"GET",headers:{}},res);assert.equal(res.body.sources.flatMap(source=>source.fixtures).find(event=>event.id==='fixture').status,"live");assert.equal(res.headers["Cache-Control"],"public, max-age=0, s-maxage=30, stale-while-revalidate=300");assert(res.body.generatedAt);assert.equal(res.body.maxAgeSeconds,30);
   const revision=res.body.revision;
-  const libraryHandler=createLiveFixtureHandler({publishedFixtures:()=>[{id:'known-before-server-refresh',date:new Date(Date.now()+86400000).toISOString().slice(0,10),key:'cricket',name:'Published fixture'}],read:async()=>({revision:'empty',sources:[],stale:false})});
+  let libraryBuilds=0,libraryReads=0;
+  const libraryHandler=createLiveFixtureHandler({publishedFixtures:()=>{libraryBuilds++;return [{id:'known-before-server-refresh',date:new Date(Date.now()+86400000).toISOString().slice(0,10),key:'cricket',name:'Published fixture'}];},read:async()=>{libraryReads++;return {revision:'empty',sources:[],stale:false};}});
+  assert.equal(libraryBuilds,0,'factory construction does not build the catalogue');
   res=response();await libraryHandler({url:'/api/fixtures',headers:{}},res);assert(res.body.sources.flatMap(source=>source.fixtures).some(event=>event.id==='known-before-server-refresh'),'a first failed or partial server lookup cannot hide fixtures in the verified library');
+  assert.equal(libraryBuilds,1);assert.equal(libraryReads,1);
+  const libraryRevision=res.body.revision,libraryEtag=res.headers.ETag;
+  res=response();await libraryHandler({url:'/api/feed?route=fixtures',headers:{'if-none-match':libraryEtag}},res);assert.equal(res.statusCode,304);assert.equal(libraryBuilds,1,'warm reader reuses the same published catalogue');assert.equal(libraryReads,2,'valid conditional read retains snapshot validation');
+  res=response();await libraryHandler({url:'/api/fixtures?athlete=%3Cscript%3E&revision='+libraryRevision,headers:{}},res);assert.equal(res.statusCode,400,'an invalid athlete cannot bypass input validation with a valid fixture revision');assert.equal(libraryReads,2,'invalid athlete is rejected before another snapshot lookup');
+  const refreshOnly=createLiveFixtureHandler({environment:{FIXTURE_REFRESH_SECRET:secret},publishedFixtures:()=>{throw Error('Published catalogue is deliberately unavailable');},sources:()=>[],refresh:async()=>({refreshed:[],failed:[],skipped:[]})});
+  res=response();await refreshOnly({url:'/api/feed?route=fixture-refresh',method:'POST',headers:{authorization:`Bearer ${secret}`}},res);assert.equal(res.statusCode,200,'authorised refresh remains independent of public catalogue construction');
+  let failedBuilds=0;
+  const recoveringLibrary=createLiveFixtureHandler({publishedFixtures:()=>{if(++failedBuilds===1)throw Error('Synthetic first construction failure');return [];},read:async()=>({revision:'recovered',sources:[],stale:false})});
+  res=response();await recoveringLibrary({url:'/api/fixtures',headers:{}},res);assert.equal(res.statusCode,503,'a failed lazy catalogue returns the bounded existing unavailable diagnostic');
+  res=response();await recoveringLibrary({url:'/api/fixtures',headers:{}},res);assert.equal(res.statusCode,200);assert.equal(failedBuilds,2,'failed construction is not cached permanently');
   res=response();await handler({url:`/api/fixtures?revision=${revision}`,method:"GET",headers:{}},res);assert.equal(res.statusCode,304);
   res=response();await createLiveFixtureHandler({read:async()=>{throw new Error(secret);}})({url:"/api/fixtures?ids=missing-static-id",headers:{}},res);assert.equal(res.statusCode,200);assert.equal(res.body.stale,true);assert.equal(res.body.maxAgeSeconds,300);assert(!JSON.stringify(res.body).includes(secret));
   const scopedHandler=createLiveFixtureHandler({publishedFixtures:()=>[],read:async()=>({revision:'scoped',stale:false,sources:[{source_id:'test',fixtures:[{id:'followed',status:'live'},{id:'unfollowed',status:'live'}]}]})});
   res=response();await scopedHandler({url:'/api/fixtures?ids=followed',headers:{}},res);assert.deepEqual(res.body.sources.flatMap(s=>s.fixtures).map(e=>e.id),['followed'],'bounded live request excludes unrelated fixtures');
   const selectedRevision=res.body.revision;
-  const finalsHandler=createLiveFixtureHandler({read:async()=>({revision:'old-draw',stale:false,sources:[{source_id:'old',fixtures:[{id:'major-match:nrl-finals-2026:elimination-final-1',name:'5th v 8th',date:'',time:null,scheduleStatus:'provisional'}]}]})});
+  const finalDate=new Date(Date.now()+86400000).toISOString().slice(0,10);
+  const finalsHandler=createLiveFixtureHandler({publishedFixtures:()=>[{id:'major-match:nrl-finals-2026:elimination-final-1',key:'nrl',name:'Sharks v Cowboys',date:finalDate,time:'19:50',scheduleStatus:'confirmed'}],read:async()=>({revision:'old-draw',stale:false,sources:[{source_id:'old',fixtures:[{id:'major-match:nrl-finals-2026:elimination-final-1',name:'5th v 8th',date:'',time:null,scheduleStatus:'provisional'}]}]})});
   res=response();await finalsHandler({url:'/api/fixtures?ids=major-match:nrl-finals-2026:elimination-final-1',headers:{}},res);
-  const final=res.body.sources.flatMap(s=>s.fixtures)[0];assert.equal(final.name,'Sharks v Cowboys');assert.equal(final.date,'2026-09-12');assert.equal(final.time,'19:50');
+  const final=res.body.sources.flatMap(s=>s.fixtures)[0];assert.equal(final.name,'Sharks v Cowboys');assert.equal(final.date,finalDate);assert.equal(final.time,'19:50');
+  const clock=require('../config/card-timing');
+  const sportingStart=new Date(Date.now()+86400000).toISOString();
+  const exactFixture={id:'nrl-confirmed-clock',key:'nrl',name:'Roosters v Knights',startTimeUtc:sportingStart,timePrecision:'exact',scheduleStatus:'confirmed',timeTbc:false,startTimeTbc:false,dateOnly:false};
+  const legacyLive={...exactFixture,dateOnly:true,schedulePrecision:'date-only',status:'live',homeScore:12,awayScore:6};
+  const clockHandler=createLiveFixtureHandler({publishedFixtures:()=>[exactFixture],read:async()=>({revision:'legacy-date-only',stale:false,sources:[{source_id:'live-nrl',fixtures:[legacyLive]}]})});
+  res=response();await clockHandler({url:'/api/fixtures?ids=nrl-confirmed-clock',headers:{}},res);
+  const currentClock=res.body.sources.flatMap(source=>source.fixtures)[0];
+  assert.equal(clock.presentation({...currentClock,status:'scheduled'}).time,clock.presentation(exactFixture).time,'the public live API reconciles inherited date-only metadata for the retained appointment');
+  assert.equal(clock.presentation(currentClock).time,'SCHEDULED '+clock.presentation(exactFixture).time,'a sourced live status labels the appointment as scheduled, never reported actual play');
+  assert.equal(currentClock.schedulePrecision,'exact');assert.equal(currentClock.dateOnly,false);
+  const oldRevision=require('node:crypto').createHash('sha256').update(`legacy-date-only:${require('../lib/live-fixtures').contentHash([exactFixture])}:nrl-confirmed-clock`).digest('hex');
+  res=response();await clockHandler({url:'/api/fixtures?ids=nrl-confirmed-clock&revision='+oldRevision,headers:{}},res);
+  assert.equal(res.statusCode,200,'an old cached API validator must receive corrected timing metadata');
+  assert.equal(currentClock.status,'live');assert.equal(currentClock.homeScore,12);assert.equal(currentClock.awayScore,6,'timing repair must preserve sourced status and scores');
   res=response();await scopedHandler({url:'/api/fixtures?ids=unfollowed&revision='+selectedRevision,headers:{}},res);assert.equal(res.statusCode,200,'different viewport selection invalidates revision');
   res=response();await scopedHandler({url:'/api/fixtures?ids='+Array.from({length:61},(_,i)=>'id'+i).join(','),headers:{}},res);assert.equal(res.statusCode,400,'server enforces 60-fixture bound');
   const athleteHandler=createLiveFixtureHandler({read:async()=>({revision:'athlete-revision',stale:false,sources:[{source_id:'discovery-ai-athletes',fixtures:[{id:'race',enrichmentOnly:true,fixtureFallback:{id:'race',name:'NLS Round 8',date:'2026-09-12',key:'motorsport'},participationEvidence:[{participantId:'competitor:f1:george-russell',displayName:'George Russell',participationStatus:'confirmed',participationKind:'race',sourceUrl:'https://www.nuerburgring-langstrecken-serie.de/',checkedAt:'2026-09-08'}]}]}]})});
   res=response();await athleteHandler({url:'/api/fixtures?athlete=competitor%3Af1%3Ageorge-russell',headers:{}},res);
   assert.equal(res.body.schemaVersion,'athlete-participation-live.v1');assert.deepEqual(res.body.history,[],'retired AI athlete entries must not surface in profiles');
   assert(!res.body.sources,'profile lookup does not download every fixture');
+  // Representation validators include genuine fixture verification, not collection polls.
+  let verified='2026-09-24T12:00:00Z',collection='2026-09-24T12:00:00Z';
+  const observedHandler=createLiveFixtureHandler({publishedFixtures:()=>[],clock:()=>new Date('2026-09-24T12:00:00Z'),read:async()=>({revision:'unchanged-facts',stale:false,sources:[{source_id:'test',checked_at:collection,fixtures:[{id:'observed',key:'nrl',status:'live',fixtureObservationSchema:'fixture-observations.v1',scoreCheckedAt:verified,statusCheckedAt:verified,homeScore:0,awayScore:0}]}]})});
+  res=response();await observedHandler({url:'/api/fixtures?ids=observed',headers:{}},res);const original=res.body.revision;
+  collection='2026-09-24T13:00:00Z';res=response();await observedHandler({url:'/api/fixtures?ids=observed&revision='+original,headers:{}},res);assert.equal(res.statusCode,304,'collection-only check does not manufacture a new fixture observation');
+  verified='2026-09-24T13:00:00Z';res=response();await observedHandler({url:'/api/fixtures?ids=observed&revision='+original,headers:{}},res);assert.equal(res.statusCode,200,'new genuine verification must reach clients despite unchanged fact revision');assert.notEqual(res.body.revision,original);
+
+  const dictionary=require('../lib/fixture-source-groups-v2'),transportReads=[];let transportRefreshes=0;
+  assert.throws(()=>createLiveFixtureHandler({globalSnapshotTransport:{...dictionary.CANDIDATE}}));
+  const explicitTransport=createLiveFixtureHandler({globalSnapshotTransport:dictionary.CANDIDATE,environment:{FIXTURE_REFRESH_SECRET:secret},publishedFixtures:()=>[],sources:()=>[],refresh:async()=>{transportRefreshes++;return {refreshed:[],failed:[],skipped:[]};},read:async options=>{transportReads.push(options);return {revision:'dictionary-constructor',sources:[],stale:false};}});
+  res=response();await explicitTransport({url:'/api/fixtures',headers:{}},res);assert.equal(res.statusCode,200);assert.equal(transportReads[0].globalTransport,dictionary.CANDIDATE);
+  res=response();await explicitTransport({url:'/api/fixtures?ids=selected',headers:{}},res);assert.equal(res.statusCode,200);assert(!Object.hasOwn(transportReads[1],'globalTransport'));assert(transportReads[1].ids.includes('selected'));
+  res=response();await explicitTransport({url:'/api/fixture-refresh',method:'POST',headers:{authorization:`Bearer ${secret}`}},res);assert.equal(res.statusCode,200);assert.equal(transportRefreshes,1);assert.equal(transportReads.length,2);
+  const defaultReads=[],defaultTransport=createLiveFixtureHandler({publishedFixtures:()=>[],read:async options=>{defaultReads.push(options);return {revision:'default-constructor',sources:[],stale:false};}});
+  res=response();await defaultTransport({url:'/api/fixtures?globalSnapshotTransport=v2',headers:{'x-ns-fixture-source-groups':'v2'}},res);assert.equal(res.statusCode,200);assert(!Object.hasOwn(defaultReads[0],'globalTransport'),'public input cannot activate private transport');
+
   console.log("Live fixture API: public read, revision validator, protected POST and safe failure passed.");
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

@@ -1,0 +1,11 @@
+# NRL finals result and readiness repair — 30 September 2026
+
+The regular-season canonical provider ends at Round 27. Its completed results did not establish that the separate NRL finals schedule was accurate. Four week-one finals retained reviewed scores but were reopened as scheduled by the older bracket announcement. The readiness report ignored all nine finals slots.
+
+The existing reviewed-result join now accepts exact recorded aliases and the historical colon/hyphen NRL finals identity spelling. It never matches by title or date and retains the fixture/action ID. The programme resolver applies reviewed results after schedules. No new provider, scheduler, subscription or ladder arithmetic is introduced. Panthers–Knights structured scores, 14–22, are taken from the already linked official 27 September match report; the text result was already present.
+
+Pilot readiness v2 checks all nine 2026 NRL finals slots separately from the regular current/next-round window. It requires exactly one reviewed schedule and published card per slot, agreeing kickoff and ordered participants. After the six-hour result allowance it requires completed status, numeric scores and an official result source agreeing with the reviewed result. Missing evidence fails. This is a schedule/result contract, not full cross-sport certification, authenticated playback or editorial-quality approval. AFL finals remain in the existing canonical result check.
+
+The canonical refresh and production gates run `validate-nrl-finals-readiness.js`. Regression cases cover missing/duplicate cards, wrong participants/kickoff/scores/source, stale scheduled state, missing source records, future result deadlines and identity preservation. `validate-update-cards.js` is also run in the clean release checkout: local execution is blocked by iCloud-offloaded Git pack data, not reported as a passing check.
+
+Regenerated projections are NRL Inspector, compact Follow schedule and the chat fixture registry; six NRL fixture records changed in each. Local Chrome at 320, 390, 768 and 1280 pixels verified eight completed finals recognised by the renderer, nine retained slots, no horizontal overflow and hidden scores with Results off. This used isolated API failure responses and does not prove a physical installed PWA or authenticated account.

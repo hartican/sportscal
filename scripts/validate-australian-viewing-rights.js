@@ -43,20 +43,23 @@ for (const [rightsId, rights] of Object.entries(followFirst.COMPETITION_VIEWING_
 }
 
 const scenarios = [
-  ["Rugby Union", { sport:"Rugby Union", key:"rugby", name:"Argentina v Australia" }, ["stan"]],
+  ["Unreviewed Rugby Union", { sport:"Rugby Union", key:"rugby", name:"Argentina v Australia", broadcaster:"Stan Sport" }, []],
   ["NRL", { sportDomainId:"sport:nrl", competitionId:"competition:nrl-premiership-2026", key:"nrl", name:"Broncos v Storm" }, ["kayo", "foxtel"]],
   ["NRL Grand Final", { sportDomainId:"sport:nrl", competitionId:"competition:nrl-premiership-2026", key:"nrl", name:"NRL Grand Final", stage:"Grand Final" }, ["nine"]],
   ["NRLW", { sportDomainId:"sport:nrl", competitionId:"competition:nrlw-premiership-2026", key:"nrlw", name:"Broncos v Roosters" }, ["nine", "kayo", "foxtel"]],
   ["Rugby League World Cup", { key:"nrl", majorEventId:"rugby-league-world-cup", name:"Australia v New Zealand — Rugby League World Cup" }, ["seven"]],
   ["Formula 1", { key:"f1", name:"Australian Grand Prix" }, ["kayo", "foxtel"]],
   ["MotoGP", { key:"motogp", competitionId:"competition:motogp", name:"Australian Motorcycle Grand Prix" }, ["kayo", "foxtel"]],
-  ["SailGP", { key:"sailgp", competitionId:"competition:sailgp", name:"Australia Sail Grand Prix" }, ["kayo", "foxtel"]],
-  ["FIBA Women", { key:"fiba-women", competitionId:"competition:fiba-womens-world-cup", name:"Australia v Belgium" }, ["kayo", "foxtel"]],
+  ["SailGP 2026", { key:"sailgp", competitionId:"competition:sailgp", name:"Australia Sail Grand Prix", date:"2026-01-17" }, ["kayo", "foxtel"]],
+  ["SailGP 2027", { key:"sailgp", competitionId:"competition:sailgp", name:"Hong Kong Sail Grand Prix", date:"2027-01-23" }, []],
+  ["SailGP without an edition date", { key:"sailgp", competitionId:"competition:sailgp", name:"Australia Sail Grand Prix" }, []],
+  ["FIBA Women", { key:"fiba-women", competitionId:"competition:fiba-womens-world-cup", date:"2026-09-06", name:"Australia v Belgium" }, ["kayo", "foxtel"]],
   ["Premier League", { sportDomainId:"sport:football", competitionId:"competition:premier-league-2026-27", key:"premier-league" }, ["stan"]],
   ["Champions League", { sportDomainId:"sport:football", competitionId:"competition:uefa-champions-league-2026-27" }, ["stan"]],
+  ["Europa League", {sportDomainId:"sport:football",competitionId:"competition:uefa-europa-league",key:"football"}, ["stan"]],
   ["FIFA World Cup", { competitionId:"competition:fifa-world-cup-2026" }, ["sbs"]],
   ["Australian football", { competitionId:"competition:afc-womens-asian-cup-2026", name:"Matildas v Japan" }, ["paramount"]],
-  ["Cricket Australia", { key:"cricket", competitionId:"competition:cricket-australia", name:"Australia v England" }, ["kayo", "foxtel", "seven"]],
+  ["Cricket Australia", { key:"cricket", competitionId:"competition:cricket-australia", name:"Australia v England" }, ["seven", "kayo", "foxtel"]],
   ["ICC cricket", { key:"cricket", competitionId:"competition:icc-world-cup", name:"Australia v India" }, ["prime-video"]],
   ["NBA", { key:"nba", competitionId:"competition:nba", name:"NBA Finals" }, ["nba-pass"]],
   ["NBL", { key:"basketball", competitionId:"competition:nbl-2026", name:"Sydney Kings v Perth Wildcats" }, ["kayo", "foxtel"]],
@@ -66,13 +69,13 @@ const scenarios = [
   ["Golf majors", { key:"masters", competitionId:"competition:masters", name:"Masters final round" }, ["kayo", "foxtel"]],
   ["LIV Golf", { key:"golf", competitionId:"competition:liv-golf", name:"LIV Golf Adelaide" }, ["seven"]],
   ["Netball 2026", { key:"netball", competitionId:"competition:netball", startsAt:"2026-09-01T00:00:00.000Z" }, ["kayo", "foxtel"]],
-  ["Netball 2027", { key:"netball", competitionId:"competition:netball", startsAt:"2027-09-01T00:00:00.000Z" }, ["stan", "nine"]],
+  ["Netball 2027", { key:"netball", competitionId:"competition:netball", startsAt:"2027-09-01T00:00:00.000Z" }, ["nine", "stan"]],
   ["WRC", { key:"wrc", competitionId:"competition:wrc-2026", name:"WRC Safari Rally Kenya" }, ["stan"]],
   ["Dakar", { key:"motorsport", competitionId:"competition:dakar", name:"Dakar Rally" }, ["sbs"]],
   ["Goodwood", { key:"goodwood", name:"Goodwood Festival of Speed" }, ["goodwood"]],
   ["X Games", { key:"skateboard", name:"X Games Skateboarding Finals" }, ["youtube"]],
   ["Commonwealth Games", { key:"cwg", competitionId:"competition:commonwealth-games-2026" }, ["seven"]],
-  ["Olympic Games", { competitionId:"competition:olympic-games-2028" }, ["stan", "nine"]],
+  ["Olympic Games", { competitionId:"competition:olympic-games-2028" }, ["nine", "stan"]],
   ["Swimming Australia", { competitionId:"competition:swimming-australia-2026" }, ["nine"]],
 ];
 
@@ -103,19 +106,59 @@ const events = fs.readdirSync(feedDir)
   .flatMap(name => JSON.parse(fs.readFileSync(path.join(feedDir, name), "utf8")).events || []);
 
 const permittedViewingTbcNames = new Set([
+  "China Open — WTA 1000",
+  "Billie Jean King Cup Finals — Team competition", "2027 PGA Championship",
   "WSL Margaret River Pro", "UCI Downhill MTB World Cup",
   "Kvitfjell — Men's Downhill World Cup", "Kvitfjell — Men's Super-G World Cup",
-  "Shahdag — Moguls World Cup Finals", "Sun Valley — Men's Alpine Finals Downhill", "Pipe Masters Big Wave Championship",
+  "Shahdag — Moguls World Cup Finals", "Shahdag — Freestyle World Cup Finals", "Sun Valley — Men's Alpine Finals Downhill",
 ]);
-const unresolvedPublishedCards = events.filter(event => !followFirst.viewingLink(event));
-assert(unresolvedPublishedCards.every(event => permittedViewingTbcNames.has(event.name)), `unreviewed cards cannot silently lose viewing metadata: ${unresolvedPublishedCards.map(event => event.name).join(", ")}`);
-assert(unresolvedPublishedCards.length === permittedViewingTbcNames.size, "known event-specific rights gaps must remain explicit Viewing TBC states");
+const unresolvedPublishedCards = events.filter(event => !require("../config/coverage-pauses").womensT20(event) && !followFirst.viewingLink(event));
+const unconfirmedGrandTourRights=event=>['tdf','giro','vuelta'].includes(event.key)&&event.grandTourCalendar===true&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC'&&/^https:\/\/(?:www\.)?(?:letour.fr|giroditalia.it|lavuelta.es)\//.test(event.calendarProvenance?.sourceUrl||'');
+const unconfirmedWslRights=event=>event.key==='wsl'&&event.competitionId==='competition:wsl-championship-tour'&&event.broadcaster==='Broadcast TBC'&&event.calendarProvenance?.sourceUrl==='https://www.worldsurfleague.com/events/2026/ct?all=1';
+const unconfirmedSailgpRights=event=>event.key==='sailgp'&&event.season==='2027'&&event.date?.startsWith('2027-')&&event.broadcaster==='Broadcast TBC'&&event.calendarProvenance?.sourceUrl==='https://sailgp.com/general/2027/calendar/';
+const reviewedMajorRounds=new Map(require('../data/canonical/golf-major-rounds.v1.json').events.map(event=>[event.id,event]));
+const unconfirmedMajorRights=event=>{
+  const reviewed=reviewedMajorRounds.get(event.canonicalEventId);
+  return event.key==='golf'&&event.golfMajorCalendar===true&&event.cardType==='golf_session'&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC'&&reviewed
+    &&event.date===reviewed.date&&event.name===reviewed.name&&event.venueConfigurationId===reviewed.venueConfigurationId
+    &&event.calendarProvenance?.sourceUrl===reviewed.calendarProvenance.sourceUrl&&event.calendarProvenance?.checkedAt===reviewed.calendarProvenance.checkedAt;
+};
+const reviewedDakarStages=new Map(require('../data/canonical/dakar-calendar.v1.json').events.map(e=>[e.id,e]));
+const unconfirmedDakarRights=event=>{const r=reviewedDakarStages.get(event.canonicalEventId);return event.key==='dakar'&&event.dakarCalendar===true&&event.competitionId==='competition:dakar'&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC'&&r&&event.date===r.date&&event.name===r.name&&event.sessionType===r.sessionType&&event.calendarProvenance?.sourceUrl===r.calendarProvenance.sourceUrl&&event.calendarProvenance?.checkedAt===r.calendarProvenance.checkedAt;};
+const reviewedLemansSessions=new Map(require('../data/canonical/lemans-calendar.v1.json').events.map(e=>[e.id,e]));
+const unconfirmedLemansRights=event=>{const r=reviewedLemansSessions.get(event.canonicalEventId);return event.key==='lemans'&&event.lemansCalendar===true&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC'&&r&&event.date===r.date&&event.name===r.name&&event.sessionType===r.sessionType&&event.calendarProvenance?.sourceUrl===r.calendarProvenance.sourceUrl&&event.calendarProvenance?.checkedAt===r.calendarProvenance.checkedAt;};
+const reviewedParticipantFixtures=new Map(require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').events.map(e=>[e.canonicalEventId,e]));
+const unconfirmedParticipantRights=event=>{const reviewed=reviewedParticipantFixtures.get(event.canonicalEventId),schedule=event.scheduleProvenance;return reviewed&&event.broadcaster==='Australian viewing unconfirmed'&&(schedule?.sourceUrl||event.sourceUrl)===reviewed.sourceUrl&&(schedule?.checkedAt||event.sourceCheckedAt)===reviewed.sourceCheckedAt&&event.startTimeUtc===reviewed.startTimeUtc&&JSON.stringify(event.participantIds)===JSON.stringify(reviewed.participantIds)&&(!schedule||(schedule.startTimeUtc===reviewed.startTimeUtc&&JSON.stringify(schedule.participantIds)===JSON.stringify(reviewed.participantIds)));};
+const unconfirmedSurfNote=require('./lib/reviewed-calendar-notes').isReviewedNote;
+const reviewedMlb=new Map(require('../data/canonical/mlb-postseason.v1.json').fixtures.map(f=>[f.id,f]));
+const unconfirmedMlbRights=event=>{const f=reviewedMlb.get(event.canonicalEventId||event.id);return f&&event.key==='baseball'&&event.broadcaster==='Australian viewing unconfirmed'&&event.sourceUrl===f.sourceUrl&&event.startTimeUtc===f.startTimeUtc&&JSON.stringify(event.participantIds)===JSON.stringify(f.participantIds)&&followFirst.viewingOptions(event).length===0;};
+const publisherTennis=new Map(require('../data/canonical/tennis-scoreboard.v1.json').fixtures.map(f=>[f.canonicalEventId||f.id,f]));
+const unconfirmedPublisherTennisRights=event=>{const f=publisherTennis.get(event.canonicalEventId||event.id);return f&&f.tennisProviderMatchId&&event.key==='tennis'&&event.broadcaster==='Australian viewing unconfirmed'&&event.sourceUrl===f.sourceUrl&&event.sourceCheckedAt===f.sourceCheckedAt&&JSON.stringify(event.participantIds)===JSON.stringify(f.participantIds)&&followFirst.viewingOptions(event).length===0;};
+const reviewedHorseFeatures=new Map(require('../data/canonical/horse-features.v1.json').events.map(e=>[e.id,e]));
+const unconfirmedHorseRights=event=>{const r=reviewedHorseFeatures.get(event.canonicalEventId);return r&&event.key==='horse-racing'&&event.horseFeature===true&&event.competitionId==='competition:australian-thoroughbred'&&event.broadcaster==='Broadcast TBC'&&event.date===r.date&&event.name===r.name&&event.calendarProvenance?.sourceUrl===r.calendarProvenance.sourceUrl&&event.calendarProvenance?.checkedAt===r.calendarProvenance.checkedAt&&followFirst.viewingOptions(event).length===0;};
+const unreviewedViewingCards=unresolvedPublishedCards.filter(event => !(unconfirmedHorseRights(event) || permittedViewingTbcNames.has(event.name) || unconfirmedMlbRights(event) || unconfirmedPublisherTennisRights(event) || unconfirmedSurfNote(event) || unconfirmedParticipantRights(event) || (event.key==='rugby' && event.broadcaster==='Australian viewing unconfirmed') || unconfirmedSailgpRights(event) || unconfirmedWslRights(event) || unconfirmedGrandTourRights(event) || unconfirmedMajorRights(event) || unconfirmedDakarRights(event) || unconfirmedLemansRights(event)));
+assert(!unreviewedViewingCards.length, `unreviewed cards cannot silently lose viewing metadata: ${unreviewedViewingCards.map(event => event.name).join(", ")}`);
+for(const event of unresolvedPublishedCards.filter(unconfirmedSurfNote)){
+  assert(!unconfirmedSurfNote({...event,id:'unreviewed-surf-note'}),'Unknown identities cannot reuse the Surf viewing review');
+  assert(!unconfirmedSurfNote({...event,date:'2027-01-22'}),'An unsupported appointment cannot reuse unknown-viewing review');
+  assert(!unconfirmedSurfNote({...event,viewingOptions:[{providerId:'espn'}]}),'Unverified viewing claims cannot reuse the review');
+}
+const resultWithSchedule=events.find(event=>event.scheduleProvenance&&unconfirmedParticipantRights(event));
+if(resultWithSchedule){
+  assert(!unconfirmedParticipantRights({...resultWithSchedule,scheduleProvenance:{...resultWithSchedule.scheduleProvenance,checkedAt:'2100-01-01T00:00:00Z'}}),'a result cannot invent a schedule/viewing observation');
+  assert(!unconfirmedParticipantRights({...resultWithSchedule,participantIds:['another-player','wrong-player']}),'a different match cannot reuse reviewed unknown-viewing provenance');
+}
+const chinaOpen=events.find(e=>e.name==="China Open — WTA 1000");
+if(chinaOpen){const options=followFirst.viewingOptions(chinaOpen);assert(options.length?options.every(o=>o.sourceUrl&&o.verifiedAt&&!['tennis-tv'].includes(o.providerId)):/TBC|unconfirmed/i.test(chinaOpen.broadcaster||''),'WTA China Open requires dated WTA carriage or internal unknown state');}
+// A reviewed source may resolve a formerly missing provider; do not require gaps to persist.
 for (const event of unresolvedPublishedCards) assert(followFirst.viewingOptions(event).length === 0, `${event.name} must not inherit a foreign or ambiguous provider`);
 
 const rugbyCards = events.filter(event => /rugby union|\brugby\b/i.test(`${event.sport || ""} ${event.key || ""}`) && !/rugby league/i.test(event.sport || ""));
-assert(rugbyCards.length > 0, "published Feed must include Rugby Union coverage for the Stan rule check");
+assert(rugbyCards.length > 0, "published Feed must include Rugby Union coverage for the reviewed-window check");
 for (const event of rugbyCards){
-  assert(followFirst.viewingLink(event)?.providerId === "stan", `${event.name} must render Watch on Stan Sport`);
+  const reviewed=require('../lib/reviewed-au-viewing').reviewedAuViewing(event);
+  assert(JSON.stringify(event.viewingOptions)===JSON.stringify(reviewed.viewingOptions), `${event.name} must preserve its dated viewing evidence`);
+  assert(followFirst.viewingLink(event) || event.broadcaster==='Australian viewing unconfirmed', `${event.name} must expose an honest degraded state`);
 }
 
 const eplCards = events.filter(event => String(event.competitionId || "").startsWith("competition:premier-league"));
@@ -125,3 +168,8 @@ for (const event of eplCards){
 }
 
 console.log(`Australian viewing-rights validation passed (${rightsAudit.sports.length} sports, ${scenarios.length} resolver scenarios, ${events.length} published cards, ${rugbyCards.length} rugby cards, ${eplCards.length} EPL cards).`);
+
+// The same provider contract governs scored live/upcoming and re-read options.
+require("./validate-viewing-action-integrity");
+
+for(const e of unresolvedPublishedCards.filter(unconfirmedHorseRights)){assert(!unconfirmedHorseRights({...e,date:'2027-12-31'}),'Horse viewing review binds the published feature date');assert(!unconfirmedHorseRights({...e,canonicalEventId:'unknown'}),'Unknown races cannot reuse viewing review');}

@@ -1,0 +1,424 @@
+(function(root){
+  'use strict';
+  const clone=value=>JSON.parse(JSON.stringify(value));
+  const object=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
+  const same=(a,b)=>{
+    if(a===b)return true;
+    if(Array.isArray(a)&&Array.isArray(b))return a.length===b.length&&a.every((value,i)=>same(value,b[i]));
+    if(!object(a)||!object(b))return false;
+    const keys=Object.keys(a);
+    return keys.length===Object.keys(b).length&&keys.every(key=>Object.hasOwn(b,key)&&same(a[key],b[key]));
+  };
+  const text=value=>typeof value==='string';
+  const strings=value=>Array.isArray(value)&&value.every(text)&&new Set(value).size===value.length;
+  const boolean=value=>typeof value==='boolean';
+  const domainFields={profileId:text,sportDomainId:text,taxonomyNodeId:value=>value===null||text(value),
+    enabled:boolean,templateId:value=>['template:casual','template:like','template:froth','template:custom'].includes(value),
+    includeAllFixtures:boolean,includeMajorEvents:boolean,includeFollowedTeams:boolean,
+    narrativeVisibility:value=>['allEligible','importantOnly','off'].includes(value),
+    narrativeIntensity:value=>Number.isFinite(value)&&value>=0&&value<=5,
+    editorialSensitivity:value=>['low','medium','high'].includes(value),reminderDefault:value=>['allFollowed','importantOnly','off'].includes(value),
+    scopedCompetitionIds:strings,scopedTaxonomyNodeIds:strings};
+  const entityFields={profileId:text,participantId:text,followLevel:value=>['follow','priority','unfollow','mute'].includes(value),
+    cricketFormats:value=>strings(value)&&value.every(format=>['Tests','ODIs','T20Is','BBL'].includes(format))};
+  const eventDecisionFields=['followedMajorEventIds','excludedMajorEventIds','eventFamilyDecisions','eventEditionDecisions'];
+  const sportSelectionFields=['selectedSelectorEntityIds','followedSports','taxonomySelection'];
+
+  function emit(observe,site,reason,side=null,family=null,decision='held',scope={}){
+    try{const fact=root.NOTHINGSPORTS_SYNC_DIAGNOSTIC?.guardFact({site,reason,side,family,decision,...scope});if(fact)observe?.(fact);}catch(_error){}
+  }
+  function localView(preferences,observe,side,site=4){
+    const invalid=reason=>{emit(observe,site,reason,side,'localView');return false;};
+    if(preferences.feedCompact!==undefined&&!boolean(preferences.feedCompact))return invalid(20/*view_field_invalid*/);
+    if(preferences.followBrowse===undefined)return true;
+    const browse=preferences.followBrowse;
+    const fields={sportId:text,categoryId:text,section:value=>['teams-players','schedule'].includes(value),
+      page:value=>Number.isSafeInteger(value)&&value>=0,
+      scheduleScope:value=>value===null||(object(value)&&Object.keys(value).length===4
+        &&['codeId','tournamentId','competitionId','label'].every(key=>text(value[key])))};
+    if(!object(browse))return invalid(18/*view_shape_invalid*/);
+    return Object.keys(browse).every(key=>!Object.hasOwn(fields,key)?invalid(19/*view_unknown_field*/)
+      :fields[key](browse[key])||invalid(20/*view_field_invalid*/));
+  }
+
+  function withoutViews(preferences){
+    const result=clone(preferences);delete result.followBrowse;delete result.feedCompact;return result;
+  }
+
+  function excludeAgreedEventsScope(values,outside){
+    const key='eventsScope',owns=value=>Object.hasOwn(value,key),valid=value=>['all','followed'].includes(value[key]);
+    if(!values.slice(1).every(value=>owns(value)&&valid(value))||!same(values[1][key],values[2][key]))return false;
+    if(owns(values[0])&&(!valid(values[0])||same(values[0][key],values[1][key])))return false;
+    // Only the existing view writer's exact, already-agreed enum is accommodated.
+    // The original receipt and fresh remote value remain untouched.
+    for(const value of outside)delete value[key];
+    return true;
+  }
+
+  function excludeAgreedTennisDefault(values,outside){
+    // Historical absence only: recognize the existing normalizer's exact default,
+    // never an arbitrary agreed object or permission to create a remote value.
+    const defaults={enthusiasm:'froth',gender:'both',eventType:'both',round:'all'};
+    if(Object.hasOwn(values[0],'tennis')||!values.slice(1).every(value=>
+      Object.hasOwn(value,'tennis')&&same(value.tennis,defaults)))return false;
+    for(const value of outside)delete value.tennis;
+    return true;
+  }
+
+  function excludeAgreedEventDecisions(values,outside,follow){
+    const fields=eventDecisionFields;
+    const first=values.map(value=>value.followFirst);
+    if(!first.every(object))return;
+    if(!fields.some(key=>!same(first[0][key],first[1][key])||!same(first[0][key],first[2][key])))return;
+    let canonical;
+    try{canonical=values.map(value=>follow.migratePreferences(clone(value)).followFirst);}catch{return;}
+    // Reuse the current canonical event rules as a read-only check. Never use
+    // their coerced/defaulted output as a decision or write it into a receipt.
+    if(!first.every((value,index)=>fields.every(key=>Object.hasOwn(value,key)===Object.hasOwn(canonical[index],key)
+      &&same(value[key],canonical[index][key]))))return;
+    for(const key of fields){
+      if(!Object.hasOwn(first[1],key)||!Object.hasOwn(first[2],key)||!same(first[1][key],first[2][key]))continue;
+      // These exact decisions already agree with the fresh server read. Keep
+      // them there; only the existing entity/domain plan may produce writes.
+      for(const value of outside)delete value.followFirst[key];
+    }
+    return fields;
+  }
+
+  function excludeUntouchedRemotePrompt(values,outside){
+    const key='ratingPromptState',fields=['schemaVersion','sessionCount','lastSessionId','lastPromptSessionId','prompts'];
+    const recordFields=['eventId','firstPromptSession','lastPromptSession','promptCount'];
+    if(!values.every(value=>Object.hasOwn(value,key)))return false;
+    const states=values.map(value=>value[key]);
+    if(!states.every(state=>object(state)&&state.schemaVersion==='rating-prompts.v1'
+      &&Object.keys(state).length===fields.length&&fields.every(name=>Object.hasOwn(state,name))
+      &&Array.isArray(state.prompts)&&state.prompts.length<=80
+      &&state.prompts.every(record=>object(record)&&Object.keys(record).length===recordFields.length
+        &&recordFields.every(name=>Object.hasOwn(record,name)))))return false;
+    const rating=root.NOTHINGSPORTS_RATING_SYSTEM||(typeof RATING_SYSTEM==='object'?RATING_SYSTEM:null);
+    if(typeof rating?.normalizePromptState!=='function')return false;
+    try{
+      // Predicate only: reject any shape that would be defaulted, coerced,
+      // trimmed, reordered or deduplicated. Never write normalized output.
+      if(!states.every(state=>same(state,rating.normalizePromptState(clone(state)))))return false;
+    }catch{return false;}
+    // The existing decision projection already excludes only these states'
+    // sessionCount/lastSessionId. Every actual prompt-history field stays exact.
+    const history=state=>({schemaVersion:state.schemaVersion,lastPromptSessionId:state.lastPromptSessionId,prompts:state.prompts});
+    if(!same(history(states[0]),history(states[1]))||same(history(states[0]),history(states[2])))return false;
+    // Local history is demonstrably untouched. Preserve the fresh remote
+    // value verbatim; omit it only from this plan's outside-scope comparison.
+    for(const value of outside)delete value[key];
+    return true;
+  }
+
+  function validatedSportSelections(values){
+    // These are one existing sport writer's choice. Its derivations validate
+    // each complete snapshot; their output never replaces a saved value.
+    if(typeof normalizeSelectorEntityIds!=='function'||typeof canonicalSportKeysForSelectorIds!=='function'
+      ||typeof taxonomySelectionForSelectorIds!=='function')return null;
+    const selections=[];
+    for(const [index,value] of values.entries()){
+      if(!sportSelectionFields.every(key=>Object.hasOwn(value,key))
+        ||!strings(value.selectedSelectorEntityIds)||!strings(value.followedSports)
+        ||!same(value.selectedSelectorEntityIds,normalizeSelectorEntityIds(value.selectedSelectorEntityIds))
+        ||!same(value.followedSports,canonicalSportKeysForSelectorIds(value.selectedSelectorEntityIds)))return null;
+      const taxonomy=taxonomySelectionForSelectorIds(value.selectedSelectorEntityIds);
+      if(!object(taxonomy))return null;
+      // Only a raw historical base/remote may lack its derived translation.
+      // The authoritative selectors and compatibility keys must still validate;
+      // missing fields, null intent and unknown taxonomy objects remain held.
+      if(!(index!==1&&value.taxonomySelection===null)
+        &&(!object(value.taxonomySelection)||!same(value.taxonomySelection,taxonomy)))return null;
+      selections.push({selectedSelectorEntityIds:value.selectedSelectorEntityIds,
+        followedSports:value.followedSports,taxonomySelection:taxonomy});
+    }
+    return selections;
+  }
+
+  function compatibleSportSelections(selections){
+    if(!selections)return false;
+    const [base,intent,remote]=selections;
+    return same(base,intent)||same(base,remote)||same(intent,remote);
+  }
+
+  function sportSelectionChanged(values){
+    const fields=sportSelectionFields;
+    const ownsSame=(first,second,key)=>Object.hasOwn(first,key)===Object.hasOwn(second,key)&&same(first[key],second[key]);
+    return values.slice(1).some(value=>fields.some(key=>!ownsSame(values[0],value,key)));
+  }
+
+  function reconcileSportSelection(values,outside,selections){
+    const fields=sportSelectionFields;
+    if(!sportSelectionChanged(values))return null;
+    // Preserve a whole unchanged-side or already-agreed choice. Conflicting
+    // selections, including an empty choice against a new remote choice, hold.
+    if(!compatibleSportSelections(selections))return null;
+    for(const value of outside)for(const key of fields)delete value[key];
+    const chosen=values[same(selections[0],selections[1])?2:1];
+    return clone(Object.fromEntries(fields.map(key=>[key,chosen[key]])));
+  }
+
+  function historicalAflNullCandidate(values){
+    const key='aflFamilyMigration';
+    return Object.hasOwn(values[1],key)&&values[1][key]===null
+      &&values.some(value=>!Object.hasOwn(value,key))
+      &&values.every(value=>!Object.hasOwn(value,key)||value[key]===null);
+  }
+
+  function excludeHistoricalAflNull(values,outside,selections){
+    const key='aflFamilyMigration';
+    if(!compatibleSportSelections(selections)||!historicalAflNullCandidate(values))return false;
+    const catalogue=root.NOTHINGSPORTS_DISCOVERY_CATALOGUE
+      ||(typeof DISCOVERY_CATALOGUE==='object'?DISCOVERY_CATALOGUE:null);
+    if(typeof catalogue?.migratePreferences!=='function')return false;
+    // Prove this exact non-decision is produced by the existing normalizer.
+    // Pending/resolved/unknown markers and legacy AFL choice migrations do not
+    // qualify. Keep the fresh server's raw representation in the plan and ACK.
+    if(!values.every(value=>catalogue.migratePreferences(clone(value))?.[key]===null))return false;
+    for(const value of outside)delete value[key];
+    return true;
+  }
+
+  function knownDecisionsAgree(intent,remote){
+    const equalField=(first,second,key)=>Object.hasOwn(first,key)===Object.hasOwn(second,key)&&same(first[key],second[key]);
+    if(!object(intent)||!object(remote)||!equalField(intent,remote,'eventsScope'))return false;
+    const first=intent.followFirst,second=remote.followFirst;
+    return same(first,second)||(object(first)&&object(second)&&eventDecisionFields.every(key=>equalField(first,second,key)));
+  }
+
+  function records(list,key,fields,identity,observe,side){
+    const family=key==='participantId'?'entities':'domains';
+    const invalid=(reason,message)=>{emit(observe,6,reason,side,family);throw Error(message);};
+    if(!Array.isArray(list))return invalid(22/*list_shape_invalid*/,'Unknown preference list');
+    const result=new Map();
+    for(const record of list){
+      if(!object(record))return invalid(23/*record_shape_invalid*/,'Unknown preference record');
+      if(!text(record[key])||!record[key])return invalid(24/*record_identity_invalid*/,'Unknown preference record');
+      for(const name of Object.keys(record)){
+        if(!Object.hasOwn(fields,name))return invalid(25/*record_unknown_field*/,'Unknown preference record');
+        if(!fields[name](record[name]))return invalid(26/*record_field_invalid*/,'Unknown preference record');
+      }
+      if(key==='participantId'&&!entityFields.followLevel(record.followLevel))return invalid(27/*entity_level_invalid*/,'Unknown Follow level');
+      if(key==='sportDomainId'&&(!/^sport:[a-z0-9-]+$/.test(record[key])||record[key]==='sport:rally'))return invalid(28/*domain_identity_invalid*/,'Unknown domain identity');
+      let id;
+      try{id=identity(record[key]);}catch(error){emit(observe,6/*record_validation*/,54/*identity_exception*/,side,family,'exception');throw error;}
+      if(!text(id)||!id)return invalid(29/*identity_unavailable*/,'Ambiguous preference identity');
+      if(result.has(id))return invalid(30/*identity_collision*/,'Ambiguous preference identity');
+      result.set(id,record);
+    }
+    return result;
+  }
+
+  function decision(record){
+    if(!record)return record;
+    const result={...record};delete result.profileId;return result;
+  }
+
+  function mergeRecords(base,intent,remote,key,fields,identity,observe){
+    const before=records(base,key,fields,identity,observe,'base'),desired=records(intent,key,fields,identity,observe,'intent'),latest=records(remote,key,fields,identity,observe,'remote');
+    const conflict=(reason,message)=>{emit(observe,7,reason,'remote',key==='participantId'?'entities':'domains');throw Error(message);};
+    const result=new Map(latest);
+    // Empty is a reset, not permission to discard unseen remote additions.
+    if(!intent.length&&base.length&&[...latest.keys()].some(id=>!before.has(id)))conflict(31,'Concurrent reset');
+    for(const id of new Set([...before.keys(),...desired.keys()])){
+      const b=before.get(id),l=desired.get(id),r=latest.get(id);
+      if(same(decision(b),decision(l)))continue;
+      if(!b||!l||!r){
+        if(same(decision(r),decision(l)))continue;
+        if(!same(decision(r),decision(b)))conflict(!b?32:!l?33:34,'Concurrent record change');
+        if(l)result.set(id,clone(l));else result.delete(id);
+        continue;
+      }
+      // Stable aliases establish identity, never permission to rewrite it.
+      const next={...r};
+      for(const name of new Set([...Object.keys(b),...Object.keys(l)])){
+        if(name==='profileId'||name===key)continue;
+        if(same(b[name],l[name])&&Object.hasOwn(b,name)===Object.hasOwn(l,name))continue;
+        const equal=value=>same(value[name],l[name])&&Object.hasOwn(value,name)===Object.hasOwn(l,name);
+        const unchanged=same(r[name],b[name])&&Object.hasOwn(r,name)===Object.hasOwn(b,name);
+        if(!equal(r)&&!unchanged)conflict(35,'Concurrent field change');
+        if(Object.hasOwn(l,name))next[name]=clone(l[name]);else delete next[name];
+      }
+      result.set(id,next);
+    }
+    return [...result.values()];
+  }
+
+  function plan(receipt,state,profile,follow,patches,observe){
+    try{
+      const refuse=(reason,side=null,site=3)=>{emit(observe,site,reason,side);return null;};
+      if(!object(receipt)||Object.keys(receipt).length!==6)return refuse(8/*receipt_shape_invalid*/);
+      if(!text(receipt.receiptId)||!receipt.receiptId.startsWith('preference-edit:'))return refuse(9/*receipt_id_invalid*/);
+      if(!text(receipt.ownerId)||!receipt.ownerId)return refuse(10/*receipt_owner_invalid*/);
+      if(!Number.isSafeInteger(receipt.generation)||receipt.generation<0)return refuse(11/*receipt_generation_invalid*/);
+      if(!text(receipt.baseUpdatedAt))return refuse(12/*base_time_unavailable*/,'base');
+      if(!Number.isFinite(Date.parse(receipt.baseUpdatedAt)))return refuse(13/*base_time_invalid*/,'base');
+      if(!text(state?.updatedAt))return refuse(14/*remote_time_unavailable*/,'remote');
+      if(!Number.isFinite(Date.parse(state.updatedAt)))return refuse(15/*remote_time_invalid*/,'remote');
+      const values=[receipt.basePreferences,receipt.preferences,state.preferences];
+      for(const [index,value] of values.entries()){
+        const side=['base','intent','remote'][index];
+        if(!object(value))return refuse(16/*preferences_shape_invalid*/,side,4);
+        if(!object(value.preferenceGraph))return refuse(17/*graph_shape_invalid*/,side,4);
+        if(!localView(value,observe,side))return null;
+      }
+      const outside=values.map(value=>{
+        const result=clone(value);delete result.followBrowse;delete result.feedCompact;
+        delete result.preferenceGraph.entityFollows;delete result.preferenceGraph.domainPreferences;return result;
+      });
+      const agreedEvents=excludeAgreedEventDecisions(values,outside,follow);
+      const agreedScope=excludeAgreedEventsScope(values,outside);
+      const agreedTennis=excludeAgreedTennisDefault(values,outside);
+      const retainedRemotePrompt=excludeUntouchedRemotePrompt(values,outside);
+      const selections=sportSelectionChanged(values)||historicalAflNullCandidate(values)
+        ?validatedSportSelections(values):null;
+      const sportSelection=reconcileSportSelection(values,outside,selections);
+      const historicalAflNull=excludeHistoricalAflNull(values,outside,selections);
+      if(!profile.preferenceBaseMatches({basePreferences:outside[0]},outside[1]))return refuse(21/*outside_supported_scope_changed*/,'intent',5);
+      if(!profile.preferenceBaseMatches({basePreferences:outside[0]},outside[2]))return refuse(21/*outside_supported_scope_changed*/,'remote',5);
+      const preferences=clone(state.preferences),graphs=values.map(value=>value.preferenceGraph);
+      preferences.preferenceGraph.entityFollows=mergeRecords(...graphs.map(graph=>graph.entityFollows),'participantId',entityFields,follow.participantFollowIdentityKey,observe);
+      preferences.preferenceGraph.domainPreferences=mergeRecords(...graphs.map(graph=>graph.domainPreferences),'sportDomainId',domainFields,value=>value,observe);
+      if(sportSelection)for(const key of sportSelectionFields)preferences[key]=clone(sportSelection[key]);
+      // Remote view values stay on the server; applyServerState retains this device's views.
+      const witness={...clone(receipt),baseUpdatedAt:state.updatedAt,basePreferences:clone(state.preferences),preferences};
+      if(agreedEvents||agreedScope||agreedTennis||sportSelection||historicalAflNull||retainedRemotePrompt)witness.acceptsAcknowledgement=value=>object(value)
+        &&(!agreedEvents||(object(value.followFirst)&&agreedEvents.every(key=>
+          Object.hasOwn(witness.basePreferences.followFirst,key)===Object.hasOwn(value.followFirst,key)
+          &&same(witness.basePreferences.followFirst[key],value.followFirst[key]))))
+        &&(!agreedScope||(Object.hasOwn(value,'eventsScope')===Object.hasOwn(witness.basePreferences,'eventsScope')
+          &&same(value.eventsScope,witness.basePreferences.eventsScope)))
+        &&(!agreedTennis||(Object.hasOwn(value,'tennis')&&same(value.tennis,witness.basePreferences.tennis)))
+        &&(!retainedRemotePrompt||(Object.hasOwn(value,'ratingPromptState')
+          &&same(value.ratingPromptState,witness.basePreferences.ratingPromptState)))
+        &&(!historicalAflNull||(Object.hasOwn(value,'aflFamilyMigration')===Object.hasOwn(witness.basePreferences,'aflFamilyMigration')
+          &&same(value.aflFamilyMigration,witness.basePreferences.aflFamilyMigration)))
+        &&(!sportSelection||sportSelectionFields.every(key=>Object.hasOwn(value,key)&&same(value[key],sportSelection[key])));
+      // An older ACK can carry R2 forward only from the exact recorded R1
+      // intent, using this same conflict policy against the acknowledged state.
+      witness.originalReceipt=clone(receipt);
+      let continuedPreferences,continuedIntent;
+      witness.continue=(pending,ack)=>{
+        continuedIntent=clone(pending.preferences);
+        continuedPreferences=plan({...pending,basePreferences:receipt.preferences},ack,profile,follow,patches,fact=>emit(observe,12,fact.reason,fact.side,fact.family,fact.decision))?.receipt.preferences;
+        return continuedPreferences;
+      };
+      const changes=patches.createPatch({preferences:state.preferences},{preferences}).changes;
+      function preserve(state,currentPreferences){
+        const preserveObserve=fact=>emit(observe,13,fact.reason,fact.side,fact.family,'retained');
+        if(!continuedPreferences)return state;
+        try{
+          // Preserve ordinary writes made after the R2 snapshot as the existing
+          // in-flight apply owner does. They are not added to the owned receipt;
+          // the next explicit sync holds any unaccounted projected choices.
+          const remaining=patches.createPatch({preferences:continuedIntent},{preferences:currentPreferences});
+          const preferences=patches.applyPatch({preferences:continuedPreferences},remaining).preferences;
+          const graphs=[continuedIntent,currentPreferences,continuedPreferences].map(value=>value.preferenceGraph);
+          preferences.preferenceGraph.entityFollows=mergeRecords(...graphs.map(graph=>graph.entityFollows),'participantId',entityFields,follow.participantFollowIdentityKey,preserveObserve);
+          preferences.preferenceGraph.domainPreferences=mergeRecords(...graphs.map(graph=>graph.domainPreferences),'sportDomainId',domainFields,value=>value,preserveObserve);
+          return {...state,preferences};
+        }catch{emit(observe,13/*inflight_preserve*/,51/*inflight_preserve_failed*/,null,null,'retained');return state;}
+      }
+      emit(observe,5/*plan_scope*/,40/*independent_plan*/,null,null,'planned');
+      return {receipt:witness,preserve,patch:patch=>({...patch,changes:[...patch.changes.filter(change=>change.path[0]!=='preferences'),...changes]})};
+    }catch{emit(observe,14/*unexpected*/,56/*unexpected_exception*/,null,null,'exception');return null;}
+  }
+  function compatibleViewPlan(receipt,state,currentPreferences,observe){
+    const keys=['followBrowse','feedCompact'];
+    const sameViews=(first,second)=>keys.every(key=>same(first[key],second[key]));
+    if(sameViews(currentPreferences,state.preferences))return null;
+    // A carried R2 already contains the accepted remote views. Its compatible
+    // base must not let this device's retained views become the next upload.
+    // Leave every other ordinary same-base preference patch entry untouched.
+    for(const [side,value] of [['base',receipt.basePreferences],['intent',receipt.preferences],['remote',state.preferences]]){
+      if(!object(value)||!localView(value,observe,side))throw Object.assign(new Error('Your choices are saved on this device. Sync is paused because the saved account changed.'),{code:'preference_base_changed'});
+    }
+    const filter=patch=>({...patch,changes:patch.changes.filter(change=>
+      change.path[0]!=='preferences'||!keys.includes(change.path[1]))});
+    const preferences=clone(receipt.preferences);
+    for(const key of keys){
+      if(state.preferences[key]===undefined)delete preferences[key];
+      else preferences[key]=clone(state.preferences[key]);
+    }
+    const witness={...clone(receipt),baseUpdatedAt:state.updatedAt,
+      basePreferences:clone(state.preferences),preferences,originalReceipt:clone(receipt)};
+    witness.acceptsAcknowledgement=value=>object(value)&&sameViews(value,witness.basePreferences);
+    witness.continue=(pending,ack)=>{
+      const continuationObserve=fact=>emit(observe,12,fact.reason,fact.side,fact.family,fact.decision);
+      for(const [side,value] of [['base',pending.basePreferences],['intent',pending.preferences],['remote',ack.preferences]]){
+        if(!object(value)||!localView(value,continuationObserve,side))return null;
+      }
+      // Match the existing same-base ACK continuation for all ordinary intent;
+      // only the two validated device-local view roots are excluded.
+      const remaining=filter(USER_STATE_SYNC.createPatch({preferences:receipt.preferences},{preferences:pending.preferences}));
+      return USER_STATE_SYNC.applyPatch({preferences:ack.preferences},remaining).preferences;
+    };
+    emit(observe,2/*compatibility*/,38/*compatible_base*/,null,null,'planned');
+    return {receipt:witness,patch:filter,preserve:state=>state};
+  }
+
+  function ownedPlan(receipt,state,life,currentPreferences,observe){
+    if(!receipt){emit(observe,1/*owned_current*/,1/*no_receipt*/,null,null,'compatible');return null;}
+    const owner=preferenceIntentOwner();
+    try{emit(observe,1/*owned_current*/,4/*scope_observed*/,null,null,'compatible',{
+      receiptOwnerMatches:owner?.accountId===receipt.ownerId,receiptGenerationMatches:receipt.generation===life?.generation});}catch(_error){}
+    if(owner?.accountId!==receipt.ownerId||owner.accountId!==life?.accountId){emit(observe,1/*owned_current*/,2/*owner_scope_rejected*/,null,null,'unavailable');return null;}
+    if(owner.generation!==life.generation){emit(observe,1/*owned_current*/,3/*generation_scope_rejected*/,null,null,'unavailable');return null;}
+    const hold=(reason,detail={})=>{emit(observe,1,reason,'current',null,'held',detail);throw Object.assign(new Error('Your choices are saved on this device. Sync is paused because the saved account changed.'),{code:'preference_base_changed'});};
+    if(!object(currentPreferences))return hold(5/*current_shape_invalid*/);
+    if(!localView(currentPreferences,observe,'current',1))return hold(6/*current_view_invalid*/);
+    try{
+      const recorded=withoutViews(receipt.preferences),current=withoutViews(currentPreferences);
+      if(!PROFILE_STORAGE.preferenceBaseMatches({basePreferences:recorded},current)){
+        let currentToReceipt=null;
+        try{currentToReceipt=root.NOTHINGSPORTS_SYNC_DIAGNOSTIC?.currentPreferenceDifferences(recorded,current,
+          (first,second)=>PROFILE_STORAGE.preferenceBaseMatches({basePreferences:first},second));}catch(_error){}
+        return hold(7/*current_differs_from_receipt*/,{currentToReceipt});
+      }
+    }catch(error){emit(observe,2/*compatibility*/,52/*comparison_exception*/,'current',null,'exception');throw error;}
+    let compatibleIntent=false,knownAgreement=false;
+    try{
+      if(state&&PROFILE_STORAGE.preferenceBaseMatches(receipt,state.preferences)){
+        const projection=compatibleViewPlan(receipt,state,currentPreferences,observe);
+        if(projection)return projection;
+        emit(observe,2/*compatibility*/,38/*compatible_base*/,null,null,'compatible');return null;
+      }
+      compatibleIntent=Boolean(state&&PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC));
+      if(compatibleIntent)knownAgreement=knownDecisionsAgree(receipt.preferences,state.preferences)
+        &&(Object.hasOwn(receipt.basePreferences,'tennis')
+          ||(Object.hasOwn(receipt.preferences,'tennis')===Object.hasOwn(state.preferences,'tennis')
+            &&same(receipt.preferences.tennis,state.preferences.tennis)));
+    }catch(error){emit(observe,2/*compatibility*/,52/*comparison_exception*/,null,null,'exception');throw error;}
+    if(compatibleIntent){
+      if(!knownAgreement){
+        // A newer choice can return to its original base while an older ACK has
+        // changed the account. An empty original delta is not an agreement.
+        emit(observe,5/*plan_scope*/,21/*outside_supported_scope_changed*/,'remote');
+        throw Object.assign(new Error('Your choices are saved on this device. Sync is paused because the saved account changed.'),{code:'preference_base_changed'});
+      }
+      emit(observe,2/*compatibility*/,39/*compatible_intent*/,null,null,'compatible');return null;
+    }
+    return plan(receipt,state,PROFILE_STORAGE,FOLLOW_FIRST,USER_STATE_SYNC,observe);
+  }
+
+  function verify(receipt,state,life,currentPreferences,observe){
+  const report=fact=>emit(observe,fact.site,fact.reason,fact.side,fact.family,fact.decision,fact);
+  const helper={ownedPlan};
+  if(!helper?.ownedPlan)report({site:0/*helper*/,reason:0/*helper_unavailable*/,decision:'unavailable'});
+  let plan;
+  try{plan=helper?.ownedPlan(receipt,state,life,currentPreferences,report);}
+  catch(error){report({site:14/*unexpected*/,reason:56/*unexpected_exception*/,decision:'exception'});throw error;}
+  if(plan)return plan;
+  try{
+    if(receipt&&(!state||(!PROFILE_STORAGE.preferenceBaseMatches(receipt,state.preferences)
+      &&!PROFILE_STORAGE.preferenceIntentMatches(receipt,state.preferences,USER_STATE_SYNC)))){
+      report({site:8/*verify_fallback*/,reason:state?37:36,decision:'held'});
+      throw Object.assign(new Error("Your choices are saved on this device. Sync is paused because the saved account changed."),{code:"preference_base_changed"});
+    }
+  }catch(error){report({site:8/*verify_fallback*/,reason:52/*comparison_exception*/,decision:'exception'});throw error;}
+}
+
+  root.NOTHINGSPORTS_PREFERENCE_INTENT_RECONCILE=Object.freeze({plan,ownedPlan,verify});
+  if(typeof module==='object'&&module.exports)module.exports=root.NOTHINGSPORTS_PREFERENCE_INTENT_RECONCILE;
+})(typeof globalThis!=='undefined'?globalThis:window);

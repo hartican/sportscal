@@ -1,5 +1,906 @@
 # Backend efficiency decisions
 
+## Australian Championship bounded result preparation — 31 October 2026
+
+The existing canonical `update-cards.js --australian-championship` owner has an
+explicit `--championship-results-only --local-only` modifier and one new private
+absolute `--championship-results-evidence=` namespace. Freeze the eleven reviewed
+round2/3 targets,16clubs/48identities and all other37records. No extra elapsed
+appointment, Feed admission, table recomputation, viewing/editorial clock,
+account operation or scheduler is included. Preparation grants no actual source
+or publication window. ROOT/nsDEPLOY remains sole publisher.
+
+Reuse the A-League-qualified private complete-body consumer and atomic owner.
+Only existing exact round2 and round3 official endpoints are compiled; two
+sequential GETs at least1second apart, no token/retry/redirect/fallback,1MiB wire
+and decoded each/2MiB each aggregate,15seconds per complete resource through
+JSON/domain validation,45seconds collection,90seconds owner plus10cleanup.
+401/403 stops further acquisition. Resource refusal/partial round holds its whole
+round; supported independent complete rounds can proceed. Unknown card result
+fields hold only that card. No supported target observations is failure. Shared
+identity/calendar/future/clock/accepted-final conflicts reject all candidates,
+even when the page is incomplete or another field is unsupported.
+
+Keep string finals, regulation/penalties separate and source winner0 unknown.
+Use strict calendar-aware zoned RFC3339 result/provider/response clocks, preserving
+literal offsets/fractions and original observations on unchanged facts. New result
+evidence does not renew the old general source/fixture/viewing/table receipts or
+pretend two bodies refreshed the old eleven-resource capture. Existing projection
+selectors retain every other surface row/order and all runtime/manifest bytes.
+Older complete saved-capture replay preserves validated adopted result overlays
+or rejects, never restores the older eight-final state. Full data/nonJSON/Feed/
+all-eight-runtime rollback precedes fallible diagnostics. Owned frozen pre/post
+fixtures and native doubles prove local behavior only; acquisition, combined
+release and hosted score/spoiler proof need ROOT's separate allocation.
+[Exact preparation contract](quality/championship-scores-only-2026-10-31.md).
+
+## A-League retained scores-only preparation — 31 October 2026
+
+The existing canonical `update-cards.js --a-league` owner may be source-qualified
+with an explicit local-only scores modifier and a new private external evidence
+directory. Freeze12clubs/all156identities and only the11known17–30October unknowns;
+keep the newly started31October fixture, other competitions, appointments,
+viewing/editorial/review/source clocks and user state exact. No global Feed
+admission or table synthesis. One exact existing official complete-body GET,
+zero token/retry/redirect/ESPN fallback,15seconds through body/decode/JSON/domain,
+1MiB encoded and decoded. Proposed owner90seconds plus10cleanup is not an actual
+allocation. Validate the whole season and conflicts; defer unsupported card facts
+locally, never infer completion or freshly stamp unchanged facts. Use existing
+CI/Follow projections and full data/generated/eight-runtime rollback before
+fallible diagnostics. Source controls and both reviews precede ROOT's separate
+actual resource/release window. Existing full/quick paths and one-owner scheduler
+remain unchanged; jobs stay parked. See [exact contract](quality/a-league-scores-only-2026-10-31.md).
+
+## AFLW independent round-result preparation — 31 October 2026
+
+Source-only preparation is limited to the existing canonical quick owner and the
+ten retained due results in AFLW rounds 11 and 12. The proposed transport has two
+exact public season96 match resources, no token, retry, redirect, ladder request
+or participant admission. This record grants no actual source or release window.
+
+An HTTP401/403 stops all further acquisition. It does not discard independently
+complete, validated results already observed from the other round. Report the
+refused resource and affected cards, retain their last-good facts and return any
+token/resource proposal separately. With no supported observations, fail rather
+than claiming fresh unchanged success. A partial page defers that entire round;
+wrong season, ordered identities, ambiguous IDs or conflicting accepted finals
+still reject the whole candidate. Check supplied identities, calendar, reopening
+and evaluable accepted-final conflicts before page completeness, including
+future non-target fixtures. An incomplete envelope cannot conceal those
+contradictions or admit partial rows. Each supplied result-specific clock
+independently needs genuine post-start, nonfuture evidence; a valid score clock
+cannot mask another invalid result clock. HTTP404/410 and5xx defer only the
+refused round without retry.
+
+Preserve the eight future fixtures, all other sports and both surfaces' IDs,
+viewing, reviewed writing and genuine clocks. Keep the older AfterRound10 ladder
+explicitly retained, with no derived rankings or qualification claims. Full Feed,
+spoiler, generated-file and atomic rollback gates remain required. Owned-input
+checks are not current result observations, SourceReady or live acceptance;
+ROOT/nsDEPLOY retains all allocation, integration and publication authority.
+
+## Retained EPL rebuild stays with the canonical owner — 31 October 2026
+
+The explicit local-only `update-cards.js --quick --source=epl --rebuild` route
+accepts one bounded existing `--epl-updated-ids=` selector with separate incoming
+and published existing-ID lists. Missing, duplicate, mixed, non-local and offline
+forms refuse before diagnostic/source work. The source child receives the same
+selector and local-only rebuild mode. This is retained-data projection, not a
+primary/backup source check: zero provider, credential, database or account calls.
+
+Validate both complete 380-fixture reviewed identity/ordered-pair/season sets,
+all 38 twenty-club matchweek sets, original observations and completed numeric
+results, plus the retained official 20-club table. Reuse the existing per-surface
+retained publisher, full Feed/spoiler/build gates and quick-owner atomic rollback.
+Rebuild canonical contexts from the retained table even without new source facts.
+Require all adopted Feed records/order and canonical bundle facts to remain exact;
+an unexpected normalization rejects the complete candidate. Publication metadata
+may receive a new truthful stamp; retained fact clocks never become new checks.
+Restore changed/missing data and all eight runtimes and remove new outputs on any
+failure. Broad quick offline behavior and the online five-GET EPL scope remain
+unchanged. ROOT/nsDEPLOY alone adopts verified output records, allocates combined
+qualification and publishes; source/mocked proof does not grant those operations.
+
+## EPL card-local deferrals preserve the complete season — 31 October 2026
+
+The existing canonical `update-cards.js --quick --source=epl --local-only` scope keeps its four exact official fixture pages and separate official table (at most five primary GETs, no retry or redirect). The common transport enforces its original20-second whole-resource header/body/decode/JSON clock, with separate wire and decoded limits884,736bytes per fixture page and147,456bytes for the table, strict UTF8/complete-body admission and safe observation/hash receipts. No new provider, scheduler, source/dependency installation, account/DB operation or key grant is created.
+
+Before card-local deferral, require the complete380 raw fixture identities, exact page envelopes, reviewed provider/ordered-club bindings, season,20clubs,38matchweeks and380directed pairings. Missing/duplicate/ambiguous/wrong identities still reject the collection. Only typed unsupported status/phase, missing/invalid kickoff, unresolved display label (after exact numeric identity binding), or incomplete score facts may retain their own known card; independent supported facts proceed. Preserve each incoming/published surface's original last-good facts and clocks, even if they differ. Report each deferred primary identity, fixed reason and next source-review action. No time-based completion or guessed phase is introduced. Future sporting/calendar contradictions, source-clock failures and final reopening remain strict; the official table is independent, never calculated from partial cards. No supported fixture facts plus no valid table observation is a failed refresh.
+
+Check independently evaluable raw future-playing/final and reopened-final claims even when a display, kickoff, score or live-phase field is deferred. A known raw live status remains a live sporting claim without guessing its unreviewed phase. Validate both retained surfaces before primary-confirmation cleanup can retire saved delayed evidence; an independently accepted table cannot legitimise cleanup from a rejected fixture collection. Only an exact reviewed-identity, ordered-pair, round, score and original source-clock match to the saved delayed result can explain its retained final while the primary still lags. The retained publisher and incoming editorial-preservation hook receive separate exact changed fixture IDs for their own surface from the two-surface patch receipt. A change in one surface cannot authorize normalization of its unchanged counterpart. Normalize and transform only those bound existing EPL cards, then stitch all deferred, unchanged and unrelated cards back in their original order and fields. Full Feed validation still rejects invalid untouched cards. This private bounded publisher selector adds no canonical entrypoint or source allocation.
+
+Reuse `loadCards` and the existing saved delayed-result overlay, primary-confirmation cleanup and `football-data-backup.recover` path. A deferred old final is not a newly confirmed primary final and cannot prune its overlay. Retained delayed finals keep their original attribution/observations and never become live scores. This primary-only scope explicitly defers additional backup network access (zero backup GETs); a failed collection reports that deferral without silently acquiring a token or calling a second source. Other existing canonical callers retain their validated delayed recovery and shared coordinator cap of four invocation resources,6,500ms between starts,15-second resource allowance,2MB bound and same-invocation memoization. Reusing those paths grants no additional runtime allocation.
+
+The existing required Football schedule gate now owns the isolated scoped-caller and transport controls, including full-season integrity failures, card independence, delayed-overlay retention/catch-up, exact selector dispatch and complete quick-owner rollback. Source/mock success is not current-provider, native-containment, production, hosted or device acceptance. ROOT/nsDEPLOY alone integrates accepted main, qualifies and publishes; the Rugby source/QA and existing owner order remain separate and frozen.
+
+## Retained refresh baselines need no unchanged writes — 31 October 2026
+
+The quick owner compares captured data/Feed and runtime bytes before restoring them. Restore changed or missing baseline files and remove newly created outputs, but never rewrite byte-identical retained files merely because they were snapshotted. This preserves the existing narrow write allowlist and original source refusal; it grants no extra mutation permission. A saved World Rugby final disagrees with its retained start by fifteen minutes; the exact reviewed-calendar receipt binds its old retained tuple, pre-match08:30 observation, completed08:30 result, ordered sides, provider identity and original score/status clocks. Only that tuple can validate the15-minute correction; other starts, identities, observations and score contradictions remain strict. Captured history stays in the receipt, no result clock is refreshed, and unrelated viewing/writing/user facts are untouched. Failed restoration is recorded explicitly while preserving the original source exception and attempting the remaining restorations. The offline publication gate covers the actual owner with protected unchanged files, changed data/Feed/runtime, absent outputs and failed diagnostics. Captured public evidence is a local reproduction, not a new read, resolved calendar or publication acceptance. All source, result, spoiler, rollback, resource and single-publisher rules remain unchanged.
+
+## Independent saved Rugby publication — 30 October 2026
+
+The existing canonical quick shared-coverage route accepts one explicit
+`--coverage-sport=rugby-union` selector with `--local-only`. Omission retains the
+combined Cricket/Rugby behavior. Validate selectors before diagnostic/source IO;
+forward the exact selector to the existing quick owner. The same saved-fixture
+RPC requests the complete eight existing MRU/WRU/MRS/WRS and near sources before
+transfer, with unchanged pagination, deadline, no-retry, observation and result
+limits. Unexpected sources or sport identities refuse the whole candidate.
+
+Only selected Rugby records enter normalization, reconciliation and publication
+transforms. Pass other sports through with their IDs, order, values, viewing,
+reviewed writing and genuine clocks intact. Keep global alias/final conflicts,
+full Feed validation, spoiler/build/release checks and complete eight-runtime
+rollback. Report Cricket as deferred for its raw-provider contract review;
+retained observations are not new source checks. No provider/DB/account access,
+new owner, scheduler, editorial generation or alternate publication path is
+added. The original 62 controlled caller cases and 13 rollback-diagnostic cases
+remain; new source/SDK/dispatcher and actual-publisher controls use owned inputs
+and IO boundaries. These prove source behavior, not current Rugby validity,
+credentialed acceptance or production. ROOT alone allocates those later gates.
+
+## Scoped publication of saved Cricket and Rugby observations — 30 October 2026
+
+The canonical `update-cards.js --quick --source=live-coverage --local-only` route reuses the existing allowlisted shared fixture reader and merger. It makes no provider request, database write, account read, editorial research or deployment. Reject mixed, duplicate, offline and non-local flags before source work. Keep the existing 500-row pages, eight-page ceiling, ten-second request deadline, no retry, 36-hour fixture-observation window and five-minute future tolerance. ROOT alone allocates any credentialed read and publication; local source qualification is not an allocation or current-data acceptance.
+
+Use existing recorded identities and retained Feed reconciliation so supported official finals reach incoming and published cards without admitting cards or replacing unrelated writing. The narrow World Rugby numeric-final case requires explicit official completion, its exact official API/provider identity, unique ordered sides, nonnegative integer scores, a sporting start and original nonfuture score/status observations. Preserve zero scores and draws without inventing winners or recap depth. Unknown fact clocks cannot borrow a later poll. In this scoped route, incomplete Cricket or Rugby final evidence retains last-good Schedule and Feed facts and records a deferral beside independent valid results. Conflicting accepted finals or retained sides, including Schedule-only records and recorded aliases, still roll back the complete candidate. Existing official source classes and the default refresh routes remain strict.
+
+Report actual score/final/status changes separately from schedule-only changes, unchanged observations, stale/older observations and missing/deferred evidence. A passed scheduled window never proves completion. Retained projections preserve published IDs, viewing and source clocks, skip editorial generation, and keep the existing spoiler and shared integrity checks. Atomic rollback uses the runtime builder's eight-output inventory, restoring prior bytes and removing outputs absent before the attempt as well as restoring data/Feed files. The actual caller regression joins the existing live-coverage publication gate once in its offline mode; the credentialed preflight gains no extra read or retry.
+
+## Device profile pointers do not create outgoing edits — 30 October 2026
+
+The hosted 599 removal check exposed a normalization-only second save. A stale device successfully saved Unfollow against the newest account copy, then local graph normalization changed the accepted response's profile pointers to its own device profile. A subsequent manual sync uploaded those pointers again. The source regression reproduces the actual default scheduled writer, real API conditional save, receipt ACK and normal manual reconciliation before and after the repair.
+
+Only the outgoing settings projection retains accepted graph/view and uniquely matched entity/domain/competition record `profileId` pointers when the current pointer equals this device's local profile. Reuse the existing participant identity canonicalizer; ambiguous/missing identities remain untouched, and new records keep their pointers. Every meaningful and unknown field remains current. Enable this projection only for the accepted baseline's same account, SDK subject, UI owner, session generation and captured local profile. The captured profile ID is ephemeral local baseline metadata, not a persisted or wire field. The raw accepted response, receipt meaning, comparison/planner rules, CAS and Feed policy remain unchanged.
+
+The new regression joins the existing required preference-bookkeeping gate, including persisted/in-flight receipts, real disjoint and conflicting 409 cases, alias collisions and lifetime fences. No request, sync owner, endpoint, schema, storage key, retry or deadline is added. The exact regenerated shell remains within the unchanged static budget. Source acceptance is not hosted or physical iPhone acceptance; ROOT/DEPLOY alone integrates, qualifies and publishes. See [repair and release boundary](quality/device-pointer-sync-2026-10-30.md).
+
+## 26 October 2026 — staged lossless GLOBAL source transport
+
+Status: local integration and gated staging; **not production acceptance**. DEPLOY owns this reversible repair under the existing approval to fix loading and publish only passing work. No worker may enable the protocol, apply its SQL or publish independently.
+
+The deployed original global reader admits source/fixture pairs. A fresh exact-admission census found 5,145 source observations for 2,586 fixture storage keys, at most eight observations per key. Rolling Cricket discovery buckets retain older copies when fixtures move between relative week windows; their observation receipts differ. Omissions are not deletions. Do not retire a source, choose one observation as the winner, change the calendar window, remove Fantasy or infer identical facts from matching keys.
+
+For the explicit trusted grouped transport only, the proposed capacity unit is an exact fixture storage-key group. This is a NEW representation contract: at most 5,000 groups, 10,000 source edges, 16 edges/key and 16 MiB combined actual complete health/bundle text. It is not the unchanged old 5,000-source-row budget. The default SQL branch and explicit legacy store retain that original guard. Every source value, ordered row, identity/alias and observation survives reconstruction before the existing hashes/merge. This changes no Follow rule, customer record, provider/refresh owner, scheduler, credential or permission. GLOBAL six seconds, interactive five seconds, selected sixty IDs/three seconds, two requests, thirty-second cache and no GLOBAL automatic retry remain; the separate existing reminder retry policy stays unchanged. Byte refusal is after download/parse, not streaming protection. Rejected null selections must still make zero SDK reads, including after the application factory opts in.
+
+Source/PGlite reviews are not enough for adoption. The corrected actual read-only producer completed the current 5,145-edge frame in 4,495 ms under the six-second statement allowance. A separate full-value comparison found zero source/fixture/alias/value/order mismatches across all 5,145 observations in one snapshot. That functional control used a twelve-second allowance for producer plus complete decode/reference work and took 7,874 ms; it is not an application timing result or a production timeout change. Earlier six-second probes included extra comparison or repeated large-JSON metadata inspection; their failures remain retained and do not isolate producer latency. The first constructed grouped frame was 2.019% larger than its full-value reference; no speed, CPU or cash saving is established.
+
+Before production acceptance, require exact guarded forward/inverse SQL, unchanged default output/ACLs/helpers/facts, complete actual SDK body/decode/projection/hash checks within six seconds on both fixed fresh reads, source-edge closure and failure/cancellation controls, and all existing applicable normal/client/security/public/repeated-read gates. Any required failure stops publication. Current real data is about 13.6 MB before the health leg, so volume headroom remains limited: lossless duplicate-work reduction is follow-up reliability work, not a reason to shed fixtures or silently widen limits. A single successful measurement is not repeated or cold-server proof. Full current-data accuracy, Football MVP readiness and physical iPhone acceptance are separate.
+
+The migration and inverse are prepared from the byte-identical PG17/18 rehearsal outputs. Staging behind the exact private service header preserves old callers; production activation belongs to the same sole publisher. Evidence and later acceptance belong in the release queue and `docs/quality/global-fixture-groups-proposed-2026-10-26.md`, with dated ROOT receipts under the Codex output folder.
+
+ROOT staged those exact forward bytes at 26 October 02:11 UTC after all 258 combined local safety commands passed with no tracked-byte changes. Managed history assigned version `20261026021111`; both source migration and inverse filenames now use that actual version, with unchanged SQL bytes. The installed view matches the two-engine candidate digest `d3d5341fcf5dc901c3e1240145b3acd7`. Fresh metadata confirms the original invoker/owner/json/service-only permission contract, clock/projector helpers and generated projection. Existing production callers still take the unchanged legacy branch. This is gated private-view staging, not successful SDK qualification, application deployment or production acceptance; the same publisher's live gates remain mandatory.
+
+## Scoped current Cricket through the existing refresh owner — 25 October 2026
+
+Permit only `--live --live-source=cricket-ca-current` in the canonical
+`update-cards.js` entrypoint, alongside the existing tennis scope. Select that
+one existing adapter through the unchanged coordinator/store/lease and 45-second
+scheduling budget; reject unsupported, duplicate and conflicting scoped flags
+before source work. Preserve genuine observations, unchanged fact hashes and
+original retained clocks. Local-only still permits shared-data writes; ROOT
+alone allocates any live run and publication. No scheduler resumes, configuration
+change, provider retry or freshness-gate relaxation is added. The real-dispatch
+regression joins the existing update-cards contract. Source budgets, conditional
+milestone writes and unchanged-poll limitations are recorded in
+[the handover](quality/cricket-live-scope-2026-10-25.md).
+
+## Typed existing Cricket Follow formats — 25 October 2026 Sydney
+
+The actual592 phone reports initial record_validation / record_unknown_field / intent / entities. The established Cricket format writer emits cricketFormats, which the bounded receipt planner omitted. Its real writer → persisted receipt/restart → compiled helper/manual queue → actual local API path reproduces that exact refusal; removing only the test field passes with the same restored older receipt generation. This proves a source schema bug, without identifying the private phone field or guaranteeing that its remaining choices are independent. The live-job and receipt-generation observations describe different lifetimes; the latter is not an independent refusal here.
+
+Recognise only the existing cricketFormats field as a unique array drawn from Tests, ODIs, T20Is and BBL. Keep exact array order, presence and explicit empty values through the existing field-level comparison; do not coerce, sort, union, default or broaden unknown records. Whole-team Follow may remove the field; absence differs from an explicit empty list. Differing concurrent format edits and malformed/unknown records still hold. Existing removals/OFF, original pending receipt, current-choice checks, conditional save, matching ACK, R2 and owner/generation protections remain. No private account change, historical restoration, request, store, schema migration, config, cache/version allocation or sync owner is added.
+
+Regression: 23 new actual-writer/compiled-helper/persisted/API cases extend the existing 55 to 78; one mounted receipt-base-cricket scenario joins the existing recovery matrix (20 per engine). ROOT owns native/browser/installed execution, integration and all hosted acceptance. No repeat phone test is requested now. See [source proof and handover](quality/account-cricket-format-sync-2026-10-25.md).
+
+## Exact sync refusal observation — 24 October 2026 Sydney
+
+The actual591 iPhone still holds; its family summary does not identify a causal failure or intended winner. Add only a safelisted first-actual-refusal/exception observation to the existing scoped, serialised owner, including honest bounded SDK load/save call-start counters and initial/post409 verify phase. If the captured current-versus-receipt predicate refuses, report fixed families from those same projected operands; this is an observation, not another policy predicate. No values, IDs, hashes, record counts, raw keys/errors or extra retained preference snapshot are copied. Existing pending receipts, matching owned ACK, R2, ordinary Settings, explicit OFF/empty/removal, unknown/conflict and CAS protections remain exact. No new request, store, timer, scheduler, schema or merge rule. ROOT owns final review, normal/installed/hosted release gates and one coordinated useful phone copy after release. See [source proof and contract](quality/account-sync-refusal-diagnostic-2026-10-24.md).
+
+## Disjoint owned preference reconciliation — 24 October 2026 Sydney
+
+The approved P1 sync repair may reconcile only validated, demonstrably independent entity/domain changes from an original owned pending receipt against freshly read same-account state. Use the existing canonical participant identity; domains use their exact stable sportDomainId, refusing duplicate/ambiguous identities and the legacy rally alias. Apply only recorded changed fields. Preserve remote additions, untouched remote fields, removals and OFF/empty values. A whole-list empty cannot erase unseen concurrent additions. Differing edits to the same field, deletion versus edit, unknown fields/shapes, unavailable identity/baseline and all other changed projected preferences retain a visible hold. No union, inferred intent, default revival, receipt expiry/reset or historical recovery is introduced.
+
+Only typed existing followBrowse and feedCompact view semantics are device-local here: preserve the remote view on the server and the current device's view through the existing applyServerState owner. Unknown view keys/types remain held; this is not a blanket comparison exclusion. Existing applyServerState may retain an untouched optional view as an own undefined RAM value; JSON receipt/profile storage omits it. Treat only undefined for these two known optional views as absence, while null, malformed types and unknown view fields still hold. The original persisted receipt/base stays unchanged before ACK. A transient, original-receipt-bound plan uses the existing SDK queue and conditional save, recalculating from the original receipt after a real409. Only a matching owned ACK may clear R1 or advance R2 without changing R2's identity. A newer recorded edit is reconciled from the exact R1 intent against the acknowledged state with the same conservative policy; uncertain continuation stays unchanged/pending. A lost/already-applied ACK must also apply accepted remote choices locally, even when the accepted timestamp is already current.
+
+Before replacing preference patch entries, compare the already captured current preferences against the recorded receipt intent, allowing only the exact named bookkeeping and typed device-local views. A genuine ordinary Settings/standings save not represented by that receipt must remain current and durable with the receipt unchanged and zero state upload, including after R2's base becomes compatible. A semantically mismatching successful save response must stop at the existing owned ACK boundary before applying or accepting its baseline; retain all current/persisted choices and pending receipt. A later ordinary write after the known R2 snapshot remains local through the existing in-flight delta; preserve independent accepted entity/domain records with the same bounded merge. Do not turn that ordinary write into receipt-owned intent; its next explicit retry holds before upload.
+
+The pure planner joins the existing deferred Account helper, with strict protection before it loads and no added request, store, timer or sync owner. Regression: fifty-five compiled-helper/persisted-restart/bootstrap/manual queue/actual API cases join the existing preference-bookkeeping safety command. Two new mounted cases extend the existing seventeen recovery cases per engine; ROOT runs these, normal qualification and installed/hosted/physical acceptance. Local constructed reproduction matches the v590 phone's diagnostic families but does not establish its private identities or whether its particular changes conflict. See [scope, proof and release handover](quality/account-receipt-base-reconcile-2026-10-24.md). No deployment or customer-data change is authorised by this source record.
+
+
+## Automatic seed hydration is not a preference decision — 24 October 2026
+
+The original sync owner reproduced a pending-receipt false hold when identical account metadata hydration changes only `followFirst.appliedSeedHash`. Exclude that exact automatic marker from base/intent decision comparison; all genuine and unknown preferences, OFF/empty/unfollow, receipt identity, owner/generation and conditional saves remain protected. Full in-flight receipt-base advancement stays exact. In the existing conditional user-state PUT, unchanged metadata cannot replace its current marker with an older marker that does not match the same seedHash; valid hydration and genuine metadata updates remain allowed. No preference union, starter Follow, new request/store/wire/schema or recovery is added.
+
+The actual queue/receipt/API regression is part of the existing bookkeeping safety command, including restart/older-marker preservation, real conditional409, genuine-choice/unknown holds and stale scopes. The real588 phone diagnostic proves a guarded hold but does not identify this field; candidate prevention and actual phone acceptance remain distinct. See [scope and controls](quality/account-seed-marker-sync-2026-10-24.md). DEPLOY owns final review, combined qualification and publication; worker source is not a deployment or customer-state repair.
+
+
+## Follow decisions exclude named device bookkeeping — 23 October 2026
+
+The approved P1 follow-up distinguishes real preference changes from the named local graph profile pointers/update marker and automatic refinement/rating open/session counters listed in [the repair record](quality/account-stale-removal-2026-10-23.md). Base/ACK compatibility uses that narrow projection; unknown and deliberate fields, explicit OFF/empty/unfollow and authenticated owner/generation/conditional-save fences remain protected. Exact in-flight baseline advancement stays full comparison, and a newer receipt cannot be acknowledged by an older save. The actual two-context/API-normalization regression must remove a Follow without first refreshing the original device; timestamp-only and real conditional409/retry cases must pass, and genuine changed preferences must retain the safe hold. The pure bookkeeping regression joins the existing normal production safety step without removing any249 prior command.
+
+Account status/date formatting moves to the existing deferred account helper to preserve the unchanged download budget, without a new request or sync path. Final587 qualification, hosted persistence/removal/Feed exclusion, repeated fresh reads and physical Home Screen proof remain separate gates. No customer recovery/import, schema/config/provider change or automation restart is included.
+
+
+## Installed-app account recovery reuses the existing owner — 23 October 2026
+
+The approved installed-iOS repair retries the existing scoped, serialised auth/sync path on visible pageshow, foreground return and online events. Coalesce one account lifetime's concurrent events and permit at most one automatic attempt per15-second burst; skip hidden, offline and already-busy states. Manual retry stays deliberate. There is no polling, second sync owner, new endpoint, schema or wire contract. Preserve PR30 comparison/receipt/baseUpdatedAt and owner/generation fences, pending choices, explicit empty/unfollow/OFF and old/new origin separation. A completed save leaving a newer receipt reports pending/error with a usable retry; it cannot remain falsely busy or acknowledge that newer choice.
+
+Header and Account distinguish saved identity from verified session and show current progress/error ahead of last-sync time. The actual mounted-app regression covers timeout, overlapping automatic/manual work, valid/expired/revoked/offline sessions, Follow round-trip and origins. Final source, exact-version installed/hosted and physical iPhone proof are separate gates. No customer restoration, forced sign-out, reinstall, storage clearing, source refresh or automation restart is part of this repair.
+
+## Same-owner Follow deltas reuse the current save path — 22 October 2026
+
+The current entity-follow patch may carry its known previous list through the existing optional comparison metadata, then merge only that list's changed identities and fields against the latest authenticated same-owner state. Reuse the existing canonical identity function, SDK, conditional version check, queue, profile bundle and intent receipt. No database migration, endpoint, request, polling, retry, scheduler, storage key, privilege or state-size budget is added. Keep explicit empty/OFF, unrelated remote choices, missing-baseline safety, ambiguity refusal, owner/generation isolation and changed-base pending safeguards. Both existing required cross-device and server-persistence gates cover the actual path. Local source is not historical recovery, hosted acknowledgement or phone acceptance; see [scope](quality/follow-sync-known-deltas-2026-10-22.md).
+
+## Coalesce canonical context after final facts — 23 October 2026
+
+Prepared for integration; production adoption is not yet established. Keep the existing canonical refresh owner, source lease, compatible public invoker RPCs and direct-write integrity owner. During one compact publication, collect actual changed fixture/score identities and derive their context once from final facts; a true no-op derives nothing. Explicit full-replacement and compact/token prerequisites are part of this module. Two private service-only complete-publication functions use fixed empty search paths and validate the source lease. Only the existing protected pending row holds source/transaction/backend markers; service clients gain no marker write privilege or independent begin/end API. Existing direct writes, key-move refusal, raw pending fallback and deferred completeness enforcement remain.
+
+Preserve original facts, IDs, zero/null/opaque fields, independent sporting clocks, first completion, verification receipts, history and token continuity. All readers, descriptor precedence, caches, source budgets, retries and 8s writer/6s global/5s interactive/3s selected limits remain. The exact guarded code-only undo checks all22 candidate function/ACL/attribute contracts, restores the original20 and removes the two private helpers; the two nullable marker columns intentionally remain. Installation refuses active source leases. Recovery refuses open markers, incompatible pending work and unexpected drift; its bounded locks fence actual in-flight writes. Do not delete warnings to force recovery.
+
+The separate historical test factory stays unchanged; a new validator explicitly installs this module and runs through the actual adapter in PG17/18. Dated native maximum-write, history and concurrent-reader/undo evidence are distinct from ordinary regression checks. Less duplicate write work is established locally; foreground loading improvement is not. Root remains sole live SQL executor and publisher. All normal release and repeated fresh production checks remain mandatory. Background automations stay paused at the user's request; no reminder replay. [Scope and proof](quality/canonical-context-batch-2026-10-23.md).
+
+## Account baseline consumption and consistent highlights clock — 20 October 2026
+
+Consume the existing startup baseline immediately after a matching account state/server baseline is accepted, before optional metadata hydration. This moves an existing boundary; it adds no store, state owner, request, listener, retry, deadline, import or account-restoration policy. The same actual SDK/bootstrap regression must preserve each synthetic account's follows, pins, exclusions and OFF choices through interrupted and repeated switching. Real-account recovery requires its own identity-bound evidence and authorisation.
+
+The existing selected-fixture handler passes its already injected clock to the initial published highlights library as well as later snapshot projection. A library must not expire a valid test-time receipt using an unrelated wall clock before the route applies its clock. The existing highlights gate now uses a controlled direct receipt and exercises expired/future receipts through the actual handler; catalogue validation remains separate. No expiry rule, provider request, quota, cache lifetime, scheduler, SQL budget or snapshot deadline changes. This closes a reproduced release-check clock mismatch; it is not a snapshot-latency or production playback claim.
+
+## Preserve qualified Cricket day metadata through existing reads — 20 October 2026
+
+The existing Match Centre compact/observation and Feed score paths preserve a supplied match day and its source URL/original check on the same accepted identity. Omitted metadata can retain qualified last-good proof; explicit unknown or unqualified replacement cannot borrow it. A contradictory or explicitly unknown start/gender clears inherited day proof; a status-only receipt that omits those fields may retain it, together with the original accepted sport, participants, start and gender for later comparisons. This retention applies only when prior day metadata exists; the existing score-identity path is unchanged. This is additive display metadata, not a new source observation or inferred sporting clock.
+
+Schedule uses its existing deferred panel and existing fixture observation merger for the narrowly guarded newer Cricket pause. Preserve independent status/phase clocks; only explicit clear/unknown metadata uses the later general receipt as a fence. No source/API/DB request, schema, retry, refresh cadence, scheduler or account mutation is added. Existing three-second readers, ten-minute unexpected-interruption cadence and single release owner remain unchanged. Actual source/day, clear/resumption, privacy, native rendering, cache/installed and normal release gates remain required.
+
+## Source-only terminal matches retain their original window — 19 October 2026
+
+The existing Match Centre model admits source-confirmed cancelled, canceled and abandoned matches during their original terminal hour. The near SQL reader must conservatively retain source-only candidates for that same model, without relying on a published/preserved ID. Extend only its three existing terminal-status sets; retain indexed context closure, explicit-null precedence, original completion marks, the conservative SQL window, the five-thousand/5,001 sentinel, final payload boundary and service-only invoker permissions. Other readers and the observation projector remain unchanged.
+
+A separate latest-reader SQL/store/handler rehearsal preserves the original historical equivalence tests. Compare each independent original clock with actual global projection; raw unsupported clocks that the existing projector nulls remain unknown. Verification receipts cannot restart the terminal hour. This is a correctness repair to the approved interruption contract, not a demonstrated latency improvement. Normal exact-SHA release and repeated fresh acceptance remain required. [Local evidence](/Users/jackhartican/Documents/AI/Codex/nothingsport-release-resume-20261019/near-terminal-correctness/report.md).
+
+## Ordinary global Feed read measurements — 18 October 2026
+
+The trusted default live-snapshot reader may measure its existing global null-ID source-health/current-bundle pair, without extra requests, response cloning or body rereads. The factory remains opt-in; selected, near and participant reads retain their existing behaviour. Emit bounded allowlisted monotonic fetch/header/body/parse and leg/validation/projection metadata only on failure or a global read of at least two seconds. Fast success stays quiet. Logger throws and rejected returned promises cannot change facts or errors.
+
+Missing milestones and incomplete bytes stay unknown. Byte counts describe decoded UTF-8 text, not compressed wire or partial bytes; transport timing does not prove SQL execution or cancellation completion. Preserve complete membership, original freshness, last-good/stale flags, caches, existing retries/legacy compatibility, three-second global/default/selected and five-second trusted interactive budgets. No schema, source, scheduler, account or client change. Existing transport/socket and actual-reader/cache regressions plus independent review precede normal release. This is diagnostic preparation for an evidence-backed repair, not a demonstrated speed gain or a cure for sporting interruptions. [Evidence and limits](quality/global-feed-read-diagnostics-2026-10-18.md).
+
+## Honest reminder phase diagnostics and partial outcomes — 18 October 2026
+
+The existing reminder owner may record fixed phase, allowlisted error code, HTTP status, elapsed time and remaining budget for failed or slow reconciliation and Impact operations. Never include recipients, IDs, paths, payloads, subscriptions, credentials or arbitrary upstream messages. Logging failure must not change delivery. Reuse existing requests, the three-second request bound, 27-second owner budget, two workers, admission/erasure fences and uncertain-send protection.
+
+Preserve completed guarded-send totals when the later Impact receipt fails. Count a failed claim once, keep degraded status visible, and retain ordinary pre-claim budget deferral. An Impact begin failure must produce a scheduler-visible failure and recorded last error. These diagnostics do not establish the cause of a production fixture-read timeout or prove real notification receipt. No new query, retry, scheduler, provider, consent, account write path or purchase. Local constructed regressions and the normal production release remain separate evidence.
+
+## Historical identity rehearsals retain explicit clocks — 18 October 2026
+
+A disposable historical pre-match replay must not depend on the current wall clock still predating its fixture. Inject time only into the in-memory captured rating function at an asserted single seam; retain its actual phase/identity logic, test all declared aliases just before canonical kickoff and at kickoff/end, reject late changes without mutation, and restore the exact original function/role. Production migrations, captured schema and real clocks remain unchanged. Keep the original failed gate and normal release requirements.
+
+## Isolate specifically invalid community match results — 18 October 2026
+
+A complete, structurally valid OpenLigaDB league-phase response may contain a specifically invalid individual result. Quarantine only typed missing/ambiguous/invalid scores after the whole raw schedule, dates, participants and identities validate. Accept fixtures plus named omissions only when they reconcile exactly to the raw144 identity inventory. Retain an earlier completed fixture only with matching provenance, identity/calendar and valid original observations; otherwise explicitly omit it pending repair. Both fixture facts and derived cards use the same admission guard. Mark affected standings partial/provisional and preserve community/ODbL attribution. Structural/parser/identity defects remain fatal; unrecovered transport errors keep explicit failures and the existing outer atomic rollback. Preserve independently valid peer competition progress in the scoped partial candidate. No new provider, scheduler, request allowance, retry, credential or customer write. Constructed local proof is separate from later credentialed/natural-source acceptance.
+
+## Share identical pending Feed composition — 18 October 2026
+
+After each caller authenticates and reads its own state and ordinary live snapshot, the existing complete account/state/snapshot/deployment cache key may share pending composition with identical requests. Bound the pending map by the existing100-entry limit; overflow composes independently and both resolution/rejection remove the matching pending entry. Each waiter checks the resulting expiry against its own captured clock. It may join at most two shared builds, then composes once for itself if still expired; no unbounded wait/retry chain or additional sporting source read. Retain all facts, observation clocks, admission/privacy/Results/OFF choices, request budgets and errors. The existing cache validator exercises multiple lifecycle boundaries, separate accounts, rejection/overflow and the real hosted diagnostic branch. Local process-CPU savings for concurrent identical requests are separate from actual hosting bills or phone latency.
+
+## Refresh child diagnostics — 17 October 2026 Sydney
+
+The synchronous full and incremental owners spool each child's stderr to a private temporary file rather than a bounded child pipe that can terminate a successful noisy process. The spool uses temporary disk until the child exits; retain at most its final64KiB in memory, explicitly disclose omitted output, and remove the private file after success, failure, spawn error or timeout. Preserve the actual child status and existing deadlines. Redact failure text before retaining its final1,400characters for the existing sanitised report. This changes no source, result, identity, spoiler, rollback, scheduler, provider budget or publication rule. The existing reconciliation gate runs real full/quick wrapper tests with a1.2MB successful child, nonzero failure, private permissions, diagnostic bounds/redaction and cleanup; pinned pre-fix wrappers reproduce ENOBUFS.
+
+## Reuse fixed catalogue identity work — 17 October 2026 Sydney
+
+The observed public Match Centre read spends substantial preparation time in the complete catalogue. Prepare collapsed fixture aliases and reverse identity lists once in the existing shared identity owner, freeze the forward table after setup, and reuse an identical Sydney date-only formatter after its first need. Reuse a record’s resolved ID in its existing reviewed-innings check. Do not cache sporting facts, dates, eligibility or source observations; retain exact IDs, alias order/precedence, unknowns, scores, withdrawals and saved actions. No query, source, provider, account, scheduler, timeout or owner-routine change. Complete-output, browser/cache/startup and normal exact-SHA release evidence are required separately. [Scope and local observations](quality/catalogue-alias-reuse-2026-10-17.md).
+
+Two redundant comments move out of the downloaded page while executable guards remain unchanged: “Drain prefetch before upgrade” describes the existing bounded prefetch’s complete-body handling; “Only official OOP can pin this card” describes the existing source-verified tournament schedule requirement. The unchanged fetch/body and official-schedule conditions remain in index.html and their existing regressions. This payload cleanup removes no user-facing text, safety condition or attribution and does not increase the startup limit.
+
+## Bounded Match Centre request timing — 17 October 2026 Sydney
+
+The public Match Centre route bypasses the existing personalised Feed timing path. Measure its fixed preparation/read/projection phases with a monotonic diagnostic timer, leaving sporting clocks and response bodies unchanged. Add Server-Timing metadata and one aggregate-only warning for valid slow (at least 2 seconds) or degraded origin responses; healthy faster responses stay quiet and logger failure cannot affect delivery. The threshold is observational, not a new timeout. No fixture/account IDs, query/source content, scores, dates, errors or credentials enter logs. Public cached headers may describe earlier origin work; origin time excludes platform startup, encoding and network.
+
+The existing release checker records elapsed-through-body and recognised numeric origin timings on its same one-or-two read budget. Keep quiet-window acceptance honest and retain the stale/selected identity/scorecard gates. No extra requests, retries, source/DB/scheduler/customer change, browser asset, service or owner routine. Final live measurements are evidence to guide the next loading repair, not a claim that instrumentation fixes it. [Contract and limits](quality/match-centre-timing-2026-10-17.md).
+
+## Match Centre trials retain the original reader — 16 October 2026 Sydney
+
+The normal result/first-page release reached production but failed its final public current-data check. Two guarded database trials preserved complete captured outputs and permissions, yet each failed an actual three-second full-response check. Both were restored exactly; the active near reader remains MD5 `d98d88497311a8d06a31556004df30a2`, with its original SQL, empty search path and service-only invoker grants. Keep both real migration/rollback pairs in history and cover their final restored state in the existing regression gate.
+
+Later public checks passed with eight and nine displayed fixtures, and a longer diagnostic completed in 970 ms; those do not erase the failures. A further join-setting probe was not applied: fresh comparisons did not establish a reliable causal gain. Local/inline/warmed timings cannot certify first-load speed. Keep the intermittent first-read delay open and the larger personal/history client withheld. No deadline, fallback, scheduler, source, writer, customer state, subscription or owner routine changes. Publish completed app work only through the unchanged release gates, without warming traffic or retries to obtain a pass. [Dated evidence and limits](quality/match-centre-plan-2026-10-16.md).
+
+A later shared scalar-read prototype was not applied: captured results agreed, but local medians were about 11–12% slower and a read-only prepared production plan did not prove a useful gain. The current reader is unchanged. Keep the first-read issue open; [dated follow-up](quality/missing-metadata-2026-10-16.md).
+
+## Retained results keep their own fact dates — 16 October 2026 Sydney
+
+When the shared identity merger rejects an upcoming row against a final, an unsupported live flag against a pause, or an older observation, retain the accepted status fact date with its status and check date. Retained scores also retain their score fact date. Unknown fact dates remain unknown; accepted newer facts still advance. The actual World Cup selected-handler replay reproduced an August upcoming date attached to the new final. Reuse one small status-retention helper across the existing decisions, with shared continuity and actual handler regressions. No scheduler, persistence, source request, API contract, deadline, reminder or account change. [Scope and release evidence](quality/rlwc-result-repair-2026-10-16.md).
+
+## Shared phone interaction work — 16 October 2026 Sydney
+
+Jack reports slow buttons in the installed iPhone app and asks to consolidate repeated work before sacrificing features. Reuse formatting machinery, never sporting facts: the shared retirement module holds one Sydney date formatter, and card timing retains only its finite internal locale/style combinations. Every call still reads the current fixture, status, observation and reference time. Parent admission and participant checks reuse the existing prepared Follow context, retaining its preference/directory-reference invalidation. Unprepared server/module callers still prepare once. Native parent admission passes the same participant-tour and current-time inputs. Presentation classification remains direct and no longer computes unused eligibility/reason fields; actual Feed admission remains with its existing policy.
+
+Keep favourite cards fully drawn: Safari skipped-row drawing could leave the scrolled profile button outside its actual pointer hit target. Remove that CSS shortcut only from favourite cards; retain the shared fixture index and existing 1.5-second/128-favourite browser budget. Other bounded directories retain their separate policies.
+
+No feature, source, scheduler, poll, retry, account write, sporting clock, result visibility, retention or Follow rule is added or removed. Do not merge modules merely to reduce their number. Share measured repeated work at the existing boundary and retain small behavioural tests. New formatter and prepared-context regressions run through existing timing, Follow and EPIC gates.
+
+Phone-sized repeated-tap tests reproduced the production pause. Sequential Safari-engine samples with six locally selected sports improved from 239 ms median/595 ms maximum steady taps to 146/244 ms without the worker; the cached-worker candidate measured 108/216 ms. These are local simulated phone measurements, not physical iPhone proof or universal speed guarantees. A 4x-slowed Chromium stress run still exceeds the 250 ms diagnostic target on some taps; retain that limitation and avoid claiming complete latency elimination. Exact final-byte release/upgrade evidence is recorded separately. [Current performance evidence](quality/iphone-interaction-performance-2026-10-16.md).
+
+The one-time canonical archive backfill recovers accepted metadata with exact source/fixture score pairs, complete scoped pages and declared canonical bindings. It writes through the existing archive RPC after catalogue capture, preserves original source clocks and copies no historical writing. Unknown older detail remains unavailable; no sporting-table write, provider replay or new owner is added.
+
+## Complete fixture reads use two complementary parts — 15 October 2026
+
+**Status clarified19October: staged, not activated.** The current application still uses its parallel source-health/single-bundle pair, including the global JSON-row wrapper; it does not call the part RPC. The retained15October cloud rehearsal exceeded the unchanged three-second full-response deadline (headers2924ms, body3004ms), and the altered partition was restored. The following paragraphs describe the staged design and its requirements, not deployed complete-read acceptance. Do not activate it as a wiring-only repair or repeat the rejected comparison. Cross-part consistency, complete union and actual deadline headroom remain unproven. [Read-only history assessment](/Users/jackhartican/Documents/AI/Codex/nothingsport-release-resume-20261019/global-next-strategy-assessment/assessment.md).
+
+Keep the existing two requests and three-second deadline per request. For complete global and participant reads, the existing store reads two complementary parts sequentially, avoiding compute contention; it does not issue a separate source-health request. Selected 60 and Match Centre reads retain their existing parallel health/fixture pair. Each part validates the complete candidate scope before projection, retains the 5,000/5,001 sentinel and returns the same source-manifest/day/count binding. Both parts must be complete, have identical bindings/counts and scope, contain every expected row exactly once in its deterministic partition, and reference a unique source manifest. A missing/changed/malformed part fails the whole read into the existing scoped last-good/published fallback; no retry or third read. Sequential source loading can take up to the existing combined six-second allowance. This exchanges some maximum first-load latency for reliable complete data; it does not certify a fast whole page or physical phone.
+
+The service-only part RPC constructs its transport envelope directly as SQL JSON, preserving the same parsed values, ordered rows and JSONB-derived snapshot binding. This avoids rebuilding a large JSONB envelope solely to serialize it again. A guarded, restrictive transactional replacement changes only this unreleased RPC's SQL return type and restores its exact service-only grants; legacy readers stay unchanged. Compare actual complete captured outputs and denied-role behaviour before application, then require real requests inside the unchanged deadline. Local and EXPLAIN timings alone do not establish acceptance.
+
+Execute that unchanged parameter-heavy statement through a PL/pgSQL wrapper with function-scoped `plan_cache_mode=force_generic_plan`, retaining stable/invoker behaviour and the empty search path. Actual SQL-function calls and equivalent prepared statements had materially different plans/timings; do not infer RPC performance from an inline EXPLAIN. The setting affects this function only, not the database or other readers. PostgreSQL documents [SPI plan reuse](https://www.postgresql.org/docs/17/plpgsql-implementation.html#PLPGSQL-PLAN-CACHING) and the [generic-plan setting](https://www.postgresql.org/docs/17/runtime-config-query.html#GUC-PLAN-CACHE-MODE); complete cloud transport acceptance remains a separate requirement.
+
+Resolve the required identity set once by joining the existing private identity-token index, then reuse its exact fixture identities in both source seeding and protected-row seeding. This replaces two measured full-context array-overlap scans without narrowing the request. The existing complete metadata integrity guard still rejects missing, wrong or unexpected tokens before any complete response is accepted. No new table, index, fact cache, writer or maintenance routine is added.
+
+Keep only identities in the complete candidate set and apply the unchanged sentinel before partitioning. Read the selected payloads again within that same stable statement snapshot, then compute cleaned JSON once in the chosen projection branch. The original fixture type determines whether the cleaned base is an object; unsupported scalar deletion still fails as before. This reduces intermediate temporary data without changing facts, selection, ordering or the snapshot binding. Measured SQL timings varied; reduced temporary work alone is not a claim of reliable live latency.
+
+The staged participant index is populated in bounded, source-locked transactions while its original reader remains active. Guard activation on complete, exact relationship integrity; canonical fixture/score writers maintain only selection metadata. Remove the temporary backfill helper after activation. Preserve whole sport/participant/required-identity scope, unknown sources, transitive links, rolling calendar, RLS and service-only invoker access. The global route keeps its original complete source/window selection and does not depend on participant index integrity.
+
+Within each part, validate distinct raw score/status/receipt clocks once through the unchanged parser and use a JSON lookup map. Preserve source/fact/check dates, zero scores, null withdrawals, first completion, field precedence and non-object merge order. This is statement-local work, not a persisted sporting-facts cache. The shared object projector also combines its small patch before copying the full object; non-object inputs retain original operation order. The attempted all-at-once clock plans failed live deadlines and were restored before the additive transport; keep their actual migration/rollback history. No provider/customer write, timer, retry, polling, scheduler, subscription or new refresh/release owner. Actual SQL/transport, full captured-world agreement, failure/corruption and692clock/category checks remain distinct from production and device acceptance.
+
+The same private selection descriptors also retain only the five calendar-filter inputs and their explicit-presence flags. Existing canonical sync hooks maintain them; they do not contain returned fact projections or renewed observations. A source-locked, bounded preparation updates descriptors only. Missing descriptors read the same raw canonical fields, including for global reads, so preparation cannot omit a candidate. The unchanged rolling window still runs at read time. A participant GIN index and separate source-seeding set operations avoid per-fixture overlap/known-key scans while retaining required identities, unknown sports and transitive source closure. Source locks, commit integrity, limits, deadlines and fallback remain. Real captured output, calendar null/invalid/override cases, write maintenance, role grants and live cloud acceptance are required separately.
+
+Within that same statement, materialize distinct source/base-key/score-key/presence combinations before source-level sport membership checks. The observed 6,409 fixture descriptors contain only 42 such combinations; the actual nested plan spent most time repeating their identical filters. This is an invocation-local set operation, preserving null handling, required identities, participant indexing, transitive closure and global bypass. It adds no table, fact cache, writer or setting. Complete-output agreement and actual service deadlines remain the acceptance gates.
+
+## EPIC archives, curator weighting and annual review — 14 October 2026 Sydney
+
+The approved [EPIC contract](plans/epic-fixture-archives-2026-10-14.md) adds private account archive references and shared phase snapshots, an editorial backlog retained beyond ordinary card retirement, and audited fixture-curator assignments. @buckajosport is chief admin; @campbelljim03 is a fixture co-curator only. Existing server-owned admin access remains. The explicit curator table supplies 8× rating weight for existing and future contributions; actual person counts and earned rewards/settlement rules stay unchanged. Client role claims grant nothing. Highest current curator/published NS score allocates editorial effort; genuine historical user 4+ also qualifies post-match work. Historical curator highs retain genuine qualification and classic references without pinning an obsolete NS tier; ordinary genuine high history remains a community effort signal. Retained jobs lacking a current NS 3+ or genuine 4+ history defer without spending units. Reductions do not refund prior research or remove published writing. Alias-aware current-pick reconciliation and eligibility fences run inside the existing vote, registration, recovery and claim operations.
+
+Settings menu, Hidden and legacy Archive renderers share the existing precached optional Settings bundle. The authenticated EPIC UI caches after use. Account sync remains in the required app-shell runtime; avoid precaching a second raw copy for the standalone owner console, which caches that source after use. Preserve the frozen critical-request and three-megabyte shell limits.
+
+Reuse the existing canonical update-cards/adaptive editorial owner, accepted current fixture/score publications and account-state sync. Its one-time historical backfill also pages missing-name classics and their registered aliases, then recovers only accepted current/score metadata through the existing archive writer. Current and score reads retain the (source_id, fixture_id) boundary and complete100-row compound-key pages; reject a conflicting declared canonical identity. The accepted recovery runs after the last catalogue write. Preserve canonical observation reconciliation and actual clocks; do not update sporting tables or claim current writing as a historical original. Unknown details remain unavailable. Regression coverage includes all pages, aliases, stale calendars, score-only clocks and unchanged source/rating/personal/original state. Optional source observation triggers read accepted facts only and cannot roll back sporting publication. No provider request, per-viewer discovery, new scheduler or paid service. Research has a twelve-unit Sydney-day cap (tiers 3/4/5 cost 1/2/4), highest tier then oldest first, idempotent same-day resume, persistent deferrals, holds and exact result signatures. Source-backed brief Ongoing developments precede full OP ED after verified completion. Exact READY/SHA source-inventory and served-card proof precede publication receipts. Protected original previews remain protected; subsequent Impact is a separate archive milestone.
+
+Use the existing notification dispatcher for annual admissions from 27 December 09:00 Sydney, bounded to twenty eligible accounts and five deliveries per pass, within its existing request/time/send budgets. Account/year inbox and account/year/installation push keys deduplicate. The independent annual setting, global opt-out, installation permission and existing erasure/send lease fences apply. Confirmed provider rejection may retry within the existing pass limits; uncertain contact is never blindly replayed. In-app first-visit invitation is account/year scoped and the review remains available in January. Never overwrite the milestone inbox-maintenance wrapper or add a delivery owner. Audit Sportscal architecture owns production SQL/bootstrap/backfill, automation changes, main publication and exact-SHA release. Test, connector, production and physical-device evidence remain distinct.
+
+## Completed Golf and Bathurst checks retain their final evidence — 14 October 2026 Sydney
+
+The existing live Golf adapter treats tee-time appearances as child records, never as tournament leaderboard owners. Keep its known-parent source scope and one four-second read, with two-minute playing and thirty-minute quiet intervals. Previously retained appearance IDs, states and observations remain; no elapsed group is inferred completed or deleted. Both initial seed and subsequent selection/cadence use the same parent qualification.
+
+The existing Bathurst adapter stops timetable/tower requests only when the published complete official classification passes the shared reviewed result validation and its actual observation is no later than this pass. Exclude raw tower score fields from that qualification. Provisional, incomplete, wrong-source, wrong-edition, future and unconfirmed records retain the ordinary request/failure path. Return the previous collection unchanged; do not re-date sporting facts.
+
+The regression replays the captured public source/current/score graph, including a retained race alias, through the real fenced claim/publisher and compact SQL. Scores, original dates, completion markers, core facts, aliases, revisions and score row identities survive two quiet passes; the existing successful publisher clears failures normally. Active Golf still makes its one bounded request. The new check runs inside the existing canonical QA list and normal production gate. No shared writer change, migration, source request replay, scheduler, notification/account change, purchase or recurring owner task. Natural production recovery is a separate acceptance step. [Evidence and limits](quality/completed-source-recovery-2026-10-14.md).
+
+## Horse presentation reuses retained sources — 13 October 2026 Sydney
+
+The approved phase2 uses the existing deferred racing/score modules and selected details=racing interface. A shared neutral-field allowlist removes historical form, odds and analysis from new collections, retained public/compact detail and legacy cached rendering; invalid over-budget/duplicate entry bodies fail rather than truncate. Optional sourced countryCode does not require a new endpoint. Entry outcomes are separate from neutral fields under Results OFF. Preserve the existing four-minute cache/coalescing, five-second selected UI read, field/source limits, hidden-view ownership, canonical IDs and original observations.
+
+A no-provider presentation option lives inside the existing update-cards Horse route. It retains prior coverage and sporting clocks, sanitizes retained fields and applies only approved Horse fixture research before the unchanged dependent builders. Three existing pending overview identities are editorial catalogue context, never invented fixtures. The shared immutable editorial target/revision rules remain; unrelated research/fixtures are retained. No new source owner, scheduler, polling, retry, per-user organiser request, database migration/customer repair, purchase or notification change. Audit retains the one publication lane and cache/version bindings. Required installed-update/offline and actual public field/Follow tests remain distinct from physical-device evidence.
+
+## Reviewed Wuhan identity correction uses existing owners — 13 October 2026 Sydney
+
+The bounded four-match correction uses the retained three-document writer, existing four-resource canonical Tennis refresh and one-resource live WTA adapter. Full publication plans preflight before writes. Current Tennis refresh also rebuilds its affected Follow directories through the same canonical owner. Keep original organiser/publisher receipts and the existing six-hour/deadline/lease/cadence limits; no retry, scheduler, provider, migration, customer mutation, reminder replay or routine owner task. An official final retains its score, winner and copy during a publisher disagreement. The mandatory regression covers actual persistence, full captured-response evidence, stable IDs and current live adapter. [Scope and evidence](quality/wuhan-pairing-repair-2026-10-13.md); exact production and saved-fact proof remain separate.
+
+## Guarded Horse flagship rollout — 13 October 2026 Sydney
+
+The approved phased contract reuses existing Schedule/Events documents and account-state patch/CAS. Major Events reuses one cached Horse schedule, with no organiser requests or new endpoint. Canonical domestic classification is shared client/server. Optional before-values on existing sport-list patches preserve genuine local deltas during rebase; the durable Horse choice fences legacy replacements. The staged one-time private frozen registered cohort retains snapshots, revision-safe locked current states, the existing erasure advisory barrier, private RLS and Auth-cascade cleanup. Apply only after verified application release through Audit. No tennis replay, notification/permission/queue mutation, source owner, dispatcher, cron, polling or request-budget change. Required gates and precise production/database receipts remain separate.
+
+A whole domain-preference array from an older device is not a new Horse decision. The existing checked Follow switch supplies before/after sport-list intent; without that intent, keep the current Horse graph row (including its absence) and recorded choice while accepting unrelated edits. Genuine later switches align any Horse graph row with that choice. Both Horse domain aliases, stale ON/OFF and absent current rows are covered by the actual sync/guard regression.
+
+## Bounded foreground ratings read recovery — 13 October 2026 Sydney
+
+Jack explicitly authorised automatic client ratings-summary read retries after successive waits of 30, 60 and 120 seconds following failures, then a pause. One shared queue/timer reuses the existing fifty-ID batch reader, canonical IDs, pending/in-flight coalescing and accepted snapshot merge. Redraws and pulse polling cannot bypass a failed ID's budget. One centred manual Retry ratings control starts an immediate fresh cycle; duplicate in-flight actions coalesce. Hidden/offline views pause; foreground recovery sends at most one due batch, spacing remaining due IDs. Removed/minimised cards cannot generate retries. Account generation changes discard late success/failure and reset recovery. Healthy summary/detail reads clear failures; last-good values survive failed reads, and failure never proves zero peer ratings.
+
+This is a UI read-recovery exception to earlier no-new-retry/timer wording, not a transport write retry, provider refresh, backend owner or scheduled job. Account replacement also clears the old healthy poll timer and failure count, then schedules that same owner at its existing 120-second interval; hidden/offline gates still apply. Late poll success/failure cannot alter the replacement account's timer or budget. No API, database, cadence, source ownership, reminder policy or write-store method changes. The functions remain in the synchronous required app-shell runtime, with the same eight critical requests and frozen startup/installed-shell limits. [Approved plan](quality/compact-cards-ratings-plan-2026-10-13.md). The normal empty-batch gate invokes actual fake-clock recovery/loader checks; native browser checks cover one centred retry, retained values and manual/automatic recovery. Required-runtime failure, source-owner, alias and installed-update gates remain mandatory.
+
+## Horse Racing uses existing Follow readers — 13 October 2026 Sydney
+
+The approved Follow navigation repair reuses the existing horse Schedule/Inspector, Events overview, preference graph and shared Feed policy. One explicit sport follow admits the already reviewed dated feature catalogue; no horse/jockey participant directory or inferred field identity is loaded. Date-pending overview rows remain visible without generated dates. The Follow checkbox stays visible when the sport menu collapses. No new endpoint, source read, per-user organiser request, database object/migration, refresh owner, polling timer, retry, scheduler or delivery-policy change. Preserve startup/cache budgets and exact cached module bindings; original source and unknown-clock evidence remains unchanged.
+
+The pre-release filter/edition correction resolves carnival membership from existing reviewed `weekendId` metadata in the shared policy. It requires no overview fetch during Feed admission, extra lookup, new stored field or migration; existing customer choices remain readable.
+
+## EPL provider identity preparation — 13 October 2026 Sydney
+
+Later private preparation: the existing official card/live producers and publisher carry the same reviewed identities. Validate the complete 380 primary bindings before source persistence, retain dated secondary fixture receipts before collection freshness is applied, and reconcile retained calendars before fact protection can copy primary receipts onto them. The actual disposable publication/Inspector, complete four-page producer/backup/quick checks and original-field rerun checks pass. No extra provider request or database read budget is introduced. The separate twelve-check local SQL writer experiment is not an applied migration: real trigger effects, accepted world-parent/rule preparation, guarded application/undo, readiness and complete release proof remain open. See [dated preparation](quality/epl-provider-identity-preparation-2026-10-13.md).
+
+Use one reviewed 380-fixture identity registry for the existing 2026/27 season. Source/profile/live projection may add durable metadata aliases without changing primary facts or observations. Reconcile the retained older calendar only where the exact primary binding exists; preserve later/uncertain source evidence. Snapshot/source scheduling, two workers, two three-second reads, selected 60-ID and membership 5,000/5,001 limits, source/fallback caches and one-owner rules remain. Canonical refresh must own persistent alias projection; no parallel update job or provider call.
+
+Read-only preflight finds two historic legacy operating namespaces, one contribution/vote/prediction/credit collision and one settled forecast. Preserve all original customer rows and credits; prefer a forward-only read/write alias bridge, with no re-settlement or replay. The existing private alias/point guard and service-only RPC definitions are fingerprinted before adaptation. Prototype snapshots include both affected namespaces in their same five reads and keep caller keys, the latest contribution once and every credit. Only these two historic identities use the existing temporary readiness pattern; the other 378 EPL fixtures add no readiness call. EPL selected-source requests resolve to their already-stored primary IDs without increasing the 50/60-ID budget. Unrelated sports keep their request arguments.
+
+No database change is applied for this private preparation. The planned writer, immutable prediction/reward, local-rating, persistence and release protections are enumerated in [the dated acceptance plan](quality/epl-provider-identity-plan-2026-10-13.md). Do not deploy the incomplete preparation or use the upcoming-only Rugby migration as a template for settled forecasts. No credential, subscription, scheduler, polling, deadline, retry, customer backfill or routine owner task is introduced.
+
+## Participant calendar reads — 13 October 2026 Sydney
+
+Status: exact app release `2ad885f5` / shell 517 is live and both hosted native profile journeys pass. The first public read encountered an intermittent source-health authentication rejection, retained all 44 matches and correctly reported a saved fallback; reliable operations remain an open gate. The verified Football profile request waited for the existing global bundle's three-second timeout, then returned the published calendar without a failed-check cue. Ordinary Feed and the separately repaired Match Centre keep their readers. Participant calendars/Favourites use an additive service-only source-group bundle selected from the complete Follow-resolved response requirements, the existing sport-domain registry and every active identity/current team. Unknown requirements use the original full read; missing/unknown raw sport keys retain their whole source. Provider IDs are not a coverage allowlist. Requested sport groups, source-only arrivals, direct identities, transitive declared aliases and conservative timed two-sided context remain. Known corrections and their related context survive reschedules beyond the published horizon. The existing JavaScript owners decide actual identity, admission and calendar visibility.
+
+The function preserves the current seven-day/one-year window, compact full fields and real score/status receipts, with the existing 5,000/5,001 completeness boundary. It is security invoker with an empty search path and service-only execute grants. Guarded application requires the exact reviewed global and Match Centre baselines and no pre-existing new function. No sporting/user write, new table, provider, scheduler, polling, retry or deadline change. The store retains two parallel health/bundle reads at three seconds, exact request binding, thirty-second coalescing and original last-good read/fact dates. Participant snapshot retention is bounded to eight entries/32 MiB of serialised data; the existing response cache is unchanged. Published scope requirements use a bounded 100-entry/1 MiB cache tied to identity, full state and immutable source versions, so warm response hits do not repeat calendar construction. Snapshot validation still precedes every response-cache lookup.
+
+The API exposes `fixtureSnapshotStale`. A successful saved-schedule fallback or retained stale snapshot produces a brief accessible notice, retains usable fixtures and the existing Refresh action, and clears the notice on valid recovery. Added pages retain a prior failure cue until a complete healthy reload. Original sporting dates, Results OFF, opt-outs, saved choices and reminders OFF remain unchanged. Changed cached profile bytes require a new shell/script URL and both browser update rehearsals.
+
+Local verification: 37 actual schema/store/handler checks, five complete paged old-full/new-scoped comparisons using all 769 raw rows of the three source groups selected by the Football diagnostic, and existing global/Match Centre/Feed/live/cache checks. Current Football scope returned 724 complete rows/~1.62 MB inside the read-only 2.5-second diagnostic; this is database timing, not deployed API or phone proof. A whole-world export first exceeded that diagnostic limit and then failed transport under an eight-second administrative export budget; neither changed production settings. The smaller complete source-group capture succeeded. Other raw sources, physical phone and whole-sport certification remain separate. [Plan and release evidence](quality/profile-fixture-read-plan-2026-10-13.md).
+
+## Match Centre transfers qualified current candidates — 12 October 2026
+
+Qualify the existing current-window reader before decoding source receipts. Keep every caller-preserved fixture identity/alias for corrections, every explicit play/pause state, possible recent completion evidence and timed near starts. The shared Match Centre model still owns actual admission: thirty-minute starting soon, one-hour recently finished, source freshness, supported sports/stages and court conflicts. Database windows use conservative 31/65-minute margins. Nonempty uncertain timestamp values remain for model qualification; missing-clock calendars and unknown-state new records cannot independently qualify. They remain in unchanged global/selected Schedule, profile and fixture readers.
+
+Use effective compact-score fields when present, including explicit null clock withdrawal. Parse guarded ISO values before casting; retain other timestamp formats conservatively. Before projection, keep connected declared identities/alias chains and potential same-sided timed records as context. A shared participant pair does not declare a fixture relationship; the unchanged shared merger owns matching and admission. This protects names, sides and venue when a separate source supplies a current score. Decode each needed source's observation map once after selection. Preserve exact projected fields, original fact/verification/completion dates, source-only arrivals, selected score path, both three-second membership reads, 60-ID score batches, 5000/5001 incomplete sentinel, scoped 30-second cache and last-good/degraded behaviour. Same service-only invoker function and empty search path; no source/user writes, provider call, scheduler, polling, retry, subscription or new schema object. Local rollback is separate from independent disaster recovery. [Dated checks and limits](quality/match-centre-read-efficiency-2026-10-12.md).
+
+
+## Expired fixture history on unchanged checks — 12 October 2026
+
+The same service-owned fixture publisher must apply its existing seven-day disposable-history policy after either accepted changed or accepted unchanged data. Protect the source's returned/current revision and its highest saved revision, including old keepers. Capture one cutoff inside the source-row lock. Delete oldest expired non-keepers only, at most 64 copies and 4 MiB of stored payload per accepted check; a larger first copy is retained for separate assessment. Rejected leases, invalid/empty primary responses and source failures do not prune. Current fixture facts, original fact observations, unchanged hashes/revisions, caller rights and quiet/live intervals remain unchanged.
+
+The guarded migration changes that existing function only and runs no immediate cleanup. Reuse the current owner; add no provider, scheduler, polling, retry, schema signature or subscription. The local regression uses actual schema and guarded migration files, checks real service/denied public callers and rehearses restoring the old function. Full/quick canonical and normal release checks retain it; compact-score integration exercises the replacement too. Function rollback and narrow migration proof are separate from full independent recovery and physical compaction, which remain pending. See [dated delivery evidence](quality/fixture-history-retention-2026-10-12.md).
+
+
+## Consistent cards reuse retained evidence — 12 October 2026 Sydney
+
+The approved card/Feed follow-up projects opening-day provenance, existing athlete outlook and verified nationality from retained documents in the canonical tennis refresh. Possible participation stays separate from confirmed source participants. Cricket summaries and expanded tables use the existing accepted score payload, with original score/status/detail dates and selected-innings continuity. No provider read, API request, timer, scheduler, database migration or source owner is added.
+
+Existing card globals move from inline HTML into the ordered venue-panel runtime source; the deterministic runtime and browser test owner validate the same implementations before app state initializes. This keeps eight critical requests and the unchanged 430920-byte gzip limit. Filter automatic future tennis fixtures and expired Feed cards before enrichment/rendering; keep complete Schedule/history facts and saved actions. Card-count/payload measurements do not establish physical-phone latency or notification delivery. Preserve the 515 ratings, date, cache and response-deadline repairs.
+
+## Card progress reuses published facts — 12 October 2026 Sydney
+
+The approved card repair carries optional sourced tournament round metadata and the existing Test day through retained Feed, Events and Schedule projections. Existing golf collectors retain their explicit current-round fact and only use a total when the organiser payload supplies it. Tennis main-singles playing observations provide named-round fallback; no partial fixture collection establishes a numerical total. No provider read, cadence, scheduler, schema or migration is added. Source clocks remain original and later checks alone do not change content hashes.
+
+To fit the unchanged eight-request startup/gzip budget, calendar ICS encoding and calendar selection matching/count rendering move into the existing deferred calendar UI bundle. Node calendar APIs and exported ICS bytes remain identical; calendar opens and selections use the same owner and cached bundle. No additional request or unrelated calendar behavior is introduced. Native calendar, deterministic encoder, cache and installed-update checks remain required.
+
+## Shared response deadline covers body consumption — 12 October 2026 Sydney
+
+Keep the existing Supabase request timer and caller-abort listener active through response body consumption and payload decoding. Race both headers and body against that same cancellation; a stalled body does not receive another budget or leave the caller waiting after cancellation. Retain the three-second fixture/read budgets, unchanged eight-second default and 250ms minimum, HTTP status/error payload mapping, original non-abort body errors and existing caller-cancellation classification. Clear the one timer and caller listener on every exit. An already-cancelled caller starts no request.
+
+A lost or timed-out acknowledgement cannot prove that a write was rolled back. The shared transport returns an error, makes no retry and retains the existing conditional/idempotent write and notification safeguards. Existing parallel reads, scoped cache/last-good fallback, leases, two workers, the refresh deadline, polling, scheduler and schema remain. The required snapshot-read diagnostic gate runs real local Fetch header/body stalls, a combined-budget case, caller aborts, cleanup, error mapping, a locally accepted write with a stalled acknowledgement, and retained degraded membership. The production header timeout observed during shell510 remains a separate latency cause; local body regression success does not establish its cause or certify cold production timing.
+
+## Paused-match presentation reuses existing facts — 12 October 2026 Sydney
+
+Selected Match Centre reads and cached overlays carry `pauseObservation`, the existing `statusFactObservedAt`, `restartTimeUtc`, `restartSourceUrl` and `restartSourceCheckedAt` from the same accepted observation. The deployed enum-only status fact clock remains unchanged. A bounded `pauseObservation` in the existing base fixture JSON records the first genuine source status receipt for the current status and source pause-reason key. The existing leased refresh claim supplies previous fixtures and private status receipts: repeated checks retain that first receipt, a newer changed reason resets it, and missing, future, backward, contradictory equal-clock, failed-source or reopened-final observations cannot create a new pause clock. This measures verified observation duration, never an inferred actual pause onset. Legacy rows without this evidence cannot prove thirty minutes. The existing publisher and selected read persist/project this optional field without changing score facts or SQL. Rejected pause status observations are fenced internally at the existing compact publisher, retaining the last verified status receipt and fixture revision while independently verified score observations remain admissible. This leaves the general timestamp tolerance unchanged. Cleared facts remain cleared on resumed play, and older or reopened-final observations remain rejected by the shared observation contract. Published elapsed restarts remain available until the source confirms a different phase; their elapsed time cannot establish resumed play. No table, migration, provider read or derived resume clock is added.
+
+Use the existing source-confirmed playing predicate for Feed bar wording and the actual reconciled Feed slots, including saved/automatic and nested fixtures, during the existing minute refresh. Clock fingerprints cover those same fixtures, including the saved tab fragment. An incremental page append cannot commit a changed clock presentation without rebuilding existing cards; a queued append falls back to the same existing render owner. Use the existing refresh/render owners for transitions. Keep two-minute active checks, quiet pause cadence, four-minute racing snapshots, two workers, the 45-second deadline, bounded selected reads, hidden-page pause and failure backoff. There is no new cron, timer, subscription or reminder-dispatch change. Interactive/idle deferred URLs and required installed-cache keys advance together. Publish through the one coordinated production owner, then observe the next natural canonical schedule separately; a manual deployment or controlled replay does not prove unattended publication.
+
+## Shared Match Centre cache bindings — 12 October 2026 Sydney
+
+Interactive Match Centre and idle preparation must request the exact same versioned UI module. A second URL executes a second owner and can reset the selected view after an ordinary render. Match Centre and tournament overviews must also install the same versioned shared stylesheet, so the first style owner cannot retain an older card layout. Keep both exact assets in the required installed cache and bind the overview and idle modules with the shell release. The existing cached-view regression checks all callers; the native browser replay deliberately delays idle preparation until after Everything is selected. Preserve Results OFF, cached Feed nodes, original observations and the existing source/API/timer/cron budgets. This changes local asset references only and adds no polling or provider request. Browser and offline upgrade checks remain separate from physical-device proof.
+
+## Six reviewed Nations fixture clocks — 12 October 2026
+
+The existing full/daily canonical owner consumes one frozen, dated six-row final-stage review; its scoped publication remains under `update-cards.js`. Validate complete identities, actual publisher epochs, RFU/Sydney agreement and original receipt dates before writing. No new provider request, scraper, retry, polling, credential, scheduler, migration, customer write or reminder replay. Preserve later primary clocks, unknown starts, participant facts, terminal state and unrelated data; unchanged replays retain bytes and observations. Regression runs through the existing Major Events gate and actual temporary-file writer. Raw source identifiers are provenance only, with no activity merge.
+
+Scheduled refresh `38169920440` published source facts but its downstream release failed because the Golf validator expected a provider read after the real calendar became completed. The test now drives its retained controlled in-play transition and separately requires zero reads for a settled final; runtime cadence and completed-result protection are unchanged. A seven-byte startup overrun from the incoming refreshed runtime is resolved by shortening seven non-executable comments, preserving the fixed limit and inline executable code. The combined cached-shell release keeps the normal browser/upgrade and exact live checks. Neither this repair nor its manual deployment proves a future end-to-end ordinary unattended publication.
+
+## Football table/result disagreement uses retained facts — 12 October 2026 Sydney
+
+The existing deferred Football module compares recorded games, wins/draws/losses and goals with published rows only for the complete 2026/27 EPL season or UEFA Champions/Europa league phase. Require the retained 380/20 or 144/36 fixture/team scope, unique identities, known ordered participants and integer final scores. A card may include its uniquely matched newer validated final in the comparison; reject an invalid/future/backwards observation, changed participant identity, different season or European qualifying stage. The existing full Follow table uses its already-overlaid fixtures. Partial or ambiguous collections cannot establish a complete comparison, and a later timestamp alone cannot create a warning.
+
+The actual native Schedule card uses the existing `finished` presentation state as well as canonical `completed`; neither is a raw provider-state expansion. The existing live Schedule selector now honours an explicit canonical sport domain when selecting Football. A real captured EPL update has `key: premier-league` and `sportDomainId: sport:football`; the former key alone previously excluded it. Explicit American Football stays excluded, other sport routes keep their existing selector, and the unchanged identity/observation reconciler still guards the merge. Use the actual archived public selected-fixture record with its genuine independent dates, rather than repurposing a static card as a live-source observation.
+
+The first published shell-501 candidate failed the unchanged 1.25% compressed critical-startup growth gate before deployment. Move the unchanged comparator out of the startup bundle and into the existing deferred Football module. Full standings keeps its published rows available while that same module loads; late completion respects Results OFF, a removed view receives no update, and load failure shows comparison unavailable. No new asset, source/data request, timer or owner is added. Keep both the frozen compressed-startup and 3 MiB installed-shell limits unchanged.
+
+Warn that the table and recorded match results do not yet agree; keep the publisher's rows, positions, points, qualification uncertainty, attribution and original dates. Do not calculate replacement standings or use points as a comparison because administrative deductions may exist. Existing delayed-backup warnings and Results privacy remain authoritative. No provider request, API, database, migration, new refresh owner, scheduler, polling, retry, subscription or owner routine. Actual archived EPL before/after facts, real deferred card/full-table callers, the existing live Schedule merge and browser/cache rehearsals cover the change; controlled European later finals are simulations, not new source evidence.
+
+## Participant source dates and dependent outputs — 12 October 2026 Sydney
+
+A shared canonical document build date is not a new observation of every sport in it. Follow directory records use their valid explicit participant observation or one unambiguous matching source receipt. Missing, invalid, future or distinct receipts remain unknown; a MotoGP check cannot refresh NRLW identity dates. Preserve IDs, source references, actual schedule/status/score observations and saved choices. Existing MotoGP and reviewed participant-schedule routes rebuild and check dependent Follow directories from retained data, without a new source owner or request. The existing Events overview projection must publish with its fixture outputs. Required generation checks remain strict.
+
+## Match Centre module survives installed-shell activation — 12 October 2026 Sydney
+
+The existing worker must precache the current deferred Match Centre UI module in its own required shell. During a genuine Chromium upgrade, the new document and activating controller can temporarily receive that unchanged module from the previous worker's cache. A broad cache lookup then passes, but activation deletes the old cache and the next offline opening fails. The required installed-PWA upgrade regression now checks the exact candidate-version cache before and after offline restart, rather than accepting bytes from any surviving old cache. The original full Chromium and WebKit journeys, saved preferences, source clocks and privacy assertions remain mandatory.
+
+Keep the existing 3 MiB startup ceiling and deferred runtime loading. This adds one required local script to the existing install owner; no source request, database change, customer-state write, reminder-policy change, timer, retry or scheduler is introduced. Browser upgrade evidence cannot certify a physical iPhone notification or app-closed receipt.
+
+## Preserve whole-second tennis HTTP receipts — 11 October 2026 Sydney
+
+The actual canonical owner rejected all four free ESPN responses because their whole-second HTTP Date was 0.760–0.806 seconds ahead of the local validation clock. Keep the original header observation and strict future/six-hour freshness checks. Once the response body is complete, the existing observer may wait once for at most one second for the real clock to reach a whole-second HTTP receipt; validate afterwards without changing either date. Larger, fractional or still-future timestamps and old observations reject. The same existing abort/deadline signal governs this short wait.
+
+This shared observer already serves canonical full/quick refreshes and the existing live tennis source. Four canonical resources, fifteen-second request deadlines, live cadence/budgets and no retries remain. No extra request, scheduler, polling, database change, coverage expansion, purchase or owner routine. Controlled prior/current transport reproduction, current complete-payload parser and both existing-card merges, unchanged-result clocks, stale/future controls and abort behaviour pass. A successful whole owner and exact production release remain required; local evidence does not certify tennis or a physical phone.
+
+## Official NHL CRIT playing-state evidence — 11 October 2026 Sydney
+
+The league's published game-centre code explicitly classifies LIVE and CRIT as live, separately from its final states. The official landing and existing Detroit club season response both report 2026020075 as CRIT/OK with paired 0–0 scores; the exact league page displays SO for the same participants. The shared NHL full/quick source boundary may accept CRIT under its existing known identity, integer score, OK schedule and genuine post-start observation rules. This supersedes the dated 5 October unreviewed-CRIT exclusion only; unknown/non-playing states remain rejected. No elapsed-time, shootout clock, winner, completed result or reminder is inferred.
+
+Existing independent schedule/status/score dates, frozen finals, mirrored full collection completeness, three daily resource requests, deadlines, no retries, 30-minute display staleness, spoiler controls and one canonical owner remain. No provider, competition, migration, browser timer, scheduler, subscription or owner routine is added. Actual captured-record source/full-owner and temporary file-writer tests cover zero scores, final progression, stale replay/regression, original schedule dates, unchanged other fixtures and last-good retention. Controlled browser replay is distinct from a fresh production source publication or physical phone.
+
+## Bounded rejected public calendar receipt — 11 October 2026 Sydney
+
+The existing canonical refresh may retain a rejected WRC competition-calendar response in its existing 14-day diagnostic artifact, capped at 128 KiB of already-read public body bytes plus fixed source/hash/date metadata. It does not save request headers, error messages, environment files, customer data or a checkout. Local test inputs carry local provenance. Validation subprocesses must lose the configured production report path, preventing test fixtures from overwriting genuine source evidence. Parser rejection, last-good source clocks, request/deadline budgets and manual profile-picture scope remain unchanged. Diagnostic write failure cannot mask the original source rejection; no automatic retry, provider call, scheduler, purchase or owner routine is added. A later healthy local response does not establish the earlier CI failure's cause.
+
+## Explain rejected source times without widening acceptance — 11 October 2026 Sydney
+
+The existing NHL and Tennis source errors distinguish a future provider publication or observation from an older-than-six-hours Tennis receipt, with independently labelled valid source/validation clocks. Invalid clock values fail closed and are never copied into messages. The same existing quick/live exception path carries the bounded error text; no report schema, additional source request, retry, scheduler, credential, polling, database operation or owner task is added. Valid source data and original observation values are unchanged; even a one-millisecond future observation stays rejected.
+
+Five fresh read-only resources now pass their existing parsers, so the earlier manual run's six warnings do not prove a persistent parser fault or clock-skew cause. This is actionable diagnosis for recurrence, not a claimed repair of transient external failures. Keep the WRC timeout, browser upgrade stall, match-list read and ordinary overnight proof separate. Existing source/actual-writer/recovery gates remain mandatory.
+
+## Manual sports updates exclude profile-picture cleanup — 11 October 2026 Sydney
+
+The existing canonical workflow's manual sports run skips its unrelated avatar maintenance step. The scheduled run keeps the same cleanup command, cadence and always-on-failure behaviour. No new workflow, scheduler, retry, source request, credential, customer mutation or owner routine is introduced; this limits the manual action's scope rather than changing sports refresh ownership. The existing backend-efficiency release gate evaluates the actual maintenance condition for manual, scheduled and unknown events, enabled/disabled cadence and successful/failed refreshes. Manual refresh success remains separate from proof of ordinary unattended operation.
+
+## EPL half-time through existing refresh owners — 11 October 2026 Sydney
+
+A naturally observed primary L/H record and the matching official HT display establish half-time for the existing 2026/27 EPL adapter. Represent it as the existing `break` state with `statusText: Half-time`, named integer scores and genuine independent source observations. Canonical persistence admits that pause only with the exact provider identity, competition, season, official provenance and reviewed H evidence. Other unknown phases still retain last-good facts. A pause creates no completion, final copy, replay promise, restart clock or reminder.
+
+Keep the existing active two-minute source/browser cadence during a routine half-time break; long interruptions retain their quiet cadence. Four-minute-old or failed half-time observations become an explicit awaiting-update display. Feed classifies the match as ongoing, preventing a half-time score from being styled as a final. The same compact fields serve Match Centre, Feed and Schedule; source recovery clears the old pause label. All existing source page/deadline, lease, minimum interval, database, notification and consent budgets remain. No new timer, request, retry, owner, scheduler, provider, schema or subscription.
+
+Regression adds the actual receipt to the existing source-shape, persistent-writer, selected-API, Football surface, Match Centre and cached-upgrade checks. Browser replays are controlled evidence; normal source operation, signed-in and physical-phone proof remain distinct. [Evidence and limits](quality/epl-half-time-recovery-2026-10-11.md).
+
+## Observed EPL live source — 11 October 2026 Sydney
+
+The existing Premier League primary adapter admits the naturally observed raw L live code, alongside retained C/U, only for numbered playing periods1/2 and two non-negative integer scores. Actual phase1/2, zero live goals, recovery to C and the league's own L label are captured; unknown pauses/non-playing codes stay rejected. Live names bind to their existing ordered participant IDs, making the source row self-contained for score display without a catalogue read. Complete four-page validation, last-good fallback, final-only delayed backup and completed-result continuity remain. Preserve all fixture/activity IDs, schedule/viewing facts and genuine observation dates; live facts do not create final copy or replay eligibility.
+
+This is shared by the current canonical updater and live adapter. No new source call, owner, cron, retry, request/page budget, schema or customer operation is introduced. Freshness remains separate from fact revisions: unchanged live observations keep the same content hash. Existing ResultsOFF, notifications, source priority and timing rules remain. Source/adapter/actual file-writer regressions and two-browser captured-record rehearsals are in the existing EPL/status validators. [Dated evidence and limits](quality/epl-observed-live-source-2026-10-11.md) remain separate from whole-Football, physical-device and normal-operation approval.
+
+## Find Your Sport delivery — 8 October 2026
+
+Participant-specific athletes reads return paginated published fixtures through the rolling twelve-month horizon; favourites retain one next appearance per participant. Both reuse the existing catalogue, exclusions, account-keyed cache, fifty-item page limit and live overlays. Public global search uses a compact generated identity index, loaded and searched in a Worker on demand rather than fetching all detailed directories. Canonical update-cards remains the owner of directory, standings and search projections; no scheduler, source subscription, provider call per user, database schema or notification consent change is added.
+
+Participant and favourites reads filter canonical participant identities before normalizing fixtures, and skip tournament-parent reconciliation because these compact reads contain no parent cards. The ordinary Feed pipeline retains its full reconciliation. This repairs the measured profile processing bottleneck without changing account isolation, exclusions, pagination or data ownership.
+
+Match Centre classification is shared between server and browser before pagination. It expires elapsed schedules and stale playing observations, preserves genuine completion clocks and explicit pauses, and reconciles only source-reported court identities. Unchanged polling does not redraw; score/status changes patch mounted cards. Existing sixty-ID visible reads, source cadence, hidden pause, database deadlines, last-good fallback and refresh throttles remain. The primary performance target is iPhone Home Screen; local Chromium/WebKit and installed-browser rehearsal evidence must remain separate from physical iPhone measurements. Keep the three-megabyte shell and existing compressed-startup budget.
+
+Local browser evidence found duplicate blocking Google Fonts imports. Bundle the same DM Sans Latin and extended Latin font files and licence with the shell; no remote font stylesheet can hold up app initialization. Reuse one locale comparator for directory sorting. Both changes retain the existing shell and compressed-asset budgets and receive upgrade/offline checks.
+
+## Retained Shanghai pairing receipt — 8 October 2026 Sydney
+
+Add one bounded individually reviewed organiser pairing through the existing participant-schedules route of scripts/update-cards.js. The writer validates canonical ordered participants, round and the dated draw hash before either publication surface changes. Unchanged retries preserve IDs and independent source clocks. Existing publisher aliases can reconcile to the same named pairing; a collection poll cannot supply its official time. No source adapter, scheduler, per-user organiser read, database operation, notification permission or dispatcher change. Preserve the later free ESPN discovery/live owners and their budgets, rather than repeating provider ingestion for this retained projection.
+
+Replaying a retained terminal review preserves a later accepted result and equal unchanged set/winner facts, including their clocks, result copy and provider aliases. The actual retained projection regression covers the newer-final boundary. Cached club-record checks now compare each published club observation independently; they cannot require source clocks to be renewed to a common collection date.
+
+## Reuse the existing Follow redraw boundary for focus — 5 October 2026
+
+Capture and restore control context inside the deferred Athletes module's existing redraw/animation-frame boundary. Reuse its account, route, preference and generation tickets; remember disabled manual-action focus only until the next redraw, and clear it on stop. Retain exact team identity for repeated action labels and do not take focus from another selected control. No new focus observer, interval, timer, request, retry, API, source/data change, database operation, scheduler, subscription or owner routine. Existing manual throttling, coalescing, pagination and disabled controls remain.
+
+Shell444 versions the deferred module and normal shell marker. Existing frozen startup-byte/request/precache budgets and full release ownership apply; the broader Follow suite adds nine meaningful keyboard scenarios per browser engine. Account fixtures operate on the actual frozen request client with isolated local APIs. Sports facts, dates, IDs, private state and notification budgets remain unchanged. Wider accessibility, physical device and real invited-user evidence remain separate.
+
+## Reuse the existing Football identity index — 5 October 2026
+
+The canonical cards owner already builds the Football follow directory. Its existing directory builder now includes 1,600 retained basic ID/name pairs in the existing Football index; full, quick and scoped Follow routes share that projection. Validate the projection before writing it, preserve all older index fields and observation dates, and retain byte-identical unchanged output. The deferred UI reuses the same index request and renders basic favourites independently of personalised fixture success. No full 1.55 MB roster request, extra API/source request, retry, polling, scheduler, database operation, credential, subscription or owner routine. Personalised stale-response and account guards remain authoritative.
+
+The public JSON index grows from 10,979 to 35,085 gzip bytes; it remains outside the critical startup assets. Eight startup requests and 430,918 critical gzip bytes remain unchanged, within the frozen 430,920 ceiling. Required precache stays 3,139,440 bytes below the 3 MiB ceiling. Shell443 versions the deferred UI; the existing release owner checks canonical directory agreement, actual save/read failure behaviour, account changes and cached upgrade. Sporting snapshots and fact dates remain unchanged. Wider permissions, physical device and cohort acceptance remain separate.
+
+## Discard queued Follow reads on navigation — 5 October 2026
+
+The deferred Follow reader clears queued intent before full-page navigation and when stopped. Cancelled old reads cannot launch replacement work in an outgoing WebKit document. Cached-page restoration uses the same existing Follow start/cache/coalescing rules; cancelled navigation leaves explicit Refresh available. No new timer, polling, retry, scheduler, API, database operation or budget. Normal active-page latest-profile/account reads remain. The existing Follow browser gate retains ordinary coalescing and adds outgoing-page and restoration cases; signed-in production acceptance remains separately recorded.
+
+## Shared calendar retention boundary — 5 October 2026
+
+Use the existing card-lifecycle module for raw, server-normalized and derived-cache retention. A validated multi-day planning window sets a floor; only an explicit valid actual end on a completed record can replace it with completion evidence. Existing inferred sporting end fields and all fact/check clocks remain unchanged. Consolidate repeated lifecycle-state serialization and use the existing calendar date validator through its explicit module dependency. Keep the frozen startup-byte, request and 3 MB precache limits; no waiver.
+
+No source check, provider, account/database operation, API/schema migration, credential, polling, retry, scheduler, subscription or owner routine. Existing deployment-bound response cache keys and normal shell update own invalidation. The current retained catalogue comparison changes 32 calendar-retention interpretations across 5,929 records (22 Cricket, one endurance, four Golf calendars and five programme parents); every single-day boundary stays unchanged. Counts are retained-data regression scope, not fresh fact observations or sport certification. Regression and limits: [multi-day retention](quality/multiday-retention-2026-10-05.md).
+
+## Shared retained calendar-note qualification — 5 October 2026
+
+The existing full and daily refresh owner now qualifies four exact reviewed manual IDs through one shared implementation. The two Surfing outcomes remain; Goodwood gains only the organiser’s 15–18 July 2027 UK-local calendar window, with no Sydney clock or competitive fixture. The unmatched November MTB import gains no cancellation, result, competition or Code projection. Original import/status observations and activity IDs remain; separate organiser receipts retain their actual response dates. Unsupported imported clocks, viewing and stakes are inactive import metadata only. Calendar-note Code projections retain unknown time precision and null stakes rather than default zero. Cached readers withhold the same unsupported appointments; later independently verified facts remain protected. No consent, admission, reminder, Results or retention rule changes.
+
+Full/quick/scoped projection continues through `scripts/update-cards.js`; old Surf scoped calls remain compatible. Both persistent surfaces preflight before writes; unchanged scoped reruns make no publication/provider check. No added source request, scheduler, retry, database operation, subscription or owner routine. Regressions: `validate-reviewed-calendar-notes.js` through the existing seeded-Surf gate, actual mobile/desktop renderers and cached upgrade/offline rehearsals. This repairs notes and gives no whole-sport coverage credit.
+
+
+## Retained Surfing note integrity — 5 October 2026
+
+The full/daily canonical owner qualifies exactly two existing manual seeds from retained dated organiser evidence; no provider request is added. Complete both-surface preflight precedes writes. An unchanged scoped rerun preserves bytes and makes no publication or check. Retain original import/status dates and activity IDs; clear unsupported active timing/viewing/stakes rather than create an estimated window. Known legacy cached readers withhold the same claims without creating fresh evidence. Keep later independently verified observations, normal exception/release ownership and all existing budgets. No scheduler, polling, API, database operation, retry, purchase or recurring owner routine. Regression: validate-surf-calendar-notes.js through the existing seeded-Surf gate; actual cached-browser upgrade/offline and normal release checks.
+
+## Retained fixture-source repair — 5 October 2026
+
+Preview research cannot replace fixture source dates. The existing full and quick cards owner restores only missing F1 source tuples from the matching retained canonical edition. Validate the source map once per invocation and both documents before writes; preserve later changed/live/final facts and already supplied sources. A scoped unchanged rerun makes no publication or provider request. This adds no source call, browser poll, retry, scheduler, API, database write, subscription or recurring owner task. Existing budgets and exception ownership remain.
+
+## Retained official final recovery — 5 October 2026
+
+Full and daily canonical refresh reuse exact retained 2026 NRL Grand Final/FIA Sardegna identities. Quick adds at most two sequential official resource requests at fifteen-second deadlines/no retry within a current/recent fourteen-day correction window; full adds one NRL request and keeps the existing WRC classification owner. Explicit complete finals, ordered integer scores/registered winning crew, exact identity/date validation and newer correction evidence are required. Preserve schedule provenance, unchanged final observations and last-good data. Update only the known cards on their existing surfaces; keep unrelated editorial/IDs exact. WRC points/ranks/date stay original and visibly stale until rechecked. Blocked candidates roll back and retain an exception diagnostic; source checks never prove publication. No new provider/competition/scheduler/poll/credential/database operation/subscription/owner routine. Shared WRC formatting preserves crew and decimal time; shell438 versions the changed runtime. Regression: validate-known-final-results.js, existing source-readout/completeness/Code/cache gates and actual browser upgrades. Ordinary owner success and formal sport certification remain separate.
+
+## Settled final source dates — 5 October 2026
+
+A settled final does not need a new score check merely because its original observation is old. The shared deferred score presentation preserves original facts/dates, retains explicit source-stale warnings and ongoing score freshness, suppresses future/invalid check dates and displays a machine-readable calendar date, year and local timezone. Missing final dates remain explicitly unavailable. This repairs actual compact Feed exposure in the three existing Football pilots without new source requests, polling, scheduler, database change, subscription or owner routine. Results OFF, strict/per-event choices and existing result-line precedence remain authoritative. Shell437 versions only the changed deferred widget/loader and existing shell. Regression: existing feed score Node/browser gates and actual Football cached upgrade/offline/resume checks. Wider viewing/rights, physical phone, ordinary operation and cohort acceptance remain separate.
+
+## NFL dated scoreboard rescue — 6 October 2026
+
+The owner-approved repair programme requires the actual Saints–Falcons final to supersede a stale season-wide calendar. Full and quick retain their two calendar resources and add one bounded scoreboard for the current America/New_York playing date. Quick therefore uses three scoreboards plus its existing table, four requests, each with the existing deadline and no retry. This is an explicit narrow budget change for the approved current-fixture repair, with no new provider, scheduler, browser polling or per-user source calls.
+
+The daily response must contain every known fixture on that playing date, at most sixteen, with the existing current-season, round, participant, state and paired-score validation. Unknown, duplicate, missing and conflicting facts fail before persistence. Dated daily facts override stale season-wide state; outside that date, retain observed finals and unchanged live dates rather than manufacture fresh live play from broad calendar snapshots. Preserve identities, destinations, original schedule/result clocks and last-good files. Both full and quick use this same boundary. Regression: `validate-nfl-results.js`, including the retained actual 6 October receipt, next-day stale-calendar replay and malformed responses.
+
+## NFL complete current-season facts — 5 October 2026
+
+Full and daily quick refresh share `scripts/lib/nfl-results.js`. Two existing ESPN calendar resources (2026 and 2027) supply all 49 current preseason and 272 regular-season matches; retain all 320 original fixture IDs and 30 historical records, add the 31 known-participant January fixtures, and ignore unassigned postseason placeholders. Use source calendar round labels, explicit scheduled/in-progress/halftime/final states, known home/away roles, validated paired integers including zero, and genuine per-response observations. Provisional kickoffs retain planning context with no exact clock or reminder eligibility. Unknown, incomplete, duplicate, stale or regressive observations fail before persistence and retain last-good bytes. Same-score live checks advance score/status dates; unchanged final/schedule facts keep theirs. Table/result disagreements are stale flags with original table fact dates, never inferred conference ranks or qualification.
+
+This adds one bounded scoreboard request to both existing full and daily owners: daily NFL uses two scoreboard responses plus its existing table (three requests), fifteen-second deadlines/no retries; full retains twenty-second deadlines and its existing roster/table owners. No new provider, competition, scheduler, credential, polling, migration, purchase or owner routine. The existing canonical scoped route is `update-cards.js --quick --source=nfl --local-only -p`. Reuse existing projection recovery and exception reporting; failed optional tables retain facts and remain visible. Shell436 changes only the existing source-status guard for NFL, so elapsed kickoff time shows Awaiting match update. Regression: `validate-nfl-results.js` in the normal production workflow, existing standings/Code checks, actual persistence/source agreement, named card score ordering, two-engine browsers and 435→436 cache rehearsals. Whole-family permissions/viewing, physical and ordinary-operation proof remain separate.
+
+## Observed NHL live status and independent freshness — 5 October 2026
+
+The official weekly resource and game landing report WPG–DET 2026020035 as LIVE/OK at 17:31 UTC on 4 October, with a valid paired 0–0 score. Both club season resources independently report the same LIVE state and later 1–0 score at 17:34. The existing shared NHL full/quick boundary now accepts this explicitly observed state with known participant identity, paired integer scores including zero, and a genuine observation at or after the scheduled start. FUT/PRE remain scoreless upcoming states; CRIT and unreviewed schedule/non-playing states still reject before persistence. No clock or period is inferred or displayed from a day snapshot.
+
+Live observations retain separate status/score dates. A genuine newer same-score check advances those two observations; replaying the same receipt cannot create freshness. An unchanged schedule keeps its original date. Completed matches cannot regress to live/scheduled, observed play cannot regress to a schedule-only response, and unchanged settled finals keep their original result dates. Source outages, incomplete responses and conflicting/stale facts retain last-good bytes. Mirrored full collections still require agreement; a controlled full-owner test is not fresh whole-league source certification.
+
+The existing 30-minute card status rule shows explicit fresh live play, then Awaiting match update for older/offline observations. Results OFF still hides the score, including accessible score text. This is a dated status snapshot through the existing daily owner, not a live score service. Three daily NHL resources and the existing full budget remain unchanged; no provider, scheduler, browser polling, retry, credential, migration, purchase or owner routine is added. Regression: `validate-nhl-live.js`, called by the existing `validate-nhl-results.js` release gate. Actual browser checks also found that Schedule omitted the supplied live score. Reuse the deferred score component for explicit underway Schedule/Events cards without polling there; read only validated named canonical pairs, preserve explicit flat/null observations and retain per-event/strict Results privacy. Hockey keeps source participant order. Shell435 versions the three existing deferred score/model assets; normal frozen startup/cache and two-engine434→435 rehearsals apply. Non-playing/CRIT, wider facts, ordinary scheduling, rights/playback and physical/cohort evidence remain open.
+
+## NHL daily results and shared complete-response boundary — 5 October 2026
+
+The existing full and quick canonical owners share one NHL facts parser for the reviewed 2026/27 season. Full retains its current standings, club schedule and roster requests, validates the official 84-game-per-club/1,344-game regular edition, and rejects missing/conflicting mirrored responses. Daily quick adds three requests: two complete seven-day schedule resources spanning the previous/current Sydney calendar weeks and the existing standings resource. Fifteen-second deadlines, no retry, no new scheduler, provider, credential, database or browser poll. The scoped route is `update-cards.js --quick --source=nhl --local-only -p`.
+
+Validate current season, phase, known provider and participant identities, declared day/collection counts, unique matches, timestamps, explicit reviewed states, paired integer finals including zero and REG/OT/SO outcome. Actual PRE is corroborated by the matched official pre-game landing and rendered scheduled-time view; it remains upcoming with no score. Actual LIVE/CRIT/non-playing contracts remain unreviewed and reject before persistence. Last-good retention and the existing exception readout remain authoritative. The daily recent window is not a historical backfill; a disappearance or cross-window reschedule requires the existing full collection, not an inferred replacement.
+
+Preserve existing fixture/activity IDs, personal choices, CHL data and unrelated rosters. A genuine observation initializes only the checked fixtures; never derive legacy fixture dates from a table/collection timestamp. Unchanged checks retain exact bytes and original independent schedule/status/result/table dates; changed schedules do not re-date unchanged finals. Corrected finals advance their result observation. Validate all 32 official table records and league/conference/division positions; compare published totals with retained results, mark mismatches stale and infer no qualification. An interrupted projection re-enters the existing Code/Schedule steps without another source request or false Feed update. Date serialization differences represent the same kickoff instant.
+
+Hockey schedule cards require explicit fresh play after kickoff. Time passage shows Awaiting match update, never manufactured live/final status. Supplied overtime/shootout labels, W-L-OT and table provenance remain behind the existing Results choice and profile-local Reveal. Regressions: validate-nhl-results.js through the existing Code gate, actual scoped persistence and unchanged rerun, affected browser and both-engine cached 433→434 rehearsals. Fresh whole-league truth, real live/non-playing, ordinary scheduled success, subscriber playback, commercial permissions, physical device and cohort acceptance remain separate.
+
+## Football settled facts and check-only refreshes — 5 October 2026
+
+The existing known-fixture patch preserves an unchanged completed score's original observation, including its result source/date tuple. Numeric corrections, status changes, provider/provenance changes and first genuine missing-date observations remain updates; same-score live checks retain current freshness. A material schedule correction can advance its own observation without redating an unchanged final. Real competition and table checks still advance their separate health/table dates through the existing projection route; they must not count as fixture updates or rebuild unchanged Feed pages.
+
+The existing OpenLigaDB owner retains individual fixture/result observations separately from the collection check. Unchanged fixture facts retain their date; a changed venue or kickoff advances the fact date while an unchanged completed result keeps its date. Valid final corrections advance the result date. Legacy records use the previously observed collection date, never the new check; actual context and table check dates remain independent. Complete-response validation, last-good continuity, delayed backup separation, attribution and request/deadline budgets remain unchanged.
+
+No new source, scheduler, credential, schema migration, browser poll, retry, subscription or recurring owner task. Regressions: actual settled EPL record and live/correction/provenance controls in `validate-football-quick-refresh.js`, actual 288-record temporary persistence/legacy/venue/partial-failure/correction/reschedule controls in `validate-european-football-continuity.js`, existing delayed-backup and normal release gates. Actual live/non-playing source-code support and whole-family acceptance remain unproved.
+
+## CHL result and programme integrity — 4 October 2026
+
+The existing full and quick canonical owners share one complete-response CHL facts boundary for the reviewed 2026/27 season. Validate all six regular rounds, the known 24 clubs, existing match identities, explicit source status, paired integer final scores including zero and the actual overtime/shootout qualifier. Reject missing/duplicate/unknown identities, invalid timestamps, future finals and stale conflicting changes before writing; preserve the entire last-good file on failed or partial checks. Unchanged checks retain original fixture/result and club-record dates; current attempts and failures go to the existing quick readout. An unchanged check compares the existing Inspector and Schedule projections to canonical facts; an interrupted/stale projection re-enters the same projection steps, without another source request or manufactured fact revision. Source-supplied team statistics are unranked club records, not inferred positions or qualification. Mark them stale when their totals disagree with the validated finals.
+
+Twelve retained knockout programme entries have publisher TBA participants and an unconfirmed 11:59 clock. Keep the programme IDs and original source timestamp as provenance; show calendar notes with unknown playing participants and kickoff. Their placeholder 0–0 is not a result. Known regular match identities, source clocks, viewing evidence and personal actions are preserved. No phone/live-source or whole-family certification is inferred.
+
+The existing daily quick owner adds three requests per quick run: the existing schedule page, its single season resource and existing team statistics. Each retains the fifteen-second deadline, without retries; full reuses its existing twenty-second resources and roster budget. No source provider, scheduler, credential, database migration, browser polling, subscription or recurring owner task is added. The full NHL parser also rejects missing/null/empty/invalid final scores instead of coercing them to zero. Regressions: validate-chl-results.js through the existing Code gate, canonical scoped persistence, affected published browser checks and both-engine 429→430 cache rehearsals.
+
+## NFL conference standings recovery — 4 October 2026
+
+One strict parser owns the existing ESPN 2026 regular-season table in full and quick canonical refreshes. Validate both complete sixteen-club conference tables against known participants, published seeds and internally consistent numeric records before persistence. Source-supplied AFC/NFC seeds are scoped to their conference, not a worldwide/global rank or final playoff qualification. Failed/partial checks keep the exact last-good table; unchanged checks preserve table fact dates and aggregate fixture collection dates. Current attempts are recorded in the existing quick refresh report and failures in its exception list.
+
+The existing daily quick owner adds one standings request to a resource already used by full refresh, at its established fifteen-second deadline/no retry. Full keeps one twenty-second standings request. No new provider, scheduler, per-user poll, credential, schema, source owner or operator routine. Source requests are explicitly +1 on quick runs; do not claim zero added calls. NFL calendar-year coverage remains partial. Regressions: validate-nfl-standings.js through the existing Code gate, validate-update-cards.js, actual published component checks and both-engine 428→429 cache rehearsals.
+
+The shared known-fixture patch boundary is extracted from quick orchestration without behavior change and reused by F1. This removes CLI-owner coupling from server dependency tracing; acceptance requires retained writer/recovery gates and measured immutable inventory, not an assumed cold-start speedup.
+
+## Separately reviewed NRLW Grand Final — 4 October 2026
+
+The existing reviewed-finals collection admits its fifth, named 2026 Grand Final through `update-cards.js --nrlw-finals`. The official league's rendered report explicitly marks Full Time and identifies the ordered teams and final scores. Its dated manual observation is independent of the retained Accor programme source and September scheduling check. No provider match ID, provider update clock or actual match-end timestamp is inferred. The original four finals and frozen 71-fixture/70-final season receipt keep their facts and observation dates; the final does not change regular-season ladder ranks.
+
+The complete collection is validated before persistence, including exact competition, fixture, participants, kickoff, venue, explicit final status, integer scores and independent source/date agreement. An account authorisation form is not result evidence. Unchanged reruns and later verified corrections retain the existing merge rules, personal activity and Follow/spoiler/retention policies. No automatic source request, database change, scheduler, retry or recurring owner task is added. Regressions: `validate-nrlw-reviewed-finals.js`, `validate-nrlw-season-review.js` and affected browser/cache checks through the existing normal release gates. This closes one fresh final; broader source access, viewing/rights, physical-device and whole-family acceptance remain separate.
+
+## Explicit F1 result unavailability — 4 October 2026
+
+A newly due race exposed a source page explicitly reporting no results. The existing F1 owner admits a pending-result observation only from the matched season/race's official race-result URL, correct Formula 1 heading and explicit empty table. An arbitrary empty/partial response or login form cannot qualify. Keep all existing status, participants, clocks, venue and editorial; no winner or actual completion is inferred. Existing completed results cannot be retracted by an empty page. A later complete validated table clears the pending status through the same writer.
+
+The scoped F1 path reuses the existing semantic patch boundary so unchanged checks preserve fact dates, and the quick writer carries resultStatus as an owned field. Source requests, deadlines, retries, source ownership and release-completeness requirements remain unchanged. Regressions: validate-f1-session-results.js, the real offline quick owner and affected source/privacy/cache checks. This records availability, not live status, whole-event certification or confirmation of the scheduled end as actual completion.
+
+## Canonical live status publication — 4 October 2026
+
+The existing canonical fixture owner and Code/Schedule projector retain explicit official live/non-playing observations for the same exact fixture, ordered participants, competition and kickoff. HTTPS source references and valid, non-future observation dates are required; a live observation must be after kickoff. Older/equal contradictory observations, other identities and reopening settled/non-playing fixtures are rejected. Only status and its independent provenance change; editorial, scores, viewing, schedules, personal activity and their dates retain their existing ownership.
+
+Legacy regular-season canonical cards may publish those validated statuses without relaxing their other Feed validation. AFL/AFLW/NRL/NRLW match schedules join the existing Football/NBL freshness rule: after kickoff, only an explicit live observation checked within thirty minutes enters Live Now. Older/unobserved states show Awaiting match update; elapsed time cannot manufacture a final. Date-only tournament phase behaviour is unchanged.
+
+No new source, database change, browser poll, retry, scheduler or owner routine. Regressions: validate-canonical-live-status.js (frozen actual publication inputs) through the existing Code release gate, actual mounted browser freshness checks and cached 426→427 upgrade checks. The local canonical quick refresh reports absent Supabase administration as degraded; it does not prove production snapshot sync or ordinary unattended operation.
+
+## Account changes cancel stale profile work — 4 October 2026
+
+Profile, onboarding and preference reset/undo operations bind to the account and page generation that started them. Queued old work, superseded hydration, late results/errors and old reset confirmations cannot act on a replacement account. Sign-out invalidates those operations before notification detachment; late logout acknowledgements cannot clear a replacement session. Keep the approved device-local copy after sign-out.
+
+The custom client retains its existing single coordinated refresh owner, storage lease/Web Locks, deadlines and one 401 retry. Authentication refreshes also bind to a session lifetime: old success/failure cannot replace or clear a later sign-in, and old completion cannot clear its replacement refresh job or coordination lease. Lease ownership includes a non-secret session-generation label; deadlines and lock reuse are unchanged. Session-only users do not adopt another tab’s persistent identity. Decoded token subjects are cancellation labels, not authorisation; existing fresh server Auth checks and database permissions remain authoritative. Already-dispatched old-account requests cannot be recalled; their late UI results are discarded. This does not introduce per-account local storage or claim all endpoints/real two-device behavior are certified.
+
+Regression: the existing required `validate-cross-device-sync.js` now executes twelve conflict cases and thirty-seven actual orchestration/client/recovery cases, with zero service/database access. Matching shell423 and reset module cache URLs receive normal upgrade rehearsals. No new API, schema, credential, scheduler, polling, retry budget or owner routine. [Evidence and limits](quality/account-operation-isolation-2026-10-04.md).
+
+## Account-sync conflicts preserve edit intent — 4 October 2026
+
+The existing user-state sync owner retries only typed `409 user_state_conflict` responses, at most three writes. Retry patches keep the original local edit baseline and compare against the newest server timestamp. Untouched remote fields cannot become local edits; temporary remote agreement cannot erase an explicit local choice. Existing fixture-pin authority remains. Compare late local edits against the actual start snapshot, before server pin normalization, so unchanged old pins are not mistaken for new user input. No new retry, polling, API, schema, Auth, scheduler or service budget is introduced. The existing production workflow now runs the actual orchestration regression in `validate-cross-device-sync.js`.
+
+## Retained canonical source handoff — 4 October 2026
+
+The shared Code/Schedule projector may flatten supplied nested canonical provenance only when explicit flat metadata is absent. Keep the original URL/publisher/type/observation together; reject unsafe nested references and invalid/future clocks. The existing retained-data `--code-projections` owner is used, with no source request, new refresh owner, retry, scheduler, database operation or shell epoch. All existing flat provenance and non-source sporting facts remain exact; restored metadata is not new verification or commercial permission. Regression: existing canonical card/Code gates and browser conversion/privacy checks. [Evidence and limits](quality/reference-provenance-2026-10-04.md).
+
+## Canonical offline invocation boundary — 4 October 2026
+
+The existing canonical owner accepts `--offline` only with its genuine quick route and existing rebuild/local options. Full, scoped, resumed or mixed offline requests reject before diagnostic state, temporary files or source subprocesses. `--local-only` still permits source checks and suppresses publication/deployment. Normal source owners, online routes, cadence and budgets remain unchanged; no full offline source implementation, new scheduler, provider, database operation or reminder replay is added. Eight actual CLI rejection paths and retained real quick/completeness regressions run in `validate-update-cards.js`. Current 380-fixture EPL and five-fixture API agreement is dated audit evidence, not fresh app publication, unattended refresh, undocumented live statuses or certification. [Evidence and limits](quality/offline-refresh-boundary-2026-10-04.md).
+
+## EPL reviewed scheduling certainty — 4 October 2026
+
+The current EPL loader qualifies upcoming clocks against a small validated, dated official-notice register, reused by its full/quick/live paths. The existing shared overlay repeats that interpretation after merging old snapshots; the Feed/Match Centre and reminder catalogue keep their current reads and budgets. An exact identity/week/UTC match is required, and changed facts revert to approximate. Genuine source checks are preserved; the distinct timing-provenance date describes the announcement review.
+
+`update-cards.js --epl-timing-review --local-only` projects this retained-data repair through the existing owner without provider/AI calls. Ordinary refresh continues using that same qualification. Later announcement reviews belong in the existing Football acceptance work, not a parallel scheduler or owner-maintained checklist. No database mutation/migration, retry, automatic reminder replay, per-user source call or new recurring routine. Shell417 updates the corrected inline fallback; unchanged runtime/profile bytes retain their existing deferred ownership. [Evidence](quality/epl-kickoff-certainty-2026-10-04.md).
+
+## Reminder intent/check erasure boundary — 4 October 2026
+
+The two later account-owned reminder tables use the existing private account-erasure write guard. Every affected insert/update shares the existing per-account transaction lock and indexed marker check; erasing accounts cannot admit new intent/check state. Remind OFF, peer state, Auth cascade, source clocks, existing RPCs and scheduler ownership remain. No new client request, poll, replay, column or grant. The existing release input adds one bounded read-only inventory RPC using its existing service credentials, so future unguarded Auth references fail before app deployment. Missing/stale/malformed evidence fails closed, with no retry or new job. This verifies direct guards, not full erasure. Independent issuer, transfer, external-copy and reconciliation gates remain mandatory. [Evidence and limits](quality/reminder-erasure-guards-2026-10-04.md).
+
+## Shared fixture API admission and initialization — 4 October 2026
+
+The existing shared handler checks refresh method/authentication/maintenance and public fixture/athlete input before constructing published sporting data. Its first valid public read lazily creates the same immutable library/viewing projection and hash; later reads reuse it. Protected refresh does not require this presentation catalogue. Invalid athlete identities reject before database reads or a conditional 304; failed library construction is not cached. The existing source owners, 60-ID/200-character bounds, database deadline, snapshot cache, observation/hash rules, last-good fallback and valid validators remain.
+
+Thirteen real fresh-process parent API rejection paths retain status/cache/diagnostics with zero sporting reads/imports or service requests. Valid full-library/fixed-clock responses remain exact against baseline. Local cold-process timing/CPU/RSS demonstrate avoided rejection work, not actual user/cloud latency, abuse, quota or cash savings. The regression runs through the existing live API gate. No scheduler, schema, credentials, source request, retry, browser shell or owner routine change. [Evidence and acceptance](quality/live-fixture-initialization-2026-10-04.md).
+
+## Confirmed chat administrator identity — 4 October 2026
+
+The existing `CHAT_ADMIN_EMAILS` allowlist grants chat administration only to a non-anonymous fresh Auth user with a valid, non-future `email_confirmed_at`. Generic `confirmed_at` can describe phone confirmation and cannot verify the allowlisted email. Missing, null, invalid or future email confirmation fails closed. The existing per-request Auth read, erasure guard, confirmed administrators, membership/guest capabilities and separate owner-console app-metadata role remain authoritative. No new account lookup, client claim, role-management routine, database policy, scheduler or shell change. Regression: actual-handler confirmation/foreign-room/email-picker/share-management cases in `validate-private-fixture-chat.js`, including existing confirmed-admin and disabled/rotated guest checks.
+
+## Feed authentication and initialization boundary — 3 October 2026
+
+The existing Feed handler verifies the bearer through the existing Supabase user endpoint, retains the erasure guard and reads saved account state before initializing sporting catalogue/presentation dependencies. Every request still verifies authentication/state before using the account/revision/TTL-scoped response cache. Public POST Athletes/Followed inputs retain the existing 128 KiB bound, now checked before catalogue initialization, with no private account-state read. Invalid method/participant and shared fixture/Match Centre routes retain their existing owners. No scheduler, sporting data/source request, database change, credential, auth weakening, new cache policy or browser shell change.
+
+Thirteen real fresh-process rejection paths assert zero sporting reads/imports while retaining exact status/privacy/read counts; this runs through the existing hobby Feed cache gate. Auth and sporting loaders are separately injectable. Populated real Feed/Athletes/Followed/public-profile responses are compared against the preceding source with synthetic read-only services and a fixed clock. Local cold-process timing/RSS demonstrates avoided initialization, not signed-in latency, cloud CPU/p95, quota, storage or cash savings. Keep all existing data and normal gates. [Acceptance/evidence](quality/feed-authentication-initialization-2026-10-03.md).
+
+## Dated NRLW season backfill — 3 October 2026
+
+The existing canonical owner has `update-cards.js --nrlw-season`, owning only sixty reviewed 2026 historical matches. A complete fourteen-round official collection is validated before writing; all eleven already-published NRLW cards and unrelated raw records retain their IDs, facts, enrichment and actual observations. The mixed-sport dataset clock is unchanged. The reduced season review is frozen evidence, not a live-results adapter or automatic provider poll. Fourteen bounded serial source reads were used for this review only, with 15-second deadlines and no retries. No scheduler, database change, per-user request, reminder replay or paid service. Completed provider destinations remain unverified replay checks. The Grand Final's final score and any next-season coverage require new validated primary evidence through the existing owner. See [scope and acceptance](quality/nrlw-season-backfill-2026-10-03.md).
+
+The normal fifteen-hour reference gate required a genuine local canonical quick refresh for this candidate. Its unavailable local Supabase administration check preserves last-good live-coverage data and remains a diagnostic, not a readiness pass. Unchanged sporting Feed records retain their prior observations after fact/classification comparison. Canonical normalization retains raw fixture/event IDs, and editorial lifecycle classification cannot overwrite explicit cancelled/live/unresolved source states; real temporary-writer regressions run through the existing release gate. Generated runtime changes receive the existing matching shell epoch and upgrade/offline rehearsal. No parallel scheduler, backend refresh or reminder replay is introduced.
+
+## Selected reviewed result reconciliation — 3 October 2026
+
+The existing canonical reviewed-fixture route honours exact selected result IDs and retained aliases, validates both surfaces and existing canonical identities before writes, preserves unrelated records, and carries known official finals into canonical facts and the existing result ledger. No new refresh owner, provider polling, retry, database write or scheduler is added. Per-result source/publication/review clocks remain distinct from older batch dates; ordered source references are stable on identical reruns. A separately dated official draw observation may record a result as unavailable while the original match status and timing remain unresolved. It cannot infer live play, completion or viewing rights, and an older non-final participant schedule cannot regress a later final. Schedule provenance remains distinct from result provenance. Regressions: `validate-reviewed-result-publication.js` through the existing evidence-provenance gate, actual canonical rebuild/rollback, viewing-provenance and result-availability renderer checks. Current evidence is manual reviewed data, not automatic full-tour coverage or reuse permission.
+
+## Scoped MotoGP source identity retention — 3 October 2026
+
+The existing canonical MotoGP route normalises its generated cards and retains all unrelated feed records exactly, including raw provider IDs, editorial, source dates and saved-action aliases. A scoped season check cannot rename tennis source identities. The full refresh retains its existing normalisation path. No new provider, request, scheduler, retry or database write is added. The existing calendar's explicit `FINISHED` status may establish completion while classification remains visibly pending; elapsed time alone cannot establish a result. Regression: `validate-motogp-scoped-retention.js` through the existing requested-sports gate, using both real surfaces and an explicitly synthetic raw-ID case.
+
+## EPL source pagination and season integrity — 3 October 2026
+
+The existing official 2026/27 EPL loader is bounded to the four pages implied by 380 fixtures at its requested page size of 100. Validate each page's index, size, total and collection length before requesting another. Validate the complete collection's competition/season, positive unique source IDs, two distinct clubs, matchweeks 1–38 and all 380 unique directed home/away pairings. This does not require ten fixtures per played week or infer fixture dates; genuine reschedules remain eligible. Both the canonical cards owner and existing live source reuse this loader. The existing 20-second request duration is also enforced as a fixed network deadline: socket activity cannot keep a page alive indefinitely. No retries, longer deadlines or increased source budget are added. Last-good/validated delayed-backup behaviour, source clocks and source owners remain. A malformed collection must not reach the writer or become a successful live-source verification. No scheduler, request path, database migration, new provider or subscription is added. Regression: `validate-premier-league-source-shape.js` through the existing Football schedule gate, including an active incomplete response, actual temporary-writer retention after primary and backup failure. The current four-page/380-fixture and separate official Fantasy agreement is dated audit evidence, not certification or an unattended source refresh.
+
+## Private editorial run measurements — 3 October 2026
+
+List/research invocations record aggregate counts and CLI runtime in the existing private check report, with no extra service calls, database writes, scheduler or owner tracker. Preserve prepared CAS operations; distinguish prepared updates from successful direct-service writes, and do not infer connector commits or production publication. Failed inventories keep unknown counts. Raw errors, private copy, votes and fixture identities stay out of measurements. External model tokens/research time and cash cost remain unavailable. Eligibility, due cadence, source budgets and release gates are unchanged. Regression: `validate-editorial-run-readout.js` plus existing control snapshot/SQL and adaptive editorial gates.
+
+## SailGP reviewed calendar ingestion — 3 October 2026
+
+The authorised venue rollout adds reviewed organiser calendar facts to the existing canonical cards owner, using committed edition-specific source snapshots. It makes no sporting provider calls, unattended site scraper, database writes or result/live integration. Calendar failures reject before writes, identical replays retain bytes, and changed existing dates require identity review. New reviewed source snapshots can enter through this owner; broader source permission and result certification remain open. Existing Geneva and result observation clocks survive. Regression: `validate-sailgp-calendar.js --published` and retained timing/Follow/source gates.
+
+
+## Reviewed SailGP session timing — 3 October 2026
+
+The existing canonical cards owner applies two dated official Geneva race-day windows to retained identities, with schedule observations separate from original result/source observations. Validate the selected documents before writing; identical timing reruns preserve bytes, and later real timing observations win. The ordinary requested-sport projection retains that provenance. A bounded `--sailgp-quality` route uses the same owner and projections, with no provider fetch, scheduler, database write or automatic source adapter. Future Dubai/Abu Dhabi race-day clocks remain unresolved; event envelopes cannot establish individual sessions. SailGP publication is partial until evidence supports completeness. Regression: `validate-sailgp-quality.js --published`, existing source/projection contracts and real shell upgrade checks. Source permission and broader competition acceptance remain open.
+
+## Live FPL evaluation — 2 October 2026
+
+The existing protected two-minute fixture scheduler owns one optional FPL source. Fetch bootstrap and fixtures once each per due cycle: 30 minutes ordinarily and two minutes within six hours of a future submission cutoff. Accept verification for at most 60 minutes ordinarily or ten minutes near cutoff. Source failures never renew freshness. The existing lease, bounded two-worker/runtime limits, last-good JSON storage and explicit withdrawals remain; no scheduler, database migration, provider fetch from clients or per-card interval is added.
+
+The operator explicitly enabled ongoing evaluation separately from provider approval. Public source metadata exposes evaluation/approved/disabled without secrets; successful verification and access status affect only opt-in validators. OFF ordinary clients receive no fantasy enrichment. Preserve default/follow/notification boundaries in the Follow decision record. Regressions: fantasy source, API and rollout validators plus existing backend efficiency and database lease checks. Actual natural scheduled publication and live countdowns are separate acceptance evidence from recorded source tests.
+
+## Owner content workspace — 2 October 2026
+
+The single owner uses private post tasks for editorial 5/5 fixtures, real latest-per-account pre-match averages >=4.8, and published Major Events. This does not change public Feed admission or rating consent. Copy comes from published Feed/Events editorial without paid AI or provider scraping. Private community aggregates do not escape via unpublished public Live fallbacks; an explicit Publish live revision controls public presentation.
+
+Preview posts are 72h before; day-of is 09:00 Sydney or 2h before kickoff at/before 09:00. Date-only posts use labelled estimates, never invented sporting start times. A newly discovered missed preview merges into day-of. Existing drafts and manual edits survive source reconciliation; changed suggestions are shown for review. Editing and content handoff remain unlocked, revision-checked and autosaved.
+
+The existing canonical `update-cards.js` workflow builds the comms source bundle. The existing five-minute notification dispatcher and private owner foreground read share a five-minute lease and six-hour/source-revision refresh gate. One bounded (100 max) service-only batch applies source changes without unchanged revision writes. No new cron, provider refresh, public polling or sending connector is added. Manual sync confirms one candidate per request. Post alerts require explicit device opt-in, fresh admin metadata and the shared erasure-aware send guard; at most two owner alerts per dispatcher invocation, leaving existing reminder batch limits unchanged. Before/due receipts prevent duplicate or uncertain-outcome retries. Mark posted, snooze and manual schedule changes use revision CAS.
+
+The owner authorised removal of ended campaigns, their versions and exclusively owned media; active/shared references and historical delivery records remain protected. Shared brand/identity assets and active campaign revisions are not purged. Production target remains `nothingSport-recovery` only. iPhone Home Screen notification delivery needs explicit owner permission and a real-device test; browser emulation is not that evidence.
+
+Regression: `validate-owner-content-workspace.js`, `validate-owner-content-browser.js`, marquee/admin/notification/erasure/bundle gates. Browser fixture tests use a synthetic admin client and never impersonate an Auth account.
+
+## Reviewed past Rugby identity — 2 October 2026
+
+One exact AU–South Africa fixture retains its curated ID and four reviewed RA/WR aliases. Read snapshots span both historical IDs in existing bounded queries; legacy requested response keys survive. A service-only readiness RPC gates mutations for this one past match until atomic ledger/rating reconciliation completes; other fixtures add no check. No provider refresh, polling, scheduler or reminder replay is added. Preserve each original credit row/day/category and all history; private rooms and saved state are not merged. Operator undo refuses newer activity or erased preimages. Deployment precedes reconciliation with a temporary per-fixture write hold. Evidence, migration, acceptance and regressions: [reviewed Rugby reconciliation](quality/rugby-identity-reconciliation-2026-10-02.md). This does not certify Rugby or increase MVP budgets.
+
+
+## Explicit Cricket abandonment and settled observations — 2 October 2026
+
+Cricket Australia's `isCompleted` closes abandoned records as well as played results. Accept explicit Abandoned result types only on a completed provider record; never infer this from prose or elapsed time. The shared identity/compact Match Centre observation permits a newer settled abandonment correction and protects it against later schedule/live overlays; older observations retain the prior facts. Abandoned fixtures stay outside Match Centre. Cards show Abandoned/Suspended, with accessible original Sydney scheduling, and neither state gains clock-derived Starts Soon/Live/Just Finished.
+
+The single genuine CA40996 observation is published through the existing canonical `--coverage-live --live-coverage-snapshot=PATH` route. One record changes, all existing IDs/viewing/activity survive and the next replay changes nothing. A live API failure also established that a collection poll was replacing an older settled fixture observation. Settled overlays now retain the available original fixture date; explicit newer timestamped corrections still pass. Existing live-score fallback stays intact. The server source owner reuses the corrected parser on its ordinary cadence. No source, scheduler, request path, database migration, user scan at refresh, reminder replay or subscription is added. The read-only Rugby preflight is a one-off investigation; it is not in the refresh pipeline. Do not add the proposed Rugby alias until both durable activity ledgers remain readable and idempotent. See [the dated evidence record](quality/cricket-rugby-integrity-2026-10-02.md).
+
+## NBL published status and unchanged finals — 2 October 2026
+
+Extend the existing source-qualified match-status display to `competition:nbl`. After kickoff, unconfirmed or stale live status displays Awaiting match update. Explicit live status needs its actual published primary observation at or before now, within the existing 30-minute window. Completed results, pre-start timing and non-playing states remain intact. The canonical NBL card adapter carries that observation through the existing quick patch and Schedule projection; no live source, scheduler, request, database writer or per-user polling is added. Metadata-only repeated checks preserve original published observations; this is honest saved-data presentation, not real-time NBL delivery.
+
+The canonical scoped rehearsal exposed 32 record patches across incoming/published Feed for 16 unchanged finals, caused solely by result-source check dates. Exclude that observation date from quick semantic comparison alongside the existing volatile fields. Actual changed status, score or other facts still publish with their real dates. A repeated canonical NBL invocation now returns no changes and retains sporting/generated data bytes. Regression uses the actual adapter/card/patch/identity/Schedule seam, fresh/stale/invalid/future status, zero scores, terminal continuity and unchanged live/final reruns in `validate-nbl-match-context.js --published`, already in the normal production gate. Reuse the existing status browser harness with `--nbl` and installed upgrade/offline checks. Full sport, permission and physical-device acceptance remain separate. See [the delivery record](quality/nbl-status-integrity-2026-10-02.md).
+
+## Football quick refresh publication — 2 October 2026
+
+Weekday EPL standings use the existing complete primary table adapter: one bounded request per invocation, original observations and last-good retention; no second scheduler. Generated standings receive a matching shell/script/worker epoch in the same release commit. The scheduled wrapper reads expected hashes from that published commit after automatic versioning, and still rejects wrong served bytes or a missing/wrong shell version.
+
+Ordinary quick publication retains source-backed, spoiler-safe completed editorial only when fixture identities, participants, scheduling and results match its own pre-refresh surface. Changed finals, participants or kickoff invalidate retention; fresh computed stakes/intensity remain current. This replaces repeated manual editorial restoration without any source call, AI request, storage table or owner decision. Exceptions and partial tournament hydration remain in the existing readout. One successful data publication is not sustained unattended-operation certification. See [the dated source/cache record](quality/football-freshness-2026-10-02.md).
+
+## LPGA completed classifications — 30 September 2026
+
+The existing full golf owner and weekday quick refresh reconcile up to four already-known LPGA tournaments ending within the past 14 days, after a conservative 36-hour allowance from the end-date midnight UTC for the final local day to finish. Each uses one official leaderboard request with a 15-second deadline; there is no new scheduler, subscription or per-user request. Only Golf projections rebuild when facts change. Repeated identical results preserve bytes. This bounded recent window is not historical or worldwide LPGA coverage.
+
+Completion requires the exact tournament ID and dates, one first-place player with a published positive award, complete rounds for every classified player, consistent stroke totals, unique provider identities and recognised result statuses. A populated live table or elapsed time alone is insufficient. The official settled-results payload has no explicit finality flag: these publication signals are the acceptance contract, and later official corrections remain possible. Advertising rows are excluded; malformed sporting rows reject the observation. Errors retain prior results and appear in the existing refresh failure report. Later pairings cannot regress a confirmed classification; participation freshness remains separate.
+
+Scoped canonical command: `SKIP_RELEASE=1 node scripts/update-cards.js -p --local-only --lpga-results`. Regression: `validate-lpga-results.js`, existing participation and quick projection tests; presentation: `validate-lpga-results-browser.js`. No Feed admission or follow rules change.
+
+## F1 session result tables — 30 September 2026
+
+The existing F1 result owner now reads six-column numbered practice tables and routes sprint qualifying to its own eight-column result page. Practice remains outside Feed admission; its source-backed results are published to F1/Motorsport Schedule. Practice uses fastest-driver wording, not race-win wording. Existing identities and result privacy rules remain intact. Quick refresh preserves full F1 tables and confirmed participant identities.
+
+This uses the existing seven-day bounded fixture window and official results index, with 15-second request deadlines; no new scheduler, provider, subscription or per-user request. A practice is not considered for publication until 90 minutes after its known start and still requires a populated official table, at least ten unique drivers/numbers and resolved identities. This is a conservative delay, not an official session-finality flag; delayed or corrected official classifications remain a source limitation. Cancelled/postponed/abandoned events are preserved. Invalid table shapes or duplicates retain the prior event; unknown participants fail the refresh before file publication.
+
+Scoped canonical command: `SKIP_RELEASE=1 node scripts/update-cards.js -p --local-only --f1-results`. Regression: `validate-f1-session-results.js`, existing F1 Feed admission and storyline spoiler checks. Full sport certification is not implied.
+
+
+## Daily shared-observation publication — 30 September 2026
+
+Weekday quick refreshes now project the existing live owner's Cricket Australia, ESPN recent/history and World Rugby men's/women's XV/sevens observations into the saved Cricket/Rugby Schedule. The full Sunday source refresh remains authoritative for wider calendars. No source fetch, new scheduler, database write or account scan is added. The existing read-only `nothingsports_read_current_fixtures` RPC includes separately stored scores; reading the source arrays alone would omit those scores.
+
+The read uses an explicit 12-source allowlist, stable source/fixture ordering and pages of 500, capped at eight requests per invocation. The observed export contained 1,287 rows (three REST pages); each daily quick refresh and production input verification uses that same bounded read. Page failures, duplicates, invalid identities/sports or exhaustion preserve the old saved coverage. Production verification is read-only and does not publish its result.
+
+Only observations from the preceding 36 hours are projected; their original fixture timestamps remain intact, never replaced by poll or export time. Older observations cannot shift an existing fixture's kickoff. Shared reconciliation preserves completed results against stale near-source schedules and separately sourced viewing details. Missing rows are not deletions. Repeat identical observations and timestamp-only polls preserve bytes; only changed sport partitions rebuild. Transport/freshness failures appear in the existing quick-refresh failure report. This daily publication is not real-time delivery or exhaustive source certification.
+
+Scoped canonical rehearsal: `node scripts/update-cards.js -p --local-only --coverage-live`. An explicit `--live-coverage-snapshot=PATH` can replay a saved read-only RPC export for reproducible local validation without credentials. It uses the same validation and age limits. Tests: `validate-live-coverage-publication.js`, `validate-live-coverage-browser.js`, existing quick projection scope and source coverage checks.
+
+
+## Current cricket completed-results reconciliation — 30 September 2026
+
+The existing `cricket-ca-current` owner reads the current calendar plus one completed-results page (13 records). For known unresolved CA fixtures whose scheduled end/start falls within the preceding 14 days, it can read up to six pages, at most once per six hours using the existing source discovery report. No added source, scheduler, subscription, AI call or per-user work. Additional result requests are at most one per ordinary invocation plus 20 extra per day for four full catch-ups; the existing dynamic refresh cadence remains authoritative.
+
+Only explicit provider completion with a nonempty result and resolved participants is accepted. Exact overlapping cursor rows are deduplicated; conflicting duplicates, stuck pagination, invalid records and failed pages reject the observation, retaining last-good data. Unresolved IDs are recorded separately from transport failures and never completed from elapsed time. This is a bounded recent reconciliation, not exhaustive worldwide or historical coverage. The initial catch-up retained unresolved CA39484 (Lancashire–Durham); follow-up source investigation remains required.
+
+Canonical scoped repair: `SKIP_RELEASE=1 node scripts/update-cards.js -p --local-only --coverage --coverage-source=cricket-ca-current`. Regression: `validate-cricket-current-results.js`; presentation/spoilers: `validate-cricket-current-browser.js`. Shared current and completed records retain the same CA identities.
+
+
+## Completed Asia Cup source — 30 September 2026
+
+The fixed Women's Asia Cup 2026 source reads Cricket Australia's own completed-results API instead of the series page's empty upcoming-only embedded array. The official UI confirmed a 28 August–13 September tournament and resolved the final; two observed API pages return all 15 results. The adapter permits at most three pages of 13 records, rejects wrong competition/gender, duplicate IDs, unresolved participants, incomplete totals and failed pages, and publishes only the complete collection. Existing fixture identities and alternative-provider aliases survive. No new provider or scheduler is introduced.
+
+This finished competition has a six-hour minimum live refresh interval, at most 12 requests per day at the three-page ceiling (eight for the observed two-page result), replacing failed half-hour retries. Last-good records survive provider failure. The canonical scoped command is `SKIP_RELEASE=1 node scripts/update-cards.js -p --local-only --coverage --coverage-source=cricket-ca-4710`; it refreshes only this source, preserves other source statuses and rebuilds Cricket Schedule/Inspector projections. It makes no AI calls. Do not use the completed-only adapter as a generic future tournament feed.
+
+Schedule merging keeps richer viewing metadata but does not let it replace a newer official confirmed result with an older scheduled state. Source timestamps and result evidence are required; postponed/cancelled states are not overridden by this fallback. Regression: `validate-asia-cup-source.js --published`, existing Inspector contracts and `validate-asia-cup-browser.js`. Full cricket quality and commercial-source permission remain separate gates.
+
+## Stable live fixture creation times — 30 September 2026
+
+AFL, AFLW and NRL live adapters pass the prior snapshot's valid creation times to the existing canonical parsers, keyed by exact fixture ID. A known fixture keeps its first observation; a newly discovered identity receives the current check time. Updated/source-check timestamps still advance. The shared content hash continues to detect creation-time and real fact changes; no global creation-time exclusion is added. No database migration, history deletion, polling or scheduler change is required.
+
+The 30 September read-only follow-up verified the EPL fix in production: zero EPL revisions in the latest 48 hours while successful checks continued. Across sources, comparable 48-hour snapshot counts fell 1,010→369 and stored payload additions 91,877,920→39,467,752 bytes, with retention and other releases as confounders. The latest two AFL/AFLW/NRL revisions differed only in generated creation/update/source-check timestamps. This adapter repair addresses that demonstrated cause. Regression: `validate-live-afl-adapter.js` exercises actual source adapters twice at different times for all three sports, new identity creation and meaningful fact hash changes. Production deployment proof alone does not prove the subsequent storage-growth trend.
+
+## Football reminder schedule reconciliation — 28 September Sydney
+
+The sole five-minute notification dispatcher checks at most 20 pending EPL/UCL/Europa match-15 reminders, oldest schedule check first. One indexed service-only inventory RPC is added per run; an empty result does not load the fixture catalogue or write reconciliation. A nonempty batch uses one bounded update RPC and the already-bundled published Football projection. No new provider call, AI work, cron or polling loop. Existing push claim batches remain five. The hard ceiling is 5,760 small per-reminder check updates per day (20 × 288); these update existing rows and do not append fixture history.
+
+Identity and opt-in persist when kickoff moves in either direction. Unknown, postponed, cancelled, completed, live or passed fixtures are held without inventing a new start. Push claims and newly created inbox entries share the same predicate: confirmed future kickoff, matching verified stored start and a check within ten minutes. Client updates and cancellation win through compare-and-set; active claims are not edited. Only never-surfaced stale inbox entries may be retracted; seen notifications and external pushes cannot be recalled. Existing other sports and broadcast/session modes are unchanged.
+
+This depends on the published source snapshot, not real-time provider truth. Twenty candidates per five-minute pass is a cohort budget, not an unlimited reminder SLA; large queues can remain held until scanned. Report checked/updated/held counts in the existing dispatch response. Do not add another scheduler to hide capacity problems. The old REST claim fallback is removed because it would bypass the shared schedule gate.
+
+
+## Erasure-aware notification admission — 28 September 2026
+
+Five Web Push paths share a service-only admission/receipt wrapper. It serializes permission to send against account erasure, rechecks installation ownership/permission, and preserves uncertain outcomes without blind retries. Two database requests are added only for actual send attempts; empty queues and scheduler cadence remain unchanged. Reminder/social claims skip erasing accounts; live-rating groups filter them before hydration. No new scheduler or batch enlargement. Finished minimal receipts are opportunistically pruned after seven days, at most 100 per admission; crashed attempts remain exceptions for reconciliation. See account-erasure-runbook.md for the live database proof and external-delivery limits.
+
+## Erasure authentication and Storage expiry — 28 September 2026
+
+Erasure begin stamps server-owned Auth app metadata alongside the database barrier. The existing fresh user lookup rejects marked accounts without an additional network request. Chat and participation/avatar functions have explicit 60-second duration limits. Previously issued signed uploads survive Auth deletion; cleanup must stop every issuer, including old deployments, then wait for capability expiry and reconcile late transfers. A read-only checkpoint remains incomplete until this evidence exists. No new scheduler, poll, subscription or real-account erasure is introduced.
+
+## Account erasure database barrier — 28 September 2026
+
+Direct Auth-linked database writes acquire a per-account shared transaction lock and check a service-only erasure marker. Erasure begin takes an exclusive lock with a two-second timeout, so accepted writes drain and blocked accounts cannot acquire new direct database state. No extra client request, poll or scheduler is added. Unblocked accounts continue with one indexed marker lookup per distinct referenced account in a write; no global write lock. Read Committed is required. Storage capabilities, external delivery and indirect identity writes remain separate orchestration gates. The migration activates no real account. See account-erasure-runbook.md for the live concurrent-session proof and cleanup limits.
+
+## Account-owned notification state on erasure — 28 September 2026
+
+Deleting Auth must remove its linked push installations and owned reminders rather than make them anonymous. The account foreign keys now cascade; installation-to-reminder cascade remains. Peer and genuinely anonymous notification state is preserved. No poll, dispatcher cadence, scheduler owner or MVP budget changes. Stored future-state cleanup is verified with disposable users; an already in-flight push remains outside this guarantee. Full account erasure still requires explicit writer/dispatcher quiescence.
+
+
+## European Football daily source checks — 27 September 2026
+
+The existing daily canonical workflow also refreshes OpenLigaDB in weekday quick mode. It makes two bounded provider requests and rebuilds only Football/Champions League projections and Football identities when the dataset is checked; no second scheduler or live polling is introduced. Derived standings reuse those fixture facts. Source failures retain last-good records and original freshness; quick-mode failures are preserved in the existing workflow artifact and annotated as warnings. Production and canonical workflows use Node 24. Daily snapshots are not real-time scores. Reviewed international results rebuild rugby and cricket Schedule partitions as well as Feed. Quick US Open hydration reapplies the existing reviewed major-event editorial before building Schedule; the scoped editorial command does not rewrite Feed or the knowledge register.
+
+## Public refresh without private preferences - 27 September 2026
+
+Full manual card/result refreshes without a configured follow snapshot preserve and validate the existing compact fixture-only artifact. They rebuild public schedules and run synthetic Follow checks instead of accessing account preferences. An explicitly configured snapshot retains the existing personalised projection/audit path. A public-only audit must not claim that individual accounts were audited. No additional scheduler is introduced.
+
+## Slow navigation recovery and shared golf ingestion — 25 September 2026
+
+Match Centre owns its panel before Feed hydration completes. Lazy loading immediately shows its own state, with a retry on failure. Membership reads have ten-second deadlines, show eligible pages progressively, and use elapsed freshness instead of a clock-boundary cache key. Existing account, preference and navigation guards remain. No polling cadence or score membership scope changes.
+
+The worker's network-first requests have an eight-second transport deadline and use cached verified content on transport failure or HTTP 5xx. HTML fallback applies only to navigations; missing JSON/assets never receive the app's HTML. Preferences and account storage are not cleared. Installed upgrade tests and their timeouts remain intact; passing desktop WebKit does not prove iOS Home Screen behaviour.
+
+The canonical refresh owns PGA and LPGA participation alongside the existing schedule adapter. Source facts are shared across all users; no account preference scanning, AI discovery or new scheduler. Detail requests are limited to seven days behind and fourteen ahead. Official entry lists and pairings are separate observations; per-source failure keeps last-good records. Presidents Cup uses its existing live source owner.
+
+History hashes ignore observation timestamps, including nested score/status/participation check times. Real fixture, participant, time and score changes still create revisions. Source health timestamps remain updated by the existing publish RPC. No history deletion, retention reduction, migration, plan purchase or scheduler change is included.
+
+Read-only inventory on 25 September measured 507,522,195 database bytes (484 MiB), dominated by fixture snapshot payloads. Capacity recommendations are in the release report; increasing resources is not a substitute for fixing client route ownership or worker activation.
+
+
+## BJK Match Centre score repair — 24 September 2026
+
+The existing live-source owner checks at most two active BJK official reports per pass, reusing the canonical report parser. No new scheduler or score-triggered deployment. This source provides completed-rubber reports, not guaranteed game-level live data; missing rubber updates stay explicitly unavailable. Structured tie totals and source-oriented rubber set strings are translated by the compact score model. Completion uses the first confirmed observation, never scheduled duration. Tests: `validate-team-tennis-scores.js` and `validate-tennis-tie-layout-browser.js`.
+
+## Coherent observations and manual refresh — 24 September 2026
+
+Source check time is not evidence that a scheduled fixture has reverted from live. Shared Feed/Match Centre reconciliation preserves confirmed state against schedule-only overlays, retains last-good scores, and carries separate score/status observation timestamps. Newer explicit interrupted, cancelled, postponed, completed or live corrections remain eligible; completion is never inferred from duration. The compact API adds `scoreCheckedAt` and `statusCheckedAt`; legacy `checkedAt` reflects the score observation when one exists.
+
+Match Centre alone supports pull down at the top and release past 72px to refresh, plus an accessible Refresh button. A 20px wheel accompanies the bounded refresh. Manual refresh bypasses client due timers and reloads private membership then visible score batches of at most 60 IDs, retaining shared server caching, existing provider cadence and last-good failures. One in-flight refresh and a ten-second client cooldown prevent gesture bursts. Hidden views and late account/navigation responses cannot update the surface. Feed, Follow, ratings and scheduler ownership are unchanged. Regressions: `validate-match-observations.js` and `validate-match-centre-refresh-browser.js`.
+
+## Live cricket recovery — 24 September 2026
+
+The recovery project had no live-fixture pg_cron job, pg_net extension or Vault configuration; source checks had stopped on 22 September. Restore the documented `nothingsport-live-fixtures` two-minute owner on recovery, not a second scheduler. Keep its credential server-only and activate after the matching Vercel release. HTTP timeout is 60 seconds to cover the existing bounded 45-second worker plus settlement. Score requests never fetch providers themselves.
+
+Match Centre resolves published cross-provider aliases by exact sport/start/participant identity, preserving the requested Feed ID and batching score reads to 60 IDs. Cricket Australia batting IDs resolve to the canonical team at ingestion. Old checks are explicitly stale. Regression: `validate-cricket-live-scores.js`; live acceptance requires an autonomous scheduler HTTP response and the affected ODI score in the public API, not deployment alone.
+
+## Gated Match Centre and consensus settlement — 24 September 2026
+
+Membership is a private window-scoped Feed query, separate from public compact scores. Score reads accept at most 60 published contest IDs with a three-second database deadline. Visible clients poll teams every five minutes and tennis every two; hidden clients stop. Interrupted sources use 30 minutes unless another active fixture or sourced restart requires the existing two-minute owner.
+
+Gated compact-score writes separate changing scores from full-source revision history and overlay them for existing Feed readers. No new cron, score-triggered deployment or history cleanup. The existing protected live scheduler runs at most 50 due consensus settlements before ingestion, so unrelated publishing failures cannot block due awards. Cutoffs and per-fixture versions are frozen, latest eligible Impact votes are retained once per person, and outcomes/bonus/inbox writes share a transaction. Tables and RPCs remain service-owned/RLS-protected. Production target remains nothingSport-recovery only. See `match-centre-rollout.md` for flags, measured storage and unfinished release gates.
+
+## Unified notifications inbox — 22 September 2026
+
+Signed-in accounts receive a private inbox independent of device push consent and delivery. Creation is transactional at the existing chat, invitation, membership, reward and friend-rating sources. The existing notification dispatcher owns reminder inbox creation and bounded 90-day cleanup; no new cron or presence poll is added. History starts at the inbox migration epoch without backfill. Temporary chat guests keep their existing behaviour.
+
+Pages contain 25 entries ordered newest first with a stable timestamp/ID cursor. Backgrounded clients make no inbox requests. Startup, foreground and relevant mutations refresh a compact unread summary, coalesced to at most once per 30 seconds; an open inbox refreshes at most every 30 seconds and fetches older pages deliberately. Notification reads use ID/version compare-and-set so a new message cannot be cleared by an older acknowledgement.
+
+Chat messages group until the conversation is read. Reading a conversation closes its group; unsurfaced groups already read in chat are removed. Opening Notifications only reads visible notification entries, never chat messages or invitations. Related social rewards share one story; standalone points remain separate. Private message excerpts are resolved from current authorised chat content and shown only with Results ON. Device push previews and the chat/app-icon badge keep their existing rules.
+
+Regressions: `validate-inbox-database.js`, `validate-inbox-api.js`, `validate-inbox-browser.js`, plus existing notifications/chat/backend-efficiency validators.
+
 Authoritative MVP operating decisions, 14 September 2026. Nothing Sport has approximately 3–5 active non-paying users and must fit the existing free infrastructure tiers without disabling accepted product behaviour.
 
 | Area | Decision |
@@ -15,6 +916,12 @@ Authoritative MVP operating decisions, 14 September 2026. Nothing Sport has appr
 | Releases | A refresh with no tracked content change creates no commit or deployment. Production proof requires GitHub SHA, READY deployment, alias, `releaseGitSha`, cache-busted browser behaviour and database-path checks separately. |
 
 Regression: `node scripts/validate-backend-efficiency.js`, live fixture/API, chat, Nothing Score, notification, startup-budget and installed-PWA validators.
+
+## Canonical refresh result hand-off — 16 October 2026
+
+Both full and incremental refreshes reconcile existing Feed cards with retained official final fixture evidence before result completeness. Recorded IDs and aliases establish matches; participant and sporting-start checks reject contradictions. This adds no card admission, provider request, database write or scheduler. Final evidence retains its original observation clocks, independently of schedule freshness. Unsupported or conflicting results retain the strict publication gate and restore the candidate's data, feeds and generated runtime on failure.
+
+Refresh diagnostics live outside that rollback boundary and retain missing-result fields, source failures, publication stage and deployment correlation. The existing production workflow remains the sole publisher; tracking retries transient reads only, never an uncertain dispatch. Regression: `validate-fixture-result-reconciliation.js`, `validate-deployment-tracking.js`, `validate-update-cards.js`.
 
 ## Leaderboard epoch and Friends activity — 15 September 2026
 
@@ -35,3 +942,1360 @@ Load Follow-grid affinity only for the signed-in account and only when Follow op
 Any signed-in account may create an eligible upcoming/live fixture chat. A fixture may have multiple rooms with different participant combinations; the database enforces a race-safe ceiling of three open room memberships per signed-in account across creation, invitation acceptance, account guest-link joins and admin additions. Anonymous guest memberships remain governed by the 25-member room ceiling and do not count against an account limit. Existing Public Profile requirements still apply before an account can post a message.
 
 The room creator or an app admin may permanently delete the complete chat. A message author or an app admin may permanently delete an individual message. Before relational deletion, transient attachment objects are removed through the private Storage API; explicitly saved account-owned copies remain separate. Direct browser table access remains denied and all authorization stays at the authenticated server API plus database-trigger boundary. Personal archive remains a reversible “Remove from list” action and is not presented as deletion. These ownership changes do not alter the established polling intervals or scheduler budgets.
+
+## Highlights upload and lookup correction — 15 October 2026
+
+Highlights links require a source upload within seven elapsed days. Fresh cache selections or metadata checks cannot renew an older upload. Prefer relevant recent official uploads, including shared tournament-day reels when their covered matches are explicit; a dedicated match upload takes precedence. Deliberate Feed taps can check official public channel feeds before a bounded API fallback. All API search and video-metadata requests reserve from the existing service-only ninety-search/five-hundred-ordinary Pacific-day ledger before dispatch. The fifty-search scheduled sublimit, two-search/pass source limit, thirty-minute discovery cadence, existing readers and twenty-second route budget remain unchanged. Hourly tap-driven reselection creates no polling or scheduler. Cached upload/duration evidence is service-only and policy-versioned; missing evidence fails closed. Regression: validate-highlights-recency.js and the existing highlights/database gates.
+
+## Lite weekend editorial - 18 September 2026
+
+Friday 09:00 Australia/Sydney editorial maintenance covers existing 4-5/5 stakes
+cards dated Friday through Monday inclusive. It uses the weekend-editorial mode
+of update-cards.js, not a second canonical ingestion scheduler. It reads no user
+preferences, preserves fixture facts and avoids a release when copy is unchanged.
+See docs/weekend-editorial.md for the bounded research and release procedure.
+
+## Profile picture storage — 21 September 2026
+
+Use direct signed uploads to private temporary Storage, then produce 128px (maximum 32 KB) and 512px (maximum 200 KB) WebP images. Keep only metadata in Postgres. Batch expansion-capability reads for visible avatars, load private images only on demand, and reuse cached versioned thumbnails. The existing daily canonical-refresh workflow also drains at most 50 queued Storage deletions, including abandoned originals after 24 hours; no new scheduler. Replacements queue old objects transactionally and preserve the previous picture until both derivatives are ready.
+
+## 22 September 2026 — coverage repair implementation
+
+The existing full canonical refresh ingests the official PGA TOUR schedule; there is no separate golf scheduler. Tennis edition/catalogue presentation loads only when requested. The editorial snapshot reuses the existing rating reader in sequential batches of at most 50 fixtures and looks up candidate event IDs with real five-star contributions in paged, server-only reads. It exports phase flags without contributor identities; it does not change interactive polling, scoring, public sealed ratings or Feed admission. Older or unsurfaced candidates may be queued for research without becoming required Feed cards. Regression: `node scripts/validate-coverage-repairs.js`.
+
+## Active-chat membership visibility — 22 September 2026
+
+Active chats shows personal memberships separately from admin inspection. Hidden open memberships remain accessible under “Hidden chats — still joined” and count towards the displayed three-room ceiling. Each joined room has a direct Leave chat action, including hidden rooms and accounts without a public posting profile. Leaving frees membership capacity; “Remove from list” remains a reversible personal archive, and permanent deletion remains creator/admin-only. Stale archive selections are harmless account-scoped no-ops. Admin inspection never grants membership or posting rights and is excluded from personal bulk selection. This reuses the existing membership read and leave transaction, without new polling or database schema changes.
+
+Regressions: `validate-private-fixture-chat.js`, `validate-chat-membership-browser.js`, `validate-shared-chat-ui.js`, and `validate-chat-navigation-browser.js`.
+
+The release also guards the PWA handover against an older controlling worker requesting a backwards page reload. Newer versions still upgrade automatically. Regression: `validate-app-update-version.js` and the installed-PWA upgrade browser validator.
+
+## Explicit Feed filtering and notification recovery — 22 September 2026
+
+Opening Apply on an active rating filter may load all eligible Feed pages and request rating snapshots in sequential batches of at most 50. This is user-triggered and uses the existing private rating API; it adds no periodic background poll. Threshold summaries use latest real per-account/per-phase contributions and unrounded averages, subject to existing aggregate visibility rules. The inbox always settles a successful empty response into its empty state and gives stalled reads a retry state after ten seconds. Existing 30-second inbox and live refresh budgets remain unchanged.
+
+## Tennis normalisation and refresh investigation — 24 September 2026
+
+Inspect manual intervention and compute together before changing recurring maintenance. Eight inspected scheduled runs (16–23 September UTC) failed; the latest ran its refresh/release step for 17 seconds before the result-completeness gate rejected two missing NBL results. The inspected quick path is deterministic and reports zero AI calls. These observations establish a reliability problem, not account-wide dollar costs or the causes of every earlier failure. Do not weaken result-completeness gates to obtain a release.
+
+Tennis parent projection runs inside `scripts/update-cards.js`, after existing tennis schedule generation; quick refresh regenerates it deterministically. The server build signature includes the parent projection hash so source changes invalidate personalised Feed caches. No additional scheduler, paid AI, database schema or polling is introduced. Browser parent metadata loads once on demand; contest lists load only on expansion and mount in batches of 20. Parent overviews do not enter rating prompts or live-fixture polling.
+
+Validated facts should remain publishable with concise factual copy when richer editorial is unavailable. The new parent presentation depends on sourced facts only. Existing broader editorial/result gates remain mandatory; changing those gates is not implied by this fallback. Retain older narrative only when still consistent with the facts.
+
+## NBL incremental results — 24 September 2026
+
+The existing canonical quick refresh now checks the official NBL schedule alongside its other source adapters, patches known cards and rebuilds the NBL projection when facts change. This repairs missing completed results on days without a full refresh. Timestamp-only NBL checks preserve the previous snapshot; there is no new scheduler, standings-only loader or AI call. Regression: `validate-quick-projection-scope.js` and the canonical result-completeness gate.
+
+## Seven-day tournament hydration — 24 September 2026
+
+Both full and quick canonical card refreshes check running tournaments and tournaments starting within seven Sydney calendar days, including entire tournaments crossing the window. Existing result retention permits follow-up checks of unresolved recent completions. One adapter runs once per source family in a hydration pass; full refresh reuses its normal source loaders. BJK uses bounded official schedule/news fetches, no AI. Calendar-only sources and unsupported fixture adapters are reported as incomplete, never silently counted as hydrated.
+
+Source failures preserve last-known facts and do not block valid updates from other sources. Ordinary schema, safety and result gates are retained. The timestamped machine-readable report lives in the run artifact directory or system temporary directory, so diagnostic clock changes cannot create a release. Existing workflow cadence and ownership remain unchanged. Regression: `validate-tournament-hydration.js` (windows, partial coverage, failures, deduplication, offline and stable snapshots).
+
+## Feed rating read recovery — 25 September 2026
+
+Batch summaries retain the existing 50-fixture limit and private account-scoped responses. Independent viewer profile/persona reads now overlap fixture hydration and summary reads; independent panel metadata overlaps fixture rows. The same reads and authorisation checks remain, with no new scheduler or database changes. Live render reuse now observes the existing two-minute summary cadence rather than re-reading after 25 seconds.
+
+Summary requests use an eight-second client deadline (shorter configured deadlines are respected). Failure or omitted fixtures retains last-good snapshots, enters the existing cooldown and exposes an explicit retry for an unresolved signed-in rating. Hidden pre-vote community totals are labelled as requiring a rating, rather than as loading. Slow or failed reads never invent a zero count or reset a saved vote. Regressions: `validate-ratings-read-latency.js`, `validate-feed-card-recovery-browser.js`, `validate-nsc-client-flow.js` and existing submission contracts.
+
+## Presidents Cup source ownership — 25 September 2026
+
+The existing canonical PGA schedule adapter also parses the official Presidents Cup scoring page’s structured tournament, overview, round and tee-time records. Only sporting fields are retained. Match Centre uses awarded numeric totalValue (including halves), never projectedValue. TournamentStatus owns overview completion; round completion is independent. First confirmed completion is recorded, never computed from scheduled duration.
+
+The existing live-source owner adds one leased Presidents Cup source, with its ordinary live/imminent cadence and deadlines. No scheduler, endpoint, migration or client polling budget changes. Fetch failures keep previous records, scores and score observation timestamps. Missing/invalid totals do not replace last-good scores with zero; source staleness remains visible. F1 session loading preserves canonical venue/country fields and no longer infers completion from elapsed end times.
+
+Regressions: validate-card-coverage-corrections.js, existing Match Centre API/model, live-fixtures and observation suites.
+
+## ODI stale-live display - 27 September 2026
+
+After ten hours from actual start (otherwise confirmed scheduled start), an ODI without explicit continuing-play evidence in the last ten minutes displays Awaiting confirmed result. A fetch timestamp alone is not playing evidence. This is presentation only: no inferred completion timestamp, rewards, or stopped polling. Explicit terminal/interrupted states win. Existing source cadence is unchanged. Regression: validate-odi-display.js.
+
+Confirmed completion and its final scores cannot regress to live when a subsequently fetched snapshot contains stale observations, including provider aliases. Continuing-play inference requires comparable numeric innings progression, not changed formatting or newly added score representations. Confirmed final-score corrections remain allowed. Match Centre and Feed share this reconciliation; validate-match-observations.js exercises the public API handler contract.
+
+## Fixture review timestamps — 27 September 2026
+
+`lastReviewedAt` is observation metadata, like `sourceCheckedAt`; changes to it alone must not create a new fixture-fact revision. Keep the timestamp in source payloads and preserve array order and meaningful schedule, identity, result and viewing changes. Both ordinary and compact-score persistence paths use this rule. The first successful publication after changing the hash definition can create one transitional revision; subsequent unchanged checks must update source health only. Existing seven-day retention remains unchanged.
+
+Regression: `node scripts/validate-live-fixtures.js`, using a captured EPL fixture and both publish adapters. Compare production revision/check timestamps and snapshot growth after deployment; allocation need not immediately fall.
+
+## Bounded source failures and dispatch visibility — 27 September 2026
+
+Complete source failures use the existing database failure count to back off from five to ten to twenty to thirty minutes, capped at thirty minutes unless a source already specifies a longer retry. A successful publication clears the failure count through the existing RPC. Partial-success behaviour is unchanged. Preserve last-good fixtures; do not accept invalid empty sources or change normal healthy-source cadence.
+
+Authorised notification attempts record start before maintenance, inbox and VAPID checks. Preflight failures and alert-dispatch exceptions record bounded diagnostic codes rather than raw upstream messages. Unauthorised calls cannot write health. This change does not establish a scheduler owner, enable a second scheduler, or prove delivery to a physical device.
+
+Regressions: live fixture and notification validators, now also in the serialized production workflow.
+
+## Reminder scheduler recovery — 27 September 2026
+
+The existing cron-job.org dispatcher remains the sole five-minute owner. Its 30-second request limit exposed an accumulated outbox processed sequentially in batches of 100. Limit each invocation to two friend-rating groups, two social groups and five reminders; unclaimed work stays queued for the next invocation. Preserve atomic delivery claims, opt-outs and ambiguous-outcome handling. Push transport has a three-second timeout. These are bounded batches, not a guaranteed end-to-end deadline during provider/database outages.
+
+Hydrate only the due rating fixture IDs. Explicitly include the dynamically loaded competition catalogue in the dispatcher function: Vercel's dependency trace omitted all 30 schedule chunks although they existed in the source upload. No new scheduler, subscription, migration or private-data logging.
+
+Regression: notification, live-rating and backend-efficiency validators, plus the dispatcher bundle validator. Live acceptance requires a successful automatic cron run and updated server health, separately from physical-device push delivery.
+
+## European Football source trial — 27 September 2026
+
+OpenLigaDB league-phase fixtures refresh only through the existing `update-cards.js` owner: full refresh, daily quick refresh (see the later decision above), or the bounded `--european-football -p` mode. Two season endpoints, one call each, fifteen-second timeout each; no added live polling, cron, database writer or account. Responses must pass complete league-phase and reviewed identity checks before atomic publication. A failed source keeps its original last-good facts and check time; an incomplete first import fails without publishing. Partial/total failures make the canonical command nonzero and must not be reported as successful freshness.
+
+Public provider facts and identity mappings remain independently retrievable under ODbL, with attribution on cards and calendar exports. Private preferences and editorial are not put in the provider dataset. Existing per-user Follow consent and exclusions remain authoritative. This does not establish an uptime guarantee or certify full competition quality.
+
+## Daily Football display evidence — 27 September 2026
+
+OpenLigaDB's daily snapshot is not a live observation. Once scheduled kickoff passes without confirmed completion or a fresh explicit live status observation (the existing 30-minute status-evidence window), Feed and Schedule say Awaiting match update. A generic source check is not live evidence. The clock cannot create Live Now or Just Finished for these unconfirmed fixtures. Cancellation, postponement, suspension and abandonment remain authoritative; no source fact, user preference, polling cadence or Follow admission changes. Regression: OpenLigaDB timing/filter tests and the European Football browser suite.
+
+## Daily Football rating phases — 27 September 2026
+
+The rating API uses the same unconfirmed-status gate as daily-source Football cards. After kickoff without a confirmed live/final observation, phase is null: new Heat/Impact/Pulse submissions, likes and watching heartbeats cannot write or award points. Identical retries of previously persisted Heat/Impact submissions still return their original receipt. Batch summaries preserve source observation metadata, keep previous owner receipts, withhold phase aggregates (including sealed Heat), and do not freeze an expired session while source status is unknown. Fresh explicit live and confirmed completed fixtures retain their phases. No votes, scoring rules, reward formulas, database schema, scheduler or polling cadence change. Regression: validate-crowd-foresight.js and validate-nothingscore-submissions.js, both release gates.
+
+## Initial erasure Storage sweep — 28 September Sydney
+
+Operator-only, on-demand sweep: at most 20,000 owned paths, Storage lists of 250 with a 200-page ceiling, deletes of 100, and fresh counts-only inventories before and after. Durable lineage precedes effects. No production scheduler, poll or new subscription. Completion of this first sweep never means capability-expiry, late-transfer or full-account reconciliation has passed.
+
+## Indirect account cleanup — 28 September Sydney
+
+Reward allowlist admission and verified-email subscriber writes share the existing per-account erasure lock. Auth deletion removes its UUID from reward arrays and its verified current email subscription in the same transaction. These administrative paths add no client polling, scheduler, subscription or external delivery. Existing campaign and subscriber volume was zero at rollout. Historic email ownership and external delivery remain operator exceptions rather than guessed cleanup.
+
+## NBL official current standings — 30 September 2026
+
+The existing NBL schedule response also supplies current team positions and win/loss records. Its canonical adapter now reconciles repeated team records, ten unique official ranks and all completed regular-season results before publishing standings. No new request, provider, scheduler or inferred percentage/tie-break formula is added. Invalid optional standings retain the prior verified table and original observation with an explicit stale note, or remain unavailable; valid fixture updates continue. Wrong competition/season, incomplete schedule, duplicate/self fixtures, unsupported phase and invalid completed results still reject the source before publication.
+
+The sole canonical command remains `node scripts/update-cards.js -p --quick --source=nbl` (with `SKIP_RELEASE=1` for local validation). Rank-only changes rebuild only the NBL Code Inspector projection, avoiding unrelated Feed version/page churn. Observation-only checks retain existing bytes. The existing standings renderer supplies explicit local reveal, global Results privacy, checked time and sport-appropriate W/L fields. This closes the missing published NBL table, not independent verification of the league's full ranking rules, finals qualification, Ignite Cup or basketball-family certification. Regression: validate-nbl-standings.js plus the existing viewing/context contracts; browser coverage in validate-nbl-standings-browser.js.
+
+## BJK reviewed-result catch-up — 1 October 2026
+
+The live source’s one-day report window could leave an older tie live indefinitely after canonical hydration had confirmed its final result. Reconcile exact tie IDs, tournament and bracket slots against reviewed official results before that window. Require a known winner, score, HTTPS result source and valid non-future fact timestamp. An equal/newer official live result remains authoritative; missing/invalid facts keep the last good record. Preserve the reviewed observation timestamp instead of labelling the result as newly observed now. This uses the existing leased source owner and shared completed-tie contract, with no extra provider fetch, scheduler, database migration or global cadence change. Once all seven ties are terminal, the existing idle budget applies (30 minutes). Source health alone never certifies fixture truth.
+
+Regression: `validate-bjk-live-reconciliation.js`, the existing live fixture/API suites and programme/tennis normalisation. Acceptance additionally requires a natural scheduled source check publishing seven completed ties and the 30-minute next-due interval; no manual source invocation substitutes for that proof.
+
+## European Football continuity — 1 October 2026
+
+Reject a community season observation that removes a known fixture ID, reuses it for different home/away participants, predates the last-good check, or retracts a confirmed completed result into an unconfirmed state. Retain that competition's entire last-good snapshot and original observation date, and expose the exception through the existing refresh report/nonzero scoped command. An unaffected competition can still refresh through the ordinary partial-success path. Explicit new final scores and kickoff changes for the same identity remain accepted. A genuine result retraction or provider-ID migration needs reviewed evidence rather than an automatic reassignment of saved user activity.
+
+The reproduced current-season replay previously replaced a confirmed 2–3 result with unknown/null and a newer check time. This guard belongs in the canonical source owner, before projections, with no new fetch, polling, subscription or database writer. Two season requests and existing deadlines/cadence remain unchanged. Source success is not independent sporting certification. Regression: `validate-european-football-continuity.js` exercises actual refresh persistence, partial/total retention, ID/matchup drift, chronology, explicit corrections, rescheduling and provider-order independence; it is included in canonical full/scoped/changed-quick and production checks.
+
+## LPGA direct Results route — 1 October 2026
+
+The scheduled quick refresh reported a leaderboard HTTP 404 while retaining the already verified Walmart result. A bounded fresh read now shows that legacy leaderboard URL redirects to the official `/results` route; both current requests return the same accepted 144-player classification. The old adapter rejected a saved `/results` source URL before fetching. Normalise the four known pairings/entries/leaderboard/results suffixes directly to `/results`, retaining HTTPS, exact host and tournament-path restrictions. Do not add a fallback request, retry loop or browser impersonation. The existing at-most-four recent tournaments, one request per candidate, 15-second deadline, edition/result checks and last-good retention remain unchanged. The earlier 404's precise transient cause is unproven; future source failures still remain visible.
+
+The live canonical route checks one current candidate with zero failures and updates source URLs/observations only; winner, scores, classification, identities and dates are unchanged. Regression: `validate-lpga-results.js` covers the current Results route, legacy normalisation, rejected host/protocol/path without fetching, one-request budget, failures and repeated unchanged facts. This is a source-route maintenance repair, not complete Golf certification.
+
+## Delayed Football backup — 1 October 2026
+
+Owner approved integrating the free football-data.org trial into the existing canonical owner and explicitly allowing validated new finals for existing EPL 2026/27 and UCL league-phase fixtures during primary failures. Existing primary sources, identities, schedules, viewing, consent and saved activity remain authoritative. Backup schedules and existing final-score conflicts are never promoted. Whole-competition completeness and identity validation precede result promotion; only explicit FINISHED with valid integer scores can add a final. No elapsed-time live state, new competition, database writer, scheduler or subscription is added.
+
+One invocation-scoped coordinator shares responses across full/quick/scoped paths: at most four provider requests, starts at least 6.5 seconds apart, 15-second deadline, fixed HTTPS origin, no redirects/retries. Credentials belong only in the canonical Actions environment. Backup results/provenance live separately from the ODbL public dataset; original primary freshness remains intact. Tables are comparison evidence, and retained tables are labelled stale when backup results advance beyond primary coverage.
+
+A resolved validated backup can keep an existing competition usable while primary health remains degraded in the dated exception artifact/readout. Unresolved failures retain the existing failure path and last-good facts; no release gate is bypassed. Backup evidence does not establish sporting independence, commercial permission for other sources or complete Football certification.
+
+Validators use disposable source/overlay outputs and do not receive the real backup credential, invocation cache or health-report destination. A canonical invocation ends with an actual provider-request count, including zero when healthy primaries suffice. Fake outage rehearsals cannot consume the production backup budget, clear retained backup results or overwrite owner-facing source health.
+
+## OpenLigaDB client identification — 1 October 2026
+
+The rendered API terms, dated 28 August 2026, ask for an identifiable app/contact route. The existing two central season requests now identify Nothing Sport and its public application/owner URLs in User-Agent. The once-daily canonical cadence, deadlines, continuity, fallback, last-good timestamps and failure reporting are unchanged; there is no retry, extra request or scheduler. Last-change polling remains a separate unimplemented optimisation, not a claimed pass. Current source-to-screen and commercial-rights gates remain open.
+
+## EPL complete-table validation — 2 October 2026
+
+The existing standings owner now validates both sides of league statistics before persistence: wins equal losses, draw appearances are even, goals for equal goals against, and no club exceeds the declared 38-match season. Official points adjustments remain valid; ordering and row arithmetic checks are retained. A coherent-looking individual row can still create an impossible whole-table observation, so malformed observations fail through the existing preservation/exception path. No new request, retry, scheduler, table derivation or writer is added. Final shared-place presentation, special adjudication and commercial permission remain separate acceptance gaps. The existing EPL and UEFA gates now include actual temporary-file retention and controlled final-round cases; see the [ranking record](quality/football-ranking-acceptance-2026-10-02.md).
+
+## EPL shared-place semantics — 2 October 2026
+
+The existing table owner separates C.7 sporting place from official row order when points, goal difference and goals scored are identical. Complete ordinal or already-shared provider positions are validated against the same facts; malformed mixtures retain last-good data through the existing failure path. Tied entries carry sharedRank/sortOrder. At the all-clubs 38-appearance boundary, unverified tied final positions are pending; counts alone cannot establish completion or C.17 decisions. Existing badge/editorial boundaries withhold definite claims, and Inspector preserves original dates, source and explanatory note. No extra read, retry, scheduler, migration or derived score is added. The source-to-screen rehearsals use disposable files and intercepted browser data, never the production source credential. Actual sporting adjudication remains an explicit future source-evidence requirement. See [the acceptance record](quality/epl-shared-places-2026-10-02.md).
+
+## Daily EPL tables and generated cache keys — 2 October 2026
+
+Weekday quick refresh checks the complete official EPL table using its existing owner: one bounded primary request (six additional checks per week), unchanged backup coordinator ceilings and last-good/date rules. Table-only observations update canonical contexts, Football Inspector and packed ranks without rewriting unrelated Feed. The existing canonical `--quick --source=football` route checks all three pilot sources for bounded manual validation; it adds no scheduler, per-user read, database operation, settlement or notification. Routine quick fixture-result scope remains seven days.
+
+Generated runtime changes receive a forward version and matching document/preload/worker cache keys before the same release commit. No-op/repeated calls, intentional forward versions and unrelated shell edits are guarded; only an actual runtime change adds epoch files to automated staging. Existing upgrade deferral and saved-state controls remain. Scoped Football starts from published facts; ordinary quick publishing preserves known omitted fields, and metadata-only checks retain reviewed result editorial. This replaces manual repair rather than adding owner administration. See [freshness evidence](quality/football-freshness-2026-10-02.md); unattended source operation and physical-device proof remain distinct.
+
+## Independent card maintenance - 2 October 2026
+
+Owner-approved partial progress: isolate card-local research/source/validation failures, preserve their last-known data and record actionable deferrals. Continue independently valid cards; defer only declared direct dependencies. Weekend editorial emits a dated accepted/deferred report and accepts explicit deferred research records. Shared knowledge integrity, spoiler, build and release gates still stop affected publication. No extra ingestion, preference access, scheduler, polling or retry loop is introduced.
+
+## Football displayed live-status integrity — 2 October 2026
+
+The existing European awaiting-update guard also applies to the retained EPL/UEFA competition identities. After kickoff, unconfirmed or stale live status displays Awaiting match update; a valid explicit live observation must be at or before now and within the existing 30-minute window. Future timestamps cannot count as fresh. Completed results and original observations remain intact. This is display integrity, not a new refresh cadence, request, source, scheduler, database writer or reminder rule. Existing Follow admission and all valid non-Football timing contracts remain unchanged. Regressions: `validate-football-status-display.js`, `validate-football-status-browser.js` and cached-rule acceptance in the existing installed-PWA rehearsal.
+
+## Follow journeys experiment — 2 October 2026
+
+The approved migration freezes the existing registered-account cohort once, snapshots preferences privately and locks each saved record before adding missing athlete follows. Updating updated_at preserves API compare-and-set conflicts; new accounts, later unfollows and resets cannot retrigger it. Recovery data is service-only with forced RLS and account-deletion cascade. No refresh, polling or scheduler change accompanies phase 1.
+
+Phase 2 retains the sole five-minute reminder dispatcher and bounded processing. The target is delivery at T−15 through T−10 against an official exact/not-before instant, independently of app activity. Shared sources and server-owned canonical fixture timing are required; unsupported or stale inputs hold delivery. ATP/WTA full-event and real-phone evidence remain acceptance gates, not deployment claims.
+
+### Phase 2 capacity and ownership — 2 October 2026
+
+The approved follow-journey plan requires app-closed creation and capacity for the existing cohort. The read-only inventory found ten registered accounts, four enabled installations and a peak of six pending reminders in a five-minute window. The prior five-row claim cannot satisfy that peak in one pass. The implementation supersedes that claim limit with a hard ceiling of ten, two reminder workers and a 27-second operation budget plus at most three seconds to record health. The sole cron-job.org five-minute owner is retained. Time-critical reminders precede the unchanged two-group live-rating/social paths; those paths defer when fewer than five seconds remain. Their reads/sends share the remaining invocation budget. No new scheduler, source request, retry loop or notification category is added.
+
+One invocation-scoped catalogue shares published fixtures and the existing normalized source snapshot across account and legacy-reminder reconciliation. Failed/overdue source observations hold timing while display facts remain retained. Each pass reads at most twenty account states, at most one hundred candidate fixture decisions per account and at most twenty legacy schedule rows. Account updates compare the saved revision under lock; explicit manual choices and erasure blocks win. Unchanged intent/delivery facts avoid writes; only the existing twenty-row timing scan refreshes unchanged schedule timestamps. Account scan markers add at most 5,760 small updates/day at the twenty-account ceiling, alongside the existing 5,760 schedule-check ceiling; no fixture history is appended.
+
+Freshness, installation ownership and current sporting/system opt-outs are checked in SQL before claims. Automatic intent is also tied to the current saved-state revision and global-auto setting. A durable begin marker prevents an interrupted provider attempt from being replayed as a fresh canonical fixture. Known pre-provider failures/rejections may retry; unknown external outcomes remain held and must be reported rather than claimed as delivered. An external push already in flight cannot be recalled by a later OFF/erasure.
+
+The ten-delivery capacity rehearsal with 3,000ms providers and 100ms database operations finished in 23,831ms, with maximum concurrency two and lower-priority work deferred. This is a bounded runtime rehearsal for the measured cohort, not an unlimited capacity or real-phone SLA. Larger/overlapping cohorts need a fresh queue-capacity gate. Actual ATP/WTA match/phone evidence remains pending.
+
+Phase 2 rebase preserves the concurrently shipped owner content/post-reminder paths. Those existing paths also use the remaining dispatcher request budget and defer when needed. Their content, consent and delivery contracts remain intact. The optional owner-workspace module and redirect page cache after use rather than during every cold PWA installation, restoring the unchanged 3 MB startup ceiling; critical public scripts are still precached. The additive migration leaves the global policy epoch inactive for compatibility. Only a protected invocation of the new production dispatcher activates it; disposable account/REST rehearsals cannot change the global epoch.
+
+### Phase 3 calendar ownership — 2 October 2026
+
+Reviewed calendar/participation input is a local provenance register at feeds/provider-exports/tennis/journeys-reviewed.v1.json, projected by build-tennis-journeys.js through the existing update-cards.js owner. This adds no source request, scheduler, database writer or per-user ingestion. Tennis Schedule fetches one shared static document only after its journey disclosure is opened and reuses it during preference changes. The current date moves the twelve-month view; unpublished later calendars remain explicitly pending. Calendar-only input is absent from reminder and live fixture catalogues.
+
+## Feed live-score presentation — 2 October 2026
+
+Reuse the existing live-fixture snapshot reader and shared compact score model on mounted Feed cards, with the existing sixty-ID bound, request coalescing, source owner and last-good failure behaviour. Mount refresh no longer depends on fantasy consent. Reject late updates after account/preference changes or hidden navigation. No new scheduler, provider request per user, database writer or reminder category.
+
+## 2 October 2026 — WRC calendar and venue identity
+
+The canonical `update-cards.js` workflow owns WRC calendar refresh. Its scoped `--wrc` mode refreshes the single official competition calendar, the official withdrawal announcement and one published organiser itinerary while retaining championship standings and classified results. Full refresh retains the existing FIA result provider; failed or mismatched result responses preserve prior verified winning facts and their original timestamps. No new results/live provider, client source request, scheduler or database change is added. Reviewed edition geometry and venue metadata are local assets, never researched per card at runtime.
+
+A 13-round calendar is accepted only with the explicit official Saudi WRC withdrawal. Keep its established fixture ID as cancelled; do not turn the regional MERC event into WRC coverage. Future event windows retain date-only precision, unconfirmed entrants and viewing rights. Current-season roster scopes cannot imply future participation. Regressions: `validate-wrc-context.js` and `validate-wrc-venue-coverage.js`.
+
+## Athletes visible-surface ownership — 2 October 2026
+
+The Athletes repair reuses /api/feed with an athlete scope and existing canonical snapshot overlays, authentication, revision-aware cache and erasure path. It reads only published/shared facts; no per-user organiser calls, new data writer, paid source or scheduler. The all-followed identity projection is included only on the first page. Each browser page is limited to fifty fixtures, at most forty monotonically advancing pages; incomplete pagination retains last-good facts and reports a gap. Account/preference/navigation tickets reject late responses. Five-minute membership caching and ten-second manual-refresh protection remain. The existing sole 120-second visible sporting refresh entry point selects Feed or Athletes; hidden browsers do not poll. Match Centre's retired browser coordinator is no longer mounted. Follow/profile loaders and source cadence remain shared. No database changes or reminder-policy changes accompany this release.
+
+## Free tennis source admission and gap context — 3 October 2026
+
+The user requires free sources only, accepting gaps. Reviewed China Open and Japan Open publication evidence does not establish a complete fresh permitted ATP/WTA input. Shanghai/Wuhan remain candidate observations until entries, full draw/order-of-play coverage and permitted use pass before the first tracked match. Add gap-only review metadata to the existing shared tennis journey projection through update-cards.js; it cannot certify ingestion, create fixtures, supply start times or enter the reminder catalogue. All completeness/reuse flags remain false, validated against duplicate/unknown editions and future review dates. The existing source owner, cache and sole dispatcher remain unchanged, with no per-user organiser reads, provider account, subscription or database mutation. Real event reconciliation and installed-phone receipt remain separate gates. Regression: validate-tennis-journeys.js and existing source-owner/reminder contracts.
+
+
+## Golf subsource observations and bounded result reuse — 3 October 2026
+
+The existing `scripts/update-cards.js` invocation owns one `golf-source-report.v1` file, correlated by a fresh invocation ID. PGA/Korn Ferry calendars, tee times and fields, LPGA calendar/pairings/entries/finals and attempted Presidents Cup scoring record coded observations with actual source-check dates and separate retained-fact dates. The existing canonical artifact (14-day retention) and bounded delivery exception readout carry this evidence; workflow success does not certify resource health or whole Golf coverage. Missing, malformed, future or unattempted evidence remains unknown. Reports omit page bodies, transport messages, credentials and URL queries.
+
+Known published LPGA fields survive failed or empty entry responses, preserving withdrawals and all prior participation facts. Unchanged participation/finals retain exact fact bytes and original dates; new checks live in the operational report. The explicit PGA tournament status must match tournament ID and season and be internally consistent. An official round cannot mark the tournament complete; field pages cannot create a final winner or retract a settled calendar result. Unknown status remains an exception rather than inferred progress.
+
+The Golf owner already checks at most four recent LPGA finals with the existing 15-second deadlines. A later quick step reuses that completed pass, including its failures, only in the same invocation and for at most six hours. Different, expired, future or malformed evidence cannot suppress a fresh ordinary check. There is no automatic retry, new provider, source endpoint, scheduler, credential, database writer, per-user request or owner routine. Full primary-calendar failures remain fatal before persistence; optional failures retain last-good data and remain visible. Existing quick partial-success/failure policy remains intact.
+
+Regression: `validate-golf-source-observations.js`, `validate-lpga-results.js`, `validate-canonical-source-readout.js`, `validate-tournament-hydration.js`, `validate-update-cards.js`, `validate-backend-efficiency.js`. The new source/readout cases run in the canonical and normal production gates. This is scoped operational reliability and status accuracy, not Golf certification.
+
+
+## Raw reviewed-provider identity survives regeneration — 3 October 2026
+
+The first credentialed canonical observation after the Rugby cutover exposed a release-gate failure: shared live projection normalized the provider record's `id` to its action key, losing the raw World Rugby key in the source snapshot. Source observations now retain a known World Rugby UUID key only when its existing reviewed equivalence resolves to the same canonical fixture; unknown UUIDs cannot move identity. Both full ingestion and shared live publication use this boundary. Consumers still normalize to the same reviewed action key, kickoff, five aliases and participant identities. Genuine primary observation dates survive.
+
+A one-record replay of the already observed source snapshot through `update-cards.js --coverage-live --live-coverage-snapshot=PATH --local-only` repairs persisted provenance without a new source call, database mutation, customer migration, reminder replay or scheduler. Temporary-file tests cover normalized incoming records, recovery of the canonicalized raw key, stable reruns and the full source owner. Keep the original published release assertion; do not weaken it. Regression: `validate-live-coverage-publication.js`, `validate-bledisloe-reviewed-identity.js --published`, `validate-rugby-reviewed-identity.js --published` and existing source/Follow parity checks.
+
+## Independent compact score observations — 3 October 2026
+
+The subsequent ordinary EPL check exposed a missing `resultSourceCheckedAt` exclusion in the existing fact hash: all 380 fixtures were unchanged, yet 50 result verification clocks advanced the whole-season revision. Treat that field as a verification clock while retaining it in payloads. Preserve result publication dates, outcomes, identities, scheduling, viewing and score correction detection. The hash transition can produce one new revision per affected source; require later ordinary unchanged checks before claiming production growth is stopped. Actual captured-final persistence regressions belong in the existing release gates. No schema, retention, scheduler, shell, deadline or owner routine changes.
+
+Existing fenced source owners write independently observed score/status dates, preserving the actual provider response clock and exact fixture aliases. Retained fixtures and omitted score fields do not acquire a new verification date. Whole newly observed score representations replace older conflicting displays; older/equal-clock contradictory facts and passive reopening of settled results are rejected. Newer settled adjudications remain possible. Legacy unknown clocks remain unknown until a genuine check; there is no invented timestamp backfill.
+
+The original fact-change dates stay in changed-only compact rows. Last genuine verification receipts use the existing source-health report; timestamp-only checks write neither compact tuples nor full snapshot history. Receipts are capped at 5,000 retained fixture IDs and 1 MiB per source and stripped before public source-health transfer. Normal visible-card reads remain two requests, each with its existing three-second deadline, and at most 60 selected IDs. API representation validators include actual independent verification clocks so a genuinely checked stationary score reaches clients; collection-only polls do not create that validator change. Unknown-score freshness never borrows a newer status or collection date.
+
+A representative 1,000-row local PGlite refresh/check costs under one second and retains an approximately 88 KiB receipt document; the optional 5,000-row ceiling benchmark remains separate from routine release tests. Local timing is not production latency. The canonical source workflow, live worker budget, source requests, privacy/Follow consent and notification scheduling remain unchanged. Release gates now retain actual splitter/SQL/read/handler integration and validator tests. Physical device and real corrected-match observations remain separate evidence.
+## Adaptive editorial - 2 October 2026
+One existing editorial heartbeat wakes daily at 09:00 Sydney, selecting due real-user-qualified previews in the next 14 days. Reuse canonical update-cards modes and the existing communications lease; no parallel ingestion, preference access, user polling, paid AI provider or sending connector. Latest real pre-match votes aggregate server-side in batches of 100 fixture aliases. Private revision-CAS state tracks checks, queued edits, holds, deferrals and verified publication separately. Unchanged research writes private check metadata only. Keep Friday's existing 4/5 weekend work, isolate card-local failures, and retain shared release gates. Detailed owner decisions: [adaptive editorial](adaptive-editorial.md).
+
+## Full preview publication integrity - 3 October 2026
+
+The quick results owner's existing publication boundary reconciles complete researched previews from the retained knowledge store after fixture/evidence assembly. This prevents older two-section calendar copy from overwriting full editorial. Only editorial fields change; sporting facts, genuine observation clocks, newer research, explicit locks, completed recaps and the protected men's NRL Grand Final retain their existing authority. There is no additional source fetch, per-user read, scheduler or database table.
+
+The existing post-release recording operation adds one shared static feed read to verify raw served Hook/Form/Storyline/Match Context against staged copy. It requires the serialized pipeline's READY production SHA proof and matching shell/feed/source revisions. Research artifacts cannot stand in for visible-card evidence. Card-local gaps retain staged copy and report errors without preventing independently verified publication records; shared release/control failures remain fatal. Regression: `validate-editorial-publication.js`, full-section narrative assertions and five-card desktop/mobile Chromium/WebKit rendering.
+
+## Follow favourites implementation — 3 October 2026
+
+Reuse deferred directories/profiles, account identities and existing sporting refresh coordination for favourites. No additional scheduler or source request per followed user. The owner explicitly authorises the three scoped production releases despite stalled release checks; retain each failed/waived result and verify SHA, READY, aliases, served bytes and rendering separately. The waiver does not establish that a check passed. Participant schedule decoupling and global Match Centre listing follow in releases 2/3.
+
+### 2026-10-03 — Release 2 participant schedule retrieval
+
+Participant schedules reuse /api/feed scope=athletes, bounded to 50 next appearances per page or one participant profile; no eager traversal of personalised Feed pages. Public POST preferences do not read private account state; authenticated cache keys retain account and participant identity. Reviewed organiser fixtures are published only through update-cards (including its scoped participant-schedules mode), then reused by catalogue, existing live scheduler and reminder dispatcher. Rebuilds preserve genuine checks. No new source scheduler, per-user sporting request or paid provider.
+
+### 2026-10-03 — Release 3 paginated shared membership
+
+GET /api/match-centre?membership=everything returns one bounded published-catalogue page (default 50, maximum 60), its overlaid score snapshots and explicit continuation. The public cache contains no account preferences. Existing authenticated/local-personalised Feed scope=match-centre supplies Followed, retaining account isolation. Both load a single page; users request more. Score reads use the same existing RPC, at most 60 IDs per request and three-second database deadlines; source owners/polling intervals, hidden pause and terminal observation reconciliation are unchanged. Inline expansion uses the existing optional rubber enrichment. Profile and detailed UI cache after use, keeping the shell below 3 MB. No new API function, cron, paid feed or per-user sporting source request.
+
+## EPL unreviewed source-status admission — 3 October 2026
+
+The shared EPL reader admits only the raw `C` and `U` status codes supported by the dated 380-fixture/50-result comparison. Missing or other codes fail before canonical/live cards can manufacture a fresh upcoming observation. Each received page, the complete collection and the direct card entrypoint enforce the same rule; an unsupported first page stops before the remaining requests. This is an admission boundary, not proof of live/non-playing code semantics or a new source mapping.
+
+The existing canonical failure path can still add validated delayed-backup finals to known fixtures; unavailable/conflicting backup responses preserve last-good facts and original clocks. The existing live owner records its failure without publishing a new snapshot or acquiring a backup path. A real unsupported live/non-playing code will therefore retain older facts until its meaning is verified and the adapter is extended. No scheduler, request, retry, timeout, database, shell, reminder or owner routine changes. Regression: existing `validate-football-schedule.js` source boundary tests, real live-owner failure preservation and all thirteen `validate-football-data-backup.js` integration scenarios, including degraded delayed-final recovery from an unsupported primary status.
+
+## Reviewed NRLW finals and retained MotoGP metadata — 3 October 2026
+
+Four individually reviewed official NRLW finals enter the existing canonical dataset and `update-cards.js` owner. Its scoped `--nrlw-finals` route makes no new source request, preserves unrelated raw identities and later verified facts, and keeps full enrichment/original clocks on unchanged reruns. The complete reviewed collection is validated before persistence. It does not claim full-season ingestion or extend Feed consent/history. Code coverage is partial. Regression: `validate-nrlw-reviewed-finals.js` through the existing requested-sports production gate.
+
+Calendar-only MotoGP merges preserve existing verified result status, completion boundary and source/score/status observation metadata alongside the podium. Reapplying Austria's existing reviewed classification cannot renew its fact clock. The current-card release gate remains intact: newly due AFLW, NBL and F1 results are reconciled through their existing scoped owners. No new provider, browser request, database mutation, scheduler, automatic retry, reminder replay or recurring owner routine. Regression: `validate-motogp-scoped-retention.js` uses both actual feed writers and retained finals.
+
+## Shanghai participation checkpoint — 4 October 2026 Sydney
+
+The 3 October dated organiser article confirms Sinner has withdrawn and explicitly names Alcaraz and Djokovic in the field. These reviewed journey facts preserve canonical identities and genuine check dates; de Minaur remains an expectation because this article does not confirm him. A source-labelled participation update appears in Sinner’s existing Follow profile. No match, clock, score, reminder, source permission or full-event coverage is inferred. The later owner-approved Follow favourites/Match Centre navigation remains authoritative. No migration, database change, new scheduler or source request per user. Regression: validate-tennis-journeys.js and validate-athletes-browser.js.
+
+
+## Skiing calendar integrity — 4 October 2026
+
+The four-record dated FIS calendar review runs through the existing cards owner, full and ordinary quick projection paths. It performs zero new provider/AI calls, adds no scheduler or migration, preflights both surfaces, preserves later sporting observations and unchanged review timestamps, and cannot derive notification clocks from venue dates. Existing budgets and one-owner scheduling remain. Regression: validate-skiing-calendar-review.js and normal production gates.
+
+## Retained reviewed tennis results — 5 October 2026 Sydney
+
+The existing participant-schedules route of `node scripts/update-cards.js` publishes three reviewed next pairings and independently dated result evidence for three retained matches. Completed-result admission requires a source receipt, canonical ordered participants, associated winner and oriented set scores. Both retained publication surfaces are parsed and validated before writes; retries retain observation dates and canonical actions, and stale upcoming reviews cannot reopen terminal fixtures. A draw result cannot renew the independently checked scheduling facts or invent a finish instant.
+
+The review is bounded manual source evidence; no automated ATP/WTA harvesting or new source adapter is enabled. Profiles, Feed, Events, Match Centre and reminder catalogue reuse the shared publication. Existing live-source owner, bounded refresh, permissions, account/erasure guards, and sole five-minute dispatcher remain. No new scheduler, database mutation/schema, per-user organiser request, paid feed, trial or supplier contact. Shanghai/Wuhan complete fresh permitted inputs and real app-closed phone proof remain open.
+# Cricket innings projection — 4 October 2026
+
+The existing retained-data `update-cards.js --code-projections --codes=cricket` owner preserves supplied innings alongside the already-owned score observation. Presentation cannot renew source dates, manufacture missing batting identities or replace absent scores with zero. Source calls, persistence ownership, cadence, retries, API/database budgets and deployed credentials remain unchanged. A small shared innings module uses the existing deferred-script owner and is cached for offline use. It loads when Cricket results are presented, adding no critical startup request, API call or owner routine. The unused legacy spoiler renderer is removed after a repository/reference scan found no callers; the unchanged critical-byte budget remains enforced. Required Code QA executes the actual-source regression, and normal shell/cache/release proof remains mandatory.
+
+## Additive retained Cricket series context — 5 October 2026
+
+One Node helper reconciles source-backed missing competition context at existing full/quick publication and Code/Schedule projection boundaries. The existing representative-context route preflights both persistent surfaces and replays without publication or projection when unchanged; all 2,455 tracked files remain byte-identical on the repeated actual invocation. Use only approved provider origins, exact identities/start and genuine retained observations; keep primary/status/score dates unchanged. Existing nonempty published competition context remains authoritative. No source request, scheduler, browser polling, retry, database/schema change, credential or owner routine is added. Regression and exact release proof: [Cricket series continuity](quality/cricket-series-continuity-2026-10-05.md).
+
+## Reviewed fourth-Test calendar projection — 5 October 2026
+
+One dated record and Node helper run through existing full/quick publication, Code/Schedule and representative-context preflight. Exact fixture/start/ordered teams bind the source; preserve later nonempty facts and separately observed calendar context. No provider check, browser module, API/database/schema, credentials, retry, scheduler, polling or owner routine. Unchanged actual canonical replay leaves all 2,461 tracked/new files byte-identical. Existing budgets and shell 440 remain. Required Code QA includes the real writer/merger and guards. [Release and limits](quality/cricket-fourth-test-completeness-2026-10-05.md).
+
+
+## Shared Feed tennis reconstruction cost — 5 October 2026
+
+The shared server Feed builder selects possible tennis children once using the exact sport classifier required by the existing matcher, after merging published contest inputs. Both projected and already present parents reuse that list. Tournament identity/date matching, participation/exclusions, personal consent, actions, retention, source clocks and response shape remain unchanged. Thirty-four complete old/new mixed-catalogue response comparisons pass across the three Football pilots, Feed/Match Centre/participant modes and both copy modes; the actual caller-boundary regression protects reconstruction cost without a flaky timing threshold.
+
+Three earlier public Football requests show material server computation; a local balanced comparison measures reduced CPU, not cloud latency or cash savings. No source request, snapshot cadence, browser module/cache epoch, API/schema, authentication, database writer, retry, scheduler, subscription or owner routine changes. `validate-server-feed.js` executes `validate-tennis-parent-prefilter.js` through its existing required gate. Preserve ordinary canonical and physical-device acceptance as separate outcomes. [Evidence and limits](quality/shared-feed-tennis-computation-2026-10-05.md).
+
+
+## Server Feed preserves published match phases — 5 October 2026
+
+Shared Feed normalization retains supplied status instead of replacing it with date-derived live/past labels. Missing status uses upcoming only before an exact future start and otherwise remains scheduled; a date-only window cannot create live play or completion. Existing timing presenters still qualify stale/future live observations as awaiting an update. Confirmed final/non-playing/interrupted facts, scores, IDs and source dates remain. The unchanged one-hour Match Centre completion window still requires a genuine completion/first-confirmed clock; normalization cannot re-admit an old final as unresolved play.
+
+This implements existing source authority and spoiler/admission rules, with no new product consent, source, refresh, browser shell, API schema, database write, scheduler, polling, reminder or purchase. The current caller regression covers all 86 retained Football pilot finals plus actual shared Feed/Match Centre composition and controlled phase/missing-observation cases; it accommodates later finals rather than hardcoding this count. Full-source, future live/non-playing and physical/rights/recovery/cohort acceptance stay separate. The independent multi-day retention issue remains queued. [Evidence and limits](quality/server-source-status-preservation-2026-10-05.md).
+
+
+## NBL final score observation and representation — 5 October 2026
+
+The existing NBL adapter supplies source-ordered home/away IDs, validated paired integer final scores and the final’s own observation date to the existing shared score display. The known-fixture patch rejects partial/tied pairs and source-side IDs that disagree with the retained fixture order before persistence. Preserve fixture/activity IDs and all other sports. A genuine correction advances its score observation; unchanged finals retain their original independent result/score date. A legacy scalar-to-pair transition may add explicit fields once, using that result’s original observation, and an unchanged rerun must be byte-stable. Never initialize a score from a table or collection check.
+
+No source provider, scheduler, browser polling, retry, API/schema migration, subscription or owner routine is added. Full/quick/scoped routes remain under scripts/update-cards.js. Regression extends the existing validate-nbl-standings.js caller gate: adapter→published-record patch→actual compact model, source order, invalid pairs, legacy transition, corrected/unchanged finals and separate reschedules. Sporting-source agreement, actual rendering/privacy, cache replacement and exact normal release proof remain distinct; whole-family, phone, viewing and ordinary-operation evidence stays open.
+
+## F1 result and schedule evidence boundaries — 5 October 2026
+
+The existing full/quick F1 result owner supplies an independent result observation. Unchanged validated full session tables retain their own original observation; legacy dates that predate the session are repaired only from the same retained table's valid observation. A calendar/venue annotation keeps its reference without replacing a completed F1 session's result source or check dates. Explicit reviewed-result updates remain available. Actual newly available official race rows are accepted through the existing known-fixture writer; no source calls, polling, retry policy, scheduler, credentials or owner routine are added. Regression: the existing F1 session gate exercises parser, pending recovery, unchanged/changed tables and real schedule/result merging. Broader source quality, championships, physical-device and whole-family certification remain separate.
+
+
+## Reviewed tennis final checkpoint — 6 October 2026 Sydney
+
+Reuse the retained individual-fact register and existing participant-schedules route of update-cards.js. Explicit retirement evidence records the retiring opponent and source marker; an unfinished set does not fabricate completion without that proof. Results/status checks remain independent of original schedule checks, terminal records cannot reopen, both persistent surfaces preflight before writes and unchanged replay retains bytes. The two Beijing finalists share one canonical fixture across profiles and surfaces. No source adapter, provider budget, scheduler, polling, API/schema, database mutation, migration, trial or purchase is added. Complete permitted Shanghai/Wuhan inputs, observed full-event reconciliation and actual installed-phone receipts remain unproven.
+
+
+## Profile match navigation owns pending focus — 6 October 2026 Sydney
+
+The existing pending-fixture focus boundary distinguishes the active profile-to-Feed history route. Its incomplete mount cannot start a fallback network request/dialog; the existing Feed redraw completes focus. Back/tab navigation cancels pending focus in the existing deferred profile route. Notification fallback remains unchanged for ordinary notification destinations. Reuse history, account/route guards and current redraw ownership: no new observer, interval, timer, API, source request, retry, database operation or scheduler. Normal fixed startup/precache budgets and browser upgrade gates remain required.
+
+
+## 6 October 2026 — shallow MLB postseason rescue
+
+The approved named ALDS repair adds one MLB StatsAPI schedule request (seven days behind, fourteen days ahead; fifteen-second deadline, no retry) to the existing canonical full/daily quick owner. Postseason fixtures only: known club IDs, observed state and paired score, official timing, source link and short context. Unassigned clubs remain reported gaps; conditional or TBC starts cannot create reminders. No rosters, per-user source requests, live polling, paid provider or new scheduler. Viewing is explicitly unconfirmed outside the two dated reviewed ESPN fixture windows. Existing atomic quick rollback and shared validation gates apply.
+
+## Shallow ranked golf appearances — 6 October 2026
+
+The approved repair programme retains men's OWGR top ten, women's Rolex top five and explicit follows. Compact basic identities and result history remain. Golf source parsing can validate a whole response transiently; persistence retains only selected entrants and their next two published groups with basic partner names. Completed/elapsed groups are removed from active detail without inventing a final. Existing tournament calendars, source observations, durable action IDs and confirmed results remain. A verified compressed archive and restore manifest precedes this first reduction.
+
+The existing `update-cards.js --golf-quality` retained-projection route applies one dated reviewed Baycurrent observation, rebuilds existing Golf/Follow/Events projections and publishes only known parent cards. Code owns exact group fixture IDs used by profiles and reminders. No new scheduler, poll, API, paid provider or database operation. Existing full PGA owner applies the same persistence scope. An available encrypted private Follow snapshot adds further explicit golfer IDs; unavailable snapshots retain the reviewed explicit cohort, never create consent or clear saved follows. Men rankings are labelled by check date because OWGR's latest API omits an effective publication date; women retain the official 5 October date. The existing full PGA owner checks these compact rankings at most weekly: one OWGR top-ten request and one Rolex ranking page, each at a 15-second deadline with no retry. Validate contiguous ranks, identities, published Rolex date and a 256 KiB bound before replacing either cohort; partial failure retains both. Raw birthdays and statistics are never persisted. No separate rank scheduler or per-player polling.
+
+## Tennis parent identity and shallow history — 6 October 2026
+
+The existing retained programme reconciliation owner includes the reviewed ATP Beijing calendar identity. Shared parents use explicit tournament IDs before family/date heuristics, keeping WTA Beijing and ATP Shanghai distinct. The deferred parent renderer reuses the existing cached contest request, exposes only published draw tabs and current followed matches, and retains Retry. A compact, context-only official Seoul title report attaches to the existing player journey document; it has no fabricated fixture, start or reminder. Source check dates are separate from calendar batch dates. No new scheduler, polling, per-player source request, database operation or critical startup request. The normal owner accepts `--tennis-quality` as an alias of retained programme reconciliation.
+
+## Football calendar, compact standings and native artwork — 6 October 2026
+
+Reuse retained Football Code fixtures/tables for chronological view selection and two-club card previews. The expanded card uses the mounted Football Code if available, otherwise one shared static-document promise cached for the current page; Results OFF requires no table fetch. It adds no API, source polling, retry loop, cadence, database change or scheduler. Manual Retry handles a failed static read; latest Results state and connected-card guards apply before display. The full table opens the existing Follow route and never creates sporting follows. The existing settings bundle owns updated vector credits. Current MotoGP linework is extracted byte-for-byte from official SVG paths for exact provider configuration UUIDs; no calendar/session observation changes. Native SVGs reduce the installed shell footprint.
+
+The existing canonical owner exposes `--shallow-directories` for retained roster projection without source refresh. Full source parsers stop persisting unused player background. The ordinary full/daily owners and budgets remain. Identities/current clubs/country/season numbers/headshots/source evidence and durable user state are preserved. Archives are gzip/SHA256 checked with byte-equal restores before pruning.
+
+Football match-context display retains the context's separate reviewed observation instead of requiring equality with the original unchanged fixture observation. Exact competition/season/kickoff and two-team identity still bind it; invalid or future context dates are rejected. Presentation labels its own date and cannot renew either source clock. No additional data fetch, refresh or scoring change. NBL retains its existing source-clock contract.
+
+
+## Japan Open Australian viewing — 6 October 2026
+
+The retained reviewed AU viewing window enriches Japan Open fixture, parent and Events projections through the existing canonical owner. A manually inspected named Tennis TV LIVE listing, corroborated by the beIN Australia Tokyo Final page, supplies a separately dated status observation. It cannot renew the official not-before schedule, fabricate a score or claim continuous live coverage. Existing thirty-minute live freshness applies. No new source adapter, source scheduler, polling, per-user organiser request, database write or subscription. Regression extends existing reviewed tennis and AU viewing contracts, plus actual Feed/Schedule/parent watch controls in Chromium and WebKit.
+
+## Reviewed final presentation preserves separate observations — 6 October 2026 Sydney
+
+The Beijing viewing repair uses the same bounded retained canonical publication path and reviewed AU resolver. Its named broadcaster live observation is independently dated and expires after the existing thirty-minute freshness bound. The writer accepts the existing official WTA match-page proof or this explicitly validated broadcaster proof; unknown kinds fail before writes. Tokyo completion uses a fresh official draw receipt with no invented finish clock or renewed schedule check. No additional polling, provider ingestion, database mutation, dispatcher or scheduler is added.
+
+
+## Automatic supported singles discovery — 7 October 2026 Sydney
+
+The owner approved automatic supported tennis coverage as the remaining repair, superseding the earlier individually reviewed-only discovery restriction for the editions below. The existing canonical full and quick owner now reads the free public ESPN ATP/WTA scoreboards at today and seven days ahead: four bounded requests per refresh, fifteen-second deadlines, no retries. Exact publisher edition IDs, catalogue identities and singles draw types restrict this first source pass to Beijing ATP/WTA, Tokyo ATP, Shanghai ATP and Wuhan WTA in the approved season. Other competitions, qualifying, doubles, unknown opponents and byes cannot create fixtures. Unavailable or invalid responses preserve last-good records and report the source gap. No paid feed, new scheduler, per-user source request or deep player/statistics store is introduced.
+
+Keep stable fixture/action aliases and original organiser schedule evidence when a publisher result arrives. Publisher planning clocks remain unresolved and cannot schedule reminders. Only explicitly reported play, suspended play and results establish those states; dates or tournament participation never do. Scores retain publisher side order and independent observation dates; unchanged finals retain their original result check. Existing effective-follow admission, final-only ATP/WTA250/500 exception, exclusions, dismissals, Results OFF and Remind OFF remain authoritative. Source links say ESPN rather than official. Shared live refresh and Match Centre current-membership integration remain a separate pass; this discovery release alone does not prove continuous live updates or every tennis edition.
+
+
+## Shared current tennis and Match Centre membership — 7 October 2026 Sydney
+
+The remaining owner-approved coverage repair reuses the existing protected shared refresh owner, two-worker deadline, leases and compact score store. Each current ATP/WTA source reads one of the same bounded free publisher scoreboards per due refresh, with a fifteen-second source deadline and no retry. During the supported Asian editions’ daytime checking window (00:00–17:00 UTC), check at most once per two minutes; otherwise reuse the existing near-start/live two-minute and quiet thirty-minute cadence. These windows schedule source checks only: they establish no sporting start, live state or reminder. Outside approved edition windows, the source makes no publisher request. Normal source failure backoff and last-good retention remain. No new tables, scheduler, paid provider, background browser source request or user-specific provider call.
+
+Seed the new live source with pending matches. Already published historical finals cannot acquire a new completion window merely by first insertion into the live store. Current results close pending or observed live records; unchanged compact final replays preserve their original observation dates. Daily canonical refresh still owns historical corrections. Type the per-fixture source observation so collection polls never re-date retained organiser schedules.
+
+Match Centre Everything now applies the existing shared cached snapshot before eligibility and pagination, then reads compact scores only for the selected known IDs in existing batches of sixty. This permits a source-announced current match that was absent or clockless at the daily checkpoint, independent of personal Feed consent. It reuses the existing thirty-second shared cache and the same two bounded store reads; it makes no provider call. Shared-store failure retains the published fallback with an explicit degraded-membership notice. Selected-ID score reads retain their existing budget and response shape. Feed admission, follows, explicit exclusions, Results OFF and Remind OFF remain unchanged.
+
+
+## Complete global current-fixture read — 7 October 2026 Sydney
+
+Production verification found an actual AFLW fixture absent from the unscoped snapshot but present through the selected-ID read. The tabular RPC was subject to the transport row ceiling, which could hide all later live sources. A service-only additive scalar JSON RPC now supplies the global read. It preserves the current seven Sydney calendar days and one-year forward timeline, including unknown dates and explicit unresolved live states, without deleting stored season history. More than 5,000 active rows is an explicit incomplete response; the reader retains its last-good snapshot rather than claiming success. Selected-ID reads remain on the original RPC, capped at sixty IDs.
+
+Keep the same health-plus-current two database reads, three-second read deadline and thirty-second coalesced cache. The additive function is security invoker, with no PUBLIC, anon or authenticated execute grant. It changes no table, writer, personal data, scheduler or provider request. This narrow migration is required by the observed production truncation and supersedes the earlier no-migration description of the remaining current-source pass. Database regression exercises the actual function with 1,203 active rows and a later source, old/future/unknown/live retention, explicit archived ID access, a 5,001-row incomplete result, last-good fallback and service-only access. Production proof must repeat the global-versus-selected fixture check.
+
+## Release maintenance before expiry — 8 October 2026
+
+The owner asked to repair the recurring football release blockers and deploy the pending tennis update. Full and daily quick canonical refresh now share directory maintenance when its genuine directory check reaches 30 days, ahead of the unchanged 45-day release limit. Verify all five approved club sets before writing; at most 101 existing free ESPN resources (five club lists plus 96 rosters), six roster workers, fifteen-second request deadline, five-minute invocation ceiling, no retry. Club identity/count drift or failed complete club checks retain the entire last-good directory and remain release failures. Independently unavailable roster responses keep their original records and source dates and report explicit deferrals under the existing independent-card maintenance rule. Successful roster observations have their own dated sources/response hashes. Absence retains the canonical person and saved Follow index, marks current roster membership unavailable and retains last-known club context; it cannot establish a transfer or a fixture. Previously recorded official/birthplace sources are never re-dated.
+
+Quick refresh also fills only missing EPL preview narratives in the existing rolling window plus one day's lead, using the retained researched club guide and genuine fixture/table observations. It adds no research fetch or AI call and preserves existing editorial, sporting facts and observation clocks. The existing quick atomic rollback covers directory/index, knowledge and both Feed surfaces. Both existing release gates remain required; the added maintenance contract tests current/no-fetch, failed/offline retention, unavailable membership, stable identities, unchanged official dates and repeat no-ops. No new scheduler, per-user request, database writer, subscription or consent change. The scoped `update-cards.js --release-maintenance` route provides reviewable recovery through the canonical owner; normal full/quick runs maintain the same data thereafter.
+
+### Late source completion after the existing startup deadline — 8 October 2026
+
+Hosted checks exposed a pre-existing race: the UI showed saved fixtures at its bounded deadline, then discarded completion even when the same source task later validated. Accept only the same loading/timed-out attempt after all existing task validators pass. Keep older-attempt, cancelled, invalid and failed-source guards; no retry, polling, provider read, browser deadline increase, persistence or scheduler is added. Genuine source outages retain the existing visible last-good state. Regression: validate-startup-late-recovery.js executes the actual caller and is required in canonical and production checks.
+## Reviewed Shanghai schedule enrichment — 9 October 2026 Sydney
+
+The existing participant-schedules route of `update-cards.js` enriches two published canonical matches from retained, manually reviewed complete organiser draw/order-of-play receipts. Djokovic–Hurkacz keeps its existing provider/action ID and receives its own official not-before instant; de Minaur–Molcan receives a verified schedule day/court and an explicit followed-by hold. Keep independent source/status/result clocks and source aliases. Receipt validation rejects wrong participant/court associations, future publication, provisional flags, wrong timezone and session-clock substitution. The existing sole five-minute dispatcher reconciles future eligible intent; no direct delivery, account setting change, database migration, new source adapter/scheduler, extra polling, retries or per-user organiser call is added. Browser/source evidence does not substitute for actual installed-phone arrival or complete permitted event coverage.
+
+An actual 9 October shared-snapshot read exposed an unresolved ESPN planning row replacing the source note of a separately verified organiser clock. The existing shared fixture merger now retains bound official-order-of-play scheduling fields and original provenance when a typed score-provider row supplies no clock. Score/status clocks remain independent; fresh play, cancellation, postponement and explicit timing uncertainty still hold reminders. A changed genuine clock invalidates the old schedule receipt rather than borrowing it. No extra database read, source request, polling owner, dispatcher or migration is introduced. Regression extends the existing reviewed-tennis contract and replays the real shared-row receipt against the production reminder catalogue.
+
+The existing Code and tournament projections preserve bound schedule receipts, court details, source labels and independent timing/status guards. This avoids a later slim surface losing the evidence before shared overlay/deduplication. Regression exercises actual projection functions and the full published reminder catalogue against the retained database row.
+
+## Public current-fixture coverage — 9 October 2026 Sydney
+
+The owner approved the Follow with confidence repairs and public Everything coverage. Everything no longer applies the personal Cricket MVP coverage gate; Feed, reminders and personal scopes retain that gate. The existing protected shared writer retains source-confirmed public fixtures rather than dropping them at that personal boundary.
+
+Add four bounded free reads through the same two-worker, 45-second shared refresh owner: one current NFL scoreboard using the existing validated parser, one current-day MLB schedule using the existing parser, and one current-season official MotoGP calendar containing all three classes, and one official Bathurst timetable in its retained edition week. Each has the existing owner deadline, no retry and existing failure backoff/last-good storage. Empty quiet-day responses are valid. No user-specific provider call, new scheduler, table, credential or paid source is added. Official session states establish live; elapsed timetable clocks do not. Historical finished sessions receive no invented completion clock.
+
+Below-500 tennis is hidden by the shared eligibility policy before membership/pagination. Edition decisions and frozen individual follows use the existing user-state CAS patch protocol. Ratings normalize aliases before their existing bounded batch, report missing IDs separately, and isolate optional profile read failures from fixture ratings. Source/coverage failures and physical-device proof remain explicit.
+
+The Bathurst reader uses one public official timetable request within seven days of its retained edition, at a minimum five-minute interval. Scheduled session windows cannot establish live play. UFC BJJ remains a documented source gap: the public promotional page and results articles do not expose an unambiguous current-play state or completion clock. No paywall or membership endpoint is used.
+
+## Shared read recovery and historical completion — 9 October 2026 Sydney
+
+Production Everything returned degraded empty membership although the protected owner had published fresh Cricket, NFL, MLB and Moto3 observations. The global bundle's nested projection sorted and expanded retained history before applying the active window. Its query took about 1.05 seconds and spilled roughly 44 MB of temporary data; its active transfer was 5.82 MB. Push the unchanged window, identity filter, ordering and 5,001-row incomplete sentinel ahead of observation projection. The service-only replacement RPC retains the same signature, response, two-query budget, three-second deadline, thirty-second cache and security-invoker access.
+
+The global shared transfer omits duplicated narrative copy and aggregate-parent draws. Sporting participants, appearances, source evidence, aliases, schedule/score/status facts and their independent clocks remain; compact Storyline priority metadata remains. Explicit selected-ID detail still returns full context and stored history is untouched. Regression exercises the actual SQL with more than 1,000 rows, large parents, team rubbers, observations, effective score-overlay dates, deterministic ordering, incomplete fallback and denied public access. Production checks compare the exact eligible identity set and repeat fresh public reads; they do not increase timeouts or add an owner.
+
+Completed seeds cannot create newly arrived historical results in the new public sources. Match Centre's recently-finished fallback uses the earliest known result publication, status-fact observation or first database confirmation; an independently verified actual completion takes precedence. Later verification receipts or database imports cannot renew the one-hour window. No elapsed timetable clock becomes a sporting completion or live state. Existing genuine fresh results and explicit completion times remain eligible.
+
+The final hosted check exposed the 30 September `cricket_coverage_v1` database trigger still enforcing personal Feed coverage on the shared current-fixture table. It silently skipped domestic fixture inserts; the subsequent compact-score foreign key then rolled back both complete Cricket source publications, including permitted fixtures. Remove only that shared-store trigger. Preserve the personal preference/action guards, fixture aliases, service-only RLS, source leases, normal failure backoff, score privacy and Feed/reminder eligibility. Regression installs the actual legacy guard, reproduces the FK rollback, applies the migration and verifies live Shield persistence plus unchanged personal exclusion and denied public table access. Verify recovery through the existing scheduled owner; no manual sporting-data insertion or separate refresh owner is introduced.
+
+The migration makes only the two affected failed sources due for one retry by their existing owner, without taking an active lease or resetting failure history. Normal cadence/backoff resumes afterwards. The owner recovered all three sourced Shield matches. Reviewed CA/ESPN team pairs with identical exact kickoffs group into one official Match Centre card; provider/action IDs and saved personal state are unchanged. A first imported result cannot claim recent completion when its known calendar window closed more than a day before that first observation. Explicit actual completion remains authoritative, multi-day bounds remain available, and no calendar creates live or completed status. These checks also exercise malformed/unknown dates, genuinely current multi-day finals and differing kickoffs.
+
+## Wuhan exact publisher name — 9 October 2026
+
+The existing approved ESPN WTA edition 381-2026 now recognises both exact reviewed names, Wuhan Open and Dongfeng Voyah Wuhan Open. The captured 9 October response and official WTA event identity corroborate the sponsored name. Keep exact publisher/tour/season/catalogue/draw checks; do not strip sponsors or fuzzily match other competitions. Unknown opponents still produce gaps, never fixtures. No source request, competition, timing, source-date, reminder, consent, retention, browser shell, API, database or scheduler policy changes.
+
+Regression extends the existing validate-tennis-scoreboard.js gate with the genuine name/TBD receipt, wrong-name/draw/edition controls and the actual four-resource owner caller. Complete saved WTA responses separately reconcile 93 Beijing fixtures and all 63 unassigned Wuhan draw slots, adding zero Wuhan fixtures. The full/quick canonical owner remains scripts/update-cards.js, four fifteen-second scoreboard calls without retry. This source correction does not prove whole-event coverage, permitted reuse or ordinary unattended publication. [Implementation evidence](quality/wuhan-source-name-2026-10-09.md).
+
+## Live-only Match Centre score reads — 9 October 2026
+
+A source-confirmed fixture can enter public Everything before the daily published catalogue includes it. Its subsequent visible-score request now includes the explicitly selected IDs in the existing service-owned compact-score read and retains only matching, supported returned fixtures. Published aliases, independent observation clocks, the active tennis threshold, unknown-ID behavior and published fallback remain. This repairs empty score polling for freshly announced matches without a full snapshot read, source/provider call, schema change, new refresh owner, timer or retry. The sixty-ID input and per-batch limit, three-second database deadline, hidden-page pause and browser polling cadence remain.
+
+The existing Match Centre regression verifies listing then polling a live-only fixture, sourced innings, aliases, unrelated returned rows, unknown IDs, failed reads, excluded ATP250 records, and sixty current fixtures through one compact-score query. The server repair changes no personal Follow, Feed, reminder or Results permission.
+
+## Degraded public membership recovery — 9 October 2026
+
+A partial published fallback must not replace known public fixtures or stay trusted for the normal five-minute membership cache. In Everything, retain same-account, same-view known fixtures during a degraded response, preserve their original source clocks, and let the existing shared live-window model expire them. Recheck degraded membership after thirty seconds through the existing fifteen-second visible timer; fresh membership retains its five-minute cache. Sub-tab returns retain the degraded cache age. No additional timer, source/provider read, refresh owner or change to score polling, hidden-page pause, personal follows or reminders.
+
+## Result completeness uses actual sporting instants — 9 October 2026
+
+The existing release check prefers a valid source UTC start and keeps an explicit end authoritative. Legacy Sydney clocks and final-day boundaries use the existing IANA-aware calendar converter rather than fixed UTC plus ten hours; invalid, missing spring-hour and repeated autumn-hour clocks do not establish unique deadlines. Existing durations, five-day Tests, Feed exclusions, tournament overviews, ticket watches, completed-state provenance and result requirements remain. A deadline cannot declare play or completion. The existing timing gate exercises the actual CLI with the frozen 9 October NBL card, both DST transitions, UTC precedence, final-day and explicit-end cases, plus all prior controls. No browser shell, API, source adapter, timer, refresh cadence, database operation, retry or purchase is added. A newly exposed missing MLB final is refreshed through the existing scoped canonical owner; unresolved FIA checks retain original verified facts and their warning.
+
+Shell470 versions the deferred Match Centre module and normal shell markers. Real Chromium/WebKit regression verifies fresh six fixtures, a degraded one-fixture response retaining six, unchanged source clocks, empty Followed, restored Everything, no immediate retry, and seven recovered fixtures with exactly three membership reads. The twelve existing responsive/theme/privacy cases and startup budgets remain.
+
+## Reuse fresh Match Centre membership observations — 9 October 2026
+
+Finish synchronous published-fallback construction before starting the existing bounded global membership read. The first hosted release caught intermittent degraded two-card fallback; an overlapping start is withdrawn conservatively so cold catalogue work cannot consume the database deadline. The initial SQL diagnostic could evaluate its RPC more than once. A corrected single materialized RPC returned the complete 2,136-row bundle within its 2.5-second limit; its payload was 5.94 MB. The exact cold-failure cause and all cold-opening speed remain unproven. Everything reuses the global SQL projection only when the shared snapshot is healthy and at most thirty seconds old, the matching fixture carries the typed observation contract, and both its status and displayed-score checks fall within the existing sport/restart freshness budget. Check the merged fixture as well as the source row. Missing, old, future, untyped or degraded observations retain the existing selected-score fallback; only uncovered page members enter it. Explicit selected-ID polling remains direct and bounded, including fixtures added after the daily catalogue checkpoint.
+
+No source call, scheduler, polling, retry, database migration, cache/deadline increase, browser asset or owner routine is added. Preserve the full published fallback, pagination, aliases, source clocks, zero scores, paused/final states, team rubbers and Results privacy. Fresh listing requires the existing two parallel membership queries rather than a duplicate serial score query. Actual SQL/store/handler regression compares its compact result with selected polling; the existing model gate now also runs once in normal production release. Controlled browser checks and hosted timing remain separate from physical-device acceptance or proof that every cold opening is fast.
+
+The normal release now includes at most two public read-only functional checks after deployment proof: healthy Everything membership and a bounded selected-score read for the displayed identities. Empty quiet windows are valid. A degraded saved list cannot pass this gate. No source refresh, customer read, retry or credential is added; cold-server and phone performance remain separate.
+
+## Match Centre read scope and database location — 9 October 2026
+
+A fresh public membership read took 5.86 seconds for twenty-four displayed fixtures. The shared database call projects 2,137 rows; one count-only materialized read took 1,844 ms, and the separate byte-count aggregate exceeded its 2.5-second statement budget. These observations identify excess work and a tight read budget, but do not independently prove the cause of every cold fallback. A read-only candidate retaining all non-upcoming/uncertain records withheld 1,271 safely distant schedules; its stored base-byte count fell from 3,073,696 to 1,185,696. Those are compressed database-column sizes, not measured transport bytes or cash savings.
+
+Add one service-only, security-invoker Match Centre bundle read. It preserves the existing global active window but excludes only scheduled/upcoming rows with valid explicit UTC starts beyond thirty-one minutes. Unknown/malformed/zone-free clocks and other states remain. The existing shared JS model still admits Starting soon at thirty minutes; the extra minute is only a response-time buffer and cannot establish play or a result. Include IDs and aliases of every currently eligible published card, even when its source correction moves it outside the window, so reschedules cannot leave a false upcoming card. Keep all 5,001-row incomplete, source observation, parent-copy compaction, deterministic ordering and denied public-access safeguards. Do not change stored fixtures or the existing full-year/global/selected readers.
+
+The same two parallel health-plus-membership queries, three-second transport deadlines, thirty-second cache and selected-score fallback remain. Cache keys separate the narrow scope and its protected membership IDs from full and selected reads; failed scopes retain only their own last-good data. No source request, scheduler, polling, retry, customer write, consent change, shell change or owner routine. Actual SQL regression covers a thousand future schedules, new live arrivals, corrected clocks, known-member reschedules, source-side zero scores, unknown states and clocks, incomplete responses, full-horizon retention and service-only access.
+
+The observed public API request ran in iad1 while the Supabase project is ap-southeast-2. Configure only api/feed.js, which owns this rewritten route and its related Supabase reads, to syd1 through its existing per-function deployment setting. Other functions retain their settings. The installed/pinned Vercel CLI 59.1.4 schema supports that field. The current official [region documentation](https://vercel.com/docs/functions/configuring-functions/region) supports a single region on Hobby and recommends placing functions near their data; no new subscription or failover region is added. Release acceptance must prove the configured function runs in Sydney, exact published deployment and actual public behaviour. Regional and query savings cannot be separated causally without controlled measurements, and physical-phone performance remains unproved.
+
+The initial scoped production helper failed the same 2.5-second statement gate and was not released into the application. Removing receipt extraction alone still cost 1,584 ms. A CASE guard now checks trustworthy distant upcoming clocks before repeated date extraction; uncertain clocks and protected corrections retain their previous treatment. The corrected production helper passed in 557 ms with 878 rows and 2,112,193 serialized bytes; all previously displayed, still-stored identities remained. These samples do not establish cold-phone latency or separate regional from query effects. Preserve both additive migrations because the first was already applied; neither changes sporting tables or writers. [Evidence and release status](quality/match-centre-read-budget-2026-10-09.md).
+## Participant calendar overlap — 9 October 2026
+
+The existing participant-profile projection admits sourced, confirmed date-only Golf context without changing ordinary favourites or general Feed admission. A shared overlap check retains a non-terminal multi-day record after its first day. Calendar context cannot create a sporting clock or reminder. Existing catalogue, personal/action filters, response-cache boundaries, queries, paging, deadlines, observation dates and source owners remain. No request, retry, polling, database write/migration, provider or scheduler is added. The actual Baycurrent parent and the twelve-month boundary pass the server projection; unconfirmed context, future source dates, dismissals and archive remain rejected.
+
+## Programme context and quality evidence — 9 October 2026
+
+Reuse the shared Follow/Feed policy to reject unconfirmed competition-stage calendars as individual fixtures. Source-confirmed exact clock and released-matchup recovery remains possible; Schedule keeps useful programme notes. The existing auditor gains explicit non-pilot carried-competition calendar declarations, individually reviewed IDs/links/dates/labels and minimum actual-match counts. Football pilots, source facts and all six certification gates remain. This changes no endpoint, database operation, refresh owner, cadence, timer, retry, deadline or source observation. Shell472 updates the compiled policy through the existing cache/release owner. Existing historical CHL source tests now start from the complete archived facts rather than mixing them with later actual finals; final-regression, stale/partial source and current-publication controls remain.
+
+## AFLW announced Grand Final day — 9 October 2026
+
+The existing canonical AFLW loader applies one explicitly reviewed official announcement only to the unique existing 2026 Grand Final with no primary clock/day. Keep primary fixture IDs, participants, results and original source/update dates; the announcement retains its own publication and observation timestamps. Its Friday-night description cannot produce an instant or a venue/time zone. Retain primary recovery, conflicts and terminal states without override. The scoped `update-cards.js --aflw-final-date` publication step projects that same reviewed fact through the canonical JSON, context bundle and existing AFLW Inspector/Schedule builder. It adds no source request, retry, poll, scheduler, database operation, service or owner routine. Normal refresh uses the same review; there is no parallel refresh owner or fabricated finals calendar.
+
+## Current-score reliability — 10 October 2026 Sydney
+
+Owner-approved change: unresolved source-confirmed contests remain in Match Centre's main stack with their last known scores until an explicit sporting correction closes them. Old or failed play observations say Awaiting update and cannot claim current live play. Source-confirmed Stumps and Rain delay retain their labels. Future or missing status observations cannot establish play; final membership still requires genuine completion and expires after one hour. Feed admission, exclusions, dismissals, Results OFF, Remind OFF and seven-day Feed results retention remain authoritative.
+
+Reuse the existing two-minute Supabase live-fixture scheduler, two workers, 45-second refresh deadline and 60-second scheduler HTTP timeout. No additional cron job or provider request path is introduced. Visible active Match Centre scores and membership check every two minutes; interrupted scores keep thirty minutes unless a sourced restart is near. Selected reads retain the sixty-ID and three-second database bounds, shared thirty-second server cache, hidden-view stop and manual cooldown. This is a freshness target, not a promise that a provider publishes on time. The independent five-minute reminder dispatcher remains owned by the reminder workstream.
+
+Healthy page omissions cannot establish a result. Degraded public and Followed membership retain known eligible fixtures; validate the whole reply before applying it. A disposable account/view/preference-scoped last-good cache supports reload recovery for seven days without renewing source clocks or admitting a newly excluded fixture. Network failure or omitted selected scores mark the saved play Awaiting update. Existing identity and navigation/account guards remain.
+
+Match Centre refreshes reuse the existing keyed viewport-continuity helper and restore the same focused fixture control when list reordering or a new sport rebuilds the surface. Expansion remains keyed by canonical identity. Continuity adds no source read or polling timer and stops stabilising when the user resumes interaction.
+
+Regressions: validate-match-centre.js, validate-find-your-sport.js, validate-hobby-feed-cache.js, validate-match-centre-browser.js and the shared observation/live API suites.
+
+
+## 10 October 2026 - current score surfaces (phase 2)
+
+Followed-first Match Centre, its approved Cricket catalogue, Feed/Schedule timing-button navigation and Today/Live Now placement use the existing membership and compact score reads. No scheduler, provider call, polling interval, database migration, deadline or budget changes. Expanded F1 Events reads its existing published Schedule chunk once per surface lifetime with a coalesced request and explicit retry after failure. Feed age transitions use its existing visible clock timer.
+
+## Reminder dispatcher read recovery — 10 October 2026 Sydney
+
+The existing cron-job.org five-minute reminder job was disabled after repeated HTTP 503 responses. A real authenticated test reproduced account reconciliation failing with `supabase_timeout`; the unchanged three-second REST read failed at 3,014 ms. The shared global bundle had grown to 3,303 retained rows and approximately 9.2 MB. A database diagnostic exceeded the transport deadline before network transfer. Earlier queue creation does not prove a send: the four Djokovic–Hurkacz installation rows had zero attempts and no provider-contact or dispatch timestamps.
+
+Two equivalent global-reader experiments did not reliably meet the three-second REST deadline and are retained as applied migration history. Restore the original global reader and add one service-only reminder bundle under the existing shared store. It retrieves nearby sourced clocks, every potentially automatic future knockout round, published candidates, nested sporting fixtures, positive saved intents and unsent installation decisions. A conservative round prefilter only bounds transfer; the existing shared JavaScript eligibility rule still determines automatic ON. Distant genuinely timed knockout fixtures are included immediately rather than deferred until a reminder window. Explicit manual requests bind their canonical/alias IDs into this same shared read. Keep cancelled, completed, postponed and cleared-time saved decisions for suppression and reconciliation. Strip duplicated parent draw/editorial content only; retain identity, participants, independent clocks, observation receipts and child fixtures. No account identifiers or installation details leave this service-only RPC.
+
+Keep the two parallel health/bundle reads, three-second transport budget, bounded account/schedule inventories, existing one transient retry and sole five-minute dispatcher. An unavailable, incomplete or wrongly bound reminder bundle fails closed without the generic store's legacy broad fallback. Exact/not-before reminder clocks must have an explicit timezone and valid calendar day: the differential regression exposed Date.parse accepting a no-zone instant, which is now rejected in the shared server/browser timing policy. No estimates become automatic timing.
+
+The actual SQL regression compares scoped and full account decisions, including distant rounds, manual aliases, OFF, disabled global auto, nested clocks, source overlays and terminal corrections. Original global JSON equivalence remains checked after restoration. Retain existing erasure, cancellation, source-failure and provider-admission safeguards. Verify real REST latency, an authenticated existing-job run, restored enabled status and an ordinary scheduled HTTP 200 separately; none establish physical-phone receipt. No new scheduler, retry loop, longer deadline, migration replay, operator customer-state repair or retrospective reminder replay is introduced. Save operational receipts in the Follow journey experiment's dated recovery folder.
+
+## 10 October 2026 - source details and provisional manual schedules
+
+Expanded score tables and provider duration use the existing snapshot payload. The shared overlay calculates approximate manual timing from retained official court-order evidence and existing preceding-match observations. A selected fixture request includes its bound session identities within its existing single sixty-ID batch; it returns only requested fixtures. Estimate changes participate in the validator, without advancing sporting observation clocks. A missing or unhealthy preceding source cannot establish a forecast. The existing scoped reminder read receives the bound session IDs with its other required identities, preserving the same two queries, three-second deadline, inventory/sentinel limits and sole five-minute dispatcher. No provider path, scheduler, polling timer, retry, budget increase or account backfill is added.
+
+One additive migration allows estimated precision only for manual rows, retains the installed canonical alias repair, service-only functions, cancellation/erasure/lease/receipt guards and bounded twenty-row schedule scan. Estimated automatic packets fail. Reconciliation carries precision when an unsent manual reminder changes or becomes confirmed. Provider-started and dispatched rows are excluded from schedule retiming. Older dispatcher packets without the new precision remain compatible. Apply only after rehearsal and the coordinated release handover; record production application and exact-SHA deployment separately.
+
+Release validation also repairs two source-result boundaries through the same canonical owner: an explicitly supplied Test format retains its five-day result window, and a source-confirmed tennis walkover publishes the named outcome without fabricated sets. Three dated Rugby/MotoGP results use the existing reviewed evidence registry and exact fixture identities. Required result completeness and current AFLW source checks remain in force; failed refresh candidates roll back atomically. No additional cron job or periodic source request is introduced.
+## 2026-10-11 — Live cadence and bounded Match Centre receipts
+
+The existing two-minute pg_cron tick could skip a healthy live source because its prior next_due_at was two minutes after publication, a few seconds after the next tick. Keep the actual two-minute minimum between source claims. For the existing 120000ms live interval only, derive the next due instant from the existing ninety-second fenced lease plus thirty seconds. Quiet publication intervals and failure backoff remain unchanged. Compact facts, history, receipt provenance and lease validation retain their existing behaviour.
+
+The same two-worker, forty-five-second owner may consider a source due within five seconds and wait until its database due instant plus a small scheduling margin before claiming. Skip when the remaining runtime cannot accommodate the wait and existing source runtime reserve. The SQL claim still enforces the source minimum; there is no early provider check, retry, third worker, new job or frequency/budget increase. A delayed scheduler or unhealthy source can still miss the freshness target. A two-minute source interval followed by the existing visible two-minute client interval is not a guaranteed two-minute end-to-end delivery bound.
+
+The existing Match Centre shared read materialises source observation receipts once per query, preserving every field, original observation, corrective identity, uncertain clock, near-window predicate and explicit completeness sentinel. It retains the same two reads and three-second deadlines. A failed read remains visibly degraded and no-store; the required public release health gate cannot be waived. Regression rehearsals compare the complete SQL response against the prior function, including overflow and source reschedules, and test the publisher through actual compact-score SQL with unchanged writes, quiet intervals, backoff, expired/wrong leases and service-only privileges. Production application and ordinary scheduler receipts are recorded separately from local rehearsal.
+
+The final hosted check also reproduced a selected-score alias that retained the canonical CA match identity but lost the specific scorecard when its provider metadata referred to the series. Resolve the verified canonical CA match ID before the provider-specific fixture field. This changes no sporting facts, fetch path or refresh budget. Model and two-engine browser regressions retain the match link through alias hydration, refresh and Results controls; shell478 versions the shared browser model.
+
+The captured selected-handler case retains canonical CA39990 alongside trusted-reporting metadata and an ESPN provider ID. The known official CA match-link identity remains valid across that broader source classification. Derive its official link/provenance from the verified canonical match identity, without changing any score/source observations or requests. The exact captured metadata is a model/browser regression fixture; shell479 versions this completed alias repair.
+
+## 11 October 2026 — pin the existing WRC season after official rollover
+
+Actual scheduled full refresh 38080828429 stopped because the official general calendar moved to 2027 and returned fifteen rounds. The existing source owner now requests the explicit `/en/calendar/wrc-2026` page for its existing 2026 contract. Its thirteen rounds still require separate official FIA withdrawal evidence; count, year and identity validation remain strict. The real default and season tables are retained as a dated regression fixture. Do not import the newly published2027 collection through this repair. The individually reviewed Monte-Carlo 2027 event remains the only future entry.
+
+A genuine current calendar check updates the calendar URL and observation receipt in the context and existing rallies. Retained standings and classified-result facts keep their original source dates. Missing or interrupted sources preserve the original complete context. Existing source deadlines, request count, retry policy, canonical owner and release gates remain unchanged; no scheduler, live refresh, database or notification change. The calendar-only canonical repair preserves all 1788 public event identities and existing results. The existing incoming-feed utility normalises 287 colon aliases; canonical identities and their public IDs stay intact. Shell 483 and its client runtime remain unchanged.
+
+Local and hosted rendering, immutable deployment proof, a recovered full manual owner run and a later ordinary scheduled publication are separate evidence. A manual success cannot establish unattended reliability. Record new source failures without extending deadlines or weakening required gates.
+
+The first scoped candidate620bda3a failed the unchanged release gate because its two lazy Follow directories retained the older generated source receipt. Add their existing scoped builder after the inspector, plus the complete directory consistency check, within `--wrc`. This is derived local computation only: no provider request, new refresh owner or directory membership decision. Existing participant IDs, ranks and standing-source dates remain unchanged. The release failure preserved the previous production deployment.
+
+The actual publication comparison reproduced loss of the reviewed Chile recap and incorrect date advancement from a calendar check. Preserve WRC final detail and existing score/status/publication observations only when canonical identity, official status, score, result URL and result observation are unchanged. New explicit final clocks bind to the original classified-result receipt. Changed identities/results/receipts use the incoming validated facts. Directory participant source dates bind to the actual retained FIA championship-table receipt, not a calendar or future-itinerary check. Restore only matching original fields from the pre-module baseline and run the existing canonical owner to verify persistence. No account-state change or new source observation is inferred.
+
+## 11 October 2026 — bounded full scorecards in the existing owners
+
+The approved deeper CA39990 scorecard uses at most one four-second public official detail request per eligible existing Cricket Australia owner refresh. Confirmed pauses use the existing thirty-minute quiet detail interval; the independently reviewed next session brings the normal two-minute detail interval back near play. Attempt timestamps enforce the interval on optional-detail failures while original successful detail/source clocks remain unchanged. An unchanged complete final needs no recurring detail fetch; a newly confirmed result is displayed even if optional detail fails. The source's completed match day selects its next reviewed session, and an elapsed restart never advances that day or creates Live.
+
+Normalized player tables and their independent detail receipt travel inside the existing compact score JSON. A backwards-compatible claim-function migration joins the existing Cricket compact rows into its returned previous fixtures within the same leased RPC; it adds no table, request, scheduler, polling timer or source retry. Actual compact publisher/claim/failure/republication rehearsals verify full-table retention, original detail clocks, lease fencing and service-only access. Failed-detail metadata remains separate from sporting score facts. New total-only observations preserve known complete innings detail, mark changed older detail stale, and cannot reopen source-confirmed Stumps without a verified detailed phase or actual innings progress.
+
+Baycurrent round scores add one bounded four-second official leaderboard read within the existing canonical PGA participation refresh. Tracked-scope projection and personal Follow filtering retain the existing participant boundary; failure preserves older rows with their source date and stale label. The scoped --golf-scorecards option belongs to scripts/update-cards.js and is not a separate scheduled path.
+
+The existing two-minute shared tick, two workers, forty-five-second owner deadline, five-minute reminder owner, selected-read budgets, hidden-page stop and source failure backoff remain. No paid provider or additional cron job is introduced. All detail UI/styles load on demand; initial request and compressed-byte budgets remain enforced. Source requests, local/browser proof, exact production deployment, ordinary scheduler receipts and physical-device delivery are separate evidence.
+
+
+## 11 October 2026 — approved racing detail pilot
+
+The approved racing programme reuses the existing two-minute live owner; active racing sources have a four-minute minimum. Bathurst uses one short Natsoft connection, closes on a complete meeting/session/26-car field, and rejects incomplete updates after four seconds without retry. Existing score JSON, leases, two workers, 45-second owner deadline, backoff and database read limits remain. Provider/check clocks are independent; the observed Natsoft numeric clock has no declared timezone and is preserved raw without a fabricated UTC observation. Clock changes alone cannot create fact revisions. Last complete timing survives failure; after eight minutes unresolved running timing says Awaiting update. A sourced red flag retains its explicit label. Chequered classification is provisional until an official result confirms it.
+
+Compact Feed/Match Centre membership omits full racing entries. Selected details=racing reads reuse the existing score endpoint and database path. Lazy shared tables show all entries, both endurance drivers and only sourced current drivers, with blank unavailable values; mounted rows retain stable car identities. Existing Follow admission, exclusions, Results OFF, manual choices and reminder dispatcher remain. No new cron, table, paid service or automatic follow.
+
+
+## 11 October 2026 — approved marquee races and verified racing fallback
+
+The approved horse catalogue adds twelve feature races only: nine published dates and three edition-date-pending Events entries. Melbourne Cup uses the complete Racing Australia weights roster with a separately reviewed, identical 71-horse VRC first-acceptance list; that label is conditional on full stable identity agreement and is not a final field. Unknown dates/clocks and field values remain unavailable. Calendar/advance maintenance stays in update-cards.js. The existing live owner checks at most two due horse races per pass, from one hour before a published start, with four-second collections, four-minute active cadence and quiet unresolved follow-up. Official results/cancellations stop checks. No new cron, table, paid service or automatic Follow/notification eligibility.
+
+Complete verified F1 classifications share the lazy table; public live remains disabled until actual-session validation. Other already catalogued racing sessions retain verified detail and an official timing/results link where a free complete tower is unvalidated. Compact membership excludes full entries and duplicate raw classification rows; selected details=racing reuses the score endpoint. Results OFF, Follow exclusions, stable fixture identities, two workers, 45-second deadline, backoff and reminder dispatcher remain. Acceptance evidence: docs/quality/racing-coverage-2026-10-11.md, validate-horse-racing.js, validate-racing-details.js and validate-racing-coverage-browser.js.
+
+## 11 October 2026 — Followed Match Centre uses the current-window read
+
+Bathurst was present with fresh source-confirmed timing in Everything, while Followed returned an empty degraded list after the full-season database read reached its existing three-second deadline. Both public and authenticated Followed membership now use the same existing Match Centre bundle as Everything. Preserve IDs and aliases of currently eligible published/saved fixtures so a source correction outside the current window still removes the old membership. Complete local selection before starting the remote deadline.
+
+This changes no sporting facts, Follow admission, dismissal/exclusion, Results or reminder choices. Ordinary Feed and participant reads retain their global scope; source scheduling, two database reads, three-second deadlines, last-good fallback, two workers and free cron budgets remain unchanged. The existing hobby-feed-cache release gate replays the actual caller failure for Supercars and inherited Motorsport followers, both authentication paths, source reschedules and dismissal.
+
+Hosted acceptance also exposed the second missing-card cause: the server normalization step converted the browser's enabled inherited Supercars domain to disabled under a selected Motorsport parent. Preserve that existing enabled domain for the already-approved Bathurst exception. Explicit disabled domains and competition exclusions remain authoritative, selectors stay unchanged, and other child domains keep their prior normalization. Regression uses the actual parent preference shape through both Feed callers, with excluded-domain/competition and no-new-Dakar controls. This adds no read, write, scheduler or runtime budget.
+
+## 11 October 2026 — bounded current Golf and cached presentation
+
+Use the existing two-minute live owner for the validated PGA leaderboard snapshot: one four-second attempt, no retry, a four-MiB body cap, exact edition/round and complete known field validation. Active play uses two minutes; source-confirmed daily pauses/unresolved follow-up use the existing thirty-minute quiet cadence, and a confirmed final stops provider reads. Preserve the last complete snapshot on failure. Keep two workers, the 45-second owner deadline, leases/backoff, the existing compact score JSON and shared readers; no cron job, table, paid service or notification change.
+
+The Feed selected-fixture response may update its same-account cache while another tab is visible, without rebuilding that tab. Existing 120-second selected reads, sixty-ID cap, thirty-second cooldown/cache and hidden-page pause remain. Idle UI preparation makes no score-provider/API request. Saved Feed readiness no longer waits for participant directories; those dependencies hydrate in the existing background path. Warm Feed nodes have a thirty-second account/consent/data-bound lifetime. Keep the eight critical requests, frozen gzip/precache gates and existing launch configuration.
+
+The selected Feed reader uses each mounted fixture's published source identity, including the existing MotoGP legacy alias, within the same sixty-ID cap. Future ordinary MotoGP snapshots retain their known canonical ID and published aliases while preserving the stored row ID and original completion observation. This repairs a missed lookup without a migration, extra read, refresh or scheduler.
+
+Hosted verification follow-up (11 October 2026): cross-provider cricket Feed cards select their already-published Cricket Australia alias for the existing selected-score read. This brings sourced match-day observations onto the canonical Feed card; it adds no ID per card, request, provider read or scheduler. Existing paused-phase and paused-day guards remain authoritative.
+
+## Two reviewed Wuhan pre-match pairings — 11 October 2026 Sydney
+
+The official current WTA draw and the complete existing scoreboard response agree on two changed, unplayed 2026 Wuhan Round of 64 pairings, fixtures 185344 and 185340. The existing reviewed-participant stage updates only these known former/current participants across both Feed files and the retained scoreboard, preflighting all three before writing. The shared canonical/live merge uses the same review only when a fresh incoming response corroborates its exact fixture, edition, round and new players. Review expiry precedes the main draw; a timed, playing, scored, unknown later pairing or newer contradictory observation cannot be remapped.
+
+Stable fixture/action identities, source/status/result and unknown scheduling clocks, viewing, original Remind OFF and later finals remain protected. An independent pairing observation records the review; old matchup copy is cleared. Four canonical resources, one live source request, existing deadlines, cadence and no retries remain unchanged. No scheduler, migration, browser credential, coverage expansion, purchase or owner routine is introduced. Actual private three-surface persistence, full captured four-resource replay, actual live-source invocation, participant routing, unchanged reruns and unsafe/future/stale controls pass. Fresh canonical publication, exact live proof and ordinary unattended operation remain separate evidence.
+
+
+## Ratings response application and event UI cache — 12 October 2026 Sydney
+
+The existing client batch reader applies accepted canonical values before their aliases and queues one display update for a changed or recovered state. Capture current snapshot pointers to prevent slower responses replacing newer data; account changes fence the complete response. Keep the same fifty-ID batch cap, request/cooldown/max-age rules, failure handling, two-minute live polling and existing source/auth/API ownership. No server or database write, retry, cadence, timer, provider, scheduler or subscription is added. Gated peer results stay gated across phase changes.
+
+The existing production job also runs the existing canonical client empty/mixed/alias regression. Follow Major Events reuses the exact Events/idle module URL rather than executing an older second URL. Calendar formatting stays in the existing bundled Australian-date owner. This uses the same eight critical requests and unchanged gzip/cache budgets. A shorter non-executable anchoring comment creates room; executable-token equivalence is recorded separately from intentional code repairs. Exact application bytes, upgrade/offline and hosted checks remain required.
+
+## Deadline-driven retained Shanghai publication — 13 October 2026
+
+Use the existing canonical `--participant-schedules` route to publish already-approved official clocks and results when a reminder deadline requires admission before the next natural daily run. No provider refresh, new scheduler, manual canonical workflow trigger, dispatcher/replay or customer choice change. The route retains existing shell-version/check, reviewed-result, Feed/spoiler and Follow policy gates. Fill only missing completed reviewed-result copy from bound names, verified winner and oriented score; preserve old copy, source dates, tiebreaks, finish uncertainty and all IDs. Keep manual admission separate from naturally persisted source/queue and unattended release proof. Byte-unchanged cached runtime remains shell 518; no upgrade or physical-phone proof is inferred.
+
+## EPL prediction cutover fence — 13 October 2026
+
+Preserve all original predictions and credits while bridging the two reviewed historical EPL namespaces. Existing result-only prediction updates need a narrow private trigger because the old alias trigger covers only INSERT or UPDATE OF event_id. Current service-only resolvers set and restore a transaction-local owner-version marker around their validated settlement loop; retained old bodies reject without settling, awarding or replaying. This marker is not authentication. Keep settled own/sibling outcomes immutable, except the existing null-only matched-peer detachment on Auth deletion. New guard grants remain private, with an empty search path; the seven existing function security settings stay exact. The guarded operator undo records post-trigger/security hashes and restores the original trigger set. No added source read, API query, timer, scheduler, subscription or routine owner task.
+
+
+## Profile match viewing lifetime — 14 October 2026 Sydney
+
+The profile-return controller owns an account-bound temporary viewed-fixture identity; the shared renderer reads its current already-loaded fixture rather than using the consumed focus request as admission. The cached-view key includes this identity, including legacy IDs. End the scope on navigation/history/account change and honour current removal/exclusion state. Add no source/provider read, API, persistence, timer, polling, scheduler or retry. Existing mounted-card selected reads and budgets remain unchanged; this repairs the intended visit without adding a follow, pin, new owner task or subscription. Real public guest reproduction and the actual controller/renderer/cache regressions distinguish source-data deployment from complete journey proof.
+
+## Match-specific publisher planning labels — 14 October 2026 Sydney
+
+The shared parser keeps a transient receipt of an explicitly displayed own-match time for reconciliation. The existing merger removes that transient field before publication. Only an unchanged, previously admitted estimate can retain its original planning receipt and awaiting-update state after its instant; first elapsed observations, changed elapsed clocks and explicit TBD do not qualify. The real live adapter regression exercises this through its existing single source request, without renewing the original admission or adding persistence, requests or scheduling.
+
+The existing bounded free ESPN tennis parser retains a separate planningTimeEvidence record only when that named source contest explicitly displays a time. Its TBD timestamp cannot qualify. Bound canonical identity, participants, publisher instant/URL and original checkedAt travel through the existing compact selected interface. Ordinary updates retract a changed/TBD estimate; no read/deadline/cadence/lease or provider request is added. Feed, profiles and Match Centre use the shared card-timing presentation; source clocks, official timing and Results/OFF controls are untouched. Original evidence dates remain explicit and estimates cannot create live state. The existing update-cards --participant-schedules path publishes individually reviewed Shanghai14October facts without new ingestion or customer mutation; Audit owns serialization, required gates and exact-SHA production. Publisher planning remains excluded from automatic/manual dispatch eligibility.
+
+## 14 October 2026 — cricket milestone detection and gated delivery
+
+The approved 13 October plan extends the existing Cricket Australia detail reader beyond its pilot. The existing two-minute source pass checks at most two due supported fixture details, each with a four-second deadline. One slot goes to the oldest check; the other favours milestone proximity with oldest-check tie breaking. Keep quiet cadence, optional-detail failure retention/backoff, two source workers and the 45-second owner deadline. No new sporting-data scheduler or provider service is added. Detection reads accepted projected server observations after successful publication and does not depend on an open browser. Off mode performs no detection persistence or additional dispatcher reads; retention still runs inside the existing inbox-maintenance RPC.
+
+Only confirmed active play with details verified within four minutes may produce an approaching alert. Revalidate before delivery; dismissal, passed thresholds, stale/contradictory details, pauses and completion suppress approaches. Source-backed batting windows are 80–99 for 100, with High also 40–49/180–199/280–299. Four wickets in the active innings says “one from five”. Chase rules need an explicit winning statement bound to the batting side: 1–30 remaining with at most four wickets left, or 31–60 with at most two. Limited overs also allows 1–30 from at most 30 balls; all limited-over triggers require known remaining balls and required rate at most 12/over. Missing/unsupported evidence never supplies a target or win probability. Recent achievements need two verified observations establishing a transition within five minutes; completed imports never create catch-up pushes.
+
+At most five reviewed record entries bind exact player, format, fixture, target, baseline evidence, review and expiry. The baseline excludes the current fixture, whose verified innings contributions are added once. Warn within 20 runs or one wicket. The initial watchlist is empty, so no unreviewed record is promoted into coverage.
+
+The existing five-minute dispatcher remains the sole push owner and retains its deadline. Service-only RLS state, moments, account receipts and installation claims use transactional uniqueness and account/fixture locks. Delivery is off by default; the environment selects off/shadow/live, and the database additionally requires separately recorded live-shadow and physical-device evidence before any automatic live claim. Batches inspect at most 20 active moments and 100 registered installation-owning accounts with unhandled moments; receipts allow later bounded passes to progress. Deadline and source expiry can still leave moments undelivered. Keep the existing erasure send-admission guard; revision/consent checks and the accepted source score hash fence pending sends. Provider-accepted or uncertain sends consume one account budget slot across devices. Confirmed temporary rejections permit at most three bounded attempts; ambiguous outcomes are not blindly retried.
+
+Push TTL is at most two minutes; the worker discards expired milestone payloads. Foreground suppression uses a bounded, device-local worker/client acknowledgement without polling presence. Existing selected-ID Match Centre reads supply exact/retained landings. Reuse the owner-scoped disposable membership cache for unavailable-source recovery, labelled explicitly, without Feed admission. New operational rows are removed after 30 days through the existing dispatcher and source owner; recipient-owned rows cascade on account erasure.
+
+Deferred controls and Match Centre compile through the existing canonical shell builder with the existing terser dependency. Preserve eight critical asset requests, the 1.25% compressed-growth gate and the three-MiB installed shell. The explicit, labelled milestone test reuses installation verification and erasure admission, waits eight seconds within its request, then sends a real-fixture test; it adds no scheduler and cannot establish live-innings detection proof. Scoped source commits are handed to Audit Sportscal architecture after its urgent timing release. GitHub, database, Vercel, browser and physical-phone evidence remain separate.
+
+Regressions: validate-milestone-source-budget, validate-milestone-alerts, validate-milestone-database (actual projection and new SQL), validate-milestone-dispatch, validate-milestone-worker, validate-milestone-test, existing notifications/erasure/live-owner/cache gates and Chromium/WebKit journeys.
+
+The 14 October tap repair adds a short-lived, device-local routing handoff, separate from server-owned moments and delivery receipts. It contains only the clicked same-origin fixture URL, a nonce and a two-minute handoff expiry; it is scoped to the opened WindowClient ID. The application requests it on startup, focus, controller change or return to visibility, then acknowledges acceptance. No timer polls presence or any backend. Serial worker operations keep acknowledgement from deleting a newer click; acknowledged and expired entries cannot replay. The handoff consumer loads outside the startup barrier and is included in the installed shell. This does not alter push expiry, detection, dispatch, source checks, recipient budgets, consent or account-erasure admission. Corrected iPhone evidence establishes delivery only; automatic alerts remain held. [Repair tests and limitations](quality/notification-landing-repair-2026-10-14.md).
+
+An explicit newer tap invalidates the older landing across all asynchronous boundaries and can begin its own bounded selected-fixture read. The older result or retained-cache hydration cannot mount or receipt after supersession. Promise identity preserves the newer loading state, including compatibility with a request begun before the deferred handoff consumer loads. These are user-driven reads using the existing deadlines; no automatic retry, poll, scheduler, dispatch or source-owner changes are added. The focused regression delta belongs to the same sole release lane.
+
+The subsequent 14 October physical screenshot verifies exact Match Centre routing but exposes centring of a tall expanded scorecard. Align its heading using the existing measured sticky-header helper and guard the deferred frame against account, view, navigation revision and target changes. A shared diagnostic fixture chooser is bundled into the existing deferred milestone asset, adding no asset request. It prefers explicitly confirmed active play with fresh source detail, never dates. The server’s fallback reads at most 20 current CA base fixtures, then hydrates those IDs through one existing score RPC before ranking; both retain their three-second deadlines. Base rows have their innings stripped by the compact publisher and cannot establish active detail on their own. A verified active client candidate supplies an explicit ID; other automatic choices defer to the bounded server discovery. Deliberate explicit retained IDs still use one selected read. Completed/paused fallback pushes are labelled as routing tests without a live-moment claim. No new endpoint, backend polling, source pass, push owner, schema or scheduler is introduced. Startup and installed-shell gates and Audit’s sole release ownership remain unchanged.
+
+## Sourced approximate automatic reminders — 14 October 2026 Sydney
+
+The owner replaces official-only automatic timing with server-validated publisher/court-order estimates. The same policy and bounded reminder inventory feed automatic/manual intents and unsent schedule reconciliation. Relax only the database precision/origin restriction; retain service-only grants, revision/claim locks, OFF/account-erasure checks and immutable provider/sent receipts. Keep original evidence dates and source failure holds, no new endpoint, source request, timer, retry or scheduler. The sole five-minute dispatcher labels approximate push timing explicitly. Audit owns the serialized migration/application release and exact-SHA deployment.
+
+
+## Multi-day Feed final-day display — 14 October 2026 Sydney
+
+Reuse the existing shared Feed timeline and lifecycle for one published multi-day card on its final date. Ordinary personalised Feed uses that display day before its existing bounded pagination. Profile and Match Centre ordering are unchanged. Original sporting instants and source observations remain intact; final-day midnight is only a local sort key, never a fixture or notification clock. The native Feed score updater preserves the same central full range on expansion/refresh.
+
+Source completedAt/firstConfirmedCompleteAt may supply an explicit validated sporting end for existing retention; an inferred endTimeUtc cannot shorten a valid published multi-day window. Preserve the seven-day Feed rule and existing saved/history constants. No new provider read, endpoint, schema, database/account change, source refresh, scheduler, retry, browser polling or dispatcher. Audit retains sole generated-output/publication ownership and strict performance/installed-update gates.
+
+
+
+## Ongoing multi-day Feed display — 14 October 2026 Sydney
+
+The owner's clarified display rule uses the existing shared timeline with the caller's Sydney reference date: ongoing published windows are grouped/paged with Today, completed ones with their original final day. The full-range timing presentation and original sporting/source clocks remain intact. No new read, provider, endpoint, database/account mutation, timer, polling, retry, scheduler, refresh or dispatcher. Profile/Match Centre and retention remain unchanged. Audit owns serialized normal required gates and exact-SHA publication.
+
+
+## 14 October 2026 — bounded official highlights discovery
+
+The existing protected refresh owns discovery-tennis-highlights with a thirty-minute due/minimum/retry interval, two bounded publisher requests at a time, a twenty-second source deadline, 256 KiB response caps, 256 retained candidate videos and at most 24 availability checks per pass. Current score work retains priority and the existing two workers, leases, backoff and forty-five-second owner deadline. Canonical full/quick updates include the same source/projection under update-cards.js; the scoped --highlights route is part of that owner. No additional cron, browser polling, customer enrichment routine or paid service is introduced.
+
+Public Atom/oEmbed is the no-key default. An optional server-only key enables upload fallback, batched availability/region checks and at most two historical searches per due pass. Persist known restrictions and the private cache across source failure; omit private candidate/check/cursor fields from public reports. Recheck stable links daily without replacing their first verification date or creating timestamp-only fixture revisions. Archived references page through the archive owner's service-only RPC without account identity; only changed media is written. Viewer archive hydration is a pure static fallback, with stored media and explicit null withdrawals authoritative.
+
+Source metadata cannot create fixtures or replace clocks, completion observations, scores, participants, source provenance or editorial. Existing sixty-ID readers, three-second database deadline, startup request/compression budgets, Follow consent and sole reminder dispatcher remain. Contract: docs/fixture-highlights.md. Regression: validate-fixture-highlights.js, validate-live-fixtures.js, validate-backend-efficiency.js, existing startup/performance gates and Chromium/WebKit installed/offline checks.
+
+
+## 14 October 2026 — separate reported played starts
+
+The existing canonical and live tennis scoreboard owner may preserve a publisher-reported post-match start only for a completed contest with played sets, explicit timeValid, a strict timezone-bearing startDate agreeing with that contest's date, bound identities and no walkover. Store raw actualStartTimeUtc and actualStartEvidence separately from scheduled/reminder clocks. Evidence identifies the publisher post-match field and the exact public JSON source; do not claim independent first serve. Keep first verification on unchanged facts. Source timestamps, parent calendars, durations and video publication cannot manufacture an actual start.
+
+Display rounding is five minutes only; it never changes raw facts, admission, scoring, reminders or delivery receipts. There is no new provider request, source adapter, scheduler or client polling owner. The existing startup budget remains fixed. The unchanged app-update and notification-inbox programs retain byte-identical source copies and use the existing formatter with full executable AST parity; required worker and browser checks cover their compact outputs. Critical request count remains eight.
+
+
+## 14 October 2026 — bounded highlights metadata lifetime
+
+The existing media refresh owner expires availability and full publisher metadata after thirty days unless the relevant provider check succeeds. Keep first verified provenance separate from successful availability and full metadata receipts. Failed passes, overall coverage health and partial oEmbed-only checks cannot renew full metadata. Withdraw expired retained links, prune candidate/negative metadata and apply the same bound during offline canonical projection and read-only presentation. Renewals must survive the unchanged-hash persistence path without altering original sporting clocks or revisions; transport may project only bound source-owned per-video receipts. No additional scheduler, browser write, polling or database migration. Canonical refresh performs no historical searches; the existing due owner caps its two-per-pass search at 96/day within the official separate 100-call daily bucket. See [source contract and policy limits](fixture-highlights.md).
+
+
+## 14 October 2026 — strict shared YouTube quota and published-input fallback
+
+Jack requires all-round men's/women's seven-day followed Tennis highlights under the API budget, with known world-ranking priority and an approved Search highlights backup. Retain the existing sole media source, two workers, 30-minute due/minimum/retry, 20-second source deadline, 45-second owner budget, complete scoped input and both three-second database deadlines. If current input fails, continue from already-published last-good fixtures and any returned last-good rows while retaining partial health, inputState: published-fallback and its sanitised failure code. This does not certify current-input recovery or newly source-only fixture coverage. No SQL candidate, new read, scheduler, migration or deadline/scope weakening.
+
+The private existing health report reserves API usage before issuing requests, including failed and aborted requests. Cap two searches per pass, 90 searches and 500 ordinary one-unit requests per Pacific calendar day, with daylight-saving resets and fail-closed malformed/regressed ledger handling. Canonical update-cards.js full/quick/scoped highlights remains public-feed/oEmbed only even when a key exists, preserving one shared API ledger owner. Private quota/attempt fields are stripped from public reports. Six-hour per-match/publisher search cooldowns allow lower-ranked targets to progress after known higher-ranked attempts. Search action generation performs no provider/API request and grants no sporting or personal-state authority. Regression: validate-tennis-highlights-seven-days.js through the existing highlights gate, actual card renderer, startup/performance, shared source/persistence and installed-update contracts.
+
+## 14 October 2026 — zero-request all-sport Feed highlights searches
+
+The later human approval extends recent Feed search generation across sports and uses the visible Watch highlights label with an explicit search tooltip. Generate the URL entirely from the existing card; no viewer-specific request, source adapter, database read/write, polling, scheduler, customer change or paid service is added. The Tennis direct-video adapter and sole shared Pacific-day API ledger retain the 90-search/500-ordinary daily caps, ranking priority, two-search/pass limit, deadlines and truthful published-fallback partial health. Direct verification remains distinct from a search URL. Regression joins the existing fixture-highlights gate and preserves startup/performance release limits.
+
+
+## 15 October 2026 — Feed guidance and Australian viewing repair
+
+Later Stan launch repair reuses the existing shared provider anchor and its immediate user gesture. Supported phone/tablet Stan marketing links resolve locally to its app-associated player; no installation probe, redirect API, timer, source request, provider discovery, backend state or scheduler is added. Preserve the ordinary fallback, existing rights/replay checks and exact player links. Native installed-app launch requires physical evidence; Audit retains the sole generated-output and exact-SHA release lane.
+
+Use the existing Subscriptions state and shared viewing resolver. About guidance stays in the deferred Settings bundle; source-provenance and the whole-catalogue rights audit stay outside the critical shell. Existing canonical update-cards --viewing-reconciliation owns retained-source projection across published codes. No new scheduler, paid service, source polling, browser timer, API, database schema, private state writer or notification routine. Preserve existing sporting/source observations and fixture identities. Audit alone integrates generated outputs and releases the exact validated main SHA; concurrent highlights changes retain their original owner. Functional viewing, About, preference reload, cache-upgrade and startup-budget regressions travel with the decision.
+
+## 15 October 2026 Sydney — deliberate automatic YouTube selection
+
+The human replaces the results chooser with the top YouTube video, regardless of reviewed publisher. Reuse the existing selected fixture route for a deliberate one-video lookup and canonical watch redirect; preserve the three-second source readers, complete Tennis input, twenty-second source budget, two searches/pass, ranked scheduled discovery and sole scheduler. A separate public metadata cache holds only fixture/query/video identifiers and a thirty-day receipt, never sporting/customer facts. This supersedes only the prior zero-viewer-request fallback. Selections younger than24hours are reused without YouTube quota; a deliberate refresh of an older selection can consume quota, while retained selections remain usable for missing-key/quota outcomes within30days. Uncached taps reserve from the SAME service-only atomic ninety-search/five-hundred-ordinary Pacific-day ledger as scheduled discovery. Scheduled searches stop at fifty within that same ninety total, leaving forty for deliberate first-time taps; fresh-cache hits use none. Adopt existing private usage conservatively, block an unbridged active legacy lease, and require the current exact lease token to bridge. Mirror every grant and repair regressed/prior-day copies at the canonical claim boundary before old code receives them. Conservatively reserve the bounded unpublished2search/8ordinary once for abandoned leases before token replacement; legacy usage can leave less than40remaining today. The unchanged original cadence/lease implementation is delegated in a private schema, without other-source deadline changes. Failed/aborted dispatches count. No client key, new scheduler, browser poll, sporting write, migration deadline weakening or quota reset. Failure produces availability feedback without a chooser. See fixture-highlights.md; source, handler, SQL and startup/browser gates remain required. Audit owns migration/publication/deployment.
+## 15 October 2026 Sydney — account-independent all-sport highlights selection
+
+The human expands reliable highlights to all users and existing follow possibilities, including every carried Football league. Reuse the deliberate-tap resolver, reviewed public channel feeds, batched metadata checks and existing shared cache. Official-channel discovery is server-only and bounded per fixture; it adds no fixture refresh, scheduler, polling, customer-state write, paid provider or API key exposure. Unknown/unreviewed publisher coverage uses the existing suitable general-result fallback rather than claiming an official source.
+
+Preserve the atomic Pacific-day 90-search/500-ordinary caps, 50 scheduled-search sublimit, two searches/pass, scheduled Tennis ranking priority, existing cadence and all route/database deadlines. Cached current-policy selections remain account-independent and spend zero repeat quota; a quota/key/provider outage retains only a still-eligible cached video. Policy-versioned context includes competition, participants, gender and session so changed identities cannot reuse an earlier weak match. No quota counters, source leases, grants, migrations or reservation authority change.
+
+
+## 15 October 2026 — staged participant-read relationship preparation
+
+The complete Tennis service read reproduces its unchanged three-second timeout. The earlier all-at-once setup exceeded its eight-second allowance and rolled back. Keep both limits. Move repeated identity, participant/key and same-side selection work into service-only private derived metadata maintained by the existing canonical SQL writers. Keep facts, observations, current sporting status, score values, date-window eligibility, projection, source leases/cadence, two parallel reads and degraded last-good behaviour in their existing owners. No provider, scheduler, browser call, customer write, paid service or owner routine.
+
+Install empty metadata and writer hooks in a short guarded transaction, leaving the original public reader byte-identical. Prepare the retained rows in bounded resumable source-locked batches; each batch uses the existing source-lock order and only derives relationships from current canonical rows. Activation refuses any missing/unsupported context or missing, wrong or unexpected fixture/source links, then replaces only the existing participant reader and removes the temporary preparation helper. Writers continue normal upkeep. Preserve the reader envelope, full source-group/transitive alias/same-side closure, 5,000/5,001 completeness sentinel, explicit null withdrawals, zero scores and original observation dates. Missing integrity reports incomplete with no rows, never a silently shortened success.
+
+The temporary service-only HTTP plan probe measured 1,679 ms in repeated relationship-integrity checks out of 2,624 ms database execution. It was removed after collecting that evidence. The additive part reader checks exact expected/actual fixture-token and source-token sets with one full join per relationship, retaining both missing and unexpected-link refusal plus the original canonical-context/version guard. No facts, scope, writers, freshness, caller grants or request limits change. Full captured participant/global output, corruption and SQL role tests are local evidence; cold complete HTTP acceptance remains required before application publication.
+
+Combining the scans still failed the unchanged HTTP deadline. Enforce the same exact source-scoped relationship checks when the existing canonical transaction commits. An atomic guarded installation first verifies all retained relationships. Private triggers mark changed canonical/context/token sources pending; one deferred constraint checks each changed source's final state, rejects an invalid transaction and clears only valid pending entries. Reads inside an unvalidated transaction remain incomplete. Ordinary service callers can read but cannot modify the pending set; its two private trigger functions use a fixed empty search path and definer permissions solely to maintain/enforce that set. They expose no public RPC or customer data. Other helpers remain invokers. There is no fact, freshness or eligibility cache, separate writer, timer, scheduler, refresh, paid service or owner routine. The legacy reader is unchanged; the additive part reader replaces repeated global audits with the protected pending check. Canonical source-lock ownership and all request/write limits remain. Actual service writes, invalid commit/rollback/repair, deletion cascades, permissions and full captured output must pass before guarded production application; cold HTTP and exact app deployment remain separate gates. Recovery must include these triggers and private dependencies.
+
+All private tables have RLS; invoker functions use an empty search path; anonymous/authenticated roles have no schema/function/table access. Guard the exact reviewed baseline reader before preparation and activation. A failed batch retains the old reader and completed preparation; do not weaken deadlines, narrow scope or claim delivery on local timing alone. Full captured-response equivalence, preparation/resumption, actual isolated writer/update/delete/corruption/permissions tests and independent review precede production acceptance. Recovery exports must include this private dependency, or rebuild it from canonical facts using the same staged preparation before accepting complete restored reads. Production application, service timing, ordinary refresh and deployment receipts remain separate evidence.
+
+The first indexed complete service probes still exceeded three seconds, despite the larger real guest player page returning fresh input. A bounded live plan identifies response projection as the remaining major work; refreshing private statistics did not resolve it. The shared pure observation projector now combines the small score/observation patch before merging it into an object fixture, instead of repeatedly copying the full fixture. Retain the original operation order for non-object inputs, all original time validation and first-completion semantics, signature, invoker attributes and service-only grants. Actual SQL comparisons cover all JSON categories and full captured response equality; only complete live reads inside the unchanged deadline can establish acceptance. No sporting field, freshness date, reader scope or release gate is weakened.
+
+## 15 October 2026 — direct-highlight checks and Stan shortform catalogue
+
+A saved direct YouTube receipt no longer bypasses the shared deliberate-tap resolver. Its video ID joins official candidates in a single ordinary-quota metadata batch; current-policy cache reuse remains free, and historical direct IDs cannot trigger a general search outside the approved recent Feed. Preserve 90 searches/500 ordinary requests per Pacific day, the 50 scheduled-search sublimit, two searches/pass, existing source cadence, three-second database and twenty-second route deadlines. No cache policy/hash reset is needed for previously eligible selections.
+
+Stan Football metadata joins the existing canonical highlights refresh, with no viewer provider lookup or new scheduler: eight reviewed public pages/thirteen explicitly advertised feeds, concurrency three, three-second requests, twenty-second monotonic work bound, one MiB bodies and 512 programme rows. Rapid Recaps and Highlights take precedence over the reviewed exact Premier League programme fallback; a shared programme link cannot guarantee shortform autoplay. Existing source seasons/date windows bind the catalogue; failure retains dated last-good rows without renewing their receipt. Full/quick/scoped projection uses existing publication paths for affected Football surfaces. No customer state, sporting facts, provider entitlements, database schema, paid service or extra YouTube allowance is introduced. Account-specific audit input and any quota-consuming verification remain with the sole release/DB/provider owner.
+
+When an existing metadata response explicitly rejects a requested cached selection, the same resolver revokes that fallback and conditionally deletes its exact fixture/query/video cache binding within the existing three-second request and twenty-second work limits. No extra provider request or scheduler is added; concurrent replacement video bindings and otherwise eligible outage fallback remain protected.
+
+
+## 15 October 2026 — bounded same-fixture highlights cache continuity
+
+For a deliberate recent completed-fixture lookup with an API key and no eligible current-context selection, the existing resolver may inspect one recent same-canonical-fixture row under a different valid hash. This optional service-only read has a three-second bound, a one-row limit and the existing 30-day selection/seven-day upload windows; it runs in parallel with existing official-feed discovery inside the unchanged twenty-second route deadline. Current warm hits do not make this read. Explicit media withdrawal prevents prior-row lookup, and read failure leaves ordinary discovery available. No broader fixture/source scan, archive admission, client payload, scheduler, schema, cadence or paid service is added.
+
+A retained row supplies a video ID only. Reuse requires the current metadata/fixture selector and existing ordinary quota reservation; unchecked old hashes never become outage fallback. Known, official and retained IDs share a metadata batch, whose existing scores preserve dedicated/reel preference. A best validated prior selection is written through the existing current-hash cache writer without resetting policy or counters. No additional search is introduced; a missing/rejected prior candidate retains the existing general-search path. This preserves the 90-search/500-ordinary global caps, 50 scheduled-search sublimit and single provider/release owner. Sporting/source facts, Follow, saved choices, private accounts and the held match reader are unchanged. Contract and acceptance: docs/plans/highlight-cache-continuity-2026-10-15.md.
+
+### 2026-10-15 — Reuse the canonical index for Match Centre context
+
+The existing near-window RPC retains its exact seeds, caller corrections, conservative uncertain-clock membership and transitive identity/same-side context. Its seed CTE carries IDs only. The existing private descriptors avoid decoding unrelated raw facts; indexed identity/side-token edges replace repeated broad comparisons, with the original exact array comparison after token lookup. Missing context or a transaction with pending integrity checks uses the original raw closure. No new index, writer, scheduler, provider request, subscription, deadline or query is added. Complete captured-response equality, real SQL fallback/collision/permissions tests and public membership acceptance remain separate release requirements.
+
+### 2026-10-15 — Complete-reader partition rehearsal rejected
+
+The unused complete RPC was rehearsed with complementary 3/8 and 5/8 response parts. Complete local equality and correctness passed, but fresh cloud run 38737339389 exceeded the unchanged three-second first-request deadline (headers 2,924 ms, body 3,004 ms). Migration 20261015125945 restores the exact prior definition, guarded before and after; current hash 9d5b59286828960e5b1371a8659b544d. Both applied migrations remain in history and the SQL bootstrap. The wider app reader remains off; the separate Match Centre repair remains live with hash d98d88497311a8d06a31556004df30a2. No retries, longer deadline, narrower facts, extra owner or fact-copy cache.
+
+## 16 October 2026 — reuse deliberate highlights lookups
+
+The user's exhausted-allowance repair extends the existing service-only media cache with a thirty-second fixture lease, thirty-minute unsuccessful-lookup retry and per-fixture daily reservation counters. Reserve through the unchanged atomic quota owner before dispatch and persist the retry guard in the same transaction; token-fenced completion and withdrawal preserve replacement owners. Revalidate an eligible saved video by ID instead of starting another search, and reuse metadata already fetched during the same request. Successful current-policy warm hits retain zero provider requests. Existing current-check rejection and last-good outage rules remain.
+
+A deliberate cold lookup may inspect at most fifty uploads from each of four reviewed official channel playlists, reserved from the existing ordinary bucket, before using general search. Current full metadata still establishes identity, actual upload, duration, language and Australian availability. This can work at90/90 searches without enlarging the allowance. Preserve90/500 global caps, scheduled50subset, two searches/pass, existing source cadence, three-second database/twenty-second route deadlines and one scheduler/publisher. No client polling, customer state or sporting fact changes. Additive migration precedes application; quota/cache-preserving rollback and permissions are tested. Production migration, normal exact-SHA release and bounded actual media proof remain with Audit. [Evidence, requirements and acceptance](quality/highlights-budget-2026-10-16.md).
+
+## 16 October 2026 — distinguish highlights text and audio language
+
+The shared metadata selector uses YouTube's defaultAudioLanguage to reject declared non-English audio. Its defaultLanguage field describes title/description text and cannot establish the spoken track; absent audio metadata remains unknown. Both deliberate lookup and the existing scheduled source use this same selector helper. The correction preserves the existing policy/hash, eligible positive cache, failed-lookup cooldowns, provider call counts, 90/500/50 limits, deadlines and sole release/DB owner. It does not certify that a real unresolved clip has English commentary. Primary field definitions: [YouTube video snippet](https://developers.google.com/youtube/data/reference/rest/v3/videos#snippet.defaultAudioLanguage). Deterministic cross-sport and resolver regressions use injected metadata and spend no production quota.
+
+
+### 2026-10-16 — Shared effective calculated clock
+
+The approved useful-starts phase resolves valid court-order model midpoints to the nearest quarter-hour through the shared card-timing helper. Both automatic and manual reminder policy use that same effective instant, after the existing evidence/participant/freshness/window checks. Store the unrounded model evidence unchanged. Explicit publisher times and official exact/not-before clocks are not rounded. Existing unsent schedule reconciliation retimes the same canonical installation row; OFF and delivery-started/dispatched receipts remain protected. No new fetch, refresh, account mutation, migration, scheduler, retry, worker, deadline or public endpoint is introduced.
+
+World Cup automatic collection remains source-gated: the retained NRL match page supplies an individually reviewed result, not unattended reuse permission. Until a permitted free live input is established, the new three-card World Cup adapter is disabled/unimplemented; domestic NRL ownership remains unchanged.
+
+
+## Canonical result projection preserves structural evidence — 16 October 2026
+
+A validated result source can update score/status attribution without replacing the original source URLs behind an unchanged published schedule category. Canonical normalisation retains an existing valid, unexpired `published-schedule.v1` tag for that same category. Invalid or expired tags remain excluded; a newly derived category still uses current evidence. This is metadata preservation, not new sporting authority, admission, source polling or a renewed check date. Both accepted-result writers, canonical normalisation and unchanged reruns are regressed through the existing result-provenance gate; the actual scoped canonical publication must preserve unrelated facts and original evidence.
+## 16 October 2026 — exact public-publisher highlights link
+
+The user's actual AUS–NZ link follow-up reuses the existing shared pure highlights contract with one source-reviewed officialRLWC destination. Exact current fixture/context and dated shortform evidence gate it. A direct native publisher-page navigation requires zero app resolver, search, metadata or database calls. Preserve the generic YouTube route,90/500/50 ledger, all cadence/deadlines, source owners and public/player access controls. No new scheduler, player, media proxy, source refresh, schema or customer state. Root retains generated-runtime, shell and exact-SHA publication ownership. [Evidence and limits](quality/aus-nz-playable-highlights-2026-10-16.md).
+### 2026-10-16 — Bounded private Impact feedback owner
+
+The approved stakes-to-Impact phase extends the accepted contribution transaction with durable private qualification latches, using only retained genuine submission/history evidence for backfill. Private service-only/RLS outbox, account/day/kind ledger and per-installation claims reuse the existing erasure barrier and Auth cascades. The original public rating API is unchanged. The first confirmed completion/result receipt is retained; later source checks cannot renew admission. Unchecked/older observations do not replace last-good proof. Missing IDs advance only the internal inventory clock so they cannot starve later work.
+
+The existing sole five-minute dispatcher retains its27 second deadline, two workers and time-critical-reminder priority. New work selects at most20 accounts/60 shared IDs per tick, with20 pending identities plus40 rotating watches, and two claims. Retain the100-ID upper input safety fence. Reuse the already-loaded shared catalogue before one existing missing-ID selected read; no whole catalogue per recipient, organiser request, extra call, scheduler, extra retry loop or source/customer-state repair. The NSC refresh returns an additive internal receipt of actually returned identities; a partial, failed or stale input cannot turn unchecked static/display fallback into a new Impact check. Oversized missing selections fail before the shared60-ID store can truncate them. Bounded rotation preserves pending rows and original source dates. Budget exhaustion defers work. Atomic claims, a separate provider-start receipt and the existing send-erasure lease protect concurrent/uncertain sends. Only proven rejection can retry, at most three attempts. The unique ledger separates a day's single immediate request from its additional 10 am digest. Existing followed-person rating alerts remain separate. Operational batch/delivery/request cleanup is bounded under this same owner after90 days; durable qualification and first-confirmation records persist.
+
+The private inbox type and authenticated interface gain a scoped Impact list, with fresh shared Feed/fixture validation before opening and no customer writes. Startup routing waits for normal successful hydration; the UI is optional outside the critical boot barrier and cached for installed/offline use. Source, migration, erasure, performance, notification and both-engine gates follow [the contract](plans/impact-feedback-2026-10-16.md); Audit alone applies schema and publishes/deploys the exact checked main snapshot.
+
+Claims and provider admission require the batch's actual Sydney delivery day. A wholly unstarted old immediate returns to its originally scheduled next-morning digest without changing expiry; started, sent or uncertain batches never return. This prevents a pre-midnight reservation from bypassing the following day's immediate allowance. The SQL gate exercises a claim held across midnight, one new-day immediate and the old request's single morning digest.
+
+Before claiming Impact delivery, reserve one existing three-second claim window plus five three-second windows for provider admission, the existing erasure lease, provider contact and the two receipts, with250ms remaining. Recheck the five-step reserve before provider admission. Lower remaining budget leaves the request queued instead of creating a provider-start receipt. This changes no timeout, worker count or retry rule; timed reminders remain first. The dispatch regression runs the actual existing budget/send wrapper against bounded delayed transport and verifies both no-start deferral and a complete reserved send.
+
+### 2026-10-16 — Reviewed result calendar correction
+
+Credentialed incremental acceptance rejected the retained Shi Han–Leylah Fernandez result because ESPN's played start crosses Sydney midnight into15 October. Replay the captured match through the existing tennis parser and bind this single reviewed calendar correction by source hash, explicit aliases and ordered participants. Preserve the original result payload and every result observation timestamp. A publisher start cannot replace an organiser-confirmed clock; unexplained date shifts and conflicting identities, starts or evidence still reject. The existing canonical reviewed-fixture projection applies the correction, and the existing incremental/full owners retain all current-result and release gates. This adds no source request, scheduler, refresh entrypoint, public schema or database operation. Terminal failures retain the inner script, fixture and sanitised cause through the outer wrapper, including safe GitHub job/step links.
+
+
+## 17 October 2026 — bound snapshot selection work without reducing facts
+
+The near-window Match Centre reader calculates the same selection scalars once per read before filtering. The participant reader materialises its original five integrity keysets and raw-fact calendar scalars once, then loads full fixture records at final projection. Preserve statement clocks, explicit null overrides, uncertain-clock admission, identity/context closure, original observation dates and the 5,000/5,001 completeness sentinel. No new persistent fact cache, source, scheduler, caller, planner setting or transport deadline is introduced; the existing three-second read deadline and single publisher remain.
+
+Guard both exact prior definitions and null-safe/effective service-only permissions before accepting the migration. Keep global and selected readers unchanged. A degraded membership response must fail public release verification with the snapshot diagnosis before healthy-only timing assertions; it never emits healthy proof. The actual-SQL regression is part of the normal production gate. Installed SQL timing, repeated complete fresh HTTP reads, security headers, served bytes and hosted coverage remain separate publisher acceptance evidence; source review and a single successful read are insufficient. Original saved-card/playback evidence can carry only across exact unchanged UI/caller inputs and never overrides a failed normal release gate.
+
+The first scalar-only repair passed normal workflow38985021841 but its second fresh HTTP round still crossed3seconds; retain that failed observation. A second guarded near-reader change keeps only keys through candidate ordering/limit, then loads complete facts by parameterised primary key. Completion fields decode once only when the unchanged completed-status/first-completion predicate needs them. All six raw marks, explicit score-null overrides, source/current existence, multiplicity, context closure and observations remain exact. No persistent descriptors or planner settings are added.99actual-SQL checks and independent Spec/Standards review precede publication; repeated complete fresh HTTP acceptance remains mandatory. The minor repeated boolean guard is retained beside both dependent expressions; policy changes must update both and their regression cases. Normal green deployment alone is insufficient.
+
+## 17 October 2026 — approved interactive loading allowance
+
+The user explicitly approved “Yes — five seconds with loading feedback” in the existing snapshot investigation (message01a14755-ff42-74a0-bfb8-abb6db6a4b7f). This supersedes the three-second limit only for shared Match Centre membership and participant/profile reads initiated through their existing interactive handlers. The five seconds cover the complete parallel source-health/fixture pair, parsing, projection and any existing compatibility fallback, using one monotonic remaining budget and cancellation signal. It is not five seconds per request or retry. Global, selected-score, background and reminder reads retain three seconds; trusted server branches choose the allowance, and cache/in-flight keys separate these policies.
+
+Show immediate accessible indeterminate loading feedback outside busy content, respect reduced motion and retain visible last-good scores and dates. The allowance describes shared data loading, not the whole route's catalogue preparation or guaranteed end-to-end response time. No retry, hidden stale membership, narrowed facts, extra source, scheduler, service or publisher is authorised. Earlier three-second failures remain failed. Acceptance requires the normal full release/security gates plus four fresh complete HTTP rounds, including participant and selected reads, with at least one second of measured snapshot headroom under the new five-second allowance. A single successful retry cannot establish reliability; physical iPhone loading remains separate evidence.
+
+Direct Match Centre opening, existing idle preparation and the installed cache must bind the same deferred UI URL. Different query versions execute the private module twice and reset the selected view, expansion and refresh owner. The browser regression deliberately opens first and releases idle preparation later; the shell binding gate checks both callers. Retain the same preparation owner and optional startup boundary rather than add another loader or state store.
+
+## 17 October 2026 — keep Feed work from delaying another request
+
+Normal563workflow38991228496 passed, but its required fresh acceptance stopped in round2: a participant read recorded16,943ms despite its5second budget while a concurrent ordinary Feed logged10,289ms of eligibility work. Local actual-route reproduction with700controlled saved actions (339,144bytes, below the existing512KiB account cap) reproduced a delayed snapshot deadline and stale profile. Retain this failed release evidence; one green workflow is insufficient.
+
+The shared action-identity owner can prepare an invocation-local alias resolver for the server's immutable migrated actions. Preserve original matched-key order, newest timestamp/stable-key/later-index ties, first matching purge and direct-action precedence. The same server request prepares first semantic saved-fixture matches once, preserving lazy first-match/error ordering for malformed history. Mutable browser callers retain the existing dynamic resolver; no shared account cache is introduced. Confirmed participants without exclusions reuse that invocation's existing expanded follows; genuine exclusions still use the full original inheritance calculation.
+
+The existing resolver and Feed builder each retain one policy implementation, consumed synchronously by current tools and in16-row batches by the API. The API awaits both stages; yielding between batches lets another request's ready database responses and existing deadline callbacks run. No worker, new request, retry, source, schedule, persistent fact copy, customer write or deadline increase. Inputs remain immutable across yields; original facts, order, IDs, saved choices, privacy, admission and clocks must agree completely. Actual full-catalogue/saved-history differential tests, concurrent-account isolation, actual profile/ordinary-Feed interplay, normal release and repeated complete HTTP acceptance remain required.
+
+## 19 October 2026 — preserve failed-body diagnosis and last-good responses
+
+The existing shared sync client must not turn an unreadable successful JSON body into an empty valid response. Reject it before the response-cache callback; cancellation still reaches the existing whole-response deadline/caller cancellation path. Non-JSON HTTP error pages retain existing HTTP/auth handling. Preserve last-good Feed payload/ETag, account/epoch fences and in-flight cleanup without an automatic retry, longer timeout, relaxed schema or customer write. The exact body behind the recovery browser's unsupported-schema report is unavailable; this reproducible client fault does not establish that incident's cause or repair the separate global snapshot timeout. Source review and affected offline checks are complete; generated-shell/cache/browser and normal release proof remain pending. [Scope and retained evidence](quality/server-response-continuity-2026-10-19.md).
+
+## Additive global JSON representation — 19 October 2026
+
+The existing ordinary unselected global snapshot may use the additive service-only JSON reader while keeping the original JSONB reader and all selected, near, participant and reminder definitions intact. Exact reviewed source/projector fingerprints, any-overload absence and service-only grants guard installation. Preserve all membership, ordering,5000/5001 completeness limits, facts, observations, content hashes, two parallel reads and existing3s/5s deadlines. Missing or corrupt global JSON results remain visibly unavailable rather than claiming healthy membership through legacy fallback. The existing reminder adapter intercepts either global name and still uses its required-ID scoped reader; no new scheduler/retry is added.
+
+Actual unmodified JSONB aggregation was slow, and an intermediate aggregate-once JSONB candidate was rejected after8054.525ms. A distinct JSON-only inner query completed in1594.769ms for4437rows; that single feasibility result is not reliability proof. Both independent source reviews passed; local complete-output/edge/ACL/store-hash tests passed. The cloud whole-output equality query hit its15s diagnostic limit. A revised read-only check compared every complete projected row:4437rows, all JSON/JSONB representations equal, unique order keys, complete membership. Original function definitions and grants remain verified unchanged after additive installation; normalCI and repeated fresh public/API acceptance remain mandatory. No source, account, data or observation writes, deadline increases, cache staleness concealment or paid upgrade. Evidence: global-json-wire-acceptance and reviews/json-wire-* in the dated release-resume output.
+
+
+## Match interruptions and deferred Inbox startup — 19 October 2026
+
+The approved interruption module shares one pure presentation rule across Feed, Schedule and Match Centre. Source-confirmed interruptions remain separate from stale observations, ordinary intervals and Test stumps. Preserve last verified scores across repeated scoreless resumption receipts, without inventing a reason or a restart time. The existing live owner uses a ten-minute due interval for unexpected interruptions; sport-specific callbacks, leases, worker limits, provider deadlines and scheduler ownership remain unchanged. Regression coverage is `validate-match-interruptions`, the existing timing/paused-status checks and their controlled browser journeys.
+
+Load the unchanged Inbox module once through the existing idle/first-tap loader after the main screen is ready. Keep the bell available immediately, share concurrent loads and fence a queued opening against every account change, including a change away and back. A failed load leaves a visible message and permits only a deliberate user retry. Retain the exact required service-worker cache entry, offline first opening, existing request factory, read batching and polling policy. The fixed startup budget remains unchanged. Regressions are the actual-module `validate-inbox-loading` and `validate-inbox-browser`, plus the normal generated-shell, startup and installed-upgrade gates. No new service, database operation, polling owner or scheduler is introduced.
+
+
+## One-row global JSON transport — 19 October 2026
+
+The additive service-only `nothingsports_read_current_fixture_bundle_json_rows(text[])` returns exactly one JSON envelope through the existing global reader. Strictly unwrap a one-element array only on the unselected global path. Missing, corrupt, empty or multi-row envelopes fail closed; selected, near and participant routes remain unchanged. The reminder adapter wraps only this new route after its existing required-ID-scoped result. Preserve the existing two parallel resources, three-second global/five-second interactive deadlines, membership limits, original observations, hashes, retries and scheduler ownership. All seven existing function definitions and permissions remain unchanged.
+
+Both source reviews and the narrow deadline-mock follow-up are CLEAR. Actual guarded installation is migration `20261019023712`; repository filename and validator path align with that ledger without changing SQL bytes or reapplying it. The new function is stable, invoker, empty search path, service-only and ROWS 1. One actual service RPC returned 4,437 unique rows in 2,830.1 ms, and a separate same-statement SQL comparison found exact text equality with the original JSON reader. These do not establish repeated public reliability or source freshness. The existing nearby-match timeout remains a separate open path.
+
+Integration also updates the existing SQL rehearsal's old cancellation expectation to the approved terminal-hour behaviour: a real source correction replaces starting-soon state with cancellation, retains its original status fact time and expires after that original hour even when read again. No sporting or observation clocks are changed to make the test pass. Existing deadline, real partial-body, malformed-envelope, SQL equality and permission regressions remain required.
+
+## 19 October 2026 — observe the existing account lifecycle
+
+The persistent top-bar indicator reads only a non-secret owner/expiry/generation snapshot from the existing custom auth client. It does not refresh or authenticate that snapshot. Existing account-change, persistent-storage and foreground/online/offline events update presentation; no account poll, auth request, SDK, new session store, refresh owner, retry or deadline is added. Session-only tabs and their reloads retain their own temporary identity when another persistent owner changes. Late deliberate Auth responses cannot replace a newer session lifetime. Existing server authentication and permissions remain authoritative.
+
+Load model, presentation and the app adapter as one optional deferred asset after interactive startup or an intentional Account tap. Root owns its generated bytes, version and required installed/offline cache entry; eager startup/request/cache budgets remain unchanged. UI callbacks resolve only for the matching completed Account hydration and cancel on close/failure/replacement. No Follow, reminder, scheduler, source or database change belongs to this indicator slice. Regression: actual mounted local account/loader transitions and actual-client lifecycle tests, separate from the frozen component checks and later normal release gates.
+
+## 19 October 2026 — preserve accepted profile provenance and reuse picture navigation
+
+Keep one ephemeral owner/generation receipt beside the existing accepted viewer, set only after its current-account checks and cleared with that viewer. Deferred presentation consumes that receipt without a new profile copy, poll, auth refresh or persistent cache. Avatar navigation reuses the existing Account form/native file input/upload owner under its user gesture; no automatic upload, queued account-crossing chooser, scheduler, provider/DB query, retry or deadline increase. Existing startup/request/cache budgets remain mandatory.
+
+## 20 October 2026 — reuse the authenticated viewer read without a sports dependency
+
+The existing Nothingscore GET accepts viewer=1 through the same request factory and unchanged deadline. The handler uses its existing server-verified account user and owner-profile/persona projection, denies anonymous access, preserves private no-store responses and reports unavailable profile/persona reads. It does not load a sporting snapshot, require an event ID, create a profile or change permissions. The existing frontend viewer owner coalesces the current account/epoch request and retains a finite error; no render-driven retry, poll, new auth/profile store or scheduler. This is a necessary read of the existing profile, replacing the event-dependent bootstrap. Source-only handler/SDK/async tests remain separate from generated shell, installed upgrade, actual hosted and physical-device evidence. Original global snapshot failures and all current release gates remain unchanged.
+
+## 20 October 2026 — keep Settings-only summaries beside their existing deferred menu
+
+The Account and fantasy summary formatters have one authored caller in the existing optional Settings menu. Keep their unchanged synchronous formatting and the menu-only item/navigation helpers beside that caller and read current state when rendering, rather than ship them in initial HTML or capture early metadata. Remove only the confirmed uncalled pilot summary formatter; retain the actual product-measurement screen. This is a source relocation through the existing optional loader and generated bundle, with no new request, profile/auth owner, listener or store. Validate the actual mounted menu through a held load and later state changes, then use actual regenerated files and unchanged startup/cache gates in release proof. Account/profile/bootstrap, native chooser and legal-document fallbacks retain their owners.
+
+
+## 20 October 2026 — resolve an official score address without an activity cutover
+
+The Second Test's observed official CA39991 row is separately keyed from its published ESPN1525660 identity. Keep the fixed reviewed score-read address in the existing Node selected-score handler, its sole consumer, rather than ship a browser helper or change the global canonical alias table. Replace the reviewed ESPN storage address in the existing RPC ID list (evt_88 still addresses all observed discovery rows), retain its existing batch count and 3-second deadline, and use the established exact-contest overlay. No additional target round trip, global snapshot fallback, poll, refreshed clock, account read or database write. Ratings/chat/saved identities remain unchanged; a future private identity consolidation still requires the separate durable-reference proof. The finite observed-row regression must filter by the actual stored keys so it cannot succeed by returning an unrequested official row.
+
+## 19 October 2026 Sydney — Australian Championship retained source boundary
+
+Australian Championship enters through the existing canonical owner only: `node scripts/update-cards.js --australian-championship --capture=<retained-directory> --local-only -p`. This exact route rejects missing local-only/capture, mixed modes, duplicate arguments, inherited REFRESH_REPORT, invalid factual fields or original observation dates and incomplete Inspector peers before writes. It projects the allowlisted factual snapshot extracted offline from the eleven retained responses and rebuilds only Football directory/Inspector/Follow companions. It performs no transport, account/database read, live refresh, scheduler change, global overview/chat-registry build, shell/version operation or publication.
+
+The six existing approved Football directory sources keep their existing budgets and cadence. Maintenance preserves the Championship clubs, source rows and original clocks as explicitly retained-only evidence; it must not add a seventh network source or renew these clocks. Fixture response timestamps, fixture update times and capture receipt times remain separate. Public access and the spent eleven-GET capture window confer no unattended-ingestion or retry allocation.
+
+Client admission reuses the existing followed-schedule loader, cache/coalescing and Feed rebuild owner. An explicit Championship competition preference selects the existing Football schedule code; no parallel league loader, eager asset or poller is introduced. The one conditional in the shared identity helper is assembled by the release owner and tested in an output-only preview first. Existing personalised state, retention and source deadlines remain unchanged. [Local evidence](quality/australian-championship-retained-2026-10-20.md).
+
+
+## 20 October2026 — retained builder peers and one schedule-selection scan
+
+The Championship-only local route retains the exact pre-existing Football Inspector/Schedule/standings rows, not a re-normalisation of unrelated peers. Shared complete code inventory, canonical schedule-path binding, missing-peer fail-closed behavior and all existing negative regressions remain. The actual writer regression captures its outputs without touching disk and preserves opaque peer fields. The two presentational Derby tags remain derived by the existing573 renderer; empty viewing representation stays exact. Explicit enabled competition choices are collected once in the existing followed-schedule selector, and known competition mappings use one shared pass. No new browser request/loader/store, implicit follow, source collection or timeout. Keep startup seven requests under431441gzip bytes, offline/cache/installed and normal release gates.
+
+## 20 October2026 — shared selected score addresses and declared retained projections
+
+The ordinary selected Feed reader now needs the same reviewed Second Test storage address as Match Centre. This supersedes the earlier sole-consumer placement: keep one fixed resolver in the existing Node live-fixture owner and call it from both handlers. Replace in place, deduplicate without exceeding sixty IDs, preserve the existing health/selected RPC count and three-second deadlines, exact contest checks, public/private identities and original observation clocks. A filtered-store regression must exercise the actual Feed handler; no provider, global fallback or new poll is introduced.
+
+The existing canonical owner accepts strict declared retained scopes through `--retained-coverage --codes=football,netball --capture=<retained-Championship-directory> --local-only -p`. Football uses only the reviewed capture; Netball projects four already-retained Constellation Cup records. Reuse complete inventory/path/peer validation, preserve unrelated Football rows exactly and skip global overview/chat/shell/release operations. Reject mixed, duplicate, unknown or malformed modes before writes. The legacy strict Championship route remains supported. Retained clocks, unknown Diamonds kickoffs and source gaps are unchanged; this is no refresh allocation.
+
+Feed and racing-details consumers must request the same Match Centre model URL held in the required installed cache. Use its existing566 model/score owners; version only the changed loader/details URLs with574. Test actual old requested keys, old empty Netball and populated Football schedules across installed upgrade and offline reopen. This demonstrated source/cache mismatch is not proof of the user's phone bytes or flashing cause.
+
+One separately allocated exact-SHA workflow may verify the existing ESPN-only public Feed read once, only when that run's successful selected Match Centre response includes the target. The normal dispatcher remains the sole publisher; absent target means NOT_EXERCISED, default future releases make no extra request. Preserve the five-second whole-read deadline, existing three-second backend budgets and all Match Centre/security/global gates. Claim before transport, never retry, retain safe target facts separately, and compare views only at matching fact observations. A failed global gate remains failed even if the selected Feed proof succeeds.
+
+## 20 October2026 — reuse the completed editorial candidate collection
+
+The local canonical regression exposed an editorial child timeout at its unchanged30-second deadline. Its main command created a fresh combined incoming/published array for every major child, defeating the existing shared WeakMap index. Prepare that ordered candidate array once after both Feed projections, and reuse it only within this invocation. Preserve primary/retained precedence, all actual lookup logic, four outputs, sporting/editorial observation dates and every timeout. The regression executes the actual command with isolated inputs and compares each result with the existing fresh-array reader; a real retained-input differential compares all four output files byte for byte. This is publishing/check efficiency, not proof of Vercel runtime CPU, the global snapshot cause or phone responsiveness. It does not change the separate refresh-wrapper ENOBUFS ownership or run a production refresh.
+
+## 20 October2026 — retain the existing failed global read receipt
+
+Keep the first failed global read's bounded owned diagnostic beside its existing typed failure and last-good wrapper. The existing global stale response and verifier may carry the same allowlisted read-span receipt. Two parallel resources, original3s/5s budgets, completeness, coalescing, TTL, errors and sporting clocks remain unchanged. A read-span token identifies an underlying shared operation, not an HTTP caller; pending legs remain incomplete. Never copy error messages, SQL, paths, fixture/account IDs or credentials. Frozen errors and invalid metadata retain honest generic failure. No request, retry, scheduler, migration or latency-fix claim belongs to this diagnostic slice. [Contract and actual failed574 evidence](quality/global-snapshot-failure-receipts-2026-10-20.md).
+
+
+## 20 October2026 — preserve the used public Schedule index across shell activation
+
+An installed574→575 offline rehearsal demonstrated that deleting obsolete shell caches could lose the only used Schedule manifest, despite a successful online journey. Before claiming clients, retain only `/data/code-inspector/manifest.json` from the newest older numeric shell cache when the current cache lacks it. Keep current data, existing network-first reads, sporting clocks, optional install behavior and obsolete-cache deletion. No new download, store, private source, executable or subscription. The real activate-handler regression must reject loss/current overwrite or copying unrelated data; native installed/offline checks remain mandatory.
+
+## Cricket editorial policy — 20 October 2026
+
+The existing daily editorial owner may research eligible active cricket fixtures,
+using the same real-signal/request qualification, holds and source allocation.
+Per due fixture the ceiling is two searches and six article reads including retries,
+one draft, one separate review and one correction. See
+[cricket editorial policy](cricket-editorial-policy.md). There is no new scheduler,
+provider ingestion path, model API, client network request or database endpoint.
+The first revised sample requires explicit user approval before publication.
+
+## Approved Cricket editorial integration and raw evidence boundary — 20 October 2026
+
+The recorded direct sample-structure approval permits the new policy; dated samples remain regression evidence, not fresh reporting. The actual research writer requires distinct nonempty string draft/review pass IDs, with exact copy/evidence binding. Non-Cricket synopsis minimums remain 20. Existing daily owner, 5/2/1-day preview cadence, twelve research units, source limits, private controls, holds and notification policy remain.
+
+The raw `data/editorial-knowledge.v1.json` and `data/editorial-fixture-research.v1.json` are server sources, not public downloads. Add them to the existing pre-upload seal and internal-artifact denial; keep exact required Feed/calendar server copies with explicit build inclusion. The normal release verifier consumes the same six-source list. Constructed build tests preserve eleven exact function copies and reject a missing research consumer before any static removal. No new runtime request, database/source refresh, scheduler or provider/model call is introduced. Actual cloud build/hosted denial and shared global freshness remain separate release requirements.
+
+Two genuinely uncalled inline helpers (`buildFollowContext`, `feedFilterCandidateEntities`) are removed after whole tracked-repository reference checks; active Follow, filters, cards and sporting data remain unchanged. Current merged startup retains seven requests and its existing compressed-byte cap. This is local source preparation until exact-SHA release acceptance, not a claim of measured phone/hosting savings.
+
+
+## 21 October2026 — bounded global scalar input compaction
+
+For the existing global JSON scalar, materialise the identical ordered5001 candidate keys before loading projected fields. Extract each selected source's receipt map once and finish the existing compact projection before ordered aggregation. Keep both original text-key JSON operators so malformed array maps cannot index numeric fixture IDs. Guard the reviewed scalar/wrapper/projector/time-helper preimages and exact service-only ACL. No selected/near/reminder reader, observation timestamp, timeout, work_mem, request, retry, scheduler, role or sporting admission rule changes. Actual-reader whole SQL equality, corruption-negative and ACL tests are required; local temporary-work savings are not production acceptance. See [evidence and gates](quality/global-snapshot-compact-inputs-2026-10-21.md).
+
+
+## 21 October 2026 — one aggregation owner on the existing global RPC
+
+The unchanged global SETOF-json RPC owns its aggregation directly; the existing scalar JSON signature is a compatibility delegate. This removes PostgreSQL 17's extra scalar-result tuplestore without a second query implementation, new endpoint, function, request, scheduler, memory setting or altered public value. This supersedes earlier scalar-only body preservation for these two existing global functions only; their types/defaults/attributes/service-only rights and every other reader/helper remain exact. Keep guarded preimages/replay refusal and complete whole-output equality. The normal PostgreSQL 18 suite remains; the same actual reader also runs on a pinned dev-only PostgreSQL 17 runtime with a meaningful wide-result work-copy regression and old-caller negative control. No timing threshold replaces public release proof. [Evidence and remaining gates](quality/global-snapshot-row-owner-2026-10-21.md).
+
+
+## 21 October 2026 — compute the unchanged compact base with its canonical row
+
+The existing private current-fixture row may carry a stored generated global_fixture equal to its existing compact base. Derive it only from fixture with immutable JSON operations; store no admission flag, wall clock, score overlay or renewed observation. The existing canonical insert/update owner computes it atomically, with no separate cache invalidation, writer, scheduler, endpoint, function or helper-attribute change. The existing global row RPC may use it for base admission fields/clocks and its compact output; explicit selections retain the original full fixture. Fresh score and receipt joins remain at read time. Original fixture/identity/hash/timestamp columns, all writer functions, other readers, service-only RLS and the two-resource/three-second budgets stay exact. Require storage/lock qualification, guarded one-time DDL, actual canonical-writer reschedule and stale-manual-copy negative control, whole-value equivalence and unchanged public release gates. [Evidence and capacity](quality/global-snapshot-stored-projection-2026-10-21.md).
+
+## 21 October 2026 — avoid spooling the already-stored compact projection twice
+
+The existing global row reader may inline only its final projected CTE now that the compact base is stored. Keep its ordered aggregate, every value/join, all narrow input fences, original clocks, full selected payload and overflow semantics. Preserve every other function, attribute, generated expression, writer, right and existing timeout/memory/request budget. Require a guarded E9 preimage, full PG17/18 equality and a real PG17 RPC-frame temporary-work regression whose restoration of the materialised reader fails. Local work reduction never replaces repeated fresh public acceptance. [Evidence and remaining gates](quality/global-snapshot-projection-spool-2026-10-21.md).
+
+## 21 October 2026 — share the existing canonical calendar-selection index
+
+The existing global row RPC may reuse the five calendar fields and explicit score-presence flags already maintained by the private fixture-context owner. Use only supported object-shaped descriptors while no integrity validation is pending; otherwise retain the same raw-field fallback. Store no admission result or new fact/check clock. Keep every returned field, NULL/empty/alias/overflow rule, explicit-ID path, read-time overlay, original clock, writer, helper, trigger, privilege and request/deadline/memory budget. Guard current public definitions plus existing private helper/trigger/schema/table contracts. Require actual canonical-writer/score updates, missing-index commit refusal, real canonical base/score maintenance, missing/incomplete/pending fallback and corruption-negative whole-value tests on PG17/18. Repeated fresh public acceptance and the full normal release remain mandatory. [Measured diagnosis and gates](quality/global-snapshot-calendar-index-2026-10-21.md).
+
+This reuse follows full current agreement of all 7492 descriptor rows in two bounded read-only halves. Existing deferred integrity checks descriptor presence/shape and identity links; it does not promise rejection of arbitrary privileged calendar-value edits. Keep that limitation explicit, exact canonical hooks enabled and the deliberate stale-value negative. The separate generated-column prototype timed out once and rolled back; it is not included in this publication candidate.
+
+
+## 21 October 2026 — remove the global RPC result spool at transport
+
+The prepared computed invoker view owns the identical live global query; the existing row RPC delegates global reads and preserves explicit selections through the unchanged original reader. Node GET replaces only that one resource, unwraps exactly one own bundle property and preserves completeness, clocks, last-good errors, two parallel resources and3s/5s budgets. The reminder interceptor routes it to the existing required-ID POST owner and wraps its scoped result; no global reminder read escapes. No stored response, new writer, scheduler, memory/planner/language change or retry is added. Guarded service-only ACL/invoker postconditions and full PG17/18 framed-value/work regressions are required. This is prepared source, not accepted production. [Mechanism, evidence and release gates](quality/global-snapshot-view-transport-2026-10-21.md).
+
+
+## 21 October2026 — share the compact canonical base with near seed scanning
+
+The prepared near-reader repair may read the existing stored global_fixture only for the four raw-base accesses in seed_inputs. The D7 expression retains every consumed status/start/completion field; existing canonical writes compute it atomically. Preserve the entire remaining query, output, alias/context closure, independent clocks, uncertain admission, score-null rules,5001 sentinel, function attributes/rights and3s/5s budgets. No new stored value, owner, route, retry, memory/planner setting or scheduler is added. Guard1ac/D7 and existing private boundaries; require whole-value, real canonical-update, completion-omission and restored-raw-scan negatives onPG17/18, then repeated fresh public and full normal release acceptance. [Failure, mechanism and gates](quality/match-centre-stored-seeds-2026-10-21.md).
+
+
+## 21 October2026 — applied near repair; acceptance still blocked
+
+The source-cleared c6d36894 near seed migration applied once at20:08UTC on20October. Stored reader D9 (`d9b49086166c24b3a10b4dc1f7279b7c`), D7 generated expression, existing global6e/viewfbc and service-only rights were verified exactly. Do not reapply the1ac-guarded migration. Its strict three-second framed SQL sample timed out. The first fixed public sequence loaded membership (snapshot1288ms) and a real selected fixture, then stopped at the participant/global read: before-header504 supabase_timeout3006ms/3000 at20:09:31UTC. Three requests, no completed round or retry.
+
+App580/2a6b8c6b remains deployed but unaccepted under failed workflow39484813400. Separate seven-route security and two hosted A-League Follow/search/Schedule12-club/156-fixture passes do not override that failure. No later app publication/deployment occurred. Local direct-composite and premerged-input experiments showed only0.779percent and2.985percent synthetic timing gains, so neither was adopted. The actual failing fixture function is already inSydney beside theSydney database. The residual global deadline failure remains open; no qualified next repair exists at this checkpoint. Root remains sole SQL executor/publisher, with one finite local-only existing-investigator review.
+
+All original clocks, coverage, private rights and3s/5s budgets remain. No purchase, planner/memory/helper-attribute change, new owner, provider refresh/replay or weakened gate. Cricket daily-owner instructions remain unapplied; Follow recovery stays paused unresolved withzero examples/zero restorations; canonical ENOBUFS work retains its separate owner. Evidence: `/Users/jackhartican/Documents/AI/Codex/nothingsport-snapshot-repair-20261021/checkpoint-after-near-application.md` and `next-corrective-decision.json`.
+
+
+## 21 October 2026 — prepare immutable compact-base wire text on canonical writes
+
+The existing current-fixture owner may maintain one generated text prefix from the exact D7 compact-base expression. Store no membership, live overlay, receipt or clock. The same invoker view may append the current object overlay as JSON text; preserve empty-object and original non-object semantics. Internal duplicate keys use the existing trusted JSON last-value semantics before public reserialisation. Every reader/writer/helper definition, right, selection rule, observation, API, scheduler and3s/5s budget remains unchanged. Guard fbc/6e/A91/ef/D7 and private dependencies, capacity below450MB, lock1s/statement3s and replay refusal. Require exact whole SQL/decoded values, real canonical base/score updates, malformed-input rejection, stale-manual-copy and restored-prior-view work negatives onPG17/18. Changes to D7 must update both immutable generated expressions together. Local work savings never replace repeated fresh public reads and the full release. [Mechanism, evidence and limitations](quality/global-snapshot-wire-prefix-2026-10-21.md).
+
+
+The wire-prefix proposal above was not adopted: its one guarded application failed57014at3s and rolled back completely. Keep the old view/columns/readers; do not reapply or raise the budget. Source qualification is not operational qualification. The unpublished3d16 checkpoint retains the experiment; active source excludes its migration.
+
+## 21 October 2026 — one existing preference-save owner and bounded click recovery
+
+New deliberate Follow choices may keep an owner-bound pending receipt inside the existing profile bundle, then use the existing SDK state-save/reconciliation path. Preserve verified account/generation/base, exact acknowledgements, known-own-ACK continuation, unchanged-preference version continuation, explicit empty/OFF, quota failure and other owners. Add no polling, endpoint, separate save owner or speculative replay. Unknown changed preference bases remain pending. Historical recovery stays paused.
+
+Notification click recovery may enumerate native windows once after a missing returned handle, and hand off only to one proven exact same-origin destination. Superseded initial lookup and later worker continuations may not perform further old actions. Already-issued native navigation and a root-only unproven window remain explicit limitations; no automatic milestone activation follows these local proofs.
+
+The ordinary installed shell keeps its three-MiB limit and existing customer offline/Follow assets. The network-dependent owner console `/admin.html` is no longer downloaded during every customer installation; its existing network-first route caches it after an online visit. This restores headroom without changing the limit, adding a request or removing customer logos/data. Root owns coherent version581 generation and the unchanged upgrade/browser/full release gates. These are local source changes until exact deployment acceptance.
+
+
+## 21 October 2026 — prepare exact transport rows through the existing integrity owner
+
+The private base-prefix cache trial failed its third fresh participant/global read at the unchanged three-second deadline and was undone exactly. Its rejected implementation stays off the app581 release branch. Keep the failed receipts; two healthy rounds did not establish reliability.
+
+The next scoped repair may maintain complete encoded transport rows through the existing private deferred integrity owner, with source-first operator backfill. Only actual changed current facts, score facts or receipt maps request work. Preserve atomic commits, same-witness updates, non-serving unsafe-clock tombstones, raw fallbacks, exact helper/trigger guards, service SELECT-only rights and all original fact dates. Admission remains a read-time decision; no stale membership, new write API, owner, scheduler, request, retry or customer state is introduced. An early explicit constraint drain may require more than one maintenance pass.
+
+The actual PG18 R1 query was value-correct but carried the complete source receipt map through each fixture join and sort. R2 extracts each fixture's original small receipt at a materialised boundary first. Keep every predicate, writer and guard exact. Permanent coverage must assert the actual pinned engine and demonstrate that restoring the rejected view fails the temporary-work regression. The older test factory must first apply the approved 17 October participant chain; do not relax sixteen production preimage guards to accommodate an incomplete fixture.
+
+Keep one-second lock/three-second staged statements, existing three/five-second reads and eight-second canonical publish allowance. No production planner/memory/role timeout change. The source-size preflight observed a largest current source of 959 fixtures. A constructed 5000-fixture compact publish failed the existing eight-second allowance in both the baseline and candidate; that pre-existing maximum-load limitation remains explicit. It does not certify future 5000-fixture writes or justify raising the deadline.
+
+Require staged capacity/coverage checks, exact guarded undo, PG17/18 functional and work regressions, native concurrency applicability, actual consumers, repeated fresh public reads and the entire normal release. Root remains the only SQL executor and publisher. Local passing tests are not live reliability or physical-phone proof. [Evidence and remaining gates](quality/global-snapshot-complete-rows-2026-10-21.md).
+
+## 21 October 2026 — exact full-payload validation without redundant parsing
+
+The installation guard may compare each complete cached row with the identical
+canonical `row_to_json` text under explicit C collation first. Byte identity of
+generated valid JSON proves JSONB identity. Different text must retain the
+original full JSONB comparison, including accepted equivalent formatting and
+malformed-cache refusal. Keep every factual witness, clock, rights, coverage,
+capacity and original three-second limit. This changes validation work only,
+with no writer, runtime view, scheduler, source fact or observation-date change.
+
+Permanent PG17/18 coverage executes the actual guard over5000complete rows,
+verifies no redundant JSONB fallback work on unchanged payloads, retains13
+poison refusals and accepts equivalent whitespace/object ordering. Paired local
+full7546-row measurements reduce execution about26% with the same temporary
+work; they do not certify cloud installation or public reliability. Earlier
+source-preparation and full-activation refusals remain recorded and were exactly
+undone. Root must still pass a new guarded installation, repeated fresh public
+reads and the entire normal release before claiming completion.
+
+
+## 21 October2026 — group full installation validation in one snapshot
+
+After R7's full activation refusal and exact reconciled undo, the installation
+validator may evaluate its identical complete payload/witness predicate by
+populated source in one parent SQL statement. A temporary STABLE empty-search-path
+helper shares that query snapshot; materialise distinct source keys before calling
+it, then drop it before switching the view in the same transaction. Repeat every
+unchanged preimage, coverage, rights, pending and capacity guard. Preserve the
+single overall three-second payload statement, all original runtime/writer/undo
+bytes and1s/3s/5s/8s budgets. There is no per-source time reset or persisted
+validation authority. PG17/18 corruption/format/consumer and actual full-source
+work checks must pass. Local removal of temporary work is separate from cloud
+installation and public reliability. [Evidence](quality/global-snapshot-complete-rows-2026-10-21.md).
+
+
+## 21 October2026 — stage installation validation in one repeatable-read transaction
+
+This dated R10 installation decision explicitly supersedes R9's single overall
+three-second payload statement. That full live statement failed after complete
+source preparation; its exact undo was reconciled08:05:21UTC. Keep all original
+full data checks. Partition complete nonnull sources exhaustively by first MD5
+hex character into16separate statements inside ONE asserted REPEATABLE READ
+migration transaction. Each retains3seconds; total payload validation may take
+up to48seconds plus separately bounded metadata/DDL. Do not call this the same
+R9overall allowance. Preserve1slocks, runtime3s/5sreads, canonical8spublishes,
+all exact payload/witness/fallback/rights/coverage/capacity guards, writers and
+undos. No persisted certificate, sampling, new API/owner/scheduler, role/default
+isolation change or customer state is added. Source backfills retain their
+existing transaction behaviour.
+
+Require all16populated-partition refusals and a skipped-partition negative,
+PG17/18 functional tests, native independent-client snapshot/update/undo proof,
+actual apply_migration wrapper transaction/snapshot packaging, then guarded live
+application, repeated fresh public reads and the complete normal exact-main
+release. Local/source/wrapper success cannot override a failed public gate.
+Root remains the sole executor/integrator/publisher. [Evidence and constraints](quality/global-snapshot-complete-rows-2026-10-21.md).
+
+
+## 21 October2026 — sort narrow metadata before encoded payload lookup
+
+After R10's real global timeout and exact undo, omit raw base/score from the
+materialised fixture input and order its narrow metadata by existing final keys.
+Use one scalar PK lookup with the complete unchanged cache eligibility predicate;
+existing PK/CHECK prove uniqueness and non-NULL serving text. COALESCE otherwise
+calls the identical original raw projection through exact PKs in the same query
+snapshot. Preserve membership, final explicit order,5001sentinel, NULL/zero,
+original clocks and1s/3s/5s/8s budgets. No new field/writer/API/request/owner/hint,
+planner setting or scheduler. Full16partition RR installation remains unchanged.
+
+Retain R11a's failed work test. Require the unchanged work threshold with actual
+wide-view restoration negatives on PG17/18, full value/missing-cache/CHECK tests,
+native concurrent/zero/undo proof, frozen source review and normal guarded
+live/public/full-release acceptance. Local savings are not a live fix claim.
+[Evidence](quality/global-snapshot-complete-rows-2026-10-21.md).
+
+
+## 21 October 2026 — remove the global calendar descriptor shortcut
+
+R11b failed its first actual global read and was exactly undone; full original
+contracts/cache absence were reconciled at 10:11:40 UTC. Do not repeat that trial.
+A distinct full raw-calendar control completed in 1,447 ms, or 1,944 ms through
+the actual response frame, under unchanged three-second limits. Restore the
+original direct canonical calendar expressions on the global view only. Preserve
+complete membership, unknown/null precedence, Sydney windows, 5,001 sentinel,
+batched original clocks, payload, service-only invoker rights and all budgets.
+No cache, field, writer, reader function, source, scheduler or retry is added.
+
+This supersedes the unshipped encoded representation rather than layering another
+cache on it. Archive its source/evidence and remove that package from deployable
+migrations and routine checks. Retain original Git history. Require PG17/18 full
+value/consumer/permissions/overflow/undo checks and a real rejected-view work
+negative, then guarded live application, repeated fresh HTTP checks and all
+normal exact-main release gates. SQL-only timing cannot certify phone speed or
+release acceptance. Root remains the sole executor and publisher.
+
+
+## 21 October 2026 — direct canonical Match Centre selection fields
+
+The global-only direct-calendar trial passed two full public rounds, then a
+healthy near read used 4,743 ms and failed the required one-second headroom.
+The requirement in the approved interactive allowance remains mandatory. Exact
+undo restored original fbc/D9 and all original contracts at 10:55:56 UTC. No app
+publication or threshold relaxation occurred.
+
+The same shortcut also appears in Match Centre seed and lookup scans. Replace
+only their five effective status/start/home/away expressions and two optional
+descriptor joins with original canonical raw expressions on the existing guarded
+D7 compact base. Keep recursive indexed context closure, pending/missing-index
+fallback, preserved IDs, 31/65-minute windows, uncertainties, full projection,
+original clocks, permissions and all budgets unchanged. No table, field, cache,
+writer, source, scheduler, retry, helper attribute or phone action is added.
+
+The exact full body with actual empty preservation scope completed a diagnostic
+in 1,491 ms under three seconds; both complete real-data initial scans compare
+all 7,670 rows with zero differences. PG17/18 extend the existing full semantic
+suite through this latest reader, including guard/replay refusals, a real D9
+restoration work negative and committed exact undo/reapply. Combine this bounded
+repair with the already-reviewed direct global view in one guarded transaction;
+undo both atomically on failed required acceptance. All four complete public
+rounds, one-second headroom, normal full release/security and exact-SHA publication
+remain required. Component timing does not establish complete runtime acceptance.
+
+## 22 October 2026 — compatible global component transport
+
+A scoped compatibility candidate may move only the six parsed-clock lookups,
+observation patch construction and JSONB concat to the existing Node reader.
+Keep the original SQL admission, candidates, ordering, 5001 sentinel, raw clock
+inputs, SQL timestamp parser and distinct parsed clocks. A fixed service-side
+request header selects the component envelope on the same private invoker view;
+absence, empty, malformed or unknown headers keep the original full envelope.
+Old applications remain compatible, and the new reader accepts both shapes so
+an exact view-only undo needs no application rollback.
+
+Validate the entire component envelope/map/rows/required keys before any
+reconstruction. Preserve SQL NULL versus JSON null for BOTH base and score with
+explicit flags, original timestamp strings/precision, concat semantics, zero,
+identity and order. Corruption fails visibly through existing last-good handling;
+no legacy retry is added. Canonical hashes sort keys recursively, so the normal
+object branch needs one own-key-safe merge rather than PostgreSQL key ordering.
+
+This adds no stored field/cache/writer, privilege, browser header/credential,
+request, scheduler or deadline. Keep two parallel resources, global 3s and scoped
+interactive 5s. Local CPU/complete-frame evidence remains separate from native,
+cloud, release and device acceptance. Earlier sorted-decoder and other failed
+trials remain closed. Require PG17/18 legacy text/value equality, both protocols,
+actual consumer/hash/failure checks, NULL/zero/clock/corruption/overflow/rights,
+guards and committed undo/reapply. DEPLOY alone owns activation and publication.
+See [source scope and proof limits](quality/global-fixture-components-2026-10-22.md).
+
+## 23 October 2026 — measured ordinary global read allowance
+
+The owner explicitly authorised reassessing the former three-second global
+loading constraint to unblock the complete fixture read and Cricket release,
+without spending more. Complete original PostgREST-frame evidence retained by
+DEPLOY measured 3046.678ms execution plus13.458ms planning; an earlier exact
+frame measured3559.516ms. These exceed3s and support a bounded allowance change,
+not a speedup claim. Closed partition/parser/storage prototypes stay closed.
+
+Ordinary unselected global snapshots now have ONE6,000ms total allowance across
+the existing two concurrent resources, complete body/JSON parse, component
+validation/reconstruction, per-source projection/hashes and snapshot revision.
+Use a shared remaining-budget abort signal and elapsed checks after synchronous
+work; late timer callbacks cannot turn over-budget work into a healthy snapshot.
+Named policies are static server code, never client headers/preferences/numbers.
+Keep cache and in-flight ownership separate by policy.
+
+Selected reads and noninteractive scoped reads remain3s. Trusted interactive
+Match Centre/participant reads remain5s. Reminder catalogue calls explicitly use
+the strict3s PER ATTEMPT policy, preserve the existing single502/504 retry and
+remain clamped by the sole dispatcher's27s total/two workers. Do not impose a
+new3s shared-total controller on reminders or increase provider/send deadlines.
+No new retry, request, scheduler, SQL/schema/configuration or source collection.
+
+Existing10/12/15s browser/verifier limits and immediate interactive loading
+feedback remain. Optional profile biography/history's2.5s enrichment is separate
+and unchanged. Full membership/aliases, post-admission overflow, complete/stale
+failure gates, original observation clocks, last-good readAt, OFF/erasure/privacy
+and exact-main release acceptance remain mandatory. Failure diagnostics accept
+historical3s and new6s global receipts without rewriting history. Increasing an
+allowance can make a failing cold read wait up to3s longer; it does not establish
+lower CPU, cost, cloud speed or actual closed-phone success. DEPLOY measures the
+complete hosted body and owns sole publication. Regression:
+`validate-global-read-budget.js`, existing interactive budgets, snapshot diagnosis/
+failure receipts, reminder scope/dispatch, component transport and public gates.
+
+## 23 October 2026 — unknown chat clocks remain unknown
+
+The scoped editorial rebuild exposed four already-published Diamonds fixtures
+whose explicit TBC precision accompanies a date-placeholder UTC value. The
+existing private-chat timing policy and browser creation control must reject
+explicit TBC/unknown precision before interpreting that value as a start.
+Preserve confirmed starts, published follows-session windows, closed fixtures,
+existing room access, membership and all original source fields. No chat,
+invitation, account write, scheduler or polling change is introduced. The actual
+canonical fixture lookup and browser predicate regressions run in the existing
+`validate-private-fixture-chat.js` gate. This corrects an implementation defect;
+it does not establish a new kickoff or renew source evidence.
+
+## 23 October 2026 — retain independent result evidence without freezing table facts
+
+The existing canonical collector must reuse the original accepted NRL article observation for the reviewed44–16 correction. Its current provider may report only the reviewed44–18 error or corrected44–16 final; changed identity, status, score or missing/invalid prior evidence must reject. A new fixture collection does not re-observe that independent article.
+
+Retain an existing preview receipt only when the newly generated hook and full copy are unchanged and their identity/source/angle/evidence remain bound. Freshly observed ladder positions keep their new copy and genuine primary fixture/ladder observation. A fixture-specific Australian broadcaster review may survive a generic competition carriage list only with the same competition, start, participants and dated original review. No new provider request, scheduler, writer, source allowance or database change is added. Current-clock15-hour freshness, six-hour result grace, whole-candidate completeness and exact release gates remain mandatory; offline saved responses are not current source acceptance.
+
+
+### 2026-10-23 — Reviewed Bledisloe result through the existing result writers
+
+The existing Australia–New Zealand fixture on 17 October remains the same identity and ordered participants. Rugby Australia’s match centre and New Zealand Rugby’s official match page agree on Australia 21–43 New Zealand; the latter explicitly marks the match completed. A dated manual review record supports an identity-bound accepted-result capsule through the existing canonical result writers. Add only the exact `allblacks.com` official host to their source-class allowlist; lookalike hosts and unreviewed subdomains remain rejected. Preserve the original 17 accepted results and all existing evidence dates; the added review has its own observation clocks. No physical finish, result-publication or historical first-completion timestamp is invented. This adds no provider polling, writer, scheduler, credentials or customer changes. The ordinary completeness, spoiler, persistence, cache and release checks remain required. Sources: https://www.rugby.com.au/match-centre/3/2026/949627 and https://www.allblacks.com/matches/australia-new-zealand-17-10-2026/liveblog .
+
+
+### 2026-10-23 — Official MLB postponement successors retain one fixture
+
+The captured official schedule contains a rain-postponed row and its later completed makeup game under the same game identity. The existing MLB parser may coalesce exactly two rows only when one is explicitly postponed, their valid source UUIDs and ordered participants agree, and reciprocal explicit UTC links establish the later successor. Raw collection completeness is checked first. Ambiguous duplicates, malformed identities, contradictory scores/status or links reject before the existing writers run. Standalone postponements remain without invented results. Actual parser and persistence regressions preserve unobserved facts, unchanged observation dates and no writes on invalid input. The original response was collected once; applying that captured response through the canonical owner retains its recorded observation and is not a fresh provider check. No request, retry, scheduler, database or release-gate change is added.
+
+
+### 2026-10-23 — Factual World Series context uses the existing editorial owner
+
+Seven newly observed official World Series fixtures exposed the existing MLB writer’s Division/Championship-only scope. Extend that same writer to explicitly named 2026 World Series games one through seven, with the reviewed best-of-seven format and four-win championship consequence. Preserve source participants, venue, conditional status, unknown starts and all sporting observation dates; infer no series lead, pitchers, Australian viewing deal or future winner. Separate dated official-page reviews support the new format/path facts without renewing the original Division/Championship review. The existing independent-copy, result, preview, canonical publication and release gates remain. No source polling, additional writer, scheduler, account or database work is introduced.
+
+
+### 2026-10-23 — MLB representation changes retain sporting observations
+
+Numeric score slots, calendar corrections and updated descriptions cannot renew an unchanged oriented score or completion status. The existing MLB merger retains the corresponding original accepted receipt/fact dates, explicit unknowns, earliest supplied completion and actual finish precision. A missing fact date may use only its own accepted prior sporting receipt. Changed score/status facts use their actual source observation. Genuine changed fixture facts keep the current source receipt; completely unchanged later checks stay in the existing refresh report without rewriting canonical or Feed bytes. Actual later-observation persistence/no-write tests remain mandatory, alongside malformed-identity and contradictory-link rejection.
+
+The existing result-template preparer and selector now share one pure branch generator. Current fixture details must match before an automatic result branch can be selected or retained at publication. Only copy proven to depend on an outdated generated branch is reset through the existing protected storyline rule; authored preview sections/research dates and separately reviewed current recaps keep their existing lifecycle protections. This corrects the official makeup-game label without re-researching its dated preview. No additional collector, writer, service, scheduler, database or customer action is introduced.
+
+Live rechecks remain distinct: an equal live score keeps its first fact observation while the actual score/status contact receipts advance. This preserves the existing freshness qualification without adding polling or extending any deadline. The constructed zero–zero regression covers merging and persistence into canonical data and both Feed files.
+
+## 25 October 2026 — prepare indexed near selection through current owners
+
+The separately approved local module starts at6aa5979a with the CURRENT
+coalesced22 writer contracts, not the historical test factory's older writer.
+Maintain one narrow private typed admission row through the same sync_fixture,
+sync_trigger and mark_integrity_pending owners only. Preserve owned batch
+deferral first, original token/publisher helpers, source observations, complete
+alias/sides closure, independent uncertain clocks and the ordered5001 sentinel.
+Direct context changes invalidate only affected OLD/NEW keys; canonical/context
+equality prevents the narrowly granted void helper from blessing contrary data.
+Service gets SELECT only on forced-RLS metadata. No customer state, source
+request, scheduler, retry, planner setting or timeout change is added.
+
+Installation checks original D9/current22 attributes/ACL, triggers, private
+table rights/RLS/pending marker schema and generated/view dependencies. It
+installs the reader with exact original fallback and performs no backfill.
+DEPLOY alone owns bounded source-first preparation; the indexed branch becomes
+eligible only when the same statement proves complete settled metadata. The
+guarded inverse restores D9 and the same three original owner functions before
+dropping new artifacts. PG18's catalogue NOT NULL entries are excluded only
+from the constraint-list comparison; all column not-null flags stay exact on
+PG17/18.
+
+Require both-engine complete ordered-text equivalence, actual ready-path work
+counts including filtered rows, coalesced writes/pending/rollback, completion-only
+changes, direct context/error semantics, actual5001 overflow, ACL/privacy and
+exact guarded inverse/reapply. Key-only completeness scans, local work savings,
+write/storage cost and native full-response latency are separate evidence.
+Local qualification does not accept app592 or prove live loading recovery.
+ROOT/DEPLOY alone reviews source, allocates native first-use/concurrency/write
+qualification, integrates and publishes exact main after all existing gates.
+See [mechanism, checks and remaining acceptance](quality/indexed-near-selection-2026-10-25.md).
+
+
+## 25 October2026 — reuse the context actually written by the canonical owner
+
+The ten-hook isolated rehearsal exposed an8s candidate initial5000 failure while
+the matched existing writer passed in6151ms. Its interruption stack does not
+identify a costly plan node. A separate bounded offline actual-adapter work
+control proves the candidate calls context_fields twice per final changed
+identity:64 derivations for32 fixtures, despite canonical batch coalescing.
+
+The revised, still-unadopted indexed module changes only sync_fixture. Its
+existing canonical postgres definer caller may reuse the context row returned
+by its own real upsert and the already-read compact base/score/first-completion
+facts, under the unchanged source lock. It derives the same typed near fields
+and keeps the same distinct-row upsert predicate. A zero-row context upsert
+retains full rebuild validation, because contrary non-selection fields may
+remain. A direct service invoker also retains the existing narrowly granted
+checked definer helper; sync_fixture stays invoker and service gets no typed
+metadata write privilege. The standalone helper, completion-only fast paths,
+publisher/token/archive semantics, all clocks and all deadlines are unchanged.
+
+Permanent offline control requires32→32, true no-op→0, combined fixture/score
+change→1, and retained full validation for direct-service/contrary-no-op paths.
+Restoring the exact rejected candidate must fail the work bound. Observer
+schema/function changes are rolled back and the original function contract is
+checked after cleanup. Full ordered-read and guarded inverse/ACL regressions
+remain. The changed candidate hash is sealed in its existing rollback guard;
+current22 preimages and the other26 candidate contracts remain exact.
+
+This proves reduced duplicate derivation work, not that it caused all native
+latency or that the new candidate passes8s. DEPLOY must separately review and
+run the materially changed candidate through the existing ten-hook maximum
+writer and managed/read/release gates. No new native/service/provider check,
+source refresh, scheduler, memory/timeout policy, customer state or publication
+is authorised by this source record.
+
+## 25 October 2026 — read-only app-adapter gate in the existing publisher
+
+The sole manual exact-main production workflow reuses its existing shared
+publication/erasure step's Supabase URL/secret for one bounded application-reader
+qualification before deployment. No PR workflow secret, new job/permission/key,
+provider call, DDL, source refresh, scheduler or customer mutation is added.
+Default verifier invocation is inert; a separate memory-only command joins the
+existing safety list without removing a check.
+
+Two sequential ordinary Match Centre reads each retain the existing concurrent
+health/bundle requests and five-second policy, with complete delivery/JSON parse/
+consumer acceptance at <=4000ms. Enforce complete health/source/fixture identity
+coverage, valid genuine empty input, 4MiB complete-body cap, no fallback third
+request/retry, absolute60s cancellation and admission/completion expiry. Keep
+safe bounded release evidence including failed/in-flight phases, counts and
+parsed-value hashes; never log payloads, keys, fixture IDs or raw errors.
+
+This is the first OWN adapter read at that stage after functional SQL has
+already touched buffers, not first-ever/cold/same-backend or literal-wire proof.
+ROOT's ordered full-server D9 equality, managed <=256 preparation/preservation/
+readiness/capacity, normal release/public/hosted/repeated20 and actual-device
+acceptance stay separate. Failed live qualification stops BEFORE deployment;
+ROOT owns guarded recovery and sole publication. No provider/card refresh is
+required. See quality/near-app-adapter-release-gate-2026-10-25.md.
+
+The25 October prerequisite correction replaces stat-cache-only checkout rejection
+with separate actual-content/mode and staged-index comparisons. Exact main/SHA
+and exclusive receipt protections remain. Actual-CLI local regression15 and the
+existing adapter validator17 pass without service access. Fixed-stage/Git-exit
+diagnostics make failures before receipt claim actionable without raw stderr or
+private values. Historical run40138373141's precise cause remains unproven; this
+source correction is neither live loading proof nor production acceptance.
+All253 required commands and application/read/dispatcher budgets remain unchanged;
+DEPLOY retains the sole fresh normal-run/publication lane. Details and limitations
+are in the linked quality record.
+
+## 26 October 2026 — bounded already-agreed event sync accommodation
+
+Use the existing owned receipt, fresh account read, canonical Follow validation and conditional entity/domain save path when event choices already match intent and remote. The event comparison is read-only: no migration output, event union, event write, persisted receipt field, schema, endpoint, polling, retry budget or scheduler is introduced. A RAM-only proof adds an AND condition to the existing central save-acknowledgement predicate; malformed, rejecting or throwing provided proofs fail closed, while existing witnesses without a proof keep their behaviour. Pin exact remote event values and presence through ACK and keep existing R2/lifetime/current-edit fences.
+
+The required bookkeeping suite retains all78 previous cases and adds28 event cases plus central proof controls; mounted manual retry adds one case per existing engine without removing an assertion. Its test-only offline setup and actual directory/idle/fixture settlement prevent background Follow work crossing the controlled restart. The first failed WebKit cancellation trace and the negative for canonical defaults in an incomplete old base are retained. No live Supabase/customer mutation or release is part of this source work. DEPLOY owns version/cache binding, required full gates including GLOBAL loading, publication and physical iPhone acceptance.
+
+## 27 October 2026 — discard stale collection-directory writes
+
+Capture the existing preference reference, copied collection-load plan, account/session generation, app-sync generation and profile ID before asynchronous directory work. Check those same owners before the existing freeze/save. Stale work returns its load results with zero preference or receipt write; matching complete directories keep existing behavior. There is no new request, timer, retry, cache, schema, persistence owner, provider refresh or scheduler change.
+
+The existing bookkeeping chain includes26 actual source/compiled-helper hydration controls while retaining all pre-existing checks. ROOT isolated the product/test change from source b0792f76 without importing the separate pending-receipt planner. Genuine optional standings deferral supplies download headroom; fixed budgets and full combined release/installed/hosted acceptance remain. This source proof is not a customer-state restoration or physical-device claim.
+
+## 27 October 2026 — bounded existing Events scope agreement
+
+Use the existing receipt/fresh-read/entity-domain/ACK path for a valid, already-agreed existing eventsScope field. Its exact remote value and presence are guarded through the same RAM-only witness, composed with event-decision proof. There is no additional read, retry, store, receipt field, endpoint, normalization, migration, provider job or scheduler. The existing required bookkeeping gate gains source writer/API controls; the existing mounted harness retains21 cases and adds one served Events scope/restart/manual-retry case per engine for DEPLOY's later generated qualification. Fixed format/selection diagnostic labels for the verified catalogue tag and selector-migration status add no planner exemption or validation. Source helper/diagnostic changes require DEPLOY's coherent generated Account/cache/version assembly; private-phone cause and physical acceptance remain open. [Scope and limits](quality/account-events-scope-sync-2026-10-27.md).
+
+The compatible-intent fast path also requires raw exact recorded/fresh agreement for only these five known decision fields. A neutral-to-original-base newer receipt with a differing acknowledged R1 choice throws the existing hold before another save, preserving the pending/local/accepted/remote state. The ordinary compatible-base path and exact already-applied known decisions keep their existing behavior. No new read, retry, metadata field, store or scheduler is introduced; unknown comparison policy and the central ACK predicate remain unchanged.
+
+## Historical tennis default sync comparison — 28 October 2026 Sydney
+
+Recognise only an absent historical tennis root whose exact existing default is already owned identically by intent and fresh remote, through the existing owned sync planner. Do not write/default that remote field, broaden unknowns, change receipt protocol or add requests, storage, timers, schema, provider or scheduler work. Existing ACK/current/R2/CAS/owner protections and fixed runtime/cache budgets remain. Source qualification is separate from DEPLOY's generated/native/hosted/device gates; actual physical597 failure remains open. See [bounded source contract](quality/account-tennis-default-sync-2026-10-28.md).
+
+## 30 October 2026 — qualified Match Centre receipt-join relocation
+
+After ROOT's disposable native PG17/18 run41041100314 passed, prepare only the existing reader's receipt join before its unchanged parameterised payload lookup. Keep both composite identity keys, the left join, `OFFSET 0`, all fixture/alias closure, ordered5001 sentinels, caps, raw fallback, permissions, original observations and clocks. Native full985-row equality and fixed ABBA medians improve64.055%/54.468%; this is body-only native proof, not managed, HTTP/app loading, release or phone acceptance. Earlier failed attempts remain dated history; do not repeat qualified native or real-service experiments.
+
+The source-only forward and inverse require exact27 function definitions/attributes and private near-table contracts before and after the reversible reader replacement. No table/data DML, privilege, writer, lookup, Follow/Results, source/provider, cache, retry, scheduler or deadline change. Exact inverse preserves facts written later by the normal owner. Keep every existing260 release command occurrence, add both permanent local SQL-engine checks in the existing near-selection batch (262 total), and retain all publisher/worker caps and live gates. ROOT/nsDEPLOY alone owns managed SQL, exact-main integration/generated assembly, full checks, publication and hosted acceptance. See [scope, retained measurements and rollback](quality/near-receipt-join-2026-10-30.md).
+
+## 31 October 2026 — bounded Match Centre freshness receipts
+
+ROOT allocated source-only response diagnostics to make the held freshness failure decidable. Add closed response-level score-read outcome and actual batch counts plus one freshness receipt for each unique returned fixture. Record the same age/interval decision clock and actual compact/retained-prior branches, with final returned clocks; do not renew source observations, add grace, alter any fixture/event/model output, Follow/Results choice, request/cap/deadline or scheduler. Pending batches at first rejection stay pending in the serialized response receipt. Keep diagnostics out of fixture JSON so existing mounted-card lifecycle/cache identity remains intact.
+
+The existing required Match Centre check gains actual-handler/differential/retention/batch/evidence/privacy controls; all262 existing workflow occurrences and gates remain. The public verifier retains whitelisted chosen/list/selected receipts before assertions through its existing private artifact directory, without a new read or relaxed assertion. Missing diagnostics remain unknown. Original AFLW RED and its unknown cause stay held; no innings/source/reader/merge repair is implied. ROOT alone integrates/publishes and owns combined/hosted qualification. See [exact scope and acceptance boundary](quality/match-centre-freshness-receipts-2026-10-31.md).
+
+
+### 31 October follow-up — opt-in diagnostic transport
+
+Freshness/read receipts require exactly one `readEvidence=1` query parameter.
+Default app polls retain the entire original response body byte-for-byte with
+zero added transport bytes. Missing/invalid/duplicate values leave diagnostics
+off. The release verifier requests them on its same two existing reads; no
+client UI, request, cache, deadline, source, credential or scheduler path changes.
+Prior source commits remain history. Held freshness acceptance and the separate
+current-day horizon failure are not waived.

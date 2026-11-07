@@ -13,7 +13,7 @@ function feedDependencies(){
     require("../data/canonical/cycling-context-2026.json"),require("../data/canonical/nba-context-2026.json"),require("../data/canonical/cwg-context-2026.json")
   );
   const contextualEvents=sportContext.applyContextToEvents(require('../lib/calendar-catalogue').catalogue(),canonicalSportContext);
-  dependencies={...require('../lib/supabase-server'),...require('../lib/server-feed-pipeline'),...require('../lib/follow-fixture-resolver'),...require('../lib/live-fixtures'),eventFeed,canonicalSportContext,contextualEvents};
+  dependencies={...require('../lib/server-feed-pipeline'),...require('../lib/follow-fixture-resolver'),...require('../lib/live-fixtures'),eventFeed,canonicalSportContext,contextualEvents};
   return dependencies;
 }
 function digest(value){return crypto.createHash('sha256').update(JSON.stringify(value)).digest('base64url');}
@@ -28,7 +28,11 @@ function expiry(events,now,pipeline){
   if(midnight)deadline=Math.min(deadline,+midnight);
   const lifecycle=require('../config/card-lifecycle');
   for(const event of events){
-    for(const value of [event.startTimeUtc,event.endTimeUtc,pipeline.eventEnd(event),lifecycle.archivesAtForEvent(event),lifecycle.expiresAtForEvent(event)]){
+    // archivesAtForEvent is expiresAtForEvent minus one millisecond. Calculate
+    // that shared lifecycle deadline once rather than repeat its calendar work.
+    const lifecycleExpiry=lifecycle.expiresAtForEvent(event);
+    const lifecycleArchive=lifecycleExpiry?new Date(+lifecycleExpiry-1):null;
+    for(const value of [event.startTimeUtc,event.endTimeUtc,pipeline.eventEnd(event),lifecycleArchive,lifecycleExpiry]){
       const time=+new Date(value||'');
       if(time>+now)deadline=Math.min(deadline,time);
       if(time===+now)deadline=Math.min(deadline,time+1);
@@ -36,13 +40,22 @@ function expiry(events,now,pipeline){
   }
   return deadline;
 }
-function createFeedHandler({load=feedDependencies,clock=()=>new Date(),cache=new FeedResponseCache(),live=()=>liveHandler||(liveHandler=require('../lib/live-fixture-handler').createLiveFixtureHandler())}={}){
+function createFeedHandler({globalSnapshotTransport,load=feedDependencies,authenticate=()=>require('../lib/supabase-server'),clock=()=>new Date(),cache=new FeedResponseCache(),scopeCache=new FeedResponseCache({maxEntries:100,maxBytes:1024*1024}),live}={}){
+  if(globalSnapshotTransport!==undefined&&globalSnapshotTransport!==require('../lib/fixture-source-groups-v2').CANDIDATE)throw Error('Invalid trusted global snapshot transport');
+  let scopedLiveHandler;
+  const liveOwner=live||(()=>globalSnapshotTransport?(scopedLiveHandler||=require('../lib/live-fixture-handler').createLiveFixtureHandler({globalSnapshotTransport})):(liveHandler||=require('../lib/live-fixture-handler').createLiveFixtureHandler()));
   return async function feedHandler(request,response){
     const route=new URL(request.url||'/api/feed','https://nothingsport.local');
-    if(['/api/fixtures','/api/fixture-refresh'].includes(route.pathname)||['fixtures','fixture-refresh'].includes(route.searchParams.get('route')||request.query?.route))return live()(request,response);
+    if(route.searchParams.get('route')==='match-centre'||request.query?.route==='match-centre')return require('../lib/match-centre-handler').createMatchCentreHandler()(request,response);
+    if(['/api/fixtures','/api/fixture-refresh'].includes(route.pathname)||['fixtures','fixture-refresh'].includes(route.searchParams.get('route')||request.query?.route))return liveOwner()(request,response);
     response.setHeader("Cache-Control", "private, max-age=0, must-revalidate");
     response.setHeader('Pragma','no-cache');response.setHeader('Vary','Authorization');
-    if((request.method||'GET')!=='GET'){response.setHeader('Allow','GET');return response.status(405).json({error:'The personalised feed supports GET requests only.',code:'method_not_allowed'});}
+    const matchCentreOnly=route.searchParams.get('scope')==='match-centre';
+    const athletesOnly=route.searchParams.get('scope')==='athletes';
+    const participantId=athletesOnly?route.searchParams.get('participantId'):null;
+    if(participantId&&!/^(?:athlete|competitor|player|team):[-a-z0-9_:]{1,180}$/i.test(participantId))return response.status(400).json({error:'Invalid participant'});
+    const publicMatch=(matchCentreOnly||athletesOnly)&&request.method==='POST';
+    if((request.method||'GET')!=='GET'&&!publicMatch){response.setHeader('Allow','GET');return response.status(405).json({error:'The personalised feed supports GET requests only.',code:'method_not_allowed'});}
     const began=performance.now(),timings=[];
     const mark=(name,ms)=>timings.push(`${name};dur=${ms.toFixed(2)}`);
     const send=(entry,status)=>{
@@ -52,39 +65,85 @@ function createFeedHandler({load=feedDependencies,clock=()=>new Date(),cache=new
       if(typeof response.send==='function')return response.send(entry.body);
       return response.json(JSON.parse(entry.body));
     };
-    let d;
+    let d,authDependencies;
     try{
-      let t=performance.now();d=load();mark('init',performance.now()-t);
-      t=performance.now();const accessToken=d.bearerToken(request);const user=await d.authenticatedUser(accessToken);mark('auth',performance.now()-t);
-      t=performance.now();const loadedUserState=await d.loadUserState(user.id, accessToken);mark('state',performance.now()-t);
-      const userState=loadedUserState ? d.normalizeUserFollowState(loadedUserState) : null;
-      if(!userState)throw new d.SupabaseRequestError('Your synced profile must be saved before the feed can rebuild.',{status:409,payload:{code:'user_state_missing'}});
+      if(publicMatch&&Buffer.byteLength(JSON.stringify(request.body||{}))>131072)return response.status(413).json({error:'Preferences too large'});
+      // Validate identity and account state before initializing the shared catalogue.
+      let t=performance.now();authDependencies=publicMatch?null:authenticate();
+      const accessToken=publicMatch?null:authDependencies.bearerToken(request);
+      const user=publicMatch?{id:'public-match-centre'}:await authDependencies.authenticatedUser(accessToken);mark('auth',performance.now()-t);
+      t=performance.now();const loadedUserState=publicMatch?{preferences:request.body?.preferences||{},event_user_state:request.body?.eventUserState||{}}:await authDependencies.loadUserState(user.id, accessToken);mark('state',performance.now()-t);
+      if(!loadedUserState)throw new authDependencies.SupabaseRequestError('Your synced profile must be saved before the feed can rebuild.',{status:409,payload:{code:'user_state_missing'}});
+      t=performance.now();d=load();mark('init',performance.now()-t);
+      const userState=d.normalizeUserFollowState(loadedUserState);
+      if(!userState)throw new authDependencies.SupabaseRequestError('Your synced profile must be saved before the feed can rebuild.',{status:409,payload:{code:'user_state_missing'}});
       const bounded=(value,fallback,max)=>Number.isFinite(Number(value))?Math.min(max,Math.max(1,Math.floor(Number(value)))):fallback;
       const limit=request.url?bounded(route.searchParams.get('limit')||20,20,50):d.eventFeed.events.length;
       const rawCursor=Number(route.searchParams.get('cursor'));
       const cursor=Number.isFinite(rawCursor)?Math.max(0,Math.floor(rawCursor)):0;
-      t=performance.now();const snapshot=await d.readLiveSnapshots().catch(()=>null);mark('live',performance.now()-t);
+      // Followed needs the same bounded current-window bundle as Everything.
+      // The full-season read can time out and lose live-only observations.
+      // Preserve published/saved member aliases so source reschedules still
+      // reconcile them, and finish local selection before the remote deadline.
+      const matchModel=matchCentreOnly?require('../config/match-centre'):null;
+      const preserveIds=matchCentreOnly?[...d.contextualEvents,...selectedFixtureEvents(userState)]
+        .filter(e=>matchModel.eligible(e,+clock()))
+        .flatMap(e=>[matchModel.id(e),e.id,e.eventId,...(e.sourceEventIds||[]),...(e.fixtureIdAliases||[])]).filter(Boolean):[];
+      // Resolve the complete requested calendar before selecting its source
+      // families. Other Feed callers retain the existing global read.
+      let resolved,profileScope;
+      if(athletesOnly){
+        const scopeKey=digest({userId:user.id,userState,participantId,sourceVersion:d.eventFeed.version,sourcePublishedAt:d.eventFeed.publishedAt,followFixtureVersion:d.FOLLOW_FIXTURE_VERSION});
+        const savedScope=scopeCache.get(scopeKey);
+        if(savedScope)profileScope=JSON.parse(savedScope.body);
+        else{
+          t=performance.now();resolved=await d.resolveUserFollowFixtures({events:[...d.contextualEvents,...selectedFixtureEvents(userState)],userState,participantId,copyEvents:false,cooperative:true});mark('resolve',performance.now()-t);
+          profileScope=require('../lib/profile-fixture-requirements').requirements({userState,participantId,events:resolved.events,participants:[...d.canonicalSportContext.participants,...resolved.participants]});
+          // Published requirements stay fixed within this immutable build. Do
+          // not repeat calendar construction before a warm response-cache hit.
+          scopeCache.set(scopeKey,{body:JSON.stringify(profileScope),etag:'',expiresAt:Infinity});
+        }
+      }
+      t=performance.now();const snapshot=await d.readLiveSnapshots(matchCentreOnly?{scope:'match-centre',preserveIds,interactive:true}:profileScope?{...profileScope,interactive:true}:globalSnapshotTransport?{globalTransport:globalSnapshotTransport}:undefined).catch(()=>null);mark('live',performance.now()-t);
       const now=clock();
       const {SERVER_FEED_BUILD_VERSION,SERVER_FEED_SCHEMA_VERSION,eventFeed}=d;
-      const key=digest({userId:user.id,userState,cursor,limit,fixtureRevision:snapshot?.revision||null,fixtureStale:snapshot?.stale||!snapshot,sourceVersion:d.eventFeed.version,sourcePublishedAt: eventFeed.publishedAt,followFixtureVersion:d.FOLLOW_FIXTURE_VERSION,buildVersion: SERVER_FEED_BUILD_VERSION,schemaVersion:SERVER_FEED_SCHEMA_VERSION,deployment:process.env.VERCEL_DEPLOYMENT_ID||process.env.VERCEL_GIT_COMMIT_SHA||'local',cacheVersion:'hobby-feed.v2'});
+      const key=digest({matchCentreOnly,athletesOnly,participantId,userId:user.id,userState,cursor,limit,fixtureRevision:snapshot?.revision||null,fixtureStale:snapshot?.stale||!snapshot,sourceVersion:d.eventFeed.version,sourcePublishedAt: eventFeed.publishedAt,followFixtureVersion:d.FOLLOW_FIXTURE_VERSION,buildVersion: SERVER_FEED_BUILD_VERSION,schemaVersion:SERVER_FEED_SCHEMA_VERSION,deployment:process.env.VERCEL_DEPLOYMENT_ID||process.env.VERCEL_GIT_COMMIT_SHA||'local',cacheVersion:'hobby-feed.v2'});
       const hit=cache.get(key,+now);
       if(hit){response.setHeader('X-Feed-Cache','HIT');return send(hit,request.headers?.['if-none-match']===hit.etag?304:200);}
-      t=performance.now();const resolved=d.resolveUserFollowFixtures({events:[...d.contextualEvents,...selectedFixtureEvents(userState)],userState,copyEvents:false});mark('resolve',performance.now()-t);
-      const participants=new Map(d.canonicalSportContext.participants.map(p=>[p.id,p]));
-      resolved.participants.forEach(p=>participants.set(p.id,{...participants.get(p.id),...p}));
-      const events=d.overlaySnapshots(resolved.events,snapshot?.sources);
-      const feed=d.buildServerFeed({events,userId:user.id,userState,participants:[...participants.values()],sourceVersion:snapshot?`${d.eventFeed.version}:${snapshot.revision}`:d.eventFeed.version,sourcePublishedAt:d.eventFeed.publishedAt,cursor,limit,now,onTiming:mark,copyEvents:false});
-      t=performance.now();const body=JSON.stringify(feed);mark('serialize',performance.now()-t);
-      const entry={body,etag:`"${digest([key,feed.generatedAt]).slice(0,24)}"`,expiresAt:expiry(events,now,d)};
-      cache.set(key,entry);response.setHeader('X-Feed-Cache','MISS');
-      if(process.env.VERCEL)console.log(JSON.stringify({event:'feed_timing',phases:timings,cards:feed.events.length,bytes:Buffer.byteLength(body)}));
+      const buildEntry=async()=>{
+        if(!resolved){t=performance.now();resolved=await d.resolveUserFollowFixtures({events:[...d.contextualEvents,...selectedFixtureEvents(userState)],userState,participantId:athletesOnly?participantId:null,copyEvents:false,cooperative:true});mark('resolve',performance.now()-t);}
+        const participants=new Map(d.canonicalSportContext.participants.map(p=>[p.id,p]));
+        resolved.participants.forEach(p=>participants.set(p.id,{...participants.get(p.id),...p}));
+        const events=d.overlaySnapshots(resolved.events,snapshot?.sources,{now,stale:!snapshot||snapshot.stale===true}).map(require('../lib/reviewed-au-viewing').reviewedAuViewing);
+        const feed=await d.buildServerFeed({matchCentreOnly,athletesOnly,participantId,events,userId:user.id,userState,participants:[...participants.values()],sourceVersion:snapshot?`${d.eventFeed.version}:${snapshot.revision}`:d.eventFeed.version,sourcePublishedAt:d.eventFeed.publishedAt,cursor,limit,now,onTiming:mark,copyEvents:false,cooperative:true});
+        if(matchCentreOnly)feed.membershipStale=!snapshot||snapshot.stale===true;
+        feed.fixtureSnapshotStale=!snapshot||snapshot.stale===true;
+        if(athletesOnly&&cursor===0)feed.athletes=require('../lib/athletes').projection({participants:[...participants.values()],preferences:userState.preferences,events});
+        t=performance.now();const body=JSON.stringify(feed);mark('serialize',performance.now()-t);
+        const entry={body,etag:`"${digest([key,feed.generatedAt]).slice(0,24)}"`,expiresAt:expiry(events,now,d)};
+        cache.set(key,entry);
+        if(process.env.VERCEL)console.log(JSON.stringify({event:'feed_timing',phases:timings,cards:feed.events.length,bytes:Buffer.byteLength(body)}));
+        return entry;
+      };
+      let entry;
+      // A follower can arrive after the builder's event/day boundary. Recheck
+      // every shared result against its own captured clock. At most two shared
+      // results are accepted as candidates; a still-expired result then gets a
+      // caller-owned build, rather than an unbounded chain of joined promises.
+      for(let sharedAttempts=0;sharedAttempts<2;sharedAttempts++){
+        entry=await cache.pendingEntry(key,buildEntry);
+        if(entry.expiresAt>+now)break;
+        cache.delete(key);
+      }
+      if(entry.expiresAt<=+now)entry=await buildEntry();
+      response.setHeader('X-Feed-Cache','MISS');
       return send(entry,200);
     }catch(error){
-      const outgoing=(d||require('../lib/supabase-server')).publicError(error);
+      const outgoing=(authDependencies||require('../lib/supabase-server')).publicError(error);
       response.status(outgoing.status).json(outgoing.body);
     }
   };
 }
-module.exports=createFeedHandler();
+module.exports=createFeedHandler({globalSnapshotTransport:require('../lib/fixture-source-groups-v2').CANDIDATE});
 module.exports.createFeedHandler=createFeedHandler;
 module.exports.expiry=expiry;

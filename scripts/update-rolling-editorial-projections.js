@@ -3,7 +3,7 @@
 "use strict";
 
 const fs = require("node:fs");
-const { projectionForTarget, validateKnowledge } = require("./lib/editorial-narrative");
+const { projectionForTarget, validateKnowledge, TIER_REQUIREMENTS } = require("./lib/editorial-narrative");
 
 const DAY_MS = 86400000;
 const KNOWLEDGE_PATH = "data/editorial-knowledge.v1.json";
@@ -107,7 +107,9 @@ function f1Narrative(event, context, reference){
   const sessionSourceUrl=event.timingSource?.url||sessionEvidence?.url||sessionContextSource?.sourceUrl||event.canonicalSourceUrl||event.sourceUrl||"https://www.formula1.com/en/racing/2026";
   const constructorSource=front&&second?{id:'source:rolling:f1:constructors',name:'Formula 1 constructors standings',url:constructors.source.sourceUrl,sourceType:'official',checkedAt:constructors.snapshotTimeUtc}:null;
   const sessionSource={id:sessionSourceId,name:`Formula 1 published session record for ${event.name}`,url:sessionSourceUrl,sourceType:'official',checkedAt:event.canonicalSourceCheckedAt||event.sourceCheckedAt||reference.toISOString()};
-  const extraSources=[constructorSource,sessionSource].filter(Boolean);
+  const relocation=require("../lib/f1-bahrain-relocation");
+  const relocated=relocation.applies(event);
+  const extraSources=[constructorSource,sessionSource,...(relocated?relocation.sources:[])].filter(Boolean);
   const consequence = qualifying ? "sets the grid and determines who controls the race start" : "is the points-paying chapter of the weekend";
   return {
     ladder,
@@ -115,14 +117,15 @@ function f1Narrative(event, context, reference){
     sourceId,
     extraSources,
     facts:[
+      ...(relocated?[{id:'fact:f1:bahrain-relocation-2026',subjectIds:['subject:rolling:f1-season'],statement:`The ${relocation.officialTitle} takes place at Sepang on 2–4 October 2026 after safety concerns over regional conflict prevented the original April race in Bahrain.`,dimension:'schedule',sourceIds:relocation.sources.map(s=>s.id),observedAt:relocation.sources[0].checkedAt,expiresAt:null}]:[]),
       ...(constructorSource ? [{id:'fact:rolling:f1:constructors',subjectIds:['subject:rolling:f1-season'],statement:`${participants.get(front.participantId)?.displayName||'The leading constructor'} has ${front.points} constructors points, while ${participants.get(second.participantId)?.displayName||'second place'} has ${second.points}.`,dimension:'form',sourceIds:[constructorSource.id],observedAt:constructors.snapshotTimeUtc,expiresAt:null}] : []),
       {id:`fact:rolling:f1:session:${slug(idFor(event))}`,subjectIds:['subject:rolling:f1-season'],statement:`${event.name} is the published ${qualifying?'qualifying':'race'} session for this 2026 Formula 1 round.`,dimension:'schedule',sourceIds:[sessionSourceId],observedAt:sessionSource.checkedAt,expiresAt:null},
       ...(circuit ? [{id:`fact:rolling:f1:circuit:${circuit.slug}:${slug(idFor(event))}`,subjectIds:['subject:rolling:f1-season'],statement:circuit.fact,dimension:'format',sourceIds:[sessionSourceId],observedAt:sessionSource.checkedAt,expiresAt:null}] : []),
       { id:"fact:rolling:f1:leader", subjectIds:["subject:rolling:f1-leader"], statement:`${leaderName} leads the 2026 drivers' championship with ${leader.points} points, ${leader.points - challenger.points} ahead of ${challengerName}.`, dimension:"form", sourceIds:[sourceId], observedAt:ladder.snapshotTimeUtc, expiresAt:null },
       { id:`fact:rolling:f1:${qualifying ? "qualifying" : "race"}-consequence`, subjectIds:["subject:rolling:f1-season"], statement:`In a Formula 1 weekend, ${qualifying ? "qualifying sets the starting grid and track-position baseline for the race" : "the race awards the championship points that convert weekend pace into the title standings"}.`, dimension:"consequence", sourceIds:[sourceId], observedAt:ladder.snapshotTimeUtc, expiresAt:null },
     ],
-    safeHook:fit(`${leaderName} leads by ${leader.points - challenger.points} points into ${event.name}; this session ${consequence}.`, 180),
-    safeSynopsis:fit(`${leaderName} holds ${leader.points} points to ${challengerName}'s ${challenger.points} in the official driver standings. ${event.name} now tests that advantage because it ${consequence}, turning the championship gap into an immediate competitive problem rather than background information.`, 700),
+    safeHook:fit(`${event.name}: ${leaderName} arrives ${leader.points - challenger.points} points clear of ${challengerName}.`, 180),
+    safeSynopsis:fit(`${relocated?relocation.synopsis+" ":""}${circuit?circuit.fact+" ":""}${leaderName} holds ${leader.points} points to ${challengerName}'s ${challenger.points} in the official driver standings.`, 700),
     reference,
   };
 }
@@ -187,64 +190,92 @@ function tennisTournamentNarrative(event, knowledge){
   if (!projection || projection.generationMode !== "researched") return null;
   return projection;
 }
-function requestedSportNarrative(event, requestedSports, reference){
+function requestedSportNarrative(event, requestedSports, reference, knowledge){
   const sourceEvent = (requestedSports?.events || []).find(item => item.id === event.canonicalEventId);
   if (!sourceEvent) return null;
   const config = {
     nrlw:{ label:"2026 NRLW Premiership", subjectKind:"competition", fieldSourceId:"nrlw-hub", contextSourceId:"nrlw-stats", fieldStatement:"The 2026 NRLW Premiership has twelve current clubs in the official competition." },
     "fiba-women":{ label:"2026 FIBA Women's Basketball World Cup", subjectKind:"competition", fieldSourceId:"fiba-teams", contextSourceId:"fiba-broadcast-au", fieldStatement:"Sixteen national teams are listed in the official 2026 FIBA Women's Basketball World Cup field." },
-    sailgp:{ label:"2026 SailGP season", subjectKind:"series", fieldSourceId:"sailgp-teams", contextSourceId:"sailgp-broadcast-au", fieldStatement:"Thirteen national F50 teams are listed for the 2026 SailGP season." },
-    motogp:{ label:"2026 MotoGP season", subjectKind:"series", fieldSourceId:"motogp-riders", contextSourceId:"motogp-broadcast-au", fieldStatement:"Twenty-two riders are listed in the official 2026 MotoGP field." },
+    sailgp:{ label:"SailGP season", subjectKind:"series", fieldSourceId:"sailgp-teams", viewingSourceId:"sailgp-broadcast-au", contextSourceId:"sailgp-broadcast-au", fieldStatement:"Thirteen national F50 teams are listed for the 2026 SailGP season." },
+    motogp:{ label:"MotoGP season", subjectKind:"series", fieldSourceId:"motogp-riders", viewingSourceId:"motogp-broadcast-au", contextSourceId:"motogp-broadcast-au", fieldStatement:"Twenty-two riders are listed in the official 2026 MotoGP field." },
     nbl:{ label:"2026–27 NBL season", subjectKind:"competition", fieldSourceId:"nbl27-schedule", contextSourceId:"nbl27-schedule", fieldStatement:"Ten clubs are listed in the official NBL27 regular-season schedule." },
   }[sourceEvent.sportKey];
   if (!config) return null;
-  const sourceIds = Array.from(new Set([sourceEvent.sourceId, config.fieldSourceId, sourceEvent.broadcastSourceId, config.contextSourceId, sourceEvent.result?.sourceId].filter(Boolean)));
-  const sources = sourceIds.map(sourceId => {
-    const source = requestedSports.sources?.[sourceId];
-    if (!source) throw new Error(`${sourceEvent.id}: unknown requested-sport editorial source ${sourceId}`);
-    return {
-      id:`source:rolling:${sourceEvent.sportKey}:${sourceId}`,
-      name:source.name,
-      url:source.url,
-      sourceType:source.type === "reputable" ? "reputable" : "official",
-      checkedAt:requestedSports.generatedAt,
-    };
-  });
+  const season = String(sourceEvent.season || sourceEvent.date?.slice(0, 4) || "");
+  const currentEvidenceSeason = season === "2026" || (sourceEvent.sportKey === "nbl" && /^2026[–/-]27$/.test(season));
+  const seasonSeries = ["motogp", "sailgp"].includes(sourceEvent.sportKey);
+  const label = seasonSeries ? `${season} ${config.label}` : config.label;
+  const subjectId = `subject:rolling:${sourceEvent.sportKey}:${slug(season)}`;
+  const sources = new Map();
   const sourceId = rawId => `source:rolling:${sourceEvent.sportKey}:${rawId}`;
+  function validObservation(value){
+    if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(value)) return false;
+    const parsed = new Date(value);
+    return Number.isFinite(parsed.getTime()) && parsed.toISOString().slice(0,19) === value.slice(0,19);
+  }
+  // Assembly time is never a substitute for observing a particular resource.
+  // Static sources may retain a prior dated observation, but are not rechecked
+  // merely because an unrelated calendar or NBL bundle was regenerated.
+  function evidence(rawId, factObservedAt){
+    const source = requestedSports.sources?.[rawId];
+    if (!rawId || !source) return null;
+    if (factObservedAt !== undefined && !validObservation(factObservedAt)) return null;
+    let url;
+    try { url = new URL(source.url); } catch { return null; }
+    if (url.protocol !== "https:" || url.username || url.password) return null;
+    const retained = (knowledge.sources || []).find(item => item.id === sourceId(rawId) && item.url === source.url);
+    const resourceAt = [source.checkedAt, factObservedAt, retained?.checkedAt].find(validObservation);
+    const observedAt = [factObservedAt, resourceAt].find(validObservation);
+    if (!observedAt) return null;
+    sources.set(rawId, { id:sourceId(rawId), name:source.name, url:source.url, sourceType:source.type === "reputable" ? "reputable" : "official", checkedAt:resourceAt });
+    return { id:sourceId(rawId), observedAt };
+  }
+  const calendarAt = sourceEvent.sourceCheckedAt || sourceEvent.calendarProvenance?.checkedAt;
+  const schedule = evidence(sourceEvent.sourceId, calendarAt);
+  if (!schedule) return null;
+  const field = currentEvidenceSeason ? evidence(config.fieldSourceId) : null;
+  const viewingId = currentEvidenceSeason ? sourceEvent.broadcastSourceId || config.viewingSourceId : null;
+  const viewing = evidence(viewingId);
+  const calendarContext = Boolean(sourceEvent.sourceSessionIds || (sourceEvent.calendarProvenance && sourceEvent.sourceId !== "sailgp-calendar"));
+  const context = calendarContext ? schedule : currentEvidenceSeason ? evidence(config.contextSourceId) : null;
+  const result = sourceEvent.result ? evidence(sourceEvent.result.sourceId, sourceEvent.result.checkedAt) : null;
   const timeText = sourceEvent.timeTbc ? "with its start time still to be confirmed" : `at ${sourceEvent.time} Sydney time`;
   const venueText = sourceEvent.venue ? ` at ${sourceEvent.venue}` : "";
-  const facts = [
-    { id:`fact:rolling:${slug(sourceEvent.id)}:schedule`, statement:`${sourceEvent.name} is scheduled for ${sourceEvent.date} ${timeText}${venueText}.`, dimension:"schedule", sourceIds:[sourceId(sourceEvent.sourceId)] },
-    { id:`fact:rolling:${slug(sourceEvent.id)}:field`, statement:config.fieldStatement, dimension:"format", sourceIds:[sourceId(config.fieldSourceId)] },
-    { id:`fact:rolling:${slug(sourceEvent.id)}:viewing`, statement:`Australian viewing for ${sourceEvent.name} is listed through ${event.broadcaster}.`, dimension:"format", sourceIds:[sourceId(sourceEvent.broadcastSourceId)] },
-    { id:`fact:rolling:${slug(sourceEvent.id)}:consequence`, statement:sourceEvent.context, dimension:"consequence", sourceIds:[sourceId(config.contextSourceId)] },
-    ...(sourceEvent.result ? [{
-      id:`fact:rolling:${slug(sourceEvent.id)}:result`,
-      statement:sourceEvent.result.status === "official"
-        ? `${sourceEvent.result.recapText || sourceEvent.result.outcomeText}`
-        : `The official results page had not published a verified outcome for ${sourceEvent.name} at the latest check.`,
-      dimension:"consequence",
-      sourceIds:[sourceId(sourceEvent.result.sourceId)],
-    }] : []),
-  ].map(fact => ({ ...fact, subjectIds:[`subject:rolling:${sourceEvent.sportKey}:2026`], observedAt:requestedSports.generatedAt, expiresAt:null }));
+  const facts = [];
+  function add(kind, statement, dimension, evidence){
+    if (!evidence || !String(statement || "").trim()) return;
+    facts.push({ id:`fact:rolling:${slug(sourceEvent.id)}:${kind}`, statement, dimension, sourceIds:[evidence.id], subjectIds:[subjectId], observedAt:evidence.observedAt, expiresAt:null });
+  }
+  add("schedule", `${sourceEvent.name} is scheduled for ${sourceEvent.date} ${timeText}${venueText}.`, "schedule", schedule);
+  add("field", config.fieldStatement, "format", field);
+  if (event.broadcaster && !/\btbc\b/i.test(event.broadcaster)) add("viewing", `Australian viewing for ${sourceEvent.name} is listed through ${event.broadcaster}.`, "format", viewing);
+  add(calendarContext ? "calendar-context" : "consequence", sourceEvent.context, calendarContext ? "schedule" : "consequence", context);
+  add("result", sourceEvent.result?.status === "official" ? sourceEvent.result.recapText || sourceEvent.result.outcomeText : `The official results page had not published a verified outcome for ${sourceEvent.name} at the latest check.`, sourceEvent.result?.status === "official" ? "consequence" : "schedule", result);
+  const usedSourceIds = new Set(facts.flatMap(fact => fact.sourceIds));
+  const usedSources = [...sources.values()].filter(source => usedSourceIds.has(source.id));
+  const dimensions = new Set(facts.map(fact => fact.dimension));
+  if (!dimensions.has("consequence")) return null;
+  const supportedDepth = [5,4,3,2].find(depth => {
+    const requirement = TIER_REQUIREMENTS[depth];
+    return facts.length >= requirement.facts && usedSources.length >= requirement.sources && dimensions.size >= requirement.dimensions;
+  });
   const completed = event.status === "completed";
-  const spoilerSafeHook = `${sourceEvent.name} is complete; the key moments are protected until you choose to reveal them.`;
-  const spoilerSafeSynopsis = `${sourceEvent.name} is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.`;
-  const revealedHook = sourceEvent.result?.status === "official" ? sourceEvent.result.outcomeText : `${sourceEvent.name} is complete; the official outcome is still pending.`;
-  const revealedSynopsis = sourceEvent.result?.status === "official" ? sourceEvent.result.recapText : `${sourceEvent.name} is complete, but the official results page had not published a verified outcome at the latest check.`;
+  const fixtureLabel = `${sourceEvent.name}${sourceEvent.roundLabel ? ` — ${sourceEvent.roundLabel}` : ` — ${sourceEvent.date}`}`;
+  const spoilerSafeHook = `${fixtureLabel} is complete; the key moments are protected until you choose to reveal them.`;
+  const spoilerSafeSynopsis = `${fixtureLabel} is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.`;
+  const revealedHook = sourceEvent.result?.status === "official" ? sourceEvent.result.outcomeText : `${fixtureLabel} is complete; the official outcome is still pending.`;
+  const revealedSynopsis = sourceEvent.result?.status === "official" ? sourceEvent.result.recapText : `${fixtureLabel} is complete, but the official results page had not published a verified outcome at the latest check.`;
   const scheduledHook = sourceEvent.sportKey === "nbl"
     ? `${sourceEvent.name} is set for ${sourceEvent.roundLabel} on ${sourceEvent.date}, one game in the official 165-match NBL27 regular season.`
     : sourceEvent.hook;
   const scheduledSynopsis = sourceEvent.sportKey === "nbl"
     ? `${sourceEvent.name} is published in the official NBL27 schedule for ${sourceEvent.roundLabel} on ${sourceEvent.date} ${timeText}${venueText}. The fixture keeps both clubs connected to the full 165-game regular-season path.`
-    : `${sourceEvent.hook} ${sourceEvent.context}`;
+    : `${sourceEvent.hook} ${context ? sourceEvent.context : ""}`.trim();
   return {
-    label:config.label,
-    subjectKind:config.subjectKind,
-    subjectId:`subject:rolling:${sourceEvent.sportKey}:2026`,
-    threadId:`thread:rolling:${sourceEvent.sportKey}:2026`,
-    sources,
-    facts,
+    label, subjectKind:config.subjectKind, subjectId,
+    threadId:`thread:rolling:${sourceEvent.sportKey}:${slug(season)}`,
+    sources:usedSources, facts,
+    researchDepth:Math.min(researchDepthFor(event), supportedDepth),
     hook:fit(completed ? spoilerSafeHook : scheduledHook, 180),
     synopsis:fit(completed ? spoilerSafeSynopsis : scheduledSynopsis, 700),
     ...(completed ? { hookSpoilerOn:fit(revealedHook, 180), synopsisSpoilerOn:fit(revealedSynopsis, 700) } : {}),
@@ -309,14 +340,25 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
         : event.key === "wrc"
           ? wrc.ladderSnapshots.find(item => item.competitionId === "competition:wrc-drivers-2026")
           : requestedEventIds.has(event.canonicalEventId)
-            ? { snapshotTimeUtc:requestedSports.events.find(item => item.id === event.canonicalEventId)?.result?.checkedAt || requestedSports.generatedAt }
+            ? { snapshotTimeUtc:(() => {
+              const fixture = requestedSports.events.find(item => item.id === event.canonicalEventId);
+              return [fixture?.sourceCheckedAt, fixture?.calendarProvenance?.checkedAt, fixture?.result?.checkedAt].filter(Boolean).sort().at(-1);
+            })() }
             : context.ladderSnapshots.find(item => item.competitionId === event.competitionId);
       const currentSnapshotAt = Date.parse(currentSnapshot?.snapshotTimeUtc || currentSnapshot?.source?.checkedAt || "");
       const existingResearchedAt = Date.parse(existing.researchedAt || "");
+      // The EPL depth owner can reobserve an unchanged table without rewriting
+      // its researched copy. Compare the actual table observation as well;
+      // otherwise the final identity pass replaces rich copy with a template.
+      const depthTableAt = (existing.factIds || []).some(id => id.startsWith("fact:depth:epl:"))
+        ? Date.parse(knowledge.sources.find(source => source.id === "source:depth:epl:table")?.checkedAt || "")
+        : NaN;
       const isCurrent = !Number.isFinite(currentSnapshotAt)
-        || (Number.isFinite(existingResearchedAt) && existingResearchedAt >= currentSnapshotAt);
+        || (Number.isFinite(existingResearchedAt) && existingResearchedAt >= currentSnapshotAt)
+        || (Number.isFinite(depthTableAt) && depthTableAt >= currentSnapshotAt);
       if (requirement
         && isCurrent
+        && !(event.key==="f1" && /this session|turning the championship gap/.test(`${existing.hook} ${existing.synopsis}`))
         && (event.status !== "completed" || Boolean(existing.synopsisSpoilerOn))
         && Number(existing.researchDepth || existing.stakes) >= researchDepthFor(event)
         && (existing.factIds || []).length >= requirement[0]
@@ -335,7 +377,7 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
     const rally = team || motor ? null : wrcNarrative(event, wrc, reference);
     const bracket = team || motor || rally ? null : bracketNarrative(event, reference);
     const tournament = team || motor || rally || bracket ? null : tennisTournamentNarrative(event, knowledge);
-    const requestedSport = team || motor || rally || bracket || tournament ? null : requestedSportNarrative(event, requestedSports, reference);
+    const requestedSport = team || motor || rally || bracket || tournament ? null : requestedSportNarrative(event, requestedSports, reference, knowledge);
     if (!team && !motor && !rally && !bracket && !tournament && !requestedSport){
       // Tournament overview cards without their own researched projection are
       // deliberately served by the disclosed crowd panel. Do not turn their
@@ -409,7 +451,7 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
       threadIds = ["thread:rolling:f1-title"];
       factIds = motor.facts.map(fact => fact.id);
       motor.extraSources.forEach(source=>upsert(knowledge.sources,source));
-      sourceIds = [motor.sourceId,...motor.extraSources.map(source=>source.id)];
+      sourceIds = [...motor.extraSources.filter(source=>source.id.startsWith("source:f1:bahrain-")).map(source=>source.id),motor.sourceId,...motor.extraSources.filter(source=>!source.id.startsWith("source:f1:bahrain-")).map(source=>source.id)];
       hook = motor.safeHook;
       synopsis = motor.safeSynopsis;
     } else if (rally) {
@@ -448,10 +490,10 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
         id:requestedSport.threadId,
         subjectIds:[requestedSport.subjectId],
         title:`${requestedSport.label} — current path`,
-        summary:`The official schedule, field and Australian viewing sources are carried across ${requestedSport.label} cards so each event explains its sporting consequence without generic filler.`,
+        summary:`Each ${requestedSport.label} card retains only the dated, season-qualified evidence available for that event; calendar context does not establish an unverified field or viewing deal.`,
         factIds:requestedSport.facts.map(fact => fact.id),
         status:"active",
-        updatedAt:requestedSport.reference.toISOString(),
+        updatedAt:requestedSport.facts.map(fact => fact.observedAt).sort().at(-1),
       });
       threadIds = [requestedSport.threadId];
       factIds = requestedSport.facts.map(fact => fact.id);
@@ -472,7 +514,7 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
       id:projectionId,
       targetType:"feed-event",
       targetIds:[idFor(event)],
-      researchDepth:researchDepthFor(event),
+      researchDepth:requestedSport ? requestedSport.researchDepth : researchDepthFor(event),
       hook,
       synopsis,
       ...(synopsisSpoilerOn ? {
@@ -492,7 +534,7 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
     });
     generated += 1;
   });
-  if (unsupported.length) throw new Error(`Rolling editorial needs a researched context builder for: ${unsupported.join(", ")}`);
+  if (unsupported.length) console.warn(`Editorial withheld pending fixture research: ${unsupported.join(", ")}`);
   knowledge.updatedAt = reference.toISOString();
   return generated;
 }

@@ -1,0 +1,130 @@
+# Match Centre freshness receipts — source-only prerequisite
+
+ROOT allocated this narrow implementation from exact7e6327e17defc4a2161f746d2f5814f2daf955b8/tree52f7d2e382373f9648931b00aeae430fc0309a9a.
+Direct remote main verification matched; the unrelated malformed peach ref
+prevented fetch. ROOT approved using the verified local object. No foreign ref
+or unrelated checkout was repaired. Sync remains parked.
+
+## Contract
+
+Add response-level `scoreRead` and `freshnessReceipts` only. Existing fixtures,
+events, model return values, Follow/Results choices, scores, original clocks,
+selection, request IDs/caps/deadlines, scheduling and caches remain unchanged.
+Do not nest diagnostics inside fixtures: an initial implementation made two
+existing mounted-card lifecycle/fixture-JSON controls RED. Moving receipts to
+the response level restored them without frontend or assertion changes.
+
+`scoreRead` is a closed schema with outcome `not-needed`, `succeeded` or `failed`
+and planned/attempted/completed/failed/pending/unattempted batch counts. Counts
+record actual invocations and fulfilled/rejected promises. On first Promise.all
+rejection, other requests can still be pending; the response snapshots those
+counts, and later completions cannot rewrite its receipt. Synchronous rejection
+also preserves unattempted batches. No request, retry, wait or cancellation is
+added. A successful public HTTP response is not substituted for read success.
+
+`freshnessReceipts` has one bounded entry per unique **returned fixture ID**.
+No extra alias/catalogue identities or private data are exported. Each contains:
+
+- schemaVersion, evaluatedAt, candidateCheckedAt, ageMs and budgetMs;
+- actual candidate-decision flags: membershipDegraded, scoreReadFailed,
+  missingCheckedAt, ageExpired, explicitStale, sourceMarkedStale,
+  missingScoreObservation and retainedPrior;
+- final decision `projected` or `retained-prior`, the actual retention reason
+  (settled-prior/older-observation/interruption-score), returned checked/score/
+  status clocks and returnedStale.
+
+The candidate age and budget describe the evaluated projection, not a discarded
+projection masquerading as a retained row's freshness. The final clocks and
+retention reason explain the actual returned row. `model.observation` records
+which existing branch it took, without changing the returned object. Compact
+records its own existing stale flags rather than a second guessed predicate.
+One captured clock governs that fixture's actual age/interval decision and its
+receipt; no new source timestamp, grace period or stronger validity rule is
+introduced. An invalid age remains null in the receipt; it does not change the
+existing stale decision. Retained-prior decisions never become fresh from an
+unrejected projection's clock.
+
+## Operator evidence, without a gate waiver
+
+The normal existing public verifier adds an onRead evidence hook before health/
+identity assertions. Its CLI uses the existing release artifact directory to
+save a whitelisted chosen/list/selected observation and both read receipts
+before a later assertion can throw. Requests, target selection and all existing
+assertions remain. Fixed Second Test evidence and aggregate console output stay
+unchanged. Missing/invalid diagnostics are unknown in the evidence collector,
+not read success. No credentials, account preferences, raw error, source blob,
+raw response or general fixture-ID log is added.
+
+This prepares decisive evidence only. The original AFLW freshness RED remains
+held and its cause unknown. The frozen four-round acceptance script and old
+reports are untouched. No expiry exception, new reliability acceptance, innings
+repair, source cleanup, reader redesign or merge-policy change is included.
+
+## Tests and cost
+
+The existing required Match Centre validator now runs the new receipt suite,
+without changing the262 workflow command occurrences. Actual-handler tests
+compare complete original fixture/event bodies against7e, exercise exact
+expiry/advancing time, source flags, missing clocks, zero scores, fast failure,
+shared degradation, alias ordering and mixed-ID partial-batch rejection.
+Existing retained-prior model branches are compared against their original
+return values. Actual verifier failure tests prove chosen and selected evidence
+is retained before the existing identity assertion throws. Unknown metadata is
+not upgraded. The full old mounted-card lifecycle and privacy controls remain.
+
+Controlled60-fixture before/after payload measurement is emitted by the suite;
+it includes all new response bytes and gzip sizes. It is not a live compression
+or network-latency claim. Static startup performance remains under its unchanged
+budget. ROOT must qualify exact combined public payload/latency after integration.
+
+No DB/config migration, source/provider/account call, scheduler, additional
+RPC, main push, CI dispatch or deployment belongs to this source preparation.
+ROOT owns standard PR integration, generated assembly through update-cards.js,
+required combined/browser/installed/hosted gates and exact-main publication.
+Rollback is reverting this source commit; no data restoration or SQL is needed.
+
+## Follow-up: diagnostic transport is opt-in
+
+ROOT requested the follow-up against frozen6194e55a. Only a single
+`readEvidence=1` query value opts into response-level receipts. Missing, empty,
+other or duplicate values retain the original entire response body, including
+its original field order, with zero added transport bytes. No app client/UI
+opts in. The existing public release verifier opts in on its same membership
+and selected requests; selection, assertions and evidence-before-failure remain.
+Absent/malformed metadata remains unknown. No request, credential, cache,
+deadline, source or scheduling path is added.
+
+The actual-handler suite compares complete default bodies to7e across expiry,
+advancing time, failures, membership degradation, source flags, missing clocks,
+zero scores and60 rows. Existing opt-in retention, alias, mixed-batch and
+malformed-evidence controls remain. The60-row default response is45,833bytes,
+exactly the original (zero added bytes). Opt-in is82,694bytes (+36,861 raw),
+gzip778→1,427bytes on deliberately repetitive synthetic rows; these are not
+production compression or latency guarantees. Ordinary polling never receives
+those added fields. Earlier commits/reports remain dated history, and the
+current-day horizon RED is unchanged, separately retained, and not waived.
+
+## Follow-up: installed cache coherence, source preparation only
+
+ROOT found that the changed browser-shared model still used595. Advance the
+Match Centre model URL to605 in the index, worker, idle warm-up, score details
+and Feed live-score loader. Advance changed score-details and Feed-loader
+URLs to605 in every caller/worker; changed tournament-card UI also advances to605
+through its bundled venue-panel owner and worker. The changed idle warm-up
+module advances to605 at its index caller. Regenerate the app-shell runtime
+from those venue-panel sources using the existing builder; unchanged generated
+bundles and unrelated asset versions retain their bytes/keys.
+
+Index shell metadata, app-version.json, worker cache/version and runtime URLs
+advance604→605 together. The existing dynamic recovery UI uses the605 worker
+key as required by the established shell convention. No worker lifecycle code,
+cache strategy, timing, source/data refresh, admission or notification behaviour
+changes. Optional startup-view-cache retains its existing after-use ownership;
+no new required install asset is added.
+
+Source cache/version/build/view-cache/offline-module/startup/affected-handler
+checks are preparation only. ROOT must run the full normal release and installed
+604→605 upgrade/offline checks on its exact combined tree in both engines.
+No browser, CI, live, managed SQL, push or deployment is performed by this worker.
+The old one-release PWA exceptions are not reused. Original held AFLW
+acceptance and separate unchanged horizon RED remain untouched.

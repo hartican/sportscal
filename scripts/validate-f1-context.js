@@ -3,6 +3,7 @@
 "use strict";
 
 const assert = require("node:assert/strict");
+require('./validate-f1-source-provenance');
 const fs = require("node:fs");
 const sportContext = require("../config/sport-context");
 

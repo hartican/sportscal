@@ -209,10 +209,10 @@ Future pipeline only:
 - Never Miss and Around the Corner may later become push and email surfaces, but do not build that now.[conversation_history:1]
 
 ## Feedback form
-Repurpose Suggest Additions into a feedback form that opens the SMS composer.[conversation_history:1]
+Repurpose Suggest Additions into a feedback form that opens the email composer.[conversation_history:1]
 
 Requirements:
-- Open the device SMS composer with recipient prefilled as 0437041326.[conversation_history:1]
+- Open the device email composer with recipient prefilled as hello@nothingsport.com.[conversation_history:1]
 - Prefill the message body.[conversation_history:1]
 - Use fixed AEST / AEDT date-time formatting in the message.[conversation_history:1]
 - Include standard categories such as:
@@ -256,4 +256,4 @@ Do not build this now, but preserve as a future improvement:
 - Past events remain chronological and visually subdued.[conversation_history:1]
 - Existing card rewrites update key events, especially FIFA World Cup matchups, without default spoiler leakage.[conversation_history:1][file:2]
 - Completed events above 8/10 are suggested for Watch Later without reordering past feeds.[conversation_history:1]
-- Feedback form opens a prefilled SMS composer using fixed AEST / AEDT formatting.[conversation_history:1]
+- Feedback form opens a prefilled email composer using fixed AEST / AEDT formatting.[conversation_history:1]

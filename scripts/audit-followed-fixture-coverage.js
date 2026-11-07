@@ -96,7 +96,7 @@ function auditProfile(profile, { now = new Date(), baseEvents = contextualBaseEv
     const directState = { preferences:{ preferenceGraph:{ entityFollows:[follow], domainPreferences:[], competitionPreferences:[] } } };
     const resolvedIds = expandedFollowEntityIds(directState);
     const fixtures = normalized.filter(event => retainedFixture(event, reference) && eventMatchesEntities(event, resolvedIds));
-    const eligible = fixtures.filter(event => shouldEnrichEvent(event, userState.preferences, {}, resolvedIds, reference));
+    const eligible = fixtures.filter(event => shouldEnrichEvent(event, userState.preferences, {}, allEntityIds, reference));
     if (eligible.length && eligible.some(event => feedEventIds.has(stableEventId(event)))){
       const activeFixtures = eligible.filter(event => {
         const state = cardLifecycle.lifecycleState(event, { now:reference }).state;
@@ -120,7 +120,7 @@ function auditProfile(profile, { now = new Date(), baseEvents = contextualBaseEv
     retainedFixture(event, reference)
     && eventMatchesEntities(event, allEntityIds)
     && sydneyDateKey(event.startTimeUtc) === sydneyDateKey(reference)
-    && shouldEnrichEvent(event, userState.preferences, {}, allEntityIds)
+    && shouldEnrichEvent(event, userState.preferences, {}, allEntityIds, reference)
   ));
   const missingSameDay = sameDayFollowed.filter(event => !firstPageIds.has(stableEventId(event)));
   return {
@@ -142,7 +142,11 @@ function auditProfile(profile, { now = new Date(), baseEvents = contextualBaseEv
 }
 
 function main(){
-  const snapshot = readSnapshot();
+  const synthetic = !process.env.FOLLOW_SNAPSHOT_PATH;
+  const snapshot = synthetic ? {profiles:[{profileHash:'synthetic-tennis',entityFollows:[
+    {participantId:'competitor:tennis:atp:alex-de-minaur',followLevel:'follow'},
+    {participantId:'competitor:tennis:atp:alexander-zverev',followLevel:'follow'},
+  ],collectionFollows:[]}]} : readSnapshot();
   const context = sportContext.mergeCanonicalBundles(canonicalSports, f1Context, tennisContext, cyclingContext, nbaContext, cwgContext);
   const contextualEvents = sportContext.applyContextToEvents(baseFeed.events, context);
   const results = snapshot.profiles.map(profile => auditProfile(profile, { baseEvents:contextualEvents }));
@@ -160,7 +164,7 @@ function main(){
     ...result.missingSameDay.map(eventId => `${result.profileHash}:${eventId}:not_on_initial_page`),
   ]);
   if (failures.length) throw new Error(`Follow fixture audit failed: ${failures.join(", ")}`);
-  console.log(`Anonymised follow fixture audit passed for ${results.length} profiles.`);
+  console.log(`${synthetic ? 'Synthetic public-data' : 'Anonymised'} follow fixture audit passed for ${results.length} profiles.${synthetic ? ' No private preferences accessed; account-specific coverage was not audited.' : ''}`);
 }
 
 if (require.main === module){

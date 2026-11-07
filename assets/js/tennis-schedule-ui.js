@@ -1,0 +1,94 @@
+// Loaded only when opening tennis Schedule or Major Events.
+let tennisTournamentCatalogue = null;
+let tennisTournamentCatalogueLoading = null;
+function loadTennisTournamentCatalogue(){
+  if (tennisTournamentCatalogue) return Promise.resolve(tennisTournamentCatalogue);
+  if (!tennisTournamentCatalogueLoading) tennisTournamentCatalogueLoading = fetch('data/canonical/tennis-catalogue-2026.json', {cache:'no-cache'})
+    .then(response=>{if(!response.ok)throw new Error('Tournament catalogue unavailable');return response.json();})
+    .then(document=>{tennisTournamentCatalogue=document;return document;})
+    .finally(()=>{tennisTournamentCatalogueLoading=null;});
+  return tennisTournamentCatalogueLoading;
+}
+function renderTennisMajorEvents(container){
+  if(!tennisTournamentCatalogue){
+    const status=document.createElement('p');status.textContent='Loading published tournaments…';container.append(status);
+    void Promise.all([loadTennisTournamentCatalogue(),loadTennisFeedParents()]).then(()=>{if(activeTab==='follow'&&followViewSection==='major-events')renderFollowView();}).catch(()=>{status.textContent='Tournament catalogue unavailable. ';const retry=document.createElement('button');retry.type='button';retry.textContent='Retry';retry.onclick=()=>renderFollowView();status.append(retry);});return;
+  }
+  const helper=NOTHINGSPORTS_TOURNAMENT_SCHEDULE;
+  function row(t){
+    const family=helper.family(t),card=document.createElement('div');card.className='follow-event-family tennis-catalogue-row';card.dataset.eventFamilyId=family;card.dataset.edition=t.tournamentId;
+    const copy=document.createElement('div'),title=document.createElement('strong'),dates=document.createElement('small');title.textContent=helper.displayLabel(t);dates.textContent=`${t.startDate} – ${t.endDate}`;copy.append(title,dates);
+    const toggle=document.createElement('button');toggle.type='button';toggle.className='btn ghost follow-event-family-toggle';toggle.dataset.eventFamilyLabel=t.name;const edition={...t,...tennisFeedParentDocument?.parents?.find(p=>p.tournamentIds?.includes(t.tournamentId)),tournamentId:t.tournamentId,key:'tennis',id:t.tournamentId,eventFamilyId:family,date:t.startDate,endDate:t.endDate,tournamentParent:true};const editionToggle=buildEventEditionToggle(edition);toggle.replaceWith(editionToggle);
+    const open=document.createElement('button');open.type='button';open.className='btn ghost';open.textContent='Schedule';open.onclick=async()=>{tennisSelectedEdition=t.tournamentId;await openCodeInspector(followDirectoryKey().endsWith('-women')?'sport:tennis-women':'sport:tennis');};card.append(copy,editionToggle,open);return card;
+  }
+  for(const section of helper.sections(tennisTournamentCatalogue.tournaments.filter(t=>helper.gender(t,followBrowseState().gender || (followDirectoryKey().endsWith('-women')?'women':'men'))),formatDateKey(nowAEST())).filter(s=>s.current.length||s.later.length||s.previous.length)){
+    const group=document.createElement('section');group.className='tennis-catalogue-category';const heading=document.createElement('h3');heading.textContent=section.label;group.append(heading);
+    section.current.forEach(t=>group.append(row(t)));
+    for(const [key,label]of [['later','Later published editions'],['previous','Previous editions']])if(section[key].length){const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent=label;details.dataset.followDisclosure=`tennis:${section.label}:${key}`;details.open=followDisclosureState.get(details.dataset.followDisclosure)===true;details.addEventListener('toggle',()=>followDisclosureState.set(details.dataset.followDisclosure,details.open));details.append(summary);section[key].forEach(t=>details.append(row(t)));group.append(details);}
+    container.append(group);
+  }
+  const note=document.createElement('p');note.className='chat-empty';note.textContent='Follow this edition to add its marker to Feed. Your followed players add their sourced matches at ATP/WTA 500 and above. Schedule shows everyone from the quarterfinals onward.';container.append(note);
+  installFollowEventBulk(container);
+}
+let tennisSelectedEdition = '';
+let tennisJourneyDocument = null;
+let tennisJourneyLoading = null;
+function loadTennisJourneys(){
+  if(tennisJourneyDocument)return Promise.resolve(tennisJourneyDocument);
+  if(!tennisJourneyLoading)tennisJourneyLoading=fetch('data/tennis-journeys.v1.json',{cache:'no-cache'}).then(response=>{if(!response.ok)throw Error('Journey calendar unavailable');return response.json();}).then(doc=>{tennisJourneyDocument=doc;return doc;}).finally(()=>{tennisJourneyLoading=null;});
+  return tennisJourneyLoading;
+}
+function renderTennisJourneys(panel){
+  const details=document.createElement('details'),summary=document.createElement('summary'),body=document.createElement('div');
+  details.className='tennis-schedule-round';details.dataset.tennisJourneys='true';details.dataset.followDisclosure='tennis:journeys';details.open=followDisclosureState.get(details.dataset.followDisclosure)===true;
+  summary.textContent='Player journeys · next twelve months';details.append(summary,body);panel.append(details);let mounted=false;
+  const mount=async()=>{
+    followDisclosureState.set(details.dataset.followDisclosure,details.open);
+    if(!details.open||mounted)return;mounted=true;body.textContent='Loading journey calendar…';
+    try{
+      const doc=await loadTennisJourneys(),today=formatDateKey(nowAEST()),until=NOTHINGSPORTS_TENNIS_JOURNEYS.through(today);
+      const editions=NOTHINGSPORTS_TENNIS_JOURNEYS.editions(doc,today,userPreferences,followCollectionsById());body.textContent='';
+      const window=document.createElement('p');window.textContent=`${today} – ${until} · tournament dates are local to the venue`;body.append(window);
+      if(until>doc.calendarReviewedThrough){const pending=document.createElement('p');pending.textContent=`Published calendar coverage awaits review beyond ${doc.calendarReviewedThrough}.`;body.append(pending);}
+      if(!editions.length){const empty=document.createElement('p');empty.textContent='Follow a tracked player to show their journey calendar.';body.append(empty);}
+      for(const edition of editions){
+        const row=document.createElement('details'),heading=document.createElement('summary');row.dataset.journeyEdition=edition.id;heading.textContent=`${edition.name} ${edition.season} · ${edition.venue}`;row.append(heading);
+        const sources=new Map(doc.sources.map(source=>[source.id,source]));
+        const evidence=(refs,host)=>{for(const id of [...new Set(refs)]){const source=sources.get(id);if(!source)continue;const link=document.createElement('a');link.href=source.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=`${source.scope.replace(/_/g,' ')} evidence · checked ${source.verifiedAt}`;const p=document.createElement('p');p.append(link);host.append(p);}};
+        for(const tour of edition.tourWindows){const dates=document.createElement('p');dates.textContent=`${tour.tour} · ${tour.startDate} – ${tour.endDate}${tour.dateBasis==='published_calendar_weeks'?' · tour calendar weeks':''}`;row.append(dates);evidence(tour.sourceIds,row);}
+        if(edition.undated){const dates=document.createElement('p');dates.textContent='Dates not yet published';row.append(dates);}
+        for(const participation of edition.participation){
+          const player=doc.players.find(p=>p.id===participation.playerId),p=document.createElement('p'),name=document.createElement('strong'),note=document.createElement('small');
+          const status={confirmed:'Confirmed',very_likely:'Very likely · entry unconfirmed',conditional:'Conditional',withdrawn:'Withdrawn'}[participation.status];name.textContent=`${player.name} · ${status}`;note.textContent=`${participation.reason} Checked ${participation.verifiedAt}.`;p.append(name,document.createElement('br'),note);row.append(p);evidence(participation.sourceIds,row);
+        }
+        body.append(row);
+      }
+    }catch(_){mounted=false;body.textContent='Journey calendar unavailable. ';const retry=document.createElement('button');retry.type='button';retry.textContent='Retry';retry.onclick=()=>void mount();body.append(retry);}
+  };
+  details.addEventListener('toggle',()=>void mount());void mount();
+}
+function renderTennisTournamentSchedule(panel,fixtures){
+  // Participant year-ahead outlooks live in Follow profiles.
+  if(!tennisTournamentCatalogue){
+    const pending=document.createElement('p');pending.textContent='Loading tournament editions…';panel.append(pending);void loadTennisTournamentCatalogue().then(()=>{if(activeInspectorCodeId==='sport:tennis')renderCodeInspector();}).catch(()=>{pending.textContent='Tournament catalogue unavailable. Try opening Schedule again.';});return;
+  }
+  fixtures=fixtures.filter(f=>FOLLOW_FEED_POLICY.scheduleVisible(f,userPreferences,followCollectionsById()));
+  const catalogue=tennisTournamentCatalogue.tournaments.filter(t=>NOTHINGSPORTS_TOURNAMENT_SCHEDULE.eligible(t)&&NOTHINGSPORTS_TOURNAMENT_SCHEDULE.gender(t,followDirectoryKey().endsWith('-women')?'women':'men'));
+  const groups=NOTHINGSPORTS_TOURNAMENT_SCHEDULE.groups(fixtures,catalogue);
+  for(const t of catalogue)if(!Object.values(NOTHINGSPORTS_FOLLOW_NAV.selected('sport:tennis')).some(v=>v.length)&&!groups.some(g=>g.id===t.tournamentId))groups.push({id:t.tournamentId,label:NOTHINGSPORTS_TOURNAMENT_SCHEDULE.displayLabel(t),startDate:t.startDate,endDate:t.endDate,fixtures:[]});
+  groups.sort((a,b)=>String(a.startDate).localeCompare(String(b.startDate))||a.id.localeCompare(b.id));
+  const today=formatDateKey(nowAEST());
+  const current=groups.filter(g=>g.endDate>=today);const latest=groups.filter(g=>g.endDate<today).sort((a,b)=>b.endDate.localeCompare(a.endDate))[0];
+  if(!tennisSelectedEdition||!groups.some(g=>g.id===tennisSelectedEdition))tennisSelectedEdition=current[0]?.id||latest?.id||groups[0]?.id;
+  const picker=document.createElement('select');picker.setAttribute('aria-label','Tournament and edition');picker.className='follow-tournament-select';
+  for(const [label,list]of [['Live and upcoming editions',current],['Older editions',groups.filter(g=>g.endDate<today).reverse()]]){const group=document.createElement('optgroup');group.label=label;for(const g of list){const option=document.createElement('option');option.value=g.id;option.textContent=g.label;option.selected=g.id===tennisSelectedEdition;group.append(option);}picker.append(group);}
+  picker.onchange=()=>{tennisSelectedEdition=picker.value;renderCodeInspector();};panel.append(picker);
+  const chosen=groups.find(g=>g.id===tennisSelectedEdition);if(!chosen)return;
+  const latestPlayed=groups.filter(g=>g.fixtures.some(f=>f.status==='completed')).sort((a,b)=>b.endDate.localeCompare(a.endDate))[0];
+  if(latestPlayed&&latestPlayed.id!==chosen.id){const recent=document.createElement('button');recent.type='button';recent.className='btn ghost';recent.textContent=`Latest completed matches · ${latestPlayed.label}`;recent.onclick=()=>{tennisSelectedEdition=latestPlayed.id;renderCodeInspector();};panel.append(recent);}
+  const title=document.createElement('h3');title.textContent=chosen.label;panel.append(title);
+  if(!chosen.fixtures.length){const note=document.createElement('p');note.textContent='NS has not verified match coverage for this tournament. Check the official schedule.';panel.append(note);return;}
+  const rounds=new Map();for(const fixture of chosen.fixtures){const label=fixture.roundLabel&&fixture.roundLabel!=='all'?fixture.roundLabel:fixture.stage||'Published matches';if(!rounds.has(label))rounds.set(label,[]);rounds.get(label).push(fixture);}
+  const latestDay=chosen.fixtures.filter(f=>f.status==='completed').map(f=>f.date).sort().at(-1);
+  for(const [round,matches]of rounds){const details=document.createElement('details');details.className='tennis-schedule-round';details.open=matches.some(f=>f.date>=today||f.status==='live'||f.date===latestDay);const summary=document.createElement('summary');summary.textContent=`${round} · ${matches.length} matches`;details.append(summary);let mounted=false;const mount=()=>{if(mounted||!details.open)return;mounted=true;const list=document.createElement('div');list.className='code-inspector-fixtures';matches.forEach(f=>list.append(buildCodeInspectorFixture(f)));details.append(list);};details.addEventListener('toggle',mount);panel.append(details);mount();}
+}

@@ -37,6 +37,7 @@ function safeSignal(snapshot, capturedAt){
   return {
     sourceEventId:String(snapshot?.canonicalEventId || snapshot?.eventId || ""),
     anticipation,
+    fiveStarPhases:[...new Set((snapshot?.fiveStarPhases||[]).filter(phase=>["heat","pulse","impact"].includes(phase)))],
     replayResearchRequested:snapshot?.replayResearchRequested===true,
     pulse:pulse ? { ...pulse, active:snapshot?.phase === "pulse" } : null,
     impact,
@@ -55,12 +56,21 @@ function validateSnapshot(document){
   });
   return issues;
 }
-async function capture({ now = new Date(), snapshotsImpl } = {}){
+async function researchCandidates(rowsImpl){
+  const ids=new Set();
+  for(let offset=0;;offset+=1000){
+    const page=await rowsImpl("nothingsports_nsc_contributions",{select:"event_id",rating:"eq.5",order:"event_id.asc,contribution_id.asc",limit:1000,offset});
+    page.forEach(row=>ids.add(String(row.event_id)));if(page.length<1000)break;
+  }
+  return [...ids];
+}
+async function capture({ now = new Date(), snapshotsImpl, candidateIds=[] } = {}){
   const feed = readJson(FEED_PATH);
-  const ids = [...new Set((feed.events || []).map(eventId).filter(Boolean))];
-  const snapshots = FIXTURE_PATH
-    ? readJson(FIXTURE_PATH).snapshots || []
-    : await snapshotsImpl(ids, { now });
+  const ids = [...new Set([...(feed.events || []).map(eventId),...candidateIds].filter(Boolean))];
+  const snapshots = FIXTURE_PATH ? readJson(FIXTURE_PATH).snapshots || [] : [];
+  if(!FIXTURE_PATH)for(let offset=0;offset<ids.length;offset+=50){
+    snapshots.push(...await snapshotsImpl(ids.slice(offset,offset+50), { now, editorialResearch:true }));
+  }
   const capturedAt = now.toISOString();
   const document = {
     schemaVersion:"editorial-nothingscore-snapshot.v1",
@@ -77,9 +87,9 @@ async function main(){
   const check = process.argv.includes("--check");
   let document = fs.existsSync(OUTPUT_PATH) ? readJson(OUTPUT_PATH) : null;
   if (FIXTURE_PATH || supabaseServiceRoleConfig().configured){
-    const snapshotsImpl = require("../lib/nothingscore-server").snapshots;
+    const { snapshots:snapshotsImpl, rows } = require("../lib/nothingscore-server");
     try{
-      document = await capture({ snapshotsImpl });
+      document = await capture({ snapshotsImpl, candidateIds:FIXTURE_PATH?[]:await researchCandidates(rows) });
       if (write) writeJson(OUTPUT_PATH, document);
     }catch(error){
       if (!document) throw error;
@@ -96,4 +106,4 @@ async function main(){
 
 if (require.main === module) main().catch(error => { console.error(error.message); process.exitCode = 1; });
 
-module.exports = { capture, safeAggregate, safeSignal, validateSnapshot };
+module.exports = { researchCandidates, capture, safeAggregate, safeSignal, validateSnapshot };

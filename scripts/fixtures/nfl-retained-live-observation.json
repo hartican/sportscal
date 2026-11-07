@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "retained-nfl-observation.v1",
+  "provenance": {
+    "sourceGitSha": "3930ddb638e066095b46408f57897ebb680c56c1",
+    "sourcePath": "data/code-inspector/american-football.json",
+    "use": "Read-only historical live freshness control; never ingested as current sporting facts"
+  },
+  "fixture": {
+    "id": "fixture:nfl:401872966",
+    "sourceEventIds": [
+      "fixture:nfl:401872966"
+    ],
+    "codeId": "sport:american-football",
+    "key": "american-football",
+    "statusCheckedAt": "2026-10-04T19:01:43.199Z",
+    "scoreCheckedAt": "2026-10-04T19:01:43.199Z",
+    "sportDomainId": "sport:american-football",
+    "competitionId": "competition:nfl",
+    "name": "Arizona Cardinals at New York Giants",
+    "date": "2026-10-05",
+    "time": "04:00",
+    "timePrecision": "exact",
+    "startTimeUtc": "2026-10-04T17:00:00.000Z",
+    "roundNumber": 4,
+    "statusSourceUrl": "https://www.espn.com/nfl/game/_/gameId/401872966/cardinals-giants",
+    "canonicalEventId": "fixture:nfl:401872966",
+    "resultSourceUrl": "https://www.espn.com/nfl/game/_/gameId/401872966/cardinals-giants",
+    "resultSourceCheckedAt": "2026-10-04T19:01:43.199Z",
+    "season": 2026,
+    "sourceName": "ESPN",
+    "sourceType": "publisher-schedule",
+    "sourceCheckedAt": "2026-10-04T18:55:10.114Z",
+    "consensusTags": [],
+    "scoreDisplay": "Arizona Cardinals 23-19 New York Giants",
+    "score": "Arizona Cardinals 23-19 New York Giants",
+    "venue": "MetLife Stadium",
+    "status": "live",
+    "scheduleStatus": "confirmed",
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nfl:nyg",
+        "label": "New York Giants",
+        "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/nyg.png",
+        "homeAway": "home",
+        "score": "19"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nfl:ari",
+        "label": "Arizona Cardinals",
+        "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ari.png",
+        "homeAway": "away",
+        "score": "23"
+      }
+    ],
+    "participantIds": [],
+    "participants": [],
+    "participantCountryCodes": [],
+    "detailsExpectedAt": null,
+    "schedulingWindow": null,
+    "roundLabel": "Week 4",
+    "stage": null,
+    "groupOrder": 5000,
+    "competitionScope": null,
+    "isInternational": false,
+    "representativeCountryCodes": [],
+    "expected": 0,
+    "broadcaster": null,
+    "viewingOptions": [],
+    "sourceUrl": "https://www.espn.com/nfl/game/_/gameId/401872966/cardinals-giants",
+    "ticketUrl": null,
+    "sourceCoverage": "official-canonical"
+  }
+}

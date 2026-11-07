@@ -1,0 +1,141 @@
+{
+  "capturedAt": "2026-10-02",
+  "sourceUrls": [
+    "https://fantasy.premierleague.com/api/bootstrap-static/",
+    "https://fantasy.premierleague.com/api/fixtures/"
+  ],
+  "bootstrap": {
+    "teams": [
+      {
+        "id": 1,
+        "name": "Arsenal"
+      },
+      {
+        "id": 2,
+        "name": "Aston Villa"
+      },
+      {
+        "id": 3,
+        "name": "Bournemouth"
+      },
+      {
+        "id": 4,
+        "name": "Brentford"
+      },
+      {
+        "id": 5,
+        "name": "Brighton"
+      },
+      {
+        "id": 6,
+        "name": "Chelsea"
+      },
+      {
+        "id": 7,
+        "name": "Coventry City"
+      },
+      {
+        "id": 8,
+        "name": "Crystal Palace"
+      },
+      {
+        "id": 9,
+        "name": "Everton"
+      },
+      {
+        "id": 10,
+        "name": "Fulham"
+      },
+      {
+        "id": 11,
+        "name": "Hull City"
+      },
+      {
+        "id": 12,
+        "name": "Ipswich Town"
+      },
+      {
+        "id": 13,
+        "name": "Leeds"
+      },
+      {
+        "id": 14,
+        "name": "Liverpool"
+      },
+      {
+        "id": 15,
+        "name": "Man City"
+      },
+      {
+        "id": 16,
+        "name": "Man Utd"
+      },
+      {
+        "id": 17,
+        "name": "Newcastle"
+      },
+      {
+        "id": 18,
+        "name": "Nott'm Forest"
+      },
+      {
+        "id": 19,
+        "name": "Spurs"
+      },
+      {
+        "id": 20,
+        "name": "Sunderland"
+      }
+    ],
+    "events": [
+      {
+        "id": 1,
+        "name": "Gameweek 1",
+        "deadline_time": "2026-08-21T17:30:00Z"
+      },
+      {
+        "id": 2,
+        "name": "Gameweek 2",
+        "deadline_time": "2026-08-28T17:30:00Z"
+      }
+    ]
+  },
+  "fixtures": [
+    {
+      "id": 1,
+      "event": 1,
+      "team_h": 1,
+      "team_a": 7,
+      "kickoff_time": "2026-08-21T19:00:00Z"
+    },
+    {
+      "id": 4,
+      "event": 1,
+      "team_h": 11,
+      "team_a": 16,
+      "kickoff_time": "2026-08-22T11:30:00Z"
+    }
+  ],
+  "events": [
+    {
+      "id": "epl-2026-27-128923",
+      "eventId": "epl-2026-27-128923",
+      "canonicalEventId": "event:premier-league:128923",
+      "competitionId": "competition:premier-league-2026-27",
+      "key": "premier-league",
+      "startTimeUtc": "2026-08-21T19:00:00.000Z",
+      "homeParticipantId": "team:football:epl:1",
+      "awayParticipantId": "team:football:epl:5"
+    },
+    {
+      "id": "epl-2026-27-128926",
+      "eventId": "epl-2026-27-128926",
+      "canonicalEventId": "event:premier-league:128926",
+      "competitionId": "competition:premier-league-2026-27",
+      "key": "premier-league",
+      "startTimeUtc": "2026-08-22T11:30:00.000Z",
+      "homeParticipantId": "team:football:epl:41",
+      "awayParticipantId": "team:football:epl:12"
+    }
+  ]
+}

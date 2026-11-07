@@ -1,0 +1,99 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),model=require('../config/match-centre');
+const cricketBundle=require('../data/follow-schedule/cricket.json');
+const retainedCricket=cricketBundle.fixtures.find(f=>f.sourceEventIds?.includes('fixture:cricket:CA:39990'));
+const rawCricket=require('./fixtures/cricket-ca39990-scorecard-20261011.json'),detail=require('../lib/cricket-scorecard');
+const checkedAt='2026-10-10T22:45:30.525Z',replayAt=Date.parse('2026-10-11T12:30:00.000Z');
+assert(Number.isFinite(replayAt));assert.equal(retainedCricket.restartTimeUtc,undefined,'The retained final supplies no confirmed resumption');
+// Historical replay of the archived Stumps receipt, not a rewrite of the later
+// published final. Preserve the known canonical alias, and replay this historical
+// record in both the public Feed and its followed-schedule source to avoid mixing
+// the later final into the archived Stumps scorecard.
+const normalized=detail.normalize(rawCricket,{fixtureId:39990,checkedAt});
+const cricket={...require('../lib/source-coverage').parseCricketFixtures([{...normalized.fixture,innings:normalized.innings}],{sourceUrl:detail.url(39990),checkedAt})[0],id:retainedCricket.id,eventId:retainedCricket.eventId,canonicalEventId:retainedCricket.canonicalEventId,sourceEventIds:retainedCricket.sourceEventIds,cricketBalance:normalized.balance,restartTimeUtc:null,restartSourceUrl:null,restartSourceCheckedAt:null};
+// Constructed test-only positive: these explicit confirmation fields exercise
+// the display contract; they do not establish an actual resumption or schedule.
+const confirmedCricket={...cricket,restartTimeUtc:'2026-10-11T13:30:00.000Z',restartSourceUrl:'https://example.test/cricket/confirmed-resumption-control',restartSourceCheckedAt:new Date(replayAt).toISOString()};
+const sourceBefore=JSON.stringify([retainedCricket,rawCricket]);
+const publishedGolf=require('../data/follow-schedule/golf.json').fixtures.find(f=>f.id==='fixture:golf:pga:R2026527');
+const golfReceipt=require('./fixtures/golf/baycurrent-final-20261011.json');
+// Replay the actual retained official final; current compact membership carries no table.
+const golf=require('../lib/golf-live').snapshot('<script id="__NEXT_DATA__">'+JSON.stringify({props:{pageProps:{dehydratedState:{queries:golfReceipt.queries}}}})+'</script>',{base:{...publishedGolf,leaderboardUrl:golfReceipt.sourceUrl},checkedAt:golfReceipt.checkedAt});
+const china=require('../data/tennis-feed-parents.v1.json').parents.find(f=>f.id==='tennis-parent:china-open:2026:main');
+const football=require('../data/code-inspector/champions-league.json').fixtures.find(f=>f.goalScorers?.some(g=>g.name==='John McGinn'));
+const observations=[];
+(async()=>{for(const engine of ['chromium','webkit']){
+ const browser=await pw[engine].launch({headless:true,...(engine==='chromium'?{channel:'chrome'}:{})});try{for(const width of [390,1280]){
+  const page=await browser.newPage({viewport:{width,height:844},serviceWorkers:'block',timezoneId:'Australia/Sydney'}),errors=[];
+  await page.clock.setFixedTime(new Date(replayAt));
+  page.on('pageerror',e=>errors.push(e.message));
+  await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({version:26,onboardingComplete:true,showSpoilers:true,followedSports:[],selectedSelectorEntityIds:[],fantasyDeadlines:{enabled:false},preferenceGraph:{entityFollows:[{participantId:'team:cricket:australia',followLevel:'follow'},{participantId:'competitor:golf:min-woo-lee',followLevel:'follow'},{participantId:'competitor:tennis:wta:aryna-sabalenka',followLevel:'follow'}]}})));
+  const origin=process.env.MATCH_CENTRE_QA_URL||'http://127.0.0.1:34109';let currentCricket=cricket,externalAttemptsBlocked=0;
+  await page.route('**/*',r=>{const url=new URL(r.request().url());if(url.origin!==new URL(origin).origin){externalAttemptsBlocked++;return r.abort();}
+   if(url.pathname==='/data/follow-schedule/cricket.json')return r.fulfill({json:{...cricketBundle,fixtures:cricketBundle.fixtures.map(f=>f.id===retainedCricket.id?cricket:f)}});
+   if(url.pathname==='/data/feed/manifest.json')return r.fulfill({json:{schemaVersion:'public-feed.v2',sourceVersion:'test-only-full-scorecard-20261011',sourcePublishedAt:checkedAt,eventCount:1,inputEventCount:1,pageSize:20,pages:[{index:0,path:'data/feed/page-001.json',eventCount:1}]}});
+   if(url.pathname==='/data/feed/page-001.json')return r.fulfill({json:{events:[cricket]}});
+   if(!url.pathname.startsWith('/api/'))return r.continue();
+   if(url.pathname==='/api/match-centre')return r.fulfill({json:{enabled:true,events:[currentCricket],fixtures:[model.compact(currentCricket)],membershipStale:false,pagination:{nextCursor:null}}});
+   return r.fulfill({status:503,json:{}});
+  });
+  await page.goto(origin,{waitUntil:'domcontentloaded'});
+  await page.locator('#startupLaunch').waitFor({state:'hidden'});
+  await page.evaluate(()=>{setTunePromptOpen(false);suppressSessionRatingPrompt();});
+  async function tables(host){
+   const select=host.getByRole('combobox',{name:'Scorecard innings'});await select.waitFor();assert.equal(await select.locator('option').count(),cricket.innings.length);
+   for(const i of cricket.innings){await select.selectOption(String(i.inningNumber));const batting=host.locator('table').filter({has:page.locator('caption', {hasText:'Batting ·'})}),bowling=host.locator('table').filter({has:page.locator('caption',{hasText:'Bowling ·'})});
+    assert.equal(await batting.locator('tbody tr').count(),i.batting.filter(b=>!b.didNotBat).length);assert.equal(await bowling.locator('tbody tr').count(),i.bowling.length);
+    for(const b of i.batting.filter(b=>!b.didNotBat)){const cells=await batting.locator('tbody tr').filter({has:page.getByRole('rowheader',{name:b.name,exact:true})}).locator('th,td').allTextContents();assert.deepEqual(cells,[b.name,b.dismissal??'—',...['runs','balls','fours','sixes','strikeRate'].map(k=>String(b[k]??'—'))]);}
+    for(const b of i.bowling){const cells=await bowling.locator('tbody tr').filter({has:page.getByRole('rowheader',{name:b.name,exact:true})}).locator('th,td').allTextContents();assert.deepEqual(cells,[b.name,...['overs','maidens','runs','wickets','economy','wides','noBalls'].map(k=>String(b[k]??'—'))]);}
+    assert.equal(await host.locator('table').filter({has:page.locator('caption',{hasText:'Fall of wickets ·'})}).locator('tbody tr').count(),(i.fallOfWickets||(Array.isArray(i.wickets)?i.wickets:[])).length);
+    const pending=i.batting.filter(b=>b.didNotBat);if(pending.length)assert.deepEqual(await host.getByRole('list',{name:'Yet to bat',exact:true}).locator('li').allTextContents(),pending.map(b=>b.name));
+   }
+  }
+  await page.locator('.tabs [data-tab=match-centre]').click();await page.getByRole('tab',{name:'Everything',exact:true}).click();
+  const mc=page.locator('[data-match-id="'+cricket.canonicalEventId+'"]');await mc.waitFor();await mc.locator('.mc-status').click();await tables(mc);
+  assert.match(await mc.innerText(),/Stumps/);assert((await mc.innerText()).includes(cricket.cricketBalance),'Archived cricket balance is visible');assert.match(await mc.innerText(),/Resume time unconfirmed/i);assert(!/Live again at/i.test(await mc.innerText()));
+  assert.equal(await mc.getByRole('link',{name:'Official scorecard'}).getAttribute('href'),'https://www.cricket.com.au/matches/CA%3A39990');
+  await mc.getByRole('combobox',{name:'Scorecard innings'}).selectOption('1');await page.getByRole('button',{name:'Refresh Match Centre',exact:true}).click();await page.getByText('Latest available scores loaded.',{exact:true}).waitFor();assert.equal(await mc.getByRole('combobox',{name:'Scorecard innings'}).inputValue(),'1','Selected innings and expansion survive refresh');
+  currentCricket=confirmedCricket;await page.clock.setFixedTime(new Date(replayAt+11000));await page.getByRole('button',{name:'Refresh Match Centre',exact:true}).click();await page.getByText('Latest available scores loaded.',{exact:true}).waitFor();assert.match(await mc.innerText(),/Live again at.*12:30 am/i);assert(!/Resume time unconfirmed/i.test(await mc.innerText()));assert.equal(await mc.getByRole('combobox',{name:'Scorecard innings'}).inputValue(),'1');
+  currentCricket=cricket;await page.clock.setFixedTime(new Date(replayAt+22000));await page.getByRole('button',{name:'Refresh Match Centre',exact:true}).click();await page.getByText('Latest available scores loaded.',{exact:true}).waitFor();assert.match(await mc.innerText(),/Resume time unconfirmed/i);assert(!/Live again at/i.test(await mc.innerText()));
+  await page.locator('.tabs [data-tab=feed]').click();
+  const ordinaryFeed=page.locator('#listView .event-card[data-event-id="'+cricket.id+'"]');await ordinaryFeed.waitFor();
+  const disclosure=ordinaryFeed.locator('[data-card-control="disclosure"]');if(await disclosure.getAttribute('aria-expanded')==='false')await disclosure.click();assert.equal(await disclosure.getAttribute('aria-expanded'),'true','Ordinary Feed card expands through its disclosure');const more=ordinaryFeed.locator('.fixture-more');if(await more.getAttribute('aria-expanded')==='false')await more.click();assert.equal(await more.getAttribute('aria-expanded'),'true','Ordinary Feed scorecard opens through More');await tables(ordinaryFeed);assert.match(await ordinaryFeed.innerText(),/Stumps/i);assert(!/Live again at/i.test(await ordinaryFeed.innerText()));
+  if(process.env.FULL_SCORECARD_CAPTURE){fs.mkdirSync(process.env.FULL_SCORECARD_CAPTURE,{recursive:true});await ordinaryFeed.screenshot({path:path.join(process.env.FULL_SCORECARD_CAPTURE,engine+'-'+width+'-ordinary-feed-cricket.png')});}
+  await page.evaluate(({cricket,golf,china})=>{liveFixtureEvents=NOTHINGSPORTS_FIXTURE_IDENTITY.mergeOverlays(liveFixtureEvents,[golf]);const host=document.createElement('section');host.id='fullScorecardEvidence';document.body.append(host);for(const f of [cricket]){setCardState(f,'opened');host.append(buildEventCard(f,{mode:'feed'}));}host.append(buildTournamentMarker(golf),buildTournamentMarker(china));},{cricket,golf,china});
+  const feed=page.locator('#fullScorecardEvidence .event-card[data-event-id="'+cricket.id+'"]');await tables(feed);assert.match(await feed.innerText(),/Stumps/i);assert(!/Live again at/i.test(await feed.innerText()));assert.equal(await feed.getByRole('link',{name:'Official scorecard'}).getAttribute('href'),'https://www.cricket.com.au/matches/CA%3A39990');if(process.env.FULL_SCORECARD_CAPTURE){fs.mkdirSync(process.env.FULL_SCORECARD_CAPTURE,{recursive:true});await feed.screenshot({path:path.join(process.env.FULL_SCORECARD_CAPTURE,engine+'-'+width+'-cricket.png')});}
+  await page.evaluate(f=>{const host=document.createElement('section');host.id='confirmedResumptionControl';setCardState(f,'opened');host.append(buildEventCard(f,{mode:'feed'}));document.body.append(host);},confirmedCricket);
+  const confirmedFeed=page.locator('#confirmedResumptionControl .event-card');await tables(confirmedFeed);assert.match(await confirmedFeed.innerText(),/Live again at.*12:30 am/i);
+  const bay=page.locator('#fullScorecardEvidence [data-event-id="'+golf.id+'"]');assert.equal(await bay.locator('details').getAttribute('open'),null);await bay.locator('summary').click();await bay.getByText('Followed round scores',{exact:true}).waitFor();const bayText=await bay.innerText();assert.match(bayText,/Min Woo Lee/);const cells=await bay.locator('[data-golf-participant=\"competitor:golf:min-woo-lee\"] th,[data-golf-participant=\"competitor:golf:min-woo-lee\"] td').allTextContents();assert.deepEqual(cells.slice(3,-1),golf.score.golf.rows.find(r=>r.participantId==='competitor:golf:min-woo-lee').rounds.map(s=>String(s??'—')));assert(!/Adam Scott|Wyndham Clark|Xander Schauffele|Ben Kohles|Christiaan Bezuidenhout/.test(bayText),'Golf detail contains only the followed athlete');
+  const beijing=page.locator('#fullScorecardEvidence [data-event-id="'+china.id+'"]');await beijing.locator('summary').click();await beijing.getByRole('button',{name:'Open in Events',exact:true}).waitFor();assert(await beijing.locator('.event-card').count()>0,'China Open supplies actual followed fixtures or latest results');
+  const consent=await page.evaluate(()=>JSON.stringify([userPreferences.preferenceGraph,userPreferences.followFirst.eventEditionDecisions]));
+  await page.evaluate(()=>{userPreferences.surfaceCategories={...userPreferences.surfaceCategories,events:'football'};userPreferences.eventsScope='followed';});
+  await bay.getByRole('button',{name:'Open in Events',exact:true}).click();const target=page.locator('[data-event-overview-id="overview:golf:R2026527:2026"]');await target.waitFor();await page.waitForFunction(()=>document.activeElement?.dataset.eventOverviewId==='overview:golf:R2026527:2026');assert(await target.locator('details').first().getAttribute('open')!==null);assert.equal(await page.evaluate(()=>JSON.stringify([userPreferences.preferenceGraph,userPreferences.followFirst.eventEditionDecisions])),consent,'Temporary Events target reveal preserves follow consent');
+  await page.goBack();await page.waitForFunction(()=>activeTab==='feed');
+  const toggle=await page.evaluate(()=>{
+   const list=document.getElementById('listView');list.replaceChildren();const today=document.createElement('div');today.id='calendarTodayAnchor';today.textContent='Today';const space=document.createElement('div');space.style.height='1100px';list.append(today,space,buildFeedNowMarker());activeTab='feed';activeView='list';activeInspectorCodeId=null;activeFilter='all';
+   scrollActiveFeedToInitialAnchor({behavior:'auto'});syncContextualJumpButton();const b=document.getElementById('jumpTodayBtn');return {label:b.textContent.trim(),aria:b.getAttribute('aria-label'),destination:b.dataset.jumpDestination};
+  });assert.deepEqual(toggle,{label:'Jump to Today',aria:'Jump to Today',destination:'today'});
+  await page.locator('#jumpTodayBtn').click();await page.waitForFunction(()=>document.getElementById('jumpTodayBtn').dataset.jumpDestination==='now');assert.equal(await page.locator('#jumpTodayBtn').getAttribute('aria-label'),'Jump to Now');
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.deepEqual(errors,[]);
+  // Rehearse actual published goal facts with a controlled current membership;
+  // the historical fixture is not claimed to be live in production.
+  const footballAt=replayAt+33000,footballCheckedAt=new Date(footballAt).toISOString();
+  const replay={...football,status:'ongoing',date:footballCheckedAt.slice(0,10),endDate:footballCheckedAt.slice(0,10),startTimeUtc:new Date(footballAt-2400000).toISOString(),actualEndTimeUtc:null,completedAt:null,firstConfirmedCompleteAt:null,statusCheckedAt:footballCheckedAt,scoreCheckedAt:footballCheckedAt};
+  await page.route('**/api/match-centre?**',r=>r.fulfill({json:{enabled:true,events:[replay],fixtures:[model.compact(replay)],membershipStale:false,pagination:{nextCursor:null}}}));
+  await page.clock.setFixedTime(new Date(footballAt));
+  await page.locator('.tabs [data-tab=match-centre]').click();await page.getByRole('tab',{name:'Everything',exact:true}).click();await page.waitForTimeout(10500);await page.getByRole('button',{name:'Refresh Match Centre',exact:true}).click();await page.getByText('Latest available scores loaded.',{exact:true}).waitFor();
+  const goalCard=page.locator('[data-match-id="'+football.canonicalEventId+'"]');await goalCard.waitFor();await goalCard.locator('.mc-status').click();
+  async function goalRows(host){const t=host.locator('table').filter({has:page.locator('caption',{hasText:'Goals',exact:true})});await t.waitFor();assert.equal(await t.locator('tbody tr').count(),football.goalScorers.length);for(const g of football.goalScorers){const cells=await t.locator('tbody tr').filter({has:page.getByRole('rowheader',{name:g.name,exact:true})}).locator('th,td').allTextContents();assert.deepEqual(cells,[g.name,String(g.minute)+'′',g.ownGoal?'Own goal':g.penalty?'Penalty':'Goal',g.teamName]);}}
+  await goalRows(goalCard);await page.locator('.tabs [data-tab=feed]').click();
+  await page.evaluate(f=>{const host=document.getElementById('fullScorecardEvidence');host.replaceChildren();setCardState(f,'opened');host.append(buildEventCard(f,{mode:'feed'}));},football);
+  const goalFeed=page.locator('#fullScorecardEvidence .event-card');await goalRows(goalFeed);assert.equal(await goalFeed.getByRole('link',{name:'Source scorecard'}).getAttribute('href'),football.scorecardUrl);
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.deepEqual(errors,[]);
+  assert.equal(JSON.stringify([retainedCricket,rawCricket]),sourceBefore,'Replay setup preserves published and captured sporting data');
+  const result={engine,width,historicalReplayClock:new Date(replayAt).toISOString(),realCricketRows:true,verifiedFootballGoalReplay:true,bothCards:true,unknownResumption:true,constructedConfirmedResumption:true,selectionRefresh:true,followedTournamentDetails:true,exactEventsAndBack:true,jumpToggle:true,noPageOverflow:true,externalRequestsCompleted:0,externalAttemptsBlocked,errors};observations.push(result);console.log(JSON.stringify(result));
+  if(process.env.FULL_SCORECARD_CAPTURE){fs.mkdirSync(process.env.FULL_SCORECARD_CAPTURE,{recursive:true});await page.screenshot({path:path.join(process.env.FULL_SCORECARD_CAPTURE,engine+'-'+width+'.png'),fullPage:false});}
+  await page.close();
+ }}finally{await browser.close();}
+}if(process.env.FULL_SCORECARD_CAPTURE)fs.writeFileSync(path.join(process.env.FULL_SCORECARD_CAPTURE,'browser-evidence.json'),JSON.stringify({checkedAt:new Date().toISOString(),observations,physicalDevice:false,realPush:false},null,2)+'\n');})().catch(e=>{console.error(e);process.exitCode=1;});

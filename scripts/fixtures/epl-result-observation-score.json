@@ -1,0 +1,13 @@
+{
+  "source": "read-only live-premier-league compact score captured after revision 7363",
+  "fixture": {
+    "id": "epl-2026-27-128923",
+    "score": "Arsenal 3-0 Coventry City",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 3,
+    "scoreCheckedAt": "2026-10-02T17:58:01.26+00:00",
+    "statusCheckedAt": "2026-10-02T17:58:01.26+00:00",
+    "canonicalResultScoreline": "Arsenal 3-0 Coventry City"
+  }
+}

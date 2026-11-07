@@ -1,6 +1,26 @@
 #!/usr/bin/env node
 
 const fs = require("fs");
+const calendar = require("../config/calendar-export");
+const sydneyFormatter = new Intl.DateTimeFormat("en-CA", {
+  timeZone:"Australia/Sydney", year:"numeric", month:"2-digit", day:"2-digit",
+  hour:"2-digit", minute:"2-digit", hourCycle:"h23",
+});
+
+function sydneyClock(date, time) {
+  if (!/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(time || "")) return null;
+  const start = calendar.eventStart({date, time});
+  if (!start || !Number.isFinite(+start)) return null;
+  const key = value => {
+    const parts = Object.fromEntries(sydneyFormatter.formatToParts(value).map(part => [part.type, part.value]));
+    return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}`;
+  };
+  const expected = `${date}T${time}`;
+  // A normalized invalid date, a missing spring hour or a repeated autumn hour
+  // cannot establish a unique deadline without a genuine UTC source instant.
+  if (key(start) !== expected || [-1,1].some(hours => key(new Date(+start + hours * 3600000)) === expected)) return null;
+  return start;
+}
 
 const inputPath = process.argv[2] || "feeds/incoming/events.json";
 const feed = JSON.parse(fs.readFileSync(inputPath, "utf8"));
@@ -12,20 +32,22 @@ function expectedCloseAt(event) {
   const explicitEnd = event.endTimeUtc ? new Date(event.endTimeUtc) : null;
   if (explicitEnd && !Number.isNaN(explicitEnd.getTime())) return explicitEnd;
   if (event.dateOnly && event.endDate){
-    const endOfFinalDay = new Date(`${event.endDate}T23:59:59+10:00`);
-    if (!Number.isNaN(endOfFinalDay.getTime())) return endOfFinalDay;
+    const finalMinute = sydneyClock(event.endDate, "23:59");
+    return finalMinute ? new Date(+finalMinute + 59000) : null;
   }
-  if (!event.date || !event.time) return null;
-  const start = new Date(`${event.date}T${event.time}:00+10:00`);
-  if (Number.isNaN(start.getTime())) return null;
+  const sourceStart = new Date(event.startTimeUtc || "");
+  const start = Number.isFinite(+sourceStart) ? sourceStart : sydneyClock(event.date, event.time);
+  if (!start) return null;
   const isMultiDayCricketTest = String(event.key || event.sport || "").toLowerCase() === "cricket"
-    && String(event.narrativeType || "").toLowerCase() === "test";
+    && [event.format,event.matchFormat,event.narrativeType].some(value => /^(?:test|test match)$/i.test(String(value || "")));
   const durationHours = isMultiDayCricketTest ? 5 * 24 : Number(event.liveWindow);
   const expectedDurationMs = (Number.isFinite(durationHours) && durationHours > 0 ? durationHours : 3) * 60 * 60 * 1000;
   return new Date(start.getTime() + expectedDurationMs);
 }
 
 function isDueForResult(event) {
+  if(require("../config/coverage-pauses").womensT20(event))return false;
+  if(!require("../config/follow-feed-policy").feedEligibleSession(event))return false;
   // Tournament overview cards represent an active event window, not one
   // scoreable contest. They remain preview coverage until a verified match or
   // final result is available, so a daily order-of-play timestamp is never a
@@ -47,10 +69,10 @@ function resultSourceKind(event) {
 
 const dueEvents = events.filter(isDueForResult);
 
-const missing = dueEvents
-  .filter(event => event.resultStatus === "pending"
-    ? !event.resultSourceUrl || !event.resultSourceCheckedAt
-    : !event.score || !event.outcomeText || !event.recapText || !event.sourceName || !event.sourceUrl || !event.sourceCheckedAt);
+const missingFields = event => (event.resultStatus === "pending"
+  ? ["resultSourceUrl", "resultSourceCheckedAt"]
+  : ["score", "outcomeText", "recapText", "sourceName", "sourceUrl", "sourceCheckedAt"]).filter(key => !event[key]);
+const missing = dueEvents.filter(event => missingFields(event).length);
 
 const summary = {
   checkedAt: now.toISOString(),
@@ -66,8 +88,10 @@ const summary = {
     date: event.date,
     status: event.status || "unset",
     expectedCloseAt: expectedCloseAt(event)?.toISOString() || null,
+    missingFields: missingFields(event),
   })),
 };
+require('./lib/refresh-report').update({stage:'result-validation',lastStep:'scripts/verify-result-completeness.js',resultInput:inputPath,missingResults:summary.missingResults});
 console.log(JSON.stringify(summary, null, 2));
 if (missing.length) {
   console.error(`Result completeness failed for ${missing.length} due card(s).`);

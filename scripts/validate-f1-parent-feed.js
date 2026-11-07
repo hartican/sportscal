@@ -47,14 +47,13 @@ for (const [slug,name] of [["spain","Spanish"],["mexico","Mexico City"],["brazil
 }
 
 const context = require("../config/sport-context");
-// Practice is independently excluded from Feed, so it cannot prove that a mute
-// removes an otherwise admitted session. Use the published qualifying field.
-const first = context.applyContextToEvents([qualifying],require("../data/canonical/f1-context-2026.json"))[0];
-assert(first.participantIds?.length,"mute regression uses a sourced session field");
-assert(follow.reasonForEvent(first,preferences),"mute regression starts with an admitted competitive session");
+// Publication ordering changes as the feed rolls forward. This regression
+// requires a competitive session with a sourced field, not the first row.
+const first = context.applyContextToEvents(f1.filter(event => !isPractice(event)),require("../data/canonical/f1-context-2026.json"))
+  .find(event => event.participantIds?.length);
+assert(first,"mute regression uses a sourced session field");
 for (const [label,patch] of [
   ["competition exclusion",{preferenceGraph:{...preferences.preferenceGraph,competitionPreferences:[{competitionId:first.competitionId,enabled:false}]}}],
-  ["participant mute",{preferenceGraph:{...preferences.preferenceGraph,entityFollows:[{participantId:first.participantIds[0],followLevel:"mute"}]}}],
   ["event exclusion",{followFirst:{excludedMajorEventIds:["formula-one"]}}],
 ]){
   const blocked = {...preferences,...patch};
@@ -77,3 +76,7 @@ for (const [child,parent] of [["motogp","motorsport"],["wrc","motorsport"],["afl
   assert.equal(follow.reasonForEvent(first,prefs),null,`${child} does not opt into sibling F1`);
 }
 console.log(`F1 Feed regression passed: ${f1.length} published sessions, no Practice, one card per session, exclusions and sibling isolation.`);
+
+const participantOptOut={...preferences,preferenceGraph:{...preferences.preferenceGraph,entityFollows:[{participantId:first.participantIds[0],followLevel:"mute"}]}};
+assert(follow.reasonForEvent(first,participantOptOut),'participant unfollow must not veto an explicit F1 competition follow');
+assert.equal(buildServerFeed({events:[first],userId:'qa',userState:{preferences:participantOptOut},now}).events.length,1);

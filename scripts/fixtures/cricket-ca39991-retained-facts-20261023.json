@@ -1,0 +1,62 @@
+{
+  "kind": "existing-canonical-CA39991-official-facts",
+  "savedAt": "2026-10-22T21:49:13.753Z",
+  "readOnly": true,
+  "project": "mkghopnkhcxtmfrcjdbc",
+  "queryFile": "root-ca39991-current-score.sql",
+  "rawResponseFile": "root-ca39991-current-score-raw.json",
+  "scope": "Exact2existing current/score rows; not a source fetch, first result publication, whole refresh or account read",
+  "rows": [
+    {
+      "relation": "current",
+      "source_id": "cricket-ca-current",
+      "fixture_id": "fixture:cricket:CA:39991",
+      "stored_first_completed_at": null,
+      "total_matching_rows": 2,
+      "public_result_facts": {
+        "id": "fixture:cricket:CA:39991",
+        "status": "completed",
+        "sourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
+        "sourceName": "Cricket Australia",
+        "sourceType": "official",
+        "startTimeUtc": "2026-10-18T08:00:00.000Z",
+        "competitionId": "competition:cricket:4568",
+        "participantIds": [
+          "team:cricket:south-africa",
+          "team:cricket:australia"
+        ],
+        "scoreCheckedAt": "2026-10-22T17:22:00.415Z",
+        "sourceCheckedAt": "2026-10-22T17:22:00.415Z",
+        "statusCheckedAt": "2026-10-22T17:22:00.415Z",
+        "scoreFactObservedAt": "2026-10-22T14:04:00.721+00:00",
+        "officialScorecardUrl": "https://www.cricket.com.au/matches/CA%3A39991",
+        "statusFactObservedAt": "2026-10-22T14:02:01.416+00:00",
+        "firstConfirmedCompleteAt": "2026-10-22T14:02:02.904168+00:00"
+      }
+    },
+    {
+      "relation": "score",
+      "source_id": "cricket-ca-current",
+      "fixture_id": "fixture:cricket:CA:39991",
+      "stored_first_completed_at": "2026-10-22 14:02:02.904168+00",
+      "total_matching_rows": 2,
+      "public_result_facts": {
+        "id": "fixture:cricket:CA:39991",
+        "status": "completed",
+        "scoreDisplay": "South Africa win by an innings and 31 runs",
+        "scoreCheckedAt": "2026-10-22T14:04:00.721+00:00",
+        "statusCheckedAt": "2026-10-22T14:02:01.416+00:00"
+      }
+    }
+  ],
+  "interpretation": {
+    "sameExactMatchAndFinal": true,
+    "retainedScoreFactObservedAt": "2026-10-22T14:04:00.721+00:00",
+    "retainedStatusFactObservedAt": "2026-10-22T14:02:01.416+00:00",
+    "retainedFirstConfirmedCompleteAt": "2026-10-22T14:02:02.904168+00:00",
+    "sourceEndpoint": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
+    "scoreText": "South Africa win by an innings and 31 runs",
+    "newScorecardObservation": "2026-10-22T21:20:19.513Z",
+    "rule": "Explicitly reconcile only these bound official endpoints, preserve original literal sporting fact/completion observations, distinguish later genuine contact receipts, never infer physical finish/source publication or silently relabel another status/result source."
+  }
+}

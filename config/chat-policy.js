@@ -16,9 +16,10 @@
   }
 
   function fixtureTiming(event = {}){
-    const exactStart = iso(event.startTimeUtc);
+    const precision=String(event.timePrecision || "").toLowerCase();
+    const exactStart = ["tbc","unknown"].includes(precision.trim()) ? null : iso(event.startTimeUtc);
     const sessionStart = iso(event.sessionStartTimeUtc || event.timelineSortTimeUtc);
-    const follows = String(event.timePrecision || "").toLowerCase() === "follows" && !exactStart && sessionStart;
+    const follows = precision === "follows" && !exactStart && sessionStart;
     return {
       timingPrecision:follows ? "follows" : exactStart ? String(event.timePrecision || "exact") : "unknown",
       startTimeUtc:exactStart,

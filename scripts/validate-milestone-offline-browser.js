@@ -1,0 +1,10 @@
+'use strict';
+const assert=require('node:assert/strict'),pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),data=require('./lib/milestone-fixtures'),model=require('../config/match-centre');
+(async()=>{for(const engine of ['chromium','webkit']){const browser=await pw[engine].launch({headless:true,...(engine==='chromium'?{channel:'chrome'}:{})});try{
+ const e={...data.fixture(),status:'completed'},page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'}),errors=[];let unavailable=false;
+ page.on('pageerror',e=>errors.push(e.message));await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({version:26,onboardingComplete:true,selectedSelectorEntityIds:[],followedSports:[],showSpoilers:false,fantasyDeadlines:{enabled:false}})));
+ await page.route('**/api/**',route=>{const u=route.request().url();if(unavailable)return route.abort('internetdisconnected');return route.fulfill({json:{enabled:true,events:u.includes('context=milestone')?[e]:[],fixtures:[model.compact(e)],pagination:{nextCursor:null}}});});
+ const url=(process.env.MILESTONE_QA_URL||'http://127.0.0.1:34109')+'/?event='+encodeURIComponent(e.id)+'&surface=match-centre&moment=old';await page.goto(url);let card=page.locator('[data-match-id="'+e.id+'"]');await card.locator('details[open]').waitFor();await page.waitForFunction(()=>!pendingNotificationEventId);
+ unavailable=true;await page.goto(url);card=page.locator('[data-match-id="'+e.id+'"]');await card.locator('details[open]').waitFor();assert.equal(await card.locator('table').count(),0);assert.equal(await page.evaluate(id=>Boolean(getEventAction({id}).addedToFixtures),e.id),false);await page.getByText('Offline or unavailable source. Showing retained match information; this moment may have passed.',{exact:true}).waitFor();assert.deepEqual(errors,[]);
+ console.log(JSON.stringify({engine,mode:'controlled API outage with online shell; installed cold offline is a separate gate',retainedExactMatch:true,resultsOff:true,noFeedPin:true,errors}));await page.close();
+}finally{await browser.close();}}})().catch(e=>{console.error(e);process.exitCode=1;});

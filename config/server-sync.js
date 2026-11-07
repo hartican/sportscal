@@ -40,6 +40,46 @@
     return merged;
   }
 
+  // Local graph normalization must not turn another device's saved pointers
+  // into edits. Project only these pointers; keep the raw accepted state intact.
+  function settingsForServer(base, incoming, { profileId, participantIdentity } = {}){
+    const merged = mergeSettings(base, incoming);
+    const previous = plainObject(base?.preferenceGraph, null);
+    const graph = plainObject(merged.preferenceGraph, null);
+    if (!previous || !graph || typeof profileId !== "string" || !profileId) return merged;
+    const pointer = (before, current) => {
+      if (plainObject(before, null) && plainObject(current, null)
+        && current.profileId === profileId && typeof before.profileId === "string" && before.profileId){
+        current.profileId = before.profileId;
+      }
+    };
+    const records = (list, key, identity) => {
+      if (!Array.isArray(list)) return null;
+      const result = new Map();
+      for (const record of list){
+        if (!plainObject(record, null) || typeof record[key] !== "string" || !record[key]) return null;
+        let id;
+        try{ id = identity(record[key]); }catch{ return null; }
+        if (typeof id !== "string" || !id || result.has(id)) return null;
+        result.set(id, record);
+      }
+      return result;
+    };
+    pointer(previous, graph);
+    pointer(previous.viewing, graph.viewing);
+    for (const [name, key, identity] of [
+      ["entityFollows", "participantId", participantIdentity],
+      ["domainPreferences", "sportDomainId", value => value],
+      ["competitionPreferences", "competitionId", value => value],
+    ]){
+      if (typeof identity !== "function") continue;
+      const before = records(previous[name], key, identity), current = records(graph[name], key, identity);
+      if (!before || !current) continue;
+      for (const [id, record] of current) pointer(before.get(id), record);
+    }
+    return merged;
+  }
+
   function parseSession(input, now = Date.now()){
     const source = plainObject(input, null);
     if (!source) return null;
@@ -67,6 +107,33 @@
     }catch(_error){
       return "";
     }
+  }
+
+  // A signup return is a handoff, never permission to replace the saved account.
+  function captureSignupConfirmationFromLocation({ location=globalThis.location, history=globalThis.history }={}){
+    const search=new URLSearchParams(location?.search||""),fragment=new URLSearchParams(String(location?.hash||"").replace(/^#/,""));
+    const authValues=[...search.getAll('auth'),...fragment.getAll('auth')],typeValues=[...search.getAll('type'),...fragment.getAll('type')];
+    const emailChange=authValues.includes('email-change')||typeValues.includes('email_change');
+    if(!emailChange&&(fragment.get("type")==="recovery"||search.get("auth")==="recovery"))return null;
+    if(search.get("auth")!=="confirmed"&&fragment.get("type")!=="signup"&&!emailChange)return null;
+    const token=fragment.get("access_token")||"",failed=search.has("error")||search.has("error_code")||fragment.has("error")||fragment.has("error_code");
+    const ambiguous=search.getAll("auth").length>1||fragment.getAll("type").length>1||fragment.getAll("access_token").length>1
+      ||(emailChange&&(authValues.length>1||typeValues.length>1||authValues.some(value=>value!=='email-change')||typeValues.some(value=>value!=='email_change')));
+    const candidate=!emailChange&&!failed&&!ambiguous&&fragment.get("type")==="signup"&&token.length>0&&token.length<=8192;
+    const sensitive=["access_token","refresh_token","token_type","expires_in","expires_at","token_hash","code","error","error_code","error_description"];
+    const cleanHash=emailChange||sensitive.some(key=>fragment.has(key))||['signup','email_change'].includes(fragment.get("type"));
+    search.delete("auth");
+    if(emailChange)fragment.delete('auth');
+    for(const key of sensitive){search.delete(key);if(cleanHash)fragment.delete(key);}
+    if(emailChange||['signup','email_change'].includes(search.get("type")))search.delete("type");
+    if(cleanHash)fragment.delete("type");
+    const query=search.toString(),hash=cleanHash?(fragment.toString()?"#"+fragment.toString():""):String(location?.hash||"");
+    try{
+      if(typeof history?.replaceState!=="function")throw new Error("URL cleanup unavailable");
+      history.replaceState(history.state??null,"",`${location?.pathname||"/"}${query?"?"+query:""}${hash}`);
+    }catch(_error){return {status:"url_cleanup_failed"};}
+    if(emailChange)return {kind:'email-change',status:failed||ambiguous?'invalid':'email_change_opened'};
+    return candidate?{status:"check_required",accessToken:token}:{status:failed||ambiguous?"invalid":"sign_in_required"};
   }
 
   function parseRecoveryFragment(hash, now = Date.now()){
@@ -185,6 +252,8 @@
     let session = null;
     let persistSession = true;
     let refreshInFlight = null;
+    let sessionGeneration = 0;
+    let emailChangeInFlight = false;
     let feedEpoch = 0;
     const feedRequests = new Map(), feedResponses = new Map();
     function invalidateFeed(){feedEpoch += 1;feedResponses.clear();feedRequests.clear();}
@@ -204,11 +273,11 @@
     async function jsonRequest(path, options = {}){
       if (typeof fetchImpl !== "function") throw new Error("Server sync is unavailable in this browser.");
       const controller = new AbortController();
-      const { signal:externalSignal, onResponse, cachedPayload, ...fetchOptions }=options;
+      const { signal:externalSignal, onResponse, cachedPayload, responseType, timeoutMs=requestTimeoutMs, ...fetchOptions }=options;
       const cancel=()=>controller.abort(externalSignal.reason);
       if(externalSignal?.aborted)cancel();
       externalSignal?.addEventListener('abort',cancel,{once:true});
-      const timeout = setTimeout(() => controller.abort(), requestTimeoutMs);
+      const timeout = setTimeout(() => controller.abort(), timeoutMs);
       try{
       const response = await fetchImpl(path, {
         ...fetchOptions,
@@ -220,7 +289,20 @@
         },
       });
       if(response.status===304 && cachedPayload!==undefined)return cachedPayload;
-      const payload = await response.json().catch(() => ({}));
+      if(response.ok && responseType === "blob")return response.blob();
+      const payload = await response.json().catch(error => {
+        // A cut-off successful body is not an empty valid response. Let the
+        // existing cancellation/deadline handler classify aborted reads.
+        // The caller's signal is already linked to this controller above.
+        if (controller.signal.aborted) throw error;
+        if (response.ok){
+          const invalid = new Error("Server response unreadable.");
+          invalid.code = "server_response_invalid";
+          throw invalid;
+        }
+        // Preserve HTTP/auth error handling when an error page is not JSON.
+        return {};
+      });
       if (!response.ok){
         const error = new Error(payload.error || "Server sync request failed.");
         error.status = response.status;
@@ -229,11 +311,12 @@
         throw error;
       }
       onResponse?.(response,payload);
+      if(options.method && options.method!=='GET' && /^\/api\/(chat|nothingscore|notifications)(\?|$)/.test(path))globalThis.dispatchEvent?.(new Event('ns-activity-change'));
       return payload;
       }catch(error){
         if(externalSignal?.aborted)throw error;
         if (controller.signal.aborted){
-          const timedOut = new Error("The server took too long to respond. Check confirmation before trying again.");
+          const timedOut = new Error("Request timed out. Check confirmation before trying again.");
           timedOut.code = "request_timeout";
           throw timedOut;
         }
@@ -259,7 +342,10 @@
     }
 
     function saveSession(next){
-      if(sessionSubject(next)!==sessionSubject(session || restoreStoredSession()))invalidateFeed();
+      if(sessionSubject(next)!==sessionSubject(session || restoreStoredSession())){
+        sessionGeneration += 1;
+        invalidateFeed();
+      }
       session = parseSession(next, now());
       if (persistSession){
         storageWrite(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY, session);
@@ -268,6 +354,7 @@
         storageWrite(storage, SESSION_STORAGE_KEY, session);
         storageWrite(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY, null);
       }
+      globalThis.dispatchEvent?.(new Event('ns-account-change'));
       return session;
     }
 
@@ -279,21 +366,59 @@
     });
 
     function clearSession(){
+      sessionGeneration += 1;
       invalidateFeed();
       session = null;
       refreshInFlight = null;
       storageWrite(storage, SESSION_STORAGE_KEY, null);
       storageWrite(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY, null);
+      globalThis.dispatchEvent?.(new Event('ns-account-change'));
     }
+
+    // Observe the existing auth owner's lifetime without exposing credentials
+    // or refreshing it. Session-only tabs retain their own identity.
+    function accountSnapshot(){
+      const active = session || storageRead(storage, SESSION_STORAGE_KEY)
+        || (persistSession ? storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY) : null);
+      return Object.freeze({ accountId:sessionSubject(active), expiresAt:active?.expiresAt || null,
+        generation:sessionGeneration, hasSession:Boolean(active) });
+    }
+    globalThis.addEventListener?.('storage', event => {
+      if (event.storageArea !== persistentStorage || (event.key !== null && event.key !== PERSISTENT_SESSION_STORAGE_KEY)) return;
+      if (!persistSession || storageRead(storage, SESSION_STORAGE_KEY)) return;
+      const next = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
+      // Queued events can describe a lost lifetime even when durable storage
+      // has already returned to the same owner. Historical payloads only cancel
+      // work; the session itself still comes exclusively from current storage.
+      let endedLifetime = event.key === null;
+      if (event.oldValue !== undefined || event.newValue !== undefined){
+        try{
+          endedLifetime ||= event.oldValue === null || event.newValue === null
+            || sessionSubject(JSON.parse(event.oldValue)) !== sessionSubject(JSON.parse(event.newValue));
+        }catch(_error){ endedLifetime = true; }
+      }
+      if (!endedLifetime && session?.accessToken === next?.accessToken && session?.refreshToken === next?.refreshToken) return;
+      if (endedLifetime || sessionSubject(session) !== sessionSubject(next)){
+        sessionGeneration += 1;
+        invalidateFeed();
+        refreshInFlight = null;
+      }
+      session = next;
+      globalThis.dispatchEvent?.(new Event('ns-account-change'));
+    });
 
     function restoreStoredSession(){
       const persistent = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
+      const temporary = storageRead(storage, SESSION_STORAGE_KEY);
+      if (temporary && persistent && sessionSubject(temporary) !== sessionSubject(persistent)){
+        persistSession = false;
+        return temporary;
+      }
       if (persistent){
         persistSession = true;
         storageWrite(storage, SESSION_STORAGE_KEY, null);
         return persistent;
       }
-      const temporary = storageRead(storage, SESSION_STORAGE_KEY);
       if (!temporary) return null;
       persistSession = persistencePreference() !== "session";
       if (persistSession){
@@ -304,71 +429,93 @@
       return temporary;
     }
 
-    async function performSessionRefresh(previousRefreshToken = session.refreshToken){
-      const payload = await jsonRequest("/api/auth", {
-        method: "POST",
-        body: JSON.stringify({ action:"refresh", refreshToken:previousRefreshToken }),
+    function accountScopeError(){
+      return Object.assign(new Error("The account changed before this request completed."), {
+        status:409, code:"account_scope_changed",
       });
-      const saved = saveSession(payload.session);
-      refreshChannel?.postMessage?.({ type:"session-refreshed", previousRefreshToken, session:saved });
-      return saved;
     }
 
-    async function refreshWithStorageLease(previousRefreshToken = session.refreshToken){
-      let lease = null;
-      try{ lease = JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null"); }catch(_error){ lease = null; }
-      while (lease?.owner && Number(lease.expiresAt) > now() && lease.owner !== refreshOwner){
-        await new Promise(resolve => globalThis.setTimeout(resolve, Math.min(220, Math.max(20, Number(lease.expiresAt) - now()))));
-        const stored = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
-        if (stored && stored.refreshToken !== previousRefreshToken){
-          session = stored;
-          return session;
-        }
-        try{ lease = JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null"); }catch(_error){ lease = null; }
-      }
-      const stored = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
-      if (stored && stored.refreshToken !== previousRefreshToken){
+    function guardRefreshScope(scope){
+      if (scope.generation !== sessionGeneration || sessionSubject(session) !== scope.accountId) throw accountScopeError();
+    }
+
+    function refreshedStoredSession(scope){
+      guardRefreshScope(scope);
+      // Session-only sign-ins must not adopt another tab's persistent account.
+      const stored = persistSession ? storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY) : null;
+      if (stored && sessionSubject(stored) !== scope.accountId) throw accountScopeError();
+      if (stored && stored.refreshToken !== scope.refreshToken){
         session = stored;
         return session;
       }
-      if (session?.refreshToken !== previousRefreshToken) return session;
-      try{ persistentStorage?.setItem?.(REFRESH_LOCK_KEY, JSON.stringify({ owner:refreshOwner, expiresAt:now() + 15_000 })); }catch(_error){}
-      try{ return await performSessionRefresh(previousRefreshToken); }
+      return session?.refreshToken !== scope.refreshToken ? session : null;
+    }
+
+    async function performSessionRefresh(scope){
+      guardRefreshScope(scope);
+      const payload = await jsonRequest("/api/auth", {
+        method: "POST",
+        body: JSON.stringify({ action:"refresh", refreshToken:scope.refreshToken }),
+      });
+      guardRefreshScope(scope);
+      const alreadyRefreshed = refreshedStoredSession(scope);
+      if (alreadyRefreshed) return alreadyRefreshed;
+      if (sessionSubject(payload.session) !== scope.accountId) throw accountScopeError();
+      const saved = saveSession(payload.session);
+      refreshChannel?.postMessage?.({ type:"session-refreshed", previousRefreshToken:scope.refreshToken, session:saved });
+      return saved;
+    }
+
+    async function refreshWithStorageLease(scope){
+      guardRefreshScope(scope);
+      const leaseOwner = `${refreshOwner}:${scope.generation}`;
+      let lease = null;
+      try{ lease = JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null"); }catch(_error){ lease = null; }
+      while (lease?.owner && Number(lease.expiresAt) > now() && lease.owner !== leaseOwner){
+        await new Promise(resolve => globalThis.setTimeout(resolve, Math.min(220, Math.max(20, Number(lease.expiresAt) - now()))));
+        const refreshed = refreshedStoredSession(scope);
+        if (refreshed) return refreshed;
+        try{ lease = JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null"); }catch(_error){ lease = null; }
+      }
+      const refreshed = refreshedStoredSession(scope);
+      if (refreshed) return refreshed;
+      try{ persistentStorage?.setItem?.(REFRESH_LOCK_KEY, JSON.stringify({ owner:leaseOwner, expiresAt:now() + 15_000 })); }catch(_error){}
+      try{ return await performSessionRefresh(scope); }
       finally{
-        try{ if (JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null")?.owner === refreshOwner) persistentStorage?.removeItem?.(REFRESH_LOCK_KEY); }catch(_error){}
+        try{ if (JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null")?.owner === leaseOwner) persistentStorage?.removeItem?.(REFRESH_LOCK_KEY); }catch(_error){}
       }
     }
 
-    async function coordinatedSessionRefresh(){
-      const previousRefreshToken = session.refreshToken;
+    async function coordinatedSessionRefresh(scope){
       if (globalThis.navigator?.locks?.request){
         return navigator.locks.request("nothingsport-auth-refresh", { mode:"exclusive" }, async () => {
-          const stored = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
-          if (stored && stored.refreshToken !== previousRefreshToken){
-            session = stored;
-            return session;
-          }
-          if (session?.refreshToken !== previousRefreshToken) return session;
-          return performSessionRefresh(previousRefreshToken);
+          const refreshed = refreshedStoredSession(scope);
+          return refreshed || performSessionRefresh(scope);
         });
       }
-      return refreshWithStorageLease(previousRefreshToken);
+      return refreshWithStorageLease(scope);
     }
 
     async function refreshSession(){
       if (!session?.refreshToken) return null;
-      if (refreshInFlight) return refreshInFlight;
-      refreshInFlight = (async () => {
+      const scope = { generation:sessionGeneration, accountId:sessionSubject(session), refreshToken:session.refreshToken };
+      if (refreshInFlight?.generation === scope.generation) return refreshInFlight.promise;
+      const job = { generation:scope.generation, promise:null };
+      job.promise = (async () => {
         try{
-          return await coordinatedSessionRefresh();
+          return await coordinatedSessionRefresh(scope);
         }catch(error){
+          guardRefreshScope(scope);
+          const refreshed = refreshedStoredSession(scope);
+          if (refreshed) return refreshed;
           if (terminalRefreshError(error)) clearSession();
           throw error;
         }finally{
-          refreshInFlight = null;
+          if (refreshInFlight === job) refreshInFlight = null;
         }
       })();
-      return refreshInFlight;
+      refreshInFlight = job;
+      return job.promise;
     }
 
     async function currentSession(){
@@ -378,7 +525,36 @@
       return session;
     }
 
-    async function authenticatedRequest(path, options = {}){
+    async function accountEmailRequest(email,{accountId}={},change=false){
+      const life=accountSnapshot(),active=session||restoreStoredSession();
+      if(!accountId||!life.hasSession||life.accountId!==accountId||sessionSubject(active)!==accountId)throw accountScopeError();
+      if(!active?.accessToken||active.expiresAt<=now())throw Object.assign(new Error('Sign in again before checking or changing your email.'),{status:401,code:'reauthentication_required'});
+      if(change&&emailChangeInFlight)throw Object.assign(new Error('An email-change request is already in progress.'),{status:409,code:'email_change_pending'});
+      const current=()=>{const nowLife=accountSnapshot();return nowLife.accountId===life.accountId&&nowLife.generation===life.generation;};
+      let sent=false;
+      if(change)emailChangeInFlight=true;
+      try{
+        if(!current())throw accountScopeError();
+        sent=true;
+        const payload=await jsonRequest('/api/auth',{...(change?{method:'POST',body:JSON.stringify({action:'change-email',email,accountId})}:{}),headers:{Authorization:'Bearer '+active.accessToken}});
+        if(!current())throw accountScopeError();
+        if(payload?.user?.id!==accountId)throw Object.assign(new Error('The account email response could not be checked. Reopen Account.'),{status:409,code:'account_scope_changed'});
+        return payload;
+      }catch(error){
+        if(change&&sent&&!current())throw Object.assign(new Error('Your sign-in changed after the email-change request was sent. It may have reached the previous account; open that account to check.'),{status:409,code:'account_scope_changed',requestMayHaveBeenSent:true});
+        throw error;
+      }finally{if(change)emailChangeInFlight=false;}
+    }
+
+    async function authenticatedRequest(path, { accountId = "", ...options } = {}){
+      const guardAccount = active => {
+        if (!accountId) return;
+        if (sessionSubject(active) === accountId && sessionSubject(session || restoreStoredSession()) === accountId) return;
+        throw Object.assign(new Error("The account changed before this request completed."), {
+          status:409, code:"account_scope_changed",
+        });
+      };
+      guardAccount(session || restoreStoredSession());
       const activeSession = await currentSession();
       if (!activeSession){
         const error = new Error("Sign in is required.");
@@ -386,6 +562,7 @@
         error.code = "missing_session";
         throw error;
       }
+      guardAccount(activeSession);
       try{
         return await jsonRequest(path, {
           ...options,
@@ -396,7 +573,9 @@
         });
       }catch(error){
         if (error.status !== 401 || !session?.refreshToken) throw error;
+        guardAccount(session);
         const refreshed = await refreshSession();
+        guardAccount(refreshed);
         return jsonRequest(path, {
           ...options,
           headers: {
@@ -480,6 +659,8 @@
     }
 
     return Object.freeze({
+      supportsAccountAuthCapture:true,
+      classicsRequest(query={},command=null){const search=new URLSearchParams(query),accountId=sessionSubject(session||restoreStoredSession());return authenticatedRequest('/api/classics'+(search.size?'?'+search:''),{accountId,...(command?{method:'POST',body:JSON.stringify(command)}:{})});},
       calendarRequest(options = {}){ return authenticatedRequest("/api/calendar", options); },
       async status(){
         return jsonRequest("/api/auth");
@@ -487,13 +668,24 @@
       async restoreSession(){
         return currentSession();
       },
-      async signIn(email, password, { persist = true } = {}){
+      async signIn(email, password, { persist = true, isCurrent = () => true } = {}){
+        const generation = sessionGeneration;
+        const captureCurrent=()=>{try{return isCurrent()===true;}catch{return false;}};
+        const captureEnded=()=>Object.assign(new Error('The device handoff was cancelled or changed. The account request may have been accepted; sign in deliberately to continue. Your device choices are kept.'),{code:'account_transition_changed'});
+        if(!captureCurrent())throw captureEnded();
         const payload = await jsonRequest("/api/auth", {
           method: "POST",
           body: JSON.stringify({ action: "password-sign-in", email, password }),
+        }).catch(error => {
+          if (generation !== sessionGeneration) throw accountScopeError();
+          if(!captureCurrent())throw captureEnded();
+          throw error;
         });
+        if (generation !== sessionGeneration) throw accountScopeError();
+        if(!captureCurrent())throw captureEnded();
         persistSession = persist !== false;
         savePersistencePreference(persistSession);
+        sessionGeneration += 1;
         const saved = saveSession(payload.session);
         if (!saved){
           const error = new Error("The sign-in response did not contain a valid session.");
@@ -502,22 +694,40 @@
         }
         return { ...saved };
       },
-      async signUp(email, password, meta, { persist = true } = {}){
+      async signUp(email, password, meta, { persist = true, isCurrent = () => true, isCurrentWithoutSession = isCurrent } = {}){
+        const generation = sessionGeneration;
+        const captureCurrent=(withoutSession=false)=>{try{return (withoutSession?isCurrentWithoutSession:isCurrent)()===true;}catch{return false;}};
+        const captureEnded=()=>Object.assign(new Error('The device handoff was cancelled or changed. The account request may have been accepted; sign in deliberately to continue. Your device choices are kept.'),{code:'account_transition_changed'});
+        if(!captureCurrent())throw captureEnded();
         const payload = await jsonRequest("/api/auth", {
           method:"POST",
           body:JSON.stringify({ action:"sign-up", email, password, meta }),
+        }).catch(error => {
+          if (generation !== sessionGeneration) throw accountScopeError();
+          if(!captureCurrent())throw captureEnded();
+          throw error;
         });
+        if (generation !== sessionGeneration) throw accountScopeError();
+        // Session-absent acceptance cannot adopt an account; the caller may
+        // distinguish ordinary guest edits from cancellation or an owner change.
+        if(!captureCurrent(!payload.session))throw captureEnded();
         if (!payload.session) return payload;
         persistSession = persist !== false;
         savePersistencePreference(persistSession);
+        sessionGeneration += 1;
         const saved = saveSession(payload.session);
         if (!saved){
           const error = new Error("The sign-up response did not contain a valid session.");
           error.code = "invalid_auth_session";
           throw error;
         }
-        return { ...payload, session:{ ...saved } };
+        return { ...payload, session:{ ...saved }, accountSnapshot:accountSnapshot() };
       },
+      async requestEmailConfirmation(email){
+        return jsonRequest('/api/auth',{method:'POST',body:JSON.stringify({action:'confirmation-resend',email})});
+      },
+      async changeAccountEmail(email,options){return accountEmailRequest(email,options,true);},
+      async checkAccountEmail(options){return accountEmailRequest(null,options,false);},
       async requestPasswordRecovery(email){
         return jsonRequest("/api/auth", {
           method:"POST",
@@ -531,26 +741,45 @@
           body:JSON.stringify({ action:"password-update", password }),
         });
       },
+      async inspectSignupConfirmation(accessToken){
+        const generation=sessionGeneration;
+        if(typeof accessToken!=="string"||!accessToken||accessToken.length>8192)throw Object.assign(new Error("This email link is invalid or expired."),{code:"confirmation_link_invalid"});
+        // Deliberately bypass authenticatedRequest: use only the link bearer,
+        // never saved A, refresh, saveSession, or any user-state endpoint.
+        const payload=await jsonRequest("/api/auth",{headers:{Authorization:`Bearer ${accessToken}`}}).catch(error=>{
+          if(generation!==sessionGeneration)throw accountScopeError();
+          throw Object.assign(new Error([400,401,403].includes(error?.status)?"This email link is invalid or expired.":"The email link could not be checked. Sign in normally to continue."),{code:[400,401,403].includes(error?.status)?"confirmation_link_invalid":"confirmation_check_unavailable"});
+        });
+        if(generation!==sessionGeneration)throw accountScopeError();
+        if(typeof payload?.user?.id!=="string"||!payload.user.id||payload.user.isAnonymous===true)throw Object.assign(new Error("This email link is invalid or expired."),{code:"confirmation_link_invalid"});
+        const emailVerified=typeof payload.user.emailVerified==="boolean"?payload.user.emailVerified:null;
+        return Object.freeze({status:emailVerified===true?"confirmed":emailVerified===false?"not_confirmed":"identity_checked",user:{id:payload.user.id,email:String(payload.user.email||"").slice(0,254)},emailVerified});
+      },
       async user(){
         const payload = await authenticatedRequest("/api/auth");
         return payload.user;
       },
-      async loadState(){
-        const payload = await authenticatedRequest("/api/user-state");
+      async loadState({ accountId = "" } = {}){
+        const payload = await authenticatedRequest("/api/user-state", { accountId });
         return {
           user: payload.user,
           state: stateFromDatabaseRow(payload.state),
           preferenceRecovery:payload.preferenceRecovery || null,
         };
       },
-      async loadMeta(){
-        return authenticatedRequest("/api/user-meta");
+      async loadMeta({ accountId = "" } = {}){
+        return authenticatedRequest("/api/user-meta", { accountId });
       },
-      async saveMeta(meta){
+      async saveMeta(meta, { accountId = "" } = {}){
         return authenticatedRequest("/api/user-meta", {
+          accountId,
           method:"PUT",
           body:JSON.stringify({ meta }),
         });
+      },
+      async inboxRequest({cursor = '',summary = false,impact = false,eventId = '',digestDay = ''} = {}, seen = null){
+        const query=new URLSearchParams();if(cursor)query.set('cursor',cursor);if(summary)query.set('summary','1');if(impact)query.set('impact','1');if(eventId)query.set('eventId',eventId);if(digestDay)query.set('digestDay',digestDay);
+        return authenticatedRequest(`/api/inbox?${query}`,seen?{method:'POST',body:JSON.stringify({seen})}:{});
       },
       async notificationCommand(command, { authenticated = true } = {}){
         const options = { method:"POST", body:JSON.stringify(command || {}) };
@@ -629,7 +858,27 @@
       async adminPanelRequest(command = null){
         return authenticatedRequest("/api/admin/panel", command ? { method:"POST", body:JSON.stringify(command) } : {});
       },
-      async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "", rankings = null, ladder = null, picks = "", fixture = "", activity = null, handle = "", rewards = false, ratingAffinity = false } = {}, command = null){
+      async profileAvatarUpload(file, onProgress = () => {}){
+        if(!file || file.size < 1 || file.size > 6000000)throw new Error("Choose a picture up to 6 MB.");
+        const releaseUpdate=globalThis.NOTHINGSPORTS_APP_UPDATE?.holdWrite?.();
+        try{
+        onProgress("Preparing upload…");
+        const prepared=await authenticatedRequest("/api/nothingscore",{method:"POST",body:JSON.stringify({action:"profile-avatar-prepare",byteSize:file.size})});
+        onProgress("Uploading picture…");
+        await new Promise((resolve,reject)=>{
+          const xhr=new XMLHttpRequest();xhr.open("PUT",prepared.uploadUrl);xhr.timeout=120000;
+          xhr.setRequestHeader("Content-Type",file.type||"application/octet-stream");
+          xhr.upload.onprogress=event=>{if(event.lengthComputable)onProgress(`Uploading picture… ${Math.round(event.loaded/event.total*100)}%`);};
+          xhr.onload=()=>xhr.status>=200&&xhr.status<300?resolve():reject(new Error("The picture upload failed. Please retry."));
+          xhr.onerror=()=>reject(new Error("The upload was interrupted. Check your connection and retry."));
+          xhr.ontimeout=()=>reject(new Error("The upload timed out. Please retry."));xhr.send(file);
+        });
+        onProgress("Optimising picture…");
+        return await authenticatedRequest("/api/nothingscore",{method:"POST",timeoutMs:90000,body:JSON.stringify({action:"profile-avatar-complete",uploadId:prepared.uploadId})});
+        }finally{releaseUpdate?.();}
+      },
+      profileAvatarExpanded(profileId){return authenticatedRequest(`/api/nothingscore?avatarExpanded=${encodeURIComponent(profileId)}`,{responseType:"blob",cache:"no-store"});},
+      async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "", rankings = null, ladder = null, picks = "", fixture = "", activity = null, handle = "", rewards = false, ratingAffinity = false, viewer = false } = {}, command = null){
         if (command){
           return authenticatedRequest("/api/nothingscore", { method:"POST", body:JSON.stringify(command) });
         }
@@ -638,24 +887,29 @@
         if (eventId) params.set("eventId", eventId);
         if (leaderboard) params.set("leaderboard", leaderboard);
         if(rewards)params.set("rewards","1");
+        if(viewer)params.set("viewer","1");
         if(ladder){params.set('ladder','1');Object.entries(ladder).forEach(([k,v])=>params.set(k,String(v)));}
         if(fixture)params.set('fixture',fixture);if(picks)params.set('picks',picks);if(handle)params.set('handle',handle);if(activity){params.set('activity','1');params.set('cursor',String(activity.cursor||0));}
         if(rankings){params.set("rankings","1");Object.entries(rankings).forEach(([key,value])=>{if(value!==null&&value!==undefined)params.set(key,String(value));});}
         if(ratingAffinity)params.set("ratingAffinity","1");
         const target = `/api/nothingscore?${params.toString()}`;
-        return session || restoreStoredSession() ? authenticatedRequest(target) : jsonRequest(target);
+        const options = ids.length ? {timeoutMs:Math.min(requestTimeoutMs,8000)} : {};
+        return session || restoreStoredSession() ? authenticatedRequest(target,options) : jsonRequest(target,options);
       },
       async nothingscoreMarquee(command){
         return authenticatedRequest("/api/nothingscore-marquee", { method:"POST", body:JSON.stringify(command || {}) });
       },
       invalidateFeed,
-      async loadFeed({ cursor = 0, limit = 20 } = {}){
+      async loadFeed({ cursor = 0, limit = 20, scope = '', participantId = null } = {}){
         const params = new URLSearchParams({ cursor: String(cursor), limit: String(limit) });
+        if(['match-centre','athletes'].includes(scope))params.set('scope',scope);
+        if(scope==='athletes'&&participantId)params.set('participantId',participantId);
         const owner=sessionSubject(session || restoreStoredSession()),epoch=feedEpoch;
         const key=`${owner}:${epoch}:${params}`;
         if(feedRequests.has(key))return feedRequests.get(key);
         const cached=feedResponses.get(key);
         const pending=authenticatedRequest(`/api/feed?${params.toString()}`,{
+          ...(['match-centre','athletes'].includes(scope)?{timeoutMs:10000}:{}),
           headers:cached?.etag?{'If-None-Match':cached.etag}:{},
           cachedPayload:cached?.payload,
           onResponse(response,payload){
@@ -684,9 +938,26 @@
         }
         return payload;
       },
-      async savePatch(patch){
+      async loadRecoverySnapshot({ accountId = "" } = {}){
+        if(!accountId)throw accountScopeError();
+        const scope=accountSnapshot();
+        const active=session || storageRead(storage,SESSION_STORAGE_KEY)
+          || (persistSession ? storageRead(persistentStorage,PERSISTENT_SESSION_STORAGE_KEY) : null);
+        if(scope.accountId!==accountId||sessionSubject(active)!==accountId)throw accountScopeError();
+        if(!active||active.expiresAt<=now()+REFRESH_EARLY_MS){
+          throw Object.assign(new Error('A current sign-in is required for local recovery.'),{status:401,code:'backup_session_unavailable'});
+        }
+        const payload=await jsonRequest('/api/user-state?recovery-snapshot=v1',{
+          headers:{Authorization:`Bearer ${active.accessToken}`},
+        });
+        const current=accountSnapshot();
+        if(current.accountId!==accountId||current.generation!==scope.generation)throw accountScopeError();
+        return payload;
+      },
+      async savePatch(patch, { accountId = "" } = {}){
         invalidateFeed();
         const payload = await authenticatedRequest("/api/user-state", {
+          accountId,
           method: "PUT",
           body: JSON.stringify({ patch }),
         });
@@ -697,9 +968,10 @@
           preferenceRecovery:payload.preferenceRecovery || null,
         };
       },
-      async resetPreferences(preferences){
+      async resetPreferences(preferences, { accountId = "" } = {}){
         invalidateFeed();
         const payload = await authenticatedRequest("/api/user-state", {
+          accountId,
           method:"POST",
           body:JSON.stringify({ action:"reset-preferences", preferences }),
         });
@@ -710,9 +982,10 @@
           preferenceRecovery:payload.preferenceRecovery || null,
         };
       },
-      async undoPreferencesReset(resetId){
+      async undoPreferencesReset(resetId, { accountId = "" } = {}){
         invalidateFeed();
         const payload = await authenticatedRequest("/api/user-state", {
+          accountId,
           method:"POST",
           body:JSON.stringify({ action:"undo-preferences-reset", resetId }),
         });
@@ -723,19 +996,22 @@
           preferenceRecovery:payload.preferenceRecovery || null,
         };
       },
-      async signOut(){
+      async signOut({ accountId = "" } = {}){
+        const generation = sessionGeneration;
         try{
           if (await currentSession()){
             await authenticatedRequest("/api/auth", {
+              accountId,
               method: "POST",
               body: JSON.stringify({ action: "logout" }),
             });
           }
         }finally{
-          clearSession();
+          if (generation === sessionGeneration && (!accountId || sessionSubject(session || restoreStoredSession()) === accountId)) clearSession();
         }
       },
       clearSession,
+      accountSnapshot,
       clearGuestChatSession,
       getSession(){
         return session ? { ...session } : restoreStoredSession();
@@ -779,8 +1055,10 @@
     buildUserState,
     createClient,
     mergeSettings,
+    settingsForServer,
     parseSession,
     parseRecoveryFragment,
+    captureSignupConfirmationFromLocation,
     captureRecoveryFromLocation,
     readRecoverySession,
     storeRecoverySession,

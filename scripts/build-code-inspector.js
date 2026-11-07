@@ -8,20 +8,29 @@ const path = require("node:path");
 const ROOT = path.resolve(__dirname, "..");
 const OUTPUT_DIR = path.join(ROOT, "data/code-inspector");
 const taxonomy = require("../config/canonical-sports-taxonomy");
+const canonicalStatus = require('../lib/canonical-status-observations');
 const followFirst = require("../config/follow-first");
 const fixtureIdentity = require("../config/fixture-identity");
 const nationalTeamIdentities = require("../config/national-team-identities");
 const feed = require("../data/events.json");
 const canonicalAflNrl = require("../data/canonical/afl-nrl-2026.json");
+const canonicalNrlw = require('./lib/nrlw-ladder-review').readLadderReview();
 const canonicalF1=require("../data/canonical/f1-context-2026.json");
+const canonicalNbl=require("../data/canonical/nbl-2026-27.json");
 const canonicalTennis=require("../data/canonical/tennis-context-2026.json");
 const canonicalWrc = require("../data/canonical/wrc-context-2026.json");
 const canonicalAmericanFootball = require("../data/canonical/american-football-directory.v1.json");
 const canonicalIceHockey = require("../data/canonical/ice-hockey-directory.v1.json");
+const rawOpenLiga = require('../data/providers/openligadb/football-2026-27.json');
+const delayedFootball=require('../lib/football-delayed-results');
+const openLiga={...rawOpenLiga,events:delayedFootball.apply(rawOpenLiga.events),standings:delayedFootball.standings(rawOpenLiga.standings,rawOpenLiga.events)};
 const canonicalChampionsLeague = require("../data/canonical/uefa-champions-league-2026-27.json");
 const canonicalFinals = require("../data/canonical/afl-nrl-finals-2026.json");
 const majorEvents = require("../data/major-events.v1.json");
 const coverage = require("../data/follow-sources/coverage.v1.json");
+const restoreCompetitionContext=require('./lib/fixture-competition-context').createResolver();
+const restoreCricketContext=require('./lib/cricket-reviewed-context').createResolver();
+const enrichFixtureEditorial = require('../lib/fixture-editorial').createResolver(require('../data/editorial-knowledge.v1.json'),[...feed.events,...(coverage.events||[])]);
 const crossDisciplineFixtures=require('../lib/athlete-participation').materializeParticipation(require('../data/canonical/athlete-participation.v1.json'));
 const canonicalParticipantNames = new Map((canonicalAflNrl.participants || []).map(participant => [
   participant.id,
@@ -44,13 +53,16 @@ const CODE_KEYS = Object.freeze({
   "sport:afl": ["afl"],
   "sport:aflw": ["aflw"],
   "sport:nrl": ["nrl"],
-  "sport:motorsport": ["f1", "wrc", "motorsport", "motogp", "lemans", "goodwood", "bathurst"],
+  "sport:motorsport": ["f1", "wrc", "motorsport", "motogp", "dakar", "lemans", "goodwood", "bathurst"],
   "sport:f1": ["f1"],
   "sport:wrc": ["wrc"],
   "sport:nrlw": ["nrlw"],
   "sport:nbl": ["nbl"],
   "competition:motogp": ["motogp"],
+  "competition:dakar": ["dakar"],
+  "competition:le-mans": ["lemans"],
   "competition:sailgp": ["sailgp"],
+  "competition:wsl-championship-tour": ["wsl"],
   "competition:fiba-womens-world-cup": ["fiba-women"],
   "sport:extreme": ["extreme"],
   "sport:surf": ["surf", "surfing"],
@@ -59,12 +71,16 @@ const CODE_KEYS = Object.freeze({
   "sport:football": ["football", "soccer", "fifa", "premier-league"],
   "competition:uefa-champions-league": ["champions-league", "uefa-champions-league"],
   "sport:cycling": ["cycling", "tour-de-france"],
+  "competition:tour-de-france":["tdf"],
+  "competition:giro-ditalia":["giro"],
+  "competition:vuelta-a-espana":["vuelta"],
   "sport:cricket": ["cricket"],
   "sport:basketball": ["basketball", "nba"],
-  "sport:golf": ["golf"],
+  "sport:golf": ["golf", "masters"],
+  "sport:multi-sport": ["cwg"],
   "sport:american-football": ["american-football", "nfl"],
   "sport:ice-hockey": ["ice-hockey", "nhl", "chl"],
-  "sport:skiing": ["skiing", "snow"],
+  "sport:skiing": ["ski", "skiing", "snow"],
   "sport:multi-sport": ["multi-sport", "cwg", "commonwealth-games"],
 });
 
@@ -121,6 +137,7 @@ const CHILD_CODE_IDS = new Set([
   "sport:nbl",
   "competition:motogp",
   "competition:sailgp",
+  "competition:wsl-championship-tour",
   "competition:fiba-womens-world-cup",
 ]);
 
@@ -137,6 +154,15 @@ function eventMatchesCode(event, code){
   if((event.participantIds || []).some(id=>id.startsWith("team:nrl:")) && code.id==="sport:rugby-union")return false;
   const childId = childCodeId(event);
   if (childId) return code.id === childId;
+  // Exact aliases recover legacy Skiing; canonical sport conflicts still win.
+  // Football must not match American Football by substring.
+  if(["sport:football","sport:skiing"].includes(code.id)){
+    const domain=[event?.sportDomainId,event?.codeId,event?.sportId,event?.taxonomyNodeId].find(value=>String(value||" ").startsWith("sport:"));
+    if(domain)return domain === code.id;
+    const aliases=new Set(CODE_KEYS[code.id]);
+    return [event?.key,event?.sportId,event?.sportKey,event?.sport,event?.codeId]
+      .filter(Boolean).some(value=>aliases.has(String(value).toLowerCase().replace(/^sport:/,"")));
+  }
   if (event?.sportDomainId === code.id || event?.competitionId === code.id || event?.codeId === code.id) return true;
   const values = [event?.key, event?.sportId, event?.sportKey, event?.sport]
     .filter(Boolean)
@@ -144,6 +170,16 @@ function eventMatchesCode(event, code){
   return (CODE_KEYS[code.id] || [code.slug]).some(key => values.some(value => value === key || value.includes(key)));
 }
 
+const clubCrestRecords=require('../config/football-club-crests.json').clubs;
+const clubCrests=new Map(clubCrestRecords.map(c=>[c.participantId,c.logoUrl]));
+const reviewedClubCrests=new Map(clubCrestRecords.filter(c=>c.logoReview).map(c=>[c.participantId,c]));
+function clubLogoForSlot(participantId,existing){
+  return reviewedClubCrests.get(participantId)?.logoUrl||existing||clubCrests.get(participantId)||null;
+}
+function reviewedArtworkForParticipant(participant){
+  const crest=reviewedClubCrests.get(participant?.id||participant?.participantId);
+  return crest?{...participant,logoUrl:crest.logoUrl,crestSourceUrl:crest.logoReview.sourceUrl}:participant;
+}
 function participantSlots(event){
   if (event?.participantDisplayMode === "field") return [];
   const nationalTeams = nationalTeamIdentities.identitiesForEvent(event);
@@ -152,7 +188,7 @@ function participantSlots(event){
       slot: slot.slot || index + 1,
       participantId: nationalTeamIdentities.canonicalId(slot.participantId) || nationalTeams[index]?.id || null,
       label: slot.label || canonicalParticipantNames.get(nationalTeamIdentities.canonicalId(slot.participantId)) || nationalTeams[index]?.displayName || null,
-      logoUrl:nationalTeamIdentities.teamForId(slot.participantId)?.assetPath || slot.logoUrl || null,
+      logoUrl:nationalTeamIdentities.teamForId(slot.participantId)?.assetPath || clubLogoForSlot(slot.participantId,slot.logoUrl),
       ...(slot.homeAway ? { homeAway:slot.homeAway } : {}),
       ...(slot.score != null ? { score:String(slot.score) } : {}),
     }));
@@ -162,7 +198,7 @@ function participantSlots(event){
       slot: index + 1,
       participantId,
       label: canonicalParticipantNames.get(participantId) || nationalTeamIdentities.teamForId(participantId)?.displayName || (event.participants || []).find(p=>p.id===participantId)?.name || null,
-      logoUrl:nationalTeamIdentities.teamForId(participantId)?.assetPath || null,
+      logoUrl:nationalTeamIdentities.teamForId(participantId)?.assetPath || clubLogoForSlot(participantId,(event.participants||[]).find(p=>p.id===participantId)?.logoUrl),
     }));
   }
   if (nationalTeams.length === 2){
@@ -192,8 +228,31 @@ function sydneyPartsFromUtc(iso){
   return { date: `${parts.year}-${parts.month}-${parts.day}`, time: `${parts.hour}:${parts.minute}` };
 }
 
+function canonicalSourceMetadata(event){
+  // Explicit flat provenance owns its facts. Do not mix in another publisher.
+  if(['sourceUrl','sourceName','sourceType','sourceCheckedAt'].some(key=>event[key]!=null&&event[key]!==''))return {};
+  const source=event.source;
+  if(!source||typeof source!=='object'||Array.isArray(source)||typeof source.sourceUrl!=='string')return {};
+  try{const url=new URL(source.sourceUrl);if(!['http:','https:'].includes(url.protocol)||url.username||url.password)return {};}catch{return {};}
+  const fields={sourceUrl:source.sourceUrl};
+  for(const [key,input] of [['sourceName','provider'],['sourceType','sourceType']])if(typeof source[input]==='string'&&source[input].trim())fields[key]=source[input];
+  const checked=source.checkedAt,observed=Date.parse(checked),date=typeof checked==='string'?checked.slice(0,10):'';
+  if(/^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$/.test(checked||'')&&Number.isFinite(observed)&&observed<=Date.now()&&new Date(date+'T00:00:00Z').toISOString().slice(0,10)===date)fields.sourceCheckedAt=checked;
+  return fields;
+}
+
 function normalizeFixture(event, codeId, extra = {}){
   event=fixtureIdentity.normalizeCore(event);
+  if(fixtureIdentity.sportKey(event,codeId).startsWith("tennis"))event=require("../lib/tennis-card-evidence").fixture(event);
+  const sourceMetadata=canonicalSourceMetadata(event);
+  // Earlier official EPL cards retained the sourced matchweek only in resultLabels.
+  // Recover that exact field for existing publications; never infer it from dates.
+  if(event.competitionId === 'competition:premier-league-2026-27'){
+    const label=(event.resultLabels || []).find(value=>/^Premier League Matchweek ([1-9]|[12][0-9]|3[0-8])$/.test(value));
+    const week=Number.isInteger(event.roundNumber)?event.roundNumber:label?Number(label.split(' ').at(-1)):null;
+    event={...event,competitionName:event.competitionName || 'Premier League',season:event.season || '2026/27',
+      ...(week?{roundNumber:week,roundLabel:`Premier League Matchweek ${week}`}:{})};
+  }
   const key = fixtureIdentity.sportKey(event, codeId);
   const slots = participantSlots(event);
   const sydney = sydneyPartsFromUtc(event.startTimeUtc);
@@ -204,15 +263,32 @@ function normalizeFixture(event, codeId, extra = {}){
   const scoredSlots = slots.filter(slot => slot.score != null && slot.score !== "");
   const home = scoredSlots.find(slot => slot.homeAway === "home") || scoredSlots[0];
   const away = scoredSlots.find(slot => slot.homeAway === "away") || scoredSlots[1];
-  const derivedScore = home && away ? `${home.label} ${home.score}-${away.score} ${away.label}` : null;
+  // Hockey's source slots and card title are away-first. Keep scores attached
+  // to that displayed order, including the explicitly supplied final qualifier.
+  const orderedHockey=codeId==='sport:ice-hockey'&&scoredSlots.length===2;
+  const awayFirst=codeId==='sport:american-football'&&scoredSlots.length===2&&/ at /.test(event.name||'')&&scoredSlots.every(s=>['home','away'].includes(s.homeAway));
+  const first=orderedHockey?scoredSlots[0]:awayFirst?away:home,second=orderedHockey?scoredSlots[1]:awayFirst?home:away;
+  const qualifier=['sport:ice-hockey','sport:american-football'].includes(codeId)&&scoredSlots.length===2?(event.resultLabels||[]).filter(label=>['After overtime','After shootout'].includes(label)).join(' · '):'';
+  const derivedScore = first && second ? `${first.label} ${first.score}-${second.score} ${second.label}${qualifier?' · '+qualifier:''}` : null;
   return {
     id: stableId(event),
     sourceEventIds:[...new Set([event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].filter(Boolean))],
+    ...Object.fromEntries(['tournamentProgress','matchDay','matchDaySourceUrl','numberOfDays','drawId','drawType','sourceLocalDate','mainDraw','eventCode','matchType','drawName','isQualifying','isExhibition','isWarmup','sourceStale','stale','matchupSides'].filter(k=>event[k]!=null).map(k=>[k,event[k]])),
     codeId,
     key,
+    ...(['cricket','cricket-women'].includes(key) && event.editionId ? {editionId:event.editionId} : {}),
+    ...(event.competitionId==='competition:australian-championship'?Object.fromEntries(['shootout','sourceWinnerId','sourceMatchInfo','sourceEndTimeUtc','scheduledEndStatus','endTimeBasis','groupId','groupName','sourceUpdatedAt','providerResponseTimestamp','captureReceivedAt','sourceBroadcasters','viewingStatus'].filter(k=>event[k]!=null).map(k=>[k,event[k]])):{}),
+    ...(Array.isArray(event.innings)&&event.innings.length?{innings:event.innings}:{}),
+    ...Object.fromEntries(["livePlayObservedAt","actualStartTimeUtc","statusCheckedAt","statusSourceName","statusSourceType","scoreCheckedAt","scoreFactObservedAt","statusFactObservedAt","fixtureObservationSchema","sets","format","marqueeClassification","sportDomainId","preferenceDomainId","discoverySportId","sessionType","cardKind"].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     ...(event.published === false ? {published:false} : {}),
+    ...(event.calendarNote?{calendarNote:event.calendarNote,dateStatus:event.dateStatus,timePrecision:event.timePrecision,startTimeTbc:true,fullSpiel:event.fullSpiel,selectedSentence:event.selectedSentence,sourceTrust:event.sourceTrust}:{}),
     ...(event.identityRef ? {identityRef:event.identityRef} : {}),
     competitionId: event.competitionId || extra.competitionId || null,
+    ...(event.competitionProvenance?{competitionProvenance:event.competitionProvenance}:{}),
+    ...(event.key==='cricket'&&event.calendarProvenance?{calendarProvenance:event.calendarProvenance,numberOfDays:event.numberOfDays}:{}),
+    ...(event.calendarProvenance&&['wsl','tdf','giro','vuelta'].includes(event.key)?Object.fromEntries(['calendarProvenance','grandTourCalendar','sessionType','resultCoverage'].filter(k=>event[k]!=null).map(k=>[k,event[k]])):{}),
+    ...(event.format ? {format:event.format} : {}),
+    ...(event.matchFormat ? {matchFormat:event.matchFormat} : {}),
     name: event.name || event.displayName || "TBC",
     date: event.date || sydney?.date || extra.date || null,
     time: timeTbc ? null : (event.time || sydney?.time || null),
@@ -220,26 +296,29 @@ function normalizeFixture(event, codeId, extra = {}){
     ...(event.dateOnly === true || event.timePrecision === "date-only"
       ? { dateOnly:true, timePrecision:"date-only" }
       : timeTbc
-        ? { timeTbc:true, timePrecision:"tbc" }
+        ? { timeTbc:true, timePrecision:event.calendarNote ? "unknown" : "tbc" }
         : event.timePrecision ? { timePrecision:event.timePrecision } : {}),
     startTimeUtc: event.startTimeUtc || null,
     ...Object.fromEntries(['schedulePrecision','weekAnchorDate','displayDateLabel','publicStageLabel','presentationTier'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
-    ...Object.fromEntries(['fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...Object.fromEntries(['actualStartTimeUtc','actualStartEvidence','scorecardUrl','goalDetailsCheckedAt','goalDetailsStale','cricketDetailAttemptedAt','officialScorecardUrl','cricketPhaseConfirmed','cricketPhaseCheckedAt','roundScores','cricketBalance','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt','statusText','incidents','goalScorers','estimatedEarliestStartTimeUtc','estimatedLatestStartTimeUtc','sessionOrderEvidence','manualStartEstimate','matchDuration','matchDurationSeconds','scheduleEvidence','timingEvidence','timingVerified','court','tennisProviderMatchId','tennisProviderEventId','tennisProviderTour','sets','estimatedStartTimeUtc','lemansCalendar','sessionOrder','dakarCalendar','itineraryScope','totalDistanceKm','specialDistanceKm','golfMajorCalendar','golfMajorOverview','majorSlug','calendarProvenance','sessionType','roundNumber','editionArtworkId','editionGeometryVerified','editionEndDate','finishCountryCode','courseArtworkId','courseGeometryVerified','courseGeometrySourceUrl','venueCaption','statusSourceUrl','statusCheckedAt','canonicalEventId','venueConfigurationId','venueConfigurationVerified','venueArtworkId','venueGeometrySourceUrl','circuitLengthMetres','circuitTurns','weekendId','scheduleNote','sourceSessionIds','participantsConfirmed','resultCoverage','entries','appearances','participationCheckedAt','genderCategory','circuitId','venueOfficialName','venueId','venueVerified','venueCity','venueSourceUrl','venueProvenance','timingProvenance','scoreCheckedAt','statusCheckedAt','firstConfirmedCompleteAt','parentEventId','rubbers','spoilerSafeTitle','progressionSlots','bracketSlot','winnerParticipantId','resultSourceUrl','resultSourceCheckedAt','cardType','narrativeType','tournamentParent','tennisTournamentId','contestUnit','tour','tournamentLevel','parentTieId','tieId','eliminatedParticipantIds','loserParticipantId','isMajor','major','tournamentSlotId','drawMatchNumber','matchNumber','slotId','slotKind','tournamentId','tournamentName','eventFamilyId','eventSeriesId','majorEventName','season','detailsUnavailable','fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode','sourceAttribution','delayedResultSource'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...(event.canonicalResultScoreline != null ? {canonicalResultScoreline:event.canonicalResultScoreline} : {}),
     ...(!event.scoreDisplay && derivedScore ? { scoreDisplay:derivedScore } : {}),
     ...(!event.score && derivedScore ? { score:derivedScore } : {}),
-    ...Object.fromEntries(['eventType','eventCode','bestOf','matchType','matchupSides','sessionId','sessionStartTimeUtc','sequenceInSession','notBeforeTimeUtc','court','endTimeUtc','actualEndTimeUtc','endTimeBasis'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...Object.fromEntries(['tournamentOpeningDate','tournamentOpeningSourceUrl','eventType','eventCode','bestOf','matchType','matchupSides','sessionId','sessionStartTimeUtc','sequenceInSession','notBeforeTimeUtc','court','endTimeUtc','actualEndTimeUtc','endTimeBasis'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     venue: (event.venue || event.venueName) && !/tbc/i.test(event.venue || event.venueName) ? (event.venue || event.venueName) : null,
     status: event.status || "upcoming",
+    ...canonicalStatus.observation(event),
     scheduleStatus: timeTbc ? "tbc" : (event.scheduleStatus || (event.startTimeUtc && confirmedParticipants ? "confirmed" : "provisional")),
     participantSlots: slots,
     participantIds:Array.isArray(event.participantIds)?event.participantIds:slots.map(slot=>slot.participantId).filter(Boolean),
-    participants:event.participants.length?event.participants:(event.matchupSides||[]).flatMap(side=>side.players||[]),
+    participants:(event.participants.length?event.participants:(event.matchupSides||[]).flatMap(side=>side.players||[])).map(reviewedArtworkForParticipant),
     participantCountryCodes:[...new Set([...(event.participantCountryCodes||[]),...(event.matchupSides||[]).flatMap(side=>(side.players||[]).map(player=>player.nationalityCode))].filter(Boolean))],
     ...(event.participantsConfirmed===true?{participantsConfirmed:true}:{}),
     ...(event.excludedParticipantIds?.length?{excludedParticipantIds:event.excludedParticipantIds}:{}),
     ...(event.estimatedStartTimeUtc?{estimatedStartTimeUtc:event.estimatedStartTimeUtc,timelineSortTimeUtc:event.timelineSortTimeUtc,timingProvenance:event.timingProvenance}:{}),
     detailsExpectedAt: event.detailsExpectedAt || extra.detailsExpectedAt || null,
     schedulingWindow: event.schedulingWindow || extra.schedulingWindow || null,
+    ...(event.resultStatus ? { resultStatus:event.resultStatus } : {}),
     roundNumber: Number.isInteger(event.roundNumber) ? event.roundNumber : null,
     roundLabel,
     stage,
@@ -247,18 +326,23 @@ function normalizeFixture(event, codeId, extra = {}){
     competitionScope:event.competitionScope || null,
     isInternational:event.isInternational === true || event.competitionScope === "international",
     representativeCountryCodes:Array.isArray(event.representativeCountryCodes) ? event.representativeCountryCodes : [],
-    expected: Number(event.expected || event.stakesScore || 0),
+    expected: event.calendarNote ? null : Number(event.expected || event.stakesScore || 0),
     broadcaster: event.broadcaster || (event.broadcasters || []).map(item => item.broadcasterName).filter(Boolean).join(" / ") || null,
     viewingOptions:Array.isArray(event.viewingOptions) ? event.viewingOptions : [],
+    ...(event.highlights!==undefined?{highlights:event.highlights}:{}),
     ...(event.replayUrl ? { replayUrl:event.replayUrl } : {}),
     ...(codeId === "sport:wrc" && event.resultStatus ? { resultStatus:event.resultStatus } : {}),
     ...(codeId === "sport:wrc" && event.score ? { resultScore:event.score } : {}),
     ...(codeId === "sport:wrc" && event.outcomeText ? { resultOutcome:event.outcomeText } : {}),
     ...(codeId === "sport:wrc" && event.resultSourceUrl ? { resultSourceUrl:event.resultSourceUrl } : {}),
-    sourceUrl:event.sourceUrl || null,
+    ...sourceMetadata,
+    sourceUrl:event.sourceUrl || sourceMetadata.sourceUrl || null,
     ticketUrl:event.ticketUrl || null,
+    ...(event.teamMatchContext ? {teamMatchContext:event.teamMatchContext} : {}),
+    ...(event.footballMatchContext ? {footballMatchContext:event.footballMatchContext} : {}),
     ...(event.editorialNarrative ? { editorialNarrative:event.editorialNarrative } : {}),
     ...(event.storyline ? { storyline:event.storyline } : {}),
+    ...(event.competitionId==='competition:australian-championship'&&event.resultSourceEvidence?Object.fromEntries(require('./lib/championship-score-contract').RESULT_FIELDS.filter(k=>Object.hasOwn(event,k)).map(k=>[k,event[k]])):{}),
     sourceCoverage: extra.sourceCoverage || "published-feed",
   };
 }
@@ -328,14 +412,30 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
       event.canonicalEventId,
       ...(event.sourceEventIds || []),
     ].filter(Boolean))];
-    const mergedEvent = previous ? {
-      ...secondary,
-      ...preferred,
+    // Viewing richness must not undo a newer, source-backed final result.
+    const terminalUpdate = secondary?.status === 'completed'
+      && ['scheduled','upcoming','live','finished'].includes(preferred?.status)
+      && secondary.sourceType === 'official'
+      && Boolean(secondary.scoreDisplay || secondary.result || secondary.innings?.length)
+      && Number.isFinite(Date.parse(secondary.sourceCheckedAt))
+      && Date.parse(secondary.sourceCheckedAt) >= (Date.parse(preferred.sourceCheckedAt) || 0);
+    let mergedEvent = previous ? {
+      ...(terminalUpdate ? preferred : secondary),
+      ...(terminalUpdate ? secondary : preferred),
+      ...(terminalUpdate ? Object.fromEntries(["broadcaster","viewingOptions","broadcastOptions","broadcasterIds"].filter(key=>preferred[key]!=null).map(key=>[key,preferred[key]])) : {}),
       id:retainedId,
       eventId:preferred.eventId || retainedId,
       canonicalEventId:preferred.canonicalEventId || retainedId,
       sourceEventIds,
-    } : event;
+    } : {...event};
+    mergedEvent=restoreCompetitionContext(mergedEvent);
+    mergedEvent=restoreCricketContext(mergedEvent);
+    if(previous && (canonicalStatus.observation(secondary)||canonicalStatus.observation(preferred))){
+      const status=canonicalStatus.apply(normalizeFixture(preferred,codeId),normalizeFixture(secondary,codeId));
+      if(status.status!==preferred.status||status.statusCheckedAt!==preferred.statusCheckedAt){
+        for(const key of ['status','statusCheckedAt','statusSourceUrl'])if(status[key]!=null)mergedEvent[key]=status[key];
+      }
+    }
     const hasConfirmedParticipants = Array.isArray(event.participantSlots) && event.participantSlots.length
       || Array.isArray(event.participantIds) && event.participantIds.length;
     if (Array.isArray(event.participantIds) && event.participantIds.length && !Array.isArray(event.participantSlots)){
@@ -345,31 +445,53 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
       if (event.scheduleStatus === undefined) delete mergedEvent.scheduleStatus;
       if (event.detailsExpectedAt === undefined) mergedEvent.detailsExpectedAt = null;
     }
+    if(previous&&fixtureIdentity.sportKey(event)==='cricket'){
+      const phased=fixtureIdentity.mergeOverlays([previous],[event])[0];
+      if(/^(stumps|rain-delay|break|suspended|interrupted)$/.test(phased?.status||'')){
+        for(const field of ['status','statusText','statusCheckedAt','cricketBalance','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt','cricketPhaseConfirmed','cricketPhaseCheckedAt','innings','scoreCheckedAt'])if(phased[field]!==undefined)mergedEvent[field]=phased[field];
+      }
+    }
     const normalized = normalizeFixture(mergedEvent, codeId, {
-      sourceCoverage: officialEvents.has(event) ? "official-canonical" : "published-feed",
+      sourceCoverage: mergedEvent.sourceType === "community" ? "community-canonical" : officialEvents.has(event) ? "official-canonical" : "published-feed",
     });
     fixtures.set(retainedId, normalized);
     const normalizedSemantic = semanticFixtureKey(normalized);
     if (normalizedSemantic) semanticIds.set(normalizedSemantic, retainedId);
   });
-  return Array.from(fixtures.values()).sort((first, second) => (
+  const protectedIds=new Set(require('../data/canonical/cricket-retention.v1.json').fixtureIds);
+  return Array.from(fixtures.values()).filter(e=>require('../config/cricket-coverage').allowed(e)||[e.id,...(e.sourceEventIds||[])].some(id=>protectedIds.has(id))).sort((first, second) => (
     String(first.date || first.schedulingWindow?.startsOn || "9999-12-31")
       .localeCompare(String(second.date || second.schedulingWindow?.startsOn || "9999-12-31"))
+    || (first.lemansCalendar&&second.lemansCalendar?first.sessionOrder-second.sessionOrder:0)
     || String(first.time || "23:59").localeCompare(String(second.time || "23:59"))
     || first.id.localeCompare(second.id)
   ));
 }
 
+function obsoleteProgramme(event){
+  if(event.key==='nrl'&&require('../config/follow-feed-policy').aggregateEvent(event))return true;
+  return event.cardType==='tournament_overview'&&require('../data/canonical/tennis-catalogue-2026.json').tournaments.some(t=>t.tournamentId===event.tennisTournamentId&&t.season&&t.sourceUrl);
+}
 function codeFixtures(code){
   const placeholders = [...eventPhasePlaceholders(code), ...codePhasePlaceholders(code)];
+  const golf = code.id === "sport:golf" ? require("./refresh-pga-schedule").fixtures(require("../data/canonical/pga-tour-schedule.json")) : [];
+  const aLeague = code.id === "sport:football" ? require("../data/football/fixtures/a-league-men.json").events : [];
+  const championship=code.id==='sport:football'?require('../data/football/fixtures/australian-championship.json').events:[];
+  const retainedDiamonds=code.id==='sport:netball'?require('../data/follow-sources/official.v1.json').events.filter(event=>event.key==='netball'&&event.sportDomainId==='sport:netball'&&event.competitionId==='competition:constellation-cup-2026'):[];
+  const teamTennis=code.id==='sport:tennis'?require('../data/canonical/tennis-team-contests.v1.json').fixtures:[];
   const programme = require("../lib/competition-fixtures").fixtures().filter(event => eventMatchesCode(event,code));
-  const published = feed.events.filter(event => eventMatchesCode(event, code));
+  const published = [...teamTennis,...feed.events].filter(event => eventMatchesCode(event, code)&&!obsoleteProgramme(event));
+  const tournamentName = name => String(name||'').toLowerCase().replace(/the \d+(?:st|nd|rd|th) open/,'the open championship').replace(/\b20\d\d\b/g,'').replace(/[^a-z0-9]/g,'');
+  for(const fixture of golf){
+    const existing=[...published,...programme].find(e=>e.date===fixture.date && tournamentName(e.name)===tournamentName(fixture.name));
+    if(existing){fixture.sourceEventIds=[fixture.id,existing.id];fixture.id=existing.id;fixture.eventId=existing.eventId||existing.id;fixture.canonicalEventId=existing.canonicalEventId||existing.id;}
+  }
   const canonical = ["sport:afl", "sport:aflw", "sport:nrl"].includes(code.id)
     ? canonicalAflNrl.events.filter(event => code.id === "sport:aflw"
       ? isAflwFixture(event)
       : event.sportDomainId === code.id && !isAflwFixture(event))
     : code.id === "competition:uefa-champions-league"
-      ? canonicalChampionsLeague.phases.flatMap(phase => phase.fixtures || [])
+      ? canonicalChampionsLeague.phases.flatMap(phase => phase.fixtures || []).filter(fixture=>!openLiga.events.length || fixture.id!=="major-stage:uefa-champions-league-2026-27:league-phase")
     : code.id === "sport:american-football"
       ? canonicalAmericanFootball.fixtures || []
       : code.id === "sport:ice-hockey"
@@ -377,8 +499,9 @@ function codeFixtures(code){
         : code.id === "sport:wrc"
           ? canonicalWrc.events || []
         : [];
-  const sourced=fixtureIdentity.mergeOverlays([...crossDisciplineFixtures,...(coverage.events || [])],require('../data/discovery/enrichment.v1.json').events).filter(event=>eventMatchesCode(event,code));
-  return mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced, ...programme], code.id, new Set([...canonical,...sourced]));
+  const sourced=fixtureIdentity.mergeOverlays([...crossDisciplineFixtures,...openLiga.events,...(coverage.events || [])],require('../data/discovery/enrichment.v1.json').events).filter(event=>eventMatchesCode(event,code));
+  const fixtures=require('../lib/fixture-highlights').applyCached(mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced, ...programme, ...golf, ...aLeague,...championship,...retainedDiamonds], code.id, new Set([...canonical,...sourced,...golf,...aLeague,...championship,...retainedDiamonds])).map(enrichFixtureEditorial).map(require('../lib/reviewed-au-viewing').reviewedAuViewing));
+  return require('../lib/event-overviews').withCricketEditions(fixtures);
 }
 
 function groupingMode(fixtures){
@@ -387,14 +510,15 @@ function groupingMode(fixtures){
   return "competition-date";
 }
 
-function codeStandings(code){
-  const canonicalDocument=code.id==='sport:f1'?canonicalF1:code.id==='sport:tennis'?canonicalTennis:['sport:afl','sport:aflw','sport:nrl'].includes(code.id)?canonicalAflNrl:null;
+function codeStandings(code,canonicalDocumentOverride){
+  const canonicalDocument=canonicalDocumentOverride||(code.id==='sport:nrlw'?canonicalNrlw:code.id==='sport:f1'?canonicalF1:code.id==='sport:tennis'?canonicalTennis:code.id==='sport:wrc'?canonicalWrc:['sport:afl','sport:aflw','sport:nrl','sport:football'].includes(code.id)?canonicalAflNrl:null);
   const snapshots=new Map();
   for(const snapshot of canonicalDocument?.ladderSnapshots||[]){
-    if(canonicalDocument===canonicalAflNrl && !String(snapshot.competitionId).startsWith(`competition:${code.id.replace('sport:','')}${code.id==='sport:aflw'?'':'-'}`))continue;
+    if(code.id==='sport:football' && snapshot.competitionId!=='competition:premier-league-2026-27')continue;
+    if(canonicalDocument===canonicalAflNrl && code.id!=='sport:football' && !String(snapshot.competitionId).startsWith(`competition:${code.id.replace('sport:','')}${code.id==='sport:aflw'?'':'-'}`))continue;
     const old=snapshots.get(snapshot.competitionId);if(!old || String(snapshot.snapshotTimeUtc)>String(old.snapshotTimeUtc))snapshots.set(snapshot.competitionId,snapshot);
   }
-  const source = canonicalDocument ? [...snapshots.values()].flatMap(snapshot=>(snapshot.entries||[]).map(entry=>({...entry,competitionId:snapshot.competitionId,asOf:snapshot.snapshotTimeUtc,roundLabel:snapshot.roundLabel,sourceUrl:snapshot.sourceUrl||snapshot.source?.sourceUrl}))) : code.id === "sport:wrc"
+  const source = code.id === "sport:nbl" ? canonicalNbl.standings || [] : canonicalDocument ? [...snapshots.values()].flatMap(snapshot=>(snapshot.entries||[]).map(entry=>({...entry,competitionId:snapshot.competitionId,...(['sport:football','sport:nrlw'].includes(code.id)?{competitionName:(canonicalDocument.competitions||[]).find(competition=>competition.id===snapshot.competitionId)?.name}:{}),asOf:snapshot.snapshotTimeUtc,roundLabel:snapshot.roundLabel,...(snapshot.metadata?.tableNote?{tableNote:snapshot.metadata.tableNote}:{}),...(snapshot.stale?{stale:true,staleNote:snapshot.metadata?.staleNote||snapshot.metadata?.tableNote||'Standings await source confirmation.'}:{}),...(require('../data/canonical/football-delayed-results.v1.json').results.some(r=>r.competitionId===snapshot.competitionId)?{stale:true,staleNote:'Table awaits primary-source confirmation of delayed backup results.'}:{}),sourceUrl:snapshot.sourceUrl||snapshot.source?.sourceUrl}))) : code.id === "sport:wrc"
     ? (canonicalWrc.ladderSnapshots || []).flatMap(snapshot => (snapshot.entries || []).map(entry => ({ ...entry, competitionId:snapshot.competitionId })))
     : code.id === "sport:american-football"
     ? canonicalAmericanFootball.standings || []
@@ -403,19 +527,17 @@ function codeStandings(code){
       : code.id === "competition:uefa-champions-league"
         ? canonicalChampionsLeague.standings || []
       : [];
-  return source.map((entry, index) => ({
+  const european=['sport:football','competition:uefa-champions-league'].includes(code.id)?(openLiga.standings||[]).filter(row=>code.id==='sport:football'||row.competitionId===code.id):[];
+  const championship=code.id==='sport:football'?require('../data/football/fixtures/australian-championship.json').standings:[];
+  return [...source,...european,...championship].map((entry, index) => ({
     ...entry,
-    rank:Number.isFinite(Number(entry.rank)) ? Number(entry.rank) : index + 1,
-    displayName:canonicalParticipantNames.get(entry.participantId) || entry.participantId,
+    rank:entry.rankPending?null:Number.isFinite(Number(entry.rank)) ? Number(entry.rank) : index + 1,
+    displayName:entry.displayName || canonicalParticipantNames.get(entry.participantId) || entry.participantId,
     competitionId:entry.competitionId || (String(entry.participantId).startsWith("team:chl:") ? "competition:chl" : code.id === "sport:ice-hockey" ? "competition:nhl" : "competition:nfl"),
   }));
 }
 
-function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
-  const previous=codeSlugs && fs.existsSync(path.join(outputDir,'manifest.json'))
-    ? JSON.parse(fs.readFileSync(path.join(outputDir,'manifest.json'),'utf8')) : null;
-  const retained=new Map((previous?.codes || []).map(code=>[code.slug,code]));
-  fs.mkdirSync(outputDir, { recursive: true });
+function codeDefinitions(){
   const championsLeagueCode = taxonomy.competitions.find(competition => competition.id === "competition:uefa-champions-league");
   if (!championsLeagueCode) throw new Error("The canonical Champions League Code is missing from the taxonomy.");
   const aflwCompetition = taxonomy.competitions.find(competition => competition.id === "competition:aflw-2026");
@@ -438,6 +560,10 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
   if (!nrlwCompetition) throw new Error("The canonical NRLW competition is missing from the taxonomy.");
   const nrlwCode = { id:"sport:nrlw", slug:"nrlw", name:"NRLW", parentSportId:"sport:nrl" };
   const requestedCompetitionCodes = [
+    ...["tour-de-france","giro-ditalia","vuelta-a-espana"].map(slug=>({...taxonomy.competitions.find(c=>c.id==="competition:"+slug),parentSportId:"sport:cycling"})),
+    {id:"competition:wsl-championship-tour",slug:"wsl",name:"WSL",parentSportId:"sport:surf"},
+    {id:"competition:le-mans",slug:"lemans",name:"24 Hours of Le Mans",parentSportId:"sport:motorsport"},
+    {id:"competition:dakar",slug:"dakar",name:"Dakar Rally",parentSportId:"sport:motorsport"},
     { id:"competition:motogp", slug:"motogp", name:"MotoGP", parentSportId:"sport:motorsport" },
     { id:"competition:sailgp", slug:"sailgp", name:"SailGP", parentSportId:"sport:sailing" },
     { id:"competition:fiba-womens-world-cup", slug:"fiba-women", name:"FIBA Women", parentSportId:"sport:basketball" },
@@ -445,7 +571,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
   requestedCompetitionCodes.forEach(code => {
     if (!taxonomy.competitions.some(competition => competition.id === code.id)) throw new Error(`${code.name} is missing from the canonical taxonomy.`);
   });
-  const codeDefinitions = [
+  return [
     ...taxonomy.sportDomains.filter(code => code.isActive !== false)
       .flatMap(code => {
         const childCodes = [];
@@ -456,17 +582,87 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
         if (code.id === nblCode.parentSportId) childCodes.push(nblCode);
         return [code, ...childCodes];
       }),
+    {id:"sport:multi-sport",slug:"multi-sport",name:"Commonwealth Games"},
     championsLeagueCode,
     ...requestedCompetitionCodes,
   ];
-  const codes = codeDefinitions.map(code => {
+}
+function followSchedulePath(slug){return `data/follow-schedule/${slug}.json`;}
+function preflightRetainedFootballOnly(outputDir=OUTPUT_DIR){
+  const manifest=JSON.parse(fs.readFileSync(path.join(outputDir,'manifest.json'),'utf8'));
+  const expected=codeDefinitions(),inventory=new Map(expected.map(code=>[code.slug,code.id])),seen=new Set();
+  if(!Array.isArray(manifest.codes)||manifest.codes.length!==expected.length)throw Error('Retained Football requires the complete existing Code manifest');
+  for(const code of manifest.codes){
+    if(!code||!inventory.has(code.slug)||seen.has(code.slug)||inventory.get(code.slug)!==code.id)throw Error('Retained Football requires the complete existing Code manifest: missing, duplicate, unknown or mismatched code');
+    seen.add(code.slug);
+  }
+  for(const code of manifest.codes){
+    const schedulePath=followSchedulePath(code.slug);
+    if(code.followSchedulePath!==schedulePath)throw Error('Retained Football peer schedule path mismatch: '+code.slug);
+    const chunk=JSON.parse(fs.readFileSync(path.join(outputDir,code.slug+'.json'),'utf8'));
+    if(chunk.schemaVersion!=='code-inspector-chunk.v1'||chunk.code?.id!==code.id||!Array.isArray(chunk.fixtures)||!Array.isArray(chunk.standings))throw Error('Retained Football peer chunk mismatch: '+code.slug);
+    const schedule=JSON.parse(fs.readFileSync(path.join(ROOT,schedulePath),'utf8'));
+    if(schedule.schemaVersion!=='code-inspector-chunk.v1'||schedule.code?.id!==code.id||!Array.isArray(schedule.fixtures))throw Error('Retained Football peer schedule mismatch: '+code.slug);
+  }
+  return manifest;
+}
+function preserveUnchangedScoreAliasShape(previous,next){
+  if(!previous||!next)return next;
+  const had=Object.hasOwn(previous,'canonicalResultScoreline'),has=Object.hasOwn(next,'canonicalResultScoreline');
+  if(had===has&&(!had||previous.canonicalResultScoreline===next.canonicalResultScoreline))return next;
+  const {canonicalResultScoreline:priorAlias,...before}=previous;
+  const {canonicalResultScoreline:nextAlias,...after}=next;
+  if(!require('node:util').isDeepStrictEqual(before,after))return next;
+  // An unchanged retained observation does not acquire or lose a public score
+  // field merely because another fixture caused this Code to be rebuilt.
+  // Explicit retained-result projection remains the owner of field repairs.
+  return had?{...after,canonicalResultScoreline:priorAlias}:after;
+}
+function build({codeSlugs=null,outputDir=OUTPUT_DIR,retainedFootballOnly=false,retainedCodeSlugs=null,aLeagueResultIds=null,championshipResultIds=null}={}){
+  if(aLeagueResultIds||championshipResultIds){
+    if(aLeagueResultIds&&championshipResultIds)throw Error('Cannot combine result selectors');
+    const resultIds=aLeagueResultIds||championshipResultIds;
+    if(JSON.stringify(codeSlugs)!=='["football"]'||retainedFootballOnly||retainedCodeSlugs||path.resolve(outputDir)!==path.resolve(OUTPUT_DIR))throw Error('A-League result projection requires its exact Football owner');
+    const scope=require(championshipResultIds?'./lib/championship-score-contract':'./lib/a-league-score-contract');scope.selectedIds(resultIds);
+    const manifest=preflightRetainedFootballOnly(),document=JSON.parse(fs.readFileSync(path.join(ROOT,scope.FILE),'utf8'));
+    for(const file of [path.join(outputDir,'football.json'),path.join(ROOT,followSchedulePath('football'))]){
+      const before=JSON.parse(fs.readFileSync(file,'utf8')),next={...before,fixtures:scope.projectRows(before.fixtures,document,resultIds)};
+      const body=JSON.stringify(next)+'\n';if(fs.readFileSync(file,'utf8')!==body)fs.writeFileSync(file,body);
+    }
+    return manifest;
+  }
+  let retainedManifest=null;
+  const retainedScopes=retainedFootballOnly?['football']:retainedCodeSlugs;
+  if(retainedScopes){
+    if(retainedFootballOnly&&retainedCodeSlugs)throw Error('Retained modes cannot be combined');
+    if(!Array.isArray(retainedScopes)||!retainedScopes.length||new Set(retainedScopes).size!==retainedScopes.length||retainedScopes.some(slug=>!['football','netball'].includes(slug))||JSON.stringify(codeSlugs)!==JSON.stringify(retainedScopes)||path.resolve(outputDir)!==path.resolve(OUTPUT_DIR))throw Error('Retained coverage permits exactly its declared Football/Netball codes with no alternate output');
+    retainedManifest=preflightRetainedFootballOnly();
+  }
+  const publishCompanions=path.resolve(outputDir)===path.resolve(OUTPUT_DIR);
+  const previous=retainedManifest || (codeSlugs && fs.existsSync(path.join(outputDir,'manifest.json'))
+    ? JSON.parse(fs.readFileSync(path.join(outputDir,'manifest.json'),'utf8')) : null);
+  const retained=new Map((previous?.codes || []).map(code=>[code.slug,code]));
+  fs.mkdirSync(outputDir, { recursive: true });
+  const codes = codeDefinitions().map(code => {
+    if(retainedScopes&&!retainedScopes.includes(code.slug)){
+      const peer=retained.get(code.slug);
+      if(!peer)throw Error('Retained Football cannot rebuild missing peer: '+code.slug);
+      return peer;
+    }
     if(codeSlugs && !codeSlugs.includes(code.slug) && retained.has(code.slug)
       && fs.existsSync(path.join(outputDir,`${code.slug}.json`)))return retained.get(code.slug);
-    const fixtures = codeFixtures(code);
     const fileName = `${code.slug}.json`;
+    const retainedChunk=retainedScopes&&code.slug==='football'?JSON.parse(fs.readFileSync(path.join(outputDir,fileName),'utf8')):null;
+    const aliasBaseline=code.id==='sport:football'&&fs.existsSync(path.join(outputDir,fileName))?JSON.parse(fs.readFileSync(path.join(outputDir,fileName),'utf8')):null;
+    const aliasRows=new Map((aliasBaseline?.fixtures||[]).map(row=>[row.id,row]));
+    const projectedFixtures=codeFixtures(code).map(row=>code.id==='sport:football'?preserveUnchangedScoreAliasShape(aliasRows.get(row.id),row):row),projectedStandings=codeStandings(code);
+    const championship=row=>row.competitionId==='competition:australian-championship';
+    const fixtures=retainedChunk?[...retainedChunk.fixtures.filter(row=>!championship(row)),...projectedFixtures.filter(championship)]:projectedFixtures;
+    const eventEditions=code.id==='sport:cricket'?require('../lib/event-overviews').build(fixtures).filter(e=>['cricket','cricket-women'].includes(e.sportKey)).map(e=>({id:e.id,key:e.sportKey,gender:e.gender,competitionId:e.competitionId,date:e.date,endDate:e.endDate,fixtureIds:e.fixtureIds})):null;
+    const standings=retainedChunk?[...retainedChunk.standings.filter(row=>!championship(row)),...projectedStandings.filter(championship)]:projectedStandings;
     const coverageStatus = fixtures.length === 0
       ? "unavailable"
-      : ["sport:afl", "sport:aflw", "sport:nrl", "sport:nrlw", "sport:wrc", "sport:nbl", "sport:american-football", "sport:ice-hockey", "competition:motogp", "competition:sailgp", "competition:fiba-womens-world-cup"].includes(code.id) ? "complete" : "partial";
+      : ["sport:afl", "sport:aflw", "sport:nrl", "sport:wrc", "sport:nbl", "competition:motogp", "competition:fiba-womens-world-cup"].includes(code.id) ? "complete" : "partial";
     const freshAt = code.id === "competition:uefa-champions-league" ? canonicalChampionsLeague.generatedAt : code.id === "sport:wrc" ? canonicalWrc.generatedAt : feed.publishedAt || null;
     const parentSportId = code.parentSportId || (code.id === "competition:uefa-champions-league" ? code.sportDomainId : null);
     fs.writeFileSync(path.join(outputDir, fileName), `${JSON.stringify({
@@ -476,18 +672,26 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
       groupingMode: groupingMode(fixtures),
       freshAt,
       fixtures,
-      standings:codeStandings(code),
+      ...(code.id==='competition:dakar'?{scheduleNotes:require('../data/canonical/dakar-calendar.v1.json').editions.flatMap(e=>e.restDays.map(r=>({...r,name:'Rest day',season:String(e.year),tournamentName:e.name})))}:{}),
+      standings,
     })}\n`);
-    const scheduleDir=path.join(path.dirname(outputDir),"follow-schedule");fs.mkdirSync(scheduleDir,{recursive:true});
-    const scheduleFixtures=fixtures.map(fixture=>{const {storyline,editorialNarrative,...core}=fixture;return editorialNarrative?.generationMode==="researched" ? {...core,storyline,editorialNarrative} : core;});
-    fs.writeFileSync(path.join(scheduleDir,fileName),JSON.stringify({schemaVersion:"code-inspector-chunk.v1",code:{id:code.id,slug:code.slug},fixtures:scheduleFixtures})+"\n");
+    if(publishCompanions){
+      const schedulePath=path.join(ROOT,followSchedulePath(code.slug));fs.mkdirSync(path.dirname(schedulePath),{recursive:true});
+      const projectedSchedule=fixtures.map(fixture=>{const {storyline,editorialNarrative,...core}=fixture;return editorialNarrative?.generationMode==="researched" ? {...core,storyline,editorialNarrative} : core;});
+      const scheduleFixtures=retainedChunk?[...JSON.parse(fs.readFileSync(schedulePath,'utf8')).fixtures.filter(row=>!championship(row)),...projectedSchedule.filter(championship)]:projectedSchedule;
+      fs.writeFileSync(schedulePath,JSON.stringify({schemaVersion:"code-inspector-chunk.v1",code:{id:code.id,slug:code.slug},fixtures:scheduleFixtures,...(code.id==='competition:dakar'?{scheduleNotes:require('../data/canonical/dakar-calendar.v1.json').editions.flatMap(e=>e.restDays.map(r=>({...r,name:'Rest day',season:String(e.year),tournamentName:e.name})))}:{})})+"\n");
+      }
     return {
-      followSchedulePath:`data/follow-schedule/${fileName}`,
+      followSchedulePath:followSchedulePath(code.slug),
       id: code.id,
       slug: code.slug,
       label: code.name,
       fixtureCount: fixtures.length,
-      hasStandings:codeStandings(code).length > 0,
+      ...(eventEditions?{eventEditionIds:eventEditions.map(e=>e.id),eventEditions}:{}),
+      ...(fixtures.some(f=>f.calendarNote)?{calendarNoteCount:fixtures.filter(f=>f.calendarNote).length,scheduledFixtureCount:fixtures.filter(f=>!f.calendarNote).length}:{}),
+      hasStandings:standings.length > 0,
+      ...(code.id==='sport:ice-hockey'?{coverageNote:'NHL and CHL: published match windows and sourced records. CHL knockout dates are programme context until teams and kickoffs are announced; viewing and wider quality checks remain partial.'}:{}),
+      ...(code.id==='sport:american-football'?{coverageNote:'NFL: all 272 current regular-season fixtures plus preseason and retained history; source-supplied conference standings. Provisional kickoffs, viewing and wider quality checks remain partial.'}:{}),
       groupingMode: groupingMode(fixtures),
       coverageStatus,
       freshAt,
@@ -496,18 +700,48 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
     };
   });
   const expected = new Set(codes.map(code => `${code.slug}.json`));
-  fs.readdirSync(OUTPUT_DIR).filter(name => name.endsWith(".json") && name !== "manifest.json" && !expected.has(name))
+  if(!retainedScopes)fs.readdirSync(OUTPUT_DIR).filter(name => name.endsWith(".json") && name !== "manifest.json" && !expected.has(name))
     .forEach(name => fs.unlinkSync(path.join(outputDir, name)));
-  const manifest = { schemaVersion: "code-inspector.v1", generatedAt: feed.publishedAt || null, codes };
+  if(publishCompanions&&!retainedScopes){
+    // Programme summaries remain Events metadata even when excluded from individual Schedule fixtures.
+    const legacyOverviews=feed.events.filter(event=>event.cardType==='tournament_overview'&&obsoleteProgramme(event)).map(event=>normalizeFixture(event,'sport:tennis'));
+    const overviewFixtures=[...new Map([...codes.flatMap(code=>JSON.parse(fs.readFileSync(path.join(OUTPUT_DIR,path.basename(code.chunkPath)),'utf8')).fixtures||[]),...legacyOverviews].map(f=>[f.id,f])).values()];
+    fs.writeFileSync(path.join(ROOT,'data/event-overviews.v1.json'),JSON.stringify({schemaVersion:'event-overviews.v1',events:require('../lib/event-overviews').build(overviewFixtures)})+'\n');
+    }
+  const coverageNotes={
+    'sport:motorsport':'Motorsport coverage is partial. Goodwood is an organiser calendar window with UK-local dates, not a scheduled competitive fixture. Sydney session starts and Australian viewing are unconfirmed.',
+    'sport:surf':'Surfing coverage is partial: two saved listings have no verified event identities, dates, starts or Australian viewing. These notes are not scheduled fixtures. The separate WSL calendar requires its own follow choice.',
+    'sport:skiing':'Snow coverage is partial: four selected 2026/27 appointments. Dates are local to the venue; race starts, entries, results and Australian viewing are unconfirmed.',
+    'competition:wsl-championship-tour':'WSL: published 2026 event windows. New coverage is men’s; the existing mixed Margaret River result is retained. Daily times, entries, results and break shapes remain partial. Raglan returns in 2027; dates are unconfirmed.',
+    'competition:sailgp':'SailGP coverage is partial: published race days only. Season teams may be listed; individual event entries and future session times may be unconfirmed.'
+  };
+  for(const id of ['competition:tour-de-france','competition:giro-ditalia','competition:vuelta-a-espana'])coverageNotes[id]='Men’s Grand Tours: all published 2026 stages. For 2027, the Tour has three published opening stages (2–4 July); its remaining stages are unconfirmed. Giro: 8–30 May; La Vuelta: 4–26 September, edition dates only. Entries, start times, results and detailed route geometry remain partial.';
+  const manifest = { schemaVersion: "code-inspector.v1", generatedAt: feed.publishedAt || null, codes:codes.map(code=>coverageNotes[code.id]?{...code,coverageNote:coverageNotes[code.id]}:code) };
   fs.writeFileSync(path.join(outputDir, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
-  require("./build-chat-fixture-registry").writeRegistry({ rootDir:ROOT });
+  if(publishCompanions&&!retainedScopes)require("./build-chat-fixture-registry").writeRegistry({ rootDir:ROOT });
   return manifest;
 }
 
 if (require.main === module){
-  const scope=process.argv.find(arg=>arg.startsWith('--codes='));
-  const manifest = build({codeSlugs:scope?scope.slice(8).split(',').filter(Boolean):null});
+  const championshipArgs=process.argv.slice(2).filter(arg=>arg.startsWith('--championship-results'));
+  if(championshipArgs.length){
+    if(championshipArgs.length!==1||!championshipArgs[0].startsWith('--championship-results-ids=')||process.argv.slice(2).length!==2||!process.argv.includes('--codes=football'))throw Error('Championship results require exactly Football and one selector');
+    build({codeSlugs:['football'],championshipResultIds:JSON.parse(championshipArgs[0].slice('--championship-results-ids='.length))});
+  }else{
+  const aLeagueArgs=process.argv.slice(2).filter(arg=>arg.startsWith('--a-league-results'));
+  if(aLeagueArgs.length){
+    if(aLeagueArgs.length!==1||!aLeagueArgs[0].startsWith('--a-league-results-ids=')||process.argv.slice(2).length!==2||!process.argv.includes('--codes=football'))throw Error('A-League results require exactly Football and one result selector');
+    const ids=JSON.parse(aLeagueArgs[0].slice('--a-league-results-ids='.length));
+    build({codeSlugs:['football'],aLeagueResultIds:ids});console.log('Retained A-League result projections updated without other fixtures or manifests.');
+  }else{
+  const retainedFootballOnly=process.argv.includes('--retained-football-only');
+  if(retainedFootballOnly&&(process.argv.slice(2).length!==2||!process.argv.includes('--codes=football')))throw Error('Retained Football permits only --retained-football-only --codes=football before any writes');
+  const scope=process.argv.find(arg=>arg.startsWith('--codes=')),retainedArgs=process.argv.slice(2).filter(arg=>arg.startsWith('--retained-codes='));
+  if(retainedArgs.length&&(retainedArgs.length!==1||process.argv.slice(2).length!==2||!scope||retainedFootballOnly))throw Error('Retained codes require only matching --codes and --retained-codes before writes');
+  const manifest = build({codeSlugs:scope?scope.slice(8).split(',').filter(Boolean):null,retainedFootballOnly,retainedCodeSlugs:retainedArgs.length?retainedArgs[0].slice(17).split(','):null});
   console.log(`Code Inspector built: ${manifest.codes.length} codes, ${manifest.codes.reduce((total, code) => total + code.fixtureCount, 0)} fixtures.`);
+  }
 }
 
-module.exports = { build, codeFixtures, eventMatchesCode, fixtureEvidenceScore, mergeFixtureRecords, normalizeFixture, semanticFixtureKey };
+}
+module.exports = { preserveUnchangedScoreAliasShape,preflightRetainedCoverage:preflightRetainedFootballOnly,preflightRetainedFootballOnly,obsoleteProgramme, build, codeFixtures, codeStandings, eventMatchesCode, fixtureEvidenceScore, mergeFixtureRecords, normalizeFixture, semanticFixtureKey };

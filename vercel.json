@@ -4,21 +4,54 @@
     "deploymentEnabled": false
   },
   "functions": {
+    "api/notifications.js": {
+      "includeFiles": "data/code-inspector/*.json",
+      "maxDuration": 30
+    },
+    "api/notification-dispatch.js": {
+      "includeFiles": "data/{code-inspector/*.json,comms-sources.v1.json,marquee-candidates.v1.json}",
+      "maxDuration": 30
+    },
+    "api/comms.js": {
+      "includeFiles": "data/{comms-sources.v1.json,marquee-candidates.v1.json,editorial-maintenance-sources.v1.json,editorial-post-match.v1.json}",
+      "maxDuration": 60
+    },
     "api/chat.js": {
-      "includeFiles": "data/chat-fixtures.v1.json"
+      "includeFiles": "data/chat-fixtures.v1.json",
+      "maxDuration": 60
     },
     "api/user-state.js": {
-      "includeFiles": "data/code-inspector/*.json"
+      "includeFiles": "data/{code-inspector/*.json,discovery/enrichment.v1.json,editorial-knowledge.v1.json,editorial-fixture-research.v1.json}"
     },
     "api/participation.js": {
+      "maxDuration": 60,
       "includeFiles": "data/{code-inspector/*.json,nsc-forecasts.json}"
     },
     "api/feed.js": {
       "maxDuration": 60,
-      "includeFiles": "data/{code-inspector/*.json,discovery/enrichment.v1.json,events.json,follow-fixtures.v1.json,major-events.v1.json}"
+      "regions": ["syd1"],
+      "includeFiles": "data/{code-inspector/*.json,discovery/enrichment.v1.json,events.json,follow-fixtures.v1.json,major-events.v1.json,editorial-knowledge.v1.json,editorial-fixture-research.v1.json}"
     }
   },
   "redirects": [
+    {
+      "source": "/data/marquee-candidates.v1.json",
+      "destination": "/api/comms?mode=internal-artifact",
+      "permanent": false
+    },
+    {
+      "source": "/data/comms-sources.v1.json",
+      "destination": "/api/comms?mode=internal-artifact",
+      "permanent": false
+    },
+    {
+      "source": "/data/editorial-maintenance-sources.v1.json",
+      "destination": "/api/comms?mode=internal-artifact",
+      "permanent": false
+    },
+    { "source": "/data/editorial-post-match.v1.json", "destination": "/api/comms?mode=internal-artifact", "permanent": false },
+    { "source": "/data/editorial-fixture-research.v1.json", "destination": "/api/comms?mode=internal-artifact", "permanent": false },
+    { "source": "/data/editorial-knowledge.v1.json", "destination": "/api/comms?mode=internal-artifact", "permanent": false },
     {
       "source": "/sports_calendar.html",
       "destination": "/",
@@ -36,8 +69,24 @@
     }
   ],
   "rewrites": [
-    {"source":"/api/fixtures","destination":"/api/feed?route=fixtures"},
-    {"source":"/api/fixture-refresh","destination":"/api/feed?route=fixture-refresh"},
+    { "source": "/api/classics", "destination": "/api/user-state?route=classics" },
+    { "source": "/admin/editorial", "destination": "/admin.html" },
+    {
+      "source": "/api/match-centre",
+      "destination": "/api/feed?route=match-centre"
+    },
+    {
+      "source": "/api/inbox",
+      "destination": "/api/notifications?route=inbox"
+    },
+    {
+      "source": "/api/fixtures",
+      "destination": "/api/feed?route=fixtures"
+    },
+    {
+      "source": "/api/fixture-refresh",
+      "destination": "/api/feed?route=fixture-refresh"
+    },
     {
       "source": "/api/calendar",
       "destination": "/api/user-state?route=calendar"
@@ -84,6 +133,27 @@
     }
   ],
   "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
     {
       "source": "/app-version.json",
       "headers": [

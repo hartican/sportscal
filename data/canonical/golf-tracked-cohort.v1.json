@@ -1,0 +1,220 @@
+{
+  "schemaVersion": "golf-tracked-cohort.v1",
+  "checkedOn": "2026-10-06",
+  "policy": {
+    "maleRankLimit": 10,
+    "femaleRankLimit": 5,
+    "rankingsCreateConsent": false,
+    "retainExplicitFollows": true
+  },
+  "ranked": [
+    {
+      "id": "competitor:golf:scottie-scheffler",
+      "displayName": "Scottie Scheffler",
+      "countryCode": "US",
+      "genderCategory": "male",
+      "ranking": 1,
+      "rankingBasis": "OWGR",
+      "rankingEffectiveOn": null,
+      "rankingCheckedOn": "2026-10-06",
+      "sourceUrl": "https://apiweb.owgr.com/api/owgr/players/getTop10"
+    },
+    {
+      "id": "competitor:golf:rory-mcilroy",
+      "displayName": "Rory McIlroy",
+      "countryCode": "GB",
+      "genderCategory": "male",
+      "ranking": 2,
+      "rankingBasis": "OWGR",
+      "rankingEffectiveOn": null,
+      "rankingCheckedOn": "2026-10-06",
+      "sourceUrl": "https://apiweb.owgr.com/api/owgr/players/getTop10"
+    },
+    {
+      "id": "competitor:golf:matt-fitzpatrick",
+      "displayName": "Matt Fitzpatrick",
+      "countryCode": "GB",
+      "genderCategory": "male",
+      "ranking": 3,
+      "rankingBasis": "OWGR",
+      "rankingEffectiveOn": null,
+      "rankingCheckedOn": "2026-10-06",
+      "sourceUrl": "https://apiweb.owgr.com/api/owgr/players/getTop10"
+    },
+    {
+      "id": "competitor:golf:cameron-young",
+      "displayName": "Cameron Young",
+      "countryCode": "US",
+      "genderCategory": "male",
+      "ranking": 4,
+      "rankingBasis": "OWGR",
+      "rankingEffectiveOn": null,
+      "rankingCheckedOn": "2026-10-06",
+      "sourceUrl": "https://apiweb.owgr.com/api/owgr/players/getTop10"
+    },
+    {
+      "id": "competitor:golf:wyndham-clark",
+      "displayName": "Wyndham Clark",
+      "countryCode": "US",
+      "genderCategory": "male",
+      "ranking": 5,
+      "rankingBasis": "OWGR",
+      "rankingEffectiveOn": null,
+      "rankingCheckedOn": "2026-10-06",
+      "sourceUrl": "https://apiweb.owgr.com/api/owgr/players/getTop10"
+    },
+    {
+      "id": "competitor:golf:russell-henley",
+      "displayName": "Russell Henley",
+      "countryCode": "US",
+      "genderCategory": "male",
+      "ranking": 6,
+      "rankingBasis": "OWGR",
+      "rankingEffectiveOn": null,
+      "rankingCheckedOn": "2026-10-06",
+      "sourceUrl": "https://apiweb.owgr.com/api/owgr/players/getTop10"
+    },
+    {
+      "id": "competitor:golf:tommy-fleetwood",
+      "displayName": "Tommy Fleetwood",
+      "countryCode": "GB",
+      "genderCategory": "male",
+      "ranking": 7,
+      "rankingBasis": "OWGR",
+      "rankingEffectiveOn": null,
+      "rankingCheckedOn": "2026-10-06",
+      "sourceUrl": "https://apiweb.owgr.com/api/owgr/players/getTop10"
+    },
+    {
+      "id": "competitor:golf:chris-gotterup",
+      "displayName": "Chris Gotterup",
+      "countryCode": "US",
+      "genderCategory": "male",
+      "ranking": 8,
+      "rankingBasis": "OWGR",
+      "rankingEffectiveOn": null,
+      "rankingCheckedOn": "2026-10-06",
+      "sourceUrl": "https://apiweb.owgr.com/api/owgr/players/getTop10"
+    },
+    {
+      "id": "competitor:golf:sam-burns",
+      "displayName": "Sam Burns",
+      "countryCode": "US",
+      "genderCategory": "male",
+      "ranking": 9,
+      "rankingBasis": "OWGR",
+      "rankingEffectiveOn": null,
+      "rankingCheckedOn": "2026-10-06",
+      "sourceUrl": "https://apiweb.owgr.com/api/owgr/players/getTop10"
+    },
+    {
+      "id": "competitor:golf:xander-schauffele",
+      "displayName": "Xander Schauffele",
+      "countryCode": "US",
+      "genderCategory": "male",
+      "ranking": 10,
+      "rankingBasis": "OWGR",
+      "rankingEffectiveOn": null,
+      "rankingCheckedOn": "2026-10-06",
+      "sourceUrl": "https://apiweb.owgr.com/api/owgr/players/getTop10"
+    },
+    {
+      "id": "competitor:golf:nelly-korda",
+      "displayName": "Nelly Korda",
+      "countryCode": "US",
+      "genderCategory": "female",
+      "ranking": 1,
+      "rankingBasis": "Rolex Rankings",
+      "rankingEffectiveOn": "2026-10-05",
+      "rankingCheckedOn": "2026-10-06",
+      "sourceUrl": "https://www.rolexrankings.com/rankings",
+      "aliases": []
+    },
+    {
+      "id": "competitor:golf:jeeno-thitikul",
+      "displayName": "Jeeno Thitikul",
+      "countryCode": "TH",
+      "genderCategory": "female",
+      "ranking": 2,
+      "rankingBasis": "Rolex Rankings",
+      "rankingEffectiveOn": "2026-10-05",
+      "rankingCheckedOn": "2026-10-06",
+      "sourceUrl": "https://www.rolexrankings.com/rankings",
+      "aliases": [
+        "Atthaya Thitikul"
+      ]
+    },
+    {
+      "id": "competitor:golf:haeran-ryu",
+      "displayName": "Haeran Ryu",
+      "countryCode": "KR",
+      "genderCategory": "female",
+      "ranking": 3,
+      "rankingBasis": "Rolex Rankings",
+      "rankingEffectiveOn": "2026-10-05",
+      "rankingCheckedOn": "2026-10-06",
+      "sourceUrl": "https://www.rolexrankings.com/rankings",
+      "aliases": []
+    },
+    {
+      "id": "competitor:golf:hyo-joo-kim",
+      "displayName": "Hyojoo Kim",
+      "countryCode": "KR",
+      "genderCategory": "female",
+      "ranking": 4,
+      "rankingBasis": "Rolex Rankings",
+      "rankingEffectiveOn": "2026-10-05",
+      "rankingCheckedOn": "2026-10-06",
+      "sourceUrl": "https://www.rolexrankings.com/rankings",
+      "aliases": [
+        "Hyo Joo Kim"
+      ]
+    },
+    {
+      "id": "competitor:golf:miyu-yamashita",
+      "displayName": "Miyu Yamashita",
+      "countryCode": "JP",
+      "genderCategory": "female",
+      "ranking": 5,
+      "rankingBasis": "Rolex Rankings",
+      "rankingEffectiveOn": "2026-10-05",
+      "rankingCheckedOn": "2026-10-06",
+      "sourceUrl": "https://www.rolexrankings.com/rankings",
+      "aliases": []
+    }
+  ],
+  "explicitRetentions": [
+    {
+      "id": "competitor:golf:adam-scott",
+      "displayName": "Adam Scott",
+      "genderCategory": "male",
+      "countryCode": "AU",
+      "retentionBasis": "explicit-follow",
+      "sourceUrl": "https://www.pgatour.com"
+    },
+    {
+      "id": "competitor:golf:min-woo-lee",
+      "displayName": "Min Woo Lee",
+      "genderCategory": "male",
+      "countryCode": "AU",
+      "retentionBasis": "explicit-follow",
+      "sourceUrl": "https://www.pgatour.com"
+    },
+    {
+      "id": "competitor:golf:hannah-green",
+      "displayName": "Hannah Green",
+      "genderCategory": "female",
+      "countryCode": "AU",
+      "retentionBasis": "explicit-follow",
+      "sourceUrl": "https://www.lpga.com"
+    },
+    {
+      "id": "competitor:golf:minjee-lee",
+      "displayName": "Minjee Lee",
+      "genderCategory": "female",
+      "countryCode": "AU",
+      "retentionBasis": "explicit-follow",
+      "sourceUrl": "https://www.lpga.com"
+    }
+  ]
+}

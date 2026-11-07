@@ -6,6 +6,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const directoryApi = require("../config/football-directory.js");
+const { readFollowApplicationSource } = require("./app-shell-test-utils");
 
 const ROOT = path.resolve(__dirname, "..");
 const CANONICAL = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/afl-nrl-2026.json"), "utf8"));
@@ -73,11 +74,11 @@ function validateDirectory(spec){
 }
 
 function validate(){
-  const app = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  const app = readFollowApplicationSource();
   const server = fs.readFileSync(path.join(ROOT, "lib/server-feed-pipeline.js"), "utf8");
   const worker = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
   const results = DIRECTORY_SPECS.map(validateDirectory);
-  assert(app.includes('session.directorySportKey === "nrl"') && app.includes('session.directorySportKey === "afl"') && app.includes('session.directorySportKey === "aflw"'), "Follow must offer NRL, AFL and AFLW directories");
+  assert(app.includes("['football','nrl','afl','aflw'].includes(session.directorySportKey)")&&app.includes('renderTeamsAndPlayersDirectoryLoaded'), "Follow must offer NRL, AFL and AFLW through the shared ranked directory");
   assert(app.includes("BASE_SPORT_SELECTOR_ENTITIES") && app.includes("renderTeamsAndPlayersDirectory"), "Follow must expose the broader canonical sport chooser without eagerly loading every directory");
   assert(app.includes("loadNrlDirectoryData") && app.includes("loadAflDirectoryData"), "both Australian directories must be lazy-loaded");
   assert(app.includes("profileHasNrlEntityFollow") && app.includes("profileHasAflEntityFollow"), "saved player follows must load their small follow index at startup");

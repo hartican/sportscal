@@ -1,0 +1,54 @@
+{
+  "sourceUrl": "https://apiv2.cricket.com.au/web/fixtures/yearfilter?competitionId=4718&isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json",
+  "checkedAt": "2026-10-02T01:43:16.001Z",
+  "fixture": {
+    "id": 40996,
+    "name": "Quarter-Final",
+    "startDateTime": "2026-09-28T04:30:00Z",
+    "endDateTime": "2026-09-28T09:00:00Z",
+    "gameTypeId": 3,
+    "gameType": "T20 International",
+    "isLive": false,
+    "isCompleted": true,
+    "isDuckworthLewis": false,
+    "numberOfDays": 1,
+    "resultText": "Match Abandoned without a ball bowled",
+    "resultTypeId": "Abandoned",
+    "resultType": "Abandoned",
+    "gameStatusId": "Result",
+    "gameStatus": "Result",
+    "tossResult": "",
+    "tossDecision": "",
+    "ticketUrl": "",
+    "ticketsLabel": "",
+    "isWomensMatch": false,
+    "oversRemaining": "",
+    "competition": {
+      "id": 4718,
+      "name": "Asian Games 2026 - Men"
+    },
+    "venue": {
+      "id": 1504,
+      "name": "Korogi Sports Park",
+      "latitude": "",
+      "longitude": "",
+      "location": "Nisshin",
+      "state": ""
+    },
+    "homeTeam": {
+      "id": 3,
+      "name": "India Men",
+      "shortName": "IND"
+    },
+    "awayTeam": {
+      "id": 6,
+      "name": "Afghanistan Men",
+      "shortName": "AFG"
+    },
+    "channels": [],
+    "innings": [],
+    "isInProgress": false,
+    "totalOvers": "20",
+    "streamCount": 0
+  }
+}

@@ -1,0 +1,1101 @@
+{
+  "schemaVersion": "tennis-scoreboard-contract.v1",
+  "checkedAt": "2026-10-06T14:36:00.000Z",
+  "payloads": {
+    "atp": {
+      "leagues": [
+        {
+          "slug": "atp",
+          "season": {
+            "year": 2026,
+            "startDate": "2026-01-01T08:00Z",
+            "endDate": "2027-01-01T07:59Z",
+            "displayName": "2026",
+            "type": {
+              "id": "2",
+              "type": 2,
+              "name": "Regular Season",
+              "abbreviation": "reg"
+            }
+          }
+        }
+      ],
+      "events": [
+        {
+          "id": "5-2026",
+          "name": "Kinoshita Group Japan Open Tennis Championships",
+          "date": "2026-09-27T04:00Z",
+          "endDate": "2026-10-07T03:59Z",
+          "season": {
+            "year": 2026,
+            "type": 2
+          },
+          "groupings": [
+            {
+              "grouping": {
+                "id": "1",
+                "slug": "mens-singles",
+                "displayName": "Men's Singles"
+              },
+              "competitions": [
+                {
+                  "id": "183514",
+                  "date": "2026-10-06T09:10Z",
+                  "startDate": "2026-10-06T09:10Z",
+                  "timeValid": true,
+                  "status": {
+                    "period": 2,
+                    "type": {
+                      "id": "3",
+                      "name": "STATUS_FINAL",
+                      "state": "post",
+                      "completed": true,
+                      "description": "Final",
+                      "detail": "Final",
+                      "shortDetail": "Final"
+                    }
+                  },
+                  "venue": {
+                    "fullName": "Tokyo, Japan",
+                    "court": "Colosseum"
+                  },
+                  "round": {
+                    "id": "7",
+                    "displayName": "Final"
+                  },
+                  "type": {
+                    "id": "1",
+                    "text": "Men's Singles",
+                    "slug": "mens-singles"
+                  },
+                  "notes": [
+                    {
+                      "text": "(1) Carlos Alcaraz (ESP) bt Jiri Lehecka (CZE) 7-6 (7-4) 6-4",
+                      "type": "event"
+                    }
+                  ],
+                  "competitors": [
+                    {
+                      "id": "3754",
+                      "order": 2,
+                      "homeAway": "away",
+                      "winner": false,
+                      "linescores": [
+                        {
+                          "value": 6.0,
+                          "tiebreak": 4,
+                          "winner": false
+                        },
+                        {
+                          "value": 4.0,
+                          "winner": false
+                        }
+                      ],
+                      "athlete": {
+                        "displayName": "Jiri Lehecka",
+                        "shortName": "J. Lehecka",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/cze.png",
+                          "alt": "Czechia",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "3782",
+                      "order": 1,
+                      "homeAway": "home",
+                      "winner": true,
+                      "linescores": [
+                        {
+                          "value": 7.0,
+                          "tiebreak": 7,
+                          "winner": true
+                        },
+                        {
+                          "value": 6.0,
+                          "winner": true
+                        }
+                      ],
+                      "athlete": {
+                        "displayName": "Carlos Alcaraz",
+                        "shortName": "C. Alcaraz",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/esp.png",
+                          "alt": "Spain",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "186244",
+                  "date": "2026-09-28T02:00Z",
+                  "startDate": "2026-09-28T02:00Z",
+                  "timeValid": true,
+                  "status": {
+                    "period": 2,
+                    "type": {
+                      "id": "3",
+                      "name": "STATUS_FINAL",
+                      "state": "post",
+                      "completed": true,
+                      "description": "Final",
+                      "detail": "Final",
+                      "shortDetail": "Final"
+                    }
+                  },
+                  "venue": {
+                    "fullName": "Tokyo, Japan",
+                    "court": "Indoor 1"
+                  },
+                  "round": {
+                    "id": "11",
+                    "displayName": "Qualifying 1st Round"
+                  },
+                  "type": {
+                    "id": "1",
+                    "text": "Men's Singles",
+                    "slug": "mens-singles"
+                  },
+                  "notes": [
+                    {
+                      "text": "Rinky Hijikata (AUS) bt Camilo Ugo Carabelli (ARG) 6-2 6-3",
+                      "type": "event"
+                    }
+                  ],
+                  "competitors": [
+                    {
+                      "id": "3666",
+                      "order": 2,
+                      "homeAway": "away",
+                      "winner": false,
+                      "linescores": [
+                        {
+                          "value": 2.0,
+                          "winner": false
+                        },
+                        {
+                          "value": 3.0,
+                          "winner": false
+                        }
+                      ],
+                      "athlete": {
+                        "displayName": "Camilo Ugo Carabelli",
+                        "shortName": "C. Ugo Carabelli",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/arg.png",
+                          "alt": "Argentina",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "3716",
+                      "order": 1,
+                      "homeAway": "home",
+                      "winner": true,
+                      "linescores": [
+                        {
+                          "value": 6.0,
+                          "winner": true
+                        },
+                        {
+                          "value": 6.0,
+                          "winner": true
+                        }
+                      ],
+                      "athlete": {
+                        "displayName": "Rinky Hijikata",
+                        "shortName": "R. Hijikata",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/aus.png",
+                          "alt": "Australia",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "959-2026",
+          "name": "China Open",
+          "date": "2026-09-27T04:00Z",
+          "endDate": "2026-10-12T03:59Z",
+          "season": {
+            "year": 2026,
+            "type": 2
+          },
+          "groupings": [
+            {
+              "grouping": {
+                "id": "1",
+                "slug": "mens-singles",
+                "displayName": "Men's Singles"
+              },
+              "competitions": [
+                {
+                  "id": "186254",
+                  "date": "2026-09-28T03:00Z",
+                  "startDate": "2026-09-28T03:00Z",
+                  "timeValid": true,
+                  "status": {
+                    "period": 2,
+                    "type": {
+                      "id": "3",
+                      "name": "STATUS_FINAL",
+                      "state": "post",
+                      "completed": true,
+                      "description": "Final",
+                      "detail": "Final",
+                      "shortDetail": "Final"
+                    }
+                  },
+                  "venue": {
+                    "fullName": "Beijing, China PR",
+                    "court": "Court 6"
+                  },
+                  "round": {
+                    "id": "11",
+                    "displayName": "Qualifying 1st Round"
+                  },
+                  "type": {
+                    "id": "1",
+                    "text": "Men's Singles",
+                    "slug": "mens-singles"
+                  },
+                  "notes": [
+                    {
+                      "text": "Arthur Gea (FRA) bt Rigele Te (CHN) 6-2 6-3",
+                      "type": "event"
+                    }
+                  ],
+                  "competitors": [
+                    {
+                      "id": "10427",
+                      "order": 2,
+                      "homeAway": "away",
+                      "winner": true,
+                      "linescores": [
+                        {
+                          "value": 6.0,
+                          "winner": true
+                        },
+                        {
+                          "value": 6.0,
+                          "winner": true
+                        }
+                      ],
+                      "athlete": {
+                        "displayName": "Arthur Gea",
+                        "shortName": "A. Gea",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png",
+                          "alt": "France",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "2856",
+                      "order": 1,
+                      "homeAway": "home",
+                      "winner": false,
+                      "linescores": [
+                        {
+                          "value": 2.0,
+                          "winner": false
+                        },
+                        {
+                          "value": 3.0,
+                          "winner": false
+                        }
+                      ],
+                      "athlete": {
+                        "displayName": "Te Rigele",
+                        "shortName": "R. Te",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/chn.png",
+                          "alt": "China",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "183468",
+                  "date": "2026-10-06T11:10Z",
+                  "startDate": "2026-10-06T11:10Z",
+                  "timeValid": true,
+                  "status": {
+                    "period": 2,
+                    "type": {
+                      "id": "38",
+                      "name": "STATUS_RETIRED",
+                      "state": "post",
+                      "completed": true,
+                      "description": "Retired",
+                      "detail": "Retired",
+                      "shortDetail": "Retired"
+                    }
+                  },
+                  "venue": {
+                    "fullName": "Beijing, China PR",
+                    "court": "Capital Group Diamond"
+                  },
+                  "round": {
+                    "id": "7",
+                    "displayName": "Final"
+                  },
+                  "type": {
+                    "id": "1",
+                    "text": "Men's Singles",
+                    "slug": "mens-singles"
+                  },
+                  "notes": [
+                    {
+                      "text": "(6) Novak Djokovic (SER) bt (5) Alex de Minaur (AUS) 7-6 (7-3) 0-1 ret",
+                      "type": "event"
+                    }
+                  ],
+                  "competitors": [
+                    {
+                      "id": "2651",
+                      "order": 2,
+                      "homeAway": "away",
+                      "winner": false,
+                      "linescores": [
+                        {
+                          "value": 6.0,
+                          "tiebreak": 3,
+                          "winner": false
+                        },
+                        {
+                          "value": 1.0,
+                          "winner": false
+                        }
+                      ],
+                      "athlete": {
+                        "displayName": "Alex de Minaur",
+                        "shortName": "A. de Minaur",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/aus.png",
+                          "alt": "Australia",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "296",
+                      "order": 1,
+                      "homeAway": "home",
+                      "winner": true,
+                      "linescores": [
+                        {
+                          "value": 7.0,
+                          "tiebreak": 7,
+                          "winner": true
+                        },
+                        {
+                          "value": 0.0,
+                          "winner": false
+                        }
+                      ],
+                      "athlete": {
+                        "displayName": "Novak Djokovic",
+                        "shortName": "N. Djokovic",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/ser.png",
+                          "alt": "Serbia",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "315-2026",
+          "name": "Rolex Shanghai Masters",
+          "date": "2026-10-05T04:00Z",
+          "endDate": "2026-10-19T03:59Z",
+          "season": {
+            "year": 2026,
+            "type": 2
+          },
+          "groupings": [
+            {
+              "grouping": {
+                "id": "1",
+                "slug": "mens-singles",
+                "displayName": "Men's Singles"
+              },
+              "competitions": [
+                {
+                  "id": "184917",
+                  "date": "2026-10-09T04:00Z",
+                  "startDate": "2026-10-09T04:00Z",
+                  "timeValid": false,
+                  "status": {
+                    "period": 1,
+                    "type": {
+                      "id": "1",
+                      "name": "STATUS_SCHEDULED",
+                      "state": "pre",
+                      "completed": false,
+                      "description": "Scheduled",
+                      "detail": "M/d - 'TBD'",
+                      "shortDetail": "TBD"
+                    }
+                  },
+                  "venue": {
+                    "fullName": "Shanghai, China PR",
+                    "court": ""
+                  },
+                  "round": {
+                    "id": "2",
+                    "displayName": "Round 2"
+                  },
+                  "type": {
+                    "id": "1",
+                    "text": "Men's Singles",
+                    "slug": "mens-singles"
+                  },
+                  "notes": [],
+                  "competitors": [
+                    {
+                      "id": "-4",
+                      "order": 2,
+                      "homeAway": "away",
+                      "athlete": {
+                        "displayName": "TBD",
+                        "shortName": "TBD",
+                        "flag": null
+                      }
+                    },
+                    {
+                      "id": "296",
+                      "order": 1,
+                      "homeAway": "home",
+                      "athlete": {
+                        "displayName": "Novak Djokovic",
+                        "shortName": "N. Djokovic",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/ser.png",
+                          "alt": "Serbia",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "184927",
+                  "date": "2026-10-09T04:00Z",
+                  "startDate": "2026-10-09T04:00Z",
+                  "timeValid": false,
+                  "status": {
+                    "period": 1,
+                    "type": {
+                      "id": "1",
+                      "name": "STATUS_SCHEDULED",
+                      "state": "pre",
+                      "completed": false,
+                      "description": "Scheduled",
+                      "detail": "M/d - 'TBD'",
+                      "shortDetail": "TBD"
+                    }
+                  },
+                  "venue": {
+                    "fullName": "Shanghai, China PR",
+                    "court": ""
+                  },
+                  "round": {
+                    "id": "2",
+                    "displayName": "Round 2"
+                  },
+                  "type": {
+                    "id": "1",
+                    "text": "Men's Singles",
+                    "slug": "mens-singles"
+                  },
+                  "notes": [],
+                  "competitors": [
+                    {
+                      "id": "-4",
+                      "order": 2,
+                      "homeAway": "away",
+                      "athlete": {
+                        "displayName": "TBD",
+                        "shortName": "TBD",
+                        "flag": null
+                      }
+                    },
+                    {
+                      "id": "2651",
+                      "order": 1,
+                      "homeAway": "home",
+                      "athlete": {
+                        "displayName": "Alex de Minaur",
+                        "shortName": "A. de Minaur",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/aus.png",
+                          "alt": "Australia",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "186308",
+                  "date": "2026-10-05T04:05Z",
+                  "startDate": "2026-10-05T04:05Z",
+                  "timeValid": true,
+                  "status": {
+                    "period": 3,
+                    "type": {
+                      "id": "3",
+                      "name": "STATUS_FINAL",
+                      "state": "post",
+                      "completed": true,
+                      "description": "Final",
+                      "detail": "Final",
+                      "shortDetail": "Final"
+                    }
+                  },
+                  "venue": {
+                    "fullName": "Shanghai, China PR",
+                    "court": "Court 7"
+                  },
+                  "round": {
+                    "id": "11",
+                    "displayName": "Qualifying 1st Round"
+                  },
+                  "type": {
+                    "id": "1",
+                    "text": "Men's Singles",
+                    "slug": "mens-singles"
+                  },
+                  "notes": [
+                    {
+                      "text": "Nikoloz Basilashvili (GEO) bt Andre Ilagan (USA) 6-3 6-7 (1-7) 7-5",
+                      "type": "event"
+                    }
+                  ],
+                  "competitors": [
+                    {
+                      "id": "2498",
+                      "order": 2,
+                      "homeAway": "away",
+                      "winner": true,
+                      "linescores": [
+                        {
+                          "value": 6.0,
+                          "winner": true
+                        },
+                        {
+                          "value": 6.0,
+                          "tiebreak": 1,
+                          "winner": false
+                        },
+                        {
+                          "value": 7.0,
+                          "winner": true
+                        }
+                      ],
+                      "athlete": {
+                        "displayName": "Nikoloz Basilashvili",
+                        "shortName": "N. Basilashvili",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/geo.png",
+                          "alt": "Georgia",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "13358",
+                      "order": 1,
+                      "homeAway": "home",
+                      "winner": false,
+                      "linescores": [
+                        {
+                          "value": 3.0,
+                          "winner": false
+                        },
+                        {
+                          "value": 7.0,
+                          "tiebreak": 7,
+                          "winner": true
+                        },
+                        {
+                          "value": 5.0,
+                          "winner": false
+                        }
+                      ],
+                      "athlete": {
+                        "displayName": "Andre Ilagan",
+                        "shortName": "A. Ilagan",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
+                          "alt": "USA",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "184947",
+                  "date": "2026-10-18T04:00Z",
+                  "startDate": "2026-10-18T04:00Z",
+                  "timeValid": false,
+                  "status": {
+                    "period": 1,
+                    "type": {
+                      "id": "1",
+                      "name": "STATUS_SCHEDULED",
+                      "state": "pre",
+                      "completed": false,
+                      "description": "Scheduled",
+                      "detail": "M/d - 'TBD'",
+                      "shortDetail": "TBD"
+                    }
+                  },
+                  "venue": {
+                    "fullName": "Shanghai, China PR",
+                    "court": ""
+                  },
+                  "round": {
+                    "id": "7",
+                    "displayName": "Final"
+                  },
+                  "type": {
+                    "id": "1",
+                    "text": "Men's Singles",
+                    "slug": "mens-singles"
+                  },
+                  "notes": [],
+                  "competitors": [
+                    {
+                      "id": "-4",
+                      "order": 2,
+                      "homeAway": "away",
+                      "athlete": {
+                        "displayName": "TBD",
+                        "shortName": "TBD",
+                        "flag": null
+                      }
+                    },
+                    {
+                      "id": "-3",
+                      "order": 1,
+                      "homeAway": "home",
+                      "athlete": {
+                        "displayName": "TBD",
+                        "shortName": "TBD",
+                        "flag": null
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "wta": {
+      "leagues": [
+        {
+          "slug": "wta",
+          "season": {
+            "year": 2026,
+            "startDate": "2026-01-01T08:00Z",
+            "endDate": "2027-01-01T07:59Z",
+            "displayName": "2026",
+            "type": {
+              "id": "2",
+              "type": 2,
+              "name": "Regular Season",
+              "abbreviation": "reg"
+            }
+          }
+        }
+      ],
+      "events": [
+        {
+          "id": "959-2026",
+          "name": "China Open",
+          "date": "2026-09-27T04:00Z",
+          "endDate": "2026-10-12T03:59Z",
+          "season": {
+            "year": 2026,
+            "type": 2
+          },
+          "groupings": [
+            {
+              "grouping": {
+                "id": "2",
+                "slug": "womens-singles",
+                "displayName": "Women's Singles"
+              },
+              "competitions": [
+                {
+                  "id": "184349",
+                  "date": "2026-10-06T07:10Z",
+                  "startDate": "2026-10-06T07:10Z",
+                  "timeValid": true,
+                  "status": {
+                    "period": 3,
+                    "type": {
+                      "id": "3",
+                      "name": "STATUS_FINAL",
+                      "state": "post",
+                      "completed": true,
+                      "description": "Final",
+                      "detail": "Final",
+                      "shortDetail": "Final"
+                    }
+                  },
+                  "venue": {
+                    "fullName": "Beijing, China PR",
+                    "court": "Lotus"
+                  },
+                  "round": {
+                    "id": "4",
+                    "displayName": "Round 4"
+                  },
+                  "type": {
+                    "id": "2",
+                    "text": "Women's Singles",
+                    "slug": "womens-singles"
+                  },
+                  "notes": [
+                    {
+                      "text": "(7) Karolina Muchova (CZE) bt (12) Naomi Osaka (JPN) 7-5 1-6 7-6 (9-7)",
+                      "type": "event"
+                    }
+                  ],
+                  "competitors": [
+                    {
+                      "id": "2789",
+                      "order": 2,
+                      "homeAway": "away",
+                      "winner": false,
+                      "linescores": [
+                        {
+                          "value": 5.0,
+                          "winner": false
+                        },
+                        {
+                          "value": 6.0,
+                          "winner": true
+                        },
+                        {
+                          "value": 6.0,
+                          "tiebreak": 7,
+                          "winner": false
+                        }
+                      ],
+                      "athlete": {
+                        "displayName": "Naomi Osaka",
+                        "shortName": "N. Osaka",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/jpn.png",
+                          "alt": "Japan",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "3039",
+                      "order": 1,
+                      "homeAway": "home",
+                      "winner": true,
+                      "linescores": [
+                        {
+                          "value": 7.0,
+                          "winner": true
+                        },
+                        {
+                          "value": 1.0,
+                          "winner": false
+                        },
+                        {
+                          "value": 7.0,
+                          "tiebreak": 9,
+                          "winner": true
+                        }
+                      ],
+                      "athlete": {
+                        "displayName": "Karolina Muchova",
+                        "shortName": "K. Muchova",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/cze.png",
+                          "alt": "Czechia",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "184351",
+                  "date": "2026-10-08T04:00Z",
+                  "startDate": "2026-10-08T04:00Z",
+                  "timeValid": false,
+                  "status": {
+                    "period": 1,
+                    "type": {
+                      "id": "1",
+                      "name": "STATUS_SCHEDULED",
+                      "state": "pre",
+                      "completed": false,
+                      "description": "Scheduled",
+                      "detail": "M/d - 'TBD'",
+                      "shortDetail": "TBD"
+                    }
+                  },
+                  "venue": {
+                    "fullName": "Beijing, China PR",
+                    "court": ""
+                  },
+                  "round": {
+                    "id": "5",
+                    "displayName": "Quarterfinal"
+                  },
+                  "type": {
+                    "id": "2",
+                    "text": "Women's Singles",
+                    "slug": "womens-singles"
+                  },
+                  "notes": [],
+                  "competitors": [
+                    {
+                      "id": "7804",
+                      "order": 2,
+                      "homeAway": "away",
+                      "athlete": {
+                        "displayName": "Nikola Bartunkova",
+                        "shortName": "N. Bartunkova",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/cze.png",
+                          "alt": "Czechia",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "3039",
+                      "order": 1,
+                      "homeAway": "home",
+                      "athlete": {
+                        "displayName": "Karolina Muchova",
+                        "shortName": "K. Muchova",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/cze.png",
+                          "alt": "Czechia",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "186226",
+                  "date": "2026-09-28T03:05Z",
+                  "startDate": "2026-09-28T03:05Z",
+                  "timeValid": true,
+                  "status": {
+                    "period": 2,
+                    "type": {
+                      "id": "3",
+                      "name": "STATUS_FINAL",
+                      "state": "post",
+                      "completed": true,
+                      "description": "Final",
+                      "detail": "Final",
+                      "shortDetail": "Final"
+                    }
+                  },
+                  "venue": {
+                    "fullName": "Beijing, China PR",
+                    "court": "Court 4"
+                  },
+                  "round": {
+                    "id": "11",
+                    "displayName": "Qualifying 1st Round"
+                  },
+                  "type": {
+                    "id": "2",
+                    "text": "Women's Singles",
+                    "slug": "womens-singles"
+                  },
+                  "notes": [
+                    {
+                      "text": "Vivian Wolff (USA) bt Carol Zhao (CAN) 6-1 6-1",
+                      "type": "event"
+                    }
+                  ],
+                  "competitors": [
+                    {
+                      "id": "16906",
+                      "order": 2,
+                      "homeAway": "away",
+                      "winner": true,
+                      "linescores": [
+                        {
+                          "value": 6.0,
+                          "winner": true
+                        },
+                        {
+                          "value": 6.0,
+                          "winner": true
+                        }
+                      ],
+                      "athlete": {
+                        "displayName": "Vivian Wolff",
+                        "shortName": "V. Wolff",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
+                          "alt": "USA",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "2197",
+                      "order": 1,
+                      "homeAway": "home",
+                      "winner": false,
+                      "linescores": [
+                        {
+                          "value": 1.0,
+                          "winner": false
+                        },
+                        {
+                          "value": 1.0,
+                          "winner": false
+                        }
+                      ],
+                      "athlete": {
+                        "displayName": "Carol Zhao",
+                        "shortName": "C. Zhao",
+                        "flag": {
+                          "href": "https://a.espncdn.com/i/teamlogos/countries/500/can.png",
+                          "alt": "Canada",
+                          "rel": [
+                            "country-flag"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "184356",
+                  "date": "2026-10-11T04:00Z",
+                  "startDate": "2026-10-11T04:00Z",
+                  "timeValid": false,
+                  "status": {
+                    "period": 1,
+                    "type": {
+                      "id": "1",
+                      "name": "STATUS_SCHEDULED",
+                      "state": "pre",
+                      "completed": false,
+                      "description": "Scheduled",
+                      "detail": "M/d - 'TBD'",
+                      "shortDetail": "TBD"
+                    }
+                  },
+                  "venue": {
+                    "fullName": "Beijing, China PR",
+                    "court": ""
+                  },
+                  "round": {
+                    "id": "7",
+                    "displayName": "Final"
+                  },
+                  "type": {
+                    "id": "2",
+                    "text": "Women's Singles",
+                    "slug": "womens-singles"
+                  },
+                  "notes": [],
+                  "competitors": [
+                    {
+                      "id": "-4",
+                      "order": 2,
+                      "homeAway": "away",
+                      "athlete": {
+                        "displayName": "TBD",
+                        "shortName": "TBD",
+                        "flag": null
+                      }
+                    },
+                    {
+                      "id": "-3",
+                      "order": 1,
+                      "homeAway": "home",
+                      "athlete": {
+                        "displayName": "TBD",
+                        "shortName": "TBD",
+                        "flag": null
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
