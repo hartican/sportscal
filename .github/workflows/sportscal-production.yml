@@ -17,10 +17,6 @@ on:
         description: Optional one-use selected Feed proof allocation for this exact SHA
         required: false
         default: ''
-      oneoff_controller_sha:
-        description: Reviewed controller SHA for the fixed v612 no-routine-test release
-        required: false
-        default: ''
 permissions:
   contents: read
 concurrency:
@@ -28,8 +24,6 @@ concurrency:
   cancel-in-progress: false
 jobs:
   sql-safety:
-    # Nonempty one-off requests run no SQL tests; only the exact admission below can deploy.
-    if: ${{ inputs.oneoff_controller_sha == '' }}
     name: SQL safety / ${{ matrix.batch }}
     runs-on: ubuntu-24.04
     timeout-minutes: 30
@@ -127,7 +121,6 @@ jobs:
           retention-days: 14
   deploy:
     needs: [sql-safety]
-    if: ${{ !cancelled() && ((inputs.oneoff_controller_sha == '' && needs.sql-safety.result == 'success') || (github.repository == 'hartican/sportscal' && github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.sha == 'cb1608433c90a2dc036a8e28501fe9caec4b4f46' && inputs.oneoff_controller_sha != '' && inputs.oneoff_controller_sha == github.sha && inputs.request_id == 'v612-cb16084-no-routine-20261107-01' && !inputs.rebuild && inputs.selected_feed_proof_sha == '' && needs.sql-safety.result == 'skipped')) }}
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
@@ -149,45 +142,15 @@ jobs:
       - name: Verify requested mainline release
         env:
           RELEASE_SHA: ${{ inputs.sha }}
-          CONTROLLER_SHA: ${{ inputs.oneoff_controller_sha }}
-          ONEOFF_REQUEST_ID: ${{ inputs.request_id }}
         run: |
           [[ "$RELEASE_SHA" =~ ^[a-f0-9]{40}$ ]]
-          if [[ -n "$CONTROLLER_SHA" ]]; then
-            set -euo pipefail
-            [[ "$CONTROLLER_SHA" =~ ^[a-f0-9]{40}$ ]]
-            test "$GITHUB_REPOSITORY" = "hartican/sportscal"
-            test "$GITHUB_EVENT_NAME" = "workflow_dispatch"
-            test "$GITHUB_REF" = "refs/heads/main"
-            test "$RELEASE_SHA" = "cb1608433c90a2dc036a8e28501fe9caec4b4f46"
-            test "$ONEOFF_REQUEST_ID" = "v612-cb16084-no-routine-20261107-01"
-            test "$NS_FORCE_REDEPLOY" = "0"
-            test -z "$NS_SELECTED_FEED_PROOF_SHA"
-            test "$CONTROLLER_SHA" = "$GITHUB_SHA"
-            test "$CONTROLLER_SHA" = "$(git rev-parse origin/main)"
-            test "$(git rev-list --parents -n 1 "$CONTROLLER_SHA")" = "$CONTROLLER_SHA $RELEASE_SHA"
-            test "$(git diff-tree --no-commit-id --name-only -r "$CONTROLLER_SHA")" = ".github/workflows/sportscal-production.yml"
-            test "$(git rev-parse "$RELEASE_SHA^{tree}")" = "3d625e55758673b272c571382b82c61c0e87902a"
-            test "$(git rev-parse "4bff7ada7d03c3bff52a262f58e630fe47848a74^{commit}")" = "4bff7ada7d03c3bff52a262f58e630fe47848a74"
-            git merge-base --is-ancestor "4bff7ada7d03c3bff52a262f58e630fe47848a74" "$RELEASE_SHA"
-            git diff --quiet "4bff7ada7d03c3bff52a262f58e630fe47848a74" "$RELEASE_SHA" -- \
-              api/ lib/ sql/ supabase/ ':(glob)**/*.sql' \
-              config/deployment-manifest.json package.json package-lock.json vercel.json \
-              scripts/deploy-current-commit.sh scripts/materialize-git-tree.js \
-              scripts/validate-deployment-package.js scripts/prepare-production-release.js \
-              scripts/seal-deployment-output.js scripts/check-production-deployment.js \
-              scripts/dispatch-production-deploy.js
-          else
-            test "$RELEASE_SHA" = "$(git rev-parse origin/main)"
-          fi
+          test "$RELEASE_SHA" = "$(git rev-parse origin/main)"
           test -z "$NS_SELECTED_FEED_PROOF_SHA" || test "$NS_SELECTED_FEED_PROOF_SHA" = "$RELEASE_SHA"
           git checkout --detach "$RELEASE_SHA"
       - run: npm ci && npm install --global vercel@59.1.4
       - name: Verify production SQL batch contract
-        if: ${{ inputs.oneoff_controller_sha == '' }}
         run: node scripts/validate-production-sql-batches.js
       - name: Verify feed and deployment safety contracts
-        if: ${{ inputs.oneoff_controller_sha == '' }}
         run: |
           node scripts/build-fantasy-ui.js --check
           node scripts/validate-fantasy-deadlines.js
@@ -446,7 +409,6 @@ jobs:
           node scripts/validate-global-app-adapter.js
           node scripts/validate-laver-cup.js
       - name: Verify shared fixture publication input
-        if: ${{ inputs.oneoff_controller_sha == '' }}
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
@@ -458,21 +420,9 @@ jobs:
           node scripts/verify-global-app-adapter.js --live-read --dictionary-v2
       - name: Bind project and preserve current production
         run: node scripts/prepare-production-release.js
-      - name: Recheck one-off controller immediately before publication step
-        if: ${{ inputs.oneoff_controller_sha != '' }}
-        env:
-          RELEASE_SHA: ${{ inputs.sha }}
-          CONTROLLER_SHA: ${{ inputs.oneoff_controller_sha }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          test "$(git rev-parse HEAD)" = "$RELEASE_SHA"
-          remote_main="$(git ls-remote --exit-code origin refs/heads/main)"
-          test "$remote_main" = "$CONTROLLER_SHA"$'\trefs/heads/main'
       - name: Deploy or reuse exact release
         run: bash scripts/deploy-current-commit.sh
       - name: Verify public release
-        if: ${{ inputs.oneoff_controller_sha == '' }}
         run: |
           node scripts/verify-production-release.js
           node scripts/verify-match-centre-public.js
@@ -481,9 +431,6 @@ jobs:
           node scripts/verify-selected-feed-public.js || feed_status=$?
           node scripts/verify-global-fixture-public.js
           exit "$feed_status"
-      - name: Verify one-off publication identity and privacy
-        if: ${{ inputs.oneoff_controller_sha != '' }}
-        run: node scripts/verify-production-release.js
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
         if: always()
         with:
