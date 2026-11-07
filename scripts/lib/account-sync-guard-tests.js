@@ -88,7 +88,17 @@ module.exports=async function guardTests(){
    outcomes.push(JSON.stringify({result,error:error&&{message:error.message,code:error.code,name:error.name}}));
    if(!old){assert(events.some(event=>event.reason===reason),reason);assert(!JSON.stringify(events).includes(sentinel));}
   }
-  assert.equal(outcomes[0],outcomes[1],reason+' wrapper equivalence');passed++;
+  if(reason==='compatible_base'){
+   // The 6 November rule now plans device-local view projection even when the
+   // remote preferences still match the receipt base. Protective holds retain
+   // their historical equivalence below.
+   assert.equal(outcomes[0],'{}','historical wrapper had no compatible-base projection');
+   const actual=JSON.parse(outcomes[1]);assert(!actual.error);assert(actual.result?.receipt);
+   const expected=fixture();expected.state.preferences=clone(expected.receipt.basePreferences);
+   const projected=clone(expected.receipt.preferences);
+   for(const key of ['followBrowse','feedCompact'])projected[key]=clone(expected.state.preferences[key]);
+   assert.deepEqual(actual.result.receipt,{...expected.receipt,baseUpdatedAt:expected.state.updatedAt,basePreferences:expected.state.preferences,preferences:projected,originalReceipt:expected.receipt},'the new witness binds exact remote base and views while retaining all other intent');
+  }else assert.equal(outcomes[0],outcomes[1],reason+' wrapper equivalence');passed++;
  }
  // Real atomic profile/receipt ACK seams: identical bytes and errors to published591.
  for(const kind of ['missing','witness','semantics','original-changed','new-generation','patch-missing','clock','new-base','continuation','storage-error']){

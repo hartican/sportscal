@@ -383,9 +383,6 @@ async function validateAcceptedBootstrapBaseline(){
     slice('function syncCurrentServerState(','\nfunction normalizeServerArchiveReferences('),
     slice('async function hydrateUserMetaSeed(','\nfunction sydneyPartsFromIso('),
   ].join('\n');
-  const signInMarker='  document.getElementById("accountSignInForm").addEventListener("submit", async event => {';
-  const start=html.indexOf(signInMarker),end=html.indexOf('\n  });\n  appendPreferenceRecoverySettings(body);',start);assert(start>=0&&end>start);
-  const signIn='async function submitSignIn(event){'+html.slice(start+signInMarker.length,end)+'\n}';
   const clone=value=>JSON.parse(JSON.stringify(value));
   const state=owner=>({schemaVersion:'user-state.v2',preferences:{theme:'day',preferenceGraph:{entityFollows:[{entityId:'team:synthetic:'+owner,followed:true}],domainPreferences:[],competitionPreferences:[]},followFirst:{startupMeta:{sports:[]}}},profile:{usernameLabel:owner},eventUserState:{['fixture:'+owner]:{addedToFixtures:true,reminderEnabled:false},['excluded:'+owner]:{excluded:true}},eventSpoilerState:{['fixture:'+owner]:false},archivedEvents:[],ratings:{},updatedAt:'2026-10-20T08:00:00Z'});
   const cases=['uninterrupted','held-meta','failed-meta','failed-state','failed-auth','empty-graph','absent-preferences','deliberate-local'];
@@ -426,13 +423,15 @@ async function validateAcceptedBootstrapBaseline(){
       if(method==='PUT'){states[owner]=userStateSync.applyPatch(states[owner],body.patch);states[owner].updatedAt='2026-10-20T08:01:00Z';}
       return response({user:{id:owner},state:row(states[owner])});
     }});
-    vm.runInContext(source+'\n'+signIn,app);
+    vm.runInContext(source,app);
     if(scenario==='deliberate-local'){device.preferences.theme='night';original.A.preferences.theme='night';original.A.updatedAt='2026-10-20T08:01:00Z';}
-    const signInAs=async owner=>{target=owner;await app.submitSignIn({preventDefault(){},currentTarget:{isConnected:true,querySelector:()=>({disabled:false})}});};
+    // These controls exercise restored-account hydration. Deliberate Account
+    // handoffs use the real capture/activation controls in validate-new-user-journey.
+    const signInAs=async owner=>{target=owner;try{await app.serverSyncClient.signIn(owner+'@example.invalid','synthetic');await app.bootstrapServerPersistence();}catch(error){if(scenario!=='failed-auth'||owner!=='A'||error.code!=='auth_bad_credentials')throw error;}};
     const first=signInAs('A');
     if(['held-meta','empty-graph','absent-preferences'].includes(scenario)){
       for(let i=0;i<100&&!release;i++)await new Promise(resolve=>setTimeout(resolve,1));
-      assert(release,scenario+' reaches metadata through actual SDK and Account submit/bootstrap');assert.equal(applied,1);
+      assert(release,scenario+' reaches metadata through actual SDK and restored bootstrap');assert.equal(applied,1);
     }else await first;
     for(const owner of ['B','C']){await signInAs(owner);assert.deepEqual(device,original[owner],scenario+': each account loads only its own saved state, pins and OFF choices');}
     if(release){release();await first;}
@@ -442,7 +441,7 @@ async function validateAcceptedBootstrapBaseline(){
     assert.equal(writes.length,scenario==='deliberate-local'?1:0,scenario+': only a deliberate local edit can write');
     if(writes.length)assert.equal(writes[0].owner,'A','A local edit cannot write another account');
   }
-  console.log(`Accepted account bootstrap: ${cases.length} actual Account/SDK A-B-C-A, delayed/failed hydration and empty/absent preference cases passed; no service connection.`);
+  console.log(`Accepted restored-account bootstrap: ${cases.length} actual SDK A-B-C-A, delayed/failed hydration and empty/absent preference cases passed; no service connection.`);
 }
 
 async function validateDurablePreferenceIntent(){

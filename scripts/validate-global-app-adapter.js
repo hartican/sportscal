@@ -110,7 +110,7 @@ test('exclusive owned receipt refuses existing files, symlinks and oversized rep
 });
 function prerequisites(){
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'global-prerequisites-')),repo=path.join(root,'repo'),source=path.join(__dirname,'..');fs.mkdirSync(repo);
- const env={PATH:process.env.PATH,GIT_CONFIG_NOSYSTEM:'1',GIT_CONFIG_GLOBAL:os.devNull},git=args=>cp.execFileSync('git',args,{cwd:repo,env,encoding:'utf8',stdio:['ignore','pipe','pipe'],timeout:5000});
+ const env={PATH:process.env.PATH,GIT_CONFIG_NOSYSTEM:'1',GIT_CONFIG_GLOBAL:os.devNull,GIT_CEILING_DIRECTORIES:root},git=args=>cp.execFileSync('git',args,{cwd:repo,env,encoding:'utf8',stdio:['ignore','pipe','pipe'],timeout:5000});
  const files=['scripts/verify-global-app-adapter.js','scripts/lib/global-app-adapter-qualification.js','scripts/lib/near-app-adapter-qualification.js','lib/supabase-server.js','config/event-action-identity.js'];let head,count=0;
  const probe=path.join(repo,'PRIVATE_PROBE_NAME.txt');
  function invoke(name,change={},argv=['--live-read']){

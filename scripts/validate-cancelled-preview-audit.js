@@ -56,7 +56,8 @@ function registrationContract(parent,owner,workflow){
  assert(owner.includes("env.NS_EDITORIAL_OFFLINE_CHILD='1';")&&owner.includes('timeout:25000'),'Offline guard and bounded children remain required');
  assert(owner.includes("const admitted=admit(process.env.NODE_OPTIONS||'');"),'Authenticate inherited guard bytes before any child dispatch');
  assert(owner.includes("env.NODE_OPTIONS=preloads.map(file=>'--require '+JSON.stringify(file)).join(' ');"),'Only captured admitted preloads compose child startup');
- const production=require('./validate-production-sql-batches').validate(workflow);
+ const productionContract=require('./validate-production-sql-batches');
+ const production=productionContract.validate(productionContract.normalisePermanentProductionSelection(workflow).restored);
  assert.equal((workflow.match(/^\s+node scripts\/validate-editorial-sport-depth\.js$/gm)||[]).length,1);
  for(const script of expected)assert(!workflow.includes('node '+script),'Do not duplicate parent children in the workflow');
  return {production,previousEditorialChildren:1,requiredEditorialChildren:expected.length+1,addedEditorialChildren:expected.length};
@@ -80,7 +81,8 @@ try{
   parent.replace("require('./validate-postseason-editorial');",'')
  ]){assert.notEqual(changed,parent);assert.throws(()=>registrationContract(changed,owner,workflow));controls++;}
  assert.throws(()=>registrationContract(parent,owner.replace('[script],',"[script,'--skip'],"),workflow));controls++;
- const workflowNegatives=require('./validate-production-sql-batches').regressions(workflow);
+ const workflowContract=require('./validate-production-sql-batches');
+ const workflowNegatives=workflowContract.regressions(workflowContract.normalisePermanentProductionSelection(workflow).restored);
  const offline=require('./lib/editorial-offline-checks'),approved=path.join(root,'approved guard.cjs');
  fs.writeFileSync(approved,offline.OWNED_GUARD,{mode:0o600});
  assert(offline.admit('--require '+JSON.stringify(approved)),'Explicit owned guard bytes admit at an absolute bound path');controls++;

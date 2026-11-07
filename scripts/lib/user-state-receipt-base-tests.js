@@ -324,9 +324,8 @@ module.exports=async function receiptBaseTests(){
    return{user:r.body.user,state};
   };
   c.serverSyncClient.savePatch=async patch=>{
-   const exactTimestampAdvance=['normalization-strict-unacknowledged','normalization-empty-unacknowledged'].includes(kind);
-   const expectedBeforeSave=exactTimestampAdvance?{...original,baseUpdatedAt:api.state().updatedAt}:newReceipt||original;
-   assert.deepEqual(c.pendingPreferenceIntent('A'),expectedBeforeSave,'no pre-ACK choice/base rewrite beyond existing exact timestamp advancement: '+kind);
+   const expectedBeforeSave=newReceipt||original;
+   assert.deepEqual(c.pendingPreferenceIntent('A'),expectedBeforeSave,'a planned view projection retains the exact durable receipt until matching ACK: '+kind);
    c.calls.writes++;const r=await api.handle({method:'PUT',url:'/api/user-state',headers:{},body:{patch}});
    if(r.status!==200)throw Object.assign(new Error('Disposable conflict'),{status:r.status,code:r.body.code});
    if((kind.startsWith('new-receipt-')||kind==='normalization-R2-unacknowledged')&&!newReceipt){
@@ -440,6 +439,7 @@ module.exports=async function receiptBaseTests(){
    for(const key of ['theme','standings','followFirst','futurePreference'])assert.deepEqual(persisted.preferences[key],currentBefore.preferences[key],kind+': primary profile keeps '+key);
   }else if(mismatchingAck){
    const expected=responseSnapshot;
+   assert(expected,'the normalization control must reach the real save response: '+kind+'; '+caught?.message);
    const durable=JSON.parse(c.localStorage.getItem(profile.KEYS.profilePrefix+c.activeProfileBundle.profile.id));
    const currentRetained=JSON.stringify(c.currentDevice().preferences)===JSON.stringify(expected.device.preferences);
    const persistedRetained=JSON.stringify(durable.entityFollows)===JSON.stringify(expected.device.preferences.preferenceGraph.entityFollows)

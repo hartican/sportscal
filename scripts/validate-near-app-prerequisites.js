@@ -4,7 +4,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('nod
 function validate(){
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'near-prerequisites-')),repo=path.join(root,'repo'),source=path.join(__dirname,'..');
  fs.mkdirSync(repo);
- const environment={PATH:process.env.PATH,HOME:root,GIT_CONFIG_NOSYSTEM:'1',GIT_CONFIG_GLOBAL:os.devNull};
+ const environment={PATH:process.env.PATH,HOME:root,GIT_CONFIG_NOSYSTEM:'1',GIT_CONFIG_GLOBAL:os.devNull,GIT_CEILING_DIRECTORIES:root};
  const git=args=>cp.execFileSync('git',args,{cwd:repo,env:environment,encoding:'utf8',stdio:['ignore','pipe','pipe'],timeout:5000});
  const files=['scripts/verify-near-app-adapter.js','scripts/lib/near-app-adapter-qualification.js','lib/supabase-server.js','config/event-action-identity.js'];
  const sentinel='PRIVATE_PATH_OR_PAYLOAD_MUST_NOT_ESCAPE',probe=path.join(repo,sentinel+'.txt');

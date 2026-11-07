@@ -203,7 +203,8 @@ async function handlerContracts(){
   const supabaseCache = require.cache[supabasePath];
   const serverCache = require.cache[serverPath];
   const rewardsCache = require.cache[rewardsPath];
-  let identityReady=true,viewerFailure="",viewerUser={id:"11111111-1111-4111-8111-111111111111"},viewerToken="token",profileReads=0,personaReads=0,snapshotReads=0;
+  const confirmedViewer={id:"11111111-1111-4111-8111-111111111111",email:"test@example.invalid",email_confirmed_at:"2020-01-01T00:00:00Z"};
+  let identityReady=true,viewerFailure="",viewerUser={...confirmedViewer},viewerToken="token",profileReads=0,personaReads=0,snapshotReads=0;
   let pilotCalls=0,profileWrites=0,submitMode="success",profileVisibility="visible",eventPhase="heat",existingSubmission=null;
   const submitCalls=[];
   supabaseCache.exports={
@@ -256,7 +257,7 @@ async function handlerContracts(){
       const result=responseCapture();await handler({method:"GET",query:{viewer:"1"}},result);
       assert.equal(result.statusCode,401);assert.equal(result.body.code,"sign_in_required");assert.equal(profileReads+personaReads,0);
     }
-    viewerFailure="";viewerToken="token";viewerUser={id:"11111111-1111-4111-8111-111111111111"};
+    viewerFailure="";viewerToken="token";viewerUser={...confirmedViewer};
     const profileResponse=responseCapture();
     await handler({method:"POST",headers:{authorization:"Bearer token"},body:{action:"profile",displayName:"Test Person",handle:"test_person"}},profileResponse);
     assert.equal(profileResponse.statusCode,200);

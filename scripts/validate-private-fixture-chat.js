@@ -573,7 +573,9 @@ async function run(){
       return fetchResponse(members.filter(member => matchesRoom(member) && (!userId || member.user_id === userId) && (!url.searchParams.has("archived_at") || member.archived_at)));
     }
     if (table === "nothingsports_chat_messages"){
-      const messageId = eq(url.searchParams.get("id"));
+      const rawMessageId = url.searchParams.get("id") || "";
+      const messageIds = rawMessageId.startsWith("in.(") ? rawMessageId.slice(4,-1).split(",") : null;
+      const messageId = messageIds ? "" : eq(rawMessageId);
       const roomId = eq(url.searchParams.get("room_id"));
       const senderId = eq(url.searchParams.get("sender_id"));
       const clientId = eq(url.searchParams.get("client_id"));
@@ -593,7 +595,7 @@ async function run(){
         for (let index = reactions.length - 1; index >= 0; index -= 1) if (deletedIds.has(reactions[index].message_id)) reactions.splice(index, 1);
         return fetchResponse(null);
       }
-      let selected = messages.filter(message => (!messageId || message.id === messageId) && (!roomId || message.room_id === roomId) && (!senderId || message.sender_id === senderId) && (!clientId || message.client_id === clientId));
+      let selected = messages.filter(message => (!messageIds || messageIds.includes(message.id)) && (!messageId || message.id === messageId) && (!roomId || message.room_id === roomId) && (!senderId || message.sender_id === senderId) && (!clientId || message.client_id === clientId));
       const createdFilter = url.searchParams.get("created_at") || "";
       const inclusiveAfter = createdFilter.startsWith("gte.") ? createdFilter.slice(4) : "";
       const after = createdFilter.startsWith("gt.") ? createdFilter.slice(3) : "";
@@ -686,8 +688,8 @@ async function run(){
       method:"POST",
       body:{ action:"create-room", canonicalFixtureId:fixtureId, roomName:"Guest room", memberIds:[] },
     }));
-    assert.equal(guestCreate.statusCode, 401);
-    assert.equal(guestCreate.body.code, "chat_sign_in_required");
+    assert.equal(guestCreate.statusCode, 403);
+    assert.equal(guestCreate.body.code, "email_confirmation_required");
     const create = async (name, memberIds) => invoke(tokenRequest(`token-${ids.userA}`, {
       method:"POST",
       body:{ action:"create-room", canonicalFixtureId:fixtureId, roomName:name, memberIds },
@@ -781,10 +783,12 @@ async function run(){
       if(identity.is_anonymous)assert.equal(search.statusCode,401);
       else {assert.equal(search.statusCode,200);assert(search.body.users.every(account=>!Object.hasOwn(account,"email")),"ordinary search cannot acquire the admin email picker");}
       const forbidden=await invoke(tokenRequest(token,{method:"POST",body:{action:"enable-share",roomId}}));
-      assert.equal(forbidden.statusCode,403);assert.equal(forbidden.body.code,"chat_admin_required");
+      assert.equal(forbidden.statusCode,403);assert.equal(forbidden.body.code,"email_confirmation_required");
       assert.equal(rooms.find(room=>room.id===roomId).guest_share_enabled,false,"rejected management cannot change sharing");
       tokenUsers.delete(token);
     }
+    const confirmedNonAdmin=await invoke(tokenRequest(`token-${ids.outsider}`,{method:"POST",body:{action:"enable-share",roomId}}));
+    assert.equal(confirmedNonAdmin.statusCode,403);assert.equal(confirmedNonAdmin.body.code,"chat_admin_required");
 
     const enabledShare = await invoke(tokenRequest(`token-${ids.adminA}`, {
       method:"POST",
@@ -864,11 +868,21 @@ async function run(){
     assert.equal(repeated.statusCode, 200);
     assert.equal(messages.filter(message => message.client_id === clientId).length, 1, "idempotent sends must create one row");
 
-    const guestReply = await invoke(tokenRequest(`token-${ids.guest}`, {
+    const deniedGuestReply = await invoke(tokenRequest(`token-${ids.guest}`, {
       method:"POST",
       body:{ action:"send-message", roomId, clientId:"guest-reply-0001", body:"Replying", replyToMessageId:sent.body.message.messageId },
     }));
-    assert.equal(guestReply.statusCode, 200);
+    assert.equal(deniedGuestReply.statusCode, 403);
+    assert.equal(deniedGuestReply.body.code, "email_confirmation_required");
+    assert(!messages.some(message=>message.client_id==="guest-reply-0001"),"an unconfirmed guest cannot create a message");
+    // Retained pre-confirmation-policy messages must remain readable and keep
+    // their sender/reply snapshots after a guest is revoked.
+    const historicGuestId=`bbbbbbbb-bbbb-4bbb-8bbb-${String(messageSequence++).padStart(12,"0")}`;
+    messages.push({id:historicGuestId,room_id:roomId,sender_id:ids.guest,client_id:"historic-guest-reply",message_type:"text",body:"Replying",reply_to_message_id:sent.body.message.messageId,sender_display_name:"Guest One",created_at:timestamp()});
+    const guestHistory=await invoke(tokenRequest(`token-${ids.userA}`,{query:{roomId}}));
+    assert.equal(guestHistory.statusCode,200);
+    const guestReply={body:{message:guestHistory.body.messages.find(message=>message.messageId===historicGuestId)}};
+    assert(guestReply.body.message,"a retained guest message must still be returned by the real handler");
     assert.equal(guestReply.body.message.senderName, "Guest One");
     assert.equal(guestReply.body.message.replyTo.messageId, sent.body.message.messageId);
     const simultaneousMessageId=`bbbbbbbb-bbbb-4bbb-8bbb-${String(messageSequence++).padStart(12, "0")}`;

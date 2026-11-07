@@ -152,8 +152,8 @@ async function runCase(kind,fixture=null){
    if(kind==='R2-domain'&&calls.writes===2){
     assert.equal(observed.preferenceGuard.reason,'compatible_base');
     assert(profile.preferenceBaseMatches(newReceipt,api.state().preferences),'R2 retry uses its exact accepted preference base');
-    assert.deepEqual(paths,['preferences.feedCompact','preferences.preferenceGraph.domainPreferences'],'later ordinary retry carries exactly the real R2 template and retained compact view');
-    assert.equal(patch.changes.find(change=>change.path.join('.')==='preferences.feedCompact').value,false);
+    assert.deepEqual(paths,['preferences.preferenceGraph.domainPreferences'],'later R2 retry uploads its template while the compact view stays device-local');
+    assert.equal(patch.changes.some(change=>change.path.join('.')==='preferences.feedCompact'),false);
    }
    if(kind==='base-compatible-known'){
     assert.equal(observed.preferenceGuard.reason,'compatible_base');
@@ -165,10 +165,8 @@ async function runCase(kind,fixture=null){
     for(const change of patch.changes)if(change.path.join('.')==='preferences.preferenceGraph.updatedAt')assert.equal(change.value,receipt.preferences.preferenceGraph.updatedAt);
    }
   }
-  const ordinaryR2=kind==='R2-domain'&&calls.writes===2;
   try{assert(kind==='base-compatible-known'||patch.changes.filter(change=>change.path[0]==='preferences').every(change=>
    change.path[1]==='preferenceGraph'&&change.path[2]==='domainPreferences'
-   ||ordinaryR2&&change.path.length===2&&change.path[1]==='feedCompact'
    ||fixture?.allowGraphTimestamp&&change.path.length===3&&change.path[1]==='preferenceGraph'&&change.path[2]==='updatedAt'
      &&change.value===receipt.preferences.preferenceGraph.updatedAt),
   'scoped saves are domain-only; the proven later compatible-base R2 path adds only compact view, never scope/event/opaque data');}

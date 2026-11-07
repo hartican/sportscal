@@ -15,7 +15,19 @@ assert.equal(serviceWorker.match(/const SHELL_VERSION = "(\d+)"/)?.[1],releaseVe
 assert(serviceWorker.includes(`nothingsport-shell-v${releaseVersion}`),'cache identity must match the release marker');
 const shellBlock = serviceWorker.match(/const APP_SHELL = \[([\s\S]*?)\n\];/)?.[1] || "";
 const assets = [...shellBlock.matchAll(/"([^"]+)"/g)].map(match => match[1]);
-const bytes = assets.reduce((total, asset) => {
+// Measure the actual install requests. APP_SHELL also inventories optional
+// artwork that the worker caches only after use, so it is not the precache.
+const listeners={},requested=[];
+const settled=value=>({then:callback=>settled(callback(value))});
+vm.runInNewContext(serviceWorker,{
+  self:{addEventListener:(type,callback)=>{listeners[type]=callback;},skipWaiting(){}},
+  caches:{open:()=>settled({addAll:urls=>{requested.push(...urls);return settled();}})},URL,
+});
+assert.equal(typeof listeners.install,'function');
+listeners.install({waitUntil:work=>assert.equal(typeof work.then,'function')});
+assert(requested.includes('/index.html')&&requested.some(url=>url.startsWith('/assets/js/app-shell-runtime.js?v=')), 'the measured install must include the actual HTML and generated runtime');
+assert.equal(new Set(requested).size,requested.length,'installation must not duplicate asset requests');
+const bytes = requested.reduce((total, asset) => {
   const localPath = `.${asset.split(/[?#]/, 1)[0]}`;
   return total + (fs.existsSync(localPath) && fs.statSync(localPath).isFile() ? fs.statSync(localPath).size : 0);
 }, 0);
@@ -65,4 +77,4 @@ for(const [label,complete,settingsOpen,expected]of [
   if(expected)assert.equal(opened[0].firstRun,true);
 }
 
-console.log(`Startup budget valid: ${assets.length} shell assets, ${(bytes / 1024 / 1024).toFixed(2)} MB precache, generated feed fallback deferred.`);
+console.log(`Startup budget valid: ${requested.length} installed assets, ${(bytes / 1024 / 1024).toFixed(2)} MB precache; ${assets.length} total inventory entries, optional assets cache on use.`);

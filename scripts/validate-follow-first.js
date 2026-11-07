@@ -193,8 +193,10 @@ assert(html.includes("['schedule','Schedule']") && !html.includes('["matches", "
 assert(html.includes("codeInspectorPlayersExpanded") && html.includes('"Top 3 + followed"'));
 
 const onboardingSource=fs.readFileSync("config/fantasy-deadline-ui.js","utf8");
-assert(onboardingSource.includes("startupSportsGrid") && onboardingSource.includes("startupEventsGrid") && onboardingSource.includes("startupOffersGrid"));
-assert(onboardingSource.includes("personalisedOffersConsent") && onboardingSource.includes("startupLocationQuery"));
+assert(onboardingSource.includes("startupSportsGrid") && onboardingSource.includes("onboardingSportChoices") && onboardingSource.includes("onboardingTeamChoices"), "guest onboarding must start with sports and supported teams");
+const startupSports=onboardingSource.slice(onboardingSource.indexOf("function renderStartupMetadataSettings("),onboardingSource.indexOf("function renderCreateAccountSettings("));
+assert(!/startupEventsGrid|startupOffersGrid|startupLocationQuery|personalisedOffersConsent/.test(startupSports), "first-run sport choices must not require events, offers consent or location");
+assert(onboardingSource.includes("settingsLocationQuery"), "optional location controls remain available in Settings");
 assert(!/startup[^\n]{0,80}(gender|age bracket)/i.test(html), "signup must not ask for gender or age bracket");
 assert(html.includes("shouldPromptRefinement") && html.includes("firstSwipeAt"));
 assert.match(serverSync, /async loadMeta\s*\(/, "onboarding metadata read remains available");
