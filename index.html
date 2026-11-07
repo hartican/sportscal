@@ -213,6 +213,19 @@ header.top{
   box-shadow:0 12px 34px rgba(3,3,8,0.18);
 }
 
+.top-bar-spacer{ display:none; }
+body[data-active-tab="feed"] header.top{
+  position:fixed;
+  inset:0 0 auto;
+  width:100%;
+  transform:translateZ(0);
+  will-change:transform;
+}
+body[data-active-tab="feed"] .top-bar-spacer{
+  display:block;
+  height:var(--sticky-top-bar-height, 0px);
+}
+
 .header-inner{
   max-width: 1200px;
   margin: 0 auto;
@@ -5884,6 +5897,17 @@ body.chat-open{ overflow:hidden; }
   .header-brand-logo{ width:82px; }
 }
 
+@media (max-width:420px){
+  header.top{
+    padding-top:calc(9px + env(safe-area-inset-top));
+    padding-bottom:7px;
+  }
+  .header-brand-logo{ width:70px; }
+  .brand .slogan{ display:none; }
+  .tabs{ margin-top:8px; }
+  .tab-btn{ padding-top:7px; padding-bottom:7px; }
+}
+
 @media (prefers-reduced-motion: reduce){
   .chat-backdrop,
   .chat-drawer{ scroll-behavior:auto; }
@@ -6868,7 +6892,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 <link rel="stylesheet" href="styles/follow-feed-rework.css?v=271">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=271">
 </head>
-<body>
+<body data-active-tab="feed">
 
 <div class="startup-launch" id="startupLaunch" role="status" aria-live="polite" aria-label="Loading Nothing Sport">
   <div class="startup-launch-content">
@@ -6919,6 +6943,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 
   </div>
 </header>
+<div class="top-bar-spacer" id="topBarSpacer" aria-hidden="true"></div>
 
 <audio id="soundtrackAudio" src="/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3" preload="none" loop></audio>
 <audio id="loadingFillAudio" preload="none" loop></audio>
@@ -13583,6 +13608,7 @@ function renderTuneSheetContents(){
 }
 
 function syncTopLevelNavigationState(){
+  document.body.dataset.activeTab = activeTab;
   const inspectorActive = Boolean(activeInspectorCodeId || document.getElementById("tuneSheet")?.classList.contains("show"));
   document.querySelectorAll(".tab-btn").forEach(button => {
     const selected = button.id === "tuneNavBtn"
@@ -21258,21 +21284,6 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   scheduleIdentityImageRecovery(listView);
 }
 
-function firstNormalFeedCard(){
-  return document.querySelector('#listView .joint-tournament-card, #listView .event-card:not(.mode-archived-focused):not(.mode-today-more)');
-}
-
-function firstCardResidualScroll(){
-  const card = firstNormalFeedCard();
-  if (!card) return null;
-  return Math.max(0, Math.ceil(card.getBoundingClientRect().bottom - Math.min(window.innerHeight, 844)));
-}
-
-function scheduleFirstCardViewportFit(){
-  // Header geometry is fixed across card states and scroll positions.
-  syncFeedFilterDockOffset();
-}
-
 function clonePreferences(prefs){
   return typeof structuredClone === "function" ? structuredClone(prefs) : JSON.parse(JSON.stringify(prefs));
 }
@@ -25934,10 +25945,7 @@ window.matchMedia?.("(prefers-color-scheme: dark)").addEventListener?.("change",
 });
 document.addEventListener("gesturestart", evt => evt.preventDefault(), { passive: false });
 syncBrandCopy();
-window.addEventListener("resize", () => {
-  syncFeedFilterDockOffset();
-  scheduleFirstCardViewportFit();
-}, { passive: true });
+window.addEventListener("resize", syncFeedFilterDockOffset, { passive: true });
 if (typeof ResizeObserver === "function"){
   const stickyHeaderResizeObserver = new ResizeObserver(syncFeedFilterDockOffset);
   stickyHeaderResizeObserver.observe(document.querySelector("header.top"));
@@ -25945,7 +25953,6 @@ if (typeof ResizeObserver === "function"){
 updateCalendarDate();
 setInterval(updateCalendarDate, 60 * 1000);
 renderAll();
-scheduleFirstCardViewportFit();
 void syncAppRouteFromLocation();
 bindPasswordRecoveryFlow();
 window.requestAnimationFrame(() => {
