@@ -1,6 +1,7 @@
 # Native Chat and Feed chrome continuation — 7 November 2026
 
-Status: source committed; release blocked.
+Historical continuation status: source committed; release blocked at that point.
+The later [overnight beta candidate record](overnight-beta-20261107.md) supersedes this status.
 
 ## Scope and preservation
 

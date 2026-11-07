@@ -10,6 +10,11 @@
 
 ## Continuation status — 7 November 2026
 
+The later [overnight beta candidate record](../../verification/overnight-beta-20261107.md)
+records integration with accepted main, shell 611, both browser engines, installed
+upgrade evidence and the remaining serialized publication checks. The following
+paragraphs describe the earlier continuation and its blockers at that time.
+
 Continued in the existing repository on `overnight/nothing-sport`, preserving the five implementation commits through `cf84c2fb` and the existing card edits. Tasks 1–5 are implemented. Task 6 has the canonical native-shell validator and the atomic version **272** shell update; release remains blocked.
 
 Continuation commits `90ab1d58` and `2c8fc633` isolate quick-refresh regression fixtures, preserve the real result-completeness gate, prevent delayed sends from reopening the keyboard, retain reader scroll-back, and restore Feed focus after removing the background's inert state. Chromium checks cover four viewport sizes and deferred success/failure responses. Existing Chat presentation checks also pass at four widths.
