@@ -75,16 +75,15 @@ assert.match(pendingShare, /chatGuestPreview\(capability\)/);
 assert.match(pendingShare, /serverSyncClient\.getSession\?\.\(\)/, "signed-in recipients must retain their account identity");
 assert.match(pendingShare, /\{ action:"join-shared-room", capability \}/);
 
-// Room order is Members disclosure, messages, reply preview, then the in-flow composer.
+// The message scroller and composer are siblings so the keyboard cannot scroll the composer away.
 const roomRender = section(html, "function renderOpenChatRoom(", "function mergeChatMessages");
 assertOrder(roomRender, [
   "body.replaceChildren()",
   "body.appendChild(renderChatMembersDisclosure(room))",
   "buildChatAlertPrompt()",
   "body.appendChild(buildChatMessageList())",
-  "buildChatReplyPreview()",
-  "body.appendChild(buildChatComposer",
-], "room body layout");
+  "renderChatComposerHost(room",
+], "room body and anchored composer layout");
 const members = section(html, "function renderChatMembersDisclosure(room)", "function buildChatReplyPreview");
 assert.match(members, /document\.createElement\("details"\)/);
 assert.match(members, /summary\.textContent = `Members \(\$\{count\}\)`/);
@@ -92,10 +91,10 @@ assert.doesNotMatch(members, /details\.open\s*=\s*true/, "members must start col
 assert.match(members, /renderChatAdminControls\(content, room\)/, "admin controls must remain inside the disclosure");
 assert.match(roomRender, /shareHeader\.hidden = !\(chatState\.isAdmin && room\.status === "open"\)/);
 assert.match(roomRender, /shareHeader\.textContent = "Share room"/);
-assert.match(html, /\.chat-room-composer\{[\s\S]*?grid-template-columns:1fr;[\s\S]*?width:calc\(100% \+ 36px\);/);
-assert.match(html, /\.chat-room-composer textarea\{[\s\S]*?width:100%;/);
-assert.match(html, /\.chat-room-composer \.btn\{ width:100%;/);
-assert.doesNotMatch(html, /<form[^>]+class="chat-composer"/, "the retired fixed drawer composer must not render");
+assert.match(html, /id="chatComposerHost"/);
+assert.match(html, /\.chat-room-composer\{[\s\S]*?grid-template-areas:[^;]*"tools tools"[^;]*"previews previews"[^;]*"input send"/);
+assert.match(html, /\.chat-room-composer textarea\{[\s\S]*?grid-area:input/);
+assert.match(html, /\.chat-room-composer \[type="submit"\]\{[\s\S]*?grid-area:send/);
 
 // Replies remain one level, while grouped reactions use the exact fixed palette and their own cursor.
 const sendMessage = section(html, "async function sendChatMessage(form)", "function buildChatComposer");

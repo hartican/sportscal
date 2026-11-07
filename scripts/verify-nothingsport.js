@@ -284,7 +284,9 @@ assert(html.includes("openFollowScreen") && html.includes("backFromCodeInspector
 assert(html.includes("activeInspectorCodeId") && html.includes("inspectorReturnState") && html.includes("#follow/"), "Follow drill-down must keep a separate history-aware return state");
 assert(!html.includes('id="feedFilterVisibilityBtn"') && !html.includes('id="feedFilterDock"'), "the retired Hide/Show filter rail must not remain exposed");
 assert(html.includes("function stickyFeedChromeHeight()"), "focused-view offsets must continue to account for pinned app chrome");
-assert(html.includes("function scheduleFirstCardViewportFit()") && !html.includes("body.header-compact-1"), "header geometry must stay consistent across card levels and scroll positions");
+assert.match(html, /body\[data-active-tab="feed"\] header\.top\s*\{[^}]*position:fixed/s, "Feed chrome must remain fixed to the visible top edge");
+assert.match(html, /id="topBarSpacer"/, "fixed Feed chrome must retain measured space in document flow");
+assert.doesNotMatch(html, /scheduleFirstCardViewportFit|header-compact-[123]/, "Feed chrome must not retract or resize itself around the first card");
 assert(html.includes('id="quickAddModal"'), "new sports must offer Quick add versus Customise without rerunning onboarding");
 assert(html.includes('const ONBOARDING_SECTIONS = ["startup"]'), "first login must use the idempotent lightweight startup metadata screen");
 assert(html.includes('id="startupSportsGrid"') && html.includes('id="startupEventsGrid"'), "startup must collect a limited sport and major-event selection");
