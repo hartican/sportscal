@@ -18,6 +18,7 @@ const APP_SHELL = [
   "/assets/styles/nsc-ladder.css?v=271",
   "/assets/styles/card-clarity.css?v=271",
   "/config/follow-directory-worker.js?v=271",
+  "/config/native-shell.js?v=271",
   "/config/calendar-selection.js",
   "/config/sport-hierarchy.js",
   "/config/event-taxonomy-compat.js",

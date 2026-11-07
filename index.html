@@ -7143,6 +7143,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
+<script src="config/native-shell.js?v=271"></script>
 <script src="assets/js/app-shell-runtime.js?v=271"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
@@ -8446,6 +8447,7 @@ const disposableStore = DISPOSABLE_STORAGE?.createStore?.() || null;
 const EVENT_ACTION_IDENTITY = globalThis.NOTHINGSPORTS_EVENT_ACTION_IDENTITY || null;
 const USER_STATE_SYNC = globalThis.NOTHINGSPORTS_USER_STATE_SYNC || null;
 const CHAT = globalThis.NOTHINGSPORTS_CHAT || null;
+const NATIVE_SHELL = globalThis.NOTHINGSPORTS_NATIVE_SHELL;
 const SERVER_SYNC = globalThis.NOTHINGSPORTS_SERVER_SYNC || null;
 const serverSyncClient = typeof window !== "undefined" && SERVER_SYNC
   ? SERVER_SYNC.createClient()
