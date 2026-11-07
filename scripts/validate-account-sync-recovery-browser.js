@@ -17,6 +17,9 @@ assert(testedShellVersion,'exact served source declares its shell version');
 const engineName = process.env.ACCOUNT_RECOVERY_BROWSER || 'chromium';
 const scenario = process.env.ACCOUNT_RECOVERY_CASE || 'retry-error';
 const newUserScenario=scenario==='new-user'; // Opt-in; original all-case inventory stays unchanged.
+// Only the existing ordinary-account inventory settles device review. NEWUSER,
+// unknown future cases and explicit old-source controls retain their own boundaries.
+const ordinaryAccountScenarios=new Set(["helper-mount","helper-pointer","diagnostic","retry-error","pending-receipt","resume","cold-retry","offline","terminal","refresh-failure","follow-roundtrip","origin-isolation","timeout","overlap","api-stale","api-timestamp","api-race","api-changed","receipt-base-disjoint","receipt-base-overlap","receipt-base-cricket","receipt-base-event-agreement","receipt-base-events-scope","local-preference-recovery"]);
 assert(!newUserScenario||!process.env.ACCOUNT_RECOVERY_BASELINE,'NEWUSER requires the coherent current candidate, not an old-source control');
 const newUserSourceBinding=newUserScenario?Object.fromEntries(['assets/js/account-awareness-ui.js','assets/styles/nothingsport-foundation.css','scripts/build-deferred-sports-ui.js'].map(file=>{
   const source=fs.readFileSync(path.join(root,file),'utf8');
@@ -233,7 +236,7 @@ function installNewUserHeaderSampler(){
   const browser = await (engineName === 'webkit' ? webkit : chromium).launch({ headless: true,
     ...(engineName === 'chromium' ? { channel: process.env.QA_BROWSER_CHANNEL || 'chrome' } : {}) });
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, serviceWorkers: 'block' });
-  let row = null, readMode = 'success', refreshMode = 'success', reads = 0, writes = 0, refreshes = 0, authSignIns = 0;
+  let row = null, readMode = 'success', refreshMode = 'success', reads = 0, writes = 0, refreshes = 0, authSignIns = 0, statePuts = 0;
   let beforeAck = null, page, controlBrowserRequest=null;
   let recoverySnapshotGets=0,recoveryReopenCapture=false;
   const recoveryReopenPuts=[];
@@ -390,6 +393,7 @@ function installNewUserHeaderSampler(){
       }
       if (u.pathname === '/api/user-state') {
         reads++;
+        if(method==='PUT')statePuts++;
         if (actualApi) {
           if(localRecoveryScenario&&u.searchParams.has('recovery-snapshot')){
             assert.equal(method,'GET');assert.equal(u.search,'?recovery-snapshot=v1');
@@ -774,6 +778,46 @@ function installNewUserHeaderSampler(){
     await page.waitForFunction(() => nothingscoreViewerScope?.owner === serverPersistence.user?.id);
     await page.waitForTimeout(1200); // Drain optional sign-in/profile/Follow effects before isolating resume.
     await page.evaluate(() => serverSyncSequence);
+    if(ordinaryAccountScenarios.has(scenario)&&!process.env.ACCOUNT_RECOVERY_BASELINE){
+      // signedIn does not mean this device's explicit account-copy review is done.
+      // Resolve it through the existing native no-import choice, never storage edits.
+      const ordinarySnapshot=()=>page.evaluate(()=>{
+        const life=serverSyncClient.accountSnapshot(),record=PROFILE_STORAGE.readAccountTransition(localStorage),saved=record?.pending;
+        const identity=saved?Object.fromEntries(Object.entries(saved).filter(([key])=>!['status','resolvedAt'].includes(key))):null;
+        return {life:{accountId:life.accountId,generation:life.generation,hasSession:life.hasSession},userId:serverPersistence.user?.id,
+          profileId:activeProfileBundle.profile.id,preferences:JSON.stringify(userPreferences),baseline:JSON.stringify(serverStateBaseline),
+          accountRaw:localStorage.getItem(PROFILE_STORAGE.KEYS.profilePrefix+activeProfileBundle.profile.id),
+          receipt:JSON.stringify(pendingPreferenceIntent(life.accountId)),identity,accounts:JSON.stringify(record?.accounts),
+          deviceProfileId:record?.deviceProfileId,sourceStoredRaw:saved?localStorage.getItem(PROFILE_STORAGE.KEYS.profilePrefix+saved.sourceProfileId):null,
+          pending:pendingDeviceAccountTransition(),blocked:accountTransitionBlocksSync(),state:serverPersistence.state};
+      });
+      const before=await ordinarySnapshot(),remoteBefore=JSON.stringify(row),putsBefore=statePuts,writesBefore=writes;
+      assert.equal(before.life.hasSession,true);assert.equal(before.life.accountId,owner);assert.equal(before.userId,owner);
+      assert.equal(before.state,'signedIn');
+      if(before.pending){
+        assert.equal(before.pending.status,'pending','ordinary fixture must not resolve cancelled/awaiting review');
+        assert.equal(before.pending.targetAccountId,owner);assert.equal(before.pending.targetProfileId,before.profileId);
+        assert.equal(before.sourceStoredRaw,before.pending.sourceRaw,'captured device copy exists unchanged before native settlement');
+        assert.equal(await page.locator('#syncAccountNowBtn').isEnabled(),false,'unreviewed device choices correctly block ordinary sync');
+        const separate=page.getByRole('button',{name:'Keep copies separate',exact:true});
+        assert.equal(await separate.count(),1,'use the actual scoped no-import control');
+        await separate.click();
+      }
+      await page.waitForFunction(()=>{
+        const retry=document.getElementById('syncAccountNowBtn');
+        return !pendingDeviceAccountTransition()&&!accountTransitionBlocksSync()
+          &&serverPersistence.state==='signedIn'&&Boolean(retry)&&!retry.disabled;
+      },null,{timeout:5000});
+      const after=await ordinarySnapshot();
+      for(const key of ['life','userId','profileId','preferences','baseline','accountRaw','receipt','identity','accounts','deviceProfileId','sourceStoredRaw'])
+        assert.deepEqual(after[key],before[key],'native keep-separate preserves '+key);
+      assert.equal(after.pending,null);assert.equal(after.blocked,false);
+      assert.equal(statePuts,putsBefore,'ordinary readiness sends no state PUT, including rejected attempts');
+      assert.equal(writes,writesBefore,'ordinary readiness imports no choices');
+      assert.equal(JSON.stringify(row),remoteBefore,'ordinary readiness cannot rewrite the remote fixture');
+      console.log(JSON.stringify({phase:'ordinary-account-fixture-ready',scenario,engine:engineName,
+        nativeKeepSeparate:Boolean(before.pending),copiesPreserved:true,receiptPreserved:true,ownerGenerationPreserved:true,noStatePut:true}));
+    }
     await page.evaluate(() => {
       const original = setServerPersistence;
       globalThis.qaSyncStates = [];
@@ -1446,6 +1490,8 @@ function installNewUserHeaderSampler(){
       assert.equal(writes, beforeWrites, 'overlap creates no duplicate saves');
       assert.equal(await page.locator('#syncAccountNowBtn').isEnabled(), true);
     } else if (scenario === 'pending-receipt') {
+      if(process.env.ACCOUNT_RECOVERY_BASELINE){
+        // Preserve the historical control's exact original setup and sync call.
       await page.evaluate(() => {
         const p = clonePreferences(userPreferences); p.theme = 'night';
         savePreferences(p, { deliberate: true, deferFollowEffects: true });
@@ -1456,6 +1502,45 @@ function installNewUserHeaderSampler(){
         clearTimeout(serverSyncTimer);
       });
       await page.evaluate(() => syncCurrentServerState({ notify: true }));
+      }else{
+      const pendingR1=await page.evaluate(() => {
+        const originalTheme=userPreferences.theme,life=serverSyncClient.accountSnapshot();
+        if(!['day','night'].includes(originalTheme))throw Error('Ordinary pending-receipt fixture requires a canonical theme');
+        const p = clonePreferences(userPreferences); p.theme = originalTheme==='day'?'night':'day';
+        savePreferences(p, { deliberate: true, deferFollowEffects: true });
+        return {receipt:pendingPreferenceIntent(life.accountId),originalTheme,theme:p.theme,life:{accountId:life.accountId,generation:life.generation}};
+      });
+      assert(pendingR1.receipt,'actual first deliberate change creates durable R1');
+      assert.equal(pendingR1.receipt.ownerId,owner);assert.equal(pendingR1.receipt.generation,pendingR1.life.generation);
+      let ackBoundaryCalls=0,pendingR2=null;
+      beforeAck = async() => {
+        ackBoundaryCalls++;
+        pendingR2=await page.evaluate(originalTheme => {
+          const p = clonePreferences(userPreferences); p.theme = originalTheme;
+          savePreferences(p, { deliberate: true, deferFollowEffects: true });
+          clearTimeout(serverSyncTimer);
+          return pendingPreferenceIntent(serverSyncClient.accountSnapshot().accountId);
+        },pendingR1.originalTheme);
+      };
+      const putsBefore=statePuts,writesBefore=writes;
+      await page.evaluate(() => syncCurrentServerState({ notify: true }));
+      assert.equal(ackBoundaryCalls,1,'the actual R1 response reaches the controlled before-ACK boundary');
+      assert.equal(beforeAck,null,'a short-circuited sync cannot count as exercising the pending case');
+      assert.equal(statePuts-putsBefore,1,'R1 sends exactly one actual constructed state PUT');
+      assert.equal(writes-writesBefore,1);
+      assert(pendingR2&&pendingR2.receiptId!==pendingR1.receipt.receiptId,'the real in-flight writer records distinct durable R2');
+      assert.equal(pendingR2.ownerId,pendingR1.receipt.ownerId);assert.equal(pendingR2.generation,pendingR1.receipt.generation);
+      assert.equal(pendingR2.baseUpdatedAt,pendingR1.receipt.baseUpdatedAt);
+      assert.deepEqual(pendingR2.basePreferences,pendingR1.receipt.basePreferences,'R2 keeps its original raw base before matching R1 ACK');
+      const after=await page.evaluate(()=>{
+        const life=serverSyncClient.accountSnapshot();return {life:{accountId:life.accountId,generation:life.generation},
+          receipt:pendingPreferenceIntent(life.accountId),theme:userPreferences.theme};
+      });
+      assert.deepEqual(after.life,pendingR1.life);assert(after.receipt,'matching R1 ACK cannot discard the newer durable receipt');
+      assert.equal(after.receipt.receiptId,pendingR2.receiptId);assert.equal(after.receipt.ownerId,pendingR2.ownerId);
+      assert.equal(after.receipt.generation,pendingR2.generation);assert.equal(after.theme,pendingR1.originalTheme);
+      assert.equal(row.preferences.theme,pendingR1.theme,'only R1 is saved; the newer choice stays local and pending');
+      }
       assert.equal(await page.locator('#syncAccountNowBtn').isEnabled(), true,
         'a completed request with a newer durable receipt must leave a usable retry button');
       assert.match(await page.locator('#accountSyncDetail').innerText(), /waiting|saved on this device|retry/i);

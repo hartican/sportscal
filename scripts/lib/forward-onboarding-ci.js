@@ -109,6 +109,7 @@ function verifyCloudRoute(phase){
  assert.equal(git('show','-s','--format=%P',POLICY.productHead).trim(),POLICY.acceptedMain);
  assert.equal(git('rev-parse',POLICY.acceptedMain+'^{tree}').trim(),POLICY.acceptedMainTree);
  const allowed=new Set(['scripts/verify-production-release.js','scripts/validate-installed-production-baseline.js','.github/workflows/installed-upgrade-tests.yml','.github/installed-production-baseline.json','scripts/validate-production-sql-batches.js','scripts/validate-sync-current-forward.js','scripts/fixtures/sync-current-forward-20261107.json','scripts/fixtures/onboarding-forward-version-plan-20261107.json','scripts/lib/forward-onboarding-ci.js','scripts/lib/forward-onboarding-workflow-overlay.json','scripts/validate-forward-onboarding-ci.js','scripts/package-forward-onboarding.js','docs/verification/onboarding-forward-ci-20261107.md','app-version.json','index.html','service-worker.js',...OUTPUTS]);
+ if(phase==='qualification')allowed.add('scripts/validate-account-sync-recovery-browser.js');
  const changed=git('diff','--no-renames','--name-only','-z',POLICY.productHead,H).split('\0').filter(Boolean);
  for(const p of changed)assert(allowed.has(p),'outside scoped maintenance delta: '+p);
  for(const [p,wanted]of Object.entries(POLICY.productFiles)){
