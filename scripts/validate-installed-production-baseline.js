@@ -23,7 +23,7 @@ async function primaryCaptureControls(){
  for(const file of sourceFiles)blobs.set(file,cp.execFileSync('git',['show',api.BASELINE+':'+file],{cwd:path.join(__dirname,'..'),encoding:null,stdio:['ignore','pipe','pipe'],timeout:2000,maxBuffer:4194304,env:{PATH:process.env.PATH,GIT_NO_REPLACE_OBJECTS:'1',GIT_OPTIONAL_LOCKS:'0'}}));
  assert.equal(hash(blobs.get('config/deployment-manifest.json')),api.POLICY_HASH);
  const nullObjects=value=>value&&typeof value==='object'&&!Array.isArray(value)?Object.assign(Object.create(null),Object.fromEntries(Object.entries(value).map(([key,child])=>[key,nullObjects(child)]))):value;
- const binding=()=>nullObjects({schemaVersion:'primary-baseline-capture-binding.v1',baselineSha:api.BASELINE,baselineVersion:'609',preparedForBaseSha:api.BASELINE,collectorSha:'a'.repeat(40),collectorTree:'b'.repeat(40),deployment:{id:api.DEPLOYMENT,state:'READY',releaseGitSha:api.BASELINE,origin:api.PRIMARY,checkedAt:stamp},alias:{domain:'nothingsport.app',deploymentId:api.DEPLOYMENT,projectId:api.PROJECT,teamId:api.TEAM,redirect:null,checkedAt:stamp},publisherWindow:{owner:'nsPUBLISH',held:true}});
+ const binding=()=>nullObjects({schemaVersion:'primary-baseline-capture-binding.v1',baselineSha:api.BASELINE,baselineVersion:api.BASELINE_VERSION,preparedForBaseSha:api.BASELINE,collectorSha:'a'.repeat(40),collectorTree:'b'.repeat(40),deployment:{id:api.DEPLOYMENT,state:'READY',releaseGitSha:api.BASELINE,origin:api.PRIMARY,checkedAt:stamp},alias:{domain:'nothingsport.app',deploymentId:api.DEPLOYMENT,projectId:api.PROJECT,teamId:api.TEAM,redirect:null,checkedAt:stamp},publisherWindow:{owner:'nsPUBLISH',held:true}});
  function fixture(){
   const f={binding:binding(),mono:0,wall:NOW,calls:[],timers:[],cancelledReaders:0,releasedReaders:0};
   f.advance=ms=>{f.mono+=ms;f.wall+=ms;};
@@ -33,6 +33,7 @@ async function primaryCaptureControls(){
     if(args[2]==='HEAD^{commit}')return Buffer.from('a'.repeat(40)+'\n');
     if(args[2]==='HEAD^{tree}')return Buffer.from('b'.repeat(40)+'\n');
     if(args[2]===api.BASELINE+'^{commit}')return Buffer.from(api.BASELINE+'\n');
+    if(args[2]===api.BASELINE+'^{tree}')return Buffer.from(api.BASELINE_TREE+'\n');
    }
    if(args[0]==='merge-base'&&args[1]==='--is-ancestor')return Buffer.alloc(0);
    if(args[0]==='show'&&args[1].startsWith(api.BASELINE+':')){const found=blobs.get(args[1].slice(api.BASELINE.length+1));if(found)return found;}
@@ -55,6 +56,31 @@ async function primaryCaptureControls(){
  }
  async function control(name,operation){await operation();passed.push(name);}
  function stopped(report,code,attempts){assert.equal(report.state,'STOP_FIRST_FAILURE_NO_RETRY');assert.equal(report.readyForBaselineRecord,false);assert.equal(report.failure.code,code);assert.equal(report.attempted,attempts);assert(!JSON.stringify(report).includes(SECRET));}
+ await control('independent INTENT/body ACK bytes join before any transport; not cloud authority',async()=>{
+  const intentBytes=Buffer.from('{"scope":"SYNTHETIC_CONTROL_ONLY_NOT_AUTHORITY"}\n'),bodyBytes=Buffer.from('{"schemaVersion":"primary-baseline-capture-request.v1"}');
+  const args={intentBytes,bodyBytes,acknowledgedIntentSha256:hash(intentBytes),acknowledgedBodySha256:hash(bodyBytes)};
+  const joined=api.validateCaptureIntentBodyAck(args);assert.equal(joined.scope,'BYTE_JOIN_ONLY_NOT_ACK_AUTHENTICATION_OR_ACTION_AUTHORITY');
+  for(const mutate of [
+   x=>{x.intentBytes=Buffer.concat([x.intentBytes,Buffer.from(' ')]);},
+   x=>{x.bodyBytes=Buffer.concat([x.bodyBytes,Buffer.from(' ')]);},
+   x=>{x.acknowledgedIntentSha256='0'.repeat(64);},x=>{x.acknowledgedBodySha256='0'.repeat(64);},
+   x=>{x.acknowledgedIntentSha256='invalid';},x=>{x.intentBytes=Buffer.alloc(api.MAX_RECEIPT+1);},
+   x=>{x.bodyBytes=Buffer.alloc(65537);},
+   x=>{x.bodyBytes=Buffer.concat([x.bodyBytes,Buffer.from('\n')]);x.acknowledgedBodySha256=hash(x.bodyBytes);},
+   x=>{x.bodyBytes=Buffer.from('{"x":1,"x":2}');x.acknowledgedBodySha256=hash(x.bodyBytes);}
+  ]){const f=fixture(),broken={...args};mutate(broken);assert.throws(()=>api.validateCaptureIntentBodyAck(broken));assert.equal(f.calls.length,0);}
+ });
+ await control('fixed accepted611 identity and matching source objects are genuinely applicable',async()=>{
+  assert.equal(api.BASELINE,'4bff7ada7d03c3bff52a262f58e630fe47848a74');assert.equal(api.BASELINE_TREE,'5e6eff7d4307fb97e725f57469d9ecabcb78c7a2');assert.equal(api.BASELINE_VERSION,'611');assert.equal(api.DEPLOYMENT,'dpl_CRai77riopJQrZNyGbJZBKkVmPVA');
+  assert.equal(JSON.parse(blobs.get('app-version.json')).version,'611');const f=fixture(),r=await f.run();assert.equal(r.baselineSha,api.BASELINE);assert.equal(r.baselineVersion,'611');assert.equal(r.readyForBaselineRecord,true);assert.equal(f.calls.length,3);
+ });
+ await control('old609 and wrong fixed611 identities refuse before transport',async()=>{
+  for(const mutate of [
+   b=>b.baselineVersion='609',b=>b.baselineVersion='612',b=>b.baselineSha='037a6214c1a573b57298d3ea504de0b89e31d473',
+   b=>b.deployment.id='dpl_iMQryy8NccQZSzJnUc9i1HLdLYhB',b=>b.deployment.releaseGitSha='037a6214c1a573b57298d3ea504de0b89e31d473',
+   b=>b.alias.deploymentId='dpl_iMQryy8NccQZSzJnUc9i1HLdLYhB',b=>b.alias.teamId='team_OTHER'
+  ]){const f=fixture();mutate(f.binding);const r=await f.run();assert.equal(r.readyForBaselineRecord,false);assert.equal(r.attempted,0);assert.equal(f.calls.length,0);assert.equal(r.failure.code,'binding_identity');}
+ });
  await control('actual module import is inert and cannot load alias/provider helpers',async()=>{
   assert.equal(typeof api.captureInstalledPrimaryBaseline,'function');assert.deepEqual(denied,{network:0,provider:0,alias:0,child:0,filesystem:0});assert(!loads.some(n=>n.includes('vercel')||n.includes('alias')));
  });
@@ -101,11 +127,12 @@ async function primaryCaptureControls(){
   }
  });
  await control('actual collector/tree, ancestor read, materialization policy and baseline version are bound',async()=>{
-  for(const change of ['collector','tree','ancestor','policy','version']){
+  for(const change of ['collector','tree','baseline-tree','ancestor','policy','version']){
    const f=fixture(),original=f.read;
    if(change==='collector')f.binding.collectorSha='c'.repeat(40);
    if(change==='tree')f.binding.collectorTree='c'.repeat(40);
    f.read=args=>{
+    if(change==='baseline-tree'&&args[0]==='rev-parse'&&args[2]===api.BASELINE+'^{tree}')return Buffer.from('c'.repeat(40)+'\n');
     if(change==='ancestor'&&args[0]==='merge-base')throw Error(SECRET);
     if(change==='policy'&&args[0]==='show'&&args[1].endsWith(':config/deployment-manifest.json'))return Buffer.from('{}');
     if(change==='version'&&args[0]==='show'&&args[1].endsWith(':app-version.json'))return Buffer.from('{"version":"608"}\n');
@@ -173,7 +200,7 @@ async function primaryCaptureControls(){
   const r=await f.run();assert.equal(r.readyForBaselineRecord,true);assert(r.files.every(x=>x.headers.etag===null&&x.headers['content-type']==='text/plain'));assert(!JSON.stringify(r).includes(SECRET));assert(Buffer.byteLength(JSON.stringify(r))<=api.MAX_RECEIPT);
  });
  assert.deepEqual(denied,{network:0,provider:0,alias:0,child:0,filesystem:0});
- return{status:'PASS_PURE_PRIMARY_CAPTURE_CONTROLS',groups:passed.length,passed,networkRequests:denied.network,providerRequests:denied.provider,aliasCalls:denied.alias,fixtureGitReads:sourceFiles.length,scope:'Actual verifier in a closed VM with injected transport/clock/streams and four existing committed M4 blobs; no real transport calibration, primary body observation, CI or device acceptance'};
+ return{status:'PASS_PURE_PRIMARY_CAPTURE_CONTROLS',groups:passed.length,passed,networkRequests:denied.network,providerRequests:denied.provider,aliasCalls:denied.alias,fixtureGitReads:sourceFiles.length,scope:'Actual verifier in a closed VM with injected transport/clock/streams and four existing committed accepted611 blobs; synthetic transport only, no real611 capture or external INTENT/ACK authority; no real transport calibration, primary body observation, CI or device acceptance'};
 }
 async function run(){
  let checks=0;

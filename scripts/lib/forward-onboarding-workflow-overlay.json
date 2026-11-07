@@ -2,7 +2,7 @@
   "schemaVersion": "forward-onboarding-workflow-overlay.v1",
   "state": "SOURCE_ONLY_REVIEW_REQUIRED",
   "beforeSha256": "cf0d5a623de10834c530d10de83e825642c249b5b804a36d72582c5fd80f2dbf",
-  "afterSha256": "ca5cc9cfcc468d1a1eaee3a31fde0148619ee3353b1036442d3263cc2170685a",
+  "afterSha256": "86a3b9d86ee2b188552fba6cc48db1fc1131aa296e42c772007a76aceabc862d",
   "edits": [
     {
       "before": "      - scripts/validate-production-sql-batches.js\n",
@@ -59,6 +59,10 @@
     {
       "before": "      - name: Verify Feed controls above fixed navigation\n",
       "after": "      # NS_CURRENT_FORWARD_BROWSER_BEGIN\n      - name: Verify reviewed onboarding directories in the installed browser matrix\n        env:\n          ONBOARDING_QA_ENGINE: ${{ matrix.browser }}\n        run: |\n          export PLAYWRIGHT_MODULE=\"$RUNNER_TEMP/ns-playwright/node_modules/playwright\"\n          set -o pipefail\n          timeout --signal=TERM --kill-after=5s 120s node scripts/validate-onboarding-directories-browser.js 2>&1 | tee \"$RUNNER_TEMP/ns-upgrade-proof/onboarding-directories.log\"\n      # NS_CURRENT_FORWARD_BROWSER_END\n      - name: Verify Feed controls above fixed navigation\n"
+    },
+    {
+      "before": "assert.equal(hash(collectorBytes),'6123d29c05e0c34d74bedac7a1e6af7d9b44c7708d779f7ae16107b85cf95fc3','Unchanged reviewed collector only');",
+      "after": "assert.equal(hash(collectorBytes),'cd9f08b8fafad5ada96460043520b9293c65b91fb3f0cfc6db617c8db343b824','Exact reviewed fixed611 collector only');"
     }
   ]
 }

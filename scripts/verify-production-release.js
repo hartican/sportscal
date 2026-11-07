@@ -44,8 +44,9 @@ async function verifyProductionRelease(){
   console.log(JSON.stringify(report,null,2));
 }
 const PRIMARY='https://nothingsport.app';
-const BASELINE='037a6214c1a573b57298d3ea504de0b89e31d473';
-const DEPLOYMENT='dpl_iMQryy8NccQZSzJnUc9i1HLdLYhB';
+const BASELINE='4bff7ada7d03c3bff52a262f58e630fe47848a74';
+const BASELINE_TREE='5e6eff7d4307fb97e725f57469d9ecabcb78c7a2',BASELINE_VERSION='611';
+const DEPLOYMENT='dpl_CRai77riopJQrZNyGbJZBKkVmPVA';
 const PROJECT='prj_NAMl47QVLbPUfsMmap59JIpchOPD',TEAM='team_7deI3EHsjeMpMdPiaLSQZBwW';
 const POLICY_HASH='78f7a1c46accaf56fb83ec1f4d8f5ecf98621a620807658c805870191297b103';
 const FILES=Object.freeze(['index.html','service-worker.js','app-version.json']);
@@ -62,7 +63,7 @@ function checkedClock(value,now){
 }
 function validateCaptureBinding(binding,wall){
   exactKeys(binding,['schemaVersion','baselineSha','baselineVersion','preparedForBaseSha','collectorSha','collectorTree','deployment','alias','publisherWindow']);
-  requireCapture(binding.schemaVersion==='primary-baseline-capture-binding.v1'&&binding.baselineSha===BASELINE&&binding.baselineVersion==='609','binding_identity');
+  requireCapture(binding.schemaVersion==='primary-baseline-capture-binding.v1'&&binding.baselineSha===BASELINE&&binding.baselineVersion===BASELINE_VERSION,'binding_identity');
   for(const key of ['preparedForBaseSha','collectorSha','collectorTree'])requireCapture(typeof binding[key]==='string'&&/^[a-f0-9]{40}$/.test(binding[key]),'source_binding');
   exactKeys(binding.deployment,['id','state','releaseGitSha','origin','checkedAt']);
   requireCapture(binding.deployment.id===DEPLOYMENT&&binding.deployment.state==='READY'&&binding.deployment.releaseGitSha===BASELINE&&binding.deployment.origin===PRIMARY,'binding_identity');
@@ -73,6 +74,20 @@ function validateCaptureBinding(binding,wall){
   exactKeys(binding.publisherWindow,['owner','held']);
   requireCapture(binding.publisherWindow.owner==='nsPUBLISH'&&binding.publisherWindow.held===true,'binding_identity');
 }
+// Optional pure pre-submission byte join for the existing sole-PUBLISH procedure.
+// The caller must independently establish the ACK's origin, allocation, window
+// and not-submitted state. This is NOT a trusted cloud ACK lookup or GET grant.
+function validateCaptureIntentBodyAck({intentBytes,bodyBytes,acknowledgedIntentSha256,acknowledgedBodySha256}={}){
+  requireCapture(Buffer.isBuffer(intentBytes)&&intentBytes.length>0&&intentBytes.length<=MAX_RECEIPT,'publisher_intent_input');
+  requireCapture(Buffer.isBuffer(bodyBytes)&&bodyBytes.length>0&&bodyBytes.length<=65536,'publisher_body_input');
+  for(const digest of [acknowledgedIntentSha256,acknowledgedBodySha256])requireCapture(typeof digest==='string'&&/^[a-f0-9]{64}$/.test(digest),'publisher_ack_digest');
+  requireCapture(hash(intentBytes)===acknowledgedIntentSha256,'publisher_intent_ack');
+  requireCapture(hash(bodyBytes)===acknowledgedBodySha256,'publisher_body_ack');
+  const text=bodyBytes.toString('utf8');requireCapture(Buffer.from(text).equals(bodyBytes),'publisher_body_format');
+  let body;try{body=JSON.parse(text);}catch{throw new CaptureError('publisher_body_format');}
+  requireCapture(body&&typeof body==='object'&&!Array.isArray(body)&&JSON.stringify(body)===text,'publisher_body_format');
+  return{intentSha256:acknowledgedIntentSha256,bodySha256:acknowledgedBodySha256,scope:'BYTE_JOIN_ONLY_NOT_ACK_AUTHENTICATION_OR_ACTION_AUTHORITY'};
+}
 function sourceRead(args){
   try{return execFileSync('git',args,{cwd:path.join(__dirname,'..'),encoding:null,stdio:['ignore','pipe','pipe'],timeout:2000,maxBuffer:MAX_BODY,env:{PATH:process.env.PATH,GIT_NO_REPLACE_OBJECTS:'1',GIT_OPTIONAL_LOCKS:'0'}});}
   catch{throw new CaptureError('source_binding');}
@@ -81,6 +96,7 @@ function captureSources(binding,read,check){
   const text=args=>{const bytes=read(args);requireCapture(Buffer.isBuffer(bytes),'source_binding');return bytes.toString('utf8').trim();};
   requireCapture(text(['rev-parse','--verify','HEAD^{commit}'])===binding.collectorSha&&text(['rev-parse','--verify','HEAD^{tree}'])===binding.collectorTree,'source_binding');check();
   for(const sha of [BASELINE,binding.preparedForBaseSha])requireCapture(text(['rev-parse','--verify',sha+'^{commit}'])===sha,'source_binding');
+  requireCapture(text(['rev-parse','--verify',BASELINE+'^{tree}'])===BASELINE_TREE,'source_binding');
   read(['merge-base','--is-ancestor',BASELINE,binding.preparedForBaseSha]);read(['merge-base','--is-ancestor',binding.preparedForBaseSha,binding.collectorSha]);check();
   const policyBytes=read(['show',BASELINE+':config/deployment-manifest.json']);
   requireCapture(Buffer.isBuffer(policyBytes)&&hash(policyBytes)===POLICY_HASH,'source_policy');
@@ -88,7 +104,7 @@ function captureSources(binding,read,check){
   requireCapture(policy.schemaVersion==='deployment-manifest.v1'&&policy.compactJson===true&&Array.isArray(policy.preserveBytes)&&FILES.every(file=>policy.preserveBytes.includes(file)),'source_policy');
   let version;
   const sources=FILES.map(file=>{const bytes=read(['show',BASELINE+':'+file]);check();requireCapture(Buffer.isBuffer(bytes)&&bytes.length>0&&bytes.length<=MAX_BODY,'source_binding');if(file==='app-version.json'){try{version=JSON.parse(bytes.toString('utf8'));}catch{throw new CaptureError('source_binding');}}return{file,bytes:bytes.length,sha256:hash(bytes)};});
-  requireCapture(version&&version.version==='609','source_binding');check();return sources;
+  requireCapture(version&&version.version===BASELINE_VERSION,'source_binding');check();return sources;
 }
 function stopCode(error){
   if(error instanceof CaptureError)return error.code;
@@ -110,7 +126,7 @@ function safeHeaders(response){
   return headers;
 }
 async function captureInstalledPrimaryBaseline({binding,read=sourceRead,request=(url,options)=>fetch(url,options),environment=process.env,now=Date.now,timer=()=>performance.now(),schedule=setTimeout,cancel=clearTimeout,captureId=crypto.randomUUID()}={}){
-  const report={schemaVersion:'installed-primary-body-capture.v1',state:'STOP_BEFORE_READ',origin:PRIMARY,baselineSha:BASELINE,baselineVersion:'609',files:[],attempted:0,completeBodies:0,matchedFiles:0,remaining:[...FILES],readyForBaselineRecord:false,bodyEncoding:'Decoded entity bytes, not raw compressed/TLS wire bytes',contextTrust:'Publisher-supplied READY/alias/window binding, not independently queried or authenticated by this capture',releaseAcceptance:false};
+  const report={schemaVersion:'installed-primary-body-capture.v1',state:'STOP_BEFORE_READ',origin:PRIMARY,baselineSha:BASELINE,baselineVersion:BASELINE_VERSION,files:[],attempted:0,completeBodies:0,matchedFiles:0,remaining:[...FILES],readyForBaselineRecord:false,bodyEncoding:'Decoded entity bytes, not raw compressed/TLS wire bytes',contextTrust:'Publisher-supplied READY/alias/window binding, not independently queried or authenticated by this capture',releaseAcceptance:false};
   let whole,active,reader,wholeController;let began,wall,lastMono,lastWall;
   const clock=()=>{
     const mono=timer(),at=now();
@@ -180,5 +196,5 @@ async function main({argv=process.argv.slice(2),environment=process.env,normal=v
   if(report.state!=='PASS_THREE_PRIMARY_BODIES_NOT_RELEASE_ACCEPTANCE')process.exitCode=1;
   return report;
 }
-module.exports={main,verifyProductionRelease,captureInstalledPrimaryBaseline,validateCaptureBinding,readCaptureBinding,PRIMARY,BASELINE,DEPLOYMENT,PROJECT,TEAM,POLICY_HASH,FILES,FILE_MS,CAPTURE_MS,MAX_BODY,MAX_RECEIPT};
+module.exports={main,verifyProductionRelease,captureInstalledPrimaryBaseline,validateCaptureBinding,validateCaptureIntentBodyAck,readCaptureBinding,PRIMARY,BASELINE,BASELINE_TREE,BASELINE_VERSION,DEPLOYMENT,PROJECT,TEAM,POLICY_HASH,FILES,FILE_MS,CAPTURE_MS,MAX_BODY,MAX_RECEIPT};
 if(require.main===module)main().catch(e=>{console.error(e.message);process.exitCode=1;});

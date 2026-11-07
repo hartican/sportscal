@@ -233,7 +233,7 @@ jobs:
           const H=digestHex(event.pull_request.head.sha,40,'Actual H'),T=digestHex(process.env.GITHUB_SHA,40,'Actual T');
           const observed={checkoutSha:git('rev-parse','HEAD'),parents:git('show','-s','--format=%P',T).split(' '),headTree:git('rev-parse',H+'^{tree}'),testedTree:git('rev-parse',T+'^{tree}')};
           const collectorPath=path.join(root,'scripts/verify-production-release.js'),collectorBytes=stableBytes(collectorPath,256*1024);
-          assert.equal(hash(collectorBytes),'6123d29c05e0c34d74bedac7a1e6af7d9b44c7708d779f7ae16107b85cf95fc3','Unchanged reviewed collector only');
+          assert.equal(hash(collectorBytes),'cd9f08b8fafad5ada96460043520b9293c65b91fb3f0cfc6db617c8db343b824','Exact reviewed fixed611 collector only');
           const collector=require(collectorPath);
           const selected=primaryCaptureRequest(requestBytes,event,process.env,observed,Date.now(),collector.validateCaptureBinding);
           cleanCheckout();
