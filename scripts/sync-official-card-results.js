@@ -7,6 +7,7 @@ const path = require("node:path");
 const { storylineFor, spoilerSafeRootCopy } = require("./lib/storyline-card-rules");
 
 const acceptedResults=require('./lib/accepted-result-projection');
+const { createRetirementIndex } = require('../lib/retired-horse-coverage');
 
 const ROOT = path.resolve(__dirname, "..");
 const SNAPSHOT_PATH = path.join(ROOT, "data/canonical/official-card-results-2026.json");
@@ -19,6 +20,7 @@ function resultAliases(event){
 }
 
 function applyOfficialResults(events, snapshot){
+  const retirement = createRetirementIndex([...events, ...(snapshot.results || [])]);
   const acceptedAliases=new Map();
   for(const row of snapshot.results || [])if(acceptedResults.isAcceptedResult(row)){
     acceptedResults.validateAcceptedResult(row);
@@ -35,6 +37,7 @@ function applyOfficialResults(events, snapshot){
   }
   let count = 0;
   const nextEvents = events.map(event => {
+    if (retirement.isRetired(event)) return event;
     const result = resultAliases(event).map(id => results.get(id)).find(Boolean);
     if (!result) return event;
     if(acceptedResults.isAcceptedResult(result)){
