@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "retired-horse-joined-qualification-fixtures.v1",
+  "description": "Synthetic, non-provider fixtures for retirement graph qualification only.",
+  "typedParent": {"id":"test:horse-parent","key":"horse-racing","subEvents":[{"id":"test:opaque-child","sourceEventIds":["test:opaque-alias"]}]},
+  "ordinaryParent": {"id":"test:ordinary-parent","key":"motogp","subEvents":[{"id":"test:typed-child","key":"horse-racing"},{"id":"test:ordinary-sibling","key":"motogp"}]},
+  "explicitChild": {"id":"test:explicit-child","parentId":"test:horse-parent"},
+  "clock": "2026-11-01T00:00:00.000Z"
+}

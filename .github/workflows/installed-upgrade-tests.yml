@@ -1591,3 +1591,576 @@ jobs:
           name: installed-upgrade-${{ github.event.pull_request.head.sha }}-${{ matrix.browser }}
           path: ${{ runner.temp }}/ns-upgrade-proof
           retention-days: 1
+
+  withdrawal-qualification:
+    name: Withdrawal / isolated source qualification
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.action == 'opened' &&
+      github.run_attempt == 1 &&
+      github.repository == 'hartican/sportscal' &&
+      github.event.pull_request.draft == true &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.base.repo.full_name == github.repository &&
+      github.event.pull_request.head.ref == 'codex/source-qualification-withdrawal-20261108-01' &&
+      github.event.pull_request.base.ref == 'main' &&
+      github.event.pull_request.base.sha == '9f20813c9855e30d4ca32e721862f739b6d696ba' &&
+      startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-withdrawal-qualification.v1",')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Bind source and enforce the isolated fixed qualification
+        timeout-minutes: 8
+        shell: bash
+        run: |
+          /usr/bin/python3 - <<'NS_WITHDRAWAL_CONTROLLER'
+          import os,sys,json,re,stat,hashlib,base64,pathlib,subprocess,selectors,time,signal,io,tarfile,shutil
+          REQUEST="ns-withdrawal-qual-v1-20261108-01"
+          BASE="9f20813c9855e30d4ca32e721862f739b6d696ba"
+          PRODUCT="aa14b59c844695d57a312d60c4ac741dfca57752"
+          PRODUCT_TREE="9a628835eef6c1fcdd0402feb63d4c2e17ce2c03"
+          BRANCH="codex/source-qualification-withdrawal-20261108-01"
+          WORKFLOW=".github/workflows/installed-upgrade-tests.yml"
+          INDEX_DIGEST="sha256:3d27e5c11e5786e309ec3e03f93ae536eb36e6e5eb3714d5eb3300a36157add0"
+          PLATFORM_DIGEST="sha256:9af606de2e947cfb3f276633b7c5130c4cd22365aa10f5a647b7675d5cfce0c0"
+          IMAGE="docker.io/library/node@"+PLATFORM_DIGEST
+          CLOSURE_BYTES=base64.b64decode("ewogICJzY2hlbWFWZXJzaW9uIjogIndpdGhkcmF3YWwtc291cmNlLWNsb3N1cmUudjIiLAogICJzdGF0ZSI6ICJQUk9QT1NFRF9BTExPV0xJU1RfTk9UX1BST1ZFTl9DT01QTEVURV9VTlJVTiIsCiAgImNhbmRpZGF0ZSI6ICJhYTE0YjU5Yzg0NDY5NWQ1N2EzMTJkNjBjNGFjNzQxZGZjYTU3NzUyIiwKICAidHJlZSI6ICI5YTYyODgzNWVlZjZjMWZjZGQwNDAyZmViNjNkNGMyZTE3Y2UyYzAzIiwKICAiY2FuZGlkYXRlTWFwU2hhMjU2IjogImNmODA1NWE0M2Q3YTZjNTg3OWMxMjNkYjM1OGE1Y2JiY2Y2N2E3NWFlMTllY2UxYzBlZjNlM2Q3NGQyYzQxOGUiLAogICJmaWxlcyI6IFsKICAgIHsKICAgICAgInBhdGgiOiAiY29uZmlnL2NhcmQtdGltaW5nLmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogMjI0MjAsCiAgICAgICJzaGEyNTYiOiAiNTQ2OTRiYzFiZGE1ZDJjNTU1ZmQ5OGIwOWFlMTM2YjJiZWI5Y2NjOTE1M2M0ZjNiY2U2ZDliZWVjZGY5ZWNjZCIsCiAgICAgICJnaXRCbG9iIjogImM4ZGFmZjFkNjkzMGUyYjgxYTE3YWZmZmE1MDBjYzllODAzYjc1YmUiLAogICAgICAicmVhc29uIjogIlJFTEVBU0UgYm91bmRlZCBzb3VyY2UgZGlzY292ZXJ5OyBsb2FkIGVkZ2Ugc3RpbGwgcmVxdWlyZXMgcmV2aWV3IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAiY29uZmlnL2NvbXBldGl0aW9uLWNsYXNzaWZpY2F0aW9uLmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogNTAwOCwKICAgICAgInNoYTI1NiI6ICIyZTBmZDhlZTM3NDcxMjE5MmQ1NmYzMWE4OTU1NjdlY2FkZTg4MTY5NGM0YmIyZjM3ODIwOTdmY2Y3ZjZhY2M3IiwKICAgICAgImdpdEJsb2IiOiAiYzEyOTFlZGJhMGE1NmQyNjRkZDE0NDNlNzZhYWExYWUxNGNjZWI4YiIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJjb25maWcvY292ZXJhZ2UtcGF1c2VzLmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogMjU3NiwKICAgICAgInNoYTI1NiI6ICI1ZWM3MTAxNTQyMTBmM2VkNzQxMWFkNDJjYzY4MTAxM2M1OGNlZWQ0YmZiNThlNTZhM2ZhNmE1MDkxMjgwMjZiIiwKICAgICAgImdpdEJsb2IiOiAiYzE0MjMxZDcyZThkMGM0NzQ4NDY1NmYwZDhjZjVkYzBjYjliMzVhYSIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJjb25maWcvY3JpY2tldC1jb3ZlcmFnZS5qcyIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJieXRlcyI6IDExMTQ3LAogICAgICAic2hhMjU2IjogIjJmMTI3OTA5ZTBkZDE2NTc0ZmU0MmNlNTgxZWFiM2FmZDE4MTBkNDY5NTNmNTA5NmQ2ZTE2ODE1NWE0ZTZkOWQiLAogICAgICAiZ2l0QmxvYiI6ICI3ODZjOWZkOWY1OGM4YTcyYTU2NjhlMWRkYzg5NmRmNjRlMzI2ZmQ2IiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImNvbmZpZy9jcmlja2V0LWVkaXRvcmlhbC1wb2xpY3kuanMiLAogICAgICAibW9kZSI6ICIxMDA2NDQiLAogICAgICAiYnl0ZXMiOiAyNDA3LAogICAgICAic2hhMjU2IjogIjE0OGJiMDc3M2RjYjcxYmY4MTUwZGZjYjhhZGVhNTYyMDI5YzMyZmQyNzgxNmE0M2E1MTJhYjgwNzIwNzBhY2UiLAogICAgICAiZ2l0QmxvYiI6ICI2NGE4NWIzYTc4MzFlZGRiZDhiNTg2YzY1OTg0YzU1ZDRiNzZmMjI4IiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImNvbmZpZy9lZGl0b3JpYWwtbWFpbnRlbmFuY2UuanMiLAogICAgICAibW9kZSI6ICIxMDA2NDQiLAogICAgICAiYnl0ZXMiOiA0MDgwLAogICAgICAic2hhMjU2IjogIjNjOGIxMWRjMGU5ZmEwYjFmYmVjNWVjZDBhZGE2MDAwZTE1MmE1YWU1NzU4ZmZmMGU3NjNjZjVmNjBkYWU4MzYiLAogICAgICAiZ2l0QmxvYiI6ICI2MTRiNjQ4ZGExNjFmMzkwZWU0NDEzMDMyMGRhMzlmM2RmMzRhNmFkIiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImNvbmZpZy9lbnJpY2htZW50LWVuZ2luZS5qcyIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJieXRlcyI6IDI2NTkyLAogICAgICAic2hhMjU2IjogIjY2NzM5YzE5Y2U3MzFmOTM2YzkwZTk5ODhlNTE3MGI0ZGZjYTU2MTI4OTcyMjk2ODVlNGVjZmI1NzA0ZjkyYTIiLAogICAgICAiZ2l0QmxvYiI6ICI1NTVjODc1NzZlMjRkMDJhMTUwOTIyODRiNTBkNjRiNTkzMmM2ZDU4IiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImNvbmZpZy9ldmVudC1hY3Rpb24taWRlbnRpdHkuanMiLAogICAgICAibW9kZSI6ICIxMDA2NDQiLAogICAgICAiYnl0ZXMiOiA3MDIyLAogICAgICAic2hhMjU2IjogIjJhZDI2NzE0YjRhZmIzNWQwODM4YjM2MjZmMmRiNTVkMDI0MDQxMDkwMGY3MTdkMjdiM2VhODRiOGVlMDMyNTgiLAogICAgICAiZ2l0QmxvYiI6ICIwNDA2MDk5ZDY1MTc0ZGJlNjhkYTlkOGE3MzUyODM3YTliNWNmY2NjIiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImNvbmZpZy9mZWVkLWNvbnRyb2xzLmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogMTcyNDMsCiAgICAgICJzaGEyNTYiOiAiZjNjYWQzMWFlZDFjMzUwMmYxMWJjMWQ2NjQ4YWU5YzRiZjc3ZjYzOGU1ZGJiMjBiZmU0MzU0NGEwN2Y1YmZiNyIsCiAgICAgICJnaXRCbG9iIjogIjU4ZjZhZmQyNzQ1OGJjYjMyYmEyNTk4YTRmMjc1NjNmMmE3YWM3ZjUiLAogICAgICAicmVhc29uIjogIlJFTEVBU0UgYm91bmRlZCBzb3VyY2UgZGlzY292ZXJ5OyBsb2FkIGVkZ2Ugc3RpbGwgcmVxdWlyZXMgcmV2aWV3IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAiY29uZmlnL2ZpeHR1cmUtaWRlbnRpdHkuanMiLAogICAgICAibW9kZSI6ICIxMDA2NDQiLAogICAgICAiYnl0ZXMiOiA0MzI3OCwKICAgICAgInNoYTI1NiI6ICIxMjdlNzJiZDIwZWI0YTcxZGViNjU5NjYyNWI1ZjMyOTQ4M2E0M2U5YTk2MDY5NTYyOTcwN2E5Mjc1NmU4Yzk3IiwKICAgICAgImdpdEJsb2IiOiAiODg3ZDNiYTUwNGJjZjRjZWRlYzFiNDVkM2M0ZjI3ZjY3YzA4NzI4MyIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJjb25maWcvZml4dHVyZS1yZW1pbmRlci1wb2xpY3kuanMiLAogICAgICAibW9kZSI6ICIxMDA2NDQiLAogICAgICAiYnl0ZXMiOiA3ODExLAogICAgICAic2hhMjU2IjogIjBhNDhmMWE3Y2JhNzU2YjZmNWEyMWM4ZjQ2NmI5NDc4ZWQ2OGQzY2UyMzVhZTY1MzU1NTc2MTk0Nzc1ODQyM2UiLAogICAgICAiZ2l0QmxvYiI6ICI2NDdiOGZlYzkyZjEyNWMyYjFiZjczNzRjMzBmZGZjMWU0NjQ3NGJjIiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImNvbmZpZy9mb2xsb3ctZmVlZC1wb2xpY3kuanMiLAogICAgICAibW9kZSI6ICIxMDA2NDQiLAogICAgICAiYnl0ZXMiOiAyMjcxNCwKICAgICAgInNoYTI1NiI6ICJiNGJlYmFmODFjN2MzMTBiZThjYTdhZWE3NTk4MjBlOGEyNThhOWJjNTFjZmY3ODBhMzY1ZjY0MDcxNzNiYzZhIiwKICAgICAgImdpdEJsb2IiOiAiMDM2ZGQ3MzRhYTlmMTQ0ZTU3NGI1ZmM5YmY5NThjZTQ3NWUwNDVkMyIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJjb25maWcvZm9sbG93LWZpcnN0LmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogNzM1OTgsCiAgICAgICJzaGEyNTYiOiAiZTBmODgzNTJhZjQ1OTYzOGUwYTUxZDk1NGJkYzk4ZWZlNzIzZGU1YzU0MDA0NzgwMTZkYzlhMTYyMzNkZDU0MyIsCiAgICAgICJnaXRCbG9iIjogImNiZTFlZmQ3ZTdjMzQ5ZjZhMjBlOTZiMDQ2N2YzYTUwOTAzMTdlMDEiLAogICAgICAicmVhc29uIjogIlJFTEVBU0UgYm91bmRlZCBzb3VyY2UgZGlzY292ZXJ5OyBsb2FkIGVkZ2Ugc3RpbGwgcmVxdWlyZXMgcmV2aWV3IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAiY29uZmlnL25hdGlvbmFsLXRlYW0taWRlbnRpdGllcy5qcyIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJieXRlcyI6IDMzMDA2LAogICAgICAic2hhMjU2IjogIjEyMTEyNzIxNTg4ZTA1Y2Y3YjQ2YmZhNzg2ZTExNmNiNWZhMzFkZjRiMDI4NTgyNTlhZWJjNzQyZjg2NWE4NmUiLAogICAgICAiZ2l0QmxvYiI6ICIxYTEyOTkyZmI4MWYxNmVhMTM3ZDM4ZjE5YmM2MmQ3M2MxODVmZmY1IiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImNvbmZpZy9ub3RoaW5nc2NvcmUuanMiLAogICAgICAibW9kZSI6ICIxMDA2NDQiLAogICAgICAiYnl0ZXMiOiAxMDQxMiwKICAgICAgInNoYTI1NiI6ICJjZGExOTMzNjMwZjc3YjE0OTFhMTk4NDdkZDgzZTY1NWI0OWU2NGRjNTc0NDY4Y2IyMDBhZjQ3ZTUyNGYzNTk5IiwKICAgICAgImdpdEJsb2IiOiAiYzc4NGI0YjUyOGYzOTJlZDRhZmRmOTljYjg2MzZmZWZiNjgzMmU1NSIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJjb25maWcvb2RpLWRpc3BsYXkuanMiLAogICAgICAibW9kZSI6ICIxMDA2NDQiLAogICAgICAiYnl0ZXMiOiAxNDQ4LAogICAgICAic2hhMjU2IjogIjM4YWU1YTI0NGRhMDdiM2U2NTdiZDAzMmQ4NmRlNzQzZDk2MTk2YTBjZDgyMDdhZGZiZDkxZDAzNzk1NDQzNmMiLAogICAgICAiZ2l0QmxvYiI6ICI3ZDc0MzRmODRiYTIyN2I2MjQ1MGFkOTE4ZjVhYjZiN2RkOTNjZjY3IiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImNvbmZpZy9yYWNpbmctZGV0YWlscy5qcyIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJieXRlcyI6IDExOTI0LAogICAgICAic2hhMjU2IjogIjM5YmJjYzI0YTE2ZjFmMTg4ZDYyNzc2NGM3YjdiYTUyMDQ5YWY4ZmJkMGI3MTRhM2Q4ZWNiY2FhZTYwZjhlNTEiLAogICAgICAiZ2l0QmxvYiI6ICJhMjc4YjY3NGMwNWFkZTExMjIzZTIwZTYwM2M2YWEzMmM2MDkxNmJiIiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImNvbmZpZy9yZXZpZXdlZC1maXh0dXJlLXJlcGFpcnMuanMiLAogICAgICAibW9kZSI6ICIxMDA2NDQiLAogICAgICAiYnl0ZXMiOiA2NjE2LAogICAgICAic2hhMjU2IjogImFiYTcyMWZhY2NlOTI1ZDI1NWI4MzA4YTc3ZGU2YTFjODIzMGMzN2UxM2JjMTVlN2NiMjE1NTIzYWUyNGY0NDYiLAogICAgICAiZ2l0QmxvYiI6ICI4Y2Q2MjNmMmM1NGFiYTIzNTIxNTE3YWNkZjBhZjFhYzNmMGVkZDM2IiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImNvbmZpZy9zZWxlY3Rvci10YXhvbm9teS5qcyIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJieXRlcyI6IDE0OTUzLAogICAgICAic2hhMjU2IjogImZmYTgyZDUyOTMwYzFjYmI4YjdmMGVmODk5NjY4NjMxMTkwZWU3MDBmMjhjZGYwNjc1ZDhjM2E3MTBmMGVhNDkiLAogICAgICAiZ2l0QmxvYiI6ICIyZTM4YjY3ZTk2MDE2N2IyZGU0ZThmZjA0NTZlYmI3YzUzZTk0YTlkIiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImNvbmZpZy9zb3VyY2UtdHJ1c3QuanMiLAogICAgICAibW9kZSI6ICIxMDA2NDQiLAogICAgICAiYnl0ZXMiOiAyNjYxLAogICAgICAic2hhMjU2IjogIjhjNjZkNTNkOTBhYTgxYTQ0ZjhiZmZjMTY4YWZhNjUyNTEwYTRkZGExNWVlNWEyYmE2MzQwMWYyYTIwMWY1YjEiLAogICAgICAiZ2l0QmxvYiI6ICJmOGI4ZDk3MjkwZGQzM2NjMTFiODljYWJmMzU5NzAxNjM5NWJkNDI3IiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImNvbmZpZy9zdG9yeWxpbmUtb3ZlcnJpZGVzLmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogNDE5MywKICAgICAgInNoYTI1NiI6ICI5ZmU4Y2JiNWRjYjMzMTJkMGY3OTY5NzgzNTUwNzExN2FlNTI3ZTRiOTNjOTNlM2M5N2E4ZWRlNjI4ZmI5MTJlIiwKICAgICAgImdpdEJsb2IiOiAiNDEwYTEwY2Q2Nzg5ZWI1ZTlkYTgyMWYzZTY3M2JlMWZmZWJjNGQ3YSIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJjb25maWcvdGVubmlzLWZlZWQuanMiLAogICAgICAibW9kZSI6ICIxMDA2NDQiLAogICAgICAiYnl0ZXMiOiAxMjc2OCwKICAgICAgInNoYTI1NiI6ICIwZDZhYTMyNzZhYzlkYzQ5NmM3OGM5MDBjN2JjYWMyYmY3NzM0MDlmMTI4NWUzMDkyMzZjOGZiN2E0YmNlMTAyIiwKICAgICAgImdpdEJsb2IiOiAiZThhMjQ2YzJlYjA5YzMxMGYwMjQyZDZlNjM4ZGNmMGEwM2IyNDRiNiIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJkYXRhL2Nhbm9uaWNhbC9lcGwtcHJvdmlkZXItaWRlbnRpdGllcy52MS5qc29uIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogMjQ1NDcsCiAgICAgICJzaGEyNTYiOiAiNmY1OTllZjE2MmIzZWY0ZjVlN2M5Njc1MjJhMTJkZjlhMTZjYmRmOWMyYzllZDkyMWEyZThjZDBkYjYzNzExYSIsCiAgICAgICJnaXRCbG9iIjogIjQ3YzE4N2Y1NjAyOGRiODc5NDFiZTVmOTQwM2Y3ZjIzYTc4YmFmN2MiLAogICAgICAicmVhc29uIjogIlJFTEVBU0UgYm91bmRlZCBzb3VyY2UgZGlzY292ZXJ5OyBsb2FkIGVkZ2Ugc3RpbGwgcmVxdWlyZXMgcmV2aWV3IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAiZGF0YS9jYW5vbmljYWwvdGVubmlzLWNvbnRleHQtMjAyNi5qc29uIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogMjA3MTgzLAogICAgICAic2hhMjU2IjogImVmZDM5ZjNiZWFjNDZlZDQwOTUzYzExNGQ0YzIwZTk5M2EyMTU0OGRmZmM2MzgxNzkwZDFlNDFmZWIyZGYwMWQiLAogICAgICAiZ2l0QmxvYiI6ICI2NGY2MWQzZDNkMzg2ZWQ4YjMyOWY3NDU5ZDIzMThlMjFlNjYwYmE1IiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImRhdGEvY2Fub25pY2FsL3Rlbm5pcy13YXRjaC1wb29sLTIwMjYuanNvbiIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJieXRlcyI6IDIyNTQ4LAogICAgICAic2hhMjU2IjogImFmYzExM2U0YjNkZjk3N2JmY2MwY2M1MTExZTY2ZmZjM2ZhNzQyMDY4NWY4Y2M1Nzk0ZDZjNjg0NGJlNzMwMTAiLAogICAgICAiZ2l0QmxvYiI6ICIxMTc5ODBkNzljNzY4ZTY3ZTljZjk4OTkxNGViYzgwNzRlNDlkYzRjIiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImxpYi9hdXRvbWF0aWMtcmVtaW5kZXJzLmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogMzc2NywKICAgICAgInNoYTI1NiI6ICI4YzFlY2YwNmIyOGExMDExOTk2ZjFlNWVjMDM0OWNlZGYzNTJhMmYwOWVhNGUwNThkYjNjNjMyMDUwOTBlN2Q3IiwKICAgICAgImdpdEJsb2IiOiAiNDdkYzk0ZjEzNTNmNDkxNjJiNmY4ZjUxNTI0NzJkMzI0OGQzODVjNiIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJsaWIvY29tcGFjdC1maXh0dXJlLW9ic2VydmF0aW9ucy5qcyIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJieXRlcyI6IDMyMDcsCiAgICAgICJzaGEyNTYiOiAiNTVkZmZiZTJkMzgzOTEyOGI1MWE0NmEyMTE5MTRjMmU3NjVhN2I1ZDY0N2RkNzVjYzY1YTM3ODYzMzk2YTBmYSIsCiAgICAgICJnaXRCbG9iIjogIjZmNDAxYWU4NjJlMDVmYWFkNjU4MWY1NmU4OTQ2MjBhNTI1Njk0NWUiLAogICAgICAicmVhc29uIjogIlJFTEVBU0UgYm91bmRlZCBzb3VyY2UgZGlzY292ZXJ5OyBsb2FkIGVkZ2Ugc3RpbGwgcmVxdWlyZXMgcmV2aWV3IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAibGliL2VwbC1wcm92aWRlci1pZGVudGl0aWVzLmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogNTg1NCwKICAgICAgInNoYTI1NiI6ICIwYjdmNDJlOTFmMTE4MDllY2FkZDE0MDFjNTQ3Y2NkNjA0MDM1MWJjZTNlMDg3NmQ1N2FiNjM1N2JlMWI3M2I3IiwKICAgICAgImdpdEJsb2IiOiAiOTU3MTA0NTViY2ZhZjM5ZWEyYWI2NjlkZTgzNGVlZGNhM2JmMDIzOCIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJsaWIvZmVlZC1yZXNwb25zZS1jYWNoZS5qcyIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJieXRlcyI6IDE0MTQsCiAgICAgICJzaGEyNTYiOiAiNmMzOTlmZTJmODBjZjY2YTA0NzIzOGYwOTQxOTQ0ZWY0ZjhmMDJlMWE5M2JiNjI4NGNjM2Y2NWJjNDA1NmY1OCIsCiAgICAgICJnaXRCbG9iIjogIjVkOWNlMGQyYTBiYmY2NjA5MzM0ZTFhOWQxMjI4NjY2NjRmZWU5NzIiLAogICAgICAicmVhc29uIjogIlJFTEVBU0UgYm91bmRlZCBzb3VyY2UgZGlzY292ZXJ5OyBsb2FkIGVkZ2Ugc3RpbGwgcmVxdWlyZXMgcmV2aWV3IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAibGliL2ZpeHR1cmUtY2xvY2stY29tcG9uZW50cy5qcyIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJieXRlcyI6IDQ2OTcsCiAgICAgICJzaGEyNTYiOiAiNWU3OTU0ZGY4YWMwNjI5ODk5MDAzODNlNTliOGZkYjQ4ODBhODdjMWYwZTRjOTdkMDg4ZTRjZDc1ZjRlNWZhYSIsCiAgICAgICJnaXRCbG9iIjogIjg1NzkwMjhlZTFlZDI2Zjc0MzQ3NjIzYmFhYmZmZDMwYWU2YmY2MDYiLAogICAgICAicmVhc29uIjogIlJFTEVBU0UgYm91bmRlZCBzb3VyY2UgZGlzY292ZXJ5OyBsb2FkIGVkZ2Ugc3RpbGwgcmVxdWlyZXMgcmV2aWV3IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAibGliL2ZpeHR1cmUtcmVhZC1wb2xpY3kuanMiLAogICAgICAibW9kZSI6ICIxMDA2NDQiLAogICAgICAiYnl0ZXMiOiAyMDQ1LAogICAgICAic2hhMjU2IjogImM1NjlkNGUyYWM2OWViZWNmNmM5NmE5MDMwODIzMzc1ZDNjMDJlZDg3YjY2N2Y4YTFmZmM5N2VhNWI4MjliNGYiLAogICAgICAiZ2l0QmxvYiI6ICJjMjA3ZWEwNWM0MzhhZmFmZjE4ZjMxMDZlZDE0NGQyNzQyOTBiMTdiIiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImxpYi9maXh0dXJlLXNuYXBzaG90LmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogMTcwOCwKICAgICAgInNoYTI1NiI6ICJlZGQ5NjRkN2UxYWVjMTQ0Y2UyNTEwZDE2ODQ0MjQ4ZDM5YTE1ODU0MGFjOTBlNGEwYTdmNGE3Yzk5NjRhZDY5IiwKICAgICAgImdpdEJsb2IiOiAiZDkyOTA5NmRhODM2N2RmMDZlMWI3MWEyZGI5ZjFmOTE5NTBhNzI3NyIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJsaWIvZml4dHVyZS1zb3VyY2UtZ3JvdXBzLXYyLmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogNDg5MywKICAgICAgInNoYTI1NiI6ICI0MTkxMTEyZTQ2MzU3NTZkYzlkNzNkMGVkNGZjNmIyMzFhODM0MDk1MmMxNzZmNTVmNWIzZDhkMmYxYjI2MWQyIiwKICAgICAgImdpdEJsb2IiOiAiZTEwOWNjNWM0MmE5MjVjMzFkNWJlNThkNDVhMzlkYWQwMDUzNjVhYiIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJsaWIvZml4dHVyZS1zb3VyY2UtZ3JvdXBzLmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogMjk5MywKICAgICAgInNoYTI1NiI6ICJkOWUxMjg1NDdiMjliZjdlNDZhYzYwNzMzMjhjZmFjYzlmMWMzYjVjMzEwZTZlZGRlM2QyNTIwYzJlYzNiNzFmIiwKICAgICAgImdpdEJsb2IiOiAiYTE0NGM2YTRkZDViYjMyMzc1OTljOTc1ODVkNDk5YWE4MGMyNWZjYyIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJsaWIvbGl2ZS1maXh0dXJlcy5qcyIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJieXRlcyI6IDI5NTU5LAogICAgICAic2hhMjU2IjogIjVkNjRlNTc4YmRmZTNkNjQzMzhmMDExMzBkMzE0MTFkN2Y2MjlhNzZiMzY4NDEwODllZGYwNTAzYzYzNmFjNTkiLAogICAgICAiZ2l0QmxvYiI6ICIxY2UwZjk5NWYzMWIxNjkwY2UwYzQ5OWI4Zjg4NDE2NDNhYjE1MDZjIiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImxpYi9yZW1pbmRlci1maXh0dXJlcy5qcyIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJieXRlcyI6IDU4MjcsCiAgICAgICJzaGEyNTYiOiAiZTljODVmMTI4MWZlMDcyYzBkYWE0ZTA1ZGQ0MzA2ZDY5NDRiMTI2YjRmMWJhNDdmNjY3ZjM2Zjk2NDM5NDlmYSIsCiAgICAgICJnaXRCbG9iIjogIjAzZmZhMWNmZDM3YjI0ZWQzYThmMGJkZWVlZTUzYTNiYWNjOWVhNGYiLAogICAgICAicmVhc29uIjogIlJFTEVBU0UgYm91bmRlZCBzb3VyY2UgZGlzY292ZXJ5OyBsb2FkIGVkZ2Ugc3RpbGwgcmVxdWlyZXMgcmV2aWV3IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAibGliL3JlbWluZGVyLXNjaGVkdWxlcy5qcyIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJieXRlcyI6IDIxNzMsCiAgICAgICJzaGEyNTYiOiAiNmIzYjgxMTM0YjYwN2VkN2ViMzUzYjUwOTA4MjIwM2Q1ZWY5NzhmYWM0YjJkNDFjODEwOWYxZDljZjc1MDIxYyIsCiAgICAgICJnaXRCbG9iIjogIjIwMzlhNTAzNDgwY2Q1OWEwODBkNzlkNzE2NDY0N2M1ZmZiZDNkNzIiLAogICAgICAicmVhc29uIjogIlJFTEVBU0UgYm91bmRlZCBzb3VyY2UgZGlzY292ZXJ5OyBsb2FkIGVkZ2Ugc3RpbGwgcmVxdWlyZXMgcmV2aWV3IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAibGliL3JldGlyZWQtaG9yc2UtY292ZXJhZ2UuanMiLAogICAgICAibW9kZSI6ICIxMDA2NDQiLAogICAgICAiYnl0ZXMiOiAzODE3LAogICAgICAic2hhMjU2IjogImFhYTY4YTY4YWNkMzE4YzM4ZThhZDU5NTZiZmI3OGY4OTM0NTVhZjBjOTMxOTU1NjUyZDQyZjg4MTdmMmRmZjgiLAogICAgICAiZ2l0QmxvYiI6ICI1NTIxNmY5ODViNDc0MDE5ZjlmYjNiMzY4M2U1ZTZiNjJiYmQyYmIxIiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImxpYi9yZXZpZXdlZC1zZXNzaW9uLXRpbWluZy5qcyIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJieXRlcyI6IDM2MjUsCiAgICAgICJzaGEyNTYiOiAiN2M3YjkxMmQ0ZWM4NWI3NDE1YzQ5NmQ3NjA1ZDQxZmIwMDJmODc2YjcxYzJjMWIwZWY1MWJjZDEyOGQ0YzlkNCIsCiAgICAgICJnaXRCbG9iIjogImJkNTljYWYxODNjMWMyYWViNDM0OWNlNDhlZWIyZGY0NjI3OWY5MzIiLAogICAgICAicmVhc29uIjogIlJFTEVBU0UgYm91bmRlZCBzb3VyY2UgZGlzY292ZXJ5OyBsb2FkIGVkZ2Ugc3RpbGwgcmVxdWlyZXMgcmV2aWV3IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAibGliL3Nlc3Npb24tb3JkZXItZXN0aW1hdGVzLmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogNzAxMCwKICAgICAgInNoYTI1NiI6ICIzMzhmZDJhNzZiODU3YWEyZDAwODQ5MTM4ZGE3MDliZGUxMWY1OTE4ODVmMjJlMzZiZjhhYTZiZjdhZmYyYWFmIiwKICAgICAgImdpdEJsb2IiOiAiNzIxN2RiZWE0NmI1YjVmNmQyMzQyNWI4OTNkYTg2MzkzNzMxNzg0MiIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJsaWIvc25hcHNob3QtZmFpbHVyZS1yZWNlaXB0LmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogMzMzNiwKICAgICAgInNoYTI1NiI6ICI1OWZkZWFkOTY5NjNhYzQwZmQ4MWM3ZDMzYWY3NjQyYzYwMmJkY2RlOTI2NmUzZTE0MTQ1NWNiNTVjNWU0NjBiIiwKICAgICAgImdpdEJsb2IiOiAiMTZhMmY2ZDY5ZmZmYTY2OGFmN2Q3MjY0MDkxOGVmZWI1YmFiNjVhNCIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJsaWIvc3VwYWJhc2Utc2VydmVyLmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogMTY1ODAsCiAgICAgICJzaGEyNTYiOiAiMWI0MjdjYTc0ODc0MzU2OWIwYzljN2ExZTlkNDcxNTAzNzM0YTEyOTUwODAxZTg1MTBiNDNkZDU1NDFiODg4OSIsCiAgICAgICJnaXRCbG9iIjogImI1YjA5MmU2OGY0ZWU1ODYzNzJkMmE0MDM2ZTQ4MWU3ZmM5ODdhMmMiLAogICAgICAicmVhc29uIjogIlJFTEVBU0UgYm91bmRlZCBzb3VyY2UgZGlzY292ZXJ5OyBsb2FkIGVkZ2Ugc3RpbGwgcmVxdWlyZXMgcmV2aWV3IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAicGFja2FnZS5qc29uIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogNTAwLAogICAgICAic2hhMjU2IjogImJmMzk0YjkwZWJjZTVkMTFlNzZiYTZjODJlNGU3ZDI2N2M0ZjUwYWJjMDFmZDNiZDNlMzQzYzQxYzg2MzRjZTAiLAogICAgICAiZ2l0QmxvYiI6ICJlNTEzZjA4NmU5Yzc2Y2FjN2E5MjkwNzBkMGFmZTg3ZGRmNmY0ZmYzIiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogInNjcmlwdHMvYXBwbHktY3VycmVudC1jYXJkLWV2aWRlbmNlLmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogMjUwNzksCiAgICAgICJzaGEyNTYiOiAiNjUyYmQzNTZkZTBmZmY4ZDc2ZjkzZjc5YjI2ZjllZDQ3YmMyYWFhYjBjMGUzNDEyZDU0ODA4N2JhODI3MjliNyIsCiAgICAgICJnaXRCbG9iIjogIjY4ZTRiNWE5YzZiYzgzODNjY2Q5OTFhMmQ1N2M5NmIyNWU1NDU2NzYiLAogICAgICAicmVhc29uIjogIlJFTEVBU0UgYm91bmRlZCBzb3VyY2UgZGlzY292ZXJ5OyBsb2FkIGVkZ2Ugc3RpbGwgcmVxdWlyZXMgcmV2aWV3IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAic2NyaXB0cy9maXh0dXJlcy9jcmlja2V0LWNhMzk5OTEtZmluYWwtcmVjZWlwdC0yMDI2MTAyMy5qc29uIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogMTEwMywKICAgICAgInNoYTI1NiI6ICJkNWE2MmUyOTBhN2RjNWU1ODQ5MWNjNWM2MzcwMjgwZmE4OGY0YjMwYWJjNzhlZWQyMGE0ZGRhYmFlODA4NDc1IiwKICAgICAgImdpdEJsb2IiOiAiYjNjZGI4OWI1YjBiYzJiMmE5Y2ExMzI4NzdlMjdlOTUzZThlOTBhYyIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJzY3JpcHRzL2xpYi9hY2NlcHRlZC1jcmlja2V0LXJlc3VsdC5qcyIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJieXRlcyI6IDEwNTE1LAogICAgICAic2hhMjU2IjogIjk3NTMzNjFhZjBiZjQxNDQ5NTYxYzI1YjBhMmExYTIzN2Y3ODI4NmVmMTRkMGNjMzdiOWM5YjdhYzJhMWEyNGQiLAogICAgICAiZ2l0QmxvYiI6ICIyNWMwODU5MmUyMWY3ZTA0NDM2NDQwZDY0ZjVkODcwZTNlM2VkN2IzIiwKICAgICAgInJlYXNvbiI6ICJSRUxFQVNFIGJvdW5kZWQgc291cmNlIGRpc2NvdmVyeTsgbG9hZCBlZGdlIHN0aWxsIHJlcXVpcmVzIHJldmlldyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogInNjcmlwdHMvbGliL2FjY2VwdGVkLXJlc3VsdC1wcm9qZWN0aW9uLmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogMTU2MzYsCiAgICAgICJzaGEyNTYiOiAiY2IzMzk1ZmFhMTNmZGQ4OGI1MTQ4MzkyZTk4OTZiMmFmOTk5ZjEyODkxYmQwNDhhYjUyYjUyZmFiMjQ3NTQ3MCIsCiAgICAgICJnaXRCbG9iIjogIjllMzZhYWI4NDc2YzIzMTYyOWJkMDZmY2RlMGNjMjVmZDM5NTFhN2UiLAogICAgICAicmVhc29uIjogIlJFTEVBU0UgYm91bmRlZCBzb3VyY2UgZGlzY292ZXJ5OyBsb2FkIGVkZ2Ugc3RpbGwgcmVxdWlyZXMgcmV2aWV3IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAic2NyaXB0cy9saWIvY3JpY2tldC1lZGl0b3JpYWwtZXZpZGVuY2UuanMiLAogICAgICAibW9kZSI6ICIxMDA2NDQiLAogICAgICAiYnl0ZXMiOiAxMDMwMSwKICAgICAgInNoYTI1NiI6ICI1NmQwMjczZGM3ZmYwZWQ5YjUyNmMyZWVjM2VkMGFkYzAyMWJkNGU1ODQ3NzFiMGZjOWE3OGFlMjE0YTdlODg4IiwKICAgICAgImdpdEJsb2IiOiAiMGJlNzViZmQwZWVkOTRkNTc0ZmEyMTA1YzQwOTUxYTExYzZlOTI1ZiIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJzY3JpcHRzL2xpYi9lZGl0b3JpYWwtbmFycmF0aXZlLmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogMzMzMTAsCiAgICAgICJzaGEyNTYiOiAiZjNkMzk2Y2I5MDRjMDI0NWFjMmFmZDUyN2ZhMWYyOGE0NWNiNzk0YjI2OTlkMmRkNmZhMzFjZGNmNGYzMzhjOCIsCiAgICAgICJnaXRCbG9iIjogIjI4OTQ4YjM0MDI3MTA0NTkwYmYzYjY3NzFjMmI4YjQwNjIwMDQ4MWMiLAogICAgICAicmVhc29uIjogIlJFTEVBU0UgYm91bmRlZCBzb3VyY2UgZGlzY292ZXJ5OyBsb2FkIGVkZ2Ugc3RpbGwgcmVxdWlyZXMgcmV2aWV3IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAic2NyaXB0cy9saWIvZWRpdG9yaWFsLXB1YmxpY2F0aW9uLmpzIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgImJ5dGVzIjogMzkxOCwKICAgICAgInNoYTI1NiI6ICI4Zjc5NTZhYWIwMzI4NDM5MTk1NTZmYjFlYTI3ZTE4MWUzMzcyMDg2MDJjNzY2YjFjYjMyN2ZjYTYwYzg1MjgyIiwKICAgICAgImdpdEJsb2IiOiAiZDRhMWUxZTI1ZmM0MDhhZjc4ZmI4ODdmOGZkNTRmNWJjZTRkODM4YiIsCiAgICAgICJyZWFzb24iOiAiUkVMRUFTRSBib3VuZGVkIHNvdXJjZSBkaXNjb3Zlcnk7IGxvYWQgZWRnZSBzdGlsbCByZXF1aXJlcyByZXZpZXciCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJzY3JpcHRzL2xpYi9zdG9yeWxpbmUtY2FyZC1ydWxlcy5qcyIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJieXRlcyI6IDk3NzIsCiAgICAgICJzaGEyNTYiOiAiNDkxYWU2OTE4ODgxODI4YjY3ZDNmN2U1MDgzYjA1ZGI5N2E0MGEyMTMyM2E0ODU0YmFiMWYyODcyNDBmY2YwNSIsCiAgICAgICJnaXRCbG9iIjogImRmODBjOTdjYzAyZWZmMDE1NjBjMjQ5MmNkMGIzOGFiZjlhZmNiMjUiLAogICAgICAicmVhc29uIjogIlJFTEVBU0UgYm91bmRlZCBzb3VyY2UgZGlzY292ZXJ5OyBsb2FkIGVkZ2Ugc3RpbGwgcmVxdWlyZXMgcmV2aWV3IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAic2NyaXB0cy9zeW5jLW9mZmljaWFsLWNhcmQtcmVzdWx0cy5qcyIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJieXRlcyI6IDQzMzIsCiAgICAgICJzaGEyNTYiOiAiOTM1ZGU2NmI5YmU3NzdmNTYzZTlhZjRmMzQ0ODk0ZjRlYmY3ZDdlZjg1YWIyZTlkMDMyNTk2ZTFhN2E5MGUyNSIsCiAgICAgICJnaXRCbG9iIjogImRkYjMxMWMzYjc0NDkwZmE5YmMyMjhkZjg4NGYzYzU4Y2U5ZWVkZDMiLAogICAgICAicmVhc29uIjogIlJFTEVBU0UgYm91bmRlZCBzb3VyY2UgZGlzY292ZXJ5OyBsb2FkIGVkZ2Ugc3RpbGwgcmVxdWlyZXMgcmV2aWV3IgogICAgfQogIF0sCiAgImxpbWl0cyI6ICJVbmxpc3RlZCByZXNvbHV0aW9uIG11c3QgZmFpbDsgbm8gZHluYW1pYyBncm93dGguIFVNRC9lYWdlciBKU09OIGFuZCBsYXp5LWJyYW5jaCByZWFjaGFiaWxpdHkgcmVxdWlyZSBpbmRlcGVuZGVudCByZXZpZXcuIgp9Cg==",validate=True)
+          MANIFEST_BYTES=base64.b64decode("ewogICJzY2hlbWFWZXJzaW9uIjogIm5zLXdpdGhkcmF3YWwtaGFybmVzcy1zb3VyY2UudjMiLAogICJzdGF0ZSI6ICJTT1VSQ0VfT05MWV9VTlBBUlNFRF9VTlJVTl9VTkFQUExJRURfUkVWSUVXX1JFUVVJUkVEIiwKICAiY2FuZGlkYXRlIjogImFhMTRiNTljODQ0Njk1ZDU3YTMxMmQ2MGM0YWM3NDFkZmNhNTc3NTIiLAogICJ0cmVlIjogIjlhNjI4ODM1ZWVmNmMxZmNkZDA0MDJmZWI2M2Q0YzJlMTdjZTJjMDMiLAogICJ2MU1hbmlmZXN0U2hhMjU2IjogIjExMTZiMjNjOGRmYThhOWQzZGMyZGJkYTM3MWU1NTVlMTVkNTFkZTBmYmY5OWE4NzM3MjNmNzU5NjRiNDMyYzUiLAogICJjbG9zdXJlIjogewogICAgInBhdGgiOiAiZGVwZW5kZW5jeS1jbG9zdXJlLnYzLmpzb24iLAogICAgImJ5dGVzIjogMTc5MTcsCiAgICAic2hhMjU2IjogIjQzNDYwZDFjMTA2YWIyMmYxOTc1ZmZhNWJjMDBmMzE0YmQ4Y2Q0Yzg5Y2RkMWFhMjU3NTdkOGNmZTliNTdmNDUiLAogICAgInN0YXRlIjogIjUyX1BBVEhfRklOSVRFX0lOVk9DQVRJT05fU09VUkNFX1JFVklFV0VEX1JVTlRJTUVfVU5SVU4iCiAgfSwKICAiZmlsZXMiOiBbCiAgICB7CiAgICAgICJwYXRoIjogInNjcmlwdHMvdmFsaWRhdGUtcmV0aXJlZC1ob3JzZS1vZmZpY2lhbC1yZXN1bHRzLmpzIiwKICAgICAgImJ5dGVzIjogNjgxMywKICAgICAgInNoYTI1NiI6ICIyM2FjNGMzMmNkYjMxMjczMjczODViNTRmNGJiZWNhZTFmYTgyYTQzMGMwOWExYzNjNWRhNjcwZGZkOGM4YjAyIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgIm9yaWdpbiI6ICJ2MSIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogInNjcmlwdHMvdmFsaWRhdGUtcmV0aXJlZC1ob3JzZS1yZXZpZXdlZC1ldmlkZW5jZS5qcyIsCiAgICAgICJieXRlcyI6IDY5NDcsCiAgICAgICJzaGEyNTYiOiAiODMxNzhhOGM4ZjJjNjU4ZTFlMGE5OTQ3ZGMwOTBjZTEyNzM5ZTRhYzcyNTQ1NWQ4NGYxZDVhYTY5YjFjMWFlNSIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJvcmlnaW4iOiAidjEiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJzY3JpcHRzL3ZhbGlkYXRlLXJldGlyZWQtaG9yc2UtcmVtaW5kZXItY2F0YWxvZ3VlLmpzIiwKICAgICAgImJ5dGVzIjogNjk2OSwKICAgICAgInNoYTI1NiI6ICJiMTcyNGJlNWEzYzJiZmYyODA3MTVhZTU3ODFmZjk4MGEwOTRkMWVmYjZhNDc3ZDdkNmM1NDUxMWNjN2IyODYwIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgIm9yaWdpbiI6ICJ2MSIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogInNjcmlwdHMvdmFsaWRhdGUtcmV0aXJlZC1ob3JzZS1yZW1pbmRlci1kZWNpc2lvbnMuanMiLAogICAgICAiYnl0ZXMiOiA4NDk0LAogICAgICAic2hhMjU2IjogIjA2NmQyNzhjYzQ5M2UzYjg0ODlkMDZmZjVjMzE5NGZmZDc5ODNkMGY4MWQ5MjZmZTc5MmMyMDBhOWY0ZjZmNDYiLAogICAgICAibW9kZSI6ICIxMDA2NDQiLAogICAgICAib3JpZ2luIjogInYxIgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAic2NyaXB0cy92YWxpZGF0ZS1yZXRpcmVkLWhvcnNlLWpvaW5lZC1xdWFsaWZpY2F0aW9uLmpzIiwKICAgICAgImJ5dGVzIjogNzc5MywKICAgICAgInNoYTI1NiI6ICI1MTgzOTM1OTQ3MjM5MTA4ZWIzNzA3ODI4MTkyZDhkMjk4OTgxOWY3ZmY0ZTY0YmNkYmYzNWZjNjI2MTNiMTUyIiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgIm9yaWdpbiI6ICJ2MyIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogInNjcmlwdHMvZml4dHVyZXMvcmV0aXJlZC1ob3JzZS1wdWJsaXNoZXItaW5wdXQudjEuanNvbiIsCiAgICAgICJieXRlcyI6IDM5MDkzLAogICAgICAic2hhMjU2IjogIjMyMzM3ZDY2M2E0MGQ5MjQ5N2ViY2U5YjJmMjMyMzJmZDczNTkxYTQwZTcwY2VkYzNlYmFiNmUyMTk0ZTAxZjEiLAogICAgICAibW9kZSI6ICIxMDA2NDQiLAogICAgICAib3JpZ2luIjogInYxIgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAic2NyaXB0cy9maXh0dXJlcy9yZXRpcmVkLWhvcnNlLWpvaW5lZC1xdWFsaWZpY2F0aW9uLnYxLmpzb24iLAogICAgICAiYnl0ZXMiOiA2MDQsCiAgICAgICJzaGEyNTYiOiAiZjZkMjAwZDZlNjM0NWY5ZmUzNTZkMWNiZGU5MDFkMjk1NWI1YzU5M2Y2OGYxOWY5OGVhNzY0OTM0NDc4MTMzNyIsCiAgICAgICJtb2RlIjogIjEwMDY0NCIsCiAgICAgICJvcmlnaW4iOiAidjEiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJzY3JpcHRzL2xpYi9yZXRpcmVkLWhvcnNlLXF1YWxpZmljYXRpb24tZ3VhcmRzLmpzIiwKICAgICAgImJ5dGVzIjogNjA3NiwKICAgICAgInNoYTI1NiI6ICI3YjdhOTViYzQxN2M5NThjMWViNzg1MGVkZjMyZDJiNGU0NWZhM2M1OWNmOGQ2ZmEzNzg1ZDI4NjM0YzRmNGY3IiwKICAgICAgIm1vZGUiOiAiMTAwNjQ0IiwKICAgICAgIm9yaWdpbiI6ICJ2MyIKICAgIH0KICBdLAogICJwYXRjaGVzIjogewogICAgImZvcndhcmQucGF0Y2giOiB7CiAgICAgICJieXRlcyI6IDQyNDYsCiAgICAgICJzaGEyNTYiOiAiYWE4NzcwNGYwMDY1NzE3N2U4Mjc5NGE3NTRjN2QzNmI5MWMzZjdjNTVhNjQ1ZDc4MzFmYThjMTg4OGRkNmI2ZSIKICAgIH0sCiAgICAiaW52ZXJzZS5wYXRjaCI6IHsKICAgICAgImJ5dGVzIjogNDI0NiwKICAgICAgInNoYTI1NiI6ICI3NWRiNmNhOTc4MTExYWQ0NTlmNDQ4MDFiNTVlODg5MTQxMDZiMmM0YzIyNmI4YzhiODU0ZDExYzFjYWFmNjM0IgogICAgfQogIH0sCiAgImNvbW1hbmQiOiAidGltZW91dCAtLXNpZ25hbD1URVJNIC0ta2lsbC1hZnRlcj01cyAxODBzIG5vZGUgLS1tYXgtb2xkLXNwYWNlLXNpemU9NTEyIC0tcmVxdWlyZSAuL3NjcmlwdHMvbGliL3JldGlyZWQtaG9yc2UtcXVhbGlmaWNhdGlvbi1ndWFyZHMuanMgc2NyaXB0cy92YWxpZGF0ZS1yZXRpcmVkLWhvcnNlLWpvaW5lZC1xdWFsaWZpY2F0aW9uLmpzIiwKICAiYmluZGluZyI6ICJ0cnVzdGVkIGNvbnRyb2xsZXIgbW91bnRzIGV4YWN0IHYzIGJ5dGVzIGF0IGZpeGVkIC9jYW5kaWRhdGUtYmluZGluZy9kZXBlbmRlbmN5LWNsb3N1cmUudjIuanNvbiBhbmQgL2NhbmRpZGF0ZS1iaW5kaW5nL2hhcm5lc3MtbWFuaWZlc3QudjIuanNvbiBuYW1lczsgZmlsZW5hbWVzIGFyZSBub3QgYXV0aG9yaXR5IiwKICAibGltaXRhdGlvbnMiOiBbCiAgICAic291cmNlLW9ubHkgY29ycmVjdGlvbnMgdW5wYXJzZWQvdW5ydW47IGluZGVwZW5kZW50IHJldmlldyByZXF1aXJlZCIsCiAgICAiTm9kZSBob29rIG5vdCBrZXJuZWwvRVNNL25hdGl2ZSBzYW5kYm94OyBleHRlcm5hbCBpc29sYXRpb24gcmVxdWlyZWQiLAogICAgImFjdHVhbCBydW50aW1lIGd1YXJkL3Zpb2xhdGlvbi9yZXBvcnQgYmVoYXZpb3IgYW5kIGFsbCB0ZXN0cyB1bnJ1biIsCiAgICAiaW1hZ2UsIHRydXN0ZWQgY29udHJvbGxlciBiaW5kaW5nLCBPUyBhZG1pc3Npb24sIGhvc3RlZCBzcG9pbGVyIGFuZCByZWxlYXNlIGdhdGVzIHJlbWFpbiBvcGVuIgogIF0sCiAgInJvbGxiYWNrIjogImxpdGVyYWwgaW52ZXJzZSByZXN0b3JlcyB0d28gdjIgc291cmNlIGZpbGVzIG9ubHkgYWZ0ZXIgc2VwYXJhdGVseSBhdXRob3Jpc2VkIGFwcGxpY2F0aW9uIiwKICAidjJNYW5pZmVzdFNoYTI1NiI6ICJhMjJhNzFiNTE3ZDFiYzU2MmY4ZGY4MTI4ZmVlZjQ4ZjYyMTRiNzQ4ZTM0ZjY5NWI2ZjU4ZWI5ZjVlNzNlNmIwIgp9Cg==",validate=True)
+          CLOSURE_SHA="43460d1c106ab22f1975ffa5bc00f314bd8cd4c89cdd1aa25757d8cfe9b57f45"
+          MANIFEST_SHA="9677340475a721252dfa0631e3b5783ba0b8743449f31d1235b3c68ef68bfd49"
+          HEX40=re.compile(r"[0-9a-f]{40}\Z")
+          LOG_CAP=2*1024*1024
+          REPORT_CAP=1024*1024
+          ARTIFACT_CAP=8*1024*1024
+          ARCHIVE_CAP=5*1024*1024
+          EXPECTED=[
+           "official-results","reviewed-evidence","reminder-catalogue","reminder-decisions",
+           "opaque nested child nested-first","opaque nested child flat-first",
+           "explicit parent remains directed","typed child does not retire ordinary parent or sibling",
+           "selected opaque nested retirement nonaccepted","selected opaque nested retirement accepted",
+           "selected opaque nested retirement mixed","major missing fails without writes",
+           "major malformed fails without writes","major missing-events fails without writes",
+           "ordinary selected result preserves editorial and source clock",
+           "accepted capsule is validated and does not leak into output",
+           "accepted projection retains spoiler-safe editorial without leaking capsule"]
+          HCOMMAND=["/usr/bin/timeout","--signal=TERM","--kill-after=5s","180s",
+           "/usr/local/bin/node","--max-old-space-size=512","--require",
+           "./scripts/lib/retired-horse-qualification-guards.js",
+           "scripts/validate-retired-horse-joined-qualification.js"]
+          class Gate(Exception):pass
+          def need(ok,code):
+           if not ok:raise Gate(code)
+          def unique(pairs):
+           d={}
+           for k,v in pairs:
+            need(k not in d,"duplicate_json_key");d[k]=v
+           return d
+          def jsonraw(b):
+           return json.loads(b.decode("utf-8","strict"),object_pairs_hook=unique,
+            parse_constant=lambda _:(_ for _ in ()).throw(Gate("nonfinite_json")))
+          def digest(b):return hashlib.sha256(b).hexdigest()
+          def blob(b):return hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest()
+          def rawfile(p,cap):
+           fd=os.open(p,os.O_RDONLY|os.O_NOFOLLOW)
+           try:
+            s=os.fstat(fd);need(stat.S_ISREG(s.st_mode) and s.st_nlink==1 and 0<=s.st_size<=cap,"regular_file_bound")
+            data=b""
+            while len(data)<=cap:
+             part=os.read(fd,min(65536,cap+1-len(data)))
+             if not part:break
+             data+=part
+            need(len(data)==s.st_size and len(data)<=cap,"file_size_changed");return data
+           finally:os.close(fd)
+          runid=os.environ.get("GITHUB_RUN_ID","");attempt=os.environ.get("GITHUB_RUN_ATTEMPT","")
+          need(re.fullmatch(r"[1-9][0-9]*",runid) and attempt=="1","one_attempt_identity")
+          temp=pathlib.Path(os.environ["RUNNER_TEMP"]).resolve()
+          need(temp.is_dir() and "," not in str(temp),"runner_temp")
+          root=temp/("ns-withdrawal-qual-"+runid+"-"+attempt)
+          root.mkdir(mode=0o700)
+          public=root/"public";public.mkdir(mode=0o700)
+          control=root/"control-plane";control.mkdir(mode=0o700)
+          source=root/"candidate";source.mkdir(mode=0o755)
+          metadata=control/"metadata";metadata.mkdir(mode=0o755)
+          dcfg=root/"docker-config";dcfg.mkdir(mode=0o700)
+          status={"schemaVersion":"ns-withdrawal-controller-receipt.v2","requestId":REQUEST,
+           "state":"UNRUN","phase":"admission","testInvocationAttempted":False,"testHostCliStarted":False,
+           "candidateProcessStarted":"UNKNOWN_NOT_INDEPENDENTLY_OBSERVED","candidateExit":None,
+           "candidateExitState":"UNKNOWN_NOT_INVOKED","candidateHostCliExit":None,
+           "osAdmission":False,"runtimeAccepted":False,"casesObserved":"UNKNOWN","hostOperations":[],
+           "containerOwnership":{"state":"NOT_ATTEMPTED","createInvocationAttempted":False,
+            "confirmedCid":None,"resourceMayRemain":"UNKNOWN_IF_CREATION_IS_ATTEMPTED"},
+           "runId":runid,"attempt":attempt,"command":HCOMMAND,
+           "scope":"Linux isolated mocked-source qualification only; not production/phone/hosted acceptance",
+           "allocationAuthority":"External PUBLISH/RELEASE/COORD binding required; PR body does not authenticate it"}
+          started=time.monotonic();deadline=started+420;cid=None;paused=False
+          def write_new(p,b,mode=0o600):
+           try:
+            fd=os.open(p,os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW,mode)
+            try:
+             f=os.fstat(fd)
+             need(stat.S_ISREG(f.st_mode) and f.st_nlink==1 and f.st_uid==os.getuid() and f.st_size==0,"new_writer_identity")
+             at=0
+             while at<len(b):
+              n=os.write(fd,b[at:]);need(n>0,"new_write_stalled");at+=n
+             os.fsync(fd)
+            finally:os.close(fd)
+           except Exception as error:
+            status.update({"artifactState":"ARTIFACT_INCOMPLETE","state":"FAIL_OR_UNRUN","runtimeAccepted":False,
+             "persistenceFailure":{"writer":"exclusive-file","code":str(error)[:128] if isinstance(error,Gate) else type(error).__name__}})
+            raise
+          def save():
+           try:
+            need(not status.get("statusPersistenceFailed"),"status_persistence_previously_failed")
+            status["elapsedSeconds"]=round(time.monotonic()-started,3)
+            b=(json.dumps(status,sort_keys=True,indent=2)+"\n").encode()
+            need(len(b)<=131072,"status_size")
+            p=public/"status.json"
+            if p.exists():
+             prior=p.lstat()
+             need(stat.S_ISREG(prior.st_mode) and prior.st_nlink==1 and prior.st_uid==os.getuid(),"status_identity")
+             fd=os.open(p,os.O_WRONLY|os.O_NOFOLLOW)
+             try:
+              f=os.fstat(fd)
+              need(stat.S_ISREG(f.st_mode) and f.st_nlink==1 and f.st_uid==os.getuid() and
+               (f.st_dev,f.st_ino)==(prior.st_dev,prior.st_ino),"status_fd_identity")
+              os.ftruncate(fd,0)
+              at=0
+              while at<len(b):
+               n=os.write(fd,b[at:]);need(n>0,"status_write_stalled");at+=n
+              os.fsync(fd)
+             finally:os.close(fd)
+            else:write_new(p,b)
+           except Exception as error:
+            status.update({"artifactState":"ARTIFACT_INCOMPLETE","state":"FAIL_OR_UNRUN","runtimeAccepted":False,
+             "statusPersistenceFailed":True,
+             "persistenceFailure":{"writer":"status","code":str(error)[:128] if isinstance(error,Gate) else type(error).__name__}})
+            raise
+          def stop_process(p,operation):
+           try:
+            if p.poll() is None:
+             operation["stopAttempted"]=True
+             os.killpg(p.pid,signal.SIGTERM);operation["termSent"]=True
+             try:p.wait(timeout=5)
+             except subprocess.TimeoutExpired:
+              os.killpg(p.pid,signal.SIGKILL);operation["killSent"]=True;p.wait(timeout=5)
+           except Exception as error:
+            operation["stopFailure"]=type(error).__name__
+            raise
+           finally:
+            operation["hostCliReturnCode"]=p.poll()
+            operation["hostCliReturnObserved"]=operation["hostCliReturnCode"] is not None
+          def command(args,seconds,cap=2*1024*1024,check=True,log=None,cleanup=False,
+           operation="host-command",candidate=False,creating=False):
+           need(len(status["hostOperations"])<256,"operation_evidence_limit")
+           op={"ordinal":len(status["hostOperations"])+1,"kind":operation,"attempt":1,
+            "submission":"NOT_SUBMITTED","normalReturn":False,"hostCliReturnCode":None,
+            "hostCliReturnObserved":False,"timeoutExceeded":False,"overflow":False,
+            "spawnFailure":None,"stopAttempted":False,"termSent":False,"killSent":False,
+            "stopFailure":None,"logWriteFailure":None,"termination":"UNKNOWN",
+            "startedElapsedSeconds":round(time.monotonic()-started,3)}
+           status["hostOperations"].append(op)
+           p=None;sel=None;data=bytearray();seen=0;problems=[]
+           try:
+            remaining=seconds if cleanup else min(seconds,deadline-time.monotonic())
+            need(remaining>0,"whole_time_limit")
+            until=time.monotonic()+remaining
+            if candidate:status["testInvocationAttempted"]=True
+            if creating:
+             status["containerOwnership"].update({"state":"UNCERTAIN_CREATE_OUTCOME",
+              "createInvocationAttempted":True,"resourceMayRemain":"UNKNOWN","createOperationOrdinal":op["ordinal"]})
+            op["submission"]="POPEN_ATTEMPTED"
+            try:
+             p=subprocess.Popen(args,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,
+              start_new_session=True,env=dict(os.environ,GIT_OPTIONAL_LOCKS="0",
+               GIT_NO_REPLACE_OBJECTS="1",GIT_NO_LAZY_FETCH="1",GIT_CONFIG_NOSYSTEM="1",GIT_CONFIG_GLOBAL="/dev/null"))
+            except Exception as error:
+             op["spawnFailure"]=type(error).__name__;raise
+            op["submission"]="HOST_CLI_STARTED";op["hostPid"]=p.pid
+            if candidate:status["testHostCliStarted"]=True
+            if candidate or creating:save()
+            sel=selectors.DefaultSelector();sel.register(p.stdout,selectors.EVENT_READ)
+            while sel.get_map():
+             need(time.monotonic()<until,"command_timeout")
+             events=sel.select(min(0.2,max(0.001,until-time.monotonic())))
+             for key,_ in events:
+              chunk=os.read(key.fd,65536)
+              if not chunk:sel.unregister(key.fileobj);continue
+              seen+=len(chunk)
+              if len(data)+len(chunk)>cap:
+               keep=cap-len(data);data.extend(chunk[:keep]);op["overflow"]=True
+               status["outputOverflow"]={"observedAtLeast":seen,"retainedPrefixBytes":len(data)}
+               raise Gate("output_limit")
+              data.extend(chunk)
+            rc=p.wait(timeout=max(0.001,until-time.monotonic()))
+            op.update({"normalReturn":True,"hostCliReturnCode":rc,"hostCliReturnObserved":True,
+             "termination":"NORMAL_HOST_RETURN","outcome":"RETURNED"})
+            if check:need(rc==0,"command_exit_nonzero")
+            return bytes(data),rc
+           except Exception as error:
+            code=str(error)[:128] if isinstance(error,Gate) else type(error).__name__
+            op["failureCode"]=code;op["outcome"]="FAILED"
+            op["timeoutExceeded"]=isinstance(error,subprocess.TimeoutExpired) or code in ("command_timeout","whole_time_limit")
+            raise
+           finally:
+            if sel is not None:
+             try:sel.close()
+             except Exception as error:op["selectorCloseFailure"]=type(error).__name__;problems.append("selector_close")
+            if p is not None:
+             try:stop_process(p,op)
+             except Exception:problems.append("stop_process")
+             try:p.stdout.close()
+             except Exception as error:op["pipeCloseFailure"]=type(error).__name__;problems.append("pipe_close")
+            if not op["normalReturn"]:
+             op["termination"]="INTERRUPTED_STOP_REQUESTED" if op["stopAttempted"] else "NO_NORMAL_RETURN"
+            if log is not None:
+             try:write_new(log,bytes(data))
+             except Exception as error:
+              op["logWriteFailure"]=str(error)[:128] if isinstance(error,Gate) else type(error).__name__
+              problems.append("log_write")
+            op.update({"observedOutputBytesAtLeast":seen,"retainedOutputBytes":len(data),
+             "endedElapsedSeconds":round(time.monotonic()-started,3)})
+            if candidate:
+             status["candidateHostCliExit"]=op["hostCliReturnCode"]
+             status["candidateExit"]=op["hostCliReturnCode"] if op["normalReturn"] else None
+             status["candidateExitState"]="NORMAL_DOCKER_EXEC_RETURN_PROXY" if op["normalReturn"] else "UNKNOWN_CLI_DID_NOT_RETURN_NORMALLY"
+             status["candidateExitBasis"]="Docker exec normal CLI return is a proxy, not independent inner-process attestation; interrupted CLI return codes are host-only."
+            if problems:
+             op["finalizationFailures"]=problems;op["outcome"]="FAILED"
+             status["state"]="FAIL_OR_UNRUN";status["runtimeAccepted"]=False
+             raise Gate("operation_finalization_failed")
+          def git(*args,cap=2*1024*1024):
+           return command(["/usr/bin/git","-C",os.environ["GITHUB_WORKSPACE"],*args],20,cap,operation="git:"+args[0])[0]
+          def textgit(*args):return git(*args).decode("ascii").strip()
+          D=["/usr/bin/docker","--host","unix:///var/run/docker.sock","--config",str(dcfg)]
+          def docker(*args,seconds=20,cap=2*1024*1024,check=True,cleanup=False):
+           return command(D+list(args),seconds,cap,check=check,cleanup=cleanup,operation="docker:"+args[0],creating=args[0]=="create")
+          def paths_changed(a,b):
+           return set(x.decode("utf-8") for x in git("diff","--name-only","--no-renames","-z",a,b).split(b"\0") if x)
+          def tree_rows(sha):
+           out={}
+           for row in git("ls-tree","-r","-z",sha).split(b"\0"):
+            if not row:continue
+            fields,p=row.split(b"\t",1);mode,kind,oid=fields.decode("ascii").split()
+            name=p.decode("utf-8");need(name not in out,"duplicate_tree_path")
+            out[name]=(mode,kind,oid)
+           return out
+          def safe_path(p):
+           need(isinstance(p,str) and p and not p.startswith("/") and "\\" not in p and
+            not any(c in p for c in "\r\n\0\t") and all(x not in ("",".","..") for x in p.split("/")),"source_path")
+           need(not any(x.startswith(".") for x in p.split("/")),"hidden_source_path")
+           need(p=="package.json" or p.startswith(("config/","lib/","scripts/","data/canonical/")),"source_prefix")
+           need("supabase_keys" not in p and not p.endswith((".pem",".key")),"credential_path")
+          def project_file(p,b):
+           target=source/p;target.parent.mkdir(parents=True,exist_ok=True)
+           write_new(target,b,0o444)
+          TMPFS={
+           "/tmp":"rw,nosuid,nodev,noexec,size=16777216,nr_inodes=128,mode=1777",
+           "/work":"rw,nosuid,nodev,noexec,size=33554432,nr_inodes=128,mode=1777",
+           "/work/report":"rw,nosuid,nodev,noexec,size=4194304,nr_inodes=128,mode=1777"}
+          PREFLIGHT=r"""
+          const fs=require("node:fs");
+          const status=Object.fromEntries(fs.readFileSync("/proc/self/status","utf8").split("\n").filter(x=>x.includes(":")).map(x=>{const i=x.indexOf(":");return[x.slice(0,i),x.slice(i+1).trim()]}));
+          const mounts=fs.readFileSync("/proc/self/mountinfo","utf8").trim().split("\n").map(line=>{const [left,right]=line.split(" - ");const a=left.split(" "),b=right.split(" ");return {point:a[4],options:a[5].split(","),type:b[0]}});
+          const points=["/","/candidate","/candidate-binding","/work/binding.json","/sys/fs/cgroup","/tmp","/work","/work/report"];
+          const tmp={};for(const p of ["/tmp","/work","/work/report"]){const x=fs.statfsSync(p);tmp[p]={type:x.type,bytes:x.bsize*x.blocks,inodes:x.files,mode:fs.statSync(p).mode&0o7777};}
+          const cg={};for(const p of ["memory.max","memory.swap.max","pids.max","cpu.max"])cg[p]=fs.readFileSync("/sys/fs/cgroup/"+p,"utf8").trim();
+          console.log(JSON.stringify({node:process.version,platform:process.platform,arch:process.arch,
+           uid:process.getuid(),gid:process.getgid(),groups:process.getgroups(),
+           capEff:status.CapEff,noNewPrivs:status.NoNewPrivs,seccomp:status.Seccomp,
+           mounts:mounts.filter(x=>points.includes(x.point)),tmp,cgroup:cg,
+           interfaces:fs.readdirSync("/sys/class/net").sort(),
+           netNamespace:fs.readlinkSync("/proc/self/ns/net"),pidNamespace:fs.readlinkSync("/proc/self/ns/pid"),
+           reportEmpty:fs.readdirSync("/work/report").length===0,
+           limits:fs.readFileSync("/proc/self/limits","utf8").split("\n").filter(x=>x.startsWith("Max file size")||x.startsWith("Max open files"))}));
+          """
+          def collect_report(container):
+           retention={"state":"COLLECTING","rawBytesComplete":False,"created":False,"writtenBytes":0,
+            "path":"qualification.json","requestId":REQUEST,"containerId":container,
+            "freshness":"OS admission observed empty report directory before this fixed command; container paused for collection",
+            "collectionStartedAtUtc":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime())}
+           status["reportRetention"]=retention
+           try:
+            archive,_=docker("cp",container+":/work/report/.","-",seconds=25,cap=ARCHIVE_CAP)
+            report=None;members=0;root_seen=False
+            with tarfile.open(fileobj=io.BytesIO(archive),mode="r:") as tar:
+             for item in tar:
+              members+=1;need(members<=4,"report_member_count")
+              if item.isdir() and item.name in (".","./"):
+               need(not root_seen,"duplicate_report_root");root_seen=True;continue
+              need(item.isfile() and not item.issym() and not item.islnk() and
+               item.name in ("qualification.json","./qualification.json") and report is None and
+               0<item.size<=REPORT_CAP,"unsafe_report_member")
+              f=tar.extractfile(item);need(f is not None,"report_member_missing")
+              report=f.read(REPORT_CAP+1);need(len(report)==item.size,"report_member_size")
+            need(report is not None,"qualification_report_missing")
+            retention.update({"state":"RAW_TRANSPORT_VALIDATED","bytes":len(report),"sha256":digest(report)})
+            files=list(public.iterdir())
+            need(all(p.is_file() and not p.is_symlink() for p in files),"artifact_regular_files")
+            need(sum(p.stat().st_size for p in files)+len(report)+131072<=ARTIFACT_CAP,"artifact_total_cap")
+            fd=os.open(public/"qualification.json",os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW,0o600)
+            retention["created"]=True
+            try:
+             s=os.fstat(fd)
+             need(stat.S_ISREG(s.st_mode) and s.st_nlink==1 and s.st_uid==os.getuid() and s.st_size==0,"report_destination_identity")
+             at=0
+             while at<len(report):
+              written=os.write(fd,report[at:]);need(written>0,"report_write_stalled")
+              at+=written;retention["writtenBytes"]=at
+             os.fsync(fd)
+            finally:os.close(fd)
+            retention.update({"state":"FULL_RAW_RETAINED","rawBytesComplete":True,
+             "retainedAtUtc":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime())})
+            save()
+           except Exception as error:
+            status["artifactState"]="ARTIFACT_INCOMPLETE"
+            retention["state"]="ARTIFACT_INCOMPLETE"
+            retention["failureCode"]=str(error)[:256] if isinstance(error,Gate) else type(error).__name__
+            raise
+           obj=jsonraw(report)
+           need(isinstance(obj,dict) and set(obj)=={"schemaVersion","status","guardViolations","cases","separateUnrun"},"report_schema")
+           need(obj["schemaVersion"]=="retired-horse-joined-qualification.v1","report_version")
+           cases=obj["cases"];need(isinstance(cases,list) and len(cases)==len(EXPECTED),"case_count")
+           need([x.get("name") for x in cases]==EXPECTED,"case_inventory")
+           need(type(obj["guardViolations"]) is int and obj["guardViolations"]==0,"guard_violations")
+           for a,b,ordinary,withdrawal in [(0,2,8,13),(2,4,9,17)]:
+            details=[]
+            for suite in cases[a:b]:
+             need(isinstance(suite.get("details"),list),"suite_details_missing")
+             details.extend(suite["details"])
+            need(len(details)==ordinary+withdrawal and
+             sum(x.get("acceptance") is False for x in details)==ordinary and
+             sum(x.get("acceptance") is True for x in details)==withdrawal,"retained_coverage")
+            need(all(x.get("status")=="PASS" for x in details),"retained_case_failed")
+           status["casesObserved"]={"topLevel":len(cases),"retainedOrdinary":17,"retainedWithdrawal":30}
+           status["candidateSeparateUnrun"]=obj["separateUnrun"]
+           need(obj["status"]=="PASS" and all(x.get("status")=="PASS" for x in cases),"qualification_case_failed")
+          try:
+           save()
+           need(os.environ.get("GITHUB_ACTIONS")=="true" and os.environ.get("GITHUB_EVENT_NAME")=="pull_request" and
+            os.environ.get("GITHUB_JOB")=="withdrawal-qualification" and os.environ.get("GITHUB_REPOSITORY")=="hartican/sportscal","actual_actions_context")
+           event=jsonraw(rawfile(os.environ["GITHUB_EVENT_PATH"],4*1024*1024))
+           pr=event["pull_request"]
+           need(event["action"]=="opened" and pr["draft"] is True and
+            pr["head"]["repo"]["full_name"]==pr["base"]["repo"]["full_name"]=="hartican/sportscal" and
+            pr["head"]["ref"]==BRANCH and pr["base"]["ref"]=="main" and pr["base"]["sha"]==BASE,"closed_pr_route")
+           need(type(event["number"]) is int and event["number"]>0 and pr["number"]==event["number"] and
+            os.environ["GITHUB_REF"]=="refs/pull/"+str(event["number"])+"/merge","pr_number_ref")
+           bodytext=pr["body"];need(isinstance(bodytext,str) and 0<len(bodytext.encode("utf-8"))<=65536,"body_size")
+           body=jsonraw(bodytext.encode())
+           keys={"schemaVersion","requestId","allocationId","allocationSha256","baseSha","productSha","productTree",
+            "headSha","headTree","workflowSha256","harnessManifestSha256","closureSha256","platformManifestDigest"}
+           need(isinstance(body,dict) and set(body)==keys and
+            json.dumps(body,separators=(",",":"),ensure_ascii=False)==bodytext,"canonical_closed_body")
+           need(bodytext.startswith('{"schemaVersion":"ns-withdrawal-qualification.v1",'),"distinct_body_prefix")
+           need(body["schemaVersion"]=="ns-withdrawal-qualification.v1" and body["requestId"]==REQUEST and
+            body["baseSha"]==BASE and body["productSha"]==PRODUCT and body["productTree"]==PRODUCT_TREE and
+            body["harnessManifestSha256"]==MANIFEST_SHA and body["closureSha256"]==CLOSURE_SHA and
+            body["platformManifestDigest"]==PLATFORM_DIGEST,"fixed_body_identity")
+           need(isinstance(body["allocationId"],str) and re.fullmatch(r"[A-Za-z0-9._:-]{1,128}",body["allocationId"]) and
+            not re.search("pending|template|placeholder",body["allocationId"],re.I),"real_allocation_reference")
+           for k in ("allocationSha256","workflowSha256"):need(isinstance(body[k],str) and re.fullmatch(r"[0-9a-f]{64}",body[k]),"body_hash")
+           for k in ("headSha","headTree"):need(isinstance(body[k],str) and HEX40.fullmatch(body[k]),"body_git_identity")
+           head=pr["head"]["sha"];tested=os.environ["GITHUB_SHA"]
+           need(head==body["headSha"] and HEX40.fullmatch(tested),"actual_head")
+           need(textgit("rev-parse","HEAD")==tested,"checkout_event_sha")
+           need(textgit("rev-list","--parents","-n","1",tested).split()==[tested,BASE,head],"merge_parent_identity")
+           need(textgit("rev-parse",tested+"^{tree}")==textgit("rev-parse",head+"^{tree}")==body["headTree"],"merge_head_tree_identity")
+           need(textgit("rev-parse",PRODUCT+"^{tree}")==PRODUCT_TREE and
+            textgit("rev-list","--parents","-n","1",PRODUCT).split()==[PRODUCT,BASE],"fixed_product_commit")
+           git("merge-base","--is-ancestor",PRODUCT,head)
+           need(digest(CLOSURE_BYTES)==CLOSURE_SHA and digest(MANIFEST_BYTES)==MANIFEST_SHA,"embedded_metadata_hash")
+           closure=jsonraw(CLOSURE_BYTES);manifest=jsonraw(MANIFEST_BYTES)
+           need(closure["candidate"]==manifest["candidate"]==PRODUCT and closure["tree"]==manifest["tree"]==PRODUCT_TREE,"metadata_product")
+           crows=closure["files"];hrows=manifest["files"]
+           need(len(crows)==52 and len(hrows)==8,"fixed_source_set_counts")
+           hp={x["path"] for x in hrows}
+           expected_harness={
+            "scripts/validate-retired-horse-official-results.js","scripts/validate-retired-horse-reviewed-evidence.js",
+            "scripts/validate-retired-horse-reminder-catalogue.js","scripts/validate-retired-horse-reminder-decisions.js",
+            "scripts/validate-retired-horse-joined-qualification.js","scripts/fixtures/retired-horse-publisher-input.v1.json",
+            "scripts/fixtures/retired-horse-joined-qualification.v1.json","scripts/lib/retired-horse-qualification-guards.js"}
+           product_paths={"lib/automatic-reminders.js","lib/reminder-fixtures.js","lib/reminder-schedules.js",
+            "lib/retired-horse-coverage.js","scripts/apply-current-card-evidence.js","scripts/sync-official-card-results.js"}
+           need(hp==expected_harness and paths_changed(BASE,PRODUCT)==product_paths and
+            paths_changed(PRODUCT,head)==hp|{WORKFLOW},"exact_change_inventory")
+           entries=tree_rows(head)
+           wmode,wtype,woid=entries[WORKFLOW];need((wmode,wtype)==("100644","blob"),"workflow_mode")
+           wb=git("cat-file","blob",woid,cap=1024*1024)
+           need(blob(wb)==woid and digest(wb)==body["workflowSha256"],"actual_controller_source_hash")
+           rows=[];seen=set();total=0
+           for row in crows+hrows:
+            p=row["path"];safe_path(p)
+            need(p not in seen and row["mode"]=="100644" and type(row["bytes"]) is int and
+             0<row["bytes"]<=1024*1024 and re.fullmatch(r"[0-9a-f]{64}",row["sha256"]),"closed_source_descriptor")
+            seen.add(p);mode,kind,oid=entries[p]
+            need((mode,kind)==("100644","blob"),"source_mode")
+            b=git("cat-file","blob",oid,cap=row["bytes"]+1)
+            need(len(b)==row["bytes"] and digest(b)==row["sha256"] and blob(b)==oid,"source_bytes")
+            if p in {x["path"] for x in crows}:need(oid==row["gitBlob"],"product_source_blob")
+            total+=len(b);need(total<=8*1024*1024,"source_projection_cap")
+            project_file(p,b);rows.append({"path":p,"mode":mode,"bytes":len(b),"sha256":digest(b),"gitBlob":oid})
+           need(len(seen)==60,"complete_projection")
+           for folder,dirs,_ in os.walk(source,topdown=False):os.chmod(folder,0o555)
+           write_new(metadata/"dependency-closure.v2.json",CLOSURE_BYTES,0o444)
+           write_new(metadata/"harness-manifest.v2.json",MANIFEST_BYTES,0o444);os.chmod(metadata,0o555)
+           binding=control/"binding.json"
+           write_new(binding,(json.dumps({"requestId":REQUEST,"candidate":PRODUCT,"status":"reviewed-boundary",
+            "harnessManifestSha256":MANIFEST_SHA,"files":rows},separators=(",",":"))+"\n").encode(),0o444)
+           write_new(dcfg/"config.json",b'{"auths":{}}\n')
+           status.update({"headSha":head,"headTree":body["headTree"],"eventSha":tested,"checkoutSha":textgit("rev-parse","HEAD"),
+            "productSha":PRODUCT,"productTree":PRODUCT_TREE,"baseSha":BASE,"workflowSha256":digest(wb),
+            "bodySha256":digest(bodytext.encode()),"allocationId":body["allocationId"],"allocationSha256":body["allocationSha256"],
+            "sourceFiles":rows,"projectionBytes":total,"harnessManifestSha256":MANIFEST_SHA,"closureSha256":CLOSURE_SHA,
+            "hostPython":sys.version.split()[0],"phase":"docker-infrastructure",
+            "image":{"reference":IMAGE,"indexDigestMetadataOnly":INDEX_DIGEST,"platformManifestDigest":PLATFORM_DIGEST,
+             "metadataBasis":"Official DockerHub metadata HTTP200 supplied by PUBLISH; raw image/runtime not pre-proven"}});save()
+           need(pathlib.Path("/usr/bin/docker").is_file(),"existing_docker_binary_required")
+           need(not any(os.environ.get(k) for k in ("DOCKER_HOST","DOCKER_CONTEXT","DOCKER_TLS_VERIFY","DOCKER_CERT_PATH")),"no_external_docker_context")
+           version=jsonraw(docker("version","--format","{{json .}}",cap=65536)[0])
+           need(version["Client"]["Version"]==version["Server"]["Version"]=="28.0.4","reviewed_docker_version")
+           info=jsonraw(docker("info","--format","{{json .}}",cap=131072)[0])
+           need(str(info.get("CgroupVersion"))=="2" and any("seccomp" in x for x in info.get("SecurityOptions",[])),"cgroup_seccomp_support")
+           status["docker"]={"client":version["Client"]["Version"],"server":version["Server"]["Version"],"cgroupVersion":info["CgroupVersion"]}
+           status["hostDiskFreeBeforePull"]=shutil.disk_usage(root).free;save()
+           docker("pull","--platform=linux/amd64",IMAGE,seconds=120)
+           image=jsonraw(docker("image","inspect",IMAGE,cap=131072)[0])[0]
+           need(image["Architecture"]=="amd64" and image["Os"]=="linux" and
+            any(x.endswith("@"+PLATFORM_DIGEST) for x in image.get("RepoDigests",[])),"image_platform_digest")
+           need(not image.get("Config",{}).get("Volumes"),"no_image_writable_volumes")
+           allowed_env={"PATH","NODE_VERSION","YARN_VERSION","LANG","LC_ALL"}
+           need(all(x.split("=",1)[0] in allowed_env for x in image.get("Config",{}).get("Env",[])),"image_environment")
+           status["image"].update({"imageId":image["Id"],"unpackedBytes":image.get("Size"),"actualRepoDigests":image.get("RepoDigests",[])})
+           status["hostDiskFreeAfterPull"]=shutil.disk_usage(root).free
+           need(status["hostDiskFreeAfterPull"]>=64*1024*1024,"bounded_host_evidence_space")
+           owned_name="ns-withdrawal-"+runid+"-"+attempt
+           args=["create","--name",owned_name,"--platform=linux/amd64",
+            "--network=none","--read-only","--user=65534:65534","--cap-drop=ALL","--security-opt=no-new-privileges",
+            "--ipc=none","--cgroupns=private","--pids-limit=64","--memory=768m","--memory-swap=768m","--cpus=1",
+            "--ulimit=core=0:0","--ulimit=nofile=256:256","--ulimit=fsize=8388608:8388608",
+            "--restart=no","--no-healthcheck","--log-driver=none","--workdir=/candidate",
+            "--label=ns.qual.request="+REQUEST,"--label=ns.qual.run="+runid,"--label=ns.qual.head="+head]
+           for point,opts in TMPFS.items():args+=["--tmpfs",point+":"+opts]
+           for src,dst in [(source,"/candidate"),(metadata,"/candidate-binding"),(binding,"/work/binding.json")]:
+            need("," not in str(src),"bind_source_syntax")
+            args+=["--mount","type=bind,src="+str(src)+",dst="+dst+",readonly,bind-propagation=rprivate"]
+           args+=["--entrypoint=/bin/sleep",IMAGE,"600"]
+           status["containerOwnership"].update({"state":"PREPARED_NOT_SUBMITTED","ownedName":owned_name,
+            "runLabels":{"ns.qual.request":REQUEST,"ns.qual.run":runid,"ns.qual.head":head}})
+           save()
+           raw,_=docker(*args);candidate_cid=raw.decode("ascii").strip()
+           need(re.fullmatch(r"[0-9a-f]{64}",candidate_cid),"container_identity");cid=candidate_cid
+           status["containerOwnership"].update({"state":"CONFIRMED_CID","confirmedCid":cid,"resourceMayRemain":True})
+           save()
+           inspected=jsonraw(docker("inspect",cid,cap=131072)[0])[0];hc=inspected["HostConfig"]
+           need(inspected["Image"]==image["Id"] and inspected["Config"]["User"]=="65534:65534" and
+            hc["NetworkMode"]=="none" and hc["ReadonlyRootfs"] is True and hc["Privileged"] is False and
+            hc["IpcMode"]=="none" and hc["CgroupnsMode"]=="private" and not hc.get("PidMode") and
+            hc["Memory"]==hc["MemorySwap"]==805306368 and hc["PidsLimit"]==64 and hc["NanoCpus"]==1000000000 and
+            set(hc.get("CapDrop") or [])=={"ALL"} and not hc.get("CapAdd") and
+            any(x.startswith("no-new-privileges") for x in hc.get("SecurityOpt",[])) and
+            hc.get("Tmpfs")==TMPFS and hc["RestartPolicy"]["Name"]=="no" and hc["LogConfig"]["Type"]=="none","container_controls")
+           mounts=inspected["Mounts"];wanted={"/candidate":str(source),"/candidate-binding":str(metadata),"/work/binding.json":str(binding)}
+           binds=[m for m in mounts if m["Type"]=="bind"]
+           need(len(binds)==3 and {m["Destination"]:m["Source"] for m in binds}==wanted and
+            all(not m["RW"] and m.get("Propagation")=="rprivate" for m in binds) and
+            all(m["Type"]=="bind" or (m["Type"]=="tmpfs" and m["Destination"] in TMPFS) for m in mounts),"exclusive_readonly_mounts")
+           docker("start",cid)
+           runtime=jsonraw(docker("exec",cid,"/usr/local/bin/node","--max-old-space-size=64","-e",PREFLIGHT,cap=65536)[0])
+           need((runtime["node"],runtime["platform"],runtime["arch"])==("v24.21.0","linux","x64") and
+            runtime["uid"]==runtime["gid"]==65534 and 0 not in runtime["groups"] and
+            int(runtime["capEff"],16)==0 and runtime["noNewPrivs"]=="1" and runtime["seccomp"]=="2","actual_identity_runtime")
+           need(runtime["cgroup"]=={"memory.max":"805306368","memory.swap.max":"0","pids.max":"64","cpu.max":"100000 100000"},"actual_cgroup_limits")
+           pm={m["point"]:m for m in runtime["mounts"]}
+           for point in ("/","/candidate","/candidate-binding","/work/binding.json","/sys/fs/cgroup"):
+            need(point in pm and "ro" in pm[point]["options"],"actual_readonly_mount")
+           for point,size in [("/tmp",16777216),("/work",33554432),("/work/report",4194304)]:
+            need(point in pm and pm[point]["type"]=="tmpfs" and
+             {"rw","nosuid","nodev","noexec"}.issubset(pm[point]["options"]) and
+             runtime["tmp"][point]["type"]==0x01021994 and runtime["tmp"][point]["bytes"]==size and
+             runtime["tmp"][point]["inodes"]==128 and runtime["tmp"][point]["mode"]==0o1777,"actual_tmpfs_limits")
+           need(runtime["interfaces"]==["lo"] and runtime["netNamespace"]!=os.readlink("/proc/self/ns/net") and
+            runtime["pidNamespace"]!=os.readlink("/proc/self/ns/pid") and runtime["reportEmpty"] is True,"actual_namespace_fresh_report")
+           need(any(re.search(r"Max file size\s+8388608\s+8388608",x) for x in runtime["limits"]) and
+            any(re.search(r"Max open files\s+256\s+256",x) for x in runtime["limits"]),"actual_rlimits")
+           docker("exec",cid,"/usr/bin/timeout","--version",cap=8192)
+           docker("pause",cid);paused=True
+           need(jsonraw(docker("inspect",cid,cap=131072)[0])[0]["State"]["Paused"] is True,"freezer_required")
+           docker("unpause",cid);paused=False
+           status.update({"phase":"isolated-fixed-command","osAdmission":True,"runtime":runtime,
+            "containerId":cid,
+            "isolationScope":"Practical reviewed Docker namespace/VFS/cgroup boundary; loopback/pseudoFS exist, not universal kernel/host-security proof"})
+           save()
+           envargs=[]
+           for key,val in {"NS_WITHDRAWAL_QUAL_ROOT":"/work","NS_WITHDRAWAL_QUAL_REPORT_DIR":"/work/report",
+            "NS_WITHDRAWAL_QUAL_BINDING":"/work/binding.json","NS_WITHDRAWAL_QUAL_REQUEST_ID":REQUEST,
+            "HOME":"/work","TMPDIR":"/tmp"}.items():envargs+=["--env",key+"="+val]
+           _,rc=command(D+["exec","--workdir=/candidate","--user=65534:65534",*envargs,cid,*HCOMMAND],
+            200,LOG_CAP,check=False,log=public/"candidate.log",operation="docker:qualification-exec",candidate=True)
+           status["phase"]="bounded-report-collection";save()
+           docker("pause",cid);paused=True
+           need(jsonraw(docker("inspect",cid,cap=131072)[0])[0]["State"]["Paused"] is True,"collection_freezer")
+           collect_report(cid)
+           need(rc==0,"candidate_exit_nonzero")
+           need(status.get("artifactState")!="ARTIFACT_INCOMPLETE" and not status.get("statusPersistenceFailed"),"evidence_incomplete")
+           status["state"]="PASS";status["runtimeAccepted"]=True;status["phase"]="complete"
+          except Exception as error:
+           status["state"]="FAIL_OR_UNRUN"
+           status["runtimeAccepted"]=False
+           status["failureCode"]=str(error)[:256] if isinstance(error,Gate) else type(error).__name__
+           status["caseFailureTruth"]="An invocation attempt or started host CLI does not prove inner cases ran; counts remain UNKNOWN until the fresh report validates coverage."
+          finally:
+           if cid:
+            try:
+             docker("rm","--force",cid,seconds=10,cap=65536,cleanup=True)
+             status["ownedContainerRemoved"]=True
+             status["containerOwnership"].update({"state":"REMOVAL_CONFIRMED_BY_CLI","resourceMayRemain":False})
+            except Exception as error:
+             status["ownedContainerRemoved"]=False;status["state"]="FAIL_OR_UNRUN";status["runtimeAccepted"]=False
+             status["containerOwnership"].update({"state":"UNCERTAIN_CLEANUP_OUTCOME","resourceMayRemain":True,
+              "cleanupFailure":str(error)[:128] if isinstance(error,Gate) else type(error).__name__})
+           elif status["containerOwnership"]["createInvocationAttempted"]:
+            status["ownedContainerRemoved"]="UNKNOWN_NO_CONFIRMED_CID"
+            status["containerOwnership"].update({"state":"UNCERTAIN_CREATE_OUTCOME","resourceMayRemain":"UNKNOWN"})
+            status["state"]="FAIL_OR_UNRUN";status["runtimeAccepted"]=False
+           else:status["ownedContainerRemoved"]="NOT_ATTEMPTED_NO_CONFIRMED_CID"
+           try:
+            files=list(public.iterdir())
+            need(all(p.is_file() and not p.is_symlink() for p in files),"artifact_regular_files")
+            need(sum(p.stat().st_size for p in files)+131072<=ARTIFACT_CAP,"artifact_total_cap")
+            status["phaseEndedAtUtc"]=time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime())
+            status["bodyAndExternalAllocationAreNotOsProof"]=True
+            need(not status.get("statusPersistenceFailed"),"status_persistence_previously_failed")
+            save()
+           except Exception as error:
+            status.update({"artifactState":"ARTIFACT_INCOMPLETE","state":"FAIL_OR_UNRUN","runtimeAccepted":False,
+             "finalEvidenceFailure":str(error)[:128] if isinstance(error,Gate) else type(error).__name__})
+            try:
+             print(json.dumps({"requestId":REQUEST,"state":"FAIL_OR_UNRUN","artifactState":"ARTIFACT_INCOMPLETE",
+              "runtimeAccepted":False,"failureCode":status["finalEvidenceFailure"],
+              "statusPersistenceFailed":bool(status.get("statusPersistenceFailed")),
+              "containerOwnership":status["containerOwnership"]["state"]},sort_keys=True),file=sys.stderr,flush=True)
+            except Exception:pass
+           try:
+            print(json.dumps({"requestId":REQUEST,"state":status["state"],"phase":status["phase"],
+             "candidateExit":status["candidateExit"],"candidateExitState":status["candidateExitState"],
+             "candidateHostCliExit":status["candidateHostCliExit"],"osAdmission":status["osAdmission"],
+             "runtimeAccepted":status["runtimeAccepted"],"headSha":status.get("headSha"),
+             "eventSha":status.get("eventSha"),"failureCode":status.get("failureCode"),
+             "artifactState":status.get("artifactState"),"containerOwnership":status["containerOwnership"]["state"]},sort_keys=True),flush=True)
+           except Exception:
+            status["runtimeAccepted"]=False
+          sys.exit(0 if status["runtimeAccepted"] and status.get("artifactState")!="ARTIFACT_INCOMPLETE" and not status.get("statusPersistenceFailed") else 1)
+          NS_WITHDRAWAL_CONTROLLER
+      - name: Preserve bounded withdrawal evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, existing exact pin
+        with:
+          name: withdrawal-qualification-${{ github.event.pull_request.head.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ns-withdrawal-qual-${{ github.run_id }}-${{ github.run_attempt }}/public
+          if-no-files-found: error
+          retention-days: 1
