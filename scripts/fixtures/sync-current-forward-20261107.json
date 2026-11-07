@@ -41,14 +41,14 @@
     "elapsedMs": 2719
   },
   "sourceFiles": {
-    "index.html": "4ea88310ec70354546156e282c8cc3d5564786fbf4d43583b0ba937a371ec4e2",
+    "index.html": "a22b70f95bcfd117cd4a3e075919608ba6c7ce75acdd9cf3d16d1a024137cb5f",
     "config/preference-intent-reconcile.js": "442a7cc7273b3296708daea0405709a1143e707695ca8912046848f78598fcda",
     "config/profile-storage.js": "8fdd874dbf6a537cf3dbc6b0e7e1593323ee2aebf36799aa51d95e8818f25a08",
     "config/server-sync.js": "e3dde8f3d35b9fb1b4f66d317922124ffdb25b3cf71c6ad9df512adbbf148569",
     "config/discovery-catalogue.js": "a51d1c71f00427dd8359b386d31312b4e251eaa5843db88543366cf05bffabf2",
     "config/account-sync-diagnostic.js": "3bf9d2657b16752260fb53f6cd29517f67ad1a5e88d7817bd71652e1d0ff68df",
     "assets/js/account-awareness-runtime.js": "fc4c3bb5c567ab7887892e592347697ba567f0ab7645dfb2791bc8102700f30c",
-    "assets/js/app-shell-runtime.js": "0f6db3c2d59fc152235d7a0828696093ac35f7ff1f5de7988c4c1db71dc5b375",
+    "assets/js/app-shell-runtime.js": "6cbf954364e8b1bddd7b0bb4b9d61e91e1195fb675a8f669e4d8619e3f486ad5",
     "scripts/lib/user-state-selection-writer-tests.js": "50ee77985890d68ba83bffac88f58691dd585de99a2e8a06719af95aa96482db",
     "scripts/lib/user-state-selection-sdk-tests.cjs": "5e6e0394a5454cadf137fb5e8de1cf67e878e542d4859c54b2e5ce6ca9dcec8e",
     "scripts/lib/user-state-optional-view-tests.js": "1bd8e368efb764661c755f7613fef971d43c5ecc8c81ea2b84961b43c3441b71",

@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="611">
+<meta name="app-shell-version" content="612">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=611" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=612" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -588,7 +588,7 @@ body[data-active-tab="feed"] .top-bar-spacer{
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=611"></script>
+<script src="assets/js/app-shell-runtime.js?v=612"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -2081,7 +2081,7 @@ button.setAttribute('aria-label',button.textContent+'. Open Account.');
 }
 function ensureAccountIndicator(){
 if(accountIndicatorController)return Promise.resolve(accountIndicatorController);
-accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=611')
+accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=612')
 .then(()=>NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.mount())
 .catch(()=>{accountIndicatorLoading=null;renderAccountIndicator();return null;});
 return accountIndicatorLoading;
@@ -8749,7 +8749,7 @@ function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.cle
 let fantasyUiLoading=null;
 function ensureFantasyUi(){
   if(globalThis.NOTHINGSPORTS_FANTASY_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);
-  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=611';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
+  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=612';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
   return fantasyUiLoading;
 }
 let epicUiLoading;
