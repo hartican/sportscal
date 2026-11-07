@@ -8852,6 +8852,10 @@ let chatLastActivityAt = 0;
 let chatPreviousFocus = null;
 let chatSetupFixture = null;
 let chatViewportLock = null;
+let chatViewportFrame = null;
+let chatViewportTimers = new Set();
+let chatViewportBaselineHeight = 0;
+let chatKeepLatestVisible = true;
 const nothingscoreSnapshots = new Map();
 const nothingscoreEventRefs = new Map();
 const nothingscoreSubmissionRequests = new Map();
@@ -23321,45 +23325,115 @@ function chatConnection(message, state = "idle"){
   status.dataset.state = state;
 }
 
+function applyChatViewport(){
+  if (!chatViewportLock) return;
+  const viewport = window.visualViewport;
+  const metrics = NATIVE_SHELL.deriveChatViewport({
+    visualHeight:viewport?.height,
+    visualWidth:viewport?.width,
+    offsetTop:viewport?.offsetTop,
+    offsetLeft:viewport?.offsetLeft,
+    layoutHeight:document.documentElement.clientHeight || window.innerHeight,
+    layoutWidth:document.documentElement.clientWidth || window.innerWidth,
+    baselineHeight:chatViewportBaselineHeight,
+  });
+  if (!metrics.keyboardOpen) chatViewportBaselineHeight = Math.max(chatViewportBaselineHeight, metrics.height + metrics.offsetTop);
+  const style = document.documentElement.style;
+  style.setProperty("--chat-viewport-height", `${metrics.height}px`);
+  style.setProperty("--chat-viewport-width", `${metrics.width}px`);
+  style.setProperty("--chat-viewport-offset-top", `${metrics.offsetTop}px`);
+  style.setProperty("--chat-viewport-offset-left", `${metrics.offsetLeft}px`);
+  document.body.classList.toggle("chat-keyboard-open", metrics.keyboardOpen);
+  if (chatKeepLatestVisible && chatState.currentRoom){
+    const body = document.getElementById("chatBody");
+    window.requestAnimationFrame(() => { body.scrollTop = body.scrollHeight; });
+  }
+}
+
+function scheduleChatViewportSync(){
+  if (!chatViewportLock) return;
+  if (chatViewportFrame !== null) window.cancelAnimationFrame(chatViewportFrame);
+  chatViewportFrame = window.requestAnimationFrame(() => {
+    chatViewportFrame = null;
+    applyChatViewport();
+  });
+  chatViewportTimers.forEach(timer => window.clearTimeout(timer));
+  chatViewportTimers.clear();
+  NATIVE_SHELL.RESAMPLE_DELAYS_MS.filter(delay => delay > 0).forEach(delay => {
+    const timer = window.setTimeout(() => {
+      chatViewportTimers.delete(timer);
+      applyChatViewport();
+    }, delay);
+    chatViewportTimers.add(timer);
+  });
+}
+
+function handleChatFocusIn(event){
+  if (!chatViewportLock || !event.target.closest?.("#chatDrawer")) return;
+  chatKeepLatestVisible = chatBodyAtBottom();
+  scheduleChatViewportSync();
+}
+
+function handleChatFocusOut(){
+  if (!chatViewportLock) return;
+  scheduleChatViewportSync();
+}
+
+function setChatBackgroundInert(inert){
+  document.querySelectorAll("header.top, #calendarControls, #mainContent, .app-footer, #jumpTodayBtn")
+    .forEach(element => { element.inert = inert; });
+}
+
+function bindChatViewportEvents(){
+  window.visualViewport?.addEventListener("resize", scheduleChatViewportSync);
+  window.visualViewport?.addEventListener("scroll", scheduleChatViewportSync);
+  window.addEventListener("resize", scheduleChatViewportSync);
+  window.addEventListener("orientationchange", scheduleChatViewportSync);
+  document.addEventListener("focusin", handleChatFocusIn);
+  document.addEventListener("focusout", handleChatFocusOut);
+}
+
+function unbindChatViewportEvents(){
+  window.visualViewport?.removeEventListener("resize", scheduleChatViewportSync);
+  window.visualViewport?.removeEventListener("scroll", scheduleChatViewportSync);
+  window.removeEventListener("resize", scheduleChatViewportSync);
+  window.removeEventListener("orientationchange", scheduleChatViewportSync);
+  document.removeEventListener("focusin", handleChatFocusIn);
+  document.removeEventListener("focusout", handleChatFocusOut);
+}
+
 function lockChatViewport(){
   if (chatViewportLock) return;
-  const scrollY = window.scrollY;
-  const body = document.body;
-  chatViewportLock = {
-    scrollY,
-    position:body.style.position,
-    top:body.style.top,
-    width:body.style.width,
-    overflow:body.style.overflow,
-  };
-  body.style.position = "fixed";
-  body.style.top = `${-scrollY}px`;
-  body.style.width = "100%";
-  body.style.overflow = "hidden";
-  const syncHeight = () => {
-    const viewport = window.visualViewport;
-    document.documentElement.style.setProperty("--chat-viewport-height", `${Math.round(viewport?.height || window.innerHeight)}px`);
-    document.documentElement.style.setProperty("--chat-viewport-top", `${Math.round(viewport?.offsetTop || 0)}px`);
-  };
-  chatViewportLock.syncHeight = syncHeight;
-  syncHeight();
-  window.visualViewport?.addEventListener("resize", syncHeight);
-  window.visualViewport?.addEventListener("scroll", syncHeight);
+  chatViewportLock = { scrollY:window.scrollY, overflow:document.body.style.overflow };
+  const viewport = window.visualViewport;
+  chatViewportBaselineHeight = Math.max(
+    Math.round(viewport?.height || 0) + Math.round(viewport?.offsetTop || 0),
+    document.documentElement.clientHeight,
+    window.innerHeight
+  );
+  chatKeepLatestVisible = true;
+  document.body.style.overflow = "hidden";
+  setChatBackgroundInert(true);
+  bindChatViewportEvents();
+  scheduleChatViewportSync();
 }
 
 function unlockChatViewport(){
   if (!chatViewportLock) return;
   const lock = chatViewportLock;
   chatViewportLock = null;
-  window.visualViewport?.removeEventListener("resize", lock.syncHeight);
-  window.visualViewport?.removeEventListener("scroll", lock.syncHeight);
-  document.documentElement.style.removeProperty("--chat-viewport-height");
-  document.documentElement.style.removeProperty("--chat-viewport-top");
-  document.body.style.position = lock.position;
-  document.body.style.top = lock.top;
-  document.body.style.width = lock.width;
+  unbindChatViewportEvents();
+  if (chatViewportFrame !== null) window.cancelAnimationFrame(chatViewportFrame);
+  chatViewportFrame = null;
+  chatViewportTimers.forEach(timer => window.clearTimeout(timer));
+  chatViewportTimers.clear();
+  for (const name of ["--chat-viewport-height", "--chat-viewport-width", "--chat-viewport-offset-top", "--chat-viewport-offset-left"]){
+    document.documentElement.style.removeProperty(name);
+  }
+  document.body.classList.remove("chat-keyboard-open");
   document.body.style.overflow = lock.overflow;
-  window.scrollTo({ top:lock.scrollY, left:0, behavior:"instant" });
+  setChatBackgroundInert(false);
+  if (Math.abs(window.scrollY - lock.scrollY) > 1) window.scrollTo({ top:lock.scrollY, left:0, behavior:"instant" });
 }
 
 function chatDraftStorageKey(roomId = chatState.currentRoom?.roomId){
@@ -24522,6 +24596,7 @@ async function openChatGifPicker(){
 
 async function sendChatMessage(form){
   const input = form.querySelector("textarea");
+  const retainComposerFocus = document.activeElement === input;
   const room = chatState.currentRoom;
   if (!room?.viewer?.canPost) return;
   const body = CHAT.messageBody(input.value);
@@ -24568,7 +24643,9 @@ async function sendChatMessage(form){
   form.querySelector(".chat-attachment-previews")?.replaceChildren();
   document.querySelector(".chat-reply-preview")?.remove();
   refreshChatMessageStream({ autoScroll:true, preserveScroll:false });
-  input.focus({ preventScroll:true });
+  if (retainComposerFocus && document.getElementById("chatBackdrop").classList.contains("show")){
+    input.focus({ preventScroll:true });
+  }
   try{
     const payload = await serverSyncClient.chatRequest({}, {
       action:"send-message",
@@ -24591,7 +24668,9 @@ async function sendChatMessage(form){
     try{ sessionStorage.removeItem(chatDraftStorageKey(room.roomId)); }catch(_error){}
     refreshChatMessageStream({ autoScroll:true, preserveScroll:false });
     submit.disabled = false;
-    input.focus({ preventScroll:true });
+    if (retainComposerFocus && document.getElementById("chatBackdrop").classList.contains("show")){
+      input.focus({ preventScroll:true });
+    }
     void refreshChatActive();
   }catch(error){
     chatState.messages = chatState.messages.filter(message => message.messageId !== optimisticMessage.messageId);
@@ -24617,6 +24696,10 @@ function buildChatComposer({ focus = false } = {}){
   input.maxLength = 500;
   input.rows = 2;
   input.placeholder = "Write a message or emoji";
+  input.autocapitalize = "sentences";
+  input.autocomplete = "off";
+  input.spellcheck = true;
+  input.enterKeyHint = "enter";
   input.value = chatState.draftBody || "";
   input.addEventListener("input", () => {
     chatState.draftBody = input.value;
@@ -24624,7 +24707,7 @@ function buildChatComposer({ focus = false } = {}){
     sizeChatComposerInput(input);
   });
   input.addEventListener("keydown", event => {
-    if (event.key !== "Enter" || event.shiftKey || event.isComposing) return;
+    if (event.key !== "Enter" || !(event.metaKey || event.ctrlKey) || event.isComposing) return;
     event.preventDefault();
     form.requestSubmit();
   });
