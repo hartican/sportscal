@@ -8,6 +8,14 @@
 
 **Tech Stack:** Static HTML/CSS/JavaScript, Node.js `node:assert` validators, Visual Viewport API, CSS safe-area environment variables, service-worker app shell, Vercel.
 
+## Continuation status — 7 November 2026
+
+Continued in the existing repository on `overnight/nothing-sport`, preserving the five implementation commits through `cf84c2fb` and the existing card edits. Tasks 1–5 are implemented. Task 6 has the canonical native-shell validator and the atomic version **272** shell update; release remains blocked.
+
+Continuation commits `90ab1d58` and `2c8fc633` isolate quick-refresh regression fixtures, preserve the real result-completeness gate, prevent delayed sends from reopening the keyboard, retain reader scroll-back, and restore Feed focus after removing the background's inert state. Chromium checks cover four viewport sizes and deferred success/failure responses. Existing Chat presentation checks also pass at four widths.
+
+Final validation has three failing Node gates (`validate-server-feed`, `validate-f1-parent-feed`, `verify-nothingsport`) and a canonical refresh failure in the WRC calendar parser. Physical iPhone Safari/PWA acceptance, live GIF sending and production acceptance remain unrun. GitHub main and Vercel production have not been updated. See [the continuation verification record](../../verification/native-chat-feed-chrome-20261107.md) for exact failures, commands and evidence limits. The checkboxes below retain the original execution recipe; they do not establish release acceptance.
+
 ---
 
 ## Baseline and scope
