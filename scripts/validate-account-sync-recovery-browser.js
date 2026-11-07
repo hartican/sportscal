@@ -853,6 +853,12 @@ function installNewUserHeaderSampler(){
         p.preferenceGraph=PREFERENCE_SYSTEM.quickAddDomain(p.preferenceGraph,'sport:football','template:casual');
         p.preferenceGraph.domainPreferences[0].enabled=false;
         p.followFirst.followedMajorEventIds=[];p.followFirst.excludedMajorEventIds=['commonwealth-games'];
+        if(freshAccount){
+          p.pilotMeasurement = { enabled: false, participationStartedAt: null };
+          p.followFirst.notifications = { ...p.followFirst.notifications, enabled: false, sportingRemindersEnabled: false,
+            autoRemindersEnabled: false, chatAlertsEnabled: false, liveRatingsEnabled: false, socialAlertsEnabled: false, userChoice: false };
+          setBackgroundNotificationPreference(p, false);
+        }
         if(!savePreferences(p,{deferFollowEffects:true}))throw Error('Recovery baseline fixture rejected');
         clearTimeout(serverSyncTimer);
       },localRecoveryFreshAccount);
@@ -871,15 +877,26 @@ function installNewUserHeaderSampler(){
         // These are fixture construction, never retries or counter assignments.
         for(const expectedOpen of [1,2]){
           await page.reload({waitUntil:'domcontentloaded'});
-          await page.waitForFunction(()=>!startupCoordinator.isHydrating()&&startupPostLoadHandled&&serverPersistence.state==='signedIn',null,{timeout:5000});
+          // Hydration already queues its own save for the real startup open/session edits.
+          // Wait for that owner's accepted response, without adding a manual read/sync.
+          await page.waitForFunction(({expectedOpen,accountId})=>{
+            const life=serverSyncClient.accountSnapshot(),accepted=serverStateBaseline,prefs=accepted?.state?.preferences;
+            return !startupCoordinator.isHydrating()&&startupPostLoadHandled&&serverPersistence.state==='signedIn'
+              &&life.hasSession&&life.accountId===accountId&&accepted?.accountId===accountId
+              &&accepted.generation===life.generation&&accepted.profileId===activeProfileBundle.profile.id
+              &&typeof accepted.updatedAt==='string'&&Number.isFinite(Date.parse(accepted.updatedAt))
+              &&prefs?.followFirst?.refinement?.distinctOpenCount===expectedOpen
+              &&prefs.followFirst.refinement.lastOpenId===followFirstOpenId&&prefs.ratingPromptState?.lastSessionId===productEventSessionId
+              &&serverSyncTimer===null&&!pendingDeviceAccountTransition()&&!pendingPreferenceIntent(accountId);
+          },{expectedOpen,accountId:owner},{timeout:5000});
+          await page.evaluate(()=>serverSyncSequence);
           await page.evaluate(()=>ensureAccountIndicator());
           await page.evaluate(()=>{closeSettings();openSettings({section:'account'});});
           await page.waitForFunction(()=>{const button=document.getElementById('syncAccountNowBtn');return Boolean(button)&&!button.disabled;},null,{timeout:5000});
-          await page.locator('#syncAccountNowBtn').click();
-          await page.evaluate(()=>serverSyncSequence);
           const opened=await page.evaluate(()=>({profileId:activeProfileBundle.profile.id,life:serverSyncClient.accountSnapshot(),
-            openId:followFirstOpenId,sessionId:productEventSessionId,pending:pendingDeviceAccountTransition(),receipt:pendingPreferenceIntent(serverPersistence.user.id)}));
+            openId:followFirstOpenId,sessionId:productEventSessionId,pending:pendingDeviceAccountTransition(),receipt:pendingPreferenceIntent(serverPersistence.user.id),acceptedAt:serverStateBaseline.updatedAt}));
           const saved=actualApi.state();
+          assert.equal(saved.updatedAt,opened.acceptedAt,'automatic fixture save matches its actual accepted account response');
           assert.equal(opened.profileId,freshProfileId);assert.equal(opened.life.accountId,owner);assert.equal(opened.life.hasSession,true);
           assert.equal(opened.pending,null);assert.equal(opened.receipt,null);assert.deepEqual({authSignIns,refreshes},authBefore);
           assert.equal(saved.preferences.preferenceGraph.profileId,freshProfileId);assert.equal(saved.preferences.preferenceGraph.viewing.profileId,freshProfileId);
@@ -890,6 +907,10 @@ function installNewUserHeaderSampler(){
         }
       }
       const baseline=clone(actualApi.state());
+      if(localRecoveryFreshAccount){
+        assert.equal(baseline.preferences.followFirst.notifications.enabled,false,'owned fixture saves notification OFF before conflict');
+        assert.equal(baseline.preferences.followFirst.notifications.userChoice,false,'owned fixture records its own explicit opt-out');
+      }
       assert.equal(baseline.preferences.preferenceGraph.domainPreferences[0].enabled,false);
       assert.deepEqual(baseline.preferences.preferenceGraph.entityFollows,[]);
       assert.deepEqual(baseline.preferences.followedSports,[]);
