@@ -28,6 +28,7 @@ const newUserSourceBinding=newUserScenario?Object.fromEntries(['assets/js/accoun
   return [file,require('node:crypto').createHash('sha256').update(source).digest('hex')];
 })):null;
 const localRecoveryScenario=scenario==='local-preference-recovery';
+const localRecoveryFreshAccount=localRecoveryScenario&&!process.env.ACCOUNT_RECOVERY_BASELINE;
 const eventsScopeScenario=scenario==='receipt-base-events-scope';
 const eventAgreementScenario=scenario==='receipt-base-event-agreement'||eventsScopeScenario;
 const helperPressProbe=scenario==='helper-pointer';
@@ -674,8 +675,14 @@ function installNewUserHeaderSampler(){
       assert.deepEqual(await page.evaluate(()=>({firstRun:settingsFirstRun,section:settingsSection,open:document.getElementById('settingsModal').classList.contains('show')})),
         {firstRun:true,section:'startup',open:true},'Explicit first-run setup remains available');
     }
-    if(localRecoveryScenario)row.ratings={...row.ratings,'fixture-local-recovery':3};
-    if (actualApi) { actualApi.seed(row); row = actualApi.state(); }
+    if(localRecoveryScenario&&!localRecoveryFreshAccount)row.ratings={...row.ratings,'fixture-local-recovery':3};
+    if (actualApi) {
+      // The compatible saved-copy case must originate under the actual account.
+      // Do not seed a guest graph and later rewrite its raw accepted pointers.
+      if(localRecoveryFreshAccount)assert.equal(actualApi.state(),null,'fresh disposable account has no pre-auth saved row');
+      else actualApi.seed(row);
+      row = actualApi.state();
+    }
     holdHelper=helperRaceProbe;
     manifestPhase='setup-before-controlled-reload';
     traceApiBoundary('setup-before-controlled-reload');
@@ -838,7 +845,8 @@ function installNewUserHeaderSampler(){
         assert.deepEqual(JSON.parse(JSON.stringify(actual)),wireExpected,label+': actual existing JSON representation matches the independently saved copy');
       };
       // Fixture setup uses existing real writers, never a replacement recovery/helper/guard.
-      await page.evaluate(()=>{
+      await page.evaluate(freshAccount=>{
+        if(freshAccount){ratings={...ratings,'fixture-local-recovery':3};saveRatings(ratings);}
         const p=clonePreferences(userPreferences);p.onboardingComplete=true;
         p.followedSports=[];p.selectedSelectorEntityIds=[];
         p.preferenceGraph=PREFERENCE_SYSTEM.createPreferenceGraph({profileId:activeProfileBundle.profile.id});
@@ -847,8 +855,40 @@ function installNewUserHeaderSampler(){
         p.followFirst.followedMajorEventIds=[];p.followFirst.excludedMajorEventIds=['commonwealth-games'];
         if(!savePreferences(p,{deferFollowEffects:true}))throw Error('Recovery baseline fixture rejected');
         clearTimeout(serverSyncTimer);
-      });
+      },localRecoveryFreshAccount);
       await page.evaluate(()=>syncCurrentServerState());
+      if(localRecoveryFreshAccount){
+        const freshProfileId=await page.evaluate(()=>activeProfileBundle.profile.id),created=actualApi.state();
+        assert.equal(freshProfileId,'profile:account:'+owner);
+        assert(created,'the normal first account sync must create its saved row');
+        assert.equal(created.preferences.preferenceGraph.profileId,freshProfileId);
+        assert.equal(created.preferences.preferenceGraph.viewing.profileId,freshProfileId);
+        assert.equal(created.preferences.followFirst.refinement.distinctOpenCount,0,'separate fresh account has no imported guest opens');
+        assert(actualApi.calls.some(call=>call.method==='PUT'&&call.status===200),'saved copy originates from the real conditional save');
+        const authBefore={authSignIns,refreshes};
+        // A fresh account has zero opens. Two genuine document opens make the
+        // already-tested recovery reopen the third, as shouldPromptRefinement requires.
+        // These are fixture construction, never retries or counter assignments.
+        for(const expectedOpen of [1,2]){
+          await page.reload({waitUntil:'domcontentloaded'});
+          await page.waitForFunction(()=>!startupCoordinator.isHydrating()&&startupPostLoadHandled&&serverPersistence.state==='signedIn',null,{timeout:5000});
+          await page.evaluate(()=>ensureAccountIndicator());
+          await page.evaluate(()=>{closeSettings();openSettings({section:'account'});});
+          await page.waitForFunction(()=>{const button=document.getElementById('syncAccountNowBtn');return Boolean(button)&&!button.disabled;},null,{timeout:5000});
+          await page.locator('#syncAccountNowBtn').click();
+          await page.evaluate(()=>serverSyncSequence);
+          const opened=await page.evaluate(()=>({profileId:activeProfileBundle.profile.id,life:serverSyncClient.accountSnapshot(),
+            openId:followFirstOpenId,sessionId:productEventSessionId,pending:pendingDeviceAccountTransition(),receipt:pendingPreferenceIntent(serverPersistence.user.id)}));
+          const saved=actualApi.state();
+          assert.equal(opened.profileId,freshProfileId);assert.equal(opened.life.accountId,owner);assert.equal(opened.life.hasSession,true);
+          assert.equal(opened.pending,null);assert.equal(opened.receipt,null);assert.deepEqual({authSignIns,refreshes},authBefore);
+          assert.equal(saved.preferences.preferenceGraph.profileId,freshProfileId);assert.equal(saved.preferences.preferenceGraph.viewing.profileId,freshProfileId);
+          assert.equal(saved.preferences.followFirst.refinement.distinctOpenCount,expectedOpen);
+          assert.equal(saved.preferences.followFirst.refinement.lastOpenId,opened.openId);
+          assert.equal(saved.preferences.ratingPromptState.lastSessionId,opened.sessionId);
+          assert.equal(saved.preferences.followFirst.refinement.promptedAt,null);assert.equal(saved.preferences.followFirst.refinement.completedAt,null);
+        }
+      }
       const baseline=clone(actualApi.state());
       assert.equal(baseline.preferences.preferenceGraph.domainPreferences[0].enabled,false);
       assert.deepEqual(baseline.preferences.preferenceGraph.entityFollows,[]);
