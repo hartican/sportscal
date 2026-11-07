@@ -2,10 +2,12 @@
 "use strict";
 
 const assert = require("node:assert/strict");
-const { chromium } = require(process.env.PLAYWRIGHT_MODULE || "playwright");
+const playwright = require(process.env.PLAYWRIGHT_MODULE || "playwright");
 
 async function main(){
-  const browser = await chromium.launch({ headless:true });
+  const engine = process.env.NATIVE_SHELL_QA_ENGINE || "chromium";
+  assert(["chromium", "webkit"].includes(engine), "use a supported browser engine");
+  const browser = await playwright[engine].launch({ headless:true });
   try{
     for (const viewport of [{width:390,height:844}, {width:430,height:932}, {width:768,height:1024}, {width:1280,height:900}]){
       const page = await browser.newPage({ viewport });
@@ -62,6 +64,7 @@ async function main(){
         return scroll;
       });
       await page.waitForFunction(() => document.activeElement?.id === "closeChatBtn");
+      assert.equal(await page.evaluate(() => ["feedViewFilterBtn", "timelineExpandBtn", "jumpTodayBtn"].every(id => document.getElementById(id).closest("[inert]"))), true, "Feed timeline controls must be isolated behind Chat");
       const drawer = await page.locator("#chatDrawer").boundingBox();
       assert.deepEqual(drawer, {x:0, y:0, width:viewport.width, height:viewport.height});
       await page.locator("#chatMessageInput").fill("First line");
