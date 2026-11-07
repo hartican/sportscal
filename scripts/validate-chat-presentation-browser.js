@@ -31,10 +31,11 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
         messages:Array.from({length:20},(_,index)=>({messageId:`long-${index}`,clientId:`client-${index}`,body:index===19?'See https://example.com/watch?game=1':'Long room message '+index,sentAt:new Date(Date.parse('2026-09-14T00:00:00Z')+index*1000).toISOString(),senderName:'Jim',own:true,deliveryState:'sent',reactions:[],attachments:[]})),
       });
       chatState.visibleMessageStart=chatWindowStart(chatState.messages);
-      const host=document.getElementById('chatBody');host.replaceChildren(buildChatMessageList(),buildChatComposer());
+      const host=document.getElementById('chatBody');host.replaceChildren(buildChatMessageList());
+      renderChatComposerHost(chatState.currentRoom);
       const initialCount=host.querySelectorAll('[data-message-id]').length;
       const hasOlder=Boolean(host.querySelector('.chat-load-older'));
-      const composer=host.querySelector('#chatRoomComposer');
+      const composer=document.getElementById('chatRoomComposer');
       const stable=host.querySelector('[data-message-id="long-5"]')||host.querySelector('[data-message-id]');
       stable.dataset.identityProbe='kept';
       mergeChatMessages([{messageId:'long-20',clientId:'client-20',body:'Newest',sentAt:'2026-09-14T00:00:21Z',senderName:'Jim',own:true,deliveryState:'sent',reactions:[],attachments:[]}]);
@@ -45,7 +46,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
       const imageMessages=Array.from({length:7},(_,index)=>({body:'',attachments:[{kind:'image'}],sentAt:new Date(index).toISOString()}));
       return {
         initialCount,hasOlder,
-        composerPreserved:composer===host.querySelector('#chatRoomComposer'),
+        composerPreserved:composer===document.getElementById('chatRoomComposer'),
         stablePreserved:Boolean(host.querySelector('[data-identity-probe="kept"]')),
         linkHref:link?.href,linkRel:link?.rel,previewHref:preview?.href,
         reactionIcon:[...host.querySelectorAll('.chat-message-action')].some(button=>button.textContent==='🙂'),
@@ -73,9 +74,11 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
    }
    if(width<=390){
     const keyboardFit=await page.evaluate(()=>{
+      chatState.currentRoom.viewer.canPost=true;
+      renderChatComposerHost(chatState.currentRoom);
       document.documentElement.style.setProperty('--chat-viewport-height','420px');
-      document.documentElement.style.setProperty('--chat-viewport-top','96px');
-      const composer=document.createElement('form');composer.className='chat-room-composer';const input=document.createElement('textarea');input.value='Hello';composer.appendChild(input);document.getElementById('chatBody').appendChild(composer);input.focus();input.scrollIntoView({block:'nearest'});
+      document.documentElement.style.setProperty('--chat-viewport-offset-top','96px');
+      const input=document.getElementById('chatMessageInput');
       const drawer=document.getElementById('chatDrawer').getBoundingClientRect();const field=input.getBoundingClientRect();return {drawerTop:drawer.top,drawerBottom:drawer.bottom,fieldBottom:field.bottom};
     });
     assert.equal(keyboardFit.drawerTop,96);assert.equal(keyboardFit.drawerBottom,516);assert(keyboardFit.fieldBottom<=keyboardFit.drawerBottom,'composer must remain above the simulated keyboard');

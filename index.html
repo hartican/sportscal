@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="271">
+<meta name="app-shell-version" content="272">
 <script src="/assets/js/app-update.js?v=254" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=271" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=272" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6888,9 +6888,9 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=271">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=271">
-<link rel="stylesheet" href="assets/styles/card-clarity.css?v=271">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=272">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=272">
+<link rel="stylesheet" href="assets/styles/card-clarity.css?v=272">
 </head>
 <body data-active-tab="feed">
 
@@ -7182,8 +7182,8 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="config/native-shell.js?v=271"></script>
-<script src="assets/js/app-shell-runtime.js?v=271"></script>
+<script src="config/native-shell.js?v=272"></script>
+<script src="assets/js/app-shell-runtime.js?v=272"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -10655,7 +10655,7 @@ async function loadFollowDirectoryManifest(){
 function parseFollowDirectoryText(text){
   if(typeof Worker!=="function" || globalThis.location?.protocol==="file:" || text.length<250000)return Promise.resolve(JSON.parse(text));
   if(!followDirectoryParserWorker){
-    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=271");
+    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=272");
     followDirectoryParserWorker.addEventListener("message",event=>{
       const job=followDirectoryParserJobs.get(event.data?.id);if(!job)return;
       followDirectoryParserJobs.delete(event.data.id);window.clearTimeout(job.timer);
@@ -23357,7 +23357,9 @@ function applyChatViewport(){
   document.body.classList.toggle("chat-keyboard-open", metrics.keyboardOpen);
   if (chatKeepLatestVisible && chatState.currentRoom){
     const body = document.getElementById("chatBody");
-    window.requestAnimationFrame(() => { body.scrollTop = body.scrollHeight; });
+    window.requestAnimationFrame(() => {
+      if (chatViewportLock && chatKeepLatestVisible && chatState.currentRoom) body.scrollTop = body.scrollHeight;
+    });
   }
 }
 
@@ -23494,9 +23496,9 @@ function setChatDrawerOpen(open){
     chatState.shareCapability = "";
     document.getElementById("shareRoomHeaderBtn").hidden = true;
     document.getElementById("chatNewMessagesBtn").classList.remove("show");
-    chatPreviousFocus?.focus?.();
-    chatPreviousFocus = null;
     unlockChatViewport();
+    chatPreviousFocus?.focus?.({ preventScroll:true });
+    chatPreviousFocus = null;
   }
 }
 
@@ -24571,7 +24573,7 @@ async function ensureChatMediaUi(){
   if (chatMediaUiLoading) return chatMediaUiLoading;
   chatMediaUiLoading = (async () => {
     if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA) await loadDeferredScript("config/chat-media.js?v=218");
-    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI) await loadDeferredScript("config/chat-media-ui.js?v=223");
+    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI) await loadDeferredScript("config/chat-media-ui.js?v=272");
     chatMediaUi = globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI.install({
       media:globalThis.NOTHINGSPORTS_CHAT_MEDIA,
       state:() => chatState,
@@ -24607,7 +24609,6 @@ async function openChatGifPicker(){
 
 async function sendChatMessage(form){
   const input = form.querySelector("textarea");
-  const retainComposerFocus = document.activeElement === input;
   const room = chatState.currentRoom;
   if (!room?.viewer?.canPost) return;
   const body = CHAT.messageBody(input.value);
@@ -24654,9 +24655,6 @@ async function sendChatMessage(form){
   form.querySelector(".chat-attachment-previews")?.replaceChildren();
   document.querySelector(".chat-reply-preview")?.remove();
   refreshChatMessageStream({ autoScroll:true, preserveScroll:false });
-  if (retainComposerFocus && document.getElementById("chatBackdrop").classList.contains("show")){
-    input.focus({ preventScroll:true });
-  }
   try{
     const payload = await serverSyncClient.chatRequest({}, {
       action:"send-message",
@@ -24679,9 +24677,6 @@ async function sendChatMessage(form){
     try{ sessionStorage.removeItem(chatDraftStorageKey(room.roomId)); }catch(_error){}
     refreshChatMessageStream({ autoScroll:true, preserveScroll:false });
     submit.disabled = false;
-    if (retainComposerFocus && document.getElementById("chatBackdrop").classList.contains("show")){
-      input.focus({ preventScroll:true });
-    }
     void refreshChatActive();
   }catch(error){
     chatState.messages = chatState.messages.filter(message => message.messageId !== optimisticMessage.messageId);
@@ -24690,7 +24685,15 @@ async function sendChatMessage(form){
     pendingAttachments.forEach(item => { item.status = "ready"; });
     chatState.replyToMessageId = replyToMessageId;
     chatConnection(error.message || "The message could not be sent.", "retrying");
-    renderOpenChatRoom({ autoScroll:true, focusComposer:true });
+    // Keep the existing field so an asynchronous failure cannot reopen the keyboard.
+    input.value = body;
+    sizeChatComposerInput(input);
+    form.querySelector(".chat-attachment-previews")?.replaceChildren(...pendingAttachments.map(pendingAttachmentPreview));
+    const reply = buildChatReplyPreview();
+    if (reply) document.getElementById("chatComposerHost").prepend(reply);
+    refreshChatMessageStream({ autoScroll:true, preserveScroll:false });
+    submit.disabled = false;
+    persistCurrentChatDraft();
   }
 }
 
@@ -24764,6 +24767,9 @@ function buildChatComposer({ focus = false } = {}){
   send.className = "btn primary";
   send.textContent = "Send";
   send.disabled = chatState.pendingAttachments.some(item => item.status !== "ready");
+  send.addEventListener("pointerdown", event => {
+    if (document.activeElement === input) event.preventDefault();
+  });
   form.append(label, tools, previews, input, send);
   form.addEventListener("submit", event => { event.preventDefault(); void sendChatMessage(form); });
   window.requestAnimationFrame(() => {
@@ -25464,7 +25470,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=271");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=272");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -25768,6 +25774,7 @@ document.getElementById("chatNewMessagesBtn").addEventListener("click", () => {
   void markCurrentChatRead();
 });
 document.getElementById("chatBody").addEventListener("scroll", () => {
+  chatKeepLatestVisible = chatBodyAtBottom();
   const button = document.getElementById("chatNewMessagesBtn");
   const wasShowing = button.classList.contains("show");
   updateChatJumpButton();

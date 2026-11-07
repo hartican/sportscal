@@ -9,20 +9,22 @@ const chatPolicy = require("../config/chat-policy");
 
 const followFixtures = JSON.parse(fs.readFileSync("data/follow-fixtures.v1.json", "utf8")).events;
 const findFixture = pattern => followFixtures.find(fixture => pattern.test(fixture.name || ""));
-const sabalenka = findFixture(/Sabalenka v (?:Camila )?Osorio/i);
-const alcaraz = findFixture(/Safiullin v (?:Carlos )?Alcaraz/i);
+const scheduledFixture = findFixture(/Ben Shelton v Tallon Griekspoor/i);
+const followsFixture = findFixture(/Martin Damm v Frances Tiafoe/i);
 
-assert(sabalenka, "Sabalenka v Osorio must exist in canonical follow fixtures");
-assert(alcaraz, "Safiullin v Alcaraz must exist in canonical follow fixtures");
-assert.equal(chatPolicy.fixtureEligibility(sabalenka, new Date("2026-08-31T12:00:00Z")).eligible, true);
-assert.equal(chatPolicy.fixtureEligibility(alcaraz, new Date("2026-08-31T12:00:00Z")).eligible, true);
-assert.equal(chatPolicy.fixtureTiming(alcaraz).timingPrecision, "follows");
-assert.equal(chatPolicy.fixtureTiming(alcaraz).startTimeUtc, null, "follows timing must not invent a match start");
-assert.equal(chatPolicy.fixtureTiming(alcaraz).sessionStartTimeUtc, "2026-08-31T15:30:00.000Z");
+assert(scheduledFixture, "a current exact-time US Open fixture must exist in canonical follow fixtures");
+assert(followsFixture, "a current follows-time US Open fixture must exist in canonical follow fixtures");
+const scheduled = { ...scheduledFixture, status:"upcoming" };
+const follows = { ...followsFixture, status:"upcoming" };
+assert.equal(chatPolicy.fixtureEligibility(scheduled, new Date("2026-08-31T12:00:00Z")).eligible, true);
+assert.equal(chatPolicy.fixtureEligibility(follows, new Date("2026-08-31T12:00:00Z")).eligible, true);
+assert.equal(chatPolicy.fixtureTiming(follows).timingPrecision, "follows");
+assert.equal(chatPolicy.fixtureTiming(follows).startTimeUtc, null, "follows timing must not invent a match start");
+assert.equal(chatPolicy.fixtureTiming(follows).sessionStartTimeUtc, "2026-08-31T23:00:00.000Z");
 
 const fixtureMap = chatHandler._test.loadFixtureMap();
-assert(fixtureMap.has(alcaraz.canonicalEventId || alcaraz.eventId || alcaraz.id), "Chat's deployed fixture index must include Alcaraz from follow fixtures");
-assert.equal(chatHandler._test.fixtureIsUpcomingOrLive(alcaraz, new Date("2026-08-31T12:00:00Z")), true);
+assert(fixtureMap.has(follows.canonicalEventId || follows.eventId || follows.id), "Chat's deployed fixture index must include the current follows-time fixture");
+assert.equal(chatHandler._test.fixtureIsUpcomingOrLive(follows, new Date("2026-08-31T12:00:00Z")), true);
 
 assert.equal(chatPolicy.GIF_UNLOCK_POINTS, 25);
 assert.deepEqual(chatPolicy.gifCapability(24), { lifetimeNscPoints:24, gifMinimumPoints:25, canUseGifs:false });
@@ -60,8 +62,9 @@ assert.match(gifReferenceMigration, /grant select, insert, update, delete[^;]+se
 assert.match(gifReferenceMigration, /giphy\\\.\(com\|net\)/i, "external references must be constrained to trusted GIPHY hosts");
 assert.match(sql, /status[^\n]+closing/i);
 assert.match(html, /Game selfie/);
-assert.match(html, /Shift\+Enter|shiftKey/);
-assert.match(html, /25 Nothing Score points/);
+assert.match(html, /input\.enterKeyHint = "enter"/, "the native Return key must remain available for multiline chat");
+assert.match(html, /event\.key !== "Enter" \|\| !\(event\.metaKey \|\| event\.ctrlKey\)/, "desktop modifier+Enter must remain the explicit send shortcut");
+assert.match(fs.readFileSync("config/chat-media-ui.js", "utf8"), /Earn 25 NSC points/, "locked GIF actions must explain the current NSC threshold");
 assert.match(html, /Saved game media/);
 assert.match(html, /refreshChatMessageStream\(\{ autoScroll:true, preserveScroll:false \}\)/, "optimistic sends must update only the message stream");
 
@@ -73,6 +76,6 @@ assert.match(mediaUi, /https:\/\/api\.giphy\.com/);
 assert.match(mediaUi, /credentials:"omit"/);
 assert.doesNotMatch(mediaUi, /GIPHY_API_KEY/, "the browser bundle must not hardcode an environment credential");
 assert.match(mediaUi, /retryButton\.textContent = "Retry"/);
-assert.match(html, /!attachment\.external/, "direct provider references must not expose the save-to-storage action");
+assert.match(html, /attachment\.saved \|\| attachment\.external\) return/, "direct provider references must not expose the save-to-storage action");
 
 console.log("Chat fixture and media plan valid: follows timing, private uploads, direct GIPHY references and the 25-point GIF gate are enforced.");
