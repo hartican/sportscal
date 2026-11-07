@@ -1047,10 +1047,220 @@ function singlePassSourceRegressions(text){
  return {restored:selected.restored,report:{scope:'Actual single-pass producer source in a closed filesystem VM; tiny fixture buffers and numeric budget model only.',workflowMutationGroups:mutations.length,workflowMutationNames:mutations.map(([name])=>name),boundaryGroups:names.length,boundaryNames:names,cumulativeLimit:2*1024*1024*1024,perFileLimit:256*1024*1024,sourceCountLimit:10000,installedCountLimit:40000,rawSourceCacheAdded:false,finalProofCache:false,childReservationUnchanged:true,actualRssOrTimeEstablished:false,appImports:0,childRuns:0,releaseAcceptance:false}};
 }
 
+function forwardConsumerAdmissionRegressions(qualifierSource,fixtureBytes,policyBytes,reservationBytes){
+ const nodePath=require('node:path'),sandboxVm=require('node:vm');
+ assert.equal(hash(reservationBytes),'40f49544cb207c3c1bf7c1da3cfd1c6c1e527ddb36003ee6067b0fb837a378ed','Real immutable historical reservation witness, never a mocked digest');
+ const boundary="const inputRow=sourceLeaves.get('scripts/fixtures/sync-current-forward-20261107.json');";
+ assert.equal(qualifierSource.split(boundary).length-1,1,'Exact post-admit/pre-fixture boundary');
+ const prefix=qualifierSource.slice(0,qualifierSource.indexOf(boundary));
+ assert(prefix.includes('try{fullAdmission=admit();}catch(error){'),'Actual admission dispatcher retained');
+ const sentinel='NS_FORWARD_ACTUAL_ADMISSION_SENTINEL';
+ const program=new sandboxVm.Script(prefix+'\nthrow new Error('+JSON.stringify(sentinel)+');',{filename:'actual-selected-qualifier-admission.cjs'});
+ const ROOT='/virtual/repo',TEMP='/virtual/runner',ADMISSION=TEMP+'/ns-forward-612-admission',NODE='/virtual/node',H='1'.repeat(40),T='2'.repeat(40),BASE='4bff7ada7d03c3bff52a262f58e630fe47848a74',TREE='4'.repeat(40),MAP='b'.repeat(64),NOW=Date.parse('2026-11-07T00:00:00.000Z');
+ const oid=bytes=>crypto.createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex');
+ const json=object=>Buffer.from(JSON.stringify(object,null,2)+'\n');
+ function fixture(){
+  const files=new Map();let inode=1;
+  const state={files,readCounts:new Map(),openCounts:new Map(),gitCalls:[],appImports:0,matrixArms:0,logs:[],budgetPrime:false,primed:false,context:null,drift:null,resolveTerser:ROOT+'/node_modules/terser/dist/bundle.min.js'};
+  function directory(dir){if(files.has(dir))return;const parent=nodePath.dirname(dir);if(parent!==dir)directory(parent);files.set(dir,{kind:'dir',mode:0o40700,uid:1000,gid:1000,ino:inode++,bytes:Buffer.alloc(0)});}
+  function file(name,bytes,mode=0o100644){directory(nodePath.dirname(name));const old=files.get(name);files.set(name,{kind:'file',mode,uid:1000,gid:1000,ino:old?.ino||inode++,bytes:Buffer.from(bytes)});}
+  function link(name,target){directory(nodePath.dirname(name));files.set(name,{kind:'link',mode:0o120777,uid:1000,gid:1000,ino:inode++,bytes:Buffer.from(target)});}
+  const source=new Map([
+   ['scripts/validate-sync-current-forward.js',Buffer.from(qualifierSource)],
+   ['scripts/fixtures/sync-current-forward-20261107.json',Buffer.from(fixtureBytes)],
+   ['config/deployment-manifest.json',Buffer.from(policyBytes)],
+   ['package-lock.json',json({lockfileVersion:3,packages:{'node_modules/terser':{version:'5.44.0'}}})],
+   ['lib/synthetic-admission-control.js',Buffer.from('module.exports=1;\n')]
+  ]);
+  for(const [name,bytes]of source)file(ROOT+'/'+name,bytes);
+  file(ROOT+'/node_modules/.package-lock.json',json({lockfileVersion:3,packages:{'node_modules/terser':{version:'5.44.0'}}}));
+  file(ROOT+'/node_modules/terser/package.json',json({name:'terser',version:'5.44.0'}));
+  file(ROOT+'/node_modules/terser/dist/package.json',json({type:'commonjs'}));
+  file(ROOT+'/node_modules/terser/dist/bundle.min.js',Buffer.from('module.exports={};\n'));
+  file(ROOT+'/node_modules/acorn/bin/acorn',Buffer.from('#!/usr/bin/env node\n'),0o100755);
+  link(ROOT+'/node_modules/.bin/acorn','../acorn/bin/acorn');
+  file(NODE,Buffer.from('SYNTHETIC_NODE_IDENTITY_NOT_EXECUTABLE_EVIDENCE\n'),0o100755);
+  const sourceRows=[...source.keys()].sort((a,b)=>Buffer.compare(Buffer.from(a),Buffer.from(b))).map(name=>{const bytes=source.get(name);return {path:name,mode:'100644',type:'blob',gitBlob:oid(bytes),bytes:bytes.length,sha256:hash(bytes)};});
+  const assembled={schemaVersion:'assembled-git-source-manifest.v1',revision:H,tree:TREE,entryCount:sourceRows.length,reviewedMapSha256:MAP,files:sourceRows};
+  function children(dir){return [...files.keys()].filter(p=>p!==dir&&nodePath.dirname(p)===dir).map(p=>nodePath.basename(p)).sort();}
+  function identity(name,relative){const f=files.get(name);assert(f&&f.kind!=='dir');return {path:relative,bytes:f.bytes.length,permissions:(f.mode&0o7777).toString(8).padStart(4,'0'),mode:f.kind==='link'?'120000':f.mode&0o111?'100755':'100644',sha256:hash(f.bytes),gitBlob:oid(f.bytes),...(f.kind==='link'?{link:f.bytes.toString('utf8')}:{})};}
+  const depRows=[];function walk(dir){for(const name of children(dir)){const full=dir+'/'+name;if(files.get(full).kind==='dir')walk(full);else depRows.push(identity(full,nodePath.relative(ROOT,full)));}}walk(ROOT+'/node_modules');
+  const proof={schemaVersion:'canonical-ci-dependencies.v1',installCommand:'npm ci',lockSha256:hash(source.get('package-lock.json')),installedLockSha256:hash(files.get(ROOT+'/node_modules/.package-lock.json').bytes),terser:{main:'node_modules/terser/dist/bundle.min.js',package:'node_modules/terser',version:'5.44.0',entryIdentity:depRows.find(x=>x.path==='node_modules/terser/dist/bundle.min.js'),manifestIdentity:depRows.find(x=>x.path==='node_modules/terser/package.json')},fileMapSha256:hash(Buffer.from(JSON.stringify(depRows))),files:depRows,auditRemediation:false};
+  const policy=JSON.parse(policyBytes.toString('utf8')),selected=new Set(sourceRows.filter(row=>!row.path.includes('supabase_keys.txt')&&!row.path.split('/').some(x=>x.startsWith('.env'))&&!policy.excludeDirectories.some(x=>row.path.startsWith(x))&&!policy.excludeFiles.includes(row.path)&&(policy.includeDirectories.some(x=>row.path.startsWith(x))||policy.includeFiles.includes(row.path)||(!row.path.includes('/')&&policy.rootExtensions.includes(nodePath.extname(row.path))))).map(x=>x.path));
+  for(const name of selected)if(name.endsWith('.js'))for(const match of source.get(name).toString('utf8').matchAll(/require\(\s*['"](\.[^'"]+)['"]\s*\)/g)){const base=nodePath.posix.normalize(nodePath.posix.join(nodePath.posix.dirname(name),match[1])),dependency=[base,base+'.js',base+'.json',base+'/index.js'].find(x=>source.has(x));if(dependency)selected.add(dependency);}
+  const deployment={revision:H,bytes:0,files:[]};
+  for(const row of sourceRows.filter(x=>selected.has(x.path))){const raw=source.get(row.path),compact=policy.compactJson&&row.path.endsWith('.json')&&!policy.preserveBytes.includes(row.path),bytes=compact?Buffer.from(JSON.stringify(JSON.parse(raw))+'\n'):raw;deployment.files.push({path:row.path,gitBlob:row.gitBlob,sourceBytes:raw.length,bytes:bytes.length,transform:compact?'json-compact':'identity',sha256:hash(bytes)});deployment.bytes+=bytes.length;file(ADMISSION+'/deployment-snapshot/'+row.path,bytes);}
+  const reservation=JSON.parse(reservationBytes.toString('utf8'));
+  const binding={schemaVersion:'sync-current-forward-binding.v1',phase:'qualification',repository:'hartican/sportscal',publisherHeadSha:H,expectedPublisherTreeSha:TREE,reviewedFinalMapSha256:MAP,expectedAssembledManifestSha256:null,expectedAssembledEntryCount:sourceRows.length,expectedBaseRelativePathCount:1,qualifierSha256:hash(Buffer.from(qualifierSource)),fixtureSha256:hash(fixtureBytes),namedAllocationId:'SYNTHETIC_CONTROL_ONLY_NOT_ACTUAL_AUTHORITY',reservationReceiptSha256:hash(reservationBytes),freshMainAndReservationBindingSha256:null,reservationReceiptBase64:reservationBytes.toString('base64'),freshMainAndReservationBindingBase64:null};
+  const fresh={schemaVersion:'publisher-fresh-main-reservation-binding.v1',publisherThreadId:'01a0d5ba-943d-74e0-af7f-dab4fb2bdda4',repository:'hartican/sportscal',candidateHeadSha:H,candidateTreeSha:TREE,reviewedFinalMapSha256:MAP,expectedAssembledManifestSha256:null,observedMainSha:BASE,mainObservedAt:new Date(NOW).toISOString(),mainRefEvidenceSha256:'c'.repeat(64),reservationId:reservation.id,reservationVersion:'612',reservationReceiptSha256:hash(reservationBytes),reservationConflictCheckedAt:new Date(NOW).toISOString(),knownConflictingReservation:false,globalReservationAvailability:'UNKNOWN; no global availability claim',namedAllocationId:binding.namedAllocationId,validUntil:new Date(NOW+60000).toISOString(),currentActionAuthority:'SYNTHETIC_CONTROL_ONLY_NO_REAL_ALLOCATION'};
+  const body={schemaVersion:'ns-release-handover.forward.v1',scope:'Synthetic source-admission controls only',commit:H,testsAndResults:'No real application or release proof',dependencies:'None',databaseAndConfigChanges:'None',knownRisks:'Synthetic only',rollback:'Do not publish controls',sourceQualificationBinding:binding};
+  const event={action:'ready_for_review',number:1,repository:{full_name:'hartican/sportscal'},pull_request:{number:1,draft:false,head:{sha:H,repo:{full_name:'hartican/sportscal'}},base:{sha:BASE},body:null}};
+  const runtime={node:'v24.21.0',platform:'linux',arch:'x64',npm:'11.19.0',nodeBinary:identity(NODE,NODE),dependencyProof:null};
+  function descriptor(name,bytes){file(name,bytes,0o100600);return {path:name,bytes:bytes.length,sha256:hash(bytes)};}
+  const reservationFile=descriptor(ADMISSION+'/reservation-receipt.json',reservationBytes);
+  const receipt={schemaVersion:'sync-current-forward-execution-receipt.v1',publisherHeadSha:H,publisherTreeSha:TREE,releaseGitSha:H,actualTestedMergeSha:T,actualAssembledSourceManifestPath:ADMISSION+'/assembled-source-manifest.json',actualAssembledSourceManifestSha256:null,actualDeploymentSourceManifestPath:ADMISSION+'/deployment-snapshot/deployment-files.json',actualDeploymentSourceManifestSha256:null,actualNodeBinarySha256:runtime.nodeBinary.sha256,actualDependencyProofSha256:null,freshMainAndReservationBindingSha256:null,namedAllocationId:binding.namedAllocationId,actualCloudRunId:'1',actualCloudRunAttempt:1,actualCloudJobId:'github-job-key:fixture-activation',actualCloudJobKey:'fixture-activation',actualCloudNumericJobId:null,actualWorkflowPath:'.github/workflows/installed-upgrade-tests.yml',admissionGranted:true,headRole:'pull_request.head.sha',testedCommitRole:'pull_request-merge-checkout',releaseRole:'source-qualification-candidate',jobIdKind:'github-job-key',observedAt:new Date(NOW).toISOString(),eventBodySha256:null,approvedFinalMap:{reviewedMapSha256:MAP,expectedTree:TREE,entryCount:sourceRows.length,baseRelativePathCount:1,assembledManifestSha256:null},cloudContext:{repository:'hartican/sportscal',eventName:'pull_request',pullRequestNumber:'1',ref:'refs/pull/1/merge',runId:'1',runAttempt:1,jobKey:'fixture-activation'},qualifier:{path:sourceRows.find(x=>x.path==='scripts/validate-sync-current-forward.js').path,bytes:Buffer.byteLength(qualifierSource),sha256:binding.qualifierSha256,gitBlob:oid(Buffer.from(qualifierSource)),mode:'100644'},fixture:{path:'scripts/fixtures/sync-current-forward-20261107.json',bytes:fixtureBytes.length,sha256:binding.fixtureSha256,gitBlob:oid(fixtureBytes),mode:'100644'},git:{headSha:H,headTree:TREE,testedMergeSha:T,testedTree:TREE,baseSha:BASE,testedMergeParents:[BASE,H],trackedSourceUnchanged:true},runtime,reservation:{id:reservation.id,version:'612',receipt:reservationFile},freshMainAndReservationBinding:{receipt:null}};
+  const env={GITHUB_ACTIONS:'true',GITHUB_EVENT_NAME:'pull_request',GITHUB_REPOSITORY:'hartican/sportscal',GITHUB_JOB:'fixture-activation',RUNNER_TEMP:TEMP,GITHUB_RUN_ID:'1',GITHUB_RUN_ATTEMPT:'1',GITHUB_REF:'refs/pull/1/merge',GITHUB_SHA:T,GITHUB_EVENT_PATH:TEMP+'/event.json'};
+  const execution=ADMISSION+'/execution-receipt.json';
+  let argv=['node',ROOT+'/scripts/validate-sync-current-forward.js','--full','--execution-receipt',execution,'--execution-receipt-sha256',null];
+  const x={state,files,sourceRows,source,proof,deployment,assembled,binding,fresh,body,event,receipt,env,runtime,file,link,identity,execution,argv,gitParents:[BASE,H],gitTree:TREE,gitHead:T};
+  x.writeReceipt=()=>{const bytes=json(receipt);file(execution,bytes,0o100600);argv[6]=hash(bytes);};
+  x.writeBody=()=>{event.pull_request.body=x.bodyOverride===undefined?JSON.stringify(body):x.bodyOverride;receipt.eventBodySha256=hash(Buffer.from(event.pull_request.body));file(env.GITHUB_EVENT_PATH,json(event),0o100600);x.writeReceipt();};
+  x.writeFresh=()=>{const bytes=json(fresh),d=descriptor(ADMISSION+'/fresh-main-reservation-binding.json',bytes);receipt.freshMainAndReservationBinding={receipt:d};receipt.freshMainAndReservationBindingSha256=d.sha256;binding.freshMainAndReservationBindingSha256=d.sha256;binding.freshMainAndReservationBindingBase64=bytes.toString('base64');x.writeBody();};
+  x.writeAssembled=()=>{const bytes=Buffer.from(JSON.stringify(assembled)+'\n');descriptor(receipt.actualAssembledSourceManifestPath,bytes);const digest=hash(bytes);receipt.actualAssembledSourceManifestSha256=digest;receipt.approvedFinalMap.assembledManifestSha256=digest;binding.expectedAssembledManifestSha256=digest;fresh.expectedAssembledManifestSha256=digest;x.writeFresh();};
+  x.writeProof=()=>{proof.fileMapSha256=hash(Buffer.from(JSON.stringify(proof.files)));const d=descriptor(ADMISSION+'/dependencies.json',json(proof));runtime.dependencyProof={...d,schemaVersion:'canonical-ci-dependencies.v1'};receipt.actualDependencyProofSha256=d.sha256;x.writeReceipt();};
+  x.writeDeployment=()=>{const bytes=json(deployment);descriptor(receipt.actualDeploymentSourceManifestPath,bytes);receipt.actualDeploymentSourceManifestSha256=hash(bytes);x.writeReceipt();};
+  x.rebindDependency=name=>{const row=identity(ROOT+'/'+name,name),index=proof.files.findIndex(y=>y.path===name);assert(index>=0);proof.files[index]=row;if(name===proof.terser.main)proof.terser.entryIdentity=row;if(name===proof.terser.package+'/package.json')proof.terser.manifestIdentity=row;x.writeProof();};
+  x.writeProof();x.writeDeployment();x.writeAssembled();return x;
+ }
+ function run(test){
+  const x=fixture();test.change?.(x);
+  const fds=new Map();let fd=10;
+  const stat=full=>{
+   const item=x.files.get(full);assert(item,'Unexpected mocked stat '+full);
+   if(x.state.budgetPrime&&!x.state.primed&&full===ROOT+'/node_modules/.package-lock.json'){
+    x.state.primed=true;sandboxVm.runInContext('readBytes=limits.totalBytes;',x.state.context,{timeout:100});
+   }
+   let ino=item.ino;if(x.state.drift===full&&(x.state.readCounts.get(full)||0)>0)ino++;
+   return {dev:1,ino,uid:item.uid,gid:item.gid,mode:item.mode,size:item.reportedSize===undefined?item.bytes.length:item.reportedSize,mtimeMs:NOW,ctimeMs:NOW,isFile:()=>item.kind==='file',isDirectory:()=>item.kind==='dir',isSymbolicLink:()=>item.kind==='link'};
+  };
+  function real(full,depth=0){assert(depth<32,'Mock link recursion');const item=x.files.get(full);assert(item,'Unexpected mocked realpath '+full);if(item.kind==='link')return real(nodePath.resolve(nodePath.dirname(full),item.bytes.toString('utf8')),depth+1);return full;}
+  const fakeFs={constants:{O_RDONLY:0,O_NOFOLLOW:131072},realpathSync:full=>real(String(full)),lstatSync:full=>stat(String(full)),existsSync:full=>x.files.has(String(full)),
+   openSync:(full,flags)=>{full=String(full);const st=stat(full);assert(st.isFile(),'Mock no-follow open');x.state.openCounts.set(full,(x.state.openCounts.get(full)||0)+1);const n=fd++;fds.set(n,full);return n;},
+   fstatSync:n=>stat(fds.get(n)),closeSync:n=>{assert(fds.delete(n),'Unknown mock fd');},
+   readFileSync:(arg,encoding)=>{const full=typeof arg==='number'?fds.get(arg):String(arg),item=x.files.get(full);assert(item&&item.kind==='file','Unexpected mock read '+full);x.state.readCounts.set(full,(x.state.readCounts.get(full)||0)+1);return encoding==='utf8'?item.bytes.toString('utf8'):Buffer.from(item.bytes);},
+   readlinkSync:(full,options)=>{const item=x.files.get(String(full));assert(item&&item.kind==='link');return options?.encoding==='buffer'?Buffer.from(item.bytes):item.bytes.toString('utf8');},
+   readdirSync:(dir,options)=>{dir=String(dir);const children=[...x.files.keys()].filter(p=>p!==dir&&nodePath.dirname(p)===dir).map(p=>nodePath.basename(p)).sort();return options?.withFileTypes?children.map(name=>{const st=stat(dir+'/'+name);return {name,isDirectory:st.isDirectory,isFile:st.isFile,isSymbolicLink:st.isSymbolicLink};}):children;}
+  };
+  const fakeCp={execFileSync:(command,args,options)=>{
+   assert.equal(command,'git','No real process');assert.equal(options.cwd,ROOT);assert.equal(options.timeout,5000);assert.equal(options.maxBuffer,4194304);x.state.gitCalls.push(args.slice());
+   if(args.join(' ')==='rev-parse HEAD HEAD^{tree} '+H+'^{tree}')return Buffer.from([x.gitHead,x.gitTree,x.gitTree].join('\n')+'\n');
+   if(args.join(' ')==='show -s --format=%P '+T)return Buffer.from(x.gitParents.join(' ')+'\n');
+   if(args.join(' ')==='ls-tree -r -z --full-tree HEAD')return Buffer.from(x.sourceRows.map(r=>r.mode+' '+r.type+' '+r.gitBlob+'\t'+r.path+'\0').join(''));
+   throw Error('Unexpected mock Git command '+JSON.stringify(args));
+  }};
+  function requireMock(name){
+   if(name==='node:fs')return fakeFs;if(name==='node:path')return nodePath;if(name==='node:assert/strict')return assert;if(name==='node:crypto')return crypto;if(name==='node:child_process')return fakeCp;
+   if(name==='node:vm')return {runInNewContext:()=>{x.state.matrixArms++;throw Error('APP_MATRIX_FORBIDDEN');},runInContext:()=>{x.state.matrixArms++;throw Error('APP_MATRIX_FORBIDDEN');},Script:function(){x.state.matrixArms++;throw Error('APP_MATRIX_FORBIDDEN');}};
+   x.state.appImports++;throw Error('APP_IMPORT_FORBIDDEN '+name);
+  }
+  requireMock.resolve=name=>{assert.equal(name,'terser');return x.state.resolveTerser;};
+  class MockDate extends Date{constructor(...args){super(...(args.length?args:[NOW]));}static now(){return NOW;}}
+  const consoleMock={log:(...args)=>x.state.logs.push(args.join(' ')),error:(...args)=>x.state.logs.push(args.join(' '))};
+  const context=sandboxVm.createContext({require:requireMock,__dirname:ROOT+'/scripts',Buffer,console:consoleMock,Date:MockDate,process:{argv:x.argv,env:x.env,version:'v24.21.0',platform:'linux',arch:'x64',execPath:NODE,geteuid:()=>1000,getuid:()=>1000}});x.state.context=context;
+  let error=null;try{program.runInContext(context,{timeout:1000});}catch(caught){error=caught;}
+  const failed=x.state.logs.some(line=>{try{return JSON.parse(line).status==='ADMISSION_FAILED';}catch{return false;}});
+  assert.equal(x.state.appImports,0,test.name+' no app imports');assert.equal(x.state.matrixArms,0,test.name+' no matrix arms');
+  if(test.positive){assert(error&&error.message===sentinel,test.name+' must reach controlled post-admit sentinel: '+(error?.message||'no throw'));assert.equal(failed,false,test.name+' no admission failure');}
+  else{assert(error&&error.message!==sentinel,test.name+' cannot reach positive sentinel');assert.equal(failed,true,test.name+' must report ADMISSION_FAILED');if(test.message)assert(test.message.test(error.message),test.name+' expected guard: '+error.message);}
+  if(test.lockNotRead){assert.equal(x.state.readCounts.get(ROOT+'/node_modules/.package-lock.json')||0,0,test.name+' installed-lock bytes refused before read');assert.equal(x.state.openCounts.get(ROOT+'/node_modules/.package-lock.json')||0,0,test.name+' installed-lock refused before open');}
+  return {name:test.name,status:'PASS_CONTROL',positive:!!test.positive,appImports:0,matrixArms:0,installedLockReads:x.state.readCounts.get(ROOT+'/node_modules/.package-lock.json')||0};
+ }
+ const tests=[
+  {name:'Valid actual admission with nested dist metadata and legitimate ../acorn link',positive:true},
+  {name:'Missing receipt field',change:x=>{delete x.receipt.actualWorkflowPath;x.writeReceipt();}},
+  {name:'Wrong workflow field',change:x=>{x.receipt.actualWorkflowPath='other.yml';x.writeReceipt();}},
+  {name:'Wrong repository',change:x=>{x.env.GITHUB_REPOSITORY='fork/repo';}},
+  {name:'Draft event',change:x=>{x.event.pull_request.draft=true;x.writeBody();}},
+  {name:'Wrong event action',change:x=>{x.event.action='opened';x.writeBody();}},
+  {name:'Unpaired body surrogate',change:x=>{x.body.scope='\ud800';x.writeBody();}},
+  {name:'Oversized handover text',change:x=>{x.body.scope='x'.repeat(4097);x.writeBody();}},
+  {name:'Coerced source count',change:x=>{x.binding.expectedAssembledEntryCount=String(x.binding.expectedAssembledEntryCount);x.writeBody();}},
+  {name:'Assembled manifest byte drift',change:x=>{const f=x.files.get(x.receipt.actualAssembledSourceManifestPath);f.bytes=Buffer.concat([f.bytes,Buffer.from(' ')]);}},
+  {name:'Duplicate assembled source row',change:x=>{x.assembled.files.push({...x.assembled.files.at(-1)});x.assembled.entryCount++;x.binding.expectedAssembledEntryCount++;x.receipt.approvedFinalMap.entryCount++;x.writeAssembled();}},
+  {name:'Unsafe assembled source path',change:x=>{x.assembled.files[0].path='../escape';x.writeAssembled();}},
+  {name:'Invalid fresh timestamp',change:x=>{x.fresh.mainObservedAt='2026-11-06';x.writeFresh();}},
+  {name:'Future main observation',change:x=>{x.fresh.mainObservedAt=new Date(NOW+1).toISOString();x.writeFresh();}},
+  {name:'Receipt digest drift',change:x=>{x.argv[6]='e'.repeat(64);}},
+  {name:'Missing CLI arguments',change:x=>x.argv.splice(2)},
+  {name:'Unknown CLI argument',change:x=>x.argv[2]='--priority-source-only'},
+  {name:'Duplicate CLI argument',change:x=>x.argv.push('--full')},
+  {name:'NULL admission field',change:x=>{x.receipt.actualNodeBinarySha256=null;x.writeReceipt();}},
+  {name:'Extra receipt field',change:x=>{x.receipt.extra=true;x.writeReceipt();}},
+  {name:'Wrong numeric job namespace',change:x=>{x.receipt.actualCloudJobId='123';x.writeReceipt();}},
+  {name:'Wrong job key',change:x=>x.env.GITHUB_JOB='other'},
+  {name:'Wrong run attempt',change:x=>x.env.GITHUB_RUN_ATTEMPT='2'},
+  {name:'Wrong event head',change:x=>{x.event.pull_request.head.sha=BASE;x.writeBody();}},
+  {name:'Wrong event base',change:x=>{x.event.pull_request.base.sha=H;x.writeBody();}},
+  {name:'Wrong merge parent order',change:x=>x.gitParents=[H,BASE]},
+  {name:'Unequal complete tree',change:x=>x.gitTree=H},
+  {name:'Body trailing LF',change:x=>{x.bodyOverride=JSON.stringify(x.body)+'\n';x.writeBody();}},
+  {name:'Body duplicated key',change:x=>{x.bodyOverride=JSON.stringify(x.body).replace('"scope":"Synthetic source-admission controls only"','"scope":"Other","scope":"Synthetic source-admission controls only"');x.writeBody();}},
+  {name:'Wrong scalar handover type',change:x=>{x.body.scope=[];x.writeBody();}},
+  {name:'Extra source binding key',change:x=>{x.binding.extra=true;x.writeBody();}},
+  {name:'Noncanonical base64 receipt',change:x=>{x.binding.reservationReceiptBase64+='\n';x.writeBody();}},
+  {name:'Wrong complete manifest digest',change:x=>{x.receipt.actualAssembledSourceManifestSha256='d'.repeat(64);x.writeReceipt();}},
+  {name:'Missing complete source entry',change:x=>{x.assembled.files.pop();x.writeAssembled();}},
+  {name:'Raw source byte drift',change:x=>x.file(ROOT+'/lib/synthetic-admission-control.js',Buffer.from('changed'))},
+  {name:'Wrong qualifier digest',change:x=>{x.binding.qualifierSha256='d'.repeat(64);x.writeBody();}},
+  {name:'External path escape',change:x=>{x.argv[4]='/outside/receipt.json';}},
+  {name:'Foreign receipt owner',change:x=>{x.files.get(x.execution).uid=99;}},
+  {name:'Receipt symlink rejected',change:x=>x.link(x.execution,'other.json')},
+  {name:'Unstable receipt read',change:x=>x.state.drift=x.execution},
+  {name:'Wrong projected revision',change:x=>{x.deployment.revision=BASE;x.writeDeployment();}},
+  {name:'Omitted deployment projection',change:x=>{x.deployment.files.pop();x.writeDeployment();}},
+  {name:'Wrong deployment transform',change:x=>{x.deployment.files[0].transform='wrong';x.writeDeployment();}},
+  {name:'Wrong runtime Node',change:x=>{x.receipt.runtime.node='v25.0.0';x.writeReceipt();}},
+  {name:'Node binary byte drift',change:x=>x.file(NODE,Buffer.from('changed-node'),0o100755)},
+  {name:'Wrong current committed lock hash',change:x=>{x.proof.lockSha256='d'.repeat(64);x.writeProof();}},
+  {name:'Incomplete installed dependency map',change:x=>{x.proof.files.pop();x.writeProof();}},
+  {name:'Reordered dependency map',change:x=>{x.proof.files.reverse();x.writeProof();}},
+  {name:'Wrong explicit Terser owner name',change:x=>{x.file(ROOT+'/node_modules/terser/package.json',json({name:'dist',version:'5.44.0'}));x.rebindDependency('node_modules/terser/package.json');}},
+  {name:'Resolved Terser entry outside owner',change:x=>{x.state.resolveTerser=ROOT+'/node_modules/acorn/bin/acorn';}},
+  {name:'Escaping dependency link target',change:x=>{x.file('/virtual/outside',Buffer.from('outside'));x.link(ROOT+'/node_modules/.bin/acorn','../../../outside');x.rebindDependency('node_modules/.bin/acorn');}},
+  {name:'Wrong immutable reservation digest',change:x=>{x.files.get(x.receipt.reservation.receipt.path).bytes=Buffer.from('{}');}},
+  {name:'Known reservation conflict',change:x=>{x.fresh.knownConflictingReservation=true;x.writeFresh();}},
+  {name:'Expired fresh binding',change:x=>{x.fresh.validUntil=new Date(NOW-1).toISOString();x.writeFresh();}},
+  {name:'Future observation',change:x=>{x.receipt.observedAt=new Date(NOW+1).toISOString();x.writeReceipt();}},
+  {name:'Template action authority',change:x=>{x.fresh.currentActionAuthority='SOURCE_TEMPLATE_ONLY_NOT_ALLOCATION';x.writeFresh();}},
+  {name:'Oversized installed lock refused before buffer read',change:x=>{x.files.get(ROOT+'/node_modules/.package-lock.json').reportedSize=256*1024*1024+1;},lockNotRead:true,message:/file exceeds finite bound/},
+  {name:'Cumulative budget refused before installed lock buffer read',change:x=>{x.state.budgetPrime=true;},lockNotRead:true,message:/metadata-phase cumulative read bound/}
+ ];
+ const results=[],failures=[];for(const test of tests){try{results.push(run(test));}catch(error){failures.push({name:test.name,message:error.message});results.push({name:test.name,status:'FAIL_CONTROL',message:error.message});}}
+ if(failures.length){const error=Error('Actual consumer admission controls failed: '+JSON.stringify(failures));error.e610Report={groups:tests.length,results,failures,sourceSha256:hash(Buffer.from(qualifierSource)),releaseAcceptance:false};throw error;}
+ return {groups:tests.length,positive:1,negative:tests.length-1,results,consumerSourceSha256:hash(Buffer.from(qualifierSource)),actualConsumerReader:true,closedMockFsGitEnvironmentClock:true,budgetPriming:'One negative primes only the mocked prior-read ledger at installed-lock lstat; no2GiB allocation or IO is claimed.',historicalReservationWitnessSha256:hash(reservationBytes),realFilesystemScansPerNegative:0,appImports:0,matrixArms:0,realApplicationAcceptance:false,releaseAcceptance:false};
+}
+
+
+function forwardConsumerControlsForContext(){
+ const {boundedRegularRead}=require('./lib/forward-onboarding-ci'),readLedger={used:0,limit:2*1024*1024*1024};
+ const skipped=reason=>({status:'SKIPPED_NOT_ELIGIBLE_CONTEXT',groups:null,positive:null,negative:null,reason,requiredSourceAdmissionGateClosed:false,releaseAcceptance:false});
+ if(process.env.GITHUB_EVENT_NAME!=='pull_request'||process.env.GITHUB_JOB!=='fixture-activation')return skipped('Actual-reader controls require existing fixture-activation PR Ready context; original context-independent contracts still run.');
+ assert.equal(process.env.GITHUB_ACTIONS,'true','Actual required source context');
+ const eventPath=process.env.GITHUB_EVENT_PATH;assert(typeof eventPath==='string'&&require('node:path').isAbsolute(eventPath),'Existing event input required');
+ const before=fs.lstatSync(eventPath);assert(before.isFile()&&!before.isSymbolicLink()&&before.size<=4*1024*1024,'Bounded regular event input');
+ const stamp=s=>[s.dev,s.ino,s.size,s.mode,s.mtimeMs,s.ctimeMs];
+ const raw=boundedRegularRead(eventPath,4*1024*1024,readLedger);
+ assert.deepEqual(stamp(fs.lstatSync(eventPath)),stamp(before));assert.equal(raw.length,before.size);
+ const eventText=raw.toString('utf8');assert(Buffer.from(eventText).equals(raw),'Event UTF8');const event=JSON.parse(eventText);
+ if(event.action!=='ready_for_review'||event.pull_request?.draft!==false)return skipped('Not the selected non-draft Ready source-qualification event; no consumer-control PASS or admission credit.');
+ assert.equal(event.repository?.full_name,'hartican/sportscal');assert.equal(typeof event.pull_request.body,'string','Missing required reservation witness body');
+ const bodyBytes=Buffer.from(event.pull_request.body);assert(bodyBytes.length<=65536,'Body byte bound');const body=JSON.parse(event.pull_request.body);assert.equal(JSON.stringify(body),event.pull_request.body,'Canonical witness body, NO LF');
+ if(body.schemaVersion!=='ns-release-handover.forward.v1')return {status:'NOT_FORWARD_CONTEXT',releaseAcceptance:false};
+ const b=body.sourceQualificationBinding;assert(b&&typeof b==='object'&&!Array.isArray(b),'Reservation binding required');
+ assert.equal(b.reservationReceiptSha256,'40f49544cb207c3c1bf7c1da3cfd1c6c1e527ddb36003ee6067b0fb837a378ed');
+ assert(typeof b.reservationReceiptBase64==='string'&&b.reservationReceiptBase64.length<=21848,'Bounded reservation witness');
+ const reservation=Buffer.from(b.reservationReceiptBase64,'base64');assert(reservation.length>0&&reservation.length<=16384);assert.equal(reservation.toString('base64'),b.reservationReceiptBase64);assert.equal(hash(reservation),b.reservationReceiptSha256,'Exact forward witness, no mocked crypto/private literal');
+ const nodePath=require('node:path'),root=nodePath.resolve(__dirname,'..');
+ function source(relative,maximum){
+  const file=nodePath.join(root,relative),st=fs.lstatSync(file);assert(st.isFile()&&!st.isSymbolicLink()&&st.size<=maximum,'Finite selected control source');
+  const bytes=boundedRegularRead(file,maximum,readLedger);
+  assert.deepEqual(stamp(fs.lstatSync(file)),stamp(st));assert.equal(bytes.length,st.size);return bytes;
+ }
+ const qualifier=source('scripts/validate-sync-current-forward.js',1024*1024),fixture=source('scripts/fixtures/sync-current-forward-20261107.json',1024*1024),policy=source('config/deployment-manifest.json',16384);
+ const qualifierText=qualifier.toString('utf8');assert(Buffer.from(qualifierText).equals(qualifier),'Selected qualifier UTF8');
+ assert.equal(hash(qualifier),b.qualifierSha256,'Selected qualifier matches actual source body binding');assert.equal(hash(fixture),b.fixtureSha256,'Selected fixture matches actual source body binding');
+ return {status:'PASS_ACTUAL_CONSUMER_ADMISSION_CONTROLS',...forwardConsumerAdmissionRegressions(qualifierText,fixture,policy,reservation),requiredSourceAdmissionGateClosed:false};
+}
+
+
+
 if(require.main===module){
  const augmentedProduction=fs.readFileSync('.github/workflows/sportscal-production.yml','utf8');
  const text=normalisePermanentProductionSelection(augmentedProduction).restored,report=validate(text);
- const augmentedInstalled=fs.readFileSync('.github/workflows/installed-upgrade-tests.yml','utf8');
+ const rawForwardInstalled=fs.readFileSync('.github/workflows/installed-upgrade-tests.yml','utf8');
+ const {normaliseForwardWorkflow,sourceControls}=require('./validate-forward-onboarding-ci');
+ const forwardSourceControls=sourceControls(rawForwardInstalled);
+ const augmentedInstalled=normaliseForwardWorkflow(rawForwardInstalled).restored;
  const singlePassSource=singlePassSourceRegressions(augmentedInstalled);
  const producerReadLedger=producerReadLedgerRegressions(singlePassSource.restored);
  const projectionReadBudget=projectionReadBudgetRegressions(producerReadLedger.restored),reviewedInstalled=projectionReadBudget.restored;
@@ -1063,9 +1273,9 @@ if(require.main===module){
  const permanentCaptureControls=permanentCaptureRegressions(reviewedInstalled);
  const permanentProductionSelectionControls=permanentProductionSelectionRegressions(augmentedProduction);
  let e610ActualConsumerAdmissionControls,consumerControlFailure=null;
- try{e610ActualConsumerAdmissionControls=e610ConsumerControlsForContext();}
+ try{e610ActualConsumerAdmissionControls=forwardConsumerControlsForContext();if(e610ActualConsumerAdmissionControls.status==='NOT_FORWARD_CONTEXT')e610ActualConsumerAdmissionControls=e610ConsumerControlsForContext();}
  catch(error){consumerControlFailure=error;e610ActualConsumerAdmissionControls={status:'FAIL_ACTUAL_CONSUMER_ADMISSION_CONTROLS',message:error.message,report:error.e610Report||null,groups:error.e610Report?.groups??null,requiredSourceAdmissionGateClosed:false,releaseAcceptance:false};}
- console.log(JSON.stringify({schemaVersion:'production-sql-batches.v1',...report,negativeControls:originalNegativeControls,signupCompatibilityNegativeControls,lockedTerserPackageControls,e610AdmissionControls:admission.report,e610ActualConsumerAdmissionControls,singlePassSourceControls:singlePassSource.report,producerReadLedgerControls:producerReadLedger.report,projectionReadBudgetControls:projectionReadBudget.report,permanentCaptureControls:permanentCaptureControls.report,permanentProductionSelectionControls,engineRuns:0,serviceRequests:0,releaseAcceptance:false}));
+ console.log(JSON.stringify({schemaVersion:'production-sql-batches.v1',...report,forwardSourceControls,negativeControls:originalNegativeControls,signupCompatibilityNegativeControls,lockedTerserPackageControls,e610AdmissionControls:admission.report,e610ActualConsumerAdmissionControls,singlePassSourceControls:singlePassSource.report,producerReadLedgerControls:producerReadLedger.report,projectionReadBudgetControls:projectionReadBudget.report,permanentCaptureControls:permanentCaptureControls.report,permanentProductionSelectionControls,engineRuns:0,serviceRequests:0,releaseAcceptance:false}));
  if(consumerControlFailure)throw consumerControlFailure;
 }
-module.exports={normaliseSinglePassSourceWorkflow,singlePassSourceRegressions,normaliseProducerReadLedgerWorkflow,producerReadLedgerRegressions,normaliseProjectionReadReuseWorkflow,projectionReadBudgetRegressions,normalisePermanentCaptureWorkflow,normalisePermanentProductionSelection,permanentCaptureRegressions,permanentProductionSelectionRegressions,e610ConsumerAdmissionRegressions,e610ConsumerControlsForContext,normaliseE610AdmissionWorkflow,e610AdmissionRegressions,resolveLockedTerserPackage,lockedTerserPackageRegressions,validate,regressions,validateSignupCompatibilityWorkflow,signupCompatibilityRegressions};
+module.exports={forwardConsumerAdmissionRegressions,forwardConsumerControlsForContext,normaliseSinglePassSourceWorkflow,singlePassSourceRegressions,normaliseProducerReadLedgerWorkflow,producerReadLedgerRegressions,normaliseProjectionReadReuseWorkflow,projectionReadBudgetRegressions,normalisePermanentCaptureWorkflow,normalisePermanentProductionSelection,permanentCaptureRegressions,permanentProductionSelectionRegressions,e610ConsumerAdmissionRegressions,e610ConsumerControlsForContext,normaliseE610AdmissionWorkflow,e610AdmissionRegressions,resolveLockedTerserPackage,lockedTerserPackageRegressions,validate,regressions,validateSignupCompatibilityWorkflow,signupCompatibilityRegressions};

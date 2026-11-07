@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "onboarding-forward-version-plan.v1",
+  "state": "BOUND_RAW_INPUT_EXPECTATIONS_NOT_RUNTIME_PROOF",
+  "productHead": "7a194390c70d9ae5201ac64f202ce8547155a2c6",
+  "acceptedMain": "4bff7ada7d03c3bff52a262f58e630fe47848a74",
+  "previousVersion": "611",
+  "reservedVersion": "612",
+  "inputs": {
+    "index": {
+      "path": "index.html",
+      "bytes": 997981,
+      "sha256": "4ea88310ec70354546156e282c8cc3d5564786fbf4d43583b0ba937a371ec4e2"
+    },
+    "worker": {
+      "path": "service-worker.js",
+      "bytes": 28941,
+      "sha256": "4261bbb171cd1275e1896952072c3035fd63035993ba879e0154332f1350cbeb"
+    },
+    "appVersion": {
+      "path": "app-version.json",
+      "bytes": 18,
+      "sha256": "3c9e4265d3e0ab8d16b4c8eeb49cf10461f8d95f1478502ffceda0a4f333a4cf"
+    },
+    "recoveryAsset": {
+      "path": "config/local-preference-recovery.js",
+      "bytes": 4120,
+      "sha256": "3f2ae09fdb057113603c0d70a19a57025f5d559151d67bf4230d3a0728fd39af"
+    }
+  },
+  "expected": {
+    "index.html": {
+      "bytes": 997981,
+      "sha256": "a22b70f95bcfd117cd4a3e075919608ba6c7ce75acdd9cf3d16d1a024137cb5f"
+    },
+    "service-worker.js": {
+      "bytes": 28989,
+      "sha256": "165e3b4e9def4cdf31ff9175517ee84a5d75f7a82e84bd6c7bd646796adab3c3"
+    },
+    "app-version.json": {
+      "bytes": 18,
+      "sha256": "70331e75248e1f78e8fbec34b9283496a75021c68af422e147d659ea24e03910"
+    }
+  },
+  "provenance": {
+    "worker": "Exact accepted/product611 body from bound immutable reviewed product checkout; v1 review pins28941/4261bbb1...",
+    "index": "Raw literal expected-output construction from the exact reviewed index; no JS parser, plan invocation or product execution.",
+    "dependency": "Exact unchanged existing4120-byte local-preference-recovery.js from product checkout.",
+    "expectedWorker": "Raw targeted version replacements and one explicit APP_SHELL addition only; not planVersioning execution."
+  },
+  "cachePolicy": {
+    "existingResetEntries": 1,
+    "existingLocalRecoveryEntries": 0,
+    "addLocalRecoveryEntries": 1,
+    "additionalRequiredInstallAssetBytes": 4120,
+    "predicateUnchanged": true
+  },
+  "runtime": "UNRUN"
+}
