@@ -5,7 +5,7 @@
 .chat-attachment-preview-copy strong{overflow:hidden;color:var(--text);text-overflow:ellipsis;white-space:nowrap}
 .chat-attachment-preview-actions{display:flex;flex-direction:column;gap:4px}
 .chat-attachment-preview button{min-width:44px;min-height:36px;border:1px solid var(--border);border-radius:8px;background:transparent;color:var(--text);cursor:pointer}
-.chat-gif-picker{position:fixed;inset:0;z-index:280;display:none;flex-direction:column;overflow:hidden;background:var(--panel-bg)}
+.chat-gif-picker{position:fixed;top:var(--chat-viewport-offset-top,0px);left:var(--chat-viewport-offset-left,0px);width:var(--chat-viewport-width,100vw);height:var(--chat-viewport-height,100dvh);z-index:280;display:none;flex-direction:column;overflow:hidden;background:var(--panel-bg)}
 .chat-gif-picker.show{display:flex}
 .chat-gif-picker-head{flex:0 0 auto;display:flex;align-items:center;gap:10px;min-height:64px;padding:calc(10px + env(safe-area-inset-top)) 14px 10px;border-bottom:1px solid var(--border)}
 .chat-gif-picker-head h2{flex:1;font-size:1rem}
