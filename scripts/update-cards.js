@@ -55,6 +55,7 @@ function runStep(args) {
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
   return {
     localOnly: argv.includes("--local-only") || argv.includes("-p") || env.SKIP_RELEASE === "1",
+    snapshotActiveFollows: Boolean(env.SUPABASE_SERVICE_ROLE_KEY || env.SUPABASE_SECRET_KEY),
   };
 }
 
@@ -62,9 +63,9 @@ function buildQuickSteps(argv = process.argv.slice(2)) {
   return [["scripts/quick-results.js", ...argv.filter(arg => ["--offline", "--rebuild"].includes(arg))]];
 }
 
-function buildSteps({ localOnly = false } = {}) {
+function buildSteps({ localOnly = false, snapshotActiveFollows = Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY) } = {}) {
   const steps = [
-  ...((process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY)
+  ...(snapshotActiveFollows
     ? [["scripts/snapshot-active-follows.js"]]
     : []),
   ["scripts/refresh-source-coverage.js"],
@@ -271,6 +272,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-nsc-alert-editorial-ui.js"],
   ["scripts/validate-calendar-rework.js"],
   ["scripts/validate-calendar-api.js"],
+  ["scripts/validate-native-mobile-shell.js"],
   ["scripts/validate-card-chat-viewport-release.js"],
   ["scripts/validate-optimistic-actions.js"],
   ["scripts/validate-event-now-follow-affinity.js"],

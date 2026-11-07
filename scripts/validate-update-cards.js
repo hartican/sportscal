@@ -11,6 +11,7 @@ const { projectionSteps: quickProjectionSteps } = require("./quick-results");
 const releaseStep = "scripts/redeploy-and-release.sh";
 const defaultSteps = buildSteps(parseOptions([], {}));
 const localSteps = buildSteps(parseOptions(["-p", "--local-only"], {}));
+const credentialledLocalSteps = buildSteps(parseOptions(["--local-only"], { SUPABASE_SERVICE_ROLE_KEY:"test" }));
 const environmentLocalSteps = buildSteps(parseOptions([], { SKIP_RELEASE: "1" }));
 const quickSteps = buildQuickSteps(["--quick", "--offline"]);
 assert.deepEqual(quickSteps, [["scripts/quick-results.js", "--offline"]], "quick score updates must run without active-follow snapshot access");
@@ -32,7 +33,8 @@ for (const script of ["validate-fixture-snapshot","validate-fixture-visibility",
 assert(defaultSteps.some(step => step[0] === releaseStep), "the scheduled canonical flow must retain its reviewed release step");
 assert(!localSteps.some(step => step[0] === releaseStep), "local-only updates must never commit, push, or deploy");
 assert(!environmentLocalSteps.some(step => step[0] === releaseStep), "SKIP_RELEASE=1 must suppress the nested release even if a caller omits --local-only");
-assert.equal(localSteps[0][0], "scripts/snapshot-active-follows.js", "every run must start from a fresh server-only follow snapshot");
+assert.notEqual(localSteps[0][0], "scripts/snapshot-active-follows.js", "a local refresh without a server credential must not pretend it captured active follows");
+assert.equal(credentialledLocalSteps[0][0], "scripts/snapshot-active-follows.js", "credentialled runs must start from a fresh server-only follow snapshot");
 assert(localSteps.some(step => step[0] === "scripts/refresh-official-follow-fixtures.js" && step.length === 1), "every update must refresh the official NBA, Hockey Australia and Diamonds source bundles");
 assert(localSteps.some(step => step[0] === "scripts/refresh-official-follow-fixtures.js" && step.includes("--check")), "every update must reject an invalid official follow-source artifact");
 assert(localSteps.some(step => step[0] === "scripts/build-follow-fixtures.js" && step.length === 1), "every update must regenerate the compact fixture-only follow artifact");
@@ -266,14 +268,44 @@ for (const name of [
   "FOLLOW_SNAPSHOT_PRELOADED_PATH",
   "FOLLOW_SNAPSHOT_PRELOADED_KEY",
 ]) delete quickEnvironment[name];
-const quickResult = spawnSync(process.execPath, ["scripts/update-cards.js", "--quick", "--offline", "--local-only"], {
-  cwd:projectRoot,
-  env:quickEnvironment,
-  encoding:"utf8",
-});
-assert.equal(quickResult.status, 0, `quick score updates must not require Supabase or active-follow data:\n${quickResult.stderr}`);
-assert.doesNotMatch(quickResult.stdout, /snapshot-active-follows/, "quick score updates must not access active-follow preferences");
-assert.match(quickResult.stdout, /Result completeness passed/, "quick score updates must fail closed when any due card still lacks a result");
+// Run the real entrypoint against an isolated working snapshot. The release gate
+// must always check data/events.json; test fixtures cannot redirect that gate.
+fs.mkdirSync(path.join(projectRoot, "tmp"), { recursive:true });
+const quickFixtureDirectory = fs.mkdtempSync(path.join(projectRoot, "tmp/nothingsport-quick-results-"));
+try {
+  for (const directory of ["scripts", "config", "lib", "data", "feeds"]){
+    fs.cpSync(path.join(projectRoot, directory), path.join(quickFixtureDirectory, directory), { recursive:true, mode:fs.constants.COPYFILE_FICLONE });
+  }
+  const writeFixture = (file, value) => fs.writeFileSync(path.join(quickFixtureDirectory, file), `${JSON.stringify(value)}\n`);
+  const checkedAt = "2026-09-01T00:00:00.000Z";
+  writeFixture("data/canonical/current-card-evidence-2026.json", {checkedAt, fixtureOverrides:[], resultOverrides:[], broadcastOverrides:[]});
+  writeFixture("data/canonical/official-card-results-2026.json", {checkedAt, feedVersion:"quick-results-test", results:[]});
+  writeFixture("data/canonical/afl-nrl-2026.json", {events:[]});
+  writeFixture("data/follow-sources/coverage.v1.json", {events:[]});
+  writeFixture("feeds/incoming/events.json", {version:"quick-results-test", publishedAt:checkedAt, events:[]});
+  writeFixture("data/major-events.v1.json", {events:[]});
+  const quickFixturePath = path.join(quickFixtureDirectory, "data/events.json");
+  fs.writeFileSync(quickFixturePath, `${JSON.stringify({ events:[{
+    id:"fixture:quick-results:self-test", name:"Quick results self-test", status:"upcoming", startTimeUtc:"2099-01-01T00:00:00.000Z",
+  }] })}\n`);
+  const runQuick = () => spawnSync(process.execPath, ["scripts/update-cards.js", "--quick", "--offline", "--local-only"], {
+    cwd:quickFixtureDirectory,
+    env:quickEnvironment,
+    encoding:"utf8",
+  });
+  const quickResult = runQuick();
+  assert.equal(quickResult.status, 0, `quick score updates must not require Supabase or active-follow data:\n${quickResult.stderr}`);
+  assert.doesNotMatch(quickResult.stdout, /snapshot-active-follows/, "quick score updates must not access active-follow preferences");
+  assert.match(quickResult.stdout, /Result completeness passed/);
+  const incomplete = `${JSON.stringify({ events:[{id:"fixture:missing-result", status:"completed", name:"Missing result"}] })}\n`;
+  fs.writeFileSync(quickFixturePath, incomplete);
+  const rejected = runQuick();
+  assert.notEqual(rejected.status, 0, "quick updates must reject a due card without a result");
+  assert.match(rejected.stderr, /Result completeness failed for 1 due card/);
+  assert.equal(fs.readFileSync(quickFixturePath, "utf8"), incomplete, "a rejected quick update must preserve the original feed");
+} finally {
+  fs.rmSync(quickFixtureDirectory, { recursive:true, force:true });
+}
 assert.match(updaterSource, /crypto\.randomBytes\(32\)\.toString\("base64"\)/, "follow snapshots must use an ephemeral 256-bit encryption key");
 assert.match(updaterSource, /fs\.chmodSync\(snapshotDirectory, 0o700\)/, "the temporary snapshot directory must be owner-only");
 assert.match(updaterSource, /finally[^]*fs\.rmSync\(snapshotDirectory, \{ recursive:true, force:true \}\)/, "the snapshot must be deleted even after a failed update step");
