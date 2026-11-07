@@ -1,0 +1,36 @@
+{
+  "state": "OFFICIAL_PUBLIC_MANIFEST_METADATA_ONLY",
+  "checkedAtUTC": "2026-10-30T08:27:27.467517+00:00",
+  "images": [
+    {
+      "tag": "17.6-bookworm",
+      "source": "https://registry-1.docker.io/v2/library/postgres/manifests/17.6-bookworm",
+      "indexDigest": "sha256:f3bd19c606e442c3d7bdfa8002e03fe260a1023351e0ea4598032022b68dd6e3",
+      "platform": "linux/amd64",
+      "platformManifestDigest": "sha256:45cd22f8d32e189d245403954882f88e7a8714301fda80dab6da90f1265b25a3",
+      "immutableRef": "docker.io/library/postgres@sha256:45cd22f8d32e189d245403954882f88e7a8714301fda80dab6da90f1265b25a3",
+      "configDigest": "sha256:567d5d704a3e5a4864393b623a0d50eb1b5a4ad134cdac7cf19555cb2d8ffe9e",
+      "layers": 14,
+      "manifestSource": "https://registry-1.docker.io/v2/library/postgres/manifests/sha256:45cd22f8d32e189d245403954882f88e7a8714301fda80dab6da90f1265b25a3",
+      "manifestBytesVerified": true,
+      "layerBytesDownloaded": 0
+    },
+    {
+      "tag": "18.3-bookworm",
+      "source": "https://registry-1.docker.io/v2/library/postgres/manifests/18.3-bookworm",
+      "indexDigest": "sha256:80630f83606d8db77d30b3851b16a9f78be2d0d4dda6f7b82a1fdca5ebe3acba",
+      "platform": "linux/amd64",
+      "platformManifestDigest": "sha256:4b2a518e377fe4cbb67168b8043724634f144cbad35a306c6bab44fced4ec2c7",
+      "immutableRef": "docker.io/library/postgres@sha256:4b2a518e377fe4cbb67168b8043724634f144cbad35a306c6bab44fced4ec2c7",
+      "configDigest": "sha256:3c67953c3a90a3a846b72e6cd2cfa418b0487e06156ed470dbbeaeb4cac09178",
+      "layers": 13,
+      "manifestSource": "https://registry-1.docker.io/v2/library/postgres/manifests/sha256:4b2a518e377fe4cbb67168b8043724634f144cbad35a306c6bab44fced4ec2c7",
+      "manifestBytesVerified": true,
+      "layerBytesDownloaded": 0
+    }
+  ],
+  "imagePulls": 0,
+  "containersStarted": 0,
+  "TLSVerification": true,
+  "tokenRetained": false
+}
