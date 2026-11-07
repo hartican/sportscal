@@ -5,7 +5,7 @@ const fs = require("node:fs");
 const zlib = require("node:zlib");
 const cardLifecycle = require("../config/card-lifecycle");
 const feedPipeline = require("../lib/server-feed-pipeline");
-const feedHandler = require("../api/feed");
+const { createFeedHandler } = require("../api/feed");
 const sportContext = require("../config/sport-context");
 const { catalogue } = require("../lib/calendar-catalogue");
 
@@ -70,6 +70,10 @@ function fetchResponse(payload, status = 200){
 }
 
 async function run(){
+  // The API's real clock advances past this historical fixture's Feed window.
+  // Pin its integration scenario while separately proving expiry below.
+  let requestNow = new Date("2026-09-16T00:00:00.000Z");
+  const feedHandler = createFeedHandler({ clock:() => requestNow });
   const schema = JSON.parse(fs.readFileSync("schemas/server-feed-response.schema.json", "utf8"));
   assert.equal(schema.properties.schemaVersion.const, "server-feed.v3");
   assert.equal(schema.properties.derivedCardCache.properties.buildOrigin.const, "server");
@@ -485,6 +489,11 @@ async function run(){
     const methodResponse = responseStub();
     await feedHandler({ method: "POST", headers: {} }, methodResponse);
     assert.equal(methodResponse.statusCode, 405);
+    requestNow = new Date("2026-11-07T00:00:00.000Z");
+    const expiredResponse = responseStub();
+    await feedHandler({ method:"GET", headers:{authorization:"Bearer access-token"} }, expiredResponse);
+    assert.equal(expiredResponse.statusCode, 200);
+    assert(!expiredResponse.body.events.some(item => item.id === "rlwc-australia-new-zealand-2026"), "a selected historical opener must leave Feed after the normal retention window");
   }finally{
     if (originalUrl === undefined) delete process.env.SUPABASE_URL;
     else process.env.SUPABASE_URL = originalUrl;

@@ -47,8 +47,11 @@ for (const [slug,name] of [["spain","Spanish"],["mexico","Mexico City"],["brazil
 }
 
 const context = require("../config/sport-context");
-const first = context.applyContextToEvents([f1[0]],require("../data/canonical/f1-context-2026.json"))[0];
+// Practice is independently excluded from Feed, so it cannot prove that a mute
+// removes an otherwise admitted session. Use the published qualifying field.
+const first = context.applyContextToEvents([qualifying],require("../data/canonical/f1-context-2026.json"))[0];
 assert(first.participantIds?.length,"mute regression uses a sourced session field");
+assert(follow.reasonForEvent(first,preferences),"mute regression starts with an admitted competitive session");
 for (const [label,patch] of [
   ["competition exclusion",{preferenceGraph:{...preferences.preferenceGraph,competitionPreferences:[{competitionId:first.competitionId,enabled:false}]}}],
   ["participant mute",{preferenceGraph:{...preferences.preferenceGraph,entityFollows:[{participantId:first.participantIds[0],followLevel:"mute"}]}}],
