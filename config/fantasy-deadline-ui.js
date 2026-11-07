@@ -343,15 +343,18 @@ async function renderOnboardingTeams(body){
     && serverSyncClient.accountSnapshot().generation === life.generation
     && serverSyncClient.accountSnapshot().accountId === life.accountId;
   const sports = FOLLOW_FIRST.STARTUP_SPORTS.filter(sport => startupMetaDraft().sports.includes(sport.id));
-  body.innerHTML = `${wizardProgressMarkup()}<section class="filter-panel"><h3>Choose your teams</h3><p class="preference-help">Follow teams to bring their fixtures into Feed. You can continue without choosing a team and explore schedules in Follow.</p><div class="setup-choice-grid" id="onboardingSportChoices"></div><div id="onboardingTeamChoices" aria-live="polite"></div></section>`;
+  body.innerHTML = `${wizardProgressMarkup()}<section class="filter-panel"><h3>Choose teams and competitors</h3><p class="preference-help">Follow teams or individual competitors to bring their fixtures into Feed. You can continue without choosing anyone and explore schedules in Follow.</p><div class="setup-choice-grid" id="onboardingSportChoices"></div><div id="onboardingTeamChoices" aria-live="polite"></div></section>`;
   const sportChoices = body.querySelector('#onboardingSportChoices'), choices = body.querySelector('#onboardingTeamChoices');
   let request = 0;
   async function chooseSport(sport){
     const turn = ++request;
     sportChoices.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.sport === sport.id)));
-    choices.textContent = `Loading ${sport.label} teams…`; choices.setAttribute('aria-busy','true');
+    choices.textContent = `Loading ${sport.label} choices…`; choices.setAttribute('aria-busy','true');
     try{
-      const chunk = await loadFollowDirectoryChunk(sport.id);
+      const [, chunk] = await Promise.all([
+        loadDeferredScript('config/participant-directory.js?v=512'),
+        loadFollowDirectoryChunk(sport.id),
+      ]);
       if (!current() || request !== turn) return;
       choices.replaceChildren(); choices.setAttribute('aria-busy','false');
       const gender = directoryFilters(sport.id).genderCategory;
@@ -363,6 +366,9 @@ async function renderOnboardingTeams(body){
       const note = document.createElement('p'); note.className = 'preference-help';
       note.textContent = teams.length ? sport.label : available.length ? `${sport.label} has individual competitors. Choose the people you follow, or continue to Feed.` : 'No supported teams are available here yet. Continue to Feed and use Follow to explore the published schedule.';
       choices.append(note);
+      // A schedule-only sport has no directory to search. Keep browsing open
+      // without misreporting an unsupported directory as a failed search.
+      if (!available.length) return;
       const searchLabel = document.createElement('label'); searchLabel.className = 'field-label'; searchLabel.textContent = 'Search';
       const search = document.createElement('input'); search.type = 'search'; search.placeholder = teams.length ? 'Team name' : 'Competitor name'; searchLabel.append(search);
       const list = document.createElement('div'); list.className = 'setup-choice-grid'; choices.append(searchLabel,list);
@@ -391,7 +397,7 @@ async function renderOnboardingTeams(body){
       render();
     }catch(error){
       if (!current() || request !== turn) return;
-      choices.textContent = 'Teams could not load. Your choices are kept; retry or continue to Feed.'; choices.setAttribute('aria-busy','false');
+      choices.textContent = 'Choices could not load. Your choices are kept; retry or continue to Feed.'; choices.setAttribute('aria-busy','false');
       const retry = document.createElement('button'); retry.type = 'button'; retry.className = 'btn ghost'; retry.textContent = 'Retry'; retry.onclick = () => void chooseSport(sport); choices.append(retry);
     }
   }

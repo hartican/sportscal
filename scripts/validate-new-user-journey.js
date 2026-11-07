@@ -732,7 +732,7 @@ function fixture(){
     savePreferences:()=>state.saveOkay,preserveDeviceChoicesBeforeAuth:()=>true,beginAccountAuthRequest:()=>({}),endAccountAuthRequest(){},rememberAccountAuthTransition:()=>null,retainConfirmationOnlySignup:async()=>{},accountAuthCaptureCurrent:()=>true,accountAuthRequestPending:()=>false,userPreferences:{onboardingComplete:true},
     showToast:text=>state.toasts.push(text),activateTopLevelTab:tab=>state.routes.push(tab),closeSettings:()=>{},renderSettingsScreen:()=>{},
     bootstrapServerPersistence:async()=>{},directoryFilters:()=>({genderCategory:'male'}),
-    NOTHINGSPORTS_PARTICIPANT_DIRECTORY:{isUnresolvedTeam:record=>record.placeholder===true},
+    loadDeferredScript:async url=>{assert.equal(url,'config/participant-directory.js?v=512');(state.loadedScripts ||= []).push(url);vm.runInContext(fs.readFileSync(path.join(root,'config/participant-directory.js'),'utf8'),context,{timeout:1000,filename:'config/participant-directory.js'});},
     PREFERENCE_SYSTEM:{setEntityFollow:(graph,id,level)=>({...graph,entityFollows:[...graph.entityFollows.filter(record=>record.participantId!==id),{participantId:id,followLevel:level}]})},
     loadFollowDirectoryChunk:async()=>({records:[{id:'team:afl:first',displayName:'First',entityType:'team',genderCategory:'male'},{id:'team:afl:muted',displayName:'Muted',entityType:'team',genderCategory:'male'},{id:'slot:later',displayName:'Winner of final',entityType:'team',placeholder:true},{id:'athlete:afl:one',displayName:'Player',entityType:'athlete'}]}),
     refreshNothingscoreViewer:async()=>{},refreshChatActive:async()=>{},setChatDrawerOpen:()=>{},setNothingscoreDrawerOpen:()=>{},
@@ -784,6 +784,55 @@ async function run(){
   const before=JSON.stringify(f.context.draftPreferences);f.state.saveOkay=false;inputs[0].checked=false;inputs[0].onchange();assert.equal(JSON.stringify(f.context.draftPreferences),before);assert.equal(inputs[0].checked,true);
   f.state.life.generation++;inputs[0].checked=false;inputs[0].onchange();assert.equal(JSON.stringify(f.context.draftPreferences),before);
   report.push('actual team controls preserve mutes, recover failed saves and reject account changes');
+  // Start without Follow's deferred helper, exactly as a fresh sports -> teams
+  // journey does. Use the published chunks rather than a hand-picked fake team.
+  const directoryCounts=[];
+  for(const sport of ['afl','nrl','cricket','football','tennis','f1','wrc','supercars','motogp','rugby']){
+    f=fixture();f.context.settingsSection='teams';f.state.meta.sports=[sport];
+    f.context.FOLLOW_FIRST={STARTUP_SPORTS:[{id:sport,label:sport}]};
+    const chunk=JSON.parse(fs.readFileSync(path.join(root,`data/follow-directory/${sport}.v1.json`),'utf8'));
+    f.context.loadFollowDirectoryChunk=async()=>chunk;
+    const retained=JSON.stringify(f.context.draftPreferences);
+    await f.context.renderOnboardingTeams(f.body);
+    const target=f.body.querySelector('#onboardingTeamChoices');
+    const selectable=target.querySelectorAll('input').filter(input=>input.type==='checkbox');
+    assert(!/could not load/i.test(target.textContent),sport+' must load before any prior Follow visit');
+    assert.equal(f.state.loadedScripts?.length,1,sport+' explicitly loads its classification dependency');
+    if(sport==='supercars'){
+      assert.equal(chunk.status,'schedule-only');assert.equal(selectable.length,0);
+      assert.equal(target.querySelectorAll('input').length,0,'schedule-only sports must not offer an empty search');
+      assert(!target.textContent.includes('No matches'),'schedule-only is not a failed search');
+      assert.match(target.textContent,/schedule/i);
+    }else assert(selectable.length>0,sport+' exposes real choices');
+    if(sport==='motogp')assert.match(target.textContent,/individual competitors/);
+    assert.equal(JSON.stringify(f.context.draftPreferences),retained,'loading choices must not change follows');
+    assert.deepEqual(f.state.saved,[]);assert.deepEqual(f.state.writes,[]);
+    directoryCounts.push({sport,displayed:selectable.length});
+  }
+  report.push('cold onboarding loads its actual classifier and ten real directories; schedule-only has no empty search; riders labelled competitors; no follow/account mutation: '+JSON.stringify(directoryCounts));
+  // Dependency failure is retryable, and late selection results cannot repaint
+  // a newer sport, a dismissed screen or another account.
+  f=fixture();f.context.settingsSection='teams';const load=f.context.loadDeferredScript;
+  f.context.loadDeferredScript=async()=>{throw Error('synthetic offline dependency');};
+  await f.context.renderOnboardingTeams(f.body);
+  choices=f.body.querySelector('#onboardingTeamChoices');assert.match(choices.textContent,/could not load/i);
+  f.context.loadDeferredScript=load;await choices.querySelector('button').onclick();await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(choices.querySelectorAll('input').filter(input=>input.type==='checkbox').length,2);
+  f=fixture();f.context.settingsSection='teams';f.state.meta.sports=['afl','tennis'];
+  const pendingChunks={};f.context.loadFollowDirectoryChunk=sport=>new Promise(resolve=>{pendingChunks[sport]=resolve;});
+  const earlier=f.context.renderOnboardingTeams(f.body);
+  f.body.querySelector('#onboardingSportChoices').querySelectorAll('button')[1].onclick();
+  pendingChunks.tennis({status:'available',records:[{id:'competitor:tennis:test',displayName:'New tennis choice',entityType:'athlete',genderCategory:'male'}]});
+  await new Promise(resolve=>setImmediate(resolve));
+  pendingChunks.afl({status:'available',records:[{id:'team:afl:late',displayName:'Old AFL choice',entityType:'team',genderCategory:'male'}]});await earlier;
+  choices=f.body.querySelector('#onboardingTeamChoices');assert(choices.textContent.includes('New tennis choice'));assert(!choices.textContent.includes('Old AFL choice'));
+  const query=choices.querySelectorAll('input').find(input=>input.type==='search');query.value='not a real competitor';query.oninput();assert.match(choices.textContent,/No matches/);
+  f=fixture();f.context.settingsSection='teams';let finish;f.context.loadFollowDirectoryChunk=()=>new Promise(resolve=>{finish=resolve;});
+  const dismissed=f.context.renderOnboardingTeams(f.body);f.body.isConnected=false;
+  finish({status:'available',records:[{id:'team:late',displayName:'Dismissed choice',entityType:'team'}]});await dismissed;
+  assert(!f.body.textContent.includes('Dismissed choice'));assert.deepEqual(f.state.saved,[]);
+  report.push('dependency retry, newer sport, actual empty search and dismissed-view fences retain their separate outcomes');
+
   f=fixture();f.context.settingsSection='teams';let release;f.context.loadFollowDirectoryChunk=()=>new Promise(resolve=>{release=resolve;});
   const pending=f.context.renderOnboardingTeams(f.body);f.state.life.accountId='another-account';release({records:[{id:'team:late',displayName:'Old account',entityType:'team'}]});await pending;
   assert(!f.body.textContent.includes('Old account'));assert.deepEqual(f.state.saved,[]);
