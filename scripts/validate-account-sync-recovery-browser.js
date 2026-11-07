@@ -778,10 +778,10 @@ function installNewUserHeaderSampler(){
     await page.waitForFunction(() => nothingscoreViewerScope?.owner === serverPersistence.user?.id);
     await page.waitForTimeout(1200); // Drain optional sign-in/profile/Follow effects before isolating resume.
     await page.evaluate(() => serverSyncSequence);
-    if(ordinaryAccountScenarios.has(scenario)&&!process.env.ACCOUNT_RECOVERY_BASELINE){
+    const settleOrdinaryAccountReadiness=async(target,contextName)=>{
       // signedIn does not mean this device's explicit account-copy review is done.
       // Resolve it through the existing native no-import choice, never storage edits.
-      const ordinarySnapshot=()=>page.evaluate(()=>{
+      const ordinarySnapshot=()=>target.evaluate(()=>{
         const life=serverSyncClient.accountSnapshot(),record=PROFILE_STORAGE.readAccountTransition(localStorage),saved=record?.pending;
         const identity=saved?Object.fromEntries(Object.entries(saved).filter(([key])=>!['status','resolvedAt'].includes(key))):null;
         return {life:{accountId:life.accountId,generation:life.generation,hasSession:life.hasSession},userId:serverPersistence.user?.id,
@@ -798,12 +798,12 @@ function installNewUserHeaderSampler(){
         assert.equal(before.pending.status,'pending','ordinary fixture must not resolve cancelled/awaiting review');
         assert.equal(before.pending.targetAccountId,owner);assert.equal(before.pending.targetProfileId,before.profileId);
         assert.equal(before.sourceStoredRaw,before.pending.sourceRaw,'captured device copy exists unchanged before native settlement');
-        assert.equal(await page.locator('#syncAccountNowBtn').isEnabled(),false,'unreviewed device choices correctly block ordinary sync');
-        const separate=page.getByRole('button',{name:'Keep copies separate',exact:true});
+        assert.equal(await target.locator('#syncAccountNowBtn').isEnabled(),false,'unreviewed device choices correctly block ordinary sync');
+        const separate=target.getByRole('button',{name:'Keep copies separate',exact:true});
         assert.equal(await separate.count(),1,'use the actual scoped no-import control');
         await separate.click();
       }
-      await page.waitForFunction(()=>{
+      await target.waitForFunction(()=>{
         const retry=document.getElementById('syncAccountNowBtn');
         return !pendingDeviceAccountTransition()&&!accountTransitionBlocksSync()
           &&serverPersistence.state==='signedIn'&&Boolean(retry)&&!retry.disabled;
@@ -815,9 +815,10 @@ function installNewUserHeaderSampler(){
       assert.equal(statePuts,putsBefore,'ordinary readiness sends no state PUT, including rejected attempts');
       assert.equal(writes,writesBefore,'ordinary readiness imports no choices');
       assert.equal(JSON.stringify(row),remoteBefore,'ordinary readiness cannot rewrite the remote fixture');
-      console.log(JSON.stringify({phase:'ordinary-account-fixture-ready',scenario,engine:engineName,
+      console.log(JSON.stringify({phase:'ordinary-account-fixture-ready',scenario,engine:engineName,context:contextName,
         nativeKeepSeparate:Boolean(before.pending),copiesPreserved:true,receiptPreserved:true,ownerGenerationPreserved:true,noStatePut:true}));
-    }
+    };
+    if(ordinaryAccountScenarios.has(scenario)&&!process.env.ACCOUNT_RECOVERY_BASELINE)await settleOrdinaryAccountReadiness(page,'A');
     await page.evaluate(() => {
       const original = setServerPersistence;
       globalThis.qaSyncStates = [];
@@ -877,8 +878,29 @@ function installNewUserHeaderSampler(){
       assert.equal(writes,beforeHeldWrites,'held retry cannot send a PUT');
       assert.deepEqual(await page.evaluate(()=>pendingPreferenceIntent(serverPersistence.user.id)),originalReceipt);
       // Fail visibly if this actual fixture is not a supported normalizer fixed point.
+      if(process.env.ACCOUNT_RECOVERY_BASELINE){
       assert.deepEqual(await page.evaluate(saved=>mergePreferences(clonePreferences(saved)),savedCopy.preferences),savedCopy.preferences,
         'saved-copy fixture must be compatible; no normalizer/guard overlay is allowed');
+      }else{
+        try{
+      assert.deepEqual(await page.evaluate(saved=>mergePreferences(clonePreferences(saved)),savedCopy.preferences),savedCopy.preferences,
+        'saved-copy fixture must be compatible; no normalizer/guard overlay is allowed');
+        }catch(error){
+          // Only existing disposable fixture values, never a customer/profile/session capture.
+          // Keep the original failure; full non-truncated inspection is evidence, not a repair.
+          try{
+            if(error.code!=='ERR_ASSERTION'||!Object.hasOwn(error,'actual')||!Object.hasOwn(error,'expected'))throw Error('Not a fixture comparison result');
+            const inspect=require('node:util').inspect,options={depth:null,maxArrayLength:null,maxStringLength:null,
+              compact:true,breakLength:Infinity,sorted:true,customInspect:false,getters:false};
+            const encoded=JSON.stringify({format:'disposable-saved-copy-comparison.v1',scenario,engine:engineName,complete:true,
+              actual:inspect(error.actual,options),expected:inspect(error.expected,options),scope:'Existing synthetic loopback preference comparison only'});
+            if(Buffer.byteLength(encoded,'utf8')>65536)throw Error('Comparison evidence bound');
+            console.error(encoded);
+          }catch(_witnessError){console.error(JSON.stringify({format:'disposable-saved-copy-comparison.v1',scenario,engine:engineName,
+            complete:false,reason:'bounded_witness_unavailable'}));}
+          throw error;
+        }
+      }
       const unrelated=await page.evaluate(()=>({
         ratings:clonePreferences(ratings),actions:clonePreferences(eventActions),spoilers:clonePreferences(eventSpoilerState),archives:clonePreferences(archivedEventRefs),
         pins:clonePreferences(fixturePinQueue),storedPins:localStorage.getItem(STORAGE_KEYS.fixturePinQueue),
@@ -1357,6 +1379,29 @@ function installNewUserHeaderSampler(){
         await second.waitForFunction(() => typeof userPreferences !== 'undefined' && !startupCoordinator.isHydrating());
         await second.locator('#startupLaunch').waitFor({ state: 'hidden' });
         await second.evaluate(installSignInActionTrace);
+        const secondarySignInsBefore=authSignIns;
+        if(!process.env.ACCOUNT_RECOVERY_BASELINE){
+          // Settle the ordinary guest startup before its single native sign-in.
+          // The intentional primary helper-pointer race remains unchanged.
+          await second.evaluate(()=>ensureAccountIndicator());
+          await second.waitForFunction(()=>Boolean(accountIndicatorController),null,{timeout:5000});
+          await second.waitForFunction(()=>startupPostLoadHandled,null,{timeout:5000});
+          const guestPrompt=await second.evaluate(seedPromptedAt=>({
+            hasSession:serverSyncClient.accountSnapshot().hasSession,
+            scheduled:Boolean(document.getElementById('tunePromptModal')?.classList.contains('show'))
+              ||(userPreferences.followFirst?.refinement?.promptedAt||null)!==seedPromptedAt,
+          }),beforeB.preferences?.followFirst?.refinement?.promptedAt||null);
+          assert.equal(guestPrompt.hasSession,false,'secondary startup is still an ordinary guest');
+          if(guestPrompt.scheduled){
+            const putsBefore=statePuts,writesBefore=writes,remoteBefore=JSON.stringify(row);
+            const dismiss=second.locator('#tunePromptModal.show #dismissTunePromptBtn');
+            await dismiss.waitFor({state:'visible',timeout:5000});
+            await dismiss.click(); // Real Not now action; no force or style edit.
+            assert.equal(await second.locator('#tunePromptModal').isVisible(),false);
+            assert.equal(statePuts,putsBefore);assert.equal(writes,writesBefore);
+            assert.equal(JSON.stringify(row),remoteBefore,'guest prompt dismissal cannot import or change account choices');
+          }
+        }
         await second.evaluate(() => { closeSettings(); openSettings({ section: 'account' }); });
         await second.locator('#accountEmail').fill('disposable@example.invalid');
         await second.locator('#accountPassword').fill('test-only-password');
@@ -1370,6 +1415,10 @@ function installNewUserHeaderSampler(){
         await second.evaluate(()=>qaSignInActionTrace.stop());
         await second.waitForTimeout(1500);
         await second.evaluate(() => serverSyncSequence);
+        if(!process.env.ACCOUNT_RECOVERY_BASELINE){
+          assert.equal(authSignIns-secondarySignInsBefore,1,'second-device native submit sends exactly one password sign-in');
+          await settleOrdinaryAccountReadiness(second,'B');
+        }
         const changedByB = sync.createPatch(beforeB, actualApi.state()).changes.map(change => change.path.join('.'));
         if (['api-timestamp', 'api-race', 'api-changed'].includes(scenario)) actualApi.mutate(state => {
           state.preferences = clone(beforeB.preferences);
@@ -1505,7 +1554,7 @@ function installNewUserHeaderSampler(){
       }else{
       const pendingR1=await page.evaluate(() => {
         const originalTheme=userPreferences.theme,life=serverSyncClient.accountSnapshot();
-        if(!['day','night'].includes(originalTheme))throw Error('Ordinary pending-receipt fixture requires a canonical theme');
+        if(!['system','day','night'].includes(originalTheme))throw Error('Ordinary pending-receipt fixture requires a canonical theme');
         const p = clonePreferences(userPreferences); p.theme = originalTheme==='day'?'night':'day';
         savePreferences(p, { deliberate: true, deferFollowEffects: true });
         return {receipt:pendingPreferenceIntent(life.accountId),originalTheme,theme:p.theme,life:{accountId:life.accountId,generation:life.generation}};
