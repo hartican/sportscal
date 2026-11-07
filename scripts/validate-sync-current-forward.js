@@ -421,11 +421,23 @@ async function runPairedOrdinaryHydration(){
    assert.notEqual(c.NOTHINGSPORTS_PREFERENCE_INTENT_RECONCILE,source,'paired control uses exact generated helper, no source overlay');
   }
   for(const name of syncNames)vm.runInContext(fixture.declaration(name),c);
-  f.facts=[];f.stages=[];f.plans=[];
+  if(mode==='source'){
+   const indicatorRow=sourceLeaves.get('assets/js/account-indicator-app.js');
+   assert(indicatorRow,'tracked actual account indicator required');
+   vm.runInContext(source(indicatorRow).toString(),c);
+  }
+  const indicator=c.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP;
+  assert.equal(typeof indicator?.complete,'function','actual source/generated indicator exports lifecycle completion');
+  f.facts=[];f.stages=[];f.plans=[];f.indicatorCompletions=[];
   Object.assign(c,{serverSyncSequence:Promise.resolve(),serverSyncTimer:null,accountIndicatorJourney:null,startupSessionStateBaseline:null,
    setPreferenceRecovery(){},serverAuthoritativeFixturePins:(_state,current)=>current,clearAcknowledgedFixturePinCommands(){},serverErrorEndsSession:e=>e.code==='invalid_refresh_token',
    hydrateUserMetaSeed:async()=>{}, // Outside this profile hydration/receipt proof; no metadata route.
-   NOTHINGSPORTS_ACCOUNT_INDICATOR_APP:{beginDiagnostic:()=>({step:name=>f.stages.push(name),guard:fact=>f.facts.push(clone(fact)),fail(){},done(){}})}});
+   NOTHINGSPORTS_ACCOUNT_INDICATOR_APP:{...indicator,beginDiagnostic:()=>({step:name=>f.stages.push(name),guard:fact=>f.facts.push(clone(fact)),fail(){},done(){}}),
+    complete(journey,life){
+     const result=indicator.complete(journey,life); // Delegate to the actual admitted lifecycle, never a no-op.
+     f.indicatorCompletions.push({journey,life:clone(life)});
+     return result;
+    }}});
   const verify=c.verifyPreferenceIntentBase;
   c.verifyPreferenceIntentBase=(receipt,state,life,current,observe)=>{
    const raw=JSON.stringify({receipt,state,current}),plan=verify(receipt,state,life,current,observe);
@@ -503,7 +515,13 @@ async function runPairedOrdinaryHydration(){
    console.log(JSON.stringify({control:'paired-ordinary-hydration',mode,arm,stage:'prepared',pendingReceipt:!!c.pendingPreferenceIntent('A')}));
    const bootstrap=await c.bootstrapServerPersistence({checkStatus:false});
    const bootCalls=clone(calls);
-   console.log(JSON.stringify({control:'paired-ordinary-hydration',mode,arm,stage:'hydrated',state:bootstrap.state,sdkCalls:bootCalls,pendingReceipt:!!c.pendingPreferenceIntent('A')}));
+   assert.equal(f.indicatorCompletions.length,arm==='fresh-no-receipt'?1:0,'fresh bootstrap completes lifecycle; guarded early return does not');
+   if(arm==='fresh-no-receipt'){
+    assert.equal(f.indicatorCompletions[0].journey,null,'ordinary hydration invents no sign-in journey');
+    assert.deepEqual(f.indicatorCompletions[0].life,clone(sdk.accountSnapshot()),'completion observes the same owned account lifetime');
+    assert.equal(c.accountIndicatorJourney,null,'actual completion preserves absent journey');
+   }
+   console.log(JSON.stringify({control:'paired-ordinary-hydration',mode,arm,stage:'hydrated',state:bootstrap.state,sdkCalls:bootCalls,pendingReceipt:!!c.pendingPreferenceIntent('A'),indicatorCompletionCalls:f.indicatorCompletions.length}));
    assert.equal(JSON.stringify(remote),frozenRemote,'source remote snapshot unchanged');
    assert(bootCalls.every(call=>call.method==='GET'),'ordinary hydration never sends a profile write here');
    assert.deepEqual(api.state().preferences,remote.preferences,'bootstrap cannot overwrite remote');
@@ -534,7 +552,7 @@ async function runPairedOrdinaryHydration(){
    assert(api.state().preferences.preferenceGraph.entityFollows.some(row=>row.participantId==='team:football:epl:2'&&row.followLevel==='follow'),'independent remote choice retained');
    assert.equal(JSON.stringify([...origin.values]),originRaw,'original prior-lifetime durable profile untouched by either arm');
    assert.equal(JSON.stringify(remote),frozenRemote);
-   arms.push({arm,bootstrapCalls:bootCalls,sdkCalls:clone(calls),pendingReceipt:!!c.pendingPreferenceIntent('A'),state:c.serverPersistence.state,constructedState:true});
+   arms.push({arm,bootstrapCalls:bootCalls,sdkCalls:clone(calls),pendingReceipt:!!c.pendingPreferenceIntent('A'),state:c.serverPersistence.state,indicatorCompletionCalls:f.indicatorCompletions.length,constructedState:true});
    sdk.clearSession(); // RAM-only synthetic auth fixture cleanup, no provider request.
   }
   oldClient.clearSession();
@@ -552,15 +570,18 @@ async function runPairedOrdinaryHydration(){
  for(const mode of ['source','generated'])for(const kind of input.cases){
   try{await run(mode,kind);}catch(error){failures.push({mode,kind,message:error.message,stack:error.stack});console.error(JSON.stringify({mode,kind,status:'FAIL',message:error.message,stack:error.stack}));}
  }
- let pairedControl;try{pairedControl=await runPairedOrdinaryHydration();}catch(error){failures.push({control:'paired-ordinary-hydration',message:error.message,stack:error.stack});console.error(JSON.stringify({control:'paired-ordinary-hydration',status:'FAIL',message:error.message,stack:error.stack}));}
- let admittedInputsUnchanged=false;
+ let pairedControl=null;try{pairedControl=await runPairedOrdinaryHydration();}catch(error){failures.push({control:'paired-ordinary-hydration',message:error.message,stack:error.stack});console.error(JSON.stringify({control:'paired-ordinary-hydration',status:'FAIL',message:error.message,stack:error.stack}));}
+ let admittedInputsUnchanged=null;
  try{
   assert.equal(results.length,51,'all51 completed arms required');
   assert.equal(results.filter(row=>input.cases.includes(row.kind)).length,30);
   assert.equal(results.filter(row=>input.priorityCases.includes(row.kind)).length,21);
+  assert(pairedControl,'all four required paired subarms must complete before paired acceptance');
   assert.deepEqual(pairedControl.modes.map(row=>({mode:row.mode,arms:row.arms.map(arm=>arm.arm)})),[{mode:'source',arms:['retained-pending','fresh-no-receipt']},{mode:'generated',arms:['retained-pending','fresh-no-receipt']}]);
-  admittedInputsUnchanged=inputsUnchanged(fullAdmission);
- }catch(error){failures.push({control:'full-counts-and-input-stability',message:error.message,stack:error.stack});console.error(JSON.stringify({control:'full-counts-and-input-stability',status:'FAIL',message:error.message}));}
+ }catch(error){failures.push({control:'full-counts-and-paired-completion',message:error.message,stack:error.stack});console.error(JSON.stringify({control:'full-counts-and-paired-completion',status:'FAIL',message:error.message}));}
+ // Final independent admission/input verification runs even after any case or paired failure.
+ try{admittedInputsUnchanged=inputsUnchanged(fullAdmission);}
+ catch(error){failures.push({control:'post-qualification-input-stability',message:error.message,stack:error.stack});console.error(JSON.stringify({control:'post-qualification-input-stability',status:'FAIL',message:error.message}));}
  console.log(JSON.stringify({format:'sync608-reported-hold-discriminator.v1',historicalSource:input.sourceCommit,actualBinding:{publisherHeadSha:fullAdmission.receipt.publisherHeadSha,publisherTreeSha:fullAdmission.receipt.publisherTreeSha,testedMergeSha:fullAdmission.receipt.actualTestedMergeSha,releaseGitSha:fullAdmission.receipt.releaseGitSha,runId:fullAdmission.receipt.actualCloudRunId,runAttempt:fullAdmission.receipt.actualCloudRunAttempt,jobIdKind:fullAdmission.receipt.jobIdKind,jobId:fullAdmission.receipt.actualCloudJobId,numericJobId:null,numericJobOuterJoinRequired:true,executionReceiptSha256:fullAdmission.receiptSha256,assembledManifestSha256:fullAdmission.receipt.actualAssembledSourceManifestSha256,deploymentManifestSha256:fullAdmission.receipt.actualDeploymentSourceManifestSha256,eventBodySha256:fullAdmission.eventBodySha256,admittedInputsUnchanged,sourceReviewDigestIsOwnerMetadata:true,releaseAcceptance:false},acceptedBase:input.acceptedBaseCommit,cases:results.length,originalCasesCompleted:results.filter(row=>input.cases.includes(row.kind)).length,priorityArmsCompleted:results.filter(row=>input.priorityCases.includes(row.kind)).length,pairedControl,failures,generatedHelperSha256:input.sourceFiles['assets/js/account-awareness-runtime.js'],scope:'actual shipped inline UI writer/normalizer/raw accepted base/receipt plus source and generated helper and actual SDK with owned local API/database doubles; no private account, browser, phone, live-data or release acceptance'}));
  assert.equal(failures.length,0,'discriminator failed: '+failures.map(row=>row.mode+'/'+row.kind+': '+row.message).join('; '));
 })().catch(error=>{console.error(error);process.exitCode=1;});
