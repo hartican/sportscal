@@ -128,7 +128,7 @@ async function main(){
   assert(html.includes("await disablePushInstallation({ preserveSubscription:true })"), "sign-out must detach the current installation before the account session is cleared");
   assert.match(html, /action:"register"[\s\S]{0,700}socialAlertsEnabled:[\s\S]{0,300}chatAlertsEnabled:[\s\S]{0,300}badgesEnabled:/, "push registration must send saved social, chat and badge preferences");
   assert(html.includes('id="socialAlertsEnabled"')&&html.includes('New followers and bonus points'),"Settings must expose the social and externally earned points alert opt-out");
-  assert(html.includes("Background notifications") && !html.includes("Local reminder—keep Nothing Sport open"), "notification copy must describe background delivery honestly");
+  assert(html.includes("Background notifications") && !html.includes("Local reminder—keep SportsYurt open"), "notification copy must describe background delivery honestly");
   assert(worker.includes("new URL(targetUrl, self.location.origin)"), "notification taps must resolve an origin-safe event URL");
   assert(migration.includes("claimed_at timestamptz") && migration.includes("grant select, insert, update, delete"), "the database update must add claims and retain service-role grants");
   assert.match(migration, /delivery_mode text not null default 'match-15'/i, "reminders must persist whether they target match, broadcast, or session timing");

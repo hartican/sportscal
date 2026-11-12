@@ -1141,7 +1141,7 @@ async function run(){
     assert.equal(pushPayloads[0].kind, "chat");
     assert.equal(pushPayloads[0].roomId, notificationInput.room.id);
     assert.equal(pushPayloads[0].title, "New message in Friends");
-    assert.equal(pushPayloads[0].body, "Open Nothing Sport to read it.");
+    assert.equal(pushPayloads[0].body, "Open SportsYurt to read it.");
     assert.equal(pushPayloads[0].unreadCount, 7, "each chat push must carry that recipient's total unread chat-message count");
     assert(!JSON.stringify(pushPayloads[0]).includes("Public Member One"), "push payloads must not expose sender identity");
     assert(pushRequests.some(item => item.url.pathname.endsWith("/nothingsports_chat_members") && item.url.searchParams.get("user_id") === `neq.${ids.userA}`), "the sender must be excluded before installation lookup");

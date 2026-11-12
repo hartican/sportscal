@@ -718,7 +718,7 @@ function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false,showAggregate=
     const singular=peers?.count===1;
     const verb=phase==='heat'?(singular?'expects':'expect'):phase==='pulse'?(singular?'is rating this':'are rating this'):(singular?'has rated this':'have rated this');
     const failed=nothingscoreLoadErrors.has(nothingscoreEventId(ev));
-    summary.textContent=peers?.count?`${peers.count} Nothinger${peers.count===1?'':'s'} ${verb} ${nothingscorePhaseCopy(phase).labels[Math.round(peers.rawAverage??peers.average)-1]} · ${Number(peers.average).toFixed(1)}/5${failed?' · Saved ratings; update unavailable':''}`:'';
+    summary.textContent=peers?.count?`${peers.count} fan${peers.count===1?'':'s'} ${verb} ${nothingscorePhaseCopy(phase).labels[Math.round(peers.rawAverage??peers.average)-1]} · ${Number(peers.average).toFixed(1)}/5${failed?' · Saved ratings; update unavailable':''}`:'';
     summary.hidden=!peers?.count;
     if(summary.textContent)root.appendChild(summary);
     const tags=document.createElement('div');tags.className='fixture-tags';
@@ -819,7 +819,7 @@ function buildNothingscorePanel(ev,snapshot){
  const back=document.createElement('button');back.type='button';back.className='btn ghost';back.textContent='Back to rankings';back.onclick=()=>{activeNothingscoreContributionEvent=null;renderCrowdRankings();};
  const timing=document.createElement('p');timing.textContent=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule;
  panel.append(back,timing,buildNothingscorePeerResults(ev,snapshot,{inDrawer:true}));
- const incentive=document.createElement('p');incentive.className='nsc-note';incentive.textContent='Earn 1 point for Heat, plus 19 when another Nothinger matches it live or afterwards.';panel.appendChild(incentive);
+ const incentive=document.createElement('p');incentive.className='nsc-note';incentive.textContent='Earn 1 point for Heat, plus 19 when another fan matches it live or afterwards.';panel.appendChild(incentive);
  return panel;
 }
 

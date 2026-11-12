@@ -34,9 +34,9 @@ assert.equal((html.match(/\bid="shareAppBtn"/g)||[]).length,1,'one existing app 
 assert.match(html, /id="headerMoreBtn"[^>]*aria-controls="headerUtilityActions"/);
 assert.match(shareButton, /data-vector-glyph="ui:share"/);
 assert.match(shareButton, /class="utility-label">Share</);
-assert.match(shareButton, /aria-label="Share Nothing Sport"/);
+assert.match(shareButton, /aria-label="Share SportsYurt"/);
 const appShare = section(html, "function canonicalAppShareUrl()", 'document.getElementById("homeSpoilerToggle")');
-assert.match(html, /<link rel="canonical" href="https:\/\/nothingsport\.vercel\.app\/">/, "the clean production app URL must be configured independently of preview origins");
+assert.match(html, /<link rel="canonical" href="https:\/\/sportsyurt\.app\/">/, "the clean production app URL must be configured independently of preview origins");
 assert.match(appShare, /document\.querySelector\('link\[rel="canonical"\]'\)/);
 assert.match(appShare, /new URL\("\/", configured\)\.href/);
 assert.match(appShare, /navigator\.share\(\{ title, text, url \}\)/, "Web Share must be the first app-link path");

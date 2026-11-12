@@ -35,16 +35,16 @@ function renderSettingsMenu(body){
   const hiddenCount = dismissedEventEntries().length;
   body.innerHTML = `<div class="settings-menu">
     ${settingsMenuItem("account", "ui:radio", "Account", accountSettingsSummary())}
-    ${settingsMenuItem("classics", "ui:archive", "EPIC Hall of Fame", "Your classics and year of NS in review")}
+    ${settingsMenuItem("classics", "ui:archive", "EPIC Hall of Fame", "Your classics and year in sport")}
     ${settingsMenuItem("all-followed", "ui:list", "All Followed", "Sports, events, teams, athletes and collections")}
-    ${settingsMenuItem("about", "ui:info", "About", "Nothing Sport, editorial standards and legal information")}
+    ${settingsMenuItem("about", "ui:info", "About", "SportsYurt, editorial standards and legal information")}
     ${settingsMenuItem("fantasy", "ui:settings", "Fantasy deadlines", fantasySettingsSummary())}
     ${settingsMenuItem("appearance", "ui:sun", "Appearance", "Day, night or system theme")}
     ${settingsMenuItem("subscriptions", "ui:watch", "Subscriptions", `${draftPreferences.followFirst.subscriptions.length} preferred viewing service${draftPreferences.followFirst.subscriptions.length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("notifications", "ui:bell", "Notifications", draftPreferences.followFirst.notifications.enabled ? "15 minutes before kickoff or race start" : "Off")}
     ${settingsMenuItem("location", "ui:map-pin", "Set location", draftPreferences.followFirst.location.label || "Not set")}
     ${settingsMenuItem("hidden", "ui:archive", "Hidden events", `${hiddenCount} dismissed card${hiddenCount === 1 ? "" : "s"}`)}
-    ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send feedback to Nothing Sport")}
+    ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send feedback to SportsYurt")}
   </div><div class="filter-panel"><h3>Feed refresh and recovery</h3><p class="preference-help">The published feed refreshes automatically when the app opens. Use this recovery action if cards appear stale or incomplete.</p><p class="preference-help" id="derivedFeedCacheSummary">${derivedCardCache?.derivedCards?.length || 0} derived cards are cached on this device. Ordinary cards retire seven calendar days after their final date. Personal classics and ratings are retained separately.</p><button class="btn ghost" type="button" id="refreshAndRebuildFeedBtn" aria-describedby="refreshAndRebuildFeedStatus">Refresh and rebuild feed</button><p class="preference-help" id="refreshAndRebuildFeedStatus" role="status" aria-live="polite"></p></div>`;
   const updates = globalThis.NOTHINGSPORTS_APP_UPDATE;
   if (updates){

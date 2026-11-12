@@ -4,17 +4,17 @@ const SHELL_VERSION = "612";
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
 const APP_SHELL = [
-  "/assets/brand/web/nothingsport-logomark.svg",
+  "/assets/brand/web/sportsyurt-symbol-night.svg",
   // Compact PNG inventory; larger and legacy favicon formats remain deployed
   // and cache on use through the unchanged same-origin handler.
-  "/icons/nothingsport-favicon-065421ae47-16.png",
-  "/icons/nothingsport-favicon-065421ae47-32.png",
+  "/icons/sportsyurt-favicon-16.png",
+  "/icons/sportsyurt-favicon-32.png",
   "/assets/styles/racing-details.css?v=527",
   "/config/racing-details.js?v=539",
   "/config/participant-directory.js?v=512",
   "/assets/js/football-card-context.js?v=511",
   "/assets/js/tennis-parent-ui.js?v=548",
-  "/assets/js/calendar-sync-ui.js?v=513",
+  "/assets/js/calendar-sync-ui.js?v=612",
 
   "/assets/identities/wsl/wave-white.svg",
   "/assets/identities/wsl/brand.png",
@@ -24,7 +24,7 @@ const APP_SHELL = [
   "/assets/identities/sailgp/sailing-white.svg",
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
-  "/assets/js/notifications-inbox.js?v=552",
+  "/assets/js/notifications-inbox.js?v=612",
   "/assets/js/impact-feedback-ui.js?v=552",
   "/assets/js/settings-optional-ui.js?v=612",
   "/assets/js/follow-navigation.js?v=522",
@@ -39,7 +39,7 @@ const APP_SHELL = [
   // The optional owner console is cached after use, keeping cold installs lean.
   "/privacy.html",
   "/terms.html",
-  "/assets/styles/nothingsport-foundation.css?v=463",
+  "/assets/styles/nothingsport-foundation.css?v=612",
   // Bundled modules are cached once; separate files remain cacheable on demand.
   "/assets/identities/motogp/circuits/chang.svg",
   "/assets/identities/motogp/circuits/cota.svg",
@@ -80,7 +80,7 @@ const APP_SHELL = [
   "/config/tournament-schedule.js?v=452",
   "/assets/js/tennis-schedule-ui.js?v=467",
   "/config/tennis-journeys.js?v=467",
-  "/assets/js/nsc-rankings-ui.js?v=536",
+  "/assets/js/nsc-rankings-ui.js?v=612",
   "/assets/styles/nsc-ladder.css?v=293",
   "/assets/styles/card-clarity.css?v=536",
   "/config/follow-directory-worker.js?v=512",
@@ -144,7 +144,13 @@ const APP_SHELL = [
   "/schemas/sport-hierarchy.schema.json",
   "/schemas/catalog-event.schema.json",
   "/manifest.webmanifest",
-  "/assets/brand/web/nothingsport-logo.png",
+  "/assets/brand/web/sportsyurt-logo-night.svg",
+  "/assets/brand/web/sportsyurt-logo-day.svg",
+  "/assets/brand/web/sportsyurt-app-icon-day.png",
+  "/assets/brand/web/sportsyurt-app-icon-night.png",
+  "/icons/sportsyurt-app-192.png",
+  "/icons/sportsyurt-app-512.png",
+  "/icons/sportsyurt-app-maskable-512.png",
   "/assets/identities/f1/formula-one-red-512.png",
   "/assets/identities/f1/formula-one-red-256.png",
   "/assets/providers/kayo-sports-negative.svg",
@@ -527,10 +533,10 @@ async function milestoneVisible(payload){
 self.addEventListener("push", event => {
   let payload = {};
   try{ payload = event.data?.json?.() || {}; }catch(_error){ payload = { body:event.data?.text?.() || "" }; }
-  const display = () => self.registration.showNotification(payload.title || "Nothing Sport reminder", {
-    body:payload.body || "Open Nothing Sport for the latest update.",
-    icon:"/icons/nothingsport-app-192.png",
-    badge:"/icons/nothingsport-app-192.png",
+  const display = () => self.registration.showNotification(payload.title || "SportsYurt reminder", {
+    body:payload.body || "Open SportsYurt for the latest update.",
+    icon:"/icons/sportsyurt-app-192.png",
+    badge:"/icons/sportsyurt-app-192.png",
     tag:payload.tag || "nothingsport-reminder",
     renotify:true,
     data:{ url:payload.url || "/", kind:payload.kind || "sport" },

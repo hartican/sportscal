@@ -212,7 +212,7 @@ const quickReminderSource = html.match(/async function toggleQuickReminder[\s\S]
 assert(quickReminderSource.includes("ensureWebPushReminder") && quickReminderSource.includes("removeWebPushReminder"), "reminders must be confirmed through Web Push before local state changes");
 assert(!html.includes("scheduleBrowserReminders()") && !html.includes("deliverBrowserReminder"), "the active-app timer path must stay retired");
 const notificationUi=fs.readFileSync("config/fantasy-deadline-ui.js","utf8");
-assert((html+notificationUi).includes("Background notifications") && (html+notificationUi).includes("even when Nothing Sport is closed"));
+assert((html+notificationUi).includes("Background notifications") && (html+notificationUi).includes("even when SportsYurt is closed"));
 const reminderPolicy=require("../config/fixture-reminder-policy");
 assert(notificationApi.includes("remind_at"));
 const reminderClock=Date.parse('2026-10-02T00:00:00Z'),reminderFixture={status:'scheduled',scheduleStatus:'confirmed',timePrecision:'exact',startTimeUtc:'2026-10-02T01:00:00Z',sourceCheckedAt:'2026-10-02T00:00:00Z',sourceUrl:'https://example.org/official'};

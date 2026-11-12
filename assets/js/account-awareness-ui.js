@@ -79,7 +79,7 @@
           text.textContent='Follows and saved fixtures will stay on this device. Sign in to keep changes with your account.';
         }else if(decision==='prompt-sign-in'){
           title.textContent=action==='rate'?'Sign in to rate':'Sign in to set a reminder';
-          text.textContent=action==='rate'?'Your rating needs to be saved to your account.':'Sign in before turning on a reminder delivered by Nothing Sport.';
+          text.textContent=action==='rate'?'Your rating needs to be saved to your account.':'Sign in before turning on a reminder delivered by SportsYurt.';
         }else{
           title.textContent=view.status==='checking'?'Checking your account':'Check your sign-in';text.textContent=view.status==='checking'?'Your sign-in is still being checked. You can open Account to check its status.':'Your account could not be confirmed. Open Account before making this change.';
         }

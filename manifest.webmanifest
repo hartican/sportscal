@@ -1,28 +1,28 @@
 {
-  "name": "Nothing Sport — Smart sports feed",
-  "short_name": "Nothing Sport",
-  "description": "Live sport, nothing missed.",
+  "name": "SportsYurt — Sports Calendar",
+  "short_name": "SportsYurt",
+  "description": "All sports under one roof.",
   "start_url": "/",
   "id": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#0C1010",
-  "theme_color": "#0C1010",
+  "background_color": "#17151B",
+  "theme_color": "#17151B",
   "icons": [
     {
-      "src": "/icons/nothingsport-app-192.png",
+      "src": "/icons/sportsyurt-app-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/nothingsport-app-512.png",
+      "src": "/icons/sportsyurt-app-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/nothingsport-app-maskable-512.png",
+      "src": "/icons/sportsyurt-app-maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"

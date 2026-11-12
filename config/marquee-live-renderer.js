@@ -92,7 +92,7 @@
         hero = safeUrl(value.hero?.publicUrl || value.hero?.path),
         editorialHero = hero && !value.hero?.firstPartyAssetsOnly,
         position = `${Math.max(0, Math.min(100, value.focalPosition.x))}% ${Math.max(0, Math.min(100, value.focalPosition.y))}%`;
-      return `<article class="ns-live-asset motion-${esc(value.animationPreset)}"><div class="ns-live-hero">${editorialHero ? `<img src="${esc(hero)}" alt="${esc(value.hero.altText || "")}" style="object-position:${esc(position)}">` : '<div class="ns-live-fallback"><img src="/assets/brand/web/nothingsport-logo.png" alt="nothing SPORT"></div>'}<div class="ns-live-shade"></div><div class="ns-live-copy"><div class="ns-live-marks">${marks(value)}</div><p class="ns-live-kicker">${esc(value.kicker)}</p><h2>${esc(value.headline)}</h2><p class="ns-live-hook">${esc(value.hook)}</p></div></div></article>`;
+      return `<article class="ns-live-asset motion-${esc(value.animationPreset)}"><div class="ns-live-hero">${editorialHero ? `<img src="${esc(hero)}" alt="${esc(value.hero.altText || "")}" style="object-position:${esc(position)}">` : '<div class="ns-live-fallback"><img src="/assets/brand/web/sportsyurt-logo.png" alt="sportsyurt"></div>'}<div class="ns-live-shade"></div><div class="ns-live-copy"><div class="ns-live-marks">${marks(value)}</div><p class="ns-live-kicker">${esc(value.kicker)}</p><h2>${esc(value.headline)}</h2><p class="ns-live-hook">${esc(value.hook)}</p></div></div></article>`;
     }
     function render(container, candidate, presentation = {}) {
       if (!container) return null;

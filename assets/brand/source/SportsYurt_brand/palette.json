@@ -1,0 +1,112 @@
+{
+  "peach": {
+    "hex": "#FDC7A2",
+    "name": "Peach",
+    "description": "Top of the signature gradient; warm highlight tone"
+  },
+  "salmon": {
+    "hex": "#FB928D",
+    "name": "Salmon",
+    "description": "Middle of the signature gradient; the core brand colour"
+  },
+  "rose": {
+    "hex": "#FC657E",
+    "name": "Rose salmon",
+    "description": "Base of the signature gradient; adds depth and energy"
+  },
+  "lavender": {
+    "hex": "#E7D7E7",
+    "name": "Lavender",
+    "description": "Secondary brand colour: the flap, wordmark on dark, light tile tint"
+  },
+  "lavender_mist": {
+    "hex": "#F7F1F7",
+    "name": "Lavender mist",
+    "description": "Light backgrounds and light icon tiles"
+  },
+  "charcoal": {
+    "hex": "#222026",
+    "name": "Charcoal",
+    "description": "Wordmark and type on light backgrounds; primary dark"
+  },
+  "graphite": {
+    "hex": "#3A3740",
+    "name": "Graphite",
+    "description": "Top of dark tile gradients"
+  },
+  "night": {
+    "hex": "#17151B",
+    "name": "Night",
+    "description": "Deepest dark; base of dark tile gradients"
+  },
+  "grey": {
+    "hex": "#8E8A93",
+    "name": "Grey",
+    "description": "Secondary text, greyscale symbol base"
+  },
+  "silver": {
+    "hex": "#C9C6CC",
+    "name": "Silver",
+    "description": "Greyscale highlights and dividers"
+  },
+  "mist": {
+    "hex": "#ECEAEE",
+    "name": "Mist",
+    "description": "Neutral light backgrounds"
+  },
+  "offwhite": {
+    "hex": "#F4F1F6",
+    "name": "Off-white",
+    "description": "Court and type in dark mode"
+  },
+  "white": {
+    "hex": "#FFFFFF",
+    "name": "White",
+    "description": "Court on light backgrounds"
+  },
+  "canary_1": {
+    "hex": "#FFE680",
+    "name": "Butter",
+    "description": "Canary gradient top"
+  },
+  "canary_2": {
+    "hex": "#FFC93D",
+    "name": "Golden canary",
+    "description": "Canary gradient base: bright, optimistic, warm enough to sit with peach"
+  },
+  "mauve_1": {
+    "hex": "#D7B4D2",
+    "name": "Mauve light",
+    "description": "Mauve gradient top"
+  },
+  "mauve_2": {
+    "hex": "#9C6B98",
+    "name": "Mauve",
+    "description": "Mauve gradient base: soft, premium"
+  },
+  "brg_1": {
+    "hex": "#2F6E4F",
+    "name": "Racing green light",
+    "description": "British racing green gradient top"
+  },
+  "brg_2": {
+    "hex": "#0B3D26",
+    "name": "British racing green",
+    "description": "Gradient base: heritage motorsport green"
+  },
+  "cream": {
+    "hex": "#F3EAD3",
+    "name": "Cream",
+    "description": "Symbol and type on racing green (classic livery)"
+  },
+  "neon_1": {
+    "hex": "#FF5DB8",
+    "name": "Neon pink light",
+    "description": "Neon gradient top"
+  },
+  "neon_2": {
+    "hex": "#FF1A8C",
+    "name": "Neon pink",
+    "description": "Neon gradient base: high-energy accent"
+  }
+}

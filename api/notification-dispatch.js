@@ -49,9 +49,9 @@ function notificationPayload(reminder, startLabel){
   const sessionStart = reminder.delivery_mode === "session-start";
   return {
     title:reminder.title,
-    body:reminder.timing_precision === "estimated" ? `Approx. ${startLabel}. Actual start time may vary, but we’ve done our best. Tap to open Nothing Sport.` : reminder.timing_precision === "not-before" ? `Not before ${startLabel}. Tap to open Nothing Sport.` : sessionStart
-      ? `Broadcast starts at ${startLabel}; this match follows. Tap to open Nothing Sport.`
-      : `Starts at ${startLabel}. Tap to open Nothing Sport.`,
+    body:reminder.timing_precision === "estimated" ? `Approx. ${startLabel}. Actual start time may vary, but we’ve done our best. Tap to open SportsYurt.` : reminder.timing_precision === "not-before" ? `Not before ${startLabel}. Tap to open SportsYurt.` : sessionStart
+      ? `Broadcast starts at ${startLabel}; this match follows. Tap to open SportsYurt.`
+      : `Starts at ${startLabel}. Tap to open SportsYurt.`,
     tag:`nothingsport-${reminder.event_id}`,
     url:reminder.viewing_url || `/?event=${encodeURIComponent(reminder.event_id)}`,
   };

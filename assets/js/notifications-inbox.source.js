@@ -2,7 +2,7 @@
  'use strict';
  const node=(tag,text,cls)=>{const e=document.createElement(tag);if(text!=null)e.textContent=text;if(cls)e.className=cls;return e;};
  function copy(item,spoilers){
-  const actor=item.actor||'A Nothinger',room=item.roomName||'chat',bonus=item.points?` · +${item.points} point${item.points===1?'':'s'}`:'';
+  const actor=item.actor||'A fan',room=item.roomName||'chat',bonus=item.points?` · +${item.points} point${item.points===1?'':'s'}`:'';
   switch(item.kind){
    case 'chat':return {title:item.messageCount>1?`${item.messageCount} new messages in ${room}`:`${item.sender||actor} sent a message in ${room}`,detail:spoilers&&item.preview?`${item.sender||actor}: ${item.preview.slice(0,140)}`:'Open chat to read.'};
    case 'invitation':return {title:`${actor} invited you to ${room}`,detail:'Open to review your invitation.'};
@@ -13,7 +13,7 @@
    case 'rating':return {title:`${actor} gave an event 5 flames`,detail:`${({heat:'Heat',pulse:'Live',impact:'Impact'})[item.phase]||'Rating'} · open their pick.`};
    case 'impact_request':return {title:'Rate the Impact',detail:item.detail||'How much did this fixture matter?'};
    case 'reminder':return {title:item.title||'Your sporting reminder',detail:'It’s nearly time. See event details.'};
-   default:return {title:item.title||'Nothing Sport update',detail:item.detail||'Open for details.'};
+   default:return {title:item.title||'SportsYurt update',detail:item.detail||'Open for details.'};
   }
  }
  function relative(at){const mins=Math.max(0,Math.floor((Date.now()-Date.parse(at))/60000));return mins<1?'Just now':mins<60?`${mins}m ago`:mins<1440?`${Math.floor(mins/60)}h ago`:new Date(at).toLocaleDateString('en-AU',{day:'numeric',month:'short'});}

@@ -17,8 +17,8 @@
     }
     return result+chunk;
   }
-  function buildIcs(events, {now=new Date(), name='Nothing Sport'}={}){
-    const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Nothing Sport//Calendar//EN','CALSCALE:GREGORIAN',`X-WR-CALNAME:${escape(name)}`,'X-WR-TIMEZONE:Australia/Sydney','REFRESH-INTERVAL;VALUE=DURATION:PT1H'];
+  function buildIcs(events, {now=new Date(), name='SportsYurt'}={}){
+    const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//SportsYurt//Calendar//EN','CALSCALE:GREGORIAN',`X-WR-CALNAME:${escape(name)}`,'X-WR-TIMEZONE:Australia/Sydney','REFRESH-INTERVAL;VALUE=DURATION:PT1H'];
     const parents=new Set(events.filter(event=>['major_event','tournament'].includes(event.kind)).map(event=>String(event.id)));
     for (const event of uniqueEvents(events).filter(knownDate).filter(event=>!parents.has(event.parentEventId || event.majorEventId) || ['major_event','tournament'].includes(event.kind))){
       const start=eventStart(event);
@@ -32,7 +32,7 @@
         const end=new Date(`${event.endDate || date}T00:00:00Z`);end.setUTCDate(end.getUTCDate()+1);
         lines.push(`DTSTART;VALUE=DATE:${date.replace(/-/g,'')}`,`DTEND;VALUE=DATE:${end.toISOString().slice(0,10).replace(/-/g,'')}`);
       }
-      lines.push(`SUMMARY:${escape(event.calendarTemplate?.title || event.name || event.title)}`,`LOCATION:${escape(event.venue || event.location)}`,`DESCRIPTION:${escape([event.timePrecision==='estimated'?'Approximate start; follows the prior match and may change.':event.timePrecision==='follows'?'Start follows the prior match; exact time is unconfirmed.':null,event.broadcaster, event.sourceAttribution?.provider==='OpenLigaDB'?'Data from OpenLigaDB under ODbL: https://opendatacommons.org/licenses/odbl/1-0/ ; dataset: https://nothingsport.vercel.app/data/providers/openligadb/football-2026-27.json':null, event.delayedResultSource?.attribution, 'Nothing Sport'].filter(Boolean).join('\n'))}`);
+      lines.push(`SUMMARY:${escape(event.calendarTemplate?.title || event.name || event.title)}`,`LOCATION:${escape(event.venue || event.location)}`,`DESCRIPTION:${escape([event.timePrecision==='estimated'?'Approximate start; follows the prior match and may change.':event.timePrecision==='follows'?'Start follows the prior match; exact time is unconfirmed.':null,event.broadcaster, event.sourceAttribution?.provider==='OpenLigaDB'?'Data from OpenLigaDB under ODbL: https://opendatacommons.org/licenses/odbl/1-0/ ; dataset: https://nothingsport.vercel.app/data/providers/openligadb/football-2026-27.json':null, event.delayedResultSource?.attribution, 'SportsYurt'].filter(Boolean).join('\n'))}`);
       const updated=event.updatedAt || event.sourceCheckedAt;
       if (updated && Number.isFinite(Date.parse(updated))) lines.push(`LAST-MODIFIED:${stamp(updated)}`);
       if (/cancelled|canceled/i.test(event.status || event.lifecycleStatus || '')) lines.push('STATUS:CANCELLED');

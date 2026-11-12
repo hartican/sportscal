@@ -179,7 +179,7 @@ module.exports = async function userStateHandler(request, response){
       return;
     }
     if (body.state){
-      throw new SupabaseRequestError("Update Nothing Sport before syncing this device.", {
+      throw new SupabaseRequestError("Update SportsYurt before syncing this device.", {
         status: 409,
         payload: { code: "client_update_required" },
       });

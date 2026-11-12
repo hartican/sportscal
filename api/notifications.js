@@ -254,7 +254,7 @@ async function notificationsHandler(request, response){
         await guardedSend({installationId,expectedUserId:installation.user_id||null,payload:JSON.stringify(milestoneTest?require('../lib/milestone-test').payload(testFixture,testId):{
           kind:"test",
           testId,
-          title:"Nothing Sport test",
+          title:"SportsYurt test",
           body:"System notifications are reaching this device.",
           tag:`nothingsport-test-${testId}`,
           url:"/?notificationTest=received",

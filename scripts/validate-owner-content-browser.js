@@ -39,7 +39,7 @@ async function run(engine,label){
       assert.notEqual(await editor.locator('.ns-live-fallback').evaluate(e=>getComputedStyle(e).animationName),'none','Fallback animates too');
       await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await editor.locator('.ns-live-fallback').evaluate(e=>getComputedStyle(e).animationName),'none');
       await page.emulateMedia({reducedMotion:'no-preference'});
-      await page.evaluate(()=>{const card=document.querySelector('.campaign-card.open');card.__draft.live.hero.firstPartyAssetsOnly=false;card.__draft.live.hero.publicUrl='/assets/brand/web/nothingsport-logo.png';card.querySelectorAll('[data-field^=focal-]').forEach(e=>e.disabled=false);});
+      await page.evaluate(()=>{const card=document.querySelector('.campaign-card.open');card.__draft.live.hero.firstPartyAssetsOnly=false;card.__draft.live.hero.publicUrl='/assets/brand/web/sportsyurt-logo-night.svg';card.querySelectorAll('[data-field^=focal-]').forEach(e=>e.disabled=false);});
       await editor.locator('[data-field=focal-x]').fill('0');await editor.locator('[data-field=focal-x]').dispatchEvent('input');
       assert.equal(await editor.locator('.ns-live-hero>img').evaluate(e=>e.style.objectPosition),'0% 50%');
       await page.locator('[data-open]').nth(1).click();assert.equal(await page.locator('[data-editor]:visible').count(),1);

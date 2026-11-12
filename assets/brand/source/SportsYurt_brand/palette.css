@@ -1,0 +1,30 @@
+:root {
+  --sy-peach: #FDC7A2; /* Peach: Top of the signature gradient; warm highlight tone */
+  --sy-salmon: #FB928D; /* Salmon: Middle of the signature gradient; the core brand colour */
+  --sy-rose: #FC657E; /* Rose salmon: Base of the signature gradient; adds depth and energy */
+  --sy-lavender: #E7D7E7; /* Lavender: Secondary brand colour: the flap, wordmark on dark, light tile tint */
+  --sy-lavender-mist: #F7F1F7; /* Lavender mist: Light backgrounds and light icon tiles */
+  --sy-charcoal: #222026; /* Charcoal: Wordmark and type on light backgrounds; primary dark */
+  --sy-graphite: #3A3740; /* Graphite: Top of dark tile gradients */
+  --sy-night: #17151B; /* Night: Deepest dark; base of dark tile gradients */
+  --sy-grey: #8E8A93; /* Grey: Secondary text, greyscale symbol base */
+  --sy-silver: #C9C6CC; /* Silver: Greyscale highlights and dividers */
+  --sy-mist: #ECEAEE; /* Mist: Neutral light backgrounds */
+  --sy-offwhite: #F4F1F6; /* Off-white: Court and type in dark mode */
+  --sy-white: #FFFFFF; /* White: Court on light backgrounds */
+  --sy-canary-1: #FFE680; /* Butter: Canary gradient top */
+  --sy-canary-2: #FFC93D; /* Golden canary: Canary gradient base: bright, optimistic, warm enough to sit with peach */
+  --sy-mauve-1: #D7B4D2; /* Mauve light: Mauve gradient top */
+  --sy-mauve-2: #9C6B98; /* Mauve: Mauve gradient base: soft, premium */
+  --sy-brg-1: #2F6E4F; /* Racing green light: British racing green gradient top */
+  --sy-brg-2: #0B3D26; /* British racing green: Gradient base: heritage motorsport green */
+  --sy-cream: #F3EAD3; /* Cream: Symbol and type on racing green (classic livery) */
+  --sy-neon-1: #FF5DB8; /* Neon pink light: Neon gradient top */
+  --sy-neon-2: #FF1A8C; /* Neon pink: Neon gradient base: high-energy accent */
+  --sy-gradient-signature: linear-gradient(180deg, #FDC7A2 0%, #FB928D 50%, #FC657E 100%);
+  --sy-gradient-canary: linear-gradient(180deg, #FFE680, #FFC93D);
+  --sy-gradient-mauve: linear-gradient(180deg, #D7B4D2, #9C6B98);
+  --sy-gradient-charcoal: linear-gradient(180deg, #4A4752, #17151B);
+  --sy-gradient-racing-green: linear-gradient(180deg, #2F6E4F, #0B3D26);
+  --sy-gradient-neon: linear-gradient(180deg, #FF5DB8, #FF1A8C);
+}

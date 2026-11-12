@@ -39,7 +39,7 @@ async function picks(entry){
 function row(entry){
  const r=node('div',undefined,'nsc-ladder-row'+(entry.isViewer?' is-viewer':''));r.setAttribute('role','row');r.dataset.ladderProfile=entry.profileId;
  const cell=(text,cls,label)=>{const c=node('div',text,cls);c.setAttribute('role','cell');if(label)c.dataset.label=label;r.append(c);return c;};
- cell(String(entry.rank),'nsc-ladder-rank','Rank');const identity=cell(undefined,'nsc-ladder-identity','Nothinger');
+ cell(String(entry.rank),'nsc-ladder-rank','Rank');const identity=cell(undefined,'nsc-ladder-identity','Fan');
  if(entry.avatarUrl){const img=node('img');img.src=entry.avatarUrl;img.alt='';img.className='nsc-ladder-avatar';img.loading='lazy';identity.append(img);if(typeof registerExpandableAvatar==='function')registerExpandableAvatar(img,entry.avatarUrl,entry.name||'Member');}
  if(!entry.avatarUrl){const fallback=node('span',String(entry.name||'?').split(/\s+/).map(x=>x[0]).slice(0,2).join(''),'nsc-ladder-avatar nsc-avatar-initials');fallback.setAttribute('aria-hidden','true');identity.append(fallback);}
  identity.append(node('strong',entry.name),node('small','@'+entry.handle+(entry.isViewer?' · You':'')));
@@ -76,7 +76,7 @@ async function activity(parent,current){
 }
 async function render(){
  epoch++;viewerObserver?.disconnect();const run=epoch,owner=serverSyncClient.sessionSubject(),body=document.getElementById('nothingscoreBody');clearTimeout(nscRankingTimer);body.replaceChildren();
- document.getElementById('nothingscoreTitle').textContent='Nothinger Leaderboard';document.getElementById('nothingscoreSubtitle').textContent='Points earned. Picks proven.';document.getElementById('nscMyAccountBtn')?.remove();
+ document.getElementById('nothingscoreTitle').textContent='Leaderboard';document.getElementById('nothingscoreSubtitle').textContent='Points earned. Picks proven.';document.getElementById('nscMyAccountBtn')?.remove();
  const current=()=>epoch===run&&owner===serverSyncClient.sessionSubject();
  const controls=node('div',undefined,'nsc-ladder-controls'),tabs=node('div',undefined,'nsc-ladder-tabs');tabs.setAttribute('role','tablist');
  for(const [id,label]of [['friends','Nothing Friends'],['global','Global Leaderboard']]){const b=button(label,()=>{audience=id;void render();});b.setAttribute('role','tab');b.setAttribute('aria-selected',String(audience===id));tabs.append(b);}
@@ -89,7 +89,7 @@ async function render(){
   tip.append(node('strong','Share good taste.'),node('span',' When you copy any of someone’s follows, they earn a once-off 20 points — no matter how many sports you add.'));
   body.append(tip);
  }
- const viewport=node('div',undefined,'nsc-ladder-viewport'),table=node('section',undefined,'nsc-ladder');table.dataset.audience=audience;table.setAttribute('role','table');table.setAttribute('aria-label','Nothinger Leaderboard');viewport.append(table);body.append(viewport);
+ const viewport=node('div',undefined,'nsc-ladder-viewport'),table=node('section',undefined,'nsc-ladder');table.dataset.audience=audience;table.setAttribute('role','table');table.setAttribute('aria-label','Leaderboard');viewport.append(table);body.append(viewport);
  const head=node('div',undefined,'nsc-ladder-row nsc-ladder-header');head.setAttribute('role','row');
  const headings=audience==='global'?['Rank','Name / Handle','Fixtures','Points','Efficiency',sportNames[sports[sportPage]]]:['Rank','Name / Handle','Points','Efficiency','Top 3 Sports Efficiency'];
  headings.forEach((text,i)=>{const c=node('div',text);c.setAttribute('role','columnheader');if(audience==='global'&&i===5){c.append(button('‹',()=>{sportPage=(sportPage+4)%5;void render();}),button('›',()=>{sportPage=(sportPage+1)%5;void render();}));c.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-label',j?'Next sport':'Previous sport'));}head.append(c);});table.append(head);
