@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="SportsYurt">
 
-<meta name="app-shell-version" content="612">
+<meta name="app-shell-version" content="613">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=612" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=613" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="SportsYurt — Sports Calendar" data-brand-copy-content="title">
 <meta property="og:description" content="All sports under one roof." data-brand-copy-content="metadataDescription">
@@ -191,7 +191,7 @@ to{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 14%,transparent);}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}#settingsBtn{border-color:transparent;box-shadow:none;}#settingsBtn:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:600px){}.feed-schedule-link{display:inline-block;color:var(--accent);background:none;border:0;padding:6px 0;font:inherit;font-size:.75rem;text-decoration:underline;text-underline-offset:3px;min-height:32px;}.follow-common-controls,.follow-event-bulk{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:10px 0;}.follow-schedule-panel{min-width:0;}.fixture-timing-badge{display:flex;flex-direction:column;align-items:center;text-align:center}.fixture-timing-day,.fixture-timing-clock{font-size:inherit;font-weight:750;line-height:1.2}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=612">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=613">
 <link rel="stylesheet" href="styles/follow-feed-rework.css?v=604">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=536">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
@@ -588,7 +588,7 @@ body[data-active-tab="feed"] .top-bar-spacer{
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=612"></script>
+<script src="assets/js/app-shell-runtime.js?v=613"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -2081,7 +2081,7 @@ button.setAttribute('aria-label',button.textContent+'. Open Account.');
 }
 function ensureAccountIndicator(){
 if(accountIndicatorController)return Promise.resolve(accountIndicatorController);
-accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=612')
+accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=613')
 .then(()=>NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.mount())
 .catch(()=>{accountIndicatorLoading=null;renderAccountIndicator();return null;});
 return accountIndicatorLoading;
@@ -7272,7 +7272,7 @@ async function loadAllFeedPages(current=()=>true){const seen=new Set();while(cur
 function hydrateFeedFilter(){
 if(feedFilterHydration)return feedFilterHydration;
 const key=feedFilterKey(),generation=feedViewGeneration,filter={...feedViewFilters};feedFilterError='';feedFilterHydratedKey=key;
-feedFilterHydration=loadDeferredScript('assets/js/feed-filter-ui.js?v=612').then(()=>globalThis.hydrateFeedViewFilter({key,generation,filter})).catch(()=>{if(key===feedFilterKey())feedFilterError='Some cards or ratings couldn’t load. Showing available matches.';}).finally(()=>{feedFilterHydration=null;if(activeTab==='feed')renderAll({preserveViewport:true});});return feedFilterHydration;
+feedFilterHydration=loadDeferredScript('assets/js/feed-filter-ui.js?v=613').then(()=>globalThis.hydrateFeedViewFilter({key,generation,filter})).catch(()=>{if(key===feedFilterKey())feedFilterError='Some cards or ratings couldn’t load. Showing available matches.';}).finally(()=>{feedFilterHydration=null;if(activeTab==='feed')renderAll({preserveViewport:true});});return feedFilterHydration;
 }
 function matchesFeedViewFilters(ev){return (feedViewFilters.sport==='all'||feedFilterMatchesEvent(feedViewFilters.sport,ev))&&NOTHINGSPORTS_FEED_VIEW_FILTER.matches(nothingscoreSnapshotFor(ev),Number(feedViewFilters.minimum),actualStarValue(ev));}
 function getFilteredEvents(){
@@ -7425,7 +7425,7 @@ function calendarMatchingEvents(){return globalThis.NOTHINGSPORTS_CALENDAR_UI?.m
 function refreshCalendarChoiceCounts(){globalThis.NOTHINGSPORTS_CALENDAR_UI?.refreshCounts();}
 function renderCalendarSelectionToolbar(container){globalThis.NOTHINGSPORTS_CALENDAR_UI?.renderToolbar(container);}
 async function showCalendarDialog(){
-try{await loadDeferredScript('assets/js/calendar-sync-ui.js?v=612');await globalThis.NOTHINGSPORTS_CALENDAR_UI.showDialog();}
+try{await loadDeferredScript('assets/js/calendar-sync-ui.js?v=613');await globalThis.NOTHINGSPORTS_CALENDAR_UI.showDialog();}
 catch(error){showToast('Calendar could not load. Please retry.');}
 }
 function bindCardCycle(card, activate){
@@ -8753,13 +8753,13 @@ function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.cle
 let fantasyUiLoading=null;
 function ensureFantasyUi(){
   if(globalThis.NOTHINGSPORTS_FANTASY_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);
-  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=612';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
+  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=613';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
   return fantasyUiLoading;
 }
 let epicUiLoading;
 function ensureEpicUi(){
   if(globalThis.NOTHINGSPORTS_EPIC_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_EPIC_UI);
-  epicUiLoading ||= loadDeferredScript('assets/js/epic-classics-ui.js?v=612').then(()=>globalThis.NOTHINGSPORTS_EPIC_UI).catch(error=>{epicUiLoading=null;throw error;});
+  epicUiLoading ||= loadDeferredScript('assets/js/epic-classics-ui.js?v=613').then(()=>globalThis.NOTHINGSPORTS_EPIC_UI).catch(error=>{epicUiLoading=null;throw error;});
   return epicUiLoading;
 }
 function maybeInviteClassicReview(){
@@ -11261,7 +11261,7 @@ document.getElementById("tuneSheet").addEventListener("click", event => {
 document.getElementById("tuneSheet").addEventListener("keydown", trapTuneSheetFocus);
 window.addEventListener("popstate", () => { void syncAppRouteFromLocation(); });
 
-document.getElementById('feedViewFilterBtn').onclick=()=>{void loadDeferredScript('assets/js/feed-filter-ui.js?v=612').then(()=>globalThis.openFeedViewFilter()).catch(()=>showToast('Couldn’t open filters. Try again.'));};
+document.getElementById('feedViewFilterBtn').onclick=()=>{void loadDeferredScript('assets/js/feed-filter-ui.js?v=613').then(()=>globalThis.openFeedViewFilter()).catch(()=>showToast('Couldn’t open filters. Try again.'));};
 document.getElementById('timelineExpandBtn').addEventListener('click',()=>setFeedCompact(!userPreferences.feedCompact));
 document.getElementById("jumpTodayBtn").addEventListener("click", () => {
   calendarInitialJumpPending = false;
@@ -15827,7 +15827,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=612");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=613");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -16445,7 +16445,7 @@ async function openNotificationDestination(item){
   }
   if(['profile_followed','follows_copied'].includes(item.kind)){
     if(!item.profileId)throw new Error('This profile is no longer public.');
-    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=612');
+    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=613');
     await window.NOTHINGSPORTS_CROWD_RANKINGS.openProfile({profileId:item.profileId,name:item.actor});
     notificationDestinationDialog=document.querySelector('.nsc-picks-dialog[open]');
   }else if(['rating','reminder'].includes(item.kind)){
@@ -16462,7 +16462,7 @@ async function openNotificationDestination(item){
 let notificationsInbox,notificationsInboxLoading,notificationsInboxStarted=false,notificationsInboxRevision=0;
 function ensureNotificationsInbox(){
   notificationsInboxStarted=true;
-  return notificationsInboxLoading ||= loadDeferredScript('assets/js/notifications-inbox.js?v=612').then(()=>notificationsInbox ||= NOTHINGSPORTS_INBOX.create({
+  return notificationsInboxLoading ||= loadDeferredScript('assets/js/notifications-inbox.js?v=613').then(()=>notificationsInbox ||= NOTHINGSPORTS_INBOX.create({
     request:(query,seen)=>serverSyncClient.inboxRequest(query,seen),
     owner:()=>serverSyncClient?.sessionSubject()||'',
     spoilers:()=>Boolean(userPreferences.showSpoilers),

@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v612";
-const SHELL_VERSION = "612";
+const CACHE_NAME = "nothingsport-shell-v613";
+const SHELL_VERSION = "613";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -14,7 +14,7 @@ const APP_SHELL = [
   "/config/participant-directory.js?v=512",
   "/assets/js/football-card-context.js?v=511",
   "/assets/js/tennis-parent-ui.js?v=548",
-  "/assets/js/calendar-sync-ui.js?v=612",
+  "/assets/js/calendar-sync-ui.js?v=613",
 
   "/assets/identities/wsl/wave-white.svg",
   "/assets/identities/wsl/brand.png",
@@ -24,9 +24,9 @@ const APP_SHELL = [
   "/assets/identities/sailgp/sailing-white.svg",
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
-  "/assets/js/notifications-inbox.js?v=612",
+  "/assets/js/notifications-inbox.js?v=613",
   "/assets/js/impact-feedback-ui.js?v=552",
-  "/assets/js/settings-optional-ui.js?v=612",
+  "/assets/js/settings-optional-ui.js?v=613",
   "/assets/js/follow-navigation.js?v=522",
   "/assets/js/tournament-fixture-ui.js?v=533",
   "/assets/styles/notifications-inbox.css?v=280",
@@ -39,7 +39,7 @@ const APP_SHELL = [
   // The optional owner console is cached after use, keeping cold installs lean.
   "/privacy.html",
   "/terms.html",
-  "/assets/styles/nothingsport-foundation.css?v=612",
+  "/assets/styles/nothingsport-foundation.css?v=613",
   // Bundled modules are cached once; separate files remain cacheable on demand.
   "/assets/identities/motogp/circuits/chang.svg",
   "/assets/identities/motogp/circuits/cota.svg",
@@ -67,8 +67,8 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=612",
-  "/assets/js/account-awareness-runtime.js?v=612",
+  "/assets/js/app-shell-runtime.js?v=613",
+  "/assets/js/account-awareness-runtime.js?v=613",
   "/assets/js/follow-schedule-panel.js?v=576",
   "/assets/js/fixture-navigation.js?v=535",
   "/assets/js/notification-navigation.js?v=534",
@@ -80,7 +80,7 @@ const APP_SHELL = [
   "/config/tournament-schedule.js?v=452",
   "/assets/js/tennis-schedule-ui.js?v=467",
   "/config/tennis-journeys.js?v=467",
-  "/assets/js/nsc-rankings-ui.js?v=612",
+  "/assets/js/nsc-rankings-ui.js?v=613",
   "/assets/styles/nsc-ladder.css?v=293",
   "/assets/styles/card-clarity.css?v=536",
   "/config/follow-directory-worker.js?v=512",
@@ -98,7 +98,7 @@ const APP_SHELL = [
   "/config/tennis-coverage.js",
   "/config/sport-hubs.js",
   "/config/optimistic-mutation.js",
-  "/config/preference-reset-ui.js?v=612",
+  "/config/preference-reset-ui.js?v=613",
   "/config/local-preference-recovery.js?v=612",
   "/config/marquee-campaigns.js",
   // Account sync is already in the required runtime; the owner console caches
