@@ -568,6 +568,62 @@ async function validatePrivateSourceCollection(){
  assert.throws(()=>helper.collectReviewSources({},invalidContext,tree,dateReport,{...io,readFile:()=>{rejectedReads++;return Buffer.from('{}');}}));assert.equal(rejectedReads,0);
  const absentRecovery=helper.captureContext(()=>rawStatus);
  assert.throws(()=>helper.collectReviewSources({},absentRecovery,tree,dateReport,{...io,isAbsent:()=>false}),'private metadata must not claim a file was absent when it exists');
- console.log('Editorial private collection/codec: faithful202 reference scope, recovery descriptors, strict defaults, standard bounded single-member gzip and source/CAS review-only gates passed.');
+
+ assert.deepEqual(helper.packagingLimits,{plaintextBytes:32*1024*1024,envelopeBytes:48*1024*1024});
+ let encryptCalls=0,lastPlaintext;
+ const fakeEncrypt=bytes=>{encryptCalls++;lastPlaintext=bytes;return {synthetic:'not-a-cryptographic-return'};};
+ const fakeOptions={encrypt:fakeEncrypt},packaged=helper.packageReturnEnvelope(payload,binding,'synthetic-unused-key',fakeOptions);
+ assert.equal(encryptCalls,1);assert(lastPlaintext.every(byte=>byte===0),'plaintext buffer cleared after packaging');
+ assert.equal(JSON.parse(packaged).synthetic,'not-a-cryptographic-return');
+ const revisionBad={...payload,casReport:{...payload.casReport,sourceRevision:'e'.repeat(64)}};
+ assert.throws(()=>helper.packageReturnEnvelope(revisionBad,binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-cas-revision');
+ assert.equal(encryptCalls,1,'invalid CAS revision is rejected before encryption');
+ assert.throws(()=>helper.packageReturnEnvelope({...payload,casReport:{...payload.casReport,unexpected:true}},binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-cas-shape');
+ assert.throws(()=>helper.packageReturnEnvelope({...payload,casReport:{...payload.casReport,operations:[payload.casReport.operations[0],payload.casReport.operations[0]]}},binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-cas-targets');
+ assert.throws(()=>helper.packageReturnEnvelope({...payload,newFiles:[]},binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-payload-contract');
+ assert.throws(()=>helper.packageReturnEnvelope({...payload,selection:[1n]},binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-json');
+ const plainBytes=Buffer.byteLength(JSON.stringify(payload));
+ helper.packageReturnEnvelope(payload,binding,'unused',{...fakeOptions,plaintextLimit:plainBytes});
+ assert.throws(()=>helper.packageReturnEnvelope(payload,binding,'unused',{...fakeOptions,plaintextLimit:plainBytes-1}),error=>error.privatePackagingCode==='packaging-plaintext');
+ helper.packageReturnEnvelope(payload,binding,'unused',{...fakeOptions,envelopeLimit:Buffer.byteLength(packaged)});
+ assert.throws(()=>helper.packageReturnEnvelope(payload,binding,'unused',{...fakeOptions,envelopeLimit:Buffer.byteLength(packaged)-1}),error=>error.privatePackagingCode==='packaging-envelope');
+ const secret='synthetic-private-value-must-not-escape';
+ assert.throws(()=>helper.packageReturnEnvelope(payload,binding,'unused',{encrypt:()=>{throw Error(secret);}}),
+  error=>error.privatePackagingCode==='packaging-encryption'&&!error.message.includes(secret)&&error.cause===undefined);
+ assert.throws(()=>helper.packageReturnEnvelope(payload,binding,'unused',{...fakeOptions,plaintextLimit:helper.packagingLimits.plaintextBytes+1}));
+ assert.throws(()=>helper.packageReturnEnvelope(payload,binding,'unused',{...fakeOptions,envelopeLimit:helper.packagingLimits.envelopeBytes+1}));
+
+ const packagingFlags={listParsed:true,selectedCount:2,sourceRevisionMatches:true,horizonMatches:true,targetId:'evt_41',targetPresent:true,childExit:null,childSignal:null};
+ const readsBeforeFallback={statusReads,bodyReads},fallback=helper.packagingFailurePayload(binding,null,packagingFlags,'packaging-cas-revision',context,revisionBad.casReport,'research');
+ assert.deepEqual(fallback.casReport,{sourceRevision:binding.sourceRevision,operations:[]},'invalid report revision never becomes fallback authority');
+ assert.equal(fallback.casSql,'');assert.equal(fallback.sourcePatch,'');assert.deepEqual(fallback.newFiles,[]);assert.deepEqual(fallback.sourceChanges,[]);
+ assert.equal(fallback.failure.returnCapture.phase,'return-packaging');assert.equal(fallback.failure.returnCapture.failureCode,'packaging-cas-revision');
+ assert.equal(fallback.failure.returnCapture.sourceDisposition,'omitted-on-packaging-failure');assert.equal(fallback.failure.returnCapture.casDisposition,'omitted-on-packaging-failure');
+ assert.equal(fallback.failure.returnCapture.totalChangedCount,202);assert.equal(fallback.failure.returnCapture.readout,null,'invalid or missing aggregate stays unknown');
+ assert.deepEqual({statusReads,bodyReads},readsBeforeFallback,'packaging fallback uses cached metadata without status/body/canonical/CAS reads');
+ const fallbackBinding={...binding,outcome:'failed-review-required',stage:'return-packaging'};
+ helper.validatePrivatePayload(fallback,fallbackBinding);helper.packageReturnEnvelope(fallback,fallbackBinding,'unused',fakeOptions);
+ const unknownFallback=helper.packagingFailurePayload(binding,null,packagingFlags,'packaging-report-read',null,null,'none');
+ assert.equal(unknownFallback.failure.returnCapture.totalChangedCount,null);assert.equal(unknownFallback.failure.returnCapture.truncated,true);
+ const malformedContext={...context,entries:[{...context.entries[0],path:'../'+secret}]};
+ const safeUnknown=helper.packagingFailurePayload(binding,null,packagingFlags,'packaging-payload-contract',malformedContext,null,'none');
+ assert.equal(safeUnknown.failure.returnCapture.totalChangedCount,null);assert(!JSON.stringify(safeUnknown).includes(secret));
+ const primary=helper.privateFailure(null,'canonical-inventory','list-json-invalid',packagingFlags);
+ const primaryFallback=helper.packagingFailurePayload(binding,primary,packagingFlags,'packaging-report-read',null,null,'none');
+ assert.equal(primaryFallback.failure.stage,'canonical-inventory');assert.equal(primaryFallback.failure.substage,'list-json-invalid');
+ assert.throws(()=>helper.packagingFailurePayload(binding,null,packagingFlags,'arbitrary-'+secret,null,null,'none'));
+
+ let writes=0;
+ assert.throws(()=>helper.writeReturnOutput('/synthetic-private-output',packaged,fallbackBinding,()=>{writes++;throw Error(secret);}),
+  error=>error.privatePackagingCode==='packaging-encrypted-output'&&!error.message.includes(secret));
+ assert.equal(writes,1,'failed/uncertain first output is never overwritten or retried');
+ writes=0;
+ assert.throws(()=>helper.writeReturnOutput('/synthetic-private-output',packaged,fallbackBinding,()=>{writes++;if(writes===2)throw Error(secret);}),
+  error=>error.privatePackagingCode==='packaging-manifest-output');
+ assert.equal(writes,2,'manifest failure does not rewrite the already-created encrypted file');
+ const outputNames=[];helper.writeReturnOutput('/synthetic-private-output',packaged,fallbackBinding,(file)=>outputNames.push(file.split('/').pop()));
+ assert.deepEqual(outputNames,['private-return.encrypted.json','public-manifest.json']);
+
+ console.log('Editorial private collection/codec and packaging: faithful202 review-only scope, terminal cleanup, bounded encrypted fallback and fixed privacy-safe failure codes passed.');
 }
 validatePrivateSourceCollection().catch(error=>{console.error(error);process.exitCode=1;});

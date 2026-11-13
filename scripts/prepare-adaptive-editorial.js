@@ -25,7 +25,7 @@ function base64(s,max){
 function bindingValid(b){
  keys(b,['schema','recipientFingerprint','sourceSha','sourceTree','sourceRevision','researchDigest',
  'workflowImplementationSha','runId','runAttempt','purpose','capturedAt','payloadMembers','outcome','stage']);
- assert.equal(b.schema,'ns.editorial-private-review.v5');assert.equal(b.purpose,'editorial-private-review');
+ assert.equal(b.schema,'ns.editorial-private-review.v6');assert.equal(b.purpose,'editorial-private-review');
  for(const k of ['sourceSha','sourceTree','workflowImplementationSha'])assert(/^[a-f0-9]{40}$/.test(b[k]));
  for(const k of ['recipientFingerprint','sourceRevision','researchDigest'])assert(/^[a-f0-9]{64}$/.test(b[k]));
  assert(/^\d+$/.test(b.runId)&&/^[1-9]\d*$/.test(b.runAttempt));
@@ -358,6 +358,70 @@ function encryptBytes(bytes,b,pem){
    nonce:nonce.toString('base64'),tag:c.getAuthTag().toString('base64'),ciphertext:ciphertext.toString('base64')};
  }finally{key.fill(0);}
 }
+
+const PACKAGING_FAILURE_CODES=["packaging-report-read","packaging-shell-read","packaging-source-compose","packaging-cas-shape","packaging-cas-revision","packaging-cas-targets","packaging-payload-contract","packaging-json","packaging-plaintext","packaging-encryption","packaging-envelope","packaging-encrypted-output","packaging-manifest-output"];
+function packagingStep(code,work){
+ assert(PACKAGING_FAILURE_CODES.includes(code));
+ try{return work();}catch(_){const error=Error('Private return packaging requires review.');error.privatePackagingCode=code;throw error;}
+}
+function packageReturnEnvelope(payload,binding,pem,{encrypt=encryptBytes,plaintextLimit=MAX,envelopeLimit=MAX_ENVELOPE}={}){
+ assert(Number.isInteger(plaintextLimit)&&plaintextLimit>=1&&plaintextLimit<=MAX);
+ assert(Number.isInteger(envelopeLimit)&&envelopeLimit>=1&&envelopeLimit<=MAX_ENVELOPE);
+ packagingStep('packaging-cas-shape',()=>{
+  const report=payload.casReport;assert(report&&typeof report==='object'&&!Array.isArray(report));
+  assert(Object.keys(report).every(key=>['sourceRevision','operations','runReadouts'].includes(key)));
+  assert(Array.isArray(report.operations)&&report.operations.length<=1000);
+  for(const op of report.operations){
+   keys(op,['eventId','expectedRevision','change']);assert(typeof op.eventId==='string'&&op.eventId.length<=240);
+   assert(Number.isInteger(op.expectedRevision)&&op.expectedRevision>=0);
+   assert(op.change&&typeof op.change==='object'&&!Array.isArray(op.change));
+   assert(Object.keys(op.change).every(key=>['last_error','last_checked_at','staged_copy','pending_copy','published_copy','published_git_sha'].includes(key)));
+  }
+ });
+ packagingStep('packaging-cas-revision',()=>assert.equal(payload.casReport.sourceRevision,binding.sourceRevision));
+ if(payload.sourcePatch&&typeof payload.sourcePatch==='object'){
+  packagingStep('packaging-cas-targets',()=>assert.deepEqual(payload.casReport.operations.map(op=>op.eventId).sort(),['evt_40','evt_41']));
+ }
+ packagingStep('packaging-payload-contract',()=>payloadValid(payload,binding));
+ let bytes;
+ try{
+  bytes=packagingStep('packaging-json',()=>Buffer.from(JSON.stringify(payload),'utf8'));
+  packagingStep('packaging-plaintext',()=>assert(bytes.length<=plaintextLimit));
+  const envelope=packagingStep('packaging-encryption',()=>encrypt(bytes,binding,pem));
+  return packagingStep('packaging-envelope',()=>{const text=JSON.stringify(envelope)+'\n';assert(Buffer.byteLength(text)<=envelopeLimit);return text;});
+ }finally{if(bytes)bytes.fill(0);}
+}
+function packagingFailurePayload(binding,primary,flags,code,context,report,mode){
+ assert(PACKAGING_FAILURE_CODES.includes(code));
+ const failure=primary||privateFailure(null,'return-packaging','preparation-failure',flags);
+ const unknown={capacityBasisSha256:DIAGNOSTIC_CAPACITY_BASIS_SHA256,statusReadComplete:false,totalChangedCount:null,
+  returnedEntryCount:0,truncated:true,hashBudgetChargedBytes:0,entries:[]};
+ let inventory=unknown;
+ if(context){
+  try{
+   const entries=context.entries.map(entry=>Object.fromEntries(['path','originalPath','status','beforeBlob','afterKind','afterBytes','afterSha256','hashStatus'].map(key=>[key,entry[key]])));
+   const cached={capacityBasisSha256:DIAGNOSTIC_CAPACITY_BASIS_SHA256,statusReadComplete:context.statusReadComplete,
+    totalChangedCount:context.totalChangedCount,returnedEntryCount:entries.length,truncated:context.truncated,
+    hashBudgetChargedBytes:context.hashBudgetChargedBytes,entries};
+   validateCaptureDiagnostic({phase:'return-packaging',failureCode:code,sourceDisposition:'omitted-on-packaging-failure',
+    casDisposition:'omitted-on-packaging-failure',...cached,readout:null});
+   inventory=cached;
+  }catch(_){}
+ }
+ const diagnostic={phase:'return-packaging',failureCode:code,sourceDisposition:'omitted-on-packaging-failure',
+  casDisposition:'omitted-on-packaging-failure',...inventory,readout:readoutDiagnostic(report,mode)};
+ validateCaptureDiagnostic(diagnostic);
+ return {casReport:{sourceRevision:binding.sourceRevision,operations:[]},casSql:'',selection:[],
+  shellIdentity:{before:null,after:null},sourcePatch:'',newFiles:[],sourceChanges:[],
+  failure:{...failure,reportMode:'none',listDiagnostic:null,returnCapture:diagnostic}};
+}
+function writeReturnOutput(out,text,binding,write=writePrivate){
+ packagingStep('packaging-encrypted-output',()=>write(path.join(out,'private-return.encrypted.json'),text));
+ packagingStep('packaging-manifest-output',()=>write(path.join(out,'public-manifest.json'),JSON.stringify({
+  schemaVersion:'ns.editorial-preparation-return.v1',binding,ciphertextBytes:Buffer.byteLength(text),ciphertextSha256:sha(text),
+  outcome:binding.outcome,requiresFreshCanonicalControlsAndCASReview:true,databaseWrites:0,pushes:0,deployments:0},null,2)+'\n'));
+}
+
 function seal(p,b,pem){payloadValid(p,b);const bytes=Buffer.from(JSON.stringify(p),'utf8');try{return encryptBytes(bytes,b,pem);}finally{bytes.fill(0);}}
 // Synthetic CI receiver only. Root uses independent standard crypto with its own
 // dispatch/expiry record and never executes this project helper on the Mac.
@@ -380,7 +444,7 @@ function open(text,privateKey,expected){
 function selfTest(){
  const opts={modulusLength:3072,publicKeyEncoding:{type:'spki',format:'pem'},privateKeyEncoding:{type:'pkcs8',format:'pem'}};
  const a=crypto.generateKeyPairSync('rsa',opts),other=crypto.generateKeyPairSync('rsa',opts);
- const b={schema:'ns.editorial-private-review.v5',recipientFingerprint:fingerprint(a.publicKey),sourceSha:'1'.repeat(40),
+ const b={schema:'ns.editorial-private-review.v6',recipientFingerprint:fingerprint(a.publicKey),sourceSha:'1'.repeat(40),
  sourceTree:'2'.repeat(40),sourceRevision:'3'.repeat(64),researchDigest:'4'.repeat(64),workflowImplementationSha:'1'.repeat(40),
  runId:'1',runAttempt:'1',purpose:'editorial-private-review',capturedAt:'2026-11-13T13:00:00.000Z',
  payloadMembers:MEMBERS,outcome:'prepared-review-required',stage:'capture-source'};
@@ -574,9 +638,12 @@ function captureInventory(context,observe=observeDiagnosticEntry){
 function validateCaptureDiagnostic(value){
  keys(value,['phase','failureCode','sourceDisposition','casDisposition','capacityBasisSha256','statusReadComplete','totalChangedCount',
  'returnedEntryCount','truncated','hashBudgetChargedBytes','entries','readout']);
- assert(['capture-source','capture-cas'].includes(value.phase));
- assert(['strict-source-rejection','cas-capture-rejection','status-limit','status-invalid','path-invalid','status-unavailable',...PATCH_FAILURE_CODES].includes(value.failureCode));
- assert.equal(value.sourceDisposition,'omitted-on-capture-failure');assert.equal(value.casDisposition,'omitted-on-capture-failure');
+ assert(['capture-source','capture-cas','return-packaging'].includes(value.phase));
+ assert(['strict-source-rejection','cas-capture-rejection','status-limit','status-invalid','path-invalid','status-unavailable',...PATCH_FAILURE_CODES,...PACKAGING_FAILURE_CODES].includes(value.failureCode));
+ const disposition=value.phase==='return-packaging'?'omitted-on-packaging-failure':'omitted-on-capture-failure';
+ assert.equal(value.sourceDisposition,disposition);assert.equal(value.casDisposition,disposition);
+ if(value.phase==='return-packaging')assert(PACKAGING_FAILURE_CODES.includes(value.failureCode));
+ else assert(!PACKAGING_FAILURE_CODES.includes(value.failureCode));
  assert.equal(value.capacityBasisSha256,DIAGNOSTIC_CAPACITY_BASIS_SHA256);
  assert(typeof value.statusReadComplete==='boolean'&&typeof value.truncated==='boolean');
  assert(value.totalChangedCount===null||Number.isInteger(value.totalChangedCount)&&value.totalChangedCount>=0&&value.totalChangedCount<=CAPTURE_DIAGNOSTIC_LIMITS.entries);
@@ -671,6 +738,7 @@ async function main(){
  if(process.argv.includes('--transport-self-test')){selfTest();console.log('Editorial transport synthetic checks passed.');return;}
  let stage='validate-inputs',dir,out,binding,selection=[],reportPath,childEnv,failed=true;
  let failure=null,privateSubstage='preparation-failure',listReportPath,researchInput;
+ let packagingCode='packaging-report-read',packagingContext=null,packagingReport=null,packagingMode='none',outputAttempted=false;
  const failureFlags={listParsed:false,selectedCount:null,sourceRevisionMatches:null,horizonMatches:null,targetId:null,targetPresent:null,childExit:null,childSignal:null};
  const shellIdentity={before:null,after:null};
  try{
@@ -694,7 +762,7 @@ async function main(){
   writePrivate(path.join(dir,'owner.json'),JSON.stringify(location.owner));
   out=path.join(location.base,'editorial-preparation-return');fs.mkdirSync(out,{mode:0o700});
   stage='transport-self-tests';selfTest();
-  binding={schema:'ns.editorial-private-review.v5',recipientFingerprint:PIN,sourceSha,sourceTree:tree,
+  binding={schema:'ns.editorial-private-review.v6',recipientFingerprint:PIN,sourceSha,sourceTree:tree,
   sourceRevision:source.sourceRevision,researchDigest:digest,workflowImplementationSha:process.env.EXPECTED_WORKFLOW_SHA,
   runId:process.env.PREP_RUN_ID,runAttempt:process.env.PREP_RUN_ATTEMPT,purpose:'editorial-private-review',
   capturedAt:new Date().toISOString(),payloadMembers:MEMBERS,outcome:'failed-review-required',stage};bindingValid(binding);
@@ -765,9 +833,11 @@ async function main(){
     if(failure)failure.reportMode=researchReport?'research':activeReport?'list':'none';
     if(failure&&activeReport&&!researchReport)failure.listDiagnostic=JSON.parse(readBounded(activeReport));
     const casReport=researchReport?JSON.parse(readBounded(researchReport)):{sourceRevision:binding.sourceRevision,operations:[]};
-    if(shellIdentity.after===null)shellIdentity.after=readShellIdentity();
+    packagingReport=researchReport?casReport:failure?.listDiagnostic;packagingMode=researchReport?'research':activeReport?'list':'none';
+    packagingCode='packaging-shell-read';if(shellIdentity.after===null)shellIdentity.after=readShellIdentity();
     if(!failure)stage='capture-source';
-    const captureEnv=isolatedEnvironment(),context=captureContext(()=>git(['status','--porcelain=v1','-z','--untracked-files=all'],captureEnv,CAPTURE_DIAGNOSTIC_LIMITS.statusBytes));
+    packagingCode='packaging-source-compose';
+    const captureEnv=isolatedEnvironment(),context=packagingContext=captureContext(()=>git(['status','--porcelain=v1','-z','--untracked-files=all'],captureEnv,CAPTURE_DIAGNOSTIC_LIMITS.statusBytes));
     let payload=composeReviewReturn({casReport,casSql:'',selection,shellIdentity},{primary:failure,flags:failureFlags,context,
      captureSource:()=>{assert(!failure,'Prior guard failure forbids full private collection.');captureRows(context);assertReviewStatusDigest(context.entries,verifiedCaptureTree);return collectReviewSources(captureEnv,context,verifiedCaptureTree,'data/editorial-adaptive-report-'+researchInput.horizon.from+'.json');},
      captureCAS:()=>researchReport?captured(process.execPath,['scripts/editorial-control-sql.js',researchReport],childEnv||isolatedEnvironment(),dir,'prepare-cas-sql'):'',
@@ -779,12 +849,25 @@ async function main(){
     }
     if(payload.failure){failed=true;failure=payload.failure;stage=failure.stage;}
     binding={...binding,outcome:failed?'failed-review-required':'prepared-review-required',stage};
-    const text=JSON.stringify(seal(payload,binding,process.env.INPUT_RECIPIENT_PUBLIC_KEY))+'\n';assert(Buffer.byteLength(text)<=MAX_ENVELOPE);
-    writePrivate(path.join(out,'private-return.encrypted.json'),text);
-    writePrivate(path.join(out,'public-manifest.json'),JSON.stringify({schemaVersion:'ns.editorial-preparation-return.v1',binding,
-    ciphertextBytes:Buffer.byteLength(text),ciphertextSha256:sha(text),outcome:binding.outcome,
-    requiresFreshCanonicalControlsAndCASReview:true,databaseWrites:0,pushes:0,deployments:0},null,2)+'\n');
-   }catch(_){failed=true;if(!failure)stage='return-packaging';console.error('Editorial private return unavailable; no database write or release performed.');}
+    packagingCode='packaging-payload-contract';
+    const text=packageReturnEnvelope(payload,binding,process.env.INPUT_RECIPIENT_PUBLIC_KEY);
+    outputAttempted=true;writeReturnOutput(out,text,binding);
+   }catch(error){
+    failed=true;
+    const code=PACKAGING_FAILURE_CODES.includes(error?.privatePackagingCode)?error.privatePackagingCode:packagingCode;
+    if(!failure)stage='return-packaging';
+    let diagnosticDelivered=false;
+    if(!outputAttempted){
+     try{
+      const fallback=packagingFailurePayload(binding,failure,failureFlags,code,packagingContext,packagingReport,packagingMode);
+      const fallbackBinding={...binding,capturedAt:new Date().toISOString(),outcome:'failed-review-required',stage:fallback.failure.stage};
+      const text=packageReturnEnvelope(fallback,fallbackBinding,process.env.INPUT_RECIPIENT_PUBLIC_KEY);
+      outputAttempted=true;writeReturnOutput(out,text,fallbackBinding);
+      binding=fallbackBinding;failure=fallback.failure;stage=failure.stage;diagnosticDelivered=true;
+     }catch(_){}
+    }
+    if(!diagnosticDelivered)console.error('Editorial private return unavailable ('+code+'); no database write or release performed.');
+   }
   }
   if(dir)cleanupPrivate();
  }
@@ -792,4 +875,4 @@ async function main(){
  else console.log('Editorial preparation complete; encrypted private review required. No database write or release performed.');
 }
 if(require.main===module)main().catch(()=>{console.error('Editorial preparation failed safely.');process.exitCode=1;});
-module.exports={seal,open,selfTest,privateLocation,cleanupPrivate,canonicalAdmissionIssue,privateFailure,validatePrivateFailure,validatePrivatePayload:payloadValid,strictSourceEntry,captureContext,captureRows,captureInventory,observeDiagnosticEntry,composeReviewReturn,diagnosticCapacityBasis:DIAGNOSTIC_CAPACITY_BASIS,diagnosticCapacityLimits:CAPTURE_DIAGNOSTIC_LIMITS,verifyDiagnosticBasisRows,reviewCaptureLimits:REVIEW_LIMITS,reviewFixedPaths:[...REVIEW_FIXED_PATHS],encodeReviewPatch,decodeReviewPatch,validateReviewCodec,captureReviewGitPatch,reviewStatusShape,deriveReviewClosure,validateReviewRecords,validateReviewPayload,reviewMetadataBytes,readReviewFile,reviewScopeDigest,collectReviewSources,reviewStatusDigest,assertReviewStatusDigest,expectedReviewStatusSha256:EXPECTED_REVIEW_STATUS_SHA256};
+module.exports={packageReturnEnvelope,packagingFailurePayload,writeReturnOutput,packagingFailureCodes:PACKAGING_FAILURE_CODES,packagingLimits:{plaintextBytes:MAX,envelopeBytes:MAX_ENVELOPE},seal,open,selfTest,privateLocation,cleanupPrivate,canonicalAdmissionIssue,privateFailure,validatePrivateFailure,validatePrivatePayload:payloadValid,strictSourceEntry,captureContext,captureRows,captureInventory,observeDiagnosticEntry,composeReviewReturn,diagnosticCapacityBasis:DIAGNOSTIC_CAPACITY_BASIS,diagnosticCapacityLimits:CAPTURE_DIAGNOSTIC_LIMITS,verifyDiagnosticBasisRows,reviewCaptureLimits:REVIEW_LIMITS,reviewFixedPaths:[...REVIEW_FIXED_PATHS],encodeReviewPatch,decodeReviewPatch,validateReviewCodec,captureReviewGitPatch,reviewStatusShape,deriveReviewClosure,validateReviewRecords,validateReviewPayload,reviewMetadataBytes,readReviewFile,reviewScopeDigest,collectReviewSources,reviewStatusDigest,assertReviewStatusDigest,expectedReviewStatusSha256:EXPECTED_REVIEW_STATUS_SHA256};
