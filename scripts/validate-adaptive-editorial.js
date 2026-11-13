@@ -581,7 +581,15 @@ async function validatePrivateSourceCollection(){
  assert.throws(()=>helper.packageReturnEnvelope({...payload,casReport:{...payload.casReport,unexpected:true}},binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-cas-shape');
  assert.throws(()=>helper.packageReturnEnvelope({...payload,casReport:{...payload.casReport,operations:[payload.casReport.operations[0],payload.casReport.operations[0]]}},binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-cas-targets');
  assert.throws(()=>helper.packageReturnEnvelope({...payload,newFiles:[]},binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-payload-contract');
- assert.throws(()=>helper.packageReturnEnvelope({...payload,selection:[1n]},binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-json');
+ const jsonBoundaryEncryptCalls=encryptCalls;
+ // Full private metadata is serialized by its intact contract guard before envelope JSON.
+ assert.throws(()=>helper.packageReturnEnvelope({...payload,selection:[1n]},binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-payload-contract');
+ assert.equal(encryptCalls,jsonBoundaryEncryptCalls,'private metadata rejection occurs before encryption');
+ // A valid default/string-patch envelope reaches the separate JSON-packaging boundary.
+ const jsonFailureFixture={...payload,sourcePatch:'',sourceChanges:[],newFiles:[],selection:[1n]};
+ helper.validatePrivatePayload(jsonFailureFixture,binding);
+ assert.throws(()=>helper.packageReturnEnvelope(jsonFailureFixture,binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-json');
+ assert.equal(encryptCalls,jsonBoundaryEncryptCalls,'JSON serialization rejection occurs before encryption');
  const plainBytes=Buffer.byteLength(JSON.stringify(payload));
  helper.packageReturnEnvelope(payload,binding,'unused',{...fakeOptions,plaintextLimit:plainBytes});
  assert.throws(()=>helper.packageReturnEnvelope(payload,binding,'unused',{...fakeOptions,plaintextLimit:plainBytes-1}),error=>error.privatePackagingCode==='packaging-plaintext');
