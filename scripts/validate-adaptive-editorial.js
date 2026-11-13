@@ -412,6 +412,31 @@ async function validatePrivateSourceCollection(){
  assert.equal(largeDecodedHash.digest('hex'),largeExpectedSha);
  assert.deepEqual(largeDecoded,{bytes:largeSynthetic.length,sha256:largeExpectedSha},'actual decoder completed with exact count/digest and no missing or trailing output');
 
+
+ // Larger synthetic resource falsifier stays below raw272MiB/gzip12MiB patch caps; it is not a new-file payload.
+ const tenMiBSynthetic=crypto.randomBytes(10*1024*1024+1),tenMiBExpectedSha=digest(tenMiBSynthetic);
+ const tenMiBInput=Readable.from([tenMiBSynthetic]);let tenMiBInputEof=false;
+ tenMiBInput.once('end',()=>{tenMiBInputEof=true;});
+ const tenMiBCodec=await helper.encodeReviewPatch(tenMiBInput);
+ assert.equal(tenMiBInputEof,true);assert.equal(tenMiBInput.readableEnded,true);assert.equal(tenMiBInput.read(),null,'larger encoder consumed input through EOF');
+ assert.equal(tenMiBCodec.decodedBytes,10*1024*1024+1);assert.equal(tenMiBCodec.decodedSha256,tenMiBExpectedSha);
+ assert(tenMiBCodec.decodedBytes<=limits.rawPatchBytes&&tenMiBCodec.compressedBytes<=limits.compressedPatchBytes);
+ assert(tenMiBCodec.bodyBase64.length>=10*1024*1024,'high-entropy valid codec must exercise at least10MiB of Base64 text');
+ const tenMiBGzip=Buffer.from(tenMiBCodec.bodyBase64,'base64');
+ assert.equal(tenMiBGzip.length,tenMiBCodec.compressedBytes);
+ assert.equal(tenMiBGzip.readUInt32LE(tenMiBGzip.length-8),zlib.crc32(tenMiBSynthetic)>>>0,'final gzip CRC equals complete synthetic input');
+ assert.equal(tenMiBGzip.readUInt32LE(tenMiBGzip.length-4),tenMiBSynthetic.length,'final gzip ISIZE equals complete synthetic input');
+ let tenMiBDecodedBytes=0;const tenMiBDecodedHash=crypto.createHash('sha256');
+ const tenMiBDecoded=await helper.decodeReviewPatch(tenMiBCodec,chunk=>{
+  assert(tenMiBDecodedBytes+chunk.length<=tenMiBSynthetic.length,'larger decoder must not deliver bytes beyond expected EOF');
+  assert.deepEqual(chunk,tenMiBSynthetic.subarray(tenMiBDecodedBytes,tenMiBDecodedBytes+chunk.length));
+  tenMiBDecodedHash.update(chunk);tenMiBDecodedBytes+=chunk.length;
+ });
+ assert.equal(tenMiBDecodedBytes,tenMiBSynthetic.length,'larger decoder delivered all bytes through EOF');
+ assert.equal(tenMiBDecodedHash.digest('hex'),tenMiBExpectedSha);
+ // Actual decodeReviewPatch returns only after its native consumed-input EOF and CRC/ISIZE assertions.
+ assert.deepEqual(tenMiBDecoded,{bytes:tenMiBSynthetic.length,sha256:tenMiBExpectedSha},'actual larger decoder completed exact count/digest, consumed EOF and trailer checks');
+
  const empty=await helper.encodeReviewPatch(Readable.from([]));await helper.decodeReviewPatch(empty);
  const binary=Buffer.from(Array.from({length:256},(_,index)=>index));
  const binaryCodec=await helper.encodeReviewPatch(Readable.from([binary]));const binaryRecovered=[];
