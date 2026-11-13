@@ -403,7 +403,7 @@ const updaterSource = fs.readFileSync(path.join(projectRoot, "scripts/update-car
 // Exercise the actual release allowlist against every generated quick-refresh
 // surface, including runtime standings and secondary projection manifests.
 const releaseOutputs = [...releaseScript.match(/CARD_OUTPUT_FILES=\(([\s\S]*?)\n\)/)[1].matchAll(/"([^"]+)"/g)].map(match=>match[1]);
-for(const file of ['assets/js/app-shell-runtime.js','data/chat-fixtures.v1.json','data/coverage/schedule-feed-audit.json','data/providers/openligadb/football-2026-27.json']){
+for(const file of ['assets/js/app-shell-runtime.js','data/coverage/schedule-feed-audit.json','data/providers/openligadb/football-2026-27.json']){
   assert(releaseOutputs.some(output=>file===output||file.startsWith(output+'/')),`${file} must travel with refreshed canonical data`);
 }
 assert(releaseScript.indexOf('node scripts/build-app-shell-runtime.js --check') < releaseScript.indexOf('git commit --only -m "$RELEASE_COMMIT_MESSAGE" -- "${CARD_OUTPUT_FILES[@]}"',releaseScript.indexOf('INITIAL_HEAD=')),'stale generated runtime must fail before the release commit');

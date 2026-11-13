@@ -4,6 +4,7 @@
   if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildUserStateSync(){
   "use strict";
+  const retiredFeedback=globalThis.NOTHINGSPORTS_RETIRED_FEEDBACK||(typeof require==='function'?require('./retired-feedback'):null);
 
   const PATCH_SCHEMA_VERSION = "user-state-patch.v1";
   const STATE_ROOTS = Object.freeze([
@@ -71,7 +72,8 @@
 
   function createPatch(baseState, currentState, { baseUpdatedAt = null } = {}){
     const previous = plainObject(baseState) ? baseState : {};
-    const current = plainObject(currentState) ? currentState : {};
+    const current = plainObject(currentState) ? clone(currentState) : {};
+    if(current.preferences)current.preferences=retiredFeedback.clean(current.preferences);
     const changes = [];
     STATE_ROOTS.forEach(rootKey => collectChanges(previous[rootKey], current[rootKey], [rootKey], changes));
     return {
@@ -129,6 +131,7 @@
     });
     preserveFantasyDecision(baseState, patch, next);
     preservePurges(baseState,next);
+    if(next.preferences)next.preferences=retiredFeedback.clean(next.preferences);
     return next;
   }
 

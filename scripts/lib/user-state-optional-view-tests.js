@@ -7,7 +7,7 @@ const follow=require('../../config/follow-first'),systems=require('../../config/
 const slice=(from,to)=>{const a=html.indexOf(from),b=html.indexOf(to,a);assert(a>=0&&b>a);return html.slice(a,b);};
 function actualContext(helperFile){
  const values=new Map(),storage={getItem:key=>values.get(key)??null,setItem:(key,value)=>values.set(key,value),removeItem:key=>values.delete(key)};
- const c={structuredClone,console,PROFILE_STORAGE:profile,SERVER_SYNC:transport,USER_STATE_SYNC:patches,FOLLOW_FIRST:follow,PREFERENCE_SYSTEM:systems,
+ const c={structuredClone,console,NOTHINGSPORTS_RETIRED_FEEDBACK:require('../../config/retired-feedback'),PROFILE_STORAGE:profile,SERVER_SYNC:transport,USER_STATE_SYNC:patches,FOLLOW_FIRST:follow,PREFERENCE_SYSTEM:systems,
   DISCOVERY_CATALOGUE:require('../../config/discovery-catalogue'),FEED_CONTROLS:require('../../config/feed-controls'),RATING_SYSTEM:require('../../config/rating-system'),
   PRODUCT_EVENTS:null,PERSONALISED_FEED:null,BROADCASTER_LIBRARY:{},DEFAULT_FIRST_RUN_SELECTOR_IDS:[],DEFAULT_FIRST_RUN_SPORT_KEYS:[],LEGACY_SEEDED_DEFAULTS_VERSION:24,
   NOTHINGSPORTS_FANTASY_DEADLINES:require('../../config/fantasy-deadlines'),

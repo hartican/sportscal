@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="612">
+<meta name="app-shell-version" content="614">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=612" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=614" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -335,9 +335,8 @@ body[data-active-tab="feed"] .top-bar-spacer{
     <div class="header-actions">
       <span id="accountIndicator"><button class="btn ghost" id="accountIndicatorFallback" type="button" aria-label="Checking account status. Open Account."><span data-vector-glyph="ui:user"></span>Checking account…</button></span>
       <div class="header-status-actions">
-        <button class="btn ghost" id="activeChatsBtn" type="button" aria-haspopup="dialog" aria-controls="chatDrawer" aria-label="Active chats" hidden><span data-vector-glyph="ui:message"></span><span class="active-chat-count" id="activeChatCount">0</span></button>
         <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Results OFF"><span class="spoiler-home-label">Results</span><span class="spoiler-home-state">OFF</span></button>
-        <button class="btn ghost" id="nothingscoreBtn" type="button" aria-controls="nothingscoreDrawer" aria-label="Nothinger Leaderboard"><span data-vector-glyph="ui:trophy"></span><span class="nothing-score-label" aria-hidden="true">LEADER<br>BOARD</span></button>
+        <button class="btn ghost" id="nothingscoreBtn" type="button" aria-controls="nothingscoreDrawer" aria-label="YURTERS"><span data-vector-glyph="ui:people"></span><span class="nothing-score-label" aria-hidden="true">YURTERS</span></button>
       </div>
     </div>
   </div>
@@ -500,24 +499,6 @@ body[data-active-tab="feed"] .top-bar-spacer{
   </div>
 </div>
 
-<div class="modal-backdrop" id="tunePromptModal" aria-hidden="true">
-  <div class="onboarding-panel utility-panel tune-prompt-panel" role="dialog" aria-modal="true" aria-labelledby="tunePromptTitle">
-    <div class="onboarding-head">
-      <div>
-        <h2 id="tunePromptTitle">Refine who you follow?</h2>
-        <p>Your feedback was saved. Choose teams and players in Follow when you want to sharpen the feed.</p>
-      </div>
-    </div>
-    <div class="onboarding-body">
-      <p class="preference-help">This prompt appears less often as Nothing Sport learns. It never blocks the feed.</p>
-    </div>
-    <div class="onboarding-actions">
-      <button class="btn ghost" type="button" id="dismissTunePromptBtn">Not now</button>
-      <button class="btn primary" type="button" id="reviewSportsFromTuneBtn">Open Follow</button>
-    </div>
-  </div>
-</div>
-
 <div class="modal-backdrop" id="pilotPulsePromptModal" aria-hidden="true">
   <div class="onboarding-panel utility-panel" role="dialog" aria-modal="true" aria-labelledby="pilotPulsePromptTitle">
     <div class="onboarding-head">
@@ -554,33 +535,12 @@ body[data-active-tab="feed"] .top-bar-spacer{
   </div>
 </div>
 
-<div class="chat-backdrop" id="chatBackdrop" aria-hidden="true">
-  <aside class="chat-drawer" id="chatDrawer" role="dialog" aria-modal="true" aria-labelledby="chatTitle" aria-describedby="chatSubtitle">
-    <header class="chat-head">
-      <div class="chat-head-copy">
-        <h2 id="chatTitle">Active chats</h2>
-        <p id="chatSubtitle">Fixture rooms for members and invited guests.</p>
-        <p class="chat-connection" id="chatConnection" data-state="idle" role="status" aria-live="polite">Idle</p>
-      </div>
-      <div class="chat-head-actions">
-        <button class="btn ghost chat-head-share" id="shareRoomHeaderBtn" type="button" hidden>Share room</button>
-        <button class="chat-close" id="closeChatBtn" type="button" aria-label="Close chat"><span data-vector-glyph="ui:close"></span></button>
-      </div>
-    </header>
-    <div class="chat-body" id="chatBody"></div>
-    <button class="btn primary chat-new-messages" id="chatNewMessagesBtn" type="button" aria-label="Jump to latest message" title="Jump to latest message">∨</button>
-    <footer class="chat-composer-host" id="chatComposerHost" hidden></footer>
-  </aside>
-</div>
-
-<button class="chat-incoming-banner" id="chatIncomingBanner" type="button" hidden></button>
-
 <div class="chat-backdrop nsc-backdrop" id="nothingscoreBackdrop" aria-hidden="true">
   <aside class="chat-drawer nsc-drawer" id="nothingscoreDrawer" role="region" aria-labelledby="nothingscoreTitle" aria-describedby="nothingscoreSubtitle">
     <header class="chat-head">
       <div class="chat-head-copy">
-        <h2 id="nothingscoreTitle">Nothinger Leaderboard</h2>
-        <p id="nothingscoreSubtitle">How the crowd ranks upcoming, live and past fixtures.</p>
+        <h2 id="nothingscoreTitle">YURTERS</h2>
+        <p id="nothingscoreSubtitle">Follow people. Discover their sporting follows.</p>
       </div>
       <button class="chat-close" id="closeNothingscoreBtn" type="button" aria-label="Back">‹ Back</button>
     </header>
@@ -588,7 +548,7 @@ body[data-active-tab="feed"] .top-bar-spacer{
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=612"></script>
+<script src="assets/js/app-shell-runtime.js?v=614"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -1260,8 +1220,6 @@ const FOLLOW_FEED_POLICY = globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY;
 const PERSONALISED_FEED = globalThis.NOTHINGSPORTS_PERSONALISED_FEED || null;
 const TEAM_FOLLOW_CATALOGUE = globalThis.NOTHINGSPORTS_TEAM_FOLLOW_CATALOGUE || null;
 const FEED_CONTROLS = globalThis.NOTHINGSPORTS_FEED_CONTROLS || null;
-const SWIPE_CALIBRATION = globalThis.NOTHINGSPORTS_SWIPE_CALIBRATION || null;
-const FINE_TUNING = globalThis.NOTHINGSPORTS_FINE_TUNING || null;
 const RATING_SYSTEM = globalThis.NOTHINGSPORTS_RATING_SYSTEM || null;
 const SPORT_CONTEXT = globalThis.NOTHINGSPORTS_SPORT_CONTEXT || null;
 let SPORT_HUBS = globalThis.NOTHINGSPORTS_SPORT_HUBS || null;
@@ -1573,23 +1531,18 @@ const DISPOSABLE_STORAGE = globalThis.NOTHINGSPORTS_DISPOSABLE_STORAGE || null;
 const disposableStore = DISPOSABLE_STORAGE?.createStore?.() || null;
 const EVENT_ACTION_IDENTITY = globalThis.NOTHINGSPORTS_EVENT_ACTION_IDENTITY || null;
 const USER_STATE_SYNC = globalThis.NOTHINGSPORTS_USER_STATE_SYNC || null;
-const CHAT = globalThis.NOTHINGSPORTS_CHAT || null;
 const NATIVE_SHELL = globalThis.NOTHINGSPORTS_NATIVE_SHELL;
 const SERVER_SYNC = globalThis.NOTHINGSPORTS_SERVER_SYNC || null;
 const serverSyncClient = typeof window !== "undefined" && SERVER_SYNC
 ? SERVER_SYNC.createClient()
 : null;
-const CHAT_CAPABILITY_STORAGE_KEY = "ns_pending_chat_capability_v1";
-function captureChatCapabilityFromLocation(){
-if (typeof window === "undefined") return "";
-const fragment = new URLSearchParams(String(window.location.hash || "").replace(/^#/, ""));
-const capability = String(fragment.get("chat") || "").trim();
-if (!capability) return "";
-try{ sessionStorage.setItem(CHAT_CAPABILITY_STORAGE_KEY, capability); }catch(_error){ }
-fragment.delete("chat");
-const remainder = fragment.toString();
-history.replaceState(null, "", `${window.location.pathname}${window.location.search}${remainder ? `#${remainder}` : ""}`);
-return capability;
+function discardRetiredChatLink(){
+ const url=new URL(location.href),fragment=new URLSearchParams(url.hash.slice(1));
+ const retired=url.searchParams.has('chatRoom')||fragment.has('chat');
+ url.searchParams.delete('chatRoom');fragment.delete('chat');url.hash=fragment.toString();
+ if(retired)history.replaceState(history.state,'',url);
+ try{for(const storage of [sessionStorage,localStorage])for(const key of Object.keys(storage))if(key.startsWith('ns_chat_draft_v2:')||['ns_pending_chat_capability_v1','ns_guest_chat_session_v1'].includes(key))storage.removeItem(key);}catch(_error){}
+ return retired;
 }
 function captureSignupReturnWithCurrentHelper(){
 if (typeof window === 'undefined') return null;
@@ -1622,12 +1575,6 @@ let activeRecoverySession = !activeSignupConfirmation && typeof window !== "unde
 ? SERVER_SYNC.captureRecoveryFromLocation()
 : null;
 if (activeRecoverySession) serverSyncClient?.clearSession?.();
-let pendingChatCapability = activeRecoverySession || typeof window === "undefined"
-? ""
-: captureChatCapabilityFromLocation();
-if (!pendingChatCapability){
-try{ pendingChatCapability = typeof sessionStorage === "undefined" ? "" : sessionStorage.getItem(CHAT_CAPABILITY_STORAGE_KEY) || ""; }catch(_error){ pendingChatCapability = ""; }
-}
 const productEventSessionId = globalThis.crypto?.randomUUID?.()
 || `session_${Date.now().toString(36)}_${Math.random().toString(36).slice(2).padEnd(12, "0")}`;
 const productEventsQueue = PRODUCT_EVENTS && serverSyncClient
@@ -2032,9 +1979,6 @@ let footballDirectorySearchTimer = null;
 let standingsRevealApproved = false;
 let pendingStandingsReveal = null;
 let pendingSelectorPromptIds = new Set();
-let pendingTunePromptDislikeCount = null;
-let tuneSectionIndex = 0;
-let tuneSessionRuntime = null;
 let sessionRatingPromptEventId = null;
 let sessionRatingPromptTelemetryContext = null;
 let sessionRatingPromptSuppressed = false;
@@ -2093,79 +2037,6 @@ nothingscoreViewer=viewer;
 nothingscoreViewerScope={owner,generation};
 globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.acceptProfile(viewer,owner,generation);
 }
-function createChatState(overrides = {}){
-return {
-isAdmin:false,
-isGuest:false,
-profile:{ displayName:null, avatarUrl:null },
-capabilities:{ lifetimeNscPoints:0, gifMinimumPoints:25, canUseGifs:false },
-rooms:[],
-archivedRooms:[],
-adminRooms:[],
-openRoomCount:0,
-currentRoom:null,
-messages:[],
-olderCursor:null,
-visibleMessageStart:0,
-historyExpanded:false,
-draftBody:"",
-pendingAttachments:[],
-replyToMessageId:null,
-reactionCursor:"",
-shareCapability:"",
-invitations:[],
-chatSelectionMode:false,
-selectedRoomIds:[],
-activeSignature:"",
-...overrides,
-profile:{ displayName:null, avatarUrl:null, ...(overrides.profile || {}) },
-capabilities:{ lifetimeNscPoints:0, gifMinimumPoints:25, canUseGifs:false, ...(overrides.capabilities || {}) },
-rooms:Array.isArray(overrides.rooms) ? overrides.rooms : [],
-invitations:Array.isArray(overrides.invitations) ? overrides.invitations : [],
-selectedRoomIds:Array.isArray(overrides.selectedRoomIds) ? overrides.selectedRoomIds : [],
-messages:Array.isArray(overrides.messages) ? overrides.messages : [],
-pendingAttachments:Array.isArray(overrides.pendingAttachments) ? overrides.pendingAttachments : [],
-  };
-}
-function normalizeChatState(value){
-return createChatState(value && typeof value === "object" ? value : {});
-}
-let chatState = createChatState();
-let chatNavigationGeneration = 0;
-let chatTargetRoomId = null;
-const chatRoomDrafts = new Map();
-function chatScope(){ return { roomId:chatTargetRoomId || chatState.currentRoom?.roomId, generation:chatNavigationGeneration }; }
-function chatScopeCurrent(scope){
-return scope.generation === chatNavigationGeneration && scope.roomId === (chatTargetRoomId || chatState.currentRoom?.roomId)
-&& document.getElementById("chatBackdrop").classList.contains("show");
-}
-function leaveChatRoom(nextRoomId = null){
-persistCurrentChatDraft();
-const roomId = chatState.currentRoom?.roomId;
-if (roomId) chatRoomDrafts.set(roomId, { body:chatState.draftBody, replyToMessageId:chatState.replyToMessageId, attachments:chatState.pendingAttachments });
-chatNavigationGeneration += 1;
-chatTargetRoomId = nextRoomId;
-clearTimeout(chatRoomTimer);
-chatRoomTimer = null;
-closeChatGifPicker();
-Object.assign(chatState, { currentRoom:null, messages:[], olderCursor:null, reactionCursor:"", visibleMessageStart:0,
-historyExpanded:false, shareCapability:"", draftBody:"", replyToMessageId:null, pendingAttachments:[] });
-const draft = chatRoomDrafts.get(nextRoomId);
-if (draft) Object.assign(chatState, { draftBody:draft.body, replyToMessageId:draft.replyToMessageId, pendingAttachments:draft.attachments });
-document.getElementById("closeChatBtn").setAttribute("aria-label", nextRoomId ? "Back to chats" : "Close chats");
-document.getElementById("closeChatBtn").innerHTML = glyphMarkup(nextRoomId ? "ui:chevron-left" : "ui:close");
-}
-let chatActiveTimer = null;
-let chatRoomTimer = null;
-let chatPollFailures = 0;
-let chatLastActivityAt = 0;
-let chatPreviousFocus = null;
-let chatSetupFixture = null;
-let chatViewportLock = null;
-let chatViewportFrame = null;
-let chatViewportTimers = new Set();
-let chatViewportBaselineHeight = 0;
-let chatKeepLatestVisible = true;
 const nothingscoreSnapshots = new Map();
 const nothingscoreEventRefs = new Map();
 const nothingscoreSubmissionRequests = new Map();
@@ -2197,7 +2068,6 @@ let nothingscoreHeartbeatTimer = null;
 let nothingscorePollFailures = 0;
 let nothingscoreRenderQueued = false;
 let nothingscorePreviousFocus = null;
-let nothingscoreLeaderboardPeriod = "weekly";
 let activeNothingscoreContributionEvent = null;
 let activeNothingscoreContributionError = "";
 let publicProfileSettingsLoading = null;
@@ -2205,7 +2075,6 @@ const NOTHINGSCORE_SOUND_KEY = "ns_nothingscore_sound_v1";
 const PREFERENCE_RESET_STORAGE_KEY = "ns_preference_reset_recovery_v1";
 let nothingscoreAudioContext = null;
 let nothingscoreAudioBlocked = false;
-let chatAudioContext = null;
 let productEventOwnerId = null;
 let productExposureObserver = null;
 const productExposureTargets = new WeakMap();
@@ -2501,7 +2370,7 @@ const existingFantasyProfile=Boolean(saved&&typeof saved==='object'&&Object.keys
 const merged = typeof structuredClone === "function" ? structuredClone(DEFAULT_PREFERENCES) : JSON.parse(JSON.stringify(DEFAULT_PREFERENCES));
 if (!saved || typeof saved !== "object"){
 merged.taxonomySelection = taxonomySelectionForSelectorIds(merged.selectedSelectorEntityIds);
-return merged;
+return NOTHINGSPORTS_RETIRED_FEEDBACK.clean(merged);
 }
 const profileGraph = activeProfileBundle && (
 activeProfileBundle.domainPreferences?.length
@@ -2616,7 +2485,7 @@ scope: feedScopeForIntent(preferences.feedIntent),
 spoilers: preferences.showSpoilers ? "results_visible" : preferences.feedControls?.spoilers,
 }, { showSpoilers: preferences.showSpoilers }) || preferences.feedControls;
 delete preferences.soundtrack;
-return FOLLOW_FIRST?.migratePreferences?.(preferences) || preferences;
+return NOTHINGSPORTS_RETIRED_FEEDBACK.clean(FOLLOW_FIRST?.migratePreferences?.(preferences) || preferences);
 }
 function saveActivePreferenceGraph(graph){
 if (!PROFILE_STORAGE || !activeProfileBundle || !graph) return false;
@@ -3335,7 +3204,7 @@ const settingsOpen = typeof document !== "undefined"
 if (settingsOpen && ["account", "pilot"].includes(settingsSection) && draftPreferences){
 renderSettingsScreen();
 }
-syncChatSessionState(previousOwnerId, nextOwnerId);
+
 syncNothingscoreSessionState(previousOwnerId, nextOwnerId);
 const life=serverSyncClient?.accountSnapshot?.();
 if(patch?.state==='signedIn' && nextOwnerId===life?.accountId)accountIndicatorGeneration=life.generation;
@@ -5338,7 +5207,7 @@ sessionRatingPromptSelectionFinalized
 || activeTab !== "feed"
 || activeView !== "list"
 || activeFilter !== "all"
-|| document.getElementById("tunePromptModal")?.classList.contains("show")
+
 ) return sessionRatingPromptEventId;
 const candidates = (Array.isArray(events) ? events : [])
 .filter(event => !NOTHINGSPORTS_TENNIS_FEED.isParent(event) && getEventStatus(event) === "past")
@@ -5482,22 +5351,16 @@ storyline: { scoreReasons: [] },
 return CARD_LIFECYCLE.safeEnrichment(ev, event => ENRICHMENT_ENGINE.enrichEvent(event, enrichmentContextForEvent(event)),
 (_error, id) => console.warn("Fixture enrichment fallback", id));
 }
-function eventLearningReferences(ev){
-return SWIPE_CALIBRATION?.targetReferencesForEvent?.(ev) || [];
-}
 function eventLearningScore(ev){
 const action = getEventAction(ev);
 const eventId = String(ev.eventId || ev.id);
 const openedSignal = sessionOpenedEventIds.has(eventId) && !cardViewStates[eventId] ? 2 : 0;
-const learnedSignal = PREFERENCE_SYSTEM?.softLearningScore?.(
-userPreferences.preferenceGraph,
-eventLearningReferences(ev)
-) || 0;
+
 const localSignals = openedSignal
 + (action.addedToFixtures ? 12 : 0)
 + (action.saved ? 10 : 0)
 + (action.watched ? 6 : 0)
-+ learnedSignal;
+;
 return Math.max(-30, Math.min(30, localSignals));
 }
 function eventEnrichment(ev){
@@ -7378,12 +7241,7 @@ if (!presentation.isNew) return;
 surfaceSeenEvents.set(element, ev);
 getSurfaceSeenObserver()?.observe(element);
 }
-function latestEventFeedbackDirection(ev){
-const eventId = String(ev.eventId || ev.id);
-return [...(userPreferences.followFirst?.feedback?.entries || [])]
-.reverse()
-.find(entry => entry.eventId === eventId)?.direction || null;
-}
+
 function eventIsHighStakesSuggestion(){ return false; }
 function buildEventFeedbackButtons(){ return []; }
 const calendarChoice = {active:false, mode:'import', included:new Set(), excluded:new Set(), refs:new Map(), subscription:null, owner:null, busy:false};
@@ -7804,21 +7662,6 @@ return;
 const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
 window.scrollTo({ top: Math.min(anchor.scrollY, maxScrollY), behavior: "auto" });
 }
-function setTunePromptOpen(open, dislikeCount = pendingTunePromptDislikeCount){
-const modal = document.getElementById("tunePromptModal");
-pendingTunePromptDislikeCount = open ? Number(dislikeCount) || 0 : null;
-modal.classList.toggle("show", open);
-modal.setAttribute("aria-hidden", open ? "false" : "true");
-if (open) document.getElementById("dismissTunePromptBtn")?.focus({ preventScroll: true });
-}
-function recordTunePromptAction(action){
-if (!pendingTunePromptDislikeCount) return;
-recordProductEvent({
-eventName: "tune_prompt",
-surface: "curated_feed",
-properties: { action, dislikeCount: pendingTunePromptDislikeCount },
-  });
-}
 function restoreDismissedEvent(ev, { message = true, eventsOnly = false, displayLabel = null } = {}){
 const currentAction = getEventAction(ev);
 updateEventAction(ev, eventsOnly ? {
@@ -7872,12 +7715,6 @@ if (previousAction && Object.keys(previousAction).length) restoredActions[key] =
 else delete restoredActions[key];
     }
 saveEventActions(restoredActions);
-if (previousPreferences){
-const restoredPreferences = clonePreferences(userPreferences);
-restoredPreferences.followFirst.feedback = clonePreferences(previousPreferences).followFirst.feedback;
-restoredPreferences.preferenceGraph.learning = clonePreferences(previousPreferences).preferenceGraph.learning;
-savePreferences(restoredPreferences);
-    }
 if (undoViewportAnchor){
 mutateWithScrollContinuity(undoViewportAnchor, () => renderAll(), {
 anchorStrategy:"target",
@@ -7898,128 +7735,6 @@ if (undone) return;
 card?.remove();
 requestAnimationFrame(()=>requestAnimationFrame(()=>{if(!undone)renderAll({preserveViewport:true});}));
   }, 180);
-if (showTunePrompt){
-window.setTimeout(() => {
-if (undone || !getEventAction(ev).dismissed) return;
-const prompted = clonePreferences(userPreferences);
-prompted.followFirst.refinement.promptedAt = new Date().toISOString();
-savePreferences(prompted);
-recordProductEvent({
-eventName:"tune_prompt",
-surface:"curated_feed",
-properties:{ action:"shown", dislikeCount:feedbackCount },
-      });
-setTunePromptOpen(true, feedbackCount);
-    }, 4400);
-  }
-}
-function applyCuratedEventSwipe(ev, direction, { card = null } = {}){
-if (!["positive", "negative"].includes(direction)) return { active:false };
-const eventId = String(ev.eventId || ev.id);
-if (card?.dataset.swipeFeedbackActive === "true" && !(direction === "positive" && latestEventFeedbackDirection(ev) === "positive")) return { active:latestEventFeedbackDirection(ev) === direction };
-if (direction === "negative" && getEventAction(ev).dismissed){
-card?.classList.add("is-dismissing");
-if(card)card.inert=true;
-window.setTimeout(() => renderAll({ preserveViewport:true }), 230);
-return { active:true, dismissed:true };
-  }
-const togglingOff = direction === "positive" && latestEventFeedbackDirection(ev) === "positive";
-const previousPreferences = clonePreferences(userPreferences);
-const savedAction = storedEventAction(ev);
-const previousAction = savedAction ? { ...savedAction } : null;
-const recommendationContext = productRecommendationContext(ev);
-const target = SWIPE_CALIBRATION?.primaryTargetForEvent?.(ev) || {
-targetType: "event",
-targetId: String(ev.eventId || ev.id),
-label: spoilerSafeDisplayTitle(ev),
-  };
-let next = FOLLOW_FIRST?.toggleFeedback?.(userPreferences, {
-eventId,
-direction,
-targetType:target.targetType,
-targetId:target.targetId,
-  }) || clonePreferences(userPreferences);
-if (next.preferenceGraph && togglingOff && PREFERENCE_SYSTEM?.removeLearningSignal){
-next.preferenceGraph = PREFERENCE_SYSTEM.removeLearningSignal(next.preferenceGraph, {
-targetType:target.targetType,
-targetId:target.targetId,
-    });
-  } else if (PREFERENCE_SYSTEM?.applyLearningSignal && next.preferenceGraph){
-next.preferenceGraph = PREFERENCE_SYSTEM.applyLearningSignal(next.preferenceGraph, {
-targetType:target.targetType,
-targetId:target.targetId,
-value:direction === "negative" ? -1 : 1,
-source:"feed",
-    }, { contextReferences:eventLearningReferences(ev) });
-  }
-next.followFirst.refinement.firstSwipeAt ||= new Date().toISOString();
-const feedbackCount = next.followFirst.feedback.entries.length;
-const showTunePrompt = FOLLOW_FIRST?.shouldPromptRefinement?.(next) || false;
-if (!next.swipeCoaching?.dismissedAt){
-next.swipeCoaching = { dismissedAt: new Date().toISOString() };
-  }
-savePreferences(next);
-recordProductEvent({
-eventName: "swipe",
-surface: "curated_feed",
-...productEventContextForEvent(ev),
-properties: { direction, active:!togglingOff, targetType: target.targetType, cardRetained: direction === "positive", ...recommendationContext },
-  });
-if (showTunePrompt) suppressSessionRatingPrompt();
-if (direction === "negative"){
-dismissEventCard(ev, { previousPreferences, previousAction, card, showTunePrompt, feedbackCount });
-return { active:true, dismissed:true };
-  }
-if (card){
-card.querySelectorAll(".event-feedback-button, .thumb-control").forEach(button => {
-const selected = !togglingOff && (
-button.dataset.feedbackDirection === "positive"
-|| String(button.getAttribute("aria-label") || "").startsWith("More like ")
-);
-button.classList.toggle("active", selected);
-button.setAttribute("aria-pressed", String(selected));
-    });
-card.dataset.swipeFeedbackActive = "true";
-card.querySelector(".swipe-coaching")?.remove();
-card.querySelector(".swipe-feedback-overlay")?.remove();
-const overlay = document.createElement("div");
-overlay.className = "swipe-feedback-overlay";
-overlay.setAttribute("role", "status");
-overlay.setAttribute("aria-live", "polite");
-overlay.setAttribute("aria-atomic", "true");
-const icon = document.createElement("span");
-icon.className = "swipe-feedback-icon";
-icon.setAttribute("aria-hidden", "true");
-icon.innerHTML = VECTOR_ASSETS.glyphMarkup(direction === "positive" ? "ui:plus" : "ui:minus");
-const copy = document.createElement("span");
-copy.className = "swipe-feedback-copy";
-copy.textContent = togglingOff
-? "Like removed — future feed suggestions will no longer use it."
-: "Liked — future feed suggestions will adapt.";
-overlay.append(icon, copy);
-card.appendChild(overlay);
-window.setTimeout(() => {
-overlay.remove();
-delete card.dataset.swipeFeedbackActive;
-if (showTunePrompt){
-const prompted = clonePreferences(userPreferences);
-prompted.followFirst.refinement.promptedAt = new Date().toISOString();
-savePreferences(prompted);
-recordProductEvent({
-eventName: "tune_prompt",
-surface: "curated_feed",
-properties: { action: "shown", dislikeCount:feedbackCount },
-        });
-setTunePromptOpen(true, feedbackCount);
-      }
-    }, 1400);
-  } else if (showTunePrompt){
-const prompted = clonePreferences(userPreferences);
-prompted.followFirst.refinement.promptedAt = new Date().toISOString();
-savePreferences(prompted);
-setTunePromptOpen(true, feedbackCount);
-  }
-return { active:!togglingOff };
 }
 function eventReminderTiming(ev){
 return NOTHINGSPORTS_REMINDER_POLICY.manualTiming(ev);
@@ -8106,9 +7821,9 @@ timezone:Intl.DateTimeFormat().resolvedOptions().timeZone || "Australia/Sydney",
 sportingRemindersEnabled:(draftPreferences || userPreferences)?.followFirst?.notifications?.sportingRemindersEnabled !== false,
 liveRatingsEnabled:(draftPreferences || userPreferences)?.followFirst?.notifications?.liveRatingsEnabled !== false,
 socialAlertsEnabled:(draftPreferences || userPreferences)?.followFirst?.notifications?.socialAlertsEnabled !== false,
-chatAlertsEnabled:(draftPreferences || userPreferences)?.followFirst?.notifications?.chatAlertsEnabled !== false,
+chatAlertsEnabled:false,
 badgesEnabled:(draftPreferences || userPreferences)?.followFirst?.notifications?.badgesEnabled !== false,
-    }, { authenticated:Boolean(serverSyncClient.getSession?.() || serverSyncClient.getGuestChatSession?.()) });
+    }, { authenticated:Boolean(serverSyncClient.getSession?.()) });
 return { ...credentials, subscription };
   });
 }
@@ -8117,7 +7832,7 @@ return enqueuePushInstallationMutation(async () => {
 const credentials = readStorage(PUSH_INSTALLATION_STORAGE_KEY, null);
 const registration = "serviceWorker" in navigator ? await navigator.serviceWorker.ready.catch(() => null) : null;
 if (credentials?.installationId && credentials?.secret){
-await serverSyncClient.notificationCommand({ action:"unregister", ...credentials }, { authenticated:Boolean(serverSyncClient.getSession?.() || serverSyncClient.getGuestChatSession?.()) });
+await serverSyncClient.notificationCommand({ action:"unregister", ...credentials }, { authenticated:Boolean(serverSyncClient.getSession?.()) });
     }
 if (preserveSubscription) return;
 const subscription = await registration?.pushManager?.getSubscription?.();
@@ -8129,37 +7844,6 @@ async function syncNotificationInstallationPreferences(){
 if (userPreferences?.followFirst?.notifications?.enabled === false) return { skipped:"preference" };
 if (typeof Notification === "undefined" || Notification.permission !== "granted") return { skipped:"permission" };
 return ensurePushInstallation({ requestPermission:false });
-}
-let permittedChatPushIdentity = "";
-let permittedChatPushInFlight = null;
-function activeChatNotificationIdentity(){
-return serverSyncClient?.sessionSubject?.()
-|| serverSyncClient?.guestChatSessionSubject?.()
-|| "";
-}
-async function syncPermittedChatPushInstallation(){
-const identity = activeChatNotificationIdentity();
-if (!identity){
-permittedChatPushIdentity = "";
-return { skipped:"identity" };
-  }
-const notifications = userPreferences?.followFirst?.notifications || {};
-if (notifications.enabled === false || notifications.chatAlertsEnabled === false) return { skipped:"preference" };
-if (typeof Notification === "undefined" || Notification.permission !== "granted") return { skipped:"permission" };
-if (permittedChatPushIdentity === identity) return { skipped:"current" };
-if (permittedChatPushInFlight){
-await permittedChatPushInFlight.catch(() => null);
-return syncPermittedChatPushInstallation();
-  }
-const requestedIdentity = identity;
-permittedChatPushInFlight = ensurePushInstallation({ requestPermission:false });
-try{
-const installation = await permittedChatPushInFlight;
-if (activeChatNotificationIdentity() === requestedIdentity) permittedChatPushIdentity = requestedIdentity;
-return installation;
-  }finally{
-permittedChatPushInFlight = null;
-  }
 }
 function notificationDiagnosticsCopy(payload){
 if (!payload) return "Notification diagnostics are unavailable.";
@@ -8437,10 +8121,6 @@ const rating=Number(value);
 return Number.isFinite(rating)&&rating>=1&&rating<=5?FIXTURE_STAKES_LABELS[Math.round(rating)-1]:'';
 }
 const inlineRatingRequests=new Map();
-function openNothingscoreLeaderboard(){
-openNothingscoreDrawer();
-window.requestAnimationFrame(() => document.getElementById("nothingscoreLeaderboard")?.scrollIntoView?.({ block:"start" }));
-}
 function nothingscoreStatus(panel, message){
 const status = panel?.querySelector?.(".nsc-status");
 if (status) status.textContent = message || "";
@@ -8491,7 +8171,7 @@ nothingscoreAudioBlocked = true;
 return false;
   }
 }
-async function submitNothingscoreAction(command, panel, { success = "Your Nothinger Leaderboard is in.", preparedAudio = null, event = null } = {}){
+async function submitNothingscoreAction(command, panel, { success = "Rating saved.", preparedAudio = null, event = null } = {}){
 if (!serverSyncClient?.nothingscoreRequest) return null;
 if (['submit','pulse'].includes(command.action) && nothingscoreViewer.signedIn && nothingscoreViewer.emailVerified === false){
   if (!panel.querySelector('[data-email-confirmation]')) appendEmailConfirmationControls(panel,{email:serverPersistence.user?.email,returnTo:()=>void refreshNothingscoreViewer().then(()=>nothingscoreQueueRender()).catch(()=>{})});
@@ -8562,7 +8242,7 @@ const ownerGeneration=serverSyncClient.accountSnapshot().generation;
 panel.querySelectorAll("button, input, select").forEach(control => { control.disabled = true; });
 try{
 const result = await serverSyncClient.nothingscoreRequest({}, command);
-nothingscoreStatus(panel, `${success}${result.pointsAwarded ? ` +${result.pointsAwarded} points.` : ""}`);
+nothingscoreStatus(panel, success);
 if (command.eventId){
 try{
 const payload = await serverSyncClient.nothingscoreRequest({ eventId:String(command.eventId) });
@@ -8755,7 +8435,7 @@ function ensureFantasyUi(){
 let epicUiLoading;
 function ensureEpicUi(){
   if(globalThis.NOTHINGSPORTS_EPIC_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_EPIC_UI);
-  epicUiLoading ||= loadDeferredScript('assets/js/epic-classics-ui.js?v=536').then(()=>globalThis.NOTHINGSPORTS_EPIC_UI).catch(error=>{epicUiLoading=null;throw error;});
+  epicUiLoading ||= loadDeferredScript('assets/js/epic-classics-ui.js?v=614').then(()=>globalThis.NOTHINGSPORTS_EPIC_UI).catch(error=>{epicUiLoading=null;throw error;});
   return epicUiLoading;
 }
 function maybeInviteClassicReview(){
@@ -11255,7 +10935,8 @@ document.getElementById("tuneSheet").addEventListener("click", event => {
   if (event.target.id === "tuneSheet") requestCloseInspectorPicker();
 });
 document.getElementById("tuneSheet").addEventListener("keydown", trapTuneSheetFocus);
-window.addEventListener("popstate", () => { void syncAppRouteFromLocation(); });
+window.addEventListener("popstate", () => { void syncAppRouteFromLocation();
+if(new URL(location.href).searchParams.get('nothingFriends')==='1'){openNothingscoreDrawer();void renderCrowdRankings({following:true});} });
 
 document.getElementById('feedViewFilterBtn').onclick=()=>{void loadDeferredScript('assets/js/feed-filter-ui.js?v=448').then(()=>globalThis.openFeedViewFilter()).catch(()=>showToast('Couldn’t open filters. Try again.'));};
 document.getElementById('timelineExpandBtn').addEventListener('click',()=>setFeedCompact(!userPreferences.feedCompact));
@@ -11575,135 +11256,6 @@ function persistOnboardingDraft(){
   return true;
 }
 
-function tuningInteractionDelta(){
-  const current = userPreferences.preferenceGraph?.learning?.tuningInteractionCount || 0;
-  return Math.max(0, current - (tuneSessionRuntime?.interactionCountAtStart || current));
-}
-
-function startTuneSession(){
-  if (tuneSessionRuntime) return tuneSessionRuntime;
-  tuneSessionRuntime = {
-    interactionCountAtStart: userPreferences.preferenceGraph?.learning?.tuningInteractionCount || 0,
-    closed: false,
-  };
-  recordProductEvent({
-    eventName: "tune_session",
-    surface: "tune",
-    properties: { action: "started", interactionCount: 0 },
-  });
-  return tuneSessionRuntime;
-}
-
-function closeTuneSession(action = "exited"){
-  if (!tuneSessionRuntime || tuneSessionRuntime.closed) return;
-  tuneSessionRuntime.closed = true;
-  recordProductEvent({
-    eventName: "tune_session",
-    surface: "tune",
-    properties: { action, interactionCount: tuningInteractionDelta() },
-  });
-  tuneSessionRuntime = null;
-}
-
-function persistTuningGraph(graph){
-  const next = clonePreferences(userPreferences);
-  next.preferenceGraph = graph;
-  if(!savePreferences(next,{deliberate:true}))return false;
-  draftPreferences = clonePreferences(userPreferences);
-}
-
-function applyFineTuneChoice(target, value){
-  if (!target || !PREFERENCE_SYSTEM || ![-1, 1].includes(value)) return;
-  startTuneSession();
-  const currentValue = FINE_TUNING?.selectedValue?.(userPreferences.preferenceGraph, target) || 0;
-  if (currentValue === value){
-    showToast(`${target.label} is already saved.`);
-    return;
-  }
-  const graph = PREFERENCE_SYSTEM.applyTuningSignal(userPreferences.preferenceGraph, {
-    targetType: target.targetType,
-    targetId: target.targetId,
-    value,
-  }, { domainId: target.domainId });
-  persistTuningGraph(graph);
-  recordProductEvent({
-    eventName: "swipe",
-    surface: "tune",
-    properties: {
-      direction: value > 0 ? "positive" : "negative",
-      targetType: target.targetType,
-    },
-  });
-  renderSettingsScreen();
-  showToast(`${target.label}: ${value > 0 ? "more" : "less"} like this saved.`);
-}
-
-function completeFineTuneSession(){
-  startTuneSession();
-  const graph = PREFERENCE_SYSTEM.completeTuningSession(userPreferences.preferenceGraph);
-  persistTuningGraph(graph);
-  closeTuneSession("completed");
-  settingsSection = "main";
-  tuneSectionIndex = 0;
-  renderSettingsScreen();
-  showToast("Tune session saved. Your curated ranking is already updated.");
-}
-
-function tuningSummaryCopy(learning){
-  const interactions = learning?.tuningInteractionCount || 0;
-  const domains = learning?.tuningDomainIds?.length || 0;
-  const sessions = learning?.completedTuningSessionCount || 0;
-  return `${interactions} interaction${interactions === 1 ? "" : "s"} · ${domains} domain${domains === 1 ? "" : "s"} · ${sessions} completed session${sessions === 1 ? "" : "s"}`;
-}
-
-function renderFineTuningSettings(body){
-  startTuneSession();
-  const sections = FINE_TUNING?.sections || [];
-  if (!sections.length){
-    body.innerHTML = '<div class="empty-state">Tune options are temporarily unavailable.</div>';
-    return;
-  }
-  tuneSectionIndex = Math.max(0, Math.min(sections.length - 1, tuneSectionIndex));
-  const section = sections[tuneSectionIndex];
-  const graph = userPreferences.preferenceGraph;
-  const learning = graph?.learning || {};
-  const meaningful = Boolean(PREFERENCE_SYSTEM?.isMeaningfullyTuned?.(graph));
-  body.innerHTML = `<div class="tune-shell">
-    <div class="tune-summary"><div><strong>${meaningful ? "Meaningful tuning reached" : "Tune autosaves continuously"}</strong><span>${tuningSummaryCopy(learning)}</span></div><span>${meaningful ? "Automatic Tune prompts now wait for 100 more dislikes and at least 30 days." : "Reach 8 interactions across 2 domains, or complete 2 sessions."}</span></div>
-    <div class="tune-section-nav" role="tablist" aria-label="Tune levels">${sections.map((item, index) => `<button class="tune-section-tab${index === tuneSectionIndex ? " active" : ""}" type="button" role="tab" aria-selected="${index === tuneSectionIndex}" data-tune-section="${index}">${index + 1}. ${item.title}</button>`).join("")}</div>
-    <div class="tune-section-copy"><h3>${section.title}</h3><p class="preference-help">${section.detail} Every choice changes curated ranking only; complete fixture lists stay complete.</p></div>
-    <div class="tune-card-grid" id="tuneCardGrid"></div>
-    <div class="tune-footer"><span class="preference-help">Step ${tuneSectionIndex + 1} of ${sections.length} · leaving now loses nothing.</span><span>${tuneSectionIndex > 0 ? '<button class="btn ghost" type="button" id="previousTuneSectionBtn">Previous</button>' : ""} ${tuneSectionIndex < sections.length - 1 ? '<button class="btn primary" type="button" id="nextTuneSectionBtn">Next</button>' : '<button class="btn primary" type="button" id="completeTuneSessionBtn">Finish session</button>'}</span></div>
-  </div>`;
-  const grid = document.getElementById("tuneCardGrid");
-  section.targets.forEach(target => {
-    const value = FINE_TUNING.selectedValue(graph, target);
-    const card = document.createElement("article");
-    card.className = "tune-card";
-    card.dataset.tuneTarget = FINE_TUNING.targetKey(target);
-    card.innerHTML = `<span class="tune-card-glyph" aria-hidden="true">${glyphMarkup(target.glyph, { preferImage: true })}</span><strong>${target.label}</strong><span class="tune-card-copy">${target.detail}</span><span class="tune-card-actions"><button class="tune-choice${value === -1 ? " selected" : ""}" type="button" data-tune-value="-1" aria-pressed="${value === -1}">Less</button><button class="tune-choice${value === 1 ? " selected" : ""}" type="button" data-tune-value="1" aria-pressed="${value === 1}">More</button></span>`;
-    card.querySelectorAll("[data-tune-value]").forEach(button => {
-      button.addEventListener("click", () => applyFineTuneChoice(target, Number(button.dataset.tuneValue)));
-    });
-    grid.appendChild(card);
-  });
-  body.querySelectorAll("[data-tune-section]").forEach(button => {
-    button.addEventListener("click", () => {
-      tuneSectionIndex = Number(button.dataset.tuneSection);
-      renderSettingsScreen();
-    });
-  });
-  document.getElementById("previousTuneSectionBtn")?.addEventListener("click", () => {
-    tuneSectionIndex -= 1;
-    renderSettingsScreen();
-  });
-  document.getElementById("nextTuneSectionBtn")?.addEventListener("click", () => {
-    tuneSectionIndex += 1;
-    renderSettingsScreen();
-  });
-  document.getElementById("completeTuneSessionBtn")?.addEventListener("click", completeFineTuneSession);
-}
-
 function preferenceDomainLabel(domainId){
   return selectorEntityById(domainId)?.label
     || CANONICAL_TAXONOMY.sportDomains?.find(domain => domain.id === domainId)?.name
@@ -11774,7 +11326,7 @@ function openSettings({ firstRun = false, section = "main" } = {}){
   settingsWizardStep = firstRun ? 0 : settingsWizardStep;
   settingsFocusedDomainId = null;
   sportsFollowedTab = "sports";
-  if (!firstRun && section === "tune") tuneSectionIndex = 0;
+  if (!firstRun && section === "tune") section = "main";
   settingsSection = firstRun ? ONBOARDING_SECTIONS[settingsWizardStep] : section;
   settingsNavigationStack = !firstRun && settingsSection !== "main" ? ["main"] : [];
   draftPreferences = clonePreferences(userPreferences);
@@ -11992,7 +11544,7 @@ function appendEmailConfirmationControls(host,{email='',returnTo=null,reason='co
   const originSection=settingsSection,anchor=settingsViewportAnchor;
   const current = () => { const now = serverSyncClient.accountSnapshot(); return host.isConnected && section.isConnected && settingsSection===originSection && settingsViewportAnchor===anchor && now.accountId === life.accountId && now.generation === life.generation; };
   const section = document.createElement('section'); section.dataset.emailConfirmation = ''; section.className = 'filter-panel';
-  const copy = document.createElement('p'); copy.className = 'preference-help'; copy.textContent = 'Confirm your email to rate or participate in chat. This checks that the inbox is yours. Feed and schedules remain available without a deadline.';
+  const copy = document.createElement('p'); copy.className = 'preference-help'; copy.textContent = 'Confirm your email to rate fixtures. This checks that the inbox is yours. Feed and schedules remain available without a deadline.';
   if(reason==='email-change')copy.textContent='Check the email of the account currently signed in here. Opening a change link does not select its account or prove the requested new address is now current. Feed and schedules remain available.';
   const label = document.createElement('label'); label.className = 'field-label'; label.textContent = 'Email used to create your account';
   const input = document.createElement('input'); input.type = 'email'; input.autocomplete = 'email'; input.maxLength = 254; input.value = email || ''; label.append(input);
@@ -12251,8 +11803,8 @@ function appendPublicProfileAccountSettings(body){
     const visibility = document.createElement("p");
     visibility.className = "preference-help";
     visibility.textContent = profile.visibility === "hidden"
-      ? "Hidden from public Nothinger Leaderboard and leaderboards. Your display name remains visible in rooms you join."
-      : "Visible on public Nothinger Leaderboard and leaderboards. Your display name is also used in signed-in chat.";
+      ? "Hidden from YURTERS and public follow previews."
+      : "Visible in YURTERS with your sporting follows and public 5/5 recommendations.";
     const actions = document.createElement("div");
     actions.className = "account-sync-actions";
     const toggle = document.createElement("button");
@@ -12268,7 +11820,7 @@ function appendPublicProfileAccountSettings(body){
     remove.className = "btn ghost";
     remove.textContent = "Delete Public Profile";
     remove.addEventListener("click", () => {
-      if (window.confirm("Delete your Public Profile? You must recreate it before posting in signed-in chat; ratings can stay private.")){
+      if (window.confirm("Delete your Public Profile? Your ratings can stay private.")){
         void setNothingscoreProfileVisibility("deleted").catch(error => showToast(error.message || "Profile could not be deleted."));
       }
     });
@@ -13076,7 +12628,7 @@ function renderSettingsScreen(){
     location: ["Set location", "Choose a home area or temporary travel location and radius."],
     startup: ["Set up your Feed", "Choose your sports. Teams and schedules are available in Follow."],
     hidden: ["Hidden events", "Restore dismissed editions or empty the bin permanently."],
-    classics: ["EPIC Hall of Fame", "Keep your memorable fixtures. Review and share your year of NS."],
+    classics: ["EPIC Hall of Fame", "Keep your memorable fixtures. Curate and share your annual Classics."],
     feedback: ["Feedback", "Send feedback to Nothing Sport."],
     pilot: ["Trust pulse", "Five fixed choices about how well the feed is earning your trust."],
   };
@@ -13280,27 +12832,6 @@ document.getElementById("customiseQuickAddBtn").addEventListener("click", () => 
 document.getElementById("quickAddModal").addEventListener("click", event => {
   if (event.target.id === "quickAddModal") closeQuickAddPrompt();
 });
-document.getElementById("dismissTunePromptBtn").addEventListener("click", () => {
-  recordTunePromptAction("dismissed");
-  const next = clonePreferences(userPreferences);
-  next.followFirst.refinement.deferred = true;
-  savePreferences(next);
-  setTunePromptOpen(false);
-});
-document.getElementById("reviewSportsFromTuneBtn").addEventListener("click", () => {
-  recordTunePromptAction("accepted");
-  setTunePromptOpen(false);
-  const next = clonePreferences(userPreferences);
-  next.followFirst.refinement.completedAt = new Date().toISOString();
-  next.followFirst.refinement.deferred = false;
-  savePreferences(next);
-  activateTopLevelTab("follow");
-});
-document.getElementById("tunePromptModal").addEventListener("click", event => {
-  if (event.target.id !== "tunePromptModal") return;
-  recordTunePromptAction("dismissed");
-  setTunePromptOpen(false);
-});
 document.getElementById("dismissPilotPulsePromptBtn").addEventListener("click", () => dismissWeeklyPulsePrompt());
 document.getElementById("openPilotPulseSurveyBtn").addEventListener("click", () => {
   setPilotPulsePromptOpen(false);
@@ -13446,8 +12977,8 @@ document.getElementById("shareAppBtn").addEventListener("click",()=>{
  d.querySelector('[data-app]').onclick=()=>{d.close();void shareOrCopyLink({title:'Nothing Sport',text:'Live sport, nothing missed.',url:canonicalAppShareUrl()});};
  d.querySelector('[data-handle]').onclick=async()=>{
   if(!serverSyncClient.sessionSubject()){d.close();openSettings({section:'account'});return;}
-  try{const board=await serverSyncClient.nothingscoreRequest({ladder:{}});if(!board.viewer?.handle){d.querySelector('p').textContent='Set up a visible public profile in Settings to share your handle.';return;}
-  d.close();await shareOrCopyLink({title:'Follow me on Nothing Sport',text:`Follow @${board.viewer.handle} on Nothing Sport`,url:canonicalAppShareUrl()+'?follow='+encodeURIComponent(board.viewer.handle)});
+  try{const board=await serverSyncClient.nothingscoreRequest({viewer:true});if(!board.viewer?.profile?.handle){d.querySelector('p').textContent='Set up a visible public profile in Settings to share your handle.';return;}
+  d.close();await shareOrCopyLink({title:'Follow me on Nothing Sport',text:`Follow @${board.viewer.profile.handle.replace(/^@/,'')} on Nothing Sport`,url:canonicalAppShareUrl()+'?follow='+encodeURIComponent(board.viewer.profile.handle.replace(/^@/,''))});
   }catch(error){d.querySelector('p').textContent=error.message;}
  };
  document.body.append(d);d.showModal();d.addEventListener('close',()=>d.remove(),{once:true});
@@ -13477,910 +13008,12 @@ document.getElementById("standingsSpoilerModal").addEventListener("click", event
   setStandingsSpoilerModalOpen(false);
 });
 
-function chatFixtureId(event){
-  return String(event?.canonicalEventId || event?.eventId || event?.id || "").trim();
-}
-
-function chatRoomsForFixture(event){
-  const fixtureId = chatFixtureId(event);
-  return chatState.rooms.filter(room => room.canonicalFixtureId === fixtureId);
-}
-
-function chatFixtureEligible(event){
-  const status = String(event?.status || event?.scheduleStatus || "").toLowerCase();
-  if (["cancelled", "postponed", "completed", "past", "finished", "final"].includes(status)) return false;
-  const precision=String(event?.timePrecision || "").toLowerCase();
-  if (["tbc","unknown"].includes(precision.trim())) return false;
-  const exact = Date.parse(event?.startTimeUtc || "");
-  const follows = !Number.isFinite(exact) && precision === "follows";
-  const start = exact || (follows ? Date.parse(event?.sessionStartTimeUtc || event?.timelineSortTimeUtc || "") : NaN);
-  if (!Number.isFinite(start)) return false;
-  const windowMs = follows ? 12 * 60 * 60 * 1000 : Math.max(.25, Math.min(24, Number(event?.liveWindow || 3))) * 60 * 60 * 1000;
-  return start > Date.now() || Date.now() <= start + windowMs;
-}
-
-function appendFixtureChatActions(container, event){
-  if (!serverSyncClient?.chatRequest || !CHAT) return;
-  const rooms = chatRoomsForFixture(event);
-  const canSetUp = Boolean(serverPersistence.user && !chatState.isGuest && chatFixtureEligible(event));
-  if (rooms.length || canSetUp){
-    const chat = document.createElement("button");
-    chat.type = "button";
-    chat.className = "event-quick-action event-chat-action";
-    chat.textContent = "Chat";
-    chat.setAttribute("aria-label", rooms.length
-      ? `Open ${rooms.length} private ${rooms.length === 1 ? "chat" : "chats"} for ${event.name}`
-      : `Set up a chat for ${event.name}`);
-    chat.addEventListener("click", clickEvent => {
-      clickEvent.stopPropagation();
-      if (rooms.length) openFixtureChats(event);
-      else openChatSetup(event);
-    });
-    container.appendChild(chat);
-  }
-}
-
-function updateActiveChatButton(){
-  const button = document.getElementById("activeChatsBtn");
-  const count = document.getElementById("activeChatCount");
-  const signedIn = Boolean((serverPersistence.user || serverSyncClient?.getGuestChatSession?.()) && serverSyncClient?.chatRequest);
-  const unread = chatState.rooms.reduce((sum, room) => sum + Number(room.unreadCount || 0), 0);
-  if(button.dataset.inboxUnread!==String(unread)){button.dataset.inboxUnread=String(unread);window.dispatchEvent(new Event('ns-activity-change'));}
-  button.hidden = !signedIn;
-  count.textContent = String(unread || chatState.rooms.length || 0);
-  button.setAttribute("aria-label", unread
-    ? `Active chats, ${unread} unread ${unread === 1 ? "message" : "messages"}`
-    : `Active chats, ${chatState.rooms.length} open ${chatState.rooms.length === 1 ? "room" : "rooms"}`);
-  updateUnreadAppBadge(unread);
-}
-
-function updateUnreadAppBadge(unread){
-  const enabled = userPreferences?.followFirst?.notifications?.badgesEnabled !== false;
-  try{
-    if (enabled && Number(unread) > 0) void navigator.setAppBadge?.(Number(unread));
-    else void navigator.clearAppBadge?.();
-  }catch(_error){ }
-}
-
-function chatConnection(message, state = "idle"){
-  const status = document.getElementById("chatConnection");
-  status.textContent = message;
-  status.dataset.state = state;
-}
-
-function applyChatViewport(){
-  if (!chatViewportLock) return;
-  const viewport = window.visualViewport;
-  const metrics = NATIVE_SHELL.deriveChatViewport({
-    visualHeight:viewport?.height,
-    visualWidth:viewport?.width,
-    offsetTop:viewport?.offsetTop,
-    offsetLeft:viewport?.offsetLeft,
-    layoutHeight:document.documentElement.clientHeight || window.innerHeight,
-    layoutWidth:document.documentElement.clientWidth || window.innerWidth,
-    baselineHeight:chatViewportBaselineHeight,
-  });
-  if (!metrics.keyboardOpen) chatViewportBaselineHeight = Math.max(chatViewportBaselineHeight, metrics.height + metrics.offsetTop);
-  const style = document.documentElement.style;
-  style.setProperty("--chat-viewport-height", `${metrics.height}px`);
-  style.setProperty("--chat-viewport-width", `${metrics.width}px`);
-  style.setProperty("--chat-viewport-offset-top", `${metrics.offsetTop}px`);
-  style.setProperty("--chat-viewport-offset-left", `${metrics.offsetLeft}px`);
-  document.body.classList.toggle("chat-keyboard-open", metrics.keyboardOpen);
-  if (chatKeepLatestVisible && chatState.currentRoom){
-    const body = document.getElementById("chatBody");
-    window.requestAnimationFrame(() => {
-      if (chatViewportLock && chatKeepLatestVisible && chatState.currentRoom) body.scrollTop = body.scrollHeight;
-    });
-  }
-}
-
-function scheduleChatViewportSync(){
-  if (!chatViewportLock) return;
-  if (chatViewportFrame !== null) window.cancelAnimationFrame(chatViewportFrame);
-  chatViewportFrame = window.requestAnimationFrame(() => {
-    chatViewportFrame = null;
-    applyChatViewport();
-  });
-  chatViewportTimers.forEach(timer => window.clearTimeout(timer));
-  chatViewportTimers.clear();
-  NATIVE_SHELL.RESAMPLE_DELAYS_MS.filter(delay => delay > 0).forEach(delay => {
-    const timer = window.setTimeout(() => {
-      chatViewportTimers.delete(timer);
-      applyChatViewport();
-    }, delay);
-    chatViewportTimers.add(timer);
-  });
-}
-
-function handleChatFocusIn(event){
-  if (!chatViewportLock || !event.target.closest?.("#chatDrawer")) return;
-  chatKeepLatestVisible = chatBodyAtBottom();
-  scheduleChatViewportSync();
-}
-
-function handleChatFocusOut(){
-  if (!chatViewportLock) return;
-  scheduleChatViewportSync();
-}
-
-function setChatBackgroundInert(inert){
-  document.querySelectorAll("header.top, nav.tabs, #calendarControls, #mainContent, #timelineTools, .app-footer, .skip-link")
-    .forEach(element => { element.inert = inert; });
-}
-
-function bindChatViewportEvents(){
-  window.visualViewport?.addEventListener("resize", scheduleChatViewportSync);
-  window.visualViewport?.addEventListener("scroll", scheduleChatViewportSync);
-  window.addEventListener("resize", scheduleChatViewportSync);
-  window.addEventListener("orientationchange", scheduleChatViewportSync);
-  document.addEventListener("focusin", handleChatFocusIn);
-  document.addEventListener("focusout", handleChatFocusOut);
-}
-
-function unbindChatViewportEvents(){
-  window.visualViewport?.removeEventListener("resize", scheduleChatViewportSync);
-  window.visualViewport?.removeEventListener("scroll", scheduleChatViewportSync);
-  window.removeEventListener("resize", scheduleChatViewportSync);
-  window.removeEventListener("orientationchange", scheduleChatViewportSync);
-  document.removeEventListener("focusin", handleChatFocusIn);
-  document.removeEventListener("focusout", handleChatFocusOut);
-}
-
-function lockChatViewport(){
-  if (chatViewportLock) return;
-  chatViewportLock = { scrollY:window.scrollY, overflow:document.body.style.overflow };
-  const viewport = window.visualViewport;
-  chatViewportBaselineHeight = Math.max(
-    Math.round(viewport?.height || 0) + Math.round(viewport?.offsetTop || 0),
-    document.documentElement.clientHeight,
-    window.innerHeight
-  );
-  chatKeepLatestVisible = true;
-  document.body.style.overflow = "hidden";
-  setChatBackgroundInert(true);
-  bindChatViewportEvents();
-  scheduleChatViewportSync();
-}
-
-function unlockChatViewport(){
-  if (!chatViewportLock) return;
-  const lock = chatViewportLock;
-  chatViewportLock = null;
-  unbindChatViewportEvents();
-  if (chatViewportFrame !== null) window.cancelAnimationFrame(chatViewportFrame);
-  chatViewportFrame = null;
-  chatViewportTimers.forEach(timer => window.clearTimeout(timer));
-  chatViewportTimers.clear();
-  for (const name of ["--chat-viewport-height", "--chat-viewport-width", "--chat-viewport-offset-top", "--chat-viewport-offset-left"]){
-    document.documentElement.style.removeProperty(name);
-  }
-  document.body.classList.remove("chat-keyboard-open");
-  document.body.style.overflow = lock.overflow;
-  setChatBackgroundInert(false);
-  if (Math.abs(window.scrollY - lock.scrollY) > 1) window.scrollTo({ top:lock.scrollY, left:0, behavior:"instant" });
-}
-
-function chatDraftStorageKey(roomId = chatState.currentRoom?.roomId){
-  return roomId ? `ns_chat_draft_v2:${roomId}` : "";
-}
-
-function persistCurrentChatDraft(){
-  const key = chatDraftStorageKey();
-  if (!key) return;
-  try{
-    sessionStorage.setItem(key, JSON.stringify({
-      body:chatState.draftBody || "",
-      replyToMessageId:chatState.replyToMessageId || null,
-    }));
-  }catch(_error){}
-}
-
-function restoreChatDraft(roomId){
-  try{
-    const draft = JSON.parse(sessionStorage.getItem(chatDraftStorageKey(roomId)) || "null");
-    if (!draft || typeof draft !== "object" || chatRoomDrafts.has(roomId)) return;
-    chatState.draftBody = String(draft.body || "").slice(0, 500);
-    chatState.replyToMessageId = draft.replyToMessageId || null;
-  }catch(_error){}
-}
-
-function setChatDrawerOpen(open){
-  if (open){
-    // Capture the opener and Feed position before inertness clears focus or
-    // showing the dialog changes the browser's scroll anchor.
-    if (!chatPreviousFocus) chatPreviousFocus = document.activeElement;
-    lockChatViewport();
-  }
-  const backdrop = document.getElementById("chatBackdrop");
-  backdrop.classList.toggle("show", open);
-  backdrop.setAttribute("aria-hidden", open ? "false" : "true");
-  document.body.classList.toggle("chat-open", open);
-  if (open){
-    window.requestAnimationFrame(() => {
-      if (chatViewportLock) document.getElementById("closeChatBtn").focus({ preventScroll:true });
-    });
-  } else {
-    leaveChatRoom();
-    window.clearTimeout(chatRoomTimer);
-    chatRoomTimer = null;
-    chatState.currentRoom = null;
-    chatState.messages = [];
-    chatState.olderCursor = null;
-    chatState.visibleMessageStart = 0;
-    chatState.historyExpanded = false;
-    chatState.reactionCursor = "";
-    chatState.shareCapability = "";
-    document.getElementById("shareRoomHeaderBtn").hidden = true;
-    document.getElementById("chatNewMessagesBtn").classList.remove("show");
-    unlockChatViewport();
-    chatPreviousFocus?.focus?.({ preventScroll:true });
-    chatPreviousFocus = null;
-  }
-}
-
-function setChatHeading(title, subtitle){
-  document.getElementById("chatTitle").textContent = title;
-  document.getElementById("chatSubtitle").textContent = subtitle;
-}
-
-function chatRoomRow(room,{selecting=false}={}){
-  if(selecting){const label=document.createElement('label');label.className='chat-room-row';const input=document.createElement('input');input.type='checkbox';input.checked=chatState.selectedRoomIds.includes(room.roomId);input.onchange=()=>{const ids=new Set(chatState.selectedRoomIds);input.checked?ids.add(room.roomId):ids.delete(room.roomId);chatState.selectedRoomIds=[...ids];};const copy=document.createElement('span');const name=document.createElement('strong');name.textContent=room.roomName;const fixture=document.createElement('span');fixture.textContent=room.fixture?.name||'Fixture chat';copy.append(name,fixture);label.append(input,copy);return label;}
-  const button = document.createElement("button");
-  button.type = "button";
-  button.className = "chat-room-row";
-  const copy = document.createElement("span");
-  const name = document.createElement("strong");
-  name.textContent = room.roomName;
-  const fixture = document.createElement("span");
-  fixture.textContent = room.fixture?.name || "Fixture chat";
-  copy.append(name, fixture);
-  button.appendChild(copy);
-  if (room.unreadCount){
-    const unread = document.createElement("span");
-    unread.className = "chat-unread";
-    unread.textContent = String(room.unreadCount);
-    unread.setAttribute("aria-label", `${room.unreadCount} unread messages`);
-    button.appendChild(unread);
-  }
-  button.addEventListener("click", () => { void openChatRoom(room.roomId); });
-  return button;
-}
-
-function chatMembershipRow(room,{selecting=false}={}){
-  const row=document.createElement('div');
-  row.appendChild(chatRoomRow(room,{selecting}));
-  if(!selecting){
-    const leave=document.createElement('button');leave.type='button';leave.className='btn ghost';
-    leave.textContent='Leave chat';leave.setAttribute('aria-label',`Leave ${room.roomName}`);
-    leave.onclick=async()=>{
-      if(!window.confirm('Leave this chat and free a slot? Other members keep their messages. You will need an invitation to rejoin.'))return;
-      leave.disabled=true;
-      try{
-        await serverSyncClient.chatRequest({}, {action:'leave-room',roomId:room.roomId});
-        await refreshChatActive({rerenderOpenList:true});
-      }catch(error){chatConnection(error.message||'Could not leave this chat. Try again.','retrying');leave.disabled=false;}
-    };
-    row.appendChild(leave);
-  }
-  return row;
-}
-
-async function deleteSelectedChats(button){
-  if (!chatState.selectedRoomIds.length) return;
-  button.disabled=true;
-  const selected=[...chatState.selectedRoomIds];
-  try{
-    for(let offset=0;offset<selected.length;offset+=50){
-      const batch=selected.slice(offset,offset+50);
-      await serverSyncClient.chatRequest({}, {action:'archive-rooms',roomIds:batch});
-      chatState.selectedRoomIds=chatState.selectedRoomIds.filter(id=>!batch.includes(id));
-      chatState.rooms=chatState.rooms.filter(room=>!batch.includes(room.roomId));
-    }
-    chatState.chatSelectionMode=false;
-    await refreshChatActive({rerenderOpenList:true});
-  }catch(error){
-    renderActiveChats();
-    chatConnection(error.message||'Chats could not be deleted. Your remaining selection is saved.','retrying');
-  }finally{button.disabled=false;}
-}
-
-function renderActiveChats(){
-  clearChatComposerHost();
-  chatSetupFixture = null;
-  leaveChatRoom();
-  chatState.currentRoom = null;
-  chatState.messages = [];
-  chatState.olderCursor = null;
-  chatState.visibleMessageStart = 0;
-  chatState.historyExpanded = false;
-  setChatHeading("Active chats", "Fixture rooms you have joined.");
-  chatConnection(navigator.onLine ? "Connected" : "Offline — polling paused", navigator.onLine ? "connected" : "retrying");
-  const body = document.getElementById("chatBody");
-  body.replaceChildren();
-  document.getElementById("shareRoomHeaderBtn").hidden = true;
-  const disclosure = document.createElement("p");
-  disclosure.className = "chat-disclosure";
-  disclosure.textContent = `Signed-in users can create private fixture chats and participate in up to ${CHAT.LIMITS.openRoomsPerUser} open chats at once. You have ${chatState.openRoomCount} open chats, including ${chatState.archivedRooms.length} hidden. Removing a chat from the list keeps your membership; Leave chat frees a slot.`;
-  body.appendChild(disclosure);
-  for(const invitation of chatState.invitations){const row=document.createElement('section');row.className='chat-room-row';const copy=document.createElement('span');copy.innerHTML=`<strong></strong><span></span>`;copy.querySelector('strong').textContent=invitation.room?.roomName||'Chat invitation';copy.querySelector('span').textContent=invitation.room?.fixture?.name||'Fixture chat';const actions=document.createElement('span');actions.className='chat-form-actions';for(const [resolution,label] of [['accept','Accept'],['reject','Reject']]){const button=document.createElement('button');button.type='button';button.className=`btn ${resolution==='accept'?'primary':'ghost'}`;button.textContent=label;button.onclick=async()=>{button.disabled=true;await serverSyncClient.chatRequest({}, {action:'resolve-invitation',invitationId:invitation.invitationId,resolution});await refreshChatActive({rerenderOpenList:true});};actions.appendChild(button);}row.append(copy,actions);body.appendChild(row);}
-  if (!chatState.isGuest){
-    const savedMedia = document.createElement("button");
-    savedMedia.type = "button";
-    savedMedia.className = "btn ghost";
-    savedMedia.textContent = "Saved game media";
-    savedMedia.addEventListener("click", () => { void renderSavedGameMedia(); });
-    body.appendChild(savedMedia);
-  }
-  if(chatState.rooms.length&&!chatState.isGuest){const controls=document.createElement('div');controls.className='chat-form-actions';const edit=document.createElement('button');edit.type='button';edit.className='btn ghost';edit.textContent=chatState.chatSelectionMode?'Cancel':'Select chats';edit.onclick=()=>{chatState.chatSelectionMode=!chatState.chatSelectionMode;chatState.selectedRoomIds=[];renderActiveChats();};controls.appendChild(edit);if(chatState.chatSelectionMode){const all=document.createElement('button');all.type='button';all.className='btn ghost';all.textContent='Select all';all.onclick=()=>{chatState.selectedRoomIds=chatState.rooms.map(room=>room.roomId);renderActiveChats();};const remove=document.createElement('button');remove.type='button';remove.className='btn primary';remove.textContent='Remove from list';remove.title='Hide selected chats. Memberships still count towards your limit; use Leave chat to free a slot.';remove.onclick=()=>deleteSelectedChats(remove);controls.append(all,remove);}body.appendChild(controls);}
-  if (!chatState.rooms.length){
-    const empty = document.createElement("p");
-    empty.className = "chat-empty";
-    empty.textContent = chatState.archivedRooms.length ? "Your joined chats are hidden below. Leave a chat to free a slot." : "You have no active fixture chats. Open an upcoming or live fixture card to create one.";
-    body.appendChild(empty);
-  }
-  const list = document.createElement("div");
-  list.className = "chat-room-list";
-  chatState.rooms.forEach(room => list.appendChild(chatMembershipRow(room,{selecting:chatState.chatSelectionMode})));
-  body.appendChild(list);
-  if(chatState.archivedRooms.length){
-    const hidden=document.createElement('section');
-    const heading=document.createElement('h3');heading.textContent='Hidden chats — still joined';
-    hidden.appendChild(heading);
-    chatState.archivedRooms.forEach(room=>hidden.appendChild(chatMembershipRow(room)));
-    body.appendChild(hidden);
-  }
-  if(chatState.isAdmin && chatState.adminRooms.length){
-    const inspection=document.createElement('details');
-    const heading=document.createElement('summary');heading.textContent='Admin inspection — not joined';
-    inspection.appendChild(heading);
-    chatState.adminRooms.forEach(room=>inspection.appendChild(chatRoomRow(room)));
-    body.appendChild(inspection);
-  }
-}
-
-async function renderSavedGameMedia(){
-  setChatHeading("Saved game media", "Only media you explicitly saved is kept after a chat closes.");
-  const body = document.getElementById("chatBody");
-  body.replaceChildren();
-  const back = document.createElement("button");
-  back.type = "button"; back.className = "btn ghost"; back.textContent = "Back to active chats";
-  back.addEventListener("click", renderActiveChats);
-  body.appendChild(back);
-  const status = document.createElement("p");
-  status.className = "chat-disclosure"; status.textContent = "Loading saved media…";
-  body.appendChild(status);
-  try{
-    const payload = await serverSyncClient.chatRequest({ mode:"saved-media" });
-    status.remove();
-    if (!payload.media?.length){
-      const empty = document.createElement("p"); empty.className = "chat-empty"; empty.textContent = "No saved game media yet."; body.appendChild(empty); return;
-    }
-    const list = document.createElement("div"); list.className = "chat-message-media";
-    payload.media.forEach(item => {
-      const card = document.createElement("div"); card.className = "chat-media-item";
-      if (String(item.contentType).startsWith("image/")){
-        const image = document.createElement("img"); image.src = item.url; image.alt = item.fileName; card.appendChild(image);
-      }
-      const open = document.createElement("a"); open.href = item.url; open.target = "_blank"; open.rel = "noopener noreferrer"; open.textContent = item.fileName; card.appendChild(open);
-      const remove = document.createElement("button"); remove.type = "button"; remove.className = "chat-message-action"; remove.textContent = "Delete";
-      remove.addEventListener("click", async () => {
-        remove.disabled = true;
-        try{ await serverSyncClient.chatRequest({}, { action:"saved-media-delete", savedMediaId:item.savedMediaId }); card.remove(); }
-        catch(error){ remove.disabled = false; chatConnection(error.message || "That saved media could not be deleted.", "retrying"); }
-      });
-      card.appendChild(remove); list.appendChild(card);
-    });
-    body.appendChild(list);
-  }catch(error){ status.textContent = error.message || "Saved media is unavailable."; }
-}
-
-function openActiveChats(){
-  prepareChatAudio();
-  setChatDrawerOpen(true);
-  renderActiveChats();
-  void refreshChatActive({ rerenderOpenList:true });
-}
-
-function renderFixtureRoomChooser(event){
-  leaveChatRoom();
-  chatState.currentRoom = null;
-  chatState.messages = [];
-  chatState.olderCursor = null;
-  chatState.visibleMessageStart = 0;
-  chatState.historyExpanded = false;
-  const rooms = chatRoomsForFixture(event);
-  setChatHeading(event.name || "Fixture chats", rooms.length === 1 ? "One room" : `${rooms.length} rooms`);
-  const body = document.getElementById("chatBody");
-  body.replaceChildren();
-  document.getElementById("shareRoomHeaderBtn").hidden = true;
-  const list = document.createElement("div");
-  list.className = "chat-room-list";
-  rooms.forEach(room => list.appendChild(chatRoomRow(room)));
-  body.appendChild(list);
-  if (serverPersistence.user && !chatState.isGuest && chatFixtureEligible(event)){
-    const setup = document.createElement("button");
-    setup.type = "button";
-    setup.className = "btn ghost";
-    setup.textContent = "Set up another room";
-    setup.addEventListener("click", () => openChatSetup(event));
-    body.appendChild(setup);
-  }
-}
-
-function openFixtureChats(event){
-  clearChatComposerHost();
-  prepareChatAudio();
-  const rooms = chatRoomsForFixture(event);
-  setChatDrawerOpen(true);
-  if (rooms.length === 1) void openChatRoom(rooms[0].roomId);
-  else renderFixtureRoomChooser(event);
-}
-
-function renderChatUserSearch(host, { exclude = new Set(), onSelection } = {}){
-  const label = document.createElement("label");
-  label.className = "field-label";
-  label.textContent = "Find people";
-  const input = document.createElement("input");
-  input.type = "search";
-  input.autocomplete = "off";
-  input.placeholder = "At least 3 characters";
-  input.minLength = CHAT.LIMITS.userSearchMin;
-  const button = document.createElement("button");
-  button.type = "button";
-  button.className = "btn ghost";
-  button.textContent = "Search";
-  const results = document.createElement("div");
-  results.className = "chat-user-results";
-  const status = document.createElement("p");
-  status.className = "chat-empty";
-  status.setAttribute("role", "status");
-  label.appendChild(input);
-  host.append(label, button, status, results);
-  button.addEventListener("click", async () => {
-    results.replaceChildren();
-    status.textContent = "Searching…";
-    try{
-      const payload = await serverSyncClient.chatRequest({ mode:"users", q:input.value.trim() });
-      const visible = payload.users.filter(account => !exclude.has(account.accountId));
-      status.textContent = visible.length ? "Choose people to invite." : "No matching people are available.";
-      visible.forEach(account => {
-        const row = document.createElement("label");
-        row.className = "chat-user-row";
-        const copy = document.createElement("span");
-        copy.className = "chat-user-copy";
-        const name = document.createElement("strong");
-        name.className = "chat-user-name";
-        name.textContent = account.displayName || "Display name not set";
-        const identity = document.createElement("span");
-        identity.className = "chat-user-email";
-        identity.textContent = account.handle || account.email || "Public profile";
-        copy.append(name, identity);
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.value = account.accountId;
-        checkbox.addEventListener("change", () => onSelection?.(account, checkbox.checked));
-        row.append(copy, checkbox);
-        results.appendChild(row);
-      });
-    }catch(error){
-      status.textContent = error.message || "Account search is unavailable.";
-    }
-  });
-}
-
-function openChatSetup(event){
-  if (!serverPersistence.user || chatState.isGuest) return;
-  clearChatComposerHost();
-  prepareChatAudio();
-  chatSetupFixture = event;
-  leaveChatRoom();
-  chatState.currentRoom = null;
-  chatState.messages = [];
-  chatState.olderCursor = null;
-  chatState.visibleMessageStart = 0;
-  chatState.historyExpanded = false;
-  setChatDrawerOpen(true);
-  setChatHeading("Set up chat", event.name || "Upcoming fixture");
-  chatConnection("Chat setup", "connected");
-  document.getElementById("shareRoomHeaderBtn").hidden = true;
-  const body = document.getElementById("chatBody");
-  body.replaceChildren();
-  const disclosure = document.createElement("p");
-  disclosure.className = "chat-disclosure";
-  disclosure.textContent = `Invite a different combination of people for this fixture. You can participate in up to ${CHAT.LIMITS.openRoomsPerUser} open chats at once.`;
-  const form = document.createElement("form");
-  form.className = "chat-form";
-  const nameLabel = document.createElement("label");
-  nameLabel.className = "field-label";
-  nameLabel.textContent = "Room name";
-  const nameInput = document.createElement("input");
-  nameInput.required = true;
-  nameInput.maxLength = CHAT.LIMITS.roomNameMax;
-  nameInput.placeholder = "Watch party";
-  nameLabel.appendChild(nameInput);
-  const selected = new Set();
-  form.appendChild(nameLabel);
-  renderChatUserSearch(form, {
-    exclude:new Set([serverPersistence.user?.id].filter(Boolean)),
-    onSelection(account, checked){
-      if (checked) selected.add(account.accountId);
-      else selected.delete(account.accountId);
-    },
-  });
-  const submit = document.createElement("button");
-  submit.type = "submit";
-  submit.className = "btn primary";
-  submit.textContent = "Create room";
-  form.appendChild(submit);
-  form.addEventListener("submit", async submitEvent => {
-    submitEvent.preventDefault();
-    submit.disabled = true;
-    chatConnection("Creating room…");
-    try{
-      const payload = await serverSyncClient.chatRequest({}, {
-        action:"create-room",
-        canonicalFixtureId:chatFixtureId(event),
-        roomName:nameInput.value,
-        memberIds:[...selected],
-      });
-      await refreshChatActive();
-      await openChatRoom(payload.room.roomId);
-    }catch(error){
-      chatConnection(error.message || "The room could not be created.", "retrying");
-      submit.disabled = false;
-    }
-  });
-  body.append(disclosure, form);
-}
-
-function clearPendingChatCapability(){
-  pendingChatCapability = "";
-  try{ sessionStorage.removeItem(CHAT_CAPABILITY_STORAGE_KEY); }catch(_error){ }
-}
-
-function sharedChatErrorCopy(error){
-  if (["chat_share_invalid", "chat_share_disabled"].includes(error?.code)) return "This guest chat link is invalid, expired, or no longer enabled.";
-  if (error?.code === "chat_room_closed") return "This chat room is closed.";
-  if (error?.code === "chat_room_full") return "This chat room already has 25 participants.";
-  return error?.message || "This guest chat link is unavailable.";
-}
-
-function renderGuestChatPreview(preview, capability){
-  clearChatComposerHost();
-  const room = preview.room;
-  setChatHeading(room.roomName || "Join chat", room.fixture?.name || "Fixture chat");
-  chatConnection("Guest preview", "connected");
-  const body = document.getElementById("chatBody");
-  body.replaceChildren();
-  const previewCard = document.createElement("section");
-  previewCard.className = "chat-guest-preview";
-  const heading = document.createElement("h3");
-  heading.textContent = room.roomName;
-  const fixture = document.createElement("p");
-  fixture.className = "chat-empty";
-  fixture.textContent = `${room.fixture?.name || "Fixture chat"} · ${Number(room.memberCount || 0)} of 25 participants`;
-  const note = document.createElement("p");
-  note.className = "chat-disclosure";
-  note.textContent = "Anyone with this unlisted link can join while guest sharing remains enabled. Choose a name for this room; no account or visible sign-in is required.";
-  const form = document.createElement("form");
-  form.className = "chat-form";
-  const label = document.createElement("label");
-  label.className = "field-label";
-  label.textContent = "Name in this room";
-  const input = document.createElement("input");
-  input.required = true;
-  input.minLength = CHAT.LIMITS.displayNameMin;
-  input.maxLength = CHAT.LIMITS.displayNameMax;
-  input.autocomplete = "nickname";
-  label.appendChild(input);
-  const status = document.createElement("p");
-  status.className = "chat-empty";
-  status.setAttribute("role", "status");
-  const join = document.createElement("button");
-  join.type = "submit";
-  join.className = "btn primary";
-  join.textContent = "Join room";
-  form.append(label, status, join);
-  form.addEventListener("submit", async event => {
-    event.preventDefault();
-    prepareChatAudio();
-    join.disabled = true;
-    status.textContent = "Joining…";
-    try{
-      const anonymousSession = await serverSyncClient.anonymousChatSession({ capability, guestDisplayName:input.value });
-      void syncPermittedChatPushInstallation().catch(() => null);
-      const payload = anonymousSession.joined && anonymousSession.room?.roomId
-        ? anonymousSession
-        : await serverSyncClient.chatRequest({}, { action:"join-shared-room", capability, guestDisplayName:input.value });
-      clearPendingChatCapability();
-      chatState.isGuest = true;
-      await refreshChatActive();
-      await openChatRoom(payload.room.roomId);
-    }catch(error){
-      status.textContent = sharedChatErrorCopy(error);
-      join.disabled = false;
-    }
-  });
-  previewCard.append(heading, fixture, note, form);
-  body.appendChild(previewCard);
-}
-
-async function openPendingSharedChat(){
-  if (!pendingChatCapability || !serverSyncClient?.chatGuestPreview) return false;
-  const capability = pendingChatCapability;
-  setChatDrawerOpen(true);
-  setChatHeading("Join chat", "Checking this unlisted room link…");
-  chatConnection("Checking link…");
-  const body = document.getElementById("chatBody");
-  body.innerHTML = '<p class="chat-empty">Loading room preview…</p>';
-  try{
-    const preview = await serverSyncClient.chatGuestPreview(capability);
-    if (serverSyncClient.getSession?.()){
-      const audio = await prepareChatAudio({force:true});
-      if (!audio || audio.state !== "running") throw new Error("Chat sound could not be enabled. Check browser or device Settings.");
-      copy.textContent = "Chat sound on";
-      enable.remove();
-      await new Promise(resolve => window.setTimeout(resolve, 650));
-      const payload = await serverSyncClient.chatRequest({}, { action:"join-shared-room", capability });
-      clearPendingChatCapability();
-      await refreshChatActive();
-      await openChatRoom(payload.room.roomId);
-    } else {
-      renderGuestChatPreview(preview, capability);
-    }
-    return true;
-  }catch(error){
-    chatConnection("Link unavailable", "retrying");
-    body.replaceChildren();
-    const message = document.createElement("p");
-    message.className = "chat-disclosure";
-    message.textContent = sharedChatErrorCopy(error);
-    body.appendChild(message);
-    clearPendingChatCapability();
-    return false;
-  }
-}
-
-async function openRequestedChatRoomFromLocation(){
-  const params = new URLSearchParams(window.location.search);
-  const roomId = String(params.get("chatRoom") || "");
-  if (!roomId || !(serverSyncClient?.getSession?.() || serverSyncClient?.getGuestChatSession?.())) return false;
-  setChatDrawerOpen(true);
-  await openChatRoom(roomId);
-  params.delete("chatRoom");
-  const search = params.toString();
-  history.replaceState(null, "", `${window.location.pathname}${search ? `?${search}` : ""}${window.location.hash || ""}`);
-  return true;
-}
-
-const CHAT_REACTION_EMOJIS = Object.freeze(["👍", "❤️", "😂", "😮", "😢", "👏"]);
-
-async function prepareChatAudio({ force = false } = {}){
-  if (!force && userPreferences?.followFirst?.notifications?.soundsEnabled === false) return null;
-  try{
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContext) return null;
-    chatAudioContext ||= new AudioContext();
-    if (chatAudioContext.state === "suspended") await chatAudioContext.resume();
-    return chatAudioContext;
-  }catch(_error){ return null; }
-}
-
-async function playIncomingChatSound({ force = false } = {}){
-  const audio = await prepareChatAudio({ force });
-  if (!audio || audio.state !== "running") return false;
-  try{
-    const oscillator = audio.createOscillator();
-    const gain = audio.createGain();
-    oscillator.frequency.setValueAtTime(660, audio.currentTime);
-    oscillator.frequency.exponentialRampToValueAtTime(880, audio.currentTime + .09);
-    gain.gain.setValueAtTime(.0001, audio.currentTime);
-    gain.gain.exponentialRampToValueAtTime(.055, audio.currentTime + .018);
-    gain.gain.exponentialRampToValueAtTime(.0001, audio.currentTime + .16);
-    oscillator.connect(gain).connect(audio.destination);
-    oscillator.start();
-    oscillator.stop(audio.currentTime + .18);
-    return true;
-  }catch(_error){ return false; }
-}
-
-function buildChatAlertPrompt(){
-  const notifications = userPreferences?.followFirst?.notifications || {};
-  const permission = typeof Notification === "undefined" ? "unsupported" : Notification.permission;
-  const wantsAlerts = notifications.enabled !== false && notifications.chatAlertsEnabled !== false;
-  const wantsSound = notifications.soundsEnabled !== false;
-  const audioReady = !wantsSound || chatAudioContext?.state === "running";
-  const needsPermission = wantsAlerts && permission !== "granted";
-  if (!needsPermission && audioReady) return null;
-  const prompt = document.createElement("section");
-  prompt.className = "chat-alert-prompt chat-disclosure";
-  const copy = document.createElement("p");
-  copy.className = "chat-empty";
-  if (permission === "denied"){
-    copy.textContent = "System alerts are blocked. Allow Nothing Sport notifications in browser or device Settings. You can still enable the in-app chat sound here.";
-  } else if (iosPushRequiresHomeScreen()){
-    copy.textContent = "On iPhone or iPad, add Nothing Sport to the Home Screen, open it there, then reopen this guest room link once to enable system alerts and badges.";
-  } else if (permission === "unsupported"){
-    copy.textContent = "System alerts are not supported here. Tap once to enable the in-app sound for incoming messages.";
-  } else {
-    copy.textContent = "Get privacy-safe system alerts for new room messages. Lock-screen alerts name only the room; background sounds remain device-controlled.";
-  }
-  prompt.appendChild(copy);
-  if (permission === "default" || !audioReady){
-    const enable = document.createElement("button");
-    enable.type = "button";
-    enable.className = "btn primary";
-    enable.textContent = permission === "default" ? "Enable system alerts" : "Tap to enable chat sound";
-    enable.addEventListener("click", async () => {
-      enable.disabled = true;
-      try{
-        const audio = await prepareChatAudio({ force:true });
-        if (!audio || audio.state !== "running") throw new Error("Chat sound could not be enabled. Check browser or device Settings.");
-        copy.textContent = "Chat sound on";
-        enable.remove();
-        await new Promise(resolve => window.setTimeout(resolve, 650));
-        if (permission === "default") await ensurePushInstallation({ requestPermission:true });
-        renderOpenChatRoom({ autoScroll:false, preserveScroll:true });
-      }catch(error){
-        copy.textContent = error.message || "Alerts could not be enabled. Check browser or device Settings.";
-        enable.disabled = false;
-      }
-    });
-    prompt.appendChild(enable);
-  }
-  return prompt;
-}
-
-function chatMessageById(messageId){
-  return chatState.messages.find(message => message.messageId === messageId) || null;
-}
-
-function optimisticReactionRows(reactions, emoji){
-  const next = (Array.isArray(reactions) ? reactions : []).map(reaction => ({ ...reaction }));
-  const match = next.find(reaction => reaction.emoji === emoji);
-  if (match){
-    match.own = !match.own;
-    match.count = Math.max(0, Number(match.count || 0) + (match.own ? 1 : -1));
-    if (!match.count) return next.filter(reaction => reaction !== match);
-    return next;
-  }
-  return [...next, { emoji, count:1, own:true }];
-}
-
-async function toggleChatReaction(messageId, emoji, control){
-  const scope = chatScope();
-  const room = chatState.currentRoom;
-  const message = chatMessageById(messageId);
-  if (!room?.viewer?.canPost) return;
-  if (!message) return;
-  const outcome = await runOptimisticMutation({
-    capture:() => ({ reactions:(message.reactions || []).map(reaction => ({ ...reaction })) }),
-    apply:() => {
-      message.reactions = optimisticReactionRows(message.reactions, emoji);
-      control.setAttribute("aria-busy", "true");
-      refreshChatMessageStream({ autoScroll:false, preserveScroll:true });
-    },
-    request:() => serverSyncClient.chatRequest({}, { action:"toggle-reaction", roomId:room.roomId, messageId, emoji }),
-    commit:result => {
-      if (!chatScopeCurrent(scope)) return;
-      const active = Boolean(result?.reaction?.active);
-      const current = (message.reactions || []).find(reaction => reaction.emoji === emoji);
-      if (current) current.own = active;
-      scheduleChatRoomPoll(0);
-    },
-    rollback:prior => {
-      if (!chatScopeCurrent(scope)) return;
-      message.reactions = prior.reactions;
-      refreshChatMessageStream({ autoScroll:false, preserveScroll:true });
-    },
-  });
-  if (!outcome.ok && chatScopeCurrent(scope)){
-    chatConnection(`${outcome.error?.message || "That reaction could not be changed."} Tap to retry.`, "retrying");
-  }
-}
-
-async function saveChatAttachment(message, attachment, save){
-  const outcome = await runOptimisticMutation({
-    capture:() => ({ saved:Boolean(attachment.saved), text:save.textContent }),
-    apply:() => {
-      attachment.saved = true;
-      save.disabled = true;
-      save.setAttribute("aria-busy", "true");
-      save.textContent = "Saved · confirming…";
-    },
-    request:() => serverSyncClient.chatRequest({}, { action:"attachment-save", attachmentId:attachment.attachmentId }),
-    commit:() => {
-      save.removeAttribute("aria-busy");
-      save.textContent = "Saved";
-    },
-    rollback:prior => {
-      attachment.saved = prior.saved;
-      save.disabled = false;
-      save.removeAttribute("aria-busy");
-      save.textContent = "Retry save";
-    },
-  });
-  if (!outcome.ok) chatConnection(outcome.error?.message || "That media could not be saved. Tap Retry save.", "retrying");
-}
-
-async function deleteChatMessage(message, control){
-  const scope = chatScope();
-  const room = chatState.currentRoom;
-  if (!room || !message?.canDelete || message.pending) return;
-  if (!window.confirm("Delete this message? This cannot be undone.")) return;
-  control.disabled = true;
-  try{
-    await serverSyncClient.chatRequest({}, { action:"delete-message", roomId:room.roomId, messageId:message.messageId });
-    if (!chatScopeCurrent(scope)) return;
-    chatState.messages = chatState.messages
-      .filter(item => item.messageId !== message.messageId)
-      .map(item => item.replyTo?.messageId === message.messageId ? { ...item, replyTo:null } : item);
-    if (chatState.replyToMessageId === message.messageId) chatState.replyToMessageId = null;
-    refreshChatMessageStream({ autoScroll:false, preserveScroll:true });
-    void refreshChatActive();
-  }catch(error){
-    if (!chatScopeCurrent(scope)) return;
-    chatConnection(error.message || "That message could not be deleted.", "retrying");
-    control.disabled = false;
-  }
-}
-
-function chatMessageUrls(value){
-  const matches = String(value || "").match(/https?:\/\/[^\s<>"']+/gi) || [];
-  return [...new Set(matches.map(url => url.replace(/[),.!?;:]+$/g, "")).filter(url => {
-    try{ return ["http:", "https:"].includes(new URL(url).protocol); }
-    catch(_error){ return false; }
-  }))].slice(0, 3);
-}
-
-function appendChatMessageText(host, value){
-  const text = String(value || "");
-  const pattern = /https?:\/\/[^\s<>"']+/gi;
-  let cursor = 0;
-  for (const match of text.matchAll(pattern)){
-    const index = match.index;
-    const raw = match[0];
-    const url = raw.replace(/[),.!?;:]+$/g, "");
-    let parsed;
-    try{ parsed = new URL(url); }
-    catch(_error){ continue; }
-    if (!["http:", "https:"].includes(parsed.protocol)) continue;
-    if (index > cursor) host.appendChild(document.createTextNode(text.slice(cursor, index)));
-    const link = document.createElement("a");
-    link.className = "chat-message-link";
-    link.href = url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer external";
-    link.textContent = url;
-    host.appendChild(link);
-    if (raw.length > url.length) host.appendChild(document.createTextNode(raw.slice(url.length)));
-    cursor = index + raw.length;
-  }
-  if (cursor < text.length) host.appendChild(document.createTextNode(text.slice(cursor)));
-}
-
-function chatLinkPreview(url){
-  const parsed = new URL(url);
-  const link = document.createElement("a");
-  link.className = "chat-link-preview";
-  link.href = parsed.href;
-  link.target = "_blank";
-  link.rel = "noopener noreferrer external";
-  const title = document.createElement("strong");
-  title.textContent = parsed.hostname.replace(/^www\./i, "");
-  const path = document.createElement("span");
-  path.textContent = `${parsed.pathname}${parsed.search}` || "/";
-  link.append(title, path);
-  return link;
-}
-
 function publicProfileInitials(displayName){
   const parts=String(displayName||"Member").trim().split(/\s+/).filter(Boolean);
-  return (parts.length>1?`${parts[0][0]}${parts.at(-1)[0]}`:parts[0]?.slice(0,2)||"NS").toUpperCase();
+  return (parts.length>1?`${parts[0][0]}${parts.at(-1)[0]}`:parts[0]?.slice(0,2)||"SY").toUpperCase();
 }
 
-function chatAvatarElement({ avatarUrl = null, displayName = "Member", className = "" } = {}){
+function publicProfileAvatarElement({ avatarUrl = null, displayName = "Member", className = "" } = {}){
   const avatar=document.createElement("span");
   avatar.className=["chat-avatar",className].filter(Boolean).join(" ");
   avatar.textContent=publicProfileInitials(displayName);
@@ -14443,7 +13076,7 @@ async function openProfileAvatar(profileId,displayName,trigger){
 }
 function buildPublicProfileAvatarEditor({ avatarUrl = null, displayName = "Member" } = {}){
   const editor=document.createElement("div");editor.className="public-profile-avatar-editor";
-  let preview=chatAvatarElement({avatarUrl,displayName,className:"public-profile-avatar-preview"});
+  let preview=publicProfileAvatarElement({avatarUrl,displayName,className:"public-profile-avatar-preview"});
   const copy=document.createElement("span");
   const title=document.createElement("strong");title.textContent=avatarUrl?"Change profile picture":"Upload profile picture";
   const detail=document.createElement("small");detail.textContent="JPG, PNG, HEIC, TIFF, WebP, AVIF or GIF · up to 6 MB · automatically cropped and compressed";
@@ -14473,1157 +13106,6 @@ function buildPublicProfileAvatarEditor({ avatarUrl = null, displayName = "Membe
   }};
 }
 
-function chatMessageElement(message,{groupStart=true}={}){
-  const item = document.createElement("article");
-  item.className = `chat-message${message.own ? " own" : ""}${groupStart ? " group-start" : " group-continuation"}`;
-  item.dataset.messageId = message.messageId;
-  const meta = document.createElement("div");
-  meta.className = "chat-message-meta";
-  const sender = document.createElement("strong");
-  sender.textContent = message.senderName;
-  sender.prepend(chatAvatarElement({avatarUrl:message.avatarUrl,displayName:message.senderName,className:"chat-message-avatar"}));
-  const time = document.createElement("time");
-  time.dateTime = message.sentAt;
-  time.textContent = new Intl.DateTimeFormat("en-AU", {
-    hour:"numeric", minute:"2-digit", timeZone:"Australia/Sydney",
-  }).format(new Date(message.sentAt));
-  const body = document.createElement("div");
-  body.className = "chat-message-body";
-  appendChatMessageText(body, message.body);
-  meta.append(sender);
-  item.appendChild(meta);
-  if (message.replyTo){
-    const quote = document.createElement("button");
-    quote.type = "button";
-    quote.className = "chat-message-quote";
-    const quoteSender = document.createElement("strong");
-    quoteSender.textContent = message.replyTo.senderName;
-    const quoteBody = document.createElement("span");
-    quoteBody.textContent = message.replyTo.body;
-    quote.append(quoteSender, quoteBody);
-    quote.addEventListener("click", () => document.querySelector(`[data-message-id="${CSS.escape(message.replyTo.messageId)}"]`)?.scrollIntoView?.({ block:"center" }));
-    item.appendChild(quote);
-  }
-  item.appendChild(body);
-  chatMessageUrls(message.body).forEach(url => item.appendChild(chatLinkPreview(url)));
-  if (message.attachments?.length){
-    const media = document.createElement("div");
-    media.className = "chat-message-media";
-    message.attachments.forEach(attachment => {
-      const wrap = document.createElement("div");
-      wrap.className = "chat-media-item";
-      if (attachment.kind === "image" || attachment.kind === "gif"){
-        const image = document.createElement("img");
-        image.src = attachment.url || "";
-        image.alt = attachment.fileName || "Shared image";
-        wrap.appendChild(image);
-      } else if (attachment.kind === "audio"){
-        const audio = document.createElement("audio");
-        audio.controls = true; audio.src = attachment.url || ""; wrap.appendChild(audio);
-      } else {
-        const link = document.createElement("a");
-        link.href = attachment.url || "#"; link.target = "_blank"; link.rel = "noopener noreferrer";
-        link.textContent = attachment.fileName || "Open attachment"; wrap.appendChild(link);
-      }
-      media.appendChild(wrap);
-    });
-    item.appendChild(media);
-  }
-  const reactions = document.createElement("div");
-  reactions.className = "chat-reactions";
-  (message.reactions || []).forEach(reaction => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = `chat-reaction${reaction.own ? " own" : ""}`;
-    button.setAttribute("aria-pressed", String(Boolean(reaction.own)));
-    button.textContent = `${reaction.emoji} ${reaction.count}`;
-    button.addEventListener("click", () => { void toggleChatReaction(message.messageId, reaction.emoji, button); });
-    reactions.appendChild(button);
-  });
-  const actions = document.createElement("div");
-  actions.className = "chat-message-actions";
-  const reply = document.createElement("button");
-  reply.type = "button";
-  reply.className = "chat-message-action";
-  reply.textContent = "Reply";
-  reply.addEventListener("click", () => {
-    chatState.replyToMessageId = message.messageId;
-    renderOpenChatRoom({ autoScroll:false, focusComposer:true });
-  });
-  const react = document.createElement("button");
-  react.type = "button";
-  react.className = "chat-message-action";
-  react.textContent = "🙂";
-  react.setAttribute("aria-label", "React to message");
-  react.title = "React";
-  const picker = document.createElement("div");
-  picker.className = "chat-reaction-picker";
-  picker.hidden = true;
-  CHAT_REACTION_EMOJIS.forEach(emoji => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "chat-message-action";
-    button.textContent = emoji;
-    button.setAttribute("aria-label", `React ${emoji}`);
-    button.addEventListener("click", () => { void toggleChatReaction(message.messageId, emoji, button); });
-    picker.appendChild(button);
-  });
-  react.addEventListener("click", () => { picker.hidden = !picker.hidden; });
-  if (chatState.currentRoom?.viewer?.canPost) actions.append(reply, react, picker);
-  (message.attachments || []).forEach(attachment => {
-    if (!message.own || chatState.isGuest || attachment.saved || attachment.external) return;
-    const save = document.createElement("button");
-    save.type = "button";
-    save.className = "chat-message-action";
-    save.textContent = "Save";
-    save.setAttribute("aria-label", `Save ${attachment.fileName || "attachment"}`);
-    save.addEventListener("click", () => { void saveChatAttachment(message, attachment, save); });
-    actions.appendChild(save);
-  });
-  if (message.canDelete && !message.pending){
-    const remove = document.createElement("button");
-    remove.type = "button";
-    remove.className = "chat-message-action";
-    remove.textContent = "Delete";
-    remove.setAttribute("aria-label", `Delete message from ${message.senderName}`);
-    remove.addEventListener("click", () => { void deleteChatMessage(message, remove); });
-    actions.appendChild(remove);
-  }
-  if (reactions.childElementCount) item.appendChild(reactions);
-  if (actions.childElementCount){
-    const menu = document.createElement("details");
-    menu.className = "chat-message-menu";
-    const toggle = document.createElement("summary");
-    toggle.textContent = "•••";
-    toggle.setAttribute("aria-label", `Actions for message from ${message.senderName}`);
-    menu.append(toggle, actions);
-    menu.addEventListener("keydown", event => { if (event.key === "Escape"){ menu.open = false; toggle.focus(); event.stopPropagation(); } });
-    menu.addEventListener("toggle", () => { if (menu.open) item.parentElement?.querySelectorAll(".chat-message-menu[open]").forEach(other => { if (other !== menu) other.open = false; }); });
-    item.appendChild(menu);
-  }
-  const status=document.createElement("div");status.className="chat-message-status";
-  status.appendChild(time);
-  if(message.own && !message.pending){const ticks=document.createElement("span");ticks.className=`chat-receipt ${message.deliveryState||"sent"}`;ticks.setAttribute("aria-label",message.deliveryState==="read"?"Read by everyone":message.deliveryState==="delivered"?"Delivered to everyone":"Sent");ticks.textContent=["delivered","read"].includes(message.deliveryState)?"✓✓":"✓";status.appendChild(ticks);}
-  item.appendChild(status);
-  return item;
-}
-
-function renderChatPublicProfileForm(host, { onSaved } = {}){
-  const life = serverSyncClient.accountSnapshot();
-  const current = () => { const now = serverSyncClient.accountSnapshot(); return now.accountId === life.accountId && now.generation === life.generation; };
-  const form = document.createElement("form");
-  form.className = "chat-form";
-  const heading = document.createElement("h3");
-  heading.className = "chat-section-title";
-  heading.textContent = "Public Profile";
-  const displayLabel = document.createElement("label");
-  displayLabel.className = "field-label";
-  displayLabel.textContent = "Display name";
-  const display = document.createElement("input");
-  display.required = true;
-  display.minLength = 2;
-  display.maxLength = 80;
-  display.autocomplete = "name";
-  displayLabel.appendChild(display);
-  const handleLabel = document.createElement("label");
-  handleLabel.className = "field-label";
-  handleLabel.textContent = "Handle";
-  const handle = document.createElement("input");
-  handle.required = true;
-  handle.minLength = 3;
-  handle.maxLength = 24;
-  handle.pattern = "[a-z0-9_]{3,24}";
-  handle.autocapitalize = "none";
-  handle.spellcheck = false;
-  handle.placeholder = "your_handle";
-  handleLabel.appendChild(handle);
-  const help = document.createElement("p");
-  help.className = "chat-empty";
-  help.textContent = "This global display name is inherited by every signed-in chat and by Nothinger Leaderboard. Your @handle remains secondary; your email stays private.";
-  const save = document.createElement("button");
-  save.type = "submit";
-  save.className = "btn primary";
-  save.textContent = "Save Profile";
-  const avatarEditor=buildPublicProfileAvatarEditor({avatarUrl:nothingscoreViewer.profile?.avatarUrl,displayName:nothingscoreViewer.profile?.displayName||"Member"});
-  form.append(heading, displayLabel, handleLabel, avatarEditor.element, help, save);
-  form.addEventListener("submit", async submitEvent => {
-    submitEvent.preventDefault();
-    const viewCurrent = captureProfileSaveView(form);
-    save.disabled = true;
-    try{
-      await savePublicProfileAndReturnToFeed({displayName:display.value,handle:handle.value,editor:avatarEditor,current,viewCurrent});
-    }catch(error){
-      help.textContent = error.message || "The Public Profile could not be saved.";
-      save.disabled = false;
-    }
-  });
-  host.appendChild(form);
-}
-
-function renderChatAdminControls(host, room){
-  const list = document.createElement("div");
-  list.className = "chat-member-list";
-  const memberIds = new Set();
-  (room.members || []).forEach(member => {
-    if (member.accountId) memberIds.add(member.accountId);
-    const row = document.createElement("div");
-    row.className = "chat-member-row";
-    const identity = document.createElement("span");
-    identity.className = "chat-member-identity";
-    const name = document.createElement("span");
-    name.textContent = member.displayName;
-    identity.append(chatAvatarElement({avatarUrl:member.avatarUrl,displayName:member.displayName,className:"chat-member-avatar"}),name);
-    row.appendChild(identity);
-    if (chatState.isAdmin && room.status === "open" && member.accountId && member.accountId !== serverPersistence.user?.id){
-      const remove = document.createElement("button");
-      remove.type = "button";
-      remove.className = "btn ghost";
-      remove.textContent = "Remove";
-      remove.setAttribute("aria-label", `Remove ${member.displayName} from this chat`);
-      remove.addEventListener("click", async () => {
-        remove.disabled = true;
-        try{
-          await serverSyncClient.chatRequest({}, { action:"remove-member", roomId:room.roomId, accountId:member.accountId });
-          await openChatRoom(room.roomId);
-        }catch(error){
-          chatConnection(error.message || "Member removal failed.", "retrying");
-          remove.disabled = false;
-        }
-      });
-      row.appendChild(remove);
-    }
-    list.appendChild(row);
-  });
-  host.appendChild(list);
-  if (room.status === "open" && chatState.isAdmin){
-    const add = document.createElement("section");
-    add.className = "chat-form";
-    const selected = new Set();
-    renderChatUserSearch(add, {
-      exclude:memberIds,
-      onSelection(account, checked){
-        if (checked) selected.add(account.accountId);
-        else selected.delete(account.accountId);
-      },
-    });
-    const addButton = document.createElement("button");
-    addButton.type = "button";
-    addButton.className = "btn ghost";
-    addButton.textContent = "Add selected members";
-    addButton.addEventListener("click", async () => {
-      if (!selected.size) return;
-      addButton.disabled = true;
-      try{
-        await serverSyncClient.chatRequest({}, { action:"add-members", roomId:room.roomId, memberIds:[...selected] });
-        await openChatRoom(room.roomId);
-      }catch(error){
-        chatConnection(error.message || "Members could not be added.", "retrying");
-        addButton.disabled = false;
-      }
-    });
-    add.appendChild(addButton);
-    const share = document.createElement("section");
-    share.className = "chat-share-panel";
-    const shareTitle = document.createElement("strong");
-    shareTitle.textContent = "Guest link";
-    const shareCopy = document.createElement("p");
-    shareCopy.className = "chat-empty";
-    shareCopy.textContent = room.guestShareEnabled
-      ? "Anyone with the unlisted link can join without a visible sign-in. It is not listed publicly."
-      : "Members only. Enable an unlisted guest link when you are ready to share this room.";
-    share.append(shareTitle, shareCopy);
-    if (chatState.shareCapability){
-      const link = document.createElement("input");
-      link.className = "chat-share-link";
-      link.readOnly = true;
-      link.value = roomGuestShareUrl(chatState.shareCapability);
-      link.addEventListener("focus", () => link.select());
-      share.appendChild(link);
-    }
-    const shareActions = document.createElement("div");
-    shareActions.className = "chat-form-actions";
-    const shareButton = document.createElement("button");
-    shareButton.type = "button";
-    shareButton.className = "btn primary";
-    shareButton.textContent = room.guestShareEnabled ? "Copy / Share" : "Enable guest link";
-    shareButton.addEventListener("click", () => { void shareRoomWithGuests(room, "enable"); });
-    shareActions.appendChild(shareButton);
-    if (room.guestShareEnabled){
-      const rotate = document.createElement("button");
-      rotate.type = "button";
-      rotate.className = "btn ghost";
-      rotate.textContent = "Rotate link";
-      rotate.addEventListener("click", () => {
-        if (window.confirm("Rotate this guest link? The old link will stop admitting new guests; guests who already joined stay in the room.")) void shareRoomWithGuests(room, "rotate");
-      });
-      const disable = document.createElement("button");
-      disable.type = "button";
-      disable.className = "btn ghost";
-      disable.textContent = "Disable guest access";
-      disable.addEventListener("click", () => {
-        if (window.confirm("Disable guest access? The link will stop working and all guest memberships will be removed immediately.")) void disableRoomGuestSharing(room);
-      });
-      shareActions.append(rotate, disable);
-    }
-    share.appendChild(shareActions);
-    host.append(add, share);
-  }
-  if (room.canDeleteRoom){
-    const remove = document.createElement("button");
-    remove.type = "button";
-    remove.className = "btn ghost";
-    remove.textContent = "Delete chat";
-    remove.addEventListener("click", async () => {
-      if (!window.confirm("Delete this chat and every message in it? This cannot be undone.")) return;
-      remove.disabled = true;
-      try{
-        await serverSyncClient.chatRequest({}, { action:"delete-room", roomId:room.roomId });
-        setChatDrawerOpen(false);
-        await refreshChatActive();
-      }catch(error){
-        chatConnection(error.message || "The chat could not be deleted.", "retrying");
-        remove.disabled = false;
-      }
-    });
-    host.appendChild(remove);
-  }
-}
-
-function roomGuestShareUrl(capability){
-  return `${canonicalAppShareUrl()}#chat=${encodeURIComponent(String(capability || ""))}`;
-}
-
-async function shareRoomWithGuests(room, mode = "enable"){
-  const scope = chatScope();
-  const action = mode === "rotate" ? "rotate-share" : "enable-share";
-  chatConnection(mode === "rotate" ? "Rotating guest link…" : "Preparing guest link…");
-  try{
-    const payload = await serverSyncClient.chatRequest({}, { action, roomId:room.roomId });
-    if (!chatScopeCurrent(scope)) return;
-    const guestShare = payload.guestShare || {};
-    chatState.shareCapability = guestShare.capability || "";
-    chatState.currentRoom = { ...chatState.currentRoom, guestShareEnabled:Boolean(guestShare.enabled) };
-    renderOpenChatRoom({ autoScroll:false });
-    if (chatState.shareCapability){
-      await shareOrCopyLink({
-        title:`${room.roomName} · Nothing Sport`,
-        text:`Join ${room.roomName} for ${room.fixture?.name || "this fixture"}.`,
-        url:roomGuestShareUrl(chatState.shareCapability),
-      });
-    }
-    chatConnection("Guest link ready", "connected");
-  }catch(error){ if (!chatScopeCurrent(scope)) return; chatConnection(error.message || "Guest sharing could not be enabled.", "retrying"); }
-}
-
-async function disableRoomGuestSharing(room){
-  const scope = chatScope();
-  chatConnection("Disabling guest access…");
-  try{
-    await serverSyncClient.chatRequest({}, { action:"disable-share", roomId:room.roomId });
-    if (!chatScopeCurrent(scope)) return;
-    chatState.shareCapability = "";
-    await openChatRoom(room.roomId);
-  }catch(error){ if (!chatScopeCurrent(scope)) return; chatConnection(error.message || "Guest access could not be disabled.", "retrying"); }
-}
-
-function renderChatMembersDisclosure(room){
-  const details = document.createElement("details");
-  details.className = "chat-members";
-  const summary = document.createElement("summary");
-  const count = Number(room.memberCount || room.members?.length || 0);
-  summary.textContent = `Members (${count})`;
-  const content = document.createElement("div");
-  content.className = "chat-members-content";
-  const disclosure = document.createElement("p");
-  disclosure.className = "chat-empty";
-  disclosure.textContent = room.status === "closed"
-    ? "Closed and read-only. Member and guest access has been revoked; administrators retain this archive for seven days."
-    : room.guestShareEnabled
-      ? "Invited accounts and joined guests can read this unlisted room."
-      : "This room is members-only until an administrator enables its guest link.";
-  content.appendChild(disclosure);
-  renderChatAdminControls(content, room);
-  if(room.viewer?.member&&room.status==='open'){const leave=document.createElement('button');leave.type='button';leave.className='btn ghost';leave.textContent='Leave chat';leave.onclick=async()=>{leave.disabled=true;await serverSyncClient.chatRequest({}, {action:'leave-room',roomId:room.roomId});setChatDrawerOpen(false);await refreshChatActive();};content.appendChild(leave);}
-  details.append(summary, content);
-  return details;
-}
-
-function buildChatReplyPreview(){
-  const message = chatMessageById(chatState.replyToMessageId);
-  if (!message) return null;
-  const preview = document.createElement("div");
-  preview.className = "chat-reply-preview";
-  const copy = document.createElement("div");
-  const name = document.createElement("strong");
-  name.textContent = `Replying to ${message.senderName}`;
-  const excerpt = document.createElement("span");
-  excerpt.textContent = message.body;
-  copy.append(name, excerpt);
-  const cancel = document.createElement("button");
-  cancel.type = "button";
-  cancel.className = "btn ghost";
-  cancel.textContent = "Cancel";
-  cancel.addEventListener("click", () => {
-    chatState.replyToMessageId = null;
-    renderOpenChatRoom({ autoScroll:false, focusComposer:true });
-  });
-  preview.append(copy, cancel);
-  return preview;
-}
-
-function sizeChatComposerInput(input){
-  input.style.height = "auto";
-  input.style.height = `${Math.min(180, Math.max(52, input.scrollHeight))}px`;
-  syncChatComposerOffset();
-}
-
-let chatMediaUi = null;
-let chatMediaUiLoading = null;
-
-async function ensureChatMediaUi(){
-  if (chatMediaUi) return chatMediaUi;
-  if (chatMediaUiLoading) return chatMediaUiLoading;
-  chatMediaUiLoading = (async () => {
-    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA) await loadDeferredScript("config/chat-media.js?v=218");
-    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI) await loadDeferredScript("config/chat-media-ui.js?v=611");
-    chatMediaUi = globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI.install({
-      media:globalThis.NOTHINGSPORTS_CHAT_MEDIA,
-      state:() => chatState,
-      request:(query, command, options) => serverSyncClient.chatRequest(query, command, options),
-      connection:chatConnection,
-    });
-    await chatMediaUi.stylesReady;
-    return chatMediaUi;
-  })().finally(() => { chatMediaUiLoading = null; });
-  return chatMediaUiLoading;
-}
-
-function pendingAttachmentPreview(item){
-  return chatMediaUi.preview(item);
-}
-
-function refreshChatAttachmentPreviews(){
-  chatMediaUi?.refreshPreviews();
-  syncChatComposerOffset();
-}
-
-async function chooseChatFiles(input, options = {}){
-  const scope = chatScope();
-  const ui = await ensureChatMediaUi();
-  if (chatScopeCurrent(scope)) return ui.choose(input, options);
-}
-
-function closeChatGifPicker(){
-  chatMediaUi?.closePicker();
-}
-
-async function openChatGifPicker(){
-  const scope = chatScope();
-  const ui = await ensureChatMediaUi();
-  if (chatScopeCurrent(scope)) return ui.openPicker();
-}
-
-async function sendChatMessage(form){
-  const scope = chatScope();
-  const input = form.querySelector("textarea");
-  const room = chatState.currentRoom;
-  if (!room?.viewer?.canPost) return;
-  const body = CHAT.messageBody(input.value);
-  const pendingAttachments = [...chatState.pendingAttachments];
-  const unfinished = pendingAttachments.find(item => item.status !== "ready");
-  if (unfinished){
-    chatConnection(unfinished.status === "failed" ? "Retry or remove the failed attachment before sending." : "Your attachment is still being prepared.", "retrying");
-    return;
-  }
-  if (!body && !pendingAttachments.length){
-    chatConnection("Add a message or attachment before sending.", "retrying");
-    return;
-  }
-  const submit = form.querySelector('[type="submit"]');
-  submit.disabled = true;
-  pendingAttachments.forEach(item => { item.status = "sending"; });
-  refreshChatAttachmentPreviews();
-  const clientId = globalThis.crypto?.randomUUID?.() || `message_${Date.now().toString(36)}_${Math.random().toString(36).slice(2)}`;
-  const replyToMessageId = chatState.replyToMessageId;
-  const replyToMessage = chatMessageById(replyToMessageId);
-  const optimisticMessage = {
-    messageId:`optimistic:${clientId}`,
-    clientId,
-    messageType:body && pendingAttachments.length ? "mixed" : pendingAttachments.length ? "media" : "text",
-    body,
-    sentAt:new Date().toISOString(),
-    senderName:chatState.profile?.displayName || room.viewer?.displayName || "You",
-    avatarUrl:chatState.profile?.avatarUrl || room.viewer?.avatarUrl || null,
-    own:true,
-    pending:true,
-    attachments:pendingAttachments,
-    replyTo:replyToMessage ? {
-      messageId:replyToMessage.messageId,
-      senderName:replyToMessage.senderName,
-      body:replyToMessage.body,
-    } : null,
-  };
-  mergeChatMessages([optimisticMessage], { followLatest:true });
-  chatState.draftBody = "";
-  chatState.pendingAttachments = [];
-  chatState.replyToMessageId = null;
-  persistCurrentChatDraft();
-  input.value = "";
-  sizeChatComposerInput(input);
-  form.querySelector(".chat-attachment-previews")?.replaceChildren();
-  document.querySelector(".chat-reply-preview")?.remove();
-  refreshChatMessageStream({ autoScroll:true, preserveScroll:false });
-  try{
-    const payload = await serverSyncClient.chatRequest({}, {
-      action:"send-message",
-      roomId:room.roomId,
-      clientId,
-      body,
-      attachmentIds:pendingAttachments.map(item => item.attachmentId),
-      ...(replyToMessageId ? { replyToMessageId:replyToMessageId } : {}),
-    });
-    if (payload.message?.attachments?.length){
-      const optimisticAttachments = new Map(pendingAttachments.map(item => [item.attachmentId, item]));
-      payload.message.attachments = payload.message.attachments.map(item => ({
-        ...item,
-        url:item.url || optimisticAttachments.get(item.attachmentId)?.url || null,
-      }));
-    }
-    if (!chatScopeCurrent(scope)) return;
-    mergeChatMessages([payload.message], { followLatest:true });
-    pendingAttachments.forEach(item => { item.status = "sent"; });
-    chatMediaUi?.notifyGifSent?.(pendingAttachments);
-    try{ sessionStorage.removeItem(chatDraftStorageKey(room.roomId)); }catch(_error){}
-    refreshChatMessageStream({ autoScroll:true, preserveScroll:false });
-    submit.disabled = false;
-    void refreshChatActive();
-  }catch(error){
-    if (!chatScopeCurrent(scope)) {
-      pendingAttachments.forEach(item => { item.status = "ready"; });
-      const draft = chatRoomDrafts.get(room.roomId) || { body:"", attachments:[] };
-      chatRoomDrafts.set(room.roomId, { body:draft.body || body, replyToMessageId:draft.replyToMessageId || replyToMessageId,
-        attachments:[...draft.attachments, ...pendingAttachments] });
-      return;
-    }
-    chatState.messages = chatState.messages.filter(message => message.messageId !== optimisticMessage.messageId);
-    chatState.draftBody = body;
-    chatState.pendingAttachments = pendingAttachments;
-    pendingAttachments.forEach(item => { item.status = "ready"; });
-    chatState.replyToMessageId = replyToMessageId;
-    chatConnection(error.message || "The message could not be sent.", "retrying");
-    // Keep the existing field so an asynchronous failure cannot reopen the keyboard.
-    input.value = body;
-    sizeChatComposerInput(input);
-    form.querySelector(".chat-attachment-previews")?.replaceChildren(...pendingAttachments.map(pendingAttachmentPreview));
-    const reply = buildChatReplyPreview();
-    if (reply) document.getElementById("chatComposerHost").prepend(reply);
-    refreshChatMessageStream({ autoScroll:true, preserveScroll:false });
-    submit.disabled = false;
-    persistCurrentChatDraft();
-  }
-}
-
-function buildChatComposer({ focus = false } = {}){
-  const form = document.createElement("form");
-  form.className = "chat-room-composer";
-  form.id = "chatRoomComposer";
-  const label = document.createElement("label");
-  label.className = "sr-only";
-  label.htmlFor = "chatMessageInput";
-  label.textContent = "Message";
-  const input = document.createElement("textarea");
-  input.id = "chatMessageInput";
-  input.maxLength = 500;
-  input.rows = 2;
-  input.placeholder = "Write a message or emoji";
-  input.autocapitalize = "sentences";
-  input.autocomplete = "off";
-  input.spellcheck = true;
-  input.enterKeyHint = "enter";
-  input.value = chatState.draftBody || "";
-  input.addEventListener("input", () => {
-    chatState.draftBody = input.value;
-    persistCurrentChatDraft();
-    sizeChatComposerInput(input);
-  });
-  input.addEventListener("keydown", event => {
-    if (event.key !== "Enter" || !(event.metaKey || event.ctrlKey) || event.isComposing) return;
-    event.preventDefault();
-    form.requestSubmit();
-  });
-  const tools = document.createElement("div");
-  tools.className = "chat-attachment-tools";
-  const attach = document.createElement("button");
-  attach.type = "button";
-  attach.className = "btn ghost chat-staple";
-  attach.textContent = "📎";
-  attach.title = "Add attachment";
-  attach.setAttribute("aria-label", "Add attachment");
-  const fileInput = document.createElement("input");
-  fileInput.type = "file";
-  fileInput.hidden = true;
-  fileInput.multiple = true;
-  fileInput.accept = "image/jpeg,image/png,image/webp,image/gif,audio/mpeg,audio/mp4,audio/wav,audio/ogg,application/pdf,text/plain,text/csv,.doc,.docx,.xls,.xlsx";
-  attach.addEventListener("click", () => fileInput.click());
-  fileInput.addEventListener("change", () => { void chooseChatFiles(fileInput).catch(error => chatConnection(error.message, "retrying")); });
-  const selfie = document.createElement("button");
-  selfie.type = "button";
-  selfie.className = "btn ghost";
-  selfie.textContent = "Game selfie";
-  const selfieInput = document.createElement("input");
-  selfieInput.type = "file";
-  selfieInput.accept = "image/*";
-  selfieInput.capture = "user";
-  selfieInput.hidden = true;
-  selfie.addEventListener("click", () => selfieInput.click());
-  selfieInput.addEventListener("change", () => { void chooseChatFiles(selfieInput, { selfie:true }).catch(error => chatConnection(error.message, "retrying")); });
-  const gif = document.createElement("button");
-  gif.type = "button";
-  gif.className = "btn ghost";
-  gif.textContent = "GIF";
-  gif.dataset.chatGifTrigger = "true";
-  gif.title = chatState.capabilities.canUseGifs ? "Search GIFs" : "Requires 25 points";
-  gif.addEventListener("click", openChatGifPicker);
-  tools.append(attach, fileInput, selfie, selfieInput, gif);
-  const previews = document.createElement("div");
-  previews.className = "chat-attachment-previews";
-  chatState.pendingAttachments.forEach(item => previews.appendChild(pendingAttachmentPreview(item)));
-  const send = document.createElement("button");
-  send.type = "submit";
-  send.className = "btn primary";
-  send.textContent = "Send";
-  send.disabled = chatState.pendingAttachments.some(item => item.status !== "ready");
-  send.addEventListener("pointerdown", event => {
-    if (document.activeElement === input) event.preventDefault();
-  });
-  form.append(label, tools, previews, input, send);
-  form.addEventListener("submit", event => { event.preventDefault(); void sendChatMessage(form); });
-  window.requestAnimationFrame(() => {
-    sizeChatComposerInput(input);
-    if (focus) input.focus({ preventScroll:true });
-  });
-  return form;
-}
-
-const CHAT_SCROLLBACK_TEXT_LIMIT = 15;
-const CHAT_SCROLLBACK_IMAGE_LIMIT = 5;
-
-function chatWindowStart(messages, end = messages.length){
-  let textCount = 0;
-  let imageCount = 0;
-  let start = Math.max(0, Math.min(end, messages.length));
-  while (start > 0){
-    const message = messages[start - 1];
-    const addsText = Boolean(String(message.body || "").trim());
-    const addsImages = (message.attachments || []).filter(attachment => ["image", "gif"].includes(attachment.kind)).length;
-    if ((addsText && textCount >= CHAT_SCROLLBACK_TEXT_LIMIT) || (addsImages && imageCount + addsImages > CHAT_SCROLLBACK_IMAGE_LIMIT)) break;
-    start -= 1;
-    if (addsText) textCount += 1;
-    imageCount += addsImages;
-  }
-  return start;
-}
-
-function visibleChatMessages(){
-  const start = Math.max(0, Math.min(Number(chatState.visibleMessageStart || 0), chatState.messages.length));
-  return chatState.messages.slice(start);
-}
-
-function chatSenderGroupKey(message){
-  return `${message.own?"own":"other"}|${message.senderName||""}|${message.avatarUrl||""}`;
-}
-
-function chatMessageRenderSignature(message,groupStart=true){
-  return JSON.stringify({
-    body:message.body,
-    senderName:message.senderName,
-    avatarUrl:message.avatarUrl || null,
-    groupStart,
-    sentAt:message.sentAt,
-    own:message.own,
-    pending:message.pending,
-    deliveryState:message.deliveryState,
-    canDelete:message.canDelete,
-    replyTo:message.replyTo,
-    attachments:(message.attachments || []).map(item => [item.attachmentId,item.url,item.saved,item.fileName,item.kind]),
-    reactions:message.reactions || [],
-  });
-}
-
-function chatOlderButton(){
-  const older = document.createElement("button");
-  older.type = "button";
-  older.className = "btn ghost chat-load-older";
-  older.textContent = "Load older messages";
-  older.addEventListener("click", () => { void loadOlderChatMessages(older); });
-  return older;
-}
-
-function buildChatMessageList(){
-  const list = document.createElement("div");
-  list.className = "chat-message-list";
-  list.setAttribute("role", "log");
-  list.setAttribute("aria-live", "polite");
-  if (chatState.visibleMessageStart > 0 || chatState.olderCursor) list.appendChild(chatOlderButton());
-  if (!chatState.messages.length){
-    const empty = document.createElement("p");
-    empty.className = "chat-empty";
-    empty.textContent = "No messages yet.";
-    list.appendChild(empty);
-  } else {
-    visibleChatMessages().forEach((message,index,messages) => {
-      const groupStart=index===0||chatSenderGroupKey(messages[index-1])!==chatSenderGroupKey(message);
-      const element = chatMessageElement(message,{groupStart});
-      element.dataset.renderSignature = chatMessageRenderSignature(message,groupStart);
-      list.appendChild(element);
-    });
-  }
-  return list;
-}
-
-function patchChatMessageList(list){
-  const messages = visibleChatMessages();
-  const existing = new Map([...list.querySelectorAll(":scope > [data-message-id]")].map(element => [element.dataset.messageId, element]));
-  list.querySelector(":scope > .chat-empty")?.remove();
-  messages.forEach((message,index) => {
-    const groupStart=index===0||chatSenderGroupKey(messages[index-1])!==chatSenderGroupKey(message);
-    const signature = chatMessageRenderSignature(message,groupStart);
-    let element = existing.get(message.messageId);
-    if (!element || element.dataset.renderSignature !== signature){
-      const replacement = chatMessageElement(message,{groupStart});
-      replacement.dataset.renderSignature = signature;
-      if (element){
-        const previousMedia = element.querySelector(".chat-message-media");
-        const nextMedia = replacement.querySelector(".chat-message-media");
-        if (previousMedia && nextMedia && previousMedia.innerHTML === nextMedia.innerHTML) nextMedia.replaceWith(previousMedia);
-        element.className = replacement.className;
-        element.replaceChildren(...replacement.childNodes);
-        element.dataset.renderSignature = signature;
-      } else element = replacement;
-    }
-    const position = [...list.children].filter(node => node.matches("[data-message-id]"))[index];
-    if (position !== element) list.insertBefore(element, position || null);
-    existing.delete(message.messageId);
-  });
-  existing.forEach(element => element.remove());
-  let older = list.querySelector(":scope > .chat-load-older");
-  if (chatState.visibleMessageStart > 0 || chatState.olderCursor){
-    if (!older) older = chatOlderButton();
-    list.insertBefore(older, list.firstChild);
-  } else older?.remove();
-  if (!messages.length){
-    const empty = document.createElement("p");
-    empty.className = "chat-empty";
-    empty.textContent = "No messages yet.";
-    list.appendChild(empty);
-  }
-}
-
-function refreshChatMessageStream({ autoScroll = false, showNew = false, preserveScroll = true } = {}){
-  const body = document.getElementById("chatBody");
-  const list = body.querySelector(".chat-message-list");
-  if (!list){
-    renderOpenChatRoom({ autoScroll, showNew, preserveScroll });
-    return;
-  }
-  const bodyTop = body.getBoundingClientRect().top;
-  const visibleAnchor = preserveScroll
-    ? [...list.querySelectorAll("[data-message-id]")].find(item => item.getBoundingClientRect().bottom >= bodyTop)
-    : null;
-  const anchorState = visibleAnchor
-    ? { messageId:visibleAnchor.dataset.messageId, offset:visibleAnchor.getBoundingClientRect().top - bodyTop }
-    : null;
-  const previousScrollTop = body.scrollTop;
-  patchChatMessageList(list);
-  if (autoScroll) body.scrollTop = body.scrollHeight;
-  else if (anchorState){
-    const nextAnchor = [...list.querySelectorAll("[data-message-id]")].find(item => item.dataset.messageId === anchorState.messageId);
-    if (nextAnchor) body.scrollTop += nextAnchor.getBoundingClientRect().top - bodyTop - anchorState.offset;
-    else body.scrollTop = previousScrollTop;
-  } else if (preserveScroll) body.scrollTop = previousScrollTop;
-  updateChatJumpButton(Boolean(showNew));
-}
-
-function clearChatComposerHost(){
-  const host = document.getElementById("chatComposerHost");
-  host.replaceChildren();
-  host.hidden = true;
-}
-
-function renderChatComposerHost(room, { focus = false } = {}){
-  const host = document.getElementById("chatComposerHost");
-  host.replaceChildren();
-  if (!room?.viewer?.canPost){
-    host.hidden = true;
-    return;
-  }
-  const reply = buildChatReplyPreview();
-  if (reply) host.appendChild(reply);
-  host.appendChild(buildChatComposer({ focus }));
-  host.hidden = false;
-}
-
-function renderOpenChatRoom({ autoScroll = true, showNew = false, focusComposer = false, preserveScroll = false } = {}){
-  const room = chatState.currentRoom;
-  if (!room) return;
-  setChatHeading(room.roomName, room.fixture?.name || "Fixture chat");
-  const shareHeader = document.getElementById("shareRoomHeaderBtn");
-  shareHeader.hidden = !(chatState.isAdmin && room.status === "open");
-  shareHeader.textContent = "Share room";
-  shareHeader.onclick = () => { void shareRoomWithGuests(room, "enable"); };
-  const body = document.getElementById("chatBody");
-  const bodyTop = body.getBoundingClientRect().top;
-  const visibleAnchor = preserveScroll
-    ? [...body.querySelectorAll("[data-message-id]")].find(item => item.getBoundingClientRect().bottom >= bodyTop)
-    : null;
-  const anchorState = visibleAnchor
-    ? { messageId:visibleAnchor.dataset.messageId, offset:visibleAnchor.getBoundingClientRect().top - bodyTop }
-    : null;
-  const previousScrollTop = body.scrollTop;
-  body.replaceChildren();
-  body.appendChild(renderChatMembersDisclosure(room));
-  const alertPrompt = buildChatAlertPrompt();
-  if (alertPrompt) body.appendChild(alertPrompt);
-  body.appendChild(buildChatMessageList());
-  if (room.viewer?.emailVerificationRequired && !room.readOnly){
-    appendEmailConfirmationControls(body,{email:serverPersistence.user?.email,returnTo:()=>void openChatRoom(room.roomId)});
-    if (!serverPersistence.user){
-      const signIn = document.createElement('button'); signIn.type = 'button'; signIn.className = 'btn primary'; signIn.textContent = 'Sign in to participate';
-      signIn.onclick = () => { setChatDrawerOpen(false); openSettings({section:'account'}); }; body.append(signIn);
-    }
-  } else if (room.viewer?.publicProfileRequired && !room.readOnly){
-    const required = document.createElement("p");
-    required.className = "chat-disclosure";
-    required.textContent = "Create your global Public Profile before posting. It will be inherited by every signed-in room and by Nothinger Leaderboard.";
-    body.appendChild(required);
-    renderChatPublicProfileForm(body, { onSaved:() => openChatRoom(room.roomId) });
-  }
-  renderChatComposerHost(room, { focus:focusComposer });
-  if (autoScroll) body.scrollTop = body.scrollHeight;
-  else if (anchorState){
-    const replacement = [...body.querySelectorAll("[data-message-id]")].find(item => item.dataset.messageId === anchorState.messageId);
-    if (replacement) body.scrollTop += replacement.getBoundingClientRect().top - bodyTop - anchorState.offset;
-    else body.scrollTop = previousScrollTop;
-  } else if (preserveScroll) body.scrollTop = previousScrollTop;
-  syncChatComposerOffset();
-  updateChatJumpButton(Boolean(showNew));
-  chatConnection(room.status === "closed" ? "Closed · admin read-only" : (navigator.onLine ? "Connected" : "Offline — polling paused"), room.status === "closed" || !navigator.onLine ? "retrying" : "connected");
-}
-
-function chatBodyAtBottom(){
-  const body = document.getElementById("chatBody");
-  return body.scrollHeight - body.scrollTop - body.clientHeight < 56;
-}
-
-function updateChatJumpButton(force = false){
-  const button = document.getElementById("chatNewMessagesBtn");
-  button.classList.toggle("show", Boolean(chatState.currentRoom && (force || !chatBodyAtBottom())));
-}
-
-async function markCurrentChatRead(){
-  const room = chatState.currentRoom;
-  if (!room || room.readOnly) return;
-  document.getElementById("chatNewMessagesBtn").classList.remove("show");
-  try{
-    await serverSyncClient.chatRequest({}, { action:"mark-read", roomId:room.roomId, readAt:chatState.messages.filter(message=>!message.pending).at(-1)?.sentAt });
-    await refreshChatActive();
-  }catch(_error){  }
-}
-
-function mergeChatReceipts(changes){
-  let changed=false;
-  const byId=new Map(chatState.messages.map(message=>[message.messageId,message]));
-  for(const receipt of changes||[]){
-    const message=byId.get(receipt.messageId);
-    if(message && message.deliveryState!==receipt.deliveryState){message.deliveryState=receipt.deliveryState;changed=true;}
-  }
-  return changed;
-}
-
-function mergeChatMessages(messages, { followLatest = false } = {}){
-  const byId = new Map(chatState.messages.map(message => [message.messageId, message]));
-  (messages || []).forEach(message => {
-    if (message.clientId){
-      const previous = [...byId.values()].find(candidate => candidate.clientId === message.clientId && candidate.messageId !== message.messageId);
-      if (previous) byId.delete(previous.messageId);
-    }
-    byId.set(message.messageId, message);
-  });
-  chatState.messages = [...byId.values()].sort((first, second) => Date.parse(first.sentAt) - Date.parse(second.sentAt));
-  if (followLatest && !chatState.historyExpanded) chatState.visibleMessageStart = chatWindowStart(chatState.messages);
-}
-
-function mergeChatReactionChanges(changes){
-  let changed = false;
-  (changes || []).forEach(change => {
-    const message = chatMessageById(change.messageId);
-    if (!message) return;
-    const next = Array.isArray(change.reactions) ? change.reactions : [];
-    if (JSON.stringify(message.reactions || []) !== JSON.stringify(next)){
-      message.reactions = next;
-      changed = true;
-    }
-  });
-  return changed;
-}
-
-function laterChatReactionCursor(first, second){
-  return Date.parse(second || "") > Date.parse(first || "") ? second : first || second || "";
-}
-
-function chatLoadingIndicator(label, { compact = false } = {}){
-  const loading = document.createElement("div");
-  loading.className = `chat-loading${compact ? " is-compact" : ""}`;
-  loading.setAttribute("role", "status");
-  const wheel = document.createElement("span");
-  wheel.className = "chat-loading-wheel";
-  wheel.setAttribute("aria-hidden", "true");
-  const copy = document.createElement("span");
-  copy.textContent = label;
-  loading.append(wheel, copy);
-  return loading;
-}
-
-function syncChatComposerOffset(){
-  window.requestAnimationFrame(() => {
-    const composer = document.getElementById("chatRoomComposer");
-    document.getElementById("chatDrawer").style.setProperty("--chat-composer-height", `${Math.ceil(composer?.getBoundingClientRect().height || 56)}px`);
-  });
-}
-
-async function openChatRoom(roomId){
-  hideChatIncomingBanner();
-  window.clearTimeout(chatRoomTimer);
-  chatRoomTimer = null;
-  leaveChatRoom(roomId);
-  const scope = chatScope();
-  chatConnection("Connecting…");
-  document.getElementById("chatBody").replaceChildren(chatLoadingIndicator("Opening chat…"));
-  try{
-    const payload = await serverSyncClient.chatRequest({ roomId });
-    if (!chatScopeCurrent(scope) || payload.room?.roomId !== roomId) return;
-    chatState.isAdmin = payload.isAdmin === undefined ? chatState.isAdmin : Boolean(payload.isAdmin);
-    chatState.capabilities = payload.capabilities || chatState.capabilities;
-    chatState.currentRoom = payload.room;
-    chatState.messages = payload.messages || [];
-    chatState.visibleMessageStart = chatWindowStart(chatState.messages);
-    chatState.historyExpanded = false;
-    mergeChatReactionChanges(payload.reactionChanges);
-    chatState.reactionCursor = laterChatReactionCursor(chatState.reactionCursor, payload.reactionCursor);
-    chatState.olderCursor = payload.olderCursor || null;
-    restoreChatDraft(roomId);
-    if (payload.room?.viewer?.canPost) await ensureChatMediaUi();
-    if (!chatScopeCurrent(scope)) return;
-    renderOpenChatRoom({ autoScroll:true });
-    if (!payload.room.readOnly){
-      void serverSyncClient.chatRequest({}, { action:"mark-read", roomId, readAt:chatState.messages.filter(message=>!message.pending).at(-1)?.sentAt })
-        .then(() => refreshChatActive())
-        .catch(() => null);
-    }
-    chatPollFailures = 0;
-    chatLastActivityAt = Date.now();
-    scheduleChatRoomPoll(CHAT.POLLING.roomMs);
-  }catch(error){
-    if (!chatScopeCurrent(scope)) return;
-    chatConnection(error.message || "Chat could not be opened.", "retrying");
-    const body = document.getElementById("chatBody");
-    body.replaceChildren();
-    const message = document.createElement("p");
-    message.className = "chat-empty";
-    message.textContent = error.message || "Chat could not be opened.";
-    body.appendChild(message);
-  }
-}
-
-async function loadOlderChatMessages(button){
-  const scope = chatScope();
-  const room = chatState.currentRoom;
-  const before = chatState.olderCursor;
-  if (!room) return;
-  button.disabled = true;
-  button.replaceChildren(chatLoadingIndicator("Loading older messages…", { compact:true }));
-  if (chatState.visibleMessageStart > 0){
-    await new Promise(resolve => window.requestAnimationFrame(resolve));
-    if (!chatScopeCurrent(scope)) return;
-    chatState.visibleMessageStart = chatWindowStart(chatState.messages, chatState.visibleMessageStart);
-    chatState.historyExpanded = true;
-    refreshChatMessageStream({ autoScroll:false, preserveScroll:true });
-    return;
-  }
-  if (!before) return;
-  try{
-    const previousFirstMessageId = chatState.messages[0]?.messageId || null;
-    const payload = await serverSyncClient.chatRequest({ roomId:room.roomId, before });
-    if (!chatScopeCurrent(scope) || payload.room?.roomId !== room.roomId) return;
-    chatState.currentRoom = payload.room;
-    const receiptsChanged=mergeChatReceipts(payload.receiptChanges);
-    mergeChatMessages(payload.messages);
-    const previousFirstIndex = previousFirstMessageId ? chatState.messages.findIndex(message => message.messageId === previousFirstMessageId) : chatState.messages.length;
-    chatState.visibleMessageStart = chatWindowStart(chatState.messages, Math.max(0, previousFirstIndex));
-    chatState.historyExpanded = true;
-    const deliveredAt=(payload.messages||[]).at(-1)?.sentAt;
-    if(deliveredAt && !payload.room.readOnly)void serverSyncClient.chatRequest({}, {action:"mark-delivered",roomId:payload.room.roomId,readAt:deliveredAt}).catch(()=>null);
-    mergeChatReactionChanges(payload.reactionChanges);
-    chatState.reactionCursor = laterChatReactionCursor(chatState.reactionCursor, payload.reactionCursor);
-    chatState.olderCursor = payload.olderCursor || null;
-    refreshChatMessageStream({
-      autoScroll:false,
-      showNew:document.getElementById("chatNewMessagesBtn").classList.contains("show"),
-      preserveScroll:true,
-    });
-  }catch(error){
-    if (!chatScopeCurrent(scope)) return;
-    chatConnection(error.message || "Older messages could not be loaded.", "retrying");
-    button.disabled = false;
-  }
-}
-
-function scheduleChatRoomPoll(delay){
-  window.clearTimeout(chatRoomTimer);
-  if (!chatState.currentRoom || chatState.currentRoom.status !== "open" || document.visibilityState !== "visible" || !document.getElementById("chatBackdrop").classList.contains("show")) return;
-  chatRoomTimer = window.setTimeout(pollChatRoom, delay);
-}
-
-async function pollChatRoom(){
-  const scope = chatScope();
-  if (!chatState.currentRoom) return;
-  if (document.visibilityState !== "visible" || !navigator.onLine){
-    chatConnection(!navigator.onLine ? "Offline — polling paused" : "Background — polling paused", "retrying");
-    return;
-  }
-  const body = document.getElementById("chatBody");
-  const atBottom = chatBodyAtBottom();
-  const after = chatState.messages.at(-1)?.sentAt || "";
-  try{
-    const previousStatus = chatState.currentRoom.status;
-    const beforeIds = new Set(chatState.messages.map(message => message.messageId));
-    const payload = await serverSyncClient.chatRequest({ roomId:chatState.currentRoom.roomId, after, reactionAfter:chatState.reactionCursor });
-    if (!chatScopeCurrent(scope) || payload.room?.roomId !== scope.roomId) return;
-    chatState.currentRoom = payload.room;
-    const receiptsChanged=mergeChatReceipts(payload.receiptChanges);
-    mergeChatMessages(payload.messages, { followLatest:atBottom });
-    const deliveredAt=(payload.messages||[]).at(-1)?.sentAt;
-    if(deliveredAt && !payload.room.readOnly)void serverSyncClient.chatRequest({}, {action:"mark-delivered",roomId:payload.room.roomId,readAt:deliveredAt}).catch(()=>null);
-    const incoming = (payload.messages || []).filter(message => !beforeIds.has(message.messageId) && !message.own);
-    const added = (payload.messages || []).some(message => !beforeIds.has(message.messageId));
-    const reactionsChanged = mergeChatReactionChanges(payload.reactionChanges);
-    if(added||reactionsChanged||receiptsChanged)chatLastActivityAt=Date.now();
-    chatState.reactionCursor = laterChatReactionCursor(chatState.reactionCursor, payload.reactionCursor);
-    if (payload.room.status !== previousStatus) renderOpenChatRoom({ autoScroll:atBottom });
-    else if (added || reactionsChanged || receiptsChanged) refreshChatMessageStream({
-      autoScroll:atBottom,
-      showNew:(added && !atBottom) || document.getElementById("chatNewMessagesBtn").classList.contains("show"),
-      preserveScroll:!atBottom,
-    });
-    if (incoming.length) playIncomingChatSound();
-    if (added && atBottom && !payload.room.readOnly) void markCurrentChatRead();
-    chatPollFailures = 0;
-    chatConnection("Connected", "connected");
-    scheduleChatRoomPoll(Date.now()-chatLastActivityAt<CHAT.POLLING.quietAfterMs?CHAT.POLLING.roomMs:CHAT.POLLING.quietMs);
-  }catch(error){
-    if (!chatScopeCurrent(scope)) return;
-    chatPollFailures += 1;
-    chatConnection("Connection interrupted · retrying", "retrying");
-    scheduleChatRoomPoll(CHAT.POLLING.failureMs);
-  }
-}
-
-function chatUnreadIncreasedOutsideOpenRoom(previousRooms, nextRooms, currentRoomId){
-  const previousUnreadByRoom = new Map((previousRooms || []).map(room => [room.roomId, Number(room.unreadCount || 0)]));
-  return (nextRooms || []).find(room => (
-    room.roomId !== currentRoomId
-    && previousUnreadByRoom.has(room.roomId)
-    && Number(room.unreadCount || 0) > Number(previousUnreadByRoom.get(room.roomId) || 0)
-  ));
-}
-
-let chatIncomingBannerTimer=null;
-function hideChatIncomingBanner(){
-  window.clearTimeout(chatIncomingBannerTimer);
-  const banner=document.getElementById("chatIncomingBanner");
-  if(!banner)return;
-  banner.classList.remove("show");
-  window.setTimeout(()=>{if(!banner.classList.contains("show"))banner.hidden=true;},220);
-}
-function showChatIncomingBanner(room){
-  if(!room)return;
-  const banner=document.getElementById("chatIncomingBanner");
-  banner.hidden=false;
-  banner.textContent=`New message in ${room.roomName || room.fixture?.name || "fixture chat"}`;
-  banner.onclick=()=>{hideChatIncomingBanner();setChatDrawerOpen(true);void openChatRoom(room.roomId);};
-  window.requestAnimationFrame(()=>banner.classList.add("show"));
-  window.clearTimeout(chatIncomingBannerTimer);
-  chatIncomingBannerTimer=window.setTimeout(hideChatIncomingBanner,7000);
-}
-
-async function refreshChatActive({ rerenderOpenList = false } = {}){
-  const generation = chatNavigationGeneration;
-  const hasChatSession = Boolean(serverPersistence.user || serverSyncClient?.getGuestChatSession?.());
-  if (!hasChatSession || !serverSyncClient?.chatRequest || document.visibilityState === "hidden" || !navigator.onLine) return null;
-  try{
-    const payload = await serverSyncClient.chatRequest({ mode:"active" });
-    const outsideRoomUnreadIncreased = Boolean(chatState.activeSignature)
-      && chatUnreadIncreasedOutsideOpenRoom(chatState.rooms, payload.rooms, chatState.currentRoom?.roomId || null);
-    const nextRooms = Array.isArray(payload.rooms) ? payload.rooms : [];
-    const signature = JSON.stringify({ admin:payload.isAdmin, archived:payload.archivedRooms, inspection:payload.adminRooms, rooms:nextRooms.map(room => [room.roomId, room.unreadCount, room.lastMessageAt]) });
-    const changed = signature !== chatState.activeSignature;
-    chatState = normalizeChatState({
-      ...chatState,
-      isAdmin:Boolean(payload.isAdmin),
-      isGuest:!serverPersistence.user && Boolean(serverSyncClient.getGuestChatSession?.()),
-      profile:payload.profile || { displayName:null, avatarUrl:null },
-      capabilities:payload.capabilities || chatState.capabilities,
-      rooms:nextRooms,
-      archivedRooms:Array.isArray(payload.archivedRooms) ? payload.archivedRooms : [],
-      adminRooms:Array.isArray(payload.adminRooms) ? payload.adminRooms : [],
-      openRoomCount:Number(payload.openRoomCount ?? nextRooms.length),
-      invitations:payload.invitations||[],
-      activeSignature:signature,
-    });
-    updateActiveChatButton();
-    if (outsideRoomUnreadIncreased){ playIncomingChatSound(); showChatIncomingBanner(outsideRoomUnreadIncreased); }
-    if (rerenderOpenList && generation === chatNavigationGeneration && !chatTargetRoomId && document.getElementById("chatBackdrop").classList.contains("show") && !chatState.currentRoom) renderActiveChats();
-    if (changed){
-      document.querySelectorAll("[data-fixture-chat-id]").forEach(host => {
-        const ev = nothingscoreEventRefs.get(host.dataset.fixtureChatId);
-        if (!ev) return;
-        host.querySelectorAll(".event-chat-action").forEach(button => button.remove());
-        appendFixtureChatActions(host,ev);
-      });
-    }
-    scheduleChatActivePoll(CHAT.POLLING.activeMs);
-    return payload;
-  }catch(error){
-    scheduleChatActivePoll(CHAT.POLLING.failureMs);
-    return null;
-  }
-}
-
-function scheduleChatActivePoll(delay = CHAT?.POLLING?.activeMs || 30_000){
-  window.clearTimeout(chatActiveTimer);
-  if (!(serverPersistence.user || serverSyncClient?.getGuestChatSession?.()) || !serverSyncClient?.chatRequest) return;
-  chatActiveTimer = window.setTimeout(() => { void refreshChatActive(); }, delay);
-}
-
-function syncChatSessionState(previousOwnerId, nextOwnerId){
-  if (!CHAT || !serverSyncClient?.chatRequest) return;
-  if (previousOwnerId !== nextOwnerId){
-    chatState = createChatState({
-      isGuest:!nextOwnerId && Boolean(serverSyncClient?.getGuestChatSession?.()),
-    });
-  }
-  void syncPermittedChatPushInstallation().catch(() => null);
-  if (!nextOwnerId && !serverSyncClient?.getGuestChatSession?.()){
-    window.clearTimeout(chatActiveTimer);
-    window.clearTimeout(chatRoomTimer);
-    chatState = createChatState();
-    updateActiveChatButton();
-    if (document.getElementById("chatBackdrop")?.classList.contains("show")) setChatDrawerOpen(false);
-    return;
-  }
-  if (previousOwnerId !== nextOwnerId || !chatActiveTimer) void refreshChatActive();
-}
-
 function syncNothingscoreSessionState(previousOwnerId, nextOwnerId){
   if (!NOTHINGSCORE || previousOwnerId === nextOwnerId) return;
   ++nothingscoreReadGeneration;nothingscoreReadRecovery.reset();
@@ -15636,7 +13118,7 @@ function syncNothingscoreSessionState(previousOwnerId, nextOwnerId){
   nothingscoreLoadedAt.clear();
   nothingscoreLoadErrors.clear();
   nothingscorePendingIds.clear();
-  window.NOTHINGSPORTS_CROWD_RANKINGS?.clear?.();
+  window.NOTHINGSPORTS_YURTERS?.clear?.();
   ++nscRankingGeneration;
   nothingscoreViewer = { signedIn:false, ratingEligible:false, profile:null };
   nothingscoreViewerScope = null;
@@ -15720,7 +13202,7 @@ function nscPageBack(){
 
 let pendingProfilePhoto = null;
 function captureProfileSaveView(form){
-  const surface = form.closest('#settingsModal,#chatBackdrop,#nothingscoreBackdrop');
+  const surface = form.closest('#settingsModal,#nothingscoreBackdrop');
   const anchor = settingsViewportAnchor, section = settingsSection, tab = activeTab;
   return () => form.isConnected && Boolean(surface?.classList.contains('show'))
     && settingsViewportAnchor === anchor && settingsSection === section && activeTab === tab;
@@ -15738,10 +13220,8 @@ async function savePublicProfileAndReturnToFeed({displayName,handle,editor,curre
   }
   if (!current()) return;
   void refreshNothingscoreViewer().catch(()=>{});
-  void refreshChatActive().catch(()=>{});
   if (!viewCurrent()){ showToast(notice); return; }
   if (document.getElementById('settingsModal')?.classList.contains('show')) closeSettings({restoreViewport:false});
-  if (document.getElementById('chatBackdrop')?.classList.contains('show')) setChatDrawerOpen(false);
   if (document.getElementById('nothingscoreBackdrop')?.classList.contains('show')) setNothingscoreDrawerOpen(false);
   activateTopLevelTab('feed');
   showToast(notice);
@@ -15757,7 +13237,7 @@ function nothingscoreProfileForm(){
   heading.textContent = existing ? "Public Profile" : "Create Public Profile";
   const disclosure = document.createElement("p");
   disclosure.className = "nsc-note";
-  disclosure.textContent = "Set this once for signed-in chat and Nothinger Leaderboard. Your display name is your room name; the unique lowercase @handle stays secondary on Nothinger Leaderboard and leaderboards. Email and account identifiers are never shown.";
+  disclosure.textContent = "Set your public name for YURTERS. Your unique lowercase @handle helps people find you in YURTERS. Email and account identifiers are never shown.";
   const displayLabel = document.createElement("label");
   displayLabel.className = "field-label";
   displayLabel.textContent = "Display name";
@@ -15813,7 +13293,6 @@ function nothingscoreProfileForm(){
 async function setNothingscoreProfileVisibility(visibility){
   await serverSyncClient.nothingscoreRequest({}, { action:"profile-visibility", visibility });
   await refreshNothingscoreViewer();
-  void refreshChatActive();
   if (document.getElementById("settingsModal")?.classList.contains("show") && settingsSection === "account") renderSettingsScreen();
   else renderNothingscoreDrawer();
   nothingscoreQueueRender();
@@ -15822,34 +13301,16 @@ async function setNothingscoreProfileVisibility(visibility){
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyView&&document.getElementById('nothingscoreBackdrop')?.classList.contains('show'))renderCrowdRankings();});
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
-async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=536");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
- catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
+async function renderCrowdRankings(options){
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=614");return window.NOTHINGSPORTS_YURTERS.render(options);}
+ catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='YURTERS could not load. Close and reopen to retry.';}
 }
-async function renderMyForesight(body){
-  if(!serverSyncClient?.sessionSubject())return;
-  const section=document.createElement('section');section.className='nsc-rewards';section.textContent='Loading your foresight rewards…';body.prepend(section);
-  try{const result=await serverSyncClient.nothingscoreRequest({rewards:true});if(!section.isConnected)return;section.replaceChildren();
-    const title=document.createElement('h3');title.textContent=`${result.points} points`;section.appendChild(title);
-    for(const item of result.settlements || []){
-      const row=document.createElement('p');row.className='nsc-reward-row';
-      const outcome={pending:'Awaiting settlement',cancelled:'Cancelled — participation retained',unscored:'Unscored — excluded from Efficiency',success:'Correct prediction · +19 bonus points',miss:'Incorrect prediction · participation retained'}[item.result]||'Awaiting settlement';
-      const benchmark=item.consensus?.benchmark!=null?` · other-user Impact consensus ${item.consensus.benchmark}/5 (${item.consensus.voter_count} voters; your own vote excluded)` : '';
-      row.textContent=`${item.name||item.event_id}: you called ${item.rating}/5 · ${userPreferences.showSpoilers?outcome+benchmark:'Settlement details hidden — turn Results ON to view'}`;section.appendChild(row);
-    }
-    const progress=document.createElement('p');progress.textContent=result.nextPrivilege?`${result.nextPrivilege.remaining} points to ${result.nextPrivilege.label}`:'No new privileges announced.';section.appendChild(progress);
-    for(const privilege of result.privileges || []){const row=document.createElement('p');row.textContent=`Unlocked: ${privilege.label}`;section.appendChild(row);}
-    for(const entry of result.entries || []){const row=document.createElement('p');row.textContent=`${entry.label}: ${entry.entries} prize draw entries`;section.appendChild(row);}
-    if(!result.entries?.length){const note=document.createElement('p');note.textContent='No active prize draws.';section.appendChild(note);}
-  }catch(error){section.textContent=error.message || 'Rewards unavailable.';}
-}
-
 function buildMyNscAccountSection(){
   const profileSection = document.createElement("section");
   if (!serverPersistence.user){
     const copy = document.createElement("p");
     copy.className = "chat-disclosure";
-    copy.textContent = "Nothinger Leaderboard is public to read. Sign in to rate; a public handle is optional.";
+    copy.textContent = "YURTERS is public to read. Sign in to rate; a public handle is optional.";
     const signIn = document.createElement("button");
     signIn.type = "button";
     signIn.className = "btn primary";
@@ -15869,8 +13330,8 @@ function buildMyNscAccountSection(){
     name.textContent = profile && profile.visibility !== "deleted" ? profile.displayName : "Rating privately";
     const handle = document.createElement("span");
     handle.textContent = profile && profile.visibility !== "deleted"
-      ? `${profile.handle || "No handle"}${profile.visibility === "hidden" ? " · Hidden from public Nothinger Leaderboard" : ""}`
-      : "A public handle is optional for ratings and leaderboards.";
+      ? `${profile.handle || "No handle"}${profile.visibility === "hidden" ? " · Hidden from YURTERS" : ""}`
+      : "A public handle is optional for ratings.";
     summary.append(name, handle);
     const edit = document.createElement("button");
     edit.type = "button";
@@ -15934,8 +13395,8 @@ function renderNothingscoreDrawer(){
     }
     return;
   }
-  drawerTitle.textContent = "Nothinger Leaderboard";
-  drawerSubtitle.textContent = "Your private contribution tools and leaderboard.";
+  drawerTitle.textContent = "YURTERS";
+  drawerSubtitle.textContent = "Your profile and rating settings.";
   const sound = document.createElement("label");
   sound.className = "pilot-disclosure nsc-sound-setting";
   const soundInput = document.createElement("input");
@@ -15962,7 +13423,6 @@ function renderNothingscoreDrawer(){
     }
   });
   body.appendChild(sound);
-  void renderMyForesight(body);
   if (nothingscoreAudioBlocked){
     const enable = document.createElement("button");
     enable.type = "button";
@@ -15978,93 +13438,6 @@ function renderNothingscoreDrawer(){
   body.appendChild(profileSection);
   refreshMyNscAccountSection(profileSection);
 
-  const communitySnapshots = [...nothingscoreSnapshots.values()]
-    .filter(snapshot => snapshot?.peerResults?.count > 0)
-    .slice(0, 12);
-  if (communitySnapshots.length){
-    const communityHeading = document.createElement("h3");
-    communityHeading.className = "chat-section-title";
-    communityHeading.textContent = "Real fan ratings";
-    const community = document.createElement("div");
-    community.className = "nsc-board";
-    communitySnapshots.forEach(snapshot => {
-      const event = nothingscoreEventRefs.get(snapshot.eventId) || activeEvents.find(item => nothingscoreEventId(item) === snapshot.eventId);
-      const row = document.createElement("div");
-      row.className = "nsc-board-row";
-      const phase = document.createElement("strong");
-      phase.textContent = nothingscorePhaseCopy(snapshot.phase).name.slice(0, 1);
-      const copy = document.createElement("div");
-      const name = document.createElement("strong");
-      name.textContent = event?.name || event?.displayTitleCompact || "Fixture";
-      const detail = document.createElement("small");
-      const contributors = snapshot.peerResults.count;
-      detail.textContent = `${nothingscorePhaseCopy(snapshot.phase).name} · ${contributors} other fan${contributors === 1 ? "" : "s"}${snapshot.peerResults.early ? " · Early responses" : ""}`;
-      copy.append(name, detail);
-      const score = document.createElement("span");
-      score.className = "nsc-board-points";
-      score.textContent = `${Number(snapshot.peerResults.average).toFixed(1)}/5`;
-      row.append(phase, copy, score);
-      community.appendChild(row);
-    });
-    body.append(communityHeading, community);
-  }
-
-  const heading = document.createElement("h3");
-  heading.className = "chat-section-title";
-  heading.textContent = "Nothinger Leaderboard leaderboard";
-  const tabs = document.createElement("div");
-  tabs.className = "nsc-leaderboard-tabs";
-  [["weekly","This week"],["all-time","All time"]].forEach(([period,label]) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = `btn ${nothingscoreLeaderboardPeriod === period ? "primary" : "ghost"}`;
-    button.textContent = label;
-    button.addEventListener("click", () => { nothingscoreLeaderboardPeriod = period; renderNothingscoreDrawer(); });
-    tabs.appendChild(button);
-  });
-  const board = document.createElement("div");
-  board.className = "nsc-board";
-  board.id = "nothingscoreLeaderboard";
-  board.textContent = "Loading leaderboard…";
-  body.append(heading, tabs, board);
-  void loadNothingscoreLeaderboard();
-}
-
-async function loadNothingscoreLeaderboard(){
-  const board = document.getElementById("nothingscoreLeaderboard");
-  if (!board) return;
-  try{
-    const payload = await serverSyncClient.nothingscoreRequest({ leaderboard:nothingscoreLeaderboardPeriod });
-    if (!board.isConnected) return;
-    board.replaceChildren();
-    if (!payload.entries?.length){
-      const empty = document.createElement("p");
-      empty.className = "nsc-note";
-      empty.textContent = "No points yet. Early contributors set the pace.";
-      board.appendChild(empty);
-      return;
-    }
-    payload.entries.forEach((entry, index) => {
-      const row = document.createElement("div");
-      row.className = "nsc-board-row";
-      const rank = document.createElement("strong");
-      rank.textContent = String(index + 1);
-      const identity = document.createElement("div");
-      const name = document.createElement("strong");
-      name.textContent = entry.displayName;
-      const details = document.createElement("small");
-      const eligibility = entry.influencerEligible ? " · Influencer review eligible" : entry.risingEligible ? " · Rising eligible" : "";
-      details.textContent = `${entry.handle || "Private profile"} · ${entry.uniqueFixtures} fixture${entry.uniqueFixtures === 1 ? "" : "s"}${eligibility}`;
-      identity.append(name, details);
-      const points = document.createElement("span");
-      points.className = "nsc-board-points";
-      points.textContent = `${entry.points} pts`;
-      row.append(rank, identity, points);
-      board.appendChild(row);
-    });
-  }catch(error){
-    board.textContent = error.message || "Leaderboard temporarily unavailable.";
-  }
 }
 
 async function refreshNothingscoreDrawer(){
@@ -16123,58 +13496,6 @@ window.addEventListener("offline", () => {
 });
 scheduleNothingscorePoll(30_000);
 
-document.getElementById("activeChatsBtn").addEventListener("click", openActiveChats);
-document.getElementById("closeChatBtn").addEventListener("click", () => {if(chatTargetRoomId || chatState.currentRoom){renderActiveChats();return;}setChatDrawerOpen(false);if(history.state?.inboxDestination)history.back();});
-document.getElementById("chatBackdrop").addEventListener("click", event => {
-  if (event.target.id === "chatBackdrop") {setChatDrawerOpen(false);if(history.state?.inboxDestination)history.back();}
-});
-document.getElementById("chatNewMessagesBtn").addEventListener("click", () => {
-  const body = document.getElementById("chatBody");
-  body.scrollTop = body.scrollHeight;
-  updateChatJumpButton();
-  void markCurrentChatRead();
-});
-document.getElementById("chatBody").addEventListener("scroll", () => {
-  chatKeepLatestVisible = chatBodyAtBottom();
-  const button = document.getElementById("chatNewMessagesBtn");
-  const wasShowing = button.classList.contains("show");
-  updateChatJumpButton();
-  if (wasShowing && chatBodyAtBottom()) void markCurrentChatRead();
-}, { passive:true });
-document.addEventListener("keydown", event => {
-  if (document.getElementById("chatGifPicker")?.classList.contains("show") && event.key === "Escape"){
-    event.preventDefault();
-    closeChatGifPicker();
-    return;
-  }
-  const backdrop = document.getElementById("chatBackdrop");
-  if (!backdrop.classList.contains("show")) return;
-  if (event.key === "Escape"){
-    event.preventDefault();
-    if (chatTargetRoomId || chatState.currentRoom) renderActiveChats();
-    else { setChatDrawerOpen(false); if(history.state?.inboxDestination)history.back(); }
-    return;
-  }
-  if (event.key !== "Tab") return;
-  const focusable = [...document.getElementById("chatDrawer").querySelectorAll('button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), summary, a[href]')]
-    .filter(element => !element.hidden && element.getClientRects().length);
-  if (!focusable.length) return;
-  const first = focusable[0];
-  const last = focusable.at(-1);
-  if (event.shiftKey && document.activeElement === first){ event.preventDefault(); last.focus(); }
-  else if (!event.shiftKey && document.activeElement === last){ event.preventDefault(); first.focus(); }
-});
-document.addEventListener("visibilitychange", () => {
-  if (document.visibilityState !== "visible") return;
-  void refreshChatActive();
-  if (chatState.currentRoom) scheduleChatRoomPoll(0);
-});
-window.addEventListener("online", () => {
-  void refreshChatActive();
-  if (chatState.currentRoom) scheduleChatRoomPoll(0);
-});
-window.addEventListener("offline", () => chatConnection("Offline — polling paused", "retrying"));
-
 function setUtilityModalOpen(id, open){
   const modal = document.getElementById(id);
   modal.classList.toggle("show", open);
@@ -16223,13 +13544,6 @@ function runStartupPostLoadActions(){
   if (!userPreferences.onboardingComplete){
     openFirstRunSettingsAfterFeedAlignment();
   } else {
-    if (FOLLOW_FIRST?.shouldPromptRefinement?.(userPreferences)){
-      const next = clonePreferences(userPreferences);
-      next.followFirst.refinement.promptedAt = new Date().toISOString();
-      savePreferences(next);
-      setTimeout(() => setTunePromptOpen(true, next.followFirst.feedback.entries.length), 250);
-      return;
-    }
     if (document.visibilityState === "visible") registerWeeklyPulseAppOpen();
   }
 }
@@ -16318,14 +13632,10 @@ updateCalendarDate();
 setInterval(updateCalendarDate, 60 * 1000);
 renderAll();
 void syncAppRouteFromLocation();
+if(new URL(location.href).searchParams.get('nothingFriends')==='1'){openNothingscoreDrawer();void renderCrowdRankings({following:true});}
 bindPasswordRecoveryFlow();
 void inspectSignupConfirmationReturn();
-window.requestAnimationFrame(() => {
-  void openPendingSharedChat().then(async opened => {
-    if (!opened) await openRequestedChatRoomFromLocation();
-    if (serverSyncClient?.getGuestChatSession?.()) await refreshChatActive();
-  });
-});
+if(discardRetiredChatLink())showToast('Chat has retired. Your fixtures, ratings and follows remain available.');
 let startupFeedNavigationTouched = false;
 for (const eventName of ["pointerdown", "touchstart", "wheel", "keydown"]){
   window.addEventListener(eventName, () => {
@@ -16422,7 +13732,6 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshFee
 <script>
 let notificationDestinationDialog=null;
 function closeNotificationDestination(){
-  if(document.body.classList.contains('chat-open'))setChatDrawerOpen(false);
   if(document.body.classList.contains('nsc-open'))setNothingscoreDrawerOpen(false);
   const closing=notificationDestinationDialog;notificationDestinationDialog=null;if(closing){closing.dataset.closingFromRoute="true";closing.close();closing.remove();}
 }
@@ -16430,19 +13739,11 @@ async function ensureImpactFeedback(){await loadDeferredScript('assets/js/impact
 async function openNotificationDestination(item){
   if(item.kind==='impact_request'){await (await ensureImpactFeedback()).open(item.eventId);return;}
   if(item.yearReview){const ui=await ensureEpicUi();notificationDestinationDialog=ui.openReview(item.yearReview);return;}
-  if(['chat','added'].includes(item.kind)){setChatDrawerOpen(true);await openChatRoom(item.roomId);return;}
-  if(item.kind==='invitation'){
-    if(item.invitationState==='accepted'){setChatDrawerOpen(true);await openChatRoom(item.roomId);return;}
-    if(item.invitationState!=='pending')throw new Error('This invitation is no longer pending.');
-    await refreshChatActive();openActiveChats();
-    const invitation=chatState.invitations.find(x=>x.room?.roomId===item.roomId);
-    if(invitation){const position=chatState.invitations.indexOf(invitation);document.querySelectorAll('#chatBody .chat-room-row')[position]?.scrollIntoView({block:'center'});}
-    return;
-  }
+  if(['chat','added','invitation','points'].includes(item.kind)){showToast('This feature has retired.');return;}
   if(['profile_followed','follows_copied'].includes(item.kind)){
     if(!item.profileId)throw new Error('This profile is no longer public.');
-    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=536');
-    await window.NOTHINGSPORTS_CROWD_RANKINGS.openProfile({profileId:item.profileId,name:item.actor});
+    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=614');
+    await window.NOTHINGSPORTS_YURTERS.openProfile({profileId:item.profileId,name:item.actor});
     notificationDestinationDialog=document.querySelector('.nsc-picks-dialog[open]');
   }else if(['rating','reminder'].includes(item.kind)){
     await openFriendFixture(item.eventId);
@@ -16450,15 +13751,14 @@ async function openNotificationDestination(item){
   }else{
     const d=document.createElement('dialog');d.className='calendar-dialog';
     const back=document.createElement('button');back.className='btn ghost';back.textContent='Back to notifications';back.onclick=()=>history.back();d.append(back);document.body.append(d);d.showModal();notificationDestinationDialog=d;
-    if(item.kind==='points')await renderMyForesight(d);
-    else{const h=document.createElement('h2');h.textContent=item.title||'Nothing Sport update';const p=document.createElement('p');p.textContent=item.detail||'';d.append(h,p);}
+    {const h=document.createElement('h2');h.textContent=item.title||'Nothing Sport update';const p=document.createElement('p');p.textContent=item.detail||'';d.append(h,p);}
   }
   notificationDestinationDialog?.addEventListener('close',event=>{if(event.target.dataset.closingFromRoute!=='true'&&history.state?.inboxDestination)history.back();},{once:true});
 }
 let notificationsInbox,notificationsInboxLoading,notificationsInboxStarted=false,notificationsInboxRevision=0;
 function ensureNotificationsInbox(){
   notificationsInboxStarted=true;
-  return notificationsInboxLoading ||= loadDeferredScript('assets/js/notifications-inbox.js?v=552').then(()=>notificationsInbox ||= NOTHINGSPORTS_INBOX.create({
+  return notificationsInboxLoading ||= loadDeferredScript('assets/js/notifications-inbox.js?v=614').then(()=>notificationsInbox ||= NOTHINGSPORTS_INBOX.create({
     request:(query,seen)=>serverSyncClient.inboxRequest(query,seen),
     owner:()=>serverSyncClient?.sessionSubject()||'',
     spoilers:()=>Boolean(userPreferences.showSpoilers),

@@ -714,7 +714,7 @@ const server=http.createServer((req,res)=>{
     // New taxonomy children (e.g. NRLW under NRL) may expand a followed code,
     // but none of its previously included sports may disappear.
     assert(savedSelection.sports.every(sport=>restoredSelection.sports.includes(sport)),'Existing followed sport coverage survives migration');
-    if(keepOpen)assert.equal(await upgraded.evaluate(()=>JSON.parse(sessionStorage.getItem('ns_chat_draft_v2:upgrade-test')).body),'Preserve this unsent draft');
+    if(keepOpen)assert.equal(await upgraded.evaluate(()=>sessionStorage.getItem('ns_chat_draft_v2:upgrade-test')),null,'Retired chat drafts are cleared by the current shell');
     await upgraded.waitForTimeout(3500);assert(upgradeNavigations<=2,'Legacy migration must navigate at most once: '+JSON.stringify(upgradeNavigationLog));
     // The ongoing release exercises an already-open page, rather than another
     // fresh navigation. The old releases above use authentic historical bytes.
@@ -798,7 +798,7 @@ const server=http.createServer((req,res)=>{
       console.error('Resume diagnostics', await upgraded.evaluate(async()=>({version:document.querySelector('meta[name="app-shell-version"]')?.content,state:NOTHINGSPORTS_APP_UPDATE.snapshot(),focus:document.activeElement?.outerHTML.slice(0,240),ready:document.readyState,hydrating:startupCoordinator.isHydrating(),workers:(await navigator.serviceWorker.getRegistrations()).map(r=>({active:r.active?.state,waiting:r.waiting?.state,installing:r.installing?.state})),cacheKeys:await caches.keys()})));
       throw error;
     }
-    assert.equal(await upgraded.evaluate(()=>JSON.parse(sessionStorage.getItem('ns_chat_draft_v2:upgrade-test')).body),'Preserve this unsent draft');
+    assert.equal(await upgraded.evaluate(()=>sessionStorage.getItem('ns_chat_draft_v2:upgrade-test')),null,'Retired chat drafts are cleared by the current shell');
     await upgraded.waitForFunction(()=>typeof userPreferences!=='undefined');
     assert.equal(await upgraded.evaluate(()=>userPreferences.feedCompact),true);
     await assertSavedNativeChoices(upgraded);

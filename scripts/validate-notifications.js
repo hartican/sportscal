@@ -127,7 +127,7 @@ async function main(){
   assert(html.includes("backfillWebPushReminders") && html.includes('Notification.permission !== "granted"'), "already-permitted installations must backfill future reminders without prompting");
   assert(html.includes("await disablePushInstallation({ preserveSubscription:true })"), "sign-out must detach the current installation before the account session is cleared");
   assert.match(html, /action:"register"[\s\S]{0,700}socialAlertsEnabled:[\s\S]{0,300}chatAlertsEnabled:[\s\S]{0,300}badgesEnabled:/, "push registration must send saved social, chat and badge preferences");
-  assert(html.includes('id="socialAlertsEnabled"')&&html.includes('New followers and bonus points'),"Settings must expose the social and externally earned points alert opt-out");
+  assert(html.includes('id="socialAlertsEnabled"')&&html.includes('New followers and copied follows'),"Settings must expose the social alert opt-out");
   assert(html.includes("Background notifications") && !html.includes("Local reminder—keep Nothing Sport open"), "notification copy must describe background delivery honestly");
   assert(worker.includes("new URL(targetUrl, self.location.origin)"), "notification taps must resolve an origin-safe event URL");
   assert(migration.includes("claimed_at timestamptz") && migration.includes("grant select, insert, update, delete"), "the database update must add claims and retain service-role grants");
@@ -147,8 +147,8 @@ async function main(){
   assert.match(socialMigration,/nothingsports_copy_person_rewards[\s\S]*primary key \(copier_user_id, source_user_id\)/i,"copy bonuses must be permanently unique per copier and source person");
   assert.match(socialMigration,/select distinct copier_id,source_id from public\.nothingsports_pick_rewards/i,"existing per-sport rewards must be backfilled into the person-wide ledger");
   const socialPayload=require(socialAlertsPath).payload;
-  assert.match(socialPayload({id:'follow',kind:'profile_followed',points:1},'Amy').body,/earned 1 point/);
-  assert.match(socialPayload({id:'copy',kind:'follows_copied',points:20,sport:'nrl'},'Jim').body,/sporting follows.+once-off 20 points/);
+  assert.match(socialPayload({id:'follow',kind:'profile_followed',points:1},'Amy').body,/They followed your Nothing Sport profile\./);
+  assert.match(socialPayload({id:'copy',kind:'follows_copied',points:20,sport:'nrl'},'Jim').body,/They copied some of your sporting follows\./);
   const socialCalls=[],socialRows=[],socialPushes=[],socialNotification={id:'social-1',recipient_user_id:'recipient',actor_user_id:'actor',kind:'follows_copied',points:20,sport:'nrl'};
   const socialDispatch=await require(socialAlertsPath).dispatch({
     now:new Date('2026-09-16T00:00:00Z'),
@@ -161,7 +161,7 @@ async function main(){
   });
   assert.deepEqual(socialDispatch,{checked:1,sent:1,failed:0,skipped:0});
   assert.equal(socialPushes[0].title,'Amy copied your follows');
-  assert.match(socialPushes[0].body,/once-off 20 points/);
+  assert.match(socialPushes[0].body,/They copied some of your sporting follows\./);
   assert(socialRows.some(call=>call.table==='nothingsports_push_installations'&&call.params.social_alerts_enabled==='eq.true'),'social delivery must honour the per-installation opt-out');
   assert(!Array.isArray(vercel.crons) || !vercel.crons.some(cron => cron.path === "/api/notification-dispatch"), "cron-job.org must be the sole dispatcher scheduler");
 

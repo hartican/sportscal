@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v612";
-const SHELL_VERSION = "612";
+const CACHE_NAME = "nothingsport-shell-v614";
+const SHELL_VERSION = "614";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -24,7 +24,7 @@ const APP_SHELL = [
   "/assets/identities/sailgp/sailing-white.svg",
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
-  "/assets/js/notifications-inbox.js?v=552",
+  "/assets/js/notifications-inbox.js?v=614",
   "/assets/js/impact-feedback-ui.js?v=552",
   "/assets/js/settings-optional-ui.js?v=612",
   "/assets/js/follow-navigation.js?v=522",
@@ -67,7 +67,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=612",
+  "/assets/js/app-shell-runtime.js?v=614",
   "/assets/js/account-awareness-runtime.js?v=612",
   "/assets/js/follow-schedule-panel.js?v=576",
   "/assets/js/fixture-navigation.js?v=535",
@@ -80,8 +80,8 @@ const APP_SHELL = [
   "/config/tournament-schedule.js?v=452",
   "/assets/js/tennis-schedule-ui.js?v=467",
   "/config/tennis-journeys.js?v=467",
-  "/assets/js/nsc-rankings-ui.js?v=536",
-  "/assets/styles/nsc-ladder.css?v=293",
+  "/assets/js/nsc-rankings-ui.js?v=614",
+  "/assets/styles/yurters.css?v=614",
   "/assets/styles/card-clarity.css?v=536",
   "/config/follow-directory-worker.js?v=512",
   "/config/calendar-selection.js",
@@ -98,7 +98,7 @@ const APP_SHELL = [
   "/config/tennis-coverage.js",
   "/config/sport-hubs.js",
   "/config/optimistic-mutation.js",
-  "/config/preference-reset-ui.js?v=612",
+  "/config/preference-reset-ui.js?v=614",
   "/config/local-preference-recovery.js?v=612",
   "/config/marquee-campaigns.js",
   // Account sync is already in the required runtime; the owner console caches
@@ -535,12 +535,11 @@ self.addEventListener("push", event => {
     renotify:true,
     data:{ url:payload.url || "/", kind:payload.kind || "sport" },
   });
+  if(['chat','invitation','added','points'].includes(payload.kind))return;
   const show=payload.kind==='milestone'
     ? (async()=>{const end=Date.parse(payload.expiresAt||'');if(!Number.isFinite(end)||end<=Date.now()||await milestoneVisible(payload)||end<=Date.now())return;return display();})()
     : display();
-  const badge = payload.kind === "chat" && Number(payload.unreadCount) > 0
-    ? self.navigator?.setAppBadge?.(Number(payload.unreadCount))
-    : null;
+  const badge = null;
   const receipt = payload.kind === "test" && payload.testId
     ? self.clients.matchAll({ type:"window", includeUncontrolled:true }).then(clients => {
         clients.forEach(client => client.postMessage({ type:"nothingsport-notification-received", kind:"test", testId:payload.testId }));

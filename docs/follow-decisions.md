@@ -1,5 +1,13 @@
 # Follow and Feed decisions
 
+## sySTRATEGY — 13 November 2026
+
+Jack approved removing chat/public comments and chat media (including saved files), user points, rewards, prediction competitions, person ranks/efficiency, social hearts and all thumbs/swipe/Fine Tune learning. YURTERS replaces LEADERBOARD: Following first for accounts, Find Yurters for guests, alphabetical name/handle/profile-ID ordering and 25-person pages. Copy follows remains selected, additive and CAS-protected; exclusions and ordinary follows/dismissals stay intact.
+
+Preserve genuine phase ratings/crowd scores, Watching Now/check-ins without awards, personal 5/5 Classics, saved fixtures, sporting results, reminders and optional friend-rating/follow/copy alerts. Decouple these from reward gates and preserve privacy, consent and deduplication. The yearly review uses its selected year's “2026 Classics” style title; eligibility and private review notes/captions remain unchanged.
+
+Retired writers must stop before deletion. Permanent purge of retired DB/Storage data and reward archives occurs only after exact production acceptance, with upload expiry/final-sweep evidence and no recovery archive/export window. Preserve account sync receipts, unrelated preferences, genuine rating history and shared avatar/notification infrastructure. No new scheduler, release-gate bypass or claim of production acceptance is authorised by this source record.
+
 ## Untouched remote prompt history and repeat-sync view preservation — 6 November 2026 Sydney
 
 When an owned pending edit leaves local rating-prompt history exactly unchanged from its original base, the existing conservative planner may retain a fresh remote change only if all three operands have the exact known rating-prompts.v1 producer shape. The existing normalizer is an equality check only: do not adopt defaults, coercion, reordered/deduplicated records or normalized output. Keep the raw fresh remote history; do not merge prompt histories or upload old local history. The two existing session bookkeeping fields, sessionCount and lastSessionId, remain the only non-decision prompt fields; the matching acknowledgement for this retained-history plan must still match the full remote prompt state, including those counters. Changed local history, unknown/malformed shapes and conflicting choices remain held with original local preferences and receipt intact.

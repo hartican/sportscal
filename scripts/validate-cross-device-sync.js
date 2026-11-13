@@ -362,7 +362,7 @@ function validateFollowCollectionDeltas(){
   assert.deepEqual(userStateSync.applyPatch(state([modern]),legacy).preferences.preferenceGraph.entityFollows,[au,sa],'old patch payloads retain their existing compatibility semantics');
   const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
   const browser=vm.createContext({structuredClone});
-  for(const file of ['cricket-coverage','fixture-identity','competition-classification','follow-first','user-state-sync'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../config/'+file+'.js'),'utf8'),browser,{filename:file+'.js'});
+  for(const file of ['retired-feedback','cricket-coverage','fixture-identity','competition-classification','follow-first','user-state-sync'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../config/'+file+'.js'),'utf8'),browser,{filename:file+'.js'});
   const browserSync=browser.NOTHINGSPORTS_USER_STATE_SYNC;
   const browserPatch=browserSync.createPatch(state([au]),state([au,sa]));
   const browserResult=browserSync.applyPatch(state([modern]),browserPatch);
@@ -403,7 +403,7 @@ async function validateAcceptedBootstrapBaseline(){
       document:{getElementById:id=>({value:id==='accountEmail'?target+'@example.invalid':'synthetic',checked:true})},
       addEventListener:(name,fn)=>{if(!listeners.has(name))listeners.set(name,[]);listeners.get(name).push(fn);},dispatchEvent:event=>{for(const fn of listeners.get(event.type)||[])fn(event);},
     };
-    vm.createContext(app);vm.runInContext(fs.readFileSync(path.join(__dirname,'../config/server-sync.js'),'utf8'),app);
+    vm.createContext(app);vm.runInContext(fs.readFileSync(path.join(__dirname,'../config/retired-feedback.js'),'utf8'),app);vm.runInContext(fs.readFileSync(path.join(__dirname,'../config/server-sync.js'),'utf8'),app);
     const token=owner=>'e30.'+Buffer.from(JSON.stringify({sub:owner})).toString('base64url')+'.synthetic';
     const response=(payload,status=200)=>new Response(JSON.stringify(payload),{status,headers:{'Content-Type':'application/json'}});
     const row=value=>({schema_version:value.schemaVersion,preferences:value.preferences,profile:value.profile,event_user_state:value.eventUserState,event_spoiler_state:value.eventSpoilerState,archived_events:value.archivedEvents,ratings:value.ratings,updated_at:value.updatedAt});

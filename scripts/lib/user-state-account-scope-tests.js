@@ -176,7 +176,7 @@ async function indicatorLifetimes(){
 async function indicatorProfileResults(){
  const html=fs.readFileSync(path.join(__dirname,'../../index.html'),'utf8');
  const slice=(from,to)=>html.slice(html.indexOf(from),html.indexOf(to,html.indexOf(from)));
- const source=slice('function acceptNothingscoreViewer(','\nfunction createChatState(')+'\n'+slice('async function refreshNothingscoreViewer(','\nlet nscReturnPosition');
+ const source=require('../app-shell-test-utils').readInlineOwner('acceptNothingscoreViewer',html)+'\n'+slice('async function refreshNothingscoreViewer(','\nlet nscReturnPosition');
  const results=[];
  for(const nextOwner of ['A','B']){
   let release,life={accountId:'A',generation:1,hasSession:true};

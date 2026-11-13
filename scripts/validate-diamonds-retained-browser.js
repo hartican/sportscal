@@ -17,7 +17,7 @@ async function assertDiamondsFeed(page){
   const facts=await page.evaluate(async id=>{
    const next=clonePreferences(userPreferences);next.feedCompact=false;next.selectedSelectorEntityIds=[];next.followedSports=[];next.showSpoilers=false;next.onboardingComplete=true;
    next.preferenceGraph={...next.preferenceGraph,domainPreferences:[],competitionPreferences:[],entityFollows:[{participantId:'team:netball:diamonds',followLevel:'follow'}]};
-   savePreferences(next);acknowledgeSelectorRelease();closeSelectorOptInPrompt({restoreViewport:false});setTunePromptOpen(false);suppressSessionRatingPrompt();
+   savePreferences(next);acknowledgeSelectorRelease();closeSelectorOptInPrompt({restoreViewport:false});if(typeof setTunePromptOpen==='function')setTunePromptOpen(false);suppressSessionRatingPrompt();
    followedScheduleFixtures.delete('sport:netball');await loadFollowedScheduleFixtures();
    const f=activeEvents.find(e=>e.id===id);if(!f)throw Error('Normal Diamonds-only loader did not admit the retained fixture');
    activeTab='feed';activeFilter='all';feedViewFilters.sport='all';renderAll();

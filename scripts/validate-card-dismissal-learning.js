@@ -104,10 +104,8 @@ assert(actionProperties.dismissedAt, "event actions must persist when an exact c
 assert(actionProperties.eventsDismissedAt, "Events dismissal ordering must not overwrite the Feed dismissal timestamp");
 assert.match(html, /function dismissEventCard\(/, "Feed and Events must share one exact-card dismissal path");
 require("./app-shell-test-utils").assertShellModule(html,"config/event-action-identity.js");
-assert.match(html, /direction === "negative" && getEventAction\(ev\)\.dismissed/, "repeat dislikes must be idempotent");
+assert.doesNotMatch(html,/function applyCuratedEventSwipe\(/);
 assert.match(html, /function restoreDismissedEvent\(/, "dismissed cards must have a durable restoration path");
-assert.match(html, /PREFERENCE_SYSTEM\.applyLearningSignal/, "Feed feedback must update the durable learning graph");
-assert.match(html, /PREFERENCE_SYSTEM\?\.softLearningScore/, "card enrichment must consume bounded soft learning");
 assert.match(html, /!getEventAction\(ev\)\.dismissed/, "main Feed filtering must remove dismissed cards");
 assert.match(html, /activeMajorRecords = visible\.events\.filter\(record => !getEventAction\(majorEventActionEvent\(record\)\)\.isDismissed\)/, "Events must isolate its own dismissal marker");
 assert.match(html, /buildDismissedEventStub/, "Events must render dismissed editions as restorable stubs");
@@ -122,7 +120,6 @@ assert.doesNotMatch(
   /document\.querySelectorAll/,
   "dismissal must animate the exact initiating card instead of the first duplicate event card in the document"
 );
-assert.match(swipeHandler, /\{ card = null \}/, "the dismissal handler must receive the exact initiating card");
 // The retired suggestion builder never admitted a suggestion. Exercise the
 // current shared Dismiss control, rather than requiring its unused Like code.
 const controlsStart = html.indexOf('function buildEventCardControls(');
@@ -162,4 +159,4 @@ function verifyDismissControl(source){
 verifyDismissControl(controlsSource);
 assert.throws(()=>verifyDismissControl(controlsSource.replace("event.currentTarget.closest('.event-card') || card",'card')),/initiating card wins/,'the test must reject dismissing a duplicate card');
 
-console.log("Card dismissal valid: exact-card persistence, bounded button learning, Undo and Hidden recovery are wired.");
+console.log("Card dismissal valid: exact-card persistence, retired feedback, Undo and Hidden recovery are wired.");

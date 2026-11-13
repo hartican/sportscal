@@ -246,8 +246,7 @@ jobs:
           node scripts/validate-erasure-audit-snapshots.js
           node scripts/validate-erasure-indirect-memberships.js
           node scripts/validate-profile-avatars.js
-          node scripts/validate-shared-chat-ui.js
-          node scripts/validate-private-fixture-chat.js
+          node scripts/validate-systrategy.js
           node scripts/validate-app-update-version.js
           node scripts/validate-generated-shell-version.js
           node scripts/validate-football-quick-refresh.js
@@ -354,7 +353,6 @@ jobs:
           node scripts/validate-golf-source-observations.js
           node scripts/validate-canonical-source-readout.js
           node scripts/validate-f1-session-results.js
-          node scripts/validate-crowd-foresight.js
           node scripts/build-epic-ui.js --check
           node scripts/validate-epic-classics.js
           node scripts/validate-epic-api.js

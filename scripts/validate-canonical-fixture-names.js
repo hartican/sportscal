@@ -61,12 +61,7 @@ if(published){
   matched+=fixtures.filter(fixture=>known.some(event=>event.id===fixture.id)).length;
  }
  assert(matched>1000,'Both actual public projection surfaces retain the canonical season collection');
- const chat=JSON.parse(fs.readFileSync(path.join(root,'data/chat-fixtures.v1.json'))).fixtures;
- const chatReferences=chat.filter(fixture=>known.some(event=>event.id===fixture.canonicalEventId));
- assert(chatReferences.length>500,'Chat context retains the actual reference collection');
- assert(chatReferences.every(fixture=>fixture.name!=='Fixture details unconfirmed'),'Known fixture chat contexts cannot lose canonical titles');
- assert(chatReferences.every(fixture=>fixture.sourceUrl&&fixture.sourceName&&Number.isFinite(Date.parse(fixture.sourceCheckedAt))),'Derived chat context retains the supplied source reference, publisher and observation');
- console.log(`Published reference titles/provenance: ${matched} Code/Schedule occurrences and ${chatReferences.length} chat contexts checked`);
+ console.log(`Published reference titles/provenance: ${matched} Code/Schedule occurrences checked`);
 }
 console.log(`Canonical fixtures: ${known.length} actual references preserve names, source links/publisher/type/original clocks, identity, explicit overrides, unknown fallback and repeated normalization`);
 

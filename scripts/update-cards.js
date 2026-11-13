@@ -186,6 +186,7 @@ function buildSteps({ localOnly = false } = {}) {
   // Catch a broken card-action contract before paying for a provider pass;
   // retain its existing post-projection check against the generated output.
   ["scripts/validate-card-dismissal-learning.js"],
+  ["scripts/validate-systrategy.js"],
   ["scripts/validate-editorial-projection-identity.js"],
   ["scripts/refresh-pga-schedule.js"],
   ["scripts/refresh-source-coverage.js"],
@@ -271,8 +272,6 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-tennis-journeys.js"],
   ["scripts/validate-canonical-sports.js"],
   ["scripts/validate-gws-aflw-editorial.js"],
-  ["scripts/validate-restored-feed-chat-contract.js"],
-  ["scripts/validate-chat-bulk-receipts.js"],
   ["scripts/validate-card-identities.js"],
   ["scripts/validate-rugby-reviewed-identity.js", "--published"],
   ["scripts/validate-rugby-identity-api.js"],
@@ -485,7 +484,6 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-events-fixture-ux.js"],
   ["scripts/validate-ui-foundation.js"],
   ["scripts/validate-interaction-card-reliability.js"],
-  ["scripts/validate-crowd-foresight.js"],
   ["scripts/validate-quick-results-cadence.js"],
   ["scripts/validate-nothingscore.js"],
   ["scripts/validate-impact-feedback.js"],
@@ -497,7 +495,6 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-nsc-alert-editorial-ui.js"],
   ["scripts/validate-calendar-rework.js"],
   ["scripts/validate-calendar-api.js"],
-  ["scripts/validate-card-chat-viewport-release.js"],
   ["scripts/validate-native-mobile-shell.js"],
   ["scripts/validate-optimistic-actions.js"],
   ["scripts/validate-event-now-follow-affinity.js"],

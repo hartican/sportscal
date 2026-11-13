@@ -36,8 +36,6 @@ for (const [label, mutate] of [
   ['empty sports', p => { p.followedSports = ['football']; }],
   ['follow', p => { p.preferenceGraph.entityFollows[0].followLevel = 'unfollow'; }],
   ['unknown graph field', p => { p.preferenceGraph.futurePolicy = true; }],
-  ['deliberate prompt choice', p => { p.followFirst.refinement.deferred = true; }],
-  ['completed refinement', p => { p.followFirst.refinement.completedAt = 'B'; }],
   ['rating dismissal', p => { p.ratingPromptState.dismissedAt = 'B'; }],
 ]) {
   const remote = clone(metadata); mutate(remote);
@@ -62,7 +60,7 @@ assert.equal(continued.receiptId, pending.receiptId, 'metadata-compatible ACK ne
 assert.equal(continued.preferences.theme, 'night');
 assert.equal(continued.preferences.preferenceGraph.entityFollows[0].followLevel, 'unfollow');
 assert.equal(continued.basePreferences.preferenceGraph.profileId, 'local-B', 'only the owned ACK advances the newer receipt to the acknowledged base');
-console.log('Preference bookkeeping: compatible metadata, exact unfollow ACK, eight real-choice holds and immutable in-flight baseline passed.');
+console.log('Preference bookkeeping: compatible metadata, exact unfollow ACK, six real-choice holds and immutable in-flight baseline passed.');
 
 require('./lib/user-state-device-pointer-tests')().then(()=>require('./lib/user-state-seed-marker-tests')()).then(()=>require('./lib/user-state-receipt-base-tests')()).then(()=>require('./lib/user-state-optional-view-tests')()).then(()=>require('./lib/user-state-collection-hydration-tests')()).then(()=>require('./lib/user-state-events-scope-tests')()).then(()=>require('./lib/user-state-tennis-default-tests')()).then(async()=>console.log(JSON.stringify(await require('./lib/user-state-held-follow-writer-tests').run()))).then(()=>{
  const selection=require('./lib/user-state-selection-writer-tests');selection.diagnosticCase();selection.runCase();console.log(JSON.stringify(selection.runSuite()));console.log(JSON.stringify(selection.currentCoalescerSuite()));
