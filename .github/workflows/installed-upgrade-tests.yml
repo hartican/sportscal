@@ -1543,8 +1543,9 @@ jobs:
             },detached:true,stdio:['ignore','pipe','pipe']});
             const child=owner.child;
             child.once('error',e=>stop('Child error: '+e.message));
-            child.once('exit',(code,signal)=>{owner.exitObserved=true;owner.code=code;owner.signal=signal;});
-            child.once('close',()=>{owner.closeObserved=true;settle();});
+            child.once('exit',(code,signal)=>{owner.exitObserved=true;owner.code=code;owner.signal=signal;try{tracker.recordRootExit(child,code,signal);}catch(e){stop('Root exit evidence failed: '+e.message);}});
+            child.once('close',(code,signal)=>{owner.closeObserved=true;try{tracker.recordRootClose(child,code,signal);}catch(e){stop('Root close evidence failed: '+e.message);}settle();});
+            tracker.bindChild(child);
             for(const stream of ['stdout','stderr']){
              child[stream].on('error',e=>stop('Child stream error: '+e.message));
              child[stream].on('data',b=>{try{workCheck();used+=b.length;if(used>4194304){stop('Focused aggregate output overflow');return;}
@@ -1552,7 +1553,7 @@ jobs:
              }catch(e){stop(e.message);}});
             }
             tracker.setRoot(child.pid);
-            poll=setInterval(()=>{try{workCheck();tracker.observe();if(tracker.holds.length)stop('Owned process observation held');}catch(e){stop(e.message);}},25);
+            poll=setInterval(()=>{try{workCheck();tracker.observe();if(tracker.holds.length&&!tracker.waitingForRootExit)stop('Owned process observation held');}catch(e){stop(e.message);}},25);
             softTimer=setTimeout(()=>stop('Focused child soft deadline'),clock.remaining(softEnd));
             await gate;
            }catch(e){reason=reason||String(e.stack||e).slice(0,4096);}

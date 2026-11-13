@@ -51,7 +51,22 @@ function restoreFocusedOwnership(text){
  for(const e of edits){assert.equal(restored.split(e.after).length-1,1);restored=restored.replace(e.after,()=>e.before);}
  assert.equal(hash(Buffer.from(restored)),a.beforeSha256);return {text:restored,edits:1};
 }
+
+// Exact bound-root visibility workflow amendment above all prior accepted layers.
+const FOCUSED_ROOT_VISIBILITY_AMENDMENT=Object.freeze({"beforeSha256":"cef2bfa7320fb7d0a426dbd19f37307c8e8ad7b3a8e0c678c1ecf8ad1b1dc822","afterSha256":"27fa852a067915ff9b4039a51a53eff606d222fb868a64144ecca82a46d6b3c9","packedBytes":6150,"packedSha256":"8bf102313d966990fe9d511255d0a96e587657a6f9542589870895326b0c44ea","rawBytes":36749,"rawSha256":"97868c894db5b71ac3ad5a6561588bf831f5adfc1c261c1ec6dcbb7358bb8c12","base64":"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"});
+function restoreFocusedRootVisibility(text){
+ const a=FOCUSED_ROOT_VISIBILITY_AMENDMENT;if(hash(Buffer.from(text))!==a.afterSha256)return {text,edits:0};
+ const p=Buffer.from(a.base64,'base64');assert.equal(p.length,a.packedBytes);assert.equal(p.toString('base64'),a.base64);assert.equal(hash(p),a.packedSha256);
+ const raw=require('node:zlib').inflateRawSync(p,{maxOutputLength:a.rawBytes+1});assert.equal(raw.length,a.rawBytes);assert.equal(hash(raw),a.rawSha256);
+ const edits=JSON.parse(raw.toString('utf8'));assert.equal(edits.length,1);let restored=text;
+ for(const edit of edits){assert.equal(restored.split(edit.after).length-1,1);restored=restored.replace(edit.after,()=>edit.before);}
+ assert.equal(hash(Buffer.from(restored)),a.beforeSha256);return {text:restored,edits:1};
+}
 function restoreFocusedGate(text){
+ const visibility=restoreFocusedRootVisibility(text),prior=restoreFocusedGateBeforeRootVisibility(visibility.text);
+ return {text:prior.text,edits:visibility.edits+prior.edits};
+}
+function restoreFocusedGateBeforeRootVisibility(text){
  const ownership=restoreFocusedOwnership(text),prior=restoreFocusedGateBeforeOwnership(ownership.text);
  return {text:prior.text,edits:ownership.edits+prior.edits};
 }
@@ -380,10 +395,12 @@ function normal613FocusedClock(context,entryNs,inheritedEndNs=null){
 }
 function normal613FocusedOwnedProcesses(token,clock,until){
  assert(/^[a-f0-9]{64}$/.test(token),'Private per-child ownership marker');
- const selfPid=process.pid,selfUid=process.getuid(),known=new Map(),groups=new Set(),sessions=new Set(),holds=[];
+ const selfPid=process.pid,selfUid=process.getuid(),known=new Map(),groups=new Set(),sessions=new Set(),holds=[],permanentHolds=new Set();
  const fields=['pid','uid','startTicks','parentPid','pgid','sessionId'];
- let root=null,rootIdentity=null,rootObserved=false,rootAt=null,lastScope=null;
- const note=s=>{if(!holds.includes(s))holds.push(s);};
+ let root=null,rootIdentity=null,rootObserved=false,rootAt=null,lastScope=null,rootExit=null,rootClose=null,rootVisibility=null,boundChild=null,boundPid=null,boundAt=null,rootEventJoinSha256=null;
+ const rootVisibilityHold=()=>'UNOBSERVABLE_OWNED_CANDIDATE '+root+': typed environ permission denial (pending bound root exit/close and domain closure)';
+ const ownedKey=p=>Object.fromEntries(fields.filter(k=>k!=='parentPid').map(k=>[k,p[k]]));
+ const note=s=>{permanentHolds.add(s);if(!holds.includes(s))holds.push(s);};
  const check=()=>clock.remaining(until),same=(a,b)=>!!a&&!!b&&fields.every(k=>a[k]===b[k]);
  const sameOwned=(a,b)=>!!a&&!!b&&fields.filter(k=>k!=='parentPid').every(k=>a[k]===b[k]);
  const core=p=>Object.fromEntries(fields.map(k=>[k,p[k]]));
@@ -416,7 +433,8 @@ function normal613FocusedOwnedProcesses(token,clock,until){
   return {seen,digest:hash(Buffer.from(JSON.stringify([...seen.values()].map(core))))};
  }
  function marked(p){
-  const bytes=bounded('/proc/'+p.pid+'/environ',65536),again=identity(p.pid);
+  let bytes;try{bytes=bounded('/proc/'+p.pid+'/environ',65536);}catch(e){if(e.code==='EACCES'||e.code==='EPERM')e.normal613EnvironmentDenied=true;throw e;}
+  const again=identity(p.pid);
   assert(known.has(p.pid)?sameOwned(p,again):same(p,again),'Process changed during ownership observation');
   return bytes.toString('utf8').split('\0').includes('NS_FOCUSED_OWNER_TOKEN='+token);
  }
@@ -437,9 +455,36 @@ function normal613FocusedOwnedProcesses(token,clock,until){
   const lineage=ancestry(p,seen);
   return {candidate:p.pid===root||known.has(p.pid)||groups.has(p.pgid)||sessions.has(p.sessionId)||lineage.owned,lineage};
  }
+ function rememberRootVisibility(p,error){
+  if(error.normal613EnvironmentDenied!==true||!['EACCES','EPERM'].includes(error.code)||p.pid!==root||!rootObserved||!boundChild||boundPid!==root||!rootEventJoinSha256)return false;
+  const expected=known.get(root);if(!expected||!sameOwned(expected,p))return false;
+  try{
+   check();
+   try{const current=identity(root);if(!sameOwned(expected,current)){note('ROOT_DENIAL_IDENTITY_CHANGED '+root);return false;}}
+   catch(e){if(e.code!=='ENOENT'&&e.code!=='ESRCH'){note('ROOT_DENIAL_METADATA_HOLD '+e.message);return false;}}
+   if(rootVisibility&&rootVisibility.status!=='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE'){note('ROOT_DENIAL_AFTER_RESOLUTION '+root);return false;}
+   const at=clock.nowNs().toString();
+   if(!rootVisibility)rootVisibility={identity:ownedKey(expected),rootEventJoinSha256,status:'PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE',errorCode:error.code,lastErrorCode:error.code,firstDeniedAtNs:at,lastDeniedAtNs:at,readDenials:0,resolution:null};
+   rootVisibility.lastDeniedAtNs=at;rootVisibility.lastErrorCode=error.code;rootVisibility.readDenials++;if(!holds.includes(rootVisibilityHold()))holds.push(rootVisibilityHold());return true;
+  }catch(e){note('ROOT_DENIAL_CHECK_HOLD '+e.message);return false;}
+ }
+ function rootEvent(kind,child,code,signal){
+  try{
+   check();assert(rootObserved&&boundChild&&child===boundChild&&child.pid===boundPid&&boundPid===root&&rootEventJoinSha256,'Bound actual ChildProcess handle and root identity');const pid=boundPid;
+   assert((Number.isSafeInteger(code)&&code>=0&&signal===null)||(code===null&&typeof signal==='string'&&/^SIG[A-Z0-9]+$/.test(signal)),'Actual child exit tuple');
+   assert(sameOwned(known.get(root),rootIdentity),'Root kernel identity unchanged');
+   const at=clock.nowNs().toString(),record={pid,identity:ownedKey(rootIdentity),rootEventJoinSha256,sameChildProcessHandle:true,code,signal,observedAtNs:at};
+   assert(BigInt(at)>=BigInt(rootAt),'Event follows actual root observation');
+   if(kind==='exit'){assert(rootExit===null&&rootClose===null,'One ordered root exit');rootExit=record;}
+   else{assert(kind==='close'&&rootExit&&rootClose===null,'Exit must precede close');assert.equal(code,rootExit.code);assert.equal(signal,rootExit.signal);assert(BigInt(at)>=BigInt(rootExit.observedAtNs),'Ordered root close');rootClose=record;}
+  }catch(e){note('ROOT_EVENT_JOIN_HOLD '+e.message);throw e;}
+ }
+ const waitingForRootExit=()=>!!rootVisibility&&rootVisibility.status==='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE'&&permanentHolds.size===0&&holds.length===1&&holds[0]===rootVisibilityHold();
  function observe(){
   check();if(root===null){note('OWNED_ROOT_NOT_SET');return {active:[],groupMembers:[],sessionMembers:[],closed:false};}
-  const current=metadata(),seen=current.seen,checked=new Set(),active=new Map(),excluded=new Map();
+  const inventoryStartedNs=clock.nowNs().toString(),current=metadata(),seen=current.seen,checked=new Set(),active=new Map(),excluded=new Map();
+  if(rootVisibility?.status==='RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE'&&seen.has(root))note('ROOT_REAPPEARED_AFTER_RESOLUTION '+root);
+  if(rootExit&&rootClose&&seen.has(root))note('ROOT_PRESENT_AFTER_BOUND_EXIT_CLOSE '+root);
   let expanded=true;
   while(expanded){
    expanded=false;
@@ -458,7 +503,7 @@ function normal613FocusedOwnedProcesses(token,clock,until){
     }
     let owned=false;
     try{owned=marked(p);}
-    catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;note('UNOBSERVABLE_OWNED_CANDIDATE '+p.pid+': '+e.message);active.set(p.pid,p);continue;}
+    catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;if(!rememberRootVisibility(p,e))note('UNOBSERVABLE_OWNED_CANDIDATE '+p.pid+': '+e.message);active.set(p.pid,p);continue;}
     if(!owned){
      note((old?'OWNERSHIP_MARKER_LOST ':d.candidate?'UNOWNED_MEMBER_OF_OWNED_DOMAIN ':'POSSIBLY_OWNED_NEW_IDENTITY ')+p.pid);
      active.set(p.pid,p);continue;
@@ -477,9 +522,17 @@ function normal613FocusedOwnedProcesses(token,clock,until){
    if((groups.has(p.pgid)||sessions.has(p.sessionId))&&!known.has(p.pid))note('UNOWNED_MEMBER_OF_OBSERVED_GROUP_OR_SESSION '+p.pid);
   }
   let stableClosureInventory=false;
-  if(rootObserved&&active.size===0&&groupMembers.length===0&&sessionMembers.length===0&&holds.length===0){
-   // A fork/exit while the inventory was read cannot turn a partial scan into closure.
-   const final=metadata();stableClosureInventory=final.digest===current.digest;
+  const emptyDomain=rootObserved&&!seen.has(root)&&active.size===0&&groupMembers.length===0&&sessionMembers.length===0;
+  const pendingCanResolve=waitingForRootExit()&&rootExit!==null&&rootClose!==null&&BigInt(inventoryStartedNs)>=BigInt(rootClose.observedAtNs);
+  if(emptyDomain&&(holds.length===0||pendingCanResolve)){
+   // Unknown metadata still adds a permanent hold; neither time nor PASS output resolves it.
+   const secondInventoryStartedNs=clock.nowNs().toString(),final=metadata(),inventoryCompletedNs=clock.nowNs().toString();stableClosureInventory=final.digest===current.digest;
+   if(stableClosureInventory&&!final.seen.has(root)&&pendingCanResolve&&waitingForRootExit()){
+    const index=holds.indexOf(rootVisibilityHold());assert(index>=0&&holds.length===1);
+    rootVisibility.status='RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE';
+    rootVisibility.resolution={rootAbsent:true,ownedDomainEmpty:true,firstMetadataSha256:current.digest,secondMetadataSha256:final.digest,firstInventoryStartedNs:inventoryStartedNs,secondInventoryStartedNs,inventoryCompletedNs,confirmedAtNs:clock.nowNs().toString()};
+    holds.splice(index,1);
+   }
   }
   lastScope={callerPid:selfPid,callerUid:selfUid,snapshotStartedNs,snapshotCompletedNs,preSpawnIdentityCount:baseline.seen.size,preSpawnMetadataSha256:baseline.digest,
    rootIdentity:rootIdentity?core(rootIdentity):null,rootObservedAtNs:rootAt,lastMetadataSha256:current.digest,
@@ -496,11 +549,14 @@ function normal613FocusedOwnedProcesses(token,clock,until){
     if(current.state==='Z')continue;
     if(!marked(current)){note('SIGNAL_OWNERSHIP_UNCONFIRMED '+p.pid);continue;}
     check();process.kill(current.pid,signal);
-   }catch(e){if(e.code!=='ESRCH'&&e.code!=='ENOENT')note('SIGNAL_UNCONFIRMED '+p.pid+': '+e.message);}
+   }catch(e){if(e.code!=='ESRCH'&&e.code!=='ENOENT'&&!rememberRootVisibility(p,e))note('SIGNAL_UNCONFIRMED '+p.pid+': '+e.message);}
   }
   return observation;
  }
- return {setRoot(pid){
+ return {bindChild(child){
+   check();assert(root===null&&boundChild===null&&child instanceof require('node:child_process').ChildProcess&&Number.isSafeInteger(child.pid)&&child.pid>1&&child.pid!==selfPid,'Actual returned ChildProcess handle before root observation');
+   boundChild=child;boundPid=child.pid;boundAt=clock.nowNs().toString();
+  },setRoot(pid){
    assert(root===null&&Number.isSafeInteger(pid)&&pid>1&&pid!==selfPid,'Calling reporter is not its own owned root');
    root=pid;
    try{
@@ -509,13 +565,15 @@ function normal613FocusedOwnedProcesses(token,clock,until){
     assert(p.uid===selfUid&&p.parentPid===selfPid&&p.pgid===pid&&p.sessionId===pid,'Actual fresh detached child provenance');
     groups.add(p.pgid);sessions.add(p.sessionId);
     assert(marked(p),'Actual fresh child inherited the private marker');known.set(pid,p);rootObserved=true;
+    if(boundChild&&boundPid===pid&&boundChild.pid===pid){assert(BigInt(boundAt)<=BigInt(rootAt),'Handle bound before positive root observation');rootEventJoinSha256=hash(Buffer.from(JSON.stringify({root:ownedKey(p),callerPid:selfPid,rootObservedAtNs:rootAt,preSpawnMetadataSha256:baseline.digest,boundChildPid:boundPid,childHandleBoundAtNs:boundAt})));}
    }catch(e){note('ROOT_PROVENANCE_HOLD '+e.message);}
    observe();if(!rootObserved)note('ROOT_IDENTITY_NOT_OBSERVED '+pid);
-  },observe,signalOwned,note,holds,records:()=>[...known.values()],
+  },observe,signalOwned,note,holds,records:()=>[...known.values()],recordRootExit:(child,code,signal)=>rootEvent('exit',child,code,signal),recordRootClose:(child,code,signal)=>rootEvent('close',child,code,signal),get waitingForRootExit(){return waitingForRootExit();},
   scope(){
    clock.remaining(clock.endNs-1500000000n);
    const value=lastScope||{callerPid:selfPid,snapshotStartedNs,snapshotCompletedNs,preSpawnIdentityCount:baseline.seen.size,preSpawnMetadataSha256:baseline.digest,rootIdentity:null,rootObservedAtNs:null,actualRootAfterSnapshot:false,excludedPreExisting:[],stableClosureInventory:false,unknownOrOwnershipHolds:[...holds]};
-   assert(Buffer.byteLength(JSON.stringify(value))<=524288,'Bounded per-child ownership scope proof');return value;
+   const proof={...value,unknownOrOwnershipHolds:[...holds],permanentOwnershipHolds:[...permanentHolds],childHandleBoundAtNs:boundAt,boundChildPid:boundPid,rootEventJoinSha256,rootVisibility,rootEventProof:{exit:rootExit,close:rootClose}};
+   assert(Buffer.byteLength(JSON.stringify(proof))<=524288,'Bounded per-child ownership scope proof');return proof;
   },get rootObserved(){return rootObserved;}};
 }
 
@@ -1159,6 +1217,19 @@ function normal613Seal(){
   assert.equal(fc.assembledManifestSha256,JSON.parse(normal613Utf8(copiedDocuments.get('execution-receipt.json'))).actualAssembledSourceManifestSha256);
   assert.equal(fr.aggregateEntryNs,fc.aggregateEntryNs);assert.equal(fr.aggregateDeadlineNs,fc.aggregateDeadlineNs);assert(BigInt(fc.aggregateDeadlineNs)>BigInt(fc.aggregateEntryNs)&&BigInt(fc.aggregateDeadlineNs)-BigInt(fc.aggregateEntryNs)<=120000000000n);assert.equal(fr.failure,null);assert.equal(fr.releaseAcceptance,false);assert.equal(fr.realAuthorityFromSyntheticRecords,false);assert.deepEqual(fr.unrun,[]);assert.deepEqual(fr.newScratchRoots,[]);assert.equal(fr.completed.length,8);assert.equal(fc.sources.length,8);
   for(const row of fr.completed){assert.equal(row.status,0);assert.equal(row.reason,null);assert(row.childClosed&&row.topLevelGroupClosed&&row.ownedCleanupObserved&&row.childReportAccepted&&!row.cleanupHold);assert.deepEqual(row.ownershipHolds,[]);assert(Array.isArray(row.ownedProcessIdentities)&&row.ownedProcessIdentities.length>0);assert.deepEqual(row.newScratchRoots,[]);assert(BigInt(row.childSoftDeadlineNs)<BigInt(row.childHardDeadlineNs)&&BigInt(row.childHardDeadlineNs)<=BigInt(fc.aggregateDeadlineNs)-3000000000n);}
+  for(const row of fr.completed)if(row.ownershipScope?.rootVisibility){
+   const s=row.ownershipScope,v=s.rootVisibility,e=s.rootEventProof,p=row.ownedProcessIdentities.find(x=>x.pid===row.childPid);
+   assert(p&&e?.exit&&e.close,'Resolved root visibility requires actual bound exit and close evidence');
+   const key=Object.fromEntries(['pid','uid','startTicks','pgid','sessionId'].map(k=>[k,p[k]]));
+   assert.equal(v.status,'RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE');assert(['EACCES','EPERM'].includes(v.errorCode)&&['EACCES','EPERM'].includes(v.lastErrorCode));assert(Number.isSafeInteger(v.readDenials)&&v.readDenials>0);assert.deepEqual(v.identity,key);
+   assert(Number.isSafeInteger(s.callerPid)&&s.callerPid>0);assert.equal(s.boundChildPid,row.childPid);assert(/^[a-f0-9]{64}$/.test(s.preSpawnMetadataSha256));
+   const join=hash(Buffer.from(JSON.stringify({root:key,callerPid:s.callerPid,rootObservedAtNs:s.rootObservedAtNs,preSpawnMetadataSha256:s.preSpawnMetadataSha256,boundChildPid:s.boundChildPid,childHandleBoundAtNs:s.childHandleBoundAtNs})));
+   assert.equal(s.rootEventJoinSha256,join);assert.equal(v.rootEventJoinSha256,join);
+   for(const event of [e.exit,e.close]){assert.equal(event.pid,row.childPid);assert.deepEqual(event.identity,key);assert.equal(event.rootEventJoinSha256,join);assert.equal(event.sameChildProcessHandle,true);assert.equal(event.code,row.status);assert.equal(event.signal,row.signal);}
+   const r=v.resolution;assert(r?.rootAbsent&&r.ownedDomainEmpty&&s.stableClosureInventory&&s.actualRootAfterSnapshot);assert(/^[a-f0-9]{64}$/.test(r.firstMetadataSha256));assert.equal(r.firstMetadataSha256,r.secondMetadataSha256);assert.deepEqual(s.unknownOrOwnershipHolds,[]);assert.deepEqual(s.permanentOwnershipHolds,[]);
+   const snap=BigInt(s.snapshotStartedNs),snapshotEnd=BigInt(s.snapshotCompletedNs),bound=BigInt(s.childHandleBoundAtNs),observed=BigInt(s.rootObservedAtNs),denied=BigInt(v.firstDeniedAtNs),lastDenied=BigInt(v.lastDeniedAtNs),exited=BigInt(e.exit.observedAtNs),closed=BigInt(e.close.observedAtNs),first=BigInt(r.firstInventoryStartedNs),second=BigInt(r.secondInventoryStartedNs),finished=BigInt(r.inventoryCompletedNs),resolved=BigInt(r.confirmedAtNs);
+   assert(BigInt(fc.aggregateEntryNs)<=snap&&snap<=snapshotEnd&&snapshotEnd<=bound&&bound<=observed&&observed<=denied&&denied<=lastDenied&&lastDenied<=resolved&&observed<=exited&&exited<=closed&&closed<=first&&first<=second&&second<=finished&&finished<=resolved&&resolved<=BigInt(row.childHardDeadlineNs),'Fresh post-event repeated inventory under original deadline');
+  }
  }catch(e){issues.push('Focused control proof failed: '+e.message);}
 
  if(process.env.NS_NORMAL613_JOB_STATUS!=='success')issues.push('Observed job status '+process.env.NS_NORMAL613_JOB_STATUS);
