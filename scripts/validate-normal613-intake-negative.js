@@ -22,7 +22,7 @@ function NSB_BOOT_READ(file,max){
  }finally{NSB_RAW_FS.closeSync(fd);}
 }
 const NSB_TEMP=NSB_RAW_FS.realpathSync(process.env.RUNNER_TEMP),NSB_GUARD_PATH=NSB_PATH.join(__dirname,'validate-forward-onboarding-ci.js');
-const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,193670);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,193670);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'89c1e7aa54707627e4b252477fe3dcef180959fd1f9e1440f31740f5c4018dd6');
+const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,202059);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,202059);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'a10d825b7c6cdd1bb8379456574662694926f8c8a41a85fff75f018b8acc1a8b');
 const NSB_S=require('./validate-forward-onboarding-ci').normal613FocusedControls;
 const NSB_CONTEXT_PATH=NSB_PATH.join(NSB_TEMP,'ns-normal-613-admission','normal613-context.json');
 NSB_ASSERT(NSB_NATIVE_MONO()<NSB_SOFT,'Context bootstrap remains charged');
@@ -76,7 +76,7 @@ async function NSB_RUN(fn,onError){
 // PRIVATE SOURCE PROPOSAL — UNPARSED AND UNRUN. Synthetic negatives only; no provider call.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),crypto=require('node:crypto'),cp=require('node:child_process');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
-const expectedGuard='89c1e7aa54707627e4b252477fe3dcef180959fd1f9e1440f31740f5c4018dd6';
+const expectedGuard='a10d825b7c6cdd1bb8379456574662694926f8c8a41a85fff75f018b8acc1a8b';
 assert.equal(sha(fs.readFileSync(path.join(__dirname,'validate-forward-onboarding-ci.js'))),expectedGuard,'Reviewed R3 plus proposed export seam');
 const {normal613Intake,normal613Main,normal613FocusedControls}=require('./validate-forward-onboarding-ci');
 const expectedReservation='daa00a480a28b0cca1d2f9922c82fc9394a5460b0d45f87c3566e42b58a473d7';

@@ -22,7 +22,7 @@ function NSB_BOOT_READ(file,max){
  }finally{NSB_RAW_FS.closeSync(fd);}
 }
 const NSB_TEMP=NSB_RAW_FS.realpathSync(process.env.RUNNER_TEMP),NSB_GUARD_PATH=NSB_PATH.join(__dirname,'validate-forward-onboarding-ci.js');
-const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,193670);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,193670);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'89c1e7aa54707627e4b252477fe3dcef180959fd1f9e1440f31740f5c4018dd6');
+const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,202059);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,202059);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'a10d825b7c6cdd1bb8379456574662694926f8c8a41a85fff75f018b8acc1a8b');
 const NSB_S=require('./validate-forward-onboarding-ci').normal613FocusedControls;
 const NSB_CONTEXT_PATH=NSB_PATH.join(NSB_TEMP,'ns-normal-613-admission','normal613-context.json');
 NSB_ASSERT(NSB_NATIVE_MONO()<NSB_SOFT,'Context bootstrap remains charged');
@@ -81,7 +81,7 @@ const path=require('node:path');
 const os=require('node:os');
 const crypto=require('node:crypto');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
-assert.equal(sha(fs.readFileSync(path.join(__dirname,'validate-forward-onboarding-ci.js'))),'89c1e7aa54707627e4b252477fe3dcef180959fd1f9e1440f31740f5c4018dd6','Exact reviewed R3 with proposed export-only seam');
+assert.equal(sha(fs.readFileSync(path.join(__dirname,'validate-forward-onboarding-ci.js'))),'a10d825b7c6cdd1bb8379456574662694926f8c8a41a85fff75f018b8acc1a8b','Exact reviewed R3 with proposed export-only seam');
 assert.equal(sha(fs.readFileSync(path.resolve('.github/workflows/installed-upgrade-tests.yml'))),'27fa852a067915ff9b4039a51a53eff606d222fb868a64144ecca82a46d6b3c9','Exact R3 workflow');
 const guard=require('./validate-forward-onboarding-ci');
 const S=guard.normal613FocusedControls;
@@ -130,7 +130,7 @@ function ownershipDomainTests(){
  const token='d'.repeat(64),uid=process.getuid(),self=process.pid,host=self+10001,root=self+10002,child=self+10003,peer=self+10004;
  function fake(fn){
   const methods=['lstatSync','openSync','readSync','closeSync','readdirSync'],saved=Object.fromEntries(methods.map(n=>[n,fs[n]])),oldKill=process.kill;
-  const procs=new Map(),fds=new Map(),signals=[],envReads=[],faults=new Map(),handles=new WeakMap();let nextFd=1000000,listHook=null;
+  const procs=new Map(),fds=new Map(),signals=[],envReads=[],faults=new Map(),handles=new WeakMap();let nextFd=1000000,listHook=null,environmentHook=null;
   const record=(pid,values={})=>({pid,uid,startTicks:String(pid+100),parentPid:1,pgid:pid,sessionId:pid,state:'S',marker:false,...values});
   const gone=()=>{const e=Error('synthetic missing proc');e.code='ENOENT';return e;};
   const statBytes=p=>{const f=Array(40).fill('0');f[0]=p.state;f[1]=String(p.parentPid);f[2]=String(p.pgid);f[3]=String(p.sessionId);f[19]=p.startTicks;return Buffer.from(String(p.pid)+' (synthetic) '+f.join(' ')+'\n');};
@@ -143,7 +143,7 @@ function ownershipDomainTests(){
   fs.readdirSync=file=>{NSB_CHECK();assert.equal(file,'/proc');const names=[...procs.keys()].map(String);if(listHook)listHook();return names;};
   fs.openSync=file=>{
    NSB_CHECK();const m=/^\/proc\/([1-9]\d*)\/(stat|environ)$/.exec(String(file));assert(m,'Mock only proc metadata/environment');const p=procs.get(Number(m[1]));if(!p)throw gone();
-   if(m[2]==='environ'){envReads.push(p.pid);if(p.denyEnvironment){const e=Error('synthetic candidate environment denied');e.code=p.denyEnvironmentCode||'EACCES';throw e;}}
+   if(m[2]==='environ'){envReads.push(p.pid);if(environmentHook)environmentHook(p);if(p.denyEnvironment){const e=Error('synthetic candidate environment denied');e.code=p.denyEnvironmentCode||'EACCES';throw e;}}
    const bytes=m[2]==='stat'?statBytes(p):Buffer.from(p.marker?'NS_FOCUSED_OWNER_TOKEN='+token+'\0':'OTHER=synthetic\0');
    const fd=nextFd++;fds.set(fd,{bytes,offset:0});return fd;
   };
@@ -152,9 +152,22 @@ function ownershipDomainTests(){
   process.kill=(pid,signal)=>{NSB_CHECK();assert(pid>0&&pid!==self,'No bare group or caller signal');signals.push({pid,signal});};
   const make=(clock=NSB_CLOCK)=>S.normal613FocusedOwnedProcesses(token,clock,NSB_SOFT);
   const start=t=>{procs.set(root,record(root,{parentPid:self,pgid:root,sessionId:root,marker:true}));const h=Object.create(require('node:child_process').ChildProcess.prototype);h.pid=root;handles.set(t,h);t.bindChild(h);t.setRoot(root);return t;};
-  try{fn({procs,record,signals,envReads,faults,make,start,handle:t=>handles.get(t),setListHook:fn=>{listHook=fn;}});assert.equal(fds.size,0,'Mock descriptors closed');}
+  try{fn({procs,record,signals,envReads,faults,make,start,handle:t=>handles.get(t),setListHook:fn=>{listHook=fn;},setEnvironmentHook:fn=>{environmentHook=fn;}});assert.equal(fds.size,0,'Mock descriptors closed');}
   finally{for(const n of methods)fs[n]=saved[n];process.kill=oldKill;}
  }
+ function knownCase(fn,code='EACCES',domain={parentPid:root,pgid:root,sessionId:root}){
+  return fake(h=>{
+   const t=h.start(h.make());h.procs.set(child,h.record(child,{...domain,marker:true}));t.observe();
+   assert(t.records().some(p=>p.pid===child),'Previously positive marker is mandatory');
+   h.procs.get(child).denyEnvironment=true;h.procs.get(child).denyEnvironmentCode=code;t.observe();
+   assert(t.waitingForRootExit&&t.holds.length===1&&t.scope().knownVisibility.length===1);
+   fn({...h,t});
+  });
+ }
+ function finishKnown(h){
+  h.procs.delete(root);h.procs.delete(child);h.t.recordRootExit(h.handle(h.t),0,null);h.t.recordRootClose(h.handle(h.t),0,null);
+ }
+ function knownRow(t){return {childPid:root,status:0,signal:null,childHardDeadlineNs:NSB_SOFT.toString(),ownedProcessIdentities:t.records(),ownershipScope:t.scope(),ownershipHolds:[...t.holds]};}
  run('ownership-preexisting-denied-positive-exclusion',()=>fake(({make,start,envReads,signals})=>{
   const t=start(make());assert.equal(t.holds.length,0);assert(!envReads.includes(host));const scope=t.scope();
   assert(scope.actualRootAfterSnapshot);assert(scope.excludedPreExisting.some(p=>p.before.pid===host&&JSON.stringify(p.before)===JSON.stringify(p.observed)));
@@ -317,6 +330,106 @@ function ownershipDomainTests(){
   const t=start(make());procs.get(root).denyEnvironment=true;t.observe();procs.delete(root);t.recordRootExit(handle(t),null,'SIGTERM');t.recordRootClose(handle(t),null,'SIGTERM');
   assert(t.observe().closed);assert.equal(t.scope().rootEventProof.exit.signal,'SIGTERM');
  }));
+ for(const code of ['EACCES','EPERM'])run('known-visibility-positive-'+code,()=>knownCase(h=>{
+  h.t.signalOwned('SIGTERM');assert(!h.signals.some(p=>p.pid===child),'Denied identity is not signal-authorised');
+  const pending=h.t.scope().knownVisibility[0];assert.equal(pending.errorCode,code);assert(pending.positiveProof.positiveMarkerConfirmed);assert.equal(pending.positiveProofSha256,sha(Buffer.from(JSON.stringify(pending.positiveProof))));
+  finishKnown(h);assert(h.t.observe().closed);assert.equal(h.t.holds.length,0);assert.equal(S.normal613ValidateKnownVisibility(knownRow(h.t),NSB_ENTRY.toString()),1);
+ },code));
+ for(const [name,domain]of [
+  ['group-only',{parentPid:1,pgid:root,sessionId:peer}],
+  ['session-only',{parentPid:1,pgid:peer,sessionId:root}]
+ ])run('known-visibility-positive-'+name+'-anchor',()=>knownCase(h=>{
+  const proof=h.t.scope().knownVisibility[0].positiveProof;
+  assert.equal(proof.parentPid,1);assert.equal(proof.anchorIdentity.pid,root);
+  assert(proof.parentPid!==proof.anchorIdentity.pid,'Parent lookup cannot satisfy this positive');
+  if(name==='group-only'){assert.equal(proof.identity.pgid,root);assert.notEqual(proof.identity.sessionId,root);}
+  else{assert.equal(proof.identity.sessionId,root);assert.notEqual(proof.identity.pgid,root);}
+  h.t.signalOwned('SIGTERM');assert(!h.signals.some(p=>p.pid===child));
+  finishKnown(h);assert(h.t.observe().closed);assert.equal(S.normal613ValidateKnownVisibility(knownRow(h.t),NSB_ENTRY.toString()),1);
+ },'EACCES',domain));
+ run('known-visibility-missing-positive-domain-anchor-stays-held',()=>fake(h=>{
+  const t=h.start(h.make());h.procs.set(child,h.record(child,{parentPid:1,pgid:child,sessionId:child,marker:true}));t.observe();
+  assert(t.records().some(p=>p.pid===child),'Positive marker alone is not a saved owned-domain anchor');
+  h.procs.get(child).denyEnvironment=true;t.observe();assert.equal(t.scope().knownVisibility.length,0);assert(t.scope().permanentOwnershipHolds.length);assert(!t.waitingForRootExit);
+  h.procs.delete(root);h.procs.delete(child);t.recordRootExit(h.handle(t),0,null);t.recordRootClose(h.handle(t),0,null);assert.equal(t.observe().closed,false);
+ }));
+ run('known-visibility-unstable-known-anchor-cannot-create-debt',()=>fake(h=>{
+  const t=h.start(h.make());h.procs.set(peer,h.record(peer,{parentPid:root,pgid:peer,sessionId:peer,marker:true}));t.observe();
+  assert(t.records().some(p=>p.pid===peer),'Learn a positively owned nonroot peer anchor first');
+  h.procs.get(peer).startTicks='999999999';h.procs.set(child,h.record(child,{parentPid:peer,pgid:peer,sessionId:peer,marker:true}));t.observe();
+  assert(t.records().some(p=>p.pid===child),'Exercise positive child admission despite unstable peer anchor');
+  h.procs.get(child).denyEnvironment=true;t.observe();assert.equal(t.scope().knownVisibility.length,0,'Unstable peer anchor must not save a positive debt proof');assert(t.scope().permanentOwnershipHolds.some(s=>s.includes('OWNED_IDENTITY_CHANGED')));
+  h.procs.delete(root);h.procs.delete(peer);h.procs.delete(child);t.recordRootExit(h.handle(t),0,null);t.recordRootClose(h.handle(t),0,null);assert.equal(t.observe().closed,false);
+ }));
+ run('known-visibility-root-and-descendant-debts-resolve-together',()=>knownCase(h=>{
+  h.procs.get(root).denyEnvironment=true;h.t.observe();assert(h.t.waitingForRootExit&&h.t.holds.length===2);
+  finishKnown(h);assert(h.t.observe().closed);assert.equal(h.t.scope().rootVisibility.status,'RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE');assert.equal(S.normal613ValidateKnownVisibility(knownRow(h.t),NSB_ENTRY.toString()),1);
+ }));
+ run('known-visibility-no-root-events-remains-held',()=>knownCase(h=>{
+  h.procs.delete(root);h.procs.delete(child);assert.equal(h.t.observe().closed,false);assert(h.t.waitingForRootExit);
+ }));
+ run('known-visibility-exit-without-close-remains-held',()=>knownCase(h=>{
+  h.procs.delete(root);h.procs.delete(child);h.t.recordRootExit(h.handle(h.t),0,null);assert.equal(h.t.observe().closed,false);
+ }));
+ run('known-visibility-present-descendant-remains-held',()=>knownCase(h=>{
+  h.procs.delete(root);h.t.recordRootExit(h.handle(h.t),0,null);h.t.recordRootClose(h.handle(h.t),0,null);assert.equal(h.t.observe().closed,false);
+ }));
+ run('known-visibility-recovered-marker-does-not-authorise-pending-signal',()=>knownCase(h=>{
+  h.procs.get(child).denyEnvironment=false;h.t.signalOwned('SIGTERM');assert(!h.signals.some(p=>p.pid===child));assert.equal(h.t.scope().knownVisibility[0].status,'PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE');
+ }));
+ for(const [field,value]of [['uid',uid+1],['startTicks','999999999'],['pgid',peer],['sessionId',peer]])run('known-visibility-changed-'+field+'-permanent-hold',()=>knownCase(h=>{
+  h.procs.get(child)[field]=value;h.t.observe();assert(h.t.scope().permanentOwnershipHolds.some(s=>s.includes('OWNED_IDENTITY_CHANGED')));
+  finishKnown(h);assert.equal(h.t.observe().closed,false);assert(!h.t.waitingForRootExit);
+ }));
+ run('known-visibility-fresh-post-denial-identity-required',()=>fake(h=>{
+  const t=h.start(h.make());h.procs.set(child,h.record(child,{parentPid:root,pgid:root,sessionId:root,marker:true}));t.observe();h.procs.get(child).denyEnvironment=true;
+  let changed=false;h.setEnvironmentHook(p=>{if(p.pid===child&&!changed){changed=true;p.startTicks='999999999';}});
+  t.observe();assert(t.scope().permanentOwnershipHolds.some(s=>s.includes('KNOWN_DENIAL_IDENTITY_CHANGED')));assert.equal(t.scope().knownVisibility.length,0);
+ }));
+ run('known-visibility-other-environment-error-permanent-hold',()=>fake(h=>{
+  const t=h.start(h.make());h.procs.set(child,h.record(child,{parentPid:root,pgid:root,sessionId:root,marker:true}));t.observe();h.procs.get(child).denyEnvironment=true;h.procs.get(child).denyEnvironmentCode='EIO';
+  t.observe();assert(t.scope().permanentOwnershipHolds.length);assert.equal(t.scope().knownVisibility.length,0);
+ }));
+ run('known-visibility-unknown-kernel-metadata-remains-held',()=>knownCase(h=>{
+  const e=Error('synthetic metadata denied');e.code='EACCES';h.faults.set(host,e);finishKnown(h);assert.equal(h.t.observe().closed,false);h.faults.delete(host);assert.equal(h.t.observe().closed,false);
+ }));
+ run('known-visibility-permanent-hold-cannot-be-relabelled',()=>knownCase(h=>{
+  h.t.note(h.t.holds[0]);finishKnown(h);assert.equal(h.t.observe().closed,false);assert(h.t.scope().permanentOwnershipHolds.length);
+ }));
+ run('known-visibility-changing-second-inventory-cannot-resolve',()=>knownCase(h=>{
+  finishKnown(h);let lists=0;h.setListHook(()=>{lists++;if(lists===1)h.procs.set(peer,h.record(peer));});
+  assert.equal(h.t.observe().closed,false);assert(lists>=2,'Two actual synthetic proc inventories attempted');assert.equal(h.t.scope().knownVisibility[0].status,'PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE');
+ }));
+ run('known-visibility-post-resolution-reappearance-is-permanent',()=>knownCase(h=>{
+  finishKnown(h);assert(h.t.observe().closed);h.procs.set(child,h.record(child,{parentPid:1,pgid:root,sessionId:root,marker:true}));
+  assert.equal(h.t.observe().closed,false);assert(h.t.scope().permanentOwnershipHolds.some(s=>s.includes('KNOWN_REAPPEARED_AFTER_RESOLUTION')));
+ }));
+ run('known-visibility-original-clock-exhaustion-never-resolves',()=>fake(h=>{
+  let expired=false;const boundedClock={...NSB_CLOCK,remaining:(...args)=>{NSB_CHECK();if(expired)throw Error('SYNTHETIC_ORIGINAL_EXHAUSTED');return NSB_CLOCK.remaining(...args);}};
+  const t=h.start(h.make(boundedClock));h.procs.set(child,h.record(child,{parentPid:root,pgid:root,sessionId:root,marker:true}));t.observe();h.procs.get(child).denyEnvironment=true;t.observe();h.procs.delete(root);h.procs.delete(child);t.recordRootExit(h.handle(t),0,null);t.recordRootClose(h.handle(t),0,null);expired=true;
+  assert.throws(()=>t.observe(),/SYNTHETIC_ORIGINAL_EXHAUSTED/);
+ }));
+ run('known-visibility-final-receipt-rejects-tampered-or-missing-proof',()=>knownCase(h=>{
+  finishKnown(h);assert(h.t.observe().closed);const valid=knownRow(h.t);assert.equal(S.normal613ValidateKnownVisibility(valid,NSB_ENTRY.toString()),1);
+  const mutations=[
+   ['missing-array',row=>{delete row.ownershipScope.knownVisibility;}],
+   ['missing-positive-proof',row=>{delete row.ownershipScope.knownVisibility[0].positiveProof;}],
+   ['false-marker-even-with-new-hash',row=>{const v=row.ownershipScope.knownVisibility[0];v.positiveProof.positiveMarkerConfirmed=false;v.positiveProofSha256=sha(Buffer.from(JSON.stringify(v.positiveProof)));}],
+   ['wrong-birth',row=>{row.ownershipScope.knownVisibility[0].identity.startTicks='999999999';}],
+   ['wrong-root-join',row=>{row.ownershipScope.knownVisibility[0].rootEventJoinSha256='f'.repeat(64);}],
+   ['missing-close',row=>{delete row.ownershipScope.rootEventProof.close;}],
+   ['wrong-handle',row=>{row.ownershipScope.rootEventProof.close.sameChildProcessHandle=false;}],
+   ['pending-debt',row=>{row.ownershipScope.knownVisibility[0].status='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE';}],
+   ['no-denied-absence',row=>{row.ownershipScope.knownVisibility[0].resolution.deniedIdentityAbsent=false;}],
+   ['unstable-inventories',row=>{row.ownershipScope.knownVisibility[0].resolution.secondMetadataSha256='f'.repeat(64);}],
+   ['before-root-close',row=>{row.ownershipScope.knownVisibility[0].resolution.firstInventoryStartedNs=(BigInt(row.ownershipScope.rootEventProof.close.observedAtNs)-1n).toString();}],
+   ['denial-and-identity-check-after-empty-scans',row=>{const v=row.ownershipScope.knownVisibility[0];v.lastDeniedAtNs=v.resolution.inventoryCompletedNs;v.lastIdentityCheckedAtNs=v.resolution.inventoryCompletedNs;}],
+   ['only-one-inventory',row=>{const r=row.ownershipScope.knownVisibility[0].resolution;r.secondInventoryStartedNs=r.firstInventoryStartedNs;}],
+   ['after-original-deadline',row=>{row.ownershipScope.knownVisibility[0].resolution.confirmedAtNs=(BigInt(row.childHardDeadlineNs)+1n).toString();}],
+   ['other-permanent-hold',row=>{row.ownershipScope.permanentOwnershipHolds=['SYNTHETIC_UNKNOWN'];}]
+  ];
+  for(const [name,mutate]of mutations){const row=JSON.parse(JSON.stringify(valid));mutate(row);assert.throws(()=>S.normal613ValidateKnownVisibility(row,NSB_ENTRY.toString()),undefined,name);}
+ }));
  run('ownership-unchanged-preexisting-other-uid-needs-no-environment',()=>fake(({make,start,procs,envReads})=>{
   procs.get(host).uid=uid+1;const t=start(make());assert.equal(t.holds.length,0);assert(!envReads.includes(host));
  }));
@@ -326,6 +439,6 @@ function main(){NSB_CHECK();
  assert.equal(process.platform,'linux');assert.equal(process.arch,'x64');assert.equal(process.version,'v24.21.0');assert.equal(process.env.NS_FOCUSED_CLOUD_ONLY,'1','Explicit test-lane marker; never real authority');
  assert(process.env.RUNNER_TEMP,'Owned RUNNER_TEMP required');const parent=fs.realpathSync(process.env.RUNNER_TEMP),root=fs.mkdtempSync(path.join(parent,'ns-normal613-focused-'));fs.chmodSync(root,0o700);let cleanup=false;
  try{runStaticInputBindings();clockTests();proofTests(root);dataTests();ownershipDomainTests();}finally{fs.rmSync(root,{recursive:true,force:false});cleanup=!fs.existsSync(root);assert(cleanup,'Owned focused test root not removed');}
- console.log(JSON.stringify({schemaVersion:'normal613-focused-helper-controls.v1',status:'PASS_FOCUSED_HELPER_SUBSET_ONLY',cases:rows,syntheticOwnershipDomainCases:20,syntheticRootVisibilityCases:23,newOwnershipKernelObservations:0,ownedRootClosed:cleanup,realAuthority:false,networkRequests:0,productReleaseAcceptance:false,notCovered:['actual intake Git/request timing','revalidation entry','engine entry','owned command closure','full seal','51-arm','four paired','Chromium','WebKit']}));
+ console.log(JSON.stringify({schemaVersion:'normal613-focused-helper-controls.v1',status:'PASS_FOCUSED_HELPER_SUBSET_ONLY',cases:rows,syntheticOwnershipDomainCases:20,syntheticRootVisibilityCases:23,syntheticKnownVisibilityCases:rows.filter(row=>row.name.startsWith("known-visibility-")).length,newOwnershipKernelObservations:0,ownedRootClosed:cleanup,realAuthority:false,networkRequests:0,productReleaseAcceptance:false,notCovered:['actual intake Git/request timing','revalidation entry','engine entry','owned command closure','full seal','51-arm','four paired','Chromium','WebKit']}));
 }
 NSB_RUN(main,e=>{console.error(JSON.stringify({schemaVersion:'normal613-focused-helper-controls.v1',status:'FAIL_OR_UNKNOWN',cases:rows,error:String(e.stack||e).slice(0,4096),productReleaseAcceptance:false}));process.exitCode=1;});
