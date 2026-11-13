@@ -258,9 +258,9 @@ const NORMAL613_CALLER_POLICY=Object.freeze({
  relayUserId:269614001,relayLoginInformational:'hartican',
  owners:{RELEASE:'01a16141-8d23-7a02-bb05-51e2197a1119',PUBLISH:'01a0d5ba-943d-74e0-af7f-dab4fb2bdda4'},
  provenance:{nativePublishTurn:'01a1d264-6d9c-7962-8472-f30a93faadbd',historicalActorSha256:'4d853a24a60d2a2ec230aab522d8f36a82bb6804b061acba7bec0cafd90649d7',historicalActorIssuedAt:'2026-11-07T22:43:16.000Z',currentTokenValidity:'NOT_OBSERVED'},
- base:'9f20813c9855e30d4ca32e721862f739b6d696ba',product:'491d0ebcb2210b29a1ae6164c0c4deef1b04f2ec',productTree:'b69736ee739e7b31eebe58108c14889a333a756c',
- qualifier:{path:'scripts/validate-sync-current-forward.js',bytes:101617,sha256:'a54983351de787e957658f92efedf1e10b470cbb06af252070eb1661228a970f',gitBlob:'dece0f0ecffeb0435f7970bab922a0a37b2f10b9',mode:'100644'},
- fixture:{path:'scripts/fixtures/sync-normal-613-20261112.json',bytes:53227,sha256:'744ddb4c83e97810bdd9f6778de0f50a5033695f24739d642c9179822c58a5d2',gitBlob:'4901efd92c8b1d8ef255a06629b8c8bcc5038780',mode:'100644'},
+ base:'2e92211c700c40b2b508fc636a002868c61a7579',product:'491d0ebcb2210b29a1ae6164c0c4deef1b04f2ec',productTree:'b69736ee739e7b31eebe58108c14889a333a756c',
+ qualifier:{path:'scripts/validate-sync-current-forward.js',bytes:101617,sha256:'0669dc2014477c900a68ea97bcbef48c3634ecf7e13f7f8f2f8978800da41d25',gitBlob:'69355a239ab62deb17854e1d2eb2ab22b60e9293',mode:'100644'},
+ fixture:{path:'scripts/fixtures/sync-normal-613-20261112.json',bytes:53227,sha256:'d534f749ba9b62182fd54203b6a90098e0ba9ef38a29d9e7e61a1c817476a582',gitBlob:'19a2a26e893efecc734e57e2e191689214f1830d',mode:'100644'},
  reservationId:'ns-app-version-613-sportsyurt-20261112',reservationSha256:'daa00a480a28b0cca1d2f9922c82fc9394a5460b0d45f87c3566e42b58a473d7',
  limits:{record:65536,event:4194304,pages:10,comments:1000,requests:32,response:2097152,network:16777216,intakeMs:30000,requestMs:5000,jobMs:900000,metadata:16777216,members:256,artifact:67108864,commandOutput:4194304},
  transportLimit:'Application-consumed bytes/deadlines; not a claim about transport internals or atomic replay prevention.'
@@ -943,7 +943,7 @@ async function normal613Admission(){
  const {binding,rawBinding,bodySha256}=parseHandover(Buffer.from(event.pull_request.body,'utf8'));
  const H=digestHex(event.pull_request.head.sha,40,'Event H'),B=digestHex(event.pull_request.base.sha,40,'Event B'),T=digestHex(process.env.GITHUB_SHA,40,'Event T');
  const observed={headSha:H,baseSha:B,testedMergeSha:T,checkoutSha:git('rev-parse','HEAD'),parents:git('show','-s','--format=%P',T).split(' '),headTree:git('rev-parse',H+'^{tree}'),testedTree:git('rev-parse',T+'^{tree}')};
- validateEventJoin(event,process.env,observed,binding);assert.equal(B,'9f20813c9855e30d4ca32e721862f739b6d696ba','Reviewed normal613 predecessor');cleanCheckout();
+ validateEventJoin(event,process.env,observed,binding);assert.equal(B,'2e92211c700c40b2b508fc636a002868c61a7579','Reviewed normal613 predecessor');cleanCheckout();
  const entryBytes=processOutput('git',['ls-tree','-rz','--full-tree',H]),entries=parseGitEntries(entryBytes);
  assert.equal(entries.length,binding.expectedAssembledEntryCount,'Reviewed full source count');
  setReadPhase('projection-policy');
@@ -957,7 +957,7 @@ async function normal613Admission(){
  const rows=initialSource.rows,expectedProjection=initialSource.projected,byPath=new Map(rows.map(r=>[r.path,r]));
  const assembled=assembledBytes(H,observed.headTree,binding.reviewedFinalMapSha256,rows);assert(assembled.length<=E610_LIMITS.manifest,'Assembled byte bound');
  assert.equal(hash(assembled),binding.expectedAssembledManifestSha256,'Publisher expected complete raw source manifest');
- const changed=utf8Text(processOutput('git',['diff','--no-renames','--name-only','-z','9f20813c9855e30d4ca32e721862f739b6d696ba',H])).split('\0').filter(Boolean);
+ const changed=utf8Text(processOutput('git',['diff','--no-renames','--name-only','-z','2e92211c700c40b2b508fc636a002868c61a7579',H])).split('\0').filter(Boolean);
  assert.equal(changed.length,binding.expectedBaseRelativePathCount,'Reviewed normal613-base-relative path count');
  const qualifier=byPath.get('scripts/validate-sync-current-forward.js'),fixture=byPath.get('scripts/fixtures/sync-normal-613-20261112.json');
  assert(qualifier&&fixture&&qualifier.mode==='100644'&&fixture.mode==='100644','Reviewed regular qualifier and fixture');
@@ -999,13 +999,14 @@ async function normal613Admission(){
  setReadPhase('metadata-writeback');
  const assembledFile=save('assembled-source-manifest.json',assembled),proofFile=save('dependencies.json',jsonBytes(proof));
  const reservationFile=save('reservation-receipt.json',reservationBytes,E610_LIMITS.receipt),freshFile=save('fresh-main-reservation-binding.json',freshBytes,E610_LIMITS.receipt);
- assert.equal(byPath.get('scripts/materialize-git-tree.js').sha256,'f7b3a8d7867dc9af5df217a02d80b3135b542ef498937c67044cc7f7d0001373');
+ assert.equal(byPath.get('scripts/materialize-git-tree.js').sha256,'0757edcce5a3d1d54f0a56f457884a6565629a5741c592f80012683d7498f7f0');
  assert.equal(byPath.get('config/deployment-manifest.json').sha256,'78f7a1c46accaf56fb83ec1f4d8f5ecf98621a620807658c805870191297b103');
  setReadPhase('projection-source');
  // Expected bytes were prepared during the complete initial source proof; no second parent source pass.
  const snapshot=path.join(admission,'deployment-snapshot');
  setReadPhase('child-reservation');
- const childReadReservation=2*expectedProjection.reduce((n,e)=>n+e.row.sourceBytes*(e.row.path.endsWith('.js')?2:1),0);
+ // Each unique projected source is read once; keep both working-byte and Git-fallback allowance.
+ const childReadReservation=2*expectedProjection.reduce((n,e)=>n+e.row.sourceBytes,0);
  charge(childReadReservation,null,true);
  processOutput(process.execPath,['scripts/materialize-git-tree.js',H,snapshot,'--deployment'],65536,E610_LIMITS.materializerMs);
  setReadPhase('projection-output');
