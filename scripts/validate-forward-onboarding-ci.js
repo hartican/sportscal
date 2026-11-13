@@ -999,13 +999,14 @@ async function normal613Admission(){
  setReadPhase('metadata-writeback');
  const assembledFile=save('assembled-source-manifest.json',assembled),proofFile=save('dependencies.json',jsonBytes(proof));
  const reservationFile=save('reservation-receipt.json',reservationBytes,E610_LIMITS.receipt),freshFile=save('fresh-main-reservation-binding.json',freshBytes,E610_LIMITS.receipt);
- assert.equal(byPath.get('scripts/materialize-git-tree.js').sha256,'f7b3a8d7867dc9af5df217a02d80b3135b542ef498937c67044cc7f7d0001373');
+ assert.equal(byPath.get('scripts/materialize-git-tree.js').sha256,'0757edcce5a3d1d54f0a56f457884a6565629a5741c592f80012683d7498f7f0');
  assert.equal(byPath.get('config/deployment-manifest.json').sha256,'78f7a1c46accaf56fb83ec1f4d8f5ecf98621a620807658c805870191297b103');
  setReadPhase('projection-source');
  // Expected bytes were prepared during the complete initial source proof; no second parent source pass.
  const snapshot=path.join(admission,'deployment-snapshot');
  setReadPhase('child-reservation');
- const childReadReservation=2*expectedProjection.reduce((n,e)=>n+e.row.sourceBytes*(e.row.path.endsWith('.js')?2:1),0);
+ // Each unique projected source is read once; keep both working-byte and Git-fallback allowance.
+ const childReadReservation=2*expectedProjection.reduce((n,e)=>n+e.row.sourceBytes,0);
  charge(childReadReservation,null,true);
  processOutput(process.execPath,['scripts/materialize-git-tree.js',H,snapshot,'--deployment'],65536,E610_LIMITS.materializerMs);
  setReadPhase('projection-output');

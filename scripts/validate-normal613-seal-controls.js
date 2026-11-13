@@ -22,7 +22,7 @@ function NSB_BOOT_READ(file,max){
  }finally{NSB_RAW_FS.closeSync(fd);}
 }
 const NSB_TEMP=NSB_RAW_FS.realpathSync(process.env.RUNNER_TEMP),NSB_GUARD_PATH=NSB_PATH.join(__dirname,'validate-forward-onboarding-ci.js');
-const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,193605);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,193605);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'75cedd0c1698aa69005279c1226ad6225665a88af07e510d21271131d256ab39');
+const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,193670);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,193670);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'89c1e7aa54707627e4b252477fe3dcef180959fd1f9e1440f31740f5c4018dd6');
 const NSB_S=require('./validate-forward-onboarding-ci').normal613FocusedControls;
 const NSB_CONTEXT_PATH=NSB_PATH.join(NSB_TEMP,'ns-normal-613-admission','normal613-context.json');
 NSB_ASSERT(NSB_NATIVE_MONO()<NSB_SOFT,'Context bootstrap remains charged');
@@ -75,7 +75,7 @@ async function NSB_RUN(fn,onError){
 
 // SOURCE PROPOSAL ONLY: synthetic proof inventory; no real admission or release authority.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const sha=b=>crypto.createHash('sha256').update(b).digest('hex');const guard=path.join(__dirname,'validate-forward-onboarding-ci.js');assert.equal(sha(fs.readFileSync(guard)),'75cedd0c1698aa69005279c1226ad6225665a88af07e510d21271131d256ab39');
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');const guard=path.join(__dirname,'validate-forward-onboarding-ci.js');assert.equal(sha(fs.readFileSync(guard)),'89c1e7aa54707627e4b252477fe3dcef180959fd1f9e1440f31740f5c4018dd6');
 const {normal613Main,normal613FocusedControls:S}=require('./validate-forward-onboarding-ci');const canon=x=>Buffer.from(JSON.stringify(x)+'\n'),results=[];
 const names=['assembled-source-manifest.json','dependencies.json','reservation-receipt.json','fresh-main-reservation-binding.json','execution-receipt.json','normal613-intent.json','normal613-ack.json','normal613-context.json','normal613-fresh.json','normal613-reservation.json','normal613-approval-witness.json','normal613-readback-before-admission.json','normal613-readback-before-qualification.json','normal613-admitted-engine-context.json','deployment-source-manifest.json','normal613-receipt-member-map.json'];
 function put(dir,name,value){fs.writeFileSync(path.join(dir,name),Buffer.isBuffer(value)?value:canon(value),{mode:0o600,flag:'wx'});}

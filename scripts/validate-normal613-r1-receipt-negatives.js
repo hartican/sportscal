@@ -22,7 +22,7 @@ function NSB_BOOT_READ(file,max){
  }finally{NSB_RAW_FS.closeSync(fd);}
 }
 const NSB_TEMP=NSB_RAW_FS.realpathSync(process.env.RUNNER_TEMP),NSB_GUARD_PATH=NSB_PATH.join(__dirname,'validate-forward-onboarding-ci.js');
-const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,193605);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,193605);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'75cedd0c1698aa69005279c1226ad6225665a88af07e510d21271131d256ab39');
+const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,193670);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,193670);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'89c1e7aa54707627e4b252477fe3dcef180959fd1f9e1440f31740f5c4018dd6');
 const NSB_S=require('./validate-forward-onboarding-ci').normal613FocusedControls;
 const NSB_CONTEXT_PATH=NSB_PATH.join(NSB_TEMP,'ns-normal-613-admission','normal613-context.json');
 NSB_ASSERT(NSB_NATIVE_MONO()<NSB_SOFT,'Context bootstrap remains charged');
