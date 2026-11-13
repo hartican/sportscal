@@ -195,6 +195,93 @@ assert(!display.needsDisplayCopy(completedFixture,now));assert(!display.displayC
   const researchFailure={...diagnostic,reportMode:'research',listDiagnostic:null};
   assert.throws(()=>helper.validatePrivatePayload({...returned,failure:researchFailure,casReport:{sourceRevision:actualRevision,operations:[]}},expectedBinding));
  }
+
+ // Real helper return-composition functions with synthetic I/O, not a second crypto run.
+ {
+  const expectedRevision='d'.repeat(64),flags={listParsed:true,selectedCount:2,sourceRevisionMatches:true,horizonMatches:true};
+  const base={casReport:{sourceRevision:expectedRevision,operations:[]},casSql:'',selection:[],shellIdentity:{before:null,after:null}};
+  const digest='c'.repeat(64),seen=()=>({afterKind:'regular',afterBytes:7,afterSha256:digest,hashStatus:'verified',hashBudgetChargedBytes:7});
+  const run=(raw,{primary=null,observe=seen,sourceResult=null,casFailure=false}={})=>{
+   let statusReads=0,sourceCalls=0,casCalls=0;
+   const context=helper.captureContext(()=>{statusReads++;return raw;});
+   const payload=helper.composeReviewReturn(base,{primary,flags,context,report:null,mode:'research',observe,
+    captureSource:()=>{sourceCalls++;for(const [index,row] of helper.captureRows(context).entries())helper.strictSourceEntry(row,index);
+     return sourceResult||{sourcePatch:'synthetic allowed patch',newFiles:[],sourceChanges:[]};},
+    captureCAS:()=>{casCalls++;if(casFailure)throw Error('PRIVATE_CAS_SENTINEL');return 'synthetic allowed SQL';}});
+   return {payload,context,statusReads,sourceCalls,casCalls};
+  };
+  const rejected=run(' M data/chat-fixtures.v1.json\0');
+  assert.equal(rejected.sourceCalls,1);assert.equal(rejected.casCalls,0);assert.equal(rejected.statusReads,1);
+  assert.equal(rejected.payload.failure.stage,'capture-source');
+  const detail=rejected.payload.failure.returnCapture;
+  assert.equal(detail.phase,'capture-source');assert.equal(detail.failureCode,'strict-source-rejection');
+  assert.equal(detail.sourceDisposition,'omitted-on-capture-failure');assert.equal(detail.casDisposition,'omitted-on-capture-failure');
+  assert.equal(detail.statusReadComplete,true);assert.equal(detail.totalChangedCount,1);assert.equal(detail.returnedEntryCount,1);
+  assert.equal(detail.entries[0].path,'data/chat-fixtures.v1.json');assert.equal(detail.entries[0].status,' M');
+  assert.equal(detail.entries[0].afterSha256,digest);assert.equal(detail.entries[0].hashStatus,'verified');
+  assert.equal(rejected.payload.sourcePatch,'');assert.deepEqual(rejected.payload.newFiles,[]);assert.deepEqual(rejected.payload.sourceChanges,[]);
+  assert.deepEqual(rejected.payload.casReport,{sourceRevision:expectedRevision,operations:[]});assert.equal(rejected.payload.casSql,'');
+  const failedBinding={sourceRevision:expectedRevision,outcome:'failed-review-required',stage:'capture-source'};
+  helper.validatePrivatePayload(rejected.payload,failedBinding);
+  for(const change of [{sourcePatch:'forbidden patch'},{newFiles:[{path:'data/events.json',bodyBase64:'e30='}]},
+   {sourceChanges:[{}]},{casSql:'forbidden SQL'},{casReport:{sourceRevision:expectedRevision,operations:[{}]}}])
+   assert.throws(()=>helper.validatePrivatePayload({...rejected.payload,...change},failedBinding));
+  assert.throws(()=>helper.validatePrivatePayload(rejected.payload,{...failedBinding,outcome:'prepared-review-required'}));
+  const primary=helper.privateFailure(Error('PRIVATE_SHELL_SENTINEL'),'verify-shell-after','preparation-failure',flags);
+  const earlier=run(' M data/chat-fixtures.v1.json\0',{primary});
+  assert.equal(earlier.payload.failure.stage,'verify-shell-after');assert.equal(earlier.payload.failure.substage,'preparation-failure');
+  assert.equal(earlier.payload.failure.returnCapture.phase,'capture-source');
+  assert(!JSON.stringify(earlier.payload).includes('PRIVATE_SHELL_SENTINEL'));
+  helper.validatePrivatePayload(earlier.payload,{...failedBinding,stage:'verify-shell-after'});
+  const normal=run(' M data/events.json\0');
+  assert.equal(normal.sourceCalls,1);assert.equal(normal.casCalls,1);assert.equal(normal.statusReads,1);
+  assert.equal(normal.payload.failure,null);assert.equal(normal.payload.sourcePatch,'synthetic allowed patch');assert.equal(normal.payload.casSql,'synthetic allowed SQL');
+  const casRejected=run(' M data/events.json\0',{casFailure:true});
+  assert.equal(casRejected.sourceCalls,1);assert.equal(casRejected.casCalls,1);assert.equal(casRejected.statusReads,1);
+  assert.equal(casRejected.payload.failure.stage,'capture-cas');assert.equal(casRejected.payload.casSql,'');assert.equal(casRejected.payload.sourcePatch,'');
+  assert(!JSON.stringify(casRejected.payload).includes('PRIVATE_CAS_SENTINEL'));
+  const deletion=run(' D data/feed/page-001.json\0',{observe:()=>({afterKind:'absent',afterBytes:null,afterSha256:null,hashStatus:'deleted',hashBudgetChargedBytes:0})});
+  assert.equal(deletion.payload.failure.returnCapture.entries[0].hashStatus,'deleted');
+  assert.equal(deletion.payload.failure.returnCapture.entries[0].afterSha256,null,'deletion is not the hash of empty bytes');
+  assert.equal(deletion.casCalls,0,'deletions remain forbidden for publication');
+  const renamed=run('R  data/events.json\0data/old-events.json\0');
+  assert.equal(renamed.payload.failure.returnCapture.entries[0].originalPath,'data/old-events.json');
+  assert.equal(renamed.payload.failure.returnCapture.entries[0].path,'data/events.json');assert.equal(renamed.casCalls,0);
+  const unknown=run(' M data/chat-fixtures.v1.json');
+  assert.equal(unknown.payload.failure.returnCapture.statusReadComplete,false);
+  assert.equal(unknown.payload.failure.returnCapture.totalChangedCount,null);assert.equal(unknown.payload.failure.returnCapture.truncated,true);
+  const limited=run(Array.from({length:129},(_,index)=>' M data/feed/page-'+index+'.json\0').join(''));
+  assert.equal(limited.statusReads,1);assert.equal(limited.payload.failure.returnCapture.returnedEntryCount,128);
+  assert.equal(limited.payload.failure.returnCapture.totalChangedCount,null);assert.equal(limited.payload.failure.returnCapture.truncated,true);
+  const readFailed=run(' M data/chat-fixtures.v1.json\0',{observe:()=>{throw Error('PRIVATE_READ_SENTINEL');}});
+  assert.equal(readFailed.payload.failure.returnCapture.statusReadComplete,true);
+  assert.equal(readFailed.payload.failure.returnCapture.totalChangedCount,1);
+  assert.equal(readFailed.payload.failure.returnCapture.entries[0].hashStatus,'read-failed');
+  assert.equal(readFailed.payload.failure.returnCapture.hashBudgetChargedBytes,32*1024*1024,'an unknown hash failure conservatively exhausts the additional read budget');
+  const exceeded=run(' M data/chat-fixtures.v1.json\0',{observe:()=>({afterKind:'regular',afterBytes:32*1024*1024+1,afterSha256:null,hashStatus:'budget-exceeded',hashBudgetChargedBytes:0})});
+  assert.equal(exceeded.payload.failure.returnCapture.entries[0].hashStatus,'budget-exceeded');
+  let unsafeReads=0;
+  const unsafe=run(' M ../escape.json\0',{observe:()=>{unsafeReads++;return seen();}});
+  assert.equal(unsafeReads,0);assert.equal(unsafe.payload.failure.returnCapture.totalChangedCount,null);
+  assert(!JSON.stringify(unsafe.payload).includes('../escape.json'));
+  let opens=0,lstats=0;
+  const symlink=helper.observeDiagnosticEntry({path:'data/chat-fixtures.v1.json'},1024,{
+   realpathSync:file=>file,lstatSync:()=>({isSymbolicLink:()=>true}),openSync:()=>{opens++;throw Error('must not follow');}});
+  assert.equal(opens,0);assert.equal(symlink.afterKind,'symlink');assert.equal(symlink.hashStatus,'not-read');
+  const escapedParent=helper.observeDiagnosticEntry({path:'data/chat-fixtures.v1.json'},1024,{
+   realpathSync:()=>'/outside',lstatSync:()=>{lstats++;throw Error('must not inspect escaped child');},openSync:()=>{opens++;}});
+  assert.equal(lstats,0);assert.equal(opens,0);assert.equal(escapedParent.hashStatus,'not-read');
+  const cached=helper.captureContext(()=> ' M data/chat-fixtures.v1.json\0');helper.captureRows(cached);
+  Object.assign(cached.entries[0],{beforeBlob:'e'.repeat(40),afterKind:'regular',afterBytes:7,afterSha256:digest,hashStatus:'verified'});
+  let rehashes=0;const reused=helper.captureInventory(cached,()=>{rehashes++;return seen();});
+  assert.equal(rehashes,0);assert.equal(reused.entries[0].beforeBlob,'e'.repeat(40));assert.equal(reused.hashBudgetChargedBytes,0);
+  for(const result of [casRejected,deletion,renamed,unknown,limited,readFailed,exceeded,unsafe])
+   helper.validatePrivatePayload(result.payload,{...failedBinding,stage:result.payload.failure.stage});
+  for(const change of [{totalChangedCount:0},{returnedEntryCount:129},{sourceDisposition:'complete'},
+   {entries:[{...detail.entries[0],path:'/absolute'}]},{entries:[{...detail.entries[0],afterKind:'symlink'}]},
+   {entries:[{...detail.entries[0],OwnerText:'PRIVATE_OWNER_SENTINEL'}]}])
+   assert.throws(()=>helper.validatePrivatePayload({...rejected.payload,failure:{...rejected.payload.failure,returnCapture:{...detail,...change}}},failedBinding));
+ }
  helper.validatePrivateFailure(null,{outcome:'prepared-review-required'});
  assert.throws(()=>helper.validatePrivateFailure(null,binding));
  for(const substage of ['list-json-invalid','source-revision-mismatch','horizon-mismatch','target-absent','target-held','target-pending-edit','noncanonical-admission']){

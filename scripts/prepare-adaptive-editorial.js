@@ -25,7 +25,7 @@ function base64(s,max){
 function bindingValid(b){
  keys(b,['schema','recipientFingerprint','sourceSha','sourceTree','sourceRevision','researchDigest',
  'workflowImplementationSha','runId','runAttempt','purpose','capturedAt','payloadMembers','outcome','stage']);
- assert.equal(b.schema,'ns.editorial-private-review.v2');assert.equal(b.purpose,'editorial-private-review');
+ assert.equal(b.schema,'ns.editorial-private-review.v3');assert.equal(b.purpose,'editorial-private-review');
  for(const k of ['sourceSha','sourceTree','workflowImplementationSha'])assert(/^[a-f0-9]{40}$/.test(b[k]));
  for(const k of ['recipientFingerprint','sourceRevision','researchDigest'])assert(/^[a-f0-9]{64}$/.test(b[k]));
  assert(/^\d+$/.test(b.runId)&&/^[1-9]\d*$/.test(b.runAttempt));
@@ -34,14 +34,14 @@ function bindingValid(b){
  assert(['prepared-review-required','failed-review-required'].includes(b.outcome));
 }
 const FAILURE_STAGES=['validate-inputs','transport-self-tests','verify-shell-before','canonical-prepare-control',
-'read-authorised-controls','canonical-inventory','canonical-research','verify-shell-after'];
+'read-authorised-controls','canonical-inventory','canonical-research','verify-shell-after','capture-source','capture-cas','return-packaging'];
 const FAILURE_SUBSTAGES=['preparation-failure','list-child-failure','list-json-invalid','source-revision-mismatch',
-'horizon-mismatch','target-absent','target-held','target-pending-edit','noncanonical-admission'];
+'horizon-mismatch','target-absent','target-held','target-pending-edit','noncanonical-admission','source-capture-failure'];
 const FAILURE_SIGNALS=['SIGTERM','SIGKILL','SIGINT','SIGABRT','SIGSEGV','SIGPIPE','SIGBUS','SIGHUP','SIGQUIT'];
 function validatePrivateFailure(value,binding){
  if(value===null){assert.equal(binding.outcome,'prepared-review-required');return;}
  keys(value,['stage','substage','reportMode','childExit','childSignal','listParsed','selectedCount',
- 'sourceRevisionMatches','horizonMatches','targetId','targetPresent','listDiagnostic']);
+ 'sourceRevisionMatches','horizonMatches','targetId','targetPresent','listDiagnostic','returnCapture']);
  assert.equal(binding.outcome,'failed-review-required');assert.equal(value.stage,binding.stage);
  assert(FAILURE_STAGES.includes(value.stage)&&FAILURE_SUBSTAGES.includes(value.substage));
  assert(['none','list','research'].includes(value.reportMode));
@@ -51,6 +51,7 @@ function validatePrivateFailure(value,binding){
  assert(value.selectedCount===null||Number.isInteger(value.selectedCount)&&value.selectedCount>=0&&value.selectedCount<=1000);
  for(const field of ['sourceRevisionMatches','horizonMatches','targetPresent'])assert(value[field]===null||typeof value[field]==='boolean');
  assert(value.targetId===null||['evt_40','evt_41'].includes(value.targetId));
+ if(value.returnCapture!==null){validateCaptureDiagnostic(value.returnCapture);assert.equal(value.reportMode,'none');assert.equal(value.listDiagnostic,null);}
  if(value.reportMode!=='list'){assert.equal(value.listDiagnostic,null);return;}
  const report=value.listDiagnostic;keys(report,['sourceRevision','operations','runReadouts']);
  assert(Array.isArray(report.operations)&&report.operations.length===0);
@@ -71,7 +72,7 @@ function privateFailure(error,stage,substage,flags){
  listParsed:flags.listParsed===true,
  selectedCount:Number.isInteger(flags.selectedCount)&&flags.selectedCount>=0&&flags.selectedCount<=1000?flags.selectedCount:null,
  sourceRevisionMatches:safeBoolean(flags.sourceRevisionMatches),horizonMatches:safeBoolean(flags.horizonMatches),
- targetId:['evt_40','evt_41'].includes(flags.targetId)?flags.targetId:null,targetPresent:safeBoolean(flags.targetPresent),listDiagnostic:null};
+ targetId:['evt_40','evt_41'].includes(flags.targetId)?flags.targetId:null,targetPresent:safeBoolean(flags.targetPresent),listDiagnostic:null,returnCapture:null};
 }
 function canonicalAdmissionIssue(card,eventId,expectedAliases,group){
  if(!card)return 'target-absent';
@@ -88,6 +89,10 @@ function payloadValid(p,b){
  keys(p,MEMBERS);validatePrivateFailure(p.failure,b);assert(p.casReport&&typeof p.casReport==='object'&&!Array.isArray(p.casReport));
  assert(Object.keys(p.casReport).every(k=>['sourceRevision','operations','runReadouts'].includes(k)));
  assert(Array.isArray(p.casReport.operations)&&p.casReport.operations.length<=1000);
+ if(p.failure?.returnCapture){
+  assert.equal(b.outcome,'failed-review-required');assert.equal(p.sourcePatch,'');assert.deepEqual(p.newFiles,[]);assert.deepEqual(p.sourceChanges,[]);
+  assert.deepEqual(p.casReport,{sourceRevision:b.sourceRevision,operations:[]});assert.equal(p.casSql,'');
+ }
  const listOnly=p.failure?.reportMode==='list';
  if(listOnly){assert.equal(p.casReport.operations.length,0);assert.equal(p.casSql,'');assert(!p.casReport.runReadouts,'LIST evidence belongs only in the private diagnostic.');}
  assert.equal(p.casReport.sourceRevision,b.sourceRevision,'Research/CAS reports must match the original binding.');
@@ -158,7 +163,7 @@ function open(text,privateKey,expected){
 function selfTest(){
  const opts={modulusLength:3072,publicKeyEncoding:{type:'spki',format:'pem'},privateKeyEncoding:{type:'pkcs8',format:'pem'}};
  const a=crypto.generateKeyPairSync('rsa',opts),other=crypto.generateKeyPairSync('rsa',opts);
- const b={schema:'ns.editorial-private-review.v2',recipientFingerprint:fingerprint(a.publicKey),sourceSha:'1'.repeat(40),
+ const b={schema:'ns.editorial-private-review.v3',recipientFingerprint:fingerprint(a.publicKey),sourceSha:'1'.repeat(40),
  sourceTree:'2'.repeat(40),sourceRevision:'3'.repeat(64),researchDigest:'4'.repeat(64),workflowImplementationSha:'1'.repeat(40),
  runId:'1',runAttempt:'1',purpose:'editorial-private-review',capturedAt:'2026-11-13T13:00:00.000Z',
  payloadMembers:MEMBERS,outcome:'prepared-review-required',stage:'capture-source'};
@@ -233,9 +238,9 @@ function captured(command,args,env,dir,label,observation){
  if(observation){observation.childExit=Number.isInteger(r.status)?r.status:null;observation.childSignal=FAILURE_SIGNALS.includes(r.signal)?r.signal:null;}
  if(r.status!==0){const error=Error('Private child failed.');error.preparationChildExit=Number.isInteger(r.status)?r.status:null;error.preparationChildSignal=FAILURE_SIGNALS.includes(r.signal)?r.signal:null;throw error;}return r.stdout;
 }
-function git(args,env){
+function git(args,env,maxBuffer=MAX){
  const r=spawnSync('git',['-c','core.hooksPath=/dev/null','-c','core.fsmonitor=false',...args],
- {cwd:ROOT,env,encoding:'utf8',timeout:30000,maxBuffer:MAX,stdio:['ignore','pipe','pipe']});
+ {cwd:ROOT,env,encoding:'utf8',timeout:30000,maxBuffer,stdio:['ignore','pipe','pipe']});
  assert.equal(r.status,0,'Read-only source inspection failed.');return r.stdout;
 }
 async function api(route,key,origin,body){
@@ -248,14 +253,162 @@ async function api(route,key,origin,body){
  for(;;){const x=await reader.read();if(x.done)break;size+=x.value.length;if(size>16*1024*1024){await reader.cancel();throw Error('Control export too large.');}chunks.push(Buffer.from(x.value));}
  const value=JSON.parse(Buffer.concat(chunks).toString('utf8'));assert(Array.isArray(value));return {value,range:r.headers.get('content-range')};
 }
-function sourceChanges(env){
- const rows=git(['status','--porcelain=v1','-z','--untracked-files=all'],env).split('\0').filter(Boolean);
+
+const CAPTURE_DIAGNOSTIC_LIMITS={entries:128,pathCharacters:240,statusBytes:64*1024,fileBytes:MAX,hashBudgetBytes:MAX,metadataBytes:128*1024};
+const DIAGNOSTIC_EXTRA_PATHS=new Set(['data/chat-fixtures.v1.json','app-version.json','index.html','service-worker.js',
+'assets/js/calendar-sync-ui.js','assets/js/account-awareness-runtime.js','assets/js/match-centre-ui.js',
+'assets/js/all-sports-ui.js','assets/js/milestone-alerts-ui.js','assets/js/app-update.js','assets/js/notifications-inbox.js']);
+const safeRelative=file=>typeof file==='string'&&file.length<=CAPTURE_DIAGNOSTIC_LIMITS.pathCharacters&&
+ /^[A-Za-z0-9_.\/-]+$/.test(file)&&!path.isAbsolute(file)&&file.split('/').every(part=>part&&part!=='.'&&part!=='..');
+const diagnosticGenerated=file=>allowed(file)||DIAGNOSTIC_EXTRA_PATHS.has(file)||
+ /^data\/(?:code-inspector|follow-schedule)\/[a-z0-9-]+\.json$/.test(file)||
+ /^assets\/marquee\/marquee_[a-f0-9]{16}-[a-f0-9]{12}\.jpg$/.test(file);
+function strictSourceEntry(row,count){
+ assert([' M','??'].includes(row.slice(0,2)),'Unexpected staged, renamed or deleted source.');
+ const file=row.slice(3);assert(allowed(file),'Changed source outside reviewed allowlist.');assert(count<128);return file;
+}
+function captureContext(readStatus){return {readStatus,statusAttempted:false,statusReadComplete:false,totalChangedCount:null,
+ truncated:false,failureCode:null,rows:[],entries:[],hashBudgetChargedBytes:0};}
+function captureRows(context){
+ if(!context.statusAttempted){
+  context.statusAttempted=true;
+  try{
+   const raw=context.readStatus();assert(typeof raw==='string'&&Buffer.byteLength(raw)<=CAPTURE_DIAGNOSTIC_LIMITS.statusBytes);
+   assert(raw===''||raw.endsWith('\0'));const tokens=raw.split('\0');tokens.pop();
+   for(let index=0;index<tokens.length;index++){
+    if(context.entries.length>=CAPTURE_DIAGNOSTIC_LIMITS.entries){context.truncated=true;context.failureCode='status-limit';break;}
+    const row=tokens[index],status=row.slice(0,2),file=row.slice(3);
+    if(row[2]!==' '||!/^[ MADRCUTU?!]{2}$/.test(status)){context.failureCode='status-invalid';context.truncated=true;break;}
+    let originalPath=null;
+    if(/[RC]/.test(status)){originalPath=tokens[++index];}
+    if(!safeRelative(file)||(originalPath!==null&&!safeRelative(originalPath))){context.failureCode='path-invalid';context.truncated=true;break;}
+    context.rows.push(row);context.entries.push({path:file,originalPath,status,beforeBlob:null,afterKind:'unknown',
+     afterBytes:null,afterSha256:null,hashStatus:'not-read'});
+   }
+   if(!context.truncated){context.statusReadComplete=true;context.totalChangedCount=context.entries.length;}
+  }catch(_){context.failureCode='status-unavailable';context.truncated=true;}
+ }
+ assert(context.statusReadComplete,'Changed output status is incomplete.');return context.rows;
+}
+function observeDiagnosticEntry(entry,remaining,io=fs){
+ assert(safeRelative(entry.path));const empty={afterKind:'unknown',afterBytes:null,afterSha256:null,hashStatus:'not-read',hashBudgetChargedBytes:0};
+ if(!diagnosticGenerated(entry.path))return empty;
+ const absolute=path.join(ROOT,entry.path);let stat;
+ try{if(io.realpathSync(path.dirname(absolute))!==path.dirname(absolute))return empty;}catch(_){return {...empty,hashStatus:'read-failed'};}
+ try{stat=io.lstatSync(absolute);}catch(error){return error.code==='ENOENT'?{...empty,afterKind:'absent',hashStatus:'deleted'}:{...empty,hashStatus:'read-failed'};}
+ if(stat.isSymbolicLink())return {...empty,afterKind:'symlink'};
+ if(!stat.isFile())return {...empty,afterKind:'other'};
+ const bytes=Number.isSafeInteger(stat.size)&&stat.size>=0?stat.size:null;
+ if(bytes===null||bytes>CAPTURE_DIAGNOSTIC_LIMITS.fileBytes||bytes>remaining)return {...empty,afterKind:'regular',afterBytes:bytes,hashStatus:'budget-exceeded'};
+ let fd;
+ try{
+  assert.equal(io.realpathSync(absolute),absolute,'Diagnostic output escaped the exact checkout.');
+  fd=io.openSync(absolute,fs.constants.O_RDONLY|fs.constants.O_NOFOLLOW);
+  const opened=io.fstatSync(fd);assert(opened.isFile()&&opened.dev===stat.dev&&opened.ino===stat.ino&&opened.size===bytes);
+  const hash=crypto.createHash('sha256'),buffer=Buffer.alloc(64*1024);let read=0,size;
+  while((size=io.readSync(fd,buffer,0,Math.min(buffer.length,bytes-read+1),null))>0){read+=size;assert(read<=bytes);hash.update(buffer.subarray(0,size));}
+  const after=io.fstatSync(fd);assert(read===bytes&&after.dev===opened.dev&&after.ino===opened.ino&&
+   after.size===opened.size&&after.mtimeMs===opened.mtimeMs&&after.ctimeMs===opened.ctimeMs);
+  return {afterKind:'regular',afterBytes:bytes,afterSha256:hash.digest('hex'),hashStatus:'verified',hashBudgetChargedBytes:bytes};
+ }catch(_){return {...empty,afterKind:'regular',afterBytes:bytes,hashStatus:'read-failed',hashBudgetChargedBytes:fd===undefined?0:bytes};}
+ finally{if(fd!==undefined)io.closeSync(fd);}
+}
+function captureInventory(context,observe=observeDiagnosticEntry){
+ try{captureRows(context);}catch(_){}
+ for(const entry of context.entries){
+  if(entry.hashStatus==='verified')continue;
+  try{
+   const result=observe(entry,CAPTURE_DIAGNOSTIC_LIMITS.hashBudgetBytes-context.hashBudgetChargedBytes);
+   assert(Number.isInteger(result.hashBudgetChargedBytes)&&result.hashBudgetChargedBytes>=0&&
+    context.hashBudgetChargedBytes+result.hashBudgetChargedBytes<=CAPTURE_DIAGNOSTIC_LIMITS.hashBudgetBytes);
+   context.hashBudgetChargedBytes+=result.hashBudgetChargedBytes;
+   const {hashBudgetChargedBytes,...metadata}=result;Object.assign(entry,metadata);
+  }catch(_){context.hashBudgetChargedBytes=CAPTURE_DIAGNOSTIC_LIMITS.hashBudgetBytes;Object.assign(entry,{afterKind:'unknown',afterBytes:null,afterSha256:null,hashStatus:'read-failed'});}
+ }
+ return {statusReadComplete:context.statusReadComplete,totalChangedCount:context.totalChangedCount,
+  returnedEntryCount:context.entries.length,truncated:context.truncated,hashBudgetChargedBytes:context.hashBudgetChargedBytes,
+  entries:context.entries.map(entry=>({...entry}))};
+}
+function validateCaptureDiagnostic(value){
+ keys(value,['phase','failureCode','sourceDisposition','casDisposition','statusReadComplete','totalChangedCount',
+ 'returnedEntryCount','truncated','hashBudgetChargedBytes','entries','readout']);
+ assert(['capture-source','capture-cas'].includes(value.phase));
+ assert(['strict-source-rejection','cas-capture-rejection','status-limit','status-invalid','path-invalid','status-unavailable'].includes(value.failureCode));
+ assert.equal(value.sourceDisposition,'omitted-on-capture-failure');assert.equal(value.casDisposition,'omitted-on-capture-failure');
+ assert(typeof value.statusReadComplete==='boolean'&&typeof value.truncated==='boolean');
+ assert(value.totalChangedCount===null||Number.isInteger(value.totalChangedCount)&&value.totalChangedCount>=0&&value.totalChangedCount<=128);
+ assert(Number.isInteger(value.returnedEntryCount)&&value.returnedEntryCount>=0&&value.returnedEntryCount<=128);
+ assert(Array.isArray(value.entries)&&value.entries.length===value.returnedEntryCount);
+ assert(Number.isInteger(value.hashBudgetChargedBytes)&&value.hashBudgetChargedBytes>=0&&value.hashBudgetChargedBytes<=CAPTURE_DIAGNOSTIC_LIMITS.hashBudgetBytes);
+ if(value.statusReadComplete){assert.equal(value.totalChangedCount,value.returnedEntryCount);assert.equal(value.truncated,false);}
+ else {assert.equal(value.totalChangedCount,null);assert.equal(value.truncated,true);}
+ const paths=new Set();for(const entry of value.entries){
+  keys(entry,['path','originalPath','status','beforeBlob','afterKind','afterBytes','afterSha256','hashStatus']);
+  assert(safeRelative(entry.path)&&!paths.has(entry.path));paths.add(entry.path);
+  assert(entry.originalPath===null||safeRelative(entry.originalPath));assert(typeof entry.status==='string'&&/^[ MADRCUTU?!]{2}$/.test(entry.status));
+  assert.equal(entry.originalPath!==null,/[RC]/.test(entry.status));
+  assert(entry.beforeBlob===null||typeof entry.beforeBlob==='string'&&/^[a-f0-9]{40}$/.test(entry.beforeBlob));
+  assert(['regular','absent','symlink','other','unknown'].includes(entry.afterKind));
+  assert(entry.afterBytes===null||Number.isSafeInteger(entry.afterBytes)&&entry.afterBytes>=0);
+  assert(['verified','not-read','deleted','read-failed','budget-exceeded'].includes(entry.hashStatus));
+  if(entry.hashStatus==='verified'){assert.equal(entry.afterKind,'regular');assert(Number.isInteger(entry.afterBytes)&&entry.afterBytes<=MAX);assert(typeof entry.afterSha256==='string'&&/^[a-f0-9]{64}$/.test(entry.afterSha256));}
+  else {assert.equal(entry.afterSha256,null);}
+  if(entry.hashStatus==='deleted'){assert.equal(entry.afterKind,'absent');assert.equal(entry.afterBytes,null);}
+  if(entry.afterKind!=='regular')assert.notEqual(entry.hashStatus,'verified');
+ }
+ validateReadoutDiagnostic(value.readout);assert(Buffer.byteLength(JSON.stringify(value))<=CAPTURE_DIAGNOSTIC_LIMITS.metadataBytes);
+}
+
+const READOUT_KEYS=['schemaVersion','mode','startedAt','stage','status','sourceRevision','windowCards','selectedCards',
+'dueCards','changedCards','deferredCards','successfulChecks','preparedUpdates','directPersistedUpdates',
+'connectorCommitObserved','controlMode','externalResearchRuntimeMs','externalModelTokens','cashCostAUD','finishedAt','cliElapsedMs'];
+function validateReadoutDiagnostic(value){
+ if(value===null)return;keys(value,['sourceRevision','mode','runReadouts','omittedOperationCount']);
+ assert(value.sourceRevision===null||typeof value.sourceRevision==='string'&&/^[a-f0-9]{64}$/.test(value.sourceRevision));assert(['list','research'].includes(value.mode));
+ assert(value.omittedOperationCount===null||Number.isInteger(value.omittedOperationCount)&&value.omittedOperationCount>=0&&value.omittedOperationCount<=1000);
+ assert(Array.isArray(value.runReadouts)&&value.runReadouts.length>0&&value.runReadouts.length<=32);
+ for(const row of value.runReadouts){
+  keys(row,READOUT_KEYS);assert.equal(row.schemaVersion,'editorial-run-readout.v1');assert.equal(row.mode,value.mode);
+  assert(['inventory','research','checks','build','complete'].includes(row.stage));assert(['failed','completed'].includes(row.status));
+  for(const field of ['startedAt','finishedAt'])assert(typeof row[field]==='string'&&/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(row[field])&&Number.isFinite(Date.parse(row[field])));
+  assert(row.sourceRevision===null||typeof row.sourceRevision==='string'&&/^[a-f0-9]{64}$/.test(row.sourceRevision));
+  for(const field of ['windowCards','selectedCards','dueCards','changedCards','deferredCards','successfulChecks','preparedUpdates','directPersistedUpdates'])assert(row[field]===null||Number.isInteger(row[field])&&row[field]>=0&&row[field]<=10000);
+  assert(typeof row.connectorCommitObserved==='boolean'&&['snapshot-preparation','direct-service'].includes(row.controlMode));
+  for(const field of ['externalResearchRuntimeMs','externalModelTokens','cashCostAUD'])assert.equal(row[field],null);
+  assert(Number.isSafeInteger(row.cliElapsedMs)&&row.cliElapsedMs>=0);
+ }
+ assert(Buffer.byteLength(JSON.stringify(value))<=128*1024);
+}
+function readoutDiagnostic(report,mode){
+ if(!report)return null;
+ const value={sourceRevision:report.sourceRevision??null,mode,runReadouts:report.runReadouts,
+  omittedOperationCount:Array.isArray(report.operations)?report.operations.length:null};
+ try{validateReadoutDiagnostic(value);return value;}catch(_){return null;}
+}
+
+
+function composeReviewReturn(base,{primary,flags,context,captureSource,captureCAS,report,mode,observe=observeDiagnosticEntry}){
+ let phase='capture-source';
+ try{const source=captureSource();phase='capture-cas';const casSql=captureCAS();return {...base,...source,casSql,failure:primary};}
+ catch(_){
+  const failure=primary||privateFailure(null,phase,'source-capture-failure',flags);
+  const inventory=captureInventory(context,observe);
+  return {...base,casReport:{sourceRevision:base.casReport.sourceRevision,operations:[]},casSql:'',sourcePatch:'',newFiles:[],sourceChanges:[],
+   failure:{...failure,reportMode:'none',listDiagnostic:null,returnCapture:{phase,
+    failureCode:context.failureCode||(phase==='capture-source'?'strict-source-rejection':'cas-capture-rejection'),
+    sourceDisposition:'omitted-on-capture-failure',casDisposition:'omitted-on-capture-failure',...inventory,
+    readout:readoutDiagnostic(report,mode)}}};
+ }
+}
+
+function sourceChanges(env,context){
+ const rows=captureRows(context);
  const sourceChanges=[],newFiles=[],tracked=[];
  for(const row of rows){
-  assert([' M','??'].includes(row.slice(0,2)),'Unexpected staged, renamed or deleted source.');
-  const file=row.slice(3);assert(allowed(file),'Changed source outside reviewed allowlist.');assert(sourceChanges.length<128);
+  const file=strictSourceEntry(row,sourceChanges.length);
   const bytes=readBounded(path.join(ROOT,file)),fresh=row.startsWith('??');
   sourceChanges.push({path:file,status:fresh?'new':'modified',beforeBlob:fresh?null:git(['rev-parse','HEAD:'+file],env).trim(),afterSha256:sha(bytes),bytes:bytes.length});
+  Object.assign(context.entries[sourceChanges.length-1],{beforeBlob:sourceChanges.at(-1).beforeBlob,afterKind:'regular',afterBytes:bytes.length,afterSha256:sourceChanges.at(-1).afterSha256,hashStatus:'verified'});
   if(fresh)newFiles.push({path:file,bodyBase64:bytes.toString('base64')});else tracked.push(file);
  }
  return {sourcePatch:tracked.length?git(['diff','--binary','--no-ext-diff','--no-textconv','--no-renames','HEAD','--',...tracked],env):'',newFiles,sourceChanges};
@@ -287,7 +440,7 @@ async function main(){
   writePrivate(path.join(dir,'owner.json'),JSON.stringify(location.owner));
   out=path.join(location.base,'editorial-preparation-return');fs.mkdirSync(out,{mode:0o700});
   stage='transport-self-tests';selfTest();
-  binding={schema:'ns.editorial-private-review.v2',recipientFingerprint:PIN,sourceSha,sourceTree:tree,
+  binding={schema:'ns.editorial-private-review.v3',recipientFingerprint:PIN,sourceSha,sourceTree:tree,
   sourceRevision:source.sourceRevision,researchDigest:digest,workflowImplementationSha:process.env.EXPECTED_WORKFLOW_SHA,
   runId:process.env.PREP_RUN_ID,runAttempt:process.env.PREP_RUN_ATTEMPT,purpose:'editorial-private-review',
   capturedAt:new Date().toISOString(),payloadMembers:MEMBERS,outcome:'failed-review-required',stage};bindingValid(binding);
@@ -358,15 +511,21 @@ async function main(){
     if(failure)failure.reportMode=researchReport?'research':activeReport?'list':'none';
     if(failure&&activeReport&&!researchReport)failure.listDiagnostic=JSON.parse(readBounded(activeReport));
     const casReport=researchReport?JSON.parse(readBounded(researchReport)):{sourceRevision:binding.sourceRevision,operations:[]};
-    const casSql=researchReport?captured(process.execPath,['scripts/editorial-control-sql.js',researchReport],childEnv||isolatedEnvironment(),dir,'prepare-cas-sql'):'';
     if(shellIdentity.after===null)shellIdentity.after=readShellIdentity();
-    const payload={casReport,casSql,selection,shellIdentity,...sourceChanges(isolatedEnvironment()),failure};
+    if(!failure)stage='capture-source';
+    const captureEnv=isolatedEnvironment(),context=captureContext(()=>git(['status','--porcelain=v1','-z','--untracked-files=all'],captureEnv,CAPTURE_DIAGNOSTIC_LIMITS.statusBytes));
+    const payload=composeReviewReturn({casReport,casSql:'',selection,shellIdentity},{primary:failure,flags:failureFlags,context,
+     captureSource:()=>sourceChanges(captureEnv,context),
+     captureCAS:()=>researchReport?captured(process.execPath,['scripts/editorial-control-sql.js',researchReport],childEnv||isolatedEnvironment(),dir,'prepare-cas-sql'):'',
+     report:researchReport?casReport:failure?.listDiagnostic,mode:researchReport?'research':'list'});
+    if(payload.failure){failed=true;failure=payload.failure;stage=failure.stage;}
+    binding={...binding,outcome:failed?'failed-review-required':'prepared-review-required',stage};
     const text=JSON.stringify(seal(payload,binding,process.env.INPUT_RECIPIENT_PUBLIC_KEY))+'\n';assert(Buffer.byteLength(text)<=MAX_ENVELOPE);
     writePrivate(path.join(out,'private-return.encrypted.json'),text);
     writePrivate(path.join(out,'public-manifest.json'),JSON.stringify({schemaVersion:'ns.editorial-preparation-return.v1',binding,
     ciphertextBytes:Buffer.byteLength(text),ciphertextSha256:sha(text),outcome:binding.outcome,
     requiresFreshCanonicalControlsAndCASReview:true,databaseWrites:0,pushes:0,deployments:0},null,2)+'\n');
-   }catch(_){failed=true;}
+   }catch(_){failed=true;if(!failure)stage='return-packaging';console.error('Editorial private return unavailable; no database write or release performed.');}
   }
   if(dir)cleanupPrivate();
  }
@@ -374,4 +533,4 @@ async function main(){
  else console.log('Editorial preparation complete; encrypted private review required. No database write or release performed.');
 }
 if(require.main===module)main().catch(()=>{console.error('Editorial preparation failed safely.');process.exitCode=1;});
-module.exports={seal,open,selfTest,privateLocation,cleanupPrivate,canonicalAdmissionIssue,privateFailure,validatePrivateFailure,validatePrivatePayload:payloadValid};
+module.exports={seal,open,selfTest,privateLocation,cleanupPrivate,canonicalAdmissionIssue,privateFailure,validatePrivateFailure,validatePrivatePayload:payloadValid,strictSourceEntry,captureContext,captureRows,captureInventory,observeDiagnosticEntry,composeReviewReturn};
