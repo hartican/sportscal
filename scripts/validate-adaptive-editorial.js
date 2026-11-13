@@ -600,10 +600,10 @@ async function validatePrivateSourceCollection(){
  assert.equal(encryptCalls,1,'invalid CAS revision is rejected before encryption');
  assert.throws(()=>helper.packageReturnEnvelope({...payload,casReport:{...payload.casReport,unexpected:true}},binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-cas-shape');
  assert.throws(()=>helper.packageReturnEnvelope({...payload,casReport:{...payload.casReport,operations:[payload.casReport.operations[0],payload.casReport.operations[0]]}},binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-cas-targets');
- assert.throws(()=>helper.packageReturnEnvelope({...payload,newFiles:[]},binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-payload-contract');
+ assert.throws(()=>helper.packageReturnEnvelope({...payload,newFiles:[]},binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-review-new-files');
  const jsonBoundaryEncryptCalls=encryptCalls;
  // Full private metadata is serialized by its intact contract guard before envelope JSON.
- assert.throws(()=>helper.packageReturnEnvelope({...payload,selection:[1n]},binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-payload-contract');
+ assert.throws(()=>helper.packageReturnEnvelope({...payload,selection:[1n]},binding,'unused',fakeOptions),error=>error.privatePackagingCode==='packaging-review-metadata');
  assert.equal(encryptCalls,jsonBoundaryEncryptCalls,'private metadata rejection occurs before encryption');
  // A valid default/string-patch envelope reaches the separate JSON-packaging boundary.
  const jsonFailureFixture={...payload,sourcePatch:'',sourceChanges:[],newFiles:[],selection:[1n]};
@@ -651,6 +651,22 @@ async function validatePrivateSourceCollection(){
  assert.equal(writes,2,'manifest failure does not rewrite the already-created encrypted file');
  const outputNames=[];helper.writeReturnOutput('/synthetic-private-output',packaged,fallbackBinding,(file)=>outputNames.push(file.split('/').pop()));
  assert.deepEqual(outputNames,['private-return.encrypted.json','public-manifest.json']);
+
+
+ for(const code of ["packaging-review-shell","packaging-review-records","packaging-review-codec","packaging-review-scope","packaging-review-new-files","packaging-review-metadata","packaging-payload-structure"])assert(helper.packagingFailureCodes.includes(code));
+ const expectGuard=(value,code)=>assert.throws(()=>helper.packageReturnEnvelope(value,binding,'unused',fakeOptions),
+  error=>error.privatePackagingCode===code&&error.message==='Private return packaging requires review.'&&error.cause===undefined);
+ expectGuard({...payload,shellIdentity:{before:reservedShell,after:{...reservedShell,version:'614'}}},'packaging-review-shell');
+ expectGuard({...payload,sourceChanges:[...payload.sourceChanges,payload.sourceChanges[0]]},'packaging-review-records');
+ expectGuard({...payload,sourcePatch:{...payload.sourcePatch,encoding:'unsupported'}},'packaging-review-codec');
+ expectGuard({...payload,sourcePatch:{...payload.sourcePatch,scopeSha256:'0'.repeat(64)}},'packaging-review-scope');
+ expectGuard({...payload,newFiles:[payload.newFiles[0],...payload.newFiles.slice(0,-1)]},'packaging-review-new-files');
+ expectGuard({...exactMeta,casSql:exactMeta.casSql+'q'},'packaging-review-metadata');
+ expectGuard({...payload,selection:'not-an-array'},'packaging-payload-structure');
+ const legacyBadShell={...jsonFailureFixture,selection:[],shellIdentity:{before:{...reservedShell,files:[]},after:null}};
+ expectGuard(legacyBadShell,'packaging-payload-structure');
+ assert.throws(()=>helper.packageReturnEnvelope(payload,binding,'unused',{encrypt:()=>{const error=Error(secret);error.privatePackagingCode='packaging-review-codec';throw error;}}),
+  error=>error.privatePackagingCode==='packaging-review-codec'&&!error.message.includes(secret)&&error.cause===undefined);
 
  console.log('Editorial private collection/codec and packaging: faithful202 review-only scope, terminal cleanup, bounded encrypted fallback and fixed privacy-safe failure codes passed.');
 }

@@ -25,7 +25,7 @@ function base64(s,max){
 function bindingValid(b){
  keys(b,['schema','recipientFingerprint','sourceSha','sourceTree','sourceRevision','researchDigest',
  'workflowImplementationSha','runId','runAttempt','purpose','capturedAt','payloadMembers','outcome','stage']);
- assert.equal(b.schema,'ns.editorial-private-review.v6');assert.equal(b.purpose,'editorial-private-review');
+ assert.equal(b.schema,'ns.editorial-private-review.v7');assert.equal(b.purpose,'editorial-private-review');
  for(const k of ['sourceSha','sourceTree','workflowImplementationSha'])assert(/^[a-f0-9]{40}$/.test(b[k]));
  for(const k of ['recipientFingerprint','sourceRevision','researchDigest'])assert(/^[a-f0-9]{64}$/.test(b[k]));
  assert(/^\d+$/.test(b.runId)&&/^[1-9]\d*$/.test(b.runAttempt));
@@ -249,16 +249,24 @@ function reviewScopeDigest(records){return sha(JSON.stringify([...records].sort(
 function reviewMetadataBytes(payload){return Buffer.byteLength(JSON.stringify({...payload,newFiles:payload.newFiles.map(file=>({...file,bodyBase64:''})),sourcePatch:{...payload.sourcePatch,bodyBase64:''}}));}
 function validateReviewPayload(payload,binding){
  assert.equal(binding.outcome,'prepared-review-required');assert.equal(payload.failure,null);
- assertShellIdentity(payload.shellIdentity.before);assertShellIdentity(payload.shellIdentity.after);assert.deepEqual(payload.shellIdentity.after,payload.shellIdentity.before);
- validateReviewRecords(payload.sourceChanges);validateReviewCodec(payload.sourcePatch);
- assert.equal(payload.sourcePatch.scopeSha256,reviewScopeDigest(payload.sourceChanges));assert(payload.sourcePatch.decodedBytes>0);
- assert.equal(payload.newFiles.length,97);assert.equal(payload.casReport.operations.length,2);
- assert.deepEqual(payload.casReport.operations.map(op=>op.eventId).sort(),['evt_40','evt_41']);
- const fresh=new Map(payload.sourceChanges.filter(row=>row.status==='new').map(row=>[row.path,row]));let encodedBytes=0;const paths=new Set();
- for(const file of payload.newFiles){keys(file,['path','bodyBase64']);const row=fresh.get(file.path);assert(row&&!paths.has(file.path));paths.add(file.path);
-  const body=base64(file.bodyBase64,row.bytes);assert.equal(body.length,row.bytes);assert.equal(sha(body),row.afterSha256);encodedBytes+=Buffer.byteLength(file.bodyBase64);
- }
- assert.equal(paths.size,97);assert(encodedBytes<=REVIEW_LIMITS.newBase64Bytes);assert(reviewMetadataBytes(payload)<=REVIEW_LIMITS.metadataBytes);
+ packagingStep('packaging-review-shell',()=>{
+  assertShellIdentity(payload.shellIdentity.before);assertShellIdentity(payload.shellIdentity.after);assert.deepEqual(payload.shellIdentity.after,payload.shellIdentity.before);
+ });
+ packagingStep('packaging-review-records',()=>validateReviewRecords(payload.sourceChanges));
+ packagingStep('packaging-review-codec',()=>validateReviewCodec(payload.sourcePatch));
+ packagingStep('packaging-review-scope',()=>{
+  assert.equal(payload.sourcePatch.scopeSha256,reviewScopeDigest(payload.sourceChanges));assert(payload.sourcePatch.decodedBytes>0);
+ });
+ packagingStep('packaging-review-new-files',()=>{
+  assert.equal(payload.newFiles.length,97);assert.equal(payload.casReport.operations.length,2);
+  assert.deepEqual(payload.casReport.operations.map(op=>op.eventId).sort(),['evt_40','evt_41']);
+  const fresh=new Map(payload.sourceChanges.filter(row=>row.status==='new').map(row=>[row.path,row]));let encodedBytes=0;const paths=new Set();
+  for(const file of payload.newFiles){keys(file,['path','bodyBase64']);const row=fresh.get(file.path);assert(row&&!paths.has(file.path));paths.add(file.path);
+   const body=base64(file.bodyBase64,row.bytes);assert.equal(body.length,row.bytes);assert.equal(sha(body),row.afterSha256);encodedBytes+=Buffer.byteLength(file.bodyBase64);
+  }
+  assert.equal(paths.size,97);assert(encodedBytes<=REVIEW_LIMITS.newBase64Bytes);
+ });
+ packagingStep('packaging-review-metadata',()=>assert(reviewMetadataBytes(payload)<=REVIEW_LIMITS.metadataBytes));
 }
 function collectReviewSources(env,context,tree,dateReport,io={}){
  try{
@@ -321,6 +329,7 @@ function payloadValid(p,b){
  const privateReview=p.sourcePatch&&typeof p.sourcePatch==='object'&&!Array.isArray(p.sourcePatch)&&p.sourcePatch.schemaVersion===REVIEW_PATCH_SCHEMA;
  assert(typeof p.casSql==='string'&&(typeof p.sourcePatch==='string'||privateReview));
  if(privateReview)validateReviewPayload(p,b);
+ packagingStep('packaging-payload-structure',()=>{
  assert(Array.isArray(p.selection)&&p.selection.length<=1000);
  keys(p.shellIdentity,['before','after']);
  for(const identity of [p.shellIdentity.before,p.shellIdentity.after])if(identity!==null){
@@ -336,6 +345,7 @@ function payloadValid(p,b){
   assert(f.beforeBlob===null||/^[a-f0-9]{40}$/.test(f.beforeBlob));assert(/^[a-f0-9]{64}$/.test(f.afterSha256));
   assert(Number.isInteger(f.bytes)&&f.bytes>=0&&f.bytes<=MAX);
  }
+ });
 }
 const AAD_FIELDS=['schema','recipientFingerprint','sourceSha','sourceTree','sourceRevision','researchDigest',
 'workflowImplementationSha','runId','runAttempt','purpose','capturedAt','payloadMembers','outcome','stage'];
@@ -359,10 +369,11 @@ function encryptBytes(bytes,b,pem){
  }finally{key.fill(0);}
 }
 
-const PACKAGING_FAILURE_CODES=["packaging-report-read","packaging-shell-read","packaging-source-compose","packaging-cas-shape","packaging-cas-revision","packaging-cas-targets","packaging-payload-contract","packaging-json","packaging-plaintext","packaging-encryption","packaging-envelope","packaging-encrypted-output","packaging-manifest-output"];
+const PACKAGING_FAILURE_CODES=["packaging-report-read","packaging-shell-read","packaging-source-compose","packaging-cas-shape","packaging-cas-revision","packaging-cas-targets","packaging-payload-contract","packaging-json","packaging-plaintext","packaging-encryption","packaging-envelope","packaging-encrypted-output","packaging-manifest-output","packaging-review-shell","packaging-review-records","packaging-review-codec","packaging-review-scope","packaging-review-new-files","packaging-review-metadata","packaging-payload-structure"];
 function packagingStep(code,work){
  assert(PACKAGING_FAILURE_CODES.includes(code));
- try{return work();}catch(_){const error=Error('Private return packaging requires review.');error.privatePackagingCode=code;throw error;}
+ try{return work();}catch(cause){const error=Error('Private return packaging requires review.');
+  error.privatePackagingCode=PACKAGING_FAILURE_CODES.includes(cause?.privatePackagingCode)?cause.privatePackagingCode:code;throw error;}
 }
 function packageReturnEnvelope(payload,binding,pem,{encrypt=encryptBytes,plaintextLimit=MAX,envelopeLimit=MAX_ENVELOPE}={}){
  assert(Number.isInteger(plaintextLimit)&&plaintextLimit>=1&&plaintextLimit<=MAX);
@@ -444,7 +455,7 @@ function open(text,privateKey,expected){
 function selfTest(){
  const opts={modulusLength:3072,publicKeyEncoding:{type:'spki',format:'pem'},privateKeyEncoding:{type:'pkcs8',format:'pem'}};
  const a=crypto.generateKeyPairSync('rsa',opts),other=crypto.generateKeyPairSync('rsa',opts);
- const b={schema:'ns.editorial-private-review.v6',recipientFingerprint:fingerprint(a.publicKey),sourceSha:'1'.repeat(40),
+ const b={schema:'ns.editorial-private-review.v7',recipientFingerprint:fingerprint(a.publicKey),sourceSha:'1'.repeat(40),
  sourceTree:'2'.repeat(40),sourceRevision:'3'.repeat(64),researchDigest:'4'.repeat(64),workflowImplementationSha:'1'.repeat(40),
  runId:'1',runAttempt:'1',purpose:'editorial-private-review',capturedAt:'2026-11-13T13:00:00.000Z',
  payloadMembers:MEMBERS,outcome:'prepared-review-required',stage:'capture-source'};
@@ -762,7 +773,7 @@ async function main(){
   writePrivate(path.join(dir,'owner.json'),JSON.stringify(location.owner));
   out=path.join(location.base,'editorial-preparation-return');fs.mkdirSync(out,{mode:0o700});
   stage='transport-self-tests';selfTest();
-  binding={schema:'ns.editorial-private-review.v6',recipientFingerprint:PIN,sourceSha,sourceTree:tree,
+  binding={schema:'ns.editorial-private-review.v7',recipientFingerprint:PIN,sourceSha,sourceTree:tree,
   sourceRevision:source.sourceRevision,researchDigest:digest,workflowImplementationSha:process.env.EXPECTED_WORKFLOW_SHA,
   runId:process.env.PREP_RUN_ID,runAttempt:process.env.PREP_RUN_ATTEMPT,purpose:'editorial-private-review',
   capturedAt:new Date().toISOString(),payloadMembers:MEMBERS,outcome:'failed-review-required',stage};bindingValid(binding);
