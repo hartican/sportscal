@@ -59,6 +59,7 @@ on:
       - scripts/validate-production-sql-batches.js
       - scripts/validate-sync-current-forward.js
       - scripts/fixtures/sync-current-forward-20261107.json
+      - scripts/fixtures/sync-normal-613-20261112.json
       - scripts/fixtures/onboarding-forward-version-plan-20261107.json
       - scripts/lib/forward-onboarding-ci.js
       - scripts/lib/forward-onboarding-workflow-overlay.json
@@ -81,6 +82,9 @@ jobs:
     if: github.event.pull_request.draft == false || (github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/baseline-capture-')) || (github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/source-qualification-') && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.forward.v1",'))
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    outputs:
+      normal613_engine_context: ${{ steps.normal613_source_admission.outputs.engineContextBase64 }}
+      normal613_engine_context_sha256: ${{ steps.normal613_source_admission.outputs.engineContextSha256 }}
     steps:
       - uses: actions/checkout@v5
         with:
@@ -90,6 +94,12 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 24.21.0
+      # NS_NORMAL613_INTAKE_BEGIN
+      - name: Bind genuine external normal613 decisions before application checks
+        if: github.event.pull_request.draft == false && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",')
+        timeout-minutes: 1
+        run: timeout --signal=TERM --kill-after=5s 60s node scripts/validate-forward-onboarding-ci.js --normal613-intake
+      # NS_NORMAL613_INTAKE_END
       - name: Record exact source and runtime in job log
         env:
           PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
@@ -316,27 +326,69 @@ jobs:
       # NS_CURRENT_FORWARD_ROUTE_END
       - name: Verify new-user journey source controls
         if: github.event.pull_request.draft == false || (github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/source-qualification-') && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.forward.v1",'))
-        run: timeout --signal=TERM --kill-after=5s 120s node scripts/validate-new-user-journey.js
+        run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run journey -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_fixture_journey'
+          timeout --signal=TERM --kill-after=5s 120s node scripts/validate-new-user-journey.js
+          NS_NORMAL613_RUN_fixture_journey
       - name: Install existing locked dependencies
         if: github.event.pull_request.draft == false || (github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/source-qualification-') && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.forward.v1",'))
-        run: npm ci
+        run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run install -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_fixture_install'
+          npm ci
+          NS_NORMAL613_RUN_fixture_install
       - name: Verify signup/setup compatibility
         if: github.event.pull_request.draft == false || (github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/source-qualification-') && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.forward.v1",'))
-        run: timeout --signal=TERM --kill-after=5s 120s node scripts/validate-server-persistence.js
+        run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run signup -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_fixture_signup'
+          timeout --signal=TERM --kill-after=5s 120s node scripts/validate-server-persistence.js
+          NS_NORMAL613_RUN_fixture_signup
       - name: Verify actual exported Feed activation
         if: github.event.pull_request.draft == false || (github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/source-qualification-') && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.forward.v1",'))
         timeout-minutes: 2
-        run: node scripts/validate-hobby-feed-cache.js
+        run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run feed -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_fixture_feed'
+          node scripts/validate-hobby-feed-cache.js
+          NS_NORMAL613_RUN_fixture_feed
       - name: Verify subscription calendar activation
         if: github.event.pull_request.draft == false || (github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/source-qualification-') && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.forward.v1",'))
         timeout-minutes: 2
-        run: node scripts/validate-calendar-api.js
+        run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run calendar -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_fixture_calendar'
+          node scripts/validate-calendar-api.js
+          NS_NORMAL613_RUN_fixture_calendar
       - name: Verify guarded production workflow contract
         if: github.event.pull_request.draft == false || (github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/source-qualification-') && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.forward.v1",'))
         timeout-minutes: 2
-        run: node scripts/validate-production-sql-batches.js
+        run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run production -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_fixture_production'
+          node scripts/validate-production-sql-batches.js
+          NS_NORMAL613_RUN_fixture_production
       - name: Bind reviewed E610 source qualification receipt
-        if: github.event.pull_request.draft == false && !startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.forward.v1",')
+        if: github.event.pull_request.draft == false && !startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.forward.v1",') && !startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",')
         id: e610_source_admission
         timeout-minutes: 2
         run: |
@@ -1376,20 +1428,51 @@ jobs:
           console.log(JSON.stringify({schemaVersion:'current-forward-source-admission-readout.v1',head:H,testedMerge:T,tree:observed.headTree,sourceCount:rows.length,dependencyCount:installed.length,assembledSha256:assembledFile.sha256,deploymentSha256:hash(deploymentBytes),executionReceiptSha256:receiptFile.sha256,releaseAcceptance:false,numericJobJoin:'PENDING_OUTER_PUBLISHER'}));
           NS_CURRENT_FORWARD_ADMISSION
       # NS_CURRENT_FORWARD_ADMISSION_END
+      # NS_NORMAL613_ADMISSION_BEGIN
+      - name: Bind reviewed normal613 source qualification receipt
+        if: github.event.pull_request.draft == false && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",')
+        id: normal613_source_admission
+        timeout-minutes: 2
+        run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run admission -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_fixture_admission'
+          timeout --signal=TERM --kill-after=5s 120s node scripts/validate-forward-onboarding-ci.js --normal613-admission
+          NS_NORMAL613_RUN_fixture_admission
+      # NS_NORMAL613_ADMISSION_END
       - name: Verify full SYNC source and generated qualification
         if: github.event.pull_request.draft == false
         timeout-minutes: 3
         env:
-          NS_SYNC_EXECUTION_RECEIPT: ${{ steps.forward_source_admission.outputs.executionReceiptPath || steps.e610_source_admission.outputs.executionReceiptPath }}
-          NS_SYNC_EXECUTION_RECEIPT_SHA256: ${{ steps.forward_source_admission.outputs.executionReceiptSha256 || steps.e610_source_admission.outputs.executionReceiptSha256 }}
+          NS_SYNC_EXECUTION_RECEIPT: ${{ steps.normal613_source_admission.outputs.executionReceiptPath || steps.forward_source_admission.outputs.executionReceiptPath || steps.e610_source_admission.outputs.executionReceiptPath }}
+          NS_SYNC_EXECUTION_RECEIPT_SHA256: ${{ steps.normal613_source_admission.outputs.executionReceiptSha256 || steps.forward_source_admission.outputs.executionReceiptSha256 || steps.e610_source_admission.outputs.executionReceiptSha256 }}
         run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run qualifier -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_fixture_qualifier'
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            node scripts/validate-forward-onboarding-ci.js --normal613-verify-current
+            script=scripts/validate-sync-current-forward.js
+            timeout --signal=TERM --kill-after=5s 120s node "$script" --normal613-full --execution-receipt "$NS_SYNC_EXECUTION_RECEIPT" --execution-receipt-sha256 "$NS_SYNC_EXECUTION_RECEIPT_SHA256"
+          else
           script=scripts/validate-sync608-reported-hold.js
           if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.forward.v1",') }}" = "true" ]; then script=scripts/validate-sync-current-forward.js; fi
           timeout --signal=TERM --kill-after=5s 120s node "$script" --full --execution-receipt "$NS_SYNC_EXECUTION_RECEIPT" --execution-receipt-sha256 "$NS_SYNC_EXECUTION_RECEIPT_SHA256"
+          fi
+          NS_NORMAL613_RUN_fixture_qualifier
       - name: Verify exact thirteen premerge affected gates
         if: github.event.pull_request.draft == false
         timeout-minutes: 6
         run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run premerge -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_fixture_premerge'
           timeout --signal=TERM --kill-after=5s 300s bash <<'NS_PREMERGE_13_GATES'
           set -Eeuo pipefail
           gate='not-started'; began=$SECONDS
@@ -1447,6 +1530,21 @@ jobs:
           timeout --signal=TERM --kill-after=5s 45s node scripts/validate-empty-startup-meta.js
           printf 'PREMERGE_13_PASS %s\n' "$gate"
           NS_PREMERGE_13_GATES
+          NS_NORMAL613_RUN_fixture_premerge
+      - name: Seal bounded normal613 proof before artifact upload
+        if: always() && (github.event.pull_request.draft == false && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",'))
+        timeout-minutes: 1
+        env:
+          NS_NORMAL613_JOB_STATUS: ${{ job.status }}
+        run: timeout --signal=TERM --kill-after=5s 45s node scripts/validate-forward-onboarding-ci.js --normal613-seal
+      - name: Preserve bounded normal613 admission proof
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, existing pinned mechanism
+        if: always() && (github.event.pull_request.draft == false && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",'))
+        with:
+          name: normal613-admission-${{ github.event.pull_request.head.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ns-normal-613-artifact
+          if-no-files-found: error
+          retention-days: 1
   installed-upgrade:
     needs: fixture-activation
     if: github.event.pull_request.draft == false
@@ -1464,29 +1562,56 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 24.21.0
+      # NS_NORMAL613_ENGINE_CONTEXT_BEGIN
+      - name: Bind admitted normal613 identity for the existing engine
+        if: github.event.pull_request.draft == false && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",')
+        timeout-minutes: 1
+        env:
+          NS_OBSERVED_ENGINE: ${{ matrix.browser }}
+          NS_NORMAL613_ENGINE_CONTEXT: ${{ needs.fixture-activation.outputs.normal613_engine_context }}
+          NS_NORMAL613_ENGINE_CONTEXT_SHA256: ${{ needs.fixture-activation.outputs.normal613_engine_context_sha256 }}
+        run: timeout --signal=TERM --kill-after=5s 45s node scripts/validate-forward-onboarding-ci.js --normal613-engine-context
+      # NS_NORMAL613_ENGINE_CONTEXT_END
       - name: Verify and resolve installed production baseline
         id: installed_baseline
         env:
           NS_INSTALLED_PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run baseline -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_engine_baseline'
           mkdir -p "$RUNNER_TEMP/ns-upgrade-proof"
           set -o pipefail
           node scripts/validate-installed-production-baseline.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/baseline-controls.log"
           node scripts/resolve-installed-production-baseline.js --resolve 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/installed-baseline.log"
+          NS_NORMAL613_RUN_engine_baseline
       - name: Record exact source and runtime
         env:
           BASELINE_SHA: ${{ steps.installed_baseline.outputs.baseline_sha }}
           PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run context -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_engine_context'
           mkdir -p "$RUNNER_TEMP/ns-upgrade-proof"
           node <<'JS' > "$RUNNER_TEMP/ns-upgrade-proof/context.json"
           const cp=require('node:child_process');
           const git=(...args)=>cp.execFileSync('git',args,{encoding:'utf8'}).trim();
           console.log(JSON.stringify({testedSha:git('rev-parse','HEAD'),testedTree:git('rev-parse','HEAD^{tree}'),headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,baselineSha:process.env.BASELINE_SHA,node:process.version,zlib:process.versions.zlib,playwright:'1.64.1',platform:process.platform,arch:process.arch,limits:'Existing unchanged installed upgrade and account recovery harnesses on Linux; account transport is mocked loopback. Not hosted or physical iPhone acceptance. No production credentials or deployment.'},null,2));
           JS
+          NS_NORMAL613_RUN_engine_context
       - name: Use the official Ubuntu archive for test dependencies
         run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run apt -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_engine_apt'
           set -o pipefail
           sudo python3 - <<'PY' 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/apt-mirror.log"
           from pathlib import Path
@@ -1508,43 +1633,110 @@ jobs:
           assert has_archive, 'Expected official Ubuntu package archive configuration'
           print(json.dumps({'changedFiles': changed, 'archive': 'archive.ubuntu.com', 'packageSignatureValidation': 'unchanged'}))
           PY
+          NS_NORMAL613_RUN_engine_apt
       - name: Install isolated test dependencies
         run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run install -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_engine_install'
           set -o pipefail
           {
             npm ci
             npm install --prefix "$RUNNER_TEMP/ns-playwright" --no-save --package-lock=false playwright@1.64.1
             node "$RUNNER_TEMP/ns-playwright/node_modules/playwright/cli.js" install --with-deps "${{ matrix.browser }}"
           } 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/install.log"
+          NS_NORMAL613_RUN_engine_install
+      - name: Observe actual installed per-engine tooling before product checks
+        timeout-minutes: 2
+        env:
+          NS_OBSERVED_ENGINE: ${{ matrix.browser }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run tooling -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_engine_tooling'
+          set -Eeuo pipefail
+          timeout --signal=TERM --kill-after=5s 60s node <<'NS_INSTALLED_TOOLING'
+          'use strict';
+          const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process');
+          const git=(...args)=>cp.execFileSync('git',args,{encoding:'utf8',timeout:5000}).trim();
+          function identity(file){
+           const resolved=fs.realpathSync(file),fd=fs.openSync(resolved,fs.constants.O_RDONLY|fs.constants.O_NOFOLLOW);
+           try{
+            const before=fs.fstatSync(fd);assert(before.isFile()&&Number.isSafeInteger(before.size));
+            const digest=crypto.createHash('sha256'),buffer=Buffer.alloc(65536);let bytes=0,n;
+            while((n=fs.readSync(fd,buffer,0,buffer.length,null))!==0){bytes+=n;assert(bytes<=before.size,'File grew during observation');digest.update(buffer.subarray(0,n));}
+            const after=fs.fstatSync(fd);assert.equal(bytes,before.size);
+            for(const key of ['dev','ino','size','mtimeMs','ctimeMs'])assert.equal(after[key],before[key],'Installed file changed during observation');
+            return {path:resolved,bytes,sha256:digest.digest('hex')};
+           }finally{fs.closeSync(fd);}
+          }
+          assert.equal(process.version,'v24.21.0');assert.equal(process.platform,'linux');assert.equal(process.arch,'x64');
+          const osRelease=fs.readFileSync('/etc/os-release','utf8');assert(/^ID=ubuntu$/m.test(osRelease)&&/^VERSION_ID="24[.]04"$/m.test(osRelease),'Actual Ubuntu24.04 required');
+          const temp=fs.realpathSync(process.env.RUNNER_TEMP),proof=path.join(temp,'ns-upgrade-proof'),st=fs.lstatSync(proof);
+          assert(st.isDirectory()&&!st.isSymbolicLink()&&st.uid===process.getuid());
+          const engine=process.env.NS_OBSERVED_ENGINE;assert(['chromium','webkit'].includes(engine));
+          const moduleRoot=path.join(temp,'ns-playwright/node_modules/playwright'),packageFile=path.join(moduleRoot,'package.json');
+          const pkg=JSON.parse(fs.readFileSync(packageFile,'utf8'));assert.equal(pkg.version,'1.64.1');
+          const playwright=require(moduleRoot),testedSha=git('rev-parse','HEAD'),parents=git('show','-s','--format=%P','HEAD').split(' ');
+          assert.equal(testedSha,process.env.GITHUB_SHA);assert.deepEqual(parents,[process.env.PR_BASE_SHA,process.env.PR_HEAD_SHA]);
+          const report={schemaVersion:'installed-tooling-observation.v1',scope:'Actual installed files and candidate-local observations; not independent executor authentication or browser execution',repository:process.env.GITHUB_REPOSITORY,runId:process.env.GITHUB_RUN_ID,runAttempt:process.env.GITHUB_RUN_ATTEMPT,jobKey:process.env.GITHUB_JOB,ref:process.env.GITHUB_REF,headSha:process.env.PR_HEAD_SHA,baseSha:process.env.PR_BASE_SHA,testedSha,testedTree:git('rev-parse','HEAD^{tree}'),parents,engine,node:process.version,nodeBinary:identity(process.execPath),npm:cp.execFileSync('npm',['--version'],{encoding:'utf8',timeout:10000}).trim(),osRelease:identity('/etc/os-release'),packageLock:identity('package-lock.json'),installedLock:identity('node_modules/.package-lock.json'),playwrightVersion:pkg.version,playwrightPackage:identity(packageFile),playwrightEntry:identity(path.join(moduleRoot,'index.js')),browserManifest:identity(path.join(temp,'ns-playwright/node_modules/playwright-core/browsers.json')),installedExecutable:identity(playwright[engine].executablePath()),browserExecutionObserved:false,globalSetupBarrier:false,releaseAcceptance:false};
+          fs.writeFileSync(path.join(proof,'installed-tooling.json'),JSON.stringify(report,null,2)+'\n',{mode:0o600,flag:'wx'});
+          console.log(JSON.stringify({schemaVersion:report.schemaVersion,engine,observedAfterInstall:true,browserExecutionObserved:false,releaseAcceptance:false}));
+          NS_INSTALLED_TOOLING
+          NS_NORMAL613_RUN_engine_tooling
       - name: Verify browser tool offline emulation
         env:
           PWA_BROWSER: ${{ matrix.browser }}
         run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run offline -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_engine_offline'
           export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
           set -o pipefail
           timeout --signal=TERM --kill-after=5s 90s node scripts/validate-installed-offline-emulation-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/offline-emulation.log"
+          NS_NORMAL613_RUN_engine_offline
       - name: Verify installed upgrade and offline restart
         env:
           PWA_BASELINE_SHA: ${{ steps.installed_baseline.outputs.baseline_sha }}
           PWA_BROWSER: ${{ matrix.browser }}
         run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run pwa -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_engine_pwa'
           export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
           set -o pipefail
           node scripts/validate-installed-test-network.js
           node scripts/validate-diamonds-retained-schedule.js
           node scripts/validate-notification-landing.js
           node scripts/validate-installed-pwa-upgrade-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/browser.log"
+          NS_NORMAL613_RUN_engine_pwa
       - name: Verify installed All Sports offline behavior
         env:
           ALL_SPORTS_OFFLINE_ENGINES: ${{ matrix.browser }}
           ALL_SPORTS_OFFLINE_CASES: first-use,return
         run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run all-sports -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_engine_all_sports'
           export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
           set -o pipefail
           node scripts/validate-all-sports-offline-errors.js
           node scripts/validate-all-sports-offline-browser.js --check-cleanup
           node scripts/validate-all-sports-offline-browser.js --check-fixtures
           timeout --signal=TERM --kill-after=5s 150s node scripts/validate-all-sports-offline-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/all-sports-offline.log"
+          NS_NORMAL613_RUN_engine_all_sports
       - name: Verify account recovery and copied diagnostics
         env:
           ACCOUNT_RECOVERY_BROWSER: ${{ matrix.browser }}
@@ -1552,10 +1744,16 @@ jobs:
           ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE: '1'
           QA_BROWSER_CHANNEL: chromium
         run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run account -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_engine_account'
           export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
           set -o pipefail
           node scripts/validate-account-sign-in-action-trace.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/account-sign-in-observer-unit.log"
           node scripts/validate-account-sync-recovery-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/account-recovery.log"
+          NS_NORMAL613_RUN_engine_account
       - name: Observe original readiness barrier with a pending manifest
         if: matrix.browser == 'webkit'
         env:
@@ -1564,30 +1762,54 @@ jobs:
           ACCOUNT_RECOVERY_DIAGNOSTIC_TRACE: '1'
           ACCOUNT_RECOVERY_MANIFEST_CONTROL: original
         run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run original-manifest -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_engine_original_manifest'
           export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
           set -o pipefail
           node scripts/validate-account-sync-recovery-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/manifest-original-control.log"
+          NS_NORMAL613_RUN_engine_original_manifest
       # NS_CURRENT_FORWARD_BROWSER_BEGIN
       - name: Verify reviewed onboarding directories in the installed browser matrix
         env:
           ONBOARDING_QA_ENGINE: ${{ matrix.browser }}
         run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run directories -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_engine_directories'
           export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
           set -o pipefail
           timeout --signal=TERM --kill-after=5s 120s node scripts/validate-onboarding-directories-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/onboarding-directories.log"
+          NS_NORMAL613_RUN_engine_directories
       # NS_CURRENT_FORWARD_BROWSER_END
       - name: Verify Feed controls above fixed navigation
         env:
           PEACH_QA_ENGINE: ${{ matrix.browser }}
           PEACH_QA_CASE: timeline-controls
         run: |
+          ns_normal613_command=(bash -e)
+          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
+            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run feed-controls -- bash -Eeuo pipefail)
+          fi
+          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_engine_feed_controls'
           export PLAYWRIGHT_MODULE="$RUNNER_TEMP/ns-playwright/node_modules/playwright"
           export PEACH_QA_OUTPUT="$RUNNER_TEMP/ns-upgrade-proof/feed-controls"
           set -o pipefail
           timeout --signal=TERM --kill-after=5s 190s node scripts/validate-peach-redesign-browser.js 2>&1 | tee "$RUNNER_TEMP/ns-upgrade-proof/feed-controls.log"
+          NS_NORMAL613_RUN_engine_feed_controls
+      - name: Seal bounded normal613 proof before artifact upload
+        if: always() && (github.event.pull_request.draft == false && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",'))
+        timeout-minutes: 1
+        env:
+          NS_NORMAL613_JOB_STATUS: ${{ job.status }}
+        run: timeout --signal=TERM --kill-after=5s 45s node scripts/validate-forward-onboarding-ci.js --normal613-seal
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
           name: installed-upgrade-${{ github.event.pull_request.head.sha }}-${{ matrix.browser }}
-          path: ${{ runner.temp }}/ns-upgrade-proof
+          path: ${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') && format('{0}/ns-normal-613-artifact', runner.temp) || format('{0}/ns-upgrade-proof', runner.temp) }}
           retention-days: 1

@@ -19,6 +19,7 @@ let readBytes=0;
 const externalFiles=new Map(),sourceLeaves=new Map(),dependencyLeaves=new Map();
 function stamp(s){return [s.dev,s.ino,s.uid,s.gid,s.mode,s.size,s.mtimeMs,s.ctimeMs];}
 function rawIdentity(full,max=limits.fileBytes){
+ if(normal613Deadline)normal613CheckDeadline();
  const first=fs.lstatSync(full);assert(fs.realpathSync(path.dirname(full))===path.dirname(full),'symlinked parent');
  assert(first.size<=max,'file exceeds finite bound');readBytes+=first.size;assert(readBytes<=limits.totalBytes,'metadata-phase cumulative read bound');
  let bytes;
@@ -29,6 +30,7 @@ function rawIdentity(full,max=limits.fileBytes){
   try{assert.deepEqual(stamp(fs.fstatSync(fd)),stamp(first),'file replaced before read');bytes=fs.readFileSync(fd);assert.deepEqual(stamp(fs.fstatSync(fd)),stamp(first),'file changed during read');}finally{fs.closeSync(fd);}
  }
  assert(bytes.length<=max);assert.deepEqual(stamp(fs.lstatSync(full)),stamp(first),'file identity drift');
+ if(normal613Deadline)normal613CheckDeadline();
  return {bytes,stat:first,identity:{bytes:bytes.length,permissions:(first.mode&0o7777).toString(8).padStart(4,'0'),mode:first.isSymbolicLink()?'120000':first.mode&0o111?'100755':'100644',sha256:sha(bytes),gitBlob:blob(bytes)}};
 }
 let admissionRoot;
@@ -43,7 +45,7 @@ function descriptor(d){keys(d,'path bytes sha256');integer(d.bytes);hex(d.sha256
 function json(b){const value=JSON.parse(utf8(b));function strings(v){if(typeof v==='string')assert(Buffer.from(v).toString('utf8')===v,'unpaired JSON surrogate');else if(v&&typeof v==='object')for(const [k,x]of Object.entries(v)){assert(Buffer.from(k).toString('utf8')===k,'unpaired JSON key surrogate');strings(x);}}strings(value);return value;}
 function equalIdentity(got,expected){for(const k of ['bytes','mode','sha256','gitBlob'])assert.equal(got[k],expected[k],'raw identity '+k);if(Object.hasOwn(expected,'permissions'))assert.equal(got.permissions,expected.permissions);}
 function time(value){text(value);assert(/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d{1,6})?(?:Z|\+00:00)$/.test(value),'UTC timestamp required');const t=Date.parse(value);assert(Number.isFinite(t)&&new Date(t).toISOString().slice(0,19)===value.slice(0,19),'invalid UTC time');return t;}
-function git(args){return execFileSync('git',args,{cwd:root,encoding:null,maxBuffer:limits.gitBytes,timeout:limits.gitTimeoutMs,stdio:['ignore','pipe','pipe']});}
+function git(args){return execFileSync('git',args,{cwd:root,encoding:null,maxBuffer:limits.gitBytes,timeout:normal613Deadline?Math.max(1,Math.min(limits.gitTimeoutMs,Math.floor(normal613CheckDeadline()))):limits.gitTimeoutMs,stdio:['ignore','pipe','pipe']});}
 function canonicalBase64(value){text(value);const b=Buffer.from(value,'base64');assert(b.length>0&&b.length<=limits.receiptBytes,'bounded base64 record');json(b);assert.equal(b.toString('base64'),value,'noncanonical base64');return b;}
 function source(row){const full=path.join(root,safePath(row.path));const got=rawIdentity(full);equalIdentity(got.identity,row);sourceLeaves.set(row.path,{...row});return got.bytes;}
 function verifyDeployment(receipt,assembled){
@@ -99,7 +101,7 @@ function verifyDependencies(receipt){
  assert.deepEqual(d.terser.entryIdentity,dependencyLeaves.get(d.terser.main));assert.deepEqual(d.terser.manifestIdentity,dependencyLeaves.get(d.terser.package+'/package.json'));
  return {files:d.files.length,fileMapSha256:d.fileMapSha256,lockSha256:d.lockSha256,installedLockSha256:d.installedLockSha256};
 }
-function admit(){
+function admitLegacy612(){
  const args=process.argv.slice(2);assert(args.length===5&&args[0]==='--full'&&args[1]==='--execution-receipt'&&args[3]==='--execution-receipt-sha256','Only explicit full mode and independently pinned external receipt are supported');hex(args[4],64);
  assert.equal(process.env.GITHUB_ACTIONS,'true');assert.equal(process.env.GITHUB_EVENT_NAME,'pull_request');assert.equal(process.env.GITHUB_REPOSITORY,'hartican/sportscal');assert.equal(process.env.GITHUB_JOB,'fixture-activation');
  assert(path.isAbsolute(text(process.env.RUNNER_TEMP)));const temp=fs.realpathSync(process.env.RUNNER_TEMP);admissionRoot=path.join(temp,'ns-forward-612-admission');assert.equal(fs.realpathSync(admissionRoot),admissionRoot);assert(!admissionRoot.startsWith(root+path.sep)&&admissionRoot!==root,'receipt root must be outside checkout');const rootStat=fs.lstatSync(admissionRoot);assert(rootStat.isDirectory()&&rootStat.uid===process.geteuid()&&(rootStat.mode&0o022)===0,'owned admission directory');
@@ -141,7 +143,116 @@ function admit(){
  assert.equal(r.runtime.dependencyProof.sha256,r.actualDependencyProofSha256);const dependency=verifyDependencies(r);verifyDeployment(r,a);
  return {receipt:r,receiptPath:args[2],receiptSha256:args[4],validUntil:until,eventBodySha256:r.eventBodySha256,dependency,sourceEntryCount:a.entryCount,sourceReviewDigestIsOwnerMetadata:true,numericJobOuterJoinRequired:true,releaseAcceptance:false};
 }
+// Additive normal613 source proposal. External owner acknowledgement is not authenticated by these local checks.
+const NORMAL613=Object.freeze({base:'9f20813c9855e30d4ca32e721862f739b6d696ba',product:'491d0ebcb2210b29a1ae6164c0c4deef1b04f2ec',productTree:'b69736ee739e7b31eebe58108c14889a333a756c',fixture:'scripts/fixtures/sync-normal-613-20261112.json',reservation:'ns-app-version-613-sportsyurt-20261112',reservationHash:'daa00a480a28b0cca1d2f9922c82fc9394a5460b0d45f87c3566e42b58a473d7'});
+const NORMAL613_SOURCE_PINS=Object.freeze({"index.html":{"mode":"100644","bytes":997335,"gitBlob":"8880588632cb9590330a97b00a4b7167610614f7","sha256":"2dec08dca491fd65e6ab1b15f72bed2dd23f547558f1c27eb736ef45ae75ee02"},"config/preference-intent-reconcile.js":{"mode":"100644","bytes":29172,"gitBlob":"b0de06881c70ff23f3e233e0e642131bc6a9521a","sha256":"442a7cc7273b3296708daea0405709a1143e707695ca8912046848f78598fcda"},"config/profile-storage.js":{"mode":"100644","bytes":39704,"gitBlob":"673077fd7bea72c737dacedf088bfbe112288c50","sha256":"8fdd874dbf6a537cf3dbc6b0e7e1593323ee2aebf36799aa51d95e8818f25a08"},"config/server-sync.js":{"mode":"100644","bytes":51507,"gitBlob":"5998bc76c7b871c01783b71a2821384754905d41","sha256":"e3dde8f3d35b9fb1b4f66d317922124ffdb25b3cf71c6ad9df512adbbf148569"},"config/discovery-catalogue.js":{"mode":"100644","bytes":26964,"gitBlob":"70c55c606c67c8ede3c959fe6d2f025656e64cf2","sha256":"a51d1c71f00427dd8359b386d31312b4e251eaa5843db88543366cf05bffabf2"},"config/account-sync-diagnostic.js":{"mode":"100644","bytes":12709,"gitBlob":"4f7b8dc5d819de1d1586c4664657d6f8a02b7031","sha256":"3bf9d2657b16752260fb53f6cd29517f67ad1a5e88d7817bd71652e1d0ff68df"},"assets/js/account-awareness-runtime.js":{"mode":"100644","bytes":43800,"gitBlob":"2df38cbf45dc311a11d80d410e70954334481d11","sha256":"9e726a9887cdae8329a6ae15aace31a309a04722e5ab0f709a5a6b275f411274"},"assets/js/app-shell-runtime.js":{"mode":"100644","bytes":679697,"gitBlob":"83097c2d01e3b5b6d37dbbe0b9f4c50c723d062f","sha256":"896d2cbbd07946e04b415581a26c1dff9b51fdf918cda6bb23b00b808e3a1fb9"},"scripts/lib/user-state-selection-writer-tests.js":{"mode":"100644","bytes":19746,"gitBlob":"d943a31b1133df35fe7d65a16eae02d42c470364","sha256":"50ee77985890d68ba83bffac88f58691dd585de99a2e8a06719af95aa96482db"},"scripts/lib/user-state-selection-sdk-tests.cjs":{"mode":"100644","bytes":7697,"gitBlob":"0910be3039da757c824011b6f9150d84cbc16948","sha256":"5e6e0394a5454cadf137fb5e8de1cf67e878e542d4859c54b2e5ce6ca9dcec8e"},"scripts/lib/user-state-optional-view-tests.js":{"mode":"100644","bytes":8407,"gitBlob":"cf0c85be1ca1bb57b081576ce79073f9f9a05b9a","sha256":"1bd8e368efb764661c755f7613fef971d43c5ecc8c81ea2b84961b43c3441b71"},"config/rating-system.js":{"mode":"100644","bytes":5813,"gitBlob":"ec7b85bf6b9fbfd0fc673dcf255fed0875508d36","sha256":"1c55664fd383ff07e599e8ad31e1b87587aae86b52e909cc50fa1471611d00da"},"config/follow-first.js":{"mode":"100644","bytes":73598,"gitBlob":"cbe1efd7e7c349f6a20e96b0467f3a5090317e01","sha256":"e0f88352af459638e0a51d954bdc98efe723de5c5400478016dc9a16233dd543"},"config/competition-classification.js":{"mode":"100644","bytes":5008,"gitBlob":"c1291edba0a56d264dd1443e76aaa1ae14cceb8b","sha256":"2e0fd8ee374712192d56f31a895567ecade881694c4bb2f3782097fcf7f6acc7"},"config/user-state-sync.js":{"mode":"100644","bytes":13352,"gitBlob":"9ddf101ea9a73e6b3d24196631392a0d8d76a83e","sha256":"74cf255a546dcf3d5ab9797281991c8ec742ae07f5f5c69dbca08e4cfa72a7d1"},"scripts/validate-sync608-reported-hold.js":{"mode":"100644","bytes":71098,"gitBlob":"a08918680f1719abb2d899b3c000c5984a4abbd9","sha256":"818f96bbd68a6b6c2adda4bb2a46ba271273933b3a551e44edebbad66bfce562"},"config/fantasy-deadline-ui.js":{"mode":"100644","bytes":58297,"gitBlob":"bcaa8d837e52e0cc6645f4b434d0e9e0b1cb5091","sha256":"c17bcf87249d18ea922637bc3a9872ce4f843f6077d93e180e032bbce0f87d9c"},"scripts/validate-new-user-journey.js":{"mode":"100644","bytes":107749,"gitBlob":"565615aaf3aafdcb5ebe5b20aeca4a24795bfa3d","sha256":"c24ce31ad61a764117b311153356e70cbe988dee710405e1fabcc625f9cb57fd"}});
+let normal613Deadline=null;
+function normal613CheckDeadline(){
+ if(!normal613Deadline)return limits.gitTimeoutMs;
+ const d=normal613Deadline,wall=Date.now(),elapsed=Number(process.hrtime.bigint()-d.begin)/1e6;
+ assert(Number.isSafeInteger(wall)&&wall>=d.lastWall&&Math.abs((wall-d.wall)-elapsed)<=1000,'normal613 clock integrity');
+ d.lastWall=wall;assert(wall<d.until&&elapsed<d.remaining,'normal613 action expired');
+ return d.remaining-elapsed;
+}
+function normal613ActualReference(value){
+ const token=text(value).trim().toUpperCase();
+ assert(token.length>0&&!["UNBOUND","UNKNOWN","SOURCE_TEMPLATE_ONLY_NOT_ALLOCATION","SOURCE_TEMPLATE_NOT_ADMISSION","RESERVED_WORKING_NOT_READY","FORWARD612_SOURCE_TEMPLATE_UNPARSED_UNRUN_NOT_ADMISSION","FORWARD612_SELECTED_SOURCE_ONLY_UNPARSED_UNRUN","FUTURE_FULL_QUALIFIER_SOURCE_PREPARATION_UNPARSED_UNRUN_UNREGISTERED","PROPOSED_UNBOUND_NOT_EXECUTION_AUTHORITY"].includes(token),'normal613 actual reference cannot be a source/preparation sentinel');
+ return value;
+}
+function normal613Record(d){const bytes=descriptor(d),value=json(bytes);assert(bytes.equals(Buffer.from(JSON.stringify(value)+'\n')),'canonical owned normal613 record');return value;}
+function normal613Reservation(value){
+ assert.equal(typeof value,'string');assert.equal(value.length,1816);assert(/^[A-Za-z0-9+/]+$/.test(value),'canonical unpadded reservation encoding');
+ const bytes=Buffer.from(value,'base64');assert.equal(bytes.length,1362);assert.equal(bytes.toString('base64'),value);assert.equal(sha(bytes),NORMAL613.reservationHash);
+ const record=json(bytes);keys(record,'schemaVersion issuedAtUtc reservationId version status sourceOwner integrationOwner publisher queue commentId commentReadbackExact recordedBase candidateSha candidateTree pr testSlotAllocated testsDispatched published deployed constraints evidenceBoundary');
+ assert.equal(record.schemaVersion,'ns-app-version-reservation.v1');assert.equal(record.reservationId,NORMAL613.reservation);assert.equal(record.version,'613');assert.equal(record.status,'RESERVED_WORKING_NOT_READY');
+ assert.equal(record.sourceOwner,'syREBRAND');assert.equal(record.integrationOwner,'nsRELEASE');assert.equal(record.publisher,'nsPUBLISH');assert.equal(record.recordedBase,NORMAL613.base);assert.equal(record.queue,'https://github.com/hartican/sportscal/issues/28');assert.equal(record.commentId,6813306721);assert.equal(record.commentReadbackExact,true);
+ for(const k of ['candidateSha','candidateTree','pr'])assert.equal(record[k],null);
+ for(const k of ['testSlotAllocated','testsDispatched','published','deployed'])assert.equal(record[k],false);
+ return bytes;
+}
+function normal613Action(a,b,r,fresh,now){
+ keys(a,'schemaVersion phase purpose allocationId laneId ownedOperationId allocatedAt admittedAt startedAt observationAt validUntil maxWallMs monotonicElapsedMs hardTimeoutMs');
+ const intent=b.actionIntent;assert.equal(a.schemaVersion,'normal613-owned-action-observation.v1');assert.equal(a.phase,'qualification');assert.equal(a.purpose,'normal613-qualification');
+ for(const k of ['allocationId','laneId','ownedOperationId','validUntil','maxWallMs'])assert.equal(a[k],intent[k]);
+ const allocated=time(a.allocatedAt),admitted=time(a.admittedAt),started=time(a.startedAt),observation=time(a.observationAt),until=time(a.validUntil);
+ assert(allocated<=started&&started<=admitted&&admitted<=observation&&observation<=now,'ordered nonfuture owned observations');assert.equal(a.admittedAt,r.observedAt);
+ for(const t of [allocated,admitted,started,observation])assert(t<until&&now-t<=86400000,'fresh observations and strictly future expiry at allocation/admission/start');
+ assert(now<until);assert.equal(a.validUntil,fresh.validUntil);integer(a.maxWallMs,1);assert(a.maxWallMs<=900000,'unchanged15minute job cap');integer(a.monotonicElapsedMs);integer(a.hardTimeoutMs,1);assert(a.hardTimeoutMs<=120000,'unchanged qualifier command cap');
+ assert(Math.abs(a.monotonicElapsedMs-(observation-started))<=1000,'owned monotonic/wall observation join');
+ const elapsed=a.monotonicElapsedMs+(now-observation),remaining=Math.min(until-now,a.maxWallMs-elapsed,a.hardTimeoutMs,120000);
+ assert(remaining>0&&a.hardTimeoutMs<=Math.min(until-observation,a.maxWallMs-a.monotonicElapsedMs),'caller must arm a hard owned timeout before invoking qualifier');
+ // The reviewed existing workflow must enforce the hard process deadline and owned child cleanup.
+ // This record is a consistency witness, not authentication that a caller actually enforced it.
+ normal613Deadline={begin:process.hrtime.bigint(),wall:now,lastWall:now,until,remaining};
+ const watchdog=setTimeout(()=>{console.error('normal613 owned deadline exceeded');process.exit(124);},Math.max(1,Math.floor(remaining)));watchdog.unref();
+ normal613CheckDeadline();
+}
+function admitNormal613(){
+ const args=process.argv.slice(2);assert(args.length===5&&args[0]==='--normal613-full'&&args[1]==='--execution-receipt'&&args[3]==='--execution-receipt-sha256','Only explicit full mode and independently pinned external receipt are supported');hex(args[4],64);
+ assert.equal(process.env.GITHUB_ACTIONS,'true');assert.equal(process.env.GITHUB_EVENT_NAME,'pull_request');assert.equal(process.env.GITHUB_REPOSITORY,'hartican/sportscal');assert.equal(process.env.GITHUB_JOB,'fixture-activation');
+ assert(path.isAbsolute(text(process.env.RUNNER_TEMP)));const temp=fs.realpathSync(process.env.RUNNER_TEMP);admissionRoot=path.join(temp,'ns-normal-613-admission');assert.equal(fs.realpathSync(admissionRoot),admissionRoot);assert(!admissionRoot.startsWith(root+path.sep)&&admissionRoot!==root,'receipt root must be outside checkout');const rootStat=fs.lstatSync(admissionRoot);assert(rootStat.isDirectory()&&rootStat.uid===process.geteuid()&&(rootStat.mode&0o022)===0,'owned admission directory');
+ const receiptBytes=external(args[2],limits.receiptBytes,args[4]),r=json(receiptBytes);assert(receiptBytes.equals(Buffer.from(JSON.stringify(r)+'\n')),'canonical normal613 receipt');
+ keys(r,'schemaVersion publisherHeadSha publisherTreeSha actualAssembledSourceManifestPath actualAssembledSourceManifestSha256 actualDeploymentSourceManifestPath actualDeploymentSourceManifestSha256 releaseGitSha actualTestedMergeSha actualCloudRunId actualCloudRunAttempt actualCloudJobId namedAllocationId freshMainAndReservationBindingSha256 actualNodeBinarySha256 actualDependencyProofSha256 admissionGranted jobIdKind actualCloudJobKey actualCloudNumericJobId actualWorkflowPath observedAt eventBodySha256 headRole testedCommitRole releaseRole qualifier fixture approvedFinalMap runtime reservation freshMainAndReservationBinding git cloudContext normal613Action normal613Intent normal613Ack');
+ assert.equal(r.schemaVersion,'normal613-qualification-execution-receipt.v1');assert.equal(r.admissionGranted,true);assert.equal(r.jobIdKind,'github-job-key');assert.equal(r.actualCloudJobKey,'fixture-activation');assert.equal(r.actualCloudJobId,'github-job-key:fixture-activation');assert.equal(r.actualCloudNumericJobId,null,'numeric job ID belongs to mandatory later outer join');assert.equal(r.actualWorkflowPath,'.github/workflows/installed-upgrade-tests.yml');
+ assert.equal(r.headRole,'pull_request.head.sha');assert.equal(r.testedCommitRole,'pull_request-merge-checkout');assert.equal(r.releaseRole,'source-qualification-candidate');assert(text(r.namedAllocationId).length<=256&&r.namedAllocationId.trim().length>0,'finite allocation ID');
+ for(const key of ['publisherHeadSha','publisherTreeSha','releaseGitSha','actualTestedMergeSha'])hex(r[key],40);
+ for(const key of ['actualAssembledSourceManifestSha256','actualDeploymentSourceManifestSha256','freshMainAndReservationBindingSha256','actualNodeBinarySha256','actualDependencyProofSha256','eventBodySha256'])hex(r[key],64);
+ assert(/^[1-9][0-9]*$/.test(r.actualCloudRunId));integer(r.actualCloudRunAttempt,1);assert.equal(r.actualCloudRunId,process.env.GITHUB_RUN_ID);assert.equal(String(r.actualCloudRunAttempt),process.env.GITHUB_RUN_ATTEMPT);
+ const eventFile=text(process.env.GITHUB_EVENT_PATH),eventRaw=rawIdentity(eventFile,4*1024*1024),event=json(eventRaw.bytes);externalFiles.set(eventFile,{max:4*1024*1024,digest:sha(eventRaw.bytes),stamp:stamp(eventRaw.stat)});
+ assert.equal(event.repository.full_name,'hartican/sportscal');integer(event.number,1);assert.equal(event.pull_request.number,event.number);assert.equal(event.pull_request.draft,false);assert.equal(event.action,'ready_for_review');
+ const bodyBytes=Buffer.from(text(event.pull_request.body),'utf8');assert(bodyBytes.length<=limits.bodyBytes);const body=json(bodyBytes);assert.equal(JSON.stringify(body),event.pull_request.body,'canonical PR body has no LF/whitespace or duplicate keys');assert.equal(sha(bodyBytes),r.eventBodySha256);
+ keys(body,'schemaVersion scope commit testsAndResults dependencies databaseAndConfigChanges knownRisks rollback sourceQualificationBinding');assert.equal(body.schemaVersion,'ns-release-handover.normal613.v1');assert.equal(body.commit,r.publisherHeadSha);
+ for(const [name,max]of Object.entries({scope:4096,testsAndResults:8192,dependencies:4096,databaseAndConfigChanges:4096,knownRisks:4096,rollback:4096})){const value=text(body[name]);assert(value.length<=max&&value.trim().length>0,'typed handover text '+name);}
+ const b=body.sourceQualificationBinding;
+ keys(b,'schemaVersion phase repository preparedForBaseSha productSourceSha productSourceTree publisherHeadSha expectedPublisherTreeSha reviewedFinalMapSha256 expectedAssembledManifestSha256 expectedSourceEntryCount expectedBaseRelativePathCount qualifier fixture reservation actionIntent reservationReceiptBase64');
+ assert.equal(b.schemaVersion,'normal-ready-613-binding.v1');assert.equal(b.phase,'qualification');assert.equal(b.repository,'hartican/sportscal');assert.equal(b.preparedForBaseSha,NORMAL613.base);assert.equal(b.productSourceSha,NORMAL613.product);assert.equal(b.productSourceTree,NORMAL613.productTree);
+ assert.equal(b.publisherHeadSha,r.publisherHeadSha);assert.equal(b.expectedPublisherTreeSha,r.publisherTreeSha);assert.equal(b.expectedAssembledManifestSha256,r.actualAssembledSourceManifestSha256);
+ for(const k of ['reviewedFinalMapSha256','expectedAssembledManifestSha256'])hex(b[k],64);
+ integer(b.expectedSourceEntryCount,1);integer(b.expectedBaseRelativePathCount,1);assert(b.expectedSourceEntryCount<=limits.sourceEntries&&b.expectedBaseRelativePathCount<=b.expectedSourceEntryCount);
+ keys(b.actionIntent,'allocationId laneId ownedOperationId purpose intentSha256 sourceReviewId sourceReviewSha256 priorOwnedClosureReference validUntil maxWallMs resultContentDispositionSha256');
+ assert.equal(b.actionIntent.purpose,'normal613-qualification');assert.equal(b.actionIntent.allocationId,r.namedAllocationId);
+ for(const k of ['allocationId','laneId','ownedOperationId','sourceReviewId','priorOwnedClosureReference']){assert(text(b.actionIntent[k]).trim().length>0&&b.actionIntent[k].length<=256);normal613ActualReference(b.actionIntent[k]);}
+ for(const k of ['intentSha256','sourceReviewSha256','resultContentDispositionSha256'])hex(b.actionIntent[k],64);
+ assert.equal(b.actionIntent.intentSha256,r.normal613Intent.sha256);integer(b.actionIntent.maxWallMs,1);assert(b.actionIntent.maxWallMs<=900000);
+ keys(b.reservation,'schemaVersion reservationId version rawBytes rawSha256 queue commentId');assert.deepEqual(b.reservation,{schemaVersion:'ns-app-version-reservation.v1',reservationId:NORMAL613.reservation,version:'613',rawBytes:1362,rawSha256:NORMAL613.reservationHash,queue:'https://github.com/hartican/sportscal/issues/28',commentId:6813306721});
+ keys(r.reservation,'id version receipt');assert.equal(r.reservation.id,NORMAL613.reservation);assert.equal(r.reservation.version,'613');
+ const reservationBytes=descriptor(r.reservation.receipt);assert.equal(reservationBytes.length,1362);assert.equal(sha(reservationBytes),NORMAL613.reservationHash);assert(reservationBytes.equals(normal613Reservation(b.reservationReceiptBase64)));
+ keys(r.freshMainAndReservationBinding,'receipt');const freshBytes=descriptor(r.freshMainAndReservationBinding.receipt);assert.equal(sha(freshBytes),r.freshMainAndReservationBindingSha256);const fresh=json(freshBytes);assert(freshBytes.equals(Buffer.from(JSON.stringify(fresh)+'\n')),'canonical fresh normal613 record');
+ keys(fresh,'schemaVersion phase purpose publisherThreadId repository candidateHeadSha candidateTreeSha reviewedFinalMapSha256 expectedAssembledManifestSha256 observedMainSha mainObservedAt mainRefEvidenceSha256 reservationId reservationVersion reservationReceiptSha256 reservationConflictCheckedAt knownConflictingReservation globalReservationAvailability namedAllocationId validUntil currentActionAuthority');
+ assert.equal(fresh.schemaVersion,'normal613-fresh-main-reservation-binding.v1');assert.equal(fresh.phase,'qualification');assert.equal(fresh.purpose,'normal613-qualification');assert.equal(fresh.publisherThreadId,'01a0d5ba-943d-74e0-af7f-dab4fb2bdda4');assert.equal(fresh.repository,'hartican/sportscal');assert.equal(fresh.candidateHeadSha,r.publisherHeadSha);assert.equal(fresh.candidateTreeSha,r.publisherTreeSha);assert.equal(fresh.reviewedFinalMapSha256,b.reviewedFinalMapSha256);assert.equal(fresh.expectedAssembledManifestSha256,b.expectedAssembledManifestSha256);assert.equal(fresh.observedMainSha,NORMAL613.base);hex(fresh.mainRefEvidenceSha256,64);
+ assert.equal(fresh.reservationId,NORMAL613.reservation);assert.equal(fresh.reservationVersion,'613');assert.equal(fresh.reservationReceiptSha256,NORMAL613.reservationHash);assert.equal(fresh.knownConflictingReservation,false);assert.equal(fresh.globalReservationAvailability,'UNKNOWN; no global availability claim');assert.equal(fresh.namedAllocationId,r.namedAllocationId);assert.equal(fresh.validUntil,b.actionIntent.validUntil);normal613ActualReference(fresh.currentActionAuthority);
+ const now=Date.now(),observed=time(r.observedAt),main=time(fresh.mainObservedAt),conflict=time(fresh.reservationConflictCheckedAt),until=time(fresh.validUntil);assert(main<=observed&&conflict<=observed&&observed<=now&&now<until);for(const at of [main,conflict,observed])assert(now-at<=86400000,'nonfuture fresh observations');
+ const intent=normal613Record(r.normal613Intent),expectedIntent={schemaVersion:'normal613-action-intent.v1',phase:'qualification',purpose:'normal613-qualification',repository:'hartican/sportscal',candidateHeadSha:r.publisherHeadSha,candidateTreeSha:r.publisherTreeSha,baseSha:NORMAL613.base,reviewedFinalMapSha256:b.reviewedFinalMapSha256,expectedAssembledManifestSha256:b.expectedAssembledManifestSha256,qualifierSha256:r.qualifier.sha256,fixtureSha256:r.fixture.sha256,reservationReceiptSha256:NORMAL613.reservationHash,allocationId:b.actionIntent.allocationId,laneId:b.actionIntent.laneId,ownedOperationId:b.actionIntent.ownedOperationId,sourceReviewId:b.actionIntent.sourceReviewId,sourceReviewSha256:b.actionIntent.sourceReviewSha256,priorOwnedClosureReference:b.actionIntent.priorOwnedClosureReference,validUntil:b.actionIntent.validUntil,maxWallMs:b.actionIntent.maxWallMs,resultContentDispositionSha256:b.actionIntent.resultContentDispositionSha256,freshMainAndReservationBindingSha256:r.freshMainAndReservationBindingSha256};
+ keys(intent,Object.keys(expectedIntent).join(' '));assert.deepEqual(intent,expectedIntent);
+ const ack=normal613Record(r.normal613Ack),expectedAck={...expectedIntent,schemaVersion:'normal613-action-ack.v1',intentSha256:r.normal613Intent.sha256,bodySha256:r.eventBodySha256,acknowledgedBy:'nsRELEASE+nsPUBLISH',acknowledgedAt:ack.acknowledgedAt};
+ keys(ack,Object.keys(expectedAck).join(' '));assert.deepEqual(ack,expectedAck);const ackAt=time(ack.acknowledgedAt);assert(ackAt<=time(r.normal613Action.startedAt)&&ackAt<=now&&now-ackAt<=86400000&&ackAt<until);
+ // Exact matching records are candidate-local consistency evidence, NOT authenticated external authority.
+ normal613Action(r.normal613Action,b,r,fresh,now);
+ keys(r.cloudContext,'repository eventName pullRequestNumber ref runId runAttempt jobKey');assert(/^[1-9][0-9]*$/.test(r.cloudContext.pullRequestNumber));
+ assert.deepEqual(r.cloudContext,{repository:'hartican/sportscal',eventName:'pull_request',pullRequestNumber:String(event.number),ref:process.env.GITHUB_REF,runId:r.actualCloudRunId,runAttempt:r.actualCloudRunAttempt,jobKey:'fixture-activation'});assert.equal(r.cloudContext.ref,'refs/pull/'+event.number+'/merge');
+ keys(r.git,'headSha headTree testedMergeSha testedTree baseSha testedMergeParents trackedSourceUnchanged');assert.equal(r.git.trackedSourceUnchanged,true);assert.equal(r.git.baseSha,NORMAL613.base,'exact prepared current base');assert.equal(event.pull_request.base.sha,NORMAL613.base);assert.equal(event.pull_request.head.repo.full_name,'hartican/sportscal');assert.equal(event.pull_request.base.repo.full_name,'hartican/sportscal');assert.equal(process.env.GITHUB_RUN_ATTEMPT,'1');assert.equal(r.actualCloudRunAttempt,1);assert.equal(process.env.GITHUB_WORKFLOW_REF,'hartican/sportscal/.github/workflows/installed-upgrade-tests.yml@refs/pull/'+event.number+'/merge');git(['merge-base','--is-ancestor',NORMAL613.product,r.publisherHeadSha]);git(['merge-base','--is-ancestor',NORMAL613.base,r.publisherHeadSha]);assert.equal(event.pull_request.head.sha,r.publisherHeadSha);assert.equal(r.releaseGitSha,r.publisherHeadSha);assert.equal(r.actualTestedMergeSha,process.env.GITHUB_SHA);
+ const identities=utf8(git(['rev-parse','HEAD','HEAD^{tree}',r.publisherHeadSha+'^{tree}'])).trim().split('\n');assert.deepEqual(identities,[r.actualTestedMergeSha,r.publisherTreeSha,r.publisherTreeSha]);
+ const parents=utf8(git(['show','-s','--format=%P',r.actualTestedMergeSha])).trim().split(' ');assert.deepEqual(parents,[event.pull_request.base.sha,r.publisherHeadSha]);
+ assert.deepEqual(r.git,{headSha:r.publisherHeadSha,headTree:r.publisherTreeSha,testedMergeSha:r.actualTestedMergeSha,testedTree:r.publisherTreeSha,baseSha:event.pull_request.base.sha,testedMergeParents:parents,trackedSourceUnchanged:true});
+ keys(r.approvedFinalMap,'reviewedMapSha256 expectedTree entryCount baseRelativePathCount assembledManifestSha256');assert.deepEqual(r.approvedFinalMap,{reviewedMapSha256:b.reviewedFinalMapSha256,expectedTree:r.publisherTreeSha,entryCount:b.expectedSourceEntryCount,baseRelativePathCount:b.expectedBaseRelativePathCount,assembledManifestSha256:b.expectedAssembledManifestSha256});
+ const assembledBytes=external(r.actualAssembledSourceManifestPath,limits.jsonBytes,r.actualAssembledSourceManifestSha256),a=json(assembledBytes);keys(a,'schemaVersion revision tree entryCount reviewedMapSha256 files');assert.equal(a.schemaVersion,'assembled-git-source-manifest.v1');assert.equal(a.revision,r.publisherHeadSha);assert.equal(a.tree,r.publisherTreeSha);assert.equal(a.reviewedMapSha256,b.reviewedFinalMapSha256);assert.equal(a.entryCount,b.expectedSourceEntryCount);assert(Array.isArray(a.files)&&a.files.length===a.entryCount);
+ const canonical={schemaVersion:a.schemaVersion,revision:a.revision,tree:a.tree,entryCount:a.entryCount,reviewedMapSha256:a.reviewedMapSha256,files:[]};let previous=null,total=0;
+ for(const row of a.files){keys(row,'path mode type gitBlob bytes sha256');safePath(row.path);assert.equal(row.type,'blob');assert(['100644','100755','120000'].includes(row.mode));hex(row.gitBlob,40);hex(row.sha256,64);integer(row.bytes);assert(row.bytes<=limits.fileBytes);if(previous!==null)assert(Buffer.compare(Buffer.from(previous),Buffer.from(row.path))<0,'raw UTF-8 entry order');previous=row.path;total+=row.bytes;assert(total<=limits.totalBytes);source(row);canonical.files.push({path:row.path,mode:row.mode,type:row.type,gitBlob:row.gitBlob,bytes:row.bytes,sha256:row.sha256});}
+ assert(assembledBytes.equals(Buffer.from(JSON.stringify(canonical)+'\n')),'canonical complete assembled bytes');
+ const treeBytes=git(['ls-tree','-r','-z','--full-tree','HEAD']),records=utf8(treeBytes).split('\0');assert.equal(records.pop(),'');const actualTree=records.map(record=>{const split=record.indexOf('\t');assert(split>0);const [mode,type,gitBlob]=record.slice(0,split).split(' ');return {path:safePath(record.slice(split+1)),mode,type,gitBlob};}).sort((x,y)=>Buffer.compare(Buffer.from(x.path),Buffer.from(y.path)));
+ assert.deepEqual(actualTree,a.files.map(row=>({path:row.path,mode:row.mode,type:row.type,gitBlob:row.gitBlob})),'actual entire Git tree');
+ for(const [name,expected]of [['qualifier','scripts/validate-sync-current-forward.js'],['fixture',NORMAL613.fixture]]){const d=r[name];keys(d,'path bytes sha256 gitBlob mode');assert.equal(d.path,expected);const row=sourceLeaves.get(expected);assert(row);assert.deepEqual(d,{path:row.path,bytes:row.bytes,sha256:row.sha256,gitBlob:row.gitBlob,mode:row.mode});keys(b[name],'path mode bytes sha256 gitBlob');assert.deepEqual(b[name],{path:d.path,mode:d.mode,bytes:d.bytes,sha256:d.sha256,gitBlob:d.gitBlob});}
+ keys(r.runtime,'node platform arch npm nodeBinary dependencyProof');assert.equal(r.runtime.node,'v24.21.0');assert.equal(r.runtime.platform,'linux');assert.equal(r.runtime.arch,'x64');assert.equal(process.version,r.runtime.node);assert.equal(process.platform,r.runtime.platform);assert.equal(process.arch,r.runtime.arch);assert(/^\d+\.\d+\.\d+$/.test(text(r.runtime.npm)));
+ keys(r.runtime.nodeBinary,'path bytes mode permissions sha256 gitBlob');assert.equal(r.runtime.nodeBinary.path,fs.realpathSync(process.execPath));const node=rawIdentity(r.runtime.nodeBinary.path);equalIdentity(node.identity,r.runtime.nodeBinary);assert.equal(node.identity.sha256,r.actualNodeBinarySha256);assert(node.stat.isFile()&&(node.stat.mode&0o111)!==0);
+ assert.equal(r.runtime.dependencyProof.sha256,r.actualDependencyProofSha256);const dependency=verifyDependencies(r);verifyDeployment(r,a);
+ return {normal613:true,externalAuthorityAuthenticated:false,callerHardDeadlineAndCleanupRemainExternal:true,receipt:r,receiptPath:args[2],receiptSha256:args[4],validUntil:until,eventBodySha256:r.eventBodySha256,dependency,sourceEntryCount:a.entryCount,sourceReviewDigestIsOwnerMetadata:true,numericJobOuterJoinRequired:true,releaseAcceptance:false};
+}
+function admit(){
+ if(process.argv[2]==='--normal613-full')return admitNormal613();
+ return admitLegacy612();
+}
 function inputsUnchanged(proof){
+ if(proof.normal613)normal613CheckDeadline();
  assert(Date.now()<proof.validUntil,'admission expired during qualification');readBytes=0; // New finite post-qualification metadata phase.
  for(const [file,expected]of externalFiles){const got=rawIdentity(file,expected.max);assert.equal(got.identity.sha256,expected.digest,'external input changed');assert.deepEqual(stamp(got.stat),expected.stamp,'external identity changed');}
  for(const [file,row]of [...sourceLeaves,...dependencyLeaves])equalIdentity(rawIdentity(path.join(root,file)).identity,row);
@@ -149,11 +260,21 @@ function inputsUnchanged(proof){
 }
 let fullAdmission;
 try{fullAdmission=admit();}catch(error){console.error(JSON.stringify({format:'sync-full-admission.v1',status:'ADMISSION_FAILED',matrixArmsStarted:0,pairedControlsStarted:0,message:error.message,releaseAcceptance:false}));throw error;}
-const inputRow=sourceLeaves.get('scripts/fixtures/sync-current-forward-20261107.json');assert(inputRow,'tracked fixture required');const inputBytes=source(inputRow),input=json(inputBytes);
+const inputRow=sourceLeaves.get(fullAdmission.normal613?NORMAL613.fixture:'scripts/fixtures/sync-current-forward-20261107.json');assert(inputRow,'tracked fixture required');const inputBytes=source(inputRow),input=json(inputBytes);
 assert.equal(sha(inputBytes),fullAdmission.receipt.fixture.sha256);
 assert.equal(input.combinedQualification?.format,'combined-sync-qualification.v1');
-const epoch=input.executionBinding?.shellVersion;assert.equal(epoch,'612');assert.equal(input.executionBinding.requiredActualAdmission.admissionGranted,false);for(const [key,value]of Object.entries(input.executionBinding.requiredActualAdmission))if(key!=='admissionGranted')assert.equal(value,null,'source template must not embed actual identity '+key);
+const epoch=fullAdmission.normal613?input.normal613Binding?.shellVersion:input.executionBinding?.shellVersion;assert.equal(epoch,fullAdmission.normal613?'613':'612');assert.equal(input.executionBinding.requiredActualAdmission.admissionGranted,false);for(const [key,value]of Object.entries(input.executionBinding.requiredActualAdmission))if(key!=='admissionGranted')assert.equal(value,null,'source template must not embed actual identity '+key);
 for(const [file,digest]of Object.entries(input.sourceFiles)){hex(digest,64);assert(sourceLeaves.has(file),'corrective input must be tracked');assert.equal(sha(source(sourceLeaves.get(file))),digest,'exact corrective input '+file);}
+if(fullAdmission.normal613){
+ const n=input.normal613Binding;
+ keys(n,'schemaVersion state productSourceSha productSourceTree preparedForBaseSha shellVersion reservationOriginalSha256 reservationId phase purpose requiredActualAdmission historicalExecutionBindingIsNotAdmission originalFixtureSha256');
+ assert.equal(n.schemaVersion,'normal613-fixture-source-binding.v1');assert.equal(n.state,'SOURCE_TEMPLATE_NOT_ADMISSION');assert.equal(n.productSourceSha,NORMAL613.product);assert.equal(n.productSourceTree,NORMAL613.productTree);assert.equal(n.preparedForBaseSha,NORMAL613.base);assert.equal(n.shellVersion,'613');assert.equal(n.phase,'qualification');assert.equal(n.purpose,'normal613-qualification');assert.equal(n.reservationOriginalSha256,NORMAL613.reservationHash);assert.equal(n.reservationId,NORMAL613.reservation);assert.equal(n.historicalExecutionBindingIsNotAdmission,true);assert.equal(n.originalFixtureSha256,'08809f457afccb8a6adbddc51c5b61231dcd3d9597f1ff398e91b16b5528abf3');
+ assert.deepEqual(n.requiredActualAdmission,input.executionBinding.requiredActualAdmission);
+ assert.deepEqual(Object.keys(input.sourceFiles).sort(),[...Object.keys(NORMAL613_SOURCE_PINS),'scripts/validate-sync-current-forward.js'].sort());
+ for(const [name,pin]of Object.entries(NORMAL613_SOURCE_PINS)){const row=sourceLeaves.get(name);assert(row);for(const key of ['mode','bytes','gitBlob','sha256'])assert.equal(row[key],pin[key],'exact frozen S source '+name);assert.equal(input.sourceFiles[name],pin.sha256);}
+ assert.equal(input.sourceFiles['scripts/validate-sync-current-forward.js'],fullAdmission.receipt.qualifier.sha256);assert(!Object.hasOwn(input.sourceFiles,NORMAL613.fixture));
+ normal613CheckDeadline();
+}
 const sourceOnly=false;let sourceOnlyExpectedRed=null; // Historical arm bookkeeping only; no source-only entry point.
 
 const fixture=require('./lib/user-state-selection-writer-tests'),profile=require('../config/profile-storage');
@@ -565,11 +686,14 @@ async function runPairedOrdinaryHydration(){
  // One finite priority discriminator: exact accepted planner, proposed source, exact generated helper.
  // Known conservative holds are baseline observations; desired merges stay RED until proved.
  for(const mode of ['accepted-planner','source','generated'])for(const kind of input.priorityCases){
+  if(fullAdmission.normal613)normal613CheckDeadline();
   try{await run(mode,kind);}catch(error){failures.push({mode,kind,message:error.message,stack:error.stack});console.error(JSON.stringify({mode,kind,status:'FAIL',message:error.message,stack:error.stack}));}
  }
  for(const mode of ['source','generated'])for(const kind of input.cases){
+  if(fullAdmission.normal613)normal613CheckDeadline();
   try{await run(mode,kind);}catch(error){failures.push({mode,kind,message:error.message,stack:error.stack});console.error(JSON.stringify({mode,kind,status:'FAIL',message:error.message,stack:error.stack}));}
  }
+ if(fullAdmission.normal613)normal613CheckDeadline();
  let pairedControl=null;try{pairedControl=await runPairedOrdinaryHydration();}catch(error){failures.push({control:'paired-ordinary-hydration',message:error.message,stack:error.stack});console.error(JSON.stringify({control:'paired-ordinary-hydration',status:'FAIL',message:error.message,stack:error.stack}));}
  let admittedInputsUnchanged=null;
  try{
