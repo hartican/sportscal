@@ -85,7 +85,7 @@ assert.equal(sha(fs.readFileSync(qualifier)),'a54983351de787e957658f92efedf1e10b
 let interrupted=false;for(const sig of ['SIGTERM','SIGINT'])process.once(sig,()=>{interrupted=true});
 const pause=n=>new Promise(resolve=>setTimeout(resolve,n));
 const rows=[],caseNames=['missing-deployment-path','admission-false','numeric-job-not-outer-join','wrong-release-role','actual-r1-source-traversal-corruption','actual-r1-dependency-traversal-corruption','actual-r1-deployment-traversal-corruption'];
-let caseIndex=0,currentCase=-1;const totals=[1000,1000,1000,1000,7000,7000,7000];
+let caseIndex=0,currentCase=-1,lastRunMetadata=null;const totals=[1000,1000,1000,1000,7000,7000,7000];
 function remainingWindow(outer,windowMs){
  currentCase=caseIndex;assert.equal(outer,soft);assert.equal(totals[caseIndex],windowMs,'Exact ordered R1 case window');
  const future=totals.slice(caseIndex).reduce((a,b)=>a+b,0);clock.remaining(soft,future+100);caseIndex++;
@@ -93,24 +93,46 @@ function remainingWindow(outer,windowMs){
 }
 // The updated production tracker must exclude this reporter while observing its descendants.
 // The exact caller-exclusion guard identity is bound below.
+// Projection only: no commands, environment bytes, tokens or post-deadline kernel reads.
+function captureCaseMetadata(tracker,child,phase,end,state){
+ clock.remaining(end);
+ const scope=tracker?tracker.scope():null,identities=tracker?tracker.records():[];
+ const project=p=>Object.fromEntries(['pid','uid','startTicks','parentPid','pgid','sessionId','state'].filter(k=>Object.hasOwn(p,k)).map(k=>[k,p[k]]));
+ const all=identities.map(project),record={
+  phase,capturedAtNs:String(clock.nowNs()),caseDeadlineNs:String(end),childPid:child?.pid||null,
+  wrapperClosed:state.closed,wrapperExitObserved:state.exitObserved,wrapperExit:state.exit,
+  trackerRootObserved:tracker?.rootObserved||false,ownedClosureObserved:state.observed,
+  trackedIdentityCount:all.length,trackedIdentities:all.slice(0,64),trackedIdentityListSha256:sha(Buffer.from(JSON.stringify(all))),
+  omittedIdentityCount:Math.max(0,all.length-64),ownershipHolds:tracker?[...tracker.holds]:[],
+  scope:scope?{callerPid:scope.callerPid,callerUid:scope.callerUid,snapshotStartedNs:scope.snapshotStartedNs,snapshotCompletedNs:scope.snapshotCompletedNs,
+   preSpawnIdentityCount:scope.preSpawnIdentityCount,preSpawnMetadataSha256:scope.preSpawnMetadataSha256,rootIdentity:scope.rootIdentity,rootObservedAtNs:scope.rootObservedAtNs,
+   actualRootAfterSnapshot:scope.actualRootAfterSnapshot,stableClosureInventory:scope.stableClosureInventory,lastMetadataSha256:scope.lastMetadataSha256,
+   excludedPreExistingCount:scope.excludedPreExisting?.length||0,unknownOrOwnershipHolds:scope.unknownOrOwnershipHolds,permanentOwnershipHolds:scope.permanentOwnershipHolds,
+   childHandleBoundAtNs:scope.childHandleBoundAtNs,boundChildPid:scope.boundChildPid,rootEventJoinSha256:scope.rootEventJoinSha256,
+   rootVisibility:scope.rootVisibility,rootEventProof:scope.rootEventProof}:null,
+  metadataOnly:true,notIndependentOsClosureProof:true
+ };
+ assert(Buffer.byteLength(JSON.stringify(record))<=65536,'Bounded per-case kernel diagnostics');return record;
+}
 async function runBounded(root,args,env,end,outputLimit){
- let child=null,tracker=null,closed=false,exit=null,error=null,out=[],err=[],bytes=0,done=Promise.resolve();
+ let child=null,tracker=null,closed=false,exitObserved=false,exit=null,error=null,observed=false,lastHoldKey=null,out=[],err=[],bytes=0,done=Promise.resolve();
  const fail=e=>{if(!error)error=String(e)};
+ const capture=phase=>{try{lastRunMetadata=captureCaseMetadata(tracker,child,phase,end,{closed,exitObserved,exit,observed});}catch(e){lastRunMetadata={...(lastRunMetadata||{}),lastRequestedPhase:phase,metadataNotRefreshed:true,captureFailure:String(e)};fail('Case metadata capture failed: '+String(e));}};
  try{
-  clock.remaining(end,300);tracker=NS.normal613FocusedOwnedProcesses(process.env.NS_FOCUSED_OWNER_TOKEN,clock,end);
-  child=cp.spawn(process.execPath,args,{env:{...env,NS_FOCUSED_OWNER_TOKEN:process.env.NS_FOCUSED_OWNER_TOKEN},detached:true,stdio:['ignore','pipe','pipe']});
-  done=new Promise(resolve=>{child.once('error',e=>{fail(e);resolve()});child.once('close',(code,signal)=>{closed=true;exit={code,signal};resolve()});});
+  clock.remaining(end,300);tracker=NS.normal613FocusedOwnedProcesses(process.env.NS_FOCUSED_OWNER_TOKEN,clock,end);assert(tracker.holds.length===0,'Complete pre-spawn ownership snapshot required');
+  clock.remaining(end,300);child=cp.spawn(process.execPath,args,{env:{...env,NS_FOCUSED_OWNER_TOKEN:process.env.NS_FOCUSED_OWNER_TOKEN},detached:true,stdio:['ignore','pipe','pipe']});
+  done=new Promise(resolve=>{child.once('error',e=>{fail(e);resolve()});child.once('exit',(code,signal)=>{exitObserved=true;try{tracker.recordRootExit(child,code,signal)}catch(e){fail('Root exit join: '+String(e))}});child.once('close',(code,signal)=>{closed=true;exit={code,signal};try{tracker.recordRootClose(child,code,signal)}catch(e){fail('Root close join: '+String(e))}resolve()});});
+  tracker.bindChild(child);
   for(const [stream,chunks] of [[child.stdout,out],[child.stderr,err]])stream.on('data',b=>{bytes+=b.length;if(bytes>outputLimit){fail('output limit');return}chunks.push(b)}).on('error',fail);
-  tracker.setRoot(child.pid);
-  while(!closed&&!error&&!interrupted){clock.remaining(end,300);tracker.observe();await Promise.race([done,pause(Math.min(10,clock.remaining(end)))])}
+  tracker.setRoot(child.pid);capture('ROOT_OBSERVED_BEFORE_R1_WAIT');if(tracker.holds.length&&!tracker.waitingForRootExit)fail('Owned tracker hold: '+JSON.stringify(tracker.holds));
+  while(!closed&&!error&&!interrupted){clock.remaining(end,300);tracker.observe();const holdKey=JSON.stringify(tracker.holds);if(tracker.holds.length&&holdKey!==lastHoldKey){capture('ACTIVE_TRACKER_HOLD');lastHoldKey=holdKey;}if(tracker.holds.length&&!tracker.waitingForRootExit)fail('Owned tracker hold: '+holdKey);if(!error)await Promise.race([done,pause(Math.min(10,clock.remaining(end)))])}
   if(interrupted)fail('interrupted');if(!closed)fail('child did not close');
  }catch(e){fail(e)}finally{
   NSB_CLEANUP=true;
-  let observed=false;
   try{
    if(child&&tracker){
     const termUntil=mono()+ms(100);
-    for(;;){clock.remaining(end);const observation=tracker.observe();if(closed&&observation.closed){observed=true;break}
+    for(;;){clock.remaining(end);const observation=tracker.observe();if(closed&&exitObserved&&observation.closed){observed=true;capture('ACTUAL_TRACKER_CLOSURE_OBSERVED');break}if(tracker.holds.length&&JSON.stringify(tracker.holds)!==lastHoldKey){capture('CLEANUP_TRACKER_HOLD');lastHoldKey=JSON.stringify(tracker.holds)}
      tracker.signalOwned(mono()<termUntil?'SIGTERM':'SIGKILL');await pause(Math.min(10,clock.remaining(end)));
     }
    }else if(child)fail('spawn without ownership tracker');
@@ -119,7 +141,7 @@ async function runBounded(root,args,env,end,outputLimit){
   if(child&&!observed)fail('CLEANUP_HOLD closure unobserved');
   NSB_CLEANUP=false;
  }
- if(error){console.error(JSON.stringify({status:'CLEANUP_HOLD',ownedRoot:root,wrapperClosed:closed,reason:error}));throw Error(error)}
+ if(error){console.error(JSON.stringify({status:'CLEANUP_HOLD',ownedRoot:root,wrapperClosed:closed,wrapperExitObserved:exitObserved,actualOwnedClosure:observed,reason:error,scopeDiagnostics:lastRunMetadata,diagnosticsAreCached:true}));throw Error(error)}
  return {status:exit.code,signal:exit.signal,stdout:Buffer.concat(out).toString('utf8'),stderr:Buffer.concat(err).toString('utf8')};
 }
 async function one(parent,name,mutate,needle,outer){const end=remainingWindow(outer,1000),root=fs.mkdtempSync(path.join(parent,'ns613-r1-negative-'));let passed=false;
@@ -135,7 +157,7 @@ async function main(){assert.equal(process.platform,'linux');assert.equal(proces
  rows.push(await one(root,'wrong-release-role',r=>{r.releaseRole='production'},/source-qualification-candidate/,outer));
  for(const kind of ['source','dependency','deployment'])rows.push(await traversal(root,kind,outer));
  assert(mono()<outer,'FAIL: reporting deadline');console.log(JSON.stringify({schemaVersion:'normal613-r1-receipt-negative-controls.v1',status:'PASS_SYNTHETIC_NEGATIVES_ONLY',rows,fullReceiptCompatibility:'UNRUN',providerRequests:0,realAuthority:false,releaseAcceptance:false}));}
-NSB_RUN(main,e=>{console.error(JSON.stringify({status:'FAIL_OR_UNKNOWN',rows,failedCase:currentCase<0?null:caseNames[currentCase],unrun:caseNames.slice(currentCase+1),error:String(e.stack||e).slice(0,4096),releaseAcceptance:false}));process.exitCode=1;});
+NSB_RUN(main,e=>{console.error(JSON.stringify({status:'FAIL_OR_UNKNOWN',rows,failedCase:currentCase<0?null:caseNames[currentCase],unrun:caseNames.slice(currentCase+1),error:String(e.stack||e).slice(0,4096),scopeDiagnostics:lastRunMetadata,diagnosticsAreCached:true,releaseAcceptance:false}));process.exitCode=1;});
 
 // Mutations operate only on test-owned copies of already genuinely admitted inputs.
 // Source corruption changes a returned buffer, not a candidate file. The inherited

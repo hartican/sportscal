@@ -81,42 +81,65 @@ const pause=n=>new Promise(r=>setTimeout(r,n));
 let interrupted=false;for(const sig of ['SIGTERM','SIGINT'])process.once(sig,()=>{interrupted=true});
 let currentCase=-1;const results=[],caseNames=['success','nonzero','overflow','timeout','synthetic-unresolved','chromium','webkit'];
 function durable(file,value,end){clock.remaining(end);fs.writeFileSync(file,JSON.stringify(value,null,2)+'\n',{flag:'wx',mode:0o600});}
+// Projection only: no commands, environment bytes, tokens or post-deadline kernel reads.
+function captureCaseMetadata(tracker,child,phase,end,state){
+ clock.remaining(end);
+ const scope=tracker?tracker.scope():null,identities=tracker?tracker.records():[];
+ const project=p=>Object.fromEntries(['pid','uid','startTicks','parentPid','pgid','sessionId','state'].filter(k=>Object.hasOwn(p,k)).map(k=>[k,p[k]]));
+ const all=identities.map(project),record={
+  phase,capturedAtNs:String(clock.nowNs()),caseDeadlineNs:String(end),childPid:child?.pid||null,
+  wrapperClosed:state.closed,wrapperExitObserved:state.exitObserved,wrapperExit:state.exit,
+  trackerRootObserved:tracker?.rootObserved||false,ownedClosureObserved:state.observed,
+  trackedIdentityCount:all.length,trackedIdentities:all.slice(0,64),trackedIdentityListSha256:sha(Buffer.from(JSON.stringify(all))),
+  omittedIdentityCount:Math.max(0,all.length-64),ownershipHolds:tracker?[...tracker.holds]:[],
+  scope:scope?{callerPid:scope.callerPid,callerUid:scope.callerUid,snapshotStartedNs:scope.snapshotStartedNs,snapshotCompletedNs:scope.snapshotCompletedNs,
+   preSpawnIdentityCount:scope.preSpawnIdentityCount,preSpawnMetadataSha256:scope.preSpawnMetadataSha256,rootIdentity:scope.rootIdentity,rootObservedAtNs:scope.rootObservedAtNs,
+   actualRootAfterSnapshot:scope.actualRootAfterSnapshot,stableClosureInventory:scope.stableClosureInventory,lastMetadataSha256:scope.lastMetadataSha256,
+   excludedPreExistingCount:scope.excludedPreExisting?.length||0,unknownOrOwnershipHolds:scope.unknownOrOwnershipHolds,permanentOwnershipHolds:scope.permanentOwnershipHolds,
+   childHandleBoundAtNs:scope.childHandleBoundAtNs,boundChildPid:scope.boundChildPid,rootEventJoinSha256:scope.rootEventJoinSha256,
+   rootVisibility:scope.rootVisibility,rootEventProof:scope.rootEventProof}:null,
+  metadataOnly:true,notIndependentOsClosureProof:true
+ };
+ assert(Buffer.byteLength(JSON.stringify(record))<=65536,'Bounded per-case kernel diagnostics');return record;
+}
 async function one(parent,name,script,kind,engine,index){
  // The unresolved synthetic guard needs its own closure window; the seven
  // case maxima total 28 seconds and leave up to four seconds for setup/report.
  const windows=[3000,3000,3000,4000,9000,3000,3000];
  const future=windows.slice(index).reduce((n,v)=>n+v,0);clock.remaining(soft,future+100);const end=clock.nowNs()+ms(windows[index]);NSB_ACTIVE_END=end;
- let root=null,tracker=null,child=null,closed=false,exit=null,reason=null,receipt=null,observed=false,passed=false,done=Promise.resolve(),outputBytes=0;const logs=[];
+ let root=null,tracker=null,child=null,closed=false,exitObserved=false,exit=null,reason=null,receipt=null,observed=false,passed=false,done=Promise.resolve(),outputBytes=0,metadata=null,lastHoldKey=null;const logs=[];
  const fail=e=>{if(!reason)reason=String(e)};
+ const capture=phase=>{try{metadata=captureCaseMetadata(tracker,child,phase,end,{closed,exitObserved,exit,observed});}catch(e){metadata={...(metadata||{}),lastRequestedPhase:phase,metadataNotRefreshed:true,captureFailure:String(e)};fail('Case metadata capture failed: '+String(e));}};
  try{
   clock.remaining(end,300);root=fs.mkdtempSync(path.join(parent,'ns613-owned-negative-'));fs.chmodSync(root,0o700);
   const admission=path.join(root,engine?'ns-normal-613-engine':'ns-normal-613-admission');fs.mkdirSync(admission,{mode:0o700});const pidFile=path.join(root,'inner.pid');
   const now=clock.nowMs(),budget=(kind==='timeout'||kind==='unresolved')?6800:8000,deadline=now+budget;
   const context={repository:'hartican/sportscal',headSha:'a'.repeat(40),baseSha:'b'.repeat(40),testedMergeSha:'c'.repeat(40),bodySha256:'d'.repeat(64),intentSha256:'e'.repeat(64),allocationId:'SYNTHETIC_TEST_ONLY',laneId:'SYNTHETIC_TEST_ONLY',ownedOperationId:'SYNTHETIC_TEST_ONLY',startedAt:iso(now),clockObservedAt:iso(now),startMonotonicNs:String(clock.nowNs()),validUntil:iso(deadline+1000),actionDeadlineAt:iso(deadline),maxWallMs:budget,...(engine?{engine}:{})};durable(path.join(admission,'normal613-context.json'),context,end);
   let preload=null;if(kind==='unresolved'){preload=path.join(root,'synthetic-preload.cjs');clock.remaining(end);fs.writeFileSync(preload,`const cp=require('node:child_process'),{EventEmitter}=require('node:events'),{PassThrough,Writable}=require('node:stream');cp.spawn=()=>{const c=new EventEmitter();c.pid=987654321;c.stdin=new Writable({write(_b,_e,cb){cb()}});c.stdout=new PassThrough();c.stderr=new PassThrough();c.unref=()=>{};return c};process.kill=(id)=>{if(id!==-987654321)throw Error('refuse non-synthetic pid');return true};`,{flag:'wx',mode:0o600});}
-  tracker=NS.normal613FocusedOwnedProcesses(token,clock,end);
+  tracker=NS.normal613FocusedOwnedProcesses(token,clock,end);assert(tracker.holds.length===0,'Complete pre-spawn ownership snapshot required');
   clock.remaining(end,300);logs.push(fs.openSync(path.join(root,'wrapper.stdout.log'),'wx',0o600));logs.push(fs.openSync(path.join(root,'wrapper.stderr.log'),'wx',0o600));
-  const id=engine?'pwa':'journey';child=cp.spawn(process.execPath,[guard,'--normal613-run',id,'--','bash','-Eeuo','pipefail'],{env:{...process.env,NS_FOCUSED_OWNER_TOKEN:token,RUNNER_TEMP:root,GITHUB_JOB:engine?'installed-upgrade':'fixture-activation',GITHUB_RUN_ID:'1',GITHUB_RUN_ATTEMPT:'1',...(preload?{NODE_OPTIONS:'--require='+preload}:{})},stdio:['pipe','pipe','pipe']});
-  done=new Promise(resolve=>{child.once('error',e=>{fail(e);resolve()});child.once('close',(code,signal)=>{closed=true;exit={code,signal};resolve()})});
+  const id=engine?'pwa':'journey';clock.remaining(end,300);child=cp.spawn(process.execPath,[guard,'--normal613-run',id,'--','bash','-Eeuo','pipefail'],{env:{...process.env,NS_FOCUSED_OWNER_TOKEN:token,RUNNER_TEMP:root,GITHUB_JOB:engine?'installed-upgrade':'fixture-activation',GITHUB_RUN_ID:'1',GITHUB_RUN_ATTEMPT:'1',...(preload?{NODE_OPTIONS:'--require='+preload}:{})},detached:true,stdio:['pipe','pipe','pipe']});
+  done=new Promise(resolve=>{child.once('error',e=>{fail(e);resolve()});child.once('exit',(code,signal)=>{exitObserved=true;try{tracker.recordRootExit(child,code,signal)}catch(e){fail('Root exit join: '+String(e))}});child.once('close',(code,signal)=>{closed=true;exit={code,signal};try{tracker.recordRootClose(child,code,signal)}catch(e){fail('Root close join: '+String(e))}resolve()})});
+  tracker.bindChild(child);
   for(const [i,stream] of [child.stdout,child.stderr].entries())stream.on('error',fail).on('data',b=>{try{clock.remaining(end);outputBytes+=b.length;if(outputBytes>6*1024*1024)throw Error('test wrapper output limit');fs.writeSync(logs[i],b)}catch(e){fail(e)}});
-  child.stdin.on('error',fail);tracker.setRoot(child.pid);durable(path.join(root,'wrapper-start.json'),{pid:child.pid,case:name,synthetic:!!preload},end);
+  child.stdin.on('error',fail);tracker.setRoot(child.pid);capture('ROOT_OBSERVED_BEFORE_STDIN');if(tracker.holds.length&&!tracker.waitingForRootExit)fail('Owned tracker hold: '+JSON.stringify(tracker.holds));if(reason)throw Error(reason);durable(path.join(root,'wrapper-start.json'),{pid:child.pid,case:name,synthetic:!!preload},end);
   const quoted="'"+pidFile.replace(/'/g,"'\\''")+"'";child.stdin.end('printf "%s\\n" "$$" > '+quoted+'\n'+script);
-  while(!closed&&!reason&&!interrupted){clock.remaining(end,300);tracker.observe();await Promise.race([done,pause(Math.min(10,clock.remaining(end)))])}if(interrupted)fail('interrupted');
+  while(!closed&&!reason&&!interrupted){clock.remaining(end,300);tracker.observe();const holdKey=JSON.stringify(tracker.holds);if(tracker.holds.length&&holdKey!==lastHoldKey){capture('ACTIVE_TRACKER_HOLD');lastHoldKey=holdKey;}if(tracker.holds.length&&!tracker.waitingForRootExit)fail('Owned tracker hold: '+holdKey);if(!reason)await Promise.race([done,pause(Math.min(10,clock.remaining(end)))])}if(interrupted)fail('interrupted');
  }catch(e){fail(e)}finally{
   NSB_CLEANUP=true;
-  if(child&&tracker){try{const termUntil=clock.nowNs()+ms(100);for(;;){clock.remaining(end);const snap=tracker.observe();if(closed&&snap.closed){observed=true;break}tracker.signalOwned(clock.nowNs()<termUntil?'SIGTERM':'SIGKILL');await pause(Math.min(10,clock.remaining(end)))}}catch(e){fail('CLEANUP_HOLD '+String(e))}}
+  if(child&&tracker){try{const termUntil=clock.nowNs()+ms(100);for(;;){clock.remaining(end);const snap=tracker.observe();if(closed&&exitObserved&&snap.closed){observed=true;capture('ACTUAL_TRACKER_CLOSURE_OBSERVED');break}if(tracker.holds.length&&JSON.stringify(tracker.holds)!==lastHoldKey){capture('CLEANUP_TRACKER_HOLD');lastHoldKey=JSON.stringify(tracker.holds)}tracker.signalOwned(clock.nowNs()<termUntil?'SIGTERM':'SIGKILL');await pause(Math.min(10,clock.remaining(end)))}}catch(e){fail('CLEANUP_HOLD '+String(e))}}
   if(child&&!observed)fail('CLEANUP_HOLD owned closure unobserved');
   for(const stream of [child?.stdin,child?.stdout,child?.stderr])try{stream?.destroy()}catch(e){fail('descriptor close '+String(e))}
   for(const fd of logs)try{fs.closeSync(fd)}catch(e){fail('log close '+String(e))}
   NSB_CLEANUP=false;
  }
  try{
-  assert(!reason&&closed&&observed&&!interrupted,'Owned wrapper/group or descriptors unresolved');clock.remaining(end);
+  assert(!reason&&closed&&exitObserved&&observed&&!interrupted,'Owned wrapper/group or descriptors unresolved');clock.remaining(end);
   const id=engine?'pwa':'journey',admission=path.join(root,engine?'ns-normal-613-engine':'ns-normal-613-admission'),receiptFile=path.join(admission,'command-'+id+'.json');receipt=JSON.parse(fs.readFileSync(receiptFile,'utf8'));
   const fakeOnly=kind==='unresolved',proved=receipt.childClosed===true&&receipt.ownedGroupClosed===true,fakeOnlyProved=fakeOnly&&receipt.childPid===987654321&&receipt.childClosed===false&&receipt.ownedGroupClosed===false;
   if(kind==='success'){assert.equal(exit.code,0);assert.equal(receipt.status,0);assert(proved)}else{assert.notEqual(exit.code,0);assert(receipt.failure||receipt.status!==0||receipt.cleanupStatus==='FAILED_OR_UNKNOWN');if(kind==='overflow')assert(receipt.outputOverflow);if(kind==='timeout')assert(receipt.failure&&/deadline|closure|descendant/i.test(receipt.failure));if(fakeOnly){assert(fakeOnlyProved);assert.equal(receipt.cleanupStatus,'FAILED_OR_UNKNOWN')}}
-  assert(proved||fakeOnlyProved);const disposition={name,wrapperClosed:closed,actualOwnedClosure:observed,syntheticOnly:fakeOnly,exit,status:'PASS_SYNTHETIC_ONLY'};durable(path.join(root,'test-disposition.json'),disposition,end);clock.remaining(end);fs.rmSync(root,{recursive:true,force:false});results.push(disposition);passed=true;
- }catch(e){fail(e)}finally{if(!passed&&root)console.error(JSON.stringify({status:'CLEANUP_HOLD',ownedRoot:root,name,reason,wrapperClosed:closed,actualOwnedClosure:observed}));}
+  assert(proved||fakeOnlyProved);const disposition={name,wrapperClosed:closed,actualOwnedClosure:observed,syntheticOnly:fakeOnly,exit,status:'PASS_SYNTHETIC_ONLY',scopeDiagnostics:metadata};durable(path.join(root,'test-disposition.json'),disposition,end);clock.remaining(end);fs.rmSync(root,{recursive:true,force:false});results.push(disposition);passed=true;
+ }catch(e){fail(e)}finally{if(!passed&&root)console.error(JSON.stringify({status:'CLEANUP_HOLD',ownedRoot:root,name,reason,wrapperClosed:closed,wrapperExitObserved:exitObserved,actualOwnedClosure:observed,scopeDiagnostics:metadata,diagnosticsAreCached:true}));}
  if(reason||!passed)throw Error(reason||'FAIL_OR_UNKNOWN');
  NSB_ACTIVE_END=soft;
 }
