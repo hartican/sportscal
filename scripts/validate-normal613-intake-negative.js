@@ -22,7 +22,7 @@ function NSB_BOOT_READ(file,max){
  }finally{NSB_RAW_FS.closeSync(fd);}
 }
 const NSB_TEMP=NSB_RAW_FS.realpathSync(process.env.RUNNER_TEMP),NSB_GUARD_PATH=NSB_PATH.join(__dirname,'validate-forward-onboarding-ci.js');
-const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,193605);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,193605);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'a78201621fc5bb972bc130e93f1e4730c3f543859dffb5770a945ac2763ea164');
+const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,202059);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,202059);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'a10d825b7c6cdd1bb8379456574662694926f8c8a41a85fff75f018b8acc1a8b');
 const NSB_S=require('./validate-forward-onboarding-ci').normal613FocusedControls;
 const NSB_CONTEXT_PATH=NSB_PATH.join(NSB_TEMP,'ns-normal-613-admission','normal613-context.json');
 NSB_ASSERT(NSB_NATIVE_MONO()<NSB_SOFT,'Context bootstrap remains charged');
@@ -76,13 +76,13 @@ async function NSB_RUN(fn,onError){
 // PRIVATE SOURCE PROPOSAL — UNPARSED AND UNRUN. Synthetic negatives only; no provider call.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),crypto=require('node:crypto'),cp=require('node:child_process');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
-const expectedGuard='a78201621fc5bb972bc130e93f1e4730c3f543859dffb5770a945ac2763ea164';
+const expectedGuard='a10d825b7c6cdd1bb8379456574662694926f8c8a41a85fff75f018b8acc1a8b';
 assert.equal(sha(fs.readFileSync(path.join(__dirname,'validate-forward-onboarding-ci.js'))),expectedGuard,'Reviewed R3 plus proposed export seam');
 const {normal613Intake,normal613Main,normal613FocusedControls}=require('./validate-forward-onboarding-ci');
 const expectedReservation='daa00a480a28b0cca1d2f9922c82fc9394a5460b0d45f87c3566e42b58a473d7';
-const qualifier={path:'scripts/validate-sync-current-forward.js',bytes:101617,sha256:'a54983351de787e957658f92efedf1e10b470cbb06af252070eb1661228a970f',gitBlob:'dece0f0ecffeb0435f7970bab922a0a37b2f10b9',mode:'100644'};
-const fixture={path:'scripts/fixtures/sync-normal-613-20261112.json',bytes:53227,sha256:'744ddb4c83e97810bdd9f6778de0f50a5033695f24739d642c9179822c58a5d2',gitBlob:'4901efd92c8b1d8ef255a06629b8c8bcc5038780',mode:'100644'};
-const H='a'.repeat(40),T='b'.repeat(40),TREE='c'.repeat(40),BASE='9f20813c9855e30d4ca32e721862f739b6d696ba';
+const qualifier={path:'scripts/validate-sync-current-forward.js',bytes:101617,sha256:'0669dc2014477c900a68ea97bcbef48c3634ecf7e13f7f8f2f8978800da41d25',gitBlob:'69355a239ab62deb17854e1d2eb2ab22b60e9293',mode:'100644'};
+const fixture={path:'scripts/fixtures/sync-normal-613-20261112.json',bytes:53227,sha256:'d534f749ba9b62182fd54203b6a90098e0ba9ef38a29d9e7e61a1c817476a582',gitBlob:'19a2a26e893efecc734e57e2e191689214f1830d',mode:'100644'};
+const H='a'.repeat(40),T='b'.repeat(40),TREE='c'.repeat(40),BASE='2e92211c700c40b2b508fc636a002868c61a7579';
 const envKeys=['RUNNER_TEMP','GITHUB_EVENT_PATH','GITHUB_ACTIONS','GITHUB_EVENT_NAME','GITHUB_REPOSITORY','GITHUB_JOB','GITHUB_RUN_ATTEMPT','GITHUB_WORKFLOW_REF','GITHUB_REF','GITHUB_RUN_ID','GITHUB_SHA'];
 function syntheticEvent(reservation,now,allowance,expiry){
  const binding={schemaVersion:'normal-ready-613-binding.v1',phase:'qualification',repository:'hartican/sportscal',preparedForBaseSha:BASE,productSourceSha:'491d0ebcb2210b29a1ae6164c0c4deef1b04f2ec',productSourceTree:'b69736ee739e7b31eebe58108c14889a333a756c',publisherHeadSha:H,expectedPublisherTreeSha:TREE,reviewedFinalMapSha256:'d'.repeat(64),expectedAssembledManifestSha256:'e'.repeat(64),expectedSourceEntryCount:1,expectedBaseRelativePathCount:1,qualifier,fixture,reservation:{schemaVersion:'ns-app-version-reservation.v1',reservationId:'ns-app-version-613-sportsyurt-20261112',version:'613',rawBytes:1362,rawSha256:expectedReservation,queue:'https://github.com/hartican/sportscal/issues/28',commentId:6813306721},actionIntent:{allocationId:'SYNTHETIC_TEST_ONLY',laneId:'SYNTHETIC_TEST_ONLY',ownedOperationId:'SYNTHETIC_TEST_ONLY',purpose:'normal613-qualification',intentSha256:'f'.repeat(64),sourceReviewId:'SYNTHETIC_TEST_ONLY',sourceReviewSha256:'1'.repeat(64),priorOwnedClosureReference:'SYNTHETIC_TEST_ONLY',validUntil:new Date(expiry).toISOString(),maxWallMs:allowance,resultContentDispositionSha256:'2'.repeat(64)},reservationReceiptBase64:reservation.toString('base64')};
