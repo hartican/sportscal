@@ -99,7 +99,7 @@ function reviewStatusDigest(entries,tree){return sha(JSON.stringify([...entries]
 function assertReviewStatusDigest(entries,tree,expected=EXPECTED_REVIEW_STATUS_SHA256){assert.equal(reviewStatusDigest(entries,tree),expected,'Private review closure differs from the reviewed snapshot.');}
 
 const GZIP_HEADER=Buffer.from('1f8b08000000000000ff','hex');
-const PATCH_FAILURE_CODES=['review-scope-mismatch','review-body-limit','patch-raw-limit','patch-compressed-limit','patch-stream-failure'];
+const PATCH_FAILURE_CODES=['review-scope-mismatch','review-body-limit','patch-raw-limit','patch-compressed-limit','patch-stream-failure','patch-cleanup-unobserved'];
 function reviewError(code){const error=Error('Private source collection requires review.');error.privatePatchCode=code;return error;}
 function codecLimits({rawBytes=REVIEW_LIMITS.rawPatchBytes,compressedBytes=REVIEW_LIMITS.compressedPatchBytes}={}){
  assert(Number.isInteger(rawBytes)&&rawBytes>=0&&rawBytes<=REVIEW_LIMITS.rawPatchBytes);
@@ -149,18 +149,33 @@ async function decodeReviewPatch(value,consume=()=>{},limits={}){
  assert.equal(trailer.readUInt32LE(0),crc>>>0,'Gzip CRC mismatch.');assert.equal(trailer.readUInt32LE(4),count,'Gzip size mismatch.');
  return {bytes:count,sha256:value.decodedSha256};
 }
-async function captureReviewGitPatch(env,sourceSha,tracked,scopeSha256,{spawnImpl=spawn,deadlineMs=REVIEW_LIMITS.deadlineMs}={}){
+async function captureReviewGitPatch(env,sourceSha,tracked,scopeSha256,{spawnImpl=spawn,deadlineMs=REVIEW_LIMITS.deadlineMs,closeWaitMs=1000}={}){
  assert(/^[a-f0-9]{40}$/.test(sourceSha)&&tracked.length===105&&tracked.every(safeRelative));
  assert(Number.isInteger(deadlineMs)&&deadlineMs>=1&&deadlineMs<=REVIEW_LIMITS.deadlineMs);
+ assert(Number.isInteger(closeWaitMs)&&closeWaitMs>=1&&closeWaitMs<=1000);
  const controller=new AbortController();
  const child=spawnImpl('git',['-c','core.hooksPath=/dev/null','-c','core.fsmonitor=false','diff','--binary','--full-index',
  '--unified=3','--no-ext-diff','--no-textconv','--no-renames',sourceSha,'--',...tracked],
  {cwd:ROOT,env,stdio:['ignore','pipe','ignore'],shell:false,signal:controller.signal,killSignal:'SIGKILL'});
- const closed=new Promise((resolve,reject)=>{child.once('error',reject);child.once('close',(code,signal)=>code===0&&!signal?resolve():reject(reviewError('patch-stream-failure')));});
- const encoding=encodeReviewPatch(child.stdout,{},controller.signal),timer=setTimeout(()=>controller.abort(),deadlineMs);
- try{const [value]=await Promise.all([encoding,closed]);return {schemaVersion:REVIEW_PATCH_SCHEMA,disposition:'private-review-only',scopeSha256,...value};}
- catch(error){controller.abort();await Promise.allSettled([encoding,closed]);throw PATCH_FAILURE_CODES.includes(error?.privatePatchCode)?error:reviewError('patch-stream-failure');}
- finally{clearTimeout(timer);child.stdout?.destroy();}
+ let closeObserved=false,streamSettled=false;
+ const closed=new Promise(resolve=>child.once('close',(code,signal)=>{closeObserved=true;resolve({code,signal});}));
+ const operationError=new Promise((_,reject)=>child.on('error',()=>reject(reviewError('patch-stream-failure'))));
+ let timer,closeTimer;
+ const deadline=new Promise((_,reject)=>{timer=setTimeout(()=>reject(reviewError('patch-stream-failure')),deadlineMs);});
+ const encoding=encodeReviewPatch(child.stdout,{},controller.signal);
+ const encodingSettled=encoding.then(()=>{streamSettled=true;},()=>{streamSettled=true;});
+ try{
+  const [value,terminal]=await Promise.race([Promise.all([encoding,closed]),operationError,deadline]);
+  if(terminal.code!==0||terminal.signal)throw reviewError('patch-stream-failure');
+  return {schemaVersion:REVIEW_PATCH_SCHEMA,disposition:'private-review-only',scopeSha256,...value};
+ }catch(error){
+  clearTimeout(timer);controller.abort();
+  try{child.kill?.('SIGKILL');}catch{}
+  child.stdout?.destroy();
+  const cleanup=await Promise.race([Promise.all([closed,encodingSettled]),new Promise(resolve=>{closeTimer=setTimeout(()=>resolve(null),closeWaitMs);})]);
+  if(!cleanup){const unknown=reviewError('patch-cleanup-unobserved');unknown.childCloseObserved=closeObserved;unknown.streamSettled=streamSettled;unknown.cleanupStatus='unknown';throw unknown;}
+  throw PATCH_FAILURE_CODES.includes(error?.privatePatchCode)?error:reviewError('patch-stream-failure');
+ }finally{clearTimeout(timer);clearTimeout(closeTimer);child.stdout?.destroy();}
 }
 const REVIEW_FIXED_PATHS=new Set(['data/chat-fixtures.v1.json','data/code-inspector/f1.json','data/code-inspector/manifest.json',
 'data/comms-sources.v1.json','data/editorial-fixture-research.v1.json','data/editorial-knowledge.v1.json',

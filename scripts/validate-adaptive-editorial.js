@@ -431,6 +431,72 @@ async function validatePrivateSourceCollection(){
  await assert.rejects(()=>helper.captureReviewGitPatch({},'1'.repeat(40),tracked,'2'.repeat(64),{spawnImpl:hangingSpawn,deadlineMs:10}));
  assert.equal(aborted,true);assert.equal(timeoutSpawns,1,'failure never creates another Git diff');
 
+ let delayedChild,delayedSpawns=0,delayedKills=0,errorNotified=false,delayedClosed=false;
+ const delayedCloseSpawn=(_command,_args,options)=>{
+  delayedSpawns++;delayedChild=new EventEmitter();delayedChild.stdout=new Readable({read(){}});
+  delayedChild.kill=signal=>{assert.equal(signal,'SIGKILL');delayedKills++;return true;};
+  options.signal.addEventListener('abort',()=>delayedChild.stdout.destroy(),{once:true});
+  queueMicrotask(()=>{errorNotified=true;delayedChild.emit('error',Object.assign(Error('synthetic abort notification'),{name:'AbortError',code:'ABORT_ERR'}));});
+  return delayedChild;
+ };
+ let delayedSettled=false;
+ const delayedCapture=helper.captureReviewGitPatch({},'1'.repeat(40),tracked,'2'.repeat(64),{spawnImpl:delayedCloseSpawn,deadlineMs:1000,closeWaitMs:1000});
+ delayedCapture.then(()=>{delayedSettled=true;},()=>{delayedSettled=true;});
+ await new Promise(resolve=>setImmediate(resolve));
+ assert.equal(errorNotified,true);assert.equal(delayedSettled,false,'AbortError notification is not evidence of actual child close');
+ assert.equal(delayedSpawns,1);assert.equal(delayedKills,1,'operation failure explicitly kills the same owned child');
+ delayedClosed=true;delayedChild.emit('close',null,'SIGKILL');
+ await assert.rejects(()=>delayedCapture,error=>error.privatePatchCode==='patch-stream-failure');
+ assert.equal(delayedClosed,true);assert.equal(delayedSettled,true);assert.equal(delayedSpawns,1);
+
+ let neverCloseSpawns=0,neverCloseKills=0;
+ const neverCloseSpawn=(_command,_args,options)=>{
+  neverCloseSpawns++;const child=new EventEmitter();child.stdout=new Readable({read(){}});
+  child.kill=signal=>{assert.equal(signal,'SIGKILL');neverCloseKills++;return true;};
+  options.signal.addEventListener('abort',()=>child.stdout.destroy(),{once:true});
+  queueMicrotask(()=>child.emit('error',Error('synthetic missing close')));
+  return child;
+ };
+ await assert.rejects(()=>helper.captureReviewGitPatch({},'1'.repeat(40),tracked,'2'.repeat(64),{spawnImpl:neverCloseSpawn,deadlineMs:1000,closeWaitMs:10}),
+  error=>error.privatePatchCode==='patch-cleanup-unobserved'&&error.childCloseObserved===false&&error.cleanupStatus==='unknown');
+ assert.equal(neverCloseSpawns,1);assert.equal(neverCloseKills,1,'missing close is a bounded explicit unknown, never another diff child');
+
+ let failedStreamChild,failedStreamSpawns=0,failedStreamKills=0,failedStreamAborted=false,failedStreamSettled=false;
+ const failedStreamSpawn=(_command,_args,options)=>{
+  failedStreamSpawns++;failedStreamChild=new EventEmitter();failedStreamChild.stdout=new Readable({read(){}});
+  failedStreamChild.kill=signal=>{assert.equal(signal,'SIGKILL');failedStreamKills++;return true;};
+  options.signal.addEventListener('abort',()=>{failedStreamAborted=true;},{once:true});
+  queueMicrotask(()=>failedStreamChild.stdout.destroy(Error('synthetic stream failure')));
+  return failedStreamChild;
+ };
+ const failedStreamCapture=helper.captureReviewGitPatch({},'1'.repeat(40),tracked,'2'.repeat(64),{spawnImpl:failedStreamSpawn,deadlineMs:1000,closeWaitMs:1000});
+ failedStreamCapture.then(()=>{failedStreamSettled=true;},()=>{failedStreamSettled=true;});
+ await new Promise(resolve=>setImmediate(resolve));
+ assert.equal(failedStreamAborted,true);assert.equal(failedStreamSettled,false,'stream rejection and abort do not substitute for actual close');
+ assert.equal(failedStreamSpawns,1);assert.equal(failedStreamKills,1);
+ failedStreamChild.emit('close',null,'SIGKILL');
+ await assert.rejects(()=>failedStreamCapture,error=>error.privatePatchCode==='patch-stream-failure');
+ assert.equal(failedStreamSettled,true);assert.equal(failedStreamSpawns,1);
+
+ let spawnErrorChild,spawnErrorSpawns=0,spawnErrorKills=0,spawnErrorSettled=false;
+ const spawnErrorThenClose=(_command,_args,options)=>{
+  spawnErrorSpawns++;spawnErrorChild=new EventEmitter();spawnErrorChild.stdout=new Readable({read(){}});
+  spawnErrorChild.kill=signal=>{assert.equal(signal,'SIGKILL');spawnErrorKills++;return false;};
+  options.signal.addEventListener('abort',()=>spawnErrorChild.stdout.destroy(),{once:true});
+  queueMicrotask(()=>spawnErrorChild.emit('error',Object.assign(Error('synthetic spawn failure'),{code:'ENOENT'})));
+  return spawnErrorChild;
+ };
+ const spawnErrorCapture=helper.captureReviewGitPatch({},'1'.repeat(40),tracked,'2'.repeat(64),{spawnImpl:spawnErrorThenClose,deadlineMs:1000,closeWaitMs:1000});
+ spawnErrorCapture.then(()=>{spawnErrorSettled=true;},()=>{spawnErrorSettled=true;});
+ await new Promise(resolve=>setImmediate(resolve));
+ assert.equal(spawnErrorSettled,false,'spawn error alone is not an observed close');
+ assert.equal(spawnErrorSpawns,1);assert.equal(spawnErrorKills,1);
+ spawnErrorChild.emit('close',-2,null);
+ await assert.rejects(()=>spawnErrorCapture,error=>error.privatePatchCode==='patch-stream-failure');
+ assert.equal(spawnErrorSettled,true);assert.equal(spawnErrorSpawns,1);
+
+
+
  const dateReport='data/editorial-adaptive-report-2026-11-14.json',tree=new Map(),bodies=new Map(),oldPages=Array.from({length:36},(_,index)=>({path:'data/feed/page-'+String(index+1).padStart(3,'0')+'.json'}));
  const beforeBlob='b'.repeat(40),mark=file=>tree.set(file,{path:file,mode:'100644',gitBlob:beforeBlob});
  helper.reviewFixedPaths.forEach(file=>{mark(file);bodies.set(file,Buffer.from('{}'));});mark('data/feed/manifest.json');oldPages.forEach(page=>mark(page.path));
