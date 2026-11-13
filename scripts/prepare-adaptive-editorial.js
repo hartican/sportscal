@@ -19,7 +19,12 @@ const allowed=p=>PATHS.has(p)||/^data\/feed\/(?:manifest|page-\d+)\.json$/.test(
 function keys(v,want){assert(v&&typeof v==='object'&&!Array.isArray(v));assert.deepEqual(Object.keys(v).sort(),[...want].sort());}
 function base64(s,max){
  assert(typeof s==='string'&&s.length<=Math.ceil(max/3)*4);
- assert(/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(s));
+ assert(s.length%4===0);
+ const end=s.length-(s.endsWith('==')?2:s.endsWith('=')?1:0);
+ for(let i=0;i<end;i++){
+  const code=s.charCodeAt(i);
+  assert(code>=65&&code<=90||code>=97&&code<=122||code>=48&&code<=57||code===43||code===47);
+ }
  const b=Buffer.from(s,'base64');assert(b.length<=max&&b.toString('base64')===s);return b;
 }
 function bindingValid(b){
@@ -886,4 +891,4 @@ async function main(){
  else console.log('Editorial preparation complete; encrypted private review required. No database write or release performed.');
 }
 if(require.main===module)main().catch(()=>{console.error('Editorial preparation failed safely.');process.exitCode=1;});
-module.exports={packageReturnEnvelope,packagingFailurePayload,writeReturnOutput,packagingFailureCodes:PACKAGING_FAILURE_CODES,packagingLimits:{plaintextBytes:MAX,envelopeBytes:MAX_ENVELOPE},seal,open,selfTest,privateLocation,cleanupPrivate,canonicalAdmissionIssue,privateFailure,validatePrivateFailure,validatePrivatePayload:payloadValid,strictSourceEntry,captureContext,captureRows,captureInventory,observeDiagnosticEntry,composeReviewReturn,diagnosticCapacityBasis:DIAGNOSTIC_CAPACITY_BASIS,diagnosticCapacityLimits:CAPTURE_DIAGNOSTIC_LIMITS,verifyDiagnosticBasisRows,reviewCaptureLimits:REVIEW_LIMITS,reviewFixedPaths:[...REVIEW_FIXED_PATHS],encodeReviewPatch,decodeReviewPatch,validateReviewCodec,captureReviewGitPatch,reviewStatusShape,deriveReviewClosure,validateReviewRecords,validateReviewPayload,reviewMetadataBytes,readReviewFile,reviewScopeDigest,collectReviewSources,reviewStatusDigest,assertReviewStatusDigest,expectedReviewStatusSha256:EXPECTED_REVIEW_STATUS_SHA256};
+module.exports={validateBase64:base64,packageReturnEnvelope,packagingFailurePayload,writeReturnOutput,packagingFailureCodes:PACKAGING_FAILURE_CODES,packagingLimits:{plaintextBytes:MAX,envelopeBytes:MAX_ENVELOPE},seal,open,selfTest,privateLocation,cleanupPrivate,canonicalAdmissionIssue,privateFailure,validatePrivateFailure,validatePrivatePayload:payloadValid,strictSourceEntry,captureContext,captureRows,captureInventory,observeDiagnosticEntry,composeReviewReturn,diagnosticCapacityBasis:DIAGNOSTIC_CAPACITY_BASIS,diagnosticCapacityLimits:CAPTURE_DIAGNOSTIC_LIMITS,verifyDiagnosticBasisRows,reviewCaptureLimits:REVIEW_LIMITS,reviewFixedPaths:[...REVIEW_FIXED_PATHS],encodeReviewPatch,decodeReviewPatch,validateReviewCodec,captureReviewGitPatch,reviewStatusShape,deriveReviewClosure,validateReviewRecords,validateReviewPayload,reviewMetadataBytes,readReviewFile,reviewScopeDigest,collectReviewSources,reviewStatusDigest,assertReviewStatusDigest,expectedReviewStatusSha256:EXPECTED_REVIEW_STATUS_SHA256};

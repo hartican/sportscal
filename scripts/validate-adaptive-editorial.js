@@ -693,6 +693,21 @@ async function validatePrivateSourceCollection(){
  assert.throws(()=>helper.packageReturnEnvelope(payload,binding,'unused',{encrypt:()=>{const error=Error(secret);error.privatePackagingCode='packaging-review-codec';throw error;}}),
   error=>error.privatePackagingCode==='packaging-review-codec'&&!error.message.includes(secret)&&error.cause===undefined);
 
+
+ assert.equal(typeof helper.validateBase64,'function','vectors exercise the actual shared production validator');
+ for(const [encoded,max,hex] of [['',0,''],['AA==',1,'00'],['/w==',1,'ff'],['+/8=',2,'fbff'],['Zm8=',2,'666f'],['Zm9v',3,'666f6f'],['AAAA',3,'000000'],['AAEC',3,'000102']]){
+  assert.deepEqual(helper.validateBase64(encoded,max),Buffer.from(hex,'hex'),'canonical valid Base64 and exact decoded limit');
+ }
+ assert.deepEqual(helper.validateBase64(binary.toString('base64'),binary.length),binary,'full byte alphabet uses the actual shared validator');
+ const invalidBase64=['A','AA','AAA','AAAAA','AA=','AA===','AAA==','====','A===','AA=A','A=AA','=AAA','AAA==AAA','AA==AAAA','AAA=AAAA','AAAA====','====AAAA',
+  'AA_A','AA-A','AA!A','AAA ','AA A',' AA=','AA==\n','AA==\r','AA==\r\n','AA==\t',
+  'AAA'+String.fromCharCode(0),'AAA'+String.fromCharCode(233),'AB==','/x==','AAB=','Zm9='];
+ for(const encoded of invalidBase64)assert.throws(()=>helper.validateBase64(encoded,64),'junk,whitespace,URL alphabet,invalid padding,length and noncanonical pad bits must remain rejected');
+ assert.throws(()=>helper.validateBase64('AA==',0),'encoded-string length remains bounded before decoding');
+ assert.throws(()=>helper.validateBase64('AAAA',2),'decoded3bytes must not fit an allowed2byte envelope');
+ assert.throws(()=>helper.validateBase64('AAAAAA==',3),'encoded-length overflow remains rejected');
+ assert.throws(()=>helper.validateBase64(null,32));assert.throws(()=>helper.validateBase64(Buffer.from('AAAA'),32),'non-string input remains rejected');
+
  console.log('Editorial private collection/codec and packaging: faithful202 review-only scope, terminal cleanup, bounded encrypted fallback and fixed privacy-safe failure codes passed.');
 }
 validatePrivateSourceCollection().catch(error=>{console.error(error);process.exitCode=1;});
