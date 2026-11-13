@@ -24,7 +24,7 @@ assert.match(sql, /grant execute on function public\.nothingsports_nsc_submit_ra
 assert.match(handlerSource, /body\.action==="submit"/);
 assert.match(handlerSource, /nsc_already_submitted/);
 assert.doesNotMatch(handlerSource, /async function postProfile\(body,user\)[\s\S]{0,240}pilotFor/);
-assert.match(serverSource, /async function submitRating/);
+assert.match(fs.readFileSync(`${root}/lib/nsc-ratings.js`,'utf8'), /async function submit\(/);
 assert.match(serverSource, /submitted_at/);
 assert.match(serverSource, /pointsAwarded/);
 assert.match(serverSource, /submissions/);
@@ -69,10 +69,7 @@ async function serverContract(){
     ...actualSupabase,
     async supabaseServiceRequest(path,options){
       calls.push({path,options});
-      return [{
-        event_id:"fixture-one", phase:"heat", rating:5, tags:["Big stakes"],
-        submitted_at:"2026-08-30T01:00:00.000Z", points_awarded:3, replayed:false,
-      }];
+      return {eventId:'fixture-one',phase:'heat',rating:4,submitted:true,submittedAt:'2026-08-30T01:00:00.000Z',pointsAwarded:0};
     },
   };
   delete require.cache[serverPath];
@@ -88,17 +85,13 @@ async function serverContract(){
     assert.deepEqual(server.ownerProfile({...hiddenProfile,visibility:"deleted"}),{
       profileId:"profile-hidden",displayName:null,handle:null,avatarUrl:null,visibility:"deleted",hidden:true,deleted:true,
     },"a deleted profile must remain a recreation sentinel rather than exposing deleted placeholder values");
-    const receipt=await server.submitRating("user-one","fixture-one","heat",5,["Big stakes"],"2026-08-30T01:00:00.000Z");
-    assert.equal(calls.length,1);
-    assert.equal(calls[0].path,"/rest/v1/rpc/nothingsports_nsc_submit_rating");
-    assert.deepEqual(calls[0].options.body,{
-      target_user_id:"user-one",target_event_id:"fixture-one",target_phase:"heat",
-      target_rating:5,target_tags:["Big stakes"],submitted_time:"2026-08-30T01:00:00.000Z",
-    });
-    assert.deepEqual(receipt,{
-      eventId:"fixture-one",phase:"heat",rating:5,tags:["Big stakes"],
-      submitted:true,submittedAt:"2026-08-30T01:00:00.000Z",pointsAwarded:3,replayed:false,
-    });
+    const ratingsPath=require.resolve(`${root}/lib/nsc-ratings.js`);delete require.cache[ratingsPath];
+    const receipt=await require(ratingsPath).submit('user-one','fixture-one','heat',4,{key:'nrl',status:'scheduled',startTimeUtc:'2026-08-31T01:00:00Z'},new Date('2026-08-30T01:00:00Z'));
+    assert.equal(calls.length,1);assert.equal(calls[0].path,'/rest/v1/rpc/nothingsports_rate_v2');
+    assert.equal(calls[0].options.body.target_user_id,'user-one');assert.equal(calls[0].options.body.target_event_id,'fixture-one');assert.equal(calls[0].options.body.target_phase,'heat');assert.equal(calls[0].options.body.target_rating,4);
+    assert.equal(receipt.rating,4);assert.equal(receipt.submitted,true);assert.equal(receipt.pointsAwarded,0);
+    delete require.cache[ratingsPath];
+
   }finally{
     delete require.cache[serverPath];
     supabaseCache.exports=actualSupabase;
@@ -155,7 +148,7 @@ async function snapshotContract(){
     assert.equal(snapshot.peerResults.distribution,undefined,"batch peer summaries exclude the detailed histogram");
     assert.deepEqual(snapshot.currentUser.submissions.heat,{
       phase:"heat",rating:5,tags:["Big stakes"],bucketStart:"1970-01-01T00:00:00.000Z",
-      submitted:true,submittedAt:"2026-06-13T01:00:00.000Z",pointsAwarded:3,
+      submitted:true,submittedAt:"2026-06-13T01:00:00.000Z",pointsAwarded:0,
     });
     assert.deepEqual(snapshot.currentUser.contribution,snapshot.currentUser.submissions.heat,"the active-phase compatibility field must expose the same durable receipt");
     const [repeat]=await server.snapshots([eventId],{userId,now:fixedNow,demoMode:"public"});
@@ -196,7 +189,7 @@ async function handlerContracts(){
   const supabasePath = require.resolve(`${root}/lib/supabase-server.js`);
   const serverPath = require.resolve(`${root}/lib/nothingscore-server.js`);
   const handlerPath = require.resolve(`${root}/lib/nothingscore-handler.js`);
-  const rewardsPath = require.resolve(`${root}/lib/nsc-rewards.js`);
+  const rewardsPath = require.resolve(`${root}/lib/nsc-ratings.js`);
   const actualSupabase = require(supabasePath);
   const actualServer = require(serverPath);
   const actualRewards = require(rewardsPath);
@@ -211,7 +204,7 @@ async function handlerContracts(){
     ...actualSupabase,
     bearerToken(){return viewerToken;},
     async authenticatedUser(){return viewerUser;},
-    async supabaseServiceRequest(){profileWrites+=1;return null;},
+    async supabaseServiceRequest(path){profileWrites+=1;return path.includes('nothingsports_save_public_profile')?{visibility:profileVisibility==='deleted'?'visible':profileVisibility}:null;},
   };
   serverCache.exports={
     TABLES:{profiles:"profiles",sessions:"sessions",contributions:"contributions"},
@@ -236,7 +229,7 @@ async function handlerContracts(){
       const tags=[];
       submitCalls.push({phase,rating,tags});
       if(submitMode==="conflict")throw new actualSupabase.SupabaseRequestError("nsc_already_submitted",{status:400,payload:{code:"P0001",message:"nsc_already_submitted"}});
-      return{eventId:"fixture-one",phase,rating,tags,submitted:true,submittedAt:"2026-08-30T01:00:00.000Z",pointsAwarded:2,replayed:submitMode==="replay"};
+      return{eventId:"fixture-one",phase,rating,tags,submitted:true,submittedAt:"2026-08-30T01:00:00.000Z",pointsAwarded:0,replayed:submitMode==="replay"};
     },
   };
   delete require.cache[handlerPath];
@@ -274,7 +267,7 @@ async function handlerContracts(){
     await handler({method:"POST",headers:{authorization:"Bearer token"},body:{action:"submit",eventId:"fixture-one",phase:"heat",rating:4,tags:[]}},submitResponse);
     assert.equal(submitResponse.statusCode,200);
     assert.equal(submitResponse.body.submitted,true);
-    assert.equal(submitResponse.body.pointsAwarded,2);
+    assert.equal(submitResponse.body.pointsAwarded,0);
     assert.deepEqual(submitCalls.at(-1),{phase:"heat",rating:4,tags:[]},"the API must submit the phase selected by the user");
     assert.equal(pilotCalls,0,"every registered, unmoderated account may rate without pilot allowlisting");
 
@@ -306,7 +299,7 @@ async function handlerContracts(){
     const priorWrites=profileWrites,priorSubmissions=submitCalls.length;
     for(const body of [{action:'submit',phase:'heat',rating:4},{action:'submit',phase:'impact',rating:4},{action:'pulse',rating:4},{action:'like'},{action:'watching'}]){
       const response=responseCapture();await handler({method:'POST',body:{...body,eventId:'fixture-one'}},response);
-      assert.equal(response.statusCode,409,body.action+' must wait for confirmed phase');
+      assert.equal(response.statusCode,body.action==='like'?410:409,body.action+' must be retired or wait for confirmed phase');
     }
     assert.equal(profileWrites,priorWrites);assert.equal(submitCalls.length,priorSubmissions,'unknown phase cannot award points or persist votes');
     existingSubmission={phase:'heat',rating:4,tags:[],submitted_at:'2026-08-30T01:00:00Z'};
@@ -353,5 +346,5 @@ Promise.resolve()
   .then(snapshotContract)
   .then(handlerContracts)
   .then(()=>require('./lib/nsc-follow-fixture-tests').run())
-  .then(()=>console.log("Nothingscore submission validation passed (global profile, atomic immutable receipts, exact points and snapshot hooks)."))
+  .then(()=>console.log("Nothingscore submission validation passed (global profile, atomic immutable receipts, point-free receipts and snapshot hooks)."))
   .catch(error=>{console.error(error);process.exitCode=1;});

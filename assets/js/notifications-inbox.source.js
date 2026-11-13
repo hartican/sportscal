@@ -2,14 +2,10 @@
  'use strict';
  const node=(tag,text,cls)=>{const e=document.createElement(tag);if(text!=null)e.textContent=text;if(cls)e.className=cls;return e;};
  function copy(item,spoilers){
-  const actor=item.actor||'A Nothinger',room=item.roomName||'chat',bonus=item.points?` · +${item.points} point${item.points===1?'':'s'}`:'';
+  const actor=item.actor||'A Yurter';
   switch(item.kind){
-   case 'chat':return {title:item.messageCount>1?`${item.messageCount} new messages in ${room}`:`${item.sender||actor} sent a message in ${room}`,detail:spoilers&&item.preview?`${item.sender||actor}: ${item.preview.slice(0,140)}`:'Open chat to read.'};
-   case 'invitation':return {title:`${actor} invited you to ${room}`,detail:'Open to review your invitation.'};
-   case 'added':return {title:`${actor} added you to ${room}`,detail:'Open the conversation.'};
-   case 'profile_followed':return {title:`${actor} followed you${bonus}`,detail:'View their profile and sporting follows.'};
-   case 'follows_copied':return {title:`${actor} copied your follows${bonus}`,detail:'Your sporting picks helped someone find what to watch.'};
-   case 'points':return {title:`You earned ${item.points} point${item.points===1?'':'s'}`,detail:({heat_rating:'You rated the build-up.',pulse_rating:'You rated the live action.',impact_rating:'You rated the impact.',foresight_bonus:'Your anticipation reward has settled. View your points and rewards.',follow_person:'You followed someone new.'})[item.detail]||'View your points and rewards.'};
+   case 'profile_followed':return {title:`${actor} followed you`,detail:'View their profile and sporting follows.'};
+   case 'follows_copied':return {title:`${actor} copied your follows`,detail:'Your sporting picks helped someone find what to watch.'};
    case 'rating':return {title:`${actor} gave an event 5 flames`,detail:`${({heat:'Heat',pulse:'Live',impact:'Impact'})[item.phase]||'Rating'} · open their pick.`};
    case 'impact_request':return {title:'Rate the Impact',detail:item.detail||'How much did this fixture matter?'};
    case 'reminder':return {title:item.title||'Your sporting reminder',detail:'It’s nearly time. See event details.'};
@@ -37,11 +33,11 @@
   }
   function render(){
    observer.disconnect();body.replaceChildren();status.textContent='';
-   if(!account){body.append(node('p','Sign in to see messages, followers, points and sporting reminders.','notifications-empty'));const b=node('button','Sign in','btn primary');b.onclick=()=>{dismiss();signIn();};body.append(b);return;}
+   if(!account){body.append(node('p','Sign in to see followers, fixture recommendations and sporting reminders.','notifications-empty'));const b=node('button','Sign in','btn primary');b.onclick=()=>{dismiss();signIn();};body.append(b);return;}
    if(!items.length)body.append(node('p',busy?'Loading notifications…':'You’re all caught up. New activity will appear here.','notifications-empty'));
    for(const item of items){
     const row=node('button',null,`notification-row${item.read?'':' is-unread'}`);row.type='button';row.dataset.id=item.id;
-    const glyph=node('span',({chat:'↗',invitation:'+',added:'+',profile_followed:'+',follows_copied:'+',points:'★',rating:'★',reminder:'◷'})[item.kind]||'•','notification-glyph');glyph.setAttribute('aria-hidden','true');
+    const glyph=node('span',({profile_followed:'+',follows_copied:'+',rating:'★',reminder:'◷'})[item.kind]||'•','notification-glyph');glyph.setAttribute('aria-hidden','true');
     const text=node('span',null,'notification-copy'),words=copy(item,spoilers());text.append(node('strong',words.title),node('span',words.detail));const time=node('time',relative(item.at));time.dateTime=item.at;time.title=new Date(item.at).toLocaleString('en-AU');text.append(time);row.append(glyph,text);row.onclick=()=>void activate(item);body.append(row);observer.observe(row);
    }
    if(cursor){const more=node('button','Load older notifications','btn ghost');more.onclick=()=>void refresh(true);body.append(more);}

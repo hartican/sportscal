@@ -64,7 +64,7 @@ async function reminderAcknowledgement(event,catalogue,now,{fail=false}={}){
 async function run(){
   const supabasePath=require.resolve("../../lib/supabase-server");
   const originalSupabase=require(supabasePath),calls=[];
-  const paths=["../../lib/nothingscore-server","../../lib/nothingscore-handler","../../lib/nsc-rewards","../../lib/epic-classics"].map(name=>require.resolve(name));
+  const paths=["../../lib/nothingscore-server","../../lib/nothingscore-handler","../../lib/nsc-ratings","../../lib/epic-classics"].map(name=>require.resolve(name));
   const previous=new Map(paths.map(file=>[file,require.cache[file]]));
   require.cache[supabasePath].exports={...originalSupabase,async supabaseServiceRequest(path,options){
     assert.equal(path,"/rest/v1/rpc/nothingsports_rate_v2","only the disposable rating RPC is allowed");
@@ -89,7 +89,7 @@ async function run(){
       assert.equal(resolved.id,server.canonicalEventId(id));
       assert.equal(resolved.event,server.eventFor(id),"the actual API lookup uses the registered record");
       assert.equal(crowd.phaseFor(server.eventTiming(resolved.event),now),"heat");
-      const receipt=await require("../../lib/nsc-rewards").submit("disposable-user",resolved.id,"heat",4,resolved.event,now);
+      const receipt=await require("../../lib/nsc-ratings").submit("disposable-user",resolved.id,"heat",4,resolved.event,now);
       assert.equal(receipt.eventId,resolved.id);assert.equal(receipt.rating,4);
       const body=calls.at(-1).body;
       assert.equal(body.target_user_id,"disposable-user");assert.equal(body.target_event_id,resolved.id);

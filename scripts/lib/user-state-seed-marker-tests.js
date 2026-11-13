@@ -23,7 +23,7 @@ module.exports=async function seedMarkerTests(){
   const hydrated=follow.applyMetaSeed(base.preferences,base.preferences.followFirst.startupMeta);
   assert(hydrated.changed);
   const bPatch=patches.createPatch(base,{...base,preferences:hydrated.preferences},{baseUpdatedAt:base.updatedAt});
-  assert.deepEqual(bPatch.changes.map(change=>change.path.join('.')),['preferences.followFirst.appliedSeedHash'],'actual hydration changes only its automatic marker');
+  assert.deepEqual(bPatch.changes.map(change=>change.path.join('.')),['preferences.followFirst.appliedSeedHash','preferences.followFirst.feedback','preferences.followFirst.refinement'],'actual hydration changes its marker and removes retired feedback only');
   const b=await api.handle({method:'PUT',url:'/api/user-state',headers:{},body:{patch:bPatch}});assert.equal(b.status,200);
   if(kind==='theme-conflict')api.mutate(state=>{state.preferences.theme='night';});
   if(kind==='notification-conflict')api.mutate(state=>{state.preferences.followFirst.notifications.enabled=true;state.preferences.followFirst.notifications.userChoice=true;});

@@ -718,7 +718,6 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR,retainedFootballOnly=false,r
   for(const id of ['competition:tour-de-france','competition:giro-ditalia','competition:vuelta-a-espana'])coverageNotes[id]='Men’s Grand Tours: all published 2026 stages. For 2027, the Tour has three published opening stages (2–4 July); its remaining stages are unconfirmed. Giro: 8–30 May; La Vuelta: 4–26 September, edition dates only. Entries, start times, results and detailed route geometry remain partial.';
   const manifest = { schemaVersion: "code-inspector.v1", generatedAt: feed.publishedAt || null, codes:codes.map(code=>coverageNotes[code.id]?{...code,coverageNote:coverageNotes[code.id]}:code) };
   fs.writeFileSync(path.join(outputDir, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
-  if(publishCompanions&&!retainedScopes)require("./build-chat-fixture-registry").writeRegistry({ rootDir:ROOT });
   return manifest;
 }
 

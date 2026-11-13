@@ -20,7 +20,7 @@ async function assertFollowPickerJourney(page){
   const originalViewport=page.viewportSize();
   await page.setViewportSize({width:originalViewport.width,height:originalViewport.width<=320?568:664});
   await page.locator('#startupLaunch').waitFor({state:'hidden'});
-  await page.evaluate(()=>{setTunePromptOpen(false);suppressSessionRatingPrompt();});
+  await page.evaluate(()=>{if(typeof setTunePromptOpen==='function')setTunePromptOpen(false);suppressSessionRatingPrompt();});
   await page.locator('.tabs [data-tab=follow]').tap();
   await page.locator('.follow-home-tabs').getByRole('button',{name:'Sports',exact:true}).tap();
   await page.locator('.follow-navigation').waitFor();

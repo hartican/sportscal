@@ -4,6 +4,7 @@
   if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildProfileStorage(){
   "use strict";
+  const retiredFeedback=globalThis.NOTHINGSPORTS_RETIRED_FEEDBACK||(typeof require==='function'?require('./retired-feedback'):null);
 
   const PROFILE_SCHEMA_VERSION = 6;
   const INSTALL_SCHEMA_VERSION = 1;
@@ -410,7 +411,7 @@
   // choices. Keep every unknown field and deliberate preference in comparison.
   function preferenceDecisions(preferences){
     if(!preferences||typeof preferences!=="object")return preferences;
-    const result=clone(preferences),graph=result.preferenceGraph;
+    const result=retiredFeedback.clean(preferences),graph=result.preferenceGraph;
     for(const [record,keys] of [
       [graph,["profileId","updatedAt"]],[result.followFirst,["appliedSeedHash"]],
       [graph?.viewing,["profileId"]],[graph?.learning,["profileId"]],
@@ -420,6 +421,7 @@
     for(const key of ["entityFollows","domainPreferences","competitionPreferences"]){
       if(Array.isArray(graph?.[key]))for(const record of graph[key])if(record&&typeof record==="object")delete record.profileId;
     }
+    if(graph?.learning&&typeof graph.learning==='object'&&!Object.keys(graph.learning).length)delete graph.learning;
     return result;
   }
 

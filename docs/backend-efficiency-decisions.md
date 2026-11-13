@@ -1,5 +1,13 @@
 # Backend efficiency decisions
 
+## sySTRATEGY — 13 November 2026
+
+Jack approved removing chat/public comments and chat media (including saved files), user points, rewards, prediction competitions, person ranks/efficiency, social hearts and all thumbs/swipe/Fine Tune learning. YURTERS replaces LEADERBOARD: Following first for accounts, Find Yurters for guests, alphabetical name/handle/profile-ID ordering and 25-person pages. Copy follows remains selected, additive and CAS-protected; exclusions and ordinary follows/dismissals stay intact.
+
+Preserve genuine phase ratings/crowd scores, Watching Now/check-ins without awards, personal 5/5 Classics, saved fixtures, sporting results, reminders and optional friend-rating/follow/copy alerts. Decouple these from reward gates and preserve privacy, consent and deduplication. The yearly review uses its selected year's “2026 Classics” style title; eligibility and private review notes/captions remain unchanged.
+
+Retired writers must stop before deletion. Permanent purge of retired DB/Storage data and reward archives occurs only after exact production acceptance, with upload expiry/final-sweep evidence and no recovery archive/export window. Preserve account sync receipts, unrelated preferences, genuine rating history and shared avatar/notification infrastructure. No new scheduler, release-gate bypass or claim of production acceptance is authorised by this source record.
+
 ## Australian Championship bounded result preparation — 31 October 2026
 
 The existing canonical `update-cards.js --australian-championship` owner has an

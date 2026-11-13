@@ -45,7 +45,7 @@ on:
       - scripts/validate-major-events.js
       - scripts/validate-all-sports-card-fallback.js
       - scripts/validate-card-dismissal-learning.js
-      - scripts/validate-shared-chat-ui.js
+      - scripts/validate-systrategy.js
       - api/feed.js
       - lib/live-fixtures.js
       - lib/live-fixture-handler.js

@@ -433,14 +433,10 @@ function renderNotificationSettings(body){
     <section class="filter-panel"><h3>Sounds, alerts and badges</h3>
       <p class="preference-help">Background notifications can arrive even when Nothing Sport is closed. Nothing Sport asks for system permission only when you tap the button below. Message previews stay private: lock-screen chat alerts name only the room.</p>
       <label class="viewing-toggle"><input type="checkbox" id="liveRatingsEnabled" ${preferences.liveRatingsEnabled !== false ? "checked" : ""}><span><strong>Ratings and Impact requests</strong>5/5 ratings from people I follow, plus requests to rate Impact after high-stakes fixtures finish. At most one immediate Impact request a day, with the rest in a 10 am digest.</span></label>
-      <label class="viewing-toggle"><input type="checkbox" id="socialAlertsEnabled" ${preferences.socialAlertsEnabled !== false ? "checked" : ""}><span><strong>New followers and bonus points</strong>Notify you when someone follows your profile, copies your sporting follows, or earns you points.</span></label>
-      <label class="viewing-toggle"><input type="checkbox" id="chatAlertsEnabled" ${preferences.chatAlertsEnabled !== false ? "checked" : ""}><span><strong>Chat alerts</strong>Notify you about new messages from other room participants.</span></label>
+      <label class="viewing-toggle"><input type="checkbox" id="socialAlertsEnabled" ${preferences.socialAlertsEnabled !== false ? "checked" : ""}><span><strong>New followers and copied follows</strong>Notify you when someone follows your profile, copies your sporting follows.</span></label>
       <label class="viewing-toggle"><input type="checkbox" id="autoRemindersEnabled" ${preferences.autoRemindersEnabled !== false ? "checked" : ""}><span><strong>Automatic reminders for my follows</strong>Remind me before eligible knockout fixtures featuring athletes or teams I follow.</span></label>
       <label class="viewing-toggle"><input type="checkbox" id="sportingRemindersEnabled" ${preferences.sportingRemindersEnabled !== false ? "checked" : ""}><span><strong>Sporting reminders</strong>Deliver sporting reminders before their published start.</span></label>
-      <label class="viewing-toggle"><input type="checkbox" id="notificationSoundsEnabled" ${preferences.soundsEnabled !== false ? "checked" : ""}><span><strong>In-app sounds</strong>Play a short cue for an incoming chat message. Impact sound has its own switch in Nothinger Leaderboard.</span></label>
-      <label class="viewing-toggle"><input type="checkbox" id="notificationBadgesEnabled" ${preferences.badgesEnabled !== false ? "checked" : ""}><span><strong>Unread badges</strong>Show the total unread chat message count on the app icon where supported.</span></label>
       <button class="btn ${permission === "granted" && enabled ? "ghost" : "primary"}" type="button" id="notificationPermissionBtn" ${permission === "unsupported" ? "disabled" : ""}>${actionLabel}</button>
-      <button class="btn ghost" type="button" id="testChatSoundBtn">Play test sound</button>
       <button class="btn ghost" type="button" id="testSystemNotificationBtn" ${permission === "unsupported" ? "disabled" : ""}>Send test notification</button>
       <p class="preference-help" id="notificationPermissionStatus">${statusCopy}</p>
       <p class="preference-help" id="notificationDiagnosticsStatus">Checking device and scheduler status…</p>
@@ -448,7 +444,7 @@ function renderNotificationSettings(body){
   </div>`;
   const milestoneHost=document.createElement('div');body.querySelector('.preference-stack').append(milestoneHost);
   void loadDeferredScript('assets/js/milestone-alerts-ui.js?v=535').then(()=>NOTHINGSPORTS_MILESTONE_UI.settings(milestoneHost,draftPreferences)).catch(()=>{if(milestoneHost.isConnected)milestoneHost.textContent='Milestone settings unavailable. Try again.';});
-  [["autoRemindersEnabled","autoRemindersEnabled"],["liveRatingsEnabled","liveRatingsEnabled"],["socialAlertsEnabled","socialAlertsEnabled"],["chatAlertsEnabled","chatAlertsEnabled"],["sportingRemindersEnabled","sportingRemindersEnabled"],["notificationSoundsEnabled","soundsEnabled"],["notificationBadgesEnabled","badgesEnabled"]].forEach(([id,key]) => {
+  [["autoRemindersEnabled","autoRemindersEnabled"],["liveRatingsEnabled","liveRatingsEnabled"],["socialAlertsEnabled","socialAlertsEnabled"],["sportingRemindersEnabled","sportingRemindersEnabled"]].forEach(([id,key]) => {
     document.getElementById(id).addEventListener("change", event => {
       draftPreferences.followFirst.notifications[key] = event.target.checked;
     });
@@ -480,14 +476,6 @@ function renderNotificationSettings(body){
         : "Notification permission was not granted.");
       button.disabled = false;
     }
-  });
-  document.getElementById("testChatSoundBtn").addEventListener("click", async event => {
-    const status = document.getElementById("notificationPermissionStatus");
-    event.currentTarget.disabled = true;
-    draftPreferences.followFirst.notifications.soundsEnabled = true;
-    const played = await playIncomingChatSound({ force: true });
-    status.textContent = played ? "Test sound played." : "Sound is blocked on this device. Check volume and browser sound permissions.";
-    event.currentTarget.disabled = false;
   });
   document.getElementById("testSystemNotificationBtn").addEventListener("click", async event => {
     const status = document.getElementById("notificationPermissionStatus");

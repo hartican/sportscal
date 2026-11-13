@@ -64,10 +64,9 @@ for (const api of [nsc, browser, fallback]){
   assert.deepEqual({...api.blendHeatWithStakes(1,5,25)}, {score:4,heatWeight:.75,stakesWeight:.25});
 }
 
-// Existing stored phases, numerical votes and rewards retain their meaning.
+// Existing stored phases, numerical votes retain their meaning.
 assert.deepEqual(nsc.PHASES, ["heat","pulse","impact"]);
 assert.deepEqual(nsc.PERSONA_WEIGHTS, {general:1,pundit:1,rising:1,influencer:1,curator:8,editorial:8,admin:8});
-assert.deepEqual(nsc.POINT_RULES, {heat:1,first_like:1,watching:1,pulse:1,pulse_15m:1,impact:3,valid_tags:1});
 assert.equal(nsc.SCHEMA_VERSION, "nothingscore.v1");
 const historicalVotes = [
   {userId:"one",persona:"general",rating:1,tags:["Hard to care"]},
@@ -84,13 +83,13 @@ assert.equal(nsc.aggregateRatings([{userId:"fan",rating:1,tags:["Big stakes"]}])
 assert.equal(JSON.stringify(historicalVotes), originalVotes, "presentation changes cannot rewrite historical votes");
 assert.deepEqual(nsc.validTags("heat", 5, ["Rivalry","Star power","Big stakes"]), ["Rivalry","Star power","Big stakes"]);
 assert.deepEqual(nsc.validTags("heat", 2, ["Big stakes","Hard to care"]), ["Hard to care"]);
-assert.equal(nsc.pointValue("heat"), 1);
-assert.equal(nsc.pointValue("impact"), 3);
-assert.equal(nsc.capPointAwards(9,24,3), 1);
+
+assert.equal(nsc.pointValue, undefined);
+assert.deepEqual(nsc.aggregateRatings(historicalVotes, 100), nsc.aggregateRatings(historicalVotes), 'retired hearts cannot change genuine scores');
 
 const fixture = {startTimeUtc:"2026-10-19T02:00:00Z",endTimeUtc:"2026-10-19T04:00:00Z"};
 assert.equal(nsc.phaseFor(fixture,"2026-10-19T01:00:00Z"), "heat");
 assert.equal(nsc.phaseFor({...fixture,session:{status:"active",effectiveStartAt:fixture.startTimeUtc}},"2026-10-19T03:00:00Z"), "pulse");
 assert.equal(nsc.phaseFor(fixture,"2026-10-19T04:00:00Z"), "impact");
 
-console.log("Spectacle contract passed: server/browser/fallback wording, phase-owned artwork, phase boundaries, historical votes, weights, reasons and rewards. Native rendering and release integration remain separate gates.");
+console.log("Spectacle contract passed: server/browser/fallback wording, phase-owned artwork, phase boundaries, historical votes, weights, reasons and no reward API. Native rendering and release integration remain separate gates.");

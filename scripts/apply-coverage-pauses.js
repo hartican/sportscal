@@ -9,7 +9,7 @@ function walk(value){
  for(const key of ['events','fixtures','subEvents'])if(Array.isArray(result[key]))result[key]=result[key].map(walk);
  return result;
 }
-const files=['feeds/incoming/events.json','data/events.json','data/follow-sources/coverage.v1.json','data/major-events.v1.json','data/chat-fixtures.v1.json'];
+const files=['feeds/incoming/events.json','data/events.json','data/follow-sources/coverage.v1.json','data/major-events.v1.json'];
 for(const dir of ['data/follow-schedule','data/code-inspector'])for(const name of fs.readdirSync(dir))if(name.endsWith('.json'))files.push(`${dir}/${name}`);
 for(const file of files){const original=JSON.parse(fs.readFileSync(file));const before=JSON.stringify(original),after=walk(original);if(JSON.stringify(after)!==before)fs.writeFileSync(file,JSON.stringify(after,null,2)+'\n');}
 const events=JSON.parse(fs.readFileSync('data/events.json')).events;

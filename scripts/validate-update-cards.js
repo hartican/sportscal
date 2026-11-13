@@ -63,14 +63,14 @@ assert(editorialChecks[0]<localSteps.findIndex(step=>step[0]==='scripts/refresh-
 const earlyGateRoot=fs.mkdtempSync(path.join(os.tmpdir(),'nothingsport-early-contract-'));
 try{
   const hook=path.join(earlyGateRoot,'preload.cjs');
-  const gates=['scripts/validate-card-dismissal-learning.js','scripts/validate-editorial-projection-identity.js'];
+  const gates=['scripts/validate-card-dismissal-learning.js','scripts/validate-systrategy.js','scripts/validate-editorial-projection-identity.js'];
   for(const failedGate of [...gates,'provider-probe']){
     fs.writeFileSync(hook,"const cp=require('node:child_process'),seen=[],gates="+JSON.stringify(gates)+",failed="+JSON.stringify(failedGate)+";cp.spawnSync=(command,args,options)=>{seen.push(args[0]);if(gates.includes(args[0])){if(options.env.WRC_SOURCE_FAILURE_REPORT)throw Error('VALIDATOR_REPORT_LEAK');return {status:args[0]===failed?1:0};}if(failed==='provider-probe'){if(options.env.WRC_SOURCE_FAILURE_REPORT!=='public-diagnostic-fixture')throw Error('PROVIDER_REPORT_MISSING');return {status:1};}throw Error('Provider work after failed contract: '+args[0]);};process.on('exit',()=>process.stdout.write('EARLY_GATE '+JSON.stringify(seen)+'\\n'));\n");
     const result=spawnSync(process.execPath,['--require',hook,path.join(__dirname,'update-cards.js'),'-p','--local-only'],{cwd:path.resolve(__dirname,'..'),encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,TMPDIR:earlyGateRoot,FOOTBALL_DATA_RUN_DIR:path.join(earlyGateRoot,'diagnostics'),GOLF_SOURCE_REPORT:path.join(earlyGateRoot,'golf.json'),WRC_SOURCE_FAILURE_REPORT:'public-diagnostic-fixture'}});
     assert.equal(result.status,1,'a failing early contract must stop the real entrypoint');
     const trace=result.stdout.match(/EARLY_GATE (\[[^\n]+\])/);assert(trace);
     assert.doesNotMatch(result.stderr,/VALIDATOR_REPORT_LEAK|PROVIDER_REPORT_MISSING/,'validation fixtures cannot overwrite genuine source failure receipts; provider work retains its configured receipt');
-    assert.deepEqual(JSON.parse(trace[1]),failedGate==='provider-probe'?[...gates,'scripts/refresh-pga-schedule.js']:gates.slice(0,gates.indexOf(failedGate)+1),'no provider subprocess can run after either contract fails');
+    assert.deepEqual(JSON.parse(trace[1]),failedGate==='provider-probe'?[...gates,'scripts/refresh-pga-schedule.js']:gates.slice(0,gates.indexOf(failedGate)+1),'no provider subprocess can run after any early contract fails');
   }
 }finally{fs.rmSync(earlyGateRoot,{recursive:true,force:true});}
 for (const step of buildBroadcasterReviewSteps()) {
@@ -335,7 +335,7 @@ assert(localSteps.some(step => step[0] === "scripts/validate-loading-progress.js
 assert(localSteps.some(step => step[0] === "scripts/validate-fixtures-contract.js"), "every canonical update must validate chronology, equal cards, Events links and the six-league catalogue");
 assert(localSteps.some(step => step[0] === "scripts/validate-code-inspector-ui.js"), "every canonical update must cover every canonical code through the read-only Inspector contract");
 assert(localSteps.some(step => step[0] === "scripts/validate-events-fixture-ux.js"), "every canonical update must validate Events tabs, compact fixture density, viewport stability and retained-card button learning");
-assert(localSteps.some(step => step[0] === "scripts/validate-card-chat-viewport-release.js"), "every canonical update must enforce fixture reconciliation, stable disclosure, media compression, GIF import and durable sessions");
+assert(localSteps.some(step => step[0] === "scripts/validate-systrategy.js"), "every canonical update must block retired writers and retain ratings, follows and gated purge safety");
 assert(localSteps.some(step => step[0] === "scripts/validate-feed-ui-geometry.js"), "every canonical update must reject identity escapes, collisions, overflow and missing reserved geometry");
 assert(localSteps.some(step => step[0] === "scripts/validate-identity-fallback-lifecycle.js"), "every canonical update must reject simultaneous loaded logos and temporary fallbacks");
 assert(localSteps.some(step => step[0] === "scripts/scan-broadcaster-coverage.js" && step.includes("--enforce-freshness") && !step.includes("--check")), "every canonical update must regenerate the broadcaster-led weekly and next-seven-day coverage report from approved inputs");
@@ -374,8 +374,8 @@ assert(localSteps.some(step => step[0] === "scripts/validate-product-events.js")
 assert(localSteps.some(step => step[0] === "scripts/validate-cross-device-sync.js"), "every canonical update must enforce cross-device field-level reconciliation");
 assert(localSteps.some(step => step[0] === "scripts/validate-server-persistence.js"), "every canonical update must enforce durable trusted-device sessions and session-only opt-out");
 assert(localSteps.some(step => step[0] === "scripts/validate-preference-reset-recovery.js"), "every canonical update must enforce double-confirmed, service-only and reversible preference reset semantics");
-assert(localSteps.some(step => step[0] === "scripts/validate-swipe-learning.js"), "every canonical update must enforce bounded thumb learning and complete-fixture isolation");
-assert(localSteps.some(step => step[0] === "scripts/validate-tuning-ratings.js"), "every canonical update must enforce fine-tuning, compatible five-star ratings, and prompt fatigue controls");
+assert(!localSteps.some(step => step[0] === "scripts/validate-swipe-learning.js"), "retired thumb learning cannot re-enter the canonical owner");
+assert(localSteps.some(step => step[0] === "scripts/validate-epic-classics.js"), "every canonical update must preserve genuine five-star Classics without Fine Tune");
 assert(localSteps.some(step => step[0] === "scripts/validate-follow-first.js"), "every canonical update must enforce the follow-first interface and persistence contract");
 assert(
   localSteps.findIndex(step => step[0] === "scripts/validate-follow-first.js")
@@ -403,7 +403,7 @@ const updaterSource = fs.readFileSync(path.join(projectRoot, "scripts/update-car
 // Exercise the actual release allowlist against every generated quick-refresh
 // surface, including runtime standings and secondary projection manifests.
 const releaseOutputs = [...releaseScript.match(/CARD_OUTPUT_FILES=\(([\s\S]*?)\n\)/)[1].matchAll(/"([^"]+)"/g)].map(match=>match[1]);
-for(const file of ['assets/js/app-shell-runtime.js','data/chat-fixtures.v1.json','data/coverage/schedule-feed-audit.json','data/providers/openligadb/football-2026-27.json']){
+for(const file of ['assets/js/app-shell-runtime.js','data/coverage/schedule-feed-audit.json','data/providers/openligadb/football-2026-27.json']){
   assert(releaseOutputs.some(output=>file===output||file.startsWith(output+'/')),`${file} must travel with refreshed canonical data`);
 }
 assert(releaseScript.indexOf('node scripts/build-app-shell-runtime.js --check') < releaseScript.indexOf('git commit --only -m "$RELEASE_COMMIT_MESSAGE" -- "${CARD_OUTPUT_FILES[@]}"',releaseScript.indexOf('INITIAL_HEAD=')),'stale generated runtime must fail before the release commit');

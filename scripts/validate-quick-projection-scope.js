@@ -18,7 +18,7 @@ console.log('Quick refresh scope: no-op, tennis-only, football, AFL/NRL and full
 const fs=require('node:fs'),path=require('node:path'),os=require('node:os');
 const outputRoot=fs.mkdtempSync(path.join(os.tmpdir(),'ns-projection-scope-'));
 const output=path.join(outputRoot,'code-inspector');
-const companions=['data/event-overviews.v1.json','data/chat-fixtures.v1.json'].map(name=>[path.join(__dirname,'..',name),fs.readFileSync(path.join(__dirname,'..',name))]);
+const companions=['data/event-overviews.v1.json'].map(name=>[path.join(__dirname,'..',name),fs.readFileSync(path.join(__dirname,'..',name))]);
 try{
  fs.cpSync(path.join(__dirname,'../data/code-inspector'),output,{recursive:true});
  const before=new Map(fs.readdirSync(output).filter(name=>name!=='manifest.json'&&name!=='tennis.json').map(name=>[name,fs.readFileSync(path.join(output,name))]));

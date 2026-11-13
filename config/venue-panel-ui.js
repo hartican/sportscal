@@ -760,8 +760,7 @@ function buildInlineCrowdRating(ev,snapshot){
       try{
         const receipt=await task;if(owner!==(serverPersistence.user?.id))return;chosen=value;
         window.NOTHINGSPORTS_CROWD_RANKINGS?.clear?.();
-        status.textContent=receipt.pointsAwarded?`+${receipt.pointsAwarded} points`:'Rating saved';
-        if(receipt.pointsAwarded&&!matchMedia('(prefers-reduced-motion: reduce)').matches)status.animate([{opacity:0,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:300});
+        status.textContent='Rating saved';
         if(value===5){root.classList.add('is-epic-burst');setTimeout(()=>root.classList.remove('is-epic-burst'),700);}
         const prior=nothingscoreSnapshots.get(id)||snapshot;mergeNothingscoreSnapshot({...prior,currentUser:{...prior.currentUser,contribution:{rating:value},submissions:{...prior.currentUser?.submissions,[phase]:receipt}}});
         const readGeneration=nothingscoreReadGeneration;
@@ -816,10 +815,9 @@ function buildNothingscorePending(ev,phase){
 
 function buildNothingscorePanel(ev,snapshot){
  const panel=document.createElement('section');panel.className='nsc-panel';panel.dataset.nscPanel=nothingscoreEventId(ev);
- const back=document.createElement('button');back.type='button';back.className='btn ghost';back.textContent='Back to rankings';back.onclick=()=>{activeNothingscoreContributionEvent=null;renderCrowdRankings();};
+ const back=document.createElement('button');back.type='button';back.className='btn ghost';back.textContent='Back to YURTERS';back.onclick=()=>{activeNothingscoreContributionEvent=null;renderCrowdRankings();};
  const timing=document.createElement('p');timing.textContent=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule;
  panel.append(back,timing,buildNothingscorePeerResults(ev,snapshot,{inDrawer:true}));
- const incentive=document.createElement('p');incentive.className='nsc-note';incentive.textContent='Earn 1 point for Heat, plus 19 when another Nothinger matches it live or afterwards.';panel.appendChild(incentive);
  return panel;
 }
 
@@ -944,11 +942,6 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
       void toggleQuickReminder(ev, reminderButton);
     });
     actions.appendChild(reminderButton);
-  }
-  if (chat){
-    actions.dataset.fixtureChatId = nothingscoreEventId(ev);
-    nothingscoreEventRefs.set(nothingscoreEventId(ev),ev);
-    appendFixtureChatActions(actions, ev);
   }
   if(milestones&&!highlightsOnly&&/^cricket(?:-women)?$/.test(ev.key||'')){
     void loadDeferredScript('assets/js/milestone-alerts-ui.js?v=535').then(()=>NOTHINGSPORTS_MILESTONE_UI.appendMute(actions,ev));

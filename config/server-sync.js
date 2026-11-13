@@ -4,12 +4,12 @@
   if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildServerSync(){
   "use strict";
+  const retiredFeedback=globalThis.NOTHINGSPORTS_RETIRED_FEEDBACK||(typeof require==='function'?require('./retired-feedback'):null);
 
   const SESSION_STORAGE_KEY = "ns_auth_session_v1";
   const PERSISTENT_SESSION_STORAGE_KEY = "ns_auth_persistent_session_v1";
   const SESSION_PERSISTENCE_KEY = "ns_auth_persistence_v1";
   const RECOVERY_STORAGE_KEY = "ns_auth_recovery_v1";
-  const GUEST_CHAT_SESSION_STORAGE_KEY = "ns_guest_chat_session_v1";
   const RECOVERY_TTL_MS = 15 * 60 * 1000;
   const USER_STATE_SCHEMA_VERSION = "user-state.v2";
   const PRODUCT_EVENTS_SCHEMA_VERSION = "product-events.v1";
@@ -46,7 +46,7 @@
     const merged = mergeSettings(base, incoming);
     const previous = plainObject(base?.preferenceGraph, null);
     const graph = plainObject(merged.preferenceGraph, null);
-    if (!previous || !graph || typeof profileId !== "string" || !profileId) return merged;
+    if (!previous || !graph || typeof profileId !== "string" || !profileId) return retiredFeedback.clean(merged);
     const pointer = (before, current) => {
       if (plainObject(before, null) && plainObject(current, null)
         && current.profileId === profileId && typeof before.profileId === "string" && before.profileId){
@@ -77,7 +77,7 @@
       if (!before || !current) continue;
       for (const [id, record] of current) pointer(before.get(id), record);
     }
-    return merged;
+    return retiredFeedback.clean(merged);
   }
 
   function parseSession(input, now = Date.now()){
@@ -258,8 +258,6 @@
     const feedRequests = new Map(), feedResponses = new Map();
     function invalidateFeed(){feedEpoch += 1;feedResponses.clear();feedRequests.clear();}
     function staleFeedError(){const error=new Error('A newer feed request superseded this result.');error.code='feed_request_superseded';return error;}
-    let guestChatSession = null;
-    let guestRefreshInFlight = null;
     const refreshOwner = `${Date.now().toString(36)}:${Math.random().toString(36).slice(2)}`;
     const refreshChannel = typeof BroadcastChannel === "function" ? new BroadcastChannel(REFRESH_CHANNEL_NAME) : null;
     refreshChannel?.unref?.();
@@ -586,78 +584,6 @@
       }
     }
 
-    function saveGuestChatSession(next){
-      guestChatSession = parseSession(next, now());
-      storageWrite(persistentStorage, GUEST_CHAT_SESSION_STORAGE_KEY, guestChatSession);
-      return guestChatSession;
-    }
-
-    function clearGuestChatSession(){
-      guestChatSession = null;
-      guestRefreshInFlight = null;
-      storageWrite(persistentStorage, GUEST_CHAT_SESSION_STORAGE_KEY, null);
-    }
-
-    function restoreGuestChatSession(){
-      if (!guestChatSession) guestChatSession = storageRead(persistentStorage, GUEST_CHAT_SESSION_STORAGE_KEY);
-      return guestChatSession;
-    }
-
-    async function refreshGuestChatSession(){
-      if (!guestChatSession?.refreshToken) return null;
-      if (guestRefreshInFlight) return guestRefreshInFlight;
-      guestRefreshInFlight = (async () => {
-        try{
-          const payload = await jsonRequest("/api/auth", {
-            method:"POST",
-            body:JSON.stringify({ action:"refresh-anonymous-chat-session", refreshToken:guestChatSession.refreshToken }),
-          });
-          return saveGuestChatSession(payload.session);
-        }catch(error){
-          if (terminalRefreshError(error)) clearGuestChatSession();
-          throw error;
-        }finally{
-          guestRefreshInFlight = null;
-        }
-      })();
-      return guestRefreshInFlight;
-    }
-
-    async function currentGuestChatSession(){
-      const active = restoreGuestChatSession();
-      if (!active) return null;
-      if (active.expiresAt <= now() + REFRESH_EARLY_MS) await refreshGuestChatSession();
-      return guestChatSession;
-    }
-
-    async function guestAuthenticatedRequest(path, options = {}){
-      const activeSession = await currentGuestChatSession();
-      if (!activeSession){
-        const error = new Error("Join this room from its guest link first.");
-        error.status = 401;
-        error.code = "missing_guest_session";
-        throw error;
-      }
-      try{
-        return await jsonRequest(path, {
-          ...options,
-          headers:{ ...(options.headers || {}), Authorization:`Bearer ${activeSession.accessToken}` },
-        });
-      }catch(error){
-        if (error.status !== 401 || !guestChatSession?.refreshToken) throw error;
-        const refreshed = await refreshGuestChatSession();
-        return jsonRequest(path, {
-          ...options,
-          headers:{ ...(options.headers || {}), Authorization:`Bearer ${refreshed.accessToken}` },
-        });
-      }
-    }
-
-    async function chatAuthenticatedRequest(path, options = {}){
-      if (await currentSession()) return authenticatedRequest(path, options);
-      return guestAuthenticatedRequest(path, options);
-    }
-
     return Object.freeze({
       supportsAccountAuthCapture:true,
       classicsRequest(query={},command=null){const search=new URLSearchParams(query),accountId=sessionSubject(session||restoreStoredSession());return authenticatedRequest('/api/classics'+(search.size?'?'+search:''),{accountId,...(command?{method:'POST',body:JSON.stringify(command)}:{})});},
@@ -786,53 +712,7 @@
         if (authenticated && (session || restoreStoredSession())){
           return authenticatedRequest("/api/notifications", options);
         }
-        if (authenticated && (guestChatSession || restoreGuestChatSession())){
-          return guestAuthenticatedRequest("/api/notifications", options);
-        }
         return jsonRequest("/api/notifications", options);
-      },
-      async anonymousChatSession({ capability = "", guestDisplayName = "" } = {}){
-        const existing = await currentGuestChatSession();
-        if (existing) return { session:{ ...existing }, existing:true };
-        const payload = await jsonRequest("/api/auth", {
-          method:"POST",
-          body:JSON.stringify({
-            action:"anonymous-chat-session",
-            capability:String(capability || ""),
-            guestDisplayName:String(guestDisplayName || ""),
-          }),
-        });
-        const saved = saveGuestChatSession(payload.session);
-        if (!saved){
-          const error = new Error("The guest chat session could not be started.");
-          error.code = "invalid_guest_chat_session";
-          throw error;
-        }
-        return { ...payload, session:{ ...saved } };
-      },
-      async chatGuestPreview(capability){
-        return jsonRequest("/api/chat", {
-          method:"POST",
-          body:JSON.stringify({ action:"guest-preview", capability:String(capability || "") }),
-        });
-      },
-      async chatRequest({ mode = "", roomId = "", after = "", before = "", q = "", offset = "", reactionAfter = "" } = {}, command = null, requestOptions = {}){
-        if (command){
-          return chatAuthenticatedRequest("/api/chat", {
-            method:"POST",
-            body:JSON.stringify(command),
-            signal:requestOptions.signal,
-          });
-        }
-        const params = new URLSearchParams();
-        if (mode) params.set("mode", mode);
-        if (roomId) params.set("roomId", roomId);
-        if (after) params.set("after", after);
-        if (before) params.set("before", before);
-        if (q) params.set("q", q);
-        if (offset !== "") params.set("offset", offset);
-        if (reactionAfter) params.set("reactionAfter", reactionAfter);
-        return chatAuthenticatedRequest(`/api/chat?${params.toString()}`, { signal:requestOptions.signal });
       },
       async commsRequest(command = null, query = {}){
         const params = new URLSearchParams();
@@ -878,7 +758,7 @@
         }finally{releaseUpdate?.();}
       },
       profileAvatarExpanded(profileId){return authenticatedRequest(`/api/nothingscore?avatarExpanded=${encodeURIComponent(profileId)}`,{responseType:"blob",cache:"no-store"});},
-      async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "", rankings = null, ladder = null, picks = "", fixture = "", activity = null, handle = "", rewards = false, ratingAffinity = false, viewer = false } = {}, command = null){
+      async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "", rankings = null, ladder = null, people = null, picks = "", fixture = "", activity = null, handle = "", rewards = false, ratingAffinity = false, viewer = false } = {}, command = null){
         if (command){
           return authenticatedRequest("/api/nothingscore", { method:"POST", body:JSON.stringify(command) });
         }
@@ -888,7 +768,7 @@
         if (leaderboard) params.set("leaderboard", leaderboard);
         if(rewards)params.set("rewards","1");
         if(viewer)params.set("viewer","1");
-        if(ladder){params.set('ladder','1');Object.entries(ladder).forEach(([k,v])=>params.set(k,String(v)));}
+        if(people){params.set('people','1');Object.entries(people).forEach(([k,v])=>params.set(k,String(v)));}
         if(fixture)params.set('fixture',fixture);if(picks)params.set('picks',picks);if(handle)params.set('handle',handle);if(activity){params.set('activity','1');params.set('cursor',String(activity.cursor||0));}
         if(rankings){params.set("rankings","1");Object.entries(rankings).forEach(([key,value])=>{if(value!==null&&value!==undefined)params.set(key,String(value));});}
         if(ratingAffinity)params.set("ratingAffinity","1");
@@ -1012,16 +892,8 @@
       },
       clearSession,
       accountSnapshot,
-      clearGuestChatSession,
       getSession(){
         return session ? { ...session } : restoreStoredSession();
-      },
-      getGuestChatSession(){
-        const active = restoreGuestChatSession();
-        return active ? { ...active } : null;
-      },
-      guestChatSessionSubject(){
-        return sessionSubject(restoreGuestChatSession());
       },
       sessionSubject(){
         return sessionSubject(session || restoreStoredSession());
@@ -1049,7 +921,6 @@
     SESSION_STORAGE_KEY,
     SESSION_PERSISTENCE_KEY,
     RECOVERY_STORAGE_KEY,
-    GUEST_CHAT_SESSION_STORAGE_KEY,
     RECOVERY_TTL_MS,
     USER_STATE_SCHEMA_VERSION,
     buildUserState,

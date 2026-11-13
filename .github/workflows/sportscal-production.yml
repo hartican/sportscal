@@ -246,8 +246,7 @@ jobs:
           node scripts/validate-erasure-audit-snapshots.js
           node scripts/validate-erasure-indirect-memberships.js
           node scripts/validate-profile-avatars.js
-          node scripts/validate-shared-chat-ui.js
-          node scripts/validate-private-fixture-chat.js
+          node scripts/validate-systrategy.js
           node scripts/validate-app-update-version.js
           node scripts/validate-generated-shell-version.js
           node scripts/validate-football-quick-refresh.js
