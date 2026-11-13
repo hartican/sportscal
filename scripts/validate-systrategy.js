@@ -67,10 +67,36 @@ async function database(){
  await db.exec('reset role');await db.query("update nothingsports_nsc_profiles set visibility='hidden' where user_id=$1",[b]);await db.exec('set role service_role');assert.equal((await call("select nothingsports_yurters($1,'following','',0) r",[a])).entries.length,0);
  assert.equal((await call("select nothingsports_save_public_profile($1,'New name','new_handle') r",[b])).visibility,'hidden','editing a hidden profile cannot make its follows public');
  assert.equal((await db.query('select nothingsports_settle_consensus_batch() n')).rows[0].n,0,'old live refresh can continue without settling rewards');
+ // Exercise real pagination/search/privacy, including a repeated display name.
+ await db.exec('reset role');
+ for(let i=1;i<=28;i++){const id='44444444-4444-4444-8444-'+String(i).padStart(12,'0');await db.query('insert into auth.users values($1)',[id]);await db.query("insert into nothingsports_nsc_profiles(user_id,profile_id,display_name,handle) values($1,$1,'Same name',$2)",[id,'person_'+String(i).padStart(2,'0')]);}
+ await db.query('insert into nothingsports_nsc_personas(user_id,moderation_flag) values($1,true)',[c]);await db.exec('set role service_role');
+ const first=await call("select nothingsports_yurters(null,'all','same NAME',0) r",[]),last=await call("select nothingsports_yurters(null,'all','same NAME',25) r",[]);
+ assert.equal(first.entries.length,25);assert.equal(first.nextCursor,25);assert.deepEqual(last.entries.map(x=>x.handle),['person_26','person_27','person_28']);assert.equal(last.nextCursor,null);
+ assert.deepEqual(first.entries.map(x=>x.handle),Array.from({length:25},(_,i)=>'person_'+String(i+1).padStart(2,'0')));
+ assert.equal((await call("select nothingsports_yurters(null,'all','person_27',0) r",[])).entries.length,1);
+ assert.equal((await call("select nothingsports_yurters(null,'all','Bob',0) r",[])).entries.length,0,'moderation stays private in search');
  assert.equal((await db.query('select count(*)::int n from nothingsports_nsc_points')).rows[0].n,0);
  await assert.rejects(db.query('insert into nothingsports_nsc_points values($1,1)',[a]),/permission denied/);
  await assert.rejects(db.query('insert into nothingsports_nsc_likes values($1)',[a]),/permission denied/);
+ assert.equal((await db.query("select has_function_privilege('anon','public.nothingsports_rate_v2(uuid,text,text,integer,timestamptz,timestamptz,text,text,text)','EXECUTE') allowed")).rows[0].allowed,false);
  await db.exec('reset role;set role anon');await assert.rejects(db.query('select nothingsports_yurters()'),/permission denied/);
+ // Execute the actual purge SQL twice, with retained records present.
+ await db.exec('reset role;create schema storage;create table storage.objects(bucket_id text);alter table nothingsports_inbox add points integer default 0');
+ const retirement=require('../lib/systrategy-retirement');
+ for(const table of retirement.TABLES){
+  if(!['nothingsports_nsc_points','nothingsports_nsc_likes'].includes(table)){await db.exec('create table '+table+'(id integer)');await db.exec('insert into '+table+' values(1)');}
+ }
+ await db.query('insert into nothingsports_nsc_points values($1,12)',[a]);await db.query('insert into nothingsports_nsc_likes values($1)',[a]);
+ await db.query("insert into nothingsports_inbox(recipient_user_id,kind,points) values($1,'points',12),($1,'rating',0)",[a]);
+ await db.query("insert into storage.objects values('nothingsports-chat-transient')");
+ await assert.rejects(db.exec(retirement.purgeSQL()),/retired_storage_objects_remain/);await db.exec('rollback;delete from storage.objects');
+ const kept={ratings:(await db.query('select count(*)::int n from nothingsports_nsc_contributions')).rows[0].n,follows:(await db.query('select count(*)::int n from nothingsports_user_follows')).rows[0].n,activity:(await db.query('select count(*)::int n from nothingsports_friend_activity')).rows[0].n};
+ await db.exec(retirement.purgeSQL());await db.exec(retirement.purgeSQL());
+ for(const table of retirement.TABLES)assert.equal((await db.query('select count(*)::int n from '+table)).rows[0].n,0,table);
+ for(const [key,table]of [['ratings','nothingsports_nsc_contributions'],['follows','nothingsports_user_follows'],['activity','nothingsports_friend_activity']])assert.equal((await db.query('select count(*)::int n from '+table)).rows[0].n,kept[key],'purge retains '+key);
+ assert.deepEqual((await db.query('select kind from nothingsports_inbox')).rows,[{kind:'rating'}]);
+
  }finally{await db.close();}
 }
 async function retirement(){

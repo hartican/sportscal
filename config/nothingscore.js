@@ -16,10 +16,9 @@
   const IMPACT_TAGS = Object.freeze(["Thrilling", "Eye-popping", "Mind-blowing", "Emotional", "Electric atmosphere", "Pure chaos"]);
   const HEAT_LOW_TAGS = Object.freeze(["Rising storyline", "Emerging talent", "Low expectations", "Bog standard", "Too one-sided", "Hard to care"]);
   const IMPACT_LOW_TAGS = Object.freeze(["Boring", "Standard", "Mediocre", "Underwhelming", "One-sided", "Disappointing"]);
-  const POINT_RULES = Object.freeze({ heat:1, first_like:1, watching:1, pulse:1, pulse_15m:1, impact:3, valid_tags:1 });
   const PULSE_BUCKET_MS = 5 * 60 * 1000;
   const PULSE_FRESH_MS = 15 * 60 * 1000;
-  // Watching is intentionally approximate after the one-minute bonus proof.
+  // Watching is approximate; five-minute maintenance keeps presence current.
   // Five-minute maintenance heartbeats remain visible for one missed interval.
   const PRESENCE_TTL_MS = 10 * 60 * 1000;
 
@@ -33,7 +32,6 @@
   function round1(value){ return Math.round(Number(value) * 10) / 10; }
   function personaWeight(persona){ return PERSONA_WEIGHTS[String(persona || "general").toLowerCase()] || 1; }
   const rowWeight = row => Object.hasOwn(row||{},"ratingWeight") ? (row.ratingWeight===8?8:1) : personaWeight(row?.persona);
-  function likeLift(activeLikes){ return Math.min(0.35, 0.05 * Math.sqrt(Math.max(0, Number(activeLikes) || 0))); }
   function ratingContribution(row){
     const rating = Number(row?.rating);
     return Number.isFinite(rating) && rating >= 1 && rating <= 5 ? rating : null;
@@ -49,16 +47,16 @@
     });
     return weight ? weighted / weight : null;
   }
-  function effectiveSupport(rows, activeLikes){
+  function effectiveSupport(rows){
     const ratingWeight = (Array.isArray(rows) ? rows : []).reduce((total, row) => total + (ratingContribution(row) === null ? 0 : rowWeight(row)), 0);
-    return round1(ratingWeight + Math.min(7, Math.max(0, Number(activeLikes) || 0) * 0.25));
+    return round1(ratingWeight);
   }
   function leadingTags(rows, limit = 3){
     const counts = new Map();
     (Array.isArray(rows) ? rows : []).forEach(row => (Array.isArray(row.tags) ? row.tags : []).forEach(tag => counts.set(tag, (counts.get(tag) || 0) + rowWeight(row))));
     return [...counts.entries()].sort((a,b)=>b[1]-a[1] || a[0].localeCompare(b[0])).slice(0, limit).map(([tag,count])=>({ tag, support:count }));
   }
-  function aggregateRatings(rows, activeLikes = 0, { seed = null } = {}){
+  function aggregateRatings(rows, _retiredLikes = 0, { seed = null } = {}){
     const valid = (Array.isArray(rows) ? rows : []).filter(row => ratingContribution(row) !== null);
     let rating = weightedMean(valid), weight = valid.reduce((total,row)=>total+rowWeight(row),0), seedWeight = 0;
     if (seed && Number.isFinite(Number(seed.rating)) && Number(seed.weight) > 0){
@@ -66,16 +64,15 @@
       rating = rating === null ? Number(seed.rating) : ((rating * weight) + Number(seed.rating) * seedWeight) / (weight + seedWeight);
       weight += seedWeight;
     }
-    const lift = likeLift(activeLikes);
-    const displayScore = rating === null ? null : round1(clamp(rating + lift, 1, 5));
+    const displayScore = rating === null ? null : round1(clamp(rating, 1, 5));
     return {
       score:displayScore,
       building:rating === null,
-      internalScore:round1(clamp((rating === null ? 3 : rating) + lift, 1, 5)),
+      internalScore:round1(clamp((rating === null ? 3 : rating), 1, 5)),
       ratingCount:valid.length,
       contributorCount:new Set(valid.map(row=>String(row.userId||row.user_id||"anonymous"))).size,
-      likeCount:Math.max(0, Number(activeLikes) || 0),
-      support:round1(effectiveSupport(valid, activeLikes)+seedWeight),
+      likeCount:0,
+      support:round1(effectiveSupport(valid)+seedWeight),
       personaWeight:round1(weight),
       leadingTags:leadingTags(valid),
     };
@@ -144,20 +141,13 @@
     const index = Math.max(0, Math.min(4, Math.round(clamp(score,1,5))-1));
     return (phase === "heat" ? HEAT_LABELS : phase === "impact" ? IMPACT_LABELS : PULSE_LABELS)[index];
   }
-  function pointValue(kind){ return POINT_RULES[kind] || 0; }
-  function capPointAwards(existingFixturePoints, existingDayPoints, requested){
-    return Math.max(0, Math.min(Number(requested)||0, 10-Math.max(0,Number(existingFixturePoints)||0), 25-Math.max(0,Number(existingDayPoints)||0)));
-  }
-  function leaderboardSort(entries){
-    return (Array.isArray(entries)?entries:[]).slice().sort((a,b)=>(Number(b.points)||0)-(Number(a.points)||0)||(Number(b.uniqueFixtures)||0)-(Number(a.uniqueFixtures)||0)||Date.parse(a.attainedAt||"")-Date.parse(b.attainedAt||"")||String(a.handle||"").localeCompare(String(b.handle||"")));
-  }
   function normaliseHandle(value){ const handle=String(value||"").trim().toLowerCase().replace(/^@/,""); return /^[a-z0-9_]{3,24}$/.test(handle)?handle:""; }
 
   return Object.freeze({
-    HEAT_PROMPT, HEAT_LABELS, HEAT_LOW_TAGS, HEAT_TAGS, IMPACT_LABELS, IMPACT_LOW_TAGS, IMPACT_TAGS, PERSONA_WEIGHTS, PHASES, POINT_RULES,
+    HEAT_PROMPT, HEAT_LABELS, HEAT_LOW_TAGS, HEAT_TAGS, IMPACT_LABELS, IMPACT_LOW_TAGS, IMPACT_TAGS, PERSONA_WEIGHTS, PHASES,
     PRESENCE_TTL_MS, PULSE_BUCKET_MS, PULSE_FRESH_MS, PULSE_LABELS, SCHEMA_VERSION,
-    activePresence, aggregateRatings, blendBand, blendHeatWithStakes, capPointAwards, effectiveSupport,
-    impactSeed, labelFor, leaderboardSort, likeLift, normaliseHandle, personaWeight, phaseFor,
-    pointValue, pulseAggregate, pulseBucket, tagsFor, validTags, weightedMean,
+    activePresence, aggregateRatings, blendBand, blendHeatWithStakes, effectiveSupport,
+    impactSeed, labelFor, normaliseHandle, personaWeight, phaseFor,
+    pulseAggregate, pulseBucket, tagsFor, validTags, weightedMean,
   });
 });

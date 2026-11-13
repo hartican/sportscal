@@ -9,7 +9,7 @@ const token=Buffer.from('{}').toString('base64url')+'.'+Buffer.from(JSON.stringi
  const browser=await chromium.launch({headless:true, ...(process.env.PWA_EXECUTABLE_PATH?{executablePath:process.env.PWA_EXECUTABLE_PATH}:{})});
  try{
  for(const width of [320,390,768,1280])for(const theme of ['day','night']){
-  const page=await browser.newPage({viewport:{width,height:844}}),errors=[],commands=[];
+  const page=await browser.newPage({viewport:{width,height:844},serviceWorkers:'block'}),errors=[],commands=[];
   page.on('pageerror',error=>errors.push(error.message));
   await page.addInitScript(()=>sessionStorage.setItem('ns_chat_draft_v2:old-room','retired draft'));
   await page.route('**/api/**',async route=>{
@@ -26,6 +26,7 @@ const token=Buffer.from('{}').toString('base64url')+'.'+Buffer.from(JSON.stringi
   });
   await page.goto(origin+'/?chatRoom=retired',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>typeof openNothingscoreDrawer==='function'&&typeof NOTHINGSPORTS_YURTERS==='undefined');
+  assert.equal(await page.locator('#nothingscoreBackdrop').isVisible(),false,'closed YURTERS cannot intercept fixture navigation');
   await page.evaluate(theme=>{closeSettings();userPreferences.theme=theme;applyThemePreference(theme);openNothingscoreDrawer();},theme);
   await page.getByText('Sam',{exact:true}).waitFor();
   assert.equal(await page.locator('#nothingscoreTitle').textContent(),'YURTERS');
@@ -38,12 +39,13 @@ const token=Buffer.from('{}').toString('base64url')+'.'+Buffer.from(JSON.stringi
    await page.evaluate(async()=>{await serverSyncClient.signIn({email:'qa@example.invalid',password:'test-only-password'});serverPersistence.user={id:'11111111-1111-4111-8111-111111111111'};serverPersistence.state='signedIn';syncCurrentServerState=async()=>{};reconcileCurrentServerState=async()=>{};await NOTHINGSPORTS_YURTERS.render();});
    assert.equal(await page.locator('.yurters-tabs [aria-selected="true"]').textContent(),'Following');
    await page.getByRole('button',{name:'See / copy follows',exact:true}).click();
-   await page.getByRole('button',{name:'Select visible picks',exact:true}).click();
+   try{await page.getByRole('button',{name:'Select visible picks',exact:true}).click();}catch(error){console.error('Copy preview diagnostic',JSON.stringify({dialog:await page.locator('.nsc-picks-dialog').allTextContents(),errors}));throw error;}
    const checks=page.locator('.nsc-picks-list input');assert.equal(await checks.nth(0).isChecked(),true);assert.equal(await checks.nth(1).isChecked(),false);
    await checks.nth(1).check();await page.getByRole('button',{name:'Follow their picks',exact:true}).click();await page.getByText('2 picks added.',{exact:true}).waitFor();
    assert.deepEqual(commands.at(-1).overrideIds,['sport:tennis']);assert.equal(commands.at(-1).items.length,2);
    assert(!/points|efficiency|reward/i.test(await page.locator('#nothingscoreBody').innerText()));
    await page.getByRole('button',{name:'Close',exact:true}).click();
+   await page.evaluate(()=>setNothingscoreDrawerOpen(false));assert.equal(await page.locator('#nothingscoreBackdrop').isVisible(),false);
    await page.evaluate(()=>openSettings({section:'notifications'}));await page.locator('#socialAlertsEnabled').waitFor();
    assert.equal(await page.locator('#chatAlertsEnabled,#testChatSoundBtn').count(),0);
    assert(!/bonus points|incoming chat/i.test(await page.locator('#settingsBody').innerText()));

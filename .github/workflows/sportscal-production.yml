@@ -353,6 +353,7 @@ jobs:
           node scripts/validate-golf-source-observations.js
           node scripts/validate-canonical-source-readout.js
           node scripts/validate-f1-session-results.js
+          node scripts/validate-crowd-foresight.js
           node scripts/build-epic-ui.js --check
           node scripts/validate-epic-classics.js
           node scripts/validate-epic-api.js

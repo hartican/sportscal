@@ -63,14 +63,14 @@ assert(editorialChecks[0]<localSteps.findIndex(step=>step[0]==='scripts/refresh-
 const earlyGateRoot=fs.mkdtempSync(path.join(os.tmpdir(),'nothingsport-early-contract-'));
 try{
   const hook=path.join(earlyGateRoot,'preload.cjs');
-  const gates=['scripts/validate-card-dismissal-learning.js','scripts/validate-editorial-projection-identity.js'];
+  const gates=['scripts/validate-card-dismissal-learning.js','scripts/validate-systrategy.js','scripts/validate-editorial-projection-identity.js'];
   for(const failedGate of [...gates,'provider-probe']){
     fs.writeFileSync(hook,"const cp=require('node:child_process'),seen=[],gates="+JSON.stringify(gates)+",failed="+JSON.stringify(failedGate)+";cp.spawnSync=(command,args,options)=>{seen.push(args[0]);if(gates.includes(args[0])){if(options.env.WRC_SOURCE_FAILURE_REPORT)throw Error('VALIDATOR_REPORT_LEAK');return {status:args[0]===failed?1:0};}if(failed==='provider-probe'){if(options.env.WRC_SOURCE_FAILURE_REPORT!=='public-diagnostic-fixture')throw Error('PROVIDER_REPORT_MISSING');return {status:1};}throw Error('Provider work after failed contract: '+args[0]);};process.on('exit',()=>process.stdout.write('EARLY_GATE '+JSON.stringify(seen)+'\\n'));\n");
     const result=spawnSync(process.execPath,['--require',hook,path.join(__dirname,'update-cards.js'),'-p','--local-only'],{cwd:path.resolve(__dirname,'..'),encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,TMPDIR:earlyGateRoot,FOOTBALL_DATA_RUN_DIR:path.join(earlyGateRoot,'diagnostics'),GOLF_SOURCE_REPORT:path.join(earlyGateRoot,'golf.json'),WRC_SOURCE_FAILURE_REPORT:'public-diagnostic-fixture'}});
     assert.equal(result.status,1,'a failing early contract must stop the real entrypoint');
     const trace=result.stdout.match(/EARLY_GATE (\[[^\n]+\])/);assert(trace);
     assert.doesNotMatch(result.stderr,/VALIDATOR_REPORT_LEAK|PROVIDER_REPORT_MISSING/,'validation fixtures cannot overwrite genuine source failure receipts; provider work retains its configured receipt');
-    assert.deepEqual(JSON.parse(trace[1]),failedGate==='provider-probe'?[...gates,'scripts/refresh-pga-schedule.js']:gates.slice(0,gates.indexOf(failedGate)+1),'no provider subprocess can run after either contract fails');
+    assert.deepEqual(JSON.parse(trace[1]),failedGate==='provider-probe'?[...gates,'scripts/refresh-pga-schedule.js']:gates.slice(0,gates.indexOf(failedGate)+1),'no provider subprocess can run after any early contract fails');
   }
 }finally{fs.rmSync(earlyGateRoot,{recursive:true,force:true});}
 for (const step of buildBroadcasterReviewSteps()) {

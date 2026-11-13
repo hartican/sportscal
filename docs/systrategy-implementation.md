@@ -66,17 +66,24 @@ four widths and both themes. Ratings recovery, Classics, notifications, dismissa
 backend efficiency, preference bookkeeping and 75 account-isolation scenarios
 also pass locally. These are automated source tests, not hosted/device acceptance.
 
-Workspace critical startup assets fell from 449,738 to 417,923 gzip bytes on
-Node v25.9.0, with the same seven critical files: 31,815 compressed bytes and
-140,531 raw bytes removed. Shared avatar and push dependencies remain required.
+The isolated current-main candidate's critical startup assets fell from 450,072 to
+414,664 gzip bytes on Node v24.22.3, with the same seven critical files: 35,408
+compressed bytes and 157,749 raw bytes removed. Shared avatar and push dependencies
+remain required. Obsolete reward, person-sort, prediction-bonus and heart-lift
+calculations are removed; historical heart values cannot alter genuine scores.
 
-Required release blockers remain:
+The unchanged performance gate passes on the release Node 24 toolchain, including
+its recorded 426,115-byte reference baseline. Node 25 produces a different
+compression result and correctly fails the policy's integrity check; no policy,
+threshold or validator change was made.
 
-1. The unchanged performance policy expects 426,115 gzip bytes for its recorded
-   baseline; the reference measures 425,600 in this environment, so its integrity
-   check refuses the measurement.
-2. Installed Chromium passes initial activation and offline recovery but times
-   out during resumed upgrade. Its validator and timeout remain in force.
+The remaining installed-PWA release blocker reproduces on the exact current-main
+adoption candidate: Chromium passes initial activation and offline recovery but
+times out after 45 seconds during resumed upgrade. Its validator and timeout
+remain in force. Account-erasure preflight, owned-data and workflow regression
+checks also pass against simulated backends. The actual purge SQL is rehearsed
+twice in an isolated database, including a refusal while Storage rows remain,
+zero retired rows, and retained ratings/follows/friend activity.
 
 No live migration, deployment or customer-data purge has been performed. The
 current-main adoption candidate keeps the separately owned branding work out of

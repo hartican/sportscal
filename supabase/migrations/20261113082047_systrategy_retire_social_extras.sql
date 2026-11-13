@@ -244,4 +244,8 @@ end $$;
 revoke all on function public.nothingsports_save_public_profile(uuid,text,text) from public,anon,authenticated;
 grant execute on function public.nothingsports_save_public_profile(uuid,text,text) to service_role;
 
+-- Preserve service-only command ownership even on a fresh/replayed schema.
+revoke all on function public.nothingsports_rate_v2(uuid,text,text,integer,timestamptz,timestamptz,text,text,text),public.nothingsports_follow_person(uuid,uuid,boolean),public.nothingsports_copy_picks(uuid,uuid,jsonb,jsonb,jsonb,jsonb,text[]),public.nothingsports_inbox_page(uuid,timestamptz,uuid,boolean),public.nothingsports_nsc_award_points(uuid,text,text,integer,timestamptz) from public,anon,authenticated;
+grant execute on function public.nothingsports_rate_v2(uuid,text,text,integer,timestamptz,timestamptz,text,text,text),public.nothingsports_follow_person(uuid,uuid,boolean),public.nothingsports_copy_picks(uuid,uuid,jsonb,jsonb,jsonb,jsonb,text[]),public.nothingsports_inbox_page(uuid,timestamptz,uuid,boolean),public.nothingsports_nsc_award_points(uuid,text,text,integer,timestamptz) to service_role;
+
 commit;
