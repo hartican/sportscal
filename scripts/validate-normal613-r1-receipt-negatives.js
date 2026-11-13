@@ -22,7 +22,7 @@ function NSB_BOOT_READ(file,max){
  }finally{NSB_RAW_FS.closeSync(fd);}
 }
 const NSB_TEMP=NSB_RAW_FS.realpathSync(process.env.RUNNER_TEMP),NSB_GUARD_PATH=NSB_PATH.join(__dirname,'validate-forward-onboarding-ci.js');
-const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,193605);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,193605);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'a78201621fc5bb972bc130e93f1e4730c3f543859dffb5770a945ac2763ea164');
+const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,193605);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,193605);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'75cedd0c1698aa69005279c1226ad6225665a88af07e510d21271131d256ab39');
 const NSB_S=require('./validate-forward-onboarding-ci').normal613FocusedControls;
 const NSB_CONTEXT_PATH=NSB_PATH.join(NSB_TEMP,'ns-normal-613-admission','normal613-context.json');
 NSB_ASSERT(NSB_NATIVE_MONO()<NSB_SOFT,'Context bootstrap remains charged');
@@ -81,7 +81,7 @@ const qualifier=path.join(__dirname,'validate-sync-current-forward.js'),fixture=
 const keys='schemaVersion publisherHeadSha publisherTreeSha actualAssembledSourceManifestPath actualAssembledSourceManifestSha256 actualDeploymentSourceManifestPath actualDeploymentSourceManifestSha256 releaseGitSha actualTestedMergeSha actualCloudRunId actualCloudRunAttempt actualCloudJobId namedAllocationId freshMainAndReservationBindingSha256 actualNodeBinarySha256 actualDependencyProofSha256 admissionGranted jobIdKind actualCloudJobKey actualCloudNumericJobId actualWorkflowPath observedAt eventBodySha256 headRole testedCommitRole releaseRole qualifier fixture approvedFinalMap runtime reservation freshMainAndReservationBinding git cloudContext normal613Action normal613Intent normal613Ack'.split(' ');
 function base(){const r=Object.fromEntries(keys.map(k=>[k,null]));Object.assign(r,{schemaVersion:'normal613-qualification-execution-receipt.v1',admissionGranted:true,jobIdKind:'github-job-key',actualCloudJobKey:'fixture-activation',actualCloudJobId:'github-job-key:fixture-activation',actualCloudNumericJobId:null,actualWorkflowPath:'.github/workflows/installed-upgrade-tests.yml',headRole:'pull_request.head.sha',testedCommitRole:'pull_request-merge-checkout',releaseRole:'source-qualification-candidate',namedAllocationId:'SYNTHETIC_TEST_ONLY'});return r;}
 assert.equal(process.env.NS_FOCUSED_R1_EARLY_TOTAL_MS,'1000');assert.equal(process.env.NS_FOCUSED_R1_TRAVERSAL_TOTAL_MS,'7000');
-assert.equal(sha(fs.readFileSync(qualifier)),'a54983351de787e957658f92efedf1e10b470cbb06af252070eb1661228a970f');assert.equal(sha(fs.readFileSync(fixture)),'744ddb4c83e97810bdd9f6778de0f50a5033695f24739d642c9179822c58a5d2');
+assert.equal(sha(fs.readFileSync(qualifier)),'0669dc2014477c900a68ea97bcbef48c3634ecf7e13f7f8f2f8978800da41d25');assert.equal(sha(fs.readFileSync(fixture)),'d534f749ba9b62182fd54203b6a90098e0ba9ef38a29d9e7e61a1c817476a582');
 let interrupted=false;for(const sig of ['SIGTERM','SIGINT'])process.once(sig,()=>{interrupted=true});
 const pause=n=>new Promise(resolve=>setTimeout(resolve,n));
 const rows=[],caseNames=['missing-deployment-path','admission-false','numeric-job-not-outer-join','wrong-release-role','actual-r1-source-traversal-corruption','actual-r1-dependency-traversal-corruption','actual-r1-deployment-traversal-corruption'];
