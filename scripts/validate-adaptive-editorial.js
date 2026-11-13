@@ -392,6 +392,26 @@ async function validatePrivateSourceCollection(){
  const sample=Buffer.from('synthetic private patch\n'),codec=await helper.encodeReviewPatch(Readable.from([sample]));
  assert.deepEqual(zlib.gunzipSync(Buffer.from(codec.bodyBase64,'base64')),sample,'emitted framing is standard single-member gzip');
  const recovered=[];await helper.decodeReviewPatch(codec,chunk=>recovered.push(Buffer.from(chunk)));assert.deepEqual(Buffer.concat(recovered),sample);
+
+ // Synthetic large-valid resource falsifier: retain MiB scale if it exposes a codec/Base64 failure.
+ const largeSynthetic=crypto.randomBytes(1024*1024),largeExpectedSha=digest(largeSynthetic);
+ const largeInput=Readable.from([largeSynthetic]);let largeInputEof=false;
+ largeInput.once('end',()=>{largeInputEof=true;});
+ const largeCodec=await helper.encodeReviewPatch(largeInput);
+ assert.equal(largeInputEof,true);assert.equal(largeInput.readableEnded,true);assert.equal(largeInput.read(),null,'encoder consumed input through EOF');
+ assert.equal(largeCodec.decodedBytes,largeSynthetic.length);assert.equal(largeCodec.decodedSha256,largeExpectedSha);
+ assert(largeCodec.decodedBytes<=limits.rawPatchBytes&&largeCodec.compressedBytes<=limits.compressedPatchBytes);
+ assert(largeCodec.bodyBase64.length>=1024*1024,'high-entropy synthetic data must exercise a MiB-scale Base64 string');
+ let largeDecodedBytes=0;const largeDecodedHash=crypto.createHash('sha256');
+ const largeDecoded=await helper.decodeReviewPatch(largeCodec,chunk=>{
+  assert(largeDecodedBytes+chunk.length<=largeSynthetic.length,'decoder must not deliver bytes beyond expected EOF');
+  assert.deepEqual(chunk,largeSynthetic.subarray(largeDecodedBytes,largeDecodedBytes+chunk.length));
+  largeDecodedHash.update(chunk);largeDecodedBytes+=chunk.length;
+ });
+ assert.equal(largeDecodedBytes,largeSynthetic.length,'decoder delivered the complete payload through EOF');
+ assert.equal(largeDecodedHash.digest('hex'),largeExpectedSha);
+ assert.deepEqual(largeDecoded,{bytes:largeSynthetic.length,sha256:largeExpectedSha},'actual decoder completed with exact count/digest and no missing or trailing output');
+
  const empty=await helper.encodeReviewPatch(Readable.from([]));await helper.decodeReviewPatch(empty);
  const binary=Buffer.from(Array.from({length:256},(_,index)=>index));
  const binaryCodec=await helper.encodeReviewPatch(Readable.from([binary]));const binaryRecovered=[];
