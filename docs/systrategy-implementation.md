@@ -77,13 +77,20 @@ its recorded 426,115-byte reference baseline. Node 25 produces a different
 compression result and correctly fails the policy's integrity check; no policy,
 threshold or validator change was made.
 
-The remaining installed-PWA release blocker reproduces on the exact current-main
+The installed-PWA release blocker reproduces on the exact current-main
 adoption candidate: Chromium passes initial activation and offline recovery but
 times out after 45 seconds during resumed upgrade. Its validator and timeout
 remain in force. Account-erasure preflight, owned-data and workflow regression
 checks also pass against simulated backends. The actual purge SQL is rehearsed
 twice in an isolated database, including a refusal while Storage rows remain,
 zero retired rows, and retained ratings/follows/friend activity.
+
+The full canonical-refresh validator also stops in its isolated quick pipeline:
+editorial preview QA rejects `evt_40` and `evt_41` for missing journalistic status,
+editorial angle and two context signals. Those owning editorial validators and
+sporting data are unchanged by this task. Its early retirement/dismissal/identity
+contract checks pass; the complete refresh validator is not green. Preserve this
+failure for the editorial owner rather than weakening the validator.
 
 No live migration, deployment or customer-data purge has been performed. The
 current-main adoption candidate keeps the separately owned branding work out of
