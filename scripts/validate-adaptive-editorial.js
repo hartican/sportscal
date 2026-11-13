@@ -380,3 +380,128 @@ apply(knowledge,feed,major,{entries:[refresh]});
 assert.deepEqual(['subjects','sources','narrativeFacts','narrativeThreads','eventProjections'].map(field=>knowledge[field].length),counts);
 assert.deepEqual(narrative.validateKnowledge(knowledge),[]);
 console.log('Adaptive provenance: immutable sibling evidence, stable projection identity and idempotent retries passed.');
+
+// Private collection/codec checks use tiny synthetic source data and native streams only.
+async function validatePrivateSourceCollection(){
+ const helper=require('./prepare-adaptive-editorial'),crypto=require('node:crypto'),zlib=require('node:zlib');
+ const {Readable}=require('node:stream'),{EventEmitter}=require('node:events');
+ const digest=bytes=>crypto.createHash('sha256').update(bytes).digest('hex'),limits=helper.reviewCaptureLimits;
+ assert.equal(limits.entries,202);assert.equal(limits.newFiles,128);assert.equal(limits.newCount,97);
+ assert.equal(limits.newBytes,10*1024*1024);assert.equal(limits.trackedBytes,128*1024*1024);
+ assert.equal(limits.rawPatchBytes,272*1024*1024);assert.equal(limits.compressedPatchBytes,12*1024*1024);assert.equal(limits.metadataBytes,2*1024*1024);
+ const sample=Buffer.from('synthetic private patch\n'),codec=await helper.encodeReviewPatch(Readable.from([sample]));
+ assert.deepEqual(zlib.gunzipSync(Buffer.from(codec.bodyBase64,'base64')),sample,'emitted framing is standard single-member gzip');
+ const recovered=[];await helper.decodeReviewPatch(codec,chunk=>recovered.push(Buffer.from(chunk)));assert.deepEqual(Buffer.concat(recovered),sample);
+ const empty=await helper.encodeReviewPatch(Readable.from([]));await helper.decodeReviewPatch(empty);
+ const binary=Buffer.from(Array.from({length:256},(_,index)=>index));
+ const binaryCodec=await helper.encodeReviewPatch(Readable.from([binary]));const binaryRecovered=[];
+ await helper.decodeReviewPatch(binaryCodec,chunk=>binaryRecovered.push(Buffer.from(chunk)));assert.deepEqual(Buffer.concat(binaryRecovered),binary);
+ await helper.encodeReviewPatch(Readable.from([sample]),{rawBytes:sample.length});
+ await assert.rejects(()=>helper.encodeReviewPatch(Readable.from([sample]),{rawBytes:sample.length-1}));
+ await helper.encodeReviewPatch(Readable.from([sample]),{compressedBytes:codec.compressedBytes});
+ await assert.rejects(()=>helper.encodeReviewPatch(Readable.from([sample]),{compressedBytes:codec.compressedBytes-1}));
+ for(const mutation of [{encoding:'other'},{decodedSha256:'0'.repeat(64)},{compressedSha256:'0'.repeat(64)},
+  {decodedBytes:sample.length+1},{compressedBytes:codec.compressedBytes+1},{decodedBytes:limits.rawPatchBytes+1},{extra:'not-allowed'}])
+  await assert.rejects(()=>helper.decodeReviewPatch({...codec,...mutation}));
+ const reframe=bytes=>({...codec,compressedBytes:bytes.length,compressedSha256:digest(bytes),bodyBase64:bytes.toString('base64')});
+ const encoded=Buffer.from(codec.bodyBase64,'base64');
+ await assert.rejects(()=>helper.decodeReviewPatch(reframe(encoded.subarray(0,-1))),'truncated gzip is refused');
+ await assert.rejects(()=>helper.decodeReviewPatch(reframe(Buffer.concat([encoded,encoded]))),'native raw-inflate consumption refuses a second gzip member');
+ await assert.rejects(()=>helper.decodeReviewPatch(reframe(Buffer.concat([encoded,Buffer.from([0,0,0])]))),'trailing bytes are refused');
+ const crc=Buffer.from(encoded);crc[crc.length-8]^=1;await assert.rejects(()=>helper.decodeReviewPatch(reframe(crc)));
+ const size=Buffer.from(encoded);size[size.length-4]^=1;await assert.rejects(()=>helper.decodeReviewPatch(reframe(size)));
+ const header=Buffer.from(encoded);header[3]=8;await assert.rejects(()=>helper.decodeReviewPatch(reframe(header)));
+ const bomb=await helper.encodeReviewPatch(Readable.from([Buffer.alloc(32768,65)]));let delivered=0;
+ await assert.rejects(()=>helper.decodeReviewPatch({...bomb,decodedBytes:8},chunk=>{delivered+=chunk.length;}));
+ assert.equal(delivered,0,'inflation is bounded before consumer delivery, not only by the gzip trailer');
+ let spawns=0,argumentsSeen;
+ const fakeSpawn=(_command,args,options)=>{
+  spawns++;argumentsSeen={args,options};const child=new EventEmitter();child.stdout=Readable.from([sample]);
+  child.stdout.once('end',()=>queueMicrotask(()=>child.emit('close',0,null)));return child;
+ };
+ const tracked=Array.from({length:105},(_,index)=>'data/feed/page-'+index+'.json');
+ const streamed=await helper.captureReviewGitPatch({},'1'.repeat(40),tracked,'2'.repeat(64),{spawnImpl:fakeSpawn});
+ assert.equal(spawns,1);assert.equal(argumentsSeen.options.shell,false);assert.equal(argumentsSeen.options.killSignal,'SIGKILL');
+ for(const flag of ['diff','--binary','--full-index','--unified=3','--no-ext-diff','--no-textconv','--no-renames'])assert(argumentsSeen.args.includes(flag));
+ assert(argumentsSeen.args.includes('1'.repeat(40)));assert(!argumentsSeen.args.includes('HEAD'));
+ await helper.decodeReviewPatch(streamed);
+ let aborted=false,timeoutSpawns=0;
+ const hangingSpawn=(_command,_args,options)=>{timeoutSpawns++;const child=new EventEmitter();child.stdout=new Readable({read(){}});
+  options.signal.addEventListener('abort',()=>{aborted=true;child.stdout.destroy(Error('synthetic abort'));child.emit('close',null,'SIGKILL');},{once:true});return child;};
+ await assert.rejects(()=>helper.captureReviewGitPatch({},'1'.repeat(40),tracked,'2'.repeat(64),{spawnImpl:hangingSpawn,deadlineMs:10}));
+ assert.equal(aborted,true);assert.equal(timeoutSpawns,1,'failure never creates another Git diff');
+
+ const dateReport='data/editorial-adaptive-report-2026-11-14.json',tree=new Map(),bodies=new Map(),oldPages=Array.from({length:36},(_,index)=>({path:'data/feed/page-'+String(index+1).padStart(3,'0')+'.json'}));
+ const beforeBlob='b'.repeat(40),mark=file=>tree.set(file,{path:file,mode:'100644',gitBlob:beforeBlob});
+ helper.reviewFixedPaths.forEach(file=>{mark(file);bodies.set(file,Buffer.from('{}'));});mark('data/feed/manifest.json');oldPages.forEach(page=>mark(page.path));
+ const beforeManifest={pages:oldPages},afterManifest={pages:oldPages.slice(0,33)};
+ const beforeArtifact={candidates:[]},afterArtifact={generatedAt:'2026-11-14T00:00:00.000Z',candidates:[]};
+ const jpeg=Buffer.from([255,216,255,217]);
+ for(let index=0;index<96;index++){
+  const id='marquee_'+index.toString(16).padStart(16,'0'),contentHash='a'.repeat(64),relative='assets/marquee/'+id+'-'+contentHash.slice(0,12)+'.jpg';
+  const image={path:'/'+relative,publicUrl:'https://nothingsport.vercel.app/'+relative};
+  afterArtifact.candidates.push({campaignId:id,contentHash,assets:{fallbackHero:image,suggestedHeroes:[image]},drafts:{email:{image},instagram:{image},live:{hero:image}},live:{hero:image}});bodies.set(relative,jpeg);
+ }
+ for(let index=100;index<154;index++){
+  const id='marquee_'+index.toString(16).padStart(16,'0'),file='assets/marquee/'+id+'-'+'c'.repeat(12)+'.jpg';mark(file);
+  beforeArtifact.candidates.push({campaignId:id,timing:{endTimeUtc:'2026-11-13T00:00:00.000Z'}});
+ }
+ oldPages.slice(0,33).forEach(page=>bodies.set(page.path,Buffer.from('{}')));bodies.set(dateReport,Buffer.from('{}'));
+ bodies.set('data/feed/manifest.json',Buffer.from(JSON.stringify(afterManifest)));bodies.set('data/marquee-candidates.v1.json',Buffer.from(JSON.stringify(afterArtifact)));
+ const entries=[...helper.reviewFixedPaths.map(file=>({path:file,status:' M',originalPath:null})),{path:dateReport,status:'??',originalPath:null},
+  {path:'data/feed/manifest.json',status:' M',originalPath:null},...oldPages.map((page,index)=>({path:page.path,status:index<33?' M':' D',originalPath:null})),
+  ...[...bodies.keys()].filter(file=>file.startsWith('assets/marquee/')).map(file=>({path:file,status:'??',originalPath:null})),
+  ...[...tree.keys()].filter(file=>file.startsWith('assets/marquee/')).map(file=>({path:file,status:' D',originalPath:null}))];
+ assert.equal(entries.length,202);helper.reviewStatusShape(entries);
+ const syntheticScope=helper.reviewStatusDigest(entries,tree);helper.assertReviewStatusDigest(entries,tree,syntheticScope);
+ assert.throws(()=>helper.assertReviewStatusDigest(entries,tree),'synthetic fixtures are not the approved actual snapshot');
+ assert.throws(()=>helper.assertReviewStatusDigest(entries.map((row,index)=>index===0?{...row,path:'data/different.json'}:row),tree,syntheticScope));
+ helper.deriveReviewClosure(entries,tree,beforeManifest,afterManifest,beforeArtifact,afterArtifact,dateReport);
+ assert.throws(()=>helper.reviewStatusShape([...entries,{path:'data/unexpected.json',status:'??',originalPath:null}]));
+ const forbidden=entries.map((row,index)=>index===0?{...row,path:'service-worker.js'}:row);assert.throws(()=>helper.reviewStatusShape(forbidden));
+ const changedStatus=entries.map((row,index)=>index===0?{...row,status:' D'}:row);assert.throws(()=>helper.reviewStatusShape(changedStatus));
+ const orphan=entries.map(row=>row.path===afterArtifact.candidates[0].assets.fallbackHero.path.slice(1)?{...row,path:'assets/marquee/marquee_ffffffffffffffff-ffffffffffff.jpg'}:row);
+ assert.throws(()=>helper.deriveReviewClosure(orphan,tree,beforeManifest,afterManifest,beforeArtifact,afterArtifact,dateReport),'a matching filename pattern alone is not a source reference');
+ const unrecovered=new Map(tree);unrecovered.delete([...tree.keys()].find(file=>file.startsWith('assets/marquee/')));
+ assert.throws(()=>helper.deriveReviewClosure(entries,unrecovered,beforeManifest,afterManifest,beforeArtifact,afterArtifact,dateReport),'every captured removal requires its baseline recovery object');
+ const missing=new Map(bodies);missing.delete('data/marquee-candidates.v1.json');let bodyReads=0;
+ const io={readFile:file=>{bodyReads++;assert(bodies.has(file));return bodies.get(file);},
+  beforeJson:file=>file==='data/feed/manifest.json'?beforeManifest:beforeArtifact,
+  beforeSizes:rows=>new Map(rows.map(row=>[row.path,{blob:tree.get(row.path).gitBlob,bytes:13}])),isAbsent:file=>!bodies.has(file)};
+ const rawStatus=entries.map(row=>row.status+' '+row.path+'\0').join('');let statusReads=0;
+ const context=helper.captureContext(()=>{statusReads++;return rawStatus;});
+ const source=helper.collectReviewSources({},context,tree,dateReport,io);assert.equal(statusReads,1);assert.equal(source.sourceChanges.length,202);assert.equal(source.newFiles.length,97);
+ assert.equal(source.sourceChanges.filter(row=>row.status==='deleted').length,57);
+ assert(source.sourceChanges.filter(row=>row.status==='deleted').every(row=>row.beforeBlob===beforeBlob&&row.beforeBytes===13&&row.afterSha256===null&&row.bytes===null));
+ const scopeSha=helper.reviewScopeDigest(source.sourceChanges);assert.equal(scopeSha,helper.reviewScopeDigest([...source.sourceChanges].reverse()),'scope join is independent of metadata row order');
+ const patch={schemaVersion:'ns.editorial-source-patch.v1',disposition:'private-review-only',scopeSha256:scopeSha,...codec};
+ const reservedShell={"version":"613","htmlVersion":"613","workerVersion":"613","cacheVersion":"613","files":[{"path":"app-version.json","bytes":18,"sha256":"e166e53fb8bd478d7cb5437c8e54c3a984764cd430a36a863f6569365719357e"},{"path":"index.html","bytes":997335,"sha256":"2dec08dca491fd65e6ab1b15f72bed2dd23f547558f1c27eb736ef45ae75ee02"},{"path":"service-worker.js","bytes":29224,"sha256":"a5bf8f778c4450ebfe684947f3397ae59a6d140705c3ff2e66476defc8107957"}]};
+ const revision='d'.repeat(64),payload={casReport:{sourceRevision:revision,operations:['evt_40','evt_41'].map(eventId=>({eventId,expectedRevision:1,change:{last_checked_at:'2026-11-14T00:00:00.000Z'}}))},
+  casSql:'synthetic prepared CAS only',selection:[],shellIdentity:{before:structuredClone(reservedShell),after:structuredClone(reservedShell)},...source,sourcePatch:patch,failure:null};
+ const binding={sourceRevision:revision,outcome:'prepared-review-required',stage:'capture-source'};helper.validatePrivatePayload(payload,binding);
+ assert.throws(()=>helper.validatePrivatePayload({...payload,sourceChanges:[...payload.sourceChanges,payload.sourceChanges[0]]},binding));
+ assert.throws(()=>helper.validatePrivatePayload({...payload,shellIdentity:{...payload.shellIdentity,after:{...reservedShell,version:'614'}}},binding));
+ const wrongShell=structuredClone(reservedShell);wrongShell.files[1].sha256='0'.repeat(64);
+ assert.throws(()=>helper.validatePrivatePayload({...payload,shellIdentity:{before:reservedShell,after:wrongShell}},binding));
+ assert.throws(()=>helper.validatePrivatePayload({...payload,newFiles:[...payload.newFiles,payload.newFiles[0]]},binding));
+ assert.throws(()=>helper.validatePrivatePayload({...payload,sourcePatch:{...patch,disposition:'publication-accepted'}},binding));
+ assert.throws(()=>helper.validatePrivatePayload({...payload,sourcePatch:{...patch,scopeSha256:'0'.repeat(64)}},binding));
+ assert.throws(()=>helper.strictSourceEntry(' M data/events.json',128));assert.throws(()=>helper.strictSourceEntry(' D data/feed/page-034.json',0));
+ const nonPrivate={...payload,sourcePatch:''};assert.throws(()=>helper.validatePrivatePayload(nonPrivate,binding),'legacy/default128 cannot admit this202 collection');
+ const metaBytes=helper.reviewMetadataBytes(payload),padding='q'.repeat(limits.metadataBytes-metaBytes);
+ const exactMeta={...payload,casSql:payload.casSql+padding};helper.validatePrivatePayload(exactMeta,binding);
+ assert.throws(()=>helper.validatePrivatePayload({...exactMeta,casSql:exactMeta.casSql+'q'},binding));
+ const tooManyNew=source.sourceChanges.map(row=>({...row})),firstNew=tooManyNew.find(row=>row.status==='new');firstNew.bytes=limits.newBytes;
+ assert.throws(()=>helper.validateReviewRecords(tooManyNew));
+ const tooMuchTracked=source.sourceChanges.map(row=>({...row}));tooMuchTracked.filter(row=>row.status==='modified').slice(0,5).forEach(row=>{row.beforeBytes=32*1024*1024;});
+ assert.throws(()=>helper.validateReviewRecords(tooMuchTracked));
+ let unsafeIO=0;assert.throws(()=>helper.readReviewFile('../private-key',{realpathSync:()=>{unsafeIO++;}}));assert.equal(unsafeIO,0);
+ let opened=0;assert.throws(()=>helper.readReviewFile('data/events.json',{realpathSync:file=>file,lstatSync:()=>({isFile:()=>true,isSymbolicLink:()=>true,size:1,mode:0o100644}),openSync:()=>{opened++;}}));assert.equal(opened,0);
+ assert.throws(()=>helper.readReviewFile('data/events.json',{realpathSync:file=>file,lstatSync:()=>({isFile:()=>true,isSymbolicLink:()=>false,size:32*1024*1024+1,mode:0o100644}),openSync:()=>{opened++;}}));assert.equal(opened,0);
+ let rejectedReads=0;const invalidContext=helper.captureContext(()=>[...entries,{path:'data/unexpected.json',status:'??'}].map(row=>row.status+' '+row.path+'\0').join(''));
+ assert.throws(()=>helper.collectReviewSources({},invalidContext,tree,dateReport,{...io,readFile:()=>{rejectedReads++;return Buffer.from('{}');}}));assert.equal(rejectedReads,0);
+ const absentRecovery=helper.captureContext(()=>rawStatus);
+ assert.throws(()=>helper.collectReviewSources({},absentRecovery,tree,dateReport,{...io,isAbsent:()=>false}),'private metadata must not claim a file was absent when it exists');
+ console.log('Editorial private collection/codec: faithful202 reference scope, recovery descriptors, strict defaults, standard bounded single-member gzip and source/CAS review-only gates passed.');
+}
+validatePrivateSourceCollection().catch(error=>{console.error(error);process.exitCode=1;});
