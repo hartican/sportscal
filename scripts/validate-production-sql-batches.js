@@ -430,6 +430,39 @@ function e610ConsumerAdmissionRegressions(qualifierSource,fixtureBytes,policyByt
 }
 
 
+// Typed consumer selection is not admission or qualification evidence.
+function actualConsumerContextRoute(body){
+ assert(body&&typeof body==='object'&&!Array.isArray(body),'Typed consumer handover required');
+ const b=body.sourceQualificationBinding;assert(b&&typeof b==='object'&&!Array.isArray(b),'Typed source binding required');
+ if(body.schemaVersion==='ns-release-handover.normal613.v1'){
+  assert.equal(b.schemaVersion,'normal-ready-613-binding.v1','Exact normal613 binding schema');
+  return 'NORMAL613';
+ }
+ if(body.schemaVersion==='ns-release-handover.forward.v1')return 'FORWARD';
+ if(body.schemaVersion==='ns-release-handover.v1')return 'E610';
+ assert.fail('Unknown actual consumer handover schema');
+}
+function actualConsumerContextRoutingRegressions(){
+ const results=[],pass=(name,run)=>{run();results.push({name,status:'PASS_TYPED_SELECTION_CONTROL_ONLY'});};
+ const reject=(name,body)=>pass(name,()=>assert.throws(()=>actualConsumerContextRoute(body)));
+ const body=(schema,binding='synthetic-legacy-binding-selection-only')=>({schemaVersion:schema,sourceQualificationBinding:{schemaVersion:binding}});
+ pass('legacy handover remains E610-selected',()=>assert.equal(actualConsumerContextRoute(body('ns-release-handover.v1')),'E610'));
+ pass('forward handover remains forward-selected',()=>assert.equal(actualConsumerContextRoute(body('ns-release-handover.forward.v1')),'FORWARD'));
+ pass('normal613 exact schema pair is selected separately, not legacy',()=>assert.equal(actualConsumerContextRoute(body('ns-release-handover.normal613.v1','normal-ready-613-binding.v1')),'NORMAL613'));
+ reject('unknown handover schema fails closed',body('unknown'));
+ reject('schema prefix is not an accepted profile',body('ns-release-handover.normal613.v1-extra','normal-ready-613-binding.v1'));
+ reject('normal613 wrong nested schema fails closed',body('ns-release-handover.normal613.v1','sync-source-binding.v1'));
+ reject('normal613 missing nested schema fails closed',{schemaVersion:'ns-release-handover.normal613.v1',sourceQualificationBinding:{}});
+ reject('missing handover schema fails closed',{sourceQualificationBinding:{}});
+ reject('missing source binding fails closed',{schemaVersion:'ns-release-handover.normal613.v1'});
+ reject('array source binding fails closed',{schemaVersion:'ns-release-handover.normal613.v1',sourceQualificationBinding:[]});
+ reject('null source binding fails closed',{schemaVersion:'ns-release-handover.normal613.v1',sourceQualificationBinding:null});
+ reject('array handover fails closed',[]);
+ reject('null handover fails closed',null);
+ reject('string handover fails closed','ns-release-handover.normal613.v1');
+ return {groups:results.length,positive:3,negative:results.length-3,results,scope:'TYPED_SELECTION_ONLY_NOT_BODY_ADMISSION',normal613ActualBodyParserExecuted:false,actualLegacyConsumersExecuted:false,requiredSourceAdmissionGateClosed:false,releaseAcceptance:false};
+}
+
 function e610ConsumerControlsForContext(){
  const skipped=reason=>({status:'SKIPPED_NOT_ELIGIBLE_CONTEXT',groups:null,positive:null,negative:null,reason,requiredSourceAdmissionGateClosed:false,releaseAcceptance:false});
  if(process.env.GITHUB_EVENT_NAME!=='pull_request'||process.env.GITHUB_JOB!=='fixture-activation')return skipped('Actual-reader controls require existing fixture-activation PR Ready context; original context-independent contracts still run.');
@@ -444,6 +477,9 @@ function e610ConsumerControlsForContext(){
  if(event.action!=='ready_for_review'||event.pull_request?.draft!==false)return skipped('Not the selected non-draft Ready source-qualification event; no consumer-control PASS or admission credit.');
  assert.equal(event.repository?.full_name,'hartican/sportscal');assert.equal(typeof event.pull_request.body,'string','Missing required reservation witness body');
  const bodyBytes=Buffer.from(event.pull_request.body);assert(bodyBytes.length<=65536,'Body byte bound');const body=JSON.parse(event.pull_request.body);assert.equal(JSON.stringify(body),event.pull_request.body,'Canonical witness body, NO LF');
+ const route=actualConsumerContextRoute(body);
+ if(route==='NORMAL613'){require('./validate-forward-onboarding-ci').normal613Body(bodyBytes);return skipped('Typed normal613 context: legacy E610 consumer controls NOT_APPLICABLE; no consumer/admission/release credit. Existing normal613 intake/source admission/focused/full qualification/premerge/both-engine gates remain required.');}
+ if(route!=='E610')return skipped('Typed forward context: E610 consumer controls NOT_APPLICABLE; forward consumer and all source admission gates remain required.');
  const b=body.sourceQualificationBinding;assert(b&&typeof b==='object'&&!Array.isArray(b),'Reservation binding required');
  assert.equal(b.reservationReceiptSha256,'4b164a34459bdce86f754fee7affc7b69e3d32da7091cfc39a715d4229853feb');
  assert(typeof b.reservationReceiptBase64==='string'&&b.reservationReceiptBase64.length<=21848,'Bounded reservation witness');
@@ -1235,7 +1271,9 @@ function forwardConsumerControlsForContext(){
  if(event.action!=='ready_for_review'||event.pull_request?.draft!==false)return skipped('Not the selected non-draft Ready source-qualification event; no consumer-control PASS or admission credit.');
  assert.equal(event.repository?.full_name,'hartican/sportscal');assert.equal(typeof event.pull_request.body,'string','Missing required reservation witness body');
  const bodyBytes=Buffer.from(event.pull_request.body);assert(bodyBytes.length<=65536,'Body byte bound');const body=JSON.parse(event.pull_request.body);assert.equal(JSON.stringify(body),event.pull_request.body,'Canonical witness body, NO LF');
- if(body.schemaVersion!=='ns-release-handover.forward.v1')return {status:'NOT_FORWARD_CONTEXT',releaseAcceptance:false};
+ const route=actualConsumerContextRoute(body);
+ if(route==='NORMAL613'){require('./validate-forward-onboarding-ci').normal613Body(bodyBytes);return skipped('Typed normal613 context: historical forward/E610 consumer controls NOT_APPLICABLE; no consumer/admission/release credit. Existing normal613 intake/source admission/eight focused/full51/four paired/premerge/both-engine gates remain required.');}
+ if(route!=='FORWARD')return {status:'NOT_FORWARD_CONTEXT',groups:null,positive:null,negative:null,requiredSourceAdmissionGateClosed:false,releaseAcceptance:false};
  const b=body.sourceQualificationBinding;assert(b&&typeof b==='object'&&!Array.isArray(b),'Reservation binding required');
  assert.equal(b.reservationReceiptSha256,'40f49544cb207c3c1bf7c1da3cfd1c6c1e527ddb36003ee6067b0fb837a378ed');
  assert(typeof b.reservationReceiptBase64==='string'&&b.reservationReceiptBase64.length<=21848,'Bounded reservation witness');
@@ -1272,10 +1310,11 @@ if(require.main===module){
  const admission=e610AdmissionRegressions(existingInstalled);
  const permanentCaptureControls=permanentCaptureRegressions(reviewedInstalled);
  const permanentProductionSelectionControls=permanentProductionSelectionRegressions(augmentedProduction);
+ const actualConsumerContextRoutingControls=actualConsumerContextRoutingRegressions();
  let e610ActualConsumerAdmissionControls,consumerControlFailure=null;
  try{e610ActualConsumerAdmissionControls=forwardConsumerControlsForContext();if(e610ActualConsumerAdmissionControls.status==='NOT_FORWARD_CONTEXT')e610ActualConsumerAdmissionControls=e610ConsumerControlsForContext();}
  catch(error){consumerControlFailure=error;e610ActualConsumerAdmissionControls={status:'FAIL_ACTUAL_CONSUMER_ADMISSION_CONTROLS',message:error.message,report:error.e610Report||null,groups:error.e610Report?.groups??null,requiredSourceAdmissionGateClosed:false,releaseAcceptance:false};}
- console.log(JSON.stringify({schemaVersion:'production-sql-batches.v1',...report,forwardSourceControls,negativeControls:originalNegativeControls,signupCompatibilityNegativeControls,lockedTerserPackageControls,e610AdmissionControls:admission.report,e610ActualConsumerAdmissionControls,singlePassSourceControls:singlePassSource.report,producerReadLedgerControls:producerReadLedger.report,projectionReadBudgetControls:projectionReadBudget.report,permanentCaptureControls:permanentCaptureControls.report,permanentProductionSelectionControls,engineRuns:0,serviceRequests:0,releaseAcceptance:false}));
+ console.log(JSON.stringify({schemaVersion:'production-sql-batches.v1',...report,forwardSourceControls,actualConsumerContextRoutingControls,negativeControls:originalNegativeControls,signupCompatibilityNegativeControls,lockedTerserPackageControls,e610AdmissionControls:admission.report,e610ActualConsumerAdmissionControls,singlePassSourceControls:singlePassSource.report,producerReadLedgerControls:producerReadLedger.report,projectionReadBudgetControls:projectionReadBudget.report,permanentCaptureControls:permanentCaptureControls.report,permanentProductionSelectionControls,engineRuns:0,serviceRequests:0,releaseAcceptance:false}));
  if(consumerControlFailure)throw consumerControlFailure;
 }
-module.exports={forwardConsumerAdmissionRegressions,forwardConsumerControlsForContext,normaliseSinglePassSourceWorkflow,singlePassSourceRegressions,normaliseProducerReadLedgerWorkflow,producerReadLedgerRegressions,normaliseProjectionReadReuseWorkflow,projectionReadBudgetRegressions,normalisePermanentCaptureWorkflow,normalisePermanentProductionSelection,permanentCaptureRegressions,permanentProductionSelectionRegressions,e610ConsumerAdmissionRegressions,e610ConsumerControlsForContext,normaliseE610AdmissionWorkflow,e610AdmissionRegressions,resolveLockedTerserPackage,lockedTerserPackageRegressions,validate,regressions,validateSignupCompatibilityWorkflow,signupCompatibilityRegressions};
+module.exports={actualConsumerContextRoute,actualConsumerContextRoutingRegressions,forwardConsumerAdmissionRegressions,forwardConsumerControlsForContext,normaliseSinglePassSourceWorkflow,singlePassSourceRegressions,normaliseProducerReadLedgerWorkflow,producerReadLedgerRegressions,normaliseProjectionReadReuseWorkflow,projectionReadBudgetRegressions,normalisePermanentCaptureWorkflow,normalisePermanentProductionSelection,permanentCaptureRegressions,permanentProductionSelectionRegressions,e610ConsumerAdmissionRegressions,e610ConsumerControlsForContext,normaliseE610AdmissionWorkflow,e610AdmissionRegressions,resolveLockedTerserPackage,lockedTerserPackageRegressions,validate,regressions,validateSignupCompatibilityWorkflow,signupCompatibilityRegressions};
