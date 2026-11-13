@@ -6,7 +6,7 @@ const assert=require('node:assert/strict'),{spawnSync}=require('node:child_proce
 const ROOT=path.resolve(__dirname,'..');
 const PIN='67b4c7c9f219fe21fa4083a9b374fd4edb79adc1f46afc1f0fa8a256346f1aa6';
 const MAX=32*1024*1024,MAX_ENVELOPE=48*1024*1024;
-const MEMBERS=['casReport','casSql','selection','shellIdentity','sourcePatch','newFiles','sourceChanges'];
+const MEMBERS=['casReport','casSql','selection','shellIdentity','sourcePatch','newFiles','sourceChanges','failure'];
 const PATHS=new Set(['feeds/incoming/events.json','data/events.json','data/events.js','data/feed-meta.json',
 'data/editorial-fixture-research.v1.json','data/editorial-knowledge.v1.json','data/editorial-maintenance-sources.v1.json',
 'data/major-events.v1.json','data/marquee-candidates.v1.json','data/marquee-candidates.json','data/comms-sources.v1.json',
@@ -25,7 +25,7 @@ function base64(s,max){
 function bindingValid(b){
  keys(b,['schema','recipientFingerprint','sourceSha','sourceTree','sourceRevision','researchDigest',
  'workflowImplementationSha','runId','runAttempt','purpose','capturedAt','payloadMembers','outcome','stage']);
- assert.equal(b.schema,'ns.editorial-private-review.v1');assert.equal(b.purpose,'editorial-private-review');
+ assert.equal(b.schema,'ns.editorial-private-review.v2');assert.equal(b.purpose,'editorial-private-review');
  for(const k of ['sourceSha','sourceTree','workflowImplementationSha'])assert(/^[a-f0-9]{40}$/.test(b[k]));
  for(const k of ['recipientFingerprint','sourceRevision','researchDigest'])assert(/^[a-f0-9]{64}$/.test(b[k]));
  assert(/^\d+$/.test(b.runId)&&/^[1-9]\d*$/.test(b.runAttempt));
@@ -33,11 +33,64 @@ function bindingValid(b){
  assert.deepEqual(b.payloadMembers,MEMBERS);assert(/^[a-z-]{1,48}$/.test(b.stage));
  assert(['prepared-review-required','failed-review-required'].includes(b.outcome));
 }
+const FAILURE_STAGES=['validate-inputs','transport-self-tests','verify-shell-before','canonical-prepare-control',
+'read-authorised-controls','canonical-inventory','canonical-research','verify-shell-after'];
+const FAILURE_SUBSTAGES=['preparation-failure','list-child-failure','list-json-invalid','source-revision-mismatch',
+'horizon-mismatch','target-absent','target-held','target-pending-edit','noncanonical-admission'];
+const FAILURE_SIGNALS=['SIGTERM','SIGKILL','SIGINT','SIGABRT','SIGSEGV','SIGPIPE','SIGBUS','SIGHUP','SIGQUIT'];
+function validatePrivateFailure(value,binding){
+ if(value===null){assert.equal(binding.outcome,'prepared-review-required');return;}
+ keys(value,['stage','substage','reportMode','childExit','childSignal','listParsed','selectedCount',
+ 'sourceRevisionMatches','horizonMatches','targetId','targetPresent','listDiagnostic']);
+ assert.equal(binding.outcome,'failed-review-required');assert.equal(value.stage,binding.stage);
+ assert(FAILURE_STAGES.includes(value.stage)&&FAILURE_SUBSTAGES.includes(value.substage));
+ assert(['none','list','research'].includes(value.reportMode));
+ assert(value.childExit===null||Number.isInteger(value.childExit)&&value.childExit>=0&&value.childExit<=255);
+ assert(value.childSignal===null||FAILURE_SIGNALS.includes(value.childSignal));
+ assert(typeof value.listParsed==='boolean');
+ assert(value.selectedCount===null||Number.isInteger(value.selectedCount)&&value.selectedCount>=0&&value.selectedCount<=1000);
+ for(const field of ['sourceRevisionMatches','horizonMatches','targetPresent'])assert(value[field]===null||typeof value[field]==='boolean');
+ assert(value.targetId===null||['evt_40','evt_41'].includes(value.targetId));
+ if(value.reportMode!=='list'){assert.equal(value.listDiagnostic,null);return;}
+ const report=value.listDiagnostic;keys(report,['sourceRevision','operations','runReadouts']);
+ assert(Array.isArray(report.operations)&&report.operations.length===0);
+ assert(Array.isArray(report.runReadouts)&&report.runReadouts.length>0&&report.runReadouts.every(row=>row&&row.mode==='list'));
+ assert(report.sourceRevision===null||typeof report.sourceRevision==='string'&&/^[a-f0-9]{64}$/.test(report.sourceRevision));
+ assert(report.sourceRevision===binding.sourceRevision||report.sourceRevision===null||
+  value.substage==='source-revision-mismatch'&&value.sourceRevisionMatches===false,
+  'A differing LIST revision is private diagnostic evidence only.');
+}
+function privateFailure(error,stage,substage,flags){
+ const safeBoolean=value=>typeof value==='boolean'?value:null;
+ const exit=Number.isInteger(error?.preparationChildExit)?error.preparationChildExit:
+ stage==='canonical-inventory'?flags.childExit:null;
+ const signal=error?.preparationChildSignal??(stage==='canonical-inventory'?flags.childSignal:null);
+ return {stage,substage,reportMode:'none',
+ childExit:Number.isInteger(exit)&&exit>=0&&exit<=255?exit:null,
+ childSignal:FAILURE_SIGNALS.includes(signal)?signal:null,
+ listParsed:flags.listParsed===true,
+ selectedCount:Number.isInteger(flags.selectedCount)&&flags.selectedCount>=0&&flags.selectedCount<=1000?flags.selectedCount:null,
+ sourceRevisionMatches:safeBoolean(flags.sourceRevisionMatches),horizonMatches:safeBoolean(flags.horizonMatches),
+ targetId:['evt_40','evt_41'].includes(flags.targetId)?flags.targetId:null,targetPresent:safeBoolean(flags.targetPresent),listDiagnostic:null};
+}
+function canonicalAdmissionIssue(card,eventId,expectedAliases,group){
+ if(!card)return 'target-absent';
+ if(card.schedule?.held===true)return 'target-held';
+ if(card.pendingEdit===true)return 'target-pending-edit';
+ if(card.id!==eventId||card.schedule?.held!==false||card.schedule?.protected!==false||
+ card.schedule?.inWindow!==true||card.pendingEdit!==false||!group||group.event_id!==eventId||
+ !Array.isArray(expectedAliases)||JSON.stringify(group.aliases)!==JSON.stringify(expectedAliases))return 'noncanonical-admission';
+ // Membership came from the authenticated canonical --list invocation.
+ // That owner admits required-copy/unpublished repairs independently of cadence.
+ return null;
+}
 function payloadValid(p,b){
- keys(p,MEMBERS);assert(p.casReport&&typeof p.casReport==='object'&&!Array.isArray(p.casReport));
+ keys(p,MEMBERS);validatePrivateFailure(p.failure,b);assert(p.casReport&&typeof p.casReport==='object'&&!Array.isArray(p.casReport));
  assert(Object.keys(p.casReport).every(k=>['sourceRevision','operations','runReadouts'].includes(k)));
- assert.equal(p.casReport.sourceRevision,b.sourceRevision);
  assert(Array.isArray(p.casReport.operations)&&p.casReport.operations.length<=1000);
+ const listOnly=p.failure?.reportMode==='list';
+ if(listOnly){assert.equal(p.casReport.operations.length,0);assert.equal(p.casSql,'');assert(!p.casReport.runReadouts,'LIST evidence belongs only in the private diagnostic.');}
+ assert.equal(p.casReport.sourceRevision,b.sourceRevision,'Research/CAS reports must match the original binding.');
  for(const op of p.casReport.operations){
   keys(op,['eventId','expectedRevision','change']);
   assert(typeof op.eventId==='string'&&op.eventId.length<=240&&!['evt_84','major-match:nrl-finals-2026:grand-final'].includes(op.eventId));
@@ -105,11 +158,11 @@ function open(text,privateKey,expected){
 function selfTest(){
  const opts={modulusLength:3072,publicKeyEncoding:{type:'spki',format:'pem'},privateKeyEncoding:{type:'pkcs8',format:'pem'}};
  const a=crypto.generateKeyPairSync('rsa',opts),other=crypto.generateKeyPairSync('rsa',opts);
- const b={schema:'ns.editorial-private-review.v1',recipientFingerprint:fingerprint(a.publicKey),sourceSha:'1'.repeat(40),
+ const b={schema:'ns.editorial-private-review.v2',recipientFingerprint:fingerprint(a.publicKey),sourceSha:'1'.repeat(40),
  sourceTree:'2'.repeat(40),sourceRevision:'3'.repeat(64),researchDigest:'4'.repeat(64),workflowImplementationSha:'1'.repeat(40),
  runId:'1',runAttempt:'1',purpose:'editorial-private-review',capturedAt:'2026-11-13T13:00:00.000Z',
  payloadMembers:MEMBERS,outcome:'prepared-review-required',stage:'capture-source'};
- const p={casReport:{sourceRevision:b.sourceRevision,operations:[]},casSql:'',selection:[],shellIdentity:{before:null,after:null},sourcePatch:'',newFiles:[],sourceChanges:[]};
+ const p={casReport:{sourceRevision:b.sourceRevision,operations:[]},casSql:'',selection:[],shellIdentity:{before:null,after:null},sourcePatch:'',newFiles:[],sourceChanges:[],failure:null};
  const e=seal(p,b,a.publicKey);assert.deepEqual(open(JSON.stringify(e),a.privateKey,b),p);
  const reordered={...e,aad:Object.fromEntries(Object.entries(e.aad).reverse())};
  assert.deepEqual(open(JSON.stringify(reordered),a.privateKey,b),p);
@@ -174,10 +227,11 @@ function isolatedEnvironment(snapshot,report){
  for(const k of ['TMPDIR','TMP','TEMP'])if(process.env[k])env[k]=process.env[k];
  if(snapshot)env.NS_EDITORIAL_CONTROL_SNAPSHOT=snapshot;if(report)env.NS_EDITORIAL_CHECK_REPORT=report;return env;
 }
-function captured(command,args,env,dir,label){
+function captured(command,args,env,dir,label,observation){
  const r=spawnSync(command,args,{cwd:ROOT,env,encoding:'utf8',timeout:12*60*1000,maxBuffer:MAX,stdio:['ignore','pipe','pipe']});
  writePrivate(path.join(dir,label+'.stdout'),r.stdout||'');writePrivate(path.join(dir,label+'.stderr'),r.stderr||'');
- assert.equal(r.status,0,'Private child failed.');return r.stdout;
+ if(observation){observation.childExit=Number.isInteger(r.status)?r.status:null;observation.childSignal=FAILURE_SIGNALS.includes(r.signal)?r.signal:null;}
+ if(r.status!==0){const error=Error('Private child failed.');error.preparationChildExit=Number.isInteger(r.status)?r.status:null;error.preparationChildSignal=FAILURE_SIGNALS.includes(r.signal)?r.signal:null;throw error;}return r.stdout;
 }
 function git(args,env){
  const r=spawnSync('git',['-c','core.hooksPath=/dev/null','-c','core.fsmonitor=false',...args],
@@ -210,6 +264,8 @@ async function main(){
  if(process.argv.includes('--cleanup')){cleanupPrivate();return;}
  if(process.argv.includes('--transport-self-test')){selfTest();console.log('Editorial transport synthetic checks passed.');return;}
  let stage='validate-inputs',dir,out,binding,selection=[],reportPath,childEnv,failed=true;
+ let failure=null,privateSubstage='preparation-failure',listReportPath;
+ const failureFlags={listParsed:false,selectedCount:null,sourceRevisionMatches:null,horizonMatches:null,targetId:null,targetPresent:null,childExit:null,childSignal:null};
  const shellIdentity={before:null,after:null};
  try{
   assert.equal(fs.realpathSync(process.cwd()),fs.realpathSync(ROOT));
@@ -231,7 +287,7 @@ async function main(){
   writePrivate(path.join(dir,'owner.json'),JSON.stringify(location.owner));
   out=path.join(location.base,'editorial-preparation-return');fs.mkdirSync(out,{mode:0o700});
   stage='transport-self-tests';selfTest();
-  binding={schema:'ns.editorial-private-review.v1',recipientFingerprint:PIN,sourceSha,sourceTree:tree,
+  binding={schema:'ns.editorial-private-review.v2',recipientFingerprint:PIN,sourceSha,sourceTree:tree,
   sourceRevision:source.sourceRevision,researchDigest:digest,workflowImplementationSha:process.env.EXPECTED_WORKFLOW_SHA,
   runId:process.env.PREP_RUN_ID,runAttempt:process.env.PREP_RUN_ATTEMPT,purpose:'editorial-private-review',
   capturedAt:new Date().toISOString(),payloadMembers:MEMBERS,outcome:'failed-review-required',stage};bindingValid(binding);
@@ -259,25 +315,52 @@ async function main(){
   const snapshot={capturedAt:new Date().toISOString(),sourceRevision:source.sourceRevision,complete:true,groups:prepared.groups,signals,states};
   const snapshotPath=path.join(dir,'controls.json');writePrivate(snapshotPath,JSON.stringify(snapshot)+'\n');
   reportPath=path.join(dir,'research-check-report.json');
-  stage='canonical-inventory';
-  const listed=JSON.parse(captured(process.execPath,['scripts/update-cards.js','--adaptive-editorial','--list'],
-  isolatedEnvironment(snapshotPath,path.join(dir,'list-check-report.json')),dir,'inventory'));
-  assert.equal(listed.sourceRevision,source.sourceRevision);assert.deepEqual(listed.horizon,research.horizon);
-  for(const e of research.entries){const c=listed.cards.find(c=>c.id===e.id);assert(c&&c.schedule?.held!==true&&c.schedule?.due===true,'Target unavailable in canonical inventory.');}
-  selection=listed.cards.map(c=>({id:c.id,revision:c.revision,repairReason:c.repairReason||null,held:c.schedule?.held===true,pendingEdit:c.pendingEdit===true}));
+  stage='canonical-inventory';privateSubstage='list-child-failure';
+  listReportPath=path.join(dir,'list-check-report.json');
+  const listText=captured(process.execPath,['scripts/update-cards.js','--adaptive-editorial','--list'],
+  isolatedEnvironment(snapshotPath,listReportPath),dir,'inventory',failureFlags);
+  privateSubstage='list-json-invalid';
+  const listed=JSON.parse(listText);failureFlags.listParsed=true;
+  privateSubstage='noncanonical-admission';
+  assert(listed&&typeof listed==='object'&&Array.isArray(listed.cards)&&listed.cards.length<=1000);
+  selection=listed.cards.map(c=>({id:c.id,revision:c.revision,repairReason:c.repairReason||null,
+   held:c.schedule?.held===true,pendingEdit:c.pendingEdit===true,inWindow:c.schedule?.inWindow===true,
+   protected:c.schedule?.protected===true,due:c.schedule?.due===true}));
+  failureFlags.selectedCount=selection.length;
+  privateSubstage='source-revision-mismatch';
+  failureFlags.sourceRevisionMatches=listed.sourceRevision===source.sourceRevision;
+  assert.equal(listed.sourceRevision,source.sourceRevision);
+  privateSubstage='horizon-mismatch';
+  failureFlags.horizonMatches=listed.horizon?.from===research.horizon.from&&
+   listed.horizon?.to===research.horizon.to&&Object.keys(listed.horizon||{}).length===2;
+  assert.deepEqual(listed.horizon,research.horizon);
+  for(const entry of research.entries){
+   const card=listed.cards.find(c=>c.id===entry.id),sourceEvent=source.events.find(e=>e.id===entry.id);
+   const expectedAliases=sourceEvent?[...new Set([sourceEvent.id,sourceEvent.eventId,sourceEvent.canonicalEventId,
+    ...(sourceEvent.sourceEventIds||[])].filter(Boolean))]:null;
+   const group=prepared.groups.find(g=>g.event_id===entry.id);
+   failureFlags.targetId=entry.id;failureFlags.targetPresent=!!card;
+   const issue=canonicalAdmissionIssue(card,entry.id,expectedAliases,group);
+   if(issue){privateSubstage=issue;throw Error('Canonical target requires private reconciliation.');}
+  }
+  privateSubstage='preparation-failure';
   assert(Date.now()-Date.parse(snapshot.capturedAt)<=15*60*1000,'Refresh expired controls.');
   childEnv=isolatedEnvironment(snapshotPath,reportPath);stage='canonical-research';
   captured(process.execPath,['scripts/update-cards.js','--adaptive-editorial','--research',input],childEnv,dir,'research');
   stage='verify-shell-after';shellIdentity.after=readShellIdentity();assertShellIdentity(shellIdentity.after);
   assert.deepEqual(shellIdentity.after,shellIdentity.before,'Preparation changed the agreed shell bytes.');failed=false;
- }catch(_){failed=true;}finally{
+ }catch(error){failed=true;failure=privateFailure(error,stage,privateSubstage,failureFlags);}finally{
   if(binding&&dir&&out){
    try{
     binding={...binding,capturedAt:new Date().toISOString(),outcome:failed?'failed-review-required':'prepared-review-required',stage};
-    const casReport=reportPath&&fs.existsSync(reportPath)?JSON.parse(readBounded(reportPath)):{sourceRevision:binding.sourceRevision,operations:[]};
-    const casSql=reportPath&&fs.existsSync(reportPath)?captured(process.execPath,['scripts/editorial-control-sql.js',reportPath],childEnv||isolatedEnvironment(),dir,'prepare-cas-sql'):'';
+    const researchReport=reportPath&&fs.existsSync(reportPath)?reportPath:null;
+    const activeReport=researchReport||(listReportPath&&fs.existsSync(listReportPath)?listReportPath:null);
+    if(failure)failure.reportMode=researchReport?'research':activeReport?'list':'none';
+    if(failure&&activeReport&&!researchReport)failure.listDiagnostic=JSON.parse(readBounded(activeReport));
+    const casReport=researchReport?JSON.parse(readBounded(researchReport)):{sourceRevision:binding.sourceRevision,operations:[]};
+    const casSql=researchReport?captured(process.execPath,['scripts/editorial-control-sql.js',researchReport],childEnv||isolatedEnvironment(),dir,'prepare-cas-sql'):'';
     if(shellIdentity.after===null)shellIdentity.after=readShellIdentity();
-    const payload={casReport,casSql,selection,shellIdentity,...sourceChanges(isolatedEnvironment())};
+    const payload={casReport,casSql,selection,shellIdentity,...sourceChanges(isolatedEnvironment()),failure};
     const text=JSON.stringify(seal(payload,binding,process.env.INPUT_RECIPIENT_PUBLIC_KEY))+'\n';assert(Buffer.byteLength(text)<=MAX_ENVELOPE);
     writePrivate(path.join(out,'private-return.encrypted.json'),text);
     writePrivate(path.join(out,'public-manifest.json'),JSON.stringify({schemaVersion:'ns.editorial-preparation-return.v1',binding,
@@ -291,4 +374,4 @@ async function main(){
  else console.log('Editorial preparation complete; encrypted private review required. No database write or release performed.');
 }
 if(require.main===module)main().catch(()=>{console.error('Editorial preparation failed safely.');process.exitCode=1;});
-module.exports={seal,open,selfTest,privateLocation,cleanupPrivate};
+module.exports={seal,open,selfTest,privateLocation,cleanupPrivate,canonicalAdmissionIssue,privateFailure,validatePrivateFailure,validatePrivatePayload:payloadValid};

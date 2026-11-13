@@ -70,6 +70,140 @@ const alias={...fixture,id:'different-id',canonicalEventId:fixture.id};assert.eq
 assert.equal(select([card(full,{},true)],[full]).length,1,'Existing real-rating due selection remains unchanged.');
 const completedFixture={...fixture,status:'completed',outcomeText:'Player A won',recapText:'Result recap'};
 assert(!display.needsDisplayCopy(completedFixture,now));assert(!display.displayCopy(completedFixture,false,now).hook.includes('won'));
+
+// Public source fixture, frozen at the failed capture clock; controls below are synthetic.
+{
+ const retained=JSON.parse(require('node:fs').readFileSync('scripts/fixtures/editorial-required-copy-20261114.json','utf8'));
+ assert.equal(retained.schemaVersion,'editorial-required-copy-fixtures.v1');
+ assert.equal(retained.source.commit,'7deeaa264a4707e58a9eba382303c2806412de59');
+ assert.equal(retained.source.gitBlob,'21b741aa1729a6290bbb1a3c2e25a6560c464e41');
+ assert.deepEqual(retained.events.map(event=>event.id),['evt_40','evt_41']);
+ const clock=new Date(retained.capturedAt),syntheticSignals=[],syntheticStates=[];
+ const make=(event,state={},selected=false)=>({event,state,selected,schedule:p.schedule(event,state,clock)});
+ const choose=(cards,published)=>display.selectCards({cards,signals:syntheticSignals,states:syntheticStates},published,()=>false,clock);
+ const emptyControlCards=retained.events.map(event=>make(event));
+ for(const item of emptyControlCards){
+  assert.equal(item.selected,false);assert(item.schedule.inWindow);
+  for(const spoilers of [false,true]){
+   const rendered=display.displayCopy(item.event,spoilers,clock);
+   assert(rendered.hook&&rendered.synopsis,'the retained failure had non-empty fallback rendering');
+   assert(rendered.hook.trim().split(/\s+/).length<=25&&rendered.synopsis.trim().split(/\s+/).length<=80);
+  }
+  assert(display.needsDisplayCopy(item.event,clock),'fallback rendering cannot conceal missing authored Hook/Context');
+ }
+ assert.deepEqual(choose(emptyControlCards,retained.events).map(item=>item.event.id),['evt_40','evt_41']);
+ const independent={id:'synthetic-rugby-preview',key:'rugby',sport:'Rugby',name:'Synthetic North v Synthetic South',
+  date:p.plus(p.day(clock),3),status:'scheduled',storyline:{stakes:4,hookSpoilerOff:'Rendered fallback',hookSpoilerOn:'Rendered fallback',
+  synopsisSpoilerOff:'Rendered fallback context',synopsisSpoilerOn:'Rendered fallback context'}};
+ const authored={hook:'Authored hook',formCopy:'Authored form',closingCopy:'Authored storyline',synopsis:'Authored context'};
+ assert.equal(choose([make(independent)],[independent])[0].repairReason,'missing-required-display-copy','no fixture name, league or withheld flag is required');
+ for(const missing of ['hook','synopsis']){
+  const event={...independent,editorialNarrative:{...authored,[missing]:''}};
+  assert.equal(choose([make(event)],[event]).length,1,'either missing authoritative display section is sufficient');
+ }
+ const complete={...independent,editorialNarrative:authored};
+ assert.equal(choose([make(complete)],[complete]).length,0,'unrated complete copy is not selected');
+ for(const missing of ['formCopy','closingCopy']){
+  const event={...complete,editorialNarrative:{...authored,[missing]:''}};
+  assert.equal(choose([make(event)],[event]).length,0,'non-display-only gaps do not broaden unrated repair authority');
+ }
+ const rawComplete={...independent,selectedSentence:authored.hook,fullSpiel:authored.synopsis,
+  editorialPreview:{status:'withheld',needsPreviewRefresh:true}};
+ assert.equal(choose([make(rawComplete)],[rawComplete]).length,0,'withheld/refresh flags alone cannot admit a complete raw preview');
+ const recent={last_checked_at:clock.toISOString()};
+ const recentGap=make(independent,recent);assert.equal(recentGap.schedule.due,false);
+ assert.equal(choose([recentGap],[independent]).length,1,'required-copy repair is independent of cadence');
+ const recentUnpublished=make(complete,{...recent,staged_copy:{...authored,hook:'Staged newer hook'}},true);
+ assert.equal(recentUnpublished.schedule.due,false);
+ assert.equal(choose([recentUnpublished],[complete])[0].repairReason,'unpublished-staged-copy');
+ const aliased={...independent,id:'synthetic-alias',canonicalEventId:independent.id};
+ assert.equal(choose([make(aliased)],[independent]).length,1,'served aliases retain required-copy repair');
+ assert.equal(choose([make(independent,{held:true})],[independent]).length,0);
+ assert.equal(choose([make(independent)],[]).length,0,'repair cannot create coverage');
+ const locked={...independent,canonicalEventId:require('../config/editorial-locks').records[0].canonicalEventId};
+ assert.equal(choose([make(locked)],[locked]).length,0,'existing editorial locks remain authoritative');
+ for(const change of [
+  {id:'evt_84'}, {canonicalEventId:'major-match:nrl-finals-2026:grand-final'},
+  {storyline:{...independent.storyline,stakes:3}}, {status:'live'}, {status:'completed'},
+  {date:p.plus(p.day(clock),-1)}, {date:p.plus(p.day(clock),15)},
+  {date:p.day(clock),startTimeUtc:new Date(+clock-1).toISOString()},
+ ]){
+  const event={...independent,...change};
+  assert.equal(choose([make(event)],[event]).length,0,'protection, stakes, kickoff and horizon guards remain intact');
+ }
+ const cricketEvent={...independent,id:'synthetic-cricket-preview',key:'cricket',sport:'Cricket',
+  editorialNarrative:{editorialPolicyVersion:'cricket-editorial.v1',evidenceMode:'withheld',reviewed:true,
+   phase:'preview',validUntil:new Date(+clock+86400000).toISOString()}};
+ assert.equal(display.needsDisplayCopy(cricketEvent,clock),false,'reviewed cricket withholding remains complete under its existing policy');
+ const incompleteCricket={...cricketEvent,editorialNarrative:{...cricketEvent.editorialNarrative,reviewed:false}};
+ assert.equal(display.needsDisplayCopy(incompleteCricket,clock),true,'existing incomplete cricket handling is unchanged');
+ assert.equal(choose([make(complete,{},true)],[complete]).length,1,'real-rating/request selection still enters its due path');
+ const pending={...recent,pending_copy:{...authored,hook:'Queued Owner baseline'}};
+ assert.deepEqual(display.baselineCopy(make(complete,pending,true)),pending.pending_copy);
+
+ // Importing this existing helper in CI does not run main, crypto tests or service reads.
+ const helper=require('./prepare-adaptive-editorial');
+ const aliases=['evt_40','event:f1:2026:las-vegas:qualifying'];
+ const group={event_id:'evt_40',aliases};
+ const listed={id:'evt_40',pendingEdit:false,repairReason:'missing-required-display-copy',
+  schedule:{held:false,protected:false,inWindow:true,due:false}};
+ assert.equal(helper.canonicalAdmissionIssue(listed,'evt_40',aliases,group),null,'canonical membership, not due=true, admits a repair');
+ assert.equal(helper.canonicalAdmissionIssue({...listed,repairReason:'unpublished-staged-copy'},'evt_40',aliases,group),null);
+ assert.equal(helper.canonicalAdmissionIssue(null,'evt_40',aliases,group),'target-absent');
+ assert.equal(helper.canonicalAdmissionIssue({...listed,schedule:{...listed.schedule,held:true}},'evt_40',aliases,group),'target-held');
+ assert.equal(helper.canonicalAdmissionIssue({...listed,pendingEdit:true},'evt_40',aliases,group),'target-pending-edit','fresh queued Owner copy requires reconciliation');
+ for(const candidate of [
+  {id:'evt_40',repairReason:'missing-required-display-copy'},
+  {...listed,id:'not-the-target'}, {...listed,pendingEdit:undefined},
+  {...listed,schedule:{...listed.schedule,inWindow:false}},
+  {...listed,schedule:{...listed.schedule,protected:true}},
+ ])assert.equal(helper.canonicalAdmissionIssue(candidate,'evt_40',aliases,group),'noncanonical-admission');
+ assert.equal(helper.canonicalAdmissionIssue(listed,'evt_40',aliases,{...group,aliases:['different']}),'noncanonical-admission');
+ const failure=helper.privateFailure(Object.assign(Error('PRIVATE_SENTINEL_DO_NOT_EXPORT'),{preparationChildExit:1}),
+  'canonical-inventory','list-child-failure',{listParsed:false,selectedCount:null,childSignal:'SIGTERM'});
+ const binding={outcome:'failed-review-required',stage:'canonical-inventory'};
+ helper.validatePrivateFailure(failure,binding);
+ assert.equal(failure.childExit,1);assert.equal(failure.childSignal,'SIGTERM');
+ assert(!JSON.stringify(failure).includes('PRIVATE_SENTINEL_DO_NOT_EXPORT'));
+ assert.equal(failure.selectedCount,null,'failed parsing must not invent an inventory count');
+ for(const mutation of [{extra:'unknown'},{substage:'PRIVATE_SENTINEL_DO_NOT_EXPORT'},{childExit:256},
+  {childSignal:'PRIVATE_SENTINEL_DO_NOT_EXPORT'},{selectedCount:1001},{targetId:'private-account'},
+  {sourceRevisionMatches:'false'},{reportMode:'invented'}])assert.throws(()=>helper.validatePrivateFailure({...failure,...mutation},binding));
+
+ // A synthetic failed-list report remains diagnostic; its revision is never CAS authority.
+ {
+  const expectedRevision='a'.repeat(64),actualRevision='b'.repeat(64);
+  const diagnostic=helper.privateFailure(null,'canonical-inventory','source-revision-mismatch',{
+   listParsed:true,selectedCount:2,sourceRevisionMatches:false,horizonMatches:null,childExit:0});
+  diagnostic.reportMode='list';
+  diagnostic.listDiagnostic={sourceRevision:actualRevision,operations:[],runReadouts:[{mode:'list',status:'passed'}]};
+  const expectedBinding={outcome:'failed-review-required',stage:'canonical-inventory',sourceRevision:expectedRevision};
+  const returned={casReport:{sourceRevision:expectedRevision,operations:[]},casSql:'',selection:[],
+   shellIdentity:{before:null,after:null},sourcePatch:'',newFiles:[],sourceChanges:[],failure:diagnostic};
+  helper.validatePrivatePayload(returned,expectedBinding);
+  assert.equal(returned.casReport.sourceRevision,expectedRevision);
+  assert.equal(returned.failure.listDiagnostic.sourceRevision,actualRevision);
+  for(const change of [
+   {substage:'target-absent'},{sourceRevisionMatches:true},
+   {listDiagnostic:{...diagnostic.listDiagnostic,sourceRevision:'invalid'}},
+   {listDiagnostic:{...diagnostic.listDiagnostic,operations:[{}]}},
+   {listDiagnostic:{...diagnostic.listDiagnostic,runReadouts:[{mode:'research'}]}},
+  ])assert.throws(()=>helper.validatePrivatePayload({...returned,failure:{...diagnostic,...change}},expectedBinding));
+  assert.throws(()=>helper.validatePrivatePayload({...returned,casSql:'prepared SQL is forbidden'},expectedBinding));
+  assert.throws(()=>helper.validatePrivatePayload({...returned,casReport:{sourceRevision:actualRevision,operations:[]}},expectedBinding));
+  assert.throws(()=>helper.validatePrivatePayload({...returned,casReport:{sourceRevision:expectedRevision,operations:[{}]}},expectedBinding));
+  const researchFailure={...diagnostic,reportMode:'research',listDiagnostic:null};
+  assert.throws(()=>helper.validatePrivatePayload({...returned,failure:researchFailure,casReport:{sourceRevision:actualRevision,operations:[]}},expectedBinding));
+ }
+ helper.validatePrivateFailure(null,{outcome:'prepared-review-required'});
+ assert.throws(()=>helper.validatePrivateFailure(null,binding));
+ for(const substage of ['list-json-invalid','source-revision-mismatch','horizon-mismatch','target-absent','target-held','target-pending-edit','noncanonical-admission']){
+  const diagnostic=helper.privateFailure(null,'canonical-inventory',substage,{listParsed:true,selectedCount:2,
+   sourceRevisionMatches:substage!=='source-revision-mismatch',horizonMatches:substage!=='horizon-mismatch',
+   targetId:'evt_40',targetPresent:substage!=='target-absent',childExit:0});
+  helper.validatePrivateFailure(diagnostic,binding);assert.equal(diagnostic.stage,'canonical-inventory');
+ }
+}
 console.log('Adaptive editorial: real-only eligibility, cadence, holds, full-copy comparison, NRL protection, isolated failure and automatic required-copy repair passed.');
 // Refreshing one fixture must not rewrite evidence retained by sibling projections.
 const fs=require('node:fs'),narrative=require('./lib/editorial-narrative'),{apply}=require('./apply-fixture-research');

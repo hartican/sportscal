@@ -504,7 +504,9 @@ jobs:
         env:
           GIT_NO_LAZY_FETCH: '1'
           GIT_TERMINAL_PROMPT: '0'
-        run: timeout --signal=TERM --kill-after=5s 120s node scripts/validate-production-sql-batches.js
+        run: |
+          timeout --signal=TERM --kill-after=5s 120s node scripts/validate-production-sql-batches.js
+          timeout --signal=TERM --kill-after=5s 120s node scripts/validate-adaptive-editorial.js
 
       - name: Test transport then prepare canonical editorial without service writes
         env:
